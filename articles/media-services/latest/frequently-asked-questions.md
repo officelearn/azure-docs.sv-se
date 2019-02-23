@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 02/20/2019
 ms.author: juliako
-ms.openlocfilehash: a815d03dd4e7163d4d9f00ce8f9c16f1b3055ce9
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: c0dc67ddf0f1de9ca72fd14a9113219209a6bda0
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56652339"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56674218"
 ---
 # <a name="azure-media-services-v3-frequently-asked-questions"></a>Vanliga och frågor svar om Azure Media Services v3
 
@@ -62,7 +62,7 @@ Det korrekta sättet är att använda STS (Secure Token Service):
 
 I STS, beroende på användarprofil, lägger du till olika anspråk (till exempel ”Premium-användare”, ”grundläggande användare”, ”kostnadsfri utvärdering användare”). Användaren kan se olika innehållet med olika anspråk i en JWT. Naturligtvis för annat innehåll/tillgången har ContentKeyPolicyRestriction motsvarande RequiredClaims.
 
-Använd Azure Media Services API: er för att konfigurera/licensnyckel leverans och krypterar dina tillgångar (enligt [i det här exemplet](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithAES/Program.cs).
+Använd Azure Media Services API: er för att konfigurera/licensnyckel leverans och krypterar dina tillgångar (enligt [i det här exemplet](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithAES/Program.cs)).
 
 Mer information finns i:
 
@@ -87,5 +87,4 @@ Vi rekommenderar nu att använda serversidan lagringskryptering (som är aktiver
 
 ## <a name="next-steps"></a>Nästa steg
 
-> [!div class="nextstepaction"]
-> [Översikt över Media Services v3](media-services-overview.md)
+[Översikt över Media Services v3](media-services-overview.md)

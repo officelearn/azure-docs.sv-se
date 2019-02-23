@@ -7,19 +7,19 @@ author: masnider
 manager: timlt
 editor: ''
 ms.assetid: 55f8ab37-9399-4c9a-9e6c-d2d859de6766
-ms.service: Service-Fabric
+ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 64f02b1165d014a0eaa89dae64a7d9aa283cac32
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 7be10f03d65e53b51c3916849dc12feb4de9c919
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52834595"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56737662"
 ---
 # <a name="describing-a-service-fabric-cluster"></a>Som beskriver ett service fabric-kluster
 Service Fabric Cluster Resource Manager tillhandahåller flera mekanismer för att beskriva ett kluster. Under körning använder den här informationen i Cluster Resource Manager för att garantera hög tillgänglighet för de tjänster som körs i klustret. Samtidigt framtvinga dessa viktiga regler, försöker den också optimera resursförbrukning i klustret.
@@ -28,7 +28,7 @@ Service Fabric Cluster Resource Manager tillhandahåller flera mekanismer för a
 Cluster Resource Manager stöder flera funktioner som beskriver ett kluster:
 
 * Feldomäner
-* Uppgradera domäner
+* Upgrade Domains
 * Nodegenskaper
 * Nodkapaciteterna
 
@@ -54,7 +54,7 @@ Under körning, Service Fabric Cluster Resource Manager tar hänsyn till Feldom�
 
 Service Fabric Cluster Resource Manager hand inte hur många lager som finns i hierarkin Feldomän. Men försöker det se till att förlusten av en delar av hierarkin inte påverka tjänster som körs i den. 
 
-Det är bäst om det är samma antal noder på varje nivå i detalj i hierarkin Feldomän. Om ”trädet” feldomäner är Obalanserat i ditt kluster, gör det svårare för Cluster Resource Manager för att ta reda på den rekommenderade allokeringen av tjänster. Imbalanced Feldomäner layouter innebär att förlust av vissa domäner inverkan tillgängligheten för tjänster som är mer än andra domäner. Därför Klusterresurshanteraren torn mellan två mål: ska användas på datorer i domänen ”tung” genom att placera tjänster på dem och företaget vill placera tjänster i andra domäner så att förlust av en domän inte orsakar problem. 
+Det är bäst om det är samma antal noder på varje nivå i detalj i hierarkin Feldomän. Om ”trädet” feldomäner är Obalanserat i ditt kluster, gör det svårare för Cluster Resource Manager för att ta reda på den rekommenderade allokeringen av tjänster. Imbalanced Feldomäner layouter innebär att förlust av vissa domäner inverkan tillgängligheten för tjänster som är mer än andra domäner. Klusterresurshanteraren är därför torn mellan två mål: Företaget vill använda datorerna i domänen ”tung” genom att placera tjänster på dem och företaget vill placera tjänster i andra domäner så att förlust av en domän inte orsakar problem. 
 
 Hur ser imbalanced domäner ut? I diagrammet nedan visar vi två olika kluster layouterna. I det första exemplet jämnt noderna över Feldomänerna. I det andra exemplet har en Feldomän fler noder än de andra Feldomänerna. 
 
@@ -97,7 +97,7 @@ Den vanligaste modellen är FD/UD matrisen där FD och ud utgör en tabell och n
 
 ## <a name="fault-and-upgrade-domain-constraints-and-resulting-behavior"></a>Fel- och Uppgraderingsdomänen begränsningar och resulterande beteende
 ### <a name="default-approach"></a>*Standard-metod*
-Som standard sparas Klusterresurshanteraren tjänster balanserade över fel- och uppgradera domäner. Detta är utformat som en [begränsningen](service-fabric-cluster-resource-manager-management-integration.md). Fel- och Uppgraderingsdomänen begränsningen tillstånd: ”för en viss tjänst-partition ska det aldrig göras skillnad större än ett av antalet service-objekt (tillståndslös tjänstinstanser eller tillståndskänslig tjänst repliker) mellan två domäner på samma nivå hierarkin ”. Vi antar att det här villkoret erbjuder en garanti för ”högsta skillnaden”. Fel- och Uppgraderingsdomänen begränsningen förhindrar vissa flyttar eller arrangemang som bryter mot regeln som anges ovan. 
+Som standard sparas Klusterresurshanteraren tjänster balanserade över fel- och uppgradera domäner. Detta är utformat som en [begränsningen](service-fabric-cluster-resource-manager-management-integration.md). Fel- och Uppgraderingsdomänen begränsningen status: ”För en viss tjänst-partition det ska aldrig vara någon skillnad större än ett av antalet service-objekt (tillståndslös tjänstinstanser eller tillståndskänslig tjänst repliker) mellan två domäner på samma nivå i hierarkin”. Vi antar att det här villkoret erbjuder en garanti för ”högsta skillnaden”. Fel- och Uppgraderingsdomänen begränsningen förhindrar vissa flyttar eller arrangemang som bryter mot regeln som anges ovan. 
 
 Nu ska vi titta på ett exempel. Anta att vi har ett kluster med sex noder som konfigurerats med fem Feldomäner och fem uppgradera domäner.
 
@@ -176,7 +176,7 @@ Den här metoden kan å andra sidan är för begränsade och inte att klustret s
 
 ### <a name="alternative-approach"></a>*Annan metod*
 
-Klusterresurshanteraren har stöd för en annan version av villkoret fel- och Uppgraderingsdomänen där placering vid fortfarande, vilket ger en lägsta nivå av säkerhet. Alternativa fel- och Uppgraderingsdomänen begränsningen kan anges enligt följande: ”för en viss tjänst-partition repliken fördelningen mellan domäner bör se till att partitionen inte har drabbats en förlorar kvorum”. Vi antar att det här villkoret erbjuder en garanti för ”kvorum säker”. 
+Klusterresurshanteraren har stöd för en annan version av villkoret fel- och Uppgraderingsdomänen där placering vid fortfarande, vilket ger en lägsta nivå av säkerhet. Alternativa fel- och Uppgraderingsdomänen begränsningen kan anges på följande sätt: ”För en viss tjänst-partition repliken fördelningen mellan domäner bör se till att partitionen inte har drabbats en förlorar kvorum”. Vi antar att det här villkoret erbjuder en garanti för ”kvorum säker”. 
 
 > [!NOTE]
 >En tillståndskänslig tjänst definierar vi *förlorar kvorum* i en situation när en majoritet av partitionsrepliker är nere på samma gång. Om TargetReplicaSetSize är fem, representerar en uppsättning alla tre repliker kvorum. På samma sätt, om TargetReplicaSetSize 6, fyra repliker krävs för kvorum. I båda fallen kan högst två repliker vara otillgängliga samtidigt om partitionen vill fortsätta att fungera normalt. Det finns ingenting som heter för en tillståndslös tjänst *förlorar kvorum* tillståndslösa tjänster fortsätter att fungera normalt även om de flesta fall gå på samma gång. Därför ska vi fokusera på tillståndskänsliga tjänster i resten av texten.
@@ -192,7 +192,7 @@ Eftersom både av metoder har styrkor och svagheter, har vi lanserat en anpassni
 > [!NOTE]
 >Det här är standardbeteendet från och med Service Fabric Version 6.2. 
 >
-Anpassningsbar metoden använder ”högsta skillnaden” logiken som standard och växlar till ”kvorum säker” logiken vid behov. Klusterresurshanteraren räknat automatiskt ut vilken strategi krävs genom att titta på hur klustret och tjänster har konfigurerats. För en viss tjänst: *om TargetReplicaSetSize är jämnt delbart med antalet Feldomäner och antalet uppgradera domäner **och** antalet noder som är mindre än eller lika med (antalet Feldomäner) * (den Antal uppgradera domäner), Cluster Resource Manager ska använda ”kvorum baserat” logiken för tjänsten.* Ha i åtanke att Cluster Resource Manager kommer att använda den här metoden för både tillståndslösa och tillståndskänsliga tjänster, trots förlorar kvorum som inte är relevanta för tillståndslösa tjänster.
+Anpassningsbar metoden använder ”högsta skillnaden” logiken som standard och växlar till ”kvorum säker” logiken vid behov. Klusterresurshanteraren räknat automatiskt ut vilken strategi krävs genom att titta på hur klustret och tjänster har konfigurerats. För en viss tjänst: *Om TargetReplicaSetSize är jämnt delbart med antalet Feldomäner och antalet uppgradera domäner **och** antalet noder som är mindre än eller lika med (antalet Feldomäner) * (antal uppgradera domäner), klustret Resource Manager ska använda ”kvorum baserat” logiken för tjänsten.* Ha i åtanke att Cluster Resource Manager kommer att använda den här metoden för både tillståndslösa och tillståndskänsliga tjänster, trots förlorar kvorum som inte är relevanta för tillståndslösa tjänster.
 
 Vi går tillbaka till föregående exempel och antar att ett kluster nu har 8 noder (klustret fortfarande är konfigurerad med fem Feldomäner och fem uppgradera domäner och TargetReplicaSetSize av en tjänst som finns i de kluster förblir fem). 
 

@@ -1,5 +1,5 @@
 ---
-title: 'PowerShell-skript: lägga till en extern användare i ett labb i Azure DevTest Labs | Microsoft Docs'
+title: 'PowerShell-skript: Lägga till en extern användare i ett labb i Azure DevTest Labs | Microsoft Docs'
 description: Det här PowerShell-skriptet lägger till en extern användare till ett labb i Azure DevTest Labs.
 services: lab-services
 author: spelluru
@@ -12,16 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2018
 ms.author: spelluru
-ms.openlocfilehash: 0acff1eb4cee441187205b11a7e07cc718072cbf
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: 042fa1e24ebadfb00a2d55cc97d742f198cb5662
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43248197"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56738359"
 ---
 # <a name="use-powershell-to-add-an-external-user-to-a-lab-in-azure-devtest-labs"></a>Använd PowerShell för att lägga till en extern användare i ett labb i Azure DevTest Labs
 
 Det här PowerShell-exempelskript lägger till en extern användare till ett labb i Azure DevTest Labs. 
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
@@ -38,8 +40,8 @@ I det här skriptet används följande kommandon:
 
 | Kommando | Anteckningar |
 |---|---|
-| [Get-AzureRmADUser](/powershell/module/azurerm.resources/get-azurermaduser) | Återförsök för user-objektet från Azure active directory. |
-| [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment) | Tilldelar den angivna rollen till den angivna säkerhetsobjekt i det specificerade omfånget. |
+| [Get-AzADUser](/powershell/module/az.resources/get-azaduser) | Återförsök för user-objektet från Azure active directory. |
+| [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) | Tilldelar den angivna rollen till den angivna säkerhetsobjekt i det specificerade omfånget. |
 
 ## <a name="next-steps"></a>Nästa steg
 

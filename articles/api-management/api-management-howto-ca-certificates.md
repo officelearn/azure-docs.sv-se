@@ -13,18 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/20/2018
 ms.author: apimpm
-ms.openlocfilehash: b05713fd8acb49b25dba04781c1049c9f05115fb
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 5161a35fd52b2f3d8374c76bdab60281e33dacf6
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52444705"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56730655"
 ---
 # <a name="how-to-add-a-custom-ca-certificate-in-azure-api-management"></a>Hur du lägger till ett anpassat CA-certifikat i Azure API Management
 
 Azure API Management kan installera CA-certifikat på datorn i betrodda rotcertifikatutfärdare och mellanliggande certifikatarkiv. Den här funktionen ska användas om dina tjänster kräver ett anpassat CA-certifikat.
 
 Artikeln visar hur du hanterar CA-certifikat för en Azure API Management-tjänstinstans i Azure-portalen.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
@@ -38,7 +40,7 @@ Följ stegen nedan för att ladda upp ett nytt CA-certifikat. Om du inte har ska
 
 2. Välj **certifikatutfärdarcertifikat** på menyn.
 
-3. Klicka på den **+ Lägg till** knappen.  
+3. Klicka på knappen **+ Lägg till**.  
 
     ![Lägga till CA-certifikat](media/api-management-howto-ca-certificates/01.png)  
 
@@ -51,7 +53,7 @@ Följ stegen nedan för att ladda upp ett nytt CA-certifikat. Om du inte har ska
     ![Lägga till CA-certifikat](media/api-management-howto-ca-certificates/03.png)  
 
 > [!NOTE]
-> Du kan ladda upp en CA-certifikat med den `New-AzureRmApiManagementSystemCertificate` Powershell-kommando.
+> Du kan ladda upp en CA-certifikat med den `New-AzApiManagementSystemCertificate` Powershell-kommando.
 
 ## <a name="step1a"> </a>Ta bort ett klientcertifikat
 

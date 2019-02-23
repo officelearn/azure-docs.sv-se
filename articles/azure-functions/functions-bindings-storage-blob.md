@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/15/2018
 ms.author: cshoe
-ms.openlocfilehash: 33f79569a2478c7e234b04ba2dee4e9b8883abae
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 16899c833d996902cf7a0a3f7ab57479869fbdd9
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895898"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56737798"
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Azure Blob storage-bindningar för Azure Functions
 
@@ -95,7 +95,7 @@ public static void Run([BlobTrigger("samples-workitems/{name}")] Stream myBlob, 
 }
 ```
 
-Strängen `{name}` i blob-utlösare sökvägen `samples-workitems/{name}` skapar en [bindning uttryck](functions-triggers-bindings.md#binding-expressions-and-patterns) som du kan använda i Funktionskoden till namnet på den utlösande blobben. Mer information finns i [Blob-namnet mönster](#trigger---blob-name-patterns) senare i den här artikeln.
+Strängen `{name}` i blob-utlösare sökvägen `samples-workitems/{name}` skapar en [bindning uttryck](./functions-bindings-expressions-patterns.md) som du kan använda i Funktionskoden till namnet på den utlösande blobben. Mer information finns i [Blob-namnet mönster](#trigger---blob-name-patterns) senare i den här artikeln.
 
 Mer information om den `BlobTrigger` attributet, se [utlösare - attribut](#trigger---attributes).
 
@@ -120,7 +120,7 @@ Här är bindningsdata i den *function.json* fil:
 }
 ```
 
-Strängen `{name}` i blob-utlösare sökvägen `samples-workitems/{name}` skapar en [bindning uttryck](functions-triggers-bindings.md#binding-expressions-and-patterns) som du kan använda i Funktionskoden till namnet på den utlösande blobben. Mer information finns i [Blob-namnet mönster](#trigger---blob-name-patterns) senare i den här artikeln.
+Strängen `{name}` i blob-utlösare sökvägen `samples-workitems/{name}` skapar en [bindning uttryck](./functions-bindings-expressions-patterns.md) som du kan använda i Funktionskoden till namnet på den utlösande blobben. Mer information finns i [Blob-namnet mönster](#trigger---blob-name-patterns) senare i den här artikeln.
 
 Mer information om *function.json* filegenskaper, finns i den [Configuration](#trigger---configuration) förklaras de här egenskaperna.
 
@@ -167,7 +167,7 @@ Här är den *function.json* fil:
 }
 ```
 
-Strängen `{name}` i blob-utlösare sökvägen `samples-workitems/{name}` skapar en [bindning uttryck](functions-triggers-bindings.md#binding-expressions-and-patterns) som du kan använda i Funktionskoden till namnet på den utlösande blobben. Mer information finns i [Blob-namnet mönster](#trigger---blob-name-patterns) senare i den här artikeln.
+Strängen `{name}` i blob-utlösare sökvägen `samples-workitems/{name}` skapar en [bindning uttryck](./functions-bindings-expressions-patterns.md) som du kan använda i Funktionskoden till namnet på den utlösande blobben. Mer information finns i [Blob-namnet mönster](#trigger---blob-name-patterns) senare i den här artikeln.
 
 Mer information om *function.json* filegenskaper, finns i den [Configuration](#trigger---configuration) förklaras de här egenskaperna.
 
@@ -202,7 +202,7 @@ Här är den *function.json* fil:
 }
 ```
 
-Strängen `{name}` i blob-utlösare sökvägen `samples-workitems/{name}` skapar en [bindning uttryck](functions-triggers-bindings.md#binding-expressions-and-patterns) som du kan använda i Funktionskoden till namnet på den utlösande blobben. Mer information finns i [Blob-namnet mönster](#trigger---blob-name-patterns) senare i den här artikeln.
+Strängen `{name}` i blob-utlösare sökvägen `samples-workitems/{name}` skapar en [bindning uttryck](./functions-bindings-expressions-patterns.md) som du kan använda i Funktionskoden till namnet på den utlösande blobben. Mer information finns i [Blob-namnet mönster](#trigger---blob-name-patterns) senare i den här artikeln.
 
 Mer information om *function.json* filegenskaper, finns i den [Configuration](#trigger---configuration) förklaras de här egenskaperna.
 
@@ -348,7 +348,7 @@ Få åtkomst till indata-blob-data med i JavaScript, `context.bindings.<name fro
 
 ## <a name="trigger---blob-name-patterns"></a>Utlösare - mönster för blob-namn
 
-Du kan ange ett namnmönster i blob i den `path` -egenskapen i *function.json* eller i den `BlobTrigger` attributkonstruktör. Namnet har formatet kan vara en [filter eller bindning uttryck](functions-triggers-bindings.md#binding-expressions-and-patterns). I följande avsnitt innehåller exempel.
+Du kan ange ett namnmönster i blob i den `path` -egenskapen i *function.json* eller i den `BlobTrigger` attributkonstruktör. Namnet har formatet kan vara en [filter eller bindning uttryck](./functions-bindings-expressions-patterns.md). I följande avsnitt innehåller exempel.
 
 ### <a name="get-file-name-and-extension"></a>Hämta filnamn och tillägg
 

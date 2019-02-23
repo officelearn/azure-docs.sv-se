@@ -10,16 +10,17 @@ ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 3d7bbdb25815027625b6f56b25e64c4a07b3728f
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ROBOTS: NOINDEX,NOFOLLOW
+ms.openlocfilehash: d6a66dfaee4c0492523239888b91333256cc66c3
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55222498"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56670725"
 ---
-[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
-
 # <a name="quickstart-use-the-bing-speech-recognition-api-in-java-on-android"></a>Snabbstart: Använd Bing-taligenkänning API i Java på Android
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
 Du kan utveckla Android-program som använder molnbaserade Bing Speech Service för att omvandla talat ljud till text med Taligenkänning för Bing. API: et stöder strömning i realtid, så att ditt program kan samtidigt och asynkront får delvisa igenkänningsresultat samtidigt som den skickar ljud till tjänsten.
 

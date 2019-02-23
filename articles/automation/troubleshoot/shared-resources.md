@@ -4,16 +4,16 @@ description: Lär dig hur du felsöker problem med Azure Automation delade resur
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 12/3/2018
+ms.date: 02/22/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 911f592c43865ea8bdfe85c1ad1071c7112ae9b6
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: abce40958f8d775e0a579a18cf8d1351740031ff
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54475449"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56671071"
 ---
 # <a name="troubleshoot-errors-with-shared-resources"></a>Felsöka fel med delade resurser
 
@@ -38,6 +38,24 @@ För att lösa problemet måste du ta bort den modul som har fastnat i den **imp
 ```azurepowershell-interactive
 Remove-AzureRmAutomationModule -Name ModuleName -ResourceGroupName ExampleResourceGroup -AutomationAccountName ExampleAutomationAccount -Force
 ```
+
+### <a name="update-azure-modules-importing"></a>Scenario: AzureRM-moduler har fastnat importera när du försöker uppdatera dem.
+
+#### <a name="issue"></a>Problem
+
+En banderoll med följande meddelande kvar i ditt konto när du försöker uppdatera din AzureRM-moduler:
+
+```
+Azure modules are being updated
+```
+
+#### <a name="cause"></a>Orsak
+
+Det finns ett känt problem med uppdatering AzureRM-moduler i ett Automation-konto som tillhör en resursgrupp med det numeriska namn som börjar med 0.
+
+#### <a name="resolution"></a>Lösning
+
+Om du vill uppdatera din Azure-moduler i ditt Automation-konto, måste den vara i en resursgrupp med ett alfanumeriskt namn. Resursgrupper med numeriska namn som börjar med 0 kan inte uppdatera AzureRM-moduler just nu.
 
 ### <a name="module-fails-to-import"></a>Scenario: Modulen kan inte importera eller cmdlet: ar kan inte utföras när du har importerat
 

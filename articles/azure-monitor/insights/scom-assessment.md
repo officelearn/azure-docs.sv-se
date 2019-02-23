@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/25/2018
 ms.author: magoedte
-ms.openlocfilehash: 7ae87763d280e129bab96c604f9118ecf088ea2f
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 4d6838ecdbf1a33a4f3ee1562f26db7952fdfb83
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55819866"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56734242"
 ---
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-health-check-preview-solution"></a>Optimera din miljö med lösningen för System Center Operations Manager hälsokontroll (förhandsversion)
 
@@ -40,7 +40,7 @@ När du har lagt till lösningen och en utvärdering är genomförd, sammanfatta
 
 ## <a name="installing-and-configuring-the-solution"></a>Installera och konfigurera lösningen
 
-Den här lösningen fungerar med Microsoft System Operations Manager 2012 Service Pack (SP) 1 och 2012 R2.
+Den här lösningen fungerar med Microsoft System Center 2012 Operations Manager Service Pack 1, Microsoft System Center 2012 R2 Operations Manager, Microsoft System Center 2016 Operations Manager, Microsoft System Center 2016 Operations Manager och Microsoft System Center Operations Manager 1807
 
 Använd följande information för att installera och konfigurera lösningen.
 
@@ -57,9 +57,9 @@ Använd följande information för att installera och konfigurera lösningen.
 1. [Ange kör som-kontot för System Center Operations Manager hälsokontroll](#operations-manager-run-as-accounts-for-log-analytics)  
 2. Konfigurera System Center Operations Manager Health Check-regel
 
-## <a name="system-center-operations-manager-assessment-data-collection-details"></a>System Center Operations Manager data samling information om utvärdering
+## <a name="system-center-operations-manager-health-check-data-collection-details"></a>System Center Operations Manager-hälsokontroll data samling information
 
-System Center Operations Manager-utvärderingen samlar in data från följande källor:
+System Center Operations Manager Health Check-lösningen samlar in data från följande källor:
 
 * Register
 * Windows Management Instrumentation (WMI)
@@ -97,7 +97,7 @@ Nu när kör som-kontot har skapats måste mål hanteringsservrar i hanteringsgr
 2. På den **Distribution** fliken **Lägg till** för den **valda datorer** lägger till hanteringsservern för att distribuera kontot på.  Klicka på **OK** två gånger för att spara dina ändringar.
 3. Under **kör som-konfiguration**, klickar du på **profiler**.
 4. Sök efter den *SCOM-utvärdering profil*.
-5. Namnet på profilen bör vara: *SCOM-utvärdering för Microsoft System Center Advisor kör som-profil*.
+5. Namnet på profilen bör vara: *Microsoft System Center Operations Manager-hälsokontroll kör som-profil*.
 6. Högerklicka på och uppdatera dess egenskaper och lägga till nyligen skapade kör som-kontot du skapade tidigare.
 
 ### <a name="sql-script-to-grant-granular-permissions-to-the-run-as-account"></a>SQL-skript för att tilldela detaljerade behörigheter till Kör som-konto
@@ -152,13 +152,13 @@ ALTER ROLE [db_owner] ADD MEMBER [UserName]
 
 ### <a name="configure-the-health-check-rule"></a>Konfigurera kontrollen hälsoregeln
 
-Management pack för lösning för System Center Operations Manager Health Check innehåller en regel med namnet *Microsoft System Center Advisor SCOM-utvärdering kör utvärdering av regel*. Den här regeln är ansvarig för att köra hälsokontrollen. Om du vill aktivera regeln och ange hur ofta, följer du anvisningarna nedan.
+Management pack för lösning för System Center Operations Manager Health Check innehåller en regel med namnet *Microsoft System Center Operations Manager kör Kontrollera hälsoregeln*. Den här regeln är ansvarig för att köra hälsokontrollen. Om du vill aktivera regeln och ange hur ofta, följer du anvisningarna nedan.
 
-Microsoft System Center Advisor SCOM-utvärdering kör utvärdering av regeln är inaktiverad som standard. Om du vill köra hälsokontroller, måste du aktivera regeln på en hanteringsserver. Använd följande steg.
+Microsoft System Center Operations Manager kör Health kontrollera regeln är inaktiverad som standard. Om du vill köra hälsokontroller, måste du aktivera regeln på en hanteringsserver. Använd följande steg.
 
 #### <a name="enable-the-rule-for-a-specific-management-server"></a>Aktivera regeln för en viss hanteringsserver
 
-1. I den **redigering** arbetsyta i Operations Manager Operations-konsolen, Sök efter regeln *Microsoft System Center Advisor SCOM-utvärdering kör utvärdering av regeln* i den **regler** fönstret.
+1. I den **redigering** arbetsyta i Operations Manager Operations-konsolen, Sök efter regeln *Microsoft System Center Operations Manager kör Kontrollera hälsoregeln* i den **regler** fönstret.
 2. I sökresultaten väljer du det som innehåller texten *typ: Hanteringsservern*.
 3. Högerklicka på regeln och klickar sedan på **åsidosätter** > **för ett specifikt objekt i klassen: Hanteringsservern**.
 4.  Välj management-servern där regeln ska köras i listan tillgängliga servrar.  Det bör vara samma hanteringsserver som du konfigurerade tidigare för att associera kör som-kontot med.
@@ -170,7 +170,7 @@ Microsoft System Center Advisor SCOM-utvärdering kör utvärdering av regeln ä
 
 Utvärderingen är konfigurerad för att köras var 10 080 minuter (eller sju dagar) som standard. Du kan åsidosätta värdet till minsta värdet 1 440 minuter (eller en dag). Värdet som representerar minimitid klyftan krävs mellan efterföljande utvärdering körs. Följ anvisningarna nedan om du vill åsidosätta intervallet.
 
-1. I den **redigering** arbetsyta i Operations Manager-konsolen, Sök efter regeln *Microsoft System Center Advisor SCOM-utvärdering kör utvärdering av regeln* i den **regler** avsnittet.
+1. I den **redigering** arbetsyta i Operations Manager-konsolen, Sök efter regeln *Microsoft System Center Operations Manager kör Kontrollera hälsoregeln* i den **regler** avsnittet.
 2. I sökresultaten väljer du det som innehåller texten *typ: Hanteringsservern*.
 3. Högerklicka på regeln och klickar sedan på **Åsidosätt regeln** > **för alla objekt i klassen: Hanteringsservern**.
 4. Ändra den **intervall** din önskade intervallvärdet parametervärde. I exemplet nedan anges värdet till 1 440 minuter (en dag).<br><br> ![intervall för parametern](./media/scom-assessment/interval.png)<br>  
@@ -277,7 +277,7 @@ Om du har synpunkter som du vill ignorera kan du skapa en textfil som Log Analyt
 
 *Finns det ett sätt att konfigurera hur ofta kontrollen körs?* Ja. Se [ange kör ofta](#configure-the-run-frequency).
 
-*Om en annan server identifieras när jag har lagt till System Center Operations Manager Assessment-lösningen, kommer det kontrolleras?* Ja, efter identifiering som den är markerad kommer som standard var sjunde dag.
+*Om en annan server identifieras när jag har lagt till System Center Operations Manager Health Check-lösningen, kommer det kontrolleras?* Ja, efter identifiering som den är markerad kommer som standard var sjunde dag.
 
 *Vad är namnet på processen som gör datainsamlingen?* AdvisorAssessment.exe
 

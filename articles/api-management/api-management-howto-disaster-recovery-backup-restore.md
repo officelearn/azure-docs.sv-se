@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2018
 ms.author: apimpm
-ms.openlocfilehash: 7da97b763c532a2189ef058cbb8ffb14c5b150f9
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 56d0b8ced4a0eed3c2bf215ed0e5fc77c343f7fd
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52968381"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56728649"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Implementera haveriberedskap med hjälp av service-säkerhetskopiering och återställning i Azure API Management
 
@@ -32,6 +32,8 @@ Den här guiden visar hur du autentiserar Azure Resource Manager-förfrågningar
 > Processen för att säkerhetskopiera och återställa en API Management-tjänstinstans för haveriberedskap kan också användas för att replikera API Management-tjänstinstanser för scenarier, till exempel mellanlagring.
 >
 > Varje säkerhetskopiering upphör att gälla efter 30 dagar. Om du försöker återställa en säkerhetskopia när 30-dagars giltighetsperiod har gått ut, återställningen misslyckas med ett `Cannot restore: backup expired` meddelande.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
@@ -56,7 +58,7 @@ Alla aktiviteter som du kan utföra på resurser med hjälp av Azure Resource Ma
 3. Klicka på **Ny programregistrering**.
 
     Den **skapa** visas till höger. Det är där du anger att den relevanta informationen för AAD-app.
-4. Ange ett namn för programmet.
+4. Ange ett namn på programmet.
 5. Vilken typ av program, Välj **interna**.
 6. Ange en URL-platshållaren som `http://resources` för den **omdirigerings-URI**, eftersom det är ett obligatoriskt fält, men värdet används inte senare. Klicka på kryssrutan för att spara programmet.
 7. Klicka på **Skapa**.
@@ -207,7 +209,7 @@ Ange värdet för den `Content-Type` begärandehuvudet till `application/json`.
 <!-- Dummy comment added to suppress markdown lint warning -->
 
 > [!NOTE]
-> Säkerhetskopiering och återställning kan också utföras med PowerShell *Backup-AzureRmApiManagement* och *Restore-AzureRmApiManagement* respektive-kommandon.
+> Säkerhetskopiering och återställning kan också utföras med PowerShell *Backup AzApiManagement* och *återställning AzApiManagement* respektive-kommandon.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -10,12 +10,13 @@ ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: priyar
-ms.openlocfilehash: 61bd1879a4b1bf8281ac03c8254fb3d48c07a139
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ROBOTS: NOINDEX,NOFOLLOW
+ms.openlocfilehash: f7620c29e7d00a06be6d14740f05cc7543e49837
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55215868"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56674573"
 ---
 # <a name="bing-text-to-speech-api"></a>Bing text till tal-API
 
@@ -40,7 +41,7 @@ Content-Length: 0
 
 Obligatorisk huvudinformationen för tokenåtkomst är som följer.
 
-Name| Format | Beskrivning
+Namn| Format | Beskrivning
 ----|----|----
 OCP-Apim-Subscription-Key | ASCII | Din prenumerationsnyckel
 
@@ -59,9 +60,9 @@ Klienter måste använda följande slutpunkt för att komma åt tjänsten text t
 
 I följande tabell visas de HTTP-huvuden som används för syntes röstförfrågningar.
 
-Sidhuvud |Value |Kommentarer
+Huvud |Värde |Kommentarer
 ----|----|----
-Innehållstyp | program/ssml + xml | Inkommande innehållstyp.
+Content-Type | program/ssml + xml | Inkommande innehållstyp.
 X-Microsoft-OutputFormat | **1.** ssml-16 khz-16-bitars-mono-text till tal <br> **2.** raw-16 khz-16-bitars-mono-pcm <br>**3.** ljud-16 khz – 16 kbit/s-mono-siren <br> **4.** riff-16 khz – 16 kbit/s-mono-siren <br> **5.** riff-16 khz-16-bitars-mono-pcm <br> **6.** ljud-16 khz-128kbitrate-mono-mp3 <br> **7.** ljud-16 khz-64kbitrate-mono-mp3 <br> **8.** ljud-16 khz-32kbitrate-mono-mp3 | Ljudformatet utdata.
 X-Search-AppId | En GUID (hex endast, inga streck) | Ett ID som unikt identifierar klientprogrammet. Detta kan vara lagrings-ID för appar. Om det inte finns, kan ID: T vara användargenererade för ett program.
 X-Search-ClientID | En GUID (hex endast, inga streck) | Ett ID som unikt identifierar en programinstans för varje installation.
@@ -189,7 +190,7 @@ Mer information om implementering finns i den [Visual C# .NET text till tal-exem
 
 I följande tabell visas några av de nationella inställningar som stöds och relaterade rösttyper.
 
-Nationella inställningar | Kön | Tjänsten Namnmappningen
+Nationell inställning | Kön | Tjänsten Namnmappningen
 ---------|--------|------------
 ar-EG* | Kvinna | ”Microsoft Server tal Text till tal-röst (ar-t.ex., Hoda)”
 ar-SA | Man | ”Microsoft Server tal Text till tal-röst (ar-SA, Naayf)”

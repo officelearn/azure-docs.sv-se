@@ -17,12 +17,12 @@ ms.author: celested
 ms.reviewer: hirsin, justhu
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d4ad41992b2ac0dfc98303601060ed299e75ddfc
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: a80ed6af005f04ec48729e918543b2de67810eba
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56234296"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56738597"
 ---
 # <a name="authentication-and-authorization-error-codes"></a>Autentisering och felkoder vid autentisering
 
@@ -255,6 +255,7 @@ Letar du efter information om felkoder AADSTS som returneras från Azure Active 
 | AADSTS221000 | DeviceOnlyTokensNotSupportedByResource - resursen har inte konfigurerats för att acceptera endast token. |
 | AADSTS240001 | BulkAADJTokenUnauthorized - användaren behörighet inte att registrera enheter i Azure AD. |
 | AADSTS240002 | RequiredClaimIsMissing - id_token kan inte användas som `urn:ietf:params:oauth:grant-type:jwt-bearer` bevilja.|
+| AADSTS530032 | BlockedByConditionalAccessOnSecurityPolicy - administratör har konfigurerat en säkerhetsprincip som blockerar den här begäran. Kontrollera de säkerhetsprinciper som har definierats på klientnivån att avgöra om din begäran uppfyller principkraven. |
 | AADSTS700016 | UnauthorizedClient_DoesNotMatchRequest - programmet hittades inte i katalogen/klient. Detta kan inträffa om programmet inte har installerats av administratör för klienten eller godkänts av någon användare i klienten. Du kanske har felaktigt konfigurerat identifierarvärde för programmet eller skickat din autentiseringsbegäran om till fel klient. |
 | AADSTS700020 | InteractionRequired - beviljad åtkomst kräver interaktion. |
 | AADSTS700022 | InvalidMultipleResourcesScope - det angivna värdet för Indataparametern omfånget är inte giltig eftersom den innehåller fler än en resurs. |

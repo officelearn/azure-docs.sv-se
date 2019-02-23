@@ -11,14 +11,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 10/19/2018
+ms.date: 02/22/2019
 ms.author: shlo
-ms.openlocfilehash: 4188fb413cc1001b6e4813fe69518a016c8c0656
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: ca77fa092e41534e0f18323014c9cea583c19758
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54354271"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56671666"
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>Hämta metadataaktivitet i Azure Data Factory
 GetMetadata-aktiviteten kan användas för att hämta **metadata** för alla data i Azure Data Factory. Den här aktiviteten kan användas i följande scenarier:
@@ -45,14 +45,15 @@ GetMetadata-aktiviteten tar en datauppsättning som en obligatorisk indata och u
 | Anslutning/Metadata | itemName<br>(fil/mapp) | ItemType<br>(fil/mapp) | storlek<br>(fil) | skapad<br>(fil/mapp) | lastModified<br>(fil/mapp) |childItems<br>(mapp) |contentMD5<br>(fil) | struktur<br/>(fil) | Antal kolumner<br>(fil) | Det finns<br>(fil/mapp) |
 |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |
 | Amazon S3 | √/√ | √/√ | √ | x/x | √/√* | √ | x | √ | √ | √/√* |
+| Google Cloud Storage | √/√ | √/√ | √ | x/x | √/√* | √ | x | √ | √ | √/√* |
 | Azure-blobb | √/√ | √/√ | √ | x/x | √/√* | √ | √ | √ | √ | √/√ |
-| Azure Data Lake Store | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
+| Azure Data Lake Storage Gen1 | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
 | Azure File Storage | √/√ | √/√ | √ | √/√ | √/√ | √ | x | √ | √ | √/√ |
 | Filsystem | √/√ | √/√ | √ | √/√ | √/√ | √ | x | √ | √ | √/√ |
 | SFTP | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
 | FTP | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
 
-- För Amazon S3, den `lastModified` gäller bucket och nyckel, men inte virtuell mapp; och `exists` gäller bucket och nyckeln men inte prefix eller virtuell mapp.
+- För Amazon S3 och Google Sloud Storage den `lastModified` gäller bucket och nyckel, men inte virtuell mapp; och `exists` gäller bucket och nyckeln men inte prefix eller virtuell mapp.
 - För Azure Blob den `lastModified` gäller för behållare och blob men inte virtuell mapp.
 
 **Relationsdatabas:**

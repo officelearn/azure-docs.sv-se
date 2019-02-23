@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.custom: seodec18
-ms.openlocfilehash: 02d3cd3688f3b34c92422168b79cb4da5a93d970
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: 4537d15f88732d4b0c3c3cf514d6b8528af10f81
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56587998"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56737475"
 ---
 # <a name="authenticate-stream-analytics-to-azure-data-lake-storage-gen1-using-managed-identities-preview"></a>Autentisera Stream Analytics till Azure Data Lake Storage Gen1 med hjälp av hanterade identiteter (förhandsversion)
 
@@ -22,6 +22,8 @@ Azure Stream Analytics stöder hanterad identitetsautentisering med Azure Data L
 Gå till den [åtta nya funktioner i Azure Stream Analytics](https://azure.microsoft.com/blog/eight-new-features-in-azure-stream-analytics/) blogginlägg för att registrera dig för den här förhandsversionen och Läs mer om nya funktioner.
 
 Den här artikeln visar tre sätt att aktivera hanterad identitet för Azure Stream Analytics-jobb som producerar till en Azure Data Lake Storage Gen1 via Azure-portalen, Azure Resource Manager för malldistribution och Azure Stream Analytics-verktyg för Visual Studio.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="azure-portal"></a>Azure Portal
 
@@ -158,7 +160,7 @@ Den här artikeln visar tre sätt att aktivera hanterad identitet för Azure Str
 2. Ge åtkomst till tjänstens huvudnamn med hjälp av PowerShell. Om du vill ge åtkomst till tjänstens huvudnamn med PowerShell, kör du följande kommando:
 
    ```powershell
-   Set-AzureRmDataLakeStoreItemAclEntry -AccountName <accountName> -Path <Path> -AceType User -Id <PrinicpalId> -Permissions <Permissions>
+   Set-AzDataLakeStoreItemAclEntry -AccountName <accountName> -Path <Path> -AceType User -Id <PrinicpalId> -Permissions <Permissions>
    ```
 
    Den **PrincipalId** är objekt-ID för tjänstens huvudnamn och visas på skärmen portalen när tjänstens huvudnamn har skapats. Om du har skapat den jobb med hjälp av en för malldistribution av resurshanteraren visas objekt-ID i Identity-egenskapen för jobb-svaret.
@@ -166,11 +168,11 @@ Den här artikeln visar tre sätt att aktivera hanterad identitet för Azure Str
    **Exempel**
 
    ```powershell
-   PS > Set-AzureRmDataLakeStoreItemAclEntry -AccountName "adlsmsidemo" -Path / -AceType
+   PS > Set-AzDataLakeStoreItemAclEntry -AccountName "adlsmsidemo" -Path / -AceType
    User -Id 14c6fd67-d9f5-4680-a394-cd7df1f9bacf -Permissions WriteExecute
    ```
 
-   Mer information om kommandot ovan PowerShell avser den [Set-AzureRmDataLakeStoreItemAclEntry](https://docs.microsoft.com/powershell/module/azurerm.datalakestore/set-azurermdatalakestoreitemaclentry?view=azurermps-6.8.1&viewFallbackFrom=azurermps-4.2.0#optional-parameters) dokumentation.
+   Mer information om kommandot ovan PowerShell avser den [Set-AzDataLakeStoreItemAclEntry](https://docs.microsoft.com/powershell/module/az.datalakestore/set-azdatalakestoreitemaclentry#optional-parameters) dokumentation.
 
 ## <a name="limitations"></a>Begränsningar
 Den här funktionen stöder inte följande:

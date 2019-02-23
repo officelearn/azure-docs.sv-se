@@ -6,20 +6,20 @@ author: trinadhk
 manager: shreeshd
 ms.service: backup
 ms.topic: conceptual
-ms.date: 11/14/2018
+ms.date: 12/09/2018
 ms.author: trinadhk
-ms.openlocfilehash: de7c00717349a1c814c5a13508adb11879aa10a5
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: e86595ceb940ebcfa702823e9c9b8ad3ef50bb45
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51704655"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56674641"
 ---
 # <a name="use-role-based-access-control-to-manage-azure-backup-recovery-points"></a>Använda rollbaserad åtkomstkontroll för att hantera Azure Backup-återställningspunkter
 Rollbaserad åtkomstkontroll (RBAC) i Azure ger tillgång till ingående åtkomsthantering för Azure. Med hjälp av RBAC kan du hålla isär uppgifter i ditt team och bevilja endast den omfattning av åtkomst till användare som de behöver för att utföra sitt arbete.
 
 > [!IMPORTANT]
-> Roller som tillhandahålls av Azure Backup är begränsade till åtgärder som kan utföras i Azure-portalen eller PowerShell-cmdletar för Recovery Services-valv. Åtgärder som utförs i Azure backup Agent-klientens användargränssnitt eller System center Data Protection Manager UI eller Användargränssnittet för Azure Backup Server är alldeles av dessa roller.
+> Roller som tillhandahålls av Azure Backup är begränsade till åtgärder som kan utföras i Azure portal eller via REST-API eller PowerShell eller CLI-cmdletar för Recovery Services-valv. Åtgärder som utförs i Azure backup Agent-klientens användargränssnitt eller System center Data Protection Manager UI eller Användargränssnittet för Azure Backup Server är alldeles av dessa roller.
 
 Azure Backup innehåller 3 inbyggda roller som styr säkerhetskopiering hanteringsåtgärder. Läs mer om [Azure RBAC inbyggda roller](../role-based-access-control/built-in-roles.md)
 
@@ -68,4 +68,4 @@ Följande tabell visar de hanteringsåtgärder för säkerhetskopiering och mots
   * [PowerShell](../role-based-access-control/role-assignments-powershell.md)
   * [Azure CLI](../role-based-access-control/role-assignments-cli.md)
   * [REST-API](../role-based-access-control/role-assignments-rest.md)
-* [Role-Based Access Control – felsökning](../role-based-access-control/troubleshooting.md): få förslag för att åtgärda vanliga problem.
+* [Role-Based Access Control – felsökning](../role-based-access-control/troubleshooting.md): Få förslag för att åtgärda vanliga problem.

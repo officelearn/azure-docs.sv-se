@@ -10,18 +10,19 @@ ms.subservice: translator-speech
 ms.topic: conceptual
 ms.date: 3/5/2018
 ms.author: v-jansko
-ms.openlocfilehash: 482968af53694f7d40a7077435d33a83884c8808
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ROBOTS: NOINDEX,NOFOLLOW
+ms.openlocfilehash: 63592a0afc7e5da0a37c25c226b92b587aa5f886
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55873058"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56673707"
 ---
 # <a name="languages-supported-by-the-translator-speech-api"></a>Språk som stöds av Translator Speech API
 
 [!INCLUDE [Deprecation note](../../../includes/cognitive-services-translator-speech-deprecation-note.md)]
 
-Följande språk stöds för talöversättning. Om båda språken stöds för talöversättning, tal-till-tal eller tal till text är tillgänglig. Om målspråket som inte stöds för talöversättning är endast tal till textöversättning tillgänglig. 
+Följande språk stöds för talöversättning. Om båda språken stöds för talöversättning, tal-till-tal eller tal till text är tillgänglig. Om målspråket som inte stöds för talöversättning är endast tal till textöversättning tillgänglig.
 
 | Talspråk    |
 |:----------- |
@@ -34,9 +35,9 @@ Följande språk stöds för talöversättning. Om båda språken stöds för ta
 | Japanska      |
 | Portugisiska (Brasilien)     |
 | Ryska      |
-| Spanska      | 
+| Spanska      |
 
-Translator Speech API stöder följande språk som en målspråk för tal till textöversättning. 
+Translator Speech API stöder följande språk som en målspråk för tal till textöversättning.
 
 | Språk    | Språkkod |
 |:----------- |:-------------:|
@@ -47,7 +48,7 @@ Translator Speech API stöder följande språk som en målspråk för tal till t
 | Bulgariska      | `bg`          |
 | Kantonesiska (traditionell)      | `yue`          |
 | Katalanska      | `ca`          |
-| Kinesiska, förenklad      | `zh-Hans`          | 
+| Kinesiska, förenklad      | `zh-Hans`          |
 | Kinesiska, traditionell      | `zh-Hant`          |
 | Kroatiska      | `hr`          |
 | Tjeckiska      | `cs`          |
@@ -116,4 +117,4 @@ Språk-resurs returnerar listan över språk som stöds för tal, text och text 
 
 Webbplatsen Microsoft Translator visar alla språk som stöds av Translator Text och tal-API: er för en snabb titt på språk. Den här listan innehåller inte developer-specifik information, till exempel språkkoder.
 
-[Se en lista över språk](https://www.microsoft.com/translator/languages.aspx) 
+[Se en lista över språk](https://www.microsoft.com/translator/languages.aspx)

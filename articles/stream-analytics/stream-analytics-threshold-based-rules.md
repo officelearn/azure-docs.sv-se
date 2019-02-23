@@ -1,6 +1,6 @@
 ---
-title: Processen konfigurerbart tröskelvärde baserat regler i Azure Stream Analytics
-description: Den här artikeln beskriver hur du använder referensdata för att uppnå en lösning för aviseringar som har konfigurerbart tröskelvärde baserat regler i Azure Stream Analytics.
+title: Processen kan konfigureras tröskelvärdesbaserade regler i Azure Stream Analytics
+description: Den här artikeln beskriver hur du använder referensdata för att uppnå en datastyrd aviseringslösning med konfigurerbara tröskelvärdesbaserade regler i Azure Stream Analytics.
 services: stream-analytics
 author: zhongc
 ms.author: zhongc
@@ -9,43 +9,43 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/30/2018
-ms.openlocfilehash: 802be1ad5b1029add249430ee7760002407c4641
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: ce2cf6ebdfd74549114e94e4c7356e387576d3c8
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37021633"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56731199"
 ---
-# <a name="process-configurable-threshold-based-rules-in-azure-stream-analytics"></a>Bearbeta konfigurerbara tröskelvärdesbaserad regler i Azure Stream Analytics
-Den här artikeln beskriver hur du använder referensdata för att uppnå ett aviseringslösning som använder konfigurerbara tröskelvärdesbaserad regler i Azure Stream Analytics.
+# <a name="process-configurable-threshold-based-rules-in-azure-stream-analytics"></a>Bearbeta konfigurerbara tröskelbaserade regler i Azure Stream Analytics
+Den här artikeln beskriver hur du använder referensdata för att uppnå en datastyrd aviseringslösning som använder konfigurerbara tröskelbaserade regler i Azure Stream Analytics.
 
-## <a name="scenario-alerting-based-on-adjustable-rule-thresholds"></a>Scenario: Avisering baserat på justerbara regeln tröskelvärden
-Du kan behöva skapa en avisering som utdata när inkommande direktuppspelat händelser har uppnått ett visst värde, eller när ett insamlat värde baserat på inkommande direktuppspelat händelser överskrider ett visst tröskelvärde. Det enkelt att ställa in en Stream Analytics-fråga som jämfört värde med en statisk tröskelvärde som är fasta och förinställda. Ett fast tröskelvärde kan vara hårdkodad i strömmande frågesyntaxen med enkla numeriska jämförelser (större än, mindre än- och likhetsfrågor).
+## <a name="scenario-alerting-based-on-adjustable-rule-thresholds"></a>Scenario: Aviseringar baserat på tröskelvärden för justerbara regler
+Du kan behöva skapa en avisering som utdata när inkommande strömmas händelser har uppnått ett visst värde, eller när ett aggregerat värde baserat på inkommande strömmas händelser överskrider ett visst tröskelvärde. Det enkelt att konfigurera ett Stream Analytics-frågan som jämfört med värdet till ett statiskt tröskelvärde som är fast och förinställda. Ett fast tröskelvärde kan vara hårdkodade i strömmande frågesyntaxen med hjälp av enkla numeriska jämförelser (större än, mindre än- och likhetsfrågor).
 
-I vissa fall kan behöver tröskelvärdena vara enklare konfigurerbara utan att redigera frågesyntaxen varje gång ett tröskelvärde ändras. I andra fall kan behöva du flera enheter eller användare som behandlats av samma fråga till dem med en annan tröskelvärden på varje typ av enhet. 
+I vissa fall kan behöva tröskelvärdena konfigureras enkelt utan att redigera frågesyntaxen varje gång som ett tröskelvärde ändras. I andra fall kan behöva du ett stort antal enheter eller användare som behandlats av samma fråga med var och en av dem med en annan tröskelvärdena på varje typ av enhet. 
 
-Det här mönstret kan användas för att dynamiskt konfigurera tröskelvärden, selektivt välja vilken typ av enhet tröskelvärdet gäller genom att filtrera inkommande data och selektivt välja vilka fält som ska inkluderas i utdata.
+Det här mönstret kan användas för att dynamiskt konfigurera tröskelvärden för selektivt välja vilken typ av enhet tröskelvärdet gäller genom att filtrera indata och selektivt välja vilka fält som ska ingå i utdata.
 
-## <a name="recommended-design-pattern"></a>Rekommenderade designmönstret
-Använd en referensindata till ett Stream Analytics-jobb som en sökning efter tröskelvärdena:
-- Lagra tröskelvärdena i referensdata ett värde per nyckel.
-- Anslut strömmande data inkommande händelser till referensdata på nyckelkolumn.
-- Använd nycklad värdet från referensdata som tröskelvärdet.
+## <a name="recommended-design-pattern"></a>Rekommenderade designmönster
+Använd en referensindata till ett Stream Analytics-jobb som en sökning av tröskelvärdena:
+- Store tröskelvärdena i referensdata, ett värde per nyckel.
+- Anslut de strömmande data inmatningshändelser till referensdata på nyckelkolumn.
+- Använd knappade värdet från referensdata som tröskelvärdet.
 
 ## <a name="example-data-and-query"></a>Exempeldata och fråga
-I det här exemplet genereras aviseringar när mängden data som strömning i från enheter i ett fönster för minuter långa matchar värdena som anges i regeln angavs som referensdata.
+I det här exemplet genereras aviseringar när aggregering av data som strömmas i från enheter i ett fönster för minuter långa matchar värdena som anges i regeln som angavs som referensdata.
 
-I frågan, för varje deviceId och varje metricName under deviceId, kan du konfigurera från 0 till 5 dimensioner till GROUP BY. De händelser som har motsvarande filtervärdena grupperas. När grupperade, beräknad fönsteraggregeringar Min, Max, Avg, under en 60-sekunders rullande fönster. Filter för sammanställda värden beräknas sedan enligt det konfigurerade tröskelvärdet i referens för att generera avisering utdatahändelse.
+I frågan, för varje deviceId och varje metricName under deviceId, kan du konfigurera från 0 till 5 dimensioner till GROUP BY. Endast de händelser som har motsvarande filtervärdena grupperas. När grupperade, beräknas tidsanpassade samlingar av Min, Max, Avg, över en 60-sekunders rullande fönster. Filter på de sammanställda värdena beräknas sedan enligt det konfigurerade tröskelvärdet i reference att generera avisering utdatahändelse.
 
-Ett exempel förutsätter att det finns ett Stream Analytics-jobb som har en referensindata med namnet **regler**, och direktöverföring av indata som heter **mått**. 
+Anta till exempel det är ett Stream Analytics-jobb som har en referensindata med namnet **regler**, och strömning av indata som heter **mått**. 
 
 ## <a name="reference-data"></a>Referensdata
-Referensdata för det här exemplet visar hur en tröskelvärdesbaserad regel kan representeras. En JSON-fil innehåller referensdata och sparas i Azure blob storage och som behållare för blob storage används som en referensindata med namnet **regler**. Du kan skriva över den här JSON-filen och ersätter regelkonfigurationen med tiden, utan att stoppa eller starta direktuppspelningsjobbet.
+Referensdata för det här exemplet visar hur en tröskelbaserade regel kan framställas. En JSON-fil innehåller referensdata och sparas i Azure blob-lagring och den blob storage-behållaren används som en referensindata med namnet **regler**. Du kan skriva över den här JSON-filen och Ersätt regelkonfigurationen med tiden, utan att stoppa eller starta direktuppspelningsjobbet.
 
-- Exempelregeln används för att representera en justerbara avisering när CPU överskrider (medelvärde är större än eller lika med) värdet `90` procent. Den `value` fältet konfigureras efter behov.
-- Observera att regeln har ett **operatorn** som dynamiskt tolkas i frågesyntaxen senare på `AVGGREATEROREQUAL`. 
-- Regeln filtrerar data på en viss nyckel för dimensionen `2` med värdet `C1`. Andra fält är tom sträng, som anger inte om du vill filtrera Indataströmmen av dessa fält. Du kan ställa in ytterligare CPU-regler för att filtrera andra matchande fält efter behov.
-- Alla kolumner som ska inkluderas i händelsen utdata avisering. I det här fallet `includedDim` nyckeln nummer `2` är aktiverat `TRUE` att representera fältnumret 2 händelsedata i dataströmmen inkluderas i bestämda händelser som utdata. De andra fälten ingår inte i aviseringen utdata, men fältlistan kan justeras.
+- Exempelregeln används för att representera en justerbar avisering när CPU överskrider (genomsnitt är större än eller lika med) värdet `90` procent. Den `value` fältet kan konfigureras vid behov.
+- Observera att regeln har ett **operatorn** fält som tolkas dynamiskt senare i frågesyntaxen `AVGGREATEROREQUAL`. 
+- Regeln filtrerar data på en viss dimension nyckel `2` med värdet `C1`. Andra fält är tom sträng, som anger inte om du vill filtrera Indataströmmen av dessa fält. Du kan ställa in ytterligare CPU-regler att filtrera andra matchande fält efter behov.
+- Alla kolumner är som ska ingå i utdata varning avisering. I det här fallet `includedDim` nyckeln nummer `2` aktiveras `TRUE` att representera att fältnumret 2 av händelsedata i strömmen ska tas med i bestämda utdata-händelser. I andra fält ingår inte i aviseringen utdata, men fältlistan kan justeras.
 
 
 ```json
@@ -73,8 +73,8 @@ Referensdata för det här exemplet visar hur en tröskelvärdesbaserad regel ka
 }
 ```
 
-## <a name="example-streaming-query"></a>Exempelfråga för strömning
-Den här exempelfråga Stream Analytics ansluter den **regler** referensdata från exemplet ovan, till en inkommande dataström med namnet **mått**.
+## <a name="example-streaming-query"></a>Exempelfråga för direktuppspelning
+Det här exemplet Stream Analytics-frågan kopplar ihop den **regler** referensdata från exemplet ovan, till en inkommande dataström för med namnet **mått**.
 
 ```sql
 WITH transformedInput AS
@@ -134,14 +134,14 @@ HAVING
     )
 ```
 
-## <a name="example-streaming-input-event-data"></a>Exempel strömmande inkommande händelsedata
-Det här exemplet JSON-data som representerar den **mått** indata som används i frågan ovan strömning. 
+## <a name="example-streaming-input-event-data"></a>Exempel inmatningshändelse strömningsdata
+Det här exemplet JSON-data som representerar den **mått** indata som används i frågan ovan direktuppspelning. 
 
-- Tre exempel på händelser som är listade inom 1 minut timespan, värdet `T14:50`. 
+- Tre exempel på händelser som är listade inom 1 minut-tiden, värdet `T14:50`. 
 - Alla tre har samma `deviceId` värdet `978648`.
-- CPU-måttvärden varierar i varje händelse `98`, `95`, `80` respektive. Endast de första två exempel på händelserna som överskrider CPU varningsregeln upprättas i regeln.
-- Fältet includeDim i varningsregeln var viktiga nummer 2. Motsvarande 2 nyckelfältet i händelser som exempel heter `NodeName`. De tre exempel på händelserna som har värden `N024`, `N024`, och `N014` respektive. I utdata, visas bara noden `N024` som är de enda data som matchar aviseringsvillkoren för hög processor. `N014` uppfyller inte det högsta CPU-tröskelvärdet.
-- Varningsregeln har konfigurerats med en `filter` endast för viktiga nummer 2, som motsvarar den `cluster` i exempel-händelser. Alla tre exempel händelser har värdet `C1` och matchar filterkriterierna.
+- CPU-måttvärden varierar i varje händelse `98`, `95`, `80` respektive. Endast de första två exempel på händelserna överskrida CPU varningsregeln i regeln.
+- Fältet includeDim i varningsregeln var viktiga nummer 2. Motsvarande nyckel 2 fält i händelserna exempel heter `NodeName`. De tre exempel på händelserna har värden `N024`, `N024`, och `N014` respektive. I utdata visas endast i noden `N024` som är de enda data som matchar aviseringsvillkoren för hög processor. `N014` uppfyller inte hög CPU-tröskelvärdet.
+- Varningsregeln har konfigurerats med en `filter` endast för viktiga nummer 2, vilket motsvarar den `cluster` i exempelhändelser. Alla tre exempel händelserna har värdet `C1` och matchar ett angivet kriterium.
 
 ```json
 {
@@ -285,7 +285,7 @@ Det här exemplet JSON-data som representerar den **mått** indata som används 
 ```
 
 ## <a name="example-output"></a>Exempel på utdata
-Det här exemplet utdata JSON data visas en varning händelse har producerats baserat på CPU tröskelvärdet regeln som definierats i referensdata. Utdata innehåller namnet på aviseringen samt de aggregerade (Genomsnittlig, min, max) i fälten anses vara. Händelsedata utdata innehåller viktiga fältnumret 2 `NodeName` värdet `N024` på grund av regelkonfigurationen. (JSON har ändrats för att visa radbrytningar för läsbarhet.)
+Det här exemplet utdata JSON data visas som en enda avisering händelse tillhandahålls baserat på CPU-tröskelvärdet-regel som definierats i referensdata. Händelsen utdata innehåller namnet på aviseringen, samt den sammanställda (genomsnitt, min, max) fältens anses vara. Händelsedata utdata innehåller viktiga fältnumret 2 `NodeName` värdet `N024` på grund av regelkonfigurationen. (JSON har ändrats för att visa radbrytningar för läsbarhet.)
 
 ```JSON
 {"time":"2018-05-01T02:03:00.0000000Z","deviceid":"978648","ruleid":1234,"metric":"CPU",

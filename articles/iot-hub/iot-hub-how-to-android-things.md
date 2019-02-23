@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 1/30/2019
 ms.author: yizhon
-ms.openlocfilehash: 0bfba7f923ca394aa29dd907db1b8b1284a605d8
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: e5b075a457c646eb03810b2c51af1a1181ee96ed
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55981680"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56670272"
 ---
 # <a name="develop-for-android-things-platform-using-azure-iot-sdks"></a>Utveckla för Android saker plattform med hjälp av Azure IoT SDK: er
 [Azure IoT Hub SDK](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks) ger den första nivån support för populära plattformar som Windows, Linux, OSX, MBED och mobila plattformar, t.ex. Android och iOS.  Som en del av vårt åtagande att aktivera större valmöjligheter och flexibilitet i IoT-distributioner, Java SDK stöder också [Android saker](https://developer.android.com/things/) plattform.  Utvecklare kan utnyttja fördelarna med Android saker operativsystemet på enheten, när du använder [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/about-iot-hub) som den centrala meddelanden hub som kan skalas till miljontals samtidigt anslutna enheter. 
@@ -69,7 +69,6 @@ En enhet måste vara registrerad vid din IoT-hubb innan den kan ansluta. I den h
     ```
 4.  Öppna Android-projekt i finns i ”\azure-iot-samples-java\iot-hub\Samples\device\AndroidSample” i Android Studio.
 5.  Öppna gradle.properties-filen och Ersätt ”Device_connection_string” med enhetens anslutningssträng antecknade tidigare.
-    ![Skärmbild av huvuddelen av databasen](./media/how-to-android-things/connection-string.png)
 6.  Klicka på Kör - felsöka och välj din enhet för att distribuera den här koden till dina saker som Android-enheter.
 7.  Du kan se ett program som körs på enheten Android saker när programmet startades.  Det här exempelprogrammet skickar slumpmässigt genererat temperatur värdena.
 

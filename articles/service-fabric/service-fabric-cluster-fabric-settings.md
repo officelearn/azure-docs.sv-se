@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/11/2018
 ms.author: aljo
-ms.openlocfilehash: a919d10bbb7def8f81e68d95c03d95309483df59
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: c8cfa0174d3e3300bdc3cfbc68ca416d9b736300
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55210394"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56674913"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Anpassa inställningar för Service Fabric-kluster
 Den här artikeln beskrivs de olika fabric-inställningarna för Service Fabric-kluster som du kan anpassa. För kluster i Azure kan du anpassa inställningar via den [Azure-portalen](https://portal.azure.com) eller genom att använda en Azure Resource Manager-mall. Mer information finns i [uppgradera konfigurationen av ett Azure-kluster](service-fabric-cluster-config-upgrade-azure.md). Fristående kluster kan du anpassa inställningar genom att uppdatera den *ClusterConfig.json* fil- och utför en konfiguration som uppgraderar på ditt kluster. Mer information finns i [uppgradera konfigurationen av ett fristående kluster](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -47,7 +47,7 @@ Följande är en lista över Fabric inställningar som du kan anpassa, ordnade e
 |GatewayX509CertificateStoreName |sträng, standardvärdet är ”My” |Dynamisk| Namnet på X.509-certifikatarkiv som innehåller certifikat för HTTP-app gateway. |
 |HttpRequestConnectTimeout|TimeSpan, standardvärdet är Common::TimeSpan::FromSeconds(5)|Dynamisk|Ange tidsintervall i sekunder.  Ger connect timeout-värdet för http-begäranden som skickas från app-gateway http.  |
 |IgnoreCrlOfflineError|bool, standard är SANT|Dynamisk|Om du vill ignorera CRL offline fel för program/tjänst certifikatverifiering. |
-|isEnabled |Bool, standard är FALSKT |Statisk| Aktiverar eller inaktiverar HttpApplicationGateway. HttpApplicationGateway är inaktiverad som standard och den här konfigurationen måste anges för att aktivera den. |
+|IsEnabled |Bool, standard är FALSKT |Statisk| Aktiverar eller inaktiverar HttpApplicationGateway. HttpApplicationGateway är inaktiverad som standard och den här konfigurationen måste anges för att aktivera den. |
 |NumberOfParallelOperations | Uint, standardvärdet är 5000 |Statisk|Antalet läsningar att publicera till kön för http-server. Detta styr antalet samtidiga begäranden som kan betjänas av HttpGateway. |
 |RemoveServiceResponseHeaders|sträng, standard är ”datum. Server ”|Statisk|Semikolonseparerade / kommaavgränsad lista över svarshuvuden som tas bort från tjänstsvaret; innan den vidarebefordrar det till klienten. Om detta är inställt på tom sträng; Skicka alla rubriker som returneras av tjänsten som – är. i.e Skriv inte över datum och Server |
 |ResolveServiceBackoffInterval |Tid i sekunder, standardvärdet är 5 |Dynamisk|Ange tidsintervall i sekunder.  Ger lösa backoff standardintervallet innan du försöker utföra en tjänståtgärd. |
@@ -96,7 +96,7 @@ Följande är en lista över Fabric inställningar som du kan anpassa, ordnade e
 |UpgradeHealthCheckInterval |Tid i sekunder, standardvärdet är 60 |Dynamisk|Frekvensen för hälsostatus kontrollerar under en övervakad programuppgraderingar |
 |UpgradeStatusPollInterval |Tid i sekunder, standardvärdet är 60 |Dynamisk|Frekvensen av avsökningen för status för uppgraderingen. Det här värdet fastställer mängden uppdatering för ett GetApplicationUpgradeProgress-anrop |
 
-## <a name="common"></a>Delad
+## <a name="common"></a>Common
 | **Parametern** | **Tillåtna värden** | **Uppgradera princip** | **Vägledning eller en kort beskrivning** |
 | --- | --- | --- | --- |
 |PerfMonitorInterval |Tid i sekunder, är standardvärdet 1 |Dynamisk|Ange tidsintervall i sekunder. Prestanda Övervakningsintervall. Inställningen till 0 eller negativt värde inaktiverar övervakning. |
@@ -122,20 +122,20 @@ Följande är en lista över Fabric inställningar som du kan anpassa, ordnade e
 |AppDiagnosticStoreAccessRequiresImpersonation |Bool, standard är SANT | Dynamisk |Personifiering krävs om huruvida när komma åt diagnostisk lagrar åt programmet. |
 |AppEtwTraceDeletionAgeInDays |Int, standard är 3 | Dynamisk |Antal dagar efter vilken vi ta bort gamla ETL-filer som innehåller programmet ETW-spårning. |
 |ApplicationLogsFormatVersion |int, standardvärdet är 0 | Dynamisk |Version för program loggar format. Värden som stöds är 0 och 1. Version 1 innehåller flera fält från händelseposten ETW än version 0. |
-|ClusterId |Sträng | Dynamisk |Unikt id för klustret. Detta skapas när klustret har skapats. |
-|ConsumerInstances |Sträng | Dynamisk |Lista över DCA konsumentinstanserna. |
+|ClusterId |String | Dynamisk |Unikt id för klustret. Detta skapas när klustret har skapats. |
+|ConsumerInstances |String | Dynamisk |Lista över DCA konsumentinstanserna. |
 |DiskFullSafetySpaceInMB |Int, standardvärdet är 1024 | Dynamisk |Återstående diskutrymme i MB för att skydda mot av DCA. |
 |EnableCircularTraceSession |Bool, standard är FALSKT | Statisk |Flagga som anger om cirkulär spårningssessioner ska användas. |
 |Konfigurationsparametern |Bool, standard är SANT | Dynamisk |Detta kommer att aktivera eller inaktivera telemetri. |
 |MaxDiskQuotaInMB |Int, standardvärdet är 65536 | Dynamisk |Diskkvot i MB för Windows Fabric-loggfiler. |
-|ProducerInstances |Sträng | Dynamisk |Lista över DCA producent instanser. |
+|ProducerInstances |String | Dynamisk |Lista över DCA producent instanser. |
 
 ## <a name="dnsservice"></a>DnsService
 | **Parametern** | **Tillåtna värden** |**Uppgradera princip**| **Vägledning eller en kort beskrivning** |
 | --- | --- | --- | --- |
 |EnablePartitionedQuery|bool, standard är FALSKT|Statisk|Flagga för att aktivera stöd för DNS-frågor för tjänster som är partitionerad. Funktionen är inaktiverat som standard. Mer information finns i [Service Fabric DNS-tjänst.](service-fabric-dnsservice.md)|
 |InstanceCount|int, standard är-1|Statisk|Standardvärdet är -1, vilket innebär att DnsService körs på varje nod. OneBox måste det anges till 1 eftersom DnsService använder välkända port 53, så att den inte kan ha flera instanser på samma dator.|
-|isEnabled|bool, standard är FALSKT|Statisk|Aktiverar eller inaktiverar DnsService. DnsService är inaktiverad som standard och den här konfigurationen måste anges för att aktivera den. |
+|IsEnabled|bool, standard är FALSKT|Statisk|Aktiverar eller inaktiverar DnsService. DnsService är inaktiverad som standard och den här konfigurationen måste anges för att aktivera den. |
 |PartitionPrefix|sträng, standardvärdet är ”--”|Statisk|Styr strängvärdet partition prefix i DNS-frågor för tjänster som är partitionerad. Värde: <ul><li>Ska vara RFC-kompatibel eftersom det är en del av en DNS-fråga.</li><li>Får inte innehålla en punkt '.', som punkt stör DNS-suffix beteende.</li><li>Får inte vara längre än 5 tecken.</li><li>Det går inte att vara en tom sträng.</li><li>Om inställningen PartitionPrefix åsidosätts kommer PartitionSuffix måste åsidosättas, och vice versa.</li></ul>Mer information finns i [Service Fabric DNS-tjänst.](service-fabric-dnsservice.md).|
 |PartitionSuffix|sträng, standardvärdet är ””|Statisk|Styr strängvärdet partition suffix i DNS-frågor för tjänster som är partitionerad. Värde: <ul><li>Ska vara RFC-kompatibel eftersom det är en del av en DNS-fråga.</li><li>Får inte innehålla en punkt '.', som punkt stör DNS-suffix beteende.</li><li>Får inte vara längre än 5 tecken.</li><li>Om inställningen PartitionPrefix åsidosätts kommer PartitionSuffix måste åsidosättas, och vice versa.</li></ul>Mer information finns i [Service Fabric DNS-tjänst.](service-fabric-dnsservice.md). |
 
@@ -280,7 +280,8 @@ Följande är en lista över Fabric inställningar som du kan anpassa, ordnade e
 ## <a name="healthmanager"></a>HealthManager
 | **Parametern** | **Tillåtna värden** | **Uppgradera princip** | **Vägledning eller en kort beskrivning** |
 | --- | --- | --- | --- |
-| EnableApplicationTypeHealthEvaluation |Bool, standard är FALSKT |Statisk|Kluster-utvärderingen hälsoprincip: aktivera per programutvärderingar typ hälsotillstånd. |
+|EnableApplicationTypeHealthEvaluation |Bool, standard är FALSKT |Statisk|Kluster-utvärderingen hälsoprincip: aktivera per programutvärderingar typ hälsotillstånd. |
+|MaxSuggestedNumberOfEntityHealthReports|Int, standardvärdet är 500 |Dynamisk|Det maximala antalet hälsotillstånd rapporterar att en entitet kan ha innan du höjer frågor om den watchdog health reporting logik. Varje entitet hälsotillstånd ska ha ett relativt litet antal hälsorapporter. Om Rapportantal går över det här talet; Det kan finnas problem med den watchdog-implementering. En entitet med för många rapporter flaggas via en varning hälsorapport om entiteten ska utvärderas. |
 
 ## <a name="healthmanagerclusterhealthpolicy"></a>HealthManager/ClusterHealthPolicy
 | **Parametern** | **Tillåtna värden** | **Uppgradera princip** | **Vägledning eller en kort beskrivning** |
@@ -295,7 +296,7 @@ Följande är en lista över Fabric inställningar som du kan anpassa, ordnade e
 |MaxPercentDeltaUnhealthyNodes|Int, standarden är 10|Statisk|Uppgradera hälsoprincip för utvärdering av kluster: Maxprocent av förändrade defekta noder som tillåts för klustret är felfritt |
 |MaxPercentUpgradeDomainDeltaUnhealthyNodes|int, standardvärdet är 15|Statisk|Uppgradera hälsoprincip för utvärdering av kluster: Maxprocent av förändrade defekta noder i en uppgraderingsdomän som tillåts för klustret är felfritt |
 
-## <a name="hosting"></a>Som är värd för
+## <a name="hosting"></a>Värd
 | **Parametern** | **Tillåtna värden** | **Uppgradera princip** | **Vägledning eller en kort beskrivning** |
 | --- | --- | --- | --- |
 |ActivationMaxFailureCount |Heltal, standardvärdet är 10 |Dynamisk|Antal gånger som nya försök system misslyckades aktivering innan den ger upp |
@@ -351,13 +352,13 @@ Följande är en lista över Fabric inställningar som du kan anpassa, ordnade e
 |ActiveListeners |Uint, standardvärdet är 50 |Statisk| Antalet läsningar att publicera till kön för http-server. Detta styr antalet samtidiga begäranden som kan betjänas av HttpGateway. |
 |HttpGatewayHealthReportSendInterval |Tid i sekunder, standardvärdet är 30 |Statisk|Ange tidsintervall i sekunder. Intervallet som Http-Gateway skickar ackumulerade hälsotillstånd rapporterar till Health Manager. |
 |HttpStrictTransportSecurityHeader|sträng, standardvärdet är ””|Dynamisk| Ange HTTP strikt transportsäkerhet huvudets värde som ska ingå i varje svar som skickas av HttpGateway. Om värdet är tom sträng; den här rubriken inkluderas inte i gateway-svaret.|
-|isEnabled|Bool, standard är FALSKT |Statisk| Aktiverar eller inaktiverar HttpGateway. HttpGateway är inaktiverad som standard. |
+|IsEnabled|Bool, standard är FALSKT |Statisk| Aktiverar eller inaktiverar HttpGateway. HttpGateway är inaktiverad som standard. |
 |MaxEntityBodySize |Uint, standardvärdet är 4194304 |Dynamisk|Ger den maximala storleken för brödtexten som kan förväntas från en http-begäran. Standardvärdet är 4MB. Httpgateway misslyckas en begäran om den har en mängd storlek > det här värdet. Minsta Läs segmentstorleken är 4096 byte. Så här måste vara > = 4096. |
 
 ## <a name="imagestoreservice"></a>ImageStoreService
 | **Parametern** | **Tillåtna värden** | **Uppgradera princip** | **Vägledning eller en kort beskrivning** |
 | --- | --- | --- | --- |
-|Aktiverad |Bool, standard är FALSKT |Statisk|Aktiverad flagga för ImageStoreService. Standard: FALSKT |
+|Enabled |Bool, standard är FALSKT |Statisk|Aktiverad flagga för ImageStoreService. Standard: FALSKT |
 |MinReplicaSetSize | Int, standard är 3 |Statisk|MinReplicaSetSize för ImageStoreService. |
 |PlacementConstraints | sträng, standardvärdet är ”” |Statisk| PlacementConstraints för ImageStoreService. |
 |QuorumLossWaitDuration | Tid i sekunder, är standardvärdet MaxValue |Statisk| Ange tidsintervall i sekunder. QuorumLossWaitDuration för ImageStoreService. |
@@ -451,8 +452,8 @@ Följande är en lista över Fabric inställningar som du kan anpassa, ordnade e
 ## <a name="performancecounterlocalstore"></a>PerformanceCounterLocalStore
 | **Parametern** | **Tillåtna värden** | **Uppgradera princip** | **Vägledning eller en kort beskrivning** |
 | --- | --- | --- | --- |
-|Räknare |Sträng | Dynamisk |Kommaavgränsad lista över prestandaräknare för att samla in. |
-|isEnabled |Bool, standard är SANT | Dynamisk |Flagga som anger om samling med prestandaräknare på lokal nod har aktiverats. |
+|Räknare |String | Dynamisk |Kommaavgränsad lista över prestandaräknare för att samla in. |
+|IsEnabled |Bool, standard är SANT | Dynamisk |Flagga som anger om samling med prestandaräknare på lokal nod har aktiverats. |
 |MaxCounterBinaryFileSizeInMB |int, standard är 1 | Dynamisk |Maximal storlek (i MB) för varje prestandaräknaren binär fil. |
 |NewCounterBinaryFileCreationIntervalInMinutes |Int, standarden är 10 | Dynamisk |Maximalt intervall (i sekunder) efter vilken en ny prestandaräknaren binär fil har skapats. |
 |SamplingIntervalInSeconds |Int, standardvärdet är 60 | Dynamisk |Exempelintervall för prestandaräknare som samlas in. |
@@ -546,7 +547,7 @@ Följande är en lista över Fabric inställningar som du kan anpassa, ordnade e
 ## <a name="resourcemonitorservice"></a>ResourceMonitorService
 | **Parametern** | **Tillåtna värden** | **Uppgradera princip**| **Vägledning eller en kort beskrivning** |
 | --- | --- | --- | --- |
-|isEnabled|bool, standard är FALSKT |Statisk|Styr om tjänsten är aktiverad i klustret eller inte. |
+|IsEnabled|bool, standard är FALSKT |Statisk|Styr om tjänsten är aktiverad i klustret eller inte. |
 
 ## <a name="runas"></a>RunAs
 | **Parametern** | **Tillåtna värden** | **Uppgradera princip** | **Vägledning eller en kort beskrivning** |
@@ -669,21 +670,21 @@ Följande är en lista över Fabric inställningar som du kan anpassa, ordnade e
 |InvokeContainerApi|sträng, standard är ”Admin”|Dynamisk|Anropa API för behållare |
 |InvokeInfrastructureCommand |sträng, standard är ”Admin” |Dynamisk| Säkerhetskonfiguration för kommandon för hantering av infrastruktur-uppgiften. |
 |InvokeInfrastructureQuery |sträng, standardvärdet är ”Admin\|\|användare” | Dynamisk|Säkerhetskonfiguration för frågor till infrastrukturen. |
-|Lista |sträng, standardvärdet är ”Admin\|\|användare” | Dynamisk|Säkerhetskonfiguration för avbildningen lagra klientåtgärden fil lista. |
+|Visa lista |sträng, standardvärdet är ”Admin\|\|användare” | Dynamisk|Säkerhetskonfiguration för avbildningen lagra klientåtgärden fil lista. |
 |MoveNextFabricUpgradeDomain |sträng, standard är ”Admin” |Dynamisk| Konfiguration för att kunna återuppta klusteruppgradering med en explicit Uppgraderingsdomänen. |
 |MoveNextUpgradeDomain |sträng, standard är ”Admin” |Dynamisk| Konfiguration för att kunna återuppta programuppgraderingar med en explicit uppgradera domän. |
 |MoveReplicaControl |sträng, standard är ”Admin” | Dynamisk|Flytta replik. |
 |NameExists |sträng, standardvärdet är ”Admin\|\|användare” | Dynamisk|Säkerhetskonfiguration om namngivnings-URI finns kontrollerar. |
 |NodeControl |sträng, standard är ”Admin” |Dynamisk| Konfiguration för att starta; Stoppa; och starta om noderna. |
 |NodeStateRemoved |sträng, standard är ”Admin” |Dynamisk| Säkerhetskonfiguration för rapportering Nodtillstånd tas bort. |
-|Ping |sträng, standardvärdet är ”Admin\|\|användare” |Dynamisk| Säkerhetskonfiguration för klienten ping. |
+|Pinga |sträng, standardvärdet är ”Admin\|\|användare” |Dynamisk| Säkerhetskonfiguration för klienten ping. |
 |PredeployPackageToNode |sträng, standard är ”Admin” |Dynamisk| Fördistribution api. |
 |PrefixResolveService |sträng, standardvärdet är ”Admin\|\|användare” |Dynamisk| Säkerhetskonfiguration för matchning av klagomål-baserad tjänst prefix. |
 |PropertyReadBatch |sträng, standardvärdet är ”Admin\|\|användare” |Dynamisk| Säkerhetskonfiguration för namngivning av egenskapen läsåtgärder. |
 |PropertyWriteBatch |sträng, standard är ”Admin” |Dynamisk|Säkerhetskonfigurationer för namngivning av egenskapen skrivåtgärder. |
 |ProvisionApplicationType |sträng, standard är ”Admin” |Dynamisk| Säkerhetskonfiguration för programetablering typen. |
 |ProvisionFabric |sträng, standard är ”Admin” |Dynamisk| Säkerhetskonfiguration för MSI och/eller kluster Manifest etablering. |
-|Fråga |sträng, standardvärdet är ”Admin\|\|användare” |Dynamisk| Säkerhetskonfiguration för frågor. |
+|Söka i data |sträng, standardvärdet är ”Admin\|\|användare” |Dynamisk| Säkerhetskonfiguration för frågor. |
 |RecoverPartition |sträng, standard är ”Admin” | Dynamisk|Säkerhetskonfiguration för återställning av en partition. |
 |RecoverPartitions |sträng, standard är ”Admin” | Dynamisk|Säkerhetskonfiguration för återställning av partitioner. |
 |RecoverServicePartitions |sträng, standard är ”Admin” |Dynamisk| Konfiguration för att återställa tjänstpartitioner. |
@@ -719,7 +720,7 @@ Följande är en lista över Fabric inställningar som du kan anpassa, ordnade e
 |UpgradeApplication |sträng, standard är ”Admin” |Dynamisk| Säkerhetskonfiguration för startar eller att avbryta programuppgraderingar. |
 |UpgradeComposeDeployment|sträng, standard är ”Admin”| Dynamisk|Uppgraderar compose-distributionen |
 |UpgradeFabric |sträng, standard är ”Admin” |Dynamisk| Konfiguration för att starta klusteruppgradering. |
-|Överföra |sträng, standard är ”Admin” | Dynamisk|Säkerhetskonfiguration för avbildningen lagra uppladdning klientåtgärden. |
+|Ladda upp |sträng, standard är ”Admin” | Dynamisk|Säkerhetskonfiguration för avbildningen lagra uppladdning klientåtgärden. |
 
 ## <a name="securityclientcertificateissuerstores"></a>Security/ClientCertificateIssuerStores
 | **Parametern** | **Tillåtna värden** | **Uppgradera princip** | **Vägledning eller en kort beskrivning** |
@@ -756,10 +757,10 @@ Följande är en lista över Fabric inställningar som du kan anpassa, ordnade e
 | --- | --- | --- | --- |
 |ContainerNetworkName|sträng, standardvärdet är ””| Statisk |Nätverksnamnet på ska användas när du konfigurerar en behållare nätverk.|
 |ContainerNetworkSetup|bool, standard är FALSKT| Statisk |Om du vill konfigurera en behållare nätverk.|
-|FabricDataRoot |Sträng | Inte tillåten |Rotkatalogen för Service Fabric-data. Standard för Azure är d:\svcfab |
-|FabricLogRoot |Sträng | Inte tillåten |Rotkatalogen för Service fabric log. Detta är SF loggar och spårningar placering. |
+|FabricDataRoot |String | Inte tillåten |Rotkatalogen för Service Fabric-data. Standard för Azure är d:\svcfab |
+|FabricLogRoot |String | Inte tillåten |Rotkatalogen för Service fabric log. Detta är SF loggar och spårningar placering. |
 |NodesToBeRemoved|sträng, standardvärdet är ””| Dynamisk |Noder som ska tas bort som en del av konfigurationen uppgraderingen. (Endast för distributioner av fristående)|
-|ServiceRunAsAccountName |Sträng | Inte tillåten |Företagsnamnet under som du vill köra fabric värdtjänsten. |
+|ServiceRunAsAccountName |String | Inte tillåten |Företagsnamnet under som du vill köra fabric värdtjänsten. |
 |SkipContainerNetworkResetOnReboot|bool, standard är FALSKT|NotAllowed|Om du vill hoppa över återställning behållare nätverk vid omstart.|
 |SkipFirewallConfiguration |Bool, standard är FALSKT | Inte tillåten |Anger om brandväggsinställningar måste anges av systemet eller inte. Detta gäller endast om du använder windows-brandväggen. Om du använder brandväggar från tredje part, måste du öppna portarna för system och program för att använda |
 

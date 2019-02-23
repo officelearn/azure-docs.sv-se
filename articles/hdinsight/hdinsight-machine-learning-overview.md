@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: hrasheed
-ms.openlocfilehash: 84ce13f78a9c597c780cb0dfa0fa5d16e6175b1c
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: fc7c957b766c1c95ea247ccb63cad5bedec6feec
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55077734"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56669012"
 ---
 # <a name="machine-learning-on-hdinsight"></a>Maskininlärning på HDInsight
 
@@ -63,5 +63,6 @@ Microsoft har utvecklat kostnadsfria, enkel att använda, öppen källkod på f�
 
 ### <a name="deep-learning-resources"></a>Deep learning-resurser
 
-* [Djupinläranede verktygspaket med Apache Spark](https://blogs.technet.microsoft.com/machinelearning/2017/04/25/using-microsofts-deep-learning-toolkit-with-spark-on-azure-hdinsight-clusters/)
-* [Embarrassingly parallel bildklassificering med Cognitive toolkit + Tensorflow i Apache Spark](https://blogs.technet.microsoft.com/machinelearning/2017/04/12/embarrassingly-parallel-image-classification-using-cognitive-toolkit-tensorflow-on-azure-hdinsight-spark/)
+* [Använd Microsoft Cognitive Toolkit deep learning-modell med Azure HDInsight Spark-kluster](spark/apache-spark-microsoft-cognitive-toolkit.md)
+* [Använda Caffe på Azure HDInsight Spark för distribuerade djupinlärning](spark/apache-spark-deep-learning-caffe.md)
+* [Ramverk för Djupinlärning och AI på Data Science Virtual Machine (DSVM)](https://docs.microsoft.com/en-us/azure/machine-learning/data-science-virtual-machine/dsvm-deep-learning-ai-frameworks)

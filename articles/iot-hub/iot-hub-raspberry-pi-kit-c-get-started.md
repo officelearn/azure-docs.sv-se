@@ -8,12 +8,12 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 02/14/2019
 ms.author: rangv
-ms.openlocfilehash: 1e96029b75c8168189dacdc420117e82387228d9
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 3a4fbac0000569a17a9916bd1d84dd140576c9ee
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56327259"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56672074"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-c"></a>Anslut Raspberry Pi till Azure IoT Hub (C)
 
@@ -82,7 +82,7 @@ Följande objekt är valfria:
 Förbered microSD-kort för installation av Raspbian avbildningen.
 
 1. Hämta Raspbian.
-   1. [Ladda ned Raspbian Jessie med Desktop](https://www.raspberrypi.org/downloads/raspbian/) (.zip-fil).
+   1. [Ladda ned Raspbian Stretch med Desktop](https://www.raspberrypi.org/downloads/raspbian/) (.zip-fil).
    1. Extrahera Raspbian avbildningen till en mapp på datorn.
 1. Installera Raspbian microSD-kort.
    1. [Ladda ned och installera verktyget Etcher SD-kort brännare](https://etcher.io/).

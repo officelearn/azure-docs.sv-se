@@ -7,19 +7,19 @@ author: masnider
 manager: timlt
 editor: ''
 ms.assetid: 0d622ea6-a7c7-4bef-886b-06e6b85a97fb
-ms.service: Service-Fabric
+ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 7a7d3ad59d743287e5fe13c52c6c6a1a115d53f3
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 2d1818f42cb2bcb19f979f25962a6c9bdea10155
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44053320"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56728020"
 ---
 # <a name="managing-resource-consumption-and-load-in-service-fabric-with-metrics"></a>Hantera resursförbrukning och belastning i Service Fabric med mått
 *Mått* vilka resurser som din dig för tjänster och som tillhandahålls av noder i klustret. Ett mått är något som du vill hantera för att förbättra eller övervaka prestanda för dina tjänster. Du kan till exempel bevaka minnesförbrukning om du vill veta om din tjänst är överbelastad. Ett annat användningsområde är att ta reda på om tjänsten kan flytta någon annanstans där minne är mindre begränsad för att få bättre prestanda.
@@ -56,7 +56,7 @@ Några saker att tänka på:
 
 Bra!
 
-Mått som standard fungerar bra som en start. Men har mått som standard bara du hittills. Till exempel: Vad är sannolikheten att partitionering system som du valt resultat i perfekt även användningen av alla partitioner? Vad är risken att belastningen för en viss tjänst är konstant över tid eller även över flera plattformar på samma just nu?
+Mått som standard fungerar bra som en start. Men har mått som standard bara du hittills. Exempel: Vad är sannolikheten att partitionering system som du valt resultat i perfekt även användningen av alla partitioner? Vad är risken att belastningen för en viss tjänst är konstant över tid eller även över flera plattformar på samma just nu?
 
 Du kan köra med bara mått som standard. Detta vanligtvis innebär dock att din klusteranvändning är lägre och mer ojämn än vad du vill ha. Detta beror på mått som standard inte anpassningsbar och förutsätter att allt är likvärdiga. Till exempel bidra en primär är upptagen och som inte är båda ”1” till PrimaryCount mått. I värsta fall kan med bara mått som standard också resultera i overscheduled noder, vilket resulterar i prestandaproblem. Om du är intresserad av att få ut mest av ditt kluster och undvika problem med prestanda kan behöva du använda anpassade mått och rapportering om dynamisk belastning.
 
@@ -70,8 +70,8 @@ Vilka mått som har vissa egenskaper som beskriver den: ett namn, en vikt och en
 * Standard-belastning: Standard load representeras på olika sätt beroende på om tjänsten är tillståndslösa eller tillståndskänsliga.
   * För tillståndslösa tjänster kan har varje mått en enskild egenskap med namnet DefaultLoad
   * För tillståndskänsliga tjänster som du definierar:
-    * PrimaryDefaultLoad: Det här måttet hur den här tjänsten förbrukar när det är en primär
-    * SecondaryDefaultLoad: Det här måttet hur den här tjänsten förbrukar när det är en sekundär
+    * PrimaryDefaultLoad: Det här måttet standardmängden förbrukar den här tjänsten när den är en primär
+    * SecondaryDefaultLoad: Det här måttet standardmängden förbrukar den här tjänsten när den är en sekundär
 
 > [!NOTE]
 > Om du definierar anpassade mått och du vill _också_ använder mått som standard, måste du _uttryckligen_ lägga till mått som standard tillbaka och anger vikterna och värden för dessa. Det beror på att du måste definiera relationen mellan mått som standard och din anpassade mått. Till exempel kanske du bryr dig om ConnectionCount eller WorkQueueDepth mer än primära. Som standard är vikten för måttet PrimaryCount hög, så att du vill minska det till medel när du lägger till din andra mått för att se till att de har företräde.
@@ -232,7 +232,7 @@ Det finns några saker som vi behöver för att förklara:
 ## <a name="metric-weights"></a>Tjänstmåttets vikt
 Det är viktigt att spåra mått som är samma mellan olika tjänster. Den globala vyn innebär det att Cluster Resource Manager att spåra användningen i klustret, balansera förbrukning över noder och se till att noderna inte går över kapacitet. Tjänster kan dock ha olika vyer om vikten av samma mått. Även i ett kluster med många mått och många olika tjänster, kanske perfekt balans lösningar inte finns för alla mått. Hur ska Cluster Resource Manager hanterar sådana situationer?
 
-Metrisk vikterna Tillåt Cluster Resource Manager för att avgöra hur du balansera klustret när det finns inget perfekta svar. Tjänstmåttets vikt även låta Cluster Resource Manager att balansera specifika tjänster på olika sätt. Mått kan ha fyra olika vikt nivåer: noll, låg, Medium och hög. Ett mått med en vikt på noll bidrar ingenting när du överväger om saker balanseras eller inte. Men bidrar belastningen fortfarande till kapacitetshanteringsområde. Mått med noll vikt är fortfarande användbart och används ofta som en del av tjänstbeteende och prestandaövervakning. [Den här artikeln](service-fabric-diagnostics-event-generation-infra.md) finns mer information om användning av mått för övervakning och diagnostik för dina tjänster. 
+Metrisk vikterna Tillåt Cluster Resource Manager för att avgöra hur du balansera klustret när det finns inget perfekta svar. Tjänstmåttets vikt även låta Cluster Resource Manager att balansera specifika tjänster på olika sätt. Mått kan ha fyra olika vikt nivåer: Noll, låg, Medium och hög. Ett mått med en vikt på noll bidrar ingenting när du överväger om saker balanseras eller inte. Men bidrar belastningen fortfarande till kapacitetshanteringsområde. Mått med noll vikt är fortfarande användbart och används ofta som en del av tjänstbeteende och prestandaövervakning. [Den här artikeln](service-fabric-diagnostics-event-generation-infra.md) finns mer information om användning av mått för övervakning och diagnostik för dina tjänster. 
 
 Verkliga effekten av olika mått vikter i klustret är att Cluster Resource Manager genererar olika lösningar. Metrisk vikterna berätta Cluster Resource Manager för att vissa mått är viktigare än andra. När det finns ingen perfekt lösning kan Klusterresurshanteraren föredrar lösningar som balanserar högre viktad måtten bättre. Om en tjänst uppfattar som ett visst mått oviktigt kan hittas deras användning av det måttet imbalanced. På så sätt kan en annan tjänst att få en jämn fördelning av vissa mått som är viktiga för den.
 

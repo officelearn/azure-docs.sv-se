@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: apimpm
-ms.openlocfilehash: acaf73c2d981761b0bc57cfccbbf6c6a48e5e0c2
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 21175e74bd40d0d4aeaf1c0a1e677f1c8113e80a
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52446526"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56738019"
 ---
 # <a name="using-azure-api-management-service-with-an-internal-virtual-network"></a>Med Azure API Management-tjänsten med ett internt virtuellt nätverk
 Med Azure Virtual Networks, kan Azure API Management hantera API: er som är inte tillgänglig på internet. Ett antal VPN-tekniker är tillgängliga för att upprätta anslutningen. API Management kan distribueras i två huvudlägen i ett virtuellt nätverk:
@@ -67,11 +67,14 @@ När distributionen är klar bör du se interna virtuella IP-adressen för din t
 > Testkonsol som är tillgängliga på Azure Portal fungerar inte för **internt** VNET har distribuerat-tjänsten, eftersom Gateway-URL: en inte är registrerad på det offentliga DNS. I stället bör du använda Testkonsol som tillhandahålls på den **utvecklarportalen**.
 
 ### <a name="enable-a-virtual-network-connection-by-using-powershell-cmdlets"></a>Aktivera anslutning till ett virtuellt nätverk med hjälp av PowerShell-cmdletar
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Du kan också aktivera anslutningar för virtuella nätverk med hjälp av PowerShell-cmdletar.
 
-* Skapa en API Management-tjänst i ett virtuellt nätverk: Använd cmdlet [New-AzureRmApiManagement](/powershell/module/azurerm.apimanagement/new-azurermapimanagement) att skapa en Azure API Management-tjänsten i ett virtuellt nätverk och konfigurera den att använda typen internt virtuellt nätverk.
+* Skapa en API Management-tjänsten i ett virtuellt nätverk: Använd cmdleten [New AzApiManagement](/powershell/module/az.apimanagement/new-azapimanagement) att skapa en Azure API Management-tjänsten i ett virtuellt nätverk och konfigurera den att använda typen internt virtuellt nätverk.
 
-* Distribuera en befintlig API Management-tjänst i ett virtuellt nätverk: Använd cmdlet [uppdatering AzureRmApiManagementDeployment](/powershell/module/azurerm.apimanagement/update-azurermapimanagementdeployment) att flytta en befintlig API Management-tjänst i ett virtuellt nätverk och konfigurera den att använda den interna typ av virtuellt nätverk.
+* Distribuera en befintlig API Management-tjänst i ett virtuellt nätverk: Använd cmdleten [uppdatering AzApiManagementDeployment](/powershell/module/az.apimanagement/update-azapimanagementdeployment) att flytta en befintlig API Management-tjänst i ett virtuellt nätverk och konfigurera den att använda typen internt virtuellt nätverk.
 
 ## <a name="apim-dns-configuration"></a>DNS-konfiguration
 När API Management är i läget för externt virtuellt nätverk, hanteras DNS av Azure. Du måste hantera din egen routning för internt virtuellt nätverk.

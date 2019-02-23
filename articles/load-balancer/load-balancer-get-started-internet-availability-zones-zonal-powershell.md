@@ -12,14 +12,14 @@ ms.topic: article
 ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/26/2018
+ms.date: 02/21/2019
 ms.author: kumud
-ms.openlocfilehash: c930b4b792345aea16dd2776148c0436d8807304
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: faffe5acb6ec33dcddee5c47679f29f64d2e61fb
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56593768"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56674318"
 ---
 #  <a name="create-a-standard-load-balancer-with-zonal-frontend-using-azure-powershell"></a>Skapa en Standardbelastningsutjämnare med zonindelad klientdel med Azure PowerShell
 
@@ -36,7 +36,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 Logga in på Azure-prenumerationen med kommandot `Connect-AzAccount` och följ anvisningarna på skärmen.
 
-```powershell
+```azurepowershell-interactive
 Connect-AzAccount
 ```
 
@@ -44,14 +44,14 @@ Connect-AzAccount
 
 Skapa en resursgrupp med hjälp av följande kommando:
 
-```powershell
+```azurepowershell-interactive
 New-AzResourceGroup -Name myResourceGroupZLB -Location westeurope
 ```
 
 ## <a name="create-a-public-ip-standard"></a>Skapa en offentlig IP-Standard 
 Skapa en offentlig IP-Standard med följande kommando:
 
-```powershell
+```azurepowershell-interactive
 $publicIp = New-AzPublicIpAddress -ResourceGroupName myResourceGroupZLB -Name 'myPublicIPZonal' `
   -Location westeurope -AllocationMethod Static -Sku Standard -zone 1
 ```
@@ -60,7 +60,7 @@ $publicIp = New-AzPublicIpAddress -ResourceGroupName myResourceGroupZLB -Name 'm
 
 Skapa en frontend IP-konfiguration med hjälp av följande kommando:
 
-```powershell
+```azurepowershell-interactive
 $feip = New-AzLoadBalancerFrontendIpConfig -Name 'myFrontEnd' -PublicIpAddress $publicIp
 ```
 
@@ -68,7 +68,7 @@ $feip = New-AzLoadBalancerFrontendIpConfig -Name 'myFrontEnd' -PublicIpAddress $
 
 Skapa en backend-adresspool med följande kommando:
 
-```powershell
+```azurepowershell-interactive
 $bepool = New-AzLoadBalancerBackendAddressPoolConfig -Name 'myBackEndPool'
 ```
 
@@ -76,7 +76,7 @@ $bepool = New-AzLoadBalancerBackendAddressPoolConfig -Name 'myBackEndPool'
 
 Skapa en hälsoavsökning på port 80 för belastningsutjämnaren med följande kommando:
 
-```powershell
+```azurepowershell-interactive
 $probe = New-AzLoadBalancerProbeConfig -Name 'myHealthProbe' -Protocol Http -Port 80 `
   -RequestPath / -IntervalInSeconds 360 -ProbeCount 5
 ```
@@ -84,14 +84,14 @@ $probe = New-AzLoadBalancerProbeConfig -Name 'myHealthProbe' -Protocol Http -Por
 ## <a name="create-a-load-balancer-rule"></a>Skapa en lastbalanseringsregel
  Skapa en regel för belastningsutjämnaren med följande kommando:
 
-```powershell
+```azurepowershell-interactive
    $rule = New-AzLoadBalancerRuleConfig -Name HTTP -FrontendIpConfiguration $feip -BackendAddressPool  $bepool -Probe $probe -Protocol Tcp -FrontendPort 80 -BackendPort 80
 ```
 
 ## <a name="create-a-load-balancer"></a>Skapa en lastbalanserare
 Skapa en Standardbelastningsutjämnare med följande kommando:
 
-```powershell
+```azurepowershell-interactive
 $lb = New-AzLoadBalancer -ResourceGroupName myResourceGroupZLB -Name 'MyLoadBalancer' -Location westeurope `
   -FrontendIpConfiguration $feip -BackendAddressPool $bepool `
   -Probe $probe -LoadBalancingRule $rule -Sku Standard

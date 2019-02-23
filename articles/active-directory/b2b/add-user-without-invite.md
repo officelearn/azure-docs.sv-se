@@ -1,5 +1,5 @@
 ---
-title: Lägger till användare i B2B-samarbetet i Azure Active Directory utan en inbjudan | Microsoft Docs
+title: Lägga till B2B-samarbete användare utan inbjudan - Azure Active Directory | Microsoft Docs
 description: Du kan låta en gästanvändare lägga till andra gästanvändare till din Azure AD utan löser in inbjudan i Azure Active Directory B2B-samarbete.
 services: active-directory
 documentationcenter: ''
@@ -12,12 +12,12 @@ author: msmimart
 manager: daveba
 ms.reviewer: sasubram
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 90e156f1d1d7bbbb6c4f65a4762977d28a5a0b89
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: a75656eec8e2c79c48ab48bd96a504d6e5dbac3a
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56182603"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56672244"
 ---
 # <a name="add-b2b-collaboration-guest-users-without-an-invitation"></a>Lägga till gästanvändare för B2B-samarbete utan inbjudan
 

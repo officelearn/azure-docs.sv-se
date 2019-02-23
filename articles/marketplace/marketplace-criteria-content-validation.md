@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/05/2018
 ms.author: yijenj
-ms.openlocfilehash: fb12fe381cb4df6139fae7289279220f72984484
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 145c6ac01cce9a70f3753b54a46638bf9d9c23b4
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54078022"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56729754"
 ---
 # <a name="azure-marketplace-listing-guidelines"></a>Riktlinjer för Azure Marketplace-lista
 
@@ -92,7 +92,7 @@ Alla erbjudanden måste uppfylla de [alla lista krav](https://docs.microsoft.com
 | 6 | & Hjälp om lösningssupport  | Support och hjälp krävs inte  | | 
 | 7 | Sekretesspolicy och användningsvillkor tillgängliga  |  Principer eller villkor som krävs inte  | | 
 | 8 | Tjänsttyper | Kontrollera att tjänsttyp matchar rubrik | |
-| 9 | Kompetenser |<br>• Måste vara minst en av följande:<br>• Programutveckling <br>• Programintegrering <br>• Application Lifecycle Management <br>• Molnplattform <br>• Dataanalys <br>• Datacenter <br>• Dataplattform <br>• DevOps |
+| 9 | Kompetenser |<br>• Måste vara minst en av följande:<br>• Programutveckling <br>• Programintegrering <br>• Application Lifecycle Management <br>• Molnplattform <br>• Dataanalys <br>• Data Center <br>• Dataplattform <br>• DevOps |
 | 10 | Produkter | Måste vara Azure | |
 | 11 | Land/region | Se till att land och region matchningar valt valuta | |
 | 12 | Läs mer  | <br>• Länkarna längst ned (under Beskrivning inte marketplace länkarna till vänster) leder till mer information om lösningen och är offentligt tillgängliga och visas korrekt. <br>• Länkar måste ha ett ”namn” och visas inte som namnet på alla nedladdningar | |
@@ -103,4 +103,4 @@ Alla erbjudanden måste uppfylla de [alla lista krav](https://docs.microsoft.com
 *   [Bestäm vilken lista för din lösning](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type).
 
  
----  
+---

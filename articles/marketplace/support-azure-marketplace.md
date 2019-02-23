@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/05/2018
 ms.author: yijenj
-ms.openlocfilehash: ae3716654f40322205212ca02a99993326a1cf35
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 196ad39b8b2430ed060ede032f72092b9cfd3fdb
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54073364"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56727442"
 ---
 # <a name="support-for-the-marketplace"></a>Stöd för Marketplace  
 Här är en lista över supportalternativ för Marketplace.  
@@ -42,7 +42,7 @@ Dessutom får du många av dina frågor besvaras i den [Marketplace kanal för C
 |:--- |:--- |  
 | Slack: [join.marketplace.azure.com](https://social.msdn.microsoft.com/Forums/azure/home?forum=DataMarket) | Slack miljö för att stödja partner med tekniska problem. Det finns om 350 Partners arbetar i den här miljön. |  
 | MSDN-forum: Marketplace finns på [social.msdn.microsoft.com/Forums/azure/home?forum=DataMarket](https://social.msdn.microsoft.com/Forums/azure/home?forum=DataMarket) | Microsoft Developer Network-forum. |  
-| Stackspill: Azure finns på [stackoverflow.com/questions/tagged/azure](https://stackoverflow.com/questions/tagged/azure) | Stack Overflow-miljö för att få ut lösningar och ställa frågor om allt som rör Azure Marketplace.<ul> <li>Stackspill: Azure Marketplace finns på [stackoverflow.com/questions/tagged/azure-marketplace](https://stackoverflow.com/questions/tagged/azure-marketplace)</li> <li>Stackspill: Azure Resource Manager finns på [stackoverflow.com/questions/tagged/azure-resource-manager](https://stackoverflow.com/questions/tagged/azure-resource-manager)</li> <li>Stackspill: Virtuella datorer på Azure finns på [stackoverflow.com/questions/tagged/azure-virtual-machine](https://stackoverflow.com/questions/tagged/azure-virtual-machine)</li> <li>Stackspill: Behållare i Azure finns på [stackoverflow.com/search?q=azure+container](https://stackoverflow.com/search?q=azure+container)</li> </ul> |
+| Stack Overflow: Azure finns på [stackoverflow.com/questions/tagged/azure](https://stackoverflow.com/questions/tagged/azure) | Stack Overflow-miljö för att få ut lösningar och ställa frågor om allt som rör Azure Marketplace.<ul> <li>Stack Overflow: Azure Marketplace finns på [stackoverflow.com/questions/tagged/azure-marketplace](https://stackoverflow.com/questions/tagged/azure-marketplace)</li> <li>Stack Overflow: Azure Resource Manager finns på [stackoverflow.com/questions/tagged/azure-resource-manager](https://stackoverflow.com/questions/tagged/azure-resource-manager)</li> <li>Stack Overflow: Virtuella datorer på Azure finns på [stackoverflow.com/questions/tagged/azure-virtual-machine](https://stackoverflow.com/questions/tagged/azure-virtual-machine)</li> <li>Stack Overflow: Behållare i Azure finns på [stackoverflow.com/search?q=azure+container](https://stackoverflow.com/search?q=azure+container)</li> </ul> |
 | Stöd för AppSource: [appsourcecrm@Microsoft.com](mailto:appsourcecrm@microsoft.com) | Stöd för publicering för Dynamics-appar |
 
 ## <a name="marketing-resources"></a>Marketing-resurser  
@@ -57,4 +57,4 @@ Dessutom får du många av dina frågor besvaras i den [Marketplace kanal för C
 ## <a name="next-steps"></a>Nästa steg
 Gå till den [Azure Marketplace och AppSource Publiceringsguiden](./marketplace-publishers-guide.md) sidan.  
  
----  
+---

@@ -1,7 +1,7 @@
 ---
 title: Java Enterprise support på Linux – Azure App Service | Microsoft Docs
 description: Utvecklarens guide till att distribuera Java Enterprise-appar med Wildfly med Azure App Service i Linux.
-keywords: Azure apptjänst, webbapp, linux, oss, java, wildfly, enterprise
+keywords: azure app service, web app, linux, oss, java, wildfly, enterprise, java ee, jee, javaee
 services: app-service
 author: rloutlaw
 manager: angerobe
@@ -13,16 +13,16 @@ ms.topic: article
 ms.date: 08/29/2018
 ms.author: routlaw
 ms.custom: seodec18
-ms.openlocfilehash: 408141650a11a81f0c6000c6e7927af8333e2afe
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 6618e5317db1a7a4332a35b7ee9cd74934c8a787
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53548484"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56737900"
 ---
 # <a name="java-enterprise-guide-for-app-service-on-linux"></a>Java företagens guide för App Service på Linux
 
-Azure App Service i Linux kan Java-utvecklare för att bygga, distribuera och skala program för JEE (Java Enterprise) på en helt hanterad tjänst för Linux-baserade.  Den underliggande Java Enterprise-körningsmiljön är öppen källkod [Wildfly](https://wildfly.org/) programserver.
+Azure App Service i Linux kan Java-utvecklare för att bygga, distribuera och skala Java (EE Java) program på en helt hanterad tjänst för Linux-baserade.  Den underliggande Java Enterprise-körningsmiljön är öppen källkod [Wildfly](https://wildfly.org/) programserver.
 
 Den här guiden innehåller viktiga begrepp och instruktioner för Java-företagsutvecklare med i App Service för Linux. Om du aldrig har distribuerat Java-program med Azure App Service för Linux, bör du genomföra den [Java-quickstart](quickstart-java.md) första. Om App Service för Linux som inte är specifika för Java Enterprise datasäkerhetsfrågor besvaras i den [Java developer's guide](app-service-linux-java.md) och [App Service Linux vanliga frågor och svar](app-service-linux-faq.md).
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/21/2018
 ms.author: mbullwin
-ms.openlocfilehash: 0c7f248023a97bdad09c2c51e9e9a28073def086
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: 24b0bc01b5cb4f1d2696a7c9526d586c9b42d0fc
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56300133"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56674590"
 ---
 # <a name="deep-diagnostics-for-web-apps-and-services-with-application-insights"></a>Djup diagnostik för webbappar och tjänster med Application Insights
 ## <a name="why-do-i-need-application-insights"></a>Varför behöver jag Application Insights?
@@ -166,7 +166,7 @@ När en avisering utlöses kan Application Insights automatiskt skapa ett arbets
 ## <a name="next-steps"></a>Nästa steg
 Det är enkelt att komma igång med Application Insights. De viktigaste alternativen är:
 
-* Instrumentera en webbapp redan körs. Detta ger dig all den inbyggda telemetrin. Det finns för [Java](../../azure-monitor/app/java-live.md) och [IIS-servrar](../../azure-monitor/app/monitor-performance-live-website-now.md), och även för [Azure App Service](../../azure-monitor/app/app-insights-overview.md).
+* [IIS-servrar](../../azure-monitor/app/monitor-performance-live-website-now.md), och även för [Azure App Service](../../azure-monitor/app/app-insights-overview.md).
 * Instrumentera ditt projekt under utveckling. Du kan göra detta för [ASP.NET](../../azure-monitor/app/asp-net.md) eller [Java](../../azure-monitor/app/java-get-started.md) appar, samt [Node.js](../../azure-monitor/app/nodejs.md) och en mängd [andra typer](../../azure-monitor/app/platforms.md). 
 * Instrumentera [en webbsida](../../azure-monitor/app/javascript.md) genom att lägga till ett kort kodfragment.
 

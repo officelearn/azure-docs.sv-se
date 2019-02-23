@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 07/02/2018
 ms.author: ellacroi
-ms.openlocfilehash: 447453abb59507e0f3a8505410ceb52640914f22
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 852d0874a91418bf28e674b02087aeb7edbdd833
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37436584"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56730519"
 ---
 # <a name="support-for-appsource"></a>Stöd för AppSource  
 Supportalternativ för AppSource.  
@@ -34,4 +34,4 @@ Supportalternativ för AppSource.
 ## <a name="next-steps"></a>Nästa steg
 Gå till den [Azure Marketplace och AppSource Publiceringsguiden](./marketplace-publishers-guide.md) sidan.  
  
----  
+---

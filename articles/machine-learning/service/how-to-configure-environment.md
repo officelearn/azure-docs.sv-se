@@ -12,18 +12,18 @@ manager: cgronlun
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.custom: seodec18
-ms.openlocfilehash: b5109c9c93947118397c383cab3df90c02016ce3
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 61c380ee3427afdf40427ed82ed0fd5c4f1b49fd
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56652013"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56729023"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Konfigurera en utvecklingsmiljö för Azure Machine Learning
 
 I den här artikeln får du lära dig hur du konfigurerar en utvecklingsmiljö med Azure Machine Learning-tjänsten. Machine Learning-tjänsten är plattformsoberoende.
 
-De enda kraven för din utvecklingsmiljö är Python 3, Conda (för isolerade miljöer) och en konfigurationsfil som innehåller din information för Azure Machine Learning-arbetsytan.
+De enda kraven för din utvecklingsmiljö är Python 3, Anaconda (för isolerade miljöer) och en konfigurationsfil som innehåller din information för Azure Machine Learning-arbetsytan.
 
 Den här artikeln fokuserar på följande miljöer och verktyg:
 
@@ -139,20 +139,22 @@ Mer information finns i [virtuella datorer för datavetenskap](https://azure.mic
 
 ## <a id="local"></a>Lokal dator
 
-När du använder en lokal dator (som kanske en fjärransluten virtuell dator), skapa en Conda-miljö och installera SDK: N genom att göra följande:
+När du använder en lokal dator (som kanske en fjärransluten virtuell dator), skapa en Anaconda-miljö och installera SDK: N genom att göra följande:
 
 1. Ladda ned och installera [Anaconda](https://www.anaconda.com/distribution/#download-section) (Python 3.7 version) om du inte redan har den.
 
 1. Öppna en Anaconda-kommandotolk och skapa en miljö med följande kommandon:
 
+    Kör följande kommando för att skapa miljön.
+
     ```shell
     conda create -n myenv python=3.6.5
+    ```
 
-    # activate the Conda environment
+    Aktivera sedan miljön.
+
+    ```shell
     conda activate myenv
-
-    # On macOS run
-    source activate myenv
     ```
 
     Det här exemplet skapar en miljö med hjälp av python 3.6.5, men några specifika subversions kan väljas. Kanske inte kan garanteras SDK kompatibilitet med vissa huvudversioner (3.5 + rekommenderas), och vi rekommenderar att du prova en annan version/subversion i miljön Anaconda om du stöter på fel. Det tar flera minuter att skapa miljön medan komponenter och paket laddas ned.
@@ -188,7 +190,7 @@ När du använder en lokal dator (som kanske en fjärransluten virtuell dator), 
    >
    > `pip install --upgrade azureml-sdk[notebooks,automl] azureml-dataprep --ignore-installed PyYAML`
 
-   Det tar flera minuter att installera SDK.
+   Det tar flera minuter att installera SDK. Se den [installationsguide](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) mer information om installationsalternativ.
 
 1. Installera andra paket för din machine learning-experimentering.
 
@@ -286,7 +288,7 @@ Förbereda din Databricks-klustret och får exempelanteckningsböcker:
     | VM-typer för Worker-nod | Minnesoptimerade virtuella datorer rekommenderas |
     | Aktivera automatisk skalning | Avmarkera |
 
-    Antalet arbetarnoder i Databricks-klustret anger det maximala antalet samtidiga iterationer i inställningarna för automatisk ML.
+    Antalet arbetarnoder i Databricks-klustret anger det maximala antalet samtidiga iterationer i automatiserade machine learning-konfiguration.
 
     Det tar några minuter att skapa klustret. Vänta tills klustret körs innan du fortsätter.
 

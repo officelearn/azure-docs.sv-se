@@ -4,11 +4,11 @@ ms.author: bwren
 ms.service: azure-monitor
 ms.topic: include
 ms.date: 01/19/2019
-ms.openlocfilehash: 281162d31bc42cc6333acbe4cc4385ae86506743
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: a108cb5b7e9ec32c83c6ed6d3c4f0be03142393f
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56005961"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56740745"
 ---
-Använd [logganalys]() att skapa frågor och analysera loggdata i Azure Monitor genom att klicka på **loggar** i den **Azure Monitor** menyn i Azure-portalen. 
+Använd log analytics för att skapa frågor och analysera loggdata i Azure Monitor genom att klicka på **loggar** i den **Azure Monitor** menyn i Azure-portalen. 

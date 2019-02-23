@@ -8,12 +8,12 @@ ms.date: 02/17/2019
 ms.topic: conceptual
 ms.author: raynew
 manager: carmonm
-ms.openlocfilehash: 74b6d953939a569a3240c9d64134d143dc4f179e
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: 0544782763bebac42b4b68fda42cff80b18ff067
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56430852"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56670742"
 ---
 # <a name="support-matrix-for-backup-with-microsoft-azure-backup-serversystem-center-dpm"></a>Stödmatris för säkerhetskopiering med Microsoft Azure Backup Server/System Center DPM
 
@@ -75,7 +75,7 @@ Azure Backup kan säkerhetskopiera MABS/DPM som kör något av följande operati
 --- | --- 
 **MABS på en Azure virtuell dator** | Windows Server 2012 R2<br/><br/> Windows 2016 Datacenter<br/><br/> Windows 2019 Datacenter<br/><br/> Vi rekommenderar att du börjar med en avbildning från marketplace.<br/><br/> Minsta A2 Standard med två kärnor och 3,5 GB RAM-minne. 
 **DPM på en Azure virtuell dator** | System Center 2012 R2 med uppdatering 3 eller senare.<br/><br/> Windows-operativsystemet som [krävs av System Center](https://docs.microsoft.com/system-center/dpm/prepare-environment-for-dpm?view=sc-dpm-1807#dpm-server).<br/><br/> Vi rekommenderar att du börjar med en avbildning från marketplace.<br/><br/> Minsta A2 Standard med två kärnor och 3,5 GB RAM-minne. 
-**MABS på plats** | 64-bitars operativsystem som stöds:<br/><br/> -MABS v3 och senare: Windows Server 2019 (Standard, Datacenter, Essentials) <br/><br/> MABS v2 och senare: Windows Server 2016 (Standard, Datacenter, Essentials)<br/><br/> Alla MABS-versioner: Windows Server 2012 R2/2012 (Standard, Datacenter, Foundation)<br/><br/>Alla MABS-versioner: Windows Storage Server 2012 R2/2012 (Standard/Workgroup)
+**MABS på plats** | 64-bitars operativsystem som stöds:<br/><br/> MABS v3 och senare: Windows Server 2019 (Standard, Datacenter, Essentials) <br/><br/> MABS v2 och senare: Windows Server 2016 (Standard, Datacenter, Essentials)<br/><br/> Alla MABS-versioner: Windows Server 2012 R2/2012 (Standard, Datacenter, Foundation)<br/><br/>Alla MABS-versioner: Windows Storage Server 2012 R2/2012 (Standard/Workgroup)
 **DPM på plats** | Fysiska servern/Hyper-V virtuell dator: System Center 2012 SP1 eller senare.<br/><br/> VMware VM: System Center 2012 R2 med uppdatering 5 eller senare. 
 
 
@@ -106,7 +106,7 @@ Du kan distribuera MABS på en Azure Stack-VM så att du kan hantera säkerhetsk
 .NET framework på MABS | MABS VM måste .NET Framework 3.3 SP1 eller installerat senare på den.
 **MABS-domän** | MABS VM måste vara ansluten till en domän. En domänanvändare med administratörsprivilegier måste installera MABS på den virtuella datorn.
 **Azure Stack-VM-säkerhetskopiering** | Du kan säkerhetskopiera filer, mappar och appar.
-**Stöds backup** | Dessa operativsystem har stöd för virtuella datorer du vill säkerhetskopiera:<br/><br/> – Windows Server Halvårskanal (Datacenter/Enterprise/Standard)<br/><br/> Windows Server 2016/2012 R2/2012/2008 R2.
+**Stöds backup** | Dessa operativsystem har stöd för virtuella datorer du vill säkerhetskopiera:<br/><br/> Windows Server Halvårskanal (Datacenter/Enterprise/Standard)<br/><br/> Windows Server 2016/2012 R2/2012/2008 R2.
 **SQL-stöd för virtuella datorer i Azure Stack** | Säkerhetskopiera SQL Server 2016/2014/2012 SP1.<br/><br/> Säkerhetskopiera och återställa databasen.
 **SharePoint-stöd för virtuella datorer i Azure Stack** | SharePoint 2016/2013/2010.<br/><br/> Säkerhetskopiera och återställa servergrupp, databas, klientdel, webbserver.
 **Krav för säkerhetskopierade virtuella datorer** | Alla virtuella datorer i Azure Stack-arbetsbelastningen måste vara till samma virtuella nätverk och tillhöra samma prenumeration.
@@ -220,4 +220,4 @@ I följande tabell sammanfattas vad kan säkerhetskopieras till DPM från lokala
 - [Läs mer](backup-architecture.md#architecture-back-up-to-dpmmabs) om MABS-arkitekturen.
 - [Granska](backup-support-matrix-mars-agent.md) vad som stöds för MARS-agenten.
 - [Konfigurera](backup-azure-microsoft-azure-backup.md) en MABS-server.
-- [Konfigurera] (https://docs.microsoft.com/system-center/dpm/install-dpm?view=sc-dpm-180
+- [Konfigurera DPM](https://docs.microsoft.com/system-center/dpm/install-dpm?view=sc-dpm-180)

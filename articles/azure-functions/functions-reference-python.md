@@ -13,12 +13,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/16/2018
 ms.author: glenga
-ms.openlocfilehash: dadb645067a0f6cac436d638a829ac4c0937bd60
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: 8fa093d629eb7c655ea277b1d57f35193394f722
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54304397"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56730009"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Utvecklarguide för Azure Functions Python
 
@@ -109,7 +109,7 @@ Delad kod ska behållas i en separat mapp. Om du vill referera moduler i mappen 
 from ..SharedCode import myFirstHelperFunction
 ```
 
-Tillägg av bindning används av Functions-körning har definierats i den `extensions.csproj` -fil med faktiska library-filer i den `bin` mapp. När du utvecklar lokalt, måste du [registrera tillägg av bindning](functions-triggers-bindings.md#local-development-azure-functions-core-tools) med hjälp av Azure Functions Core Tools. 
+Tillägg av bindning används av Functions-körning har definierats i den `extensions.csproj` -fil med faktiska library-filer i den `bin` mapp. När du utvecklar lokalt, måste du [registrera tillägg av bindning](./functions-bindings-register.md#local-development-azure-functions-core-tools) med hjälp av Azure Functions Core Tools. 
 
 När du distribuerar en Functions-projekt till funktionsappen i Azure, ska hela innehållet i mappen FunctionApp tas med i paketet, men inte själva mappen.
 

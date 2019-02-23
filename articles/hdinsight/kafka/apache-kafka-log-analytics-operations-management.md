@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/15/2018
-ms.openlocfilehash: 69eaa0028f1115cafbd1ed28b66940d7faaed062
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 0862bcb2c04f3a8cd46a5e60644ebbb8c7735e51
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53608553"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56729975"
 ---
 # <a name="analyze-logs-for-apache-kafka-on-hdinsight"></a>Analysera loggar för Apache Kafka på HDInsight
 
@@ -66,11 +66,11 @@ Stegen för att aktivera Log Analytics för HDInsight är desamma för alla HDIn
     | ---- | ---- |
     | log\_kafkaserver\_CL | Kafka broker server.log |
     | log\_kafkacontroller\_CL | Kafka broker controller.log |
-    | mått\_kafka\_CL | Kafka JMX-mätvärden |
+    | metrics\_kafka\_CL | Kafka JMX metrics |
 
     ![Bild av CPU-användning sökningen](./media/apache-kafka-log-analytics-operations-management/kafka-cpu-usage.png)
  
- ## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Nästa steg
 
 Mer information om Log Analytics finns det [Kom igång med Log Analytics-arbetsytan](../../log-analytics/log-analytics-get-started.md) dokumentet.
 

@@ -1,6 +1,6 @@
 ---
-title: Hantera program och kontroller för Azure AD-åtkomstgranskningar | Microsoft Docs
-description: Du kan skapa ytterligare program för varje styrning, riskhantering och regelefterlevnad initiativ i din organisation kan samla och ordna Azure Active Directory-åtkomstgranskningar som kontroller.
+title: Hantera program och kontroller för Azure AD-Åtkomstgranskningar | Microsoft Docs
+description: Lär dig hur du skapar fler program för varje styrning, riskhantering och regelefterlevnad initiativ i din organisation kan samla och ordna Azure Active Directory-Åtkomstgranskningar som kontroller.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -16,14 +16,14 @@ ms.date: 06/21/2018
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 78f4c978a04a7589e71ba39676e06ca5cc37f579
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 0ea210c79833ad9e070253a9511cae539730a8d5
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56170677"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56731420"
 ---
-# <a name="manage-programs-and-their-controls"></a>Hantera program och deras kontroller 
+# <a name="manage-programs-and-controls-for-azure-ad-access-reviews"></a>Hantera program och kontroller för Azure AD-Åtkomstgranskningar
 
 Azure Active Directory (Azure AD) innehåller åtkomstgranskningar för gruppmedlemmar och programåtkomst. Dessa exempel på kontroller Kontrollera tillsyn för vem som har åtkomst till din organisations gruppmedlemskap och program. Organisationer kan använda dessa kontroller för att effektivt hantera sina styrning, riskhantering och efterlevnadskrav.
 
@@ -38,5 +38,5 @@ Om du inte längre behöver ett program och den inte redan har alla kontroller s
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Skapa en åtkomstgranskning för medlemmar i en grupp eller åtkomst till ett program](create-access-review.md)
-- [Hämta resultaten för en åtkomstgranskning](retrieve-access-review.md)
+- [Skapa en åtkomstgranskning av grupper eller program](create-access-review.md)
+- [Hämta åtkomstgranskningsresultat för grupper eller program](retrieve-access-review.md)

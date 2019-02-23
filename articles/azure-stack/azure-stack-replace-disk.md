@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/22/2019
 ms.author: mabrigg
 ms.lastreviewed: 01/22/2019
-ms.openlocfilehash: 0a73119c7d079498f0e766fb92904c86ff5131c8
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 4fb2a398baa306cf9303284526bb43cd7f778441
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55767230"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56734633"
 ---
 # <a name="replace-a-physical-disk-in-azure-stack"></a>Ersätta en fysisk disk i Azure Stack
 
@@ -39,7 +39,7 @@ När en disk misslyckas, kan du få ett meddelande som talar om att anslutningen
 
 Om du öppnar aviseringen innehåller varningsbeskrivningen noden skala enhet och plats exakta fysiska platsen för den disk som du måste ersätta. Ytterligare Azure Stack hjälper dig att identifiera den skadade disken med hjälp av LED indikator funktionerna.
 
- ## <a name="replace-the-disk"></a>Ersätt disken
+## <a name="replace-the-disk"></a>Ersätt disken
 
 Följ instruktionerna för din OEM maskinvaruleverantörens FRU för faktiska diskbyte.
 
@@ -50,7 +50,7 @@ Om du vill förhindra användning av en disk som inte stöds i ett integrerat sy
 
 När du ersätter disken identifieras den nya disken automatiskt i Azure Stack och startar reparationsprocessen virtuell disk.
  
- ## <a name="check-the-status-of-virtual-disk-repair"></a>Kontrollera status för virtuell disk reparation
+## <a name="check-the-status-of-virtual-disk-repair"></a>Kontrollera status för virtuell disk reparation
  
  När du ersätter disken kan du övervaka hälsostatus för virtuell disk och reparera jobbförlopp genom att använda privilegierad slutpunkt. Följ dessa steg från alla datorer som har en nätverksanslutning till privilegierad slutpunkt.
 

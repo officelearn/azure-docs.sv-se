@@ -12,18 +12,18 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 2/19/2019
 ms.author: douglasl
-ms.openlocfilehash: b672264e1cb3cd415532cf4bcfbbd268afffa70d
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: 77ee2a0649d5c815fb68a4a40106455839030695
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56415945"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56671530"
 ---
 # <a name="enable-azure-active-directory-authentication-for-azure-ssis-integration-runtime"></a>Aktivera Azure Active Directory-autentisering för Azure-SSIS Integration Runtime
 
 Den här artikeln visar hur du aktiverar Azure Active Directory (Azure AD)-autentisering med den hanterade identitet för din Azure Data Factory (ADF) och använda den i stället för SQL-autentisering för att skapa en Azure-SSIS Integration Runtime (IR) som i sin tur skapar SSIS katalogdatabasen (SSISDB) i Azure SQL Database-server/hanterad instans för din räkning.
 
-Mer information om den hanterade identitet för din ADF finns i [tjänstidentitet för Azure Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity).
+Mer information om den hanterade identitet för din ADF finns i [hanterade identiy för Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity).
 
 > [!NOTE]
 > Om du redan har skapat en Azure-SSIS IR med SQL-autentisering, du kan inte konfigurera om din IR för att använda Azure AD-autentisering med PowerShell just nu, men du kan göra det i Azure portal/ADF-app. 
@@ -57,7 +57,7 @@ Du kan använda en befintlig Azure AD-grupp eller skapa en ny med hjälp av Azur
     6de75f3c-8b2f-4bf4-b9f8-78cc60a18050 SSISIrGroup
     ```
 
-3.  Lägg till hanterad identitet för din ADF i gruppen. Du kan följa artikeln [tjänstidentitet för Azure Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity) att hämta den huvudsakliga TJÄNSTIDENTITETS-ID (t.ex. 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc, men Använd inte tjänsten IDENTITETSPROGRAM-ID för detta ändamål).
+3.  Lägg till hanterad identitet för din ADF i gruppen. Du kan följa artikeln [hanterade identiy för Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity) att hämta den huvudsakliga TJÄNSTIDENTITETS-ID (t.ex. 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc, men Använd inte tjänsten IDENTITETSPROGRAM-ID för detta ändamål).
 
     ```powershell
     Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc
@@ -167,7 +167,7 @@ För den här nästa steg behöver du [Microsoft SQL Server Management Studio](
 
 4.  Högerklicka på **master** databasen och välj **ny fråga**.
 
-5.  Hämta den hanterade identitet för din ADF. Du kan följa artikeln [tjänstidentitet för Azure Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity) att hämta huvudnamn SERVICE IDENTITY program-ID (men inte använder TJÄNSTIDENTITETS-ID för detta ändamål).
+5.  Hämta den hanterade identitet för din ADF. Du kan följa artikeln [hanterade identiy för Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity) att hämta huvudnamn SERVICE IDENTITY program-ID (men inte använder TJÄNSTIDENTITETS-ID för detta ändamål).
 
 6.  I frågefönstret kör du följande T-SQL-skript för att konvertera den hanterade identitet för din ADF till typen binary:
 

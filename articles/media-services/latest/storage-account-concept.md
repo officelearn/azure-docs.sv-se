@@ -9,16 +9,16 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 02/21/2019
 ms.author: juliako
-ms.openlocfilehash: d49d056ab84b60389df8bcaf1c75d6224633863d
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 471bc34272b8e141c8640bd218bdafd840850d24
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56337876"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56672278"
 ---
-# <a name="cloud-upload-and-storage"></a>Molnöverföring och lagring
+# <a name="cloud-upload-and-storage"></a>Uppladdning till och lagring i molnet
 
 Om du vill börja hantera, kryptera, kodning, analysera och strömma medieinnehåll i Azure, måste du skapa ett Media Services-konto. När du skapar ett Media Services-konto, måste du ange namnet på en Azure Storage-kontoresurs. Det angivna lagringskontot kopplas till ditt Media Services-konto. 
 
@@ -30,6 +30,8 @@ Du måste ha ett **primärt** lagringskonto, men du kan även ha flera **sekund�
 > Endast blob-konton tillåts inte som **primära**. 
 
 Vi rekommenderar att du använder GPv2, så att du kan dra nytta av att välja mellan frekvent och lågfrekvent lagringsnivå. Mer information om lagringskonton finns [översikt över Azure Storage-konto](../../storage/common/storage-account-overview.md). 
+
+Det finns olika SKU: er som du kan välja för ditt lagringskonto. Mer information finns i [lagringskonton](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest). Om du vill experimentera med storage-konton kan använda `--sku Standard_LRS`. Men när du väljer en SKU för produktion bör du, `--sku Standard_RAGRS`, vilket ger geografiska replikering för affärskontinuitet. 
 
 ## <a name="assets-in-a-storage-account"></a>Tillgångar i ett lagringskonto
 

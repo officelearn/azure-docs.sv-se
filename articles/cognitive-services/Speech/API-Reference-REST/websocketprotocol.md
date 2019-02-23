@@ -10,12 +10,13 @@ ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 1d6c0a8ca04949216e6410ff81b15f79c7067522
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ROBOTS: NOINDEX,NOFOLLOW
+ms.openlocfilehash: 35f1d75f28271cd7efc2911fe14de9ed6b525557
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55217296"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56671751"
 ---
 # <a name="bing-speech-websocket-protocol"></a>Bing Speech WebSocket-protokoll
 
@@ -77,7 +78,7 @@ Content-Length: 0
 
 Informationen i följande huvudet måste anges för tokenåtkomst.
 
-| Name | Format | Beskrivning |
+| Namn | Format | Beskrivning |
 |----|----|----|
 | OCP-Apim-Subscription-Key | ASCII | Din prenumerationsnyckel |
 
@@ -131,13 +132,13 @@ WebSocket textmeddelanden måste ange en sökväg för meddelandet i rubriken *s
 
 ### <a name="binary-websocket-messages"></a>Binär WebSocket-meddelanden
 
-Binär WebSocket-meddelanden har en binär nyttolast. I Speech Service-protokollet är ljud skickas till och tas emot från tjänsten med hjälp av binär WebSocket-meddelanden. Alla andra meddelanden är WebSocket textmeddelanden. 
+Binär WebSocket-meddelanden har en binär nyttolast. I Speech Service-protokollet är ljud skickas till och tas emot från tjänsten med hjälp av binär WebSocket-meddelanden. Alla andra meddelanden är WebSocket textmeddelanden.
 
 Som WebSocket SMS, binär WebSocket-meddelanden som består av en rubrik och en brödtext-avsnittet. De första 2 byte av binära WebSocket-meddelandet anger, i [big endian](https://en.wikipedia.org/wiki/Endianness) ordning 16-bitars heltal-storlek för den. Den minsta huvudstorlek som avsnittet är 0 byte. Den maximala storleken är 8 192 byte. Texten i rubrikerna för binära WebSocket meddelanden *måste* använder [US-ASCII](https://tools.ietf.org/html/rfc20) kodning.
 
 Rubriker i ett binärt WebSocket-meddelande kodas på samma sätt som WebSocket textmeddelanden. Den *namnvärdet:* format avgränsade med ett enda vagnretur ny rad-par. Binär WebSocket-meddelanden måste ange en sökväg för meddelandet i rubriken *sökvägen*. Värdet för den här rubriken måste vara något av de tal protokoll meddelande-typer som definieras längre fram i det här dokumentet.
 
-Både text och binära WebSocket-meddelanden används i Speech Service-protokollet. 
+Både text och binära WebSocket-meddelanden används i Speech Service-protokollet.
 
 ## <a name="client-originated-messages"></a>Klienten kommer meddelanden
 
@@ -149,7 +150,7 @@ De huvudsakliga meddelanden som skickas av klienten till tjänsterna är `speech
 
 Följande huvuden krävs för alla klient-genererade meddelanden.
 
-| Sidhuvud | Value |
+| Huvud | Värde |
 |----|----|
 | Sökväg | Meddelande-sökvägen som anges i det här dokumentet |
 | X-RequestId | UUID i ”no-dash”-format |
@@ -174,20 +175,20 @@ Klienter *måste* skicka en `speech.config` meddelandet omedelbart efter att de 
 | Fält | Beskrivning |
 |----|----|
 | Kodning av WebSocket-meddelande | Text |
-| Meddelandetext | Nyttolasten som en JSON-struktur |
+| Innehåll | Nyttolasten som en JSON-struktur |
 
 #### <a name="required-message-headers"></a>Meddelandet krävs rubriker
 
-| Huvudnamn | Value |
+| Huvudnamn | Värde |
 |----|----|
 | Sökväg | `speech.config` |
 | X-Timestamp | Klienten UTC klockan tidsstämpel i ISO 8601-format |
-| Innehållstyp | application/json; charset=utf-8 |
+| Content-Type | application/json; charset=utf-8 |
 
 Precis som med alla klient-genererade meddelanden i Speech Service-protokollet, den `speech.config` meddelande *måste* inkluderar en *X-tidsstämpel* -huvud som registrerar klient UTC-clock-tid när meddelandet har skickats till tjänsten. Den `speech.config` meddelande *inte* kräver en *X-RequestId* rubrik eftersom det här meddelandet är inte kopplad till en viss tal-begäran.
 
 #### <a name="message-payload"></a>Meddelandenyttolast
-Nyttolasten för den `speech.config` meddelandet är en JSON-struktur som innehåller information om programmet. I följande exempel visas den här informationen. Klient och enhet kontextinformation ingår i den *kontext* element i JSON-strukturen. 
+Nyttolasten för den `speech.config` meddelandet är en JSON-struktur som innehåller information om programmet. I följande exempel visas den här informationen. Klient och enhet kontextinformation ingår i den *kontext* element i JSON-strukturen.
 
 ```JSON
 {
@@ -243,18 +244,18 @@ Taltjänsten använder först `audio` meddelande som innehåller en om unika beg
 | Fält | Beskrivning |
 |-------------|----------------|
 | Kodning av WebSocket-meddelande | Binär |
-| Meddelandetext | Binära data för ljud segment. Maximal storlek är 8 192 byte. |
+| Innehåll | Binära data för ljud segment. Maximal storlek är 8 192 byte. |
 
 #### <a name="required-message-headers"></a>Meddelandet krävs rubriker
 
 Följande huvuden krävs för alla `audio` meddelanden.
 
-| Sidhuvud         |  Value     |
+| Huvud         |  Värde     |
 | ------------- | ---------------- |
 | Sökväg | `audio` |
 | X-RequestId | UUID i ”no-dash”-format |
 | X-Timestamp | Klienten UTC klockan tidsstämpel i ISO 8601-format |
-| Innehållstyp | Ljud innehållstyp. Typen måste vara antingen *wav-ljud/x* (PCM) eller *ljud/silke* (silke). |
+| Content-Type | Ljud innehållstyp. Typen måste vara antingen *wav-ljud/x* (PCM) eller *ljud/silke* (silke). |
 
 #### <a name="supported-audio-encodings"></a>Ljud kodningar som stöds
 
@@ -309,8 +310,8 @@ Klienter måste godkänna en aktivera är slut genom att skicka en `telemetry` m
 | Kodning av WebSocket-meddelande | Text |
 | Sökväg | `telemetry` |
 | X-Timestamp | Klienten UTC klockan tidsstämpel i ISO 8601-format |
-| Innehållstyp | `application/json` |
-| Meddelandetext | En JSON-struktur som innehåller klientens information om i sin tur |
+| Content-Type | `application/json` |
+| Innehåll | En JSON-struktur som innehåller klientens information om i sin tur |
 
 Schemat för innehållet i den `telemetry` meddelande definieras i den [telemetri schemat](#telemetry-schema) avsnittet.
 
@@ -330,8 +331,8 @@ Den `speech.startDetected` meddelandet anger att Speech Service påträffas tal 
 | ------------- | ---------------- |
 | Kodning av WebSocket-meddelande | Text |
 | Sökväg | `speech.startDetected` |
-| Innehållstyp | application/json; charset=utf-8 |
-| Meddelandetext | JSON-strukturen som innehåller information om villkor när början av tal har identifierats. Den *Offset* fält i den här strukturen anger förskjutningen (i 100 nanosekunder enheter) när tal har upptäckts i ljudström, i förhållande till början av strömmen. |
+| Content-Type | application/json; charset=utf-8 |
+| Innehåll | JSON-strukturen som innehåller information om villkor när början av tal har identifierats. Den *Offset* fält i den här strukturen anger förskjutningen (i 100 nanosekunder enheter) när tal har upptäckts i ljudström, i förhållande till början av strömmen. |
 
 #### <a name="sample-message"></a>Exempelmeddelande
 
@@ -356,8 +357,8 @@ Taligenkänning genererar Speech Service regelbundet hypoteser om orden tjänste
 | Kodning av WebSocket-meddelande | Text |
 | Sökväg | `speech.hypothesis` |
 | X-RequestId | UUID i ”no-dash”-format |
-| Innehållstyp | application/json |
-| Meddelandetext | Tal hypotesen JSON-struktur |
+| Content-Type | application/json |
+| Innehåll | Tal hypotesen JSON-struktur |
 
 #### <a name="sample-message"></a>Exempelmeddelande
 
@@ -387,8 +388,8 @@ När Speech Service anger att det finns tillräckligt med information för att p
 | ------------- | ---------------- |
 | Kodning av WebSocket-meddelande | Text |
 | Sökväg | `speech.phrase` |
-| Innehållstyp | application/json |
-| Meddelandetext | Tal frasen JSON-struktur |
+| Content-Type | application/json |
+| Innehåll | Tal frasen JSON-struktur |
 
 Tal frasen JSON-schemat innehåller följande fält: `RecognitionStatus`, `DisplayText`, `Offset`, och `Duration`. Läs mer om de här fälten, [avskrift svar](../concepts.md#transcription-responses).
 
@@ -415,8 +416,8 @@ Den `speech.endDetected` meddelandet anger att klientprogrammet ska avbrytas str
 | ------------- | ---------------- |
 | Kodning av WebSocket-meddelande | Text |
 | Sökväg | `speech.endDetected` |
-| Meddelandetext | JSON-strukturen som innehåller förskjutningen när slutet av tal har identifierats. Förskjutningen representeras i enheter om 100 nanosekunder förskjutning från början av ljud som används för taligenkänning. |
-| Innehållstyp | application/json; charset=utf-8 |
+| Innehåll | JSON-strukturen som innehåller förskjutningen när slutet av tal har identifierats. Förskjutningen representeras i enheter om 100 nanosekunder förskjutning från början av ljud som används för taligenkänning. |
+| Content-Type | application/json; charset=utf-8 |
 
 #### <a name="sample-message"></a>Exempelmeddelande
 
@@ -440,8 +441,8 @@ Den `turn.start` följs av en aktivera perspektiv av tjänsten. Den `turn.start`
 | ------------- | ---------------- |
 | Kodning av WebSocket-meddelande | Text |
 | Sökväg | `turn.start` |
-| Innehållstyp | application/json; charset=utf-8 |
-| Meddelandetext | JSON-struktur |
+| Content-Type | application/json; charset=utf-8 |
+| Innehåll | JSON-struktur |
 
 #### <a name="sample-message"></a>Exempelmeddelande
 
@@ -467,7 +468,7 @@ Den `turn.end` signalerar till slutet av ett varv perspektiv av tjänsten. Den `
 | ------------- | ---------------- |
 | Kodning av WebSocket-meddelande | Text |
 | Sökväg | `turn.end` |
-| Meddelandetext | Ingen |
+| Innehåll | Ingen |
 
 #### <a name="sample-message"></a>Exempelmeddelande
 
@@ -507,8 +508,8 @@ Den `Connection` mått anger information om anslutningsförsök av klienten. Må
 
 | Fält | Beskrivning | Användning |
 | ----- | ----------- | ----- |
-| Name | `Connection` | Krävs |
-| ID | Anslutningen ID-värde som användes i den *X ConnectionId* rubriken för den här begäran om anslutning | Krävs |
+| Namn | `Connection` | Krävs |
+| Id | Anslutningen ID-värde som användes i den *X ConnectionId* rubriken för den här begäran om anslutning | Krävs |
 | Start | Tiden när klienten har skickat anslutningsbegäran | Krävs |
 | Slut | Tiden när klienten tog emot meddelande att anslutningen har upprättats har eller, i fall av Schemaläggningsfel, avvisat nekade eller misslyckades | Krävs |
 | Fel | En beskrivning av felet som har inträffat, om sådana. Om en anslutning har upprättats, utelämna klienter det här fältet. Den maximala längden på det här fältet är 50 tecken. | Krävs för fall av Schemaläggningsfel, annars utelämnas |
@@ -521,13 +522,13 @@ Felbeskrivningen ska vara högst 50 tecken och vi är en av de värden som anges
 | NoNetwork | Klienten skulle en anslutning, men nätverksstacken rapporterade att det fanns inga fysiska nätverk. |
 | NoAuthorization | Klientanslutningen misslyckades vid försök att erhålla en Autentiseringstoken för anslutningen. |
 | NoResources | Klienten tog slut några lokala resurser (till exempel minne) när du försöker upprätta en anslutning. |
-| Förbjuden | Klienten kunde inte ansluta till tjänsten eftersom tjänsten returnerade ett HTTP `403 Forbidden` statuskod på WebSocket-uppgraderingsförfrågan. |
-| Ej auktoriserad | Klienten kunde inte ansluta till tjänsten eftersom tjänsten returnerade ett HTTP `401 Unauthorized` statuskod på WebSocket-uppgraderingsförfrågan. |
+| Förbjudna | Klienten kunde inte ansluta till tjänsten eftersom tjänsten returnerade ett HTTP `403 Forbidden` statuskod på WebSocket-uppgraderingsförfrågan. |
+| Behörighet saknas | Klienten kunde inte ansluta till tjänsten eftersom tjänsten returnerade ett HTTP `401 Unauthorized` statuskod på WebSocket-uppgraderingsförfrågan. |
 | BadRequest | Klienten kunde inte ansluta till tjänsten eftersom tjänsten returnerade ett HTTP `400 Bad Request` statuskod på WebSocket-uppgraderingsförfrågan. |
 | ServerUnavailable | Klienten kunde inte ansluta till tjänsten eftersom tjänsten returnerade ett HTTP `503 Server Unavailable` statuskod på WebSocket-uppgraderingsförfrågan. |
 | ServerError | Klienten kunde inte ansluta till tjänsten eftersom tjänsten returnerade ett `HTTP 500` interna felkoden på WebSocket-uppgraderingsförfrågan. |
-| Tidsgräns | Klientens begäran om anslutning uppnåddes utan ett svar från tjänsten. Den *slutet* fältet innehåller den tidpunkt då klienten tidsgränsen och stoppats och väntar anslutningen. |
-| ClientError | Anslutningen avbröts av klienten på grund av ett internt fel. | 
+| Timeout | Klientens begäran om anslutning uppnåddes utan ett svar från tjänsten. Den *slutet* fältet innehåller den tidpunkt då klienten tidsgränsen och stoppats och väntar anslutningen. |
+| ClientError | Anslutningen avbröts av klienten på grund av ett internt fel. |
 
 ### <a name="metric-microphone"></a>Mått `Microphone`
 
@@ -547,7 +548,7 @@ Den *slutet* tid värde för den `Microphone` mått registrerar tiden när klien
 
 | Fält | Beskrivning | Användning |
 | ----- | ----------- | ----- |
-| Name | Mikrofon | Krävs |
+| Namn | Mikrofon | Krävs |
 | Start | Tiden när klienten komma igång med in ljud från mikrofonen eller andra ljudström eller tog emot en utlösare från nyckelordet spotter | Krävs |
 | Slut | Tiden när klienten helt slutat använda dataströmmen mikrofon eller ljud | Krävs |
 | Fel | En beskrivning av felet som har inträffat, om sådana. Om mikrofon åtgärderna hade önskat resultat, utelämna klienter det här fältet. Den maximala längden på det här fältet är 50 tecken. | Krävs för fall av Schemaläggningsfel, annars utelämnas |
@@ -567,7 +568,7 @@ Använd följande exempel som riktlinjer för inspelning *starta* och *slutet* t
 
 | Fält | Beskrivning | Användning |
 | ----- | ----------- | ----- |
-| Name | ListeningTrigger | Valfritt |
+| Namn | ListeningTrigger | Valfri |
 | Start | Tidpunkten då klienten lyssnande utlösaren startades | Krävs |
 | Slut | Tidpunkten då klienten lyssnande utlösaren avslutades | Krävs |
 | Fel | En beskrivning av felet som har inträffat, om sådana. Om utlösaråtgärden lyckades utelämna klienter det här fältet. Den maximala längden på det här fältet är 50 tecken. | Krävs för fall av Schemaläggningsfel, annars utelämnas |
@@ -636,7 +637,7 @@ Om Speech Service identifierar överträdelser protokollet från en klient, tjä
 
 #### <a name="incorrect-message-format"></a>Felaktig meddelandeformat
 
-Om en klient skickar en text eller binära meddelandet till den tjänst som inte har kodats i rätt format som anges i den här specifikationen, tjänsten stängs anslutningen med en *1007 Ogiltig nyttolast Data* statuskod. 
+Om en klient skickar en text eller binära meddelandet till den tjänst som inte har kodats i rätt format som anges i den här specifikationen, tjänsten stängs anslutningen med en *1007 Ogiltig nyttolast Data* statuskod.
 
 Tjänsten returnerar den här statuskoden för en mängd orsaker, som visas i följande exempel:
 
@@ -691,7 +692,7 @@ Ett annat exempel är att anta att en användare talar nyckelordet-utlösare fö
 | 400 Felaktig förfrågan | Klienten har skickat en begäran om anslutning WebSocket som var felaktig. | Kontrollera att du har angett alla obligatoriska parametrar och HTTP-huvuden och att värden är korrekta. |
 | 401 Ej behörig | Klienten innehöll inte de nödvändiga auktoriseringsinformationen. | Kontrollera att du skickar den *auktorisering* rubrik i WebSocket-anslutning. |
 | 403 Åtkomst nekas | Klienten har skickat auktoriseringsinformation, men det var ogiltig. | Kontrollera att du inte skickar ett värde som har upphört att gälla eller är ogiltig den *auktorisering* rubrik. |
-| 404 Kunde ej hittas | Klienten försökte komma åt en URL-sökväg som inte stöds. | Kontrollera att du använder rätt Webbadress för WebSocket-anslutning. |
+| 404 Hittades inte | Klienten försökte komma åt en URL-sökväg som inte stöds. | Kontrollera att du använder rätt Webbadress för WebSocket-anslutning. |
 | 500 Server Error | Tjänsten påträffade ett internt fel och det gick inte att utföra den begärda åtgärden. | I de flesta fall är det här felet är tillfälligt. Gör om begäran. |
 | 503 Tjänsten är inte tillgänglig | Tjänsten kunde inte hantera begäran. | I de flesta fall är det här felet är tillfälligt. Gör om begäran. |
 

@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/19/2019
 ms.author: glenga
-ms.openlocfilehash: ab502c25a632977065e55d2eeafd684203636b14
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: a2e07f9022d7404d037903fda627649918134cb7
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56109919"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56732746"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Så här använder du Azure WebJobs SDK för händelsedrivna Bakgrundsbearbetning
 
@@ -212,7 +212,7 @@ static void Main(string[] args)
 
 Indatabindningar tillhandahåller en deklarativ metod för att göra data från Azure eller tjänster från tredje part tillgängliga för din kod. Utdatabindningar är ett sätt att uppdatera data. Den [Get artikeln](webjobs-sdk-get-started.md) visar ett exempel på var och en.
 
-Du kan använda metoden returvärdet för en utdatabindning genom att använda attributet returvärdet för metoden. Se exemplet i Azure Functions [utlösare och bindningar](../azure-functions/functions-triggers-bindings.md#using-the-function-return-value) artikeln.
+Du kan använda metoden returvärdet för en utdatabindning genom att använda attributet returvärdet för metoden. Se exemplet i Azure Functions [utlösare och bindningar](../azure-functions/functions-bindings-return-value.md) artikeln.
 
 ## <a name="binding-types"></a>Bindningstyper
 
@@ -445,13 +445,13 @@ public static void CreateThumbnail(
 }
 ```
 
-Läs mer om bindning uttryck [bindning uttryck och mönster](../azure-functions/functions-triggers-bindings.md#binding-expressions-and-patterns) i Azure Functions-dokumentationen.
+Läs mer om bindning uttryck [bindning uttryck och mönster](../azure-functions/functions-bindings-expressions-patterns.md) i Azure Functions-dokumentationen.
 
 ### <a name="custom-binding-expressions"></a>Anpassade bindningen uttryck
 
 Vill ibland du ange en kö, ett blobnamn eller behållare eller en tabell i kod i stället för hårdkoda ge den namnet. Du kanske exempelvis vill ange namnet på kön för den `QueueTrigger` attributet i en konfiguration av fil- eller miljö variabel.
 
-Du kan göra det genom att skicka in en `NameResolver` objekt till den `JobHostConfiguration` objekt. Du inkluderar platshållare i utlösaren eller bindande attributet konstruktor parametrar och din `NameResolver` kod innehåller de faktiska värdena som ska användas i stället för platshållarna. Platshållarna identifieras om de med procenttecken (%), som visas i följande exempel:
+Du kan göra det genom att skicka in en `NameResolver` objekt till den `JobHostConfiguration` objekt. Du inkluderar platshållare i utlösaren eller bindande attributet konstruktor parametrar och din `NameResolver` kod innehåller de faktiska värdena som ska användas i stället för platshållarna. Platshållarna identifieras om de med procent (%) loggar som visas i följande exempel:
 
 ```cs
 public static void WriteLog([QueueTrigger("%logqueue%")] string logMessage)

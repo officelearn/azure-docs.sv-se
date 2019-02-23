@@ -10,12 +10,13 @@ ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: fc40f20349e3424dbcf50f5ca0395b06a818566f
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ROBOTS: NOINDEX,NOFOLLOW
+ms.openlocfilehash: 9ee0abdf722d3dc6d0d332f3894943bd3a03a877
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55224062"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56671922"
 ---
 # <a name="quickstart-use-the-bing-speech-recognition-rest-api"></a>Snabbstart: Använd Bing-taligenkänning REST API
 
@@ -32,7 +33,7 @@ API för taligenkänning är en del av Cognitive Services (tidigare projekt Oxfo
 > [!IMPORTANT]
 >* Få en prenumerationsnyckel. Innan du kan komma åt REST API, måste du ha en [prenumerationsnyckel](https://azure.microsoft.com/try/cognitive-services/).
 >
->* Använd din prenumerationsnyckel. Ersätt YOUR_SUBSCRIPTION_KEY med din egen prenumerationsnyckel i följande REST-exempel. 
+>* Använd din prenumerationsnyckel. Ersätt YOUR_SUBSCRIPTION_KEY med din egen prenumerationsnyckel i följande REST-exempel.
 >
 >* Referera till den [autentisering](../how-to/how-to-authentication.md) för hur du hämtar en prenumerationsnyckel.
 

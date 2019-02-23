@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/12/2019
-ms.openlocfilehash: b706e229bed48c821d5ca772450df320fd7e0b7f
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: bb6ae9f97d681625218118b8adca116de1c0fb21
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56271991"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56728241"
 ---
 # <a name="create-azure-data-factory-data-flow"></a>Skapa Azure Data Factory-dataflöde
 
@@ -34,7 +34,12 @@ Du uppmanas att ange dina uppgifter för Azure Blob Storage-konto.
 
 [Data som används för de här exemplen finns här](https://github.com/kromerm/adfdataflowdocs/tree/master/sampledata). Ladda ned exempeldata och lagra filer i din Azure Blob storage-konton så att du kan använda exemplen.
 
+## <a name="create-new-data-flow"></a>Skapa nytt dataflöde
+
 Använd skapa resursen ”plus-tecknet”-knappen i ADF UI att skapa Data flödar
 
 ![Alternativ för Flow](media/data-flow/newresource.png "ny resurs")
 
+## <a name="next-steps"></a>Nästa steg
+
+Börja skapa din Dataomvandling med en [source omvandling](data-flow-source.md).

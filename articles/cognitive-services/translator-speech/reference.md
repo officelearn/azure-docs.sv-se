@@ -10,12 +10,13 @@ ms.subservice: translator-speech
 ms.topic: reference
 ms.date: 05/18/2018
 ms.author: v-jansko
-ms.openlocfilehash: c68d9c3d40ffa3d4a5a5ae635fbc0ea0a010239c
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ROBOTS: NOINDEX,NOFOLLOW
+ms.openlocfilehash: 3493f6d25461836d8f6e48ce4213b0f5b78b6372
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55874744"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56675117"
 ---
 # <a name="translator-speech-api"></a>Translator Speech API
 
@@ -90,7 +91,7 @@ Observera att total filstorlek (byte 4-7) och storleken på ”data” (byte 40-
 När du har skickat rubriken WAV (RIFF), skickar klienten segment av ljuddata. Klienten kommer normalt att strömma fast storlek segment som representerar en fast giltighetstid (t.ex. stream 100 MS med ljud i taget).
 
 ### <a name="signal-the-end-of-the-utterance"></a>Signal slutet av uttryck
-Translator Speech API returnerar avskriften och översättning av ljudströmmen som du skickar ljudet. Slutlig avskrift och sista översättningen översatta ljudet återgår till dig först efter slutet av uttryck. I vissa fall kanske du vill tvinga slutet av uttryck. Skicka 2,5 sekunders tystnad att tvinga slutet av uttryck. 
+Translator Speech API returnerar avskriften och översättning av ljudströmmen som du skickar ljudet. Slutlig avskrift och sista översättningen översatta ljudet återgår till dig först efter slutet av uttryck. I vissa fall kanske du vill tvinga slutet av uttryck. Skicka 2,5 sekunders tystnad att tvinga slutet av uttryck.
 
 ### <a name="final-result"></a>Slutresultatet
 En slutlig tal igenkänningsresultatet genereras i slutet av ett uttryck. Resultatet skickas till klienten med hjälp av ett WebSocket-meddelande av typen Text från tjänsten. Meddelandeinnehåll är JSON-serialisering för ett objekt med följande egenskaper:
@@ -112,7 +113,7 @@ Ett exempel slutresultat är följande:
 {
   type: "final"
   id: "23",
-  recognition: "what was said", 
+  recognition: "what was said",
   translation: "translation of what was said",
   audioStreamPosition: 319680,
   audioSizeBytes: 35840,
@@ -143,7 +144,7 @@ Ett exempel slutresultat är följande:
 {
   type: "partial"
   id: "23.2",
-  recognition: "what was", 
+  recognition: "what was",
   translation: "translation of what was",
   audioStreamPosition: 319680,
   audioSizeBytes: 25840,
@@ -193,46 +194,3 @@ När ett klientprogram har slutförts strömning av ljud och har tagit emot de s
 |401    |Ej auktoriserad. Kontrollera att autentiseringsuppgifterna är inställda att de är giltiga och att din Azure Data marknaden prenumeration är i gott med en tillgänglig balans.|||
 |500    |Ett fel uppstod. Om felet kvarstår, rapportera det med klient-ID för spårning (X-ClientTraceId) eller begäranidentifierare (X-RequestId).|||
 |503    |Servern är inte tillgänglig för tillfället. Försök med förfrågan. Om felet kvarstår, rapportera det med klient-ID för spårning (X-ClientTraceId) eller begäranidentifierare (X-RequestId).|||
-
-    
-
-
-    
-
-
-
-
-
-    
-    
-
-
-
-
-    
-
-
-
-
-    
-
-
-
-
-    
-
-            
-
-
-
-
-        
-
-
-
-
-
-
-
-
-

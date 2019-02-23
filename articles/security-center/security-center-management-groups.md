@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/19/2018
 ms.author: rkarlin
-ms.openlocfilehash: 76239f80076cbe0f86d6e091a29b008a5a5d06c1
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 7f09db1f37617519926955daf0c29c13993dbf80
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56116651"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56728462"
 ---
 # <a name="gain-tenant-wide-visibility-for-azure-security-center"></a>Få insyn i klienttäckande för Azure Security Center
 Den här artikeln hjälper dig att komma igång genom att göra flera åtgärder och maximerar fördelarna Azure Security Center tillhandahåller. Utför dessa åtgärder kan du få insyn i alla Azure-prenumerationer som är länkade till din Azure Active Directory-klient och effektivt sätt hantera din organisations säkerhetsposition i stor skala genom att tillämpa säkerhetsprinciper på flera prenumerationer på ett aggregative sätt.
@@ -108,15 +108,15 @@ För att få insyn till alla prenumerationer, måste innehavaradministratörer d
 
 
 #### <a name="assign-rbac-roles-to-users-with-powershell"></a>Tilldela RBAC-roller till användare med PowerShell: 
-1. [Installera Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps).
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+1. [Installera Azure PowerShell](/powershell/azure/install-az-ps).
 2. Kör följande kommandon: 
 
     ```azurepowershell
-    # Install Management Groups Powershell module
-    Install-Module AzureRM.Resources
-    
     # Login to Azure as a Global Administrator user
-    Login-AzureRmAccount
+    Connect-AzAccount
     ```
 
 3. När du uppmanas logga in med autentiseringsuppgifter som global administratör. 
@@ -128,12 +128,12 @@ För att få insyn till alla prenumerationer, måste innehavaradministratörer d
     ```azurepowershell
     # Add Reader role to the required user on the Root Management Group
     # Replace "user@domian.com” with the user to grant access to
-    New-AzureRmRoleAssignment -SignInName "user@domain.com" -RoleDefinitionName "Reader" -Scope "/"
+    New-AzRoleAssignment -SignInName "user@domain.com" -RoleDefinitionName "Reader" -Scope "/"
     ```
 5. Om du vill ta bort rollen, använder du följande kommando: 
 
     ```azurepowershell
-    Remove-AzureRmRoleAssignment -SignInName "user@domain.com" -RoleDefinitionName "Reader" -Scope "/" 
+    Remove-AzRoleAssignment -SignInName "user@domain.com" -RoleDefinitionName "Reader" -Scope "/" 
     ```
 
 ### <a name="open-or-refresh-security-center"></a>Öppnar eller uppdaterar Security Center
@@ -141,11 +141,16 @@ När du har haft utökade åtkomst, öppnar eller uppdaterar Azure Security Cent
 
 1. Logga in på [Azure Portal](https://portal.azure.com). 
 2. Kontrollera att du väljer alla prenumerationer i väljaren för prenumerationen som du vill visa i Security Center.
+
     ![Skärmbild av prenumeration väljare](./media/security-center-management-groups/subscription-selector.png)
+
 1. Välj **alla tjänster** under Azure-huvudmenyn väljer **Security Center**.
-2. I den **översikt**, det finns ett diagram för täckning av prenumerationen. 
+2. I den **översikt**, det finns ett diagram för täckning av prenumerationen.
+
     ![Prenumeration täckning diagrammet skärmbild](./media/security-center-management-groups/security-center-subscription-coverage.png)
+
 3. Klicka på **täckning** att se listan över prenumerationer som omfattas. 
+
     ![Prenumeration täckning lista skärmbild](./media/security-center-management-groups/security-center-coverage.png)
 
 ### <a name="remove-elevated-access"></a>Ta bort utökad åtkomst 

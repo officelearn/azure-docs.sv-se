@@ -3,17 +3,17 @@ title: 'Hantera enhetsregistreringar med Azure Device Provisioning Service-SDK: 
 description: 'Hantera enhetsregistreringar i IoT Hub Device Provisioning-tjänsten med SDK: er för tjänsten'
 author: yzhong94
 ms.author: yizhon
-ms.date: 04/04/18
+ms.date: 04/04/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: arjmands
-ms.openlocfilehash: 1c7fa798c2e767aa6a21b3c56da6f69b4d3a1406
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: c73a40e46d86632732454ae16ea4f83e3ffa0281
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55732363"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56674760"
 ---
 # <a name="how-to-manage-device-enrollments-with-azure-device-provisioning-service-sdks"></a>Hantera enhetsregistreringar med Azure Device Provisioning Service-SDK: er
 En *enhetsregistrering* skapar en post för en enstaka enhet eller en grupp av enheter som kan någon gång registreras med Device Provisioning-tjänsten. Registreringsposten innehåller inledande önskad konfiguration för enheter som en del av att registreringen, inklusive önskad IoT hub. Den här artikeln visar hur du hanterar enhetsregistreringar för etableringstjänsten genom programmering med Azure IoT Provisioning Service SDK.  SDK: erna finns på GitHub i samma lagringsplats som Azure IoT SDK: er.

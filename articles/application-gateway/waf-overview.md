@@ -4,14 +4,14 @@ description: Den här artikeln innehåller en översikt över Brandvägg för we
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.date: 11/16/2018
+ms.date: 2/22/2019
 ms.author: amsriva
-ms.openlocfilehash: 014353bafa31b1c4e924cba8335dbd30a48c2d11
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: e53dde549034e8029fdb7f9c780a7880a1ca515d
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56651438"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56733834"
 ---
 # <a name="web-application-firewall-waf"></a>Brandvägg för webbaserade program (WAF)
 
@@ -58,19 +58,8 @@ Viktiga fördelar med Application Gateway och brandväggen för webbaserade prog
 - Användaragent för värden och accept-skydd mot avvikelser för HTTP-protokollet som saknas
 - Skydd mot robotar, crawlers och skannrar
 - Identifiering av vanliga felkonfigureringar för programmet (till exempel Apache, IIS och så vidare)
-
-### <a name="public-preview-features"></a>Funktioner i offentlig förhandsversion
-
-Den aktuella WAF offentliga förhandsversionen SKU: N innehåller följande funktioner:
-
-- **Begär storleksgränser** -Brandvägg för webbaserade program kan du konfigurera storleksbegränsningar för begäran i lägre och övre gränser.
-- **Undantagslistor** -WAF undantagslistor Tillåt användare att utelämna vissa begärandeattribut från en WAF-utvärdering. Ett vanligt exempel är Active Directory infogas token som används för autentisering eller lösenorden.
-
-Läs mer om den offentliga förhandsversionen av WAF [storleksgränser för programmet brandväggen begäran och undantagslistor (offentlig förhandsversion)](application-gateway-waf-configuration.md).
-
-
-
-
+- Begär storleksgränser - Brandvägg för webbaserade program kan du konfigurera storleksbegränsningar för begäran i lägre och övre gränser.
+- Undantagslistor - WAF undantagslistor Tillåt användare att utelämna vissa begärandeattribut från en WAF-utvärdering. Ett vanligt exempel är Active Directory infogas token som används för autentisering eller lösenorden.
 
 ### <a name="core-rule-sets"></a>Core Rule Sets
 
@@ -87,7 +76,6 @@ Brandväggen för webbaserade program är förkonfigurerad med CRS 3.0 som stand
 - Identifiering av vanliga felkonfigureringar för programmet (till exempel Apache, IIS osv.)
 
 En detaljerad lista över regler och deras skydd finns i [Core regeluppsättningar](#core-rule-sets).
-
 
 #### <a name="owasp30"></a>OWASP_3.0
 

@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/25/2018
-ms.openlocfilehash: 0475318ce983b98951fb9cd5d24a5bc4452b1f1e
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: a6b6b548f1e5a9fa1e92b5fdbd714117758d75b4
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52970118"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56737084"
 ---
 # <a name="understand-inputs-for-azure-stream-analytics"></a>Förstå indata för Azure Stream Analytics
 
@@ -27,7 +27,7 @@ Stream Analytics har förstaklassintegrering från tre typer av resurser som ind
 
 Dessa indata resurser kan finnas i samma Azure-prenumeration som Stream Analytics-jobb, eller från en annan prenumeration.
 
-Du kan använda den [Azure-portalen](stream-analytics-quick-create-portal.md#configure-job-input), [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.streamanalytics/New-AzureRmStreamAnalyticsInput), [.Net API](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.streamanalytics.inputsoperationsextensions), [REST API](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-input), och [Visual Studio](stream-analytics-tools-for-visual-studio-install.md)att skapa, redigera och testa indata för Stream Analytics-jobbet.
+Du kan använda den [Azure-portalen](stream-analytics-quick-create-portal.md#configure-job-input), [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.streamanalytics/New-azStreamAnalyticsInput), [.Net API](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.streamanalytics.inputsoperationsextensions), [REST API](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-input), och [Visual Studio](stream-analytics-tools-for-visual-studio-install.md)att skapa, redigera och testa indata för Stream Analytics-jobbet.
 
 ## <a name="stream-and-reference-inputs"></a>Referens och Stream-indata
 Den har används av Stream Analytics-jobb och behandlas i realtid allteftersom data pushas till en datakälla. Indata är indelade i två typer: strömma indata och referera till datainmatningar.
@@ -44,4 +44,4 @@ Läs mer om inmatningar av referensdata, [använda referensdata för sökningar 
 
 ## <a name="next-steps"></a>Nästa steg
 > [!div class="nextstepaction"]
-> [Snabbstart: Skapa ett Stream Analytics-jobb med hjälp av Azure portal](stream-analytics-quick-create-portal.md)
+> [Snabbstart: Skapa ett Stream Analytics-jobb med hjälp av Azure-portalen](stream-analytics-quick-create-portal.md)

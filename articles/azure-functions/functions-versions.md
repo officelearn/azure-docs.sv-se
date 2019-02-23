@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 10/03/2018
 ms.author: glenga
-ms.openlocfilehash: f2f1313461fcb58ea48af99aeda2f7005534fe34
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: cc19a2d7641b20a413bbc39efe0d1c5ede362e6d
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48885195"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56734463"
 ---
 # <a name="azure-functions-runtime-versions-overview"></a>Azure Functions runtime versioner-översikt
 
@@ -29,7 +29,7 @@ Version 2.x-körningen körs på .NET Core 2, vilket gör att den kan köras på
 
 Jämförelsevis har stöd version 1.x-körningen endast för utveckling och som är värd i Azure-portalen eller på Windows-datorer.
 
-## <a name="languages"></a>Språk
+## <a name="languages"></a>Languages
 
 Version 2.x-körningen använder en ny modell för utökningsbarhet språk. I version 2.x kan alla funktioner i en funktionsapp måste dela samma språk. Språk av funktioner i en funktionsapp som ska väljas när du skapar appen.
 
@@ -49,7 +49,7 @@ Du kan välja att migrera en befintlig app som skrivits du använder version 1.x
 
 ### <a name="changes-in-triggers-and-bindings"></a>Ändringar i utlösare och bindningar
 
-Version 2.x måste du installera tillägget för specifika utlösare och bindningar som används av funktioner i din app. Det enda undantaget för den här HTTP- och timer-utlösare, som inte kräver ett tillägg.  Mer information finns i [Register och installera bindande tillägg](./functions-triggers-bindings.md#register-binding-extensions).
+Version 2.x måste du installera tillägget för specifika utlösare och bindningar som används av funktioner i din app. Det enda undantaget för den här HTTP- och timer-utlösare, som inte kräver ett tillägg.  Mer information finns i [Register och installera bindande tillägg](./functions-bindings-expressions-patterns.md).
 
 Har det även skett några ändringar i den `function.json` eller attribut för funktionen mellan versioner. Till exempel Event Hub `path` egenskapen är nu `eventHubName`. Se den [befintliga bindande tabell](#bindings) länkar till dokumentationen för varje bindning.
 
@@ -73,7 +73,7 @@ I version 2.x kan följande ändringar har gjorts:
 
 * HTTP-begränsningar för samtidighet implementeras som standard för förbrukning plan funktioner, med ett standardvärde på 100 samtidiga begäranden per instans. Du kan ändra detta i den [ `maxConcurrentRequests` ](functions-host-json.md#http) i host.json-filen.
 
-* Grund av [.NET core begränsningar](https://github.com/Azure/azure-functions-host/issues/3414), stöd för F #-skript (.fsx)-funktioner har tagits bort. Kompilerade F #-funktioner (.fs) stöds fortfarande.
+* Grund av [.NET core begränsningar](https://github.com/Azure/azure-functions-host/issues/3414), stöd för F# (.fsx)-skriptfunktioner har tagits bort. Kompilerade F# (.fs)-funktioner stöds fortfarande.
 
 * Event Grid-utlösare webhooks URL-formatet har ändrats till `https://{app}/runtime/webhooks/{triggerName}`.
 
@@ -121,7 +121,7 @@ Version 2.x-körningen använder en ny [bindning modell för utökningsbarhet](h
 
 * En ljusare körningsmiljö där endast bindningarna som används är kända och lästs in av körningen.
 
-Med undantag för HTTP och timer utlösare, måste alla bindningar vara explicit har lagts till i funktionsappsprojekt eller registrerad i portalen. Mer information finns i [registrera tillägg av bindning](functions-triggers-bindings.md#register-binding-extensions).
+Med undantag för HTTP och timer utlösare, måste alla bindningar vara explicit har lagts till i funktionsappsprojekt eller registrerad i portalen. Mer information finns i [registrera tillägg av bindning](./functions-bindings-expressions-patterns.md).
 
 I följande tabell visas vilka stöds i varje runtime-versionen.
 

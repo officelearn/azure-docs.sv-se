@@ -13,12 +13,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 9f1ee309156a39078ffdfeed2c75d86476ac8b48
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 2f08d5b8548b8b7af282356d41c26442edd145b0
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54158660"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56669589"
 ---
 # <a name="how-to-start-and-stop-azure-ssis-integration-runtime-on-a-schedule"></a>Så här startar och stoppar Azure-SSIS Integration Runtime enligt ett schema
 Den här artikeln beskriver hur du schemalägger startas och stoppas av Azure-SSIS Integration Runtime (IR) med hjälp av Azure Data Factory (ADF). Azure-SSIS IR är ADF-beräkningsresurs som dedikerade för att köra SQL Server Integration Services (SSIS)-paket. Kör Azure-SSIS IR har ingen associerad kostnad till den. Därför vanligtvis du kör din IR endast när du behöver att köra SSIS-paket i Azure och stoppa din IR när du inte behöver den längre. Du kan använda ADF User Interface (UI) / app eller Azure PowerShell för att [manuellt starta eller stoppa din IR](manage-azure-ssis-integration-runtime.md)).
@@ -92,7 +92,7 @@ Om du skapar en tredje utlösare som är schemalagda att köras varje dag vid mi
   
     2. För **metoden**väljer **POST**. 
     3. För **brödtext**, ange `{"message":"Start my IR"}`. 
-    4. För **autentisering**väljer **MSI** för att använda den hanterade identitet för din ADF, se [tjänstidentitet för Azure Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity) artikeln för mer information.
+    4. För **autentisering**väljer **MSI** för att använda den hanterade identitet för din ADF, se [hanterade identiy för Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity) artikeln för mer information.
     5. För **Resource**, ange `https://management.azure.com/`.
     
        ![ADF Web aktivitetsschemat SSIS IR](./media/how-to-schedule-azure-ssis-integration-runtime/adf-web-activity-schedule-ssis-ir.png)

@@ -1,6 +1,6 @@
 ---
-title: Slutför en åtkomstgranskning för medlemmar i en grupp eller användare åtkomst till ett program med Azure AD | Microsoft Docs
-description: Lär dig hur du slutför en åtkomstgranskning för medlemmar i en grupp eller användare med åtkomst till ett program i Azure Active Directory.
+title: Slutför en åtkomstgranskning av grupper eller program i Azure AD-Åtkomstgranskningar | Microsoft Docs
+description: Lär dig hur du slutför en åtkomstgranskning för medlemmar i gruppen eller programmet åtkomst i Azure AD-Åtkomstgranskningar.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -16,16 +16,16 @@ ms.date: 05/02/2018
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d2da3b7f8b7ed60344978fb255696980ec620fd2
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: cc5dbee47bd6a621b14b39858132ce229663481b
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56192276"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56729618"
 ---
-# <a name="complete-an-access-review-of-members-of-a-group-or-users-access-to-an-application-in-azure-ad"></a>Slutför en åtkomstgranskning för medlemmar i en grupp eller användare åtkomst till ett program i Azure AD
+# <a name="complete-an-access-review-of-groups-or-applications-in-azure-ad-access-reviews"></a>Slutför en åtkomstgranskning av grupper eller program i Azure AD-Åtkomstgranskningar
 
-Administratörer kan använda Azure Active Directory (Azure AD) för att [skapa en åtkomstgranskning](create-access-review.md) för gruppmedlemmar eller användare som är tilldelade till ett program. Azure AD skickar granskare automatiskt ett e-postmeddelande som uppmanar dem att granska åtkomst. Om en användare inte får ett e-postmeddelande kan du skicka dem instruktionerna [granskar du din åtkomst](perform-access-review.md). (Observera att gäster som är tilldelad som granskare, men inte har accepterat inbjudan inte får ett e-postmeddelande från åtkomstgranskningar, eftersom de måste du acceptera en inbjudan innan du granskat.) När du åtkomstgranskningen är slut eller om en administratör slutar åtkomstgranskningen, följer du stegen i den här artikeln för att se och tillämpa resultaten.
+Administratörer kan använda Azure Active Directory (Azure AD) för att [skapa en åtkomstgranskning](create-access-review.md) för gruppmedlemmar eller användare som är tilldelade till ett program. Azure AD skickar granskare automatiskt ett e-postmeddelande som uppmanar dem att granska åtkomst. Om en användare inte får ett e-postmeddelande kan du skicka dem instruktionerna [granska åtkomst till grupper eller program](perform-access-review.md). (Observera att gäster som är tilldelad som granskare, men inte har accepterat inbjudan inte får ett e-postmeddelande från åtkomstgranskningar, eftersom de måste du acceptera en inbjudan innan du granskat.) När du åtkomstgranskningen är slut eller om en administratör slutar åtkomstgranskningen, följer du stegen i den här artikeln för att se och tillämpa resultaten.
 
 ## <a name="view-an-access-review-in-the-azure-portal"></a>Visa en åtkomstgranskning i Azure portal
 
@@ -62,5 +62,5 @@ Om du inte längre är intresserad av att granskningen kan du ta bort den. Välj
 - [Hantera användare med Azure AD-åtkomstgranskningar](manage-user-access-with-access-reviews.md)
 - [Hantera gäståtkomst med Azure AD-åtkomstgranskningar](manage-guest-access-with-access-reviews.md)
 - [Hantera program och kontroller för Azure AD-åtkomstgranskningar](manage-programs-controls.md)
-- [Skapa en åtkomstgranskning för medlemmar i en grupp eller åtkomst till ett program](create-access-review.md)
+- [Skapa en åtkomstgranskning av grupper eller program](create-access-review.md)
 - [Skapa en åtkomstgranskning av användarna i en administrativ roll i Azure AD](../privileged-identity-management/pim-how-to-start-security-review.md)

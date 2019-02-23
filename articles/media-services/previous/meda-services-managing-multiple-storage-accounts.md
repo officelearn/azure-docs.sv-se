@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: b538e1b2d37c92e1712da517ab5f3c46f5e2c3a3
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: e25da238648b32edcbfaefbdcf1a6240df97916f
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55992199"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56728335"
 ---
 # <a name="managing-media-services-assets-across-multiple-storage-accounts"></a>Hantera Media Services-tillgångar över flera lagringskonton  
 
@@ -27,7 +27,9 @@ Du kan koppla flera lagringskonton till ett enda Media Services-konto. Möjlighe
 * Belastningsutjämning dina tillgångar över flera lagringskonton.
 * Skalning Media Services för stora mängder innehållet bearbetas (som ett enda lagringskonto har för närvarande en högsta gräns på 500 TB). 
 
-Den här artikeln visar hur du kan koppla flera lagringskonton till ett Media Services-konto med [Azure Resource Manager API: er](/rest/api/media/operations/azure-media-services-rest-api-reference) och [Powershell](/powershell/module/azurerm.media). Den visar också hur du anger olika lagringskonton när du skapar resurser med hjälp av Media Services SDK. 
+Den här artikeln visar hur du kan koppla flera lagringskonton till ett Media Services-konto med [Azure Resource Manager API: er](/rest/api/media/operations/azure-media-services-rest-api-reference) och [Powershell](/powershell/module/az.media). Den visar också hur du anger olika lagringskonton när du skapar resurser med hjälp av Media Services SDK. 
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="considerations"></a>Överväganden
 
@@ -44,7 +46,7 @@ Media Services använder värdet för den **IAssetFile.Name** egenskapen när du
 
 ## <a name="to-attach-storage-accounts"></a>Att ansluta storage-konton  
 
-Om du vill koppla storage-konton till AMS-kontot, [Azure Resource Manager API: er](/rest/api/media/operations/azure-media-services-rest-api-reference) och [Powershell](/powershell/module/azurerm.media), enligt följande exempel:
+Om du vill koppla storage-konton till AMS-kontot, [Azure Resource Manager API: er](/rest/api/media/operations/azure-media-services-rest-api-reference) och [Powershell](/powershell/module/az.media), enligt följande exempel:
 
     $regionName = "West US"
     $subscriptionId = " xxxxxxxx-xxxx-xxxx-xxxx- xxxxxxxxxxxx "
@@ -54,11 +56,11 @@ Om du vill koppla storage-konton till AMS-kontot, [Azure Resource Manager API: e
     $storageAccount2Name = "skystorage2"
     $storageAccount1Id = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Storage/storageAccounts/$storageAccount1Name"
     $storageAccount2Id = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Storage/storageAccounts/$storageAccount2Name"
-    $storageAccount1 = New-AzureRmMediaServiceStorageConfig -StorageAccountId $storageAccount1Id -IsPrimary
-    $storageAccount2 = New-AzureRmMediaServiceStorageConfig -StorageAccountId $storageAccount2Id
+    $storageAccount1 = New-AzMediaServiceStorageConfig -StorageAccountId $storageAccount1Id -IsPrimary
+    $storageAccount2 = New-AzMediaServiceStorageConfig -StorageAccountId $storageAccount2Id
     $storageAccounts = @($storageAccount1, $storageAccount2)
     
-    Set-AzureRmMediaService -ResourceGroupName $resourceGroupName -AccountName $mediaAccountName -StorageAccounts $storageAccounts
+    Set-AzMediaService -ResourceGroupName $resourceGroupName -AccountName $mediaAccountName -StorageAccounts $storageAccounts
 
 ### <a name="support-for-cool-storage"></a>Stöd för lågfrekvent lagring
 

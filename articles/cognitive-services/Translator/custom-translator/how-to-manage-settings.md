@@ -6,15 +6,15 @@ author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
 ms.subservice: custom-translator
-ms.date: 11/13/2018
+ms.date: 02/21/2019
 ms.author: v-rada
-ms.topic: article
-ms.openlocfilehash: 6fabbb57538f5e10e6cd91ebc109707045e54033
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.topic: conceptual
+ms.openlocfilehash: bbec2205fc6b29476cf531c071b5c2ac4c014bcb
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55227088"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56732535"
 ---
 # <a name="how-to-manage-settings"></a>Hantera inställningar
 
@@ -45,7 +45,7 @@ Om du inte har en prenumeration, följer du stegen nedan:
     ![Hur du lägger till prenumerationsnyckel](media/how-to/how-to-add-subscription-key.png)
 
 3. I dialogrutan Ange nyckel för din prenumeration av translator, och klicka på knappen ”Lägg till”.
- 
+
     ![Hur du lägger till prenumerationsnyckel](media/how-to/how-to-add-subscription-key-dialog.png)
 4.  När du har lagt till en nyckel, kan du ändra eller ta bort nyckeln när som helst.
 
@@ -53,29 +53,29 @@ Om du inte har en prenumeration, följer du stegen nedan:
 
 ## <a name="manage-your-workspace"></a>Hantera din arbetsyta
 
-En arbetsyta är en arbetsyta för att skapa och skapa dina anpassade översättningssystemet. En arbetsyta kan innehålla flera projekt, modeller och dokument. 
+En arbetsyta är en arbetsyta för att skapa och skapa dina anpassade översättningssystemet. En arbetsyta kan innehålla flera projekt, modeller och dokument.
 
-Om en annan del av ditt arbete måste delas med olika personer, kan det vara praktiskt att skapa flera arbetsytor. 
+Om en annan del av ditt arbete måste delas med olika personer, kan det vara praktiskt att skapa flera arbetsytor.
 
 ## <a name="create-a-new-workspace"></a>Skapa en ny arbetsyta
 
 1.  Gå till sidan för arbetsytan ”inställningar”.
 2.  Klicka på ”ny arbetsyta” i avsnittet ”Skapa ny arbetsyta”.
-    
+
     ![Skapa ny arbetsyta](media/how-to/create-new-workspace.png)
 
 4.  I dialogrutan anger du namnet på den nya arbetsytan.
 5.  Klicka på ”Skapa”.
-    
+
     ![Skapa ny arbetsyta dialog](media/how-to/create-new-workspace-dialog.png)
 
 ## <a name="share-your-workspace"></a>Dela din arbetsyta
 
-I anpassade Translator kan du dela din arbetsyta med andra, om en annan del av ditt arbete måste delas med olika personer. 
+I anpassade Translator kan du dela din arbetsyta med andra, om en annan del av ditt arbete måste delas med olika personer.
 
 1.  Gå till sidan för arbetsytan ”inställningar”.
 2.  Klicka på knappen ”Dela” i avsnittet ”Dela inställningar”.
-    
+
     ![Dela arbetsyta](media/how-to/share-workspace.png)
 
 3.  I dialogrutan, ange en kommaavgränsad lista över e-postadresser som du vill att den här arbetsytan som delas med. Kontrollera att du delar med den e-postadressen som personen använder för att logga in till anpassad Translator med. Välj en lämplig nivå av behörighet.
@@ -85,7 +85,7 @@ I anpassade Translator kan du dela din arbetsyta med andra, om en annan del av d
 
 ## <a name="sharing-permissions"></a>Delningsbehörigheter
 
-1.  **Läsare:** En läsare i arbetsytan kommer att kunna se all information på arbetsytan. 
+1.  **Läsare:** En läsare i arbetsytan kommer att kunna se all information på arbetsytan.
 
 2.  **Redigerare:** Redigerare i arbetsytan kommer att kunna lägga till dokument, skapa modeller och ta bort dokument och projekt. De kan lägga till en prenumerationsnyckel men det går inte att ändra vem arbetsytan delas med, ta bort arbetsytan eller ändra namnet på arbetsytan.
 

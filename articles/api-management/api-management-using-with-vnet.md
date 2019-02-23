@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: apimpm
-ms.openlocfilehash: cc4893837feeec6116750a7e37e7621af11ab0a4
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 2770c6a31f0117b96e08eb8a03986f37ebdb7098
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453927"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56733749"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Hur du använder Azure API Management med virtuella nätverk
 Azure-nätverk (Vnet) kan du placera någon av dina Azure-resurser i ett icke-internet-dirigerbara nätverk som du styr åtkomst till. Dessa nätverk kan sedan anslutas till ditt lokala nätverk med olika VPN-teknologier. Om du vill veta börjar mer om Azure Virtual Networks med den här informationen: [Översikt över Azure Virtual Network](../virtual-network/virtual-networks-overview.md).
@@ -27,6 +27,8 @@ Azure API Management kan distribueras i virtuella nätverk (VNET), så att den k
 
 > [!NOTE]
 > Azure API Management har stöd för både klassiska och Azure Resource Manager-nätverk.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 [!INCLUDE [premium-dev.md](../../includes/api-management-availability-premium-dev.md)]
 
@@ -85,9 +87,9 @@ Om du vill utföra stegen som beskrivs i den här artikeln, måste du ha:
 ## <a name="enable-vnet-powershell"> </a>Aktivera VNET-anslutning med PowerShell-cmdletar
 Du kan också aktivera VNET-anslutning med PowerShell-cmdletar
 
-* **Skapa en API Management-tjänst i ett virtuellt nätverk**: Använd cmdleten [New-AzureRmApiManagement](/powershell/module/azurerm.apimanagement/new-azurermapimanagement) att skapa en Azure API Management-tjänsten i ett virtuellt nätverk.
+* **Skapa en API Management-tjänst i ett virtuellt nätverk**: Använd cmdleten [New AzApiManagement](/powershell/module/az.apimanagement/new-azapimanagement) att skapa en Azure API Management-tjänsten i ett virtuellt nätverk.
 
-* **Distribuera en befintlig API Management-tjänst i ett virtuellt nätverk**: Använd cmdleten [uppdatering AzureRmApiManagementDeployment](/powershell/module/azurerm.apimanagement/update-azurermapimanagementdeployment) att flytta en befintlig Azure API Management-tjänst i ett virtuellt nätverk.
+* **Distribuera en befintlig API Management-tjänst i ett virtuellt nätverk**: Använd cmdleten [uppdatering AzApiManagementDeployment](/powershell/module/az.apimanagement/update-azapimanagementdeployment) att flytta en befintlig Azure API Management-tjänst i ett virtuellt nätverk.
 
 ## <a name="connect-vnet"> </a>Ansluta till en webbtjänst som finns inom ett virtuellt nätverk
 När API Management-tjänsten är ansluten till det virtuella nätverket, är åtkomst till backend-tjänster inom den inte skiljer sig från att komma åt offentliga tjänster. Skriver i den lokala IP-adressen eller värdnamnet (om en DNS-server har konfigurerats för det virtuella nätverket) för webbtjänsten i den **-webbtjänstens URL** fältet när du skapar ett nytt API eller redigera en befintlig.

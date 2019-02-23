@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: bryanla
-ms.openlocfilehash: 3258683b950b537dd106323fe95105289034f727
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: f0f18347c5a297b0f15478c3a96a126c1036f8b1
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56114866"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56737424"
 ---
 # <a name="certificate-creation-methods"></a>Metoder för att skapa certifikat
 
@@ -94,6 +94,6 @@ Observera att när en beställning görs med utfärdaren-providern, det kan resp
 
  Auktorisering: Kräver certifikat/skapa-behörighet.
 
- ## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se även
  - [Om nycklar, hemligheter och certifikat](about-keys-secrets-and-certificates.md)
  - [Övervaka och hantera processen för att skapa certifikat](create-certificate-scenarios.md)

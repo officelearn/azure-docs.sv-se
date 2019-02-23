@@ -2,21 +2,22 @@
 title: Azure IoT Hub och Event Grid | Microsoft Docs
 description: Använd Azure Event Grid för att utlösa processer baserat på åtgärder som sker i IoT Hub.
 author: kgremban
+manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 02/14/2018
+ms.date: 02/20/2019
 ms.author: kgremban
-ms.openlocfilehash: 14bdbb5d629cb5a3fccd6f874e30ded0648e0124
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: a2c49a6ba269321d1903565ace3ebaae3f3b917e
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48249476"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56673861"
 ---
 # <a name="react-to-iot-hub-events-by-using-event-grid-to-trigger-actions"></a>Reagera på IoT Hub-händelser med Event Grid för att utlösaråtgärder
 
-Azure IoT Hub kan integreras med Azure Event Grid så att du kan skicka händelsemeddelanden till andra tjänster och utlösa underordnade processer. Konfigurera dina affärsprogram att lyssna efter IoT Hub-händelser så att du kan reagera på kritiska händelser på ett sätt som tillförlitlig, skalbar och säker. Till exempel skapa ett program för att utföra flera åtgärder som uppdaterar en databas, skapa en biljett och leverera ett e-postmeddelande varje gång en ny IoT-enhet är registrerad på IoT-hubben. 
+Azure IoT Hub kan integreras med Azure Event Grid så att du kan skicka händelsemeddelanden till andra tjänster och utlösa underordnade processer. Konfigurera dina affärsprogram att lyssna efter IoT Hub-händelser så att du kan reagera på kritiska händelser på ett sätt som tillförlitlig, skalbar och säker. Till exempel skapa ett program som uppdateras en databas, skapar en biljett för arbete och ger ett e-postmeddelande varje gång en ny IoT-enhet är registrerad på IoT-hubben. 
 
 [Azure Event Grid](../event-grid/overview.md) är en fullständigt hanterad tjänst för händelsedirigering som använder en Publicera-prenumerera modellen. Event Grid har inbyggt stöd för Azure-tjänster som [Azure Functions](../azure-functions/functions-overview.md) och [Azure Logic Apps](../logic-apps/logic-apps-what-are-logic-apps.md), och kan skicka aviseringar till icke-Azure-tjänster med webhookar. En fullständig lista över de händelsehanterare som har stöd för Event Grid finns [en introduktion till Azure Event Grid](../event-grid/overview.md). 
 
@@ -118,7 +119,7 @@ I följande exempel visar schemat för en enhet som skapats av händelse:
 }]
 ```
 
-En detaljerad beskrivning av varje egenskap finns [Azure Event Grid Händelseschema för IoT Hub](../event-grid/event-schema-iot-hub.md)
+En detaljerad beskrivning av varje egenskap finns [Azure Event Grid Händelseschema för IoT Hub](../event-grid/event-schema-iot-hub.md).
 
 ## <a name="filter-events"></a>Filtrera händelser
 
@@ -131,15 +132,15 @@ devices/{deviceId}
 ```
 ## <a name="limitations-for-device-connected-and-device-disconnected-events"></a>Begränsningar för enheter som är kopplade och enheten frånkopplad händelser
 
-För att få enheten är ansluten och enhetshändelser kopplas från, måste du öppna den D2C eller C2D-länk för din enhet. Om din enhet använder MQTT-protokollet, behåller IoT Hub C2D länken öppnas. För AMQP kan du öppna länken C2D genom att anropa den [ta emot asynkrona API](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.deviceclient.receiveasync?view=azure-dotnet). 
+För att få enheten är ansluten och enhetshändelser kopplas från, måste du öppna den D2C eller C2D-länk för din enhet. Om din enhet använder MQTT-protokollet, behåller IoT Hub C2D länken öppnas. För AMQP, kan du öppna länken C2D genom att anropa den [ta emot asynkrona API](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.deviceclient.receiveasync?view=azure-dotnet). 
 
-Länken D2C är öppen om du skickar telemetri. Om enheten anslutningen flimrar, dvs. enheten ansluter och kopplar från ofta skickar vi inte varje enskild anslutning tillstånd, men ska publicera Anslutningsstatus är ögonblicksbild av varje minut. Vid ett avbrott i IoT Hub publicerar vi enhetens anslutning tillstånd så fort driftstörningarna har över. Om enheten kopplar från under det avbrottet, publiceras enheten frånkopplade händelsen inom 10 minuter.
+Länken D2C är öppen om du skickar telemetri. Om enheten anslutningen flimrar, vilket innebär att enheten ansluter och kopplar från ofta, vi kommer inte att skicka tillstånd för varje enskild anslutning, men ska publicera Anslutningsstatus är ögonblicksbild av varje minut. Vid ett avbrott i IoT Hub publicerar vi enhetens anslutning tillstånd så fort driftstörningarna har över. Om enheten kopplar från under det avbrottet, publiceras enheten frånkopplade händelsen inom 10 minuter.
 
 ## <a name="tips-for-consuming-events"></a>Tips för att använda händelser
 
 Program som hanterar IoT Hub-händelser bör följa dessa rekommendationer:
 
-* Flera prenumerationer kan konfigureras för att dirigera händelser till samma händelsehanterare, så det är viktigt att inte förutsätter att händelser som kommer från en viss källa. Kontrollera alltid meddelande avsnittet för att säkerställa att det kommer från IoT-hubben som du förväntar dig. 
+* Flera prenumerationer kan konfigureras för att dirigera händelser till samma händelsehanterare, så att du inte förutsätta att händelser som kommer från en viss källa. Kontrollera alltid meddelande avsnittet för att säkerställa att det kommer från IoT-hubben som du förväntar dig. 
 
 * Inte förutsätter att alla händelser som du får de typer som du förväntar dig. Kontrollera alltid händelsetyp innan behandlingen av meddelandet.
 

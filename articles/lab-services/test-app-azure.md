@@ -12,15 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2018
 ms.author: spelluru
-ms.openlocfilehash: a58ebe14749add30deb229f1b7e30fbb6e9921d7
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 9ca1c4a1ed1841f82bc386cff48315dd15ef91bb
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55814912"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56730417"
 ---
 # <a name="test-your-app-in-azure"></a>Testa appen i Azure 
 Den här artikeln innehåller steg för att testa ditt program i Azure med DevTest Labs. Först måste du ställa in en filresurs i ett laboratorium och montera den som en enhet på utvecklingsdatorn lokal och en virtuell dator i ett labb. Sedan använder du Visual Studio 2017 för att distribuera appen till filresursen så att du kan köra appen på den virtuella datorn i laboratoriet.  
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Förutsättningar 
 1. [Skapa en Azure-prenumeration](https://azure.microsoft.com/free/) om du inte redan har en och logga in på [Azure-portalen](https://portal.azure.com).
@@ -56,7 +58,7 @@ Den här artikeln innehåller steg för att testa ditt program i Azure med DevTe
 
     ![Välj lab VM](media/test-app-in-azure/select-lab-vm.png)
 2. Välj **Connect** i verktygsfältet för att ansluta till den virtuella datorn. 
-3. [Installera Azure PowerShell](https://azure.microsoft.com/downloads/) med hjälp av den **Windows installerar** länken i den **kommandoradsverktyg** avsnittet. Andra sätt att installera Azure PowerShell, se [i den här artikeln](/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-6.8.1).
+3. [Installera Azure PowerShell](/powershell/azure/install-az-ps).
 4. Följ instruktionerna i monterings avsnittet dela filen. 
 
 ## <a name="publish-your-app-from-visual-studio"></a>Publicera en app från Visual Studio

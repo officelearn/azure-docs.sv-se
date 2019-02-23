@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/14/2019
 ms.author: Barclayn
 ms.custom: AzLog
-ms.openlocfilehash: 21a1cd6d0326c834a05681ffe98555ea52858e6e
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 22d4a18ad1c6e80baa6e798be399ab2cd4836fbc
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56106570"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56733415"
 ---
 # <a name="azure-log-integration-tutorial-process-azure-key-vault-events-by-using-event-hubs"></a>Självstudie för Azure Log Integration: Bearbeta händelser med Azure Key Vault med hjälp av Event Hubs
 
@@ -50,31 +50,28 @@ Mer information om de tjänster som nämns i den här självstudien finns:
 
 ## <a name="initial-setup"></a>Första installation
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Innan du kan slutföra stegen i den här artikeln behöver du följande:
 
-1. En Azure-prenumeration och konto för den prenumerationen med administratörsbehörighet. Om du inte har en prenumeration kan du skapa en [kostnadsfritt konto](https://azure.microsoft.com/free/).
+* En Azure-prenumeration och konto för den prenumerationen med administratörsbehörighet. Om du inte har en prenumeration kan du skapa en [kostnadsfritt konto](https://azure.microsoft.com/free/).
  
-1. Ett system med åtkomst till internet som uppfyller kraven för att installera Azure Log Integration. Systemet kan vara på en tjänst i molnet eller lokala.
+* Ett system med åtkomst till internet som uppfyller kraven för att installera Azure Log Integration. Systemet kan vara på en tjänst i molnet eller lokala.
 
-1. Azure Log Integration installerad. Att installera den:
+* Azure Log Integration installerad. Att installera den:
 
    a. Använda Fjärrskrivbord för att ansluta till system som nämns i steg 2.   
    b. Kopiera installationsprogrammet för Azure Log Integration i systemet. c. Starta installationsprogrammet och acceptera licensvillkoren för programvara från Microsoft.
 
-1. Om du tillhandahåller telemetriinformation, lämnar du kryssrutan är markerad. Om du inte skulle hellre skicka användningsinformation till Microsoft, avmarkerar du kryssrutan.
+* Om du tillhandahåller telemetriinformation, lämnar du kryssrutan är markerad. Om du inte skulle hellre skicka användningsinformation till Microsoft, avmarkerar du kryssrutan.
 
    Läs mer om Azure Log Integration och hur du installerar den [Azure Log Integration med Azure Diagnostisk loggning och vidarebefordran av Windows-händelser](security-azure-log-integration-get-started.md).
 
-1. Den senaste versionen av PowerShell.
+* Den senaste versionen av PowerShell.
 
    Om du har Windows Server 2016 har installerats kommer du ha minst PowerShell 5.0. Om du använder någon annan version av Windows Server, kanske en tidigare version av PowerShell installerad. Du kan kontrollera versionen genom att ange ```get-host``` i ett PowerShell-fönster. Om du inte har PowerShell 5.0 installerat, kan du [ladda ned den](https://www.microsoft.com/download/details.aspx?id=50395).
 
-   När du har minst PowerShell 5.0, som du kan fortsätta att installera den senaste versionen:
-
-   a. I en PowerShell-fönstret anger du den ```Install-Module Azure``` kommando. Slutför installationsstegen.    
-   b. Ange den ```Install-Module AzureRM``` kommando. Slutför installationsstegen.
-
-   Mer information finns i [installera Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-4.0.0).
+   När du har minst PowerShell 5.0, som du kan fortsätta att installera den senaste versionen genom att följa instruktionerna i [installera Azure PowerShell](/powershell/azure/install-az-ps).
 
 
 ## <a name="create-supporting-infrastructure-elements"></a>Skapa stödjande infrastrukturelement
@@ -84,14 +81,13 @@ Innan du kan slutföra stegen i den här artikeln behöver du följande:
 
    ![Lista med inlästa moduler](./media/security-azure-log-integration-keyvault-eventhub/loaded-modules.png)
 
-1. Ange den `Connect-AzureRmAccount` kommando. I inloggningsfönstret anger du autentiseringsuppgifterna för den prenumeration som du ska använda för den här självstudien.
+1. Ange den `Connect-AzAccount` kommando. I inloggningsfönstret anger du autentiseringsuppgifterna för den prenumeration som du ska använda för den här självstudien.
 
    >[!NOTE]
    >Om det är första gången som du loggat in till Azure från den här datorn visas ett meddelande om att tillåta Microsoft att samla in användningsdata för PowerShell. Vi rekommenderar att du aktiverar den här Datasamlingen eftersom den används för att förbättra Azure PowerShell.
 
-1. Du har loggat in efter en lyckad autentisering, så ser du informationen i följande skärmbild. Anteckna prenumerations-ID och namn på prenumeration, eftersom du behöver dem att slutföra senare steg.
+1. Du har loggat in efter en lyckad autentisering. Anteckna prenumerations-ID och namn på prenumeration, eftersom du behöver dem att slutföra senare steg.
 
-   ![PowerShell-fönster](./media/security-azure-log-integration-keyvault-eventhub/login-azurermaccount.png)
 1. Skapa variabler för att lagra värden som ska användas senare. Ange var och en av följande PowerShell-rader. Du kan behöva justera värden som matchar din miljö.
     - ```$subscriptionName = 'Visual Studio Ultimate with MSDN'``` (Ditt prenumerationsnamn kan vara annorlunda. Du kan se det som en del av utdata från föregående kommando.)
     - ```$location = 'West US'``` (Den här variabeln används för att skicka den plats där resurser ska skapas. Du kan ändra den här variabeln för att vara vilken plats som du väljer.)
@@ -102,37 +98,37 @@ Innan du kan slutföra stegen i den här artikeln behöver du följande:
     - ``` $eventHubNameSpaceName = $name``` (Detta är namnet på namnområdet för event hub.)
 1. Ange den prenumeration som du kommer att arbeta med:
     
-    ```Select-AzureRmSubscription -SubscriptionName $subscriptionName```
+    ```Select-AzSubscription -SubscriptionName $subscriptionName```
 1. Skapa en resursgrupp:
     
-    ```$rg = New-AzureRmResourceGroup -Name $rgname -Location $location```
+    ```$rg = New-AzResourceGroup -Name $rgname -Location $location```
     
    Om du anger `$rg` då du bör se utdata som liknar denna skärmbild:
 
    ![Utdata efter skapandet av en resursgrupp](./media/security-azure-log-integration-keyvault-eventhub/create-rg.png)
 1. Skapa ett lagringskonto som används för att hålla reda på statusinformation:
     
-    ```$storage = New-AzureRmStorageAccount -ResourceGroupName $rgname -Name $storagename -Location $location -SkuName Standard_LRS```
+    ```$storage = New-AzStorageAccount -ResourceGroupName $rgname -Name $storagename -Location $location -SkuName Standard_LRS```
 1. Skapa händelsehubbens namnområde. Detta är nödvändigt att skapa en event hub.
     
-    ```$eventHubNameSpace = New-AzureRmEventHubNamespace -ResourceGroupName $rgname -NamespaceName $eventHubnamespaceName -Location $location```
+    ```$eventHubNameSpace = New-AzEventHubNamespace -ResourceGroupName $rgname -NamespaceName $eventHubnamespaceName -Location $location```
 1. Hämta regel-ID som ska användas med insights-providern:
     
     ```$sbruleid = $eventHubNameSpace.Id +'/authorizationrules/RootManageSharedAccessKey' ```
 1. Hämta alla möjliga Azure-platser och lägga till namn till en variabel som kan användas i ett senare steg:
     
-    a. ```$locationObjects = Get-AzureRMLocation```    
+    a. ```$locationObjects = Get-AzLocation```    
     b. ```$locations = @('global') + $locationobjects.location```
     
-    Om du anger `$locations` nu kan du se platsnamn utan ytterligare information som returneras av Get-AzureRmLocation.
+    Om du anger `$locations` nu kan du se platsnamn utan ytterligare information som returneras av Get-AzLocation.
 1. Skapa en loggprofil för Azure Resource Manager: 
     
-    ```Add-AzureRmLogProfile -Name $name -ServiceBusRuleId $sbruleid -Locations $locations```
+    ```Add-AzLogProfile -Name $name -ServiceBusRuleId $sbruleid -Locations $locations```
     
     Mer information om Azure log-profilen finns i [översikt över Azure-aktivitetsloggen](../azure-monitor/platform/activity-logs-overview.md).
 
 > [!NOTE]
-> Du kan få ett felmeddelande när du försöker skapa en loggprofil för. Du kan sedan granska dokumentationen för Get-AzureRmLogProfile och ta bort AzureRmLogProfile. Om du kör Get-AzureRmLogProfile kan se du information om loggprofil. Du kan ta bort den befintliga log-profilen genom att ange den ```Remove-AzureRmLogProfile -name 'Log Profile Name' ``` kommando.
+> Du kan få ett felmeddelande när du försöker skapa en loggprofil för. Du kan sedan granska dokumentationen för Get-AzLogProfile och ta bort AzLogProfile. Om du kör Get-AzLogProfile kan se du information om loggprofil. Du kan ta bort den befintliga log-profilen genom att ange den ```Remove-AzLogProfile -name 'Log Profile Name' ``` kommando.
 >
 >![Resource Manager-profilfel](./media/security-azure-log-integration-keyvault-eventhub/rm-profile-error.png)
 
@@ -140,11 +136,11 @@ Innan du kan slutföra stegen i den här artikeln behöver du följande:
 
 1. Skapa key vault:
 
-   ```$kv = New-AzureRmKeyVault -VaultName $name -ResourceGroupName $rgname -Location $location ```
+   ```$kv = New-AzKeyVault -VaultName $name -ResourceGroupName $rgname -Location $location ```
 
 1. Konfigurera loggning för key vault:
 
-   ```Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId -ServiceBusRuleId $sbruleid -Enabled $true ```
+   ```Set-AzDiagnosticSetting -ResourceId $kv.ResourceId -ServiceBusRuleId $sbruleid -Enabled $true ```
 
 ## <a name="generate-log-activity"></a>Generera loggaktivitet
 
@@ -152,16 +148,16 @@ Begäranden måste skickas till Key Vault för att generera loggaktivitet. Åtg�
 
 1. Visa aktuella lagringsnycklar:
     
-   ```Get-AzureRmStorageAccountKey -Name $storagename -ResourceGroupName $rgname  | ft -a```
+   ```Get-AzStorageAccountKey -Name $storagename -ResourceGroupName $rgname  | ft -a```
 1. Generera en ny **key2**:
     
-   ```New-AzureRmStorageAccountKey -Name $storagename -ResourceGroupName $rgname -KeyName key2```
+   ```New-AzStorageAccountKey -Name $storagename -ResourceGroupName $rgname -KeyName key2```
 1. Visa nycklarna igen och ser till att **key2** innehåller ett annat värde:
     
-   ```Get-AzureRmStorageAccountKey -Name $storagename -ResourceGroupName $rgname  | ft -a```
+   ```Get-AzStorageAccountKey -Name $storagename -ResourceGroupName $rgname  | ft -a```
 1. Ange och läsa en hemlighet för att generera ytterligare poster:
     
-   a. ```Set-AzureKeyVaultSecret -VaultName $name -Name TestSecret -SecretValue (ConvertTo-SecureString -String 'Hi There!' -AsPlainText -Force)``` b. ```(Get-AzureKeyVaultSecret -VaultName $name -Name TestSecret).SecretValueText```
+   a. ```Set-AzKeyVaultSecret -VaultName $name -Name TestSecret -SecretValue (ConvertTo-SecureString -String 'Hi There!' -AsPlainText -Force)``` b. ```(Get-AzKeyVaultSecret -VaultName $name -Name TestSecret).SecretValueText```
 
    ![Returnerade hemliga](./media/security-azure-log-integration-keyvault-eventhub/keyvaultsecret.png)
 
@@ -170,14 +166,14 @@ Begäranden måste skickas till Key Vault för att generera loggaktivitet. Åtg�
 
 Nu när du har konfigurerat de obligatoriska elementen för Key Vault-loggning till en händelsehubb, måste du konfigurera Azure Log Integration:
 
-1. ```$storage = Get-AzureRmStorageAccount -ResourceGroupName $rgname -Name $storagename```
-1. ```$eventHubKey = Get-AzureRmEventHubNamespaceKey -ResourceGroupName $rgname -NamespaceName $eventHubNamespace.name -AuthorizationRuleName RootManageSharedAccessKey```
-1. ```$storagekeys = Get-AzureRmStorageAccountKey -ResourceGroupName $rgname -Name $storagename```
+1. ```$storage = Get-AzStorageAccount -ResourceGroupName $rgname -Name $storagename```
+1. ```$eventHubKey = Get-AzEventHubNamespaceKey -ResourceGroupName $rgname -NamespaceName $eventHubNamespace.name -AuthorizationRuleName RootManageSharedAccessKey```
+1. ```$storagekeys = Get-AzStorageAccountKey -ResourceGroupName $rgname -Name $storagename```
 1. ``` $storagekey = $storagekeys[0].Value```
 
 Kör kommandot AzLog för varje händelsehubb:
 
-1. ```$eventhubs = Get-AzureRmEventHub -ResourceGroupName $rgname -NamespaceName $eventHubNamespaceName```
+1. ```$eventhubs = Get-AzEventHub -ResourceGroupName $rgname -NamespaceName $eventHubNamespaceName```
 1. ```$eventhubs.Name | %{Add-AzLogEventSource -Name $sub' - '$_ -StorageAccount $storage.StorageAccountName -StorageKey $storageKey -EventHubConnectionString $eventHubKey.PrimaryConnectionString -EventHubName $_}```
 
 Du bör se JSON-filer som skapas efter en minut för att köra de sista två kommandona. Du kan bekräfta att genom att övervaka katalogen **C:\users\AzLog\EventHubJson**.

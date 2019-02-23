@@ -6,15 +6,15 @@ author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
 ms.subservice: custom-translator
-ms.date: 11/13/2018
+ms.date: 02/21/2019
 ms.author: v-rada
-ms.topic: article
-ms.openlocfilehash: 87ea4edd9bb548701d6bcf63dd542ed6e35d9f7f
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.topic: conceptual
+ms.openlocfilehash: 2b7e709a06797323cc99bfd636ee26e9bfb8026d
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56585561"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56731862"
 ---
 # <a name="what-is-a-dictionary"></a>Vad är en ordlista?
 
@@ -22,7 +22,7 @@ En ordlista är en justerade par dokument som specificerar en lista med fraser e
 
 Ordlistor fungerar endast för projekt i språkpar som har ett fullständigt stöd Microsoft neural maskinöversättning (NMT) system bakom dem. [Visa en fullständig lista över språk som](https://docs.microsoft.com/azure/cognitive-services/translator/language-support#customization).
 
-## <a name="phrase-dictionary"></a>Fras ordlista 
+## <a name="phrase-dictionary"></a>Fras ordlista
 När du inkluderar en fras ordlista i träna din modell, översätts ord eller fraser som visas på det sätt som du har angett. Resten av meningen översätts som vanligt. Du kan använda en fras ordlista för att ange fraser som inte ska översättas genom att tillhandahålla samma Oöversatt fras i filen källa och mål i ordlistan.
 
 ## <a name="sentence-dictionary"></a>Mening ordlista
@@ -36,9 +36,9 @@ Du kan träna en modell med hjälp av endast ordlista data. Om du vill göra det
 
 ## <a name="recommendations"></a>Rekommendationer
 
-- Ordlistor är inte en ersättning för en tränad modell med träningsdata.  Ordlistor i stort sett Sök och Ersätt ord eller meningar.  Att låta systemet Lär dig av din utbildningsmaterial i fullständiga meningar är vanligtvis ett bättre alternativ än att använda en ordlista. 
+- Ordlistor är inte en ersättning för en tränad modell med träningsdata.  Ordlistor i stort sett Sök och Ersätt ord eller meningar.  Att låta systemet Lär dig av din utbildningsmaterial i fullständiga meningar är vanligtvis ett bättre alternativ än att använda en ordlista.
 - Fras ordlistan bör användas sparsamt. När en fras i en mening ersätts kontexten i den meningen tappas bort eller begränsad översätta resten av meningen. Resultatet är att när frasen eller ord i meningen översätter enligt frasen ordlista, övergripande översättningen i meningen ofta blir lidande.
-- Fras ordlistan fungerar bra för sammansatt substantiv som produktnamn (”Microsoft SQL Server”), egennamn (”stad av Hamburg”) eller funktioner i produkten (”pivottabell”). Det fungerar inte bra både för verb eller adjektiv eftersom dessa är vanligtvis mycket böjda i källan eller på språket som mål. Undvik att frasen dictionary-posterna för något annat än sammansatt substantiv. 
+- Fras ordlistan fungerar bra för sammansatt substantiv som produktnamn (”Microsoft SQL Server”), egennamn (”stad av Hamburg”) eller funktioner i produkten (”pivottabell”). Det fungerar inte bra både för verb eller adjektiv eftersom dessa är vanligtvis mycket böjda i källan eller på språket som mål. Undvik att frasen dictionary-posterna för något annat än sammansatt substantiv.
 - När du använder en ordlista, avspeglar versaler och skiljetecken i dina översättningar versaler och skiljetecken i din målfilen. Versaler och skiljetecken ignoreras när du försöker identifiera matchningar mellan dina indata mening och källa meningar i ordlistefilen. Anta exempelvis att vi tränas en engelska till spanska system som används för en ordlista som den angivna ”stad av Hamburg” i källfilen och ”Gasledning Ciudad de hamburg” i målfilen. Om jag har begärt översättning av en mening som ingår frasen ”stad av Hamburg” sedan ”stad av Hamburg” matchar till ordlistefilen för posten ”stad av Hamburg” och vill mappa till ”Gasledning Ciudad de hamburg” i Min sista översättning.
 - Om ett ord visas mer än en gång i en ordlistefil, använder alltid den sista posten som tillhandahålls av systemet. Din ordlista får inte innehålla flera översättningar av samma ord.
 

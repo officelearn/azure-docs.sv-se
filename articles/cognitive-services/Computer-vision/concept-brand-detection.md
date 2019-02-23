@@ -6,20 +6,20 @@ services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
-ms.component: computer-vision
+ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 01/26/2019
 ms.author: pafarley
-ms.openlocfilehash: a5cf4a2b0f5e2e2c83e9fe6aa9237c943fa23ed9
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 7bfda764c418258a7bc555697530214240a5f0d3
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55864816"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56734327"
 ---
 # <a name="brand-detection"></a>Varumärke identifiering
 
-Varumärke identifiering är ett specialläge av [objekt identifiering](concept-object-detection.md) som använder en databas med tusentals olika globala logotyper för att identifiera varumärken i en video. Du kan använda den här funktionen, till exempel att identifiera vilka varumärken är mest populära i sociala medier eller mycket i media produktplacering.
+Varumärke identifiering är ett specialläge av [objekt identifiering](concept-object-detection.md) som använder en databas med tusentals olika globala logotyper för att identifiera varumärken i en video. Du kan använda den här funktionen för att till exempel identifiera vilka varumärken som är mest populära på sociala medier eller förekommer oftast i medieproduktplacering.
 
 Visuellt tjänsten identifierar om det finns varumärke logotyper i en viss avbildning; i så fall returnerar den namnet och ett förtroenderesultat koordinaterna för en avgränsningsruta runt logotypen.
 

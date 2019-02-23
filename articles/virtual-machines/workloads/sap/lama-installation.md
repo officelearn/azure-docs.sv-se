@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 17/07/2018
+ms.date: 11/17/2018
 ms.author: sedusch
-ms.openlocfilehash: d5d344f47fa46e9fe0adea048db200ec67a3fadc
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 1f0f9c548d9b3c8a7df2d356bcb4c5f993285c28
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54262597"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56670435"
 ---
 # <a name="sap-lama-connector-for-azure"></a>SAP LaMa connector för Azure
 
@@ -51,7 +51,7 @@ Den här guiden beskriver hur du ställer in Azure connector för SAP-LaMa, skap
 
 Följande SAP-information är relaterade till ämnet för SAP LaMa på Azure:
 
-| Nummer | Titel |
+| Nummer | Rubrik |
 | --- | --- |
 | [2343511] |Microsoft Azure connector för SAP-landskap Management (LaMa) |
 | [2350235] |SAP-landskap Management 3.0 – Enterprise edition |

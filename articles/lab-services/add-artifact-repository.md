@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2019
 ms.author: spelluru
-ms.openlocfilehash: cd80adaa5d8bb05ce3494966cabbaf076785425c
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: e8a94fdae74c5a30ba75e9143b298c3372b886d7
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56647561"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56733018"
 ---
 # <a name="add-an-artifact-repository-to-your-lab-in-devtest-labs"></a>Lägga till en artefaktcentrallagret i ditt labb i DevTest Labs
 DevTest Labs kan du ange en artefakt som ska läggas till en virtuell dator vid tidpunkten för att skapa den virtuella datorn eller när den virtuella datorn har skapats. Den här artefakten kan vara ett verktyg eller ett program som du vill installera på den virtuella datorn. Artefakter har definierats i en JSON-fil lästs in från en GitHub- eller VSTS Git-lagringsplats. 
@@ -26,6 +26,8 @@ DevTest Labs kan du ange en artefakt som ska läggas till en virtuell dator vid 
 Den [offentliga artefaktlagringsplatsen](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts), underhålls av DevTest Labs, ger många vanliga verktyg för både Windows och Linux. En länk till den här lagringsplatsen läggs automatiskt till labbet. Du kan skapa egna artefaktcentrallagret med särskilda verktyg som inte är tillgängliga i den offentliga artefaktlagringsplatsen. Läs om hur du skapar anpassade artefakter i [skapa anpassade artefakter](devtest-lab-artifact-author.md).
 
 Den här artikeln innehåller information om hur du lägger till anpassad artefakt databasen med hjälp av Azure portal, Azure Resource Management-mallar och Azure PowerShell. Du kan automatisera att lägga till en artefaktcentrallagret i ett labb genom att skriva skript med PowerShell eller CLI. 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Förutsättningar
 Om du vill lägga till en lagringsplats i labbet, först få viktig information från databasen. I följande avsnitt beskrivs hur du hämtar information som behövs för databaser som finns på **GitHub** eller **Azure DevOps**.
@@ -170,25 +172,25 @@ Det finns ett antal sätt att distribuera mallen till Azure och få resursen ska
 - [Distribuera resurser med Resource Manager-mallar och Azure Portal](../azure-resource-manager/resource-group-template-deploy-portal.md)
 - [Distribuera resurser med Resource Manager-mallar och Resource Manager REST API](../azure-resource-manager/resource-group-template-deploy-rest.md)
 
-Vi går vidare och se hur du distribuerar mallen i PowerShell. Cmdlets som används för att distribuera mallen är sammanhangsberoende, så aktuella klienten och aktuella prenumerationen används. Använd [Set-AzureRMContext](/powershell/module/azurerm.profile/set-azurermcontext?view=azurermps-6.13.0) innan du distribuerar mallen, vid behov för att ändra kontexten.
+Vi går vidare och se hur du distribuerar mallen i PowerShell. Cmdlets som används för att distribuera mallen är sammanhangsberoende, så aktuella klienten och aktuella prenumerationen används. Använd [Set-AzContext](/powershell/module/az.profile/set-azcontext) innan du distribuerar mallen, vid behov för att ändra kontexten.
 
-Börja med att skapa en resurs med [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup?view=azurermps-6.13.0). Om resursgruppen som du vill använda redan finns, kan du hoppa över det här steget.
+Börja med att skapa en resurs med [New AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). Om resursgruppen som du vill använda redan finns, kan du hoppa över det här steget.
 
 ```powershell
-New-AzureRmResourceGroup -Name MyLabResourceGroup1 -Location westus
+New-AzResourceGroup -Name MyLabResourceGroup1 -Location westus
 ```
 
-Därefter skapar du en distribution till en resurs-grupp med [New-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment?view=azurermps-6.13.0). Denna cmdlet gäller resource ändringarna till Azure. Flera resource-distributioner kan göras för en viss resurs-grupp. Om du distribuerar flera gånger till samma resursgrupp, kontrollera att namnet på varje distribution är unika.
+Därefter skapar du en distribution till en resurs-grupp med [New AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment). Denna cmdlet gäller resource ändringarna till Azure. Flera resource-distributioner kan göras för en viss resurs-grupp. Om du distribuerar flera gånger till samma resursgrupp, kontrollera att namnet på varje distribution är unika.
 
 ```powershell
-New-AzureRmResourceGroupDeployment `
+New-AzResourceGroupDeployment `
     -Name MyLabResourceGroup-Deployment1 `
     -ResourceGroupName MyLabResourceGroup1 `
     -TemplateFile azuredeploy.json `
     -TemplateParameterFile azuredeploy.parameters.json
 ```
 
-När New-AzureRmResourceGroupDeployment körs visar kommandot viktig information som Etableringsstatus (bör vara klar) och utdata för mallen.
+När ny AzResourceGroupDeployment körs visar kommandot viktig information som Etableringsstatus (bör vara klar) och utdata för mallen.
  
 ## <a name="use-azure-powershell"></a>Använda Azure PowerShell 
 Det här avsnittet innehåller ett PowerShell-skript som kan användas för att lägga till en artefaktcentrallagret i ett labb. Om du inte har Azure PowerShell, se [hur du installerar och konfigurerar du Azure PowerShell](/powershell/azure/overview?view=azps-1.2.0) för detaljerade anvisningar för att installera den.
@@ -236,11 +238,11 @@ See https://azure.microsoft.com/en-us/documentation/articles/devtest-lab-add-art
 Whether artifact is VSOGit or GitHub repository.
 
 .EXAMPLE
-Set-AzureRMContext -SubscriptionId 11111111-1111-1111-1111-111111111111
+Set-AzContext -SubscriptionId 11111111-1111-1111-1111-111111111111
 .\New-DevTestLabArtifactRepository.ps1 -LabName "mydevtestlab" -LabResourceGroupName "mydtlrg" -ArtifactRepositoryName "MyTeam Repository" -RepositoryUri "https://github.com/<myteam>/<nameofrepo>.git" -PersonalAccessToken "1111...." -SourceType "GitHub"
 
 .NOTES
-Script uses the current AzureRm context. To set the context, use the Set-AzureRMContext cmdlet
+Script uses the current Az context. To set the context, use the Set-AzContext cmdlet
 
 #>
 
@@ -278,11 +280,11 @@ if ($ArtifactRepositoryName -eq $null){
 }
 
 # Sign in to Azure
-Connect-AzureRmAccount
+Connect-AzAccount
 
 
 #Get Lab Resource
-$LabResource = Get-AzureRmResource -ResourceType 'Microsoft.DevTestLab/labs' -ResourceName $LabName -ResourceGroupName $LabResourceGroupName
+$LabResource = Get-AzResource -ResourceType 'Microsoft.DevTestLab/labs' -ResourceName $LabName -ResourceGroupName $LabResourceGroupName
 
 Write-Verbose "Lab Name: $($LabResource.Name)"
 Write-Verbose "Lab Resource Group Name: $($LabResource.ResourceGroupName)"
@@ -290,7 +292,7 @@ Write-Verbose "Lab Resource Location: $($LabResource.Location)"
 
 Write-Verbose "Artifact Repository Internal Name: $ArtifactRepositoryName"
 
-#Prepare properties object for call to New-AzureRMResource
+#Prepare properties object for call to New-AzResource
 $propertiesObject = @{
     uri = $RepositoryUri;
     folderPath = $FolderPath;
@@ -301,24 +303,24 @@ $propertiesObject = @{
     status = 'Enabled'
 }
 
-Write-Verbose @"Properties to be passed to New-AzureRMResource:$($propertiesObject | Out-String)"@
+Write-Verbose @"Properties to be passed to New-AzResource:$($propertiesObject | Out-String)"@
 
 #Resource will be added to current subscription.
 $resourcetype = 'Microsoft.DevTestLab/labs/artifactSources'
 $resourceName = $LabName + '/' + $ArtifactRepositoryName
-Write-Verbose "AzureRM ResourceType: $resourcetype"
-Write-Verbose "AzureRM ResourceName: $resourceName"
+Write-Verbose "Az ResourceType: $resourcetype"
+Write-Verbose "Az ResourceName: $resourceName"
  
 Write-Verbose "Creating artifact repository '$ArtifactRepositoryDisplayName'..."
-$result = New-AzureRmResource -Location $LabResource.Location -ResourceGroupName $LabResource.ResourceGroupName -properties $propertiesObject -ResourceType $resourcetype -ResourceName $resourceName -ApiVersion 2016-05-15 -Force
+$result = New-AzResource -Location $LabResource.Location -ResourceGroupName $LabResource.ResourceGroupName -properties $propertiesObject -ResourceType $resourcetype -ResourceName $resourceName -ApiVersion 2016-05-15 -Force
 
 
 #Alternate implementation:
 # Use resourceId rather than resourcetype and resourcename parameters.
 # Using resourceId allows you to specify the $SubscriptionId rather than using the
-# subscription id of Get-AzureRmContext.
+# subscription id of Get-AzContext.
 #$resourceId = "/subscriptions/$SubscriptionId/resourceGroups/$($LabResource.ResourceGroupName)/providers/Microsoft.DevTestLab/labs/$LabName/artifactSources/$ArtifactRepositoryName"
-#$result = New-AzureRmResource -properties $propertiesObject -ResourceId $resourceId -ApiVersion 2016-05-15 -Force
+#$result = New-AzResource -properties $propertiesObject -ResourceId $resourceId -ApiVersion 2016-05-15 -Force
 
 
 # Check the result
@@ -337,7 +339,7 @@ return $result
 I följande exempel visas hur du kör skriptet: 
 
 ```powershell
-Set-AzureRMContext -SubscriptionId <Your Azure subscription ID>
+Set-AzContext -SubscriptionId <Your Azure subscription ID>
 
 .\New-DevTestLabArtifactRepository.ps1 -LabName "mydevtestlab" -LabResourceGroupName "mydtlrg" -ArtifactRepositoryName "MyTeam Repository" -RepositoryUri "https://github.com/<myteam>/<nameofrepo>.git" -PersonalAccessToken "1111...." -SourceType "GitHub"
 ```
@@ -357,7 +359,7 @@ PowerShell-exempelskriptet i den här artikeln använder följande parametrar:
 | PersonalAccessToken | Säkerhetstoken för att komma åt databasen GitHub eller VSOGit. Se avsnittet förutsättningar anvisningar att hämta personliga åtkomsttoken |
 | sourceType | Om artefakten är VSOGit eller GitHub-lagringsplats. |
 
-Själva lagringsplatsen måste ett internt namn för identifiering, vilket skiljer sig som visningsnamnet som visas i Azure-portalen. Du ser inte det interna namnet med hjälp av Azure portal, men visas när du använder Azure REST API: er eller AzureRM PowerShell-cmdletar. Skriptet innehåller ett namn, om inget annat anges av användaren av våra skript.
+Själva lagringsplatsen måste ett internt namn för identifiering, vilket skiljer sig som visningsnamnet som visas i Azure-portalen. Du ser inte det interna namnet med hjälp av Azure portal, men visas när du använder Azure REST API: er eller Azure PowerShell. Skriptet innehåller ett namn, om inget annat anges av användaren av våra skript.
 
 ```powershell
 #Set artifact repository name, if not set by user
@@ -370,10 +372,10 @@ if ($ArtifactRepositoryName -eq $null){
 
 | PowerShell-kommando | Anteckningar |
 | ------------------ | ----- |
-| [Get-AzureRMResource](/powershell/module/azurerm.resources/get-azurermresource?view=azurermps-6.13.0) | Det här kommandot används för att få information om labbet, till exempel dess plats. |
-| [New-AzureRMResource](/powershell/module/azurerm.resources/new-azurermresource?view=azurermps-6.13.0) | Det finns inga specifika kommando för att lägga till artefakt databaser. Allmän [New-AzureRMResource](/powershell/module/azurerm.resources/new-azurermresource?view=azurermps-5.7.0) cmdlet gör jobbet. Denna cmdlet måste antingen den **ResourceId** eller **ResourceName** och **ResourceType** par veta vilken typ av resurs som ska skapas. Det här exempelskriptet använder resursnamnet och par för typ av resurs. <br/><br/>Observera att du skapar lagerkälla artefakt på samma plats och under samma resursgrupp som labbet.|
+| [Get-AzResource](/powershell/module/az.resources/get-azresource) | Det här kommandot används för att få information om labbet, till exempel dess plats. |
+| [New-AzResource](/powershell/module/az.resources/new-azresource) | Det finns inga specifika kommando för att lägga till artefakt databaser. Allmän [New AzResource](/powershell/module/az.resources/new-azresource) cmdlet gör jobbet. Denna cmdlet måste antingen den **ResourceId** eller **ResourceName** och **ResourceType** par veta vilken typ av resurs som ska skapas. Det här exempelskriptet använder resursnamnet och par för typ av resurs. <br/><br/>Observera att du skapar lagerkälla artefakt på samma plats och under samma resursgrupp som labbet.|
 
-Skriptet lägger till en ny resurs i den aktuella prenumerationen. Använd [Get-AzureRMContext](/powershell/module/azurerm.profile/get-azurermcontext?view=azurermps-6.13.0) se den här informationen. Använd [Set-AzureRMContext](/powershell/module/azurerm.profile/set-azurermcontext?view=azurermps-6.13.0) att ange aktuell klient och prenumeration.
+Skriptet lägger till en ny resurs i den aktuella prenumerationen. Använd [Get-AzContext](/powershell/module/az.profile/get-azcontext) se den här informationen. Använd [Set-AzContext](/powershell/module/az.profile/set-azcontext) att ange aktuell klient och prenumeration.
 
 Det bästa sättet att identifiera resursens namn och information om resursen är att använda den [Test Drive Azure REST API: er](https://azure.github.io/projects/apis/) webbplats. Kolla in den [DevTest Labs – 2016-05-15](http://aka.ms/dtlrestapis) provider för att se tillgängliga REST API: er för DevTest Labs-providern. Skriptanvändare följande resurs-ID. 
 

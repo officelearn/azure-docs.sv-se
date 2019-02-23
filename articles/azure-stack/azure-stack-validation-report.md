@@ -16,17 +16,17 @@ ms.date: 10/23/2018
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 10/23/2018
-ms.openlocfilehash: 1545fa3c1c94edc98e53b3579e5617a6bf16461c
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 0f6230dd3fe59e2aa34e358bfa9133f736d17f36
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55238865"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56732457"
 ---
 # <a name="azure-stack-validation-report"></a>Azure Stack-verifieringsrapport
 Verktyget Azure Stack-beredskap för installation används för att köra verifieringar som har stöd för distribution och underhåll av Azure Stack-miljön. Verktyget skriver resultatet till en JSON-fil för rapporten. Rapporten visar detaljerad och sammanfattade data om tillståndet för krav för distribution av Azure Stack. Rapporten visar även information om hemligheter Rotation för befintliga Azure Stack-distributioner.  
 
- ## <a name="where-to-find-the-report"></a>Var du hittar i rapporten
+## <a name="where-to-find-the-report"></a>Var du hittar i rapporten
 När verktyget körs loggas resultaten till **AzsReadinessCheckerReport.json**. Verktyget skapar även en logg med namnet **AzsReadinessChecker.log**. Platsen för filerna visas med verifieringsresultat i PowerShell.
 
 ![Kör-verifiering](./media/azure-stack-validation-report/validation.png)

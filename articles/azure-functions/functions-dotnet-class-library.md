@@ -11,12 +11,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 09/12/2018
 ms.author: glenga
-ms.openlocfilehash: 7e84e8e99000e9d8bd7a21d343588b1df777b56d
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 661cdddb4682d003b0c1149819a096a2a3756090
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52994543"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56729006"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Azure Functions C#-utvecklarreferens
 
@@ -50,7 +50,7 @@ När du skapar projektet utdata en mappstruktur som ser ut som följande generer
  | - host.json
 ```
 
-Den här katalogen är det distribueras till din funktionsapp i Azure. Bindningen-tillägg som krävs i [version 2.x](functions-versions.md) funktioner runtime är [lagts till i projektet som NuGet-paket](functions-triggers-bindings.md#c-class-library-with-visual-studio-2017).
+Den här katalogen är det distribueras till din funktionsapp i Azure. Bindningen-tillägg som krävs i [version 2.x](functions-versions.md) funktioner runtime är [lagts till i projektet som NuGet-paket](./functions-bindings-register.md#c-class-library-with-visual-studio-2017).
 
 > [!IMPORTANT]
 > Skapandeprocessen skapar en *function.json* fil för varje funktion. Detta *function.json* filen är inte avsedd att redigeras direkt. Du kan inte ändra bindningskonfigurationen eller inaktivera funktionen genom att redigera den här filen. Läs hur du inaktiverar en funktion i [så här inaktiverar du funktioner](disable-function.md#functions-2x---c-class-libraries).
@@ -83,7 +83,7 @@ Metodsignaturen kan innehålla parametrar än den som används med attributet ut
 * [Indata och utdata bindningar](functions-triggers-bindings.md) markerad som sådan genom att dekorera dem med attribut.  
 * En `ILogger` eller `TraceWriter` ([version 1.x endast](functions-versions.md#creating-1x-apps)) parametern för [loggning](#logging).
 * En `CancellationToken` parametern för [avslutning](#cancellation-tokens).
-* [Bindning uttryck](functions-triggers-bindings.md#binding-expressions-and-patterns) parametrar för att visa utlösa metadata.
+* [Bindning uttryck](./functions-bindings-expressions-patterns.md) parametrar för att visa utlösa metadata.
 
 Ordningen på parametrar i funktionssignaturen spelar ingen roll. Exempel: du kan ange parametrar för objektutlösare före eller efter andra bindningar och du kan ange parametern loggaren före eller efter lagringsutlösare eller bindning för parametrar.
 
@@ -205,7 +205,7 @@ Varje bindning har sin egen typer som stöds. till exempel ett attribut för blo
 
 ## <a name="binding-to-method-return-value"></a>Bindning till returvärdet för metoden
 
-Du kan använda metoden returvärdet för en utdatabindning genom att använda attributet returvärdet för metoden. Exempel finns i [utlösare och bindningar](functions-triggers-bindings.md#using-the-function-return-value). 
+Du kan använda metoden returvärdet för en utdatabindning genom att använda attributet returvärdet för metoden. Exempel finns i [utlösare och bindningar](./functions-bindings-return-value.md). 
 
 Använd det returnera värdet bara om lyckad körning av en funktion alltid resulterar i ett returvärde ska skickas till utdata-bindning. Annars kan du använda `ICollector` eller `IAsyncCollector`, vilket visas i följande avsnitt.
 

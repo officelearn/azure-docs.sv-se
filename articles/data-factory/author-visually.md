@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: shlo
-ms.openlocfilehash: 323d22363ee52ff6ccf7575b00c6b8b31a0fa156
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: e934c8bdc851f8c550e8b87a923215df3f95e389
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54188502"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56728270"
 ---
 # <a name="visual-authoring-in-azure-data-factory"></a>Visuell redigering i Azure Data Factory
 Azure Data Factory användargränssnittet användarupplevelsen (UX) kan du visuellt skapa och distribuera resurser för din datafabrik utan att behöva skriva någon kod. Du kan dra aktiviteter till en rityta för pipelinen, utför testkörningar, felsöker stegvis och distribuerar och övervakar dina pipelinekörningar. Det finns två metoder för att utföra visuell redigering med UX-Gränssnittet:
@@ -63,7 +63,7 @@ Fönstret visar följande kod i Azure-lagringsplatser inställningar för lagrin
 | **Typ av lagringsplats** | Typ av kodlagringsplatsen Azure lagringsplatser.<br/>**Obs!** GitHub stöds inte för närvarande. | Azure-lagringsplatser Git |
 | **Azure Active Directory** | Ditt klientnamn för Azure AD. | <your tenant name> |
 | **Azure-lagringsplatser organisation** | Organisationsnamnet Azure lagringsplatser. Du kan hitta Azure-lagringsplatser organisationens namn på `https://{organization name}.visualstudio.com`. Du kan [logga in på din Azure-lagringsplatser organisation](https://www.visualstudio.com/team-services/git/) att komma åt din Visual Studio-profil och se dina databaser och projekt. | <your organization name> |
-| **Projektnamn** | Projektnamnet Azure lagringsplatser. Du kan hitta din Azure-lagringsplatser projektnamn på `https://{organization name}.visualstudio.com/{project name}`. | <your Azure Repos project name> |
+| **ProjectName** | Projektnamnet Azure lagringsplatser. Du kan hitta din Azure-lagringsplatser projektnamn på `https://{organization name}.visualstudio.com/{project name}`. | <your Azure Repos project name> |
 | **RepositoryName** | Din Azure-lagringsplatser kod databasnamn. Projekt för Azure lagringsplatser innehålla Git-lagringsplatser för att hantera din källkod när projektet växer. Du kan skapa en ny databas eller använda en befintlig databas som redan finns i projektet. | <your Azure Repos code repository name> |
 | **Samarbete gren** | Din Azure-lagringsplatser samarbete gren som ska användas för publicering. Som standard är det `master`. Ändra den här inställningen om du vill publicera resurser från en annan gren. | <your collaboration branch name> |
 | **Rotmapp för vyer** | Rotmappen i din Azure-lagringsplatser samarbete gren. | <your root folder name> |
@@ -221,7 +221,7 @@ En konfigurationsruta visas. Mer information om inställningarna se beskrivninga
 
 Du kan konfigurera en lagringsplats med GitHub Enterprise med en datafabrik med två metoder.
 
- #### <a name="configuration-method-1-enterprise-repo-lets-get-started-page"></a>Metod 1 (Enterprise lagringsplats): Sidan Nu sätter vi igång
+#### <a name="configuration-method-1-enterprise-repo-lets-get-started-page"></a>Metod 1 (Enterprise lagringsplats): Sidan Nu sätter vi igång
 
 I Azure Data Factory går du till den **nu sätter vi igång** sidan. Välj **konfigurera Kodlagringsplats**:
 
@@ -264,7 +264,7 @@ Du kan använda funktioner eller ange parametrar för pipelines och datauppsätt
 
 Information om uttryck som stöds finns i [uttryck och funktioner i Azure Data Factory](control-flow-expression-language-functions.md).
 
-![Lägg till dynamiskt innehåll](media/author-visually/dynamic-content-2.png)
+![Add Dynamic Content](media/author-visually/dynamic-content-2.png)
 
 ## <a name="provide-feedback"></a>Ge feedback
 Välj **Feedback** att kommentera om funktioner eller för att meddela Microsoft om problem med verktyget:

@@ -9,14 +9,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/01/2019
+ms.date: 02/22/2019
 ms.author: jingwang
-ms.openlocfilehash: ff070adbda2a36261ca24eb0cc993ca22eada1c7
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: fcd3af6c000debb8da6200205a9aa2ae61feac58
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55661249"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56675423"
 ---
 # <a name="store-credential-in-azure-key-vault"></a>Store-autentiseringsuppgifter i Azure Key Vault
 
@@ -26,14 +26,14 @@ För närvarande stöder alla aktivitetstyper utom anpassad aktivitet den här f
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Den här funktionen är beroende av tjänstidentiteten för data factory. Lär dig hur det fungerar från [tjänstidentitet för datafabrik](data-factory-service-identity.md) och se till att din data factory har en associerad.
+Den här funktionen är beroende av data factory hanterad identitet. Lär dig hur det fungerar från [hanterad identitet för Data factory](data-factory-service-identity.md) och se till att din data factory har en associerad.
 
 ## <a name="steps"></a>Steg
 
 Om du vill referera till en autentiseringsuppgift lagras i Azure Key Vault, måste du:
 
-1. **Hämta tjänstidentitet för datafabrik** genom att kopiera värdet för ”SERVICE IDENTITETSPROGRAM-ID” genererade tillsammans med din datafabrik. Om du använder ADF redigering av Användargränssnittet för tjänstidentiteten ID kan visas i fönstret för Azure Key Vault länkad tjänst skapas. Du kan också hämta den från Azure-portalen, som avser [hämta tjänstidentitet för datafabrik](data-factory-service-identity.md#retrieve-service-identity).
-2. **Ge tjänstens identitet åtkomst till Azure Key Vault.** I ditt nyckelvalv åtkomst -> Principer -> Lägg till ny -> Sök efter det här tjänstprogrammet för identitets-ID: T för att bevilja **hämta** behörighet i listrutan för hemliga behörigheter. Det gör att den här avsedda factory ska kunna komma åt hemlighet i nyckelvalvet.
+1. **Hämta data factory hanterad identitet** genom att kopiera värdet för ”SERVICE IDENTITETSPROGRAM-ID” genererade tillsammans med din datafabrik. Om du använder ADF redigering Användargränssnittet kan program-ID för hanterad identitet visas i fönstret för Azure Key Vault länkad tjänst skapas. Du kan också hämta den från Azure-portalen, som avser [hämta data factory-hanterad identitet](data-factory-service-identity.md#retrieve-managed-identity).
+2. **Bevilja hanterad identitet åtkomst till Azure Key Vault.** I ditt nyckelvalv åtkomst -> Principer -> Lägg till ny -> Sök detta hanteras identitetsprogram-ID att ge **hämta** behörighet i listrutan för hemliga behörigheter. Det gör att den här avsedda factory ska kunna komma åt hemlighet i nyckelvalvet.
 3. **Skapa en länkad tjänst som pekar på Azure Key Vault.** Referera till [Azure Key Vault-länkade tjänst](#azure-key-vault-linked-service).
 4. **Skapa data länkad lagringstjänst, i vilken referens motsvarande privata nyckel för lagras i valvet.** Referera till [referens-hemlighet som lagras i nyckelvalvet](#reference-secret-stored-in-key-vault).
 

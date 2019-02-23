@@ -12,16 +12,16 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/11/2019
+ms.date: 02/22/2019
 ms.author: jeffgilb
 ms.reviewer: anwestg
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 60767c3c61b0d386e4ac9b0a93d16ad161c59949
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: 0467f131ab4300ba3217ed01f37ebb7f4b8dbe5e
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56445942"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56732780"
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>Lägga till en App Service-resursprovider i Azure Stack
 
@@ -132,22 +132,7 @@ Distribuera App Service-resursprovider genom att följa dessa steg:
 
     ![App Service-installationsprogrammet][10]
 
-11. Ange SQL Server-information för server-instans som används för att vara värd för App Service resource provider-databaser och välj sedan **nästa**. Installationsprogrammet verifierar egenskaper för SQL-anslutning.
-
-    > [!NOTE]
-    > Ett försök görs att testa anslutningen till SQL Server innan du fortsätter. Men om du distribuerar till ett befintligt virtuellt nätverk, det här Anslutningstestet misslyckas. Du får en varning och en fråga för att fortsätta. Om SQL Server-information är korrekt kan du fortsätta med distributionen.
-    >
-    > Installationsprogrammet kommer från Azure App Service i Azure Stack-1.3 och senare kontrollera att SQL Server har databas inneslutning aktiverad på SQL Server-nivå.  Om det inte är det, uppmanas du att följande undantag:
-    > ```sql
-    >    Enable contained database authentication for SQL server by running below command on SQL server (Ctrl+C to copy)
-    >    ***********************************************************
-    >    sp_configure 'contained database authentication', 1;  
-    >    GO  
-    >    RECONFIGURE;  
-    >    GO
-    >    ***********************************************************
-    > ```
-    > Referera till den [viktig information för Azure App Service i Azure Stack 1.3](azure-stack-app-service-release-notes-update-three.md) för mer information.
+11. Ange SQL Server-information för server-instans som används för att vara värd för App Service resource provider-databaser och välj sedan **nästa**. Installationsprogrammet verifierar egenskaper för SQL-anslutning.<br><br>App Service-installationsprogrammet försöker att testa anslutningen till SQL Server innan du fortsätter. Om du distribuerar till ett befintligt virtuellt nätverk, kan det här Anslutningstestet misslyckas. Du får en varning och en fråga för att fortsätta. Om SQL Server-information är korrekt kan du fortsätta med distributionen.
 
     ![App Service-installationsprogrammet][11]
 

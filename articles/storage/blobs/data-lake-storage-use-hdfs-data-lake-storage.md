@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: artek
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: f1f4cb036f4df226d651f8f4d0f5c7492f453a0a
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 167c8b4dff2e6f392dd6608d20d8924d446f95aa
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56269748"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56729941"
 ---
 # <a name="using-the-hdfs-cli-with-data-lake-storage-gen2"></a>Med hjälp av HDFS-CLI med Data Lake Storage Gen2
 
@@ -30,7 +30,7 @@ HDInsight ger tillgång till det distribuerade filsystemet som är lokalt anslut
 
     hdfs dfs -D "fs.azure.createRemoteFileSystemDuringInitialization=true" -ls abfs://<file-system-name>@<storage-account-name>.dfs.core.windows.net/
 
-* Ersätt den `<file-system-name>` med det namn som du vill ge ditt filsystem.
+* Ersätt platshållaren `<file-system-name>` med det namn som du vill ge filsystemet.
 
 * Ersätt platshållaren `<storage-account-name>` med namnet på ditt lagringskonto.
 
@@ -77,10 +77,6 @@ Mer information om HDFS CLI finns i den [officiella dokumentationen](https://had
 ## <a name="hdfs-cli-with-azure-databricks"></a>HDFS CLI med Azure Databricks
 
 Databricks ger en enkel att använda CLI som bygger på Databricks REST API. Projekt för öppen källkod finns på [GitHub](https://github.com/databricks/databricks-cli). Nedan visas vanliga kommandon.
-
-### <a name="create-a-file-system"></a>Skapa ett filsystem
-
-Här placerar du riktlinjerna.
 
 ### <a name="get-a-list-of-files-or-directories"></a>Hämta en lista över filer eller kataloger
 

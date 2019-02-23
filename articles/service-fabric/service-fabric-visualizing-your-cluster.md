@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2019
 ms.author: mikhegn
-ms.openlocfilehash: b97f2d3a015ebfd5f9c8771d3fc3edc1c074c839
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: ba6a9a09945f0e822dfe02a74f2cdb8e21a1691c
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56203717"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56674675"
 ---
 # <a name="visualize-your-cluster-with-service-fabric-explorer"></a>Visualisera ditt kluster med Service Fabric Explorer
 
@@ -56,7 +56,7 @@ För konfiguration för utvecklare arbetsstation, kan du starta Service Fabric E
 >
 
 ## <a name="connect-to-a-service-fabric-cluster"></a>Ansluta till ett Service Fabric-kluster
-Om du vill ansluta till ett Service Fabric-kluster, behöver du hanteringsslutpunkten för kluster (IP/FQDN) och HTTP-slutpunkt Hanteringsport (19080 som standard). Till exempel https://mysfcluster.westus.cloudapp.azure.com:19080. Använd kryssrutan ”Anslut till localhost” för att ansluta till ett lokalt kluster på din arbetsstation.
+Om du vill ansluta till ett Service Fabric-kluster, behöver du hanteringsslutpunkten för kluster (IP/FQDN) och HTTP-slutpunkt Hanteringsport (19080 som standard). Till exempel https\:/ / mysfcluster.westus.cloudapp.azure.com:19080. Använd kryssrutan ”Anslut till localhost” för att ansluta till ett lokalt kluster på din arbetsstation.
 
 ### <a name="connect-to-a-secure-cluster"></a>Ansluta till ett säkert kluster
 Du kan styra klientåtkomst till ditt Service Fabric-kluster med certifikat eller med hjälp av Azure Active Directory (AAD).

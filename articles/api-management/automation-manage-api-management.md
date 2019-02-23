@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/13/2018
 ms.author: apimpm
-ms.openlocfilehash: c2c23b6709552d053ca8db5e32a045b416c1acfc
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 642353218960e2e995d717260ae82b6dbd7c2612
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55733424"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56727068"
 ---
 # <a name="managing-azure-api-management-using-azure-automation"></a>Hantera Azure API Management med hjälp av Azure Automation
 Den här guiden ger en introduktion till Azure Automation-tjänsten och hur den kan användas för att förenkla hanteringen av Azure API Management.
@@ -32,7 +32,7 @@ Azure Automation tillhandahåller en mycket pålitlig, högtillgängliga motor f
 Minska driftsomkostnader och frigör IT och DevOps-personal att fokusera på arbete som ger ett mervärde för verksamheten genom att flytta din molnhanteringsuppgifter att köras automatiskt av Azure Automation.
 
 ## <a name="how-can-azure-automation-help-manage-azure-api-management"></a>Hur kan Azure Automation till att hantera Azure API Management?
-API Management kan hanteras i Azure Automation med hjälp av den [Windows PowerShell-cmdletar för Azure API Management API](https://docs.microsoft.com/powershell/module/azurerm.apimanagement/?view=azurermps-5.5.0). Du kan skriva PowerShell-arbetsflöde för skript för att utföra många av din API Management-uppgifter med hjälp av cmdletar i Azure Automation. Du kan också koppla dessa cmdletar i Azure Automation med cmdlets för andra Azure-tjänster, att automatisera avancerade uppgifter över Azure-tjänster och system med 3 part.
+API Management kan hanteras i Azure Automation med hjälp av den [Windows PowerShell-cmdletar för Azure API Management API](https://docs.microsoft.com/powershell/module/az.apimanagement). Du kan skriva PowerShell-arbetsflöde för skript för att utföra många av din API Management-uppgifter med hjälp av cmdletar i Azure Automation. Du kan också koppla dessa cmdletar i Azure Automation med cmdlets för andra Azure-tjänster, att automatisera avancerade uppgifter över Azure-tjänster och system med 3 part.
 
 Här följer några exempel på hur du använder API Management med Powershell:
 

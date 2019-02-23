@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 9bd015076cdbd70768b1359fac0cfc893d871513
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 360fd8e7ab0f7a85dbeed2bdbc7da379cbcfe91a
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55149602"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56737033"
 ---
 # <a name="predicates-and-predicatevalidations"></a>Predikat och PredicateValidations
 
@@ -350,7 +350,7 @@ Nedan visas hur elementen är ordnade när Azure AD B2C visas ett felmeddelande:
 
 ![Predikatet process](./media/predicates/predicates-pass.png)
 
- ## <a name="configure-a-date-range"></a>Konfigurera ett datumintervall
+## <a name="configure-a-date-range"></a>Konfigurera ett datumintervall
 
 Med den **predikat** och **PredicateValidations** element som du kan kontrollera lägsta och högsta datumvärdena i de **UserInputType** med hjälp av en `DateTimeDropdown`. Om du vill göra detta måste du skapa en **predikat** med den `IsDateRange` metoden och ange lägsta och högsta parametrar.
 

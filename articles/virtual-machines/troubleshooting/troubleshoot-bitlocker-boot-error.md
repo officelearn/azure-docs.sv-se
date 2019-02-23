@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/31/2018
 ms.author: genli
-ms.openlocfilehash: 3a615beeec45871aab1e98ad338ffa053ddbec92
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: bb284813ca5d0897b109547c1e7cc21e9e560863
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55984774"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56733993"
 ---
 # <a name="bitlocker-boot-errors-on-an-azure-vm"></a>BitLocker startfel på en Azure VM
 
@@ -26,7 +26,7 @@ ms.locfileid: "55984774"
 
 [!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
- ## <a name="symptom"></a>Symtom
+## <a name="symptom"></a>Symtom
 
  En virtuell Windows-dator startar inte. När du checkar skärmbilderna den [Startdiagnostik](../windows/boot-diagnostics.md) fönstret du ser något av följande felmeddelanden:
 

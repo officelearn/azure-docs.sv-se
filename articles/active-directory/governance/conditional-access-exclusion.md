@@ -1,6 +1,6 @@
 ---
-title: Använd Azure AD-åtkomstgranskningar att hantera användare som har undantagits från principer för villkorlig åtkomst | Microsoft Docs
-description: Använd Azure Active Directory (Azure AD)-åtkomstgranskningar för att hantera användare som har undantagits från principer för villkorlig åtkomst
+title: Använda Azure AD-Åtkomstgranskningar för att hantera användare uteslutna från principer för villkorlig åtkomst | Microsoft Docs
+description: Lär dig för att hantera användare som har undantagits från principer för villkorlig åtkomst med Åtkomstgranskningar för Azure Active Directory (AD Azure)
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -16,16 +16,16 @@ ms.date: 09/25/2018
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a82fdfe598e11415130950443fb0d3e27f5d9d01
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 75ff08111e96fd4b210dfeb09db521856f4f5e52
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56168548"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56727510"
 ---
-# <a name="use-azure-ad-access-reviews-to-manage-users-that-have-been-excluded-from-conditional-access-policies"></a>Använd Azure AD-åtkomstgranskningar att hantera användare som har undantagits från principer för villkorlig åtkomst
+# <a name="use-azure-ad-access-reviews-to-manage-users-excluded-from-conditional-access-policies"></a>Använd Azure AD-Åtkomstgranskningar att hantera användare som undantas från principer för villkorlig åtkomst
 
-I en perfekt värld följer alla användare åtkomst principer för säker åtkomst till organisationens resurser. Men finns ibland företagsfall som uppmanar dig att göra undantag. Den här artikeln beskrivs några exempel där undantag kan krävas och hur du som IT-administratören kan hantera den här uppgiften, undvika översyn av rutinundantag och ge granskare bevis sådana undantag granskas regelbundet med hjälp av Azure Active Directory (Azure AD)-åtkomstgranskningar.
+I en perfekt värld följer alla användare åtkomst principer för säker åtkomst till organisationens resurser. Men finns ibland företagsfall som uppmanar dig att göra undantag. Den här artikeln beskrivs några exempel där undantag kan krävas och hur du som IT-administratören kan hantera den här uppgiften, undvika översyn av rutinundantag och ge granskare bevis sådana undantag granskas regelbundet med hjälp av Azure Active Directory (Azure AD)-Åtkomstgranskningar.
 
 > [!NOTE]
 > En giltig Azure AD Premium P2, Enterprise Mobility + Security E5 betald eller utvärderingslicens krävs för att använda Azure AD-åtkomstgranskningar. Mer information finns i [Azure Active Directory-versioner](../fundamentals/active-directory-whatis.md).
@@ -158,5 +158,5 @@ Som IT-administratör kan vet du att hantera undantagsgrupper i dina principer i
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Skapa en åtkomstgranskning för medlemmar i gruppen eller programmet åtkomst med Azure AD](create-access-review.md)
+- [Skapa en åtkomstgranskning av grupper eller program](create-access-review.md)
 - [Vad är villkorsstyrd åtkomst i Azure Active Directory?](../conditional-access/overview.md)

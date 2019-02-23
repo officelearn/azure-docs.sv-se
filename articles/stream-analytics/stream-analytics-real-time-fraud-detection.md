@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 73fffda6ec0ae0a65af9b5aa8505e3b9551bd3b4
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: 6433d130da108ce7bd0b6f8b4093161043c32645
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53558183"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56733154"
 ---
 # <a name="get-started-using-azure-stream-analytics-real-time-fraud-detection"></a>Kom igång med Azure Stream Analytics: Identifiering av bedrägerier i realtid
 
@@ -188,9 +188,9 @@ Nu när du har en ström av anropshändelser kan du konfigurera ett Stream Analy
    |---------|---------|---------|
    |Inmatat alias  |  CallStream   |  Ange ett namn som identifierar jobbets indata.   |
    |Prenumeration   |  \<Din prenumeration\> |  Välj den prenumeration som har den Händelsehubb som du skapade.   |
-   |Namnområde för händelsehubb  |  asa-FT-ns-demo |  Ange namnet på namnområdet för Händelsehubben.   |
-   |Namn på händelsehubb  | asa-FT-frauddetection-demo | Välj namnet på din Event Hub.   |
-   |Principnamn för Event Hub  | asa-princip-hantera-demo | Välj den åtkomstprincip som du skapade tidigare.   |
+   |Namnområde för händelsehubb  |  asa-eh-ns-demo |  Ange namnet på namnområdet för Händelsehubben.   |
+   |Namn på händelsehubb  | asa-eh-frauddetection-demo | Välj namnet på din Event Hub.   |
+   |Principnamn för Event Hub  | asa-policy-manage-demo | Välj den åtkomstprincip som du skapade tidigare.   |
     </br>
     <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-sa-input-new-portal.png" alt="Create Stream Analytics input in portal" width="300px"/>
 

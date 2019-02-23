@@ -8,12 +8,12 @@ ms.author: viviali
 ms.date: 12/4/2018
 ms.topic: conceptual
 manager: peterpr
-ms.openlocfilehash: 9c774a463264a3df859ac097dce4aa21df1c1dd8
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 6133a7441459072d0c7da1841161da563a28aa31
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53163369"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56730332"
 ---
 # <a name="build-the-iot-central-device-bridge-to-connect-other-iot-clouds-to-iot-central"></a>Skapa IoT Central enhet brygga för att ansluta andra IoT-moln till IoT Central
 
@@ -26,7 +26,9 @@ Enhet-brygga IoT Central är en lösning för öppen källkod i GitHub. Det är 
 -   Azure Functions-app
 -   Azure Storage-konto
 -   Förbrukningsplan
--   Azure Key Vault funktionsappen är viktiga delar av enheten bryggan. Den tar emot HTTP POST-förfrågningar från andra IoT-plattformar eller valfri anpassad plattformar via ett enkelt webhook-integrering. Vi har lagt till exempel som visar hur du ansluter till Sigfox och partikeln TTN moln. Du kan enkelt utöka den här lösningen för att ansluta till din anpassade IoT-molnet om din plattform kan skicka HTTP POST-förfrågningar till din funktionsapp.
+-   Azure Key Vault
+
+Funktionsappen är viktiga delar av enheten bryggan. Den tar emot HTTP POST-förfrågningar från andra IoT-plattformar eller valfri anpassad plattformar via ett enkelt webhook-integrering. Vi har lagt till exempel som visar hur du ansluter till Sigfox och partikeln TTN moln. Du kan enkelt utöka den här lösningen för att ansluta till din anpassade IoT-molnet om din plattform kan skicka HTTP POST-förfrågningar till din funktionsapp.
 Funktionsappen omvandlar data till ett format som accepteras av IoT Central och vidarebefordrar det längs DPS-API: er.
 
 ![Skärmbild av Azure functions](media/howto-build-iotc-device-bridge/azfunctions.png)

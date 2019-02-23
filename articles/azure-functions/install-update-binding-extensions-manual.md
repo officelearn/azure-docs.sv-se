@@ -11,16 +11,16 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 09/26/2018
 ms.author: glenga
-ms.openlocfilehash: 77b863bc32442261e220b5dd3f11c0bd33b4fa7a
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: cda977ba59070c3ddaac05784277d6c0b5109f0f
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48811310"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56727119"
 ---
 # <a name="manually-install-or-update-azure-functions-binding-extensions-from-the-portal"></a>Manuellt installera eller uppdatera tillägg av Azure Functions-bindning från portalen
 
-Azure Functions version 2.x-körningen använder tillägg av bindning för att implementera kod för utlösare och bindningar. Tillägg av bindning finns i NuGet-paket. Om du vill registrera ett tillägg i stort sett installation av ett paket. När du utvecklar funktioner, beror hur du installerar tillägg av bindning på development environment. Mer information finns i [registrera tillägg av bindning](functions-triggers-bindings.md#register-binding-extensions) i utlösare och bindningar artikeln.
+Azure Functions version 2.x-körningen använder tillägg av bindning för att implementera kod för utlösare och bindningar. Tillägg av bindning finns i NuGet-paket. Om du vill registrera ett tillägg i stort sett installation av ett paket. När du utvecklar funktioner, beror hur du installerar tillägg av bindning på development environment. Mer information finns i [registrera tillägg av bindning](./functions-bindings-register.md) i utlösare och bindningar artikeln.
 
 Ibland måste du manuellt installera eller uppdatera tillägg av bindning i Azure-portalen. Du kan behöva uppdatera en registrerad bindning till en nyare version. Du kan också behöva registrera en stöds bindning som inte kan installeras i den **integrera** i portalen.
 

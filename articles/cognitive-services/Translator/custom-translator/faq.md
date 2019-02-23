@@ -6,15 +6,15 @@ author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
 ms.subservice: custom-translator
-ms.date: 11/13/2018
+ms.date: 02/21/2019
 ms.author: v-rada
 ms.topic: reference
-ms.openlocfilehash: 4d63eb817f7dc1ff957223cb5e9181fbc441fe29
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: b09b2cd3a7a642debb28de7ce71a2b3af4f558a8
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55227496"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56730281"
 ---
 # <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 
@@ -25,7 +25,6 @@ Den här artikeln innehåller svar på vanliga frågor och svar om [anpassad Tra
 Det finns begränsningar och gränser med avseende på filstorlek, modellinlärning och distribution av modeller. Tänk på dessa begränsningar när du konfigurerar utbildning för att skapa en modell i anpassade Translator.
 
 - Skickade filerna måste vara mindre än 100 MB i storlek.
-
 - Enspråkig data stöds inte.
 
 ## <a name="when-should-i-request-deployment-for-a-translation-system-that-has-been-trained"></a>När bör jag begära distribution för en översättningssystemet som har tränats?

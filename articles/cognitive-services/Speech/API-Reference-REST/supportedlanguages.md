@@ -10,12 +10,13 @@ ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 1f184d54c0d9edc8e203b697c06c2178436172ff
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ROBOTS: NOINDEX,NOFOLLOW
+ms.openlocfilehash: 044c0355b6ec9f064cae74ffd5259d457cb49147
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55206944"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56672397"
 ---
 # <a name="supported-languages"></a>Språk som stöds
 
@@ -23,7 +24,7 @@ ms.locfileid: "55206944"
 
 ## <a name="interactive-and-dictation-mode"></a>Interaktiv och diktering läge
 
-Microsoft taligenkänningens API stöder följande språk i `interactive` och `dictation` lägen. 
+Microsoft taligenkänningens API stöder följande språk i `interactive` och `dictation` lägen.
 
 |Kod | Språk | Kod | Språk |
 |-----|-----|-----|-----|
@@ -34,7 +35,7 @@ Microsoft taligenkänningens API stöder följande språk i `interactive` och `d
 | SV-Australien | Engelska (Australien) |NB-NO | Norska (Bokmål) (Norge)  |
 | en CA: N | Engelska (Kanada) | NL-NL | Nederländska (Nederländerna)   |
 | en-GB | Engelska (Storbritannien) |pl-PL | Polska (Polen) |
-| en Indien | Engelska (Indien) | pt-BR | Portugisiska (Brasilien)  |
+| en Indien | English (India) | pt-BR | Portugisiska (Brasilien)  |
 | en NZ | Engelska (Nya Zeeland) |PT-PT | Portugisiska (Portugal)  |
 | en-US | Engelska (USA) | ru-RU | Ryska (Ryssland) |
 | es-ES | Spanska (Spanien) | SV-SE | Svenska (Sverige) |
@@ -45,7 +46,7 @@ Microsoft taligenkänningens API stöder följande språk i `interactive` och `d
 
 ## <a name="conversation-mode"></a>Konversationen läge
 
-Microsoft taligenkänningens API stöder följande språk i `conversation` lägen. 
+Microsoft taligenkänningens API stöder följande språk i `conversation` lägen.
 
 | Kod | Språk | Kod | Språk |
 |-----|-----|-----|-----|

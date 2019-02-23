@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: 6788568510a0aa10a859236aebc3f3edb2de7527
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: a42fec94a23db82192cf05a47080d982a0857056
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56329627"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56729050"
 ---
 # <a name="attach-a-data-disk-to-a-windows-vm-with-powershell"></a>Anslut en datadisk till en virtuell Windows-dator med PowerShell
 
@@ -59,9 +59,8 @@ Update-AzVM -VM $vm -ResourceGroupName $rgName
 ```
 
 ### <a name="using-managed-disks-in-an-availability-zone"></a>Använda hanterade diskar i en Tillgänglighetszon
-Du kan skapa en disk i en Tillgänglighetszon med [New-AzDiskConfig](https://docs.microsoft.com/powershell/module/az.compute/new-azdiskconfig) med den `-Zone` parametern. I följande exempel skapas en disk i zonen *1*.
 
-Du kan skapa en disk i en Tillgänglighetszon med [New-AzureRmDiskConfig](/powershell/module/azurerm.compute/new-azurermdiskconfig) med den `-Zone` parametern. I följande exempel skapas en disk i zonen *1*.
+Du kan skapa en disk i en Tillgänglighetszon med [New-AzDiskConfig](https://docs.microsoft.com/powershell/module/az.compute/new-azdiskconfig) med den `-Zone` parametern. I följande exempel skapas en disk i zonen *1*.
 
 ```powershell
 $rgName = 'myResourceGroup'

@@ -9,29 +9,29 @@ ms.date: 02/04/2019
 ms.custom: mvc
 ms.topic: conceptual
 ms.service: active-directory
-ms.component: B2C
-ms.openlocfilehash: ee3323ec23b37318dbd80c85d6dd7515ce1ce06b
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.subservice: B2C
+ms.openlocfilehash: 3f988e61c152be820e7e490e13908fb4ab54e6c5
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55757703"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56673400"
 ---
 # <a name="add-a-native-client-application-to-your-azure-active-directory-b2c-tenant"></a>Lägg till ett internt klientprogram till din Azure Active Directory B2C-klient
 
 Inbyggd klient resurser måste vara registrerade i klientorganisationen innan ditt program kan kommunicera med Azure Active Directory B2C.
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
-2. Kontrollera att du använder den katalog som innehåller din Azure AD B2C-klient genom att klicka på den **katalog- och prenumerationsfilter** i den översta menyn och välja den katalog som innehåller din klient.
-3. Välj **alla tjänster** i det övre vänstra hörnet av Azure-portalen och Sök efter och välj **Azure AD B2C**.
-1. Välj **program**, och välj sedan **Lägg till**.
-2. Ange ett namn för programmet. Till exempel *nativeapp1*.
-3. För **ta med webbapp / webb-API**väljer **nr**.
-4. För **ta med intern klient**väljer **Ja**.
-5. För **omdirigerings-URI**, ange en giltig omdirigerings-URI med ett anpassat schema. Det finns två viktiga överväganden när du väljer en omdirigerings-URI:
+2. Se till att du använder den katalog som innehåller din Azure AD B2C-klientorganisation genom att klicka på **katalog- och prenumerationsfiltret** på den översta menyn och välja katalogen som innehåller din klientorganisation.
+3. Välj **Alla tjänster** på menyn uppe till vänster i Azure Portal. Sök sedan efter och välj **Azure AD B2C**.
+1. Välj **Program** och därefter **Lägg till**.
+2. Ange ett namn på programmet. Till exempel *nativeapp1*.
+3. För **Ta med webbapp/webb-API** väljer du **Nej**.
+4. För **Ta med intern klient** väljer du **Ja**.
+5. För **Omdirigerings-URI** anger du en giltig omdirigerings-URI med ett anpassat schema. Det finns två viktiga saker att tänka på när du väljer omdirigerings-URI:
 
-    - **Unikt** -schemat för omdirigerings-URI måste vara unikt för varje program. I det här exemplet `com.onmicrosoft.contoso.appname://redirect/path`, `com.onmicrosoft.contoso.appname` är schemat. Det här mönstret ska följas. Om två program delar samma schema, ges användaren kan välja ett program. Om användaren gör ett felaktigt val, misslyckas inloggningen.
-    - **Fullständig** -omdirigerings-URI måste ha ett schema och en sökväg. Sökvägen måste innehålla minst ett snedstreck efter domänen. Till exempel `//contoso/` fungerar och `//contoso` misslyckas. Kontrollera att omdirigeringen-URI inte innehåller specialtecken, till exempel understreck.
+    - **Unicitet** – schemat för omdirigerings-URI:n måste vara unikt för varje program. I det här exemplet är `com.onmicrosoft.contoso.appname://redirect/path`, `com.onmicrosoft.contoso.appname` schemat. Du måste följa det här mönstret. Om två program delar samma schema får användaren välja program. Inloggningen misslyckas om användaren väljer fel.
+    - **Fullständighet** – omdirigerings-URI:n måste ha ett schema och en sökväg. Sökvägen måste innehålla minst ett snedstreck efter domänen. Exempelvis så fungerar `//contoso/` medan `//contoso` misslyckas. Se till att omdirigerings-URI:n inte innehåller några specialtecken, som understreck.
 
 6. Klicka på **Skapa**.
 7. Anteckna program-ID som du använder när du konfigurerar native client-program på egenskapssidan.

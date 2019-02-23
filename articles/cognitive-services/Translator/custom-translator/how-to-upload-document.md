@@ -6,15 +6,15 @@ author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
 ms.subservice: custom-translator
-ms.date: 11/13/2018
+ms.date: 02/21/2019
 ms.author: v-rada
-ms.topic: article
-ms.openlocfilehash: e08813c71a0b95b6b130ab71313bda6d044d730a
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.topic: conceptual
+ms.openlocfilehash: 83d6791740cd6aebb9da14b86e0d5272ab78f43a
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55217228"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56737594"
 ---
 # <a name="upload-a-document"></a>Ladda upp ett dokument
 
@@ -37,7 +37,7 @@ Från [anpassad Translator](https://portal.customtranslator.azure.ai) portal, kl
 
     a.  Typ av standarddokument:
 
-    -  Kurs: Dessa dokument ska användas för träningsmängden.
+    -  Träning: Dessa dokument ska användas för träningsmängden.
     -  Justering: Dessa dokument används för justering set.
     -  Testning: Dessa dokument används för att testa set.
     -  Fras ordlista: Dessa dokument ska användas för frasen ordlista.

@@ -8,12 +8,12 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 08/25/2017
 ms.author: yizhon
-ms.openlocfilehash: d1d7c5df1b49a1f8c2fe4fbae4d8c8fdbd481e0e
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 7734a273f6e07290ec7124def5cb3b095f7f067b
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54053916"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56674258"
 ---
 # <a name="azure-iot-device-sdk-for-c"></a>Azure IoT-enhetens SDK för C
 
@@ -111,7 +111,7 @@ Den här fliken är där du hanterar enheter som är registrerade i IoT hub.
 
 1. Om du väljer **kopiera anslutningssträngen för vald enhet**, enhetens anslutningssträng har kopierats till Urklipp. Behåll en kopia av enhetens anslutningssträng. Du behöver den när du kör exempelprogram som beskrivs i följande avsnitt.
 
-När du har slutfört stegen ovan, är du redo att börja köra kod. De flesta exempel har en konstant överst i filen huvudsakliga källan som gör att du kan ange en anslutningssträng. Till exempel motsvarande rad från den **iothub\_klienten\_exempel\_mqtt** program visas på följande sätt.
+När du har slutfört stegen ovan, är du redo att börja köra kod. De flesta exempel har en konstant överst i filen huvudsakliga källan som gör att du kan ange en anslutningssträng. Till exempel motsvarande rad från den **iothub_client\_exempel\_iothub_convenience_sample** program visas på följande sätt.
 
 ```c
 static const char* connectionString = "[device connection string]";
@@ -121,7 +121,7 @@ static const char* connectionString = "[device connection string]";
 
 I den **iothub\_klienten** mapp i den [azure-iot-sdk-c](https://github.com/azure/azure-iot-sdk-c) lagringsplatsen, det finns en **exempel** mapp som innehåller ett program kallas **iothub\_klienten\_exempel\_mqtt**.
 
-Windows-versionen av den **iothub\_klienten\_exempel\_mqtt** programmet innehåller följande Visual Studio-lösningen:
+Windows-versionen av den **iothub_client\_exempel\_iothub_convenience_sample** programmet innehåller följande Visual Studio-lösningen:
 
   ![Visual Studio Solution Explorer](./media/iot-hub-device-sdk-c-intro/iothub-client-sample-mqtt.png)
 
@@ -137,7 +137,7 @@ Den här lösningen innehåller ett enda projekt. Det finns fyra NuGet-paket i d
 
 Du behöver alltid den **Microsoft.Azure.C.SharedUtility** paketera när du arbetar med SDK: N. Det här exemplet används av MQTT-protokollet, därför måste du inkludera den **Microsoft.Azure.umqtt** och **Microsoft.Azure.IoTHub.MqttTransport** paket (det finns motsvarande paket för AMQP- och HTTPS). Eftersom i exemplet används den **IoTHubClient** biblioteket, måste du också inkludera den **Microsoft.Azure.IoTHub.IoTHubClient** paketet i din lösning.
 
-Du kan hitta implementeringen för exempelprogrammet i den **iothub\_klienten\_exempel\_mqtt.c** källfilen.
+Du kan hitta implementeringen för exempelprogrammet i den **iothub_client\_exempel\_iothub_convenience_sample** källfilen.
 
 Följande steg använder det här exempelprogrammet som leder dig genom vad krävs för att använda den **IoTHubClient** biblioteket.
 
@@ -351,7 +351,7 @@ Precis som med i föregående exempel innehåller den här flera NuGet-paket:
 
 Du har sett de flesta av dessa paket i föregående exempel, men **Microsoft.Azure.IoTHub.Serializer** är ny. Det här paketet måste anges när du använder den **serialiserare** biblioteket.
 
-Du kan hitta implementeringen av exempelprogrammet i den **simplesample\_mqtt.c** fil.
+Du kan hitta implementeringen av exempelprogrammet i den ***iothub_client\_exempel\_iothub_convenience_sample** fil.
 
 I följande avsnitt vägleder dig genom de viktigaste delarna av det här exemplet.
 
@@ -392,7 +392,7 @@ Anropa slutligen den **skapa\_MODELLEN\_instans** funktion. **WeatherStation** �
 
 ### <a name="define-the-model"></a>Definiera modellen
 
-En modell i den **serialiserare** biblioteket definierar de meddelanden som enheten kan skicka till IoT Hub och meddelanden som kallas *åtgärder* i modelleringsspråk, vilket kan ta emot. Du definierar en modell med en uppsättning C makron som i den **simplesample\_mqtt** exempelprogrammet:
+En modell i den **serialiserare** biblioteket definierar de meddelanden som enheten kan skicka till IoT Hub och meddelanden som kallas *åtgärder* i modelleringsspråk, vilket kan ta emot. Du definierar en modell med en uppsättning C makron som i den **iothub_client\_exempel\_iothub_convenience_sample** exempelprogrammet:
 
 ```c
 BEGIN_NAMESPACE(WeatherStation);

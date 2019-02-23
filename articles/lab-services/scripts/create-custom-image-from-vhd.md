@@ -1,6 +1,6 @@
 ---
-title: 'PowerShell-skript: skapa en anpassad avbildning från en VHD-fil i Azure Lab Services | Microsoft Docs'
-description: Detta PowerShell-skript skapar en anpassad avbildning från en VHD-fil i Azure Lab Services.
+title: 'PowerShell-skript: Skapa en anpassad avbildning från en VHD-fil i Azure Lab Services | Microsoft Docs'
+description: Det här PowerShell-skriptet skapar en anpassad avbildning från en VHD-fil i Azure Lab Services.
 services: lab-services
 author: spelluru
 manager: ''
@@ -12,21 +12,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2018
 ms.author: spelluru
-ms.openlocfilehash: 19b7c3c6018ec56b056761c336bc56c8b63b47a2
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 2d0cc4012adf2c17b2f7a2e769f2d666b158a8c8
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34636410"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56734735"
 ---
 # <a name="use-powershell-to-create-a-custom-image-from-a-vhd-file-in-azure-lab-services"></a>Använd PowerShell för att skapa en anpassad avbildning från en VHD-fil i Azure Lab Services
 
-PowerShell-exempelskriptet skapar en anpassad avbildning från en VHD-fil i Azure Lab Services
+Det här Skriptexemplet för PowerShell skapar en anpassad avbildning från en VHD-fil i Azure Lab Services
 
-[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
+[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh-az.md)]
 
 ## <a name="prerequisites"></a>Förutsättningar
-* **Ett labb**. Skriptet kräver att du har en befintlig labbet. 
+* **Ett labb**. Skriptet kräver att du har en befintlig labb. 
 
 ## <a name="sample-script"></a>Exempelskript
 
@@ -38,12 +40,12 @@ I det här skriptet används följande kommandon:
 
 | Kommando | Anteckningar |
 |---|---|
-| [Get-AzureRmResource](/powershell/module/azurerm.resources/get-azurermresource) | Hämtar resurser. |
-| [Get-AzureRmStorageAccountKey](/powershell/module/azurerm.storage/get-azurermstorageaccountkey) | Hämtar åtkomstnycklarna för Azure Storage-kontot. |
-| [Ny AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment) | Lägger till Azure-distribution till en resursgrupp. |
+| [Get-AzResource](/powershell/module/az.resources/get-azresource) | Hämtar resurser. |
+| [Get-AzStorageAccountKey](/powershell/module/az.storage/get-azstorageaccountkey) | Hämtar åtkomstnycklarna för Azure Storage-kontot. |
+| [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) | Lägger till en Azure-distribution till en resursgrupp. |
 
 ## <a name="next-steps"></a>Nästa steg
 
 Mer information om Azure PowerShell finns i [Azure PowerShell-dokumentationen](https://docs.microsoft.com/powershell/).
 
-Ytterligare Azure Lab Services PowerShell skriptexempel finns i den [Azure Lab Services PowerShell-exempel](../samples-powershell.md).
+Ytterligare Azure Lab Services PowerShell-skriptexempel finns i den [Azure Lab Services PowerShell-exempel](../samples-powershell.md).

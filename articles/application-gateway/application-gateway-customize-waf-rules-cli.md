@@ -1,32 +1,19 @@
 ---
-title: Anpassa brandväggsregler för webbaserade program i Azure Application Gateway – Azure CLI | Microsoft Docs
+title: Anpassa brandväggsregler för webbaserade program i Azure Application Gateway – Azure CLI
 description: Den här artikeln innehåller information om hur du anpassar brandväggsregler för webbaserade program i Application Gateway med Azure CLI.
-documentationcenter: na
 services: application-gateway
 author: vhorne
-manager: jpconnock
-editor: tysonn
 ms.service: application-gateway
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.custom: ''
-ms.workload: infrastructure-services
-ms.date: 07/26/2017
+ms.date: 2/22/2019
 ms.author: victorh
-ms.openlocfilehash: 95eb0ef48f3e0cb6e835dc0582cc652f06315d44
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 5e364c597b8c524e95297f279003462f2d16abe1
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55992865"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56726269"
 ---
 # <a name="customize-web-application-firewall-rules-through-the-azure-cli"></a>Anpassa brandväggsregler för webbaserade program via Azure CLI
-
-> [!div class="op_single_selector"]
-> * [Azure Portal](application-gateway-customize-waf-rules-portal.md)
-> * [PowerShell](application-gateway-customize-waf-rules-powershell.md)
-> * [Azure CLI](application-gateway-customize-waf-rules-cli.md)
 
 Azure Application Gateway brandväggen för webbaserade program (WAF) ger skydd för webbprogram. Dessa skydd tillhandahålls av OWASP Open Web Application Security Project () Core regeln ange (CRS). Vissa regler kan leda till falska positiva identifieringar och blockera verklig trafik. Därför ger Application Gateway möjlighet att anpassa regelgrupper och -regler. Läs mer på den specifika regelgrupper och regler, [lista över web application firewall tillhandahållna CRS-regelgrupper och -regler](application-gateway-crs-rulegroups-rules.md).
 
@@ -133,6 +120,19 @@ I följande exempel inaktiverar regler `910018` och `910017` på application gat
 ```azurecli-interactive
 az network application-gateway waf-config set --resource-group AdatumAppGatewayRG --gateway-name AdatumAppGateway --enabled true --rule-set-version 3.0 --disabled-rules 910018 910017
 ```
+
+## <a name="mandatory-rules"></a>Obligatoriska regler
+
+I följande lista innehåller villkor som gör att WAF för att blockera begäran i Förhindringsläge (i identifieringsläge loggas som undantag). Dessa kan inte vara konfigurerad eller inaktiverad:
+
+* Det gick inte att parsa begärandetexten resulterar i begäran blockeras, såvida inte brödtext inspektion stängs av (XML, JSON, formulärdata)
+* Datalängden för begäran brödtext (utan att några filer) är större än den konfigurerade gränsen
+* Brödtext (inklusive filer) är större än gränsen
+* Ett internt fel inträffade i WAF-motorn
+
+CRS 3.x specifika:
+
+* Inkommande avvikelseidentifiering poäng överskred tröskeln
 
 ## <a name="next-steps"></a>Nästa steg
 

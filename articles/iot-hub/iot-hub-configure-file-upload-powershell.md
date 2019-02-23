@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/08/2017
 ms.author: dobett
-ms.openlocfilehash: e8f37adc07bffb8a1e770085ecee6f813d3c2932
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 7d63cc4e57ba3c1b962c893bf8c8bd03664dac6f
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54425619"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56729262"
 ---
 # <a name="configure-iot-hub-file-uploads-using-powershell"></a>Konfigurera IoT Hub-filöverföringar med hjälp av PowerShell
 
@@ -20,36 +20,38 @@ ms.locfileid: "54425619"
 
 Du använder den [filen filuppladdning i IoT Hub](iot-hub-devguide-file-upload.md), måste du först associera ett Azure storage-konto med IoT-hubben. Du kan använda ett befintligt lagringskonto eller skapa en ny.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 För att kunna genomföra den här kursen behöver du följande:
 
 * Ett aktivt Azure-konto. Om du inte har ett konto kan du skapa en [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/) på bara några minuter.
 
-* [Azure PowerShell-cmdlets](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps).
+* [Azure PowerShell-cmdlets](https://docs.microsoft.com/powershell/azure/install-Az-ps).
 
-* Azure IoT hub. Om du inte har en IoT-hubb, kan du använda den [cmdlet New-AzureRmIoTHub](https://docs.microsoft.com/powershell/module/azurerm.iothub/new-azurermiothub) att skapa något eller använder portalen för att [skapar en IoT hub](iot-hub-create-through-portal.md).
+* Azure IoT hub. Om du inte har en IoT-hubb, kan du använda den [cmdlet New-AzIoTHub](https://docs.microsoft.com/powershell/module/az.iothub/new-aziothub) att skapa något eller använder portalen för att [skapar en IoT hub](iot-hub-create-through-portal.md).
 
-* Ett Azure-lagringskonto. Om du inte har ett Azure storage-konto kan du använda den [Azure Storage PowerShell-cmdlets](https://docs.microsoft.com/powershell/module/azurerm.storage/) att skapa något eller använder portalen för att [skapa ett lagringskonto](../storage/common/storage-create-storage-account.md)
+* Ett Azure-lagringskonto. Om du inte har ett Azure storage-konto kan du använda den [Azure Storage PowerShell-cmdlets](https://docs.microsoft.com/powershell/module/az.storage/) att skapa något eller använder portalen för att [skapa ett lagringskonto](../storage/common/storage-create-storage-account.md)
 
 ## <a name="sign-in-and-set-your-azure-account"></a>Logga in och ange ditt Azure-konto
 
 Logga in på ditt Azure-konto och välj din prenumeration.
 
-1. I PowerShell-Kommandotolken kör den **Connect-AzureRmAccount** cmdlet:
+1. I PowerShell-Kommandotolken kör den **Connect AzAccount** cmdlet:
 
     ```powershell
-    Connect-AzureRmAccount
+    Connect-AzAccount
     ```
 
 2. Om du har flera Azure-prenumerationer kan får logga in på Azure du åtkomst till alla Azure-prenumerationer som är associerade med dina autentiseringsuppgifter. Använd följande kommando för att lista de Azure-prenumerationerna som du kan använda:
 
     ```powershell
-    Get-AzureRMSubscription
+    Get-AzSubscription
     ```
 
     Använd följande kommando för att välja den prenumeration som du vill använda för att köra kommandon för att hantera din IoT-hubb. Du kan antingen använda prenumerationsnamnet eller ID:t från utdata från föregående kommando:
 
     ```powershell
-    Select-AzureRMSubscription `
+    Select-AzSubscription `
         -SubscriptionName "{your subscription name}"
     ```
 
@@ -60,7 +62,7 @@ Följande steg förutsätter att du har skapat ditt storage-konto med den **Reso
 Om du vill konfigurera filöverföringar från dina enheter, behöver du anslutningssträngen för ett Azure storage-konto. Lagringskontot måste vara i samma prenumeration som din IoT-hubb. Du måste också namnet på en blob-behållare i lagringskontot. Använd följande kommando för att hämta dina lagringskontonycklar:
 
 ```powershell
-Get-AzureRmStorageAccountKey `
+Get-AzStorageAccountKey `
   -Name {your storage account name} `
   -ResourceGroupName {your storage account resource group}
 ```
@@ -72,19 +74,19 @@ Du kan använda en befintlig blobbehållare för dina filöverföringar, eller s
 * Om du vill visa befintliga blobbehållare i ditt storage-konto, använder du följande kommandon:
 
     ```powershell
-    $ctx = New-AzureStorageContext `
+    $ctx = New-AzStorageContext `
         -StorageAccountName {your storage account name} `
         -StorageAccountKey {your storage account key}
-    Get-AzureStorageContainer -Context $ctx
+    Get-AzStorageContainer -Context $ctx
     ```
 
 * Om du vill skapa en blobbehållare i ditt storage-konto, använder du följande kommandon:
 
     ```powershell
-    $ctx = New-AzureStorageContext `
+    $ctx = New-AzStorageContext `
         -StorageAccountName {your storage account name} `
         -StorageAccountKey {your storage account key}
-    New-AzureStorageContainer `
+    New-AzStorageContainer `
         -Name {your new container name} `
         -Permission Off `
         -Context $ctx
@@ -109,7 +111,7 @@ Konfigurationen kräver följande värden:
 Använd följande PowerShell-cmdlet för att konfigurera filen överföra inställningar på din IoT-hubb:
 
 ```powershell
-Set-AzureRmIotHub `
+Set-AzIotHub `
     -ResourceGroupName "{your iot hub resource group}" `
     -Name "{your iot hub name}" `
     -FileUploadNotificationTtl "01:00:00" `

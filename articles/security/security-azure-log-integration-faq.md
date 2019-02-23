@@ -4,7 +4,7 @@ description: Den här artikeln får du svar på frågor om Azure Log Integration
 services: security
 documentationcenter: na
 author: TomShinder
-manager: barbkess
+manager: MBaldwin
 editor: TerryLanfear
 ms.assetid: d06d1ac5-5c3b-49de-800e-4d54b3064c64
 ms.service: security
@@ -15,12 +15,12 @@ ms.workload8: na
 ms.date: 01/14/2019
 ms.author: barclayn
 ms.custom: azlog
-ms.openlocfilehash: f1b809e52cc532d13be85776f73aba4465fa2140
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: fc94208ef01e52207b6efbf88223119cf58ddb7f
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56114934"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56727170"
 ---
 # <a name="azure-log-integration-faq"></a>Azure-Loggintegrering vanliga frågor och svar
 
@@ -32,6 +32,8 @@ Den här artikeln får du svar på vanliga frågor och svar (FAQ) om Azure Log I
 Azure Log Integration är en tjänst i Windows-operativsystemet som du kan använda för att integrera dina lokala säkerheten och händelsehantering (SIEM) hanteringssystem loggarna från dina Azure-resurser. Den här integreringen ger en enhetlig instrumentpanel för alla dina tillgångar, lokalt eller i molnet. Du kan sedan aggregera, korrelera, analysera och varna för säkerhetshändelser som är associerade med dina program.
 
 Den bästa metoden för att integrera Azure loggar är genom att använda din SIEM-leverantör Azure Monitor-koppling och följa de här [instruktioner](../azure-monitor/platform/stream-monitoring-data-event-hubs.md). Men om din SIEM-leverantör inte tillhandahåller en anslutning till Azure Monitor, du kan använda Azure Log Integration som en tillfällig lösning (om din siem-server som stöds av Azure Log Integration) tills en sådan anslutning är tillgänglig.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="is-the-azure-log-integration-software-free"></a>Azure Log Integration-programvara är kostnadsfritt?
 
@@ -118,8 +120,8 @@ Information om hur du hämtar, ändra och ställer in Azure Diagnostics-konfigur
 
 I följande exempel hämtas Azure Diagnostics-konfigurationen:
 
-    -AzureRmVMDiagnosticsExtension -ResourceGroupName AzLog-Integration -VMName AzlogClient
-    $publicsettings = (Get-AzureRmVMDiagnosticsExtension -ResourceGroupName AzLog-Integration -VMName AzlogClient).PublicSettings
+    Get-AzVMDiagnosticsExtension -ResourceGroupName AzLog-Integration -VMName AzlogClient
+    $publicsettings = (Get-AzVMDiagnosticsExtension -ResourceGroupName AzLog-Integration -VMName AzlogClient).PublicSettings
     $encodedconfig = (ConvertFrom-Json -InputObject $publicsettings).xmlCfg
     $xmlconfig = [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($encodedconfig))
     Write-Host $xmlconfig
@@ -136,7 +138,7 @@ I följande exempel ändrar Azure Diagnostics-konfigurationen. I den här konfig
 I följande exempel anger konfigurationen av Azure Diagnostics:
 
     $diagnosticsconfig_path = "d:\WADConfig.xml"
-    Set-AzureRmVMDiagnosticsExtension -ResourceGroupName AzLog-Integration -VMName AzlogClient -DiagnosticsConfigurationPath $diagnosticsconfig_path -StorageAccountName log3121 -StorageAccountKey <storage key>
+    Set-AzVMDiagnosticsExtension -ResourceGroupName AzLog-Integration -VMName AzlogClient -DiagnosticsConfigurationPath $diagnosticsconfig_path -StorageAccountName log3121 -StorageAccountKey <storage key>
 
 När du gör ändringar, kontrollerar du storage-konto för att säkerställa att rätt händelserna ska samlas in.
 

@@ -6,21 +6,21 @@ author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
 ms.subservice: custom-translator
-ms.date: 11/13/2018
+ms.date: 02/21/2019
 ms.author: v-rada
-ms.topic: article
-ms.openlocfilehash: 9886ba39846d9489a66c57bcc614f90e2bf70d4e
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.topic: conceptual
+ms.openlocfilehash: dde1bfbaf810d07a2b992258dd8674efec302dc6
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55218112"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56737169"
 ---
 # <a name="create-a-project"></a>Skapa ett projekt
 
-Ett projekt är en behållare för en modeller, dokument, och testar. Alla projekt som innehåller den automatiskt alla dokument som överförs till den arbetsytan som har rätt språk-par. 
+Ett projekt är en behållare för en modeller, dokument, och testar. Alla projekt som innehåller den automatiskt alla dokument som överförs till den arbetsytan som har rätt språk-par.
 
-Det är det första steget för att skapa en modell för att skapa projektet. 
+Det är det första steget för att skapa en modell för att skapa projektet.
 
 ## <a name="create-a-project"></a>Skapa ett projekt:
 

@@ -1,6 +1,6 @@
 ---
-title: Skapa en åtkomstgranskning för medlemmar i en grupp eller användare med åtkomst till ett program med Azure AD | Microsoft Docs
-description: Lär dig mer om att skapa en åtkomstgranskning för medlemmar i en grupp eller användare med åtkomst till ett program.
+title: Skapa en åtkomstgranskning av grupper eller program i Azure AD-Åtkomstgranskningar | Microsoft Docs
+description: Lär dig hur du skapar en åtkomstgranskning för medlemmar i gruppen eller programmet åtkomst i Azure AD-Åtkomstgranskningar.
 services: active-directory
 author: rolyon
 manager: mtillman
@@ -11,29 +11,29 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 11/15/2018
+ms.date: 02/20/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1616230e3cad765246bcf03d59fb517c99d9b044
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 6ca27e89ad67b0f0755a7dda50572f3dcd857189
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56176925"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56733937"
 ---
-# <a name="create-an-access-review-of-group-members-or-application-access-with-azure-ad"></a>Skapa en åtkomstgranskning för medlemmar i gruppen eller programmet åtkomst med Azure AD
+# <a name="create-an-access-review-of-groups-or-applications-in-azure-ad-access-reviews"></a>Skapa en åtkomstgranskning av grupper eller program i Azure AD-Åtkomstgranskningar
 
 Åtkomst till grupper och program för anställda och gäster ändras med tiden. För att minska riskerna med inaktuella åtkomsttilldelningar kan kan administratörer använda Azure Active Directory (AD Azure) för att skapa åtkomstgranskningar för gruppmedlemmar eller programåtkomst. Om du vill granska regelbundet tillgång kan skapa du också återkommande åtkomstgranskningar. Mer information om dessa scenarier finns i [hantera användaråtkomst](manage-user-access-with-access-reviews.md) och [hantera gäståtkomst](manage-guest-access-with-access-reviews.md).
 
-Den här artikeln beskriver hur du skapar en ny åtkomstgranskning för medlemmar i gruppen eller programåtkomst.
+Den här artikeln beskriver hur du skapar en eller flera åtkomstgranskningar för gruppmedlemmar eller programåtkomst.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 - [Åtkomstgranskningar aktiverat](access-reviews-overview.md)
-- Global administratör eller kontoadministratör
+- Global administratör eller Användaradministratör för konto
 
-## <a name="create-an-access-review"></a>Skapa en åtkomstgranskning
+## <a name="create-one-or-more-access-reviews"></a>Skapa en eller flera åtkomstgranskningar
 
 1. Logga in på Azure-portalen och öppna den [Åtkomstgranskningar sidan](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/).
 
@@ -58,6 +58,20 @@ Den här artikeln beskriver hur du skapar en ny åtkomstgranskning för medlemma
 1. I den **användare** anger du de användare som använder granska gäller för. Åtkomstgranskningar kan vara medlemmar i en grupp eller användare som har tilldelats till ett program. Du kan ytterligare begränsa åtkomsten endast granskning till granskning gästanvändare som är medlemmar (eller tilldelats programmet), i stället för att granska alla användare som är medlemmar eller som har åtkomst till programmet.
 
     ![Skapa en åtkomstgranskning - användare](./media/create-access-review/users.png)
+
+1. I den **grupper** väljer du en eller flera grupper som du vill granska medlemskap.
+
+    > [!NOTE]
+    > Att välja mer än en grupp skapar flera åtkomstgranskningar. Till exempel skapar att välja grupper fem separata åtkomstgranskningar.
+    
+    ![Skapa en åtkomstgranskning - Välj grupp](./media/create-access-review/select-group.png)
+
+1. I den **program** avsnittet (om du har valt **tilldelats till ett program** i steg 8), Välj de program som du vill granska åtkomst till.
+
+    > [!NOTE]
+    > Att välja mer än ett program skapar flera åtkomstgranskningar. Till exempel skapar att välja fem program fem separata åtkomstgranskningar.
+    
+    ![Skapa en åtkomstgranskning -: Välj program](./media/create-access-review/select-application.png)
 
 1. I den **granskare** väljer du en eller flera personer att granska alla användare inom området. Eller du kan välja för att ha medlemmar granska sin egen åtkomst. Om resursen är en grupp, kan du be gruppägare att granska. Du kan också kräva att granskarna ska ange en anledning när de godkänner åtkomst.
 
@@ -100,7 +114,7 @@ Den här artikeln beskriver hur du skapar en ny åtkomstgranskning för medlemma
 
 När du har angett inställningarna för en åtkomstgranskning, klickar du på **starta**.
 
-Som standard skickar Azure AD ett e-postmeddelande till granskare strax efter det att granskningen startar. Om du väljer att inte har Azure AD skickar e-postmeddelandet, måste du meddela granskarna att en åtkomstgranskning väntar dem att slutföra. Visa instruktioner för hur du [granska åtkomst](perform-access-review.md). Om din granskning är för gäster att granska sin egen åtkomst, visas instruktioner för hur du [granska dina egna åtkomst](perform-access-review.md).
+Som standard skickar Azure AD ett e-postmeddelande till granskare strax efter det att granskningen startar. Om du väljer att inte har Azure AD skickar e-postmeddelandet, måste du meddela granskarna att en åtkomstgranskning väntar dem att slutföra. Visa instruktioner för hur du [granska åtkomst till grupper eller program](perform-access-review.md). Om din granskning är för gäster att granska sin egen åtkomst, visas instruktioner för hur du [granska åtkomst själv till grupper eller program](review-your-access.md).
 
 Om några av granskarna gäster, Gäster får ett meddelande via e-post endast om de redan har accepterat sin inbjudan.
 
@@ -108,7 +122,7 @@ Om några av granskarna gäster, Gäster får ett meddelande via e-post endast o
 
 Du kan följa förloppet när granskarna har slutfört sina granskningar i Azure AD-instrumentpanelen i den **Åtkomstgranskningar** avsnittet. Ingen behörighet har ändrats i katalogen tills [granskningen har slutförts](complete-access-review.md).
 
-Om det här är en enstaka granskning efter åtkomstgranskningsperiod är över eller administratören stoppar åtkomstgranskning, Följ stegen i [Slutför en åtkomstgranskning](complete-access-review.md) att se och tillämpa resultaten.  
+Om det här är en enstaka granskning efter åtkomstgranskningsperiod är över eller administratören stoppar åtkomstgranskning, Följ stegen i [Slutför en åtkomstgranskning av grupper eller program som](complete-access-review.md) att se och tillämpa resultaten.  
 
 För att hantera en serie med åtkomstgranskningar, navigera till åtkomstgranskning från **kontroller**, och du ska hitta kommande förekomster i schemalagd granskningar och redigera slutdatumet eller Lägg till/ta bort granskare i enlighet med detta. 
 
@@ -120,5 +134,6 @@ Du kan också skapa åtkomstgranskningar med API: er. Vad du gör för att hante
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Starta en åtkomstgranskning med Azure AD-Åtkomstgranskningar](perform-access-review.md)
-- [Slutför en åtkomstgranskning för medlemmar i en grupp eller användare åtkomst till ett program i Azure AD](complete-access-review.md)
+- [Granska åtkomst till grupper eller program](perform-access-review.md)
+- [Granska åtkomst själv till grupper eller program](review-your-access.md)
+- [Slutför en åtkomstgranskning av grupper eller program](complete-access-review.md)

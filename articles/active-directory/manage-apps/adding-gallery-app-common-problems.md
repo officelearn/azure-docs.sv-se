@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 89d587a71eeb75f7be567cbc29a4d77ac371e3dc
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: fe781802309ad0945eaee23c35dda1617e47ae06
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237883"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56727357"
 ---
 # <a name="problem-adding-an-azure-ad-gallery-application"></a>Problem med att lägga till en Azure AD-galleriprogram
 
@@ -38,7 +38,7 @@ Ibland, på grund av tillfälliga problem, nätverksproblem eller en bugg missly
 
 Om det uppstår ett fel när du klickar på den **Lägg till** knappen, visas en **meddelande** i en **fel** tillstånd. Om du vill ha mer information om felet för att lära dig mer att eller dela med en supporttekniker kan du se mer information om felet genom att följa stegen i den [hur du visar information om ett Portalmeddelande om](#how-to-see-the-details-of-a-portal-notification) avsnittet.
 
- ## <a name="i-dont-know-how-to-set-up-my-application-once-ive-added-it"></a>Jag vet inte hur du ställer in mitt program när jag har lagt till den
+## <a name="i-dont-know-how-to-set-up-my-application-once-ive-added-it"></a>Jag vet inte hur du ställer in mitt program när jag har lagt till den
 
 Om du behöver hjälp med att lära dig om program, den [lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) artikeln är ett bra ställe att börja.
 

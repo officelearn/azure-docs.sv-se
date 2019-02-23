@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: dfad3199ba3a9cd2f3bca55be50760ddde676e70
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: b11f11aa3966bc57caa5b8dd0379f4d5c59c8375
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53558200"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56672907"
 ---
 # <a name="update-the-iot-edge-security-daemon-and-runtime"></a>Uppdatera IoT Edge security daemon och runtime
 
@@ -28,7 +28,7 @@ Två komponenter i en IoT Edge-enhet måste uppdateras om du vill flytta till en
 >* Du har inte uppgraderat din enhet till Windows build 17763. IoT Edge-version 1.0.5 inte har stöd för Windows-versioner äldre än 17763.
 >* Du kan köra Java eller Node.js-moduler på din Windows-enhet. Hoppa över version 1.0.5 även om du har uppdaterat din Windows-enhet till den senaste versionen. 
 >
->Läs mer om IoT Edge version 1.0.5 [1.0.5 viktig](https://github.com/Azure/azure-iotedge/releases/tag/1.0.5). Mer information om hur du håller utvecklingsverktyg från att uppdatera till den senaste versionen finns i [IoT developer-bloggen](https://aka.ms/dev-win-iot-edge-module).
+>Läs mer om IoT Edge version 1.0.5 [1.0.5 viktig](https://github.com/Azure/azure-iotedge/releases/tag/1.0.5). Mer information om hur du håller utvecklingsverktyg från att uppdatera till den senaste versionen finns i [IoT developer-bloggen](https://devblogs.microsoft.com/iotdev/).
 
 
 Du hittar den senaste versionen av Azure IoT Edge [Azure IoT Edge släpper](https://github.com/Azure/azure-iotedge/releases).

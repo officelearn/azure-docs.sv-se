@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 213a695d99c50cea5962237c6210e6efcdbc5f6a
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 8f253d150a5073d2d19daf51c12180c9f7b3660b
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54411687"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56734531"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Azure Analysis Services-utskalning
 
@@ -87,11 +87,13 @@ Använd den **synkronisering** igen.
 
 ### <a name="powershell"></a>PowerShell
 
-Innan du använder PowerShell [installera eller uppdatera den senaste AzureRM-modulen](https://github.com/Azure/azure-powershell/releases). 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Ange antal frågerepliker och [Set-azurermanalysisservicesserver har](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/set-azurermanalysisservicesserver). Ange den valfria `-ReadonlyReplicaCount` parametern.
+Innan du använder PowerShell [installera eller uppdatera den senaste Azure PowerShell-modulen](/powershell/azure/install-az-ps). 
 
-Kör synkronisering med [synkronisering AzureAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/sync-azureanalysisservicesinstance).
+Ange antal frågerepliker och [Set-AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/set-azanalysisservicesserver). Ange den valfria `-ReadonlyReplicaCount` parametern.
+
+Kör synkronisering med [synkronisering AzAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance).
 
 ## <a name="connections"></a>Anslutningar
 

@@ -3,7 +3,7 @@ title: Konfigurera TLS ömsesidig autentisering – Azure App Service
 description: Lär dig hur du konfigurerar din app för att använda autentisering med klientcertifikat på TLS.
 services: app-service
 documentationcenter: ''
-author: naziml
+author: cephalin
 manager: erikre
 editor: jimbe
 ms.assetid: cd1d15d3-2d9e-4502-9f11-a306dac4453a
@@ -12,54 +12,43 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/08/2016
-ms.author: naziml
+ms.date: 02/22/2019
+ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: d441329bc3f279e95b2ee302db53d78f786c3470
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: 5702362add6a50f2f4525afbd3649f083f34b6fc
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53650405"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56671972"
 ---
-# <a name="how-to-configure-tls-mutual-authentication-for-azure-app-service"></a>Konfigurera ömsesidig TLS-autentisering för Azure App Service
-## <a name="overview"></a>Översikt
-Du kan begränsa åtkomsten till Azure App Service-appen genom att aktivera olika typer av autentisering för den. Ett sätt att göra detta är att autentisera med ett klientcertifikat när begäran hålls över TLS/SSL. Den här mekanismen kallas ömsesidig TLS-autentisering eller autentisering och den här artikeln beskriver detaljerat hur du ställer in din app att använda autentisering med klientcertifikat klientcertifikat.
+# <a name="configure-tls-mutual-authentication-for-azure-app-service"></a>Konfigurera ömsesidig TLS-autentisering för Azure App Service
 
-> **Obs!** Om du har åtkomst till webbplatsen via HTTP och HTTPS inte får inte alla klientcertifikat. Så om programmet kräver klientcertifikat bör du inte tillåta begäranden till ditt program via HTTP.
-> 
-> 
+Du kan begränsa åtkomsten till Azure App Service-appen genom att aktivera olika typer av autentisering för den. Ett sätt att göra det är att begära ett certifikat när klientbegäran är över TLS/SSL och verifiera certifikatet. Den här mekanismen kallas ömsesidig TLS-autentisering eller autentisering av klientcertifikat. Den här artikeln visar hur du ställer in din app att använda autentisering med klientcertifikat.
 
-## <a name="configure-app-service-for-client-certificate-authentication"></a>Konfigurera App Service för autentisering av klientcertifikat
-Om du vill konfigurera din app för att kräva klientcertifikat, måste du lägga till inställningen clientCertEnabled plats för din app och ge den värdet true. Den här inställningen kan också konfigureras i Azure-portalen under bladet för SSL-certifikat.
+> [!NOTE]
+> Om du har åtkomst till webbplatsen via HTTP och HTTPS inte får inte alla klientcertifikat. Så om programmet kräver klientcertifikat, bör du inte tillåta begäranden till ditt program via HTTP.
+>
 
-Du kan använda den [ARMClient verktyget](https://github.com/projectkudu/ARMClient) att göra det enkelt att skapa REST API-anrop. När du loggar in med verktyget måste du utfärda följande kommando:
+## <a name="enable-client-certificates"></a>Aktivera klientcertifikat
 
-    ARMClient PUT subscriptions/{Subscription Id}/resourcegroups/{Resource Group Name}/providers/Microsoft.Web/sites/{Website Name}?api-version=2015-04-01 @enableclientcert.json -verbose
+Om du vill konfigurera din app för att kräva klientcertifikat, måste du ange den `clientCertEnabled` för din app till `true`. Om du vill ställa in inställningen kör du följande kommando den [Cloud Shell](https://shell.azure.com).
 
-Ersätt allt innehåll i {} med information för din app och skapa en fil med namnet enableclientcert.json med följande JSON innehåll:
+```azurecli-interactive
+az webapp update --set clientCertEnabled=true --name <app_name> --resource-group <group_name>
+```
 
-    {
-        "location": "My App Location",
-        "properties": {
-            "clientCertEnabled": true
-        }
-    }
+## <a name="access-client-certificate"></a>Klientcertifikat för åtkomst
 
-Se till att ändra värdet för ”plats” till oavsett var appen finns till exempel USA, norra centrala eller västra USA osv.
+I App Service sker SSL-avslutning av begäran i belastningsutjämnaren klientdel. När du vidarebefordrar begäran till din kod med [klientcertifikat aktiverat](#enable-client-certificates), App Service lägger in en `X-ARR-ClientCert` begärandehuvudet med klientcertifikatet. App Service gör inte något med det här klientcertifikatet än vidarebefordras till din app. Din Appkod ansvarar för att verifiera klientcertifikatet.
 
-Du kan också använda https://resources.azure.com bilden ska vändas den `clientCertEnabled` egenskap `true`.
+För ASP.NET, klientcertifikatet är tillgänglig via den **HttpRequest.ClientCertificate** egenskapen.
 
-> **Obs!** Om du kör ARMClient från Powershell, behöver du att undanta den \@ symbol för JSON-fil med en backend skalstreck '.
-> 
-> 
+För andra programstackar (Node.js, PHP, osv.), klientcertifikatet är tillgängligt i din app genom ett base64-kodad värde i den `X-ARR-ClientCert` huvudet i begäran.
 
-## <a name="accessing-the-client-certificate-from-app-service"></a>Komma åt klientcertifikatet från App Service
-Om du använder ASP.NET och konfigurera din app om du vill använda klientcertifikatautentisering certifikatet blir tillgängliga via den **HttpRequest.ClientCertificate** egenskapen. För andra programstackar blir klientcertifikatet tillgänglig i din app genom en base64-kodad värde i rubriken ”X-ARR-ClientCert”. Ditt program kan skapa ett certifikat från det här värdet och sedan använda den för autentisering och auktorisering i ditt program.
+## <a name="aspnet-sample"></a>ASP.NET-exempel
 
-## <a name="special-considerations-for-certificate-validation"></a>Att tänka på för certifikatverifiering
-Det klientcertifikat som skickas till programmet går inte via valfri verifiering av Azure App Service-plattformen. Verifiera det här certifikatet är appens ansvar. Här är exempelkod för ASP.NET som validerar egenskaper för certifikat för autentisering.
-
+```csharp
     using System;
     using System.Collections.Specialized;
     using System.Security.Cryptography.X509Certificates;
@@ -175,22 +164,53 @@ Det klientcertifikat som skickas till programmet går inte via valfri verifierin
                 // 4. Check thumprint of certificate
                 if (String.Compare(certificate.Thumbprint.Trim().ToUpper(), "30757A2E831977D8BD9C8496E4C99AB26CB9622B") != 0) return false;
 
-                // If you also want to test if the certificate chains to a Trusted Root Authority you can uncomment the code below
-                //
-                //X509Chain certChain = new X509Chain();
-                //certChain.Build(certificate);
-                //bool isValidCertChain = true;
-                //foreach (X509ChainElement chElement in certChain.ChainElements)
-                //{
-                //    if (!chElement.Certificate.Verify())
-                //    {
-                //        isValidCertChain = false;
-                //        break;
-                //    }
-                //}
-                //if (!isValidCertChain) return false;
-
                 return true;
             }
         }
     }
+```
+
+## <a name="nodejs-sample"></a>Node.js-exempel
+
+Följande Node.js-exempelkoden hämtar den `X-ARR-ClientCert` rubrik och använder [noden bedömningar](https://github.com/digitalbazaar/forge) konvertera base64-kodad PEM-sträng till ett certifikatobjekt och verifiera den:
+
+```javascript
+import { NextFunction, Request, Response } from 'express';
+import { pki, md, asn1 } from 'node-forge';
+
+export class AuthorizationHandler {
+    public static authorizeClientCertificate(req: Request, res: Response, next: NextFunction): void {
+        try {
+            // Get header
+            const header = req.get('X-ARR-ClientCert');
+            if (!header) throw new Error('UNAUTHORIZED');
+
+            // Convert from PEM to pki.CERT
+            const pem = `-----BEGIN CERTIFICATE-----${header}-----END CERTIFICATE-----`;
+            const incomingCert: pki.Certificate = pki.certificateFromPem(pem);
+
+            // Validate certificate thumbprint
+            const fingerPrint = md.sha1.create().update(asn1.toDer((pki as any).certificateToAsn1(incomingCert)).getBytes()).digest().toHex();
+            if (fingerPrint.toLowerCase() !== 'abcdef1234567890abcdef1234567890abcdef12') throw new Error('UNAUTHORIZED');
+
+            // Validate time validity
+            const currentDate = new Date();
+            if (currentDate < incomingCert.validity.notBefore || currentDate > incomingCert.validity.notAfter) throw new Error('UNAUTHORIZED');
+
+            // Validate issuer
+            if (incomingCert.issuer.hash.toLowerCase() !== 'abcdef1234567890abcdef1234567890abcdef12') throw new Error('UNAUTHORIZED');
+
+            // Validate subject
+            if (incomingCert.subject.hash.toLowerCase() !== 'abcdef1234567890abcdef1234567890abcdef12') throw new Error('UNAUTHORIZED');
+
+            next();
+        } catch (e) {
+            if (e instanceof Error && e.message === 'UNAUTHORIZED') {
+                res.status(401).send();
+            } else {
+                next(e);
+            }
+        }
+    }
+}
+```

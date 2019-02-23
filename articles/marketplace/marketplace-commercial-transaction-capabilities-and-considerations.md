@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: yijenj
-ms.openlocfilehash: 867af6de05d1d9ab54cf8a4bf02221acc43a2b28
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: dba2582b29d1fc81a39387f5297852245233b708
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54075642"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56731097"
 ---
 # <a name="azure-marketplace-commercial-transaction-capabilities-and-considerations"></a>Azure Marketplace affärstransaktion funktioner och överväganden
 
@@ -68,7 +68,7 @@ Beroende på Transaktionsalternativet används kan utgivarens programvarulicensa
 
 * Använd din egen licens (BYOL): Eventuella tillämpliga kostnader för programvarulicenser hanteras direkt mellan utgivare och kunden. Microsoft skickar endast via avgifter för användning av Azure-infrastrukturen. (Virtuella datorer och Azure-program endast).
 
-* Betala per användning: Programvarulicensavgifter visas som en per timme, per kärna (vCPU) prissättning baserad på Azure-infrastrukturen används. Detta gäller endast för virtuella datorer och program i Azure.
+* Pay-as-you-go: Programvarulicensavgifter visas som en per timme, per kärna (vCPU) prissättning baserad på Azure-infrastrukturen används. Detta gäller endast för virtuella datorer och program i Azure.
 
 * Prenumeration priser (plats-baserad): Programvarulicensavgifter visas som en avgift per månad, återkommande.  Detta gäller endast för SaaS-appar och program i Azure-hanterade appar.
 
@@ -168,7 +168,7 @@ Till exempel, om kunden köper med ett kreditkort:
 |Beskrivning    |    Date  |
 |----------|----------|
 |Order-Period   | Den 15 augusti 2018-30 augusti 2018 |
-|Termen slutar (månad)   | Den 30 augusti 2018 |
+|Termen slutar (månad)   | Aug 30, 2018 |
 |Faktureringsdatum | Den 1 september 2018 |
 |Kunden betalningsdatum | Den 1 september 2018 |
 |Deponera Period (kreditkort, 30 dagar) | Den 1 september 2018 – 30 september 2018 |
@@ -186,9 +186,9 @@ Om kunden köper med hjälp av ett Enterprise-avtal:
 |Faktureringsdatum | Den 15 oktober 2018 |
 |Deponera Period (kreditkort, 30 dagar) | Saknas |
 |Samling periodens starttid | Den 15 oktober 2018 |
-|Samling periodslut (maximalt 90 dagar) | Den 15 januari 2018 |
+|Samling periodslut (maximalt 90 dagar) | 15 jan 2019 |
 |Kunden betalningsdatum | Den 30 december 2018 |
-|Datum för Fakturaberäkning payout (per månad på den 15: e) | Den 15 januari 2018 |
+|Datum för Fakturaberäkning payout (per månad på den 15: e) | 15 jan 2019 |
 |Payout datum | Den 15 februari 2019 |
 
 **Kostnadsfria krediter och åtagandebelopp** 
@@ -226,7 +226,7 @@ Transact-kraven för olika erbjudandetyper beskrivs i det här avsnittet.
 
 * Både ett Dev Center och ett Microsoft-konto krävs för transact publicera alternativet, oavsett erbjudandet prismodell.
 * Dev Center-konto innehåller alla relevanta finansiell information som behövs för Microsoft att samla in avgifter från kunden på utgivarens åt dig och betala ut utgivaren.
-* Men du kan använda samma organisationens eller inloggningsinformation för Microsoft-konton som båda, är ett separat konto från Utgivarportalen för Cloud-konto i Dev Center. Om du vill använda transact publiceringsalternativ måste utgivaren Dev Center-konto registreringen slutförs, förutom att registrera dig för åtkomst till partnerportalen i molnet.
+* Men du kan använda samma organisationens eller inloggningsinformation för Microsoft-konton som båda, är ett separat konto från Cloud Partner Portal-konto i Dev Center. Om du vill använda transact publiceringsalternativ måste utgivaren Dev Center-konto registreringen slutförs, förutom att registrera dig för åtkomst till partnerportalen i molnet.
 
 *Mer information om hur du konfigurerar dessa konton finns i [blir molnet Marketplace utgivare](https://docs.microsoft.com/azure/marketplace/become-publisher).*
 

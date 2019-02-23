@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.author: raynew
-ms.openlocfilehash: b99d6285942bafe5467827c30b5ba2e42094fdf3
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: 2bd499c3afc423047dda9ff3ad657d110dab282a
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56430887"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56673655"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Stöd matrix för virtuell Azure-säkerhetskopiering
 Du kan använda den [Azure Backup-tjänsten](backup-overview.md) för säkerhetskopiering av lokala datorer och arbetsbelastningar och virtuella Azure-datorer. Den här artikeln sammanfattas support inställningar och begränsningar när du säkerhetskopierar virtuella Azure-datorer (VM) med Azure Backup.
@@ -37,7 +37,7 @@ Här är hur du kan säkerhetskopiera och återställa virtuella Azure-datorer m
 **Direkt säkerhetskopiering av virtuella Azure-datorer (endast Windows)** | Säkerhetskopiera specifika filer/mappar/volym | Installera den [Microsoft Azure Recovery Services MARS-agenten](backup-azure-file-folder-backup-faq.md).<br/><br/> Du kan köra MARS-agenten tillsammans med säkerhetskopieringstillägget för Azure VM-agenten för säkerhetskopiering av den virtuella datorn på filen/mappen nivå. | Återställa specifika mappar/filer.
 **Säkerhetskopiera virtuella Azure-datorer till säkerhetskopieringsserver** |  Säkerhetskopiera filer/mappar/volymer. Systemtillstånd/utan operativsystem systemfilerna. App-data till System Center DPM eller Microsoft Azure Backup Server (MAB-servern).<br/><br/> DPM/MABS sedan säkerhetskopierar till säkerhetskopieringsvalvet | Installera MABS/DPM-skyddsagenten på den virtuella datorn. MARS-agenten är installerad på DPM/MABS.| Återställa filer/mappar/volymer. Systemtillstånd/utan operativsystem systemfilerna. appdata. 
 
-Läs mer om backup med hjälp av en säkerhetskopiering server(backup-architecture.md#architecture-back-up-to-dpmmabs) och [supportkrav](backup-support-matrix-mabs-dpm.md).
+Läs mer om backup [med hjälp av en reservserver](backup-architecture.md#architecture-back-up-to-dpmmabs), och [supportkrav](backup-support-matrix-mabs-dpm.md).
 
 
 ## <a name="supported-backup-actions"></a>Åtgärder som stöds
@@ -189,7 +189,7 @@ Virtuella datorer med offentliga IP-adresser    | Stöds.<br/><br/> Du måste as
 Nätverkssäkerhetsgrupp (NSG) på NIC/undernät. |   Stöds.
 Reserverad IP-adress (statisk) | Stöds inte.<br/><br/> Du kan inte säkerhetskopiera en virtuell dator med en reserverad IP-adress och ingen definierad slutpunkt.
 Dynamisk IP-adress |    Stöds.<br/><br/> Om nätverkskortet på käll-VM använder dynamisk IP-adressering, som standard gör nätverkskortet på den återställda virtuella datorn också.
-Traffic Manager | Stöds<br/><br/>. Om den säkerhetskopierade virtuella datorn är i Traffic Manager, måste du manuellt lägger till den återställda virtuella datorn till samma Traffic Manager. 
+Traffic Manager | Stöds<br/><br/> Om den säkerhetskopierade virtuella datorn är i Traffic Manager, måste du manuellt lägger till den återställda virtuella datorn till samma Traffic Manager. 
 Azure DNS | Stöds.
 Anpassad DNS |    Stöds.
 Utgående anslutning via en HTTP-proxy | Stöds.<br/><br/> En autentiserad proxyserver stöds inte. 

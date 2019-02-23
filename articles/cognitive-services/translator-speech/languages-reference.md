@@ -8,14 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-speech
 ms.topic: conceptual
-ms.date: 05/18/18
+ms.date: 05/18/2018
 ms.author: v-jansko
-ms.openlocfilehash: 12f989137c3aea57bdcde0d50315ad157898cd28
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ROBOTS: NOINDEX,NOFOLLOW
+ms.openlocfilehash: 111adad627ffd830d69efc61bc7a06a99fee30f3
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55862759"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56673332"
 ---
 # <a name="translator-speech-api-languages"></a>API för Talöversättning: Languages
 
@@ -27,7 +28,7 @@ Kodexempel som demonstrerar användningen av API för att hämta tillgängliga s
 
 ## <a name="implementation-notes"></a>Implementeringsanteckningar
 
-### <a name="get-languages"></a>Hämta /languages 
+### <a name="get-languages"></a>Hämta /languages
 
 Det finns en bred uppsättning språk att transkribera tal, Översätt den transkriberade texten och producera syntetiskt tal översättningens.
 
@@ -125,7 +126,7 @@ Tjänsten returnerar alla namn på rubriken Accept-Language för alla språk som
 ### <a name="response-class-status-200"></a>Svaret klass (Status 200)
 Objekt som beskriver uppsättningen språk som stöds.
 
-ModelExample värde: 
+ModelExample värde:
 
 Langagues {tal (object, valfritt), text (object, valfritt), text till tal (object, valfritt)}
 
@@ -143,7 +144,7 @@ X-RequestId|Värde som genereras av server för att identifiera begäran och anv
 |omfång  |Uppsättningar med språk som stöds eller röster för att återgå till klienten. Den här parametern har angetts som en kommaavgränsad lista över nyckelord. Följande nyckelord är tillgängliga:<ul><li>`speech`: Innehåller en uppsättning språk som stöds för att transkribera tal.</li><li>`tts`: Innehåller antal röster som stöds för text till tal-konvertering.</li><li>`text`: Innehåller en uppsättning språk som stöds för att översätta text.</li></ul>Om ett värde inte anges värdet för `scope` som standard `text`.|DocumentDB|sträng|
 |X-ClientTraceId    |En klientgenererade GUID som används för att spåra en begäran. För att underlätta felsökning av problem bör klienter ange ett nytt värde med varje begäran och logga den.|sidhuvud|sträng|
 |Accept-Language    |Vissa av fälten i svaret är namnen på språk eller regioner. Använd den här parametern för att ange språket där namnen som returneras. Språket har angetts genom att tillhandahålla en korrekt strukturerad BCP-47 som språktagg. Välj en tagg i listan över språkidentifierare som returneras med den `text` omfång. Språk som stöds inte tillhandahålls namnen på engelska.<br/>Till exempel använda värdet `fr` att begära namnen på franska eller använda värdet `zh-Hant` i begäran namn i traditionell kinesiska.|sidhuvud|sträng|
-    
+
 ### <a name="response-messages"></a>Svarsmeddelanden
 
 |HTTP-statuskod|Orsak|

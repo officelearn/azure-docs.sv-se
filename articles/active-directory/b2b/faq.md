@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory B2B-samarbete vanliga frågor och svar | Microsoft Docs
+title: B2B-samarbete vanliga frågor och svar – Azure Active Directory | Microsoft Docs
 description: Få svar på vanliga frågor och svar om Azure Active Directory B2B-samarbete.
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: msmimart
 manager: daveba
 ms.reviewer: sasubram
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a09ce7f677bcf54355e30fc273ee64b23b1d55c8
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: e70a74be372e4374fac5aaa2bfda8ca955e6d305
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56208171"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56671870"
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Azure Active Directory B2B-samarbete vanliga frågor och svar
 

@@ -1,76 +1,76 @@
 ---
-title: Översikt över princip SSL för Azure Programgateway | Microsoft Docs
-description: Lär dig mer om hur Azure Application Gateway kan du konfigurera SSL-policy
+title: Översikt över SSL-princip för Azure Application Gateway | Microsoft Docs
+description: Lär dig mer om hur Azure Application Gateway kan du konfigurera SSL-princip
 services: application gateway
 documentationcenter: na
 author: amsriva
 manager: ''
 editor: ''
 tags: azure resource manager
-ms.service: application gateway
+ms.service: application-gateway
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure services
 ms.date: 08/03/2017
 ms.author: amsriva
-ms.openlocfilehash: ec36af282bbfdc22ff88082412dd18cd2a85f245
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 46a823e4e230656b53a93a97f195d0879fd08bf2
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23836954"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56731964"
 ---
-# <a name="application-gateway-ssl-policy-overview"></a>Översikt över princip Gateway SSL
+# <a name="application-gateway-ssl-policy-overview"></a>Översikt över Application Gateway SSL-princip
 
-Du kan använda Azure Programgateway centralisera SSL-certifikathantering och minska omkostnader för kryptering och dekryptering från en backend-servergrupp. Den här centraliserade SSL även hanterar kan du ange en princip för central SSL som är anpassade till din organisations säkerhetskrav. Detta hjälper dig att uppfylla kompatibilitetskraven samt riktlinjer och rekommenderade metoder.
+Du kan använda Azure Application Gateway för att centralisera SSL-certifikathantering och minska omkostnader för kryptering och dekryptering från en backend-servergrupp. Den här centraliserade SSL även hanterar kan du ange en central SSL-princip som är anpassade till din organisations säkerhetskrav. Detta hjälper dig att uppfylla krav på efterlevnad samt riktlinjer för säkerhet och rekommenderade metoder.
 
-SSL-policy inkluderar kontroll av versionen av SSL-protokollet samt krypteringssviterna och i vilken ordning där chiffer används under en SSL-handskakning. Programgateway erbjuder två metoder för att styra SSL-policy. Du kan använda en fördefinierad princip eller en anpassad princip.
+SSL-policy inkluderar kontroll över SSL-protokollversion som krypteringssviter och vilken ordning i vilken chiffer som ska användas under en SSL-handskakningen. Application Gateway erbjuder två metoder för att styra SSL-princip. Du kan använda en fördefinierad princip eller en anpassad princip.
 
-## <a name="predefined-ssl-policy"></a>Fördefinierade SSL-policy
+## <a name="predefined-ssl-policy"></a>Fördefinierade SSL-princip
 
-Application Gateway har tre fördefinierade säkerhetsprinciper. Du kan konfigurera din gateway med någon av dessa principer för att hämta lämplig säkerhetsnivå. Namn för principen har kommenterats per år och månad som de har konfigurerats. Varje princip erbjuder olika SSL-protokollversioner och krypteringssviter. Vi rekommenderar att du använder de senaste principerna som SSL för att säkerställa bästa SSL-säkerhet.
+Application Gateway har tre fördefinierade säkerhetsprinciper. Du kan konfigurera din gateway med någon av dessa principer för att hämta lämplig säkerhetsnivå. Principnamn är kommenterade per år och månad som de har konfigurerats. Varje princip erbjuder olika SSL-protokollsversioner och krypteringssviter. Vi rekommenderar att du använder de senaste principerna som SSL för att se till att den bästa SSL-säkerheten.
 
 ### <a name="appgwsslpolicy20150501"></a>AppGwSslPolicy20150501
 
-|Egenskap  |Värde  |
+|Egenskap   |Värde  |
 |---|---|
 |Namn     | AppGwSslPolicy20150501        |
 |MinProtocolVersion     | TLSv1_0        |
-|Standard| True (om ingen fördefinierad princip har angetts) |
-|Krypteringssviter     |TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384<br>TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256<br>TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384<br>TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256<br>TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA<br>TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA<br>TLS_DHE_RSA_WITH_AES_256_GCM_SHA384<br>TLS_DHE_RSA_WITH_AES_128_GCM_SHA256<br>TLS_DHE_RSA_WITH_AES_256_CBC_SHA<br>TLS_DHE_RSA_WITH_AES_128_CBC_SHA<br>TLS_RSA_WITH_AES_256_GCM_SHA384<br>TLS_RSA_WITH_AES_128_GCM_SHA256<br>TLS_RSA_WITH_AES_256_CBC_SHA256<br>TLS_RSA_WITH_AES_128_CBC_SHA256<br>TLS_RSA_WITH_AES_256_CBC_SHA<br>TLS_RSA_WITH_AES_128_CBC_SHA<br>TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384<br>TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256<br>TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384<br>TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256<br>TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA<br>TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA<br>TLS_DHE_DSS_WITH_AES_256_CBC_SHA256<br>TLS_DHE_DSS_WITH_AES_128_CBC_SHA256<br>TLS_DHE_DSS_WITH_AES_256_CBC_SHA<br>TLS_DHE_DSS_WITH_AES_128_CBC_SHA<br>TLS_RSA_WITH_3DES_EDE_CBC_SHA<br>TLS_DHE_DSS_WITH_3DES_EDE_CBC_SHA |
+|Standard| True (om ingen fördefinierade princip har angetts) |
+|CipherSuites     |TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384<br>TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256<br>TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384<br>TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256<br>TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA<br>TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA<br>TLS_DHE_RSA_WITH_AES_256_GCM_SHA384<br>TLS_DHE_RSA_WITH_AES_128_GCM_SHA256<br>TLS_DHE_RSA_WITH_AES_256_CBC_SHA<br>TLS_DHE_RSA_WITH_AES_128_CBC_SHA<br>TLS_RSA_WITH_AES_256_GCM_SHA384<br>TLS_RSA_WITH_AES_128_GCM_SHA256<br>TLS_RSA_WITH_AES_256_CBC_SHA256<br>TLS_RSA_WITH_AES_128_CBC_SHA256<br>TLS_RSA_WITH_AES_256_CBC_SHA<br>TLS_RSA_WITH_AES_128_CBC_SHA<br>TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384<br>TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256<br>TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384<br>TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256<br>TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA<br>TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA<br>TLS_DHE_DSS_WITH_AES_256_CBC_SHA256<br>TLS_DHE_DSS_WITH_AES_128_CBC_SHA256<br>TLS_DHE_DSS_WITH_AES_256_CBC_SHA<br>TLS_DHE_DSS_WITH_AES_128_CBC_SHA<br>TLS_RSA_WITH_3DES_EDE_CBC_SHA<br>TLS_DHE_DSS_WITH_3DES_EDE_CBC_SHA |
   
-  ### <a name="appgwsslpolicy20170401"></a>AppGwSslPolicy20170401
+### <a name="appgwsslpolicy20170401"></a>AppGwSslPolicy20170401
   
-|Egenskap  |Värde  |
+|Egenskap   |Värde  |
 |   ---      |  ---       |
 |Namn     | AppGwSslPolicy20170401        |
 |MinProtocolVersion     | TLSv1_1        |
 |Standard| False |
-|Krypteringssviter     |TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256<br>TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384<br>TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA<br>TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA<br>TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256<br>TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384<br>TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384<br>TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256<br>TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA<br>TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA<br>TLS_RSA_WITH_AES_256_GCM_SHA384<br>TLS_RSA_WITH_AES_128_GCM_SHA256<br>TLS_RSA_WITH_AES_256_CBC_SHA256<br>TLS_RSA_WITH_AES_128_CBC_SHA256<br>TLS_RSA_WITH_AES_256_CBC_SHA<br>TLS_RSA_WITH_AES_128_CBC_SHA |
+|CipherSuites     |TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256<br>TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384<br>TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA<br>TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA<br>TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256<br>TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384<br>TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384<br>TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256<br>TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA<br>TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA<br>TLS_RSA_WITH_AES_256_GCM_SHA384<br>TLS_RSA_WITH_AES_128_GCM_SHA256<br>TLS_RSA_WITH_AES_256_CBC_SHA256<br>TLS_RSA_WITH_AES_128_CBC_SHA256<br>TLS_RSA_WITH_AES_256_CBC_SHA<br>TLS_RSA_WITH_AES_128_CBC_SHA |
   
 ### <a name="appgwsslpolicy20170401s"></a>AppGwSslPolicy20170401S
 
-|Egenskap  |Värde  |
+|Egenskap   |Värde  |
 |---|---|
 |Namn     | AppGwSslPolicy20170401S        |
 |MinProtocolVersion     | TLSv1_2        |
 |Standard| False |
-|Krypteringssviter     |TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256 <br>    TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384 <br>    TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA <br>TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA <br>TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256<br>TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384<br>TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384<br>TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256<br>TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA<br>TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA<br>TLS_RSA_WITH_AES_256_GCM_SHA384<br>TLS_RSA_WITH_AES_128_GCM_SHA256<br>TLS_RSA_WITH_AES_256_CBC_SHA256<br>TLS_RSA_WITH_AES_128_CBC_SHA256<br>TLS_RSA_WITH_AES_256_CBC_SHA<br>TLS_RSA_WITH_AES_128_CBC_SHA<br> |
+|CipherSuites     |TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256 <br>    TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384 <br>    TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA <br>TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA <br>TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256<br>TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384<br>TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384<br>TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256<br>TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA<br>TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA<br>TLS_RSA_WITH_AES_256_GCM_SHA384<br>TLS_RSA_WITH_AES_128_GCM_SHA256<br>TLS_RSA_WITH_AES_256_CBC_SHA256<br>TLS_RSA_WITH_AES_128_CBC_SHA256<br>TLS_RSA_WITH_AES_256_CBC_SHA<br>TLS_RSA_WITH_AES_128_CBC_SHA<br> |
 
-## <a name="custom-ssl-policy"></a>Anpassade SSL-policy
+## <a name="custom-ssl-policy"></a>Anpassat SSL-princip
 
-Om en fördefinierad princip SSL måste konfigureras för dina behov, måste du definiera dina egna anpassade SSL-policy. Med en anpassad princip för SSL har du fullständig kontroll över SSL-protokollet minimiversionen att stödja samt krypteringssviter som stöds och deras prioritetsordning.
+Om en fördefinierad SSL-princip måste konfigureras för dina krav, måste du definiera en egen anpassad SSL-princip. Med en anpassad SSL-princip har du fullständig kontroll över SSL-protokollet minimiversionen för samt krypteringssviter som stöds och deras prioritetsordning.
  
-### <a name="ssl-protocol-versions"></a>SSL-protokollversioner
+### <a name="ssl-protocol-versions"></a>SSL-protokollsversioner
 
-* SSL 2.0 och 3.0 är inaktiverade som standard för alla programgatewayer. Dessa protokollversioner kan inte konfigureras.
-* En anpassad princip för SSL ger dig möjlighet att välja något av följande tre protokoll som SSL-protokollet minimiversionen för din gateway: TLSv1_0, TLSv1_1 och TLSv1_2.
-* Om inga SSL-policy har definierats, aktiveras alla tre protokoll (TLSv1_0 TLSv1_1 och TLSv1_2).
+* SSL 2.0 och 3.0 inaktiveras som standard för alla application gateways. Dessa protokollversioner kan inte konfigureras.
+* En anpassad SSL-princip ger dig möjlighet att välja någon av följande tre protokoll som SSL-protokollet minimiversionen för din gateway: TLSv1_0, TLSv1_1, and TLSv1_2.
+* Om ingen policy för SSL definieras aktiveras alla tre protokoll (TLSv1_0 TLSv1_1 och TLSv1_2).
 
 ### <a name="cipher-suites"></a>Krypteringssviter
 
-Application Gateway har stöd för de följande krypteringssviter som du kan välja den anpassade principen. Sorteringen av krypteringssviterna som anger prioritetsordningen under SSL-förhandling.
+Application Gateway stöder följande krypteringssviter som du kan välja en egen princip. Sorteringen av de krypteringssviter som anger prioritetsordningen under SSL-förhandling.
 
 
 - TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
@@ -104,4 +104,4 @@ Application Gateway har stöd för de följande krypteringssviter som du kan vä
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du vill lära dig att konfigurera ett SSL-policy, se [Konfigurera SSL-policy på en Programgateway](application-gateway-configure-ssl-policy-powershell.md).
+Om du vill lära dig att konfigurera ett SSL-policy, se [Konfigurera SSL-princip på application gateway](application-gateway-configure-ssl-policy-powershell.md).

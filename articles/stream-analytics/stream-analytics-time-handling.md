@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 02/05/2018
-ms.openlocfilehash: 4accff7410d17e76a000b7cef957b75c65a16960
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 91193cc328c02f5ba4f5eb18e0bf853f9d91313a
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56008393"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56732270"
 ---
 # <a name="understand-time-handling-in-azure-stream-analytics"></a>Förstå tid hantering i Azure Stream Analytics
 
@@ -163,7 +163,7 @@ Azure Stream Analytics använder vattenstämpel förloppet som endast utlösare 
 
 När du använder [fönsteraggregeringar](stream-analytics-window-functions.md), tjänsten endast producerar utdata i slutet av windows. I vissa fall kan användarna vill se partiella aggregeringar som genereras från windows. Partiell aggregeringar stöds inte för närvarande i Azure Stream Analytics.
 
-I andra direktuppspelade lösningar kan utdatahändelserna materialiseras vid olika tidpunkter för utlösare, beroende på externa omständigheterna. Det är möjligt i vissa lösningar att utdata-händelser för en given tidpunkt fönstret par genereras flera gånger. Eftersom indatavärdena förfinade bli aggregerade resultatet mer exakta. Händelser kan vara speculated på första och ändrade över tid. Till exempel när en viss enhet är frånkopplad från nätverket, kan ett beräknat värde användas av ett system. Senare på ansluts samma enhet till nätverket. Den faktiska händelsedata kan sedan inkluderas i Indataströmmen. Utdataresultat från att bearbeta den tidsperioden ger mer exakta utdata.
+I andra direktuppspelade lösningar kan utdatahändelserna materialiseras vid olika tidpunkter för utlösare, beroende på externa omständigheterna. Det är möjligt i vissa lösningar att utdata-händelser för en viss tidsperiod kan genereras flera gånger. Eftersom indatavärdena förfinade bli aggregerade resultatet mer exakta. Händelser kan vara speculated på första och ändrade över tid. Till exempel när en viss enhet är frånkopplad från nätverket, kan ett beräknat värde användas av ett system. Senare på ansluts samma enhet till nätverket. Den faktiska händelsedata kan sedan inkluderas i Indataströmmen. Utdataresultat från att bearbeta den tidsperioden ger mer exakta utdata.
 
 ## <a name="illustrated-example-of-watermarks"></a>Illustrerade exempel på vattenstämplar
 

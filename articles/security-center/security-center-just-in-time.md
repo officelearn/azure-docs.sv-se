@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/4/2018
 ms.author: rkarlin
-ms.openlocfilehash: 94364a54a5a0994cc3de3a2fe014b556d438b2c2
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 2bfa3b6001d714da39ebeb709600504f9d7331c5
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56114917"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56733665"
 ---
 # <a name="manage-virtual-machine-access-using-just-in-time"></a>Hantera VM-åtkomst med hjälp av just-in-time
 
@@ -29,6 +29,8 @@ Just-in-time (JIT)-dator (VM) åtkomst kan användas för att låsa inkommande t
 > Just-in-time-funktionen är tillgänglig på nivån Standard för Security Center.  Mer information om prisalternativen för Security Center finns i [Priser](security-center-pricing.md).
 >
 >
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="attack-scenario"></a>Attack scenario
 
@@ -208,7 +210,7 @@ Funktionen just-in-time VM kan användas via API: et för Azure Security Center.
 
 ### <a name="using-jit-vm-access-via-powershell"></a>Med JIT VM-åtkomst via PowerShell 
 
-För att använda just-in-time VM access-lösning via PowerShell, använder du officiellt Azure Security Center PowerShell-cmdlets, särskilt `Set-AzureRmJitNetworkAccessPolicy`.
+För att använda just-in-time VM access-lösning via PowerShell, använder du officiellt Azure Security Center PowerShell-cmdlets, särskilt `Set-AzJitNetworkAccessPolicy`.
 
 I följande exempel anger en åtkomstprincip för just-in-time-VM på en specifik virtuell dator och anger följande:
 1.  Stäng port 22 och 3389.
@@ -238,7 +240,7 @@ Kör följande i PowerShell för att åstadkomma detta:
 
 3.  Konfigurera åtkomstprincip för just-in-time-VM på den valda virtuella datorn:
     
-        Set-AzureRmJitNetworkAccessPolicy -Kind "Basic" -Location "LOCATION" -Name "default" -ResourceGroupName "RESOURCEGROUP" -VirtualMachine $JitPolicyArr 
+        Set-AzJitNetworkAccessPolicy -Kind "Basic" -Location "LOCATION" -Name "default" -ResourceGroupName "RESOURCEGROUP" -VirtualMachine $JitPolicyArr 
 
 #### <a name="requesting-access-to-a-vm"></a>Begär åtkomst till en virtuell dator
 
@@ -258,7 +260,7 @@ Kör följande i PowerShell:
         $JitPolicyArr=@($JitPolicyVm1)
 3.  Skicka åtkomstbegäran (Använd resurs-ID du fick i steg 1)
 
-        Start-AzureRmJitNetworkAccessPolicy -ResourceId "/subscriptions/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Security/locations/LOCATION/jitNetworkAccessPolicies/default" -VirtualMachine $JitPolicyArr
+        Start-AzJitNetworkAccessPolicy -ResourceId "/subscriptions/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Security/locations/LOCATION/jitNetworkAccessPolicies/default" -VirtualMachine $JitPolicyArr
 
 Mer information finns i dokumentationen för PowerShell-cmdlet.
 

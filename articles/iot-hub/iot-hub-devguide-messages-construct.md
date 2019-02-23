@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/13/2018
 ms.author: asrastog
-ms.openlocfilehash: 164f3b8ef42d07606d98d200fa9bebcd0add3d38
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: f5d25232ebbdb6f8cf07839cc51485dd53381cd9
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49319582"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56733851"
 ---
 # <a name="create-and-read-iot-hub-messages"></a>Skapa och läsa IoT Hub-meddelanden
 
@@ -31,7 +31,7 @@ En IoT Hub-meddelande består av:
 
 * En täckande binära brödtext.
 
-Egenskapsnamn och värden får bara innehålla alfanumeriska ASCII-tecken, plus `{'!', '#', '$', '%, '&', ''', '*', '+', '-', '.', '^', '_', '`', ' |', ' ~'} ' när du skickar meddelanden från enheten till molnet med hjälp av HTTPS-protokollet eller skicka meddelanden från molnet till enheten.
+Egenskapsnamn och värden får bara innehålla alfanumeriska ASCII-tecken, plus ``{'!', '#', '$', '%, '&', ''', '*', '+', '-', '.', '^', '_', '`', '|', '~'}`` när du skickar meddelanden från enheten till molnet med hjälp av HTTPS-protokollet eller skicka meddelanden från molnet till enheten.
 
 Meddelanden med IoT Hub enhet-till-molnet har följande egenskaper:
 
@@ -49,19 +49,19 @@ I följande tabell visar uppsättningen Systemegenskaper i IoT Hub-meddelanden.
 
 | Egenskap  | Beskrivning | Är användare inställbar? |
 | --- | --- | --- |
-| meddelande-id |En användare inställbar identifierare för meddelandet som används för begäran / svar-mönster. Format: En skiftlägeskänslig sträng (upp till 128 tecken) med ASCII 7 bitar alfanumeriska tecken + `{'-', ':', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '$', '''}`. | Ja |
+| message-id |En användare inställbar identifierare för meddelandet som används för begäran / svar-mönster. Format: En skiftlägeskänslig sträng (upp till 128 tecken) med ASCII 7 bitar alfanumeriska tecken + `{'-', ':', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '$', '''}`. | Ja |
 | sekvensnummer |Ett tal (unika per enhet kö) IoT Hub har tilldelats varje moln-till-enhet-meddelande. | Nej för C2D-meddelanden. Ja annars. |
 | till |Ett mål som anges i [moln till enhet](iot-hub-devguide-c2d-guidance.md) meddelanden. | Nej för C2D-meddelanden. Ja annars. |
-| absoluta förfallotid |Datum och tid för förfallodatum för meddelanden. | Ja |
+| absolute-expiry-time |Datum och tid för förfallodatum för meddelanden. | Ja |
 | iothub-enqueuedtime |Datum och tid i [moln till enhet](iot-hub-devguide-c2d-guidance.md) meddelande togs emot av IoT Hub. | Nej för C2D-meddelanden. Ja annars. |
 | Korrelations-id |En strängegenskap i ett svarsmeddelande som vanligtvis innehåller meddelande-ID för begäran i begäran / svar-mönster. | Ja |
 | användar-id |Ett ID som används för att ange ursprunget av meddelanden. När meddelanden genereras av IoT Hub, den är inställd på `{iot hub name}`. | Nej |
 | iothub-ack |En feedback meddelande generator. Den här egenskapen används i meddelanden från moln till enhet för att begära IoT Hub för att generera meddelanden på grund av användningen av meddelandet av enheten. Möjliga värden: **ingen** (standard): ingen feedback meddelande genereras **positivt**: meddelandet feedback om meddelandet har slutförts, **negativt**: ta emot en feedback-meddelande om meddelandet har gått ut (eller har nått maximalt antal leveranser) utan håller på att slutföras av enheten, eller **fullständig**: både positiva och negativa. 
 <!-- robinsh For more information, see [Message feedback][lnk-feedback].--> | Ja |
-| iothub-anslutning-enhet-id |Ett ID som angetts av IoT Hub på meddelanden från enheten till molnet. Den innehåller den **deviceId** på den enhet som skickade meddelandet. | Nej för D2C-meddelanden. Ja annars. |
-| iothub-anslutning-auth-generations-id |Ett ID som angetts av IoT Hub på meddelanden från enheten till molnet. Den innehåller den **generationId** (enligt [identitet enhetsegenskaper](iot-hub-devguide-identity-registry.md#device-identity-properties)) på den enhet som skickade meddelandet. | Nej för D2C-meddelanden. Ja annars. |
-| iothub-anslutning-auth-metod |En autentiseringsmetod som angetts av IoT Hub på meddelanden från enheten till molnet. Den här egenskapen innehåller information om den autentiseringsmetod som används för att autentisera den enhet som skickar meddelandet. <!-- ROBINSH For more information, see [Device to cloud anti-spoofing][lnk-antispoofing].--> | Nej för D2C-meddelanden. Ja annars. |
-| iothub-skapande-time-utc | Datum och tidpunkt som meddelandet skapades på en enhet. En enhet måste ange ett explicit värde. | Ja |
+| iothub-connection-device-id |Ett ID som angetts av IoT Hub på meddelanden från enheten till molnet. Den innehåller den **deviceId** på den enhet som skickade meddelandet. | Nej för D2C-meddelanden. Ja annars. |
+| iothub-connection-auth-generation-id |Ett ID som angetts av IoT Hub på meddelanden från enheten till molnet. Den innehåller den **generationId** (enligt [identitet enhetsegenskaper](iot-hub-devguide-identity-registry.md#device-identity-properties)) på den enhet som skickade meddelandet. | Nej för D2C-meddelanden. Ja annars. |
+| iothub-connection-auth-method |En autentiseringsmetod som angetts av IoT Hub på meddelanden från enheten till molnet. Den här egenskapen innehåller information om den autentiseringsmetod som används för att autentisera den enhet som skickar meddelandet. <!-- ROBINSH For more information, see [Device to cloud anti-spoofing][lnk-antispoofing].--> | Nej för D2C-meddelanden. Ja annars. |
+| iothub-creation-time-utc | Datum och tidpunkt som meddelandet skapades på en enhet. En enhet måste ange ett explicit värde. | Ja |
 
 ## <a name="message-size"></a>Meddelandestorlek
 
@@ -77,9 +77,9 @@ Egenskapsnamn och värden är begränsade till ASCII-tecken så lång strängarn
 
 För att undvika enheten förfalskning i meddelanden från enheten till molnet, IoT Hub stämplar alla meddelanden med följande egenskaper:
 
-* **iothub-anslutning-enhet-id**
-* **iothub-anslutning-auth-generations-id**
-* **iothub-anslutning-auth-metod**
+* **iothub-connection-device-id**
+* **iothub-connection-auth-generation-id**
+* **iothub-connection-auth-method**
 
 De första två innehåller den **deviceId** och **generationId** för den ursprungliga enheten enligt [identitet enhetsegenskaper](iot-hub-devguide-identity-registry.md#device-identity-properties).
 

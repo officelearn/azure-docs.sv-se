@@ -12,16 +12,16 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/11/2018
+ms.date: 02/22/2019
 ms.author: jeffgilb
 ms.reviewer: anwestg
-ms.lastreviewed: 12/11/2018
-ms.openlocfilehash: 0be1814fd501824056bc80d4aeb561ff58735125
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.lastreviewed: 02/22/2019
+ms.openlocfilehash: 3b057e9c4a0fccb3f85ec237433e4020fd4a84da
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447454"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56737492"
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Innan du sätter igång med App Service i Azure Stack
 
@@ -307,6 +307,16 @@ SQL Server-instans för Azure App Service i Azure Stack måste kunna nås från 
 > Ett antal SQL IaaS avbildningar av virtuella datorer är tillgängliga via Marketplace-hanteringsfunktionen. Se till att du alltid hämta den senaste versionen av SQL IaaS-tillägget innan du distribuerar en virtuell dator med en Marketplace-objekt. SQL-avbildningar är samma som den virtuella SQL-datorer som är tillgängliga i Azure. För virtuella SQL-datorer skapas från dessa avbildningar, IaaS-tillägg och förbättringar av motsvarande portalen tillhandahåller funktioner som automatisk uppdatering och säkerhetskopiering.
 >
 Du kan använda en standardinstans eller namngiven instans för SQL Server-roller. Om du använder en namngiven instans, måste du manuellt starta SQL Server Browser-tjänsten och öppna porten 1434.
+
+App Service-installationsprogrammet kontrollerar om du vill att SQL Server database inneslutning aktiverat. Om du vill aktivera inneslutning för databasen på SQL Server som är värd för App Service-databaser, kör du följande SQL-kommandon:
+
+```sql
+sp_configure 'contained database authentication', 1;  
+GO  
+RECONFIGURE;  
+GO
+```
+
 
 >[!IMPORTANT]
 > Om du väljer att distribuera App Service i ett befintligt virtuellt nätverk som SQL Server ska distribueras i ett separat undernät från App Service och filservern.

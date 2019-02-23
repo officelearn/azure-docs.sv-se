@@ -1,33 +1,19 @@
 ---
-title: Anpassa brandväggsregler för webbaserade program i Azure Application Gateway – Azure-portalen | Microsoft Docs
+title: Anpassa brandväggsregler för webbaserade program i Azure Application Gateway – Azure-portalen
 description: Den här artikeln innehåller information om hur du anpassar web application brandväggsregler i Application Gateway med Azure-portalen.
-documentationcenter: na
 services: application-gateway
 author: vhorne
-manager: jpconnock
-editor: tysonn
-ms.assetid: 1159500b-17ba-41e7-88d6-b96986795084
 ms.service: application-gateway
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.custom: ''
-ms.workload: infrastructure-services
-ms.date: 03/28/2017
+ms.date: 2/22/2019
 ms.author: victorh
-ms.openlocfilehash: 30df26dc3a9697d3435779f91c32b2d99a747b88
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: b18c9666e58925746a3b61740db6fb5118c2010b
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46990475"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56733724"
 ---
 # <a name="customize-web-application-firewall-rules-through-the-azure-portal"></a>Anpassa brandväggsregler för webbaserade program via Azure portal
-
-> [!div class="op_single_selector"]
-> * [Azure Portal](application-gateway-customize-waf-rules-portal.md)
-> * [PowerShell](application-gateway-customize-waf-rules-powershell.md)
-> * [Azure CLI](application-gateway-customize-waf-rules-cli.md)
 
 Azure Application Gateway brandväggen för webbaserade program (WAF) ger skydd för webbprogram. Dessa skydd tillhandahålls av OWASP Open Web Application Security Project () Core regeln ange (CRS). Vissa regler kan leda till falska positiva identifieringar och blockera verklig trafik. Därför ger Application Gateway möjlighet att anpassa regelgrupper och -regler. Läs mer på den specifika regelgrupper och regler, [lista över web application firewall tillhandahållna CRS-regelgrupper och -regler](application-gateway-crs-rulegroups-rules.md).
 
@@ -53,7 +39,7 @@ Den **brandväggsinställningar för webbprogram** bladet ger dig möjlighet att
 
 ## <a name="disable-rule-groups-and-rules"></a>Inaktivera regelgrupper och -regler
 
-När din är inaktiverar regler kan du kan inaktivera en för hela regelgruppen eller särskilda regler under en eller flera regelgrupper. 
+När du inaktiverar regler kan inaktivera du en för hela regelgruppen eller särskilda regler under en eller flera regelgrupper. 
 
 **Inaktivera regelgrupper eller särskilda regler**
 
@@ -62,6 +48,19 @@ När din är inaktiverar regler kan du kan inaktivera en för hela regelgruppen 
    2. Välj **Spara**. 
 
 ![Spara ändringar][3]
+
+## <a name="mandatory-rules"></a>Obligatoriska regler
+
+I följande lista innehåller villkor som gör att WAF för att blockera begäran i Förhindringsläge (i identifieringsläge loggas som undantag). Dessa kan inte vara konfigurerad eller inaktiverad:
+
+* Det gick inte att parsa begärandetexten resulterar i begäran blockeras, såvida inte brödtext inspektion stängs av (XML, JSON, formulärdata)
+* Datalängden för begäran brödtext (utan att några filer) är större än den konfigurerade gränsen
+* Brödtext (inklusive filer) är större än gränsen
+* Ett internt fel inträffade i WAF-motorn
+
+CRS 3.x specifika:
+
+* Inkommande avvikelseidentifiering poäng överskred tröskeln
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -7,19 +7,19 @@ author: sumukhs
 manager: timlt
 editor: vturecek
 ms.assetid: 9f72373d-31dd-41e3-8504-6e0320a11f0e
-ms.service: Service-Fabric
+ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/02/2017
 ms.author: sumukhs
-ms.openlocfilehash: ee8010fbbadc011e04d6d43599d671a1f926bb5f
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: ef7b012c96522f15bab230475a97681945592d59
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44049664"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56728598"
 ---
 # <a name="configure-stateful-reliable-services"></a>Konfigurera tillståndskänsliga reliable services
 Det finns två uppsättningar med konfigurationsinställningarna för reliable services. En uppsättning är globala för alla reliable services i klustret medan den andra uppsättningen är specifik för en viss tillförlitlig tjänst.

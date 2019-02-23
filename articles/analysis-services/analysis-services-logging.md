@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/14/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 9f9a6511d63e57c6cbfa5ee2453f8038bb259047
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: b35707b857c66f0f1b91f2f1b5dd7a0ffa24dd9e
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56429000"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56733766"
 ---
 # <a name="setup-diagnostic-logging"></a>Konfigurera Diagnostisk loggning
 
@@ -21,6 +21,7 @@ En viktig del av alla Analysis Services-lösningar övervakar hur dina servrar u
 
 ![Diagnostisk loggning till lagring, Event Hubs eller Azure Monitor-loggar](./media/analysis-services-logging/aas-logging-overview.png)
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="whats-logged"></a>Vad loggas?
 
@@ -103,7 +104,7 @@ Om du vill aktivera mått och diagnostik loggning med hjälp av PowerShell, anv�
 - Använd följande kommando om du vill aktivera lagring av diagnostikloggar i ett lagringskonto:
 
    ```powershell
-   Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -StorageAccountId [your storage account id] -Enabled $true
+   Set-AzDiagnosticSetting -ResourceId [your resource id] -StorageAccountId [your storage account id] -Enabled $true
    ```
 
    Storage-konto-ID är resurs-ID för lagringskontot där du vill skicka loggarna.
@@ -111,7 +112,7 @@ Om du vill aktivera mått och diagnostik loggning med hjälp av PowerShell, anv�
 - Om du vill aktivera strömning av diagnostikloggar till en händelsehubb, Använd följande kommando:
 
    ```powershell
-   Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -ServiceBusRuleId [your service bus rule id] -Enabled $true
+   Set-AzDiagnosticSetting -ResourceId [your resource id] -ServiceBusRuleId [your service bus rule id] -Enabled $true
    ```
 
    Regel-ID för Azure Service Bus är en sträng med det här formatet:
@@ -123,13 +124,13 @@ Om du vill aktivera mått och diagnostik loggning med hjälp av PowerShell, anv�
 - Använd följande kommando om du vill aktivera skicka diagnostikloggar till en Log Analytics-arbetsyta:
 
    ```powershell
-   Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -WorkspaceId [resource id of the log analytics workspace] -Enabled $true
+   Set-AzDiagnosticSetting -ResourceId [your resource id] -WorkspaceId [resource id of the log analytics workspace] -Enabled $true
    ```
 
 - Du kan hämta resurs-ID för Log Analytics-arbetsytan med hjälp av följande kommando:
 
    ```powershell
-   (Get-AzureRmOperationalInsightsWorkspace).ResourceId
+   (Get-AzOperationalInsightsWorkspace).ResourceId
    ```
 
 Du kan kombinera dessa parametrar om du vill aktivera flera Utdataalternativ för.
@@ -187,7 +188,7 @@ Det finns hundratals frågor som du kan använda. Mer information om frågor fin
 
 ## <a name="turn-on-logging-by-using-powershell"></a>Aktivera loggning med hjälp av PowerShell
 
-I den här snabba självstudien skapar du ett lagringskonto i samma prenumeration och resursgrupp som Analysis Services-servern. Du kan sedan använda Set-AzureRmDiagnosticSetting för att slå på diagnostik loggning, skicka utdata till det nya lagringskontot.
+I den här snabba självstudien skapar du ett lagringskonto i samma prenumeration och resursgrupp som Analysis Services-servern. Du kan sedan använda Set-AzDiagnosticSetting för att slå på diagnostik loggning, skicka utdata till det nya lagringskontot.
 
 ### <a name="prerequisites"></a>Förutsättningar
 Den här kursen måste du ha följande resurser:
@@ -199,7 +200,7 @@ Den här kursen måste du ha följande resurser:
 Starta en Azure PowerShell-session och logga in på ditt Azure-konto med följande kommando:  
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 ```
 
 Ange användarnamnet och lösenordet för ditt Azure-konto i popup-fönstret i webbläsaren. Azure PowerShell identifierar alla prenumerationer som är associerade med det här kontot och använder den första som standard.
@@ -207,13 +208,13 @@ Ange användarnamnet och lösenordet för ditt Azure-konto i popup-fönstret i w
 Om du har flera prenumerationer kan du behöva ange en som användes för att skapa Azure Key Vault. Skriv följande för att visa prenumerationerna för ditt konto:
 
 ```powershell
-Get-AzureRmSubscription
+Get-AzSubscription
 ```
 
 Om du vill ange den prenumeration som är associerat med Azure Analysis Services-konto som du loggar, skriver du sedan:
 
 ```powershell
-Set-AzureRmContext -SubscriptionId <subscription ID>
+Set-AzContext -SubscriptionId <subscription ID>
 ```
 
 > [!NOTE]
@@ -228,7 +229,7 @@ Du kan använda ett befintligt lagringskonto för dina loggar, förutsatt att de
 Du kan också använda samma resursgrupp som det som innehåller Analysis Services-servern. Ersätt värden för `awsales_resgroup`, `awsaleslogs`, och `West Central US` med dina egna värden:
 
 ```powershell
-$sa = New-AzureRmStorageAccount -ResourceGroupName awsales_resgroup `
+$sa = New-AzStorageAccount -ResourceGroupName awsales_resgroup `
 -Name awsaleslogs -Type Standard_LRS -Location 'West Central US'
 ```
 
@@ -237,16 +238,16 @@ $sa = New-AzureRmStorageAccount -ResourceGroupName awsales_resgroup `
 Ange namnet på kontot till en variabel med namnet **konto**, där ResourceName är namnet på kontot.
 
 ```powershell
-$account = Get-AzureRmResource -ResourceGroupName awsales_resgroup `
+$account = Get-AzResource -ResourceGroupName awsales_resgroup `
 -ResourceName awsales -ResourceType "Microsoft.AnalysisServices/servers"
 ```
 
 ### <a name="enable-logging"></a>Aktivera loggning
 
-Använd cmdlet Set-AzureRmDiagnosticSetting tillsammans med för att aktivera loggning för det nya lagringskontot, serverkonto och kategorin. Kör följande kommando och ange den **-aktiverad** flaggan till **$true**:
+Använd cmdlet Set-AzDiagnosticSetting tillsammans med för att aktivera loggning för det nya lagringskontot, serverkonto och kategorin. Kör följande kommando och ange den **-aktiverad** flaggan till **$true**:
 
 ```powershell
-Set-AzureRmDiagnosticSetting  -ResourceId $account.ResourceId -StorageAccountId $sa.Id -Enabled $true -Categories Engine
+Set-AzDiagnosticSetting  -ResourceId $account.ResourceId -StorageAccountId $sa.Id -Enabled $true -Categories Engine
 ```
 
 Utdata bör se ut ungefär som i följande exempel:
@@ -293,7 +294,7 @@ Det här resultatet bekräftar att loggning är aktiverat för servern, informat
 Du kan också ange bevarandeprincip för dina loggar så att äldre loggar tas bort automatiskt. Till exempel bevarandeprincip genom **- RetentionEnabled** flaggan till **$true**, och Ställ in **- RetentionInDays** parameter **90**. Loggar som är äldre än 90 dagar tas bort automatiskt.
 
 ```powershell
-Set-AzureRmDiagnosticSetting -ResourceId $account.ResourceId`
+Set-AzDiagnosticSetting -ResourceId $account.ResourceId`
  -StorageAccountId $sa.Id -Enabled $true -Categories Engine`
   -RetentionEnabled $true -RetentionInDays 90
 ```
@@ -302,4 +303,4 @@ Set-AzureRmDiagnosticSetting -ResourceId $account.ResourceId`
 
 Läs mer om [Diagnostisk loggning för Azure-resurs](../azure-monitor/platform/diagnostic-logs-overview.md).
 
-Se [Set-AzureRmDiagnosticSetting](https://docs.microsoft.com/powershell/module/azurerm.insights/Set-AzureRmDiagnosticSetting) i PowerShell-hjälpen.
+Se [Set-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.insights/Set-azDiagnosticSetting) i PowerShell-hjälpen.

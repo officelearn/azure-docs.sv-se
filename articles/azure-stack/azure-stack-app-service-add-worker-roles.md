@@ -12,16 +12,16 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/08/2018
+ms.date: 02/22/2010
 ms.author: jeffgilb
 ms.reviewer: anwestg
 ms.lastreviewed: 06/08/2018
-ms.openlocfilehash: 0ac20ee9f6197a8322bb741020aee813c690847e
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: 839fa7fe8374f1f85b019178d4c3fe53f7137372
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56445891"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56729652"
 ---
 # <a name="app-service-on-azure-stack-add-more-infrastructure-or-worker-roles"></a>App Service i Azure Stack: Lägg till mer infrastruktur eller worker-roller
 
@@ -37,11 +37,6 @@ App Service i Azure Stack, som standard har stöd för kostnadsfria och delade a
 Om du inte är säker på vad som har distribuerats med App Service på Azure Stack-installation kan du granska ytterligare information i den [App Service i Azure Stack-översikt](azure-stack-app-service-overview.md).
 
 Azure App Service i Azure Stack distribuerar alla roller med hjälp av Virtual Machine Scale Sets och drar därmed nytta av skalningsmöjligheterna med den här arbetsbelastningen. Därför sker alla skalning av arbetarnivåer via App-tjänstadministratör
-
-> [!IMPORTANT]
-> För närvarande går det inte att skala VM-skalningsuppsättningar i portalen som du identifierade i Azure Stack viktig information, därför använda PowerShell-exempel för att skala ut.
->
->
 
 ## <a name="add-additional-workers-with-powershell"></a>Lägg till fler arbeten med PowerShell
 
@@ -80,7 +75,7 @@ Azure App Service i Azure Stack distribuerar alla roller med hjälp av Virtual M
 
 3. Övervaka status för nya rollinstanserna i App Service-Administration, för att kontrollera status för en enskild rollinstans klickar du på vilken roll i listan.
 
-## <a name="add-additional-workers-directly-within-the-app-service-resource-provider-admin"></a>Lägg till fler arbeten direkt i App Service-administratör Resource Provider.
+## <a name="add-additional-workers-using-the-administration-portal"></a>Lägg till fler arbeten med hjälp av portalen för enhetsadministration
 
 1. Logga in på Azure Stack-administrationsportalen som tjänstadministratör.
 

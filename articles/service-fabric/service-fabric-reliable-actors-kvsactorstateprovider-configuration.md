@@ -7,19 +7,19 @@ author: sumukhs
 manager: timlt
 editor: ''
 ms.assetid: dbed72f4-dda5-4287-bd56-da492710cd96
-ms.service: Service-Fabric
+ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/2/2017
 ms.author: sumukhs
-ms.openlocfilehash: 81c09d61a5213319fa01ef5cc7070ffe385bbab1
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 0b7c6a356812e4acd39b5164cce279b5a18eb3d5
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44049518"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56732763"
 ---
 # <a name="configuring-reliable-actors--kvsactorstateprovider"></a>Konfigurera Reliable Actors--KVSActorStateProvider
 Du kan ändra standardkonfigurationen av KVSActorStateProvider genom att ändra filen settings.xml som skapas i Microsoft Visual Studio-paketrot Config-mappen för den angivna aktören.
@@ -39,14 +39,14 @@ Som standard förhindrar en tom security konfigurationsavsnittet replikeringssä
 > På Linux-noder vara certifikat PEM-formaterade. Läs mer om att hitta och konfigurera certifikat för Linux i [konfigurerar du certifikat i Linux](./service-fabric-configure-certificates-linux.md). 
 > 
 
-### <a name="section-name"></a>Namn på avsnittet
+### <a name="section-name"></a>Avsnittsnamn
 &lt;ActorName&gt;ServiceReplicatorSecurityConfig
 
 ## <a name="replicator-configuration"></a>Replikator konfiguration
 Replikator konfigurationer konfigurera replikatorn som ansvarar för att göra aktören Tillståndsprovider tillståndet mycket pålitlig.
 Standardkonfigurationen genereras av Visual Studio-mallen och bör vara tillräckligt. Det här avsnittet innehåller information om ytterligare konfigurationer som är tillgängliga att finjustera replikatorn.
 
-### <a name="section-name"></a>Namn på avsnittet
+### <a name="section-name"></a>Avsnittsnamn
 &lt;ActorName&gt;ServiceReplicatorConfig
 
 ### <a name="configuration-names"></a>Konfigurationsnamn
@@ -63,7 +63,7 @@ Standardkonfigurationen genereras av Visual Studio-mallen och bör vara tillräc
 Store-konfigurationer för att konfigurera det lokala arkivet som ska användas för att bevara tillstånd som håller på att replikeras.
 Standardkonfigurationen genereras av Visual Studio-mallen och bör vara tillräckligt. Det här avsnittet innehåller information om ytterligare konfigurationer som är tillgängliga att finjustera det lokala arkivet.
 
-### <a name="section-name"></a>Namn på avsnittet
+### <a name="section-name"></a>Avsnittsnamn
 &lt;ActorName&gt;ServiceLocalStoreConfig
 
 ### <a name="configuration-names"></a>Konfigurationsnamn

@@ -7,19 +7,19 @@ author: tylermsft
 manager: jeanpaul.connock
 editor: ''
 ms.assetid: 39e0cd6b-32c4-4b97-bbcf-33dad93dcad1
-ms.service: Service-Fabric
+ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/12/2019
+ms.date: 02/22/2019
 ms.author: twhitney
-ms.openlocfilehash: e7f0219919fe0569633cc85b89a1a91b1704b269
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 9e542143810745712fb148e0b5ebe126cc8a93bf
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56114832"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56727888"
 ---
 # <a name="working-with-reliable-collections"></a>Arbeta med Reliable Collections
 Service Fabric erbjuder en tillståndskänslig programmeringsmodell som är tillgängliga för .NET-utvecklare via tillförlitliga samlingar. Mer specifikt tillhandahåller Service Fabric tillförlitlig ordlista och tillförlitlig kö klasser. När du använder de här klasserna är din delstat partitionerade (för skalbarhet), replikeras (för tillgänglighet) och överförda inom en partition (för ACID-semantik). Nu ska vi titta på en normal användning av en tillförlitlig ordlista-objekt och se vad det faktiskt gör.
@@ -207,8 +207,7 @@ Koden är dessutom uppgraderade en uppgraderingsdomän i taget. Du kan alltså h
 
 > [!WARNING]
 > Medan du kan ändra schemat för en nyckel, måste du kontrollera att din nyckel hash-koden och är lika med algoritmer är stabil. Om du ändrar hur något av dessa algoritmer fungerar kan du inte leta upp nyckeln i en tillförlitlig ordlista någonsin igen.
->
->
+> .NET-strängar kan användas som en nyckel men använda själva strängen som nyckel – inte Använd resultatet av String.GetHashCode som nyckel.
 
 Du kan också utföra vad vanligtvis kallas en uppgradering av två. Med två faser uppgraderingen måste uppgradera du din tjänst från V1 till V2: V2 innehåller koden som vet hur du arbetar med en ny schemaändring men den här koden kan inte köras. När V2-kod läser V1 data, körs på den och skriver V1-data. Sedan, när uppgraderingen är klar över alla uppgraderingsdomäner du kan på något sätt signalera att V2-instanser som körs att uppgraderingen har slutförts. (Det här är ett sätt att signalen lansera en uppgradering av configuration; det här är vad är detta en uppgradering av två faser.) Nu, V2-instanser kan läsa V1 data, konvertera den till V2 data, fungerar på det och skriva som V2-data. När andra instanser läser V2 data de behöver inte att konvertera den, de bara fungerar på den och skriva ut V2-data.
 

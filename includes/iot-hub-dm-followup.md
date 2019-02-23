@@ -5,15 +5,15 @@ services: iot-hub
 ms.service: iot-hub
 author: dominicbetts
 ms.topic: include
-ms.date: 05/17/2018
+ms.date: 02/17/2019
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 3cdfa74c5f124e57b125399e39b7981b1dfb6d09
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 69fdc6cf678107ef64ea1fe7b819738fd4a4ff4f
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43096360"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56741541"
 ---
 ## <a name="customize-and-extend-the-device-management-actions"></a>Anpassa och utöka enheten hanteringsåtgärder
 
@@ -27,10 +27,6 @@ Normalt kan du konfigurera enheter för att utföra åtgärder vid en tidpunkt s
 
 I den här självstudien använde du en direkt metod för att utlösa en fjärromstart på en enhet. Du används rapporterade egenskaper för att rapportera senast omstart från enheten och frågat enhetstvillingen för att identifiera senast omstart av enheten från molnet.
 
-Om du vill fortsätta att komma igång med IoT Hub och enhetshanteringsmönster som via luften firmware-uppdatering, se:
+Om du vill komma igång med IoT Hub och enhetshanteringsmönster som via luften firmware-uppdatering [hur du gör en firmware-uppdatering](../articles/iot-hub/tutorial-firmware-update.md)
 
-[Självstudie: Hur du gör en firmware-uppdatering](../articles/iot-hub/tutorial-firmware-update.md)
-
-Läs hur du utökar din IoT-lösning och schema anropar på flera enheter i den [schema och sändningsjobb](../articles/iot-hub/iot-hub-node-node-schedule-jobs.md) självstudien.
-
-Om du vill komma igång med IoT Hub går [komma igång med IoT Edge](../articles/iot-edge/tutorial-simulate-device-linux.md).
+Läs hur du utökar din IoT-lösning och schema anropar på flera enheter i [schema och sändningsjobb](../articles/iot-hub/iot-hub-node-node-schedule-jobs.md).

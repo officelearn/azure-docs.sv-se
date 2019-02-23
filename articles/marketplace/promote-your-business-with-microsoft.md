@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/04/2018
 ms.author: ellacroi
-ms.openlocfilehash: b02ab403c82fd781af72c3b1f08e843c3fc770e3
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 3bd2361547a8210ae287eabaa67b60e8ba1f26e3
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44094951"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56738155"
 ---
 # <a name="promote-your-business-with-microsoft"></a>Marknadsföra ditt företag med Microsoft  
 Microsoft har målet för partner (du) och för att förenkla den sälja din app eller erbjuda i butiker på marketplace. Genom att lista på marketplace, du har åtkomst till program och resurser på marketplace. 
@@ -40,4 +40,4 @@ Använd följande tabell för att flytta upp ditt erbjudande eller en app, att f
 | Tjäna din Molnplattformskompetens | Tjäna kompetens hjälper dig att särskilj dig bland andra Microsoft-partner. Tjäna kompetens hjälper dig också att visa teknisk expertis och kunden ska lyckas på marknaden. Molnplattformskompetens är en förutsättning för många viktiga partnerprogram, till exempel Medförsäljning.<ul> <li>Mer information om Cloud Platform-kompetensen finns Molnplattformskompetens sidan finns på [partner.microsoft.com/membership/cloud-platform-competency](https://partner.microsoft.com/membership/cloud-platform-competency).</li> </ul> |  
 | Bli redo för Medförsäljning | Medförsäljning redo programmet kan du samarbeta direkt med Microsoft-säljare och andra partners på målet kundtillfällen och planera för kontot. Din lösning blir synliga för Microsoft-säljare i försäljning lösning katalogen. Microsoft-säljare är belönad samarbeta och vinna med dig.<ul> <li>Mer information om medförsäljning finns främja din verksamheten sidan finns på [partner.microsoft.com/reach-customers/promote-your-business](https://partner.microsoft.com/reach-customers/promote-your-business).</li> </ul> |  
 
----  
+---

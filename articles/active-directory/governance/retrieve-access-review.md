@@ -1,6 +1,6 @@
 ---
-title: Hämta resultat av Azure AD-åtkomstgranskning | Microsoft Docs
-description: Så här hämtar du resultat av Azure Active Directory-åtkomstgranskningar.
+title: Hämta åtkomstgranskningsresultaten efter grupper eller program i Azure AD-Åtkomstgranskningar | Microsoft Docs
+description: Lär dig hur du hämtar åtkomstgranskningsresultat för medlemmar i gruppen eller programmet åtkomst i Azure AD-Åtkomstgranskningar.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -16,14 +16,14 @@ ms.date: 06/21/2018
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2dccacb82b34e7e257fcee9632045f12839b5425
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: f5a422f619c4ef63da59516ff2748683eb0f7f70
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56210806"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56726697"
 ---
-# <a name="retrieve-access-review-results"></a>Hämta resultat av åtkomstgranskningar
+# <a name="retrieve-access-review-results-for-groups-or-applications-in-azure-ad-access-reviews"></a>Hämta åtkomstgranskningsresultaten efter grupper eller program i Azure AD-Åtkomstgranskningar
 
 Administratörer kan använda Azure Active Directory (Azure AD) för att [skapa en åtkomstgranskning](create-access-review.md) för gruppmedlemmar eller användare som är tilldelade till ett program.  Användare med rollen **Global administratör**, **Användarkonto-administratör**, **Säkerhetsadministratör** eller **Säkerhetsläsare** kan också läsa resultatet av en åtkomstgranskning.  För att tilldela användare en av de här rollerna kan en privilegierad rolladministratör använda Azure AD PIM för att göra så att en användare kan aktivera rollen, eller så kan en global administratör permanent [tilldela användaren rollen](../fundamentals/active-directory-users-assign-role-azure-portal.md).
 
@@ -55,7 +55,7 @@ Som standard är en användare som tas bort borttagen i Azure AD i 30 dagar. Und
 - [Hantera användare med Azure AD-åtkomstgranskningar](manage-user-access-with-access-reviews.md)
 - [Hantera gäståtkomst med Azure AD-åtkomstgranskningar](manage-guest-access-with-access-reviews.md)
 - [Hantera program och kontroller för Azure AD-åtkomstgranskningar](manage-programs-controls.md)
-- [Skapa en åtkomstgranskning för medlemmar i en grupp eller åtkomst till ett program](create-access-review.md)
+- [Skapa en åtkomstgranskning av grupper eller program](create-access-review.md)
 - [Skapa en åtkomstgranskning av användarna i en administrativ roll i Azure AD](../privileged-identity-management/pim-how-to-start-security-review.md)
 
 

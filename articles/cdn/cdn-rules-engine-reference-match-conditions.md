@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/21/2017
 ms.author: rli
-ms.openlocfilehash: 44182d686548fa5b6363a87be0ce7851829e20ab
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 3ebc4d94e0bbf24895be0aeba9fef1cc7aacd6b9
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55820564"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56736720"
 ---
 # <a name="azure-cdn-rules-engine-match-conditions"></a>Azure CDN-regelmotor matchar de villkor 
 Den här artikeln innehåller detaljerade beskrivningar av tillgängliga matchningsvillkor för Azure Content Delivery Network (CDN) [regelmotor](cdn-rules-engine.md).
@@ -233,7 +233,7 @@ Viktig information:
 
 </br>
 
---- 
+---
 ### <a name="country"></a>Land/region
 Du kan ange ett land via dess landskod. 
 
@@ -326,7 +326,7 @@ Varumärke | %{wurfl_cap_brand_name} | En sträng som anger varumärke namnet p�
 Enhetens OS | %{wurfl_cap_device_os} | En sträng som anger att operativsystemet har installerats på enheten. | IOS
 Operativsystemsversion för enhet | %{wurfl_cap_device_os_version} | En sträng som anger versionsnumret för operativsystemet installerat på enheten. | 1.0.1
 Dubbel orientering | %{wurfl_cap_dual_orientation} | Ett booleskt värde som anger om enheten har stöd för dubbel orientering. | true
-HTML Preferred DTD | %{wurfl_cap_html_preferred_dtd} | En sträng som anger den mobilenheter önskade dokumentet typdefinition (DTD) för HTML-innehåll. | ingen<br/>xhtml_basic<br/>html5
+HTML Preferred DTD | %{wurfl_cap_html_preferred_dtd} | En sträng som anger den mobilenheter önskade dokumentet typdefinition (DTD) för HTML-innehåll. | inga<br/>xhtml_basic<br/>html5
 Bild Inlining | %{wurfl_cap_image_inlining} | Ett booleskt värde som anger om enheten har stöd för Base64-kodad avbildningar. | false
 Is Android | %{wurfl_vcap_is_android} | Ett booleskt värde som anger om enheten använder Android OS. | true
 Är IOS | %{wurfl_vcap_is_ios} | Ett booleskt värde som anger om enheten använder iOS. | false
@@ -388,7 +388,7 @@ Viktig information:
 
 </br>
 
----  
+---
 ### <a name="request-header-literal"></a>Begära huvud Literal
 Den **matchningar**/**matchar inte** anger de villkor som matchar den begära huvud Literal villkor är uppfyllt.
 - **Matchningar**: Kräver begäran som innehåller det angivna huvudet. Värdet måste matcha det som definieras i den här matchningsvillkor.
@@ -409,7 +409,7 @@ Viktig information:
 
 </br>
 
----  
+---
 ### <a name="request-header-regex"></a>Begära huvud Regex
 Den **matchningar**/**matchar inte** anger de villkor som matchar Regex begära huvud villkor är uppfyllt.
 - **Matchningar**: Kräver begäran som innehåller det angivna huvudet. Värdet måste matcha mönstret som definieras i den angivna [reguljärt uttryck](cdn-rules-engine-reference.md#regular-expressions).

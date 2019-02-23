@@ -7,19 +7,19 @@ author: masnider
 manager: timlt
 editor: ''
 ms.assetid: 4cae2370-77b3-49ce-bf40-030400c4260d
-ms.service: Service-Fabric
+ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: c8bab609212c837802be6f70e7fc74df6b5eaf2e
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: e4f446ff67408ef390ba817de935c286c5b2a47e
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44346261"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56727612"
 ---
 # <a name="introduction-to-application-groups"></a>Introduktion till programgrupper
 Service Fabric Cluster Resource Manager hanterar vanligtvis klusterresurser genom att sprida belastningen (representeras [mått](service-fabric-cluster-resource-manager-metrics.md)) jämnt i hela klustret. Service Fabric hanterar kapaciteten för noderna i klustret och klustret som helhet via [kapacitet](service-fabric-cluster-resource-manager-cluster-description.md). Mått och kapacitetsbehov fungerar bra för många arbetsbelastningar, men mönster som använder olika Service Fabric-programinstanser ibland hämta ytterligare krav. Till exempel vilja:
@@ -107,7 +107,7 @@ Reservering av utrymme i klustret för programmet händer omedelbart även om:
 - antalet tjänster inom programinstansen ändras varje gång 
 - tjänsterna finns men förbrukar inte resurser 
 
-Reservera resurser för en programinstans kräver att ange två ytterligare parametrar: *MinimumNodes* och *NodeReservationCapacity*
+Reservera resurser för en programinstans måste du specificera två ytterligare parametrar: *MinimumNodes* och *NodeReservationCapacity*
 
 - **MinimumNodes** -definierar det minsta antalet noder som instansen för programmet ska köras på.  
 - **NodeReservationCapacity** -den här inställningen är per mått för programmet. Värdet är mängden som mått som är reserverade för programmet på alla noder där som kör tjänsterna i programmet.
@@ -126,7 +126,7 @@ I det här exemplet till höger anta att Application1 har skapats med följande 
 
 - MinimumNodes inställd på två
 - Ett program mått som definieras med
-  - NodeReservationCapacity 20
+  - NodeReservationCapacity of 20
 
 PowerShell
 
@@ -181,7 +181,7 @@ ApplicationLoad frågan returnerar grundläggande information om kapacitet för 
 * Måttnamn: Namnet på måttet.
 * Reservation kapacitet: Klusterkapacitet som är reserverade i klustret för det här programmet.
 * Programinläsning: Totalt antal belastningen på det här programmet underordnade repliker.
-* Programkapacitet: Högsta tillåtna värdet för Programbelastningen.
+* Kapacitet för programmet: Högsta tillåtna värdet för Programbelastningen.
 
 ## <a name="removing-application-capacity"></a>Ta bort Programkapacitet
 När parametern Programkapacitet har angetts för ett program, kan de tas bort med hjälp av uppdatera program-API: er eller PowerShell-cmdlets. Exempel:

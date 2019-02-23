@@ -12,16 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2018
 ms.author: spelluru
-ms.openlocfilehash: a3a007bf19a28e6f361837856f83a191a761ef9b
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: 22c30e1c3b19e62489a08a702d8b35fbc4862e13
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43247422"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56728224"
 ---
 # <a name="use-powershell-to-add-a-marketplace-image-to-a-lab-in-azure-devtest-labs"></a>Använd PowerShell för att lägga till en marketplace-avbildning till ett labb i Azure DevTest Labs
 
 Det här PowerShell-exempelskript lägger till en marketplace-avbildning till ett labb i Azure DevTest Labs. 
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
@@ -38,10 +40,10 @@ I det här skriptet används följande kommandon:
 
 | Kommando | Anteckningar |
 |---|---|
-| [Find-AzureRmResource](/powershell/module/azurerm.resources/find-azurermresource) | Söker efter resurser baserat på de angivna parametrarna. |
-| [Get-AzureRmResource](/powershell/module/azurerm.resources/get-azurermresource) | Hämtar resurser. |
-| [Set-AzureRmResource](/powershell/module/azurerm.resources/set-azurermresource) | Ändrar en resurs. |
-| [New-AzureRmResource](/powershell/module/azurerm.resources/new-azurermresource) | Skapa en resurs. |
+| [Find-AzResource](/powershell/module/az.resources/find-azresource) | Söker efter resurser baserat på de angivna parametrarna. |
+| [Get-AzResource](/powershell/module/az.resources/get-azresource) | Hämtar resurser. |
+| [Set-AzResource](/powershell/module/az.resources/set-azresource) | Ändrar en resurs. |
+| [New-AzResource](/powershell/module/az.resources/new-azresource) | Skapa en resurs. |
 
 ## <a name="next-steps"></a>Nästa steg
 

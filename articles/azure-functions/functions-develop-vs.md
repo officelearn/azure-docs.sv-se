@@ -10,12 +10,12 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 10/08/2018
 ms.author: glenga
-ms.openlocfilehash: 43992d25590a58b24c48aad8bfbf6f91b17699ee
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: b60861b4daced5e3d292feec54f8a54839a80b8f
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55098089"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56728923"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>Utveckla Azure-funktioner med hjälp av Visual Studio  
 
@@ -143,7 +143,7 @@ Precis som med utlösare, indata- och bindningar läggs till i din funktion som 
 
 1. Kontrollera att du har [konfigureras projektet för lokal utveckling](#configure-the-project-for-local-development).
 
-2. Lägg till lämpligt NuGet-tillägg-paket för specifika bindningen. Mer information finns i [lokala C#-utveckling med Visual Studio](functions-triggers-bindings.md#local-csharp) i artikeln utlösare och bindningar. Bindningen-specifika NuGet-paketet krav finns i referensartikeln för bindningen. Till exempel hitta paket-krav för Event Hubs-utlösare i den [referensartikeln för Event Hubs-bindning](functions-bindings-event-hubs.md).
+2. Lägg till lämpligt NuGet-tillägg-paket för specifika bindningen. Mer information finns i [lokala C#-utveckling med Visual Studio](./functions-bindings-register.md#local-csharp) i artikeln utlösare och bindningar. Bindningen-specifika NuGet-paketet krav finns i referensartikeln för bindningen. Till exempel hitta paket-krav för Event Hubs-utlösare i den [referensartikeln för Event Hubs-bindning](functions-bindings-event-hubs.md).
 
 3. Om det finns inställningar som krävs för bindningen kan du lägga till dem i den **värden** samling i den [lokala filen](functions-run-local.md#local-settings-file). De här värdena används när funktionen körs lokalt. När funktionen körs i funktionsappen i Azure, den [fungera appinställningar](#function-app-settings) används.
 

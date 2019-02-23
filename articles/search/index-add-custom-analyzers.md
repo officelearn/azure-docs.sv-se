@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: cb2f06bf2a05e2642eb688a48006d0df5fa4fc2c
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: 82b2910a1654461cade853b71e6d57a674bb849e
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56587828"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56733205"
 ---
 # <a name="add-custom-analyzers-to-an-azure-search-index"></a>Lägga till anpassade analysverktyg i ett Azure Search-index
 
@@ -189,7 +189,7 @@ Du kan använda den **Test Analyzer åtgärden** i den [REST API](https://docs.m
   }
 ```
 
- ## <a name="update-custom-analyzers"></a>Uppdatera anpassade analysverktyg
+## <a name="update-custom-analyzers"></a>Uppdatera anpassade analysverktyg
 
 När en analyzer, en tokenizer, ett token filter eller ett char-filter har definierats kan ändras inte. Nya värden kan läggas till ett befintligt index endast om den `allowIndexDowntime` är inställd på true i begäran om uppdatering index:
 
@@ -205,7 +205,7 @@ Den här åtgärden tar ditt index offline för minst ett par sekunder, och din 
 
 I tabellerna nedan lista konfigurationsegenskaper för analysverktyg, tokenizers, token filter och char filterområdet för en Indexdefinition. Strukturen för en analyzer, tokenizer eller filter i ditt index består av dessa attribut. Värdet tilldelningsinformation finns i den [Egenskapsreferens](#PropertyReference).
 
- ### <a name="analyzers"></a>Analysverktyg
+### <a name="analyzers"></a>Analysverktyg
 
 Analysverktyg, indexattribut variera beroende på den om du använder fördefinierade eller anpassade analysverktyg.
 
@@ -229,7 +229,7 @@ Analysverktyg, indexattribut variera beroende på den om du använder fördefini
 
 <a name="CharFilter"></a>
 
- ### <a name="char-filters"></a>Char-filter
+### <a name="char-filters"></a>Char-filter
 
  Ett char-filter används för att förbereda indatatexten innan den bearbetas av tokenizer. De kan till exempel ersätta vissa tecken och symboler. Du kan ha flera char-filter i ett anpassat analysverktyg. Char filter kör i angiven ordning.  
 
@@ -239,7 +239,7 @@ Analysverktyg, indexattribut variera beroende på den om du använder fördefini
 |Type|Char filtertyp i listan över stöds char-filter. Se **char_filter_type** kolumnen i den [Char filter](#CharFilter) tabellen nedan.|  
 |Alternativ|Måste vara giltiga alternativ för en viss [Char filter](#CharFilter) typen.|  
 
- ### <a name="tokenizers"></a>Tokenizers
+### <a name="tokenizers"></a>Tokenizers
 
  En tokenizer delas upp kontinuerlig text i en sekvens av token, till exempel dela upp en mening i orden.  
 
@@ -252,7 +252,7 @@ Ett anpassat analysverktyg kan använda en fördefinierad tokenizer med antingen
 |Type|Tokenizer namnet från listan över stöds tokenizers. Se **tokenizer_type** kolumnen i den [Tokenizers](#Tokenizers) tabellen nedan.|  
 |Alternativ|Måste vara giltiga alternativ för en viss tokenizer-typ som anges i den [Tokenizers](#Tokenizers) tabellen nedan.|  
 
- ### <a name="token-filters"></a>Token filter
+### <a name="token-filters"></a>Token filter
 
  Ett token filter används för att filtrera bort eller ändra de token som genererats av en tokenizer. Du kan till exempel ange ett gemener filter som konverterar alla tecken till gemener.   
 Du kan ha flera token filter i ett anpassat analysverktyg. Token filter kör i angiven ordning.  

@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/14/2019
-ms.openlocfilehash: 36ca5e07adf79de77ac4ab4149ff8e96a1dece8d
-ms.sourcegitcommit: 4bf542eeb2dcdf60dcdccb331e0a336a39ce7ab3
+ms.openlocfilehash: a8e366b14eb73403bfe50af19e4df56dd220d273
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56408756"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56737064"
 ---
 # <a name="mapping-data-flow-datasets"></a>Mappning av datauppsättningar för flödet av Data
 
@@ -20,7 +20,7 @@ ms.locfileid: "56408756"
 
 Datauppsättningar är en Data Factory-konstruktion som definierar formen på de data som du arbetar med i din pipeline. I dataflöde kräver rad- och data på ett noggrant detaljerade datauppsättningsdefinitionen. Datauppsättningar som används i pipelines för kontrollflöden kräver inte samma djup förståelse av data.
 
-Datauppsättningar i Flow datakälla och mottagare transformeringar används för att definiera grundläggande dataschemat. Om du inte har schemat i dina data, kan du ange schemat Drift på för din källa och mottagare. Du får med schema som definierats i datauppsättningen, relaterade datatyper, dataformat, plats och anslutningsinformationen från den associerade länkade tjänsten.
+Datauppsättningar i dataflöde används i källan och mottagaren transformationer. De används för att definiera scheman för grundläggande data. Om du inte har schemat i dina data, kan du ange schemat Drift på för din källa och mottagare. Du får med schema som definierats i datauppsättningen, relaterade datatyper, dataformat, plats och anslutningsinformationen från den associerade länkade tjänsten. Metadata från datauppsättningarna som visas i käll-transformeringen som källa ”projektion”.
 
 ## <a name="dataset-types"></a>Datauppsättningstyperna
 
@@ -28,10 +28,10 @@ För närvarande i dataflödet hittar du fyra datauppsättningstyper:
 
 * Azure SQL-databas
 * Azure SQL DW
-* Parquet
-* Avgränsad Text
+* Parquet (från ADLS & Blob)
+* Avgränsad Text (från ADLB & Blob)
 
-Data flow datauppsättningar avgränsa källan *typ* från den länkade tjänsttypen för anslutningen. Vanligtvis i Data Factory, Välj anslutningstyp (Blob, ADLS osv.) och definierar vilken typ av fil i datauppsättningen. Inuti dataflöde, ska du välja de typer av datakällor som kan associeras med olika anslutningstyper för länkad tjänst.
+Data flow datauppsättningar separat den *källtyp* från den *länkade tjänsten anslutningstypen*. Vanligtvis i Data Factory, Välj anslutningstyp (Blob, ADLS osv.) och definierar vilken typ av fil i datauppsättningen. Inuti dataflöde, ska du välja de typer av datakällor som kan associeras med olika anslutningstyper för länkad tjänst.
 
 ![Käll-omvandling alternativ](media/data-flow/dataset1.png "källor")
 
@@ -42,4 +42,8 @@ När du skapar en ny datauppsättning, det finns en kryssruta med etiketten ”D
 ## <a name="import-schemas"></a>Importera scheman
 
 När du importerar schemat för dataflöde datauppsättningar, visas en Importschema-knappen. Du klickar på knappen visas du två alternativ: Importera från källan eller importera från en lokal fil. I de flesta fall kommer du importera schemat direkt från källan. Men om du har ett befintligt schema-fil (Parquet-filer eller CSV med rubriker) kan peka du på att lokala filer och Data Factory definierar schemat baserat på den schemafilen.
+
+## <a name="next-steps"></a>Nästa steg
+
+Börja med att [skapar ett nytt dataflöde](data-flow-create.md) och Lägg till en transformering av källa. Konfigurera sedan datauppsättningen för källan.
 

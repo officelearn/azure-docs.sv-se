@@ -1,32 +1,19 @@
 ---
-title: Anpassa brandväggsregler för webbaserade program i Azure Application Gateway – PowerShell | Microsoft Docs
+title: Anpassa brandväggsregler för webbaserade program i Azure Application Gateway – PowerShell
 description: Den här artikeln innehåller information om hur du anpassar brandväggsregler för webbaserade program i Application Gateway med PowerShell.
-documentationcenter: na
 services: application-gateway
 author: vhorne
-manager: jpconnock
-editor: tysonn
 ms.service: application-gateway
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.custom: ''
-ms.workload: infrastructure-services
-ms.date: 07/26/2017
+ms.date: 2/22/2019
 ms.author: victorh
-ms.openlocfilehash: dfcd82a17a399f213f5c4e32326a8995d26e8458
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: 1e1638d69915f16b9f30acc5b6a0265b25c2c561
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51218277"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56728887"
 ---
 # <a name="customize-web-application-firewall-rules-through-powershell"></a>Anpassa brandväggsregler för webbaserade program via PowerShell
-
-> [!div class="op_single_selector"]
-> * [Azure Portal](application-gateway-customize-waf-rules-portal.md)
-> * [PowerShell](application-gateway-customize-waf-rules-powershell.md)
-> * [Azure CLI](application-gateway-customize-waf-rules-cli.md)
 
 Azure Application Gateway brandväggen för webbaserade program (WAF) ger skydd för webbprogram. Dessa skydd tillhandahålls av OWASP Open Web Application Security Project () Core regeln ange (CRS). Vissa regler kan leda till falska positiva identifieringar och blockera verklig trafik. Därför ger Application Gateway möjlighet att anpassa regelgrupper och -regler. Läs mer på den specifika regelgrupper och regler, [listan över regelgrupper för web application firewall CRS och regler](application-gateway-crs-rulegroups-rules.md).
 
@@ -103,6 +90,19 @@ $disabledrules=New-AzureRmApplicationGatewayFirewallDisabledRuleGroupConfig -Rul
 Set-AzureRmApplicationGatewayWebApplicationFirewallConfiguration -ApplicationGateway $gw -Enabled $true -FirewallMode Detection -RuleSetVersion 3.0 -RuleSetType OWASP -DisabledRuleGroups $disabledrules
 Set-AzureRmApplicationGateway -ApplicationGateway $gw
 ```
+
+## <a name="mandatory-rules"></a>Obligatoriska regler
+
+I följande lista innehåller villkor som gör att WAF för att blockera begäran i Förhindringsläge (i identifieringsläge loggas som undantag). Dessa kan inte vara konfigurerad eller inaktiverad:
+
+* Det gick inte att parsa begärandetexten resulterar i begäran blockeras, såvida inte brödtext inspektion stängs av (XML, JSON, formulärdata)
+* Datalängden för begäran brödtext (utan att några filer) är större än den konfigurerade gränsen
+* Brödtext (inklusive filer) är större än gränsen
+* Ett internt fel inträffade i WAF-motorn
+
+CRS 3.x specifika:
+
+* Inkommande avvikelseidentifiering poäng överskred tröskeln
 
 ## <a name="next-steps"></a>Nästa steg
 

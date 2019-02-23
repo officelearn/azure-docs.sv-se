@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 479278400aa056a7cebcefaa2eedee3d98bc9a15
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 549f37c1287373fe8bf4c10dc64e6e778b37be02
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55815252"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56730145"
 ---
 # <a name="register-in-dev-center"></a>Registrera i Dev Center  
 För att kontrollera att du inte är inloggad på ett konto för personliga webbläsaren kan öppna en ny Internet Explorer InPrivate- eller Chrome Incognito-webbläsarsession.  
@@ -82,7 +82,7 @@ För att kontrollera att du inte är inloggad på ett konto för personliga webb
 
     *   Ett exempel på ett erbjudande med kommersiella är ett erbjudande för virtuell dator med ett timpris för fakturering modellen.  
 
----  
+---
 
 ## <a name="get-help-with-dev-center-registration"></a>Få hjälp med registreringen Dev Center  
 Följ stegen nedan för att skicka in ett supportärende om du har problem med registrering av Dev Center.  
@@ -125,7 +125,7 @@ Bank-och skatt krävs för alla kommersiella erbjudanden med hjälp av transact 
 
 4.  Klicka på knappen Nästa. 
 
----   
+---
 
 ## <a name="add-tax-information"></a>Lägg till skatteinformation  
 1.  Logga in på Dev Center med hjälp av ditt Microsoft-ID.  
@@ -195,4 +195,4 @@ Att få tillgång till support finns på Windows developer support-sidan finns p
 ## <a name="next-steps"></a>Nästa steg
 *   Gå till den [Azure Marketplace och AppSource Publiceringsguiden](./marketplace-publishers-guide.md) sidan.  
  
----  
+---

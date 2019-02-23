@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: anroth
-ms.openlocfilehash: 76207e83e31ba3919da80e4ecc99435e88c76c66
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: b46ccd98145342fda58672b64b838ab92ba4f97b
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56654591"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56731930"
 ---
 # <a name="how-to-move-your-limited-trial-project-to-azure-using-the-customvisionai-site"></a>Hur du flyttar begränsad utvärderingsversion projektet till Azure med hjälp av webbplatsen CustomVision.ai
 
@@ -76,7 +76,7 @@ Flera projekt kan kopplas till en enskild resurs. Mer information om [priser och
 
 2. Hitta resurs-ID för din resurs för Custom Vision-utbildning. Du hittar detta i Azure portal genom att öppna resursen Custom Vision-utbildning och välja ”egenskaper” under avsnittet ”resurshantering”. Resurs-ID blir det. 
 
-    ![Hitta din resurs-ID i i Azure portal genom att öppna resursen Custom Vision-utbildning och välja ”egenskaper” under avsnittet ”resurshantering”.](./media/move-your-project-to-azure/resource_ID_azure_portal.jpg)
+    ![Hitta din resurs-ID i Azure portal genom att öppna resursen Custom Vision-utbildning och välja ”egenskaper” under avsnittet ”resurshantering”.](./media/move-your-project-to-azure/resource_ID_azure_portal.jpg)
 
 
 3. Du kan också du kan hitta resurs-ID för din anpassade visionen resursen direkt på webbplatsen för Custom Vision [inställningssidan]( https://www.customvision.ai/projects#/settings). Du måste växla till din Azure-resurs är i samma katalog.

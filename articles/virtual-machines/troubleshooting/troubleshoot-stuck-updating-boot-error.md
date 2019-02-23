@@ -13,21 +13,21 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/09/2018
 ms.author: genli
-ms.openlocfilehash: d56e96ca1fbc96261f6f526c792b0a53c74718ef
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 7fbf157152bd5c2c35c496b1fd8e707884d0f3da
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54063668"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56731471"
 ---
 # <a name="azure-vm-startup-is-stuck-at-windows-update"></a>Azure VM Start har fastnat på Windows update
 
 Den här artikeln hjälper dig att lösa problemet när dina virtuella datorer (VM) har fastnat i Windows Update-skedet under starten. 
 
 > [!NOTE] 
-> Azure har två olika distributionsmodeller för att skapa och arbeta med resurser: [Resource Manager och klassisk](../../azure-resource-manager/resource-manager-deployment-model.md). Den här artikeln beskriver Resource Manager-distributionsmodellen. Vi rekommenderar att du använder den här modellen för nya distributioner istället för att använda den klassiska distributionsmodellen.
+> Azure har två olika distributionsmodeller som används för att skapa och arbeta med resurser: [Resource Manager och klassisk](../../azure-resource-manager/resource-manager-deployment-model.md). Den här artikeln beskriver Resource Manager-distributionsmodellen. Vi rekommenderar att du använder den här modellen för nya distributioner istället för att använda den klassiska distributionsmodellen.
 
- ## <a name="symptom"></a>Symtom
+## <a name="symptom"></a>Symtom
 
  En virtuell Windows-dator startar inte. När du checkar skärmbilderna den [Startdiagnostik](../troubleshooting/boot-diagnostics.md) fönstret ser du att Start har fastnat under uppdateringen. Här följer några exempel på meddelanden som kan visas:
 

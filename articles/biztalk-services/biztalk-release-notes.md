@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2016
 ms.author: deonhe
-ms.openlocfilehash: 10e790c2edb22b3c7926216535d76c50261589f3
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 722159b82845eff08e0c302eafd503459941ebe7
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54260342"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56734769"
 ---
 # <a name="release-notes-for-azure-biztalk-services"></a>Viktig information om Azure BizTalk Services
 
@@ -47,7 +47,8 @@ Viktig information om Microsoft Azure BizTalk Services innehåller kända proble
 * För sändningssidan avtalet, kan du nu ange olika avgränsare uppsättningar för varje schema. Den här konfigurationen har angetts under protokollinställningarna för Skicka sida avtal. Mer information finns i [skapa en X12 avtalet i Azure BizTalk Services](https://msdn.microsoft.com/library/azure/hh689847.aspx) och [skapar ett EDIFACT-avtal i Azure BizTalk Services](https://msdn.microsoft.com/library/azure/dn606267.aspx). Två nya entiteter har också lagts till OM TPM-API för samma ändamål. Se [X12DelimiterOverrides](https://msdn.microsoft.com/library/azure/dn798749.aspx) och [EDIFACTDelimiterOverride](https://msdn.microsoft.com/library/azure/dn798748.aspx).  
 * Standard XSD-konstruktioner, inklusive härledda typer stöds nu. Se [Använd standard XSD konstruktioner i dina kartor](https://msdn.microsoft.com/library/azure/dn793987.aspx) och [använda härledda typer i mappning av scenarier och exempel](https://msdn.microsoft.com/library/azure/dn793997.aspx).  
 * AS2 har stöd för nya MIC-algoritmer för att signera meddelandet och nya krypteringsalgoritmer. Se [skapar ett AS2-avtal i Azure BizTalk Services](https://msdn.microsoft.com/library/azure/hh689890.aspx).  
-  ## <a name="know-issues"></a>Kända problem
+
+## <a name="known-issues"></a>Kända problem
 
 ### <a name="connectivity-issues-after-biztalk-services-portal-update"></a>Problem med nätverksanslutningen när uppdateringen för BizTalk Services
   Om du har BizTalk Services-portalen öppnar medan BizTalk Services uppgraderas för att kunna återställa ändringar till tjänsten kan du står inför anslutningsproblem med BizTalk Services-portalen.  

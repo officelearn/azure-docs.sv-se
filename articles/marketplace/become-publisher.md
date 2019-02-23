@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 33edfdc58d82530bc1a5d0245b5e18e94b0a6dc1
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 2970ef58e177d10eac80d46825f3fb985b98af61
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54077563"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56734973"
 ---
 # <a name="become-a-cloud-marketplace-publisher"></a>Bli en Cloud Marketplace-utgivare
 
@@ -45,7 +45,7 @@ Efter registreringen kan du registrera Microsoft Partner Network-ID för din org
 *   Lär dig mer om fördelarna med den [Microsoft Partner Network](https://partner.microsoft.com/commercial)
 *   Om din organisation har ett befintligt medlemskap, kommer du ansluta din organisation under registreringen. Om du använder [Partnercenter](https://partnercenter.microsoft.com/partner/home), kommer du att kunna se ID i Partnercenter-konto. Om du använder [Partner medlemskap Center (PMC)](https://partners.microsoft.com/partnerprogram/PartnerMembershipCenter.aspx), kommer du att kunna se den i ditt medlemskap Partnercenter-konto. 
 
----  
+---
 
 ## <a name="2-create-a-microsoft-account"></a>2. Skapa ett Microsoft-konto  
 | 15 min |  
@@ -61,7 +61,7 @@ En Microsoft-konto, t.ex. *@outlook.com eller @live.com*, används för att få 
 *   Hjälp med att skapa eller hantera ditt Microsoft-konto, finns det [hjälpsidor för support på Microsoft-konto](https://support.microsoft.com/products/microsoft-account?category=manage-account).
 
 
----  
+---
 
 ## <a name="3-submit-the-marketplace-registration-form"></a>3. Skicka formuläret av marketplace-registrering  
 | 15 min |  
@@ -72,7 +72,7 @@ Du blir ombedd att inkludera följande information:
 *   En kort beskrivning av din första app eller konsulttjänster erbjuder som du tänker publicera, inklusive Microsoft-produkt eller tjänst som ditt erbjudande bäst stämmer överens
 *   Målgrupp för din app eller tjänst 
 
----  
+---
 ## <a name="4-sign-into-cloud-partner-portal"></a>4. Logga in på partnerportalen i molnet
 | 1 – 3 dagar | <br>
 Vårt Registreringsteam för Marketplace ska verifiera registreringsinformationen marketplace i steg 3. När du blivit godkänd, får du ett välkomstmeddelande med autentiseringsuppgifter för kontot och vägledning för att logga in på den [Cloud Partner Portal](https://cloudpartner.azure.com).
@@ -108,4 +108,4 @@ När du har slutfört den [Dev Center](https://developer.microsoft.com/store/reg
 *   [Bestäm vilken lista för din lösning](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type).
 
  
----  
+---

@@ -1,5 +1,5 @@
 ---
-title: Felsökning av Azure Active Directory B2B-samarbete | Microsoft Docs
+title: Felsökning av B2B - samarbete i Azure Active Directory | Microsoft Docs
 description: Friskrivning från ansvar för vanliga problem med Azure Active Directory B2B-samarbete
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: msmimart
 manager: daveba
 ms.reviewer: sasubram
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f69bad355bf5644988416958c4b4f32ed66714d9
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: f772c14f414e4e1c5401e3c85de7009355453c98
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56186411"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56668538"
 ---
 # <a name="troubleshooting-azure-active-directory-b2b-collaboration"></a>Felsökning av Azure Active Directory B2B-samarbete
 
@@ -37,7 +37,7 @@ Du kan aktivera den här funktionen med hjälp av inställningen ”ShowPeoplePi
 
 Om du får ett meddelande om att du inte har behörighet att bjuda in användare, verifiera att ditt användarkonto har behörighet att bjuda in extern användare under användarinställningar:
 
-![](media/troubleshoot/external-user-settings.png)
+![Inställningar för externa användare](media/troubleshoot/external-user-settings.png)
 
 Om du nyligen har ändrat dessa inställningar eller tilldelat rollen Gästinbjudare till en användare kan det finnas en fördröjning på 15 – 60 minuter innan ändringarna träder i kraft.
 
@@ -49,7 +49,7 @@ Vanliga fel är:
 
 När du bjuder in användare vars organisation använder Azure Active Directory, men där användarens konto inte finns (till exempel användaren finns inte i Azure AD-contoso.com). Administratören för contoso.com kan ha en princip på plats som förhindrar att användare håller på att skapas. Du måste kontrollera med administratören för att bestämma om externa användare. Den externa användaren administratör kan behöva tillåta e-verifierad användare inom sin domän (finns i den här [artikeln](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0) på e-verifierat användarna).
 
-![](media/troubleshoot/allow-email-verified-users.png)
+![Felmeddelande om den här klienten inte att e-postverifierade användare som ska läggas till](media/troubleshoot/allow-email-verified-users.png)
 
 ### <a name="external-user-does-not-exist-already-in-a-federated-domain"></a>Extern användare finns inte redan i en federerad domän
 

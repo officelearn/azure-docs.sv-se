@@ -6,15 +6,15 @@ author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
 ms.subservice: custom-translator
-ms.date: 11/13/2018
+ms.date: 02/21/2019
 ms.author: v-rada
 ms.topic: conceptual
-ms.openlocfilehash: 663dba72619a14c66fdafe083454d0df9b3f6216
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: a3cbc3d6546a3fcea0fe3aa3bfb175f18b4622af
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55209935"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56737101"
 ---
 # <a name="sentence-pairing-and-alignment-in-parallel-documents"></a>Mening parkoppling och justering i parallella dokument
 
@@ -38,7 +38,7 @@ Tabellen nedan visar det minsta antalet extraherade meningar och justerade menin
 |------------|--------------------------------------------|------------------------------------------|--------------------------------|
 | Utbildning   | 10 000                                     | 2,000                                    | Ingen övre gräns                 |
 | Justering     | 2,000                                      | 500                                      | 2,500                          |
-| Testar    | 2,000                                      | 500                                      | 2,500                          |
+| Testning    | 2,000                                      | 500                                      | 2,500                          |
 | Ordlista | 0                                          | 0                                        | Ingen övre gräns                 |
 
 ## <a name="next-steps"></a>Nästa steg

@@ -14,15 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: e80ebcd6de7a793450a0503c99af151e96658ea9
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 99b54a5fe5c28eb66a61fad61d23b94f0955f126
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55876750"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56728576"
 ---
 # <a name="azure-api-management-faqs"></a>Azure API Management vanliga frågor och svar
 Få svar på vanliga frågor, mönster och metodtips för Azure API Management.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="contact-us"></a>Kontakta oss
 * [Hur kan jag ställa till Microsoft Azure API Management-teamet en fråga?](#how-can-i-ask-the-microsoft-azure-api-management-team-a-question)
@@ -89,9 +91,9 @@ Här är hur du kan lägga till en användare i gruppen Administratörer:
 
 Nu den nyligen tillagda deltagaren kan använda Azure PowerShell [cmdletar](https://docs.microsoft.com/powershell/azure/overview). Här är hur du loggar in som administratör:
 
-1. Använd den `Connect-AzureRmAccount` cmdlet för att logga in.
-2. Ange sedan kontexten till den prenumeration som har tjänsten med hjälp av `Set-AzureRmContext -SubscriptionID <subscriptionGUID>`.
-3. Hämta en URL för enkel inloggning med `Get-AzureRmApiManagementSsoToken -ResourceGroupName <rgName> -Name <serviceName>`.
+1. Använd den `Connect-AzAccount` cmdlet för att logga in.
+2. Ange sedan kontexten till den prenumeration som har tjänsten med hjälp av `Set-AzContext -SubscriptionID <subscriptionGUID>`.
+3. Hämta en URL för enkel inloggning med `Get-AzApiManagementSsoToken -ResourceGroupName <rgName> -Name <serviceName>`.
 4. Använd URL: en för att få åtkomst till administrationsportalen.
 
 ### <a name="why-is-the-policy-that-i-want-to-add-unavailable-in-the-policy-editor"></a>Varför är den princip som jag vill lägga till inte tillgänglig i principredigeraren?
@@ -132,11 +134,11 @@ Ja. Se den [Azure API Management-tjänsten](https://aka.ms/apimtemplate) QuickSt
 Ja. Detta kan göras via PowerShell eller genom att skicka direkt till API: et. Detta kommer att inaktivera verifiering av certifikatkedjan och gör att du kan använda självsignerat eller privat-signerade certifikat vid kommunikation från API Management till backend-tjänster.
 
 #### <a name="powershell-method"></a>PowerShell-metod ####
-Använd den [ `New-AzureRmApiManagementBackend` ](https://docs.microsoft.com/powershell/module/azurerm.apimanagement/new-azurermapimanagementbackend) (för ny serverdel) eller [ `Set-AzureRmApiManagementBackend` ](https://docs.microsoft.com/powershell/module/azurerm.apimanagement/set-azurermapimanagementbackend) (för befintliga serverdel) PowerShell-cmdlets och ange den `-SkipCertificateChainValidation` parameter `True`. 
+Använd den [ `New-AzApiManagementBackend` ](https://docs.microsoft.com/powershell/module/az.apimanagement/new-azapimanagementbackend) (för ny serverdel) eller [ `Set-AzApiManagementBackend` ](https://docs.microsoft.com/powershell/module/az.apimanagement/set-azapimanagementbackend) (för befintliga serverdel) PowerShell-cmdlets och ange den `-SkipCertificateChainValidation` parameter `True`. 
 
 ```powershell
-$context = New-AzureRmApiManagementContext -resourcegroup 'ContosoResourceGroup' -servicename 'ContosoAPIMService'
-New-AzureRmApiManagementBackend -Context  $context -Url 'https://contoso.com/myapi' -Protocol http -SkipCertificateChainValidation $true
+$context = New-AApiManagementContext -resourcegroup 'ContosoResourceGroup' -servicename 'ContosoAPIMService'
+New-AzApiManagementBackend -Context  $context -Url 'https://contoso.com/myapi' -Protocol http -SkipCertificateChainValidation $true
 ```
 
 #### <a name="direct-api-update-method"></a>Direkt metod för API-uppdatering ####

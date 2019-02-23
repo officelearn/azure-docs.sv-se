@@ -14,12 +14,12 @@ ms.date: 12/12/2018
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 12/12/2018
-ms.openlocfilehash: 00468ca62e55823b4706fc52d9793f676aebd368
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 9f0ccb85fa4b42ef3ca90c6d4ca2d80113b93a0c
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56312862"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56733707"
 ---
 # <a name="give-applications-access-to-azure-stack-resources-by-creating-service-principals"></a>Ge program åtkomst till Azure Stack-resurser genom att skapa tjänstens huvudnamn
 
@@ -75,7 +75,7 @@ När du loggar in programmässigt kan du använda det ID: T för ditt program oc
 
 2. Kopiera **Program-ID:t** och lagra det i din programkod. Använda program i exempelprogrammen **klient-id** när det gäller den **program-ID**.
 
-     ![Program-ID för programmet](./media/azure-stack-create-service-principal/image12.png)
+     ![Program-ID för programmet](./media/azure-stack-create-service-principals/image12.png)
 3. Välj **Nycklar** om du vill generera en autentiseringsnyckel.
 
 4. Tillhandahåll beskrivning av och varaktighet för nyckeln. Välj **Spara** när du är klar.
@@ -83,7 +83,7 @@ När du loggar in programmässigt kan du använda det ID: T för ditt program oc
 >[!IMPORTANT]
 När du har sparat nyckeln, nyckeln **värdet** visas. Anteckna det här värdet eftersom det går inte att hämta nyckeln senare. Lagra nyckelvärdet där programmet kan hämta det.
 
-![Nyckelvärdet varning för sparade nyckeln.](./media/azure-stack-create-service-principal/image15.png)
+![Nyckelvärdet varning för sparade nyckeln.](./media/azure-stack-create-service-principals/image15.png)
 
 Det sista steget är [tilldela en roll för ditt program](azure-stack-create-service-principals.md).
 
@@ -110,7 +110,7 @@ Använd följande steg som en vägledning för att tilldela en roll till tjänst
 
 2. Välj prenumeration att tilldela programmet till. I det här exemplet är prenumerationen som Visual Studio Enterprise.
 
-     ![Välj Visual Studio Enterprise-prenumeration för tilldelning](./media/azure-stack-create-service-principal/image16.png)
+     ![Välj Visual Studio Enterprise-prenumeration för tilldelning](./media/azure-stack-create-service-principals/image16.png)
 
 3. Välj **åtkomstkontroll (IAM)** för prenumerationen.
 

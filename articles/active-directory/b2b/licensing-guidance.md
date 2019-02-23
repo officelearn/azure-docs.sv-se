@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory B2B-samarbete och licenser vägledning | Microsoft Docs
+title: B2B-samarbete och licenser vägledning – Azure Active Directory | Microsoft Docs
 description: Azure Active Directory B2B collaboration inte kräver betalda Azure AD-licenser, men du kan också få betalt för funktioner för B2B-gästanvändare
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: msmimart
 manager: daveba
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0032eb1e6b92abb130521945f64fda3133d9b7fc
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 7fa01a6bf522061e54e9622cb9201f81c699a8ec
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56198889"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56668460"
 ---
 # <a name="azure-active-directory-b2b-collaboration-licensing-guidance"></a>Vägledning om Azure Active Directory B2B-samarbete och licenser
 

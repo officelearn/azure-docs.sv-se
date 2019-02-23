@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/27/2017
 ms.author: bwren
-ms.openlocfilehash: d1d2dd689cb389b6adfe1dd534e7c73e17f755f5
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 4beb9811a57ecd0a1eada5b36bd65b67851d2564
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55989193"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56731981"
 ---
 # <a name="targeting-monitoring-solutions-in-azure-monitor-preview"></a>Riktar in sig på övervakningslösningar i Azure Monitor (förhandsversion)
 Den distribueras automatiskt som standard att alla Windows- och Linux-agenter är anslutna till Log Analytics-arbetsytan när du lägger till en övervakningslösning till din prenumeration.  Du kanske vill hantera dina kostnader och begränsa mängden data som samlas in för en lösning genom att begränsa den till en viss uppsättning med agenter.  Den här artikeln beskriver hur du använder **Lösningsmål** som är en funktion som gör att du kan använda ett omfång för dina lösningar.
@@ -35,7 +35,7 @@ Ange de datorer som du vill ska ingå i en omfattning genom att skapa en [datorg
 När du har den datorgrupp som skapats i din arbetsyta och sedan ska du inkludera den i en scope-konfiguration som kan tillämpas på en eller flera lösningar.
  
  
- ### <a name="2-create-a-scope-configuration"></a>2. Skapa en omfattningskonfiguration
+### <a name="2-create-a-scope-configuration"></a>2. Skapa en omfattningskonfiguration
  En **Omfattningskonfigurationen** innehåller en eller flera datorgrupper och kan tillämpas på en eller flera lösningar. 
  
  Skapa en omfattningskonfiguration på följande sätt.  
@@ -49,7 +49,7 @@ När du har den datorgrupp som skapats i din arbetsyta och sedan ska du inkluder
  6. Klicka på **OK** att skapa omfattningskonfigurationen. 
 
 
- ### <a name="3-apply-the-scope-configuration-to-a-solution"></a>3. Gäller konfigurationen för en lösning.
+### <a name="3-apply-the-scope-configuration-to-a-solution"></a>3. Gäller konfigurationen för en lösning.
 När du har en omfattningskonfigurationen kan tillämpa du den på en eller flera lösningar.  Observera att en enda scope-konfiguration kan användas av flera lösningar, varje lösning kan bara använda en av omfattningskonfigurationen.
 
 Tillämpa en omfattningskonfiguration på följande sätt.  

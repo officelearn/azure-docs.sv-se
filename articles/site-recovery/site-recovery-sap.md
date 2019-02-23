@@ -9,12 +9,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: asgang
-ms.openlocfilehash: 9399f9d47d89215080b1f633423843f501fefb7b
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 68efc039c5de5d7f61b7ce34e74c6c2cf4bad027
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52850439"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56670884"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sap-netweaver-app-deployment"></a>Konfigurera haveriberedskap för en app-distribution för flera nivåer av SAP NetWeaver
 
@@ -80,7 +80,7 @@ Stöd för failover-klustermiljö [SIOS DataKeeper Cluster Edition](https://azur
 
 Ett annat sätt att hantera kluster är att implementera en filklustret för resursen. [SAP](https://blogs.sap.com/2018/03/19/migration-from-a-shared-disk-cluster-to-a-file-share-cluster) ändrades Central Services distribution mönstret för att komma åt de globala katalogerna /sapmnt via en UNC-sökväg. Det rekommenderas dock fortfarande att se till att /sapmnt UNC-resurs med hög tillgänglighet. Detta kan göras på Central Services-instans med hjälp av Windows Server-redundanskluster med skala ut filserver (SOFS) och Lagringsdirigering (S2D) i Windows Server 2016. 
  > [!NOTE]
- > För närvarande stöd för Azure Site Recovery endast krascha programkonsekventa replikering av virtuella datorer med hjälp av lagringsdirigering 
+ > För närvarande stöd för Azure Site Recovery endast krascha programkonsekventa replikering av virtuella datorer med storage spaces direct och passiva nod i SIOS Datakeeper
 
 
 ## <a name="disaster-recovery-considerations"></a>Överväganden kring haveriberedskap
@@ -166,5 +166,5 @@ Mer information finns i [testa redundans till Azure i Site Recovery](site-recove
 Mer information finns i [redundans i Site Recovery](site-recovery-failover.md).
 
 ## <a name="next-steps"></a>Nästa steg
-* Mer information om hur du skapar en lösning för haveriberedskap för SAP NetWeaver-distributioner genom att använda Site Recovery finns nedladdningsbara dokumentet [SAP NetWeaver: skapa en lösning för Haveriberedskap med Azure Site Recovery](https://aka.ms/asr-sap). Dokumentet beskriver rekommendationer för olika SAP-arkitekturer, visar en lista över vilka program och VM-typer för SAP på Azure och beskriver testning alternativ för din haveriberedskapslösning.
+* Mer information om hur du skapar en lösning för haveriberedskap för SAP NetWeaver-distributioner genom att använda Site Recovery finns nedladdningsbara dokumentet [SAP NetWeaver: Att skapa en lösning för Haveriberedskap med Azure Site Recovery](https://aka.ms/asr-sap). Dokumentet beskriver rekommendationer för olika SAP-arkitekturer, visar en lista över vilka program och VM-typer för SAP på Azure och beskriver testning alternativ för din haveriberedskapslösning.
 * Läs mer om [replikera andra arbetsbelastningar](site-recovery-workload.md) med hjälp av Site Recovery.

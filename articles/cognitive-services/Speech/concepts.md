@@ -10,12 +10,13 @@ ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: b5e6853653bab96cd11196ba03fbeadbdc6b337f
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ROBOTS: NOINDEX,NOFOLLOW
+ms.openlocfilehash: c114c726bea34465972a282acac6b8acbbf9a80f
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55816221"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56670442"
 ---
 # <a name="basic-concepts"></a>Grundläggande begrepp
 
@@ -198,7 +199,7 @@ Den `detailed` formatet innehåller [N-best värden](#n-best-values), förutom `
 
 ### <a name="n-best-values"></a>N-best-värden
 
-Lyssnare, om maskin- eller, kan aldrig vara säker på att de hört *exakt* vad var sägs. En lyssnare kan tilldela en *sannolikheten* endast för en viss tolkning av ett uttryck. 
+Lyssnare, om maskin- eller, kan aldrig vara säker på att de hört *exakt* vad var sägs. En lyssnare kan tilldela en *sannolikheten* endast för en viss tolkning av ett uttryck.
 
 Under normala förhållanden, när du talar till andra som de ofta interagerar, har personer en hög sannolikhet för att identifiera de ord som har talat. Datorbaserade tal lyssnare strävar efter att uppnå liknande Precision och villkor rätt [de uppnå paritet med människor](https://blogs.microsoft.com/next/2016/10/18/historic-achievement-microsoft-researchers-reach-human-parity-conversational-speech-recognition/#sm.001ykosqs14zte8qyxj2k9o28oz5v).
 
@@ -308,7 +309,7 @@ Microsoft Speech Service kan du identifiera alla former av mänskliga tal, inklu
 
 | *Svordomar* värde | Beskrivning |
 | - | - |
-| `masked` | Döljer olämpligt språk med en asterisk. Det här beteendet är standard. | 
+| `masked` | Döljer olämpligt språk med en asterisk. Det här beteendet är standard. |
 | `removed` | Tar bort svordomar från alla resultat. |
 | `raw` | Identifierar och returnerar svordomar i alla resultat. |
 
@@ -322,7 +323,7 @@ När den *svordomar* fråga parametern har värdet *bort*, tjänsten avlägsnar 
 
 #### <a name="profanity-only-utterances"></a>Endast svordomar yttranden
 
-En användare kan tala *endast* svordomar när ett program har konfigurerade tjänsten för att ta bort olämpligt språk. Det här scenariot om erkännande läget är *diktering* eller *konversationen*, tjänsten returnerar inte en *speech.result*. Om läget för är *interaktiva*, tjänsten returnerar en *speech.result* med statuskod *NoMatch*. 
+En användare kan tala *endast* svordomar när ett program har konfigurerade tjänsten för att ta bort olämpligt språk. Det här scenariot om erkännande läget är *diktering* eller *konversationen*, tjänsten returnerar inte en *speech.result*. Om läget för är *interaktiva*, tjänsten returnerar en *speech.result* med statuskod *NoMatch*.
 
 ### <a name="profanity-value-raw"></a>Svordomar värde `Raw`
 

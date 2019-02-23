@@ -1,6 +1,6 @@
 ---
-title: Ersätta en enhet på en enhet för StorSimple 8000-serien | Microsoft Docs
-description: Förklarar hur du ersätter en enhet på en primär StorSimple-enhet eller en EBOD bilaga.
+title: Ersätt en diskenhet på en enhet i StorSimple 8000-serien | Microsoft Docs
+description: Beskriver hur du ersätter en diskenhet på en primär StorSimple-enhet eller en EBOD bilaga.
 services: storsimple
 documentationcenter: ''
 author: alkohli
@@ -12,103 +12,103 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 073/2017
+ms.date: 8/25/2017
 ms.author: alkohli
-ms.openlocfilehash: a8616eb51b177a9447a7c466c9d934b9139afedf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3d6ef22e4df36996d68194589f43ea0f57def22c
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23874894"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56673939"
 ---
-# <a name="replace-a-disk-drive-on-your-storsimple-8000-series-device"></a>Ersätta en diskenhet på enheten StorSimple 8000-serien
+# <a name="replace-a-disk-drive-on-your-storsimple-8000-series-device"></a>Ersätt en diskenhet på din enhet i StorSimple 8000-serien
 
 ## <a name="overview"></a>Översikt
-Den här självstudiekursen beskrivs hur du kan ta bort och ersätter en felaktig eller misslyckade hårddisk på en Microsoft Azure StorSimple-enhet. Om du vill ersätta en enhet, måste du:
+Den här självstudien beskrivs hur du kan ta bort och ersätter en felaktig eller misslyckade hårddisk på en Microsoft Azure StorSimple-enhet. Om du vill ersätta en diskenhet, måste du:
 
 * Koppla ur antitamper låset
-* Ta bort enheten
-* Installera diskenhet ersättning
+* Ta bort diskenheten
+* Installera diskenheten ersättning
 
 > [!IMPORTANT]
-> Innan du tar bort och ersätter en diskenhet granska säkerhetsinformation i [ersättning av StorSimple maskinvara komponenten](storsimple-8000-hardware-component-replacement.md).
+> Innan du tar bort och ersätter en diskenhet, granska säkerhetsinformation i [StorSimple maskinvaruersättning komponenten](storsimple-8000-hardware-component-replacement.md).
  
 
 ## <a name="disengage-the-antitamper-lock"></a>Koppla ur antitamper låset
-Här beskrivs hur antitamper lås på din StorSimple-enhet kan vara aktiverad eller inaktiverad när du ersätter diskenheter. Antitamper Lås monteras i enheten operatör hanterar och de kan nås via en liten öppning i avsnittet spärren i referensen. Enheter anges med lås som den låsta position.
+Den här proceduren förklarar hur antitamper lås på din StorSimple-enhet kan aktiverad eller inaktiverad när du ersätter diskenheterna. Antitamper låsen monteras i enheten operatör hanterar och de kan nås via en liten öppning i avsnittet spärr i referensen. Enheter levereras med låsen inställd låsta.
 
 #### <a name="to-unlock-the-antitamper-lock"></a>Att låsa upp antitamper låset
 1. Infoga noggrant på Lock (en ”tamperproof” T10 för som tillhandahålls av Microsoft) till öppning i referensen och till en socket. 
    
-   Röd indikator är synlig i öppning om antitamper lock är aktiverat.
+   Om antitamper låset har aktiverats kan är den röda indikatorn synlig i öppning.
   
     ![Låst enhet](./media/storsimple-disk-drive-replacement/IC741056.png)
    
-    **Bild 1** anti manipulationsindikerande Lås används
+    **Bild 1** anti förvanskningstålig Lås engagerade
    
-   | Etikett | Beskrivning |
+   | Label (Etikett) | Beskrivning |
    |:--- |:--- |
-   | 1 |Öppning av indikator |
+   | 1 |Indikatorn öppning |
    | 2 |Antitamper Lås |
-2. Rotera nyckeln i en moturs riktning tills den röda indikatorn inte visas i öppning ovanför nyckeln.
+2. Rotera nyckeln i en moturs riktning tills den röda indikatorn inte visas i öppning ovan nyckeln.
 3. Ta bort nyckeln.
    
-    ![Olåsta diskenhet](./media/storsimple-disk-drive-replacement/IC741057.png)
+    ![Upplåst diskenhet](./media/storsimple-disk-drive-replacement/IC741057.png)
    
     **Bild 2** olåst diskenhet
-4. Diskettenheten kan nu tas bort.
+4. Diskenheten kan nu tas bort.
 
-Följ stegen i omvänd att låset.
+Följ stegen i omvänd att engagera låset.
 
-## <a name="remove-the-disk-drive"></a>Ta bort enheten
-Din StorSimple-enhet stöder en RAID 10-liknande blanksteg lagringskonfiguration. Detta innebär att den fungerar normalt med en skadad disk SSD-enhet (SSD) eller hårddisk enhet (HDD).
+## <a name="remove-the-disk-drive"></a>Ta bort diskenheten
+StorSimple-enheten har stöd för en RAID 10-liknande blanksteg lagringskonfiguration. Detta innebär att den kan fungera normalt med en felaktig disk, Solid State-hårddisk (SSD), eller hårddisk enhet (HDD).
 
 > [!IMPORTANT]
-> * Om systemet har mer än en felande disken, ta inte bort mer än en SSD och HDD från systemet när som helst i tid. Detta kan resultera i förlust av data.
-> * Se till att du placerar en ersättning SSD i en plats som tidigare har innehållit en SSD. Placera en annan Hårddisk på samma sätt i en plats som tidigare har innehållit en Hårddisk.
-> * I Azure-portalen fack numreras från 0 – 11. Därför om portalen visar att en disk i uttag 2 misslyckades på enheten, leta efter den skadade disken på tredje plats från den övre vänstra.
+> * Om systemet har fler än en felaktig, ta inte bort mer än en SSD eller HDD från systemet när som helst i tid. Detta kan resultera i dataförlust.
+> * Se till att du placerar en ersättning SSD i ett uttag som tidigare har innehållit en SSD. På samma sätt kan placera en ersättning HDD i ett uttag som tidigare har innehållit en Hårddisk.
+> * I Azure-portalen fack numreras från 0 – 11. Därför om portalen visar att en disk i fack 2 har misslyckats på enheten, leta efter den skadade disken i den tredje platsen från längst ned till vänster.
 > 
 > 
 
-Enheter kan tas bort och ersätts när systemet körs.
+Enheter kan tas bort och ersättas medan systemet körs.
 
 #### <a name="to-remove-a-drive"></a>Ta bort en enhet
-1. Gå till din enhet för att identifiera den felande disken i Azure-portalen **Inställningar > maskinvara hälsa**. Eftersom en disk kan misslyckas i primära höljet och/eller i en EBOD hölje (om du använder en 8600-modellen), se status för diskarna under **delade komponenter** och under **EBOD delade komponenter**. En disk som misslyckats i antingen hölje visas med röd status.
-2. Hitta enheter först i primära höljet eller EBOD höljet. 
-3. Om disken är olåst vidare till nästa steg. Om disken är låst kan låsa upp genom att följa proceduren i [kopplas ur antitamper låset](#disengage-the-antitamper-lock).
-4. Tryck på svart låset på enheten operatör modulen och dra enhet operatör referensen ut och framifrån chassit.
+1. För att identifiera den skadade disken i Azure-portalen går du till din enhet **Inställningar > hälsotillstånd för maskinvara**. Eftersom en disk kan misslyckas i primära höljet och/eller i ett EBOD-hölje (om du använder en modell 8600), titta på statusen för diskarna under **delade komponenter** och under **delade EBOD-komponenter**. En felaktig disk i antingen hölje visas med röd status.
+2. Hitta enheter först i primära höljet eller EBOD-höljet. 
+3. Om disken är olåst, kan du gå vidare till nästa steg. Om disken är låst, låser du upp den genom att följa anvisningarna i [kopplas ur antitamper låset](#disengage-the-antitamper-lock).
+4. Tryck på svart spärr i modulen enhet operatör och dra i handtaget för enhet-operatör ut och in från fram på datorn.
    
-    ![Frigöra referensen diskenhet](./media/storsimple-disk-drive-replacement/IC741051.png)
+    ![Släpper diskenheten referens](./media/storsimple-disk-drive-replacement/IC741051.png)
    
-    **Bild 3** frigöra referensen för enhet
-5. När enheten operatör referensen utökas fullständigt, dra en operatör enhet utanför chassit. 
+    **Bild 3** lanserar enhet-referens
+5. När enheten operatör referensen utökas fullständigt, dra enhet operatör utanför chassit. 
    
-    ![Glidande disk diskenhet](./media/storsimple-disk-drive-replacement/IC741052.png)
+    ![Glidande disk av diskenhet](./media/storsimple-disk-drive-replacement/IC741052.png)
    
-    **Bild 4** glidande diskenhet utanför en operatör
+    **Bild 4** glidande diskenheten från vilken operatör
 
-## <a name="install-the-replacement-disk-drive"></a>Installera diskenhet ersättning
-När en enhet har misslyckats i din StorSimple-enhet och har tagits bort, följer du proceduren för att ersätta den med en ny enhet.
+## <a name="install-the-replacement-disk-drive"></a>Installera diskenheten ersättning
+När en enhet har misslyckats i din StorSimple-enhet och du har tagit bort det, följer du proceduren för att ersätta den med en ny enhet.
 
-#### <a name="to-insert-a-drive"></a>Infoga en enhet
-1. Se till att enheten operatör referensen utökas helt, enligt följande bild.
+#### <a name="to-insert-a-drive"></a>Att infoga en enhet
+1. Kontrollera att enheten operatör referensen utökas helt, enligt följande bild.
    
-    ![Enhet med referensen utökad](./media/storsimple-disk-drive-replacement/IC741044.png)
+    ![Diskenhet med referensen utökade](./media/storsimple-disk-drive-replacement/IC741044.png)
    
-    **Bild 5** enheten med referensen utökad
-2. Skjut enhet operatör ända i chassit.
+    **Bild 5** enhet med referensen utökade
+2. Skjut enhet operatör hela vägen i chassit.
    
     ![Glidande disk i enhet operatör](./media/storsimple-disk-drive-replacement/IC741045.png)
    
-    **Bild 6** glidande enhet operatör i chassit
-3. Stäng enheten operatör referensen med en enhet operatör som infogas när fortsätter att skicka en enhet operatör till chassit, tills enheten operatör referensen fästs i låst läge.
-4. Använd på LOCK som angavs av Microsoft (tamperproof Torx för) operatör referensen till rätt plats genom att aktivera Lås skruven Stäng för ett kvartal medurs.
-5. Kontrollera att ersättningen lyckades och att enheten är i drift. Åtkomst till Azure-portalen och gå till **Enhetsinställningar** > **maskinvara hälsa**. Under **delade komponenter** eller **EBOD delade komponenter**, status för enheten ska vara grön, som anger att den är felfri.
+    **Bild 6** glidande enhet-operatör i chassit
+3. Stäng enheten operatör referensen när du fortsätter att skicka enhet-operatör till chassin, tills enheten operatör handtaget fästs på en låst plats med vilken enhet operatör som infogas.
+4. Använd på LOCK som angavs av Microsoft (tamperproof Torx för) för att skydda den operatör referensen till rätt plats genom att aktivera Lås skruven ett kvarts varv medsols.
+5. Kontrollera att ersättningen lyckades och att enheten är i drift. Tillgång till Azure portal och gå till **Enhetsinställningar** > **hälsotillstånd för maskinvara**. Under **delade komponenter** eller **delade EBOD-komponenter**, status för enheten vara grön, som anger att den är felfri.
 
    
    > [!NOTE]
-   > Det kan ta flera timmar diskstatusen blir grönt efter ersättningen.
+   > Det kan ta flera timmar för diskstatus att Stäng grön efter ersättningen.
   
 ## <a name="next-steps"></a>Nästa steg
-Lär dig mer om [ersättning av StorSimple maskinvara komponenten](storsimple-8000-hardware-component-replacement.md).
+Läs mer om [StorSimple maskinvaruersättning komponenten](storsimple-8000-hardware-component-replacement.md).
 

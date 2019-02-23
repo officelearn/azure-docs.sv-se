@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/21/2018
+ms.date: 02/21/2019
 ms.author: srrengar
-ms.openlocfilehash: 332939710517e99aaa77642dc5e67256b476bd66
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: e8719b071bf2e836ed92fa4f6dcddc5f1865b320
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52634583"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56668802"
 ---
 # <a name="event-analysis-and-visualization-with-log-analytics"></a>Händelseanalys och visualisering med Log Analytics
  Log Analytics samlar in och analyserar telemetri från program och tjänster i molnet och ger analysverktyg som hjälper dig att maximera tillgänglighet och prestanda. Den här artikeln beskrivs hur du kör frågor i Log Analytics för att få insikter och felsöka vad som händer i ditt kluster. Följande vanliga frågor tas upp:
@@ -28,7 +28,7 @@ ms.locfileid: "52634583"
 * Hur vet jag när en nod stängs av?
 * Hur vet jag om min programtjänster har startats eller stoppats?
 
-## <a name="log-analytics-workspace"></a>Log Analytics-arbetsyta
+## <a name="overview-of-the-log-analytics-workspace"></a>Översikt över Log Analytics-arbetsytan
 
 >[!NOTE] 
 >När lagringskontot är aktiverat som standard när kluster skapas, måste du fortfarande ställa in Log Analytics-arbetsytan att läsa från den diagnostiska lagringen.
@@ -39,17 +39,19 @@ När data har tagits emot av Log Analytics, Azure har flera *hanteringslösninga
 
 ## <a name="access-the-service-fabric-analytics-solution"></a>Lösning för Service Fabric-analys
 
-1. Gå till resursgruppen där du skapade Service Fabric-analys-lösningen i Azure-portalen.
+I den [Azure-portalen](https://portal.azure.com)går du till resursgruppen där du skapade Service Fabric-analys-lösningen.
 
-2. Välj resursen som **ServiceFabric\<nameOfOMSWorkspace\>**.
+Välj resursen som **ServiceFabric\<nameOfOMSWorkspace\>**.
 
-2. I `Summary`, visas paneler i form av ett diagram för var och en av de lösningar som är aktiverad, inklusive ett för Service Fabric. Klicka på den **Service Fabric** graph (första bilden nedan) för att fortsätta till Service Fabric-analys-lösningen (andra bilden nedan).
+I `Summary`, visas paneler i form av ett diagram för var och en av de lösningar som är aktiverad, inklusive ett för Service Fabric. Klicka på den **Service Fabric** graph för att fortsätta till Service Fabric-analys-lösningen.
 
-    ![Service Fabric-lösning](media/service-fabric-diagnostics-event-analysis-oms/oms_service_fabric_summary.PNG)
+![Service Fabric-lösning](media/service-fabric-diagnostics-event-analysis-oms/oms_service_fabric_summary.PNG)
 
-    ![Service Fabric-lösning](media/service-fabric-diagnostics-event-analysis-oms/oms_service_fabric_solution.PNG)
+Följande bild visar öppnas startsidan för Service Fabric-analys-lösning. Den här sidan ger en ögonblicksbild överblick över vad som händer i ditt kluster.
 
-Bilden ovan är startsidan för Service Fabric-analys-lösning. Det här är en ögonblicksbild vy över vad som händer i ditt kluster. Om du har aktiverat diagnostik när klustret har skapats kan du se händelser för 
+![Service Fabric-lösning](media/service-fabric-diagnostics-event-analysis-oms/oms_service_fabric_solution.PNG)
+
+ Om du har aktiverat diagnostik när klustret har skapats kan du se händelser för 
 
 * [Service Fabric-kluster-händelser](service-fabric-diagnostics-event-generation-operational.md)
 * [Reliable Actors programming modellhändelser](service-fabric-reliable-actors-diagnostics.md)
@@ -58,15 +60,15 @@ Bilden ovan är startsidan för Service Fabric-analys-lösning. Det här är en 
 >[!NOTE]
 >Utöver Service Fabric-händelser direkt ur lådan mer detaljerad händelser kan samlas in av [uppdatera konfigurationen av diagnostiktillägget](service-fabric-diagnostics-event-aggregation-wad.md#log-collection-configurations).
 
-### <a name="view-service-fabric-events-including-actions-on-nodes"></a>Visa Service Fabric-händelser, inklusive åtgärder på noder
+## <a name="view-service-fabric-events-including-actions-on-nodes"></a>Visa Service Fabric-händelser, inklusive åtgärder på noder
 
-1. På sidan Service Fabric-analys klickar du på diagrammet för **Service Fabric-händelser**.
+På sidan Service Fabric-analys klickar du på diagrammet för **Service Fabric-händelser**.
 
-    ![Service Fabric-lösningen, Användningskanal](media/service-fabric-diagnostics-event-analysis-oms/oms_service_fabric_events_selection.png)
+![Service Fabric-lösningen, Användningskanal](media/service-fabric-diagnostics-event-analysis-oms/oms_service_fabric_events_selection.png)
 
-2. Klicka på **lista** att visa händelser i en lista. När här visas alla systemhändelser som har samlats in. Referens så de kommer från WADServiceFabricSystemEventsTable i Azure Storage-konto och på samma sätt reliable services och actors-händelser som visas bredvid är från dessa respektive tabeller.
+Klicka på **lista** att visa händelser i en lista. När här visas alla systemhändelser som har samlats in. Referens så de kommer från den **WADServiceFabricSystemEventsTable** i Azure Storage-konto och på samma sätt reliable services och aktörer händelser visas bredvid kommer från dessa respektive tabeller.
     
-    ![Fråga Användningskanal](media/service-fabric-diagnostics-event-analysis-oms/oms_service_fabric_events.png)
+![Fråga Användningskanal](media/service-fabric-diagnostics-event-analysis-oms/oms_service_fabric_events.png)
 
 Du kan också klicka på förstoringsglaset till vänster och använda Kusto-frågespråk för att hitta det du letar efter. Du kan exempelvis använda följande fråga för att hitta alla åtgärder som vidtas på noderna i klustret. Händelse-ID som används nedan hittar du i den [användningskanal händelser](service-fabric-diagnostics-event-generation-operational.md).
 
@@ -77,15 +79,15 @@ ServiceFabricOperationalEvent
 
 Du kan fråga på flera fält, till exempel de specifika noderna (dator) systemtjänsten (Aktivitetsnamn).
 
-### <a name="view-service-fabric-reliable-service-and-actor-events"></a>Visa Service Fabric Reliable Service och aktören händelser
+## <a name="view-service-fabric-reliable-service-and-actor-events"></a>Visa Service Fabric Reliable Service och aktören händelser
 
-1. Service Fabric-analys-sidan, klicka på diagrammet för **Reliable Services**.
+Service Fabric-analys-sidan, klicka på diagrammet för **Reliable Services**.
 
-    ![Service Fabric-lösningen Reliable Services](media/service-fabric-diagnostics-event-analysis-oms/oms_reliable_services_events_selection.png)
+![Service Fabric Solution Reliable Services](media/service-fabric-diagnostics-event-analysis-oms/oms_reliable_services_events_selection.png)
 
-2. Klicka på **lista** att visa händelser i en lista. Här kan du se händelser från tillförlitliga tjänster. Du kan se olika händelser för när tjänstens runasync startades och slutfördes som vanligtvis sker på distributioner och uppgraderingar. 
+Klicka på **lista** att visa händelser i en lista. Här kan du se händelser från tillförlitliga tjänster. Du kan se olika händelser för när tjänstens runasync startades och slutfördes som vanligtvis sker på distributioner och uppgraderingar. 
 
-    ![Fråga Reliable Services](media/service-fabric-diagnostics-event-analysis-oms/oms_reliable_service_events.png)
+![Query Reliable Services](media/service-fabric-diagnostics-event-analysis-oms/oms_reliable_service_events.png)
 
 Tillförlitliga aktörer händelser kan visas på liknande sätt. Om du vill konfigurera detaljerad händelser för reliable actors, måste du ändra den `scheduledTransferKeywordFilter` i konfigurationen för diagnostiktillägg (se nedan). Information om värdena för dessa finns i den [referens för reliable actors-händelser](service-fabric-reliable-actors-diagnostics.md#keywords).
 

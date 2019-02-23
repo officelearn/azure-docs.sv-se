@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/23/2018
 ms.author: cshoe
-ms.openlocfilehash: 7a7063b9177774c5207746283dc7cd25e3dd5793
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 73fd388ad8d35543138c06b413cd40d7052806a7
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53721894"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56735652"
 ---
 # <a name="signalr-service-bindings-for-azure-functions"></a>SignalR Service-bindningar för Azure Functions
 
@@ -64,7 +64,7 @@ public static SignalRConnectionInfo GetSignalRInfo(
 
 Om funktionen utlöses av en autentiserad klient, kan du lägga till ID användaranspråk till genererade token. Du kan enkelt lägga till autentisering till en funktionsapp med hjälp av [App Service-autentisering] (.. /App-Service/Overview-Authentication-Authorization.MD).
 
-App Service-autentisering anger HTTP-huvuden med namnet `x-ms-client-principal-id` och `x-ms-client-principal-name` som innehåller den autentiserade användaren huvudnamn klient-ID och namn, respektive. Du kan ange den `UserId` egenskapen om bindningen till värdet från antingen rubrik med hjälp av en [bindning uttryck](functions-triggers-bindings.md#binding-expressions-and-patterns): `{headers.x-ms-client-principal-id}` eller `{headers.x-ms-client-principal-name}`. 
+App Service-autentisering anger HTTP-huvuden med namnet `x-ms-client-principal-id` och `x-ms-client-principal-name` som innehåller den autentiserade användaren huvudnamn klient-ID och namn, respektive. Du kan ange den `UserId` egenskapen om bindningen till värdet från antingen rubrik med hjälp av en [bindning uttryck](./functions-bindings-expressions-patterns.md): `{headers.x-ms-client-principal-id}` eller `{headers.x-ms-client-principal-name}`. 
 
 ```cs
 [FunctionName("GetSignalRInfo")]
@@ -110,7 +110,7 @@ module.exports = function (context, req, connectionInfo) {
 
 Om funktionen utlöses av en autentiserad klient, kan du lägga till ID användaranspråk till genererade token. Du kan enkelt lägga till autentisering till en funktionsapp med hjälp av [App Service-autentisering] (.. /App-Service/Overview-Authentication-Authorization.MD).
 
-App Service-autentisering anger HTTP-huvuden med namnet `x-ms-client-principal-id` och `x-ms-client-principal-name` som innehåller den autentiserade användaren huvudnamn klient-ID och namn, respektive. Du kan ange den `userId` egenskapen om bindningen till värdet från antingen rubrik med hjälp av en [bindning uttryck](functions-triggers-bindings.md#binding-expressions-and-patterns): `{headers.x-ms-client-principal-id}` eller `{headers.x-ms-client-principal-name}`. 
+App Service-autentisering anger HTTP-huvuden med namnet `x-ms-client-principal-id` och `x-ms-client-principal-name` som innehåller den autentiserade användaren huvudnamn klient-ID och namn, respektive. Du kan ange den `userId` egenskapen om bindningen till värdet från antingen rubrik med hjälp av en [bindning uttryck](./functions-bindings-expressions-patterns.md): `{headers.x-ms-client-principal-id}` eller `{headers.x-ms-client-principal-name}`. 
 
 Exempel function.json:
 
@@ -248,7 +248,7 @@ I följande tabell förklaras konfigurationsegenskaper för bindning som du ange
 |**typ**|| Måste anges till `signalRConnectionInfo`.|
 |**riktning**|| Måste anges till `in`.|
 |**Namn**|| Variabelnamnet som används i Funktionskoden för anslutningsobjektet för information. |
-|**HubName**|**HubName**| Det här värdet måste vara samma som namnet på den SignalR hub för vilken informationen som genereras.|
+|**hubName**|**HubName**| Det här värdet måste vara samma som namnet på den SignalR hub för vilken informationen som genereras.|
 |**Användar-ID**|**Användar-ID**| Valfritt: Värdet för användaridentifierare anspråk som ska anges i viktiga åtkomsttoken. |
 |**connectionStringSetting**|**connectionStringSetting**| Namnet på den appinställning som innehåller anslutningssträngen SignalR Service (standardvärdet är ”AzureSignalRConnectionString”) |
 
@@ -261,7 +261,7 @@ I följande tabell förklaras konfigurationsegenskaper för bindning som du ange
 |**typ**|| Måste anges till `signalR`.|
 |**riktning**|| Måste anges till `out`.|
 |**Namn**|| Variabelnamnet som används i Funktionskoden för anslutningsobjektet för information. |
-|**HubName**|**HubName**| Det här värdet måste vara samma som namnet på den SignalR hub för vilken informationen som genereras.|
+|**hubName**|**HubName**| Det här värdet måste vara samma som namnet på den SignalR hub för vilken informationen som genereras.|
 |**connectionStringSetting**|**connectionStringSetting**| Namnet på den appinställning som innehåller anslutningssträngen SignalR Service (standardvärdet är ”AzureSignalRConnectionString”) |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]

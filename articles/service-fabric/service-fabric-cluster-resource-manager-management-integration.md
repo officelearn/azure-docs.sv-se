@@ -7,19 +7,19 @@ author: masnider
 manager: timlt
 editor: ''
 ms.assetid: 956cd0b8-b6e3-4436-a224-8766320e8cd7
-ms.service: Service-Fabric
+ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 7a1bab75521730f7e80e5b86112bbb0aed129f88
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: a51593753cab8a6b07d99df46560808de5400047
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42917882"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56737934"
 ---
 # <a name="cluster-resource-manager-integration-with-service-fabric-cluster-management"></a>Klustret resource manager-integrering med hantering av Service Fabric
 Service Fabric Cluster Resource Manager enhet inte uppgraderingar i Service Fabric, men den ingår. Det första sättet som Cluster Resource Manager hjälper med management är genom att spåra önskat tillstånd för klustret och tjänster i den. Cluster Resource Manager skickar ut hälsorapporter när det inte placerar klustret i önskad konfiguration. Till exempel om det finns inte tillräckligt med kapacitet skickar Cluster Resource Manager ut hälsotillståndsvarningar och fel som tyder på problemet. En annan typ av integrering har att göra med så här fungerar uppgraderingar. Klusterresurshanteraren ändrar något sitt beteende under uppgraderingar.  
@@ -73,11 +73,11 @@ HealthEvents          :
 
 Här är vad meddelandet hälsotillstånd tala om för oss är:
 
-1. Alla repliker själva är felfri: var och en har AggregatedHealthState: Ok
+1. Alla repliker själva är felfri: Each has AggregatedHealthState : OK
 2. Uppgradera domän distribution villkoret överskrids för närvarande. Det innebär att en viss uppgradera domän har flera repliker från den här partitionen än den borde.
 3. Vilken nod innehåller repliken orsakar överträdelsen. I det här fallet är det nod med namnet ”Node.8”
 4. Om en uppgradering för närvarande pågår för detta partitionera (”för närvarande uppgradering--FALSKT”)
-5. Principen för programvarudistribution för den här tjänsten: ”Distribution princip--förpackning”. Detta styrs av den `RequireDomainDistribution` [placering princip](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md#requiring-replica-distribution-and-disallowing-packing). ”Paketering” anger att i det här fallet DomainDistribution _inte_ krävs, så att vi vet att placeringen principen inte har angetts för den här tjänsten. 
+5. Principen för programvarudistribution för den här tjänsten: "Distribution Policy -- Packing". Detta styrs av den `RequireDomainDistribution` [placering princip](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md#requiring-replica-distribution-and-disallowing-packing). ”Paketering” anger att i det här fallet DomainDistribution _inte_ krävs, så att vi vet att placeringen principen inte har angetts för den här tjänsten. 
 6. När rapporten har hänt – 8/10/2015 19:13:02: 00
 
 Information som den här befogenheter aviseringar som utlöses i produktionsmiljön så att du vet något har gått fel och används också för att identifiera och stoppa felaktig uppgraderingar. I det här fallet vill vi skulle se om vi kan ta reda på varför Resource Manager var tvungen att bygga repliker i Uppgraderingsdomänen. Vanligtvis späcka beror på tillfälliga noder i den andra uppgradera domäner har ned, till exempel.
@@ -92,12 +92,12 @@ I dessa fall hälsorapporter från Cluster Resource Manager hjälper dig att avg
 ## <a name="constraint-types"></a>Villkorstyper
 Nu ska vi prata om var och en av de olika begränsningarna i dessa rapporter om hälsotillstånd. Du kan se hälsotillstånd meddelanden relaterade till de här begränsningarna när repliker inte kan placeras.
 
-* **ReplicaExclusionStatic** och **ReplicaExclusionDynamic**: de här begränsningarna indikerar att en lösning avvisades eftersom två service-objekt från samma partition måste placeras på samma nod. Detta är inte tillåten eftersom sedan fel på noden påverkar alltför partitionen. ReplicaExclusionStatic och ReplicaExclusionDynamic är nästan samma regel och skillnaderna verkligen har betydelse inte. Om du ser en begränsning eliminering sekvens som innehåller antingen ReplicaExclusionStatic eller ReplicaExclusionDynamic begränsning tror Klusterresurshanteraren att det inte finns tillräckligt många noder. Detta kräver återstående lösningar för att använda de här ogiltiga placeringar, vilket inte är tillåtet. Andra villkor i följd kommer vanligtvis berätta för oss varför noder som elimineras i första hand.
+* **ReplicaExclusionStatic** och **ReplicaExclusionDynamic**: De här begränsningarna indikerar att en lösning avvisades eftersom två service-objekt från samma partition måste placeras på samma nod. Detta är inte tillåten eftersom sedan fel på noden påverkar alltför partitionen. ReplicaExclusionStatic och ReplicaExclusionDynamic är nästan samma regel och skillnaderna verkligen har betydelse inte. Om du ser en begränsning eliminering sekvens som innehåller antingen ReplicaExclusionStatic eller ReplicaExclusionDynamic begränsning tror Klusterresurshanteraren att det inte finns tillräckligt många noder. Detta kräver återstående lösningar för att använda de här ogiltiga placeringar, vilket inte är tillåtet. Andra villkor i följd kommer vanligtvis berätta för oss varför noder som elimineras i första hand.
 * **PlacementConstraint**: Om du ser det här meddelandet innebär att vi eliminerat vissa noder eftersom de inte matchade placeringsbegränsningar för tjänsten. Vi spåra ut konfigurerade placeringen som en del av det här meddelandet. Detta är normalt om du har en begränsning för placering som definierats. Men om placering begränsningen felaktigt orsakar för många noder elimineras det här är hur du skulle se.
-* **NodeCapacity**: den här begränsningen innebär att Cluster Resource Manager inte kunde placera replikerna på de angivna noderna eftersom som placerar dem över kapacitet.
-* **Tillhörighet**: det här villkoret visar vi inte kunde placera repliken på de berörda noderna eftersom det skulle orsaka en överträdelse av tillhörighet begränsningen. Mer information om mappning mellan och är i [i den här artikeln](service-fabric-cluster-resource-manager-advanced-placement-rules-affinity.md)
-* **FaultDomain** och **UpgradeDomain**: den här begränsningen eliminerar noder om placera repliken på de angivna noderna skulle orsaka paketering i ett visst fel eller en uppgraderingsdomän. Flera exempel diskutera den här begränsningen visas i avsnittet på [fel- och begränsningar för domänen och resulterande beteende](service-fabric-cluster-resource-manager-cluster-description.md)
-* **PreferredLocation**: du normalt inte bör se den här begränsningen ta bort noder från lösningen eftersom den körs som en optimering som standard. Prioriterade platsbegränsningen finns också under uppgraderingar. Under uppgraderingen används för att flytta tjänster till där de fanns när uppgraderingen är igång.
+* **NodeCapacity**: Den här begränsningen innebär att Cluster Resource Manager inte kunde placera replikerna på de angivna noderna eftersom som placerar dem över kapacitet.
+* **Tillhörighet**: Det här villkoret visar vi inte kunde placera repliken på de berörda noderna eftersom det skulle orsaka en överträdelse av tillhörighet begränsningen. Mer information om mappning mellan och är i [i den här artikeln](service-fabric-cluster-resource-manager-advanced-placement-rules-affinity.md)
+* **FaultDomain** och **UpgradeDomain**: Den här begränsningen eliminerar noder om placera repliken på de angivna noderna skulle orsaka paketering i ett visst fel eller en uppgraderingsdomän. Flera exempel diskutera den här begränsningen visas i avsnittet på [fel- och begränsningar för domänen och resulterande beteende](service-fabric-cluster-resource-manager-cluster-description.md)
+* **PreferredLocation**: Du bör inte normalt finns i den här begränsningen ta bort noder från lösningen eftersom den körs som en optimering som standard. Prioriterade platsbegränsningen finns också under uppgraderingar. Under uppgraderingen används för att flytta tjänster till där de fanns när uppgraderingen är igång.
 
 ## <a name="blocklisting-nodes"></a>Blocklisting noder
 Ett annat hälsotillstånd meddelande Cluster Resource Manager-rapporter är när noderna är blocklisted. Du kan tänka dig blocklisting som en tillfällig begränsning som tillämpas automatiskt åt dig. Noder får blocklisted när de uppstår upprepade fel vid start instanser av den typ av tjänst. Noder är blocklisted på basis av per tjänsttyp. En nod kan vara blocklisted för en tjänsttyp men inte en annan. 

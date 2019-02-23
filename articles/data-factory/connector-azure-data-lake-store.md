@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 01/25/2019
+ms.date: 02/22/2019
 ms.author: jingwang
-ms.openlocfilehash: d148b43750b4e57ff650f8e96bfda1fb5c57dd4b
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: ac0a4bf6f332095bd75a6be83d7a1cd3d37c8e1c
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55657339"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56674556"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen1-by-using-azure-data-factory"></a>Kopiera data till och från Azure Data Lake Storage Gen1 med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -113,15 +113,15 @@ Följande egenskaper stöds:
 
 ### <a name="managed-identity"></a> Använda hanterade identiteter för autentisering för Azure-resurser
 
-En data factory kan associeras med en [hanterad identitet för Azure-resurser](data-factory-service-identity.md), som representerar den här specifika data factory. Du kan använda den här tjänstidentitet direkt för Data Lake Store-autentisering, ungefär som att använda tjänstens huvudnamn. Det gör den här avsedda fabriken kan komma åt och kopiera data till eller från Data Lake Store.
+En data factory kan associeras med en [hanterad identitet för Azure-resurser](data-factory-service-identity.md), som representerar den här specifika data factory. Du kan använda den här hanterade identiteten direkt för Data Lake Store-autentisering, ungefär som att använda tjänstens huvudnamn. Det gör den här avsedda fabriken kan komma åt och kopiera data till eller från Data Lake Store.
 
 Använda hanterade identiteter för Azure-resurser autentisering:
 
-1. [Hämta tjänstidentiteten för data factory](data-factory-service-identity.md#retrieve-service-identity) genom att kopiera värdet för ”Service Identity program-ID” genererade tillsammans med din datafabrik.
-2. Ge tjänstens identitet åtkomst till Data Lake Store på samma sätt som du gör med tjänstens huvudnamn, följa dessa riktlinjer.
+1. [Hämta ID-information för data factory hanteras](data-factory-service-identity.md#retrieve-managed-identity) genom att kopiera värdet för ”Service Identity program-ID” genererade tillsammans med din datafabrik.
+2. Bevilja hanterad identitet-åtkomst till Data Lake Store på samma sätt som du gör med tjänstens huvudnamn, följa dessa riktlinjer.
 
 >[!IMPORTANT]
-> Kontrollera att du ger data factory-tjänsten identitet rätt behörighet i Data Lake Store:
+> Kontrollera att du ger data factory hanterad identitet rätt behörighet i Data Lake Store:
 >- **Som källa**: I **datautforskaren** > **åtkomst**, ge minst **Läs + kör** behörighet att visa och kopiera filer i mappar och undermappar. Eller, du kan bevilja **Läs** tillstånd att kopiera en fil. Du kan välja att lägga till i **den här mappen och alla underordnade** för rekursiv, och Lägg till som **behörigheten och en standardbehörighetsinlägg**. Det finns inga krav på kontot på åtkomstkontroll (IAM).
 >- **Som mottagare**: I **datautforskaren** > **åtkomst**, ge minst **skriva + köra** behörighet att skapa underordnade objekt i mappen. Du kan välja att lägga till i **den här mappen och alla underordnade** för rekursiv, och Lägg till som **behörigheten och en standardbehörighetsinlägg**. Om du använder med Azure integration runtime för att kopiera (både källa och mottagare finns i molnet), i IAM, beviljar minst **läsare** roll för att kunna identifiera regionen för Data Lake Store med Data Factory. Om du vill undvika den här IAM-rollen uttryckligen [skapa en Azure integration runtime](create-azure-integration-runtime.md#create-azure-ir) med platsen för Data Lake Store. Koppla dem i Data Lake Store-länkade tjänsten som i följande exempel.
 

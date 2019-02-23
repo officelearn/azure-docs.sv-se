@@ -16,12 +16,12 @@ ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: scottnap
 ms.lastreviewed: 09/17/2018
-ms.openlocfilehash: ed2205455c4d3c82554f3d552bacc059fffa68e7
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: cbfe4fcf30e9529f191f2a80de8ab83e7e0811f7
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56174664"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56735910"
 ---
 # <a name="add-public-ip-addresses"></a>Lägg till offentliga IP-adresser
 *Gäller för: Integrerade Azure Stack-system och Azure Stack Development Kit*  
@@ -53,11 +53,6 @@ Det första du behöver göra är att hämta adressblocket som du vill lägga ti
 8.   Ange adressblocket som du vill lägga till i CIDR-notation.  Exempel: 192.168.203.0/24
 9.  När du anger ett giltigt CIDR-intervall i adressfältet adressintervall (CIDR-block) första IP-adress, sista IP-adress och tillgängliga IP-adresser fält automatiskt fylls i.  De är skrivskyddad och genereras automatiskt så att du inte kan ändra dessa utan att ändra värdet i fältet adressintervall.
 10. När du har granskat informationen på bladet och bekräftar allt ser ut korrigera, klicka på Ok om du vill genomföra ändringen och lägga till adressintervallet i Azure Stack.
-
-## <a name="update-the-acls-on-your-top-of-rack-switches"></a>Uppdatera ACL: er på din Tor växlar
-Det sista du behöver göra för att aktivera det nyligen tillagda IP-adressintervallet som ska fungera är att uppdatera den åtkomstkontrollistor (ACL) för Top-of-Rack (ToR) växlarna.  ACL: er på ToR-växlar är låsta så att anslutningen mellan utanför Azure Stack och det nyligen tillagda IP-adressintervallet inte fungerar förrän det nya området har lagts till ACL: er på växeln.  
-
-Du måste kontakta Komponenttillverkaren och arbeta med dem för att uppdatera ACL: er på ToR-växlar.  De har de verktyg som behövs för att göra detta på ett sätt som stöds.
 
 
 ## <a name="next-steps"></a>Nästa steg 

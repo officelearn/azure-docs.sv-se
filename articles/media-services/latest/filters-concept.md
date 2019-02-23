@@ -11,18 +11,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 02/22/2019
 ms.author: juliako
-ms.openlocfilehash: 09de372ffdb48c00fde9a43c07f8f8b574462d1f
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 18e629571a45046e5cf54996cd38b425c999ee36
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56405740"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56737645"
 ---
 # <a name="define-account-filters-and-asset-filters"></a>Definiera kontofilter och tillgången filter  
 
-När du levererar ditt innehåll till kunder (streaming direktsändningar eller Video på begäran) kanske klienten behöver mer flexibilitet än vad som beskrivs i standard-tillgången manifestfil. Azure Media Services kan du definiera kontofilter och tillgången filter för ditt innehåll. 
+När du levererar ditt innehåll till kunder (liveuppspelningshändelser eller Video på begäran) kanske klienten behöver mer flexibilitet än vad som beskrivs i standard-tillgången manifestfil. Azure Media Services kan du definiera kontofilter och tillgången filter för ditt innehåll. 
 
 Filtren är serversidan regler som tillåter dina kunder att till exempel: 
 
@@ -38,8 +38,7 @@ I följande tabell visas några exempel på URL: er med filter:
 
 |Protokoll|Exempel|
 |---|---|
-|HLS V4|`http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl,filter=myAccountFilter)`|
-|HLS V3|`http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl-v3,filter=myAccountFilter)`|
+|HLS|`http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl,filter=myAccountFilter)`<br/>Använd för HLS v3: `format=m3u8-aapl-v3`.|
 |MPEG DASH|`http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=mpd-time-csf,filter=myAssetFilter)`|
 |Smooth Streaming|`http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(filter=myAssetFilter)`|
 
@@ -62,22 +61,22 @@ Du kan använda följande egenskaper för att beskriva filtren.
 |presentationTimeRange|Tidsintervallet för presentation. Den här egenskapen används för att filtrera manifest start-/ slutpunkter, presentation längd och live startpositionen. <br/>Mer information finns i [PresentationTimeRange](#PresentationTimeRange).|
 |spår|Spårar val av villkor. Mer information finns i [spår](#tracks)|
 
-### <a name="presentationtimerange"></a>PresentationTimeRange
+### <a name="presentationtimerange"></a>presentationTimeRange
 
 Använd den här egenskapen med **tillgången filter**. Det rekommenderas inte att ange egenskapen med **kontofilter**.
 
 |Namn|Beskrivning|
 |---|---|
-|**endTimestamp**|Absolut slutet tid gräns. Gäller för Video på begäran (VoD). För Live-presentationen är det tyst ignoreras och tillämpas när det presentation upphört att gälla och dataströmmen blir VoD.<br/><br/>Värdet som representerar en absolut slutpunkt på dataströmmen. Den hämtar avrundas till närmaste nästa GOP början.<br/><br/>Använd StartTimestamp och EndTimestamp för att trimma listan (manifest). Till exempel StartTimestamp = 40000000 och EndTimestamp = 100000000 genererar en spellista som innehåller media mellan StartTimestamp och EndTimestamp. Om ett fragment är gränsen, inkluderas hela fragment i manifestet.<br/><br/>Se även de **forceEndTimestamp** definition som följer.|
-|**forceEndTimestamp**|Gäller för direktfilter.<br/><br/>**forceEndTimestamp** är ett booleskt värde som indikerar huruvida **endTimestamp** har angetts till ett giltigt värde. <br/><br/>Om värdet är **SANT**, **endTimestamp** värdet ska anges. Om det inte anges returneras en felaktig begäran.<br/><br/>Om du vill definiera ett filter som börjar på 5 minuter in indata video, och gäller fram till slutet av strömmen, anger du **forceEndTimestamp** till FALSKT och utelämna inställningen **endTimestamp**.|
-|**liveBackoffDuration**|Gäller bara för Live. Egenskapen används för att definiera live uppspelning position. Med den här regeln, kan du fördröja live uppspelning position och skapa en buffert på serversidan för spelare. LiveBackoffDuration är i förhållande till den direktsända positionen. Den maximala live backoff varaktigheten är 300 sekunder.|
-|**presentationWindowDuration**|Gäller för Live. Använd **presentationWindowDuration** att tillämpa ett skjutfönster på listan. Till exempel presentationWindowDuration = 1200000000 för att tillämpa en glidande tvåminutersperiod. Media inom två minuter av live edge ska ingå i listan. Om ett fragment är gränsen, inkluderas hela fragment i listan. Minsta presentation fönstervaraktigheten är 60 sekunder.|
-|**startTimestamp**|Gäller för VoD eller Live strömmar. Värdet som representerar en absolut startpunkt på dataströmmen. Värdet hämtar avrundat till närmaste nästa GOP början.<br/><br/>Använd **startTimestamp** och **endTimestamp** att trimma listan (manifest). Till exempel startTimestamp = 40000000 och endTimestamp = 100000000 genererar en spellista som innehåller media mellan StartTimestamp och EndTimestamp. Om ett fragment är gränsen, inkluderas hela fragment i manifestet.|
-|**tidsskalan**|Gäller för VoD eller Live strömmar. Tidsskalan som används av tidsstämplarna och varaktigheter som anges ovan. Standard tidsskalan är 10000000. Du kan använda ett alternativt tidsskalan. Standardvärdet är 10000000 HNS (100 nanosekunder).|
+|**endTimestamp**|Gäller för Video på begäran (VoD).<br/>För Live Streaming-presentation är det tyst ignoreras och tillämpas när det presentation upphört att gälla och dataströmmen blir VoD.<br/>Det här är ett långt värde som representerar en absolut slutpunkt i presentationen, avrundat till närmaste nästa GOP-start. Enheten är tidsskalan, så en endTimestamp av 1800000000 skulle vara för 3 minuter.<br/>Använd startTimestamp och endTimestamp att trimma fragment som ska ingå i listan (manifest).<br/>Till exempel startTimestamp = 40000000 och endTimestamp = 100000000 med hjälp av standard-tidsskalan genererar en spellista som innehåller fragment finns mellan 4 sekunder och 10 sekunder för VoD-presentationen. Om ett fragment är gränsen, inkluderas hela fragment i manifestet.|
+|**forceEndTimestamp**|Gäller endast direktsänd strömning.<br/>Anger om egenskapen endTimestamp måste finnas. Om värdet är true endTimestamp måste anges eller en felaktig begäran kod returneras.<br/>Tillåtna värden: FALSKT, SANT.|
+|**liveBackoffDuration**|Gäller endast direktsänd strömning.<br/> Det här värdet anger den senaste direktsända positionen som en klient kan försöka.<br/>Med den här egenskapen kan kan du fördröja live uppspelning position och skapa en buffert på serversidan för spelare.<br/>Enheten för den här egenskapen är tidsskalan (se nedan).<br/>Högsta live backoff varaktighet är 300 sekunder (3000000000).<br/>Till exempel ett värde av 2000000000 innebär att det senaste innehållet är 20 sekunder fördröjd från möjlighet att få gränsen.|
+|**presentationWindowDuration**|Gäller endast direktsänd strömning.<br/>Använda presentationWindowDuration för att tillämpa ett skjutfönster av fragment ska ingå i en spellista.<br/>Enheten för den här egenskapen är tidsskalan (se nedan).<br/>Till exempel presentationWindowDuration = 1200000000 för att tillämpa en glidande tvåminutersperiod. Media inom två minuter av live edge ska ingå i listan. Om ett fragment är gränsen, inkluderas hela fragment i listan. Minsta presentation fönstervaraktigheten är 60 sekunder.|
+|**startTimestamp**|Gäller för Video på begäran (VoD) eller direktsänd strömning.<br/>Det här är ett långt värde som representerar en absolut startpunkt på dataströmmen. Värdet hämtar avrundat till närmaste nästa GOP början. Enheten är tidsskalan, så en startTimestamp av 150000000 skulle vara för 15 sekunder.<br/>Använd startTimestamp och endTimestampp att trimma fragment som ska ingå i listan (manifest).<br/>Till exempel startTimestamp = 40000000 och endTimestamp = 100000000 med hjälp av standard-tidsskalan genererar en spellista som innehåller fragment finns mellan 4 sekunder och 10 sekunder för VoD-presentationen. Om ett fragment är gränsen, inkluderas hela fragment i manifestet|
+|**tidsskalan**|Gäller för alla tidsstämplar och varaktigheter i en Presentation tidsintervallet som angetts som antalet steg i en sekund.<br/>Standardvärdet är 10000000 - tio miljoner steg i en sekund, där varje säkerhetskopieringssteg är 100 nanosekunder lång.<br/>Till exempel använder du värdet 300000000 när du använder standard tidsskalan om du vill ange en startTimestamp på 30 sekunder.|
 
-### <a name="tracks"></a>spår
+### <a name="tracks"></a>Spår
 
-Du anger en lista med filtervillkor spåra egenskapen (FilterTrackPropertyConditions) baserat som spårar för din dataström (Live eller Video på begäran) ska tas med i dynamiskt skapade manifest. Filter som kombineras med en logisk **AND** och **eller** igen.
+Du anger en lista med filtervillkor spåra egenskapen (FilterTrackPropertyConditions) baserat som spårar för din dataström (Live Streaming eller Video på begäran) ska tas med i dynamiskt skapade manifest. Filter som kombineras med en logisk **AND** och **eller** igen.
 
 Filtervillkor spåra egenskapen beskriver typer av spår, värden (som beskrivs i tabellen nedan) och åtgärder (Equal, NotEqual). 
 

@@ -1,6 +1,6 @@
 ---
-title: Hantera användare med Azure AD-åtkomstgranskningar| Microsoft Docs
-description: Lär dig att hantera användarnas åtkomst som medlemskap i en grupp eller tilldelning till ett program med Azure AD-åtkomstgranskningar
+title: Hantera användare med Azure AD-Åtkomstgranskningar | Microsoft Docs
+description: Lär dig att hantera användarnas åtkomst som medlemskap i en grupp eller tilldelning till ett program med Azure Active Directory-Åtkomstgranskningar
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -16,14 +16,14 @@ ms.date: 06/21/2018
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b53fd8b53b85525a3105cfee3594cd284e3838a8
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: cce1fe33bb2c44a6f3acf365a24de0df81ac8a70
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56182161"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56730771"
 ---
-# <a name="manage-user-access-with-azure-ad-access-reviews"></a>Hantera användare med Azure AD-åtkomstgranskningar
+# <a name="manage-user-access-with-azure-ad-access-reviews"></a>Hantera användare med Azure AD-Åtkomstgranskningar
 
 Med Azure Active Directory (Azure AD) kan du enkelt se till att användarna har lämplig åtkomst. Du kan be användarna själva, eller en beslutsfattare, att delta i en åtkomstgranskning och certifiera om (eller intyga) användarnas åtkomst. Granskarna kan ge sin syn på varje användares behov för kontinuerlig åtkomst baserat på förslag från Azure AD. När en åtkomstgranskning är klar kan du göra ändringar och ta bort åtkomst för användare som inte längre behöver den.
 
@@ -47,18 +47,18 @@ Du kan ha en eller flera användare som granskare i en åtkomstgranskning.
 
 3. Som global administratör eller användarkonto-administratör går du till [sidan med åtkomstgranskningar](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/).
 
-4. Skapa åtkomstgranskningen. Mer information finns i [Skapa en åtkomstgranskning](create-access-review.md).
+4. Skapa åtkomstgranskningen. Mer information finns i [skapa en åtkomstgranskning av grupper eller program som](create-access-review.md).
 
-5. När åtkomstgranskningen startar be granskarna till reflektioner. Som standard får alla ett e-postmeddelande från Azure AD med en länk till åtkomstpanelen där de ska [genomföra sin åtkomstgranskning](perform-access-review.md).
+5. När åtkomstgranskningen startar be granskarna till reflektioner. Som standard får alla ett e-postmeddelande från Azure AD med en länk till åtkomstpanelen, där de [granska åtkomst till grupper eller program](perform-access-review.md).
 
 6. Om granskarna inte har framfört några åsikter kan du be att Azure AD skickar en påminnelse. Som standard skickar Azure AD automatiskt en påminnelse när halva tiden före slutdatumet har gått till granskarna som ännu inte har svarat.
 
-7. När granskarna har framfört sina åsikter avslutar du åtkomstgranskningen och tillämpar ändringarna. Mer information finns i [Slutför en åtkomstgranskning](complete-access-review.md).
+7. När granskarna har framfört sina åsikter avslutar du åtkomstgranskningen och tillämpar ändringarna. Mer information finns i [Slutför en åtkomstgranskning av grupper eller program som](complete-access-review.md).
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Skapa en åtkomstgranskning för medlemmar i en grupp eller åtkomst till ett program](create-access-review.md)
+[Skapa en åtkomstgranskning av grupper eller program](create-access-review.md)
 
 
 

@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
-ms.openlocfilehash: 9748cd2c37775a47eb630797dd09981c38f8f7e1
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 4998084ed15e6ed455789689674e134c6cd9d0a8
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55995415"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56749774"
 ---
 # <a name="work-with-strings-in-azure-monitor-log-queries"></a>Arbeta med strängar i Azure Monitor log-frågor
 
 
 > [!NOTE]
-> Bör du genomföra [Kom igång med Azure Monitor log analytics](get-started-portal.md) och [komma igång med Azure Monitor loggfrågor](get-started-queries.md) innan den här kursen.
+> Bör du genomföra [Kom igång med Azure Monitor Log Analytics](get-started-portal.md) och [komma igång med Azure Monitor loggfrågor](get-started-queries.md) innan den här kursen.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 

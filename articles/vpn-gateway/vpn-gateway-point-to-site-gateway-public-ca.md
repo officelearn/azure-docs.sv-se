@@ -5,21 +5,22 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 02/20/2019
+ms.date: 02/22/2019
 ms.author: cherylmc
-ms.openlocfilehash: 8d5dca65734640dc9e756f9130e6b362178781f2
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: d4f75a7bc552a7764a46865bf300b8fc5ffb350e
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453529"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56750794"
 ---
 # <a name="transition-to-a-public-ca-gateway-certificate-for-p2s"></a>Övergång till ett offentligt CA-gatewaycertifikat för P2S
 
 Azure VPN-Gateway utfärdar inte längre självsignerade certifikat för Azure-nivå till dess gatewayer för P2S-anslutningar. Utfärdade certifikat är nu signerade av en offentlig certifikatutfärdare (CA). Men kanske vissa äldre gateway fortfarande använder självsignerade certifikat. De självsignerade certifikaten närmar sig sitt förfallodatum och måste gå över till offentlig CA-certifikat.
 
 >[!NOTE]
-> Självsignerat certifikat för klientautentisering för P2S påverkas inte av den här Azure-nivå certifikat ändringen. Du kan fortsätta att utfärda och använda självsignerade certifikat som vanligt.
+> * Självsignerat certifikat för klientautentisering för P2S påverkas inte av den här Azure-nivå certifikat ändringen. Du kan fortsätta att utfärda och använda självsignerade certifikat som vanligt.
+> * Web Apps påverkas inte av den här ändringen.
 >
 
 Certifikat i det här sammanhanget är ett certifikat för ytterligare Azure-nivå. De är inte certifikatkedjor som du använder när du genererar din egen självsignerade rotcertifikat och klientcertifikat för autentisering. Dessa certifikat påverkas och går ut på datumen du genererat dem för att göra detta.

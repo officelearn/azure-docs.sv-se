@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/17/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 64cbf8f8704dbb216a15247caf741ff43690496a
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: ca4bd3d3b40934323bab8036f3ce72e9281f1de4
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54457058"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56751537"
 ---
 > [!div class="op_single_selector"]
 > * [C i Windows](../articles/iot-accelerators/iot-accelerators-connecting-devices.md)
@@ -58,9 +58,9 @@ När distributionsprocessen för lösningen för fjärrövervakning är klar kli
 
 För en enhet att ansluta till lösningsaccelerator kan identifiera den sig för IoT Hub med giltiga autentiseringsuppgifter. Du har möjlighet att spara enhetens anslutningssträng som innehåller de här autentiseringsuppgifterna när du lägger till enheten i lösningen. Du kan inkludera enhetens anslutningssträng i klientprogrammet senare i den här självstudien.
 
-Om du vill lägga till en enhet till din fjärrövervakningslösning utför du följande steg på den **enheter** sidan i lösningen:
+Om du vill lägga till en enhet till din fjärrövervakningslösning utför du följande steg på den **Device Explorer** sidan i lösningen:
 
-1. Välj **+ ny enhet**, och välj sedan **fysiska** som den **enhetstyp**:
+1. Välj **+ ny enhet**, och välj sedan **verkliga** som den **enhetstyp**:
 
     ![Lägga till en riktig enhet](media/iot-suite-selector-connecting/devicesprovision.png)
 

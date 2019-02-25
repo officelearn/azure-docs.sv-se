@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: sashan, moslake
 manager: craigg
-ms.date: 02/13/2019
-ms.openlocfilehash: 59eb0b842392faa2adfcd99b028f1e283a7e8db7
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.date: 02/23/2019
+ms.openlocfilehash: db91e67254e9927caba68a84b38a1ee94da8d3ab
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56243837"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56750131"
 ---
 # <a name="azure-sql-database-service-tiers"></a>Azure SQL Database-tjänstnivåer
 
@@ -42,7 +42,7 @@ Tänk också på följande:
 - Lagringsstorlek i Managed Instance måste anges i multipler av 32 GB.
 - Du kan välja valfri databasstorlek mellan 10 GB och högsta som stöds
   - För lagring på tjänstnivåerna standard eller allmänna, öka eller minska storleken i steg om 10 GB
-  - För lagring på premium- eller buxiness kritiska-nivåer, öka eller minska storleken i steg om 250 GB
+  - För lagring i premium- eller affärskritisk tjänstnivåer, öka eller minska storleken i steg om 250 GB
 - På tjänstnivån generella `tempdb` använder anslutna SSD-disk och den här lagringskostnad ingår i priset för vCore.
 - På tjänstnivån affärskritisk `tempdb` resurser anslutna SSD med MDF-filen och IDF-filer och tempDB lagringskostnad ingår i det vCore-priset.
 

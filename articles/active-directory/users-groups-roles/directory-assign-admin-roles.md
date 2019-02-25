@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 95d11fd669817a28e120540fc1db4230585e4575
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 35927b038ee8caa7e826c4edfb7803a2bc0177c8
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56672144"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56750692"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Behörigheter för administratör i Azure Active Directory
 
@@ -42,14 +42,17 @@ Följande administratörsroller är tillgängliga:
 
 * **[Programutvecklare](#application-developer)**: Användare i den här rollen kan skapa programregistreringar när den ”användare kan registrera program” är inställt på Nej. Den här rollen kan också medlemmar måste samtycka på sina egna räkning när den ”användare kan godkänna att appar får åtkomst till företagets data å deras vägnar” är inställt på Nej. Medlemmar i den här rollen har lagts till som ägare när du skapar nya programregistreringar eller företagsprogram.
 
-* **[Administratören Authentication](#authentication-administrator)**: Användare med den här rollen kan ange eller återställa autentiseringsuppgifter för icke-password. Autentisering-administratörer kan tvinga användare att registrera mot befintliga icke-password autentiseringsuppgifter (t.ex. MFA, FIDO) och återkalla ”Kom ihåg att MFA på enheten' prompt för MFA vid nästa inloggning av andra användare som är icke-administratörer eller medlemmar av den följande roller:
+* **[Administratören Authentication](#authentication-administrator)**: Användare med den här rollen kan ange eller återställa autentiseringsuppgifter för icke-password. Autentisering-administratörer kan kräva att användare kan Omregistrera mot befintliga autentiseringsuppgifter för icke-lösenord (till exempel MFA eller FIDO) och återkalla **MFA sparas på enheten**, pwhich rompts för MFA på den nästa inloggningen av användare icke-administratörer eller medlemmar i följande roller:
   * Autentiseringsadministratör
   * Katalogläsare
   * Gäst bjuder in
   * Meddelandecenterläsare
   * Rapportläsare
-  
+
+  En administratör för autentisering är för närvarande i offentlig förhandsversion. Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
   <b>Viktiga</b>: Användare med den här rollen kan ändra autentiseringsuppgifter för personer som kan ha åtkomst till känslig eller privat information eller kritiska konfiguration i och utanför Azure Active Directory. Ändra autentiseringsuppgifterna för en användare kan det innebära att möjlighet att anta användarens identitet och behörigheter. Exempel:
+
   * Programregistrering och företagsprogram ägare, som kan hantera autentiseringsuppgifterna för appar som de äger. Apparna kan ha privilegierad behörigheter i Azure AD och någon annanstans inte beviljas till administratörer för autentisering. Den här sökvägen som en Authentication-administratör kanske kan anta identiteten av ett programmets ägare och sedan ytterligare anta identiteten av ett privilegierat program genom att uppdatera autentiseringsuppgifterna för programmet.
   * Azure-prenumerationsägare, vilka kan ha åtkomst till känslig eller privat information eller kritiska konfiguration i Azure.
   * Säkerhetsgrupper och Office 365-gruppen ägare, vilka kan hantera gruppmedlemskap. Dessa grupper kan bevilja åtkomst till känslig eller privat information eller kritiska konfiguration i Azure AD och andra platser.

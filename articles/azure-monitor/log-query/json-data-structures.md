@@ -1,6 +1,6 @@
 ---
 title: Arbeta med strängar i Azure Monitor loggfrågor | Microsoft Docs
-description: Den här artikeln innehåller en självstudie för att använda Azure Monitor log analytics i Azure-portalen för att fråga efter och analysera loggdata i Azure Monitor.
+description: Den här artikeln innehåller en självstudie för att använda Azure Monitor Log Analytics i Azure-portalen för att fråga efter och analysera loggdata i Azure Monitor.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
-ms.openlocfilehash: dda7ef2e4e974ea053f030a3ebe71a16872612b0
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 718b12c8a66d66a75796f88ef31b5f0f62abbbc4
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55993732"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56750964"
 ---
 # <a name="working-with-json-and-data-structures-in-azure-monitor-log-queries"></a>Arbeta med JSON och datastrukturer i Azure Monitor log-frågor
 
 > [!NOTE]
-> Bör du genomföra [Kom igång med Azure Monitor log analytics](get-started-portal.md) och [komma igång med Azure Monitor loggfrågor](get-started-queries.md) innan du slutför den här lektionen.
+> Bör du genomföra [Kom igång med Azure Monitor Log Analytics](get-started-portal.md) och [komma igång med Azure Monitor loggfrågor](get-started-queries.md) innan du slutför den här lektionen.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 

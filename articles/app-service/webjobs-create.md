@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: glenga;msangapu;david.ebbo;suwatch;pbatum;naren.soni;
 ms.custom: seodec18
-ms.openlocfilehash: 43ec22836cb32c21953b9eb6871b9efe300cbf9e
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 0f2053e978b7c890f4e175515ed54f69694950c6
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56001178"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56749927"
 ---
 # <a name="run-background-tasks-with-webjobs-in-azure-app-service"></a>Kör bakgrundsuppgifter med WebJobs i Azure App Service
 
@@ -47,8 +47,7 @@ I följande tabell beskrivs skillnaderna mellan *kontinuerlig* och *utlöses* We
 | Körs på alla instanser som webbappen körs på. Du kan också begränsa Webbjobbet till en enda instans. |Körs på en enda instans väljer Azure för belastningsutjämning.|
 | Stöd för fjärrfelsökning. | Inte stöd för fjärrfelsökning.|
 
-> [!NOTE]
-> En webbapp kan timeout efter 20 minuters inaktivitet. Endast begäranden till den faktiska webbappen återställer timern. Visa appens konfiguration i Azure-portalen eller genom att göra begäranden till webbplatsen avancerade verktyg (https:// < app_name >. scm.azurewebsites.net) inte återställa timern. Om din app körs kontinuerligt eller schemalagt WebJobs, aktivera **alltid på** så att Webbjobb körs på ett tillförlitligt sätt. Den här funktionen är endast tillgänglig i den Basic, Standard och Premium [prisnivåer](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+[!INCLUDE [webjobs-always-on-note](../../includes/webjobs-always-on-note.md)]
 
 ## <a name="acceptablefiles"></a>Filtyper som stöds för skript eller program
 
@@ -181,10 +180,9 @@ Du kan ange en [CRON-uttryck](../azure-functions/functions-bindings-timer.md#cro
 {
     "schedule": "0 */15 * * * *"
 }
-``` 
+```
 
-> [!NOTE]
-> När du distribuerar ett WebJob från Visual Studio, markera din `settings.job` filegenskaper som **kopiera om nyare**.
+Mer information finns i [schemalägga ett utlösta Webbjobb](webjobs-dotnet-deploy-vs.md#scheduling-a-triggered-webjob).
 
 ## <a name="ViewJobHistory"></a> Visa jobbets historik
 

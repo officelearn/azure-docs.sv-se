@@ -11,13 +11,13 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
 manager: craigg
-ms.date: 01/04/2019
-ms.openlocfilehash: 12b0690c7653b03c8099253bee509a79a2ae2600
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.date: 02/22/2019
+ms.openlocfilehash: cdd9f4eed30744f0eb65f8890eb1d7149f39736c
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55561866"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56750250"
 ---
 # <a name="determine-vnet-subnet-size-for-azure-sql-database-managed-instance"></a>Bestämma storleken för VNet-undernätet för Azure SQL Database Managed Instance
 
@@ -27,10 +27,10 @@ Antalet instanser som hanteras som kan distribueras i undernät för virtuellt n
 
 När du skapar en hanterad instans, tilldelar Azure ett antal virtuella datorer beroende på vilken nivå som du valde under etableringen. Eftersom de virtuella datorerna är kopplade till ditt undernät, kräver de IP-adresser. För att säkerställa hög tillgänglighet under normal drift och underhåll, kan Azure allokera fler virtuella datorer. Därför kan är antalet begärda IP-adresser i ett undernät större än antalet instanser som hanteras i det undernätet.
 
-Enligt design, en hanterad instans måste ha minst 16 IP-adresser i ett undernät och använder upp till 256 IP-adresser. Du kan därmed använda nätmasker /28 /24 när du definierar dina IP-adressintervall för undernätet.
+Enligt design, en hanterad instans måste ha minst 16 IP-adresser i ett undernät och använder upp till 256 IP-adresser. Därför kan använda du en nätmasker mellan /28 och /24 när du definierar dina IP-adressintervall för undernätet. Lite nätverk mask på/28 (14 värdar per nätverk) är en lämplig storlek för en enda generell användning eller affärskritiska distribution. Lite mask/27 (30 värdar per nätverk) är idealiskt för ett flera hanterad instans-distributioner inom samma virtuella nätverk. Masken bitars inställningarna för /26 (62 värdar) och /24 (254 värdar) kan ytterligare skalning utanför det virtuella nätverket som stöd för ytterligare hanterade instanser.
 
 > [!IMPORTANT]
-> Storleken med 16 IP-adresser i undernätet är minst med begränsade möjligheter för att ytterligare Managed Instance-skala ut. Välja undernät med prefixet /27 eller under rekommenderas starkt.
+> Undernätets storlek med 16 IP-adresser är minst med begränsade möjligheter för att ytterligare Managed Instance-skala ut. Välja undernät med prefixet /27 eller under rekommenderas starkt.
 
 ## <a name="determine-subnet-size"></a>Fastställa undernätets storlek
 

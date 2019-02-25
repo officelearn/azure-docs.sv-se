@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
-ms.openlocfilehash: b6a7fe2c12b2f1f5bcc0ba8cccd1a51ee39c4a6f
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: e5e80ac2229c3a2962702527dc3162229c25a5c5
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55882098"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56750879"
 ---
 # <a name="troubleshoot-problems-enabling-or-viewing-application-insights-profiler"></a>Felsöka problem med att aktivera och visa Application Insights Profiler
 
@@ -123,6 +123,8 @@ Dessa parametrar ta bort mappen som används av Application Insights Profiler oc
 Profiler körs som ett kontinuerligt webbjobb i webbapp. Du kan öppna webbappresursen som i den [Azure-portalen](https://portal.azure.com). I den **WebJobs** fönstret Kontrollera status för **ApplicationInsightsProfiler**. Om den inte körs öppnar **loggar** vill ha mer information.
 
 ## <a name="troubleshoot-problems-with-profiler-and-azure-diagnostics"></a>Felsöka problem med Profiler och Azure Diagnostics
+
+  >**Det finns en bugg i profiler som levereras i den senaste versionen av WAD för molntjänster.** För att kunna använda profiler med en molnbaserad tjänst, stöder den versionen 2.7.2 endast AI-SDK. Om du använder en nyare version av AI-SDK måste du gå tillbaka till 2.7.2 för att kunna använda profiler.
 
 Om du vill se om Profiler är korrekt konfigurerad genom Azure Diagnostics-data, gör du följande tre saker: 
 1. Kontrollera först om du vill se om innehållet i Azure Diagnostics-konfiguration som distribueras är vad du förväntar dig. 

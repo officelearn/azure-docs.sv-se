@@ -1,0 +1,1 @@
+När du har skapat din watcher utlöses händelsen AnchorLocated för varje ankare som begärdes. Den här händelsen utlöses när en fästpunkt finns eller om fästpunkten inte går att hitta. Om det händer anges orsaken i status. När alla fästpunkter för en Övervakare bearbetas kan hitta eller inte hittas, och sedan LocateAnchorsCompleted händelsen utlöses.

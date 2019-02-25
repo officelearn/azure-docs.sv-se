@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: bwren
-ms.openlocfilehash: 6c6bd31961022957ec1a09fef6058ad32476e1c7
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 7eb5f090026b415e3c980116a9317594f4ca8115
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56005105"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56750777"
 ---
 # <a name="using-functions-in-azure-monitor-log-queries"></a>Med hjälp av funktioner i Azure Monitor log-frågor
 
@@ -32,7 +32,7 @@ Om du vill använda en loggfråga med en annan fråga kan du spara den som en fu
 
 ## <a name="create-a-function"></a>Skapa en funktion
 
-Skapa en funktion i log analytics i Azure portal genom att klicka på **spara** och sedan tillhandahålla informationen i följande tabell.
+Skapa en funktion med Log Analytics i Azure portal genom att klicka på **spara** och sedan tillhandahålla informationen i följande tabell.
 
 | Inställning | Beskrivning |
 |:---|:---|

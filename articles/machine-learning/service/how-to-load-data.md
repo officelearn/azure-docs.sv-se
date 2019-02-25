@@ -10,22 +10,33 @@ ms.author: cforbe
 author: cforbe
 manager: cgronlun
 ms.reviewer: jmartens
-ms.date: 12/04/2018
+ms.date: 2/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: 08dcb75fabc109a8869151402d3a448333beb556
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 0fe77a1093bec52c3786a9ae623a2d63e1ba82ce
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247535"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56750947"
 ---
 # <a name="load-and-read-data-with-azure-machine-learning"></a>Läsa in och läsa data med Azure Machine Learning
 
-I den här artikeln får du lära dig olika metoder för att läsa in data med hjälp av den [Azure Machine Learning Data Prep SDK](https://aka.ms/data-prep-sdk). SDK stöder flera funktioner för data datainmatning, inklusive:
+I den här artikeln får du lära dig olika metoder för att läsa in data med hjälp av Azure Machine Learning Data Prep SDK. Referensdokumentation för SDK finns i den [översikt](https://aka.ms/data-prep-sdk). SDK stöder flera funktioner för data datainmatning, inklusive:
 
 * Läsa in från många filtyper med parsning parametern inferens (kodning, avgränsare, rubriker)
 * Typ konverze med inferens under inläsningen av filen
 * Stödet för MS SQL Server och Azure Data Lake Storage
+
+I följande tabell visas en uppsättning funktioner som används för att läsa in data från vanliga filtyper.
+
+| Filtyp | Funktion | Referenslänk |
+|-------|-------|-------|
+|Alla|`auto_read_file()`|[Referens](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep?view=azure-dataprep-py#auto-read-file-path--filepath--include-path--bool---false-----azureml-dataprep-api-dataflow-dataflow)|
+|Text|`read_lines()`|[Referens](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep?view=azure-dataprep-py#read-lines-path--filepath--header--azureml-dataprep-api-engineapi-typedefinitions-promoteheadersmode----promoteheadersmode-none--0---encoding--azureml-dataprep-api-engineapi-typedefinitions-fileencoding----fileencoding-utf8--0---skip-rows--int---0--skip-mode--azureml-dataprep-api-engineapi-typedefinitions-skipmode----skipmode-none--0---comment--str---none--include-path--bool---false-----azureml-dataprep-api-dataflow-dataflow)|
+|CSV|`read_csv()`|[Referens](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep?view=azure-dataprep-py#read-csv-path--filepath--separator--str--------header--azureml-dataprep-api-engineapi-typedefinitions-promoteheadersmode----promoteheadersmode-constantgrouped--3---encoding--azureml-dataprep-api-engineapi-typedefinitions-fileencoding----fileencoding-utf8--0---quoting--bool---false--inference-arguments--azureml-dataprep-api-builders-inferencearguments---none--skip-rows--int---0--skip-mode--azureml-dataprep-api-engineapi-typedefinitions-skipmode----skipmode-none--0---comment--str---none--include-path--bool---false--archive-options--azureml-dataprep-api--archiveoption-archiveoptions---none-----azureml-dataprep-api-dataflow-dataflow)|
+|Excel|`read_excel()`|[Referens](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep?view=azure-dataprep-py#read-excel-path--filepath--sheet-name--str---none--use-column-headers--bool---false--inference-arguments--azureml-dataprep-api-builders-inferencearguments---none--skip-rows--int---0--include-path--bool---false-----azureml-dataprep-api-dataflow-dataflow)|
+|Fast bredd|`read_fwf()`|[Referens](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep?view=azure-dataprep-py#read-fwf-path--filepath--offsets--typing-list-int---header--azureml-dataprep-api-engineapi-typedefinitions-promoteheadersmode----promoteheadersmode-constantgrouped--3---encoding--azureml-dataprep-api-engineapi-typedefinitions-fileencoding----fileencoding-utf8--0---inference-arguments--azureml-dataprep-api-builders-inferencearguments---none--skip-rows--int---0--skip-mode--azureml-dataprep-api-engineapi-typedefinitions-skipmode----skipmode-none--0---include-path--bool---false-----azureml-dataprep-api-dataflow-dataflow)|
+|JSON|`read_json()`|[Referens](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep?view=azure-dataprep-py#read-json-path--filepath--encoding--azureml-dataprep-api-engineapi-typedefinitions-fileencoding----fileencoding-utf8--0---flatten-nested-arrays--bool---false--include-path--bool---false-----azureml-dataprep-api-dataflow-dataflow)|
 
 ## <a name="load-data-automatically"></a>Läsa in data automatiskt
 
@@ -43,7 +54,7 @@ Det här är användbart för att automatiskt upptäcka filtyp, kodning och andr
 * Hoppar över tomma poster överst i filen
 * Procedurens och ange rubrikraden
 
-Du kan också om du vet filen Skriv förbereds i förväg och vill styra hur tolkas uttryckligen fortsätta den här artikeln för att se den speciella funktioner i SDK innehåller följande.
+Om du vet filen Skriv förbereds i förväg och vill styra hur tolkas uttryckligen kan du också använda fil-specifika funktioner.
 
 ## <a name="load-text-line-data"></a>Läsa in text raddata
 
@@ -59,8 +70,7 @@ dataflow.head(5)
 |0|Datum \| \| minsta temperatur \| \| maximalt temperatur|
 |1|2015-07-1 \| \| -4.1 \| \| 10.0|
 |2|2015-07-2 \| \| -0.8 \| \| 10.8|
-|3|2015-07-3 \| \| -7.0 \| \| 10,5|
-|4|2015-07-4 \| \| -5.5 \| \| 9.3|
+
 
 När data matas in, kör följande kod för att konvertera objektet dataflöde till ett Pandas-dataframe.
 
@@ -73,7 +83,6 @@ pandas_df = dataflow.to_pandas_dataframe()
 När du läser avgränsade filer kan underliggande körningen härleda parsning parametrarna (avgränsare, kodning, om du vill använda rubriker osv.). Kör följande kod för att försöka läsa en CSV-fil genom att ange endast dess plats.
 
 ```python
-# SAS expires June 16th, 2019
 dataflow = dprep.read_csv(path='https://dpreptestfiles.blob.core.windows.net/testfiles/read_csv_duplicate_headers.csv?st=2018-06-15T23%3A01%3A42Z&se=2019-06-16T23%3A01%3A00Z&sp=r&sv=2017-04-17&sr=b&sig=ugQQCmeC2eBamm6ynM7wnI%2BI3TTDTM6z9RPKj4a%2FU6g%3D')
 dataflow.head(5)
 ```
@@ -83,8 +92,7 @@ dataflow.head(5)
 |0||stnam|fipst|leaid|leanm10|ncessch|MAM_MTH00numvalid_1011|
 |1|ALABAMA|1|101710|Hale County|10171002158| |
 |2|ALABAMA|1|101710|Hale County|10171002162| |
-|3|ALABAMA|1|101710|Hale County|10171002156| |
-|4|ALABAMA|1|101710|Hale County|10171000588|2|
+
 
 Om du vill exkludera rader under inläsningen, definiera den `skip_rows` parametern. Den här parametern hoppar över inläsning rader fallande i CSV-filen (med ett ett-baserade index).
 
@@ -98,24 +106,22 @@ dataflow.head(5)
 |-----|-------|---------| -------|------|-----|------|-----|
 |0|ALABAMA|1|101710|Hale County|10171002158|29|
 |1|ALABAMA|1|101710|Hale County|10171002162|40 |
-|2|ALABAMA|1|101710|Hale County|10171002156| 43|
-|3|ALABAMA|1|101710|Hale County|10171000588|2|
-|4|ALABAMA|1|101710|Hale County|10171000589|23 |
 
 Kör följande kod för att visa datatyperna för kolumnen.
 
 ```python
 dataflow.head(1).dtypes
-
-stnam                     object
-fipst                     object
-leaid                     object
-leanm10                   object
-ncessch                   object
-schnam10                  object
-MAM_MTH00numvalid_1011    object
-dtype: object
 ```
+Utdata:
+
+    stnam                     object
+    fipst                     object
+    leaid                     object
+    leanm10                   object
+    ncessch                   object
+    schnam10                  object
+    MAM_MTH00numvalid_1011    object
+    dtype: object
 
 Som standard ändrar inte Azure Machine Learning Data Prep SDK-datatypen. Datakällan som du läser från är en textfil, så att SDK läser alla värden som strängar. I det här exemplet ska numeriska kolumner parsas as-nummer. Ange den `inference_arguments` parameter `InferenceArguments.current_culture()` automatiskt härleda och konvertera tabellens kolumntyper under läsa filen.
 
@@ -124,16 +130,18 @@ dataflow = dprep.read_csv(path='https://dpreptestfiles.blob.core.windows.net/tes
                           skip_rows=1,
                           inference_arguments=dprep.InferenceArguments.current_culture())
 dataflow.head(1).dtypes
-
-stnam                      object
-fipst                     float64
-leaid                     float64
-leanm10                    object
-ncessch                   float64
-schnam10                   object
-ALL_MTH00numvalid_1011    float64
-dtype: object
 ```
+Utdata:
+
+    stnam                      object
+    fipst                     float64
+    leaid                     float64
+    leanm10                    object
+    ncessch                   float64
+    schnam10                   object
+    ALL_MTH00numvalid_1011    float64
+    dtype: object
+
 
 Flera av kolumnerna som identifierades på rätt sätt som numeriska och deras typ har angetts till `float64`.
 
@@ -164,9 +172,6 @@ dataflow = dprep.read_excel(path='./data/excel.xlsx', sheet_name='Sheet2', use_c
 |------|------|------|-----|------|-----|-------|----|-----|-----|
 |0|1|Avatar|Fox|2788|760.5|0.273|2027.5|0.727|2009 ^|
 |1|2|Titanic|Par.|2186.8|658.7|0.301|1528.1|0.699|1997 ^|
-|2|3|Marvel's Avengers|BV|1518.6|623.4|0.41|895.2|0.59|2012|
-|3|4|Harry Potter och den Deathly Hallows del 2|WB|1341.5|381|0.284|960.5|0.716|2011|
-|4|5|Låsta|BV|1274.2|400.7|0.314|873.5|0.686|2013|
 
 ## <a name="load-fixed-width-data-files"></a>Läsa in datafiler med fast bredd
 
@@ -181,9 +186,7 @@ dataflow.head(5)
 |------|------|------|-----|------|-----|-------|----|-----|----|
 |0|010003|99999|MUSENHETEN NORGE|NO|NO|ENSO||||
 |1|010010|99999|JAN MAYEN|NO|JN|ENJA|+70933|-008667|+00090|
-|2|010013|99999|ROST|NO|NO|||||
-|3|010014|99999|SOERSTOKKEN|NO|NO|ENSO|+59783|+005350|+00500|
-|4|010015|99999|BRINGELAND|NO|NO|ENBL|+61383|+005867|+03270|
+
 
 För att undvika identifiering av rubriken och parsa rätt data, skicka `PromoteHeadersMode.NONE` till den `header` parametern.
 
@@ -197,14 +200,11 @@ dataflow = dprep.read_fwf('./data/fixed_width_file.txt',
 |------|------|------|-----|------|-----|-------|----|-----|----|
 |0|010000|99999|MUSENHETEN NORGE|NO|NO_1|ENRS|Column7|Column8|Column9|
 |1|010003|99999|MUSENHETEN NORGE|NO|NO|ENSO||||
-|2|010010|99999|JAN MAYEN|NO|JN|ENJA|+70933|-008667|+00090|
-|3|010013|99999|ROST|NO|NO|||||
-|4|010014|99999|SOERSTOKKEN|NO|NO|ENSO|+59783|+005350|+00500|
-|5|010015|99999|BRINGELAND|NO|NO|ENBL|+61383|+005867|+03270|
+
 
 ## <a name="load-sql-data"></a>Läs in SQL-data
 
-SDK: N kan också läsa in data från en SQL-källa. För närvarande stöds endast Microsoft SQL Server. Om du vill läsa data från en SQLServer, skapa en `MSSQLDataSource` objekt som innehåller anslutningsparametrarna. Parametern password av `MSSQLDataSource` accepterar en `Secret` objekt. Du kan skapa hemliga objekt på två sätt:
+SDK: N kan också läsa in data från en SQL-källa. För närvarande stöds endast Microsoft SQL Server. Om du vill läsa data från en SQLServer, skapa en [ `MSSQLDataSource` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.mssqldatasource?view=azure-dataprep-py) objekt som innehåller anslutningsparametrarna. Parametern password av `MSSQLDataSource` accepterar en [ `Secret` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep?view=azure-dataprep-py#register-secret-value--str--id--str---none-----azureml-dataprep-api-engineapi-typedefinitions-secret) objekt. Du kan skapa hemliga objekt på två sätt:
 
 * Registrera hemligheten och dess värde med motorn för körning.
 * Skapa hemligheten med endast en `id` (om värdet för hemligheten har redan registrerats i körningsmiljön) med hjälp av `dprep.create_secret("[SECRET-ID]")`.
@@ -230,8 +230,7 @@ dataflow.head(5)
 |0|680|HL-ram – svart, 58|FR-R92B-58|Svart|1059.3100|1431.50|58|1016.04|18|6|2002-06-01 00:00:00 + 00:00|Ingen|Ingen|b-GIF89aP\x001\x00\xf7\x00\x00\x00\x00\x00\x80...|no_image_available_small.gif|43dd68d6-14a4-461f-9069-55309d90ea7e|2008-03-11 |0:01:36.827000 + 00:00|
 |1|706|HL-ram – röd, 58|FR-R92R-58|Röd|1059.3100|1431.50|58|1016.04|18|6|2002-06-01 00:00:00 + 00:00|Ingen|Ingen|b-GIF89aP\x001\x00\xf7\x00\x00\x00\x00\x00\x80...|no_image_available_small.gif|9540ff17-2712-4c90-a3d1-8ce5568b2462|2008-03-11 |10:01:36.827000 + 00:00|
 |2|707|Sport – 100-Hjälm, röd|HL-U509-R|Röd|13.0863|34.99|Ingen|Ingen|35|33|2005-07-01 00:00:00 + 00:00|Ingen|Ingen|b-GIF89aP\x001\x00\xf7\x00\x00\x00\x00\x00\x80...|no_image_available_small.gif|2e1ef41a-c08a-4ff6-8ada-bde58b64a712|2008-03-11 |10:01:36.827000 + 00:00|
-|3|708|Sport – 100-Hjälm, svart|HL-U509|Svart|13.0863|34.99|Ingen|Ingen|35|33|2005-07-01 00:00:00 + 00:00|Ingen|Ingen|b-GIF89aP\x001\x00\xf7\x00\x00\x00\x00\x00\x80...|no_image_available_small.gif|a25a44fb-c2de-4268-958f-110b8d7621e2|2008-03-11 |10:01:36.827000 + 00:00|
-|4|709|Mountainbikestrumpor, M|SÅ-B909-M|Vit|3.3963|9,50|M|Ingen|27|18|2005-07-01 00:00:00 + 00:00|2006-06-30 00:00:00 + 00:00|Ingen|b-GIF89aP\x001\x00\xf7\x00\x00\x00\x00\x00\x80...|no_image_available_small.gif|18f95f47-1540-4e02-8f1f-cc1bcb6828d0|2008-03-11 |10:01:36.827000 + 00:00|
+
 
 ## <a name="use-azure-data-lake-storage"></a>Använda Azure Data Lake Storage
 
@@ -311,3 +310,8 @@ dataflow.to_pandas_dataframe().head()
 |2|1011878|100 mil marknaden|http://www.pfcmarkets.com |507 Harrison St|Kalamazoo|Kalamazoo|
 |3|1009364|106 S. Main gata bönder marknaden|http://thetownofsixmile.wordpress.com/ |106 S. Main gata|Sex mil|||
 |4|1010691|10 gata Community bönder marknaden|https://agrimissouri.com/... |10 gata och poppel|Lamar|Barton|
+
+## <a name="next-steps"></a>Nästa steg
+
+* Finns i SDK [översikt](https://aka.ms/data-prep-sdk) designmönster och användningsexempel
+* Finns i Azure Machine Learning Data Prep SDK [självstudien](tutorial-data-prep.md) ett exempel på hur du löser ett specifikt scenario

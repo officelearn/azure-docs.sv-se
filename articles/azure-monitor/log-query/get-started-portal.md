@@ -1,5 +1,5 @@
 ---
-title: Kom igång med Azure Monitor log analytics | Microsoft Docs
+title: Kom igång med Azure Monitor Log Analytics | Microsoft Docs
 description: Den här artikeln innehåller en självstudie för att använda Log Analytics i Azure-portalen för att skriva frågor.
 services: log-analytics
 author: bwren
@@ -8,18 +8,18 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.date: 08/20/2018
 ms.author: bwren
-ms.openlocfilehash: 2adb23b63c3a8be56dc55293c7bb06534d9305c4
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: ec6f3884504c94b7669df21882aeb2a1eb9d7220
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56242115"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56750590"
 ---
-# <a name="get-started-with-azure-monitor-log-analytics"></a>Kom igång med Azure Monitor log analytics
+# <a name="get-started-with-azure-monitor-log-analytics"></a>Kom igång med Azure Monitor Log Analytics
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-I den här självstudiekursen kommer du lära dig hur du använder Azure Monitor log analytics i Azure-portalen för att skriva Azure Monitor log-frågor. Det får du lära dig hur du:
+I den här självstudiekursen kommer du lära dig hur du använder Azure Monitor Log Analytics i Azure-portalen för att skriva Azure Monitor log-frågor. Det får du lära dig hur du:
 
 - Skriva enkla frågor
 - Förstå schemat för dina data
@@ -30,8 +30,8 @@ I den här självstudiekursen kommer du lära dig hur du använder Azure Monitor
 - Exportera och dela frågor
 
 
-## <a name="meet-log-analytics"></a>Uppfyll logganalys
-Log analytics är ett webbverktyg som används för att skriva och köra Azure Monitor log-frågor. Öppna den genom att välja **loggar** i Azure Monitor-menyn. Det börjar med en ny tom fråga.
+## <a name="meet-log-analytics"></a>Uppfyll Log Analytics
+Log Analytics är ett webbverktyg som används för att skriva och köra Azure Monitor log-frågor. Öppna den genom att välja **loggar** i Azure Monitor-menyn. Det börjar med en ny tom fråga.
 
 ![Startsida](media/get-started-portal/homepage.png)
 
@@ -78,7 +78,7 @@ Börja med att hämta allt den _händelse_ tabell.
 Event
 ```
 
-Logganalys automatiskt scope resultaten efter:
+Log Analytics scope automatiskt resultaten efter:
 
 - Tidsintervall:  Som standard är frågorna begränsade till den senaste 24 timmarna.
 - Antal resultat: Resultatet är begränsade till högst 10 000 poster.
@@ -116,7 +116,7 @@ Resultattabellen innehåller ofta många kolumner. Du kanske upptäcker att viss
 
 
 ## <a name="select-a-time-range"></a>Välj ett tidsintervall
-Som standard logganalys tillämpar den _senaste 24 timmarna_ tidsintervall. Om du vill använda ett annat intervall, Välj ett annat värde via tidsväljare och klicka på **kör**. Utöver de förinställda värdena kan du använda den _anpassat tidsintervall_ möjlighet att välja ett absolut adressintervall för din fråga.
+Som standard tillämpar Log Analytics de _senaste 24 timmarna_ tidsintervall. Om du vill använda ett annat intervall, Välj ett annat värde via tidsväljare och klicka på **kör**. Utöver de förinställda värdena kan du använda den _anpassat tidsintervall_ möjlighet att välja ett absolut adressintervall för din fråga.
 
 ![Tidsväljare](media/get-started-portal/time-picker.png)
 
@@ -170,7 +170,7 @@ Du kan spara sidan hela eller en enskild fråga som en funktion. Funktioner är 
 
 ![Spara funktionen](media/get-started-portal/save-function.png)
 
-Log analytics-frågor finns alltid sparas i en vald arbetsyta och delas med andra användare av arbetsytan.
+Log Analytics-frågor finns alltid sparas i en vald arbetsyta och delas med andra användare av arbetsytan.
 
 ## <a name="load-queries"></a>Läsa in frågor
 Query Explorer-ikonen visas i området längst upp till höger. Här visas alla sparade frågor efter kategori. Du kan också markera specifika frågor som Favoriter för att snabbt hitta dem i framtiden. Dubbelklicka på en sparad fråga om du vill lägga till den i det aktuella fönstret.
@@ -178,7 +178,7 @@ Query Explorer-ikonen visas i området längst upp till höger. Här visas alla 
 ![Frågeutforskaren](media/get-started-portal/query-explorer.png)
 
 ## <a name="export-and-share-as-link"></a>Exportera och dela som länk
-Log analytics har stöd för flera exporterar metoder:
+Log Analytics har stöd för flera exporterar metoder:
 
 - Excel: Spara resultatet som en CSV-fil.
 - Power BI: Exportera resultaten till power BI. Se [importera Azure Monitor log-data till Power BI](../../azure-monitor/platform/powerbi.md) mer information.

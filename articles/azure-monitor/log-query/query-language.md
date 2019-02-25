@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/11/2019
 ms.author: bwren
-ms.openlocfilehash: 01d452f97134093e9b40b6ec32f1c9fed41564aa
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: ecbea91cef69c80975dd105c35f526b357033a6b
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56343059"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56749826"
 ---
 # <a name="azure-monitor-log-queries"></a>Azure Monitor log-frågor
 Azure Monitor-loggar bygger på Azure Data Explorer och Azure Monitor log-frågor använder en version av samma Kusto-frågespråket. Den [Kusto-fråga språkdokumentation](/azure/kusto/query) har alla detaljer för språket och ska vara din primära resurs för att skriva Azure Monitor log-frågor. Den här sidan innehåller länkar till andra resurser för att lära dig hur du skriver frågor och på skillnader med Azure Monitor-implementering för språket.
@@ -27,7 +27,7 @@ Azure Monitor-loggar bygger på Azure Data Explorer och Azure Monitor log-frågo
 
 ## <a name="getting-started"></a>Komma igång
 
-- [Kom igång med Azure Monitor log analytics](get-started-portal.md) är en lektion för att skriva frågor och arbeta med resultat i Azure-portalen.
+- [Kom igång med Azure Monitor Log Analytics](get-started-portal.md) är en lektion för att skriva frågor och arbeta med resultat i Azure-portalen.
 - [Kom igång med Azure Monitor log-frågor](get-started-queries.md) är en lektion för att skriva frågor med Azure Monitor-loggdata.
 
 ## <a name="concepts"></a>Begrepp

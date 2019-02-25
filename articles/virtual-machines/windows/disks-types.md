@@ -1,6 +1,6 @@
 ---
-title: Välj en disktyp för Azure IaaS-VM - hanterade diskar
-description: Läs mer om tillgängliga Azure disktyper för virtuella datorer, inklusive ultra SSD, premium SSD, standard SSD-enheter och standardhårddiskar.
+title: Välj en disktyp av för IaaS Windows virtuella datorer i Azure - hanterade diskar
+description: Läs mer om tillgängliga Azure disktyper för Windows-datorer, inklusive ultra SSD, premium SSD, standard SSD-enheter och standardhårddiskar.
 services: virtual-machines-windows,storage
 author: roygara
 ms.author: rogarana
@@ -9,12 +9,12 @@ ms.topic: article
 ms.service: virtual-machines-windows
 ms.tgt_pltfrm: windows
 ms.subservice: disks
-ms.openlocfilehash: f6fefcc0af3c901124e60591488c10a648a9478c
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: 56e262a90f8ef5cda2fa076eab6c030a9cb4af1a
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56427661"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56749366"
 ---
 [!INCLUDE [virtual-machines-disk-types](../../../includes/virtual-machines-managed-disks-types-overview.md)]
 

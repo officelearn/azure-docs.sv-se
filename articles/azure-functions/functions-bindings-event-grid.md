@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 09/04/2018
 ms.author: cshoe
-ms.openlocfilehash: 3d0c72f0178cddd668c0ac029c803ff339a1f6f4
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 12056ebec0f0a23ed255532a8ba27b130ecb81d1
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56311621"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56750454"
 ---
 # <a name="event-grid-trigger-for-azure-functions"></a>Event Grid-utlösare för Azure Functions
 
@@ -30,17 +30,17 @@ Om du vill kan använda du en HTTP-utlösare för att hantera Event Grid-händel
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## <a name="packages---functions-1x"></a>Paket - instruktion i 1.x-funktioner
-
-Event Grid-utlösare finns i den [Microsoft.Azure.WebJobs.Extensions.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid) NuGet-paketet, version 1.x. Källkoden för paketet finns i den [azure-functions-eventgrid-extension](https://github.com/Azure/azure-functions-eventgrid-extension/tree/master) GitHub-lagringsplatsen.
-
-[!INCLUDE [functions-package](../../includes/functions-package.md)]
-
 ## <a name="packages---functions-2x"></a>Paket - fungerar 2.x
 
 Event Grid-utlösare finns i den [Microsoft.Azure.WebJobs.Extensions.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid) NuGet-paketet, version 2.x. Källkoden för paketet finns i den [azure-functions-eventgrid-extension](https://github.com/Azure/azure-functions-eventgrid-extension/tree/v2.x) GitHub-lagringsplatsen.
 
 [!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
+
+## <a name="packages---functions-1x"></a>Paket - instruktion i 1.x-funktioner
+
+Event Grid-utlösare finns i den [Microsoft.Azure.WebJobs.Extensions.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid) NuGet-paketet, version 1.x. Källkoden för paketet finns i den [azure-functions-eventgrid-extension](https://github.com/Azure/azure-functions-eventgrid-extension/tree/master) GitHub-lagringsplatsen.
+
+[!INCLUDE [functions-package](../../includes/functions-package.md)]
 
 ## <a name="example"></a>Exempel
 
@@ -53,31 +53,6 @@ Se exempel språkspecifika för en Event Grid-utlösare:
 * [Python](#python-example)
 
 Ett HTTP-utlösare-exempel finns i [hur du använder HTTP-utlösare](#use-an-http-trigger-as-an-event-grid-trigger) senare i den här artikeln.
-
-### <a name="c-version-1x"></a>C#(Version 1.x)
-
-I följande exempel visas ett fungerar 1.x [C#-funktion](functions-dotnet-class-library.md) som binder till `JObject`:
-
-```cs
-using Microsoft.Azure.WebJobs;
-using Microsoft.Azure.WebJobs.Extensions.EventGrid;
-using Microsoft.Azure.WebJobs.Host;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using Microsoft.Extensions.Logging;
-
-namespace Company.Function
-{
-    public static class EventGridTriggerCSharp
-    {
-        [FunctionName("EventGridTriggerCSharp")]
-        public static void Run([EventGridTrigger]JObject eventGridEvent, ILogger log)
-        {
-            log.LogInformation(eventGridEvent.ToString(Formatting.Indented));
-        }
-    }
-}
-```
 
 ### <a name="c-2x"></a>C# (2.x)
 
@@ -105,6 +80,31 @@ namespace Company.Function
 
 Mer information finns i paket, [attribut](#attributes), [Configuration](#configuration), och [användning](#usage).
 
+### <a name="c-version-1x"></a>C#(Version 1.x)
+
+I följande exempel visas ett fungerar 1.x [C#-funktion](functions-dotnet-class-library.md) som binder till `JObject`:
+
+```cs
+using Microsoft.Azure.WebJobs;
+using Microsoft.Azure.WebJobs.Extensions.EventGrid;
+using Microsoft.Azure.WebJobs.Host;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using Microsoft.Extensions.Logging;
+
+namespace Company.Function
+{
+    public static class EventGridTriggerCSharp
+    {
+        [FunctionName("EventGridTriggerCSharp")]
+        public static void Run([EventGridTrigger]JObject eventGridEvent, ILogger log)
+        {
+            log.LogInformation(eventGridEvent.ToString(Formatting.Indented));
+        }
+    }
+}
+```
+
 ### <a name="c-script-example"></a>Exempel på C#-skript
 
 I följande exempel visas en utlösare-bindning i en *function.json* fil och en [C#-skriptfunktion](functions-reference-csharp.md) som använder bindningen.
@@ -124,22 +124,6 @@ Här är bindningsdata i den *function.json* fil:
 }
 ```
 
-#### <a name="c-script-version-1x"></a>C#skript (Version 1.x)
-
-Här är funktioner 1.x C#-skriptkoden som binder till `JObject`:
-
-```cs
-#r "Newtonsoft.Json"
-
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-
-public static void Run(JObject eventGridEvent, TraceWriter log)
-{
-    log.Info(eventGridEvent.ToString(Formatting.Indented));
-}
-```
-
 #### <a name="c-script-version-2x"></a>C#skript (Version 2.x)
 
 Här är funktioner 2.x C#-skriptkoden som binder till `EventGridEvent`:
@@ -156,6 +140,22 @@ public static void Run(EventGridEvent eventGridEvent, ILogger log)
 ```
 
 Mer information finns i paket, [attribut](#attributes), [Configuration](#configuration), och [användning](#usage).
+
+#### <a name="c-script-version-1x"></a>C#skript (Version 1.x)
+
+Här är funktioner 1.x C#-skriptkoden som binder till `JObject`:
+
+```cs
+#r "Newtonsoft.Json"
+
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+
+public static void Run(JObject eventGridEvent, TraceWriter log)
+{
+    log.Info(eventGridEvent.ToString(Formatting.Indented));
+}
+```
 
 ### <a name="javascript-example"></a>JavaScript-exempel
 
@@ -528,11 +528,18 @@ Använd ett verktyg som [Postman](https://www.getpostman.com/) eller [curl](http
 * Ange en `Content-Type: application/json` rubrik.
 * Ange en `aeg-event-type: Notification` rubrik.
 * Klistra in den RequestBin-data i begärandetexten.
-* Efter att Webbadressen till din Event Grid-utlösta funktionen med hjälp av följande mönster:
+* Publicera till URL: en för din funktion för Event Grid-utlösare.
+  * Använd följande mönster för 2.x:
 
-```
-http://localhost:7071/admin/extensions/EventGridExtensionConfig?functionName={functionname}
-```
+    ```
+    http://localhost:7071/runtime/webhooks/eventgrid?functionName={FUNCTION_NAME}
+    ```
+
+  * Vid användning av 1.x:
+
+    ```
+    http://localhost:7071/admin/extensions/EventGridExtensionConfig?functionName={FUNCTION_NAME}
+    ```
 
 Den `functionName` parametern måste vara namnet i den `FunctionName` attribut.
 
@@ -591,19 +598,19 @@ Ngrok URL: en få inte särskild hantering av Event Grid, så att din funktion m
 
 Skapa en Event Grid-prenumeration för vilken du vill testa och ge den ngrok slutpunkten.
 
-Använd det här mönstret för slutpunkten för Functions 1.x:
-
-```
-https://{subdomain}.ngrok.io/admin/extensions/EventGridExtensionConfig?functionName={functionname}
-```
-
 Använd det här mönstret för slutpunkten för Functions 2.x:
 
 ```
-https://{subdomain}.ngrok.io/runtime/webhooks/eventgrid?functionName={functionName}
+https://{SUBDOMAIN}.ngrok.io/runtime/webhooks/eventgrid?functionName={FUNCTION_NAME}
 ```
 
-Den `functionName` parametern måste vara namnet i den `FunctionName` attribut.
+Använd det här mönstret för slutpunkten för Functions 1.x:
+
+```
+https://{SUBDOMAIN}.ngrok.io/admin/extensions/EventGridExtensionConfig?functionName={FUNCTION_NAME}
+```
+
+Den `{FUNCTION_NAME}` parametern måste vara namnet i den `FunctionName` attribut.
 
 Här är ett exempel som använder Azure CLI:
 

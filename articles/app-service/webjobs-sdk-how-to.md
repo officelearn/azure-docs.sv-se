@@ -4,45 +4,51 @@ description: Läs mer om hur du skriver kod för WebJobs SDK. Skapa en händelse
 services: app-service\web, storage
 documentationcenter: .net
 author: ggailey777
-manager: cfowler
+manager: jeconnoc
 editor: ''
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/19/2019
+ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: a2e07f9022d7404d037903fda627649918134cb7
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: ba9dbeb01be5a9869b69836b118651cff7f0c92d
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56732746"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56750556"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Så här använder du Azure WebJobs SDK för händelsedrivna Bakgrundsbearbetning
 
-Den här artikeln innehåller råd om hur du skriver kod för [Azure WebJobs SDK](webjobs-sdk-get-started.md). Dokumentationen som gäller för både version 3.x och 2.x av WebJobs SDK. Om det inte finns API skillnaderna finns exempel på båda. Den huvudsakliga ändringen som introduceras med version 3.x är användningen av .NET Core i stället för .NET Framework.
+Den här artikeln innehåller råd om hur du arbetar med Azure WebJobs SDK. Kom igång med WebJobs direkt, se [Kom igång med Azure WebJobs-SDK för händelsedrivna Bakgrundsbearbetning](webjobs-sdk-get-started.md). 
 
->[!NOTE]
-> [Azure Functions](../azure-functions/functions-overview.md) bygger på WebJobs SDK och den här artikellänkar till Azure Functions-dokumentationen för vissa ämnen. Observera följande skillnader mellan Functions och WebJobs-SDK:
+## <a name="webjobs-sdk-versions"></a>WebJobs SDK-versioner
+
+Följande är viktiga skillnader i version 3.x av WebJobs SDK jämfört med version 2.x:
+
+* Version 3.x lägger till stöd för .NET Core.
+* I version 3.x, måste du uttryckligen installerar Storage bindningstillägget krävs av WebJobs SDK. I version 2.x lagringen bindningar ingår i SDK.
+* Visual Studio-verktyg för .NET Core (3.x) projekt skiljer sig från .NET Framework (2.x)-projekt. Mer information finns i [utveckla och distribuera WebJobs med hjälp av Visual Studio – Azure App Service](webjobs-dotnet-deploy-vs.md).
+
+När möjligt, exempel är tillhandahåller för både version 3.x och version 2.x.
+
+> [!NOTE]
+> [Azure Functions](../azure-functions/functions-overview.md) bygger på WebJobs SDK och den här artikellänkar till Azure Functions-dokumentationen för vissa ämnen. Följande är skillnaderna mellan Functions och WebJobs-SDK:
 > * Azure Functions version 2.x motsvarar WebJobs-SDK-version 3.x och Azure Functions 1.x motsvarar WebJobs SDK 2.x. Källa för kodförråd Följ WebJobs SDK numrering.
 > * Exempelkod för Azure Functions C#-klassbibliotek fungerar som WebJobs SDK code förutom du inte behöver en `FunctionName` attribut i ett projekt med WebJobs SDK.
 > * Vissa bindningstyper av stöds bara i funktioner, t.ex HTTP, webhook och Event Grid (som baseras på HTTP).
-> 
+>
 > Mer information finns i [jämföra Azure Functions och WebJobs SDK](../azure-functions/functions-compare-logic-apps-ms-flow-webjobs.md#compare-functions-and-webjobs).
 
-## <a name="prerequisites"></a>Förutsättningar
-
-Den här artikeln förutsätter att du har läst och slutfört uppgifterna i [Kom igång med WebJobs SDK](webjobs-sdk-get-started.md).
-
-## <a name="webjobs-host"></a>WebJobs-värd
+## <a name="webhobs-host"></a>WebHobs värden
 
 Värden är en körningsbehållare för funktioner.  Den lyssnar efter utlösare och-anrop. I version 3.x värden är en implementering av `IHost`, och i version 2.x som du använder den `JobHost` objekt. Du skapar en värdinstans i din kod och skriva kod för att anpassa sitt beteende.
 
 Det här är en viktig skillnad mellan med hjälp av WebJobs SDK direkt och använda den indirekt med hjälp av Azure Functions. Tjänsten styr värden i Azure Functions, och du kan anpassa den genom att skriva kod. Azure Functions kan du anpassa värden beteende via inställningarna i den *host.json* fil. Dessa inställningar är strängar, inte koden, vilket begränsar typerna av anpassningar som du kan göra.
 
-### <a name="host-connection-strings"></a>Anslutningssträngar för värd 
+### <a name="host-connection-strings"></a>Anslutningssträngar för värd
 
 WebJobs SDK ser ut för Azure Storage och Azure Service Bus anslutningssträngar i den *local.settings.json* filen när du kör lokalt eller i den WebJob miljö när du kör i Azure. Som standard en lagringsanslutning sträng inställning med namnet `AzureWebJobsStorage` krävs.  
 
@@ -151,7 +157,20 @@ Funktioner måste vara offentliga metoderna och måste ha ett utlösarattribut e
 
 ### <a name="automatic-trigger"></a>Automatisk utlösare
 
-Automatisk utlösare anropar en funktion som svar på en händelse. Ett exempel finns i kö-utlösare i den [Get artikeln](webjobs-sdk-get-started.md).
+Automatisk utlösare anropar en funktion som svar på en händelse. Överväg följande exempel visar en funktion som utlöses av ett meddelande som har lagts till i Azure Queue storage som läser en blob från Azure BLOB-lagring:
+
+```cs
+public static void Run(
+    [QueueTrigger("myqueue-items")] string myQueueItem,
+    [Blob("samples-workitems/{myQueueItem}", FileAccess.Read)] Stream myBlob,
+    ILogger log)
+{
+    log.LogInformation($"BlobInput processed blob\n Name:{myQueueItem} \n Size: {myBlob.Length} bytes");
+}
+```
+
+Den `QueueTrigger` attributet anger körning för att anropa funktionen när ett kömeddelande som visas i den `myqueue-items` kö. Den `Blob` attributet anger att körningen kan använda kömeddelandet för att läsa en blob i den *exempel-workitems* behållare. Innehållet i kö-meddelandet skickades till funktionen i den `myQueueItem` parametern är namnet på blobben.
+
 
 ### <a name="manual-trigger"></a>Manuell utlösare
 
@@ -345,9 +364,78 @@ Vissa utlösare och bindningar kan du konfigurera deras beteende. Hur du konfigu
 * **Version 3.x:** Konfigurationen är inställd när den `Add<Binding>` metoden anropas `ConfigureWebJobs`.
 * **Version 2.x:** Genom att ange egenskaper i ett konfigurationsobjekt som du anger för att den `JobHost`.
 
+Dessa bindning-specifika inställningar som är likvärdiga med inställningarna i den [host.json projektfilen](../azure-functions/functions-host-json.md) i Azure Functions.
+
+Du kan konfigurera bindningarna som följande:
+
+* [Azure CosmosDB trigger](#azure-cosmosdb-trigger-configuration-version-3x)
+* [Event Hubs-utlösare](#event-hubs-trigger-configuration-version-3x)
+* [Queue storage-utlösare](#queue-trigger-configuration)
+* [SendGrid-bindning](#sendgrid-binding-configuration-version-3x)
+* [Service Bus-utlösare](#service-bus-trigger-configuration-version-3x)
+
+### <a name="azure-cosmosdb-trigger-configuration-version-3x"></a>Konfiguration av Azure cosmos DB-utlösare (version 3.x)
+
+I följande exempel visas hur du konfigurerar Azure Cosmos DB-utlösare:
+
+```cs
+static void Main()
+{
+    var builder = new HostBuilder();
+    builder.ConfigureWebJobs(b =>
+    {
+        b.AddAzureStorageCoreServices();
+        b.AddCosmosDB(a =>
+        {
+            a.ConnectionMode = ConnectionMode.Gateway;
+            a.Protocol = Protocol.Https;
+            a.LeaseOptions.LeasePrefix = "prefix1";
+
+        });
+    });
+    var host = builder.Build();
+    using (host)
+    {
+
+        host.Run();
+    }
+}
+```
+
+Mer information finns i den [Azure CosmosDB bindning artikeln](../azure-functions/functions-bindings-cosmosdb-v2.md#hostjson-settings).
+
+### <a name="event-hubs-trigger-configuration-version-3x"></a>Händelsehubbar utlösa konfiguration (version 3.x)
+
+I följande exempel visas hur du konfigurerar Event Hubs-utlösare:
+
+```cs
+static void Main()
+{
+    var builder = new HostBuilder();
+    builder.ConfigureWebJobs(b =>
+    {
+        b.AddAzureStorageCoreServices();
+        b.AddEventHubs(a =>
+        {
+            a.BatchCheckpointFrequency = 5;
+            a.EventProcessorOptions.MaxBatchSize = 256;
+            a.EventProcessorOptions.PrefetchCount = 512;
+        });
+    });
+    var host = builder.Build();
+    using (host)
+    {
+
+        host.Run();
+    }
+}
+```
+
+Mer information finns i den [Händelsehubbar bindning artikeln](../azure-functions/functions-bindings-event-hubs.md#hostjson-settings).
+
 ### <a name="queue-trigger-configuration"></a>Kön utlösarkonfiguration
 
-Vilka inställningar du kan konfigurera för Storage-kö-utlösare beskrivs i Azure Functions [referens för host.json](../azure-functions/functions-host-json.md#queues). I följande exempel visas hur du ställer in dem i konfigurationen:
+I följande exempel visas hur du konfigurerar Storage-kö-utlösare:
 
 #### <a name="version-3x"></a>Version 3.x
 
@@ -374,6 +462,8 @@ static void Main()
 }
 ```
 
+Mer information finns i den [Queue storage bindning artikeln](../azure-functions/functions-bindings-storage-queue.md#hostjson-settings).
+
 #### <a name="version-2x"></a>Version 2.x
 
 ```cs
@@ -388,6 +478,64 @@ static void Main(string[] args)
     host.RunAndBlock();
 }
 ```
+
+Mer information finns i den [referens för host.json v1.x](../azure-functions/functions-host-json-v1.md#queues).
+
+### <a name="sendgrid-binding-configuration-version-3x"></a>SendGrid-bindning konfiguration (version 3.x)
+
+I följande exempel visas hur du konfigurerar SendGrid-utdatabindning:
+
+```cs
+static void Main()
+{
+    var builder = new HostBuilder();
+    builder.ConfigureWebJobs(b =>
+    {
+        b.AddAzureStorageCoreServices();
+        b.AddSendGrid(a =>
+        {
+            a.FromAddress.Email = "samples@functions.com";
+            a.FromAddress.Name = "Azure Functions";
+        });
+    });
+    var host = builder.Build();
+    using (host)
+    {
+
+        host.Run();
+    }
+}
+```
+
+Mer information finns i den [SendGrid bindning artikeln](../azure-functions/functions-bindings-sendgrid.md#hostjson-settings).
+
+### <a name="service-bus-trigger-configuration-version-3x"></a>Konfiguration av Service Bus-utlösare (version 3.x)
+
+I följande exempel visas hur du konfigurerar Service Bus-utlösare:
+
+```cs
+static void Main()
+{
+    var builder = new HostBuilder();
+    builder.ConfigureWebJobs(b =>
+    {
+        b.AddAzureStorageCoreServices();
+        b.AddServiceBus(sbOptions =>
+        {
+            sbOptions.MessageHandlerOptions.AutoComplete = true;
+            sbOptions.MessageHandlerOptions.MaxConcurrentCalls = 16;
+        });
+    });
+    var host = builder.Build();
+    using (host)
+    {
+
+        host.Run();
+    }
+}
+```
+
+Mer information finns i den [Service Bus-bindning artikeln](../azure-functions/functions-bindings-service-bus.md#hostjson-settings).
 
 ### <a name="configuration-for-other-bindings"></a>Konfiguration för andar bindningar
 

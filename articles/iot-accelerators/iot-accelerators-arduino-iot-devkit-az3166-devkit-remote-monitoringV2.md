@@ -9,12 +9,12 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 11/29/2018
 ms.author: isacabe
-ms.openlocfilehash: eb2a6692c0b00dc4419c601228453a8cfc44c02a
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 0f444a4ce41a700af4c55795bca95dbbf95003a4
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54156790"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56750029"
 ---
 # <a name="connect-an-iot-devkit-device-to-the-remote-monitoring-solution-accelerator"></a>Anslut en enhet med IoT DevKit till lösningsacceleratorn för fjärrövervakning
 
@@ -79,7 +79,7 @@ Om du vill kontrollera att det exempelprogram som du laddade upp till DevKit enh
 
 När du kör exempelappen skickar DevKit enheten telemetri från sensorer data via Wi-Fi till utvecklingsacceleratorn. Visa telemetrin:
 
-1. Gå till instrumentpanelen för lösningen och klicka **enheter**.
+1. Gå till instrumentpanelen för lösningen och klicka **Device Explorer**.
 
 1. Klicka på namnet på enheten för DevKit enheten. Du kan se telemetrin från DevKit i realtid på fliken till höger:
 
@@ -87,7 +87,7 @@ När du kör exempelappen skickar DevKit enheten telemetri från sensorer data v
 
 ### <a name="control-the-devkit-device"></a>Styra DevKit enheten
 
-Lösningsacceleratorn för fjärrövervakning kan du styra din enhet via fjärranslutning. Exempelkoden implementerar tre metoder som du ser i den **metoden** avsnittet när du väljer enheten på den **enheter** sidan:
+Lösningsacceleratorn för fjärrövervakning kan du styra din enhet via fjärranslutning. Exempelkoden implementerar tre metoder som du ser i den **metoden** avsnittet när du väljer enheten på den **Device Explorer** sidan:
 
 ![IoT DevKit metoder](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/azure-iot-suite-methods.png)
 
@@ -121,7 +121,7 @@ Om du inte längre behöver lösningsaccelerator kan ta bort den från sidan eta
 
 Om du stöter på problem, se [IoT DevKit vanliga frågor och svar](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/) eller kontakta oss med hjälp av följande kanaler:
 
-* [Gitter.IM](https://gitter.im/Microsoft/azure-iot-developer-kit)
+* [Gitter.im](https://gitter.im/Microsoft/azure-iot-developer-kit)
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/iot-devkit)
 
 ## <a name="next-steps"></a>Nästa steg

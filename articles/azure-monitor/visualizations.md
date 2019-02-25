@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/24/2018
 ms.author: bwren
-ms.openlocfilehash: 73d4bfc3aaeb86568e3f7a3555a664a8815e3280
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: b903d20136beb306d3f38fbebdb70562b3634d31
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56586179"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56749791"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>Visualisera data från Azure Monitor
 Den här artikeln innehåller en sammanfattning av de tillgängliga metoderna för att visualisera logg- och måttdata som lagras i Azure Monitor.
@@ -32,7 +32,7 @@ Visualiseringar, till exempel tabeller och diagram kan hjälpa dig att analysera
 ![Instrumentpanel](media/visualizations/dashboard.png)
 
 ### <a name="advantages"></a>Fördelar
-- Djup integrering i Azure. Visualiseringar kan fästas på instrumentpaneler från flera Azure sidor som måttutforskaren, log analytics och Application Insights.
+- Djup integrering i Azure. Visualiseringar kan fästas på instrumentpaneler från flera Azure sidor, inklusive Metrics Explorer, Log Analytics och Application Insights.
 - Har stöd för både mått och loggar.
 - Kombinera data från flera källor, inklusive utdata från [måttutforskaren](platform/metrics-charts.md), [logga frågor](log-query/log-query-overview.md), och [mappar](app/app-map.md) och tillgänglighet i Application Insights.
 - Alternativet för personliga eller delade instrumentpaneler. Integrerad med Azure [Rollbaserad autentisering (RBAC)](../role-based-access-control/overview.md).

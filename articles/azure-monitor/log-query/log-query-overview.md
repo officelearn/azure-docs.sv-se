@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: bwren
-ms.openlocfilehash: 4c428372868e3d3fac58bc851de8c59ad01d1d8f
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 259a792acb4d2fb8f9695f0f5a856bdf5069f2cd
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56269968"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56749757"
 ---
 # <a name="analyze-log-data-in-azure-monitor"></a>Analysera loggdata i Azure Monitor
 
@@ -102,5 +102,5 @@ Medan [Application Insights](../app/app-insights-overview.md) butiker programdat
 
 
 ## <a name="next-steps"></a>Nästa steg
-- Läs om hur du använder [logganalys för att skapa och redigera loggsökningar](../log-query/portals.md).
+- Läs om hur du använder [loggsökningar i Log Analytics för att skapa och redigera](../log-query/portals.md).
 - Kolla in en [självstudiekurs om hur du skriver frågor](../log-query/get-started-queries.md) med hjälp av det nya frågespråket.

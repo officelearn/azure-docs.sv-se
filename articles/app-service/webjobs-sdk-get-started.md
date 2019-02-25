@@ -4,66 +4,39 @@ description: Introduktion till WebJobs-SDK för händelsedrivna Bakgrundsbearbet
 services: app-service\web, storage
 documentationcenter: .net
 author: ggailey777
-manager: cfowler
+manager: jeconnoc
 editor: ''
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/15/2019
+ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: 390d9dcda18e10c21db8165653faec7880863ba1
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 6b3318ced4c6e40b80172b19d7f664c53e5569cc
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56734480"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56750641"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Kom igång med Azure WebJobs-SDK för händelsedrivna Bakgrundsbearbetning
 
-Den här artikeln visar hur du skapar ett projekt med Azure WebJobs SDK, köra det lokalt och distribuera den till Azure App Service.
+Den här artikeln visar hur du använder Visual Studio 2017 för att skapa ett projekt med Azure WebJobs SDK, köra det lokalt och sedan distribuera den till [Azure App Service](overview.md). Du har skapat projektet är en .NET Core-konsolapp som använder version 3.x av WebJobs SDK. Om du är intresserad av version 2.x som använder .NET Framework, se [utveckla och distribuera WebJobs med hjälp av Visual Studio – Azure App Service](webjobs-dotnet-deploy-vs.md).
 
-Anvisningarna är för [Visual Studio 2017](https://www.visualstudio.com/vs/), men samma uppgifter kan utföras med andra verktyg, till exempel [Visual Studio Code](https://code.visualstudio.com/).
-
-## <a name="what-is-the-azure-webjobs-sdk"></a>Vad är Azure WebJobs-SDK?
-
-Azure WebJobs SDK är ett ramverk som förenklar uppgiften att skriva kod i bakgrunden bearbetning som har åtkomst till data i Azure-tjänster. SDK: N har en deklarativ syntax för att ange händelser som ska utlösa en funktion, till exempel ett nytt meddelande som lagts till i en kö. Liknande deklarativ syntax styr läsning och skrivning av data när en funktion som har utlösts. Det här systemet av utlösare och bindningar hand tar om de flesta på låg nivå kodning uppgifter som är associerade med att komma åt Azure och tjänster från tredje part.
-
-### <a name="functions-triggers-and-bindings"></a>Funktioner, utlösare och bindningar
-
-Ett WebJobs-SDK-projekt definierar en eller flera *functions*. En funktion är en metod som har en utlösare-attributet i dess signaturen för metoden. Ange villkor för att anropa en funktion för utlösare och bindningar ange vad du kan läsa och skriva. Till exempel utlösaren attributet i följande funktion talar om för körningen att anropa funktionen när ett kömeddelande som visas i den `items` kö. Den `Blob` attributet anger att körningen kan använda kömeddelandet för att läsa en blob i den *workitems* behållare. Innehållet i kömeddelandet &mdash; i den `queueTrigger` parametern &mdash; är namnet på blobben.
-
-```cs
-public static void Run(
-    [QueueTrigger("items")] string myQueueItem,
-    [Blob("workitems/{queueTrigger}", FileAccess.Read)] Stream myBlob,
-    TraceWriter log)
-{
-    log.Info($"BlobInput processed blob\n Name:{myQueueItem} \n Size: {myBlob.Length} bytes");
-}
-```
-
-### <a name="versions-2x-and-3x"></a>Versioner 2.x och 3.x
-
-Anvisningarna för hur du skapar ett projekt med WebJobs SDK version 3.x. Den huvudsakliga ändringen som introduceras med version 3.x är användningen av .NET Core i stället för .NET Framework. Skillnader mellan v2.x och v3.x är kallas ut i den här artikeln.
-
-### <a name="azure-functions"></a>Azure Functions
-
-[Azure Functions](../azure-functions/functions-overview.md) erbjuder en serverlös alternativ för dina funktioner. Functions bygger på WebJobs SDK och är ett alternativ när du inte behöver använda WebJobs-SDK direkt. Azure Functions 2.x använder WebJobs SDK 3.x. Mer information finns i [jämförelse mellan Azure Functions och WebJobs SDK](../azure-functions/functions-compare-logic-apps-ms-flow-webjobs.md#compare-functions-and-webjobs).
+Mer information om hur du arbetar med WebJobs SDK finns [hur du använder Azure WebJobs SDK för händelsedrivna Bakgrundsbearbetning](webjobs-sdk-how-to.md).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Den här artikeln förutsätter att du har [ett Azure-konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) och erfarenhet av [appar i Azure App Service](overview.md). För att slutföra stegen i den här artikeln:
-
 * [Installera Visual Studio 2017](/visualstudio/install/) med den **Azure development** arbetsbelastning. Om du redan har Visual Studio men inte har den arbetsbelastningen, lägger du till arbetsbelastningen genom att välja **Verktyg > Hämta verktyg och funktioner**.
-* [Skapa en App Service-app](app-service-web-get-started-dotnet-framework.md). Om du redan har en som du kan distribuera ett Webbjobb ska använda du som istället för att skapa en ny.
+
+* Du måste ha [ett Azure-konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) att publicera projektet WebJobs SDK på Azure.
 
 ## <a name="create-a-project"></a>Skapa ett projekt
 
 1. I Visual Studio väljer **fil > Nytt > projekt**.
 
-2. Välj **Windows Classic Desktop > konsolprogram (.NET Framework)**.
+2. Välj **.NET Core > konsolprogram (.NET Core)**.
 
 3. Ge projektet namnet *WebJobsSDKSample*, och välj sedan **OK**.
 
@@ -71,39 +44,21 @@ Den här artikeln förutsätter att du har [ett Azure-konto](https://azure.micro
 
 ## <a name="webjobs-nuget-packages"></a>WebJobs-NuGet-paket
 
-NuGet-paketen som installerar WebJobs SDK skilja sig åt mellan v2.x och v3.x.
-
-### <a name="install-sdk-version-3x-packages"></a>Installera SDK version 3.x paket
-
 1. Installera de senaste stabila 3.x-versionerna av följande NuGet-paket:
 
     * `Microsoft.Azure.WebJobs`
     * `Microsoft.Azure.WebJobs.Extensions`
 
-    Här är den **Pakethanterarkonsolen** kommandon för version 3.0.3:
+    Här är den **Pakethanterarkonsolen** kommandon för version 3.0.4:
 
     ```powershell
-    Install-Package Microsoft.Azure.WebJobs -version 3.0.2
+    Install-Package Microsoft.Azure.WebJobs -version 3.0.4
     Install-Package Microsoft.Azure.WebJobs.Extensions -version 3.0.1
-    ```
-
-### <a name="install-the-sdk-version-2x-package"></a>Installera SDK version 2.x-paketet
-
-1. Installera den senaste stabila 2.x-versionen av NuGet-paketet `Microsoft.Azure.WebJobs`.
-
-    Här är den **Pakethanterarkonsolen** kommandot för version 2.2.0:
-
-    ```powershell
-    Install-Package Microsoft.Azure.WebJobs -version 2.2.0
     ```
 
 ## <a name="create-the-host"></a>Skapa värden
 
-Värden är körningsbehållare för functions: den lyssnar efter utlösare och-anrop. Värden som du skapar beror på vilken SDK-version.
-
-### <a name="version-3x"></a>Version 3.x
-
-Detta skapar en värd som implementerar [ `IHost` ](/dotnet/api/microsoft.extensions.hosting.ihost), vilket är den allmänna värden i ASP.NET Core. 
+Värden är en behållare för functions runtime som lyssnar efter utlösare och-anrop. Följande steg skapar du en värd som implementerar [ `IHost` ](/dotnet/api/microsoft.extensions.hosting.ihost), vilket är den allmänna värden i ASP.NET Core.
 
 1. I *Program.cs*, lägga till en `using` instruktionen:
 
@@ -129,41 +84,16 @@ Detta skapar en värd som implementerar [ `IHost` ](/dotnet/api/microsoft.extens
     }
     ```
 
-I ASP.NET Core värdkonfigurationer konfigureras genom att anropa metoder på det [ `HostBuilder` ](/dotnet/api/microsoft.extensions.hosting.hostbuilder) instans. Mer information finns i [.NET Allmänt värden](/aspnet/core/fundamentals/host/generic-host). Den `ConfigureWebJobs` tilläggsmetod initierar WebJobs-värden.
-
-### <a name="version-2x"></a>Version 2.x
-
-Följande kod skapar den **JobHost** objekt.
-
-1. I *Program.cs*, lägga till en `using` instruktionen:
-
-   ```cs
-   using Microsoft.Azure.WebJobs;
-   ```
-
-1. Ersätt metoden `Main` med följande kod:
-
-   ```cs
-   static void Main()
-   {
-       var config = new JobHostConfiguration();
-       var host = new JobHost(config);
-       host.RunAndBlock();
-   }
-   ```
-
-Värdkonfigurationer har angetts i den `JobHostConfiguration` instans som används för att skapa den `JobHost`.
+I ASP.NET Core värdkonfigurationer konfigureras genom att anropa metoder på det [ `HostBuilder` ](/dotnet/api/microsoft.extensions.hosting.hostbuilder) instans. Mer information finns i [.NET Allmänt värden](/aspnet/core/fundamentals/host/generic-host). Den `ConfigureWebJobs` tilläggsmetod initierar WebJobs-värden. I `ConfigureWebJobs`, du initiera specifika WebJobs-tillägg och ställa in egenskaperna för dessa tillägg.  
 
 ## <a name="enable-console-logging"></a>Aktivera loggning för konsolen
 
-Vilket loggningsramverk som har utvecklats specifikt för ASP.NET Core rekommenderas för både version 2.x och 3.x av WebJobs SDK. Det här ramverket erbjuder bättre prestanda och mer flexibilitet vid lagringsmedia och filtrering. Mer information finns i [loggning i ASP.NET Core](/aspnet/core/fundamentals/logging).
-
-I det här avsnittet ska ställa du in loggning i konsolen som använder det här ramverket.
+I det här avsnittet konfigurerar du konsolen loggning som använder den [ASP.NET Core loggningsramverk](/aspnet/core/fundamentals/logging).
 
 1. Installera den senaste stabila versionen av följande NuGet-paket:
 
    * `Microsoft.Extensions.Logging` – Vilket loggningsramverk.
-   * `Microsoft.Extensions.Logging.Console` -Konsolen *provider*. En provider skickar loggar till ett visst mål i det här fallet till konsolen.
+   * `Microsoft.Extensions.Logging.Console` -Konsolen-providern som skickar loggar till konsolen.
 
    Här är den **Pakethanterarkonsolen** kommandon för version 2.2.0:
 
@@ -181,11 +111,7 @@ I det här avsnittet ska ställa du in loggning i konsolen som använder det hä
    using Microsoft.Extensions.Logging;
    ```
 
-1. Loggning Koduppdateringar beror på din SDK-version:
-
-    **Version 3.x**
-
-    Anropa den [ `ConfigureLogging` ](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderextensions.configurelogging) metoden på [ `HostBuilder` ](/dotnet/api/microsoft.extensions.hosting.hostbuilder). Den [ `AddConsole` ](/dotnet/api/microsoft.extensions.logging.consoleloggerextensions.addconsole) metoden lägger till konsolen loggning i konfigurationen.
+1. Anropa den [ `ConfigureLogging` ](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderextensions.configurelogging) metoden på [ `HostBuilder` ](/dotnet/api/microsoft.extensions.hosting.hostbuilder). Den [ `AddConsole` ](/dotnet/api/microsoft.extensions.logging.consoleloggerextensions.addconsole) metoden lägger till konsolen loggning i konfigurationen.
 
     ```cs
     builder.ConfigureLogging((context, b) =>
@@ -216,46 +142,23 @@ I det här avsnittet ska ställa du in loggning i konsolen som använder det hä
     }
     ```
 
-    **Version 2.x**
-
-    I den `Main` metoden lägger du till kod för att uppdatera den `JobHostConfiguration` innan du skapar den `JobHost`:
-
-    ```cs
-    config.DashboardConnectionString = "";
-    var loggerFactory = new LoggerFactory();
-    config.LoggerFactory = loggerFactory
-        .AddConsole();
-    ```
-
-    Den `Main` metoden ser nu ut så här:
-
-    ```cs
-    var config = new JobHostConfiguration();
-    config.DashboardConnectionString = "";
-    var loggerFactory = new LoggerFactory();
-    config.LoggerFactory = loggerFactory
-        .AddConsole();
-    var host = new JobHost(config);
-    host.RunAndBlock();
-    ```
-
-    Dessa uppdateringar gör du följande:
+    Den här uppdateringen gör följande:
 
     * Inaktiverar [instrumentpanelen loggning](https://github.com/Azure/azure-webjobs-sdk/wiki/Queues#logs). Instrumentpanelen är en äldre övervakning verktyget och instrumentpanelen loggning rekommenderas inte för stora dataflöden produktionsscenarier.
     * Lägger till konsolen providern med standard [filtrering](webjobs-sdk-how-to.md#log-filtering).
 
 Nu kan du kan lägga till en funktion som utlöses av meddelanden som inkommer på en [Azure Storage-kö](../azure-functions/functions-bindings-storage-queue.md).
 
-## <a name="install-binding-extensions"></a>Installera bindningstillägg
+## <a name="install-the-storage-binding-extension"></a>Installera tillägget för Storage-bindning
 
-Från och med version 3.x, måste du uttryckligen installera tillägg för bindning WebJobs SDK-attribut som du använder i dina funktioner. De enda undantagen är [timerutlösare](../azure-functions/functions-bindings-timer.md) och [HTTP-utlösare](../azure-functions/functions-bindings-http-webhook.md), vilket kräver inte ett tillägg. Version 2.x av WebJobs SDK inte använder tillägg, de ingår i SDK. Om du använder version 2.x kan gå vidare till nästa avsnitt.
+Från och med version 3.x, måste du uttryckligen installerar Storage bindningstillägget krävs av WebJobs SDK. I tidigare versioner av ingår Storage-bindningar i SDK.
 
 1. Installera den senaste stabila versionen av den [Microsoft.Azure.WebJobs.Extensions.Storage](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage) NuGet-paketet, version 3.x. 
 
-    Här är den **Pakethanterarkonsolen** kommandot för version 3.0.2:
+    Här är den **Pakethanterarkonsolen** kommandot för version 3.0.3:
 
     ```powershell
-    Install-Package Microsoft.Azure.WebJobs.Extensions.Storage -Version 3.0.2
+    Install-Package Microsoft.Azure.WebJobs.Extensions.Storage -Version 3.0.3
     ```
 
 2. I den `ConfigureWebJobs` tilläggsmetod, anrop den `AddAzureStorage` metoden på den [ `HostBuilder` ](/dotnet/api/microsoft.extensions.hosting.hostbuilder) instans att initiera Storage-tillägget. Nu kan den `ConfigureWebJobs` metoden ser ut som i följande exempel:
@@ -270,7 +173,7 @@ Från och med version 3.x, måste du uttryckligen installera tillägg för bindn
 
 ## <a name="create-a-function"></a>Skapa en funktion
 
-1. Högerklicka på projektet, Välj **Lägg till** > **nytt objekt...** , och namnge den nya C# klassfil *Functions.cs*.
+1. Högerklicka på projektet, Välj **Lägg till** > **nytt objekt...** , Välj **klass**, namnge den nya C# klassfil *Functions.cs*, och välj **Lägg till**.
 
 1. Ersätt den genererade mallen i Functions.cs, med följande kod:
 
@@ -296,7 +199,7 @@ Från och med version 3.x, måste du uttryckligen installera tillägg för bindn
 
 ## <a name="create-a-storage-account"></a>skapar ett lagringskonto
 
-Azure Storage-emulatorn som körs lokalt har inte alla funktioner som krävs för WebJobs SDK. Så i det här avsnittet du skapar ett lagringskonto i Azure och konfigurera projektet för att använda den.
+Azure Storage-emulatorn som körs lokalt har inte alla funktioner som krävs för WebJobs SDK. Så i det här avsnittet du skapar ett lagringskonto i Azure och konfigurera projektet för att använda den. Om du redan har ett lagringskonto kan du gå vidare till steg 6.
 
 1. Öppna **Server Explorer** i Visual studio och logga in på Azure. Högerklicka på den **Azure** noden och välj sedan **Anslut till Microsoft Azure-prenumeration**.
 
@@ -326,9 +229,9 @@ Azure Storage-emulatorn som körs lokalt har inte alla funktioner som krävs fö
 
 WebJobs SDK söker efter lagringsanslutningssträngen i programinställningarna i Azure. När du kör lokalt, efter det här värdet i den lokala konfigurationsfilen eller miljövariabler.
 
-### <a name="appsettingsjson-sdk-version-3x"></a>appsettings.json (SDK version 3.x)
+1. Högerklicka på projektet, Välj **Lägg till** > **nytt objekt...** , Välj **JavaScript JSON-konfigurationsfil**, ge den nya filen namnet *appsettings.json* och väljer **Lägg till**. 
 
-1. Skapa en *appsettings.json* filen eller lägga till en `AzureWebJobsStorage` fältet, som i följande exempel:
+1. I den nya filen lägger du till en `AzureWebJobsStorage` fältet, som i följande exempel:
 
     ```json
     {
@@ -338,17 +241,7 @@ WebJobs SDK söker efter lagringsanslutningssträngen i programinställningarna 
 
 1. Ersätt *{lagringsanslutningssträng}* med den anslutningssträng som du kopierade tidigare.
 
-### <a name="appconfig-sdk-version-2x"></a>App.config (SDK version 2.x)
-
-1. Lägg till följande XML-filen till den *App.config* filen omedelbart efter att `<configuration>` tagg.
-
-   ```xml
-   <connectionStrings>
-     <add name="AzureWebJobsStorage" connectionString="{storage connection string}" />
-   </connectionStrings>
-   ```
-
-1. Ersätt *{lagringsanslutningssträng}* med den anslutningssträng som du kopierade tidigare.
+1. Välj den *appsettings.json* filen i Solution Explorer och i den **egenskaper** ställer **kopiera till utdatakatalog** till **kopiera om nyare**.
 
 Senare, lägger du till den samma inställningen för anslutningssträngen app i din app i Azure App Service.
 
@@ -356,7 +249,7 @@ Senare, lägger du till den samma inställningen för anslutningssträngen app i
 
 I det här avsnittet skapar du och köra projektet lokalt och Utlös funktionen genom att skapa ett kömeddelande.
 
-1. Tryck på Ctrl + F5 för att köra projektet.
+1. Tryck på **Ctrl + F5** kör projektet.
 
    Konsolen visar att körningen gick att hitta din funktion och väntar på Kömeddelanden som utlöser den. Följande utdata genereras av v3.x värden:
 
@@ -376,7 +269,7 @@ I det här avsnittet skapar du och köra projektet lokalt och Utlös funktionen 
 
 1. Stäng konsolfönstret.
 
-1. I **Server Explorer** expanderar du noden för det nya kontot i Visual Studio och högerklicka på **köer**. 
+1. I **Server Explorer** expanderar du noden för det nya kontot i Visual Studio och högerklicka på **köer**.
 
 1. Välj **Skapa kö**.
 
@@ -390,7 +283,7 @@ I det här avsnittet skapar du och köra projektet lokalt och Utlös funktionen 
 
    ![Skapa kö](./media/webjobs-sdk-get-started/create-queue-message.png)
 
-1. I den **Lägg till meddelande** dialogrutan Ange *Hello World!* som den **meddelandetext**, och välj sedan **OK**.
+1. I den **Lägg till meddelande** dialogrutan Ange *Hello World!* som den **meddelandetext**, och välj sedan **OK**. Det finns nu ett meddelande i kön.
 
    ![Skapa kö](./media/webjobs-sdk-get-started/hello-world-text.png)
 
@@ -400,7 +293,7 @@ I det här avsnittet skapar du och köra projektet lokalt och Utlös funktionen 
 
    På grund av [kö avsökning exponentiell backoff](../azure-functions/functions-bindings-storage-queue.md#trigger---polling-algorithm), det kan ta upp till 2 minuter för körning för att hitta meddelandet och anropa funktionen. Den här väntetid kan minskas genom att köra i [utvecklingsläge](webjobs-sdk-how-to.md#host-development-settings).
 
-  För version 3.x konsolens utdata ser ut så här:
+  Konsolens utdata ser ut så här:
 
    ```console
     info: Function.ProcessQueueMessage[0]
@@ -413,7 +306,9 @@ I det här avsnittet skapar du och köra projektet lokalt och Utlös funktionen 
           Executed 'Functions.ProcessQueueMessage' (Succeeded, Id=2c319369-d381-43f3-aedf-ff538a4209b8)
    ```
 
-1. Stäng konsolfönstret.
+1. Stäng konsolfönstret. 
+
+1. Gå tillbaka till fönstret kön och uppdatera den. Meddelandet är borta, eftersom de har bearbetats av din funktion som körs lokalt. 
 
 ## <a name="add-application-insights-logging"></a>Lägg till Application Insights-loggning
 
@@ -457,11 +352,7 @@ I det här avsnittet ska göra du följande uppgifter för att konfigurera Appli
 
 1. Välj **Spara**.
 
-1. Lägga till Application Insights-anslutning till projektet så att du kan köra den lokalt:
-
-    **Version 3.x**
-
-    I den *appsettings.json* Lägg till en `APPINSIGHTS_INSTRUMENTATIONKEY` fältet, som i följande exempel:
+1. Lägg till Application Insights-anslutning till projektet så att du kan köra den lokalt. I den *appsettings.json* Lägg till en `APPINSIGHTS_INSTRUMENTATIONKEY` fältet, som i följande exempel:
 
     ```json
     {
@@ -470,17 +361,7 @@ I det här avsnittet ska göra du följande uppgifter för att konfigurera Appli
     }
     ```
 
-    **Version 2.x**
-
-    Lägg till följande XML-filen till den *App.config* filen omedelbart efter anslutningen strängar samlingen.
-
-    ```xml
-    <appSettings>
-        <add key="APPINSIGHTS_INSTRUMENTATIONKEY" value="{instrumentation key}" />
-    </appSettings>
-    ```
-
-    I endera version, ersätter *{instrumenteringsnyckeln}* med instrumenteringsnyckeln från Application Insights-resurs som du använder.
+    Ersätt *{instrumenteringsnyckeln}* med instrumenteringsnyckeln från Application Insights-resurs som du använder.
 
 1. Spara ändringarna.
 
@@ -490,8 +371,6 @@ Att dra nytta av [Application Insights](../azure-monitor/app/app-insights-overvi
 
 * Lägg till en Application Insights loggningsprovider med standard [filtrering](webjobs-sdk-how-to.md#log-filtering); all Information och på högre nivå loggar går till både konsolen och Application Insights när du kör lokalt.
 * Placera den `LoggerFactory` objekt i en `using` block så att loggutdata rensas när värden avslutas.
-
-#### <a name="version-3x"></a>Version 3.x
 
 1. Installera den senaste stabila 3.x-versionen av NuGet-paketet för Application Insights loggningsprovider: `Microsoft.Azure.WebJobs.Logging.ApplicationInsights`.
 
@@ -532,46 +411,7 @@ Att dra nytta av [Application Insights](../azure-monitor/app/app-insights-overvi
     }
     ```
 
-#### <a name="version-2x"></a>Version 2.x
-
-1. Installera den senaste stabila 2.x-versionen av NuGet-paketet för Application Insights loggningsprovider: `Microsoft.Azure.WebJobs.Logging.ApplicationInsights`.
-
-   Här är den **Pakethanterarkonsolen** kommandot för version 2.2.0:
-
-   ```powershell
-   Install-Package Microsoft.Azure.WebJobs.Logging.ApplicationInsights -version 2.2.0
-   ``` 
-
-1. Installera den senaste stabila 4.x-versionen av NuGet-paketet för .NET configuration manager: `System.Configuration.ConfigurationManager`.
-
-   Här är den **Pakethanterarkonsolen** kommandot för version 4.4.1:
-
-   ```powershell
-   Install-Package System.Configuration.ConfigurationManager -version 4.4.1
-   ``` 
-
-1. Öppna *Program.cs* och Lägg till en `using` instruktionen för configuration manager:
-
-   ```csharp
-   using System.Configuration;
-   ```
-
-1. Ersätt Koden i den `Main` metoden med följande kod:
-
-   ```csharp
-   using (var loggerFactory = new LoggerFactory())
-   {
-       var config = new JobHostConfiguration();
-       var instrumentationKey =
-           ConfigurationManager.AppSettings["APPINSIGHTS_INSTRUMENTATIONKEY"];
-       config.DashboardConnectionString = "";
-       config.LoggerFactory = loggerFactory
-           .AddApplicationInsights(instrumentationKey, null)
-           .AddConsole();
-       var host = new JobHost(config);
-       host.RunAndBlock();
-   }
-   ```
+    Detta lägger till Application Insights-providern loggning, med hjälp av den nyckel som du tidigare lade till inställningarna för din app.
 
 ## <a name="test-application-insights-logging"></a>Testa Application Insights-loggning
 
@@ -597,27 +437,11 @@ I det här avsnittet ska köra du lokalt igen för att verifiera att loggningsda
 
 1. Stäng konsolfönstret.
 
-## <a name="deploy-as-a-webjob"></a>Distribuera som ett WebJob
+## <a name="deploy-as-a-webjob"></a>Distribuera till Azure
 
-I det här avsnittet ska distribuera du projektet som ett WebJob. Du distribuerar den till en App Service-app som du [skapade tidigare](#create-app-service-app-and-application-insights-instance). Om du vill testa din kod medan den körs i Azure, kommer du utlöser ett funktionsanrop genom att skapa ett kömeddelande.
+Under distributionen kan skapa du en app service-instans där du kan köra dina funktioner. När du publicerar en .NET Core-konsolapp till App Service i Azure, hämtar det automatiskt köras som ett WebJob. Mer information om hur du publicerar finns [utveckla och distribuera WebJobs med hjälp av Visual Studio](webjobs-dotnet-deploy-vs.md).
 
-1. I **Solution Explorer**, högerklicka på projektet och välj sedan **Publicera som Azure WebJob**.
-
-1. I den **lägga till Azure-Webbjobb** dialogrutan **OK**.
-
-   ![Lägg till Azure WebJob](./media/webjobs-sdk-get-started/add-azure-webjob.png)
-
-   Visual Studio installeras automatiskt NuGet-paket för WebJob publicering.
-
-1. I den **profil** steg i den **publicera** väljer **Microsoft Azure App Service**.
-
-   ![Dialogrutan Publicera](./media/webjobs-sdk-get-started/publish-dialog.png)
-
-1. I den **Apptjänst** dialogrutan **din resursgrupp > App Service-appen**, och välj sedan **OK**.
-
-   ![Dialogrutan för Apptjänst](./media/webjobs-sdk-get-started/app-service-dialog.png)
-
-1. När profilen som ska skapas väljer **publicera**.
+[!INCLUDE [webjobs-publish-net-core](../../includes/webjobs-publish-net-core.md)]
 
 ## <a name="trigger-the-function-in-azure"></a>Utlös funktionen i Azure
 
@@ -684,7 +508,7 @@ Indatabindningar förenkla kod som läser data. I det här exemplet kömeddeland
 
    ![Kömeddelande Program.cs](./media/webjobs-sdk-get-started/queue-msg-program-cs.png)
 
-1. Kör projektet.
+1. Köra projektet lokalt.
 
    Kömeddelandet utlöser funktionen, som sedan läser blob och loggar dess längd. Konsolens utdata ser ut så här:
 
@@ -718,15 +542,21 @@ Utdatabindningar förenkla kod som skriver data. Det här exemplet ändrar det f
 
 1. Skapa en annan kömeddelande med *Program.cs* som meddelandets text.
 
-1. Kör projektet.
+1. Köra projektet lokalt.
 
    Kömeddelandet utlöser funktionen som sedan läser blob, loggar dess längd och skapar en ny blob. Konsolens utdata är detsamma, men när du gå till fönstret blob-behållare och väljer **uppdatera**, visas en ny blob med namnet *kopiera Program.cs.*
 
+## <a name="republish-the-updates-to-azure"></a>Publicera uppdateringar till Azure
+
+1. I **Solution Explorer** högerklickar du på projektet och väljer **Publicera**.
+
+1. I den **publicera** dialogrutan, kontrollera att den aktuella profilen är markerat och välj sedan **publicera**. Resultatet av publicera beskrivs i den **utdata** fönster.
+ 
+1. Kontrollera funktionen i Azure genom att ladda upp en fil till blobbehållaren och lägga till ett meddelande till den kö som är namnet på den överförda filen igen. Du ser meddelandet kom tas bort från kön och en kopia av filen som skapats i blob-behållaren. 
+
 ## <a name="next-steps"></a>Nästa steg
 
-Den här guiden visar hur du skapar, kör och distribuera ett WebJobs-SDK-projekt.
-
-För att visa allt som hamnar i ett projekt med WebJobs SDK, hade anvisningarna du skapa ett projekt från grunden. Men när du skapar ditt nästa projekt kan du överväga att använda den **Azure WebJob** mallen i den **molnet** kategori. Den här mallen skapar ett projekt med NuGet-paket och exempelkod som redan har konfigurerat. Exempelkoden kan behöva ändras för att använda den nya loggningsramverk.
+Den här artikeln visade hur du skapar, kör och distribuera en 3.x WebJobs-SDK-projektet.
 
 > [!div class="nextstepaction"]
 > [Läs mer om WebJobs-SDK](webjobs-sdk-how-to.md)

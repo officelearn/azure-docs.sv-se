@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: nitinme
-ms.openlocfilehash: b1cf3dc24482da70372f775d0ba63a203df1b285
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: f96c3a693ce8fc099374c998b35ce2fa90f4bb3f
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51572803"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56753792"
 ---
 Vissa Bing-svar inkluderar URL: er till miniatyrbilder som hanteras av Bing. Du kan ändra storlek på och Beskär miniatyrbilder. 
 
@@ -17,11 +17,11 @@ Vissa Bing-svar inkluderar URL: er till miniatyrbilder som hanteras av Bing. Du 
 > Kontrollera storleken och beskärning på miniatyrbilden som ger ett Sök-scenario och respekterar tredje parts rättigheter som krävs av Bing Search API-användning och visa kraven.
 
 
-Om du vill ändra storlek på en bild, inkludera bredd (b) och höjd (h) Frågeparametrar i URL: en för den miniatyrbilden. Ange bredd och höjd i bildpunkter. Exempel:  
+Inkludera frågan bredd (b) om du vill ändra storlek på en bild, parameter, h (höjd) fråga eller båda i URL: en för den miniatyrbilden. Ange bredd och höjd i bildpunkter. Exempel:  
   
 `https://<host>/th?id=JN.5l3yzwy%2f%2fHj59U6XhssIQ&pid=Api&w=200&h=200`  
   
-Om du ändrar storlek på bilden, bibehålls dess proportionerna. Om du vill behålla proportioner kan vit utfyllnad läggas till kantlinjen för avbildningen. Om du ändrar storlek på en 480 x 359 avbildning till 200 x 200 utan beskärning full bredd innehåller bilden men höjden innehåller 25 bildpunkter vit utfyllnad högst upp och längst ned på bilden. Samma skulle vara fallet om avbildningen har 359 x 480 utom vänstra och högra kantlinjen innehåller vit utfyllnad. Om du Beskär bilden läggs inte vit utfyllnad.  
+Om du anger bara bredden eller endast Frågeparametern höjd, upprätthåller Bing bildens höjd-/ breddförhållandet. Om du anger både bredd och höjd och du inte ha en bilds ursprungliga proportionerna, Bing lägger till vit utfyllnad kantlinjen för avbildningen. Om du ändrar storlek på en 480 x 359 avbildning till 200 x 200 utan beskärning full bredd innehåller bilden men höjden innehåller 25 bildpunkter vit utfyllnad högst upp och längst ned på bilden. Samma skulle vara fallet om avbildningen har 359 x 480 utom vänstra och högra kantlinjen innehåller vit utfyllnad. Om du Beskär bilden läggs inte vit utfyllnad.  
 
  
 Följande bild visar den ursprungliga storleken på en miniatyrbild (480 x 300).  

@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
-ms.openlocfilehash: e050122984c19e46f3782c8364331323b403caad
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 32604c06c6a4325f7ae6cb45930de902a1366480
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55893851"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56750335"
 ---
 # <a name="profile-live-azure-cloud-services-with-application-insights"></a>Profilera live-Azure Cloud Services med Programinsikter
 
@@ -32,6 +32,8 @@ Application Insights Profiler har installerats med Azure Diagnostics-tillägget.
 1. Kontrollera att du använder [.NET Framework 4.6.1](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) eller senare. Det räcker att bekräfta att den *ServiceConfiguration.\*.cscfg* filer har en `osFamily` värdet av ”5” eller senare.
 
 1. Lägg till [Application Insights SDK till Azure Cloud Services](../../azure-monitor/app/cloudservices.md?toc=/azure/azure-monitor/toc.json).
+
+  >**Det finns en bugg i profiler som levereras i den senaste versionen av WAD för molntjänster.** För att kunna använda profiler med en molnbaserad tjänst, stöder den versionen 2.7.2 endast AI-SDK. Om du använder en nyare version av AI-SDK måste du gå tillbaka till 2.7.2 för att kunna använda profiler.
 
 1. Spåra begäranden med Application Insights:
 

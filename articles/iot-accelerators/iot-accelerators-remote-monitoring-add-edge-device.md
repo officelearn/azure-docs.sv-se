@@ -8,23 +8,23 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 10/09/2018
 ms.topic: conceptual
-ms.openlocfilehash: 5172ba9881f80e202bdc69689e67befb79101dc0
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: d34ac159a216c5c77214b4c8b799a233c3671235
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54450668"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56749553"
 ---
 # <a name="add-an-iot-edge-device-to-your-remote-monitoring-solution-accelerator"></a>Lägga till en IoT Edge-enhet i lösningsacceleratorn för fjärrövervakning
 
 Att lägga till en [IoT Edge](../iot-edge/about-iot-edge.md) enheten utvecklingsacceleratorn, utför följande två steg:
 
-1. Lägg till Edge-enhet på den **enheter** sidan fjärrövervakning solution accelerator webbläsaren.
+1. Lägg till Edge-enhet på den **Device Explorer** sidan fjärrövervakning solution accelerator webbläsaren.
 1. Installera IoT Edge-körningen på din Edge-enhet.
 
 ## <a name="add-the-iot-edge-device"></a>Lägg till IoT Edge-enhet
 
-Om du vill lägga till en IoT Edge-enhet till lösningsacceleratorn för fjärrövervakning navigerar du till sidan **Enheter** i webbgränssnittet och klickar på **+ Ny enhet**.
+Om du vill lägga till en IoT Edge-enhet att lösningsacceleratorn för fjärrövervakning, navigera till den **Device Explorer** i webbläsaren och klicka på **+ ny enhet**.
 
 I den **ny enhet** panelen, väljer **IoT Edge-enhet**. Du kan behålla standardvärden för de andra inställningarna. Klicka sedan på **Använd**:
 
@@ -38,7 +38,7 @@ Det är också möjligt att registrera en IoT Edge-enhet direkt med IoT Hub-inst
 - [Registrera en ny Azure IoT Edge-enhet med Azure CLI](../iot-edge/how-to-register-device-cli.md)
 - [Registrera en ny Azure IoT Edge-enhet från Visual Studio Code](../iot-edge/how-to-register-device-vscode.md)
 
-När du registrerar en enhet direkt med IoT hub i lösningsacceleratorn för fjärrövervakning det visas på den **enheter** sida i webbläsaren.
+När du registrerar en enhet direkt med IoT hub i lösningsacceleratorn för fjärrövervakning det visas på den **Device Explorer** sida i webbläsaren.
 
 ## <a name="install-the-iot-edge-runtime"></a>Installera IoT Edge-körningen
 

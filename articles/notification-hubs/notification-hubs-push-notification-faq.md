@@ -15,12 +15,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/24/2019
 ms.author: jowargo
-ms.openlocfilehash: 7f1a1bd22ecd0b0a7ab64e639683ae316742c5f0
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: f2f11abcb3290e1d9459c26167706abc79c1b7fa
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55563991"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56670340"
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Push-meddelanden med Azure Notification Hubs: Vanliga frågor och svar
 
@@ -209,8 +209,6 @@ Azure Notification Hubs kan visa dessa data i den [Azure Portal]. Information om
 > [!NOTE]
 > Lyckade meddelanden innebär helt enkelt att push-meddelanden har levererats till externa PNS (till exempel APNS för Apple) eller FCM för Google. Ansvarar för att leverera meddelanden till målenheterna pns-systemet. Normalt exponerar PNS inte mått för leverans till tredje part.  
 
-Vi erbjuder även möjligheten att exportera dessa data programmässigt (på Standard-nivån). Mer information finns i [Notification Hubs mått-exempel].
-
 [Azure Portal]: https://portal.azure.com
 [Prisinformation om Notification hub]: http://azure.microsoft.com/pricing/details/notification-hubs/
 [Notification Hubs SLA]: http://azure.microsoft.com/support/legal/sla/
@@ -229,7 +227,6 @@ Vi erbjuder även möjligheten att exportera dessa data programmässigt (på Sta
 [Handledning för Hubs säker Push-meddelande]: http://azure.microsoft.com/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/
 [Meddelandehubbar felsökning]: http://azure.microsoft.com/documentation/articles/notification-hubs-diagnosing/
 [Notification Hubs mått]: ../azure-monitor/platform/metrics-supported.md#microsoftnotificationhubsnamespacesnotificationhubs
-[Notification Hubs mått-exempel]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/FetchNHTelemetryInExcel
 [Registreringar Export/Import]: https://msdn.microsoft.com/library/dn790624.aspx
 [Azure Portal]: https://portal.azure.com
 [complete samples]: https://github.com/Azure/azure-notificationhubs-samples

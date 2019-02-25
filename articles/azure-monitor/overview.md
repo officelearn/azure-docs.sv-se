@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/26/2019
 ms.author: bwren
-ms.openlocfilehash: f18a1c90d3378831824542fabb884d36d12bddd4
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 56542ef116656bff979e27dfc2ddd5e82056c452
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56652118"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56750149"
 ---
 # <a name="azure-monitor-overview"></a>Översikt över Azure Monitor
 
@@ -40,7 +40,7 @@ För många Azure-resurser visas data som samlas in av Azure Monitor direkt i si
 
 ![Mått](media/overview/metrics.png)
 
-Loggdata som samlas in av Azure Monitor kan analyseras med [frågor](log-query/log-query-overview.md) att snabbt hämta, konsolidera och analysera insamlade data.  Du kan skapa och testa frågor med [logganalys](log-query/portals.md) i Azure portal och sedan antingen direkt analysera data med verktygen eller spara frågor för användning med [visualiseringar](visualizations.md) eller [avisering regler för](platform/alerts-overview.md).
+Loggdata som samlas in av Azure Monitor kan analyseras med [frågor](log-query/log-query-overview.md) att snabbt hämta, konsolidera och analysera insamlade data.  Du kan skapa och testa frågor med [Log Analytics](log-query/portals.md) i Azure portal och sedan antingen direkt analysera data med verktygen eller spara frågor för användning med [visualiseringar](visualizations.md) eller [avisering regler för](platform/alerts-overview.md).
 
 Azure Monitor använder en version av den [Kusto-frågespråket](/azure/kusto/query/) används av Azure Data Explorer som är lämpliga för enkel logg frågar men innehåller även avancerade funktioner som aggregeringar, kopplingar och smart analytics. Du kan snabbt lära dig frågespråket med [flera lektioner](log-query/get-started-queries.md).  Viss vägledning erbjuds användare som redan är bekanta med [SQL](log-query/sql-cheatsheet.md) och [Splunk](log-query/splunk-cheatsheet.md).
 

@@ -1,5 +1,5 @@
 ---
-title: Azure Meddelandehubbar bort meddelandet diagnos
+title: Azure Notification Hubs – diagnostisera utelämnade meddelanden
 description: Lär dig mer om att felsöka vanliga problem med utelämnade meddelanden i Azure Notification Hubs.
 services: notification-hubs
 documentationcenter: Mobile
@@ -14,14 +14,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: 9dd6a66ea416ad61682b8e33c6163db3ac345d92
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 4419b68a0005ff6e0b5e46f22fba918699f3ba4f
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54447725"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56672210"
 ---
-# <a name="diagnose-dropped-notifications-in-notification-hubs"></a>Diagnostisera utelämnade meddelanden i Notification Hubs
+# <a name="azure-notification-hubs---diagnose-dropped-notifications"></a>Azure Notification Hubs – diagnostisera utelämnade meddelanden
 
 En av de vanligaste frågorna från Azure Notification Hubs-kunder är så här felsöker när meddelanden som skickas från ett program inte visas på klientenheter. De vill veta var och varför meddelanden har tagits bort och hur du löser problemet. Den här artikeln beskrivs varför meddelanden kan tas bort eller inte tas emot av enheter. Lär dig hur du analyserar och avgöra den bakomliggande orsaken.
 
@@ -246,10 +246,7 @@ I portalen får du en snabb överblick över alla aktiviteter i din meddelandehu
 
 * **Programmässig åtkomst**
 
-Mer information om programmässig åtkomst finns i följande artiklar:
-
-* [Telemetri för programmässig åtkomst]  
-* [Telemetri åtkomst via API: er-exempel]
+Läs mer om Programmeringsåtkomst [telemetri för programmässig åtkomst]
 
 > [!NOTE]
 > Flera telemetri-relaterade funktioner, som exporterar och importerar registreringar och telemetri åtkomst via API: er, är endast tillgängliga på Standard-tjänstnivå. Om du försöker använda dessa funktioner från kostnadsfritt eller Basic-tjänstnivån, meddelande om ett undantag om du använder SDK: N och felmeddelandet HTTP 403 (förbjudet) om du använder funktionerna direkt från REST-API: er.
@@ -282,4 +279,3 @@ Mer information om programmässig åtkomst finns i följande artiklar:
 [Vi presenterar versionen av Visual Studio 2013 Update 3 och Azure SDK 2.4]: http://azure.microsoft.com/blog/2014/08/04/announcing-release-of-visual-studio-2013-update-3-and-azure-sdk-2-4/
 [EnableTestSend]: https://docs.microsoft.com/dotnet/api/microsoft.azure.notificationhubs.notificationhubclient.enabletestsend?view=azure-dotnet
 [Telemetri för programmässig åtkomst]: http://msdn.microsoft.com/library/azure/dn458823.aspx
-[Telemetri åtkomst via API: er-exempel]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/FetchNHTelemetryInExcel

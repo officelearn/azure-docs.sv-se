@@ -11,16 +11,16 @@ ms.devlang: ''
 ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 01/25/2019
+ms.date: 02/16/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: d730efe8b09f167aaba2a4aa8e33446d44171c53
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 97f9c893487b486bd76031cb6321fe100321931d
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56340862"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56750726"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Inbyggda roller för Azure-resurser
 
@@ -68,6 +68,7 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 | [Tjänstroll som operatör av Lagringskontonyckel konto klassisk lagring](#classic-storage-account-key-operator-service-role) | Operatörer av klassiska lagringskontonycklar får lista och återskapa nycklar till klassiska lagringskonton |
 | [Klassisk virtuell Datordeltagare](#classic-virtual-machine-contributor) | Låter dig hantera klassiska virtuella datorer, men ger dig inte tillgång till dem eller till det virtuella nätverk eller lagringskonto som de är anslutna till. |
 | [Cognitive Services-deltagare](#cognitive-services-contributor) | Låter dig skapa, läsa, uppdatera, ta bort och hantera nycklar för Cognitive Services. |
+| [Cognitive Services Data-läsare (förhandsgranskning)](#cognitive-services-data-reader-preview) | Kan du läsa Cognitive Services-data. |
 | [Cognitive Services-användare](#cognitive-services-user) | Låter dig läsa och lista nycklar för Cognitive Services. |
 | [Läsarroll för cosmos DB-konto](#cosmos-db-account-reader-role) | Kan läsa data i Azure Cosmos DB-konto. Se [DocumentDB-Kontodeltagare](#documentdb-account-contributor) för att hantera Azure Cosmos DB-konton. |
 | [CosmosBackupOperator](#cosmosbackupoperator) | Kan skicka in återställningsbegäran för en Cosmos DB-databas eller en container för ett konto |
@@ -113,6 +114,9 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 | [Site Recovery-bidragsgivare](#site-recovery-contributor) | Låter dig hantera Site Recovery-tjänsten förutom att skapa valv och tilldela roller |
 | [Site Recovery Operator](#site-recovery-operator) | Låter dig växla vid fel och återställa men inte utföra andra Site Recovery-hanteringsåtgärder |
 | [Site Recovery Reader](#site-recovery-reader) | Låter dig se Site Recovery-status men inte utföra andra hanteringsåtgärder |
+| [Spatial ankare-Kontodeltagare](#spatial-anchors-account-contributor) | Kan du hantera spatial ankare i ditt konto, men inte ta bort dem. |
+| [Kontoägaren för rumsliga ankare](#spatial-anchors-account-owner) | Låter dig hantera spatial ankare i ditt konto, inklusive ta bort dem. |
+| [Spatial ankare konto läsare](#spatial-anchors-account-reader) | Du kan hitta och läsa egenskaper för spatial ankare i ditt konto |
 | [SQL DB-deltagare](#sql-db-contributor) | Låter dig hantera SQL-databaser, men inte tillgång till dem. Dessutom kan inte hantera deras säkerhetsrelaterade principer eller deras överordnade SQL-servrar. |
 | [SQL Security Manager](#sql-security-manager) | Tillåter dig att hantera säkerhetsrelaterade principer för SQL-servrar och databaser, men inte åtkomst till dem. |
 | [SQL Server-deltagare](#sql-server-contributor) | Tillåter dig att hantera SQL-servrar och databaser, men inte åtkomst till dem eller deras säkerhetsrelaterade principer. |
@@ -122,6 +126,8 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 | [Storage Blob Data-ägare (förhandsversion)](#storage-blob-data-owner-preview) | Tillåter fullständig åtkomst till Azure Storage blob-containrar och data, inklusive tilldelning av POSIX-åtkomstkontroll. |
 | [Storage Blob Data-läsare (förhandsgranskning)](#storage-blob-data-reader-preview) | Tillåter läsåtkomst till Azure Storage Blob-containers och data |
 | [Lagringsködata-deltagare (förhandsgranskning)](#storage-queue-data-contributor-preview) | Tillåter läs-, skriv- och borttagningssåtkomst till Azure Storage-köer och kömeddelanden |
+| [Storage-kö Data meddelandeprocessor (förhandsversion)](#storage-queue-data-message-processor-preview) | Tillåter för peek, ta emot och ta bort åtkomst till Azure Storage-Kömeddelanden |
+| [Storage-kö Data meddelandets avsändare (förhandsversion)](#storage-queue-data-message-sender-preview) | Tillåter för att skicka meddelanden för Azure Storage-kö |
 | [Lagringsködata-läsare (förhandsgranskning)](#storage-queue-data-reader-preview) | Tillåter läsåtkomst till Azure Storage-köer och kömeddelanden |
 | [Supportförfrågningsdeltagare](#support-request-contributor) | Låter dig skapa och hantera supportförfrågningar |
 | [Traffic Manager-deltagare](#traffic-manager-contributor) | Låter dig hantera Traffic Manager-profiler, men låter dig inte kontrollera vem som har åtkomst till dem. |
@@ -934,6 +940,21 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | **NotDataActions** |  |
 > | *Ingen* |  |
 
+## <a name="cognitive-services-data-reader-preview"></a>Cognitive Services Data-läsare (förhandsgranskning)
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Beskrivning** | Kan du läsa Cognitive Services-data. |
+> | **Id** | b59867f0-fa02-499b-be73-45a86b5b3e1c |
+> | **Åtgärder** |  |
+> | *Ingen* |  |
+> | **NotActions** |  |
+> | *Ingen* |  |
+> | **DataActions** |  |
+> | Microsoft.CognitiveServices/*/read |  |
+> | **NotDataActions** |  |
+> | *Ingen* |  |
+
 ## <a name="cognitive-services-user"></a>Cognitive Services-användare
 > [!div class="mx-tableFixed"]
 > | | |
@@ -943,11 +964,11 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | **Åtgärder** |  |
 > | Microsoft.CognitiveServices/*/read |  |
 > | Microsoft.CognitiveServices/accounts/listkeys/action | Visa nyckellista |
-> | Microsoft.Insights/metricdefinitions/read | Läs måttdefinitioner |
-> | Microsoft.Insights/metrics/read | Läs mått |
 > | Microsoft.Insights/alertRules/read | Läs en klassisk måttavisering |
 > | Microsoft.Insights/diagnosticSettings/read | Läs en resursdiagnostikinställning |
 > | Microsoft.Insights/logDefinitions/read | Läs loggdefinitioner |
+> | Microsoft.Insights/metricdefinitions/read | Läs måttdefinitioner |
+> | Microsoft.Insights/metrics/read | Läs mått |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Hämtar tillgänglighetsstatusarna för alla resurser i det angivna området |
 > | Microsoft.Resources/deployments/operations/read | Hämtar eller listar distributionsåtgärder. |
 > | Microsoft.Resources/subscriptions/operationresults/read | Hämtar prenumerationsåtgärdsresultaten. |
@@ -957,7 +978,7 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | **NotActions** |  |
 > | *Ingen* |  |
 > | **DataActions** |  |
-> | *Ingen* |  |
+> | Microsoft.CognitiveServices/* |  |
 > | **NotDataActions** |  |
 > | *Ingen* |  |
 
@@ -1177,16 +1198,16 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft.DevTestLab/labs/policySets/evaluatePolicies/action | Utvärderar lab principen. |
 > | Microsoft.DevTestLab/labs/virtualMachines/claim/action | Bli ägare till en befintlig virtuell dator |
 > | Microsoft.DevTestLab/labs/virtualmachines/listApplicableSchedules/action | Visar en lista över tillämpliga Starta/Stoppa scheman, om sådana. |
-> | Microsoft.Network/loadBalancers/backendAddressPools/join/action | Ansluter till en load balancer-serverdelsadresspool |
-> | Microsoft.Network/loadBalancers/inboundNatRules/join/action | Ansluter till en belastningsutjämningsregel för ingående nat |
+> | Microsoft.Network/loadBalancers/backendAddressPools/join/action | Ansluter till en load balancer-serverdelsadresspool. Det kanske inte. |
+> | Microsoft.Network/loadBalancers/inboundNatRules/join/action | Ansluter till en inkommande nat regel för belastningsutjämnaren. Det kanske inte. |
 > | Microsoft.Network/networkInterfaces/*/read | Läsa egenskaperna för ett nätverksgränssnitt (till exempel alla belastningsutjämnare som nätverksgränssnittet är en del av) |
-> | Microsoft.Network/networkInterfaces/join/action | Ansluter till en virtuell dator till ett nätverksgränssnitt |
+> | Microsoft.Network/networkInterfaces/join/action | Ansluter till en virtuell dator till ett nätverksgränssnitt. Det kanske inte. |
 > | Microsoft.Network/networkInterfaces/read | Hämtar en definition för nätverk-gränssnittet.  |
 > | Microsoft.Network/networkInterfaces/write | Skapar ett nätverksgränssnitt eller uppdaterar en befintlig nätverksgränssnitt.  |
 > | Microsoft.Network/publicIPAddresses/*/read | Läsa egenskaperna för en offentlig IP-adress |
-> | Microsoft.Network/publicIPAddresses/join/action | Ansluter till en offentlig ip-adress |
+> | Microsoft.Network/publicIPAddresses/join/action | Ansluter till en offentlig ip-adress. Det kanske inte. |
 > | Microsoft.Network/publicIPAddresses/read | Hämtar en definition av offentlig ip-adress. |
-> | Microsoft.Network/virtualNetworks/subnets/join/action | Ansluter till ett virtuellt nätverk |
+> | Microsoft.Network/virtualNetworks/subnets/join/action | Ansluter till ett virtuellt nätverk. Det kanske inte. |
 > | Microsoft.Resources/deployments/operations/read | Hämtar eller listar distributionsåtgärder. |
 > | Microsoft.Resources/deployments/read | Hämtar eller listar distributioner. |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hämtar eller listar resursgrupper. |
@@ -2033,6 +2054,65 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | **NotDataActions** |  |
 > | *Ingen* |  |
 
+## <a name="spatial-anchors-account-contributor"></a>Spatial Anchors-kontodeltagare
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Beskrivning** | Kan du hantera spatial ankare i ditt konto, men inte ta bort dem. |
+> | **Id** | 8bbe83f1-e2a6-4df7-8cb4-4e04d4e5c827 |
+> | **Åtgärder** |  |
+> | *Ingen* |  |
+> | **NotActions** |  |
+> | *Ingen* |  |
+> | **DataActions** |  |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/create/action | Skapa spatial fästpunkter |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/discovery/read | Upptäcka Närliggande spatial ankare |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/properties/read | Hämta egenskaper för spatial ankare |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/query/read | Leta upp spatial ankare |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/submitdiag/read | Skicka diagnostikdata för att förbättra kvaliteten på tjänsten Azure Spatial ankare |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/write | Uppdatera egenskaper för spatial ankare |
+> | **NotDataActions** |  |
+> | *Ingen* |  |
+
+## <a name="spatial-anchors-account-owner"></a>Spatial Anchors-kontoinnehavare
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Beskrivning** | Låter dig hantera spatial ankare i ditt konto, inklusive ta bort dem. |
+> | **Id** | 70bbe301-9835-447d-afdd-19eb3167307c |
+> | **Åtgärder** |  |
+> | *Ingen* |  |
+> | **NotActions** |  |
+> | *Ingen* |  |
+> | **DataActions** |  |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/create/action | Skapa spatial fästpunkter |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/delete | Ta bort spatial ankare |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/discovery/read | Upptäcka Närliggande spatial ankare |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/properties/read | Hämta egenskaper för spatial ankare |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/query/read | Leta upp spatial ankare |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/submitdiag/read | Skicka diagnostikdata för att förbättra kvaliteten på tjänsten Azure Spatial ankare |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/write | Uppdatera egenskaper för spatial ankare |
+> | **NotDataActions** |  |
+> | *Ingen* |  |
+
+## <a name="spatial-anchors-account-reader"></a>Spatial Anchors-kontoläsare
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Beskrivning** | Du kan hitta och läsa egenskaper för spatial ankare i ditt konto |
+> | **Id** | 5d51204f-eb77-4b1c-b86a-2ec626c49413 |
+> | **Åtgärder** |  |
+> | *Ingen* |  |
+> | **NotActions** |  |
+> | *Ingen* |  |
+> | **DataActions** |  |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/discovery/read | Upptäcka Närliggande spatial ankare |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/properties/read | Hämta egenskaper för spatial ankare |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/query/read | Leta upp spatial ankare |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/submitdiag/read | Skicka diagnostikdata för att förbättra kvaliteten på tjänsten Azure Spatial ankare |
+> | **NotDataActions** |  |
+> | *Ingen* |  |
+
 ## <a name="sql-db-contributor"></a>SQL DB-deltagare
 > [!div class="mx-tableFixed"]
 > | | |
@@ -2082,7 +2162,7 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | **Åtgärder** |  |
 > | Microsoft.Authorization/*/read | Läs Microsoft-auktorisering |
 > | Microsoft.Insights/alertRules/* | Skapa och hantera Insights Varningsregler |
-> | Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action | Ansluter till resursen, till exempel storage-konto eller SQL-databas till ett undernät. |
+> | Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action | Ansluter till resursen, till exempel storage-konto eller SQL-databas till ett undernät. Det kanske inte. |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Hämtar tillgänglighetsstatusarna för alla resurser i det angivna området |
 > | Microsoft.Resources/deployments/* | Skapa och hantera distribution av resursgrupper |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hämtar eller listar resursgrupper. |
@@ -2173,7 +2253,7 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft.Authorization/*/read | Läsa alla auktorisering |
 > | Microsoft.Insights/alertRules/* | Skapa och hantera Insights Varningsregler |
 > | Microsoft.Insights/diagnosticSettings/* | Hantera diagnostikinställningar |
-> | Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action | Ansluter till resursen, till exempel storage-konto eller SQL-databas till ett undernät. |
+> | Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action | Ansluter till resursen, till exempel storage-konto eller SQL-databas till ett undernät. Det kanske inte. |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Hämtar tillgänglighetsstatusarna för alla resurser i det angivna området |
 > | Microsoft.Resources/deployments/* | Skapa och hantera distribution av resursgrupper |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hämtar eller listar resursgrupper. |
@@ -2267,6 +2347,37 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft.Storage/storageAccounts/queueServices/queues/messages/delete | Returnerar resultatet av att ta bort ett meddelande |
 > | Microsoft.Storage/storageAccounts/queueServices/queues/messages/read | Returnerar ett meddelande |
 > | Microsoft.Storage/storageAccounts/queueServices/queues/messages/write | Returnerar resultatet av att skriva ett meddelande |
+> | **NotDataActions** |  |
+> | *Ingen* |  |
+
+## <a name="storage-queue-data-message-processor-preview"></a>Storage-kö Data meddelandeprocessor (förhandsversion)
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Beskrivning** | Tillåter för peek, ta emot och ta bort åtkomst till Azure Storage-Kömeddelanden |
+> | **Id** | 8a0f0c08-91a1-4084-bc3d-661d67233fed |
+> | **Åtgärder** |  |
+> | *Ingen* |  |
+> | **NotActions** |  |
+> | *Ingen* |  |
+> | **DataActions** |  |
+> | Microsoft.Storage/storageAccounts/queueServices/queues/messages/read | Returnerar ett meddelande |
+> | Microsoft.Storage/storageAccounts/queueServices/queues/messages/process/action | Returnerar resultatet av att bearbeta ett meddelande |
+> | **NotDataActions** |  |
+> | *Ingen* |  |
+
+## <a name="storage-queue-data-message-sender-preview"></a>Storage-kö Data meddelandets avsändare (förhandsversion)
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Beskrivning** | Tillåter för att skicka meddelanden för Azure Storage-kö |
+> | **Id** | c6a89b2d-59bc-44d0-9896-0f6e12d7b80a |
+> | **Åtgärder** |  |
+> | *Ingen* |  |
+> | **NotActions** |  |
+> | *Ingen* |  |
+> | **DataActions** |  |
+> | Microsoft.Storage/storageAccounts/queueServices/queues/messages/add/action | Returnerar resultatet av att lägga till ett meddelande |
 > | **NotDataActions** |  |
 > | *Ingen* |  |
 
@@ -2374,20 +2485,20 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft.Compute/virtualMachineScaleSets/* | Skapa och hantera VM-skalningsuppsättningar |
 > | Microsoft.DevTestLab/schedules/* |  |
 > | Microsoft.Insights/alertRules/* | Skapa och hantera Insights Varningsregler |
-> | Microsoft.Network/applicationGateways/backendAddressPools/join/action | Ansluter till en application gateway backend-adresspool |
-> | Microsoft.Network/loadBalancers/backendAddressPools/join/action | Ansluter till en load balancer-serverdelsadresspool |
-> | Microsoft.Network/loadBalancers/inboundNatPools/join/action | Ansluter till en belastningsutjämnare inkommande nat-pool |
-> | Microsoft.Network/loadBalancers/inboundNatRules/join/action | Ansluter till en belastningsutjämningsregel för ingående nat |
-> | Microsoft.Network/loadBalancers/probes/join/action | Kan använda avsökningar av en belastningsutjämnare. Med den här behörigheten healthProbe-egenskapen för VM scale referera set till exempel till avsökningen. |
+> | Microsoft.Network/applicationGateways/backendAddressPools/join/action | Ansluter till en application gateway backend-adresspool. Det kanske inte. |
+> | Microsoft.Network/loadBalancers/backendAddressPools/join/action | Ansluter till en load balancer-serverdelsadresspool. Det kanske inte. |
+> | Microsoft.Network/loadBalancers/inboundNatPools/join/action | Ansluter till en belastningsutjämnare inkommande NAT-pool. Det kanske inte. |
+> | Microsoft.Network/loadBalancers/inboundNatRules/join/action | Ansluter till en inkommande nat regel för belastningsutjämnaren. Det kanske inte. |
+> | Microsoft.Network/loadBalancers/probes/join/action | Kan använda avsökningar av en belastningsutjämnare. Med den här behörigheten healthProbe-egenskapen för VM scale referera set till exempel till avsökningen. Det kanske inte. |
 > | Microsoft.Network/loadBalancers/read | Hämtar en definition för load balancer |
 > | Microsoft.Network/locations/* | Skapa och hantera nätverksplatser |
 > | Microsoft.Network/networkInterfaces/* | Skapa och hantera nätverksgränssnitt |
-> | Microsoft.Network/networkSecurityGroups/join/action | Ansluter till en nätverkssäkerhetsgrupp |
+> | Microsoft.Network/networkSecurityGroups/join/action | Kopplar en nätverkssäkerhetsgrupp. Det kanske inte. |
 > | Microsoft.Network/networkSecurityGroups/read | Hämtar en Gruppdefinition för network security |
-> | Microsoft.Network/publicIPAddresses/join/action | Ansluter till en offentlig ip-adress |
+> | Microsoft.Network/publicIPAddresses/join/action | Ansluter till en offentlig ip-adress. Det kanske inte. |
 > | Microsoft.Network/publicIPAddresses/read | Hämtar en definition av offentlig ip-adress. |
 > | Microsoft.Network/virtualNetworks/read | Hämta definitionen av virtuella nätverket |
-> | Microsoft.Network/virtualNetworks/subnets/join/action | Ansluter till ett virtuellt nätverk |
+> | Microsoft.Network/virtualNetworks/subnets/join/action | Ansluter till ett virtuellt nätverk. Det kanske inte. |
 > | Microsoft.RecoveryServices/locations/* |  |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/backupProtectionIntent/write | Skapa en säkerhetskopia för Avsiktsskydd |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/*/read |  |

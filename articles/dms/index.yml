@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 8762449fbc9254bd3dc6548e74234e1f34c00355
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 086a425be743772b6419a9473ad497a310d94842
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55770341"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56671955"
 documentType: LandingData
 title: Dokumentation om Azure Database Migration Service
 metadata:
@@ -53,9 +53,11 @@ sections:
     - html: <a href="/azure/dms/tutorial-sql-server-azure-sql-online">Migrera SQL Server till Azure SQL Database online med DMS</a>
     - html: <a href="/azure/dms/tutorial-sql-server-to-managed-instance">Migrera SQL Server till en hanterad Azure SQL Database-instans offline med DMS</a>
     - html: <a href="/azure/dms/tutorial-sql-server-managed-instance-online">Migrera SQL Server till en hanterad Azure SQL Database-instans online med DMS</a>
+    - html: <a href="/azure/dms/tutorial-rds-sql-server-azure-sql-and-managed-instance-online">Migrera RDS SQL Server till Azure SQL Database eller Azure SQL Database Managed Instance online med DMS</a>
     - html: <a href="/azure/dms/tutorial-mysql-azure-mysql-online">Migrera MySQL till Azure Database for MySQL online med DMS</a>
     - html: <a href="/azure/dms/tutorial-postgresql-azure-postgresql-online">Migrera PostgreSQL till Azure Database for PostgreSQL online med DMS</a>
     - html: <a href="/azure/dms/tutorial-mongodb-cosmos-db">Migrera MongoDB till Azure Cosmos DB Mongo API offline med hjälp av DMS</a>
+    - html: <a href="/azure/dms/tutorial-mongodb-cosmos-db-online">Migrera MongoDB till Azure Cosmos DB Mongo API online med DMS</a>
 - title: Exempel
   items:
   - type: list

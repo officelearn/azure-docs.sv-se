@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/23/2018
 ms.author: genli
-ms.openlocfilehash: defd623eff76a4e37a9d88c4f59d2edaa71e34e0
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 2a46879a6882e6d45e4a7ccce59e4a02feea9005
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51227458"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56805594"
 ---
-# <a name="connectivity-and-networking-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problem med anslutningen och nätverk för Azure Cloud Services: vanliga frågor (FAQ)
+# <a name="connectivity-and-networking-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Anslutning och nätverk problem för Azure Cloud Services: Vanliga frågor och svar (FAQ)
 
 Den här artikeln innehåller vanliga frågor om problem med anslutningen och nätverk för [Azure Cloud Services](https://azure.microsoft.com/services/cloud-services). Storleksinformation finns i den [Cloud Services VM sida](cloud-services-sizes-specs.md).
 
@@ -63,51 +63,52 @@ Information om hur en intern belastningsutjämnare fungerar finns i [Azure Load 
 
 Distribution-algoritm som används är en 5-tuppel (käll-IP, källport, mål-IP, målport och protokolltyp) hash att mappa trafik till tillgängliga servrar. Det ger varaktighet endast inom en transportsession. Paket i samma TCP eller UDP-session dirigeras till samma datacenter IP (DIP) instans bakom Utjämning av nätverksbelastning-slutpunkten. När klienten stänger och sedan öppnar anslutningen igen eller startar en ny session från samma käll-IP, källport ändras och gör trafik att gå till en annan DIP-slutpunkt.
 
-## <a name="how-can-i-redirect-incoming-traffic-to-the-default-url-of-my-cloud-service-to-a-custom-url"></a>Hur kan jag för att dirigera inkommande trafik till-URL: Standardwebbadressen för min molntjänst till en anpassad URL? 
+## <a name="how-can-i-redirect-incoming-traffic-to-the-default-url-of-my-cloud-service-to-a-custom-url"></a>Hur kan jag för att dirigera inkommande trafik till-URL: Standardwebbadressen för min molntjänst till en anpassad URL?
 
-Den URL-modulen för omarbetning av IIS som kan användas för att omdirigera trafik som kommer till-URL: Standardadressen för Molntjänsten (till exempel \*. cloudapp.net) till vissa anpassade namn/URL. Eftersom modulen URL-Omskrivningsregler är aktiverat på web-roller som standard och dess regler har konfigurerats i programmets web.config, är det alltid tillgänglig på den virtuella datorn oavsett omstarter/avbildningen. Mer information finns i:
+Den URL-modulen för omarbetning av IIS som kan användas för att omdirigera trafik som kommer till-URL: Standardadressen för Molntjänsten (till exempel \*. cloudapp.net) till vissa anpassade namn/URL. Eftersom modulen URL-Omskrivningsregler är aktiverat på web-roller som standard och dess regler har konfigurerats i programmets web.config, är det alltid tillgänglig på den virtuella datorn oavsett omstarter/avbildningen. Mer information finns i:
 
 - [Skapa omskrivningsregler för modulen URL-Omskrivningsregler](https://docs.microsoft.com/iis/extensions/url-rewrite-module/creating-rewrite-rules-for-the-url-rewrite-module)
 - [Ta bort en standardlänk](https://stackoverflow.com/questions/32286487/azure-website-how-to-remove-default-link?answertab=votes#tab-top)
 
-## <a name="how-can-i-blockdisable-incoming-traffic-to-the-default-url-of-my-cloud-service"></a>Hur kan jag blockera/inaktivera inkommande trafik till-URL: Standardwebbadressen för min molntjänst? 
+## <a name="how-can-i-blockdisable-incoming-traffic-to-the-default-url-of-my-cloud-service"></a>Hur kan jag blockera/inaktivera inkommande trafik till-URL: Standardwebbadressen för min molntjänst?
 
-Du kan förhindra att inkommande trafik till standard-URL/namnet på Molntjänsten (till exempel \*. cloudapp.net). Ange ett anpassat DNS-namn (till exempel www.MyCloudService.com) värdhuvudet under bindningen platskonfiguration i molnet (*.csdef) tjänstdefinitionsfilen, som anges: 
- 
+Du kan förhindra att inkommande trafik till standard-URL/namnet på Molntjänsten (till exempel \*. cloudapp.net). Ange ett anpassat DNS-namn (till exempel www.MyCloudService.com) värdhuvudet under bindningen platskonfiguration i molnet (*.csdef) tjänstdefinitionsfilen, som anges:
 
-    <?xml version="1.0" encoding="utf-8"?> 
-    <ServiceDefinition name="AzureCloudServicesDemo" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition" schemaVersion="2015-04.2.6"> 
-      <WebRole name="MyWebRole" vmsize="Small"> 
-        <Sites> 
-          <Site name="Web"> 
-            <Bindings> 
-              <Binding name="Endpoint1" endpointName="Endpoint1" hostHeader="www.MyCloudService.com" /> 
-            </Bindings> 
-          </Site> 
-        </Sites> 
-        <Endpoints> 
-          <InputEndpoint name="Endpoint1" protocol="http" port="80" /> 
-        </Endpoints> 
-        <ConfigurationSettings> 
-          <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" /> 
-        </ConfigurationSettings> 
-      </WebRole> 
-    </ServiceDefinition> 
- 
-Eftersom den här värden huvud-bindningen är påtvingad igenom filen csdef, är tjänsten tillgänglig endast via anpassade namnet ”www.MyCloudService.com”. Alla inkommande begäranden till den ”*. cloudapp.net” domain alltid att misslyckas. Om du använder en anpassad avsökning för SLB eller en intern belastningsutjämnare i tjänsten, kan blockerar standard URL/namnet på tjänsten påverka beteendet sökning. 
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<ServiceDefinition name="AzureCloudServicesDemo" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition" schemaVersion="2015-04.2.6">
+    <WebRole name="MyWebRole" vmsize="Small">
+        <Sites>
+            <Site name="Web">
+            <Bindings>
+                <Binding name="Endpoint1" endpointName="Endpoint1" hostHeader="www.MyCloudService.com" />
+            </Bindings>
+            </Site>
+        </Sites>
+        <Endpoints>
+            <InputEndpoint name="Endpoint1" protocol="http" port="80" />
+        </Endpoints>
+        <ConfigurationSettings>
+            <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" />
+        </ConfigurationSettings>
+    </WebRole>
+</ServiceDefinition>
+```
+
+Eftersom den här värden huvud-bindningen är påtvingad igenom filen csdef, är tjänsten tillgänglig endast via anpassade namnet ”www.MyCloudService.com”. Alla inkommande begäranden till den ”*. cloudapp.net” domain alltid att misslyckas. Om du använder en anpassad avsökning för SLB eller en intern belastningsutjämnare i tjänsten, kan blockerar standard URL/namnet på tjänsten påverka beteendet sökning.
 
 ## <a name="how-can-i-make-sure-the-public-facing-ip-address-of-a-cloud-service-never-changes"></a>Hur kan jag kontrollera att den offentliga IP-adressen för en molntjänst ändras aldrig?
 
 Om du vill se till att den offentliga IP-adressen för din molntjänst (även kallat en VIP) aldrig ändras så att det kan vara certifikatutfärdarinfrastruktur godkänd av några specifika klienter, rekommenderar vi att du har en reserverad IP-adress som är associerade med den. I annat fall har den virtuella IP-Adressen som tillhandahålls av Azure frigjorts från din prenumeration om du tar bort distributionen. För lyckad VIP-växlingen behöver du enskilda reserverade IP-adresser för både produktions- och mellanlagringsplatser. Utan att de misslyckas växlingen. För att reservera en IP-adress och koppla den till din molntjänst måste du läsa följande artiklar:
- 
+
 - [Reserverad IP-adressen för en befintlig molntjänst](../virtual-network/virtual-networks-reserved-public-ip.md#reserve-the-ip-address-of-an-existing-cloud-service)
-- [Associera en reserverad IP-adress till en molntjänst med hjälp av en tjänstkonfigurationsfil](../virtual-network/virtual-networks-reserved-public-ip.md#associate-a-reserved-ip-to-a-cloud-service-by-using-a-service-configuration-file) 
+- [Associera en reserverad IP-adress till en molntjänst med hjälp av en tjänstkonfigurationsfil](../virtual-network/virtual-networks-reserved-public-ip.md#associate-a-reserved-ip-to-a-cloud-service-by-using-a-service-configuration-file)
 
-Om du har fler än en instans för dina roller bör inte kopplar RIP till din molntjänst orsakar några driftstopp. Du kan också placera IP-intervallet för din Azure-datacenter i listan över tillåtna. Du kan hitta alla Azure-IP-intervall på den [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=41653). 
+Om du har fler än en instans för dina roller bör inte kopplar RIP till din molntjänst orsakar några driftstopp. Du kan också vitlista IP-intervallet för din Azure-datacenter. Du kan hitta alla Azure-IP-intervall på den [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=41653).
 
-Den här filen innehåller de IP-adressintervall (inklusive compute, SQL och storage-intervall) används i Azure-datacenter. En uppdaterad fil publiceras varje vecka som visar aktuella intervall och eventuella kommande ändringar till IP-adressintervall. De nya intervall som visas i filen används inte i datacenter för minst en vecka. Hämta den nya XML-filen varje vecka och gör nödvändiga ändringar på din plats för att kunna identifiera vilka tjänster som körs i Azure. Azure ExpressRoute-användare kan Observera att den här filen används för att uppdatera BGP-annonser Azure utrymme i den första veckan varje månad. 
+Den här filen innehåller de IP-adressintervall (inklusive compute, SQL och storage-intervall) används i Azure-datacenter. En uppdaterad fil publiceras varje vecka som visar aktuella intervall och eventuella kommande ändringar till IP-adressintervall. De nya intervall som visas i filen används inte i datacenter för minst en vecka. Hämta den nya XML-filen varje vecka och gör nödvändiga ändringar på din plats för att kunna identifiera vilka tjänster som körs i Azure. Azure ExpressRoute-användare kan Observera att den här filen används för att uppdatera BGP-annonser Azure utrymme i den första veckan varje månad.
 
-## <a name="how-can-i-use-azure-resource-manager-virtual-networks-with-cloud-services"></a>Hur kan jag använda Azure Resource Manager-nätverk med cloud services? 
+## <a name="how-can-i-use-azure-resource-manager-virtual-networks-with-cloud-services"></a>Hur kan jag använda Azure Resource Manager-nätverk med cloud services?
 
 Molntjänster kan inte placeras i Azure Resource Manager-nätverk. Virtuella nätverk i Resource Manager och klassiska virtuella nätverk kan anslutas via peering. Mer information finns i [peerkoppling av virtuella nätverk](../virtual-network/virtual-network-peering-overview.md).
 
@@ -116,13 +117,15 @@ Molntjänster kan inte placeras i Azure Resource Manager-nätverk. Virtuella nä
 
 Du kan använda följande PS-skriptet för att hämta listan över offentliga IP-adresser för molntjänster i din prenumeration
 
-    $services = Get-AzureService  | Group-Object -Property ServiceName
+```powershell
+$services = Get-AzureService  | Group-Object -Property ServiceName
 
-    foreach ($service in $services) 
-    {
-        "Cloud Service '$($service.Name)'"
+foreach ($service in $services)
+{
+    "Cloud Service '$($service.Name)'"
 
-        $deployment = Get-AzureDeployment -ServiceName $service.Name 
-        "VIP - " +  $deployment.VirtualIPs[0].Address
-        "================================="
-    }
+    $deployment = Get-AzureDeployment -ServiceName $service.Name
+    "VIP - " +  $deployment.VirtualIPs[0].Address
+    "================================="
+}
+```

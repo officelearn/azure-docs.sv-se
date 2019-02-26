@@ -9,12 +9,12 @@ ms.date: 06/06/2018
 ms.topic: article
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 9a5e75b762c2ab0591212ce0bc3d7fac42132f8a
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 84b66605939abd0f676625a5959f4a31ef1774db
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56116923"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56818297"
 ---
 # <a name="enable-update-management-change-tracking-and-inventory-solutions-on-multiple-vms"></a>Aktivera uppdateringshantering, ändringsspårning och inventering lösningar på flera virtuella datorer
 
@@ -51,7 +51,7 @@ Använd filterkontrollerna för att välja virtuella datorer från olika prenume
 
 ![Publicera lösning för uppdateringshantering](media/automation-onboard-solutions-from-browse/onboardsolutions.png)
 
-Granska valen för Log analytics-arbetsytan och Automation-kontot. En befintlig arbetsyta och Automation-kontot är markerade som standard. Om du vill använda en annan Log Analytics-arbetsytan och Automation-kontot klickar du på **anpassade** att välja dem från den **anpassad konfiguration** sidan. När du väljer en Log Analytics-arbetsyta, görs en kontroll för att avgöra om den är kopplad till ett Automation-konto. Om ett länkat Automation-konto hittas visas följande skärmbild. När du är klar klickar du på **OK**.
+Granska valen för Log Analytics-arbetsytan och Automation-kontot. En befintlig arbetsyta och Automation-kontot är markerade som standard. Om du vill använda en annan Log Analytics-arbetsytan och Automation-kontot klickar du på **anpassade** att välja dem från den **anpassad konfiguration** sidan. När du väljer en Log Analytics-arbetsyta, görs en kontroll för att avgöra om den är kopplad till ett Automation-konto. Om ett länkat Automation-konto hittas visas följande skärmbild. När du är klar klickar du på **OK**.
 
 ![Välj en arbetsyta och konto](media/automation-onboard-solutions-from-browse/selectworkspaceandaccount.png)
 
@@ -89,7 +89,7 @@ Följande lösningar är beroende av en Log Analytics-arbetsyta:
 * [Spårning av ändringar](automation-change-tracking.md)
 * [Starta/Stoppa VM under kontorstid](automation-solution-vm-management.md)
 
-Om du inte längre vill integrera ditt Automation-konto med Log Analytics kan du kan ta bort länken till ditt konto direkt från Azure-portalen. Innan du fortsätter måste du först ta bort lösningar som tidigare nämnts, annars den här processen kommer inte att kunna fortsätta. Läsa artikeln för den lösning du har importerat för att förstå de steg som krävs för att ta bort den.
+Om du inte längre vill integrera ditt Automation-konto med en arbetsyta för Log Analytics kan du kan ta bort länken till ditt konto direkt från Azure-portalen. Innan du fortsätter måste du först ta bort lösningar som tidigare nämnts, annars den här processen kommer inte att kunna fortsätta. Läsa artikeln för den lösning du har importerat för att förstå de steg som krävs för att ta bort den.
 
 När du tar bort dessa lösningar kan utföra du följande steg om du vill ta bort länken till ditt Automation-konto.
 

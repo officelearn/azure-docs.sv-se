@@ -9,12 +9,12 @@ ms.topic: troubleshooting
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: cebbc8b61a806663e7cb58e0bf7fbdd589f46cca
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 0d49045eea5a65461b142262bae83b9b8e7f84c8
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56343314"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56816597"
 ---
 # <a name="troubleshoot-errors-using-azure-blueprints"></a>Felsöka med hjälp av Azure skisser
 
@@ -24,7 +24,7 @@ Du kanske stöter på fel när du skapar eller tilldelar skisser. Den här artik
 
 Många fel blir resultatet av att tilldela en skiss till ett omfång. När en uppgift misslyckas, innehåller information om den misslyckade distributionen i skissen. Den här informationen anger problemet så att det kan åtgärdas och nästa distributionen är klar.
 
-1. Klicka på **Alla tjänster** och sök efter och välj **Princip** i den vänstra fönsterrutan. Klicka på **Skisser** på sidan **Princip**.
+1. Välj **alla tjänster** i den vänstra rutan. Sök efter och välj **skisser**.
 
 1. Välj **tilldelade skisser** från sidan till vänster och Använd sökningen för att filtrera skissen tilldelningar för att hitta den misslyckade tilldelningen. Du kan också sortera tabellen med tilldelningar efter den **Etableringsstatus** kolumn att se alla misslyckade tilldelningar grupperas tillsammans.
 

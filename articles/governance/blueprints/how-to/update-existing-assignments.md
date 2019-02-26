@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 2ada0ccc1286677300c005da4fa0e92be94a3ca8
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: edfc14e837c92cac5bab589e33069bb771a53cb7
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53314842"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56818263"
 ---
 # <a name="how-to-update-an-existing-blueprint-assignment"></a>Hur du uppdaterar en befintlig tilldelning av skiss
 
@@ -26,13 +26,13 @@ När en skiss tilldelas kan tilldelningen uppdateras. Det finns flera orsaker ti
 
 ## <a name="updating-assignments"></a>Uppdatering av tilldelningar
 
-1. Klicka på **Alla tjänster** och sök efter och välj **Princip** i den vänstra fönsterrutan. Klicka på **Skisser** på sidan **Princip**.
+1. Välj **alla tjänster** i den vänstra rutan. Sök efter och välj **skisser**.
 
-1. Välj **Tilldelade skisser** på sidan till vänster.
+1. Välj **tilldelade skisser** från sidan till vänster.
 
-1. I listan över skisser, klickar du på skisstilldelningen. Klicka sedan på den **Uppdateringstilldelning** eller högerklicka på skisstilldelningen och välj **Uppdateringstilldelning**.
+1. I listan över skisser, klickar du på skisstilldelningen. Klicka sedan på den **uppdatera tilldelning** eller högerklicka på skisstilldelningen och välj **uppdatera tilldelning**.
 
-   ![Uppdateringstilldelning](../media/update-existing-assignments/update-assignment.png)
+   ![Uppdatera tilldelning](../media/update-existing-assignments/update-assignment.png)
 
 1. Den **tilldela skissen** sidan läses in fylls i automatiskt med alla värden från den ursprungliga tilldelningen. Du kan ändra den **skissen definitionsversion**, **Lås tilldelning** tillstånd och någon av de dynamiska parametrar som finns på skissdefinitionen. Klicka på **tilldela** när gjort önskade ändringar.
 

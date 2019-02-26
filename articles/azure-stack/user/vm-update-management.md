@@ -16,19 +16,19 @@ ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: rtiberiu
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 28f8300b83f55f4b083aa1e740dcbf1db0f1dc31
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 4683b6f63af9fe0081911db9914f04b1c90f9d23
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56168155"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56819453"
 ---
 # <a name="azure-stack-vm-update-and-management"></a>Azure Stack-VM-uppdatering och hantering
 Du kan använda följande funktioner i Azure Automation-lösningen för att hantera Windows- och Linux-datorer som distribueras med hjälp av Azure Stack:
 
 - **[Hantering av uppdateringar](https://docs.microsoft.com/azure/automation/automation-update-management)**. Du kan snabbt bedöma status för tillgängliga uppdateringar på alla agentdatorer och hantera processen för att installera nödvändiga uppdateringar för dessa Windows och Linux-datorer med lösningen för uppdateringshantering.
 
-- **[Ändringsspårning](https://docs.microsoft.com/azure/automation/automation-change-tracking)**. Ändringar av installerad programvara, tjänster för Windows, Windows-registret och filer och Linux-Daemon på de övervakade servrarna skickas till Log Analytics-tjänsten i molnet för bearbetning. Logiken tillämpas på den mottagna data och Molntjänsten innehåller data. Du kan enkelt se ändringar som gjorts i din serverinfrastruktur med hjälp av informationen på instrumentpanelen för ändringsspårning.
+- **[Ändringsspårning](https://docs.microsoft.com/azure/automation/automation-change-tracking)**. Ändringar av installerad programvara, tjänster för Windows, Windows-registret och filer och Linux-Daemon på de övervakade servrarna skickas till Azure Monitor-tjänsten i molnet för bearbetning. Logiken tillämpas på den mottagna data och Molntjänsten innehåller data. Du kan enkelt se ändringar som gjorts i din serverinfrastruktur med hjälp av informationen på instrumentpanelen för ändringsspårning.
 
 - **[Inventering](https://docs.microsoft.com/azure/automation/automation-vm-inventory)**. Inventeringssamling för en virtuell dator i Azure Stack ger ett webbläsarbaserat användargränssnitt för att installera och konfigurera inventeringssamling. 
 
@@ -44,7 +44,7 @@ För att använda inventering, ändringsspårning och uppdatering av Azure autom
 > [!TIP]
 > Om du redan har dessa funktioner som aktiverats för virtuella Azure-datorer kan använda du dina befintliga LogAnalytics arbetsyta-autentiseringsuppgifter. Om du redan har en LogAnalytics WorkspaceID och den primärnyckeln som du vill använda kan gå vidare till [nästa avsnitt](./vm-update-management.md#in-the-azure-stack-administration-portal). I annat fall Fortsätt i det här avsnittet för att skapa ett nytt LogAnalytics arbetsytan och automation-konto.
 
-Det första steget i aktiveringen av dessa lösningar är att [skapa en arbetsyta för LogAnalytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-create-workspace) i Azure-prenumerationen. En Log Analytics-arbetsyta är en unik Log Analytics-miljö med en egen databas, datakällor och lösningar. När du har skapat en arbetsyta, Observera WorkspaceID och nyckel. Gå till bladet för arbetsytan om du vill visa den här informationen, klickar du på **avancerade inställningar**, och granska de **arbetsyte-ID** och **primärnyckel** värden. 
+Det första steget i aktiveringen av dessa lösningar är att [skapa en arbetsyta för LogAnalytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-create-workspace) i Azure-prenumerationen. En Log Analytics-arbetsyta är en unik Azure Monitor-loggar miljö med en egen databas, datakällor och lösningar. När du har skapat en arbetsyta, Observera WorkspaceID och nyckel. Gå till bladet för arbetsytan om du vill visa den här informationen, klickar du på **avancerade inställningar**, och granska de **arbetsyte-ID** och **primärnyckel** värden. 
 
 Därefter måste du [skapa ett Automation-konto](https://docs.microsoft.com/azure/automation/automation-create-standalone-account). Ett Automation-konto är en behållare för dina Azure Automation-resurser. Det är ett sätt att avgränsa dina miljöer eller att ytterligare ordna dina automatiseringsarbetsflöden och resurser. När automation-kontot har skapats kan behöver du aktivera lagret, spårning och uppdatera hanteringsfunktioner. Följ dessa steg om du vill aktivera varje funktion för att göra detta:
 
@@ -52,7 +52,7 @@ Därefter måste du [skapa ett Automation-konto](https://docs.microsoft.com/azur
 
 2. Välj lösning för att aktivera (antingen **inventering**, **ändringsspårning**, eller **uppdateringshantering**).
 
-3. Använd den **Välj arbetsyta...**  listrutan att välja Log Analytics-arbetsytan att använda.
+3. Använd den **Välj arbetsyta...**  listrutan att välja att använda Log Analytics-arbetsytan.
 
 4. Kontrollera att alla återstående information är korrekt och klicka sedan på **aktivera** att aktivera lösningen.
 

@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: b0cd20278287b41dd953c64044b705aa2dba7557
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: a8856bd46f516aa3c64965648d4f23b9ba665b1b
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52319409"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56820033"
 ---
-# <a name="disable-the-guest-os-firewall-in-azure-vm"></a>Inaktivera gäst-OS-brandvägg i Azure VM
+# <a name="disable-the-guest-os-firewall-in-azure-vm"></a>Inaktivera brandvägg för gästoperativsystem i en virtuell Azure-dator
 
 Den här artikeln innehåller en referens för situationer där du misstänker att operativsystemet gästbrandvägg filtrerar helt eller delvis trafik till en virtuell dator (VM). Detta kan inträffa om ändringar gjordes avsiktligt i brandväggen som orsakade RDP-anslutningar misslyckas.
 
@@ -33,7 +33,7 @@ Processen som beskrivs i den här artikeln är avsedd att användas som en tillf
 
 Om den virtuella datorn är online och kan kommas åt på en annan virtuell dator på samma virtuella nätverk, kan du göra dessa åtgärder med hjälp av den andra virtuella datorn.
 
-#### <a name="mitigation-1-custom-script-extension-or-run-command-feature"></a>Lösning 1: Funktionen för tillägget för anpassat skript eller kör kommandot
+#### <a name="mitigation-1-custom-script-extension-or-run-command-feature"></a>Lösning 1: Funktionen för anpassade skripttillägg eller kör kommandot
 
 Om du har ett aktivt Azure-agenten kan du använda [tillägget för anpassat skript](../extensions/custom-script-windows.md) eller [kör kommandon](../windows/run-command.md) funktionen (endast Resource Manager-VM) för att köra följande skript via fjärranslutning.
 
@@ -70,7 +70,7 @@ Om du har ett aktivt Azure-agenten kan du använda [tillägget för anpassat skr
     ```
 
 > [!Note]
-> Om brandväggen har angetts via ett grupprincipobjekt, fungerar inte den här metoden eftersom det här kommandot ändrar endast lokala registerposterna. Om en princip är på plats kan åsidosätter det här ändringen. 
+> Om brandväggen har angetts via ett grupprincipobjekt, fungerar inte den här metoden eftersom det här kommandot ändrar endast lokala registerposterna. Om en princip är på plats kan åsidosätter det här ändringen. 
 
 #### <a name="mitigation-3-pstools-commands"></a>Lösning 3: PSTools kommandon
 

@@ -1,28 +1,23 @@
 ---
 title: Konfigurera ExpressRoute Direct – Azure CLI | Microsoft Docs
-description: Den här artikeln hjälper dig att konfigurera ExpressRoute direkt med hjälp av Azure CLI (förhandsversion)
+description: Den här artikeln hjälper dig att konfigurera ExpressRoute direkt med hjälp av Azure CLI
 services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 2/25/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 285b429f565f8a2c7f8c20756f076e631223b10f
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: e918a8624d637e44a4bb1122b58d5bd5dac67690
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53076728"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56816682"
 ---
-# <a name="configure-expressroute-direct-by-using-the-azure-cli-preview"></a>Konfigurera ExpressRoute direkt med hjälp av Azure CLI (förhandsversion)
+# <a name="configure-expressroute-direct-by-using-the-azure-cli"></a>Konfigurera ExpressRoute direkt med hjälp av Azure CLI
 
 Du kan använda Azure ExpressRoute direkt för att ansluta direkt till Microsofts globala nätverk på peering-platser strategiskt distribueras över hela världen. Mer information finns i [om ExpressRoute Direct Connect](expressroute-erdirect-about.md).
-
-> [!IMPORTANT]
-> ExpressRoute Direct är för närvarande i förhandsversion.
->
-> Den offentliga förhandsversionen av ExpressRoute Direct tillhandahålls utan ett servicenivåavtal. Du bör inte använda ExpressRoute direkt förhandsversion för produktionsarbetsbelastningar. Vissa funktioner kanske inte finns stöd, vissa funktioner kan ha begränsad funktionalitet och vissa funktioner kanske inte är tillgängliga i alla Azure-platser. Mer information finns i [kompletterande användningsvillkor för förhandsversioner av Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="resources"></a>Skapa resursen
 

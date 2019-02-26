@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 12/05/2018
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 6fb8166893f0dada019ca633933833d17b95fee9
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 368e1f6b9501c677eca1cf80d24a06c0a6533e86
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55811468"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56817362"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>Batch-mått, aviseringar och loggar för diagnostisk utvärdering och övervakning
 
@@ -91,7 +91,7 @@ Andra valfritt mål för diagnostikloggar:
 
 * Stream Batch diagnostiklogg händelser till en [Azure Event Hub](../event-hubs/event-hubs-what-is-event-hubs.md). Event Hubs kan mata in miljontals händelser per sekund, vilket du kan omvandla och lagra med hjälp av valfri leverantör av realtidsanalys. 
 
-* Skicka diagnostikloggar till [Azure Log Analytics](../log-analytics/log-analytics-overview.md), där du kan analysera dem eller exportera dem för analys i Power BI eller Excel.
+* Skicka diagnostikloggar till [Azure Monitor loggar](../log-analytics/log-analytics-overview.md), där du kan analysera dem eller exportera dem för analys i Power BI eller Excel.
 
 > [!NOTE]
 > Du kan medföra ytterligare kostnader för att lagra eller bearbeta diagnostiklogg data med Azure-tjänster. 
@@ -101,7 +101,7 @@ Andra valfritt mål för diagnostikloggar:
 
 1. I portalen klickar du på **alla tjänster** > **Batch-konton**, och klicka sedan på namnet på ditt Batch-konto.
 2. Under **övervakning**, klickar du på **diagnostikloggar** > **slå på diagnostik**.
-3. I **diagnostikinställningar**, ange ett namn för inställningen och väljer en loggmålet (befintliga Storage-konto, Event Hub eller Log Analytics). Välj ett eller båda **ServiceLog** och **AllMetrics**.
+3. I **diagnostikinställningar**, ange ett namn för inställningen och väljer en loggmålet (befintligt lagringskonto, Event Hub eller Azure Monitor-loggar). Välj ett eller båda **ServiceLog** och **AllMetrics**.
 
     När du väljer ett lagringskonto om du vill ange en bevarandeprincip. Om du inte anger ett antal dagar för kvarhållning, bevaras under din arbetsgrens livstid storage-konto.
 

@@ -14,19 +14,18 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: b7cbd69a4551605b71930a23f837b467177e3cc3
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: a6ab19207b2c98064f99914e16cdde85133bfd96
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54451365"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56821772"
 ---
-<a name="azure-resource-manager-test-drive"></a>Azure Resource Manager-provkörning
-=================================
+# <a name="azure-resource-manager-test-drive"></a>Azure Resource Manager-provkörning
 
 Den här artikeln är utgivare som har sitt erbjudande på Azure Marketplace eller som står på AppSource men vill bygga sina Test Drive med endast Azure-resurser.
 
-En mall för Azure Resource Manager (Azure Resource Manager) är en inbyggd behållare för Azure-resurser att du utformar för bästa representerar din lösning. Om du är bekant med vilken en Resource Manager-mall är kan du läsa mer om [förstå ARM-mallar](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) och [skapa ARM-mallar](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates) att kontrollera att du vet hur du skapar och testar dina egna mallar.
+En mall för Azure Resource Manager (Resource Manager) är en inbyggd behållare för Azure-resurser att du utformar för bästa representerar din lösning. Om du är bekant med vilken en Resource Manager-mall är kan du läsa mer om [förstå Resource Manager-mallar](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) och [skapa Resource Manager-mallar](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates) att kontrollera att du vet hur du skapar och testa egna mallar.
 
 Vad Test Drive gör är att det tar den angivna Resource Manager-mallen och gör en distribution av alla resurser som krävs med Resource Manager-mallen i en resursgrupp.
 
@@ -36,8 +35,7 @@ Om du vill skapa en Azure Resource Manager Test Drive är kraven för dig att:
 - Konfigurera alla metadata som krävs och inställningar för att aktivera din provkörning.
 - Publicera ditt erbjudande med Test Drive aktiverat.
 
-<a name="how-to-build-an-azure-resource-manager-test-drive"></a>Hur du skapar en Azure Resource Manager-provkörning
-------------------------------
+## <a name="how-to-build-an-azure-resource-manager-test-drive"></a>Hur du skapar en Azure Resource Manager-provkörning
 
 Den viktigaste delen om att skapa en Azure Resource Manager Test Drive är att definiera vilka scenarier som du vill att dina kunder att uppleva. Är du en brandväggsprodukt och du vill demonstrera hur väl du hantera skript-inmatningsattacker? Är du en produkt för lagring och du vill demonstrera hur snabbt och enkelt din lösning komprimerar filer?
 
@@ -47,8 +45,7 @@ Om du vill fortsätta med vårt exempel för brandväggen kanske arkitekturen du
 
 När du har konstruerat önskade paketet av resurser, kommer nu skriva och bygga Test Drive Resource Manager-mallen.
 
-<a name="writing-test-drive-resource-manager-templates"></a>Skriva Test Drive Resource Manager-mallar
---------------------------------
+## <a name="writing-test-drive-resource-manager-templates"></a>Skriva Test Drive Resource Manager-mallar
 
 Test Drive kör distributioner i en helt automatiserad läge och på grund av detta, Test Drive-mallar har vissa begränsningar som beskrivs nedan.
 
@@ -62,24 +59,26 @@ Test Drive fungerar dock med helt automatisk, utan mänsklig interaktion, så at
 
 Du kan använda valfritt giltigt namn för din parametrar, Test Drive identifierar parametern kategori med hjälp av metadatatyp värde. Du **måste ange metadatatyp för varje mallparameter**, annars mallen kommer inte valideras:
 
-    "parameters": {
-      ...
-      "username": {
-        "type": "string",
-        "metadata": {
-          "type": "username"
-        }
-      },
-      ...
+```json
+"parameters": {
+  ...
+  "username": {
+    "type": "string",
+    "metadata": {
+      "type": "username"
     }
+  },
+  ...
+}
+```
 
 Det är också viktigt att notera att **alla parametrar är valfria**, så om du inte\'t vill använda någon, du\'måste.
 
 ### <a name="accepted-parameter-metadata-types"></a>Metadata för godkända parametertyper
 
 | Metadatatyp   | Parametertyp  | Beskrivning     | Exempelvärde    |
-|---|---|---|---|---|
-| **BaseUri**     | sträng          | Bas-URI för distributionspaket| [https://\<\..\>.blob.core.windows.net/\<\..\>](#) |
+|---|---|---|---|
+| **BaseUri**     | sträng          | Bas-URI för distributionspaket| https:\//\<\..\>.blob.core.windows.net/\<\..\> |
 | **användarnamn**    | sträng          | Nytt slumpmässigt användarnamn.| admin68876      |
 | **Lösenord**    | säker sträng    | Ny slumpmässigt lösenord | LP! ACS\^2kh     |
 | **Sessions-id**   | sträng          | Unikt Test Drive-sessions-ID (GUID)    | b8c8693e-5673-449c-badd-257a405a6dee |
@@ -88,40 +87,46 @@ Det är också viktigt att notera att **alla parametrar är valfria**, så om du
 
 Test Drive initierar den här parametern med en **bas-Uri** för ditt distributionspaket, så du kan använda den här parametern för att konstruera Uri till en fil som ingår i paketet.
 
-    "parameters": {
-      ...
-      "baseuri": {
-        "type": "string",
-        "metadata": {
-          "type": "baseuri",
-          "description": "Base Uri of the deployment package."
-        }
-      },
-      ...
+```json
+"parameters": {
+  ...
+  "baseuri": {
+    "type": "string",
+    "metadata": {
+      "type": "baseuri",
+      "description": "Base Uri of the deployment package."
     }
+  },
+  ...
+}
+```
 
 Du kan använda den här parametern i din mall för att konstruera en Uri till en fil från din Test Drive-distributionspaket. Exemplet nedan visar hur du skapar en länkad mall-Uri:
 
-    "templateLink": {
-      "uri": "[concat(parameters('baseuri'),'templates/solution.json')]",
-      "contentVersion": "1.0.0.0"
-    }
+```json
+"templateLink": {
+  "uri": "[concat(parameters('baseuri'),'templates/solution.json')]",
+  "contentVersion": "1.0.0.0"
+}
+```
 
 #### <a name="username"></a>användarnamn
 
 Test Drive initierar den här parametern med ett nytt slumpmässigt användarnamn:
 
-    "parameters": {
-      ...
-      "username": {
-        "type": "string",
-        "metadata": {
-          "type": "username",
-          "description": "Solution admin name."
-        }
-      },
-      ...
+```json
+"parameters": {
+  ...
+  "username": {
+    "type": "string",
+    "metadata": {
+      "type": "username",
+      "description": "Solution admin name."
     }
+  },
+  ...
+}
+```
 
 Exempelvärde:
 
@@ -133,17 +138,19 @@ Du kan använda slumpmässiga eller konstant användarnamn för din lösning.
 
 Test Drive initierar den här parametern med ett nytt slumpmässigt lösenord:
 
-    "parameters": {
-      ...
-      "password": {
-        "type": "securestring",
-        "metadata": {
-          "type": "password",
-          "description": "Solution admin password."
-        }
-      },
-      ...
+```json
+"parameters": {
+  ...
+  "password": {
+    "type": "securestring",
+    "metadata": {
+      "type": "password",
+      "description": "Solution admin password."
     }
+  },
+  ...
+}
+```
 
 Exempelvärde:
 
@@ -155,17 +162,19 @@ Du kan använda slumpmässiga eller konstant lösenord för din lösning.
 
 Test Drive initiera den här parametern med ett unikt GUID som representerar Test Drive sessions-ID:
 
-    "parameters": {
-      ...
-      "sessionid": {
-        "type": "string",
-        "metadata": {
-          "type": "sessionid",
-          "description": "Unique Test Drive session id."
-        }
-      },
-      ...
+```json
+"parameters": {
+  ...
+  "sessionid": {
+    "type": "string",
+    "metadata": {
+      "type": "sessionid",
+      "description": "Unique Test Drive session id."
     }
+  },
+  ...
+}
+```
 
 Exempelvärde:
 
@@ -179,12 +188,14 @@ Vissa Azure-resurser, t.ex. storage-konton eller DNS-namn, kräver globalt unika
 
 Det innebär att varje gång Test Drive distribuerar Resource Manager-mallen, skapas en **ny resursgrupp med ett unikt namn** för alla dess\' resurser. Därför det krävs för att använda den [uniquestring](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-functions#uniquestring) funktionen sammanfogat med din variabelnamn på resursgruppen ID att skapa slumpmässigt unika värden:
 
-      "variables": {
-      ...
-      "domainNameLabel": "[concat('contosovm',uniquestring(resourceGroup().id))]",
-      "storageAccountName": "[concat('contosodisk',uniquestring(resourceGroup().id))]",
-      ...
-    }
+```json
+"variables": {
+  ...
+  "domainNameLabel": "[concat('contosovm',uniquestring(resourceGroup().id))]",
+  "storageAccountName": "[concat('contosodisk',uniquestring(resourceGroup().id))]",
+  ...
+}
+```
 
 Kontrollera att du sammanfoga parametern/variabeln-strängar (\'contosovm\') med en unik sträng-utdata (\'resourceGroup () .id\'), eftersom detta garanterar unikhet och tillförlitligheten för varje variabel.
 
@@ -198,41 +209,45 @@ Du kan göra du Test Drive tillgängliga i olika Azure-regioner. Tanken är att 
 
 När Test Drive skapar en instans av labbet, skapas alltid en resursgrupp i regionen välja av en användare och kör sedan mallen för distribution i den här gruppen kontexten. Mallen ska därför välja distributionsplatsen från resursgrupp:
 
-    "variables": {
-      ...
-      "location": "[resourceGroup().location]",
-      ...
-    }
+```json
+"variables": {
+  ...
+  "location": "[resourceGroup().location]",
+  ...
+}
+```
 
 Och sedan använda den här platsen för varje resurs för en specifik labbinstans:
 
-    "resources": [
-      {
-        "type": "Microsoft.Storage/storageAccounts",
-        "location": "[variables('location')]",
-        ...
-      },
-      {
-        "type": "Microsoft.Network/publicIPAddresses",
-        "location": "[variables('location')]",
-        ...
-      },
-      {
-        "type": "Microsoft.Network/virtualNetworks",
-        "location": "[variables('location')]",
-        ...
-      },
-      {
-        "type": "Microsoft.Network/networkInterfaces",
-        "location": "[variables('location')]",
-        ...
-      },
-      {
-        "type": "Microsoft.Compute/virtualMachines",
-        "location": "[variables('location')]",
-        ...
-      }
-    ]
+```json
+"resources": [
+  {
+    "type": "Microsoft.Storage/storageAccounts",
+    "location": "[variables('location')]",
+    ...
+  },
+  {
+    "type": "Microsoft.Network/publicIPAddresses",
+    "location": "[variables('location')]",
+    ...
+  },
+  {
+    "type": "Microsoft.Network/virtualNetworks",
+    "location": "[variables('location')]",
+    ...
+  },
+  {
+    "type": "Microsoft.Network/networkInterfaces",
+    "location": "[variables('location')]",
+    ...
+  },
+  {
+    "type": "Microsoft.Compute/virtualMachines",
+    "location": "[variables('location')]",
+    ...
+  }
+]
+```
 
 Du måste se till att din prenumeration kan du distribuera alla resurser som du vill distribuera i var och en av de regioner som du väljer. Dessutom måste du se till att dina avbildningar av virtuella datorer är tillgängliga i alla regioner som du ska aktivera, annars fungerar inte din Distributionsmall för vissa regioner.
 
@@ -246,20 +261,22 @@ Det finns inga eventuella begränsningar som rör mallutdata. Men kom ihåg Test
 
 Exempel:
 
-    "outputs": {
-      "Host Name": {
-        "type": "string",
-        "value": "[reference(variables('pubIpId')).dnsSettings.fqdn]"
-      },
-      "User Name": {
-        "type": "string",
-        "value": "[parameters('adminName')]"
-      },
-      "Password": {
-        "type": "string",
-        "value": "[parameters('adminPassword')]"
-      }
-    }
+```json
+"outputs": {
+  "Host Name": {
+    "type": "string",
+    "value": "[reference(variables('pubIpId')).dnsSettings.fqdn]"
+  },
+  "User Name": {
+    "type": "string",
+    "value": "[parameters('adminName')]"
+  },
+  "Password": {
+    "type": "string",
+    "value": "[parameters('adminPassword')]"
+  }
+}
+```
 
 ### <a name="subscription-limits"></a>Prenumerationsbegränsningar
 
@@ -277,20 +294,18 @@ Under publishing-certifiering, Test Drive upp distributionspaket och placerar in
 
 | Package.zip                       | Test Drive blob-behållare         |
 |---|---|
-main-template.json                | [https://\<\.... \>.blob.core.windows.net/\<\.... \>/main-template.json](#)  |
- Templates/Solution.JSON           | [https://\<\.... \>.blob.core.windows.net/\<\.... \>/templates/solution.json](#) |
-| Scripts/warmup.ps1                | [https://\<\.... \>.blob.core.windows.net/\<\.... \>/scripts/warmup.ps1](#)  |
+| main-template.json                | https:\//\<\...\>.blob.core.windows.net/\<\...\>/main-template.json  |
+| Templates/Solution.JSON           | https:\//\<\.... \>.blob.core.windows.net/\<\.... \>/templates/solution.json |
+| Scripts/warmup.ps1                | https:\//\<\...\>.blob.core.windows.net/\<\...\>/scripts/warmup.ps1  |
 
 
 Vi kallar en Uri för den här blobbehållaren bas-Uri. Varje revision över ditt labb har sin egen blob-behållare och därför varje revision över ditt labb har sin egen bas-Uri. Test Drive kan skicka en bas-Uri för uppzippade distributionspaket i mallen via mallparametrarna.
 
-<a name="transforming-template-examples-for-test-drive"></a>Omvandla mallexempel för provkörning
----------------------------------------------
+## <a name="transforming-template-examples-for-test-drive"></a>Omvandla mallexempel för provkörning
 
 Processen från att aktivera en arkitektur för resurser i en Test Drive Resource Manager-mallar kan kännas avskräckande. För att underlätta den här processen, vi\'stött gjort exempel på hur till bästa [omvandla aktuella distributionsmallar här](./transforming-examples-for-test-drive.md).
 
-<a name="how-to-publish-a-test-drive"></a>Så här publicerar du en Test Drive
----------------------------
+## <a name="how-to-publish-a-test-drive"></a>Så här publicerar du en Test Drive
 
 Nu när du har din provkörning som skapats beskriver i det här avsnittet var och en av de fält som krävs att publicera din provkörning.
 
@@ -394,8 +409,7 @@ Får vi använder programmet för att distribuera till prenumerationen, behöver
 
 ![Visar nycklar för Azure AD-programmet](./media/azure-resource-manager-test-drive/subdetails8.png)
 
-<a name="next-steps"></a>Nästa steg
-----------
+## <a name="next-steps"></a>Nästa steg
 
 Nu när du har alla Test Drive fälten ifyllda, gå igenom och **publicera** ditt erbjudande. När din provkörning har gått ut certifiering, bör du gå en stor utsträckning testa kundupplevelsen i den **förhandsversion** i ditt erbjudande. Starta en Test Drive i Användargränssnittet och öppna din Azure-prenumeration i Azure-portalen och kontrollera att din Provkörningar fullständigt distribueras på rätt sätt.
 

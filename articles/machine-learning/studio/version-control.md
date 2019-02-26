@@ -5,17 +5,17 @@ description: Använd Application Lifecycle Management bästa praxis i Azure Mach
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
+ms.topic: conceptual
 author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=haining, previous-author=hning86
 ms.date: 10/27/2016
-ms.openlocfilehash: 1b57fefad726f8fb21f23fa9eef9e71643a3f51b
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: 22fe9a6bc6eaec1f4c73f9b92e30f174dd7855f2
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56588406"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56820390"
 ---
 # <a name="application-lifecycle-management-in-azure-machine-learning-studio"></a>Livscykelhantering för program i Azure Machine Learning Studio
 Azure Machine Learning Studio är ett verktyg för utveckling av machine learning-experiment som operationaliserat i Azure-molnplattformen. Det sammanfogas som Visual Studio IDE och skalbar molntjänst i en enda plattform. Du kan införliva standardmetoder Application Lifecycle Management (ALM) från versionshantering olika tillgångar för automatisk körning och distribution i Azure Machine Learning Studio. Den här artikeln beskrivs några av alternativen och metoder.
@@ -42,7 +42,7 @@ Körningshistorik ögonblicksbilder behålla en oföränderligt version av exper
 JSON-filen är en textrepresentation av experimentdiagram, vilket kan innebära en referens till tillgångar på arbetsytan, till exempel en datauppsättning eller en tränad modell. Den innehåller inte en serialiserade version av tillgången. Om du försöker importera JSON-dokumentet tillbaka till arbetsytan måste refererade tillgångar redan finnas med samma tillgång ID: N som refereras till i experimentet. Annars kan du komma åt importerade experimentet.
 
 ## <a name="versioning-trained-model"></a>Versionshantering tränade modellen
-En tränad modell i Azure Machine Learning Studio serialiseras till ett format som kallas en iLearner-fil (`.iLearner`), och lagras i Azure Blob storage-konto som är associerade med arbetsytan. Ett sätt att hämta en kopia av den iLearner-fil är via omtränings-API. [Den här artikeln](retrain-models-programmatically.md) förklarar hur du omtränings-API: et. De övergripande stegen:
+En tränad modell i Azure Machine Learning Studio serialiseras till ett format som kallas en iLearner-fil (`.iLearner`), och lagras i Azure Blob storage-konto som är associerade med arbetsytan. Ett sätt att hämta en kopia av den iLearner-fil är via omtränings-API. [Den här artikeln](/azure/machine-learning/studio/retrain-machine-learning-model) förklarar hur du omtränings-API: et. De övergripande stegen:
 
 1. Ställ in din träningsexperiment.
 2. Lägg till en web service-utdataporten träningsmodellmodulen eller den modul som ger den tränade modellen, till exempel finjustera modell finjustering eller skapa R-modellen.

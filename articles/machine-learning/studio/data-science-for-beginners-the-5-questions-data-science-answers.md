@@ -5,17 +5,17 @@ description: Datavetenskap Lär för nybörjare är grundläggande begrepp i 5 k
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
+ms.topic: conceptual
 author: garyericson
 ms.author: garye
 ms.custom: seodec18
 ms.date: 01/03/2018
-ms.openlocfilehash: 93af2e283a1dd1ec11541087b33b3303c13364cc
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 4483fc82ad4bf935153c76922fbece84c6ca2ea8
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55492002"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56816920"
 ---
 # <a name="data-science-for-beginners-video-1-the-5-questions-data-science-answers"></a>Datavetenskap för nybörjare, video 1: 5 frågor och svar om datavetenskap
 Få en snabbintroduktion i datakunskap från *datavetenskap för nybörjare* i fem korta filmer från övre dataexpert. Dessa videoklipp är basic men användbart, oavsett om du är intresserad av i datavetenskap eller om du arbetar med dataexperter.
@@ -136,4 +136,4 @@ Så det var allt – kan The 5 frågor för datavetenskap svara på.
 
 ## <a name="next-steps"></a>Nästa steg
 * [Prova en första dataexperiment med Machine Learning Studio](create-experiment.md)
-* [Få en introduktion till Machine Learning på Microsoft Azure](what-is-machine-learning.md)
+* [Få en introduktion till Machine Learning på Microsoft Azure](/azure/machine-learning/preview/overview-what-is-azure-ml)

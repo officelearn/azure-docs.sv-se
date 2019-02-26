@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 2dbf63e745af102de05ec6dc3e3bcb3e98cd3a32
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: c1e596516136240b1d1d08b4e8386e9cf5ef48e5
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55563719"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56819130"
 ---
 # <a name="understand-the-lifecycle-of-an-azure-blueprint"></a>Förstå livscykeln för en Azure-skiss
 
@@ -35,7 +35,7 @@ För att helt förstå en skiss och stegen kan går vi igenom en standard livscy
 
 När du skapar en skiss, Lägg till artefakter, spara till en hanteringsgrupp eller prenumeration och tillhandahålls ett unikt namn och en unik version. Skissen är nu i en **Draft** läge och kan ännu inte tilldelas. I den **Draft** läge, det kan fortsätta att uppdateras och ändras.
 
-En publicerad aldrig skissen i **Draft** läge visar en annan ikon på den **Skissdefinitioner** sidan än de som har **publicerad**. Den **senaste versionen** visas också som **Draft** för dessa publicerade aldrig skisser.
+En publicerad aldrig skissen i **Draft** läge visar en annan ikon på den **Skissdefinitioner** sidan än de som har **publicerad**. Den **senaste versionen** visas som **Draft** för dessa publicerade aldrig skisser.
 
 Skapa och redigera en skiss med den [Azure-portalen](../create-blueprint-portal.md#create-a-blueprint) eller [REST API](../create-blueprint-rest-api.md#create-a-blueprint).
 
@@ -68,9 +68,9 @@ Varje version av en skiss är ett unikt objekt och kan vara individuellt **publi
 > [!NOTE]
 > Det går inte att ta bort en skiss som har aktiva uppgifter. Ta bort tilldelningar först och sedan ta bort den version som du vill ta bort.
 
-1. Klicka på **Alla tjänster** och sök efter och välj **Princip** i den vänstra fönsterrutan. Klicka på **Skisser** på sidan **Princip**.
+1. Välj **alla tjänster** i den vänstra rutan. Sök efter och välj **skisser**.
 
-1. Välj **Skissdefinitioner** från sidan till vänster och Använd filteralternativ för att hitta skissen som du vill ta bort en version av. Klicka på det för att öppna sidan Redigera.
+1. Välj **skiss definitioner** från sidan till vänster och Använd filteralternativ för att hitta skissen som du vill ta bort en version av. Klicka på det för att öppna sidan Redigera.
 
 1. Klicka på den **publicerade versioner** fliken och leta upp den version som du vill ta bort.
 

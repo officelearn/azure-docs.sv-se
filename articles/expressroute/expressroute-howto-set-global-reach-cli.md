@@ -2,28 +2,23 @@
 title: 'Konfigurera ExpressRoute Global räckvidd: Azure CLI | Microsoft Docs'
 description: Den här artikeln hjälper dig att länka ExpressRoute-kretsar tillsammans för att göra ett privat nätverk mellan ditt lokala nätverk och aktivera Global räckvidd.
 services: expressroute
-author: cherylmc
+author: jaredr80
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/12/2018
-ms.author: cherylmc
+ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: be10489d731b9e01d148ce1ac7892cb6de956662
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 28df8f59944ccac9d731e15a558d864beed2f3ae
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55659328"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56817702"
 ---
-# <a name="configure-expressroute-global-reach-by-using-the-azure-cli-preview"></a>Konfigurera ExpressRoute Global räckvidd med hjälp av Azure CLI (förhandsversion)
+# <a name="configure-expressroute-global-reach-by-using-the-azure-cli"></a>Konfigurera ExpressRoute Global räckvidd med hjälp av Azure CLI
 
 Den här artikeln hjälper dig att konfigurera Azure ExpressRoute Global räckvidd med hjälp av Azure CLI. Mer information finns i [ExpressRoute Global Reach](expressroute-global-reach.md).
  
-## <a name="before-you-begin"></a>Innan du börjar
-
-> [!IMPORTANT]
-> Den offentliga förhandsversionen tillhandahålls utan serviceavtal och bör inte användas för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller har begränsad funktionalitet, eller så är de inte tillgängliga på alla Azure-platser. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 Innan du börjar konfigurationen måste du uppfylla följande krav:
 
 * Installera den senaste versionen av Azure CLI. Se [Installera Azure CLI](/cli/azure/install-azure-cli) och [Kom igång med Azure CLI](/cli/azure/get-started-with-azure-cli).

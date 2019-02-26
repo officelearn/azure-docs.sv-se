@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/16/2018
 ms.author: srrengar
-ms.openlocfilehash: da7ae9c77d7bb94f1d06cf5fdb48149775c93201
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 36402b7dc9c5ee801dd59b03f99b45d6428de187
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52333811"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56816002"
 ---
 # <a name="performance-monitoring-with-log-analytics"></a>Prestandaövervakning med Log Analytics
 
@@ -74,7 +74,7 @@ Du kan hämta och ändra den här mallen om du vill distribuera ett kluster som 
 
 Nu när du har lagt till Log Analytics-agenten, head vill till Log Analytics-portalen för att välja vilka räknare som du samla in. 
 
-1. Gå till resursgruppen där du skapade Service Fabric-analys-lösningen i Azure-portalen. Välj **ServiceFabric\<nameOfLog AnalyticsWorkspace\>**.
+1. Gå till resursgruppen där du skapade Service Fabric-analys-lösningen i Azure-portalen. Select **ServiceFabric\<nameOfLog AnalyticsWorkspace\>**.
 
 2. Klicka på **Log Analytics**.
 
@@ -100,4 +100,4 @@ Nu när du har lagt till Log Analytics-agenten, head vill till Log Analytics-por
 
 * Samla in relevanta [prestandaräknare](service-fabric-diagnostics-event-generation-perf.md). Om du vill konfigurera Log Analytics-agenten för att samla in specifika prestandaräknare, granska [konfigurera datakällor](../azure-monitor/platform/agent-data-sources.md#configuring-data-sources).
 * Konfigurera Log Analytics för att ställa in [automatiserade aviseringar](../log-analytics/log-analytics-alerts.md) att underlätta identifiering och diagnostik
-* Alternativt kan du samla in prestandaräknare via [Azure Diagnostics-tillägg och skicka dem till Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md#add-the-application-insights-sink-to-the-resource-manager-template)
+* Alternativt kan du samla in prestandaräknare via [Azure Diagnostics-tillägg och skicka dem till Application Insights](service-fabric-diagnostics-event-aggregation-wad.md#add-the-application-insights-sink-to-the-resource-manager-template)

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: bf9e83a1dfed0aac7f48cd47dc12bf56c7cb1b64
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 47d2e051cf3eeebbfaea95cfc16f5077559e6847
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38481710"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56807141"
 ---
 # <a name="about-azure-devtest-labs"></a>Om Azure DevTest Labs
 ## <a name="overview"></a>Översikt
@@ -44,6 +44,7 @@ Samla in och dela miljömallar och artefakter inom gruppen eller organisationen 
 
 ## <a name="integrates-with-your-existing-toolchain"></a>Integreras med din befintliga verktygskedja
 Utnyttja färdiga plugin-program eller vårt API för att etablera miljöer för utveckling/testning direkt från ditt önskade kontinuerlig integrering (CI)-verktyg, integrated development environment (IDE) eller automatiserade releasepipeline. Du kan också använda vårt omfattande kommandoradsverktyg.
+
 
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]

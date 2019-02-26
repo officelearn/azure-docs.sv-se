@@ -1,6 +1,6 @@
 ---
-title: Vidarebefordra Azure Automation-Tillståndskonfiguration rapporterar data till Log Analytics
-description: Den här artikeln visar hur du skickar Desired State Configuration (DSC) rapportdata från tillståndskonfigurationen för Azure Automation till Log Analytics för att ge ytterligare insikter och hantering.
+title: Vidarebefordra Azure Automation-Tillståndskonfiguration rapporterar data till Azure Monitor-loggar
+description: Den här artikeln visar hur du skickar Desired State Configuration (DSC) rapportdata från Azure Automation-Tillståndskonfiguration till Azure Monitor-loggar att ge ytterligare insikter och hantering.
 services: automation
 ms.service: automation
 ms.subservice: dsc
@@ -9,16 +9,16 @@ ms.author: robreed
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 2450ffcbd9fa7bebd5a1b862aa9c35baa5dbdc95
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 33b3ed52d198d162af666e0f38066ba936d7874f
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54425193"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56819828"
 ---
-# <a name="forward-azure-automation-state-configuration-reporting-data-to-log-analytics"></a>Vidarebefordra Azure Automation-Tillståndskonfiguration rapporterar data till Log Analytics
+# <a name="forward-azure-automation-state-configuration-reporting-data-to-azure-monitor-logs"></a>Vidarebefordra Azure Automation-Tillståndskonfiguration rapporterar data till Azure Monitor-loggar
 
-Azure Automation State Configuration skicka Desired State Configuration (DSC) noddata status till Log Analytics-arbetsytan. Kompatibilitetsstatus för syns i Azure portal eller med PowerShell, för noder och för enskilda DSC-resurser i nodkonfigurationer. Med Log Analytics kan du:
+Azure Automation State Configuration skicka Desired State Configuration (DSC) noddata status till Log Analytics-arbetsytan. Kompatibilitetsstatus för syns i Azure portal eller med PowerShell, för noder och för enskilda DSC-resurser i nodkonfigurationer. Med Azure Monitor-loggar kan du:
 
 - Hämta information om kompatibilitet för hanterade noder och enskilda resurser
 - Utlös ett e-post eller en avisering baserat på status för uppdateringskompatibilitet
@@ -26,18 +26,20 @@ Azure Automation State Configuration skicka Desired State Configuration (DSC) no
 - Korrelera kompatibilitetsstatus för Automation-konton
 - Visualisera dina noden kompatibilitetshistorik över tid
 
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+
 ## <a name="prerequisites"></a>Förutsättningar
 
-Om du vill börja skicka dina Automation State Configuration-rapporter till Log Analytics, behöver du:
+Om du vill börja skicka dina Automation State Configuration-rapporter till Azure Monitor-loggar, behöver du:
 
 - November 2016 eller senare versionen av [Azure PowerShell](/powershell/azure/overview) (v2.3.0).
 - Ett Azure Automation-konto. Mer information finns i [komma igång med Azure Automation](automation-offering-get-started.md)
-- Log Analytics-arbetsytan med en **automatisering och kontroll** tjänst-erbjudande. Mer information finns i [Kom igång med Log Analytics](../log-analytics/log-analytics-get-started.md).
+- Log Analytics-arbetsytan med en **automatisering och kontroll** tjänst-erbjudande. Mer information finns i [Kom igång med Azure Monitor-loggar](../log-analytics/log-analytics-get-started.md).
 - Minst en Azure Automation State Configuration-nod. Mer information finns i [konfigurera datorer för hantering av Azure Automation State Configuration](automation-dsc-onboarding.md)
 
-## <a name="set-up-integration-with-log-analytics"></a>Ställa in integration med Log Analytics
+## <a name="set-up-integration-with-azure-monitor-logs"></a>Ställa in integration med Azure Monitor-loggar
 
-Om du vill börja importera data från Azure Automation DSC till Log Analytics, gör du följande:
+Om du vill börja importera data från Azure Automation DSC i Azure Monitor-loggar, gör du följande:
 
 1. Logga in på ditt Azure-konto i PowerShell. Se [logga in med Azure PowerShell](https://docs.microsoft.com/powershell/azure/authenticate-azureps?view=azurermps-4.0.0)
 1. Hämta den _ResourceId_ av ditt automation-konto genom att köra följande PowerShell-kommando: (om du har fler än ett automation-konto väljer du den _ResourceID_ för det konto som du vill konfigurera).
@@ -60,7 +62,7 @@ Om du vill börja importera data från Azure Automation DSC till Log Analytics, 
   Set-AzureRmDiagnosticSetting -ResourceId <AutomationResourceId> -WorkspaceId <WorkspaceResourceId> -Enabled $true -Categories 'DscNodeStatus'
   ```
 
-Om du vill avbryta import av data från tillståndskonfigurationen för Azure Automation till Log Analytics ska du köra följande PowerShell-kommando:
+Om du vill sluta importera data från Azure Automation-Tillståndskonfiguration i Azure Monitor-loggar, kör du följande PowerShell-kommando:
 
 ```powershell
 Set-AzureRmDiagnosticSetting -ResourceId <AutomationResourceId> -WorkspaceId <WorkspaceResourceId> -Enabled $false -Categories 'DscNodeStatus'
@@ -68,7 +70,7 @@ Set-AzureRmDiagnosticSetting -ResourceId <AutomationResourceId> -WorkspaceId <Wo
 
 ## <a name="view-the-state-configuration-logs"></a>Visa State Configuration-loggar
 
-När du har konfigurerat integrering med Log Analytics för dina Automation State Configuration-data, en **loggsökning** knappen visas på den **DSC-noder** bladet för ditt automation-konto. Klicka på den **Loggsökning** för att visa loggarna för DSC-nod.
+När du har konfigurerat integrering med Azure Monitor-loggar för dina Automation State Configuration-data, en **loggsökning** knappen visas på den **DSC-noder** bladet för ditt automation-konto. Klicka på den **Loggsökning** för att visa loggarna för DSC-nod.
 
 ![Sökknappen i loggen](media/automation-dsc-diagnostics/log-search-button.png)
 
@@ -78,7 +80,8 @@ Den **DscResourceStatusData** åtgärden innehåller information om fel för all
 
 Klicka på varje åtgärd i listan om du vill se data för den åtgärden.
 
-Du kan också visa loggarna genom att [söka i Log Analytics. Se [hitta data med hjälp av sökningar i loggen](../log-analytics/log-analytics-log-searches.md).
+Du kan också visa loggarna genom att söka i Azure Monitor-loggar.
+Se [hitta data med hjälp av sökningar i loggen](../log-analytics/log-analytics-log-searches.md).
 Skriv följande fråga för att hitta dina State Configuration-loggar: `Type=AzureDiagnostics ResourceProvider='MICROSOFT.AUTOMATION' Category='DscNodeStatus'`
 
 Du kan också begränsa frågan genom åtgärdens namn. Exempel: `Type=AzureDiagnostics ResourceProvider='MICROSOFT.AUTOMATION' Category='DscNodeStatus' OperationName='DscNodeStatusData'`
@@ -89,7 +92,7 @@ En av våra främsta Återkopplingen är för möjligheten att skicka ett e-post
 
 Om du vill skapa en aviseringsregel, börja med att skapa en loggsökning för rapporten State Configuration-poster som ska anropa aviseringen. Klicka på den **+ ny Aviseringsregel** knappen för att skapa och konfigurera varningsregeln.
 
-1. Översikt över Log Analytics-sidan klickar du på **Loggsökning**.
+1. På översiktssidan för Log Analytics-arbetsytan klickar du på **loggar**.
 1. Skapa en sökfråga i loggen för aviseringen genom att skriva följande sökningen i fältet fråga:  `Type=AzureDiagnostics Category='DscNodeStatus' NodeName_s='DSCTEST1' OperationName='DscNodeStatusData' ResultType='Failed'`
 
    Om du har lagt upp loggar från mer än en Automation-konto eller prenumeration till din arbetsyta kan gruppera du aviseringar av prenumeration och Automation-konto.  
@@ -98,10 +101,10 @@ Om du vill skapa en aviseringsregel, börja med att skapa en loggsökning för r
 
 ### <a name="find-failed-dsc-resources-across-all-nodes"></a>Hitta misslyckade DSC-resurser i alla noder
 
-En fördel med att använda Log Analytics är att du kan söka efter misslyckade kontroller över noder.
+Fördelen med att använda Azure Monitor-loggar är att du kan söka efter misslyckade kontroller mellan noder.
 Du hittar alla instanser av DSC-resurser som misslyckades.
 
-1. Översikt över Log Analytics-sidan klickar du på **Loggsökning**.
+1. På översiktssidan för Log Analytics-arbetsytan klickar du på **loggar**.
 1. Skapa en sökfråga i loggen för aviseringen genom att skriva följande sökningen i fältet fråga:  `Type=AzureDiagnostics Category='DscNodeStatus' OperationName='DscResourceStatusData' ResultType='Failed'`
 
 ### <a name="view-historical-dsc-node-status"></a>Visa historiska DSC-nodstatus
@@ -113,9 +116,9 @@ Du kan använda den här frågan för att söka efter status för dina DSC-nodst
 
 Då visas ett diagram över nodstatusen över tid.
 
-## <a name="log-analytics-records"></a>Log Analytics-poster
+## <a name="azure-monitor-logs-records"></a>Azure Monitor loggar poster
 
-Diagnostik från Azure Automation skapar två typer av poster i Log Analytics.
+Diagnostik från Azure Automation skapar två typer av poster i Azure Monitor-loggar.
 
 ### <a name="dscnodestatusdata"></a>DscNodeStatusData
 
@@ -139,7 +142,7 @@ Diagnostik från Azure Automation skapar två typer av poster i Log Analytics.
 | ReportStartTime_t |Datum och tid då rapporten startades. |
 | ReportEndTime_t |Datum och tid när rapporten har slutförts. |
 | NumberOfResources_d |Antalet DSC-resurser anropas i konfigurationen tillämpas på noden. |
-| SourceSystem | Hur Log Analytics insamlade data. Alltid *Azure* för Azure-diagnostik. |
+| SourceSystem | Hur ska loggas i Azure Monitor insamlade data. Alltid *Azure* för Azure-diagnostik. |
 | ResourceId |Anger vilket Azure Automation-konto. |
 | ResultDescription | Beskrivning för den här åtgärden. |
 | SubscriptionId | Azure-prenumerationen Id (GUID) för Automation-kontot. |
@@ -170,7 +173,7 @@ Diagnostik från Azure Automation skapar två typer av poster i Log Analytics.
 | ErrorCode_s | Felkoden om resursen misslyckades. |
 | ErrorMessage_s |Felmeddelande om resursen misslyckades. |
 | DscResourceDuration_d |Tid i sekunder som kördes av DSC-resurs. |
-| SourceSystem | Hur Log Analytics insamlade data. Alltid *Azure* för Azure-diagnostik. |
+| SourceSystem | Hur ska loggas i Azure Monitor insamlade data. Alltid *Azure* för Azure-diagnostik. |
 | ResourceId |Anger vilket Azure Automation-konto. |
 | ResultDescription | Beskrivning för den här åtgärden. |
 | SubscriptionId | Azure-prenumerationen Id (GUID) för Automation-kontot. |
@@ -181,12 +184,12 @@ Diagnostik från Azure Automation skapar två typer av poster i Log Analytics.
 
 ## <a name="summary"></a>Sammanfattning
 
-Du kan få bättre insikt i status för dina Automation-Tillståndskonfiguration noder av genom att skicka dina Automation State Configuration-data till Log Analytics:
+Du kan få bättre insikt i status för dina Automation-Tillståndskonfiguration noder av genom att skicka dina Automation State Configuration-data till Azure Monitor-loggar:
 
 - Ställa in aviseringar som meddelar dig när det finns ett problem
 - Använder anpassade vyer och sökfrågor för att visualisera dina runbook-resultat, relaterade runbook jobbstatus och andra viktiga indikatorer eller mått.  
 
-Log Analytics ger större operativa insyn till dina Automation State Configuration-data och kan hjälpa att hantera incidenter snabbare.
+Azure Monitor-loggar bättre operativa insyn till dina Automation State Configuration-data och kan hjälpa att hantera incidenter snabbare.
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -196,5 +199,5 @@ Log Analytics ger större operativa insyn till dina Automation State Configurati
 - PowerShell-cmdlet-referens, se [tillståndskonfigurationen för Azure Automation-cmdletar](/powershell/module/azurerm.automation/#automation)
 - Information om priser finns i [priser för Azure Automation State Configuration](https://azure.microsoft.com/pricing/details/automation/)
 - Om du vill se ett exempel på hur du använder Azure Automation-Tillståndskonfiguration i en pipeline för kontinuerlig distribution, se [kontinuerlig distribution med hjälp av Azure Automation Tillståndskonfiguration och Chocolatey](automation-dsc-cd-chocolatey.md)
-- Läs mer om hur du konstruerar olika sökfrågor och granskar Automation State Configuration-loggar med Log Analytics i [Loggsökningar i Log Analytics](../log-analytics/log-analytics-log-searches.md)
-- Läs mer om Log Analytics och datakällsamling i [insamling av Azure storage-data i Log Analytics-översikten](../azure-monitor/platform/collect-azure-metrics-logs.md)
+- Mer information om hur du konstruerar olika sökfrågor och granskar Automation State Configuration-loggar med Azure Monitor-loggar finns [Loggsökningar i Azure Monitor-loggar](../log-analytics/log-analytics-log-searches.md)
+- Läs mer om Azure Monitor-loggar och datakällsamling i [insamling av Azure storage-data i Azure Monitor loggar översikt](../azure-monitor/platform/collect-azure-metrics-logs.md)

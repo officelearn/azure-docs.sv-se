@@ -4,7 +4,7 @@ description: Beskriver hur du lägger till nya certifikat, förnyelse av certifi
 services: service-fabric
 documentationcenter: .net
 author: aljo-microsoft
-manager: timlt
+manager: chakdan
 editor: ''
 ms.assetid: 91adc3d3-a4ca-46cf-ac5f-368fb6458d74
 ms.service: service-fabric
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/13/2018
-ms.author: aljo-microsoft
-ms.openlocfilehash: aa5096b84f9bfe97784d6f80e4c203a1d8384404
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.author: aljo
+ms.openlocfilehash: 37140b665f30d8bb99dd49dbdcca265969eaaf2f
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51687426"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56806699"
 ---
 # <a name="add-or-remove-certificates-for-a-service-fabric-cluster-in-azure"></a>Lägga till eller ta bort certifikat för Service Fabric-kluster i Azure
 Vi rekommenderar att du bekanta dig med hur Service Fabric använder X.509-certifikat och att du läser den [Klustersäkerhetsscenarier](service-fabric-cluster-security.md). Du måste förstå vad ett klustercertifikat är och vad som används för, innan du forsätter.
@@ -114,7 +114,7 @@ För att underlätta följa med innehåller exempel 5-VM-1-NodeTypes-Secure_Step
          }
     ``` 
 
-4. Gör ändringar i **alla** den **Microsoft.Compute/virtualMachineScaleSets** resursdefinitionerna - hitta Microsoft.Compute/virtualMachineScaleSets resursdefinitionen. Bläddra till ”publisher”: ”Microsoft.Azure.ServiceFabric” under ”virtualMachineProfile”.
+4. Gör ändringar i **alla** den **Microsoft.Compute/virtualMachineScaleSets** resursdefinitionerna - hitta Microsoft.Compute/virtualMachineScaleSets resursdefinitionen. Rulla ”publisher”: ”Microsoft.Azure.ServiceFabric”, under ”virtualMachineProfile”.
 
     Du bör se ut så här i inställningarna för Service Fabric-utgivare.
     

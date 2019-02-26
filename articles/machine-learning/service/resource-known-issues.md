@@ -8,15 +8,15 @@ ms.author: jmartens
 ms.reviewer: mldocs
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: b10e434aece0ac214a0fd397ea94cbeccca4e44a
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 3cf71de72a6005c59d76e2d88059a1ae16ec2970
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55746498"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56817481"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning-service"></a>Kända problem och felsökning Azure Machine Learning-tjänsten
 
@@ -51,17 +51,18 @@ Du kommer inte att kunna distribuera modeller på FPGA förrän du har begärt o
 
 Databricks och Azure Machine Learning-problem.
 
-1. Azure Machine Learning SDK-installationsfel på Databricks när flera paket installeras.
-
-   Vissa paket, till exempel `psutil`, kan orsaka konflikter. Installera paket genom att du låser lib-version för att undvika installationsfel. Det här problemet är relaterat till Databricks och inte Azure Machine Learning-tjänsten SDK – du kan stöta på det med andra libs för. Exempel:
+### <a name="failure-when-installing-packages"></a>Fel vid installation av paket
+Azure Machine Learning SDK-installationsfel på Databricks när flera paket installeras. Vissa paket, till exempel `psutil`, kan orsaka konflikter. Installera paket genom att du låser lib-version för att undvika installationsfel. Det här problemet är relaterat till Databricks och inte Azure Machine Learning-tjänsten SDK – du kan stöta på det med andra libs för. Exempel:
    ```python
    pstuil cryptography==1.5 pyopenssl==16.0.0 ipython==2.2.0
    ```
-   Du kan också använda init skript om du hålla får installera problem med med Python-bibliotek. Den här metoden är inte en metod som stöds. Du kan referera till [det här dokumentet](https://docs.azuredatabricks.net/user-guide/clusters/init-scripts.html#cluster-scoped-init-scripts).
+Du kan också använda init skript om du hålla får installera problem med med Python-bibliotek. Den här metoden är inte en metod som stöds. Du kan referera till [det här dokumentet](https://docs.azuredatabricks.net/user-guide/clusters/init-scripts.html#cluster-scoped-init-scripts).
 
-2. När du använder automatisk Machine Learning på Databricks, om du vill avbryta en körning och starta ett nytt experiment som körs, startar du om din Azure Databricks-kluster.
+### <a name="cancel-an-automated-ml-run"></a>Avbryt en automatiserad ML-körning
+När du använder automatisk maskininlärningsförmågor på Databricks, om du vill avbryta en körning och starta ett nytt experiment som körs, startar du om din Azure Databricks-kluster.
 
-3. I inställningarna för automatisk ml om du har fler än 10 iterationer ange `show_output` till `False` när du skickar körningen.
+### <a name="10-iterations-for-automated-ml"></a>> 10 iterationer för automatiserade ML
+I inställningarna för automatisk ml om du har fler än 10 iterationer ange `show_output` till `False` när du skickar körningen.
 
 
 ## <a name="azure-portal"></a>Azure Portal

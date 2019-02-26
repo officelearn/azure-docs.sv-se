@@ -3,8 +3,8 @@ title: Lär dig mer om Azure Service Fabric-kluster-versioner | Microsoft Docs
 description: Azure Service Fabric-kluster-versioner som stöds
 services: service-fabric
 documentationcenter: .net
-author: twhitney
-manager: jpconnock
+author: aljo-microsoft
+manager: chakdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
@@ -13,13 +13,13 @@ ms.topic: troubleshooting
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 9/24/2018
-ms.author: TylerMSFT
-ms.openlocfilehash: 154869c3e6bcd44a71480a3cf7363537dddcebf9
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.author: aljo
+ms.openlocfilehash: 9da51d40c4a94af9bdcf16b48302e8eb2b60eb2f
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52727689"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56807719"
 ---
 # <a name="supported-service-fabric-versions"></a>Service Fabric-versioner som stöds
 
@@ -41,7 +41,7 @@ Här följer en lista över Service Fabric-versioner som stöds och deras slutda
 | 5.6.* | 5.4.164.* |Mindre än eller lika med version 2.6 |Oktober 13,2017   |
 | 5.7.* | 5.4.164.* |Mindre än eller lika med version 2.7 |December 15,2017  |
 | 6.0.* | 5.6.205.* |Mindre än eller lika med version 2.8 |Mars 30,2018     |
-| 6.1. * | 5.7.221.* |Mindre än eller lika med version 3.0 |Juli 15,2018      |
-| 6.2. * | 6.0.232.* |Mindre än eller lika med version 3.1 |Oktober 26,2018   |
-| 6.3. * | 6.1.480.* |Mindre än eller lika med version 3.2 |Februari 28,2019  |
-| 6.4. * | 6.2.301.* |Mindre än eller lika med version 3.3 |Aktuell version och så inget slutdatum |
+| 6.1.* | 5.7.221.* |Mindre än eller lika med version 3.0 |Juli 15,2018      |
+| 6.2.* | 6.0.232.* |Mindre än eller lika med version 3.1 |Oktober 26,2018   |
+| 6.3.* | 6.1.480.* |Mindre än eller lika med version 3.2 |Februari 28,2019  |
+| 6.4.* | 6.2.301.* |Mindre än eller lika med version 3.3 |Aktuell version och så inget slutdatum |

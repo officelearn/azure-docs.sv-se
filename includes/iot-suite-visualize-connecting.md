@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 04/24/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 73ba80878615f04e1755a4d12014691c5ae2a077
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 5bb2db84a21efb9c8bffb345e05e17d99b866fe9
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54453128"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56825386"
 ---
 ## <a name="view-device-telemetry"></a>Visa enhetstelemetri
 
-Du kan visa telemetri som skickas från din enhet den **enheter** sidan i lösningen.
+Du kan visa telemetri som skickas från din enhet den **Device Explorer** sidan i lösningen.
 
-1. Välj den enhet som du har etablerat i listan över enheter på den **enheter** sidan. En panel visar information om enheten till exempel en rityta för enhetstelemetri som:
+1. Välj den enhet som du har etablerat i listan över enheter på den **Device Explorer** sidan. En panel visar information om enheten till exempel en rityta för enhetstelemetri som:
 
     ![Visa information om enhet](media/iot-suite-visualize-connecting/devicesdetail.png)
 
@@ -33,11 +33,11 @@ Du kan visa telemetri som skickas från din enhet den **enheter** sidan i lösni
 
 ## <a name="act-on-your-device"></a>Agera på din enhet
 
-Om du vill anropa metoder på dina enheter, använda den **enheter** sida i lösningen för fjärrövervakning. Till exempel i lösningen för fjärrövervakning **kylaggregat** enheter implementera en **FirmwareUpdate** metod.
+Om du vill anropa metoder på dina enheter, använda den **Device Explorer** sida i lösningen för fjärrövervakning. Till exempel i lösningen för fjärrövervakning **kylaggregat** enheter implementera en **FirmwareUpdate** metod.
 
-1. Välj **enheter** att navigera till den **enheter** sidan i lösningen.
+1. Välj **enheter** att navigera till den **Device Explorer** sidan i lösningen.
 
-1. Välj den enhet som du har etablerat i listan över enheter på den **enheter** sidan:
+1. Välj den enhet som du har etablerat i listan över enheter på den **Device Explorer** sidan:
 
     ![Välj den verkliga enheten](media/iot-suite-visualize-connecting/devicesselect.png)
 
@@ -49,7 +49,7 @@ Om du vill anropa metoder på dina enheter, använda den **enheter** sida i lös
 
 1. En serie meddelanden visas i konsolen som kör enhetskoden när den simulerade enheten hanterar metoden.
 
-1. När uppdateringen har slutförts, den nya versionen för inbyggd programvara visas på den **enheter** sidan:
+1. När uppdateringen har slutförts, den nya versionen för inbyggd programvara visas på den **Device Explorer** sidan:
 
     ![Uppdateringen slutfördes](media/iot-suite-visualize-connecting/complete.png)
 

@@ -4,7 +4,7 @@ description: Metodtips för hantering av Service Fabric-kluster och program.
 services: service-fabric
 documentationcenter: .net
 author: peterpogorski
-manager: jeanpaul.connock
+manager: chackdan
 editor: ''
 ms.assetid: 19ca51e8-69b9-4952-b4b5-4bf04cded217
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/23/2019
 ms.author: pepogors
-ms.openlocfilehash: 06240ac08a12b67e95b4cb9b9a33fcca32de45a8
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: a0174a5442de7a10e45e9dc2a2f43f5f401d1a69
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54914115"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56805078"
 ---
 # <a name="azure-service-fabric-application-and-cluster-best-practices"></a>Metodtips för Azure Service Fabric-program och -kluster
 
@@ -33,7 +33,7 @@ Om du vill hantera Azure Service Fabric-program och -kluster har finns det åtg�
 
 * [Metodtips för nätverk](service-fabric-best-practices-networking.md)
 
-## <a name="compute-planning-and-scaling"></a>Planera för beräkning och skalning
+## <a name="compute-planning-and-scaling"></a>Beräkningsplanering och skalning
 
 * [Metodtips för att skala beräkning](service-fabric-best-practices-capacity-scaling.md)
 * [Compute-kapacitetsplanering](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity)

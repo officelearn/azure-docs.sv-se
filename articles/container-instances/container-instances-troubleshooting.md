@@ -2,19 +2,19 @@
 title: Felsöka Azure Container Instances
 description: Lär dig hur du felsöker problem med Azure Container Instances
 services: container-instances
-author: seanmck
+author: dlepow
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: article
-ms.date: 01/08/2019
-ms.author: seanmck
+ms.date: 02/15/2019
+ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 609d52f9f2c5dce1bbfd668e94db25aca3d52f69
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: bfa616fb16470a3543f8c981a0104f6bda24cf4d
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54119058"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56823490"
 ---
 # <a name="troubleshoot-common-issues-in-azure-container-instances"></a>Felsöka vanliga problem i Azure Container Instances
 
@@ -29,9 +29,9 @@ När du definierar din container-specifikationen kräver vissa parametrar inför
 | Namnet på behållargruppen | 1-64 |Skiftlägesokänsligt |Alfanumeriskt och bindestreck var som helst utom det första eller sista tecknet |`<name>-<role>-CG<number>` |`web-batch-CG1` |
 | Containerns namn | 1-64 |Skiftlägesokänsligt |Alfanumeriskt och bindestreck var som helst utom det första eller sista tecknet |`<name>-<role>-CG<number>` |`web-batch-CG1` |
 | Behållarportar | Mellan 1 och 65535 |Integer |Heltal mellan 1 och 65535 |`<port-number>` |`443` |
-| DNS-namnetikett | 5 – 63 |Skiftlägesokänsligt |Alfanumeriskt och bindestreck var som helst utom det första eller sista tecknet |`<name>` |`frontend-site1` |
+| DNS-namnetikett | 5-63 |Skiftlägesokänsligt |Alfanumeriskt och bindestreck var som helst utom det första eller sista tecknet |`<name>` |`frontend-site1` |
 | Miljövariabel | 1–63 |Skiftlägesokänsligt |Alfanumeriskt och understreck (_) var som helst utom det första eller sista tecknet |`<name>` |`MY_VARIABLE` |
-| Volymnamn | 5 – 63 |Skiftlägesokänsligt |Gemena bokstäver och siffror och bindestreck var som helst utom det första eller sista tecknet. Får inte innehålla två bindestreck. |`<name>` |`batch-output-volume` |
+| Volymnamn | 5-63 |Skiftlägesokänsligt |Gemena bokstäver och siffror och bindestreck var som helst utom det första eller sista tecknet. Får inte innehålla två bindestreck. |`<name>` |`batch-output-volume` |
 
 ## <a name="os-version-of-image-not-supported"></a>Operativsystemsversionen av avbildningen som inte stöds
 
@@ -66,7 +66,7 @@ Om avbildningen inte kan hämtas, händelser som liknar följande visas i utdata
     "count": 3,
     "firstTimestamp": "2017-12-21T22:56:19+00:00",
     "lastTimestamp": "2017-12-21T22:57:00+00:00",
-    "message": "pulling image \"microsoft/aci-hellowrld\"",
+    "message": "pulling image \"microsoft/aci-helloworld\"",
     "name": "Pulling",
     "type": "Normal"
   },
@@ -74,7 +74,7 @@ Om avbildningen inte kan hämtas, händelser som liknar följande visas i utdata
     "count": 3,
     "firstTimestamp": "2017-12-21T22:56:19+00:00",
     "lastTimestamp": "2017-12-21T22:57:00+00:00",
-    "message": "Failed to pull image \"microsoft/aci-hellowrld\": rpc error: code 2 desc Error: image t/aci-hellowrld:latest not found",
+    "message": "Failed to pull image \"microsoft/aci-helloworld\": rpc error: code 2 desc Error: image t/aci-hellowrld:latest not found",
     "name": "Failed",
     "type": "Warning"
   },
@@ -82,7 +82,7 @@ Om avbildningen inte kan hämtas, händelser som liknar följande visas i utdata
     "count": 3,
     "firstTimestamp": "2017-12-21T22:56:20+00:00",
     "lastTimestamp": "2017-12-21T22:57:16+00:00",
-    "message": "Back-off pulling image \"microsoft/aci-hellowrld\"",
+    "message": "Back-off pulling image \"microsoft/aci-helloworld\"",
     "name": "BackOff",
     "type": "Normal"
   }
@@ -93,7 +93,7 @@ Om avbildningen inte kan hämtas, händelser som liknar följande visas i utdata
 
 Behållargrupper som standard en [omstartsprincip](container-instances-restart-policy.md) av **alltid**, så att behållare i behållargruppen Starta alltid om när de körs kan slutföras. Du kan behöva ändra detta till **OnFailure** eller **aldrig** om du planerar att köra uppgiften-baserade behållare. Om du anger **OnFailure** och fortfarande se kontinuerliga startas om, det kan finnas ett problem med programmet eller skriptet som körs i din behållare.
 
-När du kör behållargrupper utan tidskrävande processer kan du se upprepade avslutas och startas om med bilder, till exempel Ubuntu eller Alpine. Ansluta via [EXEC](container-instances-exec.md) fungerar inte som behållaren har ingen process att hålla det alive. För att lösa detta inkludera ett start-kommando som liknar följande med din grupp behållardistribution att hålla den behållare som körs.
+När du kör behållargrupper utan tidskrävande processer kan du se upprepade avslutas och startas om med bilder, till exempel Ubuntu eller Alpine. Ansluta via [EXEC](container-instances-exec.md) fungerar inte som behållaren har ingen process att hålla det alive. Inkludera ett start-kommando som liknar följande med din grupp behållardistribution att hålla den behållare som körs för att lösa problemet.
 
 ```azurecli-interactive
 ## Deploying a Linux container
@@ -178,11 +178,11 @@ Ett annat sätt att minska effekten av avbildningen pull på starttiden för din
 
 ### <a name="cached-windows-images"></a>Cachelagrade Windows-avbildningar
 
-Azure Container Instances använder en cachelagringsmekanism för att snabbt behållaren starttiden för bilder baserat på vissa Windows-avbildningar.
+Azure Container Instances använder en cachelagringsmekanism för att snabbt behållaren starttiden för bilder baserat på vanliga Windows och Linux-avbildningar. En detaljerad lista över cachelagrade avbildningar och taggar, använda den [lista cachelagrade avbildningar] [ list-cached-images] API.
 
 För att säkerställa den snabbaste starttiden för Windows-behållare, Använd en av de **tre senaste** versioner av följande **två avbildningar** som basavbildningen:
 
-* [Windows Server 2016] [ docker-hub-windows-core] (LTS)
+* [Windows Server Core 2016] [ docker-hub-windows-core] (endast LTSC)
 * [Windows Server 2016 Nano Server][docker-hub-windows-nano]
 
 ### <a name="windows-containers-slow-network-readiness"></a>Beredskap för Windows-behållare långsamt nätverk
@@ -207,9 +207,11 @@ Det här felet indikerar att på grund av hög belastning i den region där du v
 Azure Container Instances exponerar inte direkt åtkomst till den underliggande infrastrukturen som är värd för behållargrupper. Detta inkluderar åtkomst till Docker-API som körs på den behållare värden och Privilegierade behållare som körs. Om du behöver Docker interaktion kan kontrollera den [referensdokumentation för REST](https://aka.ms/aci/rest) ACI API stöder. Om det inte finns något saknas, skicka en begäran på den [ACI feedback-forum](https://aka.ms/aci/feedback).
 
 ## <a name="ips-may-not-be-accessible-due-to-mismatched-ports"></a>IP-adresser är kanske inte tillgänglig på grund av felaktigt portar
+
 Azure Container Instances stöder för närvarande inte port mappning som med vanlig docker konfiguration, men den här snabbkorrigeringen är på översikten. Om du hittar IP-adresser inte är tillgängliga när du tycker att det ska vara, kan du kontrollera att du har konfigurerat en behållaravbildning för att lyssna på samma portar som du exponera i din behållargrupp med den `ports` egenskapen.
 
 ## <a name="next-steps"></a>Nästa steg
+
 Lär dig hur du [hämta behållarloggarna och händelser](container-instances-get-logs.md) för att felsöka dina behållare.
 
 <!-- LINKS - External -->
@@ -221,3 +223,4 @@ Lär dig hur du [hämta behållarloggarna och händelser](container-instances-ge
 
 <!-- LINKS - Internal -->
 [az-container-show]: /cli/azure/container#az-container-show
+[list-cached-images]: /rest/api/container-instances/listcachedimages

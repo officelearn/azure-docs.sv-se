@@ -6,12 +6,12 @@ author: iainfoulds
 ms.service: container-service
 ms.date: 12/03/2018
 ms.author: iainfou
-ms.openlocfilehash: a47910083083787000b749a0b5b3256df5e702c8
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 2576d8d65fb6a72d5d90de57297afe2ea601c0fa
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54845409"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56816833"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-in-the-azure-portal"></a>Skapa och konfigurera en Azure Kubernetes Services kluster (AKS) för att använda virtuella noder i Azure portal
 
@@ -19,6 +19,16 @@ För att snabbt distribuera arbetsbelastningar i ett kluster i Azure Kubernetes 
 
 > [!IMPORTANT]
 > Virtuella noder för AKS är för närvarande i **förhandsversion**. Förhandsversioner görs tillgängliga för dig under förutsättning att du godkänner [kompletterande användningsvillkor](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Vissa aspekter av funktionen kan ändras innan den är allmänt tillgänglig (GA).
+
+## <a name="preview-limitations"></a>Begränsningar i förhandsversionen
+
+Den här funktionen är i förhandsversion, har följande regioner stöd för distributioner:
+
+* Australien, östra (Australien)
+* Östra USA (eastus)
+* USA, västra centrala (västra)
+* Västeuropa (westeurope)
+* Västra USA (westus)
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 

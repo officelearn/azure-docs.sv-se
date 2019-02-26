@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: justhu, elisol
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 766eb7864a6bce296daafc86179e2deed77f8e02
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 44feaecd42a8c3ce0ac0c712aa27b2480fd2a486
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56163130"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56806937"
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>Anvisningar: Logga in alla Azure Active Directory-användare med programmönstret för flera innehavare
 
@@ -39,7 +39,7 @@ Det finns fyra enkla steg för att konvertera ditt program i en app för flera i
 1. [Uppdatera din programregistrering om du vill att flera innehavare](#update-registration-to-be-multi-tenant)
 2. [Uppdatera koden för att skicka begäranden till den/Common slutpunkt](#update-your-code-to-send-requests-to-common)
 3. [Uppdatera koden för att hantera flera utfärdarvärden](#update-your-code-to-handle-multiple-issuer-values)
-4. Förstå användare och administratör medgivande och göra lämplig kodändringar
+4. [Förstå användare och administratör medgivande och göra lämplig kodändringar](#understand-user-and-admin-consent)
 
 Låt oss titta på varje steg i detalj. Du kan även gå direkt till [den här listan med flera innehavare exempel][AAD-Samples-MT].
 

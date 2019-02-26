@@ -11,12 +11,12 @@ author: nacharya1
 ms.author: nilesha
 ms.date: 12/12/2018
 ms.custom: seodec18
-ms.openlocfilehash: a489d1a282c924ec1df658a0244745b225f7123e
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 88eb7052c394d41c861ffc422738a4a650101ea7
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251273"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56819317"
 ---
 # <a name="what-is-automated-machine-learning"></a>Vad är automatisk maskininlärning?
 
@@ -41,7 +41,7 @@ Automatiserad machine learning är tar träningsdata med ett definierat mål-fun
 
 1. Konfigurera den [beräkningsmålet](how-to-set-up-training-targets.md) som används för att träna modellen.
 
-1. Konfigurera automatisk machine learning-konfiguration. Detta styr de parametrar som används som Azure Machine Learning itererar över olika modeller, inställningar för finjustering, och vilka mått som ska titta på när du avgör den bästa modellen 
+1. Konfigurera automatisk machine learning-konfiguration. Detta styr de parametrar som används som Azure Machine Learning itererar över olika modeller, inställningar för finjustering, och vilka mått som ska titta på när du avgör den bästa modellen
 
 1. Skicka ett utbildnings kör.
 
@@ -58,9 +58,13 @@ En gemensam eftersom operativsystemet använder principbaserad av automatiserade
 1. Medvetenhet om machine learning-pipeline och alla steg som ingår inklusive Förbearbeta data/funktionalisering och finjustering värden.
 1. Förhållandet mellan indatavariabler (även kallat ”funktioner”) och modellen utdata.  Att känna till både omfattningen och riktningen på effekten av varje funktion på förutsägelsevärdet hjälper att bättre förstå och förklara modellen. Detta kallas för funktionen prioritet.
 
-Du kan aktivera globala funktionen vikten på begäran efter utbildning för pipelinen väljer eller aktivera det för alla pipelines som en del av automatiserad ML-utbildning.  Detta är en förhandsgranskningsfunktion och vi kommer att fortsätta att investera i att tillhandahålla mer omfattande information som hjälper dig att bättre förstå ML-modeller.  
+Du kan aktivera globala funktionen vikten på begäran efter utbildning för pipelinen väljer eller aktivera det för alla pipelines som en del av automatiserad machine learning-utbildning. Detta är viktigt att följa och bästa praxis i mycket reglerade branscher som hälsovård och banktjänster.  Här följer några verkliga scenarier som illustrerar:
 
-Följ den här [exempel notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/model-explanation/auto-ml-model-explanation.ipynb) att experimentera med modellen förklaringar i Azure Machine Learning.
+1. Ett tillverkningsföretag som använder maskininlärning att förutsäga framtida betalningsinstrument fel, så de proaktivt utföra underhåll aktivitet. När du vet att en instrument kommer att misslyckas, vad är den mest troliga orsaken ska vara så förebyggande underhåll kan utföras snabbt?
+1. Ett finansinstitut som använder machine learning för att bearbeta lån eller kreditkort program. Hur vill du veta om modellen gör rätt mål och om en kund begär mer information på varför programmet avvisades, hur du svarar på dem?
+1. En näthandelsföretagen eller en oberoende programvaruleverantör som använder maskininlärning att förutspå sin kundomsättning. Vad är viktiga deltagare i kundens omsättning, och hur kan du förhindra kunder från lämnar?
+
+Detta är en förhandsgranskningsfunktion och vi kommer att fortsätta att investera i att tillhandahålla mer omfattande information som hjälper dig att bättre förstå dina maskininlärningsmodeller. Följ den här [exempel notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/model-explanation/auto-ml-model-explanation.ipynb) att experimentera med modellen förklaringar i Azure Machine Learning.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: cache
 ms.workload: tbd
 ms.date: 08/22/2017
 ms.author: yegu
-ms.openlocfilehash: 67a093068df30460a1b2cf17c04164bf8b1dc6a0
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 5e4fc40a9b6cfc945670bcd497d4b13af61f2f2f
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56234908"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56817770"
 ---
 # <a name="how-to-configure-azure-cache-for-redis"></a>Så här konfigurerar du Azure Cache för Redis
 Det här avsnittet beskrivs konfigurationerna som är tillgängliga för din Azure-Cache för Redis-instanser. Det här avsnittet innehåller också Redis server standardkonfigurationen för Azure Cache för Redis-instanser.
@@ -359,7 +359,7 @@ Klicka på **Aviseringsregler** att konfigurera aviseringar baserat på Azure Ca
 Cache-mått i Azure Monitor är som standard [lagras i 30 dagar](../azure-monitor/platform/data-collection.md#metrics) och tas sedan bort. För att bevara din cache-mått längre än 30 dagar, klickar du på **diagnostik** till [konfigurera lagringskontot](cache-how-to-monitor.md#export-cache-metrics) används för att lagra cachediagnostik.
 
 >[!NOTE]
->Förutom arkivering cache-mått till lagring, kan du också [strömma dem till en Event hub eller skicka dem till Log Analytics](../azure-monitor/platform/stream-monitoring-data-event-hubs.md).
+>Förutom arkivering cache-mått till lagring, kan du också [strömma dem till en Event hub eller skicka dem till Azure Monitor-loggar](../azure-monitor/platform/stream-monitoring-data-event-hubs.md).
 >
 >
 

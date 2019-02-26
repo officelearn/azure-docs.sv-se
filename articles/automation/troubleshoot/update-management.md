@@ -8,12 +8,12 @@ ms.date: 12/05/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 0b92d36287646038d9195f7ba39352d8ced9a3b6
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: bdffcdee87c0c5c9c878948797ac7c6be566c7ea
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56270274"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56818858"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>Felsökning av problem med hantering av uppdateringar
 
@@ -78,11 +78,11 @@ $s = New-AzureRmAutomationSchedule -ResourceGroupName mygroup -AutomationAccount
 New-AzureRmAutomationSoftwareUpdateConfiguration  -ResourceGroupName $rg -AutomationAccountName $aa -Schedule $s -Windows -AzureVMResourceId $azureVMIdsW -NonAzureComputer $nonAzurecomputers -Duration (New-TimeSpan -Hours 2) -IncludedUpdateClassification Security,UpdateRollup -ExcludedKbNumber KB01,KB02 -IncludedKbNumber KB100
 ```
 
-### <a name="nologs"></a>Scenario: Uppdatera hanteringsdata som inte visas i Log Analytics för en dator
+### <a name="nologs"></a>Scenario: Uppdatera hanteringsdata som inte visas i Azure Monitor-loggar för en dator
 
 #### <a name="issue"></a>Problem
 
-Du har datorer som visas som **ej utvärderat** under **efterlevnad**, men du kan se pulsslag data i Log Analytics för Hybrid Runbook Worker men inte hantering av uppdateringar.
+Du har datorer som visas som **ej utvärderat** under **efterlevnad**, men du kan se pulsslag data i Azure Monitor-loggar för Hybrid Runbook Worker men inte hantering av uppdateringar.
 
 #### <a name="cause"></a>Orsak
 

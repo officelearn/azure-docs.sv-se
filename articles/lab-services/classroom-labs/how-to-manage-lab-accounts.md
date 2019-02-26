@@ -13,27 +13,27 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2018
 ms.author: spelluru
-ms.openlocfilehash: 7e3142e0274f2328d3e0c8a3e6f9a2e4c3d45d87
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: 6cd06778ad54fa698c5bc2fe4ccf02f4be2ee2ec
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55959145"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56807070"
 ---
 # <a name="manage-lab-accounts-in-azure-lab-services"></a>Hantera labb konton i Azure Lab Services 
-I Azure Lab Services är ett labbkonto en behållare för hanterade labbar som klassrum labs. En administratör konfigurerar ett testlabb-konto med Azure Lab Services och ger åtkomst till labbägare som kan skapa labb i kontot. Den här artikeln beskriver hur du skapar ett labbkonto, visa alla lab-konton eller ta bort ett labbkonto.
+Ett labbkonto är en behållare för hanterade lab typer, till exempel klassrum labb i Azure Lab Services. En administratör konfigurerar ett testlabb-konto med Azure Lab Services och ger åtkomst till labbägare som kan skapa labb i kontot. Den här artikeln beskriver hur du skapar ett labbkonto, visa alla lab-konton eller ta bort ett labbkonto.
 
 ## <a name="create-a-lab-account"></a>Skapa ett labbkonto
 Följande steg visar hur du använder Azure Portal till att skapa ett labbkonto med Azure Lab Services. 
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
-2. Välj **alla tjänster** på den vänstra menyn. Välj **Lab-konton** i den **DEVOPS** avsnittet. Om du väljer star (`*`) bredvid **Lab-konton**, läggs den till den **Favoriter** avsnitt i den vänstra menyn. Nästa gång och senare, väljer du **Lab-konton** under **Favoriter**.
+2. På menyn till vänster väljer du **Alla tjänster**. Välj **Labbkonton** i **DEVOPS**-avsnittet. Om du väljer stjärnan (`*`) bredvid **Labbkonton** läggs det till i avsnittet **FAVORITER** på den vänstra menyn. Från och med nästa gång väljer du **Labbkonton** under **FAVORITER**.
 
-    ![Alla tjänster -> Lab-konton](../media/tutorial-setup-lab-account/select-lab-accounts-service.png)
-3. På den **Lab-konton** väljer **Lägg till** i verktygsfältet. 
+    ![Alla tjänster -> Labbkonton](../media/tutorial-setup-lab-account/select-lab-accounts-service.png)
+3. På sidan **Labbkonton** väljer du **+ Lägg till** i verktygsfältet. 
 
-    ![Välj Lägg till på sidan Lab-konton](../media/tutorial-setup-lab-account/add-lab-account-button.png)
-4. På den **Labbkonto** gör du följande åtgärder: 
+    ![Välj Lägg till på sidan Labbkonton](../media/tutorial-setup-lab-account/add-lab-account-button.png)
+4. Utför följande åtgärder i fönstret **Labbkonton**: 
     1. För **namnet på labbkontot** anger du ett namn. 
     2. Välj den **Azure-prenumeration** där du vill skapa labbkontot.
     3. Som **Resursgrupp** väljer du **Skapa ny** och anger ett namn på resursgruppen.
@@ -41,9 +41,9 @@ Följande steg visar hur du använder Azure Portal till att skapa ett labbkonto 
     5. Välj **Skapa**. 
 
         ![Fönstret Skapa ett labbkonto](../media/tutorial-setup-lab-account/lab-account-settings.png)
-5. Välj den **klockikonen** i verktygsfältet (**meddelanden**), bekräfta att distributionen är klar och välj sedan **gå till resurs**. 
+5. Välj **klockikonen** i verktygsfältet (**meddelanden**), bekräfta att distributionen är klar och välj sedan **Gå till resurs**. 
 
-    Du kan också välja **uppdatera** på den **Lab-konton** och välj labb-kontot som du skapade. 
+    Du kan också välja **Uppdatera** på sidan **Labbbkonton** och välja labbkontot som du skapade. 
 
     ![Fönstret Skapa ett labbkonto](../media/tutorial-setup-lab-account/go-to-lab-account.png)    
 6. Sidan **Labbkonto** öppnas:
@@ -57,13 +57,13 @@ Ge lärarna behörighet att skapa labb åt sina klasser genom att lägga till de
 
 1. På sidan **Labbkonto** väljer du **Åtkomstkontroll (IAM)** och klickar på **+ Lägg till rolltilldelning** i verktygsfältet. 
 
-    ![Access Control -> knappen Lägg till rolltilldelning](../media/tutorial-setup-lab-account/add-role-assignment-button.png)
-1. På den **Lägg till rolltilldelning** väljer **Labbskaparen** för **rollen**, Välj den användare som du vill lägga till rollen Lab skapare och välj **spara**. 
+    ![Åtkomstkontroll -> Lägg till rolltilldelning, knapp](../media/tutorial-setup-lab-account/add-role-assignment-button.png)
+1. På sidan **Lägg till rolltilldelning** väljer du **Labbskapare** som **Roll**. Välj den användare som du vill lägga till rollen Labbskapare och välj **Spara**. 
 
-    ![Lägg till labbskaparen](../media/tutorial-setup-lab-account/add-lab-creator.png)
+    ![Lägg till labbuppgiftsförfattare](../media/tutorial-setup-lab-account/add-lab-creator.png)
 
 
-## <a name="specify-marketplace-images-available-to-lab-creators"></a>Ange Marketplace-avbildningar som är tillgängliga för skapare av testlabb
+## <a name="specify-marketplace-images-available-to-lab-creators"></a>Ange Marketplace-avbildningar som är tillgängliga för labbuppgiftsförfattare
 Som labbkontoägare kan du ange Marketplace-avbildningar som labbskapare kan använda för att skapa labb i labbkontot. 
 
 1. Välj **Marketplace-avbildningar** på menyn till vänster. Som standard kan se du en fullständig lista över avbildningar (både aktiverade och inaktiverade). Du kan filtrera listan för att endast se aktiverade/inaktiverade avbildningar genom att välja alternativet **Endast aktiverade**/**Endast inaktiverade** från listrutan längst upp. 

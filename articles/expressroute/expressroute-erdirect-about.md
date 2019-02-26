@@ -1,21 +1,21 @@
 ---
 title: Om ExpressRoute Direct - Azure | Microsoft Docs
-description: Den här sidan innehåller en översikt över ExpressRoute Direct (förhandsversion)
+description: Den här sidan innehåller en översikt över ExpressRoute Direct
 services: expressroute
-author: mialdrid
+author: jaredr80
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 02/11/2019
+ms.date: 02/25/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: 3124e98dd035080c2989849232b978c5d4a563ea
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: 98c5dc7dc6d977525d889a4cd97492183d1aad22
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56100745"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56818161"
 ---
-# <a name="about-expressroute-direct-preview"></a>Dirigera om ExpressRoute (förhandsversion)
+# <a name="about-expressroute-direct"></a>Om ExpressRoute Direct
 
 ExpressRoute Direct ger dig möjlighet att ansluta direkt till Microsofts globala nätverk på peering-platser strategiskt distribueras över hela världen. ExpressRoute Direct innehåller dubbla 100 Gbit/s-anslutningar som har stöd för aktiv/aktiv-anslutningar i stor skala.
 
@@ -25,14 +25,9 @@ Viktiga funktioner som tillhandahåller ExpressRoute Direct inkludera, men inte 
 * Fysisk isolering för branscher som regleras och kräver dedikerade och isolerad anslutning som: banker, myndigheter och detaljhandeln
 * Detaljerad kontroll över kretsfördelning utifrån affärsenheter
 
-> [!IMPORTANT]
-> ExpressRoute Direct förhandsvisas just nu.
->
-> Den allmänt tillgängliga förhandsversionen tillhandahålls utan serviceavtal och bör inte användas för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller har begränsad funktionalitet, eller så är de inte tillgängliga på alla Azure-platser. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+## <a name="onboard-to-expressroute-direct"></a>Kom igång med ExpressRoute Direct
 
-## <a name="enroll-in-the-preview"></a>Registrera dig för förhandsversionen
-
-Du måste registrera din prenumeration i förhandsgranskningen innan du använder ExpressRoute direkt. Om du vill registrera, skicka ett e- <ExpressRouteDirect@microsoft.com> med ditt prenumerations-ID, inklusive följande information:
+Innan du använder ExpressRoute Direct, måste du först registrera din prenumeration. Om du vill registrera, skicka ett e- <ExpressRouteDirect@microsoft.com> med ditt prenumerations-ID, inklusive följande information:
 
 * Scenarier som du vill utföra med **ExpressRoute Direct**
 * Inställningar för plats - finns i [Partners och peeringplatser](expressroute-locations-providers.md) för en fullständig lista över alla platser
@@ -74,7 +69,7 @@ ExpressRoute Direct stöder både QinQ och Dot1Q VLAN-märkning.
 
 ## <a name="sla"></a>SLA
 
-ExpressRoute Direct ger redundanta aktiv/aktiv-anslutningar till Microsofts globala nätverk av samma serviceavtal i företagsklass. ExpressRoute-infrastruktur är redundant och anslutning till Microsofts globala nätverk är redundant och skilda och kan skalas på lämpligt sätt med kundbehov. I förhandsversionen finns inget serviceavtal och bör beaktas endast för arbetsbelastningar utanför produktionsmiljön.
+ExpressRoute Direct ger redundanta aktiv/aktiv-anslutningar till Microsofts globala nätverk av samma serviceavtal i företagsklass. ExpressRoute-infrastruktur är redundant och anslutning till Microsofts globala nätverk är redundant och skilda och kan skalas på lämpligt sätt med kundbehov. 
 
 ## <a name="next-steps"></a>Nästa steg
 

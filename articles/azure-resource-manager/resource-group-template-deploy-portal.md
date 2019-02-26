@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.author: tomfitz
-ms.openlocfilehash: b8a6d58ad79b591548542d69e69b71ec61af79af
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 0711743d46aaac08f8572917d91e452ee919134c
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47220133"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56816917"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-portal"></a>Distribuera resurser med Resource Manager-mallar och Azure Portal
 
-Den här artikeln visar hur du använder den [Azure-portalen](https://portal.azure.com) med [Azure Resource Manager](resource-group-overview.md) att distribuera dina Azure-resurser. Läs om hur du hanterar dina resurser i [hantera Azure-resurser via portalen](resource-group-portal.md).
+Den här artikeln visar hur du använder den [Azure-portalen](https://portal.azure.com) med [Azure Resource Manager](resource-group-overview.md) att distribuera dina Azure-resurser. Läs om hur du hanterar dina resurser i [hantera Azure-resurser med hjälp av Azure portal](manage-resources-portal.md).
 
 ## <a name="create-resource-group"></a>Skapa resursgrupp
 
@@ -89,7 +89,7 @@ Om du vill köra en distribution, men inte använda någon av mallarna i Marketp
 
    ![Välj Skapa](./media/resource-group-template-deploy-portal/show-template-option.png)
 
-1. Du ser flera alternativ för att skapa en mall. Välj **skapa din egen mall i redigeringsprogrammet**.
+1. Du ser flera alternativ för att skapa en mall. Välj alternativet för att **skapa din egen mall i redigeringsprogrammet**.
 
    ![Visa alternativ](./media/resource-group-template-deploy-portal/see-options.png)
 
@@ -134,7 +134,7 @@ På portalen kan du spara en mall på Azure-kontot och distribuera om den senare
    ![Distribuera sparade mallen](./media/resource-group-template-deploy-portal/deploy-saved-template.png)
 
 ## <a name="next-steps"></a>Nästa steg
-* Om du vill visa granskningsloggar, se [granskningsåtgärder med Resource Manager](resource-group-audit.md).
-* Felsökning av vanliga fel beskrivs [visa distributionsåtgärder](resource-manager-deployment-operations.md).
-* Om du vill hämta en mall från en distribution eller en resursgrupp, se [exportera Azure Resource Manager-mall från befintliga resurser](resource-manager-export-template.md).
-* I distributionen på ett säkert sätt din tjänst i flera regioner, se [Azure Deployment Manager](deployment-manager-overview.md).
+* Om du vill visa granskningsloggar, se [granskningsåtgärder med Resource Manager](./resource-group-audit.md).
+* Felsökning av vanliga fel beskrivs [visa distributionsåtgärder](./resource-manager-deployment-operations.md).
+* Om du vill exportera en mall från en distribution eller en resursgrupp, se [exportera Azure Resource Manager-mallar](./manage-resource-groups-portal.md#export-resource-groups-to-templates).
+* I distributionen på ett säkert sätt din tjänst i flera regioner, se [Azure Deployment Manager](./deployment-manager-overview.md).

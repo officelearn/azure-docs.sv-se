@@ -1,6 +1,6 @@
 ---
-title: Skapa WSFC, lyssnaren och och konfigurera ILB för en Always On-tillgänglighetsgrupp på en SQL Server-dator med Azure-Snabbstartsmall
-description: Använda Azure Quickstart-mallar för att förenkla processen för att skapa Tillgänglighetsgrupper för SQL Server-datorer i Azure med hjälp av en mall för att skapa klustret, ansluta till SQL-datorer i klustret, skapa lyssnaren och konfigurera den interna Belastningsutjämnaren.
+title: Använd Azure-Snabbstartsmallar för att konfigurera Always On-tillgänglighetsgrupp för SQL Server på en Azure VM
+description: Använda Azure-Snabbstartsmallar för att skapa Windows-redundanskluster, ansluta till SQL Server-datorer i klustret, skapa lyssnaren och konfigurera den interna belastningsutjämnaren i Azure.
 services: virtual-machines-windows
 documentationcenter: na
 author: MashaMSFT
@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 01/04/2018
+ms.date: 01/04/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 093fa1414ec624f66bc7cb4559fa8c0535834c10
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 675933b46a228f636c4907e84d66263dde52f274
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55981935"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56823339"
 ---
-# <a name="create-wsfc-listener-and-configure-ilb-for-an-always-on-availability-group-on-a-sql-server-vm-with-azure-quickstart-template"></a>Skapa WSFC, lyssnaren och och konfigurera ILB för en Always On-tillgänglighetsgrupp på en SQL Server-dator med Azure-Snabbstartsmall
+# <a name="use-azure-quickstart-templates-to-configure-always-on-availability-group-for-sql-server-on-an-azure-vm"></a>Använd Azure-Snabbstartsmallar för att konfigurera Always On-tillgänglighetsgrupp för SQL Server på en Azure VM
 Den här artikeln beskriver hur du använder Azure-Snabbstartsmallar att delvis automatisera distributionen av en Always On tillgänglighetsgruppens konfiguration för SQL Server-datorer i Azure. Det finns två Azure-Snabbstartsmallar som används i den här processen. 
 
    | Mall | Beskrivning |
@@ -38,7 +38,7 @@ Andra delar av tillgänglighetsgruppens konfiguration måste göras manuellt, ti
 För att automatisera installationen av en Always On-tillgänglighetsgrupp med quickstart-mallar, måste du redan har följande krav: 
 - En [Azure-prenumeration](https://azure.microsoft.com/free/).
 - En resursgrupp med en domänkontrollant. 
-- En eller flera domänanslutna [virtuella datorer i Azure som kör SQLServer 2016 (eller högre) Enterprise edition](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) i samma uppsättning eller tillgänglighet tillgänglighetszon som har [registrerad hos resursprovidern SQL VM](virtual-machines-windows-sql-ahb.md#register-existing-sql-server-vm-with-sql-resource-provider).  
+- En eller flera domänanslutna [virtuella datorer i Azure som kör SQLServer 2016 (eller högre) Enterprise edition](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) i samma uppsättning eller tillgänglighet tillgänglighetszon som har [registrerad hos resursprovidern SQL VM](virtual-machines-windows-sql-ahb.md#register-sql-server-vm-with-sql-resource-provider).  
 
 
 ## <a name="step-1---create-the-wsfc-and-join-sql-server-vms-to-the-cluster-using-quickstart-template"></a>Steg 1 – Skapa WSFC och ansluta till SQL Server-datorer till klustret med snabbstartsmall 
@@ -74,7 +74,7 @@ När SQL Server-datorer har registrerats med den nya resurs-providern för SQL V
 
 
 ## <a name="step-2---manually-create-the-availability-group"></a>Steg 2 – Skapa tillgänglighetsgruppen manuellt 
-Skapa tillgänglighetsgruppen manuellt som vanligt, med hjälp av antingen [PowerShell](/sql/database-engine/availability-groups/windows/create-an-availability-group-sql-server-powershell?view=sql-server-2017), [SQL Server Management Studio](/sql/database-engine/availability-groups/windows/use-the-availability-group-wizard-sql-server-management-studio?view=sql-server-2017) eller [Transact-SQL](/sql/database-engine/availability-groups/windows/create-an-availability-group-transact-sql?view=sql-server-2017). 
+Skapa tillgänglighetsgruppen manuellt som vanligt, med hjälp av antingen [SQL Server Management Studio](/sql/database-engine/availability-groups/windows/use-the-availability-group-wizard-sql-server-management-studio), [PowerShell](/sql/database-engine/availability-groups/windows/create-an-availability-group-sql-server-powershell), eller [Transact-SQL](/sql/database-engine/availability-groups/windows/create-an-availability-group-transact-sql). 
 
   >[!IMPORTANT]
   > Gör **inte** skapa en lyssnare just nu eftersom det sker automatiskt av den **101-sql-vm-aglistener-setup** snabbstartsmall i steg 4. 
@@ -104,7 +104,7 @@ Always On (AG) tillgänglighetsgruppslyssnaren kräver en intern Azure Load Bala
 6. Välj **Skapa**. 
 
 
-  >[!NOTE]
+  >[!IMPORTANT]
   > Den offentliga IP-adressresursen för varje SQL Server VM ska ha en standard-SKU att vara kompatibel med Standard Load Balancer. För att fastställa SKU för den Virtuella datorns offentliga IP-resurs, navigera till din **resursgrupp**väljer din **offentliga IP-adressen** resurs för den virtuella SQL Server-datorn, och leta upp värdet under **SKU**  av den **översikt** fönstret. 
 
 ## <a name="step-4---create-the-ag-listener-and-configure-the-ilb-with-the-quickstart-template"></a>Steg 4 – skapa AG-lyssnare och konfigurera den interna Belastningsutjämnaren med snabbstartsmallen

@@ -5,17 +5,17 @@ description: Så här felsöker du fel som genereras av modulerna Träningsmodel
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
+ms.topic: conceptual
 author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 03/14/2017
-ms.openlocfilehash: 2810a059bebc3fa89aef8f75b27250328d81e678
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 5730a85a640759e61ad0e4aa2ae112a022900b27
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56455287"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56822112"
 ---
 # <a name="debug-your-model-in-azure-machine-learning-studio"></a>Felsöka din modell i Azure Machine Learning Studio
 

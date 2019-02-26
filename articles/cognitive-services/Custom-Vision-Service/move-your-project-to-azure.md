@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: anroth
-ms.openlocfilehash: b46ccd98145342fda58672b64b838ab92ba4f97b
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: a9f49af54f391b159f8b3d626fffc36635f5e51f
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56731930"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56821318"
 ---
 # <a name="how-to-move-your-limited-trial-project-to-azure-using-the-customvisionai-site"></a>Hur du flyttar begränsad utvärderingsversion projektet till Azure med hjälp av webbplatsen CustomVision.ai
 
@@ -64,7 +64,7 @@ Flera projekt kan kopplas till en enskild resurs. Mer information om [priser och
     ![Projektfönstret för migrering.](./media/move-your-project-to-azure/Project_Migration_Window.jpg)
 
 
-## <a name="move-your-limited-trial-project-to-an-azure-resource-in-another-directory"></a>Flytta projektet begränsad utvärderingsversion till en Azure-resurs i en annan katalog 
+## <a name="move-project-to-another-azure-directory"></a>Flytta projektet till en annan Azure-katalog 
 
 > [!NOTE]
 > I både Azure-portalen och CustomVision.ai kan välja du din katalog från listrutan Användare-menyn i det övre högra hörnet på skärmen.   
@@ -92,4 +92,6 @@ Flera projekt kan kopplas till en enskild resurs. Mer information om [priser och
 
 5. Kom ihåg att projektet är nu i en annan katalog. För att hitta projektet, behöver du växla till samma katalog på webbportalen Custom Vision som ditt projekt i. I Azure-portalen och [Custom Vision webbplats](https://customvision.ai), du kan välja din katalog från den nedrullningsbara menyn i det övre högra hörnet på skärmen. 
 
+## <a name="next-steps"></a>Nästa steg
 
+Projektet har nu flyttats till en Azure-resurs. Du behöver uppdatera dina Inlärnings- och Förutsägelsetransaktioner nycklar i alla program som du har skrivit.

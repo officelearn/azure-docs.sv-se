@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 06/28/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: e0aaddb841687718295e09e64b23d9cefa9246fd
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 29ca8c4114d48fa0d3756930354660712b1b35b3
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54436118"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56820424"
 ---
 # <a name="deploy-a-linux-hybrid-runbook-worker"></a>Distribuera en Linux Hybrid Runbook Worker
 
@@ -62,7 +62,7 @@ Observera Log Analytics-arbetsytan och Automation-kontot är länkat till innan 
 
 1. Aktivera den **Automation Hybrid Worker** lösning i Azure genom att använda någon av följande metoder:
 
-   * Lägg till den **Automation Hybrid Worker** lösningen till din prenumeration med hjälp av proceduren på [lägga till Log Analytics-hanteringslösningar till din arbetsyta](../log-analytics/log-analytics-add-solutions.md).
+   * Lägg till den **Automation Hybrid Worker** lösningen till din prenumeration med hjälp av proceduren på [lägga till Azure Monitor loggar lösningar på din arbetsyta](../log-analytics/log-analytics-add-solutions.md).
    * Kör följande cmdlet:
 
         ```azurepowershell-interactive
@@ -87,7 +87,7 @@ Observera Log Analytics-arbetsytan och Automation-kontot är länkat till innan 
 
 ## <a name="turning-off-signature-validation"></a>Om du inaktiverar signaturverifiering
 
-Som standard kräver Linux Hybrid Runbook Worker verifiera signaturen. Om du kör ett osignerat runbook mot en arbetsroll kan se du ett meddelande om att ”signaturverifiering misslyckades”. Kör följande kommando om du vill inaktivera verifiera signaturen. Ersätt den andra parametern med din Log Analytics arbetsyte-ID.
+Som standard kräver Linux Hybrid Runbook Worker verifiera signaturen. Om du kör ett osignerat runbook mot en arbetsroll kan se du ett meddelande om att ”signaturverifiering misslyckades”. Kör följande kommando om du vill inaktivera verifiera signaturen. Ersätt den andra parametern med din log analytics arbetsyte-ID.
 
  ```bash
  sudo python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/scripts/require_runbook_signature.py --false <LogAnalyticsworkspaceId>

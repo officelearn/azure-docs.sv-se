@@ -10,22 +10,24 @@ ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.service: azure-functions
 ms.devlang: nodejs
 ms.topic: reference
-ms.date: 10/26/2018
+ms.date: 02/24/2019
 ms.author: glenga
-ms.openlocfilehash: cff486f79abb02861c07e0daacaf2f58d3efaac4
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 04653dcdf0fb64e8b935cda18c01198ec91c548d
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56729670"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56807481"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Utvecklarguide för Azure Functions JavaScript
 
 Den här guiden innehåller information om krångla skriva Azure Functions med JavaScript.
 
-En JavaScript-funktion är en exporterad `function` som körs när den utlöses ([utlösare har konfigurerats i function.json](functions-triggers-bindings.md)). Det första argumentet som skickas av varje funktion är en `context` objektet som används för mottagning och skicka bindningsdata, loggning och kommunicera med körningen.
+En JavaScript-funktion är en exporterad `function` som körs när den utlöses ([utlösare har konfigurerats i function.json](functions-triggers-bindings.md)). Det första argumentet som skickas till alla funktioner är en `context` objektet som används för mottagning och skicka bindningsdata, loggning och kommunicera med körningen.
 
-Den här artikeln förutsätter att du redan har läst den [Azure Functions för utvecklare](functions-reference.md). Du bör också slutföras Functions-Snabbstart för att skapa din första funktion med hjälp av [Visual Studio Code](functions-create-first-function-vs-code.md) eller [i portalen](functions-create-first-azure-function.md).
+Den här artikeln förutsätter att du redan har läst den [Azure Functions för utvecklare](functions-reference.md). Slutför Functions-Snabbstart för att skapa din första funktion med hjälp av [Visual Studio Code](functions-create-first-function-vs-code.md) eller [i portalen](functions-create-first-azure-function.md).
+
+Den här artikeln stöder också [TypeScript apputveckling](#typescript).
 
 ## <a name="folder-structure"></a>mappstruktur
 
@@ -109,7 +111,7 @@ I JavaScript, [bindningar](functions-triggers-bindings.md) konfigureras och defi
 
 ### <a name="inputs"></a>Indata
 Indata är indelade i två kategorier i Azure Functions: en är indata för arbetsflödesutlösaren och den andra är ytterligare indata. Utlösare och andra indata Bindningar (bindningarna för `direction === "in"`) kan läsas av en funktion på tre sätt:
- - **_(Rekommenderas)_  Som parametrarna som skickades till funktionen.** De skickas till funktionen i samma ordning som de har definierats i *function.json*. Observera att den `name` egenskapen som definierats i *function.json* behöver inte matcha namnet på parametern, även om den ska.
+ - **_(Rekommenderas)_  Som parametrarna som skickades till funktionen.** De skickas till funktionen i samma ordning som de har definierats i *function.json*. Den `name` egenskapen som definierats i *function.json* behöver inte matcha namnet på parametern, även om den ska.
  
    ```javascript
    module.exports = async function(context, myTrigger, myInput, myOtherInput) { ... };
@@ -138,7 +140,8 @@ Indata är indelade i två kategorier i Azure Functions: en är indata för arbe
 ### <a name="outputs"></a>Utdata
 Utdata (bindningarna för `direction === "out"`) kan skrivas till av en funktion på flera olika sätt. I samtliga fall den `name` egenskapen för bindningen som definierats i *function.json* motsvarar namnet på medlemmen objekt skrivs till i din funktion. 
 
-Du kan tilldela data till utdatabindningar i något av följande sätt. Du bör inte kombinera dessa metoder.
+Du kan tilldela data till utdatabindningar i något av följande sätt (inte kombinera dessa metoderna):
+
 - **_(Rekommenderas för flera utdata)_  Returnerar ett objekt.** Om du använder en asynkron/löftet som returnerar funktionen, kan du returnera ett objekt med tilldelade utdata. I exemplet nedan visas utdatabindningar namnges ”httpResponse” och ”queueOutput” i *function.json*.
 
   ```javascript
@@ -152,7 +155,7 @@ Du kan tilldela data till utdatabindningar i något av följande sätt. Du bör 
       };
   };
   ```
-  
+
   Om du använder en synkron funktion kan du gå tillbaka det här objektet med [ `context.done` ](#contextdone-method) (se exemplet).
 - **_(Rekommenderas för enkel utdata)_  Returnera ett värde direkt och använda bindningsnamn $return.** Detta fungerar endast för asynkrona/löftet returnerar funktioner. Se exemplet i [exporterar en async-funktion](#exporting-an-async-function). 
 - **Tilldela värden till `context.bindings`**  du kan tilldela värden direkt till context.bindings.
@@ -167,7 +170,7 @@ Du kan tilldela data till utdatabindningar i något av följande sätt. Du bör 
       return;
   };
   ```
- 
+
 ### <a name="bindings-data-type"></a>Bindningar datatyp
 
 För att definiera datatypen för en indatabindning använder den `dataType` -egenskapen i Bindningsdefinitionen för. Till exempel använda typen för att läsa innehållet i en HTTP-förfrågan i binärformat `binary`:
@@ -550,7 +553,47 @@ const myObj = new MyObj();
 module.exports = myObj;
 ```
 
-I det här exemplet är det viktigt att Observera att även om ett objekt ska exporteras, det finns inga guarantess runt bevara tillstånd mellan körningar.
+I det här exemplet är det viktigt att Observera att även om ett objekt ska exporteras, det finns inga garantier om du vill bevara tillstånd mellan körningar.
+
+## <a name="typescript"></a>TypeScript
+
+När du använder version 2.x av Functions-körning både [Azure Functions för Visual Studio Code](functions-create-first-function-vs-code.md) och [Azure Functions Core Tools](functions-run-local.md) kan du skapa funktionsappar med hjälp av en mall som har stöd för TypeScript-funktion app-projekt. Mallen genererar `package.json` och `tsconfig.json` projektfiler som gör det enklare att transpile, köra och publicera JavaScript-funktioner från TypeScript-kod med dessa verktyg.
+
+En generated `.funcignore` filen används för att ange vilka filer utesluts när ett projekt publiceras till Azure.  
+
+TypeScript-filer (TS) är transpiled i JavaScript-filer (.js) i den `dist` utdatakatalog. TypeScript mallar använder den [ `scriptFile` parametern](#using-scriptfile) i `function.json` att ange platsen för motsvarande .js-fil i den `dist` mapp. Platsen har angetts i mallen med hjälp av `outDir` parametern i den `tsconfig.json` filen. Om du ändrar den här inställningen eller namnet på mappen kan körningen inte hitta koden som ska köras.
+
+> [!NOTE]
+> Experimentella stöd för TypeScript finns version 1.x av Functions-körning. Experimentella version transpiles TypeScript-filer i JavaScript-filer när funktionen anropas. I version 2.x kan det här experimentella stödet har ersatts av verktyget-drivna-metoden som gör transpilation innan värden har initierats och under distributionsprocessen.
+
+Det sätt som du utvecklar lokalt och distribuera från en TypeScript-projektet beror på din utvecklingsverktyg.
+
+### <a name="visual-studio-code"></a>Visual Studio-koden
+
+Den [Azure Functions för Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) tillägg kan du utveckla dina funktioner med TypeScript. De viktigaste verktygen är ett krav för Azure Functions-tillägget.
+
+Om du vill skapa en funktionsapp i TypeScript i Visual Studio Code du helt enkelt välja `TypeScript` när du skapar en funktionsapp och uppmanas att välja önskat språk.
+
+När du trycker på **F5** för att köra appen lokalt, transpilation görs innan värden (func.exe) har initierats. 
+
+När du distribuerar appen till Azure med den **distribuera funktionsappen...**  knapp, tillägget Azure Functions skapar först en produktionsklar version av JavaScript-filer från TypeScript källfiler.
+
+### <a name="azure-functions-core-tools"></a>Azure Functions Core Tools
+
+Du måste ange alternativet typescript språk när du skapar funktionsappen för att skapa en TypeScript-funktionsappsprojekt med Core Tools. Du kan göra detta på något av följande sätt:
+
+- Kör den `func init` kommando, Välj `node` som ditt språk stack och välj sedan `typescript`.
+
+- Kör `func init --worker-runtime typescript`-kommandot.
+
+Använd för att köra Funktionskoden appen lokalt med hjälp av Core Tools i `npm start` kommandot i stället för `func host start`. Den `npm start` kommando motsvarar följande kommandon:
+
+- `npm run build`
+- `func extensions install`
+- `tsc`
+- `func start`
+
+Innan du använder den [ `func azure functionapp publish` ] kommandot för att distribuera till Azure, måste du först köra den `npm run build:production` kommando. Det här kommandot skapar en produktionsklar version av JavaScript-filer från TypeScript-källfiler som kan distribueras med hjälp av [ `func azure functionapp publish` ].
 
 ## <a name="considerations-for-javascript-functions"></a>Överväganden för JavaScript-funktioner
 
@@ -558,11 +601,7 @@ När du arbetar med JavaScript-funktioner måste du vara medveten om övervägan
 
 ### <a name="choose-single-vcpu-app-service-plans"></a>Välj en vCPU App Service-planer
 
-När du skapar en funktionsapp som använder App Service-planen, rekommenderar vi att du väljer en enda vCPU-plan i stället för en plan med flera virtuella processorer. Idag funktioner körs mer effektivt JavaScript-funktioner på enskild vCPU virtuella datorer och med större virtuella datorer genererar inte de förväntade prestandaförbättringarna. Om det behövs kan du manuellt skala ut genom att lägga till flera enskild vCPU VM-instanser eller du kan aktivera automatisk skalning. Mer information finns i [skala instansantalet manuellt eller automatiskt](../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service-web%2ftoc.json).    
-
-### <a name="typescript-and-coffeescript-support"></a>Stöd för TypeScript och CoffeeScript
-
-Eftersom direktstöd ännu inte finns för automatisk kompilering av TypeScript eller CoffeeScript via körningen, behöver stödet hanteras utanför körning, vid tidpunkten för distribution.  
+När du skapar en funktionsapp som använder App Service-planen, rekommenderar vi att du väljer en enda vCPU-plan i stället för en plan med flera virtuella processorer. Idag funktioner körs mer effektivt JavaScript-funktioner på enskild vCPU virtuella datorer och med större virtuella datorer genererar inte de förväntade prestandaförbättringarna. Om det behövs kan du manuellt skala ut genom att lägga till flera enskild vCPU VM-instanser eller du kan aktivera automatisk skalning. Mer information finns i [skala instansantalet manuellt eller automatiskt](../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service%2ftoc.json).
 
 ### <a name="cold-start"></a>Kallstart
 
@@ -575,3 +614,5 @@ Mer information finns i följande resurser:
 + [Metodtips för Azure Functions](functions-best-practices.md)
 + [Azure Functions, info för utvecklare](functions-reference.md)
 + [Azure Functions-utlösare och bindningar](functions-triggers-bindings.md)
+
+[funktionen azure functionapp publicera]: functions-run-local.md#project-file-deployment

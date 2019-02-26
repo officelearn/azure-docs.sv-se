@@ -10,12 +10,12 @@ ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 290230237a68730a908c6fd0fb0df1d63035b93b
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: cb2261e92e90bef7cdd51b0ebf7a4ed34ca01624
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247348"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56806241"
 ---
 # <a name="designing-tables-in-azure-sql-data-warehouse"></a>Utforma tabeller i Azure SQL Data Warehouse
 
@@ -61,7 +61,7 @@ CREATE TABLE MyTable (col1 int, col2 int );
 ```
 
 ### <a name="temporary-table"></a>Temporär tabell
-Det finns bara en tillfällig tabell för hela sessionen. Du kan använda en tillfällig tabell för att förhindra att andra användningsområden tillfälliga resultat och att minska behovet av rensning.  Eftersom temporära tabeller kan också använda lokal lagring, kan de ger bättre prestanda för vissa åtgärder.  Mer information finns i [temporära tabeller](sql-data-warehouse-tables-temporary.md).
+Det finns bara en tillfällig tabell för hela sessionen. Du kan använda en tillfällig tabell för att förhindra att andra användare tillfällig resultat och att minska behovet av rensning.  Eftersom temporära tabeller kan också använda lokal lagring, kan de ger bättre prestanda för vissa åtgärder.  Mer information finns i [temporära tabeller](sql-data-warehouse-tables-temporary.md).
 
 ### <a name="external-table"></a>Extern tabell
 En extern tabell pekar på data som finns i Azure Storage blob eller Azure Data Lake Store. När den används tillsammans med CREATE TABLE AS SELECT-instruktionen, importerar att välja från en extern tabell data till SQL Data Warehouse. Externa tabeller är därför användbart för inläsning av data. En självstudiekurs om inläsning finns i [använda PolyBase för att läsa in data från Azure blob storage](load-data-from-azure-blob-storage-using-polybase.md).
@@ -95,7 +95,7 @@ Kategorin tabell avgör ofta vilket alternativ du väljer för att distribuera i
 |:---------------|:--------------------|
 | Fakta för           | Använd hash-distribution med grupperat columnstore-index. Prestanda förbättras när två hash-tabeller som är anslutna på samma distributionskolumn. |
 | Dimension      | Använd replikeras för mindre tabeller. Om du för stor för att lagra på varje beräkningsnod, Använd hash-distribuerad. |
-| Mellanlagring        | Använd resursallokering för mellanlagringstabellen. Belastningen med CTAS går snabbt. När data är i mellanlagringstabellen kan du använda INSERT... Välj det här alternativet om du vill flytta data till en produktionstabellerna. |
+| Mellanlagring        | Använd resursallokering för mellanlagringstabellen. Belastningen med CTAS går snabbt. När data är i mellanlagringstabellen kan du använda INSERT... Välj det här alternativet om du vill flytta data till produktionstabellerna. |
 
 ## <a name="table-partitions"></a>Tabellpartitioner
 En partitionerad tabell lagrar och utför åtgärder på tabellrader enligt dataområden. Till exempel kan en tabell partitioneras efter dag, månad eller år. Du kan förbättra frågeprestanda genom partitionseliminering, vilket begränsar en fråga sökning till data inom en partition. Du kan också ha data genom att växla partition. Eftersom data i SQL Data Warehouse redan har distribuerats kan för många partitioner sakta frågeprestanda. Mer information finns i [partitionering vägledning](sql-data-warehouse-tables-partition.md).

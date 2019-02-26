@@ -1,5 +1,5 @@
 ---
-title: Hantera åtkomst till Azure resoruces med RBAC och Azure portal | Microsoft Docs
+title: Hantera åtkomst till Azure-resurser med RBAC och Azure portal | Microsoft Docs
 description: Lär dig mer om att hantera åtkomst till Azure-resurser för användare, grupper, tjänstens huvudnamn och hanterade identiteter med hjälp av rollbaserad åtkomstkontroll (RBAC) och Azure-portalen. Detta innefattar hur du listar åtkomst, ger åtkomst och tar bort åtkomst.
 services: active-directory
 documentationcenter: ''
@@ -11,43 +11,79 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/30/2018
+ms.date: 02/24/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 1e3057108ef179af2f4692c061091fbdf59f0af2
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: bb23cbc275e01eab5361504c547c020b0a29f4c3
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56342345"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56805298"
 ---
 # <a name="manage-access-to-azure-resources-using-rbac-and-the-azure-portal"></a>Hantera åtkomst till Azure-resurser med RBAC och Azure portal
 
-[Rollbaserad åtkomstkontroll (RBAC)](overview.md) är ett sätt som du hanterar åtkomst till Azure-resurser. Den här artikeln beskriver hur du hanterar åtkomst för användare, grupper, tjänstens huvudnamn och hanterade identiteter med RBAC och Azure-portalen.
+[Rollbaserad åtkomstkontroll (RBAC)](overview.md) är ett sätt som du hanterar åtkomst till Azure-resurser. Den här artikeln beskriver hur du hanterar åtkomst med hjälp av Azure-portalen. Om du behöver hantera åtkomst till Azure Active Directory finns i [visa och tilldela administratörsroller i Azure Active Directory](../active-directory/users-groups-roles/directory-manage-roles-portal.md).
+
+## <a name="prerequisites"></a>Förutsättningar
+
+Om du vill lägga till och ta bort rolltilldelningar, måste du ha:
+
+- `Microsoft.Authorization/roleAssignments/write` och `Microsoft.Authorization/roleAssignments/delete` behörigheter, till exempel [administratör för användaråtkomst](built-in-roles.md#user-access-administrator) eller [ägare](built-in-roles.md#owner)
+
+## <a name="overview-of-access-control-iam"></a>Översikt över åtkomstkontroll (IAM)
+
+**Åtkomstkontroll (IAM)** är bladet som används för att hantera åtkomst till Azure-resurser. Det kallas även för identitets- och åtkomsthantering och visas på flera platser i Azure-portalen. Nedan visas ett exempel på åtkomstkontroll (IAM)-bladet för en prenumeration.
+
+![Åtkomstkontroll (IAM)-bladet för en prenumeration](./media/role-assignments-portal/access-control-numbers.png)
+
+I följande tabell beskrivs vad några av elementen som används för:
+
+| # | Element | Det du använder den för |
+| --- | --- | --- |
+| 1 | Resurs där åtkomstkontroll (IAM) öppnas | Identifiera omfattning (prenumeration i det här exemplet) |
+| 2 | **Lägg till** knappen | Lägg till rolltilldelningar |
+| 3 | **Kontrollera åtkomst** fliken | Visa rolltilldelningar för en enskild användare |
+| 4 | **Rolltilldelningar** fliken | Visa rolltilldelningar i det aktuella omfånget |
+| 5 | **Roller** fliken | Visa alla roller och behörigheter |
+
+Om du vill att de mest effektiva med åtkomstkontroll (IAM)-bladet, underlättar det om du kan svara på följande tre frågor när du försöker hantera åtkomst:
+
+1. **Vilka som behöver åtkomst?**
+
+    Som refererar till en användare, grupp, tjänstens huvudnamn eller hanterad identitet. Detta kallas också en *säkerhetsobjekt*.
+
+1. **Vilka behörigheter behöver de?**
+
+    Behörigheter grupperas tillsammans i roller. Du kan välja från en lista över flera inbyggda roller.
+
+1. **Där behöver de åtkomst?**
+
+    Där refererar till uppsättningen resurser som åtkomsten som gäller för. Där kan vara en hanteringsgrupp, prenumeration, resursgrupp eller en enskild resurs, till exempel ett storage-konto. Detta kallas den *omfång*.
 
 ## <a name="open-access-control-iam"></a>Öppna åtkomstkontroll (IAM)
 
-Den **åtkomstkontroll (IAM)** bladet, kallas även för identitets- och åtkomsthantering, visas i portalen. Om du vill visa eller hantera åtkomst i portalen, är det första du gör öppna åtkomstkontroll (IAM)-bladet definitionsområdet där du vill visa eller göra en ändring.
+Det första du måste bestämma är var du vill öppna åtkomstkontroll (IAM)-bladet. Det beror på vilka resurser som du vill hantera åtkomst för. Vill du hantera åtkomsten för allt innehåll i en hanteringsgrupp, allt i en prenumeration, allt i en resursgrupp eller en enskild resurs?
 
-1. I Azure-portalen klickar du på **alla tjänster** och välj sedan omfång eller resurs som du vill visa eller hantera. Du kan till exempel välja **hanteringsgrupper**, **prenumerationer**, **resursgrupper**, eller en resurs.
+1. I Azure-portalen klickar du på **alla tjänster** och välj sedan omfånget. Du kan till exempel välja **hanteringsgrupper**, **prenumerationer**, **resursgrupper**, eller en resurs.
 
-1. Klicka på den specifika resursen som du vill visa eller hantera.
+1. Klicka på den specifika resursen.
 
 1. Klicka på **Åtkomstkontroll (IAM)**.
 
-    Nedan visas ett exempel på åtkomstkontroll (IAM)-bladet för en prenumeration.
+    Nedan visas ett exempel på åtkomstkontroll (IAM)-bladet för en prenumeration. Om du gör några ändringar åtkomstkontroll här, skulle de gäller för hela prenumerationen.
 
     ![Åtkomstkontroll (IAM)-bladet för en prenumeration](./media/role-assignments-portal/access-control-subscription.png)
 
 ## <a name="view-roles-and-permissions"></a>Visa roller och behörigheter
 
-En rolldefinition är en uppsättning behörigheter som du använder för rolltilldelningar. Azure har över 70 [inbyggda roller för Azure-resurser](built-in-roles.md). Följ dessa steg om du vill visa de roller och behörigheter som kan utföras på hanterings- och dataplanet.
+En rolldefinition är en uppsättning behörigheter som du använder för rolltilldelningar. Azure har över 70 [inbyggda roller för Azure-resurser](built-in-roles.md). Följ dessa steg om du vill visa de tillgängliga roller och behörigheter.
 
-1. Öppna **åtkomstkontroll (IAM)** i ett omfång, till exempel hanteringsgruppen, prenumeration, resursgrupp eller resurs, där du vill visa roller och behörigheter.
+1. Öppna **åtkomstkontroll (IAM)** i alla omfånget.
 
 1. Klicka på den **roller** fliken för att se en lista över alla inbyggda och anpassade roller.
 
-   Du kan se hur många användare och grupper som är kopplade till varje roll i den här omfattningen.
+   Du kan se hur många användare och grupper som är kopplade till varje roll i det aktuella omfånget.
 
    ![Lista över roller](./media/role-assignments-portal/roles-list.png)
 
@@ -57,7 +93,7 @@ En rolldefinition är en uppsättning behörigheter som du använder för rollti
 
 ## <a name="view-role-assignments"></a>Visa rolltilldelningar
 
-Vid hantering av åtkomst vill du veta vem som har åtkomst, deras behörigheter och på vilken nivå behörigheterna gäller. Lista-åtkomst för en användare, grupp, tjänstens huvudnamn eller hanterad identitet du visa rolltilldelningar.
+När du hanterar åtkomst du vill veta vem som har åtkomst, vad är deras behörigheter och i vilken omfattning. Lista-åtkomst för en användare, grupp, tjänstens huvudnamn eller hanterad identitet du visa sin rolltilldelningar.
 
 ### <a name="view-role-assignments-for-a-single-user"></a>Visa rolltilldelningar för en enskild användare
 
@@ -85,7 +121,7 @@ Följ dessa steg om du vill visa åtkomst för en enskild användare, grupp, tj�
 
 1. Öppna **åtkomstkontroll (IAM)** i ett omfång, till exempel hanteringsgruppen, prenumeration, resursgrupp eller resurs, där du vill visa åtkomst.
 
-1. Klicka på den **rolltilldelningar** fliken (eller klicka på den **visa** knappen på panelen Visa rollen tilldelningar) att visa alla rolltilldelningar i det här omfånget.
+1. Klicka på den **rolltilldelningar** fliken för att visa alla rolltilldelningar i det här omfånget.
 
    ![Åtkomstkontroll - rollen tilldelningar fliken](./media/role-assignments-portal/access-control-role-assignments.png)
 
@@ -101,9 +137,11 @@ I RBAC, om du vill bevilja åtkomst måste tilldela du en roll till en användar
 
 1. Klicka på den **rolltilldelningar** fliken för att visa alla rolltilldelningar i det här omfånget.
 
-1. Klicka på **Lägg till rolltilldelning** att öppna fönstret Lägg till rollen tilldelning.
+1. Klicka på **Lägg till** > **Lägg till rolltilldelning** att öppna fönstret Lägg till rollen tilldelning.
 
    Om du inte har behörighet att tilldela roller är alternativet Lägg till rolltilldelning inaktiverat.
+
+   ![Menyn Lägg till](./media/role-assignments-portal/add-menu.png)
 
    ![Fönsterrutan Lägg till rolltilldelning](./media/role-assignments-portal/add-role-assignment.png)
 
@@ -127,9 +165,11 @@ Om du vill göra en administratör för en Azure-prenumeration för en användar
 
 1. Klicka på den **rolltilldelningar** fliken för att visa alla rolltilldelningar för den här prenumerationen.
 
-1. Klicka på **Lägg till rolltilldelning** att öppna fönstret Lägg till rollen tilldelning.
+1. Klicka på **Lägg till** > **Lägg till rolltilldelning** att öppna fönstret Lägg till rollen tilldelning.
 
    Om du inte har behörighet att tilldela roller är alternativet Lägg till rolltilldelning inaktiverat.
+
+   ![Menyn Lägg till](./media/role-assignments-portal/add-menu.png)
 
    ![Fönsterrutan Lägg till rolltilldelning](./media/role-assignments-portal/add-role-assignment.png)
 

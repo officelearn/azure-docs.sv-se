@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/27/2018
 ms.author: chackdan
-ms.openlocfilehash: 3a56e06e9940059c5cf5899b4e2ed1ee94814180
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 5fb8f54f50d821e53ec260c67ad5cf56c7f5671b
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49649813"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56816546"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Service Fabric-kluster kapacitetsplanering
 För alla Produktionsdistribution är kapacitetsplanering ett viktigt steg. Här är några av de objekt som du måste väga in som en del av den här processen.
@@ -86,12 +86,12 @@ Hållbarhetsnivån används för att ange de behörigheter som dina virtuella da
 > Oavsett eventuella hållbarhetsnivå [frigörs](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/deallocate) åtgärden på den Virtuella Datorskalningsuppsättningen förstör klustret
 
 **Fördelarna med att använda Silver eller Gold hållbarhet nivåer**
- 
+ 
 - Minskar antalet steg i en skala in-åtgärd (det vill säga noden inaktivering och ta bort ServiceFabricNodeState kallas automatiskt).
 - Minskar risken för dataförlust på grund av en kundinitierade plats VM SKU ändring eller de Azure-infrastrukturen åtgärder.
 
 **Nackdelarna med att använda Silver eller Gold hållbarhet nivåer**
- 
+ 
 - Distributioner till VM-skalningsuppsättning ställa in och andra relaterade Azure-resurser kan fördröjas, kan tar för lång tid eller blockeras helt och hållet av problem i klustret eller på infrastrukturnivå. 
 - Ökar antalet [Livscykelhändelser för repliken](service-fabric-reliable-services-lifecycle.md) (till exempel primära växlingar) på grund av automatiserad noden avaktiveringar under Azure-infrastrukturen.
 - Tar noder ur för tidsperioder när programuppdateringar för Azure-plattformen eller maskinvaruunderhåll aktiviteter som utförs. Du kan se noder med status inaktiveras/inaktiverad under dessa aktiviteter. Detta minskar kapaciteten för klustret tillfälligt, men bör inte påverka tillgängligheten för dina kluster eller ett program.
@@ -108,9 +108,9 @@ Använda Silver eller Gold hållbarhet för alla typer av noden som är värdar 
 ### <a name="operational-recommendations-for-the-node-type-that-you-have-set-to-silver-or-gold-durability-level"></a>Operativa rekommendationer för noden ange att du har angett till silver eller gold hållbarhet nivå.
 
 - Ha-kluster och program felfria hela tiden och se till att program ska svara på alla [tjänsten Livscykelhändelser för repliken](service-fabric-reliable-services-lifecycle.md) (t.ex. repliken i bygger har fastnat) i tid.
-- Anta säkrare sätt att göra en ändring av VM-SKU (skala upp/ned): ändra VM-SKU på en skalningsuppsättning för virtuell dator sin natur är en osäkra åtgärd och så bör inte användas om det är möjligt. Här är den process som du kan följa för att undvika vanliga problem.
-    - **För icke-primär nodtyper:** vi rekommenderar att du skapar nya virtuella datorns skalningsuppsättning, ändra villkoret för tjänsten placering för att inkludera den nya VM scale set/node-typen och minska den gamla VM scale set-instansen antal till noll, en nod i taget (detta är att se till att ta bort noder inte påverkar tillförlitligheten för klustret).
-    - **För den primära nodtypen:** vår rekommendation är att du inte ändrar VM-SKU på den primära nodtypen. Ändringar av den primära nodtypen SKU inte stöds. Om orsaken till den nya SKU: N är kapacitet, rekommenderar vi att lägga till fler instanser. Om detta inte möjligt, skapa ett nytt kluster och [Återställ programtillstånd](service-fabric-reliable-services-backup-restore.md) (om tillämpligt) från ditt gamla kluster. Du behöver inte återställa alla systemtillstånd för tjänsten, de återskapas när du distribuerar ditt program till det nya klustret. Om du kör tillståndslösa program i klustret måste du distribuera dina program till det nya klustret.  Du har inget att återställa. Om du vill gå stöds inte vägen och vill ändra VM-SKU, ange sedan gör ändringar i VM-skalningsuppsättningen modell-definitionen för att återspegla den nya SKU: N. Om klustret har endast en nodtyp, kontrollerar du att alla dina tillståndskänsliga program att besvara alla [tjänsten Livscykelhändelser för repliken](service-fabric-reliable-services-lifecycle.md) (t.ex. repliken i bygger har fastnat) i god tid och att din tjänsterepliken återskapa varaktighet är mindre än fem minuter (för Silver hållbarhetsnivå). 
+- Anta säkrare sätt att göra en VM-SKU ändra (skala upp/ned): Ändra VM-SKU på en skalningsuppsättning för virtuell dator sin natur är en osäkra åtgärd och så bör inte användas om det är möjligt. Här är den process som du kan följa för att undvika vanliga problem.
+    - **För icke-primär nodtyper:** Vi rekommenderar att du skapar nya virtuella datorns skalningsuppsättning, ändra villkoret för tjänsten placering för att inkludera den nya VM scale set/node-typen och minska gamla VM scale set instansantalet till noll, en nod i taget (detta är att göra Se till att ta bort noder inte påverkar tillförlitligheten för klustret).
+    - **För den primära nodtypen:** Vår rekommendation är att du inte ändrar VM-SKU på den primära nodtypen. Ändringar av den primära nodtypen SKU inte stöds. Om orsaken till den nya SKU: N är kapacitet, rekommenderar vi att lägga till fler instanser. Om detta inte möjligt, skapa ett nytt kluster och [Återställ programtillstånd](service-fabric-reliable-services-backup-restore.md) (om tillämpligt) från ditt gamla kluster. Du behöver inte återställa alla systemtillstånd för tjänsten, de återskapas när du distribuerar ditt program till det nya klustret. Om du kör tillståndslösa program i klustret måste du distribuera dina program till det nya klustret.  Du har inget att återställa. Om du vill gå stöds inte vägen och vill ändra VM-SKU, ange sedan gör ändringar i VM-skalningsuppsättningen modell-definitionen för att återspegla den nya SKU: N. Om klustret har endast en nodtyp, kontrollerar du att alla dina tillståndskänsliga program att besvara alla [tjänsten Livscykelhändelser för repliken](service-fabric-reliable-services-lifecycle.md) (t.ex. repliken i bygger har fastnat) i god tid och att din tjänsterepliken återskapa varaktighet är mindre än fem minuter (för Silver hållbarhetsnivå). 
     
 - Underhålla ett minsta antal fem noder för alla VM-skalningsuppsättning som har hållbarhetsnivå Gold och Silver aktiverat.
 - Varje VM-skalningsuppsättning med hållbarhetsnivå Silver eller Gold måste mappas till en egen nodtyp i Service Fabric-klustret. Mappa flera skalningsuppsättningar för virtuella datorer till en enda nodtyp förhindrar samordning mellan Service Fabric-kluster och Azure-infrastrukturen fungerar korrekt.
@@ -151,9 +151,9 @@ Här är rekommendationen om att välja tillförlitlighetsnivån.  Antalet start
 
 Här följer riktlinjer för planering av kapacitet för primära noden typ:
 
-- **Antalet Virtuella datorinstanser att köra alla produktionsarbetsbelastningar i Azure:** måste du ange en minsta primära noden typ storlek på 5 och en tillförlitlighet nivå av Silver.  
+- **Antalet Virtuella datorinstanser att köra alla produktionsarbetsbelastningar i Azure:** Du måste ange en minsta primära noden typ storlek på 5 och en tillförlitlighet nivå av Silver.  
 - **Antalet Virtuella datorinstanser att köra arbetsbelastningar för testning i Azure** du kan ange en minsta primära noden teckenstorlek på 1 eller 3. En nod-klustret körs med en särskild konfiguration och, skalning av klustret stöds inte. En nod-klustret har inga tillförlitlighet och i Resource Manager-mallen, du måste ta bort/inte ange denna konfiguration (inte ställa in Konfigurationsvärdet är inte tillräckligt). Om du har konfigurerat en nod klustret konfigureras via portalen är automatiskt konfigurationen tar hand om. Kluster med en och tre noder stöds inte för arbetsbelastningar under produktion. 
-- **VM-SKU:** primära nodtypen är där systemtjänster körs, så att VM-SKU du väljer för den, måste ta hänsyn den övergripande högsta laddar du planerar att placera i klustret. Så om hjärnan inte får tillräckligt med oxygen, meddelandetexten drabbas här är en också illustrerar vad menar jag att här – Tänk på den primära nodtypen som din ”lungor”, det är vad tillhandahåller oxygen till dig och ut. 
+- **SKU FÖR VIRTUELL DATOR:** Primära nodtypen är där systemtjänster körs, så att VM-SKU du väljer för den, måste ta hänsyn den övergripande högsta laddar du planerar att placera i klustret. Så om hjärnan inte får tillräckligt med oxygen, meddelandetexten drabbas här är en också illustrerar vad menar jag att här – Tänk på den primära nodtypen som din ”lungor”, det är vad tillhandahåller oxygen till dig och ut. 
 
 Eftersom kapacitetsbehoven i ett kluster bestäms av arbetsbelastning som du planerar att köra i klustret, inte kan vi ge du med kvalitativa vägledning för den specifika arbetsbelastningen, men här är bred riktlinjer som hjälper dig att komma igång
 
@@ -174,11 +174,11 @@ För produktionsarbetsbelastningar:
 
 Den här vägledningen är avsedd för tillståndskänsliga arbetsbelastningar som använder Service fabric [tillförlitliga samlingar eller reliable Actors](service-fabric-choose-framework.md) som körs i den icke-primära nodtypen.
 
-**Antalet Virtuella datorinstanser:** för produktionsarbetsbelastningar som är tillståndskänsliga, rekommenderar vi att du kör dem med en lägsta och mål replikantal på 5. Det innebär att i stabilt tillstånd att avslutas med en replik (från en replikuppsättning) i varje feldomän och uppgraderingsdomän. Hela tillförlitlighet nivån konceptet för den primära nodtypen är ett sätt att ange den här inställningen för systemtjänster. Detsamma gäller så att dina tillståndskänsliga tjänster.
+**Antal VM-instanser:** För produktionsarbetsbelastningar som är tillståndskänsliga, rekommenderas att du kör dem med en lägsta och mål replikantal på 5. Det innebär att i stabilt tillstånd att avslutas med en replik (från en replikuppsättning) i varje feldomän och uppgraderingsdomän. Hela tillförlitlighet nivån konceptet för den primära nodtypen är ett sätt att ange den här inställningen för systemtjänster. Detsamma gäller så att dina tillståndskänsliga tjänster.
 
 Så för produktionsarbetsbelastningar minsta rekommenderade icke - primära noden standardstorleken är 5, om du kör tillståndskänsliga arbetsbelastningar i den.
 
-**VM-SKU:** detta är nodtyp där ditt program körs, så att VM-SKU du väljer för den, måste ta hänsyn till toppbelastningen som du planerar att placera i varje nod. Kapacitetsbehoven av nodtyp, bestäms av arbetsbelastning som du planerar att köra i klustret, så att vi inte kan ge du med kvalitativa vägledning för den specifika arbetsbelastningen, men här är bred riktlinjer som hjälper dig att komma igång
+**SKU FÖR VIRTUELL DATOR:** Detta är nodtyp där ditt program körs, så VM-SKU du väljer för den, måste ta hänsyn till toppbelastningen som du planerar att placera i varje nod. Kapacitetsbehoven av nodtyp, bestäms av arbetsbelastning som du planerar att köra i klustret, så att vi inte kan ge du med kvalitativa vägledning för den specifika arbetsbelastningen, men här är bred riktlinjer som hjälper dig att komma igång
 
 För produktionsarbetsbelastningar 
 
@@ -191,9 +191,9 @@ För produktionsarbetsbelastningar
 
 Den här vägledningen för tillståndslösa arbetsbelastningar som körs på den icke-primära nodtypen.
 
-**Antalet Virtuella datorinstanser:** för produktionsarbetsbelastningar som är tillståndslösa, minsta stöds icke - primära typ nodstorlek är 2. På så sätt kan du köra du två tillståndslösa instanser av ditt program så att din tjänst att överleva förlusten av en VM-instans. 
+**Antal VM-instanser:** För produktionsarbetsbelastningar som är tillståndslösa, är minsta stöds icke - primära typ nodstorleken 2. På så sätt kan du köra du två tillståndslösa instanser av ditt program så att din tjänst att överleva förlusten av en VM-instans. 
 
-**VM-SKU:** detta är nodtyp där ditt program körs, så att VM-SKU du väljer för den, måste ta hänsyn till toppbelastningen som du planerar att placera i varje nod. Kapacitetsbehoven av nodtyp bestäms av den arbetsbelastning som du planerar att köra i klustret. Vi kan inte tillhandahålla kvalitativ vägledning för den specifika arbetsbelastningen.  Här är dock bred riktlinjer hjälper dig att komma igång.
+**SKU FÖR VIRTUELL DATOR:** Detta är nodtyp där ditt program körs, så VM-SKU du väljer för den, måste ta hänsyn till toppbelastningen som du planerar att placera i varje nod. Kapacitetsbehoven av nodtyp bestäms av den arbetsbelastning som du planerar att köra i klustret. Vi kan inte tillhandahålla kvalitativ vägledning för den specifika arbetsbelastningen.  Här är dock bred riktlinjer hjälper dig att komma igång.
 
 För produktionsarbetsbelastningar 
 

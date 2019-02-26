@@ -12,17 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 10/25/2018
+ms.date: 02/25/2019
 ms.author: jeffgilb
 ms.reviewer: unknown
 ms.custom: mvc
-ms.lastreviewed: 10/25/2018
-ms.openlocfilehash: 9341eefdbe1eaa8e27394fd4b10f50b1a48bd4c6
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.lastreviewed: 02/25/2019
+ms.openlocfilehash: 65894ccd9514bce1d429b336f8bd5e6674048e65
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247331"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56820271"
 ---
 # <a name="what-is-azure-stack"></a>Vad är Azure Stack?
 
@@ -41,7 +41,7 @@ Microsoft [Azure Stack Development Kit (ASDK)](./asdk/asdk-what-is.md) är en en
 ASDK har följande begränsningar:
 
 * ASDK är associerad med en enda Azure Active Directory (AD Azure) eller en identitetsprovider för Active Directory Federation Services (AD FS). Du kan skapa flera användare i den här katalogen och tilldela prenumerationer till varje användare.
-* Eftersom Azure Stack-komponenter distribueras på en värddator är de fysiska resurser som finns tillgängliga för klientresurser begränsade. Den här konfigurationen är inte avsedd för utvärdering av skalbarhet eller prestanda.
+* Eftersom Azure Stack-komponenterna distribueras på en enda värddator, finns det begränsad fysiska resurser för klientens resurser. Den här konfigurationen är inte avsedd att skala eller prestanda.
 * Scenarier för nätverk är begränsade på grund av värddator och NIC-distributionskrav.
 
 ## <a name="azure-stack-integrated-systems"></a>Azure Stack-integrerade system

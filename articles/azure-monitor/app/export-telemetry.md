@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 08/20/2018
 ms.author: mbullwin
-ms.openlocfilehash: c2374bd0d67115bdc9fef2b6937f7b087bc581de
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: eda41870e86db206847f5ea81e23fa1b7612234c
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54076781"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56817311"
 ---
 # <a name="export-telemetry-from-application-insights"></a>Exportera telemetri från Application Insights
 Om du vill behålla din telemetri under längre tid än kvarhållningsperioden standard? Eller bearbeta dem i något specialiserade sätt? Löpande Export är perfekt för detta. Händelserna som visas i Application Insights-portalen kan exporteras till lagringen i Microsoft Azure i JSON-format. Därifrån kan du hämta dina data och skriver det kod som du behöver bearbetas.  
@@ -32,6 +32,16 @@ Innan du konfigurerar löpande export finns några alternativ som du kanske vill
 * Du kan även använda installationsprogrammet [löpande export via Powershell](https://docs.microsoft.com/powershell/module/azurerm.applicationinsights/new-azurermapplicationinsightscontinuousexport?view=azurermps-5.7.0).
 
 När löpande Export kopierar dina data till lagring (där det kan vara under så länge du vill), är det fortfarande tillgängligt i Application Insights för den vanliga [kvarhållningsperioden](../../azure-monitor/app/data-retention-privacy.md).
+
+## <a name="continuous-export-advanced-storage-configuration"></a>Kontinuerlig Export avancerade lagringskonfiguration
+
+Löpande Export **stöder inte** följande funktioner/konfigurationer i Azure storage:
+
+* Användning av [VNET/Azure Storage-brandväggar](https://docs.microsoft.com/azure/storage/common/storage-network-security) i flygplatsernas med Azure Blob storage.
+
+* [Oföränderlig storage](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutable-storage) för Azure Blob storage.
+
+* [Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction).
 
 ## <a name="setup"></a> Skapa en löpande Export
 1. Öppna löpande Export i Application Insights-resurs för din app och välj **Lägg till**:

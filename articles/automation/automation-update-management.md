@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 02/19/2019
+ms.date: 02/22/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: df4ae4b0c3f230947e0b9a5885070049f32a4b2f
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: fb96d69604ce341cec2de029f9663f6b8d274876
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56429870"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56822386"
 ---
 # <a name="update-management-solution-in-azure"></a>Lösningen för uppdateringshantering i Azure
 
@@ -39,7 +39,7 @@ Hantering av uppdateringar kan användas för att internt registrera datorer i f
 
 När en CVE är viktig, tar 2 – 3 timmar innan uppdateringen att visas för Linux-datorer för utvärdering.  För Windows-datorer tar den 12 – 15 timmar för uppdatering ska visas för utvärderingen efter att det har släppts.
 
-När en dator är klar en sökning efter uppdateringskompatibilitet vidarebefordrar agenten informationen gruppvis till Azure Log Analytics. På en Windows-dator körs kompatibilitetsgenomsökningen var 12: e timme som standard.
+När en dator är klar en sökning efter uppdateringskompatibilitet vidarebefordrar agenten informationen gruppvis till Azure Monitor-loggar. På en Windows-dator körs kompatibilitetsgenomsökningen var 12: e timme som standard.
 
 Förutom genomsökningsschemat initieras sökningen för uppdateringskompatibilitet inom 15 minuter från MMA startas innan installationen av uppdateringen och efteråt.
 
@@ -94,7 +94,7 @@ Windows-agenter måste konfigureras för att kommunicera med en WSUS-server elle
 
 För Linux, måste datorn ha åtkomst till en uppdateringslagringsplats. Uppdatera databasen kan vara privat eller offentlig. TLS 1.1 eller TLS 1.2 krävs för att interagera med hantering av uppdateringar. En Log Analytics-agenten för Linux som är konfigurerad att rapportera till fler än en Log Analytics-arbetsytor stöds inte med den här lösningen.
 
-Information om hur du installerar Log Analytics-agenten för Linux och hämta den senaste versionen finns i [Operations Management Suite-agenten för Linux](https://github.com/microsoft/oms-agent-for-linux). Information om hur du installerar Log Analytics-agenten för Windows finns i [Operations Management Suite-agenten för Windows](../log-analytics/log-analytics-windows-agent.md).
+Information om hur du installerar Log Analytics-agenten för Linux och hämta den senaste versionen finns i [Log Analytics-agenten för Linux](https://github.com/microsoft/oms-agent-for-linux). Information om hur du installerar Log Analytics-agenten för Windows finns i [Microsoft Monitoring Agent för Windows](../log-analytics/log-analytics-windows-agent.md).
 
 ## <a name="permissions"></a>Behörigheter
 
@@ -120,10 +120,10 @@ Om din hanteringsgrupp för System Center Operations Manager är ansluten till e
 * Microsoft.IntelligencePack.UpdateAssessment.Configuration (Microsoft.IntelligencePack.UpdateAssessment.Configuration)
 * Uppdatera distributions-MP
 
-Mer information om hur lösningens hanteringspaket uppdateras finns i [ansluta Operations Manager till Log Analytics](../azure-monitor/platform/om-agents.md).
+Mer information om hur lösningens hanteringspaket uppdateras finns i [ansluta Operations Manager till Azure Monitor loggar](../azure-monitor/platform/om-agents.md).
 
 > [!NOTE]
-> För system med Operations Manager-agenten för att kunna hanteras helt av uppdateringshantering, måste agenten uppdateras till Microsoft Monitoring Agent. Information om hur du uppdaterar agenten finns [så här uppgraderar du en Operations Manager-agent](https://docs.microsoft.com/system-center/scom/deploy-upgrade-agents).
+> För system med Operations Manager-agenten för att kunna hanteras helt av uppdateringshantering, måste agenten uppdateras till Microsoft Monitoring Agent. Information om hur du uppdaterar agenten finns [så här uppgraderar du en Operations Manager-agent](https://docs.microsoft.com/system-center/scom/deploy-upgrade-agents). För miljöer med Operations Manager, det krävs att du kör System Center Operations Manager 2012 R2 UR 14 eller senare.
 
 ## <a name="onboard"></a>Aktivera uppdateringshantering
 
@@ -136,7 +136,7 @@ Om du vill börja korrigeringar system, måste du aktivera lösningen för uppda
   
 ### <a name="confirm-that-non-azure-machines-are-onboarded"></a>Bekräfta att icke-Azure-datorer är integrerats
 
-Om du vill bekräfta att direkt anslutna datorer kommunicerar med Log Analytics, efter ett par minuter kan du köra en följande sökningar i loggen.
+Om du vill bekräfta att direkt anslutna datorer kommunicerar med Azure Monitor-loggar, efter ett par minuter kan du köra en följande sökningar i loggen.
 
 #### <a name="linux"></a>Linux
 

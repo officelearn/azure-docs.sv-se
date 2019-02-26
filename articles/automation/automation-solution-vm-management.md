@@ -1,6 +1,6 @@
 ---
 title: Starta/stoppa virtuella datorer vid låg belastning på nätverket lösning
-description: Denna lösning för hantering av virtuell dator startar och stoppar Azure Resource Manager virtuella datorer enligt ett schema och övervakar proaktivt från Log Analytics.
+description: Denna lösning för hantering av virtuell dator startar och stoppar Azure Resource Manager virtuella datorer enligt ett schema och övervakar proaktivt från Azure Monitor-loggar.
 services: automation
 ms.service: automation
 ms.subservice: process-automation
@@ -9,16 +9,16 @@ ms.author: gwallace
 ms.date: 02/08/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d6e083c4a7595bb70e77bca860c756abc2eaa18e
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 3fcab4c7456295d8f7414232bc90bc5ab352e43a
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55979657"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56817889"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Starta/stoppa virtuella datorer vid låg belastning på nätverket lösning i Azure Automation
 
-Starta/stoppa virtuella datorer under kontorstid lösning startar och stoppar Azure virtuella datorer med hjälp av användardefinierade scheman, ger insikter via Azure Log Analytics och skickar valfri e-postmeddelanden med hjälp av [åtgärdsgrupper](../azure-monitor/platform/action-groups.md). Den stöder både Azure Resource Manager och klassiska virtuella datorer i de flesta fall.
+Starta/stoppa virtuella datorer under kontorstid lösning startar och stoppar Azure virtuella datorer med hjälp av användardefinierade scheman, ger insikter via Azure Monitor-loggar och skickar valfri e-postmeddelanden med hjälp av [åtgärdsgrupper](../azure-monitor/platform/action-groups.md). Den stöder både Azure Resource Manager och klassiska virtuella datorer i de flesta fall.
 
 Den här lösningen ger en decentraliserad prisvärda automatiseringsalternativet för användare som vill optimera kostnaderna för virtuella datorer. Med den här lösningen kan du:
 
@@ -35,6 +35,8 @@ Följande är begränsningar i den aktuella lösningen:
 > Om du använder lösningen för klassiska virtuella datorer kan kommer sedan alla dina virtuella datorer att behandlas sekventiellt per molntjänst. Virtuella datorer är fortfarande bearbetas parallellt över olika molntjänster.
 >
 > Azure Cloud Solution Provider (Azure CSP)-prenumerationer stöder endast Azure Resource Manager-modellen, icke - Azure Resource Manager-tjänster är inte tillgängliga i programmet. När lösningen Starta/Stoppa körs kan du få fel eftersom den innehåller cmdletar för att hantera klassiska resurser. Läs mer om CSP i [tillgängliga tjänster i CSP-prenumerationer](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-available-services#comments). Om du använder en CSP-prenumeration kan du ändra den [ **External_EnableClassicVMs** ](#variables) variabeln **FALSKT** efter distributionen.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -63,7 +65,7 @@ Utför följande steg för att lägga till Starta/stoppa virtuella datorer vid l
    - Välj en **prenumeration** att länka till genom att välja från listrutan om standardvalet inte är lämpligt.
    - För **resursgrupp**, du kan skapa en ny resursgrupp eller välj en befintlig.
    - Välj en **Plats**. För närvarande endast tillgängliga regionerna är **Australien, sydöstra**, **centrala**, **centrala Indien**, **USA, östra**, **Östra japan**, **Sydostasien**, **Storbritannien, södra**, **Västeuropa**, och **USA, västra 2**.
-   - Välj en **Prisnivå**. Välj den **Per GB (fristående)** alternativet. Log Analytics har uppdaterat [priser](https://azure.microsoft.com/pricing/details/log-analytics/) och Per GB-nivån är det enda alternativet.
+   - Välj en **Prisnivå**. Välj den **Per GB (fristående)** alternativet. Azure Monitor-loggar har uppdaterat [priser](https://azure.microsoft.com/pricing/details/log-analytics/) och Per GB-nivån är det enda alternativet.
 
 5. När du har angett informationen som krävs på den **Log Analytics-arbetsyta** klickar du på **skapa**. Du kan spåra förloppet under **meddelanden** från menyn som tillbaka till den **lägga till lösning** sidan när du är klar.
 6. På den **lägga till lösning** väljer **Automation-konto**. Om du skapar en ny Log Analytics-arbetsyta kan du skapa ett nytt Automation-konto som ska associeras med den eller välja ett befintligt Automation-konto som inte är redan länkad till en Log Analytics-arbetsyta. Välj ett befintligt Automation-konto eller klicka på **skapa ett Automation-konto**, och på den **Lägg till Automation-konto** anger du följande information:
@@ -86,7 +88,7 @@ Utför följande steg för att lägga till Starta/stoppa virtuella datorer vid l
      - Sequenced_StartStop_Parent
 
      > [!IMPORTANT]
-     > Standardvärdet för **Målresursnamn** är en **&ast;**. Detta riktar sig mot alla virtuella datorer i en prenumeration. Om du inte vill att lösningen att fokusera på alla virtuella datorer i din prenumeration som det här värdet behöver uppdateras till en lista över resursgruppnamn innan du kan aktivera scheman.
+     > Standardvärdet för **Målresursnamn** är en ** &ast; **. Detta riktar sig mot alla virtuella datorer i en prenumeration. Om du inte vill att lösningen att fokusera på alla virtuella datorer i din prenumeration som det här värdet behöver uppdateras till en lista över resursgruppnamn innan du kan aktivera scheman.
 
 8. När du har konfigurerat de ursprungliga inställningarna som krävs för lösningen, klickar du på **OK** att Stäng den **parametrar** och välj **skapa**. När alla inställningar verifieras har lösningen distribuerats till din prenumeration. Den här processen kan ta flera sekunder att slutföra och du kan spåra förloppet under **meddelanden** på menyn.
 
@@ -129,7 +131,7 @@ I en miljö med minst två eller flera komponenter på flera virtuella datorer s
 
 #### <a name="target-the-start-and-stop-actions-against-a-subscription-and-resource-group"></a>Rikta start och stopp åtgärder mot en grupp för prenumeration och resursgrupp
 
-1. Lägg till en **sequencestart** och en **sequencestop** taggen med ett positivt heltalsvärde för virtuella datorer som omfattas i **External_Start_ResourceGroupNames** och  **External_Stop_ResourceGroupNames** variabler. Starta och stoppa åtgärder utförs i stigande ordning. Läs hur du tagga en virtuell dator i [tagga en virtuell Windows-dator i Azure](../virtual-machines/windows/tag.md) och [tagga en virtuell Linux-dator i Azure](../virtual-machines/linux/tag.md).
+1. Lägg till en **sequencestart** och en **sequencestop** taggen med ett positivt heltalsvärde för virtuella datorer som omfattas i **External_Start_ResourceGroupNames** och ** External_Stop_ResourceGroupNames** variabler. Starta och stoppa åtgärder utförs i stigande ordning. Läs hur du tagga en virtuell dator i [tagga en virtuell Windows-dator i Azure](../virtual-machines/windows/tag.md) och [tagga en virtuell Linux-dator i Azure](../virtual-machines/linux/tag.md).
 1. Ändra scheman **Sequenced StartVM** och **Sequenced StopVM** datum och tid som uppfyller dina krav och aktivera schemat.
 1. Kör den **SequencedStartStop_Parent** runbook med parametern åtgärd inställd **starta** och parametern WHATIF inställd **SANT** att förhandsgranska dina ändringar.
 1. Förhandsgranska åtgärden och gör nödvändiga ändringar innan du implementerar mot virtuella produktionsdatorer. När klar, manuellt köra runbook med parametern inställd **FALSKT**, eller låt Automation schemat **Sequenced StartVM** och **Sequenced StopVM** kör automatiskt efter din ett förutbestämt schema.
@@ -174,7 +176,7 @@ Nu när du har ett schema för att stoppa virtuella datorer baserat på CPU-bela
 
 ## <a name="solution-components"></a>Lösningskomponenter
 
-Den här lösningen innehåller förkonfigurerade runbooks, scheman och integrering med Log Analytics så att du kan anpassa Start och stopp av dina virtuella datorer som passar dina affärsbehov.
+Den här lösningen innehåller förkonfigurerade runbooks, scheman och integrering med Azure Monitor-loggar så att du kan anpassa Start och stopp av dina virtuella datorer som passar dina affärsbehov.
 
 ### <a name="runbooks"></a>Runbooks
 
@@ -209,7 +211,7 @@ I följande tabell visas de variabler som skapats i ditt Automation-konto. Endas
 |External_AutoStop_TimeAggregationOperator | Operatorn tid-aggregering, som tillämpas på den valda fönsterstorleken för att utvärdera villkoret. Godkända värden är **genomsnittliga**, **minsta**, **maximala**, **totala**, och **senaste**.|
 |External_AutoStop_TimeWindow | Fönsterstorleken då Azure analyserar valda mått för att utlösa en avisering. Den här parametern accepterar indata i timespan-format. Möjliga värden är från 5 minuter till 6 timmar.|
 |External_EnableClassicVMs| Anger om klassiska virtuella datorer som omfattas av lösningen. Standardvärdet är sant. Detta bör anges till falskt för CSP-prenumerationer.|
-|External_ExcludeVMNames | Ange namn på virtuella datorer som ska undantas, att avgränsa namnen med kommatecken utan blanksteg. Det här är begränsad till 140 virtuella datorer. Om du lägger till fler än 140 virtuella datorer har lagts till virtuella datorer som ska uteslutas går att starta eller stänga av misstag|
+|External_ExcludeVMNames | Ange namn på virtuella datorer som ska undantas, att avgränsa namnen med kommatecken utan blanksteg. Det här är begränsad till 140 virtuella datorer. Om du lägger till fler än 140 virtuella datorer till den här kommaseparerad lista med kan virtuella datorer som är inställda som ska undantas vara oavsiktligt startas eller stoppas.|
 |External_Start_ResourceGroupNames | Anger en eller flera resursgrupper, att avgränsa värden med hjälp av ett kommatecken, avsedda för start-åtgärder.|
 |External_Stop_ResourceGroupNames | Anger en eller flera resursgrupper, att avgränsa värden med hjälp av ett kommatecken, avsedda för stop-åtgärder.|
 |Internal_AutomationAccountName | Anger namnet på Automation-kontot.|
@@ -217,7 +219,7 @@ I följande tabell visas de variabler som skapats i ditt Automation-konto. Endas
 |Internal_AzureSubscriptionId | Anger Azure prenumerations-ID.|
 |Internal_ResourceGroupName | Anger Automation-konto resursgruppens namn.|
 
-I samtliga scenarier den **External_Start_ResourceGroupNames**, **External_Stop_ResourceGroupNames**, och **External_ExcludeVMNames** variabler krävs för virtuella datorer, med undantag för att tillhandahålla en kommaavgränsad lista över virtuella datorer för den **AutoStop_CreateAlert_Parent**, **SequencedStartStop_Parent**, och  **ScheduledStartStop_Parent** runbooks. Det vill säga måste dina virtuella datorer finnas i target-resursgrupper för start och stoppa åtgärder ska utföras. Den logik fungerar liknande Azure policy, eftersom du kan fokusera på den prenumeration eller resursgrupp enhetsgrupp och åtgärder som ärvs av nyligen skapade virtuella datorer. Den här metoden innebär att du slipper upprätthålla ett separat schema för varje virtuell dator och hantera startar och stoppar i skala.
+I samtliga scenarier den **External_Start_ResourceGroupNames**, **External_Stop_ResourceGroupNames**, och **External_ExcludeVMNames** variabler krävs för virtuella datorer, med undantag för att tillhandahålla en kommaavgränsad lista över virtuella datorer för den **AutoStop_CreateAlert_Parent**, **SequencedStartStop_Parent**, och ** ScheduledStartStop_Parent** runbooks. Det vill säga måste dina virtuella datorer finnas i target-resursgrupper för start och stoppa åtgärder ska utföras. Den logik fungerar liknande Azure policy, eftersom du kan fokusera på den prenumeration eller resursgrupp enhetsgrupp och åtgärder som ärvs av nyligen skapade virtuella datorer. Den här metoden innebär att du slipper upprätthålla ett separat schema för varje virtuell dator och hantera startar och stoppar i skala.
 
 ### <a name="schedules"></a>Scheman
 
@@ -233,7 +235,7 @@ Du bör inte aktivera alla scheman, eftersom detta kan orsaka överlappande Sche
 |Sequenced-StopVM | 01:00:00 (UTC), varje fredag | Kör Sequenced_Parent runbook med en parameter av _stoppa_ varje fredag vid den angivna tidpunkten. Sekventiellt (stigande) stoppas alla virtuella datorer med en tagg för **SequenceStop** definieras av lämplig variablerna. Mer information om taggvärden och tillgången variabler finns i avsnittet om Runbooks. Aktivera relaterade schema **Sequenced StartVM**.|
 |Sequenced-StartVM | 1:00 PM (UTC) varje måndag | Kör Sequenced_Parent runbook med en parameter av _starta_ varje måndag vid den angivna tidpunkten. Sekventiellt (fallande) börjar alla virtuella datorer med en tagg för **SequenceStart** definieras av lämplig variablerna. Mer information om taggvärden och tillgången variabler finns i avsnittet om Runbooks. Aktivera relaterade schema **Sequenced StopVM**.|
 
-## <a name="log-analytics-records"></a>Log Analytics-poster
+## <a name="azure-monitor-logs-records"></a>Azure Monitor loggar poster
 
 Automation skapar två typer av poster i Log Analytics-arbetsyta: jobb-loggar och jobbets strömmar.
 
@@ -290,7 +292,7 @@ Följande tabell innehåller exempel på sökningar i loggen för jobbposter som
 
 ## <a name="viewing-the-solution"></a>Visa lösningen
 
-För att komma åt lösningen går du till ditt Automation-konto, Välj **arbetsytan** under **relaterade resurser**. På sidan Log Analytics väljer **lösningar** under **Allmänt**. På den **lösningar** väljer lösningen **Start stoppa VM [workspace]** i listan.
+För att komma åt lösningen går du till ditt Automation-konto, Välj **arbetsytan** under **relaterade resurser**. På sidan log analytics väljer **lösningar** under **Allmänt**. På den **lösningar** väljer lösningen **Start stoppa VM [workspace]** i listan.
 
 Om du väljer lösningen visas den **Start stoppa VM [workspace]** lösning sidan. Här kan du granska viktig information som den **StartStopVM** panelen. Den här panelen visar ett antal och en grafisk representation av runbook-jobb för lösningen som har startat och har slutförts som i din Log Analytics-arbetsyta.
 
@@ -364,14 +366,14 @@ Utför följande steg för att ta bort lösningen:
 
 Automation-kontot och Log Analytics-arbetsyta raderas inte som en del av den här processen. Om du inte vill behålla Log Analytics-arbetsytan måste du ta bort den manuellt. Detta kan åstadkommas från Azure portal:
 
-1. Azure hemskärmen i portalen, väljer du **Log Analytics**.
-1. På den **Log Analytics** väljer arbetsytan.
+1. Azure hemskärmen i portalen, väljer du **Log Analytics-arbetsytor**.
+1. På den **Log Analytics-arbetsytor** väljer arbetsytan.
 1. Välj **ta bort** från menyn på inställningssidan för arbetsytan.
 
 Om du inte vill behålla komponenterna för Azure Automation-konto du manuellt ta bort var och en. Lista med runbooks, variabler och scheman som skapats av lösningen finns i den [lösningskomponenter](#solution-components).
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs mer om hur du konstruerar olika sökfrågor och granskar jobbloggarna i Automation med Log Analytics i [Loggsökningar i Log Analytics](../log-analytics/log-analytics-log-searches.md).
+- Mer information om hur du konstruerar olika sökfrågor och granskar jobbloggarna i Automation med Azure Monitor-loggar finns [Loggsökningar i Azure Monitor-loggar](../log-analytics/log-analytics-log-searches.md).
 - Läs mer om att köra runbook, hur du övervakar runbook-jobb och andra tekniska detaljer i [Spåra ett runbook-jobb](automation-runbook-execution.md).
-- Läs mer om Log Analytics och datakällsamling i [insamling av Azure storage-data i Log Analytics-översikten](../azure-monitor/platform/collect-azure-metrics-logs.md).
+- Läs mer om Azure Monitor-loggar och datakällsamling i [insamling av Azure storage-data i Azure Monitor loggar översikt](../azure-monitor/platform/collect-azure-metrics-logs.md).

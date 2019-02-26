@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: radwiv;chadmat;genli
-ms.openlocfilehash: 7e6b3e7496c4a063156ff3b8feae1f5096efe55f
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: 819415712d8e605825957aa602fc99dcf6902d82
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39035626"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56821669"
 ---
 # <a name="how-to-validate-vpn-throughput-to-a-virtual-network"></a>Hur du validerar VPN-dataflöde till ett virtuellt nätverk
 
@@ -49,7 +49,7 @@ Följande diagram visar logiska anslutning av ett lokalt nätverk till ett Azure
 ## <a name="calculate-the-maximum-expected-ingressegress"></a>Beräkna det högsta förväntade ingående/utgående trafik
 
 1.  Fastställa krav för ditt programs baslinje dataflöde.
-2.  Kontrollera dataflödesbegränsningar din Azure VPN gateway. Hjälp finns i avsnittet ”aggregerat dataflöde av SKU och VPN-typ” i [planering och design för VPN-Gateway](vpn-gateway-plan-design.md).
+2.  Kontrollera dataflödesbegränsningar din Azure VPN gateway. Hjälp finns i avsnittet ”Gateway SKU: er” i [om VPN Gateway](vpn-gateway-about-vpngateways.md#gwsku).
 3.  Fastställa den [dataflödesvägledning för Azure VM](../virtual-machines/virtual-machines-windows-sizes.md) för VM-storlek.
 4.  Kontrollera din Internet-leverantör (ISP)-bandbredd.
 5.  Beräkna din förväntade dataflödet - minsta bandbredd på (virtuell dator, Gateway, ISP) * 0,8.
@@ -77,7 +77,7 @@ Ladda ned [iPerf](https://iperf.fr/download/iperf_3.1/iperf-3.1.2-win64.zip). Me
 
 2. Skapa ett brandväggsundantag för port 5001 på båda noderna.
 
-    **Windows:** kör följande kommando som administratör:
+    **Windows:** Kör följande kommando som administratör:
 
     ```CMD
     netsh advfirewall firewall add rule name="Open Port 5001" dir=in action=allow protocol=TCP localport=5001
@@ -89,7 +89,7 @@ Ladda ned [iPerf](https://iperf.fr/download/iperf_3.1/iperf-3.1.2-win64.zip). Me
     netsh advfirewall firewall delete rule name="Open Port 5001" protocol=TCP localport=5001
     ```
      
-    **Azure Linux:** Azure Linux-avbildningar har Tillåtande brandväggar. Om det finns ett program som lyssnar på en port, tillåts trafik via. Anpassade avbildningar som är säkrade kanske måste uttryckligen öppnade portar. Vanliga Linux OS-lager brandväggar inkluderar `iptables`, `ufw`, eller `firewalld`.
+    **Azure Linux:**  Azure Linux-avbildningar har Tillåtande brandväggar. Om det finns ett program som lyssnar på en port, tillåts trafik via. Anpassade avbildningar som är säkrade kanske måste uttryckligen öppnade portar. Vanliga Linux OS-lager brandväggar inkluderar `iptables`, `ufw`, eller `firewalld`.
 
 3. Ändra till katalogen där iperf3.exe ska extraheras på server-noden. Sedan kör iPerf i serverläge och ställas in att lyssna på port 5001 som följande kommandon:
 

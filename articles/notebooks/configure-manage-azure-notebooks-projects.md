@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/22/2019
+ms.date: 02/25/2019
 ms.author: kraigb
-ms.openlocfilehash: 54b211584b170d6e2ee0bcaa6c80bcaed376814f
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 6d7cacf699df580b8a5c46b8bfc6d48e1a8daea1
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54904377"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56821738"
 ---
 # <a name="manage-and-configure-projects"></a>Hantera och konfigurera projekt
 
@@ -58,6 +58,15 @@ Om följande villkor är uppfyllda, visar den nedrullningsbara listan även [Dat
 När du väljer en DSVM-instans, kan Azure-datorer efterfrågas specifik dator-autentiseringsuppgifterna som används när du skapade den virtuella datorn.
 
 Följ anvisningarna för att skapa en ny instans av DSVM på [skapa en Ubuntu virtuell dator för datavetenskap](/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro). Använd den **Data Science Virtual Machine för Linux (Ubuntu)** bild om du vill att DSVM ska visas i listrutan i Azure-anteckningsböcker.  Om av andra skäl måste du använda Windows- eller CentOS-avbildning, kan du använda den **direkt Compute** alternativet för att ansluta till DSVM manuellt.
+
+> [!IMPORTANT]
+> När du använder direkta Compute eller Data Science virtuella datorer, måste anteckningsböcker som du kör på dem vara helt fristående. För närvarande Azure anteckningsböcker kopierar endast de *.ipynb* filen till den virtuella datorn men inte kopiera andra filer i projektet. Därför bärbara datorer som körs på andra virtuella datorer inte att hitta andra projektfiler.
+>
+> Du kan lösa problemet på två sätt:
+>
+> 1. Kopiera projektfilerna manuellt till den virtuella datorn.
+>
+> 2. Bädda in filer i en anteckningsbok installationen att du kör innan primära anteckningsboken. Skapa en kodcell för varje fil där cellen innehåller filinnehållet i installationsprogrammet-anteckningsboken. Infoga sedan kommandot högst upp i varje cell, `%writefile <filename>`, där `<filename>` är namnet på filen för att ta emot innehållet. När du kör anteckningsboken skapar dessa filer på den virtuella datorn. Ett exempel finns i den [setup.ipynb filen i Microsoft husdjur detektor demon](https://github.com/microsoft/connect-petdetector) (GitHub).
 
 ## <a name="edit-project-metadata"></a>Redigera projekt metadata
 

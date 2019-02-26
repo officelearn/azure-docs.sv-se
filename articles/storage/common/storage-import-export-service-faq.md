@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 12/13/2018
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 6706da978195cff65a3454e6b2d71dfea3b414c4
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 0b3128184942dbc750ea54bd7156c6e79b8bedea
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56651421"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56804849"
 ---
 # <a name="azure-importexport-service-frequently-asked-questions"></a>Tjänsten Azure Import/Export: vanliga frågor och svar 
 Här följer frågor och svar som du kan ha när du använder Azure Import/Export-tjänsten för att överföra data till Azure storage. Frågor och svar är ordnade i följande kategorier:
@@ -96,7 +96,7 @@ Observera att fysiska media som du levererar kan behöva korsa internationella g
 ### <a name="are-there-any-special-requirements-for-delivering-my-disks-to-a-datacenter"></a>Finns det några särskilda krav för att leverera Mina diskar till ett datacenter?
 
 Kraven beror på begränsningar för specifika Azure-datacenter.
-- Det finns några klass C webbplatser (till exempel Frankfurt) som kräver ett Microsoft-datacenter inkommande ID-nummer som ska skrivas på skifte av säkerhetsskäl. Innan du skickar dina enheter eller diskar i datacentret, kontakta Azure DataBox åtgärder (adbops@microsoft.com) att hämta det här antalet. Utan det här talet avvisas paketet.
+- Det finns några webbplatser som kräver ett Microsoft-datacenter inkommande ID-nummer som ska skrivas på skifte av säkerhetsskäl. Innan du skickar dina enheter eller diskar i datacentret, kontakta Azure DataBox åtgärder (adbops@microsoft.com) att hämta det här antalet. Utan det här talet avvisas paketet.
 - Datacenter i Indien kräver personlig information om drivrutin, t.ex Government ID-kort eller bevis Nej. bakterier nummer för att få en gate post pass (till exempel PAN, AADHAR, DL), namn och kontakta bilen. Informera din operatör om kraven för att undvika leveransförseningar.
 
 

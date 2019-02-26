@@ -9,19 +9,19 @@ ms.author: gwallace
 ms.date: 12/04/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 82382ecc3adf0d0621f51438a082f7807b031fc9
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: ec71f8998f7db07cafca7f8141acb9898b016328
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54431222"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56821361"
 ---
 # <a name="runbook-output-and-messages-in-azure-automation"></a>Runbook-utdata och meddelanden i Azure Automation
 De flesta Azure Automation-runbooks har någon form av utdata. Dessa utdata kan ett felmeddelande till användaren eller ett komplext objekt som du planerar att använda med en annan runbook. Windows PowerShell innehåller [flera strömmar](/powershell/module/microsoft.powershell.core/about/about_redirection) att skicka utdata från ett skript eller ett arbetsflöde. Azure Automation fungerar på olika sätt med var och en av dessa strömmar. Du bör följa bästa praxis för hur du använder när du skapar en runbook.
 
 Följande tabell innehåller en kort beskrivning av varje ström och deras beteende i Azure-portalen för publicerade runbooks och när [testar en runbook](automation-testing-runbook.md). Mer information om varje dataström finns i senare avsnitt.
 
-| Stream | Beskrivning | Publicerad | Test |
+| Strömma | Beskrivning | Publicerad | Test |
 |:--- |:--- |:--- |:--- |
 | Utdata |Objekt som ska användas av andra runbooks. |Skrivs till jobbhistoriken. |Visas i rutan Testutdata. |
 | Varning |Varningsmeddelande avsett för användaren. |Skrivs till jobbhistoriken. |Visas i rutan Testutdata. |
@@ -220,8 +220,8 @@ Från föregående skärmbild kan du se att när du aktiverar utförlig loggning
    
    ![Grafisk redigering loggning och spårning av sidan](media/automation-runbook-output-and-messages/logging-and-tracing-settings-blade.png)
 
-### <a name="microsoft-azure-log-analytics"></a>Microsoft Azure Log Analytics
-Automation kan skicka runbook jobbet status och jobbströmmar till Log Analytics-arbetsytan. Med Log Analytics kan du,
+### <a name="microsoft-azure-monitor-logs"></a>Microsoft Azure Monitor-loggar
+Automation kan skicka runbook jobbet status och jobbströmmar till Log Analytics-arbetsytan. Med Azure Monitor-loggar som du kan
 
 * Skaffa dig insikter om dina Automation-jobb 
 * Utlösaren som en e-post eller en avisering baserat på din runbook jobbstatus (till exempel växlas eller har pausats) 
@@ -229,7 +229,7 @@ Automation kan skicka runbook jobbet status och jobbströmmar till Log Analytics
 * Kombinera jobb i Automation-konton 
 * Visualisera jobbets historik över tid    
 
-Läs mer om hur du konfigurerar du integrering med Log Analytics för att samla in, korrelera och agera på jobbdata [vidarebefordrar jobbstatus och jobbströmmar från Automation till Log Analytics](automation-manage-send-joblogs-log-analytics.md).
+Läs mer om hur du konfigurerar integrering med Azure Monitor-loggar att samla in, korrelera och agera på jobbdata [vidarebefordrar jobbstatus och jobbströmmar från Automation till Azure Monitor-loggar](automation-manage-send-joblogs-log-analytics.md).
 
 ## <a name="next-steps"></a>Nästa steg
 * Läs mer om att köra runbook, hur du övervakar runbook-jobb och andra tekniska detaljer i [Spåra runbook-jobb](automation-runbook-execution.md)

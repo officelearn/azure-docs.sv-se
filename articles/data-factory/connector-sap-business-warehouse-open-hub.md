@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/28/2019
+ms.date: 02/25/2019
 ms.author: jingwang
-ms.openlocfilehash: 74061eb081fcc7c2c84707f2414a2edfbfde3289
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: fe0783891bd5f571c06551e19c154d6f22768e84
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55299545"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56821549"
 ---
 # <a name="copy-data-from-sap-business-warehouse-via-open-hub-using-azure-data-factory"></a>Kopiera data från SAP Business Warehouse via Open-hubb med Azure Data Factory
 
@@ -27,7 +27,7 @@ Den här artikeln beskriver hur du använder Kopieringsaktivitet i Azure Data Fa
 
 [SAP BW Open Hub Service](https://wiki.scn.sap.com/wiki/display/BI/Overview+of+Open+Hub+Service) är ett effektivt sätt att extrahera data från SAP BW. I följande diagram visas ett av de vanliga flöden som kunder har i sina SAP-system, i vilket fall dataflöden från SAP ECC -> PSA -> DSO -> kuben.
 
-SAP BW Open Hub mål (OHD) definierar målet som SAP-data är vidarebefordrande. Alla objekt som stöds av SAP (DTP Data Transfer processen) kan användas som öppna hub datakällor, till exempel DSO, InfoCube, MultiProvider, datakällan, osv. Öppna Hub måltypen - där vidarebefordrande data lagras - kan vara databastabeller (lokal eller fjärransluten) och flata filer. Den här öppna hubben för SAP BW connector stöd kopierar data från OHD lokala tabellen i BW. Om du använder andra typer, kan du ansluta direkt till databasen eller filen systemet med andra anslutningsappar.
+SAP BW Open Hub mål (OHD) definierar målet som SAP-data är vidarebefordrande. Alla objekt som stöds av SAP (DTP Data Transfer processen) kan användas som öppna hub datakällor, till exempel DSO, InfoCube, datakällan, osv. Öppna Hub måltypen - där vidarebefordrande data lagras - kan vara databastabeller (lokal eller fjärransluten) och flata filer. Den här öppna hubben för SAP BW connector stöd kopierar data från OHD lokala tabellen i BW. Om du använder andra typer, kan du ansluta direkt till databasen eller filen systemet med andra anslutningsappar.
 
 ![SAP BW Open Hub](./media/connector-sap-business-warehouse-open-hub/sap-bw-open-hub.png)
 
@@ -37,7 +37,7 @@ Du kan kopiera data från SAP Business Warehouse via öppna hubben till alla dat
 
 Mer specifikt stöder den här öppna hubben för SAP Business Warehouse-anslutningen:
 
-- SAP Business Warehouse **version 7.30 eller senare (i en senaste SAP Support paketet Stack lanseras efter år 2015)**.
+- SAP Business Warehouse **version 7.01 eller senare (i en senaste SAP Support paketet Stack lanseras efter år 2015)**.
 - Kopiering av data via öppna Hub lokala måltabell som under kan vara DSO, InfoCube, MultiProvider, datakällan, osv.
 - Kopiera data med hjälp av grundläggande autentisering.
 - Ansluta till programservern.

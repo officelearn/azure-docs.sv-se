@@ -3,7 +3,7 @@ title: ReliableConcurrentQueue i Azure Service Fabric
 description: ReliableConcurrentQueue är en kö för stora dataflöden som tillåter parallell placerar det i kö och dequeues.
 services: service-fabric
 documentationcenter: .net
-author: tylermsft
+author: aljo-microsoft
 manager: timlt
 editor: raja,tyadam,masnider,vturecek
 ms.assetid: 62857523-604b-434e-bd1c-2141ea4b00d1
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 5/1/2017
-ms.author: twhitney
-ms.openlocfilehash: 61b53a23fdbb08b226878d9b702ec6bb2879f8bc
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.author: aljo
+ms.openlocfilehash: d4d399258ac1bd83fe4cfb46344576ca74e66f1e
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53185043"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56805145"
 ---
 # <a name="introduction-to-reliableconcurrentqueue-in-azure-service-fabric"></a>Introduktion till ReliableConcurrentQueue i Azure Service Fabric
 Tillförlitlig samtidiga kön är en kö för asynkron transaktionell och replikerade vilka funktioner hög samtidighet för sätta och ta bort från kön operations. Den är utformad för att tillhandahålla stora dataflöden och låg latens genom distributionsfrågebegränsningar strikt FIFO sorteringen tillhandahålls av [tillförlitlig kö](https://msdn.microsoft.com/library/azure/dn971527.aspx) och i stället tillhandahåller en mån sortering.

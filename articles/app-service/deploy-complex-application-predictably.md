@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/06/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 657211378d7b38b88ccd40aa31a175058e1ad67c
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: e6d18222e15f62f12592362827b6dbc4a3d7dfbc
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015564"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56820322"
 ---
 # <a name="provision-and-deploy-microservices-predictably-in-azure"></a>Etablera och distribuera mikrotjänster förutsägbart i Azure
 Den här kursen visar hur du etablerar och distribuera ett program som består av [mikrotjänster](https://en.wikipedia.org/wiki/Microservices) i [Azure App Service](https://azure.microsoft.com/services/app-service/) som en enhet och på ett förutsägbart sätt med hjälp av JSON-resursgruppsmallar och PowerShell-skript. 
@@ -39,11 +39,9 @@ I självstudien distribuerar du ett program som innehåller:
 I den här självstudien använder du följande verktyg. Eftersom det inte är omfattande diskussion om verktyg, jag tänker behålls i ett scenario för slutpunkt till slutpunkt och bara ger dig en kort introduktion till var och en, och var du hittar mer information om den. 
 
 ### <a name="azure-resource-manager-templates-json"></a>Azure Resource Manager-mallar (JSON)
-Varje gång du skapar en app i Azure App Service, till exempel använder Azure Resource Manager en JSON-mall för att skapa hela resursgruppen med komponenten-resurser. En komplex mall från den [Azure Marketplace](/azure/marketplace) får innehålla databasen, lagringskonton, App Service-planen, själva appen, Varningsregler, app-inställningar, inställningarna för automatisk skalning och mycket mer, och dessa mallar är tillgängliga för dig via PowerShell. Information om hur du hämtar och använder dessa mallar finns i [med hjälp av Azure PowerShell med Azure Resource Manager](../powershell-azure-resource-manager.md).
+Varje gång du skapar en app i Azure App Service, till exempel använder Azure Resource Manager en JSON-mall för att skapa hela resursgruppen med komponenten-resurser. En komplex mall från den [Azure Marketplace](/azure/marketplace) får innehålla databasen, lagringskonton, App Service-planen, själva appen, Varningsregler, app-inställningar, inställningarna för automatisk skalning och mycket mer, och dessa mallar är tillgängliga för dig via PowerShell. Mer information om Azure Resource Manager-mallar finns i [redigera Azure Resource Manager-mallar](../azure-resource-manager/resource-group-authoring-templates.md)
 
-Mer information om Azure Resource Manager-mallar finns i [redigera Azure Resource Manager-mallar](../azure-resource-manager/resource-group-authoring-templates.md)
-
-### <a name="azure-sdk-26-for-visual-studio"></a>Azure SDK 2.6 för Visual Studio
+### <a name="azure-sdk-26-for-visual-studio"></a>Azure SDK 2.6 for Visual Studio
 De senaste SDK innehåller förbättringar av mallstöd för Resource Manager-i JSON-redigerare. Du kan använda detta för att snabbt skapa en resursgruppmall från grunden eller öppna en befintlig mall för JSON (till exempel en hämtade gallerimall) för ändring av, fylla i parameterfilen och även distribuera resursgruppen direkt från en Azure-resurs Gruppen lösning.
 
 Mer information finns i [Azure SDK 2.6 för Visual Studio](https://azure.microsoft.com/blog/2015/04/29/announcing-the-azure-sdk-2-6-for-net/).
@@ -240,7 +238,7 @@ Den **distribuera till Azure** knappen är bra, men du kan distribuera resursgru
     > Automatisk skalning är en funktion som erbjuds i **Standard** nivå eller högre och plan på servernivå aviseringar är funktioner som erbjuds i **grundläggande** nivå eller högre, måste du ange den **sku** parameter att **Standard** eller **Premium** om du vill se alla dina nya App Insights-resurser tänds.
     > 
     > 
-16. Klicka på **distribuera**. Om du har valt **spara lösenord**, lösenordet sparas i parameterfilen **i klartext**. Annars kan att du ombes att ange lösenordet för databasen under distributionsprocessen.
+16. Klicka på **Distribuera**. Om du har valt **spara lösenord**, lösenordet sparas i parameterfilen **i klartext**. Annars kan att du ombes att ange lösenordet för databasen under distributionsprocessen.
 
 Klart! Nu behöver du bara gå till den [Azure-portalen](https://portal.azure.com/) och [Azure Resource Explorer](https://resources.azure.com) verktyg för att se nya aviseringar och inställningarna för automatisk skalning som lagts till i din JSON distribuerat program.
 

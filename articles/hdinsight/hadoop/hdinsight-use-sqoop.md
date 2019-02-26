@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.openlocfilehash: a6c17ad8d4af568d910597da4b44f09676d1c36a
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: 4e56d22dde5fca50d17c055be93db5b91deeb287
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53652498"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56819181"
 ---
 # <a name="use-apache-sqoop-with-hadoop-in-hdinsight"></a>Använd Apache Sqoop med Hadoop i HDInsight
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
@@ -104,7 +104,7 @@ Om du väljer att använda befintliga Azure SQL-databas eller Microsoft SQL Serv
   > [!NOTE]  
   > Som standard tillåter anslutningar från Azure-tjänster, till exempel Azure HDInsight i en Azure SQL database. Om brandväggsinställningen är inaktiverad, måste du aktivera det från Azure-portalen. Anvisningar om att skapa en Azure SQL-databas och konfigurera brandväggsregler finns i [skapa och konfigurera SQL Database][sqldatabase-create-configure].
 
-* **SQLServer**: Om ditt HDInsight-kluster finns på samma virtuella nätverk i Azure som SQL Server, kan du använda stegen i den här artikeln för att importera och exportera data till en SQL Server-databas.
+* **SQL Server**: Om ditt HDInsight-kluster finns på samma virtuella nätverk i Azure som SQL Server, kan du använda stegen i den här artikeln för att importera och exportera data till en SQL Server-databas.
   
   > [!NOTE]  
   > HDInsight stöder platsbaserad endast till virtuella nätverk och det för närvarande fungerar inte med tillhörighetsgrupp-baserade virtuella nätverk.
@@ -163,7 +163,7 @@ Nu har du lärt dig hur du använder Sqoop. Du kan läsa mer här:
 PowerShell-exemplet utför följande steg:
 
 1. Ansluta till Azure.
-2. Skapa en Azure-resursgrupp. Mer information finns i [med hjälp av Azure PowerShell med Azure Resource Manager](../../azure-resource-manager/powershell-azure-resource-manager.md)
+2. Skapa en Azure-resursgrupp. Mer information finns i [med hjälp av Azure PowerShell med Azure Resource Manager](../../azure-resource-manager/manage-resource-groups-powershell.md)
 3. Skapa en Azure SQL Database-server, en Azure SQL database och två tabeller. 
    
     Om du använder SQL Server i stället använder du följande uttryck för att skapa tabellerna:
@@ -213,7 +213,7 @@ PowerShell-exemplet utför följande steg:
    > 
    > * **Punkt-till-plats-konfiguration för Azure-nätverk**: Ett virtuellt nätverk är anslutna i HDInsight-klustret till en SQL-Server i ett privat datacenter. Se [konfigurera en punkt-till-plats-VPN i hanteringsportalen](../../vpn-gateway/vpn-gateway-point-to-site-create.md) för mer information.
    > * **Azure HDInsight**: Se [skapa Hadoop-kluster i HDInsight med anpassade alternativ](../hdinsight-hadoop-provision-linux-clusters.md) information om hur du skapar ett kluster i ett virtuellt nätverk.
-   > * **SQLServer 2014**: Konfigurerad för att tillåta autentisering och köra den VPN-klienten konfigurationspaketet för att ansluta säkert till det virtuella nätverket.
+   > * **SQL Server 2014**: Konfigurerad för att tillåta autentisering och köra den VPN-klienten konfigurationspaketet för att ansluta säkert till det virtuella nätverket.
    > 
    > 
 7. Exportera en Hive-tabell till Azure SQL-databasen.

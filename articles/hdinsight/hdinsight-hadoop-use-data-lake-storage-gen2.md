@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: howto
 ms.date: 02/19/2019
 ms.author: hrasheed
-ms.openlocfilehash: acbb01ac8fe728c313770cdb1012b61d6dda8b78
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: bc3741be87238f1ac5f2146eb25919dd83711ce3
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56750420"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56819062"
 ---
 # <a name="use-azure-data-lake-storage-gen2-with-azure-hdinsight-clusters"></a>Använda Azure Data Lake Storage Gen2 med Azure HDInsight-kluster
 
@@ -40,7 +40,7 @@ Följ dessa steg om du vill konfigurera ett Data Lake Storage Gen2-konto för at
 
     ![Skärmbild som visar lagringskontot har skapats i Azure portal](./media/hdinsight-hadoop-data-lake-storage-gen2/azure-data-lake-storage-account-create-advanced.png)
  
-1. Tilldela den hantera identitet som den **Dataägaren för Storage Blob (förhandsversion)** rollen på lagringskontot. Mer information finns i [hantera åtkomsträttigheter till Azure-Blob och kö data med RBAC (förhandsversion)](../storage/common/storage-auth-aad-rbac.md#assign-a-role-scoped-to-the-storage-account-in-the-azure-portal).
+1. Tilldela den hantera identitet som den **Dataägaren för Storage Blob (förhandsversion)** rollen på lagringskontot. Mer information finns i [hantera åtkomsträttigheter till Azure-Blob och kö data med RBAC (förhandsversion)](../storage/common/storage-auth-aad-rbac.md).
 
     1. I den [Azure-portalen](https://portal.azure.com)går du till ditt lagringskonto.
     1. Välj ditt lagringskonto och sedan **åtkomstkontroll (IAM)** att visa inställningarna av åtkomstkontrollen för kontot. Välj den **rolltilldelningar** flik för att se en lista över rolltilldelningar.

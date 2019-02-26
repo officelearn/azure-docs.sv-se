@@ -8,16 +8,15 @@ ms.author: roastala
 ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: larryfr
-manager: cgronlun
 ms.topic: conceptual
-ms.date: 01/18/2019
+ms.date: 02/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: 61c380ee3427afdf40427ed82ed0fd5c4f1b49fd
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 2eb47bede14b139d011d8a74b5196a94a93a62c7
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56729023"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56817107"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Konfigurera en utvecklingsmiljö för Azure Machine Learning
 
@@ -267,76 +266,69 @@ Om du vill använda Visual Studio Code för utveckling, gör du följande:
 <a name="aml-databricks"></a>
 
 ## <a name="azure-databricks"></a>Azure Databricks
+Azure Databricks är en Apache Spark-baserad miljö i Azure-molnet. Det ger en samarbetsmiljö Notebook baserat med CPU eller GPU baserat beräkningskluster.
 
-Du kan använda en anpassad version av Azure Machine Learning-SDK för Azure Databricks för slutpunkt till slutpunkt anpassade machine learning. Eller så kan träna din modell i Databricks och distribuera med hjälp av [Visual Studio Code](how-to-vscode-train-deploy.md#deploy-your-service-from-vs-code).
+Hur fungerar Azure Databricks med Azure Machine Learning-tjänsten:
++ Du kan träna en modell med Spark MLlib och distribuera modellen till ACI/AKS från inom Azure Databricks. 
++ Du kan också använda [automatiserad maskininlärning](concept-automated-ml.md) funktioner i en särskild Azure ML-SDK med Azure Databricks.
++ Du kan använda Azure Databricks som beräkningsmål från en [Azure Machine Learning pipeline](concept-ml-pipelines.md). 
 
-Förbereda din Databricks-klustret och får exempelanteckningsböcker:
+### <a name="set-up-your-databricks-cluster"></a>Konfigurera din Databricks-kluster
 
-1. Skapa en [Databricks-klustret](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal) med följande inställningar:
+Skapa en [Databricks-klustret](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal). Vissa inställningar gäller endast om du installerar med SDK för automatiserade maskininlärning på Databricks.
+**Det tar några minuter att skapa klustret.**
 
-    | Inställning | Värde |
-    |----|---|
-    | Klusternamn | yourclustername |
-    | Databricks Runtime | Alla icke ML-körning (icke ML 4.x, 5.x) |
-    | Python-version | 3 |
-    | Arbetare | 2 eller högre |
+Använd de här inställningarna:
 
-    Använd de här inställningarna endast om du kommer att använda automatiska maskininlärning på Databricks:
+| Inställning |Gäller| Värde |
+|----|---|---|
+| Klusternamn |alltid| yourclustername |
+| Databricks Runtime |alltid| Alla icke ML-körning (icke ML 4.x, 5.x) |
+| Python-version |alltid| 3 |
+| Arbetare |alltid| 2 eller högre |
+| VM-typer för Worker-nod <br>(avgör max antal samtidiga iterationer) |Automatisk ML<br>endast| Minnesoptimerade virtuella datorer rekommenderas |
+| Aktivera automatisk skalning |Automatisk ML<br>endast| Avmarkera |
 
-    |   Inställning | Värde |
-    |----|---|
-    | VM-typer för Worker-nod | Minnesoptimerade virtuella datorer rekommenderas |
-    | Aktivera automatisk skalning | Avmarkera |
+Vänta tills klustret körs innan du fortsätter.
 
-    Antalet arbetarnoder i Databricks-klustret anger det maximala antalet samtidiga iterationer i automatiserade machine learning-konfiguration.
+### <a name="install-the-correct-sdk-into-a-databricks-library"></a>Installera rätt SDK till ett Databricks-bibliotek
+När klustret körs [skapa ett bibliotek](https://docs.databricks.com/user-guide/libraries.html#create-a-library) att bifoga lämplig Azure Machine Learning SDK-paketet i ditt kluster. 
 
-    Det tar några minuter att skapa klustret. Vänta tills klustret körs innan du fortsätter.
+1. Välj **endast en** alternativet (inga andra SDK-installation stöds)
 
-1. Installera och bifoga Azure Machine Learning SDK-paketet i ditt kluster.
+   |SDK&nbsp;paketet&nbsp;tillägg|Källa|PyPi&nbsp;Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
+   |----|---|---|
+   |För Databricks| Ladda upp Python ägg eller PyPI | azureml-sdk[databricks]|
+   |För Databricks - med-<br> automatiserad ML-kapacitet| Ladda upp Python ägg eller PyPI | azureml-sdk[automl_databricks]|
 
-    * [Skapa ett bibliotek](https://docs.databricks.com/user-guide/libraries.html#create-a-library) med någon av de här inställningarna (_Välj endast en av dessa alternativ_):
+   * Inga andra SDK-tillägg kan installeras. Välj endast en av föregående alternativ [databricks] eller [automl_databricks].
+   * Markera inte **ansluta automatiskt till alla kluster**.
+   * Välj **bifoga** bredvid klusternamnet.
 
-        * Installera Azure Machine Learning SDK _utan_ automatiserad machine learning-funktionen:
-            | Inställning | Värde |
-            |----|---|
-            |Källa | Ladda upp Python ägg eller PyPI
-            |Namn på PyPi | azureml-sdk[databricks]
+1. Övervakare för fel tills status ändras till **anslutna**, vilket kan ta flera minuter.  Om det här steget misslyckas kan du kontrollera följande: 
 
-        * Installera Azure Machine Learning SDK _med_ automatiserad maskininlärning:
-            | Inställning | Värde |
-            |----|---|
-            |Källa | Ladda upp Python ägg eller PyPI
-            |Namn på PyPi | azureml-sdk[automl_databricks]
+   Försök att starta om ditt kluster genom att:
+   1. I den vänstra rutan väljer **kluster**.
+   1. I tabellen, väljer du klusternamnet.
+   1. På den **bibliotek** fliken **starta om**.
+      
+   Även överväga:
+   + Vissa paket, till exempel `psutil`, kan orsaka konflikter Databricks under installationen. För att undvika dessa fel kan installera paket genom att du låser lib-versionen, till exempel `pstuil cryptography==1.5 pyopenssl==16.0.0 ipython==2.2.0`. 
+   + Eller, om du har en äldre version av SDK, avmarkera den från klustrets installerade libs och flytta till Papperskorgen. Installera den nya versionen av SDK och starta om klustret. Om det finns ett problem efter det, frånkoppla eller återansluta ditt kluster.
 
-    * Markera inte **ansluta automatiskt till alla kluster**
+Om installationen slutfördes korrekt visas importerade biblioteket bör se ut som något av följande:
+   
+SDK för Databricks **_utan_** automatiserad maskininlärning ![Azure Machine Learning-SDK för Databricks](./media/how-to-configure-environment/amlsdk-withoutautoml.jpg)
 
-    * Välj **bifoga** bredvid klusternamnet
+SDK för Databricks **WITH** automatiserad maskininlärning ![SDK med automatiserade maskininlärning som installerats på Databricks ](./media/how-to-configure-environment/automlonadb.jpg)
 
-    * Se till att det inte finns några fel tills status ändras till **anslutna**. Det kan ta några minuter.
+### <a name="start-exploring"></a>Börja utforska
 
-    Om du har en äldre version av SDK, avmarkera den från klustrets installerade libs och flytta till Papperskorgen. Installera den nya versionen av SDK och starta om klustret. Om det finns ett problem efter det, frånkoppla eller återansluta ditt kluster.
-
-    När du är klar bifogas i biblioteket enligt följande bilder. Tänk på dessa [vanliga problem med Databricks](resource-known-issues.md#databricks).
-
-    * Om du har installerat Azure Machine Learning SDK _utan_ automatiserad maskininlärning ![SDK utan automatisk maskininlärning som installerats på Databricks ](./media/how-to-configure-environment/amlsdk-withoutautoml.jpg)
-
-    * Om du har installerat Azure Machine Learning SDK _med_ automatiserad maskininlärning ![SDK med automatiserade maskininlärning som installerats på Databricks ](./media/how-to-configure-environment/automlonadb.jpg)
-
-   Om det här steget misslyckas, startar du om ditt kluster genom att göra följande:
-
-   a. I den vänstra rutan väljer **kluster**.
-
-   b. I tabellen, väljer du klusternamnet.
-
-   c. På den **bibliotek** fliken **starta om**.
-
-1. Ladda ned den [arkivfil för Azure Databricks/Azure Machine Learning SDK notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-databricks/Databricks_AMLSDK_1-4_6.dbc).
-
-   >[!Warning]
-   > Många exempelanteckningsböcker som är tillgängliga för användning med Azure Machine Learning-tjänsten. Endast [dessa exempelanteckningsböcker](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-databricks) fungerar med Azure Databricks.
-
-1.  [Importera arkivfilen](https://docs.azuredatabricks.net/user-guide/notebooks/notebook-manage.html#import-an-archive) till din Databricks-klustret och börja utforska enligt beskrivningen på den [Machine Learning anteckningsböcker](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-databricks) sidan.
-
+Prova:
++ Ladda ned den [notebook arkivfilen](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-databricks/Databricks_AMLSDK_1-4_6.dbc) för Azure Databricks/Azure Machine Learning SDK och [importera arkivfilen](https://docs.azuredatabricks.net/user-guide/notebooks/notebook-manage.html#import-an-archive) i Databricks-klustret.  
+  Även om många exempelanteckningsböcker som är tillgängliga, **endast [dessa exempelanteckningsböcker](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-databricks) fungerar med Azure Databricks.**
+  
++ Lär dig hur du [skapa en pipeline med Databricks som utbildning beräkning](how-to-create-your-first-pipeline.md).
 
 ## <a id="workspace"></a>Skapa en konfigurationsfil för arbetsyta
 

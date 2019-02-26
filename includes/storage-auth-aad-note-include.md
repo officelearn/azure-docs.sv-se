@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/09/2018
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 0182df40a4e7815560a85e60fe9062ccd8001c18
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 694491f3bec9fd1e62e65504968be9f06dda0c11
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52978800"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56824272"
 ---
 > [!NOTE]
 > - Förhandsversionen av Azure AD-autentisering för blobbar och köer är endast avsedd för icke-produktion användning. Produktion servicenivåavtal (SLA) är inte tillgängliga. Om Azure AD-autentisering inte stöds ännu för ditt scenario, fortsätta att använda auktorisering för delad nyckel eller SAS-token i dina program.
@@ -22,7 +22,7 @@ ms.locfileid: "52978800"
 >
 > - Du måste använda HTTPS för att auktorisera blob och kö åtgärder med en OAuth-token.
 >
-> - Azure-portalen stöder nu användning av autentiseringsuppgifter för Azure AD att läsa och skriva blob och kö data, som en del av förhandsversionen av versionen.
+> - Azure-portalen stöder nu användning av autentiseringsuppgifter för Azure AD att läsa och skriva blob och kö data, som en del av förhandsversionen av versionen. 
 > 
 > - [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) används för närvarande din lagringskontonyckel för att komma åt data för blob och kö. OAuth-åtkomst har stöd för blobar.
 >

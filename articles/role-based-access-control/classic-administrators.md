@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 02/19/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: f4838f688210f9017d691bd6a463217a75fc90d4
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: 3babcf0562a2f817f6ebd1fcc66df6d655d905bb
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447522"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56807158"
 ---
 # <a name="azure-classic-subscription-administrators"></a>Azure klassiska prenumerationsadministratörer
 
@@ -156,3 +156,4 @@ Följ dessa steg om du vill visa kontoadministratör.
 
 * [Förstå de olika rollerna i Azure](../role-based-access-control/rbac-and-directory-admin-roles.md)
 * [Hantera åtkomst till Azure-resurser med RBAC och Azure portal](../role-based-access-control/role-assignments-portal.md)
+* [Lägg till eller ändra Azure-prenumerationsadministratörer](../billing/billing-add-change-azure-subscription-administrator.md)

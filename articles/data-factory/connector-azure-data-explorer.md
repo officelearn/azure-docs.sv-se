@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/01/2019
+ms.date: 02/25/2019
 ms.author: orspod
-ms.openlocfilehash: 8f2a7a953ce2964645c281d9454a73b0cf1a8ff6
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: f614c6770dd29bc3d6b42c36fe8c81d9f129cd81
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55747196"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56816665"
 ---
 # <a name="copy-data-to-or-from-azure-data-explorer-using-azure-data-factory"></a>Kopiera data till och från Azure Data Explorer med Azure Data Factory
 
@@ -29,7 +29,7 @@ Den här artikeln beskriver hur du använder Kopieringsaktivitet i Azure Data Fa
 Du kan kopiera data från alla dataarkiv till Datautforskaren i Azure. Du kan också kopiera data från Azure Data Explorer till alla datalager för mottagare som stöds. En lista över datalager som stöds som källor och mottagare av Kopieringsaktivitet finns i den [datalager som stöds](copy-activity-overview.md) tabell.
 
 >[!NOTE]
->För närvarande kan stöds kopiera data till och från Azure Data Explorer från/till en lokal data store med hjälp av lokal Integration Runtime inte ännu.
+>Kopiera data till och från Azure Data Explorer från/till en lokal data store med hjälp av lokal Integration Runtime stöds sedan version 3,14.
 
 Datautforskaren i Azure-anslutningen kan du göra följande:
 
@@ -162,7 +162,7 @@ För att kopiera data till Azure Data Explorer, ange egenskapen type i Kopiera a
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Den **typ** egenskapen kopiera aktivitet komprimeringstyp måste anges som: **AzureDataExplorerSink** | Ja |
-| ingestionMappingName | Namnet på en förskapad [csv mappning](/azure/kusto/management/mappings#csv-mapping) på en Kusto-tabell. Om du vill mappa kolumner från källa för att utforska Azure-Data, kan du också använda aktiviteten kopiera [kolumnmappning](copy-activity-schema-and-type-mapping.md). | Nej |
+| ingestionMappingName | Namnet på en förskapad **[CSV mappning](/azure/kusto/management/mappings#csv-mapping)** på en Kusto-tabell. JSON-mappning och Avro-mappning på Azure Data Explorer direkt stöds inte men du kan fortfarande kopiera data från JSON/Avro-filer. Om du vill mappa kolumner från källan till Datautforskaren i Azure, kan du använda kopieringsaktiviteten [kolumnmappning](copy-activity-schema-and-type-mapping.md) som tillsammans fungerar även med Azure Data Explorer CSV mappningar – kopiera aktivitet maps/återexport-shapes data från källa till mottagare baserat på kolumnen mappning av inställningar, mappar sedan data igen baserat på inmatning mappning konfiguration om det finns. Den gäller för [stöds alla källa butiker](copy-activity-overview.md#supported-data-stores-and-formats) inklusive JSON- och Avro-format. | Nej |
 
 **Exempel:**
 

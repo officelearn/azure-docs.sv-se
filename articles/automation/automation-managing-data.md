@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: b133947a7daf1977f084ee4008599882b51d9e8b
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 3e217e0e3367c6e1200567f589749fec9e626da8
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54428485"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56817464"
 ---
 # <a name="managing-azure-automation-data"></a>Hantera Azure Automation-data
 Den här artikeln innehåller flera avsnitt för att hantera en Azure Automation-miljö.
@@ -39,7 +39,7 @@ I följande tabell sammanfattas bevarandeprincipen för olika resurser.
 
 Bevarandeprincipen gäller för alla användare och för närvarande kan inte anpassas.
 
-Men om du vill behålla data under en längre tid kan du skicka vidare runbook jobbloggar till Log Analytics.  Mer information, [vidarebefordra jobbdata från Azure Automation till Log Analytics](automation-manage-send-joblogs-log-analytics.md).   
+Men om du vill behålla data under en längre tidsperiod kan du skicka vidare runbook Azure Monitor-loggar i jobbloggfilerna.  Mer information, [vidarebefordra jobbdata från Azure Automation till Azure Monitor-loggar](automation-manage-send-joblogs-log-analytics.md).   
 
 ## <a name="backing-up-azure-automation"></a>Säkerhetskopiera Azure Automation
 När du tar bort ett automation-konto i Microsoft Azure kan tas alla objekt i kontot bort, inklusive runbooks, moduler, konfigurationer, inställningar, jobb och tillgångar. Objekten kan inte återställas när kontot har tagits bort.  Du kan använda följande information för att säkerhetskopiera innehållet i ditt automation-konto innan de tas bort. 

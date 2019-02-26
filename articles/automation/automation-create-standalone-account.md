@@ -9,16 +9,16 @@ ms.author: gwallace
 ms.date: 01/15/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 1590a02503a12be870dab14a1ccffdd3cf64a282
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 197d7529a52b400cd078ead79bbb6db5f5849ee6
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54426615"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56821378"
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>Skapa ett fristående Azure Automation-konto
 
-Den här artikeln visar hur du skapar ett Azure Automation-konto i Azure-portalen. Du kan använda portalen Automation-kontot för att utvärdera och lär dig mer om Automation utan att använda ytterligare hanteringslösningarna eller integreringen med Azure Log Analytics. Du kan lägga till de här hanteringslösningarna eller integrera med Log Analytics för avancerad övervakning av runbook-jobb vid någon tidpunkt i framtiden.
+Den här artikeln visar hur du skapar ett Azure Automation-konto i Azure-portalen. Du kan använda portalen Automation-kontot för att utvärdera och lär dig mer om Automation utan att använda ytterligare hanteringslösningarna eller integreringen med Azure Monitor-loggar. Du kan lägga till de här hanteringslösningarna eller integrera med Azure Monitor-loggar för avancerad övervakning av runbook-jobb vid någon tidpunkt i framtiden.
 
 Du kan autentisera runbooks med ett Automation-konto genom att hantera resurser i Azure Resource Manager eller den klassiska distributionsmodellen. Ett Automation-konto kan hantera resurser i alla regioner och prenumerationer för en viss klientorganisation.
 
@@ -69,7 +69,7 @@ Om du vill skapa ett Azure Automation-konto i Azure-portalen gör du följande:
   >
   > ![Lägg till Automation-konto varning](media/automation-create-standalone-account/create-account-without-perms.png)
 
-1. I den **Lägg till Automation-konto** fönstret i den **namn** anger du ett namn för ditt Automation-konto. Det här namnet kan inte ändras när det är valt. *Namn är unikt för varje region och resursgrupp. Namn för Automation-konton som har tagits bort är kanske inte omedelbart tillgängligt.*
+1. I den **Lägg till Automation-konto** fönstret i den **namn** anger du ett namn för ditt Automation-konto. Det här namnet kan inte ändras när det är valt. *Automation-kontonamn unika för varje region och resursgrupp. Namn på Automation-konton som har tagits bort är kanske inte tillgängliga omedelbart.*
 1. Om du har mer än en prenumeration i den **prenumeration** anger du den prenumeration som du vill använda för det nya kontot.
 1. För **resursgrupp**anger eller väljer en ny eller befintlig resursgrupp.
 1. För **plats**, Välj en plats i Azure-datacenter.

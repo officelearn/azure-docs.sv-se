@@ -10,12 +10,12 @@ ms.author: jehunte
 ms.date: 02/06/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 2d6cc55ec2e3be3510b9547025db17bcbee97e10
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: c0caece57885dfa3c26d368990a6af8e5b14eed6
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55765389"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56824002"
 ---
 # <a name="manage-an-azure-virtual-machine-with-inventory-collection"></a>Hantera en virtuell Azure-dator med inventeringssamling
 
@@ -36,7 +36,7 @@ Logga in på [Azure Portal](https://portal.azure.com/).
 1. I rutan till vänster på Azure Portal väljer du **Virtuella datorer**.
 2. Från listan med virtuella datorer väljer du en virtuell dator.
 3. På den **Resource** menyn under **Operations**väljer **inventering**.
-4. Välj en Log Analytics-arbetsyta där du lagrar dina dataloggar.
+4. Välj en Log Analytics-arbetsyta för att lagra dina dataloggar.
     Om det inte finns några tillgängliga arbetsytor för dig för en regionen uppmanas du att skapa en standardarbetsyta och ett Automation-konto.
 5. Klicka på **Aktivera** för att börjar integrera datorn.
 
@@ -91,7 +91,9 @@ Följande tabeller innehåller information om varje egenskap som kan konfigurera
 
 ## <a name="manage-machine-groups"></a>Hantera datorgrupper
 
-Inventering kan du skapa och visa datorgrupper i Log Analytics. Datorgrupper är samlingar med datorer som definieras av en fråga i Log Analytics.
+Inventering kan du skapa och visa datorgrupper i Azure Monitor-loggar. Datorgrupper är samlingar med datorer som definieras av en fråga i Azure Monitor-loggar.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 Att visa din dator grupper väljer du den **Machine grupper** fliken på sidan inventering.
 
@@ -116,7 +118,7 @@ Ta bort den virtuella datorn från inventeringshantering:
 3. Välj den virtuella dator du vill koppla bort från listan. Den virtuella datorn har en grön bock bredvid texten **Den här arbetsytan** i kolumnen **OMS-anslutning**.
 
    >[!NOTE]
-   >OMS kallas nu för Log Analytics.
+   >OMS kallas nu för Azure Monitor-loggar.
    
 4. Överst på nästa sida väljer du **Koppla från**.
 5. Välj **Ja** i bekräftelsefönstret.

@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
-ms.date: 02/08/2019
+ms.date: 02/25/2019
 ms.author: diberry
-ms.openlocfilehash: 6a4d20073275e3d858cecb73c2e95c97ea53a647
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 4215b008af21a3473a1d2dcef5f73a1b19133215
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56311978"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56821567"
 ---
 # <a name="configure-face-docker-containers"></a>Konfigurera ansikte Docker-behållare
 
@@ -54,6 +54,49 @@ Den här inställningen kan hittas på följande plats:
 |Krävs| Namn | Datatyp | Beskrivning |
 |--|------|-----------|-------------|
 |Ja| `Billing` | Sträng | Fakturering endpoint URI<br><br>Exempel:<br>`Billing=https://westcentralus.api.cognitive.microsoft.com/face/v1.0` |
+
+<!-- specific to face only -->
+
+## <a name="cloudai-configuration-settings"></a>CloudAI konfigurationsinställningar
+
+Konfigurationsinställningarna i den `CloudAI` avsnittet Ange container-specifika alternativ som är unik för din behållare. Följande inställningar och objekt stöds för Ansikts-behållaren i den `CloudAI` avsnittet
+
+| Namn | Datatyp | Beskrivning |
+|------|-----------|-------------|
+| `Storage` | Objekt | Lagringsscenariot som används av Ansikts-behållaren. Mer information om storage-scenarier och tillhörande inställningarna för den `Storage` objekt, se [lagringsinställningar för scenario](#storage-scenario-settings) |
+
+### <a name="storage-scenario-settings"></a>Inställningarna för scenario
+
+Ansikts-behållaren lagrar blob, cache, metadata och data i kön, beroende på vad som lagras. Exempelvis lagras utbildning index och resultat för en stor persongrupp som blob-data. Ansikts-behållaren innehåller två olika lagringsscenarier när du interagerar med och lagra dessa typer av data:
+
+* Minne  
+  Alla fyra typer av data lagras i minnet. De inte har distribuerats, och inte heller de beständiga. Om Ansikts-behållaren stoppas eller tas bort, förstörs alla data i lagring för den behållaren.  
+  Detta är standard storage scenariot för Ansikts-behållaren.
+* Azure  
+  Ansikts-behållare använder Azure Storage och Azure Cosmos DB för att distribuera dessa fyra typer av data till beständig lagring. BLOB-och kön hanteras av Azure Storage. Metadata och cache hanteras av Azure Cosmos DB. Om Ansikts-behållaren stoppas eller tas bort, förblir alla data i lagring för den behållaren lagras i Azure Storage och Azure Cosmos DB.  
+  De resurser som används av Azure storage-scenariot har följande ytterligare krav
+  * Azure Storage-resursen måste använda StorageV2-kontotyp
+  * Azure Cosmos DB-resursen måste använda Azure Cosmos DB: s API för MongoDB
+
+Storage-scenarier och tillhörande konfigurationsinställningar som hanteras av den `Storage` objekt under den `CloudAI` konfigurationsavsnittet. Följande inställningar är tillgängliga i den `Storage` objekt:
+
+| Namn | Datatyp | Beskrivning |
+|------|-----------|-------------|
+| `StorageScenario` | Sträng | Storage-scenario som stöds av behållaren. Följande värden är tillgängliga<br/>`Memory` -Standardvärde. Behållaren använder icke-beständiga, icke-distribuerade och InMemory-lagring för en nod, tillfälligt användning. Om behållaren stoppas eller tas bort, förstörs lagring för den behållaren.<br/>`Azure` -Behållare använder Azure-resurser för lagring. Om behållaren stoppas eller tas bort, beständig lagring för den behållaren.|
+| `ConnectionStringOfAzureStorage` | Sträng | Anslutningssträngen för Azure Storage-resurs som används av behållaren.<br/>Den här inställningen gäller endast om `Azure` har angetts för den `StorageScenario` konfigurationsinställning. |
+| `ConnectionStringOfCosmosMongo` | Sträng | MongoDB-anslutningssträng för Azure Cosmos DB-resurs som används av behållaren.<br/>Den här inställningen gäller endast om `Azure` har angetts för den `StorageScenario` konfigurationsinställning. |
+
+Till exempel följande kommando anger Azure storage-scenariot och ger exempel anslutningssträngar för Azure Storage och Cosmos DB-resurser som används för att lagra data för Ansikts-behållaren.
+
+  ```Docker
+  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 containerpreview.azurecr.io/microsoft/cognitive-services-face Eula=accept Billing=https://westcentralus.api.cognitive.microsoft.com/face/v1.0 ApiKey=0123456789 CloudAI:Storage:StorageScenario=Azure CloudAI:Storage:ConnectionStringOfCosmosMongo="mongodb://samplecosmosdb:0123456789@samplecosmosdb.documents.azure.com:10255/?ssl=true&replicaSet=globaldb" CloudAI:Storage:ConnectionStringOfAzureStorage="DefaultEndpointsProtocol=https;AccountName=sampleazurestorage;AccountKey=0123456789;EndpointSuffix=core.windows.net"
+  ```
+
+Storage-scenariot hanteras separat från indata monterar och utdata monterar. Du kan ange en kombination av dessa funktioner för en enskild behållare. Till exempel följande kommando definierar en Docker-bindning montera den `D:\Output` mapp på värddatorn som utdata mount, sedan instantierar en behållare från Ansikts-behållaravbildningen, och spara loggfiler i JSON-format till utdata mount. Kommandot också anger du det Azure storage-scenariot och ger exempel anslutningssträngar för Azure Storage och Cosmos DB-resurser som används för att lagra data för Ansikts-behållaren.
+
+  ```Docker
+  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 --mount type=bind,source=D:\Output,destination=/output containerpreview.azurecr.io/microsoft/cognitive-services-face Eula=accept Billing=https://westcentralus.api.cognitive.microsoft.com/face/v1.0 ApiKey=0123456789 Logging:Disk:Format=json CloudAI:Storage:StorageScenario=Azure CloudAI:Storage:ConnectionStringOfCosmosMongo="mongodb://samplecosmosdb:0123456789@samplecosmosdb.documents.azure.com:10255/?ssl=true&replicaSet=globaldb" CloudAI:Storage:ConnectionStringOfAzureStorage="DefaultEndpointsProtocol=https;AccountName=sampleazurestorage;AccountKey=0123456789;EndpointSuffix=core.windows.net"
+  ```
 
 ## <a name="eula-setting"></a>Licensvillkor för inställningen
 

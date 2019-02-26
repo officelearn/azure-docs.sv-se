@@ -5,23 +5,20 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 2/21/2019
+ms.date: 2/25/2019
 ms.author: victorh
-ms.openlocfilehash: 9ecc5d3779ac6632f4a5c05914cbb0e756c79e91
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 1d03d896de947fcc938619c52a3690962a0d2d6c
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56458009"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56805628"
 ---
 # <a name="azure-firewall-service-tags"></a>Azure-tjänsttaggar för brandvägg
 
 En tjänsttagg representerar en grupp IP-adressprefix och används i syfte att minska komplexiteten vid skapande av säkerhetsregler. Du kan inte skapa egna tjänsttaggar, och du kan inte heller ange vilka IP-adresser som ska finnas i en tagg. Microsoft hanterar adressprefix som omfattas av tjänsttaggen och uppdaterar automatiskt tjänsttaggen när adresserna ändras.
 
 Azure-tjänsttaggar för brandväggen kan användas i fältet mål nätverk. Du kan använda dem i stället för specifika IP-adresser.
-
-> [!NOTE]
-> Tjänsttaggar läggs till regioner stegvis och blir tillgängliga i alla regioner inom en snar framtid.
 
 ## <a name="supported-service-tags"></a>Tjänsttaggar som stöds
 

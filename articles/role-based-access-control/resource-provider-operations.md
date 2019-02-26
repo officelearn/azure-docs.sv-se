@@ -10,15 +10,15 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/16/2019
+ms.date: 02/24/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 1ab5ec4e61649f7c9a705759a69d335260bfdc75
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: c296ed4011b874eb9b5635735d46b3f63a79a2be
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56750828"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56807566"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Azure Resource Manager åtgärder för resursprovider
 
@@ -681,30 +681,30 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > [!div class="mx-tdCol2BreakAll"]
 > | Åtgärdstyp | Åtgärd | Beskrivning |
 > | --- | --- | --- |
-> | Åtgärd | Microsoft.Cache/checknameavailability/action | Kontrollerar om ett namn är tillgängligt för användning med en ny Azure-Cache för Redis |
+> | Åtgärd | Microsoft.Cache/checknameavailability/action | Kontrollerar om ett namn kan användas med nytt Redis Cache |
 > | Åtgärd | Microsoft.Cache/locations/operationresults/read | Hämtar resultaten för en långvarig åtgärd för vilken sidhuvudet Location tidigare returnerats till klienten |
 > | Åtgärd | Microsoft.Cache/operations/read | Listar åtgärderna som stöds av providern Microsoft.Cache. |
-> | Åtgärd | Microsoft.Cache/redis/delete | Ta bort hela Azure Cache för Redis |
+> | Åtgärd | Microsoft.Cache/redis/delete | Ta bort hela Redis-cache |
 > | Åtgärd | Microsoft.Cache/redis/export/action | Exportera Redis-data till prefixade lagringsblobbar i angivet format |
-> | Åtgärd | Microsoft.Cache/redis/firewallRules/delete | Ta bort IP-brandväggsregler för Azure Cache för Redis |
-> | Åtgärd | Microsoft.Cache/redis/firewallRules/read | Hämta IP-brandväggsregler för Azure Cache för Redis |
-> | Åtgärd | Microsoft.Cache/redis/firewallRules/write | Redigera IP-brandväggsregler för Azure Cache för Redis |
+> | Åtgärd | Microsoft.Cache/redis/firewallRules/delete | Ta bort IP-brandväggsregler för Redis Cache |
+> | Åtgärd | Microsoft.Cache/redis/firewallRules/read | Hämta IP-brandväggsregler för Redis Cache |
+> | Åtgärd | Microsoft.Cache/redis/firewallRules/write | Redigera IP-brandväggsregler för Redis Cache |
 > | Åtgärd | Microsoft.Cache/redis/forceReboot/action | Tvinga omstart av en cache-instans, vilket kan medföra dataförlust. |
 > | Åtgärd | Microsoft.Cache/redis/import/action | Importera data av ett angivet format från flera blobbar till Redis |
-> | Åtgärd | Microsoft.Cache/redis/linkedservers/delete | Ta bort länkad Server från en Azure Cache för Redis |
-> | Åtgärd | Microsoft.Cache/redis/linkedservers/read | Hämta länkade servrar som är associerade med en Azure-Cache för Redis. |
-> | Åtgärd | Microsoft.Cache/redis/linkedservers/write | Lägg till länkad Server till en Azure Cache för Redis |
-> | Åtgärd | Microsoft.Cache/redis/listKeys/action | Visa värdet för Azure Cache för åtkomstnycklar för Redis i hanteringsportalen |
+> | Åtgärd | Microsoft.Cache/redis/linkedservers/delete | Ta bort länkad server från Redis Cache |
+> | Åtgärd | Microsoft.Cache/redis/linkedservers/read | Hämta länkade servrar som är kopplade till Redis Cache. |
+> | Åtgärd | Microsoft.Cache/redis/linkedservers/write | Lägg till länkad server till Redis Cache |
+> | Åtgärd | Microsoft.Cache/redis/listKeys/action | Visa värdet för åtkomstnycklarna för Redis-cache i hanteringsportalen |
 > | Åtgärd | Microsoft.Cache/redis/listUpgradeNotifications/read | Lista de senaste uppgraderingsmeddelandena för cacheklienten. |
-> | Åtgärd | Microsoft.Cache/redis/metricDefinitions/read | Hämtar tillgängliga mått för en Azure-Cache för Redis |
-> | Åtgärd | Microsoft.Cache/redis/patchSchedules/delete | Ta bort uppdateringsschemat för Azure Cache för Redis |
-> | Åtgärd | Microsoft.Cache/redis/patchSchedules/read | Hämtar en Azure Cache uppdateringsschemat för Redis |
-> | Åtgärd | Microsoft.Cache/redis/patchSchedules/write | Ändra uppdateringsschemat för Azure Cache för Redis |
-> | Åtgärd | Microsoft.Cache/redis/read | Visa Azure Cache för Rediss inställningar och konfiguration i hanteringsportalen |
-> | Åtgärd | Microsoft.Cache/redis/regenerateKey/action | Ändra värdet för Azure Cache för åtkomstnycklar för Redis i hanteringsportalen |
+> | Åtgärd | Microsoft.Cache/redis/metricDefinitions/read | Hämtar tillgängliga mått för ett Redis-cache |
+> | Åtgärd | Microsoft.Cache/redis/patchSchedules/delete | Ta bort uppdateringsschemat för Redis Cache |
+> | Åtgärd | Microsoft.Cache/redis/patchSchedules/read | Hämtar uppdateringsschemat för Redis Cache |
+> | Åtgärd | Microsoft.Cache/redis/patchSchedules/write | Ändra uppdateringsschemat för Redis Cache |
+> | Åtgärd | Microsoft.Cache/redis/read | Visa inställningarna och konfigurationen för Redis-cache i hanteringsportalen |
+> | Åtgärd | Microsoft.Cache/redis/regenerateKey/action | Ändra värdet för åtkomstnycklarna för Redis-cache i hanteringsportalen |
 > | Åtgärd | Microsoft.Cache/redis/start/action | Starta en cacheinstans. |
 > | Åtgärd | Microsoft.Cache/redis/stop/action | Stoppa en cacheinstans. |
-> | Åtgärd | Microsoft.Cache/redis/write | Ändra Azure Cache för Rediss inställningar och konfiguration i hanteringsportalen |
+> | Åtgärd | Microsoft.Cache/redis/write | Ändra inställningarna och konfigurationen för Redis-cache i hanteringsportalen |
 > | Åtgärd | Microsoft.Cache/register/action | Registrerar Microsoft.Cache-resursprovidern med en prenumeration |
 > | Åtgärd | Microsoft.Cache/unregister/action | Avregistrerar Microsoft.Cache-resursprovidern med en prenumeration |
 
@@ -1600,17 +1600,21 @@ Uppdatera en befintlig persongrupp namn och userData. Egenskaperna bibehålla om
 > | Åtgärd | Microsoft.DataBoxEdge/dataBoxEdgeDevices/delete | Tar bort Data Box Edge-enheter |
 > | Åtgärd | Microsoft.DataBoxEdge/dataBoxEdgeDevices/downloadUpdates/action | Ladda ned uppdateringar på enhet |
 > | Åtgärd | Microsoft.DataBoxEdge/dataBoxEdgeDevices/extendedInformation/action | Hämtar utökad resursinformation |
-> | Åtgärd | Microsoft.DataBoxEdge/dataBoxEdgeDevices/extendedInformation/write | Skapar eller uppdaterar resursen utökad information |
+> | Åtgärd | Microsoft.DataBoxEdge/dataBoxEdgeDevices/getExtendedInformation/action | ArmApiDesc_action_getExtendedInformation_dataBoxEdgeDevices |
 > | Åtgärd | Microsoft.DataBoxEdge/dataBoxEdgeDevices/installUpdates/action | Installera uppdateringar på enhet |
 > | Åtgärd | Microsoft.DataBoxEdge/dataBoxEdgeDevices/jobs/read | Visar en lista över eller hämtar jobb |
 > | Åtgärd | Microsoft.DataBoxEdge/dataBoxEdgeDevices/networkSettings/read | Visar en lista över eller hämtar nätverksinställningarna för enheten |
+> | Åtgärd | Microsoft.DataBoxEdge/dataBoxEdgeDevices/orders/delete | Tar bort order |
+> | Åtgärd | Microsoft.DataBoxEdge/dataBoxEdgeDevices/orders/read | Visar en lista över eller hämtar order |
+> | Åtgärd | Microsoft.DataBoxEdge/dataBoxEdgeDevices/orders/read | Visar en lista över eller hämtar order |
+> | Åtgärd | Microsoft.DataBoxEdge/dataBoxEdgeDevices/orders/write | Skapar eller uppdaterar order |
 > | Åtgärd | Microsoft.DataBoxEdge/dataBoxEdgeDevices/read | Visar en lista över eller hämtar Data Box Edge-enheter |
 > | Åtgärd | Microsoft.DataBoxEdge/dataBoxEdgeDevices/read | Visar en lista över eller hämtar Data Box Edge-enheter |
 > | Åtgärd | Microsoft.DataBoxEdge/dataBoxEdgeDevices/read | Visar en lista över eller hämtar Data Box Edge-enheter |
-> | Åtgärd | Microsoft.DataBoxEdge/dataBoxEdgeDevices/roles/delete | Tar bort ArmApiRes_roles |
-> | Åtgärd | Microsoft.DataBoxEdge/dataBoxEdgeDevices/roles/read | Visar en lista över eller hämtar ArmApiRes_roles |
-> | Åtgärd | Microsoft.DataBoxEdge/dataBoxEdgeDevices/roles/read | Visar en lista över eller hämtar ArmApiRes_roles |
-> | Åtgärd | Microsoft.DataBoxEdge/dataBoxEdgeDevices/roles/write | Skapar eller uppdaterar ArmApiRes_roles |
+> | Åtgärd | Microsoft.DataBoxEdge/dataBoxEdgeDevices/roles/delete | Tar bort rollerna |
+> | Åtgärd | Microsoft.DataBoxEdge/dataBoxEdgeDevices/roles/read | Hämtar rollerna eller visar en lista över |
+> | Åtgärd | Microsoft.DataBoxEdge/dataBoxEdgeDevices/roles/read | Hämtar rollerna eller visar en lista över |
+> | Åtgärd | Microsoft.DataBoxEdge/dataBoxEdgeDevices/roles/write | Skapar eller uppdaterar rollerna |
 > | Åtgärd | Microsoft.DataBoxEdge/dataBoxEdgeDevices/scanForUpdates/action | Söka efter uppdateringar |
 > | Åtgärd | Microsoft.DataBoxEdge/dataBoxEdgeDevices/securitySettings/update/action | Uppdatera säkerhetsinställningar |
 > | Åtgärd | Microsoft.DataBoxEdge/dataBoxEdgeDevices/shares/delete | Tar bort filresurser |
@@ -1622,6 +1626,10 @@ Uppdatera en befintlig persongrupp namn och userData. Egenskaperna bibehålla om
 > | Åtgärd | Microsoft.DataBoxEdge/dataBoxEdgeDevices/storageAccountCredentials/read | Visar en lista över eller hämtar autentiseringsuppgifterna för lagringskontot |
 > | Åtgärd | Microsoft.DataBoxEdge/dataBoxEdgeDevices/storageAccountCredentials/read | Visar en lista över eller hämtar autentiseringsuppgifterna för lagringskontot |
 > | Åtgärd | Microsoft.DataBoxEdge/dataBoxEdgeDevices/storageAccountCredentials/write | Skapar eller uppdaterar autentiseringsuppgifterna för lagringskontot |
+> | Åtgärd | Microsoft.DataBoxEdge/dataBoxEdgeDevices/triggers/delete | Tar bort utlösare |
+> | Åtgärd | Microsoft.DataBoxEdge/dataBoxEdgeDevices/triggers/read | Visar en lista över eller hämtar utlösare |
+> | Åtgärd | Microsoft.DataBoxEdge/dataBoxEdgeDevices/triggers/read | Visar en lista över eller hämtar utlösare |
+> | Åtgärd | Microsoft.DataBoxEdge/dataBoxEdgeDevices/triggers/write | Skapar eller uppdaterar utlösare |
 > | Åtgärd | Microsoft.DataBoxEdge/dataBoxEdgeDevices/updateSummary/read | Visar en lista över eller hämtar uppdateringen sammanfattning |
 > | Åtgärd | Microsoft.DataBoxEdge/dataBoxEdgeDevices/uploadCertificate/action | Ladda upp certifikat för enhetsregistrering |
 > | Åtgärd | Microsoft.DataBoxEdge/dataBoxEdgeDevices/users/delete | Tar bort användare av den |
@@ -4766,6 +4774,8 @@ Uppdatera en befintlig persongrupp namn och userData. Egenskaperna bibehålla om
 > | Åtgärd | Microsoft.Sql/managedInstances/databases/read | Hämtar befintlig hanterad databas |
 > | Åtgärd | Microsoft.Sql/managedInstances/databases/recommendedSensitivityLabels/read | Lista känslighet etiketter för en viss databas |
 > | Åtgärd | Microsoft.Sql/managedInstances/databases/schemas/tables/columns/sensitivityLabels/delete | Ta bort etiketten känslighet för en viss kolumn |
+> | Åtgärd | Microsoft.Sql/managedInstances/databases/schemas/tables/columns/sensitivityLabels/disable/action | Inaktivera känslighet rekommendationer för en viss kolumn |
+> | Åtgärd | Microsoft.Sql/managedInstances/databases/schemas/tables/columns/sensitivityLabels/enable/action | Aktivera känslighet rekommendationer för en viss kolumn |
 > | Åtgärd | Microsoft.Sql/managedInstances/databases/schemas/tables/columns/sensitivityLabels/read | Hämta känslighetsetikett för en viss kolumn |
 > | Åtgärd | Microsoft.Sql/managedInstances/databases/schemas/tables/columns/sensitivityLabels/write | Skapa eller uppdatera känslighetsetikett för en viss kolumn |
 > | Åtgärd | Microsoft.Sql/managedInstances/databases/securityAlertPolicies/read | Hämta information om den database threat principen konfigurerats på en viss hanterad databas |
@@ -4899,6 +4909,8 @@ Uppdatera en befintlig persongrupp namn och userData. Egenskaperna bibehålla om
 > | Åtgärd | Microsoft.Sql/servers/databases/schemas/read | Hämta lista över scheman för en databas |
 > | Åtgärd | Microsoft.Sql/servers/databases/schemas/tables/columns/read | Hämta listan över kolumner i en tabell |
 > | Åtgärd | Microsoft.Sql/servers/databases/schemas/tables/columns/sensitivityLabels/delete | Ta bort etiketten känslighet för en viss kolumn |
+> | Åtgärd | Microsoft.Sql/servers/databases/schemas/tables/columns/sensitivityLabels/disable/action | Inaktivera känslighet rekommendationer för en viss kolumn |
+> | Åtgärd | Microsoft.Sql/servers/databases/schemas/tables/columns/sensitivityLabels/enable/action | Aktivera känslighet rekommendationer för en viss kolumn |
 > | Åtgärd | Microsoft.Sql/servers/databases/schemas/tables/columns/sensitivityLabels/read | Hämta känslighetsetikett för en viss kolumn |
 > | Åtgärd | Microsoft.Sql/servers/databases/schemas/tables/columns/sensitivityLabels/write | Skapa eller uppdatera känslighetsetikett för en viss kolumn |
 > | Åtgärd | Microsoft.Sql/servers/databases/schemas/tables/read | Hämta listan över tabeller i en databas |
@@ -5023,6 +5035,7 @@ Uppdatera en befintlig persongrupp namn och userData. Egenskaperna bibehålla om
 > | Åtgärd | Microsoft.Sql/servers/vulnerabilityAssessments/write | Ändra sårbarhetsbedömning för en viss server |
 > | Åtgärd | Microsoft.Sql/servers/write | Skapar en server med de angivna parametrarna eller uppdaterar egenskaperna eller taggarna för den angivna servern. |
 > | Åtgärd | Microsoft.Sql/unregister/action | Avregistrerar prenumerationen för Microsoft SQL Database-resursprovidern och gör det möjligt att skapa Microsoft SQL-databaser. |
+> | Åtgärd | Microsoft.Sql/virtualClusters/delete | Tar bort ett befintligt virtuellt kluster. |
 > | Åtgärd | Microsoft.Sql/virtualClusters/read | Returnera listan med virtuella kluster eller hämtar egenskaperna för det angivna virtuella klustret. |
 > | Åtgärd | Microsoft.Sql/virtualClusters/write | Uppdaterar virtuellt kluster taggar. |
 

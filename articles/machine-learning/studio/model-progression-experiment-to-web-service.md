@@ -5,17 +5,17 @@ description: En översikt över hur din modell utvecklas i Azure Machine Learnin
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
+ms.topic: conceptual
 author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 03/20/2017
-ms.openlocfilehash: 776f33e3e550ad9a711a90732c6c4526e647aa89
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 808883fc96369538a26a06a7dadb5f0ecd6628d5
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456800"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56823407"
 ---
 # <a name="how-a-machine-learning-studio-model-progresses-from-an-experiment-to-an-operationalized-web-service"></a>Hur en Machine Learning Studio-modell övergår från ett experiment till en produktionsslutpunkt webbtjänst
 Azure Machine Learning Studio tillhandahåller en interaktiv arbetsyta där du kan utveckla, köra, testa och iterera ett ***experimentera*** som representerar en prediktiv analysmodell. Det finns en mängd olika moduler som kan:
@@ -95,7 +95,7 @@ Här är ett exempel: Anta att dina förutsägelseexperiment Returnerar hela rad
 
 Om du vill behålla dina machine learning-modell, men du vill att träna med nya data, har du två alternativ:
 
-1. **Träna modellen medan webbtjänsten körs** -om du vill att träna din modell medan förutsägande webbtjänsten körs, kan du göra detta genom att göra några ändringar träningsexperiment så att de blir en ***retraining Experimentera***, och du kan distribuera den som en  ***omtränings web* service**. Anvisningar för hur du gör detta finns i [träna om Machine Learning-modeller via programmering](retrain-models-programmatically.md).
+1. **Träna modellen medan webbtjänsten körs** -om du vill att träna din modell medan förutsägande webbtjänsten körs, kan du göra detta genom att göra några ändringar träningsexperiment så att de blir en ***retraining Experimentera***, och du kan distribuera den som en  ***omtränings web* service**. Anvisningar för hur du gör detta finns i [träna om Machine Learning-modeller via programmering](/azure/machine-learning/studio/retrain-machine-learning-model).
 2. **Gå tillbaka till det ursprungliga träningsexperimentet och använda olika utbildningsdata för att utveckla din modell** – din förutsägelseexperiment är länkad till webbtjänsten, men träningsexperimentet länkas inte direkt på det här sättet. Om du ändrar det ursprungliga träningsexperimentet och klicka på **konfigurera Web Service**, skapas en *nya* förutsägande experimentera som, när de distribueras, skapar en *nya* Web tjänsten. Uppdaterar den inte bara den ursprungliga webbtjänsten.
 
    Om du vill ändra träningsexperimentet kan öppna den och klickar på **Spara som** att göra en kopia. Detta lämnar intakta ursprungliga träningsexperimentet, förutsägbart experiment och webbtjänsten. Du kan nu skapa en ny webbtjänst med ändringarna. När du har distribuerat den nya webbtjänsten som sedan kan du bestämma om du vill stoppa tidigare webbtjänsten eller att det ska fungera tillsammans med den nya servern.
@@ -109,7 +109,7 @@ Mer information om hur du utvecklar och experiment finns i följande artiklar:
 
 * konvertering av experimentet - [hur du förbereder din modell för distribution i Azure Machine Learning Studio](convert-training-experiment-to-scoring-experiment.md)
 * distribuera webbtjänsten - [distribuera en Azure Machine Learning-webbtjänst](publish-a-machine-learning-web-service.md)
-* Träna modellen - [träna om Machine Learning-modeller via programmering](retrain-models-programmatically.md)
+* Träna modellen - [träna om Machine Learning-modeller via programmering](/azure/machine-learning/studio/retrain-machine-learning-model)
 
 Exempel på hela processen, se:
 

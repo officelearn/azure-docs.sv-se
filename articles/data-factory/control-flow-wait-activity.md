@@ -3,23 +3,23 @@ title: Wait-aktivitet i Azure Data Factory | Microsoft Docs
 description: Wait-aktivitet pausar körningen av pipelinen för den angivna perioden.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
+author: shlo
 manager: craigg
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/10/2018
+ms.date: 01/12/2018
 ms.author: shlo
-ms.openlocfilehash: 731df55a11f4671670a65dac8a83927d81da454c
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 66d79bc1597cd8f3c7e01eb8227eb7c91ba04d1d
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015805"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56807821"
 ---
-# <a name="wait-activity-in-azure-data-factory"></a>Wait-aktivitet i Azure Data Factory
+# <a name="execute-wait-activity-in-azure-data-factory"></a>Kör wait-aktivitet i Azure Data Factory
 När du använder en Wait-aktivitet i en pipeline väntar pipelinen under den angivna tidsperioden innan körningen återupptas med alla efterföljande aktiviteter. 
 
 ## <a name="syntax"></a>Syntax
@@ -39,8 +39,8 @@ När du använder en Wait-aktivitet i en pipeline väntar pipelinen under den an
 
 Egenskap  | Beskrivning | Tillåtna värden | Krävs
 -------- | ----------- | -------------- | --------
-namn | Namnet på den `Wait` aktivitet. | Sträng | Ja
-typ | Måste vara inställt på **vänta**. | Sträng | Ja
+namn | Namnet på den `Wait` aktivitet. | String | Ja
+typ | Måste vara inställt på **vänta**. | String | Ja
 waitTimeInSeconds | Hur många sekunder som väntar pipelinen innan du fortsätter med bearbetningen. | Integer | Ja
 
 ## <a name="example"></a>Exempel

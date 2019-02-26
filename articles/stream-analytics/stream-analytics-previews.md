@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 02/05/2019
-ms.openlocfilehash: 09f1bdfa4c9a7a179bddf9473b553924bfb58fb7
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 6cd1d917be67d21e3e6dfe54ed5dec77b92509e9
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55768571"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56821463"
 ---
 # <a name="azure-stream-analytics-preview-features"></a>Azure Stream Analytics-förhandsversionsfunktioner
 
@@ -22,6 +22,10 @@ Den här artikeln beskriver alla funktioner för närvarande i förhandsversion 
 ## <a name="public-previews"></a>Offentliga förhandsversioner
 
 Följande funktioner finns i offentlig förhandsversion. Du kan dra nytta av funktionerna i dag, men använda inte dem i din produktionsmiljö.
+
+### <a name="anomaly-detection"></a>Avvikelseidentifiering
+
+Azure Stream Analytics introducerar nya machine learning-modeller med stöd för *topp* och *dalar* identifiering förutom dubbelriktad, långsam positiva och långsamma negativa trender identifiering. För mer information, besök [avvikelseidentifiering i Azure Stream Analytics](stream-analytics-machine-learning-anomaly-detection.md).
 
 ### <a name="sql-database-reference-data"></a>Referensdata för SQL-databas
 
@@ -47,10 +51,6 @@ Du kan köra .NET Standard kod med .NET standard användardefinierade funktioner
 
 Följande funktioner är i privat förhandsvisning.
 
-### <a name="anomaly-detection"></a>Avvikelseidentifiering
-
-Azure Stream Analytics introducerar nya machine learning-modeller med stöd för *topp* och *dalar* identifiering förutom dubbelriktad, långsam positiva och långsamma negativa trender identifiering.
-
 ### <a name="c-custom-deserializer-for-azure-stream-analytics-on-iot-edge"></a>C# anpassade deserialiserare för Azure Stream Analytics på IoT Edge
 
 Utvecklare kan nu användas för att implementera anpassade deserializers i C# för att deserialisera händelser som tagits emot av Azure Stream Analytics. Exempel på format som kan deserialiseras är Parquet, Protobuf, XML eller alla binära dataformat.
@@ -61,7 +61,7 @@ Du kan nu utföra åtgärder i realtid pipelines med hanterade identiteter för 
 
 ### <a name="visual-studio-code-for-azure-stream-analytics"></a>Visual Studio Code för Azure Stream Analytics
 
-Azure Stream Analytics-jobb kan skapas i Visual Studio Code.
+Azure Stream Analytics-jobb kan skapas i Visual Studio Code. För åtkomst till verktyg funktioner i privat förhandsversion måste du kontakta till *ASAToolsfeedback@microsoft.com*.
 
 ## <a name="next-steps"></a>Nästa steg
 

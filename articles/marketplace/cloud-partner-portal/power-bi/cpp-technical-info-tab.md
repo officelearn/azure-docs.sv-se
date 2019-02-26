@@ -14,33 +14,33 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: pbutlerm
-ms.openlocfilehash: d96ef2fd318d6164e1b7dfc5c4b72d6957af0f3e
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: ca77da897eed51c8d832cad7052c2144d6ada562
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55744442"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56806494"
 ---
 # <a name="power-bi-apps-technical-info-tab"></a>Power BI-appar teknisk informationsfliken
 
-Den **teknisk information** fliken den **nytt erbjudande** sidan kan du ge Power BI-installationsprogrammet paketet URL och eventuella ytterligare information som krävs för det nya erbjudandet verifiering.  För denna första version är är alla Power BI-appar kostnadsfria, hämtas från AppSource utan extra kostnad. Därför kommer du inte att kunna definiera alla lager som enheter (SKU: er) för den här erbjudandetypen.
+På den **nytt erbjudande** kan du använda den **teknisk information** flik för att ge Power BI-installationsprogrammet paketet URL och annan information som du behöver att verifiera det nya erbjudandet.  För denna första version är alla Power BI-appar är kostnadsfria och är tillgängliga för nedladdning från AppSource. Därför kan du definiera lagerhållningsenheter (SKU: er) för den här erbjudandetypen.
 
-![Teknisk informationsfliken](./media/technical-info-tab.png)
+![Fliken teknisk information](./media/technical-info-tab.png)
 
 
 ## <a name="technical-info-fields"></a>Teknisk information om fält 
 
-I den **teknisk information** fliken måste du ange följande fält.  En tillagda asterisk (*) för fältet etiketten visar att det krävs.
+På den **teknisk information** fliken, fyller du i fälten som beskrivs i följande tabell. En asterisk (*) i slutet av en fältetikett innebär att fältet är obligatoriskt.
 
 |        Fält          |  Beskrivning                                                                 |
 |    ---------------    |  ----------------------------------------------------------------------------|
-| **Installationsprogrammet URL**     | Adressen som genererats av Power BI när du publicerar appen och skicka det till produktion.  Mer information om hur du skapar URL: en finns i [publicera service-appar i Power BI](https://docs.microsoft.com/power-bi/service-create-distribute-apps).  |
-|  **Anvisningar för verifiering**  |  Valfri text som instruktioner (max 3000 tecken) för Microsoft-verifieringsteamet Aktivitetsanteckningar konfigurerar, ansluter och testa din app, inklusive: vanliga konfigurationsinställningar, testkonton eller parametrar som kan användas för att testa alternativet ”Anslut Data” osv. Den här informationen kommer endast att visas för verifieringsteamet och används endast för verifiering.  |
-| **Den här appen har skapats som ett innehållspaket för Power BI?** | Det här är för närvarande ett fält som används internt. Lämna värdet satt till dess standardvärde, `No`, i annat fall ändrar det här fältet till `Yes` kan inverka negativt på publicering.  |  
+| **Installationsprogrammet URL**     | Powerbi genererar denna URL när du publicerar appen och skicka det till produktion.  Mer information finns i [publicera appar med instrumentpaneler och rapporter i Power BI](https://docs.microsoft.com/power-bi/service-create-distribute-apps).  |
+|  **Anvisningar för verifiering**  |  Om du vill kan du lägga till instruktioner (upp till 3 000 tecken) för att hjälpa Microsoft verifiering gruppen konfigurerar, ansluter och testa din app. Inkludera vanliga inställningar, konton, parametrar eller annan information som kan användas för att testa alternativet Anslut Data. Den här informationen är synliga enbart för verifiering team och den används endast för verifiering.  |
+| **Den här appen har skapats som ett innehållspaket för Power BI?** | Det här fältet används för närvarande endast internt. Lämna standardinställningen för **nr**. Om du ändrar inställningen för att **Ja**, du kan stoppa publiceringsprocessen.  |  
 |  |  |
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-I nästa [Storefront information](./cpp-storefront-details-tab.md) fliken du tillhandahåller marknadsföring och juridisk information för din app.
+På den [Storefront information](./cpp-storefront-details-tab.md) fliken, ange marknadsföring och juridisk information för din app.
 

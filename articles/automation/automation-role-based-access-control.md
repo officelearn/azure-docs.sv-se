@@ -10,12 +10,12 @@ ms.author: gwallace
 ms.date: 05/17/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 4fb90dbdb02fc0a0448b8cb6723c980c0fe41bd6
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 963bc8f6602a33ed703344f5277bb427f11390bb
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54424327"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56823526"
 ---
 # <a name="role-based-access-control-in-azure-automation"></a>Rollbaserad åtkomstkontroll i Azure Automation
 
@@ -142,7 +142,7 @@ En Log Analytics Contributor kan läsa alla övervakningsdata och redigera över
 |Microsoft.Compute/virtualMachines/extensions/*|Skapa och hantera klassiska virtuella datorer, tillägg.|
 |Microsoft.Insights/alertRules/*|Läs/Skriv/ta bort aviseringsregler.|
 |Microsoft.Insights/diagnosticSettings/*|Läs/Skriv/ta bort diagnostikinställningar.|
-|Microsoft.OperationalInsights/*|Hantera Log Analytics.|
+|Microsoft.OperationalInsights/*|Hantera Azure Monitor-loggar.|
 |Microsoft.OperationsManagement/*|Hantera lösningar i arbetsytor.|
 |Microsoft.Resources/deployments/*|Skapa och hantera distribution av resursgrupper.|
 |Microsoft.Resources/subscriptions/resourcegroups/deployments/*|Skapa och hantera distribution av resursgrupper.|
@@ -156,8 +156,8 @@ En Log Analytics Reader kan visa och söka i alla övervakningsdata och dessutom
 |**Åtgärder**  |**Beskrivning**  |
 |---------|---------|
 |* / läsa|Läsa resurser av alla typer utom hemligheter.|
-|Microsoft.OperationalInsights/workspaces/analytics/query/action|Hantera frågor i Log Analytics.|
-|Microsoft.OperationalInsights/workspaces/search/action|Sök Log Analytics-data.|
+|Microsoft.OperationalInsights/workspaces/analytics/query/action|Hantera frågor i Azure Monitor-loggar.|
+|Microsoft.OperationalInsights/workspaces/search/action|Sök Azure Monitor-loggdata.|
 |Microsoft.Support/*|Skapa och hantera supportärenden.|
 |**Inte åtgärder**| |
 |Microsoft.OperationalInsights/workspaces/sharedKeys/read|Det går inte att läsa in delade åtkomstnycklar.|

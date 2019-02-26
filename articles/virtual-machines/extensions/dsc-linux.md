@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/12/2018
 ms.author: robreed
-ms.openlocfilehash: 2e30f3bb40e23e5b0b1951759bdff3a9f02cc9d5
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 01c3e9c82959629dc3e43fb6b0833d4dbb05e0aa
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56236071"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56823016"
 ---
 # <a name="dsc-extension-for-linux-microsoftostcextensionsdscforlinux"></a>DSC-tillägg för Linux (Microsoft.OSTCExtensions.DSCForLinux)
 
@@ -369,7 +369,7 @@ Du kan logga in på ditt Azure-konto (Azure Resource Manager-läge) genom att k�
 Login-AzAccount
 ```
 
-Klicka på [ **här** ](../../azure-resource-manager/powershell-azure-resource-manager.md) mer information om hur du använder Azure PowerShell med Azure Resource Manager.
+Klicka på [ **här** ](../../azure-resource-manager/manage-resources-powershell.md) mer information om hur du använder Azure PowerShell med Azure Resource Manager.
 
 Du kan distribuera DSCForLinux tillägget genom att köra:
 

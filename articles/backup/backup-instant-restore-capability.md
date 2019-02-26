@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: sogup
-ms.openlocfilehash: 566faaef4e91237bd0a0f915ea39f4bd389120d8
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: 63a0e5bd3db6251e361d9dd03acb538556e811ca
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56593088"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56805000"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Få förbättrad säkerhetskopian och återställer prestanda med Azure Backup-omedelbar återställning kapacitet
 
@@ -49,6 +49,7 @@ Som standard behålls ögonblicksbilder i två dagar. Den här funktionen kan å
 * Inkrementella ögonblicksbilder lagras som sidblobar. Alla användare som använder ohanterade diskar debiteras för ögonblicksbilder som lagras i kontot Lokal lagring. Eftersom återställningspunkt samlingar som används av säkerhetskopieringar för hanterade virtuella datorn använder blob-ögonblicksbilder på underliggande lagringsnivå, hanterade diskar visas kostnaderna som motsvarar blob-ögonblicksbild priser och de är inkrementell.
 * Ögonblicksbilder som tas för omedelbar återställningspunkter count mot gränsen på 10 TB allokerat utrymme för premium storage-konton.
 * Du får en möjlighet att konfigurera den ögonblicksbild kvarhållning av säkerhetskopior baserat på dina behov för återställning. Beroende på krav, kan du ange ögonblicksbild kvarhållning till minst en dag i bladet säkerhetskopieringspolicy som beskrivs nedan. Detta kan hjälpa dig minska kostnaderna för ögonblicksbild kvarhållning om du inte utföra återställningar ofta.
+* Det här är en uppgradering för en riktad, en gång uppgraderas till omedelbar återställning, du kan inte gå tillbaka.
 
 
 >[!NOTE]
@@ -77,7 +78,7 @@ Du kan också gå till **egenskaper** sidan i valvet för att hämta den **uppgr
 
 
 ## <a name="configure-snapshot-retention-using-azure-portal"></a>Konfigurera ögonblicksbild kvarhållning av säkerhetskopior med hjälp av Azure portal
-Det här alternativet är för närvarande tillgängligt i regionen USA, västra, Indien, södra och Australien, östra.
+Det här alternativet är för närvarande tillgängligt i **USA, västra centrala**, **södra** och **östra**.
 
 I Azure-portalen för de uppgraderade användarna, visas ett fält har lagts till i den **VM Backup-principen** bladet under den **omedelbar återställning** avsnittet. Du kan ändra kvarhållningsvaraktighetens ögonblicksbild från den **VM säkerhetskopieringsprincip** bladet för alla virtuella datorer som är associerade med principen för specifika säkerhetskopiering.
 

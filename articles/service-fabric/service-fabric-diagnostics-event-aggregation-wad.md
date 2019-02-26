@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/03/2018
 ms.author: srrengar
-ms.openlocfilehash: 89cd8e85c9902bb1caeedd80240811f59ebec409
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: f9db156562692107a5603e15340f01ecf9f9d52c
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55187444"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56823424"
 ---
 # <a name="event-aggregation-and-collection-using-windows-azure-diagnostics"></a>Händelsen aggregering och samling med Windows Azure Diagnostics
 > [!div class="op_single_selector"]
@@ -61,6 +61,8 @@ Nu när du aggregering av händelser i Azure Storage, [konfigurera Log Analytics
 
 >[!NOTE]
 >Det finns för närvarande inget sätt att filtrera eller rensa de händelser som skickas till tabeller. Om du inte har implementerat en process för att ta bort händelser från tabellen, tabellen fortsätter att växa (standard fästpunkten är 50 GB). Instruktioner om hur du ändrar det här är [ytterligare nedan i den här artikeln](service-fabric-diagnostics-event-aggregation-wad.md#update-storage-quota). Det finns också ett exempel på en rensning tjänst som körs i den [Watchdog exempel](https://github.com/Azure-Samples/service-fabric-watchdog-service), och vi rekommenderar att du skriver en själv, om det inte finns en anledning att lagra loggar utöver en tidsram för 30 eller 90 dagar.
+
+
 
 ## <a name="deploy-the-diagnostics-extension-through-azure-resource-manager"></a>Distribuera det via Azure Resource Manager-diagnostiktillägget
 
@@ -292,7 +294,49 @@ Om du använder en Application Insights-mottagare, enligt beskrivningen i avsnit
 
 ## <a name="send-logs-to-application-insights"></a>Skicka loggar till Application Insights
 
-Övervakning och diagnostik data skickas till Application Insights (AI) kan göras som en del av konfigurationen av WAD. Om du väljer att använda AI för händelseanalys och visualisering, kan du läsa [hur du ställer in en AI-sink](service-fabric-diagnostics-event-analysis-appinsights.md#add-the-application-insights-sink-to-the-resource-manager-template) som en del av din ”WadCfg”.
+### <a name="configuring-application-insights-with-wad"></a>Konfigurera Application Insights med WAD
+
+>[!NOTE]
+>Detta gäller endast Windows-kluster för tillfället.
+
+Det finns två huvudsakliga sätt att skicka data från WAD till Azure Application Insights som uppnås genom att lägga till en Application Insights-sink WAD konfigurationen via Azure portal eller via en Azure Resource Manager-mall.
+
+#### <a name="add-an-application-insights-instrumentation-key-when-creating-a-cluster-in-azure-portal"></a>Lägg till en Application Insights-Instrumenteringsnyckel när du skapar ett kluster i Azure-portalen
+
+![Att lägga till en AIKey](media/service-fabric-diagnostics-event-analysis-appinsights/azure-enable-diagnostics.png)
+
+När du skapar ett kluster, om diagnostik stängs ”On”, visas ett valfritt fält att ange en Application Insights-instrumenteringsnyckel. Om du klistrar in din Application Insights-nyckel här konfigureras automatiskt Application Insights-mottagare för dig i Resource Manager-mallen som används för att distribuera klustret.
+
+#### <a name="add-the-application-insights-sink-to-the-resource-manager-template"></a>Lägg till mottagare för Application Insights i Resource Manager-mallen
+
+Lägg till en ”mottagare” genom att inkludera följande två ändringar i den ”WadCfg” av Resource Manager-mallen:
+
+1. Lägg till mottagare konfiguration direkt efter att du deklarerar av den `DiagnosticMonitorConfiguration` har slutförts:
+
+    ```json
+    "SinksConfig": {
+        "Sink": [
+            {
+                "name": "applicationInsights",
+                "ApplicationInsights": "***ADD INSTRUMENTATION KEY HERE***"
+            }
+        ]
+    }
+
+    ```
+
+2. Inkludera mottagare i den `DiagnosticMonitorConfiguration` genom att lägga till följande rad i den `DiagnosticMonitorConfiguration` av den `WadCfg` (precis före den `EtwProviders` deklareras):
+
+    ```json
+    "sinks": "applicationInsights"
+    ```
+
+Både de föregående kodfragment, användes namnet ”applicationInsights” för att beskriva mottagaren. Detta är inte ett krav och som namnet på mottagaren ingår i ”mottagare”, kan du ange namn till valfri sträng.
+
+För närvarande loggar från klustret visas som **spårningar** i Application Insights Loggvisaren. Eftersom de flesta av spårningen av plattformen är på nivån ”information” kan du överväga att ändra konfigurationen för mottagare för att skicka bara loggfiler av typen ”varning” eller ”Error”. Detta kan göras genom att lägga till ”kanaler” till dina mottagare som visas i [i den här artikeln](../azure-monitor/platform/diagnostics-extension-to-application-insights.md).
+
+>[!NOTE]
+>Om du använder en felaktig Application Insights-nyckel i portalen eller i Resource Manager-mallen, kommer du behöva manuellt ändra nyckeln och uppdatera klustret / distribuera om den.
 
 ## <a name="next-steps"></a>Nästa steg
 

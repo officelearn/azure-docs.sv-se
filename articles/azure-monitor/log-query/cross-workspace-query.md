@@ -13,18 +13,25 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: magoedte
-ms.openlocfilehash: ccc9a74c4e238ebfcab0fc05a3bf825000917843
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 3c8c45d217a2ce03597ae5d472d977e3f0a195f7
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55998963"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56806342"
 ---
 # <a name="perform-cross-resource-log-queries-in-azure-monitor"></a>Utföra loggfrågor mellan resurser i Azure Monitor  
 
 Tidigare med Azure Monitor, kunde du endast analysera data inifrån den aktuella arbetsytan och det begränsade möjligheten att fråga över flera arbetsytor som definierats i din prenumeration.  Dessutom kan du bara söka efter objekt för telemetri som samlas in från dina webbaserade program med Application Insights direkt i Application Insights eller från Visual Studio.  Detta också gjort det en utmaning att internt analysera operativa och programdata tillsammans.   
 
-Nu kan du fråga inte bara över flera Log Analytics-arbetsytor, utan också data från en viss Application Insights-app i samma resursgrupp, en annan resursgrupp eller en annan prenumeration. Det ger en systemomfattande överblick över dina data.  Du kan bara utföra dessa typer av frågor i [Log Analytics](portals.md). Antalet resurser (Log Analytics-arbetsytor och Application Insights-app) som ska inkluderas i en enskild fråga är begränsad till 100. 
+Nu kan du fråga inte bara över flera Log Analytics-arbetsytor, utan också data från en viss Application Insights-app i samma resursgrupp, en annan resursgrupp eller en annan prenumeration. Det ger en systemomfattande överblick över dina data.  Du kan bara utföra dessa typer av frågor i [Log Analytics](portals.md).
+
+## <a name="cross-resource-query-limits"></a>Fråga mellan resurser gränser 
+
+* Antalet Application Insights-resurser som ska inkluderas i en enskild fråga är begränsad till 100.
+* Fråga mellan resurser stöds inte i View Designer. Du kan redigera en fråga i Log Analytics och fästa den på Azure-instrumentpanelen och [visualisera en loggsökning](../../azure-monitor/learn/tutorial-logs-dashboards.md#visualize-a-log-search). 
+* [Fråga mellan resurser](../log-query/cross-workspace-query.md) i loggen för aviseringar stöds i den nya [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules). Azure Monitor använder som standard den [äldre Log Analytics avisering API](../platform/api-alerts.md) för att skapa nya log Varningsregler från Azure-portalen om du växlar från [äldre Log aviseringar API](../platform/alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api). Efter växeln, nya API: et blir standard för nya aviseringsregler i Azure-portalen och du kan skapa mellan resurser fråga log aviseringar regler. Du kan skapa [mellan resurser fråga](../log-query/cross-workspace-query.md) loggar Varningsregler utan att göra växeln med hjälp av den [ARM-mall för scheduledQueryRules API](../platform/alerts-log.md#log-alert-with-cross-resource-query-using-azure-resource-template) – men den här aviseringsregeln kan hanteras dock [ scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) och inte från Azure-portalen.
+
 
 ## <a name="querying-across-log-analytics-workspaces-and-from-application-insights"></a>Fråga över Log Analytics-arbetsytor och från Application Insights
 Om du vill referera till en annan arbetsyta i frågan, använda den [ *arbetsytan* ](https://docs.microsoft.com/azure/log-analytics/query-language/workspace-expression) identifierare, och för en app från Application Insights, använder du den [ *app* ](https://docs.microsoft.com/azure/log-analytics/query-language/app-expression)identifierare.  

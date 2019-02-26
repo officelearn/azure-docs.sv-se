@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: d2c2e87b3dade68dc311aa38743c11a60a69f68b
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 6c93c0228425b2ff020e5b4301e68eae5b1062a3
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56004561"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56807838"
 ---
 # <a name="find-exact-moments-within-videos"></a>Hitta exakta ögonblick i videor
 
@@ -23,12 +23,14 @@ Det här avsnittet visar sökalternativ som hjälper dig att hitta speciella ög
 1. Gå till [Video Indexer](https://www.videoindexer.ai/)-webbplatsen och logga in.
 2. Söka bland alla videor i ditt konto.
 
-    I följande exempel sökte vi efter alla videor som skapats av Channel 9 med Scott Hanselman.
+    I följande exempel söker vi du efter alla videor som pratar om säkerhet och i vilket Satya visas
 
     ![Search](./media/video-indexer-search/video-indexer-search01.png)
 3. Sök sammanfattade insikter om videon.
 
-    Du kan sedan söka i en video genom att klicka på **spela upp** för videon. Sedan kan du söka i videon genom att välja den **Search** fliken. Exempelvis kan sökte vi efter alla platser där texten ”identity protection” används. 
+    Du kan sedan söka i en video genom att klicka på **spela upp** för videon. Sedan kan du söka i videon genom att välja den **Search** fliken. 
+
+    I följande exempel söker vi du efter ”skydda” i den markerade videon.
 
     ![Search](./media/video-indexer-search/video-indexer-search02.png)
 

@@ -16,12 +16,12 @@ ms.date: 02/18/2019
 ms.author: celested
 ms.reviewer: luleon, asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3cb2302a8a20a9a5f50b9d11de7ac786ad04853d
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 7c5b61dbb3c6dde8dfcabdba015ee41e968cc5dd
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56652271"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56817090"
 ---
 # <a name="problems-signing-in-to-a-gallery-application-configured-for-federated-single-sign-on"></a>Problem som loggar in på en galleriprogram som konfigurerats för federerad enkel inloggning
 
@@ -160,7 +160,7 @@ Azure AD stöder inte SAML-begäran som skickas av programmet för enkel inloggn
 
 Programvaruleverantören bör verifiera att de stöder Azure AD SAML-implementering för enkel inloggning.
 
-## <a name="no-resource-in-requiredresourceaccess-list"></a>Ingen resurs i requiredResourceAccess lista
+## <a name="misconfigured-application"></a>Felkonfigurerad program
 
 *Fel AADSTS650056: Felkonfigurerad program. Detta kan bero på något av följande: Klienten har inte finns några behörigheter för 'AAD Graph' begärda behörigheter i klientens programregistrering. Eller administratören har inte godkänt i klienten. Eller Kontrollera program-ID i begäran för att se till att den matchar den konfigurerade klient-ID för programmet. Kontakta din administratör om du vill åtgärda konfigurationen eller ge samtycke åt klienten.* .
 
@@ -237,6 +237,33 @@ Azure AD inte kan identifiera SAML-begäran i URL-parametrar i HTTP-begäran. De
 
 Programmet måste skicka SAML-begäranskodad i location-huvudet med HTTP omdirigera bindning. Mer information om hur du implementerar den, finns i avsnittet HTTP omdirigera bindning i den [SAML-protokollet specifikationsdokument](https://docs.oasis-open.org/security/saml/v2.0/saml-bindings-2.0-os.pdf).
 
+## <a name="azure-ad-is-sending-the-token-to-an-incorrect-endpoint"></a>Azure AD skickar token till en felaktig slutpunkt
+
+**Möjlig orsak**
+
+Om inloggning-begäran inte innehåller en explicit svars-URL (försäkran URL för Konsumenttjänst) och sedan Azure AD väljer någon av de konfigurerade under enkel inloggning, använder du URL: er för programmet. Även om programmet har en explicit svars-URL har konfigurerats kan användaren kan vara att omdirigeras https://127.0.0.1:444. 
+
+När programmet lades till som en icke-galleriapp skapade Azure Active Directory den här svars-URL:en som ett standardvärde. Det här beteendet har ändrats och Azure Active Directory lägger inte längre till den här URL:en som standard. 
+
+**Lösning**
+
+Ta bort oanvända svars-URL som konfigurerats för programmet.
+
+1.  Öppna den [ **Azure-portalen** ](https://portal.azure.com/) och logga in som en **Global administratör** eller **medadministratör**.
+
+2.  Öppna den **Azure Active Directory-tillägget** genom att välja **alla tjänster** överst i den huvudsakliga vänstra navigeringsmenyn.
+
+3.  Typ **”Azure Active Directory”** i filtret sökrutan och välj den **Azure Active Directory** objekt.
+
+4.  Välj **företagsprogram** från den vänstra navigeringsmenyn i Azure Active Directory.
+
+5.  Välj **alla program** att visa en lista över alla dina program.
+
+    Om du inte ser programmet som du vill visa här använder du den **Filter** kontroll högst upp på den **listan över alla program** och ange den **visa** alternativet att **alla Program**.
+
+6.  Välj det program som du vill konfigurera för enkel inloggning.
+
+7.  När programmet läses in, öppnar du **grundläggande SAML-konfiguration**. I den **svars-URL (försäkran URL för Konsumenttjänst)**, ta bort oanvända eller standard svars-URL: er som skapats av systemet. Till exempel `https://127.0.0.1:444/applications/default.aspx`.
 
 ## <a name="problem-when-customizing-the-saml-claims-sent-to-an-application"></a>Problem när du anpassar SAML-anspråk som skickas till ett program
 

@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 11/30/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: ec5e3daf1d4d799aab043f241548a3b4177f567c
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 48098ba32a8eb1c2d7a7bafa246b8e850229b430
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56343246"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56804543"
 ---
 # <a name="view-deny-assignments-for-azure-resources-using-the-azure-portal"></a>Visa neka tilldelningar för Azure-resurser med Azure portal
 
@@ -28,7 +28,7 @@ ms.locfileid: "56343246"
 Den här artikeln beskriver hur du använder Azure-portalen för att visa neka tilldelningar.
 
 > [!NOTE]
-> Neka tilldelningar är skrivskyddade och kan bara ställas in av Azure för tillfället.
+> Neka tilldelningar är skrivskyddade och kan bara ställas in av Microsoft för tillfället.
 
 ## <a name="view-deny-assignments"></a>Visa neka tilldelningar
 

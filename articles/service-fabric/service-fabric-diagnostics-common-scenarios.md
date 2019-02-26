@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/16/2018
+ms.date: 02/25/2019
 ms.author: srrengar
-ms.openlocfilehash: 700295c94428021445f6cbbd84175046d57b9147
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 559409ac73fb28df18c2ddeca7eb2bcd06a24835
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54054953"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56817668"
 ---
 # <a name="diagnose-common-scenarios-with-service-fabric"></a>Diagnostisera vanliga scenarier med Service Fabric
 
@@ -111,7 +111,6 @@ I samma vy med alla diagram ser du vissa paneler för prestanda för dina behål
 
     * `.NET CLR Memory(<ProcessNameHere>)\\# Total committed Bytes`
     * `Processor(_Total)\\% Processor Time`
-    * `Service Fabric Service(*)\\Average milliseconds per request`
 
     I snabbstarten, VotingData och VotingWeb är processnamn används, så att spåra dessa räknare skulle se ut
 
@@ -128,7 +127,10 @@ I samma vy med alla diagram ser du vissa paneler för prestanda för dina behål
 
 ## <a name="how-do-i-track-performance-of-my-reliable-services-and-actors"></a>Hur jag för att spåra prestanda Mina Reliable Services och aktörer?
 
-Du bör lägga till Service Fabric-aktör, Aktörsmetod, Service och tjänsten metoden räknare samt för att spåra prestanda i Reliable Services eller aktörer i dina program. Du kan lägga till dessa räknare på liknande sätt som scenariot ovan, här följer exempel på tillförlitlig tjänst och aktören prestandaräknare lägger du till i Log Analytics:
+Du bör samla in Service Fabric-aktör, Aktörsmetod, Service och tjänsten metoden räknare samt för att spåra prestanda för Reliable Services eller aktörer i dina program. Här följer exempel på tillförlitlig tjänst och aktören prestandaräknare som samlar in
+
+>[!NOTE]
+>Prestandaräknare för Service Fabric kan inte samlas in av Log Analytics-agenten för närvarande, men kan samlas in av [andra diagnostiska lösningar](service-fabric-diagnostics-partners.md)
 
 * `Service Fabric Service(*)\\Average milliseconds per request`
 * `Service Fabric Service Method(*)\\Invocations/Sec`

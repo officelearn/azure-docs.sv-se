@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 086ef9030451632ee4defa39a402e4d62c897f20
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: f0c05ddbc53d08334aded48ccb3a3ece547b4143
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56342124"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56816577"
 ---
 # <a name="remediate-non-compliant-resources-with-azure-policy"></a>Åtgärda icke-kompatibla resurser med Azure Policy
 
@@ -131,6 +131,8 @@ Följ dessa steg om du vill lägga till en roll i tilldelningens hanterad identi
 
 ## <a name="create-a-remediation-task"></a>Skapa en uppgift för reparation
 
+### <a name="create-a-remediation-task-through-portal"></a>Skapa en reparation uppgift via portalen
+
 Under utvärderingen, principtilldelning med **deployIfNotExists** effekt avgör om det finns inkompatibla resurser. När icke-kompatibla resurser finns informationen tillhandahålls på den **reparation** sidan. Tillsammans med i listan över principer som har icke-kompatibla resurser är alternativet för att utlösa en **reparation uppgift**. Det här alternativet är det skapar en distribution från den **deployIfNotExists** mall.
 
 Skapa en **reparation uppgiften**, Följ dessa steg:
@@ -163,6 +165,32 @@ Skapa en **reparation uppgiften**, Följ dessa steg:
    ![Åtgärda - resurs snabbmenyn för uppgift](../media/remediate-resources/resource-task-context-menu.png)
 
 Resurser som distribueras via en **reparation uppgift** läggs till i **distribuerade resurser** fliken på policysidan för efterlevnad.
+
+### <a name="create-a-remediation-task-through-azure-cli"></a>Skapa en reparation uppgift via Azure CLI
+
+Skapa en **reparation uppgift** med Azure CLI, använder de `az policy remediation` kommandon. Ersätt `{subscriptionId}` med ditt prenumerations-ID och `{myAssignmentId}` med din **deployIfNotExists** princip tilldelning-ID.
+
+```azurecli-interactive
+# Login first with az login if not using Cloud Shell
+
+# Create a remediation for a specific assignment
+az policy remediation create --name myRemediation --policy-assignment '/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/policyAssignments/{myAssignmentId}'
+```
+
+Andra åtgärder kommandon och exempel finns i den [az princip reparation](/cli/azure/policy/remediation) kommandon.
+
+### <a name="create-a-remediation-task-through-azure-powershell"></a>Skapa en reparation uppgift via Azure PowerShell
+
+Skapa en **reparation uppgift** med Azure PowerShell kan använda den `Start-AzPolicyRemediation` kommandon. Ersätt `{subscriptionId}` med ditt prenumerations-ID och `{myAssignmentId}` med din **deployIfNotExists** princip tilldelning-ID.
+
+```azurepowershell-interactive
+# Login first with Connect-AzAccount if not using Cloud Shell
+
+# Create a remediation for a specific assignment
+Start-AzPolicyRemediation -Name 'myRemedation' -PolicyAssignmentId '/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/policyAssignments/{myAssignmentId}'
+```
+
+Andra åtgärder cmdletar och exempel finns i den [Az.PolicyInsights](/powershell/module/az.policyinsights/#policy_insights) modulen.
 
 ## <a name="next-steps"></a>Nästa steg
 

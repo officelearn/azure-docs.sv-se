@@ -10,12 +10,12 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 10/08/2018
 ms.author: glenga
-ms.openlocfilehash: b60861b4daced5e3d292feec54f8a54839a80b8f
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 58c7506b71ade8ff70519b895995153896006ade
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56728923"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56804681"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>Utveckla Azure-funktioner med hjälp av Visual Studio  
 
@@ -220,8 +220,6 @@ Aktivera Application Insights för din funktionsapp i Azure:
 Mer information finns i [övervaka Azure Functions](functions-monitoring.md).
 
 ## <a name="next-steps"></a>Nästa steg
-
-Mer information om Azure Functions Tools finns i avsnittet vanliga frågor i den [Visual Studio 2017-verktyg för Azure Functions](https://blogs.msdn.microsoft.com/webdev/2017/05/10/azure-function-tools-for-visual-studio-2017/) blogginlägg.
 
 Läs mer om Azure Functions Core Tools i [kod och testa Azure functions lokalt](functions-run-local.md).
 

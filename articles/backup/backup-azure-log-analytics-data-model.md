@@ -1,6 +1,6 @@
 ---
-title: Log Analytics-datamodell för Azure Backup
-description: Den här artikeln handlar om Log Analytics data modellinformation för Azure Backup-data.
+title: Azure Monitor loggar datamodell för Azure Backup
+description: Den här artikeln berättar om Azure Monitor loggar information om modellen för Azure Backup-data.
 services: backup
 author: adigan
 manager: shivamg
@@ -8,15 +8,17 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/24/2017
 ms.author: adigan
-ms.openlocfilehash: 5921ca696076a16e39252a6cb3bfae98854b5a85
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: b17e7548a19543add6274243d64ede3b61544c52
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55299580"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56819573"
 ---
-# <a name="log-analytics-data-model-for-azure-backup-data"></a>Log Analytics-datamodell för Azure Backup-data
-Använd Log Analytics-datamodell för att skapa rapporter. Med datamodellen, kan du skapa egna förfrågningar och instrumentpaneler eller anpassa Azure Backup-data, hur du vill.
+# <a name="azure-monitor-logs-data-model-for-azure-backup-data"></a>Azure Monitor loggar datamodell för Azure Backup-data
+Använd datamodell för Azure Monitor-loggar för att skapa rapporter. Med datamodellen, kan du skapa egna förfrågningar och instrumentpaneler eller anpassa Azure Backup-data, hur du vill.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="using-azure-backup-data-model"></a>Med hjälp av Azure Backup-datamodell
 Du kan använda följande fält som ingår i datamodellen för att skapa visuella objekt, anpassade frågor och instrumentpanel efter behov.
@@ -37,7 +39,7 @@ Den här tabellen innehåller information om aviseringen relaterade fält.
 | State_s |Text |Aktuell status för aviseringen objekt, till exempel aktiv, har tagits bort |
 | BackupManagementType_s |Text |Typ av provider för att utföra säkerhetskopieringen, till exempel IaaSVM FileFolder som den här aviseringen tillhör |
 | OperationName |Text |Namnet på den aktuella åtgärden, till exempel avisering |
-| Kategori |Text |Kategori för diagnostikdata som skickas till Log Analytics. Alltid AzureBackupReport |
+| Kategori |Text |Kategori för diagnostikdata som skickas till Azure Monitor-loggar. Alltid AzureBackupReport |
 | Resurs |Text |Det här är den resurs som data samlas, den visar Recovery Services vault-namn |
 | ProtectedServerUniqueId_s |Text |Unik identifierare för den skyddade servern som är associerade med aviseringen |
 | VaultUniqueId_s |Text |Unik identifierare för skyddade valvet som är associerade med aviseringen |
@@ -65,7 +67,7 @@ Den här tabellen innehåller information om säkerhetskopiering objekt-relatera
 | State_s |Text |Tillståndet för säkerhetskopieringsobjekt-objekt, till exempel aktiv, har tagits bort |
 | BackupManagementType_s |Text |Typ av provider för att utföra säkerhetskopieringen, till exempel IaaSVM FileFolder som det här säkerhetskopieringsobjektet tillhör |
 | OperationName |Text |Namnet på åtgärden, till exempel BackupItem |
-| Kategori |Text |Kategori för diagnostikdata som skickas till Log Analytics. Alltid AzureBackupReport |
+| Kategori |Text |Kategori för diagnostikdata som skickas till Azure Monitor-loggar. Alltid AzureBackupReport |
 | Resurs |Text |Resurs för vilka data som samlas in, exempelvis namn för Recovery Services-valv |
 | SourceSystem |Text |Källsystemet för det aktuella - Azure |
 | ResourceId |Text |Resurs-id för data som samlas in, till exempel Recovery Services-valv resurs-id |
@@ -85,7 +87,7 @@ Den här tabellen innehåller information om säkerhetskopieringsobjekt associat
 | State_s |Text |Aktuell status för kopplingsobjektet säkerhetskopieringsobjekt, till exempel aktiv, har tagits bort |
 | BackupManagementType_s |Text |Providertyp för server gör säkerhetskopieringsjobb, till exempel IaaSVM, FileFolder |
 | OperationName |Text |Det här fältet representerar namnet på den aktuella åtgärden - BackupItemAssociation |
-| Kategori |Text |Det här fältet motsvarar kategori till diagnostikdata som skickas till Log Analytics, det är AzureBackupReport |
+| Kategori |Text |Det här fältet motsvarar kategori till diagnostikdata som skickas till Azure Monitor-loggar, är det AzureBackupReport |
 | Resurs |Text |Det här är den resurs som data samlas, den visar Recovery Services vault-namn |
 | PolicyUniqueId_g |Text |Unikt ID för principen som är associerade med säkerhetskopieringsobjektet |
 | ProtectedServerUniqueId_s |Text |Unik identifierare för den skyddade servern som är associerade med säkerhetskopieringsobjektet |
@@ -108,7 +110,7 @@ Den här tabellen innehåller information om projektspecifika fält.
 | State_s |Text |Aktuell status för jobbobjektet, till exempel aktiv, har tagits bort |
 | BackupManagementType_s |Text |Providertyp för server gör säkerhetskopieringsjobb, till exempel IaaSVM, FileFolder |
 | OperationName |Text |Det här fältet representerar namnet på den aktuella åtgärden - jobb |
-| Kategori |Text |Det här fältet motsvarar kategori till diagnostikdata som skickas till Log Analytics, det är AzureBackupReport |
+| Kategori |Text |Det här fältet motsvarar kategori till diagnostikdata som skickas till Azure Monitor-loggar, är det AzureBackupReport |
 | Resurs |Text |Det här är den resurs som data samlas, den visar Recovery Services vault-namn |
 | ProtectedServerUniqueId_s |Text |Unik identifierare för den skyddade servern som är associerad med jobbet |
 | VaultUniqueId_s |Text |Unik identifierare för skyddade valvet |
@@ -137,7 +139,7 @@ Den här tabellen innehåller information om principen-relaterade fält.
 | State_s |Text |Aktuell status för princip-objekt, till exempel aktiv, har tagits bort |
 | BackupManagementType_s |Text |Providertyp för server gör säkerhetskopieringsjobb, till exempel IaaSVM, FileFolder |
 | OperationName |Text |Det här fältet representerar namnet på den aktuella åtgärden - princip |
-| Kategori |Text |Det här fältet motsvarar kategori till diagnostikdata som skickas till Log Analytics, det är AzureBackupReport |
+| Kategori |Text |Det här fältet motsvarar kategori till diagnostikdata som skickas till Azure Monitor-loggar, är det AzureBackupReport |
 | Resurs |Text |Det här är den resurs som data samlas, den visar Recovery Services vault-namn |
 | PolicyUniqueId_g |Text |Unikt Id för att identifiera principen |
 | PolicyName_s |Text |Namnet på den princip som har definierats |
@@ -177,7 +179,7 @@ Den här tabellen innehåller information om principkopplingar med olika entitet
 | State_s |Text |Aktuell status för princip-objekt, till exempel aktiv, har tagits bort |
 | BackupManagementType_s |Text |Providertyp för server gör säkerhetskopieringsjobb, till exempel IaaSVM, FileFolder |
 | OperationName |Text |Det här fältet representerar namnet på den aktuella åtgärden - PolicyAssociation |
-| Kategori |Text |Det här fältet motsvarar kategori till diagnostikdata som skickas till Log Analytics, det är AzureBackupReport |
+| Kategori |Text |Det här fältet motsvarar kategori till diagnostikdata som skickas till Azure Monitor-loggar, är det AzureBackupReport |
 | Resurs |Text |Det här är den resurs som data samlas, den visar Recovery Services vault-namn |
 | PolicyUniqueId_g |Text |Unikt Id för att identifiera principen |
 | VaultUniqueId_s |Text |Unikt Id för det valv som tillhör den här principen till |
@@ -199,7 +201,7 @@ Den här tabellen innehåller information om skyddade server-relaterade fält.
 | State_s |Text |Aktuell status för skyddade server-objekt, till exempel aktiv, har tagits bort |
 | BackupManagementType_s |Text |Providertyp för server gör säkerhetskopieringsjobb, till exempel IaaSVM, FileFolder |
 | OperationName |Text |Det här fältet representerar namnet på den aktuella åtgärden - ProtectedServer |
-| Kategori |Text |Det här fältet motsvarar kategori till diagnostikdata som skickas till Log Analytics, det är AzureBackupReport |
+| Kategori |Text |Det här fältet motsvarar kategori till diagnostikdata som skickas till Azure Monitor-loggar, är det AzureBackupReport |
 | Resurs |Text |Det här är den resurs som data samlas, den visar Recovery Services vault-namn |
 | ProtectedServerUniqueId_s |Text |Unikt Id för den skyddade servern |
 | RegisteredContainerId_s |Text |ID för behållare som har registrerats för säkerhetskopiering |
@@ -223,7 +225,7 @@ Den här tabellen innehåller information om skyddade servern associationer med 
 | State_s |Text |Aktuell status för kopplingsobjektet skyddad server, till exempel aktiv, har tagits bort |
 | BackupManagementType_s |Text |Providertyp för server gör säkerhetskopieringsjobb, till exempel IaaSVM, FileFolder |
 | OperationName |Text |Det här fältet representerar namnet på den aktuella åtgärden - ProtectedServerAssociation |
-| Kategori |Text |Det här fältet motsvarar kategori till diagnostikdata som skickas till Log Analytics, det är AzureBackupReport |
+| Kategori |Text |Det här fältet motsvarar kategori till diagnostikdata som skickas till Azure Monitor-loggar, är det AzureBackupReport |
 | Resurs |Text |Det här är den resurs som data samlas, den visar Recovery Services vault-namn |
 | ProtectedServerUniqueId_s |Text |Unikt Id för den skyddade servern |
 | VaultUniqueId_s |Text |Unikt Id för det valv som den här skyddade servern tillhör |
@@ -246,7 +248,7 @@ Den här tabellen innehåller information om storage-relaterade fält.
 | State_s |Text |Aktuell status för lagringsobjektet, till exempel aktiv, har tagits bort |
 | BackupManagementType_s |Text |Providertyp för server gör säkerhetskopieringsjobb, till exempel IaaSVM, FileFolder |
 | OperationName |Text |Det här fältet representerar namnet på den aktuella åtgärden - lagring |
-| Kategori |Text |Det här fältet motsvarar kategori till diagnostikdata som skickas till Log Analytics, det är AzureBackupReport |
+| Kategori |Text |Det här fältet motsvarar kategori till diagnostikdata som skickas till Azure Monitor-loggar, är det AzureBackupReport |
 | Resurs |Text |Det här är den resurs som data samlas, den visar Recovery Services vault-namn |
 | ProtectedServerUniqueId_s |Text |Unikt Id för den skyddade servern som lagring beräknas |
 | VaultUniqueId_s |Text |Unikt Id för valvet för lagring beräknas |
@@ -266,7 +268,7 @@ Den här tabellen innehåller information om vault-relaterade fält.
 | SchemaVersion_s |Text |Det här fältet anger aktuella versionen av schemat, är det **V1** |
 | State_s |Text |Aktuell status för valvobjekt, till exempel aktiv, har tagits bort |
 | OperationName |Text |Det här fältet representerar namnet på den aktuella åtgärden - valvet |
-| Kategori |Text |Det här fältet motsvarar kategori till diagnostikdata som skickas till Log Analytics, det är AzureBackupReport |
+| Kategori |Text |Det här fältet motsvarar kategori till diagnostikdata som skickas till Azure Monitor-loggar, är det AzureBackupReport |
 | Resurs |Text |Det här är den resurs som data samlas, den visar Recovery Services vault-namn |
 | VaultUniqueId_s |Text |Unikt Id för valvet |
 | VaultName_s |Text |Namnet på valvet |
@@ -280,4 +282,4 @@ Den här tabellen innehåller information om vault-relaterade fält.
 | ResourceType |Text |Resurstyp som data samlas in. Till exempel valv |
 
 ## <a name="next-steps"></a>Nästa steg
-När du granskar datamodellen för att skapa Azure Backup-rapporter kan du börja [skapar instrumentpanelen](../azure-monitor/learn/tutorial-logs-dashboards.md) i Log Analytics.
+När du granskar datamodellen för att skapa Azure Backup-rapporter kan du börja [skapar instrumentpanelen](../azure-monitor/learn/tutorial-logs-dashboards.md) i Azure Monitor-loggar.

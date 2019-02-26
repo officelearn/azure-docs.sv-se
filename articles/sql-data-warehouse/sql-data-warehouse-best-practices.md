@@ -10,12 +10,12 @@ ms.subservice: implement
 ms.date: 11/26/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 4d61176030285556545e5619669d07c62d908a4e
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: d2bcd845305e481e8d302dbf0f35b7be6498ffa4
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55471461"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56806997"
 ---
 # <a name="best-practices-for-azure-sql-data-warehouse"></a>Metodtips för Azure SQL Data Warehouse
 Den här artikeln är en samling metodtips som hjälper dig att uppnå optimala prestanda med Azure SQL Data Warehouse.  Vissa begrepp i artikeln är grundläggande och enkla att förklara. Andra begrepp är mer avancerade och vi kommer bara att skrapa på ytan i den här artikeln.  Avsikten med den här artikeln är att ge dig grundläggande vägledning och att göra dig uppmärksam på viktiga områden som du bör fokusera på när du skapar ditt informationslager.  Varje avsnitt innehåller en introduktion till ett begrepp och hänvisar till mer detaljerade artiklar som beskriver begreppet i mer detalj.
@@ -49,7 +49,7 @@ Se även [Load data][Load data] (Läsa in data), [Guide for using PolyBase][Guid
 Se även [Guide for using PolyBase][Guide for using PolyBase] (Guide för att använda PolyBase)
 
 ## <a name="hash-distribute-large-tables"></a>Hash-distribuera stora tabeller
-Tabeller distribueras som standard med resursallokering (Round Robin).  Detta gör det enkelt för användarna att börja skapa tabeller utan att de behöver bestämma hur tabellerna ska distribueras.  Resursallokeringstabeller kan prestera bra för vissa arbetsbelastningar, men i de flesta fall blir prestanda bättre om du väljer en distributionskolumn.  Det vanligaste exemplet på när en tabell som distribueras med en kolumn presterar avsevärt mycket bättre än en resursallokeringstabell är när två stora faktatabeller kopplas.  Om du till exempel har en ordertabell, som distribueras efter order_id, och en transaktionstabell, som också distribueras efter order_id, och du kopplar ordertabellen till transaktionstabellen baserat på order_id, så blir den här frågan en direktfråga, vilket innebär att vi eliminerar dataflyttningsåtgärder.  Färre steg innebär en snabbare fråga.  Mindre dataflyttning gör också att frågor körs snabbare.  Den här förklaringen scratches bara på ytan. När du läser in en distribuerad tabell ser du till att inkommande data inte sorteras baserat på distributionsnyckeln eftersom det gör att inläsningarna tar längre tid.  På länkarna nedan hittar du mycket mer information om hur du kan förbättra prestanda genom att välja en distributionskolumn, samt information om hur du definierar en distribuerad tabell i WITH-satsen för CREATE TABLES-instruktionen.
+Tabeller distribueras som standard med resursallokering (Round Robin).  Detta gör det enkelt för användarna att börja skapa tabeller utan att de behöver bestämma hur tabellerna ska distribueras.  Resursallokeringstabeller kan prestera bra för vissa arbetsbelastningar, men i de flesta fall blir prestanda bättre om du väljer en distributionskolumn.  Det vanligaste exemplet på när en tabell som distribueras med en kolumn presterar avsevärt mycket bättre än en resursallokeringstabell är när två stora faktatabeller kopplas.  Om du till exempel har en ordertabell, som distribueras efter order_id, och en transaktionstabell, som också distribueras efter order_id, och du kopplar ordertabellen till transaktionstabellen baserat på order_id, så blir den här frågan en direktfråga, vilket innebär att vi eliminerar dataflyttningsåtgärder.  Färre steg innebär en snabbare fråga.  Mindre dataflyttning gör också att frågor körs snabbare.  Den här förklaringen scratches bara på ytan. När du läser in en distribuerad tabell ser du till att inkommande data inte sorteras baserat på distributionsnyckeln eftersom det gör att inläsningarna tar längre tid.  Se den länkarna nedan hittar du mycket mer information om hur att välja en distributionskolumn kan förbättra prestanda och hur du definierar en distribuerad tabell i WITH-satsen för CREATE TABLE-instruktion.
 
 Se även [Table overview][Table overview] (Tabellöversikt), [Table distribution][Table distribution] (Tabelldistribution), [Selecting table distribution][Selecting table distribution] (Välja tabelldistribution), [CREATE TABLE][CREATE TABLE], [CREATE TABLE AS SELECT][CREATE TABLE AS SELECT]
 

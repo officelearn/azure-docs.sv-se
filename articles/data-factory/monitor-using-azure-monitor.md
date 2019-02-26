@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/11/2018
 ms.author: shlo
-ms.openlocfilehash: 6645463f2172a6f201f4d2f840e03d1797367752
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: a4eea340fe57ab3c05e527a476d9153113eedba5
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55512381"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56819402"
 ---
 # <a name="alert-and-monitor-data-factories-using-azure-monitor"></a>Varna och övervaka datafabriker med hjälp av Azure Monitor
 Molnprogram är komplexa med alla rörliga delar. Övervakning ger data så att ditt program fungerar och körs i ett felfritt tillstånd. Det hjälper dig också att stave potentiella problem eller felsöka tidigare sådana. Du kan dessutom använda övervakningsdata för att få djupa insikter om ditt program. Den här kunskapen kan hjälpa dig att förbättra programmets prestanda och underhåll eller automatisera åtgärder som annars skulle kräva manuella åtgärder.
@@ -59,7 +59,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 
 **Headers**
 * Ersätt `{api-version}` med `2016-09-01`.
-* Ersätt `{resource-id}` med resurs-ID för den resurs som du vill redigera diagnostikinställningar. Mer information [använda resursgrupper för att hantera dina Azure-resurser](../azure-resource-manager/resource-group-portal.md).
+* Ersätt `{resource-id}` med resurs-ID för den resurs som du vill redigera diagnostikinställningar. Mer information [använda resursgrupper för att hantera dina Azure-resurser](../azure-resource-manager/manage-resource-groups-portal.md).
 * Ange den `Content-Type` sidhuvud till `application/json`.
 * Ange auktoriseringsrubriken till en JSON-webbtoken som hämtas från Azure Active Directory. Mer information finns i [autentisering av förfrågningar](../active-directory/develop/authentication-scenarios.md).
 

@@ -12,52 +12,54 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 2/5/2019
-ms.openlocfilehash: b59ac4798260381c11ab22adb7358ff63e5e1d77
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.date: 2/13/2019
+ms.openlocfilehash: d5c003b2588813f8e8a1dfc2923b9d4c8d8c6cc8
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245430"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56820441"
 ---
 # <a name="sql-server-on-azure-virtual-machine-release-notes"></a>SQL Server på Azure-dator viktig information
 
 Azure kan du distribuera en virtuell dator med en bild av SQL Server som är inbyggda i. Den här artikeln sammanfattas de nya funktionerna och förbättringarna i de senaste versionerna av [SQL Server på Azure virtual machines](https://azure.microsoft.com/services/virtual-machines/sql-server/). Artikeln innehåller också viktiga uppdateringar av innehållet som är inte direkt relaterade till versionen men som har publicerats i samma tidsram. Förbättringar av andra Azure-tjänster, se [uppdateringar av tjänsten](https://azure.microsoft.com/updates)
 
-## <a name="december-2018"></a>December 2018
+
+## <a name="february-2019"></a>Februari 2019
 
 ### <a name="service-improvements"></a>Förbättringar av tjänsten
+
+| Förbättringar av tjänsten | Information |
+| --- | --- |
+| **Portalen förbättring** | Nu är det möjligt att ändra så att licensieringsmodellen för en SQL Server-VM från betala per användning till bring-your-own-license med hjälp av den [Azure-portalen](virtual-machines-windows-sql-ahb.md#with-the-azure-portal-1).|
+|**AG distribution förenkling av distribution med Azure SQL-dator med CLI** | Nu är det enklare än någonsin att distribuera en tillgänglighetsgrupp till en SQL Server-VM i Azure. Azure SQL-dator med CLI kan du skapa WSFC, ILB och AG-lyssnare allt från kommandoraden och registrera tid! Mer information finns i [Använd Azure SQL VM CLI för att konfigurera Always On-tillgänglighetsgrupp för SQL Server på en Azure VM](virtual-machines-windows-sql-availability-group-cli.md). | 
+| &nbsp; | &nbsp; |
+
+### <a name="documentation-improvements"></a>Dokumentation om förbättringar
+
+| Dokumentation om förbättringar | Information |
+| --- | --- |
+|inga | |
+| | |
+
+## <a name="december-2018"></a>December 2018
 
 | Förbättringar av tjänsten | Information |
 | --- | --- |
 | **Ny SQL-kluster grupp-resursprovider** | En ny resursprovider (Microsoft.SqlVirtualMachine/SqlVirtualMachineGroups) som definierar metadata för Windows-redundanskluster. Ansluta till en SQL Server-VM till den *SqlVirtualMachineGroups* startar tjänsten Windows-redundanskluster och kopplar den virtuella datorn till klustret.  |
-|**Automatisera konfigurationen av distribueringen av en tillgänglighet med Azure-Snabbstartsmallar** |Nu är det möjligt att skapa Windows-redundanskluster, ansluta till SQL Server-datorer till den, skapa lyssnaren och konfigurera den interna belastningsutjämnaren med två Azure-Snabbstartsmallar. Mer information finns i [skapa WSFC, lyssnaren och och konfigurera ILB för en Always On-tillgänglighetsgrupp på en SQL Server-dator med Azure-Snabbstartsmall](virtual-machines-windows-sql-availability-group-quickstart-template.md). | 
-| **Den automatiska SQL VM Resursproviderregistrering** | SQL Server-datorer distribueras efter det att den här månaden registreras automatiskt med den nya SQL Server-resursprovidern. SQL Server-datorer som distribuerats före den här månaden fortfarande behöver registreras manuellt. Mer information finns i [registrera befintliga SQL-VM med ny resursprovider](virtual-machines-windows-sql-ahb.md#register-existing-sql-server-vm-with-sql-resource-provider).|
+|**Automatisera konfigurationen av distribueringen av en tillgänglighet med Azure-Snabbstartsmallar** |Nu är det möjligt att skapa Windows-redundanskluster, ansluta till SQL Server-datorer till den, skapa lyssnaren och konfigurera den interna belastningsutjämnaren med två Azure-Snabbstartsmallar. Mer information finns i [användning Azure-Snabbstartsmall för att konfigurera Always On-tillgänglighetsgrupp för SQL Server på en Azure VM](virtual-machines-windows-sql-availability-group-quickstart-template.md). | 
+| **Den automatiska SQL VM Resursproviderregistrering** | SQL Server-datorer distribueras efter det att den här månaden registreras automatiskt med den nya SQL Server-resursprovidern. SQL Server-datorer som distribuerats före den här månaden fortfarande behöver registreras manuellt. Mer information finns i [registrera befintliga SQL-VM med SQL VM-resursprovidern](virtual-machines-windows-sql-ahb.md#register-sql-server-vm-with-sql-resource-provider).|
 | &nbsp; | &nbsp; |
 
-### <a name="documentation-improvements"></a>Dokumentation om förbättringar
-
-| Dokumentation om förbättringar | Information |
-| --- | --- |
-|inga | |
-| | |
 
 ## <a name="november-2018"></a>November 2018
 
-### <a name="service-improvements"></a>Förbättringar av tjänsten
-
 | Förbättringar av tjänsten | Information |
 | --- | --- |
-| **Ny SQL-VM-resursprovider** |  En ny resource provider för SQL Server-datorer (Microsoft.SqlVirtualMachine) som ger bättre hantering av SQL Server-dator. Mer information om hur du registrerar din virtuella dator finns i [registrera befintliga SQL-VM med ny resursprovider](virtual-machines-windows-sql-ahb.md#register-existing-sql-server-vm-with-sql-resource-provider). |
+| **Ny SQL-VM-resursprovider** |  En ny resource provider för SQL Server-datorer (Microsoft.SqlVirtualMachine) som ger bättre hantering av SQL Server-dator. Mer information om hur du registrerar din virtuella dator finns i [registrera befintliga SQL-VM med ny resursprovider](virtual-machines-windows-sql-ahb.md#register-sql-server-vm-with-sql-resource-provider). |
 |**Växla licensieringsmodell** |Du kan växla mellan modellen betala per användning och bring-your-own-licens för din SQL-VM med Azure CLI eller Powershell. Mer information finns i avsnittet om att [ändra licensieringsmodellen för en virtuell SQL-dator](virtual-machines-windows-sql-ahb.md). | 
 | &nbsp; | &nbsp; |
 
-### <a name="documentation-improvements"></a>Dokumentation om förbättringar
-
-| Dokumentation om förbättringar | Information |
-| --- | --- |
-|inga | |
-| | |
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

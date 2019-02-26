@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 9166d5d552df4854a4d00c2211a273a06198877a
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: d7c923dd819f826d9d9aaf8d5b88355a9feb344f
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567493"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56823169"
 ---
 # <a name="creating-dynamic-blueprints-through-parameters"></a>Skapa dynamiska skisser genom parametrar
 
@@ -52,9 +52,9 @@ Ett parametervärde som definierats i definitionen av en skiss kallas en **Stati
 
 #### <a name="setting-static-parameters-in-the-portal"></a>Ställa in statisk parametrar i portalen
 
-1. Klicka på **Alla tjänster** och sök efter och välj **Princip** i den vänstra fönsterrutan. Klicka på **Skisser** på sidan **Princip**.
+1. Välj **alla tjänster** i den vänstra rutan. Sök efter och välj **skisser**.
 
-1. Välj **Skissdefinitioner** till vänster på sidan.
+1. Välj **skiss definitioner** från sidan till vänster.
 
 1. Klicka på en befintlig skissen och klicka sedan på **redigera skiss** eller klicka på **+ skapa skiss** och Fyll i informationen på den **grunderna** fliken.
 
@@ -169,9 +169,9 @@ Motsatsen till en statisk parameter är en **dynamisk parameter**. Den här para
 
 #### <a name="setting-dynamic-parameters-in-the-portal"></a>Ange dynamiska parametrar i portalen
 
-1. Klicka på **Alla tjänster** och sök efter och välj **Princip** i den vänstra fönsterrutan. Klicka på **Skisser** på sidan **Princip**.
+1. Välj **alla tjänster** i den vänstra rutan. Sök efter och välj **skisser**.
 
-1. Välj **Skissdefinitioner** till vänster på sidan.
+1. Välj **skiss definitioner** från sidan till vänster.
 
 1. Högerklicka på det som du vill tilldela. Välj **tilldela skissen** eller klicka på den modell som du vill tilldela och sedan klicka på den **tilldela skissen** knappen.
 

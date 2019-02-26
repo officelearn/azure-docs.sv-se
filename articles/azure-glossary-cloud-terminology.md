@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: monicar
-ms.openlocfilehash: 748a9c0c583d4e1af9626527a440b19900898b87
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 9a93786759941def4cf8677509b1b2565cac5090
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53600316"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56823866"
 ---
 # <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Ordlista för Microsoft Azure: En ordlista med termer i molnet på Azure-plattformen
 
@@ -39,7 +39,7 @@ Ett annat namn för [App Service-app](#app-service-app).
 ## <a name="app-service-app"></a>App Service-app
 Beräkningsresurserna som [Azure App Service](app-service/overview.md) tillhandahåller för hantering av en webbplatsen eller programmet, webb-API, eller [mobilappserverdel](app-service-mobile/app-service-mobile-value-prop.md). App Service-appar kallas även att *Apptjänster*, *webbappar*, *API apps*, och *mobilappar*.
 
-## <a name="availability-set"></a>Tillgänglighetsuppsättning
+## <a name="availability-set"></a>tillgänglighetsuppsättning
 En samling med virtuella datorer som hanteras tillsammans att tillhandahålla program redundans och tillförlitlighet. Användning av en tillgänglighetsuppsättning säkerställer att minst en virtuell dator under en planerad eller oplanerad underhållshändelse är tillgänglig.  
 Se [hantera tillgängligheten för Windows-datorer](virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) och [hantera tillgängligheten för virtuella Linux-datorer](virtual-machines/linux/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
@@ -60,7 +60,7 @@ Någon av de två [distributionsmodeller](resource-manager-deployment-model.md) 
 Samling av virtuella datorer i en tillgänglighetsuppsättning som eventuellt kan misslyckas på samma gång. Ett exempel är en grupp av datorer i ett rack som delar samma strömkälla och nätverksswitch. I Azure avgränsas automatiskt de virtuella datorerna i en tillgänglighetsuppsättning via flera feldomäner.  
 Se [hantera tillgängligheten för Windows-datorer](virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) eller [hantera tillgängligheten för virtuella Linux-datorer](virtual-machines/linux/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)  
 
-## <a name="geo"></a>GEO-replikering
+## <a name="geo"></a>geo
 En definierad gräns för dataplacering som vanligtvis innehåller två eller fler regioner. Gränserna kan vara inom eller utanför nationella kanter och påverkas av skatt förordning. Varje geo har minst en region. Exempel på geografiska områden är Asien/Stillahavsområdet och Japan. Kallas även *geografi*.  
 Se [Azure-regioner](best-practices-availability-paired-regions.md)
 
@@ -77,7 +77,7 @@ Se [navigera och välja Windows-avbildningar i Azure med PowerShell eller CLI](v
 Hur många resurser som kan skapas eller benchmark för prestanda som kan uppnås. Gränser är vanligtvis kopplade prenumerationer, tjänster och erbjudanden.  
 Se [Azure-prenumeration och tjänstbegränsningar, kvoter och begränsningar](azure-subscription-service-limits.md)
 
-## <a name="load-balancer"></a>Belastningsutjämnare
+## <a name="load-balancer"></a>lastbalanserare
 En resurs som distribuerar inkommande trafik mellan datorer i ett nätverk. I Azure distribuerar en belastningsutjämnare trafiken till virtuella datorer som har definierats i en belastningsutjämnare. En [belastningsutjämnare](load-balancer/load-balancer-overview.md) kan vara webbservergrupper på internet eller det kan vara intern.  
 
 ## <a name="mobile-app"></a>mobilapp
@@ -147,7 +147,7 @@ En resurs som implementerar beteenden eller funktioner som antingen underlättar
 Se [om virtuella datorer, tillägg och funktioner (Windows)](virtual-machines/windows/extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) eller [om virtuella datorer, tillägg och funktioner (Linux)](virtual-machines/linux/extensions-features.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## <a name="vnet"></a>Virtuellt nätverk
-Ett nätverk som tillhandahåller anslutningen mellan dina Azure-resurser som är isolerad från alla andra Azure-klienter. En [Azure VPN Gateway](vpn-gateway/vpn-gateway-about-vpngateways.md) kan du upprätta anslutningar mellan virtuella nätverk och [mellan ett virtuellt nätverk och ett lokalt nätverk](vpn-gateway/vpn-gateway-plan-design.md). Du kan helt styra IP-Adressblock, DNS-inställningar, säkerhetsprinciper och routningstabeller i ett virtuellt nätverk.  
+Ett nätverk som tillhandahåller anslutningen mellan dina Azure-resurser som är isolerad från alla andra Azure-klienter. En [Azure VPN Gateway](vpn-gateway/vpn-gateway-about-vpngateways.md) kan du upprätta anslutningar mellan virtuella nätverk och mellan ett virtuellt nätverk och ett lokalt nätverk. Du kan helt styra IP-Adressblock, DNS-inställningar, säkerhetsprinciper och routningstabeller i ett virtuellt nätverk.  
 Se [översikt över virtuella nätverk](virtual-network/virtual-networks-overview.md)  
 
 ## <a name="web-app"></a>Webbapp

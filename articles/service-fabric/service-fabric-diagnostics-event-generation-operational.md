@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/23/2018
-ms.author: dekapur
-ms.openlocfilehash: e4537c789bfae0fb485e818bf68e87de27b88720
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.date: 2/25/2019
+ms.author: srrengar
+ms.openlocfilehash: 51a334557ddfb57ceab318963e319fd046d3a703
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55102060"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56820050"
 ---
 # <a name="list-of-service-fabric-events"></a>Lista över Service Fabric-händelser 
 
@@ -40,7 +40,7 @@ Här är en lista över dessa Service Fabric-händelser som är ordnade efter en
 
 Mer information om klusteruppgradering finns [här](service-fabric-cluster-upgrade-windows-server.md).
 
-| EventId | Name | Kategori | Beskrivning |Källa (aktivitet) | Nivå | 
+| EventId | Namn | Kategori | Beskrivning |Källa (aktivitet) | Nivå | 
 | --- | --- | --- | --- | --- | --- | 
 | 29627 | ClusterUpgradeStarted | Uppgradera | En uppgradering av klustret har startats | CM | Information |
 | 29628 | ClusterUpgradeCompleted | Uppgradera | En uppgradering av klustret har slutförts | CM | Information | 
@@ -52,7 +52,7 @@ Mer information om klusteruppgradering finns [här](service-fabric-cluster-upgra
 
 **Livscykelhändelser för noden** 
 
-| EventId | Name | Kategori | Beskrivning |Källa (aktivitet) | Nivå |
+| EventId | Namn | Kategori | Beskrivning |Källa (aktivitet) | Nivå |
 | --- | --- | ---| --- | --- | --- | 
 | 18602 | NodeDeactivateCompleted | StateTransition | Inaktivering av en nod har slutförts | FM | Information | 
 | 18603 | NodeUp | StateTransition | Klustret har identifierat en nod har startats | FM | Information | 
@@ -69,7 +69,7 @@ Mer information om klusteruppgradering finns [här](service-fabric-cluster-upgra
 
 **Livscykelhändelser för program**
 
-| EventId | Name | Kategori | Beskrivning |Källa (aktivitet) | Nivå | 
+| EventId | Namn | Kategori | Beskrivning |Källa (aktivitet) | Nivå | 
 | --- | --- | --- | --- | --- | --- | 
 | 29620 | ApplicationCreated | LifeCycle | Ett nytt program har skapats | CM | Information | 
 | 29625 | ApplicationDeleted | LifeCycle | Ett befintligt program har tagits bort | CM | Information | 
@@ -79,7 +79,7 @@ Mer information om klusteruppgradering finns [här](service-fabric-cluster-upgra
 
 Mer information om programuppgraderingar finns [här](service-fabric-application-upgrade.md).
 
-| EventId | Name | Kategori | Beskrivning |Källa (aktivitet) | Nivå | 
+| EventId | Namn | Kategori | Beskrivning |Källa (aktivitet) | Nivå | 
 | --- | --- | ---| --- | --- | --- | 
 | 29621 | ApplicationUpgradeStarted | Uppgradera | En uppgradering av programmet har startats | CM | Information | 
 | 29622 | ApplicationUpgradeCompleted | Uppgradera | En uppgradering av programmet har slutförts | CM | Information | 
@@ -91,7 +91,7 @@ Mer information om programuppgraderingar finns [här](service-fabric-application
 
 **Livscykelhändelser för tjänsten**
 
-| EventId | Name | Kategori | Beskrivning |Källa (aktivitet) | Nivå | 
+| EventId | Namn | Kategori | Beskrivning |Källa (aktivitet) | Nivå | 
 | --- | --- | ---| --- | --- | --- |
 | 18657 | ServiceCreated | LifeCycle | En ny tjänst skapades | FM | Information | 
 | 18658 | ServiceDeleted | LifeCycle | En befintlig tjänst har tagits bort | FM | Information | 
@@ -100,7 +100,7 @@ Mer information om programuppgraderingar finns [här](service-fabric-application
 
 **Partition flytta händelser**
 
-| EventId | Name | Kategori | Beskrivning |Källa (aktivitet) | Nivå | 
+| EventId | Namn | Kategori | Beskrivning |Källa (aktivitet) | Nivå | 
 | --- | --- | ---| --- | --- | --- |
 | 18940 | PartitionReconfigured | LifeCycle | En omkonfiguration av partitionen har slutförts | RA | Information | 
 
@@ -108,7 +108,7 @@ Mer information om programuppgraderingar finns [här](service-fabric-application
 
 **Livscykelhändelser för behållare** 
 
-| EventId | Name | Beskrivning |Källa (aktivitet) | Nivå | Version |
+| EventId | Namn | Beskrivning |Källa (aktivitet) | Nivå | Version |
 | --- | --- | ---| --- | --- | --- |
 | 23074 | ContainerActivated | En behållare har startats | Värd | Information | 1 |
 | 23075 | ContainerDeactivated | En behållare har stoppats | Värd | Information | 1 |
@@ -124,21 +124,21 @@ Den [Hälsomodellen för Service Fabric](service-fabric-health-introduction.md) 
 
 **Kluster rapporten hälsohändelser**
 
-| EventId | Name | Beskrivning |Källa (aktivitet) | Nivå | Version |
+| EventId | Namn | Beskrivning |Källa (aktivitet) | Nivå | Version |
 | --- | --- | --- | --- | --- | --- |
 | 54428 | ClusterNewHealthReport | Ett nytt kluster hälsorapport är tillgänglig | HM | Information | 1 |
 | 54437 | ClusterHealthReportExpired | Ett befintligt kluster hälsorapport har upphört att gälla | HM | Information | 1 |
 
 **Noden hälsohändelser i rapporten**
 
-| EventId | Name | Beskrivning |Källa (aktivitet) | Nivå | Version |
+| EventId | Namn | Beskrivning |Källa (aktivitet) | Nivå | Version |
 | --- | --- | ---| --- | --- | --- |
 | 54423 | NodeNewHealthReport | En ny nod hälsorapport är tillgänglig | HM | Information | 1 |
 | 54432 | NodeHealthReportExpired | En befintlig nod hälsorapport har upphört att gälla | HM | Information | 1 |
 
 **Programhändelser hälsotillstånd rapport**
 
-| EventId | Name | Beskrivning |Källa (aktivitet) | Nivå | Version |
+| EventId | Namn | Beskrivning |Källa (aktivitet) | Nivå | Version |
 | --- | --- | ---| --- | --- | --- |
 | 54425 | ApplicationNewHealthReport | En ny application health rapport skapades. Detta är för odistribuerade program. | HM | Information | 1 |
 | 54426 | DeployedApplicationNewHealthReport | Ett nytt distribuerat program hälsorapport skapades | HM | Information | 1 |
@@ -149,21 +149,21 @@ Den [Hälsomodellen för Service Fabric](service-fabric-health-introduction.md) 
 
 **Rapporten hälsotillståndshändelser för tjänsten**
 
-| EventId | Name | Beskrivning |Källa (aktivitet) | Nivå | Version |
+| EventId | Namn | Beskrivning |Källa (aktivitet) | Nivå | Version |
 | --- | --- | ---| --- | --- | --- |
 | 54424 | ServiceNewHealthReport | En ny service health-rapporten har skapats | HM | Information | 1 |
 | 54433 | ServiceHealthReportExpired | En befintlig service health rapport har upphört att gälla | HM | Information | 1 |
 
 **Rapporten partition health-händelser**
 
-| EventId | Name | Beskrivning |Källa (aktivitet) | Nivå | Version |
+| EventId | Namn | Beskrivning |Källa (aktivitet) | Nivå | Version |
 | --- | --- | ---| --- | --- | --- |
 | 54422 | PartitionNewHealthReport | En ny partition health-rapporten har skapats | HM | Information | 1 |
 | 54431 | PartitionHealthReportExpired | En befintlig partition health rapport har upphört att gälla | HM | Information | 1 |
 
 **Repliken hälsohändelser i rapporten**
 
-| EventId | Name | Beskrivning |Källa (aktivitet) | Nivå | Version |
+| EventId | Namn | Beskrivning |Källa (aktivitet) | Nivå | Version |
 | --- | --- | ---| --- | --- | --- |
 | 54429 | StatefulReplicaNewHealthReport | En hälsorapport för tillståndskänsliga repliken har skapats | HM | Information | 1 |
 | 54430 | StatelessInstanceNewHealthReport | En ny tillståndslösa instans hälsorapport skapades | HM | Information | 1 |
@@ -174,28 +174,28 @@ Den [Hälsomodellen för Service Fabric](service-fabric-health-introduction.md) 
 
 **Chaos Sessionshändelser**
 
-| EventId | Name | Beskrivning |Källa (aktivitet) | Nivå | Version |
+| EventId | Namn | Beskrivning |Källa (aktivitet) | Nivå | Version |
 | --- | --- | ---| --- | --- | --- |
 | 50021 | ChaosStarted | En Chaos testning sessionen har startats | Möjligheten att testa | Information | 1 |
 | 50023 | ChaosStopped | En Chaos testning session har stoppats | Möjligheten att testa | Information | 1 |
 
 **Chaos noden händelser**
 
-| EventId | Name | Beskrivning |Källa (aktivitet) | Nivå | Version |
+| EventId | Namn | Beskrivning |Källa (aktivitet) | Nivå | Version |
 | --- | --- | ---| --- | --- | --- |
 | 50033 | ChaosNodeRestartScheduled | En nod har schemalagts för att starta om som en del av en Chaos testning session | Möjligheten att testa | Information | 1 |
 | 50087 | ChaosNodeRestartCompleted | En nod har slutförts startar om som en del av en Chaos testning session | Möjligheten att testa | Information | 1 |
 
 **Chaos programhändelser**
 
-| EventId | Name | Beskrivning |Källa (aktivitet) | Nivå | Version |
+| EventId | Namn | Beskrivning |Källa (aktivitet) | Nivå | Version |
 | --- | --- | ---| --- | --- | --- |
 | 50053 | ChaosCodePackageRestartScheduled | En omstart av kod paketet har schemalagts under en Chaos testning session | Möjligheten att testa | Information | 1 |
 | 50101 | ChaosCodePackageRestartCompleted | En omstart av kod paketet har slutförts under en Chaos testning session | Möjligheten att testa | Information | 1 |
 
 **Chaos partition händelser**
 
-| EventId | Name | Beskrivning |Källa (aktivitet) | Nivå | Version |
+| EventId | Namn | Beskrivning |Källa (aktivitet) | Nivå | Version |
 | --- | --- | ---| --- | --- | --- |
 | 50069 | ChaosPartitionPrimaryMoveScheduled | En primär partition har schemalagts för att flytta som en del av en Chaos testning session | Möjligheten att testa | Information | 1 |
 | 50077 | ChaosPartitionSecondaryMoveScheduled | En sekundär partition har schemalagts för att flytta som en del av en Chaos testning session | Möjligheten att testa | Information | 1 |
@@ -203,7 +203,7 @@ Den [Hälsomodellen för Service Fabric](service-fabric-health-introduction.md) 
 
 **Chaos replica-händelser**
 
-| EventId | Name | Beskrivning |Källa (aktivitet) | Nivå | Version |
+| EventId | Namn | Beskrivning |Källa (aktivitet) | Nivå | Version |
 | --- | --- | ---| --- | --- | --- |
 | 50047 | ChaosReplicaRestartScheduled | En omstart av repliken har schemalagts som en del av en Chaos testning session | Möjligheten att testa | Information | 1 |
 | 50051 | ChaosReplicaRemovalScheduled | En replik borttagning har schemalagts som en del av en Chaos testning session | Möjligheten att testa | Information | 1 |
@@ -213,7 +213,7 @@ Den [Hälsomodellen för Service Fabric](service-fabric-health-introduction.md) 
 
 **Korrelationshändelser**
 
-| EventId | Name | Beskrivning |Källa (aktivitet) | Nivå | Version |
+| EventId | Namn | Beskrivning |Källa (aktivitet) | Nivå | Version |
 | --- | --- | ---| --- | --- | --- |
 | 65011 | CorrelationOperational | En korrelation har identifierats | Möjligheten att testa | Information | 1 |
 
@@ -221,7 +221,7 @@ Den [Hälsomodellen för Service Fabric](service-fabric-health-introduction.md) 
 
 Här är en omfattande lista över händelser som tillhandahålls av Service Fabric före version 6.2.
 
-| EventId | Name | Källa (aktivitet) | Nivå |
+| EventId | Namn | Källa (aktivitet) | Nivå |
 | --- | --- | --- | --- |
 | 25620 | NodeOpening | FabricNode | Information |
 | 25621 | NodeOpenedSuccess | FabricNode | Information |

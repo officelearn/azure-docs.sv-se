@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: efcd2e279d1bf387bc11c238a0592ecee6545cc4
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 7a3abd854ec5e492407d1fbdc8d170f2a27ba1bc
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54053627"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56816733"
 ---
 # <a name="event-analysis-and-visualization-with-application-insights"></a>Händelseanalys och visualisering med Application Insights
 
@@ -48,50 +48,6 @@ Application Insights har en avsedda vy för att fråga mot alla data som kommer 
 ![Information om Application Insights-begäran](media/service-fabric-diagnostics-event-analysis-appinsights/ai-metrics-explorer.png)
 
 Om du vill fortsätta för att utforska funktionerna i Application Insights-portalen, gå till den [Programinsikter portaldokumentationen](../azure-monitor/app/app-insights-dashboards.md).
-
-### <a name="configuring-application-insights-with-wad"></a>Konfigurera Application Insights med WAD
-
->[!NOTE]
->Detta gäller endast Windows-kluster för tillfället.
-
-Det finns två huvudsakliga sätt att skicka data från WAD till Azure Application Insights som uppnås genom att lägga till en Application Insights-sink WAD-konfigurationen som beskrivs i [i den här artikeln](../azure-monitor/platform/diagnostics-extension-to-application-insights.md).
-
-#### <a name="add-an-application-insights-instrumentation-key-when-creating-a-cluster-in-azure-portal"></a>Lägg till en Application Insights-Instrumenteringsnyckel när du skapar ett kluster i Azure-portalen
-
-![Att lägga till en AIKey](media/service-fabric-diagnostics-event-analysis-appinsights/azure-enable-diagnostics.png)
-
-När du skapar ett kluster, om diagnostik stängs ”On”, visas ett valfritt fält att ange en Application Insights-instrumenteringsnyckel. Om du klistrar in din Application Insights-nyckel här konfigureras automatiskt Application Insights-mottagare för dig i Resource Manager-mallen som används för att distribuera klustret.
-
-#### <a name="add-the-application-insights-sink-to-the-resource-manager-template"></a>Lägg till mottagare för Application Insights i Resource Manager-mallen
-
-Lägg till en ”mottagare” genom att inkludera följande två ändringar i den ”WadCfg” av Resource Manager-mallen:
-
-1. Lägg till mottagare konfiguration direkt efter att du deklarerar av den `DiagnosticMonitorConfiguration` har slutförts:
-
-    ```json
-    "SinksConfig": {
-        "Sink": [
-            {
-                "name": "applicationInsights",
-                "ApplicationInsights": "***ADD INSTRUMENTATION KEY HERE***"
-            }
-        ]
-    }
-
-    ```
-
-2. Inkludera mottagare i den `DiagnosticMonitorConfiguration` genom att lägga till följande rad i den `DiagnosticMonitorConfiguration` av den `WadCfg` (precis före den `EtwProviders` deklareras):
-
-    ```json
-    "sinks": "applicationInsights"
-    ```
-
-Både de föregående kodfragment, användes namnet ”applicationInsights” för att beskriva mottagaren. Detta är inte ett krav och som namnet på mottagaren ingår i ”mottagare”, kan du ange namn till valfri sträng.
-
-För närvarande loggar från klustret visas som **spårningar** i Application Insights Loggvisaren. Eftersom de flesta av spårningen av plattformen är på nivån ”information” kan du överväga att ändra konfigurationen för mottagare för att skicka bara loggfiler av typen ”kritiskt” eller ”Error”. Detta kan göras genom att lägga till ”kanaler” till dina mottagare som visas i [i den här artikeln](../azure-monitor/platform/diagnostics-extension-to-application-insights.md).
-
->[!NOTE]
->Om du använder en felaktig Application Insights-nyckel i portalen eller i Resource Manager-mallen, kommer du behöva manuellt ändra nyckeln och uppdatera klustret / distribuera om den.
 
 ### <a name="configuring-application-insights-with-eventflow"></a>Konfigurera Application Insights med EventFlow
 

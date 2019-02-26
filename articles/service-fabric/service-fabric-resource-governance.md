@@ -3,7 +3,7 @@ title: Azure Service Fabric-resursstyrning för behållare och tjänster | Micro
 description: Azure Service Fabric kan du ange resursgränser för tjänster som körs inom eller utanför behållare.
 services: service-fabric
 documentationcenter: .net
-author: TylerMSFT
+author: aljo-microsoft
 manager: timlt
 editor: ''
 ms.assetid: ab49c4b9-74a8-4907-b75b-8d2ee84c6d90
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
-ms.author: twhitney, subramar
-ms.openlocfilehash: 66f651f921773f638b4493be70319d5d80b122db
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.author: aljo, subramar
+ms.openlocfilehash: 1a9d9e0b6a82bd4bb3312df5288c04d0e52af3a6
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52956848"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56805680"
 ---
 # <a name="resource-governance"></a>Resursstyrning
 
@@ -32,9 +32,9 @@ När du kör flera tjänster på samma nod eller i klustret, är det möjligt at
 
 Resursstyrning stöds i Service Fabric i enlighet med den [tjänstpaket](service-fabric-application-model.md). De resurser som har tilldelats tjänstpaketet kan delas mellan kodpaket ytterligare. Resursbegränsningar som anges även innebära reserverade resurser. Service Fabric har stöd för att ange processor och minne per servicepaket, med två inbyggda [mått](service-fabric-cluster-resource-manager-metrics.md):
 
-* *CPU* (Måttnamn `servicefabric:/_CpuCores`): en logisk kärna som är tillgängligt på värddatorn. Alla kärnor i alla noder viktas samma.
+* *CPU* (Måttnamn `servicefabric:/_CpuCores`): En logisk kärna som är tillgängligt på värddatorn. Alla kärnor i alla noder viktas samma.
 
-* *Minne* (Måttnamn `servicefabric:/_MemoryInMB`): minne uttrycks i megabyte och det mappas till fysiskt minne som är tillgänglig på datorn.
+* *Minne* (Måttnamn `servicefabric:/_MemoryInMB`): Minne uttrycks i megabyte och det mappas till fysiskt minne som är tillgänglig på datorn.
 
 För de här två måtten [Cluster Resource Manager](service-fabric-cluster-resource-manager-cluster-description.md) spårar total klusterkapacitet, belastningen på varje nod i klustret och de återstående resurserna i klustret. De här två måtten är likvärdiga med andra användare eller anpassat mått. Alla befintliga funktioner som kan användas med dem:
 
@@ -56,9 +56,9 @@ Summan av gränser är nu lika med kapaciteten för noden. En process och en beh
 
 Men finns det två situationer där andra processer kan tävla om CPU. I sådana fall är uppstå en process och en behållare från vårt exempel problem med resursfördelningen:
 
-* *Blanda styrt och ej styrda tjänster och behållare*: om en användare skapar en tjänst utan någon resurs-styrning som angetts, av runtime ser det som förbrukar inga resurser och kan placera den på noden i vårt exempel. I det här fallet använder den här nya processen effektivt vissa CPU på bekostnad av tjänster som redan körs på noden. Det finns två lösning på problemet. Antingen inte blanda styrt och ej styrda tjänster i samma kluster eller använda [placeringsbegränsningar](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md) så att dessa två typer av tjänster inte hamnar på samma uppsättning noder.
+* *Blanda styrt och ej styrda tjänster och behållare*: Om en användare skapar en tjänst utan någon resurs-styrning som angetts, körningen ser det som förbrukar inga resurser och kan placera den på noden i vårt exempel. I det här fallet använder den här nya processen effektivt vissa CPU på bekostnad av tjänster som redan körs på noden. Det finns två lösning på problemet. Antingen inte blanda styrt och ej styrda tjänster i samma kluster eller använda [placeringsbegränsningar](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md) så att dessa två typer av tjänster inte hamnar på samma uppsättning noder.
 
-* *När en annan process har startats på noden utanför Service Fabric (till exempel en OS-service)*: I det här fallet process utanför Service Fabric också contends för processor med befintliga tjänster. Lösning på problemet är att ställa in nodkapaciteterna korrekt till kontot för OS-kostnader, som du ser i nästa avsnitt.
+* *När en annan process har startats på noden utanför Service Fabric (till exempel en OS-service)*: I så fall kan contends processen utanför Service Fabric också för processor med befintliga tjänster. Lösning på problemet är att ställa in nodkapaciteterna korrekt till kontot för OS-kostnader, som du ser i nästa avsnitt.
 
 ## <a name="cluster-setup-for-enabling-resource-governance"></a>Konfiguration för att aktivera resursstyrning
 
@@ -190,12 +190,12 @@ I det här exemplet ställs Standardparametervärden för produktionsmiljön, d�
 
 Förutom CPU och minne är det möjligt att ange andra resursbegränsningar för behållare. Dessa gränser anges på nivån code-package och tillämpas när behållaren har startats. Till skillnad från med CPU och minne, Cluster Resource Manager är inte medveten om dessa resurser, och inte göra några kapacitet kontroller eller belastningsutjämning för dem.
 
-* *MemorySwapInMB*: mängden swap-minne som kan använda för en behållare.
-* *MemoryReservationInMB*: mjuk gränsen för minne styrning som tillämpas endast när minne konkurrens har upptäckts på noden.
-* *CpuPercent*: procentandelen av CPU som kan använda för behållaren. Den här parametern ignoreras effektivt om CPU-gränser anges för tjänstpaketet.
-* *MaximumIOps*: den högsta IOPS som kan använda för en behållare (läsning och skrivning).
-* *MaximumIOBytesps*: den högsta i/o (byte per sekund) som kan använda för en behållare (läsning och skrivning).
-* *BlockIOWeight*: block i/o vikt för i förhållande till andra behållare.
+* *MemorySwapInMB*: Mängden swap-minne som kan använda för en behållare.
+* *MemoryReservationInMB*: Mjuk gränsen för minne styrning som tillämpas endast när minne konkurrens har upptäckts på noden.
+* *CpuPercent*: Procentandelen av Processorn som kan använda för behållaren. Den här parametern ignoreras effektivt om CPU-gränser anges för tjänstpaketet.
+* *MaximumIOps*: Den högsta IOPS som kan använda för en behållare (läsning och skrivning).
+* *MaximumIOBytesps*: Den maximala i/o (byte per sekund) som kan använda för en behållare (läsning och skrivning).
+* *BlockIOWeight*: Blockera i/o-vikt för i förhållande till andra behållare.
 
 Dessa resurser kan kombineras med CPU och minne. Här är ett exempel på hur du kan ange ytterligare resurser för behållare:
 

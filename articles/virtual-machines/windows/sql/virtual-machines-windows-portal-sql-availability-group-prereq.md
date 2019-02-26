@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/29/2018
 ms.author: mikeray
-ms.openlocfilehash: 7aebdace6b6200f400d0c642c8cbdc6d31544752
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 17eb51044aae7f1f1536e965eea1d1cdb0a1a42b
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56733035"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56817447"
 ---
 # <a name="complete-the-prerequisites-for-creating-always-on-availability-groups-on-azure-virtual-machines"></a>Slutför stegen för att skapa Always On-Tillgänglighetsgrupper på virtuella Azure-datorer
 
@@ -464,7 +464,7 @@ Om du vill lägga till funktioner för redundanskluster, gör du följande steg 
 Upprepa stegen på den andra SQL Server-VM.
 
   >[!NOTE]
-  > Det här steget, tillsammans med faktiskt ansluter till SQL Server-datorer i failover-kluster kan nu automatiseras med en Azure-Snabbstartsmall. Mer information finns i [skapa WSFC, lyssnaren och och konfigurera ILB för en Always On-tillgänglighetsgrupp på en SQL Server-dator med Azure-snabbstartsmall](virtual-machines-windows-sql-availability-group-quickstart-template.md).
+  > Det här steget, tillsammans med faktiskt ansluter till SQL Server-datorer i failover-kluster kan nu automatiseras med [Azure SQL-dator med CLI](virtual-machines-windows-sql-availability-group-cli.md) och [Azure-Snabbstartsmallar](virtual-machines-windows-sql-availability-group-quickstart-template.md).
 
 
 ## <a name="a-nameendpoint-firewall-configure-the-firewall-on-each-sql-server-vm"></a><a name="endpoint-firewall"> Konfigurera brandväggen på varje SQL Server VM

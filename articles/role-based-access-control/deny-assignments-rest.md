@@ -15,16 +15,16 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 29b8e0953109238b724cc8df9f456706f71a041e
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: ba1c60d45fb53be158d9e302748366ddf417f23e
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56341631"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56805485"
 ---
 # <a name="list-deny-assignments-for-azure-resources-using-the-rest-api"></a>Lista neka tilldelningar för Azure-resurser med hjälp av REST-API
 
-För närvarande är tilldelningsnekanden **skrivskyddade** och kan bara ställas in av Azure. Även om det går inte att skapa egna tilldelningsnekanden kan du lista tilldelningsnekanden eftersom de kan påverka din gällande behörigheter. Den här artikeln beskrivs hur du kan visa neka tilldelningar med RBAC och REST-API.
+För närvarande kan neka-tilldelningar **skrivskyddad** och kan bara ställas in av Microsoft. Även om det går inte att skapa egna tilldelningsnekanden kan du lista tilldelningsnekanden eftersom de kan påverka din gällande behörigheter. Den här artikeln beskrivs hur du kan visa neka tilldelningar med RBAC och REST-API.
 
 ## <a name="list-a-single-deny-assignment"></a>Lista över en enda neka tilldelning
 

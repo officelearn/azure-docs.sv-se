@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/10/2019
-ms.openlocfilehash: 407bb2e39e92390576da9c23868f5af9c444bed4
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.date: 02/25/2019
+ms.openlocfilehash: fab5d69239c420c394645cef632d119848d0f4c4
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56341547"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56818841"
 ---
 # <a name="delete-activity-in-azure-data-factory"></a>Ta bort aktivitet i Azure Data Factory
 
@@ -37,21 +37,20 @@ Här följer några rekommendationer för att använda aktiviteten Ta bort:
 
 -   Kontrollera att du inte tar bort filer som skrivs på samma gång. 
 
--   Om du vill ta bort filer eller mappen från ett lokalt system, kontrollera att du använder en lokal integration runtime med en version som är större än 3.13.
+-   Om du vill ta bort filer eller mappen från ett lokalt system, kontrollera att du använder en lokal integration runtime med en version som är större än 3,14.
 
 ## <a name="supported-data-stores"></a>Lagrar data som stöds
 
-### <a name="azure-data-stores"></a>Azure datalager
-
 -   [Azure Blob Storage](connector-azure-blob-storage.md)
 -   [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md)
--   [Azure Data Lake Storage Gen2 (förhandsversion)](connector-azure-data-lake-storage.md)
+-   [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md)
 
 ### <a name="file-system-data-stores"></a>Filen datalager för system
 
 -   [Filsystem](connector-file-system.md)
 -   [FTP](connector-ftp.md)
--   [HDFS](connector-hdfs.md)
+-   [SFTP](connector-sftp.md)
+-   [Amazon S3](connector-amazon-simple-storage-service.md)
 
 ## <a name="syntax"></a>Syntax
 
@@ -61,7 +60,7 @@ Här följer några rekommendationer för att använda aktiviteten Ta bort:
     "type": "Delete",
     "typeProperties": {
         "dataset": {
-            "referenceName": "<dataset name to be deleted>",
+            "referenceName": "<dataset name>",
             "type": "DatasetReference"
         },
         "recursive": true/false,
@@ -87,7 +86,7 @@ Här följer några rekommendationer för att använda aktiviteten Ta bort:
 | maxConcurrentConnections | Antal anslutningar för att ansluta till storage store samtidigt för att ta bort mappen eller filen.   |  Nej. Standardvärdet är `1`. |
 | EnableLogging | Anger om du behöver registrera mapp eller fil namnen som har tagits bort. Om sant, måste du ange ytterligare ett lagringskonto att spara loggfil, så att du kan spåra funktioner för aktiviteten Ta bort genom att läsa loggfilen. | Nej |
 | logStorageSettings | Gäller endast när enablelogging = true.<br/><br/>En grupp med lagringsegenskaper som kan vara angetts där du vill spara loggfilen som innehåller mappen eller filen namnen som har tagits bort av aktiviteten Ta bort. | Nej |
-| linkedServiceName | Gäller endast när enablelogging = true.<br/><br/>Den länkade tjänsten av [Azure Storage](connector-azure-blob-storage.md#linked-service-properties) eller [Azure Data Lake Store](connector-azure-data-lake-store.md#linked-service-properties) att lagra den loggfil som innehåller mappen eller filen namnen som har tagits bort av aktiviteten Ta bort. | Nej |
+| linkedServiceName | Gäller endast när enablelogging = true.<br/><br/>Den länkade tjänsten av [Azure Storage](connector-azure-blob-storage.md#linked-service-properties), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md#linked-service-properties), eller [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties) för att lagra filen som innehåller mappen eller filnamnen som har tagits bort av aktiviteten Ta bort. | Nej |
 | sökväg | Gäller endast när enablelogging = true.<br/><br/>Sökvägen för att spara loggfilen i ditt lagringskonto. Om du inte anger en sökväg, skapar tjänsten en behållare. | Nej |
 
 ## <a name="monitoring"></a>Övervakning
@@ -100,13 +99,15 @@ Det finns två platser där du kan se och övervaka resultatet av aktiviteten Ta
 
 ```json
 { 
-  "isWildcardUsed": false, 
-  "wildcard": null,
-  "type": "AzureBlobStorage",
+  "datasetName": "AmazonS3",
+  "type": "AmazonS3Object",
+  "prefix": "test",
+  "bucketName": "adf",
   "recursive": true,
-  "maxConcurrentConnections": 10,
-  "filesDeleted": 1,
-  "logPath": "https://sample.blob.core.windows.net/mycontainer/5c698705-a6e2-40bf-911e-e0a927de3f07/5c698705-a6e2-40bf-911e-e0a927de3f07.json",
+  "isWildcardUsed": false,
+  "maxConcurrentConnections": 2,  
+  "filesDeleted": 4,
+  "logPath": "https://sample.blob.core.windows.net/mycontainer/5c698705-a6e2-40bf-911e-e0a927de3f07",
   "effectiveIntegrationRuntime": "MyAzureIR (West Central US)",
   "executionDuration": 650
 }
@@ -114,22 +115,12 @@ Det finns två platser där du kan se och övervaka resultatet av aktiviteten Ta
 
 ### <a name="sample-log-file-of-the-delete-activity"></a>Exempel på loggfil för aktiviteten Ta bort
 
-```json
-{
-  "customerInput": {
-    "type": "AzureBlob",
-    "fileName": "",
-    "folderPath": "folder/filename_to_be_deleted",
-    "recursive": false,
-    "enableFileFilter": false
-  },
-  "deletedFileList": [
-    "folder/filename_to_be_deleted"
-  ],
-  "deletedFolderList": null,
-  "error":"the reason why files are failed to be deleted"
-}
-```
+| Namn | Kategori | Status | Fel |
+|:--- |:--- |:--- |:--- |
+| test1/yyy.json | Fil | Borttagen |  |
+| test2/hello789.txt | Fil | Borttagen |  |
+| test2/test3/hello000.txt | Fil | Borttagen |  |
+| test2/test3/zzz.json | Fil | Borttagen |  |
 
 ## <a name="examples-of-using-the-delete-activity"></a>Exempel på användning av aktiviteten Ta bort
 
@@ -332,7 +323,7 @@ Du kan skapa en pipeline för att rensa upp de gamla eller har upphört att gäl
 
 ### <a name="move-files-by-chaining-the-copy-activity-and-the-delete-activity"></a>Flytta filer med länkning kopieringsaktiviteten och ta bort aktivitet
 
-Du kan flytta en fil med en Kopieringsaktivitet för att kopiera en fil och sedan en Delete-aktivitet för att ta bort en fil i en pipeline.  Om du vill flytta flera filer kan du använda GetMetadata-aktiviteten + filteraktivitet + Foreach-aktiviteten + kopieringsaktiviteten + ta bort aktivitet som i följande exempel:
+Du kan flytta en fil med en Kopieringsaktivitet som kopierar en fil och sedan en delete-aktivitet för att ta bort en fil i en pipeline.  Om du vill flytta flera filer kan du använda GetMetadata-aktiviteten + filteraktivitet + Foreach-aktiviteten + kopieringsaktiviteten + ta bort aktivitet som i följande exempel:
 
 > [!NOTE]
 > Om du vill flytta hela mappen genom att definiera en datauppsättning som innehåller endast en mappsökväg och sedan använda en Kopieringsaktivitet och en Delete-aktivitet för att referera till samma datamängd som representerar en mapp, måste du vara mycket försiktig. Det beror på att du måste se till att det inte nya filer som inkommer till mappen mellan kopiering av åtgärden och ta bort åtgärden.  Om det finns nya filer som anländer till mappen för tillfället när Kopieringsaktivitet är klar med kopieringsjobbet men har inte tagits stared aktiviteten Ta bort, är det möjligt att aktiviteten Ta bort raderas den nya dessa data anländer filen som inte har kopierats till destinati på ännu genom att ta bort hela mappen. 
@@ -575,9 +566,6 @@ Datauppsättning för datamålet som används av Kopieringsaktivitet.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om hur du kopierar filer i Azure Data Factory.
-
--   [Kopiera aktivitet i Azure Data Factory](copy-activity-overview.md)
+Läs mer om hur du flyttar filerna i Azure Data Factory.
 
 -   [Kopiera Data-verktyg i Azure Data Factory](copy-data-tool.md)
-- 

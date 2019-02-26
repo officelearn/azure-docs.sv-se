@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/11/2018
 ms.author: mikeray
-ms.openlocfilehash: 62b0f7adf0eb1dd3e3fd7493096c2261a1c1076d
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 778984d4d34d3b63d92378781d377fee557c7148
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56328560"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56821925"
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>Konfigurera SQL serverinstansen för Failover-kluster på Azure Virtual Machines
 
@@ -79,7 +79,7 @@ En viktig skillnad är på en virtuell Azure IaaS-dator gästredundanskluster, r
 Dessutom bör du ha en förståelse av följande tekniker:
 
 - [Hyperkonvergerad lösning med Lagringsdirigering i Windows Server 2016](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct)
-- [Azure-resursgrupper](../../../azure-resource-manager/resource-group-portal.md)
+- [Azure-resursgrupper](../../../azure-resource-manager/manage-resource-groups-portal.md)
 
 > [!IMPORTANT]
 > För närvarande den [SQL Server IaaS Agent-tillägget](virtual-machines-windows-sql-server-agent-extension.md) stöds inte för FCI för SQL Server på Azure. Vi rekommenderar att du avinstallerar tillägget från virtuella datorer som deltar i Redundansklusterinstanser. Det här tillägget har stöd för funktioner, till exempel automatisk säkerhetskopiering och uppdatering och vissa portalen funktioner för SQL. Dessa funktioner fungerar inte för virtuella SQL-datorer när agenten har avinstallerats.

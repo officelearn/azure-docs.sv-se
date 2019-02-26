@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/19/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: c3b595e9c4d4b98814d1b68adede97204bf3eb96
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: ddc055be45eae923be31d7d11621c9427660bf74
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54422736"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56818314"
 ---
 # <a name="integrate-system-center-configuration-manager-with-update-management"></a>Integrera System Center Configuration Manager med uppdateringshantering
 
@@ -26,7 +26,7 @@ Du kan rapportera och uppdatera hanterade Windows-servrar genom att skapa och f�
 
 * Du måste ha den [uppdateringshanteringslösningen](automation-update-management.md) lagts till i ditt Automation-konto.
 * Windows-servrar som för närvarande hanteras av System Center Configuration Manager-miljön måste också rapportera till arbetsytan Log Analytics som även har lösningen för uppdateringshantering aktiverad.
-* Den här funktionen är aktiverad i System Center Configuration Manager current branch-versionen 1606 och högre. Om du vill integrera webbplatsen för central administration av Configuration Manager eller en fristående primär webbplats med Log Analytics och importera samlingar läser du [Anslut Konfigurationshanteraren till Log Analytics](../azure-monitor/platform/collect-sccm.md).  
+* Den här funktionen är aktiverad i System Center Configuration Manager current branch-versionen 1606 och högre. Om du vill integrera den centrala administrationswebbplatsen för Configuration Manager eller en fristående primär plats med Azure Monitor-loggar och importera samlingar, granska [Anslut Konfigurationshanteraren till Azure Monitor loggar](../azure-monitor/platform/collect-sccm.md).  
 * Windows-agenter måste antingen konfigureras för att kommunicera med en WSUS-server (Windows Server Update Services) eller ha åtkomst till Microsoft Update om de inte får säkerhetsuppdateringar från Configuration Manager.   
 
 Hur du hanterar klienter som finns i Azure IaaS med den befintliga Configuration Manager-miljön beror främst på anslutningen mellan dina Azure-datacenter och din infrastruktur. Den här anslutningen påverkar alla ändringar du kan behöva göra i Configuration Manager-infrastrukturen och relaterade kostnader för att stödja de nödvändiga ändringarna. För att förstå vilka överväganden för planering du behöver utvärdera innan du fortsätter kan du läsa [vanliga frågor och svar om Configuration Manager på Azure](/sccm/core/understand/configuration-manager-on-azure#networking).

@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 01/10/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 4e5c64dc43be10eead1da35ec2337aa1f83f2f91
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: a7d290b9270d5d548a2e2b36cd73588639691b6c
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54472134"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56819113"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Runbook-körning i Azure Automation
 
@@ -138,7 +138,7 @@ Följande tabell beskriver de olika statuslägen som är möjliga för ett jobb.
 
 ## <a name="viewing-job-status-from-the-azure-portal"></a>Visa jobbstatus från Azure portal
 
-Du kan visa en sammanfattande status för alla runbookjobb eller visa detaljer om en specifik runbook-jobb i Azure-portalen. Du kan också konfigurera integrering med Log Analytics-arbetsytan och vidarebefordra runbook jobbströmmar status och jobb. Mer information om hur du integrerar med Log Analytics finns i [vidarebefordrar jobbstatus och jobbströmmar från Automation till Log Analytics](automation-manage-send-joblogs-log-analytics.md).
+Du kan visa en sammanfattande status för alla runbookjobb eller visa detaljer om en specifik runbook-jobb i Azure-portalen. Du kan också konfigurera integrering med Log Analytics-arbetsytan och vidarebefordra runbook jobbströmmar status och jobb. Mer information om hur du integrerar med Azure Monitor-loggar finns i [vidarebefordrar jobbstatus och jobbströmmar från Automation till Azure Monitor-loggar](automation-manage-send-joblogs-log-analytics.md).
 
 ### <a name="automation-runbook-jobs-summary"></a>Automation runbook-jobb sammanfattning
 

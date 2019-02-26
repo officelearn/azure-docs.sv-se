@@ -17,18 +17,20 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e2e565f5b9bcd9e3e79423c742b2c95c00abd97b
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: aca7f0dbe0906ea0e1572f4580d8937ebf3eee64
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56454766"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56823269"
 ---
 # <a name="analyze-azure-ad-activity-logs-with-azure-monitor-logs-preview"></a>Analysera Azure AD-aktivitetsloggar med Azure Monitor-loggar (förhandsversion)
 
 När du [integrera Azure AD-aktivitetsloggar med Azure Monitor-loggar](howto-integrate-activity-logs-with-log-analytics.md), du kan använda kraften i Azure Monitor-loggar och få insikter om din miljö. Du kan också installera den [logga analysvyer för Azure AD activity loggar](howto-install-use-log-analytics-views.md) att få åtkomst till inbyggda rapporter kring gransknings- och inloggningshändelser i din miljö.
 
 I den här artikeln får du lära dig hur du analyserar Azure AD-aktivitetsloggar i Log Analytics-arbetsytan. 
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="prerequisites"></a>Förutsättningar 
 

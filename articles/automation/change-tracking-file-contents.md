@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 07/03/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: ad011d778ab575c146c202a7940e03a4451979fb
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: f974d446337b8c962d60be9aab964c6d2ebb535b
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54438009"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56821079"
 ---
 # <a name="view-contents-of-a-file-that-is-being-tracked-with-change-tracking"></a>Visa innehållet i en fil som spåras med ändringsspårning
 
@@ -75,5 +75,5 @@ Gå kursen på ändringsspårning vill veta mer om hur du använder lösningen:
 > [!div class="nextstepaction"]
 > [Felsöka ändringar i din miljö](automation-tutorial-troubleshoot-changes.md)
 
-* Använd [Loggsökningar i Log Analytics](../log-analytics/log-analytics-log-searches.md) att visa detaljerad spårning av data.
+* Använd [Loggsökningar i Azure Monitor-loggar](../log-analytics/log-analytics-log-searches.md) att visa detaljerad spårning av data.
 

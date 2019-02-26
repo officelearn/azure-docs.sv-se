@@ -17,17 +17,17 @@ ms.date: 01/24/2019
 ms.author: markvi
 ms.reviewer: raluthra
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bc08710909252c9bcade6177a105684128acc5bf
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: a1cc8a9305103a30fc0ea0fc40c23a522e136d80
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56339031"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56807192"
 ---
 # <a name="faqs-and-known-issues-with-identity-protection-refreshed-in-azure-active-directory"></a>Vanliga frågor och kända problem med identity protection (uppdateras) i Azure Active Directory
 
 
-## <a name="dismiss-user-risk"></a>Ignorera användarrisken
+## <a name="dismiss-user-risk-known-issues"></a>Stäng användarrisk kända problem
 
 **Stäng användarrisk** i klassisk Identity Protection anger aktören i användarens Riskhistorik i Identity Protection (uppdateras) till **Azure AD**.
 
@@ -37,7 +37,7 @@ ms.locfileid: "56339031"
 Det finns en aktuell känt problem som orsakar fördröjningar i användarflödet risk avsked. Om du har en ”användarprincip” sluta den här principen att använda avvisade användare inom minuter efter att klicka på ”Stäng användarrisk”. Men finns det kända förseningar med UX uppdaterar ”Risk statusen” Avvisade användare. Uppdatera sidan på nivå webbläsare om du vill se senaste användare ”risktillstånd” som en lösning.
 
 
-## <a name="risky-users-report"></a>Rapport om riskanvändare
+## <a name="risky-users-report-known-issues"></a>Riskfylld användare rapporterar kända problem
 
 Frågar på den **användarnamn** fält är skiftlägeskänsliga, vid frågor om den **namn** fält är fallet-oberoende.
 
@@ -45,14 +45,10 @@ Växla **visa datum som** döljer den **risken SENAST UPPDATERADES** kolumn. Att
 
 **Stäng alla händelser** i klassisk Identity Protection anger statusen för riskhändelser till **stängd (löst)**.
 
-Om du försöker komma åt rapporten riskabla användare genom att klicka på **riskfyllda användarna rapporterar** i en inloggning post i rapporten över riskfyllda inloggningar, kan det ibland visa **något gick fel. Försök**. Du kan åtgärda detta genom att klicka på **tillämpa** eller **återställa** överst på skärmen och riskfylld användare data fylls.
 
-
-## <a name="risky-sign-ins-report"></a>Rapport över riskfyllda inloggningar
+## <a name="risky-sign-ins-report-known-issues"></a>Rapporten om riskfyllda inloggningar kända problem
 
 **Lösa** på en risk händelsen anger statusen till **användare skickas MFA som styrs av en princip för riskbaserad**.
-
-**Återställ** i den **riskfyllda inloggningar** rapporten tar inte bort värdet för den **riskerar händelsetyp**.
 
 
 ## <a name="frequently-asked-questions"></a>Vanliga frågor och svar

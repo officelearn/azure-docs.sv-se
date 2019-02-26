@@ -16,12 +16,12 @@ ms.topic: conceptual
 ms.date: 11/02/2018
 ms.author: banders
 ms.custom: seodec18
-ms.openlocfilehash: 516d8e9116bbdcd421897b5a5c2d9755e7e636c8
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: cd137f8fb44b20c9a1b3a506ad2703fc780bae89
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54903561"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56806673"
 ---
 # <a name="manage-access-to-billing-information-for-azure"></a>Hantera åtkomst till faktureringsinformation för Azure
 
@@ -45,7 +45,7 @@ Dessa roller har åtkomst till faktureringsinformation i den [Azure-portalen](ht
 
 ### <a name="opt-in"></a> Låt användare ladda ned fakturor
 
-När du utvärdera Tilldela lämpliga roller till medlemmar i gruppen, kontoadministratör måste aktivera för att ladda ned fakturor i Azure-portalen. Fakturor som är äldre än December 2016 är tillgängliga att kontoadministratör.
+När du har tilldelat till rätt roller till medlemmar i din grupp måste kontoadministratör Aktivera åtkomst till ladda ner fakturor i Azure-portalen. Fakturor som är äldre än December 2016 är tillgängliga att kontoadministratör.
 
 1. Logga in på [Azure Portal](https://portal.azure.com/).
 1. Som kontoadministratör, Välj din prenumeration från den [prenumerationsbladet](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) i Azure-portalen.

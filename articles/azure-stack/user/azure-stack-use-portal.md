@@ -10,16 +10,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/25/2019
+ms.date: 02/25/2019
 ms.author: mabrigg
 ms.reviewer: efemmano
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 026e37534169fda8dbbf5a568f72046bc6ff55f7
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 28b8971b61ff09346b2a2f89cd5ea8ae04e44079
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55252055"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56819368"
 ---
 # <a name="use-the-azure-stack-portal"></a>Använd Azure Stack-portalen
 
@@ -40,6 +40,10 @@ Azure Stack-operatör (en tjänstleverantör eller en administratör i din organ
 Instrumentpanelen innehåller en standarduppsättning med paneler. Du kan välja **redigera instrumentpanel** att ändra standardinstrumentpanelen eller välj **ny instrumentpanel** att skapa en anpassad instrumentpanel. Du kan enkelt anpassa en instrumentpanel genom att lägga till eller ta bort paneler. Om du vill lägga till en panel för beräkning, väljer du exempelvis **+ skapa en resurs**. Högerklicka på **Compute**, och välj sedan **fäst på instrumentpanelen**.
 
 ![Skärmdump av användarportalen för Azure Stack](media/azure-stack-use-portal/userportal.png)
+
+Att återställa instrumentpanelen till de ursprungliga inställningarna:
+1.  Välj **redigera instrumentpanelen**. 
+2.  Högerklicka och välj **återställa till standardtillståndet**.
 
 ## <a name="create-subscription-and-browse-available-resources"></a>Skapa prenumeration och bläddra bland tillgängliga resurser
 

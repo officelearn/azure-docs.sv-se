@@ -5,15 +5,15 @@ services: expressroute
 author: jaredr80
 ms.service: expressroute
 ms.topic: include
-ms.date: 02/19/2018
+ms.date: 02/25/2019
 ms.author: jaredro
 ms.custom: include file
-ms.openlocfilehash: 9e16c3bb4e4e5ba384bdc664e2c056acb0b70caf
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: eb807082443da495cd89e1dd624058c89d3ee65b
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56448236"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56825859"
 ---
 ### <a name="what-is-expressroute-direct"></a>Vad är ExpressRoute direkt?
 
@@ -23,9 +23,9 @@ Med ExpressRoute Direct får kunder möjligheten att ansluta direkt till Microso
 
 Kunder måste arbeta med sina lokala operatörer och samordningsleverantörer och få anslutningen till ExpressRoute-routrar att dra nytta av ExpressRoute direkt.
 
-### <a name="what-locations-will-the-100-gbps-expressroute-direct-be-available-for-public-preview"></a>Vilka platser 100 Gbit/s ExpressRoute Direct blir tillgänglig i offentlig förhandsversion? 
+### <a name="what-locations-currently-support-expressroute-direct"></a>Vilka platser stöds för närvarande ExpressRoute direkt? 
 
-Ett begränsat antal ExpressRoute-peeringplatser stöder detta i den offentliga förhandsversionen. Tillgängliga portar ska vara dynamisk och blir tillgängligt via PowerShell för att visa kapaciteten. Inkludera platser och *kan komma att ändras baserat på tillgänglighet*:
+Tillgängliga portar ska vara dynamisk och blir tillgängligt via PowerShell för att visa kapaciteten. Inkludera platser och *kan komma att ändras baserat på tillgänglighet*:
 
 * Amsterdam
 * Canberra

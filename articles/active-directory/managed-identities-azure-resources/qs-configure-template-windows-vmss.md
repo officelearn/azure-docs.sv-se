@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 02/20/2018
 ms.author: priyamo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0fc32e9e306149052df37cc24bc54e2aad902c50
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 075672fb6d132258b04936aa20129fa6f8c82572
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56199433"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56819248"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-azure-virtual-machine-scale-using-a-template"></a>Konfigurera hanterade identiteter för Azure-resurser på en Azure VM-skalningsuppsättning med en mall
 
@@ -50,7 +50,7 @@ I den här artikeln du lär dig hur du utför följande hanterade identiteter f�
 Precis som med Azure-portalen och skript, [Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md) mallar tillhandahåller möjligheten att distribuera nya eller ändrade resurser som definierats av en Azure-resursgrupp. Flera alternativ är tillgängliga för redigering och distribution, både lokala och portalbaserad, inklusive:
 
    - Med hjälp av en [anpassad mall från Azure Marketplace](../../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template), där du kan skapa en mall från början eller basera den på en befintlig common eller [snabbstartsmall](https://azure.microsoft.com/documentation/templates/).
-   - Som härleds från en befintlig resursgrupp genom att exportera en mall från antingen [den ursprungliga distributionen](../../azure-resource-manager/resource-manager-export-template.md#view-template-from-deployment-history), eller från den [aktuell status för distributionen](../../azure-resource-manager/resource-manager-export-template.md#export-the-template-from-resource-group).
+   - Som härleds från en befintlig resursgrupp genom att exportera en mall från antingen [den ursprungliga distributionen](../../azure-resource-manager/manage-resource-groups-portal.md#export-resource-groups-to-templates), eller från den [aktuell status för distributionen](../../azure-resource-manager/manage-resource-groups-portal.md#export-resource-groups-to-templates).
    - Med hjälp av en lokal [JSON-redigerare (till exempel VS Code)](../../azure-resource-manager/resource-manager-create-first-template.md), överföring och distribution med hjälp av PowerShell eller CLI.
    - Med Visual Studio [Azure-resursgruppsprojekt](../../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) att både skapa och distribuera en mall.  
 
@@ -63,7 +63,6 @@ I det här avsnittet ska du aktivera och inaktivera systemtilldelade hanterade i
 ### <a name="enable-system-assigned-managed-identity-during-creation-the-creation-of-a-virtual-machines-scale-set-or-a-existing-virtual-machine-scale-set"></a>Aktivera systemtilldelade hanterad identitet när du skapar skapandet av en skalningsuppsättning för virtuella datorer eller en befintlig skalningsuppsättning för virtuella datorer
 
 1. Om du loggar in på Azure lokalt eller via Azure portal, kan du använda ett konto som är associerade med Azure-prenumerationen som innehåller virtuella datorns skalningsuppsättning.
-   
 2. Om du vill aktivera systemtilldelade hanterad identitet, läsa in mallen till en textredigerare, leta upp den `Microsoft.Compute/virtualMachinesScaleSets` resurs i närheten med resurserna och lägger till den `identity` egenskapen på samma nivå som den `"type": "Microsoft.Compute/virtualMachinesScaleSets"` egenskapen. Använd följande syntax:
 
    ```JSON
@@ -167,7 +166,7 @@ Om du har en skalningsuppsättning för virtuella datorer som inte längre behö
    }
    ```
 
-## <a name="user-assigned-managed-identity"></a>Användartilldelade hanterad identitet
+## <a name="user-assigned-managed-identity"></a>Användartilldelad hanterad identitet
 
 I det här avsnittet tilldelar du en hanterad Användartilldelad identitet till en VM-skalningsuppsättning med Azure Resource Manager-mall.
 

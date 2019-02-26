@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 09/11/2018
+ms.date: 02/25/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: de0998dffeac54db5311bbcde1c9499488b23556
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 28ddecb20944893b23b54775e22f19644f0afbf0
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54434980"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56816512"
 ---
 # <a name="manage-python-2-packages-in-azure-automation"></a>Hantera Python 2-paket i Azure Automation
 
@@ -33,6 +33,35 @@ På den **lägga till Python 2-paketet** väljer du ett lokala paket att ladda u
 När ett paket har importerats kan det visas på den **Python 2-paket** sida i ditt Automation-konto. Om du vill ta bort ett paket väljer du paketet och väljer **ta bort** på sidan package.
 
 ![Paketlistan](media/python-packages/package-list.png)
+
+## <a name="import-packages-with-dependencies"></a>Importera paket med beroenden
+
+Azure automation inte går att lösa beroenden för python-paket under importen. Det finns två sätt att importera ett paket med alla dess beroenden. Endast en av följande steg måste användas för att importera paket till ditt Automation-konto.
+
+### <a name="manually-download"></a>Hämta manuellt
+
+På Windows 64-bitars dator med [python2.7](https://www.python.org/download/releases/2.7/) och [pip](https://pip.pypa.io/stable/installing/) installerad, kör följande kommando för att ladda ned ett paket och alla dess beroenden:
+
+```
+C:\Python27\Scripts\pip2.7.exe download -d <output dir> <package name>
+```
+
+När paket som har hämtats, kan du importera dem till ditt automation-konto.
+
+### <a name="runbook"></a>Runbook
+
+Importera python-runbook [Import Python 2-paket från pypi i Azure Automation-konto](https://gallery.technet.microsoft.com/scriptcenter/Import-Python-2-packages-57f7d509) från galleriet i ditt Automation-konto. Se till att köra-inställningar är inställda på **Azure** och starta en runbook med parametrar. Runbook kräver ett kör som-konto för Automation-kontot ska fungera. För varje parameter se till att inleder du du det med växeln som visas i följande lista och avbildning:
+
+* -s \<prenumerations-ID\>
+* -g \<resourceGroup\>
+* -a \<automationAccount\>
+* -m \<modulePackage\>
+
+![Paketlistan](media/python-packages/import-python-runbook.png)
+
+Runbook kan du ange vilket paket för att hämta, till exempel `Azure` (fjärde parameter) laddar ned alla Azure-moduler och alla dess beroenden, vilket är ungefär 105.
+
+När runbooken har slutförts kan du kontrollera den **Python 2-paket** sidan **delade resurser** i ditt Automation-konto för att verifiera att de paketet har importerats korrekt.
 
 ## <a name="use-a-package-in-a-runbook"></a>Använda ett paket i en runbook
 

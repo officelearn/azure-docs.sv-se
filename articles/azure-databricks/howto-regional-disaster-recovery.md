@@ -8,22 +8,16 @@ ms.service: azure-databricks
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 08/27/2018
-ms.openlocfilehash: fa32aafa4f042351db7693ee684deafe9ed13fb0
-ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
+ms.openlocfilehash: a42d2c75913b2c9fdfa0d2b7c3ec2742525a4c97
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50748331"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56806104"
 ---
 # <a name="regional-disaster-recovery-for-azure-databricks-clusters"></a>Regional haveriberedskap för Azure Databricks-kluster
 
 Den här artikeln beskrivs en disaster recovery-arkitekturen användbart för Azure Databricks-kluster och de steg du utför den designen.
-
-## <a name="azure-databricks-overview"></a>Översikt över Azure Databricks
-
-Azure Databricks är en snabb och enkel samarbetsfunktioner Apache Spark-baserad analytics-tjänsten. För en big datapipeline data (raw eller strukturerade) var matas in i Azure via Azure Data Factory i batchar eller strömmas nästan i realtid med Kafka, Händelsehubb eller IoT Hub. Den här data oceanen i en datasjö för långsiktig beständig lagring i Azure Blob Storage eller Azure Data Lake Storage. Som en del av ditt analytics-arbetsflöde, använder du Azure Databricks för att läsa data från flera datakällor som [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md), [Azure Data Lake Storage](../data-lake-store/index.md), [Azure Cosmos DB](../cosmos-db/index.yml) , eller [Azure SQL Data Warehouse](../sql-data-warehouse/index.md) och omvandla dem till banbrytande insights med hjälp av Spark.
-
-![Databricks-pipeline](media/howto-regional-disaster-recovery/databricks-pipeline.png)
 
 ## <a name="azure-databricks-architecture"></a>Azure Databricks-arkitektur
 
@@ -37,7 +31,7 @@ En av fördelarna med den här arkitekturen är att användare kan ansluta Azure
 
 ## <a name="how-to-create-a-regional-disaster-recovery-topology"></a>Så här skapar du en regionala disaster recovery-topologi
 
-Det är ett antal komponenter som används för en Big Data-pipeline med Azure Databricks som du ser i föregående arkitektur beskrivning: Azure Storage, Azure-databas och andra datakällor. Azure Databricks är den *compute* Big Data i pipeline. Det är *tillfälliga* sin natur, vilket innebär att även om dina data finns kvar i Azure Storage, den *compute* (Azure Databricks-kluster) kan avbrytas så att du inte behöver betala för compute när du behövs inte. Den *compute* (Azure Databricks) och molnlagringskällor måste vara i samma region så att jobben inte drabbas av fördröjningar.  
+Som du ser i föregående arkitektur beskrivning, finns det ett antal komponenter som används för en Big Data-pipeline med Azure Databricks:  Azure Storage, Azure-databas och andra datakällor. Azure Databricks är den *compute* Big Data i pipeline. Det är *tillfälliga* sin natur, vilket innebär att även om dina data finns kvar i Azure Storage, den *compute* (Azure Databricks-kluster) kan avbrytas så att du inte behöver betala för compute när du behövs inte. Den *compute* (Azure Databricks) och molnlagringskällor måste vara i samma region så att jobben inte drabbas av fördröjningar.  
 
 Om du vill skapa egna regionalt haveri recovery topologi, följer du dessa krav:
 

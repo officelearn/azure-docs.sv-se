@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/10/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 8770aaeff3e0d7b2d6a39f596aafebf15ed48b23
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: c74a96e3dcce1394e0af5447c07ad38c54b960fa
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55985013"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56825293"
 ---
 ## <a name="launch-azure-cloud-shell"></a>Starta Azure Cloud Shell
 
@@ -74,8 +74,8 @@ $galleryImage = New-AzGalleryImageDefinition `
    -Offer 'myOffer' `
    -Sku 'mySKU'
 ```
-
-I en kommande version kommer du att kunna använda ditt personligt definierade **-utgivare**, **-erbjuder** och **- Sku** värden för att hitta och ange en avbildningsdefinitionen sedan skapa en virtuell dator med senaste versionsnumret för avbildningen från den matchande avbildningsdefinitionen. Här är till exempel tre definitioner som avbildning och deras värden:
+### <a name="using-publisher-offer-and-sku"></a>Med hjälp av utgivare, erbjudande och SKU 
+För kunder som planerar att implementera delade avbildningar **i en kommande version**, du kommer att kunna använda ditt personligt definierade **-utgivare**, **-erbjuder** och **- Sku** värden för att hitta och ange en definition av bild och sedan skapa en virtuell dator med senaste versionsnumret för avbildningen från den matchande bild definition. Här är till exempel tre definitioner som avbildning och deras värden:
 
 |Bilddefinition|Utgivare|Erbjudande|Sku|
 |---|---|---|---|
@@ -83,10 +83,9 @@ I en kommande version kommer du att kunna använda ditt personligt definierade *
 |myImage2|myPublisher|standardOffer|mySku|
 |myImage3|Testning|standardOffer|testSku|
 
-Alla tre av dessa ha unika värden. I en kommande version kommer du att kunna kombinera dessa värden för att begära den senaste versionen av en viss avbildning. 
+Alla tre av dessa ha unika värden. Du kan ha bild-versioner som delar en eller två, men inte alla tre värden. **I en kommande version**, du kommer att kunna kombinera dessa värden för att begära den senaste versionen av en viss avbildning. **Detta fungerar inte i den aktuella versionen**, men kommer att vara tillgängliga i framtiden. När den släpps, med följande syntax ska användas för att ange Källavbildningen som *myImage1* från tabellen ovan.
 
 ```powershell
-# The following should set the source image as myImage1 from the table above
 $vmConfig = Set-AzVMSourceImage `
    -VM $vmConfig `
    -PublisherName myPublisher `
@@ -94,7 +93,7 @@ $vmConfig = Set-AzVMSourceImage `
    -Skus mySku 
 ```
 
-Detta liknar hur du för närvarande kan ange dessa för [Azure Marketplace-avbildningar](../articles/virtual-machines/windows/cli-ps-findimage.md) skapa en virtuell dator. Med detta i åtanke måste varje avbildningsdefinitionen ha en unik uppsättning dessa värden. Du kan ha bild-versioner som delar en eller två, men inte alla tre värden. 
+Detta liknar hur du kan för närvarande ange Använd utgivare, erbjudande och SKU för [Azure Marketplace-avbildningar](../articles/virtual-machines/windows/cli-ps-findimage.md) att hämta den senaste versionen av en Marketplace-avbildning. Med detta i åtanke måste varje avbildningsdefinitionen ha en unik uppsättning dessa värden.  
 
 ##<a name="create-an-image-version"></a>Skapa en Bildversion
 

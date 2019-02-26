@@ -5,20 +5,22 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: article
-ms.date: 1/23/2019
+ms.date: 2/25/2019
 ms.author: victorh
-ms.openlocfilehash: f88cc44890277604411f482779a83ee266820ac8
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: f1e92c8581f8528b3622ad88f086d3f66619b996
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55816330"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56823491"
 ---
 # <a name="use-azure-dns-for-private-domains"></a>Använda Azure DNS för privata domäner
 
 Domain Name System- eller DNS, ansvarar för att översätta (eller lösa) ett tjänstnamn till dess IP-adress. En värdtjänst för DNS-domäner med Azure DNS ger namnmatchning med hjälp av Microsoft Azure-infrastrukturen. Förutom att stöda mot internet DNS-domäner, Azure DNS stöder nu också privata DNS-domäner som en förhandsversion av funktionen.
 
 Azure DNS är en tillförlitlig och säker DNS-tjänst för att hantera och matcha namn i ett virtuellt nätverk utan att behöva lägga till en anpassad DNS-lösning. Du kan använda dina egna anpassade domännamn i stället för de Azure-tillhandahållen namn som är tillgängliga idag genom att använda privata DNS-zoner. Använda anpassade domännamn hjälper dig att skräddarsy dina virtuella nätverksarkitekturen som bäst passar organisationens behov. Det ger namnmatchning för virtuella datorer (VM) inom ett virtuellt nätverk och mellan virtuella nätverk. Du kan också konfigurera zoner namn med vyn Dela vågrätt, vilket ger en privat och en offentlig DNS-zon kan dela namn.
+
+Om du vill publicera en privat DNS-zon i det virtuella nätverket anger du den lista över virtuella nätverk som får lösa poster i zonen. De här kallas *virtuella lösningsnätverk*. Du kan även ange ett virtuellt nätverk där Azure DNS ska bibehålla värddatorposter varje gång en virtuell dator skapas, ändrar IP-adress eller tas bort. Det här kallas *virtuellt registreringsnätverk*.
 
 Om du anger ett virtuellt nätverk för registrering, DNS-posterna för de virtuella datorer från det virtuella nätverket som är registrerade på den privata zonen är inte kan visas eller hämtas från Azure Powershell och Azure CLI-API: er, men VM-poster verkligen har registrerats och kommer Lös har.
 

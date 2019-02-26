@@ -11,15 +11,15 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: douglasl
-ms.openlocfilehash: 0236d9118389b4f8fb79453b425c70f09e94bbb8
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 408776b0b0053b2b2d45112568a2e28467123768
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54213815"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56805383"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Use custom activities in an Azure Data Factory pipeline (Använda anpassade aktiviteter i en Azure Data Factory-pipeline)
-> [!div class="op_single_selector" title1="Välj vilken version av Data Factory-tjänsten du använder:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](v1/data-factory-use-custom-activities.md)
 > * [Aktuell version](transform-data-using-dotnet-custom-activity.md)
 
@@ -106,10 +106,13 @@ I följande tabell beskrivs namn och beskrivningar för egenskaper som är speci
 | resourceLinkedService | Azure Storage länkade tjänsten till det lagringskonto där programmet lagras | Nej&#42;       |
 | folderPath            | Sökvägen till mappen för anpassade program och alla dess beroenden<br/><br/>Om du har beroenden som lagras i undermappar – det vill säga i en hierarkisk mappstruktur under *folderPath* -mappstrukturen för närvarande förenklas när filerna har kopierats till Azure Batch. Det vill säga kopieras alla filer till en enda mapp med utan undermappar. Överväg att komprimerar filerna, kopiera den komprimerade filen och packat upp den med anpassad kod i önskad plats för att undvika problemet. | Nej&#42;       |
 | referenceObjects      | En matris med befintliga länkade tjänster och datauppsättningar. Refererade länkade tjänster och datauppsättningar som skickas till det anpassa programmet i JSON-format så att din anpassade kod kan hänvisa till resurser av Data Factory | Nej       |
-| ExtendedProperties    | Användardefinierade egenskaper som kan skickas till det anpassa programmet i JSON-format så att din anpassade kod kan referera till ytterligare egenskaper | Nej       |
+| extendedProperties    | Användardefinierade egenskaper som kan skickas till det anpassa programmet i JSON-format så att din anpassade kod kan referera till ytterligare egenskaper | Nej       |
 
 &#42;Egenskaperna `resourceLinkedService` och `folderPath` måste antingen anges eller båda utelämnas.
 
+> [!NOTE]
+> Om du skickar länkade tjänster som referenceObjects i anpassad aktivitet, är det en bra säkerhetsrutin att skicka ett Azure Key Vault aktiverat länkad tjänst (eftersom den inte innehåller någon säker strängar) och hämta autentiseringsuppgifterna med hemligt namn direkt från nyckel Valvet från koden. Du kan se ett exempel [här](https://github.com/nabhishek/customactivity_sample/tree/linkedservice) att referenser AKV aktiverade länkade tjänsten hämtar autentiseringsuppgifterna från Key Vault och sedan får åtkomst till lagringen i koden.  
+ 
 ## <a name="custom-activity-permissions"></a>Behörigheter för anpassad aktivitet
 
 Den anpassade aktiviteten anger Azure Batch-kontot automatiskt användare till *inte är administratörer åtkomst med uppgiften omfattning* (standard automatiskt användare specifikation). Du kan inte ändra automatisk-användarkontot behörighetsnivå. Mer information finns i [kör aktiviteter på användarkonton i Batch | Automatisk användarkonton](../batch/batch-user-accounts.md#auto-user-accounts).
@@ -185,7 +188,7 @@ Detta exempel visar hur du kan använda referenceObjects och extendedProperties 
 
 När aktiviteten körs lagras referenceObjects och extendedProperties i följande filer som har distribuerats till samma mapp för körning av SampleApp.exe:
 
-- Activity.JSON
+- activity.json
 
   Lagrar extendedProperties och egenskaperna för den anpassade aktiviteten.
 

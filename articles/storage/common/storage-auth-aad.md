@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 02/13/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 1a9283ad688c63642df880a74cca9189c7c59042
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: f57e793278af7eb03fe49fd657e45b0846db8b1c
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55456705"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56817923"
 ---
 # <a name="authenticate-access-to-azure-blobs-and-queues-using-azure-active-directory-preview"></a>Autentisera åtkomsten till Azure BLOB-objekt och köer med hjälp av Azure Active Directory (förhandsversion)
 
@@ -41,13 +41,34 @@ Tänk på följande saker övervägas om förhandsversionen av:
     - [Node.js](https://www.npmjs.com/package/azure-storage)
     - [JavaScript](https://aka.ms/downloadazurestoragejs)
 
-## <a name="get-started-with-azure-ad-for-storage"></a>Kom igång med Azure AD för lagring
+## <a name="overview-of-azure-ad-for-storage"></a>Översikt över Azure AD för lagring
 
-Det första steget i att använda Azure AD-integrering med Azure Storage är att tilldela RBAC-roller för storage-data till tjänstens huvudnamn (en användare, grupp eller program tjänstens huvudnamn) eller hanterade identiteter för Azure-resurser. RBAC-roller omfattar vanliga uppsättningar av behörigheter för behållare och köer. Läs mer om RBAC-roller för Azure Storage i [hantera åtkomsträttigheter till storage-data med RBAC (förhandsversion)](storage-auth-aad-rbac.md).
+Det första steget i att använda Azure AD-integrering med Azure Storage är att tilldela RBAC-roller för storage-data till tjänstens huvudnamn (en användare, grupp eller program tjänstens huvudnamn) eller hanterade identiteter för Azure-resurser. RBAC-roller omfattar vanliga uppsättningar av behörigheter för behållare och köer. Läs mer om att tilldela RBAC-roller för Azure Storage i [hantera åtkomsträttigheter till storage-data med RBAC (förhandsversion)](storage-auth-aad-rbac.md).
 
 Om du vill använda Azure AD för att auktorisera åtkomst till lagringsresurser i dina program, måste du begära en OAuth 2.0-åtkomsttoken från din kod. Läs hur du begär en åtkomsttoken och använda den för att godkänna begäranden till Azure Storage i [autentisera med Azure AD från ett Azure Storage-program (förhandsversion)](storage-auth-aad-app.md). Om du använder en hanterad identitet, se [autentisera åtkomst till blobbar och köer med Azure hanterade identiteter för Azure-resurser (förhandsgranskning)](storage-auth-aad-msi.md).
 
 Azure CLI och PowerShell stöder nu loggat in med en Azure AD-identitet. När du har loggat in med en Azure AD-identitet körs sessionen under den identiteten. Mer information finns i [använda en Azure AD-identitet för åtkomst till Azure Storage med CLI eller PowerShell (förhandsversion)](storage-auth-aad-script.md).
+
+## <a name="rbac-roles-for-blobs-and-queues"></a>RBAC-roller för blobbar och köer
+
+Azure Active Directory (Azure AD) auktoriserar åtkomsträttigheter till skyddade resurser via [rollbaserad åtkomstkontroll (RBAC)](../../role-based-access-control/overview.md). Azure Storage definierar en uppsättning inbyggda RBAC-roller som omfattar vanliga uppsättningar av behörigheter som används för åtkomst till behållare eller köer. 
+
+När en RBAC-roll tilldelas till en Azure AD-säkerhetsobjekt, Azure beviljar åtkomst till att dessa resurser för det säkerhetsobjektet. Åtkomst kan begränsas till nivån för prenumerationen, resursgruppen, storage-konto eller en enskild behållare eller en kö. En Azure AD-säkerhetsobjekt kan vara en användare, en grupp, tjänstens huvudnamn för ett program eller en [hanterad identitet för Azure-resurser](../../active-directory/managed-identities-azure-resources/overview.md). 
+
+[!INCLUDE [storage-auth-rbac-roles-include](../../../includes/storage-auth-rbac-roles-include.md)]
+
+### <a name="access-permissions-granted-by-rbac-roles"></a>Åtkomstbehörigheter som ges av RBAC-roller 
+
+I följande tabell sammanfattas åtkomsträttigheterna som beviljas av de inbyggda rollerna, beroende på omfattningen:
+
+|Scope|Ägare för BLOB-Data|BLOB Data-deltagare|BLOB-dataläsare|Lagringsködata-deltagare|Lagringsködata-läsare|
+|---|---|---|---|---|---|
+|Prenumerationsnivå|Läs-/ skrivåtkomst och POSIX åtkomsthantering kontroll till alla behållare och blobbar i prenumerationen|Läs-/ skrivåtkomst till alla behållare och blobbar i prenumerationen| Läsbehörighet till alla behållare och blobbar i prenumerationen|Läs-/ skrivåtkomst till alla köer i prenumerationen|Läsbehörighet till alla köer i prenumerationen|
+|Resursgrupp|Läs-/ skrivåtkomst och POSIX åtkomsthantering kontroll till alla behållare och blobbar i resursgruppen|Läs-/ skrivåtkomst till alla behållare och blobbar i resursgruppen.|Läsbehörighet till alla behållare och blobbar i resursgruppen.|Läs-/ skrivåtkomst till alla köer i resursgruppen|Läsbehörighet till alla köer i resursgruppen|
+|Lagringskontonivån|Läs-/ skrivåtkomst och POSIX åtkomsthantering kontroll till alla behållare och blobbar i lagringskontot|Läs-/ skrivåtkomst till alla behållare och blobbar i lagringskontot|Läsbehörighet till alla behållare och blobbar i lagringskontot|Läs-/ skrivåtkomst till alla köer i lagringskontot|Läsbehörighet till alla köer i lagringskontot|
+|Behållare/kö-nivå|Läs-/ skrivåtkomst och POSIX åtkomsthantering kontroll till den angivna behållaren och dess blobbar.|Läs/skrivbehörighet till den angivna behållaren och dess blobbar|Läsbehörighet till den angivna behållaren och dess blobbar|Läs/skrivbehörighet till den angivna kön|Läsbehörighet till den angivna kön|
+
+Mer information om de behörigheter som krävs för att anropa åtgärder för Azure Storage finns [behörigheter för att anropa REST-åtgärder](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-rest-operations).
 
 ## <a name="next-steps"></a>Nästa steg
 

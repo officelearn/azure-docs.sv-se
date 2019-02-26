@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 02/20/2019
 ms.author: absha
-ms.openlocfilehash: d44bb4d3d0ff625d071c87fd39b3776915a6198f
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 06206ececcb1a51da402c4232f19801793c1cd4a
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56675820"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56807345"
 ---
 # <a name="how-application-gateway-works"></a>Hur fungerar Application Gateway
 
@@ -42,9 +42,9 @@ När backend-servern bearbetar begäran och skickar en HTTP-svar med sidinnehål
 
 Du kan använda Application Gateway som en belastningsutjämnare för interna program eller en internetuppkopplad belastningsutjämnare för programmet. En Internet-ansluten Application Gateway har offentliga IP-adresser. DNS-namnet på en Internet-ansluten Application Gateway är offentligt matchat offentliga IP-adressen. Därför kan Internet-riktade Application Gateways vidarebefordra begäranden från klienter via Internet.
 
-En intern Application-Gateway har endast privat IP-adress. DNS-namnet på en intern Application-Gateway är offentligt matchat till dess privata IP-adress. Interna belastningsutjämnare kan därför bara vidarebefordra begäranden från klienter med åtkomst till det virtuella nätverket för Application Gateway.
+En intern Application-Gateway har endast privat IP-adress. DNS-namnet på en intern Application-Gateway är internt matchas till dess privata IP-adress. Interna belastningsutjämnare kan därför bara vidarebefordra begäranden från klienter med åtkomst till det virtuella nätverket för Application Gateway.
 
-Observera att både webbservergrupper på Internet och interna Application Gateway dirigera begäranden till ditt backend-servrar med hjälp av privata IP-adresser. Backend-servrarna måste därför inte offentliga IP-adresser för att ta emot begäranden från en intern eller en Internet-ansluten Application Gateway.
+Observera att både webbservergrupper på Internet och interna Application Gateway dirigera begäranden till ditt backend-servrar med hjälp av privata IP-adresser. Om din pool serverdelsresurs innehåller en privat IP-adress, VM NIC-konfiguration eller en internt matchas adress och om backend-pool är en offentlig slutpunkt kan Application Gateway använder sin klientdel offentlig IP-adress för att nå servern. Om du inte har etablerat en offentlig IP-adress för klientdel, tilldelas en utgående extern anslutning.
 
 ## <a name="next-steps"></a>Nästa steg
 

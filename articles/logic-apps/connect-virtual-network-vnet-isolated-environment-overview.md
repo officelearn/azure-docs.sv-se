@@ -8,32 +8,42 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 02/12/2019
-ms.openlocfilehash: 204138e7b8b3846e2d50607b3c5ec0836abefe24
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.date: 02/24/2019
+ms.openlocfilehash: ed172db6aaa064cfed319a4190306d91aa846c48
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56162381"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56806835"
 ---
 # <a name="access-to-azure-virtual-network-resources-from-azure-logic-apps-by-using-integration-service-environments-ises"></a>Åtkomst till Azure Virtual Network-resurser från Azure Logic Apps med hjälp av integreringstjänstmiljöer (ISEs)
 
 > [!NOTE]
-> Den här funktionen är i *privat förhandsgranskning*. Att ansluta till den privata förhandsgranskningen [skapandeförfrågan här](https://aka.ms/iseprivatepreview).
+> Den här funktionen är i *förhandsversion*.
 
-Ibland kan dina logic apps och integrationskonton behöver åtkomst till skyddade resurser, till exempel virtuella datorer (VM) och andra system och tjänster, i en [Azure-nätverk](../virtual-network/virtual-networks-overview.md). Om du vill konfigurera den här åtkomsten, kan du [skapa en *integreringstjänstmiljön* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment.md) för att köra dina logic apps och integrationskonton.
+Ibland kan dina logic apps och integrationskonton behöver åtkomst till skyddade resurser, till exempel virtuella datorer (VM) och andra system och tjänster, i en [Azure-nätverk](../virtual-network/virtual-networks-overview.md). Om du vill konfigurera den här åtkomsten, kan du [skapa en *integreringstjänstmiljön* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment.md) för att köra dina logic apps och integrationskonton. När du skapar en ISE Azure har distribuerat en privat och isolerad instans av Logic Apps-tjänsten i Azure-nätverk. Den här privata instansen använder dedikerade resurser, till exempel lagring och körs avskilt från offentliga ”global” Logic Apps-tjänsten. Att ange din isolerade privata och offentliga globala instansen också bidrar till att minska effekten som andra Azure-klienter kan ha på din apps prestanda, vilket även kallas den [”bort störande grannar” effekt](https://en.wikipedia.org/wiki/Cloud_computing_issues#Performance_interference_and_noisy_neighbors).
+
+När du har skapat din ISE när du går till att skapa ett logic app eller varje konto, kan du välja din ISE som logic app eller integrering kontots plats:
 
 ![Välj integreringstjänstmiljö](./media/connect-virtual-network-vnet-isolated-environment-overview/select-logic-app-integration-service-environment.png)
 
-Skapa en ISE distribuerar en privata och isolerade Logic Apps-instans i Azure-nätverk. Den här privata instansen använder dedikerade resurser, till exempel lagring och körs avskilt från offentliga ”global” Logic Apps-tjänsten. Den här separationen hjälper också till att minska effekten som andra Azure-klienter kan ha på din apps prestanda eller [”bort störande grannar” effekt](https://en.wikipedia.org/wiki/Cloud_computing_issues#Performance_interference_and_noisy_neighbors). 
+Din logikapp kan nu komma åt direkt system som finns i eller anslutet till det virtuella nätverket med någon av dessa objekt:
 
-Den här översikten beskriver hur en ISE ger dina logic apps och integrationskonton direkt åtkomst till din Azure-nätverk och jämför skillnaderna mellan en ISE och globala Logic Apps-tjänsten.
+* En ISE versionshanterat koppling för systemet, till exempel SQL Server
+* En inbyggd utlösaren eller åtgärden, till exempel HTTP-utlösaren eller åtgärden
+* En anpassad anslutningsapp
+
+Den här översikten innehåller mer information om hur en ISE ger dina logic apps och integrering konton direkt åtkomst till Azure-nätverk och jämför skillnaderna mellan en ISE och globala Logic Apps-tjänsten.
+För lokala system som inte är ansluten till ett virtuellt nätverk eller inte har ISE-version anslutningsappar, som du kan ansluta till de system som skapats av [ställa in och använda den lokala datagatewayen](../logic-apps/logic-apps-gateway-install.md).
+
+> [!IMPORTANT]
+> Logic apps, inbyggda åtgärder och kopplingar som körs i din ISE kan du använda en annan prisplanen inte förbrukningsbaserad prisplanen. Mer information finns i [Logic Apps-priser](../logic-apps/logic-apps-pricing.md).
 
 <a name="difference"></a>
 
 ## <a name="isolated-versus-global"></a>Isolerade jämfört med globala
 
-När du skapar en integrerad tjänst-miljö (ISE) i Azure kan du välja Azure-nätverket där du vill *mata in* din ISE. Azure har distribuerat en privat instans av Logic Apps-tjänsten till ditt virtuella nätverk. Den här åtgärden skapar en isolerad miljö där du kan skapa och köra dina logic apps på dedikerade resurser. När du skapar en logikapp, väljer du den här miljön som din Apps plats, som ger dina logic app direkt åtkomst till resurser i det virtuella nätverket.
+När du skapar en integrerad tjänst-miljö (ISE) i Azure kan du välja Azure-nätverket där du vill *mata in* din ISE. Azure lägger in eller distribuerar en privat instans av Logic Apps-tjänsten till ditt virtuella nätverk. Den här åtgärden skapar en isolerad miljö där du kan skapa och köra dina logic apps på dedikerade resurser. När du skapar din logikapp kan välja du din ISE som din Apps plats, som ger dina logic app direktåtkomst till det virtuella nätverket och resurser i nätverket.
 
 Logic apps i en ISE kan du ange samma användarupplevelser och liknande funktioner som tjänsten för global Logic Apps. Inte bara kan du använda samma inbyggda åtgärder och anslutningsprogram i tjänsten för global Logic Apps, men du kan också använda ISE-specifika anslutningsappar. Här är till exempel vissa Standardanslutningar som erbjuder versioner som körs i en ISE:
 
@@ -55,27 +65,12 @@ Skillnaden mellan ISE och icke-ISE-anslutningar är i de platser där utlösare 
 
 * Kopplingar som körs i en ISE är också tillgängliga i tjänsten för global Logic Apps.
 
-> [!IMPORTANT]
-> Logic apps, inbyggda åtgärder och kopplingar som körs i din ISE kan du använda en annan prisplanen inte förbrukningsbaserad prisplanen. Mer information finns i [Logic Apps-priser](../logic-apps/logic-apps-pricing.md).
-
 <a name="vnet-access"></a>
 
 ## <a name="permissions-for-virtual-network-access"></a>Behörigheter för åtkomst till virtuellt nätverk
 
-När du skapar en integration service-miljö (ISE) kan du välja ett Azure-nätverk var du *mata in* din miljö. Inmatning distribuerar en privat instans av Logic Apps-tjänsten till ditt virtuella nätverk. Den här åtgärden resulterar i en isolerad miljö där du kan skapa och köra dina logic apps på dedikerade resurser. När du skapar väljer dina logikappar din ISE som plats för dina appar. Dessa logic apps kan sedan direkt åtkomst till ditt virtuella nätverk och ansluta till resurser i nätverket.
-
-För system som är anslutna till ett virtuellt nätverk, kan du mata in en ISE i det virtuella nätverket så att dina logikappar har direkt åtkomst dessa system med någon av dessa objekt:
-
-* ISE-anslutning för systemet, till exempel SQL Server
-
-* HTTP-åtgärd
-
-* Anpassad anslutningsapp
-
-För lokala system som inte är ansluten till ett virtuellt nätverk eller inte har ISE-anslutningsappar, som du kan ansluta till de system som skapats av [ställa in och använda den lokala datagatewayen](../logic-apps/logic-apps-gateway-install.md).
-
 Innan du kan välja ett Azure-nätverk för din miljö måste ställa du in behörigheter för rollbaserad åtkomstkontroll (RBAC) i det virtuella nätverket för Azure Logic Apps-tjänsten. Den här uppgiften kräver att du tilldelar den **Nätverksdeltagare** och **klassiska deltagare** roller till Azure Logic Apps-tjänsten.
-Om du vill konfigurera dessa behörigheter finns i [Anslut till Azure-nätverk från logikappar](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#vnet-access)
+Om du vill konfigurera dessa behörigheter finns i [Anslut till Azure-nätverk från logikappar](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#vnet-access).
 
 <a name="create-integration-account-environment"></a>
 

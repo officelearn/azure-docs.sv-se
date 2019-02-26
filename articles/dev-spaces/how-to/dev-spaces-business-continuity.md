@@ -11,12 +11,12 @@ ms.topic: article
 description: Snabb Kubernetes-utveckling med containrar och mikrotjänster i Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers
 manager: jeconnoc
-ms.openlocfilehash: 877d49a49333d70ac7660900e49e7c588f52756c
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: b7eba0e63f68cd56f2bcc310c3bde65c36e933dd
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55451571"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56822471"
 ---
 # <a name="business-continuity-and-disaster-recovery-in-azure-dev-spaces"></a>Företag affärskontinuitet och haveriberedskap återställning i Azure Dev blanksteg
 
@@ -93,7 +93,7 @@ Upprepa dessa steg för andra projekt som konfigurerats för att använda det ur
 
 ## <a name="access-a-service-on-a-backup-cluster"></a>Åtkomst till en tjänst i ett kluster med säkerhetskopiering
 
-Om du har konfigurerat din tjänst om du vill använda ett offentligt DNS-namn, kommer tjänsten har en annan URL Om du kör den i ett backup-kluster. Offentliga DNS-namn är alltid i formatet `<space name>.s.<service name>.<cluster GUID>.<region>.aksapp.io`. Om du växlar till ett annat kluster, kluster GUID och eventuellt regionen kommer att ändras.
+Om du har konfigurerat din tjänst om du vill använda ett offentligt DNS-namn, kommer tjänsten har en annan URL Om du kör den i ett backup-kluster. Offentliga DNS-namn är alltid i formatet `<space name>.s.<root space name>.<service name>.<cluster GUID>.<region>.azds.io`. Om du växlar till ett annat kluster, kluster GUID och eventuellt regionen kommer att ändras.
 
 Dev blanksteg visar alltid rätt URL för tjänsten när du kör `azds up`, eller i utdatafönstret i Visual Studio under **Azure Dev blanksteg**.
 
@@ -102,7 +102,7 @@ Du kan också hitta URL: en genom att köra den `azds list-uris` kommando:
 $ azds list-uris
 Uri                                                     Status
 ------------------------------------------------------  ---------
-http://mywebapi.d05afe7e006a4fddb73c.eastus.aksapp.io/  Available
+http://default.mywebapi.d05afe7e006a4fddb73c.eus.azds.io/  Available
 ```
 
 Använd den här URL: en vid åtkomst till tjänsten.

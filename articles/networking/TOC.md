@@ -11,7 +11,7 @@
 ### [Haveriberedskap med hjälp av Azure DNS och Traffic Manager](disaster-recovery-dns-traffic-manager.md)
 ## Planera och designa
 ### [Virtuella nätverk](../virtual-network/virtual-network-vnet-plan-design-arm.md?toc=%2fazure%2fnetworking%2ftoc.json)
-### [Anslutning på flera platser – VPN](../vpn-gateway/vpn-gateway-plan-design.md?toc=%2fazure%2fnetworking%2ftoc.json)
+### [Anslutning på flera platser – VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Anslutning på flera platser – dedikerad privat](../expressroute/expressroute-workflows.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### Interoperabilitet för serverdelsanslutning
 #### [Prefix och testinstallation](connectivty-interoperability-preface.md?toc=%2fazure%2fnetworking%2ftoc.json)

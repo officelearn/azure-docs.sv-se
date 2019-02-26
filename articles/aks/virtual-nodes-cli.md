@@ -6,12 +6,12 @@ author: iainfoulds
 ms.service: container-service
 ms.date: 12/03/2018
 ms.author: iainfou
-ms.openlocfilehash: 0aff1040a9c7532ff5efe724382a074120801eb3
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: ed3697cbfc605fbdecad2c1cc4b32c3ddd1e3813
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54856493"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56819058"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-using-the-azure-cli"></a>Skapa och konfigurera en Azure Kubernetes Services kluster (AKS) för att använda virtuella noder med Azure CLI
 
@@ -43,6 +43,16 @@ Om providern visas som *NotRegistered*, registrera providern med hjälp av den [
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerInstance
 ```
+
+## <a name="preview-limitations"></a>Begränsningar i förhandsversionen
+
+Den här funktionen är i förhandsversion, har följande regioner stöd för distributioner:
+
+* Australien, östra (Australien)
+* Östra USA (eastus)
+* USA, västra centrala (västra)
+* Västeuropa (westeurope)
+* Västra USA (westus)
 
 ## <a name="launch-azure-cloud-shell"></a>Starta Azure Cloud Shell
 

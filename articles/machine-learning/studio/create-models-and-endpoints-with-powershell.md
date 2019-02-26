@@ -5,17 +5,17 @@ description: Använda PowerShell för att skapa flera Machine Learning-modeller 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
+ms.topic: conceptual
 author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 04/04/2017
-ms.openlocfilehash: 40cb4b7969ec2272936d1361be8183db84f944d8
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 442acb88a7a758517b8007b85dd6a58520a0caa4
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56455066"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56817515"
 ---
 # <a name="use-powershell-to-create-studio-models-and-web-service-endpoints-from-one-experiment"></a>Använd PowerShell för att skapa Studio modeller och slutpunkter för webbtjänster från ett experiment
 
@@ -27,7 +27,7 @@ Du kan träna din modell som en gång med hjälp av en sammanfogad version av al
 
 Som kan vara det bästa sättet, men du vill inte skapa 1 000 utbildning experiment i Azure Machine Learning Studio med var och en representerar en unik plats. Förutom att en utmanande uppgiften också verkar ineffektiv eftersom varje experiment skulle ha samma komponenter förutom datauppsättning för träning.
 
-Som tur är kan du kan göra detta med hjälp av den [Azure Machine Learning Studio träna API](retrain-models-programmatically.md) och automatisera uppgiften med [Azure Machine Learning Studio PowerShell](powershell-module.md).
+Som tur är kan du kan göra detta med hjälp av den [Azure Machine Learning Studio träna API](/azure/machine-learning/studio/retrain-machine-learning-model) och automatisera uppgiften med [Azure Machine Learning Studio PowerShell](powershell-module.md).
 
 > [!NOTE]
 > Minska antalet platser från 1 000 till 10 för att göra ditt exempel snabbare. Men samma principer och procedurer som gäller för 1 000 platser. Men om du vill att träna från 1 000 datauppsättningar kan du köra följande PowerShell-skript parallellt. Hur du gör är utanför omfattningen för den här artikeln, men du kan hitta exempel på PowerShell flertrådsteknik på Internet.  

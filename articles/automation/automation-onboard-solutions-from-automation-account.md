@@ -9,12 +9,12 @@ ms.date: 10/16/2018
 ms.topic: conceptual
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 0d67571024c9ace3618f7ae6172122ac48b57faa
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: c020d3c7513efda93d7ac5d3bdd79f21f8bc77dd
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56106736"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56818485"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions"></a>Publicera lösningar för uppdateringshantering, ändringsspårning och inventering
 
@@ -28,7 +28,7 @@ Logga in i Azure på https://portal.azure.com
 
 Navigera till ditt Automation-konto och välj antingen **inventering** eller **ändringsspårning** under **KONFIGURATIONSHANTERING**.
 
-Välj Log analytics-arbetsytan och Automation-kontot och klicka på **aktivera** att aktivera lösningen. Det tar upp till 15 minuter att aktivera lösningen.
+Välj Log Analytics-arbetsytan och Automation-kontot och klicka på **aktivera** att aktivera lösningen. Det tar upp till 15 minuter att aktivera lösningen.
 
 ![Publicera inventeringslösningen](media/automation-onboard-solutions-from-automation-account/onboardsolutions.png)
 
@@ -56,7 +56,7 @@ När meddelandet för lösning för publicering av ändringsspårning och invent
 
 Med uppdateringshanteringslösningen kan du hantera uppdateringar och korrigeringar för dina virtuella Azure-datorer i Windows. Du kan utvärdera statusen för tillgängliga uppdateringar, schemalägga installation av nödvändiga uppdateringar och granska distributionsresultat för att verifiera att uppdateringarna har tillämpats på den virtuella datorn. Den här åtgärden aktivera lösningen för den virtuella datorn.
 
-Välj **uppdateringshantering** under **UPPDATERINGSHANTERING**. Log Analytics-arbetsytan som är vald är samma arbetsyta som används i föregående steg. Klicka på **Aktivera** för att publicera lösningen för uppdateringshantering. Det tar upp till 15 minuter att aktivera lösningen.
+Välj **uppdateringshantering** under **UPPDATERINGSHANTERING**. Log Analytics-arbetsytan som valts är samma arbetsyta som används i föregående steg. Klicka på **Aktivera** för att publicera lösningen för uppdateringshantering. Det tar upp till 15 minuter att aktivera lösningen.
 
 ![Publicera uppdateringslösning](media/automation-onboard-solutions-from-automation-account/onboardsolutions2.png)
 
@@ -129,7 +129,7 @@ Följande lösningar är beroende av en Log Analytics-arbetsyta:
 * [Spårning av ändringar](automation-change-tracking.md)
 * [Starta/Stoppa VM under kontorstid](automation-solution-vm-management.md)
 
-Om du inte längre vill integrera ditt Automation-konto med Log Analytics kan du kan ta bort länken till ditt konto direkt från Azure-portalen.  Innan du fortsätter måste du först ta bort lösningar som tidigare nämnts, annars den här processen kommer inte att kunna fortsätta. Läsa artikeln för den lösning du har importerat för att förstå de steg som krävs för att ta bort den.
+Om du inte längre vill integrera ditt Automation-konto med en arbetsyta för Log Analytics kan du kan ta bort länken till ditt konto direkt från Azure-portalen.  Innan du fortsätter måste du först ta bort lösningar som tidigare nämnts, annars den här processen kommer inte att kunna fortsätta. Läsa artikeln för den lösning du har importerat för att förstå de steg som krävs för att ta bort den.
 
 När du tar bort dessa lösningar kan slutföra du följande steg om du vill ta bort länken till ditt Automation-konto.
 

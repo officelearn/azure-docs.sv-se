@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: d40d3b32f3af8e50079de0a5988584427ea6777c
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: b8264e4f69a7561865f5d14087bc81bc933a6c59
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55819815"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56821412"
 ---
 # <a name="create-apache-hadoop-clusters-in-hdinsight-by-using-resource-manager-templates"></a>Skapa Apache Hadoop-kluster i HDInsight med hjälp av Resource Manager-mallar
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -47,11 +47,7 @@ Mer information om Resource Manager-mallar finns i följande artiklar och exempe
 
 ## <a name="generate-templates"></a>Skapa mallar
 
-Resource Manager kan du exportera en Resource Manager-mall från befintliga resurser i din prenumeration med hjälp av olika verktyg. Du kan använda mallen som genereras för att lära dig mer om mallsyntaxen eller för att automatisera omdistributionen av din lösning om det behövs.
-
-- Azure-portalen: Se [exportera en Azure Resource Manager-mall från befintliga resurser](../azure-resource-manager/resource-manager-export-template.md).
-- Azure PowerShell: Se [exportera Azure Resource Manager-mallar med PowerShell](../azure-resource-manager/resource-manager-export-template-powershell.md).
-- Klassiska Azure CLI: Se [exportera Azure Resource Manager-mallar med klassiska Azure-CLI](../azure-resource-manager/resource-manager-export-template-cli.md).
+Resource Manager kan du exportera en Resource Manager-mall från befintliga resurser i din prenumeration med hjälp av olika verktyg. Du kan använda mallen som genereras för att lära dig mer om mallsyntaxen eller för att automatisera omdistributionen av din lösning om det behövs. Mer information finns i [Exportera mallar](../azure-resource-manager/manage-resource-groups-portal.md#export-resource-groups-to-templates).
 
 ## <a name="deploy-using-the-portal"></a>Distribuera med hjälp av portalen
 

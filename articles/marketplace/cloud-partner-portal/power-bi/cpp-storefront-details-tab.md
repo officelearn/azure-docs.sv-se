@@ -14,121 +14,120 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: pbutlerm
-ms.openlocfilehash: ffc0d8e9e41cf4d202b4040ce3f09e7180101c8b
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 2c99b20e554d92dbe63594d63525dd8e1d765423
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55666809"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56806818"
 ---
-# <a name="power-bi-apps-storefront-details-tab"></a>Fliken för Power BI-appar Storefront information
+# <a name="power-bi-app-storefront-details-tab"></a>Fliken för Power BI-appen Storefront information
 
-Använd den **Storefront information** fliken den **nytt erbjudande** sidan för att tillhandahålla marknadsföring, försäljning och juridisk information till potentiella kunder. Den här fliken kan du också ange hur du hanterar leads som genereras från marketplace. Den här diktering är uppdelad i sex delar: **Erbjudandeinformationen**, **listinformation**, **marknadsföring artefakter**, **juridiska**, **kundsupport**, och **Leda Management**.  En tillagda asterisk (*) för fältet etiketten visar att det krävs.
+På den **nytt erbjudande** kan du använda den **Storefront information** fliken för att ange marknadsföring, försäljning och juridisk information för potentiella kunder. På den här fliken kan du också ställa in hantering för leads som genererar Azure Marketplace. Den här diktering är uppdelad i sex delar: **Erbjudandeinformationen**, **listinformation**, **marknadsföring artefakter**, **juridiska**, **kundsupport**, och **Leda Management**.  En asterisk (*) i slutet av en fältetikett innebär att fältet är obligatoriskt.
 
 
 ## <a name="offer-details-section"></a>Erbjudandet informationsavsnittet
 
-I det här avsnittet ska ange du allmän information om din App källan erbjuder.
+I den **Erbjudandeinformationen** ange allmän information om erbjudandet AppSource.
 
 ![Erbjudandet informationsavsnittet på fliken Storefront information](./media/offer-details-section.png)
 
-I följande tabell beskrivs namn och syftet med de här fälten.
+Använd följande tabell för att slutföra fälten i det här avsnittet:
 
 |   Fält               |   Beskrivning                                                                           |
 |-----------------------|-----------------------------------------------------------------------------------------|
-| **Sammanfattning av erbjudandet**     | Kort syftet med appen. Högst 100 tecken.                             |
-| **Beskrivning av erbjudande** | Beskrivning av appen. Maximal längd på 3000 tecken har stöd för enkel HTML-formatering. |
+| **Sammanfattning av erbjudandet**     | En kort syftet med appen, med upp till 100 tecken.                             |
+| **Beskrivning av erbjudande** | En beskrivning av programmet, med upp till 3 000 tecken. Det här fältet stöder enkel HTML-formatering. |
 |                       |                                                                                         |
 
 
 ## <a name="listing-details-section"></a>Visa en lista över informationsavsnittet
 
-Den här andra avsnittet ger ytterligare kontext för din app: vilka branscher det vanligtvis används i vilken kategori som bäst gäller till den kompatibla produkter och associerade Sök villkor.
+Den **lista information** avsnittet samlar in information om kontexten för din app: branscher där den används, app-kategori, kompatibla produkter och associerade söktermer.
 
 ![Visa en lista över informationsavsnittet på fliken Storefront information](./media/listing-details-section.png)
 
- I följande tabell beskrivs namn och syftet med de här fälten.
+Använd följande tabell för att slutföra fälten i det här avsnittet:
  
 |   Fält                                  |   Beskrivning                                                        |
 | --------------                           | ---------------------                                                |
-| **Branscher**                           | Välj bransch som din app är bäst anpassad efter. Om din app är kopplad till flera olika branscher, kan du lämna det tomt.      |
-| **Kategorier**                           | Välj kategorier som är relevanta för din app. Välj högst 3.     |
-| **Hjälplänk för din app**               | URL till en sida med Onlinehjälp för din app           |
-| **Produkter som din app fungerar med (Max 3)** | Lista de specifika produkter som din app fungerar med. Du kan visa upp till 3 produkter. Om du vill visa en produkt, klicka på plustecknet (bredvid nytt) och ett nytt öppna textfält kommer att skapas för dig att ange namnet på en produkt som din app fungerar med.      |
-| **Sökord (Max 3)**              | AppSource kan kunden söker efter nyckelord. Du kan ange uppsättningen nyckelord som programmet kommer att visas för kunderna. Till exempel om programmet är ”min e-post-app” e-postmeddelanden, kanske skicka, e-postprogrammet vissa nyckelord. Välj typ av ord som användare använder sannolikt att söka för din app i rutan Sök AppSource. |
+| **Branscher**                           | Välj bransch var din app passar bäst. Om din app är kopplad till flera olika branscher, lämna fältet tomt.      |
+| **Kategorier**                           | Välj upp till tre kategorier som är relaterade till din app.     |
+| **Hjälplänk för din app**               | Ange en URL till en sida som erbjuder Onlinehjälp för din app.           |
+| **Produkter som din app fungerar med (Max 3)** | Välj den **New** plustecknet för att skapa ett textfält. I fältet, anger du namnet på en produkt som din app fungerar med. Lista över upp till tre produkter.       |
+| **Sökord (Max 3)**              | Ange upp till tre nyckelord som användare använder sannolikt att söka i programmet i AppSource. Till exempel om programmet har anropats ”min e-post-app” nyckelorden kanske **e-postmeddelanden**, **e**, och **e-postprogrammet**. |
 |  |  |
 
 
 ## <a name="marketing-artifacts-section"></a>Marknadsföring artefakter avsnittet
 
-Det här avsnittet för tredje kan uppladdningen av anpassning och marknadsföringsmaterial.  Den är uppdelad i fyra underavsnitt: **Logotyper**, **videor**, **dokument**, och **skärmbilder**. Logotyper och skärmdumpar är obligatoriska marknadsföring artefakter; men rekommenderas alla för bästa kund ändring.
+I den **marknadsföring artefakter** avsnittet, ladda upp anpassning och marknadsföringsmaterial ska visas på AppSource.  Det här avsnittet är uppdelad i fyra underavsnitt: **Logotyper**, **videor**, **dokument**, och **skärmbilder**. Logotyper och skärmdumpar är den enda krävs marknadsföring artefakter. Men för den bästa kund beslut, rekommenderar vi att lägga till videor och dokument.
 
 ![Marknadsföring artefakter delen av fliken Storefront information](./media/marketing-artifacts-section.png)
 
+Använd följande tabell för att slutföra fälten i det här avsnittet:
  
 |    Fält                             |    Beskrivning                                                    |
 |   -----------                        |    -------------                                                  |
 | *Logotyper*                              |                                                                   |
-| **Erbjudandet logotyp (png-format, 48 x 48)**   | Visas på AppSource i översikten över appen eller app-resultat när du har slutfört en sökning. Endast png-format, med en upplösning på 48px\*48px stöds.  |
-| **Erbjudandet logotyp (png-format, 216 x 216)** | Visas på AppSource på detaljsidan för din app.  Endast png-format, med en upplösning på 216px\*216px stöds.  |
+| **Erbjudandet logotyp (png-format, 48 x 48)**   | Ladda upp en logotyp som ska visas i översikten över appen eller i sökresultaten för appen. AppSource stöder endast PNG-format, med en upplösning på 48 x 48 bildpunkter.  |
+| **Erbjudandet logotyp (png-format, 216 x 216)** | Ladda upp en logotyp som ska visas på detaljsidan för din app.  AppSource stöder endast PNG-format, med en upplösning på 216 x 216 bildpunkter.  |
 | *Videoklipp*                             |                                                                   |
-| **Namn**                             | Namn eller appens titel                                          |
-| **URL**                              | Video-URL finns på YouTube eller Vimeo                              |
-| **Miniatyr**                        | Miniatyr av appen.  Endast png-format med en upplösning på 1280px\*720px stöds.   |
-| *Dokument*                          | Valfritt, men högst tre dokument. Docs som du laddar upp den här visas på AppSource under ”Läs mer”.  |
-| **Namn**                             | Namn eller rubrik för stöd för dokument                              |
-| **Fil**                             | Ladda upp dokument måste vara i PDF-format                             |
-| *Skärmbilder*                        | Valfritt, men högst fem skärmbilder.                        |
-| **Namn**                             | Namn eller rubrik för skärmbild                                       |
-| **Avbildning**                            | Ladda upp skärmen insamlade avbildningen måste vara png-format med upplösning på 1280px\*720px  | 
+| **Namn**                             | Ange appens namn eller rubrik.                                          |
+| **URL**                              | Ange Webbadressen till ett videoklipp på YouTube eller Vimeo.                              |
+| **Miniatyr**                        | Lägg till en miniatyrbild av appen.  AppSource stöder endast PNG-format, med en upplösning på 1 280 x 720 bildpunkter.   |
+| *Dokument*                          | Lägga till upp till tre dokument ska visas på AppSource, under den **mer** rubrik.  |
+| **Namn**                             | Ange namn eller titeln på ett stöddokument.                              |
+| **Fil**                             | Överföra en PDF-fil.                             |
+| *Skärmbilder*                        | Lägga till upp till fem skärmbilder.                        |
+| **Namn**                             | Ange ett namn eller titeln på en skärmbild.                                       |
+| **Avbildning**                            | Ladda upp en PNG-skärmbild. Upplösningen måste vara minst 1 280 x 720 bildpunkter.  | 
 |   |   |
 
+Logotyper som du överför till [Cloud Partner Portal](https://cloudpartner.azure.com) bör *inte*:
 
-### <a name="logo-guidelines"></a>Riktlinjer för logotyp
-
-Alla logotyper överförs till den [Cloud Partner Portal](https://cloudpartner.azure.com) bör följa riktlinjerna:
-
-- Använd inte en toning bakgrund på din logotyp.
-- Undvika att placera text – inklusive företaget eller varumärke – på logotypen. Utseendet och känslan av din logotyp måste vara ”fast” och Undvik toningar.
-- Stretch inte logotypen.
-
+- Använd en övertoning. Utseendet och känslan av din logotyp ska vara fast.
+- Inkludera företagets namn, varumärke eller annan text. 
+- Titta sträckt.
 
 ## <a name="legal-section"></a>Juridiska avsnittet
 
-Det här fjärde avsnittet kan du ange två juridiska dokument som krävs för varje erbjudande: Sekretesspolicy och användningsvillkoren.
+I den **juridiska** avsnittet tillhandahåller två juridiska dokument som krävs för varje erbjudande: din sekretesspolicy och dina användningsvillkor.
 
 ![Juridiska delen av fliken Storefront information](./media/legal-section.png)
 
+Använd följande tabell för att slutföra fälten i det här avsnittet:
+
 |   Fält                |   Beskrivning                           |
 |------------------------|--------------------------------------   |
-| **Sekretesswebbadress för principen** | URL: en till din bokförda sekretesspolicy       |
-| **Användningsvillkor**       | Princip för som oformaterad text eller enkel HTML-kod     |
+| **Sekretesswebbadress för principen** | URL: en för din bokförda sekretesspolicy       |
+| **Användningsvillkor**       | Policy för användning som är formaterade som oformaterad text eller enkel HTML-kod     |
 |  |  |
 
 
 ## <a name="customer-support-section"></a>Kunden supportavdelning
 
-Ange den **stöd för URL: en** för din online-kund supportsida.  Det är bäst om den här sidan Onlinesupport tillhandahåller kunder med flera Kontaktalternativ som telefon, e-post och live-chatt. 
+I den **kundsupporten** avsnittet tillhandahåller den **stöd för URL: en** för din online-kund supportsida.  Den här sidan bör ge flera Kontaktalternativ som telefon, e-post och live-chatt. 
 
 
 ## <a name="lead-management-section"></a>Leda hanteringsavsnittet
 
-Det sista avsnittet kan du samla in kunder leads som skapas från AppSource-erbjudanden. Den erbjuder följande lagringsalternativ (från listrutan) för den här lead-information.
+I den **leda Management** avsnittet Konfigurera datorn för att samla in kundleads som genererar AppSource-erbjudanden. Välj din lagringsalternativ för de potentiella kunderna genom att använda i följande tabell:
 
 |    Fält               |   Leda mål                               |
 |------------------------|--------------------------------------            |
-|  **Ingen**              | Leads är inte samlas in (standard).  |
-| **Azure Blob (inaktuell)** | En [Azure blob](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview), som anges av ett behållarnamn och en anslutningssträng.  Det här alternativet är föråldrad; Använd **Azure Table** i stället.  |
-| **Azure Table**        | En [Azure-tabell](https://docs.microsoft.com/azure/cosmos-db/table-storage-overview), som anges av en anslutningssträng  |
-| **Dynamics CRM Online** | En [Microsoft Dynamics 365 Online](https://dynamics.microsoft.com/) instans som anges av en URL och autentisering autentiseringsuppgifter |
-| **HTTPS-slutpunkt**     | Den angivna HTTPS-slutpunkten som en JSON-nyttolast   |
-| **Marketo**            | En [Marketo](https://www.marketo.com/) instans som anges av server-ID, munchkin-ID och formulär-ID   |
-| **Salesforce**         | En [Salesforce](https://www.salesforce.com/) databas som anges av ett objekt-ID |
+|  **Ingen**              | Samla in inga leads. Det här är standardalternativet.  |
+| **Azure Blob (inaktuell)** | Ange [Azure Blob storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) med hjälp av ett behållarnamn och en anslutningssträng.  Det här alternativet är inaktuell. Använd **Azure Table** i stället.  |
+| **Azure Table**        | Ange [Azure Table storage](https://docs.microsoft.com/azure/cosmos-db/table-storage-overview) med hjälp av en anslutningssträng.  |
+| **Dynamics CRM Online** | Ange [Dynamics 365](https://dynamics.microsoft.com/) med hjälp av en URL och autentisering autentiseringsuppgifter. |
+| **HTTPS-slutpunkt**     | Ange HTTPS-slutpunkten med hjälp av en JSON-nyttolast.   |
+| **Marketo**            | Ange en [Marketo](https://www.marketo.com/) instans med hjälp av en server-ID, munchkin-ID och formulär-ID.   |
+| **Salesforce**         | Ange [Salesforce](https://www.salesforce.com/) med hjälp av en objektidentifierare. |
 |  |  |
 
-När du har publicerat ditt erbjudande, lead-anslutningen har verifierats och ett test-lead skickas automatiskt till det angivna målet. Lead-information ska hanteras kontinuerligt och dessa inställningar ska uppdateras snabbt för att återspegla din aktuella hanteringsarkitektur för kunden.
+När du har publicerat ditt erbjudande, lead-anslutningen har verifierats och ett test-lead skickas automatiskt till det angivna målet. Hantera kontinuerligt lead-information och uppdatera dina inställningar för att återspegla din aktuella hanteringsarkitektur för kunden.
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-I nästa [kontakter](./cpp-contacts-tab.md) fliken du tillhandahåller teknisk hjälp och användaren Supportresurser för ditt erbjudande.
+På den [kontakter](./cpp-contacts-tab.md) fliken tillhandahåller teknisk hjälp och användaren Supportresurser för ditt erbjudande.

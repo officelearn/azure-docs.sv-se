@@ -10,18 +10,18 @@ ms.date: 02/19/2019
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 07fd8c41e7817e232513ed9a260c3722a1fdac11
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: e429d9577b938aea20318aa09a0247e00e4f66b6
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56429272"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56819590"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Spåra ändringar i miljön med lösningen ändringsspårning
 
 Den här artikeln hjälper dig att använda ändringsspårning-lösning lätt kan identifiera ändringar i miljön. Lösningen spårar ändringar i Windows och Linux, Windows och Linux-filer, registernycklar för Windows, Windows-tjänster och Linux-daemon. Identifiera konfigurationsändringar kan hjälpa dig att precisera Driftproblem.
 
-Ändringar av installerad programvara, tjänster för Windows, Windows-registret och filer och Linux-Daemon på de övervakade servrarna skickas till Log Analytics-tjänsten i molnet för bearbetning. Logiken tillämpas på den mottagna data och Molntjänsten innehåller data. Du kan enkelt se ändringar som gjorts i din serverinfrastruktur med hjälp av informationen på instrumentpanelen för ändringsspårning.
+Ändringar av installerad programvara, tjänster för Windows, Windows-registret och filer och Linux-Daemon på de övervakade servrarna skickas till Azure Monitor-tjänsten i molnet för bearbetning. Logiken tillämpas på den mottagna data och Molntjänsten innehåller data. Du kan enkelt se ändringar som gjorts i din serverinfrastruktur med hjälp av informationen på instrumentpanelen för ändringsspårning.
 
 ## <a name="supported-windows-operating-systems"></a>Windows-operativsystem som stöds
 
@@ -261,7 +261,7 @@ När du klickar på en ändring eller händelse öppnas den detaljerade informat
 
 ## <a name="search-logs"></a>Sök i loggar
 
-Förutom den information som tillhandahålls i portalen, kan du göra sökningar mot loggarna. Med den **ändringsspårning** öppen, klickar du på **Log Analytics**, öppnas den **Loggsökning** sidan.
+Förutom den information som tillhandahålls i portalen, kan du göra sökningar mot loggarna. Med den **ändringsspårning** öppen, klickar du på **Log Analytics**, öppnas den **loggar** sidan.
 
 ### <a name="sample-queries"></a>Exempelfrågor
 
@@ -314,5 +314,5 @@ Gå kursen på ändringsspårning vill veta mer om hur du använder lösningen:
 > [!div class="nextstepaction"]
 > [Felsöka ändringar i din miljö](automation-tutorial-troubleshoot-changes.md)
 
-* Använd [Loggsökningar i Log Analytics](../log-analytics/log-analytics-log-searches.md) att visa detaljerad spårning av data.
+* Använd [Loggsökningar i Azure Monitor-loggar](../log-analytics/log-analytics-log-searches.md) att visa detaljerad spårning av data.
 

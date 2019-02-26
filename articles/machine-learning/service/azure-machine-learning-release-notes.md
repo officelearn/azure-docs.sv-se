@@ -9,20 +9,35 @@ ms.topic: reference
 author: hning86
 ms.author: haining
 ms.reviewer: j-martens
-ms.date: 12/20/2018
+ms.date: 2/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: f02a44f41eba8cc4298b9fc730354799ca0aad0c
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: 899e33db242a34d09df6109c2e195bdff9c65262
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56446774"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56823611"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Viktig information för Azure Machine Learning-tjänsten
 
 I den här artikeln lär du dig om Azure Machine Learning-tjänstversioner.  En fullständig beskrivning av varje SDK finns i referensdokument för:
 + Azure Machine Learning [ **huvudsakliga SDK för Python**](https://aka.ms/aml-sdk)
 + Azure Machine Learning [ **Data Förbered SDK**](https://aka.ms/data-prep-sdk)
+
+## <a name="2019-02-25"></a>2019-02-25
+
+### <a name="azure-machine-learning-sdk-for-python-v1017"></a>Azure Machine Learning-SDK för Python v1.0.17
+
++ **Nya funktioner**
+
+  + Azure Machine Learning SDK nu stöder en [ `Chainer` ](https://docs.microsoft.com/en-us/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py) kostnadsuppskattning klassen för att effektivisera processen för att träna och distribuera en modell med anpassad Chainer-kod.
+
+### <a name="azure-portal"></a>Azure Portal
++ **Nya funktioner**
+    + Ny dra och släpp tabell redigeraren upplevelse för rapporter. Användare kan dra en kolumn från brunnen till området tabellen där en förhandsgranskning av tabellen visas. Kolumnerna som kan skrivas om.
+    + Ny kör-knappen för körningar som skickades med ScriptRunConfig. Användare kan köra igen en befintlig som körs på en fjärransluten beräkningsklustret för valfri.
+    + Granskaren nya loggar
+    + Länkar till experiment körs, beräkning, modeller, bilder och distributioner från fliken aktiviteter
 
 ## <a name="2019-02-11"></a>2019-02-11
 

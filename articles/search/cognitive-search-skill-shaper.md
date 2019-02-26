@@ -8,21 +8,19 @@ ms.service: search
 ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
-ms.date: 01/17/2019
+ms.date: 02/22/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: a1f5a698ee76ebd0561bd19ff1a23d0f04be0771
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: c55783e9b209a1280a21edca34b75e72481f4cb6
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54410123"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56807005"
 ---
 #   <a name="shaper-cognitive-skill"></a>Formaren kognitiva kunskaper
 
-Den **formaren** färdighet skapar en komplex typ för att stödja sammansatta fält (även kallat multipart fält). En komplex typ-fältet har flera delar men behandlas som ett enskilt objekt i ett Azure Search-index. Exempel på konsoliderade fält som är användbart i sökscenarier är att kombinera ett första och sista namn till ett fält, stad och tillstånd till ett enda fält eller namn och födelsedatum till ett fält att upprätta en unik identitet.
-
-Den **formaren** färdighet kan du skapa en struktur, ange namnet på medlemmarna i denna struktur och tilldela värden till varje medlem i stort sett.
+Den **formaren** färdighet konsoliderar flera indata till en komplex typ som kan referera till senare i berikande pipelinen. Den **formaren** färdighet kan du skapa en struktur, ange namnet på medlemmarna i denna struktur och tilldela värden till varje medlem i stort sett. Exempel på konsoliderade fält som är användbart i sökscenarier är att kombinera ett första och sista namn till en enda struktur, stad och tillstånd i en enda struktur, eller ett namn och födelsedatum i en enda struktur att upprätta en unik identitet.
 
 Som standard stöder den här tekniken objekt som är en nivå. För mer komplexa objekt, kan du länka flera **formaren** steg.
 
@@ -58,7 +56,7 @@ I följande exempel tillhandahåller medlemmen namn som indata. Utdata-struktur 
   "outputs": [
     {
       "name": "output",
-      "targetName": analyzedText"
+      "targetName": "analyzedText"
     }
   ]
 }
@@ -125,8 +123,8 @@ Formaren färdighet definitionen för det här scenariot kan se ut som i följan
     ],
     "outputs": [
         {
-            "output": "titlesAndChapters",
-            "targetName": "analyzedText"
+            "name": "output",
+            "targetName": "titlesAndChapters"
         }
     ]
 }

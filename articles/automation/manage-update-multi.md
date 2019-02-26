@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 01/10/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: ac2d1c1fb59988c8b95fda6b92bb9ae0332fc0e0
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 864e93dcd94fd36b0e34495e0ea27f22d8b0dd0c
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54427431"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56817685"
 ---
 # <a name="manage-updates-for-multiple-machines"></a>Hantera uppdateringar av flera datorer
 
@@ -72,7 +72,7 @@ När onboardingsprocessen har slutförts, har uppdateringshantering aktiverats f
 
 Information om hur du aktiverar uppdateringshantering för icke - Azure Windows-datorer och datorer, se [ansluta Windows-datorer till Log Analytics-tjänsten i Azure](../log-analytics/log-analytics-windows-agent.md).
 
-Information om hur du aktiverar uppdateringshantering för Azure Linux-datorer och datorer, se [Anslut dina Linux-datorer till Log Analytics](../log-analytics/log-analytics-agent-linux.md).
+Information om hur du aktiverar uppdateringshantering för Azure Linux-datorer och datorer, se [ansluta dina Linux-datorer till Azure Monitor-loggar](../log-analytics/log-analytics-agent-linux.md).
 
 ## <a name="view-computers-attached-to-your-automation-account"></a>Visa datorer som är kopplat till ditt Automation-konto
 
@@ -113,7 +113,7 @@ I följande tabell beskrivs de anslutna källor som stöds av den här lösninge
 
 ### <a name="collection-frequency"></a>Insamlingsfrekvens
 
-När en dator är klar en sökning efter uppdateringskompatibilitet vidarebefordrar agenten informationen gruppvis till Azure Log Analytics. På en Windows-dator körs kompatibilitetsgenomsökningen var 12: e timme som standard.
+När en dator är klar en sökning efter uppdateringskompatibilitet vidarebefordrar agenten informationen gruppvis till Azure Monitor-loggar. På en Windows-dator körs kompatibilitetsgenomsökningen var 12: e timme som standard.
 
 Förutom genomsökningsschemat initieras sökningen för uppdateringskompatibilitet inom 15 minuter från MMA startas innan installationen av uppdateringen och efteråt.
 
@@ -132,7 +132,7 @@ I den **ny uppdateringsdistribution** fönstret anger du följande information:
 - **Namn**: Ange ett unikt namn som identifierar uppdateringsdistributionen.
 - **Operativsystem**: Välj **Windows** eller **Linux**.
 - **Grupper som ska uppdateras (förhandsversion)**: Definiera en fråga som baseras på en kombination av prenumeration, resursgrupper, platser och taggar för att skapa en dynamisk grupp med virtuella Azure-datorer som ska ingå i din distribution. Mer information finns i [Dynamiska grupper](automation-update-management.md#using-dynamic-groups)
-- **Datorer som ska uppdateras**: Välj en sparad sökning importerat gruppen, eller datorer att välja de datorer som du vill uppdatera. Om du väljer **Datorer** visas beredskapen för datorn i kolumnen **Uppdatera agentberedskap**. Du kan se hälsotillståndet för datorn innan du schemalägga distributionen av uppdateringen. Mer om de olika metoderna för att skapa datorgrupper i Log Analytics finns i dokumentationen om [datorgrupper i Log Analytics](../azure-monitor/platform/computer-groups.md)
+- **Datorer som ska uppdateras**: Välj en sparad sökning importerat gruppen, eller datorer att välja de datorer som du vill uppdatera. Om du väljer **Datorer** visas beredskapen för datorn i kolumnen **Uppdatera agentberedskap**. Du kan se hälsotillståndet för datorn innan du schemalägga distributionen av uppdateringen. Läs om de olika metoderna för att skapa datorgrupper i Azure Monitor-loggar i [datorgrupper i Azure Monitor-loggar](../azure-monitor/platform/computer-groups.md)
 
   ![Nya rutan för distribution av uppdatering](./media/manage-update-multi/update-select-computers.png)
 

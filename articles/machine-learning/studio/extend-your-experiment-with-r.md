@@ -5,17 +5,17 @@ description: Så här utökar funktionerna i Azure Machine Learning Studio via R
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
+ms.topic: conceptual
 author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017
-ms.openlocfilehash: 98f5922cc329aedc8deeffbcb042bddf90405883
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: ab3d42c1a1131489bcd27033c4c99d17e62d6ac6
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55497169"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56820611"
 ---
 # <a name="azure-machine-learning-studio-extend-your-experiment-with-r"></a>Azure Machine Learning Studio: Utöka experimentet med R 
 Du kan utöka funktionerna i Azure Machine Learning Studio via R-språket med hjälp av den [kör R-skript] [ execute-r-script] modulen.

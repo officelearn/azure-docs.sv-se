@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: automation
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 039e2d3c70493868ca2f79e89fc82d8970ec6865
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 894fc42954182171588d81e2f7f1e37141af9add
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47032414"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56821259"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions-from-an-azure-virtual-machine"></a>Publicera lösningar från Azure-datorer som uppdateringshantering, ändringsspårning och inventering
 
@@ -34,7 +34,7 @@ Välj den Azure Log Analytics-arbetsytan och Automation-konto och välj sedan **
 
 ![Publicera lösningen för uppdateringshantering](media/automation-onboard-solutions-from-vm/onboard-solution.png)
 
-Gå till de andra lösningarna och välj sedan **aktivera**. De Log Analytics och Automation-konto listrutorna har inaktiverats eftersom dessa lösningar använder samma arbetsyta och Automation-konto till den tidigare aktiverade lösningen.
+Gå till de andra lösningarna och välj sedan **aktivera**. Log Analytics-arbetsytan och Automation-konto listrutor har inaktiverats eftersom de här lösningarna använder samma arbetsyta och Automation-kontot till den tidigare aktiverade lösningen.
 
 > [!NOTE]
 > **Ändringsspårning** och **inventering** använder samma lösning. När någon av följande lösningar är aktiverad, aktiveras den andra också.
@@ -45,9 +45,9 @@ Varje lösning använder en omfattningskonfigurationen i arbetsytan för att fok
 
 Om den valda arbetsytan inte redan har lösningarna för uppdateringshantering eller ändringsspårning, skapas följande omfång konfigurationer:
 
-* **MicrosoftDefaultScopeConfig ChangeTracking**
+* **MicrosoftDefaultScopeConfig-ChangeTracking**
 
-* **MicrosoftDefaultScopeConfig-uppdateringar**
+* **MicrosoftDefaultScopeConfig-Updates**
 
 Om den valda arbetsytan har redan lösningen kan distribueras om inte lösningen och konfigurationen har lagts till inte.
 
@@ -76,7 +76,7 @@ Följande lösningar är beroende av en Log Analytics-arbetsyta:
 * [Spårning av ändringar](automation-change-tracking.md)
 * [Starta/Stoppa VM under kontorstid](automation-solution-vm-management.md)
 
-Om du inte längre vill integrera ditt Automation-konto med Log Analytics kan du kan ta bort länken till ditt konto direkt från Azure-portalen.  Innan du fortsätter måste du först ta bort lösningar som tidigare nämnts, annars den här processen kommer inte att kunna fortsätta. Läsa artikeln för den lösning du har importerat för att förstå de steg som krävs för att ta bort den.
+Om du inte längre vill integrera ditt Automation-konto med en arbetsyta för Log Analytics kan du kan ta bort länken till ditt konto direkt från Azure-portalen.  Innan du fortsätter måste du först ta bort lösningar som tidigare nämnts, annars den här processen kommer inte att kunna fortsätta. Läsa artikeln för den lösning du har importerat för att förstå de steg som krävs för att ta bort den.
 
 När du tar bort dessa lösningar kan utföra du följande steg om du vill ta bort länken till ditt Automation-konto.
 

@@ -8,14 +8,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 02/22/2019
+ms.date: 02/25/2019
 ms.author: jingwang
-ms.openlocfilehash: 0f38902a166de8d623106849a124b8e2e5cceb5c
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: ac9bb6969e7771e1570670c83c88ddc892dc759e
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56674809"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56823594"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen2-using-azure-data-factory"></a>Kopiera data till och från Azure Data Lake Storage Gen2 med Azure Data Factory
 
@@ -98,10 +98,16 @@ Följ dessa steg om du vill använda autentisering av tjänstens huvudnamn:
     - Programnyckel
     - Klient-ID:t
 
-2. Ge tjänstens huvudnamn rätt behörighet i Azure storage.
+2. Ge tjänstens huvudnamn rätt behörighet.
 
-    - **Som källa**, i Access (IAM) genom att ge minst **Storage Blob Data-läsare** roll.
-    - **Som mottagare**, i Access (IAM) genom att ge minst **Storage Blob Data-deltagare** roll.
+    - **Som källa**, i Storage Explorer kan du ge minst **Läs + kör** behörighet att visa och kopiera filer i mappar och undermappar eller bevilja **Läs** tillstånd att kopiera en fil. Du kan också ge minst i åtkomstkontroll (IAM) **Storage Blob Data-läsare** roll.
+    - **Som mottagare**, i Storage Explorer kan du ge minst **skriva + köra** behörighet att skapa underordnade objekt i mappen. Du kan också ge minst i åtkomstkontroll (IAM) **Storage Blob Data-deltagare** roll.
+
+>[!NOTE]
+>Listan mappar börja från roten, måste du ange behörigheten för tjänstens huvudnamn som beviljas till **på rotnivå med ”kör” behörighet** eller behörighet för IAM. Detta gäller när du använder den:
+>- **Kopiera Data-verktyg** att författaren kopiering av pipeline.
+>- **Användargränssnittet för data Factory** att testa anslutningen och navigera mappar under redigering. 
+>Om du har problem för att bevilja behörighet på rotnivå kan du hoppa över Testa anslutning och indatasökvägen manuellt under redigering. Kopieringsaktivitet kommer att fungera så länge tjänstens huvudnamn har beviljats med rätt behörighet på filerna som ska kopieras.
 
 Dessa egenskaper stöds i den länkade tjänsten:
 
@@ -146,10 +152,16 @@ Följ dessa steg om du vill använda hanterade identiteter för Azure-resurser a
 
 1. [Hämta data factory hanteras identitetsinformation](data-factory-service-identity.md#retrieve-managed-identity) genom att kopiera värdet för ”SERVICE IDENTITETSPROGRAM-ID” genererade tillsammans med din datafabrik.
 
-2. Ge rätt behörighet hanterad identitet i Azure storage. 
+2. Ge hanterad identitet rätt behörighet. 
 
-    - **Som källa**, i Access (IAM) genom att ge minst **Storage Blob Data-läsare** roll.
-    - **Som mottagare**, i Access (IAM) genom att ge minst **Storage Blob Data-deltagare** roll.
+    - **Som källa**, i Storage Explorer kan du ge minst **Läs + kör** behörighet att visa och kopiera filer i mappar och undermappar eller bevilja **Läs** tillstånd att kopiera en fil. Du kan också ge minst i åtkomstkontroll (IAM) **Storage Blob Data-läsare** roll.
+    - **Som mottagare**, i Storage Explorer kan du ge minst **skriva + köra** behörighet att skapa underordnade objekt i mappen. Du kan också ge minst i åtkomstkontroll (IAM) **Storage Blob Data-deltagare** roll.
+
+>[!NOTE]
+>Listan mappar börja från roten, måste du ange behörighet för den hanterade identitet som beviljas till **på rotnivå med ”kör” behörighet** eller behörighet för IAM. Detta gäller när du använder den:
+>- **Kopiera Data-verktyg** att författaren kopiering av pipeline.
+>- **Användargränssnittet för data Factory** att testa anslutningen och navigera mappar under redigering. 
+>Om du har problem för att bevilja behörighet på rotnivå kan du hoppa över Testa anslutning och indatasökvägen manuellt under redigering. Kopieringsaktivitet kommer att fungera så länge som den hanterade identitet beviljas med rätt behörighet på filerna som ska kopieras.
 
 Dessa egenskaper stöds i den länkade tjänsten:
 

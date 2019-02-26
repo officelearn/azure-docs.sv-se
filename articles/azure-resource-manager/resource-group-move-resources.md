@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: tomfitz
-ms.openlocfilehash: ddbd77cbc199e78e74324c87d49155f27d6edeea
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: 5a9ea460684383bd09e5a679f3140d3b8f083d4d
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417099"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56823628"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Flytta resurser till ny resursgrupp eller prenumeration
 
@@ -89,13 +89,13 @@ Följande lista innehåller en allmän översikt över Azure-tjänster som kan f
 * IoT-hubbar
 * Key Vault - Nyckelvalv som används för diskkryptering kan inte flyttas till resursgrupper i samma prenumeration eller mellan prenumerationer.
 * Belastningsutjämnare – grundläggande SKU-belastningsutjämnare kan flyttas. Standard-SKU-belastningsutjämnare kan inte flyttas.
-* Log Analytics
 * Logic Apps
 * Maskininlärning – Machine Learning Studio-webbtjänster kan flyttas till en resursgrupp i samma prenumeration, men inte en annan prenumeration. Andra Machine Learning-resurser kan flyttas mellan prenumerationer.
 * Managed Disks – Se [begränsningar för virtuella datorer för begränsningar](#virtual-machines-limitations)
 * Hanterad identitet - användartilldelade
 * Media Services
 * Övervaka – Se till att flytta till ny prenumeration inte överstiger [prenumerationskvoter](../azure-subscription-service-limits.md#monitor-limits)
+* Azure Monitor-loggar
 * Notification Hubs
 * Operational Insights
 * Operations Management
@@ -145,7 +145,7 @@ Följande lista innehåller en allmän översikt över Azure-tjänster som inte 
 * Lab Services – flytta till ny resursgrupp i samma prenumeration har aktiverats, men flytta över prenumerationer har inte aktiverats.
 * Managed Applications
 * Microsoft Genomics
-* NetApp
+* Azure NetApp Files
 * SAP HANA på Azure
 * Säkerhet
 * Site Recovery
@@ -513,7 +513,7 @@ I begärandetexten anger du målresursgruppen och resurser för att flytta. Mer 
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Läs om PowerShell-cmdletar för att hantera din prenumeration i [med hjälp av Azure PowerShell med Resource Manager](powershell-azure-resource-manager.md).
-* Läs mer om Azure CLI-kommandon för att hantera din prenumeration, i [med hjälp av Azure CLI med resurshanteraren](xplat-cli-azure-resource-manager.md).
+* Läs om PowerShell-cmdletar för att hantera resurser i [med hjälp av Azure PowerShell med Resource Manager](manage-resources-powershell.md).
+* Läs om Azure CLI-kommandon för att hantera resurser i [med hjälp av Azure CLI med resurshanteraren](manage-resources-cli.md).
 * Läs om portalen funktioner för att hantera din prenumeration i [hantera resurser med hjälp av Azure portal](resource-group-portal.md).
 * Läs om hur du tillämpar en logisk struktur till resurser i [med taggar för att organisera dina resurser](resource-group-using-tags.md).

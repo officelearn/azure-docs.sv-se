@@ -75,7 +75,7 @@ Om du använder en StorSimple 8100 eller 8600 fysisk enhet, är enheten tillgän
 | 4  | Belgien        | 19 | Indien       | 34 | Peru         | 49 | Sri Lanka            |
 | 5  | Brasilien         | 20 | Indonesien   | 35 | Filippinerna  | 50 | Sverige               |
 | 6  | Kanada         | 21 | Irland     | 36 | Polen       | 51 | Schweiz          |
-| 7  | Chile          | 22 | Israel      | 37 | Portugal     | 52 | Taiwan SAR               |
+| 7  | Chile          | 22 | Israel      | 37 | Portugal     | 52 | Taiwan (Taiwan)               |
 | 8  | Colombia       | 23 | Italien       | 38 | Puerto Rico  | 53 | Thailand             |
 | 9  | Tjeckien | 24 | Japan       | 39 | Qatar        | 54 | Turkiet               |
 | 10 | Danmark        | 25 | Kenya       | 40 | Rumänien      | 55 | Ukraina              |

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: aca5b1613a6500b3aeca1a7074cabdce50023510
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 0f5de24d42ccc930a4746251b9f466f241c3508e
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53789508"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56806716"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-suse-linux-enterprise-server"></a>Hög tillgänglighet för SAP HANA på Azure virtuella datorer på SUSE Linux Enterprise Server
 
@@ -45,7 +45,7 @@ ms.locfileid: "53789508"
 [suse-hana-ha-guide]:https://www.suse.com/docrep/documents/ir8w88iwu7/suse_linux_enterprise_server_for_sap_applications_12_sp1.pdf
 [sap-swcenter]:https://launchpad.support.sap.com/#/softwarecenter
 [template-multisid-db]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-db-md%2Fazuredeploy.json
-[template-converged]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-converged%2Fazuredeploy.json
+[template-converged]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-converged-md%2Fazuredeploy.json
 
 Du kan använda antingen HANA System Replication eller använder delad lagring för att upprätta hög tillgänglighet för SAP HANA för lokal utveckling.
 På Azure-datorer (VM) är HANA System Replication i Azure för närvarande endast stöd för funktionen för hög tillgänglighet. SAP HANA Replication består av en primär nod och minst en sekundär nod. Ändringar av data på den primära noden replikeras till den sekundära noden synkront eller asynkront.
@@ -201,9 +201,9 @@ Följ stegen i [konfigurerar Pacemaker på SUSE Linux Enterprise Server i Azure]
 ## <a name="install-sap-hana"></a>Installera SAP HANA
 
 Stegen i det här avsnittet använder följande prefix:
-- **[A]** : Steget gäller för alla noder.
-- **[1]** : Steget gäller nod 1.
-- **[2]** : Steget gäller nod 2 i Pacemaker-klustret.
+- **[A]**: Steget gäller för alla noder.
+- **[1]**: Steget gäller nod 1.
+- **[2]**: Steget gäller nod 2 i Pacemaker-klustret.
 
 1. **[A]**  Konfigurera disklayouten: **Logical Volume Manager (LVM)**.
 
@@ -340,7 +340,7 @@ Installera SAP HANA System Replication enligt kapitel 4 i den [SAP HANA SR prest
    * Ange databaslösenord för användare (SYSTEM): Ange lösenordet för användaren.
    * Bekräfta databas-användarlösenord (SYSTEM): Ange databas användarens lösenord igen för att bekräfta.
    * Starta om systemet efter omstart av datorn? [n]: Välj ange.
-   * Vill du fortsätta? (j/n): Verifiera sammanfattningen. Ange **y** att fortsätta.
+   * Vill du fortsätta? (y/n): Verifiera sammanfattningen. Ange **y** att fortsätta.
 
 1. **[A]**  Uppgradera Värdagenten SAP.
 
@@ -353,9 +353,9 @@ Installera SAP HANA System Replication enligt kapitel 4 i den [SAP HANA SR prest
 
 Stegen i det här avsnittet använder följande prefix:
 
-* **[A]** : Steget gäller för alla noder.
-* **[1]** : Steget gäller nod 1.
-* **[2]** : Steget gäller nod 2 i Pacemaker-klustret.
+* **[A]**: Steget gäller för alla noder.
+* **[1]**: Steget gäller nod 1.
+* **[2]**: Steget gäller nod 2 i Pacemaker-klustret.
 
 1. **[1]**  Skapa klientdatabasen.
 
@@ -398,9 +398,9 @@ Stegen i det här avsnittet använder följande prefix:
 
 Stegen i det här avsnittet använder följande prefix:
 
-* **[A]** : Steget gäller för alla noder.
-* **[1]** : Steget gäller nod 1.
-* **[2]** : Steget gäller nod 2 i Pacemaker-klustret.
+* **[A]**: Steget gäller för alla noder.
+* **[1]**: Steget gäller nod 1.
+* **[2]**: Steget gäller nod 2 i Pacemaker-klustret.
 
 1. **[1]**  Skapa nödvändiga användarna.
 
@@ -907,7 +907,7 @@ OBS! Följande testerna är utformade för att köras i följd och beror på Avs
       rsc_nc_HN1_HDB03   (ocf::heartbeat:anything):      Started hn1-db-1
    </code></pre>
 
-1. TESTA 6: KRASCHA SEKUNDÄR NOD (NOD 2)
+1. TEST 6: KRASCHA SEKUNDÄR NOD (NOD 2)
 
    Resurstillstånd innan du startar testet:
 
@@ -958,7 +958,7 @@ OBS! Följande testerna är utformade för att köras i följd och beror på Avs
       rsc_nc_HN1_HDB03   (ocf::heartbeat:anything):      Started hn1-db-0
    </code></pre>
 
-1. TESTA 7: STOPPA SEKUNDÄRT DATABASEN PÅ NOD 2
+1. TEST 7: STOPPA SEKUNDÄRT DATABASEN PÅ NOD 2
 
    Resurstillstånd innan du startar testet:
 
@@ -995,7 +995,7 @@ OBS! Följande testerna är utformade för att köras i följd och beror på Avs
       rsc_nc_HN1_HDB03   (ocf::heartbeat:anything):      Started hn1-db-0
    </code></pre>
 
-1. TESTA 8: KRASCHER SOM SEKUNDÄRT DATABASEN PÅ NOD 2
+1. TEST 8: KRASCHER SOM SEKUNDÄRT DATABASEN PÅ NOD 2
 
    Resurstillstånd innan du startar testet:
 
@@ -1032,7 +1032,7 @@ OBS! Följande testerna är utformade för att köras i följd och beror på Avs
       rsc_nc_HN1_HDB03   (ocf::heartbeat:anything):      Started hn1-db-0
    </code></pre>
 
-1. TESTA 9: KRASCHA SEKUNDÄRA HANA-DATABAS FÖR SEKUNDÄR NOD (NOD 2) KÖRS
+1. TEST 9: KRASCHA SEKUNDÄRA HANA-DATABAS FÖR SEKUNDÄR NOD (NOD 2) KÖRS
 
    Resurstillstånd innan du startar testet:
 

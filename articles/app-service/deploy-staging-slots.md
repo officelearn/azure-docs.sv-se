@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: cephalin
-ms.openlocfilehash: 17b1adae9b369df53d69949e8183cf31daf7e35f
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: d9530d35bbaf608ae25e2a753685ee90e9e13501
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56674692"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56823305"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Konfigurera mellanlagringsmiljöer i Azure App Service
 <a name="Overview"></a>
@@ -42,7 +42,7 @@ Varje nivå för App Service-plan har stöd för ett annat antal distributionspl
 ## <a name="add-slot"></a>Lägg till plats
 Appen måste köras i den **Standard**, **Premium**, eller **isolerad** nivå för att du kan aktivera flera distributionsplatser.
 
-1. I den [Azure-portalen](https://portal.azure.com/), öppna appens [resurssida](../azure-resource-manager/resource-group-portal.md#manage-resources).
+1. I den [Azure-portalen](https://portal.azure.com/), öppna appens [resurssida](../azure-resource-manager/manage-resources-portal.md#manage-resources).
 
 2. I det vänstra navigeringsfönstret väljer du den **distributionsplatser (förhandsgranskning)** och sedan klicka på **Lägg till plats**.
    
@@ -205,7 +205,7 @@ När du använder [Auto-Swap](#Auto-Swap), vissa appar kan kräva anpassade vär
         </applicationInitialization>
     </system.webServer>
 
-Mer information om hur du anpassar den `applicationInitialization` element, se [vanligaste slot swap distributionsfel och hur du åtgärdar dem.](https://ruslany.net/2017/11/most-common-deployment-slot-swap-failures-and-how-to-fix-them/).
+Mer information om hur du anpassar den `applicationInitialization` element, se [vanligaste slot swap distributionsfel och hur du åtgärdar dem](https://ruslany.net/2017/11/most-common-deployment-slot-swap-failures-and-how-to-fix-them/).
 
 Du kan också anpassa beteendet värma upp med en eller flera av följande [appinställningar](web-sites-configure.md):
 

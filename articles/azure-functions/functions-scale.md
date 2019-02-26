@@ -13,16 +13,16 @@ ms.topic: reference
 ms.date: 08/09/2018
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 08897b2085c2a8f0eafb90b77486d60a0edce190
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: 8d2d171235a23d3e41fda6172efe29b3bb358f0e
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359875"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56804186"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Azure Functions skalar och som är värd för
 
-Azure Functions som körs i två olika lägen: Förbrukningsplan och Azure App Service-plan. Med förbrukningsplanen beräkningskraften automatiskt när koden körs. Din app är skalade ut vid behov för att hantera belastningen och skalades när koden inte körs. Du behöver inte betala för virtuella datorer eller reserverad kapacitet i förväg.
+Azure Functions körs i två olika lägen: Förbrukningsplan och Azure App Service-plan. Med förbrukningsplanen beräkningskraften automatiskt när koden körs. Din app är skalade ut vid behov för att hantera belastningen och skalades när koden inte körs. Du behöver inte betala för virtuella datorer eller reserverad kapacitet i förväg.
 
 > [!NOTE]  
 > Förbrukningsplan för Linux är [nu som offentlig förhandsversion](https://azure.microsoft.com/updates/azure-functions-consumption-plan-for-linux-preview/).
@@ -70,11 +70,11 @@ En virtuell dator frikopplar kostnaden från antalet körningar, körningstid oc
 
 Du kan skala ut manuellt genom att lägga till flera VM-instanser med en App Service-plan eller du kan aktivera automatisk skalning. Mer information finns i [skala instansantalet manuellt eller automatiskt](../azure-monitor/platform/autoscale-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json). Du kan även skala upp genom att välja en annan App Service-plan. Mer information finns i [skala upp en app i Azure](../app-service/web-sites-scale.md). 
 
-När du kör JavaScript-funktioner i en App Service-plan, bör du välja en plan med färre virtuella processorer. Mer information finns i den [väljer App Service-planer med enkel kärna](functions-reference-node.md#considerations-for-javascript-functions).  
+När du kör JavaScript-funktioner i en App Service-plan, bör du välja en plan med färre virtuella processorer. Mer information finns i [väljer App Service-planer med enkel kärna](functions-reference-node.md#choose-single-vcpu-app-service-plans).  
 
 <!-- Note: the portal links to this section via fwlink https://go.microsoft.com/fwlink/?linkid=830855 --> 
-<a name="always-on"></a>
-### <a name="always-on"></a>Alltid på
+
+###<a name="always-on"></a> Alltid på
 
 Om du kör i en App Service-plan, bör du aktivera den **alltid på** så att din funktionsapp körs korrekt. I en App Service-plan går att funktionskörningen inaktiv efter ett par minuter av inaktivitet, så att endast HTTP-utlösare ska ”aktivera” dina funktioner. Alltid är på endast tillgänglig på en App Service plan. I en förbrukningsplan aktiverar plattformen funktionsappar automatiskt.
 
@@ -122,9 +122,9 @@ Skala är funktionsappen. När funktionsappen har skalats ut, tilldelas ytterlig
 
 ### <a name="understanding-scaling-behaviors"></a>Förstå skalningsbeteenden
 
-Skalning kan variera på ett antal faktorer och skala på olika sätt beroende på utlösaren och den valda språket. Det finns dock några aspekter av skalning som finns i systemet idag:
+Skalning kan variera på ett antal faktorer och skala på olika sätt beroende på utlösaren och den valda språket. Det finns dock några aspekter av skalning som finns i systemet i dag:
 
-* En enda funktionsapp skalar bara upp till högst 200 instanser. En enda instans kan bearbeta flera meddelande eller begäran i taget dock så det finns en set-gränsen för antalet samtidiga körningar.
+* En enskild funktionsapp skalar bara upp till högst 200 instanser. En enda instans kan bearbeta flera meddelande eller begäran i taget dock så det finns en set-gränsen för antalet samtidiga körningar.
 * Nya instanser allokeras endast högst en gång var tionde sekund.
 
 Olika utlösare kan också ha olika skalningsgränser samt dokumenterade nedan:

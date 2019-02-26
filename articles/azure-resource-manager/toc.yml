@@ -105,22 +105,14 @@ items:
       href: /azure/architecture/building-blocks/extending-templates/update-resource
   - name: Distribuera mallar
     items:
-    - name: Distribuera med hjälp av Azure-portalen
+    - name: Distribuera – portalen
       href: resource-group-template-deploy-portal.md
-    - name: Distribuera med hjälp av Azure CLI
+    - name: Distribuera – CLI
       href: resource-group-template-deploy-cli.md
-    - name: Distribuera med hjälp av Azure PowerShell
+    - name: Distribuera – PowerShell
       href: resource-group-template-deploy.md
     - name: Distribuera med hjälp av REST API
       href: resource-group-template-deploy-rest.md
-    - name: Exportera mallar
-      items:
-      - name: Använda portalen
-        href: resource-manager-export-template.md
-      - name: Använda Azure CLI
-        href: resource-manager-export-template-cli.md
-      - name: Använda Azure PowerShell
-        href: resource-manager-export-template-powershell.md
     - name: Säkra mallar med SAS-token
       items:
       - name: Använda Azure CLI
@@ -134,12 +126,28 @@ items:
       maintainContext: true
   - name: Hantera resurser
     items:
-    - name: Hantera med hjälp av Azure-portalen
-      href: resource-group-portal.md
-    - name: Hantera med hjälp av Azure PowerShell
-      href: powershell-azure-resource-manager.md
-    - name: Hantera med hjälp av Azure CLI
-      href: cli-azure-resource-manager.md
+    - name: Hantera resursgrupper
+      items:
+      - name: Hantera resursgrupper – portalen
+        displayName: create,list,open,delete,deploy,move,lock,tag,export
+        href: manage-resource-groups-portal.md
+      - name: Hantera resursgrupper – CLI
+        displayName: create,list,open,delete,deploy,move,lock,tag,export
+        href: manage-resource-groups-cli.md
+      - name: Hantera resursgrupper – PowerShell
+        displayName: create,list,open,delete,deploy,move,lock,tag,export
+        href: manage-resource-groups-powershell.md
+    - name: Hantera resurser
+      items:
+      - name: Hantera resurser – portalen
+        displayName: open,delete,deploy,move,lock,tag,monitor
+        href: manage-resources-portal.md
+      - name: Hantera resurser – CLI
+        displayName: open,delete,deploy,move,lock,tag
+        href: manage-resources-cli.md
+      - name: Hantera resurser – PowerShell
+        displayName: open,delete,deploy,move,lock,tag
+        href: manage-resources-powershell.md
     - name: Flytta resurser
       href: resource-group-move-resources.md
     - name: Organisera resurser med hjälp av taggar
@@ -251,9 +259,9 @@ items:
     href: resource-manager-personal-data.md
   - name: Videoklipp
     href: https://azure.microsoft.com/documentation/videos/index/?services=azure-resource-manager
-ms.openlocfilehash: 44ba1f922400b9e61d9c40f849b8cb923ef75ddf
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: 1483d34859135d7b50bada6c74c90d09abc2df23
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301952"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56820543"

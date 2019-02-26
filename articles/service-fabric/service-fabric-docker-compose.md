@@ -3,7 +3,7 @@ title: Azure Service Fabric Docker Compose distribution förhandsversion
 description: Azure Service Fabric accepterar Docker Compose-format för att göra det lättare att dirigera befintliga behållare med Service Fabric. Det här stödet förhandsvisas just nu.
 services: service-fabric
 documentationcenter: .net
-author: TylerMSFT
+author: aljo-microsoft
 manager: timlt
 editor: ''
 ms.assetid: ab49c4b9-74a8-4907-b75b-8d2ee84c6d90
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
-ms.author: twhitney, subramar
-ms.openlocfilehash: e4eb26ab91261d1888d3c756d611db1b31801e8f
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.author: aljo, subramar
+ms.openlocfilehash: 6e03ada8c1a3aaa86ffcb11799dbe2b61852c987
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52720244"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56806682"
 ---
 # <a name="docker-compose-deployment-support-in-azure-service-fabric-preview"></a>Docker Compose-distributionsstöd i Azure Service Fabric (förhandsversion)
 
@@ -121,9 +121,9 @@ Den här förhandsversionen stöder en delmängd av konfigurationsalternativ fr�
 * Tjänster > Distribuera > repliker
 * Tjänster > Distribuera > placering > begränsningar
 * Tjänster > Distribuera > resurser > gränser
-    * -cpu-resurser
+    * -cpu-shares
     * -minne
-    * -minne-växling
+    * -memory-swap
 * Tjänster > kommandon
 * Tjänster > miljö
 * Tjänster > portar

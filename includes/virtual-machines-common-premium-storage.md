@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: ramankum
 ms.custom: include file
-ms.openlocfilehash: 9f0dbc549600ef2b931ee99a36c60cae57cc7a67
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: cd29fb968bd73e09c2e3b60e62a478b4e577146d
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56331389"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56805492"
 ---
 # <a name="high-performance-premium-storage-and-managed-disks-for-vms"></a>Högpresterande Premium Storage och hanterade diskar för virtuella datorer
 
@@ -67,7 +67,7 @@ Här följer några av funktionerna i Premium Storage:
     - [Azure CLI för Azure Storage](../articles/storage/common/storage-azure-cli.md#manage-storage-accounts)
     - [Azure Storage Resource Provider REST API](https://docs.microsoft.com/rest/api/storagerp) (för Azure Resource Manager distributioner) eller en av Azure Storage resource provider-klientbibliotek
 
-    Läs om gränser för premium storage-konto i Premium Storage mål för skalbarhet och prestanda.
+    Läs om gränser för premium storage-konto i [skalbarhets- och prestandamål](#scalability-and-performance-targets).
 
 * **Lokalt redundant Premium-lagring**
 
@@ -158,7 +158,7 @@ Storlekar som är markerad med en asterisk finns för närvarande i förhandsver
 | Dataflöde per disk | 25 MB per sekund | 50 MB per sekund | 100 MB per sekund | 125 MB per sekund | 150 MB per sekund | 200 MB per sekund | 250 MB per sekund | 250 MB per sekund | 480 MB per sekund | 750 MB per sekund | 750 MB per sekund |
 
 > [!NOTE]
-> Kontrollera att tillräckligt mycket bandbredd är tillgänglig på den virtuella datorn ska enhet disktrafik, enligt beskrivningen i [Premium-lagring stöds virtuella datorer](). Annars kan är ditt dataflöde och IOPS begränsad till lägre värden. Maximalt dataflöde och IOPS baseras på VM-begränsningar, inte i diskgränser som beskrivs i tabellen ovan.  
+> Kontrollera att tillräckligt mycket bandbredd är tillgänglig på den virtuella datorn ska enhet disktrafik, enligt beskrivningen i [stöd för virtuella datorer](#supported-vms). Annars kan är ditt dataflöde och IOPS begränsad till lägre värden. Maximalt dataflöde och IOPS baseras på VM-begränsningar, inte i diskgränser som beskrivs i tabellen ovan.  
 > Azure har utformats för Premium Storage-plattformen för att vara massivt parallella. Designa programmet är flertrådat hjälper till att uppnå höga prestanda-mål som erbjuds på större diskstorlekar.
 
 Här följer några viktiga saker du behöver veta om skalbarhets- och prestandamål för Premium Storage:
@@ -292,7 +292,7 @@ När du använder Premiumlagring, gäller följande för debitering:
 
 * **Premium storage disk och blob-storlek**
 
-    Faktureringen för en premium storage disk eller blob är beroende av etablerade storleken på disk eller blob. Azure mappar den storlek (avrundas uppåt) till närmaste premium disk lagringsalternativet. Mer information finns i tabellen i [skalbarhets- och prestandamål för Premium Storage](). Varje disk mappas till en etablerad diskstorleken som stöds, och faktureras därefter. Debiteringen för etablerade diskar beräknas per timme med hjälp av det månatliga priset för Premium Storage-erbjudandet. Till exempel om du har etablerat en P10-disk och tar bort den efter 20 timmar, debiteras du för erbjudandet P10 beräknat på 20 timmar. Det här är oavsett mängden faktiska data som skrivs till disken eller IOPS och dataflöde som används.
+    Faktureringen för en premium storage disk eller blob är beroende av etablerade storleken på disk eller blob. Azure mappar den storlek (avrundas uppåt) till närmaste premium disk lagringsalternativet. Mer information finns i tabellen i [skalbarhets- och prestandamål](#scalability-and-performance-targets). Varje disk mappas till en etablerad diskstorleken som stöds, och faktureras därefter. Debiteringen för etablerade diskar beräknas per timme med hjälp av det månatliga priset för Premium Storage-erbjudandet. Till exempel om du har etablerat en P10-disk och tar bort den efter 20 timmar, debiteras du för erbjudandet P10 beräknat på 20 timmar. Det här är oavsett mängden faktiska data som skrivs till disken eller IOPS och dataflöde som används.
 
 * **Premium unmanaged disks-ögonblicksbilder**
 

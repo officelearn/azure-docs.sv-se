@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 04/25/2017
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: deb3b155af464e69c6811414135913917cf2193a
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: fb8dedac8b795ec127d7b4a14728d73c9397a1dd
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53716471"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56807413"
 ---
 # <a name="configure-apps-in-azure-app-service"></a>Konfigurera appar i Azure App Service
 
@@ -37,7 +37,7 @@ Den **programinställningar** bladet har inställningar som är grupperade under
 ### <a name="general-settings"></a>Allmänna inställningar
 **Ramverksversioner**. Ange alternativ om din app använder alla dessa ramverk: 
 
-* **.NET framework**: Ange .NET framework-version. 
+* **.NET Framework**: Ange .NET framework-version. 
 * **PHP**: Ange PHP-version eller **OFF** att inaktivera PHP. 
 * **Java**: Välj den Java-versionen eller **OFF** att inaktivera Java. Använd den **Webbehållaren** möjlighet att välja mellan Tomcat och Jetty-versioner.
 * **Python**: Välj Python-version eller **OFF** att inaktivera Python.
@@ -86,10 +86,10 @@ För .NET-appar, är dessa anslutningssträngar införs i din .NET-konfiguration
 
 För PHP, Python, Java och Node-program, kommer att finnas inställningarna som miljövariabler vid körning, föregås av anslutningstypen. Variabeln prefixen miljö är följande: 
 
-* SQLServer: `SQLCONNSTR_`
+* SQL Server: `SQLCONNSTR_`
 * MySQL: `MYSQLCONNSTR_`
 * SQL-databas: `SQLAZURECONNSTR_`
-* Anpassad: `CUSTOMCONNSTR_`
+* Custom: `CUSTOMCONNSTR_`
 
 Exempel: om en anslutningssträng för MySql med namnen `connectionstring1`, den kan nås via miljövariabeln `MYSQLCONNSTR_connectionString1`.
 
@@ -163,13 +163,14 @@ Om du vill visa dina distributionsplatser, klickar du på **alla inställningar*
 ### <a name="monitoring"></a>Övervakning
 Du kan testa tillgängligheten för HTTP eller HTTPS-slutpunkter, från upp till tre platser för geo-distribuerad i Basic eller Standard-läge. Det går inte att en övervakningstestet om HTTP-svarskoden är ett fel (4xx eller 5xx) eller svaret tar mer än 30 sekunder. En slutpunkt anses vara tillgänglig om övervakningstesten lyckas från de angivna platserna. 
 
-Mer information finns i [Hur: Övervaka status för web-slutpunkt].
+Mer information finns i [Anvisningar: Övervaka status för web-slutpunkt].
 
 ## <a name="next-steps"></a>Nästa steg
 * [Konfigurera ett anpassat domännamn i Azure App Service]
 * [Aktivera HTTPS för en app i Azure App Service]
 * [Skala en app i Azure App Service]
 * [Övervakning av grunderna i Azure App Service]
+* [Ändra applicationHost.config inställningar med applicationHost.xdt](https://github.com/projectkudu/kudu/wiki/Xdt-transform-samples)
 
 <!-- URL List -->
 
@@ -178,7 +179,7 @@ Mer information finns i [Hur: Övervaka status för web-slutpunkt].
 [Konfigurera ett anpassat domännamn i Azure App Service]: ./app-service-web-tutorial-custom-domain.md
 [Distribuera till Mellanlagringsmiljöer för Azure App Service]: ./deploy-staging-slots.md
 [Aktivera HTTPS för en app i Azure App Service]: ./app-service-web-tutorial-custom-ssl.md
-[Hur: Övervaka status för web-slutpunkt]: https://go.microsoft.com/fwLink/?LinkID=279906
+[Anvisningar: Övervaka status för web-slutpunkt]: https://go.microsoft.com/fwLink/?LinkID=279906
 [Övervakning av grunderna i Azure App Service]: ./web-sites-monitor.md
 [Pipeline-läge]: https://www.iis.net/learn/get-started/introduction-to-iis/introduction-to-iis-architecture#Application
 [Skala en app i Azure App Service]: ./web-sites-scale.md

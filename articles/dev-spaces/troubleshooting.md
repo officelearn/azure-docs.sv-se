@@ -293,7 +293,7 @@ Starta om agentnoder i klustret vanligtvis löser problemet.
 ## <a name="azure-dev-spaces-proxy-can-interfere-with-other-pods-running-in-a-dev-space"></a>Azure Dev blanksteg proxy kan störa andra poddar som körs i en dev-utrymme
 
 ### <a name="reason"></a>Orsak
-När du aktiverar Dev blanksteg för ett namnområde i AKS-kluster kan ytterligare en behållare kallas _mindaro proxy_ är installerat i var och en av poddarna som körs i det här namnområdet. Den här behållaren spärras anrop till tjänster i en pod, som är väsentlig Dev blanksteg team utvecklingsmöjligheter; Det kan dock påverka vissa tjänster som körs i de poddarna. Det är känt att störa poddar som kör Azure Cache för Redis, orsaka anslutningsfel och misslyckade begäranden i master/slave kommunikation.
+När du aktiverar Dev blanksteg för ett namnområde i AKS-kluster kan ytterligare en behållare kallas _mindaro proxy_ är installerat i var och en av poddarna som körs i det här namnområdet. Den här behållaren spärras anrop till tjänster i en pod, som är väsentlig Dev blanksteg team utvecklingsmöjligheter; Det kan dock påverka vissa tjänster som körs i de poddarna. Det är känt att störa poddar som kör Azure Cache för Redis, orsaka anslutningsfel och misslyckade begäranden i primär/sekundär kommunikation.
 
 ### <a name="try"></a>Prova:
 Du kan flytta berörda poddarna i ett namnområde i det kluster som har _inte_ har Dev blanksteg aktiverat. Resten av ditt program kan fortsätta att köras i en Dev blanksteg-aktiverat namnområde. Dev blanksteg kan inte installeras på _mindaro proxy_ behållare i Dev blanksteg aktiverade namnområden.

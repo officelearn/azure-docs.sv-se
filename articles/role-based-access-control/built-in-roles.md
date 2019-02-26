@@ -11,16 +11,16 @@ ms.devlang: ''
 ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 02/16/2019
+ms.date: 02/24/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 97f9c893487b486bd76031cb6321fe100321931d
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: 106cda22f8f7c54441f438b61eb427446f36a69a
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56750726"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56807498"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Inbyggda roller för Azure-resurser
 
@@ -82,8 +82,8 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 | [DevTest Labs-användare](#devtest-labs-user) | Låter dig ansluta, starta, starta om och stänga av dina virtuella datorer i din Azure DevTest Labs. |
 | [DNS-Zondeltagare](#dns-zone-contributor) | Låter dig hantera DNS-zoner och postuppsättningar i Azure DNS, men låter dig inte kontrollera vem som har åtkomst till dem. |
 | [DocumentDB-Kontodeltagare](#documentdb-account-contributor) | Hantera Azure Cosmos DB-konton. Azure Cosmos DB är kallades DocumentDB. |
-| [EventGrid EventSubscription Contributor](#eventgrid-eventsubscription-contributor) | Låter dig hantera åtgärder för EventGrid-händelseprenumeration. |
-| [EventGrid EventSubscription Reader](#eventgrid-eventsubscription-reader) | Låter dig läsa EventGrid-händelseprenumerationer. |
+| [EventGrid EventSubscription deltagare (förhandsgranskning)](#eventgrid-eventsubscription-contributor-preview) | Låter dig hantera åtgärder för EventGrid-händelseprenumeration. |
+| [EventGrid EventSubscription läsare (förhandsgranskning)](#eventgrid-eventsubscription-reader-preview) | Låter dig läsa EventGrid-händelseprenumerationer. |
 | [HDInsight domäntjänster deltagare](#hdinsight-domain-services-contributor) | Kan läsa, skapa, ändra och ta bort domäntjänstrelaterade åtgärder som behövs för HDInsight Enterprise Security Package |
 | [Intelligent Systems-Kontodeltagare](#intelligent-systems-account-contributor) | Låter dig hantera Intelligent Systems-konton, men ger dig inte tillgång till dem. |
 | [Nyckelvalvsdeltagare](#key-vault-contributor) | Låter dig hantera nyckelvalv, men inte ha åtkomst till dem. |
@@ -104,7 +104,7 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 | [Nätverksdeltagare](#network-contributor) | Låter dig hantera nätverk, men ger dig inte tillgång till dem. |
 | [Nya Relic APM-Kontodeltagare](#new-relic-apm-account-contributor) | Låter dig hantera New Relic Application Performance Management-konton och program, men ger dig inte tillgång till dem. |
 | [Läsare och dataåtkomst](#reader-and-data-access) | Kan du visa allt, men inte kan du ta bort eller skapa ett lagringskonto eller en resurs. Det gör också att läs-/ skrivåtkomst till alla data i ett lagringskonto via åtkomst till lagringskontonycklarna. |
-| [Redis Cache-deltagare](#redis-cache-contributor) | Kan du hantera Azure Cache för Redis, men inte åtkomst till dem. |
+| [Redis Cache-deltagare](#redis-cache-contributor) | Låter dig hantera Redis-cacheminnen, men ger dig inte tillgång till dem. |
 | [Resursprincip (förhandsversion)](#resource-policy-contributor-preview) | (Förhandsversion) Användare från EA med behörighet att skapa/ändra resursprinciper, skapa supportbegäranden och läsa resurser/hierarkier. |
 | [Scheduler-Jobbsamlingsdeltagare](#scheduler-job-collections-contributor) | Låter dig hantera Scheduler-jobbsystem, men ger dig inte tillgång till dem. |
 | [Söktjänstdeltagare](#search-service-contributor) | Låter dig hantera söktjänster, men ger dig inte tillgång till dem. |
@@ -1198,6 +1198,7 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft.DevTestLab/labs/policySets/evaluatePolicies/action | Utvärderar lab principen. |
 > | Microsoft.DevTestLab/labs/virtualMachines/claim/action | Bli ägare till en befintlig virtuell dator |
 > | Microsoft.DevTestLab/labs/virtualmachines/listApplicableSchedules/action | Visar en lista över tillämpliga Starta/Stoppa scheman, om sådana. |
+> | Microsoft.DevTestLab/labs/virtualMachines/getRdpFileContents/action | Hämtar en sträng som representerar innehållet i RDP-filen för den virtuella datorn |
 > | Microsoft.Network/loadBalancers/backendAddressPools/join/action | Ansluter till en load balancer-serverdelsadresspool. Det kanske inte. |
 > | Microsoft.Network/loadBalancers/inboundNatRules/join/action | Ansluter till en inkommande nat regel för belastningsutjämnaren. Det kanske inte. |
 > | Microsoft.Network/networkInterfaces/*/read | Läsa egenskaperna för ett nätverksgränssnitt (till exempel alla belastningsutjämnare som nätverksgränssnittet är en del av) |
@@ -1261,7 +1262,7 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | **NotDataActions** |  |
 > | *Ingen* |  |
 
-## <a name="eventgrid-eventsubscription-contributor"></a>EventGrid EventSubscription deltagare
+## <a name="eventgrid-eventsubscription-contributor-preview"></a>EventGrid EventSubscription Contributor (förhandsversion)
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -1284,7 +1285,7 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | **NotDataActions** |  |
 > | *Ingen* |  |
 
-## <a name="eventgrid-eventsubscription-reader"></a>EventGrid EventSubscription Reader
+## <a name="eventgrid-eventsubscription-reader-preview"></a>EventGrid EventSubscription Reader (förhandsversion)
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -1502,6 +1503,7 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | **Åtgärder** |  |
 > | * / läsa | Läsa resurser av alla typer utom hemligheter. |
 > | Microsoft.Solutions/applications/read | Hämtar en lista över program. |
+> | Microsoft.Solutions/*/action |  |
 > | **NotActions** |  |
 > | *Ingen* |  |
 > | **DataActions** |  |
@@ -1737,11 +1739,11 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Beskrivning** | Kan du hantera Azure Cache för Redis, men inte åtkomst till dem. |
+> | **Beskrivning** | Låter dig hantera Redis-cacheminnen, men ger dig inte tillgång till dem. |
 > | **Id** | e0f68234-74aa-48ed-b826-c38b57376e17 |
 > | **Åtgärder** |  |
 > | Microsoft.Authorization/*/read | Läs roller och rollen tilldelningar |
-> | Microsoft.Cache/redis/* | Skapa och hantera Azure Cache för Redis |
+> | Microsoft.Cache/redis/* | Skapa och hantera Redis-cacheminnen |
 > | Microsoft.Insights/alertRules/* | Skapa och hantera aviseringsregler |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Hämtar tillgänglighetsstatusarna för alla resurser i det angivna området |
 > | Microsoft.Resources/deployments/* | Skapa och hantera distribution av resursgrupper |

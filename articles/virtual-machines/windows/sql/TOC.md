@@ -35,13 +35,16 @@
 ## Konfigurera hög tillgänglighet
 ### [Använda Azure Storage för säkerhetskopiering och återställning](virtual-machines-windows-use-storage-sql-server-backup-restore.md)
 ### Always On-tillgänglighetsgrupp
-#### [Använda en mall för Azure-portalen](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
-#### [Använda snabbstartsmallar](virtual-machines-windows-sql-availability-group-quickstart-template.md)
-#### [Manuellt – krav](virtual-machines-windows-portal-sql-availability-group-prereq.md)
-#### [Manuellt – självstudie](virtual-machines-windows-portal-sql-availability-group-tutorial.md)
-#### [Lastbalanserare – Azure Portal](virtual-machines-windows-portal-sql-alwayson-int-listener.md)
-#### [Lastbalanserare – Azure PowerShell](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md)
+#### [Azure SQL VM CLI](virtual-machines-windows-sql-availability-group-cli.md)
+#### [Mall för Azure-portalen](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
+#### [Azure-snabbstartmallar](virtual-machines-windows-sql-availability-group-quickstart-template.md)
 #### [Flera regioner](virtual-machines-windows-portal-sql-availability-group-dr.md)
+#### Konfigurera manuellt    
+##### [Förutsättningar](virtual-machines-windows-portal-sql-availability-group-prereq.md)
+##### [Självstudie](virtual-machines-windows-portal-sql-availability-group-tutorial.md)
+##### [Lastbalanserare – Azure Portal](virtual-machines-windows-portal-sql-alwayson-int-listener.md)
+##### [Lastbalanserare – Azure PowerShell](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md)
+
 ### Redundansklusterinstans
 #### [Konfigurera](virtual-machines-windows-portal-sql-create-failover-cluster.md)
 

@@ -5,17 +5,17 @@ description: Så här att konvertera ett träningsexperiment till ett förutsäg
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
+ms.topic: conceptual
 author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 01/06/2017
-ms.openlocfilehash: 5990f47a7cc1517349d85654bf5f02f6240e9baa
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: b77c21b75147a9bb5203effb20379dc208122d05
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56327603"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56819155"
 ---
 # <a name="deploy-an-azure-machine-learning-studio-web-service"></a>Distribuera en Azure Machine Learning Studio-webbtjänst
 
@@ -47,7 +47,7 @@ Processen för att skapa och hantera utbildning experiment beskrivs mer i detalj
 * [Importera dina utbildningsdata till Azure Machine Learning Studio](import-data.md)
 * [Hantera iterationer av experiment i Azure Machine Learning Studio](manage-experiment-iterations.md)
 
-## <a name="convert-the-training-experiment-to-a-predictive-experiment"></a>Konvertera träningsexperimentet till ett förutsägbart experiment
+## <a name="convert-the-training-experiment-to-a-predictive-experiment"></a>Konvertera träningsexperimentet till ett förutsägelseexperiment
 
 När du har tränat modellen, är du redo att konvertera din träningsexperiment till ett förutsägbart experiment att rangordna nya data.
 
@@ -77,7 +77,7 @@ Välj en prisplanen. Om du har ett existerande prisplan kan du välja den, måst
 
 1. I den **prisplan** listrutan väljer du en befintlig plan eller den **väljer ny plan** alternativet.
 2. I **Plannamnet**, Skriv ett namn som identifierar prenumerationen på fakturan.
-3. Välj en av de **månatliga planera nivåerna**. Plan för nivåerna standard för planer för din standardregion och din webbtjänst distribueras till den regionen.
+3. Välj en av de **månatliga planera nivåerna**. Planen får som standard nivåerna för planer i din standardregion och din webbtjänst distribueras till den regionen.
 
 Klicka på **distribuera** och **snabbstarten** för webbtjänsten öppnas.
 
@@ -209,7 +209,7 @@ Eftersom du har distribuerat det här experimentet innan du kan tillfrågas du o
 > [!NOTE]
 > Om du har gjort ändringar i konfigurationen i ursprungliga webbtjänsten, till exempel måste att ange ett nytt namn eller beskrivning, du ange dessa värden igen.
 
-Ett alternativ för att uppdatera din webbtjänst är att träna modellen programmässigt. Mer information finns i [träna om Machine Learning Studio-modeller via programmering](retrain-models-programmatically.md).
+Ett alternativ för att uppdatera din webbtjänst är att träna modellen programmässigt. Mer information finns i [träna om Machine Learning Studio-modeller via programmering](/azure/machine-learning/studio/retrain-machine-learning-model).
 
 ## <a name="next-steps"></a>Nästa steg
 

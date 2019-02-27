@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 01/31/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 2601f81b4abecd98d645af9bc0d368e52534a04e
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: e2b9d380b5e164bb8b730ec7037a6b2836c2af85
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55487888"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56447369"
 ---
 # <a name="overview-of-the-features-in-azure-backup"></a>Översikt över funktionerna i Azure Backup
 Azure Backup är en Azure-baserad tjänst som du använder för att säkerhetskopiera (eller skydda) och återställa data i Microsoft-molnet. Azure Backup ersätter din befintliga lokala eller externa säkerhetskopieringslösning med en tillförlitlig och säker molnbaserad lösning med ett konkurrenskraftigt pris. Azure Backup erbjuder flera komponenter som du kan ladda ned och distribuera på den aktuella datorn, servern eller i molnet. Komponenten eller agenten som du distribuerar beror på vad du vill skydda. Alla Azure Backup-komponenter (oavsett om du skyddar data lokalt eller i molnet) kan användas för att säkerhetskopiera data till ett Recovery Services-valv i Azure. I [tabellen med Azure Backup-komponenter](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use) (längre ned i den här artikeln) finns information om vilken komponent du ska använda för att skydda specifika data, program eller arbetsbelastningar.
@@ -33,7 +33,7 @@ Traditionella säkerhetskopieringslösningar har utvecklats för att behandla mo
 
 * Lokalt redundant lagring (LRS) replikerar data tre gånger (det skapas tre kopior av dina data) i en lagringsskalningsenhet i ett datacenter i samma region. Alla datakopior finns i samma region. LRS är ett billigt alternativ för att skydda dina data mot fel i den lokala maskinvaran.
 
-* Geo-redundant lagring (GRS) är standardalternativet och det som rekommenderas för replikering. GRS replikerar dina data till en sekundär region (hundratals mil bort från den primära platsen för datakällan). GRS kostar mer än LRS, men GRS ger högre hållbarhet för dina data, även i händelse av ett regionalt avbrott.
+* Geo-redundant lagring (GRS) är standardalternativet och det som rekommenderas för replikering. GRS replikerar dina data till en sekundär region som tillhör [Azure-parade regioner](../best-practices-availability-paired-regions.md) (hundratals mil bort från den primära platsen för datakällan). GRS kostar mer än LRS, men GRS ger högre hållbarhet för dina data, även i händelse av ett regionalt avbrott.
 
 **Obegränsad dataöverföring** – Azure Backup begränsar inte hur mycket inkommande eller utgående data du överför. Azure Backup debiterar inte heller för de data som överförs. Om du använder Azure Import/Export-tjänsten för att importera stora mängder data finns det dock en kostnad som är kopplad till inkommande data. Mer information om kostnaden finns i [Offline-backup workflow in Azure Backup](backup-azure-backup-import-export.md) (Arbetsflöde för säkerhetskopiering offline i Azure Backup). Utgående data syftar på data som överförs från ett Recovery Services-valv under en återställningsåtgärd.
 
@@ -44,7 +44,7 @@ Traditionella säkerhetskopieringslösningar har utvecklats för att behandla mo
 **Långsiktig kvarhållning** – Du kan använda Recovery Services-valv för långsiktig och kortsiktig datakvarhållning. Azure begränsar inte hur lång tid data behålls i ett Recovery Services-valv. Du kan förvara data i ett valv hur länge du vill. Azure Backup har en gräns på 9999 återställningspunkter per skyddad instans. Läs avsnittet [Säkerhetskopiering och kvarhållning](backup-introduction-to-azure-backup.md#backup-and-retention) i den här artikeln för att få en förklaring av hur den här gränsen kan påverka dina säkerhetskopieringsbehov.
 
 ## <a name="which-azure-backup-components-should-i-use"></a>Vilka Azure Backup-komponenter ska jag använda?
-Använd följande tabell och få information om vad du kan skydda med varje Azure Backup-komponent. 
+Använd följande tabell och få information om vad du kan skydda med varje Azure Backup-komponent.
 
 | Komponent | Fördelar | Begränsningar | Vad skyddas? | Var lagras säkerhetskopiorna? |
 | --- | --- | --- | --- | --- |
@@ -62,7 +62,7 @@ Använd följande tabell och få information om vad du kan skydda med varje Azur
 | Säkerhetskopiering av virtuella IaaS-datorer i Azure |<p>**Ja**</p><p>En del av Azure-infrastrukturen</p><p>Specialiserad för [säkerhetskopiering av virtuella Iaas-datorer (Infrastructure as a Service) i Azure](backup-azure-vms-introduction.md).</p> |<p>**Nej**</p> <p>Använd System Center DPM för att säkerhetskopiera virtuella datorer i datacentret.</p> |<p>Recovery Services-valv</p> |
 
 ## <a name="which-applications-and-workloads-can-be-backed-up"></a>Vilka program och arbetsbelastningar kan säkerhetskopieras?
-Följande tabell innehåller en matris med data och arbetsbelastningar som kan skyddas med Azure Backup. I kolumnen med Azure Backup-lösningar finns länkar till dokumentationen för lösningen. 
+Följande tabell innehåller en matris med data och arbetsbelastningar som kan skyddas med Azure Backup. I kolumnen med Azure Backup-lösningar finns länkar till dokumentationen för lösningen.
 
 | Data eller arbetsbelastning | Källmiljö | Azure Backup-lösning |
 | --- | --- | --- |
@@ -81,17 +81,17 @@ Följande tabell innehåller en matris med data och arbetsbelastningar som kan s
 I följande tabell visas de Azure Backup-komponenter som stöds för Linux.  
 
 **Komponent** | **Linux (Azure-godkänt)**
---- | --- 
-Azure Backup-agent (MARS) | Nej (endast Windows-baserad agent) 
+--- | ---
+Azure Backup-agent (MARS) | Nej (endast Windows-baserad agent)
 System Center DPM | Filkonsekvent säkerhetskopiering av virtuella Linux-gästdatorer på Hyper-V och VMWare<br/><br/> Återställning av virtuella Linux-gästdatorer på Hyper-V och VMWare</br></br> Filkonsekvent säkerhetskopiering är inte tillgängligt för virtuella Azure-datorer
-Azure Backup Server | Filkonsekvent säkerhetskopiering av virtuella Linux-gästdatorer på Hyper-V och VMWare<br/><br/> Återställning av virtuella Linux-gästdatorer på Hyper-V och VMWare</br></br> Filkonsekvent säkerhetskopiering är inte tillgängligt för virtuella Azure-datorer 
+Azure Backup Server | Filkonsekvent säkerhetskopiering av virtuella Linux-gästdatorer på Hyper-V och VMWare<br/><br/> Återställning av virtuella Linux-gästdatorer på Hyper-V och VMWare</br></br> Filkonsekvent säkerhetskopiering är inte tillgängligt för virtuella Azure-datorer
 Säkerhetskopiering av virtuella IaaS-datorer i Azure | Appkonsekvent säkerhetskopiering använder [ramverket för förskript och efterskript](backup-azure-linux-app-consistent.md)<br/><br/> [Återställning på filnivå](backup-azure-restore-files-from-vm.md)<br/><br/> [Skapa en virtuell dator från en återställd disk](backup-azure-arm-restore-vms.md#create-new-restore-disks)<br/><br/> [Skapa en virtuell dator från en återställningspunkt](backup-azure-arm-restore-vms.md#create-new-create-a-vm).
 
-## <a name="using-premium-storage-vms-with-azure-backup"></a>Använd virtuella Premium Storage-datorer med Azure Backup
-Azure Backup skyddar virtuella datorer i Premium Storage. Azure Premium Storage är SSD-baserad (solid-state drive) lagring som har utformats för att fungera med I/O-intensiva arbetsbelastningar. Premium Storage är attraktivt för arbetsbelastningar för virtuella datorer. Mer information om Premium Storage finns i artikeln [Premium Storage: Lagring med höga prestanda för arbetsbelastningar för virtuella Azure-datorer](../virtual-machines/windows/premium-storage.md).
+## <a name="using-premium-storage-vms-with-azure-backup"></a>Använda virtuella Premium Storage-datorer med Azure Backup
+Azure Backup skyddar virtuella datorer i Premium Storage. Azure Premium Storage är SSD-baserad (solid state-hårddisk) lagring som har utformats för att fungera med I/O-intensiva arbetsbelastningar. Premium Storage är attraktivt för arbetsbelastningar för virtuella datorer. Mer information om Premium Storage och andra disktyper finns i artikeln [Välj en disktyp](../virtual-machines/windows/disks-types.md).
 
-### <a name="back-up-premium-storage-vms"></a>Säkerhetskopiera virtuella datorer i Premium Storage
-När du säkerhetskopierar virtuella datorer i Premium Storage skapar Backup-tjänsten en tillfällig mellanlagringsplats med namnet ”AzureBackup-” i Premium Storage-kontot. Storleken på mellanlagringsplatsen är lika stor som återställningspunktens ögonblicksbild. Kontrollera att Premium Storage-kontot har tillräckligt med ledigt utrymme så att den tillfälliga mellanlagringsplatsen får plats. Mer information finns i artikeln om [Premium Storage-begränsningar](../virtual-machines/windows/premium-storage.md#scalability-and-performance-targets). När säkerhetskopieringen är klar tas mellanlagringsplatsen bort. Priset för lagringen som används för mellanlagringsplatsen följer [prissättningen för Premium-lagring](../virtual-machines/windows/premium-storage.md#pricing-and-billing).
+### <a name="back-up-premium-storage-vms"></a>Säkerhetskopiera virtuella datorer med Premium Storage
+När du säkerhetskopierar virtuella datorer i Premium Storage skapar Backup-tjänsten en tillfällig mellanlagringsplats med namnet ”AzureBackup-” på Premium Storage-kontot. Storleken på mellanlagringsplatsen är lika stor som återställningspunktens ögonblicksbild. Kontrollera att Premium Storage-kontot har tillräckligt med ledigt utrymme så att den tillfälliga mellanlagringsplatsen får plats. Mer information finns i artikeln [Skalbarhetsmål i Azure Storage](../storage/common/storage-scalability-targets.md). När säkerhetskopieringen är klar tas mellanlagringsplatsen bort. Priset för lagringen som används för mellanlagringsplatsen följer [prissättningen för Premium-lagring](../virtual-machines/windows/disks-types.md).
 
 > [!NOTE]
 > Ändra inte mellanlagringsplatsen.

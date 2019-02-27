@@ -1,5 +1,5 @@
 ---
-title: Skapa en princip för att identifiera icke-kompatibla resurser med Azure PowerShell
+title: Skapa en princip för icke-kompatibla resurser med Azure PowerShell
 description: Använda Azure PowerShell för att skapa en Azure Policy-tilldelning som identifierar icke-kompatibla resurser.
 services: azure-policy
 author: DCtheGeek
@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: b5f4306fc1627e679f8f59a92bae4124a48cbd42
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: de8192ee0f0dad1ccc385aa28892a3ef4f5c4a86
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54856476"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56338741"
 ---
 # <a name="create-a-policy-assignment-to-identify-non-compliant-resources-using-azure-powershell"></a>Skapa en policytilldelning som identifierar icke-kompatibla resurser med hjälp av Azure PowerShell
 
@@ -72,7 +72,7 @@ Mer information om principtilldelnings-ID:n finns i [Get-AzPolicyAssignment](/po
 
 Kör sedan följande kommando för att hämta resurs-ID:n för de icke-kompatibla resurserna som matas ut till en JSON-fil:
 
-```
+```console
 armclient post "/subscriptions/<subscriptionID>/resourceGroups/<rgName>/providers/Microsoft.PolicyInsights/policyStates/latest/queryResults?api-version=2017-12-12-preview&$filter=IsCompliant eq false and PolicyAssignmentId eq '<policyAssignmentID>'&$apply=groupby((ResourceId))" > <json file to direct the output with the resource IDs into>
 ```
 

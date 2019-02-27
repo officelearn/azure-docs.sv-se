@@ -10,12 +10,12 @@ ms.subservice: bing-video-search
 ms.topic: overview
 ms.date: 01/31/2019
 ms.author: scottwhi
-ms.openlocfilehash: a7fbd9eb70c50f3bbd154726bdaa807c2bc41818
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: f56893f830720c57c66eb4c17bb2771efbb73f6f
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55863966"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56267180"
 ---
 # <a name="what-is-the-bing-video-search-api"></a>Vad är API:et för videosökning i Bing?
 
@@ -29,7 +29,7 @@ API för videosökning i Bing gör det enkelt att lägga till videosökfunktione
 | [Filtrera och begränsa videoresultat](concepts/get-videos.md#filtering-videos)                      | Filtrera videor som returneras genom att redigera frågeparametrar.                                                                                                       |
 | [Beskär, ändra storlek och visa miniatyrer](resize-and-crop-thumbnails.md)                                                | Redigera och visa miniatyrförhandsversioner för de videor som returneras av API för videosökning i Bing.                                                                                      |
 | [Hämta trendande videor](trending-videos.md) | Sök efter trendande videor från hela världen.                                                                                                          |
-| [Hämta insikter om videor](video-insights.md) | Anpassa en sökning efter populära bilder från hela världen.                                                                                                          |
+| [Hämta insikter om videor](video-insights.md) | Anpassa en sökning efter populära videor från hela världen.                                                                                                          |
 
 ## <a name="workflow"></a>Arbetsflöde
 

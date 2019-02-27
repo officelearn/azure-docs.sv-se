@@ -2,33 +2,36 @@
 title: Vad är Ansikts-API?
 titleSuffix: Azure Cognitive Services
 description: Lär dig hur du använder tjänsten för ansiktsigenkänning för att identifiera och analysera ansikten i bilder.
-author: SteveMSFT
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: overview
-ms.date: 10/29/2018
-ms.author: sbowles
-ms.openlocfilehash: 655234bfec650ef027e325ff8df23fe91eecfd43
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.date: 02/20/2019
+ms.author: pafarley
+ms.openlocfilehash: 2f5f57f0978adbdf33ed4ce25ba9b32247ea0484
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55861060"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56455984"
 ---
 # <a name="what-is-the-azure-face-api"></a>Vad är Azure Ansikts-API?
 
 Azure Ansikts-API är en kognitiv tjänst som tillhandahåller algoritmer för identifiering, igenkänning och analyser av ansikten i bilder. Förmågan att bearbeta ansiktsinformation är viktig i många olika programscenarier, till exempel säkerhet, naturliga användargränssnitt, analys och hantering av bildinnehåll, mobilappar och robotteknik.
 
-Ansikts-API:et innehåller flera funktioner, som beskrivs i följande avsnitt. Läs vidare för att få mer information om varje funktion och avgöra om den passar dina behov.
+Ansikts-API:et innehåller flera funktioner, som beskrivs i följande avsnitt. Fortsätt att läsa om du vill veta mer om dem.
 
 ## <a name="face-detection"></a>Ansiktsspårning
 
-Ansikts-API:et kan identifiera ansikten i en bild och returnera rektangelkoordinaterna för ansiktenas placering. Alternativt kan ansiktsavkänning extrahera en serie ansiktsrelaterade attribut som hållning, kön, ålder, huvudhållning, ansiktsbehåring och glasögon.
+Ansikts-API:et kan identifiera ansikten i en bild och returnera rektangelkoordinaterna för ansiktenas placering. Alternativt kan ansiktsavkänning extrahera en serie ansiktsrelaterade attribut som hållning, huvudhållning, kön, ålder, känsla, ansiktsbehåring och glasögon.
 
 ![En bild av en kvinna och en man, med rektanglar ritade kring deras ansikten och visad ålder och kön](./Images/Face.detection.jpg)
 
-Ansiktsavkänningsfunktionen är också tillgänglig genom [API:et för visuellt innehåll](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home) men om du vill utföra ytterligare åtgärder med ansiktsinformation ska du använda Ansikts-API (den här tjänsten). Mer information om ansiktsavkänning finns i [API:et för identifiering](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
+> [!NOTE] 
+> Ansiktsavkänningsfunktionen är också tillgänglig genom [API:et för visuellt innehåll](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home) men om du vill utföra ytterligare åtgärder med ansiktsinformation ska du använda Ansikts-API (den här tjänsten). 
+
+Mer information om ansiktsavkänning finns i [API:et för identifiering](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
 
 ## <a name="face-verification"></a>Ansiktsverifiering
 

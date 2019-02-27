@@ -17,12 +17,12 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 228d54f1b2b438c05779b96025d3ad03a7757beb
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 961f7bf85ed8bb67c8284edea1846e96895d7f46
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56165101"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56452856"
 ---
 # <a name="what-is-azure-active-directory-monitoring-preview"></a>Vad är Azure Active Directory-övervakning? (förhandsversion)
 
@@ -57,14 +57,14 @@ Genom att dirigera loggar till ett Azure Storage-konto kan du behålla dem läng
 
 När du dirigerar loggar till en Azure-händelsehubb kan du integrera med SIEM-tredjepartsverktyg som Sumologic och Splunk. Den här integrationen gör att du kan kombinera Azure AD-aktivitetsloggdata med andra data som hanteras av ditt SIEM, för att ge bättre inblick i din miljö. Lär dig hur du [skickar händelser till en händelsehubb](tutorial-azure-monitor-stream-logs-to-event-hub.md).
 
-## <a name="send-logs-to-log-analytics"></a>Skicka loggar till Log Analytics
+## <a name="send-logs-to-azure-monitor-logs"></a>Skicka loggar till Azure Monitor-loggar
 
-[Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) är en lösning som konsoliderar övervakningsdata från olika källor och tillhandahåller ett frågespråk och en analysmotor som ger dig insikter om hur dina program och resurser fungerar. Genom att skicka Azure AD-aktivitetsloggar till Log Analytics kan du snabbt hämta, övervaka och avisera insamlade data. Lär dig hur du [skickar data till Log Analytics](howto-integrate-activity-logs-with-log-analytics.md).
+[Azure Monitor-loggar](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) är en lösning som konsoliderar övervakningsdata från olika källor och tillhandahåller ett frågespråk och en analysmotor som ger dig insikter om hur dina program och resurser fungerar. Genom att skicka Azure AD-aktivitetsloggar till Azure Monitor-loggar kan du snabbt hämta, övervaka och agera på insamlade data. Lär dig att [skicka data till Azure Monitor-loggar](howto-integrate-activity-logs-with-log-analytics.md).
 
-Du kan också installera fördefinierade vyer för Azure AD-aktivitetsloggar för vanliga scenarier som omfattar inloggningar och granskningshändelser. Lär dig hur du [installerar och använder Log Analytics-vyer för Azure AD-aktivitetsloggar](howto-install-use-log-analytics-views.md).
+Du kan också installera fördefinierade vyer för Azure AD-aktivitetsloggar för vanliga scenarier som omfattar inloggningar och granskningshändelser. Lär dig att [installera och använda Log Analytics-vyer för Azure AD-aktivitetsloggar](howto-install-use-log-analytics-views.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
 * [Aktivitetsloggar i Azure Monitor](concept-activity-logs-azure-monitor.md)
 * [Strömma loggar till händelsehubb](tutorial-azure-monitor-stream-logs-to-event-hub.md)
-* [Skicka loggar till Log Analytics](howto-integrate-activity-logs-with-log-analytics.md)
+* [Skicka loggar till Azure Monitor-loggar](howto-integrate-activity-logs-with-log-analytics.md)

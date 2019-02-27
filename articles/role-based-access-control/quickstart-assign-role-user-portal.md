@@ -1,6 +1,6 @@
 ---
-title: Självstudie – Bevilja åtkomst för en användare med hjälp av RBAC och Azure-portalen | Microsoft Docs
-description: Använd rollbaserad åtkomstkontroll (RBAC) för att ge behörigheter till en användare genom att tilldela en roll i Azure-portalen.
+title: Självstudie – Bevilja åtkomst för en användare till Azure-resurser med hjälp av RBAC och Azure-portalen | Microsoft Docs
+description: Lär dig att bevilja användaråtkomst till Azure-resurser med hjälp av rollbaserad åtkomstkontroll (RBAC) i Azure-portalen.
 services: role-based-access-control
 documentationCenter: ''
 author: rolyon
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 11/30/2018
 ms.author: rolyon
-ms.openlocfilehash: 8caa5c3b33ac1b483429251e0c1256636c4ece1a
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 41f1c6dc8904f167f34ea72aeb9b3866504b7087
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52634480"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341308"
 ---
-# <a name="tutorial-grant-access-for-a-user-using-rbac-and-the-azure-portal"></a>Självstudie: Bevilja åtkomst för en användare med hjälp av RBAC och Azure-portalen
+# <a name="tutorial-grant-a-user-access-to-azure-resources-using-rbac-and-the-azure-portal"></a>Självstudier: Bevilja åtkomst för en användare till Azure-resurser med hjälp av RBAC och Azure-portalen
 
-[Rollbaserad åtkomstkontroll (RBAC)](overview.md) är sättet som du hantera åtkomst till resurser i Azure. I den här självstudien ger du en användare behörighet att skapa och hantera virtuella datorer i en resursgrupp.
+[Rollbaserad åtkomstkontroll (RBAC)](overview.md) är metoden som du använder när du hanterar åtkomst till Azure-resurser. I den här självstudien ger du en användare behörighet att skapa och hantera virtuella datorer i en resursgrupp.
 
 I den här guiden får du lära dig att:
 
@@ -113,5 +113,5 @@ I RBAC kan du ta bort en rolltilldelning för att ta bort åtkomst.
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Självstudiekurs: Bevilja åtkomst för en användare med RBAC och PowerShell](tutorial-role-assignments-user-powershell.md)
+> [Självstudier: Ge en användare åtkomst till Azure-resurser med RBAC och Azure PowerShell](tutorial-role-assignments-user-powershell.md)
 

@@ -1,6 +1,6 @@
 ---
-title: Exempel – Identifiera Key Vault-valv som saknar VNet-slutpunkter
-description: Den här exempelprincipen granskar Key Vault-valv för att identifiera instanser som inte har några VNet-tjänstslutpunkter.
+title: Exempel – Granska nyckelvalv som saknar slutpunkter för virtuella nätverk
+description: Den här exempelprincipdefinitionen granskar Key Vault-valv för att identifiera instanser som saknar tjänstslutpunkter för virtuella nätverk.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/26/2019
 ms.author: dacoulte
-ms.openlocfilehash: c9a5359303c1feecfbc905099a1bed2fc10fa52d
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 6b53c94787cfcabae1072f9879f14e0d890e967c
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245804"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341540"
 ---
-# <a name="key-vault-vaults-with-no-virtual-network-endpoints"></a>Key Vault-valv utan VNet-slutpunkter
+# <a name="sample---key-vault-vaults-with-no-virtual-network-endpoints"></a>Exempel – Key Vault-valv utan slutpunkter för virtuella nätverk
 
 Den här principen granskar Key Vault-valv för att identifiera instanser som inte har några VNet-slutpunkter. Använd för att tillämpa dina säkerhetskrav. Mer information finns i avsnittet om [VNet-tjänstslutpunkter i Key Vault](../../../key-vault/key-vault-overview-vnet-service-endpoints.md)
 

@@ -15,17 +15,17 @@ ms.workload: na
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 18b37fd7c85fced4cc57b57320daf195f6f33e3e
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: a3c4bc741cef60576bec17cd3257914132b72666
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53082389"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56452643"
 ---
 # <a name="get-started-receiving-messages-with-the-event-processor-host-in-net-core"></a>Börja ta emot meddelanden med EventProcessorHost i .NET Core
 Händelsehubbar är en tjänst som bearbetar stora mängder händelsedata (telemetri) från anslutna enheter och program. När du har samlat in data i händelsehubbar kan du lagra dem med ett lagringskluster eller omvandla dem med hjälp av en leverantör av realtidsanalys. Den här storskaliga händelseinsamlingen och bearbetningsfunktionen är en viktig komponent inom moderna programarkitekturer som t.ex. sakernas internet. En detaljerad översikt över Event Hubs finns i [Översikt över Event Hubs](event-hubs-about.md) och [Event Hubs-funktioner](event-hubs-features.md).
 
-I den här självstudien får du lära dig att skriva ett .NET Core-konsolprogram som tar emot meddelanden från en händelsehubb med [värden för händelsebearbetning](event-hubs-event-processor-host.md). [Värden för händelsebearbetning](event-hubs-event-processor-host.md) är en .NET-klass som förenklar mottagandet av händelser från händelsehubbar genom att hantera permanenta kontrollpunkter och parallella mottaganden från händelsehubbar. Med hjälp av värden för händelsebearbetning kan du dela upp händelser över flera olika mottagare, även när de ligger på olika noder. Det här exemplet visas hur man använder värden för händelsebearbetning för en enda mottagare. Exemplet [Skala ut händelsebearbetning][Skala ut händelsebearbetning med Event Hubs] visar hur du använder värden för händelsebearbetning med flera mottagare.
+I den här självstudien får du lära dig att skriva ett .NET Core-konsolprogram som tar emot meddelanden från en händelsehubb med [värden för händelsebearbetning](event-hubs-event-processor-host.md). [Värden för händelsebearbetning](event-hubs-event-processor-host.md) är en .NET-klass som förenklar mottagandet av händelser från händelsehubbar genom att hantera permanenta kontrollpunkter och parallella mottaganden från händelsehubbar. Med hjälp av värden för händelsebearbetning kan du dela upp händelser över flera olika mottagare, även när de ligger på olika noder. Det här exemplet visas hur man använder värden för händelsebearbetning för en enda mottagare. Exemplet på att [skala ut händelsebearbetning](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3) visar hur man använder Event Processor Host med flera mottagare.
 
 > [!NOTE]
 > Du kan ladda ned den här snabbstarten som ett exempel från [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver). Ersätt strängarna `EventHubConnectionString`, `EventHubName`, `StorageAccountName`, `StorageAccountKey` och `StorageContainerName` med värdena för din händelsehubb och kör den. Alternativt kan du följa stegen i den här självstudiekursen och skapa ett eget.
@@ -208,6 +208,7 @@ Grattis! Du har nu fått meddelanden från en händelsehubb med värden för hä
 
 ## <a name="next-steps"></a>Nästa steg
 I den här snabbstarten skapade du ett .NET Core-program som tog emot meddelanden från en händelsehubb. Om du vill lära dig mer om att skicka händelser till en händelsehubb med .NET Core kan du läsa avsnittet om att [skicka händelser från en händelsehubb – .NET Core](event-hubs-dotnet-standard-getstarted-send.md).
+
 
 [1]: ./media/event-hubs-dotnet-standard-getstarted-receive-eph/event-hubs-python1.png
 [2]: ./media/event-hubs-dotnet-standard-getstarted-receive-eph/netcorercv.png

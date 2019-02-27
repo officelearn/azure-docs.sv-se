@@ -10,54 +10,38 @@ ms.subservice: bing-autosuggest
 ms.topic: overview
 ms.date: 09/12/2017
 ms.author: scottwhi
-ms.openlocfilehash: b5959e014b7e531b8f52fcbe6f6492576eedd61a
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: c7ac631ded5d781b2d2949d65f6197e194521055
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55875679"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268931"
 ---
 # <a name="what-is-bing-autosuggest"></a>Vad är Automatiska förslag i Bing?
 
-Om du skickar frågor till något av API:erna för Bing-sökning kan du använda API för automatiska förslag i Bing för att förbättra din upplevelse för sökrutan. API för automatiska förslag i Bing returnerar en lista över föreslagna frågor baserat på den partiella frågesträng som användaren anger i sökrutan. Visa förslagen i sökrutans listruta. De föreslagna villkoren baseras på föreslagna frågor som andra användare har sökt på samt användarens avsikt.
+Om programmet skickar frågor till något av API:erna för Bing-sökning, kan du använda API för automatiska förslag för Bing till att förbättra användarnas sökupplevelse. API för automatiska förslag för Bing returnerar en lista med föreslagna frågor som baseras på den partiella frågesträngen i sökrutan. Samtidigt som tecken skrivs i sökrutan kan du visa förslag i en nedrullningsbar listruta.
 
-Normal anropar du detta API varje gång användaren skriver ett nytt tecken i sökrutan. Frågesträngens fullständighet påverkar relevansen för de föreslagna frågetermer som API:et returnerar. Ju mer fullständig frågesträngen är, desto mer relevant blir listan över föreslagna frågetermer. Till exempel är de förslag som API:et kan returnera för *s* förmodligen mindre relevanta än de frågor det returnerar för *sailing dinghies* (segla jollar).
+## <a name="bing-autosuggest-api-features"></a>API för automatiska förslag för Bing
 
-## <a name="getting-suggested-search-terms"></a>Hämta föreslagna söktermer
+| Funktion                                                                                                                                                                                 | Beskrivning                                                                                                                                                            |
+|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [Föreslå söktermer i realtid](concepts/get-suggestions.md) | Förbättra programupplevelsen med API:et för automatiska förslag. Föreslagna sökord visas medan användaren skriver. |
 
-I följande exempel visas en begäran som returnerar de föreslagna frågesträngarna för *sail* (segla). Kom ihåg att URL-koda användarens partiella frågeterm när du anger frågeparametern [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference#query). Om användaren till exempel anger *sailing les* ställer du in `q` till `sailing+les` eller `sailing%20les`.
+## <a name="workflow"></a>Arbetsflöde
 
-```http
-GET https://api.cognitive.microsoft.com/bing/v7.0/suggestions?q=sail&mkt=en-us HTTP/1.1
-Ocp-Apim-Subscription-Key: 123456789ABCDE
-X-MSEdge-ClientIP: 999.999.999.999
-X-Search-Location: lat:47.60357;long:-122.3295;re:100
-X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
-Host: api.cognitive.microsoft.com
-```
+API för automatiska förslag för Bing är en RESTful-webbtjänst, vilket innebär att den är enkel att anropa från alla programmeringsspråk som kan göra HTTP-begäranden och parsa JSON. 
 
-Följande svar innehåller en lista över [SearchAction](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference#searchaction)-objekt som innehåller de föreslagna frågetermerna.
+1. Skapa ett [Cognitive Services-API-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med åtkomst till API:er för Bing-sökresultat. Om du inte har någon Azure-prenumeration kan du [skapa ett konto](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) kostnadsfritt.
+2. Skicka en begäran till det här API:et varje gång en användare skriver ett nytt tecken i programmets sökruta.
+3. Bearbeta API-svaret genom att tolka det returnerade JSON-meddelandet.
 
-```json
-{
-    "url" : "https:\/\/www.bing.com\/search?q=sailing+lessons+seattle&FORM=USBAPI",
-    "displayText" : "sailing lessons seattle",
-    "query" : "sailing lessons seattle",
-    "searchKind" : "WebSearch"
-}, ...
-```
+Vanligtvis anropar du det här API:et varje gång en användare skriver ett nytt tecken i programmets sökruta. När fler tecken anges returnerar API:et mer relevanta föreslagna sökfrågor. Till exempel är de förslag som API:et returnerar för ett enskilt `s` förmodligen mindre relevanta än de för `sail`.
 
-Varje förslag innehåller fälten `displayText`, `query` och `url`. Fältet `displayText` innehåller den föreslagna fråga som du använder för att fylla i sökrutans listruta. Du måste visa alla förslag som svaret innehåller, och i den angivna ordningen.
-
-Nedan visas ett exempel på sökrutans listruta med föreslagna frågetermer.
+I följande exempel visas en nedrullningsbar sökruta med föreslagna sökord från API för automatiska förslag för Bing.
 
 ![Lista med automatiska förslag i sökrutans listruta](./media/cognitive-services-bing-autosuggest-api/bing-autosuggest-drop-down-list.PNG)
 
-Om användaren väljer en föreslagen fråga från listrutan använder du frågetermen i fältet `query` för att anropa [API för webbsökning i Bing](../bing-web-search/search-the-web.md) och visa resultaten själv. Alternativt kan du använda URL:en i fältet `url` för att dirigera användaren till sidan för Bing-sökresultat i stället.
-
-## <a name="throttling-requests"></a>Begränsningsbegäranden
-
-[!INCLUDE [cognitive-services-bing-throttling-requests](../../../includes/cognitive-services-bing-throttling-requests.md)]
+När en användare väljer ett förslag i den nedrullningsbara listan, kan du använda det till att börja sökningen med någon av API:erna för Bing-sökning eller gå direkt till Bings sökresultatsida.
 
 ## <a name="next-steps"></a>Nästa steg
 

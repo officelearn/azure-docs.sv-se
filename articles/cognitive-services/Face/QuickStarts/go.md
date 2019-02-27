@@ -8,42 +8,27 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 06/25/2018
+ms.date: 02/07/2019
 ms.author: pafarley
-ms.openlocfilehash: d1384e22d5a036002d59c30755a8a0e5de648102
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 752f15fd730f1244f44ba3749bff3c5bb85ca02b
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55882972"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56312607"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-go"></a>Snabbstart: Identifiera ansikten i en bild med REST API och Go
 
-I den här snabbstarten identifierar du människoansikten i en bild med Ansikts-API.
+I den här snabbstarten ska du använda Azures Ansikts-REST API med Go för att identifiera mänskliga ansikten i en bild.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-Du behöver en prenumerationsnyckel för att köra exemplet. Du kan hämta nycklar för kostnadsfri utvärderingsprenumeration från [Testa Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api).
+- En ansikts-API-prenumerationsnyckel. Du kan hämta nycklar för en kostnadsfri utvärderingsprenumeration från [Testa Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Följ instruktionerna i [Skapa ett konto för Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) för att prenumerera på tjänsten Ansikts-API och få din nyckel.
+- En kodredigerare som t.ex. [Visual Studio Code](https://code.visualstudio.com/download)
 
-## <a name="face---detect-request"></a>Begäran om ansiktsigenkänning
+## <a name="write-the-script"></a>Skriva skriptet
 
-Använd metoden [Face - Detect](https://westcentralus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) (Ansiktsigenkänning) för att identifiera ansikten i en bild och returnera ansiktsattribut som:
-
-* Ansikts-ID: Unikt ID som används i flera scenarier med Ansikts-API.
-* Ansiktsrektangel: Vänster, överkant, bredd och höjd som anger ansiktets placering i bilden.
-* Landmärken: En matris med ansiktslandmärken med 27 punkter som pekar på viktiga positioner för ansiktsdelar.
-* Ansiktsattribut som ålder, kön, leendeintensitet, huvudställning och ansiktsbehåring.
-
-För att köra exemplet följer du dessa steg:
-
-1. Kopiera följande kod till ett redigeringsprogram.
-1. Ersätt `<Subscription Key>` med en giltig prenumerationsnyckel.
-1. Ändra värdet `uriBase` till den plats där du hämtade dina prenumerationsnycklar om det behövs.
-1. Du kan också ändra värdet `imageUrl` till den bild som du vill analysera.
-1. Spara filen med tillägget `.go`.
-1. Öppna en kommandotolk på en dator där Go är installerat.
-1. Skapa filen, till exempel: `go build detect-face.go`.
-1. Kör filen, till exempel: `detect-face`.
+Skapa den nya filen _faceDetection.go_ och lägg till följande kod. Detta anropar Ansikts-API:et för en viss bild-URL.
 
 ```go
 package main
@@ -115,9 +100,25 @@ func main() {
 }
 ```
 
-## <a name="face---detect-response"></a>Svar från ansiktsigenkänning
+Du måste uppdatera värdet `subscriptionKey` med din prenumerationsnyckel, och du kan behöva ändra strängen `uriBase` så att den innehåller rätt regionsidentifierare (en lista med alla regionslutpunkter finns i [dokumenten om Ansikts-API:et](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)). 
 
-Ett svar som anger att åtgärden lyckades returneras i JSON, till exempel:
+Du kanske också vill ändra fältet `imageUrl` så att det pekar på din egna inmatade bild. Du kan dessutom ändra det `returnFaceAttributes`-fält som anger vilka ansiktsattribut som ska hämtas.
+
+## <a name="run-the-script"></a>Kör skriptet
+
+Öppna en kommandotolk och skapa programmet genom att köra följande kommando:
+
+```shell
+go build faceDetection.go
+```
+
+Kör sedan programmet:
+
+```shell
+detect-face
+```
+
+Du bör se en JSON-sträng för identifierade ansiktsdata i konsolen. Följande är ett exempel på ett lyckat JSON-svar.
 
 ```json
 [
@@ -300,7 +301,7 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, till exempel:
 
 ## <a name="next-steps"></a>Nästa steg
 
-Utforska de ansikts-API:er som används för att identifiera ansikten i en bild, avgränsa ansikten med rektanglar och returnera attribut som ålder och kön.
+I den här snabbstarten har du skrivit ett Ruby-skript som anropar Azures Ansikts-API för att identifiera ansikten på en bild och returnera deras attribut. Läs ansikts-API-referensdokumentationen om du vill veta mer.
 
 > [!div class="nextstepaction"]
-> [Ansikts-API:er](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)
+> [Ansikts-API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)

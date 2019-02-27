@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
-ms.date: 08/22/2018
+ms.date: 02/20/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 4322b118268ee88235190f5672585d17ea365495
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 84287191af60a5e9306f03ca2ebd10f9e347c9ac
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55872654"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453060"
 ---
 # <a name="what-is-computer-vision"></a>Vad är visuellt innehåll?
 
@@ -45,17 +45,17 @@ Du kan analysera bilder för att identifiera och få insikter om bildernas visue
 
 ## <a name="extract-text-from-images"></a>Extrahera text från bilder
 
-Du kan använda visuellt innehåll för att [extrahera text med OCR](concept-extracting-text-ocr.md) från en bild till en maskinläsningsbar teckenström. Om det behövs korrigerar OCR rotationen av den tolkade texten i grader kring den vågräta bildaxeln och anger ramkoordinater för varje ord. OCR har stöd för 25 olika språk och identifierar automatiskt språket för den extraherade texten.
+Du kan använda visuellt innehåll för att [extrahera text med optisk teckenigenkänning (OCR)](concept-extracting-text-ocr.md) från en bild till en maskinläsningsbar teckenström. Om det behövs korrigerar OCR rotationen av den tolkade texten och anger ramkoordinater för varje ord. OCR har stöd för 25 olika språk och identifierar automatiskt språket för den tolkade texten.
 
-Du kan även [identifiera utskriven och handskriven text](concept-recognizing-text.md) från en bild. Visuellt innehåll kan identifiera och extrahera utskriven och handskriven text från bilder från olika objekt med olika ytor och bakgrunder, till exempel kvitton, affischer, visitkort, brev och whiteboardtavlor. För närvarande finns funktionerna för igenkänning av utskriven och handskriven text i en förhandsversion och engelska är det enda språket som stöds.  
+Du kan även [identifiera utskriven och handskriven text](concept-recognizing-text.md) i en bild. Visuellt innehåll kan identifiera och extrahera utskriven och handskriven text från bilder från olika objekt med olika ytor och bakgrunder, till exempel kvitton, affischer, visitkort, brev och whiteboardtavlor. För närvarande finns funktionerna för textigenkänning av utskriven och handskriven text i en förhandsversion och engelska är det enda språk som stöds. 
 
 ## <a name="moderate-content-in-images"></a>Moderera innehåll i bilder
 
-Du kan använda visuellt innehåll för att [identifiera stötande eller olämpligt innehåll](concept-detecting-adult-content.md) i en bild och ge ett omdöme om sannolikheten att bilden innehåller stötande eller olämpligt innehåll samt generera förtroendepoäng för båda. Filtret för stötande och olämpligt innehåll kan ställas in på en skala för att passa dina preferenser.
+Du kan använda visuellt innehåll till att [identifiera innehåll som är olämpligt för barn](concept-detecting-adult-content.md) i en bild och returnera en förtroendepoäng för dem. Filtret för stötande och olämpligt innehåll kan ställas in på en skala för att passa dina preferenser.
 
 ## <a name="use-containers"></a>Använda containrar
 
-[Använd containrar för visuellt innehåll](computer-vision-how-to-install-containers.md) för att känna igen tryckt och handskriven text lokalt genom att installera en standardiserad Docker-container närmare till dina data.
+[Använd containrar för visuellt innehåll](computer-vision-how-to-install-containers.md) för att känna igen tryckt och handskriven text lokalt genom att installera en standardiserad Docker-container som är närmare till dina data.
 
 ## <a name="image-requirements"></a>Avbildningskrav
 

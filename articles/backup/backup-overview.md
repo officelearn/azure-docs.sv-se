@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: overview
-ms.date: 01/09/2019
+ms.date: 02/19/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 298c9fabca9d1994e0b952fdf8b48b70370c3ec2
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 79a53c1b11a1bac0ea83afdd1333423aff4d6aa6
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55490678"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56428474"
 ---
 # <a name="what-is-azure-backup"></a>Vad är Azure Backup?
 
@@ -25,17 +25,19 @@ Med Azure Backup-tjänsten kan du säkerhetskopiera data till Microsoft Azure-mo
 
 Azure Backup ger följande viktiga fördelar:
 
-- **Avlasta lokal säkerhetskopiering**: Azure Backup är en enkel lösning för att säkerhetskopiera dina lokala resurser till molnet. Du får både kort- och långsiktig kvarhållning av säkerhetskopior utan att behöva distribuera komplexa lokala lösningar. Eliminera behovet av band eller säkerhetskopiering på annan plats.
+- **Avlasta lokal säkerhetskopiering**: Azure Backup är en enkel lösning för att säkerhetskopiera dina lokala resurser till molnet. Du får både kort- och långsiktig kvarhållning av säkerhetskopior utan att behöva distribuera komplexa lokala lösningar. 
 - **Säkerhetskopiera virtuella Azure IaaS-datorer**: Med Azure Backup får du oberoende och isolerade säkerhetskopior, vilket skyddar originaldata från att förstöras oavsiktligt. Säkerhetskopior lagras i ett Recovery Services-valv med inbyggd hantering av återställningspunkter. Det är enkelt att konfigurera och skala, säkerhetskopiorna optimeras och du kan återställa vid behov.
-- **Enkel skalning** – Azure Backup använder Azure-molnets underliggande kraft och obegränsade storlek för att tillhandahålla hög tillgänglighet – utan underhåll och omkostnad för övervakning. Du kan ställa in aviseringar för att tillhandahålla information om händelser, men du behöver inte oroa dig för hög tillgänglighet för dina data i molnet.
-- **Obegränsad dataöverföring** – Azure Backup begränsar inte hur mycket inkommande eller utgående data du överför. Azure Backup debiterar inte heller för de data som överförs. Om du använder Azure Import/Export-tjänsten för att importera stora mängder data finns det dock en kostnad som är kopplad till inkommande data. Mer information om kostnaden finns i [Offline-backup workflow in Azure Backup](backup-azure-backup-import-export.md) (Arbetsflöde för säkerhetskopiering offline i Azure Backup). Utgående data syftar på data som överförs från ett Recovery Services-valv under en återställningsåtgärd.
+- **Enkel skalning** – Azure Backup använder Azure-molnets underliggande kraft och obegränsade storlek för att tillhandahålla hög tillgänglighet – utan underhåll och omkostnad för övervakning. 
+- **Obegränsad dataöverföring** – Azure Backup begränsar inte hur mycket inkommande eller utgående data du överför eller debiterar data som överförs.
+    - Utgående data syftar på data som överförs från ett Recovery Services-valv under en återställningsåtgärd.
+    - Om du utför en initial säkerhetskopiering offline med Azure Import/Export-tjänsten för att importera stora mängder data, finns det dock en kostnad som är kopplad till inkommande data.  [Läs mer](backup-azure-backup-import-export.md). 
 - **Skydda data**: Datakryptering möjliggör säker överföring och lagring av data i det offentliga molnet. Krypteringslösenfrasen lagras på lokalt och överförs eller lagras aldrig i Azure. Om det är nödvändigt att återställa data kan du göra det om du har krypteringslösenfrasen eller nyckeln.
 - **Programkonsekvent säkerhetskopiering**: Programkonsekvent säkerhetskopiering innebär att en återställningspunkt har alla data som krävs för att återställa säkerhetskopian. Azure Backup innehåller programkonsekventa säkerhetskopior vilket garanterar att inga ytterligare korrigeringar behövs för att återställa data. Återställning av konsekventa programdata minskar tiden för återställning, så att du snabbt kan återgå till körläge.
-- **Kort- och långsiktig kvarhållning**: **Långsiktig kvarhållning** – Du kan använda Recovery Services-valv för långsiktig och kortsiktig datakvarhållning. Azure begränsar inte hur lång tid data behålls i ett Recovery Services-valv. Du kan förvara data i ett valv hur länge du vill. Azure Backup har en gräns på 9999 återställningspunkter per skyddad instans. Läs avsnittet [Säkerhetskopiering och kvarhållning](backup-introduction-to-azure-backup.md#backup-and-retention) i den här artikeln för att få en förklaring av hur den här gränsen kan påverka dina säkerhetskopieringsbehov.
-- **Automatisk lagringshantering** – hybridmiljöer kräver ofta heterogen lagring – vissa lokalt och vissa i molnet. Med Azure Backup är det kostnadsfritt att använda lokala lagringsenheter. Azure Backup allokerar och hanterar lagringen av säkerhetskopiorna automatiskt och tillämpar en modell där du betalar baserat på din användning. Att betala baserat på din användning innebär att du bara betalar för den lagring du konsumerar. Mer information finns i artikeln om [prissättning i Azure](https://azure.microsoft.com/pricing/details/backup).
-- **Flera lagringsalternativ** – en aspekt av hög tillgänglighet är lagringsreplikering. Azure Backup erbjuder två typer av replikering: [lokalt redundant lagring](../storage/common/storage-redundancy-lrs.md) och [geo-redundant lagring](../storage/common/storage-redundancy-grs.md). Välj lagring för säkerhetskopiering baserat på behov:
-    - Lokalt redundant lagring (LRS) replikerar data tre gånger (det skapas tre kopior av dina data) i en lagringsskalningsenhet i ett datacenter i samma region. Alla datakopior finns i samma region. LRS är ett billigt alternativ för att skydda dina data mot fel i den lokala maskinvaran.
-    - Geo-redundant lagring (GRS) är standardalternativet och det som rekommenderas för replikering. GRS replikerar dina data till en sekundär region (hundratals mil bort från den primära platsen för datakällan). GRS kostar mer än LRS, men GRS ger högre hållbarhet för dina data, även i händelse av ett regionalt avbrott.
+- **Behålla kort- och långsiktiga data**: Du kan använda Recovery Services-valv för kortsiktig och långsiktig datakvarhållning. Azure begränsar inte hur lång tid data behålls i ett Recovery Services-valv. Du kan förvara den så länge du vill. Azure Backup har en gräns på 9999 återställningspunkter per skyddad instans. [Läs mer](backup-introduction-to-azure-backup.md#backup-and-retention)om hur den här begränsningen påverkar dina säkerhetskopieringsbehov.
+- **Automatisk lagringshantering** – hybridmiljöer kräver ofta heterogen lagring – vissa lokalt och vissa i molnet. Med Azure Backup är det kostnadsfritt att använda lokala lagringsenheter. Azure Backup allokerar och hanterar lagringen av säkerhetskopiorna automatiskt och tillämpar en modell där du betalar baserat på din användning. Du betalar alltså bara för den lagring som du använder. [Läs mer](https://azure.microsoft.com/pricing/details/backup) om prissättning.
+- **Flera lagringsalternativ** – Azure Backup erbjuder två typer av replikering för att din lagring och dina data ska ha hög tillgänglighet.
+    - [Lokalt redundant lagring (LRS)](../storage/common/storage-redundancy-lrs.md) replikerar dina data tre gånger (det skapas tre kopior av dina data) i en lagringsskalningsenhet i ett datacenter. Alla datakopior finns i samma region. LRS är ett billigt alternativ för att skydda dina data mot fel i den lokala maskinvaran.
+    - [Geo-redundant lagring (GRS)](../storage/common/storage-redundancy-grs.md) är standardalternativet och det som rekommenderas vid replikering. GRS replikerar dina data till en sekundär region (hundratals mil bort från den primära platsen för datakällan). GRS kostar mer än LRS, men GRS ger högre hållbarhet för dina data, även i händelse av ett regionalt avbrott.
 
 
 ## <a name="whats-the-difference-between-azure-backup-and-azure-site-recovery"></a>Vad är skillnaden mellan Azure Backup och Azure Site Recovery?
@@ -64,52 +66,53 @@ Azure Backup kan säkerhetskopiera både lokala datorer och virtuella Azure-dato
 
 **Dator** | **Säkerhetskopieringsscenario**
 --- | ---
-**Lokala datorer (fysiska/virtuella)** |  Du kan säkerhetskopiera enskilda lokala datorer.<br/><br/>Du kan säkerhetskopiera lokala datorer som skyddas av System Center Data Protection Manager (DPM).<br/><br/> Du kan säkerhetskopiera lokala datorer som skyddas av Microsoft Azure Backup Server (MABS).
-**Virtuella Azure-datorer** | Du kan säkerhetskopiera enskilda virtuella Azure-datorer.<br/><br/> Du kan säkerhetskopiera virtuella Azure-datorer som skyddas av DPM eller MABS.
+**Lokal säkerhetskopiering** |  1) Kör Azure Backup Microsoft Azure Recovery Services-agenten (MARS) på lokala Windows-datorer för att säkerhetskopiera enskilda filer och systemtillstånd. <br/><br/>2) Säkerhetskopiera lokala datorer till en säkerhetskopieringsserver (System Center Data Protection Manager (DPM) eller Microsoft Azure Backup Server (MABS)) och konfigurera sedan säkerhetskopieringsservern så att den säkerhetskopierar till ett Azure Backup Recovery Services-valv i Azure.
+**Virtuella Azure-datorer** | 1) Aktivera säkerhetskopiering av enskilda virtuella Azure-datorer. När du aktiverar säkerhetskopiering installerar Azure Backup ett tillägg på Azure VM-agenten som körs på den virtuella datorn. Agenten säkerhetskopierar hela den virtuella datorn.<br/><br/> 2) Kör MARS-agenten på en virtuell Azure-dator. Detta är användbart om du vill säkerhetskopiera enskilda filer och mappar på den virtuella datorn.<br/><br/> 3) Säkerhetskopiera en virtuell Azure-dator till en DPM-server eller MABS som körs i Azure. Säkerhetskopiera sedan DPM-servern eller MABS till ett valv med hjälp av Azure Backup. 
 
-### <a name="back-up-servers"></a>Säkerhetskopiera servrar
 
-Du kanske behöver säkerhetskopiera lokala servrar och arbetsbelastningar, eller virtuella Azure-datorer och deras arbetsbelastningar. Först till en sekundär server och sedan till ett Recovery Services-valv. 
+## <a name="why-use-a-backup-server"></a>Varför ska jag använda en säkerhetskopieringsserver?
 
-**Sekundär server** | **Detaljer**
---- | ---
-**System Center Data Protection Manager (DPM)** | Använd Azure Backup för att säkerhetskopiera data som skyddas av DPM:<br/><br/> – DPM kan köras lokalt (fysiskt eller virtuellt) eller i Azure.<br/><br/> – Du kan skydda olika typer av data som körs på lokala datorer och virtuella Azure-datorer genom att säkerhetskopiera dem till DPM-servern.<br/><br/> – DPM-servern kan i sin tur säkerhetskopieras till Recovery Services-valvet med Azure Backup-tjänsten.<br/><br/> – DPM-servern och datorerna den skyddar måste ingå i samma nätverk. Lokala datorer kan endast skyddas av en lokal DPM-server. På samma sätt kan virtuella Azure-datorer endast skyddas av DPM som körs i Azure.
-**Microsoft Azure Backup Server (MABS)** | Använd Azure Backup för att säkerhetskopiera data som skyddas av MABS:<br/><br/> – MABS kan köras lokalt (fysiskt eller virtuellt) eller i Azure.<br/><br/> – Du kan skydda olika typer av data som körs på lokala datorer och virtuella Azure-datorer genom att säkerhetskopiera dem till MABS.<br/><br/> – MABS kan i sin tur säkerhetskopieras till Recovery Services-valvet med Azure Backup-tjänsten.<br/><br/> – MABS tillhandahåller liknande funktioner som DPM, förutom att det inte går att säkerhetskopiera till band med MABS. MABS kräver inte System Center-licens.<br/><br/> – Precis som med DPM kan lokala datorer endast skyddas av en lokal MABS. Virtuella Azure-datorer kan endast skyddas av en MABS i Azure.
 
-Fördelarna med att säkerhetskopiera först till DPM/MABS och sedan till ett valv är följande:
 
-- Vid säkerhetskopiering till DPM/MABS ingår programmedvetna säkerhetskopior som är optimerade för vanliga program som SQL Server, Exchange och SharePoint, i tillägg till fil-/mapp-/volymsäkerhetskopior och säkerhetskopiering av systemtillstånd för datorer (utan operativsystem).
-- Du behöver inte installera Azure Backup-agenten på varje dator som ska säkerhetskopieras. DPM/MABS-skyddsagenten körs på varje dator, och Azure Backup Microsoft Azure Recovery Services-agenten körs endast på DPM-servern/MABS.
+
+Fördelarna med att säkerhetskopiera datorer och appar till MABS/DPM-lagring och sedan säkerhetskopiera DPM/MABS-lagring till ett valv är följande:
+
+- Vid säkerhetskopiering till MABS/DPM ingår programmedvetna säkerhetskopior som är optimerade för vanliga program som SQL Server, Exchange och SharePoint. Dessutom ingår fil-/mapp-/volymsäkerhetskopior och säkerhetskopiering av systemtillstånd för datorer (utan operativsystem).
+- På lokala datorer behöver du inte installera MARS-agenten på varje dator som ska säkerhetskopieras. Alla datorer som kör DPM/MABS-skyddsagenten och MARS-agenten körs endast på MABS/DPM.
 - Du får större flexibilitet och mer detaljerade schemaläggningsalternativ för säkerhetskopiering.
 - Du kan hantera säkerhetskopior för flera datorer som du grupperar i skyddsgrupper i en enda konsol. Detta är särskilt användbart för program som är nivåindelade över flera datorer och som behöver säkerhetskopieras tillsammans.
 
-## <a name="what-can-be-backed-up"></a>Vad kan säkerhetskopieras?
+Läs mer om [hur säkerhetskopiering fungerar](backup-architecture.md#architecture-back-up-to-dpmmabs) när du använder en säkerhetskopieringsserver och [supportkraven](backup-support-matrix-mabs-dpm.md) för säkerhetskopieringsservrar.
 
-**Dator** | **Sekundär server** | **Säkerhetskopiera**
+## <a name="what-can-i-back-up"></a>Vad kan jag säkerhetskopiera?
+
+**Dator** | **Säkerhetskopieringsmetod** | **Säkerhetskopiera**
 --- | --- | ---
-Lokala virtuella Windows-datorer | Säkerhetskopieras inte till DPM eller MABS | Säkerhetskopiera filer, mappar och systemtillstånd.
-Virtuella Azure-datorer (Windows och Linux) | Säkerhetskopieras inte till DPM eller MABS | Säkerhetskopiera filer, mappar och systemtillstånd.<br/><br/> Säkerhetskopior är programmedvetna för Windows-datorer och filmedvetna för Linux-datorer.
-Lokala virtuella datorer/virtuella Azure-datorer | Skyddas av DPM | Säkerhetskopiera allt som skyddas av DPM, inklusive filer/mappar/delningar/volymer och programspecifika data. [Läs mer om](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix?view=sc-dpm-1807) vad som kan säkerhetskopieras av DPM.
-Lokala virtuella datorer/virtuella Azure-datorer | Skyddas av MABS | Säkerhetskopiera allt som skyddas av MABS, inklusive filer/mappar/delningar/volymer och programspecifika data. [Läs mer om](backup-mabs-protection-matrix.md) vad som kan säkerhetskopieras av MABS.
+**Lokala virtuella Windows-datorer** | Köra MARS-agenten | Säkerhetskopiera filer, mappar och systemtillstånd.<br/><br/> Linux-datorer stöds inte.
+**Lokala datorer** | Säkerhetskopiera till DPM/MABS | Säkerhetskopiera allt som skyddas av [DPM](backup-support-matrix-mabs-dpm.md#supported-backups-to-dpm) eller [MABS](backup-support-matrix-mabs-dpm.md#supported-backups-to-mabs), inklusive filer/mappar/filresurser/volymer och programspecifika data. 
+**Virtuella Azure-datorer** | Köra Azure VM-agentens säkerhetskopieringstillägg | Säkerhetskopiera en hel virtuell dator
+**Virtuella Azure-datorer** | Köra MARS-agenten | Säkerhetskopiera filer, mappar och systemtillstånd.<br/><br/> Linux-datorer stöds inte.
+**Virtuella Azure-datorer** | Säkerhetskopiera till MABS/DPM som körs i Azure | Säkerhetskopiera allt som skyddas av [MABS](backup-support-matrix-mabs-dpm.md#supported-backups-to-mabs) eller [DPM](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix?view=sc-dpm-1807), inklusive filer/mappar/filresurser/volymer och programspecifika data.
 
 ## <a name="what-backup-agents-do-i-need"></a>Vilka säkerhetskopieringsagenter behöver jag?
-**Scenario** | **Agent** | **Detaljer**
---- | --- | ---
-Lokala datorer (ingen säkerhetskopieringsserver) | Microsoft Azure Recovery Services-agent (MARS) som körs på en Windows-dator. | Du laddar ned och installerar MARS-agenten under distributionen av Azure Backup.<br/><br/> Endast stöd för Windows-datorer.
-Virtuella Azure-datorer (ingen säkerhetskopieringsserver) | Kräver ingen särskild agent. Azure VM-tillägget för säkerhetskopiering som körs på den virtuella Azure-datorn. | Tillägget installeras vid den första säkerhetskopieringen av den virtuella Azure-datorn.<br/><br/> Stöd för Windows och Linux.
-Lokala datorer och virtuella Azure-datorer som skyddas av DPM. | MARS-agenten som körs på DPM-servern. | MARS-agenten behövs inte på enskilda datorer.<br/><br/> När du distribuerar DPM installeras DPM-skyddsagenten på varje dator som du skyddar. 
-Säkerhetskopiering av lokala datorer och virtuella Azure-datorer som skyddas av MABS | MARS-agenten som körs på MABS. | MARS-agenten behövs inte på enskilda datorer.<br/><br/> När du distribuerar MABS installeras MABS-skyddsagenten på varje dator som du skyddar. 
 
+**Scenario** | **Agent** 
+--- | --- 
+**Säkerhetskopiera virtuella Azure-datorer** | Ingen agent behövs. Azure VM-tillägget för säkerhetskopiering installeras på Azure VM när du kör den första virtuella Azure-säkerhetskopieringen.<br/><br/> Stöd för Windows och Linux.
+**Säkerhetskopiera lokala Windows-datorer** | Hämta, installera och kör MARS-agenten direkt på datorn. 
+**Säkerhetskopiera virtuella Azure-datorer med MARS-agenten** | Hämta, installera och kör MARS-agenten direkt på datorn. MARS-agenten kan köras tillsammans med säkerhetskopieringstillägget.
+**Säkerhetskopiering av lokala datorer och virtuella Azure-datorer till DPM/MABS** | DPM- eller MABS-skyddsagenten körs på de datorer som du vill skydda. MARS-agenten körs på DPM-servern/MABS för att säkerhetskopiera till Azure.
 
 ## <a name="which-backup-agent-should-i-use"></a>Vilken säkerhetskopieringsagent ska jag använda?
 
 **Säkerhetskopiering** | **Lösning** | **Begränsning**
 --- | --- | ---
-Jag vill säkerhetskopiera lokala Windows-datorer. Datorerna skyddas inte av DPM eller MABS. | Installera MARS-agenten på datorn. | Du kan säkerhetskopiera filer, mappar och systemtillstånd till Azure. Säkerhetskopior är inte programmedvetna.
-Jag vill säkerhetskopiera lokala Linux-datorer. Datorerna skyddas inte av DPM eller MABS. | Du behöver distribuera DPM eller MABS för att kunna säkerhetskopiera till Azure.
-Jag vill säkerhetskopiera program som körs på lokala Windows-datorer. | Windows-datorer måste skyddas av DPM eller MABS för att kunna genomföra programmedvetna säkerhetskopieringar.
-Jag vill säkerhetskopiera virtuella Azure-datorer | Kör en säkerhetskopiering med Azure Backup. Säkerhetskopieringstillägget konfigureras automatiskt på den virtuella Azure-datorn, både för Windows och Linux. | VM-diskarna säkerhetskopieras.<br/><br/> Säkerhetskopior är programkonsekventa för virtuella Windows-datorer. Säkerhetskopior är filkonsekventa för Linux-datorer. Du måste konfigurera med anpassade skript om dessa behöver vara programmedvetna.
-Jag vill säkerhetskopiera virtuella Azure-datorer med detaljerad flexibilitet i inställningarna för säkerhetskopiering och återställning. | Skydda virtuella Azure-datorer med DPM eller MABS som körs i Azure för extra flexibilitet för schemaläggning av säkerhetskopiering, och fullständig flexibilitet för att skydda och återställa filer, mappar, volymer, program och systemtillstånd.
+**Jag vill säkerhetskopiera en hel virtuell Azure-dator** | Aktivera säkerhetskopiering för den virtuella datorn. Säkerhetskopieringstillägget konfigureras automatiskt på den virtuella Azure-datorn, både för Windows och Linux. | Hela den virtuella datorn säkerhetskopieras <br/><br/> Säkerhetskopior är programkonsekventa för virtuella Windows-datorer. Säkerhetskopior är filkonsekventa för Linux-datorer. Du måste konfigurera med anpassade skript om dessa ska vara programmedvetna.
+**Jag vill säkerhetskopiera specifika filer/mappar på Azure VM** | Distribuera MARS-agenten på den virtuella datorn.
+**Jag vill säkerhetskopiera direkt till lokala Windows-datorer** | Installera MARS-agenten på datorn. | Du kan säkerhetskopiera filer, mappar och systemtillstånd till Azure. Säkerhetskopior är inte programmedvetna.
+**Jag vill säkerhetskopiera direkt till lokala Linux-datorer** | Du behöver distribuera DPM eller MABS för att kunna säkerhetskopiera till Azure.
+**Jag vill säkerhetskopiera program som körs lokalt** | Datorer måste skyddas av DPM eller MABS för att kunna genomföra programmedvetna säkerhetskopieringar.
+**Jag vill ha detaljerade och flexibla säkerhetskopierings- och återställningsinställningar för virtuella Azure-datorer** | Skydda virtuella Azure-datorer med MABS/DPM som körs i Azure för extra flexibilitet vid schemaläggning av säkerhetskopiering, och fullständig flexibilitet för att skydda och återställa filer, mappar, volymer, program och systemtillstånd.
 
 
 ## <a name="next-steps"></a>Nästa steg

@@ -1,5 +1,5 @@
 ---
-title: Logga nätverkstrafik till och från en virtuell dator – Azure-portalen | Microsoft Docs
+title: Logga nätverkstrafik till och från en virtuell dator – Azure Portal | Microsoft Docs
 description: Lär dig hur du loggar nätverkstrafik till och från en virtuell dator med funktionen NSG-flödesloggar i Network Watcher.
 services: network-watcher
 documentationcenter: na
@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 04/30/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: ce2d69e26909231383f3538d51387f27d8202a43
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 09d43386b994ffc046f8c3e22c82f13ec15acd38
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54332480"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56428979"
 ---
 # <a name="tutorial-log-network-traffic-to-and-from-a-virtual-machine-using-the-azure-portal"></a>Självstudier: Logga nätverkstrafik till och från en virtuell dator med hjälp av Azure-portalen
 
@@ -37,13 +37,10 @@ Med en nätverkssäkerhetsgrupp (NSG) kan du filtrera inkommande trafik till och
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-> [!NOTE] 
-> Flödesloggar av version 2 är endast tillgängliga i regionen USA, västra centrala. Om du aktiverar loggar av version 2 i en region som inte stöds matas loggar av version 1 in i ditt lagringskonto.
-
 ## <a name="create-a-vm"></a>Skapa en virtuell dator
 
-1. Klicka på **+ Skapa en resurs** längst upp till vänster på Azure-portalen.
-2. Välj **Compute** och välj sedan **Windows Server 2016 Datacenter** eller **Ubuntu Server 17.10 VM**.
+1. Klicka på **+ Skapa en resurs** längst upp till vänster på Azure Portal.
+2. Välj **Compute** och välj sedan **Windows Server 2016 Datacenter** eller en version av **Ubuntu Server**.
 3. Ange eller välj följande information, acceptera standardinställningarna för återstående inställningar och välj sedan **OK**:
 
     |Inställning|Värde|
@@ -220,4 +217,4 @@ Värdet för **mac** i föregående utdata är nätverksgränssnittets MAC-adres
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien lärde du dig hur du aktiverar NSG-flödesloggning för en nätverkssäkerhetsgrupp. Du lärde dig också hur du laddar ned och visar data som loggats i en fil. Rådata i JSON-filen kan vara svåra att tolka. Du kan visualisera data med hjälp av [trafikanalysverktyg](traffic-analytics.md) i Network Watcher, Microsoft [PowerBI](network-watcher-visualize-nsg-flow-logs-power-bi.md) och andra verktyg.
+I den här självstudiekursen lärde du dig hur du aktiverar NSG-flödesloggning för en nätverkssäkerhetsgrupp. Du lärde dig också hur du laddar ned och visar data som loggats i en fil. Rådata i JSON-filen kan vara svåra att tolka. Du kan visualisera data med hjälp av [trafikanalysverktyg](traffic-analytics.md) i Network Watcher, Microsoft [PowerBI](network-watcher-visualize-nsg-flow-logs-power-bi.md) och andra verktyg.

@@ -16,14 +16,14 @@ ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: 0c865b8bc129f4f2809f2dbb09a836efe4cee3d9
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 1d8a9cf10bf9b4aab02dd5033ecdd4fdc1f9423e
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50093048"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56429255"
 ---
-# <a name="tutorial-monitor-network-communication-between-two-virtual-machines-using-the-azure-portal"></a>Självstudie: Övervaka nätverkskommunikationen mellan två virtuella datorer i Azure Portal
+# <a name="tutorial-monitor-network-communication-between-two-virtual-machines-using-the-azure-portal"></a>Självstudier: Övervaka nätverkskommunikationen mellan två virtuella datorer i Azure-portalen
 
 Det kan vara mycket viktigt att kommunikationen mellan en virtuell dator (VM) och en slutpunkt, som en annan virtuell dator, fungerar ordentligt. Ibland görs konfigurationsändringar som kan bryta kommunikationen. I den här guiden får du lära dig att:
 
@@ -73,11 +73,11 @@ Utför stegen i [Skapa den första virtuella datorn](#create-the-first-vm) igen 
 
 |Steg|Inställning|Värde|
 |---|---|---|
-| 1 | Välj **Ubuntu Server 17.10 VM** |                                                                         |
-| 3 | Namn                              | myVm2                                                                   |
-| 3 | Autentiseringstyp               | Klistra in den offentliga SSH-nyckeln eller välj **Lösenord** och ange ett lösenord. |
-| 3 | Resursgrupp                    | Välj **Använd befintlig** och sedan **myResourceGroup**.                 |
-| 6 | Tillägg                        | **Network Agent for Linux**                                             |
+| 1 | Välj en version av **Ubuntu Server** |                                                                         |
+| 3 | Namn                                  | myVm2                                                                   |
+| 3 | Autentiseringstyp                   | Klistra in den offentliga SSH-nyckeln eller välj **Lösenord** och ange ett lösenord. |
+| 3 | Resursgrupp                        | Välj **Använd befintlig** och sedan **myResourceGroup**.                 |
+| 6 | Tillägg                            | **Network Agent for Linux**                                             |
 
 Det tar några minuter att distribuera den virtuella datorn. Vänta tills distributionen av den virtuella datorn är klar innan du fortsätter med nästa steg.
 
@@ -160,7 +160,7 @@ Som standard tillåter Azure kommunikation via alla portar mellan virtuella dato
 
     Du ser ett rött utropstecken i statuskolumnen för nätverksgränssnittet **myvm2529**.
 
-6. Välj 10.0.0.5 om du vill se varför statusen har ändrats. Anslutningsövervakaren anger att orsaken till kommunikationsfelet är: *Traffic blocked due to the following network security group rule: UserRule_DenySshInbound* (Trafiken blockeras på grund av följande regel för nätverkssäkerhetsgruppen).
+6. Välj 10.0.0.5 om du vill se varför statusen har ändrats. Anslutningsövervakaren informerar dig om att orsaken till kommunikationsfelet är: *Trafiken blockerades på grund av följande regel för nätverkssäkerhetsgrupp: UserRule_DenySshInbound*.
 
     Om du inte hade vetat att någon implementerat den säkerhetsregel du skapade i steg 4 så skulle du se att det är den här regeln som orsakar kommunikationsproblemet i anslutningsövervakaren. Då kan du ändra, åsidosätta eller ta bort regeln för att återställa kommunikationen mellan de virtuella datorerna.
 

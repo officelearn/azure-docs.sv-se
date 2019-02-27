@@ -2,28 +2,20 @@
 title: Skapa och hantera VPN-anslutningar i Azure mellan servrar med hjälp av PowerShell | Microsoft Docs
 description: Självstudie – Skapa och hantera VPN-anslutningar mellan servrar med Azure PowerShell-modulen
 services: vpn-gateway
-documentationcenter: na
 author: yushwang
-manager: rossort
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: infrastructure
-ms.date: 05/08/2018
+ms.date: 02/11/2019
 ms.author: yushwang
 ms.custom: mvc
-ms.openlocfilehash: 0c71062bded65f8aa7c259c0678ee6675e2dab38
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: a9ca626ecf026736617ba495422ed957d03b2b37
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55509481"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56414608"
 ---
-# <a name="create-and-manage-s2s-vpn-connections-with-the-azure-powershell-module"></a>Skapa och hantera VPN-anslutningar mellan servrar med Azure PowerShell-modulen
+# <a name="tutorial-create-and-manage-s2s-vpn-connections-using-powershell"></a>Självstudier: Skapa och hantera S2S VPN-anslutningar med PowerShell
 
 VPN-anslutningar mellan servrar i Azure ger säker anslutning mellan olika platser, t.ex. mellan kundens lokaler och Azure. Den här självstudien visar VPN-anslutningens livscykel via IPsec mellan servrar, till exempel att skapa och hantera en VPN-anslutning mellan servrar. Lär dig att:
 
@@ -33,22 +25,26 @@ VPN-anslutningar mellan servrar i Azure ger säker anslutning mellan olika plats
 > * Lägga till flera VPN-anslutningar
 > * Ta bort en VPN-anslutning
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Följande diagram visar topologin för den här självstudien:
 
 ![Diagram över VPN-anslutning för plats till plats](./media/vpn-gateway-tutorial-vpnconnection-powershell/site-to-site-diagram.png)
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-Om du väljer att installera och använda PowerShell lokalt kräver den här självstudien version 5.3 eller senare av Azure PowerShell-modulen. Kör `Get-Module -ListAvailable AzureRM` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/azurerm/install-azurerm-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Login-AzureRmAccount` för att skapa en anslutning till Azure.
-
 ## <a name="requirements"></a>Krav
 
-Slutför den första självstudien: ”[Skapa VPN-gateway med Azure PowerShell](vpn-gateway-tutorial-create-gateway-powershell.md)” för att skapa följande resurser:
+Slutför den första självstudien: [Skapa VPN-gateway med Azure PowerShell](vpn-gateway-tutorial-create-gateway-powershell.md) för att skapa följande resurser:
 
 1. Resursgrupp (TestRG1), virtuellt nätverk (VNet1) och GatewaySubnet
 2. VPN-gateway (VNet1GW)
 
-Nedan visas parametervärdena för det virtuella nätverket. Lägg märke till ytterligare värden för den lokala nätverksgatewayen som motsvarar ditt lokala nätverk. Ändra värdena baserat på din miljö och nätverkskonfiguration.
+Nedan visas parametervärdena för det virtuella nätverket. Lägg märke till ytterligare värden för den lokala nätverksgatewayen som motsvarar ditt lokala nätverk. Ändra värdena nedan baserat på din miljö och nätverkskonfiguration. Kopiera och klistra sedan in variablerna för den här självstudien. Om tidsgränsen uppnås för Cloud Shell-sessionen, eller om du måste använda ett annat PowerShell-fönster, kopierar du och klistrar in variablerna i den nya sessionen och fortsätter självstudien.
+
+>[!NOTE]
+> Om du använder detta för att upprätta en anslutning, måste du ändra värdena så att de matchar ditt lokala nätverk. Om du bara kör de här stegen som en självstudie behöver du inte göra några ändringar, men anslutningen kommer inte att fungera.
+>
 
 ```azurepowershell-interactive
 # Virtual network
@@ -59,11 +55,11 @@ $VNet1Prefix = "10.1.0.0/16"
 $VNet1ASN    = 65010
 $Gw1         = "VNet1GW"
 
-# On-premises network
+# On-premises network - LNGIP1 is the VPN device public IP address
 $LNG1        = "VPNsite1"
 $LNGprefix1  = "10.101.0.0/24"
 $LNGprefix2  = "10.101.1.0/24"
-$LNGIP1      = "YourDevicePublicIP"
+$LNGIP1      = "5.4.3.2"
 
 # Optional - on-premises BGP properties
 $LNGASN1     = 65011
@@ -86,22 +82,22 @@ En lokal nätverksgateway representerar det lokala nätverket. Du kan ange egens
 * Lokalt adressutrymme
 * (Valfritt) BGP-attribut (IP-adress för BGP-peer och AS-nummer)
 
-Skapa en lokal nätverksgateway med kommandot [New-AzureRmLocalNetworkGateway](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermlocalnetworkgateway?view=azurermps-6.8.1).
+Skapa en lokal nätverksgateway med kommandot [New-AzLocalNetworkGateway](https://docs.microsoft.com/powershell/module/az.network/new-azlocalnetworkgateway?view=azurermps-6.8.1).
 
 ```azurepowershell-interactive
-New-AzureRmLocalNetworkGateway -Name $LNG1 -ResourceGroupName $RG1 `
+New-AzLocalNetworkGateway -Name $LNG1 -ResourceGroupName $RG1 `
   -Location 'East US' -GatewayIpAddress $LNGIP1 -AddressPrefix $LNGprefix1,$LNGprefix2
 ```
 
 ## <a name="create-a-s2s-vpn-connection"></a>Skapa en VPN-anslutning mellan servrar
 
-Därefter skapar du VPN-anslutningen för plats till plats mellan din virtuella nätverksgateway och din VPN-enhet med [New-AzureRmVirtualNetworkGatewayConnection](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermvirtualnetworkgatewayconnection?view=azurermps-6.8.1). Observera att ”-ConnectionType” för VPN för plats till plats är *IPsec*.
+Därefter skapar du VPN-anslutningen från plats till plats mellan din virtuella nätverksgateway och din VPN-enhet med [New-AzVirtualNetworkGatewayConnection](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworkgatewayconnection?view=azurermps-6.8.1). Observera att ”-ConnectionType” för VPN för plats till plats är *IPsec*.
 
 ```azurepowershell-interactive
-$vng1 = Get-AzureRmVirtualNetworkGateway -Name $GW1  -ResourceGroupName $RG1
-$lng1 = Get-AzureRmLocalNetworkGateway   -Name $LNG1 -ResourceGroupName $RG1
+$vng1 = Get-AzVirtualNetworkGateway -Name $GW1  -ResourceGroupName $RG1
+$lng1 = Get-AzLocalNetworkGateway   -Name $LNG1 -ResourceGroupName $RG1
 
-New-AzureRmVirtualNetworkGatewayConnection -Name $Connection1 -ResourceGroupName $RG1 `
+New-AzVirtualNetworkGatewayConnection -Name $Connection1 -ResourceGroupName $RG1 `
   -Location $Location1 -VirtualNetworkGateway1 $vng1 -LocalNetworkGateway2 $lng1 `
   -ConnectionType IPsec -SharedKey "Azure@!b2C3"
 ```
@@ -112,7 +108,7 @@ Lägg till den valfria egenskapen ”**-EnableBGP $True**” för att aktivera B
 
 ### <a name="view-and-update-your-pre-shared-key"></a>Visa och uppdatera din i förväg delade nyckel
 
-Azures VPN-anslutning mellan servrar använder en i förväg delad nyckel (hemlighet) till att autentisera mellan din lokala VPN-enhet och Azure VPN-gatewayen. Du kan visa och uppdatera den i förväg delade nyckeln för en anslutning med [Get-AzureRmVirtualNetworkGatewayConnectionSharedKey](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermvirtualnetworkgatewayconnectionsharedkey?view=azurermps-6.8.1) och [Set-AzureRmVirtualNetworkGatewayConnectionSharedKey](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermvirtualnetworkgatewayconnectionsharedkey?view=azurermps-6.8.1).
+Azures VPN-anslutning mellan servrar använder en i förväg delad nyckel (hemlighet) till att autentisera mellan din lokala VPN-enhet och Azure VPN-gatewayen. Du kan visa och uppdatera den i förväg delade nyckeln för en anslutning med [Get-AzVirtualNetworkGatewayConnectionSharedKey](https://docs.microsoft.com/powershell/module/az.network/get-azvirtualnetworkgatewayconnectionsharedkey?view=azurermps-6.8.1) och [Set-AzVirtualNetworkGatewayConnectionSharedKey](https://docs.microsoft.com/powershell/module/az.network/set-azvirtualnetworkgatewayconnectionsharedkey?view=azurermps-6.8.1).
 
 > [!IMPORTANT]
 > Den i förväg delade nyckeln är en sträng med **utskrivbara ASCII-tecken** med en maximal längd på 128.
@@ -120,14 +116,14 @@ Azures VPN-anslutning mellan servrar använder en i förväg delad nyckel (hemli
 Det här kommandot visar den i förväg delade nyckeln för anslutningen:
 
 ```azurepowershell-interactive
-Get-AzureRmVirtualNetworkGatewayConnectionSharedKey `
+Get-AzVirtualNetworkGatewayConnectionSharedKey `
   -Name $Connection1 -ResourceGroupName $RG1
 ```
 
 Utdata blir ”**Azure@!b2C3**” enligt exemplet ovan. Använd kommandot nedan för att ändra värdet i den förväg delade nyckeln till ”**Azure@!_b2=C3**”:
 
 ```azurepowershell-interactive
-Set-AzureRmVirtualNetworkGatewayConnectionSharedKey `
+Set-AzVirtualNetworkGatewayConnectionSharedKey `
   -Name $Connection1 -ResourceGroupName $RG1 `
   -Value "Azure@!_b2=C3"
 ```
@@ -140,24 +136,26 @@ Azure VPN-gatewayen har stöd för BGP-protokoll för dynamisk routning. Du kan 
 * ASN för lokal nätverksgateway
 * IP-adress för BGP-peer för lokal nätverksgateway
 
-Om du inte har konfigurerat BGP-egenskaperna använder du följande kommandon för att lägga till dessa egenskaper i din VPN-gateway och lokala nätverksgateway: [Set-AzureRmVirtualNetworkGateway](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermvirtualnetworkgateway?view=azurermps-6.8.1) och [Set-AzureRmLocalNetworkGateway](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermlocalnetworkgateway?view=azurermps-6.8.1).
+Om du inte har konfigurerat BGP-egenskaperna använder du följande kommandon för att lägga till dessa egenskaper i din VPN-gateway och lokala nätverksgateway: [Set-AzVirtualNetworkGateway](https://docs.microsoft.com/powershell/module/az.network/set-azvirtualnetworkgateway?view=azurermps-6.8.1) och [Set-AzLocalNetworkGateway](https://docs.microsoft.com/powershell/module/az.network/set-azlocalnetworkgateway?view=azurermps-6.8.1).
+
+Använd följande exempel för att konfigurera BGP-egenskaperna:
 
 ```azurepowershell-interactive
-$vng1 = Get-AzureRmVirtualNetworkGateway -Name $GW1  -ResourceGroupName $RG1
-Set-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $vng1 -Asn $VNet1ASN
+$vng1 = Get-AzVirtualNetworkGateway -Name $GW1  -ResourceGroupName $RG1
+Set-AzVirtualNetworkGateway -VirtualNetworkGateway $vng1 -Asn $VNet1ASN
 
-$lng1 = Get-AzureRmLocalNetworkGateway   -Name $LNG1 -ResourceGroupName $RG1
-Set-AzureRmLocalNetworkGateway -LocalNetworkGateway $lng1 `
+$lng1 = Get-AzLocalNetworkGateway   -Name $LNG1 -ResourceGroupName $RG1
+Set-AzLocalNetworkGateway -LocalNetworkGateway $lng1 `
   -Asn $LNGASN1 -BgpPeeringAddress $BGPPeerIP1
 ```
 
-Aktivera BGP med [Set-AzureRmVirtualNetworkGatewayConnection](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermvirtualnetworkgatewayconnection?view=azurermps-6.8.1).
+Aktivera BGP med [Set-AzVirtualNetworkGatewayConnection](https://docs.microsoft.com/powershell/module/az.network/set-azvirtualnetworkgatewayconnection?view=azurermps-6.8.1).
 
 ```azurepowershell-interactive
-$connection = Get-AzureRmVirtualNetworkGatewayConnection `
+$connection = Get-AzVirtualNetworkGatewayConnection `
   -Name $Connection1 -ResourceGroupName $RG1
 
-Set-AzureRmVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $connection `
+Set-AzVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $connection `
   -EnableBGP $True
 ```
 
@@ -171,14 +169,14 @@ Du kan tillämpa en valfri IPsec/IKE-princip för att ange den exakta kombinatio
 * IPsec: AES128, SHA1, PFS14, SA-livslängd 14 400 sekunder och 102 400 000 kB
 
 ```azurepowershell-interactive
-$connection = Get-AzureRmVirtualNetworkGatewayConnection -Name $Connection1 `
+$connection = Get-AzVirtualNetworkGatewayConnection -Name $Connection1 `
                 -ResourceGroupName $RG1
-$newpolicy  = New-AzureRmIpsecPolicy `
+$newpolicy  = New-AzIpsecPolicy `
                 -IkeEncryption AES256 -IkeIntegrity SHA256 -DhGroup DHGroup14 `
                 -IpsecEncryption AES128 -IpsecIntegrity SHA1 -PfsGroup PFS2048 `
                 -SALifeTimeSeconds 14400 -SADataSizeKilobytes 102400000
 
-Set-AzureRmVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $connection `
+Set-AzVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $connection `
   -IpsecPolicies $newpolicy
 ```
 
@@ -186,24 +184,24 @@ Se [IPsec/IKE-princip för anslutningar mellan servrar eller mellan virtuella n�
 
 ## <a name="add-another-s2s-vpn-connection"></a>Skapa en till VPN-anslutning mellan servrar
 
-Lägg till ytterligare en VPN-anslutning mellan servrar till samma VPN-gateway genom att skapa en annan lokal nätverksgateway och skapa en ny anslutning mellan den nya lokala nätverksgatewayen och VPN-gatewayen. Följ exemplet i den här artikeln.
+Lägg till ytterligare en VPN-anslutning mellan servrar till samma VPN-gateway genom att skapa en annan lokal nätverksgateway. Skapa sedan en ny anslutning mellan den nya lokala nätverksgatewayen och VPN-gatewayen. Använd följande exempel och ändra variablerna så att de återspeglar din egen nätverkskonfiguration.
 
 ```azurepowershell-interactive
-# On-premises network
+# On-premises network - LNGIP2 is the VPN device public IP address
 $LNG2        = "VPNsite2"
 $Location2   = "West US"
 $LNGprefix21 = "10.102.0.0/24"
 $LNGprefix22 = "10.102.1.0/24"
-$LNGIP2      = "YourDevicePublicIP"
+$LNGIP2      = "4.3.2.1"
 $Connection2 = "VNet1ToSite2"
 
-New-AzureRmLocalNetworkGateway -Name $LNG2 -ResourceGroupName $RG1 `
+New-AzLocalNetworkGateway -Name $LNG2 -ResourceGroupName $RG1 `
   -Location $Location2 -GatewayIpAddress $LNGIP2 -AddressPrefix $LNGprefix21,$LNGprefix22
 
-$vng1 = Get-AzureRmVirtualNetworkGateway -Name $GW1  -ResourceGroupName $RG1
-$lng2 = Get-AzureRmLocalNetworkGateway   -Name $LNG2 -ResourceGroupName $RG1
+$vng1 = Get-AzVirtualNetworkGateway -Name $GW1  -ResourceGroupName $RG1
+$lng2 = Get-AzLocalNetworkGateway   -Name $LNG2 -ResourceGroupName $RG1
 
-New-AzureRmVirtualNetworkGatewayConnection -Name $Connection2 -ResourceGroupName $RG1 `
+New-AzVirtualNetworkGatewayConnection -Name $Connection2 -ResourceGroupName $RG1 `
   -Location $Location1 -VirtualNetworkGateway1 $vng1 -LocalNetworkGateway2 $lng2 `
   -ConnectionType IPsec -SharedKey "AzureA1%b2_C3+"
 ```
@@ -214,16 +212,24 @@ Det finns nu två VPN-anslutningar mellan servrar till din Azure VPN-gateway.
 
 ## <a name="delete-a-s2s-vpn-connection"></a>Ta bort en VPN-anslutning mellan servrar
 
-Ta bort en VPN-anslutning mellan servrar med [Remove-AzureRmVirtualNetworkGatewayConnection](https://docs.microsoft.com/powershell/module/azurerm.network/remove-azurermvirtualnetworkgatewayconnection?view=azurermps-6.8.1).
+Ta bort en VPN-anslutning mellan servrar med [Remove-AzVirtualNetworkGatewayConnection](https://docs.microsoft.com/powershell/module/az.network/remove-azvirtualnetworkgatewayconnection?view=azurermps-6.8.1).
 
 ```azurepowershell-interactive
-Remove-AzureRmVirtualNetworkGatewayConnection -Name $Connection2 -ResourceGroupName $RG1
+Remove-AzVirtualNetworkGatewayConnection -Name $Connection2 -ResourceGroupName $RG1
 ```
 
 Ta bort den lokala nätverksgatewayen om du inte längre behöver den. Du kan inte ta bort en lokal nätverksgateway om det finns andra anslutningar som är kopplade till den.
 
 ```azurepowershell-interactive
-Remove-AzureRmVirtualNetworkGatewayConnection -Name $LNG2 -ResourceGroupName $RG1
+Remove-AzVirtualNetworkGatewayConnection -Name $LNG2 -ResourceGroupName $RG1
+```
+
+## <a name="clean-up-resources"></a>Rensa resurser
+
+Om konfigurationen ingår i en prototyp-, ett test- eller en Proof of Concept-distribution, kan du använda kommandot [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) till att ta bort resursgruppen, VPN-gatewayen och alla relaterade resurser.
+
+```azurepowershell-interactive
+Remove-AzResourceGroup -Name $RG1
 ```
 
 ## <a name="next-steps"></a>Nästa steg

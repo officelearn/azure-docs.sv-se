@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/31/2018
+ms.date: 02/12/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d6cdc7ef8ee991719153f6daed01fbb76f945a7a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: e233de6f0909477e5033d2a0104f9165e86a9077
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56194946"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56311043"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workplace-by-facebook"></a>Självstudier: Azure Active Directory-integrering med Workplace by Facebook
 
@@ -143,31 +143,38 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD för Wo
 
 1. I ett annat webbläsarfönster loggar du in på din Workplace by Facebook-företagsplats som administratör.
   
-   > [!NOTE]
-   > Som en del av SAML-autentiseringsprocessen kan Workplace by Facebook utnyttja frågesträngar på upp till 2,5 kB i storlek för att skicka parametrar till Azure AD.
+    > [!NOTE]
+    > Som en del av SAML-autentiseringsprocessen kan Workplace by Facebook utnyttja frågesträngar på upp till 2,5 kB i storlek för att skicka parametrar till Azure AD.
 
-2. I **administrationspanelen** går du till fliken **Säkerhet** och sedan **Autentisering**.
+2. I **administrationspanelen** går du till fliken **Säkerhet**.
 
-3. Under **SAML-autentisering** väljer du **SSO Only** (Endast enkel inloggning) i den nedrullningsbara listan.
+    ![Administrationspanel](./media/workplacebyfacebook-tutorial/tutorial-workplace-by-facebook-configure01.png)
 
-4. Ange de värden som kopierats från avsnittet **Workplace by Facebook Configuration** (Workplace by Facebook-konfigurationen) på Azure-portalen i motsvarande fält:
+3. Under fliken **Autentisering** väljer du **Enkel inloggning** och utför följande steg:
 
-    * I textrutan **SAML URL** klistrar du in det värde för **Login URL** (Inloggnings-URL) som du har kopierat från Azure-portalen.
-    * I **textrutan SAML Issuer URL** (URL för SAML-utfärdare) klistrar du in det värde för **Azure AD-identifierare** som du har kopierat från Azure-portalen.
-    * I **SAML Logout Redirect** (Omdirigering för SAML-utloggning) (valfritt) klistrar du in det värde för **Utloggnings-URL** som du har kopierat från Azure-portalen.
-    * Öppna ditt **base-64-kodade certifikat** som du har laddat ned från Azure-portalen i Anteckningar, kopiera innehållet i Urklipp och klistra sedan in den i textrutan **SAML Certificate** (SAML-certifikat).
+    ![Fliken Autentisering](./media/workplacebyfacebook-tutorial/tutorial-workplace-by-facebook-configure02.png)
 
-5. Du kan behöva ange Audience URL (publik-URL), Recipient URL (mottagar-URL) och ACS-URL (konsumenttjänst för försäkran, Assertion Consumer Service) som visas i avsnittet **Grundläggande SAML-konfiguration**.
+    a. I textrutan **SAML URL** klistrar du in det värde för **Login URL** (Inloggnings-URL) som du har kopierat från Azure-portalen.
 
-6. Rulla ned till slutet av avsnittet och klicka på knappen **Test SSO** (Testa enkel inloggning). Då visas ett popup-fönster med Azure AD-inloggningssidan. Ange dina autentiseringsuppgifter som vanligt för att autentisera.
+    b. I **textrutan SAML Issuer URI** (URI för SAML-utfärdare) klistrar du in det värde för **Azure AD-identifierare** som du har kopierat från Azure-portalen.
+
+    c. I **SAML Logout Redirect** (Omdirigering för SAML-utloggning) (valfritt) klistrar du in det värde för **Utloggnings-URL** som du har kopierat från Azure-portalen.
+
+    d. Öppna ditt **base-64-kodade certifikat** som du har laddat ned från Azure-portalen i Anteckningar, kopiera innehållet i Urklipp och klistra sedan in den i textrutan **SAML Certificate** (SAML-certifikat).
+
+    e. Kopiera **Målgrupps-URL** för din instans och klistra in den i textrutan  **Identifierare (entitets-ID)** i avsnittet  **Grundläggande SAML-konfiguration**  i Azure-portalen.
+
+    f. Kopiera **Mottagar-URL** för din instans och klistra in den i textrutan  **Inloggnings-URL** i avsnittet  **Grundläggande SAML-konfiguration**  i Azure-portalen.
+
+    g. Rulla ned till slutet av avsnittet och klicka på knappen **Test SSO** (Testa enkel inloggning). Då visas ett popup-fönster med Azure AD-inloggningssidan. Ange dina autentiseringsuppgifter som vanligt för att autentisera.
 
     **Felsökning:** Kontrollera att den e-postadress som returneras från Azure AD är samma som det Workplace-konto som du har loggat in med.
 
-7. När testet är klart rullar du längst ned på sidan och klickar på knappen **Spara**.
+    h. När testet är klart rullar du längst ned på sidan och klickar på knappen **Spara**.
 
-8. Alla användare som använder Workplace ser nu Azure AD-inloggningssidan för autentisering.
+    i. Alla användare som använder Workplace ser nu Azure AD-inloggningssidan för autentisering.
 
-9. **SAML Logout Redirect** - (Omdirigering för SAML-utloggning) (valfritt)
+4. **SAML Logout Redirect** - (Omdirigering för SAML-utloggning) (valfritt)
 
     Du kan även välja att konfigurera en SAML-utloggnings-URL som kan användas för att peka på utloggningssidan för Azure AD. När den här inställningen aktiveras och konfigureras omdirigeras användarna inte längre till utloggningssidan för Workplace. I stället omdirigeras de till den URL som lades till i inställningen för SAML-utloggningsomdirigering.
 

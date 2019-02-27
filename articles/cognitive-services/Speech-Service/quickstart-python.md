@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 1/16/2019
+ms.date: 2/20/2019
 ms.author: chlandsi
-ms.openlocfilehash: 43ae1339b2b6880656c68957a3d4ed2d2f13b559
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: d3a6b8389d44d3ad92f9305124884d97fa293429
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55859550"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56447125"
 ---
 # <a name="quickstart-recognize-speech-with-the-speech-sdk-for-python"></a>Snabbstart: Taligenkänning med Speech SDK för Python
 
@@ -26,16 +26,16 @@ Den här artikeln visar hur du använder taltjänsten via Speech SDK för Python
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
 * En Azure-prenumerationsnyckel för tjänsten Speech. [Skaffa en kostnadsfritt](get-started.md).
-* [Python 3.5](https://www.python.org/downloads/) eller senare, 64-bitars.
+* [Python 3.5 eller senare](https://www.python.org/downloads/).
 * Python Speech SDK-paketet är tillgängligt för dessa operativsystem: 
-    * Windows: x64.
+    * Windows: x64 och x86.
     * Mac: Mac OS X version 10.12 eller senare.
     * Linux: Ubuntu 16.04 eller 18.04 på x64.
 * I Ubuntu kan du köra dessa kommandon för att installera de nödvändiga paketen:
 
   ```sh
   sudo apt-get update
-  sudo apt-get install build-essential libssl1.0.0 libcurl3 libasound2 wget
+  sudo apt-get install build-essential libssl1.0.0 libasound2 wget
   ```
 
 * I Windows behöver du även [Microsoft Visual C++ Redistributable för Visual Studio 2017](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) för din plattform.

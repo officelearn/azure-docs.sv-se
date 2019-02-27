@@ -8,40 +8,27 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 05/30/2018
+ms.date: 02/07/2019
 ms.author: pafarley
-ms.openlocfilehash: b7dbbc328f61b47cb89af2974ad3c428d868d465
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 52faef37dbd9a3ce324db9665f04d6ac9b223d9c
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55857132"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56312403"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-ruby"></a>Snabbstart: Identifiera ansikten i en bild med REST API och Ruby
 
-I den här snabbstarten identifierar du människoansikten i en bild med Ansikts-API.
+I den här snabbstarten ska du använda Azures REST API för ansiktsigenkänning med Ruby för att identifiera mänskliga ansikten i en bild.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-Du behöver en prenumerationsnyckel för att köra exemplet. Du kan hämta nycklar för kostnadsfri utvärderingsprenumeration från [Testa Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api).
+- En ansikts-API-prenumerationsnyckel. Du kan hämta nycklar för en kostnadsfri utvärderingsprenumeration från [Testa Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Följ instruktionerna i [Skapa ett konto för Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) för att prenumerera på tjänsten Ansikts-API och få din nyckel.
+- En kodredigerare som t.ex. [Visual Studio Code](https://code.visualstudio.com/download)
 
-## <a name="face---detect-request"></a>Begäran om ansiktsigenkänning
+## <a name="write-the-script"></a>Skriva skriptet
 
-Använd metoden [Face - Detect](https://westcentralus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) (Ansiktsigenkänning) för att identifiera ansikten i en bild och returnera ansiktsattribut som:
-
-* Ansikts-ID: Unikt ID som används i flera scenarier med Ansikts-API.
-* Ansiktsrektangel: Vänster, överkant, bredd och höjd som anger ansiktets placering i bilden.
-* Landmärken: En matris med ansiktslandmärken med 27 punkter som pekar på viktiga positioner för ansiktsdelar.
-* Ansiktsattribut som ålder, kön, leendeintensitet, huvudställning och ansiktsbehåring.
-
-För att köra exemplet följer du dessa steg:
-
-1. Kopiera följande kod till ett redigeringsprogram.
-1. Ersätt `<Subscription Key>` med en giltig prenumerationsnyckel.
-1. Ändra värdet `uri` till den plats där du hämtade dina prenumerationsnycklar, om det behövs.
-1. Du kan även ange `imageUri` till den bild som du vill analysera.
-1. Spara filen med tillägget `.rb`.
-1. Öppna Ruby-kommandotolken och kör filen, till exempel: `ruby myfile.rb`.
+Skapa den nya filen _faceDetection.rb_ och lägg till följande kod. Detta anropar Ansikts-API:et för en viss bild-URL.
 
 ```ruby
 require 'net/http'
@@ -75,9 +62,19 @@ end
 puts response.body
 ```
 
-## <a name="face---detect-response"></a>Svar från ansiktsigenkänning
+Du måste uppdatera värdet `request['Ocp-Apim-Subscription-Key']` med din prenumerationsnyckel och du kan behöva ändra strängen `uri` så att den innehåller rätt regionsidentifierare (en lista över alla regionslutpunkter finns i [dokumentet om Ansikts-API:et](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)). 
 
-Ett svar som anger att åtgärden lyckades returneras i JSON, till exempel:
+Du kanske också vill ändra fältet `imageUri` så att det pekar på din inmatade bild. Du kan dessutom ändra det `returnFaceAttributes`-fält som anger vilka ansiktsattribut som ska hämtas.
+
+## <a name="run-the-script"></a>Kör skriptet
+
+Kör Ruby-skriptet med följande kommando:
+
+```shell
+ruby faceDetection.rb
+```
+
+Du bör se en JSON-sträng för identifierade ansiktsdata i konsolen. Följande är ett exempel på ett lyckat JSON-svar.
 
 ```json
 [
@@ -260,7 +257,7 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, till exempel:
 
 ## <a name="next-steps"></a>Nästa steg
 
-Utforska de ansikts-API:er som används för att identifiera ansikten i en bild, avgränsa ansikten med rektanglar och returnera attribut som ålder och kön.
+I den här snabbstarten har du skrivit ett Ruby-skript som anropar Azures Ansikts-API för att identifiera ansikten på en bild och returnera deras attribut. Läs ansikts-API-referensdokumentationen om du vill veta mer.
 
 > [!div class="nextstepaction"]
-> [Ansikts-API:er](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)
+> [Ansikts-API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)

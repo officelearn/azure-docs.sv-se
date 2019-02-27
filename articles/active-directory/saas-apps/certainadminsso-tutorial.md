@@ -1,223 +1,200 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med vissa Admin SSO | Microsoft Docs'
-description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och vissa Admin SSO.
+title: 'Självstudier: Azure Active Directory-integrering med Certain Admin SSO | Microsoft Docs'
+description: Lär dig att konfigurera enkel inloggning mellan Azure Active Directory och Certain Admin SSO.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 98ba0174-be02-408a-8634-c8113b12dedb
-ms.service: active-directory
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 06/21/2018
+ms.topic: tutorial
+ms.date: 02/12/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7d85e8dbac47bd41c759e9c225df5544c659cc05
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: MT
+ms.openlocfilehash: fe717a37b576b6cd49a26ef4d7fca1a74aa76962
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56205536"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56300685"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-certain-admin-sso"></a>Självstudier: Azure Active Directory-integrering med vissa Admin SSO
+# <a name="tutorial-azure-active-directory-integration-with-certain-admin-sso"></a>Självstudier: Azure Active Directory-integrering med Certain Admin SSO
 
-I den här självstudien får du lära dig hur du integrerar vissa Admin enkel inloggning med Azure Active Directory (AD Azure).
+I den här självstudien lär du dig att integrera Certain Admin SSO med Azure Active Directory (Azure AD).
+Genom att integrera Certain Admin SSO med Azure AD får du följande fördelar:
 
-Integrera vissa Admin enkel inloggning med Azure AD ger dig följande fördelar:
+* Du kan styra vem som har åtkomst till Certain Admin SSO i Azure AD.
+* Du kan låta dina användare loggas in automatiskt på Certain Admin SSO (enkel inloggning) med sina Azure AD-konton.
+* Du kan hantera dina konton på en central plats – Azure-portalen.
 
-- Du kan styra i Azure AD som har åtkomst till vissa Admin SSO.
-- Du kan aktivera användarna att automatiskt få loggat in på vissa Admin SSO (enkel inloggning) med sina Azure AD-konton.
-- Du kan hantera dina konton på en central plats – Azure-portalen.
+Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-## <a name="prerequisites"></a>Förutsättningar
+För att konfigurera Azure AD-integrering med Certain Admin SSO behöver du följande:
 
-Om du vill konfigurera Azure AD-integrering med vissa Admin SSO, behöver du följande objekt:
-
-- En Azure AD-prenumeration
-- En vissa Admin SSO enkel inloggning aktiverat prenumeration
-
-> [!NOTE]
-> Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
-
-Du bör följa de här rekommendationerna när du testar stegen i självstudien:
-
-- Använd inte din produktionsmiljö om det inte behövs.
-- Om du inte har en Azure AD-utvärderingsmiljö, kan du [få en månads utvärdering](https://azure.microsoft.com/pricing/free-trial/).
+* En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
+* En aktiverad Certain Admin SSO-prenumeration med enkel inloggning
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
-I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
-1. Att lägga till vissa Admin SSO från galleriet
-1. Konfigurera och testa Azure AD enkel inloggning
+I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-## <a name="adding-certain-admin-sso-from-the-gallery"></a>Att lägga till vissa Admin SSO från galleriet
-Om du vill konfigurera integreringen av vissa Admin enkel inloggning till Azure AD, som du behöver lägga till vissa Admin SSO från galleriet i din lista över hanterade SaaS-appar.
+* Certain Admin SSO har stöd för **SP**-initierad enkel inloggning
 
-**Utför följande steg för att lägga till vissa Admin SSO från galleriet:**
+## <a name="adding-certain-admin-sso-from-the-gallery"></a>Lägga till Certain Admin SSO från galleriet
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+När du konfigurerar integreringen av Certain Admin SSO med Azure AD, måste du lägga till Certain Admin SSO från galleriet i din lista med hanterade SaaS-appar.
 
-    ![Azure Active Directory-knappen][1]
+**Lägg till Certain Admin SSO från galleriet genom att utföra följande steg:**
 
-1. Gå till **företagsprogram**. Gå till **alla program**.
+1. I **[Azure-portalen](https://portal.azure.com)**, i den vänstra navigeringspanelen, klickar du på **Azure Active Directory**-ikonen.
 
-    ![Bladet för Enterprise-program][2]
-    
-1. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
+    ![Azure Active Directory-knappen](common/select-azuread.png)
 
-    ![Knappen Nytt program][3]
+2. Gå till **Företagsprogram** och välj alternativet **Alla program**.
 
-1. I sökrutan skriver **vissa Admin SSO**väljer **vissa Admin SSO** resultatet panelen klickar **Lägg till** för att lägga till programmet.
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-    ![Vissa Admin SSO i resultatlistan](./media/certainadminsso-tutorial/tutorial_certainadminsso_addfromgallery.png)
+3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
+
+    ![Knappen Nytt program](common/add-new-app.png)
+
+4. I sökrutan skriver du **Certain Admin SSO**. Välj sedan **Certain Admin SSO** i resultatpanelen och klicka på knappen **Lägg till** för att lägga till programmet.
+
+     ![Certain Admin SSO i resultatlistan](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-I det här avsnittet, konfigurera och testa Azure AD enkel inloggning med vissa Admin SSO baserat på en testanvändare som kallas ”Britta Simon”.
+I det här avsnittet ska du konfigurera och testa enkel inloggning i Azure AD med Certain Admin SSO baserat på en testanvändare med namnet **Britta Simon**.
+För att enkel inloggning ska fungera måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i Certain Admin SSO upprättas.
 
-För enkel inloggning att fungera, behöver Azure AD du känna till motsvarande användare i vissa Admin enkel inloggning till en användare i Azure AD. Med andra ord måste en länk förhållandet mellan en Azure AD-användare och relaterade användaren i vissa Admin SSO upprättas.
-
-Om du vill konfigurera och testa Azure AD enkel inloggning med vissa Admin enkel inloggning, måste du utföra följande byggblock:
+För att konfigurera och testa enkel inloggning för Azure AD med Certain Admin SSO, behöver du slutföra följande byggblock:
 
 1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
-1. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
-1. **[Skapa en testanvändare för vissa Admin SSO](#create-a-certain-admin-sso-test-user)**  – du har en motsvarighet för Britta Simon i vissa Admin SSO som är länkad till en Azure AD-representation av användaren.
-1. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
-1. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
+2. **[Konfigurera enkel inloggning för Certain Admin SSO](#configure-certain-admin-sso-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på programsidan.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+5. **[Skapa en Certain Admin SSO-testanvändare](#create-certain-admin-sso-test-user)** – för att ha en motsvarighet till Britta Simon i Certain Admin SSO som är länkad till Azure AD-representationen av användaren.
+6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
-I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i ditt vissa Admin SSO-program.
+I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-**Utför följande steg för att konfigurera Azure AD enkel inloggning med vissa Admin enkel inloggning:**
+Utför följande steg för att konfigurera enkel inloggning i Azure AD med Certain Admin SSO:
 
-1. I Azure-portalen på den **vissa Admin SSO** program integration-sidan klickar du på **enkel inloggning**.
+1. Välj **Enkel inloggning** på sidan för programintegrering av **Certain Admin SSO** i [Azure-portalen](https://portal.azure.com/).
 
-    ![Konfigurera länk för enkel inloggning][4]
+    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
-1. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
- 
-    ![Enkel inloggning för dialogrutan](./media/certainadminsso-tutorial/tutorial_certainadminsso_samlbase.png)
+2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
-1. På den **vissa Admin SSO-domän och URL: er** avsnittet, utför följande steg:
+    ![Välja läge för enkel inloggning](common/select-saml-option.png)
 
-    ![Vissa Admin SSO domän och URL: er med enkel inloggning för information](./media/certainadminsso-tutorial/tutorial_certainadminsso_url.png)
+3. På sidan **Konfigurera enkel inloggning med SAML** klickar du på **redigeringsikonen** för att öppna dialogrutan **Grundläggande SAML-konfiguration**.
 
-    a. I textrutan **Inloggnings-URL** anger du en URL med följande mönster: `https://<YOUR DOMAIN URL>/svcs/sso_admin_login/handleRequest/<ID>`
+    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-    b. I textrutan **Identifierare** anger du en URL med följande mönster: `https://<SUBDOMAIN>.certain.com`
+4. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
 
-    > [!NOTE] 
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med faktisk inloggnings-URL och identifierare. Kontakta [vissa administratörsklient SSO-supportteamet](mailto:integrations@certain.com) att hämta dessa värden. 
- 
-1. På den **SAML-signeringscertifikat** klickar du på **certifikat (Raw)** och spara certifikatfilen på datorn.
+    ![Information om Certain Admin SSO-domänen och URL:er med enkel inloggning](common/sp-identifier.png)
 
-    ![Länk för nedladdning av certifikatet](./media/certainadminsso-tutorial/tutorial_certainadminsso_certificate.png) 
+    a. I textrutan **Inloggnings-URL** anger du en URL enligt följande mönster: `https://<YOUR DOMAIN URL>/svcs/sso_admin_login/handleRequest/<ID>`
 
-1. Klicka på **spara** knappen.
+    b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster: `https://<SUBDOMAIN>.certain.com`
 
-    ![Konfigurera enkel inloggning – knappen Spara](./media/certainadminsso-tutorial/tutorial_general_400.png)
+    > [!NOTE]
+    > Dessa värden är inte verkliga. Uppdatera de här värdena med faktisk inloggnings-URL och identifierare. Kontakta [Certain Admin SSO-klientens supportteam](mailto:integrations@certain.com) för att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-1. På den **vissa SSO Administratörskonfigurationen** klickar du på **konfigurera vissa Admin SSO** att öppna **konfigurera inloggning** fönster. Kopiera den **URL för utloggning, SAML entitets-ID och SAML enkel inloggning för tjänst-URL** från den **Snabbreferens avsnittet.**
+5. På sidan **Konfigurera enkel inloggning med SAML**, i avsnittet **SAML-signeringscertifikat**, klickar du på **Ladda ned** för att ladda ned **Certifikat (RAW)** från de angivna alternativen enligt dina behov och spara den på datorn.
 
-    ![Vissa Admin SSO-konfiguration](./media/certainadminsso-tutorial/tutorial_certainadminsso_configure.png) 
+    ![Länk för nedladdning av certifikatet](common/certificateraw.png)
 
-1. Att konfigurera enkel inloggning på **vissa Admin SSO** sida, som du behöver skicka de hämtade **certifikat (Raw)**, **URL för utloggning, SAML entitets-ID och SAML enkel inloggning för tjänst-URL**till [vissa Admin SSO-supportteamet](mailto:integrations@certain.com). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
+6. I avsnittet **Konfigurera Certain Admin SSO** kopierar du de URL:er som du behöver.
+
+    ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
+
+    a. Inloggnings-URL
+
+    b. Azure AD-identifierare
+
+    c. Utloggnings-URL
+
+### <a name="configure-certain-admin-sso-single-sign-on"></a>Konfigurera enkel inloggning i Certain Admin SSO
+
+För att konfigurera enkel inloggning på **Certain Admin SSO**-sidan behöver du skicka det nedladdade **certifikatet (RAW)** och lämpliga kopierade URL:er från Azure-portalen till [supportteamet för Certain Admin SSO](mailto:integrations@certain.com). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
-Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
+Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
 
-   ![Skapa en Azure AD-testanvändare][100]
+1. Gå till den vänstra rutan i Azure-portalen och välj **Azure Active Directory**, välj **Users** och sedan **Alla användare**.
 
-**Utför följande steg för att skapa en testanvändare i Azure AD:**
+    ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-1. I Azure-portalen, i den vänstra rutan klickar du på den **Azure Active Directory** knappen.
+2. Välj **Ny användare** överst på skärmen.
 
-    ![Azure Active Directory-knappen](./media/certainadminsso-tutorial/create_aaduser_01.png)
+    ![Knappen Ny användare](common/new-user.png)
 
-1. Om du vill visa en lista över användare, gå till **användare och grupper**, och klicka sedan på **alla användare**.
+3. Genomför följande steg i Användaregenskaper.
 
-    ![”Användare och grupper” och ”alla användare”-länkar](./media/certainadminsso-tutorial/create_aaduser_02.png)
+    ![Dialogrutan Användare](common/user-properties.png)
 
-1. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i den **alla användare** dialogrutan.
+    a. I fältet **Namn** anger du **BrittaSimon**.
+  
+    b. I fältet **Användarnamn** anger du **brittasimon@yourcompanydomain.extension**  
+    Till exempel, BrittaSimon@contoso.com
 
-    ![Knappen Lägg till](./media/certainadminsso-tutorial/create_aaduser_03.png)
-
-1. I den **användaren** dialogrutan utför följande steg:
-
-    ![Dialogrutan användare](./media/certainadminsso-tutorial/create_aaduser_04.png)
-
-    a. I den **namn** skriver **BrittaSimon**.
-
-    b. I den **användarnamn** skriver användarens Britta Simon e-postadress.
-
-    c. Välj den **visa lösenord** kryssrutan och sedan skriva ned det värde som visas i den **lösenord** box.
+    c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
     d. Klicka på **Skapa**.
- 
-### <a name="create-a-certain-admin-sso-test-user"></a>Skapa en testanvändare för vissa Admin SSO
 
-I det här avsnittet skapar du en användare som kallas Britta Simon i vissa Admin SSO. Arbeta med [vissa Admin SSO-supportteamet](mailto:integrations@certain.com) att lägga till användare i vissa Admin SSO-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+I det här avsnittet låter du Britta Simon använda enkel inloggning i Azure genom att ge henne åtkomst till Certain Admin SSO.
 
-I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till vissa Admin SSO.
+1. På Azure-portalen väljer du **Företagsprogram**, **Alla program** och sedan **Certain Admin SSO**.
 
-![Tilldela rollen][200] 
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-**Om du vill tilldela Britta Simon vissa Admin SSO, utför du följande steg:**
+2. I programlistan väljer du **Certain Admin SSO**.
 
-1. Öppna vyn program i Azure-portalen och gå till vyn directory och gå till **företagsprogram** klickar **alla program**.
+    ![Certain Admin SSO-länken i programlistan](common/all-applications.png)
 
-    ![Tilldela användare][201] 
+3. På menyn till vänster väljer du **Användare och grupper**.
 
-1. I listan med program väljer **vissa Admin SSO**.
+    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
-    ![Vissa Admin SSO-länk i listan med program](./media/certainadminsso-tutorial/tutorial_certainadminsso_app.png)  
+4. Klicka på knappen **Lägg till användare** och välj sedan **Användare och grupper** i dialogrutan **Lägg till tilldelning**.
 
-1. I menyn till vänster, klickar du på **användare och grupper**.
+    ![Fönstret Lägg till tilldelning](common/add-assign-user.png)
 
-    ![Länken ”användare och grupper”][202]
+5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
 
-1. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
+6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
 
-    ![Fönstret Lägg till tilldelning][203]
+7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-1. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
+### <a name="create-certain-admin-sso-test-user"></a>Skapa Certain Admin SSO-testanvändare
 
-1. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
+I det här avsnittet skapar du en användare med namnet Britta Simon i Certain Admin SSO. Kontakta  [Certain Admin SSO-supportteamet](mailto:integrations@certain.com) för att lägga till användarna på Certain Admin SSO-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
-1. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
-    
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
-I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
+I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på panelen vissa Admin SSO i åtkomstpanelen du bör få automatiskt loggat in på ditt vissa Admin SSO-program.
-Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../user-help/active-directory-saas-access-panel-introduction.md). 
+När du klickar på Certain Admin SSO-ikonen i åtkomstpanelen bör du automatiskt loggas in på den Certain Admin SSO som du har konfigurerat enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-<!--Image references-->
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-[1]: ./media/certainadminsso-tutorial/tutorial_general_01.png
-[2]: ./media/certainadminsso-tutorial/tutorial_general_02.png
-[3]: ./media/certainadminsso-tutorial/tutorial_general_03.png
-[4]: ./media/certainadminsso-tutorial/tutorial_general_04.png
-
-[100]: ./media/certainadminsso-tutorial/tutorial_general_100.png
-
-[200]: ./media/certainadminsso-tutorial/tutorial_general_200.png
-[201]: ./media/certainadminsso-tutorial/tutorial_general_201.png
-[202]: ./media/certainadminsso-tutorial/tutorial_general_202.png
-[203]: ./media/certainadminsso-tutorial/tutorial_general_203.png
-
+- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

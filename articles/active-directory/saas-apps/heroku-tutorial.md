@@ -1,251 +1,221 @@
 ---
 title: 'Självstudier: Azure Active Directory-integrering med Heroku | Microsoft Docs'
-description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Heroku.
+description: Lär dig att konfigurera enkel inloggning mellan Azure Active Directory och Heroku.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: d7d72ec6-4a60-4524-8634-26d8fbbcc833
-ms.service: active-directory
-ms.subservice: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 06/30/2017
+ms.topic: tutorial
+ms.date: 02/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7f42ff2fe8c3ff03019203eac7e6c02c495e5493
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: MT
+ms.openlocfilehash: bf5ff64575373fd0c022a2ad05805e418ad1622c
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56191783"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456579"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-heroku"></a>Självstudier: Azure Active Directory-integrering med Heroku
 
-I den här självstudien får du lära dig hur du integrerar Heroku med Azure Active Directory (AD Azure).
+I den här självstudien lär du dig att integrera Heroku med Azure Active Directory (Azure AD).
+När du integrerar Heroku med Azure AD får du följande fördelar:
 
-Integrera Heroku med Azure AD ger dig följande fördelar:
+* Du kan styra vem som har åtkomst till Heroku i Azure AD.
+* Du kan låta dina användare loggas in automatiskt på Heroku (enkel inloggning) med sina Azure AD-konton.
+* Du kan hantera dina konton på en central plats – Azure-portalen.
 
-- Du kan styra i Azure AD som har åtkomst till Heroku
-- Du kan aktivera användarna att automatiskt få loggat in på Heroku (Single Sign-On) med sina Azure AD-konton
-- Du kan hantera dina konton på en central plats – Azure portal
+Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-## <a name="prerequisites"></a>Förutsättningar
+För att konfigurera Azure AD-integrering med Heroku behöver du följande:
 
-Om du vill konfigurera Azure AD-integrering med Heroku, behöver du följande objekt:
-
-- En Azure AD-prenumeration
-- Ett Heroku enkel inloggning aktiverat prenumeration
-
-> [!NOTE]
-> Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
-
-Du bör följa de här rekommendationerna när du testar stegen i självstudien:
-
-- Använd inte din produktionsmiljö om det inte behövs.
-- Om du inte har en Azure AD-utvärderingsmiljö kan du skaffa en månads utvärderingsperiod [här](https://azure.microsoft.com/pricing/free-trial/).
+* En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
+* En aktiverad Heroku-prenumeration med enkel inloggning
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
-I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
-1. Att lägga till Heroku från galleriet
-1. Konfigurera och testa Azure AD enkel inloggning
+I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-## <a name="adding-heroku-from-the-gallery"></a>Att lägga till Heroku från galleriet
-För att konfigurera integrering av Heroku i Azure AD, som du behöver lägga till Heroku från galleriet i din lista över hanterade SaaS-appar.
+* Heroku stöder **IDP**-initierad enkel inloggning
+* Heroku har stöd för etablering av användare enligt principen **just-in-time**
+
+## <a name="adding-heroku-from-the-gallery"></a>Lägga till Heroku från galleriet
+
+När du konfigurerar integreringen av Heroku i Azure AD, måste du lägga till Heroku från galleriet i din lista med hanterade SaaS-appar.
 
 **Utför följande steg för att lägga till Heroku från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+1. I **[Azure-portalen](https://portal.azure.com)**, i den vänstra navigeringspanelen, klickar du på **Azure Active Directory**-ikonen.
 
-    ![Active Directory][1]
+    ![Azure Active Directory-knappen](common/select-azuread.png)
 
-1. Gå till **företagsprogram**. Gå till **alla program**.
+2. Gå till **Företagsprogram** och välj alternativet **Alla program**.
 
-    ![Appar][2]
-    
-1. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-    ![Appar][3]
+3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
-1. I sökrutan skriver **Heroku**.
+    ![Knappen Nytt program](common/add-new-app.png)
 
-    ![Skapa en Azure AD-användare för testning](./media/heroku-tutorial/tutorial_heroku_search.png)
+4. I sökrutan skriver du **Heroku**, väljer **Heroku** i resultatpanelen och klickar sedan på knappen **Lägg till** för att lägga till programmet.
 
-1. I resultatpanelen väljer **Heroku**, och klicka sedan på **Lägg till** för att lägga till programmet.
+     ![Heroku i resultatlistan](common/search-new-app.png)
 
-    ![Skapa en Azure AD-användare för testning](./media/heroku-tutorial/tutorial_heroku_addfromgallery.png)
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
+I det här avsnittet ska du konfigurera och testa enkel inloggning i Azure AD med Heroku baserat på testanvändaren **Britta Simon**.
+För att enkel inloggning ska fungera måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i Heroku upprättas.
 
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med Heroku baserat på en testanvändare som kallas ”Britta Simon”.
+Om du vill konfigurera och testa enkel inloggning i Azure AD med Heroku, måste du slutföra följande byggblock:
 
-För enkel inloggning att fungera, behöver Azure AD du veta vad användaren motsvarighet i Heroku är till en användare i Azure AD. Med andra ord måste en länk relationen mellan en Azure AD-användare och relaterade användaren i Heroku upprättas.
+1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
+2. **[Konfigurera enkel inloggning för Heroku](#configure-heroku-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på programsidan.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+5. **[Skapa Heroku-testanvändare](#create-heroku-test-user)** – för att ha en motsvarighet till Britta Simon i Heroku som är länkad till Azure AD-representationen av användaren.
+6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
-I Heroku, tilldela värdet för den **användarnamn** i Azure AD som värde för den **användarnamn** att upprätta länken-relation.
+### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
-Om du vill konfigurera och testa Azure AD enkel inloggning med Heroku, måste du utföra följande byggblock:
+I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-1. **[Konfigurera Azure AD enkel inloggning](#configuring-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-1. **[Skapa en Azure AD-testanvändare](#creating-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-1. **[Skapa en testanvändare Heroku](#creating-a-heroku-test-user)**  – du har en motsvarighet för Britta Simon i Heroku som är länkad till en Azure AD-representation av användaren.
-1. **[Tilldela Azure AD-testanvändare](#assigning-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-1. **[Testa enkel inloggning](#testing-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+Utför följande steg för att konfigurera enkel inloggning i Azure AD med Heroku:
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
+1. I [Azure-portalen](https://portal.azure.com/) går du till sidan för programintegrering för **Heroku** och väljer **Enkel inloggning**.
 
-I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i ditt Heroku-program.
+    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
-**Utför följande steg för att konfigurera Azure AD enkel inloggning med Heroku:**
+2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
-1. I Azure-portalen på den **Heroku** program integration-sidan klickar du på **enkel inloggning**.
+    ![Välja läge för enkel inloggning](common/select-saml-option.png)
 
-    ![Konfigurera enkel inloggning][4]
+3. På sidan **Konfigurera enkel inloggning med SAML** klickar du på **redigeringsikonen** för att öppna dialogrutan **Grundläggande SAML-konfiguration**.
 
-1. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
- 
-    ![Konfigurera enkel inloggning](./media/heroku-tutorial/tutorial_heroku_samlbase.png)
+    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-1. På den **Heroku domän och URL: er** avsnittet, utför följande steg:
+4. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
 
-    ![Konfigurera enkel inloggning](./media/heroku-tutorial/tutorial_heroku_url.png)
+    ![Information om Heroku-domän och URL:er med enkel inloggning](common/sp-identifier.png)
 
-    a. I textrutan **Inloggnings-URL** anger du en URL med följande mönster:    
-    `https://sso.heroku.com/saml/<company-name>/init`
+    a. I textrutan **Inloggnings-URL** anger du en URL enligt följande mönster: `https://sso.heroku.com/saml/<company-name>/init`
 
-    b. I den **URL-identifieraren** textrutan anger du ett URL med hjälp av följande mönster:            
-    `https://sso.heroku.com/saml/<company-name>`
+    b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster: `https://sso.heroku.com/saml/<company-name>`
 
     > [!NOTE]
-    >Dessa värden är inte verkliga. Uppdatera dessa värden med faktisk inloggnings-URL och identifierare. Du kan hämta dessa värden från Heroku-teamet, som beskrivs i senare avsnitt av den här artikeln. 
-        
-1. På den **SAML-signeringscertifikat** klickar du på **XML-Metadata för** och spara sedan metadatafilen på datorn.
+    > Dessa värden är inte verkliga. Uppdatera dessa värden med faktisk inloggnings-URL och identifierare. Du kan hämta dessa värden från Heroku-teamet, som beskrivs i senare avsnitt av den här artikeln.
 
-    ![Konfigurera enkel inloggning](./media/heroku-tutorial/tutorial_heroku_certificate.png) 
+5. På sidan **Konfigurera enkel inloggning med SAML** går du till avsnittet **SAML-signeringscertifikat**, klickar på **Hämta** för att hämta **Metadata-XML för federationen** från de angivna alternativen enligt dina behov och spara den på datorn.
 
-1. Klicka på knappen **Spara**.
+    ![Länk för nedladdning av certifikatet](common/metadataxml.png)
 
-    ![Konfigurera enkel inloggning](./media/heroku-tutorial/tutorial_general_400.png)
+6. I avsnittet **Konfigurera Heroku** kopierar du lämpliga URL:er efter behov.
 
-1. Om du vill aktivera enkel inloggning i Heroku, utför du följande steg:
-   
-    a. Logga in på kontot Heroku som administratör.
+    ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
-    b. Klicka på fliken **Settings** (Inställningar).
+    a. Inloggnings-URL
 
-    c. På den **enkel inloggning på sidan**, klickar du på **överföra Metadata**.
+    b. Azure AD-identifierare
 
-    d. Ladda upp metadatafilen som du har hämtat från Azure-portalen.
+    c. Utloggnings-URL
 
-    e. När installationen är klar, visas en dialogruta för administratörer och URL: en för SSO-inloggning för slutanvändare visas. 
+### <a name="configure-heroku-single-sign-on"></a>Konfigurera enkel inloggning i Heroku
 
-    f. Kopiera den **Heroku inloggnings-URL** och **Heroku entitets-ID** standardvärden och gå tillbaka till **Heroku domän och URL: er** i Azure-portalen och klistra in dessa värden i den  **Inloggnings-Url** och **identifierare** textrutor respektive.
+1. Logga in på din Heroku-klient som administratör i ett annat webbläsarfönster.
 
-    ![Konfigurera enkel inloggning](./media/heroku-tutorial/tutorial_heroku_52.png) 
-    
-1. Klicka på **Nästa**.
+2. Klicka på fliken **Settings** (Inställningar).
 
-> [!TIP]
-> Nu kan du läsa en kortare version av instruktionerna i [Azure Portal](https://portal.azure.com), samtidigt som du konfigurerar appen!  När du lägger till den här appen från den **Active Directory-företagsprogram** bara klickar du på den **enkel inloggning** fliken och komma åt den inbäddade dokumentationen genom den  **Konfigurationen** avsnittet längst ned. Du kan läsa mer om funktionen för inbäddad dokumentation här: [Inbäddad Azure AD-dokumentation]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+3. På **sidan Enkel inloggning** klickar du på **Ladda upp metadata**.
 
-### <a name="creating-an-azure-ad-test-user"></a>Skapa en Azure AD-användare för testning
+4. Ladda upp metadatafilen som du laddade ned från Azure-portalen.
+
+5. När installationen är klar visas en bekräftelsedialogruta för administratörer och URL:en för enkel inloggning visas för slutanvändarna.
+
+6. Kopiera **Herokus inloggnings-URL** och **Herokus entitets-ID** och gå tillbaka till **Grundläggande SAML-konfiguration** i Azure-portalen. Klistra in dessa värden i textrutorna **Inloggnings-URL** respektive **Identifierare (Entitets-ID)**.
+
+    ![Konfigurera enkel inloggning](./media/heroku-tutorial/tutorial_heroku_52.png)
+
+7. Klicka på **Nästa**.
+
+### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
 Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
 
-![Skapa en Azure AD-användare][100]
+1. Gå till den vänstra rutan i Azure-portalen och välj **Azure Active Directory**, välj **Users** och sedan **Alla användare**.
 
-**Utför följande steg för att skapa en testanvändare i Azure AD:**
+    ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-1. I den **Azure-portalen**, i det vänstra navigeringsfönstret klickar du på **Azure Active Directory** ikon.
+2. Välj **Ny användare** överst på skärmen.
 
-    ![Skapa en Azure AD-användare för testning](./media/heroku-tutorial/create_aaduser_01.png) 
+    ![Knappen Ny användare](common/new-user.png)
 
-1. Om du vill visa en lista över användare, gå till **användare och grupper** och klicka på **alla användare**.
-    
-    ![Skapa en Azure AD-användare för testning](./media/heroku-tutorial/create_aaduser_02.png) 
+3. Genomför följande steg i Användaregenskaper.
 
-1. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i dialogrutan.
- 
-    ![Skapa en Azure AD-användare för testning](./media/heroku-tutorial/create_aaduser_03.png) 
+    ![Dialogrutan Användare](common/user-properties.png)
 
-1. På den **användaren** dialogrutan utför följande steg:
- 
-    ![Skapa en Azure AD-användare för testning](./media/heroku-tutorial/create_aaduser_04.png) 
+    a. I fältet **Namn** anger du **BrittaSimon**.
+  
+    b. I fältet **Användarnamn** anger du **brittasimon@yourcompanydomain.extension**  
+    Till exempel, BrittaSimon@contoso.com
 
-    a. I den **namn** textrutan typ **BrittaSimon**.
-
-    b. I den **användarnamn** textrutan skriver den **e-postadress** av BrittaSimon.
-
-    c. Välj **visa lösenord** och anteckna värdet för den **lösenord**.
+    c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
     d. Klicka på **Skapa**.
- 
-### <a name="creating-a-heroku-test-user"></a>Skapa en Heroku testanvändare
 
-I det här avsnittet skapar du en användare som kallas Britta Simon i Heroku. Heroku stöder just-in-time-etablering, som är aktiverat som standard.
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-Det finns inget åtgärdsobjekt för dig i det här avsnittet. En ny användare skapas vid åtkomst till Heroku om användaren inte finns ännu. När kontot har etablerats användaren får ett bekräftelsemeddelande och behöver klickar du på länken bekräftelse.
+I det här avsnittet låter du Britta Simon använda enkel inloggning i Azure genom att ge henne åtkomst till Heroku.
 
->[!NOTE]
->Om du vill skapa en användare manuellt kan du behöva kontakta den [Heroku klienten supportteamet](https://www.heroku.com/support).
->  
+1. På Azure-portalen väljer du **Företagsprogram**, **Alla program** och sedan **Heroku**.
 
-### <a name="assigning-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till Heroku.
+2. I listan med program väljer du **Heroku**.
 
-![Tilldela användare][200] 
+    ![Heroku-länken i programlistan](common/all-applications.png)
 
-**Om du vill tilldela Britta Simon Heroku, utför du följande steg:**
+3. På menyn till vänster väljer du **Användare och grupper**.
 
-1. Öppna vyn program i Azure-portalen och gå till vyn directory och gå till **företagsprogram** klickar **alla program**.
+    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
-    ![Tilldela användare][201] 
+4. Klicka på knappen **Lägg till användare** och välj sedan **Användare och grupper** i dialogrutan **Lägg till tilldelning**.
 
-1. I listan med program väljer **Heroku**.
+    ![Fönstret Lägg till tilldelning](common/add-assign-user.png)
 
-    ![Konfigurera enkel inloggning](./media/heroku-tutorial/tutorial_heroku_app.png) 
+5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
 
-1. I menyn till vänster, klickar du på **användare och grupper**.
+6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
 
-    ![Tilldela användare][202] 
+7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-1. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
+### <a name="create-heroku-test-user"></a>Skapa Heroku-testanvändare
 
-    ![Tilldela användare][203]
+I det här avsnittet ska du skapa en användare med namnet Britta Simon i Heroku. Heroku stöder just-in-time-etablering, vilket är aktiverat som standard.
 
-1. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
+Det finns inget åtgärdsobjekt för dig i det här avsnittet. En ny användare skapas vid åtkomst till Heroku om användaren inte finns ännu. När kontot har etablerats får användaren ett bekräftelsemeddelande och måste då klicka på bekräftelselänken.
 
-1. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
+> [!NOTE]
+> Om du behöver skapa en användare manuellt kontaktar du [supportteamet för Heroku-klienten](https://www.heroku.com/support).
 
-1. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
-    
-### <a name="testing-single-sign-on"></a>Testa enkel inloggning
+### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
-I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
+I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på panelen Heroku i åtkomstpanelen du bör få automatiskt loggat in på ditt Heroku-program.
+När du klickar på Heroku-ikonen i åtkomstpanelen bör du automatiskt loggas in på den Heroku som du har konfigurerat enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-<!--Image references-->
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-[1]: ./media/heroku-tutorial/tutorial_general_01.png
-[2]: ./media/heroku-tutorial/tutorial_general_02.png
-[3]: ./media/heroku-tutorial/tutorial_general_03.png
-[4]: ./media/heroku-tutorial/tutorial_general_04.png
+- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-[100]: ./media/heroku-tutorial/tutorial_general_100.png
-
-[200]: ./media/heroku-tutorial/tutorial_general_200.png
-[201]: ./media/heroku-tutorial/tutorial_general_201.png
-[202]: ./media/heroku-tutorial/tutorial_general_202.png
-[203]: ./media/heroku-tutorial/tutorial_general_203.png

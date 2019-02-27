@@ -9,7 +9,7 @@ documentType: LandingData
 title: Azure IoT Edge
 metadata:
   title: Azure IoT Edge – självstudier, API-referens
-  description: Använda Azure IoT Edge för att distribuera Azure-tjänster och anpassad affärslogik till enheter ”vid gränsen”.
+  description: Använda Azure IoT Edge för att distribuera Azure-tjänster och anpassad affärslogik till enheter vid nätverksgränsen.
   author: kgremban
   manager: philmea
   ms.service: iot-edge
@@ -18,7 +18,7 @@ metadata:
   ms.date: 01/30/2019
   ms.author: kgremban
 abstract:
-  description: Azure IoT Edge är en tjänst för Sakernas Internet (IoT) som bygger på IoT Hub. Den här tjänsten är avsedd för kunder som vill analysera data på enheter, dvs. ”vid gränsen”, i stället för i molnet. När delar av din arbetsbelastning flyttas till Edge kan dina enheter ägna mindre tid åt att skicka meddelanden till molnet och i stället reagera snabbare på tillståndsändringar.
+  description: Azure IoT Edge är en IoT-tjänst (Sakernas Internet) som bygger på IoT Hub. Den här tjänsten är avsedd för kunder som vill analysera data på enheter, dvs. vid nätverksgränsen, i stället för i molnet. När du flyttar delar av din arbetsbelastning till nätverksgränsen går det åt mindre tid till att skicka meddelanden till molnet och dina enheter reagerar snabbare på tillståndsändringar.
   aside:
     image:
       alt: 
@@ -47,7 +47,7 @@ sections:
 - title: Steg för steg-självstudier
   items:
   - type: paragraph
-    text: Lär dig hur du installerar och konfigurerar IoT Edge, distribuerar moduler och använder Azure-tjänster som Stream Analytics och Custom Vision ”vid gränsen”.
+    text: Lär dig hur du installerar och konfigurerar IoT Edge, distribuerar moduler och använder Azure-tjänster som Stream Analytics och Custom Vision vid nätverksgränsen.
   - type: list
     style: unordered
     items:
@@ -60,4 +60,4 @@ sections:
     - html: <a href="/azure/iot-edge/tutorial-node-module">Filtrera data med en Node.js-modul</a>
     - html: <a href="/azure/iot-edge/tutorial-java-module">Filtrera data med en Java-modul</a>
     - html: <a href="/azure/iot-edge/tutorial-c-module">Filtrera data med en C-modul</a>
-    - html: <a href="/azure/iot-edge/tutorial-store-data-sql-server">Lagra data på gränsen med SQL Server</a>
+    - html: <a href="/azure/iot-edge/tutorial-store-data-sql-server">Lagra data vid nätverksgränsen med SQL Server</a>

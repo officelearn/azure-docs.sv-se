@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 11/09/2018
+ms.date: 02/06/2019
 ms.author: pafarley
-ms.openlocfilehash: 9b30e9da523e564f531ec8e9cebe5b16653e579f
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: bbb5cf9a043f8f4ab4202b6113d1c1b915f3b8a0
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55858883"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56312778"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-nodejs"></a>Snabbstart: Identifiera ansikten i en bild med Ansikts-REST API och Node.js
 
@@ -26,12 +26,21 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - En ansikts-API-prenumerationsnyckel. Du kan hämta nycklar för en kostnadsfri utvärderingsprenumeration från [Testa Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Följ instruktionerna i [Skapa ett konto för Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) för att prenumerera på tjänsten Ansikts-API och få din nyckel.
+- En kodredigerare som t.ex. [Visual Studio Code](https://code.visualstudio.com/download)
 
-## <a name="create-the-nodejs-script"></a>Skapa Node.js-skriptet
+## <a name="set-up-the-node-environment"></a>Konfigurera nodmiljön
 
-Följande kod anropar ansikts-API och hämtar ansiktsattributdata från en bild. Kopiera först koden till ett redigeringsprogram&mdash;du måste göra några ändringar innan du kan köra den.
+Gå till mappen där du vill skapa projektet och skapa den nya filen *facedetection.js*. Installera sedan modulen `requests` i projektet. Det innebär att dina skript kan göra HTTP-begäranden.
 
-```nodejs
+```shell
+npm install request --save
+```
+
+## <a name="write-the-nodejs-script"></a>Skriv Node.js-skriptet
+
+Klistra in följande kod i *facedetection.js*. Dessa fält anger hur du ansluter till ansiktsigenkänningstjänsten och var du hämtar dess indata. Du måste uppdatera fältet `subscriptionKey` med värdet för din prenumerationsnyckel, och du kan behöva ändra strängen `uriBase` så att den innehåller rätt regionsidentifierare (en lista över alla regionsslutpunkter finns i [dokument om Ansikts-API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)). Du kanske vill ändra fältet `imageUrl` så att det pekar på din egen inmatade bild.
+
+```javascript
 'use strict';
 
 const request = require('request');
@@ -46,7 +55,12 @@ const uriBase = 'https://westcentralus.api.cognitive.microsoft.com/face/v1.0/det
 
 const imageUrl =
     'https://upload.wikimedia.org/wikipedia/commons/3/37/Dagestani_man_and_woman.jpg';
+```
 
+Lägg sedan till följande kod för att anropa ansikts-API:et och hämta ansiktsattribut från den inmatade bilden. I fältet `returnFaceAttributes` anges vilka ansiktsattribut som ska hämtas. Du kanske vill ändra den här strängen beroende på den avsedda användningen.
+
+
+```javascript
 // Request parameters.
 const params = {
     'returnFaceId': 'true',
@@ -76,26 +90,12 @@ request.post(options, (error, response, body) => {
 });
 ```
 
-### <a name="subscription-key"></a>Prenumerationsnyckel
-Ersätt `<Subscription Key>` med en giltig ansiktsprenumerationsnyckel.
-
-### <a name="face-endpoint-url"></a>Ansiktsslutpunktens webbadress
-
-Webbadressen `https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect` anger Azure-ansiktsslutpunkten för att fråga. Du kan behöva ändra den första delen av URL:en så att den matchar den region som motsvarar din prenumerationsnyckel (en lista över alla regionsslutpunkter finns i [dokument om Ansikts-API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)).
-
-### <a name="url-query-string"></a>URL-frågesträng
-
-I fältet `returnFaceAttributes` anges vilka ansiktsattribut som ska hämtas. Du kanske vill ändra den här strängen beroende på den avsedda användningen.
-
-### <a name="image-source-url"></a>URL för bildkälla
-I fältet `imageUrl` anges bilden som ska användas som indata. Du kan ändra det så att det pekar på en bild du vill analysera.
-
 ## <a name="save-and-run-the-script"></a>Spara och kör skriptet
 
-När du har gjort dina ändringar sparar du filen som ett skript för JavaScript (.js). Öppna sedan en kommandotolk och kör den med kommandot `node`.
+När du har gjort dina ändringar öppnar du en kommandotolk och kör filen med kommandot `node`.
 
 ```
-node myfile.js
+node facedetection.js
 ```
 
 Du bör se ansiktsinformationen som visas som JSON-data i konsolfönstret. Exempel:
@@ -281,7 +281,7 @@ Du bör se ansiktsinformationen som visas som JSON-data i konsolfönstret. Exemp
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten har du skrivit ett cURL-kommando som anropar Azure ansikts-API för att identifiera ansikten på en bild och returnera deras attribut. Läs ansikts-API-referensdokumentationen om du vill veta mer.
+I den här snabbstarten har du skrivit ett Node.js-skript som anropar Azures ansikts-API som identifierar ansikten i en bild och returnerar deras attribut. Läs ansikts-API-referensdokumentationen om du vill veta mer.
 
 > [!div class="nextstepaction"]
 > [Ansikts-API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)

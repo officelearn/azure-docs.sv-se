@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 1866a5d86d3ee47371a5eb6e14c2976798d2b4da
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: ab920094561b9143945793ddd4ea3da877a7ae90
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53787859"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56340543"
 ---
 # <a name="fail-over-and-fail-back-azure-vms-between-azure-regions"></a>Redundansväxling och felåterställning av virtuella Azure-datorer mellan Azure-regioner
 
@@ -70,6 +70,16 @@ När den virtuella datorn redundansväxlats måste du återaktivera skyddet för
 3. Granska informationen om **resursgrupp, nätverk, lagring och tillgänglighetsuppsättningar**. Alla markerade resurser (ny) skapas som en del av återaktiveringen av skyddet.
 4. Klicka på **OK** för att utföra jobbet att återaktivera skyddet. Jobbet överför de senaste data som är tillgängliga till målplatsen. Sedan replikerar det deltan till den primära regionen. Den virtuella datorn är nu i ett skyddat läge.
 
+> [!NOTE]
+> Se [avsnittet ”Så här gör du”](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-reprotect#what-happens-during-reprotection) för mer information om arbetsflödets återaktivering av skydd och vad som händer vid återaktiveringen av skyddet.
+
+
 ## <a name="fail-back-to-the-primary-region"></a>Växla tillbaka till den primära regionen
 
-När de virtuella datorerna åter skyddats kan du växla tillbaka till den primära regionen efter behov. Gör detta genom att konfigurera redundans från den sekundära till den primära regionen enligt beskrivningen i den här artikeln.
+När de virtuella datorerna åter skyddats kan du växla tillbaka till den primära regionen när du behöver det. Gör detta genom att konfigurera redundans från den sekundära till den primära regionen, enligt beskrivningen i den här artikeln.
+
+![Högerklicka för att återaktivera skyddet](./media/azure-to-azure-tutorial-failover-failback/failback.png)
+
+Som du ser i föregående skärmbild, ”ContosoWin2016”, har den virtuella datorn redundansväxlats från USA, centrala till USA, östra och tillbaka från USA, östra till USA, centrala.
+
+Redundansen stänger av den virtuella datorn i den sekundära regionen, det vill säga haveriberedskapsregionen, samt skapar och startar den virtuella datorn i den primära regionen. **Observera** att virtuella DR-datorer finns kvar i avstängningen i ett frigjort tillstånd enligt ovan. Det här beteendet är avsiktligt eftersom Azure Site Recovery sparar information för den virtuella datorn. Den kan användas vid redundans för den primära till den sekundära regionen senare. Du debiteras inte för frigjorda virtuella datorer, så detta bör behållas som det är.

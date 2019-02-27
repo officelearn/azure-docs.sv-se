@@ -1,6 +1,6 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med Cisco Spark | Microsoft Docs'
-description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Cisco Spark.
+title: 'Självstudier: Azure Active Directory-integrering med Cisco Webex | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Cisco Webex.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -12,23 +12,23 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/03/2019
+ms.date: 02/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 87161c79bc58387d97863581675bb49f1e09160f
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: a1460fba4d6897dfcc6bf40b6e02ab856ffe8456
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56191562"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56340486"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-cisco-spark"></a>Självstudier: Azure Active Directory-integrering med Cisco Spark
+# <a name="tutorial-azure-active-directory-integration-with-cisco-webex"></a>Självstudier: Azure Active Directory-integrering med Cisco Webex
 
-Lär dig hur du integrerar Cisco Spark med Azure Active Directory (AD Azure) i den här självstudien.
-När du integrerar Cisco Spark med Azure AD får du följande fördelar:
+Lär dig hur du integrerar Cisco Webex med Azure Active Directory (AD Azure) i den här självstudien.
+När du integrerar Cisco Webex med Azure AD får du följande fördelar:
 
-* I Azure AD kan du styra vem som har åtkomst till Cisco Spark.
-* Du kan göra så att dina användare automatiskt loggas in på Cisco Spark (enkel inloggning) med sina Azure AD-konton.
+* I Azure AD kan du styra vem som har åtkomst till Cisco Webex.
+* Du kan göra så att dina användare automatiskt loggas in på Cisco Webex (enkel inloggning) med sina Azure AD-konton.
 * Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
@@ -36,22 +36,22 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](ht
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-Om du vill konfigurera Azure AD-integrering med Cisco Spark behöver du följande:
+Om du vill konfigurera Azure AD-integrering med Cisco Webex behöver du följande:
 
 * En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
-* Cisco Spark-prenumeration med enkel inloggning aktiverat
+* Cisco Webex-prenumeration med enkel inloggning aktiverat
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
 I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-* Cisco Spark har stöd för **SP**-initierad enkel inloggning
+* Cisco Webex har stöd för **SP**-initierad enkel inloggning
 
-## <a name="adding-cisco-spark-from-the-gallery"></a>Lägga till Cisco Spark från galleriet
+## <a name="adding-cisco-webex-from-the-gallery"></a>Lägga till Cisco Webex från galleriet
 
-För att konfigurera integrering av Cisco Spark i Azure AD måste du lägga till Cisco Spark från galleriet i din lista över hanterade SaaS-appar.
+För att konfigurera integrering av Cisco Webex i Azure AD måste du lägga till Cisco Webex från galleriet i din lista över hanterade SaaS-appar.
 
-**Utför följande steg för att lägga till Cisco Spark från galleriet:**
+**Utför följande steg för att lägga till Cisco Webex från galleriet:**
 
 1. I **[Azure-portalen](https://portal.azure.com)**, i den vänstra navigeringspanelen, klickar du på **Azure Active Directory**-ikonen.
 
@@ -65,31 +65,31 @@ För att konfigurera integrering av Cisco Spark i Azure AD måste du lägga till
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan skriver du **Cisco Spark**, väljer **Cisco Spark** på resultatpanelen och klickar på **Lägg till** för att lägga till programmet.
+4. I sökrutan skriver du **Cisco Webex**, väljer **Cisco Webex** på resultatpanelen och klickar på **Lägg till** för att lägga till programmet.
 
-     ![Cisco Spark i resultatlistan](common/search-new-app.png)
+     ![Cisco Webex i resultatlistan](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-I det här avsnittet konfigurerar och testar du enkel inloggning med Azure AD med Cisco Spark baserat på en testanvändare med namnet **Britta Simon**.
-För att enkel inloggning ska fungera måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i Cisco Spark upprättas.
+I det här avsnittet konfigurerar och testar du enkel inloggning med Azure AD med Cisco Webex baserat på en testanvändare med namnet **Britta Simon**.
+För att enkel inloggning ska fungera måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i Cisco Webex upprättas.
 
-Konfigurera och testa enkel inloggning med Azure AD med Cisco Spark genom att slutföra följande byggblock:
+Konfigurera och testa enkel inloggning med Azure AD med Cisco Webex genom att slutföra följande byggblock:
 
 1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
-2. **[Konfigurera enkel inloggning för Cisco Spark](#configure-cisco-spark-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på programsidan.
+2. **[Konfigurera enkel inloggning för Cisco Webex](#configure-cisco-webex-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på programsidan.
 3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
 4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
-5. **[Skapa Cisco Spark-testanvändare](#create-cisco-spark-test-user)** – för att ha en motsvarighet till Britta Simon i Cisco Spark som är länkad till Azure AD-representationen för användaren.
+5. **[Skapa Cisco Webex-testanvändare](#create-cisco-webex-test-user)** – för att ha en motsvarighet till Britta Simon i Cisco Webex som är länkad till Azure AD-representationen för användaren.
 6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
 I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-Utför följande steg för att konfigurera enkel inloggning med Azure AD med Cisco Spark:
+Utför följande steg för att konfigurera enkel inloggning med Azure AD med Cisco Webex:
 
-1. På [Azure-portalen](https://portal.azure.com/) går du till sidan för **Cisco Spark**-programintegrering och väljer **Enkel inloggning**.
+1. På [Azure-portalen](https://portal.azure.com/) går du till sidan för **Cisco Webex**-programintegrering och väljer **Enkel inloggning**.
 
     ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
@@ -103,24 +103,24 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD med Cis
 
 4. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
 
-    ![Information om enkel inloggning med Cisco Spark-domänen och URL:er](common/sp-identifier.png)
+    ![Information om enkel inloggning med Cisco Webex-domänen och URL:er](common/sp-identifier.png)
 
     a. I textrutan **Inloggnings-URL** anger du en URL: `https://web.ciscospark.com/#/signin`
 
-    b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster: `https://idbroker.webex.com/<companyname>`
+    b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster: `https://idbroker.webex.com/<Org Id>`
 
     > [!NOTE]
-    > Identifierarvärdet är inte verkligt. Uppdatera det här värdet med den faktiska identifieraren. Kontakta [Cisco Spark-supporten](https://support.ciscospark.com/) för att få dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Identifierarvärdet är inte verkligt. Uppdatera det här värdet med den faktiska identifieraren. Om du har tjänstproviderns metadata kan du ladda upp den i avsnittet **Grundläggande SAML-konfiguration**. Värdet för **Identifierare (entitets-ID)** fylls i automatiskt.
 
-5. Cisco Spark-programmet förväntar ett visst format för SAML-försäkran. Konfigurera följande anspråk för det här programmet. Du kan hantera värdena för dessa attribut i avsnittet **Användarattribut** på sidan för programintegrering. På sidan **Konfigurera enkel inloggning med SAML** klickar du på knappen **Redigera** för att öppna dialogrutan **Användarattribut**.
+5. Cisco Webex-programmet förväntar sig att hitta SAML-försäkringar i ett visst format, vilket kräver att du lägger till anpassade attributmappningar i konfigurationen av SAML-tokenattributen. I följande skärmbild visas listan över standardattribut. Klicka på ikonen  **Redigera**  för att lägga till attributen.
 
     ![image](common/edit-attribute.png)
 
-6. I avsnittet **Användaranspråk** i dialogrutan **Användarattribut** konfigurerar du SAML-tokenattributet på det sätt som visas i bilden ovan och utför följande steg:
+6. Utöver ovanstående förväntar sig Cisco Webex-programmet att några fler attribut skickas tillbaka i SAML-svaret. I avsnittet **Användaranspråk** i dialogrutan **Användarattribut** utför du följande steg för att lägga till SAML-tokenattributet enligt det som visas i tabellen nedan:
     
     | Namn |  Källattribut|
     | ---------------|--------- |
-    | uid | user.userprincipalname |
+    | UID | user.userprincipalname |
 
     a. Klicka på **Lägg till nytt anspråk** för att öppna dialogrutan **Hantera användaranspråk**.
 
@@ -144,7 +144,7 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD med Cis
 
     ![Länk för nedladdning av certifikatet](common/metadataxml.png)
 
-8. I avsnittet **om att konfigurera Cisco Spark** kopierar du lämpliga URL:er enligt dina behov.
+8. I avsnittet **om att konfigurera Cisco Webex** kopierar du lämpliga URL:er enligt dina behov.
 
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
@@ -154,7 +154,7 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD med Cis
 
     c. Utloggnings-URL
 
-### <a name="configure-cisco-spark-single-sign-on"></a>Konfigurera enkel inloggning för Cisco Spark
+### <a name="configure-cisco-webex-single-sign-on"></a>Konfigurera enkel inloggning för Cisco Webex
 
 1. Logga in i [Cisco Cloud Collaboration Management](https://admin.ciscospark.com/) (Ciscos samarbetshantering i molnet) med dina autentiseringsuppgifter som administratör.
 
@@ -199,15 +199,15 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-I det här avsnittet ska du göra det möjligt för Britta Simon att använda enkel inloggning i Azure genom att bevilja åtkomst till Cisco Spark.
+I det här avsnittet ska du göra det möjligt för Britta Simon att använda enkel inloggning i Azure genom att bevilja åtkomst till Cisco Webex.
 
-1. På Azure-portalen väljer du **Företagsprogram**, **Alla program** och sedan **Cisco Spark**.
+1. På Azure-portalen väljer du **Företagsprogram**, **Alla program** och sedan **Cisco Webex**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-2. Välj **Cisco Spark** i listan över program.
+2. Välj **Cisco Webex** i listan över program.
 
-    ![Cisco Spark-länken i programlistan](common/all-applications.png)
+    ![Cisco Webex-länken i programlistan](common/all-applications.png)
 
 3. På menyn till vänster väljer du **Användare och grupper**.
 
@@ -223,9 +223,9 @@ I det här avsnittet ska du göra det möjligt för Britta Simon att använda en
 
 7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-### <a name="create-cisco-spark-test-user"></a>Skapa en testanvändare i Cisco Spark
+### <a name="create-cisco-webex-test-user"></a>Skapa en testanvändare i Cisco Webex
 
-I det här avsnittet skapar du en användare med namnet Britta Simon i Cisco Spark. I det här avsnittet skapar du en användare med namnet Britta Simon i Cisco Spark.
+I det här avsnittet skapar du en användare med namnet Britta Simon i Cisco Webex. I det här avsnittet skapar du en användare med namnet Britta Simon i Cisco Webex.
 
 1. Logga in på [Cisco Cloud Collaboration Management](https://admin.ciscospark.com/) (Ciscos samarbetshantering i molnet) med dina autentiseringsuppgifter som administratör.
 
@@ -253,7 +253,7 @@ I det här avsnittet skapar du en användare med namnet Britta Simon i Cisco Spa
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på Cisco Spark-panelen i åtkomstpanelen bör du automatiskt loggas in på Cisco Spark som du har konfigurerat enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på Cisco Webex-panelen i åtkomstpanelen bör du automatiskt loggas in på Cisco Webex som du har konfigurerat enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

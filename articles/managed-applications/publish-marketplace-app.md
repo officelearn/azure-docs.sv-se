@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.date: 07/10/2018
 ms.author: tomfitz
-ms.openlocfilehash: 8f35bda8c6925bdc10097ac6d180f5998bd5cf1d
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: d208d989fb9b84ae7bc94c6a1882754ed2bacb5d
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38989795"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56343969"
 ---
 # <a name="azure-managed-applications-in-the-marketplace"></a>Azure-hanterade program på Marketplace
 
@@ -64,7 +64,7 @@ Ett erbjudande för ett hanterat program motsvarar ett produktklasserbjudande fr
 
 Följande fält finns på formuläret för **erbjudandeinställningar**:
 
-* **Erbjudande-ID**: ett unikt ID som identifierar erbjudandet i en utgivarprofil. ID:t visas i produktens webbadresser, Resource Manager-mallar och faktureringsrapporter. Det får bara innehålla gemena alfanumeriska tecken och bindestreck (-). ID:t får inte avslutas med ett bindestreck. Det kan innehålla högst 50 tecken. När ett erbjudande lanseras är det här fältet låst.
+* **Erbjudande-ID**: Ett unikt ID som identifierar erbjudandet i en utgivarprofil. ID:t visas i produktens webbadresser, Resource Manager-mallar och faktureringsrapporter. Det får bara innehålla gemena alfanumeriska tecken och bindestreck (-). ID:t får inte avslutas med ett bindestreck. Det kan innehålla högst 50 tecken. När ett erbjudande lanseras är det här fältet låst.
 * **Utgivar-ID**: I den här listrutan väljer du den utgivarprofil som du vill använda när du publicerar erbjudandet. När ett erbjudande lanseras är det här fältet låst.
 * **Namn**: Det här visningsnamnet för ditt erbjudande visas på Marketplace och i portalen. Det får innehålla högst 50 tecken. Ange ett igenkännligt varumärke för produkten. Ta inte med ditt företagsnamn här om det inte ingår i produktnamnet. Om du marknadsför erbjudandet på din egen webbplats måste du se till att namnet anges exakt som det visas på webbplatsen.
 
@@ -95,17 +95,17 @@ En SKU visas under det överordnade erbjudandet på Marketplace. Det visas som e
    * **Beskrivning**: Ange en detaljerad beskrivning av SKU:n.
    * **SKU-typ**: Tillåtna värden är *Hanterat program* och *Lösningsmallar*. I det här fallet väljer du *Hanterat program*.
    * **Tillgänglighet i land/region**: Välj de länder och regioner där det hanterade programmet är tillgängligt.
-   * **Priser**: Ange ett pris för hanteringen av programmet. Välj tillgängliga länder innan du anger priset.
+   * **Prissättning**: Ange ett pris för hanteringen av programmet. Välj tillgängliga länder innan du anger priset.
 
 1. Lägg till ett nytt paket. Fyll i avsnittet **Paketinformation** i följande formulär:
 
    Fyll i följande fält:
 
    * **Version**: Ange versionen för det paket du laddar upp. Versionsformatet ska vara `{number}.{number}.{number}{number}`.
-   * **Paketfil (.zip)**: Det här paketet innehåller två nödvändiga filer som komprimerats i ett .zip-paket. En av filerna är Resource Manager-mallen som definierar de resurser som ska distribueras för det hanterade programmet. Den andra filen definierar [användargränssnittet](create-uidefinition-overview.md) för konsumenter som distribuerar det hanterade programmet via portalen. I användargränssnittet anger du element som ger konsumenterna möjlighet att ange parametervärden.
-   * **PrincipalId**: den här egenskapen är Azure Active Directory-ID (Azure AD-ID) för en användare, en användargrupp eller ett program som beviljas åtkomst till resurser i kundens prenumeration. Rolldefinitionen beskriver behörigheterna.
+   * **Paketfil (.zip)**: Paketet innehåller två nödvändiga filer som komprimerats i ett .zip-paket. En av filerna är Resource Manager-mallen som definierar de resurser som ska distribueras för det hanterade programmet. Den andra filen definierar [användargränssnittet](create-uidefinition-overview.md) för konsumenter som distribuerar det hanterade programmet via portalen. I användargränssnittet anger du element som ger konsumenterna möjlighet att ange parametervärden.
+   * **PrincipalId**: Den här egenskapen är Azure Active Directory-ID:t (Azure AD) för en användare, en användargrupp eller ett program som har beviljats åtkomst till resurser i kundens prenumeration. Rolldefinitionen beskriver behörigheterna.
    * **Rolldefinition**: Den här egenskapen är en lista med alla inbyggda RBAC-roller (rollbaserade åtkomstkontroller) som tillhandahålls av Azure AD. Välj den roll som är mest lämplig för hantering av resurserna för kundens räkning.
-   * **Principinställningar**: Använd [Azure Policy](../azure-policy/azure-policy-introduction.md) på det hanterade programmet och ange efterlevnadskrav för de distribuerade lösningarna. Välj vilka principer du vill använda bland de tillgängliga alternativen. I fältet **Principparametrar** anger du en JSON-sträng med parametervärdena. Du kan läsa om principdefinitioner och parametervärdenas format i [Azure Policy-exempel](../azure-policy/json-samples.md).
+   * **Principinställningar**: Använd [Azure Policy](../governance/policy/overview.md) på det hanterade programmet och ange efterlevnadskrav för de distribuerade lösningarna. Välj vilka principer du vill använda bland de tillgängliga alternativen. I fältet **Principparametrar** anger du en JSON-sträng med parametervärdena. Du kan läsa om principdefinitioner och parametervärdenas format i [Azure Policy-exempel](../governance/policy/samples/index.md).
 
 Du kan lägga till flera auktoriseringar. Vi rekommenderar att du skapar en AD-användargrupp och anger gruppens ID i **PrincipalId**. På det sättet kan du lägga till fler användare i användargruppen utan att behöva uppdatera SKU:n.
 

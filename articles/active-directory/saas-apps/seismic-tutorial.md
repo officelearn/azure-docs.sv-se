@@ -1,34 +1,33 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med Cimpl | Microsoft Docs'
-description: Lär dig att konfigurera enkel inloggning mellan Azure Active Directory och Cimpl.
+title: 'Självstudier: Azure Active Directory-integrering med Seismic | Microsoft Docs'
+description: Lär dig att konfigurera enkel inloggning mellan Azure Active Directory och Seismic.
 services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
-ms.assetid: 58ee5481-ae40-4e4a-a3c9-86343851fc9a
+ms.assetid: 56014c05-e37f-4f85-bcfa-5115dda2d678
 ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 02/14/2019
+ms.date: 02/13/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8bd4e237c9449b85efa9a6fe1afabe5e6bc6f89f
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: f2fbca8a87044efc9e9b625247fd0f1271892e96
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56340781"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56318997"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-cimpl"></a>Självstudier: Azure Active Directory-integrering med Cimpl
+# <a name="tutorial-azure-active-directory-integration-with-seismic"></a>Självstudier: Azure Active Directory-integrering med Seismic
 
-I den här självstudien lär du dig att integrera Cimpl med Azure Active Directory (Azure AD).
-När du integrerar Cimpl med Azure AD får du följande fördelar:
+I den här självstudien lär du dig att integrera Seismic med Azure Active Directory (Azure AD).
+När du integrerar Seismic med Azure AD får du följande fördelar:
 
-* Du kan styra vem som har åtkomst till Cimpl i Azure AD.
-* Du kan låta dina användare loggas in automatiskt på Cimpl (enkel inloggning) med sina Azure AD-konton.
+* Du kan styra vem som har åtkomst till Seismic i Azure AD.
+* Du kan låta dina användare loggas in automatiskt på Seismic (enkel inloggning) med sina Azure AD-konton.
 * Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
@@ -36,22 +35,22 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](ht
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-För att konfigurera Azure AD-integrering med Cimpl behöver du följande:
+För att konfigurera Azure AD-integrering med Seismic behöver du följande:
 
 * En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
-* En aktiverad Cimpl-prenumeration med enkel inloggning
+* En aktiverad Seismic-prenumeration med enkel inloggning
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
 I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-* Cimpl har stöd för **SP**-initierad enkel inloggning
+* Seismic stöder **SP**-initierad enkel inloggning
 
-## <a name="adding-cimpl-from-the-gallery"></a>Lägga till Cimpl från galleriet
+## <a name="adding-seismic-from-the-gallery"></a>Lägga till Seismic från galleriet
 
-När du konfigurerar integreringen av Cimpl i Azure AD, måste du lägga till Cimpl från galleriet i din lista med hanterade SaaS-appar.
+När du konfigurerar integreringen av Seismic i Azure AD, måste du lägga till Seismic från galleriet i din lista med hanterade SaaS-appar.
 
-**Utför följande steg för att lägga till Cimpl från galleriet:**
+**Utför följande steg för att lägga till Seismic från galleriet:**
 
 1. I **[Azure-portalen](https://portal.azure.com)**, i den vänstra navigeringspanelen, klickar du på **Azure Active Directory**-ikonen.
 
@@ -65,31 +64,31 @@ När du konfigurerar integreringen av Cimpl i Azure AD, måste du lägga till Ci
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan skriver du **Cimpl**, väljer **Cimpl** i resultatpanelen och klickar sedan på knappen **Lägg till** för att lägga till programmet.
+4. I sökrutan skriver du **Seismic**, väljer **Seismic** i resultatpanelen och klickar sedan på knappen **Lägg till** för att lägga till programmet.
 
-     ![Cimpl i resultatlistan](common/search-new-app.png)
+     ![Seismic i resultatlistan](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-I det här avsnittet ska du konfigurera och testa enkel inloggning i Azure AD med Cimpl baserat på testanvändaren **Britta Simon**.
-För att enkel inloggning ska fungera måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i Cimpl upprättas.
+I det här avsnittet ska du konfigurera och testa enkel inloggning i Azure AD med Seismic baserat på testanvändaren **Britta Simon**.
+För att enkel inloggning ska fungera måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i Seismic upprättas.
 
-Om du vill konfigurera och testa enkel inloggning i Azure AD med Cimpl, måste du slutföra följande byggblock:
+Om du vill konfigurera och testa enkel inloggning i Azure AD med Seismic, måste du slutföra följande byggblock:
 
 1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
-2. **[Konfigurera enkel inloggning för Cimpl](#configure-cimpl-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på programsidan.
+2. **[Konfigurera enkel inloggning för Seismic](#configure-seismic-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på programsidan.
 3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
 4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
-5. **[Skapa Cimpl-testanvändare](#create-cimpl-test-user)** – för att ha en motsvarighet till Britta Simon i Cimpl som är länkad till Azure AD-representationen av användaren.
+5. **[Skapa Seismic-testanvändare](#create-seismic-test-user)** – för att ha en motsvarighet till Britta Simon i Seismic som är länkad till Azure AD-representationen av användaren.
 6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
 I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-Utför följande steg för att konfigurera enkel inloggning i Azure AD med Cimpl:
+Utför följande steg för att konfigurera enkel inloggning i Azure AD med Seismic:
 
-1. Välj **Enkel inloggning** på sidan för programintegrering av **Cimpl** på [Azure-portalen](https://portal.azure.com/).
+1. Välj **Enkel inloggning** på sidan för programintegrering av **Seismic** i [Azure-portalen](https://portal.azure.com/).
 
     ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
@@ -103,20 +102,20 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Cimpl
 
 4. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
 
-    ![Information om Cimpl-domän och URL:er med enkel inloggning](common/sp-identifier.png)
+    ![Information om Seismic-domän och URL:er med enkel inloggning](common/sp-identifier.png)
 
-    a. I textrutan **Inloggnings-URL** anger du en URL enligt följande mönster: `https://sso.etelesolv.com/<TENANTNAME>`
+    a. I textrutan **Inloggnings-URL** anger du en URL enligt följande mönster: `https://<SUBDOMAIN>.seismic.com`
 
-    b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster: `https://sso.etelesolv.com/<TENANTNAME>`
+    b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster: `https://<SUBDOMAIN>.seismic.com`
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med faktisk inloggnings-URL och identifierare. Kontakta Cimpl-teamet på **+1 866-982-8250** för att hämta dessa värden.
+    > Dessa värden är inte verkliga. Uppdatera de här värdena med faktisk inloggnings-URL och identifierare. Kontakta [Seismic-klientens supportteam](mailto:support@seismic.com) för att hämta dessa värden. Du kan också ladda upp **tjänstleverantörens metadata** för att automatiskt fylla i identifierarvärdet. Mer information om **tjänstleverantörens metadata** finns hos [Seismic-klientens supportteam](mailto:support@seismic.com).
 
 5. På sidan **Konfigurera enkel inloggning med SAML** går du till avsnittet **SAML-signeringscertifikat**, klickar du på **Ladda ned** för att ladda ned **Certifikat (Base64)** från de angivna alternativen enligt dina behov och sparar det på datorn.
 
     ![Länk för nedladdning av certifikatet](common/certificatebase64.png)
 
-6. I avsnittet **Konfigurera Cimpl** kopierar du lämpliga URL:er baserat på dina behov.
+6. I avsnittet **Konfigurera Seismic** kopierar du lämpliga URL:er efter behov.
 
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
@@ -126,9 +125,9 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Cimpl
 
     c. Utloggnings-URL
 
-### <a name="configure-cimpl-single-sign-on"></a>Konfigurera enkel inloggning i Cimpl
+### <a name="configure-seismic-single-sign-on"></a>Konfigurera enkel inloggning i Seismic
 
-För att konfigurera enkel inloggning på **Cimpl**-sidan behöver du skicka det nedladdade **certifikatet (Base64)** och lämpliga kopierade URL:er från Azure-portalen till Cimpl-supporten på **+1 866-982-8250**. De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
+För att konfigurera enkel inloggning på **Seismic**-sidan behöver du skicka det nedladdade **certifikatet (Base64)** och lämpliga kopierade URL:er från Azure-portalen till [supportteamet för Seismic](mailto:support@seismic.com). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
@@ -157,15 +156,15 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-I det här avsnittet låter du Britta Simon använda enkel inloggning i Azure genom att ge henne åtkomst till Cimpl.
+I det här avsnittet låter du Britta Simon använda enkel inloggning i Azure genom att ge henne åtkomst till Seismic.
 
-1. På Azure-portalen väljer du **Företagsprogram**, **Alla program** och sedan **Cimpl**.
+1. I Azure-portalen väljer du **Företagsprogram**, **Alla program** och sedan **Seismic**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-2. I listan med program väljer du **Cimpl**.
+2. I listan med program väljer du **Seismic**.
 
-    ![Cimpl-länken i programlistan](common/all-applications.png)
+    ![Seismic-länken i programlistan](common/all-applications.png)
 
 3. På menyn till vänster väljer du **Användare och grupper**.
 
@@ -181,15 +180,15 @@ I det här avsnittet låter du Britta Simon använda enkel inloggning i Azure ge
 
 7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-### <a name="create-cimpl-test-user"></a>Skapa Cimpl-testanvändare
+### <a name="create-seismic-test-user"></a>Skapa Seismic-testanvändare
 
-Målet med det här avsnittet är att skapa användaren Britta Simon i Cimpl. Kontakta Cimpl-supporten på **+1 866-982-8250** för att lägga till användarna på Cimpl-kontot.
+I det här avsnittet ska du skapa en användare med namnet Britta Simon i Seismic. Kontakta  [Seismic-supportteamet](mailto:support@seismic.com) för att lägga till användarna i Seismic-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på Cimpl-ikonen i åtkomstpanelen bör du automatiskt loggas in på den Cimpl som du har konfigurerat enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på Seismic-ikonen i åtkomstpanelen bör du automatiskt loggas in på den Seismic som du har konfigurerat enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

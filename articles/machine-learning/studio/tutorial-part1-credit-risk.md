@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
-ms.openlocfilehash: 6789e1d6e514ce107ab96fddbaa582ccbe922bbb
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: c067b0e6a85e0b5c4bd4cbb582de13bb1bc87774
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56243730"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453621"
 ---
 # <a name="tutorial-1-predict-credit-risk---azure-machine-learning-studio"></a>Självstudie 1: Förutsäga kreditrisk – Azure Machine Learning Studio
 
@@ -23,7 +23,7 @@ I den här självstudien tittar vi närmare på hur du utvecklar en lösning fö
 
 Anta att du behöver förutsäga kreditrisken för en person baserat på den information som han eller hon fyller i på en kreditansökan.  
 
-Kreditriskbedömning är ett komplext problem, men den här självstudien kommer att förenkla det lite. Vi ska använda det som ett exempel på hur du skapar en lösning för förutsägelseanalys i Microsoft Azure Machine Learning. Du använder Azure Machine Learning Studio och en Machine Learning-webbtjänst för den här lösningen.  
+Kreditriskbedömning är ett komplext problem, men den här självstudien kommer att förenkla processen. Använd den som ett exempel på hur du kan skapa en lösning för förutsägelseanalys i Microsoft Azure Machine Learning Studio. Du använder Azure Machine Learning Studio och en Machine Learning-webbtjänst i den här lösningen.  
 
 I den här självstudien i tre delar börjar du med offentligt tillgängliga kreditriskdata.  Därefter utvecklar du och tränar en förutsägelsemodell.  Slutligen distribuerar du modellen som en webbtjänst.
 
@@ -55,7 +55,7 @@ Om du aldrig har använt **Azure Machine Learning Studio** förut vill du kanske
 
 För att kunna använda Machine Learning Studio behöver du ha en Microsoft Azure Machine Learning Studio-arbetsyta. Den här arbetsytan innehåller de verktyg du behöver för att skapa, hantera och publicera experiment.  
 
-Information om hur du skapar en arbetsyta finns i [Skapa och dela en Azure Machine Learning-arbetsyta](create-workspace.md).
+Information om hur du skapar en arbetsyta finns i [Skapa och dela en Azure Machine Learning Studio-arbetsyta](create-workspace.md).
 
 När arbetsytan har skapats öppnar du Machine Learning Studio ([https://studio.azureml.net/Home](https://studio.azureml.net/Home)). Om du har fler än en arbetsyta kan du välja arbetsytan i verktygsfältet i det övre högra hörnet i fönstret.
 

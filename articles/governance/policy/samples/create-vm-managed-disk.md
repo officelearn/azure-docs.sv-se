@@ -1,6 +1,6 @@
 ---
 title: Exempel – Granska virtuell dator som inte använder hanterad disk
-description: Den här json-exempelprincipen granskar när en virtuell dator skapas som inte använder hanterade diskar.
+description: Den här json-exempeldefinitionen granskar när en virtuell dator skapas som inte använder hanterade diskar.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 30f143fa4ad8bd7e90cfafca8ea6eb276e70e28c
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: c2bdfb5bc855467be61065e93a932838b5782bee
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56243441"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56337109"
 ---
-# <a name="audit-when-vm-does-not-use-managed-disk"></a>Granska när VM inte använder hanterad disk
+# <a name="sample---audit-when-vm-does-not-use-managed-disk"></a>Exempel – Granska när VM inte använder hanterade diskar
 
 Granskar när en virtuell dator skapas som inte använder hanterade diskar.
 

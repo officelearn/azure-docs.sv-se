@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 03/21/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 54fcbe9adc8fbf4a8fba6eabbd7c2f8802fd933a
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 210254a4404a5280e326bf40057331a784ff6148
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53191121"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56326747"
 ---
 # <a name="tutorial-deploy-a-container-application-to-azure-container-instances"></a>Självstudie: Distribuera ett containerprogram till Azure Container Instances
 
@@ -36,26 +36,20 @@ I det här avsnittet använder du Azure CLI för att distribuera den avbildning 
 
 ### <a name="get-registry-credentials"></a>Hämta autentiseringsuppgifter för registret
 
-När du distribuerar en avbildning som finns i ett privat containerregister likt det som du skapade i den [andra självstudiekursen](container-instances-tutorial-prepare-acr.md), så måste du ange autentiseringsuppgifter för registret.
+När du distribuerar en bild som finns i ett privat containerregister likt det som du skapade i den [andra självstudien](container-instances-tutorial-prepare-acr.md), måste du ange autentiseringsuppgifter för att få åtkomst till registret. Enligt [Autentisera med Azure Container Registry från Azure Container Instances](../container-registry/container-registry-auth-aci.md) är den bästa metoden i många scenarier att skapa och konfigurera ett huvudnamn för Azure Active Directory-tjänsten med *hämtnings*behörighet till registret. Se exempelskript i artikeln om hur du skapar tjänstens huvudnamn med de behörigheter som krävs. Anteckna ID:t och lösenordet för tjänstens huvudnamn. Du kommer att använda dessa autentiseringsuppgifter när du distribuerar containern.
 
-Hämta först det fullständiga namnet på containerregistrets inloggningsserver (ersätt `<acrName>` med namnet på ditt register):
+Du behöver också det fullständiga namnet på containerregistrets inloggningsserver (ersätt `<acrName>` med namnet på ditt register):
 
 ```azurecli
 az acr show --name <acrName> --query loginServer
 ```
 
-Hämta sedan containerregistrets lösenord:
-
-```azurecli
-az acr credential show --name <acrName> --query "passwords[0].value"
-```
-
 ### <a name="deploy-container"></a>Distribuera containern
 
-Nu kan använda kommandot [az container create][az-container-create] för att distribuera behållaren. Ersätt `<acrLoginServer>` och `<acrPassword>` med de värden som du fick från de tidigare två kommandona. Ersätt `<acrName>` med namnet på ditt containerregister och `<aciDnsLabel>` med önskat DNS-namn.
+Nu kan använda kommandot [az container create][az-container-create] för att distribuera behållaren. Ersätt `<acrLoginServer>` med det värde som du fick från föregående kommando. Ersätt `<service-principal-ID>` och `<service-principal-password>` med det ID och det lösenord för tjänstens huvudnamn som du skapade för att komma åt registret. Ersätt `<aciDnsLabel>` med önskat DNS-namn.
 
 ```azurecli
-az container create --resource-group myResourceGroup --name aci-tutorial-app --image <acrLoginServer>/aci-tutorial-app:v1 --cpu 1 --memory 1 --registry-login-server <acrLoginServer> --registry-username <acrName> --registry-password <acrPassword> --dns-name-label <aciDnsLabel> --ports 80
+az container create --resource-group myResourceGroup --name aci-tutorial-app --image <acrLoginServer>/aci-tutorial-app:v1 --cpu 1 --memory 1 --registry-login-server <acrLoginServer> --registry-username <service-principal-ID> --registry-password <service-principal-password> --dns-name-label <aciDnsLabel> --ports 80
 ```
 
 Inom några sekunder bör du få ett första svar från Azure. Värdet `--dns-name-label` måste vara unikt i den Azure-region där du skapar containerinstansen. Ändra värdet i föregående kommandot om du får ett felmeddelande för **DNS-namnsetikett** när du kör kommandot.

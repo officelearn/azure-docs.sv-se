@@ -1,6 +1,6 @@
 ---
 title: Exempel – Ingen nätverkspeering till Express Route-nätverk
-description: Det här exempelprincipen förbjuder att en nätverkspeering associeras till ett nätverk i en angiven resursgrupp.
+description: Den här exempelprincipdefinitionen förhindrar att en nätverkspeering associeras till ett nätverk i en angiven resursgrupp.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: dbd7494b5104482624448fc0525a58d68138a833
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: c06e750c19227d245fcf8eaeb077691ef2c8a675
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245651"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56337619"
 ---
-# <a name="no-network-peering-to-express-route-network"></a>Ingen nätverkspeering till Express Route-nätverk
+# <a name="sample---no-network-peering-to-express-route-network"></a>Exempel – Ingen nätverkspeering till Express Route-nätverk
 
 Den här principen förbjuder att en nätverkspeering associeras till ett nätverk i en angiven resursgrupp. Använd för att förhindra anslutning med centralt hanterad nätverksinfrastruktur. Du kan ange namnet på resursgruppen att förhindra association.
 

@@ -1,6 +1,6 @@
 ---
-title: Självstudie – skapa en anpassad roll med Azure CLI | Microsoft Docs
-description: Kom igång med att skapa en anpassad roll med Azure CLI.
+title: Självstudie – Skapa en anpassad roll för Azure-resurser med Azure CLI | Microsoft Docs
+description: Kom igång med att skapa en anpassad roll för Azure-resurser med Azure CLI.
 services: active-directory
 documentationCenter: ''
 author: rolyon
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 06/12/2018
 ms.author: rolyon
-ms.openlocfilehash: d2b34fa12836416f68d57f0147dd0364a1501c13
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 9cd736272fce71f08006d32a169b88d092a48231
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55698027"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56340220"
 ---
-# <a name="tutorial-create-a-custom-role-using-azure-cli"></a>Självstudier: Skapa en anpassad roll med hjälp av Azure CLI
+# <a name="tutorial-create-a-custom-role-for-azure-resources-using-azure-cli"></a>Självstudier: Skapa en anpassad roll för Azure-resurser med Azure CLI
 
-Om de [inbyggda rollerna](built-in-roles.md) inte uppfyller organisationens specifika krav kan du skapa egna, anpassade roller. För den här självstudien skapar du en anpassad roll med namnet Reader Support Tickets (Läsare av supportbegäranden) med hjälp av Azure CLI. Med den här anpassade rollen kan användare visa allt i prenumerationen samt öppna supportbegäranden.
+Om de [inbyggda rollerna för Azure-resurser](built-in-roles.md) inte uppfyller organisationens specifika krav, kan du skapa egna anpassade roller. För den här självstudien skapar du en anpassad roll med namnet Reader Support Tickets (Läsare av supportbegäranden) med hjälp av Azure CLI. Med den här anpassade rollen kan användare visa allt i prenumerationen samt öppna supportbegäranden.
 
 I den här guiden får du lära dig att:
 
@@ -269,4 +269,4 @@ Om du vill uppdatera den anpassade rollen uppdaterar du JSON-filen och uppdatera
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Skapa anpassade roller med Azure CLI](custom-roles-cli.md)
+> [Skapa anpassade roller för Azure-resurser med Azure CLI](custom-roles-cli.md)

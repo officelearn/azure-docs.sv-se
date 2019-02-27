@@ -10,12 +10,12 @@ author: garyericson
 ms.author: garye
 ms.custom: seodec18
 ms.date: 02/06/2019
-ms.openlocfilehash: f5b24b21c4511b535509421aaa35ba3498e9f6a8
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 803a52994536d2d6f39a064f97af7831af0cebb6
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56246025"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453179"
 ---
 # <a name="quickstart-create-your-first-data-science-experiment-in-azure-machine-learning-studio"></a>Snabbstart: Skapa ditt första dataexperiment i Azure Machine Learning Studio
 
@@ -57,15 +57,15 @@ Så här gör du för att få datauppsättningen till experimentet.
 
 1. Experimentet får ett standardnamn som visas överst i arbetsytan. Markera texten och byt namn på den till ett mer beskrivande namn, exempelvis **Förutsägelse av bilpriser**. Namnet behöver inte vara unikt.
 
-    ![Byt namn på experimentet][rename-experiment]
+    ![Byt namn på experimentet](./media/create-experiment/rename-experiment.png)
 
 1. Till vänster om arbetsytan för experimentet finns en palett med datauppsättningar och moduler. Skriv **automobile** i sökrutan överst på den här paletten för att leta upp datauppsättningen **Automobile price data (Raw)**. Dra datauppsättningen till experimentarbetsytan.
 
-    ![Leta upp datamängden för bilar och dra den till experimentets arbetsyta][type-automobile]
+    ![Leta upp datamängden för bilar och dra den till experimentets arbetsyta](./media/create-experiment/type-automobile.png)
 
 Om du vill se hur den här informationen ser ut klickar du på utdataporten längst ned i datamängden för bilar och väljer **Visualisera**.
 
-![Klicka på utdataporten och välj ”Visualisera”][select-visualize]
+![Klicka på utdataporten och välj ”Visualisera”](./media/create-experiment/select-visualize.png)
 
 > [!TIP]
 > Datauppsättningar och moduler har ingångs- och utgångsportar som representeras av små cirklar – ingångsportar högst upp och utgångsportar längst ned.
@@ -74,7 +74,7 @@ Du kan när som helst klicka på en datauppsättnings eller moduls utgångsport 
 
 I den här datamängden representerar varje rad en bil, och de variabler som är associerade med varje bil visas som kolumner. Vi förutsäger priset i kolumnen längst till höger (kolumn 26, ”price” (pris)) med hjälp av variablerna för en specifik bil.
 
-![Visa bildata i datavisualiseringsfönstret][visualize-auto-data]
+![Visa bildata i datavisualiseringsfönstret](./media/create-experiment/visualize-auto-data.png)
 
 Stäng visualiseringsfönstret genom att klicka på ”**x**” i det övre högra hörnet.
 
@@ -89,9 +89,9 @@ Först lägger vi till en modul som tar bort kolumnen **normalized-losses** helt
 
 1. Skriv **välj kolumner** i sökrutan överst på modulpaletten för att leta upp modulen [Välj kolumner i datamängd][select-columns]. Dra den sedan till experimentarbetsytan. Den här modulen gör att vi kan välja vilka kolumner med data som vi vill ta med eller utelämna i modellen.
 
-1. Anslut utdataporten för datauppsättningen **Automobile price data (Raw)** till indataporten för modulen [Välj kolumner i datauppsättning][select-columns].
+1. Anslut utdataporten för datauppsättningen **Automobile price data (Raw)** till indataporten för Välj kolumner i datauppsättningen.
 
-    ![Lägg till modulen "Välj kolumner i datamängd" till experimentarbetsytan och anslut den][type-select-columns]
+    ![Lägg till modulen "Välj kolumner i datamängd" till experimentarbetsytan och anslut den](./media/create-experiment/type-select-columns.png)
 
 1. Klicka på modulen [Välj kolumner i datauppsättning][select-columns] och klicka på **Starta kolumnväljaren** i rutan **Egenskaper**.
 
@@ -100,26 +100,26 @@ Först lägger vi till en modul som tar bort kolumnen **normalized-losses** helt
     - I listrutorna väljer du **Exkludera** och **kolumnnamn** och klickar sedan i textrutan. En lista med kolumner visas. Välj **normalized-losses** så läggs den till i textrutan.
     - Stäng kolumnväljaren genom att klicka på bockmarkeringen (OK) längst ned till höger.
 
-    ![Starta kolumnväljaren och utelämna kolumnen ”normalized-losses”][launch-column-selector]
+    ![Starta kolumnväljaren och utelämna kolumnen ”normalized-losses”](./media/create-experiment/launch-column-selector.png)
 
     Egenskapsrutan för **Välj kolumner i datauppsättning** anger nu att alla kolumner i datauppsättningen tas med utom **normalized-losses**.
 
-    ![Egenskapsrutan visar att kolumnen ”normalized-losses” är utelämnad][showing-excluded-column]
+    ![Egenskapsrutan visar att kolumnen ”normalized-losses” är utelämnad](./media/create-experiment/showing-excluded-column.png)
 
     > [!TIP] 
     > Du kan lägga till en kommentar till en modul genom att dubbelklicka på modulen och skriva text. På så sätt kan du snabbt se vad modulen gör i experimentet. I vårt exempel dubbelklickar du på modulen [Välj kolumner i datauppsättning][select-columns] och skriver kommentaren ”Exkludera normaliserade förluster”.
 
-    ![Lägga till en kommentar genom att dubbelklicka på en modul][add-comment]
+    ![Lägga till en kommentar genom att dubbelklicka på en modul](./media/create-experiment/add-comment.png)
 
 1. Dra modulen [Rensa data som saknas][clean-missing-data] till experimentarbetsytan och anslut den till modulen [Välj kolumner i datauppsättning][select-columns]. I fönstret **Egenskaper** väljer du **Ta bort hela raden** under **Rensningsläge**. De här alternativen instruerar modulen [Rensa data som saknas][clean-missing-data] att rensa data genom att ta bort rader som har saknade värden. Dubbelklicka på modulen och skriv kommentaren ”Ta bort rader med värden som saknas”.
 
-    ![Ställ in rengöringsläget på ”Ta bort hela raden” för modulen ”Rensa data som saknas”][set-remove-entire-row]
+    ![Ställ in rengöringsläget på ”Ta bort hela raden” för modulen ”Rensa data som saknas”](./media/create-experiment/set-remove-entire-row.png)
 
 1. Kör försöket genom att klicka på **KÖR** längst ned på sidan.
 
     När experimentet är klart visas alla moduler med en grön bockmarkering som bekräftar att de har slutförts. Notera också statusen **Har slutförts** i det övre högra hörnet.
 
-    ![Efter körning bör experimentet se ut ungefär så här][early-experiment-run]
+    ![Efter körning bör experimentet se ut ungefär så här](./media/create-experiment/early-experiment-run.png)
 
 > [!TIP]
 > Varför kör vi experimentet nu? När experimentet körs överförs kolumndefinitionerna för våra data från datauppsättningen genom modulen [Välj kolumner i datauppsättning][select-columns] och genom modulen [Rensa data som saknas][clean-missing-data]. Detta innebär att alla moduler som vi ansluter till [Rensa data som saknas][clean-missing-data] får samma information.
@@ -140,7 +140,7 @@ Vi ska skapa en modell som använder en delmängd av funktionerna i vår dataupp
 
 1. Dra en till modul av typen [Välj kolumner i datauppsättning][select-columns] till experimentarbetsytan. Anslut den vänstra utdataporten för modulen [Rensa data som saknas][clean-missing-data] till indataporten för modulen [Välj kolumner i datauppsättning][select-columns].
 
-    ![Ansluta modulen ”Välj kolumner i datamängd” till modulen ”Rensa data som saknas”][connect-clean-to-select]
+    ![Ansluta modulen ”Välj kolumner i datamängd” till modulen ”Rensa data som saknas”](./media/create-experiment/connect-clean-to-select.png)
 
 1. Dubbelklicka på modulen och skriv ”Välj funktioner för förutsägelse”.
 
@@ -152,7 +152,7 @@ Vi ska skapa en modell som använder en delmängd av funktionerna i vår dataupp
 
 1. Klicka på bockmarkeringen (OK).
 
-    ![Markera de kolumner (funktioner) som ska ingå i förutsägelsen][select-columns-to-include]
+    ![Markera de kolumner (funktioner) som ska ingå i förutsägelsen](./media/create-experiment/select-columns-to-include.png)
 
 Den här modulen skapar en filtrerad datamängd som enbart innehåller de funktioner vi vill skicka till den inlärningsalgoritm som vi använder i nästa steg. Du kan komma tillbaka senare och försöka igen med andra funktioner.
 
@@ -174,7 +174,7 @@ Vi använder våra data både för träning och testning av modellen genom att d
 
 1. Klicka på modulen [Dela data][split] för att välja den. Leta upp **Del av rader i den första utdatauppsättningen** (i fönstret **Egenskaper** på höger sida i arbetsytan) och ange 0,75. På så sätt kan vi använda 75 procent av våra data för att träna modellen, och lämna 25 procent för testning.
 
-    ![Ställa in värdet för ”Dela data” på 0,75][set-split-data-percentage]
+    ![Ställa in värdet för ”Dela data” på 0,75](./media/create-experiment/set-split-data-percentage.png)
 
     > [!TIP]
     > Genom att ändra parametern **Slumptal** kan du generera olika slumpmässiga prov för träning och testning. Den här parametern styr den pseudoslumpmässiga talgeneratorns startvärden (seeding).
@@ -185,19 +185,19 @@ Vi använder våra data både för träning och testning av modellen genom att d
 
 1. Leta upp och dra modulen [Träna modell][train-model] till arbetsytan för experimentet. Anslut utdataporten för modulen [Linjär regression][linear-regression] till den vänstra indataporten för modulen [Träna modell][train-model] och anslut träningsresultatet (vänster port) för modulen [Dela data][split] till den högra indatasporten för modulen [Träna modell][train-model].
 
-    ![Anslut modulen ”Träna modell” till de båda modulerna ”Linjär regression” och ”Dela data”][connect-train-model]
+    ![Anslut modulen ”Träna modell” till de båda modulerna ”Linjär regression” och ”Dela data”](./media/create-experiment/connect-train-model.png)
 
 1. Klicka på modulen [Träna modell][train-model], klicka på **Starta kolumnväljaren** i rutan **Egenskaper** och välj kolumnen **price**. **Pris** är det värde som vår modell ska förutsäga.
 
     Du väljer **pris**kolumnen i kolumnväljaren genom att dra den från listan över **tillgängliga kolumner** till listan över **markerade kolumner**.
 
-    ![Välja priskolumnen för modulen ”Träna modell”][select-price-column]
+    ![Välja priskolumnen för modulen ”Träna modell”](./media/create-experiment/select-price-column.png)
 
 1. Kör experimentet.
 
 Nu har vi en tränad regressionsmodell som kan användas för att poängsätta nya bildata för att göra prisförutsägelser.
 
-![Efter körning bör experimentet se ut ungefär så här][second-experiment-run]
+![Efter körning bör experimentet se ut ungefär så här](./media/create-experiment/second-experiment-run.png)
 
 ## <a name="predict-new-automobile-prices"></a>Förutsäga nya bilpriser
 
@@ -205,21 +205,21 @@ Nu när vi har tränat modellen med 75 procent av våra data kan vi använda de
 
 1. Leta upp och dra modulen [Poängsätta modell][score-model] till arbetsytan för experimentet. Anslut utdataporten för modulen [Träna modell][train-model] till den vänstra indataporten för [Poängsätta modell][score-model]. Anslut utdataporten för testning (den högra porten) för modulen [Dela data][split] till den högra indataporten för [Poängsätta modell][score-model].
 
-    ![Ansluta modulen ”Poängsätta modell” till de båda modulerna ”Träna modell” och ”Dela data”][connect-score-model]
+    ![Ansluta modulen ”Poängsätta modell” till de båda modulerna ”Träna modell” och ”Dela data”](./media/create-experiment/connect-score-model.png)
 
 1. Kör experimentet och visa utdata från modulen [Poängsätta modell][score-model] genom att klicka på utdataporten för [Poängsätta modell][score-model] och välja **Visualisera**. Utdata innehåller de förväntade värdena för pris och de kända värdena från testdata.  
 
-    ![Utdata från modulen ”Poängsätta modell”][score-model-output]
+    ![Utdata från modulen ”Poängsätta modell”](./media/create-experiment/score-model-output.png)
 
 1. Slutligen testar vi resultatets kvalitet. Markera och dra modulen [Utvärdera modell][evaluate-model] till experimentarbetsytan och anslut utdataporten för modulen [Poängsätta modell][score-model] till den vänstra indataporten för [Utvärdera modell][evaluate-model]. Det slutliga experimentet bör se ut ungefär så här:
 
-    ![Det slutliga experimentet][complete-linear-regression-experiment]
+    ![Det slutliga experimentet](./media/create-experiment/complete-linear-regression-experiment.png)
 
 1. Kör experimentet.
 
 Du visar utdata från modulen [Utvärdera modell][evaluate-model] genom att klicka på utdataporten och sedan välja **Visualisera**.
 
-![Utvärderingsresultat för experimentet][evaluation-results]
+![Utvärderingsresultat för experimentet](./media/create-experiment/evaluation-results.png)
 
 För vår modell visas följande statistik:
 
@@ -241,35 +241,6 @@ I den här snabbstarten skapade du ett enkelt experiment med hjälp av en exempe
 
 > [!div class="nextstepaction"]
 > [Självstudier: Utveckla en förutsägande lösning i Studio](tutorial-part1-credit-risk.md)
-
-<!-- Images -->
-[sign-in-to-studio]: ./media/create-experiment/sign-in-to-studio.png
-[rename-experiment]: ./media/create-experiment/rename-experiment.png
-[visualize-auto-data]:./media/create-experiment/visualize-auto-data.png
-[select-visualize]: ./media/create-experiment/select-visualize.png
-[showing-excluded-column]:./media/create-experiment/showing-excluded-column.png
-[set-remove-entire-row]:./media/create-experiment/set-remove-entire-row.png
-[early-experiment-run]:./media/create-experiment/early-experiment-run.png
-[select-columns-to-include]:./media/create-experiment/select-columns-to-include.png
-[second-experiment-run]:./media/create-experiment/second-experiment-run.png
-[connect-score-model]:./media/create-experiment/connect-score-model.png
-[evaluation-results]:./media/create-experiment/evaluation-results.png
-[complete-linear-regression-experiment]:./media/create-experiment/complete-linear-regression-experiment.png
-
-<!-- temporarily switching GIFs to PNGs to remove animation -->
-[type-automobile]:./media/create-experiment/type-automobile.png
-[type-select-columns]:./media/create-experiment/type-select-columns.png
-[launch-column-selector]:./media/create-experiment/launch-column-selector.png
-[add-comment]:./media/create-experiment/add-comment.png
-[connect-clean-to-select]:./media/create-experiment/connect-clean-to-select.png
-
-[set-split-data-percentage]:./media/create-experiment/set-split-data-percentage.png
-
-<!-- temporarily switching GIFs to PNGs to remove animation -->
-[connect-train-model]:./media/create-experiment/connect-train-model.png
-[select-price-column]:./media/create-experiment/select-price-column.png
-
-[score-model-output]:./media/create-experiment/score-model-output.png
 
 <!-- Module References -->
 [evaluate-model]: https://msdn.microsoft.com/library/azure/927d65ac-3b50-4694-9903-20f6c1672089/

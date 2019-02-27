@@ -1,38 +1,49 @@
 ---
 title: Kvoter och regional tillgänglighet för Azure Container Instances
-description: Standardkvoter och regional tillgänglighet för tjänsten Azure Container Instances.
+description: Kvoter, begränsningar och regional tillgänglighet för tjänsten Azure Container Instances.
 services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: overview
-ms.date: 02/08/2019
+ms.date: 02/15/2019
 ms.author: danlep
-ms.openlocfilehash: 35e846aa5954e3714d301c9c75cf42b31961fdfe
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: c676989b4b882f2b1887a1b6a5091b60027f61d0
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56160585"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56328420"
 ---
 # <a name="quotas-and-region-availability-for-azure-container-instances"></a>Kvoter och regional tillgänglighet för Azure Container Instances
 
-Alla Azure-tjänster har vissa standardgränser och kvoter för resurser och funktioner. Följande avsnitt beskriver standardresursgränserna för flera Azure Container Instances-resurser (ACI), samt tillgänglighet för ACI-tjänsten i Azure-regioner.
+Alla Azure-tjänster har vissa standardgränser och kvoter för resurser och funktioner. Följande avsnitt beskriver standardresursgränserna för flera Azure Container Instances-resurser, samt tillgänglighet för tjänsten i Azure-regioner.
 
 ## <a name="service-quotas-and-limits"></a>Kvoter och begränsningar för tjänsten
 
 [!INCLUDE [container-instances-limits](../../includes/container-instances-limits.md)]
 
+## <a name="feature-availability"></a>Funktionstillgänglighet
+
+Azure Container Instances kan schemalägga både Windows- och Linux-behållare med samma API. Följande funktioner är dock för närvarande endast tillgängliga i grupper för Linux-containrar. Windows-stöd planeras.
+
+* Flera containrar per containergrupp
+* Volymmontering (Azure Files, emptyDir, GitRepo, hemlighet)
+* Virtuellt nätverk (förhandsversion)
+* GPU-resurser (förhandsversion)
+
 ## <a name="region-availability"></a>Regional tillgänglighet
 
-Azure Container Instances är tillgängligt i följande regioner med angivna processor- och minnesgränser. Värden är aktuella vid tidpunkten för publiceringen. Använd API [Listfunktioner](/rest/api/container-instances/listcapabilities/listcapabilities) för uppdaterad information. Tillgänglighets- och resursbegränsningarna kan variera när du använder Azure Container Instances med ett [virtuellt nätverk](container-instances-vnet.md) (förhandsversion) eller med [GPU-resurser](container-instances-gpu.md) (förhandsversion).
+Azure Container Instances är tillgängligt i följande regioner med angivna processor- och minnesgränser för varje containergrupp. Värden är aktuella vid tidpunkten för publiceringen. Använd API [Listfunktioner](/rest/api/container-instances/listcapabilities/listcapabilities) för uppdaterad information. 
+
+Tillgänglighets- och resursbegränsningarna kan variera när du använder Azure Container Instances med ett [virtuellt nätverk](container-instances-vnet.md) (förhandsversion) eller med [GPU-resurser](container-instances-gpu.md) (förhandsversion).
 
 | Plats | Operativsystem | Processor | Minne (GB) |
 | -------- | -- | :---: | :-----------: |
-| Kanada, centrala; USA, centrala och USA, östra 2 | Linux | 4 | 16 |
+| Kanada, centrala; USA, centrala; USA, östra 2; USA, södra centrala | Linux | 4 | 16 |
 | USA, östra; Europa, norra; Europa, västra; USA, västra; USA, västra 2 | Linux | 4 | 14 |
 | Östra Japan | Linux | 2 | 8 |
 | Australien, östra; Asien, sydöstra | Linux | 2 | 7 |
-| Centrala Indien, Asien och stillahavsområdet, norra centrala USA, södra centrala USA, södra Indien | Linux | 2 | 3.5 |
+| Indien, centrala; Asien, östra; USA, norra centrala; Indien, södra | Linux | 2 | 3.5 |
 | USA, östra; Europa, västra; USA, västra | Windows | 4 | 14 |
 | Australien, östra; Kanada, centrala; Indien, centrala; USA, centrala; Asien, östra; USA, östra 2; Japan, östra; USA, norra centrala; Europa, centrala; USA, södra centrala; Indien, södra; Asien, sydöstra; USA, västra 2 | Windows | 2 | 3.5 |
 

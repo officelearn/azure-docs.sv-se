@@ -14,12 +14,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: eab00663918eadea485aed17a91ce01e5718c36e
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 4aa4c69857bfd1ab99945cb0f5f748e60cff9978
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50413680"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56417338"
 ---
 # <a name="transform-and-protect-your-api"></a>Transformera och skydda ditt API 
 
@@ -126,9 +126,10 @@ I det här avsnittet visas hur du lägger till skydd för ditt serverdels-API ge
 1. Välj **Demokonferens-API**.
 2. Välj **Alla åtgärder**.
 3. Överst på skärmen väljer du fliken **Design**.
-4. I avsnittet **Inkommande bearbetning** klickar du på ikonen **</>**.5. Placera markören i elementet **&lt;inkommande&gt;**.
-5. Klicka på **+ Begränsa anropsfrekvens per nyckel** under **Principer för åtkomstbegränsning** i det högra fönstret.
-6. Ändra din **rate-limit-by-key**-kod (i **\<inbound\>**-elementet) till följande kod:
+4. I avsnittet **Inkommande bearbetning** klickar du på ikonen **</>**.
+5. Placera markören i elementet **&lt;inkommande&gt;**.
+6. Klicka på **+ Begränsa anropsfrekvens per nyckel** under **Principer för åtkomstbegränsning** i det högra fönstret.
+7. Ändra din **rate-limit-by-key**-kod (i **\<inbound\>**-elementet) till följande kod:
 
         <rate-limit-by-key calls="3" renewal-period="15" counter-key="@(context.Subscription.Id)" />
 

@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 7d5bfba10fe68c4d29a66fe39a386aec975b978f
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 19d34e76c73c5ec2472d3eacddc01d6aebb6b9fb
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56651540"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889111"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Distribuera modeller med Azure Machine Learning-tjänsten
 
@@ -30,7 +30,7 @@ Du kan distribuera modeller till följande beräkning:
 | Beräkningsmål | Distributionstyp | Beskrivning |
 | ----- | ----- | ----- |
 | [Azure Kubernetes Service (AKS)](#aks) | I realtid inferens | Bra för Produktionsdistribution av hög skalbarhet. Tillhandahåller automatisk skalning och snabba svarstider. |
-| [Azure ML Compute](#amlcompute) | Batch inferens | Kör batch-förutsägelse på beräkning utan server. Har stöd för normal och lågprioriterade virtuella datorer. |
+| Azure ML Compute | Batch inferens | Kör batch-förutsägelse på beräkning utan server. Har stöd för normal och lågprioriterade virtuella datorer. |
 | [Azure Container Instances (ACI)](#aci) | Testning | Bra för utveckling och testning. **Inte lämplig för produktionsarbetsbelastningar.** |
 | [Azure IoT Edge](#iotedge) | (Förhandsversion) IoT-modul | Distribuera modeller på IoT-enheter. Inferensjobb sker på enheten. |
 | [Fältet-programmable gate array FPGA)](#fpga) | (Förhandsversion) Webbtjänst | Extremt låg latens för i realtid inferensjobb. |

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: e79ffba90f0812d79bcb7ab808e2b6ba80e1c61b
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 703bf7425962ddcb5e7566f99c461ca37d237b68
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756673"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56868433"
 ---
 # <a name="troubleshoot-hyper-v-to-azure-replication-and-failover"></a>Felsöka Hyper-V till Azure replikering och redundans
 
@@ -30,7 +30,7 @@ Om det uppstår problem när du aktiverar skydd för Hyper-V-datorer kan du kont
 5. På den Virtuella gästdatorn, kontrollerar du att WMI är aktiverat och kan nås.
   - [Lär dig mer om](https://blogs.technet.microsoft.com/askperf/2007/06/22/basic-wmi-testing/) grundläggande WMI-tester.
   - [Felsöka](https://aka.ms/WMiTshooting) WMI.
-  - [Felsöka ](https://technet.microsoft.com/library/ff406382.aspx#H22) problem med WMI-skript och tjänster.
+  - [Felsöka](https://technet.microsoft.com/library/ff406382.aspx#H22) problem med WMI-skript och tjänster.
 6. Se till att den senaste versionen av Integration Services körs på Virtuella gästdatorn.
     - [Kontrollera](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services) att du har den senaste versionen.
     - [Behåll](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services#keep-integration-services-up-to-date) integreringstjänster är uppdaterad.

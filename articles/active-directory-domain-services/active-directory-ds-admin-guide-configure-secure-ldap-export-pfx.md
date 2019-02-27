@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/01/2017
 ms.author: ergreenl
-ms.openlocfilehash: 18c91b0bfee3f423e2d60e3c9893e8e5208aa292
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 801ba3b84ba9956ca8d13916ac4d90060a7f4037
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55164613"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56883461"
 ---
 # <a name="create-a-pfx-file-with-the-secure-ldap-ldaps-certificate-for-a-managed-domain"></a>Skapa en. PFX-filen med certifikatet för säkert LDAP (LDAPS) för en hanterad domän
 
@@ -82,7 +82,7 @@ Exportera LDAPS-certifikat till en. PFX-fil:
 
 14. På den **Security** väljer den **lösenord** alternativet och ange ett lösenord för att skydda den. PFX-fil. Kom ihåg lösenordet eftersom det krävs i nästa aktivitet. Klicka på **Nästa**.
 
-    ![Lösenordet för certifikatexport ](./media/active-directory-domain-services-admin-guide/secure-ldap-export-select-password.png)
+    ![Lösenordet för certifikatexport](./media/active-directory-domain-services-admin-guide/secure-ldap-export-select-password.png)
 
     > [!NOTE]
     > Anteckna det här lösenordet. Du behöver det vid aktivering av säkert LDAP för den här hanterade domänen i [uppgift 3: aktivera säkert LDAP för den hanterade domänen](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps.md)

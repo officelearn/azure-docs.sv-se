@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: rimman
-ms.openlocfilehash: 32c0ee4764c7c2b541428c63857286a45a09a634
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 040fac6cd4feb60b6635ba0868634f16dd9f146f
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55733144"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56881742"
 ---
 # <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>Optimera kostnader för etablerat dataflöde i Azure Cosmos DB
 
@@ -159,7 +159,7 @@ Följande steg hjälper dig att göra dina lösningar höggradigt skalbar och ko
 
 2. En metod för att uppskatta hur mycket reserverat dataflöde som krävs för programmet är att registrera begäran RU kostnaden för enheten förknippade med vanliga åtgärder mot en representativ Azure Cosmos-behållare eller databas som används av ditt program och sedan beräkna antalet åtgärder som du hade tänkt utföra varje sekund. Var noga med att mäta och ta med vanliga frågor och deras användning samt. Lära dig hur du beräkna RU kostnader för frågor via programmering eller med hjälp av portalen finns i [optimera kostnaden för frågor](online-backup-and-restore.md). 
 
-3. Ett annat sätt att hämta åtgärder och sina kostnader i ru: er är genom att aktivera Log Analytics, vilket ger en analys på detaljnivå av åtgärden/varaktighet och kostnad för begäran. Azure Cosmos DB tillhandahåller kostnad för begäran för varje åtgärd, så att varje åtgärdsavgift kan lagras från svaret och sedan används för analys. 
+3. Ett annat sätt att hämta åtgärder och sina kostnader i ru: er är genom att aktivera Azure Monitor-loggar, vilket ger en analys på detaljnivå av åtgärden/varaktighet och kostnad för begäran. Azure Cosmos DB tillhandahåller kostnad för begäran för varje åtgärd, så att varje åtgärdsavgift kan lagras från svaret och sedan används för analys. 
 
 4. Du kan Elastiskt skala upp och ned etablerat dataflöde som du behöver att tillgodose behoven arbetsbelastning. 
 

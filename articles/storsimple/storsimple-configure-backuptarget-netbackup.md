@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/15/2017
 ms.author: hkanna
-ms.openlocfilehash: 361ab36d3029dbc00e8d1e53ef9f9af42be3e1eb
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 913df079b56e131a3120971b635c49c2c04b2b1e
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51255855"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56871578"
 ---
 # <a name="storsimple-as-a-backup-target-with-netbackup"></a>StorSimple som ett säkerhetskopieringsmål med NetBackup
 
@@ -79,7 +79,7 @@ StorSimple erbjuder följande fördelar:
 
 StorSimple presenterar två huvudsakliga distributionsscenarier (primära mål för säkerhetskopian och sekundära säkerhetskopieringsmål) grunden, är det en vanlig, blocklagringsenhet. StorSimple har alla komprimering och deduplicering. Sömlöst skickar och hämtar data mellan molnet och program och filsystemet.
 
-Läs mer om StorSimple, [StorSimple 8000-serien: hybridmolnlagringslösning](storsimple-overview.md). Du kan också granska den [tekniska specifikationer för StorSimple 8000-serien](storsimple-technical-specifications-and-compliance.md).
+Läs mer om StorSimple, [StorSimple 8000-serien: Hybridmolnlagringslösning](storsimple-overview.md). Du kan också granska den [tekniska specifikationer för StorSimple 8000-serien](storsimple-technical-specifications-and-compliance.md).
 
 > [!IMPORTANT]
 > Med hjälp av en StorSimple-enheten som ett säkerhetskopieringsmål stöds endast för StorSimple 8000 uppdatering 3 och senare versioner.
@@ -167,7 +167,7 @@ För lösningen ska fungera optimalt, rekommenderar vi att du följer dessa nät
 
 -   Maximal Azure Blob storage-åtkomstfördröjning ska vara cirka 80 ms.
 
-### <a name="deploy-storsimple"></a>Distribuera StorSimple
+### <a name="deploy-storsimple"></a>Deploy StorSimple
 
 Stegvisa anvisningar för StorSimple-distribution, se [distribuera din lokala StorSimple-enhet](storsimple-deployment-walkthrough-u2.md).
 
@@ -183,7 +183,7 @@ I det här avsnittet visar vi några Konfigurationsexempel. Följande exempel oc
 
 | StorSimple distributionsuppgifter  | Ytterligare kommentarer |
 |---|---|
-| Distribuera din lokala StorSimple-enhet. | Versioner som stöds: uppdatera 3 och senare versioner. |
+| Distribuera din lokala StorSimple-enhet. | Versioner som stöds: Uppdatering 3 och senare versioner. |
 | Aktivera målet för säkerhetskopian. | Använd dessa kommandon för att aktivera eller inaktivera säkerhetskopieringsmål läge och för att hämta status. Mer information finns i [Anslut via en fjärranslutning till en StorSimple-enhet](storsimple-remote-connect.md).</br> Aktivera säkerhetskopieringsläge: `Set-HCSBackupApplianceMode -enable`. </br> Inaktivera säkerhetskopieringsläge: `Set-HCSBackupApplianceMode -disable`. </br> Att hämta det aktuella tillståndet för inställningar för säkerhetskopiering: `Get-HCSBackupApplianceMode`. |
 | Skapa en gemensam volymbehållare för volymen som lagrar säkerhetskopierade data. Alla data i en volymbehållare är deduplicerad. | StorSimple volymbehållare definierar deduplicering domäner.  |
 | Skapa StorSimple-volymer. | Skapa volymer med storlekar som nära den förväntade användningen som möjligt, eftersom volymstorleken påverkar varaktighetstiden av ögonblicksbild av molndata. Information om hur du kan ändra storlek på en volym, Läs om [bevarandeprinciper](#retention-policies).</br> </br> Använd StorSimple nivåindelade volymer och välj den **Använd volymen för arkivdata mindre ofta** markerar du kryssrutan. </br> Med hjälp av endast lokalt fixerade volymer stöds inte. |
@@ -292,7 +292,7 @@ Baserat på föregående antaganden kan du skapa en 26-TiB StorSimple nivåindel
 
 Följande bild visar mappningen för en typisk volym till ett säkerhetskopieringsjobb. I det här fallet alla veckovisa säkerhetskopior mappa till lördag fullständig disken, och de inkrementella säkerhetskopiorna mappa till måndag – fredag inkrementella diskar. Alla säkerhetskopior och återställningar är från en StorSimple nivåindelad volym.
 
-![Logiskt diagram för primära säkerhetskopieringsmål konfiguration ](./media/storsimple-configure-backup-target-using-netbackup/primarybackuptargetdiagram.png)
+![Logiskt diagram för primära säkerhetskopieringsmål konfiguration](./media/storsimple-configure-backup-target-using-netbackup/primarybackuptargetdiagram.png)
 
 ### <a name="storsimple-as-a-primary-backup-target-gfs-schedule-example"></a>StorSimple som ett primära säkerhetskopieringsmål GFS schemalägga exempel
 
@@ -536,7 +536,7 @@ En katastrof kan ha orsakats av olika faktorer. I följande tabell visas vanliga
 Följande dokument har referenser till den här artikeln:
 
 - [StorSimple multipath i/o-installationen](storsimple-configure-mpio-windows-server.md)
-- [Lagringsscenarier: tunn allokering](https://msdn.microsoft.com/library/windows/hardware/dn265487.aspx)
+- [Storage-scenarier: Tunn allokering](https://msdn.microsoft.com/library/windows/hardware/dn265487.aspx)
 - [Använda GPT-enheter](https://msdn.microsoft.com/windows/hardware/gg463524.aspx#EHD)
 - [Konfigurera skuggkopior för delade mappar](https://technet.microsoft.com/library/cc771893.aspx)
 

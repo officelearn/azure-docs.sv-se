@@ -14,12 +14,12 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/21/2016
 ms.author: victorh
-ms.openlocfilehash: 6907382fccaa463fe305ac5049b3858e59b8631b
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: fa1f90cf0236a589d1df96658c672a555195be6b
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55991403"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56888822"
 ---
 # <a name="manage-dns-records-and-recordsets-in-azure-dns-using-azure-powershell"></a>Hantera DNS-poster och postuppsättningar i Azure DNS med Azure PowerShell
 
@@ -238,7 +238,7 @@ Den här sekvens med åtgärder kan också vara *skickas*, vilket innebär att d
 Get-AzDnsRecordSet -Name "www" –ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -RecordType A | Add-AzDnsRecordConfig -Ipv4Address "5.6.7.8" | Set-AzDnsRecordSet
 ```
 
-I exemplen ovan visar hur du lägger till en ”A” post i en befintliga postuppsättningen av typen ”A”. En liknande sekvens med åtgärder som används för att lägga till poster i postuppsättningar av andra typer, och Ersätt den `-Ipv4Address` -parametern för `Add-AzDnsRecordConfig` med andra parametrar som är specifika för varje posttyp. Parametrarna för varje posttyp är desamma som för den `New-AzDnsRecordConfig` cmdlet, enligt [ytterligare posttyper](#additional-record-type-examples) ovan.
+I exemplen ovan visar hur du lägger till en ”A” post i en befintliga postuppsättningen av typen ”A”. En liknande sekvens med åtgärder som används för att lägga till poster i postuppsättningar av andra typer, och Ersätt den `-Ipv4Address` -parametern för `Add-AzDnsRecordConfig` med andra parametrar som är specifika för varje posttyp. Parametrarna för varje posttyp är desamma som för den `New-AzDnsRecordConfig` cmdlet, enligt ytterligare posttyp exemplen ovan.
 
 Postuppsättningar av typen ”CNAME' eller 'SOA-' får inte innehålla fler än en post. Den här begränsningen uppstår från DNS-standarden. Det är inte en begränsning i Azure DNS.
 
@@ -272,7 +272,7 @@ På liknande sätt att lägga till poster i en postuppsättning kan sekvens med 
 Get-AzDnsRecordSet -Name www –ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -RecordType A | Remove-AzDnsRecordConfig -Ipv4Address "5.6.7.8" | Set-AzDnsRecordSet
 ```
 
-Olika typer av poster stöds genom att skicka lämpliga parametrar för typspecifika att `Remove-AzDnsRecordSet`. Parametrarna för varje posttyp är desamma som för den `New-AzDnsRecordConfig` cmdlet, enligt [ytterligare posttyper](#additional-record-type-examples) ovan.
+Olika typer av poster stöds genom att skicka lämpliga parametrar för typspecifika att `Remove-AzDnsRecordSet`. Parametrarna för varje posttyp är desamma som för den `New-AzDnsRecordConfig` cmdlet, enligt ytterligare posttyp exemplen ovan.
 
 
 ## <a name="modify-an-existing-record-set"></a>Ändra en befintlig uppsättning av poster

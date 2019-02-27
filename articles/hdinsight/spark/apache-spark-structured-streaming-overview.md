@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/05/2018
 ms.author: maxluk
-ms.openlocfilehash: 0c2fd29990e180283eb25949b806c4ceac58e2f7
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: 8c37093b5369d2390942bc00c1531248bc4424c8
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53653636"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56869096"
 ---
 # <a name="overview-of-apache-spark-structured-streaming"></a>Översikt över Apache Spark Structured Streaming
 
@@ -24,7 +24,7 @@ Strukturerad direktuppspelning program körs i HDInsight Spark-kluster och Anslu
 
 Strukturerad direktuppspelning skapar en tidskrävande fråga som du kan använda åtgärder för inkommande data, till exempel val, projektion, aggregering, fönsterhantering och koppla strömmande DataFrame med referensen dataramar. Nu ska du matar ut resultaten till file storage (Azure Storage-Blobbar eller Data Lake Storage) eller till alla datalager genom att använda anpassad kod (till exempel SQL-databas eller Power BI). Strukturerad direktuppspelning ger också utdata till konsolen för att felsöka lokalt och i en InMemory-tabell så att du kan se de data som genereras för felsökning i HDInsight. 
 
-![Stream bearbetning med HDInsight och Apache Spark Structured Streaming ](./media/apache-spark-structured-streaming-overview/hdinsight-spark-structured-streaming.png)
+![Stream bearbetning med HDInsight och Apache Spark Structured Streaming](./media/apache-spark-structured-streaming-overview/hdinsight-spark-structured-streaming.png)
 
 > [!NOTE]  
 > Spark Structured Streaming ersätter Spark Streaming (DStreams). Framöver kommer får Structured Streaming förbättringar och underhåll, medan DStreams ska vara i underhållsläge endast. Strukturerad direktuppspelning är för närvarande inte som funktionen komplettering som DStreams för källorna och egenskaperna att den stöder direkt, så utvärdera dina krav och välja lämplig Spark stream Bearbetningsalternativ. 

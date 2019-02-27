@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: ergreenl
-ms.openlocfilehash: 1609d413604e172b9c718bd11768c495dfa8afe8
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 734fb5ce641d48800cef68ea79cdb258e44ac267
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55191438"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56867107"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-the-azure-portal"></a>Aktivera Azure Active Directory Domain Services med Azure portal
 
@@ -83,7 +83,7 @@ Processen för etablering av den hanterade domänen kan ta upp till en timme.
 
 3. Den **översikt** fliken visar att den hanterade domänen håller på att etableras. Du kan inte konfigurera den hanterade domänen förrän det är helt etablerad. Det kan ta upp till en timme för din hanterade domän ska etableras helt.
 
-    ![Domain Services - översiktsflik vid Etableringsstatus ](./media/getting-started/domain-services-provisioning-state-details.png)
+    ![Domain Services - översiktsflik vid Etableringsstatus](./media/getting-started/domain-services-provisioning-state-details.png)
 
 4. När den hanterade domänen är helt etablerad, den **översikt** fliken visar domänsstatus som **kör**.
 

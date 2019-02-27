@@ -4,17 +4,17 @@ description: Använd den här artikeln lär du dig standard diagnostiska färdig
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 06/26/2018
+ms.date: 02/26/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: cd9ff1a1a7730ae870ef4e80fbca2d934aa5c8e2
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 2daaa1275d9a97bec43f277e726518ead6eca9ff
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53342671"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56876372"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Vanliga problem och lösningar för Azure IoT Edge
 
@@ -101,15 +101,15 @@ I Windows:
 
 ### <a name="check-container-logs-for-issues"></a>Kontrollera behållarloggarna för problem
 
-När IoT Edge Security Daemon körs kan du titta på loggarna för behållarna för att identifiera problem. Börja med dina distribuerade behållare och titta på behållarna som utgör IoT Edge-körningen: Edge-Agent och Edge Hub. Edge-agentloggarna ger vanligtvis information om livscykeln för varje container. Edge Hub-loggarna ger information om meddelanden och routning. 
+När IoT Edge Security Daemon körs kan du titta på loggarna för behållarna för att identifiera problem. Börja med dina distribuerade behållare och titta på behållarna som utgör IoT Edge-körningen: edgeAgent och edgeHub. IoT Edge-agentloggarna ger vanligtvis information om livscykeln för varje behållare. IoT Edge hub-loggarna ger information om meddelanden och routning. 
 
    ```cmd
    iotedge logs <container name>
    ```
 
-### <a name="view-the-messages-going-through-the-edge-hub"></a>Visa meddelandena som skickas genom Edge hub
+### <a name="view-the-messages-going-through-the-iot-edge-hub"></a>Visa meddelandena som skickas via IoT Edge hub
 
-Du kan visa meddelandena som skickas genom Edge hub och samla in information från utförliga loggar från körningsbehållarna. Om du vill aktivera utförliga loggar på de här behållarna ange `RuntimeLogLevel` i konfigurationsfilen yaml. Att öppna filen:
+Du kan visa meddelanden som skickas via IoT Edge hub och samla in information från utförliga loggar från körningsbehållarna. Om du vill aktivera utförliga loggar på de här behållarna ange `RuntimeLogLevel` i konfigurationsfilen yaml. Att öppna filen:
 
 I Linux:
 
@@ -137,13 +137,13 @@ Som standard den `agent` elementet kommer att se ut som i följande exempel:
 
 Ersätt `env: {}` med:
 
-> [!WARNING]
-> YAML-filer får inte innehålla flikar som indrag. Använd 2 blanksteg i stället.
-
    ```yaml
    env:
      RuntimeLogLevel: debug
    ```
+
+   > [!WARNING]
+   > YAML-filer får inte innehålla flikar som indrag. Använd 2 blanksteg i stället.
 
 Spara filen och starta om säkerhetshanteraren IoT Edge.
 
@@ -180,11 +180,11 @@ I Windows:
    Start-Service iotedge
    ```
 
-## <a name="edge-agent-stops-after-about-a-minute"></a>Edge-agenten avslutas efter ungefär en minut
+## <a name="iot-edge-agent-stops-after-about-a-minute"></a>IoT Edge-agenten avslutas efter ungefär en minut
 
-Edge-agenten startar och körs under ungefär en minut innan den stoppar. Loggarna indikerar att Edge-agenten försöker ansluta till IoT Hub över AMQP och försöker sedan ansluta med AMQP via WebSocket. När det misslyckas avslutas Edge-agenten. 
+Modulen edgeAgent startar och körs under ungefär en minut innan den stoppar. Loggarna indikerar att IoT Edge-agenten försöker ansluta till IoT Hub över AMQP och försöker sedan ansluta med AMQP via WebSocket. När det misslyckas avslutas IoT Edge-agenten. 
 
-Exempel på Edge-agentloggar:
+Exempel edgeAgent loggar:
 
 ```output
 2017-11-28 18:46:19 [INF] - Starting module management agent. 
@@ -194,16 +194,16 @@ Exempel på Edge-agentloggar:
 ```
 
 ### <a name="root-cause"></a>Rotorsak
-En nätverkskonfiguration på värdnätverket förhindrar att Edge-agenten kan ansluta till nätverket. Agenten försöker ansluta via AMQP (port 5671) först. Om anslutningen misslyckas provar agenten WebSockets (port 443).
+En nätverkskonfiguration på värdnätverket förhindrar IoT Edge-agenten från att nå nätverket. Agenten försöker ansluta via AMQP (port 5671) först. Om anslutningen misslyckas provar agenten WebSockets (port 443).
 
 IoT Edge-körningen ställer in ett nätverk för varje modul att kommunicera på. På Linux är nätverket en nätverksbrygga. I Windows använder den NAT. Det här problemet är vanligare på Windows-enheter som använder Windows-containrar som använder NAT-nätverket. 
 
 ### <a name="resolution"></a>Lösning
 Kontrollera att det finns en väg till internet för IP-adresserna som är tilldelade till den här nätverksbryggan/NAT-nätverket. Ibland åsidosätter en VPN-konfiguration på värden IoT Edge-nätverket. 
 
-## <a name="edge-hub-fails-to-start"></a>Edge Hub startar inte
+## <a name="iot-edge-hub-fails-to-start"></a>IoT Edge hub inte går att starta
 
-Edge Hub startar inte och skriver ut följande meddelande till loggarna: 
+Modulen edgeHub misslyckas att start- och skriver ut följande meddelande till loggarna: 
 
 ```output
 One or more errors occurred. 
@@ -213,16 +213,16 @@ Error starting userland proxy: Bind for 0.0.0.0:443 failed: port is already allo
 ```
 
 ### <a name="root-cause"></a>Rotorsak
-Några andra processer på värddatorn har bundit port 443. Edge Hub mappar portarna 5671 och 443 för användning i gatewayscenarier. Den här portmappningen misslyckas om någon annan process redan har bundits till porten. 
+Några andra processer på värddatorn har bundit port 443. IoT Edge hub mappar portarna 5671 och 443 för användning i gatewayscenarier. Den här portmappningen misslyckas om någon annan process redan har bundits till porten. 
 
 ### <a name="resolution"></a>Lösning
 Hitta och stoppa processen som använder port 443. Den här processen är vanligtvis en webbserver.
 
-## <a name="edge-agent-cant-access-a-modules-image-403"></a>Edge-agenten kan inte få åtkomst till en moduls avbildning (403)
-En container kan inte köras, och Edge-agentloggarna visar ett 403-fel. 
+## <a name="iot-edge-agent-cant-access-a-modules-image-403"></a>IoT Edge-agenten har inte åtkomst till en moduls avbildning (403)
+En behållare kan inte köras och edgeAgent loggarna visar ett 403-fel. 
 
 ### <a name="root-cause"></a>Rotorsak
-Edge-agenten har inte behörighet för att få åtkomst till en moduls avbildning. 
+Iot Edge-agenten har inte behörighet att få åtkomst till en moduls avbildning. 
 
 ### <a name="resolution"></a>Lösning
 Se till att dina autentiseringsuppgifter för registret har angetts korrekt i ditt manifest för distribution
@@ -266,14 +266,14 @@ När du ser det här felet kan lösa du det genom att konfigurera DNS-namnet på
 Du kan stöta på instabilitet begränsad t.ex. för enheter Raspberry Pi, särskilt när det används som en gateway. Symtom är utanför minne-undantag i edge hub-modul, efterföljande enheter kan inte ansluta eller enheten slutar att skicka telemetrimeddelanden efter ett par timmar.
 
 ### <a name="root-cause"></a>Rotorsak
-Edge hub, vilket är en del av edge-körningen är optimerad för prestanda som standard och att allokera stora mängder minne. Denna optimering är inte idealiskt för begränsad edge-enheter och kan orsaka stabilitetsproblem med.
+IoT Edge-hubben, som är en del av IoT Edge-körningen, optimeras för prestanda som standard och att allokera stora mängder minne. Denna optimering är inte idealiskt för begränsad edge-enheter och kan orsaka stabilitetsproblem med.
 
 ### <a name="resolution"></a>Lösning
-Ange en miljövariabel för edge hub **OptimizeForPerformance** till **FALSKT**. Det finns två sätt att göra detta:
+Ange en miljövariabel för IoT Edge-hubben **OptimizeForPerformance** till **FALSKT**. Det finns två sätt att göra detta:
 
 I Användargränssnittet: 
 
-På portalen från *enhetsinformation*->*ange moduler*->*konfigurera avancerade Edge-körningsinställningar*, skapa en miljövariabel kallas *OptimizeForPerformance* som har angetts till *FALSKT* för den *Edge Hub*.
+I portalen navigerar du till **enhetsinformation** > **ange moduler** > **konfigurera avancerade Edge-körningsinställningar**. Skapa en miljövariabel för modulen Edge Hub kallas *OptimizeForPerformance* som har angetts till *FALSKT*.
 
 ![OptimizeForPerformance inställd på false](./media/troubleshoot/optimizeforperformance-false.png)
 
@@ -324,13 +324,13 @@ Error: Time:Thu Jun  4 19:44:58 2018 File:/usr/sdk/src/c/provisioning_client/ada
 IoT Edge-daemon framtvingar process-ID för alla moduler som ansluter till edgeHub av säkerhetsskäl. Verifierar att alla meddelanden som skickas av en modul hämtas från huvudsakliga process-ID för modulen. Om ett meddelande som skickas av en modul från en annan process-ID än först upprättas, annars avvisar meddelandet med ett 404-fel-meddelande.
 
 ### <a name="resolution"></a>Lösning
-Se till att samma process-ID alltid ska användas av anpassade IoT Edge-modulen skicka meddelanden till edgeHub. Till exempel se till att `ENTRYPOINT` i stället för `CMD` kommandot i Docker-filen, eftersom `CMD` leder till en process-ID för modulen och en annan process-ID för bash-kommando som körs huvudprogrammet medan `ENTRYPOINT` leder till en enkel process-id.
+Se till att samma process-ID alltid ska användas av anpassade IoT Edge-modulen skicka meddelanden till edgeHub. Till exempel se till att `ENTRYPOINT` i stället för `CMD` kommandot i Docker-filen, eftersom `CMD` leder till en process-ID för modulen och en annan process-ID för bash-kommando som körs huvudprogrammet medan `ENTRYPOINT` leder till en enkel process-ID.
 
 
 ## <a name="firewall-and-port-configuration-rules-for-iot-edge-deployment"></a>Brandväggsinställningar och portinställningar konfigurationsregler för IoT Edge-distribution
-Azure IoT Edge kan kommunikation från en lokal Edge-server till Azure-molnet med IoT Hub-protokoll som stöds, se [välja ett kommunikationsprotokoll](../iot-hub/iot-hub-devguide-protocols.md). För ökad säkerhet är kommunikationskanaler mellan Azure IoT Edge och Azure IoT Hub alltid konfigurerad för att vara utgående. Den här konfigurationen baseras på den [tjänster Assisted Communication mönstret](https://blogs.msdn.microsoft.com/clemensv/2014/02/09/service-assisted-communication-for-connected-devices/), vilket minimerar risken för angrepp för en skadlig enhet att utforska. Inkommande kommunikation är endast krävs för specifika scenarier där Azure IoT Hub behöver att skicka meddelanden till Azure IoT Edge-enhet. Meddelanden från moln till enhet är skyddade med säkra TLS-kanaler och ytterligare skyddas med X.509-certifikat och moduler för TPM-enhet. Azure IoT Edge Security Manager styr hur den här kommunikationen kan vara etablerade, se [IoT Edge Security Manager](../iot-edge/iot-edge-security-manager.md).
+Azure IoT Edge kan kommunikation från en lokal server till Azure-molnet med IoT Hub-protokoll som stöds, se [välja ett kommunikationsprotokoll](../iot-hub/iot-hub-devguide-protocols.md). För ökad säkerhet är kommunikationskanaler mellan Azure IoT Edge och Azure IoT Hub alltid konfigurerad för att vara utgående. Den här konfigurationen baseras på den [tjänster Assisted Communication mönstret](https://blogs.msdn.microsoft.com/clemensv/2014/02/09/service-assisted-communication-for-connected-devices/), vilket minimerar risken för angrepp för en skadlig enhet att utforska. Inkommande kommunikation är endast krävs för specifika scenarier där Azure IoT Hub behöver att skicka meddelanden till Azure IoT Edge-enhet. Meddelanden från moln till enhet är skyddade med säkra TLS-kanaler och ytterligare skyddas med X.509-certifikat och moduler för TPM-enhet. Azure IoT Edge Security Manager styr hur den här kommunikationen kan vara etablerade, se [IoT Edge Security Manager](../iot-edge/iot-edge-security-manager.md).
 
-IoT Edge innehåller förbättrad konfigurationen för att skydda Azure IoT Edge-körningen och distribuerade moduler, men det är fortfarande beroende av underliggande datorn och nätverket. Det är därför viktigt att se till att rätt nätverk och brandvägg reglerna har ställts in för säker Edge till molnet kommunikation. Följande kan användas som en riktlinje när konfigurationen brandväggsregler för de underliggande servrarna där Azure IoT Edge-körningen finns:
+IoT Edge innehåller förbättrad konfigurationen för att skydda Azure IoT Edge-körningen och distribuerade moduler, men det är fortfarande beroende av underliggande datorn och nätverket. Därför det är viktigt att se till att rätt nätverk och brandväggsreglerna har ställts in för säker edge till molnet kommunikation. I följande tabell kan användas som en riktlinje när konfigurationen brandväggsregler för de underliggande servrarna där Azure IoT Edge-körningen finns upp:
 
 |Protokoll|Port|inkommande|Utgående|Riktlinjer|
 |--|--|--|--|--|

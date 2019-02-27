@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 01/16/2019
+ms.date: 02/25/2019
 ms.author: juliako
-ms.openlocfilehash: 18c5e48b5f7dbf664b607b8b83473a914256590b
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: d5ca9e602416e6e575be8b79942cd6dba2a2fd69
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55104584"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889162"
 ---
 # <a name="streaming-endpoints"></a>Slutpunkter för direktuppspelning
 
@@ -33,7 +33,7 @@ För alla ytterligare slutpunkter: `{EndpointName}-{AccountName}-{DatacenterAbbr
 
 ## <a name="types"></a>Typer  
 
-Det finns två **StreamingEndpoint** typer: **Standard** och **Premium**. Typen har definierats av antalet skalningsenheter (`scaleUnits`) du allokera för slutpunkten för direktuppspelning. 
+Det finns två **Strömningsslutpunkt** typer: **Standard** och **Premium**. Typen har definierats av antalet skalningsenheter (`scaleUnits`) du allokera för slutpunkten för direktuppspelning. 
 
 Tabellen beskrivs typerna:  
 
@@ -57,19 +57,58 @@ Du måste också tänka på hur anpassningsbar direktuppspelning fungerar. Varje
  
 ## <a name="properties"></a>Egenskaper 
 
-Det här avsnittet innehåller information om några av de StreamingEndpoint egenskaper. Exempel på hur du skapar en ny slutpunkt för direktuppspelning och beskrivningar av alla egenskaper finns i [Strömningsslutpunkt](https://docs.microsoft.com/rest/api/media/streamingendpoints/create). 
+Det här avsnittet innehåller information om några av slutpunkt för direktuppspelning egenskaper. Exempel på hur du skapar en ny slutpunkt för direktuppspelning och beskrivningar av alla egenskaper finns i [Strömningsslutpunkt](https://docs.microsoft.com/rest/api/media/streamingendpoints/create). 
 
-|Egenskap |Beskrivning|  
-|--------------|----------|
-|`accessControl`|Används för att konfigurera följande säkerhetsinställningarna för den här slutpunkten för direktuppspelning: Akamai signatur huvudnycklarna autentisering och IP-adresser som tillåts ansluta till den här slutpunkten.<br />Den här egenskapen kan anges när `cdnEnabled`”” är inställt på FALSKT.|  
-|`cdnEnabled`|Anger om Azure CDN-integreringen för den här slutpunkten för direktuppspelning är aktiverad (inaktiverad som standard.)<br /><br /> Om du ställer in `cdnEnabled` true, följande konfigurationer inaktiveras: `customHostNames` och `accessControl`.<br /><br />Inte alla Datacenter stöd för Azure CDN-integrering. Om du vill kontrollera om ditt datacenter har Azure CDN tillgänglig integrering gör du följande:<br /><br /> -Försök att ställa in den `cdnEnabled` till true.<br /><br /> -Kontrollera det returnerade resultatet för en `HTTP Error Code 412` (PreconditionFailed) med ett meddelande om ”strömmande slutpunkt CdnEnabled egenskapen kan inte anges som SANT när CDN-funktionen inte är tillgänglig i den aktuella regionen”.<br /><br /> Om du får det här felet kan stöder inte datacentret den. Du bör försöka ett annat datacenter.|  
-|`cdnProfile`|När `cdnEnabled` har angetts till SANT, du kan även skicka `cdnProfile` värden. `cdnProfile` är namnet på CDN-profil där CDN endpoint plats kommer att skapas. Du kan ange en befintlig cdnProfile eller använda en ny. Om värdet är NULL och `cdnEnabled` är true, ”AzureMediaStreamingPlatformCdnProfile” används standardvärdet. Om de angivna `cdnProfile` finns redan en slutpunkt har skapats under den. Om profilen inte finns, hämtar en ny profil skapas automatiskt.|
-|`cdnProvider`|När CDN är aktiverat kan du även skicka `cdnProvider` värden. `cdnProvider` styr vilken provider som ska användas. För närvarande stöds tre värden: "StandardVerizon", "PremiumVerizon" and "StandardAkamai". Om inget värde anges och `cdnEnabled` är true, ”StandardVerizon” används (som är standardvärdet.)|
-|`crossSiteAccessPolicies`|Används för att ange mellan åtkomstprinciper för olika klienter. Mer information finns i [domänerna filen principspecifikationen](http://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html) och [att göra en tjänst tillgänglig över domängränser](https://msdn.microsoft.com/library/cc197955\(v=vs.95\).aspx).|  
-|`customHostNames`|Används för att konfigurera en slutpunkt för direktuppspelning för att acceptera trafik dirigeras till ett anpassat värdnamn. Detta innebär för administrationskonfiguration för enklare trafik via en Global Traffic Manager GTM- och även för anpassade domännamn som ska användas som slutpunktsnamnet på strömmande.<br /><br /> Ägare till domännamnet måste bekräftas av Azure Media Services. Azure Media Services kontrollerar domännamnägarskapet genom att kräva en `CName` post som innehåller Azure Media Services-konto-ID som en komponent som ska läggas till domän används. Till exempel för ”sports.contoso.com” som ska användas som ett anpassat värdnamn för slutpunkten för direktuppspelning, en post för `<accountId>.contoso.com` måste konfigureras för att peka på något av värdnamn för Media Services-verifiering. Verifiering värdnamn består av verifydns. \<mediaservices-dns-zon >. I följande tabell innehåller de förväntade DNS-zonerna som ska användas i Kontrollera posten för olika Azure-regioner.<br /><br /> North America, Europe, Singapore, Hong Kong, Japan:<br /><br /> -mediaservices.windows.net<br /><br /> -verifydns.mediaservices.windows.net<br /><br /> I Kina:<br /><br /> - mediaservices.chinacloudapi.cn<br /><br /> - verifydns.mediaservices.chinacloudapi.cn<br /><br /> Till exempel en `CName` post som mappar ”945a4c4e-28ea-45 cd-8ccb-a519f6b700ad.contoso.com” till ”verifydns.mediaservices.windows.net” bevisar att 945a4c4e-28ea-45cd-8ccb-a519f6b700ad för Azure Media Services-ID har ägarskap för den domänen contoso.com, vilket gör att alla namn under contoso.com som ska användas som ett anpassat värdnamn för en slutpunkt för direktuppspelning med det kontot.<br /><br /> Om du vill hitta det Media Service-ID-värdet, går du till den [Azure-portalen](https://portal.azure.com/) och välj Media Service-konto. MEDIA SERVICE-ID visas till höger på sidan INSTRUMENTPANEL.<br /><br /> **Varning**: Om det finns ett försök att ange ett anpassat värdnamn utan en korrekt kontroll av den `CName` posten, DNS-svaret misslyckas och sedan cachelagras under en viss tid. När en rätt post är på plats, kan det ta en stund tills det cachelagrade svaret har förnyats. Beroende på DNS-providern för den anpassade domänen, kan det ta var som helst från ett par minuter till en timme att verifiera posten.<br /><br /> Förutom den `CName` som mappar `<accountId>.<parent domain>` till `verifydns.<mediaservices-dns-zone>`, måste du skapa en annan `CName` som mappar det anpassa värdnamnet (till exempel `sports.contoso.com`) till ditt Media Services StreamingEndpont värdnamn (till exempel `amstest.streaming.mediaservices.windows.net`).<br /><br /> **Obs!** Strömmande slutpunkter som finns i samma datacenter, kan inte dela samma anpassade värdnamn.<br /> Den här egenskapen gäller för Standard och premium-slutpunkter för direktuppspelning och kan anges när ”cdnEnabled”: false<br/><br/> För närvarande stöder AMS inte SSL med anpassade domäner.  |  
-|`maxCacheAge`|Åsidosätter standard maxåldern HTTP cache control-huvudet anges av slutpunkten för direktuppspelning på media fragment och på begäran manifest. Värdet anges i sekunder.|
-|`resourceState`|För egenskapen är:<br /><br /> -Stoppats. Det ursprungliga tillståndet för en slutpunkt för direktuppspelning när du har skapat.<br /><br /> -Startar. Slutpunkten för direktuppspelning övergår till körläge.<br /><br /> -Körs. Slutpunkten för direktuppspelning kan strömma innehåll till klienter.<br /><br /> -Skalning. Skalningsenheter som ska ökas eller minskas.<br /><br /> -Stoppas. Slutpunkten för direktuppspelning övergår i ett stoppat tillstånd.<br/><br/> -Ta bort. Slutpunkten för direktuppspelning tas bort.|
-|`scaleUnits `|scaleUnits ger dig särskild egresskapacitet som kan köpas i steg om 200 Mbit/s. Om du vill flytta till en **Premium** skriver, justera `scaleUnits`. |
+- `accessControl` – Används för att konfigurera följande säkerhetsinställningarna för den här slutpunkten för direktuppspelning: Akamai signatur huvudnycklarna autentisering och IP-adresser som tillåts ansluta till den här slutpunkten.<br />Den här egenskapen kan anges när `cdnEnabled` är inställd på false.
+- `cdnEnabled` -Anger om Azure CDN-integreringen för den här slutpunkten för direktuppspelning är aktiverad (inaktiverad som standard). Om du ställer in `cdnEnabled` true, följande konfigurationer inaktiveras: `customHostNames` och `accessControl`.
+  
+    Inte alla Datacenter stöd för Azure CDN-integrering. Du kan kontrollera om ditt datacenter har den Azure CDN-integreringen som är tillgängliga genom att göra följande:
+ 
+   - Försök att ställa in den `cdnEnabled` till true.
+   - Kontrollera det returnerade resultatet för en `HTTP Error Code 412` (PreconditionFailed) med ett meddelande om ”strömmande slutpunkt CdnEnabled egenskapen kan inte anges som SANT när CDN-funktionen inte är tillgänglig i den aktuella regionen”. 
+
+    Om du får det här felet kan stöder inte datacentret den. Du bör försöka ett annat datacenter.
+- `cdnProfile` – När `cdnEnabled` har angetts till SANT, du kan även skicka `cdnProfile` värden. `cdnProfile` är namnet på CDN-profil där CDN endpoint plats kommer att skapas. Du kan ange en befintlig cdnProfile eller använda en ny. Om värdet är NULL och `cdnEnabled` är true, ”AzureMediaStreamingPlatformCdnProfile” används standardvärdet. Om de angivna `cdnProfile` finns redan en slutpunkt har skapats under den. Om profilen inte finns, hämtar en ny profil skapas automatiskt.
+- `cdnProvider` -När CDN är aktiverat, kan du även skicka `cdnProvider` värden. `cdnProvider` styr vilken provider som ska användas. För närvarande stöds tre värden: "StandardVerizon", "PremiumVerizon" and "StandardAkamai". Om inget värde anges och `cdnEnabled` är true, ”StandardVerizon” används (det vill säga standardvärdet).
+- `crossSiteAccessPolicies` – Används för att ange mellan åtkomstprinciper för olika klienter. Mer information finns i [domänerna filen principspecifikationen](http://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html) och [att göra en tjänst tillgänglig över domängränser](https://msdn.microsoft.com/library/cc197955\(v=vs.95\).aspx).
+- `customHostNames` – Används för att konfigurera en Strömningsslutpunkt om du vill ta emot trafik dirigeras till ett anpassat värdnamn.  Den här egenskapen gäller för Standard och Premium-slutpunkter för direktuppspelning och kan anges när `cdnEnabled`: false.
+    
+    Ägare till domännamnet måste bekräftas av Media Services. Media Services kontrollerar domännamnägarskapet genom att kräva en `CName` post som innehåller Media Services-konto-ID som en komponent som ska läggas till domän används. Till exempel för ”sports.contoso.com” som ska användas som ett anpassat värdnamn för slutpunkten för direktuppspelning, en post för `<accountId>.contoso.com` måste konfigureras för att peka på något av värdnamn för Media Services-verifiering. Verifiering värdnamn består av verifydns. \<mediaservices-dns-zon >. 
+
+    Följande är de förväntade DNS-zonerna som ska användas i Kontrollera posten för olika Azure-regioner.
+  
+    - North America, Europe, Singapore, Hong Kong, Japan:
+      
+      - `media.azure.net`
+      - `verifydns.media.azure.net`
+      
+    - I Kina:
+        
+      - `mediaservices.chinacloudapi.cn`
+      - `verifydns.mediaservices.chinacloudapi.cn`
+        
+    Till exempel en `CName` post som mappar ”945a4c4e-28ea-45 cd-8ccb-a519f6b700ad.contoso.com” till ”verifydns.media.azure.net” bevisar att Media Services-ID-945a4c4e-28ea-45cd-8ccb-a519f6b700ad har ägarskap för domänen contoso.com, därför aktiverar vilket namn som helst under contoso.com som ska användas som ett anpassat värdnamn för en slutpunkt för direktuppspelning med det kontot. Om du vill hitta det Media Service-ID-värdet, går du till den [Azure-portalen](https://portal.azure.com/) och välj Media Service-konto. Den **konto-ID** visas längst upp till höger på sidan.
+        
+    Om det finns ett försök att ange ett anpassat värdnamn utan en korrekt kontroll av den `CName` posten, DNS-svaret misslyckas och sedan cachelagras under en viss tid. När en rätt post är på plats, kan det ta en stund tills det cachelagrade svaret har förnyats. Beroende på DNS-providern för den anpassade domänen, kan det ta var som helst från ett par minuter till en timme att verifiera posten.
+        
+     Förutom den `CName` som mappar `<accountId>.<parent domain>` till `verifydns.<mediaservices-dns-zone>`, måste du skapa en annan `CName` som mappar det anpassa värdnamnet (till exempel `sports.contoso.com`) till ditt Media Services Streaming slutpunktens värdnamn (till exempel `amstest-usea.streaming.media.azure.net`).
+ 
+    > [!NOTE]
+    > Strömmande slutpunkter som finns i samma datacenter, kan inte dela samma anpassade värdnamn.
+
+    För närvarande stöder Media Services inte SSL med anpassade domäner. 
+    
+- `maxCacheAge` -Åsidosättningar standard maxåldern HTTP cache styra rubrik som anges av slutpunkten för direktuppspelning på media fragment och på begäran manifest. Värdet anges i sekunder.
+- `resourceState` -
+
+    - Stoppat – det ursprungliga tillståndet för en Strömningsslutpunkt när du har skapat
+    - Startar - övergår till tillståndet körs
+    - Körs - ska kunna strömma innehåll till klienter
+    - Skala - skalan enheter som ska ökas eller minskas
+    - Stoppa - övergår i ett stoppat tillstånd
+    - Tar bort - tas bort
+    
+- `scaleUnits ` – Ger dig särskild egresskapacitet som kan köpas i steg om 200 Mbit/s. Om du vill flytta till en **Premium** skriver, justera `scaleUnits`.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/26/2018
 ms.author: hrasheed
-ms.openlocfilehash: a0da4339586982f5210834bcec5acfe463bc1a9a
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 8fccf82371225acd5839537f7629ffe7df138d43
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55816449"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56888159"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Hantera Apache Hadoop-kluster i HDInsight med hjälp av Azure-portalen
 
@@ -71,9 +71,9 @@ Välj klusternamnet från den [ **HDInsight-kluster** sidan](#showClusters).  D�
 
 - **Övervakning av menyn**
   - **Aviseringar**: Hantera aviseringar och åtgärder.
-  - **Mått**: Övervaka klustermått i Azure Log Analytics.
+  - **Mått**: Övervaka klustermått i Azure Monitor-loggar.
   - **Diagnosinställningar**: Inställningarna på var du vill lagra diagnos mätvärden.
-  - **Operations Management Suite**:  Övervaka ditt kluster i Azure Operations Management Suite (OMS) och Azure Log Analytics.
+  - **Operations Management Suite**:  Övervaka ditt kluster i Azure Operations Management Suite (OMS) och Azure Monitor-loggar.
 
 - **Support och felsökning menyn**
   - **Resurshälsa**: Se [översikt över hälsotillståndet för Azure-resurs](../service-health/resource-health-overview.md).

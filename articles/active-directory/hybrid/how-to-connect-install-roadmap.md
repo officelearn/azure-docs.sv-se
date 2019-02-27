@@ -13,12 +13,12 @@ ms.date: 09/18/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1285a9262221dbd8e46d07e384697ddea853f9fc
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 1851a6c27e89da71e75c59e025fee3800d0cd973
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56163061"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56876967"
 ---
 # <a name="azure-ad-connect-and-azure-ad-connect-health-installation-roadmap"></a>Installationsplan för Azure AD Connect och Azure AD Connect Health
 
@@ -46,7 +46,7 @@ Du kan ladda ned Azure AD Connect från [Microsoft Download Center](https://go.m
 |Installera med standardinställningar | [Snabbinstallation av Azure AD Connect](./how-to-connect-install-express.md)|
 |Installera med anpassade inställningar | [Anpassad installation av Azure AD Connect](./how-to-connect-install-custom.md)|
 |Uppgradera från DirSync | [Uppgradera från Azure AD-synkroniseringsverktyg (DirSync)](./how-to-dirsync-upgrade-get-started.md)|
-|Efter installationen | [Bekräfta installationen och tilldela licenser ](how-to-connect-post-installation.md)|
+|Efter installationen | [Verifiera installationen och tilldela licenser](how-to-connect-post-installation.md)|
 
 ### <a name="learn-more-about-install-azure-ad-connect"></a>Mer information om installationen av Azure AD Connect
 Det är bra att vara förberedd om det skulle uppstå [driftproblem](how-to-connect-sync-operations.md). Du kanske vill ha en reservserver som du enkelt kan redundansväxla till i händelse av ett [allvarligt fel](how-to-connect-sync-operations.md#disaster-recovery). Om du ofta kommer att göra konfigurationsändringar bör du planera för ett server i [mellanlagringsläge](how-to-connect-sync-operations.md#staging-mode).

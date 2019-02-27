@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 1/16/2019
 ms.author: dukek
 ms.subservice: logs
-ms.openlocfilehash: 2f7d671dd70571ce167d9c5abd632cdebff329da
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 63c649f0850c4ffc60ce2087e91f3f69917e4837
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54888149"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56868552"
 ---
 # <a name="azure-activity-log-event-schema"></a>Azure Händelseschema för aktivitetslogg
 Den **Azure-aktivitetsloggen** är en logg som ger insikt i alla händelser på prenumerationsnivå som har inträffat i Azure. Den här artikeln beskriver Händelseschema per kategori av data. Schemat för data skiljer sig beroende på om du läser data i portalen, PowerShell, CLI, eller direkt via REST API jämfört med [strömmande data till lagring eller Event Hubs med en Loggprofil](./../../azure-monitor/platform/activity-logs-overview.md#export-the-activity-log-with-a-log-profile). Exemplen nedan visar schemat som gjorts tillgängliga via portalen, PowerShell, CLI och REST API. En mappning av dessa egenskaper så att den [Azure diagnostisk loggar schemat](./diagnostic-logs-schema.md) tillhandahålls i slutet av artikeln.
@@ -119,10 +119,13 @@ Den här kategorin innehåller en post för alla skapa, uppdatera och ta bort å
 | correlationId |Vanligtvis ett GUID i formatet för strängen. Händelser som delar en correlationId tillhöra samma uber åtgärd. |
 | beskrivning |Statisk textbeskrivning av en händelse. |
 | eventDataId |Unik identifierare för en händelse. |
+| EventName | Eget namn för den administrativa händelsen. |
+| category | Alltid ”administrativa” |
 | httpRequest |BLOB-objekt som beskriver Http-begäran. Vanligtvis innehåller ”clientRequestId”, ”clientIpAddress” och ”method” (HTTP-metoden. Till exempel PLACERA). |
 | nivå |Nivån på händelsen. En av följande värden: ”Kritisk”, ”Error”, ”varning” och ”information” |
 | resourceGroupName |Namnet på resursgruppen för resursen som påverkas. |
 | resourceProviderName |Namnet på resursprovidern för resursen som påverkas |
+| ResourceType | Typ av resurs som påverkades av en administrativ händelse. |
 | resourceId |Resurs-ID för resursen som påverkas. |
 | operationId |Ett GUID som delas mellan de händelser som motsvarar en enda åtgärd. |
 | operationName |Åtgärdens namn. |

@@ -15,12 +15,12 @@ ms.date: 05/21/2018
 ms.author: celested
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bf5e198dff2dd3cd93455d5cca25428723bf1ce9
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 5ee322dd3ff6ccd68b09645fb46b1488b17819bb
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56171986"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56871697"
 ---
 # <a name="problems-signing-in-to-an-on-premises-application-using-the-azure-ad-application-proxy"></a>Problem vid inloggning i ett lokalt program med hjälp av Azure AD-programproxyn
 
@@ -56,7 +56,7 @@ Följande dokument kan kanske hjälpa dig att lösa några av de vanligaste prob
 
 ## <a name="im-having-a-problem-with-the-application-proxy-agent-connector"></a>Jag har problem med den anslutningsprogrammet för Programproxyagenten
   Följande dokument kan kanske hjälpa dig att lösa några av de vanligaste problemen i den här kategorin.
-  * [Jag har problem med att installera anslutningsprogrammet för programproxyagenten](application-proxy-connector-installation-problem.md)
+  * [Jag har problem med att installera den anslutningsprogrammet för Programproxyagenten](application-proxy-connector-installation-problem.md)
 
 ## <a name="next-steps"></a>Nästa steg
 [Ge säker fjärråtkomst till lokala program](application-proxy.md)

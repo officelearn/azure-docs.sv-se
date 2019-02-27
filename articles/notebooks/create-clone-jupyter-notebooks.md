@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2018
+ms.date: 02/25/2019
 ms.author: kraigb
-ms.openlocfilehash: 8961a863f1b268a034310554230096cc0f9d5260
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 9686ac0bc75a219940fcadca78cff539c1b50f0a
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54844066"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56876834"
 ---
 # <a name="create-and-clone-projects"></a>Skapa och klona projekt
 
@@ -49,7 +49,7 @@ Vad du kan göra på instrumentpanelen beror på om du har loggat in med kontot 
 
 När du använder den **resursen** kommandot och välj den **bädda in** fliken kan du kopiera HTML-kod eller Markdown som skapar en ”dagbok Start” symbol:
 
-![Starta notebook märket ](https://notebooks.azure.com/launch.png)
+![Starta notebook märket](https://notebooks.azure.com/launch.png)
 
 Om du inte har ett projekt med Azure-datorer kan skapa du en länk som klonar från GitHub direkt med hjälp av följande mallar, och Ersätt rätt användarnamn och databasnamn:
 
@@ -67,10 +67,26 @@ När du använder den **+ nytt projekt** kommandot Azure anteckningsböcker visa
 
 | Fält | Beskrivning |
 | --- | --- |
-| Projektnamn | Ett eget namn för ditt projekt som Azure-datorer använder för visning. Till exempel ”Ny anteckningsbok projektet”. |
-| Projekt-ID | En anpassad identifierare som blir en del av URL: en som du använder för att dela ett projekt. Detta ID kan använda endast bokstäver, siffror och bindestreck och är begränsade till 30 tecken. Om du är osäker vad du använder, är en gemensam konvention att använda en gemen version av ditt projektnamn där blanksteg är aktiverade i bindestreck, till exempel ”min-notebook-projekt” (trunkerad vid behov för att passa längdbegränsningen). |
+| Projektnamn | Ett eget namn för ditt projekt som Azure-datorer använder för visning. Till exempel ”mitt Notebook projekt”. |
+| Projekt-ID | En anpassad identifierare som blir en del av URL: en som du använder för att dela ett projekt (formuläret är `https://notebooks.azure.com/<user_id>/projects/<project_id>`). Detta ID kan använda endast bokstäver, siffror och bindestreck, är begränsade till 30 tecken och får inte vara en [reserverade projekt-ID](#reserved-project-ids). Om du är osäker vad du använder, är en gemensam konvention att använda en gemen version av ditt projektnamn där blanksteg är aktiverade i bindestreck, till exempel ”min-notebook-projekt” (trunkerad vid behov för att passa längdbegränsningen). |
 | Offentligt | Om ange, kan vem som helst med en länk till projektet. När du skapar ett privat projekt kan du avmarkera det här alternativet. |
 | Initiera det här projektet med ett viktigt | Om angetts, skapas ett *README.md* filen i projektet. En *README.md* fil ger du dokumentationen för ditt projekt, om så önskas. |
+
+### <a name="reserved-project-ids"></a>Reserverade projekt-ID: N
+
+Följande reserverade ord kan inte användas enskilt projekt-ID: N. De här reserverade ord går dock att användas som en del av längre projekt-ID: N.
+
+| | | | | | |
+| --- | --- | --- | --- | --- | --- |
+| om | konto | administration | api | blog | classroom |
+| innehåll | instrumentpanel | Utforska | vanliga frågor och svar | Hjälp | html |
+| hem | Importera | biblioteket | hantering | nytt | Notebook |
+| Bärbara datorer | pdf | förhandsversion | prissättning | profil | sök |
+| status | support | test | | | |
+
+Om du försöker använda en av dessa ord som ett projekt-ID, den **Skapa nytt projekt** och **Projektinställningar** popup-fönster visar, ”Biblioteks-id är en reserverad identifierare”.
+
+Eftersom ett projekt-ID är också en del av ett projekt-URL, kan ad blocker programvara blockera användningen av vissa nyckelord, till exempel ”annons”. I sådana fall kan du använda ett annat ord i projekt-ID.
 
 ## <a name="import-a-project-from-github"></a>Importera ett projekt från GitHub
 
@@ -81,7 +97,7 @@ Du kan enkelt importera en hel offentliga GitHub-lagringsplatsen som ett projekt
 | GitHub-lagringsplats | Namnet på källdatabasen på github.com. Till exempel för att klona Jupyter-anteckningsböcker för Azure Cognitive Services på [ https://github.com/Microsoft/cognitive-services-notebooks ](https://github.com/Microsoft/cognitive-services-notebooks), ange ”Microsoft/cognitive-services-bärbara datorer”.  |
 | Klona rekursivt | GitHub-lagringsplatser kan innehålla flera underordnade databaser. Ange det här alternativet om du vill klona överordnade databasen och alla dess underordnade. Eftersom det är möjligt för en databas har många underordnade låter du avmarkera alternativet om du inte vet du behöver den. |
 | Projektnamn | Ett eget namn för ditt projekt som Azure-datorer använder för visning. |
-| Projekt-ID | En anpassad identifierare som blir en del av URL: en som du använder för att dela ett projekt. Detta ID kan använda endast bokstäver, siffror och bindestreck. |
+| Projekt-ID | En anpassad identifierare som blir en del av URL: en som du använder för att dela ett projekt (formuläret är `https://notebooks.azure.com/<user_id>/projects/<project_id>`). Detta ID kan använda endast bokstäver, siffror och bindestreck, är begränsade till 30 tecken och får inte vara en [reserverade projekt-ID](#reserved-project-ids). Om du är osäker vad du använder, är en gemensam konvention att använda en gemen version av ditt projektnamn där blanksteg är aktiverade i bindestreck, till exempel ”min-notebook-projekt” (trunkerad vid behov för att passa längdbegränsningen). |
 | Offentligt | Om ange, kan vem som helst med en länk till projektet. När du skapar ett privat projekt kan du avmarkera det här alternativet. |
 
 Importera en databas från GitHub importerar även dess historik. Du kan använda standard Git-kommandon från terminalen för att genomföra nya ändringar, hämta ändringarna från GitHub och så vidare.

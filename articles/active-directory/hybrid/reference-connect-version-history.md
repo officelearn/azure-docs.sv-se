@@ -16,12 +16,12 @@ ms.date: 12/18/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a3851e4c35b333e862ead296ad1e8448c3317228
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 0e5b06ad551b45bc0c892bc789c6f5c5a27b5bb0
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56210500"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56882985"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Versionshistorik
 Azure Active Directory (Azure AD)-teamet uppdaterar regelbundet Azure AD Connect med nya funktioner. Inte alla tillägg gäller för alla målgrupper.
@@ -135,7 +135,7 @@ Azure AD Connect uppgradera misslyckas om SQL alltid på tillgänglighet har kon
 ### <a name="new-features-and-improvements"></a>Nya funktioner och förbättringar
 
 - Ping federera-integrering i Azure AD Connect är nu tillgängligt för allmän tillgänglighet. [Mer information om hur du federerade Azure AD med Ping federera](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-user-signin#federation-with-pingfederate)
-- Säkerhetskopiering av Azure AD-förtroendet i AD FS skapar nu i Azure AD Connect varje gång en uppdatering görs och lagrar den i en separat fil för enkel återställning om det behövs. [Lär dig mer om nya funktioner och Azure AD litar management i Azure AD Connect ](https://aka.ms/fedtrustinaadconnect).
+- Säkerhetskopiering av Azure AD-förtroendet i AD FS skapar nu i Azure AD Connect varje gång en uppdatering görs och lagrar den i en separat fil för enkel återställning om det behövs. [Lär dig mer om nya funktioner och Azure AD litar management i Azure AD Connect](https://aka.ms/fedtrustinaadconnect).
 - Nya verktyg för felsökning kan du felsöka ändrar primära e-postadress och dölja konto från den globala adresslistan
 - Azure AD Connect har uppdaterats för att inkludera den senaste SQL Server 2012 Native Client
 - När du växlar användare logga in till Hashsynkronisering för lösenord eller direktautentisering i aktiviteten ”ändra användarinloggning” är kryssrutan sömlös enkel inloggning aktiverat som standard.

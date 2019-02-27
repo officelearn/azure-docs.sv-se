@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: b80a2effb4cdfe45ad3f37785f7e97449d60f00c
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: bf831936f86de9e43170a87c03b61df9a4865b3d
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56340152"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56878055"
 ---
 # <a name="programmatically-create-policies-and-view-compliance-data"></a>Programmässigt skapa principer och visa data för kompatibilitetsinställningar
 
@@ -95,8 +95,8 @@ Det första steget mot bättre överblick över dina resurser är att skapa och 
 
    Ersätt _ContosoRG_ med namnet på din avsedda resursgrupp.
 
-   Den **omfång** parametern på `New-AzPolicyAssignment` fungerar även med prenumerationer och hanteringsgrupper. Parametern använder en fullständig resurssökväg som den **ResourceId** egenskapen `Get-AzResourceGroup` returnerar. Mönster för **omfång** för varje behållare är på följande sätt.
-   Ersätt `{rName}`, `{rgName}`, `{subId}`, och `{mgName}` med resursnamnet på din resursgrupp namn, prenumerations-ID och namn på hanteringsgrupp, respektive. `{rType}` skulle ersättas med det **resurstyp** av resurs, till exempel `Microsoft.Compute/virtualMachines` för en virtuell dator.
+   Den **omfång** parametern på `New-AzPolicyAssignment` fungerar med hanteringsgruppen, prenumeration, resursgrupp eller en enskild resurs. Parametern använder en fullständig resurssökväg som den **ResourceId** egenskapen `Get-AzResourceGroup` returnerar. Mönster för **omfång** för varje behållare är på följande sätt. Ersätt `{rName}`, `{rgName}`, `{subId}`, och `{mgName}` med resursnamnet på din resursgrupp namn, prenumerations-ID och namn på hanteringsgrupp, respektive.
+   `{rType}` skulle ersättas med det **resurstyp** av resurs, till exempel `Microsoft.Compute/virtualMachines` för en virtuell dator.
 
    - Resurs- `/subscriptions/{subID}/resourceGroups/{rgName}/providers/{rType}/{rName}`
    - Resursgrupp – `/subscriptions/{subId}/resourceGroups/{rgName}`

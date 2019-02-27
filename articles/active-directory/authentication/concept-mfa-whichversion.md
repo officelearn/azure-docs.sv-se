@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9fb7785487fc79daca56e35ce0c6a19efd5b0605
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: edfc26355933db549b735c4baf9744744f46734c
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56195761"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56870483"
 ---
 # <a name="which-version-of-azure-mfa-is-right-for-my-organization"></a>Vilken version av Azure MFA är rätt för min organisation?
 
@@ -38,7 +38,7 @@ För att fastställa rätt verifieringslösning först först du besvara frågan
 | Saas-appar i appgalleriet |● |  |
 | Webbprogram publicerade via Azure AD App Proxy |● |  |
 | IIS-program som inte är publicerade via Azure AD App Proxy | |● |
-| Fjärråtkomst som VPN eller Fjärrskrivbordsgateway (RDG) | ● | ● |
+| Fjärråtkomst som VPN, RDG med NPS-tillägget eller en befintlig NPS-Server | ● | ● |
 
 ## <a name="where-are-the-users-located"></a>Var finns användarna?
 

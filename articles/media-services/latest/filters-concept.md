@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 02/22/2019
+ms.date: 02/25/2019
 ms.author: juliako
-ms.openlocfilehash: 18e629571a45046e5cf54996cd38b425c999ee36
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 60623ab4b41c343cab0f9be1abd8ab45051b3f9e
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56737645"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889366"
 ---
 # <a name="define-account-filters-and-asset-filters"></a>Definiera kontofilter och tillgången filter  
 
@@ -38,9 +38,9 @@ I följande tabell visas några exempel på URL: er med filter:
 
 |Protokoll|Exempel|
 |---|---|
-|HLS|`http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl,filter=myAccountFilter)`<br/>Använd för HLS v3: `format=m3u8-aapl-v3`.|
-|MPEG DASH|`http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=mpd-time-csf,filter=myAssetFilter)`|
-|Smooth Streaming|`http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(filter=myAssetFilter)`|
+|HLS|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=m3u8-aapl,filter=myAccountFilter)`<br/>Använd för HLS v3: `format=m3u8-aapl-v3`.|
+|MPEG DASH|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=mpd-time-csf,filter=myAssetFilter)`|
+|Smooth Streaming|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(filter=myAssetFilter)`|
 
 ## <a name="define-filters"></a>Definiera filter
 
@@ -71,7 +71,7 @@ Använd den här egenskapen med **tillgången filter**. Det rekommenderas inte a
 |**forceEndTimestamp**|Gäller endast direktsänd strömning.<br/>Anger om egenskapen endTimestamp måste finnas. Om värdet är true endTimestamp måste anges eller en felaktig begäran kod returneras.<br/>Tillåtna värden: FALSKT, SANT.|
 |**liveBackoffDuration**|Gäller endast direktsänd strömning.<br/> Det här värdet anger den senaste direktsända positionen som en klient kan försöka.<br/>Med den här egenskapen kan kan du fördröja live uppspelning position och skapa en buffert på serversidan för spelare.<br/>Enheten för den här egenskapen är tidsskalan (se nedan).<br/>Högsta live backoff varaktighet är 300 sekunder (3000000000).<br/>Till exempel ett värde av 2000000000 innebär att det senaste innehållet är 20 sekunder fördröjd från möjlighet att få gränsen.|
 |**presentationWindowDuration**|Gäller endast direktsänd strömning.<br/>Använda presentationWindowDuration för att tillämpa ett skjutfönster av fragment ska ingå i en spellista.<br/>Enheten för den här egenskapen är tidsskalan (se nedan).<br/>Till exempel presentationWindowDuration = 1200000000 för att tillämpa en glidande tvåminutersperiod. Media inom två minuter av live edge ska ingå i listan. Om ett fragment är gränsen, inkluderas hela fragment i listan. Minsta presentation fönstervaraktigheten är 60 sekunder.|
-|**startTimestamp**|Gäller för Video på begäran (VoD) eller direktsänd strömning.<br/>Det här är ett långt värde som representerar en absolut startpunkt på dataströmmen. Värdet hämtar avrundat till närmaste nästa GOP början. Enheten är tidsskalan, så en startTimestamp av 150000000 skulle vara för 15 sekunder.<br/>Använd startTimestamp och endTimestampp att trimma fragment som ska ingå i listan (manifest).<br/>Till exempel startTimestamp = 40000000 och endTimestamp = 100000000 med hjälp av standard-tidsskalan genererar en spellista som innehåller fragment finns mellan 4 sekunder och 10 sekunder för VoD-presentationen. Om ett fragment är gränsen, inkluderas hela fragment i manifestet|
+|**startTimestamp**|Gäller för Video på begäran (VoD) eller direktsänd strömning.<br/>Det här är ett långt värde som representerar en absolut startpunkt på dataströmmen. Värdet hämtar avrundat till närmaste nästa GOP början. Enheten är tidsskalan, så en startTimestamp av 150000000 skulle vara för 15 sekunder.<br/>Använd startTimestamp och endTimestampp att trimma fragment som ska ingå i listan (manifest).<br/>Till exempel startTimestamp = 40000000 och endTimestamp = 100000000 med hjälp av standard-tidsskalan genererar en spellista som innehåller fragment finns mellan 4 sekunder och 10 sekunder för VoD-presentationen. Om ett fragment är gränsen, inkluderas hela fragment i manifestet.|
 |**tidsskalan**|Gäller för alla tidsstämplar och varaktigheter i en Presentation tidsintervallet som angetts som antalet steg i en sekund.<br/>Standardvärdet är 10000000 - tio miljoner steg i en sekund, där varje säkerhetskopieringssteg är 100 nanosekunder lång.<br/>Till exempel använder du värdet 300000000 när du använder standard tidsskalan om du vill ange en startTimestamp på 30 sekunder.|
 
 ### <a name="tracks"></a>Spår
@@ -83,7 +83,7 @@ Filtervillkor spåra egenskapen beskriver typer av spår, värden (som beskrivs 
 |Namn|Beskrivning|
 |---|---|
 |**Bithastighet**|Använda bithastigheten av kursen för filtrering.<br/><br/>Det rekommenderade värdet är en mängd olika bithastigheter i bitar per sekund. Till exempel ”0-2427000”.<br/><br/>Obs: du kan använda en specifik bithastighet värde, till exempel 250000 (bitar per sekund), den här metoden rekommenderas inte, eftersom den exakta bithastighet kan variera från en tillgång till en annan.|
-|**FourCC**|Använd FourCC värdet för spåret för filtrering.<br/><br/>Värdet är det första elementet i codec-format, som anges i [RFC 6381](https://tools.ietf.org/html/rfc6381). För närvarande stöds följande: <br/>Video: ”Avc1”, ”hev1”, ”hvc1”<br/>Ljud: ”Mp4a”, ”EG-3”<br/><br/>Att fastställa FourCC värdena för spår i en tillgång [få och granska manifestfilen](#get-and-examine-manifest-files).|
+|**FourCC**|Använd FourCC värdet för spåret för filtrering.<br/><br/>Värdet är det första elementet i codec-format, som anges i [RFC 6381](https://tools.ietf.org/html/rfc6381). För närvarande stöds följande: <br/>Video: ”Avc1”, ”hev1”, ”hvc1”<br/>Ljud: ”Mp4a”, ”EG-3”<br/><br/>För att fastställa FourCC värdena för spår i en tillgång, hämta och granska manifestfilen.|
 |**Språk**|Använd språket i kursen för filtrering.<br/><br/>Värdet är taggen för ett språk som du vill ska ingå som anges i RFC 5646. Till exempel ”SV”.|
 |**Namn**|Använd namnet på kursen för filtrering.|
 |**Typ**|Använd typ av kursen för filtrering.<br/><br/>Följande värden tillåts: ”video”, ”ljud” eller ”text”.|

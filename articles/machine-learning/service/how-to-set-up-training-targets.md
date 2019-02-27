@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2fd6321dcdcb8102b38217eb377ae3c200d5d737
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: a549a46912b0d60f878a18cae1e70a763afc0243
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/26/2019
-ms.locfileid: "56818569"
+ms.locfileid: "56874706"
 ---
 # <a name="set-up-compute-targets-for-model-training"></a>Konfigurera beräkningsmål för modellträning
 
@@ -46,6 +46,7 @@ Azure Machine Learning-tjänsten har olika stöd för olika beräkningsmål. En 
 |[Azure Databricks](how-to-create-your-first-pipeline.md#databricks)| &nbsp; | &nbsp; | ✓ | ✓ |
 |[Azure Data Lake Analytics](how-to-create-your-first-pipeline.md#adla)| &nbsp; | &nbsp; | &nbsp; | ✓ |
 |[Azure HDInsight](#hdinsight)| &nbsp; | &nbsp; | &nbsp; | ✓ |
+|[Azure Batch](#azbatch)| &nbsp; | &nbsp; | &nbsp; | ✓ |
 
 **Alla beräkningsresurser mål kan återanvändas för flera upplärningsjobb**. När du kopplar en fjärransluten virtuell dator till din arbetsyta, kan du till exempel återanvända den för flera jobb.
 
@@ -240,6 +241,42 @@ Azure HDInsight är en populär plattform för stordataanalys. Plattformen ger A
 
 Nu när du har kopplat beräkningarna och konfigurerat din körning, nästa steg är att [skicka utbildning kör](#submit).
 
+
+### <a id="azbatch"></a>Azure Batch 
+
+Azure Batch används för att effektivt köra storskaliga parallella och högpresterande datorbearbetning (HPC) program i molnet. AzureBatchStep kan användas i en Azure-Maskininlärningspipeline skicka jobb till ett Azure Batch-pool med datorer.
+
+Om du vill koppla Azure Batch som en beräkningsmål, måste du använder Azure Machine Learning SDK och ange följande information:
+
+-   **Namn för Azure Batch-beräkningsnod**: Ett eget namn som ska användas för beräkning i arbetsytan
+-   **Azure Batch-kontonamnet**: Namnet på Azure Batch-konto
+-   **Resursgrupp**: Den resursgrupp som innehåller Azure Batch-kontot.
+
+Följande kod visar hur du ansluter Azure Batch som en beräkningsmål:
+
+```python
+from azureml.core.compute import ComputeTarget, BatchCompute
+from azureml.exceptions import ComputeTargetException
+
+batch_compute_name = 'mybatchcompute' # Name to associate with new compute in workspace
+
+# Batch account details needed to attach as compute to workspace
+batch_account_name = "<batch_account_name>" # Name of the Batch account
+batch_resource_group = "<batch_resource_group>" # Name of the resource group which contains this account
+
+try:
+    # check if the compute is already attached
+    batch_compute = BatchCompute(ws, batch_compute_name)
+except ComputeTargetException:
+    print('Attaching Batch compute...')
+    provisioning_config = BatchCompute.attach_configuration(resource_group=batch_resource_group, account_name=batch_account_name)
+    batch_compute = ComputeTarget.attach(ws, batch_compute_name, provisioning_config)
+    batch_compute.wait_for_completion()
+    print("Provisioning state:{}".format(batch_compute.provisioning_state))
+    print("Provisioning errors:{}".format(batch_compute.provisioning_errors))
+
+print("Using Batch compute:{}".format(batch_compute.cluster_resource_id))
+```
 
 ## <a name="set-up-compute-in-the-azure-portal"></a>Konfigurera beräkning i Azure portal
 

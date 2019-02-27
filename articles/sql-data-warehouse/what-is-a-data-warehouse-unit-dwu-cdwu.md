@@ -10,12 +10,12 @@ ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 9ce7a36f796716f48f6575b2391ac563eebf4530
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: 7da813022527830a5ede62c9f4ce98645fe63d4b
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447828"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56871618"
 ---
 # <a name="data-warehouse-units-dwus-and-compute-data-warehouse-units-cdwus"></a>Informationslagerenheter (dwu: er) och beräkning Informationslagerenheter (cDWUs)
 Rekommendationer om hur du väljer perfekt antalet informationslagerenheter (dwu: er, cDWUs) för att optimera pris och prestanda och hur du ändrar antalet enheter. 
@@ -68,7 +68,7 @@ Varje prestandanivå använder en något annorlunda måttenhet för sina informa
 
 Både dwu: er och cDWUs stöder skalningsberäkning upp eller ned, och pausa när du inte behöver använda datalagret. Dessa åtgärder är alla på begäran. Gen2 använder en lokal diskbaserad cacheminne på beräkningsnoderna för att förbättra prestanda. När du skalar eller pausa systemet cachen betraktas som inaktuella och därför en viss cache värmer krävs innan optimala prestanda uppnås.  
 
-När du ökar informationslagerenheter ökar linjärt datorresurser. Gen2 ger bästa frågeprestanda och högsta skala men har en högre pris. Det är utformat för företag som har en konstant krav på prestanda. Dessa system gör de flesta användningen av cachen. 
+När du ökar informationslagerenheter ökar linjärt datorresurser. Gen2 ger bästa frågeprestanda och högsta skala. Dessa system gör de flesta användningen av cachen.
 
 ### <a name="capacity-limits"></a>Kapacitetsbegränsningar
 Varje SQLServer (t.ex, myserver.database.windows.net) har en [Database Transaction Unit (DTU)](../sql-database/sql-database-what-is-a-dtu.md) kvot som gör att ett visst antal informationslagerenheter. Mer information finns i den [arbetsbelastning management kapacitetsbegränsningar](sql-data-warehouse-service-capacity-limits.md#workload-management).

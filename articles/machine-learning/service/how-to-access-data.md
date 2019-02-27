@@ -11,24 +11,24 @@ author: mx-iao
 ms.reviewer: sgilley
 ms.date: 09/24/2018
 ms.custom: seodec18
-ms.openlocfilehash: 98977f20af734e3adf927213b685f8c33b9383ea
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 410867ae034309db0bb013ae22f90e8489aa463e
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56816886"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56886119"
 ---
 # <a name="access-data-from-your-datastores"></a>Komma åt data från ditt datalager
 I den här artikeln får du lära dig olika sätt att komma åt och interagera med dina data i Azure Machine Learning arbetsflöden via datalager.
 
-I Azure Machine Learning-tjänsten databasen är en abstraktion över [Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-introduction). Datalagringen kan referera till antingen en [Azure Blob](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction) behållare eller [Azure-filresurs](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) som det underliggande lagringsutrymmet. 
-
 Den här anvisningen visar exempel för följande uppgifter: 
-* Skapa ett datalager
+* Skapa och få åtkomst till ett datalager
 * [Ladda upp och ladda ned data till datalager](#upload-and-download-data)
 * [Åtkomst till datalagret för träning](#access-datastores-for-training)
 
-## <a name="create-a-datastore"></a>Skapa ett datalager
+<a name="access"></a>
+
+## <a name="create-and-access-a-datastore"></a>Skapa och få åtkomst till ett datalager
 Om du vill använda datalager måste du först en [arbetsytan](concept-azure-machine-learning-architecture.md#workspace). Börja med antingen [skapar en ny arbetsyta](quickstart-create-workspace-with-python.md) eller hämta en befintlig:
 
 ```Python
@@ -47,7 +47,7 @@ ds = ws.get_default_datastore()
 ```
 
 ### <a name="register-a-datastore"></a>Registrera ett datalager
-Om du har befintliga Azure Storage kan registrera du den som ett datalager på din arbetsyta. Du kan också registrera ett Azure Blob-behållare eller Azure-filresurs som ett datalager. Alla register-metoder som finns på den [ `Datastore` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py) klassen och har formen `register_azure_*`.
+Om du har befintliga Azure Storage kan registrera du den som ett datalager på din arbetsyta.  Alla register-metoder som finns på den [ `Datastore` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py) klassen och har formatet register_azure_ *. I följande exempel visar att registrera en Azure Blob-behållare och Azure-filresurs som ett datalager.
 
 #### <a name="azure-blob-container-datastore"></a>Azure Blob-behållare datalager
 Registrera ett datalager i Azure Blob-behållare [`register_azure_blob-container()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#register-azure-blob-container-workspace--datastore-name--container-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false-:)
@@ -74,7 +74,7 @@ ds = Datastore.register_azure_file_share(workspace=ws,
 ```
 
 ### <a name="get-an-existing-datastore"></a>Hämta en befintlig datalager
-Fråga efter en redan registrerade datalager efter namnet:
+Den [ `get()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#get-workspace--datastore-name-) metoden frågor för en redan registrerade datalager efter namnet:
 
 ```Python
 ds = Datastore.get(ws, datastore_name='your datastore name')
@@ -88,7 +88,7 @@ for name, ds in datastores.items():
     print(name, ds.datastore_type)
 ```
 
-För att underlätta för att ange en av dina registrerade datalager som standard-databasen för din arbetsyta:
+För enkelhetens skull [ `set_default_datastore()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#set-default-datastore-name-) anger standard-databasen för din arbetsyta till oavsett vilket datalager som du väljer:
 
 ```Python
 ws.set_default_datastore('your datastore name')
@@ -121,18 +121,31 @@ ds.download(target_path='your target path',
 `target_path` är platsen för den lokala katalogen för nedladdning av data till. Om du vill ange en sökväg till mappen i filresursen (eller blob-behållare) för att hämta, ange sökvägen till `prefix`. Om `prefix` är `None`, ska ladda ned hela innehållet i filresursen (eller blob-behållare).
 
 ## <a name="access-datastores-for-training"></a>Åtkomst till datalager för träning
-Du kan komma åt ett datalager under ett utbildnings kör (till exempel för utbildning eller validering data) på en fjärransluten beräkningsmål via Python SDK.
+Du kan komma åt ett datalager under ett utbildnings kör (till exempel för utbildning eller validering data) på en fjärransluten beräkningsmål via Python SDK med hjälp av den [ `DataReference` ](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py) klass.
 
 Det finns två sätt att tillgängliggöra dina datalager i den fjärranslutna beräkningen som stöds:
 * **Montera**  
-    * `ds.as_mount()`, att ange det här läget montera databasen hämtar monterad åt dig i den fjärranslutna beräkningen. 
+
+    * [`as_mount()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-mount--), att ange det här läget montera databasen hämtar monterad åt dig i den fjärranslutna beräkningen.
+
+    ```Python
+    import azureml.data
+    from azureml.data import DataReference
+
+    ds.as_mount()
+    ```
 
 * **Ladda ned/laddar upp**  
-    * `ds.as_download(path_on_compute='your path on compute')` hämtar data från ditt datalager till fjärranslutna beräkningarna till den plats som anges av `path_on_compute`.
+    * [`as_download()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-download-path-on-compute-none--overwrite-false-), hämtar data från den plats som anges av `path_on_compute` på din datalagret till den fjärranslutna databearbetning.
 
-    * `ds.as_upload(path_on_compute='yourfilename'` Överför data till roten för ditt datalager från den plats som anges av `path_on_compute`
-    
-Om du vill referera till en viss mapp eller fil i ditt datalager, använder du datalagringen **`path()`** funktion.
+    * [`as_upload()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-upload-path-on-compute-none--overwrite-false-), överför data till roten för ditt datalager från den plats som anges av `path_on_compute`
+
+    ```Python
+    ds.as_download(path_on_compute='your path on compute')
+    ds.as_upload(path_on_compute='yourfilename')
+    ```   
+
+Om du vill referera till en viss mapp eller fil i ditt datalager, använder du datalagringen [ `path()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#path-path-none--data-reference-name-none-) funktion.
 
 ```Python
 #download the contents of the `./bar` directory from the datastore 
@@ -140,7 +153,7 @@ ds.path('./bar').as_download()
 ```
 Alla `ds` eller `ds.path` objekt som motsvarar en Miljövariabelns namn i formatet `"$AZUREML_DATAREFERENCE_XXXX"` vars värde representerar montering/hämtningssökvägen i den fjärranslutna beräkningen. Datastore-sökväg i den fjärranslutna beräkningen kanske inte är samma som sökväg för körningen för skriptet.
 
-Om du vill få åtkomst till ditt datalager vid träning, skickar du det till dina utbildningsskript som ett argument på kommandoraden via `script_params` från den [kostnadsuppskattning](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py) klass:
+Om du vill få åtkomst till ditt datalager vid träning, skickar du det till dina utbildningsskript som ett argument på kommandoraden via `script_params` från den [ `Estimator` ](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py) klass:
 
 ```Python
 from azureml.train.estimator import Estimator
@@ -165,13 +178,13 @@ est = Estimator(source_directory='your code directory',
                 inputs=[ds1.as_download(), ds2.path('./foo').as_download(), ds3.as_upload(path_on_compute='./bar.pkl')])
 ```
 
-Koden ovan kommer att:
+I ovanstående kodexempel:
 
-* Hämta allt innehåll i datalagret `ds1` till fjärranslutna beräkningarna innan dina utbildningsskript `train.py` körs
+* Laddar ned allt innehåll i datalagret `ds1` till fjärranslutna beräkningarna innan dina utbildningsskript `train.py` körs
 
-* ladda ned mappen med `'./foo'` i datalagret `ds2` till fjärranslutna beräkningarna innan `train.py` körs
+* Hämtar mappen `'./foo'` i datalagret `ds2` till fjärranslutna beräkningarna innan `train.py` körs
 
-* ladda upp filen `'./bar.pkl'` från fjärranslutna beräkningarna som är upp till databasen `d3` när skriptet har körts
+* Överför filen `'./bar.pkl'` från fjärranslutna beräkningarna som är upp till databasen `d3` när skriptet har körts
 
 ## <a name="next-steps"></a>Nästa steg
 

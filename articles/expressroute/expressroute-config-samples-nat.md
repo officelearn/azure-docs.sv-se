@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 12/06/2018
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 9764a03b0f3a3f70e59097359d5a714da821d3b1
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: ccee0f0c01119ebbfb5ba9c5980ee006a555a399
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53105996"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56872088"
 ---
 # <a name="router-configuration-samples-to-set-up-and-manage-nat"></a>Routerkonfigurationer att konfigurera och hantera NAT
 
@@ -214,7 +214,7 @@ NAT-kommandon:
        }
 
 ### <a name="5-configure-bgp-to-advertise-selective-prefixes-in-each-direction"></a>5. Konfigurera BGP för att annonsera selektiv prefix i varje riktning
-Referera till exempel i [routning Konfigurationsexempel ](expressroute-config-samples-routing.md) sidan.
+Referera till exempel i [routning Konfigurationsexempel](expressroute-config-samples-routing.md) sidan.
 
 ### <a name="6-create-policies"></a>6. Skapa principer
     routing-options {

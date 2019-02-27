@@ -8,12 +8,12 @@ ms.assetid: 03332872-8d84-44a0-8a78-04fd30e14b18
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: dd3cb108844cd009d74de42630511073021d94b1
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 5513948a6611e93833c7e70fa4e5667b3901a9f3
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238496"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56880231"
 ---
 # <a name="get-started-with-azure-data-catalog"></a>Kom igång med Azure Data Catalog
 Azure Data Catalog är en helt hanterad molntjänst som fungerar som ett registrerings- och identifieringssystem för datatillgångar på ett företag. En detaljerad översikt finns i [Vad är Azure Data Catalog?](data-catalog-what-is-data-catalog.md)
@@ -82,7 +82,7 @@ Du kan bara etablera en datakatalog per organisation (Azure Active Directory-dom
     ![Azure Data Catalog – visa katalog i lista](media/data-catalog-get-started/data-catalog-azure-portal-show-catalog.png)
 3. Klicka på den katalog som du skapade. Bladet **Datakatalog** visas på portalen.
    
-   ![Azure Data Catalog – blad på portalen ](media/data-catalog-get-started/data-catalog-blade-azure-portal.png)
+   ![Azure Data Catalog – blad på portalen](media/data-catalog-get-started/data-catalog-blade-azure-portal.png)
 4. Du kan visa egenskaperna för datakatalogen och uppdatera dem. Klicka till exempel **Prisnivå** och ändra versionen.
    
     ![Azure Data Catalog – prisnivå](media/data-catalog-get-started/data-catalog-change-pricing-tier.png)
@@ -144,7 +144,7 @@ I den här övningen använder du registreringsverktyget för att registrera dat
       ![Azure Data Catalog – registrerade objekt](media/data-catalog-get-started/data-catalog-registered-objects.png)
    9. Klicka på **Visa portal** om du vill visa registrerade datakällobjekt. Kontrollera att du ser alla fyra tabeller och databasen i rutnätsvyn på Azure Data Catalog-portalen.
       
-      ![Objekt på Azure Data Catalog-portalen ](media/data-catalog-get-started/data-catalog-view-portal.png)
+      ![Objekt på Azure Data Catalog-portalen](media/data-catalog-get-started/data-catalog-view-portal.png)
 
 I den här övningen registrerade du objekt från exempeldatabasen för Adventure Works så att de enkelt kan identifieras av användare i organisationen. I nästa övning kommer du att lära dig att identifiera registrerade datatillgångar.
 

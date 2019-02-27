@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/06/2018
 ms.reviewer: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 2224c798d0854aab2d3ec7fc2c03b51de58dbfc0
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: e21058d47f554ca4a057ab90433895800fb17dd9
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56244444"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56886731"
 ---
 # <a name="change-feed-in-azure-cosmos-db---overview"></a>Ändringsflödet i Azure Cosmos DB - översikt
 
@@ -118,7 +118,7 @@ Du kan arbeta med ändringsflödet med hjälp av följande alternativ:
 
 * Ändringar är tillgängliga samtidigt för alla logisk partitionsnycklarna för en Azure Cosmos-behållare. Den här funktionen kan ändringar från stora behållare som ska bearbetas parallellt av flera användare.
 
-* Program kan begära flera ändringar feeds samtidigt på samma behållare. ChangeFeedOptions.StartTime kan användas för att ge en första startpunkt. Till exempel vill hitta fortsättningstoken som motsvarar en viss clock-tid. ContinuationToken, vinner om anges över värdena StartTime och StartFromBeginning. Precisionen för ChangeFeedOptions.StartTime är ~ 5 sekunder. 
+* Program kan begära flera ändringen flöden på samma behållare samtidigt. ChangeFeedOptions.StartTime kan användas för att ge en första startpunkt. Till exempel vill hitta fortsättningstoken som motsvarar en viss clock-tid. ContinuationToken, vinner om anges över värdena StartTime och StartFromBeginning. Precisionen för ChangeFeedOptions.StartTime är ~ 5 sekunder. 
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 12/11/2018
 ms.author: raynew
-ms.openlocfilehash: 8a660de0502a6ab215d3a23615f6a53813f1695e
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 4b6c4af37211ede2cb2153afdd071c219178f2ba
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56649211"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56882849"
 ---
 # <a name="back-up-vmware-vms-with-azure-backup-server"></a>Säkerhetskopiera virtuella VMware-datorer med Azure Backup Server
 
@@ -72,7 +72,7 @@ Konfigurera en säker kanal enligt följande:
 
 5. I den **certifikat** mapp, högerklickar du på filen med rotcertifikatet > **Byt namn på**.
 
-    ![Byt namn på rotcertifikat ](./media/backup-azure-backup-server-vmware/rename-cert.png)
+    ![Byt namn på rotcertifikat](./media/backup-azure-backup-server-vmware/rename-cert.png)
 
 6. Ändra det rotcertifikatet tillägget till .crt och bekräfta. Filikonen ändras till ett som representerar ett rotcertifikat.
 
@@ -124,7 +124,7 @@ Azure Backup Server behöver ett användarkonto med behörighet att komma åt v 
 1. Logga in på vCenter-Server (eller ESXi-värden om du inte använder vCenter-servern).
 2. I den **Navigator** panelen, klickar du på **Administration**.
 
-    ![Administration ](./media/backup-azure-backup-server-vmware/vmware-navigator-panel.png)
+    ![Administration](./media/backup-azure-backup-server-vmware/vmware-navigator-panel.png)
 
 3. I **Administration** > **roller**, klicka på ikonen Lägg till roll (den symbolen +).
 

@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/20/2019
+ms.date: 02/27/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 02/09/2019
-ms.openlocfilehash: 2acc26fc473d0e8dcb93b1439de316fbef67ae98
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: 77b3d8bd1d16e90e9929c41f0f28940694dc7906
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56416521"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889842"
 ---
 # <a name="azure-stack-1901-update"></a>Uppdatering av Azure Stack 1901
 
@@ -34,7 +34,14 @@ Den här artikeln beskriver innehållet i 1901 uppdateringspaketet. Uppdateringe
 
 ## <a name="build-reference"></a>Skapa referens
 
-Azure Stack 1901 update build-nummer är **1.1901.0.95**.
+Azure Stack 1901 update build-nummer är **1.1901.0.95** eller **1.1901.0.99** efter den 26 februari 2019. Se följande kommentar:
+
+> [!IMPORTANT]  
+> Microsoft har upptäckt ett problem som kan påverka kunder uppdaterar från 1811 (1.1811.0.101) till 1901 och har publicerat ett uppdaterade 1901-paket för att åtgärda problemet: skapa 1.1901.0.99, uppdateras från 1.1901.0.95. Kunder som redan har uppdaterats till 1.1901.0.95 behöver inte vidta några ytterligare åtgärder.
+>
+> Anslutna kunder som finns på 1811 kommer automatiskt att se det nya 1901 (1.1901.0.99)-paketet i administratörsportalen och ska installera den när du är klar. Frånkopplade kunder kan hämta och importera det nya 1901 paketet med hjälp av samma process [som beskrivs här](azure-stack-apply-updates.md).
+>
+> Kunder med alla versioner av 1901 påverkas inte när du installerar nästa paket för full- eller snabbkorrigering.
 
 ## <a name="hotfixes"></a>Snabbkorrigeringar
 
@@ -84,9 +91,9 @@ Den här uppdateringen innehåller följande nya funktioner och förbättringar 
    * **AzureRm.Insights**  
          Insamling av AzureRm-modulen innehåller nu stöd för redan publicerade versionen 5.1.5 den **api-versionen 2018-01-01** för mått, definitioner av mätvärden för resurstyper.
 
-- **AzureStack 1.7.0** detta en viktig ändring versionen. Information om de senaste ändringarna i https://aka.ms/azspshmigration170
+- **AzureStack 1.7.0** detta en viktig ändring versionen. Mer information om de senaste ändringarna finns i https://aka.ms/azspshmigration170
    * **Azs.Backup.Admin modul**  
-         Icke-bakåtkompatibel ändring: Backup ändras till certifikatsbaserad Krypteringsläge. Stöd för symmetriska nycklar är inaktuellt.  
+         Icke-bakåtkompatibel ändring: Backup ändras till certifikatsbaserat krypteringsläge. Stöd för symmetriska nycklar fasas ut.  
    * **Azs.Fabric.Admin modul**  
          `Get-AzsInfrastructureVolume` är inaktuell. Använd den nya cmdleten `Get-AzsVolume`.  
          `Get-AzsStorageSystem` är inaktuell.  Använd den nya cmdleten `Get-AzsStorageSubSystem`.  
@@ -170,33 +177,6 @@ Referens för de uppdaterade modulerna finns [Azure Stack-modulreferens](https:/
 
    Update-AzsHomeDirectoryTenant -AdminResourceManagerEndpoint $adminResourceManagerEndpoint `
      -DirectoryTenantName $homeDirectoryTenantName -Verbose
-   ```
-
-- Det finns för närvarande tillägg i Azure Stack som att distribuerar utan att explicit behöva hämta tillägg via marketplace-syndikering. Följande versioner av dessa tillägg tas bort. Azure Stack-operatörer måste uttryckligen nu syndikera dessa tillägg från Azure Stack marketplace:
-
-   | Type                     | Version        |
-   |--------------------------|----------------|
-   | DSC                      | 2.19.0.0       |
-   | IaaSAntimalware          | 1.4.0.0        |
-   | BGInfo                   | 2.1            |
-   | VMAccessAgent            | 2.0            |
-   | CustomScriptExtension    | 1.8            |
-   | MicrosoftMonitoringAgent | 1.0.10900.0    |
-   | IaaSDiagnostics          | 1.10.1.1       |
-   | VMAccessForLinux         | 1.4.0.0        |
-   | CustomScriptForLinux     | 1.5.2.0        |
-   | DockerExtension          | 1.1.1606092330 |
-   | JsonADDomainExtension    | 1.3            |
-   | OSPatchingForLinux       | 2.3.0.1        |
-   | WebRole                  | 4.3000.14.0    |
-
-   Rekommenderas när du distribuerar tillägg kan ange Azure Stack-användare `autoUpgradeMinorVersion` till **SANT**. Exempel:
-
-   ```json
-   "type": "Extension",
-           "publisher": "ExtensionPublisher",
-           "typeHandlerVersion": "1.2",
-           "autoUpgradeMinorVersion": "true"
    ```
 
 - Det finns en ny beräkningen för korrekt planera kapacitet för Azure Stack. Med 1901-uppdateringen finns nu en gräns för det totala antalet virtuella datorer som kan skapas.  Den här gränsen är avsedd att vara tillfällig att undvika lösning instabilitet. Källan till problemet stabilitet på högre antal virtuella datorer behandlas men en specifik tidslinje för reparation ännu inte har fastställts. Med 1901-uppdateringen finns nu en per server gräns på 60 virtuella datorer med en komplett lösning högst 700.  Till exempel vore ett 8 Azure Stack VM gränsen 480 (8 * 60).  För en server med 12 till 16 Azure Stack-lösningen är gränsen 700. Den här gränsen har skapats och all beräkningskraft kapacitetsöverväganden Tänk till exempel återhämtning reservera och CPU virtuella till fysiska förhållande som en operatör vill behålla på stämpeln. Mer information finns i den nya versionen av capacity planner.  

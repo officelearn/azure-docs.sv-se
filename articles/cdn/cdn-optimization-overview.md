@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2018
 ms.author: magattus
-ms.openlocfilehash: 526f3522bff05618189ad4f8205fbb61afc47fdc
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 5be1835de2aa1631c4ec2115dd34ea85f0267403
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54320329"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56870898"
 ---
 # <a name="optimize-azure-cdn-for-the-type-of-content-delivery"></a>Optimera Azure CDN för typ av leverans av innehåll
 
@@ -66,7 +66,7 @@ När du skapar en CDN-slutpunkt, Välj en typ av lagringsoptimering som bäst pa
 
 1. I en **Azure CDN Standard från Akamai** profil, väljer du en slutpunkt.
 
-    ![Val av slutpunkt ](./media/cdn-optimization-overview/01_Akamai.png)
+    ![Val av slutpunkt](./media/cdn-optimization-overview/01_Akamai.png)
 
 2. Välj under inställningar **optimering**. Välj en typ från den **optimerade för** listrutan.
 

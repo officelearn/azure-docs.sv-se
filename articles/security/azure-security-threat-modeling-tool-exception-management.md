@@ -14,27 +14,27 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: ce748be7f11d440e656e4af5cdd3cee3bbc9e313
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 68bffaeef0451dae3a3b9707049dd2e44ad311fd
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43302157"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56865883"
 ---
-# <a name="security-frame-exception-management--mitigations"></a>Säkerhet ram: Hantering av undantag | Åtgärder 
+# <a name="security-frame-exception-management--mitigations"></a>Security ram: Hantering av undantag | Åtgärder 
 | Produkt/tjänst | Artikel |
 | --------------- | ------- |
 | **WCF** | <ul><li>[WCF - Ange inte serviceDebug noden i konfigurationsfilen](#servicedebug)</li><li>[WCF - Ange inte serviceMetadata noden i konfigurationsfilen](#servicemetadata)</li></ul> |
-| **Webb-API** | <ul><li>[Se till att rätt undantagshantering görs i ASP.NET Web API ](#exception)</li></ul> |
-| **Webbprogram** | <ul><li>[Visa inte information om säkerhet i felmeddelanden ](#messages)</li><li>[Implementera standard sidan för felhantering ](#default)</li><li>[Ange metod för distribution till fullversion i IIS](#deployment)</li><li>[Undantag bör inte fungera på ett säkert sätt](#fail)</li></ul> |
+| **Webb-API** | <ul><li>[Se till att rätt undantagshantering görs i ASP.NET Web API](#exception)</li></ul> |
+| **Webbprogram** | <ul><li>[Visa inte information om säkerhet i felmeddelanden](#messages)</li><li>[Implementera standard sidan för felhantering](#default)</li><li>[Ange metod för distribution till fullversion i IIS](#deployment)</li><li>[Undantag bör inte fungera på ett säkert sätt](#fail)</li></ul> |
 
 ## <a id="servicedebug"></a>WCF - Ange inte serviceDebug noden i konfigurationsfilen
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | WCF | 
 | **SDL fas**               | Utveckla |  
-| **Tillämpliga tekniker** | Generisk NET Framework 3 |
+| **Tillämpliga tekniker** | Generic, NET Framework 3 |
 | **Attribut**              | Gäller inte  |
 | **Referenser**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [spikning Nordirland](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_debug_information) |
 | **Steg** | Tjänster för Windows Communication Framework (WCF) kan konfigureras för att exponera felsökningsinformation. Felsöka information ska inte användas i produktionsmiljöer. Den `<serviceDebug>` tagg definierar om funktionen debug information är aktiverat för en WCF-tjänst. Om attributet includeExceptionDetailInFaults har angetts till SANT, undantagsinformation från programmet kommer att returneras till klienter. Angripare kan utnyttja ytterligare information som de får från felsökning utdata om du vill montera riktade attacker på ramverket, databas eller andra resurser som används av programmet. |
@@ -54,18 +54,18 @@ Inaktivera felsökningsinformation i tjänsten. Detta kan åstadkommas genom att
 
 ## <a id="servicemetadata"></a>WCF - Ange inte serviceMetadata noden i konfigurationsfilen
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | WCF | 
 | **SDL fas**               | Utveckla |  
 | **Tillämpliga tekniker** | Generisk |
-| **Attribut**              | Generisk NET Framework 3 |
+| **Attribut**              | Generic, NET Framework 3 |
 | **Referenser**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [spikning Nordirland](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_service_enumeration) |
 | **Steg** | Offentligt exponera information om en tjänst kan angriparna få värdefulla insikter i hur de kan utnyttja tjänsten. Den `<serviceMetadata>` -taggen låter publiceringsfunktionen metadata. Tjänstens metadata kan innehålla känslig information som inte ska vara tillgänglig för allmänheten. Tillåt endast betrodda användare att komma åt metadata och se till att onödig information inte exponeras minst. Dessutom finns helt inaktivera möjligheten att publicera metadata. En säker WCF-konfigurationen innehåller inte den `<serviceMetadata>` tagg. |
 
 ## <a id="exception"></a>Se till att rätt undantagshantering görs i ASP.NET Web API
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webb-API | 
 | **SDL fas**               | Utveckla |  
@@ -134,7 +134,7 @@ namespace ProductStore.Filters
 Det finns flera sätt att registrera ett webb-API-undantagsfilter:
 - Efter åtgärd
 - Av controller
-- globalt
+- Globally
 
 ### <a name="example"></a>Exempel
 Om du vill använda filtret på en specifik åtgärd, att lägga till filtret som ett attribut för åtgärden: 
@@ -183,7 +183,7 @@ Kontrollera länkarna i referensavsnittet för ytterligare information om enast�
 
 ## <a id="messages"></a>Visa inte information om säkerhet i felmeddelanden
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
 | **SDL fas**               | Utveckla |  
@@ -194,18 +194,18 @@ Kontrollera länkarna i referensavsnittet för ytterligare information om enast�
 
 ## <a id="default"></a>Implementera standard sidan för felhantering
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
 | **SDL fas**               | Utveckla |  
 | **Tillämpliga tekniker** | Generisk |
 | **Attribut**              | Gäller inte  |
 | **Referenser**              | [ASP.NET-fel sidor dialogrutan Redigera inställningar](https://technet.microsoft.com/library/dd569096(WS.10).aspx) |
-| **Steg** | <p>När ett ASP.NET-program misslyckas och gör ett HTTP/1.x 500 Internt serverfel, eller en funktionskonfiguration (till exempel begäransfiltrering) som förhindrar att en sida visas, genereras ett felmeddelande. Administratörer kan välja huruvida programmet ska visa ett meddelande till klienten, detaljerat felmeddelande till klienten eller detaljerat felmeddelande till localhost endast. Den <customErrors> tagg i web.config har tre lägen:</p><ul><li>**På:** anger att anpassade fel är aktiverat. Om inget defaultRedirect attribut anges ser användarna ett allmänt fel. Anpassade fel visas för fjärranslutna klienter och den lokala värden</li><li>**Av:** anger att anpassade fel är inaktiverat. Detaljerade ASP.NET-fel visas för fjärranslutna klienter och den lokala värden</li><li>**RemoteOnly:** anger att anpassade fel visas endast för fjärranslutna klienter och att ASP.NET-fel visas för den lokala värden. Detta är standardvärdet</li></ul><p>Öppna den `web.config` för programmet/webbplatsen och kontrollera att taggen har antingen `<customErrors mode="RemoteOnly" />` eller `<customErrors mode="On" />` definierats.</p>|
+| **Steg** | <p>När ett ASP.NET-program misslyckas och gör ett HTTP/1.x 500 Internt serverfel, eller en funktionskonfiguration (till exempel begäransfiltrering) som förhindrar att en sida visas, genereras ett felmeddelande. Administratörer kan välja huruvida programmet ska visa ett meddelande till klienten, detaljerat felmeddelande till klienten eller detaljerat felmeddelande till localhost endast. Den <customErrors> tagg i web.config har tre lägen:</p><ul><li>**På:** Anger att anpassade fel är aktiverade. Om inget defaultRedirect attribut anges ser användarna ett allmänt fel. Anpassade fel visas för fjärranslutna klienter och den lokala värden</li><li>**Av:** Anger att anpassade fel är inaktiverat. Detaljerade ASP.NET-fel visas för fjärranslutna klienter och den lokala värden</li><li>**RemoteOnly:** Anger att anpassade fel visas endast för fjärranslutna klienter och att ASP.NET-fel visas för den lokala värden. Detta är standardvärdet</li></ul><p>Öppna den `web.config` för programmet/webbplatsen och kontrollera att taggen har antingen `<customErrors mode="RemoteOnly" />` eller `<customErrors mode="On" />` definierats.</p>|
 
 ## <a id="deployment"></a>Ange metod för distribution till fullversion i IIS
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
 | **SDL fas**               | Distribution |  
@@ -216,7 +216,7 @@ Kontrollera länkarna i referensavsnittet för ytterligare information om enast�
 
 ## <a id="fail"></a>Undantag bör inte fungera på ett säkert sätt
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
 | **SDL fas**               | Utveckla |  

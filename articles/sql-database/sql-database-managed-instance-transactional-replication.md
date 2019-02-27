@@ -12,12 +12,12 @@ ms.author: mathoma
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: d0f9ea15b692d9aba2fde217805ea5e0ecfb4dfd
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 3ad33968107aec551ea99e503797382c7fcea0c5
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55993817"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56877098"
 ---
 # <a name="transactional-replication-with-single-pooled-and-instance-databases-in-azure-sql-database"></a>Transaktionsreplikering med enda, pooler och databaser i Azure SQL Database-instans
 
@@ -90,7 +90,7 @@ I allmänhet måste utgivaren och distributören vara antingen i molnet eller lo
 
 ### <a name="publisher-with-local-distributor-on-a-managed-instance"></a>Utgivaren med lokala distributören på en hanterad instans
 
-![Enskild instans som utgivaren och distributören ](media/replication-with-sql-database-managed-instance/01-single-instance-asdbmi-pubdist.png)
+![Enskild instans som utgivaren och distributören](media/replication-with-sql-database-managed-instance/01-single-instance-asdbmi-pubdist.png)
 
 Utgivaren och distributören är konfigurerade i en enda hanterad instans och fördela ändringar till andra hanterad instans, enkel databas, databas eller SQL Server lokalt. I den här konfigurationen utgivare/distributören hanterad instans kan inte konfigureras med [Geo-replikering och automatisk redundansgrupper](sql-database-auto-failover-group.md).
 

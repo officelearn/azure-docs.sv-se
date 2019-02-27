@@ -7,20 +7,22 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 4ba91bec752b16be0c172c65ff58241c852a61b9
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: c6796d91835669ba174a866eb3c014e71549c0f2
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55811655"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56877970"
 ---
 # <a name="diagnostic-logging-in-azure-cosmos-db"></a>Diagnostisk loggning i Azure Cosmos DB 
 
-När du börjar använda en eller flera Azure Cosmos DB-databaser, kanske du vill övervaka hur och när dina databaser används. Den här artikeln innehåller en översikt över de loggar som är tillgängliga på Azure-plattformen. Du lär dig hur du aktiverar diagnostikloggning för att skicka loggar till [Azure Storage](https://azure.microsoft.com/services/storage/), så strömma loggar till [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), och hur du exporterar loggar till [Azure Log Analytics ](https://azure.microsoft.com/services/log-analytics/).
+När du börjar använda en eller flera Azure Cosmos DB-databaser, kanske du vill övervaka hur och när dina databaser används. Den här artikeln innehåller en översikt över de loggar som är tillgängliga på Azure-plattformen. Du lär dig hur du aktiverar diagnostikloggning för att skicka loggar till [Azure Storage](https://azure.microsoft.com/services/storage/), så strömma loggar till [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), och hur du exporterar loggar till [Azure Monitor loggar](https://azure.microsoft.com/services/log-analytics/).
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="logs-available-in-azure"></a>Loggar som är tillgängliga i Azure
 
-Innan vi pratar om hur du övervakar dina Azure Cosmos DB-konto, ska vi tydliggöra några saker om loggning och övervakning. Det finns olika typer av loggar på Azure-plattformen. Det finns [Azure-aktivitetsloggar](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs), [Azure diagnostikloggar](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs), [Azure-mått](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics), händelser, övervakning av pulsslag, åtgärdsloggar och så vidare. Det finns en mängd olika loggar. Du kan se den fullständiga listan med loggar i [Azure Log Analytics](https://azure.microsoft.com/services/log-analytics/) i Azure-portalen. 
+Innan vi pratar om hur du övervakar dina Azure Cosmos DB-konto, ska vi tydliggöra några saker om loggning och övervakning. Det finns olika typer av loggar på Azure-plattformen. Det finns [Azure-aktivitetsloggar](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs), [Azure diagnostikloggar](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs), [Azure-mått](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics), händelser, övervakning av pulsslag, åtgärdsloggar och så vidare. Det finns en mängd olika loggar. Du kan se den fullständiga listan med loggar i [Azure Monitor loggar](https://azure.microsoft.com/services/log-analytics/) i Azure-portalen. 
 
 Följande bild visar de olika typerna av Azure-loggar som är tillgängliga:
 
@@ -51,7 +53,7 @@ Aktivitetsloggar (kontrollplanåtgärder) kan vara bredare sin natur och kan inn
 
 Azure diagnostikloggar genereras av en resurs och tillhandahåller omfattande, frekventa data om användningen av den här resursen. Innehållet i de här loggarna varierar efter resurstyp. Resursnivå diagnostikloggar skiljer sig också från-nivån för gästoperativsystemet diagnostikloggar. Gäst-OS diagnostiska loggar samlas in av en agent som körs i en virtuell dator eller andra stöds resurstyp. Resursnivå diagnostikloggar kräver ingen agent och avbilda resurs-specifika data från själva Azure-plattformen. Diagnostikloggar för gäst-OS-nivå samla in data från operativsystemet och programmen som körs på en virtuell dator.
 
-![Diagnostisk loggning till lagring, Händelsehubbar och Log Analytics](./media/logging/azure-cosmos-db-logging-overview.png)
+![Diagnostisk loggning till lagring, Event Hubs eller Azure Monitor-loggar](./media/logging/azure-cosmos-db-logging-overview.png)
 
 ### <a name="what-is-logged-by-azure-diagnostic-logs"></a>Vad loggas av Azure-diagnostikloggar?
 
@@ -79,7 +81,7 @@ Om du vill aktivera Diagnostisk loggning i Azure-portalen, gör du följande:
 
     * **Arkivera till ett lagringskonto**: Om du vill använda det här alternativet om behöver du ett befintligt lagringskonto för att ansluta till. Om du vill skapa ett nytt lagringskonto i portal, [skapa ett lagringskonto](../storage/common/storage-create-storage-account.md) och följ anvisningarna för att skapa en Azure Resource Manager, Allmänt konto. Gå sedan tillbaka till den här sidan i portalen för att välja ett lagringskonto. Det kan ta några minuter innan nyligen skapade lagringskonton ska visas i den nedrullningsbara menyn.
     * **Stream till en händelsehubb**: Om du vill använda det här alternativet behöver du en befintlig Event Hubs-namnområde och event hub att ansluta till. Om du vill skapa ett namnområde för Event Hubs [skapa ett Event Hubs-namnområde och en event hub med hjälp av Azure portal](../event-hubs/event-hubs-create.md). Återvänd sedan till den här sidan i portalen för att välja Event Hubs-namnområde och principen.
-    * **Skicka till Log Analytics**: Om du vill använda det här alternativet måste använda en befintlig arbetsyta eller skapa en ny Log Analytics-arbetsyta genom att följa stegen för att [skapa en ny arbetsyta](../azure-monitor/learn/quick-collect-azurevm.md#create-a-workspace) i portalen. Mer information om hur du visar dina loggar i Log Analytics finns i visa loggar i Log Analytics.
+    * **Skicka till Log Analytics**: Om du vill använda det här alternativet måste använda en befintlig arbetsyta eller skapa en ny Log Analytics-arbetsyta genom att följa stegen för att [skapa en ny arbetsyta](../azure-monitor/learn/quick-collect-azurevm.md#create-a-workspace) i portalen. Mer information om hur du visar dina loggar i Azure Monitor-loggar finns i vyn loggar i Azure Monitor-loggar.
     * **Logga DataPlaneRequests**: Välj det här alternativet för att logga backend-begäranden från Azure Cosmos DB underliggande distribuerad plattform för SQL, diagram, MongoDB, Cassandra och tabell-API-konton. Om du arkivering till ett lagringskonto, kan du välja kvarhållningsperioden för diagnostiska loggar. Loggarna är automatiskt bort efter kvarhållningsperioden har gått ut.
     * **Logga MongoRequests**: Välj det här alternativet för att logga användarinitierad begäranden från klientdelen för Azure Cosmos DB för att betjäna Cosmos-konton som konfigurerats med Azure Cosmos DB API för MongoDB. Om du arkivering till ett lagringskonto, kan du välja kvarhållningsperioden för diagnostiska loggar. Loggarna är automatiskt bort efter kvarhållningsperioden har gått ut.
     * **Metrisk begäranden**: Välj det här alternativet för att lagra utförliga data i [Azure-mått](../azure-monitor/platform/metrics-supported.md). Om du arkivering till ett lagringskonto, kan du välja kvarhållningsperioden för diagnostiska loggar. Loggarna är automatiskt bort efter kvarhållningsperioden har gått ut.
@@ -349,22 +351,22 @@ Diagnostikloggar görs tillgängliga i ditt konto för två timmar från den tid
 
 
 <a id="#view-in-loganalytics"></a>
-## <a name="view-logs-in-log-analytics"></a>Visa loggar i Log Analytics
+## <a name="view-logs-in-azure-monitor-logs"></a>Visa loggar i Azure Monitor-loggar
 
-Om du har valt den **skicka till Log Analytics** när du har aktiverat Diagnostisk loggning diagnostiska data från din behållare vidarebefordras till logganalys inom två timmar. När du tittar på Log Analytics omedelbart efter att du aktiverar loggning, visas inte några data. Bara vänta två timmar och försök igen. 
+Om du har valt den **skicka till Log Analytics** när du har aktiverat Diagnostisk loggning diagnostiska data från din behållare vidarebefordras till Azure Monitor-loggar inom två timmar. När du tittar på Azure Monitor-loggar omedelbart efter att du aktiverar loggning, visas inte några data. Bara vänta två timmar och försök igen. 
 
-Innan du visa loggarna och se om Log Analytics-arbetsytan har uppgraderats för att använda det nya Log Analytics-frågespråket. Du kan kontrollera genom att öppna den [Azure-portalen](https://portal.azure.com)väljer **Log Analytics** längst till vänster, välj sedan namnet på arbetsytan som du ser i nästa bild. Den **Log Analytics-arbetsyta** visas:
+Innan du visa loggarna och se om Log Analytics-arbetsytan har uppgraderats för att använda det nya Kusto-frågespråket. Du kan kontrollera genom att öppna den [Azure-portalen](https://portal.azure.com)väljer **Log Analytics-arbetsytor** längst till vänster, välj sedan namnet på arbetsytan som du ser i nästa bild. Den **Log Analytics-arbetsyta** visas:
 
-![Log Analytics i Azure portal](./media/logging/azure-portal.png)
+![Azure Monitor-loggar i Azure portal](./media/logging/azure-portal.png)
 
 >[!NOTE]
 >OMS-arbetsytor kallas nu för Log Analytics-arbetsytor.  
 
 Om du ser följande meddelande på den **Log Analytics-arbetsyta** sidan din arbetsyta inte har uppgraderats för att använda det nya språket. Läs mer om hur du uppgraderar till det nya frågespråket [uppgradera Azure Log Analytics-arbetsytan till ny loggsökning](../log-analytics/log-analytics-log-search-upgrade.md). 
 
-![Meddelande för uppgradering av log Analytics](./media/logging/upgrade-notification.png)
+![Azure Monitor-loggar uppgradera meddelande](./media/logging/upgrade-notification.png)
 
-Om du vill visa dina diagnostiska data i Log Analytics, öppna den **Loggsökning** sidan menyn till vänster eller **Management** området på sidan som visas i följande bild:
+Om du vill visa dina diagnostiska data i Azure Monitor-loggar, öppna den **Loggsökning** sidan menyn till vänster eller **Management** området på sidan som visas i följande bild:
 
 ![Loggalternativ för sökning i Azure portal](./media/logging/log-analytics-open-log-search.png)
 
@@ -429,15 +431,15 @@ Läs om betydelsen av de data som returneras av varje loggsökning i [tolka Azur
     AzureDiagnostics | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" | project TimeGenerated , toint(duration_s)/1000 | render timechart
     ```
 
-Mer information om hur du använder det nya Log Search-språket finns i [förstå loggsökningar i Log Analytics](../log-analytics/log-analytics-log-search-new.md). 
+Mer information om hur du använder det nya Log Search-språket finns i [förstå loggsökningar i Azure Monitor-loggar](../log-analytics/log-analytics-log-search-new.md). 
 
 ## <a id="interpret"></a>Tolka dina loggar
 
-Diagnostiska data som lagras i Azure Storage och Log Analytics använder ett liknande schema. 
+Diagnostiska data som lagras i Azure Storage och Azure Monitor-loggar använder ett liknande schema. 
 
 I följande tabell beskrivs innehållet i varje loggpost.
 
-| Azure Storage-fält eller någon egenskap | Log Analytics-egenskapen | Beskrivning |
+| Azure Storage-fält eller någon egenskap | Azure Monitor loggar egenskapen | Beskrivning |
 | --- | --- | --- |
 | **tid** | **TimeGenerated** | Datum och tid (UTC) när åtgärden utfördes. |
 | **Resurs-ID** | **Resurs** | Azure Cosmos DB-kontot som loggar är aktiverad.|
@@ -464,4 +466,4 @@ I följande tabell beskrivs innehållet i varje loggpost.
    - [Vad är Azure Event Hubs?](../event-hubs/event-hubs-what-is-event-hubs.md)
    - [Kom igång med Event Hubs](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
 - Läs [hämta mått och diagnostikloggar från Azure Storage](../storage/blobs/storage-quickstart-blobs-dotnet.md#download-blobs).
-- Läs [förstå loggsökningar i Log Analytics](../log-analytics/log-analytics-log-search-new.md).
+- Läs [förstå loggsökningar i Azure Monitor-loggar](../log-analytics/log-analytics-log-search-new.md).

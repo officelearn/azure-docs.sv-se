@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 02/13/2019
 ms.author: aahi
-ms.openlocfilehash: b2330d322c6939ba6d9581c125c512fcea9f924b
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 135b684c67776da7d722074abe185b5ed2a860fa
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56242761"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889417"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics-preview"></a>Hur du använder med namnet Entitetsidentifiering i Text Analytics (förhandsversion)
 
@@ -74,7 +74,7 @@ Du måste ha JSON-dokument i följande format: id, text, språk
 
 Språk som stöds för närvarande visas i [listan](../text-analytics-supported-languages.md).
 
-Dokumentstorleken måste vara under 5 000 tecken per dokument och du kan ha upp till 1 000 objekt (ID:n) per samling. Samlingen skickas i begäranstexten. I följande exempel är en illustration av innehåll som du kan skicka till länkramverk entitetsänden.
+Dokumentstorlek måste vara under 5,120 tecken per dokument och du kan ha upp till 1 000 objekt (ID) per samling. Samlingen skickas i begäranstexten. I följande exempel är en illustration av innehåll som du kan skicka till länkramverk entitetsänden.
 
 ```
 {"documents": [{"id": "1",

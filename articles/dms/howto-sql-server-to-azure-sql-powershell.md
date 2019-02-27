@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 01/15/2019
-ms.openlocfilehash: cab1e47d6d0b40fab881d7948381b6294f52546d
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: 3c91772f3b2e38ded4c69038e7bfe7c6a5140686
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54303385"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56864660"
 ---
 # <a name="migrate-sql-server-on-premises-to-azure-sql-database-using-azure-powershell"></a>Migrera SQL Server lokalt till Azure SQL Database med Azure PowerShell
 I den här artikeln får du migrera den **Adventureworks2012** databasen återställs till en lokal instans av SQL Server 2016 eller senare till en Azure SQL Database med hjälp av Microsoft Azure PowerShell. Du kan migrera databaser från en lokal SQL Server-instans till Azure SQL Database med hjälp av den `AzureRM.DataMigration` modul i Microsoft Azure PowerShell.
@@ -37,7 +37,7 @@ Du behöver följande för att slutföra dessa steg:
 - En Azure SQL Database-instans. Du kan skapa en Azure SQL Database-instans genom att följa detaljerat i artikeln [skapa en Azure SQL database i Azure-portalen](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal).
 - [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) v3.3 eller senare.
 - Du har skapat ett virtuellt nätverk med hjälp av Azure Resource Manager-distributionsmodellen, som ger Azure Database Migration Service med plats-till-plats-anslutningen till din lokala källservrar genom att använda antingen [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) eller [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
-- Du har slutfört en bedömning av din lokala-databas och schema-migrering med Data Migration Assistant enligt beskrivningen i artikeln [ utför en migreringsutvärdering för SQL Server](https://docs.microsoft.com/sql/dma/dma-assesssqlonprem)
+- Du har slutfört en bedömning av din lokala-databas och schema-migrering med Data Migration Assistant enligt beskrivningen i artikeln [utför en migreringsutvärdering för SQL Server](https://docs.microsoft.com/sql/dma/dma-assesssqlonprem)
 - Ladda ned och installera modulen AzureRM.DataMigration från PowerShell-galleriet med hjälp av [Install-Module PowerShell-cmdleten](https://docs.microsoft.com/powershell/module/powershellget/Install-Module?view=powershell-5.1); se till att öppna powershell-kommandofönster med Kör som administratör.
 - Se till att de autentiseringsuppgifter som används för att ansluta till SQL Server-instans har den [CONTROL SERVER](https://docs.microsoft.com/sql/t-sql/statements/grant-server-permissions-transact-sql) behörighet.
 - För att säkerställa att de autentiseringsuppgifter som används för att ansluta till målet för Azure SQL DB har-instansen KONTROLLDATABAS-behörighet på Azure SQL Database måldatabaserna.

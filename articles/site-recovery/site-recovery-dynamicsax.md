@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: asgang
-ms.openlocfilehash: c2151be1644cde0e737be7f026bdf63cef0b3686
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: b97bf56c23dfa96acf7cb5af5ac28b4270de117d
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55221971"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56879789"
 ---
 # <a name="set-up-disaster-recovery-for-a-multitier-dynamics-ax-application"></a>Konfigurera haveriberedskap för ett skikt Dynamics AX-program   
 
@@ -92,7 +92,7 @@ Du kan välja den virtuella datorn i de replikerade objekt som du konfigurerar n
 
 * Om du använder en statisk IP-adress, ange IP-adress som du vill att den virtuella datorn i den **mål-IP** textrutan.
 
-    ![Nätverksinställningar ](./media/site-recovery-dynamics-ax/vmpropertiesaos1.png)
+    ![Nätverksinställningar](./media/site-recovery-dynamics-ax/vmpropertiesaos1.png)
 
 
 ### <a name="5-create-a-recovery-plan"></a>5. Skapa en återställningsplan
@@ -105,7 +105,7 @@ Du kan skapa en återställningsplan i Site Recovery för att automatisera redun
 
 3. Välj den **källa** och **Target**. Målet kan vara Azure eller en sekundär plats. Om du väljer Azure måste du ange distributionsmodellen.
 
-    ![Skapa återställningsplan](./media/site-recovery-dynamics-ax/recoveryplancreation1.png)
+    ![Skapa en återställningsplan](./media/site-recovery-dynamics-ax/recoveryplancreation1.png)
 
 4. Välj objektet programservern och klient-VM för återställningsplanen och välj ✓.
 

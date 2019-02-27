@@ -16,15 +16,16 @@ ms.date: 06/13/2018
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
 ms.subservice: disks
-ms.openlocfilehash: 1f545747b883ab70b597b4e598a86b192f89b027
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 453cb838792ff5e80b0dbbe8e90f96792f9c5484
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55892784"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56890138"
 ---
 # <a name="add-a-disk-to-a-linux-vm"></a>Lägg till en disk till en virtuell Linux-dator
 Den här artikeln visar hur du kopplar en permanent disk till den virtuella datorn så att du kan behålla dina data, även om den virtuella datorn är nätverkskonfigurationsinställningar på grund av underhåll eller ändra storlek på.
+
 
 ## <a name="attach-a-new-disk-to-a-vm"></a>Koppla en ny disk till en virtuell dator
 
@@ -197,8 +198,10 @@ UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,nofail 
 
 > [!NOTE]
 > Ta bort en datadisk senare utan att redigera fstab leda till den virtuella datorn inte kan starta. De flesta distributioner måste ange den *nofail* och/eller *nobootwait* fstab alternativ. De här alternativen kan ett system att starta även om disken inte kan montera när datorn startas. Mer information om dessa parametrar finns i dokumentationen för din distribution.
-> 
+>
 > Den *nofail* alternativet ser du till att den virtuella datorn startar även om filsystemet är skadat eller disken finns inte vid start. Utan det här alternativet kan du stöta på beteende enligt beskrivningen i [det går inte att SSH till Linux VM på grund av FSTAB-fel](https://blogs.msdn.microsoft.com/linuxonazure/2016/07/21/cannot-ssh-to-linux-vm-after-adding-data-disk-to-etcfstab-and-rebooting/)
+>
+> Azure VM Seriekonsol kan användas för konsolåtkomst till den virtuella datorn om ändra fstab har medfört ett startfel. Mer information finns i den [Seriekonsolen dokumentation](https://docs.microsoft.com/en-us/azure/virtual-machines/troubleshooting/serial-console-linux).
 
 ### <a name="trimunmap-support-for-linux-in-azure"></a>TRIM/UNMAP stöd för Linux i Azure
 Vissa Linux-kernel stöd för TRIM/UNMAP åtgärder för att ta bort oanvända block på disken. Den här funktionen är främst användbart för standardlagring att meddela Azure som tagits bort sidor som inte längre är giltig och kan bara ta bort och kan spara pengar, om du skapar stora filer och ta bort dem.
@@ -211,14 +214,14 @@ Det finns två sätt att aktivera TRIMNING stöd i din Linux-VM. Som vanligt fin
     UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,discard   1   2
     ```
 * I vissa fall kan den `discard` alternativet kanske prestanda. Du kan också köra den `fstrim` kommandot manuellt från kommandoraden eller lägga till den i din crontab ska köras regelbundet:
-  
+
     **Ubuntu**
-  
+
     ```bash
     sudo apt-get install util-linux
     sudo fstrim /datadrive
     ```
-  
+
     **RHEL/CentOS**
 
     ```bash

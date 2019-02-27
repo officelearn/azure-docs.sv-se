@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ac25473ecce86c2721eda9ede01b6d299c4b727b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 31f10ba0c04ccbd9f52b95c43fea7cc551fe64ee
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56179339"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56888023"
 ---
 # <a name="tutorial-configure-github-for-automatic-user-provisioning"></a>Självstudier: Konfigurera GitHub för automatisk användaretablering
 
@@ -33,11 +33,11 @@ Målet med den här självstudien är att visa dig de steg du måste utföra i G
 Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande objekt:
 
 *   En Azure Active directory-klient
-*   En GitHub-klient med den [företag molnet plan](https://help.github.com/articles/organization-billing-plans/#github-business-cloud) eller bättre har aktiverats 
-*   Ett användarkonto i GitHub med administratörsbehörighet 
+*   En GitHub-organisation som har skapats i [GitHub Enterprise Cloud](https://help.github.com/articles/github-s-products/#github-enterprise) och kräver [GitHub Enterprise-faktureringsplanen](https://help.github.com/articles/github-s-billing-plans/#billing-plans-for-organizations)
+*   Ett användarkonto i GitHub med administratörsbehörighet i organisationen
 
 > [!NOTE]
-> Azure AD etablering integration förlitar sig på den [GitHub SCIM API](https://developer.github.com/v3/scim/), som är tillgänglig för GitHub-team för företag eller bättre.
+> Azure AD etablering integration förlitar sig på den [GitHub SCIM API](https://developer.github.com/v3/scim/), som är tillgänglig för [GitHub Enterprise Cloud](https://help.github.com/articles/github-s-products/#github-enterprise) kunder på de [GitHub Enterprise faktureringsplan](https://help.github.com/articles/github-s-billing-plans/#billing-plans-for-organizations) .
 
 ## <a name="assigning-users-to-github"></a>Tilldela användare till GitHub
 

@@ -9,12 +9,12 @@ ms.date: 11/06/2017
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.subservice: ''
-ms.openlocfilehash: fc963987b45751aab33035a83b2b477129e9a756
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: f592cfdba940b95a9935c6b68f3294233d9fbf15
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55730908"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56888499"
 ---
 # <a name="monitor-your-azure-services-in-grafana"></a>Övervaka dina Azure-tjänster i Grafana
 Du kan nu övervaka Azure-tjänster och program från [Grafana](https://grafana.com/) med hjälp av den [Azure Monitor-plugin-programmet för datakällans](https://grafana.com/plugins/grafana-azure-monitor-datasource). Plugin-programmet samlar in program-prestandadata som samlats in från Azure Monitor, inklusive olika loggar och mått. Du kan sedan visa dessa data på din Grafana-instrumentpanel.
@@ -26,7 +26,8 @@ Använd följande steg för att ställa in en Grafana-server och skapa instrumen
 ## <a name="set-up-a-grafana-server"></a>Konfigurera en server med Grafana
 
 ### <a name="set-up-grafana-locally"></a>Konfigurera Grafana lokalt
-Du ställer in en lokal Grafana server [ladda ned och installera Grafana i din lokala miljö](https://grafana.com/grafana/download). Om du vill använda plugin-programmets Log Analytics-integrering, installera Grafana version 5.3 eller senare.
+Du ställer in en lokal Grafana server [ladda ned och installera Grafana i din lokala miljö](https://grafana.com/grafana/download). Om du vill använda plugin-programmet Azure Monitor-integrering, installera Grafana version 5.3 eller senare.
+
 ### <a name="set-up-grafana-on-azure-through-the-azure-marketplace"></a>Konfigurera Grafana på Azure via Azure Marketplace
 1. Gå till Azure Marketplace och välja Grafana av Grafana Labs.
 
@@ -70,7 +71,7 @@ När du har loggat in kan bör du se att plugin-programmet Azure Monitor data k�
     Log Analytics-API kräver den [Log Analytics Reader rollen](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#log-analytics-reader), som innehåller behörigheter som rollen Läsare och lägger till den.
 
 4. Ange anslutningsinformationen till API: er som du vill använda. Du kan ansluta till alla eller vissa av dem. 
-    * Om du ansluter till både Azure Monitor (för att samla in mått) och Azure Log Analytics (för loggdata) kan du återanvända samma autentiseringsuppgifter genom att välja **samma information som Azure Monitor API**.
+    * Om du ansluter till både mått och loggar i Azure Monitor kan du återanvända samma autentiseringsuppgifter genom att välja **samma information som Azure Monitor API**.
     * När du konfigurerar plugin-programmet kan du ange vilket Azure-moln som plugin-programmet ska övervakas (offentligt, Azure US Government, Azure Tyskland eller Azure Kina).
     * Du kan även inkludera din Application Insights API och program-ID för att samla in Application Insights baserat mått om du använder Application Insights. Mer information finns i [få din API-nyckel och en program-ID](https://dev.applicationinsights.io/documentation/Authorization/API-key-and-App-ID).
 
@@ -97,7 +98,7 @@ När du har loggat in kan bör du se att plugin-programmet Azure Monitor data k�
 4. Välj Azure Monitor-datakälla som du har konfigurerat.
     * Samla in Azure Monitor metrics - Välj **Azure Monitor** i listrutan för tjänsten. En lista över väljare visar upp, där du kan välja resurser och mått som ska övervakas i det här diagrammet. Om du vill samla in statistik från en virtuell dator att använda namnområdet **Microsoft.Compute/VirtualMachines**. När du har valt virtuella datorer och mått, kan du visa sina data i instrumentpanelen.
     ![Grafana graph-konfiguration för Azure Monitor](./media/grafana-plugin/grafana-graph-config-for-azure-monitor-dark.png)
-    * Samla in Azure Log Analytics-data – Välj **Azure Log Analytics** i listrutan för tjänsten. Välj den arbetsyta som du vill fråga och ställa in frågetexten. Du kan kopiera här en Log Analytics-fråga som du redan har eller skapa en ny. När du skriver i din fråga visas IntelliSense och föreslår att du alternativ för automatisk komplettering. Välj typen av visualisering **Time series** **tabell**, och kör frågan.
+    * Samla in Azure Monitor logga data – Välj **Azure Log Analytics** i listrutan för tjänsten. Välj den arbetsyta som du vill fråga och ställa in frågetexten. Du kan kopiera här några loggfråga du redan har eller skapa en ny. När du skriver i din fråga visas IntelliSense och föreslår att du alternativ för automatisk komplettering. Välj typen av visualisering **Time series** **tabell**, och kör frågan.
     
     > [!NOTE]
     >

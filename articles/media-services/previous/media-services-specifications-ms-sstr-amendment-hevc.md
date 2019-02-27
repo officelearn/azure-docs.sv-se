@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2019
 ms.author: johndeu;
-ms.openlocfilehash: e13995ccdc609951f908b4a1779eaefcfdc596bb
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: b8437f224a83ac07d27aed03b5a9686f66949bc4
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56005224"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56868263"
 ---
 # <a name="smooth-streaming-protocol-ms-sstr-amendment-for-hevc"></a>Jämn direktuppspelning Protocol (MS-SSTR)-tillägg för – HEVC 
 
@@ -78,17 +78,17 @@ Följande villkor är specifika för det här dokumentet:
 
 >   [RFC-6381] IETF RFC-6381, ”” codec ”och” profiler ”-parametrar för” Bucket ”medietyper” <http://tools.ietf.org/html/rfc6381>
 
->   [MPEG4 RA] MP4-registreringsutfärdare ”MP4REG” [http://www.mp4ra.org   ](https://go.microsoft.com/fwlink/?LinkId=327787)
+>   [MPEG4 RA] MP4-registreringsutfärdare ”MP4REG” [http://www.mp4ra.org](https://go.microsoft.com/fwlink/?LinkId=327787)
 
->   [RFC2119] Bradner, S., ”nyckelord för användning i RFC ange kravet nivåer”, BCP 14, RFC 2119, mars 1997   [http://www.rfc-editor.org/rfc/rfc2119.txt   ](https://go.microsoft.com/fwlink/?LinkId=90317)
+>   [RFC2119] Bradner, S., ”nyckelord för användning i RFC ange kravet nivåer”, BCP 14, RFC 2119, mars 1997   [http://www.rfc-editor.org/rfc/rfc2119.txt](https://go.microsoft.com/fwlink/?LinkId=90317)
 
 ### <a name="122-informative-references"></a>1.2.2 Informationsreferenser 
 
 >   [MS-GLOS] Microsoft Corporation ”*Windows protokoll Master ordlista*”.
 
->   [RFC3548] Josefsson, S., Ed. ”den Base16 Base32 och Base64 Data kodningar”, RFC 3548, juli 2003 [http://www.ietf.org/rfc/rfc3548.txt   ](https://go.microsoft.com/fwlink/?LinkId=90432)
+>   [RFC3548] Josefsson, S., Ed. ”den Base16 Base32 och Base64 Data kodningar”, RFC 3548, juli 2003 [http://www.ietf.org/rfc/rfc3548.txt](https://go.microsoft.com/fwlink/?LinkId=90432)
 
->   [RFC5234] Crocker, D., Ed., och Overell, P. ”, förstärkta BNF för Syntax specifikationer: ABNF", STD 68, RFC 5234, January 2008,   [http://www.rfc-editor.org/rfc/rfc5234.txt   ](https://go.microsoft.com/fwlink/?LinkId=123096)
+>   [RFC5234] Crocker, D., Ed., och Overell, P. ”, förstärkta BNF för Syntax specifikationer: ABNF", STD 68, RFC 5234, January 2008,   [http://www.rfc-editor.org/rfc/rfc5234.txt](https://go.microsoft.com/fwlink/?LinkId=123096)
 
 
 ## <a name="13-overview"></a>1.3-översikt 
@@ -108,7 +108,7 @@ Följande villkor är specifika för det här dokumentet:
 >   Följande metod användas identifiera strömmar i formatet – HEVC video:
 
 >   * **Anpassade beskrivande koder för medieformat:** Den här funktionen tillhandahålls av den **FourCC** fältet som anges i avsnittet *2.2.2.5*.
->   Administratörer kan se till att tilläggen inte står i konflikt genom att registrera tillägget koder med MPEG4-RA, som anges i [[ISO/IEC-14496-12] ](https://go.microsoft.com/fwlink/?LinkId=183695)
+>   Administratörer kan se till att tilläggen inte står i konflikt genom att registrera tillägget koder med MPEG4-RA, som anges i [[ISO/IEC-14496-12]](https://go.microsoft.com/fwlink/?LinkId=183695)
 
 ## <a name="19-standards-assignments"></a>1.9 standarder tilldelningar 
 

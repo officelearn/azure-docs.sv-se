@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: howto
 ms.date: 02/19/2019
 ms.author: hrasheed
-ms.openlocfilehash: bc3741be87238f1ac5f2146eb25919dd83711ce3
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 313d26e354589611b36ed7c273858de2f919566f
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56819062"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889519"
 ---
 # <a name="use-azure-data-lake-storage-gen2-with-azure-hdinsight-clusters"></a>Använda Azure Data Lake Storage Gen2 med Azure HDInsight-kluster
 
@@ -96,7 +96,7 @@ az storage account create --name hdinsightadlsgen2 \
     --kind StorageV2 --hierarchical-namespace true
 ```
 
-Logga sedan in på portalen. Lägg till den nya användartilldelade hanterade identitet som den **Storage Blob Data-deltagare (förhandsgranskning)** -rollen på storage-konto, enligt beskrivningen i steg 3 under [med Azure portal](hdinsight-hadoop-use-data-lake-storage-gen2.md#using-the-azure-portal).
+Logga sedan in på portalen. Lägg till den nya användartilldelade hanterade identitet som den **Storage Blob Data-deltagare (förhandsgranskning)** -rollen på storage-konto, enligt beskrivningen i steg 3 under [med Azure portal](hdinsight-hadoop-use-data-lake-storage-gen2.md).
 
 När du har tilldelat rollen för den hanterade Användartilldelad identitet, distribuera mallen med hjälp av följande kodavsnitt.
 

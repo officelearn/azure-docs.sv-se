@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 02/25/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 28ddecb20944893b23b54775e22f19644f0afbf0
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: f14d29ef3d03a0899fe208d801e127ecfc28168b
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56816512"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889145"
 ---
 # <a name="manage-python-2-packages-in-azure-automation"></a>Hantera Python 2-paket i Azure Automation
 
@@ -40,7 +40,7 @@ Azure automation inte går att lösa beroenden för python-paket under importen.
 
 ### <a name="manually-download"></a>Hämta manuellt
 
-På Windows 64-bitars dator med [python2.7](https://www.python.org/download/releases/2.7/) och [pip](https://pip.pypa.io/stable/installing/) installerad, kör följande kommando för att ladda ned ett paket och alla dess beroenden:
+På Windows 64-bitars dator med [python2.7](https://www.python.org/downloads/release/latest/python2) och [pip](https://pip.pypa.io/stable/installing/) installerad, kör följande kommando för att ladda ned ett paket och alla dess beroenden:
 
 ```
 C:\Python27\Scripts\pip2.7.exe download -d <output dir> <package name>

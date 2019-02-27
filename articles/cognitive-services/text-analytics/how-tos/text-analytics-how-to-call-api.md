@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: aahi
-ms.openlocfilehash: 52c5cb640bfb861fb2da52ee711fe3955a169bcf
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 6fedc1b9a6b88419dbcae41b5bb6f89bd8c5cbf7
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56244036"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56886887"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>Hur du anropar den REST API för textanalys
 
@@ -43,7 +43,7 @@ För närvarande kan du skicka samma dokumenten för alla åtgärder för textan
 | Element | Giltiga värden | Krävs? | Användning |
 |---------|--------------|-----------|-------|
 |`id` |Datatypen är sträng, men i praktiken dokument-ID: N tenderar att vara heltal. | Krävs | Systemet använder ID: N som du anger för att strukturera utdata. Språkkoder, nyckelfraser och sentimentpoäng genereras för varje-ID i begäran.|
-|`text` | Ostrukturerade rå text, upp till 5 000 tecken. | Krävs | För språkidentifiering, kan text uttryckas i valfritt språk. För attitydanalys, extrahering av diskussionsämne och enhetens identifiering texten måste vara i en [språk som stöds](../text-analytics-supported-languages.md). |
+|`text` | Ostrukturerade rå text, upp till 5,120 tecken. | Krävs | För språkidentifiering, kan text uttryckas i valfritt språk. För attitydanalys, extrahering av diskussionsämne och enhetens identifiering texten måste vara i en [språk som stöds](../text-analytics-supported-languages.md). |
 |`language` | 2 tecken [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) Platskod för en [språk som stöds](../text-analytics-supported-languages.md) | Varierar | Krävs för attitydanalys, extrahering av diskussionsämne och entitetslänkning; valfritt för språkidentifiering. Det finns inget fel om du utesluter den, men analysen lägre utan den. Språkkoden ska motsvara den `text` du anger. |
 
 Mer information om begränsningar finns i [Text Analytics översikt > databegränsningar](../overview.md#data-limits). 

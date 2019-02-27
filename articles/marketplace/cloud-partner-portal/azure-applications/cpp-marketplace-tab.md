@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 74b21a9dd8faa8eb35aa8a2ef738bd6303e4cdd7
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 1203f33458c83bbde7a263022b78563bad183143
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53197233"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56870745"
 ---
 # <a name="azure-application-marketplace-tab"></a>Azure Marketplace programfliken
 
@@ -27,7 +27,7 @@ Använd fliken Marketplace för att beskriva ditt Azure-program och ange marknad
 
 ## <a name="overview-form"></a>Översiktsformulär
 
-Översikt över formuläret har obligatoriska och valfria fält som visas i nästa skärmdump. Obligatoriska fält indicted med en asterisk (*).
+Översikt över formuläret har obligatoriska och valfria fält som visas i nästa skärmdump. Required fields are indicted by an asterisk (*).
 
 ![Översiktsformulär](./media/azureapp-marketplace-overview.png)
 
@@ -35,7 +35,7 @@ I följande tabell beskrivs inställningarna som ska användas för att skapa en
 
 |    **Fält**       |  **Beskrivning**  |
 |  ---------------   |  ---------------  |
-|        Titel            |        Rubrik för erbjudandet. Det ska visas på en framträdande plats i marketplace. Den maximala längden är 50 tecken.           |
+|        Rubrik            |        Rubrik för erbjudandet. Det ska visas på en framträdande plats i marketplace. Den maximala längden är 50 tecken.           |
 |         Sammanfattning           |        Kort sammanfattning av erbjudandet. Den maximala längden är 100 tecken.           |
 |         Lång sammanfattning           |        Längre sammanfattning av erbjudandet (även om det kan vara samma som sammanfattningen). Den maximala längden är 256 tecken.           |
 |       Beskrivning            |         Beskrivning av erbjudandet. Den maximala längden är 3000 tecken. Enkel HTML-formatering tillåts, inklusive &lt;p&gt;, &lt;em&gt;, &lt;ul&gt;, &lt;li&gt;, &lt;ol&gt; och huvud-taggar.           |
@@ -46,7 +46,7 @@ I följande tabell beskrivs inställningarna som ska användas för att skapa en
 
 ## <a name="marketing-artifacts"></a>Marknadsföring artefakter
 
-Obligatoriska och valfria fält som visas i nästa skärmdumpen har formuläret marknadsföring artefakter. Obligatoriska fält indicted med en asterisk (*).
+Obligatoriska och valfria fält som visas i nästa skärmdumpen har formuläret marknadsföring artefakter. Required fields are indicted by an asterisk (*).
 
 ![Marknadsföring artefakter formulär](./media/azureapp-marketplace-artifacts.png)
 
@@ -58,7 +58,7 @@ I följande tabell beskrivs marknadsföring artefakter.
 |       Medel             |        90 x 90 bildpunkter i PNG-format           |
 |       Stor             |        115 x 115 bildpunkter i PNG-format         |
 |       Brett             |        255 x 115 bildpunkter i PNG-format           |
-|       Hjälte             |        815 x 290 bildpunkter i PNG-format. Valfri. **Obs:** Ikonen hero-komponenten kan inte tas bort när paketet har överförts.           |
+|       Hjälte             |        815 x 290 bildpunkter i PNG-format. Valfri. **Obs!** Ikonen hero-komponenten kan inte tas bort när paketet har överförts.           |
 |       Skärmbilder (Max 5)             |        Skärmbilder visas på din produktsidan för information. Det är ett bra sätt att förmedla visuellt vad appen gör och hur det fungerar. Du kan till exempel visa Arkitekturdiagram eller använda fallet illustrationer. Skärmbilderna är valfria, och du begränsad till 5 per SKU. Lägga till en skärmbild:<ul><li>Välj **+ Lägg till skärmbild** att öppna fönstret skärmbild</li><li>**Namn på** -ange ett namn/rubrik (maximal längd på 100 tecken).</li><li>**Ladda upp** – ladda upp avbildningen. Det måste vara i PNG-format och storleken är 533 x 324 bildpunkter.</li></ul>           |
 |        Lägg till video            |        Videor visas på din produktsidan för information. Det är ett bra sätt att förmedla visuellt vad ditt program gör och hur det fungerar. Lägga till en video: <ul><li>Välj **+ Lägg till video** att öppna fönstret Video</li><li>**Namn på** -ange ett namn/rubrik (maximal längd på 100 tecken).</li><li>**Länken** – ange Webbadressen för den plats som är värd för video (YouTube eller Vimeo)</li><li>**Miniatyr** – ladda upp en miniatyrbild. Det måste vara i PNG-format och storleken är 533 x 324 bildpunkter.</li></ul>          |
 
@@ -66,7 +66,7 @@ I följande tabell beskrivs marknadsföring artefakter.
 
 Nästa skärmdump visar ett exempel på ett Marketplace-sökresultat.
 
-![Sökresultat för Marketplace-erbjudande ](./media/azureapp-marketplace-example-browse.png)
+![Sökresultat för Marketplace-erbjudande](./media/azureapp-marketplace-example-browse.png)
 
 Följande bild visar hur erbjudandet visas i Marketplace efter en kund klickar på erbjudandets panel i sökresultatet.
 

@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/29/2019
+ms.date: 02/27/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 01/29/2019
-ms.openlocfilehash: 924befd2ec1949973123acc9b7c7d1b89e707e3e
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 6dad4fc98dccc5c8db22019fdc548efdf7165d9e
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245634"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56888754"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure Marketplace-objekt tillgängliga för Azure Stack
 
@@ -252,4 +252,5 @@ Microsoft Azure Stack har stöd för följande virtuella datorer i Azure Marketp
 | ![Puppet Enterprise](media/azure-stack-marketplace-azure-items/puppet.png) | [Puppet Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/puppet.puppet-enterprise-2017-2) | Puppet Enterprise kan du automatisera hela livscykeln för din Azure Stack-infrastruktur. **Hämta båda Puppet Marketplace-objekt.** | Puppet |
 | ![Begäran om snabb återställning](media/azure-stack-marketplace-azure-items/quest.png) | [Begäran om snabb återställning Core](https://azuremarketplace.microsoft.com/marketplace/apps/quest.rapid-recovery-core-vm) | Snabb återställning avancerade dataskydd förenar säkerhetskopiering, replikering och återställning i en enkel att använda programvarulösning. | Quest-program |
 | ![SUSE Manager 3.1 Proxy (BYOS)](media/azure-stack-marketplace-azure-items/suse.png) | [SUSE Manager 3.1 Proxy (BYOS)](https://azuremarketplace.microsoft.com/marketplace/apps/suse.suse-manager-proxy-byos?tab=Overview) | Bästa klassens infrastrukturhantering för öppen källkod. | SUSE |
+| ![CipherTrust Cloud Key Manager](media/azure-stack-marketplace-azure-items/cckm.png) | [CipherTrust Cloud Key Manager](https://azuremarketplace.microsoft.com/marketplace/apps/thales-vormetric.ciphertrust-ckm) | Utnyttja Microsoft Azure och annan molnleverantör ta med din egen nyckel (BYOK) API: er, nyckel för CipherTrust Molnhanterare minskar komplexiteten för nyckelhantering och driftskostnader genom att ge multicloud livscykel kontroll över krypteringsnycklarna med centraliserad hantering och synlighet. | Thales eSecurity |
 | ![ZeroDown Software BCaaS](media/azure-stack-marketplace-azure-items/zerodown.png) | [Affärskontinuitet för ZeroDown programvara som en tjänst](https://azuremarketplace.microsoft.com/marketplace/apps/zerodown_software.bcaasforazure) | ZeroDown® programvaruteknik erbjuder företag med kontinuerlig åtkomst till deras företagsdata via deras kontinuitet för företag som en tjänst (BCaaS)™ arkitektur, skydda program och transaktioner, om nätverksavbrott inträffar som vanligt cripple företaget. | ZeroDown Software |

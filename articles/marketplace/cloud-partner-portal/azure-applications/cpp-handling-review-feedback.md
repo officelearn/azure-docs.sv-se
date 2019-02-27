@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 02/05/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 98ab9b25c59af194a1a81c600c373b2180272e10
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: e5fe076cfe733b4fa0151570603c090af98de0e8
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56106977"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56882696"
 ---
 # <a name="handling-review-feedback"></a>Hantering av granska feedback
 
@@ -58,14 +58,14 @@ Använd följande procedur för att granska problem som beskrivs i pull-begäran
 
 1. I den **Microsoft granska** delen av **publicera steg** klickar du på på en PR-länk för att starta webbläsaren och gå till den **översikt** (hemsida) för den här pullförfrågan.  Följande bild visar ett exempel kritiskt problem startsida för apperbjudandet för Contoso-exemplet.  Den här sidan innehåller användbar översiktsinformation om granskning problem finns i Azure-appen.  
 
-    [ ![Startsida för pull-begäran](./media/pr-home-page-thumb.png) ](./media/pr-home-page.png)
+    [![Startsida för pull-begäran](./media/pr-home-page-thumb.png)](./media/pr-home-page.png)
     <br/> *Klicka på bilden för att expandera.*
     
 2. (Valfritt) På höger sida av fönstret under **principer**, klicka på problemet meddelandet (i det här exemplet: **Gick inte att verifiera principen**) att undersöka de lägre detaljnivåerna för utfärdande, inklusive de associerade loggfilerna.  Fel vanligtvis visas längst ned i loggfilerna.
 
 3. På menyn på vänster sida på sidan Välj **filer** att visa listan filerna som utgör de tekniska resurserna för det här erbjudandet.  Microsoft-granskare bör har lagt till kommentarer som beskriver de identifierade kritiska problemen.  I följande exempel visas har två problem identifierats. 
 
-    [ ![Startsida för pull-begäran](./media/pr-files-page-thumb.png) ](./media/pr-files-page.png)
+    [![Startsida för pull-begäran](./media/pr-files-page-thumb.png)](./media/pr-files-page.png)
     <br/> *Klicka på bilden för att expandera.*
 
 4. Klicka på varje kommentarsnod i det vänstra trädet att navigera till kommentar i kontexten för den omgivande kod.  Åtgärda källkoden i ditt team-projektet för att åtgärda problemet som beskrivs av kommentaren.

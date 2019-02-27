@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 75fc79b582803150f2111efb848d113d52928263
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 3fccb50e3447eabc15cbef89ab7655b3f1d1f4ac
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53544676"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56876814"
 ---
 # <a name="create-and-manage-azure-database-for-mariadb-firewall-rules-by-using-the-azure-portal"></a>Skapa och hantera Azure-databas för MariaDB brandväggsregler med hjälp av Azure portal
 Brandväggsregler på servernivå gör att administratörer kan komma åt en Azure-databas för MariaDB-Server från en angiven IP-adress eller ett intervall med IP-adresser. 
@@ -32,7 +32,7 @@ Brandväggsregler på servernivå gör att administratörer kan komma åt en Azu
 
 4. Lägga till ytterligare adressintervall. Du kan ange en IP-adress eller ett adressintervall i brandväggsreglerna för Azure Database for MariaDB. Om du vill begränsa regeln till en enda IP-adress skriver du samma adress i fälten första IP- och slut-IP. Om du öppnar brandväggen kan administratörer, användare och program till valfri databas på servern MariaDB som de har giltiga autentiseringsuppgifter.
 
-   ![Azure portal – brandväggsregler ](./media/howto-manage-firewall-portal/4-specify-addresses.png)
+   ![Azure portal – brandväggsregler](./media/howto-manage-firewall-portal/4-specify-addresses.png)
 
 5. Klicka på **spara** i verktygsfältet för att spara den här brandväggsregeln på servernivå. Vänta för att bekräfta att uppdateringen till brandväggsreglerna har lyckats.
 

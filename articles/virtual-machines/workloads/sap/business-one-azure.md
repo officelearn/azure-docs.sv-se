@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 07/15/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f0e96b87e46872bebe7563e08f0eb7a33b11015f
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 101710b5a57faa37be77ff4b059fa0d494f4e617
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56329856"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56878072"
 ---
 # <a name="sap-business-one-on-azure-virtual-machines"></a>SAP Business en på Azure-datorer
 Det här dokumentet innehåller riktlinjer för att distribuera SAP Business One på Azure Virtual Machines. Dokumentationen är inte en ersättning för dokumentationen för installation av ett företag för SAP. Dokumentationen bör omfatta grundläggande riktlinjer för planering och distribution för Azure-infrastrukturen att köra Business One program på.
@@ -38,7 +38,7 @@ Om du vill använda den här guiden behöver du grundläggande kunskaper om föl
 - [Azure virtuella datorer i Windows](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-manage-vm)
 - [Azure-datorer i Linux](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm)
 - [Azure-nätverk och virtuella datornätverk hantering med PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-virtual-network)
-- [Azure-nätverk och virtuella nätverk med CLI ](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-virtual-network)
+- [Azure-nätverk och virtuella nätverk med CLI](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-virtual-network)
 - [Hantera Azure-diskar med Azure CLI](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-disks)
 
 Även om du är intresserad av företag en, dokumentet [Azure Virtual Machines planering och implementering av SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide) kan vara en bra informationskälla.

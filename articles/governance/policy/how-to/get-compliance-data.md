@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 41c44d1f4054d93c770f80496c8d7a0bddf5eb13
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 44f0309d472a79526537f79feabcd9777b70bcc7
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56650351"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56888788"
 ---
 # <a name="getting-compliance-data"></a>Hämta data för efterlevnad
 
@@ -142,25 +142,11 @@ Högerklicka på raden i den händelse som du vill samla in mer information om o
 
 ![Princip för efterlevnad aktivitetsloggen](../media/getting-compliance-data/compliance-activitylog.png)
 
-### <a name="change-history-preview"></a>Ändra historik (förhandsversion)
+### <a name="understand-non-compliance"></a>Förstå inkompatibilitet
 
-Som en del av en ny **förhandsversion**, de senaste 14 dagarna ändringshistoria är tillgängliga för en icke-kompatibel resurs. Ändra historik innehåller information om när en ändring har identifierats och en _visual diff_ för varje ändring. Identifiering av ändring av utlöses när Resource Manager-egenskaper för en icke-kompatibel resurs läggs till, tas bort eller ändras.
+<a name="change-history-preview"></a>
 
-1. Starta Azure Policy-tjänsten i Azure Portal genom att klicka på **Alla tjänster** och sedan söka efter och välja **Princip**.
-
-1. På den **översikt** eller **efterlevnad** väljer du en princip som är _icke-kompatibla_.
-
-1. Under den **resurskompatibilitet** fliken den **principefterlevnad** väljer du en resurs som det här är _icke-kompatibla_.
-
-1. Välj den **ändra historik (förhandsversion)** fliken på den **Resurskompatibilitet** sidan. En lista över identifierat ändringar, om några finns, visas.
-
-   ![Principen ändra historik - fliken](../media/getting-compliance-data/change-history-tab.png)
-
-1. Välj en av de identifierade ändringarna. Den _visual diff_ för icke-kompatibel resurs som visas på den **ändringshistorik** sidan.
-
-   ![Principen ändra historik - Visual Diff](../media/getting-compliance-data/change-history-visual-diff.png)
-
-Den _visual diff_ aides identifiera ändringar till en resurs. Ändringar som har identifierats kan inte vara relaterade till vad som orsakade resursen som ska vara icke-kompatibla för den markerade principen.
+När ett resurser bedöms vara **icke-kompatibla**, det finns många möjliga orsaker. Att fastställa orsaken till en resurs är **icke-kompatibla** eller ändringen ansvarig finns i [fastställa inkompatibilitet](./determine-non-compliance.md).
 
 ## <a name="command-line"></a>Kommandorad
 

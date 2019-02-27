@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 02/22/2019
 ms.author: absha
-ms.openlocfilehash: d98834abaf925cdabd312869615a60f64049826d
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: c98328342eec7fa59a56fbcc70da8cdd7a8fabf1
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56808744"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56880894"
 ---
 # <a name="troubleshoot-azure-application-gateway-session-affinity-issues"></a>Felsöka Azure Application Gateway problem med Sessionstillhörighet
 
@@ -75,7 +75,7 @@ Du har aktiverat inställningen Cookie-baserad tillhörighet när du har åtkoms
 
 Följ anvisningarna för att identifiera det här problemet:
 
-1. Gör en web-felsökare spåra spårning på den ”klient” som ansluter till programmet bakom programmet Gateway(We are using Fiddler in this example).
+1. Koppla en felsökare web-spårning på ”klienten” som ansluter till programmet bakom programmet Gateway(We are using Fiddler in this example).
     **Tips** om du inte vet hur du använder Fiddler, markerar du alternativet ”**jag vill samla in nätverkstrafik och analysera den med hjälp av web felsökare**” längst ned på sidan.
 
 2. Kontrollera och analysera sessionsloggarna, för att avgöra om de cookies som tillhandahålls av klienten har ARRAffinity information. Om du inte hittar ARRAffinity mer information, till exempel ”**ARRAffinity =** *ARRAffinityValue*” i uppsättningen cookie, som innebär att klienten inte svara med form-cookie som tillhandahålls av den Application Gateway.

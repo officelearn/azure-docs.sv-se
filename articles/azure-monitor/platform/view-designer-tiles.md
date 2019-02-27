@@ -1,6 +1,6 @@
 ---
-title: En referensguide till Vydesigner panelerna i Azure Log Analytics | Microsoft Docs
-description: Du kan skapa anpassade vyer i Azure-portalen som visar olika datavisualiseringar i Log Analytics-arbetsytan med hjälp av Vydesigner i Log Analytics. Den här artikeln är en referensguide i inställningarna för panelerna som är tillgängliga i dina anpassade vyer.
+title: En referensguide till Vydesigner panelerna i Azure Monitor | Microsoft Docs
+description: Genom att använda Vydesigner i Azure Monitor kan skapa du anpassade vyer som visas i Azure-portalen och innehåller en mängd olika visualiseringar på data i Log Analytics-arbetsytan. Den här artikeln är en referensguide i inställningarna för panelerna som är tillgängliga i dina anpassade vyer.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: bwren
-ms.openlocfilehash: 5b01b55c8b2367861459069cc255840e883b9fc5
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: c380f0391c51628b0eb71723a0faf982a4399680
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55817402"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56887768"
 ---
-# <a name="reference-guide-to-view-designer-tiles-in-log-analytics"></a>Referensguide till Vydesigner paneler i Log Analytics
-Du kan skapa anpassade vyer i Azure-portalen som presenterar en mängd olika visualiseringar i Log Analytics-arbetsytan med hjälp av Vydesigner i Azure Log Analytics. Den här artikeln är en referensguide i inställningarna för panelerna som är tillgängliga i dina anpassade vyer.
+# <a name="reference-guide-to-view-designer-tiles-in-azure-monitor"></a>Referensguide till Vydesigner paneler i Azure Monitor
+Genom att använda Vydesigner i Azure Monitor kan skapa du en mängd olika anpassade vyer i Azure portal som kan hjälpa dig att visualisera data i Log Analytics-arbetsytan. Den här artikeln är en referensguide i inställningarna för panelerna som är tillgängliga i dina anpassade vyer.
 
 Mer information om Vydesigner finns:
 
@@ -177,5 +177,5 @@ Den **två tidslinjer** panelen visar resultatet av två loggfrågor över tid s
 
 
 ## <a name="next-steps"></a>Nästa steg
-* Lär dig mer om [loggsökningar](../../azure-monitor/log-query/log-query-overview.md) för frågorna i paneler.
+* Lär dig mer om [logga frågor](../log-query/log-query-overview.md) för frågorna i paneler.
 * Lägg till [visualisering delar](view-designer-parts.md) till den anpassade vyn.

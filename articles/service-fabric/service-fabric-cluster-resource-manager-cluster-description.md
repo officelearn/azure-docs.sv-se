@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 7be10f03d65e53b51c3916849dc12feb4de9c919
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 1020e18894f4bb307ad14f780e76eab1df1314bb
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56737662"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56875981"
 ---
 # <a name="describing-a-service-fabric-cluster"></a>Som beskriver ett service fabric-kluster
 Service Fabric Cluster Resource Manager tillhandahåller flera mekanismer för att beskriva ett kluster. Under körning använder den här informationen i Cluster Resource Manager för att garantera hög tillgänglighet för de tjänster som körs i klustret. Samtidigt framtvinga dessa viktiga regler, försöker den också optimera resursförbrukning i klustret.
@@ -603,7 +603,7 @@ LoadMetricInformation     :
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-* Kolla in information om arkitektur- och informationsflödet i Cluster Resource Manager [den här artikeln ](service-fabric-cluster-resource-manager-architecture.md)
+* Kolla in information om arkitektur- och informationsflödet i Cluster Resource Manager [den här artikeln](service-fabric-cluster-resource-manager-architecture.md)
 * Definiera defragmentering mått är ett sätt att konsolidera belastningen på noder i stället för sprida. Läs hur du konfigurerar defragmentering [i den här artikeln](service-fabric-cluster-resource-manager-defragmentation-metrics.md)
 * Börja från början och [få en introduktion till Service Fabric Cluster Resource Manager](service-fabric-cluster-resource-manager-introduction.md)
 * Om du vill veta mer om hur Cluster Resource Manager hanterar och balanserar belastningen i klustret kan du läsa artikeln på [belastningsutjämning](service-fabric-cluster-resource-manager-balancing.md)

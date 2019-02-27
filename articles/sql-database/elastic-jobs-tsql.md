@@ -12,12 +12,12 @@ author: jaredmoo
 ms.reviewer: sstein
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: bb7908c5ed72bf58f1bd8920983d76cb674286a3
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 56ad75bc0bed77c2107a49ab339368ab2a63c1fe
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55458099"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56881268"
 ---
 # <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs"></a>Använd Transact-SQL (T-SQL) för att skapa och hantera elastiska Databasjobb
 
@@ -409,7 +409,7 @@ Följande lagrade procedurer finns i den [jobb databasen](sql-database-job-autom
 |Lagrad procedur  |Beskrivning  |
 |---------|---------|
 |[sp_add_job](#spaddjob)     |     Lägger till ett nytt jobb.    |
-|[sp_update_job ](#spupdatejob)    |      Uppdaterar ett befintligt jobb.   |
+|[sp_update_job](#spupdatejob)    |      Uppdaterar ett befintligt jobb.   |
 |[sp_delete_job](#spdeletejob)     |      Tar bort ett befintligt jobb.   |
 |[sp_add_jobstep](#spaddjobstep)    |    Lägger till ett steg i ett jobb.     |
 |[sp_update_jobstep](#spupdatejobstep)     |     Uppdaterar ett jobbsteg.    |
@@ -420,7 +420,7 @@ Följande lagrade procedurer finns i den [jobb databasen](sql-database-job-autom
 |[sp_delete_target_group](#spdeletetargetgroup)     |    Tar bort en målgrupp.     |
 |[sp_add_target_group_member](#spaddtargetgroupmember)     |    Lägger till en databas eller en grupp med databaser i en målgrupp.     |
 |[sp_delete_target_group_member](#spdeletetargetgroupmember)     |     Tar bort en mål medlem från en målgrupp.    |
-|[sp_purge_jobhistory ](#sppurgejobhistory)    |    Tar bort historikposter för ett jobb.     |
+|[sp_purge_jobhistory](#sppurgejobhistory)    |    Tar bort historikposter för ett jobb.     |
 
 
 
@@ -448,7 +448,7 @@ Lägger till ett nytt jobb.
 #### <a name="arguments"></a>Argument  
 
 [  **@job_name =** ] 'job_name'  
-Namnet på jobbet. Namnet måste vara unikt och får inte innehålla tecknet procent (%). job_name är nvarchar(128) med inget standardvärde.
+Namnet på jobbet. Namnet måste vara unikt och får inte innehålla procent (%) tecken. job_name är nvarchar(128) med inget standardvärde.
 
 [  **@description =** ] ”beskrivning”  
 Beskrivning av jobbet. Beskrivningen är nvarchar(512) med standardvärdet NULL. Om beskrivningen utelämnas används en tom sträng.

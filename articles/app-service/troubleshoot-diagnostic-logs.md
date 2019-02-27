@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: d7bcff89ba7f76980287f9aad3413a6ef3f41b4f
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: 7d877f467f06768c31679752d9deff1ca19d0003
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56807430"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56882883"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Aktivera diagnostikloggning för appar i Azure App Service
 ## <a name="overview"></a>Översikt
@@ -34,8 +34,8 @@ App Service tillhandahåller diagnostisk funktionalitet för att logga informati
 ### <a name="web-server-diagnostics"></a>Web serverdiagnostik
 Du kan aktivera eller inaktivera följande typer av loggar:
 
-* **Detaljerad felloggning** -detaljerad information för varje begäran som resulterar i HTTP-statuskod 400 eller större. Den kan innehålla information som kan hjälpa dig att avgöra varför servern returnerade felkoden. En HTML-fil skapas för varje fel (i *D:\LogFiles\DetailedErrors* som standard), och upp till 50 fel (filer) bevaras. När antalet HTML-filer överskrider 50 är tas de äldsta 26 filerna bort automatiskt.
-* **Det gick inte att begäran om spårning av** -detaljerad information om misslyckade förfrågningar, inklusive en spårning av IIS-komponenter som används för att bearbeta begäran och den tid det tar i varje komponent. Det är användbart om du vill förbättra webbplatsernas prestanda eller isolera ett specifikt HTTP-fel.
+* **Detaljerad felloggning** -detaljerad information för varje begäran som resulterar i HTTP-statuskod 400 eller större. Den kan innehålla information som kan hjälpa dig att avgöra varför servern returnerade felkoden. En HTML-fil skapas för varje fel i appens filsystemet och upp till 50 fel (filer) bevaras. När antalet HTML-filer överskrider 50 är tas de äldsta 26 filerna bort automatiskt.
+* **Det gick inte att begäran om spårning av** -detaljerad information om misslyckade förfrågningar, inklusive en spårning av IIS-komponenter som används för att bearbeta begäran och den tid det tar i varje komponent. Det är användbart om du vill förbättra webbplatsernas prestanda eller isolera ett specifikt HTTP-fel. En mapp skapas för varje fel i appens filsystem. Principer för kvarhållning av filer är samma som detaljerad felloggning ovan.
 * **Web Server-loggning** -Information om HTTP-transaktioner med hjälp av den [W3C utökat loggfilsformat](https://msdn.microsoft.com/library/windows/desktop/aa814385.aspx). Det är användbart när du fastställer övergripande platsmått, till exempel antalet begäranden som hanteras eller hur många begäranden som kommer från en specifik IP-adress.
 
 ### <a name="application-diagnostics"></a>Programdiagnostik
@@ -213,6 +213,10 @@ Data som lagras i en blob skulle se ut ungefär så här:
 Spårning av misslyckade begäranden lagras i XML-filer med namnet **fr ### .xml**. Om du vill göra det enklare att visa informationen som loggas, en XSL-formatmall med namnet **freb.xsl** finns i samma katalog som XML-filerna. Om du öppnar en XML-filerna i Internet Explorer, använder Internet Explorer XSL-formatmall för att tillhandahålla en formaterad visningen av spårningsinformationen som liknar följande exempel:
 
 ![misslyckade begäranden som visas i webbläsaren](./media/web-sites-enable-diagnostic-log/tws-failedrequestinbrowser.png)
+
+> [!NOTE]
+> Ett enkelt sätt att visa formaterade misslyckade begäranden spårningar är att gå till appens sida i portalen. I den vänstra menyn, Välj **diagnostisera och lösa problem**, Sök sedan efter **det gick inte begära spårningsloggar**, klickar på ikonen för att bläddra och visa spårning som du vill.
+>
 
 ### <a name="detailed-error-logs"></a>Detaljerade felloggar
 Detaljerade felloggar är HTML-dokument som innehåller mer detaljerad information om HTTP-fel som har inträffat. Eftersom de är helt enkelt HTML-dokument, kan de granskas med en webbläsare.

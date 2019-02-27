@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/05/2018
-ms.openlocfilehash: 796cbcfc7ab905c54b878a5ccc866efbf9242fb6
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: d44dc7e7a7b3c63012518c3e854270555f469247
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53652089"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56873720"
 ---
 # <a name="overview-of-apache-spark-streaming"></a>Översikt över Apache Spark-strömning
 
@@ -34,7 +34,7 @@ Börja med en enda händelse, anta att en läsning från en ansluten termostat t
 
 Varje RDD representerar händelser som samlas in via en användardefinierad tidsram som kallas den *batch intervall*. Som det ska gå att varje batch-intervall, skapas en ny RDD som innehåller alla data från det här intervallet. Kontinuerlig uppsättning Rdd samlas in till en DStream. Till exempel om batch-intervallet är en sekund lång tid, genererar dina DStream en batch varje andra som innehåller en RDD som innehåller alla data som matas in under den andra. Vid bearbetning av DStream visas temperatur händelsen på en av dessa batchar. Ett program med Spark Streaming bearbetar batchar som innehåller händelserna och slutligen fungerar på data som lagras i varje RDD.
 
-![Exempel DStream med temperatur händelser ](./media/apache-spark-streaming-overview/hdinsight-spark-streaming-example.png)
+![Exempel DStream med temperatur händelser](./media/apache-spark-streaming-overview/hdinsight-spark-streaming-example.png)
 
 ## <a name="structure-of-a-spark-streaming-application"></a>Struktur för ett program med Spark Streaming
 

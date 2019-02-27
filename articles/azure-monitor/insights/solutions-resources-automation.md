@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 05/24/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a72df28fbaed89076976f567774bd5fdb15bc2f9
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: c24d8bd382dc57a8a354b61252d7a5e16640436f
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54229497"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56864659"
 ---
 # <a name="adding-azure-automation-resources-to-a-management-solution-preview"></a>Att lägga till Azure Automation-resurser i en lösning för hantering (förhandsversion)
 > [!NOTE]
@@ -29,7 +29,7 @@ ms.locfileid: "54229497"
 [Lösningar för hantering av]( solutions.md) inkluderar vanligtvis runbooks i Azure Automation för att automatisera processer, till exempel samla in och bearbetning av övervakningsdata.  Automation-konton innehåller förutom runbooks, tillgångar som variabler och scheman som har stöd för runbooks som används i lösningen.  Den här artikeln beskriver hur du inkluderar runbooks och deras relaterade resurser i en lösning.
 
 > [!NOTE]
-> Exemplen i den här artikeln använder parametrar och variabler som är obligatoriska eller vanligt att hanteringslösningar och beskrivs i [utforma och skapa en lösning i Azure ]( solutions-creating.md) 
+> Exemplen i den här artikeln använder parametrar och variabler som är obligatoriska eller vanligt att hanteringslösningar och beskrivs i [utforma och skapa en lösning i Azure]( solutions-creating.md) 
 
 
 ## <a name="prerequisites"></a>Förutsättningar
@@ -145,7 +145,7 @@ Egenskaper för certifikat resurser beskrivs i följande tabell.
 | Egenskap  | Beskrivning |
 |:--- |:--- |
 | base64Value |Base 64-värde för certifikatet. |
-| tumavtryck |Tumavtryck för certifikatet. |
+| thumbprint |Tumavtryck för certifikatet. |
 
 
 
@@ -270,7 +270,7 @@ I följande tabell beskrivs egenskaperna för variabeln resurser.
 | Egenskap  | Beskrivning |
 |:--- |:--- |
 | beskrivning | Valfri beskrivning för variabeln. |
-| IsEncrypted | Anger om variabeln ska vara krypterat. |
+| isEncrypted | Anger om variabeln ska vara krypterat. |
 | typ | Den här egenskapen har för närvarande ingen effekt.  Datatypen för variabeln bestäms av det inledande värdet. |
 | värde | Värdet för variabeln. |
 
@@ -284,7 +284,7 @@ Om du ställer in det initiala värdet för variabeln måste den konfigureras so
 | sträng   | Ange värdet inom dubbla citattecken.  | ”\"Hello world\"” | ”Hello world” |
 | numeriskt  | Numeriskt värde med enkla citattecken.| "64" | 64 |
 | boolesk  | **SANT** eller **FALSKT** inom citattecken.  Observera att det här värdet måste vara gemener. | ”true” | true |
-| datetime | Serialiserade datumvärdet.<br>Du kan använda cmdleten ConvertTo-Json i PowerShell för att skapa det här värdet för ett visst datum.<br>Exempel: get-date ”5/24/2017 13:14:57” \| ConvertTo-Json | ”\\/Date(1495656897378)\\/” | 2017-05-24 13:14:57 |
+| datetime | Serialiserade datumvärdet.<br>Du kan använda cmdleten ConvertTo-Json i PowerShell för att skapa det här värdet för ett visst datum.<br>Exempel: get-date ”5/24/2017 13:14:57” \| ConvertTo-Json | "\\/Date(1495656897378)\\/" | 2017-05-24 13:14:57 |
 
 ## <a name="modules"></a>Moduler
 Din lösning inte behöver definiera [globala modulerna](../../automation/automation-integration-modules.md) används av dina runbooks eftersom de kommer alltid att vara tillgängliga i ditt Automation-konto.  Du behöver att inkludera en resurs för alla moduler som används av dina runbooks.

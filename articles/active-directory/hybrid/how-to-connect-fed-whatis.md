@@ -16,12 +16,12 @@ ms.date: 10/09/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 54aab6e9718b5a4a55cf2a3f9c472e9e02a53ea7
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 67ae5d2661371c256f753d05eb496d2cd53a0017
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56191086"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56869555"
 ---
 # <a name="azure-ad-connect-and-federation"></a>Azure AD Connect och federation
 Azure Active Directory (Azure AD) Connect kan du konfigurera federation med en lokal Active Directory Federation Services (AD FS) och Azure AD. Med federation inloggning, kan du ge användare att logga in på Azure AD-baserade tjänster med sina lokala lösenord – och på företagets nätverk, utan att behöva ange sina lösenord igen. Du kan distribuera en ny installation av AD FS med hjälp av alternativet federation med AD FS, eller du kan ange en befintlig installation i en Windows Server 2012 R2-servergrupp.
@@ -36,7 +36,7 @@ Det här avsnittet är hittar du information om federation-relaterade funktioner
 | **Installera AD FS med hjälp av Azure AD Connect** | |
 | [Förutsättningar](how-to-connect-install-custom.md#ad-fs-configuration-pre-requisites) |Se kraven för en lyckad AD FS-installation via Azure AD Connect. |
 | [Konfigurera AD FS-servergrupp](how-to-connect-install-custom.md#configuring-federation-with-ad-fs) |Installera en ny AD FS-servergrupp med hjälp av Azure AD Connect. |
-| [Federera med Azure AD med hjälp av alternativa inloggnings-ID ](how-to-connect-fed-management.md#alternateid) | Konfigurera federation med hjälp av alternativa inloggnings-ID  |
+| [Federera med Azure AD med hjälp av alternativa inloggnings-ID](how-to-connect-fed-management.md#alternateid) | Konfigurera federation med hjälp av alternativa inloggnings-ID  |
 | **Ändra AD FS-konfigurationen** | |
 | [Reparera förtroendet](how-to-connect-fed-management.md#repairthetrust) |Reparera det aktuella förtroendet mellan lokala AD FS och Office 365/Azure. |
 | [Lägg till en ny AD FS-server](how-to-connect-fed-management.md#addadfsserver) |Expandera en AD FS-servergrupp med en ytterligare AD FS-servern efter den första installationen. |

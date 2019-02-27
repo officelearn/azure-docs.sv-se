@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/11/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 04b6ad25c1ecd10a9480dcbf3e2b4f75e114a6f9
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 9c59b98fb615266c193f997c01c83922c18d4408
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56331327"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56890973"
 ---
 *Värmer upp cachen*  
 Disken med cachelagring av ReadOnly-värden kan ge högre IOPS än gränsen på disk. Om du vill ha den här högsta läsprestanda från värd-cachen, måste först du värmt upp cachen för den här disken. Detta säkerställer att läsa IOs att benchmarking verktyget kommer att öka på CacheReads volym faktiskt når cachen och inte disken direkt. Cacheträffar resulterar i ytterligare IOPS från enkel cachen aktiverad disk.
@@ -102,7 +102,7 @@ Nedan visas skärmdumpar av Iometer testresultat för kombinerade scenarier för
 
 ### <a name="fio"></a>FIO
 
-FIO är ett populärt verktyg till benchmark lagring på virtuella Linux-datorer. Det har flexibiliteten att välja olika i/o-storlek, sekventiella eller icke-sekventiell läsning och skriver. Den tio trådar eller processer för att utföra de angivna i/o-åtgärderna. Du kan ange vilken typ av i/o-åtgärder som varje arbetstråd måste utföra med hjälp av jobbfiler. Vi har skapat en jobbet fil per scenariot som illustreras i exemplen nedan. Du kan ändra specifikationerna i jobbfilerna för att jämföra olika arbetsbelastningar som körs på Premium-lagring. I exemplen är vi använder en Standard DS 14 virtuella datorer som kör **Ubuntu**. Använd samma inställningar som beskrivs i början av den [prestandamätningar avsnittet](#Benchmarking) och varma in cachen innan du kör benchmark-tester.
+FIO är ett populärt verktyg till benchmark lagring på virtuella Linux-datorer. Det har flexibiliteten att välja olika i/o-storlek, sekventiella eller icke-sekventiell läsning och skriver. Den tio trådar eller processer för att utföra de angivna i/o-åtgärderna. Du kan ange vilken typ av i/o-åtgärder som varje arbetstråd måste utföra med hjälp av jobbfiler. Vi har skapat en jobbet fil per scenariot som illustreras i exemplen nedan. Du kan ändra specifikationerna i jobbfilerna för att jämföra olika arbetsbelastningar som körs på Premium-lagring. I exemplen är vi använder en Standard DS 14 virtuella datorer som kör **Ubuntu**. Använd samma inställningar som beskrivs i början av avsnittet Benchmarking och varma hela cachen innan du kör benchmark-tester.
 
 Innan du börjar [hämta FIO](https://github.com/axboe/fio) och installera den på den virtuella datorn.
 

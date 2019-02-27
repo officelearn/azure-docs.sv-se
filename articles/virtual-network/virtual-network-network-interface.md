@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
-ms.openlocfilehash: 37e1a308d63d782c6ff18c10a5874842341eeec7
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 8840944f6757813b10b01c8e512b1ef64c05a85f
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56818110"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56888295"
 ---
 # <a name="create-change-or-delete-a-network-interface"></a>Skapa, ändra eller ta bort ett nätverksgränssnitt
 
@@ -68,9 +68,9 @@ Portalen ger inte alternativet att tilldela nätverksgränssnittet till programs
 
 **Kommandon**
 
-|Verktyget|Kommando|
+|Verktyg|Kommando|
 |---|---|
-|CLI|[az network nic create](/cli/azure/network/nic#az_network_nic_create)|
+|CLI|[az network nic create](/cli/azure/network/nic)|
 |PowerShell|[New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface)|
 
 ## <a name="view-network-interface-settings"></a>Visa inställningar för nätverksgränssnittet
@@ -95,9 +95,9 @@ Du kan visa och ändra de flesta inställningar för ett nätverksgränssnitt n�
 
 Om en IPv6-adress tilldelas till ett nätverksgränssnitt, returnerar det faktum att adressen tilldelas, men den inte returnerar den tilldelade adressen i PowerShell-utdata. På samma sätt CLI returnerar det faktum att adressen är tilldelad, men returnerar *null* i dess utdata för adressen.
 
-|Verktyget|Kommando|
+|Verktyg|Kommando|
 |---|---|
-|CLI|[AZ network nic list](/cli/azure/network/nic#az_network_nic_list) att visa nätverksgränssnitt i prenumerationen; [az network nic show](/cli/azure/network/nic#az_network_nic_show) att visa inställningar för ett nätverksgränssnitt|
+|CLI|[AZ network nic list](/cli/azure/network/nic) att visa nätverksgränssnitt i prenumerationen; [az network nic show](/cli/azure/network/nic) att visa inställningar för ett nätverksgränssnitt|
 |PowerShell|[Get-AzNetworkInterface](/powershell/module/az.network/get-aznetworkinterface) visa nätverksgränssnitt i prenumeration eller visa inställningarna för ett nätverksgränssnitt|
 
 ## <a name="change-dns-servers"></a>Ändra DNS-servrar
@@ -114,7 +114,7 @@ DNS-servern är tilldelad av Azure DHCP-servern till nätverksgränssnittet i VM
 
 **Kommandon**
 
-|Verktyget|Kommando|
+|Verktyg|Kommando|
 |---|---|
 |CLI|[AZ network nic update](/cli/azure/network/nic)|
 |PowerShell|[Set-AzNetworkInterface](/powershell/module/az.network/set-aznetworkinterface)|
@@ -135,7 +135,7 @@ Inställningen måste aktiveras för varje nätverksgränssnitt som är kopplad 
 
 **Kommandon**
 
-|Verktyget|Kommando|
+|Verktyg|Kommando|
 |---|---|
 |CLI|[AZ network nic update](/cli/azure/network/nic)|
 |PowerShell|[Set-AzNetworkInterface](/powershell/module/az.network/set-aznetworkinterface)|
@@ -155,9 +155,9 @@ Du kan ändra undernätet, men inte det virtuella nätverket, som ett nätverksg
 
 **Kommandon**
 
-|Verktyget|Kommando|
+|Verktyg|Kommando|
 |---|---|
-|CLI|[AZ network nic ip-config update](/cli/azure/network/nic/ip-config#az_network_nic_ip_config_update)|
+|CLI|[AZ network nic ip-config update](/cli/azure/network/nic/ip-config)|
 |PowerShell|[Set-AzNetworkInterfaceIpConfig](/powershell/module/az.network/set-aznetworkinterfaceipconfig)|
 
 ## <a name="add-to-or-remove-from-application-security-groups"></a>Lägg till eller ta bort från programsäkerhetsgrupper
@@ -169,7 +169,7 @@ Du kan bara lägga till ett nätverksgränssnitt för eller ta bort ett nätverk
 
 **Kommandon**
 
-|Verktyget|Kommando|
+|Verktyg|Kommando|
 |---|---|
 |CLI|[AZ network nic update](/cli/azure/network/nic)|
 |PowerShell|[Set-AzNetworkInterface](/powershell/module/az.network/set-aznetworkinterface)|
@@ -201,7 +201,7 @@ När du tar bort ett nätverksgränssnitt släpps alla MAC- eller IP-adresser so
 
 **Kommandon**
 
-|Verktyget|Kommando|
+|Verktyg|Kommando|
 |---|---|
 |CLI|[AZ network nic delete](/cli/azure/network/nic)|
 |PowerShell|[Remove-AzNetworkInterface](/powershell/module/az.network/remove-aznetworkinterface)|

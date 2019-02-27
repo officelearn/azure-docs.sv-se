@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/18/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: ea6d94ff1ee8c27c1642f24660a6ab4f276137a8
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: cbe8970e3e7b924025a93b50f9b8c9e46643b349
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56330791"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56872054"
 ---
 # <a name="azure-storage-redundancy"></a>Redundans i Azure Storage
 
@@ -68,5 +68,5 @@ Om du ändrar från GRS till LRS ingår utan extra kostnad, men din replikerade 
 - [GEO-redundant lagring (GRS): Tvärregional replikering för Azure Storage](storage-redundancy-grs.md)
 - [Skalbarhets- och prestandamål i Azure Storage](storage-scalability-targets.md)
 - [Utforma högtillgängliga program med hjälp av RA-GRS-lagring](../storage-designing-ha-apps-with-ragrs.md)
-- [Microsoft Azure Storage redundans alternativ och läsåtkomst geografiskt redundant lagring ](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx)
+- [Microsoft Azure Storage redundans alternativ och läsåtkomst geografiskt redundant lagring](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx)
 - [SOSP Paper - Azure Storage: En högtillgänglig molnlagringstjänst med stark konsekvens](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/23/2018
 ms.author: mbullwin
-ms.openlocfilehash: e32d3fe30796015c8189eee819a0cc3dd4581e22
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 532121f4e9a3c658e544a8d322ac0f17fa22a2b0
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700918"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56875913"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-net"></a>Felsökning utan data, Application Insights för .NET
 ## <a name="some-of-my-telemetry-is-missing"></a>Några av Mina telemetri saknas
@@ -213,7 +213,7 @@ Följ dessa instruktioner för att avbilda felsökningsloggarna för ditt ramver
   
 ### <a name="net-core"></a>.NET core
 
-1. Installera den [Microsoft.AspNet.ApplicationInsights.HostingStartup](https://www.nuget.org/packages/Microsoft.AspNet.ApplicationInsights.HostingStartup) från NuGet. Den version som du installerar måste matcha den aktuella installerade versionen av `Microsoft.ApplicationInsighs`
+1. Installera den [Microsoft.AspNetCore.ApplicationInsights.HostingStartup](https://www.nuget.org/packages/Microsoft.AspNetCore.ApplicationInsights.HostingStartup) från NuGet. Den version som du installerar måste matcha den aktuella installerade versionen av `Microsoft.ApplicationInsights`
 
 2. Ändra `ConfigureServices` -metod i din `Startup.cs` klass.:
 

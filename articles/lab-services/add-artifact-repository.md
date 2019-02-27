@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2019
 ms.author: spelluru
-ms.openlocfilehash: e8a94fdae74c5a30ba75e9143b298c3372b886d7
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 9a267b48e185e02c1b1217380429453799308bbe
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56733018"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56886789"
 ---
 # <a name="add-an-artifact-repository-to-your-lab-in-devtest-labs"></a>Lägga till en artefaktcentrallagret i ditt labb i DevTest Labs
 DevTest Labs kan du ange en artefakt som ska läggas till en virtuell dator vid tidpunkten för att skapa den virtuella datorn eller när den virtuella datorn har skapats. Den här artefakten kan vara ett verktyg eller ett program som du vill installera på den virtuella datorn. Artefakter har definierats i en JSON-fil lästs in från en GitHub- eller VSTS Git-lagringsplats. 
@@ -60,7 +60,7 @@ Om du vill lägga till en lagringsplats i labbet, först få viktig information 
    4. Välj den **alla omfattningar** alternativet.
    5. Välj **skapa Token**.
 9. Den nya token visas i den **personliga åtkomsttoken** lista. Välj **kopiera Token**, och spara token-värde för senare användning.
-10. Fortsätta att den [ansluta ditt labb till databasen](#connect-your-lab-to-the-repository) avsnittet.
+10. Fortsätta att ansluta ditt labb till avsnittet för databasen.
 
 ## <a name="use-azure-portal"></a>Använda Azure-portalen
 Det här avsnittet innehåller steg för att lägga till en artefaktcentrallagret till ett labb i Azure-portalen. 

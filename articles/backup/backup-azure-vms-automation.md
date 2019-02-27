@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 10/20/2018
 ms.author: raynew
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b9c3dadb328bb49f3cb1897bb64390ed75620b3d
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 4dff64010b8b9d57810e37866f69cd5ee203e66f
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56311893"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56888363"
 ---
 # <a name="use-powershell-to-back-up-and-restore-virtual-machines"></a>Använd PowerShell för att säkerhetskopiera och återställa virtuella datorer
 
@@ -415,7 +415,7 @@ De resulterande jobbinformation ger mall-URI som kan efterfrågas och distribuer
    $templateBlobURI = $properties["Template Blob Uri"]
 ```
 
-Distribuera mallen för att skapa en ny virtuell dator som beskrivs bara [här](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy#deploy-a-template-from-an-external-source).
+Distribuera mallen för att skapa en ny virtuell dator som beskrivs bara [här](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy).
 
 ```powershell
 New-AzureRmResourceGroupDeployment -Name ExampleDeployment ResourceGroupName ExampleResourceGroup -TemplateUri $templateBlobURI -storageAccountType Standard_GRS

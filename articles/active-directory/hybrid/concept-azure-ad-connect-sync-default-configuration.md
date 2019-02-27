@@ -16,12 +16,12 @@ ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ae428f18a2b927f42716a1c00b55790fe73d81a4
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 06f51f56de29d5e598ea74b39352d3c15bf7b375
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56173410"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56880639"
 ---
 # <a name="azure-ad-connect-sync-understanding-the-default-configuration"></a>Azure AD Connect-synkronisering: Förstå standardkonfigurationen
 Den här artikeln förklarar konfigurationsregler för out-of-box. Det dokument som reglerna och hur de här reglerna påverkar konfigurationen. Vi går också igenom standardkonfigurationen för Azure AD Connect-synkronisering. Målet är att läsaren förstår hur Konfigurationsmodell, med namnet deklarativ etablering fungerar i ett verkliga exempel. Den här artikeln förutsätter att du redan har installerat och konfigurera Azure AD Connect-synkronisering med hjälp av installationsguiden.
@@ -151,7 +151,7 @@ En Synkroniseringsregel har fyra konfigurationsavsnitt: Beskrivning, Scoping fil
 #### <a name="description"></a>Beskrivning
 Det första avsnittet innehåller grundläggande information, till exempel namn och beskrivning.
 
-![Beskrivning av fliken synkroniserade regeln editor ](./media/concept-azure-ad-connect-sync-default-configuration/syncruledescription.png)
+![Beskrivning av fliken synkroniserade regeln editor](./media/concept-azure-ad-connect-sync-default-configuration/syncruledescription.png)
 
 Du hittar även information om vilka anslutna system med den här regeln är relaterad till, vilket objekt av typen i den anslutna system som gäller för och metaversum-objekttyp. Typ av metaversumobjekt är alltid person oavsett när typ av datakällobjekt är en användare, iNetOrgPerson eller kontakt. Typ av metaversumobjekt bör aldrig ändras så att den har skapats som en allmän typ. Länktypen kan ställas in att Join, StickyJoin eller etablera. Den här inställningen fungerar tillsammans med avsnittet ansluta regler och beskrivs senare.
 
@@ -160,18 +160,18 @@ Du kan också se att den här synkroniseringsregel används för synkronisering 
 #### <a name="scoping-filter"></a>Omfångsfilter
 Avsnittet Omfångsfilter används för att konfigurera en Synkroniseringsregel skall gälla. Eftersom namnet på Synkroniseringsregel som du tittar på indikerar den bör endast användas för aktiverade användare, omfång har konfigurerats så att den AD-attribut **userAccountControl** måste inte har den 2 biten. När Synkroniseringsmotorn hittar en användare i AD, tillämpas den här synkroniseringen regeln när **userAccountControl** har angetts till decimalvärde 512 (aktiverad normal användare). Den gäller inte regeln när användaren har **userAccountControl** inställd 514 (inaktiverad normal användare).
 
-![Konfigurera fliken i synkronisering regeln editor ](./media/concept-azure-ad-connect-sync-default-configuration/syncrulescopingfilter.png)
+![Konfigurera fliken i synkronisering regeln editor](./media/concept-azure-ad-connect-sync-default-configuration/syncrulescopingfilter.png)
 
 Omfångsfilter har grupper och villkor som kan vara inkapslade. Alla satser i en grupp måste vara uppfyllda för en Synkroniseringsregel ska tillämpas. När flera grupper har definierats måste i minst en grupp vara uppfyllda för regeln ska gälla. Det vill säga ett logiskt OR utvärderas mellan grupper och en logisk och utvärderas i en grupp. Ett exempel på den här konfigurationen finns i den utgående Synkroniseringsregeln **ut till AAD – grupp ansluta**. Det finns flera filter synkroniseringsgrupper, till exempel en för säkerhetsgrupper (`securityEnabled EQUAL True`) och en för distributionsgrupper (`securityEnabled EQUAL False`).
 
-![Konfigurera fliken i synkronisering regeln editor ](./media/concept-azure-ad-connect-sync-default-configuration/syncrulescopingfilterout.png)
+![Konfigurera fliken i synkronisering regeln editor](./media/concept-azure-ad-connect-sync-default-configuration/syncrulescopingfilterout.png)
 
 Den här regeln används för att definiera vilka grupper som ska etableras till Azure AD. Distributionsgrupper måste vara e-postaktiverad som ska synkroniseras med Azure AD, men för säkerhetsgrupper ett e-postmeddelande krävs inte.
 
 #### <a name="join-rules"></a>Ansluta till regler
 Det tredje avsnittet används för att konfigurera hur objekt i anslutarplatsen som är relaterade till objekt i metaversum. Regeln som du har tittat i tidigare inte har någon konfiguration för regler för att ansluta till istället du ska titta på **i från AD – användare ansluta**.
 
-![Häng med fliken regler i synkronisering regeln editor ](./media/concept-azure-ad-connect-sync-default-configuration/syncrulejoinrules.png)
+![Häng med fliken regler i synkronisering regeln editor](./media/concept-azure-ad-connect-sync-default-configuration/syncrulejoinrules.png)
 
 Innehållet i join-regel beror på de matchande alternativ som valts i installationsguiden. Utvärderingen börjar med ett objekt i anslutarplatsen källa för en regel för inkommande, och varje grupp i join-reglerna utvärderas i ordning. Om ett källobjekt utvärderas för att matcha exakt ett objekt i metaversumet med någon av join-regler och är objekt som anslutna. Om alla regler har utvärderats och det finns ingen matchning, används länktyp på sidan beskrivning. Om den här konfigurationen är inställd på **etablera**, och sedan ett nytt objekt skapas i målet, metaversum. Att etablera ett nytt objekt att metaversum kallas även att **projekt** ett objekt till metaversum.
 
@@ -184,7 +184,7 @@ Om du tittar på i bilden ovan, kan du se att regeln försöker ansluta till **o
 #### <a name="transformations"></a>Transformationer
 Transformationsavsnittet definierar alla attributflöden som gäller för målobjektet när objekten kopplas och Omfångsfilter är uppfyllt. Gå tillbaka till den **i från AD – användaren AccountEnabled** Synkroniseringsregeln du hittar följande omvandlingar:
 
-![Transformationer fliken synkroniserade regeln editor ](./media/concept-azure-ad-connect-sync-default-configuration/syncruletransformations.png)
+![Transformationer fliken synkroniserade regeln editor](./media/concept-azure-ad-connect-sync-default-configuration/syncruletransformations.png)
 
 Om du vill placera den här konfigurationen i kontexten i en skog distribution resursen för Lagringskonton förväntas att hitta ett aktiverat konto i kontoskogen och ett inaktiverat konto i resursskogen med inställningar för Exchange och Lync. Synkroniseringsregeln som du tittar på innehåller attributen som krävs för att logga in och dessa attribut ska flöda från skogen där det finns ett aktiverat konto. Alla dessa attributflöden placeras tillsammans i en regel för synkronisering.
 

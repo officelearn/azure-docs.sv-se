@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: 2fc09ccdf68605e444ed4b196162df6205557272
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 561982f7a7842ed717044c6709085bbd4621206e
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56002124"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56868637"
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Övervaka aktivitet om prenumeration med Azure-aktivitetsloggen
 
 Den **Azure-aktivitetsloggen** är en prenumerationslogg som ger insikt i händelser på prenumerationsnivå som har inträffat i Azure. Detta omfattar en mängd data från Azure Resource Manager driftdata uppdateringar på Service Health-händelser. Aktivitetsloggen kallades tidigare ”granskningsloggar” eller ”Driftloggar” eftersom administrativ kategori rapporter kontrollplanet händelser för dina prenumerationer. Med aktivitetsloggen kan du fastställa den ”vad, vem, och när” för alla skrivåtgärder (PUT, POST, ta bort) vidtas på resurserna i din prenumeration. Du kan också förstå statusen för åtgärden och andra relevanta egenskaper. Aktivitetsloggen inkluderar inte läsåtgärder (GET) eller åtgärder för resurser som använder klassiskt / ”RDFE”-modellen.
 
-![Aktivitet loggar eller andra typer av loggar ](./media/activity-logs-overview/Activity_Log_vs_other_logs_v5.png)
+![Aktivitet loggar eller andra typer av loggar](./media/activity-logs-overview/Activity_Log_vs_other_logs_v5.png)
 
 Bild 1: Aktivitet loggar eller andra typer av loggar
 

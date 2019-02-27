@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 0229b83a1b19e422954879ea9660373a34b18002
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 4c02df5684036aef078b0f79c70d3b66d60e013b
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53340068"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56881523"
 ---
 # <a name="how-to-use-custom-allocation-policies"></a>Hur du använder anpassade allokeringsprinciper
 
@@ -555,7 +555,7 @@ Ta bort resursgruppen med namnet:
 ## <a name="next-steps"></a>Nästa steg
 
 - Läs mer Reprovisioning i [IoT Hub Device reprovisoning begrepp](concepts-device-reprovision.md) 
-- Läs mer avetablering i [så ta bort etableringen av enheter som har tidigare Automatisk etablering ](how-to-unprovision-devices.md) 
+- Läs mer avetablering i [så ta bort etableringen av enheter som har tidigare Automatisk etablering](how-to-unprovision-devices.md) 
 
 
 

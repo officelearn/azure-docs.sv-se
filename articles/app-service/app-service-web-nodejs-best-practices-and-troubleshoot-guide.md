@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/09/2017
 ms.author: ranjithr
 ms.custom: seodec18
-ms.openlocfilehash: aad31e72682e15c49fb3d6dce64e7ef46525cb66
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 6a22600f7d6653da64256d7ec63ba26f272b2184
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54051860"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56888278"
 ---
 # <a name="best-practices-and-troubleshooting-guide-for-node-applications-on-azure-app-service-windows"></a>Metodtips och felsökningsguide för nodprogram i Azure App Service Windows
 
@@ -48,12 +48,12 @@ Den här inställningen styr det maximala antalet samtidiga begäranden som skic
 
 ### <a name="maxnamedpipeconnectionretry"></a>maxNamedPipeConnectionRetry
 
-Den här inställningen styr det maximala antalet gånger iisnode återförsök som gör anslutningen på en namngiven pipe att skicka begäranden till node.exe. Den här inställningen i kombination med namedPipeConnectionRetryDelay avgör den totala tidsgränsen för varje begärande i iisnode. Standardvärdet är 200 på Azure App Service. Total tidsgräns i sekunder = (maxNamedPipeConnectionRetry \* namedPipeConnectionRetryDelay) / 1000
+Den här inställningen styr det maximala antalet gånger iisnode återförsök som gör anslutningen på en namngiven pipe att skicka begäranden till node.exe. Den här inställningen i kombination med namedPipeConnectionRetryDelay avgör den totala tidsgränsen för varje begärande i iisnode. Standardvärdet är 200 på Azure App Service. Total Timeout in seconds = (maxNamedPipeConnectionRetry \* namedPipeConnectionRetryDelay) / 1000
 
 ### <a name="namedpipeconnectionretrydelay"></a>namedPipeConnectionRetryDelay
 
 Den här inställningen styr hur lång tid (i ms) iisnode väntar mellan varje nytt försök att skicka begäran till node.exe via en namngiven pipe. Standardvärdet är 250 ms.
-Total tidsgräns i sekunder = (maxNamedPipeConnectionRetry \* namedPipeConnectionRetryDelay) / 1000
+Total Timeout in seconds = (maxNamedPipeConnectionRetry \* namedPipeConnectionRetryDelay) / 1000
 
 Den totala tidsgränsen i iisnode på Azure App Service är som standard 200 \* 250 ms = 50 sekunder.
 
@@ -90,7 +90,7 @@ Utöver detta är måste för direktuppspelning av program, du också ange respo
 
 ### <a name="watchedfiles"></a>watchedFiles
 
-Ett semikolon avgränsade lista över filer som har bevakade för ändringar. En fil ändras utlöser Papperskorgen. Varje post består av ett valfritt katalognamnet samt ett obligatoriskt filnamn, som är i förhållande till katalogen där programmets startpunkt finns. Jokertecken är tillåtna i filnamnsdelen endast. Standardvärdet är `*.js;web.config`
+Ett semikolon avgränsade lista över filer som har bevakade för ändringar. En fil ändras utlöser Papperskorgen. Varje post består av ett valfritt katalognamnet samt ett obligatoriskt filnamn, som är i förhållande till katalogen där programmets startpunkt finns. Jokertecken är tillåtna i filnamnsdelen endast. Standardvärdet är `*.js;iisnode.yml`
 
 ### <a name="recyclesignalenabled"></a>recycleSignalEnabled
 

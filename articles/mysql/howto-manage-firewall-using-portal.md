@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 02/28/2018
-ms.openlocfilehash: 598af6bb945318f0a76ffe094dd5786abacccc3f
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: b55f8d44d12fa503a17218db4a5166819024f1aa
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53543537"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56872904"
 ---
 # <a name="create-and-manage-azure-database-for-mysql-firewall-rules-by-using-the-azure-portal"></a>Skapa och hantera Azure Database för MySQL-brandväggsregler med hjälp av Azure portal
 Brandväggsregler på servernivå gör att administratörer kan få åtkomst till en Azure Database for MySQL-Server från en angiven IP-adress eller ett intervall med IP-adresser. 
@@ -34,7 +34,7 @@ Brandväggsregler på servernivå gör att administratörer kan få åtkomst til
 
 4. Lägga till ytterligare adressintervall. Du kan ange en IP-adress eller ett adressintervall i brandväggsreglerna för Azure Database for MySQL. Om du vill begränsa regeln till en enda IP-adress skriver du samma adress i fälten första IP- och slut-IP. Om du öppnar brandväggen kan administratörer, användare och program för att få åtkomst till alla databaser på MySQL-servern som de har giltiga autentiseringsuppgifter.
 
-   ![Azure portal – brandväggsregler ](./media/howto-manage-firewall-using-portal/4-specify-addresses.png)
+   ![Azure portal – brandväggsregler](./media/howto-manage-firewall-using-portal/4-specify-addresses.png)
 
 5. Klicka på **spara** i verktygsfältet för att spara den här brandväggsregeln på servernivå. Vänta för att bekräfta att uppdateringen till brandväggsreglerna har lyckats.
 

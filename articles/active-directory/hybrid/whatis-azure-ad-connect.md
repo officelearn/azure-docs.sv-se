@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/30/2019
+ms.date: 02/26/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d364421794452f8ccf95a60ec86a161934c87528
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: a29a00c34d4c60e6ba2b4fd6b0b413873301af5c
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56167991"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56888380"
 ---
 # <a name="what-is-azure-ad-connect"></a>Vad är Azure AD Connect?
 
@@ -57,7 +57,7 @@ Viktiga fördelar och bästa praxis:
 
 |Viktiga fördelar|Metodtips|
 |-----|-----|
-|Förbättrad säkerhet|[Trender för extranätsutelåsning](how-to-connect-health-adfs.md#usage-analytics-for-ad-fs)</br>[Rapport över misslyckade inloggningar](how-to-connect-health-adfs.md#risky-ip-report-public-preview)</br>[I kompatibla sekretess](reference-connect-health-user-privacy.md)|
+|Förbättrad säkerhet|[Trender för extranätsutelåsning](how-to-connect-health-adfs.md#usage-analytics-for-ad-fs)</br>[Rapport över misslyckade inloggningar](how-to-connect-health-adfs-risky-ip.md)</br>[I kompatibla sekretess](reference-connect-health-user-privacy.md)|
 |Få ett meddelande om [alla kritiska problem för AD FS-system](how-to-connect-health-alert-catalog.md#alerts-for-active-directory-federation-services)|Serverkonfiguration och tillgänglighet</br>[Prestanda och anslutning](how-to-connect-health-adfs.md#performance-monitoring-for-ad-fs)</br>Regelbundet underhåll|
 |Enkelt att distribuera och hantera|[Snabb agentinstallation](how-to-connect-health-agent-install.md#installing-the-azure-ad-connect-health-agent-for-ad-fs)</br>Automatisk agentuppgradering till senaste version</br>Data tillgängliga i portalen inom några minuter|
 Omfattande [användningsstatistik](how-to-connect-health-adfs.md#usage-analytics-for-ad-fs)|Främsta programanvändning</br>Nätverksplatser och TCP-anslutning</br>Tokenbegäranden per server|

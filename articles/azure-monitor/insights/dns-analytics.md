@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: magoedte
-ms.openlocfilehash: 0eeab5a2489bacde74b98e7d404789a00b64d02a
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 6e3c456b3ee92f30b3b152a39faf3f1fe483013f
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55992729"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56876610"
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>Samla in information om DNS-infrastrukturen med förhandsversionen av DNS Analytics-lösning
 
@@ -142,7 +142,7 @@ Informationen hjälper dig att identifiera den:
 
 **Namnge registreringsbegäranden**. Den övre panelen visas en trendlinje av begäranden om lyckade och misslyckade DNS-dynamiska uppdateringar. Lägre panelen visar de översta 10 klienter som skickar begäranden om indexuppdatering av misslyckade DNS till DNS-servrar, sorterade efter antalet fel.
 
-![Namn på registrering begäranden bladet ](./media/dns-analytics/name-reg-req-blade.png)
+![Namn på registrering begäranden bladet](./media/dns-analytics/name-reg-req-blade.png)
 
 **Exempel på DDI analysfrågor**. Innehåller en lista över de vanligaste sökfrågorna som hämtar raw analysdata direkt.
 

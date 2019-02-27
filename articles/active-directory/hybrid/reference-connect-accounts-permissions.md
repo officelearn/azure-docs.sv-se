@@ -17,12 +17,12 @@ ms.date: 01/24/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7401a77e79ec42930c411856defd48a0ba3c3bf7
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: d145407331ed652f21510483b51a4617bf28e2fa
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56170260"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56879126"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: Konton och behörigheter
 
@@ -249,7 +249,7 @@ Om du inte Läs i dokumentationen om [integrera dina lokala identiteter med Azur
 |Installera med standardinställningar | [Snabbinstallation av Azure AD Connect](how-to-connect-install-express.md)|
 |Installera med anpassade inställningar | [Anpassad installation av Azure AD Connect](./how-to-connect-install-custom.md)|
 |Uppgradera från DirSync | [Uppgradera från Azure AD-synkroniseringsverktyg (DirSync)](how-to-dirsync-upgrade-get-started.md)|
-|Efter installationen | [Bekräfta installationen och tilldela licenser ](how-to-connect-post-installation.md)|
+|Efter installationen | [Verifiera installationen och tilldela licenser](how-to-connect-post-installation.md)|
 
 ## <a name="next-steps"></a>Nästa steg
 Läs mer om hur du [integrerar dina lokala identiteter med Azure Active Directory](whatis-hybrid-identity.md).

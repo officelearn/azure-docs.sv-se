@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2019
 ms.author: jdial;anavin
-ms.openlocfilehash: a2d799a85932f8b7fdf1f6ae53dc50579c266311
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 52c0799dd2f3c22b1ae3553869aafe9a1fcffc7f
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56674536"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56887938"
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>Skapa, ändra eller ta bort en virtuell nätverkspeering
 
@@ -71,7 +71,7 @@ Stegvisa instruktioner för att implementera peering mellan virtuella nätverk i
 
 ### <a name="commands"></a>Kommandon
 
-- **Azure CLI**: [skapa az network vnet-peering](/cli/azure/network/vnet/peering#create)
+- **Azure CLI**: [skapa az network vnet-peering](/cli/azure/network/vnet/peering)
 - **PowerShell**: [Add-AzVirtualNetworkPeering](/powershell/module/az.network/add-azvirtualnetworkpeering)
 
 ## <a name="view-or-change-peering-settings"></a>Visa eller ändra peering-inställningar
@@ -88,7 +88,7 @@ Innan du ändrar en peering bör du bekanta dig med kraven och begränsningarna 
 
 **Kommandon**
 
-- **Azure CLI**: [az network vnet peering list](/cli/azure/network/vnet/peering) att lista peerings för ett virtuellt nätverk, [az network vnet peering show](/cli/azure/network/vnet/peering#az_network_vnet_peering_show) att visa inställningarna för en specifik peering och [az nätverket vnet peering update](/cli/azure/network/vnet/peering#az_network_vnet_peering_update) att ändra peering-inställningar. |
+- **Azure CLI**: [az network vnet peering list](/cli/azure/network/vnet/peering) att lista peerings för ett virtuellt nätverk, [az network vnet peering show](/cli/azure/network/vnet/peering) att visa inställningarna för en specifik peering och [az nätverket vnet peering update](/cli/azure/network/vnet/peering) att ändra peering-inställningar. |
 - **PowerShell**: [Get-AzVirtualNetworkPeering](/powershell/module/az.network/get-azvirtualnetworkpeering) att hämta peering visningsinställningarna och [Set-AzVirtualNetworkPeering](/powershell/module/az.network/set-azvirtualnetworkpeering) att ändra inställningarna.
 
 ## <a name="delete-a-peering"></a>Ta bort en peer-koppling
@@ -97,7 +97,7 @@ Innan du tar bort en peer-koppling, se till att ditt konto har de [behörighet](
 
 När en peering tas bort, flödar inte längre trafik från ett virtuellt nätverk till det peer-kopplade virtuella nätverket. När virtuella nätverk som distribuerats via Resource Manager har peerkopplats kan har varje virtuellt nätverk den en peer-koppling till det virtuella nätverket. Om du tar bort peer-kopplingen från ett virtuellt nätverk inaktiveras kommunikation mellan virtuella nätverk, tas inte bort peer-kopplingen från det virtuella nätverket. Peering-statusen för peering som finns i det virtuella nätverket är **frånkopplad**. Du kan inte återskapa peeringen tills du återskapa peer-kopplingen i det första virtuella nätverket och peering-statusen för båda virtuella nätverken ändringar *ansluten*.
 
-Om du vill att virtuella nätverk kan kommunicera ibland, men inte alltid, i stället för att ta bort en peer-koppling, du kan ange den **Tillåt åtkomst till virtuellt nätverk** att ställa in **inaktiverad** i stället. Att lära dig hur du läser steg 6 i den [skapar en peering](#create-a-peering) i den här artikeln. Du kanske inaktivera och aktivera nätverksåtkomst som är enklare än att ta bort och återskapa peer-kopplingar.
+Om du vill att virtuella nätverk kan kommunicera ibland, men inte alltid, i stället för att ta bort en peer-koppling, du kan ange den **Tillåt åtkomst till virtuellt nätverk** att ställa in **inaktiverad** i stället. Att lära dig hur du läser steg 6 för att skapa en peering i den här artikeln. Du kanske inaktivera och aktivera nätverksåtkomst som är enklare än att ta bort och återskapa peer-kopplingar.
 
 1. Ange i sökrutan överst på portalen *virtuella nätverk* i sökrutan. När **virtuella nätverk** visas i sökresultaten, markerar du den. Markera inte **virtuella nätverk (klassiska)** om den visas i listan som du inte kan skapa en peer-kopplingen från ett virtuellt nätverk som distribueras via den klassiska distributionsmodellen.
 2. Välj det virtuella nätverket i listan som du vill ta bort en peerkoppling för.

@@ -13,35 +13,37 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/19/2018
 ms.author: bwren
-ms.openlocfilehash: e5053fe0a22dfa1c85438e8d293046343e09db52
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 623968467da775c55adf006a84a16ba46bd21d1d
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53191809"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56887462"
 ---
-# <a name="import-azure-log-analytics-data-into-power-bi"></a>Importera Azure Log Analytics-data till Power BI
+# <a name="import-azure-monitor-log-data-into-power-bi"></a>Importera Azure Monitor log-data till Power BI
 
 
-[Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/) är en molnbaserad företagsanalystjänst från Microsoft som innehåller kraftfulla visualiseringar och rapporter för analys av olika uppsättningar av data.  Du kan importera resultatet av en Log Analytics-loggsökning till en Power BI-datauppsättning så att du kan dra nytta av dess funktioner som kombinerar data från olika källor och dela rapporter på webben och mobila enheter.
+[Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/) är en molnbaserad företagsanalystjänst från Microsoft som innehåller kraftfulla visualiseringar och rapporter för analys av olika uppsättningar av data.  Du kan importera resultatet av en Azure Monitor log-fråga till en Power BI-datauppsättning så att du kan dra nytta av dess funktioner som kombinerar data från olika källor och dela rapporter på webben och mobila enheter.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="overview"></a>Översikt
-Om du vill importera data från en Log Analytics-arbetsytan till Power BI, skapar du en datauppsättning i Power BI baserat på en logga sökfråga i Log Analytics.  Frågan körs varje gång datauppsättningen uppdateras.  Du kan sedan skapa Power BI-rapporter som använder data från datauppsättningen.  För att skapa datauppsättningen i Power BI, du kan exportera din fråga från Log Analytics för att [Power Query (M) språk](https://msdn.microsoft.com/library/mt807488.aspx).  Du kan sedan använda detta för att skapa en fråga i Power BI Desktop och publicera den till Power BI som en datauppsättning.  Information om den här processen beskrivs nedan.
+Importera data från en [Log Analytics-arbetsyta](manage-access.md) i Azure Monitor till Power BI kan du skapa en datauppsättning i Power BI baserat på en [loggfråga](../log-query/log-query-overview.md) i Azure Monitor.  Frågan körs varje gång datauppsättningen uppdateras.  Du kan sedan skapa Power BI-rapporter som använder data från datauppsättningen.  För att skapa datauppsättningen i Power BI, du kan exportera din fråga från Log Analytics för att [Power Query (M) språk](https://msdn.microsoft.com/library/mt807488.aspx).  Du kan sedan använda detta för att skapa en fråga i Power BI Desktop och publicera den till Power BI som en datauppsättning.  Information om den här processen beskrivs nedan.
 
 ![Log Analytics till Powerbi](media/powerbi/overview.png)
 
 ## <a name="export-query"></a>Exportera fråga
-Börja med att skapa en [loggsökning](../../azure-monitor/log-query/log-query-overview.md) som returnerar data från Log Analytics som du vill fylla i Power BI-datauppsättningen.  Sedan kan du exportera den frågan till [Power Query (M) språk](https://msdn.microsoft.com/library/mt807488.aspx) som kan användas av Power BI Desktop.
+Börja med att skapa en [loggfråga](../log-query/log-query-overview.md) som returnerar de data som du vill fylla i Power BI-datauppsättningen.  Sedan kan du exportera den frågan till [Power Query (M) språk](https://msdn.microsoft.com/library/mt807488.aspx) som kan användas av Power BI Desktop.
 
-1. Skapa loggsökningen i Log Analytics för att extrahera data för din datauppsättning.
-2. Om du använder loggsökningsportalen, klickar du på **Power BI**.  Om du använder Analytics-portalen, väljer **exportera** > **Power BI frågor (miljoner)**.  Båda dessa alternativ exportera frågan till en textfil med namnet **PowerBIQuery.txt**. 
+1. [Skapa loggfråga i Log Analytics](../log-query/get-started-portal.md) att extrahera data för din datauppsättning.
+2. Välj **exportera** > **Power BI-fråga (M)**.  Det här exporterar frågan till en textfil med namnet **PowerBIQuery.txt**. 
 
-    ![Exportera loggsökning](media/powerbi/export-logsearch.png) ![Exportera loggsökning](media/powerbi/export-analytics.png)
+    ![Exportera loggsökning](media/powerbi/export-analytics.png)
 
 3. Öppna filen och kopiera innehållet.
 
 ## <a name="import-query-into-power-bi-desktop"></a>Importera fråga till Power BI Desktop
-Power BI Desktop är ett program som gör att du kan skapa datauppsättningar och rapporter som kan publiceras till Power BI.  Du kan också använda den för att skapa en fråga med Power Query-språk som exporteras från Log Analytics. 
+Power BI Desktop är ett program som gör att du kan skapa datauppsättningar och rapporter som kan publiceras till Power BI.  Du kan också använda den för att skapa en fråga med Power Query-språk som exporteras från Azure Monitor. 
 
 1. Installera [Power BI Desktop](https://powerbi.microsoft.com/desktop/) om du inte redan har det och öppna sedan programmet.
 2. Välj **hämta Data** > **tom fråga** att öppna en ny fråga.  Välj sedan **Avancerad redigerare** och klistra in innehållet i den exporterade filen i frågan. Klicka på **Klar**.
@@ -66,9 +68,9 @@ När du publicerar till Power BI, skapas en datauppsättning och en rapport.  Om
 
 
 ### <a name="configure-scheduled-refresh"></a>Konfigurera schemalagd uppdatering
-Den datauppsättning som skapats i Power BI har samma data som du såg tidigare i Power BI Desktop.  Du måste uppdatera datauppsättningen regelbundet för att köra frågan igen och fyller den med den senaste informationen från Log Analytics.  
+Den datauppsättning som skapats i Power BI har samma data som du såg tidigare i Power BI Desktop.  Du måste uppdatera datauppsättningen regelbundet för att köra frågan igen och fyller den med den senaste informationen från Azure Monitor.  
 
-1. Klicka på arbetsytan där du laddade upp din rapport och välj den **datauppsättningar** menyn. Välj snabbmenyn bredvid din nya datauppsättningen och välj **inställningar**. Under **datakällans autentiseringsuppgifter** bör du ha ett meddelande att autentiseringsuppgifterna är ogiltiga.  Det beror på att du inte har angett autentiseringsuppgifterna ännu för datamängden som ska användas när den uppdaterar dess data.  Klicka på **redigera autentiseringsuppgifter** och ange autentiseringsuppgifter för åtkomst till Log Analytics.
+1. Klicka på arbetsytan där du laddade upp din rapport och välj den **datauppsättningar** menyn. Välj snabbmenyn bredvid din nya datauppsättningen och välj **inställningar**. Under **datakällans autentiseringsuppgifter** bör du ha ett meddelande att autentiseringsuppgifterna är ogiltiga.  Det beror på att du inte har angett autentiseringsuppgifterna ännu för datamängden som ska användas när den uppdaterar dess data.  Klicka på **redigera autentiseringsuppgifter** och ange autentiseringsuppgifter för åtkomst till Log Analytics-arbetsyta i Azure Monitor.
 
     ![Power BI-schema](media/powerbi/powerbi-schedule.png)
 
@@ -79,5 +81,5 @@ Den datauppsättning som skapats i Power BI har samma data som du såg tidigare 
 
 
 ## <a name="next-steps"></a>Nästa steg
-* Lär dig mer om [loggsökningar](../../azure-monitor/log-query/log-query-overview.md) att skapa frågor som kan exporteras till Power BI.
-* Läs mer om [Power BI](https://powerbi.microsoft.com) att skapa visualiseringar baserade på Log Analytics-export.
+* Lär dig mer om [loggsökningar](../log-query/log-query-overview.md) att skapa frågor som kan exporteras till Power BI.
+* Läs mer om [Power BI](https://powerbi.microsoft.com) att skapa visualiseringar baserade på Azure Monitor log-export.

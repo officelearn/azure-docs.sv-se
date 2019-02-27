@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/09/2019
 ms.author: diberry
-ms.openlocfilehash: fc8283d85cf7d516edd78f20c9a47d806fbb827b
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 1fd472c452b476820414d51b8d13bce8a72dfb3d
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56328970"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56874944"
 ---
 # <a name="luis-bot-in-c-with-the-bot-framework-3x-and-the-azure-web-app-bot"></a>LUIS-bot i C# med Bot Framework 3.x och Azure Web app-robot
 
@@ -130,7 +130,7 @@ Roboten svarar genom att säga ”du har nått hälsning. Du SA: hello ”.  Det
 ## <a name="build-the-bot"></a>Skapa roboten
 I kodredigeraren, högerklickar du på `build.cmd` och välj **kör från konsolen**.
 
-![Skapa Web-robot ](./media/luis-tutorial-cscharp-web-bot/bot-service-build-run-from-console.png)
+![Skapa Web-robot](./media/luis-tutorial-cscharp-web-bot/bot-service-build-run-from-console.png)
 
 Kodvyn ersätts med ett terminalfönster som visar förlopp och resultat för versionen.
 

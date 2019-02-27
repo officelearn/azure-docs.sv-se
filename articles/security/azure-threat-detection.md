@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 32e705c5c338d9bd7c16514b2dc2ab081a9caf6a
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 301dd9357bc1585d96eda216d7e47601e488665b
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56115563"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56871810"
 ---
 # <a name="azure-advanced-threat-detection"></a>Azure avancerad hotidentifiering
 
@@ -108,7 +108,7 @@ I mitten av [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-a
 
 Du samla in data till databasen från anslutna källor genom att konfigurera datakällor och lägga till lösningar i din prenumeration.
 
-![Log Analytics-instrumentpanelen ](./media/azure-threat-detection/azure-threat-detection-fig5.png)
+![Log Analytics-instrumentpanelen](./media/azure-threat-detection/azure-threat-detection-fig5.png)
 
 Datakällor och lösningar skapar olika posttyper med sin egen uppsättning egenskaper, men du kan fortfarande analysera dem tillsammans i förfrågningar till databasen. Du kan använda samma verktyg och metoder för att arbeta med en mängd olika data som samlas in av olika källor.
 

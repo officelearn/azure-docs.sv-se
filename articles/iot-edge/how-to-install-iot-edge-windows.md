@@ -7,15 +7,15 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 01/25/2019
+ms.date: 02/25/2019
 ms.author: kgremban
 ms.custom: seodec18
-ms.openlocfilehash: 27478de68cde9a097dcc160a4553839aef9a018c
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 3981ae197515803821891402e525852901963f63
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54902813"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56871627"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-windows"></a>Installera Azure IoT Edge-körningen på Windows
 
@@ -213,6 +213,34 @@ Och listan körs moduler med:
 ```powershell
 iotedge list
 ```
+
+När du har en ny installation endast modulen bör du se körs är **edgeAgent**. När du [distribuera IoT Edge-moduler](how-to-deploy-modules-portal.md), ser du andra. 
+
+## <a name="manage-module-containers"></a>Hantera modulen behållare
+
+IoT Edge-tjänsten kräver en motor för behållare som körs på din enhet. När du distribuerar en modul till en enhet använder IoT Edge-körningen container-motor för att hämta behållaravbildningen från ett register i molnet. IoT Edge-tjänsten kan du interagera med dina moduler och hämtar loggar, men ibland vill du kanske du använder container-motorn för att interagera med själva behållaren. 
+
+Mer information om modulen begrepp finns i [förstå Azure IoT Edge-moduler](iot-edge-modules.md). 
+
+Om du använder Windows-behållare på din Windows IoT Edge-enhet med IoT Edge-installationen Moby container-motorn. Om du utvecklar Linux-behållare på en Windows-utvecklingsdator, använder du förmodligen Docker Desktop. Motorn för Moby baserades på samma standarder som Docker, och har utformats för att köras parallellt på samma dator som Docker Desktop. Om du vill mål-behållare som hanteras av motorn Moby av den anledningen måste du specifikt riktade mot vilken motorn i stället för Docker. 
+
+Till exempel om du vill visa alla Docker-avbildningar, använder du följande kommando:
+
+```powershell
+docker images
+```
+
+Om du vill visa alla Moby avbildningar, ändrar du samma kommando med en pekare till Moby-motorn: 
+
+```powershell
+docker -H npipe:////./pipe/iotedge_moby_engine images
+```
+
+Motorn URI: N visas i utdata från skriptet för installation, eller du kan hitta den i avsnittet behållare runtime inställningar för filen config.yaml. 
+
+![moby_runtime URI: n i config.yaml](./media/how-to-install-iot-edge-windows/moby-runtime-uri.png)
+
+Mer information om kommandon som du kan använda för att interagera med behållare och avbildningar som körs på din enhet finns i [Docker command-line gränssnitt](https://docs.docker.com/engine/reference/commandline/docker/).
 
 ## <a name="uninstall-iot-edge"></a>Avinstallera IoT Edge
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: e7f8eef2c3422084846462e2f6159a8b8be7167f
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: f615c4ca9ffc56daafcedd711f27672e0855e4fa
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301833"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56883955"
 ---
 # <a name="azure-security-technical-capabilities"></a>Tekniska funktioner för Azure-säkerhet
 
@@ -169,7 +169,7 @@ Prenumerationer har också en association med en katalog. Katalogen definierar e
 
 Säkerhetsinriktade företag bör fokusera på att ge anställda exakta behörigheter de behöver. För många behörigheter kan exponera ett konto för att angripare. För få behörigheter innebär att anställda inte kan utföra sitt arbete effektivt. [Azure rollbaserad åtkomstkontroll (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview) hjälper dig att lösa problemet genom att erbjuda detaljerad åtkomsthantering för Azure.
 
-![Säker åtkomst till ](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig4.png)
+![Säker åtkomst till](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig4.png)
 
 Med hjälp av RBAC kan du hålla isär uppgifter i ditt team och bevilja endast den omfattning av åtkomst till användare som de behöver för att utföra sitt arbete. Istället för att ge alla obegränsad behörighet i din Azure-prenumeration eller resurser kan du tillåta enbart vissa åtgärder. Exempelvis kan du använda RBAC för att låta en anställd hantera virtuella datorer i en prenumeration, medan en annan kan hantera SQL-databaser inom samma prenumeration.
 

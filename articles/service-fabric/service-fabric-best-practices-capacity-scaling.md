@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/23/2019
 ms.author: pepogors
-ms.openlocfilehash: c3b97ee7181d6475b7271d5ae4bcea0f6c9ff2b3
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: f91ea4c4ec887a9f9fe0c15000e3810109caeb96
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56805230"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889077"
 ---
 # <a name="capacity-planning-and-scaling"></a>Kapacitetsplanering och skalning
 
@@ -40,7 +40,7 @@ Skalning ska utföras via Azure Resource malldistributionen, eftersom det är en
 
 ## <a name="vertical-scaling-considerations"></a>Lodrät skalning överväganden
 
-[Vertikal skalning](https://docs.microsoft.com/azure/service-fabric/virtual-machine-scale-set-scale-node-type-scale-out#upgrade-the-size-and-operating-system-of-the-primary-node-type-vms) en nodtyp i Azure Service Fabric kräver ett antal åtgärder och överväganden. Exempel:
+[Vertikal skalning](https://docs.microsoft.com/azure/service-fabric/virtual-machine-scale-set-scale-node-type-scale-out) en nodtyp i Azure Service Fabric kräver ett antal åtgärder och överväganden. Exempel:
 * Klustret måste vara felfria innan du skalar. Annars du kommer endast att göra instabil ytterligare kluster.
 * **Silver hållbarhet nivå eller högre** krävs för alla Service Fabric-kluster NodeTypes som är värdar för tillståndskänsliga tjänster.
 

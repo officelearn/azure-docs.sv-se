@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.date: 12/27/2018
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: 11e29aa8d85ed7e3cf5ce7b4a8360e4b5eb628f9
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 498dc3f81968b60deb4f6f70466938026ac48f6a
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54319225"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56868008"
 ---
 # <a name="common-questions---hyper-v-to-azure-disaster-recovery"></a>Vanliga frågor – Hyper-V till Azure-haveriberedskap
 
@@ -189,7 +189,7 @@ Du kan komma åt virtuella Azure-datorer via en säker Internetanslutning, via e
 Azure är utformat med flexibilitet i fokus. Site Recovery är utformat för redundansväxling till en sekundär Azure-datacenter, i enlighet med serviceavtalet för Azure. Vid redundans vi Kontrollera att dina metadata och valv finns kvar i samma geografiska region som du har valt för ditt valv.
 
 ### <a name="is-failover-automatic"></a>Sker redundansväxlingen automatisk?
-[Redundans](site-recovery-failover.md) inte automatiskt. Du startar redundansväxlingar med ett enda klick i portalen eller använda [ PowerShell](/powershell/module/azurerm.siterecovery) att utlösa redundans.
+[Redundans](site-recovery-failover.md) inte automatiskt. Du startar redundansväxlingar med ett enda klick i portalen eller använda [PowerShell](/powershell/module/azurerm.siterecovery) att utlösa redundans.
 
 ### <a name="how-do-i-fail-back"></a>Hur växlar jag tillbaka?
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 12/13/2018
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 0b3128184942dbc750ea54bd7156c6e79b8bedea
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: ee2917c64843c8ab137e0122d63a328d6c19fedb
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56804849"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56867583"
 ---
 # <a name="azure-importexport-service-frequently-asked-questions"></a>Tjänsten Azure Import/Export: vanliga frågor och svar 
 Här följer frågor och svar som du kan ha när du använder Azure Import/Export-tjänsten för att överföra data till Azure storage. Frågor och svar är ordnade i följande kategorier:
@@ -138,7 +138,7 @@ Nej. Verktyget WAImportExport är endast kompatibel med 64-bitars Windows-operat
 ### <a name="what-is-the-maximum-block-blob-and-page-blob-size-supported-by-azure-importexport"></a>Vad är den högsta Block Blob och Sidblobens storlek som stöds av Azure Import/Export?
 
 Maximalt antal Block Blob är ungefär 4.768TB eller 5 000 000 MB.
-Max Page Blob är 1TB.
+Max Page Blob är 8TB.
 
 
 ### <a name="does-azure-importexport-support-aes-256-encryption"></a>Stöder AES-256-kryptering i Azure Import/Export?

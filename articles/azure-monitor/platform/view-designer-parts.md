@@ -1,6 +1,6 @@
 ---
-title: En referensguiden för Vydesigner delar i Azure Log Analytics | Microsoft Docs
-description: Du kan skapa anpassade vyer i Azure-portalen som visar olika datavisualiseringar i Log Analytics-arbetsytan med hjälp av Vydesigner i Log Analytics. Den här artikeln är en referensguide i inställningarna för visualisering delarna som är tillgängliga i dina anpassade vyer.
+title: En referensguiden för Vydesigner delar i Azure Monitor | Microsoft Docs
+description: Genom att använda Vydesigner i Azure Monitor kan skapa du anpassade vyer som visas i Azure-portalen och innehåller en mängd olika visualiseringar på data i Log Analytics-arbetsytan. Den här artikeln är en referensguide i inställningarna för visualisering delarna som är tillgängliga i dina anpassade vyer.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: bwren
-ms.openlocfilehash: 61118520e84b53a7669e482694f48d60fd8e67ad
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 53323e70884e61b4643f7950a1a6333f08dbbb6f
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53193883"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889910"
 ---
-# <a name="reference-guide-to-view-designer-visualization-parts-in-log-analytics"></a>Referensguide för Vydesigner visualisering delar i Log Analytics
-Du kan skapa anpassade vyer i Azure-portalen som presenterar en mängd olika visualiseringar från Log Analytics-arbetsytan med hjälp av Vydesigner i Azure Log Analytics. Den här artikeln är en referensguide i inställningarna för visualisering delarna som är tillgängliga i dina anpassade vyer.
+# <a name="reference-guide-to-view-designer-visualization-parts-in-azure-monitor"></a>Referensguide för Vydesigner visualisering delar i Azure Monitor
+Genom att använda Vydesigner i Azure Monitor kan skapa du en mängd olika anpassade vyer i Azure portal som kan hjälpa dig att visualisera data i Log Analytics-arbetsytan. Den här artikeln är en referensguide i inställningarna för visualisering delarna som är tillgängliga i dina anpassade vyer.
 
 Mer information om Vydesigner finns:
 
@@ -33,9 +33,9 @@ Tillgängliga typer av Vydesigner paneler beskrivs i följande tabell:
 
 | Vytyp | Beskrivning |
 |:--- |:--- |
-| [Lista över frågor](#list-of-queries-part) |Visar en lista över loggsökningsfrågor. Du kan välja varje fråga för att visa resultaten. |
-| [Antal och lista](#number-and-list-part) |Rubriken visar ett tal som visar antalet poster från en sökfråga för loggen. I listan visas de översta tio resultaten från en fråga med ett diagram som visar relativa värdet för en numerisk kolumn eller dess ändras över tid. |
-| [Två siffror och lista](#two-numbers-and-list-part) |Rubriken visar två tal som visar antalet poster från separata loggsökningsfrågor. I listan visas de översta tio resultaten från en fråga med ett diagram som visar relativa värdet för en numerisk kolumn eller dess ändras över tid. |
+| [Lista över frågor](#list-of-queries-part) |Visar en lista över loggfrågor. Du kan välja varje fråga för att visa resultaten. |
+| [Antal och lista](#number-and-list-part) |Rubriken visar ett tal som visar antalet poster från en loggfråga. I listan visas de översta tio resultaten från en fråga med ett diagram som visar relativa värdet för en numerisk kolumn eller dess ändras över tid. |
+| [Två siffror och lista](#two-numbers-and-list-part) |Rubriken visar två tal som visar antalet poster från separat logg-frågor. I listan visas de översta tio resultaten från en fråga med ett diagram som visar relativa värdet för en numerisk kolumn eller dess ändras över tid. |
 | [Ringdiagram och lista](#donut-and-list-part) |Rubriken visar ett enda tal som sammanfattar en värdekolumn i en loggfråga. Ringen visar grafiskt resultat för de tre översta posterna. |
 | [Två tidslinjer och lista](#two-timelines-and-list-part) |Rubriken visas resultatet av två loggfrågor med tiden då stående stapeldiagram med en uppmaning som visar ett enda tal som sammanfattar en värdekolumn i en loggfråga. I listan visas de översta tio resultaten från en fråga med ett diagram som visar relativa värdet för en numerisk kolumn eller dess ändras över tid. |
 | [Information](#information-part) |Rubriken visar statisk text och en valfri länk. I listan visas ett eller flera objekt med en statisk rubrik och text. |
@@ -46,14 +46,14 @@ Tillgängliga typer av Vydesigner paneler beskrivs i följande tabell:
 I nästa avsnitt beskrivs typerna av paneler och deras egenskaper i detalj.
 
 ## <a name="list-of-queries-part"></a>Lista över frågor del
-Lista över frågor del visar en lista över loggsökningsfrågor. Du kan välja varje fråga för att visa resultaten. Vyn innehåller en enkel fråga som standard, och du kan välja **+ fråga** att lägga till ytterligare frågor.
+Lista över frågor del visar en lista över loggfrågor. Du kan välja varje fråga för att visa resultaten. Vyn innehåller en enkel fråga som standard, och du kan välja **+ fråga** att lägga till ytterligare frågor.
 
 ![Lista över frågor vy](media/view-designer-parts/view-list-queries.png)
 
 | Inställning | Beskrivning |
 |:--- |:--- |
 | **Allmänt** | |
-| Titel |Den text som visas överst i vyn. |
+| Rubrik |Den text som visas överst i vyn. |
 | Ny grupp |Välj den här länken för att skapa en ny grupp i vyn, med början vid den aktuella vyn. |
 | Förvalda filter |En kommaavgränsad lista över egenskaper som ska ingå i den vänstra filterfönstret när du väljer en fråga. |
 | Återgivningsläge |Den inledande vyn som visas när frågan har valts. Du kan välja alla vyer som är tillgängliga när de öppnar frågan. |
@@ -62,7 +62,7 @@ Lista över frågor del visar en lista över loggsökningsfrågor. Du kan välja
 | Eget namn | Ett beskrivande namn som visas. |
 
 ## <a name="number-and-list-part"></a>En del tal och lista
-Rubriken visar ett tal som visar antalet poster från en sökfråga för loggen. I listan visas de översta tio resultaten från en fråga med ett diagram som visar relativa värdet för en numerisk kolumn eller dess ändras över tid.
+Rubriken visar ett tal som visar antalet poster från en loggfråga. I listan visas de översta tio resultaten från en fråga med ett diagram som visar relativa värdet för en numerisk kolumn eller dess ändras över tid.
 
 ![Lista över frågor vy](media/view-designer-parts/view-number-list.png)
 
@@ -91,7 +91,7 @@ Rubriken visar ett tal som visar antalet poster från en sökfråga för loggen.
 | Aktivera tröskelvärden |Välj den här länken för att aktivera tröskelvärden. Mer information finns i [gemensamma inställningar för](#thresholds). |
 
 ## <a name="two-numbers-and-list-part"></a>Två tal och en del lista
-Rubriken har två siffror som visar antalet poster från separata loggsökningsfrågor. I listan visas de översta tio resultaten från en fråga med ett diagram som visar relativa värdet för en numerisk kolumn eller dess ändras över tid.
+Rubriken har två siffror som visar antalet poster från separat logg-frågor. I listan visas de översta tio resultaten från en fråga med ett diagram som visar relativa värdet för en numerisk kolumn eller dess ändras över tid.
 
 ![Visa två siffror och lista](media/view-designer-parts/view-two-numbers-list.png)
 
@@ -133,8 +133,8 @@ Rubriken visar ett enda tal som sammanfattar en värdekolumn i en loggfråga. Ri
 | Ny grupp |Välj den här länken för att skapa en ny grupp i vyn, med början vid den aktuella vyn. |
 | Ikon |Bildfilen som visas bredvid resultatet i rubriken. |
 | Använd ikon |Välj länken visas ikonen. |
-| **Rubrik** | |
-| Titel |Den text som visas överst i rubriken. |
+| **Header** | |
+| Rubrik |Den text som visas överst i rubriken. |
 | Underrubrik |Den text som visas under rubriken överst i rubriken. |
 | **Ringdiagram** | |
 | Söka i data |Frågan ska köras för ringen. Den första egenskapen är ett textvärde och den andra egenskapen är ett numeriskt värde. |
@@ -205,14 +205,14 @@ Rubriken visar statisk text och en valfri länk. I listan visas ett eller flera 
 | Grupprubrik |Den text som visas överst i panelen. |
 | Ny grupp |Välj den här länken för att skapa en ny grupp i vyn, med början vid den aktuella vyn. |
 | Färg |Bakgrundsfärg för rubriken. |
-| **Rubrik** | |
+| **Header** | |
 | Bild |Bildfilen som visas i rubriken. |
-| Etikett |Den text som visas i rubriken. |
-| **Rubrik** |**> Länk** |
-| Etikett |Länktext. |
+| Label (Etikett) |Den text som visas i rubriken. |
+| **Header** |**> Länk** |
+| Label (Etikett) |Länktext. |
 | URL |URL: en för länken. |
 | **Informationsobjekt** | |
-| Titel |Den text som visas för rubriken för varje objekt. |
+| Rubrik |Den text som visas för rubriken för varje objekt. |
 | Innehåll |Den text som visas för varje objekt. |
 
 ## <a name="line-chart-callout-and-list-part"></a>Linjediagram, bildtext och lista delar
@@ -227,8 +227,8 @@ Rubriken visar ett linjediagram med flera serier från en loggfråga över tid o
 | Ny grupp |Välj den här länken för att skapa en ny grupp i vyn, med början vid den aktuella vyn. |
 | Ikon |Bildfilen som visas bredvid resultatet i rubriken. |
 | Använd ikon |Välj länken visas ikonen. |
-| **Rubrik** | |
-| Titel |Den text som visas överst i rubriken. |
+| **Header** | |
+| Rubrik |Den text som visas överst i rubriken. |
 | Underrubrik |Den text som visas under rubriken överst i rubriken. |
 | **Linjediagram** | |
 | Söka i data |Frågan ska köras för linjediagrammet. Den första egenskapen är ett textvärde och den andra egenskapen är ett numeriskt värde. Den här frågan använder normalt den *mått* nyckelord och sammanfatta resultat. Om frågan använder den *intervall* nyckelord, x-axeln i diagrammet använder det här tidsintervallet. Om frågan inte innehåller den *intervall* nyckelordet, x-axeln använder per timme intervall. |
@@ -267,8 +267,8 @@ Rubriken visar ett linjediagram med flera serier från en loggfråga över tid. 
 | Ny grupp |Välj den här länken för att skapa en ny grupp i vyn, med början vid den aktuella vyn. |
 | Ikon |Bildfilen som visas bredvid resultatet i rubriken. |
 | Använd ikon |Välj länken visas ikonen. |
-| **Rubrik** | |
-| Titel |Den text som visas överst i rubriken. |
+| **Header** | |
+| Rubrik |Den text som visas överst i rubriken. |
 | Underrubrik |Den text som visas under rubriken överst i rubriken. |
 | **Linjediagram** | |
 | Söka i data |Frågan ska köras för linjediagrammet. Den första egenskapen är ett textvärde och den andra egenskapen är ett numeriskt värde. Den här frågan använder normalt den *mått* nyckelord och sammanfatta resultat. Om frågan använder den *intervall* nyckelord, x-axeln i diagrammet använder det här tidsintervallet. Om frågan inte innehåller den *intervall* nyckelordet, x-axeln använder per timme intervall. |
@@ -302,8 +302,8 @@ Stack med linjediagram visar tre separata linjediagram med flera serier från en
 | Grupprubrik |Den text som visas överst i panelen. |
 | Ny grupp |Välj den här länken för att skapa en ny grupp i vyn, med början vid den aktuella vyn. |
 | Ikon |Bildfilen som visas bredvid resultatet i rubriken. |
-| **Skapa diagram över 1<br>diagram 2<br>diagrammets 3** |**> Rubrik** |
-| Titel |Den text som visas överst i diagrammet. |
+| **Skapa diagram över 1<br>diagram 2<br>diagrammets 3** |**> Header** |
+| Rubrik |Den text som visas överst i diagrammet. |
 | Underrubrik |Den text som visas under rubriken överst i diagrammet. |
 | **Skapa diagram över 1<br>diagram 2<br>diagrammets 3** |**Linjediagram** |
 | Söka i data |Frågan ska köras för linjediagrammet. Den första egenskapen är ett textvärde och den andra egenskapen är ett numeriskt värde. Den här frågan använder normalt den *mått* nyckelord och sammanfatta resultat. Om frågan använder den *intervall* nyckelord, x-axeln i diagrammet använder det här tidsintervallet. Om frågan inte innehåller den *intervall* nyckelordet, x-axeln använder per timme intervall. |
@@ -322,19 +322,19 @@ Avgränsaren som namn och värde är den du använder för att parsa textegenska
 Anta exempelvis att en egenskap som kallas *plats* som finns med värden som *Redmond byggnad 41* och *Bellevue byggnad 12*. Du kan ange ett bindestreck (-) för namnet och värdet avgränsare och *Stad Byggnad* för namnet. Den här metoden Parsar varje värde i två egenskaper som kallas *Stad* och *byggnad*.
 
 ### <a name="click-through-navigation"></a>Genomklickningsnavigering
-Klicka igenom navigering definierar vilken åtgärd som ska vidtas när du klickar på en huvud- eller listobjekt i en vy.  Då öppnas en fråga i antingen den [loggsökningsportalen](../../azure-monitor/log-query/portals.md) eller starta en annan vy.
+Klicka igenom navigering definierar vilken åtgärd som ska vidtas när du klickar på en huvud- eller listobjekt i en vy.  Då öppnas en fråga i antingen den [Log Analyticsl](../../azure-monitor/log-query/portals.md) eller starta en annan vy.
 
 I följande tabell beskrivs inställningarna för klicka igenom navigering.
 
 | Inställning           | Beskrivning |
 |:--|:--|
-| Loggsökning (automatisk) | Loggsökning ska köras när du väljer en rubrik-objekt.  Det här är samma loggsökningen som objektet baseras på.
-| Loggsökning        | Loggsökning ska köras när du väljer ett objekt i en lista.  Skriv frågan i den **navigeringsfråga** box.   Använd *{markerade objektet}* att inkludera syntaxen för det objekt som användaren har valt.  Exempel: Om frågan har en kolumn med namnet *datorn* och navigering frågan är *{markerade objektet}*, en fråga som *datorn = ”den här datorn”* körs när du väljer en dator. Om frågan navigering är *typ = händelse {markerade objektet}*, frågan *typ = händelse Computer = ”den här datorn”* körs. |
+| Loggsökning (automatisk) | Log-frågan ska köras när du väljer ett huvud-objekt.  Det här är samma loggfråga som objektet baseras på.
+| Loggsökning        | Log-frågan ska köras när du väljer ett objekt i en lista.  Skriv frågan i den **navigeringsfråga** box.   Använd *{markerade objektet}* att inkludera syntaxen för det objekt som användaren har valt.  Exempel: Om frågan har en kolumn med namnet *datorn* och navigering frågan är *{markerade objektet}*, en fråga som *datorn = ”den här datorn”* körs när du väljer en dator. Om frågan navigering är *typ = händelse {markerade objektet}*, frågan *typ = händelse Computer = ”den här datorn”* körs. |
 | Visa              | Vy som ska öppnas när du väljer ett sidhuvud eller ett objekt i en lista.  Välj namnet på en vy i din arbetsyta i den **vynamn** box. |
 
 
 
-### <a name="sparklines"></a>Miniatyrdiagram
+### <a name="sparklines"></a>Sparklines
 Miniatyrdiagram är ett litet linjediagram som visar värdet för en listpost över tid. För visualisering delar med en lista, kan du välja om du vill visa ett vågrätt fält som anger det relativa värdet för en numerisk kolumn eller ett miniatyrdiagram, som anger dess värde över tid.
 
 I följande tabell beskrivs inställningarna för miniatyrdiagram:
@@ -361,4 +361,4 @@ I följande tabell beskrivs inställningarna för tröskelvärden:
 | Färg |Färgen som anger tröskelvärdet. |
 
 ## <a name="next-steps"></a>Nästa steg
-* Lär dig mer om [loggsökningar](../../azure-monitor/log-query/log-query-overview.md) för frågorna i delar av visualiseringen.
+* Lär dig mer om [logga frågor](../log-query/log-query-overview.md) för frågorna i delar av visualiseringen.

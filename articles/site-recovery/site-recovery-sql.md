@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: sutalasi
-ms.openlocfilehash: d4be7b9c7774163aed8c0efb3414dbd6a794cf7f
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: e84c33b35ef7828cc16be4b532ab8406e0236ee3
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52847804"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56876678"
 ---
 # <a name="set-up-disaster-recovery-for-sql-server"></a>Konfigurera haveriberedskap för SQL Server 
 
@@ -27,8 +27,8 @@ Innan du börjar bör du kontrollera att du förstår SQL Server haveriberedskap
 Många arbetsbelastningar använder SQL Server som grund och den kan integreras med appar som SharePoint, Dynamics och SAP, för att implementera datatjänster.  SQL Server kan distribueras på flera olika sätt:
 
 * **Fristående SQL Server**: SQL Server och alla databaser finns på en enskild dator (fysisk eller en virtuell). När virtualiserade, används värd klustring för hög tillgänglighet lokalt. På gästnivå hög tillgänglighet är inte implementerad.
-* **SQL Server Failover Clustering-instanser (alltid på FCI)**: två eller flera noder som kör SQL Server instanced med delade diskar konfigureras i ett redundanskluster i Windows. Om en nod är nere kan kan klustret redundansväxla SQL Server till en annan instans. Den här konfigurationen används vanligtvis för att implementera hög tillgänglighet på en primär plats. Den här distributionen skydda inte mot strömavbrott eller avbrott i lagret delad lagring. En delad disk kan implementeras med hjälp av iSCSI, fibre channel eller delade vhdx.
-* **SQL Always On-Tillgänglighetsgrupper**: två eller flera noder ställs in i en delad inget kluster med SQL Server-databaser som konfigurerats i en tillgänglighetsgrupp med synkron replikering och automatisk redundans.
+* **SQL Server-Redundansklustring instanser (alltid på FCI)**: Två eller flera noder som kör SQL Server instanced med delade diskar konfigureras i ett redundanskluster i Windows. Om en nod är nere kan kan klustret redundansväxla SQL Server till en annan instans. Den här konfigurationen används vanligtvis för att implementera hög tillgänglighet på en primär plats. Den här distributionen skydda inte mot strömavbrott eller avbrott i lagret delad lagring. En delad disk kan implementeras med hjälp av iSCSI, fibre channel eller delade vhdx.
+* **SQL Always On-Tillgänglighetsgrupper**: Två eller flera noder är inställda i en delad inget kluster med SQL Server-databaser som konfigurerats i en tillgänglighetsgrupp med synkron replikering och automatisk redundans.
 
  Den här artikeln använder följande inbyggda SQL disaster recovery tekniker för att återställa databaser till en fjärrplats:
 
@@ -64,7 +64,7 @@ Site Recovery kan integreras med SQL Server BCDR-teknik som sammanfattas i tabel
 **Always On-tillgänglighetsgrupp** | Flera fristående instanser av SQL Server körs i ett redundanskluster med flera noder.<br/><br/>Databaser kan grupperas i redundansgrupper som kan kopieras (speglad) på SQL Server-instanser så att ingen delad lagring krävs.<br/><br/>Erbjuder haveriberedskap mellan en primär plats och en eller flera sekundära platser. Två noder kan ställas in i en delad inget kluster med SQL Server-databaser som konfigurerats i en tillgänglighetsgrupp med synkron replikering och automatisk redundans. | SQL Server 2016, SQL Server 2014 och SQL Server 2012 Enterprise edition
 **Failover-kluster (alltid på FCI)** | SQL Server använder Windows-redundanskluster för hög tillgänglighet för en lokal SQL Server-arbetsbelastningar.<br/><br/>Noder som kör instanser av SQL Server med delade diskar konfigureras i ett failover-kluster. Om en instans inte är igång klustret som redundansväxlar till annan.<br/><br/>Klustret skydda inte mot strömavbrott eller avbrott i den delade lagringen. Den delade disken kan implementeras med iSCSI, fibre channel, eller delat vhdx-diskar. | SQL Server Enterprise-utgåvor<br/><br/>SQL Server Standard edition (begränsat till två noder)
 **Databasspegling (hög säkerhet läge)** | Skyddar en enkel databas på en sekundär kopia. Tillgängliga i både hög säkerhet (synkron) och höga prestanda (asynkrona) replikeringslägen. Du behöver ett redundanskluster. | SQL Server 2008 R2<br/><br/>SQL Server Enterprise alla utgåvor
-**Fristående SQL Server** | SQL-servern och databasen finns på en enskild server (fysisk eller virtuell). Värden klustring används för hög tillgänglighet om servern är virtuell. Ingen hög tillgänglighet på gästnivå. | Enterprise eller Standard edition
+**Standalone SQL Server** | SQL-servern och databasen finns på en enskild server (fysisk eller virtuell). Värden klustring används för hög tillgänglighet om servern är virtuell. Ingen hög tillgänglighet på gästnivå. | Enterprise eller Standard edition
 
 ## <a name="deployment-recommendations"></a>Distributionsrekommendationer
 
@@ -116,7 +116,7 @@ SQL Always On stöd inte har inbyggt för testning av redundans. Därför rekomm
 
 1. Återställa den virtuella datorn från säkerhetskopior som gjorts i föregående steg innan du aktiverar redundanstestning av återställningsplanen.
 
-    ![Återställa från Azure Backup ](./media/site-recovery-sql/restore-from-backup.png)
+    ![Återställa från Azure Backup](./media/site-recovery-sql/restore-from-backup.png)
 
 1. [Framtvinga ett kvorum](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/force-a-wsfc-cluster-to-start-without-a-quorum#PowerShellProcedure) på den virtuella datorn återställs från en säkerhetskopia.
 
@@ -130,9 +130,9 @@ SQL Always On stöd inte har inbyggt för testning av redundans. Därför rekomm
 
 1. Skapa en belastningsutjämnare med en IP som skapats under frontend IP-poolen som motsvarar varje tillgänglighetsgruppens lyssnare och med SQL-dator som har lagts till i serverdelspoolen.
 
-     ![Skapa belastningsutjämnare – Frontend IP-pool ](./media/site-recovery-sql/create-load-balancer1.png)
+     ![Skapa belastningsutjämnare – Frontend IP-pool](./media/site-recovery-sql/create-load-balancer1.png)
 
-    ![Skapa belastningsutjämnare – serverdelspool ](./media/site-recovery-sql/create-load-balancer2.png)
+    ![Skapa belastningsutjämnare – serverdelspool](./media/site-recovery-sql/create-load-balancer2.png)
 
 1. Gör ett redundanstest av återställningsplanen.
 

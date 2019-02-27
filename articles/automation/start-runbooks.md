@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 3fd2feb8bbd54e7aefab357b0b2ba4209aa29e09
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: 4c3c936a3d547389de3681b4f82f329c4978742d
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56418641"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56886629"
 ---
 # <a name="start-a-runbook-in-azure-automation"></a>Starta en runbook i Azure Automation
 
@@ -22,7 +22,7 @@ Tabellen nedan hjälper dig att fastställa metod för att starta en runbook i A
 
 | **Metod** | **Egenskaper** |
 | --- | --- |
-| [Azure Portal](#starting-a-runbook-with-the-azure-portal) |<li>Enklaste metoden med interaktivt användargränssnitt.<br> <li>Formulär med enkla parametervärden.<br> <li>Spåra jobbets status.<br> <li>Åtkomst som autentiseras med Azure i. |
+| [Azure Portal](#start-a-runbook-with-the-azure-portal) |<li>Enklaste metoden med interaktivt användargränssnitt.<br> <li>Formulär med enkla parametervärden.<br> <li>Spåra jobbets status.<br> <li>Åtkomst som autentiseras med Azure i. |
 | [Windows PowerShell](/powershell/module/azurerm.automation/start-azurermautomationrunbook) |<li>Anropa från kommandoraden med Windows PowerShell-cmdlets.<br> <li>Kan ingå i automatiserad lösning med flera steg.<br> <li>Begäran har autentiserats med certifikat eller OAuth användarens huvudnamn / service principal.<br> <li>Ange enkla och komplexa parametervärden.<br> <li>Spåra jobbets status.<br> <li>Klient krävs för stöd av PowerShell-cmdletar. |
 | [Azure Automation-API](/rest/api/automation/) |<li>Mest flexibla metoden men även de flesta komplexa.<br> <li>Anropa från anpassad kod som kan göra HTTP-förfrågningar.<br> <li>Begäran som autentiserats med certifikat eller Oauth användarens huvudnamn / service principal.<br> <li>Ange enkla och komplexa parametervärden. *Om du anropar en Python-runbook med hjälp av API, måste JSON-nyttolasten serialiseras.*<br> <li>Spåra jobbets status. |
 | [Webhooks](automation-webhooks.md) |<li>Starta runbook från HTTP-begäran.<br> <li>Autentiserade med säkerhetstoken i URL: en.<br> <li>Klienten kan inte åsidosätta parametervärden har angetts när webhooken skapas. Runbook kan definiera en enda parameter som fylls i med information för HTTP-begäran.<br> <li>Ingen möjlighet att spåra jobbstatus via webhook-URL. |

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/06/2018
 ms.author: bwren
-ms.openlocfilehash: d9c94f7bd1a10e5db084e4541081998dc3de2f05
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: 8c3ef3f115d37400eb72fdaca5df4f326382df5c
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56749721"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56871646"
 ---
 # <a name="get-started-with-azure-monitor-log-queries"></a>Kom igång med Azure Monitor log-frågor
 
@@ -28,7 +28,7 @@ ms.locfileid: "56749721"
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-Logga in frågor i den här självstudien lär du dig att skriva Azure LMonitor. Det får du lära dig hur du:
+Logga in frågor i den här självstudien lär du dig att skriva Azure Monitor. Det får du lära dig hur du:
 
 - Förstå frågor-struktur
 - Sortera frågeresultaten

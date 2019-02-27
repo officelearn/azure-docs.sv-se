@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/13/2018
 ms.author: kumud
-ms.openlocfilehash: ec3fcc0301083e6cd5eff34c111586ef6463f8fd
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 3267d79387586f5ca8475d7ac0ed0f86d3f64f0d
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55821515"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56876950"
 ---
 # <a name="outbound-connections-classic"></a>Utgående anslutningar (klassiska)
 
@@ -41,7 +41,7 @@ Azure tillhandahåller tre olika metoder för att uppnå utgående anslutning kl
 | --- | --- | --- | --- | --- | --- |
 | [1. Virtuell dator med en offentlig IP på instansnivå-adress](#ilpip) | SNAT, port låtsas inte används | TCP, UDP, ICMP, ESP | Azure använder offentlig IP-adress som tilldelats virtuella datorer. Instansen har alla tillfälliga portar som är tillgängliga. | Nej | Ja |
 | [2. offentlig slutpunkt för Utjämning av nätverksbelastning](#publiclbendpoint) | SNAT med port låtsas (PAT) på den offentliga slutpunkten | TCP, UDP | Azure delar den offentliga IP-adress offentliga slutpunkten med flera privata slutpunkter. Azure använder tillfälliga portar för den offentliga slutpunkten för PATRIK. | Ja | Ja |
-| [3. Fristående virtuell dator ](#defaultsnat) | SNAT med port låtsas (PAT) | TCP, UDP | Azure automatiskt utser en offentlig IP-adress för SNAT, delar den här offentliga IP-adressen med hela distributionen och använder tillfälliga portar för offentlig slutpunkt IP-adressen för PATRIK. Detta är en återställningsplats scenariot för föregående scenarier. Det rekommenderas inte om du behöver synlighet och kontroll. | Ja | Ja |
+| [3. Fristående virtuell dator](#defaultsnat) | SNAT med port låtsas (PAT) | TCP, UDP | Azure automatiskt utser en offentlig IP-adress för SNAT, delar den här offentliga IP-adressen med hela distributionen och använder tillfälliga portar för offentlig slutpunkt IP-adressen för PATRIK. Detta är en återställningsplats scenariot för föregående scenarier. Det rekommenderas inte om du behöver synlighet och kontroll. | Ja | Ja |
 
 Det här är en delmängd av utgående anslutning funktioner tillgängliga för Resource Manager-distributioner i Azure.  
 

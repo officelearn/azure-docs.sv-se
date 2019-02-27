@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.author: raynew
-ms.openlocfilehash: 40557d4e71dfea5996396cde634f7a1c80913556
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: 16c7fe68e67094cef21d9efbffdccd614827ae6d
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56430547"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56887479"
 ---
 # <a name="back-up-an-azure-vm-from-the-vm-settings"></a>Säkerhetskopiera en virtuell Azure-dator från inställningarna för virtuella datorer
 
@@ -66,7 +66,7 @@ För att säkerhetskopiera virtuella Azure-datorer, installerar Azure Backup ett
 
   ![Säkerhetskopieringsstatus](./media/backup-azure-vms-first-look-arm/backup-item-view-update.png)
 
-10. När du har aktiverat säkerhetskopiering, en [första säkerhetskopieringen](#run-the-initial-backup) körs. Du kan starta den första säkerhetskopieringen direkt eller vänta tills den startas i enlighet med schemat för säkerhetskopiering.
+10. När du har aktiverat säkerhetskopiering körs någon säkerhetskopia. Du kan starta den första säkerhetskopieringen direkt eller vänta tills den startas i enlighet med schemat för säkerhetskopiering.
     - Tills den första säkerhetskopieringen har slutförts, den **status för senaste säkerhetskopiering** som **varning (första säkerhetskopiering väntar)**.
     - Om du vill se när nästa schemalagda säkerhetskopiering körs, klickar du på namnet på säkerhetskopieringsprincipen.
     

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 2/13/2019
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 99b981e6b5c9bc56c10b0491474c0c8773291b7e
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: e727e1ad9a4d202a3798f516d1db7d88464999fa
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56309208"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56875964"
 ---
 # <a name="consistency-availability-and-performance-tradeoffs"></a>Kompromisser avseende konsekvens, tillgänglighet och prestanda 
 
@@ -48,7 +48,7 @@ Den exakta RTT svarstiden är en funktion av hastighet ljus avståndet och Azure
 
 I en globalt distribuerad databas för miljön att det finns en direkt relation mellan konsekvens nivå och data hållbarhet när det finns ett avbrott på inom hela regionen. När du utvecklar din affärskontinuitetsplan måste du förstå den högsta acceptabla tiden innan programmet är helt återställt efter en avbrottshändelse. Den tid som krävs för ett program för att återställa kallas återställningstid (RTO). Du måste också att förstå den längsta tid för senaste datauppdateringar som programmet kan tolerera att förlora när det återställs efter en avbrottshändelse. Tid då uppdateringar som du kanske har råd att förlora kallas mål för återställningspunkt (RPO).
 
-Tabellen definierar relationen mellan förhållandet mellan konsekvens modell och data hållbarhet när det finns många avbrott i regionen. Det är viktigt att Observera att i ett distribuerat system, även med stark konsekvens är det omöjligt att ha en distribuerad databas med en RPO och RTO noll på grund av CAP-satsen. Mer information om varför finns [konsekvensnivåer i Azure Cosmos DB](consistency-levels.md).
+Tabellen definierar relationen mellan konsekvens modell och data hållbarhet när det finns många avbrott i regionen. Det är viktigt att Observera att i ett distribuerat system, även med stark konsekvens är det omöjligt att ha en distribuerad databas med en RPO och RTO noll på grund av CAP-satsen. Mer information om varför finns [konsekvensnivåer i Azure Cosmos DB](consistency-levels.md).
 
 |**Region(s)**|**Replikeringsläge**|**Konsekvensnivå**|**RPO**|**RTO**|
 |---------|---------|---------|---------|---------|

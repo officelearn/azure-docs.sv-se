@@ -12,12 +12,12 @@ ms.date: 12/13/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a2effd6c067a1378d9f774f282f6cea69a50596c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 806d060cd58322d745ea6ebdaa59eb85c6a35cbd
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56204448"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56867164"
 ---
 # <a name="migrate-from-federation-to-password-hash-synchronization-for-azure-active-directory"></a>Migrera från federation till synkronisering av lösenordshash för Azure Active Directory
 
@@ -319,7 +319,7 @@ Börja med att ändra inloggningsmetoden:
    * **Sömlös enkel inloggning** är inställd på **aktiverad**.
    * **Lösenordssynkronisering** är inställd på **aktiverad**.<br /> 
 
-   ![Skärmbild som visar inställningarna i avsnittet för användare ](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image11.png)<br />
+   ![Skärmbild som visar inställningarna i avsnittet för användare](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image11.png)<br />
 
 Gå vidare till [testning och nästa steg](#testing-and-next-steps).
 
@@ -337,7 +337,7 @@ Använd det här alternativet om du inte har konfigurerat ditt federerade domän
 
    Innan du aktiverar synkronisering av lösenordshash: ![Skärmbild som visar de inte att konfigurera alternativ på sidan för användare](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image12.png)<br />
 
-   När du aktiverar synkronisering av lösenordshash: ![Skärmbild som visar nya alternativ på sidan för användare ](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image13.png)<br />
+   När du aktiverar synkronisering av lösenordshash: ![Skärmbild som visar nya alternativ på sidan för användare](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image13.png)<br />
    
    > [!NOTE]
    > Från och med Azure AD Connect version 1.1.880.0, den **sömlös enkel inloggning** kryssrutan är markerad som standard.

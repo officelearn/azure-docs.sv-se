@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: bb2d57d3e119fd83d1a984fc31f29a5d93e957d1
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: e7a5ed6274a0429726f0ed19c0765cfdc3378daa
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55745953"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56888533"
 ---
 # <a name="optimize-cost-with-reserved-capacity-in-azure-cosmos-db"></a>Optimera kostnader med reserverad kapacitet i Azure Cosmos DB
 
@@ -68,6 +68,10 @@ Storleken på reservationen ska baseras på den totala mängden dataflöde som A
 När du köper en reservation tillämpas omedelbart på alla befintliga Azure Cosmos DB-resurser som matchar villkoren i reservationen. Om du inte har några befintliga resurser i Azure Cosmos DB, gäller reservationen när du distribuerar en ny Cosmos DB-instans som matchar villkoren i reservationen. I båda fallen startas perioden för reservationen direkt efter en lyckad inköp. 
 
 När din reservationen går ut dina Azure Cosmos DB-instanser fortsätter att köras och debiteras enligt de användningsbaserad betalning.
+
+## <a name="cancellation-and-exchanges"></a>Annulleringen och utbyten
+
+Hjälp med att identifiera rätt reserverad kapacitet finns i [förstå hur reservationsrabatten tillämpas på Azure Cosmos DB](../billing/billing-understand-cosmosdb-reservation-charges.md). I den händelse, måste du avbryta eller byta en reservation för Azure Cosmos DB kan du kontakta Azure Cosmos DB-teamet på `askCosmosDB@microsoft.com`.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 11/27/2018
 ms.topic: conceptual
 ms.author: sutalasi
-ms.openlocfilehash: 1b97ff461dc3a4f7dcba0a3dbfad71a25cb3f1e9
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: d73c0e3f62d30764cba8866d7e731c5ea67d3057
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52840213"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56878276"
 ---
 # <a name="set-up-disaster-recovery-of-vmware-vms-to-azure-with-powershell"></a>Konfigurera haveriberedskap för virtuella VMware-datorer till Azure med PowerShell
 
@@ -345,9 +345,9 @@ Du behöver följande information för att skydda en identifierad virtuell dator
 Nu replikera följande virtuella datorer med hjälp av inställningarna i den här tabellen
 
 
-|Virtuell dator  |Processervern        |Lagringskonto              |Logglagringskontot  |Princip           |Konto för installation av Mobilitetstjänsten|Målresursgrupp  | Virtuellt Målnätverk  |Målundernät  |
+|Virtuell dator  |Process Server        |Lagringskonto              |Logglagringskontot  |Princip           |Konto för installation av Mobilitetstjänsten|Målresursgrupp  | Virtuellt målnätverk  |Målundernät  |
 |-----------------|----------------------|-----------------------------|---------------------|-----------------|-----------------------------------------|-----------------------|-------------------------|---------------|
-|Win2K12VM1       |ScaleOut-process|premiumstorageaccount1       |logstorageaccount1   |ReplicationPolicy|WindowsAccount                           |VMwareDRToAzurePs      |ASR-vnet                 |Subnet-1       |
+|Win2K12VM1       |ScaleOut-ProcessServer|premiumstorageaccount1       |logstorageaccount1   |ReplicationPolicy|WindowsAccount                           |VMwareDRToAzurePs      |ASR-vnet                 |Subnet-1       |
 |CentOSVM1       |ConfigurationServer   |replicationstdstorageaccount1| Gäller inte                 |ReplicationPolicy|LinuxAccount                             |VMwareDRToAzurePs      |ASR-vnet                 |Subnet-1       |   
 |CentOSVM2       |ConfigurationServer   |replicationstdstorageaccount1| Gäller inte                 |ReplicationPolicy|LinuxAccount                             |VMwareDRToAzurePs      |ASR-vnet                 |Subnet-1       |   
 
@@ -406,7 +406,7 @@ Inställningar för växling vid fel för skyddade datorer kan uppdateras med hj
 * VM-storlek för den virtuella datorn skapas vid redundans
 * Azure-nätverk och undernät som nätverkskort för den virtuella datorn ska anslutas till vid redundans
 * Redundans till hanterade diskar
-* Använda Azure Hybrid-förmånen
+* Apply Azure Hybrid Use Benefit
 * Tilldela en statisk IP-adress från virtuellt Målnätverk som ska tilldelas till den virtuella datorn vid redundansväxling.
 
 I det här exemplet vi uppdatera VM-storleken för den virtuella datorn skapas vid redundans för den virtuella datorn *Win2K12VM1* och ange att den virtuella datorn Använd hanterade diskar vid redundansväxling.
@@ -487,4 +487,4 @@ I det här steget ska vi inte över den virtuella datorn Win2K12VM1 till en spec
 2. När redundansväxlats, du kan commit igen och konfigurera omvänd replikering från Azure tillbaka till den lokala VMware-webbplatsen.
 
 ## <a name="next-steps"></a>Nästa steg
-Lär dig hur du automatiserar flera uppgifter med hjälp av den [referens för Azure Site Recovery PowerShell ](https://docs.microsoft.com/powershell/module/AzureRM.RecoveryServices.SiteRecovery).
+Lär dig hur du automatiserar flera uppgifter med hjälp av den [referens för Azure Site Recovery PowerShell](https://docs.microsoft.com/powershell/module/AzureRM.RecoveryServices.SiteRecovery).

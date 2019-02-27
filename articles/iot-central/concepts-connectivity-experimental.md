@@ -8,53 +8,62 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: timlt
-ms.openlocfilehash: 5d90980172b49071601edeebbf28907def862e4e
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: edffc6677609537d8a07aeae45a57c5e88449099
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55824272"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56882672"
 ---
 # <a name="device-connectivity-in-azure-iot-central"></a>Enhetsanslutning i Azure IoT Central
 
-Den här artikeln beskrivs viktiga begrepp som rör enhetsanslutning i Microsoft Azure IoT Central.
+Den här artikeln beskriver viktiga begrepp som är relaterade till enhetsanslutning i Microsoft Azure IoT Central.
 
-Azure IoT Central använder [Azure IoT Hub Device Provisioning-tjänsten (DPS)](https://docs.microsoft.com/azure/iot-dps/about-iot-dps), aktiveras IoT Central för onboarding och ansluta enheter i stor skala.
+Azure IoT Central använder [Azure IoT Hub Device Provisioning Service](https://docs.microsoft.com/azure/iot-dps/about-iot-dps) att registrera och ansluta enheter i stor skala.
 
--   Kunder kan nu skapa enhetens autentiseringsuppgifter och konfigurera enheterna som är offline utan att först registrera enheter i IoT Central
--   IoT Central har stöd för enhetsanslutning med branschens rekommenderas X509 cert - baserade anslutningen, samtidigt som du fortsätter att stödja och förbättra anslutningsmöjligheter för signaturer för delad åtkomst (SAS)
--   IoT Central-kunder kan nu använda sina egna enhets-ID för att registrera enheter i IoT Central, aktiverar enkel integrering med befintliga BackOffice-system
--   Det finns ett konsekvent sätt att ansluta enheter till IoT Central 
+Med Device Provisioning-tjänsten:
 
->[!NOTE]
->IoT Central använder Azure IoT Device Provisioning-tjänsten (DPS) under för all enhetsregistrering och anslutning, [mer information om DPS](https://docs.microsoft.com/azure/iot-dps/about-iot-dps).
-
-Baserat på din användning fallet Följ instruktionerna för att ansluta enheter till IoT Central
-1. [Anslut en enhet (med signaturer för delad åtkomst)](#connect-a-single-device)
-1. [Anslut enheter i stor skala med signaturer för delad åtkomst (SAS)](#connect-devices-at-scale-using-shared-access-signatures)
-1. [Anslut enheter i stor skala med X509 certifikat](#connect-devices-using-x509-certificates) **rekommenderas för produktionsarbetsbelastningar**
-1. [Ansluta utan att första registrera enheter](#connect-without-first-registering-devices) 
-
+- Kunder kan nu skapa enhetens autentiseringsuppgifter och konfigurera enheter offline utan att först registrera enheter i Azure IoT Central.
+- Azure IoT Central stöder enhetsanslutning med X.509-certifikat, samtidigt som du fortsätter att stödja och förbättra anslutningsmöjligheter med signaturer för delad åtkomst.
+- Azure IoT Central-kunder kan nu använda sina egna enhets-ID för att registrera enheter i Azure IoT Central, vilket möjliggör enkel integrering med befintliga BackOffice-system.
+- Det finns ett konsekvent sätt att ansluta enheter till Azure IoT Central.
 
 >[!NOTE]
->Här är global slutpunkt för enheter för att ansluta och etablera **global.azure-enheter – provisioning.net**.
+>Azure IoT Central använder IoT Hub Device Provisioning-tjänsten för alla enhetsregistrering och anslutning. [Läs mer](https://docs.microsoft.com/azure/iot-dps/about-iot-dps).
+
+Baserat på ditt användningsfall, följ instruktionerna för att ansluta enheter till Azure IoT Central:
+
+- [Ansluta en enskild enhet snabbt (genom att använda signaturer för delad åtkomst)](#connect-a-single-device)
+- [Anslut enheter i stor skala genom att använda signaturer för delad åtkomst](#connect-devices-at-scale-using-shared-access-signatures)
+- [Anslut enheter i stor skala genom att använda X.509-certifikat](#connect-devices-using-x509-certificates) (rekommenderas för produktionsarbetsbelastningar)
+- [Ansluta utan att första registrera enheter](#connect-without-first-registering-devices) 
+
+>[!NOTE]
+>Global slutpunkt för enheter för att ansluta och etablera är **global.azure-enheter – provisioning.net**.
 
 ## <a name="connect-a-single-device"></a>Ansluta en enskild enhet
-Ansluter en enhet till IoT Central med hjälp av SAS är enkelt och tar bara några få steg 
-1. Lägg till en **riktig enhet** från Device Explorer klickar du på **+ Ny > verkliga** att lägga till en riktig enhet.
-    * Ange enhets-Id **<span style="color:Red">(bör vara gemener)</span>** eller använder den föreslagna enhets-Id.
-    * Ange namnet på enheten eller använda det föreslagna namnet   
+
+Ansluta en enskild enhet till Azure IoT Central genom att använda signaturer för delad åtkomst:
+
+1. Lägg till en **riktig enhet** från **Device Explorer**. Välj **+ ny** > **verkliga** att lägga till en riktig enhet.
+    - Ange den **enhets-ID** (bör vara gemener) eller använda föreslagna enhets-ID.
+    - Ange den **enhetsnamn** eller använda det föreslagna namnet.
+
     ![Lägg till enhet](media/concepts-connectivity/add-device.png)
-1. Hämta anslutningsinformationen som **Scope-ID, enhets-ID och primära nyckel** för tillagd enhet genom att klicka på **Connect** på enhetssidan.
-    * **[Scope-ID](https://docs.microsoft.com/azure/iot-dps/concepts-device#id-scope)**  per IoT Central-App och genereras av DPS som används för att se till att unikt enhets-ID i en App.
-    * **Enhets-Id** är unikt enhets-ID per App, enheten behöver skicka enhets-Id som en del av anropet för registrering.   
-    * **Primär nyckel** är en SAS-token genereras av IoT Central för den här specifika enheten. 
+
+1. Hämta anslutningsinformationen, som den **Scopeid**, **enhets-ID**, och **primärnyckel**, för tillagd enhet genom att välja **Connect** på den enhetens sida.
+
+    - **[Scope-ID](https://docs.microsoft.com/azure/iot-dps/concepts-device#id-scope)**  per Azure IoT Central-app och genereras av Device Provisioning-tjänsten. Detta ID används för att se till att ett unikt enhets-ID i en app.
+    - **Enhets-ID** är unikt enhets-ID per app. Enheten behöver skicka enhets-ID som en del av anropet för registrering.
+    - **Primär nyckel** är en signaturtoken för delad åtkomst genereras av Azure IoT Central för den här specifika enheten.
+ 
     ![Anslutningsinformation](media/concepts-connectivity/device-connect.png)
-1. Använd de här anslutningsinformationen **enhetsidentitet, enhetsnamn och den primärnyckeln för enheten** i din kod för enheten att etablera och ansluta din enhet och börja ser de data som flödar genom omedelbart. Om du använder den enhet Följ MxChip [de stegvisa anvisningarna här](howto-connect-devkit-experimental.md#add-a-real-device), starta från avsnittet **Förbered enheten DevKit**.   
 
-    Nedan finns referenser till andra språk som du kanske vill använda.
+1. Använd anslutningsinformationen **enhetsidentitet**, **enhetsnamn**, och enhetens **primärnyckel** i din kod för enheten att etablera och ansluta din enhet och börja se den data flödar genom omedelbart. Om du använder en MXChip IoT DevKit (DevKit)-enhet följer [de stegvisa anvisningarna](howto-connect-devkit-experimental.md#add-a-real-device)med start från avsnittet ”Förbereda enheten DevKit”.
 
-    *   **Språk som C:** Om du använder C följer [C exempel enhetsklienten](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/devdoc/using_provisioning_client.md) att ansluta en exempel-enhet. Använd följande inställningar i det här exemplet.   
+    Här följer referenser för andra språk som du kanske vill använda.
+
+    - **Språk som C:** Följ [C exempel enhetsklienten](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/devdoc/using_provisioning_client.md) att ansluta en exempel-enhet. Använd följande inställningar i det här exemplet:
 
          ```c
          hsm_type = SECURE_DEVICE_TYPE_SYMMETRIC_KEY;
@@ -63,193 +72,196 @@ Ansluter en enhet till IoT Central med hjälp av SAS är enkelt och tar bara nå
          prov_dev_set_symmetric_key_info("<Device Id>", "<Enter Primary Symmetric key here>");
         ```
 
-    *   **Node.js:**  Om du vill använda Node.js [använda de stegvisa anvisningarna här](tutorial-add-device-experimental.md#prepare-the-client-code), starta från avsnittet **förbereda klientkoden**.
+    - **Node.js:**  Följ [de stegvisa anvisningarna](tutorial-add-device-experimental.md#prepare-the-client-code)med start från avsnittet ”Förbered klientkoden”.
 
+## <a name="connect-devices-at-scale-by-using-shared-access-signatures"></a>Anslut enheter i stor skala genom att använda signaturer för delad åtkomst
 
+För att ansluta enheter i stor skala med Azure IoT Central genom att använda signaturer för delad åtkomst, finns det två övergripande stegen:
 
-## <a name="connect-devices-at-scale-using-shared-access-signatures"></a>Anslut enheter i stor skala med signaturer för delad åtkomst
-
-För att ansluta enheter i stor skala med IoT Central med hjälp av SAS, finns det två steg som ingår 
-1. **Registrera enheter** genom att importera dem till IoT Central via en CSV-filen och exportera enheter med enhetsinformation för anslutning för att ansluta dina enheter
-1. **Enhetsinställningar** enheten är programmerade med anslutningsinformationen ( **Scope-ID, enhets-ID och primära nyckel**), så att systemet kan anropa etableringstjänsten för att få dess anslutning info/IoT Central apptilldelning när det är påslaget.
+1. **Enhetsregistrering:** Registrera enheter genom att importera dem till Azure IoT Central via en CSV-fil. Använd sedan den **exportera** åtgärder för att exportera dina enheter och få deras enhet anslutningsinformation.
+1. **Enhetsinställningar:** Programmera enheter med anslutningsinformationen (**Scopeid**, **enhets-ID**, och **primärnyckel**). Varje enhet slås på, anropar Device Provisioning-tjänsten för att få dess anslutningsinformationen eller Azure IoT Central apptilldelning.
 
 >[!NOTE]
->Ett avancerat alternativ är också tillgängliga där du kan ansluta enheter utan att först registrera enheter i IoT Central [Läs mer här](https://docs.microsoft.com/azure/iot-dps/about-iot-dps).
+>Ett avancerat alternativ är också tillgängliga där du kan ansluta enheter utan att först registrera enheter i Azure IoT Central. [Läs mer](https://docs.microsoft.com/azure/iot-dps/about-iot-dps).
 
-**Registrera enheter**
+### <a name="device-registration"></a>Enhetsregistrering
 
-Om du vill ansluta stort antal enheter i ditt program, Azure IoT Central massetablerings erbjuder-importera enheter via en CSV-fil. 
+Om du vill ansluta ett stort antal enheter i ditt program stöder Azure IoT Central massimport av enheter via en CSV-fil. 
 
-Krav för CSV-fil: CSV-filen ska innehålla följande kolumner (och rubriker)
-1.  IOTC_DeviceID  **<span style="color:Red">(bör vara gemener)</span>**
-1.  IOTC_DeviceName (valfritt)
+1. Importera enheter att registrera dem i ditt program:
 
+   1. Välj **Device Explorer** på den vänstra menyn.
+   1. Välj mallen enhet på den vänstra panelen Skapa enheterna som du vill massregistrera. 
+   1. Välj **Import**, och välj sedan en CSV-fil med listan över enhets-ID som ska importeras. CSV-filen ska ha följande kolumner (och rubriker):
 
+       - IOTC_DeviceID (bör vara gemener)
+       - IOTC_DeviceName (valfritt)
 
-Importera enheter att registrera dem i ditt program
-1.  Välj **Explorer** på den vänstra navigeringsmenyn.
-1.  Välj enhet mallen som du vill massregistrera skapar enheterna på den vänstra panelen. 
-1.  Klicka på **Import**, Välj den CSV-fil som innehåller listan över enhets-ID som ska importeras.
-CSV-filen ska innehålla följande kolumner (och rubriker)
-    *   IOTC_DeviceID  **<span style="color:Red">(bör vara gemener)</span>**
-    *   IOTC_DeviceName (valfritt)
-1.  När importen är klar visas ett meddelande på enheten rutnätet.
+   1. När importen är klar visas ett meddelande på enheten rutnätet.
 
-Exportera enheter för att hämta anslutningsinformation, Export skapar en CSV-fil med enhets-Id, enhetsnamn och enhetsnyckeln. Använd följande information för att ansluta enheten till IoT Central.
-Massregistrera enheter för export från ditt program:
-1.  Välj **Explorer** på den vänstra navigeringsmenyn.
-1.  Markera de enheter som du vill exportera och klicka sedan på den **exportera** åtgärd.
-1.  När exporten är klar visas ett meddelande tillsammans med en länk till ladda ned den genererade filen.
-1.  Klicka på meddelande att ladda ned filen till en lokal mapp på disken.
-1.  Den exporterade CSV-filen innehåller följande kolumner: **Enhets-Id, enhetsnamn, primär/sekundär enhetsnycklar och primär/sekundär certifikattumavtryck**
-    *   IOTC_DEVICEID
-    *   IOTC_DEVICENAME
-    *   IOTC_SASKEY_PRIMARY
-    *   IOTC_SASKEY_SECONDARY
-    *   IOTC_X509THUMBPRINT_PRIMARY 
-    *   IOTC_X509THUMBPRINT_SECONDARY
+1. Exportera enheter för att få sina anslutningsinformation:
 
+   Den **exportera** åtgärden skapar en CSV-fil med enhets-ID, namnet på enheten och enhetsnycklar. Använd följande information för att ansluta enheten till Azure IoT Central. Att bulk-export enheter från ditt program:
 
-**Enhetsinställningar**
+   1. Välj **Device Explorer** på den vänstra menyn.
+   1. Markera de enheter som du vill exportera och välj sedan den **exportera** åtgärd.
+   1. När exporten är klar visas ett meddelande tillsammans med en länk till ladda ned den genererade filen.
+   1. Klicka på meddelande att ladda ned filen till en lokal mapp på disken.
+   1. Den exporterade CSV-filen innehåller följande kolumner som innehåller anslutningsinformationen **enhets-ID**, **enhetsnamn**, **enheten primära eller sekundära nyckeln**, och  **Primär eller sekundär certifikattumavtryck**:
 
-Använd de här anslutningsinformationen **enhetens identitet (IOTC_DEVICEID), enheten primär nyckel (IOTC_SASKEY_PRIMARY) och Scope-ID** i din kod för enheten du etablerar och ansluter din enhet. Om du inte redan har den **ScopeID** från din IoT Central-App **Administration > enhetsanslutning > Scope-ID**.
-Om du använder den **MxChip** enheten ansluter Följ [de stegvisa anvisningarna här](howto-connect-devkit-experimental.md#add-a-real-device), starta från avsnittet **Förbered enheten DevKit**.   
+       - IOTC_DEVICEID
+       - IOTC_DEVICENAME
+       - IOTC_SASKEY_PRIMARY
+       - IOTC_SASKEY_SECONDARY
+       - IOTC_X509THUMBPRINT_PRIMARY
+       - IOTC_X509THUMBPRINT_SECONDARY
 
-Nedan finns referenser till andra språk som du kanske vill använda.
+### <a name="device-setup"></a>Enhetskonfiguration
 
-   *   **Språk som C:** Om du använder C Följ [C exempel enhetsklienten](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/devdoc/using_provisioning_client.md) att ansluta en exempel-enhet. Använd följande inställningar i det här exemplet.   
-         ```c
-         hsm_type = SECURE_DEVICE_TYPE_SYMMETRIC_KEY;
+ Etablera och ansluta din enhet genom att använda anslutningsinformationen **enhetens identitet (IOTC_DEVICEID)**, **enheten primär nyckel (IOTC_SASKEY_PRIMARY)**, och **Scopeid** i din kod för enheten. Om du inte redan gjort det, får den **Scopeid** från din Azure IoT Central-app genom att välja **Administration** > **enhetsanslutning**  >  **Scope-ID**.
 
-         ## Enter the Device Id and Symmetric keys 
-         prov_dev_set_symmetric_key_info("<Device Id>", "<Enter Primary Symmetric key here>");
-        ```
-    * **Node.js:**  Om du vill använda Node.js [använda de stegvisa anvisningarna här](tutorial-add-device-experimental.md#prepare-the-client-code), starta från avsnittet **förbereda klientkoden**.
+Om du ansluter en DevKit enhet följer [de stegvisa anvisningarna](howto-connect-devkit-experimental.md#add-a-real-device)med start från avsnittet ”Förbereda enheten DevKit”.
 
+Här följer referenser för andra språk som du kanske vill använda.
 
-## <a name="connect-devices-using-x509-certificates"></a>Anslut enheter med hjälp av X509 certifikat
+- **Språk som C:** Följ [C exempel enhetsklienten](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/devdoc/using_provisioning_client.md) att ansluta en exempel-enhet. Använd följande inställningar i det här exemplet:
 
-Med hjälp av X.509-certifikat som en attesteringsmetod är ett utmärkt sätt att skala **produktion** och förenkla enhetsetablering. X.509-certifikat som är normalt ordnade i en certifikatkedja med förtroenden där varje certifikat i kedjan är signerat av den privata nyckeln för nästa högre certifikatet och så vidare, avslutar i ett självsignerat rotcertifikat. Därmed skapas en delegerad certifikatkedja från rotcertifikatet som genererats av en betrodd rotcertifikatutfärdare (CA) ned via varje mellanliggande Certifikatutfärdare till slutanvändare ”löv” certifikatet på enheten. Mer information finns i [autentisering med X.509 CA-certifikat](https://docs.microsoft.com/azure/iot-hub/iot-hub-x509ca-overview). 
+     ```c
+     hsm_type = SECURE_DEVICE_TYPE_SYMMETRIC_KEY;
 
-För att ansluta enheter till IoT Central använder X509 certifikat, det finns tre viktiga steg som ingår 
-1. **Konfigurera anslutningsinställningarna** i IoT Central-app genom att lägga till/verifiera X509 rot-/ mellanliggande certifikat som används för att generera enhetscertifikat.  Det finns två steg för att konfigurera anslutningsinställningar för X509 certifikat.  
+     ## Enter the Device Id and Symmetric keys 
+     prov_dev_set_symmetric_key_info("<Device Id>", "<Enter Primary Symmetric key here>");
+    ```
 
-    *   **Lägg till X509 rot- eller mellanliggande certifikat** du använder för att generera enhetscertifikat lövmedlemmar. Gå till Administration > enhetsanslutning > certifikat. 
+- **Node.js:** Följ [de stegvisa anvisningarna](tutorial-add-device-experimental.md#prepare-the-client-code)med start från avsnittet ”Förbered klientkoden”.
+
+## <a name="connect-devices-by-using-x509-certificates"></a>Anslut enheter med hjälp av X.509-certifikat
+
+Med X.509-certifikat som en attesteringsmetod är ett utmärkt sätt att skala produktion och förenkla enhetsetablering. X.509-certifikat som är normalt ordnade i en certifikatkedja med förtroenden, där varje certifikat i kedjan är signerat av den privata nyckeln för nästa högre certifikat och så vidare, slutar med ett självsignerat rotcertifikat. Den här strukturen upprättar en delegerad certifikatkedja från rotcertifikatet som genereras av en betrodd rot-certifikatutfärdare (CA) ned via varje mellanliggande Certifikatutfärdare till slutanvändare ”löv” certifikatet som är installerad på en enhet. Mer information finns i [autentisering med X.509 CA-certifikat](https://docs.microsoft.com/azure/iot-hub/iot-hub-x509ca-overview). 
+
+För att ansluta enheter till Azure IoT Central genom att använda X.509-certifikat, finns det tre viktiga steg som ingår:
+ 
+1. **Konfigurera anslutningsinställningarna** i Azure IoT Central appen genom att lägga till eller verifiera X.509 rot- eller mellanliggande certifikat som används för att generera enhetscertifikat. Det finns tre steg för att konfigurera anslutningsinställningar för X.509-certifikat:  
+
+    - **Lägg till X.509 rot- eller mellanliggande certifikat** att du använder för att generera enhetscertifikat lövmedlemmar. Gå till **Administration** > **enhetsanslutning** > **certifikat**. 
     
-        ![Inställningar för anslutning](media/concepts-connectivity/connection-settings.png)
-    *   **Certifikatverifiering:** Verifiera att du äger certifikatet gör att överföring för certifikatet tillgång certifikatets privata nyckel. Att verifiera certifikatet
-        *  Skapa Verifieringskod, klicka på knappen bredvid fältet verifiering kod för att generera verifieringskoden. 
-        *  Skapa ett X.509-certifikat för verifiering med verifieringskoden spara certifikatet som en .cer-fil. 
-        *  Ladda upp signerad verifieringscertifikatet och klicka på verifiera.
+       ![Inställningar för anslutning](media/concepts-connectivity/connection-settings.png)
+
+    - **Verifiera certifikatet.** Verifiera att du äger certifikat säkerställer att överföring för certifikatet har certifikatets privata nyckel. För att verifiera certifikatet:
+
+        - Generera verifieringskoden. Välj knappen bredvid den **Verifieringskod** fält för att generera den här koden. 
+        - Skapa ett X.509-certifikat för verifiering med verifieringskoden. Spara certifikatet som en .cer-fil. 
+        - Ladda upp signerad verifieringscertifikatet och välj **Kontrollera**.
 
         ![Inställningar för anslutning](media/concepts-connectivity/verify-cert.png)
-    *   **Sekundärt certifikat:** Under livscykeln för din IoT-lösning måste du distribuera certifikat. Två av de viktigaste skälen för löpande certifikat skulle vara en säkerhetsöverträdelse och förfallodatum för certifikat. Sekundärt certifikat används för att minska stopptiden för enheter som försöker etablera när du uppdaterar primära certifikatet.
 
-    **TESTA ENDAST FÖR** 
+    - **Lägg till ett sekundärt certifikat.** Under livscykeln för din IoT-lösning måste du distribuera certifikat. Två av de huvudsakliga skälen för att rulla certifikat är säkerhetsintrång och förfallodatum för certifikat. Sekundära minska stopptiden för enheter som försöker att etablera när du uppdaterar primära certifikatet.
+
+      **Endast avsett för testning:**
     
-    Nedan visas några commandline verktyg du kan använda för att generera CA-certifikat och certifikat på enheten.
+      Här följer vissa verktyget kommandoradsverktyg som du kan använda för att generera CA-certifikat och enhetscertifikat.
 
-    * Om du använder MxChip här är en [kommandoradsverktyg](https://aka.ms/iotcentral-docs-dicetool) för att generera CA-certifikat lägga till den i din IoT Central-app och verifiera certifikat. 
+      - Om du använder en DevKit-enhet, här är en [kommandoradsverktyget](https://aka.ms/iotcentral-docs-dicetool) att generera CA-certifikat. Lägga till den i din Azure IoT Central-app och kontrollera certifikaten. 
 
-    *   Använd det här [kommandoradsverktyg](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md ) till
-        * Skapa certifikatkedjan (Följ steg 2 i GitHub-dokument). 
-         Spara certifikat som CER-filer och ladda upp till IoT Central (primär).   
-        * Få verifieringskoden från IoT Central-App, generera certifikatet (Följ steg3 i GitHub-docs) och ladda upp för att verifiera. 
-        * Skapa lövmedlemmar certifikat med din enhets-Id som en parameter för verktyget (Följ steg 4). Spara certifikatet och använda dem på din enhet.     
+      - Använd [det här kommandoradsverktyget](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) till:
 
-1. **Registrera enheter** genom att importera dem till IoT Central via en CSV-fil.
+          - Skapa certifikatkedjan (Följ steg 2 i GitHub-dokument). Spara certifikat som CER-filer och överföra dem till Azure IoT Central (som primär certifikat).
+          - Få verifieringskoden från Azure IoT Central-app, generera certifikatet (Följ steg 3 i GitHub-docs) och överför certifikat för att kontrollera att den. 
+          - Skapa lövmedlemmar certifikat med enhets-ID som en parameter för verktyget (Följ steg 4). Spara certifikatet och använda dem på din enhet.
 
-1. **Enhetsinställningar** : Generera löv-certifikat med hjälp av överförda rotcertifikatet. Kontrollera att du använder den **enhets-ID** som CNAME-post i lägsta certifikat och är i **gemen**. Här är en [kommandoradsverktyg](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md ) att generera löv/enheten certifikat för **TESTAR endast avsedd**.
+1. **Registrera enheter** genom att importera dem till Azure IoT Central via en CSV-fil.
 
-    Programmera enheten med provisioning serviceinformation så att systemet kan hämta dess anslutningsinformation och IoT Central apptilldelning när påslaget.    
+1. **Enhetsinställningar**: Generera löv-certifikat med hjälp av överförda rotcertifikatet. Kontrollera att du använder enhets-ID som CNAME-post i löv-certifikat och se till att den är i gemener. Här är en [kommandoradsverktyget](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) att generera löv/enheten certifikat för **testningssyfte endast**.
 
-    **Ytterligare referens** 
-    *   Exempel på implementering för [RaspberryPi.](https://aka.ms/iotcentral-docs-Raspi-releases)  
+1. **Programmera enheten med tjänsten Etableringsinformation**, att få dess anslutningsinformationen och dess Azure IoT Central apptilldelning när den är påslagen.
 
-    *   [Exemplet enhetsklienten i C.](https://github.com/Azure/azure-iot-sdk-c/blob/dps_symm_key/provisioning_client/devdoc/using_provisioning_client.md)
+    Mer information finns i dessa artiklar:
 
->[!NOTE]
->Använd den **enhets-ID** som en CNAME-post när du genererar löv-certifikat för enheter.
+    - [Exempel på implementering för Raspberry Pi](https://aka.ms/iotcentral-docs-Raspi-releases)  
 
->[!NOTE]
->Den **enhets-ID** ska vara gemener 
- 
+    - [Exemplet enhetsklienten i C](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/devdoc/using_provisioning_client.md)
+
 ## <a name="connect-without-first-registering-devices"></a>Ansluta utan att första registrera enheter
-En av de scenarier som IoT Central kan är att generera autentiseringsuppgifter för OEM-tillverkare drivrutiner för masslagring tillverkning enheter och konfigurera dem i fabriken utan att först registrera dem i IoT Central. När enheterna är aktiverade och ansluta till IoT Central godkänner operatorn att enheten ansluter till IoT Central-app.
 
-Nedan visas flödet för att ansluta enheter med den här funktionen
+En av de scenarier som stöd för Azure IoT Central är för OEM-tillverkare lagringsenheter-tillverkning enheter, generera autentiseringsuppgifter och konfigurera dem i fabriken utan att först registrera enheter i Azure IoT Central. När enheterna är aktiverade och de försöker ansluta till Azure IoT Central, godkänner operatorn enheterna ska ansluta till Azure IoT Central-app.
+
+Här är flödet för att ansluta enheter med den här funktionen:
 
 ![Inställningar för anslutning](media/concepts-connectivity/device-connection-flow.png)
 
+Följ stegen baserat på ditt val av enhetsautentisering schema (X.509-certifikat eller signaturer för delad åtkomst):
 
-Följ stegen baserat på ditt val av enheten autentiseringsschemat (X509/SAS)
+1. **Konfigurera eller hämta anslutningsinställningarna:**
 
-1. **Anslutningsinställningar** 
-    * **X509 certifikat:** [Lägga till och verifiera rot-/ mellanliggande certifikat](#connect-devices-using-x509-certificates) och använda den för att generera enhetscertifikat i nästa steg.
-    * **SAS:** Kopiera den primära nyckeln (den här nyckeln är gruppen SAS-nyckeln för den här IoT Central-program) och använda den för att generera SAS-nycklar för enheten i nästa steg. 
-![Anslutningsinställningar SAS](media/concepts-connectivity/connection-settings-sas.png)
+    - **X.509-certifikat:** [Lägga till och verifiera rot- eller mellanliggande certifikat](#connect-devices-using-x509-certificates) och använda den för att generera enhetscertifikat i nästa steg.
+    - **Signaturer för delad åtkomst:** Kopiera den primära nyckeln (den här nyckeln är gruppnyckel för delad åtkomst som signaturen för det här Azure IoT Central programmet) och använda den för att generera signatur för delad enhet åtkomstnycklar i nästa steg.
 
-1. **Skapa autentiseringsuppgifter för enhet** 
-    *   **Certifikat X509:** Generera löv-certifikat för dina enheter med hjälp av den rot-/ mellanliggande certifikat som du har lagt till den här appen. Kontrollera att du använder den **enhets-ID** som en CNAME-post i löv-certifikat och  **<span style="color:Red">(bör vara gemener)</span>**. Här är en [kommandoradsverktyg](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md ) att generera löv/enheten certifikat för testning.
-    *   **SAS** enheten SAS-nycklar genereras med hjälp av detta [kommandoradsverktyget](https://www.npmjs.com/package/dps-keygen). Använd primära SAS-nyckel (grupp SAS-nyckeln) från föregående steg. Se till att enhets-ID  **<span style="color:Red">är i gemener</span>**.
+       ![Anslutningsinställningar för signaturer för delad åtkomst](media/concepts-connectivity/connection-settings-sas.png)
 
-        Använd den nedan anvisningar för att generera SAS-nyckel för enhet           
+1. **Skapa autentiseringsuppgifter för enheten:**
+
+    - **X.509-certifikat:** Generera löv-certifikat för dina enheter med hjälp av rot- eller mellanliggande certifikat som du har lagt till den här appen. Kontrollera att du använder enhets-ID som en CNAME-post i löv-certifikat och se till att den är gemen. Här är en [kommandoradsverktyget](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) att generera löv/enheten certifikat för testning.
+    - **Signaturer för delad åtkomst:** Använd det här alternativet för att generera signatur för enhet som delas åtkomstnycklar [kommandoradsverktyget](https://www.npmjs.com/package/dps-keygen). Använd signaturnyckel för primära delad åtkomst (signaturnyckeln för gruppen delad åtkomst) från föregående steg. Kontrollera att enheten ID: T är i gemener.
+
+        Använd följande kommando för att hämta enhetens anslutningssträng: 
 
         ```
         npm i -g dps-keygen
         ```
     
-        **Användning**
+        Använd följande kommando för att generera en signaturnyckel för delad åtkomst av enheten:
                         
         ```
         dps-keygen <Primary_Key(GroupSAS)> <device_id>
         ```
 
-1. **Enhetsinställningar** 
-    
-     Flash-enheten med **Scope-ID, enhets-ID, enheten cert/SAS-nyckel** och sedan aktivera att enheten ansluter till IoT Central-app.
+1. **Ställ in enheterna:** Flash varje enhet med den **Scopeid**, **enhets-ID**, och **certifikat/SAS-nyckel för enheten**, och sedan aktivera att enheten ansluter till Azure IoT Central-app.
 
-1. **Anslut enheten till IoT Central:** När aktiverat på enheter som ansluter till DPS/IoT Central för registrering.
+1. **Anslut enheter till Azure IoT Central:** När enheterna är påslaget ansluta de till Device Provisioning Service/Azure IoT Central för registrering.
 
-1. **Koppla enheten till en mall:** Den anslutna enheten visas **olänkade enheter** i **Device Explorer**. Enheten Etableringsstatus är **registrerad**. **Associera** enheten till lämplig enhet mallen och godkänna att enheten ansluter till IoT Central-app. Enheten får anslutningsinformationen för IoT Central-app och sedan ansluter den och startar skickar data. Enhetsetablering är nu klar och *Etableringsstatus* övergår i **etablerad**.
+1. **Associera enheterna till en mall:** Anslutna enheter som visas **icke associerade enheter** i **Device Explorer**. Enheten Etableringsstatus är **registrerad**. **Associera** enheterna till lämplig enhet mallen och godkänna enheterna ska ansluta till Azure IoT Central-app. Enheter att hämta anslutningsinformationen för Azure IoT Central-app, och sedan de ansluta och börja skicka data. Enhetsetablering är nu klar och **Etableringsstatus** för enheter övergår i **etablerad**.
 
-## <a name="device-provisioning-status"></a>Etablering av Enhetsstatus
-Det finns ett antal steg ingår vid en riktig enhet är ansluten till Azure IoT Central 
-1. **Registrerad**: Enheten är den första **registrerad**, vilket innebär att enheten har skapats i IoT Central och har enhets-ID för enheten.
-Enheten är registrerad när  
-    *   En ny riktig enhet läggs till på **Explorer**
-    *   En uppsättning enheter läggs till med **Import** på **Explorer**
-    *   En enhet som inte har registrerats men ansluter med giltiga autentiseringsuppgifter och som visas under **icke associerade** enheter. 
+## <a name="device-provisioning-status"></a>Etableringsstatus för enhet
 
-    I alla ovanstående fall den *Etableringsstatus* är **registrerad**
+När en riktig enhet är ansluten till Azure IoT Central, genomförs följande steg:
 
-1. **Etablerade**: Nästa steg är när enheten ansluter med giltiga autentiseringsuppgifter IoT Central är klar etablering steg (genom att skapa enheten i IoT Hub). Den returnerar sedan anslutningssträngen till enheten för att ansluta och börja skicka data. Enheten *Etableringsstatus* stängs nu från **registrerad** till **etablerad**.
+1. **Registrerad**: Enheten registreras först, vilket innebär att enheten har skapats i Azure IoT Central och den har enhets-ID för enheten. En enhet registreras när:
 
-1.  **Blockerad**: Operatören kan blockera en enhet, när en enhet blockeras den kan inte skicka data till IoT Central och måste återställas. Enheter som hindras har den *Etableringsstatus* av **blockerad**. Operatören kan också låsa upp enheten. En gång avblockerad enheten *Etableringsstatus* gå tillbaka till dess tidigare *Etableringsstatus* (registrerad eller etablerad). 
+    * En ny riktig enhet läggs till i **Device Explorer**
+    * En uppsättning enheter har lagts till med hjälp av **Import** i **Device Explorer**
+    * En enhet som inte har registrerats ansluter med giltiga autentiseringsuppgifter och som visas under **icke associerade enheter**
 
-## <a name="getting-device-connection-string"></a>Hämta enhetens anslutningssträng
-Du kan hämta anslutningssträngen för Iot hub-enhet på Azure IoT Hub med följande steg 
-1. Hämta anslutningsinformationen som **Scope-ID, enhets-ID, enheten primärnyckel** från enhetssidan (till enhetssidan > Klicka på Anslut) 
+    I samtliga fall ovan, den **Etableringsstatus** är **registrerad**.
+
+1. **Etablerade**: När enheten ansluter med giltiga autentiseringsuppgifter, slutförs Azure IoT Central steget etablering (genom att skapa enheten i IoT Hub). Azure IoT Central returnerar sedan anslutningssträngen till enheten så att den kan ansluta och börja skicka data. Enhetens **Etableringsstatus** ändras från **registrerad** till **etablerad**.
+
+1. **Blockerad**: Operatören kan blockera en enhet. När en enhet har blockerats visas det går inte att skicka data till Azure IoT Central och den måste återställas. Enheter som hindras har den **Etableringsstatus** av **blockerad**. Operatören kan också låsa upp enheten. När den har avblockerad, enhetens **Etableringsstatus** återgår till dess tidigare status (**registrerad** eller **etablerad**). 
+
+## <a name="get-the-device-connection-string"></a>Hämta enhetens anslutningssträng
+
+Du kan hämta anslutningssträngen för Iot Hub-enhet på Azure IoT Hub med hjälp av följande steg:
+
+1. Hämta anslutningsinformationen för enhetens, som den **Scope-ID**, **enhets-ID**, och **primärnyckel** från den **enhetsanslutning** sidan. Dessa uppgifter, gå till den **enhet** och välj **Connect**. 
 
     ![Anslutningsinformation](media/concepts-connectivity/device-connect.png)
 
-1. Hämta enhetens anslutningssträng med hjälp av kommandoradsverktyget nedan.
-    Använd den nedan anvisningarna för att hämta enhetens anslutningssträng  
+1. Hämta enhetens anslutningssträng med hjälp av kommandoradsverktyget dps-keygen. Använd följande kommando för att hämta enhetens anslutningssträng:  
 
     ```cmd/sh
     npm i -g dps-keygen
     ```
-    **Användning**
 
-    För att skapa en anslutningssträng måste hitta den binära filen under bin / mapp
+    Om du vill skapa en anslutningssträng, hitta den binära filen under den *bin /* mapp:
+
     ```cmd/sh
     dps_cstr <scope_id> <device_id> <Primary Key(for device)>
     ```
-    Läs mer om den [här dps-keygen-verktyget.](https://www.npmjs.com/package/dps-keygen)
+
+    [Mer information om dps-keygen-verktyget](https://www.npmjs.com/package/dps-keygen).
 
 ## <a name="sdk-support"></a>SDK-support
 
-SDK: er för Azure-enheter erbjudandet det enklaste sättet du implementerar kod på dina enheter som ansluter till ditt Azure IoT Central program. Följande enhet SDK: er är tillgängliga:
+Azure IoT SDK: er erbjuder det enklaste sättet att använda koden på enheter som ansluter till ditt Azure IoT Central program. Följande SDK: er är tillgängliga:
 
 - [Azure IoT SDK för C](https://github.com/azure/azure-iot-sdk-c)
 - [Azure IoT SDK för Python](https://github.com/azure/azure-iot-sdk-python)
@@ -274,36 +286,31 @@ I följande tabell sammanfattas hur Azure IoT Central enhetsfunktioner mappas ti
 | Enhetsegenskaper | Enhetstvillingen rapporterade egenskaper |
 | Inställningar | Enhetstvillingen önskad och rapporterade egenskaper |
 
-Mer information om hur du använder SDK: er för enheter finns i följande artiklar exempelkod:
+Om du vill veta mer om hur du använder Azure IoT SDK: er, finns i följande artiklar för exempelkoden:
 
 - [Ansluta en generisk Node.js-klient till Azure IoT Central-programmet](howto-connect-nodejs-experimental.md)
 - [Ansluta en Raspberry Pi-enhet till Azure IoT Central programmet](howto-connect-raspberry-pi-python.md)
-- [Ansluta en DevDiv kit enhet till Azure IoT Central programmet](howto-connect-devkit-experimental.md).
+- [En ansluts MXChip IoT DevKit till programmet Azure IoT Central](howto-connect-devkit-experimental.md)
 
 
 ## <a name="protocols"></a>Protokoll
 
-SDK: er för enheter stöder följande nätverksprotokoll för att ansluta till en IoT-hubb:
+Azure IoT SDK stöder följande nätverksprotokoll för att ansluta till en IoT-hubb:
 
 - MQTT
 - AMQP
 - HTTPS
 
-Läs om hur dessa skillnaden protokoll och vägledning om hur du väljer en [välja ett kommunikationsprotokoll](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-protocols).
+Läs om hur dessa protokoll och vägledning om hur du väljer en [välja ett kommunikationsprotokoll](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-protocols).
 
 Om enheten inte kan använda någon av protokoll som stöds, kan du använda Azure IoT Edge till protokoll konvertering. IoT Edge stöder andra intelligence-på-the-edge-scenarier för att avlasta bearbetning till gränsen från programmet Azure IoT Central.
 
 ## <a name="security"></a>Säkerhet
 
-Krypteras alla data som utbyts mellan enheter och din Azure IoT Central. IoT Hub autentiserar varje begäran från en enhet som ansluter till någon av IoT Hub device-slutpunkter. För att undvika att byta ut autentiseringsuppgifter via kabel kan använder en enhet signera token för autentisering. Mer information finns i, [styra åtkomsten till IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-security).
-
-> [!NOTE]
-> Enheter som ansluter till Azure IoT Central måste för närvarande använder SAS-token. X.509-certifikat har inte stöd för enheter som ansluter till Azure IoT Central.
+Alla data som utbyts mellan enheter och Azure IoT Central appen krypteras. IoT Hub autentiserar varje begäran från en enhet som ansluter till någon av IoT Hub device-slutpunkter. För att undvika att byta ut autentiseringsuppgifter via kabel kan använder en enhet signera token för autentisering. Mer information finns i [Control access to IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-security) (Kontrollera åtkomsten till IoT Hub).
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har lärt dig om enhetsanslutning i Azure IoT Central, är här nästa föreslagna steg:
-
-- [Förbereda och ansluta en DevKit-enhet](howto-connect-devkit-experimental.md)
-- [Förbereda och ansluta en Raspberry Pi](howto-connect-raspberry-pi-python.md)
+- [Förbereda och ansluta MXChip IoT DevKit enheter](howto-connect-devkit-experimental.md)
+- [Förbereda och ansluta en Raspberry Pi-enhet](howto-connect-raspberry-pi-python.md)
 - [Ansluta en generisk Node.js-klient till Azure IoT Central-programmet](howto-connect-nodejs-experimental.md)

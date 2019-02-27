@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: be702571d178fc67eeb92de4e52a48d5bef72b18
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 947740ed28deea9682d10eecf9a66dab7540669e
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54824634"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56880316"
 ---
 # <a name="security-frame-cryptography--mitigations"></a>Security ram: Kryptografi | Åtgärder 
 | Produkt/tjänst | Artikel |
@@ -34,7 +34,7 @@ ms.locfileid: "54824634"
 
 ## <a id="cipher-length"></a>Använd endast godkända symmetriska blockchiffer och nyckellängder
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
 | **SDL fas**               | Utveckla |  
@@ -45,7 +45,7 @@ ms.locfileid: "54824634"
 
 ## <a id="vector-ciphers"></a>Använd godkända block chiffer lägen och initiering angreppsmetoderna symmetriska chiffer
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
 | **SDL fas**               | Utveckla |  
@@ -56,7 +56,7 @@ ms.locfileid: "54824634"
 
 ## <a id="padding"></a>Använd godkända asymmetriska algoritmer, nyckellängder och utfyllnad
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
 | **SDL fas**               | Utveckla |  
@@ -67,7 +67,7 @@ ms.locfileid: "54824634"
 
 ## <a id="numgen"></a>Använd godkända slumpmässigt nummer generatorer
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
 | **SDL fas**               | Utveckla |  
@@ -78,7 +78,7 @@ ms.locfileid: "54824634"
 
 ## <a id="stream-ciphers"></a>Använd inte symmetriska stream-chiffer
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
 | **SDL fas**               | Utveckla |  
@@ -89,7 +89,7 @@ ms.locfileid: "54824634"
 
 ## <a id="mac-hash"></a>Använd godkända MAC/HMAC/registreras hash-algoritmer
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
 | **SDL fas**               | Utveckla |  
@@ -100,7 +100,7 @@ ms.locfileid: "54824634"
 
 ## <a id="hash-functions"></a>Använd endast godkända kryptografiska hash-funktioner
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
 | **SDL fas**               | Utveckla |  
@@ -111,7 +111,7 @@ ms.locfileid: "54824634"
 
 ## <a id="strong-db"></a>Använda stark krypteringsalgoritmer för att kryptera data i databasen
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Databas | 
 | **SDL fas**               | Utveckla |  
@@ -122,7 +122,7 @@ ms.locfileid: "54824634"
 
 ## <a id="ssis-signed"></a>SSIS-paket ska krypteras och digitalt signerade
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Databas | 
 | **SDL fas**               | Utveckla |  
@@ -133,7 +133,7 @@ ms.locfileid: "54824634"
 
 ## <a id="securables-db"></a>Lägg till digital signatur i kritiska databasen skyddbara objekt
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Databas | 
 | **SDL fas**               | Utveckla |  
@@ -144,7 +144,7 @@ ms.locfileid: "54824634"
 
 ## <a id="ekm-keys"></a>Använda SQLServer EKM för att skydda krypteringsnycklar
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Databas | 
 | **SDL fas**               | Utveckla |  
@@ -155,7 +155,7 @@ ms.locfileid: "54824634"
 
 ## <a id="keys-engine"></a>Använda AlwaysEncrypted funktionen om krypteringsnycklar inte ska lämnas ut till databasmotorn
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Databas | 
 | **SDL fas**               | Utveckla |  
@@ -166,7 +166,7 @@ ms.locfileid: "54824634"
 
 ## <a id="keys-iot"></a>Store kryptografiska nycklar på ett säkert sätt på IoT-enheter
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | IoT-enheter | 
 | **SDL fas**               | Utveckla |  
@@ -189,7 +189,7 @@ Se, finns inte den primära nyckeln för enheten i koden. I stället lagras i TP
 
 ## <a id="random-hub"></a>Generera en slumpmässig symmetrisk nyckel med tillräckligt med längden för autentisering till IoT Hub
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | IoT Cloud Gateway | 
 | **SDL fas**               | Utveckla |  
@@ -200,7 +200,7 @@ Se, finns inte den primära nyckeln för enheten i koden. I stället lagras i TP
 
 ## <a id="pin-remote"></a>Se till att en princip för hantering av enheter som kräver en PIN-kod för användning och tillåter fjärråtkomst rensas
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Dynamics CRM Mobile Client | 
 | **SDL fas**               | Distribution |  
@@ -211,7 +211,7 @@ Se, finns inte den primära nyckeln för enheten i koden. I stället lagras i TP
 
 ## <a id="bitlocker"></a>Se till att en princip för hantering av enheten är på plats som kräver en PIN-kod/lösenord/Autolås och krypterar alla data (t.ex. BitLocker)
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Dynamics CRM Outlook Client | 
 | **SDL fas**               | Utveckla |  
@@ -222,18 +222,18 @@ Se, finns inte den primära nyckeln för enheten i koden. I stället lagras i TP
 
 ## <a id="rolled-server"></a>Se till att Signeringsnycklar har flyttats över när du använder Identity Server
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Identitetsserver | 
 | **SDL fas**               | Distribution |  
 | **Tillämpliga tekniker** | Generisk |
 | **Attribut**              | Gäller inte  |
-| **Referenser**              | [Identitetsserver - nycklar, signaturer och kryptering ](https://identityserver.github.io/Documentation/docsv2/configuration/crypto.html) |
+| **Referenser**              | [Identitetsserver - nycklar, signaturer och kryptering](https://identityserver.github.io/Documentation/docsv2/configuration/crypto.html) |
 | **Steg** | Se till att Signeringsnycklar har flyttats över när du använder Identity Server. Länken i referensavsnittet förklarar hur detta bör planeras utan att orsaka avbrott i program som förlitar sig på Identity Server. |
 
 ## <a id="client-server"></a>Se till att kryptografiskt stark klient-ID, klienthemlighet är används i Identity Server
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Identitetsserver | 
 | **SDL fas**               | Utveckla |  

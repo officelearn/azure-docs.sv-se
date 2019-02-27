@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: fccc7379794b4b75ff53e517eddd95ff0f7db0e9
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: b52bdd5948676c09c433cbda249248ce26ce8a48
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55223790"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56866036"
 ---
 # <a name="set-up-network-mapping-and-ip-addressing-for-vnets"></a>Konfigurera nätverksmappning och IP-adresser för virtuella nätverk
 
@@ -32,7 +32,7 @@ Mappa nätverk på följande sätt:
 
 3. I **Lägg till nätverksmappning**, Välj källa och mål platser. I vårt exempel källan virtuell dator körs i regionen östra Asien, och replikerar till regionen Sydostasien.
 
-    ![Välj källa och mål ](./media/site-recovery-network-mapping-azure-to-azure/network-mapping2.png)
+    ![Välj källa och mål](./media/site-recovery-network-mapping-azure-to-azure/network-mapping2.png)
 3. Skapa nu en nätverksmappning i motsatt katalogen. I vårt exempel källan kommer nu att Sydostasien och målet är Östasien.
 
     ![Lägg till nätverk mappning fönstret - Välj käll- och målplatserna för Målnätverk](./media/site-recovery-network-mapping-azure-to-azure/network-mapping3.png)

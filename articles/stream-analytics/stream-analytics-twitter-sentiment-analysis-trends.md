@@ -9,12 +9,12 @@ manager: kfile
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/29/2017
-ms.openlocfilehash: 86fa7fab6897802fd4f18936f2d7bb0700829837
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: c34b3fa1597866e4f722fccee84f83f4caab6bfb
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54231146"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56876304"
 ---
 # <a name="real-time-twitter-sentiment-analysis-in-azure-stream-analytics"></a>I realtid Twitter-attitydanalys i Azure Stream Analytics
 
@@ -58,7 +58,7 @@ I den här proceduren måste du först skapa ett händelsehubbnamnområde och se
 
 5. Klicka på det nya namnområdet och i namnområdesbladet klickar du på  **+ &nbsp;Event Hub**. 
 
-    ![Lägg till Event Hub-knappen för att skapa en ny händelsehubb ](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-create-eventhub-button.png)    
+    ![Lägg till Event Hub-knappen för att skapa en ny händelsehubb](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-create-eventhub-button.png)    
  
 6. Namnge den nya händelsehubben `socialtwitter-eh`. Du kan använda ett annat namn. Om du gör notera av det, eftersom du behöver namnet senare. Du behöver inte ange några andra alternativ för event hub.
 
@@ -278,7 +278,7 @@ I följande tabell visas de fält som ingår i JSON strömmande data. Passa på 
 
 |JSON-egenskap | Definition|
 |--- | ---|
-|createdAt | Den tidpunkt då tweeten skapades|
+|CreatedAt | Den tidpunkt då tweeten skapades|
 |Avsnitt | Ämnet som matchar det angivna nyckelordet|
 |SentimentScore | Sentimentresultatet från Sentiment140|
 |Författare | Twitter-referens som skickats tweeten|

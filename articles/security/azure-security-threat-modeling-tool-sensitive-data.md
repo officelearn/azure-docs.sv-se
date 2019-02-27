@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 5e9104f59173c3d39ef2f2232ed2a9c6864cf84f
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 93beef5702df9b4cf0a51a01fb286a3f023f9839
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55892566"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56876627"
 ---
 # <a name="security-frame-sensitive-data--mitigations"></a>Security ram: Känsliga Data | Åtgärder 
 | Produkt/tjänst | Artikel |
 | --------------- | ------- |
 | **Datorn Förtroendegräns** | <ul><li>[Se till att binärfilerna har dolts om de innehåller känslig information](#binaries-info)</li><li>[Överväg att använda krypterade filsystem (EFS) används för att skydda konfidentiella användarspecifika data](#efs-user)</li><li>[Se till att känsliga data som lagras av programmet i filsystemet är krypterad](#filesystem)</li></ul> | 
 | **Webbprogram** | <ul><li>[Se till att känsligt innehåll inte cachelagras i webbläsare](#cache-browser)</li><li>[Kryptera avsnitt för Web App configuration-filer som innehåller känslig information](#encrypt-data)</li><li>[Inaktivera automatisk komplettering HTML-attribut i känsliga formulär och indata](#autocomplete-input)</li><li>[Se till att känsliga data som visas på användarskärmen maskeras](#data-mask)</li></ul> | 
-| **Databas** | <ul><li>[Implementera dynamisk datamaskning för att begränsa exponering icke privilegierad användare för känsliga data](#dynamic-users)</li><li>[Se till att lösenord lagras i saltat hash-format](#salted-hash)</li><li>[ Se till att känsliga data i databaskolumner är krypterad](#db-encrypted)</li><li>[Kontrollera att databasnivå-kryptering (TDE) är aktiverat](#tde-enabled)</li><li>[Se till att databassäkerhetskopiorna är krypterad](#backup)</li></ul> | 
+| **Databas** | <ul><li>[Implementera dynamisk datamaskning för att begränsa exponering icke privilegierad användare för känsliga data](#dynamic-users)</li><li>[Se till att lösenord lagras i saltat hash-format](#salted-hash)</li><li>[Se till att känsliga data i databaskolumner är krypterad](#db-encrypted)</li><li>[Kontrollera att databasnivå-kryptering (TDE) är aktiverat](#tde-enabled)</li><li>[Se till att databassäkerhetskopiorna är krypterad](#backup)</li></ul> | 
 | **Webb-API** | <ul><li>[Se till att känsliga data som är relevanta för webb-API inte lagras i webbläsarens storage](#api-browser)</li></ul> | 
 | Azure Document DB | <ul><li>[Kryptera känsliga data som lagras i Azure Cosmos DB](#encrypt-docdb)</li></ul> | 
 | **Azure IaaS VM-Förtroendegräns** | <ul><li>[Använda Azure Disk Encryption för att kryptera diskar som används av virtuella datorer](#disk-vm)</li></ul> | 
@@ -34,7 +34,7 @@ ms.locfileid: "55892566"
 | **Dynamics CRM** | <ul><li>[Utföra security modellering och använda enheter/Verksamhetsteamen om det behövs](#modeling-teams)</li><li>[Minimera åtkomst om du vill dela funktionen på kritiska entiteter](#entities)</li><li>[Utbilda användare på riskerna med funktionen för Dynamics CRM-resurs och säkerhetsprinciper](#good-practices)</li><li>[Inkludera en regel för utveckling-standarder som proscribing med config information i hantering av undantag](#exception-mgmt)</li></ul> | 
 | **Azure Storage** | <ul><li>[Använd Azure Storage Service Encryption (SSE) för Data i vila (förhandsversion)](#sse-preview)</li><li>[Använda Client Side Encryption för att lagra känsliga data i Azure Storage](#client-storage)</li></ul> | 
 | **Mobila klienten** | <ul><li>[Kryptera känsliga eller PII-data som skrivs till lokal lagring för telefoner](#pii-phones)</li><li>[Förvräng genererade binärfiler innan du distribuerar till slutanvändare](#binaries-end)</li></ul> | 
-| **WCF** | <ul><li>[ Ange clientCredentialType till certifikat eller Windows](#cert)</li><li>[WCF-Security-läge är inte aktiverat](#security)</li></ul> | 
+| **WCF** | <ul><li>[Ange clientCredentialType till certifikat eller Windows](#cert)</li><li>[WCF-Security-läge är inte aktiverat](#security)</li></ul> | 
 
 ## <a id="binaries-info"></a>Se till att binärfilerna har dolts om de innehåller känslig information
 

@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 2/7/2019
-ms.openlocfilehash: 4b530ed2ffd32e2433a744b05aaab2219bf2b15a
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 185e605db366fb392758ad9870a3c15badc0f321
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55896725"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56874876"
 ---
 # <a name="restart-azure-database-for-mariadb-server-using-azure-portal"></a>Starta om Azure Database for MariaDB-server med Azure-portalen
 Det här avsnittet beskrivs hur du kan starta om en Azure Database for MariaDB-server. Du kan behöva starta om servern för underhåll orsaker, vilket medför ett kort avbrott som servern utför åtgärden.
@@ -36,15 +36,15 @@ Starta följande steg om MariaDB-server:
 
 3. Klicka på **Ja** att bekräfta att starta om servern.
 
-   ![Azure Database for MariaDB - omstart bekräfta ](./media/howto-restart-server-portal/3-restart-confirm.png)
+   ![Azure Database for MariaDB - omstart bekräfta](./media/howto-restart-server-portal/3-restart-confirm.png)
 
 4. Observera att Serverstatusen ändras till ”startar om”.
 
-   ![Azure Database for MariaDB - status för omstart ](./media/howto-restart-server-portal/4-restarting-status.png)
+   ![Azure Database for MariaDB - status för omstart](./media/howto-restart-server-portal/4-restarting-status.png)
 
 5. Bekräfta omstart av servern är klar.
 
-   ![Azure Database for MariaDB - omstart lyckades ](./media/howto-restart-server-portal/5-restart-success.png)
+   ![Azure Database for MariaDB - omstart lyckades](./media/howto-restart-server-portal/5-restart-success.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

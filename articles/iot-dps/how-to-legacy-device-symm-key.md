@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 9d82ff29b988925f244fc33d7124fe43487895b8
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 963d03db2db811b44b1d89df8254f751ec7d3136
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53341243"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56877409"
 ---
 # <a name="how-to-provision-legacy-devices-using-symmetric-keys"></a>Hur du etablerar äldre enheter med symmetriska nycklar
 
@@ -124,7 +124,7 @@ SDK innehåller exempelkod för den simulerade enheten. Den här simulerade enhe
 
     - **Typ av attestering**: Välj **symmetrisk nyckel**.
 
-    - **Generera nycklar automatiskt**: Den här kryssrutan.
+    - **Generera nycklar automatiskt**: Markera den här kryssrutan.
 
     - **Välj hur du vill tilldela enheter till hubs**: Välj **statisk konfiguration** så att du kan tilldela till en specifik hubb.
 
@@ -239,7 +239,7 @@ Den här exempelkoden simulerar en startsekvens för enheten som skickar en beg�
     hsm_type = SECURE_DEVICE_TYPE_SYMMETRIC_KEY;
     ```
 
-6. Hitta anropet till `prov_dev_set_symmetric_key_info()` i **prov\_dev\_klienten\_sample.c** som har kommenterats bort.
+6. Leta upp anropet till `prov_dev_set_symmetric_key_info()` i **prov\_dev\_client\_sample.c** som har kommenterats bort.
 
     ```c
     // Set the symmetric key if using they auth type
@@ -294,7 +294,7 @@ Tänk på att det innebär att den härledda enhetsnyckel som en del av avbildni
 
 * Läs mer Reprovisioning i [IoT Hub Device reprovisoning begrepp](concepts-device-reprovision.md) 
 * [Snabbstart: Etablera en simulerad enhet med symmetriska nycklar](quick-create-simulated-device-symm-key.md)
-* Läs mer avetablering i [så ta bort etableringen av enheter som har tidigare Automatisk etablering ](how-to-unprovision-devices.md) 
+* Läs mer avetablering i [så ta bort etableringen av enheter som har tidigare Automatisk etablering](how-to-unprovision-devices.md) 
 
 
 

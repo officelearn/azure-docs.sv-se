@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: 94dec611a04819580696133c48db66da1ea9c463
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 73a2f0754cafaa5da09ebd437ecd62813296ffd9
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53000435"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56890087"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---motivation-and-benefits"></a>Migrera lokala Apache Hadoop-kluster till Azure HDInsight - motivation och fördelar
 
@@ -54,7 +54,7 @@ Azure HDInsight är en molndistribution av Hadoop-komponenterna från den [Hort
 
 - **Utökningsbarhet med anpassade verktyg eller program från tredje part** -HDInsight-kluster kan utökas genom att installera komponenter och kan även integreras med andra lösningar för stordata med hjälp av [klick](https://azure.microsoft.com/services/hdinsight/partner-ecosystem/)  distributioner från Azure Marketplace.
 
-- **Enkel hantering, administration och övervakning** -Azure HDInsight kan integreras med [Azure Log Analytics](../hdinsight-hadoop-oms-log-analytics-tutorial.md) som ett enda gränssnitt som du kan övervaka alla dina kluster.
+- **Enkel hantering, administration och övervakning** -Azure HDInsight kan integreras med [Azure Monitor loggar](../hdinsight-hadoop-oms-log-analytics-tutorial.md) som ett enda gränssnitt som du kan övervaka alla dina kluster.
 
 - **Integrering med andra Azure-tjänster** -HDInsight kan enkelt integreras med andra populära Azure-tjänster, till exempel följande:
 
@@ -90,9 +90,9 @@ Det här avsnittet innehåller mallen enkäter för att samla in viktig informat
 
 | **Fråga** | **Exempel** | **Svar** |
 |---|---|---|
-|**Avsnittet**: **miljö**|||
+|**avsnittet**: **Miljö**|||
 |Typ av kluster-Distribution|Hortonworks, Cloudera, MapR| |
-|Klusterversion för Distribution|HDP 2.6.5 CDH 5.7|
+|Klusterversion för Distribution|HDP 2.6.5, CDH 5.7|
 |Big Data-ekosystemet-komponenter|HDFS, Yarn, Hive, LLAP, Impala, Kudu, HBase, Spark, MapReduce, Kafka, Zookeeper, Solr, Sqoop, Oozie, Ranger, Atlas, Falcon, Zeppelin, R|
 |Klustertyper|Hadoop, Spark, konfluenta Kafka, Storm, Solr|
 |Antalet kluster|4|
@@ -106,24 +106,24 @@ Det här avsnittet innehåller mallen enkäter för att samla in viktig informat
 |HDFS kryptering?|Ja|
 |Hög tillgänglighet|HDFS hög tillgänglighet, Metaarkiv hög tillgänglighet|
 |Katastrofåterställning / säkerhetskopiera|Backup-kluster?|  
-|System som är beroende av kluster|SQL Server, Teradata och Powerbi, MongoDB|
+|System som är beroende av kluster|SQL Server, Teradata, Power BI, MongoDB|
 |Tredjeparts-integreringar|Tableau GridGain, Qubole, Informatica, Splunk|
-|**Avsnittet**: **säkerhet**|||
+|**avsnittet**: **Säkerhet**|||
 |Perimetersäkerhet|Brandväggar|
 |Kluster-autentisering och auktorisering|Active Directory, Ambari, Cloudera-hanteraren, ingen autentisering|
 |HDFS-åtkomstkontroll|  Manuell, ssh användare|
 |Hive-autentisering och auktorisering|Sentry, LDAP, AD med Kerberos, Ranger|
-|Granskning|Ambari, Cloudera Navigator Ranger|
+|Granskning|Ambari, Cloudera Navigator, Ranger|
 |Övervakning|Grafit, insamlade, statsd, Telegraf, InfluxDB|
 |Aviseringar|Kapacitor, Prometheus, Datadog|
-|Varaktighet för kvarhållning| 3 år, 5 år|
+|Data Retention duration| 3 år, 5 år|
 |Klusteradministratörer|En administratör kan flera administratörer|
 
 ### <a name="project-details-questionnaire"></a>Projektet information enkäten
 
 |**Fråga**|**Exempel**|**Svar**|
 |---|---|---|
-|**Avsnittet**: **arbetsbelastningar och frekvens**|||
+|**avsnittet**: **Arbetsbelastningar och frekvens**|||
 |MapReduce-jobb|10 jobb – två gånger per dag||
 |Hive-jobb|100 jobb – varje timme||
 |Spark batch-jobb|50 jobb – var 15: e minut||
@@ -132,53 +132,53 @@ Det här avsnittet innehåller mallen enkäter för att samla in viktig informat
 |ML-modell upplärningsjobb|2 jobb – en gång under en vecka||
 |Programmeringsspråk|Python, Scala, Java||
 |Skript|Shell, Python||
-|**Avsnittet**: **Data**|||
-|Datakällor|Flat-filer, Json, Kafka, RDBMS||
-|Datadirigering|Oozie arbetsflöden, luftflöde||
+|**avsnittet**: **Data**|||
+|Datakällor|Flat files, Json, Kafka, RDBMS||
+|Dataorkestrering|Oozie arbetsflöden, luftflöde||
 |I minnet sökningar|Apache Ignite, Redis||
 |Datamål|HDFS, RDBMS, Kafka, MPP ||
-|**Avsnittet**: **metadata**|||
-|Hive DB-typ|MySQL, Postgres||
+|**avsnittet**: **Metadata**|||
+|Hive DB-typ|Mysql, Postgres||
 |Nej. av metastores för Hive|2||
 |Nej. Hive-tabeller|100||
 |Nej. för Ranger-principer|20||
 |Nej. för Oozie-arbetsflöden|100||
-|**Avsnittet**: **skala**|||
+|**avsnittet**: **Skalning**|||
 |Datavolym, inklusive replikering|100 TB||
 |Daglig inmatning volym|50 GB||
 |Tillväxttakt för data|10% per år||
 |Tillväxttakt för kluster-noder|5% per år
-|**Avsnittet**: **användning av kluster**|||
-|Den genomsnittliga CPU % använt|60%||
+|**avsnittet**: **Klusteranvändning**|||
+|Den genomsnittliga CPU % använt|60 %||
 |Genomsnittligt minne-% använt|75%||
 |Använt diskutrymme|75%||
 |Den genomsnittliga nätverk % använt|25 %
-|**Avsnittet**: **personal**|||
+|**avsnittet**: **Staff**|||
 |Nej. för administratörer|2||
 |Nej. för utvecklare|10||
 |Nej. för slutanvändare|100||
 |Färdigheter|Hadoop, Spark||
 |Nej. tillgängliga resurser för migrering arbete|2||
-|**Avsnittet**: **begränsningar**|||
+|**avsnittet**: **Begränsningar**|||
 |Aktuella begränsningar|Svarstiden är hög||
 |Aktuella utmaningar|Samtidighet problemet||
 
 ### <a name="azure-requirements-questionnaire"></a>Krav för Azure enkäten
 
-|**Avsnittet**: **infrastruktur** |||
+|**avsnittet**: **Infrastruktur** |||
 |---|---|---|
 |**Fråga**|**Exempel**|**Svar**|
-| Önskad Region|USA, Östra||
+| Önskad region|USA, Östra||
 |Virtuellt nätverk rekommenderas?|Ja||
 |HA / DR behövs?|Ja||
 |Integrering med andra molntjänster?|ADF, CosmosDB||
-|**Avsnittet**: **dataförflyttning**  |||
+|**avsnittet**:   **Dataförflyttning**  |||
 |Första inställningar|DistCp, Data går du till rutan ADF, WANDisco||
 |Delta för överföring av data|DistCp, AzCopy||
 |Pågående inkrementella dataöverföring|DistCp, Sqoop||
-|**Avsnittet**: **övervakning och avisering** |||
+|**avsnittet**:   **Övervakning och avisering** |||
 |Använda Azure övervakning och avisering Vs integrera övervakning från tredje part|Använd Azure övervakning och avisering||
-|**Avsnittet**: **skyddsinställningar** |||
+|**avsnittet**:   **Skyddsinställningar** |||
 |Privata och skyddade datapipeline?|Ja||
 |Domänen anslutits kluster (ESP)?|     Ja||
 |Den lokala AD Sync till molnet?|     Ja||
@@ -191,7 +191,7 @@ Det här avsnittet innehåller mallen enkäter för att samla in viktig informat
 |Granskning behövs?|                  Ja||
 |Datakryptering i vila?|          Ja||
 |Datakryptering under överföring?|       Ja||
-|**Avsnittet**: **Re-arkitektur-inställningar** |||
+|**avsnittet**:   **Inställningar för RE-arkitektur** |||
 |Kluster vs specifika klustertyper|Specifika klustertyper||
 |Samordnade lagring jämfört med Fjärrlagring?|Fjärrlagring||
 |Mindre klusterstorlek som data lagras via fjärranslutning?|Mindre klusterstorlek||

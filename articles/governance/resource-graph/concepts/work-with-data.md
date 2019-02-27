@@ -4,16 +4,16 @@ description: Förstå hur du hämtar och styra stora uppsättningar data när du
 services: resource-graph
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 01/31/2019
+ms.date: 02/26/2019
 ms.topic: conceptual
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: 8808f42cdd6fb547b70695278993faa0f52cdb61
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: ef61314ae124668fc8970e6d68a0f927bdf771bc
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56338401"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889043"
 ---
 # <a name="working-with-large-azure-resource-data-sets"></a>Arbeta med stora Azure-resurs datauppsättningar
 
@@ -22,6 +22,9 @@ Azure Resource Graph är utformad för att arbeta med och få information om res
 ## <a name="data-set-result-size"></a>Datauppsättning storlek
 
 Som standard begränsar Resource Graph någon fråga för att returnera endast **100** poster. Den här kontrollen skyddar både användaren och tjänsten mot oavsiktlig frågor som resulterar i stora datamängder. Den här händelsen inträffar oftast när en kund experimentera med frågor att söka efter och filtrera resurser i det sätt som passar deras specifika behov. Den här kontrollen är annorlunda än att använda den [upp](/azure/kusto/query/topoperator) eller [gränsen](/azure/kusto/query/limitoperator) Azure Data Explorer språk operatörer att begränsa resultatet.
+
+> [!NOTE]
+> När du använder **första**, rekommenderas du för att sortera efter till minst en kolumn med `asc` eller `desc`. Utan att sortera är resultatet som returneras slumpmässig och inte repeterbara.
 
 Standardgränsen kan åsidosättas med alla metoder för interaktion med resursen Graph. I följande exempel visas hur du ändrar storleksgräns för datauppsättning till _200_:
 
@@ -43,6 +46,9 @@ Den kontroll som är _mest restriktiva_ vinner. Exempel: om din fråga använder
 
 Nästa alternativ för att arbeta med stora datauppsättningar är den **hoppa över** kontroll. Den här kontrollen kan din fråga för att hoppa över eller hoppa över det angivna antalet poster innan det returneras resultatet. **Hoppa över** är användbart för frågor som sortera resultaten på ett meningsfullt sätt där avsikten är att hämta vid poster någonstans mitt i resultatmängden. Om resultatet som behövs är i slutet av den returnerade datauppsättningen, är det mer effektivt att använda en annan sortering konfiguration och hämta resultaten från början av en uppsättning data i stället.
 
+> [!NOTE]
+> När du använder **hoppa över**, rekommenderas du för att sortera efter till minst en kolumn med `asc` eller `desc`. Utan att sortera är resultatet som returneras slumpmässig och inte repeterbara.
+
 I följande exempel visas hur du hoppa över först _10_ poster som en fråga skulle resultera i, i stället startar det returnerade resultatet anges med den 11: e-posten:
 
 ```azurecli-interactive
@@ -63,7 +69,7 @@ När det är nödvändigt att avbryta en resultatmängd i mindre uppsättningar 
 När **resultTruncated** är **SANT**, **$skipToken** egenskapen är inställda i svaret. Det här värdet används med värdena för samma fråga och -prenumeration för att hämta nästa uppsättning poster som matchar frågan.
 
 > [!IMPORTANT]
-> Frågan måste **projekt** den **id** fältet för sidbrytning ska fungera. Om den saknas från frågan, REST API-svaret inte innehåller den **$skipToken**.
+> Frågan måste **projekt** den **id** fältet för sidbrytning ska fungera. Om den saknas från frågan, REST API-svaret inte innehålla den **$skipToken**.
 
 Ett exempel finns i [nästa sida fråga](/rest/api/azureresourcegraph/resources/resources#next_page_query) i REST API-dokument.
 

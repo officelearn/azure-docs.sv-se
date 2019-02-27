@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/02/2019
 ms.author: diberry
-ms.openlocfilehash: 81684031ddaa1ca8fa63a6c7e512f3fe6769a639
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 621e691eaedb06c26b5e6a05a12d0b742c798172
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55859818"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56864523"
 ---
 # <a name="language-and-region-support-for-luis"></a>Stöd för språk och din region för LUIS
 
@@ -53,7 +53,7 @@ Språkstöd varierar för [förskapade entiteter](luis-reference-prebuilt-entiti
 
  - I den `zh-cn` kulturen, LUIS förväntar sig förenklad kinesiska teckenuppsättningen i stället för den traditionella teckenuppsättningen.
  - Namn på avsikter, entiteter, funktioner och reguljära uttryck kan vara i kinesiska eller latinska tecken.
- - Se den [fördefinierade domäner referens ](luis-reference-prebuilt-domains.md) information där fördefinierade domäner som stöds i den `zh-cn` kultur.
+ - Se den [fördefinierade domäner referens](luis-reference-prebuilt-domains.md) information där fördefinierade domäner som stöds i den `zh-cn` kultur.
 <!--- When writing regular expressions in Chinese, do not insert whitespace between Chinese characters.-->
 
 ### <a name="japanese-support-notes"></a>* Japanska stöder anteckningar

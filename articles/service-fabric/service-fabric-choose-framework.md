@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: f37e1ed2c7dd720e4a77076c8587fdf540b29ca5
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: d791148e6ee023239b0a6bf49c705c2da4eea9a2
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44713960"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56881880"
 ---
 # <a name="service-fabric-programming-model-overview"></a>Service Fabric programming model-översikt
 Service Fabric finns flera sätt att skriva och hantera dina tjänster. Tjänster kan du använda Service Fabric-API: er för att dra full nytta av plattformens funktioner och ramverk för programmet. Tjänster kan också vara alla kompilerade körbara program som skrivits i valfritt språk eller kod som körs i en behållare som ett Service Fabric-kluster som värd.
@@ -65,7 +65,7 @@ Eftersom Reliable Actors är ett programramverk som bygger på Reliable Services
 
 [Översikt över Reliable Actors](service-fabric-reliable-actors-introduction.md)
 
-[Service Fabric och ASP.NET Core ](service-fabric-reliable-services-communication-aspnetcore.md)
+[Service Fabric och ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md)
 
 
 

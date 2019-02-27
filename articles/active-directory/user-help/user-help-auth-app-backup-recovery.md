@@ -12,12 +12,12 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c3fc8ae7eac8d54e332d43925ede6ad690ae1dde
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 3b8a06276bcaa989fa04f105ac7858c25ab4d0ef
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56167838"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56887513"
 ---
 # <a name="backup-and-recover-account-credentials-with-the-microsoft-authenticator-app"></a>Säkerhetskopiera och återställa kontoautentiseringsuppgifter med Microsoft Authenticator-appen
 
@@ -84,7 +84,7 @@ För personliga Microsoft-konton kan du bevisa din identitet genom att ange ditt
     ![Microsoft Authenticator-appen, så att du kan skanna QR-kod](./media/user-help-auth-app-backup-recovery/backup-and-recovery-scan-qr-code.png)
 
     >[!NOTE]
-    >Mer information om hur du registrerar en QR-kod finns i [Kom igång med Microsoft Authenticator-appen](https://docs.microsoft.com/azure/active-directory/user-help/user-help-auth-app-download-install) eller [konfigurera säkerhetsinformation för att använda en autentiseringsapp](https://docs.microsoft.com/azure/active-directory/user-help/security-info-setup-auth-app#to-use-the-microsoft-authenticator-app), baserat på om din administratör har aktiverat säkerhetsinformation.
+    >Mer information om hur du registrerar en QR-kod finns i [Kom igång med Microsoft Authenticator-appen](https://docs.microsoft.com/azure/active-directory/user-help/user-help-auth-app-download-install) eller [konfigurera säkerhetsinformation för att använda en autentiseringsapp](https://docs.microsoft.com/azure/active-directory/user-help/security-info-setup-auth-app), baserat på om din administratör har aktiverat säkerhetsinformation.
 
 ## <a name="troubleshooting-backup-and-recovery-problems"></a>Felsökning av problem i säkerhetskopiering och återställning
 Det finns flera skäl till varför säkerhetskopieringen inte kanske tillgänglig:

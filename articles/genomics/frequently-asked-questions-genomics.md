@@ -9,12 +9,12 @@ ms.author: grhuynh
 ms.service: genomics
 ms.topic: article
 ms.date: 12/07/2017
-ms.openlocfilehash: 56256a6c10ecb0d06dfd6194668b9c32c5540c0e
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: df329d42022f4e56b3d6d4d26519acd42caa1ae4
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51683908"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56881829"
 ---
 # <a name="microsoft-genomics-common-questions"></a>Microsoft Genomics: Vanliga frågor
 
@@ -91,12 +91,12 @@ Blanksteg ignoreras.
  |Kommandoradsargument            | Konfiguration av fil-rad |
  |:-------------                   |:-------------                 |
  |`-u/--api-url-base https://url`  | *api_url_base:https://url*    |
- |`-k/--access-key KEY`            | *access_key:Key*              |      
+ |`-k/--access-key KEY`            | *access_key:KEY*              |      
  |`-pa/--process-args R=B37m1`     | *process_args:R-b37m1*        |  
 
 ## <a name="next-steps"></a>Nästa steg
 
 Använd följande resurser för att komma igång med Microsoft Genomics:
-- Kom igång genom att köra ditt första arbetsflöde genom Microsoft Genomics-tjänsten. [Köra ett arbetsflöde genom Microsoft Genomics-tjänsten ](quickstart-run-genomics-workflow-portal.md)
+- Kom igång genom att köra ditt första arbetsflöde genom Microsoft Genomics-tjänsten. [Köra ett arbetsflöde genom Microsoft Genomics-tjänsten](quickstart-run-genomics-workflow-portal.md)
 - Skicka dina egna data för bearbetning av tjänsten Microsoft Genomics: [par FASTQ](quickstart-input-pair-FASTQ.md) | [BAM](quickstart-input-BAM.md) | [flera FASTQ eller BAM](quickstart-input-multiple.md) 
 

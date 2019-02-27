@@ -16,12 +16,12 @@ ms.date: 01/10/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 69645c4aa9034b9a3459c7ee5fb0378c790a6e18
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 0f2539674668a9738d03e9af9c4fb88327cb1933
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56178098"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56865067"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Azure Active Directory sömlös enkel inloggning: Snabbstart
 
@@ -120,7 +120,7 @@ Det finns två sätt att ändra användares Zoninställningar för intranätet:
 
 1. Öppna Redigeraren för Grupprinciphantering-verktyget.
 2. Redigera grupprincipen som tillämpas på vissa eller alla användare. Det här exemplet används **Standarddomänprincip**.
-3. Bläddra till **Användarkonfiguration** > **Administrationsmallar** > **Windows-komponenter**  >   **Internet Explorer** > **Internet på Kontrollpanelen** > **säkerhetssidan**. Välj sedan **platser till zoner tilldelning**.
+3. Bläddra till **Användarkonfiguration** > **princip** > **Administrationsmallar** > **Windows Komponenter** > **Internet Explorer** > **Internet på Kontrollpanelen** > **säkerhetssidan**. Välj sedan **platser till zoner tilldelning**.
     ![Enkel inloggning](./media/how-to-connect-sso-quick-start/sso6.png)
 4. Aktivera principen och ange följande värden i dialogrutan:
    - **Värdenamn**: Azure AD URL: en som Kerberos-biljetter vidarebefordras.
@@ -140,7 +140,7 @@ Det finns två sätt att ändra användares Zoninställningar för intranätet:
 
     ![Enkel inloggning](./media/how-to-connect-sso-quick-start/sso7.png)
 
-6. Bläddra till **Användarkonfiguration** > **Administrationsmallar** > **Windows-komponenter**  >   **Internet Explorer** > **Internet på Kontrollpanelen** > **säkerhetssidan** > **intranätzonen**. Välj sedan **tillåta uppdateringar till statusfältet via skript**.
+6. Bläddra till **Användarkonfiguration** > **Administrationsmallar** **princip** > ** > **Windows-komponenter**  >  **Internet Explorer** > **Internet på Kontrollpanelen** > **säkerhetssidan**  >   **Zonen Intranät**. Välj sedan **tillåta uppdateringar till statusfältet via skript**.
 
     ![Enkel inloggning](./media/how-to-connect-sso-quick-start/sso11.png)
 

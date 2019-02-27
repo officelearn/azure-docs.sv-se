@@ -11,13 +11,13 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 02/06/2019
-ms.openlocfilehash: 5ce8464de552fb228b961af199e4b03e645478a2
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.date: 02/25/2019
+ms.openlocfilehash: 3be2f804bc755b92896305a2ba2b38a45450aed3
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55809988"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56871238"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Arkitektur för Azure SQL-anslutning
 
@@ -28,10 +28,12 @@ Den här artikeln förklarar Azure SQL Database och SQL Data Warehouse-anslutnin
 > Kunder bör skapa nya servrar och en uppsättning befintliga kunder med anslutningstypen explicit inställd på omdirigering (bättre) eller Proxy beroende på deras anslutningsarkitektur.
 >
 > Om du vill förhindra att anslutningar via en tjänstslutpunkt bryts i befintliga miljöer på grund av den här ändringen, använder vi telemetri gör du följande:
+>
 > - För servrar som vi identifierar som kontrollerades via tjänstslutpunkter innan ändringen får vi växlar anslutningstypen till `Proxy`.
 > - För alla andra servrar vi byta anslutning typ växlas till `Redirect`.
 >
 > Användare av tjänsten endpoint kan fortfarande påverkas i följande scenarier:
+>
 > - Programmet ansluter till en befintlig server sällan så att våra telemetri att avläsa information om dessa program
 > - Automatisk distribution logic skapar en SQL-databasserver förutsatt att det är standardbeteendet för slutpunkten Tjänstanslutningar `Proxy`
 >
@@ -106,10 +108,7 @@ I följande tabell visas de primära och sekundära IP-adresserna för Azure SQL
 | Norra Europa | 191.235.193.75 | 40.113.93.91 |
 | Södra centrala USA | 23.98.162.75 | 13.66.62.124 |
 | Sydostasien | 23.100.117.95 | 104.43.15.0 |
-| Storbritannien, norra | 13.87.97.210 | |
-| Storbritannien, södra 1 | 51.140.184.11 | |
-| Storbritannien, södra 2 | 13.87.34.7 | |
-| Storbritannien, västra | 51.141.8.11 | |
+| Storbritannien, södra | 51.140.184.11 | |
 | Västra centrala USA | 13.78.145.25 | |
 | Västra Europa | 191.237.232.75 | 40.68.37.158 |
 | Västra USA 1 | 23.99.34.75 | 104.42.238.205 |

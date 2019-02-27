@@ -14,12 +14,12 @@ ms.date: 02/08/2019
 ms.author: rolyon
 ms.custom: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 54fa8d09d930069191fb48e0ab015d436496b725
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: fb675778d899d6f4cec22de8a1c81fdae76ba17e
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56166410"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56879772"
 ---
 # <a name="deploy-azure-ad-privileged-identity-management-pim"></a>Distribuera Azure AD Privileged Identity Management (PIM)
 
@@ -61,9 +61,9 @@ Mer information finns i [licenskraven för att använda PIM](subscription-requir
 | Term eller begrepp | Beskrivning |
 | --- | --- |
 | berättigad | En rolltilldelning som kräver att en användare utför en eller flera åtgärder för att använda rollen. Om en användare har gjorts berättigad för en roll innebär det att användaren kan aktivera rollen när det finns behov av att utföra privilegierade åtgärder. Det finns ingen skillnad i den åtkomst som ges till någon med en permanent kontra berättigad rolltilldelning. Den enda skillnaden är att vissa användare inte behöver den åtkomsten hela tiden. |
-| aktivera | Processen för att utföra en eller flera åtgärder för att använda en roll som användaren är berättigad för. Det kan vara åtgärder som att utföra en kontroll av multifaktorautentisering (MFA), ange en affärsmotivering eller begära godkännande från utnämnda godkännare. |
-| just-in-time (JIT) åtkomst | En modell som där användarna får tillfällig behörighet att utföra Privilegierade uppgifter, vilket hindrar skadliga eller obehöriga användare från att få åtkomst när behörigheterna som har gått ut. Åtkomst beviljas endast när användare behöver den. |
-| principen om lägsta behörighet åtkomst | En rekommenderad säkerhetsrutin där varje användare har angetts med endast de minsta privilegier som krävs för att utföra uppgifter som de har behörighet att utföra. Den här metoden minimerar antalet globala administratörer och i stället använder specifika administratörsroller för vissa scenarier. |
+| aktivera | Processen med att utföra en eller flera åtgärder för att använda en roll som en användare är berättigad för. Det kan vara åtgärder som att utföra en kontroll av multifaktorautentisering (MFA), ange en affärsmotivering eller begära godkännande från utnämnda godkännare. |
+| just-in-time-åtkomst (JIT) | En modell i vilken användarna får tillfällig behörighet att utföra privilegierade uppgifter, vilket hindrar skadliga eller obehöriga användare från att få åtkomst när behörigheterna har gått ut. Åtkomst beviljas endast när användare behöver den. |
+| princip om minsta behörighetsåtkomst | En rekommenderad säkerhetsrutin där varje användare endast har fått de minsta privilegier som krävs för att utföra uppgifterna som de har behörighet att utföra. Den här metoden minimerar antalet globala administratörer och använder i stället specifika administratörsroller för vissa scenarier. |
 
 Mer information finns i [terminologi](pim-configure.md#terminology).
 
@@ -120,7 +120,7 @@ Följande avsnitt hjälper dig att identifiera alla intressenter som ingår i pr
 
 Som en del av planeringsprocessen, måste du först godkänna och aktivera PIM genom att följa våra [börja använda PIM dokumentet](pim-getting-started.md). Aktivera PIM ger dig åtkomst till vissa funktioner som är speciellt utformad för att underlätta distributionen.
 
-Om ditt mål är att distribuera PIM för Azure-resurser, bör du följa våra [identifiera Azure-resurser du hanterar i PIM-dokumentet](pim-resource-roles-discover-resources.md). Endast ägare av varje resurs, resursgrupp och prenumeration kommer att kunna upptäcka dem i PIM. Om du är en Global administratör försöker distribuera PIM för Azure-resurser, kan du [utöka behörighet för att hantera alla Azure-prenumerationer ](../../role-based-access-control/elevate-access-global-admin.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json) att ge dig åtkomst till alla Azure-resurser i katalogen för identifiering. Vi rekommenderar dock att du får godkännande från var och en av din prenumerationsägare innan du hanterar sina resurser med PIM.
+Om ditt mål är att distribuera PIM för Azure-resurser, bör du följa våra [identifiera Azure-resurser du hanterar i PIM-dokumentet](pim-resource-roles-discover-resources.md). Endast ägare av varje resurs, resursgrupp och prenumeration kommer att kunna upptäcka dem i PIM. Om du är en Global administratör försöker distribuera PIM för Azure-resurser, kan du [utöka behörighet för att hantera alla Azure-prenumerationer](../../role-based-access-control/elevate-access-global-admin.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json) att ge dig åtkomst till alla Azure-resurser i katalogen för identifiering. Vi rekommenderar dock att du får godkännande från var och en av din prenumerationsägare innan du hanterar sina resurser med PIM.
 
 ### <a name="enforce-principle-of-least-privilege"></a>Tillämpa principen om lägsta behörighet
 
@@ -161,7 +161,7 @@ Du bör ange granskarna **medlemmar (själv)**. Detta skickar ett e-postmeddelan
 
 För Azure-prenumerationer och resurser kan ställa du in en liknande granskningsprocess för åtkomst och granska rollerna i varje prenumeration eller resursgrupp. Målet med den här processen är att minimera ägare och administratör för användaråtkomst tilldelningar som är kopplade till varje prenumeration eller resursgrupp samt för att ta bort onödiga tilldelningar. Däremot delegera organisationer ofta sådana uppgifter till ägaren av varje prenumeration eller resursgrupp eftersom de har en bättre förståelse för specifika roller (särskilt anpassade roller).
 
-Om du är en IT-administratör med rollen Global administratör försöker distribuera PIM för Azure-resurser i din organisation, kan du [utöka behörighet för att hantera alla Azure-prenumerationer ](../../role-based-access-control/elevate-access-global-admin.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json) att få åtkomst till varje prenumeration. Du kan hitta varje Prenumerationens ägare och arbeta med dem för att ta bort onödiga tilldelningar och minimera ägarrollstilldelning.
+Om du är en IT-administratör med rollen Global administratör försöker distribuera PIM för Azure-resurser i din organisation, kan du [utöka behörighet för att hantera alla Azure-prenumerationer](../../role-based-access-control/elevate-access-global-admin.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json) att få åtkomst till varje prenumeration. Du kan hitta varje Prenumerationens ägare och arbeta med dem för att ta bort onödiga tilldelningar och minimera ägarrollstilldelning.
 
 Användare med rollen ägare för en Azure-prenumeration kan också använda [åtkomstgranskningar för Azure-resurser](pim-resource-roles-start-access-review.md) att granska och ta bort onödiga rolltilldelningar ungefär på samma sätt som beskrivs ovan för Azure AD-roller.
 

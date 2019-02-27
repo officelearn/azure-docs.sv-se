@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 01/15/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 714bf5f915cb588a99552a8bbbc5ffa76aa16846
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 372df0bc6ea540b4b2c030ec71acc6889e7c7d19
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54426139"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56874094"
 ---
 # <a name="certificate-assets-in-azure-automation"></a>Certifikattillgångar i Azure Automation
 
@@ -105,7 +105,7 @@ Du lägger till en **Get-AutomationCertificate** till en grafisk runbook genom a
 
 Följande bild visar ett exempel på hur du använder ett certifikat i en grafisk runbook. Det här är samma som i föregående exempel för att lägga till ett certifikat i en molnbaserad tjänst från en text runbook.
 
-![Exempel grafisk redigering ](media/automation-certificates/graphical-runbook-add-certificate.png)
+![Exempel grafisk redigering](media/automation-certificates/graphical-runbook-add-certificate.png)
 
 ### <a name="python2-sample"></a>Python2-exempel
 I följande exempel visas hur du kommer åt certifikat i Python2-runbooks.

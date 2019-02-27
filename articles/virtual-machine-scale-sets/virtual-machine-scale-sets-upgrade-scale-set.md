@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/14/2018
 ms.author: manayar
-ms.openlocfilehash: 4e6186310f63fde8648ded03a62b207b5f81a8e2
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 71899a9d6782c4700c287458c85ec83bd1516a4b
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55984808"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56873635"
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>Ändra en VM-skalningsuppsättning
 
@@ -316,7 +316,7 @@ För att uppdatera befintliga virtuella datorer, måste du göra en ”manuell u
 - Du kan också använda språkspecifika [Azure SDK: er](https://azure.microsoft.com/downloads/).
 
 >[!NOTE]
-> Service Fabric-kluster kan bara använda *automatisk* läge, men uppdateringen hanteras på olika sätt. Mer information finns i [ Service Fabric programuppgraderingar](../service-fabric/service-fabric-application-upgrade.md).
+> Service Fabric-kluster kan bara använda *automatisk* läge, men uppdateringen hanteras på olika sätt. Mer information finns i [Service Fabric programuppgraderingar](../service-fabric/service-fabric-application-upgrade.md).
 
 Det finns en typ av ändring av global skala ange egenskaper som inte följer uppgraderingsprincipen. Ändringar för skalningsuppsättningen OS-profil (till exempel administratörens användarnamn och lösenord) kan bara ändras i API-versionen *2017-12-01* eller senare. Dessa ändringar gäller endast för virtuella datorer som skapas när ändringen i skalan skalningsuppsättningsmodellen. För att lägga till befintliga virtuella datorer uppdaterade, måste du göra en ”reimage” för varje befintlig virtuell dator. Du kan göra det här reimage via:
 

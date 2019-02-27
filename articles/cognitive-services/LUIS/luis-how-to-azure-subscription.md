@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/29/2019
 ms.author: diberry
-ms.openlocfilehash: 3fd05e2dd5b55dd590af24f0757229bead041b6d
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 7c9f3c72d94955286d05cf68dbe698a46df3cdf3
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55859121"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56867039"
 ---
 # <a name="using-subscription-keys-with-your-luis-app"></a>Använda prenumerationsnycklar med LUIS-appen
 
@@ -65,7 +65,7 @@ Den här nyckeln bör endast användas för slutpunkt-förutsägelsefrågor. Anv
 
 1. Logga in på LUIS-portalen, väljer du en app för att lägga till den nya nyckeln till och välj **hantera** i menyn längst upp till höger och markera **nycklar och slutpunkter**.
 
-    [ ![Sidan nycklar och slutpunkter](./media/luis-manage-keys/keys-and-endpoints.png) ](./media/luis-manage-keys/keys-and-endpoints.png#lightbox)
+    [![Sidan nycklar och slutpunkter](./media/luis-manage-keys/keys-and-endpoints.png)](./media/luis-manage-keys/keys-and-endpoints.png#lightbox)
 
 1. För att lägga till LUIS, välja **Tilldela resurs +**.
 

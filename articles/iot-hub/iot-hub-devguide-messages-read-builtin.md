@@ -6,19 +6,18 @@ manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 07/18/2018
+ms.date: 02/26/2019
 ms.author: dobett
-ms.openlocfilehash: 02ea4b94f8d1442360bebb36fdbba13d973f8555
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 81cdd53769cc33daaed70ba824a0a3bbf68f8134
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242423"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56877239"
 ---
 # <a name="read-device-to-cloud-messages-from-the-built-in-endpoint"></a>Läsa meddelanden från enhet till moln från den inbyggda slutpunkten
 
-Som standard dirigeras meddelanden till den inbyggda tjänst-riktade slutpunkten (**meddelanden/händelser**) som är kompatibel med [Händelsehubbar](https://azure.microsoft.com/documentation/services/event-hubs/
-). Den här slutpunkten är för närvarande endast synliga använder den [AMQP](https://www.amqp.org/) -protokollet på port 5671. En IoT hub exponerar följande egenskaper så att du kan styra den inbyggda meddelanden för Event Hub-kompatibla slutpunkten **meddelanden/händelser**.
+Som standard dirigeras meddelanden till den inbyggda tjänst-riktade slutpunkten (**meddelanden/händelser**) som är kompatibel med [Händelsehubbar](https://azure.microsoft.com/documentation/services/event-hubs/). Den här slutpunkten är för närvarande endast synliga använder den [AMQP](https://www.amqp.org/) -protokollet på port 5671. En IoT hub exponerar följande egenskaper så att du kan styra den inbyggda meddelanden för Event Hub-kompatibla slutpunkten **meddelanden/händelser**.
 
 | Egenskap             | Beskrivning |
 | ------------------- | ----------- |
@@ -27,7 +26,7 @@ Som standard dirigeras meddelanden till den inbyggda tjänst-riktade slutpunkten
 
 IoT Hub hjälper dig att hantera konsumentgrupper på det inbyggda enhet till molnet får slutpunkt.
 
-Om du använder [meddelanderoutning](iot-hub-devguide-messages-d2c.md) och [återställningsplats väg](iot-hub-devguide-messages-d2c.md#fallback-route) är aktiverat, skrivs alla meddelanden som inte matchar en fråga på någon väg till den inbyggda slutpunkten. Om du inaktiverar den här vägen som återställningsplats, hamnar meddelanden som inte matchar alla frågor.
+Om du använder [meddelanderoutning](iot-hub-devguide-messages-d2c.md) och [återställningsplats väg](iot-hub-devguide-messages-d2c.md#fallback-route) är aktiverat kan alla meddelanden som inte matchar en fråga på någon väg går du till den inbyggda slutpunkten. Om du inaktiverar den här vägen som återställningsplats, hamnar meddelanden som inte matchar alla frågor.
 
 Du kan ändra kvarhållningstiden, antingen via programmering med hjälp av den [resursprovidern i IoT Hub REST API: er](/rest/api/iothub/iothubresource), eller med den [Azure-portalen](https://portal.azure.com).
 
@@ -35,33 +34,45 @@ IoT-hubb exponerar den **meddelanden/händelser** inbyggd slutpunkt för ditt ba
 
 ## <a name="read-from-the-built-in-endpoint"></a>Läsa från den inbyggda slutpunkten
 
-När du använder den [Azure Service Bus SDK för .NET](https://www.nuget.org/packages/WindowsAzure.ServiceBus) eller [Event Hubs – Eventprocessorhost](..//event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph.md), du kan använda några anslutningssträngar för IoT Hub med rätt behörigheter. Använd sedan **meddelanden/händelser** som Event Hub-namn.
+Vissa produktintegreringar och SDK: er för Event Hubs är medvetna om IoT Hub och du kan använda anslutningssträngen för IoT hub-tjänsten för att ansluta till den inbyggda slutpunkten.
 
-När du använder SDK: er (eller produktintegreringar) som inte känner till IoT Hub, måste du hämta en Event Hub-kompatibla slutpunkten och Händelsehubb-kompatibelt namn:
+När du använder SDK: er för Event Hubs eller produktintegreringar som inte känner till IoT Hub, behöver du en Event Hub-kompatibla slutpunkten och Händelsehubb-kompatibelt namn. Du kan hämta dessa värden från portalen enligt följande:
 
 1. Logga in på den [Azure-portalen](https://portal.azure.com) och navigera till din IoT-hubb.
 
 2. Klicka på **inbyggda slutpunkter**.
 
-3. Den **händelser** avsnittet innehåller följande värden: **Event Hub-kompatibla slutpunkten**, **Event Hub-kompatibla namnet**, **partitioner**, **Kvarhållningstid**, och **konsumentgrupper**.
+3. Den **händelser** avsnittet innehåller följande värden: **Partitioner**, **Event Hub-kompatibla namnet**, **Event Hub-kompatibla slutpunkten**, **kvarhållningstid**, och **konsumentgrupper**.
 
     ![Inställningar för enhet till moln](./media/iot-hub-devguide-messages-read-builtin/eventhubcompatible.png)
 
-IoT Hub SDK kräver slutpunktsnamn IoT Hub som är **meddelanden/händelser** som visas **slutpunkter**.
+I portalen innehåller en fullständig Event Hubs-anslutningssträng som ser ut som i fältet Event Hub-kompatibla slutpunkten: **Endpoint=sb://abcd1234namespace.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=keykeykeykeykeykey=;EntityPath=iothub-ehub-abcd-1234-123456**. Om du använder SDK: N kräver andra värden, skulle och vara:
 
-Om du använder SDK: N kräver en **värdnamn** eller **Namespace** värde, ta bort schemat från den **Event Hub-kompatibla slutpunkten**. Exempel: om din Event Hub-kompatibla slutpunkten är **sb://iothub-ns-myiothub-1234.servicebus.windows.net/**, **värdnamn** skulle vara  **iothub-ns-myiothub-1234.servicebus.windows.net**. Den **Namespace** skulle vara **iothub-ns-myiothub-1234**.
+| Namn | Värde |
+| ---- | ----- |
+| Slutpunkt | sb://abcd1234namespace.servicebus.windows.net/ |
+| Värdnamn | abcd1234namespace.servicebus.windows.net |
+| Namnområde | abcd1234namespace |
 
 Du kan sedan använda någon princip för delad åtkomst som har den **ServiceConnect** behörighet att ansluta till den angivna Event Hub.
 
-Om du vill skapa en Event Hub-anslutningssträng med hjälp av ovanstående information kan du använda följande mönster:
+SDK: er som du kan använda för att ansluta till den inbyggda Event Hub-kompatibla slutpunkten som IoT-hubb exponerar är:
 
-`Endpoint={Event Hub-compatible endpoint};SharedAccessKeyName={iot hub policy name};SharedAccessKey={iot hub policy key}`
+| Språk | SDK | Exempel | Anteckningar |
+| -------- | --- | ------ | ----- |
+| .NET | https://github.com/Azure/azure-event-hubs-dotnet | [Snabbstart](quickstart-send-telemetry-dotnet.md) | Använder Event Hubs-kompatibla information |
+ Java | https://github.com/Azure/azure-event-hubs-java | [Snabbstart](quickstart-send-telemetry-java.md) | Använder Event Hubs-kompatibla information |
+| Node.js | https://github.com/Azure/azure-event-hubs-node | [Snabbstart](quickstart-send-telemetry-node.md) | Använder IoT Hub-anslutningssträng |
+| Python | https://github.com/Azure/azure-event-hubs-python | https://github.com/Azure/azure-event-hubs-python/blob/master/examples/iothub_recv.py | Använder IoT Hub-anslutningssträng |
 
-SDK: er och integreringar som du kan använda med Event Hubs-kompatibla slutpunkter som IoT-hubb exponerar innehåller objekten i listan nedan:
+Produktintegreringar som du kan använda med den inbyggda Event Hub-kompatibla slutpunkten som IoT-hubb exponerar är:
 
-* [Java händelsehubbklient](https://github.com/Azure/azure-event-hubs-java).
+* [Azure Functions](https://docs.microsoft.com/azure/azure-functions/). Se [bearbetning av data från IoT Hub med Azure Functions](https://azure.microsoft.com/resources/samples/functions-js-iot-hub-processing/).
+* [Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/). Se [Stream data som indata till Stream Analytics](../stream-analytics/stream-analytics-define-inputs.md#stream-data-from-iot-hub).
+* [Time Series Insights](https://docs.microsoft.com/azure/time-series-insights/). Se [lägga till en IoT hub-händelsekälla i miljön för Time Series Insights](../time-series-insights/time-series-insights-how-to-add-an-event-source-iothub.md).
 * [Apache Storm spout](../hdinsight/storm/apache-storm-develop-csharp-event-hub-topology.md). Du kan visa den [käll-kanalen](https://github.com/apache/storm/tree/master/external/storm-eventhubs) på GitHub.
 * [Integration av Apache Spark](../hdinsight/spark/apache-spark-eventhub-streaming.md).
+* [Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/).
 
 ## <a name="next-steps"></a>Nästa steg
 

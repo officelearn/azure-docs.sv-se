@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2018
+ms.date: 02/25/2019
 ms.author: kraigb
-ms.openlocfilehash: f595fbb6571c3deaaa0644ba9d62f598181592e3
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 4daae4357a7a9577c48edc8643355d319b701944
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53106319"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56881574"
 ---
 # <a name="quickstart-sign-in-and-set-a-user-id"></a>Snabbstart: Logga in och ange ett användar-ID
 
@@ -51,6 +51,9 @@ Men du kan alltid visa Azure-datorer utan att logga in, måste du logga in på K
 1. När du har loggat in kan Azure-anteckningsböcker som navigerar till din offentliga profil-sida där du kan välja **redigera profilinformation** att fylla i resten av din information (Mer information finns i [din profil och användar-ID](azure-notebooks-user-profile.md)):
 
     ![Inledande vyn för en sida för Azure-anteckningsböcker](media/accounts/profile-page-new.png)
+
+> [!NOTE]
+> Om du ser meddelandet prova ”användar-ID används redan”, ett annat ID. Användar-ID är unika för alla konton i Azure-anteckningsböcker och anteckningsböcker i Azure reserverar även vissa användar-ID, till exempel Microsoft homofoner.
 
 ## <a name="sign-out"></a>Logga ut
 

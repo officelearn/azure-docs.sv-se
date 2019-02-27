@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/08/2017
 ms.author: alkohli
-ms.openlocfilehash: f2c726fd4159bcb47088e814fd60e054e50a1315
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 4750ba55c08ebac244e7515cae4e998155a79599
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55814290"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56870638"
 ---
 # <a name="storsimple-for-cloud-solutions-provider-program-frequently-asked-questions"></a>StorSimple för molnet lösningar Provider-Program: Vanliga frågor och svar
 
@@ -63,7 +63,7 @@ Det finns flera lösningar:
 - De kan även identifiera nya affärsmodeller genom att leverera hanterade tjänster.
 
 ### <a name="what-are-the-incentives-available-for-storsimple-csp-partners-do-i-qualify-for-any-csp-program-incentives"></a>Vad är incitament för StorSimple CSP-partner? Kvalificerar jag mig för någon incitament för CSP-programmet?
-För information om incitament, går du till [CSP-programmet incitament ](https://partner.microsoft.com/en-US/cloud-solution-provider/program-details).
+För information om incitament, går du till [CSP-programmet incitament](https://partner.microsoft.com/en-US/cloud-solution-provider/program-details).
 
 
 ## <a name="deploy-and-manage-storsimple-as-a-partner"></a>Distribuera och hantera StorSimple som partner

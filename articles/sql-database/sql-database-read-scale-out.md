@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: sstein, carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: cf32f3998e254e8f4a9c347980718dbc8d0b13c4
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/25/2019
+ms.openlocfilehash: 3a937af5fba2c534e291a51c33c50434ab166ee0
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55461652"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56868773"
 ---
 # <a name="use-read-only-replicas-to-load-balance-read-only-query-workloads-preview"></a>Använd skrivskyddade repliker för att läsa in balansera skrivskyddad frågearbetsbelastningar (förhandsversion)
 
@@ -36,7 +36,7 @@ När Lässkalning är aktiverade för en databas, program som ansluter till den 
 Om Lässkalning är inaktiverad eller egenskapen ReadScale på en nivå i tjänsten stöds inte, alla anslutningar dirigeras till den skrivskyddade repliken, oberoende av den `ApplicationIntent` egenskapen.
 
 > [!NOTE]
-> I förhandsversionen stöds inte fråga Data Store och utökade händelser på de skrivskyddade replikerna.
+> Fråga Data Store och Extended Events stöds inte på skrivskyddade repliker.
 
 ## <a name="data-consistency"></a>Datakonsekvens
 
@@ -125,7 +125,7 @@ Mer information finns i [databaser – skapa eller uppdatera](https://docs.micro
 Om du använder lässkalbarhet att läsa in saldo skrivskyddade arbetsbelastningar för en databas som är geo-replikerade (t.ex. som en medlem i en redundansgrupp), se till att läsa skalbara är aktiverad på både primär och sekundär geo-replikerade databaser. Det garanterar samma belastningsutjämning effekt när ditt program som ansluter till den nya primärt efter en redundansväxling. Om du ansluter till geo-replikerad sekundär databas med lässkala aktiverad sessioner till `ApplicationIntent=ReadOnly` kommer att dirigeras till en av replikerna på samma sätt som vi dirigera anslutningar på den primära databasen.  Sessioner utan `ApplicationIntent=ReadOnly` kommer att dirigeras till den primära repliken för den georeplikerade sekundärt, vilket också är skrivskyddad. Eftersom geo-replikerad sekundär databas har en annan slutpunkt än den primära databasen, historiskt att få åtkomst till sekundärt det inte krävs för att ange `ApplicationIntent=ReadOnly`. Att säkerställa bakåtkompatibilitet, `sys.geo_replication_links` DMV visar `secondary_allow_connections=2` (alla klientanslutning tillåts).
 
 > [!NOTE]
-> Under förhandsgranskning, resursallokering eller andra belastningen stöds belastningsutjämnade routning mellan lokala repliker av den sekundära databasen inte.
+> Resursallokering eller andra belastningsutjämnade routning mellan lokala repliker av den sekundära databasen stöds inte.
 
 ## <a name="next-steps"></a>Nästa steg
 

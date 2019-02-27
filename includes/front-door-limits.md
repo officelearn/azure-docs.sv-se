@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 9/17/2018
 ms.author: sharadag
 ms.custom: include file
-ms.openlocfilehash: f0c2d1501b9aa19dec8c4ad157e004a57e0e5070
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 167e774b00bcfdb7bc1e26202bd7826f525a6ace
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47006539"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56890410"
 ---
 | Resurs | Standardgräns |
 | --- | --- |
@@ -29,6 +29,7 @@ ms.locfileid: "47006539"
 ### <a name="timeout-values"></a>Timeout-värden
 #### <a name="client-to-front-door"></a>Klient till ytterdörren
 - Dörren har en timeout för anslutning av inaktivitet TCP 61 sekunder.
+
 #### <a name="front-door-to-application-backend"></a>Åtkomsten till serverdelen för programmet
 - Om svaret är ett segmenterat svar, returneras 200 om / när det första segmentet tas emot.
 - När HTTP-begäran vidarebefordras till serverdelen, väntar ytterdörren på 30 sekunder för det första paketet från serverdel, innan det returneras ett 503-fel till klienten.

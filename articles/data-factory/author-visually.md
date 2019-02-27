@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: shlo
-ms.openlocfilehash: e934c8bdc851f8c550e8b87a923215df3f95e389
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: c4e71f3c355f00bda3df6d43bc81743b391ea0dd
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56728270"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56871969"
 ---
 # <a name="visual-authoring-in-azure-data-factory"></a>Visuell redigering i Azure Data Factory
 Azure Data Factory användargränssnittet användarupplevelsen (UX) kan du visuellt skapa och distribuera resurser för din datafabrik utan att behöva skriva någon kod. Du kan dra aktiviteter till en rityta för pipelinen, utför testkörningar, felsöker stegvis och distribuerar och övervakar dina pipelinekörningar. Det finns två metoder för att utföra visuell redigering med UX-Gränssnittet:
@@ -31,7 +31,7 @@ Visuell redigering med Data Factory-tjänsten skiljer sig från visuell redigeri
 - Data Factory-tjänsten innehåller inte en lagringsplats för att lagra JSON-entiteter för dina ändringar.
 - Data Factory-tjänsten inte är optimerad för samarbete eller versionskontroll.
 
-![Konfigurera Data Factory-tjänsten ](media/author-visually/configure-data-factory.png)
+![Konfigurera Data Factory-tjänsten](media/author-visually/configure-data-factory.png)
 
 När du använder UX **Redigeringsyta** skriva direkt med Data Factory-tjänsten, endast den **publicera alla** läget är tillgängligt. Alla ändringar du gör publiceras direkt till Data Factory-tjänsten.
 

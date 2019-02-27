@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.author: sogup
-ms.openlocfilehash: da686e53f711877642a33806719a0d71050e721b
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: eef1b14f5f25c53877c0d364facfcf9817f508c2
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56669388"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56885847"
 ---
 # <a name="manage-azure-vm-backups"></a>Hantera säkerhetskopior av virtuella Azure-datorer
 
@@ -58,7 +58,7 @@ Du kan hantera säkerhetskopior med hjälp av instrumentpanelen, och genom att g
 
 
 ## <a name="manage-backup-policies"></a>Hantera säkerhetskopieringsprinciper
-1. På den [instrumentpanelen för valvet objekt](backup-azure-manage-vms.md#open-a-vault-item-dashboard), klickar du på **alla inställningar** .
+1. På den [instrumentpanelen för valvet objekt](#view-vms-in-the-dashboard), klickar du på **alla inställningar** .
 
     ![Bladet säkerhetskopieringspolicy](./media/backup-azure-manage-vms/all-settings-button.png)
 2. I **inställningar**, klickar du på**säkerhetskopieringspolicy**e.
@@ -79,7 +79,7 @@ Du kan säkerhetskopiera en på begäran för en virtuell dator när den är kon
 
 Att utlösa en säkerhetskopiering på begäran:
 
-1. På den [instrumentpanelen för valvet objekt](backup-azure-manage-vms.md#open-a-vault-item-dashboard), klickar du på **Säkerhetskopiera nu**.
+1. På den [instrumentpanelen för valvet objekt](#view-vms-in-the-dashboard), klickar du på **Säkerhetskopiera nu**.
 
     ![Säkerhetskopiering nu knappen](./media/backup-azure-manage-vms/backup-now-button.png)
 
@@ -107,7 +107,7 @@ Tänk på följande:
 
 Sluta skydda en virtuell dator:
 
-1. På den [instrumentpanelen för valvet objekt](backup-azure-manage-vms.md#open-a-vault-item-dashboard), klickar du på **stoppa säkerhetskopiering**.
+1. På den [instrumentpanelen för valvet objekt](#view-vms-in-the-dashboard), klickar du på **stoppa säkerhetskopiering**.
 2. Välj om du vill behålla eller ta bort säkerhetskopierade data och Bekräfta efter behov. Bekräfta efter behov och du kan också ange en kommentar. Om du inte vet namnet på objektet, hovrar du över utropstecken ska visa namnet.
 
     ![Sluta skydda](./media/backup-azure-manage-vms/retain-or-delete-option.png)
@@ -121,9 +121,9 @@ Om du bevaras säkerhetskopierade data när den virtuella datorn har stoppats, k
 
 Te
 
-1. På den [instrumentpanelen för valvet objekt](backup-azure-manage-vms.md#open-a-vault-item-dashboard), klickar du på **återuppta säkerhetskopiering**.
+1. På den [instrumentpanelen för valvet objekt](#view-vms-in-the-dashboard), klickar du på **återuppta säkerhetskopiering**.
 
-2. Följ stegen i [hantera säkerhetskopieringsprinciper](backup-azure-manage-vms.md#manage-backup-policies) att tilldela principen för den virtuella datorn. Du kan välja en annan princip än den princip som virtuella datorn ursprungligen skyddades.
+2. Följ stegen i [hantera säkerhetskopieringsprinciper](#manage-backup-policies) att tilldela principen för den virtuella datorn. Du kan välja en annan princip än den princip som virtuella datorn ursprungligen skyddades.
 3. När principen för säkerhetskopiering används på den virtuella datorn, visas följande meddelande.
 
     ![Har skyddad virtuell dator](./media/backup-azure-manage-vms/success-message.png)
@@ -138,7 +138,7 @@ Du kan ta bort säkerhetskopierade data som är associerade med en virtuell dato
 Den här proceduren förutsätter att säkerhetskopieringen av den virtuella datorn har stoppats eller inaktiverats.
 
 
-1. På den [instrumentpanelen för valvet objekt](backup-azure-manage-vms.md#open-a-vault-item-dashboard), klickar du på **ta bort backup**.
+1. På den [instrumentpanelen för valvet objekt](#view-vms-in-the-dashboard), klickar du på **ta bort backup**.
 
     ![VM-typ](./media/backup-azure-manage-vms/delete-backup-buttom.png)
 

@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2018
+ms.date: 02/25/2019
 ms.author: kraigb
-ms.openlocfilehash: 18b698861a791174f2e254543d5d3b7a54052574
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 0797a8a2d5633a30dcb2099ea475e4daae026686
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54854181"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56874043"
 ---
 # <a name="your-profile-and-user-id-for-azure-notebooks"></a>Din profil och användar-ID för Azure-anteckningsböcker
 
@@ -46,7 +46,7 @@ En **konfigurera användar-ID** kommando visas också bredvid det tillfälliga a
 
 Du kan också ändra ditt användar-ID när som helst på din profilsida.
 
-Ett användar-ID måste bestå av minst fyra bokstäver, siffror och bindestreck. Inga andra tecken tillåts och användar-ID får inte börja eller sluta med ett bindestreck eller använda flera bindestreck i rad.
+Ett användar-ID måste bestå av mellan fyra och sexton bokstäver, siffror och bindestreck. Inga andra tecken tillåts och användar-ID får inte börja eller sluta med ett bindestreck eller använda flera bindestreck i rad. Eftersom användar-ID är unikt för alla anteckningsböcker i Azure-konton kan du kanske ser meddelandet, ”användar-ID används redan”. (Meddelandet visas också om du försöker använda en av Microsofts varumärken som ett användar-ID.) I dessa fall kan du välja ett annat användar-ID.
 
 > [!Important]
 > Ändra ditt ID upphäver alla URL: er som du kanske har delat med ditt tidigare-ID. Du kan ändra ditt ID tillbaka till din tidigare ID ska verifiera länkarna. Det är dock möjligt för en annan användare att hämta en oanvända ID under tiden.

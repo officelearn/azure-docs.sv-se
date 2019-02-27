@@ -15,12 +15,12 @@ ms.date: 10/16/2018
 ms.author: jeffgilb
 ms.reviewer: anwestg
 ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: a638d5cdfbd3af46335cfb8e4970306534fc1c3b
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: cbdf864c2c10d5eb1c0f9a903bd186370b96a72f
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56445992"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56879649"
 ---
 # <a name="app-service-on-azure-stack-overview"></a>Översikt över App Service på Azure Stack
 
@@ -53,7 +53,7 @@ Ditt program kan bestå av flera Apptjänst-appar av olika typer. Till exempel o
 - Distribuera båda (klientdel och API) till en enda webbapp
 - Distribuera frontend-koden till en webbapp och backend-koden till en API-app.
 
-   [ ![Översikt över App Service med övervakningsdata](media/azure-stack-app-service-overview/image01.png "översikt över App Service med övervakning av data") ](media/azure-stack-app-service-overview/image01.png#lightbox)
+   [![Översikt över App Service med övervakningsdata](media/azure-stack-app-service-overview/image01.png "översikt över App Service med övervakning av data")](media/azure-stack-app-service-overview/image01.png#lightbox)
 
 ## <a name="what-is-an-app-service-plan"></a>Vad är en App Service-plan?
 

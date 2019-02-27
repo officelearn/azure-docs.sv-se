@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 10/05/2018
 ms.author: robreed
-ms.openlocfilehash: e62bc0fff054f0392cd4f437565b5f4dae9cbfb7
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: 41d9f21688df6f32918500365bc88f3f168604d2
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56594431"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56869657"
 ---
 # <a name="desired-state-configuration-extension-with-azure-resource-manager-templates"></a>Desired State Configuration-tillägget med Azure Resource Manager-mallar
 
@@ -254,7 +254,7 @@ Konfiguration av argumenten skickas till standard-konfigurationsskript att stäl
 
 I följande exempel är från den [hanteringsöversikt för DSC-tillägget](dsc-overview.md).
 Det här exemplet använder Resource Manager-mallar i stället för cmdletar för att distribuera tillägget.
-Spara konfigurationen IisInstall.ps1, placera den i en .zip-fil och överför sedan filen i en URL som kan nås.
+Spara konfigurationen IisInstall.ps1, placera den i en .zip-fil (exempel: `iisinstall.zip`), och sedan överföra filen i en URL som kan nås.
 Det här exemplet används Azure Blob storage, men du kan ladda ned ZIP-filer från vilken plats som valfri.
 
 Följande kod instruerar den virtuella datorn ska ladda ned rätt fil och kör sedan funktionen PowerShell i Resource Manager-mall:
@@ -262,7 +262,7 @@ Följande kod instruerar den virtuella datorn ska ladda ned rätt fil och kör s
 ```json
 "settings": {
     "configuration": {
-        "url": "https://demo.blob.core.windows.net/",
+        "url": "https://demo.blob.core.windows.net/iisinstall.zip",
         "script": "IisInstall.ps1",
         "function": "IISInstall"
     }

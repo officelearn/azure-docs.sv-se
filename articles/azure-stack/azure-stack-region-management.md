@@ -16,12 +16,12 @@ ms.date: 11/27/2018
 ms.author: sethm
 ms.reviewer: efemmano
 ms.lastreviewed: 11/27/2018
-ms.openlocfilehash: c28fce9c6c9d7b0ddeba54e1ba643817436adb4e
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 2845bb09fa44c3bd9cee914e2446403b4182b0d5
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55244971"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56871051"
 ---
 # <a name="region-management-in-azure-stack"></a>Regionshantering i Azure Stack
 
@@ -39,7 +39,7 @@ Azure Stack har en uppsättning region hanteringsfunktioner som är tillgänglig
 
 Om du klickar på en region i den **regionshantering** panelen, du kan komma åt följande information:
 
-[ ![Beskrivning av fönster på bladet för hantering i regionen](media/azure-stack-region-management/regionssm.png "bladet för hantering av Region") ](media/azure-stack-region-management/regions.png#lightbox)
+[![Beskrivning av fönster på bladet för hantering i regionen](media/azure-stack-region-management/regionssm.png "bladet för hantering av Region")](media/azure-stack-region-management/regions.png#lightbox)
 
 1. **Resurs-menyn**. Få åtkomst till specifika infrastruktur hanteringsområden, och visa och hantera användarresurser, till exempel lagringskonton och virtuella nätverk.
 
@@ -55,5 +55,5 @@ Om du klickar på en region i den **regionshantering** panelen, du kan komma åt
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Övervaka hälsotillstånd och aviseringar i Azure Stack](azure-stack-monitor-health.md)
+- [Övervaka hälsa och aviseringar i Azure Stack](azure-stack-monitor-health.md)
 - [Hantera uppdateringar i Azure Stack](azure-stack-updates.md)

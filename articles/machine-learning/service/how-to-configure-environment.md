@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 02/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2eb47bede14b139d011d8a74b5196a94a93a62c7
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: e055ddc49120d77047fa349b7e58c612eb724b41
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/26/2019
-ms.locfileid: "56817107"
+ms.locfileid: "56881557"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Konfigurera en utvecklingsmiljö för Azure Machine Learning
 
@@ -301,7 +301,9 @@ När klustret körs [skapa ett bibliotek](https://docs.databricks.com/user-guide
    |För Databricks| Ladda upp Python ägg eller PyPI | azureml-sdk[databricks]|
    |För Databricks - med-<br> automatiserad ML-kapacitet| Ladda upp Python ägg eller PyPI | azureml-sdk[automl_databricks]|
 
-   * Inga andra SDK-tillägg kan installeras. Välj endast en av föregående alternativ [databricks] eller [automl_databricks].
+   > [!Warning]
+   > Inga andra SDK-tillägg kan installeras. Välj endast en av föregående alternativ [databricks] eller [automl_databricks].
+
    * Markera inte **ansluta automatiskt till alla kluster**.
    * Välj **bifoga** bredvid klusternamnet.
 
@@ -320,7 +322,7 @@ Om installationen slutfördes korrekt visas importerade biblioteket bör se ut s
    
 SDK för Databricks **_utan_** automatiserad maskininlärning ![Azure Machine Learning-SDK för Databricks](./media/how-to-configure-environment/amlsdk-withoutautoml.jpg)
 
-SDK för Databricks **WITH** automatiserad maskininlärning ![SDK med automatiserade maskininlärning som installerats på Databricks ](./media/how-to-configure-environment/automlonadb.jpg)
+SDK för Databricks **WITH** automatiserad maskininlärning ![SDK med automatiserade maskininlärning som installerats på Databricks](./media/how-to-configure-environment/automlonadb.jpg)
 
 ### <a name="start-exploring"></a>Börja utforska
 

@@ -9,16 +9,16 @@ ms.author: gwallace
 ms.date: 02/14/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: da3b09998d163ffcc16bfcbbf9f516467dd3311d
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: 5bb52e0547ed9bc18d67370ffb9db35942212aab
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56418633"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56887598"
 ---
 # <a name="manage-runbooks-in-azure-automation"></a>Hantera runbooks i Azure Automation
 
-Du kan lägga till en runbook i Azure Automation genom att antingen [skapar en ny](#creating-a-new-runbook) eller genom att importera en befintlig runbook från en fil eller [Runbook-galleriet](automation-runbook-gallery.md). Den här artikeln innehåller information om att skapa och importera runbooks från en fil.  Du kan hämta alla detaljer om hur du använder community runbooks och moduler i [Runbook- och gallerier för Azure Automation](automation-runbook-gallery.md).
+Du kan lägga till en runbook i Azure Automation genom att antingen [skapar en ny](#create-a-runbook) eller genom att importera en befintlig runbook från en fil eller [Runbook-galleriet](automation-runbook-gallery.md). Den här artikeln innehåller information om att skapa och importera runbooks från en fil.  Du kan hämta alla detaljer om hur du använder community runbooks och moduler i [Runbook- och gallerier för Azure Automation](automation-runbook-gallery.md).
 
 ## <a name="create-a-runbook"></a>Skapa en runbook
 
@@ -65,7 +65,7 @@ Du kan använda följande procedur för att importera en skriptfil till Azure Au
 5. Om den **namn** fält är aktiverad och har möjlighet att ändra den.  Runbook-namn måste börja med en bokstav och kan ha bokstäver, siffror, understreck och bindestreck.
 6. Den [runbooktyp](automation-runbook-types.md) väljs automatiskt, men du kan ändra typen efter att begränsningarna som gäller för hänsyn. 
 7. Ny runbook visas i listan med runbookflöden för Automation-kontot.
-8. Du måste [publicera runbooken](#publishing-a-runbook) innan du kan köra den.
+8. Du måste [publicera runbooken](#publish-a-runbook) innan du kan köra den.
 
 > [!NOTE]
 > När du har importerat en grafisk runbook eller en grafisk PowerShell workflow-runbook har möjlighet att konvertera till den andra typen om du vill. Du kan inte konvertera till en text runbook.
@@ -89,7 +89,7 @@ Import-AzureRMAutomationRunbook -Name $runbookName -Path $scriptPath `
 
 ## <a name="test-a-runbook"></a>Testa en Runbook
 
-När du testar en runbook i [utkastet](#publishing-a-runbook) körs och alla åtgärder som den utför slutförs. Ingen jobbhistorik skapas, men [utdata](automation-runbook-output-and-messages.md#output-stream) och [varnings- och](automation-runbook-output-and-messages.md#message-streams) strömmar visas i testet utdata fönstret. Meddelanden till den [utförlig Stream](automation-runbook-output-and-messages.md#message-streams) visas i utdatafönstret endast om den [variabeln $VerbosePreference](automation-runbook-output-and-messages.md#preference-variables) är inställd på Fortsätt.
+När du testar en runbook i [utkastet](#publish-a-runbook) körs och alla åtgärder som den utför slutförs. Ingen jobbhistorik skapas, men [utdata](automation-runbook-output-and-messages.md#output-stream) och [varnings- och](automation-runbook-output-and-messages.md#message-streams) strömmar visas i testet utdata fönstret. Meddelanden till den [utförlig Stream](automation-runbook-output-and-messages.md#message-streams) visas i utdatafönstret endast om den [variabeln $VerbosePreference](automation-runbook-output-and-messages.md#preference-variables) är inställd på Fortsätt.
 
 Även om utkastet körs körs normalt fortfarande i runbook och utför alla åtgärder mot resurser i miljön. Därför bör du bara testa runbooks på icke-produktionsresurser.
 

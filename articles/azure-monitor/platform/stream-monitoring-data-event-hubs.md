@@ -1,6 +1,6 @@
 ---
 title: Stream Azure-övervakningsdata till Event Hubs
-description: Lär dig mer om att strömma alla dina Azure övervakningsdata till en händelsehubb för att hämta data till en partner SIEM eller analysverktyg.
+description: Lär dig mer om att strömma Azure övervakningsdata till en händelsehubb för att hämta data till en partner SIEM eller analysverktyg.
 author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: johnkem
 ms.subservice: ''
-ms.openlocfilehash: 424dc1611622a1dfc37419fd443d860698020524
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 549ec74514ff03e06ff25893d3fa865f179470e9
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54468241"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56870694"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>Stream Azure-övervakningsdata till en händelsehubb för användning av något externt verktyg
 
-Azure Monitor innehåller en enda pipeline för att få åtkomst till alla övervakningsdata från Azure-miljön, så att du kan enkelt konfigurera partner SIEM och övervakningsverktyg för att använda dessa data. Den här artikeln beskriver steg för steg genom att ställa in olika nivåer av data från Azure-miljön som ska skickas till en enda Event Hubs-namnområde eller händelse hubb, där den kan samlas in av något externt verktyg.
+Den här artikeln beskriver steg för steg genom att ställa in olika nivåer av data från Azure-miljön som ska skickas till en enda Event Hubs-namnområde eller händelse hubb, där den kan samlas in av något externt verktyg.
 
 > [!VIDEO https://www.youtube.com/embed/SPHxCgbcvSw]
 
@@ -33,7 +33,7 @@ Det finns flera ”nivåer” för övervakning av data inom Azure-miljön, och 
 - **Azure-prenumeration övervakning av data:** Data om driften och hanteringen av en Azure-prenumeration, samt data om klientens hälsotillstånd och driften av Azure själva. Den [aktivitetsloggen](./../../azure-monitor/platform/activity-logs-overview.md) innehåller de flesta prenumerationen övervakning av data, till exempel service health incidenter och Azure Resource Manager granskningar. Du kan samla in dessa data med en profil för loggen.
 - **Azure-klient övervakning av data:** Information om driften av Azure på klientnivå-tjänster, till exempel Azure Active Directory. Azure Active Directory revisioner och inloggningar är exempel på klient övervakningsdata. Dessa data kan samlas in med hjälp av en diagnostikinställning för klienten.
 
-Data från valfri nivå kan skickas till en händelsehubb där det kan användas i ett partner-verktyg. I nästa avsnitt beskrivs hur du kan konfigurera data från varje nivå strömmas till en händelsehubb. Förutsätter vi att du redan har tillgångar på den nivån som ska övervakas.
+Data från valfri nivå kan skickas till en händelsehubb där det kan användas i ett partner-verktyg. Vissa datakällor kan konfigureras för att skicka data direkt till en event hub medan en annan bearbeta som en Logikapp kan krävas att hämta nödvändiga data. I nästa avsnitt beskrivs hur du kan konfigurera data från varje nivå strömmas till en händelsehubb. Förutsätter vi att du redan har tillgångar på den nivån som ska övervakas.
 
 ## <a name="set-up-an-event-hubs-namespace"></a>Konfigurera ett namnområde för Event Hubs
 

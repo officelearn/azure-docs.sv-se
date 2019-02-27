@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: 98c5dc7dc6d977525d889a4cd97492183d1aad22
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: fb9dc5116ba23d57c7f2fe543e734759e8bbcc7b
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/26/2019
-ms.locfileid: "56818161"
+ms.locfileid: "56881608"
 ---
 # <a name="about-expressroute-direct"></a>Om ExpressRoute Direct
 
@@ -65,7 +65,7 @@ ExpressRoute Direct stöder både QinQ och Dot1Q VLAN-märkning.
 
 ## <a name="workflow"></a>Arbetsflöde
 
-[ ![Arbetsflöde](./media/expressroute-erdirect-about/workflow1.png)](./media/expressroute-erdirect-about/workflow1.png#lightbox)
+[![Arbetsflöde](./media/expressroute-erdirect-about/workflow1.png)](./media/expressroute-erdirect-about/workflow1.png#lightbox)
 
 ## <a name="sla"></a>SLA
 

@@ -11,13 +11,13 @@ author: ronitr
 ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
-ms.date: 01/14/2019
-ms.openlocfilehash: 76fe764d828a7fa6e4ebb015f98b9af485d5df5f
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.date: 02/25/2019
+ms.openlocfilehash: 2c95ec4d88e55af0becc73719bcc6126501267db
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567102"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56866835"
 ---
 # <a name="sql-database----downlevel-clients-support-and-ip-endpoint-changes-for-table-auditing"></a>Stöd för SQL Database - klientversioner och IP för Tabellgranskning
 
@@ -28,6 +28,7 @@ ms.locfileid: "55567102"
 [Databasen granskning](sql-database-auditing.md) fungerar automatiskt med SQL-klienter som stöder TDS-omdirigering. Observera att omdirigering inte gäller när du använder metoden Blobbgranskning.
 
 ## <a id="subheading-1"></a>Stöd för äldre klienter
+
 Alla klienter som implementerar TDS 7.4 bör också stöd för omdirigering. Undantag till detta inkluderar JDBC 4.0 där funktionen omdirigering stöds inte fullt ut och Tedious för Node.JS i vilka omdirigering har inte implementerats.
 
 För ”äldre klienter”, ska d.v.s. vilka support TDS 7.3 och under - serverns FQDN i anslutningen versionssträng ändras:
@@ -46,6 +47,7 @@ En lista över ”klientversioner” innehåller:
 **Kommentar:** Den ovannämnda servern FQDN ändring kan vara användbart också för att tillämpa en princip för granskning för SQL Server-nivå utan att behöva ett konfigurationssteg i varje databas (tillfällig lösning).
 
 ## <a id="subheading-2"></a>IP-slutpunkten ändras när du aktiverar granskning
+
 Observera att när du aktiverar Tabellgranskning, ändrar IP-slutpunkten för din databas. Om du har strikta brandväggsinställningar kan uppdatera dessa brandväggsinställningar därefter.
 
 Den nya databas IP-slutpunkten beror på området:
@@ -78,5 +80,4 @@ Den nya databas IP-slutpunkten beror på området:
 | Västra centrala USA |52.161.29.186, 52.161.27.213 |
 | Centrala Kanada |13.88.248.106, 13.88.248.110 |
 | Östra Kanada |40.86.227.82, 40.86.225.194 |
-| Storbritannien, norra |13.87.101.18, 13.87.100.232 |
-| Storbritannien, södra 2 |13.87.32.202, 13.87.32.226 |
+| Storbritannien, södra |13.87.32.202, 13.87.32.226 |

@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/19/2019
+ms.date: 02/26/2019
 ms.author: mabrigg
 ms.reviewer: alfredop
-ms.lastreviewed: 11/08/2018
-ms.openlocfilehash: 92774592f86a71a8482fd3d44eca404fcf2d4e6e
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.lastreviewed: 02/26/2019
+ms.openlocfilehash: 00fb888f201f4bb8d211050b288516021d837dc5
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56429561"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56888784"
 ---
 # <a name="frequently-asked-questions-in-azure-stack-usage-api"></a>Vanliga frågor i Azure Stack användnings-API
 
@@ -407,6 +407,10 @@ För närvarande kan du fråga endast av *rapporterade tid*.
 | 400/Felaktig begäran |*SubscriptionIdMissingInRequest* |Prenumerations-ID för anroparen saknas. |
 | 400/Felaktig begäran |*InvalidAggregationGranularity* |En ogiltig aggregering kornighet begärdes. Giltiga värden är daglig basis och per timme. |
 | 503 |*ServiceUnavailable* |Ett återförsökbart fel inträffade eftersom tjänsten är upptagen eller anropet har begränsats. |
+
+## <a name="what-is-the-policy-for-charging-for-vms"></a>Vad är en princip för att ta betalt för virtuella datorer?
+
+Virtuella datorer som körs och Stoppad generera användningsdata. Konsekvent med Azure, frigörs behövs för att stoppa utsläpp av användningsdata. I fall där den är inte tillgänglig, men compute-resursprovidern körs fortfarande genereras användning.
 
 ## <a name="next-steps"></a>Nästa steg
 [Kundfaktureringen och chargeback i Azure Stack](azure-stack-billing-and-chargeback.md)

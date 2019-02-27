@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: cd6927cccfa85c8409d612a40a4e708e81af746a
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: ba5ea7205a5d0e5fdbadc8a1ba955091ae95b569
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54413557"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56875794"
 ---
 # <a name="find-an-address-using-the-azure-maps-search-service"></a>Hitta en adress med hjälp av Azure Maps search-tjänst
 
@@ -37,7 +37,7 @@ De flesta sökfrågor som standard `maxFuzzyLevel=1` att få prestanda och minsk
 
 2. På fliken Builder väljer den **hämta** HTTP-metoden och ange fråge-URL för API-slutpunkten.
 
-    ![Fuzzy-sökning ](./media/how-to-search-for-address/fuzzy_search_url.png)
+    ![Fuzzy-sökning](./media/how-to-search-for-address/fuzzy_search_url.png)
 
     | Parameter | Föreslaget värde |
     |---------------|------------------------------------------------|
@@ -49,7 +49,7 @@ De flesta sökfrågor som standard `maxFuzzyLevel=1` att få prestanda och minsk
 
 3. Klicka på **Params**, och ange följande nyckel / värde-par som används som frågan eller sökväg parametrar i fråge-URL:
 
-    ![Fuzzy-sökning ](./media/how-to-search-for-address/fuzzy_search_params.png)
+    ![Fuzzy-sökning](./media/how-to-search-for-address/fuzzy_search_params.png)
 
     | Nyckel | Värde |
     |------------------|-------------------------|
@@ -75,7 +75,7 @@ De flesta sökfrågor som standard `maxFuzzyLevel=1` att få prestanda och minsk
   
 6. I parametrar, anger du följande nyckel / värde-par och klicka på **skicka**:
 
-    ![Fuzzy-sökning ](./media/how-to-search-for-address/fuzzy_search_latlon.png)
+    ![Fuzzy-sökning](./media/how-to-search-for-address/fuzzy_search_latlon.png)
   
     | Nyckel | Värde |
     |-----|------------|
@@ -89,7 +89,7 @@ Du kan skicka en fullständig eller partiell gatuadress till search-adress API o
 1. I Postman, klickar du på **ny begäran** | **GET-begäran** och ge den namnet **sökningen efter adresser**.
 2. På fliken Builder väljer den **hämta** HTTP-metoden, ange begärans-URL för API-slutpunkten och välj eventuellt auktoriseringsprotokoll, om sådana.
 
-    ![Sökningen efter adresser ](./media/how-to-search-for-address/address_search_url.png)
+    ![Sökningen efter adresser](./media/how-to-search-for-address/address_search_url.png)
   
     | Parameter | Föreslaget värde |
     |---------------|------------------------------------------------|
@@ -99,7 +99,7 @@ Du kan skicka en fullständig eller partiell gatuadress till search-adress API o
 
 3. Klicka på **Params**, och ange följande nyckel / värde-par som används som frågan eller sökväg parametrar i fråge-URL:
   
-    ![Sökningen efter adresser ](./media/how-to-search-for-address/address_search_params.png)
+    ![Sökningen efter adresser](./media/how-to-search-for-address/address_search_params.png)
   
     | Nyckel | Värde |
     |------------------|-------------------------|
@@ -130,7 +130,7 @@ Du kan skicka en fullständig eller partiell gatuadress till search-adress API o
 
 2. På fliken Builder väljer den **hämta** HTTP-metoden och ange fråge-URL för API-slutpunkten.
   
-    ![Omvänd sökning Webbadress ](./media/how-to-search-for-address/reverse_address_search_url.png)
+    ![Omvänd sökning Webbadress](./media/how-to-search-for-address/reverse_address_search_url.png)
   
     | Parameter | Föreslaget värde |
     |---------------|------------------------------------------------|
@@ -140,7 +140,7 @@ Du kan skicka en fullständig eller partiell gatuadress till search-adress API o
   
 3. Klicka på **Params**, och ange följande nyckel / värde-par som används som frågan eller sökväg parametrar i fråge-URL:
   
-    ![Omvänd adress sökparametrar ](./media/how-to-search-for-address/reverse_address_search_params.png)
+    ![Omvänd adress sökparametrar](./media/how-to-search-for-address/reverse_address_search_params.png)
   
     | Nyckel | Värde |
     |------------------|-------------------------|
@@ -190,7 +190,7 @@ Du kan skicka en fullständig eller partiell gatuadress till search-adress API o
 
 2. På fliken Builder väljer den **hämta** HTTP-metoden och ange fråge-URL för API-slutpunkten.
   
-    ![Omvänd adress mellan gata sökning ](./media/how-to-search-for-address/reverse_address_search_url.png)
+    ![Omvänd adress mellan gata sökning](./media/how-to-search-for-address/reverse_address_search_url.png)
   
     | Parameter | Föreslaget värde |
     |---------------|------------------------------------------------|

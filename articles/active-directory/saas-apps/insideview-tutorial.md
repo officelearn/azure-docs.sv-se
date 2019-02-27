@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/29/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aa0885a469877d0ea9f52f6191b4cd894ddbbce5
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: a315933dcd438c68a1326d2b656c2353e4185f12
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56162029"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56866801"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-insideview"></a>Självstudier: Azure Active Directory-integrering med InsideView
 
@@ -116,7 +116,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://my.insideview.com/iv/<STS Name>/login.iv`
 
     > [!NOTE] 
-    > Det här värdet är inte verkligt. Uppdatera det här värdet med faktiska svars-URL. Kontakta [InsideView supportteamet ](mailto:support@insideview.com) att hämta det här värdet.
+    > Det här värdet är inte verkligt. Uppdatera det här värdet med faktiska svars-URL. Kontakta [InsideView supportteamet](mailto:support@insideview.com) att hämta det här värdet.
  
 1. På den **SAML-signeringscertifikat** klickar du på **certifikat (Raw)** och spara certifikatfilen på datorn.
 

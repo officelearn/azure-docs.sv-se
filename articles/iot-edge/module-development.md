@@ -4,17 +4,17 @@ description: Utveckla anpassade moduler för Azure IoT Edge som kan kommunicera 
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 10/05/2017
+ms.date: 02/25/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 3dd5005312e1c59fa53a0d917951c89033374192
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: ea2d1dbcf991ce858f07905bc1bb41809f9bcdd8
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54200640"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56882747"
 ---
 # <a name="develop-your-own-iot-edge-modules"></a>Utveckla dina egna IoT Edge-moduler
 
@@ -65,5 +65,9 @@ Skapa en ModuleClient-instans för att ansluta din modulen till IoT Edge hub som
 
 ## <a name="next-steps"></a>Nästa steg
 
-När du utvecklar en modul kan lära dig hur du [distribuera och övervaka IoT Edge-moduler i stor skala](how-to-deploy-monitor.md).
+[Förbereda utvecklings- och testmiljö för IoT Edge](development-environment.md)
+
+[Använd Visual Studio 2017 för att utveckla C# moduler för IoT Edge](how-to-visual-studio-develop-csharp-module.md)
+
+[Använd Visual Studio Code för att utveckla moduler för IoT Edge](how-to-vs-code-develop-module.md)
 

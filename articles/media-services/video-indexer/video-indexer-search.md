@@ -7,14 +7,14 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 02/25/2019
 ms.author: juliako
-ms.openlocfilehash: 6c93c0228425b2ff020e5b4301e68eae5b1062a3
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: 07b3c806dc5df5f93bee3206cbca53485675e7dd
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56807838"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56872411"
 ---
 # <a name="find-exact-moments-within-videos"></a>Hitta exakta ögonblick i videor
 
@@ -36,11 +36,13 @@ Det här avsnittet visar sökalternativ som hjälper dig att hitta speciella ög
 
     Om du klickar på ett av resultaten ger spelaren du till den tidpunkten i videon. Du kan uppnå player/bra överblick och synkronisering i ditt program. Mer information finns i [bädda in Video Indexer widgetar i ditt program](video-indexer-embed-widgets.md). 
 4. Sök specificering av videon.
+    
+    Om du vill skapa egna clip baserat på videon som du hittat och tryck på den **redigera** knappen. Den här sidan visar video tillsammans med dess insikter som filter. Mer information finns i [visa och redigera videoindexering](video-indexer-view-edit.md). 
 
-    Om du vill skapa en egen analys på detaljnivå baserat på videon som du hittat och tryck på den **redigera** knappen. På den här sidan visas den fullständiga uppdelningen av en video. Du kan söka inom en analys på detaljnivå för att visa endast de rader som du är intresserad av. Mer information finns i [visa och redigera videoindexering](video-indexer-view-edit.md).
-
-    I det här exemplet sökte vi texten ”identity protection”. Vi kan även tillämpas ytterligare filter som visas på skärmen nedan.
-
+    Du kan söka i videon för att visa endast de rader som du är intresserad av och använda insikterna som sida för att filtrera de delar som du vill se. När du är klar kan du förhandsgranska din clip och trycka på **publicera** att skapa det nya klippet som visas i galleriet.
+    
+    I följande exempel sökte vi texten ”Mixad verklighet”. Vi kan även tillämpas ytterligare filter som visas på skärmen nedan.
+    
     ![Search](./media/video-indexer-search/video-indexer-search03.png)
 
 ## <a name="next-steps"></a>Nästa steg 

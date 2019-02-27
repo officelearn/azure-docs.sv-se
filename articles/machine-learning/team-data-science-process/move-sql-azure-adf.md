@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 6017aa5172efa72bb708004e2c4aee7f9ae4acad
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 85edaeab67c7b5164dabbc817429e2ab82f5ea11
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55733917"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56864676"
 ---
 # <a name="move-data-from-an-on-premises-sql-server-to-sql-azure-with-azure-data-factory"></a>Flytta data från en lokal SQLServer till SQL Azure med Azure Data Factory
 
@@ -52,7 +52,7 @@ Den här självstudien förutsätter att du har:
 
 * En **Azure-prenumeration**. Om du inte har någon prenumeration kan du registrera dig för en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/pricing/free-trial/).
 * En **Azure storage-konto**. Du kan använda ett Azure storage-konto för att lagra data i den här självstudien. Om du inte har ett Azure storage-konto kan du läsa den [skapa ett lagringskonto](../../storage/common/storage-quickstart-create-account.md) artikeln. När du har skapat lagringskontot kan behöva du hämta den kontonyckel som används för att komma åt lagringsutrymmet. Se [hantera dina lagringsåtkomstnycklar](../../storage/common/storage-account-manage.md#access-keys).
-* Åtkomst till en **Azure SQL Database**. Om du måste ställa in en Azure SQL Database, avsnittet [komma igång med Microsoft Azure SQL Database ](../../sql-database/sql-database-get-started.md) innehåller information om hur du etablerar en ny instans av en Azure SQL Database.
+* Åtkomst till en **Azure SQL Database**. Om du måste ställa in en Azure SQL Database, avsnittet [komma igång med Microsoft Azure SQL Database](../../sql-database/sql-database-get-started.md) innehåller information om hur du etablerar en ny instans av en Azure SQL Database.
 * Installerat och konfigurerat **Azure PowerShell** lokalt. Anvisningar finns i [hur du installerar och konfigurerar du Azure PowerShell](/powershell/azure/overview).
 
 > [!NOTE]
@@ -99,7 +99,7 @@ JSON-baserade definitionerna i tabellerna använda följande namn:
 Tre tabelldefinitionerna krävs för den här ADF-pipeline:
 
 1. [En lokal SQL-tabell](#adf-table-onprem-sql)
-2. [Blobbtabell ](#adf-table-blob-store)
+2. [Blobbtabell](#adf-table-blob-store)
 3. [SQL Azure-tabell](#adf-table-azure-sql)
 
 > [!NOTE]

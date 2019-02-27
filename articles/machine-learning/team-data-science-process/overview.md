@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 10/20/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 4d576fb79ed931d6a07ab231888617c95c0e465d
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 3b4e8c78d7402c254c91c3e100814e1f3eafc41b
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55452571"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56867209"
 ---
 # <a name="what-is-the-team-data-science-process"></a>Vad är TDSP (Team Data Science Process)?
 
@@ -63,7 +63,7 @@ Mål, uppgifter och dokumentation artefakter för varje steg i livscykeln i TDSP
 
 Följande diagram ger en rutnätsvy för aktiviteter (i blått) och artefakter (i grönt) som är associerade med varje steg i livscykeln (på den horisontala axeln) för dessa roller (på den vertikala axeln). 
 
-[ ![TDSP-roller-och-uppgifter](./media/overview/tdsp-tasks-by-roles.png) ](./media/overview/tdsp-tasks-by-roles.png#lightbox)
+[![TDSP-roles-and-tasks](./media/overview/tdsp-tasks-by-roles.png)](./media/overview/tdsp-tasks-by-roles.png#lightbox)
 
 ## <a name="standardized-project-structure"></a>Standardiserad projektstruktur
 
@@ -77,7 +77,7 @@ Vi tillhandahåller mallar för mappstrukturen och nödvändiga dokument i stand
 - prestandamått för modellen, till exempel ROC kurvor eller MSE
 
 
-[ ![TDSP-kataloger](./media/overview/tdsp-dir-structure.png) ](./media/overview/tdsp-dir-structure.png#lightbox)
+[![TDSP-kataloger](./media/overview/tdsp-dir-structure.png)](./media/overview/tdsp-dir-structure.png#lightbox)
 
 Katalogstrukturen kan klonas från [GitHub](https://github.com/Azure/Azure-TDSP-ProjectTemplate).
 
@@ -94,7 +94,7 @@ Infrastruktur för analys och lagring kan finnas i molnet eller lokalt. Det här
 
 Här är ett exempel på ett team som arbetar med flera projekt och dela olika moln analytics-infrastrukturkomponenter.
 
-[ ![TDSP-infrastruktur](./media/overview/tdsp-analytics-infra.png) ](./media/overview/tdsp-analytics-infra.png#lightbox) 
+[![TDSP-infrastructure](./media/overview/tdsp-analytics-infra.png)](./media/overview/tdsp-analytics-infra.png#lightbox) 
 
 
 ## <a name="tools-and-utilities-for-project-execution"></a>Verktyg och hjälpmedel för projektkörning av

@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 02/01/2019
+ms.date: 02/25/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: fbd4782d7fde089f9770e148564ec5941da3dc8e
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: e14e35cc8589bb524bae791ccd74952da90bdb04
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55753596"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56871544"
 ---
 # <a name="disaster-recovery-and-storage-account-failover-preview-in-azure-storage"></a>Disaster recovery och storage-konto redundans (förhandsversion) i Azure Storage
 
@@ -152,7 +152,6 @@ Ohanterade diskar lagras som sidblobar i Azure Storage. När en virtuell dator k
 4. Vänta tills den **senaste synkroniseringstid** har uppdaterats och är senare än den tid då du tog bort den virtuella datorn. Det här steget är viktigt, eftersom om den sekundära slutpunkten inte har uppdaterats helt med VHD-filerna när redundansväxlingen sker, sedan den virtuella datorn inte kanske fungerar korrekt i den nya primära regionen.
 5. Initiera växling vid fel för kontot.
 6. Vänta tills kontot redundansväxlingen är klar och den sekundära regionen har blivit den nya primära regionen.
-6. Skapa ett lagringskonto i den nya primära regionen och kopiera den ohanterade disken till den.
 7. Skapa en virtuell dator i den nya primära regionen och ansluta de virtuella hårddiskarna.
 8. Starta den nya virtuella datorn.
 

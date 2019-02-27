@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 02/25/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 68511d62887cb0463fd8db01cb5c90cbc40ac4cd
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 622a7bc870aba58205c1811de2fcdcabffd177e5
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/26/2019
-ms.locfileid: "56818994"
+ms.locfileid: "56869691"
 ---
 # <a name="grant-access-to-azure-containers-and-queues-with-rbac-in-the-azure-portal-preview"></a>Bevilja åtkomst till Azure-behållare och köer med RBAC i Azure portal (förhandsversion)
 
@@ -29,7 +29,7 @@ Den här artikeln beskriver hur du använder Azure-portalen för att tilldela RB
 
 ## <a name="determine-resource-scope"></a>Bestäm resource omfattning 
 
-Fastställa omfattningen av åtkomst som det säkerhetsobjektet bör ha innan du tilldelar en RBAC-roll till ett säkerhetsobjekt. Bästa metoder kräver att det alltid är bäst att bevilja endast den minsta möjliga definitionsområdet.
+Fastställa omfattningen av åtkomst som säkerhetsobjektet bör ha innan du tilldelar en RBAC-roll till ett säkerhetsobjekt. Bästa metoder kräver att det alltid är bäst att bevilja endast den minsta möjliga definitionsområdet.
 
 I följande lista beskrivs de nivåer som du kan begränsa åtkomst till Azure blob och kö-resurser, från och med det minsta definitionsområdet:
 
@@ -43,7 +43,7 @@ När du har fastställt det önskade omfånget för en rolltilldelning, navigera
 
 ## <a name="assign-rbac-roles-using-the-azure-portal"></a>Tilldela RBAC-roller med hjälp av Azure portal
 
-Bevilja åtkomst till blob och kö resurser med Azure AD-autentiseringsuppgifter omfattar följande steg: 
+Bevilja åtkomst till blob och kö resurser med Azure AD-autentiseringsuppgifter i Azure portal omfattar följande steg: 
 
 1. Tilldela rollen RBAC i Azure Storage att bevilja åtkomst till behållare eller köer. Läsbehörighet, tilldela den **Blob Data-läsare (förhandsgranskning)** eller **Lagringsködata-läsare (förhandsgranskning)** roll. För att läsa, skriva och ta bort, tilldela den **Blob Data-deltagare (förhandsgranskning)** eller **Lagringsködata-deltagare (förhandsgranskning)** roll. Du kan också tilldela en anpassad roll.
 
@@ -80,7 +80,7 @@ Du kan följa liknande steg om du vill tilldela en roll som är begränsade till
 > 
 > Du kan inte tilldela en roll som är begränsade till en behållare eller en kö om ditt storage-konto har ett hierarkiskt namnområde aktiverat.
 
-### <a name="assign-the-azure-resource-manager-reader-role"></a>Tilldela rollen Läsare för Azure Resource Manager
+### <a name="assign-the-reader-role-for-portal-access"></a>Tilldela rollen Läsare för portalåtkomst
 
 När du tilldelar en inbyggda eller anpassade roll för Azure Storage till säkerhetsobjekt, beviljar du behörigheter till det säkerhetsobjektet att utföra åtgärder på data i ditt storage-konto. Inbyggt **Dataläsaren** roller ger läsbehörighet för data i en behållare eller en kö, medan den inbyggda i **Data-deltagare** roller tillhandahåller läsa, skriva och ta bort behörigheter till en behållare eller kön. Behörigheter är begränsade till den angivna resursen.  
 
@@ -90,7 +90,7 @@ Men om Mary vill visa en blob i Azure-portalen kommer **Storage Blob Data-deltag
 
 Om användarna behöver för att kunna få åtkomst till blobar i Azure portal och sedan tilldela dem en ytterligare RBAC-roll i [läsare](../../role-based-access-control/built-in-roles.md#reader) roll, som dessa användare. Den **läsare** är en Azure Resource Manager-roll som tillåter användare att visa lagringskontoresurserna, men inte ändra dem. Det ger inte läsbehörighet till data i Azure Storage, men endast konto management-resurser.
 
-Följ dessa steg för att tilldela den **läsare** roll. I det här fallet är tilldelningen begränsad till behållaren:
+Följ dessa steg för att tilldela den **läsare** rollen så att en användare kan komma åt blobar från Azure-portalen. I det här fallet är tilldelningen begränsad till behållaren:
 
 1. I den [Azure-portalen](https://portal.azure.com)går du till ditt lagringskonto och visa den **översikt** för kontot.
 1. Under Services väljer **Blobar**. 
@@ -100,6 +100,9 @@ Följ dessa steg för att tilldela den **läsare** roll. I det här fallet är t
 1. Från den **tilldela åtkomst till** listrutan, väljer **Azure AD-användare, grupp eller tjänstens huvudnamn**.
 1. Söka efter säkerhetsobjektet som du vill tilldela rollen.
 1. Spara rolltilldelningen.
+
+> [!NOTE]
+> Tilldela rollen Läsare krävs endast för användare som behöver åtkomst till blobar eller köer med hjälp av Azure-portalen. 
 
 ## <a name="use-azure-ad-credentials-with-the-portal"></a>Använda Azure AD-autentiseringsuppgifter med portalen
 

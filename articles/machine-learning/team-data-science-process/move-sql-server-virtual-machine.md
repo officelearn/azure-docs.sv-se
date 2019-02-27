@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 7c87a0f478b6efbe7ae9ff07def8b4d0d730b111
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: dcab8d1cfd076e57a25ee3d36fadd86f158c53b8
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55478499"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56880605"
 ---
 # <a name="move-data-to-sql-server-on-an-azure-virtual-machine"></a>Flytta data till SQL Server på en virtuell Azure-dator
 
@@ -50,7 +50,7 @@ Den här självstudien förutsätter att du har:
 Om dina data är i en platt fil (ordnade i rader/kolumner), kan de flyttas till SQL Server-VM på Azure via följande metoder:
 
 1. [Kommandoradsverktyget bulk copy-verktyget (BCP)](#insert-tables-bcp)
-2. [Bulk Insert SQL-fråga ](#insert-tables-bulkquery)
+2. [Bulk Insert SQL-fråga](#insert-tables-bulkquery)
 3. [Grafiska inbyggda verktyg i SQLServer (Import/Export, SSIS)](#sql-builtin-utilities)
 
 ### <a name="insert-tables-bcp"></a>Kommandoradsverktyget bulk copy-verktyget (BCP)

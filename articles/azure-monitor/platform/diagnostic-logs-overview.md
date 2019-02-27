@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: e9fcf36d6ece441c73e7d1224bd5918d2e74bf84
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 704c12bc2ea16fcad5672dde4181f63495fbe967
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56002018"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56870847"
 ---
 # <a name="collect-and-consume-log-data-from-your-azure-resources"></a>Samla in och använda loggdata från resurserna i Azure
 
@@ -23,7 +23,7 @@ ms.locfileid: "56002018"
 * **Klient loggar** -loggarna som kommer från på klientnivå tjänster som finns utanför en Azure-prenumeration som Azure Active Directory-loggar.
 * **Resursen loggar** -loggarna som kommer från Azure-tjänster som distribuera resurser inom en Azure-prenumeration, till exempel Nätverkssäkerhetsgrupper eller Storage-konton.
 
-    ![Resurs-diagnostics-loggar jämfört med andra typer av loggar ](./media/diagnostic-logs-overview/Diagnostics_Logs_vs_other_logs_v5.png)
+    ![Resurs-diagnostics-loggar jämfört med andra typer av loggar](./media/diagnostic-logs-overview/Diagnostics_Logs_vs_other_logs_v5.png)
 
 Innehållet i de här loggarna varierar beroende på vilken Azure-tjänsten och resursen. Till exempel finns Nätverkssäkerhetsgrupp kopplad till regeln räknare och Key Vault granskningar två typer av diagnostikloggar.
 

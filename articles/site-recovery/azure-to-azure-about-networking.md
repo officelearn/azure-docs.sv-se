@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: sujayt
-ms.openlocfilehash: 49b5ef6b0dca32baaf05959cc29bb2a8024b6d04
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: fb80af9df58fba41e5ece060099eb98e3d2f90fe
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55693997"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56883155"
 ---
 # <a name="about-networking-in-azure-to-azure-replication"></a>Om nätverk i Azure till Azure replikering
 
@@ -163,4 +163,4 @@ Du kan åsidosätta Azures standardsystemväg för adressprefixet 0.0.0.0/0 med 
 ## <a name="next-steps"></a>Nästa steg
 - Börja skydda dina arbetsbelastningar genom [replikera virtuella Azure datorer](site-recovery-azure-to-azure.md).
 - Läs mer om [IP-adress kvarhållning](site-recovery-retain-ip-azure-vm-failover.md) för Azure VM-redundans.
-- Mer information om haveriberedskap för [Azure-datorer med ExpressRoute ](azure-vm-disaster-recovery-with-expressroute.md).
+- Mer information om haveriberedskap för [Azure-datorer med ExpressRoute](azure-vm-disaster-recovery-with-expressroute.md).

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: magoedte
-ms.openlocfilehash: 8b1504961254fefcaafc22008b4cc5adaf77e9c4
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: b9a847f04048cd17d550ca66bd3e6502577746eb
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447879"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56878463"
 ---
 # <a name="application-insights-connector-management-solution-deprecated"></a>Lösning för Application Insights-Anslutningsapp (inaktuell)
 
@@ -127,7 +127,7 @@ När du klickar någonstans i den **undantag** bladet visas en visualisering som
 
 Oavsett om du klickar på något någon den **Application Insights-anslutningsprogram** instrumentpanelen, i den **Search** sidan, alla frågor som returnerar Application Insights-data visar programmet Insikter perspektiv. Om du visar Application Insights-data, till exempel en **&#42;** frågan också visar fliken perspektiv som på följande bild:
 
-![Application Insights ](./media/app-insights-connector/app-insights-search.png)
+![Application Insights](./media/app-insights-connector/app-insights-search.png)
 
 Perspektivet komponenter uppdateras beroende på frågan. Det innebär att du kan filtrera resultatet med hjälp av valfri sökfältet som ger dig möjlighet att se data från:
 

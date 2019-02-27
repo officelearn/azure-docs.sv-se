@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 9b1d3506c400a3a2d8002feed0181deac39b3821
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 43989ff9dac7cdad76117aaa6e3c862453b24813
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53344099"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56865118"
 ---
 # <a name="how-to-provision-for-multitenancy"></a>Hur du etablerar för flera innehavare 
 
@@ -132,9 +132,9 @@ Att rensa enklare, dessa virtuella datorer kommer att läggas till samma resursg
 
     **--name**: Ange ett unikt namn för din **USA, östra** regionala enheten VM. 
 
-    **--administratörens användarnamn**: Använd ditt eget användarnamn för administratör.
+    **--admin-username**: Använd ditt eget användarnamn för administratör.
 
-    **---administratörslösenord**: Använd din egen administratörslösenord.
+    **--admin-password**: Använd din egen administratörslösenord.
 
     ```azurecli-interactive
     az vm create \
@@ -153,9 +153,9 @@ Att rensa enklare, dessa virtuella datorer kommer att läggas till samma resursg
 
     **--name**: Ange ett unikt namn för din **västra USA** regionala enheten VM. 
 
-    **--administratörens användarnamn**: Använd ditt eget användarnamn för administratör.
+    **--admin-username**: Använd ditt eget användarnamn för administratör.
 
-    **---administratörslösenord**: Använd din egen administratörslösenord.
+    **--admin-password**: Använd din egen administratörslösenord.
 
     ```azurecli-interactive
     az vm create \
@@ -421,7 +421,7 @@ Ta bort resursgruppen med namnet:
 ## <a name="next-steps"></a>Nästa steg
 
 - Läs mer Reprovisioning i [IoT Hub Device reprovisoning begrepp](concepts-device-reprovision.md) 
-- Läs mer avetablering i [så ta bort etableringen av enheter som har tidigare Automatisk etablering ](how-to-unprovision-devices.md) 
+- Läs mer avetablering i [så ta bort etableringen av enheter som har tidigare Automatisk etablering](how-to-unprovision-devices.md) 
 
 
 

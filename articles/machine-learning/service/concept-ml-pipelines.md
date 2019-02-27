@@ -11,12 +11,12 @@ ms.author: sanpil
 author: sanpil
 ms.date: 12/4/2018
 ms.custom: seodec18
-ms.openlocfilehash: 917bac81923650405c37dfee500c9606dc7c54ca
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: d4bef53a21e6ab7b55c16e27083b818929fbd47c
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/26/2019
-ms.locfileid: "56816614"
+ms.locfileid: "56879262"
 ---
 # <a name="build-machine-learning-pipelines-with-the-azure-machine-learning-service"></a>Skapa machine learning pipelines med Azure Machine Learning-tjänsten
 
@@ -34,13 +34,23 @@ I följande diagram visas en exempel-pipeline:
 
 ![Machine learning-pipelines i Azure Machine Learning-tjänsten](./media/concept-ml-pipelines/pipelines.png)
 
+### <a name="which-azure-pipeline-technology-should-i-use"></a>Vilken Azure pipeline-teknik ska jag använda?
+
+Azure-molnet tillhandahåller flera andra pipelines, var och en med ett annat syfte. I följande tabell visas olika pipelines och hur de används för:
+
+| Pipeline | Vad läget gör | Canonical pipe |
+| ---- | ---- | ---- |
+| Azure Machine Learning pipelines | Definierar återanvändbara machine learning-arbetsflöden som kan användas som en mall för din machine learning-scenarier. | Data -> modell |
+| [Azure Data Factory-pipelines](https://docs.microsoft.com/azure/data-factory/concepts-pipelines-activities) | Grupper dataförflyttning och transformation kontrollaktiviteter behövs för att utföra en uppgift.  | Data -> data |
+| [Azure pipelines](https://azure.microsoft.com/services/devops/pipelines/) | Kontinuerlig integrering och leverans av ditt program till någon moln plattform för alla  | Kod -> appens/tjänstens |
+
 ## <a name="why-build-pipelines-with-azure-machine-learning"></a>Varför ska man skapa pipelines med Azure Machine Learning?
 
 Du kan använda den [Azure Machine Learning-SDK för Python](#the-python-sdk-for-pipelines) att skapa ML pipelines, samt att skicka och spåra individuella pipelinekörningar.
 
 Du kan optimera ditt arbetsflöde med enkelhet, hastighet, portabilitet och återanvändning med pipelines. När du skapar pipelines med Azure Machine Learning kan du fokusera på din expertis, maskininlärning, istället för på infrastruktur.
 
-Med hjälp av steg gör det möjligt att köra bara de steg som du behöver, när du justera och testa ditt arbetsflöde. Ett steg är en beräkningsenhet i pipelinen. I det föregående diagrammet visas uppgiften att förbereda data kan omfatta många steg. Dessa inkludera, men inte begränsat till, normalisering, transformation, verifiering och funktionalisering. Datakällor och mellanliggande data som återanvänds i pipeline, vilket sparar compute tid och resurser. 
+Med hjälp av steg gör det möjligt att köra bara de steg som du behöver, när du justera och testa ditt arbetsflöde. Ett steg är en beräkningsenhet i pipelinen. I det föregående diagrammet visas uppgiften att förbereda data kan omfatta många steg. De här stegen omfattar, men inte begränsat till, normalisering, transformation, verifiering och funktionalisering. Datakällor och mellanliggande data som återanvänds i pipeline, vilket sparar compute tid och resurser. 
 
 När är utformat för pipelinen, är det ofta mer finjustera runt loopen utbildning för pipelinen. När du kör en pipeline, kör hoppar till de steg som måste köras igen, till exempel en uppdaterad inlärningsskript och hoppar över vad som inte har ändrats. Samma paradigmet gäller oförändrade skript som används för körningen av steget. 
 

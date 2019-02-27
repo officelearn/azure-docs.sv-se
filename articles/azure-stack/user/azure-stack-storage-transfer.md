@@ -14,12 +14,12 @@ ms.date: 12/03/2018
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 12/03/2018
-ms.openlocfilehash: ea36dbe30eddc3d503631c31e46291101ea175d4
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: f0860552f78e428f5b452aea6bcebe7f6a3a886a
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55239544"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56881710"
 ---
 # <a name="use-data-transfer-tools-for-azure-stack-storage"></a>Använd verktyg för överföring av data för Azure Stack-lagring
 
@@ -45,7 +45,7 @@ Dina krav fastställer vilka av följande verktyg fungerar bäst för dig:
 
     En fristående app lätt att använda med ett användargränssnitt.
 
-* [Blobfuse ](#blobfuse)
+* [Blobfuse](#blobfuse)
 
     En virtuell filsystemsdrivrutin för Azure Blob Storage, vilket ger dig tillgång till dina befintliga block blob-data i ditt Storage-konto via filsystemet Linux. 
 

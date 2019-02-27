@@ -4,17 +4,17 @@ description: Använd Azure IoT Edge för att skapa en transparent, täckande ell
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 11/01/2017
+ms.date: 02/25/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 6e54d28d494a58966ea5312492dc79ced4c50a8d
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: e0aafc6e5a6926ad70aa5df335f45b841955cab9
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53092289"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56877604"
 ---
 # <a name="how-an-iot-edge-device-can-be-used-as-a-gateway"></a>Hur en IoT Edge-enhet kan användas som en gateway
 
@@ -54,4 +54,4 @@ Här är en snabb fusklapp som jämför IoT Hub primitiver när du använder tra
 När du använder ett mönster för ogenomskinlig gateway (protokollöversättning) kan dela samma kö från moln till enhet, som kan innehålla högst 50 meddelanden i alla enheter som ansluter via denna gateway. Det följer mönstret för ogenomskinlig gateway ska användas när några enheter ansluter via varje fält-gateway, och trafiken moln-till-enhet är låg.
 
 ## <a name="next-steps"></a>Nästa steg
-Lär dig hur du konfigurerar en IoT Edge-enhet som en [transparent gateway](how-to-create-transparent-gateway-linux.md).
+Lär dig hur du konfigurerar en IoT Edge-enhet som en [transparent gateway](how-to-create-transparent-gateway.md).

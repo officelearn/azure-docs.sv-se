@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/13/2018
 ms.author: rkarlin
-ms.openlocfilehash: 8535a77c9f44a4dafca34ef24414f90741a9133e
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 0a8680fbc8a3a051906f223d8b2476891c92d110
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56652738"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56888210"
 ---
 # <a name="managing-security-recommendations-in-azure-security-center"></a>Hantera säkerhetsrekommendationer i Azure Security Center
 Det här dokumentet vägleder dig genom hur du använder rekommendationer i Azure Security Center för att hjälpa dig att skydda dina Azure-resurser.
@@ -63,15 +63,9 @@ Du kan filtrera rekommendationer. Om du vill filtrera rekommendationer, Välj **
    * **Låg (blå)**: Det finns en säkerhetsrisk som bör åtgärdas, men inte kräver omedelbar åtgärd. (Låg rekommendationer är inte visas som standard, men du kan filtrera fram om du vill se dem.) 
    * **Felfritt (grönt)**:
    * **Inte tillgänglig (grå)**:
- <!-- * **DESCRIPTION**: Explains the recommendation and what needs to be done to address it.
-**STATE**: Describes the current state of the recommendation:
-   * **Open**: The recommendation hasn't been addressed yet.
-    * **In Progress**: The recommendation is currently being applied to the resources, and no action is required by you.
-   * **Resolved**: The recommendation has already been completed (in this case, the line is grayed out).
-    -->
+ 
 
-Använd tabellen nedan som referens för att förstå rekommendationerna som är tillgängliga och vad var och en gör om du använder den.
-<!-- There is no table below -->
+
 > [!NOTE]
 > Du vill förstå den [klassiska och Resource Manager-distributionsmodeller](../azure-classic-rm.md) för Azure-resurser.
 >

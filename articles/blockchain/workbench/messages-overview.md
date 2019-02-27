@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: 02a6cbabaeb7d9c6f764eec5dd86226e37aa6c2b
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: 860c00b876427af7395e3c04e0626131c27aca67
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56593530"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56878089"
 ---
 # <a name="azure-blockchain-workbench-messaging-integration"></a>Azure Blockchain Workbench messaging integration
 
@@ -678,7 +678,7 @@ Innehåller information när ett program har överförts till Workbench, t.ex. n
 | id | Unik identifierare för arbetsflöde för program i Azure Blockchain Workbench |
 | namn | Programnamnet för arbetsflöde |
 | displayName | Programmets visningsnamn för arbetsflöde |
-| functions | Insamling av [funktioner för arbetsflöde för program ](#workflow-function-information)|
+| functions | Insamling av [funktioner för arbetsflöde för program](#workflow-function-information)|
 | tillstånd | Insamling av [tillstånd för arbetsflöde för program](#workflow-state-information) |
 | properties | Programmet [egenskaper arbetsflödesinformation](#workflow-property-information) |
 

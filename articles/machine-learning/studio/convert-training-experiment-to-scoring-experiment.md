@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: ericlicoding
 ms.author: amlstudiodocs
 ms.date: 03/28/2017
-ms.openlocfilehash: 82ed1378f1a754c8b5c64db2a190db5ceeb0de4a
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 0a6296441374c3cf716211f8ba5961392407e240
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/26/2019
-ms.locfileid: "56821225"
+ms.locfileid: "56870282"
 ---
 # <a name="how-to-prepare-your-model-for-deployment-in-azure-machine-learning-studio"></a>Hur du förbereder din modell för distribution i Azure Machine Learning Studio
 
@@ -22,7 +22,7 @@ Azure Machine Learning Studio ger dig de verktyg du behöver för att utveckla e
 
 Om du vill göra detta måste du använder Studio för att skapa ett experiment - kallas en *träningsexperiment* – där du träna, poäng och redigera din modell. När du är nöjd kan du få din modell redo att distribuera genom att konvertera din träningsexperiment till ett *förutsägelseexperiment* som har konfigurerats poäng användardata.
 
-Du kan se ett exempel på hur det [ självstudie 1: Förutsäga kreditrisken](tutorial-part1-credit-risk.md).
+Du kan se ett exempel på hur det [självstudie 1: Förutsäga kreditrisken](tutorial-part1-credit-risk.md).
 
 Den här artikeln tar en djupdykning i hur ett träningsexperiment konverteras till ett förutsägelseexperiment och hur den förutsägelseexperiment distribueras. Genom att förstå dessa uppgifter kan du lära dig hur du konfigurerar din distribuerade modell för att göra det mer effektivt.
 

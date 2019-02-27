@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 12/03/2018
 ms.author: genli
-ms.openlocfilehash: a73dab8a0df642e439e8519c404423c6689418f5
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: c62560d2f80375a725464607f38b9e8adf221d16
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56236982"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56875607"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Felsöka Azure Backup-fel: Problem med agenten eller -tillägget
 
@@ -225,7 +225,7 @@ Gör så här gör tillägget installeras under nästa säkerhetskopiering.
 3. I den **inställningar** väljer **Lås** att visa låsen.
 4. Om du vill ta bort låset, Välj ellipsen och klicka på **ta bort**.
 
-    ![Ta bort lås ](./media/backup-azure-arm-vms-prepare/delete-lock.png)
+    ![Ta bort lås](./media/backup-azure-arm-vms-prepare/delete-lock.png)
 
 ### <a name="clean_up_restore_point_collection"></a> Rensa samling med återställningspunkter
 När du tar bort låset har återställningspunkterna att rensas. Följ någon av metoderna för att rensa återställningspunkterna:<br>
@@ -244,12 +244,12 @@ För att manuellt ta bort återställningen pekar du samlingen som inte tas bort
 1. Logga in på [Azure Portal](http://portal.azure.com/).
 2. På den **Hub** -menyn klickar du på **alla resurser**, väljer du resursgruppen med formatet AzureBackupRG_`<Geo>`_`<number>` där den virtuella datorn finns.
 
-    ![Ta bort lås ](./media/backup-azure-arm-vms-prepare/resource-group.png)
+    ![Ta bort lås](./media/backup-azure-arm-vms-prepare/resource-group.png)
 
 3. Klicka på resursgruppen, den **översikt** bladet visas.
 4. Välj **Visa dolda typer** alternativet för att visa alla dolda resurser. Välj återställningspunkt samlingar med formatet AzureBackupRG_`<VMName>`_`<number>`.
 
-    ![Ta bort lås ](./media/backup-azure-arm-vms-prepare/restore-point-collection.png)
+    ![Ta bort lås](./media/backup-azure-arm-vms-prepare/restore-point-collection.png)
 
 5. Klicka på **ta bort**, för att rensa samlingen med återställningspunkter.
 6. Försök att säkerhetskopiera igen.

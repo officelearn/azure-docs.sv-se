@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: c9a772af79cba8b5bfb592eaf03efa37520d5e48
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 97e29ba166d652f053f754482b6da36a33ec5bb5
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55870613"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56878190"
 ---
 # <a name="add-luis-results-to-application-insights-and-azure-functions"></a>Lägga till LUIS resultaten till Application Insights och Azure functions
 Den här självstudien lägger till LUIS begäranden och svar information till [Application Insights](https://azure.microsoft.com/services/application-insights/) telemetri datalagring. När du har dessa data kan du fråga den med Kusto språk eller PowerBi aggregeras, om du vill analysera och rapportera om avsikter och entiteter av uttryck i realtid. Den här analysis hjälper dig att avgöra om du ska lägga till eller redigera avsikter och entiteter av LUIS-appen.
@@ -51,11 +51,11 @@ För att samla in LUIS-begäran och svaret, web app-robot måste den **[Programi
 
 1. I Azure-portalen i web app bot service väljer **skapa** under den **Bot Management** avsnittet. 
 
-    ![Välj ”Skapa” under avsnittet ”Bot Management” i Azure-portalen i web app bot service. ](./media/luis-tutorial-appinsights/build.png)
+    ![Välj ”Skapa” under avsnittet ”Bot Management” i Azure-portalen i web app bot service.](./media/luis-tutorial-appinsights/build.png)
 
 2. En ny webbläsarflik öppnas med App Service Editor. Välj appnamnet på den översta raden och välj sedan **öppna Kudu-konsolen**. 
 
-    ![Välj appnamnet på den översta raden och välj sedan ”öppna Kudu-konsolen. ](./media/luis-tutorial-appinsights/kudu-console.png)
+    ![Välj appnamnet på den översta raden och välj sedan ”öppna Kudu-konsolen.](./media/luis-tutorial-appinsights/kudu-console.png)
 
 3. Ange följande kommando för att installera Application Insights och understreck-paket i konsolen:
 

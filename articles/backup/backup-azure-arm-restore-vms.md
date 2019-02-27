@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/18/2019
 ms.author: geg
-ms.openlocfilehash: b919adbaf665055ee19df9b9167984cc29388032
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: 370428213414d1048478cb8413d45e2a39992e39
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56428746"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56887530"
 ---
 # <a name="restore-azure-vms"></a>Återställa virtuella Azure-datorer
 
@@ -76,7 +76,7 @@ Som en av de [återställningsalternativ](#restore-options), kan du snabbt skapa
 Som en av de [återställningsalternativ](#restore-options), kan du skapa en disk från en återställningspunkt. Sedan med disken, kan du göra något av följande:
 
 - Med mallen som skapas under återställningen ska anpassa inställningar och utlösa distribution av virtuella datorer. Du redigerar mallen standardinställningarna och skicka mallen för distribution av virtuella datorer.
-- [Koppla återställda diskar](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal#option-2-attach-an-existing-disk) till en befintlig virtuell dator.
+- [Koppla återställda diskar](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal) till en befintlig virtuell dator.
 - [Skapa en ny virtuell dator] (https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#create-a-vm-from-restored-disks från återställda diskar med hjälp av PowerShell.
 
 

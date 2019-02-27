@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 02/08/2019
+ms.date: 02/26/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 3fcab4c7456295d8f7414232bc90bc5ab352e43a
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 991a50828059d850627e1f8f3f34f65a55fdf3f6
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56817889"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56890240"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Starta/stoppa virtuella datorer vid låg belastning på nätverket lösning i Azure Automation
 
@@ -41,6 +41,8 @@ Följande är begränsningar i den aktuella lösningen:
 ## <a name="prerequisites"></a>Förutsättningar
 
 Runbooks för den här lösningen fungerar med en [kör som-konto](automation-create-runas-account.md). Kör som-kontot är den lämpligaste autentiseringsmetoden eftersom den använder certifikatautentisering istället för ett lösenord som kan upphöra att gälla eller ändras ofta.
+
+Det rekommenderas att använda ett separat Automation-konto för att starta/stoppa VM-lösning. Detta beror ofta Azure modulversioner uppgraderas och deras parametrar kan ändras. Lösningen Starta/Stoppa VM uppgraderas inte på samma takt så inte fungerar med nyare versioner av de cmdletar som används. Vi rekommenderar att testa modulen uppdateringar i ett test Automation-konto innan du importerar dem i en produktionsmiljö Automation-konto.
 
 ## <a name="deploy-the-solution"></a>Distribuera lösningen
 
@@ -88,7 +90,7 @@ Utför följande steg för att lägga till Starta/stoppa virtuella datorer vid l
      - Sequenced_StartStop_Parent
 
      > [!IMPORTANT]
-     > Standardvärdet för **Målresursnamn** är en ** &ast; **. Detta riktar sig mot alla virtuella datorer i en prenumeration. Om du inte vill att lösningen att fokusera på alla virtuella datorer i din prenumeration som det här värdet behöver uppdateras till en lista över resursgruppnamn innan du kan aktivera scheman.
+     > Standardvärdet för **Målresursnamn** är en **&ast;**. Detta riktar sig mot alla virtuella datorer i en prenumeration. Om du inte vill att lösningen att fokusera på alla virtuella datorer i din prenumeration som det här värdet behöver uppdateras till en lista över resursgruppnamn innan du kan aktivera scheman.
 
 8. När du har konfigurerat de ursprungliga inställningarna som krävs för lösningen, klickar du på **OK** att Stäng den **parametrar** och välj **skapa**. När alla inställningar verifieras har lösningen distribuerats till din prenumeration. Den här processen kan ta flera sekunder att slutföra och du kan spåra förloppet under **meddelanden** på menyn.
 
@@ -131,7 +133,7 @@ I en miljö med minst två eller flera komponenter på flera virtuella datorer s
 
 #### <a name="target-the-start-and-stop-actions-against-a-subscription-and-resource-group"></a>Rikta start och stopp åtgärder mot en grupp för prenumeration och resursgrupp
 
-1. Lägg till en **sequencestart** och en **sequencestop** taggen med ett positivt heltalsvärde för virtuella datorer som omfattas i **External_Start_ResourceGroupNames** och ** External_Stop_ResourceGroupNames** variabler. Starta och stoppa åtgärder utförs i stigande ordning. Läs hur du tagga en virtuell dator i [tagga en virtuell Windows-dator i Azure](../virtual-machines/windows/tag.md) och [tagga en virtuell Linux-dator i Azure](../virtual-machines/linux/tag.md).
+1. Lägg till en **sequencestart** och en **sequencestop** taggen med ett positivt heltalsvärde för virtuella datorer som omfattas i **External_Start_ResourceGroupNames** och  **External_Stop_ResourceGroupNames** variabler. Starta och stoppa åtgärder utförs i stigande ordning. Läs hur du tagga en virtuell dator i [tagga en virtuell Windows-dator i Azure](../virtual-machines/windows/tag.md) och [tagga en virtuell Linux-dator i Azure](../virtual-machines/linux/tag.md).
 1. Ändra scheman **Sequenced StartVM** och **Sequenced StopVM** datum och tid som uppfyller dina krav och aktivera schemat.
 1. Kör den **SequencedStartStop_Parent** runbook med parametern åtgärd inställd **starta** och parametern WHATIF inställd **SANT** att förhandsgranska dina ändringar.
 1. Förhandsgranska åtgärden och gör nödvändiga ändringar innan du implementerar mot virtuella produktionsdatorer. När klar, manuellt köra runbook med parametern inställd **FALSKT**, eller låt Automation schemat **Sequenced StartVM** och **Sequenced StopVM** kör automatiskt efter din ett förutbestämt schema.
@@ -219,7 +221,7 @@ I följande tabell visas de variabler som skapats i ditt Automation-konto. Endas
 |Internal_AzureSubscriptionId | Anger Azure prenumerations-ID.|
 |Internal_ResourceGroupName | Anger Automation-konto resursgruppens namn.|
 
-I samtliga scenarier den **External_Start_ResourceGroupNames**, **External_Stop_ResourceGroupNames**, och **External_ExcludeVMNames** variabler krävs för virtuella datorer, med undantag för att tillhandahålla en kommaavgränsad lista över virtuella datorer för den **AutoStop_CreateAlert_Parent**, **SequencedStartStop_Parent**, och ** ScheduledStartStop_Parent** runbooks. Det vill säga måste dina virtuella datorer finnas i target-resursgrupper för start och stoppa åtgärder ska utföras. Den logik fungerar liknande Azure policy, eftersom du kan fokusera på den prenumeration eller resursgrupp enhetsgrupp och åtgärder som ärvs av nyligen skapade virtuella datorer. Den här metoden innebär att du slipper upprätthålla ett separat schema för varje virtuell dator och hantera startar och stoppar i skala.
+I samtliga scenarier den **External_Start_ResourceGroupNames**, **External_Stop_ResourceGroupNames**, och **External_ExcludeVMNames** variabler krävs för virtuella datorer, med undantag för att tillhandahålla en kommaavgränsad lista över virtuella datorer för den **AutoStop_CreateAlert_Parent**, **SequencedStartStop_Parent**, och  **ScheduledStartStop_Parent** runbooks. Det vill säga måste dina virtuella datorer finnas i target-resursgrupper för start och stoppa åtgärder ska utföras. Den logik fungerar liknande Azure policy, eftersom du kan fokusera på den prenumeration eller resursgrupp enhetsgrupp och åtgärder som ärvs av nyligen skapade virtuella datorer. Den här metoden innebär att du slipper upprätthålla ett separat schema för varje virtuell dator och hantera startar och stoppar i skala.
 
 ### <a name="schedules"></a>Scheman
 

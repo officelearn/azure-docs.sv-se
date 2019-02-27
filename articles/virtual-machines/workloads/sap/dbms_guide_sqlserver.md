@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 09/26/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 58ae26a2daf2a65eaf56672c9e75147bd71e489a
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: b89c02aa0d30ec1928be2110fe6470da4f28080c
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56330740"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889927"
 ---
 # <a name="sql-server-azure-virtual-machines-dbms-deployment-for-sap-netweaver"></a>SQL Server Azure virtuella datorer DBMS-distribution för SAP NetWeaver
 
@@ -383,7 +383,7 @@ SQL Server 2014 och senare versioner öppen möjligheten att lagra databasfilern
 * Listan ovan om distributionen av virtuella hårddiskar via olika Azure Storage-konton gäller för den här metoden för samt distributioner. Innebär att antalet i/o-åtgärder mot gränserna för Azure Storage-konto.
 * I stället för redovisning mot den Virtuella datorns i/o lagringskvoten redovisas trafiken mot storage-blobbar som representerar SQL Server data- och loggfiler filer, till den Virtuella datorns bandbredd på en viss typ av virtuell dator. Nätverks- och bandbredden för en viss typ av virtuell dator, finns i artikeln [storlekar för Windows-datorer i Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sizes).
 * Till följd av push-Överför fil-i/o via nätverket kvoten, strandning lagringskvoten huvudsakligen och med den använda den övergripande bandbredden för den virtuella datorn endast delvis.
-* IOPS och i/o-dataflöde prestandamålen som Azure Premium Storage har för olika diskstorlekar gäller inte längre. Även om blobarna som du skapade finns på Azure Premium Storage. Den är riktad mot dokumenteras i artikeln [högpresterande Premium Storage och hanterade diskar för virtuella datorer](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage#scalability-and-performance-targets). Till följd av att placera SQL Server-datafiler och loggfiler direkt på BLOB-objekt som lagras på Azure Premium Storage, kan prestandaegenskaperna vara olika jämfört med virtuella hårddiskar på Azure Premium Storage.
+* IOPS och i/o-dataflöde prestandamålen som Azure Premium Storage har för olika diskstorlekar gäller inte längre. Även om blobarna som du skapade finns på Azure Premium Storage. Den är riktad mot dokumenteras i artikeln [högpresterande Premium Storage och hanterade diskar för virtuella datorer](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage). Till följd av att placera SQL Server-datafiler och loggfiler direkt på BLOB-objekt som lagras på Azure Premium Storage, kan prestandaegenskaperna vara olika jämfört med virtuella hårddiskar på Azure Premium Storage.
 * Värdcachelagring baserat som är tillgänglig för Azure Premium Storage-diskar är inte tillgänglig när du monterar SQL Server-datafiler direkt på Azure blobs.
 * Azure Write Accelerator kan inte användas för under Millisekunden skrivningar till transaktionsloggfilen för SQL Server på virtuella datorer i M-serien. 
 

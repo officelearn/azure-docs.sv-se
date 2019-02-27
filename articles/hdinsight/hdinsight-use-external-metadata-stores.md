@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.openlocfilehash: 9c35a4a811925abaf8dcb64d3e7060bbb1f91cce
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 3daa71c91d1e49a497a979b9b5b89df1fcb9418c
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53408331"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889689"
 ---
 # <a name="use-external-metadata-stores-in-azure-hdinsight"></a>Använda extern metadatalagring i Azure HDInsight
 
@@ -68,7 +68,7 @@ Här är några allmänna HDInsight Hive metastore metodtips:
 - Om du planerar flera HDInsight-kluster på separata dataåtkomst, kan du använda en separat databas för metaarkiv på varje kluster. Om du delar ett metaarkiv över flera HDInsight-kluster, innebär det att klustren använder samma metadata och filer för underliggande användardata.
 - Säkerhetskopiera dina anpassade metastore med jämna mellanrum. Säkerhetskopior genererar automatiskt i Azure SQL-databas, men en mer specifik tidsram för kvarhållning av säkerhetskopior varierar. Mer information finns i [Lär dig mer om automatisk SQL Database-säkerhetskopior](../sql-database/sql-database-automated-backups.md).
 - Leta upp din metaarkiv och HDInsight-kluster i samma region för högsta prestanda och kostnader för utgående trafik för lägsta nätverk.
-- Övervaka din metaarkiv för prestanda och tillgänglighet med hjälp av Azure SQL Database-övervakning verktyg, till exempel Azure portal eller Azure Log Analytics.
+- Övervaka din metaarkiv för prestanda och tillgänglighet med hjälp av Azure SQL Database-övervakning verktyg, till exempel Azure portal eller Azure Monitor-loggar.
 - När en ny, högre version av Azure HDInsight skapas mot en befintlig anpassad metaarkiv-databas, uppgraderar systemet schemat för metaarkiv, vilket är oåterkallelig utan att återställa databasen från en säkerhetskopia.
 - Om du delar ett metaarkiv över flera kluster kan du kontrollera att alla kluster är samma HDInsight-version. Olika Hive versioner använder olika metaarkiv databasscheman. Du kan inte till exempel dela ett metaarkiv för Hive 1.2 och Hive 2.1 version kluster. 
 

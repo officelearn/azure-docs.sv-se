@@ -12,12 +12,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 04/01/2017
 ms.author: cshoe
-ms.openlocfilehash: d88fbb3b5ece819270ca9c6b1060df31ba43854d
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 85fdd67cd676db2a7c54c10523787b0d395de5dc
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/26/2019
-ms.locfileid: "56821481"
+ms.locfileid: "56870796"
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Azure Service Bus-bindningar för Azure Functions
 
@@ -148,7 +148,7 @@ let Run(myQueueItem: string, log: ILogger) =
 
 ### <a name="trigger---java-example"></a>Utlösare - Java-exemplet
 
-Följande Java-funktionen använder den `@ServiceBusQueueTrigger` anteckning från den [Java functions runtime-biblioteket](/java/api/overview/azure/functions/runtime) som beskriver konfigurationen för en utlösare för Service Bus-kö. Funktionen hämtar meddelandet placeras i kön och läggs den till loggarna.
+Följande Java-funktionen använder den `@ServiceBusQueueTrigger` anteckning från den [Java functions runtime-biblioteket](/java/api/overview/azure/functions/runtime) som beskriver konfigurationen för en utlösare för Service Bus-kö. Funktionen hämtar meddelandet placeras i kön och läggs till loggarna.
 
 ```java
 @FunctionName("sbprocessor")

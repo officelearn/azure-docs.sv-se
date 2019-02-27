@@ -5,23 +5,19 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 1/30/2019
-ms.openlocfilehash: 03e0db822e38cc6823fc32aa915dc9283fa46cbe
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.date: 02/26/2019
+ms.openlocfilehash: 6e33c7571dc735ce9984a0ce1b37275a6c4c7eca
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55493056"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56888481"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>Läs repliker i Azure Database for MySQL
 
-> [!IMPORTANT]
-> Läs replica-funktionen är i offentlig förhandsversion.
-
 Läs replica-funktionen kan du replikera data från en Azure Database for MySQL-server (master) till upp till fem skrivskyddade servrar (repliker) inom samma Azure-region. Skrivskyddade repliker uppdateras asynkront med MySQL-motorn interna binär logg (binlog) fil baserat på positionen replikeringsteknik. Mer information om binlog replikering finns i [översikt över replikering av MySQL binlog](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html).
 
-Repliker som skapats i Azure Database for MySQL-tjänsten är nya servrar som kan hanteras på samma sätt som normal/fristående MySQL-servrar. För varje skrivskyddad replik faktureras du för den etablerade beräkningen i virtuella kärnor och den etablerade lagringen i GB/månad. 
-
+Repliker som skapats i Azure Database for MySQL-tjänsten är nya servrar som kan hanteras på samma sätt som normal/fristående MySQL-servrar. För varje skrivskyddad replik faktureras du för den etablerade beräkningen i virtuella kärnor och den etablerade lagringen i GB/månad.
 
 Läs mer om funktioner för replikering av MySQL och problem i den [dokumentation för replikering av MySQL](https://dev.mysql.com/doc/refman/5.7/en/replication-features.html).
 
@@ -39,7 +35,7 @@ Läs repliker är för närvarande endast tillgängliga i prisnivåer för gener
 
 ### <a name="master-server-restart"></a>Huvudservern omstart
 
-Den här förhandsversionen när du skapar en replik för en huvudserver som har inga befintliga replikeringar startas huvudservern först för att förbereda själva för replikering. Ha i åtanke och utföra dessa åtgärder under en period som med låg belastning.
+När du skapar en replik för en huvudserver som har inga befintliga replikeringar startas först huvudservern för att förbereda själva för replikering. Ha i åtanke och utföra dessa åtgärder under en period som med låg belastning.
 
 ### <a name="stopping-replication"></a>Stoppa replikering
 

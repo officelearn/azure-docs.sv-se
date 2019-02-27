@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/29/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 0d0e9c1c35236ce6449a9c9bf06ba291f46db472
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 5e749f68aba48ac258363a0a03e3474e1e28b064
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53731529"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56876780"
 ---
 # <a name="troubleshoot-an-app-in-azure-app-service-using-visual-studio"></a>Felsök en app i Azure App Service med Visual Studio
 ## <a name="overview"></a>Översikt
@@ -349,11 +349,11 @@ Den `WebPageTraceListener` kan du visa spårningsutdata genom att bläddra till 
 5. I adressfältet i webbläsarfönstret, lägger du till *trace.axd* i Webbadressen och tryck på RETUR (URL: en liknar http://localhost:53370/trace.axd).
 6. På den **programspårning** klickar du på **visa information om** på den första raden (inte BrowserLink rad).
 
-    ![Trace.Axd](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-traceaxd1.png)
+    ![trace.axd](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-traceaxd1.png)
 
     Den **information om begäran** visas, och i den **spårningsinformation** avsnitt som du ser utdata från spårningsinstruktioner som du lade till den `Index` metoden.
 
-    ![Trace.Axd](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-traceaxd2.png)
+    ![trace.axd](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-traceaxd2.png)
 
     Som standard `trace.axd` endast är tillgängligt lokalt. Om du vill göra den tillgänglig från en fjärransluten app kan du lägga till `localOnly="false"` till den `trace` elementet i den *Web.config* filen enligt i följande exempel:
 
@@ -617,7 +617,7 @@ Du har sett hur Visual Studio gör det enkelt att visa loggar som skapats av en 
 * Spårning i ASP.NET-program
 * Analysera webbserverloggar
 * Det gick inte att analysera spårningsloggar för begäran
-* Distribuera Cloud Services
+* Debugging Cloud Services
 
 ### <a name="app-service-troubleshooting"></a>App Service-felsökning
 Mer information om felsökning av appar i Azure App Service finns i följande resurser:
@@ -685,7 +685,7 @@ Mer information om att analysera webbserverloggar finns i följande resurser:
 
 * [LogParser](https://www.microsoft.com/download/details.aspx?id=24659)<br/>
   Ett verktyg för att visa data i webbserverloggar (*.log* filer).
-* [Felsöka IIS prestandaproblem eller fel i program med hjälp av LogParser ](https://www.iis.net/learn/troubleshoot/performance-issues/troubleshooting-iis-performance-issues-or-application-errors-using-logparser)<br/>
+* [Felsöka IIS prestandaproblem eller fel i program med hjälp av LogParser](https://www.iis.net/learn/troubleshoot/performance-issues/troubleshooting-iis-performance-issues-or-application-errors-using-logparser)<br/>
   En introduktion till verktyget Parser för loggar som du kan använda för att analysera webbserverloggar.
 * [Blogginlägg av Robert McMurray om hur du använder LogParser](https://blogs.msdn.com/b/robert_mcmurray/archive/tags/logparser/)<br/>
 * [HTTP-statuskod i IIS 7.0, IIS 7.5 och IIS 8.0](https://support.microsoft.com/kb/943891)

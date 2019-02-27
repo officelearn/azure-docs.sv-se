@@ -13,12 +13,12 @@ ms.workload: big-compute
 ms.date: 11/14/2018
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 0aa0be7ae9658259b327014c5678777c963e6cb5
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: 77d8504dba180cfb56807344e659d6b22231f931
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54302824"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56866648"
 ---
 # <a name="persist-task-data-to-azure-storage-with-the-batch-service-api"></a>Spara aktivitetsdata till Azure Storage med API: et för Batch-tjänsten
 
@@ -38,7 +38,7 @@ Azure Batch får du fler än ett sätt att spara uppgiftsutdata. Med API: et fö
 - Du vill spara utdata till en Azure Storage-behållare med namnet enligt den [Batch File Conventions standard](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions). 
 
 > [!NOTE]
-> API för Batch-tjänsten stöder inte bevara data från aktiviteter som körs i pooler som skapats med molntjänstkonfigurationen. Information om bestående aktivitet utdata från pooler med cloud services-konfigurationen finns i [bevara jobb- och data till Azure Storage med Batch File Conventions-bibliotek för .NET för att bevara ](batch-task-output-file-conventions.md).
+> API för Batch-tjänsten stöder inte bevara data från aktiviteter som körs i pooler som skapats med molntjänstkonfigurationen. Information om bestående aktivitet utdata från pooler med cloud services-konfigurationen finns i [bevara jobb- och data till Azure Storage med Batch File Conventions-bibliotek för .NET för att bevara](batch-task-output-file-conventions.md).
 
 Om ditt scenario skiljer sig från de som anges ovan, kan du behöva tänka på en annan metod. Till exempel stöder API: et för Batch-tjänsten för närvarande inte strömmande utdata till Azure Storage när aktiviteten körs. Att strömma utdata bör du överväga att använda Batch File Conventions-bibliotek för .NET. För övriga språk behöver du implementera en egen lösning. Mer information om andra alternativ för att bevara uppgiftsutdata finns [Spara jobb- och utdata till Azure Storage](batch-task-output.md).
 

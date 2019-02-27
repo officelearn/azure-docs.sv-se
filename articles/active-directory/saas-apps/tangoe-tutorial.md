@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 986afa1239ad0efd9ccb936252ead37c8379b447
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 8c9f410fa890df7aac3c3bf4d89468b92e69ba38
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56192905"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56883240"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tangoe-command-premium-mobile"></a>Självstudier: Azure Active Directory-integrering med Tangoe kommandot Premium Mobile
 
@@ -75,7 +75,7 @@ För att konfigurera integrering av Tangoe kommandot Premiumenheter för mobila 
 
 1. I sökrutan skriver **Tangoe kommandot Premiumenheter för mobila**väljer **Tangoe kommandot Premiumenheter för mobila** resultatet panelen klickar **Lägg till** för att lägga till programmet.
 
-    ![Lägg till Tangoe kommandot Premiumenheter för mobila från galleriet ](./media/tangoe-tutorial/tutorial_tangoe_addfromgallery.png)
+    ![Lägg till Tangoe kommandot Premiumenheter för mobila från galleriet](./media/tangoe-tutorial/tutorial_tangoe_addfromgallery.png)
 
 ##  <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med Tangoe kommandot Premiumenheter för mobila baserat på en testanvändare som kallas ”Britta Simon”.

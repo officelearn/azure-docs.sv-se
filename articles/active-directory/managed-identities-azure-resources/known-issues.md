@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 12/12/2017
 ms.author: priyamo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1162eb7964c8ec40f2b342e33044b60385cbd5f6
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: f7829627352815bc96a7a81bcbbc7e51240c858e
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56727493"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56870864"
 ---
 # <a name="faqs-and-known-issues-with-managed-identities-for-azure-resources"></a>Vanliga frågor och kända problem med hanterade identiteter för Azure-resurser
 
@@ -38,7 +38,7 @@ Nej, det finns inga planer på att stöd för hanterade identiteter för Azure-r
 
 ### <a name="does-managed-identities-for-azure-resources-work-with-the-active-directory-authentication-library-adal-or-the-microsoft-authentication-library-msal"></a>Fungerar hanterade identiteter för Azure-resurser med Active Directory Authentication Library (ADAL) eller Microsoft Authentication Library (MSAL)?
 
-Nej, hanterade identiteter för Azure-resurser ännu inte är integrerad med ADAL eller MSAL. Mer information om skaffa en token som hanterade identiteter för Azure-resurser med hjälp av REST-slutpunkt finns [hur du använder hanterade identiteter för Azure-resurser på en Azure virtuell dator för att hämta en åtkomsttoken ](how-to-use-vm-token.md).
+Nej, hanterade identiteter för Azure-resurser ännu inte är integrerad med ADAL eller MSAL. Mer information om skaffa en token som hanterade identiteter för Azure-resurser med hjälp av REST-slutpunkt finns [hur du använder hanterade identiteter för Azure-resurser på en Azure virtuell dator för att hämta en åtkomsttoken](how-to-use-vm-token.md).
 
 ### <a name="what-is-the-security-boundary-of-managed-identities-for-azure-resources"></a>Vad är säkerhetsgränsen hanterade identiteter för Azure-resurser?
 

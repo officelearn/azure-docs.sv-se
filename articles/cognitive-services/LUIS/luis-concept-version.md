@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: diberry
-ms.openlocfilehash: b363f68b625a6f0987e58609477f51c7098423bf
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 9da79e5b744f8ba70c0e265f0d1f0126b37eba49
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55874098"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56870660"
 ---
 # <a name="understand-how-and-when-to-use-a-luis-version"></a>Förstå hur och när du använder en LUIS-version
 
@@ -35,7 +35,7 @@ Att [ange en version](luis-how-to-manage-versions.md#set-active-version) som akt
 
 Namnet på den aktiva versionen visas i den övre, vänstra panelen efter appnamnet. 
 
-[ ![Ändra active version](./media/luis-concept-version/version-in-nav-bar-inline.png) ](./media/luis-concept-version/version-in-nav-bar-expanded.png#lightbox)
+[![Ändra active version](./media/luis-concept-version/version-in-nav-bar-inline.png)](./media/luis-concept-version/version-in-nav-bar-expanded.png#lightbox)
 
 ## <a name="versions-and-publishing-slots"></a>Versioner och publicera platser
 Du publicerar till antingen steg och produkten platser. Varje plats kan ha en annan version eller samma version. Detta är användbart för att verifiera ändringar mellan modellversioner via den slutpunkt som är tillgänglig för robotar eller andra LUIS anropa program. 

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: e08e7ae0a97b206a692dd47e91c4c94847cb9833
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 5e8aa310d518ff26d2d0224797b2feb0745896d1
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56235180"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56864914"
 ---
 # <a name="create-an-hdinsight-cluster-with-azure-data-lake-storage-gen1-using-azure-resource-manager-template"></a>Skapa ett HDInsight-kluster med Azure Data Lake Storage Gen1 med hjälp av Azure Resource Manager-mall
 > [!div class="op_single_selector"]
@@ -90,7 +90,7 @@ När du har konfigurerat ett HDInsight-kluster, kan du köra testjobb på klustr
 
 I det här avsnittet kommer du att SSH till en HDInsight Linux-kluster och kör den en exempelfråga för Hive. Om du använder en Windows-klient, bör du använda **PuTTY**, som kan laddas ned från [ http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html ](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
-Läs mer om hur du använder PuTTY [använda SSH med Linux-baserat Hadoop i HDInsight från Windows ](../hdinsight/hdinsight-hadoop-linux-use-ssh-windows.md).
+Läs mer om hur du använder PuTTY [använda SSH med Linux-baserat Hadoop i HDInsight från Windows](../hdinsight/hdinsight-hadoop-linux-use-ssh-windows.md).
 
 1. När du är ansluten, startar du Hive-CLI med hjälp av följande kommando:
 
@@ -126,7 +126,7 @@ När du har konfigurerat HDInsight-kluster för att använda Data Lake Storage G
 
 I det här avsnittet kommer du att SSH till ett HDInsight Linux-kluster och köra kommandona HDFS. Om du använder en Windows-klient, bör du använda **PuTTY**, som kan laddas ned från [ http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html ](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
-Läs mer om hur du använder PuTTY [använda SSH med Linux-baserat Hadoop i HDInsight från Windows ](../hdinsight/hdinsight-hadoop-linux-use-ssh-windows.md).
+Läs mer om hur du använder PuTTY [använda SSH med Linux-baserat Hadoop i HDInsight från Windows](../hdinsight/hdinsight-hadoop-linux-use-ssh-windows.md).
 
 När du är ansluten, Använd kommandot filsystem HDFS för att visa filer i Data Lake Storage Gen1-konto.
 

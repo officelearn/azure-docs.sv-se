@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/26/2019
 ms.author: bwren
-ms.openlocfilehash: 56542ef116656bff979e27dfc2ddd5e82056c452
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: d0902c0e0b4c669f3918155f8416f064485abbea
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56750149"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56874910"
 ---
 # <a name="azure-monitor-overview"></a>Översikt över Azure Monitor
 
@@ -132,12 +132,10 @@ Ofta har du kravet på att integrera Azure Monitor med andra system och för att
 ### <a name="event-hub"></a>Händelsehubb
 [Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs) är en strömmande plattform och händelseinmatningstjänst som kan omvandla och lagra data med valfri leverantör av realtidsanalys eller batchbearbetnings-/ lagringsadapter. Använda Event Hubs till [strömma Azure Monitor data](platform/stream-monitoring-data-event-hubs.md) att samarbeta SIEM och övervakningsverktyg.
 
-> [!VIDEO https://www.youtube.com/embed/SPHxCgbcvSw]
 
 ### <a name="logic-apps"></a>Logic Apps
 [Logic Apps](https://azure.microsoft.com/services/logic-apps) är en tjänst som gör det möjligt att automatisera uppgifter och affärsprocesser med hjälp av arbetsflöden som integreras med olika system och tjänster. Aktiviteter är tillgängliga som läsa och skriva mått och loggar i Azure Monitor, där du kan skapa arbetsflöden som integrerar med en mängd andra system.
 
-![Logikapp](platform/media/collect-activity-logs-subscriptions/log-analytics-logic-apps-activity-log-overview.png)
 
 ### <a name="api"></a>API
 Det finns flera API: er för att läsa och skriva mått och loggar till och från Azure Monitor förutom att komma åt varningar som genererats. Du kan också konfigurera och hämta aviseringar. Det ger dig i stort sett obegränsade möjligheter att skapa anpassade lösningar som integreras med Azure Monitor.

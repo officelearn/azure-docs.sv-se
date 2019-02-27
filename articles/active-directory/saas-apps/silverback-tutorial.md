@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/17/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b5614c061586c39e44f04f3542285e55e07f14d9
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: e5d48cbeb1714a4a3cd645fd65264aec0baf2c05
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56172725"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56871778"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-silverback"></a>Självstudier: Azure Active Directory-integrering med Silverback
 
@@ -131,7 +131,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     b. På den **autentiseringsinställningar för providern** utför följande steg:
 
-    ![Administratören ](./media/silverback-tutorial/tutorial_silverback_admin.png)
+    ![Administratören](./media/silverback-tutorial/tutorial_silverback_admin.png)
 
     c.  Klicka på **importera från URL: en**.
     
@@ -195,7 +195,7 @@ Om du vill aktivera Azure AD-användare att logga in på Silverback, måste de e
 
 3. På den **grundläggande** utför följande steg:
 
-    ![Användaren ](./media/silverback-tutorial/tutorial_silverback_user.png)
+    ![Användaren](./media/silverback-tutorial/tutorial_silverback_user.png)
 
     a. I **användarnamn** text, ange namnet på användaren som **Britta**.
 

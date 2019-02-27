@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/03/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 4d4acecbbb90fff7865902a3371d282f1d402374
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: d6f857e926343c4c3c26d746134bbb9d94754c12
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55662898"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56866019"
 ---
 # <a name="azure-active-directory-b2c-migrate-users-with-social-identities"></a>Azure Active Directory B2C: Migrera användare med sociala identiteter
 När du planerar att migrera din identitetsprovider till Azure AD B2C kan du också behöva Migrera användare med sociala identiteter. Den här artikeln beskrivs hur du migrerar befintliga konton i sociala identiteter, till exempel: Facebook, LinkedIn, Microsoft och Google-konton till Azure AD B2C. Den här artikeln gäller även för federerade identiteter, men dessa migreringar är mindre vanliga.
@@ -139,7 +139,7 @@ Utfärdarens namn eller providernamn identitet har konfigurerats i principen. Om
 1. Logga in med ett socialt konto
 2. Kopiera från JWT-token i `sub` värde. Den `sub` innehåller normalt användarens objekt-ID i Azure AD B2C. Eller från Azure-portalen, öppna egenskaperna för användarens och kopiera objekt-ID.
 3. Öppna [Azure AD Graph-testaren](https://graphexplorer.azurewebsites.net)
-4. Logga in med din administratör. N
+4. Logga in med din administratör.
 5. Kör följande GET-begäran. Ersätt userObjectId med det användar-ID som du kopierade. **HÄMTA** https://graph.windows.net/tenant-name.onmicrosoft.com/users/userObjectId
 6. Leta upp den `userIdentities` element i JSON-returnera från Azure AD B2C.
 7. [Valfritt] Du kanske också vill avkoda den `issuerUserId` värde.

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/04/2018
 ms.author: yzheng
 ms.subservice: common
-ms.openlocfilehash: 284a590a484052fdb7da2f03c6155078268b2aac
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 3013365f96fa6841e4db826f9010c6ea994eba2a
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211452"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56879605"
 ---
 # <a name="managing-the-azure-blob-storage-lifecycle-preview"></a>Hantera Azure Blob storage livscykel (förhandsversion)
 
@@ -187,7 +187,7 @@ Filter begränsar regelåtgärder till en delmängd av blobbar i lagringskontot.
 
 I förhandsversionen är giltiga filter:
 
-| Filternamn | Filtertyp | Anteckningar | Krävs |
+| Filternamn | Filtertyp | Anteckningar | Obligatorisk |
 |-------------|-------------|-------|-------------|
 | blobTypes   | En matris med fördefinierade enum-värden. | Förhandsversionen endast stöd för `blockBlob`. | Ja |
 | prefixMatch | En matris med strängar för prefix som ska matcha. En sträng med prefixet måste börja med ett behållarnamn. Exempel: Om du vill matcha alla blobar under ”https://myaccount.blob.core.windows.net/container1/foo/..”. för en regel i prefixMatch är `container1/foo`. | Om du inte definierar prefixMatch gäller reglerna för alla blobbar i kontot. | Nej |
@@ -337,4 +337,4 @@ Plattformen körs policyn för onlinelivscykeln en gång om dagen. När du har a
 
 Lär dig mer om att återställa data efter oavsiktlig borttagning:
 
-- [Mjuk borttagning för Azure Storage-blobbar ](../blobs/storage-blob-soft-delete.md)
+- [Mjuk borttagning för Azure Storage-blobbar](../blobs/storage-blob-soft-delete.md)

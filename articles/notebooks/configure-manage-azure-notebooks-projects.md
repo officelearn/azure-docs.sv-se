@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/25/2019
 ms.author: kraigb
-ms.openlocfilehash: 6d7cacf699df580b8a5c46b8bfc6d48e1a8daea1
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 2c81369bc278a0995af04a38b0143eb0df8ba3a5
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/26/2019
-ms.locfileid: "56821738"
+ms.locfileid: "56877375"
 ---
 # <a name="manage-and-configure-projects"></a>Hantera och konfigurera projekt
 
@@ -66,7 +66,9 @@ Följ anvisningarna för att skapa en ny instans av DSVM på [skapa en Ubuntu vi
 >
 > 1. Kopiera projektfilerna manuellt till den virtuella datorn.
 >
-> 2. Bädda in filer i en anteckningsbok installationen att du kör innan primära anteckningsboken. Skapa en kodcell för varje fil där cellen innehåller filinnehållet i installationsprogrammet-anteckningsboken. Infoga sedan kommandot högst upp i varje cell, `%writefile <filename>`, där `<filename>` är namnet på filen för att ta emot innehållet. När du kör anteckningsboken skapar dessa filer på den virtuella datorn. Ett exempel finns i den [setup.ipynb filen i Microsoft husdjur detektor demon](https://github.com/microsoft/connect-petdetector) (GitHub).
+> 2. Bädda in filer i en anteckningsbok installationen att du kör innan primära anteckningsboken. Skapa en kodcell för varje fil där cellen innehåller filinnehållet i installationsprogrammet-anteckningsboken. Infoga sedan kommandot högst upp i varje cell, `%%writefile <filename>`, där `<filename>` är namnet på filen för att ta emot innehållet. När du kör anteckningsboken skapar dessa filer på den virtuella datorn. Ett exempel finns i den [setup.ipynb filen i Microsoft husdjur detektor demon](https://github.com/Microsoft/connect-petdetector/blob/master/setup.ipynb) (GitHub).
+>
+>     ![Med hjälp av en %% writefile kommandot i början av en kodcell](media/setup-notebook-writefile-command.png)
 
 ## <a name="edit-project-metadata"></a>Redigera projekt metadata
 
@@ -75,7 +77,7 @@ På instrumentpanelen för projektet väljer **Projektinställningar**och välj 
 | Inställning | Beskrivning |
 | --- | --- |
 | Projektnamn | Ett eget namn för ditt projekt som Azure-datorer använder för visning. Till exempel ”Hello World i Python”. |
-| Projekt-ID | En anpassad identifierare som blir en del av URL: en som du använder för att dela ett projekt (formuläret är `https://notebooks.azure.com/<user_id>/projects/<project_id>`). Detta ID kan använda endast bokstäver, siffror och bindestreck och är begränsade till 30 tecken. Om du är osäker vad du använder, är en gemensam konvention att använda en gemen version av ditt projektnamn där blanksteg är aktiverade i bindestreck, till exempel ”min projektnamn” blir ”mitt-projekt – namn”. |
+| Projekt-ID | En anpassad identifierare som blir en del av URL: en som du använder för att dela ett projekt. Detta ID kan använda endast bokstäver, siffror och bindestreck, är begränsade till 30 tecken och får inte vara en [reserverade projekt-ID](create-clone-jupyter-notebooks.md#reserved-project-ids). Om du är osäker vad du använder, är en gemensam konvention att använda en gemen version av ditt projektnamn där blanksteg är aktiverade i bindestreck, till exempel ”min-notebook-projekt” (trunkerad vid behov för att passa längdbegränsningen). |
 | Offentliga projekt | Om ange, kan vem som helst med en länk till projektet. När du skapar ett privat projekt kan du avmarkera det här alternativet. |
 | Dölj kloner | Om du anger, andra användare inte kan se en lista över kloner som har gjorts för det här projektet. Dölja kloner är användbart för projekt som delas med många personer som inte tillhör samma organisation, till exempel när du använder en bärbar dator för undervisar en klass. |
 

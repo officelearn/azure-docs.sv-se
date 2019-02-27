@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
-ms.openlocfilehash: 716c229fbd906798d39bf4ef54ba1f47cd5bd980
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 89b311edbae6b5f6679908b5d07b22b402b5c55e
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56651047"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56888074"
 ---
 # <a name="add-change-or-remove-ip-addresses-for-an-azure-network-interface"></a>Lägga till, ändra eller ta bort IP-adresser för ett gränssnitt för Azure-nätverk
 
@@ -61,9 +61,9 @@ Du kan lägga till så många [privata](#private) och [offentliga](#public) [IPv
 
 **Kommandon**
 
-|Verktyget|Kommando|
+|Verktyg|Kommando|
 |---|---|
-|CLI|[az network nic ip-config create](/cli/azure/network/nic/ip-config#az_network_nic_ip_config_create)|
+|CLI|[az network nic ip-config create](/cli/azure/network/nic/ip-config)|
 |PowerShell|[Lägg till AzNetworkInterfaceIpConfig](/powershell/module/az.network/add-aznetworkinterfaceipconfig)|
 
 ## <a name="change-ip-address-settings"></a>Ändra inställningar för IP-adresser
@@ -82,9 +82,9 @@ Du kanske måste ändra tilldelningsmetoden för en IPv4-adress ändra statiska 
 
 **Kommandon**
 
-|Verktyget|Kommando|
+|Verktyg|Kommando|
 |---|---|
-|CLI|[AZ network nic ip-config update](/cli/azure/network/nic/ip-config#az_network_nic_ip_config_update)|
+|CLI|[AZ network nic ip-config update](/cli/azure/network/nic/ip-config)|
 |PowerShell|[Set-AzNetworkInterfaceIpConfig](/powershell/module/az.network/set-aznetworkinterfaceipconfig)|
 
 ## <a name="remove-ip-addresses"></a>Ta bort IP-adresser
@@ -98,9 +98,9 @@ Du kan ta bort [privata](#private) och [offentliga](#public) IP-adresser från e
 
 **Kommandon**
 
-|Verktyget|Kommando|
+|Verktyg|Kommando|
 |---|---|
-|CLI|[AZ network nic ip-config delete](/cli/azure/network/nic/ip-config#az_network_nic_ip_config_delete)|
+|CLI|[AZ network nic ip-config delete](/cli/azure/network/nic/ip-config)|
 |PowerShell|[Remove-AzNetworkInterfaceIpConfig](/powershell/module/az.network/remove-aznetworkinterfaceipconfig)|
 
 ## <a name="ip-configurations"></a>IP-konfigurationer
@@ -204,7 +204,7 @@ En offentlig IP-adress har skapats med basic eller standard-SKU. Mer information
 ## <a name="next-steps"></a>Nästa steg
 Läs följande artiklar för att skapa en virtuell dator med olika IP-konfigurationer:
 
-|Aktivitet|Verktyget|
+|Aktivitet|Verktyg|
 |---|---|
 |Skapa en virtuell dator med flera nätverksgränssnitt|[CLI](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [PowerShell](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 |Skapa en enda NIC-VM med flera IPv4-adresser|[CLI](virtual-network-multiple-ip-addresses-cli.md), [PowerShell](virtual-network-multiple-ip-addresses-powershell.md)|

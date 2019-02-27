@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 08/20/2018
+ms.date: 02/26/2019
 ms.author: mbullwin
-ms.openlocfilehash: eda41870e86db206847f5ea81e23fa1b7612234c
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: b1f6024538c6807fd68a0d7b0b7ae2776938055b
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56817311"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56888204"
 ---
 # <a name="export-telemetry-from-application-insights"></a>Exportera telemetri från Application Insights
 Om du vill behålla din telemetri under längre tid än kvarhållningsperioden standard? Eller bearbeta dem i något specialiserade sätt? Löpande Export är perfekt för detta. Händelserna som visas i Application Insights-portalen kan exporteras till lagringen i Microsoft Azure i JSON-format. Därifrån kan du hämta dina data och skriver det kod som du behöver bearbetas.  
@@ -37,7 +37,7 @@ När löpande Export kopierar dina data till lagring (där det kan vara under s�
 
 Löpande Export **stöder inte** följande funktioner/konfigurationer i Azure storage:
 
-* Användning av [VNET/Azure Storage-brandväggar](https://docs.microsoft.com/azure/storage/common/storage-network-security) i flygplatsernas med Azure Blob storage.
+* Användning av [VNET/Azure Storage-brandväggar](https://docs.microsoft.com/azure/storage/common/storage-network-security) tillsammans med Azure Blob storage.
 
 * [Oföränderlig storage](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutable-storage) för Azure Blob storage.
 
@@ -150,7 +150,7 @@ I liten skala, kan du skriva kod för att sätta ihop dina data, läsa den i ett
 Ett större kodexempel Se [med hjälp av en arbetsroll][exportasa].
 
 ## <a name="delete"></a>Ta bort din gamla data
-Observera att du är ansvarig för att hantera lagringskapaciteten och ta bort gamla data om det behövs.
+Du ansvarar för att hantera lagringskapaciteten och ta bort gamla data om det behövs.
 
 ## <a name="if-you-regenerate-your-storage-key"></a>Om du återskapar din lagringsnyckel...
 Om du ändrar nyckeln till din lagring att löpande export sluta fungera. Du ser ett meddelande i ditt Azure-konto.

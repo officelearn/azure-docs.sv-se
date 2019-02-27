@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 01/19/2019
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9e209fe0486b72c14912fd0af1b29c878e4b4545
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 722fc5366d8f6863d19d09bd6e555fcc9a73d570
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56340118"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56868127"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Självstudier: Konfigurera Workday för automatisk användaretablering
 
@@ -530,7 +530,7 @@ I det här avsnittet konfigurerar du hur informationen flödar från Workday til
 | **Förnamn**   | givenName       |     |    Skapa och uppdatera |
 | **Efternamn**   |   SN   |     |  Skapa och uppdatera |
 | **PreferredNameData**  |  displayName |     |   Skapa och uppdatera |
-| **Företagets**         | Företagets   |     |  Skapa och uppdatera |
+| **Företagets**         | company   |     |  Skapa och uppdatera |
 | **SupervisoryOrganization**  | avdelning  |     |  Skapa och uppdatera |
 | **ManagerReference**   | ansvarig  |     |  Skapa och uppdatera |
 | **BusinessTitle**   |  title     |     |  Skapa och uppdatera | 
@@ -1064,7 +1064,7 @@ Det här avsnittet beskriver följande aspekter av felsökning:
 
 När en ny anställa i Workday har identifierats (vi antar att med anställnings-ID *21023*), Azure AD provisioning service-försök att skapa ett nytt AD-användarkonto för arbetaren och i processen skapar 4 granskningsloggposter enligt beskrivningen nedan:
 
-  [ ![Granskningslogg skapa ops](media/workday-inbound-tutorial/wd_audit_logs_02.png) ](media/workday-inbound-tutorial/wd_audit_logs_02.png#lightbox)
+  [![Granskningslogg skapa ops](media/workday-inbound-tutorial/wd_audit_logs_02.png)](media/workday-inbound-tutorial/wd_audit_logs_02.png#lightbox)
 
 När du klickar på någon av loggen granskningsposter i **aktivitetsinformation** sida öppnas. Här är vad den **aktivitetsinformation** visar sidan för varje posttyp för loggen.
 
@@ -1132,7 +1132,7 @@ När du klickar på någon av loggen granskningsposter i **aktivitetsinformation
 
 Attributet manager är ett referensattribut i AD. Etableringstjänsten ställer inte in attributet manager som en del av åtgärden för att skapa användaren. I stället manager attributet anges som en del av en *uppdatera* igen när AD-konto har skapats för användaren. Expandera i exemplet ovan, vi antar att en ny anställa med anställnings-ID ”21451” är aktiverad i Workday och den nya anställa manager (*21023*) har redan ett AD-konto. I det här scenariot visas söka granskningsloggarna för användaren 21451 5 poster.
 
-  [ ![Manager-uppdatering](media/workday-inbound-tutorial/wd_audit_logs_03.png) ](media/workday-inbound-tutorial/wd_audit_logs_03.png#lightbox)
+  [![Manager-uppdatering](media/workday-inbound-tutorial/wd_audit_logs_03.png)](media/workday-inbound-tutorial/wd_audit_logs_03.png#lightbox)
 
 De första 4 posterna är som de som vi utforskat som en del av användaren för att skapa. 5-post är exporten som är associerade med manager attributet-uppdatering. Loggposten visas resultatet av AD-konto manager uppdateringsåtgärden, vilket utförs med hjälp av manager *objectGuid* attribut.
 

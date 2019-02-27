@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/25/2017
 ms.author: maghan
-ms.openlocfilehash: fdbbfaf4a4c3df90302b0b69e4964b7a073f2fa4
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 4a7da4a6e7b4b395063f7e4c9a3e97d610492ef6
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237968"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56882679"
 ---
 # <a name="get-started-with-power-bi-workspace-collections-sample"></a>Kom igång med Power BI-Arbetsytesamlingar exempel
 
@@ -28,7 +28,7 @@ Innan vi går vidare, som du vill spara följande resurser: De hjälper dig att 
 
 * [Exempelwebbappen för arbetsytan](https://go.microsoft.com/fwlink/?LinkId=761493)
 * [Power BI-arbetsyta samlingar API-referens](https://msdn.microsoft.com/library/azure/mt711507.aspx)
-* [Power BI .NET SDK ](https://go.microsoft.com/fwlink/?LinkId=746472) (tillgängligt via NuGet)
+* [Power BI .NET SDK](https://go.microsoft.com/fwlink/?LinkId=746472) (tillgängligt via NuGet)
 * [Rapport för JavaScript-Inbäddningsexempel](https://microsoft.github.io/PowerBI-JavaScript/demo)
 
 > [!NOTE]

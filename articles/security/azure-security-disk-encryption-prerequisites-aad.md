@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mstewart
 ms.date: 01/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: 76e25c04afbce215028699d54cb6022f0caeced5
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: aa4c4beacd6f6755c1e5ce56f70dcf5a74166c80
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56118249"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56880248"
 ---
 # <a name="azure-disk-encryption-prerequisites-previous-release"></a>Krav för Azure Disk Encryption (tidigare version)
 
@@ -232,7 +232,7 @@ För att köra följande kommandon, hämta och använda den [Azure AD PowerShell
 
 ### <a name="bkmk_ADappCLI"></a> Ställa in en Azure AD-app och tjänstens huvudnamn med Azure CLI
 
-Du kan hantera din tjänstens huvudnamn med Azure CLI med hjälp av den [az ad sp](/cli/azure/ad/sp) kommandon. Mer information finns i [och skapa en Azure-tjänstens huvudnamn ](/cli/azure/create-an-azure-service-principal-azure-cli).
+Du kan hantera din tjänstens huvudnamn med Azure CLI med hjälp av den [az ad sp](/cli/azure/ad/sp) kommandon. Mer information finns i [och skapa en Azure-tjänstens huvudnamn](/cli/azure/create-an-azure-service-principal-azure-cli).
 
 1. Om det behövs [ansluta till din Azure-prenumeration](azure-security-disk-encryption-appendix.md#bkmk_ConnectCLI).
 2. Skapa ett nytt huvudnamn för tjänsten.
@@ -293,7 +293,7 @@ Använd [az keyvault set-policy](/cli/azure/keyvault#az-keyvault-set-policy) att
 
 ![Azure Key Vault kryptografiska åtgärder - Wrap Key](./media/azure-security-disk-encryption/keyvault-portal-fig3.png)
 
-![Ange behörigheter för Azure Key Vault-hemlighet- ](./media/azure-security-disk-encryption/keyvault-portal-fig3b.png)
+![Ange behörigheter för Azure Key Vault-hemlighet-](./media/azure-security-disk-encryption/keyvault-portal-fig3b.png)
 
 ## <a name="bkmk_KVper"></a> Ställ in avancerade åtkomstprinciper för nyckelvalvet
 Azure-plattformen behöver åtkomst till krypteringsnycklar och hemligheter i ditt nyckelvalv och gör dem tillgängliga för den virtuella datorn för start och dekryptera volymerna. Aktivera diskkryptering på nyckelvalvet eller distributioner kommer att misslyckas.  

@@ -16,12 +16,12 @@ ms.date: 02/14/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 12/10/2018
-ms.openlocfilehash: f80f0870400fa7fb46b7787c6c257255a780cf3b
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: c3c577ce2483c5de3aa458c7fe4b6fced418f684
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56244121"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56882951"
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>Hämta marketplace-objekt från Azure till Azure Stack
 
@@ -50,20 +50,20 @@ Azure Stack-distributioner måste ha Internetanslutning och vara [registrerad me
 
     Att granska tillgängligt utrymme i **regionshantering** väljer du den region som du vill utforska och gå sedan till **Resursprovidrar** > **Storage**.
 
-    [ ![Granska lagringsutrymme](media/azure-stack-download-azure-marketplace-item/storagesm.png "granska lagringsutrymme") ](media/azure-stack-download-azure-marketplace-item/storage.png#lightbox)
+    [![Granska lagringsutrymme](media/azure-stack-download-azure-marketplace-item/storagesm.png "granska lagringsutrymme")](media/azure-stack-download-azure-marketplace-item/storage.png#lightbox)
 
     
 3. Öppna Azure Stack Marketplace och Anslut till Azure. Om du vill göra det, Välj **Marketplace management**, och välj sedan **Lägg till från Azure**.
 
-    [ ![Lägg till från Azure](media/azure-stack-download-azure-marketplace-item/marketplacesm.png "Lägg till från Azure") ](media/azure-stack-download-azure-marketplace-item/marketplace.png#lightbox)
+    [![Lägg till från Azure](media/azure-stack-download-azure-marketplace-item/marketplacesm.png "Lägg till från Azure")](media/azure-stack-download-azure-marketplace-item/marketplace.png#lightbox)
 
     Portalen visar en lista över tillgängliga för nedladdning från Azure Marketplace. Du kan klicka på varje objekt för att visa dess beskrivning och ytterligare information om det, inklusive dess hämtningsstorlek. 
 
-    [ ![Marketplace-lista](media/azure-stack-download-azure-marketplace-item/image03sm.png "Marketplace-lista") ](media/azure-stack-download-azure-marketplace-item/image03.png#lightbox)
+    [![Marketplace-lista](media/azure-stack-download-azure-marketplace-item/image03sm.png "Marketplace-lista")](media/azure-stack-download-azure-marketplace-item/image03.png#lightbox)
 
 4. Det objekt du vill och välj sedan **hämta**. Filhämtningar variera.
 
-    [ ![Hämta meddelande](media/azure-stack-download-azure-marketplace-item/image04.png "hämta meddelande") ](media/azure-stack-download-azure-marketplace-item/image04.png#lightbox)
+    [![Hämta meddelande](media/azure-stack-download-azure-marketplace-item/image04.png "hämta meddelande")](media/azure-stack-download-azure-marketplace-item/image04.png#lightbox)
 
     När nedladdningen är klar kan du distribuera det nya marketplace-objektet som ett Azure Stack-operatör eller användare.
 
@@ -134,7 +134,7 @@ Det finns två delar i det här scenariot:
 
 6. När verktyget körs, bör du se en skärm som liknar följande bild, med listan över tillgängliga marketplace-objekt:
 
-   [ ![Azure Marketplace objekt popup](media/azure-stack-download-azure-marketplace-item/image05.png "Azure Marketplace-objekt") ](media/azure-stack-download-azure-marketplace-item/image05.png#lightbox)
+   [![Azure Marketplace objekt popup](media/azure-stack-download-azure-marketplace-item/image05.png "Azure Marketplace-objekt")](media/azure-stack-download-azure-marketplace-item/image05.png#lightbox)
 
 7. Välj ett objekt som du vill ladda ned och anteckna den *version*. Du kan hålla den *Ctrl* för att markera flera avbildningar. Du refererar till den *version* när du importerar objekt i nästa procedur. 
    
@@ -158,7 +158,7 @@ Det finns två delar i det här scenariot:
 
    Följande bild visar ett exempel på mappen struktur. `D:\downloadfolder` innehåller alla hämtade marketplace-objekt. Varje undermapp är ett marketplace-objekt (till exempel `microsoft.custom-script-linux-arm-2.0.3`) med namnet av produkt-ID. I varje undermapp finns i marketplace-objekt hämtat innehåll.
 
-   [ ![Marketplace download katalogstruktur](media/azure-stack-download-azure-marketplace-item/mp1sm.png "Marketplace download katalogstruktur") ](media/azure-stack-download-azure-marketplace-item/mp1.png#lightbox)
+   [![Marketplace download katalogstruktur](media/azure-stack-download-azure-marketplace-item/mp1sm.png "Marketplace download katalogstruktur")](media/azure-stack-download-azure-marketplace-item/mp1.png#lightbox)
 
 2. Följ instruktionerna i [i den här artikeln](azure-stack-powershell-configure-admin.md) att konfigurera Azure Stack operatorn PowerShell-session. 
 
@@ -188,15 +188,15 @@ Det finns två delar i det här scenariot:
    1. I Azure Stack-administratörsportalen, går du till **alla tjänster** och sedan under den **DATA + lagring** kategori, väljer **lagringskonton**.  
    
    2. Välj ett lagringskonto från din prenumeration och sedan under **BLOBTJÄNSTEN**väljer **behållare**.  
-      [ ![BLOB-tjänst](media/azure-stack-download-azure-marketplace-item/blob-service.png "Blob service") ](media/azure-stack-download-azure-marketplace-item/blob-service.png#lightbox)  
+      [![BLOB-tjänst](media/azure-stack-download-azure-marketplace-item/blob-service.png "Blob service")](media/azure-stack-download-azure-marketplace-item/blob-service.png#lightbox)  
    
    3. Markera den behållare som du vill använda och välj sedan **överför** att öppna den **ladda upp blob** fönstret.  
-      [ ![Behållaren](media/azure-stack-download-azure-marketplace-item/container.png "behållare") ](media/azure-stack-download-azure-marketplace-item/container.png#lightbox)  
+      [![Container](media/azure-stack-download-azure-marketplace-item/container.png "Container")](media/azure-stack-download-azure-marketplace-item/container.png#lightbox)  
    
-   4. Bläddra till paketet och disk-filer att läsa in till lagring och välj sedan i fönstret ladda upp blob **överför**: [ ![Ladda upp](media/azure-stack-download-azure-marketplace-item/uploadsm.png "ladda upp") ](media/azure-stack-download-azure-marketplace-item/upload.png#lightbox)  
+   4. Bläddra till paketet och disk-filer att läsa in till lagring och välj sedan i fönstret ladda upp blob **överför**: [![Ladda upp](media/azure-stack-download-azure-marketplace-item/uploadsm.png "ladda upp")](media/azure-stack-download-azure-marketplace-item/upload.png#lightbox)  
 
    5. Filer som du överför visas i fönstret behållare. Välj en fil och kopiera Webbadressen från den **Blobegenskaper** fönstret. Du ska använda den här URL: en i nästa steg när du importerar marketplace-objekt till Azure Stack.  I följande bild, behållaren är *test blobblagring* och filen *Microsoft.WindowsServer2016DatacenterServerCore ARM.1.0.801.azpkg*.  Filen URL: en är *https://testblobstorage1.blob.local.azurestack.external/blob-test-storage/Microsoft.WindowsServer2016DatacenterServerCore-ARM.1.0.801.azpkg*.  
-      [ ![Blobegenskaper](media/azure-stack-download-azure-marketplace-item/blob-storagesm.png "Blobegenskaper") ](media/azure-stack-download-azure-marketplace-item/blob-storage.png#lightbox)  
+      [![Blobegenskaper](media/azure-stack-download-azure-marketplace-item/blob-storagesm.png "Blobegenskaper")](media/azure-stack-download-azure-marketplace-item/blob-storage.png#lightbox)  
 
 3. Importera VHD-avbildning till Azure Stack med hjälp av den **Lägg till AzsPlatformimage** cmdlet. När du använder den här cmdleten ersätter den *publisher*, *erbjuder*, och andra parametervärden med värdena för den avbildning som du importerar. 
 
@@ -235,7 +235,7 @@ Det finns två delar i det här scenariot:
      –Verbose
     ```
 5. När du har publicerat ett galleriobjekt är det nu tillgänglig för användning. För att bekräfta att galleriobjektet har publicerats, gå till **alla tjänster**, och sedan under den **Allmänt** kategori, väljer **Marketplace**.  Om din nedladdning är en lösningsmall, kontrollera att du lägger till alla beroende VHD-avbildning för den lösningsmallen.  
-  [ ![Visa marketplace](media/azure-stack-download-azure-marketplace-item/view-marketplacesm.png "visa marketplace") ](media/azure-stack-download-azure-marketplace-item/view-marketplace.png#lightbox)  
+  [![Visa marketplace](media/azure-stack-download-azure-marketplace-item/view-marketplacesm.png "visa marketplace")](media/azure-stack-download-azure-marketplace-item/view-marketplace.png#lightbox)  
 
 Du kan nu lägga till tillägg för virtuell dator med versionen av Azure Stack PowerShell 1.3.0. Exempel:
 

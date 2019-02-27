@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 02/18/2019
 ms.author: cshoe
-ms.openlocfilehash: d3968559864f828630cf1074cb1064eb77f15776
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 0c1dbbae5e4be965f195b5ea4fc88b1bc5fb4f87
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56739862"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56887190"
 ---
 # <a name="azure-functions-binding-expression-patterns"></a>Azure Functions bindning mönster för uttryck
 
@@ -25,7 +25,7 @@ De flesta uttryck identifieras genom att omsluta dem anger mellan klammerparente
 
 Typer av uttryck för bindning
 
-* [Appinställningar](#app-settings)
+* [Appinställningar](#binding-expressions---app-settings)
 * [Filnamn för utlösare](#trigger-file-name)
 * [Utlösaren metadata](#trigger-metadata)
 * [JSON-nyttolaster](#json-payloads)

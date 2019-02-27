@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 02/06/2019
-ms.openlocfilehash: 16d536ff5bd1f7d9a3427877a93036d9f711564e
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: d94bc570f47d71a7e2b626041acd4bb6e84d0dc1
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56099794"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56876015"
 ---
 # <a name="faq-about-azure-sql-hyperscale-databases"></a>Vanliga frågor och svar om Azure SQL hyperskala databaser
 
@@ -73,7 +73,7 @@ Tjänstnivån hyperskala är främst avsett för kunder som har stora lokala SQL
 
 ### <a name="what-regions-currently-support-hyperscale"></a>Vilka regioner stöder för närvarande hyperskala
 
-Hyperskala är nu tillgänglig för enskilda databaser i följande regioner:  Västra US1, USA, västra 2, östra US1, centrala USA, Västeuropa, Nordeuropa, Storbritannien, västra, Sydostasien, östra Japan, Korea, centrala, Australien, sydöstra och Östra Australien.
+Hyperskala är nu tillgänglig för enskilda databaser i följande regioner:  Västra US1, USA, västra 2, östra US1, centrala USA, Västeuropa, Nordeuropa, Sydostasien, östra Japan, Korea, centrala, Australien, sydöstra och Östra Australien.
 
 ### <a name="can-i-create-multiple-hyperscale-databases-per-sql-database-server"></a>Jag kan skapa flera databaser i hyperskala per SQL Database-server
 

@@ -1,6 +1,6 @@
 ---
-title: Fråga Azure Log Analytics för att övervaka Azure HDInsight-kluster
-description: Lär dig hur du kör frågor på Azure Log Analytics för att övervaka jobb som körs i ett HDInsight-kluster.
+title: Fråga Azure Monitor-loggar för att övervaka Azure HDInsight-kluster
+description: Lär dig mer om att köra frågor i Azure Monitor-loggar att övervaka jobb som körs i ett HDInsight-kluster.
 services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -9,24 +9,26 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/05/2018
 ms.author: hrasheed
-ms.openlocfilehash: 400ae8ffe86b5ba66a53835c720f911ddb889bd9
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: e1187867fc9da9a89f92d7b321c8703ee7a8a407
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53386510"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889264"
 ---
-# <a name="query-azure-log-analytics-to-monitor-hdinsight-clusters"></a>Fråga Azure Log Analytics för att övervaka HDInsight-kluster
+# <a name="query-azure-monitor-logs-to-monitor-hdinsight-clusters"></a>Fråga Azure Monitor-loggar för att övervaka HDInsight-kluster
 
-Lär dig några grundläggande scenarier för hur du använder Azure Log Analytics för att övervaka Azure HDInsight-kluster:
+Lär dig några grundläggande scenarier för hur du använder Azure Monitor-loggar för att övervaka Azure HDInsight-kluster:
 
 * [Analysera HDInsight-kluster-mått](#analyze-hdinsight-cluster-metrics)
 * [Sök efter specifika loggmeddelanden](#search-for-specific-log-messages)
 * [Skapa aviseringar](#create-alerts-for-tracking-events)
 
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+
 ## <a name="prerequisites"></a>Förutsättningar
 
-* Du har konfigurerat ett HDInsight-kluster för att använda Azure Log Analytics och HDInsight klusterspecifika Log Analytics-hanteringslösningar läggs till i arbetsytan. Anvisningar finns i [med Azure Log Analytics med HDInsight-kluster](hdinsight-hadoop-oms-log-analytics-tutorial.md).
+* Du har konfigurerat ett HDInsight-kluster för att använda Azure Monitor-loggar och lagt till Azure Monitor-loggar HDInsight klusterspecifika övervakningslösningar till arbetsytan. Anvisningar finns i [Använd Azure Monitor-loggar med HDInsight-kluster](hdinsight-hadoop-oms-log-analytics-tutorial.md).
 
 ## <a name="analyze-hdinsight-cluster-metrics"></a>Analysera HDInsight-kluster-mått
 
@@ -34,7 +36,7 @@ Lär dig hur du söker efter specifika mått för ditt HDInsight-kluster.
 
 1. Öppna Log Analytics-arbetsytan som är kopplad till ditt HDInsight-kluster från Azure-portalen.
 2. Välj den **Loggsökning** panelen.
-3. Skriver du följande fråga i sökrutan för att söka efter alla mått för alla tillgängliga mått för alla HDInsight-kluster som konfigurerats att använda Azure Log Analytics och välj sedan **kör**.
+3. Skriver du följande fråga i sökrutan för att söka efter alla mått för alla tillgängliga mått för alla HDInsight-kluster som är konfigurerad för att använda Azure Monitor-loggar och välj sedan **kör**.
 
         search *
 
@@ -67,7 +69,7 @@ Lär dig hur du söker felmeddelanden under en viss tidsperiod. De här stegen �
 
 1. Öppna Log Analytics-arbetsytan som är kopplad till ditt HDInsight-kluster från Azure-portalen.
 2. Välj den **Loggsökning** panelen.
-3. Skriv följande fråga för att söka efter alla felmeddelanden för alla HDInsight-kluster som är konfigurerad för att använda Azure Log Analytics och välj sedan **kör**. 
+3. Skriv följande fråga för att söka efter alla felmeddelanden för alla HDInsight-kluster som är konfigurerad för att använda Azure Monitor-loggar och välj sedan **kör**. 
 
          search "Error"
 
@@ -117,11 +119,11 @@ Redigera eller ta bort en befintlig avisering:
 3. Välj den avisering du vill redigera eller ta bort.
 4. Du har följande alternativ: **Spara**, **Ignorera**, **inaktivera**, och **ta bort**.
 
-    ![HDInsight Log Analytics borttagning av redigera](media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-edit-alert.png)
+    ![HDInsight Azure Monitor-loggar borttagning av redigera](media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-edit-alert.png)
 
-Mer information finns i [erfarenhet av Varningsregler i Log Analytics](../log-analytics/log-analytics-alerts-creating.md).
+Mer information finns i [skapa, visa och hantera aviseringar för mått med Azure Monitor](../azure-monitor/platform/alerts-metric.md).
 
 ## <a name="see-also"></a>Se också
 
-* [Arbeta med Log Analytics](https://blogs.msdn.microsoft.com/wei_out_there_with_system_center/2016/07/03/oms-log-analytics-create-tiles-drill-ins-and-dashboards-with-the-view-designer/)
-* [Skapa Varningsregler i Log Analytics](../log-analytics/log-analytics-alerts-creating.md)
+* [OMS Log Analytics: Vydesigner](https://blogs.msdn.microsoft.com/wei_out_there_with_system_center/2016/07/03/oms-log-analytics-create-tiles-drill-ins-and-dashboards-with-the-view-designer/)
+* [Skapa, visa och hantera aviseringar för mått med Azure Monitor](../azure-monitor/platform/alerts-metric.md)

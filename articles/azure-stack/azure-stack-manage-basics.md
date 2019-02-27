@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 2c4a95bddea85d298ff9343bfd813d0b79b24b51
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: ba1e7d7f9226b3ca42d4117be33b9c236f0557b0
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56164030"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56867328"
 ---
 # <a name="azure-stack-administration-basics"></a>Azure Stack administration grunder
 Det finns flera saker du behöver veta om du inte har använt Azure Stack-administration. Den här artikeln innehåller en översikt över din roll som Azure Stack-operatör och vad du behöver att be användarna för dem att snabbt blir mer produktiv.
@@ -119,7 +119,7 @@ Informationen i de här artiklarna sammanfattas skillnaderna mellan en tjänst i
 
 I en utvecklingsmiljö kit, om en användare inte har åtkomst för fjärrskrivbord till development kit värden, måste de konfigurera en anslutning för virtuellt privat nätverk (VPN) innan de kan komma åt Azure Stack. Se [ansluta till Azure Stack](azure-stack-connect-azure-stack.md). 
 
-Dina användare vill veta hur du [åtkomst till användarportalen ](user/azure-stack-use-portal.md) eller hur du ansluter via PowerShell. I en miljö med integrerade system varierar användare Portaladress per distribution. Du måste förse användarna med rätt URL.
+Dina användare vill veta hur du [åtkomst till användarportalen](user/azure-stack-use-portal.md) eller hur du ansluter via PowerShell. I en miljö med integrerade system varierar användare Portaladress per distribution. Du måste förse användarna med rätt URL.
 
 Om du använder PowerShell kanske användare registrerar resursprovidrar innan de kan använda tjänster. (En resursprovider hanterar en tjänst. Till exempel nätverk resursprovidern hanterar resurser, till exempel virtuella nätverk, nätverksgränssnitt och belastningsutjämnare.) De måste [installera](user/azure-stack-powershell-install.md) PowerShell [hämta](user/azure-stack-powershell-download.md) ytterligare moduler och [konfigurera](user/azure-stack-powershell-configure-user.md) PowerShell (som innehåller resursproviderregistrering).
 

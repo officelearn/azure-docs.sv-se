@@ -12,12 +12,12 @@ ms.author: ayolubek
 ms.reviewer: sstein
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: b2be42e4984ac7000cfb31ce6575c529b752db2d
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: b52e08485c5ce853f9c8eafaafd15f137aef10bb
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55471155"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56873464"
 ---
 # <a name="disaster-recovery-for-a-multi-tenant-saas-application-using-database-geo-replication"></a>Haveriberedskap för en SaaS-program med hjälp av database geo-replikering
 
@@ -241,7 +241,7 @@ När återställningen är klar, programmet och alla klienter är helt funktione
     * Den _tenants2-dpt -&lt;användaren&gt;-recovery_ SQLServer.  Den här servern används för att etablera nya klienter under avbrottet.
     *   App Service med namnet _händelser-wingtip-dpt -&lt;recoveryregion&gt;-&lt;användare & gt_; vilket är evenemangsappen recovery-instansen. 
 
-    ![Azure recovery-resurser ](media/saas-dbpertenant-dr-geo-replication/resources-in-recovery-region.png)    
+    ![Azure recovery-resurser](media/saas-dbpertenant-dr-geo-replication/resources-in-recovery-region.png) 
     
 4. Öppna den _tenants2-dpt -&lt;användaren&gt;-recovery_ SQLServer.  Observera att den innehåller databasen _hawthornhall_ och den elastiska poolen _Pool1_.  Den _hawthornhall_ databasen är konfigurerad som en elastisk databas i _Pool1_ elastisk pool.
 

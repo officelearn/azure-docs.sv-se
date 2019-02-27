@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 2/7/2019
-ms.openlocfilehash: 28e99f64fdee414549c55f9666bfd53f07fb3efb
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: cc5957da97d9a8801583564bdf51f0483ab8e004
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55892702"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56865798"
 ---
 # <a name="restart-azure-database-for-postgresql-server-using-azure-portal"></a>Starta om Azure Database for PostgreSQL-server med hjälp av Azure portal
 Det här avsnittet beskrivs hur du kan starta om en Azure Database for PostgreSQL-server. Du kan behöva starta om servern för underhåll orsaker, vilket medför ett kort avbrott som servern utför åtgärden.
@@ -36,15 +36,15 @@ Starta följande steg om PostgreSQL-server:
 
 3. Klicka på **Ja** att bekräfta att starta om servern.
 
-   ![Azure Database för PostgreSQL – omstart bekräfta ](./media/howto-restart-server-portal/3-restart-confirm.png)
+   ![Azure Database för PostgreSQL – omstart bekräfta](./media/howto-restart-server-portal/3-restart-confirm.png)
 
 4. Observera att Serverstatusen ändras till ”startar om”.
 
-   ![Azure Database för PostgreSQL – omstart status ](./media/howto-restart-server-portal/4-restarting-status.png)
+   ![Azure Database för PostgreSQL – omstart status](./media/howto-restart-server-portal/4-restarting-status.png)
 
 5. Bekräfta omstart av servern är klar.
 
-   ![Azure Database för PostgreSQL – omstart lyckades ](./media/howto-restart-server-portal/5-restart-success.png)
+   ![Azure Database för PostgreSQL – omstart lyckades](./media/howto-restart-server-portal/5-restart-success.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

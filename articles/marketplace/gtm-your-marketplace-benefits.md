@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 01/12/2019
 ms.author: ellacroi
-ms.openlocfilehash: 0e324ae82a0223cf48f00b186f46e26840d4d655
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 3fa4fb9fb7accfbe4517e2bf917a3df31ea10fa7
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55747534"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56887258"
 ---
 # <a name="your-marketplace-benefits"></a>Dina Marketplace-förmåner
 
@@ -63,9 +63,9 @@ Om du vill få åtkomst till dessa förmåner, måste du:
 1. Publicera ett erbjudande i Azure Marketplace eller AppSource.
 2. Se till att du har angett en marknadsföring kontakt i den **kontaktinformation** del av ditt erbjudande. Det bör vara en dedikerad marknadsföring resurs, till skillnad från ett övergripande alias. (dvs, Undvik att använda ”stöder\@” ”, info\@” ”, marknadsföring\@” osv.)
 
-Baserat på lösningsstatus för din, får du ett e-postmeddelande med självhjälpsresurserna eller en inbjudan till ett samråd anrop med en särskild Engagement Manager. Du behöver inte göra något för att initiera ett samtal – Marketplace Onboarding-teamet kommer att kontakta dig baserat på den information du anger i den [Cloud Partner Portal](https://cloudpartner.azure.com/).
+Baserat på lösningsstatus för din, erbjudandet som lista, utvärderingsversion eller Transact, får du ett e-postmeddelande med självhjälpsresurserna eller en inbjudan till ett samråd anrop med en särskild Engagement Manager. Du behöver inte göra något för att initiera ett samtal – Marketplace Onboarding-teamet kommer att kontakta dig baserat på den information du anger i den [Cloud Partner Portal](https://cloudpartner.azure.com/).
 
-Omfånget för aktiviteterna som är tillgängliga för dig expanderar när företaget växer dina erbjudanden i marketplace. Alla listor får en basnivå optimering rekommendationer och befordran.  Dessa listor är också berättigade till ytterligare marknadsföring förmåner baserat på lösningsstatus, valt marketplace och Microsoft Partner-kompetens prestation. 
+Omfånget för aktiviteterna som är tillgängliga för dig expanderar när företaget växer dina erbjudanden i marketplace. Alla listor får en basnivå optimering rekommendationer och befordran.  Dessa listor är också berättigade till ytterligare marknadsföring förmåner baserat på lösningsstatus (lista, utvärderingsversion eller Transact) valt marketplace och Microsoft Partner-kompetens prestation.
 
 Tabellen nedan sammanfattar krav för berättigande:
 

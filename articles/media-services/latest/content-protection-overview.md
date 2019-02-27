@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 02/20/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 02c786209c81e755b05cc3875778f98faf8a1ae1
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: e515f7c0587e8bbcba10bcd2d2a726c16401bfbd
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56650945"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889791"
 ---
 # <a name="content-protection-overview"></a>Content protection-översikt
 
@@ -31,7 +31,7 @@ Följande bild illustrerar arbetsflödet för Media Services-content protection:
 
 &#42;*dynamisk kryptering stöder AES-128 ”clear key”, CBCS och CENC. Mer information finns i supportmatrisen [här](#streaming-protocols-and-encryption-types).*
 
-Den här artikeln beskriver begrepp och termer som är relevanta för att förstå innehållsskydd med Media Services. Artikeln innehåller också de [vanliga frågor och svar](#faq) avsnittet och innehåller länkar till artiklar som visar hur du skyddar innehållet. 
+Den här artikeln beskriver begrepp och termer som är relevanta för att förstå innehållsskydd med Media Services. Artikeln har avsnittet vanliga frågor och svar också och innehåller länkar till artiklar som visar hur du skyddar innehållet. 
 
 ## <a name="main-components-of-a-content-protection-system"></a>Huvudkomponenterna i ett system för innehållsskydd
 

@@ -8,14 +8,14 @@ ms.topic: article
 ms.date: 09/24/2018
 ms.author: ronmat
 ms.manager: shaik
-ms.openlocfilehash: 8b2ca2d5d6418d68cab847df80fc437e468249ed
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 00de38aa7309179b92ff65f009f8aa780f60c284
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46995659"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56883699"
 ---
-# <a name="azure-storage-advanced-threat-protection"></a>Azure Storage Avancerat skydd
+# <a name="azure-storage-advanced-threat-protection"></a>Azure Storage Advanced Threat Protection
 
 Azure Storage Advanced Threat Protection identifierar avvikelser i kontoaktivitet och meddelar dig om potentiellt skadliga försök att komma åt ditt konto. Du kan hantera hot utan att behöva vara säkerhetsexpert eller hantera säkerhetssystem för övervakning i den här skyddsnivå.
 
@@ -59,21 +59,21 @@ Du kan granska och hantera din aktuella säkerhetsaviseringar från Azure Securi
 
 Aviseringarna genereras av onormala och potentiellt skadliga försök att komma åt eller utnyttja storage-konton. Dessa händelser kan utlösa följande aviseringar:
 
-* **Åtkomst från ovanlig plats**: den här aviseringen utlöses när det finns en ändring i åtkomstmönstret för till ett lagringskonto. Till exempel när någon har åtkomst till ett lagringskonto från en ovanlig geografisk plats. I vissa fall identifierar aviseringen en giltig åtgärd (ett nytt program eller utvecklare underhållsåtgärden). I andra fall identifierar aviseringen en skadlig åtgärd (tidigare anställd, extern angripare osv.).
+* **Åtkomst från ovanlig plats**: Den här aviseringen utlöses när det finns en ändring i åtkomstmönstret för till ett lagringskonto. Till exempel när någon har åtkomst till ett lagringskonto från en ovanlig geografisk plats. I vissa fall identifierar aviseringen en giltig åtgärd (ett nytt program eller utvecklare underhållsåtgärden). I andra fall identifierar aviseringen en skadlig åtgärd (tidigare anställd, extern angripare osv.).
 
-* **Ovanlig dataextrahering**: den här aviseringen utlöses när det finns en ändring i mönstret för extrahering av data från ett lagringskonto. Till exempel om någon har använt en ovanlig mängden data i ett lagringskonto. I vissa fall identifierar aviseringen en giltig åtgärd (Underhåll aktivitet). I andra fall identifierar aviseringen en skadlig åtgärd (data exfiltrering/intrång, obehörig överföring av data).
+* **Ovanlig dataextrahering**: Den här aviseringen utlöses när det finns en ändring i mönstret för extrahering av data från ett lagringskonto. Till exempel om någon har använt en ovanlig mängden data i ett lagringskonto. I vissa fall identifierar aviseringen en giltig åtgärd (Underhåll aktivitet). I andra fall identifierar aviseringen en skadlig åtgärd (data exfiltrering/intrång, obehörig överföring av data).
 
-* **Ovanlig anonym åtkomst:** den här aviseringen utlöses när det finns en ändring i åtkomstmönstret för till ett lagringskonto. Anta exempelvis att någon anonymt har åtkomst till ett lagringskonto. I vissa fall identifierar aviseringen en giltig åtkomst med hjälp av offentlig läsbehörighet. I andra fall identifierar aviseringen obehörig åtkomst som utnyttjar offentlig läsbehörighet till en behållare och dess blobbar.
+* **Ovanlig anonym åtkomst:** Den här aviseringen utlöses när det finns en ändring i åtkomstmönstret för till ett lagringskonto. Anta exempelvis att någon anonymt har åtkomst till ett lagringskonto. I vissa fall identifierar aviseringen en giltig åtkomst med hjälp av offentlig läsbehörighet. I andra fall identifierar aviseringen obehörig åtkomst som utnyttjar offentlig läsbehörighet till en behållare och dess blobbar.
 
-* **Oväntat delete:** den här aviseringen utlöses när en eller flera oväntade delete-åtgärder sker i ett lagringskonto, baserat på historisk analys av storage-konto. Anta exempelvis att någon utförs en *DeleteBlob* igen med ett nytt program och från en ny IP-adress. I vissa fall identifierar aviseringen en giltig åtgärd (administratören används en annan webbläsare resande på företag). I andra fall identifierar aviseringen en skadlig åtgärd (en angripare som tar bort data). 
+* **Oväntat delete:** Den här aviseringen utlöses när en eller flera oväntade delete-åtgärder sker i ett lagringskonto, baserat på historisk analys av storage-konto. Anta exempelvis att någon utförs en *DeleteBlob* igen med ett nytt program och från en ny IP-adress. I vissa fall identifierar aviseringen en giltig åtgärd (administratören används en annan webbläsare resande på företag). I andra fall identifierar aviseringen en skadlig åtgärd (en angripare som tar bort data). 
  
-* **Få åtkomst till behörigheten Ändra:** den här aviseringen utlöses när det finns en oväntad ändring av åtkomstbehörighet till ett lagringskonto. Anta exempelvis att någon ändrat åtkomstbehörigheten till ett lagringskonto med ett nytt program och från en ny IP-adress. I vissa fall identifierar aviseringen en giltig åtgärd (administratören används en annan webbläsare resande på företag). I andra fall identifierar aviseringen en skadlig åtgärd (t.ex. en angripare öka rättigheter för ett konto som de har fått åtkomst till). 
+* **Åtkomst till behörigheten Ändra:** Den här aviseringen utlöses när det finns en oväntad ändring av åtkomstbehörighet till ett lagringskonto. Anta exempelvis att någon ändrat åtkomstbehörigheten till ett lagringskonto med ett nytt program och från en ny IP-adress. I vissa fall identifierar aviseringen en giltig åtgärd (administratören används en annan webbläsare resande på företag). I andra fall identifierar aviseringen en skadlig åtgärd (t.ex. en angripare öka rättigheter för ett konto som de har fått åtkomst till). 
 
-* **Ladda upp Azure Cloud Service-package:** den här aviseringen utlöses när det finns en oväntat överföring av ett Azure Cloud Service-paket (*.cspkg* filen) till ett lagringskonto. Anta exempelvis att en *.cspkg* filen laddades upp från en ny IP-adress. I vissa fall identifierar aviseringen en giltig åtgärd. I andra fall identifierar aviseringen en skadlig åtgärd (t.ex. en molntjänst som paketet har överförts inför en distribution av en skadlig service).    
+* **Ladda upp Azure Cloud Service-paketet:** Den här aviseringen utlöses när det finns en oväntat överföring av ett Azure Cloud Service-paket (*.cspkg* filen) till ett lagringskonto. Anta exempelvis att en *.cspkg* filen laddades upp från en ny IP-adress. I vissa fall identifierar aviseringen en giltig åtgärd. I andra fall identifierar aviseringen en skadlig åtgärd (t.ex. en molntjänst som paketet har överförts inför en distribution av en skadlig service).    
    
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Läs mer om [loggar i Azure Storage-konton ](/rest/api/storageservices/About-Storage-Analytics-Logging)
+* Läs mer om [loggar i Azure Storage-konton](/rest/api/storageservices/About-Storage-Analytics-Logging)
 
 * Läs mer om [Azure Security Center](../../security-center/security-center-intro.md)

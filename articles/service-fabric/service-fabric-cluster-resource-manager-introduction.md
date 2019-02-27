@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: a5499826c06f5f8f5e5db91badf134befa44c9d0
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: f41027b5455aa3b1835a0d4fd0c1be11cddccd0d
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56738240"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56872003"
 ---
 # <a name="introducing-the-service-fabric-cluster-resource-manager"></a>Introduktion till Service Fabric cluster resource manager
 Traditionellt hanterar IT-system eller onlinetjänster avsedda tilldela specifika fysiska eller virtuella datorer till de specifika tjänster eller system. Tjänster har byggts som nivåer. Det skulle vara en ”web” och en ”data” eller ”storage” nivå. Program behöver messaging-nivån där förfrågningar federationssida in och ut, samt en uppsättning datorer som är dedikerad till cachelagring. Varje nivå eller typ av arbetsbelastning hade specifika datorer som är dedikerad till den: databasen har några datorer som är dedikerad till den, webbservrar ett fåtal. Om en viss typ av arbetsbelastning orsakade de datorer som den var på att köra för varmt och sedan du har lagt till fler datorer med samma konfigurationen till den nivån. Men inte alla arbetsbelastningar kan skaländras ut så enkelt – särskilt med datanivå skulle du normalt ersätta datorer med större datorer. Enkelt. Om en dator inte kördes som en del av det övergripande programmet vid lägre kapacitet tills datorn kunde återställas. Fortfarande ganska enkelt (om det är inte nödvändigtvis roliga).
@@ -54,7 +54,7 @@ Vissa av dessa strategier är intressant, är Service Fabric Cluster Resource Ma
 Eftersom Cluster Resource Manager är ansvarig för att flytta tjänster runt, innehåller en uppsättning med olika funktioner jämfört med vad du hittar i Utjämning av nätverksbelastning. Det beror på att belastningsutjämnare för nätverk leverera nätverkstrafik till var services redan är, även om platsen inte är idealiskt för att köra själva tjänsten. Service Fabric Cluster Resource Manager använder helt olika strategier för att säkerställa att resurserna i klustret används effektivt.
 
 ## <a name="next-steps"></a>Nästa steg
-- Kolla in information om arkitektur- och informationsflödet i Cluster Resource Manager [den här artikeln ](service-fabric-cluster-resource-manager-architecture.md)
+- Kolla in information om arkitektur- och informationsflödet i Cluster Resource Manager [den här artikeln](service-fabric-cluster-resource-manager-architecture.md)
 - Klusterresurshanteraren har många alternativ för att beskriva klustret. Om du vill veta mer om mätvärden, Kolla in den här artikeln på [som beskriver ett Service Fabric-kluster](service-fabric-cluster-resource-manager-cluster-description.md)
 - Mer information om hur du konfigurerar tjänster, [Lär dig mer om hur du konfigurerar tjänster](service-fabric-cluster-resource-manager-configure-services.md)
 - Mått är hur Service Fabric-kluster Resource Manager hanterar förbrukning och kapacitet i klustret. Mer information om mått och hur du konfigurerar dem Kolla in [i den här artikeln](service-fabric-cluster-resource-manager-metrics.md)

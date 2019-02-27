@@ -1,5 +1,5 @@
 ---
-title: Avancerade frågor i Azure Azure Monitor | Microsoft Docs
+title: Avancerade frågor i Azure Monitor | Microsoft Docs
 description: Den här artikeln innehåller en självstudie för att skriva frågor i Azure Monitor Analytics-portalen.
 services: log-analytics
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: bwren
-ms.openlocfilehash: 0b516dc4fb1ca4736791abdea7f0903b6399fa6e
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: 62dffffee411519cdcafe80a11404f9e273dd9dd
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56749910"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56880792"
 ---
 # <a name="writing-advanced-queries-in-azure-monitor"></a>Skriva avancerade frågor i Azure Monitor
 

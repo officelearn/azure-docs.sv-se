@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 12/27/2018
 ms.author: mayg
-ms.openlocfilehash: 1fabbe3a9a486abc862bfb6c2671c60d11d8e8c7
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: 8906c477a5d40eb4240669a615dcc9974246ecc8
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53809938"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56868841"
 ---
 # <a name="azure-expressroute-with-azure-site-recovery"></a>Med ExpressRoute i Azure med Azure Site Recovery
 
@@ -56,4 +56,4 @@ Du kan replikera virtuella Azure-datorer till valfri Azure-region inom samma geo
 - Läs mer om [ExpressRoute-kretsar](../expressroute/expressroute-circuit-peerings.md).
 - Läs mer om [ExpressRoute-routningsdomäner](../expressroute/expressroute-circuit-peerings.md#peeringcompare).
 - Läs mer om [ExpressRoute-platser](../expressroute/expressroute-locations.md).
-- Mer information om haveriberedskap för [Azure-datorer med ExpressRoute ](azure-vm-disaster-recovery-with-expressroute.md).
+- Mer information om haveriberedskap för [Azure-datorer med ExpressRoute](azure-vm-disaster-recovery-with-expressroute.md).

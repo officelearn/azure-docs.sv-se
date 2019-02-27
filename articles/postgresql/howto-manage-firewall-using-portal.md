@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 02/28/2018
-ms.openlocfilehash: 7211b7f5db14f4bad114556e5c080cf5d535b00b
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 20c5d66f51cffeb7e4e73ba9f16b7ea5ce305e5c
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53545492"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56874111"
 ---
 # <a name="create-and-manage-azure-database-for-postgresql-firewall-rules-using-the-azure-portal"></a>Skapa och hantera Azure Database för PostgreSQL brandväggsregler med hjälp av Azure-portalen
 Brandväggsregler på servernivå gör att administratörer kan få åtkomst till en Azure Database for PostgreSQL-Server från en angiven IP-adress eller IP-adressintervall. 
@@ -36,7 +36,7 @@ Använd en sökmotor eller andra online för att kontrollera din egen IP-adress.
 
 4. Lägga till ytterligare adressintervall. Du kan ange en IP-adress eller ett adressintervall i brandväggsreglerna för Azure Database for PostgreSQL. Om du vill begränsa regeln till en enda IP-adress skriver du samma adress i fältet för första IP- och slut-IP. Om du öppnar brandväggen kan administratörer, användare och program för att logga in i valfri databas på PostgreSQL-server som de har giltiga autentiseringsuppgifter.
 
-  ![Azure portal – brandväggsregler ](./media/howto-manage-firewall-using-portal/4-specify-addresses.png)
+  ![Azure portal – brandväggsregler](./media/howto-manage-firewall-using-portal/4-specify-addresses.png)
 
 5. Klicka på **spara** i verktygsfältet för att spara den här brandväggsregeln på servernivå. Vänta på bekräftelse att brandväggsreglerna uppdateringen lyckades.
 

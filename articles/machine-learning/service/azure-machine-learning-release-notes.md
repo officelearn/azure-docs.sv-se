@@ -11,12 +11,12 @@ ms.author: haining
 ms.reviewer: j-martens
 ms.date: 2/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 899e33db242a34d09df6109c2e195bdff9c65262
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 5bb2c7d9eed2ed33f3cd0c33bfc479d2e3627370
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56823611"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889859"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Viktig information för Azure Machine Learning-tjänsten
 
@@ -31,6 +31,10 @@ I den här artikeln lär du dig om Azure Machine Learning-tjänstversioner.  En 
 + **Nya funktioner**
 
   + Azure Machine Learning SDK nu stöder en [ `Chainer` ](https://docs.microsoft.com/en-us/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py) kostnadsuppskattning klassen för att effektivisera processen för att träna och distribuera en modell med anpassad Chainer-kod.
+  + Azure Machine Learning Pipelines lagt till möjligheten utlösare som en Pipeline som körs baserat på ändringar av datalager. Pipelinen [schema notebook](https://aka.ms/pl-schedule) har uppdaterats för att demonstrera den här funktionen.
+  
++ **Felkorrigeringar och förbättringar**
+  + Vi har lagt till stöd för Azure Machine Learning Pipelines för att ange egenskapen source_directory_data_store till en önskad datalager (till exempel en bloblagring) på [RunConfigurations](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.runconfig.runconfiguration?view=azure-ml-py) som skickas till den [ PythonScriptStep](https://docs.microsoft.com/en-us/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep?view=azure-ml-py). Som standard använder stegen Azure-lagring som säkerhetskopierar databasen som kan köras i begränsning problem när ett stort antal steg körs samtidigt.
 
 ### <a name="azure-portal"></a>Azure Portal
 + **Nya funktioner**
@@ -38,6 +42,18 @@ I den här artikeln lär du dig om Azure Machine Learning-tjänstversioner.  En 
     + Ny kör-knappen för körningar som skickades med ScriptRunConfig. Användare kan köra igen en befintlig som körs på en fjärransluten beräkningsklustret för valfri.
     + Granskaren nya loggar
     + Länkar till experiment körs, beräkning, modeller, bilder och distributioner från fliken aktiviteter
+
+### <a name="azure-machine-learning-data-prep-sdk-v1015"></a>Azure Machine Learning Data Förbered SDK v1.0.15
+
++ **Nya funktioner**
+  + Data Prep stöder nu skriva filen dataströmmar från ett dataflöde. Ger också möjlighet att ändra stream filnamn för att skapa nya filnamn.
+    + Här guiden: [Arbeta med filen strömmar notebook](https://aka.ms/aml-data-prep-file-stream-nb)
+ 
++ **Felkorrigeringar och förbättringar**
+  + Förbättrad prestanda för t-Digest på stora datamängder.
+  + Dataförberedelser har nu stöd för läsning av data från en DataPath.
+  + En frekvent kodning fungerar nu på booleskt och numeriska kolumner.
+  + Andra diverse felkorrigeringar.
 
 ## <a name="2019-02-11"></a>2019-02-11
 
@@ -100,7 +116,7 @@ I den här artikeln lär du dig om Azure Machine Learning-tjänstversioner.  En 
 ### <a name="azure-machine-learning-data-prep-sdk-v107"></a>Azure Machine Learning Data Förbered SDK v1.0.7
 
 + **Nya funktioner**
-  + Förbättringar av datalager (beskrivs i [How-to-till-guide-datalager](https://github.com/Microsoft/AMLDataPrepDocs/tree/master/how-to-guides/datastore.ipynb))
+  + Förbättringar av datalager (beskrivs i [How-to-till-guide-datalager](https://aka.ms/aml-data-prep-datastore-nb))
     + Möjlighet att läsa från och skriva till Azure-filresurser och ADLS-datalager i skala upp har lagts till.
     + När du använder datalager, stöder Dataförberedelser nu med autentisering av tjänstens huvudnamn i stället för interaktiv autentisering.
     + Stöd har lagts till för wasb och wasbs URL: er.

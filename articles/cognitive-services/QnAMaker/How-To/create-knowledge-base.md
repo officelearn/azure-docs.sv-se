@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 12/11/2018
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 4ba744c3d8cc3a785c04bbbb1b476a857859e244
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 1691bf9334d15ed7af211a929cf87ce433af895c
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55876893"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56866410"
 ---
 # <a name="quickstart-create-a-knowledge-base-using-the-qna-maker-portal"></a>Snabbstart: Skapa en kunskapsbas med QnA Maker-portalen
 
@@ -52,7 +52,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 1. Lägg till **Chit-chatt** till din KB. Välja att lägga till chit chat-supporten för din robot genom att välja någon av de 3 personligheter. 
 
-    ![Lägg till chit-chatt i KB ](../media/qnamaker-how-to-create-kb/create-kb-chit-chat.png)
+    ![Lägg till chit-chatt i KB](../media/qnamaker-how-to-create-kb/create-kb-chit-chat.png)
 
 1. Välj **skapa din Kunskapsbas**.
 

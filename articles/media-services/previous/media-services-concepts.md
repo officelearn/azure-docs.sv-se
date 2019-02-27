@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: 413e005762ab557e0605f9b4e79a6fe5b45448b7
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 32367559ba4ae6931804c1ea702dca6c2c5ee297
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55993919"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56870915"
 ---
 # <a name="azure-media-services-concepts"></a>Azure Media Services-begrepp 
 
@@ -177,7 +177,7 @@ Du kan ha upp till 2 strömmande slutpunkter i Media Services-kontot som standar
 Du debiteras endast när din StreamingEndpoint är i körningstillstånd.
 
 ### <a name="asset-delivery-policy"></a>Principen för tillgångsleverans
-Ett av stegen i arbetsflödet för Media Services-leverans av innehåll som krävs konfigureras [leveransprinciper för tillgångar ](https://docs.microsoft.com/rest/api/media/operations/assetdeliverypolicy)som du vill att strömmas. Talar tillgångsleveransprincip om Media Services för hur du vill för tillgången som ska levereras: i vilket strömningsprotokoll bör din tillgång dynamiskt paketeras (till exempel, MPEG DASH, HLS, Smooth Streaming eller alla), oavsett om du vill kryptera dynamiskt din tillgång och hur (kuvert eller gemensam kryptering).
+Ett av stegen i arbetsflödet för Media Services-leverans av innehåll som krävs konfigureras [leveransprinciper för tillgångar](https://docs.microsoft.com/rest/api/media/operations/assetdeliverypolicy)som du vill att strömmas. Talar tillgångsleveransprincip om Media Services för hur du vill för tillgången som ska levereras: i vilket strömningsprotokoll bör din tillgång dynamiskt paketeras (till exempel, MPEG DASH, HLS, Smooth Streaming eller alla), oavsett om du vill kryptera dynamiskt din tillgång och hur (kuvert eller gemensam kryptering).
 
 Om du har en storage krypterade tillgången, innan du kan strömma din tillgång kommer servern för strömning tar bort storage-kryptering och strömning ditt innehåll med den angivna principen. Exempelvis för att leverera din tillgång som krypterats med Advanced Encryption Standard (AES) krypteringsnyckeln, ställer du in typen av DynamicEnvelopeEncryption. Om du vill ta bort lagringskryptering och strömma tillgången i klartext, anger du principtypen till NoDynamicEncryption.
 

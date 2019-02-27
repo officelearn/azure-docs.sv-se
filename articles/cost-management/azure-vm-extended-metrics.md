@@ -10,12 +10,12 @@ ms.date: 12/06/2018
 ms.topic: conceptual
 ms.service: cost-management
 ms.custom: seodec18
-ms.openlocfilehash: 9bb8d74b012b25ca959cdb87b8a3d5e4284b6497
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 3d30693273f5d76e285554e230da0d4d74c7f30d
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53097224"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56881506"
 ---
 # <a name="add-extended-metrics-for-azure-virtual-machines"></a>Lägga till utökade mått för Azure-datorer
 
@@ -31,7 +31,7 @@ När du har aktiverat mått samling kan du:
 Du kanske exempelvis vill övervaka processor och minne-% av virtuella datorer i Azure. Azure VM-mått som motsvarar _[värd] procent CPU_ och _[gäst] minnesprocent_.
 
 > [!NOTE]
-> Datainsamling för utökade mått stöds bara med Azure-övervakning på gästnivå. Cloudyn är inte kompatibel med Log Analytics VM-tillägg.
+> Datainsamling för utökade mått stöds bara med Azure-övervakning på gästnivå. Cloudyn är inte kompatibel med log analytics VM-tillägg.
 
 ## <a name="determine-whether-extended-metrics-are-enabled"></a>Avgöra om utökade mått har aktiverats
 

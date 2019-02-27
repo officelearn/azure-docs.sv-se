@@ -14,12 +14,12 @@ ms.tgt_pltfrm: cache
 ms.workload: tbd
 ms.date: 07/05/2017
 ms.author: yegu
-ms.openlocfilehash: d36f2851f9c4f30725c8f8057d61970b6560009e
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 81ef669b62c822e10d8bf5c45e58dd769c5dbeb9
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56313219"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56888397"
 ---
 # <a name="how-to-administer-azure-cache-for-redis"></a>Hur du administrerar Azure Cache för Redis
 Det här avsnittet beskriver hur du utför administrationsuppgifter som [omstart](#reboot) och [schemalägga uppdateringar](#schedule-updates) för din Azure-Cache för Redis-instanser.
@@ -72,7 +72,7 @@ Ja, om du startar om cachen rensas alla klientanslutningar. Omstart kan vara anv
 > 
 
 ### <a name="will-i-lose-data-from-my-cache-if-i-do-a-reboot"></a>Kommer jag att förlora data från mitt cacheminne om jag gör en omstart?
-Om du startar om både den **Master** och **underordnad** noder, alla data i cacheminnet (eller i fragmentet om du använder en premium-cache med klustring aktiverat) går förlorade. Om du har konfigurerat [datapersistence](cache-how-to-premium-persistence.md), den senaste aktuell säkerhetskopia återställs när cachen är online igen, men alla skrivningar i cacheminnet som har inträffat när säkerhetskopieringen gjordes går förlorade.
+Om du startar om både den **Master** och **underordnad** noder, alla data i cacheminnet (eller i fragmentet om du använder en premium-cache med klustring aktiverat) kan gå förlorade, men det är inte säkert antingen. Om du har konfigurerat [datapersistence](cache-how-to-premium-persistence.md), den senaste aktuell säkerhetskopia återställs när cachen är online igen, men alla skrivningar i cacheminnet som har inträffat när säkerhetskopieringen gjordes går förlorade.
 
 Om du startar om bara en av noderna data förloras inte vanligtvis, men det kan fortfarande vara. Till exempel om den överordnade noden startas om och en cacheskrivning pågår, data från cacheskrivning är förlorad. Ett annat scenario för dataförlust skulle vara om du startar om en nod och den andra noden händer att gå nedåt på grund av ett fel på samma gång. Mer information om möjliga orsaker till förlust av data finns i [vad hände med mina data i Redis?](https://gist.github.com/JonCole/b6354d92a2d51c141490f10142884ea4#file-whathappenedtomydatainredis-md)
 

@@ -6,15 +6,15 @@ manager: philmea
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 02/15/2018
+ms.date: 02/15/2019
 ms.author: menchi
 ms.custom: seodec18
-ms.openlocfilehash: 4267a60911b02615e8482f8616f889ad2c1df02d
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 4d45ce16410292b2763d20686063f8a414c1f9a4
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53093920"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56883104"
 ---
 # <a name="glossary-of-terms-for-azure-iot-edge"></a>Ordlista för Azure IoT Edge
 Den här artikeln innehåller några av de vanliga termer som används i IoT Edge-artiklar.
@@ -23,6 +23,4 @@ Den här artikeln innehåller några av de vanliga termer som används i IoT Edg
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Se [IoT Hub-ordlista](../iot-hub/iot-hub-devguide-glossary.md)
-* Lär dig mer om IoT Edge [modulen utveckling](iot-edge-modules.md)
-* Lär dig mer om IoT Edge [distribution](module-deployment-monitoring.md)
+[IoT Hub-ordlista](../iot-hub/iot-hub-devguide-glossary.md)

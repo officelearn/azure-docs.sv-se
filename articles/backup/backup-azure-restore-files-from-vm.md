@@ -7,14 +7,14 @@ manager: shivamg
 keywords: återställning på objektnivå; filåterställning från virtuell Azure-säkerhetskopiering; återställa filer från virtuella Azure-datorer
 ms.service: backup
 ms.topic: conceptual
-ms.date: 8/22/2018
-ms.author: pvrk
-ms.openlocfilehash: c267b3a8289d87402647a399376161cf18716112
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.date: 2/26/2019
+ms.author: pullabhk
+ms.openlocfilehash: 4bae9a09dad217b8d805a64372ed404eb7ada723
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55488500"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56874179"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Återställa filer från säkerhetskopiering av Azure virtuella datorer
 
@@ -73,11 +73,15 @@ Om du vill återställa filer och mappar från återställningspunkten, gå till
         - <https://pod01-rec2.geo-name.backup.windowsazure.de> (För Azure Tyskland)
     - utgående port 3260
 
-    För Linux kräver skriptet 'iscsi-öppen' och 'lshw' komponenter att ansluta till återställningspunkten. Om komponenterna inte finns på den dator där skriptet körs begär skriptet behörighet att installera komponenterna. Ge medgivande till att installera de nödvändiga komponenterna.
+> [!Note]
+> Hämtade skriptfilnamnet har ”geo-namn” fyllas i URL: en. För t.ex.: Hämtade skriptets namn som börjar med \'VMname\'\_\'geoname\'_\'GUID\', som ContosoVM_wcus_12345678... URL: en är ”https://pod01-rec2.wcus.backup.windowsazure.com”
+> 
 
-    Åtkomst till download.microsoft.com krävs för att hämta komponenter som används för att skapa en säker kanal mellan datorn där skriptet körs och data i återställningspunkten.
-
-    Du kan köra skriptet på en dator som har samma (eller kompatibla)-operativsystem som den säkerhetskopierade virtuella datorn. Se den [kompatibla OS tabell](backup-azure-restore-files-from-vm.md#system-requirements) för kompatibla operativsystem. Om skyddade virtuella Azure-datorer använder Windows-lagringsutrymmen (för Windows Azure virtuella datorer) eller LVM/RAID-matriser (för virtuella Linux-datorer) kan köra du inte körbara filer eller skript på samma virtuella dator. I stället köra körbara filer eller skript på någon annan dator med ett kompatibelt operativsystem.
+   För Linux kräver skriptet 'iscsi-öppen' och 'lshw' komponenter att ansluta till återställningspunkten. Om komponenterna inte finns på den dator där skriptet körs begär skriptet behörighet att installera komponenterna. Ge medgivande till att installera de nödvändiga komponenterna.
+   
+   Åtkomst till download.microsoft.com krävs för att hämta komponenter som används för att skapa en säker kanal mellan datorn där skriptet körs och data i återställningspunkten.
+   
+   Du kan köra skriptet på en dator som har samma (eller kompatibla)-operativsystem som den säkerhetskopierade virtuella datorn. Se den [kompatibla OS tabell](backup-azure-restore-files-from-vm.md#system-requirements) för kompatibla operativsystem. Om skyddade virtuella Azure-datorer använder Windows-lagringsutrymmen (för Windows Azure virtuella datorer) eller LVM/RAID-matriser (för virtuella Linux-datorer) kan köra du inte körbara filer eller skript på samma virtuella dator. I stället köra körbara filer eller skript på någon annan dator med ett kompatibelt operativsystem.
 
 ### <a name="identifying-volumes"></a>Identifiera volymer
 
@@ -199,6 +203,11 @@ I Linux, måste Operativsystemet på den dator som används för att återställ
 | Oracle Linux | 6.4 och senare |
 | SLES | 12 och senare |
 | openSUSE | 42.2 och senare |
+
+> [!Note]
+> Vi har hittat några problem i filen recovery skriptet har körts på virtuella datorer med SLES 12 SP4 OS. För att undersöka med SLES-teamet.
+> För närvarande, körs fungerar filåterställningsskript på virtuella datorer med SLES 12 SP2 och SP3 OS-versioner.
+>
 
 Skriptet kräver också Python och bash komponenter för att köra och Anslut säkert till återställningspunkten.
 

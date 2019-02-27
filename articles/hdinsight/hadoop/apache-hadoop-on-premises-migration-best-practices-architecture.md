@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: 8295c149d513f89318aa63ddd7f4236013923203
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: f1e2b9dfc329e67d94fba998a01d593b992ba90f
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53434018"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56886816"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---architecture-best-practices"></a>Migrera lokala Apache Hadoop-kluster till Azure HDInsight - arkitektur Metodtips
 
@@ -29,8 +29,8 @@ Azure HDInsight-kluster har utformats för en viss typ av beräkning användning
 |**Arbetsbelastning**|**Typ av HDInsight-kluster**|
 |---|---|
 |Batchbearbetning (ETL / ELT)|Hadoop, Spark|
-|Datalagerhantering|Hadoop, Spark, interaktiv fråga|
-|IoT / direktuppspelning|Kafka, Storm, Spark|
+|Datalagerhantering|Hadoop, Spark, Interactive Query|
+|IoT / Streaming|Kafka, Storm, Spark|
 |NoSQL transaktionsbearbetning|HBase|
 |Interaktiv och snabbare frågor med cachelagring i minnet|Interaktiv fråga|
 |Datavetenskap|ML-tjänster, Spark|
@@ -105,7 +105,7 @@ Några Metodtips för HDInsight Hive-metaarkiv är följande:
 - Dela inte metaarkiv som skapats för ett HDInsight-kluster av version med kluster i en annan version. Olika versioner av Hive använda olika scheman. Till exempel kan ett metaarkiv inte delas med både Hive 1.2 och Hive 2.1-kluster.
 - Säkerhetskopiera anpassade metastore med jämna mellanrum.
 - Behåll metaarkiv och HDInsight-kluster i samma region.
-- Övervaka metaarkiv för prestanda och tillgänglighet med hjälp av Azure SQL Database-övervakning verktyg som Azure-portalen eller Azure Log Analytics.
+- Övervaka metaarkiv för prestanda och tillgänglighet med hjälp av Azure SQL Database-övervakning verktyg som Azure-portalen eller Azure Monitor-loggar.
 - Kör den **analysera tabell** kommandot som krävs för att skapa statistik för tabeller och kolumner. Till exempel `ANALYZE TABLE [table_name] COMPUTE STATISTICS`.
 
 ## <a name="best-practices-for-different-workloads"></a>Metodtips för olika arbetsbelastningar

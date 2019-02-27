@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 02/08/2019
 ms.author: pafarley
-ms.openlocfilehash: 54faf8b37afa953aac7d411df2f539188dc5b451
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 6e97001497ebdddebe9b5b726e0526a987b6c63c
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56310228"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56873329"
 ---
 # <a name="how-to-improve-your-classifier"></a>Hur vi kan förbättra din klassificerare
 
@@ -39,7 +39,7 @@ Om du vill åtgärda det här problemet använder du följande riktlinjer på ut
 
 ## <a name="data-quantity"></a>Data kvantitet
 
-Antalet inlärningsbilder är den viktigaste faktorn. Vi recomment med minst 50 bilder per etikett som utgångspunkt. Det finns en större risk för overfitting med färre bilder och medan dina prestanda-nummer kan föreslå god kvalitet, din modell kan behöva kämpa med verkliga data. 
+Antalet inlärningsbilder är den viktigaste faktorn. Vi rekommenderar att du använder minst 50 bilder per etikett som utgångspunkt. Det finns en större risk för overfitting med färre bilder och medan dina prestanda-nummer kan föreslå god kvalitet, din modell kan behöva kämpa med verkliga data. 
 
 ## <a name="data-balance"></a>Data saldo
 

@@ -1,6 +1,6 @@
 ---
-title: Skapa vyer för att analysera data i Azure Log Analytics | Microsoft Docs
-description: Du kan skapa anpassade vyer som visas i Azure-portalen och innehåller en mängd olika visualiseringar i Log Analytics-arbetsytan med hjälp av Vydesigner i Log Analytics. Den här artikeln innehåller en översikt över Vydesigner och presenterar procedurer för att skapa och redigera anpassade vyer.
+title: Skapa vyer för att analysera loggdata i Azure Monitor | Microsoft Docs
+description: Genom att använda Vydesigner i Azure Monitor kan skapa du anpassade vyer som visas i Azure-portalen och innehåller en mängd olika visualiseringar på data i Log Analytics-arbetsytan. Den här artikeln innehåller en översikt över Vydesigner och presenterar procedurer för att skapa och redigera anpassade vyer.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,15 +13,17 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: bwren
-ms.openlocfilehash: ec56e21a989fb0e8db7b8bafb1357c6ed64eae75
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 1996befa78409e572798a9043f7e6ee3b6f647bc
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53192272"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56887917"
 ---
-# <a name="create-custom-views-by-using-view-designer-in-log-analytics"></a>Skapa anpassade vyer med hjälp av Vydesigner i Log Analytics
-Med hjälp av Vydesigner i [Azure Log Analytics](../../azure-monitor/log-query/log-query-overview.md), du kan skapa en mängd olika anpassade vyer i Azure portal som kan hjälpa dig att visualisera data i Log Analytics-arbetsytan. Den här artikeln presenteras en översikt över Vydesigner och procedurer för att skapa och redigera anpassade vyer.
+# <a name="create-custom-views-by-using-view-designer-in-azure-monitor"></a>Skapa anpassade vyer med hjälp av Vydesigner i Azure Monitor
+Genom att använda Vydesigner i Azure Monitor kan skapa du en mängd olika anpassade vyer i Azure portal som kan hjälpa dig att visualisera data i Log Analytics-arbetsytan. Den här artikeln presenteras en översikt över Vydesigner och procedurer för att skapa och redigera anpassade vyer.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 Mer information om Vydesigner finns:
 
@@ -30,7 +32,7 @@ Mer information om Vydesigner finns:
 
 
 ## <a name="concepts"></a>Begrepp
-Vyer visas på den **översikt** för Log Analytics-arbetsytan i Azure-portalen. Paneler på varje anpassad vy visas i alfabetisk ordning och paneler för lösningarna som är installerade på samma arbetsyta.
+Vyer visas i Azure Monitor **översikt** sidan på Azure portal. Öppna den här sidan från den **Azure Monitor** menyn genom att klicka på **mer** under den **Insights** avsnittet. Paneler på varje anpassad vy visas i alfabetisk ordning och paneler för övervakar lösningar är installerade på samma arbetsyta.
 
 ![Översiktssidan](media/view-designer/overview-page.png)
 
@@ -38,9 +40,9 @@ De vyer som du skapar med Vydesigner innehålla de delar som beskrivs i följand
 
 | En del | Beskrivning |
 |:--- |:--- |
-| Paneler | Visas på Log Analytics-arbetsytan **översikt** sidan. Varje panel visar en visuell översikt över den anpassade vyn som representerar. Varje Paneltyp av innehåller en annan visualisering av posterna. Du väljer en panel för att visa en anpassad vy. |
+| Sida vid sida | Visas på din Azure Monitor **översikt** sidan. Varje panel visar en visuell översikt över den anpassade vyn som representerar. Varje Paneltyp av innehåller en annan visualisering av posterna. Du väljer en panel för att visa en anpassad vy. |
 | Anpassad vy | Visas när du väljer en panel. Varje vy innehåller en eller flera delar av visualiseringen. |
-| Delar av visualiseringen | Presentera en visualisering av data i Log Analytics-arbetsytan baserat på en eller flera [loggsökningar](../../azure-monitor/log-query/log-query-overview.md). De flesta delar är en rubrik som ger en övergripande visualisering, och en lista som visar de bästa resultaten. Varje Deltyp av en innehåller en annan visualisering av posterna i Log Analytics-arbetsytan. Du kan välja element i delen att utföra en loggsökning som ger detaljerad poster. |
+| Delar av visualiseringen | Presentera en visualisering av data i Log Analytics-arbetsytan baserat på en eller flera [logga frågor](../log-query/log-query-overview.md). De flesta delar är en rubrik som ger en övergripande visualisering, och en lista som visar de bästa resultaten. Varje Deltyp av en innehåller en annan visualisering av posterna i Log Analytics-arbetsytan. Du kan välja element i delen att utföra en loggfråga som innehåller detaljerade poster. |
 
 
 ## <a name="work-with-an-existing-view"></a>Arbeta med en befintlig vy
@@ -53,7 +55,7 @@ Alternativen beskrivs i följande tabell:
 | Alternativ | Beskrivning |
 |:--|:--|
 | Uppdatera   | Uppdaterar vy med den senaste informationen. | 
-| Analytics | Öppnar den [Advanced Analytics-portalen](../../azure-monitor/log-query/portals.md) att analysera data med loggfrågor. |
+| Logs      | Öppnar den [Log Analytics](../log-query/portals.md) att analysera data med loggfrågor. |
 | Redigera       | Öppnar vyn i Vydesigner redigera dess innehåll och konfiguration.  |
 | Klona      | Skapar en ny vy och öppnar den i View Designer. Namnet på den nya vyn är samma som det ursprungliga namnet, men med *kopia* läggas till den. |
 | Datumintervall | Ange filter för datum och tid intervallet för de data som ingår i vyn. Den här datumintervall kopplas före eventuella datumintervall som anges i frågor i vyn.  |

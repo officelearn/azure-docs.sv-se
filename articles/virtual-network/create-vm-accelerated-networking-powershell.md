@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 01/04/2018
 ms.author: gsilva
-ms.openlocfilehash: a5f32504fc7d8fe0faa17d469aec017d39a6b1ce
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: ae3d1fa6a921067e8c3b629206e47e1a1314adc1
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56737152"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889247"
 ---
 # <a name="create-a-windows-virtual-machine-with-accelerated-networking"></a>Skapa en Windows-dator med Accelererat nätverk
 
@@ -66,7 +66,7 @@ Virtuella datorer (klassiska) kan inte distribueras med Accelererat nätverk.
 Även om den här artikeln innehåller steg för att skapa en virtuell dator med accelererat nätverk med hjälp av Azure Powershell, du kan också [skapa en virtuell dator med accelererat nätverk med Azure portal](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json). När du skapar en virtuell dator i portalen, i den **skapa en virtuell dator** bladet väljer du den **nätverk** fliken.  I den här fliken finns ett alternativ för **Accelerated networking**.  Om du har valt en [operativsystem som stöds](#supported-operating-systems) och [VM-storlek](#supported-vm-instances), det här alternativet kommer automatiskt att fylla i ”på”.  Om inte, den fylla i alternativet ”Off” för Accelererat nätverk och ge användaren en orsak till varför den inte är aktiveras.   
 * *Obs!* Endast operativsystem som stöds kan aktiveras via portalen.  Om du använder en anpassad avbildning och din avbildning har stöd för Accelererat nätverk, skapar du en virtuell dator med CLI eller Powershell. 
 
-När den virtuella datorn har skapats kan du bekräfta Accelererat nätverk är aktiverat genom att följa anvisningarna i den [bekräfta att accelererat nätverk är aktiverat](#confirm-that-accelerated-networking-is-enabled).
+När den virtuella datorn har skapats kan bekräfta du Accelererat nätverk är aktiverat genom att följa anvisningarna i Bekräfta att accelererat nätverk är aktiverat.
 
 ## <a name="powershell-creation"></a>Skapa en PowerShell
 ## <a name="create-a-virtual-network"></a>Skapa ett virtuellt nätverk

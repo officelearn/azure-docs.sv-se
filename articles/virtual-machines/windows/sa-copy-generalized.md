@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/23/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: cf0eb7a0b9e38397034c03ef2b4310ed67c6e6dd
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: a7181c91424e1d905329eefd13f926d0b2700081
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55980388"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56864982"
 ---
 # <a name="how-to-create-an-unmanaged-vm-image-from-an-azure-vm"></a>Hur du skapar en ohanterad VM-avbildning från en Azure-dator
 
@@ -41,11 +41,11 @@ Se till att serverroller som körs på datorn som stöds av Sysprep. Mer informa
 > 
 > 
 
-Du kan också generalisera en Linux VM med hjälp av `sudo waagent -deprovision+user` och använda PowerShell för att avbilda den virtuella datorn. Information om hur du använder CLI för att avbilda en virtuell dator finns i [generalisera och avbilda en Linux-dator med hjälp av Azure CLI ](../linux/capture-image.md).
+Du kan också generalisera en Linux VM med hjälp av `sudo waagent -deprovision+user` och använda PowerShell för att avbilda den virtuella datorn. Information om hur du använder CLI för att avbilda en virtuell dator finns i [generalisera och avbilda en Linux-dator med hjälp av Azure CLI](../linux/capture-image.md).
 
 
 1. Logga in på den virtuella datorn i Windows.
-2. Öppna Kommandotolken som administratör. Ändra katalogen till **%windir%\system32\sysprep**, och kör sedan `sysprep.exe`.
+2. Öppna Kommandotolken som administratör. Ändra katalogen till **%windir%\system32\sysprep** och kör sedan `sysprep.exe`.
 3. Välj **Starta OOBE för systemet (Out-of-Box Experience)** i dialogrutan **Systemförberedelseverktyget** och kontrollera att kryssrutan **Generalisera** är markerad.
 4. I **Avslutningsalternativ**väljer **avstängning**.
 5. Klicka på **OK**.

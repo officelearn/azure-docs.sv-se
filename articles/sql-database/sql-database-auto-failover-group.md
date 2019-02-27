@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: 0cffb4fdff4bddc33c6938e27425035c929808b7
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: 5afd5020b060961d215b922c9e49466b73f2a69e
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301935"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889893"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Använda grupper för automatisk redundans för att aktivera transparent och samordnad redundans för flera databaser
 
@@ -129,6 +129,18 @@ För att uppnå verkliga affärskontinuitet, att lägga till databasredundans me
 
   > [!IMPORTANT]
   > Hanterad instans stöder inte flera grupper för växling vid fel.
+  
+## <a name="permissions"></a>Behörigheter
+Behörigheter för en redundansgrupp hanteras via [rollbaserad åtkomstkontroll (RBAC)](../role-based-access-control/overview.md). Den [SQL Server-deltagare](../role-based-access-control/built-in-roles.md#sql-server-contributor) rollen har behörigheterna som är nödvändiga för att hantera redundansgrupper. 
+
+### <a name="create-failover-group"></a>Skapa redundansgrupp
+Om du vill skapa en redundansgrupp måste RBAC skrivåtkomst till båda primära och sekundära servrar och till alla databaser i redundansgruppen. Du behöver RBAC skrivåtkomst till både den primära och sekundära hanterad instansen för en hanterad instans, men behörigheter för enskilda databaser är inte relevant eftersom enskilda hanterade instansdatabaser inte kan läggas till eller tas bort från en redundansgrupp. 
+
+### <a name="update-a-failover-group"></a>Uppdatera en redundansgrupp
+Om du vill uppdatera en redundansgrupp måste RBAC skrivåtkomst till i redundansgruppen och alla databaser på den primära servern eller hanterad instans.  
+
+### <a name="failover-a-failover-group"></a>Redundansväxla en redundansgrupp
+Om du vill redundansväxla en redundansgrupp behöver RBAC skrivåtkomst till redundansgruppen på den nya primära servern eller hanterad instans. 
 
 ## <a name="best-practices-of-using-failover-groups-with-single-databases-and-elastic-pools"></a>Bästa praxis att använda grupper för växling vid fel med enskilda databaser och elastiska pooler
 

@@ -11,15 +11,15 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 02/08/2019
-ms.openlocfilehash: b39967c071b21978324f205eb62d305011b65fb6
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.date: 02/26/2019
+ms.openlocfilehash: f6179c14c0a057a08203764316eeb43783cd7fc8
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55995078"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56887751"
 ---
-# <a name="create-readable-secondary-databases-using-active-geo-replication"></a>Skapa läsbara sekundära databaser med aktiv geo-replikering
+# <a name="creating-and-using-active-geo-replication"></a>Skapa och använda aktiv geo-replikering
 
 Aktiv geo-replikering är Azure SQL Database-funktion som låter dig skapa läsbara sekundära databaser för enskilda databaser på en SQL Database-server i samma eller olika datacenter (region).
 
@@ -110,7 +110,7 @@ För att uppnå verkliga affärskontinuitet, att lägga till databasredundans me
 
 - **Synkronisera autentiseringsuppgifterna och brandväggsregler**
 
-  Vi rekommenderar att du använder [databasen brandväggsregler](sql-database-firewall-configure.md) för geo-replikerade databaser så att de här reglerna kan replikeras med databasen för att se till att alla sekundära databaser har samma brandväggsregler som primär. Den här metoden eliminerar behovet av att manuellt konfigurera och underhålla brandväggsregler på servrar som är värd för både de primära och sekundära databaserna. På samma sätt med hjälp av [innehöll databasanvändare](sql-database-manage-logins.md) för data access ser du till både primära och sekundära databaser har alltid samma autentiseringsuppgifter så att det finns inga avbrott på grund av överensstämmer inte med inloggningsnamn och lösenord under en redundansväxling. Med hjälp av [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md), kunder kan hantera användarnas åtkomst till både primära och sekundära databaser och vilket eliminerar behovet av hantering av autentiseringsuppgifter i databaser helt och hållet.
+Vi rekommenderar att du använder [databasen brandväggsregler](sql-database-firewall-configure.md) för geo-replikerade databaser så att de här reglerna kan replikeras med databasen för att se till att alla sekundära databaser har samma brandväggsregler som primär. Den här metoden eliminerar behovet av att manuellt konfigurera och underhålla brandväggsregler på servrar som är värd för både de primära och sekundära databaserna. På samma sätt med hjälp av [innehöll databasanvändare](sql-database-manage-logins.md) för data access ser du till både primära och sekundära databaser har alltid samma autentiseringsuppgifter så att det finns inga avbrott på grund av överensstämmer inte med inloggningsnamn och lösenord under en redundansväxling. Med hjälp av [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md), kunder kan hantera användarnas åtkomst till både primära och sekundära databaser och vilket eliminerar behovet av hantering av autentiseringsuppgifter i databaser helt och hållet.
 
 ## <a name="upgrading-or-downgrading-a-primary-database"></a>Uppgradera eller nedgradera en primär databas
 
@@ -125,6 +125,16 @@ Kontinuerlig kopiering använder en asynkron replikeringsmekanism på grund av d
 
 > [!NOTE]
 > **sp_wait_for_database_copy_sync** förhindrar att data går förlorade efter växling vid fel, men garanterar inte fullständig synkronisering för läsåtkomst. Fördröjningen orsakas av en **sp_wait_for_database_copy_sync** proceduranropet kan vara betydande och beror på storleken på transaktionsloggen vid tidpunkten för anropet.
+
+## <a name="monitoring-geo-replication-lag"></a>Övervakning av geo-replikeringsfördröjning
+
+Du övervakar fördröjning med avseende på RPO med *replication_lag_sec* kolumn med [sys.dm_geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database) på den primära databasen. Den visar fördröjning i sekunder mellan transaktioner allokerats på primärt och sparats på sekundärt. T.ex. Om värdet för fördröjningen är 1 sekund, det innebär att om primärt påverkas av driftstörningar just nu och växling vid fel är intiated, 1 sekund av den senaste transtions sparas inte. 
+
+För att mäta fördröjning med avseende på ändringar på den primära databasen som har tillämpats på sekundärt, d.v.s. som kan läsas från sekundärt jämför *last_commit* tiden på den sekundära databasen med samma värde på primärt -databasen.
+
+> [!NOTE]
+> Ibland *replication_lag_sec* har ett nullvärde, vilket innebär att primärt inte för närvarande vet hur långt sekundära har på den primära databasen.   Detta brukar inträffa efter processen startas om och bör vara ett övergående tillstånd. Överväg att aviseringar programmet om det *replication_lag_sec* returnerar NULL under en längre tid. Det visar att den sekundära databasen inte kan kommunicera med primärt på grund av ett permanent anslutningsfel. Det finns också villkor som kan orsaka skillnaden mellan *last_commit* tiden på sekundärt och på den primära databasen bli stor. T.ex. Om ett genomförande görs på primärt efter en lång tid utan ändringar, kommer skillnaden Hoppa upp till ett större värde innan snabbt returneras till 0. Överväg det ett feltillstånd när skillnaden mellan dessa två värden ligger stora under lång tid.
+
 
 ## <a name="programmatically-managing-active-geo-replication"></a>Programmässigt hantera aktiv geo-replikering
 

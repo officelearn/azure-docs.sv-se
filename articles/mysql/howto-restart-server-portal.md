@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 2/7/2019
-ms.openlocfilehash: cd9275e9e112d24d9dbb3d1d5a60c871d7d8ae5c
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 6cf6679dc6398b112ffc964f50986b2ab30aba47
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55890471"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56882492"
 ---
 # <a name="restart-azure-database-for-mysql-server-using-azure-portal"></a>Starta om Azure Database för MySQL med Azure-portalen
 Det här avsnittet beskrivs hur du kan starta om en Azure Database for MySQL-server. Du kan behöva starta om servern för underhåll orsaker, vilket medför ett kort avbrott som servern utför åtgärden.
@@ -36,15 +36,15 @@ Starta följande steg om MySQL-server:
 
 3. Klicka på **Ja** att bekräfta att starta om servern.
 
-   ![Azure Database för MySQL - omstart bekräfta ](./media/howto-restart-server-portal/3-restart-confirm.png)
+   ![Azure Database för MySQL - omstart bekräfta](./media/howto-restart-server-portal/3-restart-confirm.png)
 
 4. Observera att Serverstatusen ändras till ”startar om”.
 
-   ![Azure Database för MySQL - status för omstart ](./media/howto-restart-server-portal/4-restarting-status.png)
+   ![Azure Database för MySQL - status för omstart](./media/howto-restart-server-portal/4-restarting-status.png)
 
 5. Bekräfta omstart av servern är klar.
 
-   ![Azure Database för MySQL - omstart lyckades ](./media/howto-restart-server-portal/5-restart-success.png)
+   ![Azure Database för MySQL - omstart lyckades](./media/howto-restart-server-portal/5-restart-success.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

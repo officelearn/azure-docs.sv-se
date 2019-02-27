@@ -10,22 +10,22 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
-ms.openlocfilehash: 8ffcfc86823d46e65e116eed86ef35fcba2a99bf
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 45407e183c70fe67e6bd59e3fd86a50a31844c47
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56007329"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453495"
 ---
 # <a name="tutorial-2-train-credit-risk-models---azure-machine-learning-studio"></a>Självstudie 2: Träna kreditriskmodeller – Azure Machine Learning Studio
 
-I den här självstudien ska vi titta närmare på hur du utvecklar en lösning för förutsägelseanalys. Du ska utveckla en enkel modell i Machine Learning Studio.  Därefter ska du distribuera modellen som en Azure Machine Learning-webbtjänst.  Den här distribuerade modellen kan göra förutsägelser med nya data. Självstudien är **del två i en självstudieserie i tre delar**.
+I den här självstudien ska vi titta närmare på hur du utvecklar en lösning för förutsägelseanalys. Du ska utveckla en enkel modell i Machine Learning Studio.  Därefter distribuerar du modellen som en Azure Machine Learning-webbtjänst.  Den här distribuerade modellen kan göra förutsägelser med nya data. Självstudien är **del två i en självstudieserie i tre delar**.
 
 Anta att du behöver förutsäga kreditrisken för en person baserat på den information som han eller hon fyller i på en kreditansökan.  
 
-Kreditriskbedömning är ett komplext problem, men den här självstudien ska förenkla det lite. Vi använder den som ett exempel på hur du skapar en lösning för förutsägelseanalys i Microsoft Azure Machine Learning. Du ska använda Azure Machine Learning Studio och en Machine Learning-webbtjänst för den här lösningen.  
+Kreditriskbedömning är ett komplext problem, men den här självstudien kommer att förenkla processen. Du använder det som ett exempel på hur du kan skapa en lösning för förutsägelseanalys med hjälp av Microsoft Azure Machine Learning Studio. Du använder Azure Machine Learning Studio och en Machine Learning-webbtjänst i den här lösningen.  
 
-I den här självstudien i tre delar börjar du med offentligt tillgängliga kreditriskdata.  Därefter ska du utveckla och träna en förutsägelsemodell.  Slutligen ska du distribuera modellen som en webbtjänst.
+I den här självstudien i tre delar börjar du med offentligt tillgängliga kreditriskdata.  Därefter utvecklar du och tränar en förutsägelsemodell.  Slutligen ska du distribuera modellen som en webbtjänst.
 
 I [del ett av självstudien](tutorial-part1-credit-risk.md) skapade du en Machine Learning Studio-arbetsyta, överförde data och skapade ett experiment.
 
@@ -191,9 +191,9 @@ Till höger om diagrammet klickar du på **Scored dataset** (Poängsatt dataupps
 Genom att undersöka dessa värden kan du avgöra vilken modell som bäst kan ge dig de resultat som du letar efter. Du kan gå tillbaka och iterera ditt experiment genom att ändra parametervärden i de olika modellerna. 
 
 Vetenskapen och konsten att tolka resultaten och att finjustera modellens prestanda förklaras inte närmare i den här självstudien. Mer information finns i följande artiklar:
-- [Så här utvärderar du modellens prestanda i Azure Machine Learning](evaluate-model-performance.md)
-- [Välja parametrar för att optimera algoritmerna i Azure Machine Learning](algorithm-parameters-optimize.md)
-- [Tolka modellens resultat i Azure Machine Learning](interpret-model-results.md)
+- [Så utvärderar du modellprestanda i Azure Machine Learning Studio](evaluate-model-performance.md)
+- [Välja parametrar för att optimera algoritmerna i Azure Machine Learning Studio](algorithm-parameters-optimize.md)
+- [Tolka modellresultat i Azure Machine Learning Studio](interpret-model-results.md)
 
 > [!TIP]
 > Varje gång du kör experimentet sparas en post över iterationen i körningshistoriken. Du kan visa dessa iterationer och återgå till någon av dem genom att klicka på **View run history** (Visa körningshistorik) nedanför arbetsytan. Du kan också klicka på **Prior Run** (Tidigare körning) i fönstret **Egenskaper** för att gå tillbaka till iterationen som direkt föregår den som är öppen.

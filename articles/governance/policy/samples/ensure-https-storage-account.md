@@ -1,6 +1,6 @@
 ---
 title: Exempel – Garantera endast HTTPS-trafik för lagringskonto
-description: Den här exempelprincipen kräver att lagringskonton använder HTTPS-trafik.
+description: Den här exempelprincipdefinitionen kräver att lagringskonton använder HTTPS-trafik.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: fb708b016bb2372af71b564c502185623b1717eb
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 9900b56c6e0bfe928bd01cffb2a0b785d582a5d4
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56241656"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56337653"
 ---
-# <a name="ensure-https-traffic-only-for-storage-account"></a>Garantera endast HTTPS-trafik för lagringskonto
+# <a name="sample---ensure-https-traffic-only-for-storage-account"></a>Exempel – Garantera endast HTTPS-trafik för lagringskonto
 
 Den här principen kräver att lagringskonton använder HTTPS-trafik.
 

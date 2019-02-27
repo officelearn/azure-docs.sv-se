@@ -1,6 +1,6 @@
 ---
 title: Exempel – Framtvinga matchningsmönster
-description: Den här exempelprincipen kräver att resurser uppfyller like-mönster för namngivningskonventioner.
+description: Den här exempelprincipdefinitionen kräver att resurser uppfyller like-mönster för namngivningskonventioner.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 7bc7624cdcc6676d3f622f30e9549a2e444c1d6f
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 6ff890773a045220b7e2f343d86434fe9109ef1a
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56243054"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56338486"
 ---
-# <a name="enforce-like-pattern-for-naming-conventions"></a>Framtvinga like-mönster för namngivningskonventioner
+# <a name="sample---enforce-like-pattern-for-naming-conventions"></a>Exempel – Framtvinga like-mönster för namngivningskonventioner
 
 Kräv resursnamn uppfyller ett like-mönster för namngivningskonventioner. Ange det tillåtna like-mönstret som en parameter.
 

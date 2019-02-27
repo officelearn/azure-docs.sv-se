@@ -17,14 +17,14 @@ ms.workload: infrastructure
 ms.date: 04/20/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: 1802df4e6cbe77b4bc7ee2ee49f24d8dc51de015
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 6d5c159d030303b90128513d3521a19419e4277e
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32180529"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56429238"
 ---
-# <a name="quickstart-diagnose-a-virtual-machine-network-traffic-filter-problem-using-the-azure-portal"></a>Snabbstart: Diagnostisera problem med filtreringen av nätverkstrafik på virtuella datorer med hjälp av Azure Portal
+# <a name="quickstart-diagnose-a-virtual-machine-network-traffic-filter-problem-using-the-azure-portal"></a>Snabbstart: Diagnostisera problem med filtreringen av nätverkstrafik på virtuella datorer med hjälp av Azure-portalen
 
 I den här snabbstarten ska du distribuera en virtuell dator (VM) och kontrollera kommunikationen till en IP-adress och URL och från en IP-adress. Du lär dig också hur du fastställer orsaken till ett kommunikationsfel och hur du löser problemet.
 
@@ -37,7 +37,7 @@ Logga in på Azure Portal på https://portal.azure.com.
 ## <a name="create-a-vm"></a>Skapa en virtuell dator
 
 1. Klicka på **+ Skapa en resurs** längst upp till vänster på Azure Portal.
-2. Välj **Compute** och välj sedan **Windows Server 2016 Datacenter** eller **Ubuntu Server 17.10 VM**.
+2. Välj **Compute** och välj sedan **Windows Server 2016 Datacenter** eller en version av **Ubuntu Server**.
 3. Ange eller välj följande information, acceptera standardinställningarna för återstående inställningar och välj sedan **OK**:
 
     |Inställning|Värde|
@@ -61,7 +61,7 @@ Om du vill testa nätverkskommunikationen med Network Watcher måste du först a
 
 Om du redan har aktiverat en nätverksbevakare i minst en region går du vidare till [Använda Kontrollera IP-flöde](#use-ip-flow-verify).
 
-1. Välj **Alla tjänster** på portalen. Skriv *Network Watcher*i **filterrutan**. Välj **Network Watcher** i sökresultatet.
+1. Välj **Alla tjänster** på portalen. I **filterrutan** skriver du *Network Watcher*. Välj **Network Watcher** i sökresultatet.
 2. Aktivera en nätverksbevakare i regionen Östra USA eftersom det var i den regionen som den virtuella datorn distribuerades i ett tidigare steg. Välj **Regioner** för att expandera avsnittet och välj sedan **...** till höger om **USA, östra**, som du ser i följande bild:
 
     ![Aktivera Network Watcher](./media/diagnose-vm-network-traffic-filtering-problem/enable-network-watcher.png)

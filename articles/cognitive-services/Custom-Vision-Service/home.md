@@ -3,40 +3,40 @@ title: Vad är Azure Custom Vision?
 titlesuffix: Azure Cognitive Services
 description: Lär dig att använda Custom Vision Service för att skapa anpassade bildklassificerare i Azure-molnet.
 services: cognitive-services
-author: anrothMSFT
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: overview
-ms.date: 01/10/2019
-ms.author: anroth
-ms.openlocfilehash: cc60166b4105cf38d3c1f73bdb558af7a9a7c831
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.date: 02/20/2019
+ms.author: pafarley
+ms.openlocfilehash: 6cbc6e351147ed5b4c31463b5cf319417f34da34
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55857489"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56456783"
 ---
 # <a name="what-is-azure-custom-vision"></a>Vad är Azure Custom Vision?
 
-Custom Vision Service är en Cognitive-tjänst som låter dig skapa, distribuera och förbättra anpassade bildklassificerare. En bildklassificerare är en AI-tjänst som sorterar avbildningar i klasser (taggar) enligt vissa egenskaper. Till skillnad från [Visuellt innehåll](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home) kan du skapa dina egna klassificeringar med Custom Vision.
+Azure Custom Vision är en kognitiv tjänst som du kan använda för att skapa, distribuera och förbättra dina egna bildklassificerare. En bildklassificerare är en AI-tjänst som applicerar etiketter (som representerar _klasser_) på bilder utefter deras visuella egenskaper. Till skillnad från tjänsten [Visuellt innehåll](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home) gör Custom Vision att du kan bestämma vilka etiketter som ska appliceras.
 
 ## <a name="what-it-does"></a>Vad läget gör
 
-Custom Vision-tjänsten använder en maskininlärningsalgoritm för att klassificera bilder. Du, utvecklaren, måste skicka in grupper av bilder som har och saknar de aktuella klassificeringarna. Du anger rätt taggar för bilderna vid inskickandet. Algoritmen tränas med dessa data och beräknar sin egen noggrannhet genom att testa sig själv på samma data. När modellen tränas kan du testa, träna och använda den för att klassificera nya avbildningar enligt behoven i din app. Du kan också exportera själva modellen för användning offline.
+Custom Vision-tjänsten använder en maskininlärningsalgoritm för att applicera etiketter på bilder. Du, utvecklaren, måste skicka in grupper av bilder som har respektive saknar de aktuella egenskaperna. Du märker själv bilderna när de skickas in. Sedan tränas algoritmen med dessa data och beräknar sin egen noggrannhet genom att testa sig på samma bilder. När algoritmen har tränats kan du testa, träna om och senare använda den för att klassificera nya avbildningar enligt appens behov. Du kan också exportera själva modellen för användning offline.
 
-### <a name="classification-and-object-detection"></a>Klassificering och objektidentifiering
+## <a name="classification-and-object-detection"></a>Klassificering och objektidentifiering
 
-Anpassade funktioner för Custom Vision kan delas in i två funktioner. **Bildklassificering** tilldelar en fördelning av klassificeringar till varje bild. Både klassificeringsmodellen för multiklass (en tagg per bild) och flera delar (valfritt antal taggar per bild) stöds. **Objektidentifiering** liknar flerdelsklassificering, men returnerar även koordinaterna i bilden där de tillämpade etiketterna kan hittas.
+Anpassade funktioner för Custom Vision kan delas in i två funktioner. **Bildklassificering** applicerar en eller flera etiketter på en bild. **Objektidentifiering** är liknande, men returnerar även de koordinater i bilden där de tillämpade etiketterna kan hittas.
 
-### <a name="optimization"></a>Optimering
+## <a name="optimization"></a>Optimering
 
-I allmänhet är metoderna som Custom Vision Service robusta för skillnader, vilket betyder att du kan börja skapa prototyper med små mängder data. 50 bilder per tagg är vanligtvis en bra början. Det innebär dock att tjänsten inte är optimal för att identifiera vissa skillnader i bilder (exempelvis upptäcka små fel i kvalitetskontroller).
+Tjänsten Custom Vision är optimerad för att snabbt identifiera stora skillnader mellan bilder. Det gör att du kan börja skapa prototyper av modellen med en liten mängd data. 50 bilder per etikett är vanligtvis en bra utgångspunkt. Det innebär dock att tjänsten inte är optimal för att identifiera vissa skillnader i bilder (exempelvis upptäcka små fel i kvalitetskontroller).
 
-Dessutom kan du välja från flera olika typer av Custom Vision-algoritmen som är optimerade för vissa ämnesmaterial&mdash;exempelvis landmärken eller detaljhandelsobjekt. Mer information finns i dokumentet [Skapa en klassificerare](getting-started-build-a-classifier.md).
+Dessutom kan du välja bland flera olika typer av Custom Vision-algoritmen som är optimerade för bilder med vissa motiv&mdash; exempelvis landmärken eller detaljhandelsobjekt. Mer information finns i dokumentet [Skapa en klassificerare](getting-started-build-a-classifier.md).
 
 ## <a name="what-it-includes"></a>Vad verktyget innehåller
-Custom Vision Service är tillgängligt som en uppsättning av anpassade SDK: er eller via ett webbaserat gränssnitt på [Custom Vision-startsidan](https://customvision.ai/). Du kan skapa, testa och träna en modell via gränssnittet, eller båda.
+Custom Vision Service är tillgängligt som en uppsättning av anpassade SDK: er eller via ett webbaserat gränssnitt på [Custom Vision-startsidan](https://customvision.ai/). Du kan skapa, testa och träna en modell via endera gränssnittet eller använda båda tillsammans.
 
 ![Custom Vision-startsida för i ett Chrome-webbläsarfönster](media/browser-home.png)
 
@@ -46,4 +46,4 @@ Som med alla Cognitive Services bör utvecklare som använder Custom Vision-tjä
 
 ## <a name="next-steps"></a>Nästa steg
 
-Följ guiden [Skapa en klassificerare](getting-started-build-a-classifier.md) för att komma igång med Custom Vision på webben eller slutför en [självstudie om bildklassificering](csharp-tutorial.md) för att implementera scenariot i kod.
+Följ guiden [Skapa en klassificerare](getting-started-build-a-classifier.md) för att komma igång med Custom Vision på webben eller slutför en [självstudie om bildklassificering](csharp-tutorial.md) för att implementera ett grundläggande scenario i kod.

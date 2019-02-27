@@ -1,289 +1,259 @@
 ---
 title: 'Självstudier: Azure Active Directory-integrering med Central Desktop | Microsoft Docs'
-description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och centrala Desktop.
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Central Desktop.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: b805d485-93db-49b4-807a-18d446c7090e
-ms.service: active-directory
-ms.subservice: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 12/08/2017
+ms.topic: tutorial
+ms.date: 02/12/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d389a9675f7d4de56a03026c0d392b9988f6b0da
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: MT
+ms.openlocfilehash: aa1771366efba82fc00886581dac77295e68f9f7
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56201694"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56342158"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-central-desktop"></a>Självstudier: Azure Active Directory-integrering med Central Desktop
 
-Lär dig hur du integrerar centrala Desktop med Azure Active Directory (AD Azure) i den här självstudien.
+I den här självstudien lär du dig att integrera Central Desktop med Azure Active Directory (AD Azure).
+Integreringen av Central Desktop med Azure AD medför följande fördelar:
 
-Integrera centrala Desktop med Azure AD ger dig följande fördelar:
+* Du kan i Azure AD styra vem som har åtkomst till Central Desktop.
+* Du kan göra så att dina användare loggas in automatiskt på Central Desktop (enkel inloggning) med sina Azure AD-konton.
+* Du kan hantera dina konton på en central plats – Azure-portalen.
 
-- Du kan styra i Azure AD som har åtkomst till centrala Desktop.
-- Du kan aktivera användarna att få loggas in automatiskt Central Desktop med sina Azure AD-konton.
-- Du kan hantera dina konton på en central plats – Azure portal.
+Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-Mer information om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-## <a name="prerequisites"></a>Förutsättningar
+För att konfigurera Azure AD-integrering med Central Desktop behöver du följande:
 
-Om du vill konfigurera Azure AD-integrering med Central Desktop behöver du följande objekt:
-
-- En Azure AD-prenumeration
-- En Central Desktop enkel inloggning på aktiverad prenumeration
-
-> [!NOTE]
-> Vi rekommenderar inte att du använder en produktionsmiljö för att testa stegen i den här självstudien.
-
-Följ dessa rekommendationer för att testa stegen i den här självstudien:
-
-- Använd inte din produktionsmiljö om det inte behövs.
-- Om du inte redan har en Azure AD-utvärderingsmiljö [skaffa en månads kostnadsfri utvärderingsversion](https://azure.microsoft.com/pricing/free-trial/).
+* En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
+* Central Desktop-prenumeration med enkel inloggning aktiverat
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
-I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
-1. Att lägga till centrala Desktop från galleriet
-1. Konfigurera och testa Azure AD enkel inloggning
+I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-## <a name="add-central-desktop-from-the-gallery"></a>Lägg till centrala Desktop från galleriet
-För att konfigurera integrering av centrala Desktop i Azure AD, som du behöver lägga till centrala Desktop från galleriet i din lista över hanterade SaaS-appar.
+* Central Desktop har stöd för **SP**-initierad enkel inloggning
 
-**Om du vill lägga till centrala Desktop från galleriet, gör du följande:**
+## <a name="adding-central-desktop-from-the-gallery"></a>Lägga till Central Desktop från galleriet
 
-1. I den [Azure-portalen](https://portal.azure.com), i rutan till vänster väljer du den **Azure Active Directory** ikon. 
+För att konfigurera integreringen av Central Desktop i Azure AD måste du lägga till Central Desktop från galleriet till din lista över hanterade SaaS-appar.
 
-    ![Azure Active Directory-knappen][1]
+**Utför följande steg för att lägga till Central Desktop från galleriet:**
 
-1. Gå till **företagsprogram**. Gå till **alla program**.
+1. I **[Azure-portalen](https://portal.azure.com)**, i den vänstra navigeringspanelen, klickar du på **Azure Active Directory**-ikonen.
 
-    ![Bladet Företagsprogram][2]
-    
-1. Om du vill lägga till nya program, Välj den **nytt program** knappen överst i dialogrutan.
+    ![Azure Active Directory-knappen](common/select-azuread.png)
 
-    ![Knappen Nytt program][3]
+2. Gå till **Företagsprogram** och välj alternativet **Alla program**.
 
-1. I sökrutan skriver **centrala Desktop**. Välj **centrala Desktop** i resultatrutan och välj sedan den **Lägg till** för att lägga till programmet.
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-    ![Central Desktop i resultatlistan](./media/central-desktop-tutorial/tutorial_centraldesktop_addfromgallery.png)
+3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
+
+    ![Knappen Nytt program](common/add-new-app.png)
+
+4. I sökrutan skriver du **Central Desktop**, väljer **Central Desktop** i resultatpanelen och klickar på knappen **Lägg till** för att lägga till programmet.
+
+     ![Central Desktop i resultatlistan](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med Central Desktop baserat på en testanvändare som kallas ”Britta Simon”.
+I det här avsnittet konfigurerar och testar du enkel inloggning i Azure AD med Central Desktop baserat på en testanvändare med namnet **Britta Simon**.
+För att enkel inloggning ska fungera måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i Central Desktop upprättas.
 
-För enkel inloggning att fungera, behöver Azure AD du veta vem användaren motsvarighet i Central Desktop är till en användare i Azure AD. Med andra ord måste du skapa en länk mellan en Azure AD-användare och en tillhörande användare i Central Desktop.
+För att konfigurera och testa enkel inloggning för Azure AD med Central Desktop behöver du slutföra följande byggstenar:
 
-I Central Desktop ger **användarnamn** samma värde som **användarnamn** i Azure AD. Du har nu skapat länken mellan de två användarna.
-
-Om du vill konfigurera och testa Azure AD enkel inloggning med Central Desktop, måste du utföra följande byggblock:
-
-1. [Konfigurera enkel inloggning i Azure AD](#configure-azure-ad-single-sign-on) så att användarna kan använda den här funktionen.
-1. [Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user) för att testa enkel inloggning för Azure AD med Britta Simon.
-1. [Skapa en Central Desktop testanvändare](#create-a-central-desktop-test-user) har en motsvarighet för Britta Simon i Central Desktop som är länkad till en Azure AD-representation av användaren.
-1. [Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user) så att Britta Simon kan använda enkel inloggning i Azure AD.
-1. [Testa enkel inloggning](#test-single-sign-on) att kontrollera att konfigurationen fungerar.
+1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
+2. **[Konfigurera enkel inloggning för Central Desktop](#configure-central-desktop-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på programsidan.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+5. **[Skapa Central Desktop-testanvändare](#create-central-desktop-test-user)** – för att ha en motsvarighet för Britta Simon i Central Desktop som är länkad till Azure AD-representationen av användaren.
+6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
-I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i ditt program för centrala Desktop.
+I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-**Om du vill konfigurera Azure AD enkel inloggning med Central Desktop, gör du följande:**
+Utför följande steg för att konfigurera enkel inloggning med Azure AD för Central Desktop:
 
-1. I Azure-portalen på den **centrala Desktop** application integration markerar **enkel inloggning**.
+1. I [Azure-portalen](https://portal.azure.com/) går du till programintegreringssidan för **Central Desktop** och väljer **Enkel inloggning**.
 
-    ![Konfigurera länk för enkel inloggning][4]
+    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
-1. Att aktivera enkel inloggning, i den **enkel inloggning** i dialogrutan den **läge** listrutan, väljer **SAML-baserad inloggning**.
- 
-    ![Enkel inloggning för dialogrutan](./media/central-desktop-tutorial/tutorial_centraldesktop_samlbase.png)
+2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
-1. I den **centrala Desktop domän och URL: er** avsnittet, gör följande:
+    ![Välja läge för enkel inloggning](common/select-saml-option.png)
 
-    ![Central skrivbord domän och URL: er med enkel inloggning för information](./media/central-desktop-tutorial/tutorial_centraldesktop_url.png)
+3. På sidan **Konfigurera enkel inloggning med SAML** klickar du på **redigeringsikonen** för att öppna dialogrutan **Grundläggande SAML-konfiguration**.
 
-    a. I den **inloggnings-URL** skriver du en URL med följande mönster: `https://<companyname>.centraldesktop.com`
+    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-    b. I den **identifierare** skriver du en URL med följande mönster:
+4. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
+
+    ![Central Desktop-domän och information om URL:er för enkel inloggning](common/sp-identifier-reply.png)
+
+    a. I textrutan **Inloggnings-URL** skriver du en URL med följande mönster: `https://<companyname>.centraldesktop.com`
+
+    b. I rutan **Identifierare** skriver du en URL med följande mönster:
     | |
     |--|
     | `https://<companyname>.centraldesktop.com/saml2-metadata.php`|
     | `https://<companyname>.imeetcentral.com/saml2-metadata.php`|
+    | |
 
-    c. I den **svars-URL** skriver du en URL med följande mönster: `https://<companyname>.centraldesktop.com/saml2-assertion.php`    
-     
-    > [!NOTE] 
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska identifieraren svars-URL och inloggnings-URL. Kontakta den [centrala Desktop client supportteamet](https://imeetcentral.com/contact-us) att hämta dessa värden. 
+    c. I textrutan **svars-URL** skriver du en URL med följande mönster: `https://<companyname>.centraldesktop.com/saml2-assertion.php`
 
-1. I den **SAML-signeringscertifikat** väljer **certifikat**. Spara certifikatfilen på datorn.
+    > [!NOTE]
+    > Dessa värden är inte verkliga. Uppdatera de här värdena med den faktiska inloggnings-URL:en, identifieraren och svars-URL:en. Kontakta [kundsupporten för Central Desktop](https://imeetcentral.com/contact-us) och be om dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-    ![Länk för nedladdning av certifikatet](./media/central-desktop-tutorial/tutorial_centraldesktop_certificate.png) 
+5. På sidan **Konfigurera enkel inloggning med SAML**, i avsnittet **SAML-signeringscertifikat**, klickar du på **Ladda ned** för att ladda ned **Certifikat (RAW)** från de angivna alternativen enligt dina behov och spara den på datorn.
 
-1. Välj knappen **Spara**.
+    ![Länk för nedladdning av certifikatet](common/certificateraw.png)
 
-    ![Konfigurera den enkel inloggning spara knappen](./media/central-desktop-tutorial/tutorial_general_400.png)
+6. I avsnittet **Konfigurera Central Desktop** kopierar du lämpliga URL:er efter behov.
+
+    ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
+
+    a. Inloggnings-URL
+
+    b. Azure AD-identifierare
+
+    c. Utloggnings-URL
+
+### <a name="configure-central-desktop-single-sign-on"></a>Konfigurera enkel inloggning för Central Desktop
+
+1. Logga in på din **Central Desktop**-klientorganisation.
+
+2. Gå till **Inställningar**. Välj **Avancerat** och sedan **Enkel inloggning**.
+
+    ![Konfiguration – Avancerat](./media/central-desktop-tutorial/ic769563.png "Konfiguration – Avancerat")
+
+3. På sidan **Single Sign On Settings** (Inställningar för enkel inloggning) utför du följande steg:
+
+    ![Inställningar för enkel inloggning](./media/central-desktop-tutorial/ic769564.png "Inställningar för enkel inloggning")
+
+    a. Välj **Enable SAML v2 Single Sign On** (Aktivera enkel inloggning med SAML v2).
+
+    b. I textrutan **SSO URL** (URL för enkel inloggning) klistrar du in värdet för den **Azure AD-identifierare** som du kopierade från Azure-portalen.
+
+    c. I rutan **SSO Login URL** (Inloggnings-URL för enkel inloggning) klistrar du in det värde för **inloggnings-URL** som du kopierade från Azure-portalen.
+
+    d. I rutan **SSO Logout URL** (Utloggnings-URL för enkel inloggning) klistrar du in det värde för **inloggnings-URL** som du kopierade från Azure-portalen.
+
+4. I avsnittet **Message Signature Verification Method** (Verifieringsmetod för meddelandesignatur) utför du följande steg:
+
+    ![Verifieringsmetod för meddelandesignatur](./media/central-desktop-tutorial/ic769565.png "Verifieringsmetod för meddelandesignatur")
     
-1. I den **Central konfiguration av fjärrskrivbord** väljer **konfigurera centrala Desktop** att öppna den **konfigurera inloggning** fönster. Kopiera den **URL för utloggning, SAML entitets-ID och SAML enkel inloggning för tjänst-URL** från den **Snabbreferens** avsnittet.
+    a. Välj **Certifikat**.
 
-    ![Central konfiguration av fjärrskrivbord](./media/central-desktop-tutorial/tutorial_centraldesktop_configure.png) 
+    b. I listan **SSO Certificate** (Certifikat för enkel inloggning) väljer du **RSH SHA256**.
 
-1. Logga in på din **centrala Desktop** klient.
+    c. Öppna det nedladdade certifikatet i Anteckningar. Kopiera innehållet i certifikatet och klistra in det i fältet **SSO Certificate** (Certifikat för enkel inloggning).
 
-1. Gå till **inställningar**. Välj **Avancerat**, och välj sedan **Single Sign On**.
+    d. Välj **Display a link to your SAMLv2 login page** (Visa en länk till din SAMLv2-inloggningssida).
 
-    ![-Installation - avancerade](./media/central-desktop-tutorial/ic769563.png "-installation - Avancerat")
-
-1. På den **enkel inloggning på inställningar** utför följande steg:
-
-    ![Enkel inloggning inställningar](./media/central-desktop-tutorial/ic769564.png "enkel inloggning på inställningar")
-    
-    a. Välj **aktivera SAML v2 för enkel inloggning**.
-    
-    b. I den **SSO URL** rutan, klistra in den **SAML entitets-ID** värde som du kopierade från Azure-portalen.
-    
-    c. I den **inloggnings-URL för enkel inloggning** rutan, klistra in den **SAML enkel inloggning för tjänst-URL** värde som du kopierade från Azure-portalen.
-    
-    d. I den **utloggnings-URL för enkel inloggning** rutan, klistra in den **URL: en för utloggning** värde som du kopierade från Azure-portalen.
-
-1. I den **meddelandet signatur verifieringsmetod** avsnittet, gör följande:
-
-    ![Meddelandet signatur verifieringsmetod](./media/central-desktop-tutorial/ic769565.png "meddelandet signatur verifieringsmetod") en. Välj **Certifikat**.
-    
-    b. I den **SSO-certifikat** väljer **RSH SHA256**.
-    
-    c. Öppna det nedladdade certifikatet i anteckningar. Kopiera innehållet i certifikatet och klistra in den i den **SSO-certifikat** fält.
-        
-    d. Välj **visar en länk till inloggningssidan för SAMLv2**.
-    
-    e. Välj **uppdatering**.
-
-> [!TIP]
-> Du kan läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com) medan du installerar appen. När du lägger till den här appen från den **Active Directory** > **företagsprogram** väljer den **enkel inloggning** fliken och sedan komma åt den inbäddade dokumentation genom den **Configuration** avsnittet längst ned. Du kan läsa mer om funktionen embedded-dokumentation på [embedded-dokumentation för Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985).
+    e. Välj **Uppdatera**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
-Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
+Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
 
-   ![Skapa en Azure AD-testanvändare][100]
+1. Gå till den vänstra rutan i Azure-portalen och välj **Azure Active Directory**, välj **Users** och sedan **Alla användare**.
 
-**Om du vill skapa en testanvändare i Azure AD, gör du följande:**
+    ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-1. I Azure-portalen, i rutan till vänster väljer du den **Azure Active Directory** knappen.
+2. Välj **Ny användare** överst på skärmen.
 
-    ![Azure Active Directory-knappen](./media/central-desktop-tutorial/create_aaduser_01.png)
+    ![Knappen Ny användare](common/new-user.png)
 
-1. Om du vill visa en lista över användare, gå till **användare och grupper**. Välj sedan **alla användare**.
+3. Genomför följande steg i Användaregenskaper.
 
-    ![Länkarna ”Användare och grupper” och ”Alla grupper”](./media/central-desktop-tutorial/create_aaduser_02.png)
+    ![Dialogrutan Användare](common/user-properties.png)
 
-1. Öppna den **användaren** dialogrutan **Lägg till** överst i den **alla användare** dialogrutan.
+    a. I fältet **Namn** anger du **BrittaSimon**.
+  
+    b. I fältet **Användarnamn** anger du **brittasimon@yourcompanydomain.extension**  
+    Till exempel, BrittaSimon@contoso.com
 
-    ![Knappen Lägg till](./media/central-desktop-tutorial/create_aaduser_03.png)
+    c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
-1. I den **användaren** dialogrutan rutan, gör följande:
+    d. Klicka på **Skapa**.
 
-    ![Dialogrutan Användare](./media/central-desktop-tutorial/create_aaduser_04.png)
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-    a. I den **namn** skriver **BrittaSimon**.
+I det här avsnittet gör du det möjligt för Britta Simon att använda enkel inloggning med Azure genom att ge åtkomst till Central Desktop.
 
-    b. I den **användarnamn** skriver användarens Britta Simon e-postadress.
+1. I Azure-portalen väljer du **Företagsprogram**, **Alla program** och sedan **Central Desktop**.
 
-    c. Välj den **visa lösenord** kryssrutan och sedan skriva ned det värde som visas i den **lösenord** box.
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-    d. Välj **Skapa**.
- 
-### <a name="create-a-central-desktop-test-user"></a>Skapa en Central Desktop testanvändare
+2. I programlistan väljer du **Central Desktop**.
 
-För Azure AD-användare för att kunna logga in, måste de vara etablerade i Central Desktop-programmet. Det här avsnittet beskriver hur du skapar användarkonton i Azure AD i Central Desktop.
+    ![Länken för Central Desktop i programlistan](common/all-applications.png)
+
+3. På menyn till vänster väljer du **Användare och grupper**.
+
+    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
+
+4. Klicka på knappen **Lägg till användare** och välj sedan **Användare och grupper** i dialogrutan **Lägg till tilldelning**.
+
+    ![Fönstret Lägg till tilldelning](common/add-assign-user.png)
+
+5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
+
+6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
+
+7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
+
+### <a name="create-central-desktop-test-user"></a>Skapa Central Desktop-testanvändare
+
+För att Azure AD-användare ska kunna logga in måste de etableras i Central Desktop-programmet. Det här avsnittet beskriver hur du skapar Azure AD-användarkonton i Central Desktop.
 
 > [!NOTE]
-> Du kan använda andra verktyg för Central Desktop att skapa användaren-konto eller API: er som tillhandahålls av centrala Desktop för att etablera användarkonton i Azure AD.
+> För att etablera Azure AD-användarkonton kan du använda andra verktyg eller API:er för att skapa Central Desktop-användarkonton som tillhandahålls av Central Desktop.
 
-**Att etablera användarkonton till centrala Desktop:**
+**Så här etablerar du användarkonton till Central Desktop:**
 
-1. Logga in på din centrala Desktop-klient.
+1. Logga in på din Central Desktop-klientorganisation.
 
-1. Gå till **personer** > **interna medlemmar**.
-
-1. Välj **lägga till interna medlemmar**.
+2. Välj **Personer** och sedan **Add Internal Members** (Lägg till interna medlemmar).
 
     ![Personer](./media/central-desktop-tutorial/ic781051.png "Personer")
-    
-1. I den **e-postadress för nya medlemmar** skriver du ett Azure AD-konto som du vill etablera och välj sedan **nästa**.
 
-    ![E-postadresser för nya medlemmar](./media/central-desktop-tutorial/ic781052.png "e-postadresser för nya medlemmar")
+3. I rutan **Email Address of New Members** (E-postadress för nya medlemmar) skriver du ett Azure AD-konto som du vill etablera och väljer sedan **Nästa**.
 
-1. Välj **lägga till interna medlem (mar)**.
+    ![E-postadress för nya medlemmar](./media/central-desktop-tutorial/ic781052.png "E-postadress för nya medlemmar")
 
-    ![Lägg till interna medlem](./media/central-desktop-tutorial/ic781053.png "Lägg till interna medlem")
-   
-   >[!NOTE]
-   >Användare som du lägger till får ett e-postmeddelande som innehåller en länk för bekräftelse för att aktivera sina konton.
-   
-### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+4. Välj **Add Internal member(s)** (Lägg till interna medlemmar).
 
-I det här avsnittet ska aktivera du användaren Britta Simon att använda Azure enkel inloggning genom att ge dem åtkomst till centrala Desktop.
+    ![Lägg till intern medlem](./media/central-desktop-tutorial/ic781053.png "Lägg till intern medlem")
+  
+   > [!NOTE]
+   > De användare som du lägger till får ett e-postmeddelande som innehåller en bekräftelselänk för att aktivera sina konton.
 
-![Tilldela rollen][200] 
-
-**Om du vill tilldela Britta Simon centrala Desktop, gör du följande:**
-
-1. Öppna program i Azure-portalen. Gå till vyn directory och gå sedan till **företagsprogram**.
-
-1. Välj **alla program**.
-
-    ![Tilldela användare][201] 
-
-1. I listan med program väljer **centrala Desktop**.
-
-    ![Central Desktop länken i listan med program](./media/central-desktop-tutorial/tutorial_centraldesktop_app.png)  
-
-1. På menyn till vänster väljer du **Användare och grupper**.
-
-    ![Länken ”Användare och grupper”][202]
-
-1. Välj knappen **Lägg till**. Välj sedan **användare och grupper** i den **Lägg till tilldelning** dialogrutan.
-
-    ![Fönstret Lägg till tilldelning][203]
-
-1. I den **användare och grupper** dialogrutan **Britta Simon** i den **användare** lista.
-
-1. I den **användare och grupper** dialogrutan klickar du på den **Välj** knappen.
-
-1. I den **Lägg till tilldelning** dialogrutan den **tilldela** knappen.
-    
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
-I det här avsnittet testa Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
+I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du väljer panelen centrala Desktop i åtkomstpanelen kan hämta du loggas in automatiskt Central Desktop programmet.
-Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../user-help/active-directory-saas-access-panel-introduction.md). 
+När du klickar på Central Desktop-panelen i åtkomstpanelen bör du automatiskt loggas in på Central Desktop som du har konfigurerat enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-<!--Image references-->
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-[1]: ./media/central-desktop-tutorial/tutorial_general_01.png
-[2]: ./media/central-desktop-tutorial/tutorial_general_02.png
-[3]: ./media/central-desktop-tutorial/tutorial_general_03.png
-[4]: ./media/central-desktop-tutorial/tutorial_general_04.png
-
-[100]: ./media/central-desktop-tutorial/tutorial_general_100.png
-
-[200]: ./media/central-desktop-tutorial/tutorial_general_200.png
-[201]: ./media/central-desktop-tutorial/tutorial_general_201.png
-[202]: ./media/central-desktop-tutorial/tutorial_general_202.png
-[203]: ./media/central-desktop-tutorial/tutorial_general_203.png
-
+- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

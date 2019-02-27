@@ -12,15 +12,15 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/27/2018
+ms.date: 02/19/2019
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 76281113c0d1e7b3943e137accf7aa93c2863fe6
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 590e1e5853ccf4a525477f194c78f1fd8ce679ed
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54435388"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56453077"
 ---
 # <a name="tutorial-deploy-a-service-fabric-windows-cluster-into-an-azure-virtual-network"></a>Självstudier: Distribuera ett Service Fabric Windows-kluster till ett virtuellt Azure-nätverk
 
@@ -33,6 +33,7 @@ I den här guiden får du lära dig att:
 > [!div class="checklist"]
 > * skapa ett VNET i Azure med PowerShell
 > * skapa ett nyckelvalv och ladda upp ett certifikat
+> * Konfigurera Azure Active Directory-autentisering
 > * skapa ett säkert Service Fabric-kluster i Azure med PowerShell
 > * skydda klustret med ett X.509-certifikat
 > * Ansluta till klustret med PowerShell
@@ -52,30 +53,9 @@ Innan du börjar den här självstudien:
 * om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 * installera [Service Fabric SDK och PowerShell-modulen](service-fabric-get-started.md)
 * installera [Azure Powershell-modulen version 4.1 eller senare](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps).
+* Granska viktiga begrepp för [Azure-kluster](service-fabric-azure-clusters-overview.md)
 
-I följande procedurer skapas ett Service Fabric-kluster med fem noder. Du kan beräkna kostnaden för att köra ett Service Fabric-kluster i Azure med [Azures prissättningsberäknare](https://azure.microsoft.com/pricing/calculator/).
-
-## <a name="key-concepts"></a>Viktiga begrepp
-
-Ett [Service Fabric-kluster](service-fabric-deploy-anywhere.md) är en nätverksansluten uppsättning virtuella eller fysiska datorer som dina mikrotjänster distribueras till och hanteras från. Kluster kan skalas upp till tusentals datorer. En dator eller virtuell dator som ingår i ett kluster kallas för en nod. Varje nod har tilldelats ett nodnamn (en sträng). Noder har egenskaper, till exempel placeringsegenskaper.
-
-En nodtyp definierar storlek, antal och egenskaper för en uppsättning virtuella datorer i klustret. Varje definierad nodtyp är konfigurerad som en [VM-skalningsuppsättning](/azure/virtual-machine-scale-sets/), en Azure-beräkningsresurs du använder till att distribuera och hantera en samling virtuella datorer som en uppsättning. Varje nodtyp kan sedan skalas upp eller ned oberoende av de andra, ha olika portar öppna och ha olika kapacitet. Nodtyper används till att definiera roller för en uppsättning klusternoder, till exempel en ”klientdel” eller ”serverdel”.  Klustret kan innehålla fler än en nodtyp, men den primära nodtypen måste innehålla minst fem virtuella datorer för produktionskluster (eller minst tre virtuella datorer för testkluster).  [Service Fabric-systemtjänster](service-fabric-technical-overview.md#system-services) placeras på noderna med den primära nodtypen.
-
-Klustret skyddas med ett klustercertifikat. Ett klustercertifikat är ett X.509-certifikat som används för att skydda kommunikationen mellan noderna och att autentisera slutpunkterna för klusterhantering i en hanteringsklient.  Klustercertifikatet tillhandahåller också en SSL för API:t för HTTPS-hantering och för Service Fabric Explorer över HTTPS. Självsignerade certifikat är praktiska för testkluster.  För produktionskluster ska du använda ett certifikat från en certifikatutfärdare som klustercertifikat.
-
-Klustercertifikatet måste:
-
-* innehålla en privat nyckel
-* vara skapat för nyckelutbyte som kan exporteras till en Personal Information Exchange-fil (.pfx)
-* ha ett ämnesnamn som överensstämmer med domänen du använder för åtkomst till Service Fabric-klustret. Matchningen krävs för att tillhandahålla SSL för klustrets HTTPS-hanteringsslutpunkter och Service Fabric Explorer. Du kan inte hämta ett SSL-certifikat från en certifikatutfärdare (CA) för domänen .cloudapp.azure.com. Du måste skaffa ett anpassat domännamn för ditt kluster. När du begär ett certifikat från en certifikatutfärdare måste certifikatets ämnesnamn matcha det anpassade domännamn du använder för klustret.
-
-Azure Key Vault används till att hantera certifikat för Service Fabric-kluster i Azure.  När ett kluster distribueras i Azure hämtar Azure-resursprovidern som ansvarar för att skapa Service Fabric-kluster certifikat från Key Vault och installerar dem på klustrets virtuella datorer.
-
-I den här självstudien visas ett kluster med fem noder i en enda nodtyp. Vid distribution av kluster till produktion är det emellertid viktigt med [kapacitetsplanering](service-fabric-cluster-capacity.md). Här är några saker att tänka på i samband med den här processen.
-
-* Antalet noder och nodtyper som behövs i klustret
-* Egenskaperna för respektive nodtyp (exempelvis storlek, primär, offentlig och antal virtuella datorer)
-* Klustrets egenskaper för tillförlitlighet och hållbarhet
+Följande procedurer skapar ett Service Fabric-kluster med sju noder. Du kan beräkna kostnaden för att köra ett Service Fabric-kluster i Azure med [Azures prissättningsberäknare](https://azure.microsoft.com/pricing/calculator/).
 
 ## <a name="download-and-explore-the-template"></a>Ladda ned och titta närmare på mallen
 
@@ -84,14 +64,14 @@ Ladda ned följande mallfiler för Resource Manager:
 * [azuredeploy.json][template]
 * [azuredeploy.parameters.json][parameters]
 
-Den här mallen distribuerar ett säkert kluster med fem virtuella datorer och en enda nodtyp till ett virtuellt nätverk och en nätverkssäkerhetsgrupp.  Andra exempelmallar finns på [GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates).  [azuredeploy.json][template] distribuerar ett antal resurser, däribland följande.
+Den här mallen distribuerar ett säkert kluster med sju virtuella datorer och tre nodtyper till ett virtuellt nätverk och en nätverkssäkerhetsgrupp.  Andra exempelmallar finns på [GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates).  [azuredeploy.json][template] distribuerar ett antal resurser, däribland följande.
 
 ### <a name="service-fabric-cluster"></a>Service Fabric-kluster
 
 I resursen **Microsoft.ServiceFabric/kluster** konfigureras ett Windows-kluster med följande egenskaper:
 
-* en enda nodtyp
-* fem noder av den primära nodtypen (kan konfigureras i mallparametrarna)
+* tre nodtyper
+* fem noder av den primära nodtypen (kan konfigureras i mallparametrarna), en nod vardera i de andra två nodtyperna
 * Operativsystem: Windows Server 2016 Datacenter med containrar (kan konfigureras i mallparametrarna)
 * skyddat med certifikat (kan konfigureras i mallparametrarna)
 * [omvänd proxy](service-fabric-reverseproxy.md) är aktiverat
@@ -133,6 +113,35 @@ Följande regler för inkommande trafik är aktiverade i resursen **Microsoft.Ne
 
 Om du behöver andra programportar måste du justera resursen **Microsoft.Network/loadBalancers** och **Microsoft.Network/networkSecurityGroups** för att låta trafiken komma in.
 
+### <a name="windows-defender"></a>Windows Defender
+Som standard är [Windows Defender Antivirus](/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-on-windows-server-2016) installerat och fungerar på Windows Server 2016. Användargränssnittet installeras som standard på vissa SKU:er, men det krävs inte.  För varje nodtyp/VM-skalningsuppsättning som deklareras i mallen används [Azure VM Antimalware-tillägget](/azure/virtual-machines/extensions/iaas-antimalware-windows) för att utesluta Service Fabric-katalogerna och -processerna:
+
+```json
+{
+"name": "[concat('VMIaaSAntimalware','_vmNodeType0Name')]",
+"properties": {
+        "publisher": "Microsoft.Azure.Security",
+        "type": "IaaSAntimalware",
+        "typeHandlerVersion": "1.5",
+        "settings": {
+        "AntimalwareEnabled": "true",
+        "Exclusions": {
+                "Paths": "D:\\SvcFab;D:\\SvcFab\\Log;C:\\Program Files\\Microsoft Service Fabric",
+                "Processes": "Fabric.exe;FabricHost.exe;FabricInstallerService.exe;FabricSetup.exe;FabricDeployer.exe;ImageBuilder.exe;FabricGateway.exe;FabricDCA.exe;FabricFAS.exe;FabricUOS.exe;FabricRM.exe;FileStoreService.exe"
+        },
+        "RealtimeProtectionEnabled": "true",
+        "ScheduledScanSettings": {
+                "isEnabled": "true",
+                "scanType": "Quick",
+                "day": "7",
+                "time": "120"
+        }
+        },
+        "protectedSettings": null
+}
+}
+```
+
 ## <a name="set-template-parameters"></a>Ställa in mallparametrar
 
 Parameterfilen [azuredeploy.parameters.json][parameters] deklarerar många värden som används till att distribuera klustret och associerade resurser. Här är några av parametrarna du kan behöva ändra för distributionen:
@@ -147,11 +156,123 @@ Parameterfilen [azuredeploy.parameters.json][parameters] deklarerar många värd
 |certificateUrlValue|| <p>Värdet ska vara tomt om du skapar ett självsignerat certifikat eller tillhandahåller en certifikatfil. </p><p>Om du vill använda ett befintligt certifikat som tidigare har laddats upp till ett nyckelvalv fyller du i certifikatets webbadress. Exempel: "https://mykeyvault.vault.azure.net:443/secrets/mycertificate/02bea722c9ef4009a76c5052bcbf8346".</p>|
 |sourceVaultValue||<p>Värdet ska vara tomt om du skapar ett självsignerat certifikat eller tillhandahåller en certifikatfil.</p><p>Om du vill använda ett befintligt certifikat som tidigare har laddats upp till ett nyckelvalv fyller du i källans nyckelvärde. Till exempel ”/subscriptions/333cc2c84-12fa-5778-bd71-c71c07bf873f/resourceGroups/MyTestRG/providers/Microsoft.KeyVault/vaults/MYKEYVAULT”.</p>|
 
+## <a name="set-up-azure-active-directory-client-authentication"></a>Konfigurera Azure Active Directory-klientautentisering
+För Service Fabric-kluster som distribueras i ett offentligt nätverk som hanteras i Azure är rekommendationen för ömsesidig klient-till-nod-autentisering:
+* Använd Azure Active Directory för klientidentitet
+* Ett certifikat för serveridentitet och SSL-kryptering av http-kommunikation
+
+konfiguration av Azure AD för att autentisera klienter för ett Service Fabric-kluster måste göras innan [klustret skapas](#createvaultandcert).  Med Azure AD kan organisationer (som kallas klientorganisationer) hantera användaråtkomst till program. 
+
+Service Fabric-kluster erbjuder flera startpunkter för dess hanteringsfunktioner, däribland den webbaserade [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) och [Visual Studio](service-fabric-manage-application-in-visual-studio.md). Därför kan du skapa två Azure AD-program för att styra åtkomsten till klustret: ett webbprogram och ett internt program.  När programmen har skapats tilldelar du användare till roller som skrivskyddad och administratör.
+
+> [!NOTE]
+> Du måste slutföra följande steg innan du skapar klustret. Eftersom skripten förväntar sig klusternamn och slutpunkter bör värdena vara planerade och inte värden som du redan har skapat.
+
+I den här artikeln förutsätter vi att du redan har skapat en klientorganisation. Om du inte har gjort det börjar du med att läsa avsnittet om [hur du skaffar en Azure Active Directory-klientorganisation](../active-directory/develop/quickstart-create-new-tenant.md).
+
+Vi har skapat en uppsättning Windows PowerShell-skript för att förenkla vissa av de steg som används för att konfigurera Azure AD med Service Fabric-kluster. [Ladda ned skripten](https://github.com/robotechredmond/Azure-PowerShell-Snippets/tree/master/MicrosoftAzureServiceFabric-AADHelpers/AADTool) till datorn.
+
+### <a name="create-azure-ad-applications-and-assign-users-to-roles"></a>Skapa Azure AD-program och tilldela användare till roller
+Skapa två Azure AD-program för att styra åtkomsten till klustret: ett webbprogram och ett internt program. När du har skapat programmen för att representera klustret tilldelar du dina användare till de [roller som stöds av Service Fabric](service-fabric-cluster-security-roles.md): skrivskyddad och administratör.
+
+Kör `SetupApplications.ps1` och ange klientorganisations-ID, klusternamn och svars-URL för webbprogram som parametrar.  Ange även användarnamn och lösenord för användarna.  Exempel:
+
+```PowerShell
+$Configobj = .\SetupApplications.ps1 -TenantId '<MyTenantID>' -ClusterName 'mysftestcluster' -WebApplicationReplyUrl 'https://mysftestcluster.eastus.cloudapp.azure.com:19080/Explorer/index.html' -AddResourceAccess
+.\SetupUser.ps1 -ConfigObj $Configobj -UserName 'TestUser' -Password 'P@ssword!123'
+.\SetupUser.ps1 -ConfigObj $Configobj -UserName 'TestAdmin' -Password 'P@ssword!123' -IsAdmin
+```
+
+> [!NOTE]
+> För nationella moln (till exempel Azure Government, Azure Kina och Azure Tyskland) bör du även ange parametern `-Location`.
+
+*TenantId* eller katalog-ID finns i [Azure-portalen](https://portal.azure.com). Välj **Azure Active Directory -> Egenskaper** och kopiera värdet för **Katalog-ID**.
+
+*ClusterName* (Klusternamn) används för att prefigera de AD-program som skapas av skriptet. Det behöver inte matcha det faktiska klusternamnet exakt. Det är endast avsett att göra det enklare att mappa Azure AD-artefakter till det Service Fabric-kluster som de används med.
+
+*WebApplicationReplyUrl* är den standardslutpunkt som Azure AD returnerar till dina användare när de har slutfört inloggningen. Ange den här slutpunkten som Service Fabric Explorer-slutpunkt för ditt kluster, vilken som standard är:
+
+https://&lt;cluster_domain&gt;:19080/Explorer
+
+Du uppmanas att logga in på ett konto som har administratörsbehörighet för Azure AD-klientorganisationen. När du har loggat in skapar skriptet webbprogrammet och det interna programmet för att representera ditt Service Fabric-kluster. Om du tittar på klientorganisationens program i [Azure-portalen](https://portal.azure.com) bör du se två nya poster:
+
+   * *ClusterName*\_Cluster
+   * *ClusterName*\_Client
+
+Skriptet skriver ut det JSON som krävs av Azure Resource Manager-mallen när du skapar klustret, så det är en bra idé att fortsätta ha PowerShell-fönstret öppet.
+
+```json
+"azureActiveDirectory": {
+  "tenantId":"<guid>",
+  "clusterApplication":"<guid>",
+  "clientApplication":"<guid>"
+},
+```
+
+### <a name="add-azure-ad-configuration-to-use-azure-ad-for-client-access"></a>Lägga till Azure AD-konfiguration för att använda Azure AD för klientåtkomst
+I [azuredeploy.json][template] konfigurerar du Azure AD i avsnittet **Microsoft.ServiceFabric/clusters**.  Lägg till parametrar för klientorganisations-ID, klusterprogram-ID och klientprogram-ID.  
+
+```json
+{
+  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    ...
+
+    "aadTenantId": {
+      "type": "string",
+      "defaultValue": "0e3d2646-78b3-4711-b8be-74a381d9890c"
+    },
+    "aadClusterApplicationId": {
+      "type": "string",
+      "defaultValue": "cb147d34-b0b9-4e77-81d6-420fef0c4180"
+    },
+    "aadClientApplicationId": {
+      "type": "string",
+      "defaultValue": "7a8f3b37-cc40-45cc-9b8f-57b8919ea461"
+    }
+  },
+
+...
+
+{
+  "apiVersion": "2018-02-01",
+  "type": "Microsoft.ServiceFabric/clusters",
+  "name": "[parameters('clusterName')]",
+  ...
+  "properties": {
+    ...
+    "azureActiveDirectory": {
+      "tenantId": "[parameters('aadTenantId')]",
+      "clusterApplication": "[parameters('aadClusterApplicationId')]",
+      "clientApplication": "[parameters('aadClientApplicationId')]"
+    },
+    ...
+  }
+}
+```
+
+Lägg till parametervärdena i parameterfilen [azuredeploy.parameters.json][parameters].  Exempel:
+
+```json
+"aadTenantId": {
+"value": "0e3d2646-78b3-4711-b8be-74a381d9890c"
+},
+"aadClusterApplicationId": {
+"value": "cb147d34-b0b9-4e77-81d6-420fef0c4180"
+},
+"aadClientApplicationId": {
+"value": "7a8f3b37-cc40-45cc-9b8f-57b8919ea461"
+}
+```
+
 <a id="createvaultandcert" name="createvaultandcert_anchor"></a>
 
 ## <a name="deploy-the-virtual-network-and-cluster"></a>Distribuera det virtuella nätverket och klustret
 
 Konfigurera sedan nätverkstopologin och distribuera Service Fabric-klustret. Resource Manager-mallen [azuredeploy.json][template] skapar ett virtuellt nätverk (VNET), ett undernät och en nätverkssäkerhetsgrupp (NSG) för Service Fabric. Mallen distribuerar också ett kluster med certifikatsäkerhet aktiverad.  För produktionskluster ska du använda ett certifikat från en certifikatutfärdare som klustercertifikat. Ett självsignerat certifikat kan användas för att skydda testkluster.
+
+Mallen i den här artikeln distribuerar ett kluster som använder certifikatets tumavtryck för att identifiera klustercertifikatet.  Två certifikat kan inte ha samma tumavtryck, vilket gör certifikathantering svårare. Om ett distribuerat kluster växlas från att använda certifikattumavtryck till att använda vanliga certifikatnamn blir certifikathanteringen mycket enklare.  Du kan lära dig att uppdatera klustret till att använda vanliga certifikatnamn för certifikathantering genom att läsa avsnittet om att [ändra kluster till vanligt certifikatnamn för hantering](service-fabric-cluster-change-cert-thumbprint-to-cn.md).
 
 ### <a name="create-a-cluster-using-an-existing-certificate"></a>Skapa ett kluster med ett befintligt certifikat
 
@@ -230,6 +351,15 @@ Du är nu redo att ansluta till det säkra klustret.
 
 PowerShell-modulen **Service Fabric** har många cmdletar för hantering av Service Fabric-kluster, program och tjänster.  Använd cmdleten [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster) till att ansluta till det säkra klustret. Certifikatets SHA1-tumavtryck och information om slutpunkten för anslutning finns i utdata från föregående steg.
 
+Om du tidigare har konfigurerat AAD-klientautentisering kör du följande: 
+```powershell
+Connect-ServiceFabricCluster -ConnectionEndpoint mysfcluster123.southcentralus.cloudapp.azure.com:19000 `
+        -KeepAliveIntervalInSec 10 `
+        -AzureActiveDirectory `
+        -ServerCertThumbprint C4C1E541AD512B8065280292A8BA6079C3F26F10
+```
+
+Om du inte har konfigurerat AAD-klientautentisering kör du följande:
 ```powershell
 Connect-ServiceFabricCluster -ConnectionEndpoint mysfcluster123.southcentralus.cloudapp.azure.com:19000 `
           -KeepAliveIntervalInSec 10 `
@@ -255,6 +385,7 @@ I den här självstudiekursen lärde du dig att:
 > [!div class="checklist"]
 > * skapa ett VNET i Azure med PowerShell
 > * skapa ett nyckelvalv och ladda upp ett certifikat
+> * Konfigurera Azure Active Directory-autentisering
 > * skapa ett säkert Service Fabric-kluster i Azure med hjälp av PowerShell
 > * skydda klustret med ett X.509-certifikat
 > * Ansluta till klustret med PowerShell
@@ -264,5 +395,5 @@ Fortsätt sedan till följande självstudie för att lära dig att skala klustre
 > [!div class="nextstepaction"]
 > [Skala ett kluster](service-fabric-tutorial-scale-cluster.md)
 
-[template]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/5-VM-Windows-1-NodeTypes-Secure-NSG/azuredeploy.json
-[parameters]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/5-VM-Windows-1-NodeTypes-Secure-NSG/azuredeploy.parameters.json
+[template]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Windows-3-NodeTypes-Secure-NSG/AzureDeploy.json
+[parameters]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Windows-3-NodeTypes-Secure-NSG/AzureDeploy.Parameters.json

@@ -8,47 +8,42 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 05/30/2018
+ms.date: 02/07/2019
 ms.author: pafarley
-ms.openlocfilehash: c75745452ee819dbda75f7420c93a5629cef4e08
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 93e3d9fa67cfb941abf97476e03f44a4b16e94e7
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55860398"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56313168"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-php"></a>Snabbstart: Identifiera ansikten i en bild med REST API och PHP
 
-I den här snabbstarten identifierar du människoansikten i en bild med Ansikts-API.
+I den här snabbstarten använder du Azure ansikts-REST API med PHP för att identifiera ansikten i en bild.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-Du behöver en prenumerationsnyckel för att köra exemplet. Du kan hämta nycklar för kostnadsfri utvärderingsprenumeration från [Testa Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api).
+- En ansikts-API-prenumerationsnyckel. Du kan hämta nycklar för en kostnadsfri utvärderingsprenumeration från [Testa Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Följ instruktionerna i [Skapa ett konto för Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) för att prenumerera på tjänsten Ansikts-API och få din nyckel.
+- En kodredigerare såsom [Visual Studio Code](https://code.visualstudio.com/download)
 
-## <a name="face---detect-request"></a>Begäran om ansiktsigenkänning
+## <a name="initialize-the-html-file"></a>Initiera HTML-filen
 
-Använd metoden [Face - Detect](https://westcentralus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) (Ansiktsigenkänning) för att identifiera ansikten i en bild och returnera ansiktsattribut som:
+Skapa en ny HTML-fil, *detectFaces.html*, och lägg till följande kod.
 
-* Ansikts-ID: Unikt ID som används i flera scenarier med Ansikts-API.
-* Ansiktsrektangel: Vänster, överkant, bredd och höjd som anger ansiktets placering i bilden.
-* Landmärken: En matris med ansiktslandmärken med 27 punkter som pekar på viktiga positioner för ansiktsdelar.
-* Ansiktsattribut som ålder, kön, leendeintensitet, huvudställning och ansiktsbehåring.
+```html
+<html>
+    <head>
+        <title>Face Detect Sample</title>
+    </head>
+    <body></body>
+</html>
+```
 
-För att köra exemplet följer du dessa steg:
+## <a name="write-the-php-script"></a>Skriva PHP-skriptet
 
-1. Kopiera följande kod till ett redigeringsprogram.
-1. Ersätt `<Subscription Key>` med en giltig prenumerationsnyckel.
-1. Ändra `uriBase` till den plats där du hämtade dina prenumerationsnycklar om det behövs.
-1. Du kan också ange `imageUrl` till den bild som du vill analysera.
-1. Spara filen med tillägget `.php`.
-1. Öppna filen i ett webbläsarfönster med PHP-stöd.
+Lägg till följande kod i elementet `body` i dokumentet. Då konfigureras ett grundläggande användargränssnitt med ett URL-fält, knappen **Analyze face** (Analysera ansikte), en svarsruta och ett bildvisningsfönster.
 
 ```php
-<html>
-<head>
-    <title>Face Detect Sample</title>
-</head>
-<body>
 <?php
 // Replace <Subscription Key> with a valid subscription key.
 $ocpApimSubscriptionKey = '<Subscription Key>';
@@ -102,13 +97,13 @@ catch (HttpException $ex)
     echo "<pre>" . $ex . "</pre>";
 }
 ?>
-</body>
-</html>
 ```
 
-## <a name="face---detect-response"></a>Svar från ansiktsigenkänning
+Du måste uppdatera fältet `subscriptionKey` med värdet för din prenumerationsnyckel, och du kan behöva ändra strängen `uriBase` så att den innehåller rätt regionsidentifierare (en lista över alla regionsslutpunkter finns i [dokument om Ansikts-API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)). Fältet `returnFaceAttributes` anger vilka ansiktsattribut som ska hämtas. Du kan behöva ändra den här strängen beroende på hur din användning kommer att bli.
 
-Ett svar som anger att åtgärden lyckades returneras i JSON, till exempel:
+## <a name="run-the-script"></a>Kör skriptet
+
+Öppna filen i en PHP-aktiverad webbläsare. Du bör få en JSON-sträng med ansiktsdata på följande sätt.
 
 ```json
 [

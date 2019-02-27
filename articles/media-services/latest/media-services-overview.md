@@ -16,12 +16,12 @@ ms.workload: media
 ms.date: 02/07/2019
 ms.author: juliako
 ms.custom: mvc
-ms.openlocfilehash: 1911b851e4e219ec4c6d2d4872b75e9c18706feb
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 0f4fd963ce3649c901a76f6677be059ba5be25af
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55893331"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56337569"
 ---
 # <a name="what-is-azure-media-services-v3"></a>Vad är Azure Media Services v3?
 
@@ -62,7 +62,7 @@ Media Services resursnamn får inte innehålla: '<', '>', '%', '&', ':', '&#92;'
 
 Mer information om namngivning av Azure Resource Manager finns i: [Namngivningskrav](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md#arguments-for-crud-on-resource) och [Namngivningskonventioner](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).
 
-## <a name="media-services-v3-api-design-principles"></a>Designprinciper för Media Services, v3 API
+## <a name="v3-api-design-principles"></a>Designprinciper för v3 API
 
 En av de viktigaste designprinciperna för v3 API är att göra API:et säkrare. v3 API:er returnerar inte hemlighet eller autentiseringsuppgifter för en åtgärd av typen **hämta** eller **lista**. Nycklarna är alltid null, tomma eller oberoende av svaret. Du måste anropa en separat åtgärdsmetod för att få hemlighet och autentiseringsuppgifter. Med separata åtgärder kan du ställa in olika RBAC-säkerhetsbehörigheter om vissa API:er hämtar/visar hemligheter medan andra API:er inte gör det. Information om hur du hanterar åtkomst med RBAC finns i dokumentationen om att [hantera åtkomst med RBAC](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-rest).
 
@@ -76,25 +76,20 @@ Se exemplet [Hämta princip för innehållsnyckel – .NET](get-content-key-poli
 
 ## <a name="how-can-i-get-started-with-v3"></a>Hur kan jag komma igång med v3?
 
-Som utvecklare kan du använda Media Services [REST API](https://go.microsoft.com/fwlink/p/?linkid=873030) eller klientbibliotek så att du kan interagera med REST API för att enkelt skapa, hantera och underhålla anpassade mediearbetsflöden. Media Services v3 API baseras på [OpenAPI-specifikationen](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media) (kallades tidigare för en Swagger).
+Information om hur du börjar utveckla med Media Services v3-API med hjälp av olika verktyg och SDK:er finns i [Börja utveckla](developers-guide.md).
 
-[Azure Media Services Explorer](https://github.com/Azure/Azure-Media-Services-Explorer) (AMSE) är ett verktyg som är tillgängligt för Windows-kunder som vill lära sig om Media Services. AMSE är ett Winforms-/C#-program som laddar upp, laddar ned, kodar och strömmar VOD- och live-innehåll med Media Services. AMSE-verktyget är till för klienter som vill testa Media Services utan att skriva någon kod. AMSE-koden tillhandahålls som en resurs för kunder som vill utveckla med Media Services.
+## <a name="v3-content-map"></a>Innehållskarta för v3
 
-AMSE är ett projekt med öppen källkod och får support från communityn (problem kan rapporteras till https://github.com/Azure/Azure-Media-Services-Explorer/issues). Det här projektet använder sig av [Microsofts uppförandekod för öppen källkod](https://opensource.microsoft.com/codeofconduct/). Läs [Vanliga frågor och svar om uppförandekoden](https://opensource.microsoft.com/codeofconduct/faq/) eller kontakta opencode@microsoft.com om du har några andra frågor eller kommentarer.
- 
-Azure Media Services har stöd för följande klientbibliotek: 
+Innehållet för Media Services v3 är organiserat enligt följande struktur (detta visas även i innehållsförteckningen):
 
-|API-referenser|SDK:er/verktyg|Exempel|
-|---|---|---|---|
-|[REST-referens](https://aka.ms/ams-v3-rest-ref)|[REST-SDK](https://aka.ms/ams-v3-rest-sdk)|[REST-exempel för Postman](https://github.com/Azure-Samples/media-services-v3-rest-postman)<br/>[Azure Resource Manager-baserat REST-API](https://github.com/Azure-Samples/media-services-v3-arm-templates)|
-|[Azure CLI-referens](https://aka.ms/ams-v3-cli-ref)|[Azure CLI](https://aka.ms/ams-v3-cli)|[Azure CLI-exempel](https://github.com/Azure/azure-docs-cli-python-samples/tree/master/media-services)||
-|[.NET-referens](https://aka.ms/ams-v3-dotnet-ref)|[.NET SDK](https://aka.ms/ams-v3-dotnet-sdk)|[.NET-exempel](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials)||
-||[.NET Core SDK](https://aka.ms/ams-v3-dotnet-sdk) (välj fliken **.NET CLI**)|[.NET Core-exempel](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials)||
-|[Java-referens](https://aka.ms/ams-v3-java-ref)|[Java SDK](https://aka.ms/ams-v3-java-sdk)||
-|[Node.js-referens](https://aka.ms/ams-v3-nodejs-ref)|[Node.js SDK](https://aka.ms/ams-v3-nodejs-sdk)|[Node.js-exempel](https://github.com/Azure-Samples/media-services-v3-node-tutorials)||
-|[Python-referens](https://aka.ms/ams-v3-python-ref)|[Python SDK](https://aka.ms/ams-v3-python-sdk)||
-|[Go-referens](https://aka.ms/ams-v3-go-ref)|[Go SDK](https://aka.ms/ams-v3-go-sdk)||
-|Ruby|[Ruby SDK](https://aka.ms/ams-v3-ruby-sdk)||
+|Avsnitt| Beskrivning|
+|---|---|
+| Översikt | Beskriver funktionerna för Media Services och vad du kan göra med tjänsten.|
+| Snabbstarter | Visar grundläggande dag 1-anvisningar så att nya kunder snabbt kan prova Media Services.|
+| Självstudier | Visa scenariobaserade procedurer för några av de viktigaste Media Services-uppgifterna.|
+| Exempel | Länkar till kodexempel. |
+| Begrepp | Innehåller en detaljerad förklaring av funktioner och diagram för Media Services v3. De grundläggande begrepp som beskrivs i de här ämnena bör granskas innan utveckling påbörjas.<br/><br/>* Uppladdning till och lagring i molnet<br/>* Kodning<br/>* Medieanalys<br/>* Paketering, leverans och skydd<br/>* Liveuppspelning<br/>* Kontinuerlig övervakning<br/>* Player-klienter<br/><br/>och mer. |
+| Instruktionsguider | Visar hur en uppgift slutförs.|
 
 ## <a name="next-steps"></a>Nästa steg
 

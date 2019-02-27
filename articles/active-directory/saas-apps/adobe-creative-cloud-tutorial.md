@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/19/2018
+ms.date: 02/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ccb593e198e4dff8f30bddfe26071523ea7a893d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 3a160c604050f567f3fc0f77ca20a22349f07fd9
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56179237"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341172"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adobe-creative-cloud"></a>Självstudier: Azure Active Directory-integrering med Adobe Creative Cloud
 
@@ -45,7 +45,7 @@ Om du vill konfigurera Azure Active Directory-integrering med Adobe Creative Clo
 
 I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-* Adobe Creative Cloud stöder **SP- och IDP**-initierad enkel inloggning
+* Adobe Creative Cloud stöder **SP**-initierad enkel inloggning
 
 ## <a name="adding-adobe-creative-cloud-from-the-gallery"></a>Lägga till Adobe Creative Cloud från galleriet
 
@@ -67,7 +67,7 @@ Om du vill konfigurera integreringen av Adobe Creative Cloud i Azure Active Dire
 
 4. Skriv **Adobe Creative Cloud** i sökrutan, välj **Adobe Creative Cloud** på resultatpanelen och lägg sedan till programmet genom att klicka på knappen **Lägg till**.
 
-     ![Adobe Creative Cloud i resultatlistan](common/search-new-app.png)
+    ![Adobe Creative Cloud i resultatlistan](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
@@ -101,29 +101,23 @@ Utför följande steg för att konfigurera enkel inloggning till Azure Active Di
 
     ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-4. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg om du vill konfigurera i **IDP**-initierat läge:
+4. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
 
-    ![Information om enkel inloggning med Adobe Creative Cloud-domän och URL:er](common/idp-intiated.png)
+    ![Information om enkel inloggning med Adobe Creative Cloud-domän och URL:er](common/sp-identifier.png)
 
-    a. I textrutan **Identifierare** skriver du en URL med följande mönster: `https://www.okta.com/saml2/service-provider/<token>`
+    a. I rutan **Inloggnings-URL** anger du värdet som: `https://adobe.com`.
 
-    b. I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://<company name>.okta.com/auth/saml20/accauthlinktest`
+    b. I textrutan **Identifierare** skriver du en URL med följande mönster: `https://www.okta.com/saml2/service-provider/<token>`
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska identifieraren, svars-URL. Kontakta [Supportteamet för Adobe Creative Cloud-klienten](https://www.adobe.com/au/creativecloud/business/teams/plans.html) för att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Identifierarvärdet är inte verkligt. Uppdatera det här värdet med den faktiska identifieraren. Kontakta [kundsupporten för Adobe Creative Cloud](https://www.adobe.com/au/creativecloud/business/teams/plans.html) och be om det här värdet. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-5. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
-
-    I rutan **Inloggnings-URL** anger du värdet som: `https://adobe.com`.
-
-    ![Information om enkel inloggning med Adobe Creative Cloud-domän och URL:er](common/metadata-upload-additional-signon.png)
-
-6. Adobe Creative Cloud-program förväntar sig SAML-intyg i ett visst format. Konfigurera följande anspråk för det här programmet. Du kan hantera värdena för dessa attribut i avsnittet **Användarattribut** på sidan för programintegrering. På sidan **Konfigurera enkel inloggning med SAML** klickar du på knappen **Redigera** för att öppna dialogrutan **Användarattribut**.
+5. Adobe Creative Cloud-program förväntar sig SAML-intyg i ett visst format. Konfigurera följande anspråk för det här programmet. Du kan hantera värdena för dessa attribut i avsnittet **Användarattribut** på sidan för programintegrering. På sidan **Konfigurera enkel inloggning med SAML** klickar du på knappen **Redigera** för att öppna dialogrutan **Användarattribut**.
 
     ![image](common/edit-attribute.png)
 
-7. I avsnittet **Användaranspråk** i dialogrutan **Användarattribut** konfigurerar du SAML-tokenattributet på det sätt som visas i bilden ovan och utför följande steg:
- 
+6. I avsnittet **Användaranspråk** i dialogrutan **Användarattribut** konfigurerar du SAML-tokenattributet på det sätt som visas i bilden ovan och utför följande steg:
+
     | Namn | Källattribut|
     |----- | --------- |
     | FirstName | user.givenname |
@@ -151,11 +145,11 @@ Utför följande steg för att konfigurera enkel inloggning till Azure Active Di
     > [!NOTE]
     > Användare måste ha en giltig Office 365 ExO-licens för att anspråksvärden för e-post ska anges i SAML-svaret.
 
-8. På sidan **Konfigurera enkel inloggning med SAML** går du till avsnittet **SAML-signeringscertifikat**, klickar du på **Ladda ned** för att ladda ned **Certifikat (Base64)** från de angivna alternativen enligt dina behov och sparar det på datorn.
+7. På sidan **Konfigurera enkel inloggning med SAML** går du till avsnittet **SAML-signeringscertifikat**, klickar du på **Ladda ned** för att ladda ned **Certifikat (Base64)** från de angivna alternativen enligt dina behov och sparar det på datorn.
 
     ![Länk för nedladdning av certifikatet](common/certificatebase64.png)
 
-9. I avsnittet **Konfigurera Adobe Creative Cloud** kopierar du lämpliga URL:er enligt dina behov.
+8. I avsnittet **Konfigurera Adobe Creative Cloud** kopierar du lämpliga URL:er enligt dina behov.
 
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 

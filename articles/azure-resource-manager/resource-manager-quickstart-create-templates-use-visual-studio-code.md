@@ -10,25 +10,21 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 01/11/2019
+ms.date: 02/14/2019
 ms.topic: quickstart
 ms.author: jgao
-ms.openlocfilehash: c2684c7373d9ee4536b248650c7012c261166b81
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 37d84206246e60ed16244d6172a5e22ca18524c9
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56235401"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56270257"
 ---
 # <a name="quickstart-create-azure-resource-manager-templates-by-using-visual-studio-code"></a>Snabbstart: Skapa Azure Resource Manager-mallar med hjälp av Visual Studio Code
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Lär dig hur du använder Visual Studio Code och Azure Resource Manager Tools-tillägget för att skapa och redigera Azure Resource Manager-mallar. Du kan skapa Resource Manager-mallar i Visual Studio Code utan tillägget. Tillägget innehåller dock alternativ för automatisk komplettering som gör det enklare att skapa mallar. En beskrivning av de begrepp som används i samband med distribution och hantering av Azure-lösningar finns i [Översikt över Azure Resource Manager](resource-group-overview.md).
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -54,6 +50,7 @@ Den mall som används i den här snabbstarten kallas [Create a standard storage 
     ```url
     https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json
     ```
+
 3. Välj **Öppna** för att öppna filen.
 4. Välj **Arkiv**>**Spara som** för att spara filen som **azuredeploy.json** till den lokala datorn.
 
@@ -94,6 +91,9 @@ Om du vill veta hur du redigerar en mall med hjälp av Visual Studio Code lägge
 ## <a name="deploy-the-template"></a>Distribuera mallen
 
 Det finns många metoder för att distribuera mallar.  I den här snabbstarten använder du Azure Cloud Shell. Cloud Shell är ett webbprogram som inte kräver någon konfiguration. Det kan användas med både Azure CLI och Azure PowerShell.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 
 1. Logga in på [Azure Cloud Shell](https://shell.azure.com).
 
@@ -148,7 +148,10 @@ Det finns många metoder för att distribuera mallar.  I den här snabbstarten a
     
     ---
 
-    Uppdatera mallfilnamnet om du sparar filen som ett annat namn än **azuredeploy.json**.
+    > [!NOTE]
+    > Det finns ett I/O-filproblem om Azure PowerShell används i Cloud Shell.  Felmeddelandet är *Cannot retrieve the dynamic parameters for the cmdlet. Cannot find path 'Azure:/azuredeploy.json' because it does not exist.* (Det går inte att hämta de dynamiska parametrarna för cmdleten. Det går inte att hitta sökvägen ”Azure:/azuredeploy.json” eftersom den inte finns.)  En tillfällig lösning är inte att ta med växeln **-TemplateFile** i kommandot `New-AzResourceGroupDeploy`. Kommandot uppmanar dig att ange namnet på filen.
+
+    Uppdatera mallfilnamnet om du sparar filen som ett annat namn än **azuredeploy.json**. 
 
     Följande skärmbild visar ett distributionsexempel:
 

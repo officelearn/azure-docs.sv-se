@@ -8,56 +8,71 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 05/10/2018
+ms.date: 02/07/2019
 ms.author: pafarley
-ms.openlocfilehash: 07868fd70c1b2601fa676f7069f2508468e2be0e
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 588faa3c59c4e6b3ea704d953c20c4319ef4b01e
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55866958"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56312131"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-javascript"></a>Snabbstart: Identifiera ansikten i en bild med REST API och JavaScript
 
-I den här snabbstarten identifierar du ansikten i en bild med hjälp av Ansikts-API:et.
+I den här snabbstarten använder du Azure ansikts-REST API med JavaScript för att identifiera ansikten i en bild.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-Du behöver en prenumerationsnyckel för att köra exemplet. Du kan hämta nycklar för kostnadsfri utvärderingsprenumeration från [Testa Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api).
+- En ansikts-API-prenumerationsnyckel. Du kan hämta nycklar för en kostnadsfri utvärderingsprenumeration från [Testa Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Följ instruktionerna i [Skapa ett konto för Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) för att prenumerera på tjänsten Ansikts-API och få din nyckel.
+- En kodredigerare såsom [Visual Studio Code](https://code.visualstudio.com/download)
 
-## <a name="detect-faces-in-an-image"></a>Identifiera ansikten i en bild
+## <a name="initialize-the-html-file"></a>Initiera HTML-filen
 
-Använd metoden [Face - Detect](https://westcentralus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) (Ansiktsigenkänning) för att identifiera ansikten i en bild och returnera ansiktsattribut som:
-
-* Ansikts-ID: Unikt ID som används i flera scenarier med Ansikts-API.
-* Ansiktsrektangel: Vänster, överkant, bredd och höjd som anger ansiktets placering i bilden.
-* Landmärken: En matris med ansiktslandmärken med 27 punkter som pekar på viktiga positioner för ansiktsdelar.
-* Ansiktsattribut som ålder, kön, leendeintensitet, huvudställning och ansiktsbehåring.
-
-För att köra exemplet följer du dessa steg:
-
-1. Kopiera följande och spara det till en fil såsom `detectFaces.html`.
-1. Ersätt `<Subscription Key>` med en giltig prenumerationsnyckel.
-1. Om det behövs ändrar du värdet `uriBase` för att använda den plats där du har fått dina prenumerationsnycklar (i [dokumentationen om Ansikts-API:et](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) finns en lista över alla slutpunkter i regionen).
-1. Dra och släpp filen i webbläsaren.
-1. Klicka på knappen `Analyze faces`.
-
-### <a name="face---detect-request"></a>Begäran om ansiktsigenkänning
+Skapa en ny HTML-fil, *detectFaces.html*, och lägg till följande kod.
 
 ```html
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Detect Faces Sample</title>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
-</head>
-<body>
+    <head>
+        <title>Detect Faces Sample</title>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+    </head>
+    <body></body>
+</html>
+```
 
+Lägg sedan till följande kod i elementet `body` i dokumentet. Då konfigureras ett grundläggande användargränssnitt med ett URL-fält, knappen **Analyze face** (Analysera ansikte), en svarsruta och ett bildvisningsfönster.
+
+```html
+<h1>Detect Faces:</h1>
+Enter the URL to an image that includes a face or faces, then click
+the <strong>Analyze face</strong> button.<br><br>
+Image to analyze: <input type="text" name="inputImage" id="inputImage"
+    value="https://upload.wikimedia.org/wikipedia/commons/c/c3/RH_Louise_Lillian_Gish.jpg" />
+<button onclick="processImage()">Analyze face</button><br><br>
+<div id="wrapper" style="width:1020px; display:table;">
+    <div id="jsonOutput" style="width:600px; display:table-cell;">
+        Response:<br><br>
+        <textarea id="responseTextArea" class="UIInput"
+            style="width:580px; height:400px;"></textarea>
+    </div>
+    <div id="imageDiv" style="width:420px; display:table-cell;">
+        Source image:<br><br>
+        <img id="sourceImage" width="400" />
+    </div>
+</div>
+```
+
+## <a name="write-the-javascript-script"></a>Skriva JavaScript-skriptet
+
+Lägg till följande kod direkt ovanför elementet `h1` i dokumentet. Detta konfigurerar den JavaScript-kod som anropar Ansikts-API:et.
+
+```html
 <script type="text/javascript">
     function processImage() {
         // Replace <Subscription Key> with your valid subscription key.
         var subscriptionKey = "<Subscription Key>";
-
+    
         // NOTE: You must use the same region in your REST call as you used to
         // obtain your subscription keys. For example, if you obtained your
         // subscription keys from westus, replace "westcentralus" in the URL
@@ -68,7 +83,7 @@ För att köra exemplet följer du dessa steg:
         // this region.
         var uriBase =
             "https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect";
-
+    
         // Request parameters.
         var params = {
             "returnFaceId": "true",
@@ -77,32 +92,32 @@ För att köra exemplet följer du dessa steg:
                 "age,gender,headPose,smile,facialHair,glasses,emotion," +
                 "hair,makeup,occlusion,accessories,blur,exposure,noise"
         };
-
+    
         // Display the image.
         var sourceImageUrl = document.getElementById("inputImage").value;
         document.querySelector("#sourceImage").src = sourceImageUrl;
-
+    
         // Perform the REST API call.
         $.ajax({
             url: uriBase + "?" + $.param(params),
-
+    
             // Request headers.
             beforeSend: function(xhrObj){
                 xhrObj.setRequestHeader("Content-Type","application/json");
                 xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key", subscriptionKey);
             },
-
+    
             type: "POST",
-
+    
             // Request body.
             data: '{"url": ' + '"' + sourceImageUrl + '"}',
         })
-
+    
         .done(function(data) {
             // Show formatted JSON on webpage.
             $("#responseTextArea").val(JSON.stringify(data, null, 2));
         })
-
+    
         .fail(function(jqXHR, textStatus, errorThrown) {
             // Display error message.
             var errorString = (errorThrown === "") ?
@@ -115,40 +130,17 @@ För att köra exemplet följer du dessa steg:
         });
     };
 </script>
-
-<h1>Detect Faces:</h1>
-Enter the URL to an image that includes a face or faces, then click
-the <strong>Analyze face</strong> button.<br><br>
-
-Image to analyze: <input type="text" name="inputImage" id="inputImage"
-value="https://upload.wikimedia.org/wikipedia/commons/c/c3/RH_Louise_Lillian_Gish.jpg" />
-
-<button onclick="processImage()">Analyze face</button><br><br>
-
-<div id="wrapper" style="width:1020px; display:table;">
-    <div id="jsonOutput" style="width:600px; display:table-cell;">
-        Response:<br><br>
-
-        <textarea id="responseTextArea" class="UIInput"
-                  style="width:580px; height:400px;"></textarea>
-    </div>
-    <div id="imageDiv" style="width:420px; display:table-cell;">
-        Source image:<br><br>
-
-        <img id="sourceImage" width="400" />
-    </div>
-</div>
-</body>
-</html>
 ```
 
-### <a name="face---detect-response"></a>Svar från ansiktsigenkänning
+Du måste uppdatera fältet `subscriptionKey` med värdet för din prenumerationsnyckel, och du kan behöva ändra strängen `uriBase` så att den innehåller rätt regionsidentifierare (en lista över alla regionsslutpunkter finns i [dokument om Ansikts-API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)). Fältet `returnFaceAttributes` anger vilka ansiktsattribut som ska hämtas. Du kan behöva ändra den här strängen beroende på hur din användning kommer att bli.
 
-Ett svar som anger att åtgärden lyckades returneras i JSON.
+## <a name="run-the-script"></a>Kör skriptet
+
+Öppna *detectFaces.html* i webbläsaren. När du klickar på knappen **Analyze face** (Analysera ansikte) bör appen visa bilden från den angivna URL:en och skriva ut en JSON-sträng med ansiktsdata.
 
 ![GettingStartCSharpScreenshot](../Images/face-detect-javascript.png)
 
-Följande är ett exempel på ett lyckat svar:
+Följande är ett exempel på ett lyckat JSON-svar.
 
 ```json
 [
@@ -244,7 +236,7 @@ Följande är ett exempel på ett lyckat svar:
 
 ## <a name="next-steps"></a>Nästa steg
 
-Utforska de ansikts-API:er som används för att identifiera ansikten i en bild, avgränsa ansikten med rektanglar och returnera attribut som ålder och kön.
+I den här snabbstarten har du skrivit ett JavaScript-skript som anropar Azures ansikts-API för att identifiera ansikten i en bild och returnera deras attribut. Läs ansikts-API-referensdokumentationen om du vill veta mer.
 
 > [!div class="nextstepaction"]
-> [Ansikts-API:er](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)
+> [Ansikts-API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)

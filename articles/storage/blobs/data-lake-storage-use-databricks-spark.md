@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: tutorial
 ms.date: 01/29/2019
 ms.author: dineshm
-ms.openlocfilehash: e448ef0de9ef5560c1b4ea0df5c02e8efd8c0ea9
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: b5d7be25ba18e256352d8793689bcb63a013e20b
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55891665"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56452616"
 ---
 # <a name="tutorial-access-data-lake-storage-gen2-data-with-azure-databricks-using-spark"></a>Självstudier: Få åtkomst till Data Lake Storage Gen2-data med Azure Databricks med hjälp av Spark
 
@@ -38,6 +38,17 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 * Installera AzCopy v10. Läs mer i [Överföra data med AzCopy v10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 
+*  Skapa ett huvudnamn för tjänsten. Se [Anvisningar: Använd portalen för att skapa ett Azure AD-program och huvudnamn för tjänsten som kan komma åt resurser](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
+
+   Det finns några saker som du måste göra när du utför stegen i den här artikeln.
+
+   :heavy_check_mark: När du utför stegen i avsnittet [Tilldela programmet till en roll](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role) i artikeln ska du tilldela rollen **Storage Blob Data-deltagare** till tjänstens huvudnamn.
+
+   > [!IMPORTANT]
+   > Se till att tilldela rollen i omfånget för Data Lake Storage Gen2-lagringskontot. Du kan tilldela en roll till den överordnade resursgruppen eller prenumerationen, men du får behörighetsrelaterade fel tills de rolltilldelningarna propageras till lagringskontot.
+
+   :heavy_check_mark: När du utför stegen i avsnittet [Hämta värden för att logga in](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) i artikeln klistrar du in värdena för klient-ID, program-ID och autentiseringsnyckel i en textfil. Du kommer att behöva dem snart.
+
 ### <a name="download-the-flight-data"></a>Ladda ned flygdata
 
 I den här självstudien används flygdata från Bureau of Transportation Statistics för att demonstrera hur du utför en ETL-åtgärd. Du måste hämta dessa data för att kunna gå självstudien.
@@ -49,24 +60,6 @@ I den här självstudien används flygdata från Bureau of Transportation Statis
 3. Klicka på knappen **Ladda ned** och spara resultaten lokalt. 
 
 4. Packa upp innehållet i den komprimerade filen och anteckna filnamnet och sökvägen. Du behöver den här informationen i ett senare steg.
-
-## <a name="get-your-storage-account-name"></a>Ta reda på lagringskontots namn
-
-Du behöver namnet på ditt lagringskonto. Du får fram det genom att logga in på [Azure Portal](https://portal.azure.com/), välja **Alla tjänster** och filtrera på termen *storage*. Välj sedan **Lagringskonton** och leta rätt på ditt lagringskonto.
-
-Klistra in namnet i en textfil. Du behöver det snart.
-
-<a id="service-principal"/>
-
-## <a name="create-a-service-principal"></a>Skapa ett huvudnamn för tjänsten
-
-Skapa ett huvudnamn för tjänsten genom att följa anvisningarna i det här avsnittet: [Anvisningar: Använd portalen för att skapa ett Azure AD-program och huvudnamn för tjänsten som kan komma åt resurser](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
-
-Det finns några saker du måste göra när du utför stegen i den här artikeln.
-
-:heavy_check_mark: När du utför stegen i avsnittet [Tilldela programmet till en roll](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role) i artikeln måste du tilldela programmet till **deltagarrollen för bloblagring**.
-
-:heavy_check_mark: När du utför stegen i avsnittet [Hämta värden för att logga in](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) i artikeln klistrar du in värdena för klient-ID, program-ID och autentiseringsnyckel i en textfil. Du kommer att behöva dem snart.
 
 ## <a name="create-an-azure-databricks-service"></a>Skapa en Azure Databricks-tjänst
 
@@ -145,9 +138,16 @@ I det här avsnittet skapar du ett filsystem och en mapp i lagringskontot.
     mount_point = "/mnt/flightdata",
     extra_configs = configs)
     ```
-18. I det här kodblocket ersätter du platshållarvärdena `storage-account-name`, `application-id`, `authentication-id` och `tenant-id` med de värden som du hämtade när du genomförde stegen i avsnitten Spara lagringskontokonfiguration och [Skapa ett huvudnamn för tjänsten](#service-principal) i den här artikeln. Ersätt platshållaren `file-system-name` med ett namn som du vill ge ditt filsystem.
 
-19. Tryck på **SKIFT + RETUR** för att köra koden i det här blocket. 
+18. I det här kodblocket ersätter du platshållarvärdena `application-id`, `authentication-id`, `tenant-id` och `storage-account-name` i det här kodblocket med de värden som du hämtade när du slutförde förutsättningarna för den här självstudien. Ersätt platshållarvärdet `file-system-name` med det namn som du vill ge filsystemet.
+
+   * `application-id` och `authentication-id` kommer från den app som du registrerade med Active Directory som en del av skapandet av ett tjänsthuvudnamn.
+
+   * `tenant-id` kommer från din prenumeration.
+
+   * `storage-account-name` är namnet på ditt Azure Data Lake Storage Gen2-lagringskonto.
+
+19. Tryck på **SKIFT + RETUR** för att köra koden i det här blocket.
 
     Lämna den här anteckningsboken öppen eftersom du ska lägga till kommandon i den senare.
 

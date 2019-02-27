@@ -9,12 +9,12 @@ ms.topic: get-started-article
 ms.date: 12/07/2018
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 0236947e578d12ff24e5993d253ec5597c53272a
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 2a9c0cf36459a2d23b8af8f69937ab9ded7f9c04
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55819832"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301510"
 ---
 # <a name="overview-of-batch-apis-and-tools"></a>Översikt över Batch-API:er och verktyg
 
@@ -69,7 +69,8 @@ Här är några fler användbara verktyg för att skapa och felsöka Batch-progr
 
 * [Azure-portalen][portal]: Du kan skapa, övervaka och ta bort Batch-pooler, jobb och uppgifter i Azure-portalen. Du kan visa statusinformation för dessa och andra resurser när du kör dina jobb, och även ladda ned filer från beräkningsnoderna i dina pooler. Du kan till exempel ladda ned en misslyckad uppgifts `stderr.txt` vid felsökning. Du kan också hämta fjärrskrivbordsfiler (RDP) som du kan använda för att logga in till beräkningsnoder.
 * [Azure Batch Explorer][batch_labs]: Batch Explorer (som förut hette BatchLabs) är ett kostnadsfritt, fristående klientverktyg med omfattande funktioner för att skapa, felsöka och övervaka Azure Batch-program. Hämta ett [installationspaketet](https://azure.github.io/BatchExplorer/) för Mac, Linux eller Windows.
-* [Microsoft Azure Storage Explorer][storage_explorer]: Även om Storage Explorer strikt sett inte är ett Azure Batch-verktyg så är det ytterligare ett värdefullt verktyg som du kan använda när du utvecklar och felsöker dina Batch-lösningar.
+* [Azure Batch Shipyard](https://github.com/Azure/batch-shipyard): Batch Shipyard är ett verktyg för att etablera, köra och övervaka containerbaserad batchbearbetning och HPC-arbetsbelastningar på Azure Batch.
+* [Azure Storage Explorer][storage_explorer]: Även om Storage Explorer strikt sett inte är ett Azure Batch-verktyg så är det ytterligare ett värdefullt verktyg som du kan använda när du utvecklar och felsöker dina Batch-lösningar.
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
@@ -81,7 +82,6 @@ Här är några fler användbara verktyg för att skapa och felsöka Batch-progr
 * Läs [Översikt över Batch-funktioner för utvecklare](batch-api-basics.md). Här finns viktig information för alla som tänker använda Batch. Artikeln innehåller mer detaljerad information om Batch-tjänstresurser som pooler, noder, jobb och uppgifter, och de många API-funktioner som du kan använda när du skapar ett Batch-program.
 * [Komma igång med Azure Batch-biblioteket för .NET](tutorial-parallel-dotnet.md) innehåller information om hur du använder C# och Batch .NET-biblioteket för att köra en enkel arbetsbelastning med ett vanligt Batch-arbetsflöde. En [Python-version](tutorial-parallel-python.md) och en [Node.js-självstudie](batch-nodejs-get-started.md) finns också tillgängliga.
 * Hämta [kodexemplet på GitHub][github_samples] om du vill se hur både C# och Python kan användas med Batch för att schemalägga och bearbeta exempelarbetsbelastningar.
-
 
 [azure_storage]: https://azure.microsoft.com/services/storage/
 [api_java]: /java/api/overview/azure/batch

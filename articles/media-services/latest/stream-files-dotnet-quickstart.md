@@ -13,12 +13,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 01/28/2019
 ms.author: juliako
-ms.openlocfilehash: 50c17e6ce953b601cc4ac0a406f443a54b9db3e7
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: d50bb6ca67d7d09525013b65d0635e8e16b4cb4e
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55162726"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56417286"
 ---
 # <a name="quickstart-stream-video-files---net"></a>Snabbstart: Strömma videofiler – .NET
 
@@ -81,6 +81,8 @@ I den här artikeln används Azure Media Player för att testa dataströmmen.
 
 1. Öppna en webbläsare och navigera till [https://aka.ms/azuremediaplayer/](https://aka.ms/azuremediaplayer/).
 2. I rutan **URL:** klistrar du in ett av de strömmande URL-värden som du fick när du körde programmet. 
+ 
+     Du kan klistra in URL:en i formatet HLS, Dash eller Smooth så växlar Azure Media Player automatiskt till ett lämpligt strömningsprotokoll för uppspelning på din enhet.
 3. Tryck på **Uppdatera spelare**.
 
 Azure Media Player kan användas vid testning, men bör inte användas i en produktionsmiljö. 
@@ -100,6 +102,10 @@ az group delete --name amsResourceGroup
 Du kan få beskrivningar av varje funktion i exemplet, undersöka koden och titta på kommentarer i [den här källfilen](https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts/blob/master/AMSV3Quickstarts/EncodeAndStreamFiles/Program.cs).
 
 I självstudien för att [ladda upp, koda och strömma filer](stream-files-tutorial-with-api.md) får du ett mer avancerat strömningsexempel med detaljerade förklaringar. 
+
+### <a name="job-error-codes"></a>Jobbfelkoder
+
+Se [felkoder](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode).
 
 ## <a name="multithreading"></a>Flertrådsteknik
 

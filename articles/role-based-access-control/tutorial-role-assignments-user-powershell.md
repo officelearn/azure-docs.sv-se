@@ -1,6 +1,6 @@
 ---
-title: Självstudiekurs – Bevilja åtkomst för en användare med RBAC och Azure PowerShell | Microsoft Docs
-description: Använda rollbaserad åtkomstkontroll (RBAC) för att ge en användare åtkomst för att visa allt i en prenumeration och hantera allt innehåll i en resursgrupp med hjälp av Azure PowerShell.
+title: Självstudie – Bevilja åtkomst för en användare till Azure-resurser med hjälp av RBAC och Azure PowerShell | Microsoft Docs
+description: Lär dig att bevilja en användare åtkomst till Azure-resurser med hjälp av rollbaserad åtkomstkontroll (RBAC) och Azure PowerShell.
 services: active-directory
 documentationCenter: ''
 author: rolyon
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 02/02/2019
 ms.author: rolyon
-ms.openlocfilehash: 7f5e67edd2a5300ae1898e2620ee8ace80ac6d92
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: b9aefc8eae733d9f43d1f5399c1464b40367f09e
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56109035"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56343484"
 ---
-# <a name="tutorial-grant-access-for-a-user-using-rbac-and-azure-powershell"></a>Självstudier: Bevilja åtkomst för en användare med RBAC och Azure PowerShell
+# <a name="tutorial-grant-a-user-access-to-azure-resources-using-rbac-and-azure-powershell"></a>Självstudier: Bevilja en användare åtkomst till Azure-resurser med hjälp av RBAC och Azure PowerShell
 
-[Rollbaserad åtkomstkontroll (RBAC)](overview.md) är sättet som du hantera åtkomst till resurser i Azure. I den här självstudien kommer du at ge en användare åtkomst för att visa allt i en prenumeration och hantera allt innehåll i en resursgrupp med hjälp av Azure PowerShell.
+[Rollbaserad åtkomstkontroll (RBAC)](overview.md) är det du använder för att hantera åtkomst till Azure-resurser. I den här självstudien kommer du at ge en användare åtkomst för att visa allt i en prenumeration och hantera allt innehåll i en resursgrupp med hjälp av Azure PowerShell.
 
 I den här guiden får du lära dig att:
 
@@ -279,4 +279,4 @@ Om du vill rensa resurserna som har skapats med den här självstudien kan du ta
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Hantera åtkomst med RBAC och PowerShell](role-assignments-powershell.md)
+> [Hantera åtkomst till Azure-resurser med hjälp av RBAC och Azure PowerShell](role-assignments-powershell.md)

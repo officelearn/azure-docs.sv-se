@@ -1,6 +1,6 @@
 ---
 title: Exempel – Tillåtna Express Route-peeringplatser
-description: Den här principen kräver att ExpressRoute använder angivna peeringplatser.
+description: Den här exempelprincipdefinitionen kräver att ExpressRoute använder angivna peeringplatser.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 10e2ccb6d19872413a94dceb1438319afe57976a
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 3c0fd08e5b01776454e1f4bbf1c4e837ce35e0d9
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56246008"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56339064"
 ---
-# <a name="allowed-peering-location-for-expressroute"></a>Tillåten peeringplats för Express Route
+# <a name="sample---allowed-peering-location-for-expressroute"></a>Exempel – Tillåten peeringplats för ExpressRoute
 
 Den här principen kräver att ExpressRoute använder angivna peeringplatser. Du anger en matris med tillåtna peeringplatser.
 

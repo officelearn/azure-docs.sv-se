@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/08/2017
 ms.author: alkohli
-ms.openlocfilehash: 33be58ae3ac5fcc8d0b35b240f9f378ccce134cc
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 70a109b9aee46e6b6b65a9a5c139abdf1aa9bab9
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387693"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56330604"
 ---
 # <a name="deploy-and-manage-a-storsimple-cloud-appliance-in-azure-update-3-and-later"></a>Distribuera och hantera en StorSimple Cloud Appliance-installation i Azure (Uppdatering 3 eller senare)
 
@@ -45,7 +45,7 @@ StorSimple-molninstallationen finns i två modeller, standardmodellen 8010 (kall
 | **Maximal kapacitet** |30 TB |64 TB |
 | **Virtuell Azure-dator** |Standard_A3 (4 kärnor, 7 GB minne)| Standard_DS3 (4 kärnor, 14 GB minne)|
 | **Regional tillgänglighet** |Alla Azure-regioner |Azure-regioner som har stöd för Premium Storage och virtuella Azure-datorer, DS3<br></br>Använd [listan](https://azure.microsoft.com/regions/services/) för att se om både **virtuella datorer > DS-serien** och **lagring > disklagring** är tillgängligt i din region. |
-| **Lagringstyp** |Använder Azure Standardlagring för lokala diskar<br></br> Lär dig hur du [skapar ett Standardlagringskonto](../storage/common/storage-create-storage-account.md) |Använder Azure Premium Storage för lokala diskar<sup>2</sup> <br></br>Lär dig hur du [skapar ett Premiumkonto för lagring](../virtual-machines/windows/premium-storage.md) |
+| **Lagringstyp** |Använder Azure Standardlagring för lokala diskar<br></br> Lär dig hur du [skapar ett Standardlagringskonto](../storage/common/storage-create-storage-account.md) |Använder Azure Premium Storage för lokala diskar<sup>2</sup> <br></br> |
 | **Riktlinjer för arbetsbelastning** |Hämtning av filer från säkerhetskopior på objektnivå |Utvecklings- och testscenarier i molnet <br></br>Arbetsbelastningar med kortare svarstider och högre prestanda<br></br>Sekundär enhet för katastrofåterställning |
 
 <sup>1</sup> *Kallades tidigare 1100*.
@@ -63,7 +63,7 @@ I följande tabell beskrivs några huvudsakliga skillnader mellan StorSimple-mol
 |  | Fysisk enhet | Molninstallation |
 | --- | --- | --- |
 | **Plats** |Finns i datacentret. |Körs i Azure. |
-| **Nätverksgränssnitt** |Har sex nätverksgränssnitt: DATA 0 till DATA 5. |Har bara ett nätverksgränssnitt: DATA 0. |
+| **Nätverksgränssnitt** |Har sex nätverksgränssnitt: DATA 0 till och med DATA 5. |Har bara ett nätverksgränssnitt: DATA 0. |
 | **Registrering** |Registreras i det inledande konfigurationssteget. |Registreringen är en separat åtgärd. |
 | **Krypteringsnyckel för tjänstdata** |Återskapa på den fysiska enheten och uppdatera sedan molninstallationen med den nya nyckeln. |Det går inte att återskapa från molninstallationen. |
 | **Volymtyper som stöds** |Har stöd både för lokalt fixerade och nivåindelade volymer. |Har stöd endast för nivåindelade volymer. |
@@ -94,7 +94,7 @@ Innan du etablerar molninstallationen måste du göra följande förberedelser i
 Gör följande uppdateringar i StorSimple Device Manager-tjänsten innan du skapar en molninstallation:
 
 * Lägg till [åtkomstkontrollposter](storsimple-8000-manage-acrs.md) för de virtuella datorer som ska vara värdservrar för molninstallationen.
-* Använd ett [lagringskonto](storsimple-8000-manage-storage-accounts.md#add-a-storage-account) i samma region som molninstallationen. Lagringskonton i olika regioner kan resultera i sämre prestanda. Du kan använda ett Standard- eller Premium Storage-konto med molninstallationen. Mer information om hur du skapar ett [Standardlagringskonto](../storage/common/storage-create-storage-account.md) eller ett [Premiumlagringskonto](../virtual-machines/windows/premium-storage.md)
+* Använd ett [lagringskonto](storsimple-8000-manage-storage-accounts.md#add-a-storage-account) i samma region som molninstallationen. Lagringskonton i olika regioner kan resultera i sämre prestanda. Du kan använda ett Standard- eller Premium Storage-konto med molninstallationen. Mer information om hur du skapar ett [Standardlagringskonto](../storage/common/storage-create-storage-account.md).
 * Använd ett annat lagringskonto när du skapar molninstallationen än det som används för dina data. Om samma lagringskonto används kan det resultera i sämre prestanda.
 
 Kontrollera att du har följande information innan du börjar:
@@ -124,7 +124,7 @@ Konfigurera och registrera StorSimple-molninstallationen genom att utföra stege
 
 [!INCLUDE [Configure and register a cloud appliance](../../includes/storsimple-8000-configure-register-cloud-appliance.md)]
 
-### <a name="step-3-optional-modify-the-device-configuration-settings"></a>Steg 3: (Valfritt) ändra konfigurationsinställningarna för enheten
+### <a name="step-3-optional-modify-the-device-configuration-settings"></a>Steg 3: (Valfritt) Ändra konfigurationsinställningarna för enheten
 
 I följande avsnitt beskrivs de enhetskonfigurationsinställningar som krävs för StorSimple-molninstallationen om du vill använda CHAP, StorSimple Snapshot Manager eller ändra administratörslösenordet för enheten.
 

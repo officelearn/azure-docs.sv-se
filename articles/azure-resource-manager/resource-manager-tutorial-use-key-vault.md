@@ -14,16 +14,14 @@ ms.date: 01/25/2019
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: seodec18
-ms.openlocfilehash: 979867e7630c21b0bd724967dbc79c5f8155ca5e
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 7371808db8d40948f501b051692172fd6a84e2ac
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237186"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56270223"
 ---
 # <a name="tutorial-integrate-azure-key-vault-in-resource-manager-template-deployment"></a>Självstudie: Integrera Azure Key Vault vid malldistribution i Resource Manager
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Lär dig hur du hämtar hemligheter från Azure Key Vault och skickar hemligheterna som parametrar under Resource Manager-distributionen. Värdet exponeras aldrig eftersom du bara refererar till dess nyckelvalvs-ID. Mer information finns i [Använd Azure Key Vault för att skicka säkra parametervärden under distributionen](./resource-manager-keyvault-parameter.md)
 
@@ -192,6 +190,9 @@ New-AzResourceGroupDeployment `
     -TemplateFile azuredeploy.json `
     -TemplateParameterFile azuredeploy.parameters.json
 ```
+
+> [!NOTE]
+> Det finns ett I/O-filproblem om Azure PowerShell används i Cloud Shell.  Felmeddelandet är *Cannot retrieve the dynamic parameters for the cmdlet. Cannot find path 'Azure:/azuredeploy.json' because it does not exist.* (Det går inte att hämta de dynamiska parametrarna för cmdleten. Det går inte att hitta sökvägen ”Azure:/azuredeploy.json” eftersom den inte finns.)  En tillfällig lösning är inte att ta med växlarna **-TemplateFile** och **TemplateParameterFile** i kommandot `New-AzResourceGroupDeploy`. Kommandot uppmanar dig att ange namnet på filen.
 
 När du distribuerar mallen använder du samma resursgrupp som nyckelvalvet. Det gör enklare när du rensar bland resurserna. Du behöver bara att ta bort en resursgrupp istället för två.
 

@@ -10,12 +10,12 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.date: 10/04/2018
 ms.author: tomfitz
-ms.openlocfilehash: 67797f3bc5eadc126bad1051e793a8d3bc4590e5
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 27db3327e296dafea3af2180eeaadd0ff4680b8d
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48800952"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341965"
 ---
 # <a name="azure-managed-applications-overview"></a>Översikt över Azure Managed Applications
 
@@ -73,7 +73,7 @@ När användaren tar bort det hanterade programmet tas även den hanterade resur
 
 ## <a name="azure-policy"></a>Azure Policy
 
-Du kan använda [Azure Policy](../azure-policy/azure-policy-introduction.md) för det hanterade programmet. Du kan tillämpa principer som ser till att distribuerade instanser av det hanterade programmet uppfyller data- och säkerhetskraven. Om programmet interagerar med känsliga data måste du ha utvärderat hur dessa data ska skyddas. Om programmet till exempel interagerar med data från Office 365 kan du använda en princip som ser till att datakryptering är aktiverad.
+Du kan använda [Azure Policy](../governance/policy/overview.md) för det hanterade programmet. Du kan tillämpa principer som ser till att distribuerade instanser av det hanterade programmet uppfyller data- och säkerhetskraven. Om programmet interagerar med känsliga data måste du ha utvärderat hur dessa data ska skyddas. Om programmet till exempel interagerar med data från Office 365 kan du använda en princip som ser till att datakryptering är aktiverad.
 
 ## <a name="next-steps"></a>Nästa steg
 

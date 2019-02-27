@@ -1,23 +1,23 @@
 ---
 title: 'Snabbstart: Identifiera tal, Objective-C – Speech Service'
 titleSuffix: Azure Cognitive Services
-description: Lär dig hur du identifierar tal i Objective-C på iOS med Speech Service-SDK
+description: Lär dig hur du identifierar tal i Objective-C i iOS med hjälp av Speech SDK
 services: cognitive-services
 author: chlandsi
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 12/13/2018
+ms.date: 2/20/2019
 ms.author: chlandsi
-ms.openlocfilehash: f92a5c5ea064d91eae065c96e656416b21714e98
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 5f6a66b4005a0fa7106830d7e53950a9902cd078
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55878110"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56447250"
 ---
-# <a name="quickstart-recognize-speech-in-objective-c-on-ios-using-the-speech-service-sdk"></a>Snabbstart: Identifiera tal i Objective-C i iOS med Speech Service-SDK
+# <a name="quickstart-recognize-speech-in-objective-c-on-ios-using-the-speech-sdk"></a>Snabbstart: Identifiera tal i Objective-C i iOS med hjälp av Speech SDK
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
@@ -35,7 +35,7 @@ Gå igenom den här listan med förhandskrav innan du sätter igång:
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-Den aktuella versionen av Cognitive Services Speech SDK är `1.2.0`.
+Den aktuella versionen av Cognitive Services Speech SDK är `1.3.0`.
 
 Cognitive Services Speech SDK för Mac och iOS distribueras för närvarande som ett Cocoa-ramverk.
 Du kan ladda ned det på https://aka.ms/csspeech/iosbinary. Ladda ned filen till arbetskatalogen.

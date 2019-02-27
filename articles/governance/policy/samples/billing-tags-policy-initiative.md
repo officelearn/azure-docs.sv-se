@@ -1,6 +1,6 @@
 ---
 title: Exempel – Principinitiativ för faktureringstaggar
-description: Det här principuppsättningsexemplet kräver angivna taggvärden för kostnadsställe och produktnamn.
+description: Det här uppsättningen med exempelprincipdefinition kräver angivna taggvärden för kostnadsställe och produktnamn.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 4592ac63561a59bfc0e4351cc5ad83f138955370
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: b659d6f681b980b956992f0d488995fd1a55de93
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56242863"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56337613"
 ---
-# <a name="billing-tags-policy-initiative"></a>Principinitiativ för faktureringstaggar
+# <a name="sample---billing-tags-policy-initiative"></a>Exempel – Principinitiativ för faktureringstaggar
 
 Den här principuppsättningen kräver angivna taggvärden för kostnadsställe och produktnamn. Använder inbyggda principer för att tillämpa och framtvinga taggar som krävs. Du anger de värden som krävs för taggar.
 

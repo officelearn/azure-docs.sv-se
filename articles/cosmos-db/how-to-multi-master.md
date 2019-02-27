@@ -1,25 +1,25 @@
 ---
-title: Så här konfigurerar du flera original i Azure Cosmos DB
+title: Så konfigurerar du flera original i Azure Cosmos DB
 description: Lär dig hur du konfigurerar flera original i dina program i Azure Cosmos DB
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
 ms.date: 2/12/2019
 ms.author: mjbrown
-ms.openlocfilehash: effe6fa942ce0cabace08e72dba90baf8646680e
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 84c8e2921602bb653c0b1ef0adffd3d89e91bd78
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56118864"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56312148"
 ---
-# <a name="how-to-configure-multi-master-in-your-applications-in-azure-cosmos-db"></a>Så här konfigurerar du flera original i dina program i Azure Cosmos DB
+# <a name="how-to-configure-multi-master-in-your-applications-that-use-azure-cosmos-db"></a>Så konfigurerar du flera original i dina program som använder Azure Cosmos DB
 
-Om du vill använda funktioner för flera original i dina program måste du aktivera skrivningar i flera regioner för ditt program och konfigurera multihoming-funktionen genom att ange den aktuella regionen som programmet distribueras i.
+För att kunna använda funktioner för flera original i dina program behöver  du aktivera skrivningar i flera regioner och konfigurera multihoming-funktion. Multihoming konfigureras genom att den aktuella regionen anges där programmet distribueras.
 
 ## <a id="netv2"></a>.NET SDK v2
 
-För att aktivera flera original i dina program konfigurerar du `UseMultipleWriteLocations` till sant och konfigurerar `SetCurrentLocation` till den region där programmet distribueras, så replikeras Cosmos DB.
+För att aktivera flera original i dina program anger du `UseMultipleWriteLocations` till sant och konfigurerar `SetCurrentLocation` till den region där programmet distribueras och Azure Cosmos DB replikeras.
 
 ```csharp
 ConnectionPolicy policy = new ConnectionPolicy

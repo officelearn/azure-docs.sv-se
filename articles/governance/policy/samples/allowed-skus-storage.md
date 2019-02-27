@@ -1,6 +1,6 @@
 ---
 title: Exempel – Tillåtna SKU:er för lagringskonton och virtuella datorer
-description: Den här exempelprincipen kräver att lagringskonton och virtuella datorer använder godkända SKU:er.
+description: Den här exempelprincipdefinitionen kräver att lagringskonton och virtuella datorer använder godkända SKU:er.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 4e194e70c13fe70702e700fcaafa7cdf981e0147
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: cb6ccf87cc14424801a06cc2e9749e2fc2f6ee4a
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56242081"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56339914"
 ---
-# <a name="allowed-skus-for-storage-accounts-and-virtual-machines"></a>Tillåtna SKU:er för lagringskonton och virtuella datorer
+# <a name="sample---allowed-skus-for-storage-accounts-and-virtual-machines"></a>Exempel – Tillåtna SKU:er för lagringskonton och virtuella datorer
 
 I den här principen måste lagringskonton och virtuella datorer använda godkända SKU:er. Använder inbyggda principer till att säkerställa godkända SKU:er. Du anger en matris med godkända SKU:er för virtuella datorer och en matris med godkända SKU:er för lagringskonton.
 

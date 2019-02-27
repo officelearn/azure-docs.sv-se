@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 02/13/2019
+ms.date: 02/15/2019
 ms.author: alkohli
-ms.openlocfilehash: 5a72bfccd69a51aa6bafb34bb768b48640e554af
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 254ebb9e23a80f71d2c46e6666362d764ff03141
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56243016"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341597"
 ---
 # <a name="tutorial-return-azure-data-box-and-verify-data-upload-to-azure"></a>Självstudier: Skicka tillbaka Azure Data Box och verifiera datauppladdning till Azure
 
@@ -42,9 +42,7 @@ Innan du börjar ska du kontrollera att:
 ## <a name="ship-data-box-back"></a>Skicka tillbaka Data Box
 
 1. Kontrollera att enheten är avstängd och kablarna har tagits bort. Rulla upp strömkabeln som levererades med enheten och placera kabeln säkert på baksidan av enheten.
-2. Om enheten levereras i USA kontrollerar du att fraktsedeln visas på E-ink-skärmen och bokar hämtning hos ett transportföretag. Om etiketten är skadad eller tappas bort eller om den inte visas på skärmen för E-ink kontaktar du Microsoft-supporten. Gå till **Översikt > Ladda ned adressetikett** på Azure-portalen, men endast om supporten föreslår det. Ladda ned en adressetikett och fäst den på enheten.
-
-    Om enheten levereras i Europa visar E-ink-skärmen inte fraktsedeln. I stället inkluderas returfraktsedeln i det genomskinliga facket under leveransfraktsedeln. Ta bort den gamla fraktsedeln och se till att fraktsedeln är väl synlig.
+2. Kontrollera att adressetiketten visas på E-ink-skärmen och boka hämtning hos ett transportföretag. Om etiketten är skadad, tappas bort eller inte visas på skärmen för E-ink kontaktar du Microsoft-supporten. Om supporten föreslår det kan du gå till **Översikt > Ladda ned adressetikett** i Azure-portalen. Ladda ned en adressetikett och fäst den på enheten.
     
 3. Om du returnerar enheten bokar du upphämtning med UPS. Om du vill schemalägga en upphämtning ringer du din lokala UPS (landspecifikt kostnadsfritt nummer) eller lämnar din Data Box på din närmaste samlingsplats.
 

@@ -10,20 +10,20 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/01/2019
+ms.date: 02/13/2019
 ms.author: tomfitz
-ms.openlocfilehash: fbfbb4e452032073d92e7c2b93f78669da0ceaf5
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 1d576b24e96d6c4c88d6fbef86cb1c6cf7f7c61a
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55691565"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268141"
 ---
 # <a name="azure-resource-manager-overview"></a>Översikt över Azure Resource Manager
 
 Azure Resource Manager är Azures tjänst för distribution och hantering. Det ger ett konsekvent hanteringslager som hjälper dig att skapa, uppdatera och ta bort resurser i din Azure-prenumeration. Du kan använda dess åtkomstkontroll, granskning och taggningsfunktioner för att skydda och organisera dina resurser efter distributionen.
 
-När du vidtar åtgärder via portalen, PowerShell, Azure CLI, REST API:er eller klient-SDK:er hanterar Azure Resource Manager API din begäran. Eftersom alla förfrågningar hanteras via samma API visas enhetliga resultat och funktionerna i de olika verktygen.
+När du vidtar åtgärder via portalen, PowerShell, Azure CLI, REST API:er eller klient-SDK:er hanterar Azure Resource Manager API din begäran. Eftersom alla förfrågningar hanteras via samma API visas enhetliga resultat och funktionerna i de olika verktygen. Alla funktioner som är tillgängliga i portalen är även tillgängliga via PowerShell, Azure CLI, REST-API:er och klient-SDK:er. Funktioner som ursprungligen publiceras via API:er kommer att representeras i portalen inom 180 dagar efter den första publiceringen.
 
 Följande bild visar hur alla verktyg interagerar med Azure Resource Manager-API:et. API:et skickar begäranden till Resource Manager-tjänsten, som autentiserar och auktoriserar begäranden. Resource Manager dirigerar sedan begäranden till lämplig tjänst.
 

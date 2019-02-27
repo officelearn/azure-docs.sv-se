@@ -9,17 +9,18 @@ ms.devlang: powershell
 ms.topic: sample
 ms.date: 04/17/2018
 ms.author: alzam
-ms.openlocfilehash: 1f89d6a33346abc8a84f5bc5c0e46e5431fb80ec
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: a4cec6661750935cefd3767be7e10e2674ee8473
+ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55510951"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56415484"
 ---
 # <a name="download-vpn-device-template-using-powershell"></a>Ladda ned en VPN-enhetsmall med PowerShell
 
 Det här skriptet hämtar en VPN-enhetsmall för en anslutning
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ```azurepowershell-interactive
 # Declare variables
@@ -28,19 +29,19 @@ $GWName      = "VNet1GW"
 $Connection  = "VNet1toSite1"
 
 # List the available VPN device models and versions
-Get-AzureRmVirtualNetworkGatewaySupportedVpnDevice -Name $GWName -ResourceGroupName $RG
+Get-AzVirtualNetworkGatewaySupportedVpnDevice -Name $GWName -ResourceGroupName $RG
 
 # Download the configuration template for the connection
-Get-AzureRmVirtualNetworkGatewayConnectionVpnDeviceConfigScript -Name $Connection -ResourceGroupName $RG `
+Get-AzVirtualNetworkGatewayConnectionVpnDeviceConfigScript -Name $Connection -ResourceGroupName $RG `
 -DeviceVendor Juniper -DeviceFamily Juniper_SRX_GA -FirmwareVersion Juniper_SRX_12.x_GA
 ```
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När du inte längre behöver de resurser som du har skapat kan du ta bort resursgruppen med kommandot [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup). Därmed tas resursgruppen och alla resurser den innehåller bort.
+När du inte längre behöver de resurser som du har skapat kan du ta bort resursgruppen med hjälp av kommandot [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup). Därmed tas resursgruppen och alla resurser den innehåller bort.
 
 ```azurepowershell-interactive
-Remove-AzureRmResourceGroup -Name TestRG1
+Remove-AzResourceGroup -Name TestRG1
 ```
 
 ## <a name="script-explanation"></a>Förklaring av skript
@@ -49,8 +50,8 @@ Det här skriptet använder följande kommandon för att skapa distributionen. V
 
 | Kommando | Anteckningar |
 |---|---|
-| [Get-AzureRmVirtualNetworkGatewaySupportedVpnDevice](/powershell/module/azurerm.network/Get-AzureRmVirtualNetworkGatewaySupportedVpnDevice) | Visar alla tillgängliga modeller och versioner av VPN-enheter. |
-| [Get-AzureRmVirtualNetworkGatewayConnectionVpnDeviceConfigScript](/powershell/module/azurerm.network/Get-AzureRmVirtualNetworkGatewayConnectionVpnDeviceConfigScript) | Laddar ned konfigurationsmallen för anslutningen. |
+| [Get-AzVirtualNetworkGatewaySupportedVpnDevice](/powershell/module/az.network/Get-azVirtualNetworkGatewaySupportedVpnDevice) | Visar alla tillgängliga modeller och versioner av VPN-enheter. |
+| [Get-AzVirtualNetworkGatewayConnectionVpnDeviceConfigScript](/powershell/module/az.network/Get-azVirtualNetworkGatewayConnectionVpnDeviceConfigScript) | Laddar ned konfigurationsmallen för anslutningen. |
 
 ## <a name="next-steps"></a>Nästa steg
 

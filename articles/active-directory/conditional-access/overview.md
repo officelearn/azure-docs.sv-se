@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/14/2018
+ms.date: 02/14/2019
 ms.author: markvi
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c41771db4ff674b2f0df941286358d3154034ea1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 5e6f1174351f0907ce2bef21324c7ba81c81498b
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56194367"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56266721"
 ---
 # <a name="what-is-conditional-access-in-azure-active-directory"></a>Vad är villkorsstyrd åtkomst i Azure Active Directory?
 
@@ -109,11 +109,7 @@ Användning av villkorsstyrd åtkomst kräver en Azure AD Premium-licens. Hitta 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Om du vill veta mer om:
-    - Villkor kan du läsa sidan om [villkor i villkorsstyrd åtkomst med Azure Active Directory](conditions.md).
+Om du vill lära dig att implementera villkorlig åtkomst i din miljö kan du läsa avsnittet om att [planera distribution med villkorlig åtkomst i Azure Active Directory](plan-conditional-access.md).
 
-    - Åtkomstkontroller kan du läsa sidan om [åtkomstkontroller i villkorsstyrd åtkomst med Azure Active Directory](controls.md).
 
-- Om du vill få lite erfarenhet med att konfigurera principer för villkorsstyrd åtkomst kan du läsa sidan om att [kräva MFA för specifika appar med villkorsstyrd åtkomst i Azure Active Directory](app-based-mfa.md).
 
-- Om du vill ha en stegvis distributionsplan med rekommenderade principer kan du läsa sidan om [distributionsplan för villkorsstyrd åtkomst](https://aka.ms/conditionalaccessdeploymentplan)

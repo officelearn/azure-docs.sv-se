@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: overview
-ms.date: 02/13/2019
+ms.date: 02/14/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 427f3f498ac04c68ef0b335b50c60db46b46d042
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 114dac10592213d3b2fdfff909913039b3dba344
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56243862"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56429442"
 ---
 # <a name="what-is-azure-analysis-services"></a>Vad är Azure Analysis Services?
 
@@ -61,9 +61,9 @@ Den här nivån passar bäst för verksamhetskritiska produktionsprogram som kr�
 
 |Planera  |QPU:er  |Minne (GB)  |
 |---------|---------|---------|
-|S1    |    40     |    10     |
-|S2    |    100     |    25     |
-|S3    |    200     |    50     |
+|S0    |    40     |    10     |
+|S1    |    100     |    25     |
+|S2    |    200     |    50     |
 |S4    |    400     |    100     |
 |S8*    |    320     |    200     |
 |S9*    |    640    |    400     |
@@ -217,7 +217,7 @@ Moderna datautforsknings- och visualiseringsverktyg som Power BI, Excel, Reporti
 
 ## <a name="monitoring-and-diagnostics"></a>Övervakning och diagnostik
 
-Azure Analysis Services är integrerat med Azure-mått, vilket ger ett omfattande antal resursspecifika mått som hjälper dig att övervaka prestanda och hälsotillståndet för dina servrar. Läs [Övervaka servermått](analysis-services-monitor.md) för mer information. Registrera mått med [Azure resursdiagnostikloggar](../azure-monitor/platform/diagnostic-logs-overview.md). Övervaka och skicka loggar till [Azure Storage](https://azure.microsoft.com/services/storage/), strömma dem till [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) och exportera dem till [Log Analytics](https://azure.microsoft.com/services/log-analytics/), en tjänst från [Azure](https://www.microsoft.com/cloud-platform/operations-management-suite). Läs mer i [Konfigurera diagnostisk loggning](analysis-services-logging.md).
+Azure Analysis Services är integrerat med Azure-mått, vilket ger ett omfattande antal resursspecifika mått som hjälper dig att övervaka prestanda och hälsotillståndet för dina servrar. Läs [Övervaka servermått](analysis-services-monitor.md) för mer information. Registrera mått med [Azure resursdiagnostikloggar](../azure-monitor/platform/diagnostic-logs-overview.md). Övervaka och skicka loggar till [Azure Storage](https://azure.microsoft.com/services/storage/), strömma dem till [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) och exportera dem till [Azure Monitor-loggar](https://azure.microsoft.com/services/log-analytics/), en tjänst från [Azure](https://www.microsoft.com/cloud-platform/operations-management-suite). Läs mer i [Konfigurera diagnostisk loggning](analysis-services-logging.md).
 
 Azure Analysis Services stöder även [dynamiska hanteringsvyer (DMV: er)](https://docs.microsoft.com/sql/analysis-services/instances/use-dynamic-management-views-dmvs-to-monitor-analysis-services). DMV:s gränssnitt baseras på SQL-syntax och har en schemaraduppsättning som returnerar metadata samt övervakar information om serverinstanser.
 

@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/28/2019
 ms.author: juliako
-ms.openlocfilehash: 71ddf1d70953b721911a7315ab6875dd41a9a4db
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 394efd023382f9153a6869944a8a3a815203f9dd
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55894181"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56338605"
 ---
 # <a name="tutorial-stream-live-with-media-services-v3-using-net"></a>Självstudier: Strömma live med Media Services v3 med hjälp av .NET
 
@@ -126,7 +126,7 @@ Liveutdata startar när de skapas och avbryts när de tas bort. När du tar bort
 #### <a name="create-a-streaming-locator"></a>Skapa en positionerare för direktuppspelning
 
 > [!NOTE]
-> När ditt Media Services-konto skapas läggs en slutpunkt för direktuppspelning av **standardtyp** till i kontot med tillståndet **Stoppad**. Om du vill starta direktuppspelning av innehåll och dra nytta av dynamisk paketering och dynamisk kryptering måste slutpunkten för direktuppspelning som du vill spela upp innehåll från ha tillståndet **Körs**. 
+> När ditt Media Services-konto skapas läggs en slutpunkt för direktuppspelning av **standardtyp** till i kontot med tillståndet **Stoppad**. Om du vill starta direktuppspelning av innehåll och dra nytta av [dynamisk paketering](dynamic-packaging-overview.md) och dynamisk kryptering måste den slutpunkt för direktuppspelning som du vill spela upp innehåll från ha tillståndet **Körs**. 
 
 När du publicerar liveutdata-tillgången med hjälp av en positionerare för direktuppspelning, fortsätter livehändelsen (upp till DVR-fönstrets längd) att vara synlig tills positioneraren för direktuppspelning slutar att gälla eller tas bort, beroende på vilket som inträffar först.
 

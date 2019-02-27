@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: 6a731750da4edfb4a71c00156c5ff527dee30941
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 5597f3c017ccf2dbb58b7b6b046720c8f49803c5
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55824677"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56312301"
 ---
 # <a name="move-azure-vms-into-availability-zones"></a>Flytta virtuella Azure-datorer till tillgänglighetszoner
 Tillgänglighetszonerna i Azure skyddar dina program och data mot datacenterfel. Varje tillgänglighetszon utgörs av ett eller flera datacenter som är utrustade med fristående kraft, nedkylning och nätverk. För att säkerställa återhämtning finns det minst tre separata zoner i alla aktiverade regioner. Den fysiska avgränsningen av tillgänglighetszonerna inom en region skyddar program och data mot datacenterfel. Med tillgänglighetszonerna kan Azure erbjuda branschens bästa serviceavtal med en drifttid på 99,99 % för virtuella datorer. Tillgänglighetszoner stöds i utvalda regioner, vilket beskrivs [här](https://docs.microsoft.com/azure/availability-zones/az-overview#regions-that-support-availability-zones). 
@@ -31,7 +31,7 @@ I ett scenario där du har distribuerat dina virtuella datorer som ”enskilda i
 - Kontrollera om målregionen har [stöd för tillgänglighetszoner](https://docs.microsoft.com/azure/availability-zones/az-overview#regions-that-support-availability-zones) – Kontrollera om ditt val av [kombination för källregion och målregion stöds](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-support-matrix#region-support) och fatta ett välgrundat beslut om målregionen.
 - Vara säker på att du förstår [arkitekturen och komponenterna för scenariot](azure-to-azure-architecture.md).
 - Granska [begräsningar i stöd samt krav](azure-to-azure-support-matrix.md).
-- Verifiera kontobehörigheter: Om du nyligen skapade ditt kostnadsfria Azure-konto är du administratör för prenumerationen. Om du inte är administratör för prenumerationen kan du arbeta med administratören för att tilldela de behörigheter som du behöver. Om du vill aktivera replikering för en virtuell dator och så småningom kopiera data till målet med Azure Site Recovery, måste du ha:
+- Verifiera kontobehörigheter: Om du nyligen skapade ditt kostnadsfria Azure-konto är du administratör för prenumerationen. Om du inte är administratör för prenumerationen kan du arbeta med administratören för att tilldela de behörigheter som du behöver. Om du vill aktivera replikering för en virtuell dator och så småningom kopiera data till målet med Azure Site Recovery måste du ha:
 
     1. Behörighet att skapa en virtuell dator i Azure-resurser. Den inbyggda rollen ”Virtuell datordeltagare” har dessa behörigheter, som omfattar:
         - Behörighet att skapa en virtuell dator i den valda resursgruppen
@@ -43,7 +43,7 @@ I ett scenario där du har distribuerat dina virtuella datorer som ”enskilda i
 ## <a name="prepare-the-source-vms"></a>Förbereda källans virtuella datorer
 
 1. Dina virtuella datorer måste använda hanterade diskar om du vill flytta dem till en tillgänglighetszon med hjälp av Site Recovery. Du kan konvertera befintliga virtuella Windows-datorer som använder ohanterade diskar och du kan konvertera de virtuella datorerna till att använda hanterade diskar, genom att följa anvisningarna [här](https://docs.microsoft.com/azure/virtual-machines/windows/convert-unmanaged-to-managed-disks). Om du vill göra detta kontrollerar du att tillgänglighetsuppsättningen är konfigurerad som ”Hanterad”. 
-2. Kontrollera att alla de senaste rotcertifikaten finns på de virtuella Azure-datorer som du vill flytta. Om de senaste rotcertifikaten inte finns, kan datakopieringen till målregionen inte aktiveras på grund av säkerhetsbegränsningar.
+2. Kontrollera att alla de senaste rotcertifikaten finns på de virtuella Azure-datorer som du vill flytta. Om de senaste rotcertifikaten inte finns kan datakopieringen till målregionen inte aktiveras på grund av säkerhetsbegränsningar.
 
 3. I virtuella datorer med Windows installerar du alla de senaste uppdateringarna så att alla betrodda rotcertifikat finns på datorn. I en frånkopplad miljö använder du organisationens vanliga processer för Windows Update och certifikatuppdatering.
 
@@ -58,14 +58,14 @@ I ett scenario där du har distribuerat dina virtuella datorer som ”enskilda i
 
 1. Verifiera att Azure-prenumerationen låter dig skapa virtuella datorer i målregionen för haveriberedskap. Kontakta supporten och aktivera den eventuella kvot som krävs.
 
-2. Se till att din prenumeration har tillräckligt med resurser för att hantera virtuella datorer med de storlekar som de virtuella källdatorerna har. Om du använder Site Recovery till att kopiera data till målet, kommer den att välja samma storlek eller närmast möjliga storlek för den virtuella måldatorn.
+2. Se till att din prenumeration har tillräckligt med resurser för att hantera virtuella datorer med de storlekar som de virtuella källdatorerna har. Om du använder Site Recovery till att kopiera data till målet väljer det samma storlek eller närmast möjliga storlek för den virtuella måldatorn.
 
-3. Se till att du skapar en målresurs för varje komponent som finns i källans nätverkslayout. Det är viktigt att se till att dina virtuella datorer innehåller alla funktioner som finns i källan innan de skickas till målregionen.
+3. Se till att du skapar en målresurs för varje komponent som identifieras i källans nätverkslayout. Det är viktigt att se till att dina virtuella datorer innehåller alla funktioner som fanns i källan efter att de har skickats till målregionen.
 
     > [!NOTE]
-    > Azure Site Recovery identifierar och skapar ett virtuellt nätverk och lagringskonto automatiskt när du aktiverar replikering för den virtuella källdatorn. Du kan också skapa dessa resurser i förväg och tilldela dem till den virtuella datorn som en del av steget där du aktiverar replikering. Men vissa resurser måste skapas dem manuellt i målregionen, vilket beskrivs nedan.
+    > Azure Site Recovery identifierar och skapar ett virtuellt nätverk och lagringskonto automatiskt när du aktiverar replikering för den virtuella källdatorn. Du kan även skapa dessa resurser i förväg och tilldela dem till den virtuella datorn som en del av det steg där du aktiverar replikering. Du behöver dock skapa andra resurser manuellt i målregionen, enligt beskrivningen nedan.
 
-     I följande dokument visas hur du skapar de vanligaste nätverksresurserna, baserat på den virtuella källdatorkonfigurationen.
+     I följande dokument beskrivs hur du skapar de vanligaste nätverksresurserna, baserat på den konfigurationen för virtuella källdator.
 
     - [Nätverkssäkerhetsgrupper](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group)
     - [Lastbalanserare](https://docs.microsoft.com/azure/load-balancer/#step-by-step-tutorials
@@ -95,7 +95,7 @@ I stegen nedan visas hur du använder Azure Site Recovery till att aktivera repl
 2. Välj lämpliga värden för målprenumeration, virtuell måldator, resursgrupp och virtuellt nätverk.
 3. I avsnittet **Tillgänglighet** väljer du den tillgänglighetszon dit du vill flytta den virtuella datorn. 
 > [!NOTE]
-> Om du inte ser alternativet för tillgänglighetsuppsättningar eller tillgänglighetszoner, bör du kontrollera att [kraven](#prepare-the-source-vms) är uppfyllda och att [förberedelsen](#prepare-the-source-vms) av de virtuella källdatorerna har slutförts.
+> Om du inte ser alternativet för tillgänglighetsuppsättningar eller tillgänglighetszoner bör du kontrollera att [förutsättningar](#prepare-the-source-vms) är uppfyllda och att [förberedelsen](#prepare-the-source-vms) av de virtuella källdatorerna är klar.
 
    ![enable-rep-2.PNG](media/azure-vms-to-zones/enable-rep-2.PNG)
 
@@ -127,7 +127,7 @@ När replikeringen har slutförts kan du kontrollera replikeringsstatus, ändra 
 
 4. När du vill börja testa flytten klickar du på **OK**. Om du vill spåra förloppet klickar du på den virtuella datorn för att öppna dess egenskaper. Du kan också klicka på jobbet **Testa redundans** i valvnamnet > **Inställningar** > **Jobb** > **Site Recovery-jobb**.
 5. När redundansen är klar visas repliken av den virtuella Azure-datorn i Azure-portalen > **Virtual Machines**. Kontrollera att den virtuella datorn körs med rätt storlek och ansluten till lämpligt nätverk.
-6. Om du vill ta bort den virtuella dator som skapades som en del av flyttestet, klickar du på **Rensa redundanstestning** i det replikerade objektet. I **Kommentarer** skriver du och sparar eventuella observationer från testet.
+6. Om du vill ta bort den virtuella dator som skapades i samband med flyttestet klickar du på **Rensa redundanstestning** i det replikerade objektet. I **Kommentarer** skriver du ned och sparar eventuella observationer från testet.
 
 ## <a name="perform-the-move-to-the-target-region-and-confirm"></a>Utför flytten till målregionen och bekräfta.
 
@@ -136,11 +136,11 @@ När replikeringen har slutförts kan du kontrollera replikeringsstatus, ändra 
 3. I **Redundans** väljer du **Senaste**. 
 4. Välj **Stäng datorn innan du påbörjar redundans**. Site Recovery försöker stänga av den virtuella källdatorn innan redundansen utlöses. Redundansväxlingen fortsätter även om avstängningen misslyckas. Du kan följa redundansförloppet på sidan **Jobb**. 
 5. När jobbet har slutförts kan du kontrollera att den virtuella datorn visas i Azure-målregionen som förväntat.
-6. I **Replikerade objekt** högerklickar du på den virtuella datorn > **Genomför**. Detta avslutar flyttprocessen till målregionen. Vänta tills incheckningsjobbet har slutförts.
+6. I **Replikerade objekt** högerklickar du på den virtuella datorn > **Genomför**. Detta avslutar flytten till målregionen. Vänta tills incheckningsjobbet har slutförts.
 
-## <a name="discard-the-resource-in-the-source-region"></a>Ta bort resursen i källregionen 
+## <a name="discard-the-resource-in-the-source-region"></a>Ta bort resursen från källregionen 
 
-1. Gå till den virtuella datorn.  Klicka på **Inaktivera replikering**.  Detta stoppar processen att kopiera data för den virtuella datorn.  
+1. Gå till den virtuella datorn.  Klicka på **Inaktivera replikering**.  Detta stoppar processen med att kopiera data för den virtuella datorn.  
 
 > [!IMPORTANT]
 > Det är viktigt att utföra steget ovan för att undvika att debiteras för Site Recovery-replikering efter flytten. Källans replikeringsinställningar rensas automatiskt. Observera att Site Recovery-tillägget som installeras som en del av replikeringen inte tas bort automatiskt utan måste tas bort manuellt. 

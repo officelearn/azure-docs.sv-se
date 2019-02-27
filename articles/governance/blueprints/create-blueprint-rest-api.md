@@ -1,6 +1,6 @@
 ---
 title: Skapa en skiss med REST-API
-description: Använd Azure-skisser för att skapa, definiera och distribuera artefakter.
+description: Använd Azure Blueprints för att skapa, definiera och distribuera artefakter med hjälp av REST API.
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: d7b2e6848c88d9c3ac61f2eaf059e0836dc19903
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 634b175ec0b5771e3ff2fa061532106eb124ea4e
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55989974"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56338435"
 ---
 # <a name="define-and-assign-an-azure-blueprint-with-rest-api"></a>Definiera och tilldela en Azure-skiss med REST API
 
@@ -32,7 +32,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 ## <a name="getting-started-with-rest-api"></a>Komma igång med REST API
 
-Om du inte är bekant med REST API börjar du med att gå igenom [referensen för Azure REST API](/rest/api/azure/) så att du förstår hur REST-API:et fungerar, särskilt begärande-URI och begärandetext. I den här artikeln används dessa begrepp för att förklara hur du arbetar med Azure-skisser och artikeln förutsätter att du har grundläggande kunskap om dem. Verktyg som [ARMClient](https://github.com/projectkudu/ARMClient) och andra kan hantera auktorisering automatiskt och rekommenderas för nybörjare.
+Om du inte är bekant med REST API börjar du med att gå igenom [referensen för Azure REST API](/rest/api/azure/) så att du förstår hur REST-API:et fungerar, särskilt begärande-URI och begärandetext. I den här artikeln används dessa begrepp för att förklara hur du arbetar med Azure Blueprints och artikeln förutsätter att du har grundläggande kunskap om dem. Verktyg som [ARMClient](https://github.com/projectkudu/ARMClient) och andra kan hantera auktorisering automatiskt och rekommenderas för nybörjare.
 
 Specifikationer för skisser finns i [REST API för Azure Blueprint](/rest/api/blueprints/).
 

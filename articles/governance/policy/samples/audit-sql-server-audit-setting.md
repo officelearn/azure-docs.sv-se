@@ -1,6 +1,6 @@
 ---
 title: Exempel – Granska granskningsinställningar på SQL Server-nivå
-description: Den här exempelprincipen granskar inställningarna för SQL-servergranskning om inställningarna inte matchar en angiven inställning.
+description: Den här exempelprincipdefinitionen granskar granskningsinställningarna för SQL-server om de inställningarna inte matchar en angiven inställning.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: f23fd349a5e7c1016cc18f79cff408aefaa3fd35
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 90f91e46db9d25571bc34256ab1db737445ce3e6
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56244172"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56337483"
 ---
-# <a name="audit-sql-server-level-audit-setting"></a>Granska granskningsinställningar på SQL-servernivå
+# <a name="sample---audit-sql-server-level-audit-setting"></a>Exempel – Granska granskningsinställningar på SQL Server-nivå
 
 Den här principen granskar SQL-servergranskningsinställningar om inställningarna inte matchar en angiven inställning. Du kan ange ett värde som anger om granskningsinställningar ska vara aktiverade eller inaktiverade.
 

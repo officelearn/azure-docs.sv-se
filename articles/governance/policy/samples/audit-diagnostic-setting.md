@@ -1,6 +1,6 @@
 ---
 title: Exempel – Granska diagnostikinställning
-description: Den här exempelprincipen granskar om diagnostikinställningarna inte är aktiverade för angivna resurstyper.
+description: Den här exempelprincipdefinitionen granskar om diagnostikinställningarna inte är aktiverade för angivna resurstyper.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 77d430138ea1fe7f3a0e6e81031fb3a733f47b1c
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: f5b3a5cfd8adb97918a727bd05133d6c1b9f8a42
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56241469"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56343731"
 ---
-# <a name="audit-diagnostic-setting"></a>Granska diagnostikinställning
+# <a name="sample---audit-diagnostic-setting"></a>Exempel – Granska diagnostikinställning
 
 Den här inbyggda principen granskar om diagnostikinställningarna inte är aktiverade för angivna resurstyper. Du anger en matris med resurstyper för att kontrollera om diagnostikinställningarna är aktiverade.
 

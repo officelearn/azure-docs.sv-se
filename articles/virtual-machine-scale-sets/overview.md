@@ -16,12 +16,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 03/27/2018
 ms.author: manayar
-ms.openlocfilehash: 23c04f85c994a8b300ffec23b4660d3d431ef69b
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 5cd9593bba1e97f52bfa37467920959b1ef0f698
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50740433"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56329624"
 ---
 # <a name="what-are-virtual-machine-scale-sets"></a>Vad är VM-skalningsuppsättningar?
 Med VM-skalningsuppsättningar i Azure kan du skapa och hantera grupper med identiska och belastningsutjämnade virtuella datorer. Antal VM-instanser kan automatiskt öka eller minska som svar på efterfrågan eller ett definierat schema. Skalningsuppsättningar tillhandahåller hög tillgänglighet för dina program, och låter dig centralt hantera, konfigurera och uppdatera ett stort antal virtuella datorer. Med VM-skalningsuppsättningar kan du skapa storskaliga tjänster för områden som beräkning, stordata och arbetsbelastningar i containrar.
@@ -47,7 +47,7 @@ VM-skalningsuppsättningar i Azure ger hanteringsmöjligheter för program som k
 
 - **Fungerar i stor skala**
     - En skalningsuppsättning har stöd för upp till 1 000 instanser av virtuella datorer. Om du skapar och överför dina egna anpassade VM-avbildningar är gränsen 300 VM-instanser.
-    - Om du vill ha bästa prestanda med produktionsarbetsbelastningar ska du använda [Azure Managed Disks](../virtual-machines/windows/managed-disks-overview.md) och [Premium Storage](../virtual-machines/windows/premium-storage.md).
+    - För att få bästa prestanda med produktionsarbetsbelastningar använder du [Azure Managed Disks](../virtual-machines/windows/managed-disks-overview.md).
 
 
 ## <a name="differences-between-virtual-machines-and-scale-sets"></a>Skillnader mellan virtuella datorer och skalningsuppsättningar

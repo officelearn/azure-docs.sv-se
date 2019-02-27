@@ -11,12 +11,12 @@ author: garyericson
 ms.author: garye
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 1c369a75bbaa0853386e0139b94c119e5bb3675a
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 36e0ca360cfbdfc77ce0a1768222f43f8864537c
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251545"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56267277"
 ---
 # <a name="what-is-azure-machine-learning-service"></a>Vad är tjänsten Azure Machine Learning?
 
@@ -30,12 +30,12 @@ Prognoser eller förutsägelser från maskininlärning kan göra appar och enhet
 
 ## <a name="what-is-azure-machine-learning-service"></a>Vad är tjänsten Azure Machine Learning?
 
-Tjänsten Azure Machine Learning tillhandahåller en molnbaserad miljö som du kan använda för att utveckla, träna, testa, distribuera, hantera och spåra maskininlärningsmodeller.
+Tjänsten Azure Machine Learning tillhandahåller en molnbaserad miljö som du kan använda för att förbereda data och träna, testa, distribuera, hantera och spåra maskininlärningsmodeller.
 
 [ ![Arbetsflöde i tjänsten Azure Machine Learning](./media/overview-what-is-azure-ml/aml.png)] (./media/overview-what-is-azure-ml/aml.png#lightbox)
 
-Azure Machine Learning-tjänsten har fullständigt stöd för tekniker med öppen källkod. Du kan därför använda tiotusentals Python-paket som är baserade på öppen källkod med komponenter för maskininlärning. Exempel är TensorFlow och scikit-learn.
-Stöd för omfattande verktyg gör det enkelt att interaktivt utforska data, transformera dem och sedan utveckla och testa modeller. Exempel är [Jupyter-anteckningsböcker](http://jupyter.org) eller tillägget [Azure Machine Learning för Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai#overview).
+Azure Machine Learning-tjänsten har fullständigt stöd för tekniker med öppen källkod. Du kan därför använda tiotusentals Python-paket som är baserade på öppen källkod med komponenter för maskininlärning. Exempel är PyTorch, TensorFlow och scikit-learn.
+Stöd för omfattande verktyg gör det enkelt att interaktivt utforska och förbereda data och sedan utveckla och testa modeller. Exempel är [Jupyter-anteckningsböcker](http://jupyter.org) eller tillägget [Azure Machine Learning för Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai#overview).
 Tjänsten Azure Machine Learning innehåller även funktioner som [automatiserar modellgenereringen och modeljusteringen](tutorial-auto-train-models.md) så att du enkelt och effektivt kan skapa modeller med hög precision.
 
 Genom att använda tjänsten Azure Machine Learning kan du börja träna på den lokala datorn och sedan skala ut till molnet. Tack vare de många tillgängliga [beräkningsmålen](how-to-set-up-training-targets.md), däribland Azure Machine Learning Compute och [Azure Databricks](/azure/azure-databricks/what-is-azure-databricks), och med [tjänster för finjustering av avancerade hyperparametrar](how-to-tune-hyperparameters.md) kan du skapa bättre modeller snabbare genom att använda hela styrkan från molnet.
@@ -49,10 +49,7 @@ Och med avancerade [maskininlärningspipelines](concept-ml-pipelines.md) kan du 
 
 ## <a name="what-can-i-do-with-azure-machine-learning-service"></a>Vad kan jag göra med tjänsten Azure Machine Learning?
 
-Azure Machine Learning-tjänsten kan träna och justera en modell automatiskt.
-Ett exempel finns i [Träna en regressionsmodell med automatiserad maskininlärning](tutorial-auto-train-models.md).
-
-Genom att använda Azure Machine Learning <a href="https://aka.ms/aml-sdk" target="_blank">SDK</a> för Python tillsammans med Python-paket med öppen källkod kan du skapa och själv träna mycket exakta maskininlärnings- och djupinlärningsmodeller på Azure Machine Learning-tjänstens arbetsyta.
+Genom att använda <a href="https://aka.ms/aml-sdk" target="_blank">den huvudsakliga Python-SDK:n</a> och <a href="https://aka.ms/data-prep-sdk" target="_blank">SDK för dataförberedelser</a> för Azure Machine Learning samt Python-paket med öppen källkod kan du skapa och själv träna mycket exakta maskininlärnings- och djupinlärningsmodeller på Azure Machine Learning-tjänstens arbetsyta.
 Du kan välja bland många maskininlärningskomponenter som är tillgängliga i Python-paket med öppen källkod, såsom följande exempel:
 
 - <a href="https://scikit-learn.org/stable/" target="_blank">Scikit-learn</a>
@@ -60,6 +57,9 @@ Du kan välja bland många maskininlärningskomponenter som är tillgängliga i 
 - <a href="https://pytorch.org" target="_blank">PyTorch</a>
 - <a href="https://www.microsoft.com/en-us/cognitive-toolkit/" target="_blank">CNTK</a>
 - <a href="http://mxnet.io" target="_blank">MXNet</a>
+
+Azure Machine Learning-tjänsten kan även träna och justera en modell automatiskt.
+Ett exempel finns i [Träna en regressionsmodell med automatiserad maskininlärning](tutorial-auto-train-models.md).
 
 När du har en modell kan du bara använda den för att skapa en container, till exempel Docker, som kan distribueras lokalt för testning. När testningen är klar kan du distribuera modellen som en produktionswebbtjänst i antingen Azure Container Instances eller Azure Kubernetes Service. Mer information finns i artikeln om [hur och var man distribuerar](how-to-deploy-and-where.md).
 
@@ -70,7 +70,7 @@ Kom igång med tjänsten Azure Machine Learning genom att gå till [Nästa steg]
 
 ## <a name="how-is-azure-machine-learning-service-different-from-machine-learning-studio"></a>Hur skiljer sig tjänsten Azure Machine Learning från Machine Learning Studio?
 
-Azure Machine Learning Studio är en gemensam, visuell ”dra och släpp”-arbetsyta där du kan skapa, testa och distribuera maskininlärningslösningar utan att behöva skriva kod. Den använder fördefinierade och förkonfigurerade maskininlärningsalgoritmer och datahanteringsmoduler.
+Azure Machine Learning Studio är en gemensam, visuell ”dra och släpp”-arbetsyta där du kan skapa, testa och distribuera maskininlärningslösningar utan att behöva skriva kod. Den använder fördefinierade och förkonfigurerade maskininlärningsalgoritmer och datahanteringsmoduler. 
 
 Använd Machine Learning Studio om du snabbt och enkelt vill experimentera med maskininlärningsmodeller och om de inbyggda maskininlärningsalgoritmerna räcker för dina lösningar.
 
@@ -87,12 +87,12 @@ Du får krediter som du kan använda för att köpa Azure-tjänster. När de är
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Skapa en arbetsyta för maskininlärningstjänsten för att komma igång [med hjälp av Azure-portalen](quickstart-get-started.md) eller [i Python](quickstart-create-workspace-with-python.md).
+- Skapa en arbetsyta för Machine Learning-tjänsten för att komma igång [med hjälp av Azure-portalen](quickstart-get-started.md) (metoden utan installation) eller [i Python](quickstart-create-workspace-with-python.md) (metoden med SDK-installation).
 
-- Följ den fullständiga självstudien, [Träna en bildklassificeringsmodell med Azure Machine Learning-tjänsten](tutorial-train-models-with-aml.md).
-
-- [Använd Azure Machine Learning för att automatiskt skapa och justera en modell](tutorial-auto-train-models.md).
-
+- Följ de fullständiga självstudierna: 
+  + [Träna en modell för bildklassificering med Azure Machine Learning-tjänsten](tutorial-train-models-with-aml.md) 
+  + [Förbereda data och använda automatiserad maskininlärning för att automatiskt träna en regressionsmodell](tutorial-data-prep.md)
+  
 - Förbered dina data med hjälp av [Azure Machine Learning Data Prep SDK](https://aka.ms/data-prep-sdk).
 
 - Lär dig mer om [pipelines för maskininlärning](/azure/machine-learning/service/concept-ml-pipelines) för att skapa, optimera och hantera dina maskininlärningsscenarier.
@@ -100,18 +100,3 @@ Du får krediter som du kan använda för att köpa Azure-tjänster. När de är
 - Läs den ingående artikeln om [arkitekturen och begrepp för Azure Machine Learning-tjänsten](concept-azure-machine-learning-architecture.md).
 
 - Mer information finns i [andra produkter för maskininlärning från Microsoft](./overview-more-machine-learning.md).
-
-
-<!-- 
-
-An intro to AML or an end-to-end quickstart video could go here.
-
-In this 9-minute video, learn how you can benefit your app. You'll learn about key features and what a typical workflow looks like. 
-
->[!VIDEO https://channel9.msdn.com/Events/Connect/2016/138/player]
- 
-+ 0-3 minutes covers key features and use-cases.
-+ 3-4 minutes covers service provisioning. 
-+ 4-6 minutes covers Import Data wizard used to create an index using the built-in real estate dataset.
-
--->

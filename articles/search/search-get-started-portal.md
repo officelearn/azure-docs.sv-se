@@ -1,21 +1,21 @@
 ---
 title: Snabbsjälvstudie för indexering och fråga med Azure-portalen – Azure Search
-description: I den här Snabbsjälvstudien använder du Azure Portal och inbyggda exempeldata för att generera ett index i Azure Search. Utforska fulltextsökning, filter, fasetter, fuzzy-sökning, geosearch och mycket annat.
+description: Lär dig hur du skapar och kör frågor mot ditt första index i Azure Search med hjälp av inbyggda exempeldata och guiden Importera Data i Azure-portalen.
 author: HeidiSteen
 manager: cgronlun
 tags: azure-portal
 services: search
 ms.service: search
 ms.topic: tutorial
-ms.date: 01/07/2019
+ms.date: 02/13/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 53be1180f074c075ed2ca2d544b9b164a3a1bdd6
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 260dfc829d0869b1fc4f58ae399351c5f68dd926
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55991318"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56270342"
 ---
 # <a name="quickstart-use-built-in-portal-tools-for-azure-search-import-indexing-and-queries"></a>Snabbstart: Använda inbyggda portalverktyg för Azure Search-import, -indexering och -frågor
 
@@ -94,15 +94,17 @@ Fälten har datatyper och attribut. Kryssrutorna högst upp är *indexattribut* 
 
 Lagringskraven varierar inte till följd av ditt val. Om du till exempel anger attributet **Hämtningsbar** på flera fält så ökar inte lagringskraven.
 
-Som standard söker guiden igenom datakällan för att hitta unika identifierare som utgör själva grunden för sökordsfältet. Strängarna får attributen hämtningsbara och sökbara. Heltal får attributen hämtningsbara, filtrerbara, sorterbara och fasettbara.
+Som standard söker guiden igenom datakällan för att hitta unika identifierare som utgör själva grunden för sökordsfältet. *Strängar* får attributen **Hämtningsbar** och **Sökbar**. *Heltal* får attributen **Hämtningsbar**, **Filtrerbar**, **Sorterbar** och **Fasetterbar**.
 
-1. Acceptera alla standardvärden.
+1. Acceptera alla standardinställningar. 
 
-  ![Genererade realestate-index](media/search-get-started-portal/realestateindex2.png)
+   Om du kör guiden en andra gång med hjälp av en befintlig realestate-datakälla konfigureras inte indexet med standardattribut. Du måste då manuellt välja attribut för framtida importer.
+
+   ![Genererade realestate-index](media/search-get-started-portal/realestateindex2.png)
 
 2. Fortsätt till nästa sida.
 
-  ![Nästa sida skapa indexeraren](media/search-get-started-portal/next-button-create-indexer.png)
+   ![Nästa sida skapa indexeraren](media/search-get-started-portal/next-button-create-indexer.png)
 
 ### <a name="step-4---configure-indexer"></a>Steg 4 – Konfigurera indexeraren
 

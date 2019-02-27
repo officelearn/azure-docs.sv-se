@@ -1,6 +1,6 @@
 ---
 title: Exempel – Tillåten ExpressRoute-bandbredd
-description: Den här exempelprincipen kräver att ExpressRoute använder en angiven uppsättning bandbredder.
+description: Den här exempelprincipdefinitionen kräver att ExpressRoute använder en angiven uppsättning bandbredder.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: fc98e9085844749153ee6f45466cc367eef2ffff
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: eacd2dd7ddecba47d00ea09cb45f99e991bfd2dc
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56244755"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341614"
 ---
-# <a name="allowed-expressroute-bandwidth"></a>Tillåten ExpressRoute-bandbredd
+# <a name="sample---allowed-expressroute-bandwidth"></a>Exempel – Tillåten ExpressRoute-bandbredd
 
 Den här principen kräver att ExpressRoute använder en angiven uppsättning bandbredder. Du anger en matris med SKU:er som kan anges för ExpressRoute.
 

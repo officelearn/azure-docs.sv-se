@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/07/2019
+ms.date: 02/11/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 66ad6ea26535190d2fc5798e1223c2196d3d5a5d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 1fde586563c142690078a693970a9a24bd5cacb4
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211146"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56302003"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-netweaver"></a>Självstudier: Azure Active Directory-integration med SAP NetWeaver
 
@@ -175,7 +175,14 @@ Konfigurera enkel inloggning i Azure Active Directory med SAP NetWeaver genom at
 
     ![Information om SAP NetWeaver-domän och URL:er för enkel inloggning](common/sp-identifier-reply.png)
 
-    I textrutan **Inloggnings-URL** skriver du en URL med följande mönster: `https://<your company instance of SAP NetWeaver>`
+    d. I textrutan **Inloggnings-URL** skriver du en URL med följande mönster: `https://<your company instance of SAP NetWeaver>`
+
+    > [!NOTE]
+    > Vi har fått rapporter från några kunder om ett fel med felaktig svars-URL som har konfigurerats för deras instans. Om du får ett sådant fel kan du använda följande PowerShell-skript som en tillfällig åtgärd för att ange rätt svars-URL för din instans:
+    ```
+    Set-AzureADServicePrincipal -ObjectId $ServicePrincipalObjectId -ReplyUrls "<Your Correct Reply URL(s)>"
+    ``` 
+    > ServicePrincipal Object ID ska anges av dig först, eller så kan du skicka det också här.
 
 12. SAP NetWeaver-programmet förväntar sig SAML-intyg i ett visst format. Konfigurera följande anspråk för det här programmet. Du kan hantera värdena för dessa attribut i avsnittet **Användarattribut** på sidan för programintegrering. På sidan **Konfigurera enkel inloggning med SAML** klickar du på knappen **Redigera** för att öppna dialogrutan **Användarattribut**.
 
@@ -374,4 +381,3 @@ I det här avsnittet får du skapa en användare som kallas Britta Simon i SAP N
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-

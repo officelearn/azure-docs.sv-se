@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 01/24/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3e1724454ff67f6cfe3646b59e8302a3dd099081
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 79abead77705d13df909703a234bf72ee121a5be
+ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56217453"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56301187"
 ---
 # <a name="what-is-the-microsoft-authenticator-app"></a>Vad är Microsoft Authenticator-appen?
 Med Microsoft Authenticator-appen kan du logga in på dina konton om du använder tvåfaktorsverifiering. Med tvåfaktorsverifiering kan du komma åt dina konton säkrare, särskilt när du visar känslig information. Eftersom lösenord kan glömmas, stjälas eller komprometteras är tvåfaktorsverifiering ett ytterligare steg som hjälper dig att skydda ditt konto genom att göra det svårare för andra att logga in.
@@ -59,11 +59,11 @@ Om du använder en PIN-kod för att slutföra autentiseringen kan du konfigurera
 ## <a name="who-decides-if-you-use-this-feature"></a>Vem bestämmer om du använder den här funktionen?
 Beroende på din typ av konto kan organisationen välja att du måste använda tvåfaktorsverifiering, eller så kanske du kan välja själv.
 
-- **Arbets- eller skolkonto.** Om du använder ett arbets- eller skolkonto (till exempel alain@contoso.com) är det upp till din organisation om du måste använda tvåfaktorsverifiering tillsammans med de specifika verifieringsmetoderna. Läs mer om att lägga till arbets-eller skolkonton i Microsoft Authenticator-appen i [Lägg till ditt arbets- eller skolkonto](microsoft-authenticator-app-add-work-account.md).
+- **Arbets- eller skolkonto.** Om du använder ett arbets- eller skolkonto (till exempel alain@contoso.com) är det upp till din organisation om du måste använda tvåfaktorsverifiering tillsammans med de specifika verifieringsmetoderna. Läs mer om att lägga till arbets-eller skolkonton i Microsoft Authenticator-appen i [Lägg till ditt arbets- eller skolkonto](user-help-auth-app-add-work-school-account.md).
 
-- **Personligt Microsoft-konto.** Du kan välja att ställa in tvåfaktorsverifiering för dina personliga Microsoft-konton (till exempel alain@outlook.com). Läs mer om att lägga till ditt personliga Microsoft-konto i 
+- **Personligt Microsoft-konto.** Du kan välja att ställa in tvåfaktorsverifiering för dina personliga Microsoft-konton (till exempel alain@outlook.com). Mer information om hur du lägger till ditt personliga Microsoft-konto finns i [Lägga till dina personliga konton](user-help-auth-app-add-personal-ms-account.md).
 
-- **Icke-Microsoft-konto.** Du kan välja att ställa in tvåfaktorsverifiering för andra konton än Microsoft-konton (till exempel alain@gmail.com). Icke-Microsoft-konton kan inte använda termen tvåfaktorsverifiering, men du ska kunna hitta funktionen bland inställningarna för **säkerhet** eller **inloggning**. Microsoft Authenticator-appen fungerar med alla konton som har stöd för TOTP-standarder.
+- **Icke-Microsoft-konto.** Du kan välja att ställa in tvåfaktorsverifiering för andra konton än Microsoft-konton (till exempel alain@gmail.com). Icke-Microsoft-konton kan inte använda termen tvåfaktorsverifiering, men du ska kunna hitta funktionen bland inställningarna för **säkerhet** eller **inloggning**. Microsoft Authenticator-appen fungerar med alla konton som har stöd för TOTP-standarder. Mer information om hur du lägger till dina icke-Microsoft-konton finns i [Lägga till icke-Microsoft-konton](user-help-auth-app-add-non-ms-account.md).
 
 ## <a name="in-this-section"></a>I det här avsnittet
 
@@ -71,7 +71,8 @@ Beroende på din typ av konto kan organisationen välja att du måste använda t
 |------|------------|
 |[Ladda ned och installera appen](user-help-auth-app-download-install.md)|Beskriver var och hur du skaffar samt installerar Microsoft Authenticator-appen för enheter som kör Android och iOS.|
 |[Lägga till arbets- eller skolkonton](user-help-auth-app-add-work-school-account.md)|Beskriver hur du lägger till olika arbets- eller skolkonton till Microsoft Authenticator-appen.|
-|[Lägga till dina personliga konton](user-help-auth-app-add-personal-ms-account.md)|Beskriver hur du lägger till olika personliga Microsoft-konton och icke-Microsoft-konton till Microsoft Authenticator-appen.|
+|[Lägga till personliga konton](user-help-auth-app-add-personal-ms-account.md)|Beskriver hur du lägger till personliga Microsoft-konton i Microsoft Authenticator-appen.|
+|[Lägga till icke-Microsoft-konton](user-help-auth-app-add-non-ms-account.md)|Beskriver hur du lägger till icke-Microsoft-konton i Microsoft Authenticator-appen.|
 |[Lägga till konton manuellt](user-help-auth-app-add-account-manual.md)|Beskriver hur du manuellt lägger till ditt konto i Microsoft Authenticator-appen om du inte kan skanna QR-koden som tillhandahålls.|
 |[Logga in med appen](user-help-auth-app-sign-in.md)|Beskriver hur du loggar in på de olika kontona med Microsoft Authenticator-appen.|
 |[Säkerhetskopiera och återställa kontoautentiseringsuppgifter](user-help-auth-app-backup-recovery.md)| Innehåller information om hur du säkerhetskopierar och återställer autentiseringsuppgifterna för ditt konto med hjälp av Microsoft Authenticator-appen.|

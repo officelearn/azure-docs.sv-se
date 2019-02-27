@@ -1,5 +1,5 @@
 ---
-title: Använda Azure Policy för att skapa och hantera principer för efterlevnad
+title: Skapa och hantera principer för att använda kompatibilitet
 description: Använd Azure Policy för att genomdriva standarder, efterleva krav på regelefterlevnad och granskning, kontrollera kostnader, behålla en konsekvent säkerhet och prestanda och tillämpa företagsomfattande principer.
 services: azure-policy
 author: DCtheGeek
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: azure-policy
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: cb6f033c784832efab23c747057b1c0ef1b317fa
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: e49cffc5ba08d400c733ef7c211132c4909f9ef4
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55730279"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56343569"
 ---
 # <a name="create-and-manage-policies-to-enforce-compliance"></a>Skapa och hantera principer för att använda kompatibilitet
 

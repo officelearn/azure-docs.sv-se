@@ -11,16 +11,16 @@ ms.topic: tutorial
 ms.date: 11/06/2018
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: afb937f1be780c35ef44023acfedeb38a6b6a877
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: b55b1fdf3b93d3865bdb115e43ff8583af61b45d
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55875078"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "56326433"
 ---
 # <a name="tutorial-computer-vision-api-python"></a>Självstudier: API för visuellt innehåll – Python
 
-Den här självstudien visar hur du använder API för visuellt innehåll i Python och visualiserar dina resultat med populära bibliotek. Du använder Jupyter om du vill köra självstudien. Läs hur du kommer igång med interaktiva Jupyter-anteckningsböcker: [Jupyter-dokumentation](https://jupyter.readthedocs.io/en/latest/index.html).
+Den här självstudien visar hur du använder API för visuellt innehåll i Python och visualiserar dina resultat med populära bibliotek. Du använder Jupyter om du vill köra självstudien. Information om hur du kommer igång med interaktiva Jupyter-anteckningsböcker finns i [Jupyter-dokumentationen](https://jupyter.readthedocs.io/en/latest/index.html).
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 

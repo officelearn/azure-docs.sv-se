@@ -1,6 +1,6 @@
 ---
 title: Exempel – Granska granskningsinställningar för SQL Server
-description: Den här exempelprincipen granskar SQL Server-granskningsinställningarna.
+description: Den här exempelprincipdefinitionen granskar granskningsinställningarna för SQL-server med auditIfNotExists.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 761cef1421f8a0dca84f4142c6ae9ae1b45f33c7
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 1e0731de5ce2a12fee6b203f245e42aa4bc67d6e
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56242030"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56338180"
 ---
-# <a name="audit-sql-server-audit-settings"></a>Granska SQL Server-granskningsinställningar
+# <a name="sample---audit-sql-server-audit-settings"></a>Exempel – Granska granskningsinställningar för SQL-server
 
 Den här inbyggda principen granskar SQL Server beroende på om granskningsinställningarna är aktiverade.
 

@@ -1,6 +1,6 @@
 ---
 title: Exempel – Framtvinga tagg och dess värde
-description: Den här exempelprincipen kräver ett angivet taggnamn och värde.
+description: Den här exempelprincipdefinitionen kräver ett taggnamn och ett värde som båda anges som parametrar.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 952f932d850806553b6e7e2f9efad2643a2ecdf3
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 0524c0e9e67cd477b8aa8ba8005cf8ebcce3f1da
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56242642"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56337868"
 ---
-# <a name="enforce-tag-and-its-value"></a>Framtvinga tagg och dess värde
+# <a name="sample---enforce-tag-and-its-value"></a>Exempel – Framtvinga tagg och dess värde
 
 Den här principen kräver ett angivet taggnamn och värde. Du anger taggnamn och värde som ska framtvingas.
 

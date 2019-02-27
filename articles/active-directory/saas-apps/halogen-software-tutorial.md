@@ -1,291 +1,255 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med Halogen programvara | Microsoft Docs'
-description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Halogen programvara.
+title: 'Självstudier: Azure Active Directory-integrering med Halogen Software | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Halogen Software.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 2ca2298d-9a0c-4f14-925c-fa23f2659d28
-ms.service: active-directory
-ms.subservice: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 06/23/2017
+ms.topic: tutorial
+ms.date: 02/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ec1ef8db71a6a9765eac4ec6ac8cae1d731e296b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: MT
+ms.openlocfilehash: 143c214e13d3a603b9d417c68acd7b74dd342040
+ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56205893"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56455236"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-halogen-software"></a>Självstudier: Azure Active Directory-integrering med Halogen programvara
+# <a name="tutorial-azure-active-directory-integration-with-halogen-software"></a>Självstudier: Azure Active Directory-integrering med Halogen Software
 
-Lär dig hur du integrerar Halogen programvara med Azure Active Directory (AD Azure) i den här självstudien.
+I den här självstudien lär du dig att integrera Halogen Software med Azure Active Directory (AD Azure).
+Integreringen av Halogen Software med Azure AD medför följande fördelar:
 
-Integrera Halogen programvara med Azure AD ger dig följande fördelar:
+* Du kan i Azure AD styra vem som har åtkomst till Halogen Software.
+* Du kan göra så att dina användare loggas in automatiskt på Halogen Software (enkel inloggning) med sina Azure AD-konton.
+* Du kan hantera dina konton på en central plats – Azure-portalen.
 
-- Du kan styra i Azure AD som har åtkomst till Halogen programvara
-- Du kan aktivera användarna att automatiskt få loggat in på Halogen programvara (Single Sign-On) med sina Azure AD-konton
-- Du kan hantera dina konton på en central plats – Azure portal
+Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-## <a name="prerequisites"></a>Förutsättningar
+För att konfigurera Azure AD-integrering med Halogen Software behöver du följande:
 
-Om du vill konfigurera Azure AD-integrering med Halogen programvara, behöver du följande objekt:
-
-- En Azure AD-prenumeration
-- En Halogen programvara enkel inloggning aktiverat prenumeration
-
-> [!NOTE]
-> Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
-
-Du bör följa de här rekommendationerna när du testar stegen i självstudien:
-
-- Använd inte din produktionsmiljö om det inte behövs.
-- Om du inte har en Azure AD-utvärderingsmiljö kan du skaffa en månads utvärderingsperiod [här](https://azure.microsoft.com/pricing/free-trial/).
+* En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
+* Halogen Software-prenumeration med enkel inloggning aktiverat
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
-I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
+I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-1. Lägga till Halogen programvara från galleriet
-1. Konfigurera och testa Azure AD enkel inloggning
+* Halogen Software har stöd för **SP**-initierad enkel inloggning
 
-## <a name="adding-halogen-software-from-the-gallery"></a>Lägga till Halogen programvara från galleriet
+## <a name="adding-halogen-software-from-the-gallery"></a>Lägga till Halogen Software från galleriet
 
-För att konfigurera integrering av Halogen programvara i Azure AD, som du behöver lägga till Halogen programvara från galleriet i din lista över hanterade SaaS-appar.
+För att konfigurera integreringen av Halogen Software i Azure AD måste du lägga till Halogen Software från galleriet till din lista över hanterade SaaS-appar.
 
-**Utför följande steg för att lägga till Halogen programvara från galleriet:**
+**Utför följande steg för att lägga till Halogen Software från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+1. I **[Azure-portalen](https://portal.azure.com)**, i den vänstra navigeringspanelen, klickar du på **Azure Active Directory**-ikonen.
 
-    ![Active Directory][1]
+    ![Azure Active Directory-knappen](common/select-azuread.png)
 
-1. Gå till **företagsprogram**. Gå till **alla program**.
+2. Gå till **Företagsprogram** och välj alternativet **Alla program**.
 
-    ![Appar][2]
-    
-1. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-    ![Appar][3]
+3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
-1. I sökrutan skriver **halogenatomer programvara**.
+    ![Knappen Nytt program](common/add-new-app.png)
 
-    ![Skapa en Azure AD-användare för testning](./media/halogen-software-tutorial/tutorial_halogensoftware_search.png)
+4. I sökrutan skriver du **Halogen Software**, väljer **Halogen Software** i resultatpanelen och klickar på knappen **Lägg till** för att lägga till programmet.
 
-1. I resultatpanelen väljer **halogenatomer programvara**, och klicka sedan på **Lägg till** för att lägga till programmet.
+     ![Halogen Software i resultatlistan](common/search-new-app.png)
 
-    ![Skapa en Azure AD-användare för testning](./media/halogen-software-tutorial/tutorial_halogensoftware_addfromgallery.png)
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
-I det här avsnittet, konfigurera och testa Azure AD enkel inloggning med Halogen programvara baserat på en testanvändare som kallas ”Britta Simon”.
+I det här avsnittet konfigurerar och testar du enkel inloggning i Azure AD med Halogen Software baserat på en testanvändare med namnet **Britta Simon**.
+För att enkel inloggning ska fungera måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i Halogen Software upprättas.
 
-För enkel inloggning att fungera, behöver Azure AD du känna till motsvarande användare i Halogen programvara till en användare i Azure AD. Med andra ord måste en länk relationen mellan en Azure AD-användare och relaterade användaren i Halogen programvara upprättas.
+För att konfigurera och testa enkel inloggning för Azure AD med Halogen Software behöver du slutföra följande byggstenar:
 
-I Halogen programvara, tilldela värdet för den **användarnamn** i Azure AD som värde för den **användarnamn** att upprätta länken-relation.
+1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
+2. **[Konfigurera enkel inloggning för Halogen Software](#configure-halogen-software-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på programsidan.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+5. **[Skapa Halogen Software-testanvändare](#create-halogen-software-test-user)** – för att ha en motsvarighet för Britta Simon i Halogen Software som är länkad till Azure AD-representationen av användaren.
+6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
-Om du vill konfigurera och testa Azure AD enkel inloggning med Halogen programvara, måste du utföra följande byggblock:
+### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
-1. **[Konfigurera Azure AD enkel inloggning](#configuring-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-1. **[Skapa en Azure AD-testanvändare](#creating-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-1. **[Skapa en testanvändare Halogen programvara](#creating-a-halogen-software-test-user)**  – du har en motsvarighet för Britta Simon Halogen programvara som är länkad till en Azure AD-representation av användaren.
-1. **[Tilldela Azure AD-testanvändare](#assigning-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-1. **[Testa enkel inloggning](#testing-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
+Utför följande steg för att konfigurera enkel inloggning med Azure AD för Halogen Software:
 
-I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i Halogen programmet.
+1. I [Azure-portalen](https://portal.azure.com/) går du till programintegreringssidan för **Halogen Software** och väljer **Enkel inloggning**.
 
-**Utför följande steg för att konfigurera Azure AD enkel inloggning med Halogen programvara:**
+    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
-1. I Azure-portalen på den **halogenatomer programvara** program integration-sidan klickar du på **enkel inloggning**.
+2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
-    ![Konfigurera enkel inloggning][4]
+    ![Välja läge för enkel inloggning](common/select-saml-option.png)
 
-1. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
- 
-    ![Konfigurera enkel inloggning](./media/halogen-software-tutorial/tutorial_halogensoftware_samlbase.png)
+3. På sidan **Konfigurera enkel inloggning med SAML** klickar du på **redigeringsikonen** för att öppna dialogrutan **Grundläggande SAML-konfiguration**.
 
-1. På den **halogenatomer programvara domän och URL: er** avsnittet, utför följande steg:
+    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-    ![Konfigurera enkel inloggning](./media/halogen-software-tutorial/tutorial_halogensoftware_url.png)
+4. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
 
-    a. I textrutan **Inloggnings-URL** anger du en URL med följande mönster: `https://global.hgncloud.com/<companyname>`
+    ![Halogen Software-domän och information om URL:er för enkel inloggning](common/sp-identifier.png)
 
-    b. I den **identifierare** textrutan anger du ett URL med hjälp av följande mönster: `https://global.halogensoftware.com/<companyname>`, `https://global.hgncloud.com/<companyname>`
+    a. I textrutan **Inloggnings-URL** anger du en URL enligt följande mönster: `https://global.hgncloud.com/<companyname>`
 
-    > [!NOTE] 
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med faktisk inloggnings-URL och identifierare. Kontakta [halogenatomer klientprogrammet supportteamet](https://support.halogensoftware.com/) att hämta dessa värden. 
- 
+    b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster:
 
+    | |
+    |--|
+    | `https://global.halogensoftware.com/<companyname>`|
+    | `https://global.hgncloud.com/<companyname>`|
+    | |
 
-1. På den **SAML-signeringscertifikat** klickar du på **XML-Metadata för** och spara sedan metadatafilen på datorn.
+    > [!NOTE]
+    > Dessa värden är inte verkliga. Uppdatera de här värdena med faktisk inloggnings-URL och identifierare. Kontakta [kundsupporten för Halogen Software](https://support.halogensoftware.com/) och be om dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-    ![Konfigurera enkel inloggning](./media/halogen-software-tutorial/tutorial_halogensoftware_certificate.png) 
+4. På sidan **Set up Single Sign-On with SAML** (Konfigurera enkel inloggning med SAML) går du till avsnittet **SAML Signing Certificate** (SAML-signeringscertifikat), klickar på **Ladda ned** för att ladda ned **Federation Metadata-XML** från de angivna alternativen enligt dina behov och spara den på datorn.
 
-1. Klicka på knappen **Spara**.
+    ![Länk för nedladdning av certifikatet](common/metadataxml.png)
 
-    ![Konfigurera enkel inloggning](./media/halogen-software-tutorial/tutorial_general_400.png)
+6. I avsnittet **Konfigurera Halogen Software** kopierar du lämpliga URL:er efter behov.
 
-1. I ett annat webbläsarfönster inloggning till din **halogenatomer programvara** program som administratör.
+    ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
-1. Klicka på den **alternativ** fliken. 
-   
-    ![Vad är Azure AD Connect?][12]
+    a. Inloggnings-URL
 
-1. I det vänstra navigeringsfönstret klickar du på **SAML-konfiguration**. 
-   
-    ![Vad är Azure AD Connect?][13]
+    b. Azure AD-identifierare
 
-1. På den **SAML-konfiguration** utför följande steg: 
+    c. Utloggnings-URL
 
-    ![Vad är Azure AD Connect?][14]
+### <a name="configure-halogen-software-single-sign-on"></a>Konfigurera enkel inloggning för Halogen Software
 
-     a. Som **Unik identifierare**väljer **NameID**.
+1. I ett annat webbläsarfönster loggar du in på **Halogen Software**-programmet som administratör.
 
-     b. Som **unika identifierare Maps till**väljer **användarnamn**.
+2. Klicka på fliken **Alternativ**.
   
-     c. Om du vill ladda upp din hämtade metadatafilen, klickar du på **Bläddra** att välja filen, och sedan **Överför fil**.
- 
-     d. Testa konfigurationen genom att klicka på **kör Test**. 
-    
-    >[!NOTE]
-    >Du måste vänta tills meddelandet ”*SAML-testet är klart. Stäng det här fönstret*”. Stäng webbläsarfönstret öppen. Den **aktivera SAML** kryssrutan är bara tillgänglig om testet har slutförts. 
-     
-     e. Välj **aktivera SAML**.
-    
-     f. Klicka på **Spara ändringar**. 
+    ![Vad är Azure AD Connect?](./media/halogen-software-tutorial/tutorial_halogen_12.png)
 
-> [!TIP]
-> Nu kan du läsa en kortare version av instruktionerna i [Azure Portal](https://portal.azure.com), samtidigt som du konfigurerar appen!  När du har lagt till appen från avsnittet **Active Directory > Företagsprogram**, behöver du bara klicka på fliken **Enkel inloggning**. Du kommer då till den inbäddade dokumentationen via avsnittet **Konfiguration** längst ned. Du kan läsa mer om funktionen för inbäddad dokumentation här: [Inbäddad Azure AD-dokumentation]( https://go.microsoft.com/fwlink/?linkid=845985)
+3. I det vänstra navigeringsfönstret klickar du på **SAML-konfiguration**.
+  
+    ![Vad är Azure AD Connect?](./media/halogen-software-tutorial/tutorial_halogen_13.png)
 
+4. I dialogrutan **SAML-konfiguration** utför du följande steg:
 
-### <a name="creating-an-azure-ad-test-user"></a>Skapa en Azure AD-användare för testning
+    ![Vad är Azure AD Connect?](./media/halogen-software-tutorial/tutorial_halogen_14.png)
+
+    a. För **Unik identifierare** väljer du **NameID**.
+
+    b. För **Unique Identifier Maps To** (Unik identifierare mappar till) väljer du **Användarnamn**.
+  
+    c. Om du vill ladda upp din nedladdade metadatafil klickar du på **Bläddra** för att välja filen och sedan på **Ladda upp fil**.
+
+    d. Testa konfigurationen genom att klicka på **Kör test**.
+
+    > [!NOTE]
+    > Du måste vänta på meddelandet ”*The SAML test is complete. Please close this window*” (SAML-testet är klart. Stäng det här fönstret). Stäng sedan det öppnade webbläsarfönstret. Kryssrutan **Aktivera SAML** är bara tillgänglig om testet har slutförts.
+
+    e. Välj **Aktivera SAML**.
+
+    f. Klicka på **Spara ändringar**.
+
+### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
 Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
 
-![Skapa en Azure AD-användare][100]
+1. Gå till den vänstra rutan i Azure-portalen och välj **Azure Active Directory**, välj **Users** och sedan **Alla användare**.
 
-**Utför följande steg för att skapa en testanvändare i Azure AD:**
+    ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-1. I den **Azure-portalen**, i det vänstra navigeringsfönstret klickar du på **Azure Active Directory** ikon.
+2. Välj **Ny användare** överst på skärmen.
 
-    ![Skapa en Azure AD-användare för testning](./media/halogen-software-tutorial/create_aaduser_01.png) 
+    ![Knappen Ny användare](common/new-user.png)
 
-1. Om du vill visa en lista över användare, gå till **användare och grupper** och klicka på **alla användare**.
-    
-    ![Skapa en Azure AD-användare för testning](./media/halogen-software-tutorial/create_aaduser_02.png) 
+3. Genomför följande steg i Användaregenskaper.
 
-1. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i dialogrutan.
- 
-    ![Skapa en Azure AD-användare för testning](./media/halogen-software-tutorial/create_aaduser_03.png) 
+    ![Dialogrutan Användare](common/user-properties.png)
 
-1. På den **användaren** dialogrutan utför följande steg:
- 
-    ![Skapa en Azure AD-användare för testning](./media/halogen-software-tutorial/create_aaduser_04.png) 
+    a. I fältet **Namn** anger du **BrittaSimon**.
+  
+    b. I fältet **Användarnamn** anger du **brittasimon@yourcompanydomain.extension**  
+    Till exempel, BrittaSimon@contoso.com
 
-    a. I den **namn** textrutan typnamn som **BrittaSimon**.
-
-    b. I den **användarnamn** textrutan skriver den **e-postadress** av BrittaSimon.
-
-    c. Välj **visa lösenord** och anteckna värdet för den **lösenord**.
+    c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
     d. Klicka på **Skapa**.
- 
-### <a name="creating-a-halogen-software-test-user"></a>Skapa en testanvändare Halogen programvara
 
-Målet med det här avsnittet är att skapa en användare som kallas Britta Simon Halogen programvara.
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-**Utför följande steg för att skapa en användare som kallas Britta Simon Halogen programvara:**
+I det här avsnittet gör du det möjligt för Britta Simon att använda enkel inloggning med Azure genom att ge åtkomst till Halogen Software.
 
-1. Logga in på din **halogenatomer programvara** program som administratör.
+1. I Azure-portalen väljer du **Företagsprogram**, **Alla program** och sedan **Halogen Software**.
 
-1. Klicka på den **användaren Center** fliken och klicka sedan på **Create User**.
-   
-    ![Vad är Azure AD Connect?][300]  
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-1. På den **ny användare** dialogrutan utför följande steg:
-   
-    ![Vad är Azure AD Connect?][301]
+2. I programlistan väljer du **Halogen Software**.
 
-    a. I den **Förnamn** textrutan Ange först namnet på användaren som **Britta**.
-    
-    b. I den **efternamn** textrutan Skriv Efternamn för användaren som **Simon**. 
+    ![Länken för Halogen Software i programlistan](common/all-applications.png)
 
-    c. I den **användarnamn** textrutan typ **Britta Simon**, användarnamnet som i Azure-portalen.
+3. På menyn till vänster väljer du **Användare och grupper**.
 
-    d. I den **lösenord** textrutan anger du ett lösenord för Britta.
-    
+    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
+
+4. Klicka på knappen **Lägg till användare** och välj sedan **Användare och grupper** i dialogrutan **Lägg till tilldelning**.
+
+    ![Fönstret Lägg till tilldelning](common/add-assign-user.png)
+
+5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
+
+6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
+
+7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
+
+### <a name="create-halogen-software-test-user"></a>Skapa Halogen Software-testanvändare
+
+Målet med det här avsnittet är att skapa en användare med namnet Britta Simon i Halogen Software.
+
+**Skapa en användare med namnet Britta Simon i Halogen Software genom att utföra följande steg:**
+
+1. Logga in på **Halogen Software**-programmet som administratör.
+
+2. Klicka på fliken **User Center** (Användarcenter) och sedan på **Skapa användare**.
+
+    ![Vad är Azure AD Connect?](./media/halogen-software-tutorial/tutorial_halogen_300.png)  
+
+3. I dialogrutan **Ny användare** utför du följande steg:
+
+    ![Vad är Azure AD Connect?](./media/halogen-software-tutorial/tutorial_halogen_301.png)
+
+    a. I textrutan **Förnamn** skriver du förnamnet på användaren: **Britta**.
+
+    b. I textrutan **Efternamn** skriver du efternamnet på användaren: **Simon**.
+
+    c. I textrutan **Användarnamn** skriver du **Britta Simon**, användarnamnet som i Azure-portalen.
+
+    d. I textrutan **Lösenord** skriver du ett lösenord för Britta.
+
     e. Klicka på **Spara**.
 
-### <a name="assigning-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
-I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till Halogen programvara.
+I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-![Tilldela användare][200] 
-
-**Om du vill tilldela Britta Simon Halogen programvara, utför du följande steg:**
-
-1. Öppna vyn program i Azure-portalen och gå till vyn directory och gå till **företagsprogram** klickar **alla program**.
-
-    ![Tilldela användare][201] 
-
-1. I listan med program väljer **halogenatomer programvara**.
-
-    ![Konfigurera enkel inloggning](./media/halogen-software-tutorial/tutorial_halogensoftware_app.png) 
-
-1. I menyn till vänster, klickar du på **användare och grupper**.
-
-    ![Tilldela användare][202] 
-
-1. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
-
-    ![Tilldela användare][203]
-
-1. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
-
-1. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
-
-1. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
-    
-### <a name="testing-single-sign-on"></a>Testa enkel inloggning
-
-Målet med det här avsnittet är att testa din Azure AD SSO-konfiguration med hjälp av åtkomstpanelen.
-
-När du klickar på panelen Halogen programvara i åtkomstpanelen du bör få automatiskt loggat in på programmets Halogen programvara.
+När du klickar på Halogen Software-panelen i åtkomstpanelen bör du automatiskt loggas in på Halogen Software som du har konfigurerat enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-
-<!--Image references-->
-
-[1]: ./media/halogen-software-tutorial/tutorial_general_01.png
-[2]: ./media/halogen-software-tutorial/tutorial_general_02.png
-[3]: ./media/halogen-software-tutorial/tutorial_general_03.png
-[4]: ./media/halogen-software-tutorial/tutorial_general_04.png
-
-[12]: ./media/halogen-software-tutorial/tutorial_halogen_12.png
-
-[13]: ./media/halogen-software-tutorial/tutorial_halogen_13.png
-
-[14]: ./media/halogen-software-tutorial/tutorial_halogen_14.png
-
-[100]: ./media/halogen-software-tutorial/tutorial_general_100.png
-
-[200]: ./media/halogen-software-tutorial/tutorial_general_200.png
-[201]: ./media/halogen-software-tutorial/tutorial_general_201.png
-[202]: ./media/halogen-software-tutorial/tutorial_general_202.png
-[203]: ./media/halogen-software-tutorial/tutorial_general_203.png
-
-[300]: ./media/halogen-software-tutorial/tutorial_halogen_300.png
-
-[301]: ./media/halogen-software-tutorial/tutorial_halogen_301.png
+- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Skapa ett Azure Data Explorer-kluster och -databas'
+title: 'Snabbstart: Skapa ett Azure Data Explorer-kluster och en databas'
 description: I den här snabbstarten får du lära dig hur du skapar ett Azure Data Explorer-kluster och en -databas och matar in data (läsa in).
 services: data-explorer
 author: orspod
@@ -8,14 +8,14 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: 4b4230397da7d97b613b546f33a0cbb764675720
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 1ab6fe13df111b5f56da1f368fc0dacf0a6206fc
+ms.sourcegitcommit: 4bf542eeb2dcdf60dcdccb331e0a336a39ce7ab3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50214825"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56408841"
 ---
-# <a name="quickstart-create-an-azure-data-explorer-cluster-and-database"></a>Snabbstart: Skapa ett Azure Data Explorer-kluster och -databas
+# <a name="quickstart-create-an-azure-data-explorer-cluster-and-database"></a>Snabbstart: Skapa ett Azure Data Explorer-kluster och en databas
 
 Azure Data Explorer är en snabb och mycket skalbar datautforskningstjänst för logg- och telemetridata. För att använda Azure Data Explorer måste du först skapa en *kluster*, och skapa en eller flera *databaser* i klustret. Sedan *matar du in* (läser in) data i databastabeller så att du kan köra frågor mot dem. I den här snabbstarten skapar du ett kluster och en databas. I efterföljande artiklar visar vi hur vi du kan mata in data.
 
@@ -77,8 +77,8 @@ Nu är du redo för det andra steget i processen: skapa databasen.
     **Inställning** | **Föreslaget värde** | **Fältbeskrivning**
     |---|---|---|
     | Databasnamn | *TestDatabase* | Databasnamnet måste vara unikt inom klustret.
-    | Kvarhållningsperiod | *3650* | Det tidsintervall under vilket det är garanterat att data förblir tillgängliga för frågor. Tidsintervallet mäts från det att data matas in.
-    | Cacheperiod | *31* | Det tidsintervall i vilket du vill ha ofta efterfrågade data tillgängliga i SSD-lagring eller RAM-minne, i stället för i långsiktig lagring.
+    | Kvarhållningsperiod | *3650* | Det tidsintervall (i dagar) då det är garanterat att data förblir tillgängliga för frågor. Tidsintervallet mäts från det att data matas in.
+    | Cacheperiod | *31* | Det tidsintervall (i dagar) då data som frågor körs mot ofta ska vara tillgängliga i SSD-lagring eller RAM i stället för i långsiktig lagring.
     | | | |
 
 1. Välj **Spara** för att skapa databasen. Det brukar ta mindre än en minut att skapa en databas. När processen är klar kan du är tillbaka på klustrets **översiktsflik**.
@@ -130,6 +130,6 @@ Om du planerar att följa våra andra snabbstarter och självstudier kan du spar
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Snabbstart: Mata in data från Event Hub i Azure Data Explorer](ingest-data-event-hub.md)
+> [Snabbstart: Mata in data från Event Hub till Azure Data Explorer](ingest-data-event-hub.md)
 
 

@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 07/11/2018
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 8c63b97f9d4423bf57909da7716675915a5271ef
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: a4481e1bbc6248a9616fa7b3fe1d67c7d90af56e
+ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994060"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56429425"
 ---
 # <a name="tutorial-learn-how-to-call-cognitive-search-apis-preview"></a>Självstudie: Lär dig att anropa API:er för kognitiv sökning (förhandsversion)
 
@@ -403,9 +403,7 @@ Skriptet ställer in ```"maxFailedItems"```  på -1, vilket instruerar indexerin
 
 Observera också ```"dataToExtract":"contentAndMetadata"```-instruktionen i konfigurationsparametrarna. Den här instruktionen anger att indexeraren automatiskt ska extrahera innehållet från olika filformat samt metadata som är relaterade till varje fil. 
 
-När innehållet har extraherats kan du ställa in ```ImageAction``` på att extrahera text från avbildningar som hittades i datakällan. ```"ImageAction":"generateNormalizedImages"``` talar om för indexeraren att den ska extrahera text från avbildningarna (exempelvis ordet ”stopp” från en trafikstoppskylt) och bädda in den som en del av innehållsfältet. Det här beteendet gäller både avbildningarna som är inbäddade i dokumenten (tänk på en avbildning i en PDF) samt avbildningar som hittas i datakällan, till exempel en JPG-fil.
-
-I den här förhandsversionen är ```"generateNormalizedImages"``` det enda giltiga värdet för ```"ImageAction"```.
+När innehållet har extraherats kan du ställa in ```imageAction``` på att extrahera text från avbildningar som hittades i datakällan. Konfigurationen av ```"imageAction":"generateNormalizedImages"```, tillsammans med OCR-färdigheten och färdigheten för textsammanslagning, talar om för indexeraren att den ska extrahera text från bilderna (exempelvis ordet ”stopp” från en trafikstoppskylt) och bädda in den som en del av innehållsfältet. Det här beteendet gäller både avbildningarna som är inbäddade i dokumenten (tänk på en avbildning i en PDF) samt avbildningar som hittas i datakällan, till exempel en JPG-fil.
 
 ## <a name="check-indexer-status"></a>Kontrollera status för indexerare
 

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: 0d0009c833c313b5416998502601285e5b710a8d
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 1560dad31e00b00a2d27cf1675e05901e6611825
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56112554"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56309870"
 ---
 # <a name="move-azure-vms-to-another-region"></a>Migrera virtuella Azure-datorer till en annan region
 
@@ -51,7 +51,7 @@ De här stegen ingår i att flytta virtuella datorer:
 > För närvarande har Azure Site Recovery stöd för flytt av virtuella datorer mellan olika regioner, inte inom samma region. 
 
 > [!NOTE]
-> Detaljerade instruktioner ges i dokumentationen till de olika scenarion som nämns
+> Detaljerade instruktioner för de här stegen ges i dokumentationen till vart och ett av scenarierna såsom det nämns [här](#next-steps)
 
 ## <a name="typical-architectures-for-a-multi-tier-deployment"></a>Vanliga arkitekturer för distributioner med flera nivåer
 I avsnittet nedan går vi igenom de vanligaste distributionsarkitekturerna som våra kunder använder för program med flera nivåer i Azure. I exemplet använder vi ett program med tre nivåer och en offentlig IP-adress. Nivåerna webb, program och databas har 2 virtuella datorer var och är anslutna till de andra nivåerna via en lastbalanserare. Databasnivån har SQL Always ON-replikering mellan de virtuella datorerna för hög tillgänglighet (HA).

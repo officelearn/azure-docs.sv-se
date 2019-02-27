@@ -1,6 +1,6 @@
 ---
-title: Snabbstart – Visa roller som är tilldelade till en användare med hjälp av Azure-portalen | Microsoft Docs
-description: Lär dig hur du visa behörigheter för rollbaserad åtkomstkontroll (RBAC) som tilldelats en användare, grupp, tjänstens huvudnamn eller hanterad identitet med hjälp av Azure-portalen.
+title: Snabbstart – Visa den åtkomst som en användare har till Azure-resurser | Microsoft Docs
+description: Lär dig hur du visar den åtkomst som en användare eller ett annat säkerhetsobjekt har till Azure-resurser med hjälp av rollbaserad åtkomstkontroll (RBAC) och Azure-portalen.
 services: role-based-access-control
 documentationCenter: ''
 author: rolyon
@@ -14,20 +14,20 @@ ms.workload: identity
 ms.date: 11/30/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: b755dd6223c21084cafea82a1c8857f9f54b03b5
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: f388215b2829066906ee7faf41abb17307bf3fff
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52641873"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56337953"
 ---
-# <a name="quickstart-view-roles-assigned-to-a-user-using-the-azure-portal"></a>Snabbstart: Visa roller som är tilldelade till en användare med hjälp av Azure-portalen
+# <a name="quickstart-view-the-access-a-user-has-to-azure-resources"></a>Snabbstart: Visa den åtkomst som en användare har till Azure-resurser
 
-Du kan använda bladet **Åtkomstkontroll (IAM)** i [rollbaserad åtkomstkontroll (RBAC)](overview.md) för att visa rolltilldelningarna för flera användare, grupper, tjänsthuvudnamn och hanterade identiteter, men ibland behöver du bara snabbt visa rolltilldelningar för en enskild användare, grupp, tjänstens huvudnamn eller hanterad identitet. Det enklaste sättet att göra det är att använda funktionen **Kontrollera åtkomst** på Azure-portalen.
+Du kan använda bladet **Åtkomstkontroll (IAM)** i [rollbaserad åtkomstkontroll (RBAC)](overview.md) för att visa den åtkomst som en användare eller ett annat säkerhetsobjekt har till Azure-resurser. Ibland behöver du dock bara snabbt visa åtkomsten för en enskild användare eller ett annat säkerhetsobjekt. Det enklaste sättet att göra det är att använda funktionen **Kontrollera åtkomst** på Azure-portalen.
 
 ## <a name="view-role-assignments"></a>Visa rolltilldelningar
 
-Följ dessa steg om du vill visa rolltilldelningar för en enskild användare, grupp, tjänstens huvudnamn eller hanterad identitet i prenumerationsomfånget.
+ Du visar åtkomsten för en användare genom att lista användarens rolltilldelningar. Följ dessa steg om du vill visa rolltilldelningar för en enskild användare, grupp, tjänstens huvudnamn eller hanterad identitet i prenumerationsomfånget.
 
 1. I Azure-portalen klickar du på **Alla tjänster** och sedan **Prenumerationer**.
 
@@ -54,4 +54,4 @@ Följ dessa steg om du vill visa rolltilldelningar för en enskild användare, g
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Självstudie: Bevilja åtkomst för en användare med hjälp av RBAC och Azure-portalen](quickstart-assign-role-user-portal.md)
+> [Självstudier: Bevilja åtkomst för en användare till Azure-resurser med hjälp av RBAC och Azure-portalen](quickstart-assign-role-user-portal.md)

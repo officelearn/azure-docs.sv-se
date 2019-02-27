@@ -1,6 +1,6 @@
 ---
 title: Exempel – Tillåtna SKU:er för SQL DB
-description: Den här exempelprincipen kräver att SQL-databaser använder en godkänd SKU.
+description: Den här exempelprincipdefinitionen kräver att SQL-databaser använder en godkänd SKU.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: fc9d068bab17c2780d81c5626620228fd8fc6469
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 5506821dd7c3061594b9e4365980677f8322139e
+ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56242659"
+ms.lasthandoff: 02/18/2019
+ms.locfileid: "56341274"
 ---
-# <a name="allowed-sql-db-skus"></a>Tillåtna SKU:er för SQL DB
+# <a name="sample---allowed-sql-db-skus"></a>Exempel – Tillåtna SKU:er för SQL DB
 
 Den här principen kräver att SQL-databaser använder en godkänd SKU. Du kan ange en matris med tillåtna ID:n för SKU:er eller en matris med tillåtna SKU-namn.
 

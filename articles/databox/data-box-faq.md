@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: overview
 ms.date: 01/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 6c7dd6ebaf7eebefcdcfa50bbd77ad80f4cda907
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: b3d79f106554bf4a80df835ac880fbb7a72c8bfe
+ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55077463"
+ms.lasthandoff: 02/14/2019
+ms.locfileid: "56268404"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box: Vanliga frågor och svar
 
@@ -70,7 +70,7 @@ A.  Om du vill skaffa Azure Data Box loggar du in på Azure-portalen och skapar 
 ### <a name="q-i-was-not-able-to-create-a-data-box-order-in-the-azure-portal-why-would-this-be"></a>F. Jag kunde inte skapa en Data Box-beställning på Azure-portalen. Vad kan det bero på?
 A. Om du inte kunde skapa en Data Box-beställning beror det på ett problem med din prenumerationstyp eller åtkomst. 
 
-Kontrollera din prenumeration. Data Box är endast tillgänglig för Enterprise Agreement (EA), leverantörer av molnlösningar (CSP) eller prenumerationer med användningsbaserad betalning. Om din prenumeration inte hör till någon av ovanstående typer kontaktar du Microsoft Support om du vill uppgradera din prenumeration.
+Kontrollera din prenumeration. Data Box är endast tillgängligt för prenumerationer med Enterprise-avtal (EA) eller leverantörer av molnlösningar (CSP). Om din prenumeration inte hör till någon av ovanstående typer kontaktar du Microsoft Support om du vill uppgradera din prenumeration.
 
 Om du har en prenumerationstyp som stöds kontrollerar du din åtkomstnivå för prenumerationen. Du måste vara en Deltagare eller Ägare i prenumerationen för att kunna skapa en order.
 

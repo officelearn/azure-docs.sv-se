@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 03/28/2018
+ms.date: 02/20/2019
 ms.author: jingwang
-ms.openlocfilehash: 9846422405df491124a101a7898f356a1d9fb1d8
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 780820f260657c2ca02572a3449802cf53a5e939
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55998679"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56446706"
 ---
 # <a name="quickstart-create-a-data-factory-and-pipeline-using-net-sdk"></a>Snabbstart: Skapa en datafabrik och pipeline med .NET SDK
 
@@ -62,11 +62,11 @@ Skapa ett C# .NET-konsolprogram med hjälp av Visual Studio 2013/2015/2017.
 ## <a name="install-nuget-packages"></a>Installera NuGet-paket
 
 1. Klicka på **Verktyg** -> **NuGet Package Manager** -> **Package Manager Console**.
-2. Kör följande kommandon i **Package Manager Console** för att installera paket:
+2. Kör följande kommandon i **Package Manager Console** för att installera paket. Referera till [Microsoft.Azure.Management.DataFactory-nuget-paketet](https://www.nuget.org/packages/Microsoft.Azure.Management.DataFactory/) med information.
 
     ```
-    Install-Package Microsoft.Azure.Management.DataFactory -Prerelease
-    Install-Package Microsoft.Azure.Management.ResourceManager -Prerelease
+    Install-Package Microsoft.Azure.Management.DataFactory
+    Install-Package Microsoft.Azure.Management.ResourceManager
     Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
     ```
 

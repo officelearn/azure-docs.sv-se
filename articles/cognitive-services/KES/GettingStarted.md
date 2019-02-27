@@ -10,12 +10,12 @@ ms.subservice: knowledge-exploration
 ms.topic: sample
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: c9c336b9aed06095849f33060ff6969e8b7bfcaf
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 815147abba444f0a55a8455c0a818aa048271b92
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55881714"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56309649"
 ---
 # <a name="get-started-with-the-knowledge-exploration-service"></a>Kom igång med tjänsten för kunskapsutveckling
 
@@ -228,7 +228,7 @@ När du kör `kes.exe` utanför Azure är indexet begränsat till 10 000 objekt.
 
 För att tillåta `kes.exe` åtkomst till en Azure-konto, [hämta filen med Azure-publiceringsinställningar](https://portal.azure.com/#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade) från Azure-portalen. Om du uppmanas, logga in på det önskade Azure-kontot. Spara filen som *AzurePublishSettings.xml* i arbetskatalogen varifrån `kes.exe` körs.
 
-Det finns två sätt att bygga och hantera stora index. Först är att förbereda schema- och datafilerna i en Windows-dator i Azure. Kör sedan [`kes.exe build_index`](#building-index) och skapa index lokalt på den virtuella datorn, utan storleksbegränsningar. Det resulterande indexet kan lagras lokalt på den virtuella datorn med hjälp av [`kes.exe host_service`](#hosting-service) för snabba prototyper, igen utan begränsningar. Detaljerade anvisningar finns i självstudien om [Virtuella Azure-datorer](../../../articles/virtual-machines/windows/quick-create-portal.md).
+Det finns två sätt att bygga och hantera stora index. Först är att förbereda schema- och datafilerna i en Windows-dator i Azure. Kör sedan `kes.exe build_index` och skapa index lokalt på den virtuella datorn, utan storleksbegränsningar. Det resulterande indexet kan hanteras lokalt på den virtuella datorn med hjälp av `kes.exe host_service` för snabba prototyper, även detta utan begränsningar. Detaljerade anvisningar finns i självstudien om [Virtuella Azure-datorer](../../../articles/virtual-machines/windows/quick-create-portal.md).
 
 Den andra metoden är att utföra en fjärransluten Azure-kompilering med hjälp av [`kes.exe build_index`](CommandLine.md#build_index-command) med parametern `--remote`. Detta anger en Azure VM-storlek. När parametern `--remote` har angetts skapar kommandot en temporär virtuell Azure-dator med den storleken. Det indexet kompileras sedan på den virtuella datorn som överför indexet till målbloblagringen och tar bort den virtuella datorn när detta har slutförts. Din Azure-prenumeration debiteras för kostnaden för den virtuella datorn medan index skapas.
 

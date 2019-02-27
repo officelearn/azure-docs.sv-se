@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: get-started-article
 ms.date: 09/26/2018
 ms.author: iainfou
-ms.openlocfilehash: 2bc0579d3dd60d66a23a29dabff7e43ca8dfee76
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: b8cbeacda98aec639724f30fe3a7e94346f05ba4
+ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53435403"
+ms.lasthandoff: 02/15/2019
+ms.locfileid: "56308762"
 ---
 # <a name="service-principals-with-azure-kubernetes-service-aks"></a>Tjänstens huvudnamn med Azure Kubernetes Service (AKS)
 
@@ -128,11 +128,10 @@ Tänk på följande när du använder AKS och Azure AD-tjänstens huvudnamn.
 - På virtuella huvud- och noddatorer i Kubernetes-klustret lagras autentiseringsuppgifterna för tjänstobjektet i filen `/etc/kubernetes/azure.json`
 - Om du använder kommandot [az aks create][az-aks-create] för att generera tjänstobjektet automatiskt skrivs autentiseringsuppgifterna för tjänstobjektet till filen `~/.azure/aksServicePrincipal.json` på den dator som används för att köra kommandot.
 - När du tar bort ett AKS-kluster som skapats av [az aks create][az-aks-create] tas tjänstens huvudnamn som skapades automatiskt inte bort.
-    - Om du vill ta bort tjänstens huvudnamn hämtar du först ID för tjänsten huvudnamn med [az ad app-listan][az-ad-app-list]. Följande exempel frågar efter klustret med namnet *myAKSCluster* och tar sedan bort app-ID med [az ad app-borttagningen][az-ad-app-delete]. Byt ut dessa namn mot dina egna värden:
+    - För att ta bort tjänstens huvudnamn kör du en fråga efter ditt kluster *servicePrincipalProfile.clientId* och tar sedan bort med [az ad app delete][az-ad-app-delete]. Ersätt följande resursgruppsnamn och klisternamn med dina egna värden:
 
         ```azurecli
-        az ad app list --query "[?displayName=='myAKSCluster'].{Name:displayName,Id:appId}" --output table
-        az ad app delete --id <appId>
+        az ad sp delete --id $(az aks show -g myResourceGroup -n myAKSCluster --query servicePrincipalProfile.clientId -o tsv)
         ```
 
 ## <a name="next-steps"></a>Nästa steg

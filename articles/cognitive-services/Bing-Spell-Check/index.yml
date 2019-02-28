@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 28172ed2309c1e97fe6dafa46cf055862a894cee
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: daf643a96195bc5f8f30652eaf1e7b071d63fa87
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56730349"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56888244"
 documentType: LandingData
 title: Dokumentation för API för stavningskontroll i Bing
 metadata:
@@ -12,18 +12,39 @@ metadata:
   title: Dokumentation om API för stavningskontroll i Bing – självstudier, API-referens – Azure Cognitive Services | Microsoft Docs
   description: Lär dig att använda API för stavningskontroll i Bing för att få ändringsförslag för textdokument. Självstudier visar hur du skapar appar som använder API:et.
   services: cognitive-services
-  author: noellelacharite
-  manager: nolachar
+  author: aahill
+  manager: cgronlun
   ms.service: cognitive-services
   ms.subservice: bing-spell-check
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 05/09/2018
-  ms.author: nolachar
+  ms.date: 02/19/2019
+  ms.author: aahi
 abstract:
   description: Med API för Bing-stavningskontroll kan du utföra kontextbaserad kontroll av grammatik och stavning. Bing har utvecklat en webbaserad stavningskontroll som använder maskininlärning och statistisk maskinöversättning för att dynamiskt lära upp en ständigt växande och mycket sammanhangsberoende algoritm. Stavningskontrollen baseras på en omfattande samling webbsökningar och dokument. Lär dig hur du analyserar innehåll på olika sätt med våra snabbstarter, självstudier och exempel.
 sections:
+- items:
+  - type: list
+    style: cards
+    className: cardsM
+    columns: 3
+    items:
+    - href: /azure/cognitive-services/bing-spell-check/overview
+      html: <p>Läs mer om API:et för stavningskontroll i Bing.</p>
+      image:
+        src: ../media/index/i_overview.svg
+      title: Vad är API för stavningskontroll i Bing?
+    - href: /azure/cognitive-services/bing-spell-check/concepts/sending-requests
+      html: <p>Lär dig hur du skickar förfrågningar om stavningskontroll till API:et för stavningskontroll i Bing.</p>
+      image:
+        src: ../media/index/i_guidelines.svg
+      title: Förfrågningar om stavningskontroll
+    - href: /azure/cognitive-services/bing-spell-check/concepts/using-spell-check
+      html: <p>Lär dig mer om hur du använder API:ets olika lägen för stavningskontroll.</p>
+      image:
+        src: ../media/index/i_guidelines.svg
+      title: Svar på bildsökning
 - title: Snabbstarter på 5 minuter
   items:
   - type: paragraph
@@ -63,7 +84,6 @@ sections:
     style: unordered
     items:
     - html: <a href="tutorials/spellcheck.md">Enkelsidig webbapp</a>
-    - html: <a href="tutorials/spellcheck-source.md">Enkelsidig webbapp (källkod)</a>
 - title: Exempel
   items:
   - type: paragraph

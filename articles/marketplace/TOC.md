@@ -1,5 +1,6 @@
 # [Dokumentation om Azure Marketplace och AppSource](index.md)
 ## [Översikt över Azure Marketplace och AppSource](./marketplace-roadmap.md)
+## [Policyer och villkor för Azure Marketplace](./policies-terms.md)
 
 ## [Översikt och fördelar med Azure Marketplace och AppSource](./marketplace-publishers-guide.md)  
 ### [Publicera på marknadsplatsen](./become-publisher.md)  
@@ -29,7 +30,6 @@
 #### [Metodtips för erbjudandelistor](./gtm-offer-listing-best-practices.md)
 #### [Så här gör du för att sticka ut i mängden](./gtm-how-to-get-featured.md)
 #### [Validering av Marketplace-innehåll](./marketplace-criteria-content-validation.md)
-#### [Principer för klassificering och recension](./rating-review-policies.md)   
 
 ### [Dina Marketplace-förmåner](./gtm-your-marketplace-benefits.md)
 #### [Marknadsför din verksamhet med Microsoft](./gtm-promote-your-business.md)
@@ -37,9 +37,6 @@
 
 ### [Support för Azure Marketplace och AppSource](./support-azure-marketplace.md)
 #### [Vanliga frågor och svar om Marketplace](./marketplace-faq-publisher-guide.md)
-#### [Villkor för Marketplace](./marketplace-terms.md)
-#### [Deltagandepolicy för Marketplace](./marketplace-participation-policy.md)
-
 
 <!-- Following section is for Cloud Partner Portal (CPP). -->
 

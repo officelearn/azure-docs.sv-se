@@ -180,6 +180,8 @@ items:
           href: learn/quick-create-workspace-posh.md
       - name: Ta bort en arbetsyta
         href: platform/delete-workspace.md
+      - name: Hantera en arbetsyta
+        href: platform/manage-access.md
       - name: Design för tjänstleverantörer
         href: platform/service-providers.md
   - name: Samla in data
@@ -420,8 +422,6 @@ items:
         href: platform/collect-azure-metrics-logs.md
       - name: Diagnostik- eller loggdata från Azure Storage
         href: platform/azure-storage-iis-table.md
-      - name: Azure PaaS-resurser
-        href: platform/collect-azurepass-posh.md
       - name: Korrelera anpassade datakällor
         href: app/custom-data-correlation.md
     - name: Samla anpassade data
@@ -448,10 +448,10 @@ items:
         href: platform/archive-diagnostic-logs.md
       - name: Lagra diagnostikloggar
         href: platform/diagnostic-logs-stream-log-store.md
+      - name: Azure-resursdata till Event Hub
+        href: platform/stream-monitoring-data-event-hubs.md
       - name: Strömma aktivitetsloggen till Event Hubs
         href: platform/activity-logs-stream-event-hubs.md
-      - name: Loggar och mått till Event Hub
-        href: platform/stream-monitoring-data-event-hubs.md
       - name: Diagnostikloggar till Event Hub
         href: platform/diagnostic-logs-stream-event-hubs.md
       - name: Programdata till Log Analytics
@@ -636,8 +636,9 @@ items:
   - name: Visualisera data
     items:
     - name: Vyer
-      href: platform/view-designer.md
       items:
+      - name: Vydesigner
+        href: platform/view-designer.md
       - name: Panelreferens
         href: platform/view-designer-tiles.md
       - name: Referens för visualiseringsdel
@@ -1031,9 +1032,9 @@ items:
     href: https://stackoverflow.com/search?q=monitoring
   - name: Kodexempel
     href: https://azure.microsoft.com/resources/samples/?service=monitor
-ms.openlocfilehash: 519c8213c715995fea89475e81f8c63f41190d65
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: cd33e8c02f85884bc47fd2db9a0bb626e181d1e3
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56455406"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56985163"

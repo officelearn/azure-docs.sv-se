@@ -1,0 +1,60 @@
+items:
+- name: Dokumentation om Azure App Configuration
+  href: index.yml
+- name: Översikt
+  items:
+  - name: Om Azure App Configuration
+    href: overview.md
+- name: Snabbstarter
+  items:
+  - name: Skapa en ASP.NET Core-app
+    href: quickstart-aspnet-core-app.md
+  - name: Skapa en .NET Core-app
+    href: quickstart-dotnet-core-app.md
+  - name: Skapa en .NET Framework-app
+    href: quickstart-dotnet-app.md
+  - name: Skapa en Azure-funktion
+    href: quickstart-azure-function-csharp.md
+  - name: Skapa en Java Spring-app
+    href: quickstart-java-spring-app.md
+  expanded: true
+- name: Självstudier
+  items:
+  - name: Aktivera dynamisk konfiguration i ASP.NET Core
+    href: enable-dynamic-configuration-aspnet-core.md
+  - name: Integrera med Hanterad tjänstidentitet i Azure
+    href: integrate-azure-managed-service-identity.md
+- name: Exempel
+  items:
+  - name: Kodexempel
+    href: https://github.com/Azure/AppConfiguration/samples
+  - name: Azure CLI
+    href: cli-samples.md
+- name: Begrepp
+  items:
+  - name: Nyckelvärdeslagring
+    href: concept-key-value.md
+  - name: Ögonblicksbild av lagring vid olika tidpunkter
+    href: concept-point-time-snapshot.md
+- name: Instruktionsguider
+  items:
+  - name: Importera eller exportera konfigurationsdata
+    href: howto-import-export-data.md
+  - name: Integrera med en CI/CD-pipeline
+    href: howto-integrate-ci-cd-pipeline.md
+- name: Referens
+  items:
+  - name: Konfigurationsprovider för .NET Core
+    href: https://go.microsoft.com/fwlink/?linkid=2074664
+  - name: Konfigurationsbyggare för .NET Framework
+    href: https://go.microsoft.com/fwlink/?linkid=2074663
+  - name: Konfigurationsprovider för Java Spring
+    href: https://go.microsoft.com/fwlink/?linkid=2074659
+  - name: REST
+    href: https://docs.microsoft.com/rest/api/azure-app-configuration
+ms.openlocfilehash: c35296a6923e464ca20a873de4165ea20c08278f
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56884142"

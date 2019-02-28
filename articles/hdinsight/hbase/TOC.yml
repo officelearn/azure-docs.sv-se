@@ -257,12 +257,12 @@ items:
       href: apache-hbase-replication.md
     - name: Konfigurera säkerhetskopiering och replikering för Apache HBase och Apache Phoenix
       href: apache-hbase-backup-replication.md
-  - name: Övervakning med hjälp av Log Analytics
+  - name: Övervaka med hjälp av Azure Monitor-loggar
     items:
-    - name: Använda Azure Log Analytics
+    - name: Använda Azure Monitor-loggar
       href: ../hdinsight-hadoop-oms-log-analytics-tutorial.md
       maintainContext: true
-    - name: Använda frågor med Log Analytics
+    - name: Använda frågor med Azure Monitor-loggar
       href: ../hdinsight-hadoop-oms-log-analytics-use-queries.md
       maintainContext: true
     - name: Övervaka klusterprestanda
@@ -367,9 +367,9 @@ items:
   - name: Windows-verktyg för HDInsight
     href: ../hdinsight-hadoop-windows-tools.md
     maintainContext: true
-ms.openlocfilehash: a501f1ea05306c00acab04cbdba51b51903305a6
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: cf1967a53e638f6415a9d7b77f0e9d2a4fe87db4
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56326093"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889536"

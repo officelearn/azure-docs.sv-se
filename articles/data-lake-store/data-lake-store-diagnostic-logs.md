@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: 357257d38c444eae8077568993d49816e3c090a3
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: a0bb320abb31b38461102e0e9a062ea0c2af51fb
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52966083"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56959586"
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-storage-gen1"></a>Åtkomst till diagnostikloggar för Azure Data Lake Storage Gen1
 Lär dig att aktivera loggning för ditt konto i Azure Data Lake Storage Gen1 och visa loggar som samlats in för ditt konto.
@@ -46,7 +46,7 @@ Organisationer kan aktivera Diagnostisk loggning för sitt konto för Azure Data
         
         * Välj alternativet för att **Stream till en händelsehubb** till stream loggdata till en Azure-Händelsehubb. Du kommer troligen använda det här alternativet om du har en underordnad process-pipelinen för att analysera inkommande loggar i realtid. Om du väljer det här alternativet måste du ange information för Azure-Händelsehubben som du vill använda.
 
-        * Välj alternativet för att **skicka till Log Analytics** du använder Azure Log Analytics-tjänsten för att analysera den genererade loggdata. Om du väljer det här alternativet måste du ange information för Log Analytics-arbetsytan som du skulle göra logganalyser utför. Se [visa eller analysera data som samlas in med Log Analytics-loggsökning](../azure-monitor/learn/tutorial-viewdata.md) mer information om hur du använder Log Analytics.
+        * Välj alternativet för att **skicka till Log Analytics** att använda Azure Monitor-tjänsten för att analysera den genererade loggdata. Om du väljer det här alternativet måste du ange information för Log Analytics-arbetsytan som du skulle göra logganalyser utför. Se [visa eller analysera data som samlas in med Azure Monitor-loggar search](../azure-monitor/learn/tutorial-viewdata.md) mer information om hur du använder Azure Monitor-loggar.
      
    * Ange om du vill hämta granskningsloggar eller begära loggar, eller bådadera.
    * Ange antalet dagar som data måste bibehållas. Kvarhållning gäller endast om du använder Azure storage-konto för att arkivera loggdata.
@@ -115,25 +115,25 @@ Här är en exempel-post i loggen för JSON-formaterad begäran. Varje blob har 
 #### <a name="request-log-schema"></a>Begäran log schema
 | Namn | Typ | Beskrivning |
 | --- | --- | --- |
-| time |Sträng |Loggen tidsstämpel (i UTC) |
-| resourceId |Sträng |ID för den resurs som åtgärden tog placera på |
-| category |Sträng |Loggkategori. Till exempel **begäranden**. |
-| operationName |Sträng |Namnet på åtgärden som loggas. Till exempel getfilestatus. |
-| resultType |Sträng |Status för åtgärden, till exempel 200. |
-| callerIpAddress |Sträng |IP-adressen för klienten som gör begäran |
-| correlationId |Sträng |ID för loggen som kan används för att gruppera en uppsättning relaterade loggposter |
+| time |String |Loggen tidsstämpel (i UTC) |
+| resourceId |String |ID för den resurs som åtgärden tog placera på |
+| category |String |Loggkategori. Till exempel **begäranden**. |
+| operationName |String |Namnet på åtgärden som loggas. Till exempel getfilestatus. |
+| resultType |String |Status för åtgärden, till exempel 200. |
+| callerIpAddress |String |IP-adressen för klienten som gör begäran |
+| correlationId |String |ID för loggen som kan används för att gruppera en uppsättning relaterade loggposter |
 | identity |Objekt |Den identitet som genereras i loggen |
 | properties |JSON |Se nedan för information |
 
 #### <a name="request-log-properties-schema"></a>Schemat för begäran log-egenskaper
 | Namn | Typ | Beskrivning |
 | --- | --- | --- |
-| HttpMethod |Sträng |HTTP-metoden används för åtgärden. Till exempel få. |
-| Sökväg |Sträng |Sökvägen åtgärden utfördes på |
+| HttpMethod |String |HTTP-metoden används för åtgärden. Till exempel få. |
+| Sökväg |String |Sökvägen åtgärden utfördes på |
 | RequestContentLength |int |Innehållslängd HTTP-förfrågan |
-| clientRequestId |Sträng |Det ID som unikt identifierar den här begäran |
-| startTime |Sträng |Den tidpunkt då servern tog emot begäran |
-| endTime |Sträng |Den tid då servern skickade ett svar |
+| ClientRequestId |String |Det ID som unikt identifierar den här begäran |
+| startTime |String |Den tidpunkt då servern tog emot begäran |
+| endTime |String |Den tid då servern skickade ett svar |
 
 ### <a name="audit-logs"></a>Granskningsloggar
 Här är en exempel-post i JSON-formaterade granskningsloggen. Varje blob har en rotobjektet kallas **poster** som innehåller en matris med log-objekt
@@ -162,23 +162,23 @@ Här är en exempel-post i JSON-formaterade granskningsloggen. Varje blob har en
 #### <a name="audit-log-schema"></a>Schema för spårningslogg
 | Namn | Typ | Beskrivning |
 | --- | --- | --- |
-| time |Sträng |Loggen tidsstämpel (i UTC) |
-| resourceId |Sträng |ID för den resurs som åtgärden tog placera på |
-| category |Sträng |Loggkategori. Till exempel **Audit**. |
-| operationName |Sträng |Namnet på åtgärden som loggas. Till exempel getfilestatus. |
-| resultType |Sträng |Status för åtgärden, till exempel 200. |
-| resultSignature |Sträng |Mer information om åtgärden. |
-| correlationId |Sträng |ID för loggen som kan används för att gruppera en uppsättning relaterade loggposter |
+| time |String |Loggen tidsstämpel (i UTC) |
+| resourceId |String |ID för den resurs som åtgärden tog placera på |
+| category |String |Loggkategori. Till exempel **Audit**. |
+| operationName |String |Namnet på åtgärden som loggas. Till exempel getfilestatus. |
+| resultType |String |Status för åtgärden, till exempel 200. |
+| resultSignature |String |Mer information om åtgärden. |
+| correlationId |String |ID för loggen som kan används för att gruppera en uppsättning relaterade loggposter |
 | identity |Objekt |Den identitet som genereras i loggen |
 | properties |JSON |Se nedan för information |
 
 #### <a name="audit-log-properties-schema"></a>Granska loggen egenskaper schema
 | Namn | Typ | Beskrivning |
 | --- | --- | --- |
-| StreamName |Sträng |Sökvägen åtgärden utfördes på |
+| StreamName |String |Sökvägen åtgärden utfördes på |
 
 ## <a name="samples-to-process-the-log-data"></a>Exempel för att bearbeta loggdata
-När du skickar loggar från Azure Data Lake Storage Gen1 till Azure Log Analytics (se [visa eller analysera data som samlas in med Log Analytics-loggsökning](../azure-monitor/learn/tutorial-viewdata.md) mer information om hur du använder Log Analytics), följande fråga returnerar en tabell som innehåller en lista användarens visningsnamn, tidpunkten för händelserna och antalet händelser för tid för händelse tillsammans med ett visuellt diagram. Du kan enkelt ändra för att visa GUID för användare eller andra attribut:
+När du skickar loggar från Azure Data Lake Storage Gen1 till Azure Monitor-loggar (finns i [visa eller analysera data som samlas in med Azure Monitor-loggar search](../azure-monitor/learn/tutorial-viewdata.md) mer information om hur du använder Azure Monitor-loggar), följande fråga returnerar en tabell som innehåller en lista över användare visar namn, tidpunkten för händelserna och antalet händelser för tid för händelse tillsammans med ett visuellt diagram. Du kan enkelt ändra för att visa GUID för användare eller andra attribut:
 
 ```
 search *

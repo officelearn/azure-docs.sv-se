@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/5/2018
 ms.author: rimman
-ms.openlocfilehash: 02055ec07de2b08abdc949e17c668912431e00ce
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: f45663fd0f63537f87ee4466ad5f17cce0bed6a3
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55871259"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56961728"
 ---
 # <a name="index-types-in-azure-cosmos-db"></a>Index-typer i Azure Cosmos DB
 
@@ -54,6 +54,9 @@ Här följer exempel på frågor som Hash, intervallet, och rumsindex kan använ
 
 ## <a name="index-precision"></a>Index precision
 
+> [!NOTE]
+> En ny indexlayout som kräver ett anpassat index precision än maximal precision value(-1) inte längre stöd för Azure Cosmos-behållare. Med den här metoden är alltid sökvägar indexeras med det högsta precision. Om du anger ett precisionsvärde på indexprincip CRUD-begäranden på en behållare ska ignorera antalet decimaler och svaret från behållaren innehåller endast maximal precision value(-1).  Alla nya Cosmos-behållare använder den nya layouten för index som standard.
+
 - Du kan använda indexet precision för att göra en kompromiss mellan index storage overhead och frågeprestanda. För siffror rekommenderar vi använder standardkonfigurationen för precision-1 (max). Eftersom siffror är 8 byte i JSON, motsvarar detta en konfiguration av 8 byte. Välja ett lägre värde för noggrannhet på millisekunder, till exempel 1 och 7, index innebär det att värdena inom vissa intervall som mappas till samma-post. Därför kan du minska index lagringsutrymme, men Frågekörningen behöva bearbeta fler objekt. Därför måste förbrukar den mer dataflöde/ru: er.
 
 - Index precision har mer praktiska program med sträng-intervall. Eftersom strängar kan vara en godtycklig längd, kan valet av index precisionen påverka prestanda för frågor för sträng-intervallet. Det kan även påverka mängden index lagringsutrymme som krävs. Sträng intervallet index kan konfigureras med ett index precision mellan 1 och 100 eller -1 (max). Om du vill utföra ORDER BY-frågor mot strängegenskaper, måste du ange en noggrannhet på 1 för motsvarande sökvägar.
@@ -61,9 +64,6 @@ Här följer exempel på frågor som Hash, intervallet, och rumsindex kan använ
 - Spatialindex använda alltid standard index precisionen för alla typer (Point, LineString och Polygon). Standard index precisionen för rumsindex kan inte åsidosättas.
 
 Azure Cosmos DB Returnerar ett fel när en fråga använder ORDER BY men inte har en intervallsindex mot den efterfrågade sökvägen med den maximala precisionen.
-
-> [!NOTE]
-> En ny indexlayout som kräver ett anpassat index precision än maximal precision value(-1) inte längre stöd för Azure Cosmos-behållare. Med den här metoden är alltid sökvägar indexeras med det högsta precision. Om du anger ett precisionsvärde på indexprincip CRUD-begäranden på en behållare ska ignorera antalet decimaler och svaret från behållaren innehåller endast maximal precision value(-1).  Alla nya Cosmos-behållare använder den nya layouten för index som standard.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -14,18 +14,18 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/11/2019
 ms.author: roiyz
-ms.openlocfilehash: 9d9f634d494c3c88146ab1f243d17609cf30bbcd
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: 5a5472e3790235caec65e56f31096de3abfae93d
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56100269"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56986370"
 ---
 # <a name="nvidia-gpu-driver-extension-for-linux"></a>NVIDIA GPU-drivrutinen tillägg för Linux
 
 ## <a name="overview"></a>Översikt
 
-Det här tillägget installerar NVIDIA GPU-drivrutiner på Linux N-serien virtuella datorer. Beroende på VM-familjen installerar tillägget CUDA- eller NÄTVERKSBASERADE drivrutiner. När du installerar NVIDIA drivrutinerna med hjälp av det här tillägget du accepterar och samtycker till villkoren i den [NVIDIA licensavtalet](https://go.microsoft.com/fwlink/?linkid=874330). Under installationen, kan den virtuella datorn startas om för att slutföra installationen för drivrutinen.
+Det här tillägget installerar NVIDIA GPU-drivrutiner på Linux N-serien virtuella datorer. Beroende på VM-familjen installerar tillägget CUDA- eller NÄTVERKSBASERADE drivrutiner. När du installerar NVIDIA drivrutinerna med hjälp av det här tillägget du accepterar och samtycker till villkoren i den [NVIDIA licensavtalet](http://developer.download.nvidia.com/compute/cuda/5_5/rel/docs/EULA.pdf). Under installationen, kan den virtuella datorn startas om för att slutföra installationen för drivrutinen.
 
 Ett tillägg kan även installera NVIDIA GPU-drivrutiner på [Windows virtuella datorer i N-serien](hpccompute-gpu-windows.md).
 

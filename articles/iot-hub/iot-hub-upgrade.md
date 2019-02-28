@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: kgremban
-ms.openlocfilehash: 6f6cf6de9b1f12451bf28a9bd7fc7077c1c6b1cd
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 4acd4f3fd9c013d622a23853dc2f0d02b8b753d9
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56673468"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56985792"
 ---
 # <a name="how-to-upgrade-your-iot-hub"></a>Uppgradera din IoT-hubb
 
@@ -45,7 +45,9 @@ De här exemplen är avsedda att hjälpa dig att förstå hur du ändrar din IoT
 4. Om du vill ändra antalet enheter i din hubb, ange ett nytt värde under **IoT Hub-enheter**. 
 5. Välj **spara** att spara dina ändringar. 
 
-IoT-hubben justeras nu och dina konfigurationer är oförändrade. Maximal partitionsgränsen för basic-nivån IoT Hub är 8 och standard-nivån är 32. De flesta IoT-hubbar behöver bara fyra partitioner. Partitionsgränsen väljs när IoT-hubben har skapats och avser antalet samtidiga läsare av dessa meddelanden på meddelanden från enheten till molnet. Det här värdet ändras inte när du migrerar från basic-nivån till standardnivån. 
+IoT-hubben justeras nu och dina konfigurationer är oförändrade. 
+
+Maximal partitionsgränsen för IoT Hub på grundläggande nivån och standardnivån för IoT Hub är 32. De flesta IoT-hubbar behöver bara 4 partitioner. Partitionsgränsen väljs när IoT-hubben har skapats och avser antalet samtidiga läsare av dessa meddelanden på meddelanden från enheten till molnet. Det här värdet ändras inte när du migrerar från basic-nivån till standardnivån. 
 
 ## <a name="next-steps"></a>Nästa steg
 

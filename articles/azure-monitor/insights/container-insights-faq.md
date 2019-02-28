@@ -8,21 +8,21 @@ editor: tysonn
 ms.service: azure-monitor
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 02/18/2019
+ms.date: 02/26/2019
 ms.author: magoedte
-ms.openlocfilehash: 27a191bb62ae59aa154167a22c99d3e699f3eb5a
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: 250bf6ede3a54b26b6e9c68850f8e7260020002e
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56418625"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56960524"
 ---
 # <a name="azure-monitor-for-containers-frequently-asked-questions"></a>Azure Monitor för behållare vanliga frågor och svar
 Den här Microsoft-FAQ är en lista över vanliga frågor om Azure Monitor för behållare. Om du har ytterligare frågor om lösningen går du till den [diskussionsforum](https://feedback.azure.com/forums/34192--general-feedback) och ställa frågor. När en fråga är vanliga vi lägga till det i den här artikeln så att den finns snabbt och enkelt.
 
-## <a name="why-am-i-not-seeing-data-if-log-analytics-workspace-is-configured-with-the-free-pricing-tier"></a>Varför ser jag inte data om Log Analytics-arbetsyta är konfigurerad med den kostnadsfria prisnivån? 
+## <a name="i-am-unable-to-see-any-data-in-the-log-analytics-workspace-at-a-certain-time-everyday-how-do-i-resolve-this"></a>Jag kan inte finns några data i Log Analytics-arbetsytan vid en viss tidpunkt varje dag. Hur löser jag det? 
 
-Du kanske har nått Standardgränsen för 500 MB eller anges en daglig högsta gräns för att styra mängden data som ska samlas in dagligen. Om du vill kontrollera och hantera din dataanvändning, se [logga dataanvändning och kostnader](../platform/manage-cost-storage.md). 
+Du kanske har nått gränsen på standard-500 MB eller den dagliga gränsen som vill styra mängden data som ska samlas in dagligen. När gränsen är uppfyllt för dagen, datainsamling stoppar och återupptar endast på nästa dag. Om du vill granska din dataanvändning och uppdatera till en annan prisnivå baserat på ditt förväntade användningsmönster, se [logga dataanvändning och kostnader](../platform/manage-cost-storage.md). 
 
 ## <a name="what-are-the-states-of-containers-specified-in-the-containerinventory-table"></a>Vad är status för behållare som anges i tabellen ContainerInventory?
 Tabellen ContainerInventory innehåller information om både stoppad och köra behållare. Tabellen innehåller ett arbetsflöde i agenten som frågar docker för alla behållare (som körs och stoppad) och vidarebefordrar dessa data till Log Analytics-arbetsytan.
@@ -31,7 +31,7 @@ Tabellen ContainerInventory innehåller information om både stoppad och köra b
 Lös felet genom att registrera resursprovidern **Microsoft.OperationsManagement** i prenumerationen där arbetsytan har definierats. Dokumentation för hur du gör detta finns [här](../../azure-resource-manager/resource-manager-register-provider-errors.md).
 
 ## <a name="does-azure-monitor-for-containers-include-support-for-rbac-enabled-aks-clusters"></a>Azure Monitor för behållare omfattar support för RBAC-aktiverade AKS-kluster?
-RBAC aktiverat AKS kluster stöds för närvarande inte av lösningen. Lösningens detaljsida kan inte visa rätt information i blad som visar data för klustren.
+Behållarövervakning-lösningen stöder inte RBAC, men det stöds med Azure Monitor för behållare. Lösningens detaljsida kan inte visa rätt information i blad som visar data för klustren.
 
 ## <a name="how-do-i-enable-log-collection-for-containers-in-the-kube-system-namespace-through-helm"></a>Hur aktiverar jag Logginsamling för behållare i namnområdet kube system via Helm?
 Logginsamling från behållare i namnområdet kube system är inaktiverad som standard. Logginsamling kan aktiveras genom att ange en miljövariabel på omsagent. Mer information finns i den [Azure Monitor för behållare](https://github.com/helm/charts/tree/master/incubator/azuremonitor-containers) GitHub-sidan. 
@@ -53,7 +53,7 @@ console.log(json.stringify({
       }));
 ```
 
-Dessa data ser ut så här i Azure Monitor för loggar när du frågar efter den:
+Dessa data kommer att se ut som i följande exempel i Azure Monitor för loggar när du frågar efter den:
 
 ```
 LogEntry : ({“Hello": "This example has multiple lines:","Docker/Moby": "will not break this into multiple lines", "and you will receive":"all of them in log analytics", "as one": "log entry"}
@@ -63,7 +63,7 @@ LogEntry : ({“Hello": "This example has multiple lines:","Docker/Moby": "will 
 För detaljerad information om problemet, granska följande [github link](https://github.com/moby/moby/issues/22920).
 
 ## <a name="how-do-i-resolve-azure-active-directory-errors-when-i-enable-live-logs"></a>Hur löser jag Azure Active Directory-fel när jag aktivera live loggar? 
-Du kan se följande fel: **Svaret från den url som anges i begäran matchar inte svars-URL som konfigurerats för programmet: '60b4dec7-5a69-4165-a211-12c40b5c0435'**. Korrigering för detta finns i artikeln [visa behållarens loggar realtid med Azure Monitor för behållare](container-insights-live-logs.md#configure-aks-with-azure-active-directory). 
+Du kan se följande fel: **Svaret från URL: en som anges i begäran överensstämmer inte med svars-URL som konfigurerats för programmet: ' < program-ID\>'**. Lösning som löste det finns i artikeln [visa behållarens loggar realtid med Azure Monitor för behållare](container-insights-live-logs.md#configure-aks-with-azure-active-directory). 
 
 ## <a name="next-steps"></a>Nästa steg
 Om du vill börja övervaka ditt AKS-kluster, granska [hur att publicera Azure övervakar för behållare](container-insights-onboard.md) att förstå de krav och tillgängliga metoder för att aktivera övervakning. 

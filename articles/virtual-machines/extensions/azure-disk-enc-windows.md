@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 06/12/2018
 ms.author: ejarvi
-ms.openlocfilehash: 355fa90113e931fa3e21df1ccca5736622475bb3
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 46699fb1add42d23a11234d5cd05e4a9627a91fd
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54810388"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56983480"
 ---
 # <a name="azure-disk-encryption-for-windows-microsoftazuresecurityazurediskencryption"></a>Azure Disk Encryption för Windows (Microsoft.Azure.Security.AzureDiskEncryption)
 
@@ -58,8 +58,14 @@ Azure Disk Encryption kräver en Internetanslutning för åtkomst till Active Di
       "AADClientID": "[aadClientID]",
       "EncryptionOperation": "[encryptionOperation]",
       "KeyEncryptionAlgorithm": "[keyEncryptionAlgorithm]",
+      
       "KeyEncryptionKeyURL": "[keyEncryptionKeyURL]",
+          "KekVaultResourceId": "[keyVaultResourceID]",
+      
       "KeyVaultURL": "[keyVaultURL]",
+          "KeyVaultResourceId": "[keyVaultResourceID]",
+
+      "EncryptionOperation": "[encryptionOperation]",
       "SequenceVersion": "sequenceVersion]",
       "VolumeType": "[volumeType]"
     },
@@ -76,13 +82,15 @@ Azure Disk Encryption kräver en Internetanslutning för åtkomst till Active Di
 | apiVersion | 2015-06-15 | datum |
 | utgivare | Microsoft.Azure.Security | sträng |
 | typ | AzureDiskEncryptionForWindows| sträng |
-| typeHandlerVersion | 1.0, 2.2 (VMSS) | int |
+| typeHandlerVersion | 1.0, 1.1, 2.2 (VMSS) | int |
 | (valfritt) AADClientID | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | GUID | 
 | (valfritt) AADClientSecret | lösenord | sträng |
 | (valfritt) AADClientCertificate | thumbprint | sträng |
 | EncryptionOperation | EnableEncryption | sträng | 
-| KeyEncryptionAlgorithm | RSA-OAEP | sträng |
+| KeyEncryptionAlgorithm | RSA-OAEP, RSA1_5 | sträng |
 | KeyEncryptionKeyURL | url | sträng |
+| KeyVaultResourceId | resurs-uri | sträng |
+| KekVaultResourceId | resurs-uri | sträng |
 | KeyVaultURL | url | sträng |
 | SequenceVersion | uniqueidentifier | sträng |
 | VolumeType | OS-, Data, alla | sträng |

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: aljo, subramar
-ms.openlocfilehash: 2ae533c81e68f8f6a32ad8fa0e45aed3c63eceb9
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: cb918516a9180b4bffdc72c688df5d830e83833a
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56805264"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56959671"
 ---
 # <a name="service-fabric-container-networking-modes"></a>Nätverkslägen för behållare för Service Fabric
 
@@ -30,7 +30,7 @@ Om du har ett container service med en statisk slutpunkt i din tjänstmanifestet
 När en behållartjänst startar om eller flyttas till en annan nod i klustret, ändras IP-adressen. Därför rekommenderar vi inte använder dynamiskt tilldelade IP-adressen för att upptäcka behållartjänster. Endast den namngivning i Service Fabric- eller DNS-tjänsten ska användas för identifiering av tjänst. 
 
 >[!WARNING]
->Azure kan högst 4 096 IP-adresser per virtuellt nätverk. Summan av antalet noder och antalet container service-instanser (som använder öppet läge) får inte överskrida 4 096 IP-adresser inom ett virtuellt nätverk. Högdensitet scenarier rekommenderar vi nat nätverk läge.
+>Azure kan totalt 65,356 IP-adresser per virtuellt nätverk. Summan av antalet noder och antalet container service-instanser (som använder öppet läge) får inte överskrida 65,356 IP-adresser inom ett virtuellt nätverk. Högdensitet scenarier rekommenderar vi nat nätverk läge. Dessutom kan andra beroenden, till exempel belastningsutjämnaren har andra [begränsningar](https://docs.microsoft.com/en-us/azure/azure-subscription-service-limits) att tänka på. För närvarande upp till 50 IP-adresser per nod har testats och verifierats stabil. 
 >
 
 ## <a name="set-up-open-networking-mode"></a>Konfigurera öppna nätverk läge

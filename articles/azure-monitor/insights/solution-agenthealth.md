@@ -1,5 +1,5 @@
 ---
-title: Agenthälsolösning i Azure | Microsoft Docs
+title: Agenthälsolösning i Azure Monitor | Microsoft Docs
 description: Den här artikeln är avsedd att hjälpa dig att förstå hur du använder den här lösningen för att övervaka hälsotillståndet hos dina agenter som rapporterar direkt till Log Analytics eller System Center Operations Manager.
 services: operations-management-suite
 documentationcenter: ''
@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/19/2017
 ms.author: magoedte
-ms.openlocfilehash: 203a37071637a7e0e44b65240be4c4cae974d95f
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: cca234340526b732067adac3c6725f8aa5acc47c
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53335973"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56983395"
 ---
 #  <a name="agent-health-solution-in-azure"></a>Agenthälsolösning i Azure
-Agenthälsolösningen i Azure hjälper dig att förstå vilka av alla agenter som rapporterar direkt till Log Analytics-arbetsyta eller en System Center Operations Manager-hanteringsgrupp ansluten till Log Analytics, som inte svarar och skicka operativa data.  Du kan också hålla reda på hur många agenter distribueras, var de är fördelade geografiskt och utföra andra frågor för att övervaka distributionen av agenter i Azure, andra miljöer i molnet eller lokalt.    
+Agenthälsolösningen i Azure hjälper dig att förstå vilka av alla agenter som rapporterar direkt till Log Analytics-arbetsyta eller en System Center Operations Manager-hanteringsgrupp ansluten till Azure Monitor, som inte svarar och skicka operativa data.  Du kan också hålla reda på hur många agenter distribueras, var de är fördelade geografiskt och utföra andra frågor för att övervaka distributionen av agenter i Azure, andra miljöer i molnet eller lokalt.    
 
 ## <a name="prerequisites"></a>Förutsättningar
-Innan du distribuerar den här lösningen kan du bekräfta att du har för närvarande [Windows-agenter](../../log-analytics/log-analytics-windows-agent.md) rapporterar till Log Analytics-arbetsytan eller till en [Operations Manager-hanteringsgrupp](../../azure-monitor/platform/om-agents.md) integrerad med din arbetsyta.    
+Innan du distribuerar den här lösningen kan du bekräfta att du har för närvarande [Windows-agenter](../../log-analytics/log-analytics-windows-agent.md) rapporterar till Log Analytics-arbetsytan eller till en [Operations Manager-hanteringsgrupp](../../azure-monitor/platform/om-agents.md) integrerad med din arbetsyta.
 
 ## <a name="solution-components"></a>Lösningskomponenter
 Lösningen består av följande resurser som läggs till i din arbetsyta och ansluter direkt agenter eller Operations Manager-anslutna hanteringsgrupper.
@@ -48,7 +48,7 @@ I följande tabell beskrivs de anslutna källor som stöds av den här lösninge
 | Ansluten källa | Stöds | Beskrivning |
 | --- | --- | --- |
 | Windows-agenter | Ja | Pulsslagshändelser som samlas in direkt från Windows-agenter.|
-| System Center Operations Manager-hanteringsgrupp | Ja | Pulsslagshändelser som samlas in från agenter som rapporterar till hanteringsgruppen var 60: e sekund och sedan vidarebefordras till logganalys. En direktanslutning från Operations Manager-agenten till Log Analytics krävs inte. Pulsslagshändelsedata vidarebefordras från hanteringsgruppen till Log Analytics-databasen.|
+| System Center Operations Manager-hanteringsgrupp | Ja | Pulsslagshändelser som samlas in från agenter som rapporterar till hanteringsgruppen var 60: e sekund och sedan vidarebefordras till Azure Monitor. En direktanslutning från Operations Manager-agenter till Azure Monitor krävs inte. Pulsslagshändelsedata vidarebefordras från hanteringsgruppen till Log Analytics-arbetsytan.|
 
 ## <a name="using-the-solution"></a>Använda lösningen
 När du lägger till lösningen i Log Analytics-arbetsytan i **Agenthälsa** läggs panelen på instrumentpanelen. Den här panelen visar det totala antalet agenter och antalet agenter som inte har svarat under de senaste 24 timmarna.<br><br> ![Panelen för Agenthälsa på instrumentpanelen](./media/solution-agenthealth/agenthealth-solution-tile-homepage.png)
@@ -68,7 +68,7 @@ Klicka på panelen **Agenthälsa** för att öppna instrumentpanelen för **Agen
 
 ![Agenthälsa på instrumentpanelen - exempel](./media/solution-agenthealth/agenthealth-solution-dashboard.png)  
 
-## <a name="log-analytics-records"></a>Log Analytics-poster
+## <a name="azure-monitor-log-records"></a>Azure Monitor-loggposter
 Lösningen skapar en typ av post i Log Analytics-arbetsytan.  
 
 ### <a name="heartbeat-records"></a>Pulsslagsposter
@@ -76,7 +76,7 @@ En post med en typ av **pulsslag** skapas.  Dessa poster har egenskaper enligt f
 
 | Egenskap  | Beskrivning |
 | --- | --- |
-| Typ | *Pulsslag*|
+| Type | *Pulsslag*|
 | Kategori | Värdet är *Direct Agent*, *SCOM Agent* eller *SCOM Management Server*.|
 | Dator | Datornamn.|
 | OSType | Windows- eller Linux-operativsystem.|
@@ -92,7 +92,7 @@ En post med en typ av **pulsslag** skapas.  Dessa poster har egenskaper enligt f
 | RemoteIPLongitude | Longituden för datorns geografiska plats.|
 | RemoteIPLatitude | Latituden för datorns geografiska plats.|
 
-Varje agent som rapporterar till en hanteringsserver för Operations Manager skickar två pulsslag och egenskapsvärdet för SCAgentChannel innehåller både **direkt** och **SCManagementServer** beroende på vilka Log Analytics-datakällor och lösningar som du har aktiverat i din prenumeration. Om du kommer ihåg data från lösningar antingen skickas direkt från en hanteringsserver för Operations Manager till Log Analytics eller på grund av mängden data som samlas in från agenten, skickas direkt från agenten till Log Analytics. För pulsslaghändelser som har värdet **SCManagementServer**, är ComputerIP-värdet IP-adressen för hanteringsservern eftersom data faktiskt har laddats upp av den.  För pulsslag där SCAgentChannel är inställt på **Direkt** är det den offentliga IP-adressen för agenten.  
+Varje agent som rapporterar till en hanteringsserver för Operations Manager skickar två pulsslag och egenskapsvärdet för SCAgentChannel innehåller både **direkt** och **SCManagementServer** beroende på vad datakällor och övervakar lösningar som du har aktiverat i din prenumeration. Om du kommer ihåg data från lösningar antingen skickas direkt från en hanteringsserver för Operations Manager till Azure Monitor eller på grund av mängden data som samlas in från agenten, skickas direkt från agenten till Azure Monitor. För pulsslaghändelser som har värdet **SCManagementServer**, är ComputerIP-värdet IP-adressen för hanteringsservern eftersom data faktiskt har laddats upp av den.  För pulsslag där SCAgentChannel är inställt på **Direkt** är det den offentliga IP-adressen för agenten.  
 
 ## <a name="sample-log-searches"></a>Exempel på loggsökningar
 Följande tabell innehåller exempel på sökningar i loggen för poster som har samlats in av den här lösningen.
@@ -117,4 +117,4 @@ Följande tabell innehåller exempel på sökningar i loggen för poster som har
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Lär dig mer om [Aviseringar i Log Analytics](../../azure-monitor/platform/alerts-overview.md) för information om att generera aviseringar från Log Analytics. 
+* Lär dig mer om [aviseringar i Azure Monitor](../platform/alerts-overview.md) för information om att generera aviseringar från Log Analytics. 

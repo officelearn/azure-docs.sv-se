@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 02/26/2019
-ms.openlocfilehash: f6179c14c0a057a08203764316eeb43783cd7fc8
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.date: 02/27/2019
+ms.openlocfilehash: 0d0ee3664a5f442e4fbf61af3111a53110afd740
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56887751"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56984755"
 ---
 # <a name="creating-and-using-active-geo-replication"></a>Skapa och använda aktiv geo-replikering
 
@@ -51,9 +51,6 @@ Aktiv geo-replikering utnyttjar den [Always On](https://docs.microsoft.com/sql/d
 > Om det finns ett nätverksfel mellan två regioner, gör vi var tionde sekund för att återupprätta anslutningarna.
 > [!IMPORTANT]
 > Du kan tvinga synkroniseringen att se till att replikeringen av viktiga ändringar (till exempel, lösenordsuppdateringar) för att garantera att viktiga förändringar i den primära databasen replikeras till en sekundär före redundans. Framtvingad synkronisering påverkar prestanda eftersom blockeras anropstråden tills alla genomförda transaktioner replikeras. Mer information finns i [sp_wait_for_database_copy_sync](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/active-geo-replication-sp-wait-for-database-copy-sync). Om du vill övervaka replikeringsfördröjning mellan den primära databasen och geo-secondary Se [sys.dm_geo_replication_link_status](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database).
-
-
-
 
 Följande bild visar ett exempel på aktiv geo-replikering konfigurerade med en primär i regionen USA, norra centrala och sekundära i regionen södra centrala USA.
 
@@ -110,7 +107,7 @@ För att uppnå verkliga affärskontinuitet, att lägga till databasredundans me
 
 - **Synkronisera autentiseringsuppgifterna och brandväggsregler**
 
-Vi rekommenderar att du använder [databasen brandväggsregler](sql-database-firewall-configure.md) för geo-replikerade databaser så att de här reglerna kan replikeras med databasen för att se till att alla sekundära databaser har samma brandväggsregler som primär. Den här metoden eliminerar behovet av att manuellt konfigurera och underhålla brandväggsregler på servrar som är värd för både de primära och sekundära databaserna. På samma sätt med hjälp av [innehöll databasanvändare](sql-database-manage-logins.md) för data access ser du till både primära och sekundära databaser har alltid samma autentiseringsuppgifter så att det finns inga avbrott på grund av överensstämmer inte med inloggningsnamn och lösenord under en redundansväxling. Med hjälp av [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md), kunder kan hantera användarnas åtkomst till både primära och sekundära databaser och vilket eliminerar behovet av hantering av autentiseringsuppgifter i databaser helt och hållet.
+Vi rekommenderar att du använder [databasnivå IP-brandväggsregler](sql-database-firewall-configure.md) för geo-replikerade databaser så att de här reglerna kan replikeras med databasen för att se till att alla sekundära databaser har samma IP-brandväggsregler som primär. Den här metoden eliminerar behovet av att manuellt konfigurera och underhålla brandväggsregler på servrar som är värd för både de primära och sekundära databaserna. På samma sätt med hjälp av [innehöll databasanvändare](sql-database-manage-logins.md) för data access ser du till både primära och sekundära databaser har alltid samma autentiseringsuppgifter så att det finns inga avbrott på grund av överensstämmer inte med inloggningsnamn och lösenord under en redundansväxling. Med hjälp av [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md), kunder kan hantera användarnas åtkomst till både primära och sekundära databaser och vilket eliminerar behovet av hantering av autentiseringsuppgifter i databaser helt och hållet.
 
 ## <a name="upgrading-or-downgrading-a-primary-database"></a>Uppgradera eller nedgradera en primär databas
 

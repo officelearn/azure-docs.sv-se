@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: c38b28a247feb94efd5f4b73e690d30aac9ed73a
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 85beb9b7e0c62d5e1c8dae61fdd15d5faf3a294c
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54900246"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56985877"
 ---
 # <a name="link-a-partner-id-to-your-azure-accounts"></a>Länka ett partner-ID till dina Azure-konton
 
@@ -138,3 +138,25 @@ Länken mellan partner-ID och konton som görs för varje kundklient. Länka par
 **Kan andra partners eller kunder redigera eller ta bort länken till partner-ID?**
 
 Länken är associerade på nivån för kontot. Endast kan du redigera eller ta bort länken till partner-ID. Kunden och andra partners kan inte ändra länken till partner-ID. 
+
+
+**Vilka MPN-ID ska jag använda om mitt företag har flera?**
+
+Du kan använda valfri giltig MPN-ID utom v org MPN-ID. De flesta partner väljer att använda de MPN-ID för geografiska plats där kunden är baserad eller tjänsten levereras.
+
+**Var hittar jag har påverkat intäktsrapportering för länkade partner-ID?**
+
+Du kan hitta har påverkat intäktsrapportering på [min instrumentpanel](https://partner.microsoft.com/membership/reports/myinsights) genom att välja Partner Admin länken som visas.
+
+**Varför kan jag inte se min kund i rapporterna?**
+
+Du kan inte se kunden i rapporterna på grund av följande orsaker
+
+1. Det länkade användarkontot inte har [Role-Based Access ](https://docs.microsoft.com/azure/role-based-access-control/overview) på kundens Azure-prenumeration eller resurs.
+
+2. Azure-prenumerationen där användaren har [Role-Based Access ](https://docs.microsoft.com/azure/role-based-access-control/overview) åtkomst har inte någon användning.
+
+**Länka partner-ID som fungerar med Azure Stack?**
+
+Ja, du kan länka ditt partner-ID för Azure Stack.
+

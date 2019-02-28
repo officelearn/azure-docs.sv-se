@@ -11,14 +11,22 @@ ms.topic: conceptual
 ms.date: 2/20/2019
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: 0f5452e3abbde40c247ef7e000b84fc3eb00c943
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: e389df02966146b217802d4e93f844a4fee425a3
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56446842"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56958664"
 ---
 # <a name="release-notes"></a>Viktig information
+
+## <a name="speech-sdk-131-2019-february-refresh"></a>Speech SDK 1.3.1: 2019 februari uppdatering
+
+Detta är en felkorrigering version och påverkar endast intern/hanteras SDK. Det påverkar inte JavaScript-versionen av SDK.
+
+**Felkorrigering**
+
+* Fast en minnesläcka när med mikrofon som indata. Stream baserat eller fil som indata påverkas inte.
 
 ## <a name="speech-sdk-130-2019-february-release"></a>Speech SDK 1.3.0: 2019 februariversionen
 
@@ -26,6 +34,8 @@ ms.locfileid: "56446842"
 
 * Tal SDK stöder valet av inkommande mikrofonen via AudioConfig-klassen. Detta gör kan strömma ljud data till tal-tjänst från en icke-standard mikrofon. Mer information finns i dokumentationen som beskriver [ingående ljud enhet](how-to-select-audio-input-devices.md). Detta är inte ännu tillgängliga från JavaScript.
 * Tal-SDK: N har nu stöd för Unity i en betaversion. Ge feedback via avsnittet problemet i den [GitHub-exempellagringsplats](https://aka.ms/csspeech/samples). Den här versionen stöder Unity på Windows x86 och x64 (desktop eller Universal Windows Platform-program) och Android (ARM32/64, x86). Mer information finns i vår [Unity Snabbstart](quickstart-csharp-unity.md).
+* Filen `Microsoft.CognitiveServices.Speech.csharp.bindings.dll` (levereras i tidigare versioner) behövs inte längre. Funktionerna är nu integrerade i core SDK.
+
 
 **Exempel**
 
@@ -54,6 +64,7 @@ Följande nya innehåll finns i vår [exempellagringsplatsen](https://aka.ms/css
   * Inledande stöd och implementering av frasen tips.
   * Returnera egenskapssamlingen med tjänst-JSON för taligenkänning
 * Windows-dll: er innehåller nu en versionsresurs.
+* Om du skapar en identifierare `FromEndpoint` du kan lägga till parametrar direkt till slutpunkts-URL. Med hjälp av `FromEndpoint` du kan inte konfigurera Igenkännande via standardkonfigurationen egenskaper.
 
 **Felkorrigeringar**
 

@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/03/2018
-ms.openlocfilehash: c9f8fc4bee370f287b40275b76fa98d2552d7600
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 60ef547cb3a6ef579f5ab0b3f5438212145d92ff
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53545081"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56961796"
 ---
 # <a name="server-logs-in-azure-database-for-mysql"></a>Serverloggar i Azure Database for MySQL
 Långsam frågelogg är tillgänglig för användare i Azure Database för MySQL. Åtkomst till transaktionsloggen stöds inte. Långsam frågelogg kan användas för att identifiera flaskhalsar i prestanda för felsökning. 
@@ -44,7 +44,7 @@ Andra parametrar som du kan justera är:
 Se MySQL [långsam fråga log dokumentation](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html) fullständiga beskrivningar av långsam logg Frågeparametrar.
 
 ## <a name="diagnostic-logs"></a>Diagnostikloggar
-Azure Database för MySQL är integrerat med Azure Monitor-diagnostikloggar. När du har aktiverat långsamma frågeloggar på MySQL-servern, kan du låta dem anges till Log Analytics, Event Hubs eller Azure Storage. Mer information om hur du aktiverar diagnostikloggar finns hur till avsnittet i den [diagnostikloggar dokumentation](../azure-monitor/platform/diagnostic-logs-overview.md).
+Azure Database för MySQL är integrerat med Azure Monitor-diagnostikloggar. När du har aktiverat långsamma frågeloggar på MySQL-servern, kan du låta dem som Azure Monitor-loggar, Event Hubs eller Azure Storage. Mer information om hur du aktiverar diagnostikloggar finns hur till avsnittet i den [diagnostikloggar dokumentation](../azure-monitor/platform/diagnostic-logs-overview.md).
 
 I följande tabell beskrivs vad som finns i varje logg. De fält som ingår och i vilken ordning som de visas kan variera beroende på utdata-metod.
 
@@ -53,12 +53,12 @@ I följande tabell beskrivs vad som finns i varje logg. De fält som ingår och 
 | TenantId | Ditt klient-ID |
 | SourceSystem | `Azure` |
 | TimeGenerated [UTC] | Tidsstämpel när loggen registrerades i UTC |
-| Typ | Typ av loggen. Alltid `AzureDiagnostics` |
+| Type | Typ av loggen. Alltid `AzureDiagnostics` |
 | SubscriptionId | GUID för den prenumeration som servern tillhör |
 | ResourceGroup | Namnet på den resursgrupp som servern tillhör |
 | ResourceProvider | Namnet på resursprovidern. Alltid `MICROSOFT.DBFORMYSQL` |
 | ResourceType | `Servers` |
-| Resurs-ID | Resurs-URI |
+| ResourceId | Resurs-URI |
 | Resurs | Namnet på servern |
 | Kategori | `MySqlSlowLogs` |
 | OperationName | `LogEvent` |
@@ -74,7 +74,7 @@ I följande tabell beskrivs vad som finns i varje logg. De fält som ingår och 
 | sql_text_s | Fullständig fråga |
 | server_id_s | Serverns id |
 | thread_id_s | Tråd-id |
-| \_Resurs-ID | Resurs-URI |
+| \_ResourceId | Resurs-URI |
 
 ## <a name="next-steps"></a>Nästa steg
 - [Hur du konfigurerar och få åtkomst till serverloggar från Azure CLI](howto-configure-server-logs-in-cli.md).

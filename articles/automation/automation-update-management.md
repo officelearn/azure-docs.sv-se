@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 02/22/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: fb96d69604ce341cec2de029f9663f6b8d274876
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 214c67e34fc8d36f2618c94414fe1c305efbf7d2
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56822386"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56960147"
 ---
 # <a name="update-management-solution-in-azure"></a>Lösningen för uppdateringshantering i Azure
 
@@ -119,6 +119,9 @@ Om din hanteringsgrupp för System Center Operations Manager är ansluten till e
 * Microsoft System Center Advisor Update Assessment Intelligence Pack (Microsoft.IntelligencePacks.UpdateAssessment)
 * Microsoft.IntelligencePack.UpdateAssessment.Configuration (Microsoft.IntelligencePack.UpdateAssessment.Configuration)
 * Uppdatera distributions-MP
+
+> [!NOTE]
+> Om du har en Hanteringsgrupp för Operations Manager 1807 med agenter som konfigurerats på nivån Hanteringsgrupp som ska kopplas till en arbetsyta, den aktuella lösning för att hämta dem för att visa är att åsidosätta **IsAutoRegistrationEnabled** till **SANT** i den **Microsoft.IntelligencePacks.AzureAutomation.HybridAgent.Init** regeln.
 
 Mer information om hur lösningens hanteringspaket uppdateras finns i [ansluta Operations Manager till Azure Monitor loggar](../azure-monitor/platform/om-agents.md).
 
@@ -608,7 +611,7 @@ Ta bort en virtuell dator från hantering av uppdateringar:
 
 * I Log Analytics-arbetsytan, ta bort den virtuella datorn från den sparade sökningen för Omfattningskonfigurationen `MicrosoftDefaultScopeConfig-Updates`. Sparade sökningar finns under **Allmänt** i din arbetsyta.
 * Ta bort den [Microsoft Monitoring agent](../azure-monitor/learn/quick-collect-windows-computer.md#clean-up-resources) eller [Log Analytics-agenten för Linux](../azure-monitor/learn/quick-collect-linux-computer.md#clean-up-resources).
-  
+
 ## <a name="troubleshoot"></a>Felsöka
 
 Läs hur du felsöker din uppdateringshantering i [felsökning uppdateringshantering](troubleshoot/update-management.md)

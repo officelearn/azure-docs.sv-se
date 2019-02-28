@@ -15,12 +15,12 @@ ms.topic: sample
 ms.date: 11/21/2018
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 845d47af75495a158e56312126c8e246b43f789f
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: e8879b67b79523cc35fb28a707a6c77f3efb75c0
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56112783"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56584987"
 ---
 # <a name="restore-a-web-app-from-a-backup-in-another-subscription-using-powershell"></a>Återställa en webbapp från en säkerhetskopia i en annan prenumeration med PowerShell
 
@@ -48,7 +48,7 @@ Det här skriptet använder följande kommandon. Varje kommando i tabellen länk
 
 | Kommando | Anteckningar |
 |---|---|
-| [Add-AzAccount](/powershell/module/az.profile/add-azaccount) | Lägger till ett autentiserat konto som ska användas för Azure Resource Manager-cmdlet-begäranden.  |
+| [Add-AzAccount](/powershell/module/az.accounts/connect-azaccount) | Lägger till ett autentiserat konto som ska användas för Azure Resource Manager-cmdlet-begäranden.  |
 | [Get-AzWebAppBackupList](/powershell/module/az.websites/get-azwebappbackuplist) | Hämtar en lista över säkerhetskopior för en webbapp. |
 | [New-AzWebApp](/powershell/module/az.websites/new-azwebapp) | Skapar en webbapp |
 | [Restore-AzWebAppBackup](/powershell/module/az.websites/restore-azwebappbackup) | Återställer en webbapp från en tidigare slutförd säkerhetskopia. |

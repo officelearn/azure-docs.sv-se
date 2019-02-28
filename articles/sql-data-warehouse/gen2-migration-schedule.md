@@ -10,12 +10,12 @@ ms.assetid: 04b05dea-c066-44a0-9751-0774eb84c689
 ms.service: sql-data-warehouse
 ms.topic: article
 ms.date: 02/09/2019
-ms.openlocfilehash: 8dbe282b919c988d5cb997a66914d81ce1981f88
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: d21731549c55f8e3fe90711838fcd21e6770eefe
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56592425"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56960708"
 ---
 # <a name="upgrade-your-data-warehouse-to-gen2"></a>Uppgradera ditt informationslager till Gen2
 Microsoft hjälper sänka på ingångsnivå kostnaden för att köra ett data warehouse kan hantera krävande frågor genom att lägga till lägre beräkningsnivåer för Azure SQL Data Warehouse till Läs hela tillkännagivandet om [lägre compute nivå av support för Gen2](https://azure.microsoft.com/blog/azure-sql-data-warehouse-gen2-now-supports-lower-compute-tiers/). Nytt erbjudande är redan tillgängligt i de regioner som anges i tabellen nedan. För regioner som stöds, kan befintliga Gen1 informationslager uppgraderas till Gen2 via antingen:
@@ -36,27 +36,29 @@ I följande tabell sammanfattas per region när lägre Gen2-Beräkningsnivån ä
 | Östra Kanada |\* |\* |
 | Centrala USA |Tillgängligt |Den 1 maj 2019 |
 | Östra Kina |\* |\* |
-| Norra Kina 1 |\* |\* |
+| Kina, östra 2 |\* |\* |
+| Norra Kina |\* |\* |
+| Kina, norra 2 |\* |\* |
 | Östasien |Tillgängligt |Den 1 maj 2019 |
-| Östra USA 1 |Tillgängligt |Den 16 mars 2019 |
+| Östra USA |Tillgängligt |Den 16 mars 2019 |
 | USA, östra 2 |Tillgängligt |Den 16 mars 2019 |
 | Frankrike, centrala |Den 1 mars 2019 |Den 1 maj 2019 |
 | Centrala Tyskland |\* |\* |
 | Centrala Indien |Tillgängligt |Den 1 maj 2019 |
-| Indien, södra Indien 1 |Den 1 mars 2019 |Den 15 juni 2019 |
+| Södra Indien |Den 1 mars 2019 |Den 15 juni 2019 |
 | Östra Japan |Tillgängligt |Den 1 maj 2019 |
 | Västra Japan |Tillgängligt |Den 15 juni 2019 |
 | Sydkorea, centrala |Den 1 mars 2019 |Den 1 maj 2019 |
-| Sydkorea 1 |Den 1 mars 2019 |Den 15 juni 2019 |
+| Sydkorea, södra |Den 1 mars 2019 |Den 15 juni 2019 |
 | Norra centrala USA |Den 1 mars 2019 |Den 15 juni 2019 |
 | Norra Europa |Tillgängligt |Den 16 mars 2019 |
 | Södra centrala USA |Tillgängligt |Den 1 maj 2019 |
 | Sydostasien |Tillgängligt |Den 16 mars 2019 |
 | Storbritannien, södra |Den 1 mars 2019 |Den 1 maj 2019 |
-| Storbritannien, västra 1 |Den 1 mars 2019 |Den 15 juni 2019 |
+| Storbritannien, västra |Den 1 mars 2019 |Den 15 juni 2019 |
 | Västra centrala USA |\* |\* |
 | Västra Europa |Tillgängligt |Den 16 mars 2019 |
-| Västra USA 1 |Den 1 mars 2019 |Den 15 juni 2019 |
+| Västra USA |Den 1 mars 2019 |Den 15 juni 2019 |
 | Västra USA 2 |Tillgängligt |Den 16 mars 2019 |
 
 ## <a name="automatic-upgrade-process"></a>Automatisk uppgraderingsprocessen

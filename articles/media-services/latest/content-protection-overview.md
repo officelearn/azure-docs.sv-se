@@ -11,15 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/20/2019
+ms.date: 02/26/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: e515f7c0587e8bbcba10bcd2d2a726c16401bfbd
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 6fc7da067e5680af0d4e3f07c5e87be2e9592f3f
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56889791"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56986047"
 ---
 # <a name="content-protection-overview"></a>Content protection-översikt
 
@@ -31,7 +31,7 @@ Följande bild illustrerar arbetsflödet för Media Services-content protection:
 
 &#42;*dynamisk kryptering stöder AES-128 ”clear key”, CBCS och CENC. Mer information finns i supportmatrisen [här](#streaming-protocols-and-encryption-types).*
 
-Den här artikeln beskriver begrepp och termer som är relevanta för att förstå innehållsskydd med Media Services. Artikeln har avsnittet vanliga frågor och svar också och innehåller länkar till artiklar som visar hur du skyddar innehållet. 
+Den här artikeln beskriver begrepp och termer som är relevanta för att förstå innehållsskydd med Media Services.
 
 ## <a name="main-components-of-a-content-protection-system"></a>Huvudkomponenterna i ett system för innehållsskydd
 
@@ -43,20 +43,23 @@ För att slutföra utformningen ”content protection” system/program, måste 
   
   I exempel visas hur du:
 
-  1. Skapa och konfigurera ContentKeyPolicies.
+  1. Skapa och konfigurera [Innehållsprinciper nyckeln](https://docs.microsoft.com/rest/api/media/contentkeypolicies).
 
     * Definiera auktorisering för leverans av licens, att ange logik för auktorisering baserat på anspråk i JWT.
     * Konfigurera DRM kryptering genom att ange innehållsnyckeln.
-    * Konfigurera [PlayReady](playready-license-template-overview.md), [Widevine](widevine-license-template-overview.md), och [FairPlay](fairplay-license-overview.md) licenser. Mallarna kan du konfigurera rättigheter och behörigheter för var och en av de använda DRM: er.
+    * Konfigurera [PlayReady](playready-license-template-overview.md), [Widevine](widevine-license-template-overview.md), och/eller [FairPlay](fairplay-license-overview.md) licenser. Mallarna kan du konfigurera rättigheter och behörigheter för var och en av de använda DRM: er.
 
         ```
         ContentKeyPolicyPlayReadyConfiguration playReadyConfig = ConfigurePlayReadyLicenseTemplate();
         ContentKeyPolicyWidevineConfiguration widevineConfig = ConfigureWidevineLicenseTempate();
         ContentKeyPolicyFairPlayConfiguration fairPlayConfig = ConfigureFairPlayPolicyOptions();
         ```
-  2. Skapa en StreamingLocator som är konfigurerad för att strömma en krypterad tillgång. 
-
-    Du kan till exempel ange StreamingLocator.StreamingPolicyName till principen ”Predefined_MultiDrmCencStreaming”. Den här principen indikerar att du vill att två innehållsnycklar (kuvert och CENC) ska skapas och ställas in för positioneraren. Krypteringarna för kuvert, PlayReady och Widevine tillämpas därför (nyckeln levereras till uppspelningsklienten utifrån de konfigurerade DRM-licenserna). Om du dessutom vill kryptera strömmen med CBCS (FairPlay) använder du ”Predefined_MultiDrmStreaming”.
+  2. Skapa en [Strömningspositionerare](https://docs.microsoft.com/rest/api/media/streaminglocators) som är konfigurerad för att strömma krypterat tillgången. 
+  
+    Den **Strömningspositionerare** måste vara associerad med [Streaming principen] (https://docs.microsoft.com/rest/api/media/streamingpolicies). I det här exemplet anger vi StreamingLocator.StreamingPolicyName till principen ”Predefined_MultiDrmCencStreaming”. Den här principen anger att vi vill för två nycklar (kuvert och CENC) för att hämta genereras och ange på positionerare. Krypteringarna för kuvert, PlayReady och Widevine tillämpas därför (nyckeln levereras till uppspelningsklienten utifrån de konfigurerade DRM-licenserna). Om du dessutom vill kryptera strömmen med CBCS (FairPlay) använder du ”Predefined_MultiDrmStreaming”.
+    
+    Eftersom vi vill kryptera videon i **innehåll nyckel princip** att vi tidigare konfigurerade har också associeras med den **Strömningspositionerare**. 
+    
   3. Skapa en test-token.
 
     Den **GetTokenAsync** metoden visar hur du skapar ett test-token.
@@ -105,18 +108,49 @@ Du kan använda Media Services för att leverera ditt innehåll dynamiskt krypte
 |Smooth Streaming|fMP4|AES|
 ||fMP4 | CENC (PlayReady) |
 
-## <a name="dynamic-encryption"></a>Dynamisk kryptering
+## <a name="aes-128-clear-key-vs-drm"></a>Rensa viktiga jämfört med AES-128 DRM
 
-I Media Services v3, en innehållsnyckel är associerad med StreamingLocator (se [det här exemplet](protect-with-aes128.md)). Om du använder Media Services-nyckelleveranstjänst, bör du automatiskt generera innehållsnyckeln. Du bör skapa innehållsnyckeln själv om du använder du egna nyckelleveranstjänst, eller om du behöver hantera ett scenario med hög tillgänglighet, där du måste ha samma innehållsnyckeln i två datacenter.
+Kunder undrar ofta om de ska använda AES-kryptering eller ett DRM-system. Den viktigaste skillnaden mellan de två systemen är att med AES-kryptering innehållsnyckeln skickas till klienten via TLS så att nyckeln är krypterad under överföringen men utan ytterligare kryptering (”i klartext”). Därför kan nås av klientspelaren den nyckel som används för dekryptering av innehållet och kan visas i en nätverksspårning på klienten i oformaterad text. Rensa key AES-128-kryptering är lämplig för användningsfall där visningsprogrammet är en betrodd part (till exempel kryptering företagets videor som distribueras inom företaget kan ses av anställda).
+
+DRM-system som PlayReady, Widevine och FairPlay får du en extra nivå av kryptering på den nyckel som används för dekryptering av innehållet jämfört med AES-128-klartextnyckel. Innehållsnyckeln krypteras till en nyckel som skyddas av DRM-körningen på ytterligare till valfri nivå transportkryptering som tillhandahålls av TLS. Dessutom hanteras dekrypteringen i en säker miljö på nivån operativsystemet där det är svårare för en obehörig användare för angrepp. DRM rekommenderas för användningsfall där visningsprogrammet inte kanske är en betrodd part och du behöver högsta säkerhetsnivån.
+
+## <a name="dynamic-encryption-and-key-delivery-service"></a>Dynamisk kryptering och nyckelleveranstjänst
+
+I Media Services v3, en innehållsnyckel är associerad med Strömningspositionerare (se [det här exemplet](protect-with-aes128.md)). Om du använder Media Services-nyckelleveranstjänst, kan du låta Azure Media Services generera innehållsnyckeln åt dig. Du bör skapa innehållsnyckeln själv om du använder du egna nyckelleveranstjänst, eller om du behöver hantera ett scenario med hög tillgänglighet, där du måste ha samma innehållsnyckeln i två datacenter.
 
 När en dataströmmen har begärts av en spelare, använder Media Services den angivna nyckeln för att dynamiskt kryptera ditt innehåll med klartextnyckel för AES eller DRM-kryptering. Om du vill dekryptera dataströmmen begär spelaren nyckeln från Media Services nyckelleveranstjänst eller nyckelleveranstjänst som du har angett. När du beslutar om användaren har behörighet att hämta nyckel måste utvärderar tjänsten innehåll viktiga principen som du angav för nyckeln.
 
-## <a name="aes-128-clear-key-vs-drm"></a>Rensa viktiga jämfört med AES-128 DRM
+Media Services tillhandahåller en nyckelleveranstjänst för att leverera DRM (PlayReady, Widevine, FairPlay)-licenser och AES-nycklar till auktoriserade klienter. Du kan använda REST-API eller ett Media Services-klientbibliotek för att konfigurera principer för autentisering och auktorisering för dina licenser och nycklar.
 
-Kunder undrar ofta om de ska använda AES-kryptering eller ett DRM-system. Den viktigaste skillnaden mellan de två systemen är det att innehållsnyckeln skickas till klienten i ett okrypterat format (”i klartext”) med AES-kryptering. Därför kan den nyckel som används för att kryptera innehållet visas i en nätverksspårning på klienten i oformaterad text. Rensa key AES-128-kryptering är lämplig för användningsfall där visningsprogrammet är en betrodd part (till exempel kryptering företagets videor som distribueras inom företaget kan ses av anställda).
+### <a name="custom-key-and-license-acquisition-url"></a>Anpassad URL för anskaffning av nyckel och licens
 
-Rensa nyckelkryptering PlayReady, Widevine och FairPlay får du en högre nivå av kryptering jämfört med att AES-128. Innehållsnyckeln skickas i ett krypterat format. Dessutom hanteras dekrypteringen i en säker miljö på nivån operativsystemet där det är svårare för en obehörig användare för angrepp. DRM rekommenderas för användningsfall där visningsprogrammet inte kanske är en betrodd part och du behöver högsta säkerhetsnivån.
+Använd följande mallar om du vill ange en annan nyckel och licens för video-on-demand (inte Media Services). De två replaceable fälten i mallarna finns det så att du kan dela din strömmande princip över många tillgångar istället för att skapa en princip för strömning per tillgång. 
 
+* EnvelopeEncryption.CustomKeyAcquisitionUrlTemplate - mall för URL: en för anpassad tjänst som levererar nycklar till slutanvändarens spelare. Krävs inte när du använder Azure Media Services för att utfärda nycklar. Mallen har stöd för replaceable token som uppdaterar tjänsten vid körning med värdet som är specifika för begäran.  Token värden som för närvarande stöds är {AlternativeMediaId}, som ersätts med värdet för StreamingLocatorId.AlternativeMediaId och {ContentKeyId}, som ersätts med värdet för identifieraren för den nyckel som begärts.
+* StreamingPolicyPlayReadyConfiguration.CustomLicenseAcquisitionUrlTemplate - mall för URL: en för anpassad tjänst som levererar licenser till slutanvändare spelare. Krävs inte när du använder Azure Media Services för att utfärda licenser. Mallen har stöd för replaceable token som uppdaterar tjänsten vid körning med värdet som är specifika för begäran. Token värden som för närvarande stöds är {AlternativeMediaId}, som ersätts med värdet för StreamingLocatorId.AlternativeMediaId och {ContentKeyId}, som ersätts med värdet för identifieraren för den nyckel som begärts. 
+* StreamingPolicyWidevineConfiguration.CustomLicenseAcquisitionUrlTemplate - Same as above, only for Widevine. 
+* StreamingPolicyFairPlayConfiguration.CustomLicenseAcquisitionUrlTemplate - samma som ovan, endast för FairPlay.  
+
+Exempel:
+
+```csharp
+streamingPolicy.EnvelopEncryption.customKeyAcquisitionUrlTemplate = "https://mykeyserver.hostname.com/envelopekey/{AlternativeMediaId}/{ContentKeyId}";
+```
+
+Den `ContentKeyId` har ett värde för nyckeln som begärs och `AlternativeMediaId` kan användas om du vill mappa begäran till en entitet på din sida. Till exempel den `AlternativeMediaId` kan användas för att hjälpa dig att granska behörigheter.
+
+REST-exempel som använder anpassad nyckel och licens förvärv URL: er finns i [Streaming principer - skapa](https://docs.microsoft.com/rest/api/media/streamingpolicies/create)
+
+## <a name="control-content-access"></a>Åtkomst till innehåll-kontroll
+
+Du kan styra vem som har åtkomst till ditt innehåll genom att konfigurera principen för content-nyckel. Media Services stöder flera olika sätt att auktorisera användare som begär nycklar. Du måste konfigurera innehåll viktiga principen. Klienten (spelaren) måste uppfylla principen innan nyckeln kan levereras till klienten. Innehåll viktiga innehållsnyckeln kan ha **öppna** eller **token** begränsning. 
+
+Med en tokenbegränsade innehåll viktiga princip skickas innehållsnyckeln endast till en klient som anger en giltig JSON Web Token (JWT) eller simple webbtoken (SWT) i nyckel/licens-begäran. Denna token måste utfärdas av en säkerhetstokentjänst (STS). Du kan använda Azure Active Directory som en STS eller distribuera en anpassad STS. STS måste konfigureras för att skapa en token som signerats med de angivna nyckeln och problemet anspråk som du angav i tokenbegränsningar konfigurationen. Media Services-nyckelleveranstjänst returnerar den begärda nyckel/licensen till klienten om token är giltig och att anspråken i token matchar de som konfigurerats för nyckel/licens.
+
+När du konfigurerar den tokenbegränsade principen måste du ange primär verifieringsnyckel, utfärdare och målgrupp parametrar. Den primära Verifieringsnyckeln innehåller den nyckel som token signerats med. Utfärdaren är den säkra tokentjänst som utfärdar en token. Publik, vilket ibland kallas omfattning, beskriver syftet med denna token eller resursen token auktoriserar åtkomst till. Media Services-nyckelleveranstjänst verifierar att dessa värden i token matchar värden i mallen.
+
+Kunder använder ofta en anpassad STS för att inkludera anpassade anspråk i token att välja mellan olika ContentKeyPolicyOptions med olika DRM-licens parametrar (en prenumerationslicens jämfört med en hyres-licens) eller att inkludera ett anspråk som representerar innehållsnyckeln identifierare för den nyckel som token ger åtkomst till.
+ 
 ## <a name="storage-side-encryption"></a>Kryptering för lagring på serversidan
 
 Resurserna som ska krypteras av kryptering för lagring på serversidan för att skydda dina tillgångar i vila. I följande tabell visar hur kryptering för lagring på serversidan fungerar i Media Services v3:
@@ -129,23 +163,10 @@ Resurserna som ska krypteras av kryptering för lagring på serversidan för att
 
 <sup>1</sup> i Media Services v3 lagringskryptering (AES-256-kryptering) är bara stöds för bakåtkompatibilitet när dina tillgångar skapades med Media Services v2. Vilket innebär att v3 fungerar med befintliga lagring krypteras tillgångar, men tillåter inte skapandet av nya.
 
-## <a name="licenses-and-keys-delivery-service"></a>Licenser och nycklar för video-on-demand
-
-Media Services tillhandahåller en nyckelleveranstjänst för att leverera DRM (PlayReady, Widevine, FairPlay)-licenser och AES-nycklar till auktoriserade klienter. Du kan använda REST-API eller ett Media Services-klientbibliotek för att konfigurera principer för autentisering och auktorisering för dina licenser och nycklar.
-
-## <a name="control-content-access"></a>Åtkomst till innehåll-kontroll
-
-Du kan styra vem som har åtkomst till ditt innehåll genom att konfigurera principen för content-nyckel. Media Services stöder flera olika sätt att auktorisera användare som begär nycklar. Du måste konfigurera innehåll viktiga principen. Klienten (spelaren) måste uppfylla principen innan nyckeln kan levereras till klienten. Innehåll viktiga innehållsnyckeln kan ha **öppna** eller **token** begränsning. 
-
-Med en tokenbegränsade innehåll viktiga princip skickas innehållsnyckeln endast till en klient som anger en giltig JSON Web Token (JWT) eller simple webbtoken (SWT) i nyckel/licens-begäran. Denna token måste utfärdas av en säkerhetstokentjänst (STS). Du kan använda Azure Active Directory som en STS eller distribuera en anpassad STS. STS måste konfigureras för att skapa en token som signerats med de angivna nyckeln och problemet anspråk som du angav i tokenbegränsningar konfigurationen. Media Services-nyckelleveranstjänst returnerar den begärda nyckel/licensen till klienten om token är giltig och att anspråken i token matchar de som konfigurerats för nyckel/licens.
-
-När du konfigurerar den tokenbegränsade principen måste du ange primär verifieringsnyckel, utfärdare och målgrupp parametrar. Den primära Verifieringsnyckeln innehåller den nyckel som token signerats med. Utfärdaren är den säkra tokentjänst som utfärdar en token. Publik, vilket ibland kallas omfattning, beskriver syftet med denna token eller resursen token auktoriserar åtkomst till. Media Services-nyckelleveranstjänst verifierar att dessa värden i token matchar värden i mallen.
-
 ## <a name="next-steps"></a>Nästa steg
 
 * [Skydda med AES-kryptering](protect-with-aes128.md)
 * [Skydda med DRM](protect-with-drm.md)
 * [Utforma multi-drm innehållsskydd system med åtkomstkontroll](design-multi-drm-system-with-access-control.md)
 * [Vanliga frågor och svar](frequently-asked-questions.md)
-
 

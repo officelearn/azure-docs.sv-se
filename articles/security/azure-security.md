@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 74bdcc831f19031162d004e1ba98c0cfc258ce4b
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: c66f0e67b09dab15431a8c7c10db1c820038dea6
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56879430"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56984993"
 ---
 # <a name="introduction-to-azure-security"></a>Introduktion till Azure-säkerhet
 ## <a name="overview"></a>Översikt
@@ -116,7 +116,7 @@ En av de enklaste sätten att komma igång med testa efter säkerhetsrisker på 
 Om du vill utföra egna test för penetrationstester eller vill använda en annan skanner suite eller providern, måste du följa den [Azure penetrationstest godkännandeprocess](https://docs.microsoft.com/azure/security/azure-security-pen-testing ) och hämta förhandsgodkännande för att utföra önskade penetrationstester testerna.
 
 ### <a name="web-application-firewall"></a>Brandvägg för webbaserade program
-Brandväggen för webbaserade program (WAF) i [Azure Application Gateway](https://azure.microsoft.com/services/application-gateway/) skyddar webbprogram från vanliga webbaserade attacker som SQL injection, cross-site skriptattacker och sessionskapning. Den levereras förkonfigurerad med skydd mot hot som identifieras av den [OWASP Open Web Application Security Project () som de översta 10 vanligaste sårbarheterna](https://msdn.microsoft.com/library/).
+Brandväggen för webbaserade program (WAF) i [Azure Application Gateway](https://azure.microsoft.com/services/application-gateway/) skyddar webbprogram från vanliga webbaserade attacker som SQL injection, cross-site skriptattacker och sessionskapning. Den levereras förkonfigurerad med skydd mot hot som identifieras av den [OWASP Open Web Application Security Project () som de översta 10 vanligaste sårbarheterna](https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project).
 
 ### <a name="authentication-and-authorization-in-azure-app-service"></a>Autentisering och auktorisering i Azure App Service
 [App Service-autentisering / auktorisering](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization) är en funktion som gör det möjligt för programmet att logga in användare så att du inte behöver ändra koden på app-serverdel. Det ger ett enkelt sätt att skydda ditt program och arbeta med data per användare.

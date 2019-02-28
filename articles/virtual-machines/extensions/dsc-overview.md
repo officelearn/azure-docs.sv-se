@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 05/02/2018
 ms.author: robreed
-ms.openlocfilehash: 2bdd3cd05f78503962461abfcc85320c25350e69
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: a002c4ff843ad1e0bc48d490132d7499526f4d7b
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56593139"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56958770"
 ---
 # <a name="introduction-to-the-azure-desired-state-configuration-extension-handler"></a>Introduktion till Azure Desired State Configuration-tilläggshanterare
 
@@ -65,6 +65,25 @@ Installera WMF kräver en omstart. Efter omstart tillägget laddar ned .zip-file
 ### <a name="default-configuration-script"></a>Standard konfigurationsskript
 
 Azure DSC-tillägget innehåller ett standard-konfigurationsskript som har avsedd att vara används när du publicerar en virtuell dator till Azure Automation DSC-tjänsten. Skriptparametrarna ligger i linje med konfigurerbara egenskaper för [lokal konfigurationshanterare](/powershell/dsc/metaconfig). Skriptparametrar Se [standard konfigurationsskript](dsc-template.md#default-configuration-script) i [Desired State Configuration-tillägget med Azure Resource Manager-mallar](dsc-template.md). Fullständigt skript finns i den [Azure snabbstarts-mall i GitHub](https://github.com/Azure/azure-quickstart-templates/blob/master/dsc-extension-azure-automation-pullserver/UpdateLCMforAAPull.zip?raw=true).
+
+## <a name="information-for-registering-with-azure-automation-state-configuration-dsc-service"></a>Information för att registrera med tjänsten Azure Automation tillstånd Configuration (DSC)
+
+När du använder DSC-tillägget för att registrera en nod med State Configuration-tjänsten, måste tre värden anges.
+
+- RegistrationUrl - https-adress för Azure Automation-kontot
+- RegistrationKey – en delad hemlighet som används för att registrera noder med tjänsten
+- NodeConfigurationName - namnet på den noden Configuration (MOF) att hämta från tjänsten för att konfigurera serverrollen
+
+Den här informationen kan ses i den [Azure-portalen](../../automation/automation-dsc-onboarding.md#azure-portal) eller så kan du använda PowerShell.
+
+```PowerShell
+(Get-AzAutomationRegistrationInfo -ResourceGroupName <resourcegroupname> -AutomationAccountName <accountname>).Endpoint
+(Get-AzAutomationRegistrationInfo -ResourceGroupName <resourcegroupname> -AutomationAccountName <accountname>).PrimaryKey
+```
+
+Om nodkonfiguration namn, kontrollera att du använder namnet på den *nodkonfiguration* och inte konfigurationen.
+En konfiguration har definierats i ett skript som ska användas för [att kompilera nodkonfiguration (MOF-fil)](https://docs.microsoft.com/en-us/azure/automation/automation-dsc-compile).
+Namnet kommer alltid att konfigurationen följt av en punkt `.` och antingen `localhost` eller namnet på en specifik dator.
 
 ## <a name="dsc-extension-in-resource-manager-templates"></a>DSC-tillägget i Resource Manager-mallar
 

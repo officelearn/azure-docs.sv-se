@@ -10,16 +10,16 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 01/25/2019
+ms.date: 02/26/2019
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: seodec18
-ms.openlocfilehash: 7371808db8d40948f501b051692172fd6a84e2ac
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 1390a3be20dd1fc66bb04939f9ce41139db3cb2e
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56270223"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56873278"
 ---
 # <a name="tutorial-integrate-azure-key-vault-in-resource-manager-template-deployment"></a>Självstudie: Integrera Azure Key Vault vid malldistribution i Resource Manager
 
@@ -66,15 +66,23 @@ Mallen behöver ditt användarobjekts-ID för Azure AD för att konfigurera beh�
 
 1. Kör följande kommando för Azure PowerShell eller Azure CLI.  
 
+    # <a name="clitabcli"></a>[CLI](#tab/CLI)
     ```azurecli-interactive
     echo "Enter your email address that is associated with your Azure subscription):" &&
     read upn &&
     az ad user show --upn-or-object-id $upn --query "objectId" &&
-    ```
+    ```   
+    # <a name="powershelltabpowershell"></a>[PowerShell](#tab/PowerShell)
     ```azurepowershell-interactive
-    $upn = Read-Host -Prompt "Input your user principal name (email address) used to sign in to Azure"
+    $upn = Read-Host -Prompt "Enter your user principal name (email address) used to sign in to Azure"
     (Get-AzADUser -UserPrincipalName $upn).Id
     ```
+    eller
+    ```azurepowershell-interactive
+    $displayName = Read-Host -Prompt "Enter your user display name (i.e. John Dole, see the upper right corner of the Azure portal)"
+    (Get-AzADUser -DisplayName $displayName).Id
+    ```
+    ---
 2. Anteckna objekt-ID:t. Du behöver det senare i självstudien.
 
 Så här skapar du ett nyckelvalv:
@@ -187,12 +195,9 @@ $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
 New-AzResourceGroup -Name $resourceGroupName -Location $location
 New-AzResourceGroupDeployment `
     -ResourceGroupName $resourceGroupName `
-    -TemplateFile azuredeploy.json `
-    -TemplateParameterFile azuredeploy.parameters.json
+    -TemplateFile "$HOME/azuredeploy.json" `
+    -TemplateParameterFile "$HOME/azuredeploy.parameters.json"
 ```
-
-> [!NOTE]
-> Det finns ett I/O-filproblem om Azure PowerShell används i Cloud Shell.  Felmeddelandet är *Cannot retrieve the dynamic parameters for the cmdlet. Cannot find path 'Azure:/azuredeploy.json' because it does not exist.* (Det går inte att hämta de dynamiska parametrarna för cmdleten. Det går inte att hitta sökvägen ”Azure:/azuredeploy.json” eftersom den inte finns.)  En tillfällig lösning är inte att ta med växlarna **-TemplateFile** och **TemplateParameterFile** i kommandot `New-AzResourceGroupDeploy`. Kommandot uppmanar dig att ange namnet på filen.
 
 När du distribuerar mallen använder du samma resursgrupp som nyckelvalvet. Det gör enklare när du rensar bland resurserna. Du behöver bara att ta bort en resursgrupp istället för två.
 

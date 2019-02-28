@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: e76c8ae671333bcbf50995c4bd9345f8434fbea2
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 14f1a92f701eaedd98b825316ebf213f7c144920
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55745970"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56959467"
 ---
 # <a name="monitor-resource-consumption-and-query-activity-in-azure-search"></a>Övervaka resource förbrukning och fråga i Azure Search
 
@@ -61,11 +61,11 @@ I följande tabell jämförs alternativen för att lagra loggar och lägger till
 | Resurs | Används för |
 |----------|----------|
 | [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) | Loggade händelser och fråga mått baserade på något scheman nedan, med användarhändelser i din app. Det här är den enda lösningen som tar användaråtgärder eller signaler i beräkningen, mappning av händelser från användarinitierad sökning, till skillnad från filtrera begäranden som skickas av programkoden. Om du vill använda den här metoden, kopiera och klistra in instrumentation kod till källfilerna vägen begära information till Application Insights. Mer information finns i [Söktrafikanalys](search-traffic-analytics.md). |
-| [Log Analytics](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview) | Loggade händelser och fråga mått baserade på något scheman nedan. Händelser loggas till en arbetsyta i Log Analytics. Du kan köra frågor mot en arbetsyta som returnerar detaljerad information från loggen. Mer information finns i [Kom igång med Log Analytics](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-viewdata) |
+| [Azure Monitor-loggar](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview) | Loggade händelser och fråga mått baserade på något scheman nedan. Händelser loggas en Log Analytics-arbetsyta. Du kan köra frågor mot en arbetsyta som returnerar detaljerad information från loggen. Mer information finns i [Kom igång med Azure Monitor-loggar](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-viewdata) |
 | [Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) | Loggade händelser och fråga mått baserade på något scheman nedan. Händelser loggas på en blobbehållare och lagras i JSON-filer. Använda en JSON-redigerare för att visa innehållet i filen.|
 | [Händelsehubb](https://docs.microsoft.com/azure/event-hubs/) | Loggade händelser och mått i frågan, baserat på de scheman som beskrivs i den här artikeln. Välj det som ett alternativt samling tjänst för mycket stora loggar. |
 
-Log Analytics- och Blob storage är tillgängliga som en kostnadsfri, delad tjänst så att du kan prova utan kostnad för livslängden för dina Azure-prenumeration. Application Insights är kostnadsfritt att registrera och använda så länge application data ligger under vissa gränser (se den [sidan med priser](https://azure.microsoft.com/pricing/details/monitor/) information).
+Både Azure Monitor-loggar och Blob storage är tillgängliga som en kostnadsfri, delad tjänst så att du kan prova utan kostnad för livslängden för dina Azure-prenumeration. Application Insights är kostnadsfritt att registrera och använda så länge application data ligger under vissa gränser (se den [sidan med priser](https://azure.microsoft.com/pricing/details/monitor/) information).
 
 Nästa avsnitt vägleder dig genom stegen för att aktivera och använda Azure Blob storage för att samla in och komma åt loggdata som skapats av Azure Search-åtgärder.
 
@@ -81,7 +81,7 @@ I det här avsnittet lär du dig att använda Blob storage kan lagra loggade hä
 
    ![Aktivera övervakning](./media/search-monitor-usage/enable-monitoring.png "aktivera övervakning")
 
-3. Välj de data som du vill exportera: Loggar, mått eller båda. Du kan kopiera den till ett lagringskonto, skickar den till en event hub eller exportera den till Log Analytics.
+3. Välj de data som du vill exportera: Loggar, mått eller båda. Du kan kopiera den till ett lagringskonto, skickar den till en event hub eller exportera den till Azure Monitor-loggar.
 
    För arkivering till Blob storage, endast lagringskontot måste finnas. Behållare och blobbar skapas när loggdata exporteras.
 

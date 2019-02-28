@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: 73c94b79bb315c317d39ade704e2ee70a241a348
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 0bf7c335f552fee103118e57239bcd872e880edb
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54187753"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56984857"
 ---
 # <a name="using-azure-monitor-for-vms-preview-map-to-understand-application-components"></a>Med Azure Monitor för virtuella datorer (förhandsversion) kartan för att förstå programkomponenter
 Visa de identifierade programkomponenterna i Windows och Linux-datorer som körs i Azure som din miljö kan observeras på två sätt med Azure Monitor för virtuella datorer från en virtuell dator direkt eller i grupper med virtuella datorer från Azure Monitor. 
@@ -39,7 +39,7 @@ När du klickar på den virtuella datorn, den **egenskaper** fönstret utökas t
 
 ![Systemegenskaper på datorn](./media/vminsights-maps/properties-pane-01.png)
 
-På höger sida av fönstret, klicka på den **logghändelser** ikon för att växla fokus för att visa en lista över tabeller som samlats in data från den virtuella datorn har skickats till Log Analytics och är tillgänglig för frågor.  När du klickar på någon av de typer av poster i listan öppnas den **loggar** sidan för att visa resultaten för den typen med en förkonfigurerad fråga filtrerade mot specifik virtuell dator.  
+På höger sida av fönstret, klicka på den **logghändelser** ikon för att växla fokus för att visa en lista över tabeller som samlats in data från den virtuella datorn har skickats till Azure Monitor och är tillgänglig för frågor.  När du klickar på någon av de typer av poster i listan öppnas den **loggar** sidan för att visa resultaten för den typen med en förkonfigurerad fråga filtrerade mot specifik virtuell dator.  
 
 ![Log söklistan i egenskapsrutan](./media/vminsights-maps/properties-pane-logs-01.png)
 

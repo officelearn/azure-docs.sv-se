@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: 4da387abe24318a29472c11dffa7aac67192408c
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: a310851819f70d138a4980b1ab61891fb0b2c311
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46297439"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56959620"
 ---
 # <a name="security-in-azure-data-lake-storage-gen1"></a>Säkerhet i Azure Data Lake Storage Gen1
 Många företag utnyttjar stordata för affärsinsikter som hjälper dem att fatta smarta beslut. En organisation kan ha en komplex och reglerade miljö med ett ökande antal olika användare. Det är viktigt för företaget att se till att affärskritiska data lagras mer säkert med rätt nivå av åtkomst till enskilda användare. Azure Data Lake Storage Gen1 är utformad för att uppfylla dessa krav på säkerhet. I den här artikeln lär du dig om de säkerhetsfunktionerna i Data Lake Storage Gen1, inklusive:
 
-* Autentisering
+* Authentication
 * Auktorisering
 * Isolering av nätverk
 * Dataskydd
@@ -82,7 +82,7 @@ Data Lake Storage Gen1 innehåller också kryptering för data som lagras i kont
 
 För nyckelhantering har Data Lake Storage Gen1 två lägen för att hantera din huvudkrypteringsnycklar (Huvudkrypteringsnycklar), som krävs för att dekryptera data som lagras i Data Lake Storage Gen1. Du kan antingen låta Data Lake Storage Gen1 hantera Huvudkrypteringsnycklar åt dig, eller väljer att behålla ägarskapet för Huvudkrypteringsnycklar med hjälp av Azure Key Vault-kontot. Du kan ange läget för nyckelhantering när du skapar ett Data Lake Storage Gen1-konto. Mer information om hur du skapar en krypteringsrelaterad konfiguration finns i [Kom igång med Azure Data Lake Storage Gen1 med hjälp av Azure-portalen](data-lake-store-get-started-portal.md).
 
-## <a name="activity-and-diagnostic-logs"></a>Aktivitet och diagnostikloggar
+## <a name="activity-and-diagnostic-logs"></a>Aktivitets- och diagnostikloggar
 Du kan använda aktivitet eller diagnostikloggar, beroende på om du söker efter loggar för kontot datorhanteringsrelaterade aktiviteter eller data som är relaterade aktiviteter.
 
 * Kontot datorhanteringsrelaterade aktiviteter API: erna för Azure Resource Manager och exponeras i Azure-portalen via aktivitetsloggar.
@@ -98,7 +98,7 @@ Visa och välj de kolumner som du vill logga för granskningshistorik för konto
 Mer information om hur du arbetar med aktivitetsloggar finns [visa aktivitetsloggar till granska åtgärder på resurser](../azure-resource-manager/resource-group-audit.md).
 
 ### <a name="diagnostics-logs"></a>Diagnostikloggar
-Du kan aktivera granskning av data och Diagnostisk loggning i Azure portal och skicka dem till ett Azure Blob storage-konto, en event hub eller Log Analytics.
+Du kan aktivera granskning av data och Diagnostisk loggning i Azure portal och skicka dem till en Azure Blob storage-konto, en event hub eller Azure Monitor-loggar.
 
 ![Diagnostikloggar](./media/data-lake-store-security-overview/diagnostic-logs.png "diagnostikloggar")
 

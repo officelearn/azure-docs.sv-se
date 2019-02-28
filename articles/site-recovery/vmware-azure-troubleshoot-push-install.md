@@ -6,13 +6,13 @@ manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.author: ramamill
-ms.date: 02/07/2019
-ms.openlocfilehash: 3de5996f574bf076b856a4d0cf7e18d77b1a9e5d
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.date: 02/27/2019
+ms.openlocfilehash: 3b46ffe49aeb31aaf9040be038e8a9e83641ae51
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895694"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56984397"
 ---
 # <a name="troubleshoot-mobility-service-push-installation-issues"></a>Felsöka installationsproblem med Mobilitetstjänsten push
 
@@ -58,7 +58,7 @@ Om du vill ändra autentiseringsuppgifterna för valda användarkonto, följ ins
 
 ## <a name="insufficient-privileges-failure-errorid-95518"></a>Inte tillräcklig behörighet för fel (samtalsstatus: 95518)
 
-Om domänen förtroendet relationen upprättas mellan den primära domänen och arbetsstation misslyckas vid försök att logga in på källdatorn mobility agent-installationen att misslyckas med felet id 95518. Kontrollera därför att det användarkonto som används för att installera mobilitetsagenten har administrativ behörighet att logga in via primära domänen för källdatorn.
+Om domänen förtroendet relationen upprättas mellan den primära domänen och arbetsstation misslyckas vid försök att logga in på källdatorn mobility agent-installationen att misslyckas med felet ID 95518. Kontrollera därför att det användarkonto som används för att installera mobilitetsagenten har administrativ behörighet att logga in via primära domänen för källdatorn.
 
 Om du vill ändra autentiseringsuppgifterna för valda användarkonto, följ instruktionerna [här](vmware-azure-manage-configuration-server.md#modify-credentials-for-mobility-service-installation).
 
@@ -80,7 +80,7 @@ Så, ändra autentiseringsuppgifterna valt genom att följa instruktionerna [hä
 
 ### <a name="logon-servers-are-not-available-on-the-source-machine-errorid-95521"></a>Inloggningsservrar finns inte på källdatorn (samtalsstatus: 95521)
 
-Det här felet uppstår när inloggningsservrar inte finns på källdatorn. Otillgänglig inloggningsservrar leder till fel i inloggningsbegäran och därmed mobilitetsagenten kan inte installeras. Se till att inloggningsservrar är tillgängliga på källdatorn och starta tjänsten Logon för lyckad inloggning. Detaljerade anvisningar finns klickar du på [här](https://support.microsoft.com/en-in/help/139410/err-msg-there-are-currently-no-logon-servers-available).
+Det här felet uppstår när inloggningsservrar inte finns på källdatorn. Otillgänglig inloggningsservrar leder till fel i inloggningsbegäran och därmed mobilitetsagenten kan inte installeras. Se till att inloggningsservrar är tillgängliga på källdatorn och starta tjänsten Logon för lyckad inloggning. Detaljerade anvisningar finns i KB [139410](https://support.microsoft.com/en-in/help/139410/err-msg-there-are-currently-no-logon-servers-available) felmeddelande: Det finns för närvarande ingen inloggning servrar.
 
 ### <a name="logon-service-isnt-running-on-the-source-machine-errorid-95522"></a>Logon-tjänsten inte körs på källdatorn (samtalsstatus: 95522)
 
@@ -122,9 +122,9 @@ För **windows 2008 R2 och tidigare versioner**,
 * Aktivera fildelning med en Grupprincip
   * Gå till Start, Skriv gpmc.msc och söka.
   * I navigeringsfönstret öppnar du följande mappar: Lokal datorprincip, Användarkonfiguration, administrativa mallar, Windows-komponenter och nätverksdelning.
-  * I informationsfönstret dubbelklickar du på **hindra användare från att dela filer i profilen för deras**. Om du vill inaktivera grupprincipinställningen och aktivera användarens möjlighet att dela filer, klickar du på inaktiverad. Klicka på OK för att spara ändringarna. Mer information klickar du på [här](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754359(v=ws.10)).
+  * I informationsfönstret dubbelklickar du på **hindra användare från att dela filer i profilen för deras**. Om du vill inaktivera grupprincipinställningen och aktivera användarens möjlighet att dela filer, klickar du på inaktiverad. Klicka på OK för att spara ändringarna. Mer information finns i [aktivera eller inaktivera fildelning med Grupprincip](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754359(v=ws.10)).
 
-För **senare versioner**, följer du [här](vmware-azure-install-mobility-service.md) att aktivera fil- och skrivardelning.
+För **senare versioner**, följ instruktionerna i [installera mobilitetstjänsten för haveriberedskap för virtuella VMware-datorer och fysiska servrar](vmware-azure-install-mobility-service.md) att aktivera fil- och skrivardelning.
 
 ## <a name="windows-management-instrumentation-wmi-configuration-check-error-code-95103"></a>Konfigurationskontroll för Windows Management Instrumentation (WMI) (felkod: 95103)
 
@@ -191,7 +191,7 @@ blkid /dev/sda2
 /dev/sda2: UUID="62927e85-f7ba-40bc-9993-cc1feeb191e4" TYPE="ext3" 
 ```
 
-2. Ersätt namnet på enheten med dess UUID i format som ”rot = UUID =<UUID>”. Om vi ersätta enhetsnamn med UUID för roten och återuppta parameter som nämns ovan i filerna till exempel ”/ boot/grub2/grub.cfg” ”, / boot/grub2/grub.cfg” eller ”/ etc/standard/grub: sedan raderna i filerna kan se ut. <br>
+2. Ersätt namnet på enheten med dess UUID i format som ”rot = UUID =<UUID>”. Om vi ersätta enhetsnamn med UUID för roten och återuppta parameter som nämns ovan i filerna till exempel ”/ boot/grub2/grub.cfg” ”, / boot/grub2/grub.cfg” eller ”/ etc/standard/grub: sedan raderna i filerna ska se ut. <br>
 *Kernel /boot/vmlinuz-3.0.101-63-default **rot = UUID = 62927e85-f7ba-40bc-9993-cc1feeb191e4** **återuppta = UUID = 6f614b44-433b-431b-9ca1-4dd2f6f74f6b** stänker = tyst crashkernel = 256M-:128M showopts vga = 0x314*
 3. Starta om skyddet igen
 
@@ -199,10 +199,10 @@ blkid /dev/sda2
 
 Site Recovery-mobilitetstjänsten har flera komponenter, varav kallas filter-drivrutinen. Filterdrivrutinen hämtar läsas in i systemminnet endast vid tiden för omstart av systemet. Det innebär att filtret drivrutinen korrigeringar bara kan realiseras när ett nytt filter-drivrutinen har lästs in; vilket kan inträffa endast vid tidpunkten för omstart av systemet.
 
-**Observera** som detta är en varning och befintliga replikeringen fungerar även efter den nya agent uppdateringen. Du kan välja att starta om när du vill få fördelarna med nya filterdrivrutinen men om du inte starta om än även gamla filter-drivrutinen är fortfarande om hur du arbetar. I så fall efter en uppdatering utan omstart, förutom filterdrivrutinen, **fördelarna med andra förbättringar och korrigeringar i mobilitetstjänsten hämtar insåg**. Så det alternativ som rekommenderas, det inte är obligatoriskt att starta om efter varje uppgradering. Information om när en omstart är obligatorisk, klickar på [här](https://aka.ms/v2a_asr_reboot).
+**Observera** som detta är en varning och befintliga replikeringen fungerar även efter den nya agent uppdateringen. Du kan välja att starta om när du vill få fördelarna med nya filterdrivrutinen men om du inte starta om de gamla filter-drivrutinen är fortfarande om hur du arbetar. I så fall efter en uppdatering utan omstart, förutom filterdrivrutinen, **fördelarna med andra förbättringar och korrigeringar i mobilitetstjänsten hämtar insåg**. Så det alternativ som rekommenderas, det inte är obligatoriskt att starta om efter varje uppgradering. Information om när en omstart är obligatorisk, ange den [omstart av källdatorn efter mobility agentuppgraderingen ](https://aka.ms/v2a_asr_reboot) avsnittet i tjänstuppdateringar i Azure Site Recovery.
 
 > [!TIP]
->Bästa metoder för schemaläggning uppgraderingar under underhållsperiod finns [här](https://aka.ms/v2a_asr_upgrade_practice).
+>Bästa metoder för schemaläggning uppgraderingar under underhållsperiod finns den [stöd för senaste OS/kernel-versionerna](https://aka.ms/v2a_asr_upgrade_practice) i tjänstuppdateringar i Azure Site Recovery.
 
 ## <a name="lvm-support-from-920-version"></a>LVM stöd från 9.20 version
 
@@ -220,7 +220,7 @@ Installera VSS är en del av Mobility agentinstallation. Den här tjänsten anv�
 
 ### <a name="vss-error--2147023170-0x800706be---exit-code-511"></a>Fel i VSS-2147023170 [0x800706BE] - slutkoden 511
 
-Det här problemet är främst visas när ett antivirusprogram hindrar drift för Azure Site Recovery-tjänster. Att lösa problemet,
+Det här problemet är främst visas när ett antivirusprogram hindrar drift för Azure Site Recovery-tjänster. Gör så här för att lösa problemet:
 
 1. Undanta alla mappar som tidigare nämnts [här](vmware-azure-set-up-source.md#azure-site-recovery-folder-exclusions-from-antivirus-program).
 2. Följ riktlinjerna som publicerats av antivirus-leverantören att avblockera registreringen av DLL-filen i Windows.
@@ -250,6 +250,97 @@ Det här felet uppstår när användarkontot som används för installation inte
 Försök att installera VSS-provider-tjänsten manuellt på källdatorn under installationen genom att köra följande kommandorad
 
 `C:\Program Files (x86)\Microsoft Azure Site Recovery\agent>"C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\InMageVSSProvider_Install.cmd"`
+
+
+
+## <a name="vss-error---0x8004e00f"></a>VSS error - 0x8004E00F
+
+Det här felet uppstår vanligen under installationen av mobilitetsagenten på grund av problem i DCOM och DCOM är i kritiskt tillstånd.
+
+Använd följande procedur för att fastställa orsaken till felet.
+
+**Kontrollera installationsloggarna**
+
+1. Öppna installationsloggen finns på c:\ProgramData\ASRSetupLogs\ASRUnifiedAgentInstaller.log.
+2. Förekomst av följande fel anger det här problemet:
+
+    Avregistrera det befintliga programmet...  Skapa objektet catalogue hämta samling av program 
+
+    FEL:
+
+    - Felkod:-2147164145 [0x8004E00F]
+    - Slutkod: 802
+
+Att lösa problemet:
+
+Kontakta den [Microsoft Windows platform-teamet](https://aka.ms/Windows_Support) att få hjälp med att lösa problemet DCOM.
+
+När DCOM problemet är löst, installera om Azure Site Recovery VSS-providern manuellt med hjälp av följande kommando:
+ 
+**C:\Program filer (x86) \Microsoft Azure Site Recovery\agent > ”C:\Program filer (x86) \Microsoft Azure Site Recovery\agent\InMageVSSProvider_Install.cmd**
+  
+Om programkonsekvens inte är kritiska för Disaster Recovery-krav, kan du kringgå VSS-leverantören installationen. 
+
+Kringgå Azure Site Recovery VSS Provider-installationen och installera Azure Site Recovery VSS Provider efter installationen manuellt:
+
+1. Installera mobilitetstjänsten. 
+> [!Note]
+> 
+> Installationen misslyckas vid ”Post installera configuration” steg. 
+2. Kringgå VSS-installationen:
+   1. Öppna Azure Site Recovery-Mobilitetstjänsten installationskatalogen finns på:
+   
+    C:\Program filer (x86) \Microsoft Azure Site Recovery\agent
+   2.  Ändra installationsskript för Azure Site Recovery VSS Provider **nMageVSSProvider_Install** och **InMageVSSProvider_Uninstall.cmd** ska alltid lyckas genom att lägga till följande rader:
+    
+    ```     
+    rem @echo off
+    setlocal
+    exit /B 0
+    ```
+
+3. Kör Mobilitetsagenten installationen manuellt. 
+4. När installationen lyckas och flyttar till nästa steg, **konfigurera**, ta bort rader som du har lagt till.
+5. För att installera VSS-leverantören, öppna en kommandotolk som administratör och kör följande kommando:
+   
+    **C:\Program filer (x86) \Microsoft Azure Site Recovery\agent >.\InMageVSSProvider_Install.cmd**
+
+9.  Kontrollera att ASR VSS-providern är installerad som en tjänst i Windows-tjänster och öppna komponenten Service MMC för att kontrollera att ASR VSS-providern finns.
+10. Om VSS-leverantören installerar fortsätter att misslyckas, arbeta med CX att åtgärda felen i CAPI2 behörigheter.
+
+## <a name="vss-provider-installation-fails-due-to-the-cluster-service-being-enabled-on-non-cluster-machine"></a>Installera VSS-providern misslyckas på grund av klustertjänsten håller på att aktiveras på datorn för icke-kluster
+
+Det här problemet orsakar Azure Site Recovery Mobility Agent-installationen misslyckas under installationssteget ASAzure Site RecoveryR VSS-providern på grund av ett problem med COM + som hindrar installationen av VSS-leverantören.
+ 
+### <a name="to-identify-the-issue"></a>Att identifiera problemet
+
+I loggen på konfigurationsservern på C:\ProgramData\ASRSetupLogs\UploadedLogs\<datum / tid-> UA_InstallLogFile.log, hittar du följande undantag:
+
+COM + kunde inte kommunicera med Microsoft Distributed Transaction Coordinator (undantag från HRESULT: 0x8004E00F)
+
+Att lösa problemet:
+
+1.  Kontrollera att den här datorn är en dator för icke-kluster och klusterkomponenter inte som används.
+3.  Om komponenterna inte som används, kan du ta bort klusterkomponenter från datorn.
+
+## <a name="drivers-are-missing-on-the-source-server"></a>Drivrutiner saknas på källservern
+
+Om Mobilitetsagenten misslyckas, kan du granska loggarna under C:\ProgramData\ASRSetupLogs att avgöra om några av de nödvändiga drivrutinerna saknas i vissa kontrolluppsättningar.
+ 
+Att lösa problemet:
+  
+1. Använd en registereditor, till exempel regedit.msc, öppna registret.
+2. Öppna noden HKEY_LOCAL_MACHINE\SYSTEM.
+3. Leta upp kontrollen i noden SYSTEM uppsättningar.
+4. Öppna varje kontrolluppsättning och kontrollera att följande Windows-drivrutiner finns:
+
+   - ATAPI
+   - Vmbus
+   - storflt
+   - Storvsc
+   - Intelide
+ 
+Installera om alla drivrutiner som saknas.
 
 ## <a name="next-steps"></a>Nästa steg
 

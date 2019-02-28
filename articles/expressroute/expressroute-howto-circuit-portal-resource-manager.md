@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/20/2018
 ms.author: cherylmc;ganesr
 ms.custom: seodec18
-ms.openlocfilehash: 3abdeff3c3f1a4069130ed7c8d49d485feea4093
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 45e87be071e09a19f1d8164eb9a002909a964201
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55894725"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56960402"
 ---
 # <a name="create-and-modify-an-expressroute-circuit"></a>Skapa och ändra en ExpressRoute-krets
 > [!div class="op_single_selector"]
@@ -78,7 +78,7 @@ På den här sidan **Providerstatus** innehåller information om det aktuella ti
 
 När du skapar en ny ExpressRoute-krets är kretsen i följande tillstånd:
 
-Providerstatus: Inte etablerats<BR>
+Providerstatus: Inte etablerat<BR>
 Kretsstatus: Enabled
 
 ![Starta etableringsprocessen](./media/expressroute-howto-circuit-portal-resource-manager/status.png)
@@ -90,7 +90,7 @@ Kretsstatus: Enabled
 
 Du kan använda en ExpressRoute-krets, måste den vara i följande tillstånd:
 
-Providerstatus: Etablerad<BR>
+Providerstatus: Etablerat<BR>
 Kretsstatus: Enabled
 
 ### <a name="5-periodically-check-the-status-and-the-state-of-the-circuit-key"></a>5. Regelbundet kontrollera status och tillståndet för nyckeln krets
@@ -119,9 +119,9 @@ Du kan utföra följande uppgifter utan avbrott:
 
 * Aktivera eller inaktivera en ExpressRoute Premium-tillägget för ExpressRoute-krets.
 * Öka bandbredden för ExpressRoute-kretsen, förutsatt att det finns tillgänglig kapacitet på porten.
-  > [!IMPORTANT] Nedgradera bandbredden för en krets stöds inte. 
+> [!IMPORTANT] Nedgradera bandbredden för en krets stöds inte. 
 * Ändra Avläsning av planen från *förbrukade Data* till *obegränsade Data*.
-  > [!IMPORTANT] Prisplanen ändras Avläsning av programvara från obegränsade Data för förbrukade Data stöds inte.
+> [!IMPORTANT] Prisplanen ändras Avläsning av programvara från obegränsade Data för förbrukade Data stöds inte.
 * Du kan aktivera och inaktivera *Tillåt klassiska åtgärder*.
 > [!IMPORTANT]
 > Du kan behöva återskapa ExpressRoute-krets om det finns lite kapacitet på befintliga porten. Du kan inte uppgradera kretsen om det finns inga ytterligare kapacitet på den platsen.

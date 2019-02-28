@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: sngun
-ms.openlocfilehash: e6d16c31b8975036202fe77906e2d729391b5c59
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: c7b62f66830e17fd8f6607e0a629307a9ab6fc78
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54038083"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56983599"
 ---
 # <a name="tuning-query-performance-with-azure-cosmos-db"></a>Justera prestanda för frågor med Azure Cosmos DB
 
@@ -215,6 +215,8 @@ I avsnittet om frågan körningsstatistik förklarar hur du hämtar servertid f�
 
 ### <a name="indexing-policy"></a>Indexeringspolicy
 Se [konfigurera indexeringsprincip](index-policy.md) för indexering sökvägar, typer, och lägen och hur de påverkar Frågekörningen. Som standard indexprincip använder hash-indexering för strängar, vilket är effektiva för likhetsfrågor, men inte för intervallet frågor/order by-frågor. Om du behöver omfångsfrågor för strängar, rekommenderar vi att ange intervallet Indextypen för alla strängar. 
+
+Som standard tillämpar Azure Cosmos DB automatisk indexering för alla data. Infoga scenarier för hög prestanda, Överväg att exkludera sökvägar som detta minskar RU kostnaden för varje insert-åtgärd. 
 
 ## <a name="query-execution-metrics"></a>Fråga körningsstatistik
 Du kan få detaljerad statistik om frågekörning genom att skicka in den valfria `x-ms-documentdb-populatequerymetrics` rubrik (`FeedOptions.PopulateQueryMetrics` i .NET SDK). Det värde som returneras i `x-ms-documentdb-query-metrics` har följande nyckel / värde-par som avsett för avancerad felsökning av Frågekörningen. 

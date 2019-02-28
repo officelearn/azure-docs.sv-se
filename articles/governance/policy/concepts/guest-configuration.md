@@ -4,24 +4,21 @@ description: Lär dig hur Azure Policy använder gäst-konfiguration för att gr
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 01/29/2019
+ms.date: 02/27/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 19f55c7d383d64e6c400e22e624b713f6c42dc58
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: e6621172734ea02f971bd5064b403ad4844210a3
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56649296"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56960776"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Förstå Azure Policy gäst-konfiguration
 
 Förutom granskning och [åtgärda](../how-to/remediate-resources.md) Azure-resurser, Azure Policy kan granska inställningarna i en virtuell dator. Verifieringen utförs av gäst-konfiguration-tillägget och klienten. Tillägget med klienten, verifierar inställningar, till exempel konfigurationen av operativsystemet, programkonfigurationen eller närvaro, miljöinställningar och mer.
-
-> [!IMPORTANT]
-> För närvarande endast **inbyggda** principer stöds med gästen konfiguration.
 
 [!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
 
@@ -83,7 +80,7 @@ I följande tabell visas en lista över operativsystem som stöds på Azure-avbi
 |SUSE|SLES|12 SP3|
 
 > [!IMPORTANT]
-> Gäst-konfigurationen stöds inte för närvarande på anpassade avbildningar.
+> Gäst-konfiguration kan granska en server som kör ett operativsystem som stöds.  Om du vill granska servrar som använder en anpassad avbildning måste du duplicera den **DeployIfNotExists** definition och ändra den **om** att inkludera din avbildningsegenskaper.
 
 ### <a name="unsupported-client-types"></a>Klientappar typer
 
@@ -93,6 +90,17 @@ I följande tabell visas operativsystem som inte stöds:
 |-|-|
 |Windows-klient | Klientoperativsystem (till exempel Windows 7 och Windows 10) stöds inte.
 |Windows Server 2016 Nano Server | Stöds ej.|
+
+### <a name="guest-configuration-extension-network-requirements"></a>Krav på gästoperativsystem Configuration Extension
+
+För att kommunicera med resursprovidern gäst-konfiguration i Azure virtuella datorer måste utgående åtkomst till Azure-Datacenter på port **443**. Om du använder ett privat virtuellt nätverk i Azure och inte tillåta utgående trafik, undantag måste konfigureras med hjälp av [Nätverkssäkerhetsgrupp](../../../virtual-network/manage-network-security-group.md#create-a-security-rule) regler. För närvarande finns inte en tjänsttagg för konfiguration av Azure gäst.
+
+För listor för IP-adress, kan du ladda ned [IP-intervall i Microsoft Azure Datacenter](https://www.microsoft.com/download/details.aspx?id=41653). Den här filen uppdateras varje vecka och har de aktuella intervall och eventuella kommande ändringar till IP-adressintervall. Du behöver bara tillåter utgående åtkomst till IP-adresser i regioner där dina virtuella datorer distribueras.
+
+> [!NOTE]
+> Azure-Datacenter IP-adress XML-filen visas de IP-adressintervall som används i Microsoft Azure-datacenter. Filen innehåller compute, SQL och storage-intervall.
+> Varje vecka publiceras en uppdaterad fil. Filen visar aktuella intervall och eventuella kommande ändringar till IP-adressintervall. De nya intervall som visas i filen används inte i datacenter för minst en vecka.
+> Det är en bra idé att ladda ned den nya XML-filen varje vecka. Sedan uppdatera webbplatsen för att kunna identifiera vilka tjänster som körs i Azure. Azure ExpressRoute-användare bör Observera att den här filen används för att uppdatera Border Gateway Protocol (BGP)-annonsen Azure utrymme i den första veckan varje månad.
 
 ## <a name="guest-configuration-definition-requirements"></a>Definition av gäst konfigurationskrav
 

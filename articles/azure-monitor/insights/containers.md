@@ -1,6 +1,6 @@
 ---
-title: Lösning för övervakning av behållare i Azure Log Analytics | Microsoft Docs
-description: Lösning för övervakning av behållare i Log Analytics hjälper dig att visa och hantera Docker- och Windows behållare-värdar i en enda plats.
+title: Lösning för övervakning av behållare i Azure Monitor | Microsoft Docs
+description: Lösning för övervakning av behållare i Azure Monitor kan du visa och hantera Docker- och Windows behållare-värdar i en enda plats.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -13,18 +13,20 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/05/2019
 ms.author: magoedte
-ms.openlocfilehash: 7d538695fe7c920bbd22fcfb0e097220aa249f07
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 6803e700a42a0d0279b48d38995c4fc299415075
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55811825"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56985503"
 ---
-# <a name="container-monitoring-solution-in-log-analytics"></a>Lösning för övervakning av behållare i Log Analytics
+# <a name="container-monitoring-solution-in-azure-monitor"></a>Lösning för övervakning av behållare i Azure Monitor
 
 ![Symbol för behållare](./media/containers/containers-symbol.png)
 
-Den här artikeln beskrivs hur du konfigurerar och använder övervakningslösningen för behållare i Log Analytics, som hjälper dig att visa och hantera Docker- och Windows behållare-värdar i en enda plats. Docker är ett system för virtualisering av programvara som används för att skapa behållare som kan automatiserar distribution av programvara till sin IT-infrastruktur.
+Den här artikeln beskrivs hur du konfigurerar och använder övervakningslösningen för behållare i Azure Monitor, som hjälper dig att visa och hantera Docker- och Windows behållare-värdar i en enda plats. Docker är ett system för virtualisering av programvara som används för att skapa behållare som kan automatiserar distribution av programvara till sin IT-infrastruktur.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 Lösningen visar vilka behållare som körs, vilka behållaravbildning de körs och där behållare som körs. Du kan visa detaljerad granskning av information som visar kommandon som används med behållare. Och du kan felsöka behållare genom att visa och söka i centraliserade loggar utan att behöva fjärrvisa Docker eller Windows-värdar. Du kan hitta behållare som kan vara mycket brus och konsumerande ytterligare resurser på en värd. Och du kan visa centraliserad processor, minne, lagring och nätverksinformation om användning och prestanda för behållare. På datorer som kör Windows kan du centralisera och jämföra loggar från Windows Server, Hyper-V och Docker-behållare. Lösningen stöder behållardirigeringsverktygen för följande:
 
@@ -36,7 +38,7 @@ Lösningen visar vilka behållare som körs, vilka behållaravbildning de körs 
 
 Om du vill övervaka prestanda för dina arbetsbelastningar som distribueras till Kubernetes-miljöer finns på Azure Kubernetes Service (AKS), se [övervaka Azure Kubernetes Service](../../azure-monitor/insights/container-insights-overview.md). Övervakningslösningen för behållaren omfattar inte support för att övervaka den plattformen.  
 
-Följande diagram visar relationerna mellan olika behållare-värdar och -agenter med Log Analytics.
+Följande diagram visar relationerna mellan olika behållare-värdar och -agenter med Azure Monitor.
 
 ![Behållare-diagram](./media/containers/containers-diagram.png)
 
@@ -45,7 +47,7 @@ Följande diagram visar relationerna mellan olika behållare-värdar och -agente
 Innan du börjar ska du granska följande information för att kontrollera att du uppfyller kraven.
 
 ### <a name="container-monitoring-solution-support-for-docker-orchestrator-and-os-platform"></a>Lösning för övervakning av behållare som har stöd för Docker Orchestrator och OS-plattform
-I följande tabell beskrivs Docker orchestration och operativsystemet övervakningsstöd för behållaren inventering, prestanda och loggar med Log Analytics.   
+I följande tabell beskrivs Docker orchestration och operativsystemet övervakningsstöd för behållaren inventering, prestanda och loggar med Azure Monitor.   
 
 | | ACS | Linux | Windows | Container<br>Inventering | Bild<br>Inventering | Node<br>Inventering | Container<br>Prestanda | Container<br>Händelse | Händelse<br>Logga | Container<br>Logga |
 |-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|
@@ -95,22 +97,22 @@ I följande tabell beskrivs Docker orchestration och operativsystemet övervakni
 ## <a name="installing-and-configuring-the-solution"></a>Installera och konfigurera lösningen
 Använd följande information för att installera och konfigurera lösningen.
 
-1. Lägg till lösning för övervakning av behållare till Log Analytics-arbetsytan från [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ContainersOMS?tab=Overview) eller genom att använda processen som beskrivs i [lägga till Log Analytics-lösningar från lösningsgalleriet](../../azure-monitor/insights/solutions.md).
+1. Lägg till lösning för övervakning av behållare till Log Analytics-arbetsytan från [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ContainersOMS?tab=Overview) eller genom att använda processen som beskrivs i [Lägg till övervakning lösningar från lösningsgalleriet](../../azure-monitor/insights/solutions.md).
 
 2. Installera och använda Docker med en Log Analytics-agenten. Baserat på ditt operativsystem och Docker orchestrator kan använda du följande metoder för att konfigurera ditt ombud.
   - För fristående värdar:
     - Installera på Linux operativsystem som stöds och kör Docker och sedan installera och konfigurera den [Log Analytics-agenten för Linux](../../azure-monitor/learn/quick-collect-linux-computer.md).  
     - På CoreOS, kan du inte köra Log Analytics-agenten för Linux. I stället kan du köra en behållare version av Log Analytics-agenten för Linux. Granska Linux behållare-värdar, inklusive CoreOS eller Azure Government Linux behållare-värdar, inklusive CoreOS om du arbetar med behållare i Azure Government-molnet.
-    - Installera Docker-motorn och klienten i Windows Server 2016 och Windows 10, sedan en agent för att samla in information och skicka den till Log Analytics. Granska [installera och konfigurera Windows behållarvärdar](#install-and-configure-windows-container-hosts) om du har en Windows-miljö.
+    - Installera Docker-motorn och klienten i Windows Server 2016 och Windows 10, sedan en agent för att samla in information och skicka den till Azure Monitor. Granska [installera och konfigurera Windows behållarvärdar](#install-and-configure-windows-container-hosts) om du har en Windows-miljö.
   - För dirigering av Docker flera värden:
     - Om du har en Red Hat OpenShift-miljö kan du granska konfigurera en Log Analytics-agenten för Red Hat OpenShift.
     - Om du har ett Kubernetes-kluster med hjälp av Azure Container Service:
        - Granska [konfiguration en Log Analytics Linux-agenten för Kubernetes](#configure-a-log-analytics-linux-agent-for-kubernetes).
        - Granska [konfigurera en Log Analytics-Windows-agent för Kubernetes](#configure-a-log-analytics-windows-agent-for-kubernetes).
        - Granska Använd Helm för att distribuera Log Analytics-agenten på Linux Kubernetes.
-    - Om du har ett Azure Container Service DC/OS-kluster kan du läsa mer på [övervaka ett Azure Container Service DC/OS-kluster med Log Analytics](../../container-service/dcos-swarm/container-service-monitoring-oms.md).
+    - Om du har ett Azure Container Service DC/OS-kluster kan du läsa mer på [övervaka ett Azure Container Service DC/OS-kluster med Azure Monitor](../../container-service/dcos-swarm/container-service-monitoring-oms.md).
     - Om du har en miljö på Docker Swarm-läge kan lära dig mer på Konfigurera Log Analytics-agenten för Docker Swarm.
-    - Om du har Service Fabric-kluster kan du läsa mer på [övervaka behållare med Log Analytics Log Analytics](../../service-fabric/service-fabric-diagnostics-oms-containers.md).
+    - Om du har Service Fabric-kluster kan du läsa mer på [övervaka behållare med Azure Monitor](../../service-fabric/service-fabric-diagnostics-oms-containers.md).
 
 Granska den [Docker-motorn på Windows](https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/configure-docker-daemon) artikeln för mer information om hur du installerar och konfigurerar Docker-motorer på datorer som kör Windows.
 
@@ -195,7 +197,7 @@ Det finns tre sätt att lägga till Log Analytics-agenten i Red Hat OpenShift b�
 I det här avsnittet beskriver vi de steg som krävs för att installera Log Analytics-agenten som en daemon-set OpenShift.  
 
 1. Logga in på noden som OpenShift och kopiera filen yaml [ocp-omsagent.yaml](https://github.com/Microsoft/OMS-docker/blob/master/OpenShift/ocp-omsagent.yaml) från GitHub till den överordnade noden och ändra värdet med Log Analytics arbetsyte-ID och den primärnyckeln.
-2. Kör följande kommandon för att skapa ett projekt för Log Analytics och ange användarkontot.
+2. Kör följande kommandon för att skapa ett projekt för Azure Monitor och ange användarkontot.
 
     ```
     oadm new-project omslogging --node-selector='zone=default'
@@ -234,7 +236,7 @@ I det här avsnittet beskriver vi de steg som krävs för att installera Log Ana
 Utför följande steg om du vill använda hemligheter för att skydda din Log Analytics arbetsyte-ID och den primärnyckeln när du använder Log Analytics-agenten daemon-set yaml-fil.
 
 1. Logga in på noden som OpenShift och kopiera filen yaml [ocp-ds-omsagent.yaml](https://github.com/Microsoft/OMS-docker/blob/master/OpenShift/ocp-ds-omsagent.yaml) och hemlighet som genererar skript [ocp-secretgen.sh](https://github.com/Microsoft/OMS-docker/blob/master/OpenShift/ocp-secretgen.sh) från GitHub.  Det här skriptet genererar hemligheter yaml-fil för Log Analytics arbetsyte-ID och primärnyckel att skydda din secrete information.  
-2. Kör följande kommandon för att skapa ett projekt för Log Analytics och ange användarkontot. Hemligheten som genererar skript frågar för Log Analytics arbetsyte-ID <WSID> och den primärnyckeln <KEY> och när åtgärden har slutförts skapas filen ocp-secret.yaml.  
+2. Kör följande kommandon för att skapa ett projekt för Azure Monitor och ange användarkontot. Hemligheten som genererar skript frågar för Log Analytics arbetsyte-ID <WSID> och den primärnyckeln <KEY> och när åtgärden har slutförts skapas filen ocp-secret.yaml.  
 
     ```
     oadm new-project omslogging --node-selector='zone=default'  
@@ -492,7 +494,7 @@ Använd informationen i avsnittet för att installera och konfigurera Windows-be
 
 #### <a name="preparation-before-installing-windows-agents"></a>Förberedelse innan du installerar Windows-agenter
 
-Innan du installerar agenter på datorer som kör Windows, måste du konfigurera Docker-tjänsten. Konfigurationen tillåter Windows-agenten eller Log Analytics-tillägget för virtuell dator för att använda Docker-TCP-socket så att agenterna kan komma åt Docker-daemon via en fjärranslutning och för att samla in data för övervakning.
+Innan du installerar agenter på datorer som kör Windows, måste du konfigurera Docker-tjänsten. Konfigurationen tillåter Windows-agenten eller Azure Monitor-tillägget för virtuell dator för att använda Docker-TCP-socket så att agenterna kan komma åt Docker-daemon via en fjärranslutning och för att samla in data för övervakning.
 
 ##### <a name="to-start-docker-and-verify-its-configuration"></a>Starta Docker och verifiera konfigurationen
 
@@ -522,7 +524,7 @@ Mer information om konfigurationen av Docker-daemon med Windows-behållare finns
 
 #### <a name="install-windows-agents"></a>Installera Windows-agenter
 
-Om du vill aktivera behållarövervakning för Windows och Hyper-V, installera Microsoft Monitoring Agent (MMA) på Windows-datorer som är behållare-värdar. Datorer som kör Windows i din lokala miljö, se [ansluta Windows-datorer till Log Analytics](../../azure-monitor/platform/agent-windows.md). För virtuella datorer som körs i Azure och Anslut dem till Log Analytics med hjälp av den [tillägg för virtuell dator](../../azure-monitor/learn/quick-collect-azurevm.md).
+Om du vill aktivera behållarövervakning för Windows och Hyper-V, installera Microsoft Monitoring Agent (MMA) på Windows-datorer som är behållare-värdar. Datorer som kör Windows i din lokala miljö, se [ansluta Windows-datorer till Azure Monitor](../../azure-monitor/platform/agent-windows.md). För virtuella datorer som körs i Azure, ansluta dem till Azure Monitor med de [tillägg för virtuell dator](../../azure-monitor/learn/quick-collect-azurevm.md).
 
 Du kan övervaka Windows-behållare som körs på Service Fabric. Dock endast [virtuella datorer som körs i Azure](../../azure-monitor/learn/quick-collect-azurevm.md) och [datorer som kör Windows i din lokala miljö](../../azure-monitor/platform/agent-windows.md) stöds för närvarande för Service Fabric.
 
@@ -565,7 +567,7 @@ Etiketter läggs till *PodLabel* datatyper är egna etiketter. Tillagda PodLabel
 
 
 ## <a name="monitor-containers"></a>Övervaka containrar
-När du har aktiverat i Log Analytics-portalen lösning den **behållare** panel visar sammanfattningsinformation om din behållare-värdar och behållare som körs på värdar.
+När du har aktiverat i Azure portal-lösning i **behållare** panel visar sammanfattningsinformation om din behållare-värdar och behållare som körs på värdar.
 
 
 ![Panel för behållare](./media/containers/containers-title.png)
@@ -598,11 +600,11 @@ I den **Behållarstatus** området klickar du på det översta området som visa
 
 ![Behållarstatus](./media/containers/containers-status.png)
 
-Loggsökning öppnas och visar information om tillståndet för dina behållare.
+Log Analytics öppnas och visar information om tillståndet för dina behållare.
 
-![Loggsökning för behållare](./media/containers/containers-log-search.png)
+![Log Analytics för behållare](./media/containers/containers-log-search.png)
 
-Härifrån kan redigera du frågan om du vill ändra den för att hitta informationen du är intresserad av. Läs mer om Loggsökningar [Loggsökningar i Log Analytics](../../azure-monitor/log-query/log-query-overview.md).
+Härifrån kan redigera du frågan om du vill ändra den för att hitta informationen du är intresserad av. Läs mer om loggfrågor [logga frågor i Azure Monitor](../log-query/log-query-overview.md).
 
 ## <a name="troubleshoot-by-finding-a-failed-container"></a>Felsöka genom att söka efter en misslyckad behållare
 
@@ -611,14 +613,16 @@ Log Analytics markerar en behållare som **misslyckades** om den har avslutats m
 ### <a name="to-find-failed-containers"></a>Att hitta misslyckade behållare
 1. Klicka på den **Behållarstatus** området.  
    ![Behållarstatus](./media/containers/containers-status.png)
-2. Loggsökning öppnas och visar tillståndet för dina behållare som liknar följande.  
+2. Log Analytics öppnas och visar tillståndet för dina behållare som liknar följande.  
    ![tillstånd för behållare](./media/containers/containers-log-search.png)
-3. Klicka sedan på sammanlagt värde för misslyckade behållarna för att visa ytterligare information. Expandera **visa fler** att visa avbildnings-ID.  
+3. Expandera raden misslyckades och klicka på + för att lägga till villkoren i frågan. Sedan kommentera ut raden sammanfatta i frågan.
+   ![misslyckade behållare](./media/containers/containers-state-failed-select.png)  
+1. Kör frågan och sedan expandera en rad i resultatet till Visa bild-ID.  
    ![misslyckade behållare](./media/containers/containers-state-failed.png)  
-4. Därefter skriver du följande i sökfrågan. `ContainerInventory <ImageID>` för att se information om avbildningen som avbildningens storlek och antalet stoppad och misslyckade bilder.  
+1. Skriv följande i loggen frågan. `ContainerImageInventory | where ImageID == <ImageID>` för att se information om avbildningen som avbildningens storlek och antalet stoppad och misslyckade bilder.  
    ![misslyckade behållare](./media/containers/containers-failed04.png)
 
-## <a name="search-logs-for-container-data"></a>Sök i loggar för behållardata
+## <a name="query-logs-for-container-data"></a>Frågeloggar för behållardata
 När du felsöker ett specifikt fel, kan det se var det inträffar i din miljö. Följande loggtyper av kan du skapa frågor för att returnera information som du vill.
 
 
@@ -632,42 +636,23 @@ När du felsöker ett specifikt fel, kan det se var det inträffar i din miljö.
 - **KubePodInventory_CL** Använd den här typen om du vill förstå klusterinformationen för hierarkin.
 
 
-### <a name="to-search-logs-for-container-data"></a>Att söka i loggar för behållardata
+### <a name="to-query-logs-for-container-data"></a>Att frågeloggar för behållardata
 * Välj en avbildning som du vet har nyligen misslyckats och hitta felloggarna för den. Starta genom att söka efter ett behållarnamn som kör avbildningen med en **ContainerInventory** sökning. Till exempel söka efter `ContainerInventory | where Image == "ubuntu" and ContainerState == "Failed"`  
     ![Sök efter Ubuntu behållare](./media/containers/search-ubuntu.png)
 
-  Namnet på behållaren bredvid **namn**, och Sök efter dessa loggar. I det här exemplet är det `ContainerLog | where Name == "cranky_stonebreaker"`.
+  Expandera alla rader i resultat att visa detaljer för behållaren.
 
-**Visa information om prestanda**
 
-När du börjar skapa frågor, kan det se vad som är möjligt först. Om du vill se alla prestandadata, Prova till exempel en bred fråga genom att skriva följande sökvillkor.
-
-```
-Perf
-```
-
-![prestanda för behållare](./media/containers/containers-perf01.png)
-
-Du kan begränsa de prestandadata som du ser att en specifik behållare genom att skriva namnet på den till höger om din fråga.
-
-```
-Perf <containerName>
-```
-
-Som visar en lista över prestandamått som samlas in för en enskild behållare.
-
-![prestanda för behållare](./media/containers/containers-perf03.png)
-
-## <a name="example-log-search-queries"></a>Exempel loggsökningsfrågor
+## <a name="example-log-queries"></a>Exempelfrågor för log
 Det är ofta bra att skapa frågor som börjar med ett exempel eller två och ändra dem så att de passar din miljö. Som en startpunkt som du kan experimentera med den **exempelfrågor** område för att hjälpa dig att skapa mer avancerade frågor.
 
 ![Behållare-frågor](./media/containers/containers-queries.png)
 
 
-## <a name="saving-log-search-queries"></a>Sparar loggsökningsfrågor
-Spara frågor är en standard funktion i Log Analytics. Genom att spara dem, har du de som du har hittat användbara praktiskt för framtida användning.
+## <a name="saving-log-queries"></a>Spara loggfrågor
+Spara frågor är en standard funktion i Azure Monitor. Genom att spara dem, har du de som du har hittat användbara praktiskt för framtida användning.
 
 När du skapar en fråga som användbara kan du spara det genom att klicka på **Favoriter** överst på sidan Log Search. Du kan enkelt använda det senare från den **min instrumentpanel** sidan.
 
 ## <a name="next-steps"></a>Nästa steg
-* [Söka loggarna](../../azure-monitor/log-query/log-query-overview.md) att visa detaljerade data behållarposter.
+* [Fråga loggar](../log-query/log-query-overview.md) att visa detaljerade data behållarposter.

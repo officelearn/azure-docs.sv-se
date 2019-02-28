@@ -17,12 +17,12 @@ ms.date: 10/03/2018
 ms.author: markvi
 ms.reviewer: raluthra
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e60804e6bdf37607a08b6c530fd900e0f481a45b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: a9dc40af397e0d97ac5ddf47901c7da818faf8ae
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56204516"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56957801"
 ---
 # <a name="what-is-azure-active-directory-identity-protection-refreshed"></a>Vad är Azure Active Directory Identity Protection (uppdateras)?
 
@@ -58,6 +58,7 @@ För att svara på dessa hot, hjälper Azure AD Identity Protection dig att:
 
 Azure AD Identity Protection är en funktion i Azure Active Directory Premium P2 där du kan konfigurera principer för att automatiskt svarar när en användares identitet har komprometterats eller när någon annan än Kontoägare om du försöker logga in med sina identitet. Dessa principer, utöver andra kontroller för villkorlig åtkomst som tillhandahålls av Azure AD, antingen automatiskt blockera åtkomst eller initiera minskning åtgärder, till exempel återställning av lösenord eller multifaktorautentisering tvingande. Identity Protection innehåller dessutom övervakning och rapportering funktioner för att få bättre insikt i risk och potentiella kompromisser i din organisation. 
 
+> [!VIDEO https://youtu.be/1REQYdZ6364]
 
 
 ## <a name="risk-events"></a>Riskhändelser

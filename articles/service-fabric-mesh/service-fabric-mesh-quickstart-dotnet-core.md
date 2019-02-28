@@ -3,7 +3,7 @@ title: Snabbstart – Distribuera en webbapp till Azure Service Fabric Mesh | Mi
 description: Den här snabbstarten beskriver hur du skapar en ASP.NET Core-webbplats och publicerar den till Azure Service Fabric Mesh med hjälp av Visual Studio.
 services: service-fabric-mesh
 documentationcenter: .net
-author: tylermsft
+author: dkkapur
 manager: jeconnoc
 editor: ''
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/17/2018
-ms.author: twhitney
+ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 35ce19d796a9889d734bd5dde20a7c56485656f1
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: b30676e0c5782a95c629571cadead7bf58211789
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52888553"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56804925"
 ---
 # <a name="quickstart-create-and-deploy-a-web-app-to-azure-service-fabric-mesh"></a>Snabbstart: Skapa och distribuera en webbapp till Azure Service Fabric Mesh
 

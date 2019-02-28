@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6521dc8db663df5e19fb97c495b4a5bcb6d3c1d1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 170b96810130d33935e54c85529129e7e0267fe9
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56208488"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56957784"
 ---
 # <a name="reset-your-work-or-school-password"></a>Återställa lösenordet för arbets- eller skolkonto
 
@@ -163,13 +163,10 @@ Här följer några vanliga fel och sina lösningar:
 |När jag anger mitt användar-ID, uppstår ett fel med texten ”vi kunde inte verifiera ditt konto”.|Det gick inte att kontrollera din kontoinformation logga in igen.|Det finns två skäl som du kan se det här meddelandet.<br><br>1. Administratören aktiverat återställning av lösenord för din organisation, men du har inte registrerats för användning av tjänsten. Om du vill registrera för återställning av lösenord finns i följande artiklar, baserat på din verifieringsmetod: [Konfigurera säkerhetsinformation för att använda en autentiseringsapp (förhandsversion)](security-info-setup-auth-app.md), [konfigurera säkerhetsinformation för att använda ett telefonsamtal (förhandsversion)](security-info-setup-phone-number.md), [konfigurera säkerhetsinformation för att använda textmeddelanden (förhandsversion)](security-info-setup-text-msg.md), [ Konfigurera säkerhetsinformation för att använda e-post (förhandsversion)](security-info-setup-email.md), eller [konfigurera säkerhetsinformation kan använda säkerhetsfrågor (förhandsversion)](security-info-setup-questions.md).<br><br>2. Administratören har inte aktiverat återställning av lösenord för din organisation. I så fall måste du välja ”kontakta en administratör länken” att skicka ett e-postmeddelande till din administratör om att återställa ditt lösenord.|
 
 ## <a name="next-steps"></a>Nästa steg
-
-- Redigera din säkerhetsinformation för att lägga till eller ändra din verifieringsmetoder i den [hantera din säkerhetsinformation (förhandsversion)](security-info-manage-settings.md) artikeln. 
-
 - Lär dig mer om säkerhetsinformation i den [info (förhandsversion) Säkerhetsöversikt](user-help-security-info-overview.md) artikeln.
 
 - Lär dig mer om tvåstegsverifiering i den [tvåstegsverifiering verifiering översikt](user-help-two-step-verification-overview.md) artikeln. 
 
 - Återställa lösenordet om du har förlorat den, från den [portal för lösenordsåterställning](https://passwordreset.microsoftonline.com/)
 
-- Hämta felsöka tips och hjälp med inloggningsproblem i den [kan inte logga in på ditt Microsoft-konto](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant) artikeln.
+- Få felsökningstips och hjälp om inloggningsproblem i artikeln [Det går inte att logga in på ditt Microsoft-konto](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant).

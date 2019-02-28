@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/07/2018
 ms.author: rkmanda
-ms.openlocfilehash: 1596cf1337fa084fe6a160c99e52ae80ee3e2491
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 308d9a04e52572e00e1cbed24548e5f09adda571
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49341981"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56985928"
 ---
 # <a name="iot-hub-high-availability-and-disaster-recovery"></a>IoT Hub hög tillgänglighet och disaster recovery
 
@@ -64,6 +64,7 @@ När redundansväxlingen för IoT-hubben har slutförts kan förväntas alla åt
 >
 > - De händelser som genererats via Event Grid kan användas via samma prenumerationerna som tidigare har konfigurerat så länge dessa Event Grid-prenumerationer fortsätter att vara tillgängliga efter redundansväxlingen.
 >
+> - När routning till blob storage, rekommenderar vi ta blobar och sedan iterera över dem, så läses alla behållare utan att göra några antaganden för partitionen. Partitionsintervall kan potentiellt påverkar under en Microsoft-initierad redundans eller manuell växling vid fel. Lär dig hur du räkna upp listan över blobar Se [routning till blob storage](iot-hub-devguide-messages-d2c.md#azure-blob-storage).
 
 ### <a name="microsoft-initiated-failover"></a>Microsoft-initierad redundans
 
@@ -111,14 +112,14 @@ Lösningen tillbaka slutet körs huvudsakligen i en datacenterplats i en regiona
 
 På en hög nivå för att implementera en regional redundans-modell med IoT Hub måste du vidta följande steg:
 
-* **En sekundär IoT hub och enhet routning logic**: om tjänsten i din primära region avbryts enheter måste börja ansluta till din sekundära region. Den tillståndsmedveten naturen för de flesta tjänster som ingår, är det vanligt för administratörer av lösning att utlösa mellan regioner redundansprocessen. Det bästa sättet att kommunicera med den nya slutpunkten till enheter, samtidigt som de behåller kontrollen över processen är att de regelbundet kontrollera en *concierge* för den aktuella aktiva slutpunkten. Tjänsten concierge kan vara ett webbprogram som ska replikeras och sparas kan nås med hjälp av tekniker för DNS-omdirigering (till exempel [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md)).
+* **En sekundär IoT hub och enhet routning logic**: Om tjänsten i din primära region avbryts starta enheter ansluter till din sekundära region. Den tillståndsmedveten naturen för de flesta tjänster som ingår, är det vanligt för administratörer av lösning att utlösa mellan regioner redundansprocessen. Det bästa sättet att kommunicera med den nya slutpunkten till enheter, samtidigt som de behåller kontrollen över processen är att de regelbundet kontrollera en *concierge* för den aktuella aktiva slutpunkten. Tjänsten concierge kan vara ett webbprogram som ska replikeras och sparas kan nås med hjälp av tekniker för DNS-omdirigering (till exempel [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md)).
 
    > [!NOTE]
    > IoT hub-tjänsten är inte en typ av stöds slutpunkt i Azure Traffic Manager. Rekommendationen är att integrera tjänsten föreslagna concierge med Azure traffic manager genom att implementera endpoint hälsoavsökningen API.
 
-* **Replikering för Identity-registry**: kan användas, sekundära IoT-hubben måste innehålla alla enhetsidentiteter som kan ansluta till lösningen. Lösningen ska hålla geo-replikerade säkerhetskopior av enhetsidentiteter och överföra dem till den sekundära IoT-hubben innan du byter aktiv slutpunkt för enheter. Enhetens identitet exportfunktionen för IoT Hub är användbart i den här kontexten. Mer information finns i [utvecklarhandboken för en IoT Hub - identitetsregistret](iot-hub-devguide-identity-registry.md).
+* **Replikering för Identity-registry**: Sekundär IoT-hubben måste innehålla alla enhetsidentiteter som kan ansluta till lösningen kan användas. Lösningen ska hålla geo-replikerade säkerhetskopior av enhetsidentiteter och överföra dem till den sekundära IoT-hubben innan du byter aktiv slutpunkt för enheter. Enhetens identitet exportfunktionen för IoT Hub är användbart i den här kontexten. Mer information finns i [utvecklarhandboken för en IoT Hub - identitetsregistret](iot-hub-devguide-identity-registry.md).
 
-* **Sammanslagning av logic**: när den primära regionen blir tillgänglig igen, alla tillstånd och data som har skapats på den sekundära platsen måste flyttas tillbaka till den primära regionen. Den här tillstånd och data främst är relaterade till enhetsidentiteter och programmetadata, som måste slås samman med den primära IoT hub och andra programspecifika butiker i den primära regionen. 
+* **Sammanslagning av logic**: När den primära regionen blir tillgänglig igen, måste alla tillstånd och data som har skapats på den sekundära platsen flyttas tillbaka till den primära regionen. Den här tillstånd och data främst är relaterade till enhetsidentiteter och programmetadata, som måste slås samman med den primära IoT hub och andra programspecifika butiker i den primära regionen. 
 
 För att förenkla det här steget ska du använda idempotenta åtgärder. Idempotenta åtgärder minimera sidoeffekter från eventuell konsekvent distribution av händelser och dubbletter eller out ordning leverans av händelser. Dessutom bör programlogiken utformas ska kunna hanteras eventuella inkonsekvenser eller något inaktuell tillstånd. Den här situationen kan inträffa på grund av den ytterligare tid det tar för systemet kan reparera baserat på återställningspunktmål (RPO).
 
@@ -126,7 +127,7 @@ För att förenkla det här steget ska du använda idempotenta åtgärder. Idemp
 
 Här är en sammanfattning av hr/DR-alternativ som visas i den här artikeln som kan användas som en referensram för att välja rätt alternativ som passar din lösning.
 
-| HR/DR-alternativet | MÅL FÖR ÅTERSTÄLLNINGSTID | RPO-MÅL | Kräver manuella åtgärder? | Implementering komplexitet | Extra kostnad påverkan|
+| HR/DR-alternativet | MÅL FÖR ÅTERSTÄLLNINGSTID | Mål för återställningspunkt | Kräver manuella åtgärder? | Implementering komplexitet | Extra kostnad påverkan|
 | --- | --- | --- | --- | --- | --- | --- |
 | Microsoft-initierad redundans |2 – 26 timmar|Se RPO tabellen ovan|Nej|Ingen|Ingen|
 | Manuell redundansväxling |10: e minut – 2 timmar|Se RPO tabellen ovan|Ja|Mycket låg. Du behöver bara utlösa den här åtgärden från portalen.|Ingen|

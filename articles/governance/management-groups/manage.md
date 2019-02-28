@@ -2,26 +2,22 @@
 title: Ändra, ta bort eller hantera dina hanteringsgrupper i Azure - styrning i Azure
 description: Lär dig mer om att visa, underhålla, uppdatera och ta bort din grupphierarki för hantering.
 author: rthorn17
-manager: rithorn
 ms.service: azure-resource-manager
-ms.devlang: na
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 11/20/2018
+ms.date: 02/20/2019
 ms.author: rithorn
 ms.topic: conceptual
-ms.openlocfilehash: dbfb6ecb9f29a82a8871922982a64dbefc338969
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: bcc0b247ee304e657b7679920a3956acad11adc9
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56342609"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56985129"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Hantera dina resurser med hanteringsgrupper
 
-Av hanteringsgrupper är behållare som hjälper dig att hantera åtkomst, principer och efterlevnad över flera prenumerationer. Du kan ändra, ta bort och hantera de här behållarna om du vill ha hierarkier som kan användas med [Azure Policy](../policy/overview.md) och [Azure rollbaserad kontroller (RBAC)](../../role-based-access-control/overview.md). Mer information om hanteringsgrupper finns [organisera dina resurser med Azure-hanteringsgrupper](overview.md).
+Om din organisation har många prenumerationer kan det behövas ett effektivt sätt att hantera åtkomst, principer och efterlevnad för prenumerationerna. Med Azures hanteringsgrupper får du en hanteringsnivå över prenumerationsnivån. Du kan ordna prenumerationerna i containrar som kallas hanteringsgrupper och tillämpa styrningsvillkor för hanteringsgrupperna. Alla prenumerationer i en hanteringsgrupp ärver automatiskt de villkor som tillämpas för hanteringsgruppen.
 
-Om du vill göra ändringar i en hanteringsgrupp, måste du ha en rollen som Prenumerationsägare eller deltagare på hanteringsgruppen. För att se vilka behörigheter du har, Välj hanteringsgruppen och välj sedan **IAM**. Läs mer om RBAC-roller i [hantera åtkomst och behörighet med RBAC](../../role-based-access-control/overview.md).
+Hanteringsgrupper tillhandahåller hantering i företagsklass i stor skala oavsett vilken typ av prenumeration du har.  Mer information om hanteringsgrupper finns [organisera dina resurser med Azure-hanteringsgrupper](overview.md).
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
 
@@ -73,7 +69,7 @@ Om du vill ta bort en hanteringsgrupp, måste följande krav uppfyllas:
 
    - Om du vill flytta en hanteringsgrupp till en annan hanteringsgrupp, se [flytta hanteringsgrupper i hierarkin](#Move-management-groups-in-the-hierarchy).
 
-1. Du har skrivbehörighet på den gruppen ägare eller deltagare hanteringsroll på hanteringsgruppen. För att se vilka behörigheter du har, Välj hanteringsgruppen och välj sedan **IAM**. Läs mer om RBAC-roller i [hantera åtkomst och behörighet med RBAC](../../role-based-access-control/overview.md).  
+1. Du har skrivbehörighet på hanteringsgruppen (”ägare”, ”deltagare” eller ”Management Group bidragsgivare”). För att se vilka behörigheter du har, Välj hanteringsgruppen och välj sedan **IAM**. Läs mer om RBAC-roller i [hantera åtkomst och behörighet med RBAC](../../role-based-access-control/overview.md).  
 
 ### <a name="delete-in-the-portal"></a>Ta bort i portalen
 
@@ -85,7 +81,8 @@ Om du vill ta bort en hanteringsgrupp, måste följande krav uppfyllas:
 
 1. Välj **ta bort**
 
-   - Om ikonen är inaktiverad, visas orsaken om du hovrar musen-väljare över ikonen.
+    > [!TIP]
+    > Om ikonen är inaktiverad, visas orsaken om du hovrar musen-väljare över ikonen.
 
    ![Ta bort grupp](./media/delete.png)
 
@@ -121,15 +118,15 @@ Du kan visa någon hanteringsgrupp som du har en direkt eller ärvda RBAC-roll p
 
 1. Välj **alla tjänster** > **hanteringsgrupper**.
 
-1. Grupphierarki management sidan belastning där du kan utforska alla hanteringsgrupper och prenumerationer som du har åtkomst till. Gruppnamnet kommer du väljer nedåt en nivå i hierarkin. Navigeringen fungerar på samma sätt som gör en Utforskaren.
+1. Läser in sidan för hantering av hierarkin. Den här sidan är där du kan utforska alla hanteringsgrupper och prenumerationer som du har åtkomst till. Gruppnamnet kommer du väljer nedåt en nivå i hierarkin. Navigeringen fungerar på samma sätt som gör en Utforskaren.
+
+1. Om du vill se information om hanteringsgruppen, Välj den **(detaljer)** länken bredvid rubriken för hanteringsgruppen. Om den här länken inte är tillgängligt, har inte behörighet att visa den hanteringsgruppen.
 
    ![Huvud](./media/main.png)
 
-1. Om du vill se information om hanteringsgruppen, Välj den **(detaljer)** länken bredvid rubriken för hanteringsgruppen. Om den här länken inte är tillgängligt, har inte behörighet att visa den hanteringsgruppen.  
-
 ### <a name="view-in-powershell"></a>Visa i PowerShell
 
-Du kan använda kommandot Get-AzureRmManagementGroup för att hämta alla grupper.  
+Du kan använda kommandot Get-AzureRmManagementGroup för att hämta alla grupper.  Se [ https://aka.ms/Get-MG-Powershell ](https://aka.ms/Get-MG-Powershell) för en fullständig lista över management group hämta Powershell-kommandon.  
 
 ```azurepowershell-interactive
 Get-AzureRmManagementGroup
@@ -139,6 +136,41 @@ Information för en enskild hanteringsgrupp, använder du parametern - gruppnamn
 
 ```azurepowershell-interactive
 Get-AzureRmManagementGroup -GroupName 'Contoso'
+```
+
+Du kan returnera en viss hanteringsgrupp och alla nivåer i hierarkin under den med **-Expandera** och **-Recurse** parametrar.  
+
+```azurepowershell-interactive
+PS C:\> $response = Get-AzureRmManagementGroup -GroupName TestGroupParent -Expand -Recurse
+PS C:\> $response
+
+Id                : /providers/Microsoft.Management/managementGroups/TestGroupParent
+Type              : /providers/Microsoft.Management/managementGroups
+Name              : TestGroupParent
+TenantId          : 00000000-0000-0000-0000-000000000000
+DisplayName       : TestGroupParent
+UpdatedTime       : 2/1/2018 11:15:46 AM
+UpdatedBy         : 00000000-0000-0000-0000-000000000000
+ParentId          : /providers/Microsoft.Management/managementGroups/00000000-0000-0000-0000-000000000000
+ParentName        : 00000000-0000-0000-0000-000000000000
+ParentDisplayName : 00000000-0000-0000-0000-000000000000
+Children          : {TestGroup1DisplayName, TestGroup2DisplayName}
+
+PS C:\> $response.Children[0]
+
+Type        : /managementGroup
+Id          : /providers/Microsoft.Management/managementGroups/TestGroup1
+Name        : TestGroup1
+DisplayName : TestGroup1DisplayName
+Children    : {TestRecurseChild}
+
+PS C:\> $response.Children[0].Children[0]
+
+Type        : /managementGroup
+Id          : /providers/Microsoft.Management/managementGroups/TestRecurseChild
+Name        : TestRecurseChild
+DisplayName : TestRecurseChild
+Children    :
 ```
 
 ### <a name="view-in-azure-cli"></a>Visa i Azure CLI
@@ -155,17 +187,25 @@ Information för en enskild hanteringsgrupp, använder du kommandot show
 az account management-group show --name 'Contoso'
 ```
 
+Du kan returnera en viss hanteringsgrupp och alla nivåer i hierarkin under den med **-Expandera** och **-Recurse** parametrar.
+
+```azurecli-interactive
+az account management-group show --name 'Contoso' -e -r
+```
+
 ## <a name="move-subscriptions-in-the-hierarchy"></a>Flytta prenumerationer i hierarkin
 
 Ett skäl till att skapa en hanteringsgrupp är att slå samman prenumerationer. Endast hanteringsgrupper och prenumerationer kan göras underordnade grupper till en annan hanteringsgrupp. En prenumeration flyttas till en hanteringsgrupp ärver alla användaråtkomst och principer från överordnad hanteringsgrupp.
 
-Om du vill flytta prenumerationen som finns det några behörigheter måste du ha:
+Alla följande RBAC-behörigheter måste vara uppfyllda för att flytta prenumerationen:
 
 - ”Ägare”-rollen på underordnade prenumerationen.
-- Rollen ”ägare” eller ”deltagare” på den nya överordnade hanteringsgruppen.
-- Rollen ”ägare” eller ”bidragsgivare” på den gamla överordnad hanteringsgruppen.
+- ”Ägare”, ”deltagare” eller ”Management Group bidragsgivare”-rollen på målet överordnade management group.*
+- ”Ägare”, ”deltagare” eller ”Management Group bidragsgivare”-rollen på den befintliga överordnade management group.*
 
-För att se vilka behörigheter du har, Välj hanteringsgruppen och välj sedan **IAM**. Läs mer om RBAC-roller i [hantera åtkomst och behörighet med RBAC](../../role-based-access-control/overview.md).
+*: Om inte målet eller den befintliga överordnade hanteringsgruppen är rot-hanteringsgruppen. Eftersom rot-hanteringsgruppen är standard landing upptäcka för alla nya hanteringsgrupper och prenumerationer, behöver inte användarna behörighet på den för att flytta ett objekt.
+
+Se vilka behörigheter du har i Azure portal, Välj management och sedan **IAM**. Läs mer om RBAC-roller i [hantera åtkomst och behörighet med RBAC](../../role-based-access-control/overview.md).
 
 ### <a name="move-subscriptions-in-the-portal"></a>Flytta prenumerationer i portalen
 
@@ -235,7 +275,7 @@ az account management-group subscription remove --name 'Contoso' --subscription 
 
 ## <a name="move-management-groups-in-the-hierarchy"></a>Flytta hanteringsgrupper i hierarkin  
 
-När du flyttar en överordnad hanteringsgrupp alla underordnade resurser med hanteringsgrupper, prenumerationer, resursgrupper och resurser nu med överordnat.
+När du flyttar en överordnad hanteringsgrupp flyttas i hierarkin under den gruppen med den.
 
 ### <a name="move-management-groups-in-the-portal"></a>Flytta hanteringsgrupper i portalen
 
@@ -274,17 +314,29 @@ az account management-group update --name 'Contoso' --parent 'Contoso Tenant'
 
 ## <a name="audit-management-groups-using-activity-logs"></a>Granska hanteringsgrupper med hjälp av aktivitetsloggar
 
-Om du vill spåra hanteringsgrupper via det här API: et använder du [API:et för klientaktivitetsloggen](/rest/api/monitor/tenantactivitylogs). Det är för närvarande inte möjligt att använda PowerShell, CLI eller Azure-portalen för att spåra aktiviteter för hanteringsgrupper.
+Hanteringsgrupper kan användas i [Azure-aktivitetsloggen](../../azure-monitor/platform/activity-logs-overview.md). Du kan fråga efter alla händelser som sker till en hanteringsgrupp i samma central plats som andra Azure-resurser.  Du kan till exempel se alla rolltilldelningar eller principtilldelning ändringar som gjorts till en viss hanteringsgrupp.
 
-1. Som innehavaradministratör av Azure AD-klienten kan du [höja åtkomsten](../../role-based-access-control/elevate-access-global-admin.md) och sedan tilldela en läsarroll till granskningsanvändaren inom omfånget `/providers/microsoft.insights/eventtypes/management`.
-1. Som granskningsanvändare anropar du [API:et för klientaktivitetsloggen](/rest/api/monitor/tenantactivitylogs) för att visa aktiviteter för hanteringsgruppen. Filtrera efter Resursprovider **Microsoft.Management** för alla aktiviteter för hanteringsgruppen.  Exempel:
+![Aktivitetsloggar med Hanteringsgrupper](media/al-mg.png)
 
-```xml
-GET "/providers/Microsoft.Insights/eventtypes/management/values?api-version=2015-04-01&$filter=eventTimestamp ge '{greaterThanTimeStamp}' and eventTimestamp le '{lessThanTimestamp}' and eventChannels eq 'Operation' and resourceProvider eq 'Microsoft.Management'"
+När du visar att fråga på Hanteringsgrupper utanför Azure-portalen, målområdet för hanteringsgrupper ut **”/ providers/Microsoft.Management/managementGroups/{yourMgID}”**.
+
+## <a name="referencing-management-groups-from-other-resource-providers"></a>Refererar till hanteringsgrupper från andra Resursprovidrar
+
+När du refererar till hanteringsgrupper från andra Resursprovidern åtgärder, kan du använda följande sökväg som omfång. Den här sökvägen används när du använder PowerShell, Azure CLI och REST API: er.  
+
+>"/providers/Microsoft.Management/managementGroups/{yourMgID}"
+
+Ett exempel på hur du använder den här sökvägen är när du tilldelar en ny rolltilldelning till en hanteringsgrupp i PowerShell
+
+```powershell-interactive
+New-AzureRmRoleAssignment -Scope "/providers/Microsoft.Management/managementGroups/Contoso"
 ```
 
-> [!NOTE]
-> Du kan anropa det här API:et från kommandoraden med hjälp av [ARMClient](https://github.com/projectkudu/ARMClient).
+Samma omfång sökväg används vid hämtning av en principdefinition i en hanteringsgrupp.
+
+```http
+GET https://management.azure.com/providers/Microsoft.Management/managementgroups/MyManagementGroup/providers/Microsoft.Authorization/policyDefinitions/ResourceNaming?api-version=2018-05-01
+```
 
 ## <a name="next-steps"></a>Nästa steg
 

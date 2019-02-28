@@ -8,15 +8,15 @@ ms.service: search
 ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
-ms.date: 02/22/2019
+ms.date: 02/27/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 4bdc17e444239652fa612078e89ec85e357c9316
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: 2a245a6e3d76a7df41b5ef28f9bac8a2c2122402
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56750522"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56985435"
 ---
 #    <a name="entity-recognition-cognitive-skill"></a>Entiteten erkännande kognitiva kunskaper
 
@@ -43,7 +43,8 @@ Parametrar är skiftlägeskänsliga och är valfria.
 | kategorier    | Matris med kategorier som ska extraheras.  Möjliga kategorityper: `"Person"`, `"Location"`, `"Organization"`, `"Quantity"`, `"Datetime"`, `"URL"`, `"Email"`. Om ingen kategori anges, returneras alla typer.|
 |defaultLanguageCode |  Språkkod för den inmatade texten. Följande språk stöds: `de, en, es, fr, it`|
 |minimumPrecision | Oanvända. Reserverat för framtida användning. |
-|includeTypelessEntities | Värdet true om texten innehåller en välkänd entitet, men kan inte grupperas i en av kategorierna som stöds, den kommer att returneras som en del av den `"entities"` komplexa utdatafältet. Standardvärdet är `false` |
+|includeTypelessEntities | Värdet true om texten innehåller en välkänd entitet, men kan inte grupperas i en av kategorierna som stöds, den kommer att returneras som en del av den `"entities"` komplexa utdatafältet. 
+Det här är de enheter som är välkänt men inte har klassificerats som en del av de aktuella stöds ”kategorierna”. Till exempel ”Windows 10” är en välkänd entitet (en produkt), men ”produkter” är inte i kategorier som stöds i dag. Standardvärdet är `false` |
 
 
 ## <a name="skill-inputs"></a>Färdighet indata

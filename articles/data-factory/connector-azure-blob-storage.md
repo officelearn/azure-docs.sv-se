@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 02/22/2019
 ms.author: jingwang
-ms.openlocfilehash: b2676d16abe3fb3cb1ec59b261c6cc059b4795de
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: cacc17464d15e8872508cff0e626b383ee9a2808
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56674777"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56985401"
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-by-using-azure-data-factory"></a>Kopiera data till och från Azure Blob storage med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -37,7 +37,7 @@ Mer specifikt stöder denna Blob storage-anslutning:
 - Kopiera BLOB-objekt som är eller parsning eller genererar-objekt med [stöds filformat och komprimering codec](supported-file-formats-and-compression-codecs.md).
 
 >[!NOTE]
->Om du aktiverar _”Tillåt att betrodda Microsoft-tjänster för att komma åt det här lagringskontot”_ alternativet på brandväggsinställningar för Azure Storage med hjälp av Azure Integration Runtime kan ansluta till Blob storage misslyckas med förbjudet fel, vilket inte är ADF behandlas som betrodda Microsoft-tjänst. Använd lokal Integration Runtime som ansluter via i stället.
+>Om du aktiverar den _”Tillåt att betrodda Microsoft-tjänster för att komma åt det här lagringskontot”_ alternativet på brandväggsinställningar för Azure Storage med hjälp av Azure Integration Runtime kan ansluta till Blob-lagring att misslyckas med ett förbjudet fel eftersom ADF inte behandlas som en betrodd Microsoft-tjänst. Anslut via en lokal Integration Runtime i stället.
 
 ## <a name="get-started"></a>Kom igång
 

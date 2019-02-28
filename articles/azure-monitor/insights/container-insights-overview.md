@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/06/2018
 ms.author: magoedte
-ms.openlocfilehash: 2de3e76714c6e22f16f9aac1e1c9994a835b16e5
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: f292ad5802af6765ec26df7de1aa271e1214e0e9
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53190228"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56983021"
 ---
 # <a name="azure-monitor-for-containers-overview"></a>Azure Monitor för översikt över behållare
 
 Azure Monitor för behållare är en funktion som utformats för att övervaka prestanda för arbetsbelastningar distribueras till Azure Container Instances eller hanterade Kubernetes-kluster som finns på Azure Kubernetes Service (AKS). Övervaka dina behållare är viktigt, särskilt när du kör ett produktionskluster i skala med flera program.
 
-Azure Monitor för behållare ger dig insyn i prestanda genom att samla in minne och processor mått från domänkontrollanter, noder och behållare som är tillgängliga i Kubernetes via mått-API. Containerloggar samlas också.  När du aktiverar övervakning från Kubernetes-kluster kan dessa mått och loggar automatiskt som samlas in för dig via en behållare version av Log Analytics-agenten för Linux och lagras i din [Log Analytics](../../azure-monitor/log-query/log-query-overview.md) arbetsyta. 
+Azure Monitor för behållare ger dig insyn i prestanda genom att samla in minne och processor mått från domänkontrollanter, noder och behållare som är tillgängliga i Kubernetes via mått-API. Containerloggar samlas också.  När du aktiverar övervakning från Kubernetes-kluster kan dessa mått och loggar automatiskt som samlas in för dig via en behållare version av Log Analytics-agenten för Linux och lagras i din [Log Analytics](../log-query/log-query-overview.md) arbetsyta. 
  
 ## <a name="what-does-azure-monitor-for-containers-provide"></a>Vad kostar Azure Monitor för behållare ger?
 

@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/08/2019
 ms.author: magoedte
-ms.openlocfilehash: 67217b63588946782d42b4287cf5f24e29ebe5bd
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: 7eecd7f5da2b20cb80d8a04d105460baaf9ed4a2
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55961279"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56984721"
 ---
 # <a name="understand-the-health-of-your-azure-virtual-machines-with-azure-monitor-for-vms-preview"></a>Förstå hälsotillståndet för virtuella datorer i Azure med Azure Monitor för virtuella datorer (förhandsversion)
-Azure innehåller flera tjänster som individuellt utför en viss roll eller en uppgift i övervakningsutrymmet, men ger en djupgående hälsotillstånd perspektiv av operativsystemet som körs på virtuella Azure-datorer inte var tillgänglig.  Medan du kan övervaka för olika villkor med hjälp av Log Analytics och Azure Monitor, har de inte utvecklats modellera och representerar hälsan för kärnkomponenter eller övergripande hälsa för den virtuella datorn.  Med Azure Monitor för virtuella datorer hälsotillstånd funktion kan övervakar det proaktivt tillgänglighet och prestanda för Windows eller Linux gästoperativsystemet med en modell som representerar viktiga komponenter och deras relationer villkor som anger hur hälsotillståndet för de komponenter, och varnar dig när ett feltillstånd har identifierats.  
+Azure innehåller flera tjänster som individuellt utför en viss roll eller en uppgift i övervakningsutrymmet, men ger en djupgående hälsotillstånd perspektiv av operativsystemet som körs på virtuella Azure-datorer inte var tillgänglig.  Medan du kan övervaka för olika villkor med Azure Monitor, var inte det utformat för att modellera och representerar hälsan för kärnkomponenter eller övergripande hälsa för den virtuella datorn.  Med Azure Monitor för virtuella datorer hälsotillstånd funktion kan övervakar det proaktivt tillgänglighet och prestanda för Windows eller Linux gästoperativsystemet med en modell som representerar viktiga komponenter och deras relationer villkor som anger hur hälsotillståndet för de komponenter, och varnar dig när ett feltillstånd har identifierats.  
 
 Visa det övergripande hälsotillståndet för Azure VM och underliggande operativsystemet kan observeras ur två perspektiv med Azure Monitor för virtuella datorer hälsotillstånd, direkt från den virtuella datorn eller i alla virtuella datorer i en resursgrupp från Azure Monitor.
 
@@ -251,7 +251,7 @@ Totalt antal VM-hälsa aviseringar kategoriserade efter allvarlighetsgrad är ti
 
 På den **aviseringar** kan den inte omfattar endast om du vill visa aviseringar som matchar ditt val, men också filtreras efter **resurstyp** till att bara visa health-aviseringar som aktiverats av den virtuella datorresursen.  Detta återges i listan över aviseringar under kolumnen **målresursen**, där det visar Azure-VM som varningen skapades för när de specifika Hälsokriterier feltillstånd uppfylldes.  
 
-Aviseringar från andra typer av resurser eller tjänster är inte avsedda att inkluderas i den här vyn, som aviseringar baserat på Log Analytics frågor eller mått aviseringar som du normalt skulle visa från standard Azure Monitor [alla aviseringar](../../azure-monitor/platform/alerts-overview.md#all-alerts-page) sidan. 
+Aviseringar från andra typer av resurser eller tjänster är inte avsedda att inkluderas i den här vyn, som aviseringar baserat på loggfrågor eller mått aviseringar som du normalt skulle visa från standard Azure Monitor [alla aviseringar](../../azure-monitor/platform/alerts-overview.md#all-alerts-page) sidan. 
 
 Du kan filtrera den här vyn genom att välja värden i listrutorna överst på sidan.
 

@@ -7,14 +7,14 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 02/22/2019
 ms.author: absha
-ms.openlocfilehash: 9874ff7fde049c4dba4efb77ff541c80e462671a
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: 7a645574a75a040c3b0218714363cf85e0384e68
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56808751"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56959841"
 ---
-# <a name="troubleshoot-application-gateway-with-app-service--redirection-to-app-services-url"></a>Felsöka Application Gateway med App Service – omdirigering till App Service-URL
+# <a name="troubleshoot-application-gateway-with-app-service--redirection-to-app-services-url"></a>Felsöka Application Gateway med App Service – omdirigering till App Service-URL:en
 
  Lär dig att diagnostisera och lösa omdirigering av problem med Application Gateway där App Service-URL: en hämtar exponeras.
 
@@ -45,27 +45,27 @@ Om du vill göra detta med Application Gateway kan vi använda växeln ”Välj 
 ![appservice-1](.\media\troubleshoot-app-service-redirection-app-service-url\appservice-1.png)
 
 På grund av detta, när App Service har en omdirigering används värdnamnet ”example.azurewebsites.net” i Location-huvudet i stället för det ursprungliga värdnamnet, såvida inte konfigurerad på annat sätt. Du kan kontrollera de exempel begärande- och svarshuvuden nedan.
+```
+## Request headers to Application Gateway:
 
-Begärandehuvuden till Application Gateway:
+Request URL: http://www.contoso.com/path
 
-URL för begäran: http://www.contoso.com/path
-
-Metoden för begäran: HÄMTA
+Request Method: GET
 
 Host: www.contoso.com
 
-Svarshuvuden:
+## Response headers:
 
-Statuskod: 301 flyttas permanent
+Status Code: 301 Moved Permanently
 
-Plats: http://example.azurewebsites.net/path/
+Location: http://example.azurewebsites.net/path/
 
 Server: Microsoft-IIS/10.0
 
 Set-Cookie: ARRAffinity=b5b1b14066f35b3e4533a1974cacfbbd969bf1960b6518aa2c2e2619700e4010;Path=/;HttpOnly;Domain=example.azurewebsites.net
 
-X drivs av: ASP.NET
-
+X-Powered-By: ASP.NET
+```
 I exemplet ovan kan du Observera att rubriken har statuskoden 301 för omdirigering och location-huvudet har App Service-värdnamnet i stället för det ursprungliga värdnamnet ”www.contoso.com”.
 
 ## <a name="solution"></a>Lösning
@@ -76,43 +76,45 @@ När vi har gjort det, App Service gör omdirigeringen (i förekommande fall) p�
 
 För att uppnå detta, måste du äga en anpassad domän och följ processen som anges nedan.
 
-- Registrera domänen i listan anpassad domän för App Service. Du måste ha en CNAME-post i din anpassade domän som pekar på App Service-FQDN till detta ändamål. Mer information finns i [mappa ett befintligt anpassat DNS-namn till Azure App Service](https://docs.microsoft.com//azure/app-service/app-service-web-tutorial-custom-domain).![ appservice-2](.\media\troubleshoot-app-service-redirection-app-service-url\appservice-2.png)
+- Registrera domänen i listan anpassad domän för App Service. Du måste ha en CNAME-post i din anpassade domän som pekar på App Service-FQDN till detta ändamål. Mer information finns i [mappa ett befintligt anpassat DNS-namn till Azure App Service](https://docs.microsoft.com//azure/app-service/app-service-web-tutorial-custom-domain).
+
+![appservice-2](.\media\troubleshoot-app-service-redirection-app-service-url\appservice-2.png)
 
 - När det är klart är din App Service kan acceptera värdnamnet ”www.contoso.com”. Ändra din CNAME-post i DNS så att den pekar tillbaka till Application Gateway FQDN. Till exempel ”appgw.eastus.cloudapp.azure.com”.
 
 - Kontrollera att domänen ”www.contoso.com” matchar FQDN för Application Gateway när du gör en DNS-fråga.
 
-- Ange din anpassade avsökningen för att inaktivera ”Välj värdnamnet från serverdelens HTTP-inställningar”. Detta kan göras från portalen genom att avmarkera kryssrutan i inställningarna för avsökning och i PowerShell genom att inte använda PickHostNameFromBackendHttpSettings - växlar.
+- Ange din anpassade avsökningen för att inaktivera ”Välj värdnamnet från serverdelens HTTP-inställningar”. Detta kan göras från portalen genom att avmarkera kryssrutan i inställningarna för avsökning och i PowerShell genom att inte använda PickHostNameFromBackendHttpSettings - växel i kommandot Set-AzApplicationGatewayProbeConfig. Ange din App Service FQDN ”example.azurewebsites.net” i fältet värdnamn i avsökningen som avsökning förfrågningar som skickas från Programgatewayen har detta i värdhuvudet.
 
   > [!NOTE]
-  > Kontrollera att din anpassad avsökning inte är kopplad till serverdelens HTTP-inställningar när du gör det här steget.
+  > När du gör nästa steg, kontrollera att din anpassad avsökning inte är kopplad till serverdelens HTTP-inställningar eftersom dina http-inställningar fortfarande har växeln ”Välj värdnamnet från Serverdelsadressen” aktiverat nu.
 
-- Ange din Application-Gateway http-inställningar för att inaktivera ”Välj värdnamnet från Serverdelsadressen”. Detta kan göras från portalen genom att avmarkera kryssrutan och i PowerShell genom att inte använda PickHostNameFromBackendAddress - växlar.
+- Ange din Application-Gateway http-inställningar för att inaktivera ”Välj värdnamnet från Serverdelsadressen”. Detta kan göras från portalen genom att avmarkera kryssrutan och i PowerShell genom att inte använda switch - PickHostNameFromBackendAddress i kommandot Set-AzApplicationGatewayBackendHttpSettings.
 
 - Koppla anpassad avsökning tillbaka till serverdelens HTTP-inställningar och kontrollera hälsotillstånd för serverdel om den är felfri.
 
 - När detta är gjort Application Gateway bör nu vidarebefordra samma värdnamnet ”www.contoso.com” till App Service och omdirigering sker på samma värdnamn. Du kan kontrollera de exempel begärande- och svarshuvuden nedan.
+```
+  ## Request headers to Application Gateway:
 
-  Begärandehuvuden till Application Gateway:
+  Request URL: http://www.contoso.com/path
 
-  URL för begäran: http://www.contoso.com/path
-
-  Metoden för begäran: HÄMTA
+  Request Method: GET
 
   Host: [www.contoso.com](http://www.contoso.com)
 
-  Svarshuvuden:
+  ## Response headers:
 
-  Statuskod: 301 flyttas permanent
+  Status Code: 301 Moved Permanently
 
-  Plats: http://www.contoso.com/path/
+  Location: http://www.contoso.com/path/
 
   Server: Microsoft-IIS/10.0
 
   Set-Cookie: ARRAffinity=b5b1b14066f35b3e4533a1974cacfbbd969bf1960b6518aa2c2e2619700e4010;Path=/;HttpOnly;Domain=www.contoso.com
 
-  X drivs av: ASP.NET
-
+  X-Powered-By: ASP.NET
+```
 ## <a name="next-steps"></a>Nästa steg
 
 Om föregående steg inte löser problemet kan du öppna en [supportärende](https://azure.microsoft.com/support/options/).

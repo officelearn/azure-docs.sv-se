@@ -14,12 +14,12 @@ ms.tgt_pltfrm: windows
 ms.workload: ''
 ms.date: 03/26/2018
 ms.author: robreed
-ms.openlocfilehash: 26b083069380d7bf107cd3be54cb2e4786789e11
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: 4f4793e18185c16ef144de33b4f116eff89a9969
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56593871"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56960164"
 ---
 # <a name="powershell-dsc-extension"></a>PowerShell DSC-tillägg
 
@@ -116,7 +116,7 @@ Följande JSON visar schemat för inställningsavsnittet av DSC-tillägget i en 
 | settings.configurationArguments | Samling | Definierar de parametrar som du vill skicka till DSC-konfiguration. Den här egenskapen kommer inte krypteras.
 | settings.configurationData.url | sträng | Anger den URL som du vill ladda ned konfigurationsdatafilen (.pds1) från att använda som indata för DSC-konfiguration. Om den URL som kräver en SAS-token för åtkomst och måste du ange egenskapen protectedSettings.configurationDataUrlSasToken till värdet för din SAS-token.
 | settings.privacy.dataEnabled | sträng | Aktiverar eller inaktiverar telemetriinsamling. Endast möjliga värden för den här egenskapen är ”aktivera”, ”inaktivera” ”,, eller $null. Lämna den här egenskapen tom eller null aktiverar telemetri
-| settings.advancedOptions.forcePullAndApply | Bool | Gör det möjligt för DSC-tillägget att uppdatera och tillämpar DSC-konfigurationer när uppdatering-läget är Pull.
+| settings.advancedOptions.forcePullAndApply | Bool | Den här inställningen är utformad för att förbättra upplevelsen av att arbeta med tillägget för att registrera noder med Azure Automation DSC.  Om värdet är `$true`, tillägget väntar på att den första körningen av konfigurationen innan det returneras lyckade/misslyckade som hämtats från tjänsten.  Om värdet anges till $false, status som returneras av tillägget kommer endast referera till om noden registrerades med Azure Automation-Tillståndskonfiguration och nodkonfigurationen körs inte vid registrering.
 | settings.advancedOptions.downloadMappings | Samling | Definierar alternativa platser för att hämta beroenden, till exempel WMF och .NET
 
 ### <a name="protected-settings-property-values"></a>Skyddade inställningar egenskapsvärden

@@ -16,12 +16,12 @@ ms.date: 02/27/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 01/29/2019
-ms.openlocfilehash: 6dad4fc98dccc5c8db22019fdc548efdf7165d9e
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 86a3542c39fe81607187442799ef7b546e053a8e
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56888754"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56985843"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure Marketplace-objekt tillgängliga för Azure Stack
 
@@ -166,7 +166,6 @@ Microsoft Azure Stack har stöd för följande virtuella datorer i Azure Marketp
 | ![MongoDB](media/azure-stack-marketplace-azure-items/mongodb.png) | [MongoDB](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.mongodb) | Högpresterande öppen källkod NoSQL-databas skrivna i C++. | Bitnami |
 | ![MongoDB med replikering](media/azure-stack-marketplace-azure-items/mongodb.png) | [MongoDB med replikering](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.production-mongodb) | Högpresterande öppen källkod NoSQL-databas skrivna i C++. **Den här lösningsmallen kräver din Azure Stack är version 1807 eller senare och kräver också Debian 8 och anpassat skript för Linux 2.0-tillägget.** | Bitnami |
 | ![Moodle](media/azure-stack-marketplace-azure-items/moodle.png) | [Moodle](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.moodle) | Effektiva CMS har utformats för utbildning online-communities. | Bitnami |
-| ![Multicraft](media/azure-stack-marketplace-azure-items/multicraft.png) | [Multicraft](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.multicraft) | Minecraft server som är värd för lösningen och Kontrollpanelen. | Bitnami |
 | ![MyBB](media/azure-stack-marketplace-azure-items/mybb.png) | [MyBB](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.mybb) | Kostnadsfri och öppen källkod Forum-programvara. | Bitnami |
 | ![MySQL](media/azure-stack-marketplace-azure-items/mysql.png) | [MySQL](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.mysql) | Det mest populära databassystemet. | Bitnami |
 | ![MySQL med replikering](media/azure-stack-marketplace-azure-items/mysql.png) | [MySQL med replikering](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.mysql-cluster) | MySQL är ett snabbt, tillförlitlig, skalbar och lätt att använda open source-system. MySQL-Server är avsedd för verksamhetskritiska och tung belastning produktionssystem samt för att bädda in i lagringsenheter-distribuerade program. Den här lösningen använder flera virtuella datorer för att replikera databaserna från den överordnade noden till ett konfigurerbart antal repliker. **Den här lösningsmallen kräver också Debian 8 och anpassat skript för Linux 2.0-tillägget.** | Bitnami |

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 02/22/2019
 ms.author: ramankum
 ms.subservice: disks
-ms.openlocfilehash: 705706b011464f9e1f437db7b608b3a73e7c3655
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 5b9ab1c2735bd92855c032fe2eff17b804636e18
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56727391"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56983361"
 ---
 # <a name="find-and-delete-unattached-azure-managed-and-unmanaged-disks"></a>Hitta och ta bort icke anslutna Azure-hanterade och ohanterade diskar
 
@@ -35,42 +35,28 @@ Följande skript söker efter ej anslutna [hanterade diskar](managed-disks-overv
 >Kör skriptet först genom att ange den **deleteUnattachedDisks** variabeln till 0. Den här åtgärden kan du hitta och visa alla ej anslutna hanterade diskar.
 >
 >När du har läst icke anslutna diskar, kör skriptet igen och ange den **deleteUnattachedDisks** variabeln till 1. Den här åtgärden kan du ta bort icke anslutna hanterade diskar.
->
 
 ```azurepowershell-interactive
-
 # Set deleteUnattachedDisks=1 if you want to delete unattached Managed Disks
 # Set deleteUnattachedDisks=0 if you want to see the Id of the unattached Managed Disks
 $deleteUnattachedDisks=0
-
 $managedDisks = Get-AzDisk
-
 foreach ($md in $managedDisks) {
-    
     # ManagedBy property stores the Id of the VM to which Managed Disk is attached to
     # If ManagedBy property is $null then it means that the Managed Disk is not attached to a VM
     if($md.ManagedBy -eq $null){
-
         if($deleteUnattachedDisks -eq 1){
-            
             Write-Host "Deleting unattached Managed Disk with Id: $($md.Id)"
-
             $md | Remove-AzDisk -Force
-
             Write-Host "Deleted unattached Managed Disk with Id: $($md.Id) "
-
         }else{
-
             $md.Id
-
         }
-           
     }
-     
- } 
+ }
 ```
 
-## <a name="unmanaged-disks-find-and-delete-unattached-disks"></a>Ohanterade diskar: Hitta och ta bort icke anslutna diskar 
+## <a name="unmanaged-disks-find-and-delete-unattached-disks"></a>Ohanterade diskar: Hitta och ta bort icke anslutna diskar
 
 Ohanterade diskar är VHD-filer som lagras som [sidblobbar](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-page-blobs) i [Azure storage-konton](../../storage/common/storage-create-storage-account.md). Följande skript söker efter icke anslutna ohanterade diskar (sidblob) genom att undersöka värdet för den **LeaseStatus** egenskapen. När en ohanterad disk som är ansluten till en virtuell dator kan den **LeaseStatus** är inställd på **låst**. När en ohanterad disk är frånkopplad, den **LeaseStatus** är inställd på **olåst**. Skriptet undersöker alla ohanterade diskar i alla Azure storage-konton i en Azure-prenumeration. När skriptet hittar en ohanterad disk med en **LeaseStatus** egenskapen **olåst**, skriptet anger att disken är frånkopplad.
 
@@ -78,54 +64,33 @@ Ohanterade diskar är VHD-filer som lagras som [sidblobbar](/rest/api/storageser
 >Kör skriptet först genom att ange den **deleteUnattachedVHDs** variabeln till 0. Den här åtgärden kan du hitta och visa alla ej anslutna ohanterade virtuella hårddiskar.
 >
 >När du har läst icke anslutna diskar, kör skriptet igen och ange den **deleteUnattachedVHDs** variabeln till 1. Den här åtgärden kan du ta bort alla ej anslutna ohanterade virtuella hårddiskar.
->
 
 ```azurepowershell-interactive
-   
 # Set deleteUnattachedVHDs=1 if you want to delete unattached VHDs
 # Set deleteUnattachedVHDs=0 if you want to see the Uri of the unattached VHDs
 $deleteUnattachedVHDs=0
-
 $storageAccounts = Get-AzStorageAccount
-
 foreach($storageAccount in $storageAccounts){
-
     $storageKey = (Get-AzStorageAccountKey -ResourceGroupName $storageAccount.ResourceGroupName -Name $storageAccount.StorageAccountName)[0].Value
-
     $context = New-AzStorageContext -StorageAccountName $storageAccount.StorageAccountName -StorageAccountKey $storageKey
-
     $containers = Get-AzStorageContainer -Context $context
-
     foreach($container in $containers){
-
         $blobs = Get-AzStorageBlob -Container $container.Name -Context $context
-
         #Fetch all the Page blobs with extension .vhd as only Page blobs can be attached as disk to Azure VMs
         $blobs | Where-Object {$_.BlobType -eq 'PageBlob' -and $_.Name.EndsWith('.vhd')} | ForEach-Object { 
-        
             #If a Page blob is not attached as disk then LeaseStatus will be unlocked
             if($_.ICloudBlob.Properties.LeaseStatus -eq 'Unlocked'){
-              
-                  if($deleteUnattachedVHDs -eq 1){
-
+                    if($deleteUnattachedVHDs -eq 1){
                         Write-Host "Deleting unattached VHD with Uri: $($_.ICloudBlob.Uri.AbsoluteUri)"
-
                         $_ | Remove-AzStorageBlob -Force
-
-                        Write-Host "Deleted unattached VHD with Uri: $($_.ICloudBlob.Uri.AbsoluteUri)"
-                  }
-                  else{
-
+                        Write-Host "Deleted unattached VHD with Uri: $($_.ICloudBlob.Uri.AbsoluteUri)
+                    }
+                    else{
                         $_.ICloudBlob.Uri.AbsoluteUri
-
-                  }
-
+                    }
             }
-        
         }
-
     }
-
 }
 ```
 

@@ -12,12 +12,12 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e82e8f6caafb38b758f552913def234a92a0d83
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 696b6b14b2a369e8b80ac615fc77fa7f48f51c57
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56454658"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56959943"
 ---
 # <a name="manually-add-an-account-to-the-app"></a>Manuellt lägga till ett konto i appen
 Om din kamera inte att samla in QR-koden kan du manuellt lägga till din kontoinformation till Microsoft Authenticator-appen för verifiering av två faktorer. Detta fungerar för arbets- eller skolkonton och icke-Microsoft-konton.
@@ -102,5 +102,7 @@ Du kan lägga till Amazon-konto genom att aktivera tvåfaktorsautentisering veri
 ## <a name="next-steps"></a>Nästa steg
 
 - När du har lagt till dina konton till appen, kan du logga in med Microsoft Authenticator-appen på din enhet. Mer information finns i [logga in med appen](user-help-auth-app-sign-in.md).
+
+- Om du har problem med att få din Verifieringskod för ditt personliga Microsoft-konto, se den **felsökning av problem med verifiering kod** delen av den [säkerhetsinformation för Microsoft-konto & verifiering koder](https://support.microsoft.com/en-us/help/12428/microsoft-account-security-info-verification-codes) artikeln.
 
 - För enheter som kör iOS, du kan även säkerhetskopiera dina autentiseringsuppgifter och appinställningar, till exempel ordningen på dina konton, som rör molnet. Mer information finns i [säkerhetskopiering och återställning med Microsoft Authenticator-appen](user-help-auth-app-backup-recovery.md).

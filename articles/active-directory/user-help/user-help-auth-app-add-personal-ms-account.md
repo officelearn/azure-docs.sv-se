@@ -12,12 +12,12 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 67cb3d049cc2d2f26be6d62270e677a5cbcd39cc
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: bcb49048fa9200b8970f37a4f187ca995d208cc2
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56455049"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56961592"
 ---
 # <a name="add-your-personal-microsoft-accounts"></a>Lägg till ditt personliga Microsoft-konton
 Lägga till ditt personliga Microsoft-konton som för Outlook.com, Xbox LIVE och på Microsoft Authenticator-appen för både standard tvåfaktors-verifieringen och konfiguration av lösenordsfri phone inloggningsmetod.
@@ -67,5 +67,7 @@ Du kan lägga till ditt personliga Microsoft-konto genom att aktivera tvåfaktor
 ## <a name="next-steps"></a>Nästa steg
 
 - När du har lagt till dina konton till appen, kan du logga in med Authenticator-appen på din enhet. Mer information finns i [logga in med appen](user-help-auth-app-sign-in.md).
+
+- Om du har problem med att få din Verifieringskod för ditt personliga Microsoft-konto, se den **felsökning av problem med verifiering kod** delen av den [säkerhetsinformation för Microsoft-konto & verifiering koder](https://support.microsoft.com/en-us/help/12428/microsoft-account-security-info-verification-codes) artikeln.
 
 - För enheter som kör iOS, du kan även säkerhetskopiera dina autentiseringsuppgifter och appinställningar, till exempel ordningen på dina konton, som rör molnet. Mer information finns i [säkerhetskopiering och återställning med Microsoft Authenticator-appen](user-help-auth-app-backup-recovery.md).

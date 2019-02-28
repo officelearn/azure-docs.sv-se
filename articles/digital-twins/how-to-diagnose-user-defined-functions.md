@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 12/27/2018
 ms.author: stefanmsft
 ms.custom: seodec18
-ms.openlocfilehash: ebeed6d2a52937a6e80dfe28574ad854643fa7f2
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 6122cd4507ed0883d1b78ca519269c25098e55ff
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54119239"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56961422"
 ---
 # <a name="how-to-debug-user-defined-functions-in-azure-digital-twins"></a>Så här felsöker du användardefinierade funktioner i Azure Digital Twins
 
@@ -29,10 +29,10 @@ Att veta hur du diagnostiserar problem som kan uppstå i din instans av Azure Di
 
 ### <a name="enable-log-analytics-for-your-instance"></a>Aktivera logganalys för din instans
 
-Loggar och mått för din Azure Digital Twins instans visas i Azure Monitor. Den här dokumentationen förutsätter att du har skapat en [Azure Log Analytics](../azure-monitor/log-query/log-query-overview.md) arbetsytan via den [Azure-portalen](../azure-monitor/learn/quick-create-workspace.md), via [Azure CLI](../azure-monitor/learn/quick-create-workspace-cli.md), eller via [ PowerShell](../azure-monitor/learn/quick-create-workspace-posh.md).
+Loggar och mått för din Azure Digital Twins instans visas i Azure Monitor. Den här dokumentationen förutsätter att du har skapat en [Azure Monitor loggar](../azure-monitor/log-query/log-query-overview.md) arbetsytan via den [Azure-portalen](../azure-monitor/learn/quick-create-workspace.md), via [Azure CLI](../azure-monitor/learn/quick-create-workspace-cli.md), eller via [ PowerShell](../azure-monitor/learn/quick-create-workspace-posh.md).
 
 > [!NOTE]
-> Det uppstå en fördröjning på 5 minuter när du skickar händelser till Azure Log Analytics för första gången.
+> Det uppstå en fördröjning på 5 minuter när du skickar händelser till Azure Monitor-loggar för första gången.
 
 Om du vill konfigurera övervakning och loggning för Azure Digital Twins resurser, läsa [så här konfigurerar du övervakning och loggning](./how-to-configure-monitoring.md).
 
@@ -43,11 +43,11 @@ Läs artikeln [samla in och använda loggdata från resurserna i Azure](../azure
 
 ### <a name="trace-sensor-telemetry"></a>Spårningstelemetri för sensor
 
-Att spåra sensor telemetri, kontrollera att diagnostikinställningar har aktiverats för din Azure Digital Twins-instans. Kontrollera sedan att alla önskade loggkategorier har valts. Kontrollera slutligen att loggarna som skickas till Azure Log Analytics.
+Att spåra sensor telemetri, kontrollera att diagnostikinställningar har aktiverats för din Azure Digital Twins-instans. Kontrollera sedan att alla önskade loggkategorier har valts. Kontrollera slutligen att loggarna som skickas till Azure Monitor-loggar.
 
 Du kan ange ett Korrelations-ID på av data som skickas för att matcha en sensor telemetrimeddelanden till dess respektive loggar. Du gör detta genom att ange den `x-ms-client-request-id` egenskapen till ett GUID.
 
-När du har skickat telemetri, öppnar Azure Log Analytics att fråga efter loggar med uppsättningen Korrelations-ID:
+När du har skickat telemetri, öppna log analytics för att fråga efter loggar med uppsättningen Korrelations-ID:
 
 ```Kusto
 AzureDiagnostics
@@ -58,7 +58,7 @@ AzureDiagnostics
 | --- | --- |
 | YOUR_CORRELATION_IDENTIFIER | Korrelations-ID som angavs på händelsedata |
 
-Om du aktiverar loggning för den användardefinierade funktionen loggarna visas i din Azure Log Analytics-instans i kategorin `UserDefinedFunction`. Ange följande fråga villkor i Azure Log Analytics för att hämta dem:
+Om du aktiverar loggning för den användardefinierade funktionen loggarna visas i din log analytics-instans i kategorin `UserDefinedFunction`. Ange följande fråga villkor i log analytics för att hämta dem:
 
 ```Kusto
 AzureDiagnostics

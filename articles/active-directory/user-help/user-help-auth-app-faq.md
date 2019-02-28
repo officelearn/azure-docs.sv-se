@@ -13,12 +13,12 @@ ms.date: 01/31/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 78fc7441b109c87f1ab9ff5b56ed8e055c152d10
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 9b73acefa3dcddfedbcaee841f9b3560ed10407d
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456069"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56960419"
 ---
 # <a name="microsoft-authenticator-app-faq"></a>Microsoft Authenticator-appen vanliga frågor och svar
 
@@ -54,8 +54,10 @@ Microsoft Authenticator-appen ersätts Azure Authenticator-appen och är den rek
 
 ## <a name="next-steps"></a>Nästa steg
 
+- Om du har problem med att få din Verifieringskod för ditt personliga Microsoft-konto, se den **felsökning av problem med verifiering kod** delen av den [säkerhetsinformation för Microsoft-konto & verifiering koder](https://support.microsoft.com/en-us/help/12428/microsoft-account-security-info-verification-codes) artikeln.
+
 -   Om du vill ha mer information om tvåstegsverifiering finns i [konfigurerar mitt konto för tvåstegsverifiering](multi-factor-authentication-end-user-first-time.md)
 
--   Om du vill ha mer information om säkerhetsinformation [hantera din säkerhetsinformation](security-info-manage-settings.md)
+-   Om du vill ha mer information om säkerhetsinformation [Säkerhetsöversikt info (förhandsversion)](user-help-security-info-overview.md)
 
 - Om din fråga inte besvaras här, som vi vill höra från dig. Gå till den [Microsoft Authenticator-appen forum](https://social.technet.microsoft.com/Forums/en-us/home?forum=MicrosoftAuthenticatorApp) att publicera din fråga och få hjälp från communityn eller lämna en kommentar på den här sidan.

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 02/15/2018
 ms.author: saudas
-ms.openlocfilehash: 37a9712749a1575f81086d28ad461a665bef36d9
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: c55a12e6bd5ab57f790e5f161930851be10f5c2a
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56313457"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56985248"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Kubernetes-versioner som stöds i Azure Kubernetes Service (AKS)
 
@@ -31,7 +31,7 @@ Exempel: om AKS introducerar *1.12.x* idag finns också stöd för *1.11.a* + *1
 
 När en ny lägre version släpps tas den äldsta lägre versionen och dess korrigeringsversioner ur bruk. 15 dagar före lanseringen av den nya minor-version och kommande versionen dras tillbaka ett meddelande görs via den [Azure uppdateringskanaler][azure-update-channel]. I exemplet ovan var *1.12.x* har lanserats utgångna versioner är *1.8.g* + *1.8.h*.
 
-När du distribuerar ett AKS-kluster i portalen eller med Azure CLI konfigureras klustret alltid till den lägre versionen n-1 och den senaste korrigeringsversionen. Exempel: om AKS stöder *1.12.x*, *1.11.a* + *1.11.b*, *1.10.c*  +   *1.10d*, *1.9.e* + *1.9f*, standardversionen för nya kluster är *1.10.b*.
+När du distribuerar ett AKS-kluster i portalen eller med Azure CLI konfigureras klustret alltid till den lägre versionen n-1 och den senaste korrigeringsversionen. Exempel: om AKS stöder *1.12.x*, *1.11.a* + *1.11.b*, *1.10.c*  +   *1.10d*, *1.9.e* + *1.9f*, standardversionen för nya kluster är *1.11.b*.
 
 ## <a name="list-currently-supported-versions"></a>Lista över versioner som stöds för närvarande
 

@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 19d34e76c73c5ec2472d3eacddc01d6aebb6b9fb
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 4f89fab47cf07538d1915d359fc29a21deb1e560
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56889111"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56986098"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Distribuera modeller med Azure Machine Learning-tjänsten
 
@@ -259,6 +259,44 @@ Azure Kubernetes Service innehåller följande funktioner:
 * Loggning
 * Insamling av modelldata
 * Snabba svarstider för webbtjänster
+* TLS-avslutning
+* Authentication
+
+#### <a name="autoscaling"></a>Automatisk skalning
+
+Automatisk skalning kan kontrolleras genom att ange `autoscale_target_utilization`, `autoscale_min_replicas`, och `autoscale_max_replicas` för AKS-webbtjänsten. I följande exempel visar hur du aktiverar automatisk skalning:
+
+```python
+aks_config = AksWebservice.deploy_configuration(autoscale_enabled=True, 
+                                                autoscale_target_utilization=30,
+                                                autoscale_min_replicas=1,
+                                                autoscale_max_replicas=4)
+```
+
+Beslut genom att skala upp och ned baserat på användning av de aktuella behållaren replikerna. Antal repliker som är upptagna (bearbetar en begäran) dividerat med totalen antalet aktuella repliker är den aktuella användningen. Om det här värdet överskrider målanvändning, skapas fler repliker. Om den är lägre, minskas repliker. Som standard är målanvändning 70%.
+
+Beslut att lägga till repliker är angelägen och fast (cirka 1 sekund). Beslut att ta bort repliker är konservativ (cirka 1 minut).
+
+Du kan beräkna krävs replikerna med hjälp av följande kod:
+
+```python
+from math import ceil
+# target requests per second
+targetRps = 20
+# time to process the request (in seconds)
+reqTime = 10
+# Maximum requests per container
+maxReqPerContainer = 1
+# target_utilization. 70% in this example
+targetUtilization = .7
+
+concurrentRequests = targetRps * reqTime / targetUtilization
+
+# Number of container replicas
+replicas = ceil(concurrentRequests / maxReqPerContainer)
+```
+
+Mer information om hur `autoscale_target_utilization`, `autoscale_max_replicas`, och `autoscale_min_replicas`, finns i den [AksWebservice](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py) modulreferens.
 
 #### <a name="create-a-new-cluster"></a>Skapa ett nytt kluster
 

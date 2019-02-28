@@ -8,16 +8,18 @@ ms.topic: article
 ms.date: 01/25/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 93fd42739e0ec8ca9230688274b31fac5edf216d
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: fb9ee97726632b7eeccc923596c1f5527a7c95bd
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55098586"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56961626"
 ---
 # <a name="configure-network-performance-monitor-for-expressroute"></a>Konfigurera övervakare av nätverksprestanda för ExpressRoute
 
-Den här artikeln hjälper dig att konfigurera ett tillägg för övervakning av nätverksprestanda för att övervaka ExpressRoute. Övervakare för nätverk-prestanda (NPM) är en molnbaserad lösning för nätverksövervakning som övervakar anslutning mellan distributioner av Azure-molnet och lokala platser (avdelningskontor, osv.). NPM är en del av Log Analytics. NPM erbjuder ett tillägg för ExpressRoute som låter dig övervaka nätverkets prestanda över ExpressRoute-kretsar som är konfigurerade för att använda privat peering eller Microsoft-peering. När du konfigurerar NPM för ExpressRoute, kan du identifiera nätverksproblem för att identifiera och eliminera. Den här tjänsten är också tillgängligt för Azure Government-molnet.
+Den här artikeln hjälper dig att konfigurera ett tillägg för övervakning av nätverksprestanda för att övervaka ExpressRoute. Övervakare för nätverk-prestanda (NPM) är en molnbaserad lösning för nätverksövervakning som övervakar anslutning mellan distributioner av Azure-molnet och lokala platser (avdelningskontor, osv.). NPM är en del av Azure Monitor-loggar. NPM erbjuder ett tillägg för ExpressRoute som låter dig övervaka nätverkets prestanda över ExpressRoute-kretsar som är konfigurerade för att använda privat peering eller Microsoft-peering. När du konfigurerar NPM för ExpressRoute, kan du identifiera nätverksproblem för att identifiera och eliminera. Den här tjänsten är också tillgängligt för Azure Government-molnet.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 Du kan:
 
@@ -58,7 +60,7 @@ Skapa en arbetsyta i den prenumeration som har virtuella nätverk-länk till Exp
 
    ![portal](./media/how-to-npm/3.png)<br><br>
 2. Längst ned i huvudsakliga **Övervakare av nätverksprestanda** klickar du på **skapa** att öppna **Network Performance Monitor - Skapa ny lösning** sidan. Klicka på **Log Analytics-arbetsyta – Välj en arbetsyta** att öppna sidan arbetsytor. Klicka på **+ Skapa ny arbetsyta** att öppna sidan för arbetsytan.
-3. På den **Log Analytics-arbetsytan** väljer **Skapa ny**, konfigurera följande inställningar:
+3. På den **Log Analytics-arbetsyta** väljer **Skapa ny**, konfigurera följande inställningar:
 
   * Log Analytics-arbetsyta – ange ett namn för din arbetsyta.
   * Prenumeration – om du har flera prenumerationer väljer du den du vill associera med den nya arbetsytan.
@@ -98,7 +100,7 @@ Vi rekommenderar att du installerar minst två agenter på båda sidor av Expres
 2. På sidan **Välkommen** klickar du på **Nästa**.
 3. På den **licensvillkoren** sidan, läser du licensen och klicka sedan på **jag accepterar**.
 4. På den **målmapp** sidan, ändra eller Behåll standardinstallationsmappen och klickar sedan på **nästa**.
-5. På den **installationsalternativ för Agent** sidan som du kan välja att ansluta agenten till Azure Log Analytics eller Operations Manager. Eller så kan du lämna alternativen tomt om du vill konfigurera agenten senare. När du har gjort dina val klickar du på **nästa**.
+5. På den **installationsalternativ för Agent** sidan som du kan välja att ansluta agenten till Azure Monitor-loggar eller Operations Manager. Eller så kan du lämna alternativen tomt om du vill konfigurera agenten senare. När du har gjort dina val klickar du på **nästa**.
 
   * Om du väljer att ansluta till **Azure Log Analytics**, klistra in den **arbetsyte-ID** och **Arbetsytenyckel** (primärnyckel) som du kopierade till anteckningar i föregående avsnitt. Klicka sedan på **Nästa**.
 
@@ -111,7 +113,7 @@ Vi rekommenderar att du installerar minst två agenter på båda sidor av Expres
     ![Konto](./media/how-to-npm/10.png)
 6. På den **klar att installera** sidan, kontrollerar du valen och klickar sedan på **installera**.
 7. På sidan **Konfigurationen har slutförts** klickar du på **Slutför**.
-8. När du är klar visas Microsoft Monitoring Agent på Kontrollpanelen. Du kan granska konfigurationen där och kontrollera att agenten är ansluten till Azure Log Analytics. När du är ansluten, visar agenten ett meddelande om: **Microsoft Monitoring Agent har anslutits till tjänsten Microsoft Operations Management Suite**.
+8. När du är klar visas Microsoft Monitoring Agent på Kontrollpanelen. Du kan granska konfigurationen där och kontrollera att agenten är ansluten till Azure Monitor-loggar. När du är ansluten, visar agenten ett meddelande om: **Microsoft Monitoring Agent har anslutits till tjänsten Microsoft Operations Management Suite**.
 
 9. Upprepa proceduren för varje virtuellt nätverk som du behöver som ska övervakas.
 
@@ -135,7 +137,7 @@ Du kan enkelt kontrollera om agenterna kommunicerar.
 1. På en server med övervakningsagenten, öppna den **Kontrollpanelen**.
 2. Öppna den **Microsoft Monitoring Agent**.
 3. Klicka på den **Azure Log Analytics** fliken.
-4. I den **Status** kolumn, bör du se att agenten har ansluten till Log Analytics.
+4. I den **Status** kolumn, bör du se att agenten anslutits till Azure Monitor-loggar.
 
   ![status](./media/how-to-npm/12.png)
 

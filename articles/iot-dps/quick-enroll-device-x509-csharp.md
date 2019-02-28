@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: csharp
 ms.custom: mvc
-ms.openlocfilehash: 34c303ef45c32d5b210b48a6de36589bcac5dacc
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: f20c62f574b22d55d2acd8f9c7b811067837adb7
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53189138"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56985945"
 ---
 # <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-c"></a>Snabbstart: Registrera X.509-enheter till Device Provisioning Service med hjälp av C#
 
@@ -59,7 +59,7 @@ Om du vill använda det här testverktyget för att generera certifikat utför d
 
 2. Följ stegen på sidan om att [hantera CA-testcertifikat för exempel och självstudier](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md). 
 
-Utöver verktygsuppsättningen i C SDK visar [exemplet på verifiering av gruppcertifikat](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/provisioning/service/samples/GroupCertificateVerificationSample) i *Microsoft Azure IoT SDK för .NET* hur du utför innehavarbevis i C# med ett befintligt mellanliggande X.509-certifikat eller ett rotcertifikatutfärdarcertifikat. 
+Utöver verktygsuppsättningen i C SDK visar [exemplet på verifiering av gruppcertifikat](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/provisioning/Samples/service/GroupCertificateVerificationSample) i *Microsoft Azure IoT SDK för .NET* hur du utför innehavarbevis i C# med ett befintligt mellanliggande X.509-certifikat eller ett rotcertifikatutfärdarcertifikat. 
 
 
 ## <a name="get-the-connection-string-for-your-provisioning-service"></a>Hämta anslutningssträngen för etableringstjänsten

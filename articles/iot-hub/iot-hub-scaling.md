@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/02/2018
 ms.author: wesmc
-ms.openlocfilehash: 30b83613637d97bfe265c4f5a9c911d14da50c4f
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 26865acbf635f07db4799ab197e110d37cbe69e8
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54810915"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56984347"
 ---
 # <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>Välja rätt nivå för IoT Hub för din lösning
 
@@ -53,7 +53,7 @@ IoT Hub erbjuder också en kostnadsfri nivå som är avsedd för testning och ut
 
 Azure IoT-hubbar innehåller många kärnkomponenterna i [Azure Event Hubs](../event-hubs/event-hubs-features.md), inklusive [partitioner](../event-hubs/event-hubs-features.md#partitions). Händelseströmmar för IoT-hubbar är vanligtvis ifyllda med inkommande telemetridata som rapporteras av olika IoT-enheter. Partitionering över händelseströmmen används för att minska contentions som uppstår vid läsning och skrivning till händelseströmmar samtidigt. 
 
-Partitionsgränsen väljs när IoT-hubben har skapats och kan inte ändras. Maximal partitionsgränsen för basic-nivån IoT-hubbar är 8 och standard-nivån är högsta 32. De flesta IoT-hubbar behöver bara 4 partitioner. Mer information om hur du bestämmer partitionerna finns i Event Hubs vanliga frågor och svar [hur många partitioner behöver jag?](../event-hubs/event-hubs-faq.md#how-many-partitions-do-i-need)
+Partitionsgränsen väljs när IoT-hubben har skapats och kan inte ändras. Maximal partitionsgränsen för IoT Hub på grundläggande nivån och standardnivån för IoT Hub är 32. De flesta IoT-hubbar behöver bara 4 partitioner. Mer information om hur du bestämmer partitionerna finns i Event Hubs vanliga frågor och svar [hur många partitioner behöver jag?](../event-hubs/event-hubs-faq.md#how-many-partitions-do-i-need)
 
 
 ## <a name="tier-upgrade"></a>Nivå-uppgradering

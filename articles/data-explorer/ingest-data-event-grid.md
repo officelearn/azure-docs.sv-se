@@ -8,12 +8,12 @@ ms.reviewer: orspod
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 1/30/2019
-ms.openlocfilehash: 343baedb77eb5c8a250e2ab967332dc0905f5112
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 6dac6fb18f221ddb45e5b5b7e325868915732368
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55743693"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56804660"
 ---
 # <a name="quickstart-ingest-azure-blobs-into-azure-data-explorer-by-subscribing-to-event-grid-notifications"></a>Snabbstart: Mata in Azure-blobar i Azure Data Explorer genom att prenumerera på Event Grid-meddelanden
 
@@ -58,7 +58,7 @@ Skapa en tabell i Azure Data Explorer som Event Hubs kan skicka data till. Du sk
 
 1. Välj **Fråga** under klustret på Azure-portalen.
 
-    ![Frågeprogramlänk](media/ingest-data-event-hub/query-explorer-link.png)
+    ![Frågeprogramlänk](media/ingest-data-event-grid/query-explorer-link.png)
 
 1. Kopiera följande kommando till fönstret och välj **Kör** för att skapa den tabell (TestTable) som tar emot insamlade data.
 
@@ -82,11 +82,11 @@ Nu ska du ansluta till händelserutnätet från Azure Data Explorer så att data
 
 1. Under klustret som du skapade väljer du **Databaser** och sedan **TestDatabase**.
 
-    ![Välj testdatabas](media/ingest-data-event-hub/select-test-database.png)
+    ![Välj testdatabas](media/ingest-data-event-grid/select-test-database.png)
 
 1. Välj **Datainmatning** och sedan **Lägg till dataanslutning**.
 
-    ![Datainhämtning](media/ingest-data-event-hub/data-ingestion-create.png)
+    ![Datainhämtning](media/ingest-data-event-grid/data-ingestion-create.png)
 
 1. Välj anslutningstyp: **Blob Storage**.
 
@@ -185,9 +185,9 @@ Om du inte planerar att använda händelserutnätet igen rensar du **test-hub-rg
 
 1. Välj **Resursgrupper** i Azure Portal längst till vänster och välj sedan den resursgrupp du skapat.  
 
-    Om den vänstra menyn är dold väljer du ![Knappen Expandera](media/ingest-data-event-hub/expand.png) för att expandera den.
+    Om den vänstra menyn är dold väljer du ![Knappen Expandera](media/ingest-data-event-grid/expand.png) för att expandera den.
 
-   ![Välj den resursgrupp som ska tas bort](media/ingest-data-event-hub/delete-resources-select.png)
+   ![Välj den resursgrupp som ska tas bort](media/ingest-data-event-grid/delete-resources-select.png)
 
 1. Under **test-resource-group** väljer du **Ta bort resursgrupp**.
 

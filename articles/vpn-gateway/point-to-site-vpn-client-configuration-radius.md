@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 02/15/2019
+ms.date: 02/27/2019
 ms.author: cherylmc
-ms.openlocfilehash: 8881582eac47e31b20e9eb96effea254b821ba34
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: f59a871297189cfd5082b55a3dbdfd3156a4e501
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417303"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56985712"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-p2s-radius-authentication"></a>Skapa och installera VPN-klientkonfigurationsfiler för P2S RADIUS-autentisering
 
@@ -48,9 +48,22 @@ När du konfigurerar autentisering med användarnamn/lösenord kan skapa du bara
 
 ### <a name="usernamefiles"></a> 1. Generera VPN-klientkonfigurationsfiler
 
+Du kan generera VPN-klientkonfigurationsfiler med hjälp av Azure portal eller med hjälp av Azure PowerShell.
+
+#### <a name="azure-portal"></a>Azure Portal
+
+1. Navigera till den virtuella nätverksgatewayen.
+2. Klicka på **punkt-till-plats-konfiguration**.
+3. Klicka på **hämta VPN-klient**.
+4. Välj klienten och fylla i all information som begärs.
+5. Klicka på **hämta** att generera .zip-filen.
+6. ZIP-filen hämtas vanligtvis till din mapp för nedladdningar.
+
+#### <a name="azure-powershell"></a>Azure PowerShell
+
 Generera VPN-klientkonfigurationsfiler för användning med autentisering med användarnamn/lösenord. Du kan generera VPN-klientkonfigurationsfiler med hjälp av följande kommando:
 
-```powershell 
+```azurepowershell-interactive
 New-AzVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" -AuthenticationMethod "EapMSChapv2"
 ```
  
@@ -64,7 +77,7 @@ Om du redan har skapat klienten konfigurationsfiler, kan du hämta dem med hjäl
 
 Om du vill hämta tidigare genererade klientkonfigurationsfiler, använder du följande kommando:
 
-```powershell
+```azurepowershell-interactive
 Get-AzVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW"
 ```
 
@@ -182,7 +195,7 @@ Varje enhet för VPN-klienten kräver ett installerat klientcertifikat. Ibland h
 
 Generera VPN-klientkonfigurationsfiler för användning med certifikatautentisering. Du kan generera VPN-klientkonfigurationsfiler med hjälp av följande kommando:
  
-```powershell
+```azurepowershell-interactive
 New-AzVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" -AuthenticationMethod "EapTls" -RadiusRootCert <full path name of .cer file containing the RADIUS root> -ClientRootCert <full path name of .cer file containing the client root> | fl
 ```
 
@@ -195,7 +208,7 @@ Om du redan har skapat klienten konfigurationsfiler, kan du hämta dem med hjäl
 
 Om du vill hämta tidigare genererade klientkonfigurationsfiler, använder du följande kommando:
 
-```powershell
+```azurepowershell-interactive
 Get-AzVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" | fl
 ```
  

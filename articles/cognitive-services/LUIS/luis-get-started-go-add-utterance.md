@@ -4,18 +4,19 @@ description: I den här snabbstarten för språket Go lägger du till exempelytt
 titleSuffix: Language Understanding - Microsoft Cognitive Services
 author: diberry
 manager: nitinme
+services: cognitive-services
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: 4bc76f67b2d8908abe601aa1fcdfd1962678c548
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 60594137306bfe58024877947959f2865fffe019
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55865659"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56961813"
 ---
 # <a name="quickstart-change-model-using-go"></a>Snabbstart: Ändra modell med hjälp av Go
 
@@ -45,7 +46,7 @@ I den här snabbstarten överför du yttranden till en LUIS-slutpunkt och få av
 
 3. Lägg till en allmän funktion för HTTP-begäranden som innefattar att skicka redigeringsnyckeln i rubriken. 
 
-   [!code-go[Add HTTP request function which includes passing authoring key in header. ](~/samples-luis/documentation-samples/quickstarts/change-model/go/add-utterances.go?range=12-36 "Add HTTP request function, which includes passing authoring key in header. ")]
+   [!code-go[Add HTTP request function which includes passing authoring key in header.](~/samples-luis/documentation-samples/quickstarts/change-model/go/add-utterances.go?range=12-36 "Add HTTP request function, which includes passing authoring key in header. ")]
 
 4. Lägg till exempelyttranden från JSON-fil.
 
@@ -53,15 +54,15 @@ I den här snabbstarten överför du yttranden till en LUIS-slutpunkt och få av
 
 5. Begär träning. Använder en hjälpfunktionen för att ställa in VERBET på samma väg som utbildningsstatus. 
 
-   [!code-go[Request training. ](~/samples-luis/documentation-samples/quickstarts/change-model/go/add-utterances.go?range=77-86 "Request training. ")]
+   [!code-go[Request training.](~/samples-luis/documentation-samples/quickstarts/change-model/go/add-utterances.go?range=77-86 "Request training. ")]
 
 6. Status för träningsbegäran. Använder en hjälpfunktionen för att ställa in VERBET på samma väg som träningsbegäran. 
 
-   [!code-go[Request training status. ](~/samples-luis/documentation-samples/quickstarts/change-model/go/add-utterances.go?range=87-90 "Request training status. ")]
+   [!code-go[Request training status.](~/samples-luis/documentation-samples/quickstarts/change-model/go/add-utterances.go?range=87-90 "Request training status. ")]
 
 7. Lägg till main-funktion för att hantera kommandoradsparsning.
 
-   [!code-go[Add main function to handle command line parsing. ](~/samples-luis/documentation-samples/quickstarts/change-model/go/add-utterances.go?range=38-60 "Add main function to handle command-line parsing.")]
+   [!code-go[Add main function to handle command line parsing.](~/samples-luis/documentation-samples/quickstarts/change-model/go/add-utterances.go?range=38-60 "Add main function to handle command-line parsing.")]
 
 ## <a name="add-an-utterance-from-the-command-line-train-and-get-status"></a>Lägga till ett yttrande från kommandoraden, träna och hämta status
 

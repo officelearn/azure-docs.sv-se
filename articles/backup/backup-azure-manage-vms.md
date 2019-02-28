@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.author: sogup
-ms.openlocfilehash: eef1b14f5f25c53877c0d364facfcf9817f508c2
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 0e05bf71c1689015be0b8e3a4be1b37447ba6eb8
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/27/2019
-ms.locfileid: "56885847"
+ms.locfileid: "56961252"
 ---
 # <a name="manage-azure-vm-backups"></a>Hantera säkerhetskopior av virtuella Azure-datorer
 
@@ -27,19 +27,19 @@ Instrumentpanelen för Recovery Services-valvet ger tillgång till information o
 * Den totala storleken på alla ögonblicksbilder av säkerhetskopior
 * Hur många virtuella datorer som har aktiverats för säkerhetskopiering
 
-Du kan hantera säkerhetskopior med hjälp av instrumentpanelen, och genom att gå vidare till enskilda virtuella datorer. achine säkerhetskopiering börjar med att öppna valvet i instrumentpanelen. 
+Du kan hantera säkerhetskopior med hjälp av instrumentpanelen, och genom att gå vidare till enskilda virtuella datorer. Säkerhetskopiering av virtuella datorer som börjar med att öppna valvet i instrumentpanelen.
 
 ![Fullständig vy med skjutreglaget](./media/backup-azure-manage-vms/bottom-slider.png)
 
 ## <a name="view-vms-in-the-dashboard"></a>Visa virtuella datorer i instrumentpanelen
 
 1. Logga in på [Azure Portal](https://portal.azure.com/).
-2. På navmenyn klickar du på **Bläddra** och i listan över resurser skriver du **Recovery Services**. När du börjar skriva filtreras listan baserat på det du skriver. Klicka på **Recovery Services-valv**. 
+2. På navmenyn klickar du på **Bläddra** och i listan över resurser skriver du **Recovery Services**. När du börjar skriva filtreras listan baserat på det du skriver. Klicka på **Recovery Services-valv**.
 
     ![Skapa Recovery Services-valv (steg 1)](./media/backup-azure-manage-vms/browse-to-rs-vaults.png)
 
 3. För enkel användning, högerklickar du på valvet i listan över valv > **fäst på instrumentpanelen**.
-4. Öppna instrumentpanelen för valvet. 
+4. Öppna instrumentpanelen för valvet.
     ![Öppna instrumentpanelen för valvet och bladet inställningar](./media/backup-azure-manage-vms/full-view-rs-vault.png)
 
 4. På den **Säkerhetskopieringsobjekt** klickar **Azure Virtual Machines**.
@@ -50,7 +50,7 @@ Du kan hantera säkerhetskopior med hjälp av instrumentpanelen, och genom att g
 
     ![Objekt att säkerhetskopiera panel](./media/backup-azure-manage-vms/backup-items-blade-select-item.png)
 
- 
+
 6. Från instrumentpanelen för valvet objekt kan du skapa eller ändra principer för säkerhetskopiering, visa återställningspunkter, kör en på begäran-säkerhetskopiering, stoppa och återuppta skyddet av virtuella datorer, ta bort återställningspunkter och köra en återställning.
 
     ![Objekt att säkerhetskopiera instrumentpanel med bladet inställningar](./media/backup-azure-manage-vms/item-dashboard-settings.png)
@@ -61,7 +61,7 @@ Du kan hantera säkerhetskopior med hjälp av instrumentpanelen, och genom att g
 1. På den [instrumentpanelen för valvet objekt](#view-vms-in-the-dashboard), klickar du på **alla inställningar** .
 
     ![Bladet säkerhetskopieringspolicy](./media/backup-azure-manage-vms/all-settings-button.png)
-2. I **inställningar**, klickar du på**säkerhetskopieringspolicy**e.
+2. I **inställningar**, klickar du på **säkerhetskopieringspolicy**.
 3. Från den **Välj säkerhetskopieringspolicy** menyn:
 
    * Om du vill ändra principer, Välj en annan princip och klicka på **spara**. Den nya principen tillämpas omedelbart på valvet.
@@ -76,7 +76,6 @@ Du kan säkerhetskopiera en på begäran för en virtuell dator när den är kon
 - Om den första säkerhetskopieringen har slutförts, skickas en säkerhetskopiering på begäran endast ändringar från tidigare ögonblicksbild till Recovery Services-valvet. Det vill säga är efterföljande säkerhetskopieringar alltid inkrementell.
 - Kvarhållningsintervallet för en säkerhetskopiering på begäran är kvarhållningsvärdet som angetts för daglig säkerhetskopieringspunkt i principen. Om ingen daglig säkerhetskopieringspunkt väljs, används veckovis säkerhetskopieringspunkt.
 
-
 Att utlösa en säkerhetskopiering på begäran:
 
 1. På den [instrumentpanelen för valvet objekt](#view-vms-in-the-dashboard), klickar du på **Säkerhetskopiera nu**.
@@ -87,7 +86,7 @@ Att utlösa en säkerhetskopiering på begäran:
 
     ![Säkerhetskopiering nu knappen](./media/backup-azure-manage-vms/backup-now-check.png)
 
- 
+
  Säkerhetskopieringsjobbet skapar en återställningspunkt. Kvarhållningsintervallet för återställningspunkten är samma som kvarhållningsintervallet som angetts i principen som är associerade med den virtuella datorn. Om du vill spåra förloppet för jobbet i instrumentpanelen för valvet klickar du på den **säkerhetskopieringsjobb** panelen.  
 
 ## <a name="stop-protecting-a-vm"></a>Sluta skydda en virtuell dator
@@ -95,15 +94,12 @@ Att utlösa en säkerhetskopiering på begäran:
 Det finns två sätt att sluta skydda virtuella datorer:
 
 - Stoppa alla framtida säkerhetskopieringsjobb och ta bort alla återställningspunkter. Du kan inte återställa den virtuella datorn i det här fallet.
-- Stoppa alla framtida säkerhetskopieringsjobb men lämna kvar återställningspunkterna. Det finns en kostnad som är associerade med att lämna kvar återställningspunkterna i lagring. Fördelen med att lämna kvar återställningspunkterna är dock att du kan återställa den virtuella datorn om det behövs. [Läs mer](https://azure.microsoft.com/pricing/details/backup/) om priser.
+- Stoppa alla framtida säkerhetskopieringsjobb men behålla återställningspunkterna. Det finns en kostnad som hör till behålla återställningspunkter i valvet. Fördelen med att behålla återställningspunkterna är dock att du kan återställa den virtuella datorn om det behövs. [Läs mer](https://azure.microsoft.com/pricing/details/backup/) om priser.
 
-Tänk på följande:
-
-- Om du lämnar återställningspunkterna tas poäng bort i enlighet med principen för säkerhetskopiering. Du debiteras för den skyddade instansen och förbrukad lagring tills alla återställningspunkter rensas. [Läs mer](https://azure.microsoft.com/pricing/details/backup/) om prissättning.
-- När du lämnar återställningspunkter intakta, även om de går ut enligt policy för datalagring, håller Azure Backup alltid en senaste återställningspunkt tills du uttryckligen tar bort säkerhetskopierade data.
-- Om du tar bort en datakälla utan att stoppa säkerhetskopiering kommer nya säkerhetskopior börjar misslyckas. Igen, gamla återställningspunkterna upphör att gälla enligt principen, men en senaste återställningspunkt sparas alltid tills du stoppar säkerhetskopiering och ta bort data.
-
-
+>[!NOTE]
+>
+* Om du **stoppa säkerhetskopiering** med **Behåll säkerhetskopieringsdata**, återställningspunkterna inte upphör att gälla enligt principen för säkerhetskopiering. Du debiteras för skyddade instanser och förbrukad lagring. Återställningspunkterna endast rensas när du återuppta säkerhetskopiering (återaktivera skydd) enligt principen eller ta bort säkerhetskopierade data manuellt.
+* Om du tar bort en datakälla utan att stoppa säkerhetskopiering kommer nya säkerhetskopior börjar misslyckas. Igen, gamla återställningspunkterna upphör att gälla enligt principen, men en senaste återställningspunkt sparas alltid tills du stoppar säkerhetskopiering och ta bort data.
 
 Sluta skydda en virtuell dator:
 
@@ -119,7 +115,7 @@ Sluta skydda en virtuell dator:
 
 Om du bevaras säkerhetskopierade data när den virtuella datorn har stoppats, kan du återuppta skyddet. Om du tar bort säkerhetskopierade data och du inte kan återuppta.
 
-Te
+Att återuppta skyddet av den virtuella datorn:
 
 1. På den [instrumentpanelen för valvet objekt](#view-vms-in-the-dashboard), klickar du på **återuppta säkerhetskopiering**.
 
@@ -152,6 +148,5 @@ Den här proceduren förutsätter att säkerhetskopieringen av den virtuella dat
 
 ## <a name="next-steps"></a>Nästa steg
 - [Lär dig mer om](backup-azure-vms-first-look-arm.md) säkerhetskopiera virtuella Azure-datorer från inställningarna för virtuella datorer.
-- [Lär dig mer om](backup-azure-arm-restore-vms.md) återställning av virtuella datorer. 
+- [Lär dig mer om](backup-azure-arm-restore-vms.md) återställning av virtuella datorer.
 - [Lär dig mer om](backup-azure-monitor-vms.md) övervakning av Virtuella Azure-säkerhetskopieringar.
- 

@@ -12,12 +12,12 @@ ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: 426c090a79931f252a5daeacbdd83d0238ecf672
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 2726c1fd08414f112035d5378fc7e395ca7ace4c
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55868129"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56959093"
 ---
 # <a name="scale-elastic-pool-resources-in-azure-sql-database"></a>Skala resurser för elastisk pool i Azure SQL Database
 
@@ -37,7 +37,7 @@ Den här artikeln beskriver hur du skalar beräknings- och lagringsresurser som 
 
 ## <a name="vcore-based-purchasing-model-change-elastic-pool-compute-resources-vcores"></a>vCore-baserade inköpsmodellen: Ändra elastisk pool beräkningsresurser (virtuella kärnor)
 
-Du kan öka eller minska beräkningsstorleken i en elastisk pool baserat på resursen behov med hjälp av den [Azure-portalen](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqlelasticpool), [Azure CLI](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update), eller [ REST-API](https://docs.microsoft.com/rest/api/sql/elasticpools/update).
+Du kan öka eller minska beräkningsstorleken i en elastisk pool baserat på resursen behov med hjälp av den [Azure-portalen](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases), [PowerShell](/powershell/module/az.sql/Get-AzSqlElasticPool), [Azure CLI](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update), eller [ REST-API](https://docs.microsoft.com/rest/api/sql/elasticpools/update).
 
 - När det skalas om virtuella kärnor i en elastisk pool, databasanslutningar kort att tas bort. Det här beteendet är samma vad som händer när skalas om dtu: er för en enskild databas. Mer information om tidsåtgång och effekt av brutna anslutningar för en databas under skalas om åtgärder finns [ändra beräkningsresurser (dtu: er)](sql-database-single-database-scale.md#dtu-based-purchasing-model-change-compute-resources-dtus).
 - Tid för att skala om poolen virtuella kärnor kan vara beroende av den totala mängden lagringsutrymme som används av alla databaser i poolen. I allmänhet skalas om fördröjningen beräknar medelvärdet 90 minuter eller mindre per 100 GB. Om det totala utrymmet som används av alla databaser i poolen är exempelvis 200 GB, så är den förväntade svarstiden för rescaling poolen är tre timmar eller mindre. I vissa fall inom Standard eller Basic-nivå kan kan skalas om fördröjningen vara mindre än fem minuter, oavsett hur mycket utrymme som används.
@@ -47,7 +47,7 @@ Du kan öka eller minska beräkningsstorleken i en elastisk pool baserat på res
 ## <a name="dtu-based-purchasing-model-change-elastic-pool-storage-size"></a>DTU-baserade inköpsmodellen: Ändra lagringsstorleken för elastisk pool
 
 - EDTU-priset för en elastisk pool innehåller en viss mängd lagringsutrymme utan extra kostnad. Extra lagringsutrymme utöver mängden kan etableras för en ytterligare kostnad upp till den maximala storleksgränsen i steg om 250 GB upp till 1 TB och sedan i steg om 256 GB mer än 1 TB. Inkluderad lagring belopp och max storleksgränser finns i [elastisk pool: lagringsstorlekar och storlekar på](sql-database-dtu-resource-limits-elastic-pools.md#elastic-pool-storage-sizes-and-compute-sizes).
-- Extra lagringsutrymme för en elastisk pool kan etableras genom att öka sin maximala storlek med hjälp av den [Azure-portalen](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqlelasticpool), [Azure CLI](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update), eller [REST API ](https://docs.microsoft.com/rest/api/sql/elasticpools/update).
+- Extra lagringsutrymme för en elastisk pool kan etableras genom att öka sin maximala storlek med hjälp av den [Azure-portalen](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases), [PowerShell](/powershell/module/az.sql/Get-AzSqlElasticPool), [Azure CLI](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update), eller [REST API ](https://docs.microsoft.com/rest/api/sql/elasticpools/update).
 - Priset för extra lagringsutrymme för en elastisk pool är det extra lagringsutrymmet multiplicerat med extra lagringsutrymme enhetspriset för tjänstnivån. Mer information om priset för extra lagringsutrymme finns [priser för SQL Database](https://azure.microsoft.com/pricing/details/sql-database/).
 
 > [!IMPORTANT]
@@ -55,7 +55,7 @@ Du kan öka eller minska beräkningsstorleken i en elastisk pool baserat på res
 
 ## <a name="dtu-based-purchasing-model-change-elastic-pool-compute-resources-edtus"></a>DTU-baserade inköpsmodellen: Ändra elastisk pool beräkningsresurser (edtu: er)
 
-Du kan öka eller minska resurserna som är tillgängliga i en elastisk pool baserat på resursen behov med hjälp av den [Azure-portalen](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqlelasticpool), [Azure CLI](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update), eller [ REST-API](https://docs.microsoft.com/rest/api/sql/elasticpools/update).
+Du kan öka eller minska resurserna som är tillgängliga i en elastisk pool baserat på resursen behov med hjälp av den [Azure-portalen](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases), [PowerShell](/powershell/module/az.sql/Get-AzSqlElasticPool), [Azure CLI](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update), eller [ REST-API](https://docs.microsoft.com/rest/api/sql/elasticpools/update).
 
 - När det skalas om poolens edtu: er, databasanslutningar kort att tas bort. Det här beteendet är samma vad som händer när skalas om dtu: er för en enskild databas. Mer information om tidsåtgång och effekt av brutna anslutningar för en databas under skalas om åtgärder finns [ändra beräkningsresurser (dtu: er)](sql-database-single-database-scale.md#dtu-based-purchasing-model-change-compute-resources-dtus).
 - Tid för att skala om poolens edtu: er kan vara beroende av den totala mängden lagringsutrymme som används av alla databaser i poolen. I allmänhet skalas om fördröjningen beräknar medelvärdet 90 minuter eller mindre per 100 GB. Om det totala utrymmet som används av alla databaser i poolen är exempelvis 200 GB, så är den förväntade svarstiden för rescaling poolen är tre timmar eller mindre. I vissa fall inom Standard eller Basic-nivå kan kan skalas om fördröjningen vara mindre än fem minuter, oavsett hur mycket utrymme som används.

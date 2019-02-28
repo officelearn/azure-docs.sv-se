@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 44f0309d472a79526537f79feabcd9777b70bcc7
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 05802c2a6e1d5e0ea16aa8cfcc4333c14d05c7ae
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56888788"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56986090"
 ---
 # <a name="getting-compliance-data"></a>Hämta data för efterlevnad
 
@@ -28,7 +28,7 @@ Det finns flera sätt att komma åt kompatibilitetsinformationen som genereras a
 Innan du tittar på metoder för att rapportera om efterlevnad, låt oss titta på när kompatibilitetsinformation uppdateras och frekvens och händelser som utlöser en utvärderingscykel för datorprincip.
 
 > [!WARNING]
-> Om kompatibilitetsstatusen rapporteras som **inte registrerad**, kontrollerar du att den **Microsoft.PolicyInsights** Resource Provider är registrerad och att användaren har rätt rollbaserad åtkomst kontroll () RBAC) behörigheter enligt [här](../overview.md#rbac-permissions-in-azure-policy).
+> Om kompatibilitetsstatusen rapporteras som **inte registrerad**, kontrollerar du att den **Microsoft.PolicyInsights** Resource Provider är registrerad och att användaren har rätt rollbaserad åtkomst kontroll () RBAC) behörigheter enligt beskrivningen i [RBAC i Azure Policy](../overview.md#rbac-permissions-in-azure-policy).
 
 [!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
 

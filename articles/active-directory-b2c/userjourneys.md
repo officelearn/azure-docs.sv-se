@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 5c63a838d6cffce5ca45dbf0dde50bb9bd01892c
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 8cda538cade4750e03ecb91dfb2c478df730e556
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55171660"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56961303"
 ---
 # <a name="userjourneys"></a>UserJourneys
 
@@ -49,7 +49,7 @@ Den **UserJourney** elementet innehåller följande element:
 
 En användarresa representeras som en orchestration-sekvens som måste följas för en lyckad transaktion. Om ett steg misslyckas, misslyckas transaktionen. Dessa orchestration-steg referera till båda byggstenarna och Anspråksproviders som tillåts i policyfilen. Orchestration-steg som ansvarar för att visa eller göra en användarupplevelsen har också en referens till motsvarande innehållsdefinition identifierare.
 
-Orchestration-steg kan vara conditionaly körs, baserat på villkor som definierats i orchestration-steg-elementet. Du kan kontrollera om du vill utföra en orkestreringssteget endast om specifika anspråksproviderförtroendet finns, eller om ett anspråk är lika med eller inte med det angivna värdet för examle. 
+Orchestration-steg kan villkorligt köras, baserat på villkor som definierats i orchestration-steg-elementet. Du kan till exempel kontrollera om du vill utföra en orkestreringssteget endast om specifika anspråksproviderförtroendet finns, eller om ett anspråk är lika med eller inte med det angivna värdet. 
 
 Att ange en sorterad lista orchestration-steg, en **OrchestrationSteps** element har lagts till som en del av principen. Det här elementet krävs.
 
@@ -64,7 +64,7 @@ Den **OrchestrationStep** elementet innehåller följande attribut:
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
 | Beställa | Ja | Sorteringen för orchestration-steg. | 
-| Typ | Ja | Typ av orchestration-steg. Möjliga värden: <ul><li>**ClaimsProviderSelection** -anger att orkestreringssteget visas olika anspråksleverantörer för användaren att välja en.</li><li>**CombinedSignInAndSignUp** -anger att orkestreringssteget utgör en kombinerad social provider registreringssida för inloggning och lokala konto.</li><li>**ClaimsExchange** -anger att orkestreringssteget utbyter anspråk med en anspråksprovider.</li><li>**SendClaims** -anger att orkestreringssteget skickar anspråk till den förlitande parten med en token utfärdad av en utfärdare av anspråk.</li></ul> | 
+| Type | Ja | Typ av orchestration-steg. Möjliga värden: <ul><li>**ClaimsProviderSelection** -anger att orkestreringssteget visas olika anspråksleverantörer för användaren att välja en.</li><li>**CombinedSignInAndSignUp** -anger att orkestreringssteget utgör en kombinerad social provider registreringssida för inloggning och lokala konto.</li><li>**ClaimsExchange** -anger att orkestreringssteget utbyter anspråk med en anspråksprovider.</li><li>**SendClaims** -anger att orkestreringssteget skickar anspråk till den förlitande parten med en token utfärdad av en utfärdare av anspråk.</li></ul> | 
 | ContentDefinitionReferenceId | Nej | Identifierare för den [innehåll definition](contentdefinitions.md) som är associerade med den här orchestration-steg. Vanligtvis har innehållsdefinition referens-ID definierats i självkontrollerad tekniska profilen. Men finns det tillfällen när Azure AD B2C behöver visa något utan tekniska profil. Det finns två exempel, om typ av orkestreringssteget är en av följande: `ClaimsProviderSelection` eller `CombinedSignInAndSignUp`. Azure AD B2C måste visa identitets-provider-markeringen utan en tekniska profilen. | 
 | CpimIssuerTechnicalProfileReferenceId | Nej | Orkestreringssteget är `SendClaims`. Den här egenskapen definierar den tekniska profilen identifieraren för anspråksleverantören som utfärdar en token för den förlitande parten.  Om ej finns, skapas ingen förlitande part-token. |
 
@@ -77,7 +77,7 @@ Den **OrchestrationStep** element kan innehålla följande element:
 | ClaimsProviderSelections | 0: n | En lista över anspråk providern val för orchestration-steg. | 
 | ClaimsExchanges | 0: n | En lista över utbyten av anspråk för orchestration-steg. | 
 
-#### <a name="preconditions"></a>Villkoren
+### <a name="preconditions"></a>Villkoren
 
 Den **villkoren** elementet innehåller följande element:
 
@@ -86,13 +86,13 @@ Den **villkoren** elementet innehåller följande element:
 | Villkor | 0: n | Beroende på den tekniska profilen som används, antingen dirigerar om klienten enligt anspråk providern markeringen eller gör ett server-anrop till exchange-anspråk. | 
 
 
-##### <a name="precondition"></a>Villkor
+#### <a name="precondition"></a>Villkor
 
 Den **Förhandsvillkoret** elementet innehåller följande attribut:
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| Typ | Ja | Typ av kontroll eller fråga för den här villkor. Värdet kan vara **ClaimsExist**, som anger åtgärderna som ska utföras om de angivna anspråk finns i användarens aktuella anspråksuppsättningen, eller **ClaimEquals**, som anger att åtgärderna ska utföras om det angivna anspråket finns och dess värde är lika med det angivna värdet. |
+| Type | Ja | Typ av kontroll eller fråga för den här villkor. Värdet kan vara **ClaimsExist**, som anger åtgärderna som ska utföras om de angivna anspråk finns i användarens aktuella anspråksuppsättningen, eller **ClaimEquals**, som anger att åtgärderna ska utföras om det angivna anspråket finns och dess värde är lika med det angivna värdet. |
 | ExecuteActionsIf | Ja | Använd ett sant eller falskt-test för att avgöra om åtgärder i villkor som ska utföras. | 
 
 Den **Förhandsvillkoret** element innehåller följande element:
@@ -102,7 +102,7 @@ Den **Förhandsvillkoret** element innehåller följande element:
 | Värde | 1:n | En ClaimTypeReferenceId ska efterfrågas för. Ett annat värde element innehåller värdet som ska kontrolleras.</li></ul>|
 | Åtgärd | 1:1 | Den åtgärd som ska utföras om villkor som kontrollerar inom en orkestreringssteget är true. Om värdet för den `Action` är inställd på `SkipThisOrchestrationStep`, den associerade `OrchestrationStep` inte ska köras. | 
 
-### <a name="preconditions-examples"></a>Exempel på villkor
+#### <a name="preconditions-examples"></a>Exempel på villkor
 
 Följande villkor kontrollerar om användarens objectId finns. I användarresan, har som användaren valt för att logga in med lokalt konto. Hoppa över det här steget orchestration om objectId finns.
 
@@ -226,20 +226,3 @@ Den **ClaimsExchange** elementet innehåller följande attribut:
 | --------- | -------- | ----------- |
 | Id | Ja | En identifierare för exchange-steg anspråk. Identifieraren används för att referens anspråksutbytet från anspråk providern urval steg i principen. | 
 | TechnicalProfileReferenceId | Ja | Identifierare för den tekniska profilen som ska köras. |
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

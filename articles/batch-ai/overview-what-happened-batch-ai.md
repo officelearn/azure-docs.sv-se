@@ -7,12 +7,12 @@ ms.service: batch-ai
 ms.topic: overview
 ms.date: 2/14/2019
 ms.author: garye
-ms.openlocfilehash: 87dcf18a2517561e3166726f8f1f1a70c2ec7713
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: fb1114e94c227ce6787532c6059186399d0f57f0
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447811"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56961371"
 ---
 # <a name="whats-happening-to-azure-batch-ai"></a>Vad händer med Azure Batch AI?
 
@@ -59,7 +59,7 @@ Här är en annan vy i samma tabell som hjälper dig att visualisera ytterligare
 ### <a name="platform-capabilities"></a>Plattformsfunktioner
 I Azure Machine Learning Service finns en uppsättning nya funktioner, inklusive en tränings->distributionsstack från slutpunkt till slutpunkt som du kan använda för din AI-utveckling utan att behöva hantera några Azure-resurser. I tabellen nedan jämförs funktioner som stöds för träning mellan de två tjänsterna.
 
-|Funktion|Batch AI-tjänst|Azure Machine Learning-tjänst|
+|Funktion|BatchAI-tjänst|Azure Machine Learning-tjänst|
 |-------|:-------:|:-------:|
 |Alternativ för VM-storlek |CPU/GPU    |CPU/GPU. Stöder också FPGA för inferens|
 |AI-förberett kluster (drivrutiner, Docker etc.)|  Ja |Ja|
@@ -282,7 +282,7 @@ ds = ws.get_default_datastore()
 print(ds.datastore_type, ds.account_name, ds.container_name)
 ```
 
-Läs mer om hur du registrerar ytterligare lagringskonton eller hämtar en referens till ett annat registrerat datalager i [dokumentationen för Azure ML-tjänsten](../machine-learning/service/how-to-access-data.md#create-a-datastore).
+Läs mer om hur du registrerar ytterligare lagringskonton eller hämtar en referens till ett annat registrerat datalager i [dokumentationen för Azure ML-tjänsten](../machine-learning/service/how-to-access-data.md#access).
 
 
 #### <a name="downloading-and-uploading-data"></a>Nedladdning och uppladdning av filer 
@@ -434,7 +434,7 @@ estimator = TensorFlow(source_directory=project_folder,
                        use_gpu=True)
 ```
 
-Den fullständiga informationen för träningens kodfragment (inklusive mnist_replica.py-filen) finns i [Azure ML-exempel på anteckningsbok i GitHub-lagringsplats](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/distributed-tensorflow-with-parameter-server). Datalagringen kan antingen monteras på enskilda noder eller så kan träningsdata hämtas från själva noden. Mer information om referenser till datalager i din beräkning finns i [dokumentationen för Azure ML-tjänsten](../machine-learning/service/how-to-access-data.md#access-datastores-for-training). 
+Den fullständiga informationen för träningens kodfragment (inklusive mnist_replica.py-filen) finns i [Azure ML-exempel på anteckningsbok i GitHub-lagringsplats](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/distributed-tensorflow-with-parameter-server). Datalagringen kan antingen monteras på enskilda noder eller så kan träningsdata hämtas från själva noden. Mer information om referenser till datalager i din beräkning finns i [dokumentationen för Azure ML-tjänsten](../machine-learning/service/how-to-access-data.md#access). 
 
 En körning skickas i Azure ML via funktionen Skicka.
 

@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/09/2019
+ms.date: 02/27/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: d0051f081f005d61a1eed43d177a11781b2b3fa8
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 7b73a0efbe20b43b3ba8e94fce3aabf12ea918e8
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55997110"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56986064"
 ---
 # <a name="add-kubernetes-to-the-azure-stack-marketplace"></a>Lägg till Kubernetes i Azure Stack Marketplace
 
@@ -31,7 +31,7 @@ ms.locfileid: "55997110"
 
 Du kan erbjuda Kubernetes som ett Marketplace-objekt till dina användare. Användarna kan sedan distribuera Kubernetes i en enda, samordnad åtgärd.
 
-I följande artikel titta på med en Azure Resource Manager-mall för att distribuera och etablera resurser för ett fristående Kubernetes-kluster. Kubernetes-kluster Marketplace-objekt 0.3.0-betaversionen kräver Azure Stack-version 1808. Innan du börjar, kontrollera Azure Stack och inställningar för globala Azure-klient. Samla in nödvändig information om Azure Stack. Lägga till nödvändiga resurser i din klient och Azure Stack Marketplace. Klustret är beroende av en Ubuntu-server, anpassade skript och Kubernetes-objekten ska vara i marketplace.
+I följande artikel titta på med en Azure Resource Manager-mall för att distribuera och etablera resurser för ett fristående Kubernetes-kluster. Innan du börjar, kontrollera Azure Stack och inställningar för globala Azure-klient. Samla in nödvändig information om Azure Stack. Lägga till nödvändiga resurser i din klient och Azure Stack Marketplace. Klustret är beroende av en Ubuntu-server, anpassade skript och Kubernetes-kluster Marketplace-objekt i marketplace.
 
 ## <a name="create-a-plan-an-offer-and-a-subscription"></a>Skapa en plan, ett erbjudande och en prenumeration
 
@@ -73,7 +73,7 @@ Om du använder Active Directory Federation Services (AD FS) för identity manag
        | ---   | ---         |
        | Lösenord | Ange ett nytt lösenord för certifikatet. |
        | Lokala certifikatsökväg | Ange sökvägen och namnet på certifikatet. Exempel: `c:\certfilename.pfx` |
-       | Certifikatnamn | Ange namnet på certifikatet. |
+       | Certifikatets namn | Ange namnet på certifikatet. |
        | Plats för certifikatarkiv |  Till exempel, `Cert:\LocalMachine\My` |
 
     - Öppna PowerShell med en upphöjd kommandotolk. Kör följande skript med parametrar uppdateras till dina värden:

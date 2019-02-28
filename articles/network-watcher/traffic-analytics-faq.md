@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: jdial
-ms.openlocfilehash: e2b08dbbeb078a4e139400112e9cdd9416878214
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: 87c624e0fc5eac60b309a2535afc7508f1b6b3ac
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54383007"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56986115"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Vanliga och frågor svar om trafikanalys
 
@@ -105,7 +105,7 @@ Ja.
 
 ## <a name="can-i-use-an-existing-workspace"></a>Kan jag använda en befintlig arbetsyta?
 
-Ja. Om du väljer en befintlig arbetsyta kan du kontrollera att den har migrerats till det nya frågespråket. Om du inte vill uppgradera arbetsytan måste du skapa en ny. Läs mer om det nya frågespråket [uppgradering av Azure Log Analytics till ny loggsökning](../log-analytics/log-analytics-log-search-upgrade.md).
+Ja. Om du väljer en befintlig arbetsyta kan du kontrollera att den har migrerats till det nya frågespråket. Om du inte vill uppgradera arbetsytan måste du skapa en ny. Läs mer om det nya frågespråket [Azure Monitor loggar uppgraderingen till ny loggsökning](../log-analytics/log-analytics-log-search-upgrade.md).
 
 ## <a name="can-my-azure-storage-account-be-in-one-subscription-and-my-log-analytics-workspace-be-in-a-different-subscription"></a>Kan min Azure Storage-konto i en prenumeration och min Log Analytics-arbetsyta är i en annan prenumeration?
 

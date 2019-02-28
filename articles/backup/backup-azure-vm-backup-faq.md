@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/16/2018
 ms.author: sogup
-ms.openlocfilehash: fe0b47bbf1ebb9cba328bfc444172249135270c5
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 10b49c5ebcd73010a52da1fada32ba55198b287a
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56310282"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56961541"
 ---
 # <a name="frequently-asked-questions-azure-backup"></a>Vanliga frågor – Azure Backup
 
@@ -21,10 +21,8 @@ Den här artikeln innehåller vanliga frågor och svar om den [Azure Backup](bac
 
 ## <a name="general-questions"></a>Allmänna frågor
 
-
 ### <a name="what-azure-vms-can-you-back-up-using-azure-backup"></a>Vilka virtuella datorer i Azure kan du säkerhetskopiera med hjälp av Azure Backup?
 [Granska](backup-azure-arm-vms-prepare.md#before-you-start) operativsystem och begränsningar som stöds.
-
 
 
 ## <a name="backup"></a>Backup
@@ -41,17 +39,16 @@ Ja, säkerhetskopieringen fungerar smidigt. Det finns inget behov att konfigurer
 ### <a name="why-cant-i-see-my-vm-in-the-configure-backup-wizard"></a>Varför kan jag inte se min virtuella dator i guiden Konfigurera säkerhetskopiering?
 Guiden visar endast virtuella datorer i samma region som valvet och som inte redan som säkerhetskopieras.
 
-
 ### <a name="my-vm-is-shut-down-will-an-on-demand-or-a-scheduled-backup-work"></a>Den virtuella datorn är avstängd. Kommer en på begäran eller arbete med en schemalagd säkerhetskopiering?
 Ja. Säkerhetskopieringar som körs när en dator är avstängd. Återställningspunkten har markerats som krascher konsekvent.
 
 ### <a name="can-i-cancel-an-in-progress-backup-job"></a>Kan jag säga upp en pågående säkerhetskopiering?
 Ja. Du kan avbryta säkerhetskopieringsjobbet på en **tar ögonblicksbild** tillstånd. Du kan inte avbryta ett jobb om dataöverföring från ögonblicksbilden håller på att skapas.
 
-### <a name="i-enabled-resource-group-lock-on-my-backed-up-managed-disk-vms-will-my-backups-continue-to-work"></a>Jag har aktiverat grupp resurslås på mitt säkerhetskopierade hanterade diskar för virtuella datorer. Kommer mina säkerhetskopior att fungera även i fortsättningen?
-Om du låser resursgruppen, Azure Backup-tjänsten kan inte ta bort äldre återställningspunkter.
-- Nya säkerhetskopior börjar misslyckas eftersom det inte finns en maxgräns på 18 återställningspunkter.
-- Om säkerhetskopieringen misslyckas med ett internt fel när lås, [gör så här](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#clean-up-restore-point-collection-from-azure-portal) att ta bort samlingen med återställningspunkter.
+### <a name="i-enabled-lock-on-resource-group-created-by-azure-backup-service-ie--azurebackuprggeonumber-will-my-backups-continue-to-work"></a>Jag har aktiverat låset på resursgruppen som skapats av Azure Backup-tjänsten (dvs.) ` AzureBackupRG_<geo>_<number>`), kommer Mina säkerhetskopior att fortsätta att fungera?
+Om du låser den resursgrupp som skapats av Azure Backup-tjänsten startar säkerhetskopieringar misslyckas eftersom det inte finns en maxgräns på 18 återställningspunkter.
+
+Användaren måste ta bort låset och ta bort samlingen med återställningspunkter från resursgruppen för att att framtida säkerhetskopieringar ska lyckas, [gör så här](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#clean-up-restore-point-collection-from-azure-portal) att ta bort samlingen med återställningspunkter.
 
 ### <a name="does-the-backup-policy-consider-daylight-saving-time-dst"></a>Betraktar säkerhetskopieringspolicyn sommartid (DST)?
 Nej. Datum och tid på den lokala datorn är lokal med aktuella sommartid används. Den tid som angetts för schemalagda säkerhetskopieringar kan skilja sig från den lokala tiden på grund av Sommartid.

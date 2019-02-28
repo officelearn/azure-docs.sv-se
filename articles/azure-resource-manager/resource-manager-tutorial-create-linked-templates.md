@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 01/16/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 446c5393b654c7743371e4097517d16ba71da630
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 5f8dffa01b2d7dd7fa966d2b417019f1d2afb1bc
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56270308"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56867022"
 ---
 # <a name="tutorial-create-linked-azure-resource-manager-templates"></a>Självstudie: Skapa länkade Azure Resource Manager-mallar
 
@@ -297,7 +297,7 @@ Eftersom lagringskontot är definierat i den länkade mallen nu, måste du uppda
 1. Öppna azuredeploy.json i Visual Studio Code om den inte är öppen.
 2. Expandera den virtuella datorns resursdefinition och uppdatera **dependsOn** enligt följande skärmbild:
 
-    ![Azure Resource Manager-länkade mallar konfigurerar beroende ](./media/resource-manager-tutorial-create-linked-templates/resource-manager-template-linked-templates-configure-dependency.png)
+    ![Azure Resource Manager-länkade mallar konfigurerar beroende](./media/resource-manager-tutorial-create-linked-templates/resource-manager-template-linked-templates-configure-dependency.png)
 
     *linkedTemplate* är namnet på distributionsresursen.  
 3. Uppdatera **properties/diagnosticsProfile/bootDiagnostics/storageUri** som visas på föregående skärmbild.

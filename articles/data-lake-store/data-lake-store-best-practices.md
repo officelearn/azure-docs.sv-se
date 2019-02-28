@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2018
 ms.author: sachins
-ms.openlocfilehash: 45d828b32984363f611828ca3ea33e5fa96a5017
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 53af7ff840f9d04f0e09010b72e9eefc32a8eadd
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55745851"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56961898"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen1"></a>Metodtips för Azure Data Lake Storage Gen1
 
@@ -140,7 +140,7 @@ Om Data Lake Storage Gen1 loggöverföring inte är påslagen, Azure HDInsight i
 
     log4j.logger.com.microsoft.azure.datalake.store=DEBUG
 
-När egenskapen och noderna startas om, Data Lake Storage Gen1 diagnostik skrivs till YARN-loggarna på noderna (/tmp/\<användaren\>/yarn.log), och viktig information som fel eller begränsning (HTTP 429 felkod) kan vara övervakas. Samma information kan övervakas i Log Analytics eller var loggarna skickas till i den [diagnostik](data-lake-store-diagnostic-logs.md) bladet för Data Lake Storage Gen1-kontot. Vi rekommenderar minst ha klientsidan loggning aktiveras eller använda alternativet med Data Lake Storage Gen1 för ökar du synligheten och enklare felsökning av loggöverföring.
+När egenskapen och noderna startas om, Data Lake Storage Gen1 diagnostik skrivs till YARN-loggarna på noderna (/tmp/\<användaren\>/yarn.log), och viktig information som fel eller begränsning (HTTP 429 felkod) kan vara övervakas. Samma information kan övervakas i Azure Monitor-loggar eller var loggarna skickas till i den [diagnostik](data-lake-store-diagnostic-logs.md) bladet för Data Lake Storage Gen1-kontot. Vi rekommenderar minst ha klientsidan loggning aktiveras eller använda alternativet med Data Lake Storage Gen1 för ökar du synligheten och enklare felsökning av loggöverföring.
 
 ### <a name="run-synthetic-transactions"></a>Kör syntetiska transaktioner
 

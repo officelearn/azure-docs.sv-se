@@ -3,7 +3,7 @@ title: Skapa en Linux-containerapp för Service Fabric i Azure | Microsoft Docs
 description: I den här snabbstarten skapar du en Docker-avbildning med din app, överför avbildningen till ett containerregister och distribuerar sedan containern till ett Service Fabric-kluster.
 services: service-fabric
 documentationcenter: linux
-author: TylerMSFT
+author: aljo-microsoft
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/30/2019
-ms.author: twhitney,suhuruli
+ms.author: aljo,suhuruli
 ms.custom: mvc
-ms.openlocfilehash: fdb0d8e8def8429ff4c7c377df254fdfc0300637
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 559b51b70c2bcb18d74d77fddaf928e0356435df
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55508852"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56804561"
 ---
 # <a name="quickstart-deploy-linux-containers-to-service-fabric"></a>Snabbstart: Distribuera Linux-containrar till Service Fabric
 

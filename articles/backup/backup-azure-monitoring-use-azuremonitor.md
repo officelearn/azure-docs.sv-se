@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: pullabhk
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
-ms.openlocfilehash: 35ac69c4e61c370c72a7d503920e02ff7258ed60
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: e7b1b3e3fba04276fc284fd71adabedc01185251
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56885321"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56984823"
 ---
 # <a name="monitoring-at-scale-using-azure-monitor"></a>Övervakning i stor skala med Azure Monitor
 
@@ -28,6 +28,9 @@ Den [inbyggd övervakning och avisering artikeln](backup-azure-monitoring-built-
 
 ## <a name="using-log-analytics-workspace"></a>Med hjälp av Log Analytics-arbetsyta
 
+> [!NOTE]
+> Data från Virtuella Azure-säkerhetskopieringar, MAB-agenten, System Center DPM (SC-DPM) är som läggs in till arbetsytan Log Analytics via diagnostikinställningar. Stöd för SQL-säkerhetskopior i Azure virtuella datorer, säkerhetskopior av Azure-filresurser, Microsoft Azure Backup Server (MABS) kommer snart.
+
 Vi använder sig av funktionerna i två Azure-tjänster – **diagnostikinställningar** (för att skicka data från flera Azure Resource Manager-resurser till en annan resurs) och **Log Analytics** (LA - för att generera anpassade aviseringar där du kan definiera andra meddelandekanaler med åtgärdsgrupper) för att övervaka i skala. Följande avsnitt visar om hur du använder LA för att övervaka Azure Backup i stor skala.
 
 ### <a name="configuring-diagnostic-settings"></a>Konfigurera diagnostikinställningar
@@ -39,7 +42,7 @@ En Azure Resource Manager-resurs, till exempel Azure Recovery services-valvet in
 Du kan välja en LA-arbetsyta från en annan prenumeration som mål. *Du kan övervaka valv mellan prenumerationer i en enda plats genom att välja samma LA arbetsyta för flera RS-valv.* Välj ”AzureBackupReport” som loggen på channel alla Azure Backup relaterad information till arbetsytan LA.
 
 > [!IMPORTANT]
-> När du har slutfört konfigurationen, bör du vänta 24 timmar innan första data-push att slutföra. Därefter alla händelser skickas när de skapas (som kan motsvara ett övergripande fördröjning av 15-20 minuter). För mycket ofta åtgärder som säkerhetskopior i DB arbetsbelastningar som SQL, de batchar och skickas varje X mins
+> När du har slutfört konfigurationen, bör du vänta 24 timmar innan första data-push att slutföra. Därefter alla händelser skickas som anges i den [frekvens avsnittet](#diagnostic-data-update-frequency).
 
 ### <a name="deploying-solution-to-log-analytics-workspace"></a>Distribuera lösningen till Log Analytics-arbetsyta
 

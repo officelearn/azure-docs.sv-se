@@ -13,12 +13,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 02/14/2019
 ms.author: mbullwin
-ms.openlocfilehash: d1c7340038731ebde10a7ffcb0ef2adcde18e901
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 8648042c114c514df2218249719faa3ff19df5ec
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56267503"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56669830"
 ---
 # <a name="what-is-application-insights"></a>Vad är Application Insights?
 Application Insights är en utökningsbar APM-tjänst (Application Performance Management) för webbutvecklare på flera plattformar. Du kan använda den för att övervaka ditt live-webbprogram. Den identifierar automatiskt prestandaavvikelser. Den inkluderar kraftfulla analysverktyg för att hjälpa dig diagnosticera problem och förstå vad användare faktiskt gör med din app.  Den hjälper dig att kontinuerligt förbättra prestanda och användbarhet. Den fungerar för appar på en rad olika plattformar såsom .NET, Node.js och Java EE i lokala infrastrukturer, hybridkonfigurationer och offentliga moln. Den integrerar med din DevOps-process och kan användas med en rad olika utvecklingsverktyg. Den kan övervaka och analysera telemetri från mobilappar genom integrering med Visual Studio App Center.
@@ -107,7 +107,6 @@ Det finns flera sätt att komma igång. Börja på det sätt som passar dig bäs
 * **Vid körning: instrumentera webbappen på servern.** Undviker uppdateringar av koden. Du behöver administratörsåtkomst till servern.
   * [**IIS lokalt eller på en virtuell dator**](../../azure-monitor/app/monitor-performance-live-website-now.md)
   * [**Azure-webbapp eller virtuell dator**](../../azure-monitor/app/monitor-performance-live-website-now.md)
-  * [**Java EE**](../../azure-monitor/app/java-live.md)
 * **Vid utveckling: lägg till Application Insights i din kod.** Gör att du kan skriva anpassad telemetri och instrumentera serverdels- och skrivbordsappar.
   * [Visual Studio](../../azure-monitor/app/asp-net.md) 2013 uppdatering 2 eller senare.
   * [Java](../../azure-monitor/app/java-get-started.md)
@@ -117,12 +116,10 @@ Det finns flera sätt att komma igång. Börja på det sätt som passar dig bäs
 * **[Analysera mobilappsanvändning](../../azure-monitor/learn/mobile-center-quickstart.md)** genom integrering med Visual Studio App Center.
 * **[Tillgänglighetstester](../../azure-monitor/app/monitor-web-app-availability.md)** –pinga din webbplats regelbundet från våra servrar.
 
-
 ## <a name="next-steps"></a>Nästa steg
 Kom igång under körningsfasen med:
 
 * [IIS-server](../../azure-monitor/app/monitor-performance-live-website-now.md)
-* [Java EE server](../../azure-monitor/app/java-live.md)
 
 Kom igång under utvecklingsfasen med:
 

@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 02/25/2019
 ms.author: juliako
-ms.openlocfilehash: 87b68eceda6749e3bb0fdc64394b2b839f3963c3
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 7d40a29a0d9d708deb5485b18327d809ded0022d
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56866750"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56959552"
 ---
 # <a name="dynamic-manifests"></a>Dynamiska manifest
 
@@ -41,7 +41,7 @@ Det här avsnittet förklarar begrepp som rör **dynamiska manifest** och ger ex
 
 ## <a name="manifest-files-overview"></a>Översikt över manifestfiler
 
-När du koda en tillgång för strömning med anpassad bithastighet en **manifest** () spellistefil skapas (filen är text- eller XML-baserade). Den **manifest** -filen innehåller metadata för direktuppspelning till exempel: spåra typ (ljud, video eller text), spåra namn, start-och sluttid, med flera bithastigheter (Egenskaper), spåra språk, presentationsfönstret (Hoppande fönster med fast varaktighet), video-codec ( FourCC). Det instruerar också spelaren att hämta nästa fragment genom att tillhandahålla information om nästa kan spelas upp video fragmenten tillgängliga och deras plats. Fragment (eller segment) är de faktiska ”mängder” en videoinnehåll.
+En **manifest** ()-spellistefilen (text- eller XML-baserade) innehåller metadata för direktuppspelning som: spåra typ (ljud, video eller text), spåra namn, start-och sluttid, med flera bithastigheter (Egenskaper), spåra språk, presentationsfönstret (glidande fönster för fast varaktighet), video-codec (FourCC). Det instruerar också spelaren att hämta nästa fragment genom att tillhandahålla information om nästa kan spelas upp video fragmenten tillgängliga och deras plats. Fragment (eller segment) är de faktiska ”mängder” en videoinnehåll.
 
 Här är ett exempel på en HLS-manifestfilen: 
 

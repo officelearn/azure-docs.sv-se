@@ -8,21 +8,18 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 11/06/2018
+ms.date: 02/26/2019
 ms.author: hrasheed
-ms.openlocfilehash: 2a566312e70e0c1d5f85a540f30ecdf0adc0e7e7
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: b5d1908201de803ae065403600fc3478e604eedd
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53653721"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56959110"
 ---
 # <a name="use-apache-spark-mllib-to-build-a-machine-learning-application-and-analyze-a-dataset"></a>Använda Apache Spark MLlib för att skapa en machine learning-program och analysera en datauppsättning
 
 Lär dig använda Apache Spark [MLlib](https://spark.apache.org/mllib/) att skapa en machine learning-programmet utför enkla förutsägande analys på en öppen datauppsättning. Från Sparks inbyggda machine learning-bibliotek, det här exemplet används *klassificering* via logistic regression. 
-
-> [!TIP]  
-> Det här exemplet är också tillgängligt som en [Jupyter Notebook](https://jupyter.org/) på ett Spark (Linux)-kluster som du skapar i HDInsight. Notebook-upplevelsen kan du köra Python-kodavsnitt från anteckningsboken själva. Om du vill följa vägledningen i en bärbar dator, skapa ett Spark-kluster och starta en Jupyter-anteckningsbok (`https://CLUSTERNAME.azurehdinsight.net/jupyter`). Kör sedan anteckningsboken **Spark Machine Learning – förutsägande analys mat inspektion data med hjälp av MLlib.ipynb** under den **Python** mapp.
 
 MLlib är en Spark-Kärnbibliotek som innehåller många verktyg som är användbara för machine learning-aktiviteter, inklusive verktyg som är lämpliga för:
 
@@ -49,7 +46,7 @@ I stegen nedan kan du utveckla en modell för att se vad som krävs för att lyc
 
 1. Skapa en Jupyter-anteckningsbok med PySpark-kerneln. Instruktioner finns i [Skapa en Jupyter-anteckningsbok](./apache-spark-jupyter-spark-sql.md#create-a-jupyter-notebook).
 
-2. Importera de typer som krävs för det här programmet. Kopiera och klistra in följande kod i en tom cell och tryck sedan på **skjorta + RETUR**.
+2. Importera de typer som krävs för det här programmet. Kopiera och klistra in följande kod i en tom cell och tryck sedan på **SKIFT + RETUR**.
 
     ```PySpark
     from pyspark.ml import Pipeline
@@ -173,7 +170,7 @@ Låt oss börja att få en uppfattning om vad som innehåller datauppsättningen
 
     ```PySpark
     %%sql -o countResultsdf
-    SELECT results, COUNT(results) AS cnt FROM CountResults GROUP BY results
+    SELECT COUNT(results) AS cnt, results FROM CountResults GROUP BY results
     ```
 
     Den `%%sql` magic följt av `-o countResultsdf` garanterar att utdata från frågan sparas lokalt på Jupyter-servern (vanligtvis huvudnoden i klustret). Utdata sparas som en [Pandas](https://pandas.pydata.org/) dataframe med det angivna namnet **countResultsdf**. Mer information om den `%%sql` funktionen, samt andra användbara funktioner hos PySpark-kerneln, finns i [Kernlar som är tillgängliga i Jupyter-anteckningsböcker med Apache Spark HDInsight-kluster](apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic).
@@ -200,14 +197,6 @@ Låt oss börja att få en uppfattning om vad som innehåller datauppsättningen
     Utdata är:
 
     ![Spark maskininlärningstillämpning utdata - cirkeldiagram med fem olika resultaten](./media/apache-spark-machine-learning-mllib-ipython/spark-machine-learning-result-output-1.png "Spark machine learning-resultatet utdata")
-
-    Det finns 5 olika resultat som inspektion kan ha:
-
-    - Företag som inte finns
-    - Misslyckades
-    - Godkänd
-    - Skicka meddelanden med av villkor
-    - Verksamhet
 
     För att förutsäga ett mat inspektion resultat, måste du utveckla en modell som baseras på överträdelser. Eftersom logistic regression är en metod för binär klassificering, är det praktiskt att gruppera Resultatdata i två kategorier: **Misslyckas** och **skicka**:
 
@@ -272,7 +261,7 @@ Du kan använda den modell som du skapade tidigare till *förutsäga* vad result
 1. Kör följande kod för att skapa en ny dataframe **predictionsDf** som innehåller förutsägelser som genereras av modellen. Kodfragmentet skapar även en tillfällig tabell som kallas **förutsägelser** baserat på dataramen.
 
     ```PySpark
-    testData = sc.textFile('wasb:///HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections2.csv')\
+    testData = sc.textFile('wasbs:///HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections2.csv')\
                 .map(csvParse) \
                 .map(lambda l: (int(l[0]), l[1], l[12], l[13]))
     testDf = spark.createDataFrame(testData, schema).where("results = 'Fail' OR results = 'Pass' OR results = 'Pass w/ Conditions'")
@@ -284,10 +273,6 @@ Du kan använda den modell som du skapade tidigare till *förutsäga* vad result
     Du bör se utdata som liknar följande:
 
     ```
-    # -----------------
-    # THIS IS AN OUTPUT
-    # -----------------
-
     ['id',
         'name',
         'results',
@@ -321,10 +306,6 @@ Du kan använda den modell som du skapade tidigare till *förutsäga* vad result
     Utdata ser ut som följande:
 
     ```
-    # -----------------
-    # THIS IS AN OUTPUT
-    # -----------------
-
     There were 9315 inspections and there were 8087 successful predictions
     This is a 86.8169618894% success rate
     ```
@@ -377,7 +358,7 @@ Nu kan du skapa en slutlig visualisering för att du anledning om resultaten av 
     I det här diagrammet ”positivt” resultat som refererar till misslyckade mat-kontroll, medan ett negativt resultat som refererar till en skickade undersökning.
 
 ## <a name="shut-down-the-notebook"></a>Stänger du anteckningsboken
-När du har kört programmet bör du stänga ned anteckningsboken för att frigöra resurser. Du gör det genom att klicka på **Stäng och stoppa** i anteckningsbokens **Fil**-meny. Detta stänger av och stänger anteckningsboken.
+När du har kört programmet bör du stänga ned anteckningsboken för att frigöra resurser. Du gör det genom att välja **Stäng och stoppa** i anteckningsbokens **Fil**-meny. Detta stänger av och stänger anteckningsboken.
 
 ## <a name="seealso"></a>Se även
 * [Översikt: Apache Spark på Azure HDInsight](apache-spark-overview.md)

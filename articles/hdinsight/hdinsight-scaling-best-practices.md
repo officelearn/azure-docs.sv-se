@@ -7,40 +7,40 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 02/02/2018
+ms.date: 02/26/2019
 ms.author: ashish
-ms.openlocfilehash: 30f96c54dd916188296ca0245d4095a32ae0bbe4
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: 85aba4478e27d88af439dbe2e474a84ee65b373c
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53742889"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56960436"
 ---
 # <a name="scale-hdinsight-clusters"></a>Skala HDInsight-kluster
 
 HDInsight ger flexibilitet när det gäller genom att ge dig möjlighet att skala upp och skala ned antalet arbetarnoder i dina kluster. På så sätt kan du minska ett kluster efter timmar eller helger och expanderas under toppefterfrågan för företag.
 
-Till exempel om du har några batchbearbetning som inträffar en gång om dagen eller en gång i månaden, HDInsight-kluster kan skalas upp ett par minuter före den schemalagda händelsen så att det ska finnas tillräckligt med minne och CPU-beräkningskraft. Du kan automatisera skalning med PowerShell-cmdlet [ `Set–AzureRmHDInsightClusterSize` ](hdinsight-administer-use-powershell.md#scale-clusters).  Senare, när bearbetningen är klar och användning som kraschar igen, kan du skala ned HDInsight-klustret till färre arbetarnoder.
+Till exempel om du har några batchbearbetning som inträffar en gång om dagen eller en gång i månaden, HDInsight-kluster kan skalas upp ett par minuter före den schemalagda händelsen så att det ska finnas tillräckligt med minne och CPU-beräkningskraft.  Senare, när bearbetningen är klar och användning som kraschar igen, kan du skala ned HDInsight-klustret till färre arbetarnoder.
 
-* Du skalar ditt kluster via [PowerShell](hdinsight-administer-use-powershell.md):
+## <a name="utilities-to-scale-clusters"></a>Verktyg för att skala kluster
 
-    ```powershell
-    Set-AzureRmHDInsightClusterSize -ClusterName <Cluster Name> -TargetInstanceCount <NewSize>
-    ```
-    
-* Du skalar ditt kluster via den [klassiska Azure-CLI](hdinsight-administer-use-command-line.md):
+Microsoft tillhandahåller följande verktyg för att skala kluster:
 
-    ```
-    azure hdinsight cluster resize [options] <clusterName> <Target Instance Count>
-    ```
+|Verktyget | Beskrivning|
+|---|---|
+|[PowerShell Az](https://docs.microsoft.com/powershell/azure/new-azureps-module-az)|[Set-AzHDInsightClusterSize](https://docs.microsoft.com/powershell/module/az.hdinsight/set-azhdinsightclustersize) -ClusterName \<Cluster Name> -TargetInstanceCount \<NewSize>|
+|[PowerShell AzureRM](https://docs.microsoft.com/powershell/azure/azurerm/overview) |[Set-AzureRmHDInsightClusterSize](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/set-azurermhdinsightclustersize) -ClusterName \<Cluster Name> -TargetInstanceCount \<NewSize>|
+|[Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)|[AZ hdinsight ändra storlek på](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-resize) --resursgrupp \<resursgrupp >--name \<klustrets namn >--target instansantalet \<NewSize >|
+|[Azure Classic CLI](hdinsight-administer-use-command-line.md)|Azure hdinsight-kluster storleksändring \<klusternamn > \<Instansantalet för mål >|
+|[Azure Portal](https://portal.azure.com)|Öppna fönstret ditt HDInsight-kluster, Välj **klusterstorlek** i den vänstra menyn och sedan i fönstret kluster storlek, Skriv i antalet arbetarnoder och klicka på Spara.|  
 
-[!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
-    
-* Du skalar ditt kluster via den [Azure-portalen](https://portal.azure.com)öppnar du fönstret ditt HDInsight-kluster, Välj **skala kluster** i den vänstra menyn och sedan i fönstret skala kluster, Skriv antalet arbetarnoder, och Välj Spara.
-
-    ![Skala ett kluster](./media/hdinsight-scaling-best-practices/scale-cluster-blade.png)
+![Skala ett kluster](./media/hdinsight-scaling-best-practices/scale-cluster-blade.png)
 
 Med hjälp av någon av dessa metoder kan du skala ditt HDInsight-kluster upp eller ned inom några minuter.
+
+> [!IMPORTANT]  
+> * Aure klassiskt CLI är inaktuellt och bör endast användas med den klassiska distributionsmodellen. Använd för alla andra distributioner, den [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).  
+> * PowerShell-AzureRM-modulen är inaktuell.  Använd den [Az modulen](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-1.4.0) när det är möjligt.
 
 ## <a name="scaling-impacts-on-running-jobs"></a>Skala påverkan på jobb som körs
 
@@ -53,9 +53,10 @@ För det här problemet, kan du vänta jobb slutförts innan du skalar ned ditt 
 Om du vill se en lista över väntande och jobb som körs, kan du använda YARN ResourceManager UI, följa dessa steg:
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
-2. På menyn till vänster väljer **Bläddra**väljer **HDInsight-kluster**, och välj sedan ditt kluster.
-3. Från ditt HDInsight-kluster-fönstret, väljer **instrumentpanelen** på den översta menyn för att öppna Ambari UI. Ange dina autentiseringsuppgifter för klusterinloggning.
-4. Klicka på **YARN** på listan över tjänster i den vänstra menyn. På sidan YARN väljer **snabblänkar** och hovra över aktiva huvudnoden och klicka sedan på **ResourceManager UI**.
+2. Från vänster, gå till **alla tjänster** > **Analytics** > **HDInsight-kluster**, och välj sedan ditt kluster.
+3. Huvudvy, navigera till **Klusterinstrumentpaneler** > **Ambari home**. Ange dina autentiseringsuppgifter för klusterinloggning.
+4. Ambari UI, Välj **YARN** på listan över tjänster i den vänstra menyn.  
+5. YARN-sidan väljer du **snabblänkar** och hovra över aktiva huvudnoden och välj sedan **ResourceManager UI**.
 
     ![ResourceManager UI](./media/hdinsight-scaling-best-practices/resourcemanager-ui.png)
 
@@ -97,13 +98,11 @@ Som tidigare nämnts är avslutas alla väntande eller pågående jobb vid slutf
 
 ## <a name="hdinsight-name-node-stays-in-safe-mode-after-scaling-down"></a>HDInsight namn noden är i felsäkert läge när du skalar ned
 
-![Skala ett kluster](./media/hdinsight-scaling-best-practices/scale-cluster.png)
-
-Om du minska ditt kluster till minst en underordnad nod som du ser i föregående bild, fastna Apache HDFS i felsäkert läge när arbetsnoder startas om på grund av korrigeringar eller omedelbart efter skalning igen.
+Om du minska ditt kluster till minst en underordnad nod fastna Apache HDFS i felsäkert läge när arbetsnoder startas om på grund av korrigeringar eller omedelbart efter skalning igen.
 
 Den primära orsaken till detta är att Hive använder några `scratchdir` filer och förväntar sig tre repliker av varje block som standard men det finns bara en replik möjligt om du skalar till minst en arbetsnoden. Som en följd filerna i den `scratchdir` blir *under-replikerade*. Det kan leda till HDFS vara i felsäkert läge när tjänsterna har startats om efter åtgärden.
 
-När en skala ned försök sker, använder HDInsight Apache Ambari-hanteringsgränssnitt du först inaktivera de extra oönskad arbetsnoder som replikerar sin HDFS-block till andra online arbetsnoder och på ett säkert sätt skala klustret ned. HDFS hamnar i felsäkert läge under underhållsfönstret, och ska komma när den skalning är klar. Nu är det att HDFS fastna i felsäkert läge.
+När en skala ned försök sker, använder HDInsight Apache Ambari-hanteringsgränssnitt du först inaktivera de extra oönskad arbetsnoder som replikerar sina HDFS-block till andra online arbetsnoder, och på ett säkert sätt skala klustret ned. HDFS hamnar i felsäkert läge under underhållsfönstret, och ska komma när den skalning är klar. Nu är det att HDFS fastna i felsäkert läge.
 
 HDFS är konfigurerad med en `dfs.replication` inställning av 3. Därför är block av tillfälliga filer under-replikerade när det finns färre än tre arbetsnoder online, eftersom det finns inte de förväntade tre kopiorna av varje fil-block.
 
@@ -243,9 +242,9 @@ Du kan också visa status för HDFS i Ambari UI genom att välja den **HDFS** tj
 
 Du kan också se en eller flera kritiska fel på den aktiva eller vänteläge NameNodes. Välj länken NameNode bredvid aviseringen om du vill visa NameNode block hälsotillstånd.
 
-![NameNode block hälsotillstånd](./media/hdinsight-scaling-best-practices/ambari-hdfs-crit.png)
+![NameNode Blocks Health](./media/hdinsight-scaling-best-practices/ambari-hdfs-crit.png)
 
-Rensa tillfälliga filer, som tar bort block replikeringsfel, SSH till varje huvudnod och kör följande kommando:
+Om du vill rensa tillfälliga filer, vilket tar bort replikeringsfel block, SSH till varje gå nod och kör följande kommando:
 
 ```
 hadoop fs -rm -r -skipTrash hdfs://mycluster/tmp/hive/

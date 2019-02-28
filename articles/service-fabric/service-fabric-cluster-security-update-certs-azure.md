@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/13/2018
 ms.author: aljo
-ms.openlocfilehash: 37140b665f30d8bb99dd49dbdcca265969eaaf2f
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: 047e058fee6cd72a7eeaecdde976b1b9d49aeb5c
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56806699"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56958957"
 ---
 # <a name="add-or-remove-certificates-for-a-service-fabric-cluster-in-azure"></a>Lägga till eller ta bort certifikat för Service Fabric-kluster i Azure
 Vi rekommenderar att du bekanta dig med hur Service Fabric använder X.509-certifikat och att du läser den [Klustersäkerhetsscenarier](service-fabric-cluster-security.md). Du måste förstå vad ett klustercertifikat är och vad som används för, innan du forsätter.
 
-Azure Service fabric SDK: ns certifikat belastningen standardbeteendet, är att distribuera och använda ett definierade certifikat med ett utgående datum längst bort i framtiden. oavsett deras primära eller sekundära configuration-definition. Återgång till klassiska beteendet är en icke rekommenderad avancerad åtgärd och kräver false i Fabric.Code konfigurationen att ställa in värdet för parametern ”UseSecondaryIfNever” inställningen.
+Azure Service fabric SDK: ns certifikat belastningen standardbeteendet, är att distribuera och använda ett definierade certifikat med ett utgående datum längst bort i framtiden. oavsett deras primära eller sekundära configuration-definition. Återgång till klassiska beteendet är en icke rekommenderad avancerad åtgärd och kräver false i Fabric.Code konfigurationen att ställa in värdet för parametern ”UseSecondaryIfNewer” inställningen.
 
 Service fabric kan du ange två klustercertifikat, en primär och en sekundär när du konfigurerar Certifikatsäkerhet när klustret skapas, förutom klientcertifikat. Referera till [skapar ett azure-kluster via portalen](service-fabric-cluster-creation-via-portal.md) eller [skapar ett azure-kluster via Azure Resource Manager](service-fabric-cluster-creation-via-arm.md) för information om hur du ställer in dem på Skapa tid. Om du anger bara ett klustercertifikat på Skapa tid, som används som primär certifikatet. När klustret har skapats, kan du lägga till ett nytt certifikat som en sekundär.
 

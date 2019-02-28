@@ -4,17 +4,17 @@ description: I den här självstudien distribuerar du Azure Machine Learning som
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 11/15/2018
+ms.date: 02/21/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 464d16d4bbcbdbefd36ce1132630ad702d7a0c90
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 0f7201ffd71a6bc3e68f83f005c693cae4fef84a
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55076985"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56649008"
 ---
 # <a name="tutorial-deploy-azure-machine-learning-as-an-iot-edge-module-preview"></a>Självstudie: Distribuera Azure Machine Learning som en IoT Edge-modul (förhandsversion)
 
@@ -58,7 +58,7 @@ Molnresurser:
 
 Om du vill inaktivera processidentifiering på din IoT Edge-enhet måste du ange IP-adressen och porten för **workload_uri** och **management_uri** i avsnittet **ansluta** i daemon-konfiguration för IoT Edge.
 
-Hämta IP-adressen först. Ange `ipconfig` på kommandoraden och kopiera IP-adressen för gränssnittet **docker0**.
+Hämta IP-adressen först. Ange `ifconfig` på kommandoraden och kopiera IP-adressen för gränssnittet **docker0**.
 
 Redigera daemon-konfigurationsfilen för IoT Edge:
 

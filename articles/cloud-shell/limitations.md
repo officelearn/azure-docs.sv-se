@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2018
 ms.author: juluk
-ms.openlocfilehash: 1f2c218ed9ba2f5f9285c60b8d4c11704825c0f5
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 0cbd2c1f9a5a36d4e11eb86a3d531340b0e0ff03
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55563889"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56983735"
 ---
 # <a name="limitations-of-azure-cloud-shell"></a>Begränsningar för Azure Cloudshell
 
@@ -45,7 +45,7 @@ Cloudshell har stöd för de senaste versionerna av Microsoft Edge, Microsoft In
 
 ### <a name="for-a-given-user-only-one-shell-can-be-active"></a>För en viss användare kan endast en shell vara aktiv
 
-Användarna kan bara starta en typ av gränssnittet i taget, antingen **Bash** eller **PowerShell**. Du kan dock ha flera instanser av Bash eller PowerShell som körs på en gång. Växlar mellan Bash eller PowerShell orsaker Cloud Shell för att starta om, vilket avslutar befintliga sessioner.
+Användarna kan bara starta en typ av gränssnittet i taget, antingen **Bash** eller **PowerShell**. Du kan dock ha flera instanser av Bash eller PowerShell som körs på en gång. Växlar mellan Bash eller PowerShell med hjälp av menyn gör Cloud Shell för att starta om, vilket avslutar befintliga sessioner. Du kan också köra bash i PowerShell genom att skriva `bash`, och du kan köra PowerShell i bash genom att skriva `pwsh`.
 
 ### <a name="usage-limits"></a>Användningsgränser
 
@@ -57,9 +57,9 @@ Cloudshell är avsedd för interaktiva användningsfall. Därför kan avslutas a
 
 Behörigheter har angetts som vanliga användare utan sudo-åtkomst. Valfri installation utanför din `$Home` directory behålls inte.
 
-### <a name="editing-bashrc"></a>Redigera .bashrc
+### <a name="editing-bashrc-or-profile"></a>Redigera .bashrc eller $PROFILE
 
-Vara försiktig när du redigerar .bashrc, detta kan orsaka oväntade fel i Cloud Shell.
+Vara försiktig när du redigerar .bashrc eller PowerShell-$PROFILE-fil som gör det kan orsaka oväntade fel i Cloud Shell.
 
 ## <a name="powershell-limitations"></a>PowerShell-begränsningar
 
@@ -73,23 +73,15 @@ Den `SqlServer` modulen som ingår i Cloud Shell har endast förhandsversioner s
 
 ### <a name="default-file-location-when-created-from-azure-drive"></a>Standardplatsen för när de skapas från Azure-enheten:
 
-Med hjälp av PowerShell-cmdletar, kan användare inte skapa filer under Azure-enheten. När användarna skapar nya filer med andra verktyg, till exempel vim eller nano filerna sparas i den `$HOME` som standard. 
+Med hjälp av PowerShell-cmdletar, användare kan inte skapa filer under Azure: enhet. När användarna skapar nya filer med andra verktyg, till exempel vim eller nano filerna sparas i den `$HOME` som standard. 
 
 ### <a name="gui-applications-are-not-supported"></a>GUI-program stöds inte
 
-Om du kör ett kommando som skapar en Windows-dialogruta som `Connect-AzureAD`, `Connect-AzureRmAccount`, eller `Connect-AzAccount` något som ser ett felmeddelande visas: `Unable to load DLL 'IEFRAME.dll': The specified module could not be found. (Exception from HRESULT: 0x8007007E)`.
-
-### <a name="tab-completion-crashes-psreadline"></a>Tabbifyllning kraschar PSReadline
-
-Om användarens EditMode i PSReadline har angetts till Emacs användaren försöker att visa alla möjligheter via tabbifyllning, och fönsterstorleken är för liten för att visa alla möjligheter, PSReadline kraschar.
+Om du kör ett kommando som skapar en Windows-dialogruta, något som ser ett felmeddelande visas: `Unable to load DLL 'IEFRAME.dll': The specified module could not be found. (Exception from HRESULT: 0x8007007E)`.
 
 ### <a name="large-gap-after-displaying-progress-bar"></a>Stort mellanrum efter visar förloppsindikator
 
 Om användaren utför en åtgärd som visar en förloppsindikator, en sådan flik Slutför när i den `Azure:` enhet, så är det möjligt att markören inte är korrekt en lucka visas där förloppsindikatorn var tidigare.
-
-### <a name="random-characters-appear-inline"></a>Slumpmässiga tecken visas infogade
-
-Markörens position sekvensen kodar `5;13R`, kan visas i användardata.  Tecknen kan tas bort manuellt.
 
 ## <a name="next-steps"></a>Nästa steg
 

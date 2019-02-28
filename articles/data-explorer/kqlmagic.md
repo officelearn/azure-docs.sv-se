@@ -8,17 +8,17 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 12/19/2018
-ms.openlocfilehash: 83c4ae7ff942579d55a5855c24a28809f60fdc62
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: 0e1eedf497ea5fd4a8a9551996102a8aa72847fc
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382452"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56961575"
 ---
 # <a name="analyze-data-using-jupyter-notebook-and-kql-magic"></a>Analysera data med Jupyter Notebook och KQL magic
 
 Jupyter Notebook är ett webbprogram med öppen källkod som gör det möjligt att skapa och dela dokument med live-koden, formler, visualiseringar och löpande text. Användning innehåller Datarensning och transformering, numeriska simulering, statistisk modellering, datavisualisering och maskininlärning.
-[Jupyter Notebook](https://jupyter.org/) stöder magic funktioner som utökar funktionerna i kernel genom att stödja fler kommandon. KQL magic är ett kommando som utökar funktionerna i Python-kerneln i Jupyter-anteckningsbok så att du kan köra frågor med Kusto språk internt. Du enkelt kombinera Python och Kusto frågespråk för att fråga och visualisera data med hjälp av omfattande Plot.ly bibliotek som är integrerad med `render` kommandon. Datakällor för att köra frågor som stöds. Dessa datakällor är bland annat Azure Data Explorer, en tjänst för Kunskapsutveckling för snabba och skalbara data för logg- och telemetri data, samt Log Analytics och Application Insights. KQL magic fungerar även med Azure anteckningsböcker, Jupyter labb och Visual Studio Code Jupyter-tillägget.
+[Jupyter Notebook](https://jupyter.org/) stöder magic funktioner som utökar funktionerna i kernel genom att stödja fler kommandon. KQL magic är ett kommando som utökar funktionerna i Python-kerneln i Jupyter-anteckningsbok så att du kan köra frågor med Kusto språk internt. Du enkelt kombinera Python och Kusto frågespråk för att fråga och visualisera data med hjälp av omfattande Plot.ly bibliotek som är integrerad med `render` kommandon. Datakällor för att köra frågor som stöds. Dessa datakällor är bland annat Azure Data Explorer, en tjänst för Kunskapsutveckling av snabba och skalbara data för log och telemetridata, samt Azure Monitor-loggar och Application Insights. KQL magic fungerar även med Azure anteckningsböcker, Jupyter labb och Visual Studio Code Jupyter-tillägget.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -171,6 +171,6 @@ I många scenarier för dataanalys, kanske du vill skapa återanvändbara anteck
 Kör hjälpkommandot för att utforska följande exempelanteckningsböcker som innehåller alla funktioner som stöds:
 - [Kom igång med KQL magic för Azure Data Explorer](https://mybinder.org/v2/gh/Microsoft/jupyter-Kqlmagic/master?filepath=notebooks%2FQuickStart.ipynb) 
 - [Kom igång med KQL magic för Application Insights](https://mybinder.org/v2/gh/Microsoft/jupyter-Kqlmagic/master?filepath=notebooks%2FQuickStartAI.ipynb) 
-- [Kom igång med KQL magic för Log Analytics](https://mybinder.org/v2/gh/Microsoft/jupyter-Kqlmagic/master?filepath=notebooks%2FQuickStartLA.ipynb) 
+- [Kom igång med KQL magic för Azure Monitor-loggar](https://mybinder.org/v2/gh/Microsoft/jupyter-Kqlmagic/master?filepath=notebooks%2FQuickStartLA.ipynb) 
 - [Parametrize KQL magic frågan med Python](https://mybinder.org/v2/gh/Microsoft/jupyter-Kqlmagic/master?filepath=notebooks%2FParametrizeYourQuery.ipynb) 
 - [Välj färgpalett för KQL magic diagrammet frågeresultatet](https://mybinder.org/v2/gh/Microsoft/jupyter-Kqlmagic/master?filepath=notebooks%2FColorYourCharts.ipynb)

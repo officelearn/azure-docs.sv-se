@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/19/2017
 ms.author: jdial
-ms.openlocfilehash: f21d92dabfcfbe51cf8135388a1ab489c20593a4
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 56e203a212a4e0e81922336f72fd58ef3cb7dc64
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53537553"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56983514"
 ---
 # <a name="azure-networking"></a>Azure-nätverk
 
@@ -136,7 +136,7 @@ Azure skapar standard routningstabeller som gör att resurser som är anslutna t
 
 Azure tillhandahåller följande verktyg för att övervaka och hantera nätverk:
 - **Aktivitetsloggar:** Alla Azure-resurser har aktivitetsloggar som ger information om åtgärder som vidtagits, statusen för åtgärder och vem som initierade åtgärden. Mer information om aktivitetsloggar i [aktivitetsloggar översikt](../azure-monitor/platform/activity-logs-overview.md?toc=%2fazure%2fnetworking%2ftoc.json) artikeln.
-- **Diagnostikloggar:** Periodiska och spontant händelser skapas av nätverksresurser och loggat in Azure storage-konton, skickas till en Azure-Händelsehubb eller skickas till Azure Log Analytics. Diagnostikloggar ger information om hälsotillståndet för en resurs. Diagnostikloggar tillhandahålls för Load Balancer (internetuppkopplad), Nätverkssäkerhetsgrupper, vägar och Application Gateway. Mer information om diagnostiska loggar den [diagnostikloggar översikt](../azure-monitor/platform/diagnostic-logs-overview.md?toc=%2fazure%2fnetworking%2ftoc.json) artikeln.
+- **Diagnostikloggar:** Periodiska och spontant händelser skapas av nätverksresurser och loggat in Azure storage-konton kan skickas till en Azure-Händelsehubb eller skickas till Azure Monitor-loggar. Diagnostikloggar ger information om hälsotillståndet för en resurs. Diagnostikloggar tillhandahålls för Load Balancer (internetuppkopplad), Nätverkssäkerhetsgrupper, vägar och Application Gateway. Mer information om diagnostiska loggar den [diagnostikloggar översikt](../azure-monitor/platform/diagnostic-logs-overview.md?toc=%2fazure%2fnetworking%2ftoc.json) artikeln.
 - **Mått:** Mått är prestandamått och prestandaräknare som samlats in under en viss tidsperiod på resurser. Mått kan användas till att utlösa aviseringar baserat på tröskelvärden. Mått är för närvarande tillgängliga på Application Gateway. Läs mer om mätvärden i [översikt över mått](../monitoring-and-diagnostics/monitoring-overview-metrics.md?toc=%2fazure%2fnetworking%2ftoc.json) artikeln.
 - **Felsökning:** Information om felsökning är tillgänglig direkt i Azure-portalen. Innehåller information om diagnostisera vanliga problem med ExpressRoute, VPN-Gateway, Application Gateway, säkerhetsloggar i nätverket, vägar, DNS, belastningsutjämnare och Traffic Manager.
 - **Rollbaserad åtkomstkontroll (RBAC):** Kontrollera vem som kan skapa och hantera nätverksresurser med rollbaserad åtkomstkontroll (RBAC). Mer information om RBAC genom att läsa den [Kom igång med RBAC](../role-based-access-control/overview.md?toc=%2fazure%2fnetworking%2ftoc.json) artikeln. 

@@ -1,5 +1,5 @@
 ---
-title: Azure Key Vault-loggning – Azure Key Vault | Microsoft Docs
+title: Azure Key Vault-loggning | Microsoft Docs
 description: Den här kursen hjälper dig att komma igång med Azure Key Vault-loggning.
 services: key-vault
 documentationcenter: ''
@@ -13,94 +13,86 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: barclayn
-ms.openlocfilehash: 61f277eda721c1490d9f4b354442718558830fe7
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: c9d8dd366ecabe9eb508998d526ddfe7b1da300d
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56300207"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56960532"
 ---
 # <a name="azure-key-vault-logging"></a>Azure Key Vault-loggning
 
-Azure Key Vault är tillgängligt i de flesta regioner. Mer information finns på sidan med [Key Vault-priser](https://azure.microsoft.com/pricing/details/key-vault/).
-
-## <a name="introduction"></a>Introduktion
-
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-När du har skapat ett eller flera nyckelvalv vill du förmodligen övervaka hur och när nyckelvalven används, och av vem. Du kan göra det genom att aktivera loggning för nyckelvalvet, vilket sparar information i ett Azure-lagringskonto som du anger. En ny container med namnet **insights-logs-auditevent** skapas automatiskt för det angivna lagringskontot och du kan använda samma lagringskonto för att samla in loggar för flera nyckelvalv.
+När du skapar en eller flera nyckelvalv kan du förmodligen vill du övervaka hur och när nyckelvalven är används, och av vem. Du kan göra detta genom att aktivera loggning för Azure Key Vault, vilket sparar information i ett Azure storage-konto som du anger. En ny behållare med namnet **insights-logs-auditevent** skapas automatiskt för det angivna lagringskontot. Du kan använda samma lagringskonto för att samla in loggar för flera nyckelvalv.
 
-Loggningsinformationen är tillgänglig senast tio minuter efter att nyckelvalvsåtgärden ägde rum. Oftast är informationen dock tillgänglig snabbare än så.  Det är upp till dig att hantera loggarna i ditt lagringskonto:
+Du kan komma åt loggningsinformationen 10 minuter (högst) efter åtgärden nyckelvalv. Oftast är informationen dock tillgänglig snabbare än så.  Det är upp till dig att hantera loggarna i ditt lagringskonto:
 
 * Använd standardåtkomstmetoder i Azure för att skydda loggarna genom att begränsa vem som kan komma åt dem.
 * Ta bort loggar som du inte vill behålla i ditt lagringskonto.
 
-Den här självstudiekursen hjälper dig att komma igång med Azure Key Vault-loggning och förklarar hur du skapar ett lagringskonto, aktiverar loggning och tolkar loggningsinformation som samlas in.  
+Den här kursen hjälper dig att komma igång med Azure Key Vault-loggning. Du skapar ett lagringskonto, aktiverar du loggning och tolkar insamlade logginformation.  
 
 > [!NOTE]
-> Självstudiekursen innehåller inte instruktioner för hur du skapar nyckelvalv, nycklar eller hemligheter. Den här information finns i [vad är Azure Key Vault?](key-vault-overview.md). Anvisningar för plattformsoberoende kommandoradsgränssnitt finns i [den här självstudiekursen](key-vault-manage-with-cli2.md).
+> Självstudiekursen innehåller inte instruktioner för hur du skapar nyckelvalv, nycklar eller hemligheter. Den här information finns i [vad är Azure Key Vault?](key-vault-overview.md). Eller plattformsoberoende Azure CLI-instruktioner finns i [den här självstudiekursen](key-vault-manage-with-cli2.md).
 >
-> Den här artikeln innehåller instruktioner för Azure PowerShell för att uppdatera Diagnostisk loggning. Men den kan aktiveras med hjälp av Azure Monitor i Azure-portalen i den **diagnostikloggar** avsnittet. 
->
+> Den här artikeln innehåller instruktioner för Azure PowerShell för att uppdatera Diagnostisk loggning. Du kan också uppdatera Diagnostisk loggning genom att använda Azure Monitor i den **diagnostikloggar** på Azure portal. 
 >
 
-Översiktlig information om Azure Key Vault finns i [Vad är Azure Key Vault?](key-vault-whatis.md)
+Mer information om Key Vault finns i [vad är Azure Key Vault?](key-vault-whatis.md). Läs om hur där Key Vault är tillgängligt i [prissättningssidan](https://azure.microsoft.com/pricing/details/key-vault/).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 För att kunna slutföra den här självstudiekursen behöver du följande:
 
 * Ett befintligt nyckelvalv som du har använt.  
-* Azure PowerShell, **lägsta version av 1.0.0**. Om du vill installera och sedan koppla Azure PowerShell till din Azure-prenumeration läser du [Installera och konfigurera Azure PowerShell](/powershell/azure/overview). Om du redan har installerat Azure PowerShell och inte vet vilken version du har skriver du `$PSVersionTable.PSVersion` i Azure PowerShell-konsolen.  
+* Azure PowerShell, lägst version 1.0.0. Om du vill installera och sedan koppla Azure PowerShell till din Azure-prenumeration läser du [Installera och konfigurera Azure PowerShell](/powershell/azure/overview). Om du redan har installerat Azure PowerShell och inte vet vilken version från Azure PowerShell-konsolen, ange `$PSVersionTable.PSVersion`.  
 * Tillräckligt med utrymme i Azure för Key Vault-loggarna.
 
-## <a id="connect"></a>Ansluta till dina prenumerationer
+## <a id="connect"></a>Ansluta till key vault-prenumeration
 
-Starta en Azure PowerShell-session och logga in på ditt Azure-konto med följande kommando:  
+Det första steget i att konfigurera viktiga loggning är att punkt Azure PowerShell till nyckelvalvet som du vill logga in.
+
+Starta en Azure PowerShell-session och logga in på ditt Azure-konto med hjälp av följande kommando:  
 
 ```PowerShell
 Connect-AzAccount
 ```
 
-Ange användarnamnet och lösenordet för ditt Azure-konto i popup-fönstret i webbläsaren. Azure PowerShell identifierar alla prenumerationer som är associerade med det här kontot och använder den första som standard.
+Ange användarnamnet och lösenordet för ditt Azure-konto i popup-fönstret i webbläsaren. Azure PowerShell identifierar alla prenumerationer som är associerade med det här kontot. Som standard använder den första mallen i PowerShell.
 
-Om du har flera prenumerationer kan du behöva ange en som användes för att skapa Azure Key Vault. Skriv följande för att visa prenumerationerna för ditt konto:
+Du kan behöva ange den prenumeration som du använde för att skapa ett nyckelvalv. Ange följande kommando för att visa prenumerationerna för ditt konto:
 
 ```PowerShell
-    Get-AzSubscription
+Get-AzSubscription
 ```
 
-Skriv sedan följande för att ange den prenumeration som är associerad med nyckelvalvet som du ska logga:
+Ange sedan om du vill ange den prenumeration som är associerad med nyckelvalvet som du ska logga:
 
 ```PowerShell
 Set-AzContext -SubscriptionId <subscription ID>
 ```
 
-> [!NOTE]
-> Detta är ett viktigt steg och särskilt användbart om du har flera prenumerationer som är kopplade till ditt konto. Du kan få ett felmeddelande om att registrera Microsoft.Insights om du hoppar över det här steget.
->   
->
+Pekar rätt prenumeration PowerShell är ett viktigt steg, särskilt om du har flera prenumerationer som är associerat med ditt konto. Mer information om hur du konfigurerar Azure PowerShell finns i [Installera och konfigurera Azure PowerShell](/powershell/azure/overview).
 
-Mer information om hur du konfigurerar Azure PowerShell finns  i [Installera och konfigurera Azure PowerShell](/powershell/azure/overview).
+## <a id="storage"></a>Skapa ett lagringskonto för dina loggar
 
-## <a id="storage"></a>Skapa ett nytt lagringskonto för dina loggar
+Men du kan använda ett befintligt lagringskonto för dina loggar, ska vi skapa ett lagringskonto som ska användas specifikt för Key Vault-loggar. För att underlätta när vi har senare ska ange detta, så lagrar vi informationen i en variabel med namnet **sa**.
 
-Även om du kan använda ett befintligt lagringskonto för dina loggar ska vi skapa ett nytt lagringskonto som ska användas specifikt för Key Vault-loggar. För att underlätta för oss när vi senare ska ange detta så lagrar vi informationen i en variabel med namnet **sa**.
-
-För att underlätta ytterligare använder vi också samma resursgrupp som den som innehåller vårt nyckelvalv. I [Komma igång-självstudiekursen](key-vault-overview.md) heter den här resursgruppen **ContosoResourceGroup** och vi kommer även att fortsätta att använda platsen East Asia (Östasien). Ersätt värdena med dina egna efter behov:
+För ytterligare underlätta använder vi också samma resursgrupp som det som innehåller nyckelvalvet. Från den [introduktionskursen](key-vault-get-started.md), heter den här resursgruppen **ContosoResourceGroup**, och vi kommer att fortsätta att använda Östasien plats. Ersätt värdena med dina egna efter behov:
 
 ```PowerShell
  $sa = New-AzStorageAccount -ResourceGroupName ContosoResourceGroup -Name contosokeyvaultlogs -Type Standard_LRS -Location 'East Asia'
 ```
 
 > [!NOTE]
-> Om du vill använda ett befintligt lagringskonto måste det använda samma prenumeration som ditt nyckelvalv samt använda Resource Manager-distributionsmodellen i stället för den klassiska distributionsmodellen.
+> Om du vill använda ett befintligt lagringskonto måste det använda samma prenumeration som ditt nyckelvalv. Och det måste använda Azure Resource Manager-distributionsmodellen i stället för den klassiska distributionsmodellen.
 >
 >
 
 ## <a id="identify"></a>Identifiera nyckelvalvet för dina loggar
 
-I Komma igång-självstudien heter nyckelvalvet **ContosoKeyVault** och vi fortsätter att använda det namnet och lagrar informationen i en variabel med namnet **kv**:
+I den [introduktionskursen](key-vault-get-started.md), namn på key vault har **ContosoKeyVault**. Vi fortsätter att använda det namnet och lagrar informationen i en variabel med namnet **kv**:
 
 ```PowerShell
 $kv = Get-AzKeyVault -VaultName 'ContosoKeyVault'
@@ -108,7 +100,7 @@ $kv = Get-AzKeyVault -VaultName 'ContosoKeyVault'
 
 ## <a id="enable"></a>Aktivera loggning
 
-Om du vill aktivera loggning för Nyckelvalvet, använder vi cmdleten Set-AzDiagnosticSetting, tillsammans med de variabler som vi skapade för vårt nya lagringskonto och vårt nyckelvalv. Vi kan också ange den **-aktiverad** flaggan till **$true** och ange kategorin till AuditEvent (den enda kategorin för nyckelvalvloggning):
+Om du vill aktivera loggning för Nyckelvalvet, använder vi den **Set-AzDiagnosticSetting** cmdlet, tillsammans med de variabler som vi skapade för det nya lagringskontot och nyckelvalvet. Vi kan också ange den **-aktiverad** flaggan till **$true** och ange kategorin till **AuditEvent** (den enda kategorin för nyckelvalvloggning):
 
 ```PowerShell
 Set-AzDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $true -Category AuditEvent
@@ -126,9 +118,9 @@ Utdata ser ut så här:
         Enabled : False
         Days    : 0
 
-Detta bekräftar att loggning är aktiverat för nyckelvalvet och att information sparas i ditt lagringskonto.
+Det här resultatet bekräftar att loggning är aktiverat för nyckelvalvet och information sparas i ditt storage-konto.
 
-Du kan också ange bevarandeprincip för loggar så att äldre loggar tas bort automatiskt. Ange till exempel bevarandeprincip genom att ange flaggan **- RetentionEnabled** till **$true** och ange parametern **- RetentionInDays** till **90** så att de loggar som är äldre än 90 dagar tas bort automatiskt.
+Du kan ange en bevarandeprincip för dina loggar så att äldre loggar tas bort automatiskt. Till exempel bevarandeprincip genom att ange den **- RetentionEnabled** flaggan till **$true**, och ange den **- RetentionInDays** parameter **90**så att loggar som är äldre än 90 dagar tas bort automatiskt.
 
 ```PowerShell
 Set-AzDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $true -Category AuditEvent -RetentionEnabled $true -RetentionInDays 90
@@ -136,28 +128,30 @@ Set-AzDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Ena
 
 Vad loggas:
 
-* Alla autentiserade REST-API-förfrågningar loggas, vilket omfattar förfrågningar som misslyckats på grund av åtkomstbehörigheter, systemfel eller ogiltiga förfrågningar.
-* Åtgärder i själva nyckelvalvet, t.ex. att skapa, ta bort eller konfigurera åtkomstprinciper för nyckelvalvet eller att uppdatera attribut för nyckelvalvet, t.ex. taggar.
-* Åtgärder med nycklar och hemligheter i nyckelvalvet, t.ex. att skapa, ändra eller ta bort nycklar eller hemligheter; åtgärder som att signera, verifiera, kryptera, dekryptera, omsluta eller ta bort en nyckelomslutning, hämta hemligheter, visa nycklar och hemligheter samt deras versioner.
-* Oautentiserade förfrågningar som resulterar i ett 401-svar. Till exempel förfrågningar som inte har någon ägartoken, som är felaktiga, som har upphört att gälla eller som har en ogiltig token.  
+* Alla autentiserade REST API-begäranden, inklusive misslyckade begäranden på grund av åtkomstbehörigheter, systemfel eller ogiltiga förfrågningar.
+* Åtgärder i nyckelvalvet själva, inklusive skapa, ta bort eller inställningen nyckelvalvets åtkomstprinciper och uppdatera nyckelvärdesattribut som taggar.
+* Åtgärder för nycklar och hemligheter i nyckelvalvet, inklusive:
+  * Skapa, ändra eller ta bort nycklar eller hemligheter.
+  * Signering, verifiera, kryptera, dekryptera, omsluta och borttagning av nycklar, hämta hemligheter, och lista nycklar och hemligheter (och deras versioner).
+* Oautentiserade förfrågningar som resulterar i ett 401-svar. Exempel är begäranden som inte har någon ägartoken, som är felaktiga eller har upphört att gälla eller som har en ogiltig token.  
 
 ## <a id="access"></a>Komma åt loggarna
 
-Loggarna för nyckelvalvet lagras i containern **insights-logs-auditevent** i det lagringskonto som du angav. Om du vill visa alla blobar i den här containern skriver du:
+Key Vault-loggar lagras i den **insights-logs-auditevent** behållare i lagringskontot som du angav. Om du vill visa loggfilerna kan behöva du ladda ned blobar.
 
-Börja med att skapa en variabel för containerns namn. Detta kommer att användas i resten av genomgången.
+Börja med att skapa en variabel för containerns namn. Du använder den här variabeln i resten av den här genomgången.
 
 ```PowerShell
 $container = 'insights-logs-auditevent'
 ```
 
-Om du vill visa alla blobar i den här containern skriver du:
+Om du vill visa alla blobbar i den här behållaren, anger du:
 
 ```PowerShell
 Get-AzStorageBlob -Container $container -Context $sa.Context
 ```
 
-Utdata ska se ut ungefär så här:
+Utdata ser ut ungefär så här:
 
 ```
 Container Uri: https://contosokeyvaultlogs.blob.core.windows.net/insights-logs-auditevent
@@ -172,13 +166,13 @@ resourceId=/SUBSCRIPTIONS/361DA5D4-A47A-4C79-AFDD-XXXXXXXXXXXX/RESOURCEGROUPS/CO
 resourceId=/SUBSCRIPTIONS/361DA5D4-A47A-4C79-AFDD-XXXXXXXXXXXX/RESOURCEGROUPS/CONTOSORESOURCEGROUP/PROVIDERS/MICROSOFT.KEYVAULT/VAULTS/CONTOSOKEYVAULT/y=2016/m=01/d=04/h=18/m=00/PT1H.json
 ```
 
-Som du ser i dessa utdata följer blobbarna en namngivningskonvention: **resourceId=<ARM resource ID>/y=<year>/m=<month>/d=<day of month>/h=<hour>/m=<minute>/filnamn.json**
+Som du kan se dessa utdata följer blobbarna en namngivningskonvention: `resourceId=<ARM resource ID>/y=<year>/m=<month>/d=<day of month>/h=<hour>/m=<minute>/filename.json`
 
 Datum- och tidsvärdena använder UTC.
 
-Eftersom samma lagringskonto kan användas för att samla in loggar för flera resurser, är fullständigt resurs-ID i blobnamnet användbar för att komma åt eller hämta endast de blobbar som du behöver. Men innan vi gör det ska vi titta på hur du hämtar alla blobbar.
+Eftersom du kan använda samma lagringskonto för att samla in loggar för flera resurser, är fullständigt resurs-ID i blobnamnet användbar för att komma åt eller hämta endast de blobbar som du behöver. Men innan vi gör det ska vi titta på hur du hämtar alla blobbar.
 
-Börja med att skapa en mapp som du vill ladda ned blobbarna till. Exempel:
+Skapa en mapp för att ladda ned blobbarna. Exempel:
 
 ```PowerShell 
 New-Item -Path 'C:\Users\username\ContosoKeyVaultLogs' -ItemType Directory -Force
@@ -190,48 +184,48 @@ Hämta sedan en lista över alla blobbar:
 $blobs = Get-AzStorageBlob -Container $container -Context $sa.Context
 ```
 
-Skicka den här listan via ”Get-AzStorageBlobContent” att ladda ned blobbarna till målmappen:
+Skicka den här listan via **Get-AzStorageBlobContent** att ladda ned blobbarna till målmappen:
 
 ```PowerShell
 $blobs | Get-AzStorageBlobContent -Destination C:\Users\username\ContosoKeyVaultLogs'
 ```
 
-När du kör det här andra kommandot skapar **/**-avgränsaren i blobbnamnen en fullständig mappstruktur under målmappen. Den här strukturen används för att hämta och spara blobbarna som filer.
+När du kör den här andra kommandot skapar den **/** avgränsaren i blobbnamnen skapar en fullständig mappstruktur under målmappen. Du använder den här strukturen för att ladda ned och spara blobbarna som filer.
 
 Om du vill ladda ned blobbarna selektivt använder du jokertecken. Exempel:
 
 * Om du har flera nyckelvalv och bara vill hämta loggar för ett av dem, mer specifikt nyckelvalvet CONTOSOKEYVAULT3:
 
-```PowerShell
-Get-AzStorageBlob -Container $container -Context $sa.Context -Blob '*/VAULTS/CONTOSOKEYVAULT3
-```
+  ```PowerShell
+  Get-AzStorageBlob -Container $container -Context $sa.Context -Blob '*/VAULTS/CONTOSOKEYVAULT3
+  ```
 
 * Om du har flera resursgrupper och bara vill hämta loggar för en av dem använder du `-Blob '*/RESOURCEGROUPS/<resource group name>/*'`:
 
-```PowerShell
-Get-AzStorageBlob -Container $container -Context $sa.Context -Blob '*/RESOURCEGROUPS/CONTOSORESOURCEGROUP3/*'
-```
+  ```PowerShell
+  Get-AzStorageBlob -Container $container -Context $sa.Context -Blob '*/RESOURCEGROUPS/CONTOSORESOURCEGROUP3/*'
+  ```
 
-* Om du vill hämta alla loggar för januari 2016 använder du `-Blob '*/year=2016/m=01/*'`:
+* Om du vill hämta alla loggar för januari 2019 använda `-Blob '*/year=2019/m=01/*'`:
 
-```PowerShell
-Get-AzStorageBlob -Container $container -Context $sa.Context -Blob '*/year=2016/m=01/*'
-```
+  ```PowerShell
+  Get-AzStorageBlob -Container $container -Context $sa.Context -Blob '*/year=2016/m=01/*'
+  ```
 
-Nu är det dags att börja titta på vad som finns i loggarna. Men innan det ytterligare två parametrar för Get-AzDiagnosticSetting som du kan behöva känna till:
+Nu är det dags att börja titta på vad som finns i loggarna. Men innan vi går vidare till som du bör känna till två fler kommandon:
 
 * Om du vill fråga efter statusen för nyckelvalvsresursens diagnostikinställningar: `Get-AzDiagnosticSetting -ResourceId $kv.ResourceId`
 * Om du vill inaktivera loggning för nyckelvalvsresursen: `Set-AzDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $false -Category AuditEvent`
 
 ## <a id="interpret"></a>Tolka Key Vault-loggarna
 
-Enskilda blobbar lagras som text, formaterad som en JSON-blobb. Körs
+Enskilda blobbar lagras som text, formaterad som en JSON-blobb. Låt oss titta på ett exempel på post i loggen. Kör följande kommando:
 
 ```PowerShell
 Get-AzKeyVault -VaultName 'contosokeyvault'`
 ```
 
-Returnerar en loggpost liknar den som visas nedan:
+Den returnerar en loggpost liknande detta:
 
 ```json
     {
@@ -256,65 +250,67 @@ Returnerar en loggpost liknar den som visas nedan:
     }
 ```
 
-Följande tabell innehåller fältnamnen och beskrivningarna.
+I följande tabell visas de fältnamnen och beskrivningarna:
 
 | Fältnamn | Beskrivning |
 | --- | --- |
-| time |Datum och tid (UTC). |
-| resourceId |Azure Resource Manager Resource-ID. För Key Vault-loggar är detta alltid nyckelvalvets resurs-ID. |
-| operationName |Namnet på åtgärden, som beskrivs i nästa tabell. |
-| operationVersion |Det här är REST-API-versionen som begärs av klienten. |
-| category |För Key Vault-loggar är AuditEvent det enda, tillgängliga värdet. |
-| resultType |Resultatet av REST-API-begäran. |
-| resultSignature |HTTP-status. |
-| resultDescription |En ytterligare beskrivning av resultatet, om en sådan är tillgänglig. |
-| durationMs |Hur lång tid i millisekunder som det tog att utföra REST-API-begäran. Detta omfattar inte nätverksfördröjningen, så den tid du mäter på klientsidan kanske inte stämmer med den här tiden. |
-| callerIpAddress |IP-adressen för klienten som gjorde begäran. |
-| correlationId |Ett valfritt GUID som klienten kan skicka för att korrelera loggar på klientsidan med loggar på tjänstsidan (Key Vault). |
-| identity |Identiteten från den token som angavs när REST-API-begäran gjordes. Detta är vanligtvis en ”användare”, ”tjänstens huvudnamn” eller en kombination av ”användare+app-ID”, till exempel då en begäran är resultatet av en Azure PowerShell-cmdlet. |
-| properties |Vilken information som visas i det här fältet beror på åtgärden (operationName). I de flesta fall klientinformation (user agent strängen skickades av klienten), som innehåller de exakta REST API-begärans URI och HTTP-statuskod. När ett objekt returneras som ett resultat av en begäran (till exempel KeyCreate eller VaultGet) innehåller det även nyckelns URI (som ”id”), valvets URI eller hemlighetens URI. |
+| **tid** |Datum och tid i UTC. |
+| **Resurs-ID** |Azure Resource Manager-resurs-ID. För Key Vault-loggar är detta alltid Nyckelvalvets resurs-ID. |
+| **OperationName** |Namnet på åtgärden, som beskrivs i nästa tabell. |
+| **operationVersion** |REST API-version som begärs av klienten. |
+| **Kategori** |Typ av resultat. För Key Vault-loggar är **AuditEvent** är det enda, tillgängliga värdet. |
+| **resultType** |Resultatet av REST API-begäran. |
+| **resultSignature** |HTTP-status. |
+| **resultDescription** |En ytterligare beskrivning av resultatet, om en sådan är tillgänglig. |
+| **durationMs** |Hur lång tid i millisekunder som det tog att utföra REST-API-begäran. Detta omfattar inte nätverksfördröjningen, så den tid du mäter på klientsidan kanske inte stämmer med den här tiden. |
+| **callerIpAddress** |IP-adressen för klienten som gjorde begäran. |
+| **Korrelations-ID** |Ett valfritt GUID som klienten kan skicka för att korrelera loggar på klientsidan med loggar på tjänstsidan (Key Vault). |
+| **Identitet** |Identiteten från den token som angavs i REST API-begäran. Detta är vanligtvis en ”användare”, ”tjänstens huvudnamn” eller ”användare + App-ID”, kombination som i fallet med en begäran som är ett resultat från en Azure PowerShell-cmdlet. |
+| **Egenskaper** |Information som varierar utifrån igen (**operationName**). I de flesta fall innehåller det här fältet klientinformation (user agent strängen skickades av klienten), den exakta REST API-begäran URI och HTTP-statuskoden. Dessutom när ett objekt returneras till följd av en begäran (till exempel **KeyCreate** eller **VaultGet**), den innehåller också nyckeln URI (som ”id”), valvets URI eller hemliga URI: N. |
 
-**operationName**-fältvärdena har ObjectVerb-format. Exempel:
+Den **operationName** fältvärdena har *ObjectVerb* format. Exempel:
 
-* Alla åtgärder med ett nyckelvalv har formatet ”Vault`<action>`”, till exempel `VaultGet` och `VaultCreate`.
-* Alla åtgärder med nycklar har formatet ”Key`<action>`”, till exempel `KeySign` och `KeyList`.
-* Alla åtgärder med hemligheter har formatet ”secret`<action>`”, till exempel `SecretGet` och `SecretListVersions`.
+* Alla åtgärder i nyckelvalv har den `Vault<action>` format, till exempel `VaultGet` och `VaultCreate`.
+* Alla åtgärder med nycklar har den `Key<action>` format, till exempel `KeySign` och `KeyList`.
+* Alla åtgärder med hemligheter har den `Secret<action>` format, till exempel `SecretGet` och `SecretListVersions`.
 
-Följande tabell innehåller operationName och motsvarande REST-API-kommando.
+Följande tabell listar de **operationName** värden och motsvarande REST API-kommandon:
 
-| operationName | REST-API-kommando |
+| operationName | REST API-kommando |
 | --- | --- |
-| Authentication |Via Azure Active Directory-slutpunkt |
-| VaultGet |[Hämta information om ett nyckelvalv](https://msdn.microsoft.com/library/azure/mt620026.aspx) |
-| VaultPut |[Skapa eller uppdatera ett nyckelvalv](https://msdn.microsoft.com/library/azure/mt620025.aspx) |
-| VaultDelete |[Ta bort ett nyckelvalv](https://msdn.microsoft.com/library/azure/mt620022.aspx) |
-| VaultPatch |[Uppdatera ett nyckelvalv](https://msdn.microsoft.com/library/azure/mt620025.aspx) |
-| VaultList |[Visa en lista med alla nyckelvalv i en resursgrupp](https://msdn.microsoft.com/library/azure/mt620027.aspx) |
-| KeyCreate |[Skapa en nyckel](https://msdn.microsoft.com/library/azure/dn903634.aspx) |
-| KeyGet |[Hämta information om en nyckel](https://msdn.microsoft.com/library/azure/dn878080.aspx) |
-| KeyImport |[Importera en nyckel till ett valv](https://msdn.microsoft.com/library/azure/dn903626.aspx) |
-| KeyBackup |[Säkerhetskopiera en nyckel](https://msdn.microsoft.com/library/azure/dn878058.aspx). |
-| KeyDelete |[Ta bort en nyckel](https://msdn.microsoft.com/library/azure/dn903611.aspx) |
-| KeyRestore |[Återställa en nyckel](https://msdn.microsoft.com/library/azure/dn878106.aspx) |
-| KeySign |[Signera med en nyckel](https://msdn.microsoft.com/library/azure/dn878096.aspx) |
-| KeyVerify |[Verifiera med en nyckel](https://msdn.microsoft.com/library/azure/dn878082.aspx) |
-| KeyWrap |[Omsluta en nyckel](https://msdn.microsoft.com/library/azure/dn878066.aspx) |
-| KeyUnwrap |[Ta bort en nyckelomslutning](https://msdn.microsoft.com/library/azure/dn878079.aspx) |
-| KeyEncrypt |[Kryptera med en nyckel](https://msdn.microsoft.com/library/azure/dn878060.aspx) |
-| KeyDecrypt |[Dekryptera med en nyckel](https://msdn.microsoft.com/library/azure/dn878097.aspx) |
-| KeyUpdate |[Uppdatera en nyckel](https://msdn.microsoft.com/library/azure/dn903616.aspx) |
-| KeyList |[Visa en lista med nycklarna i ett valv](https://msdn.microsoft.com/library/azure/dn903629.aspx) |
-| KeyListVersions |[Visa en lista över versionerna av en nyckel](https://msdn.microsoft.com/library/azure/dn986822.aspx) |
-| SecretSet |[Skapa en hemlighet](https://msdn.microsoft.com/library/azure/dn903618.aspx) |
-| SecretGet |[Hämta en hemlighet](https://msdn.microsoft.com/library/azure/dn903633.aspx) |
-| SecretUpdate |[Uppdatera en hemlighet](https://msdn.microsoft.com/library/azure/dn986818.aspx) |
-| SecretDelete |[Ta bort en hemlighet](https://msdn.microsoft.com/library/azure/dn903613.aspx) |
-| SecretList |[Visa en lista över hemligheterna i ett valv](https://msdn.microsoft.com/library/azure/dn903614.aspx) |
-| SecretListVersions |[Visa en lista över versionerna av en hemlighet](https://msdn.microsoft.com/library/azure/dn986824.aspx) |
+| **Autentisering** |Autentisera via Azure Active Directory-slutpunkt |
+| **VaultGet** |[Hämta information om ett nyckelvalv](https://msdn.microsoft.com/library/azure/mt620026.aspx) |
+| **VaultPut** |[Skapa eller uppdatera ett nyckelvalv](https://msdn.microsoft.com/library/azure/mt620025.aspx) |
+| **VaultDelete** |[Ta bort ett nyckelvalv](https://msdn.microsoft.com/library/azure/mt620022.aspx) |
+| **VaultPatch** |[Uppdatera ett nyckelvalv](https://msdn.microsoft.com/library/azure/mt620025.aspx) |
+| **VaultList** |[Visa en lista med alla nyckelvalv i en resursgrupp](https://msdn.microsoft.com/library/azure/mt620027.aspx) |
+| **KeyCreate** |[Skapa en nyckel](https://msdn.microsoft.com/library/azure/dn903634.aspx) |
+| **KeyGet** |[Hämta information om en nyckel](https://msdn.microsoft.com/library/azure/dn878080.aspx) |
+| **KeyImport** |[Importera en nyckel till ett valv](https://msdn.microsoft.com/library/azure/dn903626.aspx) |
+| **KeyBackup** |[Säkerhetskopiera en nyckel](https://msdn.microsoft.com/library/azure/dn878058.aspx) |
+| **KeyDelete** |[Ta bort en nyckel](https://msdn.microsoft.com/library/azure/dn903611.aspx) |
+| **KeyRestore** |[Återställa en nyckel](https://msdn.microsoft.com/library/azure/dn878106.aspx) |
+| **KeySign** |[Signera med en nyckel](https://msdn.microsoft.com/library/azure/dn878096.aspx) |
+| **KeyVerify** |[Verifiera med en nyckel](https://msdn.microsoft.com/library/azure/dn878082.aspx) |
+| **KeyWrap** |[Omsluta en nyckel](https://msdn.microsoft.com/library/azure/dn878066.aspx) |
+| **KeyUnwrap** |[Ta bort en nyckelomslutning](https://msdn.microsoft.com/library/azure/dn878079.aspx) |
+| **KeyEncrypt** |[Kryptera med en nyckel](https://msdn.microsoft.com/library/azure/dn878060.aspx) |
+| **KeyDecrypt** |[Dekryptera med en nyckel](https://msdn.microsoft.com/library/azure/dn878097.aspx) |
+| **KeyUpdate** |[Uppdatera en nyckel](https://msdn.microsoft.com/library/azure/dn903616.aspx) |
+| **KeyList** |[Visa en lista med nycklarna i ett valv](https://msdn.microsoft.com/library/azure/dn903629.aspx) |
+| **KeyListVersions** |[Visa en lista över versionerna av en nyckel](https://msdn.microsoft.com/library/azure/dn986822.aspx) |
+| **SecretSet** |[Skapa en hemlighet](https://msdn.microsoft.com/library/azure/dn903618.aspx) |
+| **SecretGet** |[Hämta en hemlighet](https://msdn.microsoft.com/library/azure/dn903633.aspx) |
+| **SecretUpdate** |[Uppdatera en hemlighet](https://msdn.microsoft.com/library/azure/dn986818.aspx) |
+| **SecretDelete** |[Ta bort en hemlighet](https://msdn.microsoft.com/library/azure/dn903613.aspx) |
+| **SecretList** |[Visa en lista över hemligheterna i ett valv](https://msdn.microsoft.com/library/azure/dn903614.aspx) |
+| **SecretListVersions** |[Visa en lista över versionerna av en hemlighet](https://msdn.microsoft.com/library/azure/dn986824.aspx) |
 
 ## <a id="loganalytics"></a>Använda Log Analytics
 
-Du kan använda Azure Key Vault-lösningen i Log Analytics för att läsa igenom AuditEvent-loggarna i Azure Key Vault. Mer information och information om hur du konfigurerar detta finns i [Azure Key Vault i Log Analytics](../azure-monitor/insights/azure-key-vault.md). I artikeln hittar du dessutom anvisningar ifall du behöver migrera från den gamla Key Vault-lösningen som fanns i förhandsversionen av Log Analytics. Där började du med att dirigera loggarna till ett Azure Storage-konto och konfigurerade Log Analytics till att läsa därifrån.
+Du kan använda Key Vault-lösningen i Azure Log Analytics för att granska Key Vault **AuditEvent** loggar. I Log Analytics använder du loggfrågor för att analysera data och få den information du behöver. 
+
+Mer information och information om hur du konfigurerar detta finns i [Azure Key Vault i Log Analytics](../azure-monitor/insights/azure-key-vault.md). Den här artikeln innehåller också anvisningar om du vill migrera från den gamla Key Vault-lösningen som fanns i förhandsversionen Log Analytics, där du först dirigera loggarna till ett Azure storage-konto och konfigurerade Log Analytics till att läsa därifrån.
 
 ## <a id="next"></a>Nästa steg
 
@@ -322,6 +318,6 @@ En självstudiekurs som använder Azure Key Vault i en .NET-webbprogram, finns i
 
 Programmeringsreferenser finns i [utvecklarguiden för Azure Key Vault](key-vault-developers-guide.md).
 
-En lista med Azure PowerShell 1.0-cmdlets för Azure Key Vault finns i [Cmdlets för Azure Key Vault](/powershell/module/az.keyvault/?view=azps-1.2.0#key_vault).
+En lista över Azure PowerShell 1.0-cmdlets för Azure Key Vault finns i [Azure Key Vault-cmdlets](/powershell/module/az.keyvault/?view=azps-1.2.0#key_vault).
 
-Självstudierna om nyckelrotering och logggranskning med Azure Key Vault finns i [Ställa in Key Vault med heltäckande nyckelrotering och granskning](key-vault-key-rotation-log-monitoring.md).
+En självstudiekurs om nyckelrotering och logggranskning med Azure Key Vault finns i [konfigurera Key Vault med nyckelgranskning för slutpunkt till slutpunkt och](key-vault-key-rotation-log-monitoring.md).

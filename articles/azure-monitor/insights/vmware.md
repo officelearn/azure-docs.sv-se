@@ -1,5 +1,5 @@
 ---
-title: VMware Monitoring-lösningen i Log Analytics | Microsoft Docs
+title: VMware Monitoring-lösningen i Azure Monitor | Microsoft Docs
 description: Läs mer om hur VMware Monitoring-lösningen kan hjälpa hantera loggar och övervaka ESXi-värdar.
 services: log-analytics
 documentationcenter: ''
@@ -13,23 +13,23 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/04/2018
 ms.author: magoedte
-ms.openlocfilehash: 9f5bdc3686e35f09b461bd5c2df695218b48ede3
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 92889708df2df06096ac74d6f270af990d02c07a
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55993375"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56984262"
 ---
-# <a name="vmware-monitoring-preview-solution-in-log-analytics"></a>VMware Monitoring (förhandsversion) lösningen i Log Analytics
+# <a name="vmware-monitoring-preview-solution-in-azure-monitor"></a>VMware Monitoring (förhandsversion)-lösning i Azure Monitor
 
 ![VMware-symbol](./media/vmware/vmware-symbol.png)
 
 > [!NOTE]
 > VMware Monitoring-lösningen är inaktuell.  Kunder som redan har installerat lösningen kan fortsätta att använda den, men VMware Monitoring kan inte läggas till nya arbetsytor.
 
-VMware Monitoring-lösningen i Log Analytics är en lösning som hjälper dig att skapa en centraliserad loggning och övervakning metod för stora VMware-loggar. Den här artikeln beskrivs hur du kan felsöka, samla in och hantera ESXi-värdar i en enda plats med hjälp av lösningen. Med lösningen kan se du detaljerad information för alla ESXi-värdar i en enda plats. Du kan se översta antalet händelser, status och trender för virtuella datorer och ESXi-värdar som tillhandahålls via ESXi-värd loggarna. Du kan felsöka genom att visa och söka i centraliserade ESXi-värd-loggar. Och du kan skapa aviseringar baserat på loggsökningsfrågor.
+VMware Monitoring-lösningen i Azure Monitor är en lösning som hjälper dig att skapa en centraliserad loggning och övervakning metod för stora VMware-loggar. Den här artikeln beskrivs hur du kan felsöka, samla in och hantera ESXi-värdar i en enda plats med hjälp av lösningen. Med lösningen kan se du detaljerad information för alla ESXi-värdar i en enda plats. Du kan se översta antalet händelser, status och trender för virtuella datorer och ESXi-värdar som tillhandahålls via ESXi-värd loggarna. Du kan felsöka genom att visa och söka i centraliserade ESXi-värd-loggar. Och du kan skapa aviseringar baserat på loggsökningsfrågor.
 
-Lösningen använder inbyggda syslog-funktioner för ESXi-värd att skicka data till ett mål-dator som har Log Analytics-agenten. Lösningen skriva inte filer i syslog inom den Virtuella måldatorn. Log Analytics-agenten öppnar port 1514 och lyssnar efter detta. När den tar emot data i Log Analytics-agenten skickar data till Log Analytics.
+Lösningen använder inbyggda syslog-funktioner för ESXi-värd att skicka data till ett mål-dator som har Log Analytics-agenten. Lösningen skriva inte filer i syslog inom den Virtuella måldatorn. Log Analytics-agenten öppnar port 1514 och lyssnar efter detta. När den tar emot data i Log Analytics-agenten skickar data till Azure Monitor.
 
 ## <a name="install-and-configure-the-solution"></a>Installera och konfigurera lösningen
 Använd följande information för att installera och konfigurera lösningen.
@@ -71,7 +71,7 @@ Skapa en Linux-operativsystem virtuell dator tar emot alla syslog-data från ESX
     Connection to 123.456.789.101 1514 port [tcp/*] succeeded!
     ```
 
-1. I Azure-portalen, utför en loggsökning för `VMware_CL`. När Log Analytics samlar in syslog-data, behåller den syslog-format. I portalen vissa specifika fält fångas som *värdnamn* och *ProcessName*.  
+1. I Azure-portalen, utför du en loggfråga för `VMware_CL`. När Azure Monitor och samlar in syslog-data, behåller den syslog-format. I portalen vissa specifika fält fångas som *värdnamn* och *ProcessName*.  
 
     ![typ](./media/vmware/type.png)  
 
@@ -129,7 +129,7 @@ I den **VMware** instrumentpanelsvyn blad är ordnade efter:
 
 Klicka på ett blad för att öppna Log Analytics search fönstret som visar detaljerad information för bladet.
 
-Härifrån kan redigera du frågan om du vill ändra det efter något mer specifikt. Mer information om hur du skapar loggsökningar, finns i [hitta data med loggsökningar i Log Analytics](../log-query/log-query-overview.md).
+Härifrån kan redigera du loggfråga för att modifiera den efter något mer specifikt. Mer information om hur du skapar loggfrågor finns i [hitta data med hjälp av loggfrågor i Azure Monitor](../log-query/log-query-overview.md).
 
 #### <a name="find-esxi-host-events"></a>Hitta händelser för ESXi-värd
 En enda ESXi-värd genererar flera loggar, utifrån sina processer. VMware Monitoring-lösningen centraliserar dem och sammanfattar antalet händelser. Den här centraliserade vyn hjälper dig att förstå vilka ESXi-värden har ett stort antal händelser och vilka händelser inträffar oftast i din miljö.
@@ -151,14 +151,14 @@ Om du vill se ytterligare ESXi-värd-uppgifter för skapande av virtuell dator k
 
 ![öka detaljnivån](./media/vmware/createvm.png)
 
-#### <a name="common-search-queries"></a>Vanligaste sökfrågorna
+#### <a name="common-log-queries"></a>Vanliga loggfrågor om
 Lösningen innehåller andra användbara frågor som kan hjälpa dig att hantera din ESXi-värdar, t.ex hög lagringsutrymme och lagringssvarstiden sökvägsfel.
 
 ![frågor](./media/vmware/queries.png)
 
 
 #### <a name="save-queries"></a>Spara frågor
-Spara sökfrågor är en funktion som standard i Log Analytics och hjälper dig att hålla alla frågor som du har hittat användbart. När du skapar en fråga som användbara kan du spara det genom att klicka på den **Favoriter**. En sparad fråga kan du enkelt återanvända det senare i den [min instrumentpanel](../learn/tutorial-logs-dashboards.md) sidan där du kan skapa dina egna anpassade instrumentpaneler.
+Sparar loggfrågor är en standard funktion i Azure Monitor och kan hjälpa dig att hålla alla frågor som du har hittat användbart. När du skapar en fråga som användbara kan du spara det genom att klicka på den **Favoriter**. En sparad fråga kan du enkelt återanvända det senare i den [min instrumentpanel](../learn/tutorial-logs-dashboards.md) sidan där du kan skapa dina egna anpassade instrumentpaneler.
 
 ![DockerDashboardView](./media/vmware/dockerdashboardview.png)
 

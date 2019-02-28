@@ -1,22 +1,22 @@
 ---
-title: Azure-brandväggen Log Analytics-exempel
-description: Azure-brandväggen Log Analytics-exempel
+title: Azure brandväggen log analytics-exempel
+description: Azure brandväggen log analytics-exempel
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
 ms.date: 10/24/2018
 ms.author: victorh
-ms.openlocfilehash: cff31ba73730b7cf7cb27ecb132ec70806234924
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 2ea95a8e32e2162c31e95bc2e9dd5e60be07649f
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233403"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56958073"
 ---
-# <a name="azure-firewall-log-analytics-samples"></a>Azure-brandväggen Log Analytics-exempel
+# <a name="azure-firewall-log-analytics-samples"></a>Azure brandväggen log analytics-exempel
 
-Följande exempel för Log Analytics kan användas för att analysera dina loggar från brandväggen för Azure. Exempelfilen är inbyggd i Log Analytics View Designer den [Log Analytics-Vydesigner](https://docs.microsoft.com/azure/log-analytics/log-analytics-view-designer) artikeln innehåller mer information om konceptet Vydesignen.
+Följande exempel i log analytics kan användas för att analysera dina loggar från brandväggen för Azure. Exempelfilen är inbyggd i Log Analytics View Designer den [Log Analytics-Vydesigner](https://docs.microsoft.com/azure/log-analytics/log-analytics-view-designer) artikeln innehåller mer information om konceptet Vydesignen.
 
 ## <a name="log-analytics-view"></a>Log Analytics-vy
 
@@ -151,4 +151,4 @@ AzureDiagnostics
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs om Azure-Brandvägg för övervakning och diagnostik i [självstudie: övervaka Azure brandväggen loggar och mått](tutorial-diagnostics.md).
+Läs om Azure-Brandvägg för övervakning och diagnostik i [självstudien: Övervaka Azure-brandväggen loggar och mått](tutorial-diagnostics.md).

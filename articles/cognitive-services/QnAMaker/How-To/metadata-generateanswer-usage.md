@@ -9,13 +9,13 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
 ms.date: 02/21/2019
-ms.author: tulasim88
-ms.openlocfilehash: 9cb16842e0bc80a1fcbd066bea44c5b9701bb6d5
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.author: tulasim
+ms.openlocfilehash: 462dfb2de8608eebd5609f7044bde03991fca3ca
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56651217"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56958056"
 ---
 # <a name="get-a-knowledge-answer-with-the-generateanswer-api-and-metadata"></a>Hämta ett knowledge svar med GenerateAnswer API och metadata
 

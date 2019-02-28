@@ -4,12 +4,12 @@ ms.author: aahi
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 12/18/2018
-ms.openlocfilehash: 5affeca1153b225563eac0a8e29f1e36e761df2a
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: 606734726539397c0be0bc01afb3dbfac08b3a2b
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53745201"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56740933"
 ---
 Du måste ha ett [Cognitive Services-API-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med åtkomst till API:er för Bing-sökresultat. Innan du fortsätter behöver du den åtkomstnyckel som tillhandahållits när du startade en prenumeration på S9-prisnivån, såsom visas i [Cognitive Services priser – API:er för Bing-sökresultat](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/). 
 

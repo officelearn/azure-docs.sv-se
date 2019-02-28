@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: 1560dad31e00b00a2d27cf1675e05901e6611825
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: a73eac1dea731bbf1ffb903ddf2438e791fec9d5
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56309870"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56726457"
 ---
 # <a name="move-azure-vms-to-another-region"></a>Migrera virtuella Azure-datorer till en annan region
 
@@ -70,7 +70,7 @@ I avsnittet nedan går vi igenom de vanligaste distributionsarkitekturerna som v
 
 
 
- ## <a name="move-vms-as-is-to-a-target-region"></a>Flytta virtuella datorer i befintligt skick till en målregion
+## <a name="move-vms-as-is-to-a-target-region"></a>Flytta virtuella datorer i befintligt skick till en målregion
 
 Baserat på ovanstående [arkitekturer](#typical-architectures-for-a-multi-tier-deployment) så ser distributionerna ut så här när du flyttar i befintligt skick till målregionen.
 

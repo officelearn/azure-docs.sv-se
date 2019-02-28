@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 11/02/2018
 ms.author: dech
 ms.reviewer: sngun
-ms.openlocfilehash: 58b97dd2df29a829b843d20c14cdb15644357653
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: b4d8214608e8193172da078fc352c66145253ada
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54053712"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56878973"
 ---
 # <a name="set-up-a-cicd-pipeline-with-the-azure-cosmos-db-emulator-build-task-in-azure-devops"></a>Konfigurera en CI/CD-pipeline med Azure Cosmos DB-emulatorns build-uppgift i Azure DevOps
 
@@ -45,7 +45,7 @@ Nu när tillägget har installerats loggar du på ditt Azure DevOps-konto och hi
 
 2. Välj **källa**, **Team project** (Teamprojekt), **Repository** (Lagringsplats) och **Default branch for manual and scheduled builds** (Standardgren för manuella och schemalagda byggen). När du har valt de alternativ som krävs väljer du **Continue** (Fortsätt)
 
-   ![Välja teamprojekt, lagringsplats och gren för bygg-pipeline ](./media/tutorial-setup-ci-cd/CreateNewBuildDef_2.png)
+   ![Välja teamprojekt, lagringsplats och gren för bygg-pipeline](./media/tutorial-setup-ci-cd/CreateNewBuildDef_2.png)
 
 3. Välj slutligen den mall du vill använda för bygg-pipeline. Vi väljer **ASP.NET**-mallen i den här kursen. 
 

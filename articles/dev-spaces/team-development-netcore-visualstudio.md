@@ -12,12 +12,12 @@ ms.date: 12/09/2018
 ms.topic: tutorial
 description: Snabb Kubernetes-utveckling med containrar och mikrotjänster i Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers
-ms.openlocfilehash: 7a77b8a1a2205465956d8c30a3fee6aec5e8428b
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: af0a4a719f964e400119be313842f385b410406c
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55663799"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56817430"
 ---
 # <a name="team-development-with-azure-dev-spaces"></a>Teamutveckling med Azure Dev Spaces
 
@@ -125,11 +125,11 @@ Här är ett diagram som hjälper dig att förstå hur de olika utrymmena funger
 Med den här inbyggda funktionen i Azure Dev Spaces kan du testa kod från slutpunkt till slutpunkt i en delad miljö utan att varje utvecklare måste återskapa hela tjänststacken i deras respektive utrymme. Den här typen av routning kräver att spridningshuvuden vidarebefordras i programkoden, vilket illustrerades i föregående steg i den här guiden.
 
 ### <a name="test-code-running-in-the-devscott-space"></a>Testa den kod som körs i utrymmet _dev/scott_
-Du testar den nya versionen av *mywebapi* tillsammans med *webfrontend* genom att öppna webbläsaren på URL:en för offentlig åtkomst för *webfrontend* (till exempel http://dev.webfrontend.123456abcdef.eastus.aksapp.io)) och gå till sidan Om. Du bör se det ursprungliga meddelandet ”Hello from webfrontend and Hello from mywebapi”.
+Du testar den nya versionen av *mywebapi* tillsammans med *webfrontend* genom att öppna webbläsaren på URL:en för offentlig åtkomst för *webfrontend* (till exempel http://dev.webfrontend.123456abcdef.eus.azds.io)) och gå till sidan Om. Du bör se det ursprungliga meddelandet ”Hello from webfrontend and Hello from mywebapi”.
 
-Lägg till delen ”scott.s.” i URL:en, så att den ser ut ungefär så här http://scott.s.dev.webfrontend.123456abcdef.eastus.aksapp.io, och uppdatera webbläsaren. Den brytpunkt som du angett i projektet *mywebapi* bör nås. Fortsätt genom att trycka på F5. Nu bör du se det nya meddelandet ”Hello from webfrontend and mywebapi now says something new”. Det beror på att sökvägen till den uppdaterade koden i *mywebapi* körs i utrymmet _dev/scott_.
+Lägg till delen ”scott.s.” i URL:en, så att den ser ut ungefär så här http://scott.s.dev.webfrontend.123456abcdef.eus.azds.io, och uppdatera webbläsaren. Den brytpunkt som du angett i projektet *mywebapi* bör nås. Fortsätt genom att trycka på F5. Nu bör du se det nya meddelandet ”Hello from webfrontend and mywebapi now says something new”. Det beror på att sökvägen till den uppdaterade koden i *mywebapi* körs i utrymmet _dev/scott_.
 
-När du har ett _dev_-utrymme som alltid innehåller dina senaste ändringar, och under förutsättning att ditt program är utformat för att dra nytta av DevSpace utrymmesbaserade routning enligt beskrivningen i den här delen av självstudien, blir det förhoppningsvis enkelt att se hur Dev Spaces avsevärt kan underlätta testning av nya funktioner inom ramen för det större programmet. I stället för att behöva distribuera _alla_ tjänster till ditt privata utrymme kan du skapa ett privat utrymme som härleds från _dev_ och endast ”införa” de tjänster som du faktiskt arbetar med. Dev Spaces-routningsinfrastrukturen hanterar resten genom att utnyttja så många tjänster utanför ditt privata adressutrymme som det kan hitta, samtidigt som det går tillbaka till den senaste versionen som körs i utrymmet _dev_. Ännu bättre är att _flera_ utvecklare aktivt kan utveckla olika tjänster samtidigt i sina egna utrymmen utan att störa varandra.
+När du har ett _dev_-utrymme som alltid innehåller dina senaste ändringar, och under förutsättning att ditt program är utformat för att dra nytta av DevSpace utrymmesbaserade routning enligt beskrivningen i den här delen av självstudien, blir det förhoppningsvis enkelt att se hur Dev Spaces avsevärt kan underlätta testning av nya funktioner inom ramen för det större programmet. I stället för att behöva distribuera _alla_ tjänster till ditt privata utrymme kan du skapa ett privat utrymme som härleds från _dev_ och endast ”införa” de tjänster som du faktiskt arbetar med. Dev Spaces-routningsinfrastrukturen hanterar resten genom att utnyttja så många tjänster utanför ditt privata adressutrymme som går att hitta, samtidigt som det återgår till den senaste versionen som körs i utrymmet _dev_. Ännu bättre är att _flera_ utvecklare aktivt kan utveckla olika tjänster samtidigt i sina egna utrymmen utan att störa varandra.
 
 ### <a name="well-done"></a>Bra gjort!
 Du har slutfört guiden för att komma igång! Du har lärt dig att:

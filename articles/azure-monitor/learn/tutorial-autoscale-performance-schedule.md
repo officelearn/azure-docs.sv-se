@@ -9,12 +9,12 @@ ms.date: 12/11/2017
 ms.author: ancav
 ms.custom: mvc
 ms.subservice: autoscale
-ms.openlocfilehash: b9d54dc1483da20b4c411047af0b44b681fe197c
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 9c8803ff73b3e70c19a409ef6c1e072b5f7c8b53
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54429284"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56734276"
 ---
 # <a name="create-an-autoscale-setting-for--azure-resources-based-on-performance-data-or-a-schedule"></a>Skapa en autoskalningsinställning för Azure-resurser baserat på prestanda eller ett schema
 
@@ -55,7 +55,7 @@ I följande steg får du hjälp att fylla autoskalningsskärmen så att den ser 
 
    ![Spara autoskalningsinställningen](./media/tutorial-autoscale-performance-schedule/Autoscale-Setting-Save.png)
 
- ## <a name="configure-default-profile"></a>Konfigurera en standardprofil
+## <a name="configure-default-profile"></a>Konfigurera en standardprofil
 1. Ange ett **Namn** för autoskalningsinställningen.
 2. Se till att **Skalningsläge** är inställt på ”Skala till ett specifikt antal instanser” i standardprofilen.
 3. Ange antalet instanser till **1**. Den här inställningen garanterar att när inga andra profiler är aktiva återställer standardprofilen instansantalet till 1.

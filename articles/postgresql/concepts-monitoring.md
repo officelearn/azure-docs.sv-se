@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/05/2018
-ms.openlocfilehash: c936d7946398183f0b0aac025503bb172bc147af
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: bdfeb41c7881bfbd577cdf1a9190617e09979a7f
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55101016"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56961031"
 ---
 # <a name="monitor-and-tune"></a>Övervaka och finjustera
 Övervakning av data om dina servrar kan du felsöka och optimera din arbetsbelastning. Azure Database för PostgreSQL innehåller olika övervakningsalternativ att ge insikter i beteendet för din server.
@@ -40,7 +40,7 @@ De här måtten är tillgängliga för Azure Database för PostgreSQL:
 |backup_storage_used|Används för lagring av säkerhetskopior|Byte|Mängden lagring av säkerhetskopior används.|
 
 ## <a name="server-logs"></a>Serverloggar
-Du kan aktivera loggning på servern. Dessa loggar finns också tillgängliga via Azure-diagnostikloggar i [Log Analytics](../azure-monitor/log-query/log-query-overview.md), Händelsehubbar och Storage-konto. Mer information om loggning finns i [serverloggar](concepts-server-logs.md) sidan.
+Du kan aktivera loggning på servern. Dessa loggar finns också tillgängliga via Azure-diagnostikloggar i [Azure Monitor loggar](../azure-monitor/log-query/log-query-overview.md), Händelsehubbar och Storage-konto. Mer information om loggning finns i [serverloggar](concepts-server-logs.md) sidan.
 
 ## <a name="query-store"></a>Query Store
 [Query Store](concepts-query-store.md) är en funktion i offentlig förhandsversion som håller reda på frågan prestanda över tid, inklusive fråga efter körningsstatistik och vänta händelser. Funktionen kvarstår fråga information om körningsprestanda i en databas med namnet **azure_sys** under query_store schemat. Du kan styra insamling och lagring av data via olika configuration rattar.

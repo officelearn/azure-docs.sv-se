@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: yegu
-ms.openlocfilehash: e223cb060857d45d9f25e2ee1dfca7e159225d8b
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 5bdad61df732f0aeb1a758aacb5844204387e19b
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237118"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56983922"
 ---
 # <a name="create-an-azure-cache-for-redis-using-a-template"></a>Skapa en Azure Cache för Redis med hjälp av en mall
 
@@ -37,8 +37,8 @@ Läs den fullständiga mallen, [Azure Cache för Redis-mallen](https://github.co
 > Resource Manager-mallar för den nya [premiumnivån](cache-premium-tier-intro.md) är tillgängliga. 
 > 
 > * [Skapa en Premium Azure Cache för Redis med klustring](https://azure.microsoft.com/resources/templates/201-redis-premium-cluster-diagnostics/)
-> * [Skapa Premium Azure Cache för Redis med datapersistens](https://azure.microsoft.com/documentation/templates/201-redis-premium-persistence/)
-> * [Skapa Premium Azure Cache för Redis med virtuellt nätverk och valfritt kluster](https://azure.microsoft.com/documentation/templates/201-redis-premium-vnet-cluster-diagnostics/)
+> * [Skapa Premium Azure Cache för Redis med datapersistens](https://azure.microsoft.com/resources/templates/201-redis-premium-persistence/)
+> * [Skapa Premium Redis Cache som distribuerats i ett virtuellt nätverk](https://azure.microsoft.com/resources/templates/201-redis-premium-vnet/)
 > 
 > Om du vill söka efter de senaste mallarna, se [Azure-Snabbstartsmallar](https://azure.microsoft.com/documentation/templates/) och Sök efter `Azure Cache for Redis`.
 > 

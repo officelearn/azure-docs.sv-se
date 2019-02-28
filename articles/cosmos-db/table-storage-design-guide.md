@@ -8,12 +8,12 @@ ms.date: 12/07/2018
 author: wmengmsft
 ms.author: wmeng
 ms.custom: seodec18
-ms.openlocfilehash: 6495a4e4da9330cba562c7fd6530369c09d180da
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: 84749332c5b7ab5fec2905c0fc36d89863adc3d2
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56302071"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56960229"
 ---
 # <a name="azure-storage-table-design-guide-designing-scalable-and-performant-tables"></a>Guide för utformning av Azure Storage-tabell: Utforma skalbara och högpresterande tabeller
 
@@ -213,7 +213,7 @@ Den tidigare avsnittet Azure Table service-översikten beskrivs några av de vik
 * Andra bäst är en ***intervallet fråga*** som använder den **PartitionKey** och filter på flera olika **RowKey** värden att returnera mer än en entitet. Den **PartitionKey** värdet identifierar en specifik partition och **RowKey** identifierar en delmängd av entiteter i partitionen. Till exempel: $filter = PartitionKey-eq ”försäljning och RowKey ge” och RowKey lt 'T'  
 * Tredje bästa är en ***Partition skanna*** som använder den **PartitionKey** och filter på en annan icke-nyckelegenskapen och som kan returnera fler än en entitet. Den **PartitionKey** värdet identifierar en specifik partition och egenskapen värden väljer du för en delmängd av entiteter i partitionen. Till exempel: $filter = PartitionKey eq 'försäljnings- och efternamn eq ”Smith”  
 * En ***tabell skanna*** omfattar inte den **PartitionKey** och är ineffektiv eftersom den söker igenom alla partitioner som utgör tabellen i sin tur för alla matchande entiteter. Den utför en tabellgenomsökning oavsett om ditt filter använder den **RowKey**. Till exempel: $filter = LastName eq ”Jones”  
-* Azure Table Storage frågor som returnerar flera entiteter returnera dem sorterad i **PartitionKey** och **RowKey** ordning. För att undvika att behöva använda entiteter i klienten, Välj en **RowKey** som definierar de vanligaste sorteringsordning. Frågeresultat som returneras av Azure Table-API i Azure Cosmso DB sorteras inte som partitionsnyckel och radnyckel. En detaljerad lista över skillnaderna finns i [skillnaderna mellan tabell-API i Azure Cosmos DB och Azure Table storage](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior).
+* Azure Table Storage frågor som returnerar flera entiteter returnera dem sorterad i **PartitionKey** och **RowKey** ordning. För att undvika att behöva använda entiteter i klienten, Välj en **RowKey** som definierar de vanligaste sorteringsordning. Frågeresultat som returneras av Azure Table-API i Azure Cosmos DB sorteras inte som partitionsnyckel och radnyckel. En detaljerad lista över skillnaderna finns i [skillnaderna mellan tabell-API i Azure Cosmos DB och Azure Table storage](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior).
 
 Med hjälp av en ”**eller**” att ange ett filter baserat på **RowKey** standardvärden resulterar i en partition genomsökning och inte behandlas som en fråga för intervallet. Därför bör du undvika frågor använder filter som: $filter = PartitionKey eq ”försäljning” och (RowKey eq '121' eller RowKey eq '322 ”)  
 
@@ -255,7 +255,7 @@ Många design måste uppfylla kraven för att aktivera sökning efter enheter ba
 Frågeresultat som returneras av tabelltjänsten är sorterade i stigande ordning baserat på **PartitionKey** och sedan efter **RowKey**.
 
 > [!NOTE]
-> Frågeresultat som returneras av Azure Table-API i Azure Cosmso DB sorteras inte som partitionsnyckel och radnyckel. En detaljerad lista över skillnaderna finns i [skillnaderna mellan tabell-API i Azure Cosmos DB och Azure Table storage](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior).
+> Frågeresultat som returneras av Azure Table-API i Azure DB sorteras inte som partitionsnyckel och radnyckel. En detaljerad lista över skillnaderna finns i [skillnaderna mellan tabell-API i Azure Cosmos DB och Azure Table storage](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior).
 
 Nycklar i Azure Storage-tabell är strängvärden och för att säkerställa att numeriska värden sorteras korrekt, bör du konvertera dem till en fast längd och fylla dem med nollor. Exempelvis anställdas id-värde som du använder som den **RowKey** är ett heltal, bör du konvertera anställnings-id **123** till **00000123**. 
 
@@ -723,7 +723,7 @@ Följande mönster och riktlinjer kan också vara relevanta när du implementera
 Hämta den *n* entiteter som nyligen lagt till en partition med hjälp av en **RowKey** värde som sorteras listan i omvänd datum- och tidsordning.  
 
 > [!NOTE]
-> Frågeresultat som returneras av Azure Table-API i Azure Cosmso DB sorteras inte efter partitionsnyckel och radnyckel. Det här mönstret är därför lämplig för Azure Table Storage och inte Azure Cosmos DB. En detaljerad lista över skillnaderna finns i [skillnaderna mellan tabell-API i Azure Cosmos DB och Azure Table Storage](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior).
+> Frågeresultat som returneras av Azure Table-API i Azure DB sorteras inte efter partitionsnyckel och radnyckel. Det här mönstret är därför lämplig för Azure Table Storage och inte Azure Cosmos DB. En detaljerad lista över skillnaderna finns i [skillnaderna mellan tabell-API i Azure Cosmos DB och Azure Table Storage](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior).
 
 #### <a name="context-and-problem"></a>Kontext och problem
 Ett vanligt krav är att kunna hämta de senast skapade entiteterna, till exempel de senaste tio utgifter ansökningar som görs av en medarbetare. Tabellen frågar stöd för en **$top** fråga åtgärden att returnera först *n* entiteter från en uppsättning: det finns inga motsvarande frågeåtgärden att returnera de sista n entiteterna i en uppsättning.  

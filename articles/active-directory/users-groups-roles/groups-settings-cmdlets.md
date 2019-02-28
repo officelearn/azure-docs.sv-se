@@ -10,17 +10,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 01/31/2019
+ms.date: 02/26/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 456a094ed961b24e3db3944fe4ae2b9ff661d896
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: c672d6ab04694a6d0b147b0e38c046abc527676a
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56190882"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56959399"
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>Azure Active Directory-cmdletar för att konfigurera gruppinställningar
 Den här artikeln innehåller anvisningar för att använda Azure Active Directory (AD Azure) PowerShell-cmdletar för att skapa och uppdatera grupper. Det här innehållet gäller endast för Office 365-grupper (kallas ibland för enhetliga grupper). 
@@ -98,8 +98,7 @@ Här följer inställningarna som anges i Group.Unified SettingsTemplate. Om ing
 |  <ul><li>EnableGroupCreation<li>Ange: Boolesk<li>Standard: True |Flagga som anger om Office 365 skapas tillåts i katalogen genom att icke-administratörer. Den här inställningen kräver inte en Azure Active Directory Premium P1-licens.|
 |  <ul><li>GroupCreationAllowedGroupId<li>Ange: String<li>Standard ”:” |GUID för gruppen som medlemmar har behörighet att skapa Office 365-grupper även om EnableGroupCreation false. |
 |  <ul><li>UsageGuidelinesUrl<li>Ange: String<li>Standard ”:” |En länk till riktlinjer för användning av gruppen. |
-|  <ul><li>ClassificationDescriptions<li>Ange: String<li>Standard ”:” | En kommaavgränsad lista över klassificering beskrivningar. Värdet för ClassificationDescriptions är endast giltig i det här formatet:
-  $setting [”ClassificationDescriptions”] = ”klassificering: beskrivning, klassificering: beskrivning”, där klassificeringen matchar strängar i ClassificationList.|
+|  <ul><li>ClassificationDescriptions<li>Ange: String<li>Standard ”:” | En kommaavgränsad lista över klassificering beskrivningar. Värdet för ClassificationDescriptions är endast giltig i det här formatet:<br>$setting [”ClassificationDescriptions”] = ”klassificering: beskrivning, klassificering: Description”<br>Klassificeringen matchar där strängar i ClassificationList.|
 |  <ul><li>DefaultClassification<li>Ange: String<li>Standard ”:” | Den klassificering som ska användas som standardklassificeringen för en grupp om inget har angetts.|
 |  <ul><li>PrefixSuffixNamingRequirement<li>Ange: String<li>Standard ”:” | Sträng med högst 64 tecken som definierar den namngivningskonvention som konfigurerats för Office 365-grupper. Mer information finns i [framtvinga en namnprincip för Office 365-grupper](groups-naming-policy.md). |
 | <ul><li>CustomBlockedWordsList<li>Ange: String<li>Standard ”:” | Kommaavgränsad sträng med fraser som användare inte tillåts att använda i namn eller alias. Mer information finns i [framtvinga en namnprincip för Office 365-grupper](groups-naming-policy.md). |

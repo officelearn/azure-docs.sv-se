@@ -6,15 +6,15 @@ manager: cgronlun
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 01/10/2019
+ms.date: 02/26/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: ee1b2a40dbcbd53a758ac71f30401778ef07e872
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: fcb1e4f32608a1c83b653984dfa066da38e7c451
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54229765"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56960772"
 ---
 # <a name="import-data-wizard-for-azure-search"></a>Guiden Importera data för Azure Search
 
@@ -77,7 +77,9 @@ Den **dataimport** guiden skapar ett beständigt datakällobjekt att ange inform
 * [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md)
 * [Azure Table Storage](search-howto-indexing-azure-tables.md) (stöds inte för [kognitiv sökning](cognitive-search-concept-intro.md) pipelines)
 
-En utjämnad datauppsättning är en obligatorisk inmatning. Du kan bara importera från en enskild tabell, databasvy eller likvärdig datastruktur. Innan du kör guiden bör du skapa den här datastrukturen.
+En utjämnad datauppsättning är en obligatorisk inmatning. Du kan bara importera från en enskild tabell, databasvy eller likvärdig datastruktur. 
+
+Du bör skapa den här datastrukturen innan du kör guiden och måste innehålla innehåll. Kör inte det **dataimport** guiden på en tom datakälla.
 
 |  Val | Beskrivning |
 | ---------- | ----------- |
@@ -85,7 +87,7 @@ En utjämnad datauppsättning är en obligatorisk inmatning. Du kan bara importe
 | **Exempel**| Azure Search är värd för en kostnadsfri offentlig Azure SQL-databas som du kan använda om du vill veta mer om importera och fråga begäranden i Azure Search. Gå till [Snabbstart: Importera, index- och fråga med hjälp av portal-verktyg](search-get-started-portal.md) en genomgång. |
 | **Azure SQL Database** |Tjänstens namn, autentiseringsuppgifterna för en databasanvändare med läsbehörighet och ett databasnamn kan anges på sidan eller via en ADO.NET-anslutningssträng. Välj alternativet för anslutningssträngar till att visa eller anpassa egenskaperna. <br/><br/>Tabellen eller vyn som visar raduppsättningen måste anges på sidan. Det här alternativet visas när anslutningen lyckats, med en listruta där du kan välja det du behöver. |
 | **SQL Server på virtuella Azure-datorer** |Ange ett fullständigt kvalificerat namn, användar-ID och lösenord och databasen som en anslutningssträng. Om du vill använda den här datakällan måste du tidigare ha installerat ett certifikat i det lokala arkiv som krypterar anslutningen. Instruktioner finns i [SQL VM-anslutning till Azure Search](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md). <br/><br/>Tabellen eller vyn som visar raduppsättningen måste anges på sidan. Det här alternativet visas när anslutningen lyckats, med en listruta där du kan välja det du behöver. |
-| **Azure Cosmos DB** |Kraven innefattar konto, databas och samling. Alla dokument i samlingen kommer att ingå i indexet. Du kan definiera en fråga för att utjämna eller filtrera raduppsättningen, eller identifiera ändrade dokument för efterföljande datauppdateringar. |
+| **Cosmos DB** |Kraven innefattar konto, databas och samling. Alla dokument i samlingen kommer att ingå i indexet. Du kan definiera en fråga för att utjämna eller filtrera raduppsättningen, eller lämna det tomt frågan. En fråga behövs inte i den här guiden.|
 | **Azure Blob Storage** |Kraven innefattar lagringskonto och en container. Om blob-namnet följer en virtuell namngivningskonvention i grupperingssyfte, kan du också ange den virtuella katalogdelen av namnet som en mapp under containern. Se [Indexera Blob Storage](search-howto-indexing-azure-blob-storage.md) för mer information. |
 | **Azure Table Storage** |Kraven innefattar lagringskontot och ett tabellnamn. Du kan också ange en fråga för att hämta en delmängd av tabellerna. Se [Indexera Table Storage](search-howto-indexing-azure-tables.md) för mer information. |
 

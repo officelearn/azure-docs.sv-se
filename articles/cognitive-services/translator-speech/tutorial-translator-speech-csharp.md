@@ -10,12 +10,13 @@ ms.subservice: translator-speech
 ms.topic: tutorial
 ms.date: 3/5/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 383e17e0a9e60b52a63420af19c2bca4337083d4
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ROBOTS: NOINDEX,NOFOLLOW
+ms.openlocfilehash: a3ed13cfe764c4f94dfa50fd096cfc7a8ac7656d
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55876920"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56673759"
 ---
 # <a name="tutorial-translator-speech-application-in-c"></a>Självstudier: Translator Speech-program i C#
 
@@ -33,7 +34,7 @@ En Visual Studio-lösningsfil för det här programmet [finns på GitHub](https:
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-För den här kursen behöver du valfri utgåva av Visual Studio 2017 (detta innefattar även Community Edition). 
+För den här kursen behöver du valfri utgåva av Visual Studio 2017 (detta innefattar även Community Edition).
 
 Visual Studio-lösningen skapar också ett installationsprogram för programmet. Du behöver [WiX Toolset](http://wixtoolset.org/) och [WiX Toolset Visual Studio Extension](https://marketplace.visualstudio.com/items?itemName=RobMensching.WixToolsetVisualStudio2017Extension) för att kunna använda den här funktionen.
 
@@ -63,7 +64,7 @@ I skrivande stund stöder tjänsten Translator Speech textöversättning till me
 
 För talöversättning måste alltså källspråket ha stöd för transkription. Utdataspråket kan vara något av de språk som har stöd för textöversättning, förutsatt att du vill ha ett textresultat. Om du vill ha talutdata kan du endast översätta till ett språk som kan användas för text till tal.
 
-Microsoft lägger då och då till stöd för nya språk. Därför bör du inte hårdkoda information om vilka språk som stöds i ditt program. I stället har Translator Speech API:et en språkslutpunkt där du kan hämta information om vilka språk som stöds under körning. Du kan välja om du vill få en eller flera listor med språk: 
+Microsoft lägger då och då till stöd för nya språk. Därför bör du inte hårdkoda information om vilka språk som stöds i ditt program. I stället har Translator Speech API:et en språkslutpunkt där du kan hämta information om vilka språk som stöds under körning. Du kan välja om du vill få en eller flera listor med språk:
 
 | | |
 |-|-|
@@ -73,7 +74,7 @@ Microsoft lägger då och då till stöd för nya språk. Därför bör du inte 
 
 Det krävs inte någon prenumerationsnyckel för språkslutpunkten och användningen räknas inte mot din kvot. URI:n är `https://dev.microsofttranslator.com/languages` och resultatet returneras i JSON-format.
 
-Metoden `UpdateLanguageSettingsAsync()` i `MainWindow.xaml.cs` visas här. Språkslutpunkten anropas för att hämta listan över språk som stöds. 
+Metoden `UpdateLanguageSettingsAsync()` i `MainWindow.xaml.cs` visas här. Språkslutpunkten anropas för att hämta listan över språk som stöds.
 
 ```csharp
 private async Task UpdateLanguageSettingsAsync()
@@ -193,9 +194,9 @@ Med den här metoden skapas först en HTTP-begäran till språkslutpunkten för 
 
 Språkslutpunkten använder huvudet `Accept-Languages` i begäran för att bestämma på vilket språk språknamnen ska visas. Vi säger till exempel ”Tyska” på svenska medan det heter ”Deutsch” på tyska och ”Alemán” på spanska. Dessa skillnader återspeglas i listan med språk. Standardspråket för systemet används för det här huvudet.
 
-När begäran har skickats och JSON-svaret tas emot parsas svaret till interna datastrukturer. Dessa strukturer används sedan för att bygga menyerna för Från-språk och Till-språk. 
+När begäran har skickats och JSON-svaret tas emot parsas svaret till interna datastrukturer. Dessa strukturer används sedan för att bygga menyerna för Från-språk och Till-språk.
 
-Eftersom vilka röster som är tillgängliga beror på vilket Till-språk som användaren väljer, går det inte att konfigurera röstmenyn ännu. I stället lagras rösterna för varje språk för senare användning. Hanteraren `ToLanguage_SelectionChanged` (i samma källfil) uppdaterar senare röstmenyn genom att anropa `UpdateVoiceComboBox()`  när användaren väljer ett Till-språk. 
+Eftersom vilka röster som är tillgängliga beror på vilket Till-språk som användaren väljer, går det inte att konfigurera röstmenyn ännu. I stället lagras rösterna för varje språk för senare användning. Hanteraren `ToLanguage_SelectionChanged` (i samma källfil) uppdaterar senare röstmenyn genom att anropa `UpdateVoiceComboBox()`  när användaren väljer ett Till-språk.
 
 För skojs skull väljs ett Till-språk slumpmässigt om användaren inte har kört programmet tidigare. (Menyinställningarna sparas mellan sessioner.)
 
@@ -281,7 +282,7 @@ private void Connect()
         TranslateTo = ((ComboBoxItem)this.ToLanguage.SelectedItem).Tag.ToString(),
         Voice = voicename,
     };
-    
+
     options.Hostname = baseUrl;
     options.AuthHeaderKey = "Authorization";
     options.AuthHeaderValue = ""; // set later in ConnectAsync.
@@ -368,11 +369,11 @@ Här är `ConnectAsync()`-metoden som instansierar klassen `speechClient` och ko
 private async Task ConnectAsync(SpeechClientOptions options, bool suspendInputAudioDuringTTS)
 {
     await ADMAuthenticate(options);
-    
+
     TextMessageDecoder textDecoder;
-    
+
     s2smtClient = new SpeechClient((SpeechTranslateClientOptions)options, CancellationToken.None);
-    
+
     s2smtClient.OnBinaryData += (c, a) => { AddSamplesToPlay(a, suspendInputAudioDuringTTS); };
     s2smtClient.OnEndOfBinaryData += (c, a) => { AddSamplesToPlay(a, suspendInputAudioDuringTTS); };
     s2smtClient.OnTextData += (c, a) => { textDecoder.AppendData(a); lastReceivedPacketTick = DateTime.Now.Ticks; };
@@ -410,7 +411,7 @@ private async Task ConnectAsync(SpeechClientOptions options, bool suspendInputAu
     {
         SafeInvoke(() =>
         {
-            // We only care to react to server disconnect when our state is Connected. 
+            // We only care to react to server disconnect when our state is Connected.
             if (currentState == UiState.Connected)
             {
                 Log("E: Connection has been lost.");

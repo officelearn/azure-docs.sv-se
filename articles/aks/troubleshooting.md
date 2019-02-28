@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 08/13/2018
 ms.author: saudas
-ms.openlocfilehash: 8164e2db064523fe648ec9ef0c72754be846dff6
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 53061d4d09ac2769e59269701467a22f292cd919
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56327569"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56959773"
 ---
 # <a name="aks-troubleshooting"></a>AKS felsökning
 
@@ -63,10 +63,30 @@ Det enklaste sättet att komma åt tjänsten utanför klustret är att köra `ku
 
 Om du inte ser Kubernetes-instrumentpanelen, kontrollera om den `kube-proxy` pod körs i den `kube-system` namnområde. Om den inte körs, ta bort en pod och kommer att startas om.
 
-## <a name="i-cant-get-logs-by-using-kubectl-logs-or-i-cant-connect-to-the-api-server-im-getting-error-from-server-error-dialing-backend-dial-tcp-what-should-i-do"></a>Jag kan inte hämta loggarna genom att använda kubectl loggar eller jag kan inte ansluta till API-servern. Jag får ”fel från servern: fel uppringning backend: Ring tcp...” Vad ska jag göra?
+## <a name="i-cant-get-logs-by-using-kubectl-logs-or-i-cant-connect-to-the-api-server-im-getting-error-from-server-error-dialing-backend-dial-tcp-what-should-i-do"></a>Jag kan inte hämta loggarna genom att använda kubectl loggar eller jag kan inte ansluta till API-servern. Jag får ”fel från servern: fel uppringning backend: Ring tcp...”. Vad ska jag göra?
 
-Se till att nätverkssäkerhetsgruppen (NSG) som standard inte ändrats och att port 22 är öppen för anslutning till API-servern. Kontrollera om den `tunnelfront` pod körs i den `kube-system` namnområde. Framtvinga borttagning av en pod och den startas om det inte finns.
+Se till att nätverkssäkerhetsgruppen som standard inte ändrats och att port 22 är öppen för anslutning till API-servern. Kontrollera om den `tunnelfront` pod körs i den *kube system* namnområde med hjälp av den `kubectl get pods --namespace kube-system` kommando. Framtvinga borttagning av en pod och den startas om det inte finns.
 
-## <a name="im-trying-to-upgrade-or-scale-and-am-getting-a-message-changing-property-imagereference-is-not-allowed-error--how-do-i-fix-this-problem"></a>Jag försöker uppgradera eller skala och får en ”meddelande: Är inte tillåtet att ändra egenskapen 'imageReference' ”fel.  Hur kan jag åtgärda det här problemet?
+## <a name="im-trying-to-upgrade-or-scale-and-am-getting-a-message-changing-property-imagereference-is-not-allowed-error-how-do-i-fix-this-problem"></a>Jag försöker uppgradera eller skala och får en ”meddelande: Är inte tillåtet att ändra egenskapen 'imageReference' ”fel. Hur kan jag åtgärda det här problemet?
 
 Du kanske får felet eftersom du har ändrat taggar i agentnoder i AKS-klustret. Ändra och ta bort taggar och andra egenskaper för resurser i resursgruppen MC_ * kan leda till oväntade resultat. Ändra resurser under den MC_ *-gruppen i AKS delar kluster mål för servicenivå (SLO).
+
+## <a name="im-receiving-errors-that-my-cluster-is-in-failed-state-and-upgrading-or-scaling-will-not-work-until-it-is-fixed"></a>Jag får fel som mitt kluster är i felaktigt tillstånd och uppgradera eller skalning fungerar inte förrän den har lösts
+
+*Den här hjälp med felsökning dirigeras från https://aka.ms/aks-cluster-failed*
+
+Det här felet uppstår när kluster anger ett felaktigt tillstånd av flera skäl. Följ stegen nedan för att lösa dina misslyckades klustertillstånd innan du försöker tidigare misslyckade igen:
+
+1. Tills klustret har inget `failed` tillstånd, `upgrade` och `scale` åtgärder inte lyckas. Vanliga rotorsaker problem och lösningar omfattar:
+    * Skala med **otillräcklig beräkningskvot (CRP)**. För att lösa måste du först skala ditt kluster tillbaka till en stabil målstatusen inom kvoten. Följ dessa [steg för att begära en compute-kvoten öka](../azure-supportability/resource-manager-core-quotas-request.md) innan du försöker att skala upp igen utanför som inledande kvotgränser.
+    * Skala ett kluster med avancerade nätverk och **otillräcklig (nätverk) undernätverksresurser**. För att lösa måste du först skala ditt kluster tillbaka till en stabil målstatusen inom kvoten. Följ [dessa steg för att begära en resurskvot öka](../azure-resource-manager/resource-manager-quota-errors.md#solution) innan du försöker att skala upp igen utanför som inledande kvotgränser.
+2. När den underliggande orsaken till uppgraderingen skulle misslyckas har lösts måste klustret vara i slutfört läge. När ett lyckat tillstånd har verifierats, gör om den ursprungliga åtgärden.
+
+## <a name="im-receiving-errors-when-trying-to-upgrade-or-scale-that-state-my-cluster-is-being-currently-being-upgraded-or-has-failed-upgrade"></a>Jag får fel när du försöker uppgradera och skala som tillstånd mitt kluster håller för närvarande att uppgraderas eller uppgraderingen misslyckades
+
+*Den här hjälp med felsökning dirigeras från https://aka.ms/aks-pending-upgrade*
+
+Klusteråtgärder begränsas när aktiva åtgärder för uppgradering sker eller en uppgradering har försökt, men senare misslyckades. Diagnostisera problemet kör `az aks show -g myResourceGroup -n myAKSCluster -o table` att hämta detaljerad status för ditt kluster. Baserat på resultatet:
+
+* Om klustret aktivt uppgraderar, vänta tills åtgärden avslutas. Om den lyckades försök misslyckats tidigare igen.
+* Om klustret har misslyckad uppgradering, följer du stegen som beskrivs [ovan](#im-receiving-errors-when-trying-to-upgrade-or-scale-that-state-my-cluster-is-being-currently-being-upgraded-or-has-failed-upgrade-directed-from-httpsakamsaks-pending-upgrade)

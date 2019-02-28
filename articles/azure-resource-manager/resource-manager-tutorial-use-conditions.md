@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 11/13/2018
+ms.date: 02/25/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 90431ea7649b38da6cbbd242b00c21278d8e8967
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 57e71261bad950b409da7a58b53712d84dc1b3df
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56268897"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56815866"
 ---
 # <a name="tutorial-use-condition-in-azure-resource-manager-templates"></a>Självstudier: Använda villkor i Azure Resource Manager-mallar
 
@@ -150,11 +150,8 @@ New-AzResourceGroupDeployment `
     -dnsLabelPrefix $dnsLabelPrefix `
     -storageAccountName $storageAccountName `
     -newOrExisting $newOrExisting `
-    -TemplateFile azuredeploy.json
+    -TemplateFile "$HOME/azuredeploy.json"
 ```
-
-> [!NOTE]
-> Det uppstår ett fil-I/O-problem om Azure PowerShell används i Cloud Shell.  Felmeddelandet är *Det går inte att hämta de dynamiska parametrarna för cmdleten. Det går inte att hitta sökvägen ”Azure:/azuredeploy.json” eftersom den inte finns.*  En tillfällig lösning är inte att ta med växeln **-TemplateFile** i kommandot `New-AzResourceGroupDeploy`. Kommandot uppmanar dig att ange namnet på filen.
 
 > [!NOTE]
 > Distributionen misslyckas om **newOrExisting** är **new** (nytt) men lagringskontonamnet som anges redan finns.

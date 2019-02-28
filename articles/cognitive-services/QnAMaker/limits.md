@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 02/21/2019
+ms.date: 02/26/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 424aa7038fecba7a11c1ccaa07053cf2e1606835
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: fe15cafceea8128735f7241fa5e4187d4d9c47a9
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56651144"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56960062"
 ---
 # <a name="qna-maker-knowledge-base-limits-and-boundaries"></a>QnA Maker kunskapsbas begränsningar och gränser
 Omfattande lista över gränserna över QnA Maker.
@@ -52,7 +52,7 @@ Omfattande lista över gränserna över QnA Maker.
 * Längden på filnamn: 200
 * Filformat som stöds: ”TSV”, ”.pdf”, ”.txt”, ”.docx”, ”.xlsx”.
 * Maximalt antal alternativa frågor: 100
-* Maximalt antal frågor svar-par: Beror på den [Azure Search-nivå](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity#document-limits) valt 
+* Maximalt antal frågor svar-par: Beror på den [Azure Search-nivå](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity#document-limits) valt. Ett par med frågor och svar mappas till ett dokument på Azure Search-index. 
 
 ## <a name="create-knowledge-base-call-limits"></a>Skapa kunskapsbas anrop begränsningar:
 Dessa representerar gränser för varje skapa kunskapsbas åtgärden. det vill säga att klicka på *skapa KB* eller anropa CreateKnowledgeBase API.

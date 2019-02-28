@@ -10,14 +10,14 @@ ms.topic: article
 ms.date: 07/31/2018
 ms.reviewer: jonfan, LADocs
 ms.suite: integration
-ms.openlocfilehash: 38fe0e4901977637be22670d09dccffdfa274304
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 5543fd5ee2b86a57414a384df9d808e87b297a5e
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51253830"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56983038"
 ---
-# <a name="migrate-biztalk-server-edi-solutions-to-biztalk-services-technical-guide"></a>Migrera BizTalk Server EDI-lösningar till BizTalk Services: teknisk Guide
+# <a name="migrate-biztalk-server-edi-solutions-to-biztalk-services-technical-guide"></a>Migrera BizTalk Server EDI-lösningar till BizTalk Services: Teknisk Guide
 
 > [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
 
@@ -25,7 +25,7 @@ Författare: Tim Wieman och Nitin Mehrotra
 
 Granskare: Karthik Bharthy
 
-Skrivna med hjälp av: Microsoft Azure BizTalk Services – februari 2014-versionen.
+Skrivits med:  Microsoft Azure BizTalk Services – februari 2014-versionen.
 
 ## <a name="introduction"></a>Introduktion
 Electronic Data Interchange (EDI) är en av de vanligaste medel genom vilka företag exchange-data elektroniskt, kallas även för Business-to-Business eller B2B-transaktioner. BizTalk Server har stöd för över tio eftersom versionen av första BizTalk Server EDI. Microsoft fortsätter med BizTalk Services stöd för EDI-lösningar på Microsoft Azure-plattformen. B2B-transaktioner är huvudsakligen externa för en organisation och därför är det enklare att implementera om den har implementerats på en molnplattform. Microsoft Azure tillhandahåller den här funktionen via BizTalk Services.
@@ -102,7 +102,7 @@ Om du vill migrera BizTalk Server-dirigering av bearbetning till Microsoft Azure
 
 * [*Hur du integrerar en WCF-tjänst för arbetsflödet med Service Bus-köer och ämnen* ](https://blogs.msdn.microsoft.com/paolos/2013/04/09/how-to-integrate-a-wcf-workflow-service-with-service-bus-queues-and-topics/) av Paolo Salvatori. 
 * [*Skapa appar med Windows Workflow Foundation och Azure* session](https://go.microsoft.com/fwlink/p/?LinkId=237314) från Build 2011-konferensen.
-* [*Windows Workflow Foundation Developer Center* ](https://go.microsoft.com/fwlink/p/?LinkId=237315) på MSDN.
+* [*Windows Workflow Foundation Developer Center*](https://docs.microsoft.com/previous-versions/dotnet/articles/ee342461(v=msdn.10)).
 * [*Dokumentation om Windows Workflow Foundation 4 (WF4)* ](https://msdn.microsoft.com/library/dd489441.aspx) på MSDN.
 
 ## <a name="other-considerations"></a>Annat att tänka på

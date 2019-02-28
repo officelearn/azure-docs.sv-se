@@ -16,18 +16,18 @@ ms.workload: infrastructure-services
 ms.date: 02/07/2019
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: ee990258be5ac6396754d5c42beb2ffd78ad7aca
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 536ca8895d130fd9273d556332830d020a485dc3
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56649243"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56958302"
 ---
 # <a name="create-a-virtual-machine-with-a-static-private-ip-address-using-powershell"></a>Skapa en virtuell dator med en statisk privat IP-adress med hjälp av PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Du kan skapa en virtuell dator (VM) med en statisk privat IP-adress. Tilldela en statisk privat IP-adress i stället för en dynamisk adress, så att adressen aldrig ändras. Läs mer om [Statiska privata IP-adresser](virtual-network-ip-addresses-overview-arm.md#allocation-method). Ändra en privat IP-adress som tilldelats till en befintlig virtuell dator från dynamisk till statisk, eller arbeta med offentliga IP-adresser i avsnittet [Lägg till, ändra eller ta bort IP-adresser](virtual-network-network-interface-addresses.md).
+Du kan skapa en virtuell dator (VM) med en statisk privat IP-adress. Tilldela en statisk privat IP-adress i stället för en dynamisk adress om du vill välja vilken adress från ett undernät är tilldelad till en virtuell dator. Läs mer om [Statiska privata IP-adresser](virtual-network-ip-addresses-overview-arm.md#allocation-method). Ändra en privat IP-adress som tilldelats till en befintlig virtuell dator från dynamisk till statisk, eller arbeta med offentliga IP-adresser i avsnittet [Lägg till, ändra eller ta bort IP-adresser](virtual-network-network-interface-addresses.md).
 
 ## <a name="create-a-virtual-machine"></a>Skapa en virtuell dator
 
@@ -110,5 +110,5 @@ Remove-AzResourceGroup -Name myResourceGroup -Force
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs mer om [privata IP-adresser](virtual-network-ip-addresses-overview-arm.md#private-ip-addresses) och tilldela en [statiska privata IP-adressen](virtual-network-network-interface-addresses.md#add-ip-addresses) till en Azure-dator
-- Läs mer om hur du skapar [Linux](../virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fvirtual-network%2ftoc.json) och [Windows](../virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fvirtual-network%2ftoc.json) virtuella datorer
+- Läs mer om [privata IP-adresser](virtual-network-ip-addresses-overview-arm.md#private-ip-addresses) och tilldela en [statiska privata IP-adressen](virtual-network-network-interface-addresses.md#add-ip-addresses) till en Azure-dator.
+- Läs mer om hur du skapar [Linux](../virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fvirtual-network%2ftoc.json) och [Windows](../virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fvirtual-network%2ftoc.json) virtuella datorer.

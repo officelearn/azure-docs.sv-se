@@ -1,6 +1,6 @@
 ---
-title: Lösning för kapacitet och prestanda i Azure Log Analytics | Microsoft Docs
-description: Använd kapacitet och prestanda lösningen i Log Analytics för att förstå kapaciteten för Hyper-V-servrar.
+title: Lösning för kapacitet och prestanda i Azure Monitor | Microsoft Docs
+description: Använda lösningen kapacitet och prestanda i Övervakaren för att förstå kapaciteten för Hyper-V-servrar.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 07/13/2017
 ms.author: magoedte
-ms.openlocfilehash: 41508a1d99ed243d377cc72c0accc005c5ca737d
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: db2bbd8c3c0e3d7d172ea2948a42f300c2875745
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53189208"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56983718"
 ---
 # <a name="plan-hyper-v-virtual-machine-capacity-with-the-capacity-and-performance-solution-preview"></a>Planera kapacitet för Hyper-V-virtuella datorer med kapacitet och prestanda lösningen (förhandsversion)
 
@@ -27,7 +27,7 @@ ms.locfileid: "53189208"
 > [!NOTE]
 > Lösningen kapacitet och prestanda är inaktuell.  Kunder som redan har installerat lösningen kan fortsätta att använda den, men kapacitet och prestanda kan inte läggas till nya arbetsytor.
 
-Du kan använda lösningen kapacitet och prestanda i Log Analytics för att förstå kapaciteten för Hyper-V-servrar. Lösningen ger insikter om Hyper-V-miljön genom att visa det övergripande utnyttjandet (processor, minne och disk) på värdarna och de virtuella datorerna som körs på dessa Hyper-V-värdar. Mått har samlats in för CPU, minne och diskar mellan alla värdar och de virtuella datorerna körs på dem.
+Du kan använda lösningen kapacitet och prestanda i Övervakaren för att förstå kapaciteten för Hyper-V-servrar. Lösningen ger insikter om Hyper-V-miljön genom att visa det övergripande utnyttjandet (processor, minne och disk) på värdarna och de virtuella datorerna som körs på dessa Hyper-V-värdar. Mått har samlats in för CPU, minne och diskar mellan alla värdar och de virtuella datorerna körs på dem.
 
 Lösning:
 

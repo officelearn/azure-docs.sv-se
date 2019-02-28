@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/11/2018
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: 22678a44cda38b52982e977281d3310efde15831
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: cc3f7c72acc0723c522b595ea106f72947e9d014
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54247290"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56728734"
 ---
 # <a name="tutorial-configure-message-routing-with-iot-hub"></a>Självstudie: Konfigurera meddelandedirigering med IoT Hub
 
@@ -36,6 +36,8 @@ I den här självstudien utför du följande åtgärder:
 > * ...i Power BI-visualiseringen.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 - En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
@@ -171,7 +173,7 @@ Kopiera och klistra in det här skriptet i Cloud Shell. Skriptet körs en rad i 
 
 ```azurepowershell-interactive
 # Log into Azure account.
-Login-AzureRMAccount
+Login-AzAccount
 
 # Set the values for the resource names that don't have to be globally unique.
 # The resources that have to have unique names are named in the script below
@@ -185,21 +187,21 @@ $iotDeviceName = "Contoso-Test-Device"
 
 # Create the resource group to be used 
 #   for all resources for this tutorial.
-New-AzureRmResourceGroup -Name $resourceGroup -Location $location
+New-AzResourceGroup -Name $resourceGroup -Location $location
 
 # The IoT hub name must be globally unique, so add a random number to the end.
 $iotHubName = "ContosoTestHub$(Get-Random)"
 Write-Host "IoT hub name is " $iotHubName
 
 # Create the IoT hub.
-New-AzureRmIotHub -ResourceGroupName $resourceGroup `
+New-AzIotHub -ResourceGroupName $resourceGroup `
     -Name $iotHubName `
     -SkuName "S1" `
     -Location $location `
     -Units 1
 
 # Add a consumer group to the IoT hub for the 'events' endpoint.
-Add-AzureRmIotHubEventHubConsumerGroup -ResourceGroupName $resourceGroup `
+Add-AzIotHubEventHubConsumerGroup -ResourceGroupName $resourceGroup `
   -Name $iotHubName `
   -EventHubConsumerGroupName $iotHubConsumerGroup `
   -EventHubEndpointName "events"
@@ -211,7 +213,7 @@ Write-Host "storage account name is " $storageAccountName
 # Create the storage account to be used as a routing destination.
 # Save the context for the storage account 
 #   to be used when creating a container.
-$storageAccount = New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
+$storageAccount = New-AzStorageAccount -ResourceGroupName $resourceGroup `
     -Name $storageAccountName `
     -Location $location `
     -SkuName Standard_LRS `
@@ -219,7 +221,7 @@ $storageAccount = New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
 $storageContext = $storageAccount.Context 
 
 # Create the container in the storage account.
-New-AzureStorageContainer -Name $containerName `
+New-AzStorageContainer -Name $containerName `
     -Context $storageContext
 
 # The Service Bus namespace must be globally unique,
@@ -228,7 +230,7 @@ $serviceBusNamespace = "ContosoSBNamespace$(Get-Random)"
 Write-Host "Service Bus namespace is " $serviceBusNamespace
 
 # Create the Service Bus namespace.
-New-AzureRmServiceBusNamespace -ResourceGroupName $resourceGroup `
+New-AzServiceBusNamespace -ResourceGroupName $resourceGroup `
     -Location $location `
     -Name $serviceBusNamespace 
 
@@ -238,15 +240,15 @@ $serviceBusQueueName  = "ContosoSBQueue$(Get-Random)"
 Write-Host "Service Bus queue name is " $serviceBusQueueName 
 
 # Create the Service Bus queue to be used as a routing destination.
-New-AzureRmServiceBusQueue -ResourceGroupName $resourceGroup `
+New-AzServiceBusQueue -ResourceGroupName $resourceGroup `
     -Namespace $serviceBusNamespace `
     -Name $serviceBusQueueName 
 
 ```
 
-Skapa sedan en enhetsidentitet och spara nyckeln för framtida bruk. Den är enhetsidentiteten används av simuleringsprogrammet för att skicka meddelanden till IoT-hubben. Den här funktionen finns inte i PowerShell, men du kan skapa enheten i [Azure-portalen](https://portal.azure.com).
+Skapa sedan en enhetsidentitet och spara nyckeln för framtida bruk. Den är enhetsidentiteten används av simuleringsprogrammet för att skicka meddelanden till IoT-hubben. Den här funktionen finns inte i PowerShell, men du kan skapa enheten i [Azure Portal](https://portal.azure.com).
 
-1. Öppna [Azure-portalen](https://portal.azure.com) och logga in på ditt Azure-konto.
+1. Öppna [Azure Portal](https://portal.azure.com) och logga in på ditt Azure-konto.
 
 2. Klicka på **Resursgrupper** och välj din resursgrupp. I den här självstudien används **ContosoResources**.
 
@@ -276,7 +278,7 @@ Konfigurera nu routning för lagringskontot. Du gå till fönstret meddelanderou
 
 Data skrivs till bloblagring i Avro-format.
 
-1. I [Azure-portalen](https://portal.azure.com) klickar du på **Resursgrupper** och väljer resursgruppen. I den här självstudien används **ContosoResources**. 
+1. I [Azure Portal](https://portal.azure.com) klickar du på **Resursgrupper** och väljer resursgruppen. I den här självstudien används **ContosoResources**. 
 
 2. Klicka på IoT-hubben i listan över resurser. I självstudien används **ContosoTestHub**. 
 
@@ -290,9 +292,9 @@ Data skrivs till bloblagring i Avro-format.
 
 5. Ange ett namn på slutpunkten. I den här självstudien används **StorageContainer**.
 
-6. Klicka på **Välj en container**. Det tar dig till en lista över dina lagringskonton. Välj det som du skapade i förberedelsesteget. I den här självstudien används **contosostorage**. Den visar en lista över containrar i det lagringskontot. Välj den container som du skapade i förberedelsesteget. I självstudien används **contosoresults**. Klicka på **Välj**. Du kommer tillbaka till fönstret **Lägg till slutpunkt**. 
+6. Klicka på **Välj en container**. Det tar dig till en lista över dina lagringskonton. Välj det som du skapade i förberedelsesteget. I den här självstudiekursen används **contosostorage**. Den visar en lista över containrar i det lagringskontot. Välj den container som du skapade i förberedelsesteget. I självstudien används **contosoresults**. Klicka på **Välj**. Du kommer tillbaka till fönstret **Lägg till slutpunkt**. 
 
-7. I den här självstudien används standardinställningar för resten av fälten. 
+7. I den här självstudiekursen används standardinställningar för resten av fälten. 
 
    > [!NOTE]
    > Du kan ange formatet för blobnamnet med hjälp av **Format på blobfilens namn**. Standardvärdet är `{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}`. Formatet måste innehålla {iothub}, {partition}, {YYYY}, {MM}, {DD}, {HH} och {mm} i valfri ordning. 
@@ -368,7 +370,7 @@ Konfigurera nu routning för Service Bus-kön. Du gå till fönstret meddelander
 
 Service Bus-kön ska användas för att ta emot meddelanden som har angetts som kritiska. Konfigurera en logikapp som ska övervaka Service Bus-kön och som skickar e-post när ett meddelande läggs till i Service Bus-kön. 
 
-1. I [Azure-portalen](https://portal.azure.com) klickar du på **+ Skapa en resurs**. Skriv **logikapp** i sökrutan och klicka på Retur. Från sökresultatet som visas väljer du Logikapp och klickar på **Skapa** för att fortsätta till rutan **Skapa en logikapp**. Fyll i fälten. 
+1. I [Azure Portal](https://portal.azure.com) klickar du på **+ Skapa en resurs**. Skriv **logikapp** i sökrutan och klicka på Retur. Från sökresultatet som visas väljer du Logikapp och klickar på **Skapa** för att fortsätta till rutan **Skapa en logikapp**. Fyll i fälten. 
 
    **Namn**: Det här fältet är logikappens namn. I självstudien används **ContosoLogicApp**. 
 
@@ -424,7 +426,7 @@ Om du vill se data i Power BI-visualiseringen konfigurerar du först ett Stream 
 
 ### <a name="create-the-stream-analytics-job"></a>Skapa Stream Analytics-jobbet
 
-1. I [Azure-portalen](https://portal.azure.com) klickar du på **Skapa en resurs** > **Sakernas Internet** > **Stream Analytics-jobb**.
+1. I [Azure Portal](https://portal.azure.com) klickar du på **Skapa en resurs** > **Sakernas Internet** > **Stream Analytics-jobb**.
 
 2. Ange följande information för jobbet.
 
@@ -494,7 +496,7 @@ Om du vill se data i Power BI-visualiseringen konfigurerar du först ett Stream 
 
 4. Klicka på **Spara**.
 
-5. Stäng rutan Fråga. Nu kommer du tillbaka till vyn över resurser i resursgruppen. Klicka på Stream Analytics-jobbet. I den här självstudien kallas det **contosoJob**.
+5. Stäng rutan Fråga. Nu kommer du tillbaka till vyn över resurser i resursgruppen. Klicka på Stream Analytics-jobbet. I den här självstudiekursen kallas det **contosoJob**.
 
 ### <a name="run-the-stream-analytics-job"></a>Köra Stream Analytics-jobbet
 
@@ -536,7 +538,7 @@ Om allt är korrekt konfigurerat bör då se följande resultat:
    * Logikappen som hämtar meddelandet från Service Bus-kön fungerar som den ska.
    * Logic App-anslutningsprogrammet till Outlook fungerar som det ska. 
 
-2. I [Azure-portalen](https://portal.azure.com) klickar du på **Resursgrupper** och väljer resursgruppen. I den här självstudien används **ContosoResources**. Välj lagringskontot, klicka på **Blobar** och välj sedan containern. I självstudien används **contosoresults**. Du bör se en mapp, och du kan öka detaljnivån mellan kataloger tills du ser en eller flera filer. Öppna en av dessa filer. De innehåller poster som dirigeras till lagringskontot. 
+2. I [Azure Portal](https://portal.azure.com) klickar du på **Resursgrupper** och väljer resursgruppen. I den här självstudien används **ContosoResources**. Välj lagringskontot, klicka på **Blobbar** och välj sedan containern. I självstudien används **contosoresults**. Du bör se en mapp, och du kan öka detaljnivån mellan kataloger tills du ser en eller flera filer. Öppna en av dessa filer. De innehåller poster som dirigeras till lagringskontot. 
 
    ![Skärmbild som visar resultatfilerna i lagringen.](./media/tutorial-routing/results-in-storage.png)
 
@@ -605,10 +607,10 @@ az group delete --name $resourceGroup
 ```
 ### <a name="clean-up-resources-using-powershell"></a>Rensa resurser med hjälp av PowerShell
 
-Om du vill ta bort resursgruppen använder du kommandot [Remove-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/remove-azurermresourcegroup). $resourceGroup ställdes in på **ContosoIoTRG1** i början av den här självstudien.
+Om du vill ta bort resursgruppen använder du kommandot [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup). $resourceGroup ställdes in på **ContosoIoTRG1** i början av den här självstudien.
 
 ```azurepowershell-interactive
-Remove-AzureRmResourceGroup -Name $resourceGroup
+Remove-AzResourceGroup -Name $resourceGroup
 ```
 
 ## <a name="next-steps"></a>Nästa steg

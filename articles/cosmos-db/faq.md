@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: e8467912ad2b9b5199e3c8d66c80d8e238db1f57
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: edbdfeb87af78ba77aa0e418efc12116a38766fc
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54043217"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56960453"
 ---
 # <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>Vanliga frågor och svar om olika API: er i Azure Cosmos DB
 
@@ -24,7 +24,7 @@ Om du har ett DocumentDB-API-konto innan, nu har du en SQL API-konto utan ändri
 
 ### <a name="what-happened-to-azure-documentdb-as-a-service"></a>Vad hände med Azure DocumentDB som en tjänst?
 
-Azure DocumentDB-tjänsten är nu en del av Azure Cosmos DB-tjänsten och visar sig i form av SQL-API. Program som skapats för Azure DocumentDB körs mot Azure Cosmos DB SQL API utan ändringar. Cosmos DB implementerar också [Cassandra](cassandra-introduction.md), [MongoDB](mongodb-introduction.md), [Gremlin](graph-introduction.md) och [Azure Table Storage](table-introduction.md) ansluta protokoll direkt i tjänsten. Detta kan du peka klientdrivrutiner (och verktyg) för vanliga NoSQL-APIs direkt till din Cosmos-databas.
+Azure DocumentDB-tjänsten är nu en del av Azure Cosmos DB-tjänsten och visar sig i form av SQL-API. Program som skapats för Azure DocumentDB körs mot Azure Cosmos DB SQL API utan ändringar. Cosmos DB implementerar också trådprotokoll för [Cassandra](cassandra-introduction.md), [MongoDB](mongodb-introduction.md), [Gremlin](graph-introduction.md) och [Azure Table Storage](table-introduction.md) direkt i tjänsten. På så vis kan du rikta klienters drivrutiner (och verktyg) för de vanligt förekommande NoSQL-API:erna direkt till din Cosmos-databas.
 
 ### <a name="what-are-the-typical-use-cases-for-azure-cosmos-db"></a>Vad är vanliga användningsområden för Azure Cosmos DB?
 
@@ -232,7 +232,7 @@ Azure Cosmos DB: s API för MongoDB har sin egen specifika felkoder tillsammans 
 | Fel               | Kod  | Beskrivning  | Lösning  |
 |---------------------|-------|--------------|-----------|
 | TooManyRequests     | 16500 | Det totala antalet enheter för programbegäran som används är högre än den etablerade begäransenhet för samlingen och har begränsats. | Överväg att skala dataflöde som tilldelats till en behållare eller en uppsättning behållare från Azure portal eller omförsök igen. |
-| ExceededMemoryLimit | 16501 | Åtgärden har gått över klientens minne mängd som en tjänst med flera klienter. | Minska omfånget för åtgärd via mer restriktiva frågevillkor eller kontakta support från den [Azure-portalen](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). <br><br>Exempel:  *&nbsp; &nbsp; &nbsp; &nbsp;db.getCollection('users').aggregate ([<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{$match: {name: ”Andy”}}, <br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{$sort: {ålder: -1}}<br> &nbsp; &nbsp; &nbsp;&nbsp;])*) |
+| ExceededMemoryLimit | 16501 | Åtgärden har gått över klientens minne mängd som en tjänst med flera klienter. | Minska omfånget för åtgärd via mer restriktiva frågevillkor eller kontakta support från den [Azure-portalen](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). <br><br>Exempel:  *&nbsp; &nbsp; &nbsp; &nbsp;db.getCollection('users').aggregate ([<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{$match: {name: "Andy"}}, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$sort: {age: -1}}<br>&nbsp;&nbsp;&nbsp;&nbsp;])*) |
 
 ### <a name="is-the-simba-driver-for-mongodb-supported-for-use-with-azure-cosmos-dbs-api-for-mongodb"></a>Är Simba drivrutinen för MongoDB som stöds för användning med Azure Cosmos DB API för MongoDB?
 
@@ -608,7 +608,6 @@ g.V('mary').out('knows').executionProfile()
         },
         "storeOps": [
           {
-            "partitionsAccessed": 1,
             "count": 0,
             "size": 0,
             "time": 0.6

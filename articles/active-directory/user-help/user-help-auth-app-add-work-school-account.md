@@ -12,12 +12,12 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ad6dda9e41f1ea87439ffc315f020d4e3566e0c6
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 231f3c44344f4119bab6e1efb5546e6fded0c784
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453553"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56960639"
 ---
 # <a name="add-your-work-or-school-account"></a>Lägg till ditt arbets- eller skolkonto
 Om din organisation använder två faktorer verifiering, kan du ställa in ditt arbets- eller skolkonto konto att använda Microsoft Authenticator-appen som en av verifieringsmetoderna.
@@ -30,7 +30,7 @@ Om din organisation använder två faktorer verifiering, kan du ställa in ditt 
 1. På din dator, går du till den [ytterligare säkerhetsverifiering](https://aka.ms/mfasetup) sidan.
 
     >[!Note]
-    >Om du inte ser den **ytterligare säkerhetsverifiering** sidan, är det möjligt att din administratör har aktiverat säkerhetsupplevelse för info (förhandsversion). Om så är fallet ska du följa anvisningarna i den [konfigurera säkerhetsinformation för att använda en autentiseringsapp](security-info-setup-auth-app.md) avsnittet. Om detta inte är fallet behöver du kontakta organisationens supportavdelning om du behöver hjälp. Läs mer om säkerhetsinformation [hantera din säkerhetsinformation](security-info-manage-settings.md).
+    >Om du inte ser den **ytterligare säkerhetsverifiering** sidan, är det möjligt att din administratör har aktiverat säkerhetsupplevelse för info (förhandsversion). Om så är fallet ska du följa anvisningarna i den [konfigurera säkerhetsinformation för att använda en autentiseringsapp](security-info-setup-auth-app.md) avsnittet. Om detta inte är fallet behöver du kontakta organisationens supportavdelning om du behöver hjälp. Läs mer om säkerhetsinformation [info (förhandsversion) Säkerhetsöversikt](user-help-security-info-overview.md).
 
 2. Markera kryssrutan bredvid **autentiseringsapp**, och välj sedan **konfigurera**.
 

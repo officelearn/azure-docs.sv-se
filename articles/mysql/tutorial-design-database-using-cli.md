@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 04/01/2018
 ms.custom: mvc
-ms.openlocfilehash: 352444dcb3beace0e1618aadba50b56cdcd9d003
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 17a147b12d660e25bfba1e3b987f9c6ae219942d
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53545798"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56882594"
 ---
 # <a name="tutorial-design-an-azure-database-for-mysql-using-azure-cli"></a>Självstudier: Utforma en Azure Database for MySQL med hjälp av Azure CLI
 
@@ -27,6 +27,8 @@ Azure Database for MySQL är en relationsdatabastjänst i Microsoft-molnet som �
 > * Söka i data
 > * Uppdatera data
 > * Återställa data
+
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
 
 Du kan använda Azure Cloud Shell i webbläsaren eller [installera Azure CLI]( /cli/azure/install-azure-cli) lokalt när du ska köra kodblocken i den här självstudiekursen.
 

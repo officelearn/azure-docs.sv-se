@@ -8,12 +8,12 @@ ms.author: jasonh
 ms.assetid: cf5633d4-bc43-444e-90fc-f90fbd0b7935
 ms.topic: conceptual
 ms.date: 02/12/2018
-ms.openlocfilehash: 0bade9f393d879123b7b1485052f70924d9c9b9c
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 7fd88383e909ebd6be64c22721b813946e37179e
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43045489"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56959144"
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-analytics"></a>Åtkomst till diagnostikloggar för Azure Data Lake Analytics
 
@@ -41,7 +41,7 @@ Diagnostisk loggning kan du samla in granskningshistorik för dataåtkomst. De h
 
      * Välj **Stream till en Händelsehubb** till stream loggdata till en Azure-Händelsehubb. Använd det här alternativet om du har en underordnad process-pipelinen som analyserar inkommande loggar i realtid. Om du väljer det här alternativet måste du ange information för Azure-Händelsehubben som du vill använda.
 
-     * Välj __skicka till Log Analytics__ att skicka data till Log Analytics-tjänsten. Använd det här alternativet om du vill använda Log Analytics för att samla in och analysera loggar.
+     * Välj __skicka till Log Analytics__ att skicka data till Azure Monitor-tjänsten. Använd det här alternativet om du vill använda Azure Monitor-loggar att samla in och analysera loggar.
    * Ange om du vill hämta granskningsloggar eller begära loggar, eller bådadera.  En Begärandelogg samlar in varje API-begäran. En granskningslogg som registrerar alla åtgärder som utlöses av den API-begäran.
 
    * För __arkivet till ett lagringskonto__, ange hur många dagar att behålla data.
@@ -127,13 +127,13 @@ Här är en exempel-post i loggen för JSON-formaterad begäran. Varje blob har 
 
 | Namn | Typ | Beskrivning |
 | --- | --- | --- |
-| time |Sträng |Loggen tidsstämpel (i UTC) |
-| resourceId |Sträng |Identifierare för den resurs som åtgärden tog placera på |
-| category |Sträng |Loggkategori. Till exempel **begäranden**. |
-| operationName |Sträng |Namnet på åtgärden som loggas. Till exempel GetAggregatedJobHistory. |
-| resultType |Sträng |Status för åtgärden, till exempel 200. |
-| callerIpAddress |Sträng |IP-adressen för klienten som gör begäran |
-| correlationId |Sträng |Identifierare för loggen. Det här värdet kan användas för att gruppera en uppsättning relaterade poster. |
+| time |String |Loggen tidsstämpel (i UTC) |
+| resourceId |String |Identifierare för den resurs som åtgärden tog placera på |
+| category |String |Loggkategori. Till exempel **begäranden**. |
+| operationName |String |Namnet på åtgärden som loggas. Till exempel GetAggregatedJobHistory. |
+| resultType |String |Status för åtgärden, till exempel 200. |
+| callerIpAddress |String |IP-adressen för klienten som gör begäran |
+| correlationId |String |Identifierare för loggen. Det här värdet kan användas för att gruppera en uppsättning relaterade poster. |
 | identity |Objekt |Den identitet som genereras i loggen |
 | properties |JSON |Finns i nästa avsnitt (begäran log egenskaper schema) för information |
 
@@ -141,12 +141,12 @@ Här är en exempel-post i loggen för JSON-formaterad begäran. Varje blob har 
 
 | Namn | Typ | Beskrivning |
 | --- | --- | --- |
-| HttpMethod |Sträng |HTTP-metoden används för åtgärden. Till exempel få. |
-| Sökväg |Sträng |Sökvägen åtgärden utfördes på |
+| HttpMethod |String |HTTP-metoden används för åtgärden. Till exempel få. |
+| Sökväg |String |Sökvägen åtgärden utfördes på |
 | RequestContentLength |int |Innehållslängd HTTP-förfrågan |
-| clientRequestId |Sträng |Det ID som unikt identifierar den här begäran |
-| startTime |Sträng |Den tidpunkt då servern tog emot begäran |
-| endTime |Sträng |Den tid då servern skickade ett svar |
+| ClientRequestId |String |Det ID som unikt identifierar den här begäran |
+| startTime |String |Den tidpunkt då servern tog emot begäran |
+| endTime |String |Den tid då servern skickade ett svar |
 
 ### <a name="audit-logs"></a>Granskningsloggar
 
@@ -175,17 +175,17 @@ Här är en exempel-post i JSON-formaterade granskningsloggen. Varje blob har en
       ]
     }
 
-#### <a name="audit-log-schema"></a>Granska loggen schema
+#### <a name="audit-log-schema"></a>Schema för spårningslogg
 
 | Namn | Typ | Beskrivning |
 | --- | --- | --- |
-| time |Sträng |Loggen tidsstämpel (i UTC) |
-| resourceId |Sträng |Identifierare för den resurs som åtgärden tog placera på |
-| category |Sträng |Loggkategori. Till exempel **Audit**. |
-| operationName |Sträng |Namnet på åtgärden som loggas. Till exempel JobSubmitted. |
-| resultType |Sträng |En understatus för jobbets status (operationName). |
-| resultSignature |Sträng |Mer information om jobbets status (operationName). |
-| identity |Sträng |Användaren som begärde igen. Till exempel susan@contoso.com. |
+| time |String |Loggen tidsstämpel (i UTC) |
+| resourceId |String |Identifierare för den resurs som åtgärden tog placera på |
+| category |String |Loggkategori. Till exempel **Audit**. |
+| operationName |String |Namnet på åtgärden som loggas. Till exempel JobSubmitted. |
+| resultType |String |En understatus för jobbets status (operationName). |
+| resultSignature |String |Mer information om jobbets status (operationName). |
+| identity |String |Användaren som begärde igen. Till exempel susan@contoso.com. |
 | properties |JSON |Finns i nästa avsnitt (Granska loggen egenskaper schema) för information |
 
 > [!NOTE]
@@ -197,13 +197,13 @@ Här är en exempel-post i JSON-formaterade granskningsloggen. Varje blob har en
 
 | Namn | Typ | Beskrivning |
 | --- | --- | --- |
-| JobId |Sträng |Det ID som jobbet har tilldelats |
-| Jobbnamn |Sträng |Det namn som har angetts för jobbet |
-| JobRunTime |Sträng |Körningen används för att behandla uppgiften |
-| SubmitTime |Sträng |Tiden (i UTC) som jobbet har skickats |
-| startTime |Sträng |Den tid som jobbet började köras efter bidrag (i UTC) |
-| endTime |Sträng |Den tid som jobbet avslutades |
-| Parallellitet |Sträng |Antalet Data Lake Analytics-enheter som begärdes för jobbets ärendet |
+| JobId |String |Det ID som jobbet har tilldelats |
+| Jobbnamn |String |Det namn som har angetts för jobbet |
+| JobRunTime |String |Körningen används för att behandla uppgiften |
+| SubmitTime |String |Tiden (i UTC) som jobbet har skickats |
+| startTime |String |Den tid som jobbet började köras efter bidrag (i UTC) |
+| endTime |String |Den tid som jobbet avslutades |
+| Parallellitet |String |Antalet Data Lake Analytics-enheter som begärdes för jobbets ärendet |
 
 > [!NOTE]
 > **SubmitTime**, **StartTime**, **EndTime**, och **parallellitet** innehåller information om en åtgärd. Dessa poster endast innehåller ett värde om som åtgärden har startats eller har slutförts. Till exempel **SubmitTime** endast innehåller ett värde efter **operationName** har värdet **JobSubmitted**.

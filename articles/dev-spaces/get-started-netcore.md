@@ -10,12 +10,12 @@ ms.date: 09/26/2018
 ms.topic: tutorial
 description: Snabb Kubernetes-utveckling med containrar och mikrotjänster i Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers
-ms.openlocfilehash: 5cecb11494926444249c8061f1ec93622e4d6c78
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 02c0faf5103ff370d766dd931aa65190e4846139
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700714"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56817549"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-net-core"></a>Komma igång med Azure Dev Spaces med .NET Core
 
@@ -72,7 +72,7 @@ az group create --name MyResourceGroup --location <region>
 Skapa ett Kubernetes-kluster med följande kommando:
 
 ```cmd
-az aks create -g MyResourceGroup -n MyAKS --location <region> --kubernetes-version 1.10.9 --enable-addons http_application_routing --generate-ssh-keys
+az aks create -g MyResourceGroup -n MyAKS --location <region> --kubernetes-version 1.10.9 --generate-ssh-keys
 ```
 
 Det tar några minuter att skapa klustret.

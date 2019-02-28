@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: adbfb0e42bc7057313c7652402fce2b2ede47735
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: 6f0a10a56aeecf9973ea12b022e0030fb4635fbf
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56592510"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56984556"
 ---
 # <a name="preview-azure-ad-password-protection-on-premises---frequently-asked-questions"></a>Förhandsversion: Azure AD-lösenordsskydd lokalt – vanliga frågor och svar
 
@@ -26,10 +26,6 @@ ms.locfileid: "56592510"
 |     |
 
 ## <a name="general-questions"></a>Allmänna frågor
-
-**F: När uppnår allmän tillgänglighet (GA) i Azure AD-lösenordsskydd?**
-
-Allmän tillgänglighet planeras Q1 CY2019 (före slutet av mars 2019). Tack för alla som har skickat feedback om funktionen på datum - vi uppskattar den!
 
 **F: Vilken vägledning bör användare ges om hur du väljer ett säkert lösenord?**
 

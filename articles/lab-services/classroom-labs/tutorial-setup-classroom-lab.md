@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 02/07/2019
 ms.author: spelluru
-ms.openlocfilehash: 96d5e94cb60888f7e098e31d7f06481a766cabd5
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 4abec80df4aeeb4c20d56b43ba122ee7266905a6
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55998526"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56649602"
 ---
 # <a name="tutorial-set-up-a-classroom-lab"></a>Självstudier: Konfigurera ett klassrumslabb 
 I självstudien konfigurerar du ett klassrumslabb med virtuella datorer som används av eleverna i klassrummet.  
@@ -69,10 +69,8 @@ En labbägare kan lägga till andra användare i rollen **Labbskaparen**. Labbä
 
     ![Konfigurera mallsidan när det är klart](../media/tutorial-setup-classroom-lab/configure-template-after-complete.png)
 8. På sidan **Konfigurera mall** utför du följande steg: De här stegen är **valfria** för självstudien.
-    1. Starta mallen för den virtuella datorn genom att välja **Starta**.
     2. Anslut till mallen för den virtuella datorn genom att välja **Anslut**. 
-    3. Installera och konfigurera programvaran på mallen för den virtuella datorn. 
-    4. **Stoppa** den virtuella datorn.  
+    3. Installera och konfigurera programvaran på mallen för den virtuella datorn.     
     5. Ange en **beskrivning** för mallen
 9. Välj **Nästa** på mallsidan. 
 10. På sidan **Publicera mallen** utför du någon av följande åtgärder. 

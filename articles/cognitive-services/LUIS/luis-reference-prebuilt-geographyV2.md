@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: Den här artikeln innehåller geographyV2 fördefinierade entitetsinformation i Språkförståelse (LUIS).
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: e794ba86500e1c149deeafeaba508b3429ac590c
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 17f612f2ee6c7d27dcec9f72ed3df1ed418eb3d2
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55221461"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56961622"
 ---
 # <a name="geographyv2-prebuilt-entity-for-a-luis-app"></a>GeographyV2 fördefinierade entitet för en LUIS-app
 Entiteten fördefinierade geographyV2 identifierar platser. Eftersom den här entiteten har redan tränats, behöver du inte lägga till exempel yttranden som innehåller GeographyV2 till programmet avsikter. GeographyV2 entiteten har stöd för engelska [kultur](luis-reference-prebuilt-entities.md).

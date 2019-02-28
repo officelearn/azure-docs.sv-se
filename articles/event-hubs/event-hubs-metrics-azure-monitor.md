@@ -15,12 +15,12 @@ ms.workload: na
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 31aaa24dd6020cb8203e4ab1bfec8ce3e0ffd2b8
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: d273e963c6191fdc87c4f19c6465d8a9026a074e
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55299698"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56959416"
 ---
 # <a name="azure-event-hubs-metrics-in-azure-monitor"></a>Azure Event Hubs-mått i Azure Monitor
 
@@ -48,7 +48,7 @@ För mätvärden som stöd för dimensioner, måste du filtrera med önskad dime
 
 ## <a name="billing"></a>Fakturering
 
-Med hjälp av mätvärden i Azure Monitor är för närvarande kostnadsfritt. Om du använder ytterligare lösningar som mata in måttdata kan debiteras du dock av dessa lösningar. Exempelvis debiteras du per Azure Storage om du arkiverar måttdata till ett Azure Storage-konto. Du debiteras också av Azure om du strömma mätvärden till Log Analytics för avancerad analys.
+Med hjälp av mätvärden i Azure Monitor är för närvarande kostnadsfritt. Om du använder ytterligare lösningar som mata in måttdata kan debiteras du dock av dessa lösningar. Exempelvis debiteras du per Azure Storage om du arkiverar måttdata till ett Azure Storage-konto. Du debiteras också av Azure om du strömma måttdata till Azure Monitor-loggar för avancerad analys.
 
 Följande mått ger dig en översikt över hälsotillståndet för din tjänst. 
 

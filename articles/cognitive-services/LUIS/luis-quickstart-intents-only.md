@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/21/2018
+ms.date: 02/19/2019
 ms.author: diberry
-ms.openlocfilehash: b4ac0ccb249bac7149014861056c10f9093d6759
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 067829a1d9425ede1320242e364eca7c30bb7053
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55878176"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56593921"
 ---
 # <a name="tutorial-build-luis-app-to-determine-user-intentions"></a>Självstudier: Skapa en LUIS-app som identifierar användarens avsikter
 
@@ -165,9 +165,13 @@ Gå tillbaka till LUIS-portalen och skapa en ny avsikt för att avgöra om anvä
     |Skicka cv för teknikertjänsten|
     |Jag skickar härmed mitt cv för tjänsten 234123 i Tampa.|
 
-    [![Skärmbild av att ange nya yttranden för ApplyForJob-avsikter](media/luis-quickstart-intents-only/utterance-applyforjob.png "Skärmbild av att ange nya yttranden för ApplyForJob-avsikter")](media/luis-quickstart-intents-only/utterance-applyforjob.png#lightbox)
+<!--
 
-    Den märkta avsikten är markerad i rött eftersom LUIS för närvarande är osäker på om avsikten är korrekt. Genom träning av appen informeras LUIS om att yttrandena gäller rätt avsikt. 
+    [![Screenshot of entering new utterances for ApplyForJob intent](media/luis-quickstart-intents-only/utterance-applyforjob.png "Screenshot of entering new utterances for ApplyForJob intent")](media/luis-quickstart-intents-only/utterance-applyforjob.png#lightbox)
+
+    The labeled intent is outlined in red because LUIS is currently uncertain the intent is correct. Training the app tells LUIS the utterances are on the correct intent. 
+
+-->
 
 ## <a name="train-again"></a>Träna igen
 

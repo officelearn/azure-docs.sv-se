@@ -9,12 +9,12 @@ ms.subservice: pod
 ms.topic: overview
 ms.date: 01/18/2019
 ms.author: alkohli
-ms.openlocfilehash: b43dac7f81b92ac504427dab164d23d9ebb1ec03
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: d0d5ee18e37436562f1e9e15571dc39fb0e00129
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54411415"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56875046"
 ---
 # <a name="what-is-azure-data-box"></a>Vad är Azure Data Box?
 
@@ -76,7 +76,7 @@ Data Box innehåller följande komponenter:
 
 * **Data Box-enhet** – en fysisk enhet som tillhandahåller primärlagring, hanterar kommunikation med molnlagring och bidrar till att ge säkerhet och sekretess för alla data som lagras på enheten. Data Box-enheten har en användbar lagringskapacitet på 80 TB. 
 
-    ![Främre och bakre plan för Data Box ](media/data-box-overview/data-box-combined3.png)
+    ![Främre och bakre plan för Data Box](media/data-box-overview/data-box-combined3.png)
 
     
 * **Data Box-tjänsten** – ett tillägg till Azure-portalen som gör att du kan hantera en Data Box-enhet via ett webbgränssnitt som du kan komma åt från olika geografiska platser. Använd Data Box-tjänsten för att utföra daglig administration av din Data Box-enhet. Tjänstens uppgifter är till exempel hur du skapar och hanterar beställningar, visar och hanterar aviseringar och hanterar filresurser.  

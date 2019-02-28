@@ -1,6 +1,6 @@
 ---
 title: Skapa en SQL Server Windows-VM i portalen | Microsoft Docs
-description: Den här kursen visar hur du skapar virtuell Windows SQL Server 2017-dator i Azure-portalen.
+description: Den här kursen visar hur du skapar virtuell Windows SQL Server 2017-dator i Azure Portal.
 services: virtual-machines-windows
 documentationcenter: na
 author: MashaMSFT
@@ -14,20 +14,20 @@ ms.workload: infrastructure-services
 ms.date: 05/11/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 234625825c1d9729d4f06f2bb0c96325cdd81f22
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 0a583a75b72286718b34b84e67ee5aff34726be0
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54329354"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56818246"
 ---
-# <a name="quickstart-create-a-sql-server-2017-windows-virtual-machine-in-the-azure-portal"></a>Snabbstart: Skapa en virtuell Windows-dator med SQL Server 2017 i Azure-portalen
+# <a name="quickstart-create-a-sql-server-2017-windows-virtual-machine-in-the-azure-portal"></a>Snabbstart: Skapa en virtuell Windows-dator med SQL Server 2017 i Azure Portal
 
 > [!div class="op_single_selector"]
 > * [Windows](quickstart-sql-vm-create-portal.md)
 > * [Linux](../../linux/sql/provision-sql-server-linux-virtual-machine.md)
 
-Den här snabbstarten beskriver hur du skapar en virtuell SQL Server-dator i Azure-portalen.
+Den här snabbstarten beskriver hur du skapar en virtuell SQL Server-dator i Azure Portal.
 
 > [!TIP]
 > I snabbstarten finns en sökväg för snabb etablering och anslutning till en SQL-VM. Mer information om andra etableringsalternativ för SQL-VM finns i [Etableringsguide för Windows SQL Server-datorer i Azure-portalen](virtual-machines-windows-portal-sql-server-provision.md).
@@ -41,9 +41,9 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 ## <a id="select"></a> Välj en avbildning av en virtuell SQL Server-dator
 
-1. Logga in på [Azure-portalen](https://portal.azure.com) med ditt konto.
+1. Logga in på [Azure Portal](https://portal.azure.com) med ditt konto.
 
-1. Klicka på **Skapa en resurs** i Azure-portalen. 
+1. Klicka på **Skapa en resurs** i Azure Portal. 
 
 1. Skriv **SQL Server 2017 Developer på Windows Server 2016** i sökfältet och tryck på RETUR.
 
@@ -52,7 +52,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
    ![Nytt sökfönster](./media/quickstart-sql-vm-create-portal/newsearch.png)
 
    > [!TIP]
-   > Vi använder Developer-versionen i den här självstudien eftersom det är en komplett version av SQL Server som är kostnadsfri i samband med utvecklingstester. Du betalar endast för kostnaden för den VM som körs. Fullständig prisinformation finns i [Pricing guidance for SQL Server Azure VMs](virtual-machines-windows-sql-server-pricing-guidance.md) (Prisvägledning för virtuella SQL Server Azure-datorer).
+   > Vi använder Developer-versionen i den här självstudiekursen eftersom det är en komplett version av SQL Server som är kostnadsfri i samband med utvecklingstester. Du betalar endast för kostnaden för den VM som körs. Fullständig prisinformation finns i [Pricing guidance for SQL Server Azure VMs](virtual-machines-windows-sql-server-pricing-guidance.md) (Prisvägledning för virtuella SQL Server Azure-datorer).
 
 1. Klicka på **Skapa**.
 
@@ -112,7 +112,7 @@ Konfigurera följande alternativ i fönstret **SQL Server-inställningar**.
 
 I fönstret **Sammanfattning** granskar du sammanfattningen och klickar på **Köp** för att skapa SQL Server, resursgrupp och resurser för den här virtuella datorn.
 
-Du kan övervaka distributionen från Azure-portalen. Knappen **Meddelanden** längst upp på skärmen visar grundläggande status för distributionen.
+Du kan övervaka distributionen från Azure Portal. Knappen **Meddelanden** längst upp på skärmen visar grundläggande status för distributionen.
 
 > [!TIP]
 > Det kan ta flera minuter att distribuera en virtuell Windows SQL Server-dator.
@@ -150,11 +150,11 @@ När du har anslutit till datorn kan du direkt ändra inställningarna för dato
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du inte behöver köra den virtuella SQL-datorn kontinuerligt kan du undvika onödiga kostnader genom att stoppa den när den inte används. Du kan även permanent ta bort alla resurser som är kopplade till den virtuella datorn genom att ta bort deras kopplade resursgrupper i portalen. Det här tar även permanent bort den virtuella datorn, så använd det här kommandot med försiktighet. Mer information finns i [Manage Azure resources through portal](../../../azure-resource-manager/resource-group-portal.md) (Hantera Azure-resurser genom portalen).
+Om du inte behöver köra den virtuella SQL-datorn kontinuerligt kan du undvika onödiga kostnader genom att stoppa den när den inte används. Du kan även permanent ta bort alla resurser som är kopplade till den virtuella datorn genom att ta bort deras kopplade resursgrupper i portalen. Det här tar även permanent bort den virtuella datorn, så använd det här kommandot med försiktighet. Mer information finns i [Manage Azure resources through portal](../../../azure-resource-manager/manage-resource-groups-portal.md) (Hantera Azure-resurser genom portalen).
 
 ## <a name="next-steps"></a>Nästa steg
 
-Med den här snabbstarten skapade du en virtuell SQL Server 2017-dator i Azure-portalen. Mer information om hur du migrerar data till den nya SQL-servern finns i följande artikel.
+Med den här snabbstarten skapade du en virtuell SQL Server 2017-dator i Azure Portal. Mer information om hur du migrerar data till den nya SQL-servern finns i följande artikel.
 
 > [!div class="nextstepaction"]
 > [Migrera en databas till en virtuell SQL-dator](virtual-machines-windows-migrate-sql.md)

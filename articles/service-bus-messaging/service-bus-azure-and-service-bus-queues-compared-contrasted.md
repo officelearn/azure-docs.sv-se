@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: c59d79a7c6ac0590861c99daa01438b184cd71ff
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 8c86ffaeb717914d9165ecb5b65f300ae7d903b2
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54852804"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56959314"
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>Storage-köer och Service Bus-köer – jämförelser och skillnader
 Den här artikeln analyserar både skillnader och likheter mellan de två typerna av köer som erbjuds av Microsoft Azure idag: Storage-köer och Service Bus-köer. Med hjälp av informationen kan du jämföra de olika teknikerna och fatta klokare beslut när du ska avgöra vilken lösning som passar dig bäst.
@@ -83,7 +83,8 @@ Det här avsnittet jämför några av de grundläggande funktioner för meddelan
 * Meddelanden i Storage-köer är vanligtvis först-in-först-ut, men de kan ibland vara ur funktion, till exempel när ett meddelande synlighet tidslängden upphör att gälla (till exempel till följd av ett klientprogram som kraschar under bearbetning). När synlighet tidsgränsen upphör blir meddelandet synligt igen i kön för en annan worker att ta bort från kön den. I det här läget kan nyligen visas meddelandet placeras i kö (för att vara tagits bort från kön igen) efter ett meddelande som ursprungligen i kön efter den.
 * Garanterad FIFO-mönstret i Service Bus-köer måste du använda meddelanden sessioner. I händelse av att programmet kraschar vid bearbetning av ett meddelande tas emot i den **Granska & låsa** läge, nästa gång en kö mottagare tar emot en meddelandesession, den börjar med misslyckade meddelandet efter dess time to live (TTL) period har löpt ut.
 * Storage-köer är utformade för att stödja standard queuing scenarier, t.ex. Frikoppling programkomponenter att öka skalbarheten och tolerans för fel, läsa in Utjämning och utveckling av processarbetsflöden.
-* Stöd för Service Bus-köer i *på minst en gång* garanti om leverans. Dessutom kan den *på de flesta – en gång* semantiska kan stödjas genom att använda sessionstillstånd för att lagra programtillståndet och använda transaktioner atomiskt ta emot meddelanden och uppdatera sessionens tillstånd.
+* Stöd för Service Bus-köer i *på minst en gång* garanti om leverans. 
+* Inkonsekvenser avseende meddelandehantering i samband med Service Bus-sessioner kan undvikas genom att använda sessionstillstånd för att lagra programtillstånd i förhållande till förloppet hantera sessionens Meddelandeordningen och genom att använda transaktioner runt reglera emot meddelanden och uppdatera sessionens tillstånd. Den här typen av konsekvens funktionen klassificerades ibland *exakt-bearbetning av en gång* i andra leverantörens produkter, men transaktion meddelanden ska redeliveried naturligtvis leder till fel och därför termen är inte exakt tillräckligt.
 * Storage-köer ger en enhetlig och konsekvent programmeringsmodell på köer, tabeller och Blobbar – både för utvecklare och för driftteam.
 * Service Bus-köer ger stöd för lokala transaktioner i kontexten för en enskild kö.
 * Den **ta emot och ta bort** läge som stöds av Service Bus gör möjligheten att minska antal meddelanden (och associerade kostnader) i utbyte mot sänkt leverans assurance.
@@ -173,7 +174,7 @@ Det här avsnittet beskrivs autentisering och auktorisering funktioner som stöd
 
 | Jämförelsevillkor | Lagringsköer | Service Bus-köer |
 | --- | --- | --- |
-| Autentisering |**Symmetrisk nyckel** |**Symmetrisk nyckel** |
+| Authentication |**Symmetrisk nyckel** |**Symmetrisk nyckel** |
 | Säkerhetsmodell |Delegerad åtkomst via SAS-token. |SAS |
 | Provider för identitetsfederation |**Nej** |**Ja** |
 

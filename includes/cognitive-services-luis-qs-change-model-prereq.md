@@ -10,12 +10,12 @@ ms.topic: include
 ms.custom: include file
 ms.date: 08/16/2018
 ms.author: diberry
-ms.openlocfilehash: 07295289365805aebd674f5ddf1e4bb71f0ff755
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 3e8130388b048f68788dbd018275b9b22db714bf
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56278253"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56740740"
 ---
 * Din **[LUIS-redigeringsnyckel](../articles/cognitive-services/luis/luis-concept-keys.md#authoring-key)**. 
 * Importera [TravelAgent-appen](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/quickstarts/change-model/TravelAgent.json) från GitHub-lagringsplatsen cognitive-services-language-understanding. 

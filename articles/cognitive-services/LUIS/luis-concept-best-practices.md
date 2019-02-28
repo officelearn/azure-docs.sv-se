@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 02/19/2019
+ms.date: 02/26/2019
 ms.author: diberry
-ms.openlocfilehash: 4a06b30c209828e7ffd9f59d1b4ece06cfe6e2dd
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: d7547ecf387e070efe788ba5f8582076388f422a
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56428915"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56984211"
 ---
 # <a name="best-practices-for-building-a-language-understanding-app-with-cognitive-services"></a>Metodtips för att skapa en app med language understanding med Cognitive Services
 Använd appredigeringsprocessen för att skapa LUIS-appen. 
@@ -78,7 +78,9 @@ Mer information:
 
 ## <a name="do-add-phrase-lists-and-patterns-in-later-iterations"></a>Lägg till frasen listor och mönster i senare iterationer
 
-Ett bra tips är att inte använda dessa metoder innan din app har testats. Du bör förstå hur appen fungerar innan du lägger till frasen listor och mönster. När du förstår hur din app fungerar utan dessa lägger du till de här funktionerna eftersom de gäller för din app. Du behöver inte lägga till dessa funktioner i varje [iteration](luis-concept-app-iteration.md) eller ändra funktionerna med varje version. 
+Ett bra tips är att inte använda dessa metoder innan din app har testats. Du bör förstå hur appen fungerar innan du lägger till frasen listor och mönster eftersom de här funktionerna tyngre än exempel yttranden och kommer ge skeva förtroende. 
+
+När du förstår hur din app fungerar utan dessa lägger du till de här funktionerna eftersom de gäller för din app. Du behöver inte lägga till dessa funktioner i varje [iteration](luis-concept-app-iteration.md) eller ändra funktionerna med varje version. 
 
 Det finns inget om man lägger till dem i början av modelldesignen men det är lättare att se hur varje funktion ändras resultat när modellen har testats med yttranden. 
 

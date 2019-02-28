@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: orspod
-ms.openlocfilehash: f614c6770dd29bc3d6b42c36fe8c81d9f129cd81
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: d30eab024fa988b3341c5efc9fe188ee4802720a
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56816665"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56961082"
 ---
 # <a name="copy-data-to-or-from-azure-data-explorer-using-azure-data-factory"></a>Kopiera data till och från Azure Data Explorer med Azure Data Factory
 
@@ -44,6 +44,22 @@ Datautforskaren i Azure-anslutningen kan du göra följande:
 Följande avsnitt innehåller information om egenskaper som används för att definiera Data Factory-entiteter som är specifika för Azure Data Explorer-anslutningen.
 
 ## <a name="linked-service-properties"></a>Länkade tjänstegenskaper
+
+Datautforskaren i Azure-anslutningsappen använder autentisering av tjänstens huvudnamn. Följ dessa steg för att få ett huvudnamn för tjänsten och bevilja behörigheter:
+
+1. Registrera en entitet för program i Azure Active Directory (Azure AD) genom att följa [registrera ditt program med en Azure AD-klient](../storage/common/storage-auth-aad-app.md#register-your-application-with-an-azure-ad-tenant). Anteckna följande värden som du använder för att definiera den länkade tjänsten:
+
+    - Program-ID:t
+    - Programnyckel
+    - Klient-ID:t
+
+2. Ge tjänstens huvudnamn rätt behörighet i Datautforskaren i Azure. Referera till [hantera Azure Data Explorer databasbehörigheter](../data-explorer/manage-database-permissions.md) med detaljerad information om roller och behörigheter samt genomgång om hur du hanterar behörigheter. I allmänhet måste du
+
+    - **Som källa**, ge minst **databasen viewer** rollen till din databas.
+    - **Som mottagare**, ge minst **Database lösning** rollen till din databas.
+
+>[!NOTE]
+>När du använder ADF UI för att skapa kan åtgärder för att visa en lista över databaser på den länkade tjänsten eller visa en lista över tabeller i datauppsättningen kräva högre Privilegierade beviljats behörigheten för tjänstens huvudnamn. Du kan också välja att manuellt ange databasnamnet och tabellnamn. Kopiera aktivitet körning fungerar så länge tjänstens huvudnamn har beviljats med rätt behörighet att läsa/skriva data.
 
 Följande egenskaper har stöd för Azure Data Explorer länkade tjänsten:
 
@@ -162,7 +178,7 @@ För att kopiera data till Azure Data Explorer, ange egenskapen type i Kopiera a
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Den **typ** egenskapen kopiera aktivitet komprimeringstyp måste anges som: **AzureDataExplorerSink** | Ja |
-| ingestionMappingName | Namnet på en förskapad **[CSV mappning](/azure/kusto/management/mappings#csv-mapping)** på en Kusto-tabell. JSON-mappning och Avro-mappning på Azure Data Explorer direkt stöds inte men du kan fortfarande kopiera data från JSON/Avro-filer. Om du vill mappa kolumner från källan till Datautforskaren i Azure, kan du använda kopieringsaktiviteten [kolumnmappning](copy-activity-schema-and-type-mapping.md) som tillsammans fungerar även med Azure Data Explorer CSV mappningar – kopiera aktivitet maps/återexport-shapes data från källa till mottagare baserat på kolumnen mappning av inställningar, mappar sedan data igen baserat på inmatning mappning konfiguration om det finns. Den gäller för [stöds alla källa butiker](copy-activity-overview.md#supported-data-stores-and-formats) inklusive JSON- och Avro-format. | Nej |
+| ingestionMappingName | Namnet på en förskapad **[CSV mappning](/azure/kusto/management/mappings#csv-mapping)** för en Kusto-tabell. Mappa kolumner från källan till Datautforskaren i Azure - som gäller för **[alla stöds källans datalager/format](copy-activity-overview.md#supported-data-stores-and-formats)** inklusive CSV/JSON/Avro formaterar osv, kan du använda kopieringsaktiviteten [kolumn mappning av](copy-activity-schema-and-type-mapping.md) (implicit efter namn eller uttryckligen som konfigurerats) och/eller Azure Data Explorer CSV-mappningar. | Nej |
 
 **Exempel:**
 

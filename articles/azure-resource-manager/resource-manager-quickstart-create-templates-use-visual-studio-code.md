@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 02/14/2019
+ms.date: 02/25/2019
 ms.topic: quickstart
 ms.author: jgao
-ms.openlocfilehash: 37d84206246e60ed16244d6172a5e22ca18524c9
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 33bc10bb601fa14a34b6032c54b0c751a3608ccc
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56270257"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56823662"
 ---
 # <a name="quickstart-create-azure-resource-manager-templates-by-using-visual-studio-code"></a>Snabbstart: Skapa Azure Resource Manager-mallar med hjälp av Visual Studio Code
 
@@ -132,8 +132,8 @@ Det finns många metoder för att distribuera mallar.  I den här snabbstarten a
     read resourceGroupName &&
     echo "Enter the location (i.e. centralus):" &&
     read location &&
-    az group create --name $resourceGroupName --location $location &&
-    az group deployment create --resource-group $resourceGroupName --template-file "azuredeploy.json"
+    az group create --name $resourceGroupName --location "$location" &&
+    az group deployment create --resource-group $resourceGroupName --template-file "$HOME/azuredeploy.json"
     ```
    
     # <a name="powershelltabpowershell"></a>[PowerShell](#tab/PowerShell)
@@ -142,14 +142,11 @@ Det finns många metoder för att distribuera mallar.  I den här snabbstarten a
     $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
     $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
     
-    New-AzResourceGroup -Name $resourceGroupName -Location $location
-    New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateFile "azuredeploy.json"
+    New-AzResourceGroup -Name $resourceGroupName -Location "$location"
+    New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateFile "$HOME/azuredeploy.json"
     ```
     
     ---
-
-    > [!NOTE]
-    > Det finns ett I/O-filproblem om Azure PowerShell används i Cloud Shell.  Felmeddelandet är *Cannot retrieve the dynamic parameters for the cmdlet. Cannot find path 'Azure:/azuredeploy.json' because it does not exist.* (Det går inte att hämta de dynamiska parametrarna för cmdleten. Det går inte att hitta sökvägen ”Azure:/azuredeploy.json” eftersom den inte finns.)  En tillfällig lösning är inte att ta med växeln **-TemplateFile** i kommandot `New-AzResourceGroupDeploy`. Kommandot uppmanar dig att ange namnet på filen.
 
     Uppdatera mallfilnamnet om du sparar filen som ett annat namn än **azuredeploy.json**. 
 

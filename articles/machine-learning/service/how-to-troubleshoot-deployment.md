@@ -1,7 +1,7 @@
 ---
 title: Distribuera felsökningsguide
 titleSuffix: Azure Machine Learning service
-description: Lär dig hur till lösning kan lösa och felsöka vanliga Docker-distributionsfel med AKS och ACI med hjälp av Azure Machine Learning-tjänsten.
+description: Lär dig hur du kan undvika, lösa och felsöka vanliga Docker-distributionsfel med AKS och ACI med hjälp av Azure Machine Learning-tjänsten.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ ms.author: clauren
 ms.reviewer: jmartens
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 112fff011ebfedc1abf6981661da5fd4d97fc3d0
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 4b0dddf14564f2813ea019addf6b97b79707b78e
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56267157"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56983582"
 ---
 # <a name="troubleshooting-azure-machine-learning-service-aks-and-aci-deployments"></a>Felsökning av Azure Machine Learning-tjänsten AKS och ACI-distributioner
 
@@ -43,7 +43,7 @@ Mer information om den här processen i den [modellhantering](concept-model-mana
 
 Om du stöter på några problem, det första du ska göra är att bryta ned aktiviteten distribution (tidigare beskrivs) till enskilda steg för att isolera problemet. 
 
-Detta är särskilt användbart om du använder den `Webservice.deploy` API, eller `Webservice.deploy_from_model` API, eftersom dessa funktioner gruppera de tidigare nämnda steg i en enda åtgärd. Vanligtvis dessa API: er är ganska enkelt, men det hjälper dig för att dela upp stegen när du felsöker genom att ersätta dem med den nedan API-anrop.
+Det här är användbart om du använder den `Webservice.deploy` API, eller `Webservice.deploy_from_model` API, eftersom dessa funktioner gruppera de tidigare nämnda steg i en enda åtgärd. Dessa API: er är oftast praktiskt, men det hjälper dig för att dela upp stegen när du felsöker genom att ersätta dem med den nedan API-anrop.
 
 1. Registrera modellen. Här är exempelkod:
 
@@ -101,9 +101,54 @@ for name, img in ws.images.items():
 ```
 Logg-uri för avbildning är en SAS-URL som pekar på en loggfil som lagras i Azure blob storage. Helt enkelt kopiera och klistra in URI: n i ett webbläsarfönster och du kan hämta och visa loggfilen.
 
+### <a name="azure-key-vault-access-policy-and-azure-resource-manager-templates"></a>Åtkomstprincip för Azure Key Vault och Azure Resource Manager-mallar
+
+Bild-versionen kan också misslyckas på grund av ett problem med åtkomstprincipen i Azure Key Vault. Detta kan inträffa när du använder en Azure Resource Manager-mall för att skapa arbetsyta och associerade resurser (inklusive Azure Key Vault), flera gånger. Till exempel med hjälp av mallen flera gånger med samma parametrar som en del av en kontinuerlig integrering och av distributionspipeline.
+
+De flesta resursskapande åtgärder via mallar är idempotenta, men Key Vault rensar principer för åtkomst till varje gång mallen används. Detta bryter åtkomst till Key Vault för en befintlig arbetsyta som använder den. Detta resulterar i fel vid försök att skapa nya avbildningar. Här följer några exempel på de fel som du kan ta emot:
+
+__Portal__:
+```text
+Create image "myimage": An internal server error occurred. Please try again. If the problem persists, contact support.
+```
+
+__SDK__:
+```python
+image = ContainerImage.create(name = "myimage", models = [model], image_config = image_config, workspace = ws)
+Creating image
+Traceback (most recent call last):
+  File "C:\Python37\lib\site-packages\azureml\core\image\image.py", line 341, in create
+    resp.raise_for_status()
+  File "C:\Python37\lib\site-packages\requests\models.py", line 940, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 500 Server Error: Internal Server Error for url: https://eastus.modelmanagement.azureml.net/api/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.MachineLearningServices/workspaces/<workspace-name>/images?api-version=2018-11-19
+
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "C:\Python37\lib\site-packages\azureml\core\image\image.py", line 346, in create
+    'Content: {}'.format(resp.status_code, resp.headers, resp.content))
+azureml.exceptions._azureml_exception.WebserviceException: Received bad response from Model Management Service:
+Response Code: 500
+Headers: {'Date': 'Tue, 26 Feb 2019 17:47:53 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'api-supported-versions': '2018-03-01-preview, 2018-11-19', 'x-ms-client-request-id': '3cdcf791f1214b9cbac93076ebfb5167', 'x-ms-client-session-id': '', 'Strict-Transport-Security': 'max-age=15724800; includeSubDomains; preload'}
+Content: b'{"code":"InternalServerError","statusCode":500,"message":"An internal server error occurred. Please try again. If the problem persists, contact support"}'
+```
+
+__CLI__:
+```text
+ERROR: {'Azure-cli-ml Version': None, 'Error': WebserviceException('Received bad response from Model Management Service:\nResponse Code: 500\nHeaders: {\'Date\': \'Tue, 26 Feb 2019 17:34:05
+GMT\', \'Content-Type\': \'application/json\', \'Transfer-Encoding\': \'chunked\', \'Connection\': \'keep-alive\', \'api-supported-versions\': \'2018-03-01-preview, 2018-11-19\', \'x-ms-client-request-id\':
+\'bc89430916164412abe3d82acb1d1109\', \'x-ms-client-session-id\': \'\', \'Strict-Transport-Security\': \'max-age=15724800; includeSubDomains; preload\'}\nContent:
+b\'{"code":"InternalServerError","statusCode":500,"message":"An internal server error occurred. Please try again. If the problem persists, contact support"}\'',)}
+```
+
+Vi rekommenderar en av följande metoder för att undvika det här problemet:
+
+* Distribuera inte mallen mer än en gång för samma parametrar. Eller ta bort befintliga resurser innan du använder mallen för att återskapa dem.
+* Granska åtkomstprinciper för Key Vault och använda detta för att ange den `accessPolicies` egenskapen för mallen.
+* Kontrollera om Key Vault-resursen finns redan. I annat fall du inte återskapa den via mallen. Lägg exempelvis till en parameter som gör det möjligt att inaktivera skapandet av Key Vault-resursen om den redan finns.
 
 ## <a name="service-launch-fails"></a>Starta tjänsten misslyckas
-När avbildningen har har skapats, försöker systemet att starta en behållare i ACI eller AKS beroende på din konfiguration av distributionen. Allmänt rekommenderar vi att du prova en ACI-distribution först, eftersom det är en enklare distribution av enskild behållare. Det här sättet du kan sedan försäkra dig om eventuella problem med AKS.
+När avbildningen har har skapats, försöker systemet att starta en behållare i ACI eller AKS beroende på din konfiguration av distributionen. Det rekommenderas att använda en ACI-distribution först, eftersom det är en enklare distribution av enskild behållare. Det här sättet du kan sedan försäkra dig om eventuella problem med AKS.
 
 Som en del i processen för att starta upp behållaren, den `init()` funktionen i din bedömningsskriptet anropas av systemet. Om det finns undantag utan felhantering i den `init()` fungerar, visas **CrashLoopBackOff** fel i felmeddelandet. Nedan följer några tips för att felsöka problemet.
 
@@ -222,6 +267,47 @@ def run(input_data):
         return json.dumps({"error": result})
 ```
 **Obs!** Returnerar felmeddelanden från den `run(input_data)` anrop görs för felsökning endast syfte. Det kanske inte är en bra idé att göra detta i en produktionsmiljö av säkerhetsskäl.
+
+## <a name="http-status-code-503"></a>HTTP-statuskod: 503
+
+Azure Kubernetes Service-distributioner stöder automatisk skalning, vilket gör att repliker som ska läggas till stöd för ytterligare belastning. Dock autoskalningen är utformad för att hantera **gradvis** ändringar i belastningen. Om du får kraftigt i begäranden per sekund, får klienter en HTTP-statuskod: 503.
+
+Det finns två saker som kan förhindra statuskoder som 503:
+
+* Ändra användningsnivån på vilka autoskalning skapar nya repliker.
+    
+    Målanvändning för automatisk skalning är som standard till 70%, vilket innebär att tjänsten kan hantera toppar i begäranden per sekund (RPS) upp till 30%. Du kan justera målvärde för användning genom att ange den `autoscale_target_utilization` till ett lägre värde.
+
+    > [!IMPORTANT]
+    > Den här ändringen inte orsakar repliker skapas *snabbare*. I stället skapas de med ett lägre tröskelvärde för användning. I stället för att vänta tills tjänsten har 70% används, gör att ändra värdet till 30% repliker som ska skapas när 30% utnyttjande inträffar.
+    
+    Om webbtjänsten använder redan de aktuella max replikerna och du fortfarande ser statuskoder som 503, öka den `autoscale_max_replicas` värde att öka det maximala antalet repliker.
+
+* Ändra det minsta antalet repliker. Öka de minsta replikerna ger en större pool för att hantera inkommande toppar.
+
+    Om du vill öka det minsta antalet repliker, ange `autoscale_min_replicas` på ett högre värde. Du kan beräkna krävs replikerna med hjälp av följande kod, ersättning av värden med specifika värden i projektet:
+
+    ```python
+    from math import ceil
+    # target requests per second
+    targetRps = 20
+    # time to process the request (in seconds)
+    reqTime = 10
+    # Maximum requests per container
+    maxReqPerContainer = 1
+    # target_utilization. 70% in this example
+    targetUtilization = .7
+
+    concurrentRequests = targetRps * reqTime / targetUtilization
+
+    # Number of container replicas
+    replicas = ceil(concurrentRequests / maxReqPerContainer)
+    ```
+
+    > [!NOTE]
+    > Om du får större än de nya minsta replikerna kan hantera toppar i begäran, kan du få 503s igen. Som trafik till din tjänst ökar, kan du behöva öka de minsta replikerna.
+
+Mer information om hur `autoscale_target_utilization`, `autoscale_max_replicas`, och `autoscale_min_replicas` , finns i den [AksWebservice](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py) modulreferens.
 
 
 ## <a name="next-steps"></a>Nästa steg

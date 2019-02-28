@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 535dd04efd9f150365b24ae175ee90fbb247305f
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 28b15e950aa4ebbfcb1b04bfd495b3accf13528e
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54846684"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56586910"
 ---
 # <a name="get-started-with-service-bus-topics"></a>Kom igång med Service Bus-ämnen
 
@@ -41,40 +41,11 @@ Den här självstudien omfattar följande steg:
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
-## <a name="1-create-a-namespace-using-the-azure-portal"></a>1. Skapa ett namnområde med Azure Portal
-
-> [!NOTE] 
-> Du kan också skapa ett Service Bus-namnområde och meddelandeentiteter med [PowerShell](/powershell/azure/get-started-azureps). Mer information finns i [Använda PowerShell för att hantera Service Bus-resurser](service-bus-manage-with-ps.md).
-
-Om du redan har skapat ett namnområde för Service Bus-meddelanden går du vidare till avsnittet [Skapa ett ämne med Azure Portal](#2-create-a-topic-using-the-azure-portal).
-
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
-## <a name="2-create-a-topic-using-the-azure-portal"></a>2. Skapa ett ämne med Azure Portal
+[!INCLUDE [service-bus-create-topics-subscriptions-portal](../../includes/service-bus-create-topics-subscriptions-portal.md)]
 
-1. Logga in på [Azure Portal][azure-portal].
-2. I det vänstra navigeringsfönstret i portalen klickar du på **Service Bus** (om du inte ser **Service Bus** klickar du på **Alla tjänster** eller på **Alla resurser**). Klicka på det namnområde där du vill skapa ämnet. 
-3. Översiktsfönstret för namnområdet öppnas. Klicka på **Ämnen**:
-   
-    ![Skapa ett ämne][createtopic1]
-4. Klicka på **+ ämne**.
-   
-    ![Välja ämnen][createtopic2]
-5. Ange ett namn för ämnet. Lämna standardvärdena för de andra alternativen.
-   
-    ![Välj ny][createtopic3]
-6. Klicka på **Skapa** längst ned i dialogrutan.
-
-## <a name="3-create-a-subscription-to-the-topic"></a>3. Skapa en prenumeration på ämnet
-
-1. I fönstret med portalresurser klickar du på det namnområde du skapade i steg 1. Klicka sedan på **Ämnen** och klicka på namnet på det ämne du skapade i steg 2.
-2. Klicka på **+ Prenumeration** längst upp i översiktsfönstret för att lägga till en prenumeration på det här ämnet.
-
-    ![Skapa en prenumeration][createtopic4]
-
-3. Ange ett namn för prenumerationen. Lämna standardvärdena för de andra alternativen.
-
-## <a name="4-send-messages-to-the-topic"></a>4. Skicka meddelanden till ämnet
+## <a name="send-messages-to-the-topic"></a>Skicka meddelanden till ämnet
 
 För att kunna skicka meddelanden till ämnet skriver du ett C#-konsolprogram med Visual Studio.
 
@@ -231,7 +202,7 @@ Starta Visual Studio och skapa ett nytt projekt: **Konsolprogram (.NET Core)**.
    
       ![Meddelandestorlek][topic-message]
 
-## <a name="5-receive-messages-from-the-subscription"></a>5. Ta emot meddelanden från prenumerationen
+## <a name="receive-messages-from-the-subscription"></a>Ta emot meddelanden från prenumerationen
 
 För att ta emot de meddelanden som du just skickade skapar du ytterligare ett .NET Core-konsolprogram och installerar **Microsoft.Azure.ServiceBus** NuGet-paketet, på ungefär samma sätt som i det tidigare sändningsprogrammet.
 

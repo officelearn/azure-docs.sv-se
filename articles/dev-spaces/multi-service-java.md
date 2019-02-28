@@ -11,12 +11,12 @@ ms.topic: tutorial
 description: Snabb Kubernetes-utveckling med containrar och mikrotjänster i Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers
 manager: yuvalm
-ms.openlocfilehash: 0bc680b47a85834886b8d7875968eb4b9b12a870
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 2ca5e41bb384a9b4d7fd1c5d81f4e8b9c921472a
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55664826"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56817345"
 ---
 # <a name="multi-service-development-with-azure-dev-spaces"></a>Utveckling av flera tjänster med Azure Dev Spaces
 
@@ -76,7 +76,7 @@ I föregående kodexempel vidarebefordras rubriken `azds-route-as` från den ink
 Du har kanske märkt att även om *webfrontend* inte innehåller någon särskild kod för att skriva ut HTTP-anropet till *mywebapi* så kan du se att HTTP spårar meddelanden i utdatafönstret:
 ```
 // The request from your browser
-webfrontend.856bb3af715744c6810b.eastus.aksapp.io --ytv-> webfrontend:8080:
+default.webfrontend.856bb3af715744c6810b.eus.azds.io --ytv-> webfrontend:8080:
    GET /greeting?_=1544503627515 HTTP/1.1
 
 // *webfrontend* reaching out to *mywebapi*
@@ -89,7 +89,7 @@ webfrontend <-ve4-- mywebapi:
    Hello from mywebapi
 
 // Response from *webfrontend* to your browser
-webfrontend.856bb3af715744c6810b.eastus.aksapp.io <-ytv-- webfrontend:8080:
+default.webfrontend.856bb3af715744c6810b.eus.azds.io <-ytv-- webfrontend:8080:
    HTTP/1.1 200
    Hello from webfrontend and
    Hello from mywebapi

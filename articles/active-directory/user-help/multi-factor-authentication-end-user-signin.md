@@ -14,12 +14,12 @@ ms.date: 04/02/2017
 ms.author: lizross
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2545e85ff466ed7455161eb725b824da465457bd
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 153b3d61324d504fe260b104bf412913f9692627
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56177341"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56957546"
 ---
 # <a name="the-sign-in-experience-with-azure-multi-factor-authentication"></a>Inloggning med Azure Multi-Factor Authentication
 > [!NOTE]
@@ -83,9 +83,8 @@ Du behöver ibland telefon eller enhet som du konfigurerar som din prioriterad v
   ![Använd alternativ metod](./media/multi-factor-authentication-end-user-signin/alt.png)
 
 ## <a name="next-steps"></a>Nästa steg
+- Om du har problem med att logga in med tvåstegsverifiering kan få mer information på [har problem med Azure Multi-Factor Authentication](multi-factor-authentication-end-user-troubleshoot.md).
 
-Om du har problem med att logga in med tvåstegsverifiering kan få mer information på [har problem med Azure Multi-Factor Authentication](multi-factor-authentication-end-user-troubleshoot.md).
+- Lär dig hur du [hantera dina inställningar för tvåstegsverifiering](multi-factor-authentication-end-user-manage-settings.md).
 
-Lär dig hur du [hantera dina inställningar för tvåstegsverifiering](multi-factor-authentication-end-user-manage-settings.md).
-
-Lär dig hur du [Kom igång med Microsoft Authenticator-appen](user-help-auth-app-download-install.md) så att du kan använda meddelanden för att logga in, i stället för texter och telefonsamtal.
+- Lär dig hur du [Kom igång med Microsoft Authenticator-appen](user-help-auth-app-download-install.md) så att du kan använda meddelanden för att logga in, i stället för texter och telefonsamtal.

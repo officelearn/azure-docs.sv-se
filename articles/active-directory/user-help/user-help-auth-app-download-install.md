@@ -13,12 +13,12 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8e11092057af3a7a16c60e55837f31ac3004e42a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 40be6f333bf259cc036bec9c0d9fc967dd33f2a3
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56184847"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56960045"
 ---
 # <a name="download-and-install-the-microsoft-authenticator-app"></a>Ladda ned och installera Microsoft Authenticator-appen
 Med Microsoft Authenticator-appen kan du logga in på dina konton om du använder tvåfaktorsverifiering. Med tvåfaktorsverifiering kan du komma åt dina konton säkrare, särskilt när du visar känslig information. Eftersom lösenord kan glömmas, stjälas eller komprometteras är tvåfaktorsverifiering ett ytterligare steg som hjälper dig att skydda ditt konto genom att göra det svårare för andra att logga in.
@@ -28,6 +28,9 @@ Du kan använda Microsoft Authenticator-appen på flera sätt, däribland följa
 - **Verifiering av två faktorer.** Den standard verifieringsmetod, där en av faktorerna är ditt lösenord. När du loggar in med ditt användarnamn och lösenord, kan du antingen Godkänn ett meddelande eller ange en angivna Verifieringskod.
 
 - **Telefoninloggning.** En version av två faktorer verifiering som låter dig logga in utan att kräva ett lösenord med ditt användarnamn och din mobila enhet med ditt fingeravtryck, ett ansikte eller en PIN-kod.
+
+>[!Important]
+>Din organisation kräver att du använder en autentiseringsapp för att logga in och komma åt din organisations data och dokument. Även om ditt användarnamn kan visas i appen, kontot inte faktiskt har ställts in så att den fungerar som en verifieringsmetod förrän du har slutfört registreringsprocessen. Mer information finns i [Lägg till ditt arbets- eller skolkonto](user-help-auth-app-overview.md).
 
 >[!NOTE]
 >Om du har problem med att logga in på ditt konto kan du läsa [When you can't sign in to your Microsoft account](https://support.microsoft.com/help/12429) (När du inte kan logga in på ditt Microsoft-konto) om du behöver hjälp.  Få mer information om vad du gör när du får meddelandet [”Det Microsoft-kontot finns inte”](https://support.microsoft.com/help/13811) när du försöker logga in på ditt Microsoft-konto.

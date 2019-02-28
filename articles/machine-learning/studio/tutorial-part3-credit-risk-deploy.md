@@ -10,22 +10,22 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
-ms.openlocfilehash: 6e3f0613e89ef7d6e9b44e519226a793940d41f6
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: f64000ed502ee817f907e6ac9c89c2f037725a39
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56007260"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56823798"
 ---
 # <a name="tutorial-3-deploy-credit-risk-model---azure-machine-learning-studio"></a>Självstudie 3: Distribuera en kreditriskmodell – Azure Machine Learning Studio
 
-I den här självstudien ska vi titta närmare på hur du utvecklar en lösning för förutsägelseanalys. Du ska utveckla en enkel modell i Machine Learning Studio.  Därefter ska du distribuera modellen som en Azure Machine Learning-webbtjänst.  Den här distribuerade modellen kan göra förutsägelser med nya data. Självstudien är **del tre i en självstudieserie i tre delar**.
+I den här självstudien ska vi titta närmare på hur du utvecklar en lösning för förutsägelseanalys. Du ska utveckla en enkel modell i Machine Learning Studio.  Därefter distribuerar du modellen som en Azure Machine Learning-webbtjänst.  Den här distribuerade modellen kan göra förutsägelser med nya data. Självstudien är **del tre i en självstudieserie i tre delar**.
 
 Anta att du behöver förutsäga kreditrisken för en person baserat på den information som han eller hon fyller i på en kreditansökan.  
 
-Kreditriskbedömning är ett komplext problem, men den här självstudien kommer att förenkla processen. Vi ska använda den som ett exempel på hur du skapar en lösning för förutsägelseanalys i Microsoft Azure Machine Learning. Du använder Azure Machine Learning Studio och en Machine Learning-webbtjänst i den här lösningen. 
+Kreditriskbedömning är ett komplext problem, men den här självstudien kommer att förenkla processen. Du använder det som ett exempel på hur du kan skapa en lösning för förutsägelseanalys med hjälp av Microsoft Azure Machine Learning Studio. Du använder Azure Machine Learning Studio och en Machine Learning-webbtjänst i den här lösningen. 
 
-I den här självstudien i tre delar börjar du med offentligt tillgängliga kreditriskdata.  Därefter ska du utveckla och träna en förutsägelsemodell.  Slutligen ska du distribuera modellen som en webbtjänst.
+I den här självstudien i tre delar börjar du med offentligt tillgängliga kreditriskdata.  Därefter utvecklar du och tränar en förutsägelsemodell.  Slutligen ska du distribuera modellen som en webbtjänst.
 
 I [del ett av självstudien](tutorial-part1-credit-risk.md) skapade du en Machine Learning Studio-arbetsyta, överförde data och skapade ett experiment.
 
@@ -234,7 +234,7 @@ Det snabbaste och enklaste sättet att få åtkomst till en klassisk webbtjänst
 
 Dessa webbappmallar kan skapa en anpassad webbapp som känner till din webbtjänsts indata och vad den ska returnera. Allt du behöver göra är att ge åtkomst till din webbtjänst och dina data så sköter mallen resten.
 
-Mer information om hur du använder webbappmallar finns i [Använda en Azure Machine Learning-webbtjänst med en webbappmall](consume-web-service-with-web-app-template.md).
+Mer information om hur du använder webbappmallar finns i [Använda en Azure Machine Learning-webbtjänst med en webbappmall](/azure/machine-learning/studio/consume-web-services).
 
 
 

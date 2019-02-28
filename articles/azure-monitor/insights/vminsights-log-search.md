@@ -1,6 +1,6 @@
 ---
 title: Så här fråga loggar från Azure Monitor för virtuella datorer (förhandsversion) | Microsoft Docs
-description: Azure Monitor för virtuella datorer lösningen vidarebefordrar mätvärden och loggdata till Log Analytics och den här artikeln beskriver posterna och innehåller exempelfrågor.
+description: Azure Monitor för virtuella datorer lösningen samlar in mätvärden och loggdata till och den här artikeln beskriver posterna och innehåller exempelfrågor.
 services: azure-monitor
 documentationcenter: ''
 author: mgoedtel
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/06/2019
 ms.author: magoedte
-ms.openlocfilehash: 3ab70febbb41b26fd824f9ae6ef0d00358c7530f
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: f33b87fa2c90eda7e4fa135e55565781e8491418
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55864425"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56983786"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-vms-preview"></a>Hur du frågar loggar från Azure Monitor för virtuella datorer (förhandsversion)
-Azure Monitor för virtuella datorer samlar in prestanda- och anslutningshanteringstjänsten mått, datorn och processen inventeringsdata och hälsotillståndsinformation och vidarebefordrar det till Log Analytics-datalager i Azure Monitor.  Informationen är tillgänglig för [search](../../azure-monitor/log-query/log-query-overview.md) i Log Analytics. Du kan använda dessa data för scenarier som omfattar planering av migreringsaktiviteter, kapacitetsanalys, identifiering och prestandafelsökning för på begäran.
+Azure Monitor för virtuella datorer samlar in prestanda och anslutningsmått, datorn och processen inventeringsdata och hälsotillståndsinformation och vidarebefordrar det till arbetsytan Log Analytics i Azure Monitor.  Informationen är tillgänglig för [fråga](../../azure-monitor/log-query/log-query-overview.md) i Azure Monitor. Du kan använda dessa data för scenarier som omfattar planering av migreringsaktiviteter, kapacitetsanalys, identifiering och prestandafelsökning för på begäran.
 
 ## <a name="map-records"></a>Mappa poster
 En post skapas per timme för varje unika datornamn och processen, förutom de poster som genereras när en process eller datorn startas inte eller är publicerat till Azure Monitor för virtuella datorer kartan funktion. Dessa poster har egenskaper i följande tabeller. Fält och värden i ServiceMapComputer_CL händelserna mappar till fält i resursen för datorer i Azure Resource Manager-API för ServiceMap. Fält och värden i ServiceMapProcess_CL händelserna mappar till fälten för Process-resurs i ServiceMap Azure Resource Manager API. Fältet ResourceName_s matchar namnfältet i motsvarande Resource Manager-resurs. 
@@ -34,7 +34,7 @@ Det finns internt genererade egenskaper som du kan använda för att identifiera
 Eftersom flera poster kan finnas för en angiven process och datorer i ett specifikt tidsintervall kan frågor returnera fler än en post för samma dator eller process. Om du vill inkludera endast den senaste posten, lägger du till ”| dedupliceringen ResourceId ”i frågan.
 
 ### <a name="connections"></a>Anslutningar
-Anslutningsmått skrivs till en ny tabell i Log Analytics - VMConnection. Den här tabellen innehåller information om anslutningar för en virtuell dator (inkommande och utgående). Anslutningsmått blir också tillgängliga med API: er som tillhandahåller metoder för att hämta ett specifikt mått under ett tidsintervall.  TCP-anslutningar som härrör från ”*acceptera*- ing för en lyssnande socket är inkommande, samtidigt som de som används av *ansluta*- ing till en given IP och port är utgående. Riktning för en anslutning som representeras av egenskapen riktning, som kan vara inställd på antingen **inkommande** eller **utgående**. 
+Anslutningsmått skrivs till en ny tabell i Azure Monitor-loggar - VMConnection. Den här tabellen innehåller information om anslutningar för en virtuell dator (inkommande och utgående). Anslutningsmått blir också tillgängliga med API: er som tillhandahåller metoder för att hämta ett specifikt mått under ett tidsintervall.  TCP-anslutningar som härrör från ”*acceptera*- ing för en lyssnande socket är inkommande, samtidigt som de som används av *ansluta*- ing till en given IP och port är utgående. Riktning för en anslutning som representeras av egenskapen riktning, som kan vara inställd på antingen **inkommande** eller **utgående**. 
 
 Poster i tabellerna genereras från data som rapporteras av beroendeagenten. Varje post representerar en områdes under ett tidsintervall för en minut. Egenskapen TimeGenerated anger början av tidsintervallet. Varje post innehåller information för att identifiera entiteten respektive, det vill säga, anslutning eller port samt mått som är associerade med denna entitet. För närvarande rapporteras endast nätverksaktivitet som sker med TCP över IPv4.
 
@@ -255,5 +255,5 @@ let remoteMachines = remote | summarize by RemoteMachine;
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-* Om du är nybörjare på att skriva frågor i Log Analytics kan du granska [hur du använder Log Analytics-sidan](../../azure-monitor/log-query/get-started-portal.md) i Azure portal för att skriva Log Analytics-frågor.
+* Om du är nybörjare på att skriva loggfrågor i Azure Monitor kan du granska [hur du använder Log Analytics](../../azure-monitor/log-query/get-started-portal.md) i Azure portal för att skriva loggfrågor.
 * Lär dig mer om [skriva sökfrågor](../../azure-monitor/log-query/search-queries.md).

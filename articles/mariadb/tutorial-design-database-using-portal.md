@@ -7,12 +7,12 @@ ms.service: mariadb
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.custom: mvc
-ms.openlocfilehash: 23af00b8a8e061056e9b7ad8ea2c999414783ad6
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 2bbe69d114df61f6ca01add0b3459220d59d83e0
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53538114"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56880523"
 ---
 # <a name="tutorial-design-an-azure-database-for-mariadb-database-by-using-the-azure-portal"></a>Självstudier: Skapa en Azure Database for MariaDB-databas med hjälp av Azure-portalen
 
@@ -28,6 +28,8 @@ I den här självstudien använder du Azure-portalen till att:
 > * Söka i data
 > * Uppdatera data
 > * Återställa data
+
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 

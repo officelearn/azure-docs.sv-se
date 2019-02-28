@@ -10,12 +10,13 @@ ms.subservice: translator-speech
 ms.topic: quickstart
 ms.date: 07/17/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 34d397412a6d461325465ccc5dd41a62d91c6fc5
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ROBOTS: NOINDEX,NOFOLLOW
+ms.openlocfilehash: 9a6afc4dfb25a2a5f6e778fbda877a93269a96eb
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55872058"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56673283"
 ---
 # <a name="quickstart-translator-speech-api-with-python"></a>Snabbstart: Translator Speech API med Python
 <a name="HOLTop"></a>
@@ -30,7 +31,7 @@ Du behöver [Python 3.x](https://www.python.org/downloads/) för att köra koden
 
 Du måste installera [websocket-client-paketet](https://pypi.python.org/pypi/websocket-client) för Python.
 
-Du behöver ha en WAV-fil med namnet ”speak.wav” i samma mapp som den körbara filen som du kompilerar från koden nedan. Den här .wav-filen ska vara i 16-bitars, 16 kHz PCM-standardformat. 
+Du behöver ha en WAV-fil med namnet ”speak.wav” i samma mapp som den körbara filen som du kompilerar från koden nedan. Den här .wav-filen ska vara i 16-bitars, 16 kHz PCM-standardformat.
 
 Du behöver ett [Cognitive Services API-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med **Microsoft Translator Speech API**. Du behöver prenumerationsnyckeln för en betalprenumeration från din [Azure-instrumentpanel](https://portal.azure.com/#create/Microsoft.CognitiveServices).
 
@@ -132,7 +133,7 @@ Om åtgärden lyckas skapas en fil med namnet ”speak2.wav”. Filen innehålle
 > [!div class="nextstepaction"]
 > [Translator Speech-självstudie](../tutorial-translator-speech-csharp.md)
 
-## <a name="see-also"></a>Se även 
+## <a name="see-also"></a>Se även
 
 [Translator Speech-översikt](../overview.md)
 [API-referens](https://docs.microsoft.com/azure/cognitive-services/translator-speech/reference)

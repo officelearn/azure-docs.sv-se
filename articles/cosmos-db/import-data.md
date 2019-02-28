@@ -4,14 +4,14 @@ description: Lär dig att använda datamigreringsverktyg för öppen källkod i 
 author: deborahc
 ms.service: cosmos-db
 ms.topic: tutorial
-ms.date: 02/19/2019
+ms.date: 02/22/2019
 ms.author: dech
-ms.openlocfilehash: 972602bb6c5fc80433c2479516f8d0a5d885e4dd
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: c2020688359fafe6cf39dacc84c84ea79251ddbb
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56446944"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56733358"
 ---
 # <a name="use-data-migration-tool-to-migrate-your-data-to-azure-cosmos-db"></a>Migrera data till Azure Cosmos DB med hjälp av migreringsverktyget
 
@@ -58,7 +58,7 @@ Datamigreringsverktyget är en lösning med öppen källkod som importerar data 
 
 ## <a id="Install"></a>Installation
 
-Källkoden för migreringsverktyget finns i GitHub på [den här lagringsplatsen](https://github.com/azure/azure-documentdb-datamigrationtool). Du kan ladda ned och kompilera lösningen lokalt, eller [ladda ned en förkompilerad binär kod](https://cosmosdbtools.blob.core.windows.net/datamigrationtool/2019.02.19-1.8.2/dt-1.8.2.zip) och sedan köra något av följande:
+Källkoden för migreringsverktyget finns i GitHub på [den här lagringsplatsen](https://github.com/azure/azure-documentdb-datamigrationtool). Du kan ladda ned och kompilera lösningen lokalt, eller [ladda ned en förkompilerad binär kod](http://aka.ms/csdmtool) och sedan köra något av följande:
 
 * **Dtui.exe**: Grafisk gränssnittsversion av verktyget
 * **Dt.exe**: Kommandoradsversion av verktyget

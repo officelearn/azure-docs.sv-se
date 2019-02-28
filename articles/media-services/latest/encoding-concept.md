@@ -9,19 +9,29 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 02/17/2019
+ms.date: 02/25/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 52e7fdf6de25300d4f78ee9822aca4ad83f646e9
-ms.sourcegitcommit: 4bf542eeb2dcdf60dcdccb331e0a336a39ce7ab3
+ms.openlocfilehash: ccf298c99851dc2418da894431c5c86adafe59b3
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56408433"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56959450"
 ---
 # <a name="encoding-with-media-services"></a>Encoding med Media Services
 
-Azure Media Services kan du koda din digitala mediefiler med hög kvalitet till format som kan spelas upp på en mängd olika webbläsare och enheter. Du kanske vill strömma ditt innehåll i Apples HLS- eller MPEG DASH-formaten. Det här avsnittet ger vägledning om att koda ditt innehåll med Media Services v3.
+Azure Media Services kan du koda din digitala mediefiler med hög kvalitet till MP4-filer så att ditt innehåll kan spelas upp på en mängd olika webbläsare och enheter. En lyckad kodningsjobb för Media Services skapar utdata tillgång med en uppsättning med anpassningsbar bithastighet MP4s och manifestfiler (server och klient). Nu kan du dra nytta av [dynamisk paketering](dynamic-packaging-overview.md).
+
+Att göra videor i utdata tillgången som är tillgängliga för klienter för uppspelning, måste du skapa en **Strömningspositionerare** och sedan skapa strömmande URL: er. Sedan, baserat på formatet som anges i manifestet, klienterna får dataströmmen i protokollet som de har valt.
+
+Följande diagram visar strömning på begäran med dynamisk paketering arbetsflöde.
+
+![Dynamic Encoding](./media/dynamic-packaging-overview/media-services-dynamic-packaging.png)
+
+Det här avsnittet ger vägledning om att koda ditt innehåll med Media Services v3.
+
+## <a name="transforms-and-jobs"></a>Transformeringar och jobb
 
 Om du vill koda med Media Services v3, måste du skapa en [transformera](https://docs.microsoft.com/rest/api/media/transforms) och en [jobbet](https://docs.microsoft.com/rest/api/media/jobs). En transformering definierar receptet för kodning inställningar och utdata och jobbet är en instans av receptet. Mer information finns i [transformeringar och jobb](transforms-jobs-concept.md)
 
@@ -60,9 +70,11 @@ Media Services stöder helt anpassa alla värden i förinställningar för att u
 
 ## <a name="scaling-encoding-in-v3"></a>Skala kodning i v3
 
-För närvarande kan kunder har du använder Azure portal eller Media Services v2 API: er för att ställa in enheter för programbegäran (enligt beskrivningen i [skala mediebearbetning](../previous/media-services-scale-media-processing-overview.md). 
+Om du vill skala mediebearbetning Se [skala med CLI](media-reserved-units-cli-how-to.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Transformeringar och jobb](transforms-jobs-concept.md)
+* [Koda från en HTTPS-URL med hjälp av inbyggda förinställningar](job-input-from-http-how-to.md)
+* [Koda en lokal fil med hjälp av inbyggda förinställningar](job-input-from-local-file-how-to.md)
+* [Skapa en anpassad förinställning om du vill rikta in dina specifika krav för scenario eller enhet](customize-encoder-presets-how-to.md)
 * [Ladda upp, koda och strömma med Media Services](stream-files-tutorial-with-api.md)

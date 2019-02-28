@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/11/2018
 ms.author: shlo
-ms.openlocfilehash: a4eea340fe57ab3c05e527a476d9153113eedba5
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: f56b4f07b7155d9f465a6ce492b4718d4a66e76e
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56819402"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56959331"
 ---
 # <a name="alert-and-monitor-data-factories-using-azure-monitor"></a>Varna och övervaka datafabriker med hjälp av Azure Monitor
 Molnprogram är komplexa med alla rörliga delar. Övervakning ger data så att ditt program fungerar och körs i ett felfritt tillstånd. Det hjälper dig också att stave potentiella problem eller felsöka tidigare sådana. Du kan dessutom använda övervakningsdata för att få djupa insikter om ditt program. Den här kunskapen kan hjälpa dig att förbättra programmets prestanda och underhåll eller automatisera åtgärder som annars skulle kräva manuella åtgärder.
@@ -40,11 +40,11 @@ Du kan använda ett lagring eller event hub-namnområde som inte är i samma pre
 ### <a name="diagnostic-settings"></a>Diagnostikinställningar
 Diagnostikloggar för icke-beräkningsresurser konfigureras med hjälp av diagnostikinställningar. Diagnostikinställningar för en resurskontroll:
 
-* Diagnostikloggar mottagna (Storage-konto, Händelsehubbar och Log Analytics).
+* Diagnostikloggar mottagna (Storage-konto, Event Hubs eller Azure Monitor-loggar).
 * Vilka loggkategorier skickas.
 * Hur länge varje loggkategori ska behållas i ett lagringskonto.
 * En kvarhållning av noll dagar innebär loggar hålls alltid. I annat fall kan värdet vara valfritt antal dagar mellan 1 och 2147483647.
-* Om principerna för kvarhållning har angetts men lagra loggar i ett lagringskonto är inaktiverad (till exempel bara Event Hubs eller Log Analytics alternativ har valts) principerna för kvarhållning har ingen effekt.
+* Om principerna för kvarhållning har angetts men lagra loggar i ett lagringskonto är inaktiverad (till exempel endast Event Hubs eller Azure Monitor loggar alternativen är markerade), påverkar principerna för kvarhållning inte.
 * Principer för kvarhållning är tillämpad per dag, så i slutet av en dag (UTC) loggar från den dag som är nu utöver kvarhållning principen tas bort. Till exempel om du har en bevarandeprincip för en dag skulle i början av dagen idag loggar från dag innan igår tas bort.
 
 ### <a name="enable-diagnostic-logs-via-rest-apis"></a>Aktivera diagnostikloggar via REST API: er

@@ -11,17 +11,27 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2019
+ms.date: 02/26/2019
 ms.author: spelluru
-ms.openlocfilehash: 255cbff94e954dd05acfe77b97929c313b1dd3cf
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: f0f45e50fba4587e604add937ed45fc78228d44f
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56808582"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56960254"
 ---
-# <a name="classroom-labs-concepts"></a>Klassrum Labs-koncept
+# <a name="classroom-labs-concepts"></a>Classroom Labs-begrepp
 I följande lista innehåller huvudbegrepp Lab Services och definitioner:
+
+## <a name="quota"></a>Kvot
+Kvoten är tidsgränsen (i timmar) som en lärare kan ställa in för en student att använda ett labb VM. Det kan anges till 0, obegränsat eller ett visst antal timmar. Om kvoten har angetts till 0, kan en student bara använda den virtuella datorn när ett schema körs eller när en lärare sätter manuellt på den virtuella datorn för studenter.
+ 
+##<a name="schedules"></a>Scheman
+Scheman är tid (en gång eller återkommande) som en lärare kan skapa för klassen. Alla virtuella datorer i labbet startas automatiskt i början till schemat och de stoppas i slutet av schemat. Kvot timmar används inte när ett schema körs.
+
+## <a name="template-virtual-machine"></a>Mall för virtuell dator
+En mall för virtuell dator i ett labb är en grundläggande VM-avbildning från vilken alla användares virtuella datorer skapas. Skapare av utbildare/testlabb konfigurera mallen för virtuell dator och konfigurera den med den programvara som de vill tillhandahålla till utbildning deltagare göra labs. När du publicerar en mall för virtuell dator, Azure Lab Services skapar eller uppdaterar lab virtuella datorer baserat på VM-mallen. 
+
 
 ## <a name="user-profiles"></a>Användarprofiler
 Den här artikeln beskriver olika användarprofiler i Azure Lab Services. 

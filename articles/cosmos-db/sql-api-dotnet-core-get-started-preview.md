@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 12/01/2018
 ms.author: dech
-ms.openlocfilehash: 4e6d981ef1ac7985e9f230cfbbda440a765e20ea
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: cc8c62113a9a7a12525f1ba7e59c68831a322cfe
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55695493"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56959195"
 ---
 # <a name="build-a-net-core-console-app-to-manage-data-in-azure-cosmos-db-sql-api-account-sdk-version-3-preview"></a>Skapa en .NET Core-konsolapp för att hantera data på Azure Cosmos DB SQL API-konto (SDK version 3 – förhandsversion)
 
@@ -133,7 +133,7 @@ Bra! Konfigurationen är slutförd, så vi kan börja skriva kod. Det finns ett 
 
    ![Skärmbild av hur du hämtar Azure Cosmos DB-nycklar från Azure-portalen](./media/sql-api-get-started/dotnet-tutorial-portal-keys.png)
 
-1. Nu skapar vi en ny instans av `CosmosClient` och konfigurera ramar för programmet.
+1. Nu ska vi skapa en ny instans av `CosmosClient` och konfigurera ramar för programmet.
 
    Under metoden **Main** lägger du till en ny asynkron uppgift med namnet **GetStartedDemoAsync**, som instansierar vår nya `CosmosClient`. Vi använder **GetStartedDemoAsync** som den startpunkt som anropar metoder som behandlar Azure Cosmos DB-resurser.
 

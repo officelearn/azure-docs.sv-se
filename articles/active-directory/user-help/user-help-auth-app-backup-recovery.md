@@ -12,12 +12,12 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3b8a06276bcaa989fa04f105ac7858c25ab4d0ef
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 1927e9b4aeec6f424c69632d8811c49c97d3aad1
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/27/2019
-ms.locfileid: "56887513"
+ms.locfileid: "56961558"
 ---
 # <a name="backup-and-recover-account-credentials-with-the-microsoft-authenticator-app"></a>Säkerhetskopiera och återställa kontoautentiseringsuppgifter med Microsoft Authenticator-appen
 
@@ -28,7 +28,9 @@ ms.locfileid: "56887513"
 Microsoft Authenticator-appen säkerhetskopierar dina autentiseringsuppgifter och relaterade appinställningar, till exempel ordningen på dina konton till molnet. Efter säkerhetskopieringen, kan du också använda appen för att återställa din information på en ny enhet potentiellt undvika komma låst upp eller att skapa konton.
 
 >[!IMPORTANT]
-> Du behöver ett personligt Microsoft-konto och en iCloud-konto för varje lagringsplats för säkerhetskopiering. Men i den lagringsplatsen du kan säkerhetskopiera flera konton. Du kan till exempel har ett personligt konto, ett skolkonto och ett tredje parts-konto som Facebook, Google, och så vidare.<br><br>Endast dina personliga och 3 part autentiseringsuppgifter lagras som inkluderar ditt användarnamn och kontoverifieringskod som krävs för att verifiera din identitet. Vi lagrar inte några andra som är associerade med dina konton, inklusive e-postmeddelanden och filer. Vi inte också koppla eller dela dina konton på något sätt eller med alla andra produkter eller tjänster. Och slutligen IT-administratören få inte någon information om något av dessa konton.
+> Du behöver ett personligt Microsoft-konto och en iCloud-konto för varje lagringsplats för säkerhetskopiering. Men i den lagringsplatsen du kan säkerhetskopiera flera konton. Du kan till exempel har ett personligt konto, ett skolkonto och ett tredje parts-konto som Facebook, Google, och så vidare.
+
+> Endast dina personliga och 3 part autentiseringsuppgifter lagras som inkluderar ditt användarnamn och kontoverifieringskod som krävs för att verifiera din identitet. Vi lagrar inte några andra som är associerade med dina konton, inklusive e-postmeddelanden och filer. Vi inte också koppla eller dela dina konton på något sätt eller med alla andra produkter eller tjänster. Och slutligen IT-administratören få inte någon information om något av dessa konton.
 
 ## <a name="back-up-your-account-credentials"></a>Säkerhetskopiera dina kontouppgifter
 Innan du kan säkerhetskopiera dina autentiseringsuppgifter måste ha både:
@@ -98,10 +100,12 @@ Det finns flera skäl till varför säkerhetskopieringen inte kanske tillgängli
 -   **Befintliga konton i Microsoft Authenticator.** Om du redan har konfigurerat konton i Microsoft Authenticator-appen kan appen inte att återställa dina säkerhetskopierade konton. Förhindrar återställning hjälper till att säkerställa att din kontoinformation inte skrivas över med gammal information. I så fall måste du ta bort alla befintliga kontoinformation från de befintliga konton som definierats i din autentiserare innan du kan återställa säkerhetskopian.
 
 ## <a name="next-steps"></a>Nästa steg
-Nu när du har säkerhetskopierat och återställt autentiseringsuppgifterna för ditt konto till den nya enheten, kan du fortsätta att använda Microsoft Authenticator-appen för att verifiera din identitet.
+Nu när du har säkerhetskopierat och återställt autentiseringsuppgifterna för ditt konto till den nya enheten, kan du fortsätta att använda Microsoft Authenticator-appen för att verifiera din identitet. Mer information finns i [logga in på dina konton med hjälp av Microsoft Authenticator-appen](user-help-sign-in.md).
 
 ## <a name="related-topics"></a>Relaterade ämnen
-- [Kom igång med Microsoft Authenticator-appen](user-help-auth-app-download-install.md)  
+
+- [Vad är Microsoft Authenticator-appen?](user-help-auth-app-overview.md)
+
 - [Vanliga frågor och svar om Microsoft Authenticator-appen](user-help-auth-app-faq.md)
 
 - [Multi-Factor Authentication](https://docs.microsoft.com/azure/multi-factor-authentication/)

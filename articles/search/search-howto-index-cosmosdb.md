@@ -11,12 +11,12 @@ ms.devlang: rest-api
 ms.topic: conceptual
 robot: noindex
 ms.custom: seodec2018
-ms.openlocfilehash: a55652c8d19866b717cbafec4629030a7708bb50
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: d63fdbfd71e812e9b445fb0055cb9aee5876ecc1
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359501"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56962153"
 ---
 # <a name="connecting-cosmos-db-with-azure-search-using-indexers"></a>Ansluta Cosmos DB med Azure Search med indexerare
 
@@ -65,7 +65,7 @@ En **indexeraren** beskriver hur data flödar från datakällan till ett mål se
 
 Om du vill konfigurera ett Azure Cosmos DB-indexeraren måste du skapa ett index, datakälla och slutligen indexeraren. Du kan skapa dessa objekt med hjälp av den [portal](search-import-data-portal.md), [.NET SDK](/dotnet/api/microsoft.azure.search), eller [REST API](/rest/api/searchservice/). 
 
-Den här artikeln visar hur du använder REST-API. Om du väljer för portalen, den [guiden Importera data](search-import-data-portal.md) vägleder dig genom skapandet av alla dessa resurser, inklusive indexet.
+Den här artikeln visar hur du använder REST-API. Om du väljer för portalen, kontrollera att Cosmos DB-databasen innehåller data. Den [guiden Importera data](search-import-data-portal.md) läser metadata och utför av datasampling att härleda ett indexschema, men även belastningar data från Cosmos DB. Om data saknas i guiden slutar med det här felet ”fel upptäcka indexschema från datakällan: Det gick inte att skapa ett prototypindex eftersom datakällan 'emptycollection' returnerade inga data ”.
 
 > [!TIP]
 > Du kan starta guiden **Importera data** från Azure Cosmos DB-instrumentpanelen för att förenkla indexeringen för datakällan. Välj **Samlingar** > **Lägg till Azure Search** i navigeringsfältet till vänster för att komma igång.
@@ -96,7 +96,7 @@ Gör ett INLÄGG om du vill skapa en datakälla:
 
 Brödtexten i begäran innehåller definitionen av datakällan, vilket bör innehålla följande fält:
 
-* **Namn på**: Välj ett namn som representerar din databas.
+* **name**: Välj ett namn som representerar din databas.
 * **Typ**: Måste vara `documentdb`.
 * **autentiseringsuppgifter**:
   
@@ -104,7 +104,7 @@ Brödtexten i begäran innehåller definitionen av datakällan, vilket bör inne
   Undvik att portnumren i slutpunkts-url. Om du inkluderar portnumret går Azure Search inte att indexera Azure Cosmos DB-databasen.
 * **behållaren**:
   
-  * **Namn på**: Krävs. Ange id för samlingen databas som ska indexeras.
+  * **name**: Krävs. Ange id för samlingen databas som ska indexeras.
   * **fråga**: Valfri. Du kan ange en fråga för att platta ut en godtycklig JSON-dokumentet till ett fast schema som Azure Search kan indexera. Frågor stöds inte för MongoDB-samlingar. 
 * **dataChangeDetectionPolicy**: Vi rekommenderar. Se [indexering ändrats dokument](#DataChangeDetectionPolicy) avsnittet.
 * **dataDeletionDetectionPolicy**: Valfri. Se [indexering bort dokument](#DataDeletionDetectionPolicy) avsnittet.
@@ -185,7 +185,7 @@ Kontrollera att schemat för din målindex är kompatibel med schemat för käll
 | Bool |Edm.Boolean, Edm.String |
 | Siffror som ser ut som heltal |Edm.Int32, Edm.Int64, Edm.String |
 | Nummer att ut flytande punkter |Edm.Double, Edm.String |
-| Sträng |Edm.String |
+| String |Edm.String |
 | Matriser av primitiva typer, till exempel [”a”, ”b”, ”c”] |Collection(Edm.String) |
 | Strängar som ser ut som datum |Edm.DateTimeOffset, Edm.String |
 | GeoJSON-objekt, till exempel {”type”: "Point", "coordinates": [long, lat] } |Edm.GeographyPoint |

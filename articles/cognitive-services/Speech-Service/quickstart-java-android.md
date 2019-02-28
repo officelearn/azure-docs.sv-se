@@ -1,28 +1,28 @@
 ---
 title: 'Snabbstart: Identifiera tal, Java (Android) – Speech Services'
 titleSuffix: Azure Cognitive Services
-description: Lär dig hur du känna igen tal i Java på Android med hjälp av Speech Service SDK
+description: Lär dig att känna igen tal i Java på Android med hjälp av Speech SDK
 services: cognitive-services
 author: fmegen
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 12/13/2018
+ms.date: 2/20/2019
 ms.author: wolfma
-ms.openlocfilehash: ac5798d61ecd0a45f7939be928429ababdee406f
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 938d48e5e13f73f584b91da03bab77ffc8814f35
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55877464"
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56447624"
 ---
 # <a name="quickstart-recognize-speech-in-java-on-android-by-using-the-speech-sdk"></a>Snabbstart: Känna igen tal i Java på Android med hjälp av Speech SDK
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 I den här artikeln lär du dig att utveckla ett Java-program för Android med hjälp av Speech SDK för Cognitive Services för att transkribera tal till text.
-Programmet är baserat på Microsoft Cognitive Services Speech SDK Maven-paketet, version 1.2.0 och Android Studio 3.1.
+Programmet är baserat på Microsoft Cognitive Services Speech SDK Maven-paketet, version 1.3.0 och Android Studio 3.1.
 Speech SDK är kompatibelt med Android-enheter med 32/64-bitars ARM-processorer och Intel x86/x64-kompatibla processorer.
 
 > [!NOTE]
@@ -58,7 +58,7 @@ Det tar en stund för Android Studio att förbereda det nya projektet för Andro
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-Den aktuella versionen av Cognitive Services Speech SDK är `1.2.0`.
+Den aktuella versionen av Cognitive Services Speech SDK är `1.3.0`.
 
 Speech SDK för Android kommer som ett [AAR (Android-biblioteket)](https://developer.android.com/studio/projects/android-library), som innehåller nödvändiga bibliotek samt Android behörigheter som krävs.
 Den finns i ett Maven-centrallager på https://csspeechstorage.blob.core.windows.net/maven/.
@@ -73,7 +73,7 @@ Konfigurera ditt projekt för att använda Speech SDK. Öppna projektstrukturfö
 
    ![Skärmbild av projektstrukturfönstret](media/sdk/qs-java-android-07-add-module-dependency.png)
 
-1. I fönstret som visas anger du namnet och versionen av vårt Speech SDK för Android, `com.microsoft.cognitiveservices.speech:client-sdk:1.2.0`. Välj sedan **OK**.
+1. I fönstret som visas anger du namnet och versionen av vårt Speech SDK för Android, `com.microsoft.cognitiveservices.speech:client-sdk:1.3.0`. Välj sedan **OK**.
    Speech SDK:n ska läggas till i listan över beroenden nu enligt nedan:
 
    ![Skärmbild av projektstrukturfönstret](media/sdk/qs-java-android-08-dependency-added-1.0.0.png)

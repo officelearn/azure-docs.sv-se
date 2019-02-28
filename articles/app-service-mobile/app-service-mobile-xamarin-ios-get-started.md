@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 8b890630d352619da86c3017426e24f55ef016d9
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: d08ebc7c1e52022ec918020387264c464d1cd967
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38307178"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56883427"
 ---
 # <a name="create-a-xamarinios-app"></a>Skapa en Xamarin.iOS-app
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
@@ -49,7 +49,7 @@ Följ följande steg för att konfigurera serverprojektet att använda sig av an
 [!INCLUDE [app-service-mobile-configure-new-backend](../../includes/app-service-mobile-configure-new-backend.md)]
 
 ## <a name="download-and-run-the-xamarinios-app"></a>Hämta och kör Xamarin.iOS-appen
-1. Öppna [Azure-portalen] i ett webbläsarfönster.
+1. Öppna [Azure Portal] i ett webbläsarfönster.
 2. På inställningsbladet för mobilappen klickar du på **Kom igång** > **Xamarin.iOS**. Vid steg 3, klickar du på **Skapa en ny app** om det inte redan är valt.  Klicka sedan på **Hämta**.
 
       Ett klientprogram som ansluter till din mobila serverdel hämtas. Spara den komprimerade projektfilen lokalt på datorn och notera var du sparar den.
@@ -72,7 +72,7 @@ Följ följande steg för att konfigurera serverprojektet att använda sig av an
 
 ## <a name="next-steps"></a>Nästa steg
 * [Lägg till offlinesynkronisering till din app](app-service-mobile-xamarin-ios-get-started-offline-data.md)
-* [Lägg till autentisering till din app ](app-service-mobile-xamarin-ios-get-started-users.md)
+* [Lägg till autentisering i appen](app-service-mobile-xamarin-ios-get-started-users.md)
 * [Lägg till push-meddelanden till din Xamarin.Android-app](app-service-mobile-xamarin-ios-get-started-push.md)
 * [Så här använder du den hanterade klienten för Azure Mobile Apps](app-service-mobile-dotnet-how-to-use-client-library.md)
 
@@ -88,4 +88,4 @@ Följ följande steg för att konfigurera serverprojektet att använda sig av an
 [10]: ./media/app-service-mobile-xamarin-ios-get-started/mobile-quickstart-startup-ios.png
 
 <!-- URLs. -->
-[Azure-portalen]: https://portal.azure.com/
+[Azure Portal]: https://portal.azure.com/

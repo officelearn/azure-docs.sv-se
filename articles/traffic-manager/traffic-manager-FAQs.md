@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/18/2018
+ms.date: 02/26/2019
 ms.author: kumud
-ms.openlocfilehash: 309c69862d475a0ef76ab0a24ed804b363ba33c0
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 4d47192ea69047b0b12deffc41776a87c16ca6ab
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55696814"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56959756"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Vanliga frågor (och svar FAQ) om Traffic Manager
 
@@ -59,14 +59,7 @@ Metoden prestanda dirigerar trafik till närmaste tillgängliga slutpunkten. Res
 Enligt beskrivningen i [hur Traffic Manager fungerar](../traffic-manager/traffic-manager-how-it-works.md), Traffic Manager fungerar på DNS-nivå. När DNS-sökningen är klar kan ansluter klienterna till slutpunkten programmet direkt, inte via Traffic-Manager. Anslutningen kan därför använda alla protokoll. Om du väljer TCP som det övervakning-protokollet, Traffic Manager endpoint hälsoövervakning kan göras utan att använda alla programprotokoll. Om du vill ha hälsotillståndet verifieras med ett programprotokoll måste slutpunkten för att kunna svara på begäranden för HTTP eller HTTPS hämta.
 
 ### <a name="can-i-use-traffic-manager-with-a-naked-domain-name"></a>Kan jag använda Traffic Manager med ett ”utan www-domännamn?
-
-Nej. DNS-standarden tillåter inte CNAME-poster att finnas tillsammans med andra DNS-poster med samma namn. En DNS-zon apex (eller rot) innehåller alltid två befintliga DNS-poster; SOA- och auktoritativa NS-poster. Det innebär att inte går att skapa en CNAME-posten i basdomänen utan brott mot DNS-standarden.
-
-Traffic Manager kräver en DNS CNAME-post för att mappa anpassad DNS-namn. Exempelvis kan du mappa `www.contoso.com` till DNS-namnet för Traffic Manager profilen `contoso.trafficmanager.net`. Traffic Manager-profilen returnerar dessutom en andra DNS CNAME för att ange vilken slutpunkt som klienten ska ansluta till.
-
-Om du vill undvika det här problemet bör du använda en HTTP-omdirigering därigenom dirigera trafik från domän utan www-namn till en annan URL, som sedan kan använda Traffic Manager. Domän utan www ”contoso.com” kan till exempel omdirigera användare till CNAME ”www.contoso.com” som pekar på Traffic Manager DNS-namn.
-
-Fullständigt stöd för utan www domäner i Traffic Manager spåras i våra funktionen återstående uppgifter. Du kan registrera upp som stöd för den här funktionsbegäran från [röstat på vår webbplats för community-feedback](https://feedback.azure.com/forums/217313-networking/suggestions/5485350-support-apex-naked-domains-more-seamlessly).
+Ja. Läs hur du skapar en aliaspost för din domän namn apex att referera till en Azure Traffic Manager-profil i [konfigurera en aliaspost för att stödja apex-domännamn med Traffic Manager](../dns/tutorial-alias-tm.md).
 
 ### <a name="does-traffic-manager-consider-the-client-subnet-address-when-handling-dns-queries"></a>Traffic Manager betraktar undernätsadress klienten vid hantering av DNS-frågor? 
 Ja, förutom källans IP-adress för DNS-fråga tas emot (som vanligtvis är IP-adressen för DNS-matchning), när du utför sökningar för routningsmetoder för geografisk, prestanda och undernät, traffic manager också tar hänsyn till undernätet klientadressen om den ingår i frågan genom att matcharen gör begäran åt användaren.  

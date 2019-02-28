@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/20/2018
 ms.author: yexu
-ms.openlocfilehash: 686e008a83924460b1f85212b5c06796b6bc8217
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: e6a24bfe25513b1b4eacd8bc192caa5518c896c6
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54354220"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56593207"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>Läs in data stegvis från flera tabeller i SQL Server till en Azure SQL-databas
 I den här självstudiekursen kommer du att skapa en Azure-datafabrik med en pipeline som läser in deltadata från flera tabeller på en lokal SQL-server till en Azure SQL-databas.    
@@ -270,7 +270,7 @@ När du flyttar data från ett datalager i ett privat nätverk (lokalt) till ett
 1. I fönstret för **Integration Runtime** väljer du **Perform data movement and dispatch activities to external computes** (Utför dataflytt och skicka aktiviteter till externa databearbetningstjänster) och klickar på **Nästa**. 
 
    ![Välja typ av Integration Runtime](./media/tutorial-incremental-copy-multiple-tables-portal/select-integration-runtime-type.png)
-1. Välj ** Private Network** (Privat nätverk) och klicka på **Nästa**. 
+1. Välj **Privat nätverk** och klicka på **Nästa**. 
 
    ![Välj privat nätverk](./media/tutorial-incremental-copy-multiple-tables-portal/select-private-network.png)
 1. Ange **MySelfHostedIR** som **namn** och klicka på **Nästa**. 

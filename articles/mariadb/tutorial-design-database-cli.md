@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 11/10/2018
 ms.custom: mvc
-ms.openlocfilehash: fa056dad052914e771251585cb426c70591aa235
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: ed80008548585015c9e29aaea013fdeb85fd8e9d
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53541199"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56872785"
 ---
 # <a name="tutorial-design-an-azure-database-for-mariadb-using-azure-cli"></a>Självstudier: Utforma en Azure Database for MariaDB med hjälp av Azure CLI
 
@@ -27,6 +27,8 @@ Azure Database for MariaDB är en relationsdatabastjänst i Microsoft-molnet som
 > * Söka i data
 > * Uppdatera data
 > * Återställa data
+
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
 
 Du kan använda Azure Cloud Shell i webbläsaren eller [installera Azure CLI]( /cli/azure/install-azure-cli) lokalt när du ska köra kodblocken i den här självstudiekursen.
 

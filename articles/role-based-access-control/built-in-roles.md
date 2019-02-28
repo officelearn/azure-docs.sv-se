@@ -15,16 +15,16 @@ ms.date: 02/24/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 106cda22f8f7c54441f438b61eb427446f36a69a
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: ce9ef687643de7ec9b289f74feea613fb9a1db7a
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56807498"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56960634"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Inbyggda roller för Azure-resurser
 
-[Rollbaserad åtkomstkontroll (RBAC)](overview.md) har flera inbyggda roller för Azure-resurser som kan tilldelas användare, grupper, tjänstens huvudnamn och hanterade identiteter. Rolltilldelningar är det sätt som du styr åtkomst till Azure-resurser. Om de inbyggda rollerna inte uppfyller de specifika behoven i din organisation kan du skapa dina egna [anpassade roller för Azure-resurser](custom-roles.md).
+[Rollbaserad åtkomstkontroll (RBAC)](overview.md) har flera inbyggda roller för Azure-resurser som kan tilldelas användare, grupper, tjänstens huvudnamn och hanterade identiteter. Rolltilldelningar är det sätt som du styr åtkomst till Azure-resurser. Om de inbyggda rollerna inte uppfyller organisationens specifika krav, kan du skapa egna [anpassade roller för Azure-resurser](custom-roles.md).
 
 Den här artikeln visar en lista över inbyggda roller för Azure-resurser, som alltid är under utveckling. Hämta de senaste rollerna med [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) eller [az role definition list](/cli/azure/role/definition#az-role-definition-list). Om du letar efter administratörsroller för Azure Active Directory, se [behörigheter för administratör i Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
 
@@ -1628,11 +1628,11 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft.Insights/Register/Action | Registrera Microsoft Insights-providern |
 > | Microsoft.Insights/scheduledqueryrules/* |  |
 > | Microsoft.Insights/webtests/* | Läs/Skriv/ta bort Application Insights webbtester. |
-> | Microsoft.OperationalInsights/workspaces/intelligencepacks/* | Läs/Skriv/ta bort Log Analytics-lösningspaket. |
-> | Microsoft.OperationalInsights/workspaces/savedSearches/* | Läs/Skriv/ta bort Log Analytics sparade sökningar. |
+> | Microsoft.OperationalInsights/workspaces/intelligencepacks/* | Läs/Skriv/ta bort log analytics-lösningspaket. |
+> | Microsoft.OperationalInsights/workspaces/savedSearches/* | Logganalys för läsning/skrivning/ta bort sparade sökningar. |
 > | Microsoft.OperationalInsights/workspaces/search/action | Kör en sökfråga |
 > | Microsoft.OperationalInsights/workspaces/sharedKeys/action | Hämtar de delade nycklarna för arbetsytan. De här nycklarna används för att ansluta Microsoft Operational Insights-agenter till arbetsytan. |
-> | Microsoft.OperationalInsights/workspaces/storageinsightconfigs/* | Läs/Skriv/ta bort Log Analytics insight lagringskonfigurationer. |
+> | Microsoft.OperationalInsights/workspaces/storageinsightconfigs/* | Läs/Skriv/ta bort log analytics insight lagringskonfigurationer. |
 > | Microsoft.Support/* | Skapa och hantera supportärenden |
 > | Microsoft.WorkloadMonitor/monitors/* |  |
 > | Microsoft.WorkloadMonitor/notificationSettings/* |  |
@@ -1831,7 +1831,7 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft.Authorization/policySetDefinitions/* | Skapa och hantera principuppsättningar |
 > | Microsoft.Insights/alertRules/* | Skapa och hantera aviseringsregler |
 > | Microsoft.Management/managementGroups/read | Lista över hanteringsgrupper för autentiserade användare. |
-> | Microsoft.operationalInsights/workspaces/*/read | Visa Log Analytics-data |
+> | Microsoft.operationalInsights/workspaces/*/read | Visa log analytics-data |
 > | Microsoft.Resources/deployments/* | Skapa och hantera distribution av resursgrupper |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hämtar eller listar resursgrupper. |
 > | Microsoft.Security/*/read | Läs säkerhetskomponenter och principer |
@@ -1886,7 +1886,7 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | **Åtgärder** |  |
 > | Microsoft.Authorization/*/read | Läs roller och rolltilldelningar |
 > | Microsoft.Insights/alertRules/* | Skapa och hantera aviseringsregler |
-> | Microsoft.operationalInsights/workspaces/*/read | Visa Log Analytics-data |
+> | Microsoft.operationalInsights/workspaces/*/read | Visa log analytics-data |
 > | Microsoft.Resources/deployments/* | Skapa och hantera distribution av resursgrupper |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hämtar eller listar resursgrupper. |
 > | Microsoft.Security/*/read | Läs säkerhetskomponenter och principer |
@@ -2594,5 +2594,5 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 ## <a name="next-steps"></a>Nästa steg
 
 - [Anpassade roller för Azure-resurser](custom-roles.md)
-- [Hantera åtkomst till Azure-resurser med RBAC och Azure portal](role-assignments-portal.md)
+- [Hantera åtkomst till Azure-resurser med hjälp av RBAC och Azure-portalen](role-assignments-portal.md)
 - [Behörigheter i Azure Security Center](../security-center/security-center-permissions.md)

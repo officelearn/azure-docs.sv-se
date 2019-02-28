@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: yagup;jdial
-ms.openlocfilehash: 4f1ce84dba4e9f35e7884ebd9058781eb30c3ec4
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 8dd3c6ce7eabdf90c2a84f4d1e52ce3aef2d5c12
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55815854"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56984645"
 ---
 # <a name="traffic-analytics"></a>Trafikanalys
 
@@ -41,13 +41,13 @@ Azure-nätverk har NSG-flödesloggar som ger dig information om inkommande och u
 
 - **Nätverkssäkerhetsgrupp (NSG)**: Innehåller en lista över säkerhetsregler som tillåter eller nekar nätverkstrafik till resurser som är anslutna till en Azure-nätverk. Nätverkssäkerhetsgrupper kan kopplas till undernät, enskilda virtuella datorer (klassisk) eller enskilda nätverkskort (NIC) som är anslutna till virtuella datorer (Resource Manager). Mer information finns i [översikt över Network security group](../virtual-network/security-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 - **Network flödesloggar för nätverkssäkerhetsgruppen (NSG)**: Kan du visa information om ingående och utgående IP-trafik via en nätverkssäkerhetsgrupp. NSG flow loggarna skrivs i json-format och visa utgående och inkommande flöden på basis av per regel, NIC flödet som gäller för fem-tuppel information om flödet (källa/mål-IP-adress, källa/mål port och protokoll) och om trafiken tilläts eller inte. Läs mer om NSG-flödesloggar [NSG-flödesloggar](network-watcher-nsg-flow-logging-overview.md).
-- **Log Analytics**: En Azure-tjänst som samlar in övervakningsdata och lagrar data i ett centrallager. Dessa data kan omfatta händelser, prestandadata eller anpassade data via API i Azure. När data har samlats in är de tillgängliga för avisering, analys och export. Övervaka som network monitor och trafik prestandaanalys skapas med hjälp av Log Analytics som grund. Mer information finns i [Log analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
-- **Log analytics-arbetsyta**: En instans av log analytics kan data som hör till ett Azure-konto ska lagras. Läs mer om log analytics-arbetsytor, [skapa en Log Analytics-arbetsyta](../azure-monitor/learn/quick-create-workspace.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+- **Log Analytics**: En Azure-tjänst som samlar in övervakningsdata och lagrar data i ett centrallager. Dessa data kan omfatta händelser, prestandadata eller anpassade data via API i Azure. När data har samlats in är de tillgängliga för avisering, analys och export. Övervaka som network monitor och trafik prestandaanalys skapas med hjälp av Azure Monitor-loggar som grund. Mer information finns i [Azure Monitor loggar](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+- **Log Analytics-arbetsyta**: En instans av Azure Monitor-loggar, där de data som hör till ett Azure-konto lagras. Läs mer om Log Analytics-arbetsytor, [skapa en Log Analytics-arbetsyta](../azure-monitor/learn/quick-create-workspace.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 - **Network Watcher**: En regional tjänst som hjälper dig att övervaka och diagnostisera villkor på nätverksnivå i Azure. Du kan stänga NSG-flödesloggar och inaktivera med Network Watcher. Mer information finns i [Network Watcher](network-watcher-monitoring-overview.md).
 
 ## <a name="how-traffic-analytics-works"></a>Så här fungerar trafikanalys
 
-Trafikanalys undersöker raw NSG-flödesloggar och samlar in minskade loggarna genom att sammanställa vanliga flöden mellan samma käll-IP-adress, målets IP-adress, målport och protokoll. Till exempel värddator 1 (IP-adress: 10.10.10.10) kommunicera värddator 2 (IP-adress: 10.10.20.10), 100 gånger under en period av 1 timme med port (till exempel 80) och protokoll (till exempel http). Minskad loggen har en post som värddator 1 och värddator 2 förmedlas 100 gånger under en period på 1 timme som använder port *80* och protokoll *HTTP*, i stället för att 100 poster. Minskad loggar är förbättrad med geografisk plats, säkerhet och topologiinformation och lagras sedan i en log analytics-arbetsyta. Följande bild visar dataflödet:
+Trafikanalys undersöker raw NSG-flödesloggar och samlar in minskade loggarna genom att sammanställa vanliga flöden mellan samma käll-IP-adress, målets IP-adress, målport och protokoll. Till exempel värddator 1 (IP-adress: 10.10.10.10) kommunicera värddator 2 (IP-adress: 10.10.20.10), 100 gånger under en period av 1 timme med port (till exempel 80) och protokoll (till exempel http). Minskad loggen har en post som värddator 1 och värddator 2 förmedlas 100 gånger under en period på 1 timme som använder port *80* och protokoll *HTTP*, i stället för att 100 poster. Minskad loggar är förbättrad med geografisk plats, säkerhet och topologiinformation och lagras sedan i Log Analytics-arbetsytan. Följande bild visar dataflödet:
 
 ![Dataflödet för bearbetning av NSG-flödesloggar](./media/traffic-analytics/data-flow-for-nsg-flow-log-processing.png)
 
@@ -164,9 +164,9 @@ Välj följande alternativ som visas på bild:
 2. Välj ett befintligt lagringskonto för att lagra flödesloggar i. Om du vill lagra data alltid ange värdet till *0*. Du använder Azure Storage-avgifter för storage-konto.
 3. Ange **kvarhållning** för hur många dagar som du vill lagra data för.
 4. Välj *på* för **Traffic Analytics-Status**.
-5. Välj en befintlig Log Analytics-arbetsyta eller välj **Skapa ny arbetsyta** att skapa en ny. En Log Analytics-arbetsyta används av trafikanalys för att lagra de aggregerade och indexerade data som används för att generera analyser. Om du väljer en befintlig arbetsyta måste finnas i något av regionerna som stöds och har uppgraderats till det nya frågespråket. Om du inte vill uppgradera en befintlig arbetsyta eller inte har en arbetsyta i en region som stöds, kan du skapa en ny. Läs mer om frågespråk [uppgradering av Azure Log Analytics till ny loggsökning](../log-analytics/log-analytics-log-search-upgrade.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+5. Välj en befintlig Log Analytics-arbetsyta eller välj **Skapa ny arbetsyta** att skapa en ny. En Log Analytics-arbetsyta används av trafikanalys för att lagra de aggregerade och indexerade data som används för att generera analyser. Om du väljer en befintlig arbetsyta måste finnas i något av regionerna som stöds och har uppgraderats till det nya frågespråket. Om du inte vill uppgradera en befintlig arbetsyta eller inte har en arbetsyta i en region som stöds, kan du skapa en ny. Läs mer om frågespråk [Azure Monitor loggar uppgraderingen till ny loggsökning](../log-analytics/log-analytics-log-search-upgrade.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 
-    Log analytics-arbetsyta som är värd för analyslösning trafik och NSG: erna behöver inte finnas i samma region. Du kan till exempel ha trafikanalys i en arbetsyta i regionen Europa, västra, medan du kan ha NSG: er i östra USA och västra USA. Flera NSG: er kan konfigureras på samma arbetsyta.
+    Log Analytics-arbetsytan som är värd för analyslösning trafik och NSG: erna behöver inte finnas i samma region. Du kan till exempel ha trafikanalys i en arbetsyta i regionen Europa, västra, medan du kan ha NSG: er i östra USA och västra USA. Flera NSG: er kan konfigureras på samma arbetsyta.
 6. Välj **Spara**.
 
     ![Valet av lagringskonto, Log Analytics-arbetsyta och aktivering av trafikanalys](./media/traffic-analytics/selection-of-storage-account-log-analytics-workspace-and-traffic-analytics-enablement.png)

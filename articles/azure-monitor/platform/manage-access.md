@@ -11,50 +11,59 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/07/2019
+ms.date: 02/27/2019
 ms.author: magoedte
-ms.openlocfilehash: 4a777c2bd57d40b4bb6c8d36c996b655cb019e5f
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: b42eb963e33c14b003c053bb0f7fca6361dbd555
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56005378"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56985112"
 ---
-# <a name="manage-log-analytics-workspaces-in-azure-monitor"></a>Hantera Log Analytics-arbetsytor i Azure Monitor
+# <a name="manage-log-data-and-workspaces-in-azure-monitor"></a>Hantera loggdata och arbetsytor i Azure Monitor
 Azure Monitor-butiker logga data över en Log Analytics-arbetsyta som är i grunden en behållare som innehåller data och konfigurationsinformation. För att hantera åtkomst för att logga data måste utföra du olika administrativa uppgifter relaterade till arbetsytor. Du eller andra medlemmar i din organisation kan använda flera arbetsytor för att hantera olika uppsättningar av data som samlas in från alla eller delar av din IT-infrastruktur.
 
-För att skapa en arbetsyta måste du:
+Den här artikeln förklarar hur du hanterar åtkomst till loggar och administrera arbetsytor som de. 
+
+## <a name="create-a-workspace"></a>Skapa en arbetsyta
+Om du vill skapa en Log Analytics-arbetsytan måste du:
 
 1. Ha en Azure-prenumeration.
 2. Välja ett arbetsytenamn.
 3. Associera arbetsytan med en av dina prenumerationer och resursgrupper.
 4. Välja en geografisk plats.
 
-## <a name="determine-the-number-of-workspaces-you-need"></a>Bestämma antalet arbetsytor du behöver
-En Log Analytics-arbetsyta är en Azure-resurs och är en behållare där data samlas in, aggregeras, analyseras och presenteras i Azure Monitor.
+Se följande artiklar för information om hur du skapar en arbetsyta:
 
-Du kan ha flera arbetsytor per Azure-prenumeration och du kan ha åtkomst till fler än en arbetsyta, med möjlighet att enkelt söka i dem. Det här avsnittet beskriver när det kan vara praktiskt att skapa fler än en arbetsyta.
+- [Skapa en Log Analytics-arbetsyta i Azure portal](../learn/quick-create-workspace.md)
+- [Skapa en Log Analytics-arbetsyta med Azure CLI 2.0](../learn/quick-create-workspace-cli.md)
+- [Skapa en Log Analytics-arbetsyta med Azure PowerShell](../learn/quick-create-workspace-posh.md)
+
+## <a name="determine-the-number-of-workspaces-you-need"></a>Bestämma antalet arbetsytor du behöver
+En Log Analytics-arbetsyta är en Azure-resurs och är en behållare där data samlas in, aggregeras, analyseras och presenteras i Azure Monitor. Du kan ha flera arbetsytor per Azure-prenumeration och du kan ha åtkomst till fler än en arbetsyta, med möjlighet att enkelt söka i dem. Det här avsnittet beskriver när det kan vara praktiskt att skapa fler än en arbetsyta.
 
 Tillhandahåller en Log Analytics-arbetsyta:
 
-* En geografisk plats för lagring av data
-* Dataisolering att definiera olika användare behörighet
-* För konfigurationen av inställningarna som [prisnivån](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#changing-pricing-tier), [kvarhållning](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period) och [data tak som skall](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#daily-cap) 
+* En geografisk plats för lagring av data.
+* Dataisolering olika användare behörighet att arbetsytan-centric hämtas. Inte relevant när du arbetar i resurs-centric läge.
+* För konfigurationen av inställningarna som [prisnivån](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#changing-pricing-tier), [kvarhållning](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period) och [data tak som skall](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#daily-cap).
+* Avgifter som rör datainmatning och kvarhållning görs på arbetsyteresursen.
 
 Från förbrukning synsätt rekommenderar vi att du skapar så få arbetsytor som möjligt. Det gör administration och fråga upplevelse för enklare och snabbare. Men baserat på föregående egenskaper kan du behöva skapa flera arbetsytor om:
 
 * Du är ett globalt företag och du behöver logga data som lagras i vissa områden för datasuveränitet eller kompatibilitetsskäl i data.
 * Du använder Azure och du vill undvika kostnader för överföring av utgående data genom att ha en arbetsyta i samma region som de Azure-resurser som den hanterar.
-* Du vill fördela tillägg till olika avdelningar eller affärsgrupper baserat på deras användning genom att skapa en arbetsyta för varje avdelning eller affärsgrupp i sin egen Azure-prenumeration.
 * Du är leverantör av hanterade tjänster och behöver Log Analytics-data för varje kund du hanterar isolerade från andra kunders data.
-* Du hanterar flera kunder och vill att varje kund / avdelning / affärsgrupp ska se sina egna data, men inte data från andra.
+* Du hanterar flera kunder och vill att varje kund / avdelning / affärsgrupp ska se sina egna data, men inte data från andra, och det finns inga företagets behov för en konsoliderad mellan kund / avdelning / affärsgrupp vy ”.
 
 När du använder Windows-agenter för att samla in data måste du [konfigurera varje agent så att den rapporterar till en eller flera arbetsytor](../../azure-monitor/platform/agent-windows.md).
 
 Om du använder System Center Operations Manager kan varje hanteringsgrupp för Operations Manager endast anslutas till en arbetsyta. Du kan installera Microsoft Monitoring Agent på datorer som hanteras av Operations Manager och låta agenten rapporten till både Operations Manager och en annan Log Analytics-arbetsyta.
 
-## <a name="workspace-information"></a>Arbetsyteinformation
-När du analyserar data i Log Analytics-arbetsytan i den **Azure Monitor** menyn i Azure-portalen, som du skapar och hanterar arbetsytor i den **Log Analytics-arbetsytor** menyn.
+När arbetsytan arkitekturen har definierats kan du ska framtvinga den här principen på Azure-resurser med [Azure Policy](../../governance/policy/overview.md). Detta kan ge en inbyggd definition som automatiskt gäller för alla Azure-resurser. Du kan till exempel ange en princip för att se till att alla dina Azure-resurser i en viss region skickas alla sina diagnostikloggar till en viss arbetsyta.
+
+## <a name="view-workspace-details"></a>Visa information om arbetsytan
+När du analyserar data i Log Analytics-arbetsytan från den **Azure Monitor** menyn i Azure-portalen, som du skapar och hanterar arbetsytor i den **Log Analytics-arbetsytor** menyn.
  
 
 1. Logga in på den [Azure-portalen](https://portal.azure.com) och klicka på **alla tjänster**. I listan över resurser skriver du **Log Analytics**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Log Analytics** arbetsytor.  
@@ -63,25 +72,104 @@ När du analyserar data i Log Analytics-arbetsytan i den **Azure Monitor** menyn
 
 3. Välj din arbetsyta i listan.
 
-4. Sidan för arbetsytan visar information om att komma igång, konfiguration och länkar till ytterligare information.  
+4. Sidan för arbetsytan visar information om arbetsytan, komma igång, konfiguration och länkar till ytterligare information.  
 
     ![Information om arbetsytan](./media/manage-access/workspace-overview-page.png)  
 
+
+## <a name="workspace-permissions-and-scope"></a>Behörigheter för arbetsytan och omfång
+De data som en användare har tillgång till bestäms av flera faktorer som listas i följande tabell. Alla beskrivs i avsnitten nedan.
+
+| Faktor | Beskrivning |
+|:---|:---|
+| [Åtkomstläge](#access-modes) | Metoden som användaren använder för att får åtkomst till arbetsytan.  Definierar vilka data som är tillgängliga och kontroll åtkomstläge som används. |
+| [Åtkomstläge för kontroll](#access-control-mode) | Inställningen på den arbetsyta som definierar om behörigheter tillämpas på arbetsytan- eller resursen. |
+| [Behörigheter](#manage-accounts-and-users) | Behörigheter som tillämpas på enskilda eller grupper av användare för arbetsytan eller resurs. Definierar vilka data som användaren har åtkomst till. |
+
+
+
+## <a name="access-modes"></a>Åtkomstlägen
+Den _åtkomstläge_ avser hur en användare ansluter till en Log Analytics-arbetsyta och definierar omfattningen av data som de kan komma åt. 
+
+**Arbetsytan-centric**: En användare kan visa alla loggar från arbetsytan som de har behörighet att i det här läget. Frågorna i det här läget är begränsade till alla data i alla tabeller i arbetsytan. Det här är åtkomstläge som används när loggar som nås med arbetsytan som omfång, t.ex när du väljer **loggar** från den **Azure Monitor** menyn i Azure-portalen.
+
+**Resurs-centric**: När du öppnar arbetsytan för en viss resurs, till exempel när du väljer **loggar** från en resurs-menyn i Azure-portalen kan du visa loggar för endast den resursen. Frågorna i det här läget är begränsade till endast de data som är kopplade till den här resursen. Det här läget kan även detaljerad rollbaserad åtkomstkontroll (RBAC). 
+
+> [!NOTE]
+> Loggarna är tillgängliga för resurs-centric frågor endast om de är korrekt kopplade till önskad resurs. Följande resurser har för närvarande begränsningar: 
+> - Datorer utanför Azure
+> - Service Fabric
+> - Application Insights
+> - Containrar
+> - Anpassade loggar som skapats av HTTP-API för datainsamling
+>
+> Du kan testa om loggarna är korrekt kopplade till resursen genom att köra en fråga och kontrollera posterna är du intresserad av. Om rätt resurs-ID finns i den [_ResourceId](log-standard-properties.md#resourceid) egenskap och sedan data är tillgängliga för resurs-centric frågor.
+
+### <a name="comparing-access-modes"></a>Jämföra åtkomstlägen
+
+I följande tabell sammanfattas Åtkomstlägen:
+
+| | Workspace-centric | Resurs-centric |
+|:---|:---|:---|
+| Vem varje modell riktar sig till? | Central administration. Administratörer måste du konfigurera insamling av data och användare som behöver åtkomst till en mängd olika resurser. För närvarande krävs av användare som har åtkomst till loggar för resurser utanför Azure. | Programmet team. Administratörer för Azure-resurser som övervakas. |
+| Det kräver en användare för att visa loggar? | Behörigheter för arbetsytan. Se **behörigheter för arbetsytan** i [hantera konton och användare](#manage-accounts-and-users). | Läsbehörighet till resursen. Se **resursbehörighet** i [hantera konton och användare](#manage-accounts-and-users). Behörigheter kan vara ärvd (till exempel från den aktuella resursgruppen) eller direkt tilldelad till resursen. Behörighet att loggarna för resursen tilldelas automatiskt. |
+| Vad är omfånget för behörigheter? | Arbetsyta. Användare med åtkomst till arbetsytan kan fråga efter alla loggar på arbetsytan. | Azure-resurs. Användare kan fråga loggar för resurser som de har åtkomst till från en arbetsyta men det går inte att fråga loggar för andra resurser. |
+| Hur kan användare åtkomst till loggar? | Starta **loggar** från **Azure Monitor** menyn eller **Log Analytics-arbetsytor**. | Starta **loggar** från menyn för Azure-resursen. |
+
+
+## <a name="access-control-mode"></a>Åtkomstkontrolläge
+Den _kontroll åtkomstläge_ är en inställning på varje arbetsytor som definierar hur behörigheter avgörs för den arbetsytan.
+
+**Kräver behörigheter för arbetsytan**:  Den här kontrolläge tillåter inte detaljerade RBAC. En användare kan få åtkomst till arbetsytan, måste de beviljas behörigheter för arbetsytan. 
+
+Om en användare har åtkomst till arbetsytan i arbetsytan-centric läge, kommer de har åtkomst till alla data på arbetsytan. Om en användare har åtkomst till arbetsytan i resurs-centric läge, kommer de har åtkomst till endast data för den resursen.
+
+Det här är standardinställningen för alla arbetsytor som skapats före mars 2019.
+
+**Använd behörigheter för resursen eller arbetsytan**: Den här kontrollen-läge låter detaljerade RBAC. Användare beviljas åtkomst till endast de data som är kopplade till resurser som de kan visa via Azure-behörigheter, resurser som de har `read` behörighet. 
+
+När en användare har åtkomst till arbetsytan i arbetsytan-centric läge, tillämpas behörigheter för arbetsytan. När en användare har åtkomst till arbetsytan i resurs-centric läge, endast resursbehörighet att verifieras och behörigheter för arbetsytan kommer att ignoreras. Aktivera RBAC för en användare genom att ta bort dem från behörigheter för arbetsytan och låta sina resursbehörighet ska identifieras.
+
+Det här är standardinställningen för alla arbetsytor som skapats efter mars 2019.
+
+> [!NOTE]
+> Om en användare har bara resursbehörighet till arbetsytan kan de bara kommer att kunna komma åt en arbetsyta med hjälp av [resurs-centric läge](#access-modes).
+
+
+### <a name="define-access-control-mode-in-azure-portal"></a>Definiera åtkomstläge för åtkomstkontroll i Azure-portalen
+Du kan visa den aktuella arbetsyteläge åtkomstkontroll på de **översikt** för arbetsytan i den **Log Analytics-arbetsyta** menyn.
+
+![Visa arbetsytan åtkomstläge kontroll](media/manage-access/view-access-control-mode.png)
+
+Du kan ändra den här inställningen på den **egenskaper** för arbetsytan. Ändrar den här inställningen inaktiveras om du inte har behörighet att konfigurera arbetsytan.
+
+![Ändra arbetsytan åtkomstläge](media/manage-access/change-access-control-mode.png)
+
+### <a name="define-access-mode-in-resource-manager-template"></a>Definiera åtkomstläge i Resource Manager-mall
+Om du vill konfigurera åtkomstläge i en Azure Resource Manager-mall, ange den **enableLogAccessUsingOnlyResourcePermissions** funktionen flaggan arbetsytan till en av följande värden.
+
+- **false**: Ange arbetsytan till arbetsytan-centric behörigheter. Det här är standardinställningen om inte flaggan.
+- **true**: Ange arbetsytan till resurs-centric behörigheter.
+
+
 ## <a name="manage-accounts-and-users"></a>Hantera konton och användare
-Varje arbetsyta kan ha flera associerade konton, och varje konto kan ha åtkomst till flera arbetsytor. Åtkomst hanteras [Azure rollbaserad åtkomst](../../role-based-access-control/role-assignments-portal.md). Dessa behörigheter gäller både på Azure portal och API-åtkomst.
+Behörigheter till arbetsytan som tillämpas på en viss användare definieras av deras [åtkomstläge](#access-mode) och [kontroll åtkomstläge](#access-control-mode) i arbetsytan. **Behörigheter för arbetsytan** tillämpas när en användare har åtkomst till alla arbetsytan med **arbetsyta-centric** i [arbetsyta-centric läge](#access-modes). **Resursbehörighet** tillämpas när en användare ansluter till en arbetsyta med **använder resursen eller arbetsytan behörigheter** [kontroll åtkomstläge](#access-control-mode) med [resurs-centric läge ](#access-modes).
+
+### <a name="workspace-permissions"></a>Behörigheter för arbetsytan
+Varje arbetsyta kan ha flera associerade konton, och varje konto kan ha åtkomst till flera arbetsytor. Åtkomst hanteras [Azure rollbaserad åtkomst](../../role-based-access-control/role-assignments-portal.md). 
 
 
 Följande aktiviteter kräver även Azure-behörigheter:
 
 | Åtgärd                                                          | Azure-behörigheter krävs | Anteckningar |
 |-----------------------------------------------------------------|--------------------------|-------|
-| Lägga till och ta bort hanteringslösningar                        | `Microsoft.Resources/deployments/*` <br> `Microsoft.OperationalInsights/*` <br> `Microsoft.OperationsManagement/*` <br> `Microsoft.Automation/*` <br> `Microsoft.Resources/deployments/*/write` | Behörigheterna måste beviljas på resursgrupp- eller prenumerationsnivå. |
+| Att lägga till och ta bort övervakningslösningar                        | `Microsoft.Resources/deployments/*` <br> `Microsoft.OperationalInsights/*` <br> `Microsoft.OperationsManagement/*` <br> `Microsoft.Automation/*` <br> `Microsoft.Resources/deployments/*/write` | Behörigheterna måste beviljas på resursgrupp- eller prenumerationsnivå. |
 | Ändra prisnivån                                       | `Microsoft.OperationalInsights/workspaces/*/write` | |
 | Visa data i lösningspanelerna *säkerhetskopiering* och *Site Recovery* | Administratör/medadministratör | Åtkomst till resurser som distribueras med den klassiska distributionsmodellen |
 | Skapa en arbetsyta i Azure Portal                        | `Microsoft.Resources/deployments/*` <br> `Microsoft.OperationalInsights/workspaces/*` ||
 
 
-### <a name="managing-access-to-log-analytics-workspace-using-azure-permissions"></a>Hantera åtkomst till Log Analytics-arbetsyta med hjälp av Azure-behörigheter
+#### <a name="manage-access-to-log-analytics-workspace-using-azure-permissions"></a>Hantera åtkomst till Log Analytics-arbetsyta med hjälp av Azure-behörigheter 
 Om du vill bevilja åtkomst till Log Analytics-arbetsytan med Azure-behörigheter följer du stegen i [Använda rolltilldelningar för att hantera åtkomsten till dina Azure-prenumerationsresurser](../../role-based-access-control/role-assignments-portal.md).
 
 Azure har två inbyggda användarroller för Log Analytics-arbetsytor:
@@ -141,7 +229,21 @@ Använd de här rollerna för att ge användare åtkomst med olika omfång:
 - Resursgrupp: åtkomst till alla arbetsytor i resursgruppen
 - Resurs: endast åtkomst till en angiven arbetsyta
 
-Vi rekommenderar att du utför tilldelningar på resursnivå (arbetsyta) för att garantera korrekt åtkomstkontroll.  Använd [anpassade roller](../../role-based-access-control/custom-roles.md) för att skapa roller med specifik behörighet.
+Du bör utföra tilldelningar på resursnivå (arbetsyta) för att garantera korrekta åtkomstkontroll.  Använd [anpassade roller](../../role-based-access-control/custom-roles.md) för att skapa roller med specifik behörighet.
+
+### <a name="resource-permissions"></a>Resursbehörigheter 
+När användarna fråga loggar från en arbetsyta med hjälp av resource-centric åtkomst, har de följande behörigheter för resursen:
+
+| Behörighet | Beskrivning |
+| ---------- | ----------- |
+| `Microsoft.Insights/logs/<tableName>/read`<br><br>Exempel:<br>`Microsoft.Insights/logs/*/read`<br>`Microsoft.Insights/logs/Heartbeat/read` | Möjligheten att visa alla loggdata för resursen.  |
+
+
+Den här behörigheten beviljas vanligtvis från en roll som innehåller  _\*/läsa eller_ _\*_ behörigheter till exempel inbyggt [läsare](../../role-based-access-control/built-in-roles.md#reader) och [ Deltagare](../../role-based-access-control/built-in-roles.md#contributor) roller. Observera att anpassade roller som innehåller specifika åtgärder eller dedikerade inbyggda roller inte kanske innehåller den här behörigheten.
+
+
+
+
 
 ## <a name="next-steps"></a>Nästa steg
 * Se [översikt över Log Analytics-agenten](../../azure-monitor/platform/log-analytics-agent.md) samla in data från datorer i ditt datacenter eller andra moln.

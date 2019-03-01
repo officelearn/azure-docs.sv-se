@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: apimpm
-ms.openlocfilehash: 21175e74bd40d0d4aeaf1c0a1e677f1c8113e80a
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 9a2cf35203c673d6296754360ac4f794241d4c43
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56738019"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57008686"
 ---
 # <a name="using-azure-api-management-service-with-an-internal-virtual-network"></a>Med Azure API Management-tjänsten med ett internt virtuellt nätverk
 Med Azure Virtual Networks, kan Azure API Management hantera API: er som är inte tillgänglig på internet. Ett antal VPN-tekniker är tillgängliga för att upprätta anslutningen. API Management kan distribueras i två huvudlägen i ett virtuellt nätverk:
@@ -74,7 +74,7 @@ Du kan också aktivera anslutningar för virtuella nätverk med hjälp av PowerS
 
 * Skapa en API Management-tjänsten i ett virtuellt nätverk: Använd cmdleten [New AzApiManagement](/powershell/module/az.apimanagement/new-azapimanagement) att skapa en Azure API Management-tjänsten i ett virtuellt nätverk och konfigurera den att använda typen internt virtuellt nätverk.
 
-* Distribuera en befintlig API Management-tjänst i ett virtuellt nätverk: Använd cmdleten [uppdatering AzApiManagementDeployment](/powershell/module/az.apimanagement/update-azapimanagementdeployment) att flytta en befintlig API Management-tjänst i ett virtuellt nätverk och konfigurera den att använda typen internt virtuellt nätverk.
+* Uppdatera en befintlig distribution av en API Management-tjänsten i ett virtuellt nätverk: Använd cmdleten [uppdatering AzApiManagementRegion](/powershell/module/az.apimanagement/update-azapimanagementregion) att flytta en befintlig API Management-tjänst i ett virtuellt nätverk och konfigurera den att använda typen internt virtuellt nätverk.
 
 ## <a name="apim-dns-configuration"></a>DNS-konfiguration
 När API Management är i läget för externt virtuellt nätverk, hanteras DNS av Azure. Du måste hantera din egen routning för internt virtuellt nätverk.

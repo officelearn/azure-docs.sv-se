@@ -4,14 +4,14 @@ description: Översikt över distribution Avere vFXT för Azure
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 01/29/2019
+ms.date: 02/20/2019
 ms.author: v-erkell
-ms.openlocfilehash: 1be11fff7139b250e85fe15cec9082a2c85cf857
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 0c61db5e34ba58bb767b0bda773a54c8e65cd404
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55298542"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56991809"
 ---
 # <a name="avere-vfxt-for-azure---deployment-overview"></a>Avere vFXT för Azure – distributionsöversikt
 
@@ -52,10 +52,12 @@ Här är en översikt över alla steg.
 
      Kluster-styrenheten är en enkel virtuell dator som finns i samma virtuella nätverk som Avere vFXT klustret och anpassad programvara som behövs för att skapa och hantera klustret. Kontrollanten skapar vFXT noderna och formulär klustret och det ger också ett kommandoradsgränssnitt för att hantera klustret under dess livslängd.
 
-     Om du konfigurerar din kontrollant med en offentlig IP-adress måste kan den också fungera som en jump-värd för att ansluta till klustret från utanför det virtuella nätverket.
+     Om du skapar ett nytt vnet under distributionen av har din kontrollant en offentlig IP-adress. Det innebär att kontrollanten kan fungera som en jump-värd för att ansluta till klustret från utanför det virtuella nätverket.
 
    * Klustret skapas noden virtuella datorer
-   * Konfigurera virtuella datorer i klusternoden som klustret
+
+   * Konfigurera klusternodens virtuella datorer för att skapa kluster
+
    * Du kan också skapa en ny blobbehållare och konfigurera den som backend-lagring för klustret
 
 1. Konfigurera klustret 

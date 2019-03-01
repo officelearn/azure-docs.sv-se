@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 03/14/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 501bfddd64d3353abc9212d63c76fb582e81a580
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: b9672c55ae2285a7dd9d951038ef41eebcfa195c
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56649518"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57192794"
 ---
 # <a name="restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-powershell"></a>Begränsa nätverksåtkomst till PaaS-resurser med virtuella nätverksslutpunkter med hjälp av PowerShell
 
@@ -197,13 +197,13 @@ Nyckeln används för att skapa en filresurs i ett senare steg. Ange `$storageAc
 
 ### <a name="create-a-file-share-in-the-storage-account"></a>Skapa en filresurs i lagringskontot
 
-Skapa en kontext för ditt lagringskonto och nyckel med [New AzStorageContext](/powershell/module/azure.storage/new-AzStoragecontext). Kontexten innehåller lagringskontots namn och åtkomstnyckel:
+Skapa en kontext för ditt lagringskonto och nyckel med [New AzStorageContext](/powershell/module/az.storage/new-AzStoragecontext). Kontexten innehåller lagringskontots namn och åtkomstnyckel:
 
 ```azurepowershell-interactive
 $storageContext = New-AzStorageContext $storageAcctName $storageAcctKey
 ```
 
-Skapa en filresurs med [New AzStorageShare](/powershell/module/azure.storage/new-AzStorageshare):
+Skapa en filresurs med [New AzStorageShare](/powershell/module/az.storage/new-azstorageshare):
 
 $share = New-AzStorageShare my-file-share - kontexten $storageContext
 

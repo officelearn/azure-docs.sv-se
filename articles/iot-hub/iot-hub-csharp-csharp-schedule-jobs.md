@@ -1,19 +1,19 @@
 ---
 title: Schemalägg jobb med Azure IoT Hub (.NET/.NET) | Microsoft Docs
 description: Så här schemalägger du ett Azure IoT Hub-jobb att anropa en direkt metod på flera enheter. Du kan använda Azure IoT-enhetens SDK för .NET för att implementera appar för simulerade enheter och en tjänstapp för att köra jobbet.
-author: dominicbetts
-manager: timlt
+author: robinsh
+manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 03/06/2018
-ms.author: dobett
-ms.openlocfilehash: 4089ee74b44bc17324c7cd33b1bbd734a651d75f
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.author: robin.shahan
+ms.openlocfilehash: b39d7d4af4c476778665e844f647beecf20e3d9f
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51514816"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57008890"
 ---
 # <a name="schedule-and-broadcast-jobs-netnet"></a>Schemalägg och Sänd jobb (.NET/.NET)
 
@@ -29,9 +29,9 @@ Ett jobb omsluter en av de här åtgärderna och spårar körning mot en uppsät
 
 Mer information om var och en av de här funktionerna finns:
 
-* Enhetstvillingen och egenskaper: [Kom igång med enhetstvillingar](iot-hub-csharp-csharp-twin-getstarted.md) och [självstudie: Så här använder du tvillingegenskaper](tutorial-device-twins.md)
+* Enhetstvillingen och egenskaper: [Kom igång med enhetstvillingar](iot-hub-csharp-csharp-twin-getstarted.md) och [självstudien: Så här använder du tvillingegenskaper](tutorial-device-twins.md)
 
-* Direkta metoder: [IoT Hub developer guide - direkta metoder](iot-hub-devguide-direct-methods.md) och [självstudie: Använd direkta metoder](quickstart-control-device-dotnet.md)
+* Direkta metoder: [IoT Hub developer guide - direkta metoder](iot-hub-devguide-direct-methods.md) och [självstudien: Använd direkta metoder](quickstart-control-device-dotnet.md)
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
@@ -56,7 +56,7 @@ För att kunna genomföra den här kursen behöver du följande:
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
-### <a name="retrieve-connection-string-for-iot-hub"></a>Hämta anslutningssträngen för IoT hub
+### <a name="retrieve-connection-string-for-iot-hub"></a>Hämta anslutningssträngen för IoT-hubben
 
 [!INCLUDE [iot-hub-include-find-connection-string](../../includes/iot-hub-include-find-connection-string.md)]
 
@@ -291,6 +291,6 @@ Nu är det dags att köra apparna.
 
 I den här självstudien använde du ett jobb för att schemalägga en direkt metod att en enhet och varje uppdatering av enheten tvillingegenskaper.
 
-Om du vill fortsätta att komma igång med IoT Hub och enhetshanteringsmönster som via luften firmware-uppdatering, läsa [självstudie: hur du gör en firmware-uppdatering](tutorial-firmware-update.md).
+Om du vill fortsätta att komma igång med IoT Hub och enhetshanteringsmönster som via luften firmware-uppdatering, läsa [självstudien: Hur du gör en firmware-uppdatering](tutorial-firmware-update.md).
 
 Läs om hur du distribuerar AI till gränsenheter med Azure IoT Edge i [komma igång med IoT Edge](../iot-edge/tutorial-simulate-device-linux.md).

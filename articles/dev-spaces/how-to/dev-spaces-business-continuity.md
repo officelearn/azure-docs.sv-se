@@ -1,5 +1,5 @@
 ---
-title: Företag affärskontinuitet och haveriberedskap återställning i Azure Dev blanksteg | Microsoft Docs
+title: Företag affärskontinuitet och haveriberedskap återställning i Azure Dev blanksteg
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
@@ -7,16 +7,16 @@ ms.subservice: azds-kubernetes
 author: lisaguthrie
 ms.author: lcozzens
 ms.date: 01/28/2019
-ms.topic: article
+ms.topic: conceptual
 description: Snabb Kubernetes-utveckling med containrar och mikrotjänster i Azure
-keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers
+keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, behållare, Helm, tjänsten nät, tjänsten nät routning, kubectl, k8s '
 manager: jeconnoc
-ms.openlocfilehash: b7eba0e63f68cd56f2bcc310c3bde65c36e933dd
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 25397b52cbcfb141fe27e9261c78a2ef6adb677d
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56822471"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57192947"
 ---
 # <a name="business-continuity-and-disaster-recovery-in-azure-dev-spaces"></a>Företag affärskontinuitet och haveriberedskap återställning i Azure Dev blanksteg
 

@@ -4,14 +4,14 @@ description: Förstå hur indexering fungerar i Azure Cosmos DB. Lär dig mer om
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/10/2018
+ms.date: 3/1/2019
 ms.author: mjbrown
-ms.openlocfilehash: 6c145b58a1f0eaaf93fb5797028e11ba8338d6be
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 2b46638a7e0fa3dc80fa4d2fa23d49b37b8885ec
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55460241"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57193166"
 ---
 # <a name="index-policy-in-azure-cosmos-db"></a>Index principen i Azure Cosmos DB
 
@@ -23,9 +23,9 @@ Du kan åsidosätta standardinställningen indexeringspolicy på en Azure Cosmos
 
 * **Konfigurera index lägen**: Med indexprincip i en behållare kan du konfigurera olika lägen för indexering som *konsekvens* eller *ingen*.
 
-## <a name="indexing-modes"></a>Indexering lägen 
+## <a name="indexing-modes"></a>Indexering lägen
 
-Azure Cosmos DB stöder två indexering lägen som du kan konfigurera ett Azure Cosmos-behållaren. Du kan konfigurera följande två indexering lägen via indexprincip: 
+Azure Cosmos DB stöder två indexering lägen som du kan konfigurera ett Azure Cosmos-behållaren. Du kan konfigurera följande två indexering lägen via indexprincip:
 
 * **Konsekvent**: Om en Azure Cosmos-behållare principen är konfigurerad att konsekvens, frågor på en specifik behållare följer du samma konsekvensnivå som angav för punkt-läsningar (exempel: stark, bunden utgång, session eller eventuell). 
 
@@ -37,6 +37,9 @@ Azure Cosmos DB stöder två indexering lägen som du kan konfigurera ett Azure 
   > Konfigurera indexering läge som en ingen har att släppa alla befintliga index. Du bör använda det här alternativet om din åtkomstmönster kräver ID eller självlänken endast.
 
 Fråga konsekvensnivåer bevaras liknar regelbundna läsåtgärder. Azure Cosmos-databasen returnerar ett fel om du frågar behållaren som innehåller en ingen indexering läge. Du kan köra frågor som genomsökningar via den explicita **x-ms-documentdb-enable-genomsökning** huvud i REST API eller **EnableScanInQuery** begära alternativet med hjälp av .NET SDK. Vissa fråga funktioner, som ORDER BY inte stöds för närvarande med **EnableScanInQuery**, eftersom de utförda ett motsvarande index.
+
+> [!NOTE]
+> Azure Cosmos DB har en tredje Lazy indexering läge. Men detta håller på att ta bort framhävd eftersom frågeprestanda och kostnad kan vara oförutsägbart. Vi rekommenderar att du använder konsekvent indexering läge.
 
 ## <a name="modifying-the-indexing-policy"></a>Ändra indexprincip
 

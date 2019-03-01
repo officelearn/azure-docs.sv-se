@@ -1,19 +1,20 @@
 ---
 title: Ladda upp filer från enheter till Azure IoT Hub med Java | Microsoft Docs
 description: Hur du överför filer från en enhet till molnet med Azure IoT-enhetens SDK för Java. Överförda filer lagras i en Azure storage blob-behållare.
-author: dominicbetts
+author: wesmc7777
+manager: philmea
+ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: java
 ms.topic: conceptual
 ms.date: 06/28/2017
-ms.author: dobett
-ms.openlocfilehash: 11b283bf3557fd14663e1789ce19af48b9aa9db2
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: c7a4c31004bc6dc2bc4e2e52a1ba25845ef9ac01
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51824072"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57011525"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>Ladda upp filer från din enhet till molnet med IoT Hub
 

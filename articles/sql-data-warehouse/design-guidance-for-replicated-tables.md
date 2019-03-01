@@ -10,12 +10,12 @@ ms.subservice: implement
 ms.date: 04/23/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 5c791dc8216a4c905b4147f59a42d52091f14aae
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 93e1904862af7eaad395bf14b0d09555d9d1d2ab
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55465987"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56990143"
 ---
 # <a name="design-guidance-for-using-replicated-tables-in-azure-sql-data-warehouse"></a>Designriktlinjer för att använda replikerade tabeller i Azure SQL Data Warehouse
 Den här artikeln ger rekommendationer för att utforma replikerade tabeller i SQL Data Warehouse-schemat. Använd de här rekommendationerna för att förbättra frågeprestanda genom att minska komplexiteten för data movement och fråga.
@@ -58,7 +58,7 @@ Innan du väljer att distribuera eller replikera en tabell måste tänka på vil
 
 CPU-intensiva frågor gör bäst ifrån sig när arbetet är fördelat över alla Compute-noder. Till exempel utföra frågor som kör beräkningar på varje rad i en tabell bättre på distribuerade tabeller än replikerade tabeller. Eftersom en replikerad tabell lagras med fullständigt på varje beräkningsnod, körs en processorintensiva fråga mot en replikerad tabell mot hela tabellen på varje beräkningsnod. Extra beräkningen kan sakta frågeprestanda.
 
-Den här frågan har exempelvis ett komplext predikat.  Den körs snabbare när leverantör är en distribuerad tabell i stället för en replikerad tabell. Leverantören kan vara resursallokering som distribueras i det här exemplet.
+Den här frågan har exempelvis ett komplext predikat.  Den körs snabbare när data är i en distribuerad tabell i stället för en replikerad tabell. Data kan vara resursallokering som distribueras i det här exemplet.
 
 ```sql
 
@@ -69,7 +69,7 @@ WHERE EnglishDescription LIKE '%frame%comfortable%'
 ```
 
 ## <a name="convert-existing-round-robin-tables-to-replicated-tables"></a>Konvertera befintliga resursallokeringstabeller till replikerade tabeller
-Om du redan har resursallokering tabeller, rekommenderar vi att konvertera dem till replikerade tabeller om de uppfyller med villkor som beskrivs i den här artikeln. Replikerade tabeller förbättras prestanda när-resursallokeringstabeller eftersom de undanröjer behovet av dataförflyttning.  En resursallokeringstabell kräver alltid Dataförflyttning för kopplingar. 
+Om du redan har resursallokering tabeller, rekommenderar vi att konvertera dem till replikerade tabeller om de uppfyller de kriterier som beskrivs i den här artikeln. Replikerade tabeller förbättras prestanda när-resursallokeringstabeller eftersom de undanröjer behovet av dataförflyttning.  En resursallokeringstabell kräver alltid Dataförflyttning för kopplingar. 
 
 Det här exemplet används [CTAS](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) att ändra tabellen dimsalesterritory till en replikerad tabell. Det här exemplet fungerar oavsett om DimSalesTerritory är hash-distribuerad eller resursallokering.
 

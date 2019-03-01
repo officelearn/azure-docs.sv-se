@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: barclayn
-ms.openlocfilehash: c9d8dd366ecabe9eb508998d526ddfe7b1da300d
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: afec42551f124890dd2cc7b03cce48c359fc88c4
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56960532"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57194103"
 ---
 # <a name="azure-key-vault-logging"></a>Azure Key Vault-loggning
 
@@ -306,11 +306,11 @@ Följande tabell listar de **operationName** värden och motsvarande REST API-ko
 | **SecretList** |[Visa en lista över hemligheterna i ett valv](https://msdn.microsoft.com/library/azure/dn903614.aspx) |
 | **SecretListVersions** |[Visa en lista över versionerna av en hemlighet](https://msdn.microsoft.com/library/azure/dn986824.aspx) |
 
-## <a id="loganalytics"></a>Använda Log Analytics
+## <a id="loganalytics"></a>Använda Azure Monitor-loggar
 
-Du kan använda Key Vault-lösningen i Azure Log Analytics för att granska Key Vault **AuditEvent** loggar. I Log Analytics använder du loggfrågor för att analysera data och få den information du behöver. 
+Du kan använda Key Vault-lösningen i Azure Monitor-loggar för att granska Key Vault **AuditEvent** loggar. I Azure Monitor-loggar använder du loggfrågor för att analysera data och få den information du behöver. 
 
-Mer information och information om hur du konfigurerar detta finns i [Azure Key Vault i Log Analytics](../azure-monitor/insights/azure-key-vault.md). Den här artikeln innehåller också anvisningar om du vill migrera från den gamla Key Vault-lösningen som fanns i förhandsversionen Log Analytics, där du först dirigera loggarna till ett Azure storage-konto och konfigurerade Log Analytics till att läsa därifrån.
+Mer information, inklusive hur du konfigurerar detta finns i [Azure Key Vault-lösningen i Azure Monitor-loggar](../azure-monitor/insights/azure-key-vault.md). Den här artikeln innehåller också anvisningar om du vill migrera från den gamla Key Vault-lösningen som fanns under Azure Monitor-loggar, förhandsgranska, där du först dirigera loggarna till ett Azure storage-konto och konfigurerade Azure Monitor-loggar för att läsa därifrån.
 
 ## <a id="next"></a>Nästa steg
 

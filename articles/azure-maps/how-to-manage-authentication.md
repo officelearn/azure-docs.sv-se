@@ -8,95 +8,92 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 68c3c8ac39f5803e01ee1038ec85ddb96ac80b30
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: eb71eab965f8d512a9f1621c2fc38c49b60ee268
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56242693"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57009179"
 ---
 # <a name="manage-authentication-in-azure-maps"></a>Hantera autentisering i Azure Maps
 
-När du har skapat ett Azure Maps-konto skapas klient-ID och nycklar för Azure Active Directory (AD Azure) eller autentisering med delad nyckel.
-
-Du kan hitta information om din autentisering genom att navigera till den **autentisering** sidan **inställningar** i Azure-portalen. Navigera till ditt konto. Välj sedan **autentisering** på menyn.
-
+När du har skapat ett Azure Maps-konto skapas ett klient-ID och nycklar för Azure Active Directory (AD Azure) eller autentisering med delad nyckel.
 
 ## <a name="view-authentication-details"></a>Visa autentisering-information
 
-Om du vill visa information om din autentisering, navigera till den **autentisering** alternativ på inställningsmenyn.
+Du kan visa information om din autentisering på Azure portal. Gå till ditt konto och välj **autentisering** på den **inställningar** menyn.
 
-![Visa autentisering](./media/how-to-manage-authentication/how-to-view-auth.png)
+![Autentisering-information](./media/how-to-manage-authentication/how-to-view-auth.png)
 
- Mer information om autentisering och Azure Maps, se [autentisering med Azure Maps](https://aka.ms/amauth).
+ Mer information finns i [autentisering med Azure Maps](https://aka.ms/amauth).
 
 
-## <a name="configure-azure-ad-app-registration"></a>Konfigurera Azure AD-Appregistrering
+## <a name="set-up-azure-ad-app-registration"></a>Konfigurera Azure AD app-registrering
 
-När en Azure Maps-konto har skapats, krävs en länk mellan din Azure AD-klient och Azure Maps Azure-resurs. 
+När du skapar ett Azure Maps-konto måste du upprätta en anslutning mellan din Azure AD-klient och Azure Maps-resursen.
 
-1. Gå till Azure AD-bladet och skapa en Appregistrering med ett namn och logga in URL: en som öppnas startsidan för webbappen / API som ”https://localhost/”. Om du redan har en registrerad app kan du gå vidare till steg 2.
+1. Gå till bladet Azure AD och skapa en appregistrering. Ange ett namn för registreringen. I den **inloggnings-URL** ange startsida webbappen / API (till exempel https://localhost/). Om du redan har en registrerad app, gå till steg 2.
 
     ![Appregistrering](./media/how-to-manage-authentication/app-registration.png)
 
-    ![Appregistrering](./media/how-to-manage-authentication/app-create.png)
+    ![Information om registrering av appar](./media/how-to-manage-authentication/app-create.png)
 
-2. Tilldela delegerade API-behörigheter till Azure Maps genom att gå till program under appregistreringar och klicka på **inställningar**.  Välj **nödvändiga behörigheter** och välj **Lägg till**. Sök och välj sedan Azure Maps under **Välj en API** och klicka på **Välj**.
+2. Om du vill tilldela Azure Maps delegerade API-behörigheter, går du till programmet under **appregistreringar**, och välj sedan **inställningar**.  Välj **nödvändiga behörigheter**, och välj sedan **Lägg till**. Sök efter och välj **Azure Maps** under **Välj en API**, och välj sedan den **Välj** knappen.
 
-    ![Api för appbehörigheter](./media/how-to-manage-authentication/app-permissions.png)
+    ![Programbehörigheter API](./media/how-to-manage-authentication/app-permissions.png)
 
-3. Slutligen under Select-behörigheter väljer åtkomst Azure Maps och klicka på Välj.
+3. Under **Välj behörigheter**väljer **åtkomst Azure Maps**, och välj sedan den **Välj** knappen.
 
-    ![Välj app api-behörigheter](./media/how-to-manage-authentication/select-app-permissions.png)
+    ![Välj app API-behörigheter](./media/how-to-manage-authentication/select-app-permissions.png)
 
-4. Följ steg en eller b, beroende på implementering av autentisering.
+4. I steget Slutför en eller b, beroende på autentiseringsmetod.
 
-    1. Om programmet är avsikten är att använda token användarautentisering med vår Azure Maps Web SDK, måste du aktivera den `oauthEnableImplicitFlow` genom att ange den till true i avsnittet manifestet i detalj för appens registreringssida.
+    1. Om programmet använder användartoken autentisering med Azure Maps Web SDK, aktivera `oauthEnableImplicitFlow` genom att ange den till true i avsnittet manifestet i detalj för appens registreringssida.
     
        ![Appmanifestet](./media/how-to-manage-authentication/app-manifest.png)
 
-    2. Om programmet använder servern/programmet autentiseringen går till den **nycklar** bladet i appregistreringen samt skapa ett lösenord eller ladda upp ett offentligt nyckelcertifikat till registreringen. Om du skapar ett lösenord när du **spara**kopiera lösenordet för senare, och lagra den på ett säkert sätt kan du använda det här för att hämta token från Azure AD.
+    2. Om ditt program använder servern/programmet autentisering går du till den **nycklar** -bladet i appregistrering och skapa ett lösenord eller ladda upp ett offentligt nyckelcertifikat till registreringen. Om du skapar ett lösenord när du har valt **spara**, kopiera lösenordet för senare och lagra den på ett säkert sätt. Du använder det här lösenordet för att hämta token från Azure AD.
 
        ![Appnycklar](./media/how-to-manage-authentication/app-keys.png)
 
 
 ## <a name="grant-rbac-to-azure-maps"></a>Bevilja RBAC till Azure Maps
 
-När ett Azure Maps-konto har associerats med Azure AD-klienten, kan du få åtkomstkontroll genom att tilldela användaren eller programmet till tillgängliga roller i Azure Maps åtkomstkontroll.
+När du har kopplat ett Azure Maps-konto med Azure AD-klienten, kan du ge åtkomstkontroll genom att tilldela en användare eller program till en eller flera Azure Maps roller för åtkomstkontroll.
 
-1. Gå till **Access Control** klickar du på **rolltilldelningar**, och **Lägg till rolltilldelning**.
+1. Gå till **åtkomstkontroll (IAM)** väljer **rolltilldelningar**, och välj sedan **Lägg till rolltilldelning**.
 
     ![Bevilja RBAC](./media/how-to-manage-authentication/how-to-grant-rbac.png)
 
-2. Rolltilldelning frigörs fönstret, Välj Azure Maps datum läsare (förhandsgranskning) **rollen**, **tilldela åtkomst till**: Azure AD-användare, grupp eller tjänstens huvudnamn, **Välj** användare eller program från listrutan och **spara**.
+2. I den **Lägg till rolltilldelning** fönstret under **rollen**väljer **Azure Maps datum läsare (förhandsgranskning)**. Under **tilldela åtkomst till**väljer **Azure AD-användare, grupp eller tjänstens huvudnamn**. Under **Välj**, Välj önskade användare eller program. Välj **Spara**.
 
     ![Lägg till rolltilldelning](./media/how-to-manage-authentication/add-role-assignment.png)
 
 ## <a name="view-available-azure-maps-rbac-roles"></a>Visa tillgängliga Azure Maps RBAC-roller
 
-Om du vill visa tillgängliga rollbaserad roller för åtkomstkontroll för Azure Maps som kan bevilja åtkomst till, gå till **åtkomstkontroll (IAM)** klickar du på på **roller**, och Sök efter roller från och med **Azure Maps**.
+Om du vill visa roller för rollbaserad åtkomst åtkomstkontroll (RBAC) som är tillgängliga för Azure Maps går du till **åtkomstkontroll (IAM)** väljer **roller**, och sedan söka efter roller från och med **Azure Maps**. Det här är de roller som du kan bevilja åtkomst till.
 
 ![Visa tillgängliga roller](./media/how-to-manage-authentication/how-to-view-avail-roles.png)
 
 
-## <a name="view-azure-maps-role-based-access-control-rbac"></a>Visa Azure Maps rollbaserad åtkomstkontroll (RBAC)
+## <a name="view-azure-maps-rbac"></a>Visa Azure Maps RBAC
 
-Azure AD skapar förutsättningar för detaljerad åtkomstkontroll via rollbaserad åtkomstkontroll (RBAC). 
+RBAC ger detaljerad åtkomstkontroll.
 
-Om du vill visa användare eller program som har beviljats RBAC för Azure Maps, gå till **åtkomstkontroll (IAM)** väljer **rolltilldelningar**, och filtrera efter **Azure Maps**. Alla tillgängliga roller visas nedan.
+Om du vill visa användare och appar som har beviljats RBAC för Azure Maps, gå till **åtkomstkontroll (IAM)** väljer **rolltilldelningar**, och sedan filtrera efter **Azure Maps**.
 
-![Visa RBAC](./media/how-to-manage-authentication/how-to-view-amrbac.png)
+![Visa användare och appar som har beviljats RBAC](./media/how-to-manage-authentication/how-to-view-amrbac.png)
 
 
 ## <a name="request-tokens-for-azure-maps"></a>Begära token för Azure Maps
 
-När din app har registrerats och som är associerade med Azure Maps, kan du begära åtkomst-token.
+När du registrera din app och associerat den med Azure Maps, kan du begära åtkomst-token.
 
-* Om programmet är avsikten är att använda token användarautentisering med vår Azure Maps Web SDK (webb), måste du konfigurera din html-sida med Azure Maps klient-ID och Azure AD App-ID.
+* Om ditt program använder användartoken autentisering med Azure Maps Web SDK, måste du konfigurera din HTML-sida med klient-ID för Azure Maps och Azure AD app-ID.
 
-* För program med servern/programmet autentisering måste begära en token från Azure AD-inloggningsslutpunkt `https://login.microsoftonline.com` med resurs-ID för Azure AD `https://atlas.microsoft.com/`, klient-ID för Azure Maps, Azure AD App-ID och Azure AD-App registrering av lösenord eller certifikat.
+* Om servern/programmet autentisering används i ditt program måste du begära en token från Azure AD-inloggningsslutpunkt `https://login.microsoftonline.com` med Azure AD-resurs-ID `https://atlas.microsoft.com/`, klient-ID för Azure Maps, Azure AD app-ID och Azure AD app-registrering lösenordet eller certifikatet.
 
-Läs mer på begäran om åtkomsttoken från Azure AD för användare och tjänsthuvudnamn [autentiseringsscenarier för Azure AD](https://docs.microsoft.com/azure/active-directory/develop/authentication-scenarios).
+Läs mer om hur du begär åtkomsttoken från Azure AD för användare och tjänsthuvudnamn [autentiseringsscenarier för Azure AD](https://docs.microsoft.com/azure/active-directory/develop/authentication-scenarios).
 
 
 ## <a name="next-steps"></a>Nästa steg

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 7f99b6d2f6fc1c6d1c270bd66965d978749ac63f
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: e79fdf2d7d680b3a229385c0fd96d844b3425b18
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55455940"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56992489"
 ---
 # <a name="restore-data-from-a-backup-in-azure-cosmos-db"></a>Återställa data från en säkerhetskopia i Azure Cosmos DB 
 
@@ -33,6 +33,11 @@ Du bör ha följande information innan du begär en återställning:
 * Om en eller flera databaser tas bort, bör du tillhandahåller Azure Cosmos-konto, samt Azure Cosmos-databasnamn och anger om det finns en ny databas med samma namn.
 
 * Om en eller flera behållare är borttagna kan bör du ange namnet på Azure Cosmos-kontot, databasnamn och behållare namnen. Och ange om det finns en behållare med samma namn.
+
+* Om du har eller förstörs dina data, bör du kontakta [Azure-supporten](https://azure.microsoft.com/support/options/) inom åtta timmar så att Azure Cosmos DB-teamet kan du återställa data från säkerhetskopior.
+  
+  * Om du har råkat ta bort din databas eller behållare, öppnar du ett supportärende Sev B eller Sev C Azure. 
+  * Om du av misstag har tagits bort eller skadad några dokument i behållaren kan du öppna ett supportärende för Sev A. 
 
 När data skadas och om dokumenten i en behållare har ändrats eller tagits bort, **ta bort behållaren så snart som möjligt**. Du kan undvika Azure Cosmos DB skriver över säkerhetskopiorna genom att ta bort behållaren. Om du av någon anledning att borttagningen inte är möjligt, du bör registrera en supportbegäran så snart som möjligt. Utöver Azure Cosmos-kontonamn, databasnamn, samlingsnamn, bör du ange punkten i tiden som data kan återställas till. Det är viktigt att vara så exakt som möjligt för att hjälpa oss att avgöra de bästa tillgängliga säkerhetskopiorna vid den tidpunkten. Det är också viktigt att ange hur lång tid i UTC. 
 

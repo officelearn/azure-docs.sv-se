@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 10/08/2018
 ms.author: raynew
-ms.openlocfilehash: bd1761ecf16bbfb0d3fdc354ab1b9fa1f42f9c17
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: bc4673a12ec5b752a513b4a95796f2aeb8b8ce5d
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56328588"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56991256"
 ---
 # <a name="contoso---scale-a-migration-to-azure"></a>Contoso – skala en migrering till Azure
 
@@ -379,7 +379,7 @@ Contoso förlitar sig på Azure Security Center för enhetlig säkerhetshanterin
 
 ### <a name="monitoring"></a>Övervakning
 
-Contoso behöver insyn i hälsotillstånd och prestanda för den nyligen migrerade appar, infrastruktur och data som nu kör Azure. Contoso att utnyttja inbyggda Azure-molnet övervakningsverktyg som Azure Monitor, Log Analytics och Application Insights.
+Contoso behöver insyn i hälsotillstånd och prestanda för den nyligen migrerade appar, infrastruktur och data som nu kör Azure. Contoso att utnyttja inbyggda Azure-molnet övervakningsverktyg som Azure Monitor, Log Analytics-arbetsyta och Application Insights.
  
 - Med dessa verktyg kan Contoso enkelt samla in data från källor och få omfattande insikter. Exempel: Contoso mäta användning av CPU-disk och minne för virtuella datorer, visa program- och nätverksberoenden över flera virtuella datorer, och spåra programprestanda.
 - Contoso använder dessa molnet övervakningsverktyg för att vidta åtgärder och integrera med lösningar.

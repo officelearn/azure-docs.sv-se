@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 02/06/2019
+ms.date: 02/28/2019
 ms.author: juliako
-ms.openlocfilehash: 9d62ef2295abbb8f8fc6f45ffc0c7ab1ce9616e4
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 9671d9f61b610a85cbf2475e045c641a29dac11b
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55878365"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57010624"
 ---
 # <a name="live-event-types-comparison"></a>Live-händelse typer jämförelse
 
@@ -33,7 +33,7 @@ I följande tabell jämförs funktionerna i de två typerna av direktsänd händ
 | Enkel bithastighet indata kodas till flera olika bithastigheter i molnet |Nej |Ja |
 | Maximal upplösning som video för bidrag feed |4K (4096 x 2160 på 60 bildrutor per sekund) |1080p (1920 x 1088 på 30 bilder per sekund)|
 | Rekommenderade maximala lager i bidrag feed|Upp till 12|En med endast ljud|
-| Maximal lager i utdata| Samma som indata|Upp till 7|
+| Maximal lager i utdata| Samma som indata|Upp till 6|
 | Maximala sammanlagda bandbredden av bidraget feed|60 Mbit/s|Gäller inte|
 | Högsta bithastighet för ett enskilt lager i bidrag |20 Mbit/s|20 Mbit/s|
 | Stöd för flera språk ljudspår|Ja|Nej|

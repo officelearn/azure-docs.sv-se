@@ -16,12 +16,12 @@ ms.date: 01/25/2018
 ms.author: markvi
 ms.reviewer: raluthra
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1509f40b88e3dc9c51bd00ed379c5b0130230a99
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: b1c69705131cfea4e5ace9b5b9e829b3fdfa87e4
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56178846"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56991656"
 ---
 # <a name="azure-active-directory-identity-protection-risk-events-reference"></a>Referera till Azure Active Directory Identity Protection riskhändelser
 
@@ -83,6 +83,7 @@ Den här riskhändelsetyp anger inloggningar från IP-adresser som smittats av s
 **Identifieringstyp av:** Realtid  
 **Gammalt namn:** Inloggningar från okända platser
 
-Denna typ av riskhändelse tar hänsyn till de senaste inloggning egenskaper (exempelvis enhet, plats, nätverk) att fastställa inloggningar med bekant egenskaper. Systemet lagrar egenskaper för tidigare platser som används av en användare och betraktar dessa ”välbekanta”. Riskhändelsen utlöses när inloggningen inträffar med egenskaper inte redan finns i listan med välbekanta egenskaper. Systemet har en inledande inlärningsperiod på 30 dagar, då det inte flaggar några nya identifieringar.
+Den här riskhändelsetyp tar hänsyn till tidigare inloggningshistorik (IP, latitud / longitud och ASN) att leta efter avvikande inloggningar. Systemet lagrar information om tidigare platser som används av en användare och så att platserna ”välbekanta”. Riskhändelsen utlöses när inloggningen sker från en plats som inte redan finns i listan med välbekanta platser. Nya användare att i ”inlärningsläget” för en viss tidsperiod i bekant inloggning egenskaperna riskhändelser kommer att inaktiveras när våra algoritmer Läs användarens beteenden. Utbildningsresurser läge varaktighet är dynamisk och beror på hur lång tid det tar att samla in tillräckligt med information om användarens inloggningsmönster algoritmen. Minsta varaktighet är fem dagar. En användare kan gå tillbaka till inlärningsläge efter en lång tids inaktivitet. Systemet ignorerar också inloggningar från välbekanta enheter och platser som ligger geografiskt nära en bekant plats. 
+
 Vi kan också köra den här identifieringen för grundläggande autentisering (eller äldre protokoll). Eftersom dessa protokoll inte har modern egenskaper, till exempel klient-ID, finns det begränsad telemetri för att minska falska positiva identifieringar. Vi rekommenderar våra kunder att flytta till modern autentisering.
 

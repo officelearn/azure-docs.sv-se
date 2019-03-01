@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 01/02/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 2289fc143abfde0aaaf2bcb079a6d24b74d57975
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 41eed6bc878bff4c9d847f9a449ca693274bf234
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55564450"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57195514"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Felsöka Azure Files-problem i Windows
 
@@ -75,12 +75,11 @@ Du använder den `Test-NetConnection` cmdlet, AzureRM PowerShell-modulen måste 
     # $storageAccount.Context.FileEndpoint is used because non-Public Azure regions, such as sovereign clouds
     # or Azure Stack deployments, will have different hosts for Azure file shares (and other storage resources).
     Test-NetConnection -ComputerName ([System.Uri]::new($storageAccount.Context.FileEndPoint).Host) -Port 445
-  
     
 Om en anslutning upprättades bör du se följande utdata:
     
   
-    ComputerName     : <storage-account-host-name>
+    ComputerName     : <your-storage-account-name>
     RemoteAddress    : <storage-account-ip-address>
     RemotePort       : 445
     InterfaceAlias   : <your-network-interface>
@@ -93,7 +92,19 @@ Om en anslutning upprättades bör du se följande utdata:
 
 ### <a name="solution-for-cause-1"></a>Lösning för orsak 1
 
-Arbeta med din IT-avdelning öppna port 445 utgående till [Azure IP-intervall](https://www.microsoft.com/download/details.aspx?id=41653).
+#### <a name="solution-1---use-azure-file-sync"></a>Lösning 1 – Använd Azure File Sync
+Azure File Sync kan omvandlar dina lokala Windows Server till ett snabbt cacheminne för din Azure-filresurs. Du kan använda alla protokoll som är tillgänglig på Windows Server för att komma åt dina data lokalt, inklusive SMB, NFS och FTPS. Azure File Sync fungerar över port 443 och kan därför användas som en lösning för att få åtkomst till Azure Files från klienter som har port 445 blockeras. [Lär dig hur du ställer in Azure File Sync](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-extend-servers).
+
+#### <a name="solution-2---use-vpn"></a>Lösning 2 – använda VPN
+Genom att konfigurera en VPN-anslutning till specifika Storage-kontot, passerar trafiken en säker tunnel inte via internet. Följ den [instruktioner för att konfigurera VPN](https://github.com/Azure-Samples/azure-files-samples/tree/master/point-to-site-vpn-azure-files
+) åtkomst till Azure Files från Windows.
+
+#### <a name="solution-3---unblock-port-445-with-help-of-your-ispit-admin"></a>Lösning 3 – avblockera port 445 med hjälp av Leverantören / IT-administratören
+Arbeta med din IT-avdelningen eller Internetleverantör att öppna port 445 utgående till [Azure IP-intervall](https://www.microsoft.com/download/details.aspx?id=41653).
+
+#### <a name="solution-4---use-rest-api-based-tools-like-storage-explorerpowershell"></a>Lösningen 4 – Använd REST API-baserade verktyg som Storage Explorer/Powershell
+Azure Files stöder även REST förutom SMB. REST-åtkomst fungerar över port 443 (standard tcp). Det finns olika verktyg som är skrivna med hjälp av REST-API som gör det omfattande användargränssnitt. [Lagringsutforskaren](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows) är en av dem. [Ladda ned och installera Lagringsutforskaren](https://azure.microsoft.com/en-us/features/storage-explorer/) och ansluter till filresursen backas upp av Azure Files. Du kan också använda [PowerShell](https://docs.microsoft.com/en-us/azure/storage/files/storage-how-to-use-files-powershell) vilket användaren även REST API.
+
 
 ### <a name="cause-2-ntlmv1-is-enabled"></a>Orsak 2: NTLMv1 är aktiverat
 

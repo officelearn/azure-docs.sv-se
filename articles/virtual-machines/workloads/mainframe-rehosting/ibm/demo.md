@@ -8,12 +8,12 @@ manager: edprice
 editor: edprice
 tags: ''
 keywords: ''
-ms.openlocfilehash: f366b9eee3104527fb9e974b51f339494b552e3b
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: f8af19056a343abdbafcd4ead8b072330cb41fd9
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56739699"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57192080"
 ---
 # <a name="set-up-an-application-developers-controlled-distribution-adcd-in-ibm-zdt-v1"></a>Ange in ett program utvecklare kontrollerad Distribution (ADCD) i IBM zD & T v1
 
@@ -89,7 +89,7 @@ Nu när du har paket överföra du dem till den virtuella datorn på Azure.
         gunzip \*.gz
     ```
     
-![](media/01-gunzip.png)
+![Utforskaren som visar expanderas gz volymer](media/01-gunzip.png)
 
 ## <a name="configure-the-image-storage"></a>Konfigurera lagring för avbildning
 
@@ -105,11 +105,11 @@ Nästa steg är att konfigurera zD & T att använda den överförda paket. Avbil
      >
      > Kom ihåg att din webbåtkomst använder port 9443. Används för att logga in på webbservern. Användar-ID för ZD & T är **zdtadmin** och lösenordet är **lösenord**.
 
-    ![](media/02-welcome.png)
+    ![IBM zD & T Enterprise Edition välkomstskärmen](media/02-welcome.png)
 
 3. På den **Snabbstart** sidan under **konfigurera**väljer **bildlagring**.
 
-     ![](media/03-quickstart.png)
+     ![IBM zD & T Enterprise Edition Quick Start-skärmen](media/03-quickstart.png)
 
 4. På den **konfigurera bildlagring** väljer **SSH File Transfer Protocol**.
 
@@ -133,7 +133,7 @@ Nästa steg är att konfigurera zD & T målmiljön. Den här emulerade värdmilj
 
 5. I den **målmiljö etikett** anger en etikett som **MyCICS.**
 
-     ![](media/04-add-target.png)
+     ![Lägg till målskärmen för miljö](media/04-add-target.png)
 
 ## <a name="configure-adcd-and-deploy"></a>Konfigurera ADCD och distribuera
 
@@ -143,7 +143,7 @@ När du har slutfört föregående konfigurationssteg, måste du konfigurera zD 
 
 2. Förutsatt att alla bilder som har överförts till rätt kataloger, klickar du på den **avbildning från ADCD** länken som visas i det nedre högra hörnet (visas i steg 7 i följande skärmbild).
 
-     ![](media/05-adcd.png)
+     ![IBM zD & T Enterprise Edition - konfigurera ADCD skärmen](media/05-adcd.png)
 
 ## <a name="create-the-image"></a>Skapa avbildningen
 
@@ -157,7 +157,7 @@ När det tidigare konfigurationssteget är slutförd, den **skapar du en avbildn
 
 4. Välj den **Skapa avbildning** knappen längst ned till höger.
 
-     ![](media/06-adcd.png)
+     ![IBM zD & T Enterprise Edition - skapa en avbildning med hjälp av skärmen ADCD komponenter](media/06-adcd.png)
 
 5. I fönstret som visas om avbildningen har distribuerats, Välj **distribuera avbildningar**.
 
@@ -169,7 +169,7 @@ När det tidigare konfigurationssteget är slutförd, den **skapar du en avbildn
 
 9. Kontrollera att den är markerad för **problemet IPL kommando för att z/OS när du distribuerar automatiskt**.
 
-     ![](media/07-properties.png)
+     ![Egenskapsskärmen](media/07-properties.png)
 
 10. Välj **fullständig**.
 
@@ -194,5 +194,5 @@ Grattis! En miljö för IBM-stordatorer körs nu på Azure.
 [microfocus-setup]: /microfocus/set-up-micro-focus-on-azure.md
 [microfocus-demo]: /microfocus/demo.md
 [ibm-get-started]: /ibm/get-started.md
-[ibm-install-z]: /ibm/install-ibm-z-environment.md
+[ibm-install-z]: install-ibm-z-environment.md
 [ibm-demo]: /ibm/demo.md

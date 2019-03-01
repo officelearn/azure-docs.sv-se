@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: dbd9eaf531dcad230c23d1b41110036102faf3df
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: 83229cdca0ccff68dcdd543495a7a19b6e6c4c5b
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53652675"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56990059"
 ---
 # <a name="avere-vfxt-for-azure-faq"></a>Vanliga frågor och svar om Avere vFXT för Azure
 
@@ -63,7 +63,7 @@ Avere vFXT är ett cacheminne. Informationen lagras inte specifikt data. Den anv
 
 ### <a name="what-regions-are-supported"></a>Vilka regioner stöds?
 
-Från och med den 1 November 2018 stöds Avere vFXT för Azure i alla regioner utom landsbaserade regioner (Kina, Tyskland) och government-regioner. Kontrollera att den region som du vill använda har stöd för stora antalet beräkningskärnor och VM-instanser som behövs för att skapa Avere vFXT klustret.
+Avere vFXT för Azure stöds i alla regioner utom landsbaserade regioner (Kina, Tyskland). Kontrollera att den region som du vill använda har stöd för stora antalet beräkningskärnor och VM-instanser som behövs för att skapa Avere vFXT klustret.
 
 ### <a name="how-do-i-get-help-with-avere-vfxt"></a>Hur jag för att få hjälp med Avere vFXT?
 
@@ -88,15 +88,17 @@ Avere vFXT är en klustrad installation består av flera virtuella Azure-datorer
 
 ### <a name="what-kind-of-azure-virtual-machines-does-avere-vfxt-run-on"></a>Vilken typ av Azure-datorer Avere vFXT kör på  
 
-En Avere vFXT för Azure-kluster använder Microsoft Azure E32s_v3 eller D16s_v3 virtuella datorer. 
+En Avere vFXT för Azure-kluster använder Microsoft Azure E32s_v3 virtuella datorer. 
 
-### <a name="can-i-mix-and-match-virtual-machine-types-for-my-cluster"></a>Kan jag blanda och matcha virtuella datortyper för mitt kluster?
+<!-- ### Can I mix and match virtual machine types for my cluster?
 
-Nej, måste du välja en typ av virtuell dator eller den andra.
+No, you must choose one virtual machine type or the other.
     
-### <a name="can-i-move-between-virtual-machine-types"></a>Kan jag flytta mellan typer av virtuella datorer?
+### Can I move between virtual machine types?
 
-Ja, det finns en migreringsvägen att flytta från en virtuell dator till en annan. [Öppna ett supportärende](avere-vfxt-open-ticket.md#open-a-support-ticket-for-your-avere-vfxt) att lära dig hur.
+Yes, there is a migration path to move from one VM type to the other. [Open a support ticket](avere-vfxt-open-ticket.md#open-a-support-ticket-for-your-avere-vfxt) to learn how.
+
+-->
 
 ### <a name="does-the-avere-vfxt-environment-scale"></a>Skalas Avere vFXT miljön?
 
@@ -175,7 +177,7 @@ Ja, du kan skapa Avere vFXT systemet i ett annat virtuellt nätverk. Läs [plane
 
 ### <a name="does-avere-vfxt-require-its-own-subnet"></a>Kräver Avere vFXT sitt eget undernät?
 
-Ja. Avere vFXT körs strikt som ett kluster för hög tillgänglighet och kräver flera IP-adresser ska fungera. Om klustret är i ett eget undernät kan undvika du risken för IP-adresskonflikter uppstå, vilket kan orsaka problem för installation och normal drift. Klustrets undernät kan vara i det befintliga virtuella nätverket så länge det finns inga IP-adresser överlappar varandra.
+Ja. Avere vFXT körs strikt som ett kluster med hög tillgänglighet (HA) och kräver flera IP-adresser ska fungera. Om klustret är i ett eget undernät kan undvika du risken för IP-adresskonflikter uppstå, vilket kan orsaka problem för installation och normal drift. Klustrets undernät kan vara i det befintliga virtuella nätverket så länge det finns inga IP-adresser överlappar varandra.
 
 ### <a name="can-i-run-avere-vfxt-on-infiniband"></a>Kan jag köra Avere vFXT på InfiniBand?
 

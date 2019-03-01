@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 02/15/2018
 ms.author: dobett
-ms.openlocfilehash: 59271a96c5ad1a92483ca585fc30f1e9de0ed4f7
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: b2f08e811217572e09a254e9ab3306ab954b14b5
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53608757"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57009701"
 ---
 # <a name="frequently-asked-questions-for-iot-solution-accelerators"></a>Vanliga frågor om IoT-Lösningsacceleratorer
 
@@ -71,9 +71,9 @@ Den tidigare versionen av lösningsacceleratorn för fjärrövervakning kallades
 
 Ja, den nya fjärrövervakning finns i samma geografiska regioner.
 
-### <a name="whats-the-difference-between-deleting-a-resource-group-in-the-azure-portal-and-clicking-delete-on-a-solution-accelerator-in-azureiotsuitecom"></a>Vad är skillnaden mellan att ta bort en resursgrupp i Azure-portalen och klicka på Ta bort på en lösningsaccelerator på azureiotsuite.com?
+### <a name="whats-the-difference-between-deleting-a-resource-group-in-the-azure-portal-and-clicking-delete-on-a-solution-accelerator-in-azureiotsolutionscom"></a>Vad är skillnaden mellan att ta bort en resursgrupp i Azure-portalen och klicka på Ta bort på en lösningsaccelerator i azureiotsolutions.com?
 
-* Om du tar bort lösningsaccelerator i [azureiotsuite.com](https://www.azureiotsolutions.com/), du ta bort alla resurser som har distribuerats när du skapade solution accelerator. Om du har lagt till ytterligare resurser till resursgruppen raderas även dessa resurser.
+* Om du tar bort lösningsaccelerator i [azureiotsolutions.com](https://www.azureiotsolutions.com/), du ta bort alla resurser som har distribuerats när du skapade solution accelerator. Om du har lagt till ytterligare resurser till resursgruppen raderas även dessa resurser.
 * Om du tar bort resursgruppen på den [Azure-portalen](https://portal.azure.com), du bara bort resurserna i resursgruppen. Du måste också ta bort Azure Active Directory-program som är associerade med lösningsaccelerator.
 
 ### <a name="can-i-continue-to-leverage-my-existing-investments-in-azure-iot-solution-accelerators"></a>Kan jag fortsätta att använda min befintliga investeringar i Azure IoT-Lösningsacceleratorer?

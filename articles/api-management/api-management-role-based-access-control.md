@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
-ms.openlocfilehash: d2d62dea683d3e42411d526fe002596e6473b4a9
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 21e7406d566be5be73342d530a4ad66b80a1d23f
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56736676"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56990449"
 ---
 # <a name="how-to-use-role-based-access-control-in-azure-api-management"></a>Hur du använder rollbaserad åtkomstkontroll i Azure API Management
 Azure API Management bygger på rollbaserad åtkomstkontroll (RBAC) Aktivera detaljerad åtkomsthantering för API Management-tjänster och enheter (till exempel API: er och principer). Den här artikeln ger en översikt över de inbyggda och anpassade rollerna i API Management. Mer information om åtkomsthantering i Azure-portalen finns i [Kom igång med åtkomsthantering i Azure portal](https://azure.microsoft.com/documentation/articles/role-based-access-control-what-is/).
@@ -47,6 +47,9 @@ I följande tabell innehåller korta beskrivningar av de inbyggda rollerna. Du k
 
 ## <a name="custom-roles"></a>Anpassade roller
 Om ingen av de inbyggda rollerna uppfyller dina specifika behov kan kan anpassade roller skapas för att ge mer detaljerad åtkomsthantering för API Management-entiteter. Du kan till exempel skapa en anpassad roll som har skrivskyddad åtkomst till en API Management-tjänsten, men endast har skrivåtkomst till ett visst API. Läs mer om anpassade roller i [anpassade roller i Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/custom-roles). 
+
+> [!NOTE]
+> För att kunna se en API Management-instans i Azure-portalen, en anpassad roll måste innehålla den ```Microsoft.ApiManagement/service/read``` åtgärd.
 
 När du skapar en anpassad roll, är det enklare att börja med någon av de inbyggda rollerna. Redigera attribut att lägga till **åtgärder**, **NotActions**, eller **AssignableScopes**, och sedan spara ändringarna som en ny roll. I följande exempel börjar med rollen ”Azure API Management-tjänsten läsare” och skapar en anpassad roll som kallas ”Calculator API Editor”. Du kan tilldela den anpassade rollen till ett visst API. Därför har den här rollen endast åtkomst till det API: et. 
 

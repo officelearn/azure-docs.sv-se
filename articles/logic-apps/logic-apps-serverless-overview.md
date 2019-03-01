@@ -10,12 +10,12 @@ ms.reviewer: klam, estfan, LADocs
 ms.custom: vs-azure
 ms.topic: article
 ms.date: 03/30/2017
-ms.openlocfilehash: 068e5399073959d2c5aa6c4bbeb0d7bccf7d05e6
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 9cd1946d8fa670764bcc95b82298d07cc70417bd
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49393787"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57191331"
 ---
 # <a name="overview-azure-serverless-with-azure-logic-apps-and-azure-functions"></a>Översikt: Azure utan server med Azure Logic Apps och Azure Functions
 
@@ -29,7 +29,7 @@ De viktigaste tjänsterna i Azure runt utan Server är [Azure Functions](https:/
 
 ## <a name="what-are-azure-functions"></a>Vad är Azure Functions?
 
-Azure Functions är en lösning för att enkelt köra små delar av kod eller "funktioner," i molnet. Du kan skriva enbart koden som du behöver för det aktuella problemet, utan att bekymra dig över hela programmet eller infrastrukturen för att köra den. Functions kan göra utvecklingen ännu mer produktiv och du kan använda programmeringsspråk du föredrar, till exempel C#, F #, Node.js, Python eller PHP. Betala endast för den tid som koden körs och Azure kan skalas efter behov.
+Azure Functions är en lösning för att enkelt köra små delar av kod eller "funktioner," i molnet. Du kan skriva enbart koden som du behöver för det aktuella problemet, utan att bekymra dig över hela programmet eller infrastrukturen för att köra den. Functions kan göra utvecklingen ännu mer produktiv och du kan använda programmeringsspråk du föredrar, till exempel C#, F#, Node.js, Python eller PHP. Betala endast för den tid som koden körs och Azure kan skalas efter behov.
 
 Om du vill komma igång snabbt med Azure Functions, börja med att [Skapa din första Azure-funktion](../azure-functions/functions-create-first-azure-function.md). Mer teknisk information om Azure Functions finns i [Info för utvecklare](../azure-functions/functions-reference.md).
 
@@ -41,7 +41,7 @@ Om du vill komma igång med Logic Apps kan du börja med [skapa din första logi
 
 ## <a name="how-can-i-build-and-deploy-serverless-applications-in-azure"></a>Hur kan jag skapa och distribuera program utan server i Azure?
 
-Azure tillhandahåller en omfattande uppsättning verktyg för utveckling, distribution och hantering av appar utan server.  Appar kan skapas direkt i Azure portal eller med [verktyg från Visual Studio](logic-apps-serverless-get-started-vs.md).  När ett program har utvecklats kan det vara [distribueras direkt](logic-apps-create-deploy-template.md).  Azure tillhandahåller även övervakning av appar utan server.  Den här övervakningen kan nås från Azure-portalen via API: et eller SDK: er eller med integrerade verktyg till Log Analytics och Application Insights.
+Azure tillhandahåller en omfattande uppsättning verktyg för utveckling, distribution och hantering av appar utan server.  Appar kan skapas direkt i Azure portal eller med [verktyg från Visual Studio](logic-apps-serverless-get-started-vs.md).  När ett program har utvecklats kan det vara [distribueras direkt](logic-apps-create-deploy-template.md).  Azure tillhandahåller även övervakning av appar utan server.  Den här övervakningen kan nås från Azure-portalen via API: et eller SDK: er eller med integrerade verktyg för Azure Monitor-loggar och Application Insights.
 
 ## <a name="next-steps"></a>Nästa steg
 

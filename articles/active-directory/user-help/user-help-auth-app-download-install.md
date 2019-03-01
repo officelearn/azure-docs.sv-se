@@ -13,14 +13,17 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 40be6f333bf259cc036bec9c0d9fc967dd33f2a3
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 81d0590215f92f7b3d1c2ad0bbbc509da31c2fd1
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56960045"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57011632"
 ---
 # <a name="download-and-install-the-microsoft-authenticator-app"></a>Ladda ned och installera Microsoft Authenticator-appen
+>[!Important]
+>Innehållet är avsett för användare. Om du är administratör hittar du mer information om hur du konfigurerar och hanterar en Azure Active Directory (Azure AD)-miljö i [dokumentationen om Azure Active Directory](https://docs.microsoft.com/azure/active-directory).
+
 Med Microsoft Authenticator-appen kan du logga in på dina konton om du använder tvåfaktorsverifiering. Med tvåfaktorsverifiering kan du komma åt dina konton säkrare, särskilt när du visar känslig information. Eftersom lösenord kan glömmas, stjälas eller komprometteras är tvåfaktorsverifiering ett ytterligare steg som hjälper dig att skydda ditt konto genom att göra det svårare för andra att logga in.
 
 Du kan använda Microsoft Authenticator-appen på flera sätt, däribland följande:
@@ -29,8 +32,12 @@ Du kan använda Microsoft Authenticator-appen på flera sätt, däribland följa
 
 - **Telefoninloggning.** En version av två faktorer verifiering som låter dig logga in utan att kräva ett lösenord med ditt användarnamn och din mobila enhet med ditt fingeravtryck, ett ansikte eller en PIN-kod.
 
+- **Kodgenerering.** Som en kodgeneratorn för andra konton som har stöd för autentiserare.
+
 >[!Important]
->Din organisation kräver att du använder en autentiseringsapp för att logga in och komma åt din organisations data och dokument. Även om ditt användarnamn kan visas i appen, kontot inte faktiskt har ställts in så att den fungerar som en verifieringsmetod förrän du har slutfört registreringsprocessen. Mer information finns i [Lägg till ditt arbets- eller skolkonto](user-help-auth-app-overview.md).
+>Microsoft Authenticator-appen fungerar med alla konton som använder två faktorer verifiering och har stöd för tidsbaserade engångslösenord (TOTP)-standarder.
+
+>Din organisation kräver att du använder en autentiseringsapp för att logga in och komma åt din organisations data och dokument. Även om ditt användarnamn kan visas i appen, kontot inte faktiskt har ställts in så att den fungerar som en verifieringsmetod förrän du har slutfört registreringsprocessen. Mer information finns i [Lägg till ditt arbets- eller skolkonto](user-help-auth-app-add-work-school-account.md).
 
 >[!NOTE]
 >Om du har problem med att logga in på ditt konto kan du läsa [When you can't sign in to your Microsoft account](https://support.microsoft.com/help/12429) (När du inte kan logga in på ditt Microsoft-konto) om du behöver hjälp.  Få mer information om vad du gör när du får meddelandet [”Det Microsoft-kontot finns inte”](https://support.microsoft.com/help/13811) när du försöker logga in på ditt Microsoft-konto.
@@ -42,7 +49,7 @@ Installera den senaste versionen av Microsoft Authenticator-appen, baserat på d
 
 - **Apple iOS.** På din Apple iOS-enhet går du till App Store till [ladda ned och installera Microsoft Authenticator-appen](https://app.adjust.com/e3rxkc_7lfdtm?fallback=https%3A%2F%2Fitunes.apple.com%2Fus%2Fapp%2Fmicrosoft-authenticator%2Fid983156458).
 
-    >[Viktigt] Om du inte är för närvarande på din mobila enhet kan du fortfarande komma Microsoft Authenticator-appen genom att skicka dig själv en nedladdningslänk från den [Microsoft Authenticator sidan](https://www.microsoft.com/en-us/account/authenticator).
+>[Viktigt] Om du inte är för närvarande på din mobila enhet kan du fortfarande komma Microsoft Authenticator-appen genom att skicka dig själv en nedladdningslänk från den [Microsoft Authenticator sidan](https://www.microsoft.com/en-us/account/authenticator).
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -1,5 +1,5 @@
 ---
-title: Skapa frågor om att spåra B2B-meddelanden i Log Analytics – Azure Logic Apps | Microsoft Docs
+title: Skapa frågor om att spåra B2B-meddelanden i Azure Monitor-loggar – Azure Logic Apps | Microsoft Docs
 description: Skapa frågor som spårar AS2-, X 12 och EDIFACT-meddelanden i Azure Log Analytics för Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
@@ -9,19 +9,21 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 10/19/2018
-ms.openlocfilehash: 5cfab07e19e543b7a46fcce8f449a46395c144d6
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: d4a94e75de34bbafd3bc8f1c1a0d1a6817245e5f
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52995325"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57194919"
 ---
-# <a name="create-tracking-queries-for-b2b-messages-in-azure-log-analytics-for-azure-logic-apps"></a>Skapa frågor om att spåra B2B-meddelanden i Azure Log Analytics för Azure Logic Apps
+# <a name="create-tracking-queries-for-b2b-messages-in-azure-monitor-logs-for-azure-logic-apps"></a>Skapa frågor om att spåra B2B-meddelanden i Azure Monitor-loggar för Azure Logic Apps
 
-Om du vill hitta AS2 X12 eller EDIFACT meddelanden du spårar med [Azure Log Analytics](../log-analytics/log-analytics-overview.md), du kan skapa frågor som filtrerar åtgärder baserat på specifika villkor. Du kan till exempel hitta meddelanden baserat på en specifik interchange-kontrollnummer.
+Om du vill hitta AS2 X12 eller EDIFACT meddelanden du spårar med [Azure Monitor loggar](../log-analytics/log-analytics-overview.md), du kan skapa frågor som filtrerar åtgärder baserat på specifika villkor. Du kan till exempel hitta meddelanden baserat på en specifik interchange-kontrollnummer.
 
 > [!NOTE]
 > Den här sidan som beskrevs tidigare anvisningar att utföra dessa uppgifter med den Microsoft Operations Management Suite (OMS), vilket är [tas ur bruk i januari 2019](../azure-monitor/platform/oms-portal-transition.md), ersätter de här stegen med Azure Log Analytics i stället. 
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -29,7 +31,7 @@ Om du vill hitta AS2 X12 eller EDIFACT meddelanden du spårar med [Azure Log Ana
 
 * Ett integrationskonto som har konfigurerats med övervakning och loggning. Lär dig [hur du skapar ett integrationskonto](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) och [hur du konfigurerar övervakning och loggning för det kontot](../logic-apps/logic-apps-monitor-b2b-message.md).
 
-* Om du inte redan gjort [publicera diagnostiska data till Log Analytics](../logic-apps/logic-apps-track-b2b-messages-omsportal.md) och [konfigurera meddelandespårning i Log Analytics](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
+* Om du inte redan gjort [publicera diagnostiska data till Azure Monitor-loggar](../logic-apps/logic-apps-track-b2b-messages-omsportal.md) och [konfigurera meddelandespårning i Azure Monitor-loggar](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
 
 ## <a name="create-queries-with-filters"></a>Skapa frågor med filter
 
@@ -53,7 +55,7 @@ Du kan skapa frågor som använder filter för att hitta meddelanden baserat på
 1. I frågan redigeringsruta, börja skriva fältnamn som du vill söka efter. När du börjar skriva, visar frågeredigeraren möjliga matchningar och åtgärder som du kan använda. När du har skapat din fråga väljer **kör** eller tryck på RETUR-tangenten.
 
    Det här exemplet söker efter matchningar på **LogicAppB2B**. 
-   Läs mer om [hitta data i Log Analytics](../log-analytics/log-analytics-log-searches.md).
+   Läs mer om [hitta data i Azure Monitor-loggar](../log-analytics/log-analytics-log-searches.md).
 
    ![Börja skriva frågesträng](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/create-query.png)
 

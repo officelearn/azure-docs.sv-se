@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 01/04/2018
 ms.author: gsilva
-ms.openlocfilehash: ae3d1fa6a921067e8c3b629206e47e1a1314adc1
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: c4567919490c8bc9094dea3dddbe22550d9eebb2
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56889247"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57192913"
 ---
 # <a name="create-a-windows-virtual-machine-with-accelerated-networking"></a>Skapa en Windows-dator med Accelererat nätverk
 
@@ -48,7 +48,7 @@ Följande distributioner stöds direkt från Azure-galleriet:
 ### <a name="supported-vm-instances"></a>VM-instanser som stöds
 Accelererat nätverk stöds i de flesta generella och beräkningsoptimerade instansstorlekar med minst 2 virtuella processorer.  Dessa alternativ som stöds är: D/DSv2 och F/Fs
 
-På-instanser som har stöd för hypertrådning stöds Accelererat nätverk för VM-instanser med 4 eller fler virtuella processorer. Serier som stöds är: D/DSv3, E/ESv3, Fsv2 och Ms-/ Mms
+På-instanser som har stöd för hypertrådning stöds Accelererat nätverk för VM-instanser med 4 eller fler virtuella processorer. Serier som stöds är: D/Dsv3, E/Esv3, Fsv2, Lsv2, Ms-/ Mms- och Ms/Mmsv2.
 
 Läs mer på VM-instanser, [Windows VM-storlekar](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
@@ -73,7 +73,7 @@ När den virtuella datorn har skapats kan bekräfta du Accelererat nätverk är 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Installera [Azure PowerShell](/powershell/azure/install-az-ps) version 1.0.0 eller senare. Du hittar din nuvarande version genom att köra `Get-Module -ListAvailable Az`. Om du behöver installera eller uppgradera kan du installera den senaste versionen av Az-modul från den [PowerShell-galleriet](https://www.powershellgallery.com/packages/Az). Logga in i en PowerShell-session till en Azure-konto med hjälp av [Connect AzAccount](/powershell/module/az.profile/connect-azaccount).
+Installera [Azure PowerShell](/powershell/azure/install-az-ps) version 1.0.0 eller senare. Du hittar din nuvarande version genom att köra `Get-Module -ListAvailable Az`. Om du behöver installera eller uppgradera kan du installera den senaste versionen av Az-modul från den [PowerShell-galleriet](https://www.powershellgallery.com/packages/Az). Logga in i en PowerShell-session till en Azure-konto med hjälp av [Connect AzAccount](/powershell/module/az.accounts/connect-azaccount).
 
 I följande exempel, ersätter du exempel parameternamn med dina egna värden. Parametern exempelnamnen ingår *myResourceGroup*, *myNic*, och *myVM*.
 

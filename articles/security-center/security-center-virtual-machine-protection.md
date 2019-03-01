@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 1/27/2019
+ms.date: 2/25/2019
 ms.author: monhaber
-ms.openlocfilehash: 0b548acc92ab1efedab963e9bd3318e8525ffee4
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 73a88ec0280728b4a485bd095096e90bbc43ef40
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56649568"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56990959"
 ---
 # <a name="protecting-your-machines-and-applications-in-azure-security-center"></a>Skydda dina datorer och program i Azure Security Center
 Azure Security Center analyserar säkerhetstillståndet hos dina Azure-resurser. När Security Center identifierar potentiella säkerhetsproblem skapas rekommendationer som guidar dig genom processen med att konfigurera kontrollfunktioner som behövs. Rekommendationer gäller för Azure-resurstyper: virtuella datorer (VM) och datorer, program, nätverk, SQL, och identitet och åtkomst.
@@ -226,7 +226,11 @@ Om du vill ange alla befintliga skalningsuppsättningar för att installera Micr
 |Dator|30|Installera en sårbarhetsbedömningslösning på dina virtuella datorer|Installera en sårbarhetsbedömningslösning på dina virtuella datorer|
 |Dator|1|Migrera virtuella datorer till nya Azure Resource Manager-resurser|Använda Azure Resource Manager för dina virtuella datorer för att ange säkerhetsförbättringar t.ex: starkare åtkomstkontroll (RBAC), bättre granskning, Resource Manager-baserade distributionen och styrning åtkomst till hanterade identiteter, åtkomst till nyckelvalvet för hemligheter, Azure AD-baserad autentisering och stöd för taggar och resursgrupper för enklare säkerhetshantering. |
 |Dator|30|Åtgärda sårbarheter med hjälp av en lösning för sårbarhetsbedömning|Virtuella datorer som distribueras en 3 part lösning för sårbarhetsbedömning som kontinuerligt utvärderas mot program- och OS-säkerhetsproblem. När sådana sårbarheter finns finns dessa mer information som en del av rekommendationen.|
-
+|Skaluppsättning för virtuella datorer |4|Aktivera diagnostikloggar i Virtual Machine Scale Sets|Aktivera loggar och behålla för upp till ett år. På så sätt kan du återskapa aktivitet spår undersökning. Detta är användbart när en säkerhetsincident inträffar eller nätverket komprometteras.|
+|Skaluppsättning för virtuella datorer|35|Åtgärda säkerhetsproblem i säkerhetskonfigurationen på dina skalningsuppsättningar för virtuella datorer|Åtgärda sårbarheter i säkerhetskonfigurationen för din virtuella dators skalningsuppsättningar för att skydda dem från angrepp. |
+|Skaluppsättning för virtuella datorer|5|Åtgärda hälsokontrollfel för slutpunktsskydd i skalningsuppsättningar för virtuella datorer|Åtgärda Endpoint Protection-hälsofel på skalningsuppsättningar för virtuella datorer för att skydda mot hot och sårbarheter. |
+|Skaluppsättning för virtuella datorer|10|Installera lösning för slutpunktsskydd i skalningsuppsättningar för virtuella datorer|Installera en endpoint protection-lösning på dina VM-skalningsuppsättningar, att skydda dem mot hot och sårbarheter. |
+|Skaluppsättning för virtuella datorer|40|Installera systemuppdateringar i skalningsuppsättningar för virtuella datorer|Installera saknade systemsäkerhetsuppdateringar och viktiga uppdateringar för att skydda dina skalningsuppsättningar för virtuella Windows och Linux-dator. |
  
 
 

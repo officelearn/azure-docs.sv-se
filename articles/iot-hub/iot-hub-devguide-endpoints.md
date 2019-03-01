@@ -1,19 +1,19 @@
 ---
 title: Förstå Azure IoT Hub-slutpunkter | Microsoft Docs
 description: Utvecklarguide – information om IoT Hub enheten kund- och service-riktade slutpunkter.
-author: dominicbetts
-manager: timlt
+author: robinsh
+manager: philmea
+ms.author: robin.shahan
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 07/18/2018
-ms.author: dobett
-ms.openlocfilehash: 43e2101f413985974b964f2261d852692bcac61d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 72604f84297ddc77b9732c19789d249ac4fa7774
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51251448"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57010845"
 ---
 # <a name="reference---iot-hub-endpoints"></a>Referens – IoT Hub-slutpunkter
 
@@ -77,7 +77,7 @@ Du kan länka befintliga Azure-tjänster i din prenumeration till din IoT hub s�
 
 IoT Hub stöder för närvarande följande Azure-tjänster som ytterligare slutpunkter:
 
-* Azure Storage-behållare
+* Azure Storage-containrar
 * Event Hubs
 * Service Bus-köer
 * Avsnitt om Service Bus

@@ -1,19 +1,20 @@
 ---
 title: Schemalägg jobb med Azure IoT Hub (Java) | Microsoft Docs
 description: Så här schemalägger du ett Azure IoT Hub-jobb att anropa en direkt metod och ange en önskad egenskap på flera enheter. Du kan använda Azure IoT-enhetens SDK för Java för att implementera appar för simulerade enheter och tjänsten Azure IoT SDK för Java för att implementera en tjänstapp för att köra jobbet.
-author: dominicbetts
+author: wesmc7777
+manager: philmea
+ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: java
 ms.topic: conceptual
 ms.date: 07/10/2017
-ms.author: dobett
-ms.openlocfilehash: 52c5e1a2166c2c609b2edc486bd451f01b3395fa
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: d2d92c05e54bc78d5b01e73b586e5c25fc431255
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515802"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57011406"
 ---
 # <a name="schedule-and-broadcast-jobs-java"></a>Schemalägg och Sänd jobb (Java)
 
@@ -31,7 +32,7 @@ Mer information om var och en av de här funktionerna finns:
 
 * Enhetstvillingen och egenskaper: [Kom igång med enhetstvillingar](iot-hub-java-java-twin-getstarted.md)
 
-* Direkta metoder: [IoT Hub developer guide - direkta metoder](iot-hub-devguide-direct-methods.md) och [självstudie: Använd direkta metoder](quickstart-control-device-java.md)
+* Direkta metoder: [IoT Hub developer guide - direkta metoder](iot-hub-devguide-direct-methods.md) och [självstudien: Använd direkta metoder](quickstart-control-device-java.md)
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
@@ -64,7 +65,7 @@ För att slutföra den här kursen behöver du:
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
-### <a name="retrieve-connection-string-for-iot-hub"></a>Hämta anslutningssträngen för IoT hub
+### <a name="retrieve-connection-string-for-iot-hub"></a>Hämta anslutningssträngen för IoT-hubben
 
 [!INCLUDE [iot-hub-include-find-connection-string](../../includes/iot-hub-include-find-connection-string.md)]
 

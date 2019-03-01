@@ -1,19 +1,19 @@
 ---
 title: Förstå Azure IoT Hub filöverföringen | Microsoft Docs
 description: Utvecklarguide – Använd filuppladdningsfunktionen mellan IoT Hub och hantera ladda upp filer från en enhet till en Azure storage blob-behållare.
-author: dominicbetts
-manager: timlt
+author: robinsh
+manager: philmea
+ms.author: robin.shahan
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 11/07/2018
-ms.author: dobett
-ms.openlocfilehash: 724f655229347aa73747476e6bb4837b30e0fc4f
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 7678c50cbda0ea112c737e8230586081efe61081
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52839015"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57008567"
 ---
 # <a name="upload-files-with-iot-hub"></a>Ladda upp filer med IoT Hub
 
@@ -103,7 +103,7 @@ Enligt beskrivningen i [slutpunkter](iot-hub-devguide-endpoints.md), IoT-hubb le
 | DeviceId |**DeviceId** på den enhet som du laddade upp filen. |
 | BlobUri |URI för den överförda filen. |
 | BlobName |Namnet på den överförda filen. |
-| lastUpdatedTime |Tidsstämpel som visar då filen senast uppdaterades. |
+| LastUpdatedTime |Tidsstämpel som visar då filen senast uppdaterades. |
 | BlobSizeInBytes |Storleken på den överförda filen. |
 
 **Exempel**. Det här exemplet visar innehållet i en fil ladda upp meddelandet.

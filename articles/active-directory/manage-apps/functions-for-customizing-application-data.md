@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/21/2019
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 83a0685f75111a5552645d487589734846b05968
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: ed081b32fd8ac464f7ec66f97c6867708a6f8533
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56164642"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56991488"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Skriva uttryck för attributmappningar i Azure Active Directory
 När du konfigurerar etablering till ett SaaS-program, är en av typerna av attributmappningar som du kan ange mappningen för en uttryck. För dessa, måste du skriva ett skript-liknande uttryck som hjälper dig att omvandla dina användares data till format som kan användas mer för SaaS-program.
@@ -175,7 +175,7 @@ Ersätter värden i en sträng. Den fungerar på olika sätt beroende på parame
 ### <a name="singleapproleassignment"></a>SingleAppRoleAssignment
 **Funktionen:**<br> SingleAppRoleAssignment([appRoleAssignments])
 
-**Beskrivning:**<br> Kräver ett strängargument. Returnerar strängen, men med några diakritiska tecken repalced med motsvarande icke-diakritiska tecken.
+**Beskrivning:**<br> Returnerar en enda appRoleAssignment från listan över alla appRoleAssignments som tilldelats en användare för ett visst program. Den här funktionen krävs för att konvertera objektet appRoleAssignments till en enda roll namnsträng. Observera att den bästa metoden är att se till att endast en appRoleAssignment har tilldelats en användare åt gången och om flera roller har tilldelats rollen strängen som returneras kanske inte är förutsägbar. 
 
 **Parametrar:**<br> 
 

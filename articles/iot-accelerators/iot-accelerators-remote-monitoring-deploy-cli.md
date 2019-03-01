@@ -8,16 +8,16 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 10/30/2018
 ms.topic: conceptual
-ms.openlocfilehash: 61da17d1dc59a08128671da163d8b3ea27f83994
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 7f1b9bb9d542b54afb6bf8b7bfc0df9fc1a9e434
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54463226"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57009434"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-using-the-cli"></a>Distribuera den lösningsacceleratorn för fjärrövervakning med hjälp av CLI
 
-Den här guiden visar hur du distribuerar lösningsacceleratorn för fjärrövervakning. Du kan distribuera lösningen med hjälp av CLI. Du kan också distribuera lösningen med webbaserat gränssnitt på azureiotsuite.com, om du vill veta mer om det här alternativet finns i den[distribuerar lösningsacceleratorn för fjärrövervakning](quickstart-remote-monitoring-deploy.md) Snabbstart.
+Den här guiden visar hur du distribuerar lösningsacceleratorn för fjärrövervakning. Du kan distribuera lösningen med hjälp av CLI. Du kan också distribuera lösningen med webbaserat gränssnitt på azureiotsolutions.com, om du vill veta mer om det här alternativet finns i den [distribuerar lösningsacceleratorn för fjärrövervakning](quickstart-remote-monitoring-deploy.md) Snabbstart.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -66,7 +66,7 @@ Basic-distributionen är anpassad för att visa upp lösningen. För att minska 
 
 En grundläggande distribution skapar följande tjänster i Azure-prenumerationen:
 
-| Antal | Resurs                       | Typ         | Används för |
+| Antal | Resurs                       | Type         | Används för |
 |-------|--------------------------------|--------------|----------|
 | 1     | [Linux-dator](https://azure.microsoft.com/services/virtual-machines/) | Standard D1 V2  | Som är värd för mikrotjänster |
 | 1     | [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/)                  | S1 – Standard-nivån | Enhetshantering och kommunikation |

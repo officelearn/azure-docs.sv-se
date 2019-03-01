@@ -1,20 +1,20 @@
 ---
 title: Kom igång med enhetstvillingar (.NET/.NET) för Azure IoT Hub | Microsoft Docs
 description: Så här använder enhetstvillingar för Azure IoT Hub för att lägga till taggar och sedan använda en IoT Hub-fråga. Du kan använda Azure IoT-enhetens SDK för .NET för att implementera den simulerade enhetsappen och tjänsten Azure IoT SDK för .NET för att implementera en service-app som lägger till taggar och kör IoT Hub-frågan.
-author: dominicbetts
-manager: timlt
+author: robinsh
+manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 05/15/2017
-ms.author: dobett
-ms.openlocfilehash: 1921395ed11c23ddb3d64d9d53124df7b7c8fd82
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.author: robin.shahan
+ms.openlocfilehash: 63ec161f2f0d8be4572acf456c81e19ca75bd856
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51514867"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57010743"
 ---
 # <a name="get-started-with-device-twins-netnet"></a>Kom igång med enhetstvillingar (.NET/.NET)
 [!INCLUDE [iot-hub-selector-twin-get-started](../../includes/iot-hub-selector-twin-get-started.md)]
@@ -40,7 +40,7 @@ Den här kursen behöver du följande:
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
-### <a name="retrieve-connection-string-for-iot-hub"></a>Hämta anslutningssträngen för IoT hub
+### <a name="retrieve-connection-string-for-iot-hub"></a>Hämta anslutningssträngen för IoT-hubben
 
 [!INCLUDE [iot-hub-include-find-connection-string](../../includes/iot-hub-include-find-connection-string.md)]
 

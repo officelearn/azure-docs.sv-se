@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/05/2019
+ms.date: 02/28/2019
 ms.author: magoedte
-ms.openlocfilehash: 6803e700a42a0d0279b48d38995c4fc299415075
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 58f16b0aa068c8b333ef4e7986bb49327b002fbb
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56985503"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57195429"
 ---
 # <a name="container-monitoring-solution-in-azure-monitor"></a>Lösning för övervakning av behållare i Azure Monitor
 
@@ -496,28 +496,16 @@ Använd informationen i avsnittet för att installera och konfigurera Windows-be
 
 Innan du installerar agenter på datorer som kör Windows, måste du konfigurera Docker-tjänsten. Konfigurationen tillåter Windows-agenten eller Azure Monitor-tillägget för virtuell dator för att använda Docker-TCP-socket så att agenterna kan komma åt Docker-daemon via en fjärranslutning och för att samla in data för övervakning.
 
-##### <a name="to-start-docker-and-verify-its-configuration"></a>Starta Docker och verifiera konfigurationen
+##### <a name="to-configure-the-docker-service"></a>Konfigurera Docker-tjänsten  
 
-Det finns steg som krävs för att ställa in TCP namngiven pipe för Windows Server:
+Utför följande PowerShell-kommandon för att aktivera TCP pipe och namngiven pipe för Windows Server:
 
-1. Aktivera TCP pipe och namngiven pipe i Windows PowerShell.
-
-    ```
-    Stop-Service docker
-    dockerd --unregister-service
-    dockerd --register-service -H npipe:// -H 0.0.0.0:2375  
-    Start-Service docker
-    ```
-
-2. Konfigurera Docker med konfigurationsfilen för TCP pipe och namngiven pipe. Konfigurationsfilen finns på C:\ProgramData\docker\config\daemon.json.
-
-    I filen daemon.json behöver du följande:
-
-    ```
-    {
-    "hosts": ["tcp://0.0.0.0:2375", "npipe://"]
-    }
-    ```
+```
+Stop-Service docker
+dockerd --unregister-service
+dockerd --register-service -H npipe:// -H 0.0.0.0:2375  
+Start-Service docker
+```
 
 Mer information om konfigurationen av Docker-daemon med Windows-behållare finns i [Docker-motorn på Windows](https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/configure-docker-daemon).
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/17/2018
 ms.author: renash
 ms.subservice: files
-ms.openlocfilehash: b39b6cf5936820d6e26ad5a17638a00c86fbf68a
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 8d6bca12ae1df0cab7be3e1c54467d32063bacaf
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55457147"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57195318"
 ---
 # <a name="overview-of-share-snapshots-for-azure-files"></a>Översikt över resursögonblicksbilder för Azure Files 
 Azure Files ger möjlighet att ta ögonblicksbilder av filresurser. Dela ögonblicksbilder in tillstånd för filresurs i det här läget i tid. I den här artikeln beskrivs vilka funktioner som ger resursögonblicksbilder och hur du kan dra nytta av dem i dina anpassade användningsfall.
@@ -88,4 +88,4 @@ Innan du distribuerar dela ögonblicksbild scheduler måste du noga överväga d
     - [PowerShell](storage-how-to-use-files-powershell.md)
     - [CLI](storage-how-to-use-files-cli.md)
     - [Windows](storage-how-to-use-files-windows.md#accessing-share-snapshots-from-windows)
-- [Dela ögonblicksbild vanliga frågor och svar](storage-files-faq.md#share-snapshots)
+    - [Dela ögonblicksbild vanliga frågor och svar](storage-files-faq.md#share-snapshots)

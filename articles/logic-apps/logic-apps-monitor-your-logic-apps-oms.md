@@ -1,5 +1,5 @@
 ---
-title: Övervaka logikappar med Log Analytics – Azure Logic Apps | Microsoft Docs
+title: Övervaka logikappar med Azure Monitor - loggar i Azure Logic Apps | Microsoft Docs
 description: Få insikter och data för felsökning och diagnostisera dina logikappskörningar med Azure Log Analytics-felsökning
 services: logic-apps
 ms.service: logic-apps
@@ -9,21 +9,23 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 10/19/2018
-ms.openlocfilehash: 70242de62e976b05e2708dfd4991915c854d4bb4
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 3f890e6cabd757fdd38374befaaccd1a10c9bd96
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52995649"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57192470"
 ---
-# <a name="monitor-logic-apps-with-azure-log-analytics"></a>Övervaka logikappar med Azure Log Analytics
+# <a name="monitor-logic-apps-with-azure-monitor-logs"></a>Övervaka logikappar med Azure Monitor-loggar
 
-Om du vill övervaka och få bättre information om felsökning om logic apps, aktiverar [Azure Log Analytics](../log-analytics/log-analytics-overview.md) när du skapar din logikapp. Log Analytics tillhandahåller diagnostik loggning och övervakning för logic apps när du installerar lösningen Logic Apps-hantering i Azure-portalen. Den här lösningen ger också samlad information för din logikapp körs med specifik information som status, körningstid, omsändning status och Korrelations-ID: N. Den här artikeln visar hur du aktiverar Log Analytics så att du kan visa körningshändelser och data för din logikapp körs.
+Om du vill övervaka och få bättre information om felsökning om logic apps, aktiverar [Azure Monitor loggar](../log-analytics/log-analytics-overview.md) när du skapar din logikapp. Azure Monitor-loggar har diagnostik loggning och övervakning för logic apps när du installerar lösningen Logic Apps-hantering i Azure-portalen. Den här lösningen ger också samlad information för din logikapp körs med specifik information som status, körningstid, omsändning status och Korrelations-ID: N. Den här artikeln visar hur du aktiverar Azure Monitor-loggar så att du kan visa körningshändelser och data för din logikapp körs.
 
-Följ dessa steg för att du aktiverar Azure Log Analytics för befintliga logikappar, [aktivera Diagnostisk loggning och skicka logic app runtime-data till Log Analytics](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
+Följ dessa steg för att aktivera Azure Monitor-loggar för befintliga logikappar genom [aktivera Diagnostisk loggning och skicka logic app runtime data till Azure Monitor-loggar](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
 
 > [!NOTE]
 > Den här sidan som beskrevs tidigare anvisningar att utföra dessa uppgifter med den Microsoft Operations Management Suite (OMS), vilket är [tas ur bruk i januari 2019](../azure-monitor/platform/oms-portal-transition.md), ersätter de här stegen med Azure Log Analytics i stället. 
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -56,7 +58,7 @@ Innan du börjar behöver du en Log Analytics-arbetsyta. Lär dig [hur du skapar
 
 ## <a name="install-logic-apps-management-solution"></a>Installera lösningen för Logic Apps-hantering
 
-Om du redan aktiverat Log Analytics när du skapade din logikapp kan du hoppa över det här steget. Du har redan en lösning för Logic Apps-hantering installerad.
+Om du redan har aktiverat Azure Monitor loggar när du har skapat din logikapp, hoppa över det här steget. Du har redan en lösning för Logic Apps-hantering installerad.
 
 1. I [Azure-portalen](https://portal.azure.com), väljer du **Alla tjänster**. Hitta ”log analytics” i sökrutan och välj **Log Analytics**.
 
@@ -116,17 +118,17 @@ När logikappen körs kan du visa status och antal för de körs på den **Logic
 
      Alla nytillagda spårade egenskaper kan ta 10 – 15 minuter innan de kan visas första gången. Lär dig [hur du lägger till spårade egenskaperna i logikappen](logic-apps-monitor-your-logic-apps.md#azure-diagnostics-event-settings-and-details).
 
-   * **Skicka:** du skicka minst en logikapp-körningar som har misslyckats, lyckades, eller är fortfarande körs. Markera kryssrutorna för körningar som du vill skicka igen och välj **skicka**. 
+   * **Skicka:** Du kan skicka en eller flera logikapp-körningar som har misslyckats, lyckades, eller körs fortfarande. Markera kryssrutorna för körningar som du vill skicka igen och välj **skicka**. 
 
      ![Skicka logikapp-körningar](media/logic-apps-monitor-your-logic-apps-oms/logic-app-resubmit.png)
 
 1. Du kan utföra både på klientsidan och serversidan filtrering för att filtrera resultaten.
 
-   * **Klientsidan filter**: för varje kolumn väljer du de filter som du vill, till exempel:
+   * **Klientsidan filter**: Välj de filter som du vill, till exempel för varje kolumn:
 
      ![Exempel kolumnfiltren](media/logic-apps-monitor-your-logic-apps-oms/filters.png)
 
-   * **Serversidan filter**: att välja ett specifikt tidsfönster eller begränsa antalet körningar som visas måste du använda scope-kontroll högst upp på sidan. Som standard visas endast 1 000 poster i taget.
+   * **Serversidan filter**: Att välja ett specifikt tidsfönster eller för att begränsa antalet körningar som visas, kan du använda scope-kontroll högst upp på sidan. Som standard visas endast 1 000 poster i taget.
    
      ![Ändra tidsfönstret](media/logic-apps-monitor-your-logic-apps-oms/change-interval.png)
  
@@ -149,9 +151,9 @@ När logikappen körs kan du visa status och antal för de körs på den **Logic
 
      ![Visa åtgärder och information för en logikappskörning](media/logic-apps-monitor-your-logic-apps-oms/log-search-page.png)
      
-     På sidan Azure Log Analytics kan du uppdatera frågor och visa resultat från tabellen. Den här frågan använder [Kusto-frågespråket](https://aka.ms/LogAnalyticsLanguageReference), som du kan redigera om du vill visa olika resultat. 
+     På sidan log analytics kan du uppdatera frågor och visa resultat från tabellen. Den här frågan använder [Kusto-frågespråket](https://aka.ms/LogAnalyticsLanguageReference), som du kan redigera om du vill visa olika resultat. 
 
-     ![Azure Log Analytics - frågevyn](media/logic-apps-monitor-your-logic-apps-oms/query.png)
+     ![log analytics - frågevyn](media/logic-apps-monitor-your-logic-apps-oms/query.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

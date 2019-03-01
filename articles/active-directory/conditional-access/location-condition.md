@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/21/2019
+ms.date: 02/28/2019
 ms.author: markvi
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aeb991de113b13666eeaab3f283b9eccd75fbd39
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 14b277e505e2a4975945f4b2f8f8410e25e0f8b3
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56166037"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57193593"
 ---
 # <a name="what-is-the-location-condition-in-azure-active-directory-conditional-access"></a>Vad är platsvillkoret för villkorlig åtkomst i Azure Active Directory? 
 
@@ -59,7 +59,7 @@ En namngiven plats har följande komponenter:
 
 - **Namn på** – visningsnamnet för en namngiven plats.
 
-- **IP-intervall** - minst en IPv4-adressintervall i CIDR-format. Finns inte stöd för att ange en Ipv6-adressintervall.
+- **IP-intervall** - minst en IPv4-adressintervall i CIDR-format. Finns inte stöd för att ange en IPv6-adressintervall.
 
 - **Markera som betrodd plats** – en flagga som du kan ange för en namngiven plats att ange en betrodd plats. Betrodda platser är oftast nätverksområden som kontrolleras av IT-avdelningen. Förutom villkorlig åtkomst, betrodda namngivna platser används också av Azure Identity Protection och Azure AD-säkerhetsrapporter för att minska [falska positiva identifieringar](../reports-monitoring/concept-risk-events.md#impossible-travel-to-atypical-locations-1).
 
@@ -142,7 +142,7 @@ Azure AD utfärdar en token timme som standard. När du har flyttat av företage
 
 ### <a name="user-ip-address"></a>Användarens IP-adress
 
-IP-adressen som används i principutvärdering är den offentliga IP-adressen för användaren. För enheter i ett privat nätverk inte klientens IP-Adressen för användarens enhet på intranätet, det är den adress som används av nätverket för att ansluta till det offentliga internet. 
+IP-adressen som används i principutvärdering är den offentliga IP-adressen för användaren. För enheter i ett privat nätverk inte klientens IP-Adressen för användarens enhet på intranätet, det är den adress som används av nätverket för att ansluta till det offentliga internet. Om enheten har endast en IPv6-adress, stöds konfigurera platsvillkoret inte.
 
 ### <a name="bulk-uploading-and-downloading-of-named-locations"></a>Massinläsning överföring och hämtning av namngivna platser
 

@@ -7,14 +7,14 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 02/27/2019
 ms.author: hrasheed
-ms.openlocfilehash: d6897e35aa60be11cf556335d211c5ea616295b6
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: b174b1279a2e93560932334c9ae1e926c1eeca3c
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53652703"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56990772"
 ---
 # <a name="process-and-analyze-json-documents-by-using-apache-hive-in-azure-hdinsight"></a>Bearbeta och analysera JSON-dokument med hjälp av Apache Hive i Azure HDInsight
 
@@ -59,7 +59,7 @@ Lär dig mer om att bearbeta och analysera JavaScript Object Notation (JSON) fil
 
 Filen finns på **wasb://processjson@hditutorialdata.blob.core.windows.net/**. Mer information om hur du använder Azure Blob storage med HDInsight finns i [Använd HDFS-kompatibla Azure Blob storage med Apache Hadoop i HDInsight](../hdinsight-hadoop-use-blob-storage.md). Du kan kopiera filen till standardbehållare på klustret.
 
-I den här självstudien använder du Apache Hive-konsolen. Anvisningar för hur du öppnar konsolen Hive finns i [använda Apache Hive med Apache Hadoop i HDInsight med fjärrskrivbord](apache-hadoop-use-hive-remote-desktop.md).
+I den här självstudien använder du Apache Hive-konsolen. Anvisningar för hur du öppnar konsolen Hive finns i [Använd Apache Ambari Hive-vy med Apache Hadoop i HDInsight](apache-hadoop-use-hive-ambari-view.md).
 
 ## <a name="flatten-json-documents"></a>Förenkla JSON-dokument
 De metoder som anges i nästa avsnitt kräver att JSON-dokumentet består av en enskild rad. Därför måste du förenkla JSON-dokumentet till en sträng. Om JSON-dokumentet redan förenklas du hoppa över det här steget och gå direkt till nästa avsnitt om hur du analyserar JSON-data. Kör följande skript för att platta ut JSON-dokumentet:

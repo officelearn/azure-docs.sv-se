@@ -1,6 +1,6 @@
 ---
-title: Övervaka B2B-meddelanden med Log Analytics – Azure Logic Apps | Microsoft Docs
-description: Övervaka AS2-, X 12 och EDIFACT-meddelanden för integrationskonton och Azure Logic Apps och konfigurera diagnostikloggning med Azure Log Analytics
+title: Övervaka B2B-meddelanden med Azure Monitor - loggar i Azure Logic Apps | Microsoft Docs
+description: Övervaka AS2-, X 12 och EDIFACT-meddelanden för integrationskonton och Azure Logic Apps och konfigurera diagnostikloggning med Azure Monitor-loggar
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -9,25 +9,27 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 10/23/2018
-ms.openlocfilehash: e3d2b377df6a3ed8312ca8b2563fe466236c2741
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 12799a308157c3c0e19de1f82c0fe3df44fad37e
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55818302"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57195174"
 ---
-# <a name="monitor-b2b-messages-with-azure-log-analytics-in-azure-logic-apps"></a>Övervaka B2B-meddelanden med Azure Log Analytics i Azure Logic Apps
+# <a name="monitor-b2b-messages-with-azure-monitor-logs-in-azure-logic-apps"></a>Övervaka B2B-meddelanden med Azure Monitor-loggar i Azure Logic Apps
 
-När du har konfigurerat B2B-kommunikation mellan handelspartner i ditt integrationskonto kan partner utbyta meddelanden med varandra. Kontrollera att den här kommunikationen fungerar på samma sätt som du förväntar dig kan du övervaka AS2, X12, och EDIFACT-meddelanden och ställer in diagnostik loggning för ditt konto för integrering med [Azure Log Analytics](../log-analytics/log-analytics-overview.md). Den här tjänsten övervakar dina molnet och lokala miljöer, hjälper dig att bibehålla tillgänglighet och prestanda, och samlar in runtime samt händelser för bättre felsökning. Du kan också använda dessa data med andra tjänster som Azure Storage och Azure Event Hubs.
+När du har konfigurerat B2B-kommunikation mellan handelspartner i ditt integrationskonto kan partner utbyta meddelanden med varandra. Kontrollera att den här kommunikationen fungerar på samma sätt som du förväntar dig kan du övervaka AS2, X12, och EDIFACT-meddelanden och ställer in diagnostik loggning för ditt konto för integrering med [Azure Monitor loggar](../log-analytics/log-analytics-overview.md). Den här tjänsten övervakar dina molnet och lokala miljöer, hjälper dig att bibehålla tillgänglighet och prestanda, och samlar in runtime samt händelser för bättre felsökning. Du kan också använda dessa data med andra tjänster som Azure Storage och Azure Event Hubs.
 
 > [!NOTE]
 > Den här sidan kan fortfarande ha referenser till Microsoft Operations Management Suite (OMS), vilket är [tas ur bruk i januari 2019](../azure-monitor/platform/oms-portal-transition.md), men ersätter de här stegen med Azure Log Analytics där det är möjligt. 
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 * En logikapp som har konfigurerats med diagnostikloggning. Lär dig [så här skapar du en logikapp](quickstart-create-first-logic-app-workflow.md) och [hur du ställer in loggning för den logikappen](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
 
-* När du uppfyller föregående krav måste också en Log Analytics-arbetsyta som du använder för att övervaka och spåra B2B-kommunikation via Log Analytics. Om du inte har en Log Analytics-arbetsyta kan du läsa [hur du skapar en Log Analytics-arbetsyta](../azure-monitor/learn/quick-create-workspace.md).
+* När du uppfyller föregående krav måste också en Log Analytics-arbetsyta som du använder för att övervaka och spåra B2B-kommunikation via Azure Monitor-loggar. Om du inte har en Log Analytics-arbetsyta kan du läsa [hur du skapar en Log Analytics-arbetsyta](../azure-monitor/learn/quick-create-workspace.md).
 
 * Ett integrationskonto som är länkad till din logikapp. Lär dig [hur du skapar ett integrationskonto med en länk till din logikapp](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md).
 
@@ -71,9 +73,9 @@ När du är klar väljer **Lägg till diagnostikinställning**.
 
    Exempel: 
 
-   ![Konfigurera Log Analytics så att du kan skicka diagnostikdata till en logg](media/logic-apps-monitor-b2b-message/send-diagnostics-data-log-analytics-workspace.png)
+   ![Konfigurera Azure Monitor-loggar så att du kan skicka diagnostikdata till en logg](media/logic-apps-monitor-b2b-message/send-diagnostics-data-log-analytics-workspace.png)
 
-1. Nu [konfigurera spårning för B2B-meddelanden i Log Analytics](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
+1. Nu [konfigurera spårning för B2B-meddelanden i Azure Monitor-loggar](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
 
 <a name="azure-monitor-service"></a>
 
@@ -113,13 +115,13 @@ När du är klar väljer **Lägg till diagnostikinställning**.
 
    Exempel: 
 
-   ![Konfigurera Log Analytics så att du kan skicka diagnostikdata till en logg](media/logic-apps-monitor-b2b-message/send-diagnostics-data-log-analytics-workspace.png)
+   ![Konfigurera Azure Monitor-loggar så att du kan skicka diagnostikdata till en logg](media/logic-apps-monitor-b2b-message/send-diagnostics-data-log-analytics-workspace.png)
 
-1. Nu [konfigurera spårning för B2B-meddelanden i Log Analytics](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
+1. Nu [konfigurera spårning för B2B-meddelanden i Azure Monitor-loggar](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
 
 ## <a name="use-diagnostic-data-with-other-services"></a>Använda diagnostiska data med andra tjänster
 
-Tillsammans med Azure Log Analytics kan utöka du hur du använda diagnostikdata för din logikapp med andra Azure-tjänster, till exempel: 
+Du kan utöka hur du använda diagnostikdata för din logikapp med andra Azure-tjänster, till exempel tillsammans med Azure Monitor-loggar: 
 
 * [Arkivera Azure Diagnostics-loggar i Azure Storage](../azure-monitor/platform/archive-diagnostic-logs.md)
 * [Stream Azure-diagnostikloggar för Azure Event Hubs](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md) 
@@ -144,6 +146,6 @@ Azure stöder dessa spåra schematyper där alla har åtgärdat scheman utom typ
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Spåra B2B-meddelanden i Azure Log Analytics](../logic-apps/logic-apps-track-b2b-messages-omsportal.md "spåra B2B-meddelanden i Azure Log Analytics")
+* [Spåra B2B-meddelanden i Azure Monitor-loggar](../logic-apps/logic-apps-track-b2b-messages-omsportal.md "spåra B2B-meddelanden i Azure Monitor-loggar")
 * [Mer information om Enterprise-Integrationspaketet](../logic-apps/logic-apps-enterprise-integration-overview.md "Lär dig mer om Enterprise-Integrationspaket")
 

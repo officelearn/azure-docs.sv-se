@@ -1,19 +1,19 @@
 ---
 title: Använda Azure portal för att konfigurera filuppladdning | Microsoft Docs
 description: Hur du använder Azure-portalen för att konfigurera IoT hub för att aktivera filöverföringar från anslutna enheter. Innehåller information om hur du konfigurerar målet Azure storage-konto.
-author: dominicbetts
-manager: timlt
+author: robinsh
+manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 07/03/2017
-ms.author: dobett
-ms.openlocfilehash: a9f9eeaed2716c5d492099568fd6f90080471af2
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.author: robin.shahan
+ms.openlocfilehash: 04f3f05c8c18a3356c282144cda62d1f980362fe
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42060925"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57008449"
 ---
 # <a name="configure-iot-hub-file-uploads-using-the-azure-portal"></a>Konfigurera IoT Hub-filöverföringar med Azure portal
 
@@ -29,13 +29,13 @@ Du använder den [filen filuppladdning i IoT Hub](iot-hub-devguide-file-upload.m
 
    ![Visa storage-behållare för filöverföring i portalen](./media/iot-hub-configure-file-upload/file-upload-container-selection.png)
 
-* **Ta emot meddelanden om uppladdade filer**: aktivera eller inaktivera filen ladda upp meddelanden via växlingsknappen.
+* **Ta emot meddelanden om uppladdade filer**: Aktivera eller inaktivera filen ladda upp meddelanden via växlingsknappen.
 
-* **SAS TTL**: den här inställningen är den time-to-live SAS URI: er returneras till enheten av IoT Hub. Ange en timme som standard men kan anpassas till andra värden med hjälp av skjutreglaget.
+* **SAS TTL**: Den här inställningen är den time-to-live SAS URI: er returneras till enheten av IoT Hub. Ange en timme som standard men kan anpassas till andra värden med hjälp av skjutreglaget.
 
-* **Filen notification inställningar standard TTL**: den time-to-live för en fil ladda upp meddelandet innan det förfaller. Inställd på en dag som standard men kan anpassas till andra värden med hjälp av skjutreglaget.
+* **Filen notification inställningar standard TTL**: De time-to-live för en fil ladda upp meddelandet innan det förfaller. Inställd på en dag som standard men kan anpassas till andra värden med hjälp av skjutreglaget.
 
-* **Filen notification maximalt antal leveranser**: antalet gånger som IoT-hubben försöker leverera en fil ladda upp meddelandet. Som standard har angetts till 10 men kan anpassas till andra värden med hjälp av skjutreglaget.
+* **Filen notification maximalt antal leveranser**: Hur många gånger som IoT-hubben försöker leverera en fil att överföra meddelanden. Som standard har angetts till 10 men kan anpassas till andra värden med hjälp av skjutreglaget.
 
    ![Konfigurera filuppladdning för IoT-hubb i portalen](./media/iot-hub-configure-file-upload/file-upload-selected-container.png)
 

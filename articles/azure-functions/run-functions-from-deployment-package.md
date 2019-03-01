@@ -8,19 +8,19 @@ manager: jeconnoc
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 09/10/2018
+ms.date: 02/26/2019
 ms.author: glenga
-ms.openlocfilehash: a0e643397372e5b132119a7c23f251ecec876916
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 292b25987f183df2091667312d4e6730b7f40dda
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44346585"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56990908"
 ---
 # <a name="run-your-azure-functions-from-a-package-file"></a>Kör dina Azure-funktioner från en paketfil
 
 > [!NOTE]
-> Funktioner som beskrivs i den här artikeln är inte tillgängliga för funktioner i Linux.
+> Funktioner som beskrivs i den här artikeln är inte tillgänglig för funktionsappar som körs på Linux i en [App Service-plan](functions-scale.md#app-service-plan).
 
 I Azure, kan du köra dina funktioner direkt från en paketfil för distribution i din funktionsapp. Ett annat alternativ är att distribuera dina filer i den `d:\home\site\wwwroot` katalog på din funktionsapp.
 
@@ -44,8 +44,11 @@ Om du vill aktivera funktionsappen att köra från ett paket, du lägger bara ti
 
 | Värde  | Beskrivning  |
 |---------|---------|
+| **`1`**  | Rekommenderas för funktionsappar som körs på Windows. Kör en paketfil i från den `d:\home\data\SitePackages` mapp på din funktionsapp. Om inte [distribuerar med zip distribuera] (#integration med-zip-distribution], det här alternativet kräver mappen också ha en fil med namnet `packagename.txt`. Den här filen innehåller bara namnet på den paketfil i mappen, utan några blanksteg. |
 |**`<url>`**  | Platsen för en specifik paketfil som du vill köra. När du använder Blob storage, bör du använda en privat behållare med en [signatur för delad åtkomst (SAS)](../vs-azure-tools-storage-manage-with-storage-explorer.md#attach-a-storage-account-by-using-a-shared-access-signature-sas) att aktivera Functions-körningen får tillgång till paketet. Du kan använda den [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) ladda upp paketfiler till Blob storage-kontot.         |
-| **`1`**  | Kör en paketfil i från den `d:\home\data\SitePackages` mapp på din funktionsapp. Det här alternativet kräver mappen också ha en fil med namnet `packagename.txt`. Den här filen innehåller bara namnet på den paketfil i mappen, utan några blanksteg. |
+
+> [!CAUTION]
+> När du kör en funktionsapp på Windows, ger externa URL: er sämre resultat kallstart prestanda. När du distribuerar din funktionsapp till Windows, bör du ange `WEBSITE_RUN_FROM_PACKAGE` till `1` och publicera med zip-distribution.
 
 Nedan visas en funktionsapp som konfigurerats för att köras från en .zip-fil som finns i Azure Blob storage:
 

@@ -16,12 +16,12 @@ ms.date: 07/12/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a40159a43db6f83029ed6eacd37d2a4eff28aa09
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 1d5f4dec48d81b032de293bb6c68ad62ac48d475
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56203861"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57193066"
 ---
 # <a name="azure-ad-connect-sync-scheduler"></a>Azure AD Connect-synkronisering: Scheduler
 Det här avsnittet beskrivs de inbyggda scheduler i Azure AD Connect-synkronisering (kallas även) Synkroniseringsmotorn).
@@ -55,7 +55,7 @@ Om du ser **synkronisering kommandot eller cmdlet: en är inte tillgänglig** n�
 * **PurgeRunHistoryInterval**. Den tid som åtgärdsloggar bör hållas. Dessa loggar kan ses i hanteraren för synkroniseringstjänsten. Standardvärdet är att hålla dessa loggar för 7 dagar.
 * **SyncCycleEnabled**. Anger om scheduler Kör import, synkronisering och export processer som en del av dess drift.
 * **MaintenanceEnabled**. Visar om underhållsprocessen är aktiverad. Den uppdaterar certifikat/nycklar och tar bort operations-loggen.
-* **StagingModeEnabled**. Visar om [mellanlagringsläge](how-to-connect-sync-operations.md#staging-mode) är aktiverad. Om den här inställningen är aktiverad, sedan den Undertrycker export från att köras men fortfarande köra import och synkronisering.
+* **StagingModeEnabled**. Visar om [mellanlagringsläge](how-to-connect-sync-staging-server.md) är aktiverad. Om den här inställningen är aktiverad, sedan den Undertrycker export från att köras men fortfarande köra import och synkronisering.
 * **SchedulerSuspended**. Ange av Connect under en uppgradering till tillfälligt block scheduler från att köras.
 
 Du kan ändra några av de här inställningarna med `Set-ADSyncScheduler`. Du kan ändra följande parametrar:

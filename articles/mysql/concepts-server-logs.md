@@ -1,17 +1,17 @@
 ---
 title: Serverloggar för Azure Database for MySQL
 description: Beskriver loggarna som är tillgängliga i Azure Database för MySQL och tillgängliga parametrar för att aktivera olika loggningsnivåer.
-author: rachel-msft
-ms.author: raagyema
+author: ajlam
+ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 10/03/2018
-ms.openlocfilehash: 60ef547cb3a6ef579f5ab0b3f5438212145d92ff
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.date: 02/28/2019
+ms.openlocfilehash: bc3dd038a21786a75d6b519ef8523dc328829705
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56961796"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57192896"
 ---
 # <a name="server-logs-in-azure-database-for-mysql"></a>Serverloggar i Azure Database for MySQL
 Långsam frågelogg är tillgänglig för användare i Azure Database för MySQL. Åtkomst till transaktionsloggen stöds inte. Långsam frågelogg kan användas för att identifiera flaskhalsar i prestanda för felsökning. 
@@ -45,6 +45,9 @@ Se MySQL [långsam fråga log dokumentation](https://dev.mysql.com/doc/refman/5.
 
 ## <a name="diagnostic-logs"></a>Diagnostikloggar
 Azure Database för MySQL är integrerat med Azure Monitor-diagnostikloggar. När du har aktiverat långsamma frågeloggar på MySQL-servern, kan du låta dem som Azure Monitor-loggar, Event Hubs eller Azure Storage. Mer information om hur du aktiverar diagnostikloggar finns hur till avsnittet i den [diagnostikloggar dokumentation](../azure-monitor/platform/diagnostic-logs-overview.md).
+
+> [!IMPORTANT]
+> Den här diagnostiska funktionen för serverloggar är endast tillgänglig i generell användning och Minnesoptimerad [prisnivåer](concepts-pricing-tiers.md).
 
 I följande tabell beskrivs vad som finns i varje logg. De fält som ingår och i vilken ordning som de visas kan variera beroende på utdata-metod.
 

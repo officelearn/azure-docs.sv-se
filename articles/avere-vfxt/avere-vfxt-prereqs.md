@@ -4,14 +4,14 @@ description: Krav för Avere vFXT för Azure
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 01/29/2019
+ms.date: 02/20/2019
 ms.author: v-erkell
-ms.openlocfilehash: 9c3301ba16bfaeb7014658a380e287a36a505be8
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 045b010736f8cecf877408f23530022af1f94f14
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55299215"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56991430"
 ---
 # <a name="prepare-to-create-the-avere-vfxt"></a>Förbereda för att skapa Avere vFXT
 
@@ -57,7 +57,7 @@ Du måste ha tillräckligt många följande Azure-komponenterna. Om det behövs 
 
 |Azure-komponent|Kvot|
 |----------|-----------|
-|Virtuella datorer|Minst 3 D16s_v3 eller E32s_v3|
+|Virtuella datorer|3 eller fler E32s_v3|
 |Premium SSD-lagring|200 GB OS-utrymme plus 1 TB till 4 TB cacheutrymme per nod |
 |Lagringskonto (valfritt) |v2|
 |Datalagring i serverdel (valfritt) |En ny LRS Blob-behållare |
@@ -151,6 +151,30 @@ Du måste skapa noden klusterrollen innan du kan skapa Avere vFXT för Azure-klu
    ```
 
 Rollnamnet används när klustret skapas. I det här exemplet heter ``avere-operator``.
+
+## <a name="optional-create-a-storage-service-endpoint-in-your-virtual-network"></a>(Valfritt) Skapa en slutpunkt för lagring i ditt virtuella nätverk
+
+En [tjänstslutpunkt](../virtual-network/virtual-network-service-endpoints-overview.md) behåller Azure Blob-trafik lokalt i stället för att skicka det utanför det virtuella nätverket. Vi rekommenderar för alla Avere vFXT för Azure-kluster som använder Azure Blob för lagring av backend-data. 
+
+Om du anger ett befintligt vnet och skapar en ny Azure Blob-behållare för backend-lagringen som en del av skapandet av klustret, måste du ha en tjänstslutpunkt i det virtuella nätverket för Microsoft-lagring. Den här slutpunkten måste finnas innan du skapar klustret eller skapa misslyckas. 
+
+En tjänstslutpunkt för storage rekommenderas för alla Avere vFXT för Azure-kluster som använder Azure Blob-lagring, även om du senare lägga till lagring. 
+
+> [!TIP] 
+> * Hoppa över det här steget om du skapar ett nytt virtuellt nätverk som en del av klustret skapas. 
+> * Det här steget är valfritt om du inte skapar Blob-lagring när klustret skapas. I så fall kan du skapa tjänstslutpunkten senare om du vill använda Azure Blob.
+
+Skapa service-slutpunkt för lagring från Azure-portalen. 
+
+1. I portalen klickar du på **virtuella nätverk** till vänster.
+1. Välj det virtuella nätverket för klustret. 
+1. Klicka på **tjänstslutpunkter** till vänster.
+1. Klicka på **Lägg till** högst upp.
+1. Lämna tjänsten som ``Microsoft.Storage`` och välj klustrets undernät.
+1. Längst ned på sidan, klickar du på **Lägg till**.
+
+  ![Azure portal skärmbild med anteckningar för stegen för att skapa tjänsteslutpunkt](media/avere-vfxt-service-endpoint.png)
+
 
 ## <a name="next-step-create-the-vfxt-cluster"></a>Nästa steg: Skapa vFXT-kluster
 

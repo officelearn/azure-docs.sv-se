@@ -16,12 +16,12 @@ ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b2a5876a3f77eb0764edc5ce833f4b74284dda66
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: ce4ad48a81d5f3b3b8574237b8d8685ad9b141ec
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211724"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57194214"
 ---
 # <a name="azure-ad-connect-upgrade-from-dirsync"></a>Azure AD Connect: Uppgradera från DirSync
 Azure AD Connect är efterföljaren till DirSync. I det här avsnittet lär du dig hur du kan uppgradera från DirSync på olika sätt. Stegen fungerar inte om du ska uppgradera från en annan version av Azure AD Connect eller från Azure AD Sync.
@@ -71,7 +71,7 @@ Följande ändring kan inte uppgraderas. Uppgraderingen blockeras om du har den 
 
 ![Uppgraderingen har blockerats](./media/how-to-dirsync-upgrade-get-started/analysisblocked.png)
 
-I dessa fall rekommenderar vi att du installerar en ny Azure AD Connect-server i [mellanlagringsläge](how-to-connect-sync-operations.md#staging-mode) och verifierar den gamla DirSync-konfigurationen och den nya Azure AD Connect-konfigurationen. Tillämpa eventuella ändringar med en anpassad konfiguration. Mer information finns i [Anpassad Azure AD Connect Sync-konfiguration](how-to-connect-sync-whatis.md).
+I dessa fall rekommenderar vi att du installerar en ny Azure AD Connect-server i [mellanlagringsläge](how-to-connect-sync-staging-server.md) och verifierar den gamla DirSync-konfigurationen och den nya Azure AD Connect-konfigurationen. Tillämpa eventuella ändringar med en anpassad konfiguration. Mer information finns i [Anpassad Azure AD Connect Sync-konfiguration](how-to-connect-sync-whatis.md).
 
 Lösenorden som används av DirSync för tjänstkontona kan inte hämtas och migreras inte. Dessa lösenord återställs under uppgraderingen.
 
@@ -161,12 +161,12 @@ När du installerar Azure AD Connect på en ny server antas det att du vill utf�
      Följande alternativ visas på skärmen:  
      ![Ange dina autentiseringsuppgifter för Azure AD](./media/how-to-dirsync-upgrade-get-started/advancedsettings.png)
 7. Klicka på **Nästa**.
-8. På sidan **Klart att konfigurera** lämnar du kryssrutan **Starta synkroniseringsprocessen så snart som konfigurationen är klar** markerad. Nu är servern i [mellanlagringsläge](how-to-connect-sync-operations.md#staging-mode) och ändringarna exporteras inte till Azure AD.
+8. På sidan **Klart att konfigurera** lämnar du kryssrutan **Starta synkroniseringsprocessen så snart som konfigurationen är klar** markerad. Nu är servern i [mellanlagringsläge](how-to-connect-sync-staging-server.md) och ändringarna exporteras inte till Azure AD.
 9. Klicka på **Installera**.
 10. När installationen är klar loggar du ut och loggar sedan in igen i Windows innan du använder Synchronization Service Manager eller Synchronization Rule Editor eller innan du försöker göra andra konfigurationsändringar.
 
 > [!NOTE]
-> Synkroniseringen mellan Windows Server Active Directory och Azure Active Directory börjar, men inga ändringar exporteras till Azure AD. Endast ett synkroniseringsverktyg i taget kan aktivt exportera ändringar. Det här tillståndet kallas för [mellanlagringsläge](how-to-connect-sync-operations.md#staging-mode).
+> Synkroniseringen mellan Windows Server Active Directory och Azure Active Directory börjar, men inga ändringar exporteras till Azure AD. Endast ett synkroniseringsverktyg i taget kan aktivt exportera ändringar. Det här tillståndet kallas för [mellanlagringsläge](how-to-connect-sync-staging-server.md).
 
 ### <a name="verify-that-azure-ad-connect-is-ready-to-begin-synchronization"></a>Kontrollera att Azure AD Connect är redo att påbörja synkroniseringen
 För att bekräfta att Azure AD Connect är redo att ta över från DirSync måste du öppna **Synchronization Service Manager** i gruppen **Azure AD Connect** från startmenyn.
@@ -182,7 +182,7 @@ Gå till fliken **Åtgärder** i programmet. Kontrollera att följande åtgärde
 
 Granska resultatet från dessa åtgärder och kontrollera att det inte finns några fel.
 
-Om du vill visa och inspektera de ändringar som är på väg att exporteras till Azure AD läser du hur du verifierar konfigurationen under [mellanlagringsläge](how-to-connect-sync-operations.md#staging-mode). Gör nödvändiga konfigurationsändringar tills du inte ser något oväntat.
+Om du vill visa och inspektera de ändringar som är på väg att exporteras till Azure AD läser du hur du verifierar konfigurationen under [mellanlagringsläge](how-to-connect-sync-staging-server.md). Gör nödvändiga konfigurationsändringar tills du inte ser något oväntat.
 
 Du är redo att byta från DirSync till Azure AD när du har utfört dessa åtgärder och är nöjd med resultatet.
 

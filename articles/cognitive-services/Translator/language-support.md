@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/21/2019
 ms.author: v-jansko
-ms.openlocfilehash: 4e8193a9996c9675a353e3e427c86ecfee45da8f
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 3a99c0157ef3afe9823d73379775ddcf564faccc
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56737849"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57193814"
 ---
 # <a name="language-and-region-support-for-the-translator-text-api"></a>Stöd för språk och din region för Translator Text API
 
@@ -33,7 +33,7 @@ Translator Text API stöder följande språk för översättning till text. Neur
 * Neural standard: Neural är standard translation system. Använd parametern `category=smt` till statistiska systemet för användning med Microsoft Translator Hub.
 * Neural endast: Endast neural översättning är tillgänglig.
 
-**V3 Translator API** V3 Translator API är neural som standard och statistiska system är bara tillgängliga när det finns inga neural system. Anpassade Translator kan bara användas med neural språk.
+**V3 Translator API** V3 Translator API är neural som standard och statistiska system är bara tillgängliga när det finns inga neural system. Anpassade Translator kan bara användas med neural språk. [Visa langauges som är tillgängliga i anpassade Translator](#customization).
 
 |Språk|  Språkkod|  V2 API| V3 API|
 |:-----|:-----:|:-----|:-----|
@@ -73,7 +73,7 @@ Translator Text API stöder följande språk för översättning till text. Neur
 |Koreanska |`ko`   |Neural tillgängliga|  Neural|
 |Lettiska|   `lv`    |Neural tillgängliga|  Neural|
 |Litauiska|    `lt`    |Neural tillgängliga|  Neural|
-|Madagaskisk|  `mg`    |Statistisk endast|  Statistisk|
+|Malagasy|  `mg`    |Statistisk endast|  Statistisk|
 |Malajiska| `ms`    |Statistisk endast   |Statistisk|
 |Maltesiska|   `mt`    |Statistisk endast|  Statistisk|
 |Norska| `nb`    |Neural tillgängliga|  Neural|
@@ -94,7 +94,7 @@ Translator Text API stöder följande språk för översättning till text. Neur
 |Tamilska| `ta`    |Statistisk endast|  Statistisk|
 |Telugu|    `te`    |Endast Neural|   Neural|
 |Thai|  `th`    |Neural tillgängliga|  Neural|
-|Tongan|    `to`    |Statistisk endast|  Statistisk|
+|Tonganska|    `to`    |Statistisk endast|  Statistisk|
 |Turkiska|   `tr`    |Neural tillgängliga   |Neural|
 |Ukrainska| `uk`    |Neural tillgängliga|  Neural|
 |Urdu|  `ur`    |Statistisk endast|  Statistisk|

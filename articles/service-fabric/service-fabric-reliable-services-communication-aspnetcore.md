@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 10/12/2018
 ms.author: vturecek
-ms.openlocfilehash: 71d5b0e8156710e2f82ac76d3187ba1ddba46936
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: c941a9adb552bcd0a02e22b23970717f82c0308f
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55151098"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57009944"
 ---
 # <a name="aspnet-core-in-service-fabric-reliable-services"></a>ASP.NET Core i Service Fabric Reliable Services
 
@@ -333,6 +333,123 @@ new KestrelCommunicationListener(serviceContext, (url, listener) => ...
 ```
 
 I den här konfigurationen `KestrelCommunicationListener` väljer automatiskt en ledig port från portintervallet för programmet.
+
+## <a name="service-fabric-configuration-provider"></a>Konfigurationsprovidern för Service Fabric
+Konfiguration av i ASP.NET Core är baserat på nyckel / värde-par som upprättats av konfigurationstjänst, läsa [konfigurationen i ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration/) att förstå mer om allmänna ASP.NET Core stöd för konfiguration.
+
+Det här avsnittet beskrivs Konfigurationsprovider för Service Fabric att integrera med ASP.NET Core-konfigurationen genom att importera den `Microsoft.ServiceFabric.AspNetCore.Configuration` NuGet-paketet.
+
+### <a name="addservicefabricconfiguration-startup-extensions"></a>AddServiceFabricConfiguration Start-tillägg
+När du har import `Microsoft.ServiceFabric.AspNetCore.Configuration` NuGet-paketet som du behöver registrera konfigurationskälla för Service Fabric med ASP.NET Core konfigurations-API genom att **AddServiceFabricConfiguration** tillägg i `Microsoft.ServiceFabric.AspNetCore.Configuration` namnområde mot `IConfigurationBuilder`
+
+```csharp
+using Microsoft.ServiceFabric.AspNetCore.Configuration;
+
+public Startup(IHostingEnvironment env)
+{
+    var builder = new ConfigurationBuilder()
+        .SetBasePath(env.ContentRootPath)
+        .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
+        .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
+        .AddServiceFabricConfiguration() // Add Service Fabric configuration settings.
+        .AddEnvironmentVariables();
+    Configuration = builder.Build();
+}
+
+public IConfigurationRoot Configuration { get; }
+```
+
+ASP.NET Core-tjänst kan nu komma åt konfigurationsinställningarna för Service Fabric precis som andra programinställningar. Du kan till exempel använda mönstret alternativ för att läsa in inställningarna till starkt typifierad objekt.
+
+```csharp
+public void ConfigureServices(IServiceCollection services)
+{
+    services.Configure<MyOptions>(Configuration);  // Strongly typed configuration object.
+    services.AddMvc();
+}
+```
+### <a name="default-key-mapping"></a>Standardnyckeln mappning
+Som standard innehåller Service Fabric anpassningsdelar providern paketnamn, avsnittets namn och egenskapsnamn tillsammans för att skapa asp.net core-konfiguration-nyckeln med hjälp av följande funktion:
+```csharp
+$"{this.PackageName}{ConfigurationPath.KeyDelimiter}{section.Name}{ConfigurationPath.KeyDelimiter}{property.Name}"
+```
+
+Exempel: Om du har ett paket med namnet `MyConfigPackage` med nedan innehåll, sedan Konfigurationsvärdet kommer vara tillgängliga för ASP.NET Core `IConfiguration` via nyckel *MyConfigPackage:MyConfigSection:MyParameter*
+```xml
+<?xml version="1.0" encoding="utf-8" ?>
+<Settings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2011/01/fabric">  
+  <Section Name="MyConfigSection">
+    <Parameter Name="MyParameter" Value="Value1" />
+  </Section>  
+</Settings>
+```
+### <a name="service-fabric-configuration-options"></a>Konfigurationsalternativ för Service Fabric
+Konfigurationsprovidern för Service Fabric stöder också `ServiceFabricConfigurationOptions` ändra standardbeteendet för mappning av nyckeln.
+
+#### <a name="encrypted-settings"></a>Krypterade inställningar
+Service Fabric har stöd för att kryptera inställningarna, Konfigurationsprovider för Service Fabric stöder detta. Följa säker som standard princip krypterade inställningar are't descrypted som standard att ASP.NET Core `IConfiguration`, det krypterade värdet lagras där i stället. Men om du vill dekryptera värdet som ska lagra i ASP.NET Core IConfiguration du kan ange DecryptValue-flaggan till false i `AddServiceFabricConfiguration` tillägg på följande sätt:
+
+```csharp
+public Startup()
+{
+    ICodePackageActivationContext activationContext = FabricRuntime.GetActivationContext();
+    var builder = new ConfigurationBuilder()        
+        .AddServiceFabricConfiguration(activationContext, (options) => options.DecryptValue = true); // set flag to decrypt the value
+    Configuration = builder.Build();
+}
+```
+#### <a name="multiple-configuration-packages"></a>Flera konfigurationspaket
+Service Fabric stöder flera konfigurationspaket. Som standard ingår paketnamnet i konfigurationen av nyckeln. Du kan ange den `IncludePackageName` flagga för att ändra standardbeteendet.
+```csharp
+public Startup()
+{
+    ICodePackageActivationContext activationContext = FabricRuntime.GetActivationContext();
+    var builder = new ConfigurationBuilder()        
+        // exclude package name from key.
+        .AddServiceFabricConfiguration(activationContext, (options) => options.IncludePackageName = false); 
+    Configuration = builder.Build();
+}
+```
+#### <a name="custom-key-mapping-value-extraction-and-data-population"></a>Mappning av anpassade nyckel och värde extrahering ifyllnad av Data
+Utöver ovan 2 flaggor ändra standardbeteendet Konfigurationsprovider för Service Fabric stöder också mer avancerade scenarier för anpassat viktiga mappningen via `ExtractKeyFunc` och extrahera värden via anpassat `ExtractValueFunc`. Du kan även ändra hela processen för att lägga till data från Service Fabric-konfigurationen i ASP.NET Core-konfiguration via `ConfigAction`.
+
+I följande exempel visas om du vill använda `ConfigAction` anpassa ifyllnad av data.
+```csharp
+public Startup()
+{
+    ICodePackageActivationContext activationContext = FabricRuntime.GetActivationContext();
+    
+    this.valueCount = 0;
+    this.sectionCount = 0;
+    var builder = new ConfigurationBuilder();
+    builder.AddServiceFabricConfiguration(activationContext, (options) =>
+        {
+            options.ConfigAction = (package, configData) =>
+            {
+                ILogger logger = new ConsoleLogger("Test", null, false);
+                logger.LogInformation($"Config Update for package {package.Path} started");
+
+                foreach (var section in package.Settings.Sections)
+                {
+                    this.sectionCount++;
+
+                    foreach (var param in section.Parameters)
+                    {
+                        configData[options.ExtractKeyFunc(section, param)] = options.ExtractValueFunc(section, param);
+                        this.valueCount++;
+                    }
+                }
+
+                logger.LogInformation($"Config Update for package {package.Path} finished");
+            };
+        });
+  Configuration = builder.Build();
+}
+```
+### <a name="configuration-update"></a>Konfigurationsuppdateringen
+Konfigurationsprovidern för Service Fabric stöder också konfigurationsuppdateringen och du kan använda ASP.NET Core `IOptionsMonitor` att ta emot ändringsmeddelanden och även med `IOptionsSnapshot` att uppdatera konfigurationsdata. Mer information finns i [ASP.NET Core alternativ](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration/options).
+
+Detta stöds som standard och inga fler kodning krävs för att aktivera konfigurationsuppdateringen.
 
 ## <a name="scenarios-and-configurations"></a>Scenarier och konfigurationer
 Det här avsnittet beskriver följande scenarier och innehåller rekommenderade kombinationen av webbserver, portkonfiguration, Service Fabric-integreringsalternativ och övriga inställningar för att uppnå en korrekt fungerande tjänst:

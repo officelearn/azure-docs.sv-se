@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 7666af14f61ac04d82f73d439cda85063cfbc758
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: b8f2df14e0aa0246d794bd56f4187002cfdeee02
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56880146"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57194476"
 ---
 # <a name="connect-a-generic-client-application-to-your-azure-iot-central-application-nodejs"></a>Ansluta ett allmänt klientprogram till ditt Azure IoT Central program (Node.js)
 
@@ -130,7 +130,7 @@ Följande steg visar hur du skapar ett klientprogram som implementerar en riktig
     ```
 
     > [!NOTE]
-    > Azure IoT Central har övergått till med hjälp av Azure IoT Hub Device Provisioning-tjänsten (DPS) för alla anslutningar på enheten, följer du dessa instrustions till [hämta enhetens anslutningssträng](concepts-connectivity-experimental.md#get-the-device-connection-string) och fortsätta med resten av kursen. Mer hjälp kan du också hitta en detaljerad uppsättning med instruktionerna i [förbereda klientkoden](tutorial-add-device-experimental.md#prepare-the-client-code) i självstudier > Lägg till en enhet.
+    > Azure IoT Central har övergått till med hjälp av Azure IoT Hub Device Provisioning-tjänsten (DPS) för alla anslutningar på enheten, följer du dessa instruktioner för att [hämta enhetens anslutningssträng](concepts-connectivity-experimental.md#get-a-connection-string) och fortsätta med resten av kursen. Mer hjälp kan du också hitta en detaljerad uppsättning med instruktionerna i [förbereda klientkoden](tutorial-add-device-experimental.md#prepare-the-client-code) i självstudier > Lägg till en enhet.
 
     Uppdatera platshållaren `{your device connection string}` med enhetens anslutningssträng. I det här exemplet vi initiera `targetTemperature` till noll och, du kan eventuellt ta medan den aktuella läsningen från enheten eller värdet från enhetstvillingen. 
 

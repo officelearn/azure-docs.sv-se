@@ -1,5 +1,5 @@
 ---
-title: Så här skapar du ett Kubernetes-kluster som har aktiverats för Azure Dev lagringsutrymmen med hjälp av Azure Cloud Shell | Microsoft Docs
+title: Så här skapar du ett Kubernetes-kluster som har aktiverats för Azure Dev lagringsutrymmen med hjälp av Azure Cloud Shell
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
@@ -7,15 +7,15 @@ ms.subservice: azds-kubernetes
 author: zr-msft
 ms.author: zarhoads
 ms.date: 10/04/2018
-ms.topic: article
+ms.topic: conceptual
 description: Lär dig hur du snabbt skapar ett Kubernetes-kluster som har aktiverats för Azure Dev blanksteg direkt från din webbläsare utan att installera något.
-keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers
-ms.openlocfilehash: 81d8315224550791001610a9c32c2e2daee7e99d
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, behållare, Helm, tjänsten nät, tjänsten nät routning, kubectl, k8s
+ms.openlocfilehash: 1217b2cce03c36e4fd354d5cb9a58348b655a314
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56823781"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57193848"
 ---
 # <a name="create-a-kubernetes-cluster-using-azure-cloud-shell"></a>Skapa ett Kubernetes-kluster med Azure Cloud Shell
 

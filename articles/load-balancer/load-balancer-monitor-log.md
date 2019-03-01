@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/10/2018
 ms.author: kumud
-ms.openlocfilehash: 00a5e888961a9712db0cd509a39fb0367895ac3f
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: d6b5a8b31b78e21868a7f81c481c4fce1cd4e6f5
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53164134"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57192453"
 ---
-# <a name="log-analytics-for-public-basic-load-balancer"></a>Log analytics för offentlig grundläggande belastningsutjämnare
+# <a name="azure-monitor-logs-for-public-basic-load-balancer"></a>Azure Monitor-loggar för offentlig grundläggande belastningsutjämnare
 
 >[!IMPORTANT] 
->Azure Load Balancer stöder två typer: Basic eller Standard. Den här artikeln beskriver den grundläggande lastbalanseraren. Mer information om Standardbelastningsutjämnaren finns i [översikt över Standard Load Balancer](load-balancer-standard-overview.md) som visar telemetri via flerdimensionella mått i Azure Monitor.
+>Azure Load Balancer stöder två typer: Basic och Standard. Den här artikeln beskriver den grundläggande lastbalanseraren. Mer information om Standardbelastningsutjämnaren finns i [översikt över Standard Load Balancer](load-balancer-standard-overview.md) som visar telemetri via flerdimensionella mått i Azure Monitor.
 
 Du kan använda olika typer av loggar i Azure för att hantera och felsöka grundläggande belastningsutjämnare. Några av de här loggarna kan nås via portalen. Alla loggar kan extraheras från Azure blob storage och visas i olika verktyg som Excel och Power BI. Du kan lära dig mer om de olika typerna av loggar i listan nedan.
 
@@ -32,7 +32,7 @@ Du kan använda olika typer av loggar i Azure för att hantera och felsöka grun
 * **Hälsoavsökningsloggar:** Du kan använda den här loggfilen för att visa problem som identifieras av din hälsoavsökning, till exempel hur många instanser i din serverdelspool som inte tar emot begäranden från belastningsutjämnaren på grund av hälsokontrollfel. Den här loggfilen skrivs till när det finns en ändring i avsökningen hälsostatus.
 
 > [!IMPORTANT]
-> Logganalys för närvarande fungerar endast för offentlig grundläggande belastningsutjämnare. Loggar är bara tillgängliga för resurser som distribueras i Resource Manager-distributionsmodellen. Du kan inte använda loggar för resurser i den klassiska distributionsmodellen. Mer information om distributionsmodellerna finns i [förstå Resource Manager-distribution och klassisk distribution](../azure-resource-manager/resource-manager-deployment-model.md).
+> Azure Monitor loggar för närvarande fungerar endast för offentlig grundläggande belastningsutjämnare. Loggar är bara tillgängliga för resurser som distribueras i Resource Manager-distributionsmodellen. Du kan inte använda loggar för resurser i den klassiska distributionsmodellen. Mer information om distributionsmodellerna finns i [förstå Resource Manager-distribution och klassisk distribution](../azure-resource-manager/resource-manager-deployment-model.md).
 
 ## <a name="enable-logging"></a>Aktivera loggning
 
@@ -134,7 +134,7 @@ JSON-utdata som visas i egenskapsfältet grundläggande information för avsökn
 Du kan visa och analysera granskningsdata med hjälp av någon av följande metoder:
 
 * **Azure-verktyg:** Hämta information från granskningsloggar via Azure PowerShell, Azure-kommandoradsgränssnitt (CLI), Azure REST-API eller Azure preview portal. Stegvisa instruktioner för varje metod finns beskrivna i den [granskningsåtgärder med Resource Manager](../azure-resource-manager/resource-group-audit.md) artikeln.
-* **Powerbi:** Om du inte redan har en [Power BI](https://powerbi.microsoft.com/pricing) konto, du kan prova kostnadsfritt. Med hjälp av den [Azure-granskningsloggarna innehållspaket för Power BI](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-audit-logs), du kan analysera dina data med förkonfigurerade instrumentpaneler och du kan anpassa vyer så att den passar dina behov.
+* **Power BI:** Om du inte redan har en [Power BI](https://powerbi.microsoft.com/pricing) konto, du kan prova kostnadsfritt. Med hjälp av den [Azure-granskningsloggarna innehållspaket för Power BI](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-audit-logs), du kan analysera dina data med förkonfigurerade instrumentpaneler och du kan anpassa vyer så att den passar dina behov.
 
 ## <a name="view-and-analyze-the-health-probe-and-event-log"></a>Visa och analysera hälsoavsökning och händelseloggen
 

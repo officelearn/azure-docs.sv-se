@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 11/12/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 265dcccf9202d7b0116bba05b016e8967b68c67a
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: cddc6ccd8360ef88c95cd33c0bc8e141d721042d
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53273365"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57010522"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Integrera din app med Azure-nätverk
 Det här dokumentet beskriver funktionen Azure App Service-integrering för virtuellt nätverk och visar hur du konfigurerar den med appar i [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). [Azure-nätverk] [ VNETOverview] (Vnet) gör att du kan placera många av dina Azure-resurser i ett icke-internet-dirigerbara nätverk. Dessa nätverk kan sedan anslutas till ditt lokala nätverk med hjälp av VPN-tekniker. 
@@ -82,7 +82,7 @@ Skapa en gateway:
 * 172.16.0.0/12 – detta innebär att ett IP-adressintervall från 172.16.0.0 till 172.31.255.255 
 * 192.168.0.0/16 – detta innebär att ett IP-adressintervall från 192.168.0.0 till 192.168.255.255
 
-Om din är bara skapa gatewayen för användning med VNet-integrering för App Service och du inte behöver ladda upp ett certifikat. Kan ta 30 minuter att skapa gatewayen. Du kommer inte att kunna integrera din app med det virtuella nätverket förrän gatewayen är upprättad. 
+Om du bara skapa gatewayen för använda med VNet-integrering för App Service, sedan du behöver inte ladda upp ett certifikat. Kan ta 30 minuter att skapa gatewayen. Du kommer inte att kunna integrera din app med det virtuella nätverket förrän gatewayen är upprättad. 
 
 ### <a name="configure-vnet-integration-with-your-app"></a>Konfigurera VNet-integrering med din app ###
 

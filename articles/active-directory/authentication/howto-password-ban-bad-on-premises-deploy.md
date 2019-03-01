@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6a9839d636ba582c5006a260aeb6a17ac1a12e9b
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: cdd4ecb1bfc9385ea3fa23756fcbf8fb20b6d87c
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56986013"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57193253"
 ---
 # <a name="preview-deploy-azure-ad-password-protection"></a>Förhandsversion: Distribuera Azure AD-lösenordsskydd
 
@@ -57,6 +57,7 @@ Detta åstadkoms helst genom att helt åtgärda datorn via Windows Update. I ann
 * Ett globalt administratörskonto för att registrera Azure AD-lösenord Protection Proxy-tjänst och skog med Azure AD.
 * Ett konto med administratörsbehörighet för Active Directory-domänen i rotdomänen i skogen för att registrera Windows Server Active Directory-skog med Azure AD.
 * Alla Active Directory-domän som kör domänkontrollanten agentprogramvaran för tjänsten måste använda DFSR för sysvol-replikering.
+* Microsoft Key Distribution Service måste aktiveras på alla Windows Server 2012 och senare domänkontrollanter i domänen (aktiverat via manuella utlösaren start är standardläget för den här tjänsten).
 
 ## <a name="single-forest-deployment"></a>Enkel skog distribution
 

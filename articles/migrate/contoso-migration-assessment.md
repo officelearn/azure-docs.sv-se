@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: raynew
-ms.openlocfilehash: e948ee943db646ca83d39510485849b3c9956e90
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: df3ae6fbeceb85df6d6e5245a5bbad517179733c
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55697457"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56991367"
 ---
 # <a name="contoso-migration-assess-on-premises-workloads-for-migration-to-azure"></a>Contoso-migrering: Utvärdera lokala arbetsbelastningar för migrering till Azure
 
@@ -90,7 +90,7 @@ Teknologi | Beskrivning | Kostnad
 --- | --- | ---
 [Data Migration Assistant](https://docs.microsoft.com/sql/dma/dma-overview?view=ssdt-18vs2017) | Contoso använder Data Migration Assistant för att utvärdera och identifiera kompatibilitetsproblem som kan påverka dess databasfunktioner i Azure. Data Migration Assistant utvärderar funktionsparitet mellan SQL-källor och mål. Den rekommenderar förbättringar av prestanda och tillförlitlighet. | Data Migration Assistant är ett kostnadsfritt, nedladdningsbart verktyg.
 [Azure Migrate](https://docs.microsoft.com/azure/migrate/migrate-overview) | Contoso använder Azure Migrate-tjänsten för att utvärdera dess virtuella VMware-datorer. Azure Migrate utvärderar migreringslämplighet av datorerna. Det ger uppskattningar av storlek och kostnad för att köra i Azure.  | Från och med maj 2018 är Azure Migrate en kostnadsfri tjänst.
-[Tjänstkarta](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-service-map) | Azure Migrate använder Tjänstkarta för att visa beroenden mellan datorer som företaget vill migrera. | Tjänstkarta ingår i Azure Log Analytics. Contoso kan för närvarande kan använda Tjänstkarta för 180 dagar utan kostnad.
+[Tjänstkarta](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-service-map) | Azure Migrate använder Tjänstkarta för att visa beroenden mellan datorer som företaget vill migrera. | Tjänstkarta är en del av Azure Monitor-loggar. Contoso kan för närvarande kan använda Tjänstkarta för 180 dagar utan kostnad.
 
 I det här scenariot Contoso laddar ned och kör Data Migration Assistant för att utvärdera den lokala SQL Server-databas för dess reseapp. Contoso använder Azure Migrate med beroendemappning för att utvärdera de virtuella datorerna för appen innan du migrerar till Azure.
 

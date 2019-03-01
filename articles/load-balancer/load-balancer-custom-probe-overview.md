@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/14/2018
 ms.author: kumud
-ms.openlocfilehash: fb8b3ac69797400af962ae40816943d6a32b8ec6
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: dc22f1392d14529c2944dde67315a278fca4fa73
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54245556"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57195344"
 ---
 # <a name="load-balancer-health-probes"></a>Läsa in Belastningsutjämnarens hälsotillståndsavsökningar
 
@@ -214,7 +214,7 @@ Aktivera inte [TCP tidsstämplar](https://tools.ietf.org/html/rfc1323).  Aktiver
 
 Både offentliga och interna [Standardbelastningsutjämnare](load-balancer-standard-overview.md) exponera per slutpunkt och backend-instans avsökningen hälsostatus som flerdimensionella mätvärden via Azure Monitor. De här måtten kan användas av andra Azure-tjänster eller tredje arty program. 
 
-Offentliga belastningsutjämnare visar avsökningen hälsostatus sammanfattas per serverdelspool via Log Analytics.  Log Analytics är inte tillgängliga för interna grundläggande belastningsutjämnare.  Du kan använda [logganalys](load-balancer-monitor-log.md) att söka på den offentliga avsökningen hälsostatusen för belastningsutjämnaren och avsökning antal. Loggning kan användas med Power BI eller Azure Operational Insights för att tillhandahålla statistik om hälsostatusen för belastningsutjämnaren.
+Offentliga belastningsutjämnare visar avsökningen hälsostatus sammanfattas per serverdelspool via Azure Monitor-loggar.  Azure Monitor-loggar är inte tillgängliga för interna grundläggande belastningsutjämnare.  Du kan använda [Azure Monitor loggar](load-balancer-monitor-log.md) att söka på den offentliga avsökningen hälsostatusen för belastningsutjämnaren och avsökning antal. Loggning kan användas med Power BI eller Azure Operational Insights för att tillhandahålla statistik om hälsostatusen för belastningsutjämnaren.
 
 ## <a name="limitations"></a>Begränsningar
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 2/13/2019
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: e727e1ad9a4d202a3798f516d1db7d88464999fa
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: d8031d4984a278c04342853a06fecb3c8a9a8171
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56875964"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57194459"
 ---
 # <a name="consistency-availability-and-performance-tradeoffs"></a>Kompromisser avseende konsekvens, tillgänglighet och prestanda 
 
@@ -30,11 +30,11 @@ Varje modell ger tillgänglighet och prestanda kompromisser och backas upp av et
 
 ## <a name="consistency-levels-and-latency"></a>Konsekvensnivåer och svarstider
 
-- Lässvarstid för alla konsekvensnivåer garanteras alltid ska vara mindre än 10 millisekunder i 99: e percentilen. Den här lässvarstid backas upp av serviceavtalet. Den genomsnittliga läsfördröjning den 50: e percentilen är vanligtvis 2 millisekunder eller mindre. Azure Cosmos-konton som sträcker sig över flera regioner och är konfigurerade med stark konsekvens är ett undantag garantin.
+Lässvarstid för alla konsekvensnivåer garanteras alltid ska vara mindre än 10 millisekunder i 99: e percentilen. Den här lässvarstid backas upp av serviceavtalet. Den genomsnittliga läsfördröjning den 50: e percentilen är vanligtvis 2 millisekunder eller mindre. Azure Cosmos-konton som sträcker sig över flera regioner och är konfigurerade med stark konsekvens är ett undantag garantin.
 
-- Skrivfördröjningen för de återstående konsekvensnivåerna garanteras alltid ska vara mindre än 10 millisekunder i 99: e percentilen. Den här skrivfördröjningen backas upp av serviceavtalet. Genomsnittligt antal skrivåtgärder svarstid, den 50: e percentilen är vanligtvis 5 millisekunder eller mindre.
+Skrivfördröjningen för alla konsekvensnivåer garanteras alltid ska vara mindre än 10 millisekunder i 99: e percentilen. Den här skrivfördröjningen backas upp av serviceavtalet. Genomsnittligt antal skrivåtgärder svarstid, den 50: e percentilen är vanligtvis 5 millisekunder eller mindre.
 
-Vissa Azure-Cosmos-konton kan ha flera regioner som har konfigurerats med stark konsekvens. I det här fallet garanteras skrivfördröjningen vara mindre än två gånger fram och åter tid plus 10 millisekunder i 99: e percentilen. RTT mellan de olika områdena längst bort är associerad med ditt Azure Cosmos-konto. Det är lika med RTT mellan de två längst bort regioner som är associerade med ditt Azure Cosmos-konto. Det här alternativet är för närvarande i förhandsversion.
+För Azure Cosmos-konton som har konfigurerats med stark konsekvens med fler än en region är skrivfördröjningen säkert ska vara mindre än två gånger fram och åter tid mellan de två längst bort regioner, plus 10 millisekunder i 99: e percentilen. Det här alternativet är för närvarande i förhandsversion.
 
 Den exakta RTT svarstiden är en funktion av hastighet ljus avståndet och Azure nätverkstopologin. Azure-nätverk ger inte någon fördröjning serviceavtal för RTT mellan två regioner som Azure. För ditt Azure Cosmos-konto visas replikeringsfördröjningar i Azure-portalen. Du kan använda Azure-portalen för att övervaka replikeringsfördröjningar mellan olika regioner som associeras med ditt konto.
 

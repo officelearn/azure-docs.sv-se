@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mstewart
 ms.date: 01/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: aa4c4beacd6f6755c1e5ce56f70dcf5a74166c80
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 3c648d5f46fc046fd2f1d5a716f6f1df55a27bf0
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56880248"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56991996"
 ---
 # <a name="azure-disk-encryption-prerequisites-previous-release"></a>Krav för Azure Disk Encryption (tidigare version)
 
@@ -27,6 +27,7 @@ Innan du aktiverar Azure Disk Encryption på virtuella Azure IaaS-datorer för d
 > - Vissa rekommendationerna kan öka data, nätverk eller Resursanvändning för beräkning, vilket resulterar i ytterligare kostnader för licens eller prenumeration. Du måste ha en giltig aktiv Azure-prenumeration att skapa resurser i Azure i regionerna som stöds.
 > - Om du tidigare har använt [Azure Disk Encryption med Azure AD-app](azure-security-disk-encryption-prerequisites-aad.md) för att kryptera den här virtuella datorn, måste du fortsätta använda det här alternativet för att kryptera den virtuella datorn. Du kan inte använda [Azure Disk Encryption](azure-security-disk-encryption-prerequisites.md) på den här krypterade virtuella datorn eftersom det är inte ett scenario som stöds, betydelse växla från AAD-programmet för det här krypterade virtuella datorer stöds inte ännu. 
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="bkmk_OSs"></a> Operativsystem som stöds
 Azure Disk Encryption stöds på följande operativsystem:
@@ -77,12 +78,10 @@ Ett exempel på kommandon som kan användas för att montera datadiskarna och sk
 
 
 ## <a name="bkmk_PSH"></a> Azure PowerShell
-[Azure PowerShell](/powershell/azure/overview) tillhandahåller en uppsättning cmdletar som använder den [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) modellen för att hantera dina Azure-resurser. Du kan använda den i din webbläsare med [Azure Cloud Shell](../cloud-shell/overview.md), eller så kan du installera den på den lokala datorn med hjälp av anvisningarna nedan för att använda den i PowerShell-sessioner. Om du redan har installerat lokalt kan du kontrollera att du använder den senaste versionen av Azure PowerShell SDK-version för att konfigurera Azure Disk Encryption. Ladda ned den senaste versionen av [Azure PowerShell version](https://github.com/Azure/azure-powershell/releases).
+[Azure PowerShell](/powershell/azure/overview) tillhandahåller en uppsättning cmdletar som använder den [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) modellen för att hantera dina Azure-resurser. Du kan använda den i din webbläsare med [Azure Cloud Shell](../cloud-shell/overview.md), eller så kan du installera den på den lokala datorn med hjälp av anvisningarna nedan för att använda den i PowerShell-sessioner. Om du redan har installerat lokalt kan du kontrollera att du använder den senaste versionen av Azure PowerShell för att konfigurera Azure Disk Encryption.
 
 ### <a name="install-azure-powershell-for-use-on-your-local-machine-optional"></a>Installera Azure PowerShell för användning på den lokala datorn (valfritt):  
-1. Följ anvisningarna i länkarna för ditt operativsystem sedan fortsätta men resten av stegen nedan.
-    - [Installera och konfigurera Azure PowerShell för Windows](/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-6.13.0). 
-        - Installera PowerShellGet, Azure PowerShell, och Läs in AzureRM-modulen. 
+1. [Installera och konfigurera Azure PowerShell](/powershell/azure/install-az-ps). 
 
 2. Installera den [Azure Active Directory PowerShell-modulen](/powershell/azure/active-directory/install-adv2#installing-the-azure-ad-module). 
 
@@ -92,21 +91,21 @@ Ett exempel på kommandon som kan användas för att montera datadiskarna och sk
 
 3. Kontrollera de installerade versionerna av moduler.
       ```powershell
-      Get-Module AzureRM -ListAvailable | Select-Object -Property Name,Version,Path
+      Get-Module Az -ListAvailable | Select-Object -Property Name,Version,Path
       Get-Module AzureAD -ListAvailable | Select-Object -Property Name,Version,Path
       ```
-4. Logga in på Azure med hjälp av den [Connect-AzureRmAccount](/powershell/module/azurerm.profile/connect-azurermaccount) cmdlet.
+4. Logga in på Azure med hjälp av den [Connect AzAccount](/powershell/module/az.profile/connect-azaccount) cmdlet.
      
      ```powershell
-     Connect-AzureRmAccount
+     Connect-AzAccount
      # For specific instances of Azure, use the -Environment parameter.
-     Connect-AzureRmAccount –Environment (Get-AzureRmEnvironment –Name AzureUSGovernment)
+     Connect-AzAccount –Environment (Get-AzEnvironment –Name AzureUSGovernment)
     
      <# If you have multiple subscriptions and want to specify a specific one, 
-     get your subscription list with Get-AzureRmSubscription and 
-     specify it with Set-AzureRmContext.  #>
-     Get-AzureRmSubscription
-     Set-AzureRmContext -SubscriptionId "xxxx-xxxx-xxxx-xxxx"
+     get your subscription list with Get-AzSubscription and 
+     specify it with Set-AzContext.  #>
+     Get-AzSubscription
+     Set-AzContext -SubscriptionId "xxxx-xxxx-xxxx-xxxx"
      ```
 
 5.  Anslut till Azure AD [Connect-AzureAD](/powershell/module/azuread/connect-azuread).
@@ -155,7 +154,7 @@ Om du redan är bekant med Key Vault och Azure AD-krav för Azure Disk Encryptio
 4. Ange nyckelvalv avancerade åtkomstprinciper.
  
 ## <a name="bkmk_KeyVault"></a> Skapa ett nyckelvalv 
-Azure Disk Encryption är integrerad med [Azure Key Vault](https://azure.microsoft.com/documentation/services/key-vault/) för att styra och hantera diskkrypteringsnycklar och hemligheter i key vault-prenumeration. Du kan skapa ett nyckelvalv eller Använd en befintlig för Azure Disk Encryption. Läs mer om nyckelvalv [vad är Azure Key Vault?](../key-vault/key-vault-overview.md) och [säkra ditt nyckelvalv](../key-vault/key-vault-secure-your-key-vault.md). Du kan använda en Resource Manager-mall, Azure PowerShell eller Azure CLI för att skapa ett nyckelvalv. 
+Azure Disk Encryption är integrerad med [Azure Key Vault](https://azure.microsoft.com/documentation/services/key-vault/) för att styra och hantera diskkrypteringsnycklar och hemligheter i key vault-prenumeration. Du kan skapa ett nyckelvalv eller Använd en befintlig för Azure Disk Encryption. Läs mer om nyckelvalv [Kom igång med Azure Key Vault](../key-vault/key-vault-get-started.md) och [säkra ditt nyckelvalv](../key-vault/key-vault-secure-your-key-vault.md). Du kan använda en Resource Manager-mall, Azure PowerShell eller Azure CLI för att skapa ett nyckelvalv. 
 
 
 >[!WARNING]
@@ -164,20 +163,20 @@ Azure Disk Encryption är integrerad med [Azure Key Vault](https://azure.microso
 
 ### <a name="bkmk_KVPSH"></a> Skapa ett nyckelvalv med PowerShell
 
-Du kan skapa ett nyckelvalv med Azure PowerShell med hjälp av den [New-AzureRmKeyVault](/powershell/module/azurerm.keyvault/New-AzureRmKeyVault) cmdlet. Ytterligare cmdlets för Key Vault finns [AzureRM.KeyVault](/powershell/module/azurerm.keyvault/). 
+Du kan skapa ett nyckelvalv med Azure PowerShell med hjälp av den [New AzKeyVault](/powershell/module/az.keyvault/New-azKeyVault) cmdlet. Ytterligare cmdlets för Key Vault finns [Az.KeyVault](/powershell/module/az.keyvault/). 
 
 1. Om det behövs [ansluta till din Azure-prenumeration](azure-security-disk-encryption-appendix.md#bkmk_ConnectPSH). 
-2. Skapa en ny resursgrupp, om det behövs, med [New-AzureRmResourceGroup](/powershell/module/AzureRM.Resources/New-AzureRmResourceGroup).  Använd om du vill visa en lista över data center platser [Get-AzureRmLocation](/powershell/module/azurerm.resources/get-azurermlocation). 
+2. Skapa en ny resursgrupp, om det behövs, med [New AzResourceGroup](/powershell/module/az.Resources/New-azResourceGroup).  Använd om du vill visa en lista över data center platser [Get-AzLocation](/powershell/module/az.resources/get-azlocation). 
      
      ```azurepowershell-interactive
-     # Get-AzureRmLocation 
-     New-AzureRmResourceGroup –Name 'MySecureRG' –Location 'East US'
+     # Get-AzLocation 
+     New-AzResourceGroup –Name 'MySecureRG' –Location 'East US'
      ```
 
-3. Skapa ett nytt nyckelvalv med [New-AzureRmKeyVault](/powershell/module/azurerm.keyvault/New-AzureRmKeyVault)
+3. Skapa ett nytt nyckelvalv med [New-AzKeyVault](/powershell/module/az.keyvault/New-azKeyVault)
     
       ```azurepowershell-interactive
-     New-AzureRmKeyVault -VaultName 'MySecureVault' -ResourceGroupName 'MySecureRG' -Location 'East US'
+     New-AzKeyVault -VaultName 'MySecureVault' -ResourceGroupName 'MySecureRG' -Location 'East US'
      ```
 
 4. Obs den **valv namn**, **resursgruppnamn**, **resurs-ID**, **Valvets URI**, och **objekt-ID** som returneras för senare användning när du krypterar diskarna. 
@@ -218,13 +217,13 @@ När du behöver kryptering är aktiverat på en virtuell dator som körs i Azur
 För att köra följande kommandon, hämta och använda den [Azure AD PowerShell-modulen](/powershell/azure/active-directory/install-adv2). 
 
 1. Om det behövs [ansluta till din Azure-prenumeration](azure-security-disk-encryption-appendix.md#bkmk_ConnectPSH).
-2. Använd den [New AzureRmADApplication](/powershell/module/azurerm.resources/new-azurermadapplication) PowerShell-cmdlet för att skapa ett Azure AD-program. MyApplicationHomePage och MyApplicationUri kan vara alla värden som du vill.
+2. Använd den [New AzADApplication](/powershell/module/az.resources/new-azadapplication) PowerShell-cmdlet för att skapa ett Azure AD-program. MyApplicationHomePage och MyApplicationUri kan vara alla värden som du vill.
 
      ```azurepowershell-interactive
      $aadClientSecret = "My AAD client secret"
      $aadClientSecretSec = ConvertTo-SecureString -String $aadClientSecret -AsPlainText -Force
-     $azureAdApplication = New-AzureRmADApplication -DisplayName "My Application Display Name" -HomePage "https://MyApplicationHomePage" -IdentifierUris "https://MyApplicationUri" -Password $aadClientSecretSec
-     $servicePrincipal = New-AzureRmADServicePrincipal –ApplicationId $azureAdApplication.ApplicationId
+     $azureAdApplication = New-AzADApplication -DisplayName "My Application Display Name" -HomePage "https://MyApplicationHomePage" -IdentifierUris "https://MyApplicationUri" -Password $aadClientSecretSec
+     $servicePrincipal = New-AzADServicePrincipal –ApplicationId $azureAdApplication.ApplicationId
      ```
 
 3. $AzureAdApplication.ApplicationId är Azure AD-ClientID och $aadClientSecret är den klienthemlighet som du ska använda senare för att aktivera Azure Disk Encryption. Skydda Azure AD-klienthemlighet på rätt sätt. Kör `$azureAdApplication.ApplicationId` visar ApplicationID.
@@ -249,9 +248,9 @@ Använd stegen från den [Använd portalen för att skapa en Azure Active Direct
 2. [Skapa ett Azure Active Directory-program](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application) 
      - Du kan använda ett namn och inloggnings-URL som du vill ha när du skapar programmet.
 3. [Hämta program-ID och autentiseringsnyckel](../active-directory/develop/howto-create-service-principal-portal.md#get-application-id-and-authentication-key). 
-     - Autentiseringsnyckeln är klienthemligheten och används som AadClientSecret för Set-AzureRmVMDiskEncryptionExtension. 
+     - Autentiseringsnyckeln är klienthemligheten och används som AadClientSecret för Set-AzVMDiskEncryptionExtension. 
         - Nyckeln används av programmet som en autentiseringsuppgift för att logga in på Azure AD. Den här hemligheten kallas nycklar i Azure-portalen, men har ingen relation till nyckelvalv. Skydda den här hemligheten på rätt sätt. 
-     - Program-ID används senare som AadClientId för Set-AzureRmVMDiskEncryptionExtension och som ServicePrincipalName för Set-AzureRmKeyVaultAccessPolicy. 
+     - Program-ID används senare som AadClientId för Set-AzVMDiskEncryptionExtension och som ServicePrincipalName för Set-AzKeyVaultAccessPolicy. 
 
 ## <a name="bkmk_KVAP"></a> Ange nyckelvalvets åtkomstprincip för Azure AD-app
 Om du vill skriva kryptering hemligheter angivna Key Vault, måste Azure Disk Encryption klient-ID och Klienthemlighet för Azure Active Directory-program som har behörighet att skriva hemligheter i nyckelvalvet. 
@@ -260,7 +259,7 @@ Om du vill skriva kryptering hemligheter angivna Key Vault, måste Azure Disk En
 > Azure Disk Encryption måste du konfigurera följande principer för åtkomst till ditt Azure AD-klientprogram: _WrapKey_ och _ange_ behörigheter.
 
 ### <a name="bkmk_KVAPPSH"></a> Ange nyckelvalvets åtkomstprincip för Azure AD-app med Azure PowerShell
-Azure AD-program behöver behörighet att komma åt nycklar eller hemligheter i valvet. Använd den [Set-AzureKeyVaultAccessPolicy](/powershell/module/azurerm.keyvault/set-azurermkeyvaultaccesspolicy) cmdlet för att bevilja behörighet för programmet med klient-ID (som skapades när programmet registrerades) som den _– ServicePrincipalName_ parametervärdet. Mer information finns i bloggposten [Azure Key Vault - steg-för-steg](https://blogs.technet.com/b/kv/archive/2015/06/02/azure-key-vault-step-by-step.aspx). 
+Azure AD-program behöver behörighet att komma åt nycklar eller hemligheter i valvet. Använd den [Set-AzureKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) cmdlet för att bevilja behörighet för programmet med klient-ID (som skapades när programmet registrerades) som den _– ServicePrincipalName_ parametervärdet. Mer information finns i bloggposten [Azure Key Vault - steg-för-steg](https://blogs.technet.com/b/kv/archive/2015/06/02/azure-key-vault-step-by-step.aspx). 
 
 1. Om det behövs [ansluta till din Azure-prenumeration](azure-security-disk-encryption-appendix.md#bkmk_ConnectPSH).
 2. Ange nyckelvalvets åtkomstprincip för AD-program med PowerShell.
@@ -269,7 +268,7 @@ Azure AD-program behöver behörighet att komma åt nycklar eller hemligheter i 
      $keyVaultName = 'MySecureVault'
      $aadClientID = 'MyAadAppClientID'
      $rgname = 'MySecureRG'
-     Set-AzureRmKeyVaultAccessPolicy -VaultName $keyVaultName -ServicePrincipalName $aadClientID -PermissionsToKeys 'WrapKey' -PermissionsToSecrets 'Set' -ResourceGroupName $rgname
+     Set-AzKeyVaultAccessPolicy -VaultName $keyVaultName -ServicePrincipalName $aadClientID -PermissionsToKeys 'WrapKey' -PermissionsToSecrets 'Set' -ResourceGroupName $rgname
      ```
 
 ### <a name="bkmk_KVAPCLI"></a> Ange nyckelvalvets åtkomstprincip för Azure AD-app med Azure CLI
@@ -299,24 +298,24 @@ Använd [az keyvault set-policy](/cli/azure/keyvault#az-keyvault-set-policy) att
 Azure-plattformen behöver åtkomst till krypteringsnycklar och hemligheter i ditt nyckelvalv och gör dem tillgängliga för den virtuella datorn för start och dekryptera volymerna. Aktivera diskkryptering på nyckelvalvet eller distributioner kommer att misslyckas.  
 
 ### <a name="bkmk_KVperPSH"></a> Ställ in avancerade åtkomstprinciper med Azure PowerShell för nyckelvalvet
- Använd key vault PowerShell-cmdlet [Set-AzureRmKeyVaultAccessPolicy](/powershell/module/azurerm.keyvault/set-azurermkeyvaultaccesspolicy) vill aktivera diskkryptering för key vault.
+ Använd key vault PowerShell-cmdlet [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) vill aktivera diskkryptering för key vault.
 
   - **Aktivera Key Vault för diskkryptering:** EnabledForDiskEncryption krävs för Azure Disk encryption.
       
      ```azurepowershell-interactive 
-     Set-AzureRmKeyVaultAccessPolicy -VaultName 'MySecureVault' -ResourceGroupName 'MySecureRG' -EnabledForDiskEncryption
+     Set-AzKeyVaultAccessPolicy -VaultName 'MySecureVault' -ResourceGroupName 'MySecureRG' -EnabledForDiskEncryption
      ```
 
   - **Aktivera Key Vault för distribution, om det behövs:** Gör det möjligt för Microsoft.Compute-resursprovidern att hämta hemligheter från det här nyckelvalvet när det här nyckelvalvet är refererad i resursskapande, till exempel när du skapar en virtuell dator.
 
      ```azurepowershell-interactive
-      Set-AzureRmKeyVaultAccessPolicy -VaultName 'MySecureVault' -ResourceGroupName 'MySecureRG' -EnabledForDeployment
+      Set-AzKeyVaultAccessPolicy -VaultName 'MySecureVault' -ResourceGroupName 'MySecureRG' -EnabledForDeployment
      ```
 
   - **Aktivera Key Vault för malldistribution, om det behövs:** Gör det möjligt för Azure Resource Manager för att hämta hemligheter från det här nyckelvalvet när det här nyckelvalvet är refereras till i en för malldistribution.
 
      ```azurepowershell-interactive             
-     Set-AzureRmKeyVaultAccessPolicy -VaultName 'MySecureVault' -ResourceGroupName 'MySecureRG' -EnabledForTemplateDeployment
+     Set-AzKeyVaultAccessPolicy -VaultName 'MySecureVault' -ResourceGroupName 'MySecureRG' -EnabledForTemplateDeployment
      ```
 
 ### <a name="bkmk_KVperCLI"></a> Ställ in avancerade åtkomstprinciper med hjälp av Azure CLI för nyckelvalvet
@@ -350,7 +349,7 @@ Använd [az keyvault update](/cli/azure/keyvault#az-keyvault-update) vill aktive
 
 
 ## <a name="bkmk_KEK"></a> Konfigurera en nyckelkrypteringsnyckel (valfritt)
-Om du vill använda en krypteringsnyckel nyckel (KEK) för ett extra lager av säkerhet för krypteringsnycklar, lägger du till en KEK till ditt nyckelvalv. Använd den [Add-AzureKeyVaultKey](/powershell/module/azurerm.keyvault/add-azurekeyvaultkey) cmdlet för att skapa en nyckelkrypteringsnyckel i nyckelvalvet. Du kan också importera en KEK från din lokala nyckelhantering HSM. Mer information finns i [dokumentation om Key Vault](../key-vault/key-vault-hsm-protected-keys.md). När du anger en nyckelkrypteringsnyckel använder Azure Disk Encryption nyckeln för att omsluta kryptering hemligheter innan du skriver till Key Vault. 
+Om du vill använda en krypteringsnyckel nyckel (KEK) för ett extra lager av säkerhet för krypteringsnycklar, lägger du till en KEK till ditt nyckelvalv. Använd den [Add-AzureKeyVaultKey](/powershell/module/az.keyvault/add-azurekeyvaultkey) cmdlet för att skapa en nyckelkrypteringsnyckel i nyckelvalvet. Du kan också importera en KEK från din lokala nyckelhantering HSM. Mer information finns i [dokumentation om Key Vault](../key-vault/key-vault-hsm-protected-keys.md). När du anger en nyckelkrypteringsnyckel använder Azure Disk Encryption nyckeln för att omsluta kryptering hemligheter innan du skriver till Key Vault. 
 
 * Din hemlighet i nyckelvalvet och KEK URL: er måste vara en ny version. Azure tillämpar den här begränsningen för versionshantering. Giltigt hemlighet och KEK URL: er finns i följande exempel:
 
@@ -368,17 +367,17 @@ Innan du använder PowerShell-skriptet, bör du känna till kraven för Azure Di
  ```powershell
  # Step 1: Create a new resource group and key vault in the same location.
      # Fill in 'MyLocation', 'MySecureRG', and 'MySecureVault' with your values.
-     # Use Get-AzureRmLocation to get available locations and use the DisplayName.
-     # To use an existing resource group, comment out the line for New-AzureRmResourceGroup
+     # Use Get-AzLocation to get available locations and use the DisplayName.
+     # To use an existing resource group, comment out the line for New-AzResourceGroup
      
      $Loc = 'MyLocation';
      $rgname = 'MySecureRG';
      $KeyVaultName = 'MySecureVault'; 
-     New-AzureRmResourceGroup –Name $rgname –Location $Loc;
-     New-AzureRmKeyVault -VaultName $KeyVaultName -ResourceGroupName $rgname -Location $Loc;
-     $KeyVault = Get-AzureRmKeyVault -VaultName $KeyVaultName -ResourceGroupName $rgname;
-     $KeyVaultResourceId = (Get-AzureRmKeyVault -VaultName $KeyVaultName -ResourceGroupName $rgname).ResourceId;
-     $diskEncryptionKeyVaultUrl = (Get-AzureRmKeyVault -VaultName $KeyVaultName -ResourceGroupName $rgname).VaultUri;
+     New-AzResourceGroup –Name $rgname –Location $Loc;
+     New-AzKeyVault -VaultName $KeyVaultName -ResourceGroupName $rgname -Location $Loc;
+     $KeyVault = Get-AzKeyVault -VaultName $KeyVaultName -ResourceGroupName $rgname;
+     $KeyVaultResourceId = (Get-AzKeyVault -VaultName $KeyVaultName -ResourceGroupName $rgname).ResourceId;
+     $diskEncryptionKeyVaultUrl = (Get-AzKeyVault -VaultName $KeyVaultName -ResourceGroupName $rgname).VaultUri;
      
  # Step 2: Create the AD application and service principal.
      # Fill in 'MyAADClientSecret', "<My Application Display Name>", "<https://MyApplicationHomePage>", and "<https://MyApplicationUri>" with your values.
@@ -386,14 +385,14 @@ Innan du använder PowerShell-skriptet, bör du känna till kraven för Azure Di
      
      $aadClientSecret =  'MyAADClientSecret';
      $aadClientSecretSec = ConvertTo-SecureString -String $aadClientSecret -AsPlainText -Force;
-     $azureAdApplication = New-AzureRmADApplication -DisplayName "<My Application Display Name>" -HomePage "<https://MyApplicationHomePage>" -IdentifierUris "<https://MyApplicationUri>" -Password $aadClientSecretSec
-     $servicePrincipal = New-AzureRmADServicePrincipal –ApplicationId $azureAdApplication.ApplicationId;
+     $azureAdApplication = New-AzADApplication -DisplayName "<My Application Display Name>" -HomePage "<https://MyApplicationHomePage>" -IdentifierUris "<https://MyApplicationUri>" -Password $aadClientSecretSec
+     $servicePrincipal = New-AzADServicePrincipal –ApplicationId $azureAdApplication.ApplicationId;
      $aadClientID = $azureAdApplication.ApplicationId;
      
  #Step 3: Enable the vault for disk encryption and set the access policy for the Azure AD application.
      
-     Set-AzureRmKeyVaultAccessPolicy -VaultName $KeyVaultName -ResourceGroupName $rgname -EnabledForDiskEncryption;
-     Set-AzureRmKeyVaultAccessPolicy -VaultName $keyVaultName -ServicePrincipalName $aadClientID -PermissionsToKeys 'WrapKey' -PermissionsToSecrets 'Set' -ResourceGroupName $rgname;
+     Set-AzKeyVaultAccessPolicy -VaultName $KeyVaultName -ResourceGroupName $rgname -EnabledForDiskEncryption;
+     Set-AzKeyVaultAccessPolicy -VaultName $keyVaultName -ServicePrincipalName $aadClientID -PermissionsToKeys 'WrapKey' -PermissionsToSecrets 'Set' -ResourceGroupName $rgname;
      
  #Step 4: Create a new key in the key vault with the Add-AzureKeyVaultKey cmdlet.
      # Fill in 'MyKeyEncryptionKey' with your value.
@@ -406,7 +405,7 @@ Innan du använder PowerShell-skriptet, bör du känna till kraven för Azure Di
      # Fill in 'MySecureVM' with your value. 
      
      $VMName = 'MySecureVM';
-     Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $rgname -VMName $vmName -AadClientID $aadClientID -AadClientSecret $aadClientSecret -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId -KeyEncryptionKeyUrl $keyEncryptionKeyUrl -KeyEncryptionKeyVaultId $KeyVaultResourceId;
+     Set-AzVMDiskEncryptionExtension -ResourceGroupName $rgname -VMName $vmName -AadClientID $aadClientID -AadClientSecret $aadClientSecret -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId -KeyEncryptionKeyUrl $keyEncryptionKeyUrl -KeyEncryptionKeyVaultId $KeyVaultResourceId;
 ```
 
 ## <a name="bkmk_Cert"></a> Certifikatbaserad autentisering (valfritt)
@@ -424,11 +423,11 @@ Om du vill använda autentisering med certifikat, kan du ladda upp en till ditt 
    # Comment out the next three lines if you already have an existing key vault enabled for encryption. No need to set 'My location' in this case.
 
    $Loc = 'MyLocation'
-   New-AzureRmKeyVault -VaultName $KeyVaultName -ResourceGroupName $rgname -Location $Loc
-   Set-AzureRmKeyVaultAccessPolicy -VaultName $KeyVaultName -ResourceGroupName $rgname -EnabledForDiskEncryption
+   New-AzKeyVault -VaultName $KeyVaultName -ResourceGroupName $rgname -Location $Loc
+   Set-AzKeyVaultAccessPolicy -VaultName $KeyVaultName -ResourceGroupName $rgname -EnabledForDiskEncryption
 
    #Setting some variables with the key vault information 
-   $KeyVault = Get-AzureRmKeyVault -VaultName $KeyVaultName -ResourceGroupName $rgname
+   $KeyVault = Get-AzKeyVault -VaultName $KeyVaultName -ResourceGroupName $rgname
    $DiskEncryptionKeyVaultUrl = $KeyVault.VaultUri
    $KeyVaultResourceId = $KeyVault.ResourceId
 
@@ -441,13 +440,13 @@ Om du vill använda autentisering med certifikat, kan du ladda upp en till ditt 
    $Cert = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2($CertPath, $CertPassword)
    $CertValue = [System.Convert]::ToBase64String($cert.GetRawCertData())
 
-   $AzureAdApplication = New-AzureRmADApplication -DisplayName "<My Application Display Name>" -HomePage "<https://MyApplicationHomePage>" -IdentifierUris "<https://MyApplicationUri>" -CertValue $CertValue 
-   $ServicePrincipal = New-AzureRmADServicePrincipal -ApplicationId $AzureAdApplication.ApplicationId
+   $AzureAdApplication = New-AzADApplication -DisplayName "<My Application Display Name>" -HomePage "<https://MyApplicationHomePage>" -IdentifierUris "<https://MyApplicationUri>" -CertValue $CertValue 
+   $ServicePrincipal = New-AzADServicePrincipal -ApplicationId $AzureAdApplication.ApplicationId
 
    $AADClientID = $AzureAdApplication.ApplicationId
    $aadClientCertThumbprint= $cert.Thumbprint
 
-   Set-AzureRmKeyVaultAccessPolicy -VaultName $keyVaultName -ServicePrincipalName $aadClientID -PermissionsToKeys 'WrapKey' -PermissionsToSecrets 'Set' -ResourceGroupName $rgname
+   Set-AzKeyVaultAccessPolicy -VaultName $keyVaultName -ServicePrincipalName $aadClientID -PermissionsToKeys 'WrapKey' -PermissionsToSecrets 'Set' -ResourceGroupName $rgname
    
    # Upload the pfx file to the key vault. 
    # Fill in "MyAADCert".  
@@ -470,21 +469,21 @@ Om du vill använda autentisering med certifikat, kan du ladda upp en till ditt 
 
    $Secret = ConvertTo-SecureString -String $JSONEncoded -AsPlainText -Force
    Set-AzureKeyVaultSecret -VaultName $KeyVaultName -Name $KeyVaultSecretName -SecretValue $Secret
-   Set-AzureRmKeyVaultAccessPolicy -VaultName $KeyVaultName -ResourceGroupName $rgname -EnabledForDeployment
+   Set-AzKeyVaultAccessPolicy -VaultName $KeyVaultName -ResourceGroupName $rgname -EnabledForDeployment
 
    # Deploy the certificate to the VM
    # Fill in 'MySecureVM' with your value.
 
    $VMName = 'MySecureVM'
    $CertUrl = (Get-AzureKeyVaultSecret -VaultName $KeyVaultName -Name $KeyVaultSecretName).Id
-   $SourceVaultId = (Get-AzureRmKeyVault -VaultName $KeyVaultName -ResourceGroupName $rgname).ResourceId
-   $VM = Get-AzureRmVM -ResourceGroupName $rgname -Name $VMName 
-   $VM = Add-AzureRmVMSecret -VM $VM -SourceVaultId $SourceVaultId -CertificateStore "My" -CertificateUrl $CertUrl
-   Update-AzureRmVM -VM $VM -ResourceGroupName $rgname 
+   $SourceVaultId = (Get-AzKeyVault -VaultName $KeyVaultName -ResourceGroupName $rgname).ResourceId
+   $VM = Get-AzVM -ResourceGroupName $rgname -Name $VMName 
+   $VM = Add-AzVMSecret -VM $VM -SourceVaultId $SourceVaultId -CertificateStore "My" -CertificateUrl $CertUrl
+   Update-AzVM -VM $VM -ResourceGroupName $rgname 
 
    #Enable encryption on the VM using Azure AD client ID and the client certificate thumbprint
 
-   Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $rgname -VMName $VMName -AadClientID $AADClientID -AadClientCertThumbprint $AADClientCertThumbprint -DiskEncryptionKeyVaultUrl $DiskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId
+   Set-AzVMDiskEncryptionExtension -ResourceGroupName $rgname -VMName $VMName -AadClientID $AADClientID -AadClientCertThumbprint $AADClientCertThumbprint -DiskEncryptionKeyVaultUrl $DiskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId
  ```
 
 ## <a name="bkmk_CertKEK"></a> Certifikatbaserad autentisering och en KEK (valfritt)
@@ -507,8 +506,8 @@ Om du vill använda autentisering med certifikat och omsluter krypteringsnyckeln
    # Comment out the next three lines if you already have an existing key vault enabled for encryption.
 
    $Loc = 'MyLocation'
-   New-AzureRmKeyVault -VaultName $KeyVaultName -ResourceGroupName $rgname -Location $Loc
-   Set-AzureRmKeyVaultAccessPolicy -VaultName $KeyVaultName -ResourceGroupName $rgname -EnabledForDiskEncryption
+   New-AzKeyVault -VaultName $KeyVaultName -ResourceGroupName $rgname -Location $Loc
+   Set-AzKeyVaultAccessPolicy -VaultName $KeyVaultName -ResourceGroupName $rgname -EnabledForDiskEncryption
 
    # Create the Azure AD application and associate the certificate with it.  
    # Fill in "C:\certificates\mycert.pfx", "Password", "<My Application Display Name>", "<https://MyApplicationHomePage>", and "<https://MyApplicationUri>" with your values.
@@ -519,14 +518,14 @@ Om du vill använda autentisering med certifikat och omsluter krypteringsnyckeln
    $Cert = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2($CertPath, $CertPassword)
    $CertValue = [System.Convert]::ToBase64String($cert.GetRawCertData())
 
-   $AzureAdApplication = New-AzureRmADApplication -DisplayName "<My Application Display Name>" -HomePage "<https://MyApplicationHomePage>" -IdentifierUris "<https://MyApplicationUri>" -CertValue $CertValue 
-   $ServicePrincipal = New-AzureRmADServicePrincipal -ApplicationId $AzureAdApplication.ApplicationId
+   $AzureAdApplication = New-AzADApplication -DisplayName "<My Application Display Name>" -HomePage "<https://MyApplicationHomePage>" -IdentifierUris "<https://MyApplicationUri>" -CertValue $CertValue 
+   $ServicePrincipal = New-AzADServicePrincipal -ApplicationId $AzureAdApplication.ApplicationId
 
    $AADClientID = $AzureAdApplication.ApplicationId
    $aadClientCertThumbprint= $cert.Thumbprint
 
    ## Give access for setting secrets and wraping keys
-   Set-AzureRmKeyVaultAccessPolicy -VaultName $keyVaultName -ServicePrincipalName $aadClientID -PermissionsToKeys 'WrapKey' -PermissionsToSecrets 'Set' -ResourceGroupName $rgname
+   Set-AzKeyVaultAccessPolicy -VaultName $keyVaultName -ServicePrincipalName $aadClientID -PermissionsToKeys 'WrapKey' -PermissionsToSecrets 'Set' -ResourceGroupName $rgname
 
    # Upload the pfx file to the key vault. 
    # Fill in "MyAADCert". 
@@ -549,13 +548,13 @@ Om du vill använda autentisering med certifikat och omsluter krypteringsnyckeln
 
    $Secret = ConvertTo-SecureString -String $JSONEncoded -AsPlainText -Force
    Set-AzureKeyVaultSecret -VaultName $KeyVaultName -Name $KeyVaultSecretName -SecretValue $Secret
-   Set-AzureRmKeyVaultAccessPolicy -VaultName $KeyVaultName -ResourceGroupName $rgname -EnabledForDeployment
+   Set-AzKeyVaultAccessPolicy -VaultName $KeyVaultName -ResourceGroupName $rgname -EnabledForDeployment
 
    #Setting some variables with the key vault information and generating a KEK 
    # FIll in 'KEKName'
    
    $KEKName ='KEKName'
-   $KeyVault = Get-AzureRmKeyVault -VaultName $KeyVaultName -ResourceGroupName $rgname
+   $KeyVault = Get-AzKeyVault -VaultName $KeyVaultName -ResourceGroupName $rgname
    $DiskEncryptionKeyVaultUrl = $KeyVault.VaultUri
    $KeyVaultResourceId = $KeyVault.ResourceId
    $KEK = Add-AzureKeyVaultKey -VaultName $KeyVaultName -Name $KEKName -Destination "Software"
@@ -568,14 +567,14 @@ Om du vill använda autentisering med certifikat och omsluter krypteringsnyckeln
 
    $VMName = 'MySecureVM'
    $CertUrl = (Get-AzureKeyVaultSecret -VaultName $KeyVaultName -Name $KeyVaultSecretName).Id
-   $SourceVaultId = (Get-AzureRmKeyVault -VaultName $KeyVaultName -ResourceGroupName $rgname).ResourceId
-   $VM = Get-AzureRmVM -ResourceGroupName $rgname -Name $VMName 
-   $VM = Add-AzureRmVMSecret -VM $VM -SourceVaultId $SourceVaultId -CertificateStore "My" -CertificateUrl $CertUrl
-   Update-AzureRmVM -VM $VM -ResourceGroupName $rgname 
+   $SourceVaultId = (Get-AzKeyVault -VaultName $KeyVaultName -ResourceGroupName $rgname).ResourceId
+   $VM = Get-AzVM -ResourceGroupName $rgname -Name $VMName 
+   $VM = Add-AzVMSecret -VM $VM -SourceVaultId $SourceVaultId -CertificateStore "My" -CertificateUrl $CertUrl
+   Update-AzVM -VM $VM -ResourceGroupName $rgname 
 
    #Enable encryption on the VM using Azure AD client ID and the client certificate thumbprint
 
-   Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $rgname -VMName $VMName -AadClientID $AADClientID -AadClientCertThumbprint $AADClientCertThumbprint -DiskEncryptionKeyVaultUrl $DiskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId -KeyEncryptionKeyUrl $keyEncryptionKeyUrl -KeyEncryptionKeyVaultId $KeyVaultResourceId
+   Set-AzVMDiskEncryptionExtension -ResourceGroupName $rgname -VMName $VMName -AadClientID $AADClientID -AadClientCertThumbprint $AADClientCertThumbprint -DiskEncryptionKeyVaultUrl $DiskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId -KeyEncryptionKeyUrl $keyEncryptionKeyUrl -KeyEncryptionKeyVaultId $KeyVaultResourceId
 ```
 
  

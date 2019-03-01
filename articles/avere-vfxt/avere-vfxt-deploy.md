@@ -4,29 +4,27 @@ description: Steg för att distribuera Avere vFXT kluster i Azure
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 01/29/2019
+ms.date: 02/20/2019
 ms.author: v-erkell
-ms.openlocfilehash: 972ba937ad15fa9a6d2eb74e3e4c9e6e8f3923a4
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 7081d46af335f29e5723ef8d471814a1564907c2
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55745443"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56990212"
 ---
 # <a name="deploy-the-vfxt-cluster"></a>Distribuera vFXT-klustret
 
-Den här proceduren beskriver hur du använder distributionsguiden från Azure Marketplace. Guiden distribuerar automatiskt klustret med hjälp av en Azure Resource Manager-mall. När du har angett parametrarna i formuläret och klicka på **skapa**, Azure automatiskt utföra dessa steg: 
+Den här proceduren beskriver hur du använder distributionsguiden från Azure Marketplace. Guiden distribuerar automatiskt klustret med hjälp av en Azure Resource Manager-mall. När du har angett parametrarna i formuläret och klicka på **skapa**, Azure automatiskt utföra dessa steg:
 
-* Skapa kluster-styrenhet, vilket är en grundläggande virtuell dator som innehåller den programvara som krävs för att distribuera och hantera klustret.
-* Ställ in resursgrupp och virtuell nätverksinfrastruktur, inklusive att skapa nya element om det behövs.
-* Skapa klustret noden virtuella datorer och konfigurera dem som Avere-klustret.
-* Vid begäran, skapa en ny Azure Blob-behållare och konfigurera det som ett kluster core-filer.
+* Skapar klustret styrenhet, vilket är en grundläggande virtuell dator som innehåller den programvara som krävs för att distribuera och hantera klustret.
+* Ställer in resursgrupp och virtuell nätverksinfrastruktur, inklusive att skapa nya element.
+* Skapar klustret noden virtuella datorer och konfigurerar dem som Avere-klustret.
+* Vid begäran, skapar en ny Azure Blob-behållare och konfigurerar det som ett kluster core-filer.
 
-När du har följt anvisningarna i det här dokumentet har du ett virtuellt nätverk, ett undernät, en domänkontrollant och ett vFXT kluster som du ser i följande diagram:
+När du har följt anvisningarna i det här dokumentet har du ett virtuellt nätverk, ett undernät, en domänkontrollant och ett vFXT kluster som du ser i följande diagram. Det här diagrammet visar valfritt Azure Blob core filservern, som innehåller en ny Blob storage-behållare (i ett nytt lagringskonto, som inte visas) och en tjänstslutpunkt för Microsoft storage i undernätet. 
 
-![diagram över virtuellt nätverk som innehåller valfri blob-lagring och ett undernät som innehåller tre grupperade virtuella datorer med etiketten vFXT noder/vFXT kluster och en virtuell dator taggade kluster kontrollenhet](media/avere-vfxt-deployment.png)
-
-När du har skapat klustret bör du [skapa en slutpunkt för lagring](#create-a-storage-endpoint-if-using-azure-blob) i det virtuella nätverket om du använder Blob storage. 
+![diagram som visar tre koncentriska rektanglar med Avere klusterkomponenter. Yttre rektangeln är märkt ”resursgrupp” och innehåller en sexhörning som är märkt ”Blob storage (valfritt)”. Nästa rektangeln i är märkt ”virtuellt nätverk: 10.0.0.0/16 ”och innehåller inte några unika komponenter. Den innersta rektangeln är märkt ”Subnet:10.0.0.0/24” och innehåller en virtuell dator som är märkt kluster-styrenhet, en stack för tre virtuella datorer som är märkt ”vFXT noder (vFXT kluster)” och en sexhörning märkta Service-slutpunkt. Det finns en pil som ansluter till tjänsteslutpunkt (som är i undernätet) och blob-lagringen (som är utanför undernät och vnet, i resursgruppen). Pilen passerar genom undernät och virtuella nätverksgränser.](media/avere-vfxt-deployment.png)  
 
 Kontrollera att du har åtgärdat förutsättningarna innan du använder mallen skapas:  
 
@@ -34,6 +32,7 @@ Kontrollera att du har åtgärdat förutsättningarna innan du använder mallen 
 1. [Ägarbehörighet för prenumeration](avere-vfxt-prereqs.md#configure-subscription-owner-permissions)
 1. [Kvoten för vFXT klustret](avere-vfxt-prereqs.md#quota-for-the-vfxt-cluster)
 1. [Anpassad åtkomst roller](avere-vfxt-prereqs.md#create-access-roles) -du måste skapa en rollbaserad åtkomstkontroll roll att tilldela till klusternoderna. Har du möjlighet att också skapa en anpassad roll för kontrollanten kluster, men de flesta användare tar ägarrollen standard, vilket ger controller privilegier som motsvarar till en resursgruppägare. Läs [inbyggda roller för Azure-resurser](../role-based-access-control/built-in-roles.md#owner) för mer information.
+1. [Slutpunkt för lagring av tjänsten (vid behov)](avere-vfxt-prereqs.md#optional-create-a-storage-service-endpoint-in-your-virtual-network) – krävs för distribuerar med hjälp av ett befintligt virtuellt nätverk och skapa blob-lagring
 
 Mer information om distributionssteg för klustret och planera [planera datorn Avere vFXT](avere-vfxt-deploy-plan.md) och [distributionsöversikt](avere-vfxt-deploy-overview.md).
 
@@ -105,13 +104,13 @@ Den andra sidan i mallen för distribution kan du ange klusterstorleken, nodtyp,
 
 * **Avere vFXT klusternamnet** -ge ett unikt namn för klustret. 
 
-* **Storlek** – ange den typ av virtuell dator att använda när du skapar klusternoderna. 
+* **Storlek** – det här avsnittet visas den typ av virtuell dator som ska användas för klusternoderna. Även om det finns bara ett rekommenderade alternativ, den **ändra storleken på** länken öppnas en tabell med information om den här Instanstypen och en länk till en priskalkylator.  <!-- old: Specify the VM type to use when creating the cluster nodes.  -->
 
 * **Cachestorlek per nod** -kluster-cache fördelas mellan noderna i klustret så cacheminnets totala storlek i Avere vFXT klustret blir cachestorlek per nod multiplicerat med antalet noder. 
 
-  Den rekommenderade konfigurationen är att använda 1 TB per nod om du använder Standard_D16s_v3 klusternoderna och du använder 4 TB per nod om du använder Standard_E32s_v3 noder.
+  Den rekommenderade konfigurationen är att använda 4 TB per nod för Standard_E32s_v3 noder.
 
-* **Virtuellt nätverk** – Välj ett befintligt vnet för klustret eller definiera ett nytt virtuellt nätverk ska skapa. 
+* **Virtuellt nätverk** – definiera ett nytt virtuellt nätverk för att rymma både klustret eller välj ett befintligt vnet som uppfyller de krav som beskrivs i [planera Avere vFXT systemet](avere-vfxt-deploy-plan.md#resource-group-and-network-infrastructure). 
 
   > [!NOTE]
   > Om du skapar ett nytt vnet har kontrollanten kluster en offentlig IP-adress så att du kan använda det nya privata nätverket. Om du väljer ett befintligt vnet har kontrollanten kluster konfigurerats utan en offentlig IP-adress. 
@@ -121,17 +120,21 @@ Den andra sidan i mallen för distribution kan du ange klusterstorleken, nodtyp,
   >  * Om du inte ställer in en offentlig IP-adress på kontrollanten, måste du använda en annan jump-värd, en VPN-anslutning eller ExpressRoute för åtkomst till klustret. Till exempel skapa kontrollanten inom ett virtuellt nätverk som redan har en VPN-anslutning som har konfigurerats.
   >  * Om du skapar en domänkontrollant med en offentlig IP-adress, bör du skydda kontrollanten VM med en nätverkssäkerhetsgrupp. Som standard Avere vFXT för Azure-distribution som skapar en nätverkssäkerhetsgrupp och begränsar inkommande åtkomsten till endast port 22 för styrenheter med offentliga IP-adresser. Du kan ytterligare skydda systemet genom att låsa åtkomst till ditt intervall med IP-källadresser – det vill säga Tillåt endast anslutningar från datorer som du planerar att använda för åtkomst till klustret.
 
+  Distribuera mallen konfigurerar också det nya vnet med en tjänstslutpunkt för lagring för Azure Blob storage och åtkomstkontroll för nätverk är låst till endast IP-adresser från undernätet på klustret. <!-- xxx make sure this is accurate --> <!-- do I need to say that this only happens if you choose to create storage? -->
+
 * **Undernät** – Välj ett undernät från det befintliga virtuella nätverket eller skapa en ny. 
 
-* **Använda blob storage** -Välj **SANT** att skapa en ny Azure Blob-behållare och konfigurera den som backend-lagring för det nya Avere vFXT klustret. Det här alternativet skapar även ett nytt lagringskonto i samma resursgrupp som klustret. 
+* **Skapa och använda blob storage** -Välj **SANT** att skapa en ny Azure Blob-behållare och konfigurera den som backend-lagring för det nya Avere vFXT klustret. Det här alternativet skapar även ett nytt lagringskonto i samma resursgrupp som klustret och en Microsoft storage tjänstslutpunkt i undernät för klustret. 
+  
+  Om du anger ett befintligt virtuellt nätverk måste den ha en slutpunkt för lagring innan du skapar klustret. (Mer information finns i [planera Avere vFXT systemet](avere-vfxt-deploy-plan.md).)
 
   Ange fältet till **FALSKT** om du inte vill skapa en ny behållare. I så fall måste du bifoga och konfigurera lagring när du har skapat klustret. Läs [konfigurerar du lagring](avere-vfxt-add-storage.md) anvisningar. 
 
-* **Storage-konto** – om du skapar en ny Azure Blob-behållare, ange ett namn för det nya lagringskontot. 
+* **(Ny) Storage-konto** – om du skapar en ny Azure Blob-behållare, ange ett namn för det nya lagringskontot. 
 
 ## <a name="validation-and-purchase"></a>Validering och köp
 
-Den tredje sidan ger en sammanfattning av konfigurationen och verifierar parametrarna. När verifieringen lyckas klickar du på den **OK** för att gå vidare. 
+Den tredje sidan sammanfattas konfigurationen och kontroll av parametrarna. När verifieringen lyckas klickar du på den **OK** för att gå vidare. 
 
 ![Tredje sidan i Distributionsmall - verifiering](media/avere-vfxt-deploy-3.png)
 
@@ -159,20 +162,6 @@ Följ den här proceduren för att hitta den här informationen:
 1. På vänster sida klickar du på **utdata**. Kopiera värdena i varje fält. 
 
    ![matar ut sidan som visar SSHSTRING, RESOURCE_GROUP, plats, NETWORK_RESOURCE_GROUP, nätverk, UNDERNÄT, SUBNET_ID, VSERVER_IPs och MGMT_IP värden i fälten till höger om etiketter](media/avere-vfxt-outputs-values.png)
-
-
-## <a name="create-a-storage-endpoint-if-using-azure-blob"></a>Skapa en slutpunkt för lagring (om du använder Azure Blob)
-
-Om du använder Azure Blob storage för lagring av dina backend-data kan skapa du en slutpunkt för lagring i det virtuella nätverket. Detta [tjänstslutpunkt](../virtual-network/virtual-network-service-endpoints-overview.md) behåller Azure Blob-trafik lokalt i stället för att skicka det utanför det virtuella nätverket.
-
-1. I portalen klickar du på **virtuella nätverk** till vänster.
-1. Välj det virtuella nätverket för din kontrollant. 
-1. Klicka på **tjänstslutpunkter** till vänster.
-1. Klicka på **Lägg till** högst upp.
-1. Lämna tjänsten som ``Microsoft.Storage`` och välj den styrenheten undernät.
-1. Längst ned på sidan, klickar du på **Lägg till**.
-
-  ![Azure portal skärmbild med anteckningar för stegen för att skapa tjänsteslutpunkt](media/avere-vfxt-service-endpoint.png)
 
 ## <a name="next-step"></a>Nästa steg
 

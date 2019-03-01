@@ -6,14 +6,14 @@ author: ggailey777
 manager: jeconnoc
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 11/02/2018
+ms.date: 02/25/2018
 ms.author: glenga
-ms.openlocfilehash: 4246259445cf096b5353ab87a9ed83f87332dc78
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: df4fcb505cce17663334d9b80245f5c981cdbe1e
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56299334"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56989645"
 ---
 # <a name="how-to-manage-connections-in-azure-functions"></a>Hur du hanterar anslutningar i Azure Functions
 
@@ -21,13 +21,13 @@ Funktioner i en funktionsapp delar resurser och bland de delade resurserna finns
 
 ## <a name="connections-limit"></a>Anslutningsgränsen
 
-Antalet tillgängliga anslutningar är begränsat delvis eftersom en funktionsapp som körs i den [Azure App Service-sandboxen](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox). En av de begränsningar som sandbox-miljön inför din kod är en [gräns för antalet anslutningar som för närvarande 300](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#numerical-sandbox-limits). När du når den här gränsen kan funktionskörningen skapar en logg med följande meddelande: `Host thresholds exceeded: Connections`.
+Antalet tillgängliga anslutningar är begränsat delvis eftersom en funktionsapp som körs i en [testmiljö](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox). En av de begränsningar som sandbox-miljön inför din kod är en [gräns för antalet anslutningar (för närvarande på 600 aktiva anslutningar, 1200 Totalt antal anslutningar)](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#numerical-sandbox-limits) per instans. När du når den här gränsen kan funktionskörningen skapar en logg med följande meddelande: `Host thresholds exceeded: Connections`.
 
-Sannolikheten för som överstiger gränsen går upp när den [skala controller lägger till funktionen app-instanserna](functions-scale.md#how-the-consumption-plan-works) att hantera fler begäranden. Varje funktion app-instansen kan köra många funktioner samtidigt, som använder anslutningar som 300 räknas.
+Den här gränsen är per instans.  När den [skala controller lägger till funktionen app-instanserna](functions-scale.md#how-the-consumption-plan-works) för att hantera fler begäranden varje instans har ett oberoende anslutningsgräns.  Det innebär att det finns ingen gräns för global anslutning och totalt du har mycket mer än 600 aktiva anslutningar över alla aktiva instanser.
 
 ## <a name="use-static-clients"></a>Använda statiska klienter
 
-För att undvika att fler anslutningar än nödvändigt kan återanvända klientinstanser i stället för att skapa nya med varje funktionsanrop. .NET-klienter som den [HttpClient](https://msdn.microsoft.com/library/system.net.http.httpclient(v=vs.110).aspx), [DocumentClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.documentclient
+För att undvika att fler anslutningar än nödvändigt kan återanvända klientinstanser i stället för att skapa nya med varje funktionsanrop.  Återanvända klientanslutningar rekommenderas för alla språk som du kan skriva din funktion i. Till exempel .NET-klienter som den [HttpClient](https://msdn.microsoft.com/library/system.net.http.httpclient(v=vs.110).aspx), [DocumentClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.documentclient
 ), och Azure Storage-klienter kan hantera anslutningar om du använder en enda, statiska klient.
 
 Här följer några riktlinjer för att följa när du använder en tjänstspecifika klient i ett program för Azure Functions:

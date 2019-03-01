@@ -11,14 +11,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2017
+ms.date: 02/26/2019
 ms.author: apimpm
-ms.openlocfilehash: 2770c6a31f0117b96e08eb8a03986f37ebdb7098
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 98d8f530b91c2b2483d00838cd4001be88e18a6c
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56733749"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57011219"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Hur du använder Azure API Management med virtuella nätverk
 Azure-nätverk (Vnet) kan du placera någon av dina Azure-resurser i ett icke-internet-dirigerbara nätverk som du styr åtkomst till. Dessa nätverk kan sedan anslutas till ditt lokala nätverk med olika VPN-teknologier. Om du vill veta börjar mer om Azure Virtual Networks med den här informationen: [Översikt över Azure Virtual Network](../virtual-network/virtual-networks-overview.md).
@@ -89,7 +89,7 @@ Du kan också aktivera VNET-anslutning med PowerShell-cmdletar
 
 * **Skapa en API Management-tjänst i ett virtuellt nätverk**: Använd cmdleten [New AzApiManagement](/powershell/module/az.apimanagement/new-azapimanagement) att skapa en Azure API Management-tjänsten i ett virtuellt nätverk.
 
-* **Distribuera en befintlig API Management-tjänst i ett virtuellt nätverk**: Använd cmdleten [uppdatering AzApiManagementDeployment](/powershell/module/az.apimanagement/update-azapimanagementdeployment) att flytta en befintlig Azure API Management-tjänst i ett virtuellt nätverk.
+* **Distribuera en befintlig API Management-tjänst i ett virtuellt nätverk**: Använd cmdleten [uppdatering AzApiManagementRegion](/powershell/module/az.apimanagement/update-azapimanagementregion) att flytta en befintlig Azure API Management-tjänst i ett virtuellt nätverk.
 
 ## <a name="connect-vnet"> </a>Ansluta till en webbtjänst som finns inom ett virtuellt nätverk
 När API Management-tjänsten är ansluten till det virtuella nätverket, är åtkomst till backend-tjänster inom den inte skiljer sig från att komma åt offentliga tjänster. Skriver i den lokala IP-adressen eller värdnamnet (om en DNS-server har konfigurerats för det virtuella nätverket) för webbtjänsten i den **-webbtjänstens URL** fältet när du skapar ett nytt API eller redigera en befintlig.
@@ -132,7 +132,7 @@ När en instans för API Management finns i ett virtuellt nätverk, används por
 
 + **DNS-åtkomst**: Utgående åtkomst på port 53 krävs för kommunikation med DNS-servrar. Om en anpassad DNS-server finns på den andra änden av en VPN-gateway, måste DNS-servern vara nåbar från det undernät som är värd för API Management.
 
-+ **Mått och hälsoövervakning**: Utgående nätverksanslutning till Azure Monitoring slutpunkter, vilket löser under följande domäner: 
++ **Mått och hälsoövervakning**: Utgående nätverksanslutning till Azure Monitoring slutpunkter, vilket löser under följande domäner:
 
     | Azure Environment | Slutpunkter                                                                                                                                                                                                                                                                                                                                                              |
     |-------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -202,7 +202,6 @@ Beräkningen ovan minimistorleken på undernätet, där du kan distribuera API M
 * [Tjänsttaggar](../virtual-network/security-overview.md#service-tags)
 
 [api-management-using-vnet-menu]: ./media/api-management-using-with-vnet/api-management-menu-vnet.png
-[api-management-setup-vpn-select]: ./media/api-management-using-with-vnet/api-management-using-vnet-type.png
 [api-management-setup-vpn-select]: ./media/api-management-using-with-vnet/api-management-using-vnet-select.png
 [api-management-setup-vpn-add-api]: ./media/api-management-using-with-vnet/api-management-using-vnet-add-api.png
 [api-management-vnet-private]: ./media/api-management-using-with-vnet/api-management-vnet-internal.png

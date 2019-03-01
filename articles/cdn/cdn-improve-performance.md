@@ -12,14 +12,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/13/2018
+ms.date: 02/28/2018
 ms.author: magattus
-ms.openlocfilehash: 2468462170f970cd597dd1296417d5b93a88c2ec
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 4d1725b0559c34692d1a89d016fd2d6b7b1b26c1
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46997289"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57193100"
 ---
 # <a name="improve-performance-by-compressing-files-in-azure-cdn"></a>Förbättra prestanda genom att komprimera filer i Azure CDN
 Filkomprimering är en enkel och effektiv metod för att förbättra hastigheten för överföring av filen och öka läsa in sidan prestanda genom att minska storleken på en fil innan den skickas från servern. Filkomprimering kan minska kostnader för bandbredd och tillhandahålla en mer gensvar upplevelse för användarna.
@@ -102,8 +102,10 @@ CDN-nivåerna standard och premium ger samma komprimering funktioner, men använ
 
 ### <a name="azure-cdn-standard-from-microsoft-profiles"></a>Azure CDN Standard från Microsoft-profiler
 
-För **Azure CDN Standard från Microsoft** profiler kan bara filer komprimeras. Ska vara kvalificerat för komprimering, en fil måste:-vara av en MIME-typ som har varit [konfigurerats för komprimering](#enabling-compression).
--Vara större än 1 KB-vara mindre än 8 MB
+För **Azure CDN Standard från Microsoft** profiler kan bara filer komprimeras. Ska vara kvalificerat för komprimering, måste en fil
+- Vara av en MIME-typ som har varit [konfigurerats för komprimering](#enabling-compression).
+- Vara större än 1 KB
+- Vara mindre än 8 MB
 
 Dessa profiler stöder följande komprimering skriver:
 - gzip (GNU zip)
@@ -117,7 +119,7 @@ När en begäran för en tillgång anger gzip komprimering och begäran resultat
 
 För **Azure CDN Standard från Verizon** och **Azure CDN Premium från Verizon** profiler kan bara filer komprimeras. Ska vara kvalificerat för komprimering, måste en fil
 - Vara större än 128 byte
-- Vara mindre än 1 MB
+- Vara mindre än 3 MB
  
 Dessa profiler stöder följande komprimering skriver:
 - gzip (GNU zip)
@@ -160,9 +162,9 @@ Följande tabeller beskriver Azure CDN komprimering beteendet för varje scenari
 
 ## <a name="media-services-cdn-compression"></a>Media Services-CDN-komprimering
 Aktiverat för Media Services CDN strömmande slutpunkter, är komprimering aktiverat som standard för följande MIME-typer: 
-- program/vnd.ms-sstr + xml 
+- application/vnd.ms-sstr+xml 
 - program/dash + xml
-- application/vnd.Apple.mpegurl
+- application/vnd.apple.mpegurl
 - program/f4m + xml 
 
 ## <a name="see-also"></a>Se också

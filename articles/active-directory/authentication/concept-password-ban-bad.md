@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 96e2c3cfd509c9b0b77d0db00add31b58a07ce6a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: ca079fa2ec41f85c365102fbd81ffde23e97e2c4
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56206556"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56990500"
 ---
 # <a name="eliminate-bad-passwords-in-your-organization"></a>Eliminera felaktiga lösenord i din organisation
 
@@ -96,7 +96,7 @@ Exempel: en användare ändrar sina lösenord till ”C0ntos0Blank12”
 
 Efter normalisering blir det här lösenordet ”contosoblank12”. Matchningsprocessen hittar att det här lösenordet innehåller två förbjudna lösenord: contoso och tom. Det här lösenordet sedan får en poäng:
 
-[contoso] + [tomma] = [1] + [2] = 4 punkter eftersom det här lösenordet används under 5 punkter, avvisas.
+[contoso] + [tomma] + [1] + [2] = 4 punkter eftersom det här lösenordet används under 5 punkter, avvisas.
 
 Exempel: en användare ändrar sina lösenord för att ”ContoS0Bl@nkf9”!.
 

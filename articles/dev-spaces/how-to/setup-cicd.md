@@ -1,5 +1,5 @@
 ---
-title: Med CI/CD med Azure Dev blanksteg | Microsoft Docs
+title: Med CI/CD med Azure Dev blanksteg
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
@@ -7,22 +7,22 @@ ms.subservice: azds-kubernetes
 author: DrEsteban
 ms.author: stevenry
 ms.date: 12/17/2018
-ms.topic: article
+ms.topic: conceptual
 manager: yuvalm
 description: Snabb Kubernetes-utveckling med containrar och mikrotjänster i Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, behållare
-ms.openlocfilehash: 0abe2902248c8203046cfe891d136ca7d5d0a75b
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: b614a517874363be95ff17d802995a927a15af2f
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55666900"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57194639"
 ---
 # <a name="use-cicd-with-azure-dev-spaces"></a>Använda CI/CD med Azure Dev blanksteg
 
 Den här artikeln hjälper dig att konfigurera kontinuerlig integrering/kontinuerlig distribution (CI/CD) till Azure Kubernetes Service (AKS) Dev blanksteg aktiverat. CI/CD till AKS kan appuppdateringar distribueras automatiskt när allokerade koden skickas till centrallagret. Med CI/CD tillsammans med en Dev-blanksteg är aktiverade klustret användbart eftersom det kan hålla en baslinje för programmet uppdaterad för teamet att arbeta med.
 
-![Exempel CI/CD-diagram](../media/common/ci-cd-simple.png)
+![CI/CD-exempeldiagram](../media/common/ci-cd-simple.png)
 
 Även om den här artikeln hjälper dig med Azure DevOps, skulle samma koncept gäller för CI/CD-system som Jenkins, TeamCity, osv.
 
@@ -44,7 +44,7 @@ Skapa en ny sida som kallas _dev_ med hjälp av den `azds space select` kommando
 azds space select -n dev
 ```
 
-När du uppmanas att välja en överordnad dev utrymme, Välj  _\<ingen\>_.
+När du uppmanas att välja ett överordnat utvecklingsutrymme väljer du _\<none\>_ (inget).
 
 Den _dev_ utrymme kommer alltid att innehålla det senaste tillståndet för databasen, baslinje, så att utvecklare kan skapa _underordnade blanksteg_ från _dev_ att testa ändringarna isolerade inom ramen för större appen. Detta begrepp beskrivs i detalj i Dev blanksteg självstudier.
 

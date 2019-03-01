@@ -1,20 +1,20 @@
 ---
 title: Meddelanden från molnet till enheten med Azure IoT Hub (.NET) | Microsoft Docs
 description: Hur du skickar meddelanden från moln till enhet till en enhet från Azure IoT hub med Azure IoT SDK för .NET. Du kan ändra en enhetsapp för att ta emot meddelanden från moln till enhet och ändra en backend-app för att skicka meddelanden från moln-till-enhet.
-author: fsautomata
-manager: ''
+author: robinsh
+manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 08/24/2017
-ms.author: elioda
-ms.openlocfilehash: c519a3b71068570ff864ccc0eb0292cebd51173a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.author: robin.shahan
+ms.openlocfilehash: 8a59f2ad7d3af09f776aa22b96ddf58403da28e2
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51243734"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57010896"
 ---
 # <a name="send-messages-from-the-cloud-to-your-device-with-iot-hub-net"></a>Skicka meddelanden från molnet till enheten med IoT Hub (.NET)
 

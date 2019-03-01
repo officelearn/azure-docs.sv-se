@@ -1,5 +1,5 @@
 ---
-title: Hur du använder en anpassad NuGet flöde i Azure Dev blanksteg | Microsoft Docs
+title: Hur du använder en anpassad NuGet flöde i Azure Dev blanksteg
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
@@ -7,16 +7,16 @@ ms.subservice: azds-kubernetes
 author: johnsta
 ms.author: johnsta
 ms.date: 05/11/2018
-ms.topic: article
+ms.topic: conceptual
 description: Använd en anpassad NuGet flödet för att komma åt och använda NuGet-paket i ett adressutrymme för utveckling av Azure.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, behållare
 manager: ghogen
-ms.openlocfilehash: 21a70100fe186e176dfe8eb7c247d83a5d4705bd
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: ff13e4d8670e4ad1712ce2335711f86b9cc14436
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55466412"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57192487"
 ---
 #  <a name="use-a-custom-nuget-feed-in-an-azure-dev-space"></a>Använd en anpassad NuGet flöde i ett adressutrymme för Azure-utveckling
 
@@ -36,7 +36,7 @@ Så här skapar ett NuGet feed:
    ```
 
 2. Skapa en [NuGet.Config](https://docs.microsoft.com/nuget/reference/nuget-config-file) filen i projektmappen.
-     * Använd den `packageSources` avsnitt för att referera till din NuGet feed plats. Viktigt: NuGet-feed måste vara tillgänglig för allmänheten.
+     * Använd den `packageSources` avsnitt för att referera till din NuGet feed plats. Viktigt! NuGet-feed måste vara tillgänglig för allmänheten.
      * Använd den `packageSourceCredentials` avsnitt för att konfigurera autentiseringsuppgifter för användarnamn och lösenord. 
 
    ```xml

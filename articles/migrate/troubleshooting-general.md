@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 01/25/2019
 ms.author: raynew
-ms.openlocfilehash: bb9d22b45011f5156a63444ec8e1651f148993b6
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: cb1bed847f5b7afe7c1eff0243c64e8c25ddb814
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55751913"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56992574"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Felsöka Azure Migrate
 
@@ -222,14 +222,14 @@ Lista över Windows-operativsystem som stöds av beroendeagenten är [här](http
 Listan med Linux-operativsystem som stöds av beroendeagenten är [här](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#supported-linux-operating-systems).
 
 ### <a name="i-am-unable-to-visualize-dependencies-in-azure-migrate-for-more-than-one-hour-duration"></a>Jag kan inte visualisera beroenden i Azure Migrate för mer än en timme?
-Azure Migrate kan du visualisera beroenden för varaktighet för upp till en timme. Även om Azure Migrate kan du gå tillbaka till ett visst datum i historiken för upp till senaste månaden, är maximal varaktighet för vilken du kan visualisera beroenden upp till 1 timme. Exempel: du kan använda funktionen tid varaktighet på beroendekartan visar beroenden för igår, men kan bara visa för ett fönster med en timme. Du kan dock använda Log Analytics för att [frågedata beroende](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies#query-dependency-data-from-log-analytics) över en längre period.
+Azure Migrate kan du visualisera beroenden för varaktighet för upp till en timme. Även om Azure Migrate kan du gå tillbaka till ett visst datum i historiken för upp till senaste månaden, är maximal varaktighet för vilken du kan visualisera beroenden upp till 1 timme. Exempel: du kan använda funktionen tid varaktighet på beroendekartan visar beroenden för igår, men kan bara visa för ett fönster med en timme. Du kan dock använda Azure Monitor-loggar till [frågedata beroende](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies#query-dependency-data-from-log-analytics) över en längre period.
 
 ### <a name="i-am-unable-to-visualize-dependencies-for-groups-with-more-than-10-vms"></a>Jag kan inte visualisera beroenden för grupper med fler än 10 virtuella datorer?
 Du kan [visualisera beroenden för grupper](https://docs.microsoft.com/azure/migrate/how-to-create-group-dependencies) som har upp till 10 virtuella datorer, om du har en grupp med fler än 10 virtuella datorer, rekommenderar vi att dela upp gruppen i mindre grupper och visualisera beroenden.
 
 ### <a name="i-installed-agents-and-used-the-dependency-visualization-to-create-groups-now-post-failover-the-machines-show-install-agent-action-instead-of-view-dependencies"></a>Jag installerade agenter och används visualiseringen av beroenden för att skapa grupper. Nu efter redundans, datorerna visa ”installera agenten” åtgärd i stället för ”Visa beroenden”
 * Post planerad eller oplanerad redundans lokala datorer är avstängda och motsvarande datorer skapas i Azure. De här datorerna erhållit en annan MAC-adress. De kan hämta en annan IP-adress baserat på om användaren har valt att behålla den lokala IP-adress eller inte. Om MAC- och IP-adresser skiljer sig åt Azure Migrate kopplar inte lokala datorer med Service Map beroendedata och ber användaren att installera agenter i stället för att visa beroenden.
-* Publicera redundanstest, lokala datorer är aktiverade som förväntat. Motsvarande datorer i Azure kunde få annan MAC-adress och kan hämta annan IP-adress. Om inte användaren blockerar utgående trafik för Log Analytics från dessa datorer, Azure Migrate kopplar inte lokala datorer med Service Map beroendedata och ber användaren att installera agenter i stället för att visa beroenden.
+* Publicera redundanstest, lokala datorer är aktiverade som förväntat. Motsvarande datorer i Azure kunde få annan MAC-adress och kan hämta annan IP-adress. Om inte användaren blockerar utgående Azure Monitor-loggar trafik från de här datorerna Azure Migrate kopplar inte lokala datorer med Service Map beroendedata och ber användaren att installera agenter i stället för att visa beroenden.
 
 ## <a name="troubleshoot-azure-readiness-issues"></a>Felsökning av problem med Azure-beredskap
 

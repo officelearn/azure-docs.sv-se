@@ -8,12 +8,12 @@ ms.author: gwallace
 ms.date: 10/25/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 86ccd35d14df529a22bd4cdcd50566e7dc0c1375
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: ecf19da59e91edd08953296d96ca68ca62f008e1
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55983721"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57195361"
 ---
 # <a name="run-powershell-scripts-in-your-windows-vm-with-run-command"></a>Kör PowerShell-skript i din virtuella Windows-dator med kommandot Kör
 
@@ -85,7 +85,7 @@ Invoke-AzVMRunCommand -ResourceGroupName '<myResourceGroup>' -Name '<myVMName>' 
 
 Lista kör kommandon eller som visar information om ett kommando kräver den `Microsoft.Compute/locations/runCommands/read` behörighet, som inbyggt [läsare](../../role-based-access-control/built-in-roles.md#reader) rollen och ha högre.
 
-När du kör ett kommando måste den `Microsoft.Compute/virtualMachines/runCommand/action` behörighet, som den [deltagare](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) rollen och ha högre.
+När du kör ett kommando måste den `Microsoft.Compute/virtualMachines/runCommand/action` behörighet, som den [virtuell Datordeltagare](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) rollen och ha högre.
 
 Du kan använda en av de [inbyggda](../../role-based-access-control/built-in-roles.md) roller eller skapa en [anpassade](../../role-based-access-control/custom-roles.md) roll som ska användas kör kommandot.
 

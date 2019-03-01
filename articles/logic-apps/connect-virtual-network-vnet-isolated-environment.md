@@ -8,18 +8,18 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 02/24/2019
-ms.openlocfilehash: eb082d5194cb6948668c4944208ec11fab987206
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.date: 02/26/2019
+ms.openlocfilehash: c0f4d483c214847227059046c2dda305f63398d6
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56806535"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56991743"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>Ansluta till Azure-nätverk från Azure Logic Apps med hjälp av en integration service-miljö (ISE)
 
 > [!NOTE]
-> Den här funktionen är i *förhandsversion*. 
+> Den här funktionen är i [ *förhandsversion*](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 För scenarier där dina logic apps och integrationskonton behöver åtkomst till en [Azure-nätverk](../virtual-network/virtual-networks-overview.md), skapa en [ *integreringstjänstmiljön* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md). En ISE är en privat och isolerad miljö som använder dedikerade lagring och andra resurser åtskilda från den offentliga eller ”global” Logic Apps-tjänsten. Den här separationen minskar också påverkas som andra Azure-klienter kan ha på din apps prestanda. Din ISE *in* till till din Azure-nätverk, som sedan distribuerar Logic Apps-tjänsten till ditt virtuella nätverk. När du skapar ett logic app eller varje konto, Välj den här ISE som deras plats. Ditt logic app eller varje konto kan sedan direkt åtkomst till resurser, till exempel virtuella datorer (VM), servrar, system och tjänster i ditt virtuella nätverk.
 
@@ -73,7 +73,7 @@ För att styra inkommande och utgående trafik över det virtuella nätverkets u
 | Publicera diagnostikloggar och mått | Utgående | 443 | VIRTUAL_NETWORK  | AzureMonitor | |
 | Logikappdesigner – dynamiska egenskaper | Inkommande | 454 | INTERNET  | VIRTUAL_NETWORK | Begäranden som kommer från Logic Apps [åt slutpunkten för inkommande IP-adresser i den regionen](../logic-apps/logic-apps-limits-and-config.md#inbound). |
 | Service Management-appberoendet | Inkommande | 454 & 455 | AppServiceManagement | VIRTUAL_NETWORK | |
-| Connector-distribution | Inkommande | 454 & 3443 | INTERNET  | VIRTUAL_NETWORK | Krävs för att distribuera och uppdatera kopplingar. Avslutande eller blockng den här porten som orsakar ISE distributioner misslyckas och förhindrar anslutningen uppdateringar och korrigeringar. |
+| Connector-distribution | Inkommande | 454 & 3443 | INTERNET  | VIRTUAL_NETWORK | Krävs för att distribuera och uppdatera kopplingar. Stänga eller blockerar den här porten orsakar ISE distributioner misslyckas och förhindrar anslutningen uppdateringar och korrigeringar. |
 | API Management - hanteringsslutpunkt | Inkommande | 3443 | APIManagement  | VIRTUAL_NETWORK | |
 | Beroende från loggen till Event Hub-principen och övervakningsagent | Utgående | 5672 | VIRTUAL_NETWORK  | EventHub | |
 | Få åtkomst till Azure Cache för Redis-instanser mellan Rollinstanser | Inkommande <br>Utgående | 6379-6383 | VIRTUAL_NETWORK  | VIRTUAL_NETWORK | |
@@ -142,7 +142,7 @@ Listan med resultat väljer **Integreringstjänstmiljön (förhandsversion)**, o
    | **Resursgrupp** | Ja | <*Azure-resource-group-name*> | Azure-resursgrupp där du vill skapa en miljö |
    | **Namn på integreringstjänstmiljö** | Ja | <*environment-name*> | Namn för att ge din miljö |
    | **Plats** | Ja | <*Azure-datacenter-region*> | Azure-datacenterregion var du vill distribuera din miljö |
-   | **Ytterligare kapacitet** | Ja | 0, 1, 2, 3 | Antalet enheter för den här ISE-resursen |
+   | **Ytterligare kapacitet** | Ja | 0, 1, 2, 3 | Antal enheter för den här ISE-resursen. Om du vill lägga till kapacitet när du har skapat, se [lägga till kapacitet](#add-capacity). |
    | **Virtuellt nätverk** | Ja | <*Azure-virtual-network-name*> | Azure-nätverket där du vill att mata in din miljö så att logic apps i denna miljö kan komma åt det virtuella nätverket. Om du inte har ett nätverk kan du skapa en här. <p>**Viktiga**: Du kan *endast* utföra den här inmatning när du skapar din ISE. Men innan du kan skapa den här relationen, se till att du redan [konfigurera rollbaserad åtkomstkontroll i ditt virtuella nätverk för Azure Logic Apps](#vnet-access). |
    | **Undernät** | Ja | <*subnet-resource-list*> | En ISE kräver fyra *tom* undernät för att skapa resurser i din miljö. Se till dessa undernät *inte delegerad* till alla tjänster. Du *kan inte ändra* undernätsadresserna när du har skapat din miljö. <p><p>Att skapa varje undernät, [att följa stegen i den här tabellen](#create-subnet). Varje undernät måste uppfylla följande kriterier: <p>-Måste vara tom. <br>-Använder ett namn som inte börjar med ett tal eller ett bindestreck. <br>-Använder den [Classless Inter-Domain Routing CIDR-format](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) och en klass B-adressutrymmet. <br>-Innehåller minst en `/27` i adressutrymmet så undernätet hämtar minst 32 adresser. Läs om hur du beräknar antalet adresser i [IPv4 CIDR-block som](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#IPv4_CIDR_blocks). Exempel: <p>- `10.0.0.0/24` har 256 adresser eftersom 2<sup>(32-24)</sup> är 2<sup>8</sup> eller 256. <br>- `10.0.0.0/27` har 32 adresser eftersom 2<sup>(32-27)</sup> är 2<sup>5</sup> eller 32. <br>- `10.0.0.0/28` har bara 16 adresser eftersom 2<sup>(32-28)</sup> är 2<sup>4</sup> eller 16. |
    |||||
@@ -187,6 +187,30 @@ Listan med resultat väljer **Integreringstjänstmiljön (förhandsversion)**, o
    > Om distributionen misslyckas eller om du ta bort din ISE Azure *kan* ta upp till en timme innan du publicerar dina undernät. Därför kanske du måste vänta innan du återanvänder dessa undernät i ett annat ISE.
 
 1. Om du vill visa din miljö, Välj **gå till resurs** om Azure inte automatiskt går till din miljö när distributionen är klar.  
+
+<a name="add-capacity"></a>
+
+### <a name="add-capacity"></a>Lägga till kapacitet
+
+Basenheten ISE har fast kapacitet, så om du behöver större dataflöde kan du lägga till fler skalningsenheter. Du kan välja att automatisk skalning baserat på prestandamått eller baserat på ett visst antal enheter. Om du väljer automatisk skalning baserat på mått du väljer bland olika kriterier och anger tröskelvärdet villkor i syfte att uppfylla dessa villkor.
+
+1. Hitta din ISE i Azure-portalen.
+
+1. Om du vill visa prestandamått för din ISE på din ISE Huvudmeny väljer **översikt**.
+
+1. Du ställer in automatisk skalning och under **inställningar**väljer **skala ut**. På den **konfigurera** fliken **aktivera autoskalning**.
+
+1. I den **standard** väljer du antingen **skala baserat på ett mått** eller **skala till ett specifikt instansantal**.
+
+1. Om du väljer instans-baserade måste du ange hur många bearbetningsenheter mellan 0 och 3 portintervallet. Annars för mått-baserade, Följ dessa steg:
+
+   1. I den **standard** väljer **lägga till en regel**.
+
+   1. På den **skalningsregeln** fönstret har skapat dina villkor och åtgärden ska vidtas när regeln utlöses.
+   
+   1. När du är klar väljer **Lägg till**.
+
+1. När du är klar ska du komma ihåg att spara dina ändringar.
 
 <a name="create-logic-apps-environment"></a>
 

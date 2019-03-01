@@ -1,19 +1,19 @@
 ---
 title: Förstå Azure IoT Hub-jobb | Microsoft Docs
 description: Utvecklarguide – schemaläggning av jobb som ska köras på flera enheter är anslutna till din IoT-hubb. Jobb kan uppdatera taggar och önskade egenskaper och anropa direktmetoder på flera enheter.
-author: dominicbetts
-manager: timlt
+author: robinsh
+manager: philmea
+ms.author: robin.shahan
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 10/09/2018
-ms.author: dobett
-ms.openlocfilehash: b9ad7a0e1947c9ca95b343a443688e976c306f95
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: c2b05b1854b4f1d7ee4ac65ebe635330ba8c604e
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48884232"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57011372"
 ---
 # <a name="schedule-jobs-on-multiple-devices"></a>Schemalägga jobb på flera enheter
 
@@ -115,26 +115,26 @@ I följande lista visar egenskaper och motsvarande beskrivningar som kan använd
 
 | Egenskap  | Beskrivning |
 | --- | --- |
-| **jobb-ID** |Programmet ange ID för jobbet. |
+| **jobId** |Programmet ange ID för jobbet. |
 | **startTime** |Program tillhandahålls Starttid (ISO 8601-) för jobbet. |
 | **endTime** |IoT Hub tillhandahåller datum (ISO 8601-) för när jobbet är slutfört. Gäller endast när jobbet når ”slutfört” tillstånd. |
 | **typ** |Typer av jobb: |
-| | **scheduledUpdateTwin**: ett jobb som används för att uppdatera en uppsättning önskade egenskaper eller taggar. |
-| | **scheduledDeviceMethod**: ett jobb som används för att anropa en enhetsmetod på en uppsättning enhetstvillingar. |
-| **Status** |Aktuell status för jobbet. Möjliga värden för status: |
-| | **väntande**: schemalagd och väntar på att hämtas av jobbtjänsten. |
-| | **schemalagda**: schemalagda för en tidpunkt i framtiden. |
-| | **kör**: aktiva jobb. |
-| | **har avbrutits**: jobbet har avbrutits. |
-| | **Det gick inte**: Det gick inte att. |
-| | **slutfört**: jobbet har slutförts. |
+| | **scheduledUpdateTwin**: Ett jobb som används för att uppdatera en uppsättning önskade egenskaper eller taggar. |
+| | **scheduledDeviceMethod**: Ett jobb som används för att anropa en enhetsmetod på en uppsättning enhetstvillingar. |
+| **status** |Aktuell status för jobbet. Möjliga värden för status: |
+| | **Väntande**: Schemalagda och väntar på att hämtas av jobbtjänsten. |
+| | **Schemalagd**: Schemalagd för en tidpunkt i framtiden. |
+| | **Kör**: Aktiva jobb. |
+| | **Har avbrutits**: Jobbet har avbrutits. |
+| | **Det gick inte**: Jobbet misslyckades. |
+| | **Slutfört**: Jobbet har slutförts. |
 | **deviceJobStatistics** |Statistik om den jobbkörningen. |
 | | **deviceJobStatistics** egenskaper: |
-| | **deviceJobStatistics.deviceCount**: antal enheter i jobbet. |
-| | **deviceJobStatistics.failedCount**: antalet enheter där jobbet misslyckades. |
-| | **deviceJobStatistics.succeededCount**: antalet enheter där jobbet har slutförts. |
-| | **deviceJobStatistics.runningCount**: antalet enheter som för närvarande körs jobbet. |
-| | **deviceJobStatistics.pendingCount**: antalet enheter som väntar jobbet ska köras. |
+| | **deviceJobStatistics.deviceCount**: Antalet enheter i jobbet. |
+| | **deviceJobStatistics.failedCount**: Antalet enheter där jobbet misslyckades. |
+| | **deviceJobStatistics.succeededCount**: Antalet enheter där jobbet har slutförts. |
+| | **deviceJobStatistics.runningCount**: Antalet enheter som körs jobbet. |
+| | **deviceJobStatistics.pendingCount**: Antalet enheter som väntar jobbet ska köras. |
 
 ### <a name="additional-reference-material"></a>Ytterligare referensmaterial
 

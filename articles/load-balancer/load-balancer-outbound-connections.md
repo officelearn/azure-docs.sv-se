@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/05/2019
 ms.author: kumud
-ms.openlocfilehash: f0ebb5cc913dda99d7e927ccf45c0f1478fa86c5
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: a42a56b8a4a54c33297461a427a2b64b72357020
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55814834"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57194086"
 ---
 # <a name="outbound-connections-in-azure"></a>Utgående anslutningar i Azure
 
@@ -70,7 +70,7 @@ Tilldelas före SNAT portar som beskrivs i den [förstå SNAT och PAT](#snat) av
 
 När [flera offentliga IP-adresser som är associerade med Load Balancer grundläggande](load-balancer-multivip-overview.md)något av de här offentliga IP-adresser är en kandidat för utgående flöden och en väljs slumpmässigt.  
 
-Du kan använda för att övervaka hälsotillståndet för utgående anslutningar med Load Balancer grundläggande [Log Analytics för Load Balancer](load-balancer-monitor-log.md) och [Avisera händelseloggar](load-balancer-monitor-log.md#alert-event-log) att övervaka SNAT port överbelastning meddelanden.
+Du kan använda för att övervaka hälsotillståndet för utgående anslutningar med Load Balancer grundläggande [Azure Monitor-loggar för belastningsutjämnaren](load-balancer-monitor-log.md) och [Avisera händelseloggar](load-balancer-monitor-log.md#alert-event-log) att övervaka SNAT port överbelastning meddelanden.
 
 ### <a name="defaultsnat"></a>Scenario 3: Standalone VM utan en offentlig IP på instansnivå-adress
 

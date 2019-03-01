@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: annahar
-ms.openlocfilehash: b06213b253b6a289513d5cc1b8fcf0f2e25897f5
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: 1b130dff9d290dcce566570fd015d227d44a1310
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56594805"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57191909"
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-using-powershell"></a>Belastningsutjämning på flera IP-konfigurationer med hjälp av PowerShell
 
@@ -143,4 +143,4 @@ Följ stegen nedan för att uppnå det scenario som beskrivs i den här artikeln
 
 ## <a name="next-steps"></a>Nästa steg
 - Mer information om hur du kombinerar belastningsutjämning i Azure i [med tjänster för belastningsutjämning i Azure](../traffic-manager/traffic-manager-load-balancing-azure.md).
-- Lär dig hur du kan använda olika typer av loggar i Azure för att hantera och felsöka belastningsutjämnare i [logganalys för Azure Load Balancer](../load-balancer/load-balancer-monitor-log.md).
+- Lär dig hur du kan använda olika typer av loggar i Azure för att hantera och felsöka belastningsutjämnare i [Azure Monitor-loggarna för Azure Load Balancer](../load-balancer/load-balancer-monitor-log.md).

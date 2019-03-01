@@ -1,19 +1,19 @@
 ---
 title: Utvecklarguide för Azure IoT Hub | Microsoft Docs
 description: Azure IoT Hub developer guide innehåller diskussioner av slutpunkter, säkerhet, identitetsregistret, hantering av enheter, direkta metoder, enhetstvillingar, filöverföringar, jobb, IoT Hub-frågespråk, och meddelanden.
-author: dominicbetts
-manager: timlt
+author: wesmc7777
+manager: philmea
+ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
-ms.author: dobett
-ms.openlocfilehash: ecbec614bd0d1b043faf6ad002b05d4acdcc4ab4
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 0246b19c0155fe2707ac780c7acb61be424d2caf
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48041755"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57008939"
 ---
 # <a name="azure-iot-hub-developer-guide"></a>Azure IoT Hub developer guide
 

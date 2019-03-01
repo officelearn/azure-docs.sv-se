@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: a5413f80-eaad-4bcf-b371-2ad0ef629c3d
 ms.date: 01/27/2017
-ms.openlocfilehash: cfd195f2f812c8b2e09058d325d0dbb6f7a60d59
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 1db324006e1e6332b5fdd8afd28ebed8a32ac707
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43125609"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57195191"
 ---
 # <a name="create-schemas-for-tracking-x12-messages-in-integration-accounts-for-azure-logic-apps"></a>Skapa scheman för att spåra X12 meddelanden i integrationskonton för Azure Logic Apps
 
@@ -59,19 +59,19 @@ För att hjälpa dig att övervaka lyckades, fel och meddelandeegenskaper för b
 
 | Egenskap  | Typ | Beskrivning |
 | --- | --- | --- |
-| senderPartnerName | Sträng | X12 meddelande avsändarens Partnernamn. (Valfritt) |
-| receiverPartnerName | Sträng | X12 meddelande mottagarens Partnernamn. (Valfritt) |
-| senderQualifier | Sträng | Skicka partner kvalificerare. (Obligatorisk) |
-| senderIdentifier | Sträng | Skicka ID för partner. (Obligatorisk) |
-| receiverQualifier | Sträng | Ta emot partner kvalificerare. (Obligatorisk) |
-| receiverIdentifier | Sträng | Ta emot partner-ID. (Obligatorisk) |
-| agreementName | Sträng | Namnet på X12 avtal som meddelanden har åtgärdats. (Valfritt) |
+| senderPartnerName | String | X12 meddelande avsändarens Partnernamn. (Valfritt) |
+| receiverPartnerName | String | X12 meddelande mottagarens Partnernamn. (Valfritt) |
+| senderQualifier | String | Skicka partner kvalificerare. (Obligatorisk) |
+| senderIdentifier | String | Skicka ID för partner. (Obligatorisk) |
+| receiverQualifier | String | Ta emot partner kvalificerare. (Obligatorisk) |
+| receiverIdentifier | String | Ta emot partner-ID. (Obligatorisk) |
+| agreementName | String | Namnet på X12 avtal som meddelanden har åtgärdats. (Valfritt) |
 | riktning | Enum | Riktning för meddelande-flödet tar emot eller skickar. (Obligatorisk) |
-| interchangeControlNumber | Sträng | Interchange-kontrollnummer. (Valfritt) |
-| functionalGroupControlNumber | Sträng | Funktionella kontrollnummer. (Valfritt) |
-| transactionSetControlNumber | Sträng | Kontrollnumret för transaktionsuppsättningen. (Valfritt) |
-| correlationMessageId | Sträng | Korrelations-meddelande-ID. En kombination av {AgreementName} {*GroupControlNumber*} {TransactionSetControlNumber}. (Valfritt) |
-| MessageType | Sträng | Transaktionen ange eller dokumenttyp. (Valfritt) |
+| interchangeControlNumber | String | Interchange-kontrollnummer. (Valfritt) |
+| functionalGroupControlNumber | String | Funktionella kontrollnummer. (Valfritt) |
+| transactionSetControlNumber | String | Kontrollnumret för transaktionsuppsättningen. (Valfritt) |
+| CorrelationMessageId | String | Korrelations-meddelande-ID. En kombination av {AgreementName} {*GroupControlNumber*} {TransactionSetControlNumber}. (Valfritt) |
+| messageType | String | Transaktionen ange eller dokumenttyp. (Valfritt) |
 | isMessageFailed | Boolesk | Om X12 meddelandet misslyckades. (Obligatorisk) |
 | isTechnicalAcknowledgmentExpected | Boolesk | Om teknisk bekräftelse har konfigurerats i X12 avtal. (Obligatorisk) |
 | isFunctionalAcknowledgmentExpected | Boolesk | Om den funktionella bekräftelsen har konfigurerats i X12 avtal. (Obligatorisk) |
@@ -115,30 +115,30 @@ För att hjälpa dig att övervaka lyckades, fel och meddelandeegenskaper för b
 
 | Egenskap  | Typ | Beskrivning |
 | --- | --- | --- |
-| senderPartnerName | Sträng | X12 meddelande avsändarens Partnernamn. (Valfritt) |
-| receiverPartnerName | Sträng | X12 meddelande mottagarens Partnernamn. (Valfritt) |
-| senderQualifier | Sträng | Skicka partner kvalificerare. (Obligatorisk) |
-| senderIdentifier | Sträng | Skicka ID för partner. (Obligatorisk) |
-| receiverQualifier | Sträng | Ta emot partner kvalificerare. (Obligatorisk) |
-| receiverIdentifier | Sträng | Ta emot partner-ID. (Obligatorisk) |
-| agreementName | Sträng | Namnet på X12 avtal som meddelanden har åtgärdats. (Valfritt) |
+| senderPartnerName | String | X12 meddelande avsändarens Partnernamn. (Valfritt) |
+| receiverPartnerName | String | X12 meddelande mottagarens Partnernamn. (Valfritt) |
+| senderQualifier | String | Skicka partner kvalificerare. (Obligatorisk) |
+| senderIdentifier | String | Skicka ID för partner. (Obligatorisk) |
+| receiverQualifier | String | Ta emot partner kvalificerare. (Obligatorisk) |
+| receiverIdentifier | String | Ta emot partner-ID. (Obligatorisk) |
+| agreementName | String | Namnet på X12 avtal som meddelanden har åtgärdats. (Valfritt) |
 | riktning | Enum | Riktning för meddelande-flödet tar emot eller skickar. (Obligatorisk) |
-| interchangeControlNumber | Sträng | Interchange-kontrollnummer av funktionella bekräftelse. Värdet fylls bara för sändningssidan där funktionella bekräftelse tas emot för meddelanden som skickas till partner. (Valfritt) |
-| functionalGroupControlNumber | Sträng | Funktionell gruppkontrollnummer av funktionella bekräftelse. Värdet fylls bara för sändningssidan där funktionella bekräftelse tas emot för meddelanden som skickas till partner. (Valfritt) |
-| isaSegment | Sträng | ISA-segmentet för meddelandet. Värdet fylls bara för sändningssidan där funktionella bekräftelse tas emot för meddelanden som skickas till partner. (Valfritt) |
-| gsSegment | Sträng | GS-segment i meddelandet. Värdet fylls bara för sändningssidan där funktionella bekräftelse tas emot för meddelanden som skickas till partner. (Valfritt) |
-| respondingfunctionalGroupControlNumber | Sträng | Svara interchange-kontrollnummer. (Valfritt) |
-| respondingFunctionalGroupId | Sträng | Svara funktionell grupp-ID, som mappar till AK101 i godkännandet. (Valfritt) |
-| respondingtransactionSetControlNumber | Sträng | Svarar Kontrollnumret för transaktionsuppsättningen. (Valfritt) |
-| respondingTransactionSetId | Sträng | Svarar transaktionsuppsättnings-ID, som mappar till AK201 i godkännandet. (Valfritt) |
-| statuskod | Boolesk | Transaktionsuppsättnings-bekräftelsestatuskod. (Obligatorisk) |
+| interchangeControlNumber | String | Interchange-kontrollnummer av funktionella bekräftelse. Värdet fylls bara för sändningssidan där funktionella bekräftelse tas emot för meddelanden som skickas till partner. (Valfritt) |
+| functionalGroupControlNumber | String | Funktionell gruppkontrollnummer av funktionella bekräftelse. Värdet fylls bara för sändningssidan där funktionella bekräftelse tas emot för meddelanden som skickas till partner. (Valfritt) |
+| isaSegment | String | ISA-segmentet för meddelandet. Värdet fylls bara för sändningssidan där funktionella bekräftelse tas emot för meddelanden som skickas till partner. (Valfritt) |
+| gsSegment | String | GS-segment i meddelandet. Värdet fylls bara för sändningssidan där funktionella bekräftelse tas emot för meddelanden som skickas till partner. (Valfritt) |
+| respondingfunctionalGroupControlNumber | String | Svara interchange-kontrollnummer. (Valfritt) |
+| respondingFunctionalGroupId | String | Svara funktionell grupp-ID, som mappar till AK101 i godkännandet. (Valfritt) |
+| respondingtransactionSetControlNumber | String | Svarar Kontrollnumret för transaktionsuppsättningen. (Valfritt) |
+| respondingTransactionSetId | String | Svarar transaktionsuppsättnings-ID, som mappar till AK201 i godkännandet. (Valfritt) |
+| statusCode | Boolesk | Transaktionsuppsättnings-bekräftelsestatuskod. (Obligatorisk) |
 | segmentsCount | Enum | Bekräftelsestatuskod. Tillåtna värden är **godkända**, **Avvisad**, och **AcceptedWithErrors**. (Obligatorisk) |
 | processingStatus | Enum | Bearbetningsstatus av bekräftelsen. Tillåtna värden är **mottagna**, **Generated**, och **skickade**. (Obligatorisk) |
-| correlationMessageId | Sträng | Korrelations-meddelande-ID. En kombination av {AgreementName} {*GroupControlNumber*} {TransactionSetControlNumber}. (Valfritt) |
+| CorrelationMessageId | String | Korrelations-meddelande-ID. En kombination av {AgreementName} {*GroupControlNumber*} {TransactionSetControlNumber}. (Valfritt) |
 | isMessageFailed | Boolesk | Om X12 meddelandet misslyckades. (Obligatorisk) |
-| ak2Segment | Sträng | Bekräftelse för en transaktion som anges i mottagna funktionsgrupp. (Valfritt) |
-| ak3Segment | Sträng | Rapporterar fel i en data-segmentet. (Valfritt) |
-| ak5Segment | Sträng | Rapporter om transaktionsuppsättningen identifierade i segmentet AK2 godkännas eller avvisas och varför. (Valfritt) |
+| ak2Segment | String | Bekräftelse för en transaktion som anges i mottagna funktionsgrupp. (Valfritt) |
+| ak3Segment | String | Rapporterar fel i en data-segmentet. (Valfritt) |
+| ak5Segment | String | Rapporter om transaktionsuppsättningen identifierade i segmentet AK2 godkännas eller avvisas och varför. (Valfritt) |
 ||||
 
 ## <a name="x12-interchange-tracking-schema"></a>X12 interchange-spårningsschema
@@ -173,25 +173,25 @@ För att hjälpa dig att övervaka lyckades, fel och meddelandeegenskaper för b
 
 | Egenskap  | Typ | Beskrivning |
 | --- | --- | --- |
-| senderPartnerName | Sträng | X12 meddelande avsändarens Partnernamn. (Valfritt) |
-| receiverPartnerName | Sträng | X12 meddelande mottagarens Partnernamn. (Valfritt) |
-| senderQualifier | Sträng | Skicka partner kvalificerare. (Obligatorisk) |
-| senderIdentifier | Sträng | Skicka ID för partner. (Obligatorisk) |
-| receiverQualifier | Sträng | Ta emot partner kvalificerare. (Obligatorisk) |
-| receiverIdentifier | Sträng | Ta emot partner-ID. (Obligatorisk) |
-| agreementName | Sträng | Namnet på X12 avtal som meddelanden har åtgärdats. (Valfritt) |
+| senderPartnerName | String | X12 meddelande avsändarens Partnernamn. (Valfritt) |
+| receiverPartnerName | String | X12 meddelande mottagarens Partnernamn. (Valfritt) |
+| senderQualifier | String | Skicka partner kvalificerare. (Obligatorisk) |
+| senderIdentifier | String | Skicka ID för partner. (Obligatorisk) |
+| receiverQualifier | String | Ta emot partner kvalificerare. (Obligatorisk) |
+| receiverIdentifier | String | Ta emot partner-ID. (Obligatorisk) |
+| agreementName | String | Namnet på X12 avtal som meddelanden har åtgärdats. (Valfritt) |
 | riktning | Enum | Riktning för meddelande-flödet tar emot eller skickar. (Obligatorisk) |
-| interchangeControlNumber | Sträng | Interchange-kontrollnummer. (Valfritt) |
-| isaSegment | Sträng | Meddelandet ISA-segmentet. (Valfritt) |
+| interchangeControlNumber | String | Interchange-kontrollnummer. (Valfritt) |
+| isaSegment | String | Meddelandet ISA-segmentet. (Valfritt) |
 | isTechnicalAcknowledgmentExpected | Boolesk | Om teknisk bekräftelse har konfigurerats i X12 avtal. (Obligatorisk) |
 | isMessageFailed | Boolesk | Om X12 meddelandet misslyckades. (Obligatorisk) |
-| isa09 | Sträng | X12 dokumentera utbytet datum. (Valfritt) |
-| isa10 | Sträng | X12 dokumentera utbytet tid. (Valfritt) |
-| isa11 | Sträng | X12 interchange kontroll standarder identifierare. (Valfritt) |
-| isa12 | Sträng | X12 interchange kontroll versionsnumret. (Valfritt) |
-| isa14 | Sträng | X12 bekräftelse begärs. (Valfritt) |
-| isa15 | Sträng | Indikator för testning eller produktion. (Valfritt) |
-| isa16 | Sträng | Dataelement-avgränsare. (Valfritt) |
+| isa09 | String | X12 dokumentera utbytet datum. (Valfritt) |
+| isa10 | String | X12 dokumentera utbytet tid. (Valfritt) |
+| isa11 | String | X12 interchange kontroll standarder identifierare. (Valfritt) |
+| isa12 | String | X12 interchange kontroll versionsnumret. (Valfritt) |
+| isa14 | String | X12 bekräftelse begärs. (Valfritt) |
+| isa15 | String | Indikator för testning eller produktion. (Valfritt) |
+| isa16 | String | Dataelement-avgränsare. (Valfritt) |
 ||||
 
 ## <a name="x12-interchange-acknowledgement-tracking-schema"></a>X12 interchange bekräftelse spårningsschema
@@ -224,23 +224,23 @@ För att hjälpa dig att övervaka lyckades, fel och meddelandeegenskaper för b
 
 | Egenskap  | Typ | Beskrivning |
 | --- | --- | --- |
-| senderPartnerName | Sträng | X12 meddelande avsändarens Partnernamn. (Valfritt) |
-| receiverPartnerName | Sträng | X12 meddelande mottagarens Partnernamn. (Valfritt) |
-| senderQualifier | Sträng | Skicka partner kvalificerare. (Obligatorisk) |
-| senderIdentifier | Sträng | Skicka ID för partner. (Obligatorisk) |
-| receiverQualifier | Sträng | Ta emot partner kvalificerare. (Obligatorisk) |
-| receiverIdentifier | Sträng | Ta emot partner-ID. (Obligatorisk) |
-| agreementName | Sträng | Namnet på X12 avtal som meddelanden har åtgärdats. (Valfritt) |
+| senderPartnerName | String | X12 meddelande avsändarens Partnernamn. (Valfritt) |
+| receiverPartnerName | String | X12 meddelande mottagarens Partnernamn. (Valfritt) |
+| senderQualifier | String | Skicka partner kvalificerare. (Obligatorisk) |
+| senderIdentifier | String | Skicka ID för partner. (Obligatorisk) |
+| receiverQualifier | String | Ta emot partner kvalificerare. (Obligatorisk) |
+| receiverIdentifier | String | Ta emot partner-ID. (Obligatorisk) |
+| agreementName | String | Namnet på X12 avtal som meddelanden har åtgärdats. (Valfritt) |
 | riktning | Enum | Riktning för meddelande-flödet tar emot eller skickar. (Obligatorisk) |
-| interchangeControlNumber | Sträng | Interchange-kontrollnummer av teknisk bekräftelsen som tas emot från partner. (Valfritt) |
-| isaSegment | Sträng | ISA-segmentet för den tekniska bekräftelse som tas emot från partner. (Valfritt) |
-| respondingInterchangeControlNumber |Sträng | Interchange-kontrollnummer för den tekniska bekräftelse som tas emot från partner. (Valfritt) |
+| interchangeControlNumber | String | Interchange-kontrollnummer av teknisk bekräftelsen som tas emot från partner. (Valfritt) |
+| isaSegment | String | ISA-segmentet för den tekniska bekräftelse som tas emot från partner. (Valfritt) |
+| respondingInterchangeControlNumber |String | Interchange-kontrollnummer för den tekniska bekräftelse som tas emot från partner. (Valfritt) |
 | isMessageFailed | Boolesk | Om X12 meddelandet misslyckades. (Obligatorisk) |
-| statuskod | Enum | Interchange bekräftelsestatuskod. Tillåtna värden är **godkända**, **Avvisad**, och **AcceptedWithErrors**. (Obligatorisk) |
+| statusCode | Enum | Interchange bekräftelsestatuskod. Tillåtna värden är **godkända**, **Avvisad**, och **AcceptedWithErrors**. (Obligatorisk) |
 | processingStatus | Enum | Bekräftelsestatusen. Tillåtna värden är **mottagna**, **Generated**, och **skickade**. (Obligatorisk) |
-| TA102 | Sträng | Interchange datum. (Valfritt) |
-| ta103 | Sträng | Interchange tid. (Valfritt) |
-| ta105 | Sträng | Interchange Obs kod. (Valfritt) |
+| ta102 | String | Interchange datum. (Valfritt) |
+| ta103 | String | Interchange tid. (Valfritt) |
+| ta105 | String | Interchange Obs kod. (Valfritt) |
 ||||
 
 ## <a name="x12-functional-group-tracking-schema"></a>X12 funktionell grupp-spårningsschema
@@ -277,27 +277,27 @@ För att hjälpa dig att övervaka lyckades, fel och meddelandeegenskaper för b
 
 | Egenskap  | Typ | Beskrivning |
 | --- | --- | --- |
-| senderPartnerName | Sträng | X12 meddelande avsändarens Partnernamn. (Valfritt) |
-| receiverPartnerName | Sträng | X12 meddelande mottagarens Partnernamn. (Valfritt) |
-| senderQualifier | Sträng | Skicka partner kvalificerare. (Obligatorisk) |
-| senderIdentifier | Sträng | Skicka ID för partner. (Obligatorisk) |
-| receiverQualifier | Sträng | Ta emot partner kvalificerare. (Obligatorisk) |
-| receiverIdentifier | Sträng | Ta emot partner-ID. (Obligatorisk) |
-| agreementName | Sträng | Namnet på X12 avtal som meddelanden har åtgärdats. (Valfritt) |
+| senderPartnerName | String | X12 meddelande avsändarens Partnernamn. (Valfritt) |
+| receiverPartnerName | String | X12 meddelande mottagarens Partnernamn. (Valfritt) |
+| senderQualifier | String | Skicka partner kvalificerare. (Obligatorisk) |
+| senderIdentifier | String | Skicka ID för partner. (Obligatorisk) |
+| receiverQualifier | String | Ta emot partner kvalificerare. (Obligatorisk) |
+| receiverIdentifier | String | Ta emot partner-ID. (Obligatorisk) |
+| agreementName | String | Namnet på X12 avtal som meddelanden har åtgärdats. (Valfritt) |
 | riktning | Enum | Riktning för meddelande-flödet tar emot eller skickar. (Obligatorisk) |
-| interchangeControlNumber | Sträng | Interchange-kontrollnummer. (Valfritt) |
-| functionalGroupControlNumber | Sträng | Funktionella kontrollnummer. (Valfritt) |
-| gsSegment | Sträng | Meddelandet GS segment. (Valfritt) |
+| interchangeControlNumber | String | Interchange-kontrollnummer. (Valfritt) |
+| functionalGroupControlNumber | String | Funktionella kontrollnummer. (Valfritt) |
+| gsSegment | String | Meddelandet GS segment. (Valfritt) |
 | isTechnicalAcknowledgmentExpected | Boolesk | Om teknisk bekräftelse har konfigurerats i X12 avtal. (Obligatorisk) |
 | isFunctionalAcknowledgmentExpected | Boolesk | Om den funktionella bekräftelsen har konfigurerats i X12 avtal. (Obligatorisk) |
 | isMessageFailed | Boolesk | Om X12 meddelandet misslyckades. (Obligatorisk)|
-| gs01 | Sträng | Funktionella identifierare kod. (Valfritt) |
-| gs02 | Sträng | Programmet avsändarens kod. (Valfritt) |
-| gs03 | Sträng | Programmet mottagare kod. (Valfritt) |
-| gs04 | Sträng | Funktionell grupp datum. (Valfritt) |
-| gs05 | Sträng | Funktionell grupp tid. (Valfritt) |
-| gs07 | Sträng | Ansvarig myndighet kod. (Valfritt) |
-| gs08 | Sträng | Versionen/versionen/bransch identifierare kod. (Valfritt) |
+| gs01 | String | Funktionella identifierare kod. (Valfritt) |
+| gs02 | String | Programmet avsändarens kod. (Valfritt) |
+| gs03 | String | Programmet mottagare kod. (Valfritt) |
+| gs04 | String | Funktionell grupp datum. (Valfritt) |
+| gs05 | String | Funktionell grupp tid. (Valfritt) |
+| gs07 | String | Ansvarig myndighet kod. (Valfritt) |
+| gs08 | String | Versionen/versionen/bransch identifierare kod. (Valfritt) |
 ||||
 
 ## <a name="x12-functional-group-acknowledgement-tracking-schema"></a>X12 funktionell grupp bekräftelse spårningsschema
@@ -333,26 +333,26 @@ För att hjälpa dig att övervaka lyckades, fel och meddelandeegenskaper för b
 
 | Egenskap  | Typ | Beskrivning |
 | --- | --- | --- |
-| senderPartnerName | Sträng | X12 meddelande avsändarens Partnernamn. (Valfritt) |
-| receiverPartnerName | Sträng | X12 meddelande mottagarens Partnernamn. (Valfritt) |
-| senderQualifier | Sträng | Skicka partner kvalificerare. (Obligatorisk) |
-| senderIdentifier | Sträng | Skicka ID för partner. (Obligatorisk) |
-| receiverQualifier | Sträng | Ta emot partner kvalificerare. (Obligatorisk) |
-| receiverIdentifier | Sträng | Ta emot partner-ID. (Obligatorisk) |
-| agreementName | Sträng | Namnet på X12 avtal som meddelanden har åtgärdats. (Valfritt) |
+| senderPartnerName | String | X12 meddelande avsändarens Partnernamn. (Valfritt) |
+| receiverPartnerName | String | X12 meddelande mottagarens Partnernamn. (Valfritt) |
+| senderQualifier | String | Skicka partner kvalificerare. (Obligatorisk) |
+| senderIdentifier | String | Skicka ID för partner. (Obligatorisk) |
+| receiverQualifier | String | Ta emot partner kvalificerare. (Obligatorisk) |
+| receiverIdentifier | String | Ta emot partner-ID. (Obligatorisk) |
+| agreementName | String | Namnet på X12 avtal som meddelanden har åtgärdats. (Valfritt) |
 | riktning | Enum | Riktning för meddelande-flödet tar emot eller skickar. (Obligatorisk) |
-| interchangeControlNumber | Sträng | Interchange-kontrollnummer som fyller för sändningssidan när en teknisk bekräftelse tas emot från partner. (Valfritt) |
-| functionalGroupControlNumber | Sträng | Funktionell gruppkontrollnummer av den tekniska bekräftelse som fyller för sändningssidan när en teknisk bekräftelse tas emot från partner. (Valfritt) |
-| isaSegment | Sträng | Samma som utbytet styr många, men endast i vissa fall. (Valfritt) |
-| gsSegment | Sträng | Samma som funktionsgruppen styr många, men endast i vissa fall. (Valfritt) |
-| respondingfunctionalGroupControlNumber | Sträng | Kontrollnummer för den ursprungliga funktionell gruppen. (Valfritt) |
-| respondingFunctionalGroupId | Sträng | Mappar till AK101 i funktionsgruppen bekräftelse-ID. (Valfritt) |
+| interchangeControlNumber | String | Interchange-kontrollnummer som fyller för sändningssidan när en teknisk bekräftelse tas emot från partner. (Valfritt) |
+| functionalGroupControlNumber | String | Funktionell gruppkontrollnummer av den tekniska bekräftelse som fyller för sändningssidan när en teknisk bekräftelse tas emot från partner. (Valfritt) |
+| isaSegment | String | Samma som utbytet styr många, men endast i vissa fall. (Valfritt) |
+| gsSegment | String | Samma som funktionsgruppen styr många, men endast i vissa fall. (Valfritt) |
+| respondingfunctionalGroupControlNumber | String | Kontrollnummer för den ursprungliga funktionell gruppen. (Valfritt) |
+| respondingFunctionalGroupId | String | Mappar till AK101 i funktionsgruppen bekräftelse-ID. (Valfritt) |
 | isMessageFailed | Boolesk | Om X12 meddelandet misslyckades. (Obligatorisk) |
-| statuskod | Enum | Bekräftelsestatuskod. Tillåtna värden är **godkända**, **Avvisad**, och **AcceptedWithErrors**. (Obligatorisk) |
+| statusCode | Enum | Bekräftelsestatuskod. Tillåtna värden är **godkända**, **Avvisad**, och **AcceptedWithErrors**. (Obligatorisk) |
 | processingStatus | Enum | Bearbetningsstatus av bekräftelsen. Tillåtna värden är **mottagna**, **Generated**, och **skickade**. (Obligatorisk) |
-| ak903 | Sträng | Antal transaktionsuppsättningar som tagits emot. (Valfritt) |
-| ak904 | Sträng | Antal transaktionsuppsättningar accepteras i identifierade funktionsgruppen. (Valfritt) |
-| ak9Segment | Sträng | Om funktionsgruppen som identifieras i segmentet AK1 godkännas eller avvisas och varför. (Valfritt) |
+| ak903 | String | Antal transaktionsuppsättningar som tagits emot. (Valfritt) |
+| ak904 | String | Antal transaktionsuppsättningar accepteras i identifierade funktionsgruppen. (Valfritt) |
+| ak9Segment | String | Om funktionsgruppen som identifieras i segmentet AK1 godkännas eller avvisas och varför. (Valfritt) |
 |||| 
 
 ## <a name="b2b-protocol-tracking-schemas"></a>B2B-protokollet-spårningsscheman
@@ -365,4 +365,4 @@ Information om B2B-protokollet spårningsscheman finns i:
 ## <a name="next-steps"></a>Nästa steg
 
 * Läs mer om [övervakning B2B-meddelanden](logic-apps-monitor-b2b-message.md).
-* Lär dig mer om [spåra B2B-meddelanden i Log Analytics](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
+* Lär dig mer om [spåra B2B-meddelanden i Azure Monitor-loggar](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).

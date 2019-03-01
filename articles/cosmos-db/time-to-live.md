@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 9b5054da56bdc6a88642ea7860702b280a76dbb1
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: d09abfbec7ace3112de35869ccc95c56e113e6fe
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55461176"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56991843"
 ---
 # <a name="time-to-live-in-azure-cosmos-db"></a>TTL-värde i Azure Cosmos DB 
 
@@ -30,7 +30,7 @@ Tiden TTL-värde har angetts i sekunder och tolkas det som en lista från den ti
 
    - Om närvarande och värdet anges till något nummer (”n”) – objekt upphör att gälla ”n” sekunder efter deras senast ändrades.
 
-2. **Time to Live-värde på ett objekt** (anges med `TimeToLive`):
+2. **Time to Live-värde på ett objekt** (anges med `ttl`):
 
    - Den här egenskapen gäller bara om `DefaultTimeToLive` finns och inte har angetts till null för den överordnade behållaren.
 

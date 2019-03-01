@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/29/2019
+ms.date: 02/28/2019
 ms.author: lizross
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b6c1e0e7b1b5aa97137dc59e3e5cee1eb544af5a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 6fd42e1e06086a12b159a8510c3d53a7f32e46f6
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56199416"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57194647"
 ---
 # <a name="archive-for-whats-new-in-azure-active-directory"></a>Arkiveringsjobb för vad som är nytt? i Azure Active Directory
 
@@ -30,6 +30,208 @@ Vad är nytt viktig information innehåller information om:
 - Felkorrigeringar
 - Inaktuell funktion
 - Planer för ändringar
+
+---
+
+## <a name="july-2018"></a>Juli 2018
+
+### <a name="improvements-to-azure-active-directory-email-notifications"></a>Förbättringar av e-postfunktionen i Azure Active Directory
+
+**Typ:** Ändrad funktion  
+**Tjänstekategori:** Annat  
+**Produkten kapacitet:** Identitetslivcykelhantering
+ 
+Azure Active Directory (Azure AD) e-postmeddelanden har nu en uppdaterad design, samt ändringar i avsändarens e-postadress och visningsnamn för avsändaren, när de skickas från följande tjänster:
+ 
+- Azure AD-Åtkomstgranskningar
+- Azure AD Connect Health 
+- Azure AD Identity Protection 
+- Azure AD Privileged Identity Management
+- Enterprise-appen upphör att gälla certifikat-meddelanden
+- Etablering tjänstmeddelanden i Enterprise-App
+ 
+E-postmeddelanden skickas från följande e-postadress och ditt visningsnamn:
+
+- E-postadress: azure-noreply@microsoft.com
+- Visningsnamn: Microsoft Azure
+ 
+Ett exempel på några av de nya e-designerna och mer information finns i [e-postmeddelanden i Azure AD PIM](https://go.microsoft.com/fwlink/?linkid=2005832).
+
+---
+
+### <a name="azure-ad-activity-logs-are-now-available-through-azure-monitor"></a>Azure AD-aktivitetsloggar är nu tillgängliga på Azure Monitor
+
+**Typ:** Ny funktion  
+**Tjänstekategori:** Rapportering  
+**Produkten kapacitet:** Övervakning och rapportering
+
+Azure AD-aktivitetsloggar finns nu i offentlig förhandsversion för Azure Monitor (Azures plattform hela övervakningstjänsten). Azure Monitor erbjuder långsiktig kvarhållning och smidig integrering, utöver dessa förbättringar:
+
+- Långsiktig kvarhållning av Routning din loggfiler till din egen Azure storage-konto.
+
+- Sömlös SIEM-integrering, utan att behöva skriva eller underhålla anpassade skript.
+
+- Sömlös integrering med dina egna anpassade lösningar, analysverktyg eller lösningar för hantering av incidenter.
+
+Mer information om de här nya funktionerna finns i vår blogg [Azure AD-aktivitetsloggar i Azure Monitor diagnostik finns nu i offentlig förhandsversion](https://cloudblogs.microsoft.com/enterprisemobility/2018/07/26/azure-ad-activity-logs-in-azure-monitor-diagnostics-now-in-public-preview/) och dokumentationen för [Azure Active Directory-aktivitetsloggar i Azure Övervakning (förhandsversion)](https://docs.microsoft.com/azure/active-directory/reporting-azure-monitor-diagnostics-overview).
+
+---
+
+### <a name="conditional-access-information-added-to-the-azure-ad-sign-ins-report"></a>Information för villkorlig åtkomst har lagts till iAzure AD-inloggningsrapporten
+
+**Typ:** Ny funktion  
+**Tjänstekategori:** Rapportering  
+**Produkten kapacitet:** Identitetssäkerhet och skydd
+ 
+Den här uppdateringen kan du se vilka principer utvärderas när en användare loggar in tillsammans med principen resultatet. Dessutom kan innehåller rapporten nu typ av klientapp som används av användaren, så att du kan identifiera äldre protokolltrafik. Rapporten poster kan nu även genomsökas för ett Korrelations-ID som finns i felmeddelandet användarinriktade och kan användas för att identifiera och Felsök matchande inloggningsbegäran.
+
+---
+
+### <a name="view-legacy-authentications-through-sign-ins-activity-logs"></a>Visa äldre autentiseringar via inloggningsaktivitetsloggar
+
+**Typ:** Ny funktion  
+**Tjänstekategori:** Rapportering  
+**Produkten kapacitet:** Övervakning och rapportering
+ 
+Med introduktionen av den **Klientappen** fält i inloggningsaktivitet loggar, kunder kan nu se användare som använder äldre autentiseringar. Kunder kommer att kunna komma åt informationen med inloggningar MS Graph API eller via inloggningen aktivitetsloggar i Azure AD-portalen där du kan använda den **Klientappen** kontroll för att filtrera på äldre autentiseringar. Läs igenom dokumentationen för mer information.
+
+---
+
+### <a name="new-federated-apps-available-in-azure-ad-app-gallery---july-2018"></a>Nya federerade appar finns tillgängliga i Azure AD-appgalleriet – juni 2018
+
+**Typ:** Ny funktion  
+**Tjänstekategori:** Företagsappar  
+**Produkten kapacitet:** Tredjepartsintegration
+ 
+I juli 2018 har vi lagt till dessa 16 nya appar med stöd för app-galleriet:
+
+[Innovation Hub](https://docs.microsoft.com/azure/active-directory/saas-apps/innovationhub-tutorial), [Leapsome](https://docs.microsoft.com/azure/active-directory/saas-apps/leapsome-tutorial), [vissa Admin SSO](https://docs.microsoft.com/azure/active-directory/saas-apps/certainadminsso-tutorial), PSUC mellanlagring [iPass SmartConnect](https://docs.microsoft.com/azure/active-directory/saas-apps/ipasssmartconnect-tutorial), [skärmbild-O-till](https://docs.microsoft.com/azure/active-directory/saas-apps/screencast-tutorial) , PowerSchool Unified klassrum, [Eli Onboarding](https://docs.microsoft.com/azure/active-directory/saas-apps/elionboarding-tutorial), [Bomgar Remote Support](https://docs.microsoft.com/azure/active-directory/saas-apps/bomgarremotesupport-tutorial), [Nimblex](https://docs.microsoft.com/azure/active-directory/saas-apps/nimblex-tutorial), [Imagineer WebVision](https://docs.microsoft.com/azure/active-directory/saas-apps/imagineerwebvision-tutorial) , [Insight4GRC](https://docs.microsoft.com/azure/active-directory/saas-apps/insight4grc-tutorial), [SecureW2 JoinNow Connector](https://docs.microsoft.com/azure/active-directory/saas-apps/securejoinnow-tutorial), [Kanbanize](https://review.docs.microsoft.com/azure/active-directory/saas-apps/kanbanize-tutorial), [SmartLPA](https://review.docs.microsoft.com/azure/active-directory/saas-apps/smartlpa-tutorial), [kunskaper Base](https://docs.microsoft.com/azure/active-directory/saas-apps/skillsbase-tutorial)
+
+Mer information om apparna som finns i [SaaS-programintegration med Azure Active Directory](https://aka.ms/appstutorial). Läs mer om att lista ditt program i Azure AD-appgalleri [lista ditt program i Azure Active Directory-programgalleriet](https://aka.ms/azureadapprequest).
+
+---
+ 
+### <a name="new-user-provisioning-saas-app-integrations---july-2018"></a>Ny användarförsörjning för SaaS-appintegreringar – juli 2018
+
+**Typ:** Ny funktion  
+**Tjänstekategori:** App-etablering  
+**Produkten kapacitet:** Tredjepartsintegration
+ 
+Azure AD kan du automatisera den genereringen, underhållet och borttagningen av användaridentiteter i SaaS-program, till exempel Dropbox, Salesforce, ServiceNow med mera. Vi har lagt till stöd för följande program i Azure AD-appgalleriet för användaretablering för juli 2018:
+
+- [Cisco Spark](https://docs.microsoft.com/azure/active-directory/saas-apps/cisco-spark-provisioning-tutorial)
+
+- [Cisco WebEx](https://docs.microsoft.com/azure/active-directory/saas-apps/cisco-webex-provisioning-tutorial)
+
+- [Bonusly](https://docs.microsoft.com/azure/active-directory/saas-apps/bonusly-provisioning-tutorial)
+
+En lista över alla program som stöder etableringen av användare i Azure AD-galleriet finns i [SaaS-programintegration med Azure Active Directory](https://aka.ms/appstutorial).
+
+---
+
+### <a name="connect-health-for-sync---an-easier-way-to-fix-orphaned-and-duplicate-attribute-sync-errors"></a>Connect Health för synkronisering – ett enklare sätt att korrigera överblivna och dubblettattributsynkroniseringsfel på
+
+**Typ:** Ny funktion  
+**Tjänstekategori:** AD Connect  
+**Produkten kapacitet:** Övervakning och rapportering
+ 
+Azure AD Connect Health introducerar hjälpåtgärder för att du kan markera och åtgärda synkroniseringsfel. Den här funktionen felsöker Duplicerat attribut synkroniseringsfel och korrigeringar objekt som kopplas från Azure AD. Den här diagnos har följande fördelar:
+
+- Begränsar Duplicerat attribut synkroniseringsfel att tillhandahålla specifikt korrigeringar
+
+- Gäller en korrigering för särskilda scenarier för Azure AD, lösa problem i ett enda steg
+
+- Ingen uppgradering eller konfiguration krävs för att aktivera och använda den här funktionen
+
+Mer information finns i [diagnostisera och åtgärda synkroniseringsfel Duplicerat attribut](https://docs.microsoft.com/azure/active-directory/connect-health/active-directory-aadconnect-health-diagnose-sync-errors)
+
+---
+
+### <a name="visual-updates-to-the-azure-ad-and-msa-sign-in-experiences"></a>Visuella uppdateringar av Azure AD och MSA-inloggningsupplevelserna
+
+**Typ:** Ändrad funktion  
+**Tjänstekategori:** Azure AD  
+**Produkten kapacitet:** Användarautentisering
+
+Vi har uppdaterat i Användargränssnittet för Microsoft online services-inloggningen, till exempel för Office 365 och Azure. Den här ändringen gör skärmarna mindre rörig och enklare. Mer information om den här ändringen finns i den [kommande förbättringar till Azure AD-inloggningen](https://cloudblogs.microsoft.com/enterprisemobility/2018/04/04/upcoming-improvements-to-the-azure-ad-sign-in-experience/) blogg.
+
+---
+
+### <a name="new-release-of-azure-ad-connect---july-2018"></a>En ny version av Azure AD Connect – juli 2018
+
+**Typ:** Ändrad funktion  
+**Tjänstekategori:** App-etablering  
+**Produkten kapacitet:** Livscykelhantering för identiteter
+
+Den senaste versionen av Azure AD Connect innehåller: 
+
+- Felkorrigeringar och support-uppdateringar 
+
+- Allmän tillgänglighet för Ping-federera-integrering
+
+- Uppdateringar till den senaste SQL 2012-klienten 
+
+Mer information om den här uppdateringen finns i [Azure AD Connect: Versionshistorik](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history)
+
+---
+
+### <a name="updates-to-the-terms-of-use-tou-end-user-ui"></a>Uppdateringar av användningsvillkoren för slutanvändargränssnittet
+
+**Typ:** Ändrad funktion  
+**Tjänstekategori:** Användningsvillkor  
+**Produkten kapacitet:** Styrning
+
+Vi uppdaterar godkännande-strängen i Gränssnittet Användningsvillkoren för slutanvändare.
+
+**Aktuell text.** För att komma åt resurser i [tenantName], måste du godkänna användningsvillkoren.<br>**Ny text.** Du måste läsa användningsvillkoren för att komma åt [tenantName] resurs.
+
+**Aktuell text:** Om du väljer att acceptera innebär det att du godkänner alla ovanstående användningsvillkor.<br>**Ny text:** Klicka på Godkänn för att bekräfta att du har läst och förstått användningsvillkoren.
+
+---
+ 
+### <a name="pass-through-authentication-supports-legacy-protocols-and-applications"></a>Direktautentisering stöder äldre protokoll och program
+
+**Typ:** Ändrad funktion  
+**Tjänstekategori:** Autentiseringar (inloggningar)  
+**Produkten kapacitet:** Användarautentisering
+ 
+Direktautentisering nu stöder äldre protokoll och appar. Följande begränsningar finns nu fullständigt stöd:
+
+- Användarinloggningar till äldre Office-program, Office 2010 och Office 2013, utan modern autentisering.
+
+- Åtkomst till delade kalendrar och ledig eller upptagen i Exchange hybridmiljöer på Office 2010 endast.
+
+- Användarinloggningar till Skype för företag-klientprogram utan modern autentisering.
+
+- Användarinloggningar till PowerShell version 1.0.
+
+- I Apples DEP (Apple DEP), med hjälp av iOS-Installationsassistenten. 
+
+---
+ 
+### <a name="converged-security-info-management-for-self-service-password-reset-and-multi-factor-authentication"></a>Hantering av konvergerad säkerhetsinformation för återställning av lösenord genom självbetjäning och Multi-Factor Authentication
+
+**Typ:** Ny funktion  
+**Tjänstekategori:** SSPR  
+**Produkten kapacitet:** Användarautentisering
+
+Den här nya funktionen kan användarna hantera deras säkerhetsinformation (till exempel telefonnummer, e-postadress, mobilapp och så vidare) för lösenordsåterställning via självbetjäning (SSPR) och Multi-Factor Authentication (MFA) i en enskild upplevelse. Användare kommer inte längre att registrera samma säkerhetsinformationen för SSPR och MFA i två olika upplevelser. Den här nya upplevelsen gäller även för användare som har SSPR eller MFA.
+
+Om en organisation inte är tvingande MFA eller SSPR-registrering, användare kan registrera deras säkerhetsinformation via den **Mina appar** portal. Därifrån kan användare registrera andra metoder som aktiverats för MFA eller SSPR. 
+
+Det här är en valbar offentlig förhandsversion. Administratörer kan aktivera den nya upplevelsen (om det behövs) för en grupp av användare eller alla användare i en klient.
+
+---
+ 
+### <a name="use-the-microsoft-authenticator-app-to-verify-your-identity-when-you-reset-your-password"></a>Använd Microsoft Authenticator-appen när du ska verifiera din identitet då du återställer ditt lösenord
+
+**Typ:** Ändrad funktion  
+**Tjänstekategori:** SSPR  
+**Produkten kapacitet:** Användarautentisering
+
+Den här funktionen kan icke-administratörer verifiera sin identitet när du återställer ett lösenord med hjälp av en avisering eller kod från Microsoft Authenticator (eller andra authenticator-appen). När administratörer har aktiverat den här lösenordsåterställning via självbetjäning metod, användare som har registrerat en mobil app via aka.ms/mfasetup eller aka.ms/setupsecurityinfo kan använda sina mobila appar som en verifieringsmetod vid återställning av lösenordet.
+
+Mobilappavisering kan endast aktiveras som en del av en princip som kräver två metoder för att återställa ditt lösenord.
 
 ---
 

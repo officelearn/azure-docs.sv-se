@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2019
 ms.author: spelluru
-ms.openlocfilehash: 9a267b48e185e02c1b1217380429453799308bbe
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 393a5c0af5ff7ccaef8aa462391c5c9457aa9c08
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56886789"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57011129"
 ---
 # <a name="add-an-artifact-repository-to-your-lab-in-devtest-labs"></a>Lägga till en artefaktcentrallagret i ditt labb i DevTest Labs
 DevTest Labs kan du ange en artefakt som ska läggas till en virtuell dator vid tidpunkten för att skapa den virtuella datorn eller när den virtuella datorn har skapats. Den här artefakten kan vara ett verktyg eller ett program som du vill installera på den virtuella datorn. Artefakter har definierats i en JSON-fil lästs in från en GitHub- eller VSTS Git-lagringsplats. 
@@ -172,7 +172,7 @@ Det finns ett antal sätt att distribuera mallen till Azure och få resursen ska
 - [Distribuera resurser med Resource Manager-mallar och Azure Portal](../azure-resource-manager/resource-group-template-deploy-portal.md)
 - [Distribuera resurser med Resource Manager-mallar och Resource Manager REST API](../azure-resource-manager/resource-group-template-deploy-rest.md)
 
-Vi går vidare och se hur du distribuerar mallen i PowerShell. Cmdlets som används för att distribuera mallen är sammanhangsberoende, så aktuella klienten och aktuella prenumerationen används. Använd [Set-AzContext](/powershell/module/az.profile/set-azcontext) innan du distribuerar mallen, vid behov för att ändra kontexten.
+Vi går vidare och se hur du distribuerar mallen i PowerShell. Cmdlets som används för att distribuera mallen är sammanhangsberoende, så aktuella klienten och aktuella prenumerationen används. Använd [Set-AzContext](/powershell/module/az.accounts/set-azcontext) innan du distribuerar mallen, vid behov för att ändra kontexten.
 
 Börja med att skapa en resurs med [New AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). Om resursgruppen som du vill använda redan finns, kan du hoppa över det här steget.
 
@@ -375,7 +375,7 @@ if ($ArtifactRepositoryName -eq $null){
 | [Get-AzResource](/powershell/module/az.resources/get-azresource) | Det här kommandot används för att få information om labbet, till exempel dess plats. |
 | [New-AzResource](/powershell/module/az.resources/new-azresource) | Det finns inga specifika kommando för att lägga till artefakt databaser. Allmän [New AzResource](/powershell/module/az.resources/new-azresource) cmdlet gör jobbet. Denna cmdlet måste antingen den **ResourceId** eller **ResourceName** och **ResourceType** par veta vilken typ av resurs som ska skapas. Det här exempelskriptet använder resursnamnet och par för typ av resurs. <br/><br/>Observera att du skapar lagerkälla artefakt på samma plats och under samma resursgrupp som labbet.|
 
-Skriptet lägger till en ny resurs i den aktuella prenumerationen. Använd [Get-AzContext](/powershell/module/az.profile/get-azcontext) se den här informationen. Använd [Set-AzContext](/powershell/module/az.profile/set-azcontext) att ange aktuell klient och prenumeration.
+Skriptet lägger till en ny resurs i den aktuella prenumerationen. Använd [Get-AzContext](/powershell/module/az.accounts/get-azcontext) se den här informationen. Använd [Set-AzContext](/powershell/module/az.accounts/set-azcontext) att ange aktuell klient och prenumeration.
 
 Det bästa sättet att identifiera resursens namn och information om resursen är att använda den [Test Drive Azure REST API: er](https://azure.github.io/projects/apis/) webbplats. Kolla in den [DevTest Labs – 2016-05-15](http://aka.ms/dtlrestapis) provider för att se tillgängliga REST API: er för DevTest Labs-providern. Skriptanvändare följande resurs-ID. 
 

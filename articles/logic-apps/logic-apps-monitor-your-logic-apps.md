@@ -10,18 +10,20 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: 5c1b1e15-3b6c-49dc-98a6-bdbe7cb75339
 ms.date: 07/21/2017
-ms.openlocfilehash: e06bf20a04c6a57ae5988d4cc334ec7a3cdd4bf1
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 6a8c4583d86b41e767e8a2057bae4cef8943a1c1
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53543864"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57193426"
 ---
 # <a name="monitor-status-set-up-diagnostics-logging-and-turn-on-alerts-for-azure-logic-apps"></a>Övervaka status, konfigurera diagnostikloggning och aktivera aviseringar för Azure Logic Apps
 
 När du [skapar och kör en logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md), du kan kontrollera dess körningshistorik, utlösarhistorik, status och prestanda. För händelseövervakning och mer omfattande felsökning, ställa in [diagnostikloggning](#azure-diagnostics) för din logikapp. På så sätt kan du kan [hitta och visa händelser](#find-events), t.ex. utlösande händelser, kör händelser och händelser för åtgärden. Du kan också använda det här [diagnostics-data med andra tjänster](#extend-diagnostic-data), som Azure Storage och Azure Event Hubs. 
 
 Om du vill få meddelanden om fel eller andra möjliga problem, Ställ in [aviseringar](#add-azure-alerts). Du kan till exempel skapa en avisering som identifierar ”när fler än fem körningar misslyckas på en timme”. Du kan också ställa in övervakning, spårning och loggning programmässigt med hjälp av [Azure Diagnostics händelse inställningar och egenskaper](#diagnostic-event-properties).
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="view-runs-and-trigger-history-for-your-logic-app"></a>Visa körningar och utlösningshistorik för din logikapp
 
@@ -72,7 +74,7 @@ Om du vill få meddelanden om fel eller andra möjliga problem, Ställ in [avise
 
 ## <a name="turn-on-diagnostics-logging-for-your-logic-app"></a>Slå på diagnostik loggning för din logikapp
 
-För bättre felsökning med runtime samt händelser, som du kan ställa in diagnostik loggning med [Azure Log Analytics](../log-analytics/log-analytics-overview.md). Log Analytics är en tjänst i Azure som övervakar dina molnbaserade och lokala miljöer för att hjälpa dig att bibehålla tillgänglighet och prestanda. 
+För bättre felsökning med runtime samt händelser, som du kan ställa in diagnostik loggning med [Azure Monitor loggar](../log-analytics/log-analytics-overview.md). Azure Monitor är en tjänst i Azure som övervakar dina molnbaserade och lokala miljöer för att hjälpa dig att bibehålla tillgänglighet och prestanda. 
 
 Innan du börjar måste du har en Log Analytics-arbetsyta. Lär dig [hur du skapar en Log Analytics-arbetsyta](../azure-monitor/learn/quick-create-workspace.md).
 
@@ -125,7 +127,7 @@ Som utlöser händelser, kör händelser, och åtgärden händelser, Följ stege
 
    ![Ange söksträngen](media/logic-apps-monitor-your-logic-apps/oms-start-query.png)
 
-   Läs mer om [hitta data i Log Analytics](../log-analytics/log-analytics-log-searches.md).
+   Läs mer om [hitta data i Azure Monitor-loggar](../log-analytics/log-analytics-log-searches.md).
 
 5. Välj tidsram som du vill visa i fältet till vänster på resultatsidan.
 Om du vill förfina frågan genom att lägga till ett filter, välja **+ Lägg till**.
@@ -153,7 +155,7 @@ Om du vill förfina frågan genom att lägga till ett filter, välja **+ Lägg t
 
 ## <a name="extend-how-and-where-you-use-diagnostic-data-with-other-services"></a>Utöka hur och var du kan använda diagnostikdata med andra tjänster
 
-Tillsammans med Azure Log Analytics kan utöka du hur du använda diagnostikdata för din logikapp med andra Azure-tjänster, till exempel: 
+Du kan utöka hur du använda diagnostikdata för din logikapp med andra Azure-tjänster, till exempel tillsammans med Azure Monitor-loggar: 
 
 * [Arkivera Azure Diagnostics-loggar i Azure Storage](../azure-monitor/platform/archive-diagnostic-logs.md)
 * [Stream Azure-diagnostikloggar för Azure Event Hubs](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md) 
@@ -176,7 +178,7 @@ Baserat på de alternativ som du vill konfigurera, ska du se till att du första
 
 Du kan övervaka specifika mått eller Överskriden tröskelvärden för din logikapp genom att ställa in [aviseringar i Azure](../azure-monitor/platform/alerts-overview.md). Lär dig mer om [mått i Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md). 
 
-Ställa in aviseringar utan [Azure Log Analytics](../log-analytics/log-analytics-overview.md), Följ stegen nedan. För mer avancerade villkor för aviseringar och åtgärder, [konfigurera Log Analytics](#azure-diagnostics) för.
+Ställa in aviseringar utan [Azure Monitor loggar](../log-analytics/log-analytics-overview.md), Följ stegen nedan. För mer avancerade villkor för aviseringar och åtgärder, [konfigurera Azure Monitor-loggar](#azure-diagnostics) för.
 
 1. På bladet logikappmenyn under **övervakning**, Välj **diagnostik** > **Aviseringsregler** > **Lägg till avisering**som visas här:
 

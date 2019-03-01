@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: ff45ecc00d1c5c810015c8007d194b882f32f3da
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: bd2f675fe646395b60aeb687f67269b0184563bd
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54412576"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57193406"
 ---
 # <a name="connect-a-windows-iot-core-device-to-your-azure-iot-central-application"></a>Anslut en Windows IoT Core-enhet till din Azure IoT Central program
 
@@ -51,7 +51,7 @@ Konfigurera en Windows IoT Core-enhet genom att följa steg-för-steg-instruktio
 I Azure IoT Central programmet, lägger du till en riktig enhet från den **Windows IoT Core** enheten mallen och gjort en notering enhetsinformation för anslutningen (**Scope-ID, enhets-ID, primärnyckel**). Mer information finns i [ge en riktig enhet till Azure IoT Central programmet](tutorial-add-device.md).
 
  > [!NOTE]
-   > Azure IoT Central har övergått till med hjälp av Azure IoT Hub Device Provisioning-tjänsten (DPS) för alla anslutningar på enheten, följer du dessa instrustions till [hämta enhetens anslutningssträng](concepts-connectivity.md#getting-device-connection-string) och fortsätta med resten av kursen.
+   > Azure IoT Central har övergått till med hjälp av Azure IoT Hub Device Provisioning-tjänsten (DPS) för alla anslutningar på enheten, följer du dessa instruktioner för att [hämta enhetens anslutningssträng](concepts-connectivity.md#get-a-connection-string) och fortsätta med resten av kursen.
 
 ## <a name="prepare-the-windows-10-iot-core-device"></a>Förbereda Windows 10 IoT Core-enhet
 
@@ -119,7 +119,7 @@ Numeriska inställningar
 
 ### <a name="properties"></a>Egenskaper
 
-| Typ            | Visningsnamn | Fältnamn | Datatyp |
+| Type            | Visningsnamn | Fältnamn | Datatyp |
 | --------------- | ------------ | ---------- | --------- |
 | Enhetsegenskap | Dör nummer   | dieNumber  | nummer    |
 | Text            | Plats     | location   | Gäller inte       |

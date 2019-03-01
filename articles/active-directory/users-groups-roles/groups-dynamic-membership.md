@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f8d5ecd33f0bc67b6e0ec2e559a8475da490369e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 8a21e300c2540ddefb79fcaf593f752eef7e2c2e
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56210670"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57010199"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Regler för dynamiskt medlemskap för grupper i Azure Active Directory
 
@@ -81,8 +81,8 @@ Här följer användaregenskaper som du kan använda för att skapa ett enkelt u
 | Land |Någon strängvärde eller *null* |(user.country - eq ”value”) |
 | companyName | Någon strängvärde eller *null* | (user.companyName -eq "value") |
 | avdelning |Någon strängvärde eller *null* |(user.department - eq ”value”) |
-| displayName |ett värde |(user.displayName -eq "value") |
-| employeeId |ett värde |(user.employeeId - eq ”value”)<br>(user.employeeId - ne *null*) |
+| displayName |Ett värde |(user.displayName -eq "value") |
+| employeeId |Ett värde |(user.employeeId - eq ”value”)<br>(user.employeeId - ne *null*) |
 | facsimileTelephoneNumber |Någon strängvärde eller *null* |(user.facsimileTelephoneNumber -eq "value") |
 | givenName |Någon strängvärde eller *null* |(user.givenName - eq ”value”) |
 | jobTitle |Någon strängvärde eller *null* |(user.jobTitle - eq ”value”) |
@@ -101,14 +101,14 @@ Här följer användaregenskaper som du kan använda för att skapa ett enkelt u
 | surname |Någon strängvärde eller *null* |(user.surname - eq ”value”) |
 | telephoneNumber |Någon strängvärde eller *null* |(user.telephoneNumber - eq ”value”) |
 | usageLocation |Två bokstäver landskod |(user.usageLocation -eq "US") |
-| userPrincipalName |ett värde |(user.userPrincipalName -eq "alias@domain") |
+| userPrincipalName |Ett värde |(user.userPrincipalName -eq "alias@domain") |
 | UserType |medlem gäst *null* |(user.userType -eq "Member") |
 
 ### <a name="properties-of-type-string-collection"></a>Egenskaper av typen sträng samling
 
 | Egenskaper | Tillåtna värden | Användning |
 | --- | --- | --- |
-| otherMails |ett värde |(user.otherMails-innehåller ”alias@domain”) |
+| otherMails |Ett värde |(user.otherMails-innehåller ”alias@domain”) |
 | proxyAddresses |SMTP: alias@domain smtp: alias@domain |(user.proxyAddresses-innehåller ”SMTP: alias@domain”) |
 
 Egenskaper som används för regler för enhet, se [regler för enheters](#rules-for-devices).
@@ -137,7 +137,7 @@ Om du vill jämföra värdet för ett användarattribut mot ett antal olika vär
  I följande exempel utvärderas uttrycket till true om värdet för user.department är lika med något av värdena i listan:
 
 ```
-   user.department -in ["50001","50002","50003",“50005”,“50006”,“50007”,“50008”,“50016”,“50020”,“50024”,“50038”,“50039”,“51100”]
+   user.department -in ["50001","50002","50003","50005","50006","50007","50008","50016","50020","50024","50038","50039","51100"]
 ```
 
 

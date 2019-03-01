@@ -15,12 +15,12 @@ ms.workload: na
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 6f4abd9f826864914abee0b5d513d5b1c530d416
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 19b347423c28b4c615f90f325ead462b9d3e8e9e
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53104160"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56990042"
 ---
 # <a name="azure-event-hubs---authentication-and-security-model"></a>Azure Event Hubs - autentisering och säkerhetsmodell
 
@@ -68,13 +68,13 @@ nm.CreateEventHub(ed);
 
 ### <a name="generate-tokens"></a>Generera token
 
-Du kan generera token med SAS-nyckeln. Du måste skapa bara en token per klient. Token kan sedan produceras med följande metod. Alla token genereras med hjälp av den **EventHubSendKey** nyckel. Varje token tilldelas ett unikt URI.
+Du kan generera token med SAS-nyckeln. Du måste skapa bara en token per klient. Token kan sedan produceras med följande metod. Alla token genereras med hjälp av den **EventHubSendKey** nyckel. Varje token tilldelas ett unikt URI. Resursparametern ”” motsvarar den URI-slutpunkten för tjänsten (händelsehubb i det här fallet).
 
 ```csharp
 public static string SharedAccessSignatureTokenProvider.GetSharedAccessSignature(string keyName, string sharedAccessKey, string resource, TimeSpan tokenTimeToLive)
 ```
 
-När du anropar den här metoden, URI: N bör anges som `//<NAMESPACE>.servicebus.windows.net/<EVENT_HUB_NAME>/publishers/<PUBLISHER_NAME>`. För alla token URI: N är identiska, med undantag för `PUBLISHER_NAME`, vilket ska vara olika för varje token. Vi rekommenderar `PUBLISHER_NAME` representerar ID: T för den klient som tar emot den token.
+När du anropar den här metoden, URI: N bör anges som `https://<NAMESPACE>.servicebus.windows.net/<EVENT_HUB_NAME>/publishers/<PUBLISHER_NAME>`. För alla token URI: N är identiska, med undantag för `PUBLISHER_NAME`, vilket ska vara olika för varje token. Vi rekommenderar `PUBLISHER_NAME` representerar ID: T för den klient som tar emot den token.
 
 Den här metoden skapar en token med följande struktur:
 

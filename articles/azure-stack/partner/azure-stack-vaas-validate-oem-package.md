@@ -15,12 +15,12 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 02/19/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: f9ed10c84be86304722020606873b0c7866df1e8
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: f5b884ddda292b1c523a5364d34753ccb3a5bbdf
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56594057"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57194453"
 ---
 # <a name="validate-oem-packages"></a>Verifiera OEM-paket
 
@@ -91,6 +91,9 @@ Använd den **Blob SAS-Webbadressen** när tillhandahåller paketet blob-URL: er
 ## <a name="apply-monthly-update"></a>Tillämpa månatliga uppdatering
 
 [!INCLUDE [azure-stack-vaas-workflow-section_update-azs](includes/azure-stack-vaas-workflow-section_update-azs.md)]
+
+> [!NOTE]
+> När du har installerat månadsuppdateringen rekommenderar vi att du kör Test-AzureStack för att kontrollera att uppdateringen har tillämpats korrekt och att den är i felfritt tillstånd. Om Test-AzureStack misslyckas kan du rapportera problemet till Microsoft. Inte fortsätta med testet pass förrän problemet har lösts. Information om hur du kör kommandot Test Azure Stack finns i den här [artikeln](https://docs.microsoft.com/azure/azure-stack/azure-stack-diagnostic-test).
 
 ## <a name="create-a-package-validation-workflow"></a>Skapa ett arbetsflöde för verifiera paketet
 

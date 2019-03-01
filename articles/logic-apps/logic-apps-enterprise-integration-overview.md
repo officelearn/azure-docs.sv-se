@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: dd517c4d-1701-4247-b83c-183c4d8d8aae
 ms.date: 09/08/2016
-ms.openlocfilehash: c9733346d091a6829bd5b42c80201df3a1357fe3
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 8c0e47f5bed0799b8536cecb38a85ed76185d0cd
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56243118"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57194936"
 ---
 # <a name="overview-b2b-enterprise-integration-scenarios-in-azure-logic-apps-with-enterprise-integration-pack"></a>Översikt: B2B-integrering för företagsscenarier i Azure Logic Apps med Enterprise-Integrationspaket
 
@@ -70,5 +70,5 @@ Enterprise-Integration stöder dessa branschstandarder:
 * [Enterprise Integration-kopplingar](../connectors/apis-list.md "Lär dig mer om enterprise integration pack-kopplingar")
 * [Integrering konto Metadata](../logic-apps/logic-apps-enterprise-integration-metadata.md "Lär dig mer om integrering konto metadata")
 * [Övervaka B2B-meddelanden](logic-apps-monitor-b2b-message.md "Läs mer om hur du övervakar B2B-meddelanden")
-* [Spåra B2B-meddelanden i Azure Log Analytics](logic-apps-track-b2b-messages-omsportal.md "Läs mer om att spåra B2B-meddelanden i Azure Log Analytics")
+* [Spåra B2B-meddelanden i Azure Monitor-loggar](logic-apps-track-b2b-messages-omsportal.md "Läs mer om att spåra B2B-meddelanden i Azure Monitor-loggar")
 

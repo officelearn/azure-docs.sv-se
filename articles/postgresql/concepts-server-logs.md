@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 10/04/2018
-ms.openlocfilehash: a7f4d10e3273fb2b4e17ff0a55c3a3ed6294833d
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.date: 02/28/2019
+ms.openlocfilehash: 99deef907818ffdb1ce858c8e988e26cbd53a1a1
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56961286"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57195106"
 ---
 # <a name="server-logs-in-azure-database-for-postgresql"></a>Serverloggar i Azure Database for PostgreSQL 
 Azure Database för PostgreSQL genererar fråge- och loggar. Fråga och felloggar kan användas för att identifiera, felsöka och reparera konfigurationsfel och icke-optimal prestanda. (Åtkomst till transaktionsloggar ingår inte). 
@@ -30,6 +30,8 @@ Om du har aktiverat loggar, kan du komma åt dem från Azure Database for Postgr
 ## <a name="diagnostic-logs"></a>Diagnostikloggar
 Azure Database för PostgreSQL är integrerad med Azure Monitor-diagnostikloggar. När du har aktiverat loggar på din PostgreSQL-server, kan du låta dem anges till [Azure Monitor loggar](../azure-monitor/log-query/log-query-overview.md), Event Hubs eller Azure Storage. Mer information om hur du aktiverar diagnostikloggar, se avsnittet anvisningar i den [diagnostikloggar dokumentation](../azure-monitor/platform/diagnostic-logs-overview.md). 
 
+> [!IMPORTANT]
+> Den här diagnostiska funktionen för serverloggar är endast tillgänglig i generell användning och Minnesoptimerad [prisnivåer](concepts-pricing-tiers.md).
 
 I följande tabell beskrivs vad som finns i varje logg. Beroende på den slutpunkt för indata som du väljer de fält som ingår och den ordning som de visas kan variera. 
 

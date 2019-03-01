@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/13/2019
+ms.date: 02/27/2019
 ms.author: tomfitz
-ms.openlocfilehash: bc28349e1bfc935ac8298f991575c1e0cb42d38c
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: 618412f27efb71caf6e044b4768d7be00f0d0f47
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56299239"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57009248"
 ---
 # <a name="azure-resource-manager-deployment-modes"></a>Azure Resource Manager-distributionslägen
 
@@ -36,6 +36,10 @@ En lista över hur resurstyper hanterar borttagning, se [borttagning av Azure-re
 
 > [!NOTE]
 > Endast på rotnivå mallar stöder fullständig Distributionsläge. För [länkad eller kapslade mallar](resource-group-linked-templates.md), måste du använda inkrementella läge. 
+>
+> [Prenumeration på distributioner](deploy-to-subscription.md) stöder inte fullständig läge.
+>
+> Portalen stöder för närvarande inte fullständig läge.
 >
 
 ## <a name="incremental-mode"></a>Inkrementell läge

@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 02/08/2019
 ms.author: dobett
-ms.openlocfilehash: bdb9b48549d24565fdafb9ac1c3215029445793c
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: ffa85a1a14434e638e76e699650a0be8e31ade00
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56100522"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57010964"
 ---
 # <a name="predictive-maintenance-solution-accelerator-overview"></a>Översikt över lösningsacceleratorn Förutsägande underhåll
 
@@ -27,7 +27,7 @@ Följande diagram illustrerar de logiska komponenterna i lösningsacceleratorn:
 
 ![Logisk arkitektur][img-architecture]
 
-De blå objekten är Azure-tjänster som är etablerade i den region där du etablerade lösningsacceleratorn. På [etableringssidan][lnk-azureiotsuite] finns en lista med de regioner där du kan distribuera lösningsacceleratorn.
+De blå objekten är Azure-tjänster som är etablerade i den region där du etablerade lösningsacceleratorn. På [etableringssidan][lnk-azureiotsolutions] finns en lista med de regioner där du kan distribuera lösningsacceleratorn.
 
 Det gröna objektet är en simulerad flygplansmotor. Mer information om dessa simulerade enheter finns i avsnittet [Simulerade enheter](#simulated-devices).
 
@@ -39,7 +39,7 @@ I Azure Portal navigerar du till resursgruppen med det lösningsnamn som du har 
 
 ![Accelerator resurser][img-resource-group]
 
-När du etablerar lösningsacceleratorn får du ett e-postmeddelande med en länk till Machine Learning-arbetsytan. Du kan också navigera till Machine Learning-arbetsyta från den [Microsoft Azure IoT-Lösningsacceleratorer] [ lnk-azureiotsuite] sidan. En panel är tillgänglig på den här sidan när lösningen har statusen **Redo**.
+När du etablerar lösningsacceleratorn får du ett e-postmeddelande med en länk till Machine Learning-arbetsytan. Du kan också navigera till Machine Learning-arbetsyta från den [Microsoft Azure IoT-Lösningsacceleratorer] [ lnk-azureiotsolutions] sidan. En panel är tillgänglig på den här sidan när lösningen har statusen **Redo**.
 
 ![Machine learning-modell][img-machine-learning]
 
@@ -71,7 +71,7 @@ IoT Hub bekräftar enhetskommandona.
 **Händelseprocessorvärden** körs i ett Azure-webbjobb. **Händelseprocessorn** tar de genomsnittliga sensorvärdena från en slutförd cykel. Den skickar dessa värden till en tränad modell som beräknar RUL för en motor. En API ger åtkomst till modellen i en Machine Learning-arbetsyta som är en del av lösningen.
 
 ## <a name="machine-learning"></a>Machine Learning
-Machine Learning-komponenten använder en modell som härletts från de data som samlats in från verkliga luftfartygsmotorer. Du kan navigera till Machine Learning-arbetsytan från din lösningsikon på sidan [azureiotsuite.com][lnk-azureiotsuite]. Panelen är tillgänglig när lösningen har statusen **Redo**.
+Machine Learning-komponenten använder en modell som härletts från de data som samlats in från verkliga luftfartygsmotorer. Du kan navigera till Machine Learning-arbetsytan från din lösningsikon på den [azureiotsolutions.com] [ lnk-azureiotsolutions] sidan. Panelen är tillgänglig när lösningen har statusen **Redo**.
 
 Machine Learning-modellen är tillgänglig som en mall som visar hur du arbetar med telemetri som samlas in via IoT solution accelerator-tjänster. Microsoft har byggt en [regressionsmodell] [ lnk_regression_model] av en flygplansmotor baserat på offentligt tillgängliga data<sup>\[1\]</sup>, och stegvisa anvisningar information om hur du använder modellen.
 
@@ -93,7 +93,7 @@ Du kan även utforska några av de andra funktionerna i IoT-Lösningsaccelerator
 
 [lnk-remote-monitoring]: quickstart-predictive-maintenance-deploy.md
 [lnk-cortana-analytics]: https://gallery.cortanaintelligence.com/Collection/Predictive-Maintenance-Template-3
-[lnk-azureiotsuite]: https://www.azureiotsolutions.com/
+[lnk-azureiotsolutions]: https://www.azureiotsolutions.com/
 [lnk-faq]: iot-accelerators-faq.md
 [lnk-security-groundup]:/azure/iot-fundamentals/iot-security-ground-up
 [lnk-machine-learning]: https://azure.microsoft.com/services/machine-learning/

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/29/2018
 ms.author: yalavi
 ms.reviewer: mbullwin
-ms.openlocfilehash: 92a6d0f0cd9ef9a7d246624f89315a87a7fb26f9
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: c28bf3ac85709fb996cfb067b83530645fdccba1
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55097817"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57008913"
 ---
 # <a name="metric-alerts-with-dynamic-thresholds-in-azure-monitor-public-preview"></a>Måttaviseringar med dynamiska tröskelvärden i Azure Monitor (förhandsversion)
 
@@ -79,7 +79,11 @@ Förmodligen inte. Dynamiska tröskelvärden är bra för identifiering av betyd
 
 ## <a name="how-much-data-is-used-to-preview-and-then-calculate-thresholds"></a>Hur mycket data används för att förhandsgranska och sedan beräkna tröskelvärden?
 
-De tröskelvärden som visas i diagrammet, innan en varningsregel skapas på måttet beräknas baserat på de senaste 10 dagarna av historiska data när en varningsregel har skapats, dynamiska tröskelvärden kommer skaffa ytterligare historiska data som är tillgänglig och kommer Läs hela tiden baserat på nya data att göra det mer exakta tröskelvärdena.
+De tröskelvärden som visas i diagrammet, innan en varningsregel skapas på måttet beräknas baserat tillräckligt historiska data för att beräkna timme eller varje dag säsongens mönster (10 dagar). Trycka på Visa veckovisa mönster skaffar tillräckligt med historiska data för att beräkna varje vecka säsongens mönster (28 dagar). När en varningsregel har skapats kan använder den dynamiska tröskelvärden alla nödvändiga historiska data som är tillgänglig och kontinuerligt lära dig och skickliga baserat på nya data för att göra det mer exakta tröskelvärdena.
+
+## <a name="how-much-data-is-needed-to-trigger-an-alert"></a>Hur mycket data krävs för att utlösa en avisering?
+
+Dynamiska tröskelvärden kräver minst tre dagar för att se till att korrekt tröskelvärden innan du utlöser aviseringar.
 
 ## <a name="dynamic-thresholds-best-practices"></a>Metodtips för dynamiska tröskelvärden
 

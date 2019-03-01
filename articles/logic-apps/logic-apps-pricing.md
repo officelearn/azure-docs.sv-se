@@ -10,13 +10,13 @@ ms.reviewer: estfan, LADocs
 manager: carmonm
 ms.assetid: f8f528f5-51c5-4006-b571-54ef74532f32
 ms.topic: article
-ms.date: 10/16/2018
-ms.openlocfilehash: 04fb86f9b8f8be2c013f9bd7449dd5a4b2bcf90c
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.date: 02/26/2019
+ms.openlocfilehash: 9b5452f112c6325dafd5edbe693b90ec2a94abc0
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51854126"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56990245"
 ---
 # <a name="pricing-model-for-azure-logic-apps"></a>Prismodellen för Azure Logic Apps
 
@@ -33,12 +33,12 @@ Mer information finns i [Logic Apps-priser](https://azure.microsoft.com/pricing/
 
 ## <a name="fixed-pricing-model"></a>Fast prismodellen
 
-För nya logic apps som körs i en [ *integreringstjänstmiljön* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), du betalar ett fast månadspris för inbyggda åtgärder och Standardanslutningar ISE etikett. En ISE kan du skapa och köra isolerade logikappar som kan komma åt resurser i Azure-nätverk.  
+För nya logic apps som körs i en [ *integreringstjänstmiljön* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), du betalar ett fast månadspris för inbyggda åtgärder och anslutningsappar av standardtyp. En ISE kan du skapa och köra isolerade logikappar som kan komma åt resurser i Azure-nätverk. 
 
-Din ISE innehåller en kostnadsfria anslutningstjänsten, som innehåller antalet anslutningar som du vill. Användningen av ytterligare Enterprise anslutningar debiteras baserat på priset för Enterprise-förbrukning. 
+Basenheten ISE har fast kapacitet, så om du behöver större dataflöde, kan du [lägga till fler skalningsenheter](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#add-capacity), antingen under skapandet eller efteråt. Din ISE innehåller en kostnadsfria anslutningstjänsten, som innehåller antalet anslutningar som du vill. Användningen av ytterligare Enterprise anslutningar debiteras baserat på priset för Enterprise-förbrukning. 
 
 > [!NOTE]
-> Integreringstjänstmiljön är i *privat förhandsgranskning*. Att begära åtkomst, [skapa din begäran om att ansluta till här](https://aka.ms/iseprivatepreview). Mer information finns i [Logic Apps-priser](https://azure.microsoft.com/pricing/details/logic-apps).
+> ISE är i [ *förhandsversion*](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Mer information finns i [Logic Apps-priser](https://azure.microsoft.com/pricing/details/logic-apps).
 
 <a name="triggers"></a>
 

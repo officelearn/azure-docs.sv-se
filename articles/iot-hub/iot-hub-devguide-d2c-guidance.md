@@ -1,18 +1,19 @@
 ---
 title: Alternativ för Azure IoT Hub-enhet till moln | Microsoft Docs
 description: Utvecklarguide – riktlinjer för när du ska använda meddelanden från enheten till molnet, rapporterade egenskaper eller ladda upp filer för meddelanden från moln till enhet.
-author: fsautomata
+author: wesmc7777
+manager: philmea
+ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
-ms.author: elioda
-ms.openlocfilehash: cd20c835fbb08ca0d44f6c77374ba52e19536d63
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: fffa064b912a96b05feb901d1d2d44533c4681b7
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452198"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57007989"
 ---
 # <a name="device-to-cloud-communications-guidance"></a>Enhet-till-molnet kommunikation
 

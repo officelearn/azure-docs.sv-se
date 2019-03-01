@@ -9,12 +9,12 @@ ms.subservice: custom-translator
 ms.date: 02/21/2019
 ms.author: v-rada
 ms.topic: conceptual
-ms.openlocfilehash: fc3e545db0529739659c1019cbed6d434b586f8f
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 10f34a24668981da5629bd9d03652aa76081bd44
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56726966"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57194120"
 ---
 # <a name="what-are-parallel-documents"></a>Vad är parallella dokument?
 
@@ -23,7 +23,7 @@ Det spelar ingen roll vilket språk som har markerats som ”källa” och vilke
 
 ## <a name="requirements"></a>Krav
 
-Du behöver minst 10 000 parallella meningar att träna ett system. Som bästa praxis, kan du kontinuerligt lägga till mer parallella innehåll och omtrimning att förbättra kvaliteten på översättningssystemet.
+Du behöver minst 10 000 unika parallella meningar att träna ett system. Som bästa praxis, kan du kontinuerligt lägga till mer parallella innehåll och omtrimning att förbättra kvaliteten på översättningssystemet.
 
 Microsoft kräver att dokument som laddas upp till den anpassade Translator inte bryter mot en tredje parts upphovsrätt eller immateriell egenskaper. Mer information finns i den [användningsvillkor](https://azure.microsoft.com/support/legal/cognitive-services-terms/).
 Ladda upp ett dokument med hjälp av portalen ändras inte ägarskapet för immateriell egendom i dokumentet.

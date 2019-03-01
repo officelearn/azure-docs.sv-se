@@ -13,12 +13,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: 711e51a075ce25ef3aa3c9c7e8784c914c8d0581
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: c11dc2b24e3cf5d201a73c1ed405ba4b7c09978b
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55982275"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56992608"
 ---
 # <a name="what-is-azure-sql-database-service"></a>Vad är Azure SQL Database-tjänsten?
 
@@ -101,7 +101,15 @@ Du använder de inbyggda verktygen för [prestandaövervakning](sql-database-per
 
 ## <a name="availability-capabilities"></a>Kapacitet för tillgänglighet
 
-Azures branschledande serviceavtal [(SLA)](https://azure.microsoft.com/support/legal/sla/) med 99,99 % tillgänglighet, drivs av ett globalt nätverk med Microsoft-hanterade datacenter som gör att din app är igång 24/7. Azure-plattformen fullständigt hanterar varje databas och garanterar att inga data går förlorade och hög andel datatillgänglighet. Azure hanterar automatiskt uppdatering, säkerhetskopiering, replikering, felidentifiering, fel med underliggande maskinvara, programvara eller nätverk, distribuering av felkorrigeringar, redundans, databasuppgraderingar och andra underhållsåtgärder. Standardtillgänglighet uppnås genom en uppdelning av beräknings och lagringslager. Premium-tillgänglighet uppnås genom att integrera beräkning och lagring på en enda nod för prestanda och sedan implementera teknik som liknar ständigt aktiverade Tillgänglighetsgrupper under försättsbladen. En fullständig beskrivning av kapacitet för hög tillgänglighet i Azure SQL Database finns i [tillgänglighet för SQL Database](sql-database-high-availability.md). SQL Database tillhandahåller dessutom inbyggda funktioner för [kontinuitet för företag och global skalbarhet](sql-database-business-continuity.md), inklusive:
+I en traditionell SQL Server-miljö, skulle du vanligtvis har (minst) 2 datorer lokalt konfigurera med exakt (synkront behålla) kopior av data (med funktioner som AlwaysOn-Tillgänglighetsgrupper eller Redundansklusterinstanser) att skydda mot en fel på en enskild dator/komponent.  Detta ger hög tillgänglighet men skyddar inte mot en naturkatastrof förstöra ditt datacenter.
+ 
+Katastrofåterställning förutsätter att en händelse av katastrof är geografiskt lokaliserade tillräckligt långt har en annan dator/uppsättning datorer med en kopia av dina data.  Du kan använda Always On-Tillgänglighetsgrupper som körs i asynkron läge i SQL Server för att hämta den här funktionen.  Hastigheten på ljus problem innebär vanligtvis att personer som inte vill vänta tills replikeringen ske som långt innan du genomför en transaktion, så det finns en risk för dataförlust när du gör oplanerade redundanser.
+
+Databaser i den premium- och kritiska nivåer redan [göra något som är mycket lik](sql-database-high-availability.md#premium-and-business-critical-service-tier-availability) till synkronisering av en tillgänglighetsgrupp. Databaser i lägre tjänstnivåer ger redundans lagring med hjälp av en [mekanism för olika men motsvarande](sql-database-high-availability.md#basic-standard-and-general-purpose-service-tier-availability). Det finns logik som skyddar mot en enskild dator-fel.  Funktionen aktiv geo-replikering ger dig möjlighet att skydda mot katastrof där en hel region förstörs.
+
+Azure Availability Zones är en play om problemet som har hög tillgänglighet.  Försök att skydda mot längre avbrott i ett datacenter att skapa inom en enda region.  Så företaget att skydda mot förlust av kapacitets- eller nätverket till en byggnad. Detta fungerar i SQL Azure, genom att placera olika repliker i olika tillgänglighetszoner (olika byggnader effektivt) och annars fungerar som tidigare. 
+
+I själva verket Azures branschledande ledande 99,99% tillgänglighet servicenivåavtal [(SLA)](https://azure.microsoft.com/support/legal/sla/), drivs av ett globalt nätverk av Microsoft-hanterade datacenter, gör att din app är igång 24/7. Azure-plattformen fullständigt hanterar varje databas och garanterar att inga data går förlorade och hög andel datatillgänglighet. Azure hanterar automatiskt uppdatering, säkerhetskopiering, replikering, felidentifiering, fel med underliggande maskinvara, programvara eller nätverk, distribuering av felkorrigeringar, redundans, databasuppgraderingar och andra underhållsåtgärder. Standardtillgänglighet uppnås genom en uppdelning av beräknings och lagringslager. Premium-tillgänglighet uppnås genom att integrera beräkning och lagring på en enda nod för prestanda och sedan implementera teknik som liknar ständigt aktiverade Tillgänglighetsgrupper under försättsbladen. En fullständig beskrivning av kapacitet för hög tillgänglighet i Azure SQL Database finns i [tillgänglighet för SQL Database](sql-database-high-availability.md). SQL Database tillhandahåller dessutom inbyggda funktioner för [kontinuitet för företag och global skalbarhet](sql-database-business-continuity.md), inklusive:
 
 - **[Automatisk säkerhetskopiering](sql-database-automated-backups.md)**:
 

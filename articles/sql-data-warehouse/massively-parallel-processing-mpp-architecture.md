@@ -10,12 +10,12 @@ ms.subservice: design
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 2f5e140e4f620362ca90a1e1cd06d23719cd2099
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 236009a3292f26d7fda73013c022f40535aa1ecb
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55471614"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56992336"
 ---
 # <a name="azure-sql-data-warehouse---massively-parallel-processing-mpp-architecture"></a>Azure SQL Data Warehouse – massivt parallell bearbetning (MPP)-arkitektur
 Lär dig hur Azure SQL Data Warehouse kombinerar massivt parallell bearbetning (MPP) med Azure storage att uppnå höga prestanda och skalbarhet. 
@@ -84,7 +84,7 @@ En distribuerad tabell resursallokering distribuerar data jämnt över tabellen 
 ## <a name="replicated-tables"></a>Replikerade tabeller
 En replikerad tabell innehåller de snabbaste frågeprestanda för små tabeller.
 
-En tabell som replikeras cachelagrar en fullständig kopia av tabellen på varje beräkningsnod. Därför eliminerar replikerar en tabell behovet av att överföra data mellan beräkningsnoder innan en join- eller aggregering. Replikerade tabeller används bäst med små tabeller. Extra lagringsutrymme som krävs och det finns ytterligare omkostnader som uppstår när det skrivdata vilket göra stora tabeller opraktiskt.  
+En tabell som replikeras cachelagrar en fullständig kopia av tabellen på varje beräkningsnod. Därför eliminerar replikerar en tabell behovet av att överföra data mellan beräkningsnoder innan en join- eller aggregering. Replikerade tabeller används bäst med små tabeller. Extra lagringsutrymme som krävs och det finns ytterligare kostnader som uppstår när du skriver data som gör det opraktiskt stora tabeller.  
 
 Följande diagram visar en replikerad tabell. För SQL Data Warehouse cachelagras replikerad tabell på den första distributionsplatsen på varje beräkningsnod.  
 

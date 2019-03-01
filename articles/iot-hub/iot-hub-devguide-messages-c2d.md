@@ -1,19 +1,19 @@
 ---
 title: Förstå Azure IoT Hub moln-till-enhet-meddelanden | Microsoft Docs
 description: Developer guide – hur du använder molnet till enhet-meddelanden med IoT Hub. Innehåller information om meddelandet livscykel och konfigurationsalternativ.
-author: dominicbetts
-manager: timlt
+author: wesmc7777
+manager: philmea
+ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 03/15/2018
-ms.author: dobett
-ms.openlocfilehash: 3f137ea80dc67bb075f34846e5563fb72c72b69a
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: c8424743f30ec1bbf8d8096f6630c7451bc910c8
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47585653"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57010250"
 ---
 # <a name="send-cloud-to-device-messages-from-iot-hub"></a>Skicka meddelanden från moln till enhet från IoT Hub
 
@@ -76,7 +76,7 @@ När du skickar ett moln-till-enhet-meddelande, kan tjänsten begära leveransen
 | Ack-egenskapen | Beteende |
 | ------------ | -------- |
 | **positivt** | Om moln-till-enhet-meddelande når den **slutförd** tillstånd, IoT Hub genererar ett feedback-meddelande. |
-| **negativt** | Om moln-till-enhet-meddelande når den **död lettered** tillstånd, IoT Hub genererar ett feedback-meddelande. |
+| **negative** | Om moln-till-enhet-meddelande når den **död lettered** tillstånd, IoT Hub genererar ett feedback-meddelande. |
 | **Fullständig**     | IoT Hub genererar ett feedback-meddelande i båda fallen. |
 
 Om **Ack** är **fullständig**, och du inte får ett meddelande om feedback, betyder det att feedback meddelandet har gått ut. Tjänsten kan inte vet vad hände med det ursprungliga meddelandet. En tjänst bör i praktiken, se till att den kan bearbeta feedback innan den upphör. Den längsta förfallotiden som två dagar, vilket lämnar tid att hämta tjänsten körs igen om ett fel inträffar.
@@ -94,8 +94,8 @@ Brödtexten är en JSON-serialiserat matris med poster, var och en med följande
 | Egenskap            | Beskrivning |
 | ------------------ | ----------- |
 | EnqueuedTimeUtc    | Tidsstämpel som visar när resultatet av meddelandet har inträffat. Till exempel hubben fick meddelandet feedback eller det ursprungliga meddelandet har gått ut. |
-| originalMessageId  | **MessageId** meddelandets moln-till-enhet som den här informationen för feedback avser. |
-| statusCode         | Strängen som krävs. Används i feedbackmeddelanden som genereras av IoT Hub. <br/> ”Lyckades” <br/> ”Upphört att gälla. <br/> 'DeliveryCountExceeded' <br/> ”Avvisade' <br/> ”Rensas” |
+| OriginalMessageId  | **MessageId** meddelandets moln-till-enhet som den här informationen för feedback avser. |
+| StatusCode         | Strängen som krävs. Används i feedbackmeddelanden som genereras av IoT Hub. <br/> ”Lyckades” <br/> 'Expired' <br/> 'DeliveryCountExceeded' <br/> 'Rejected' <br/> ”Rensas” |
 | Beskrivning        | Sträng värden för **StatusCode**. |
 | DeviceId           | **DeviceId** målenhetens meddelandets moln-till-enhet som den här typ av feedback avser. |
 | DeviceGenerationId | **DeviceGenerationId** målenhetens meddelandets moln-till-enhet som den här typ av feedback avser. |
@@ -128,7 +128,7 @@ Varje IoT-hubb exponerar följande konfigurationsalternativ för moln-till-enhet
 | Egenskap                   | Beskrivning | Intervall- och standard |
 | ------------------------- | ----------- | ----------------- |
 | defaultTtlAsIso8601       | Standard-TTL för meddelanden från molnet till enheten. | ISO_8601 intervall upp till 2D (minst 1 minut). Standard: 1 timme. |
-| MaxDeliveryCount          | Maximalt antal leveranser för moln-till-enhet per enhet köer. | 1 och 100. Standard: 10. |
+| maxDeliveryCount          | Maximalt antal leveranser för moln-till-enhet per enhet köer. | 1 och 100. Standard: 10. |
 | feedback.ttlAsIso8601     | Kvarhållning för service-bunden meddelanden. | ISO_8601 intervall upp till 2D (minst 1 minut). Standard: 1 timme. |
 | feedback.maxDeliveryCount |Maximalt antal leveranser för någon feedbackkö. | 1 och 100. Standard: 100. |
 

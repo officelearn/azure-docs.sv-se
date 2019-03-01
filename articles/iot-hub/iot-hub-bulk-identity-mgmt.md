@@ -1,19 +1,19 @@
 ---
 title: Importera/exportera för Azure IoT Hub-enhetsidentiteter | Microsoft Docs
 description: Hur du använder tjänsten Azure IoT SDK för att utföra massåtgärder mot identitetsregistret för att importera och exportera enhetsidentiteter. Importåtgärder kan du skapa, uppdatera och ta bort enhetsidentiteter gruppvis.
-author: dominicbetts
-manager: timlt
+author: robinsh
+manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 07/03/2017
-ms.author: dobett
-ms.openlocfilehash: aedf2d0012f5af8ea2eb8e944f06b20c7f1a6bb8
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.author: robin.shahan
+ms.openlocfilehash: 5ef34fb039d35ff714e249a6ac107e6ec615093e
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42059212"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57010998"
 ---
 # <a name="manage-your-iot-hub-device-identities-in-bulk"></a>Hantera din IoT Hub-enhetsidentiteter i grupp
 
@@ -257,7 +257,7 @@ Använd det valfria **ImportMode %** -egenskapen i serialiseringsdata importera 
 | --- | --- |
 | **createOrUpdate** |Om en enhet inte finns med det angivna **id**, den nyligen har registrerats. <br/>Om enheten redan befintlig information skrivs över med den angivna indatan utan gäller till den **ETag** värde. <br> Användaren kan du ange twin data tillsammans med enhetsdata. Den läsningen etag bearbetas om anges separat från enhetens etag. Om det finns ett matchningsfel med den befintliga läsningen etag, skrivs ett fel till loggfilen. |
 | **skapa** |Om en enhet inte finns med det angivna **id**, den nyligen har registrerats. <br/>Om enheten redan finns skrivs ett fel till loggfilen. <br> Användaren kan du ange twin data tillsammans med enhetsdata. Den läsningen etag bearbetas om anges separat från enhetens etag. Om det finns ett matchningsfel med den befintliga läsningen etag, skrivs ett fel till loggfilen. |
-| **Uppdatera** |Om det finns redan en enhet med det angivna **id**, befintlig information skrivs över med den angivna indatan utan gäller till den **ETag** värde. <br/>Om enheten inte finns skrivs ett fel till loggfilen. |
+| **update** |Om det finns redan en enhet med det angivna **id**, befintlig information skrivs över med den angivna indatan utan gäller till den **ETag** värde. <br/>Om enheten inte finns skrivs ett fel till loggfilen. |
 | **updateIfMatchETag** |Om det finns redan en enhet med det angivna **id**, befintlig information skrivs över med de angivna indata endast om det finns en **ETag** matchar. <br/>Om enheten inte finns skrivs ett fel till loggfilen. <br/>Om det finns en **ETag** matchningsfel, ett fel skrivs till loggfilen. |
 | **createOrUpdateIfMatchETag** |Om en enhet inte finns med det angivna **id**, den nyligen har registrerats. <br/>Om enheten redan befintlig information skrivs över med de angivna indata endast om det finns en **ETag** matchar. <br/>Om det finns en **ETag** matchningsfel, ett fel skrivs till loggfilen. <br> Användaren kan du ange twin data tillsammans med enhetsdata. Den läsningen etag bearbetas om anges separat från enhetens etag. Om det finns ett matchningsfel med den befintliga läsningen etag, skrivs ett fel till loggfilen. |
 | **ta bort** |Om det finns redan en enhet med det angivna **id**, tas den bort utan avser den **ETag** värde. <br/>Om enheten inte finns skrivs ett fel till loggfilen. |

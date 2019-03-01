@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0df176185bde104a2beb34ea64d54e4069643f69
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: d26cd97a248172955dcfcf2662424d1e782793bf
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56190101"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57192335"
 ---
 # <a name="configure-the-expiration-policy-for-office-365-groups"></a>Konfigurera en princip för Office 365-grupper
 
@@ -30,6 +30,8 @@ När du har en grupp att upphöra att gälla:
 -   Ägare av gruppen får ett meddelande om att förnya gruppen som närmar sig förfallodatum
 -   En grupp som inte förnyas tas bort
 -   Alla Office 365-grupp som tas bort kan återställas inom 30 dagar av gruppägarna eller administratören
+
+För närvarande kan endast en förfalloprincip konfigureras för Office 365-grupper i en klientorganisation.
 
 > [!NOTE]
 > Konfigurera och använda en princip för Office 365-grupper måste du ha till hands Azure AD Premium-licenser för alla medlemmar i grupper som en princip tillämpas.
@@ -61,6 +63,10 @@ Läs mer om behörigheter för att återställa en borttagen grupp [återställa
   * Välj vilka Office 365-grupper går ut. Du kan aktivera förfallotid för **alla** Office 365-grupper som du kan välja att aktivera endast **valda** Office 365-grupper, eller välj **ingen**  att inaktivera upphör att gälla för alla grupper.
   * Spara dina inställningar när du är klar genom att välja **spara**.
 
+> [!NOTE]
+> * När du först konfigurerar upphör att gälla är grupper som är äldre än giltighetsintervallet inställda på 30 dagar kvar till förfallodatum. Första förnyelse-e-postmeddelandet skickas ut inom en dag. Till exempel grupp A skapades 400 dagar sedan och giltighetsintervallet är inställd på 180 dagar. När du tillämpar inställningar för giltighetstid har 30 dagar innan de tas bort i grupp A Om inte ägaren förnyar den.
+> * När en dynamisk grupp tagits bort och återställts visas den som en ny grupp och fylls i baserat på regeln. Den här processen kan ta upp till 24 timmar.
+
 ## <a name="email-notifications"></a>E-postmeddelanden
 
 E-postmeddelanden som den här skickas till Office 365-gruppägare 30 dagar, 15 dagar och 1 dag före förfallodatumet i gruppen. Språket för e-postmeddelandet bestäms av grupper i det språk du föredrar eller klient språk. Om gruppägaren har definierat ett språk du föredrar, eller flera ägare har samma önskat språk, används det språket. Klient språk används för alla andra fall.
@@ -77,11 +83,12 @@ Gruppen kan återställas inom 30 dagar från dess borttagningen genom att välj
     
 Om gruppen som du återställa innehåller dokument, SharePoint-webbplatser och andra beständiga objekt, kan det ta upp till 24 timmar att fullständigt återställa gruppen och dess innehåll.
 
+## <a name="how-to-retrieve-office-365-group-expiration-date"></a>Hur du hämtar förfallodatum för Office 365-grupp
+Förutom åtkomstpanelen där användare kan visa gruppinformation inklusive upphör att gälla och datum för senaste förnyade, kan utgångsdatumet för en Office 365-grupp hämtas från Microsoft Graph REST API Beta. expirationDateTime som en gruppegenskap har aktiverats i betaversionen av Microsoft Graph. De kan hämtas med en GET-begäran. Mer information finns i [det här exemplet](https://docs.microsoft.com/en-us/graph/api/group-get?view=graph-rest-beta#example).
+
 > [!NOTE]
-> * När du först konfigurerar upphör att gälla är grupper som är äldre än giltighetsintervallet inställda på 30 dagar kvar till förfallodatum. Första förnyelse-e-postmeddelandet skickas ut inom en dag. 
->   Till exempel grupp A skapades 400 dagar sedan och giltighetsintervallet är inställd på 180 dagar. När du tillämpar inställningar för giltighetstid har 30 dagar innan de tas bort i grupp A Om inte ägaren förnyar den.
-> * För närvarande kan endast en förfalloprincip konfigureras för Office 365-grupper i en klientorganisation.
-> * När en dynamisk grupp tagits bort och återställts visas den som en ny grupp och fylls i baserat på regeln. Den här processen kan ta upp till 24 timmar.
+> ”Begränsa åtkomsten till grupper i åtkomstpanelen” måste vara inställt på ”Nej” i Azure Active Directory-grupper allmänna inställningar för att kunna hantera gruppmedlemskap på åtkomstpanelen.
+
 
 ## <a name="how-office-365-group-expiration-works-with-a-mailbox-on-legal-hold"></a>Hur Office 365 förfallodatum fungerar med en postlåda av juridiska skäl
 När en grupp upphör att gälla och tas bort, sedan 30 dagar efter borttagningen gruppens data från appar som Planner, platser, eller team raderas, men grupp-postlådan som finns på bevarande av juridiska skäl finns kvar och tas inte bort permanent. Administratören kan använda Exchange-cmdlets för att återställa postlådan för att hämta data. 

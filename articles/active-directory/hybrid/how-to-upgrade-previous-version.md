@@ -16,12 +16,12 @@ ms.date: 07/18/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 437577ec68ee825bd0815735fef08e8297dad756
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: aa21b1054fa6860a8acc5d6971f75e1d74c889f7
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56180547"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57193763"
 ---
 # <a name="azure-ad-connect-upgrade-from-a-previous-version-to-the-latest"></a>Azure AD Connect: Uppgradera från en tidigare version till senast
 Det här avsnittet beskrivs olika metoder som du kan använda för att uppgradera din Azure Active Directory (Azure AD) Connect-installationen till den senaste versionen. Vi rekommenderar att du hålla dig uppdaterad med versionerna av Azure AD Connect. Du också använda stegen i den [Swingmigrering](#swing-migration) avsnittet när du gör en betydande konfigurationsändring.
@@ -62,7 +62,7 @@ De två servrarna kan använda olika versioner. Till exempel den aktiva servern 
 ![Mellanlagringsserver](./media/how-to-upgrade-previous-version/stagingserver1.png)
 
 > [!NOTE]
-> Vissa kunder vill ha tre eller fyra servrar för det här scenariot. När den tillfälliga servern har uppgraderats kan du inte har en sekundär server för [haveriberedskap](how-to-connect-sync-operations.md#disaster-recovery). Med tre eller fyra servrar, kan du förbereda en uppsättning primär/vänteläge-servrar med den nya versionen, vilket garanterar att det finns alltid en testserver som är redo att ta över.
+> Vissa kunder vill ha tre eller fyra servrar för det här scenariot. När den tillfälliga servern har uppgraderats kan du inte har en sekundär server för [haveriberedskap](how-to-connect-sync-staging-server.md#disaster-recovery). Med tre eller fyra servrar, kan du förbereda en uppsättning primär/vänteläge-servrar med den nya versionen, vilket garanterar att det finns alltid en testserver som är redo att ta över.
 
 De här stegen fungerar även om du vill flytta från Azure AD Sync eller en lösning med FIM + Azure AD-koppling. De här stegen fungerar inte för DirSync, men samma swing-migreringsmetod (även kallat parallell distribution) med steg för DirSync finns i [uppgradera Azure Active Directory sync (DirSync)](how-to-dirsync-upgrade-get-started.md).
 
@@ -71,8 +71,8 @@ De här stegen fungerar även om du vill flytta från Azure AD Sync eller en lö
 2. Om du har gjort en anpassad konfiguration och testservern inte har det, följer du anvisningarna under [flytta en anpassad konfiguration från den aktiva servern till testservern](#move-a-custom-configuration-from-the-active-server-to-the-staging-server).
 3. Om du uppgraderar från en tidigare version av Azure AD Connect kan du uppgradera den tillfälliga servern till den senaste versionen. Om du flyttar från Azure AD Sync, installerar du Azure AD Connect på testservern.
 4. Låt Synkroniseringsmotorn köra fullständig import och fullständig synkronisering på testservern.
-5. Verifiera att den nya konfigurationen inte orsakar några oväntade ändringar med hjälp av stegen under ”verifiera” i [verifiera konfigurationen för en server](how-to-connect-sync-operations.md#verify-the-configuration-of-a-server). Om något inte som förväntat, rätta till det genom att köra importen och synkronisera och kontrollera data tills den ser bra ut, genom att följa stegen.
-6. Växla den tillfälliga servern till den aktiva servern. Detta är det sista steget ”växel active server” i [verifiera konfigurationen för en server](how-to-connect-sync-operations.md#verify-the-configuration-of-a-server).
+5. Verifiera att den nya konfigurationen inte orsakar några oväntade ändringar med hjälp av stegen under ”verifiera” i [verifiera konfigurationen för en server](how-to-connect-sync-staging-server.md#verify-the-configuration-of-a-server). Om något inte som förväntat, rätta till det genom att köra importen och synkronisera och kontrollera data tills den ser bra ut, genom att följa stegen.
+6. Växla den tillfälliga servern till den aktiva servern. Detta är det sista steget ”växel active server” i [verifiera konfigurationen för en server](how-to-connect-sync-staging-server.md#verify-the-configuration-of-a-server).
 7. Om du uppgraderar Azure AD Connect kan du uppgradera den server som är nu i mellanlagringsläge till den senaste versionen. Följ samma steg som innan du hämtar data och konfiguration som uppgraderas. Om du har uppgraderat från Azure AD Sync kan nu stänga av och inaktivera den gamla servern.
 
 ### <a name="move-a-custom-configuration-from-the-active-server-to-the-staging-server"></a>Flytta en anpassad konfiguration från den aktiva servern till den tillfälliga servern

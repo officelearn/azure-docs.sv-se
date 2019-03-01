@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: cc6857750534dad2ded29178eb3f140fc25cce0d
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 7b1d7c50970107300676213707368f9f16e04812
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54410497"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57194809"
 ---
 # <a name="connect-a-generic-client-application-to-your-azure-iot-central-application-nodejs"></a>Ansluta ett allmänt klientprogram till ditt Azure IoT Central program (Node.js)
 
@@ -130,7 +130,7 @@ Följande steg visar hur du skapar ett klientprogram som implementerar en riktig
     ```
 
   > [!NOTE]
-  > Azure IoT Central har övergått till med hjälp av Azure IoT Hub Device Provisioning-tjänsten (DPS) för alla anslutningar på enheten, följer du dessa instrustions till [hämta enhetens anslutningssträng](concepts-connectivity.md#getting-device-connection-string) och fortsätta med resten av kursen. Mer hjälp kan du också hitta en detaljerad uppsättning med instruktionerna i [förbereda klientkoden](tutorial-add-device.md#prepare-the-client-code) i självstudier > Lägg till en enhet.
+  > Azure IoT Central har övergått till med hjälp av Azure IoT Hub Device Provisioning-tjänsten (DPS) för alla anslutningar på enheten, följer du dessa instruktioner för att [hämta enhetens anslutningssträng](concepts-connectivity.md#get-a-connection-string) och fortsätta med resten av kursen. Mer hjälp kan du också hitta en detaljerad uppsättning med instruktionerna i [förbereda klientkoden](tutorial-add-device.md#prepare-the-client-code) i självstudier > Lägg till en enhet.
 
 
   Uppdatera platshållaren `{your device connection string}` med enhetens anslutningssträng. I det här exemplet vi initiera `targetTemperature` till noll och, du kan eventuellt ta medan den aktuella läsningen från enheten eller värdet från enhetstvillingen. 

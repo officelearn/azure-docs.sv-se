@@ -1,19 +1,19 @@
 ---
 title: Självstudie för X.509-säkerhet i Azure IoT Hub | Microsoft Docs
 description: Kom igång med X.509-baserade säkerheten i Azure IoT hub i en simulerad miljö.
-author: dominicbetts
-manager: timlt
+author: wesmc7777
+manager: philmea
+ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 10/10/2017
-ms.author: dobett
-ms.openlocfilehash: b190390840a765953a2125348c3c9188f6bf7d37
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: bfacd71e4c5a018fb2d153e8b9683cfa8031a956
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54452045"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57010403"
 ---
 # <a name="set-up-x509-security-in-your-azure-iot-hub"></a>Konfigurera X.509 säkerheten i Azure IoT hub
 

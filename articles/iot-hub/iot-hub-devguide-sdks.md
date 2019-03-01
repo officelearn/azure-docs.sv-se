@@ -1,19 +1,19 @@
 ---
 title: 'Förstå Azure IoT SDK: er | Microsoft Docs'
 description: 'Utvecklarguide – information om och länkar till olika Azure-IoT-enheten och tjänsten SDK: erna som du kan använda för att bygga appar för enheter och backend-appar.'
-author: dominicbetts
-manager: timlt
+author: wesmc7777
+manager: philmea
+ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.author: dobett
-ms.openlocfilehash: 3bdb09de04ec5041d671f5af709a1a1e7133d141
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: fcb6f564c97632e4d62f7f052ec5ecc35a9e479a
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54199518"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57011253"
 ---
 # <a name="understand-and-use-azure-iot-hub-sdks"></a>Förstå och använda Azure IoT Hub SDK: er
 
@@ -37,7 +37,7 @@ Lär dig mer om den [fördelarna med att utveckla med Azure IoT SDK: er](https:/
 
 Plattformar som stöds för SDK: erna finns i [Plattformsstödet för Azure IoT SDK: er](iot-hub-device-sdk-platform-support.md).
 
-Mer information om SDK-kompatibilitet med specifika maskinvaruenheter finns i den [Azure Certified för IoT-enhetskatalog](https://catalog.azureiotsuite.com/) eller enskilda lagringsplats.
+Mer information om SDK-kompatibilitet med specifika maskinvaruenheter finns i den [Azure Certified för IoT-enhetskatalog](https://catalog.azureiotsolutions.com/) eller enskilda lagringsplats.
 
 ## <a name="azure-iot-hub-device-sdks"></a>SDK: er för Azure IoT Hub-enheter
 

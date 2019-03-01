@@ -1,5 +1,5 @@
 ---
-title: Spåra B2B-meddelanden med Log Analytics – Azure Logic Apps | Microsoft Docs
+title: Spåra B2B-meddelanden med Azure Monitor - loggar i Azure Logic Apps | Microsoft Docs
 description: Spåra B2B-kommunikation för integrationskonton och Azure Logic Apps med Azure Log Analytics
 services: logic-apps
 ms.service: logic-apps
@@ -9,16 +9,16 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 10/19/2018
-ms.openlocfilehash: ad58257313c60b4757c83793886ce32a2997332b
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 8cf5d9f3ee1503769a2ec199847175899bcd86bf
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52996545"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57193219"
 ---
-# <a name="track-b2b-messages-with-azure-log-analytics"></a>Spåra B2B-meddelanden med Azure Log Analytics
+# <a name="track-b2b-messages-with-azure-monitor-logs"></a>Spåra B2B-meddelanden med Azure Monitor-loggar
 
-När du har konfigurerat B2B-kommunikation mellan handelspartner i ditt integrationskonto kan partner utbyta meddelanden med protokoll, till exempel AS2-, X 12 och EDIFACT. Om du vill kontrollera att meddelandena behandlas korrekt, kan du spåra dessa meddelanden med [Azure Log Analytics](../log-analytics/log-analytics-overview.md). Du kan till exempel använda dessa webbaserade spårningsfunktioner för spårning av meddelanden:
+När du har konfigurerat B2B-kommunikation mellan handelspartner i ditt integrationskonto kan partner utbyta meddelanden med protokoll, till exempel AS2-, X 12 och EDIFACT. Om du vill kontrollera att meddelandena behandlas korrekt, kan du spåra dessa meddelanden med [Azure Monitor loggar](../log-analytics/log-analytics-overview.md). Du kan till exempel använda dessa webbaserade spårningsfunktioner för spårning av meddelanden:
 
 * Antal meddelanden och status
 * Bekräftelser status
@@ -29,19 +29,21 @@ När du har konfigurerat B2B-kommunikation mellan handelspartner i ditt integrat
 > [!NOTE]
 > Den här sidan som beskrevs tidigare anvisningar att utföra dessa uppgifter med den Microsoft Operations Management Suite (OMS), vilket är [tas ur bruk i januari 2019](../azure-monitor/platform/oms-portal-transition.md), ersätter de här stegen med Azure Log Analytics i stället. 
 
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+
 ## <a name="prerequisites"></a>Förutsättningar
 
 * En logikapp som har konfigurerats med diagnostikloggning. Lär dig [så här skapar du en logikapp](quickstart-create-first-logic-app-workflow.md) och [hur du ställer in loggning för den logikappen](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
 
 * Ett integrationskonto som har konfigurerats med övervakning och loggning. Lär dig [hur du skapar ett integrationskonto](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) och [hur du konfigurerar övervakning och loggning för det kontot](../logic-apps/logic-apps-monitor-b2b-message.md).
 
-* Om du inte redan gjort [publicera diagnostiska data till Log Analytics](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
+* Om du inte redan gjort [publicera diagnostiska data till Azure Monitor-loggar](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
 
 * När du uppfyller föregående krav måste också en Log Analytics-arbetsyta som du använder för att spåra B2B-kommunikation via Log Analytics. Om du inte har en Log Analytics-arbetsyta kan du läsa [hur du skapar en Log Analytics-arbetsyta](../azure-monitor/learn/quick-create-workspace.md).
 
 ## <a name="install-logic-apps-b2b-solution"></a>Installera Logic Apps B2B-lösning
 
-Innan du kan ha Log Analytics spåra B2B-meddelanden för din logikapp, lägga till den **Logic Apps B2B** lösning till Log Analytics. Läs mer om [lägga till lösningar i Log Analytics](../azure-monitor/learn/quick-create-workspace.md).
+Innan du kan ha Azure Monitor-loggar spåra B2B-meddelanden för din logikapp, lägga till den **Logic Apps B2B** lösning till Azure Monitor-loggar. Läs mer om [lägga till lösningar i Azure Monitor-loggar](../azure-monitor/learn/quick-create-workspace.md).
 
 1. I [Azure-portalen](https://portal.azure.com), väljer du **Alla tjänster**. Hitta ”log analytics” i sökrutan och välj **Log Analytics**.
 
@@ -128,7 +130,7 @@ När B2B-meddelanden bearbetas kan du visa status och information om dessa medde
    * Sökresultat med hjälp av fördefinierade frågor, Välj **Favoriter**.
 
    * Lär dig [hur du skapar frågor genom att lägga till filter](logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md). 
-   Eller Läs mer om [hitta data med loggsökningar i Log Analytics](../log-analytics/log-analytics-log-searches.md).
+   Eller Läs mer om [hur du hittar data med loggsökningar i Azure Monitor-loggar](../log-analytics/log-analytics-log-searches.md).
 
    * Uppdatera frågan med kolumner och värden som ska användas som filter om du vill ändra frågan i sökrutan.
 
@@ -237,7 +239,7 @@ Här följer namnformat för varje mapp för hämtade EDIFACT-meddelanden och fi
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Fråga om B2B-meddelanden i Log Analytics](../logic-apps/logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md)
+* [Fråga om B2B-meddelanden i Azure Monitor-loggar](../logic-apps/logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md)
 * [AS2-spårningsscheman](../logic-apps/logic-apps-track-integration-account-as2-tracking-schemas.md)
 * [X12-spårningsscheman](../logic-apps/logic-apps-track-integration-account-x12-tracking-schema.md)
 * [Anpassade spårningsscheman](../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md)

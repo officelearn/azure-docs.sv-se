@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: subsarma
-ms.openlocfilehash: 3825181d14605752e2407d9ffceb01d22c1bb710
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 9130fef895d4f9cd31f643b20a735c0e821923b8
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56649347"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57194001"
 ---
 # <a name="name-resolution-for-resources-in-azure-virtual-networks"></a>Namnmatchning för resurser i Azure-nätverk
 
@@ -157,7 +157,7 @@ När du använder Azure-tillhandahållen namnmatchning, Azure DHCP Dynamic Host 
 
 Om det behövs kan bestämma du interna DNS-suffixet med hjälp av PowerShell eller API: et.
 
-* För virtuella nätverk i Azure Resource Manager-distributionsmodeller suffixet är tillgängligt via den [nätverksgränssnittet REST API](/rest/api/virtualnetwork/networkinterfaces/get), [Get-AzNetworkInterface](/powershell/module/az.network/get-aznetworkinterface) PowerShell-cmdleten och [ AZ network nic show](/cli/azure/network/nic#az-network-nic-show) Azure CLI-kommando.
+* För virtuella nätverk i Azure Resource Manager-distributionsmodeller suffixet är tillgängligt via den [nätverksgränssnittet REST API](https://docs.microsoft.com/rest/api/virtualnetwork/networkinterfaces), [Get-AzNetworkInterface](/powershell/module/az.network/get-aznetworkinterface) PowerShell-cmdleten och [ AZ network nic show](/cli/azure/network/nic#az-network-nic-show) Azure CLI-kommando.
 * I klassiska distributionsmodeller suffixet är tillgängligt via den [få distribution API](https://msdn.microsoft.com/library/azure/ee460804.aspx) anropa eller [Get-AzureVM-felsöka](/powershell/module/servicemanagement/azure/get-azurevm) cmdlet.
 
 Om vidarebefordran av frågor till Azure inte passar dina behov, bör du ange en egen DNS-lösning. Din DNS-lösningen behöver:

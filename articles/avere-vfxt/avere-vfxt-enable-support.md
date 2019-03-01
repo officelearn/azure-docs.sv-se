@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: b975f84106507da6adff11dc62441526773f5cab
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: fe096b2e2a75cc89e3ce5ef905d8e4c347cc153a
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52998133"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56992472"
 ---
 # <a name="enable-support-uploads"></a>Aktivera stöd för uppladdningar
 
@@ -30,18 +30,18 @@ Följ dessa steg från Kontrollpanelen Avere att aktivera stöd för. (Läs [åt
 1. Klicka på den **Revalidate överföringsinformation** knappen.
 1. Ange klusternamnet stöd i **unika klusternamnet** – Kontrollera att den identifierar ditt kluster för att stödja personal.
 1. Markera kryssrutorna för **statistik övervakning**, **allmän Information överför**, och **krascha ladda upp Information**.
-1. Klicka på **skicka**.
+1. Klicka på **Skicka**.
 
    ![Skärmbild som innehåller slutfört kunden info-avsnittet i inställningssidan för support](media/avere-vfxt-support-info.png)
 
 1. Klicka på triangeln till vänster om **skydda proaktiv Support (Service Pack)** att expandera avsnittet.
 1. Markera kryssrutan för **aktivera Service Pack-länk**.
-1. Klicka på **skicka**.
+1. Klicka på **Skicka**.
 
    ![Skärmbild som innehåller slutfört skydda proaktiv stöder avsnittet på inställningssidan för support](media/avere-vfxt-support-sps.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du vill lägga till en lokal lagringssystemet i klustret eller uppdatera standardkrypteringsnyckeln i en nyligen skapad blobbehållare, följ instruktionerna i [konfigurerar du lagring](avere-vfxt-add-storage.md). 
+Om du behöver lägga till en lokal eller befintliga cloud storage-system i klustret, följer du anvisningarna i [konfigurerar du lagring](avere-vfxt-add-storage.md). 
 
 Om du är redo att börja ansluta klienter till klustret, läsa [montera Avere vFXT klustret](avere-vfxt-mount-clients.md).

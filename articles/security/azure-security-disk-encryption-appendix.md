@@ -8,16 +8,18 @@ ms.topic: article
 ms.author: mstewart
 ms.date: 01/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: 64ae354c9233821ea7e53abfdc0dde105b22e466
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: d23e6d00b77e69f7f3353938c52b450eebbfd142
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55208082"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56990688"
 ---
 # <a name="appendix-for-azure-disk-encryption"></a>Tillägg för Azure Disk Encryption 
 
 Den här artikeln är ett tillägg till [Azure Disk Encryption för virtuella IaaS-datorer](azure-security-disk-encryption-overview.md). Se till att läsa Azure Disk Encryption för virtuella IaaS-datorer artiklar först för att förstå kontexten. Den här artikeln beskriver hur du förbereder förkrypterade virtuella hårddiskar och andra uppgifter.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="connect-to-your-subscription"></a>Ansluta till din prenumeration
 Innan du börjar bör du granska den [krav](azure-security-disk-encryption-prerequisites.md) artikeln. När alla krav har uppfyllts kan du ansluta till din prenumeration genom att köra följande cmdlets:
@@ -27,22 +29,22 @@ Innan du börjar bör du granska den [krav](azure-security-disk-encryption-prere
 1. Starta en Azure PowerShell-session och logga in på ditt Azure-konto med följande kommando:
 
      ```powershell
-     Connect-AzureRmAccount 
+     Connect-AzAccount 
      ```
 2. Om du har flera prenumerationer och vill ange jag ska använda, skriver du följande för att visa prenumerationerna för ditt konto:
      
      ```powershell
-     Get-AzureRmSubscription
+     Get-AzSubscription
      ```
 3. Om du vill ange den prenumeration som du vill använda, skriver du:
  
      ```powershell
-      Select-AzureRmSubscription -SubscriptionName <Yoursubscriptionname>
+      Select-AzSubscription -SubscriptionName <Yoursubscriptionname>
      ```
 4. Om du vill kontrollera att den prenumeration som har konfigurerats är korrekt, skriver du:
      
      ```powershell
-     Get-AzureRmSubscription
+     Get-AzSubscription
      ```
 5. Om det behövs kan ansluta till Azure AD med [Connect-AzureAD](/powershell/module/azuread/connect-azuread).
      
@@ -91,9 +93,9 @@ Innan du börjar bör du granska den [krav](azure-security-disk-encryption-prere
 - **Lista över alla krypterade virtuella datorer i din prenumeration**
 
      ```azurepowershell-interactive
-     $osVolEncrypted = {(Get-AzureRmVMDiskEncryptionStatus -ResourceGroupName $_.ResourceGroupName -VMName $_.Name).OsVolumeEncrypted}
-     $dataVolEncrypted= {(Get-AzureRmVMDiskEncryptionStatus -ResourceGroupName $_.ResourceGroupName -VMName $_.Name).DataVolumesEncrypted}
-     Get-AzureRmVm | Format-Table @{Label="MachineName"; Expression={$_.Name}}, @{Label="OsVolumeEncrypted"; Expression=$osVolEncrypted}, @{Label="DataVolumesEncrypted"; Expression=$dataVolEncrypted}
+     $osVolEncrypted = {(Get-AzVMDiskEncryptionStatus -ResourceGroupName $_.ResourceGroupName -VMName $_.Name).OsVolumeEncrypted}
+     $dataVolEncrypted= {(Get-AzVMDiskEncryptionStatus -ResourceGroupName $_.ResourceGroupName -VMName $_.Name).DataVolumesEncrypted}
+     Get-AzVm | Format-Table @{Label="MachineName"; Expression={$_.Name}}, @{Label="OsVolumeEncrypted"; Expression=$osVolEncrypted}, @{Label="DataVolumesEncrypted"; Expression=$dataVolEncrypted}
      ```
 
 - **Lista över alla disk encryption-hemligheter som används för att kryptera virtuella datorer i ett nyckelvalv** 
@@ -112,8 +114,8 @@ I följande tabell visas vilka parametrar som kan användas i PowerShell-skripte
 |------|------|------|
 |$resourceGroupName| Namnet på resursgruppen som Nyckelvalvet tillhör.  En ny resursgrupp med det här namnet kommer att skapas om det inte finns.| True|
 |$keyVaultName|Namnet på Nyckelvalvet där krypteringsnycklarna nycklar är placeras. Ett nytt valv med det här namnet kommer att skapas om det inte finns.| True|
-|$location|Platsen för Nyckelvalvet. Kontrollera att Nyckelvalvet och virtuella datorer som ska krypteras finns på samma plats. Hämta en innehållsplatslista med `Get-AzureRMLocation`.|True|
-|$subscriptionId|Identifierare för Azure-prenumeration som ska användas.  Du kan hämta ditt prenumerations-ID med `Get-AzureRMSubscription`.|True|
+|$location|Platsen för Nyckelvalvet. Kontrollera att Nyckelvalvet och virtuella datorer som ska krypteras finns på samma plats. Hämta en innehållsplatslista med `Get-AzLocation`.|True|
+|$subscriptionId|Identifierare för Azure-prenumeration som ska användas.  Du kan hämta ditt prenumerations-ID med `Get-AzSubscription`.|True|
 |$aadAppName|Namnet på Azure AD-programmet som ska användas för att skriva hemligheter KeyVault. Om det inte redan finns ett program med det namnet skapas ett nytt. Om den här appen finns redan, ange du aadClientSecret parameter till skriptet.|False|
 |$aadClientSecret|Klienthemlighet för Azure AD-programmet som du skapade tidigare.|False|
 |$keyEncryptionKeyName|Namnet på valfri nyckelkrypteringsnyckel i KeyVault. En ny nyckel med det här namnet kommer att skapas om det inte finns.|False|
@@ -225,7 +227,7 @@ Använd den [ `manage-bde` ](https://technet.microsoft.com/library/ff829849.aspx
  OS-diskkryptering stöds för 7.2 CentOS, via en särskild avbildning. Om du vill använda den här bilden anger du ”7.2n” som SKU: N när du skapar den virtuella datorn:
 
  ```powershell
-    Set-AzureRmVMSourceImage -VM $VirtualMachine -PublisherName "OpenLogic" -Offer "CentOS" -Skus "7.2n" -Version "latest"
+    Set-AzVMSourceImage -VM $VirtualMachine -PublisherName "OpenLogic" -Offer "CentOS" -Skus "7.2n" -Version "latest"
  ```
 2. Konfigurera den virtuella datorn efter dina behov. Om du planerar att kryptera alla (OS + data) enheter finns i dataenheter måste vara angivna och monteras från/etc/fstab.
 
@@ -241,9 +243,9 @@ Använd den [ `manage-bde` ](https://technet.microsoft.com/library/ff829849.aspx
 
 5. Övervaka förloppet för kryptering med jämna mellanrum med hjälp av anvisningarna i den [nästa avsnitt](#monitoring-os-encryption-progress).
 
-6. När Get-AzureRmVmDiskEncryptionStatus visar ”VMRestartPending”, startar du om den virtuella datorn genom att logga in till den eller med hjälp av portalen, PowerShell eller CLI.
+6. När Get-AzVmDiskEncryptionStatus visar ”VMRestartPending”, startar du om den virtuella datorn genom att logga in till den eller med hjälp av portalen, PowerShell eller CLI.
     ```powershell
-    C:\> Get-AzureRmVmDiskEncryptionStatus  -ResourceGroupName $ResourceGroupName -VMName $VMName
+    C:\> Get-AzVmDiskEncryptionStatus  -ResourceGroupName $ResourceGroupName -VMName $VMName
     -ExtensionName $ExtensionName
 
     OsVolumeEncrypted          : VMRestartPending
@@ -256,7 +258,7 @@ Innan du startar om rekommenderar vi att du sparar [startdiagnostik](https://azu
 ## <a name="monitoring-os-encryption-progress"></a>Övervaka förloppet för OS-kryptering
 Du kan övervaka förloppet för OS-kryptering på tre sätt:
 
-* Använd den `Get-AzureRmVmDiskEncryptionStatus` cmdlet och inspektera fältet ProgressMessage:
+* Använd den `Get-AzVmDiskEncryptionStatus` cmdlet och inspektera fältet ProgressMessage:
     ```powershell
     OsVolumeEncrypted          : EncryptionInProgress
     DataVolumesEncrypted       : NotMounted
@@ -537,7 +539,7 @@ till
 ## <a name="bkmk_UploadVHD"></a> Ladda upp krypterade VHD till ett Azure storage-konto
 När BitLocker-kryptering eller DM-Crypt kryptering har aktiverats, måste den lokala krypterade virtuella Hårddisken som ska överföras till ditt lagringskonto.
 ```powershell
-    Add-AzureRmVhd [-Destination] <Uri> [-LocalFilePath] <FileInfo> [[-NumberOfUploaderThreads] <Int32> ] [[-BaseImageUriToPatch] <Uri> ] [[-OverWrite]] [ <CommonParameters>]
+    Add-AzVhd [-Destination] <Uri> [-LocalFilePath] <FileInfo> [[-NumberOfUploaderThreads] <Int32> ] [[-BaseImageUriToPatch] <Uri> ] [[-OverWrite]] [ <CommonParameters>]
 ```
 ## <a name="bkmk_UploadSecret"></a> Ladda upp hemligheten för den förkrypterade virtuella datorn till ditt nyckelvalv
 När du krypterar med hjälp av Azure AD-app (tidigare version), måste diskkryptering hemligheten som du fick tidigare laddas upp som en hemlighet i nyckelvalvet. Nyckelvalvet måste ha diskkryptering och behörigheter som har aktiverats för din Azure AD-klient.
@@ -546,14 +548,14 @@ När du krypterar med hjälp av Azure AD-app (tidigare version), måste diskkryp
  $AadClientId = "My-AAD-Client-Id"
  $AadClientSecret = "My-AAD-Client-Secret"
 
- $key vault = New-AzureRmKeyVault -VaultName $KeyVaultName -ResourceGroupName $ResourceGroupName -Location $Location
+ $key vault = New-AzKeyVault -VaultName $KeyVaultName -ResourceGroupName $ResourceGroupName -Location $Location
 
- Set-AzureRmKeyVaultAccessPolicy -VaultName $KeyVaultName -ResourceGroupName $ResourceGroupName -ServicePrincipalName $AadClientId -PermissionsToKeys all -PermissionsToSecrets all
- Set-AzureRmKeyVaultAccessPolicy -VaultName $KeyVaultName -ResourceGroupName $ResourceGroupName -EnabledForDiskEncryption
+ Set-AzKeyVaultAccessPolicy -VaultName $KeyVaultName -ResourceGroupName $ResourceGroupName -ServicePrincipalName $AadClientId -PermissionsToKeys all -PermissionsToSecrets all
+ Set-AzKeyVaultAccessPolicy -VaultName $KeyVaultName -ResourceGroupName $ResourceGroupName -EnabledForDiskEncryption
 ``` 
 
 ### <a name="bkmk_SecretnoKEK"></a> Diskkrypteringshemlighet som inte är krypterade med en KEK
-Om du vill konfigurera hemlighet i nyckelvalvet, använda [Set-AzureKeyVaultSecret](/powershell/module/azurerm.keyvault/set-azurekeyvaultsecret). Om du har en Windows-dator kan filen bek kodas som en base64-sträng och sedan överförs till ditt nyckelvalv med hjälp av den `Set-AzureKeyVaultSecret` cmdlet. För Linux, lösenfrasen kodas som en base64-sträng och sedan överförs till nyckelvalvet. Kontrollera dessutom att följande taggar är inställda när du skapar hemligheten i nyckelvalvet.
+Om du vill konfigurera hemlighet i nyckelvalvet, använda [Set-AzureKeyVaultSecret](/powershell/module/az.keyvault/set-azurekeyvaultsecret). Om du har en Windows-dator kan filen bek kodas som en base64-sträng och sedan överförs till ditt nyckelvalv med hjälp av den `Set-AzureKeyVaultSecret` cmdlet. För Linux, lösenfrasen kodas som en base64-sträng och sedan överförs till nyckelvalvet. Kontrollera dessutom att följande taggar är inställda när du skapar hemligheten i nyckelvalvet.
 
 #### <a name="windows-bek-file"></a>BEK för Windows-fil
 ```powershell
@@ -578,7 +580,7 @@ $SecretName = [guid]::NewGuid().ToString()
 $SecureSecretValue = ConvertTo-SecureString $FileContentEncoded -AsPlainText -Force
 $Secret = Set-AzureKeyVaultSecret -VaultName $VeyVaultName -Name $SecretName -SecretValue $SecureSecretValue -tags $tags
 
-# Show the secret's URL and store it as a variable. This is used as -DiskEncryptionKeyUrl in Set-AzureRmVMOSDisk when you attach your OS disk. 
+# Show the secret's URL and store it as a variable. This is used as -DiskEncryptionKeyUrl in Set-AzVMOSDisk when you attach your OS disk. 
 $SecretUrl=$secret.Id
 $SecretUrl
 ```
@@ -602,7 +604,7 @@ $SecretUrl
 Använd den `$secretUrl` i nästa steg för [koppla OS-disk utan att använda KEK](#bkmk_URLnoKEK).
 
 ### <a name="bkmk_SecretKEK"></a> Diskkrypteringshemlighet som krypterats med en KEK
-Innan du laddar upp hemligheten till nyckelvalvet kryptera du om du vill det med hjälp av en nyckelkrypteringsnyckel. Använd radbyte [API](https://msdn.microsoft.com/library/azure/dn878066.aspx) att kryptera hemligheten med den viktiga krypteringsnyckeln först. Utdata från åtgärden radbyte är en base64-URL-kodad sträng som du kan sedan överföra som en hemlighet med hjälp av den [ `Set-AzureKeyVaultSecret` ](/powershell/module/azurerm.keyvault/set-azurekeyvaultsecret) cmdlet.
+Innan du laddar upp hemligheten till nyckelvalvet kryptera du om du vill det med hjälp av en nyckelkrypteringsnyckel. Använd radbyte [API](https://msdn.microsoft.com/library/azure/dn878066.aspx) att kryptera hemligheten med den viktiga krypteringsnyckeln först. Utdata från åtgärden radbyte är en base64-URL-kodad sträng som du kan sedan överföra som en hemlighet med hjälp av den [ `Set-AzureKeyVaultSecret` ](/powershell/module/az.keyvault/set-azurekeyvaultsecret) cmdlet.
 
 ```powershell
     # This is the passphrase that was provided for encryption during the distribution installation
@@ -699,7 +701,7 @@ Använd `$KeyEncryptionKey` och `$secretUrl` i nästa steg för [koppla OS-diske
 ###  <a name="bkmk_URLnoKEK"></a>Utan att använda en KEK
 När du kopplar OS-disken, måste du skicka `$secretUrl`. URL: en har genererats i avsnittet ”diskkryptering hemlighet som inte är krypterade med en KEK”.
 ```powershell
-    Set-AzureRmVMOSDisk `
+    Set-AzVMOSDisk `
             -VM $VirtualMachine `
             -Name $OSDiskName `
             -SourceImageUri $VhdUri `
@@ -712,7 +714,7 @@ När du kopplar OS-disken, måste du skicka `$secretUrl`. URL: en har genererats
 ### <a name="bkmk_URLKEK"></a>Med hjälp av en KEK
 När du ansluter OS-disken, skicka `$KeyEncryptionKey` och `$secretUrl`. URL: en har genererats i avsnittet ”diskkrypteringshemlighet krypterade med en KEK”.
 ```powershell
-    Set-AzureRmVMOSDisk `
+    Set-AzVMOSDisk `
             -VM $VirtualMachine `
             -Name $OSDiskName `
             -SourceImageUri $CopiedTemplateBlobUri `

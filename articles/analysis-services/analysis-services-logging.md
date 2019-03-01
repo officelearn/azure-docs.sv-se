@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/14/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 17058e1d1c7b961ce14d18ca52580b7969b4df34
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 2303d385d3d688050a8d82c07e78a68588f41e88
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56888125"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57010930"
 ---
 # <a name="setup-diagnostic-logging"></a>Konfigurera Diagnostisk loggning
 
@@ -303,4 +303,4 @@ Set-AzDiagnosticSetting -ResourceId $account.ResourceId`
 
 Läs mer om [Diagnostisk loggning för Azure-resurs](../azure-monitor/platform/diagnostic-logs-overview.md).
 
-Se [Set-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.insights/Set-azDiagnosticSetting) i PowerShell-hjälpen.
+Se [Set-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting) i PowerShell-hjälpen.

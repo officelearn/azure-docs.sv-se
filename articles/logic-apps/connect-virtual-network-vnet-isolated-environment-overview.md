@@ -9,17 +9,17 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 02/24/2019
-ms.openlocfilehash: ed172db6aaa064cfed319a4190306d91aa846c48
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: ff43a55429eb69a7f98fd4da7fdbeb5d4e51513c
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56806835"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56991265"
 ---
 # <a name="access-to-azure-virtual-network-resources-from-azure-logic-apps-by-using-integration-service-environments-ises"></a>Åtkomst till Azure Virtual Network-resurser från Azure Logic Apps med hjälp av integreringstjänstmiljöer (ISEs)
 
 > [!NOTE]
-> Den här funktionen är i *förhandsversion*.
+> Den här funktionen är i [ *förhandsversion*](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Ibland kan dina logic apps och integrationskonton behöver åtkomst till skyddade resurser, till exempel virtuella datorer (VM) och andra system och tjänster, i en [Azure-nätverk](../virtual-network/virtual-networks-overview.md). Om du vill konfigurera den här åtkomsten, kan du [skapa en *integreringstjänstmiljön* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment.md) för att köra dina logic apps och integrationskonton. När du skapar en ISE Azure har distribuerat en privat och isolerad instans av Logic Apps-tjänsten i Azure-nätverk. Den här privata instansen använder dedikerade resurser, till exempel lagring och körs avskilt från offentliga ”global” Logic Apps-tjänsten. Att ange din isolerade privata och offentliga globala instansen också bidrar till att minska effekten som andra Azure-klienter kan ha på din apps prestanda, vilket även kallas den [”bort störande grannar” effekt](https://en.wikipedia.org/wiki/Cloud_computing_issues#Performance_interference_and_noisy_neighbors).
 

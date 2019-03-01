@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/04/2018
 ms.author: jdial
-ms.openlocfilehash: 20c103c19de203d7598484b8f1d160256cb253e9
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 6cc75a70dfc7022efa8577234cc67659d53b2f88
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56648871"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57194425"
 ---
 # <a name="diagnostic-logging-for-a-network-security-group"></a>Diagnostisk loggning för en grupp
 
@@ -78,7 +78,7 @@ $Oms=Get-AzOperationalInsightsWorkspace `
 
 Om du inte har en befintlig arbetsyta kan du skapa en med [New AzOperationalInsightsWorkspace](/powershell/module/az.operationalinsights/new-azoperationalinsightsworkspace).
 
-Det finns två typer av loggning som du kan aktivera loggar för. Mer information finns i [logga kategorier](#log-categories). Aktivera Diagnostisk loggning för NSG med [Set-AzDiagnosticSetting](/powershell/module/az.insights/set-azdiagnosticsetting). I följande exempel loggar händelse- och räknaren kategoridata till arbetsytan för en NSG med ID: N för NSG och arbetsytan som du hämtade tidigare:
+Det finns två typer av loggning som du kan aktivera loggar för. Mer information finns i [logga kategorier](#log-categories). Aktivera Diagnostisk loggning för NSG med [Set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting). I följande exempel loggar händelse- och räknaren kategoridata till arbetsytan för en NSG med ID: N för NSG och arbetsytan som du hämtade tidigare:
 
 ```azurepowershell-interactive
 Set-AzDiagnosticSetting `

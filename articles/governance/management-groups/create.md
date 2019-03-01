@@ -10,18 +10,20 @@ ms.workload: na
 ms.date: 11/20/2018
 ms.author: rithorn
 ms.topic: conceptual
-ms.openlocfilehash: 01bfd10b2f37a7990ab9a1badfcb09422baa391a
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 8e887409c35619261544b92395301ce06a033e8b
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56342209"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56992744"
 ---
 # <a name="create-management-groups-for-resource-organization-and-management"></a>Skapa hanteringsgrupper för resursorganisationen och hantering
 
 Av hanteringsgrupper är behållare som hjälper dig att hantera åtkomst, principer och efterlevnad över flera prenumerationer. Skapa de här behållarna för att skapa en och effektiva hierarki som kan användas med [Azure Policy](../policy/overview.md) och [baserade åtkomstkontroller i Azure-rollen](../../role-based-access-control/overview.md). Mer information om hanteringsgrupper finns i [organisera dina resurser med Azure-hanteringsgrupper](overview.md).
 
 Den första hanteringsgruppen som skapats i katalogen kan ta upp till 15 minuter att slutföra. Det finns processer som körs första gången du konfigurerar tjänsten management-grupper i Azure för din katalog. Du får ett meddelande när processen är klar.
+
+[!INCLUDE [az-powershell-update](../../../includes/updated-for-az.md)]
 
 ## <a name="create-a-management-group"></a>Skapa en hanteringsgrupp
 
@@ -48,10 +50,10 @@ Du kan skapa hanteringsgruppen med hjälp av portalen, PowerShell eller Azure CL
 
 ### <a name="create-in-powershell"></a>Skapa i PowerShell
 
-I PowerShell kan använda du cmdleten New-AzureRmManagementGroup:
+I PowerShell kan använda du cmdleten New-AzManagementGroup:
 
 ```azurepowershell-interactive
-New-AzureRmManagementGroup -GroupName 'Contoso'
+New-AzManagementGroup -GroupName 'Contoso'
 ```
 
 Den **GroupName** är en unik identifierare som håller på att skapas. Detta ID används av andra kommandon för att referera till den här gruppen och kan inte ändras senare.
@@ -59,7 +61,7 @@ Den **GroupName** är en unik identifierare som håller på att skapas. Detta ID
 Om du vill använda hanteringsgruppen som visar ett annat namn i Azure-portalen kan du lägga till den **DisplayName** med strängen för parametern. Om du vill skapa en hanteringsgrupp med GroupName Contoso och visningsnamnet för ”Contoso-grupp”, skulle du till exempel använda följande cmdlet:
 
 ```azurepowershell-interactive
-New-AzureRmManagementGroup -GroupName 'Contoso' -DisplayName 'Contoso Group' -ParentId 'ContosoTenant'
+New-AzManagementGroup -GroupName 'Contoso' -DisplayName 'Contoso Group' -ParentId '/providers/Microsoft.Management/managementGroups/ContosoTenant'
 ```
 
 Använd den **ParentId** parametern ska ha den här hanteringsgruppen skapas under en annan hantering.
@@ -78,6 +80,6 @@ Läs mer om hanteringslösningar här:
 
 - [Skapa hanteringsgrupper för att organisera Azure-resurser](create.md)
 - [Så här ändrar, raderar och hanterar du dina hanteringsgrupper](manage.md)
-- [Granska hanteringsgrupper i Azure PowerShell-resursmodulen](https://aka.ms/mgPSdocs)
-- [Granska hanteringsgrupper i REST API](https://aka.ms/mgAPIdocs)
-- [Granska hanteringsgrupper i Azure CLI](https://aka.ms/mgclidoc)
+- [Granska hanteringsgrupper i Azure PowerShell-resursmodulen](/powershell/module/az.resources#resources)
+- [Granska hanteringsgrupper i REST API](/rest/api/resources/managementgroups)
+- [Granska hanteringsgrupper i Azure CLI](/cli/azure/account/management-group)

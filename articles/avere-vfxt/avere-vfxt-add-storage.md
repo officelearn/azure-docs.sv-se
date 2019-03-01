@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: procedural
 ms.date: 01/29/2019
 ms.author: v-erkell
-ms.openlocfilehash: 13084ac21315d725df3f0913583fff3e64ee5c4a
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: cda95b8f7cbf1da85f080c7ea53306f48375db32
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55813236"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56992353"
 ---
 # <a name="configure-storage"></a>Konfigurera lagring
 
@@ -72,7 +72,7 @@ Gå sedan vidare till [skapa knutpunkt](#create-a-junction).
 Om du vill använda Azure Blob storage som serverdelslagring för ditt vFXT kluster behöver du en tom behållare för att lägga till som en core-filer.
 
 > [!TIP] 
-> Om du vill skapa en blobbehållare samtidigt som du skapar klustret Avere vFXT Distributionsmall eller skript skapar en lagringsbehållare, definierar det som en core-filer och skapar namnområdet knutpunkt som en del av vFXT klustret skapas. 
+> Om du vill skapa en blobbehållare samtidigt som du skapar klustret Avere vFXT Distributionsmall eller skript skapar en lagringsbehållare, definierar det som en core-filer och skapar namnområdet knutpunkt som en del av vFXT klustret skapas. Mallen skapar även en slutpunkt för lagring i klustrets virtuella nätverk. 
 
 Lägger till Blob-lagring i klustret kräver dessa uppgifter:
 

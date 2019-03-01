@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2018
 ms.author: spelluru
-ms.openlocfilehash: 22c30e1c3b19e62489a08a702d8b35fbc4862e13
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: e099a29a198d43bf8d00487ab45e2648479aedbe
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56728224"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57194785"
 ---
 # <a name="use-powershell-to-add-a-marketplace-image-to-a-lab-in-azure-devtest-labs"></a>Använd PowerShell för att lägga till en marketplace-avbildning till ett labb i Azure DevTest Labs
 
@@ -40,7 +40,7 @@ I det här skriptet används följande kommandon:
 
 | Kommando | Anteckningar |
 |---|---|
-| [Find-AzResource](/powershell/module/az.resources/find-azresource) | Söker efter resurser baserat på de angivna parametrarna. |
+| Hitta AzResource | Söker efter resurser baserat på de angivna parametrarna. |
 | [Get-AzResource](/powershell/module/az.resources/get-azresource) | Hämtar resurser. |
 | [Set-AzResource](/powershell/module/az.resources/set-azresource) | Ändrar en resurs. |
 | [New-AzResource](/powershell/module/az.resources/new-azresource) | Skapa en resurs. |

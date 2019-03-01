@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/07/2019
+ms.date: 02/21/2019
 ms.author: jeedes
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2b7604fbe306e606e56c9dd0a2b09b4641257dbc
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: a354fdf8ea75d9446c2a5e5ee6a70489cf9dbfb5
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56203362"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56990531"
 ---
 # <a name="how-to-configure-the-role-claim-issued-in-the-saml-token-for-enterprise-applications"></a>Anvisningar: Konfigurera rollanspråk som utfärdats i SAML-token för företagsprogram
 
@@ -157,6 +157,9 @@ Om ditt program förväntar sig anpassade roller som ska skickas som en SAML-sva
     | Attributnamn | Attributvärde |
     | -------------- | ----------------|
     | Rollnamn  | user.assignedroles |
+
+    >[!NOTE]
+    >Om anspråksvärdet rollen är null, sedan Azure AD kommer inte att skicka det här värdet i token och det är standard enligt design.
 
     a. Klicka på **redigera** knappen för att öppna **användarattribut** dialogrutan.
 

@@ -15,18 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: anavin
-ms.openlocfilehash: 95fb889da564d6e40e25dfb9ee64a8665a954652
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 5496be93a5241621cd4dc5e873e4386f8ed6c992
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700748"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57195225"
 ---
 # <a name="public-ip-address-prefix"></a>Offentliga IP-adressprefix
 
 En offentlig IP-adressprefixet är ett reserverat intervall med IP-adresser för din offentliga slutpunkter i Azure. Azure tilldelar ett sammanhängande intervall med adresser till din prenumeration baserat på hur många som du anger. Om du inte är bekant med offentliga adresser [offentliga IP-adresser.](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses)
 
-Offentliga IP-adresser tilldelas från en pool med adresser i varje Azure-region. Du kan [hämta](https://www.microsoft.com/download/details.aspx?id=41653) lista med intervall som använder Azure för varje region. Till exempel är 40.121.0.0/16 ett av fler än 100 intervall som använder Azure i östra USA. Intervallet omfattar användbara adresser av 40.121.0.1 - 40.121.255.254.
+Offentliga IP-adresser tilldelas från en pool med adresser i varje Azure-region. Du kan [hämta](https://www.microsoft.com/download/details.aspx?id=56519) lista med intervall som använder Azure för varje region. Till exempel är 40.121.0.0/16 ett av fler än 100 intervall som använder Azure i östra USA. Intervallet omfattar användbara adresser av 40.121.0.1 - 40.121.255.254.
 
 Du skapar en offentlig IP-adressprefix i ett Azure-region och prenumeration genom att ange ett namn och hur många adresser som du vill att prefixet som ska ingå. Till exempel om du skapar en offentlig IP-adressprefix på/28, tilldelar Azure 16 adresser från en av dess intervall för dig. Du vet inte vilka adressintervall som Azure tilldelar förrän du har skapat intervallet, men adresserna som är sammanhängande. Offentliga IP-adressprefix har en avgift. Mer information finns i [prissättning för offentliga IP-adresser](https://azure.microsoft.com/pricing/details/ip-addresses).
 

@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 85beb9b7e0c62d5e1c8dae61fdd15d5faf3a294c
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 4857b1771ae66cbee25765bb5173a638cbcd223e
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 02/28/2019
-ms.locfileid: "56985877"
+ms.locfileid: "57008601"
 ---
 # <a name="link-a-partner-id-to-your-azure-accounts"></a>Länka ett partner-ID till dina Azure-konton
 
@@ -142,11 +142,11 @@ Länken är associerade på nivån för kontot. Endast kan du redigera eller ta 
 
 **Vilka MPN-ID ska jag använda om mitt företag har flera?**
 
-Du kan använda valfri giltig MPN-ID utom v org MPN-ID. De flesta partner väljer att använda de MPN-ID för geografiska plats där kunden är baserad eller tjänsten levereras.
+Du kan använda valfri giltig MPN-ID utom historiklistorna orgnization(v-org) MPN-ID. De flesta partner väljer att använda de MPN-ID för geografiska plats där kunden är baserad eller tjänsten levereras.
 
 **Var hittar jag har påverkat intäktsrapportering för länkade partner-ID?**
 
-Du kan hitta har påverkat intäktsrapportering på [min instrumentpanel](https://partner.microsoft.com/membership/reports/myinsights) genom att välja Partner Admin länken som visas.
+Du kan hitta har påverkat intäktsrapportering på [min instrumentpanel](https://partner.microsoft.com/membership/reports/myinsights). Du måste välja länken för Partner-administratör som typ av partner-kopplingen.
 
 **Varför kan jag inte se min kund i rapporterna?**
 

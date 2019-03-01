@@ -1,19 +1,19 @@
 ---
 title: Azure IoT Hub kommunikationsprotokoll och portar | Microsoft Docs
 description: Utvecklarguide – beskriver stöds kommunikationsprotokoll enhet till moln och från moln till enhet informations-och de portnummer som måste vara öppna.
-author: dominicbetts
-manager: timlt
+author: robinsh
+manager: philmea
+ms.author: robin.shahan
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
-ms.author: dobett
-ms.openlocfilehash: 3079b2414c44fc97bc8aff4b207e0943e94c7457
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: 40297feca46910a3d5106134f8c2f45270d3f6df
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47584344"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57011236"
 ---
 # <a name="reference---choose-a-communication-protocol"></a>Referera till – Välj ett kommunikationsprotokoll
 

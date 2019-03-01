@@ -12,32 +12,32 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/11/2019
-ms.author: jeffgilb
+ms.date: 02/27/2019
+ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 315a96680674636f7cab9d93b362febcb25f9922
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: af3e7528e2312cef1832dc104e83384a91acf263
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447073"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56991350"
 ---
 # <a name="add-an-app-service-resource-provider-to-a-disconnected-azure-stack-environment-secured-by-ad-fs"></a>Lägga till en App Service-resursprovider i en frånkopplad Azure Stack-miljö som skyddas av AD FS
 
 *Gäller för: Integrerade Azure Stack-system och Azure Stack Development Kit*
 
 > [!IMPORTANT]
-> Uppdateringen är 1809 integrerade Azure Stack-system eller distribuera den senaste Azure Stack development kit innan du distribuerar Azure App Service 1.4.
+> Uppdateringen är 1901 integrerade Azure Stack-system eller distribuera den senaste Azure Stack development kit innan du distribuerar Azure App Service 1.5.
 
 Genom att följa anvisningarna i den här artikeln kan du installera den [App Service-resursprovider](azure-stack-app-service-overview.md) till en Azure Stack-miljö som är:
 
 - inte ansluten till Internet
 - skyddas av Active Directory Federation Services (AD FS).
 
- > [!IMPORTANT]
- > Innan du distribuerar resursprovidern, granska viktig information att lära dig om nya funktioner och korrigeringar kända problem som kan påverka din distribution.
- 
+> [!IMPORTANT]  
+> Innan du kör installationsprogrammet för providern resurs, se till att du har följt riktlinjerna i [innan du sätter igång](azure-stack-app-service-before-you-get-started.md) och har läst den [viktig](azure-stack-app-service-release-notes-update-five.md) som medföljer 1.5 versionen Lär dig mer om nya funktioner, korrigeringar och kända problem som kan påverka din distribution.
+
 Om du vill lägga till App Service-resursprovider i distributionen Azure Stack, måste du slutföra de här toppnivåaktiviteter:
 
 1. Slutför den [nödvändiga steg](azure-stack-app-service-before-you-get-started.md) (t.ex. köpa certifikat, vilket kan ta ett par dagar att ta emot).
@@ -105,7 +105,7 @@ Om du vill distribuera App Service i en frånkopplad miljö måste du först ska
 
     ![App Service-installationsprogrammet][5]
 
-9. Ange information för filresursen och klickar sedan på **nästa**. Adressen till filresursen måste använda fullständigt kvalificerat domännamn eller IP-adressen för din filserver. Till exempel \\\appservicefileserver.local.cloudapp.azurestack.external\websites, eller \\\10.0.0.1\websites
+9. Ange information för filresursen och klickar sedan på **nästa**. Adressen till filresursen måste använda fullständigt kvalificerat domännamn eller IP-adressen för din filserver. Till exempel \\\appservicefileserver.local.cloudapp.azurestack.external\websites, eller \\\10.0.0.1\websites.  Om du använder en filserver som är ansluten till en domän, måste du ange det fullständiga användarnamnet inklusive domän, till exempel myfileserverdomain\FileShareOwner.
 
     > [!NOTE]
     > Installationsprogrammet försöker att testa anslutningen till filresursen innan du fortsätter.  Om du väljer att distribuera i ett befintligt virtuellt nätverk, kan installationsprogrammet kanske inte kan ansluta till filresursen och visas en varning som frågar om du vill fortsätta  Kontrollera informationen om filresursen och fortsätta om de är korrekta.
@@ -196,6 +196,11 @@ Om du vill distribuera App Service i en frånkopplad miljö måste du först ska
 
     ![App Service-installationsprogrammet][18]
 
+## <a name="post-deployment-steps"></a>Steg efter distribution
+
+> [!IMPORTANT]  
+> Om du har angett App Service-RP med en SQL alltid på instans måste du [lägga till appservice_hosting och appservice_metering databaser i en tillgänglighetsgrupp](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database) och synkronisera databaser för att förhindra förlust av tjänsten i den händelse av ett databasfel.
+
 ## <a name="validate-the-app-service-on-azure-stack-installation"></a>Validera App Service på Azure Stack-installation
 
 1. I Azure Stack-administratörsportalen, går du till **Administration - App Service**.
@@ -205,7 +210,7 @@ Om du vill distribuera App Service i en frånkopplad miljö måste du först ska
     ![App Service-hantering](media/azure-stack-app-service-deploy/image12.png)
 
 > [!NOTE]
-> Om du väljer att distribuera till ett befintligt virtuellt nätverk och en intern IP-adress för att ansluta till din filserver, du måste lägga till en utgående säkerhetsregel att aktivera SMB-trafik mellan worker-undernät och filservern.  Gör detta genom att gå till WorkersNsg i Admin Portal och Lägg till en utgående säkerhetsregel med följande egenskaper:
+> Om du väljer att distribuera till ett befintligt virtuellt nätverk och en intern IP-adress för att ansluta till filservern, du måste lägga till en utgående säkerhetsregel att aktivera SMB-trafik mellan worker-undernät och filservern.  Gör detta genom att gå till WorkersNsg i Admin Portal och Lägg till en utgående säkerhetsregel med följande egenskaper:
 > * Källa: Alla
 > * Käll-portintervall: *
 > * Mål: IP-adresser

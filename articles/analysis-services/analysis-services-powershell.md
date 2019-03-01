@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 12/19/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 8f309d628ec4531ca5594ecb25533b1484e8b274
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 177d74a54e4ab4de698cbb63091656cc8b584e2b
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56732406"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57010692"
 ---
 # <a name="manage-azure-analysis-services-with-powershell"></a>Hantera Azure Analysis Services med PowerShell
 
@@ -51,7 +51,7 @@ Modul - [Azure.AnalysisServices](https://www.powershellgallery.com/packages/Azur
 
 |Cmdlet|Beskrivning| 
 |------------|-----------------| 
-|[Add-AzAnalysisServicesAccount](/powershell/module/azure.analysisservices/add-AzAnalysisServicesaccount)|Lägger till en autentiserad konto som ska användas för Azure Analysis Services serverbegäranden för cmdlet.| 
+|[Add-AzAnalysisServicesAccount](/powershell/module/az.analysisservices/add-AzAnalysisServicesaccount)|Lägger till en autentiserad konto som ska användas för Azure Analysis Services serverbegäranden för cmdlet.| 
 |[Export-AzAnalysisServicesInstance](/powershell/module/az.analysisservices/export-AzAnalysisServicesinstancelog)|Exporterar en logg från en instans av Analysis Services-servern i den för tillfället inloggade miljö som anges i kommandot Lägg till AzAnalysisServicesAccount|  
 |[Restart-AzAnalysisServicesInstance](/powershell/module/az.analysisservices/restart-AzAnalysisServicesinstance)|Startar om en instans av Analysis Services-servern i inloggade miljön. anges i Lägg till AzAnalysisServicesAccount kommandot.|  
 |[Sync-AzAnalysisServicesInstance](/powershell/module/az.analysisservices/restart-AzAnalysisServicesinstance)|Synkroniserar en angiven databas på den angivna instansen av Analysis Services-servern på alla fråga skalbar instanser i den för tillfället inloggade miljö som anges i kommandot Lägg till AzAnalysisServicesAccount|  

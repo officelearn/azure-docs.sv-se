@@ -13,12 +13,12 @@ ms.date: 09/18/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1851a6c27e89da71e75c59e025fee3800d0cd973
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: ee64fe8643362c6a75e288d78e163317fd8a44d8
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56876967"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57193167"
 ---
 # <a name="azure-ad-connect-and-azure-ad-connect-health-installation-roadmap"></a>Installationsplan för Azure AD Connect och Azure AD Connect Health
 
@@ -49,7 +49,7 @@ Du kan ladda ned Azure AD Connect från [Microsoft Download Center](https://go.m
 |Efter installationen | [Verifiera installationen och tilldela licenser](how-to-connect-post-installation.md)|
 
 ### <a name="learn-more-about-install-azure-ad-connect"></a>Mer information om installationen av Azure AD Connect
-Det är bra att vara förberedd om det skulle uppstå [driftproblem](how-to-connect-sync-operations.md). Du kanske vill ha en reservserver som du enkelt kan redundansväxla till i händelse av ett [allvarligt fel](how-to-connect-sync-operations.md#disaster-recovery). Om du ofta kommer att göra konfigurationsändringar bör du planera för ett server i [mellanlagringsläge](how-to-connect-sync-operations.md#staging-mode).
+Det är bra att vara förberedd om det skulle uppstå [driftproblem](how-to-connect-sync-operations.md). Du kanske vill ha en reservserver som du enkelt kan redundansväxla till i händelse av ett [allvarligt fel](how-to-connect-sync-staging-server.md#disaster-recovery). Om du ofta kommer att göra konfigurationsändringar bör du planera för ett server i [mellanlagringsläge](how-to-connect-sync-staging-server.md).
 
 |Avsnitt |Länk|  
 | --- | --- |

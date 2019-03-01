@@ -1,19 +1,20 @@
 ---
 title: Kom igång med enhetshantering i Azure IoT Hub (Java) | Microsoft Docs
 description: Hur du använder Azure IoT Hub-enhetshantering för att initiera en fjärransluten enhet omstart. Du kan använda Azure IoT-enhetens SDK för Java för att implementera en simulerad enhetsapp som innehåller en direkt metod och tjänsten Azure IoT SDK för Java för att implementera en service-app som anropar direktmetoden.
-author: dominicbetts
+author: wesmc7777
+manager: philmea
+ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: java
 ms.topic: conceptual
 ms.date: 08/08/2017
-ms.author: dobett
-ms.openlocfilehash: 46b094e8436d74915a1cd5a0ccec402bee03e33b
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: 272f4cfd4d79ef6d4fca3f3c00afb1c251649db8
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515292"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57010760"
 ---
 # <a name="get-started-with-device-management-java"></a>Kom igång med enhetshantering (Java)
 
@@ -39,7 +40,7 @@ I slutet av den här självstudien har du två Java-konsolappar:
 
 * Rapporterar tidpunkten för den senaste omstarten via en rapporterad egenskap.
 
-**utlösaren omstart**. Den här appen:
+**trigger-reboot**. Den här appen:
 
 * Anropar en direkt metod i den simulerade enhetsappen.
 
@@ -62,7 +63,7 @@ För att slutföra den här kursen behöver du:
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
-### <a name="retrieve-connection-string-for-iot-hub"></a>Hämta anslutningssträngen för IoT hub
+### <a name="retrieve-connection-string-for-iot-hub"></a>Hämta anslutningssträngen för IoT-hubben
 
 [!INCLUDE [iot-hub-include-find-connection-string](../../includes/iot-hub-include-find-connection-string.md)]
 

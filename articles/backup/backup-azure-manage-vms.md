@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.author: sogup
-ms.openlocfilehash: 0e05bf71c1689015be0b8e3a4be1b37447ba6eb8
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: b08e8ea6a8768510177f1ea664f3036813e1a890
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56961252"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57009927"
 ---
 # <a name="manage-azure-vm-backups"></a>Hantera säkerhetskopior av virtuella Azure-datorer
 
@@ -74,20 +74,23 @@ Du kan hantera säkerhetskopior med hjälp av instrumentpanelen, och genom att g
 Du kan säkerhetskopiera en på begäran för en virtuell dator när den är konfigurerad för skydd.
 - Om den första säkerhetskopieringen väntar skapar på begäran-säkerhetskopiering en fullständig kopia av den virtuella datorn i Recovery Services-valvet.
 - Om den första säkerhetskopieringen har slutförts, skickas en säkerhetskopiering på begäran endast ändringar från tidigare ögonblicksbild till Recovery Services-valvet. Det vill säga är efterföljande säkerhetskopieringar alltid inkrementell.
-- Kvarhållningsintervallet för en säkerhetskopiering på begäran är kvarhållningsvärdet som angetts för daglig säkerhetskopieringspunkt i principen. Om ingen daglig säkerhetskopieringspunkt väljs, används veckovis säkerhetskopieringspunkt.
+- Kvarhållningsintervallet för en säkerhetskopiering på begäran är värdet för kvarhållning anges vid tidpunkten för att utlösa säkerhetskopieringsjobbet.
 
 Att utlösa en säkerhetskopiering på begäran:
 
-1. På den [instrumentpanelen för valvet objekt](#view-vms-in-the-dashboard), klickar du på **Säkerhetskopiera nu**.
+1. På den [instrumentpanelen för valvet objekt](#view-vms-in-the-dashboard), klickar du på **Säkerhetskopieringsobjekt** under den **skyddade objektet** avsnittet.
 
     ![Säkerhetskopiering nu knappen](./media/backup-azure-manage-vms/backup-now-button.png)
 
- 2. Klicka på **Ja** att starta säkerhetskopieringen.
+2. Klicka på **Azure-dator** från **säkerhetskopiera Hanteringstyp**. Den **Säkerhetskopieringsobjekt (Azure virtuell dator)** bladet visas.
+3. Välj en virtuell dator och klicka på **säkerhetskopiering nu** att skapa en säkerhetskopiering på begäran. Den **bladet Säkerhetskopiera nu** visas.
+4. I den **behåller säkerhetskopierade tills** , anger du ett datum för kvarhållning av säkerhetskopian.
 
     ![Säkerhetskopiering nu knappen](./media/backup-azure-manage-vms/backup-now-check.png)
 
+5. Klicka på **OK**, för att köra jobbet.
 
- Säkerhetskopieringsjobbet skapar en återställningspunkt. Kvarhållningsintervallet för återställningspunkten är samma som kvarhållningsintervallet som angetts i principen som är associerade med den virtuella datorn. Om du vill spåra förloppet för jobbet i instrumentpanelen för valvet klickar du på den **säkerhetskopieringsjobb** panelen.  
+Om du vill spåra förloppet för jobbet i instrumentpanelen för valvet klickar du på den **säkerhetskopieringsjobb** panelen.
 
 ## <a name="stop-protecting-a-vm"></a>Sluta skydda en virtuell dator
 

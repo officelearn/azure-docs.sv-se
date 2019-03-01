@@ -8,16 +8,19 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 5862c6ef3c420c1722ddfbc1238be4e2bf43a507
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: e752302baab14505e71c3f0f65840156833b8976
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447435"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57194613"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Utöka Azure HDInsight med hjälp av Azure Virtual Network
 
 [!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
+
+> [!IMPORTANT]  
+> Efter den 28 februari 2019 levereras nätverksresurser (till exempel nätverkskort, LBs osv) för nya kluster som skapas i ett virtuellt nätverk i samma resursgrupp för HDInsight-kluster. Tidigare etablerades resurserna i resursgruppen VNET. Det finns ingen förändring av de aktuella pågående kluster och dessa kluster som skapas utan ett virtuellt nätverk.
 
 Lär dig hur du använder HDInsight med en [Azure Virtual Network](../virtual-network/virtual-networks-overview.md). Med hjälp av Azure Virtual Network gör det möjligt för följande scenarier:
 

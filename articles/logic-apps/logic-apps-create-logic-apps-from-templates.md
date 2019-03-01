@@ -10,12 +10,12 @@ ms.reviewer: estfan, LADocs
 ms.topic: article
 ms.assetid: 3656acfb-eefd-4e75-b5d2-73da56c424c9
 ms.date: 10/15/2017
-ms.openlocfilehash: 554171e02a369905bcf9cd4aa7bfa2e59ab46336
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 134a8f9625b45a8196ebd47f10286093f6ba0d46
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50229765"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57193457"
 ---
 # <a name="create-logic-app-workflows-from-prebuilt-templates"></a>Skapa logikappsarbetsflöden från fördefinierade mallar
 
@@ -52,7 +52,7 @@ Om du inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt A
    | **Prenumeration** | *namn-på-Azure-prenumerationen* | Ange den prenumeration som du vill använda. | 
    | **Resursgrupp** | *namn-på-Azure-resursgruppen* | Skapa eller välj en [Azure-resursgrupp](../azure-resource-manager/resource-group-overview.md) för den här logikappen och organisera alla resurser som är associerade med den här appen. | 
    | **Plats** | *din-Azure-datacenter-region* | Välj datacenterregion för att distribuera logikappen, till exempel USA, västra. | 
-   | **Log Analytics** | **Inaktivera** (standard) eller **på** | Aktivera [diagnostikloggning](../logic-apps/logic-apps-monitor-your-logic-apps.md#turn-on-diagnostics-logging-for-your-logic-app) för din logikapp via [Azure Log Analytics](../log-analytics/log-analytics-overview.md). Kräver att du redan har en Log Analytics-arbetsyta. | 
+   | **Log Analytics** | **Inaktivera** (standard) eller **på** | Aktivera [diagnostikloggning](../logic-apps/logic-apps-monitor-your-logic-apps.md#turn-on-diagnostics-logging-for-your-logic-app) för din logikapp via [Azure Monitor loggar](../log-analytics/log-analytics-overview.md). Kräver att du redan har en Log Analytics-arbetsyta. | 
    |||| 
 
 4. När du är klar väljer du **Fäst på instrumentpanelen**. På så sätt visas logikappen automatiskt på din Azure-instrumentpanel och öppnas efter distributionen. Välj **Skapa**.

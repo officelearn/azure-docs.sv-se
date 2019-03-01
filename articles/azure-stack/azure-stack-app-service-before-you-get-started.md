@@ -12,16 +12,16 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2019
-ms.author: jeffgilb
+ms.date: 02/27/2019
+ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 02/22/2019
-ms.openlocfilehash: 3b057e9c4a0fccb3f85ec237433e4020fd4a84da
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 01b0a86ede79187d8f180df0f2f71f6eaadb7428
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56737492"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56990543"
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Innan du sätter igång med App Service i Azure Stack
 
@@ -30,7 +30,7 @@ ms.locfileid: "56737492"
 Innan du distribuerar Azure App Service i Azure Stack, måste du slutföra de nödvändiga stegen i den här artikeln.
 
 > [!IMPORTANT]
-> Uppdateringen är 1809 integrerade Azure Stack-system eller distribuera den senaste Azure Stack Development Kit (ASDK) innan du distribuerar Azure App Service 1.4.
+> Uppdateringen är 1901 integrerade Azure Stack-system eller distribuera den senaste Azure Stack Development Kit (ASDK) innan du distribuerar Azure App Service 1.5.
 
 ## <a name="download-the-installer-and-helper-scripts"></a>Ladda ned installationsprogrammet och helper-skript
 
@@ -49,15 +49,7 @@ Innan du distribuerar Azure App Service i Azure Stack, måste du slutföra de n�
 
 ## <a name="syndicate-the-custom-script-extension-from-the-marketplace"></a>Syndikera tillägget för anpassat skript från Marketplace
 
-Azure App Service i Azure Stack kräver v1.9.0 för tillägget för anpassat skript.  Tillägget måste vara [syndikeras från Marketplace](https://docs.microsoft.com/azure/azure-stack/azure-stack-download-azure-marketplace-item) före distribution eller uppgradering av Azure App Service på Azure Stack
-
-## <a name="high-availability"></a>Hög tillgänglighet
-
-Azure Stack 1802 uppdateringen lagt till stöd för feldomäner. Nya Azure App Service i Azure Stack-distributioner kommer att distribueras över feldomäner och ge feltolerans.
-
-Befintliga distributioner av Azure App Service i Azure Stack, som distribuerats före uppdateringen 1802, finns det [balansera om en App Service-resursprovider över feldomäner](azure-stack-app-service-fault-domain-update.md) artikeln.
-
-Dessutom distribuera nödvändiga fil- och SQL Server-instanser i en konfiguration med hög tillgänglighet.
+Azure App Service i Azure Stack kräver v1.9.1 för tillägget för anpassat skript.  Tillägget måste vara [syndikeras från Marketplace](https://docs.microsoft.com/azure/azure-stack/azure-stack-download-azure-marketplace-item) före distribution eller uppgradering av Azure App Service på Azure Stack
 
 ## <a name="get-certificates"></a>Hämta certifikat
 

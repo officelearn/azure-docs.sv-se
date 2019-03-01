@@ -12,23 +12,22 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2019
-ms.author: jeffgilb
+ms.date: 02/27/2019
+ms.author: anwestg
 ms.reviewer: anwestg
-ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: 332722a1774eea41ab3566051da138f2383fef98
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: 9d941c36499f851f20c41fa6dd01faf14e4192ba
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447675"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56992778"
 ---
 # <a name="offline-update-of-azure-app-service-on-azure-stack"></a>Offline uppdatering av Azure App Service i Azure Stack
 
 *Gäller för: Integrerade Azure Stack-system och Azure Stack Development Kit*
 
 > [!IMPORTANT]
-> Aktivera 1809 uppdateringen eller senare till Azure Stack-integrerat system eller distribuera den senaste Azure Stack development kit innan du distribuerar Azure App Service 1.4. Innan du uppdaterar resursprovidern, granska viktig information att lära dig om nya funktioner och korrigeringar kända problem som kan påverka din distribution.
+> Aktivera 1901 uppdateringen eller senare till Azure Stack-integrerat system eller distribuera den senaste Azure Stack development kit innan du distribuerar Azure App Service 1.5. 
 
 Genom att följa anvisningarna i den här artikeln kan du uppgradera den [App Service-resursprovider](azure-stack-app-service-overview.md) distribueras i en Azure Stack-miljö som är:
 
@@ -36,9 +35,7 @@ Genom att följa anvisningarna i den här artikeln kan du uppgradera den [App Se
 * skyddas av Active Directory Federation Services (AD FS).
 
 > [!IMPORTANT]
-> Innan du kör uppgraderingen bör du kontrollera att du redan har slutfört den [distribution av Azure App Service i Azure Stack Resource Provider](azure-stack-app-service-deploy-offline.md)
->
->
+> Innan du kör uppgraderingen bör du kontrollera att du redan har slutfört den [distribution av Azure App Service i Azure Stack Resource Provider](azure-stack-app-service-deploy-offline.md) och att du har läst den [viktig](azure-stack-app-service-release-notes-update-five.md), som medföljer den 1,5 versionen, om du vill veta mer om nya funktioner och korrigeringar kända problem som kan påverka din distribution.
 
 ## <a name="run-the-app-service-resource-provider-installer"></a>Kör installationsprogrammet för providern App Service-resurs
 

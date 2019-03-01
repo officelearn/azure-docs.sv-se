@@ -16,12 +16,12 @@ ms.date: 02/26/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b05f2dc1ed766ccb06b71c2977ceaf2b7cd823d3
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: b044edbc24a83aeb98ff603a43f160a6c88d940f
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56869674"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57193355"
 ---
 # <a name="azure-ad-connect-automatic-upgrade"></a>Azure AD Connect: Automatisk uppgradering
 Den här funktionen introducerades i version [1.1.105.0 (publicerad februari 2016)](reference-connect-version-history.md#111050).  Den här funktionen har uppdaterats i [skapa 1.1.561](reference-connect-version-history.md#115610) och har nu stöd för fler scenarier som tidigare inte stöds.
@@ -100,7 +100,7 @@ Här är en lista över de vanligaste meddelanden som du hittar. Visar alla inte
 | UpgradeNotSupportedNonMsolAccount |Den [AD DS-anslutningskontot](reference-connect-accounts-permissions.md#ad-ds-connector-account) inte är standardkontot för MSOL_ längre. |
 | UpgradeNotSupportedNotConfiguredSignInMethod | När du konfigurerar AAD Connect som du har valt *inte konfigurerar* vid val av inloggnings-metod. | 
 | UpgradeNotSupportedPtaSignInMethod | Du har valt direktautentisering som metod för inloggning. |
-| UpgradeNotSupportedStagingModeEnabled |Servern har angetts i [mellanlagringsläge](how-to-connect-sync-operations.md#staging-mode). |
+| UpgradeNotSupportedStagingModeEnabled |Servern har angetts i [mellanlagringsläge](how-to-connect-sync-staging-server.md). |
 | UpgradeNotSupportedUserWritebackEnabled |Du har aktiverat den [tillbakaskrivning av användare](how-to-connect-preview.md#user-writeback) funktionen. |
 
 ## <a name="next-steps"></a>Nästa steg

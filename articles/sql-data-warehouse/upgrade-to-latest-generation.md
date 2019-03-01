@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 02/19/2019
 ms.author: martinle
 ms.reviewer: jrasnick
-ms.openlocfilehash: f3e877733d473993a5acd2f44e088b8b0b4fe130
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: 70a59ddc1b15693cb2a50c1dc2da6dd9233e0811
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447267"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56990025"
 ---
 # <a name="optimize-performance-by-upgrading-sql-data-warehouse"></a>Optimera prestanda genom att uppgradera SQL Data Warehouse
 Uppgradera Azure SQL Data Warehouse till senaste generationen i Azure maskin- och storage-arkitektur.
@@ -55,7 +55,7 @@ Den här uppgraderingen gäller för Compute Optimized Gen1 nivån informationsl
 ## <a name="upgrade-in-a-supported-region-using-the-azure-portal"></a>Uppgradera i en region som stöds med hjälp av Azure portal
 
 > [!NOTE]
-> Migrering från GEN1 till GEN2 via Azure portal är permanent. Det finns inte en process för att återgå till GEN1.  
+> Migrering från Gen1 till Gen2 via Azure portal är permanent. Det finns inte en process för att återgå till Gen1.  
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 

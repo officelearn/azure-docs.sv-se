@@ -1,20 +1,20 @@
 ---
 title: Kom igång med Azure IoT Hub-enhetshantering (.NET/.NET) | Microsoft Docs
 description: Hur du använder Azure IoT Hub-enhetshantering för att initiera en fjärransluten enhet omstart. Du kan använda Azure IoT-enhetens SDK för .NET för att implementera en simulerad enhetsapp som innehåller en direkt metod och tjänsten Azure IoT SDK för .NET för att implementera en service-app som anropar direktmetoden.
-author: dominicbetts
-manager: timlt
+author: robinsh
+manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 09/15/2017
-ms.author: dobett
-ms.openlocfilehash: 00eda1dc5ad0e455c451fda17cc915ae6c633696
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.author: robin.shahan
+ms.openlocfilehash: 7e7d6fad4268200e5410eb3d3ba3c1e2df06e967
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515156"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57008618"
 ---
 # <a name="get-started-with-device-management-netnet"></a>Kom igång med enhetshantering (.NET/.NET)
 
@@ -44,7 +44,7 @@ För att kunna genomföra den här kursen behöver du följande:
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
-### <a name="retrieve-connection-string-for-iot-hub"></a>Hämta anslutningssträngen för IoT hub
+### <a name="retrieve-connection-string-for-iot-hub"></a>Hämta anslutningssträngen för IoT-hubben
 
 [!INCLUDE [iot-hub-find-include-connection-string](../../includes/iot-hub-include-find-connection-string.md)]
 

@@ -8,12 +8,12 @@ manager: edprice
 editor: edprice
 tags: ''
 keywords: ''
-ms.openlocfilehash: c921fd0c52d555264ab511486709b888b50bd68e
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 2a29b484b58b887981b1879ceba5bf7426bb6c2e
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56739711"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57192012"
 ---
 # <a name="set-up-micro-focus-cics-bankdemo-for-micro-focus-enterprise-developer-40-in-azure"></a>Konfigurera Micro fokus CICS BankDemo för Micro fokus Enterprise Developer 4.0 i Azure
 
@@ -73,7 +73,7 @@ När du har installerat Enterprise Developer 4.0 på den virtuella datorn måste
     - TCP-aktivering
     - Delning av TCP-Port
 
-     ![](media/01-demo-roles.png)
+     ![Guiden Lägg till roller och funktioner: Rolltjänster](media/01-demo-roles.png)
 
 8. När du har valt alla alternativ klickar du på **nästa** att installera.
 
@@ -101,7 +101,7 @@ Vissa Enterprise Server-processer måste kunna logga in på SQL Server och skapa
 
 4. Välj **serverroller** och kontrollera **sysadmin**.
 
-     ![](media/02-demo-explorer.png)
+     ![SSMS Object Explorer-fönstret: Inloggningsegenskaper](media/02-demo-explorer.png)
 
 ## <a name="create-the-bankdemo-database-and-all-its-objects"></a>Skapa BankDemo databasen och alla objekt
 
@@ -117,7 +117,7 @@ Vissa Enterprise Server-processer måste kunna logga in på SQL Server och skapa
 
 Frågan ska köras utan fel. När den är klar har du exempeldatabasen för BankDemo-programmet.
 
-![](media/03-demo-query.png)
+![SQLQuery1.sql output](media/03-demo-query.png)
 
 ## <a name="verify-that-the-database-tables-and-objects-have-been-created"></a>Kontrollera att database-tabeller och objekt har skapats
 
@@ -125,7 +125,7 @@ Frågan ska köras utan fel. När den är klar har du exempeldatabasen för Bank
 
 2. Expandera den **databasen** och välj **tabeller**. Du bör se något som liknar följande.
 
-     ![](media/04-demo-explorer.png)
+     ![BANKDEMO tabellen expanderas i Object Explorer](media/04-demo-explorer.png)
 
 ## <a name="build-the-application-in-enterprise-developer"></a>Skapa program i Enterprise Developer
 
@@ -147,7 +147,7 @@ Frågan ska köras utan fel. När den är klar har du exempeldatabasen för Bank
 
 6. När projektet har skapats, granska de **utdata** fönster. Det bör se ut som på bilden nedan.
 
-     ![](media/05-demo-output.png)
+     ![Utdatafönstret visar version](media/05-demo-output.png)
 
 ## <a name="deploy-the-bankdemo-application-into-the-region-database"></a>Distribuera programmet BankDemo till Region-databasen
 
@@ -164,7 +164,7 @@ Frågan ska köras utan fel. När den är klar har du exempeldatabasen för Bank
 > [!NOTE]
 > Se till att använda ett snedstreck (/) inte ett omvänt snedstreck (\\). Det här skriptet körs under en tid.
 
-![](media/06-demo-cmd.png)
+![Administration: Enterprise Developer Kommandotolkens fönster](media/06-demo-cmd.png)
 
 ## <a name="create-the-bankdemo-region-in-enterprise-administrator-for-net"></a>Skapa regionen BankDemo i företagsadministratör för .NET
 
@@ -178,11 +178,11 @@ Frågan ska köras utan fel. När den är klar har du exempeldatabasen för Bank
 
 5. Ange databasserverinstansen, klickar du på **nästa**, och ange sedan områdesnamnet **BANKDEMO**.
 
-     ![](media/07-demo-cics.png)
+     ![Definiera Region dialogrutan](media/07-demo-cics.png)
 
 6. Välj den region definitionsfilen för interregionala databasen genom att leta upp **region\_bankdemo\_db.config** i **C:\\användare\\offentliga\\ Dokument\\Micro fokus\\företagsutvecklare\\exempel\\stordatorprogram\\CICS\\DotNet\\BankDemo**.
 
-     ![](media/08-demo-cics.png)
+     ![Definiera Region – Regionsnamn: BANKDEMO](media/08-demo-cics.png)
 
 7. Klicka på **Slutför**.
 
@@ -198,11 +198,11 @@ Frågan ska köras utan fel. När den är klar har du exempeldatabasen för Bank
 
 5. Välj **databasen XA Resursdefinitionen** och skriv sedan **BANKDEMO** för den **namn** och **Region**.
 
-     ![](media/09-demo-xa.png)
+     ![Ny databas XA Resursdefinitionen skärm](media/09-demo-xa.png)
 
 6. Klicka på ellipserna (**...** ) att ta fram guiden anslutningssträngen. För **servernamn**, typ **(lokal)\\SQLEXPRESS**. För **inloggning**väljer **Windows-autentisering**. Databasens namn, skriver du in **BANKDEMO**
 
-     ![](media/10-demo-string.png)
+     ![Redigera anslutningssträng skärmen](media/10-demo-string.png)
 
 7. Testa anslutningen.
 
@@ -217,11 +217,11 @@ Frågan ska köras utan fel. När den är klar har du exempeldatabasen för Bank
 
 3. Högerklicka på **BANKDEMO CICS Region** i den **konsolen** och väljer **Starta/Stoppa Region**.
 
-4. Längst ned i den **Starta / Stoppa** som visas i den mellersta rutan väljer **starta**. Efter några sekunder börjar regionen.
+4. Längst ned i den **Starta/Stoppa Region** som visas i den mellersta rutan väljer **starta**. Efter några sekunder börjar regionen.
 
-     ![](/media/11-demo-sql.png)
+     ![SQL Starta/Stoppa box](/media/11-demo-sql.png)
 
-     ![](media/12-demo-cics.png)
+     ![CICS Region BANKDEMO - igång skärmen](media/12-demo-cics.png)
 
 ## <a name="create-a-listener"></a>Skapa en lyssnare
 
@@ -245,7 +245,7 @@ Du måste skapa en lyssnare för TN3270-sessioner som har åtkomst till programm
 
 9. Starta lyssnaren, klicka på den **starta lyssnaren** ikonen eller välj **alternativ** \> **starta lyssnaren**.
 
-     ![](media/13-demo-listener.png)
+     ![Lyssnaren Konfigurationsredigeraren windows](media/13-demo-listener.png)
 
 
 ## <a name="configure-rumba-to-access-the-bankdemo-application"></a>Konfigurera surfa för att komma åt programmet BankDemo
@@ -264,8 +264,8 @@ Det sista som du behöver göra är att konfigurera en 3270-session med surfa, e
 
 6. Användar-ID, skriver du in **B0001** och lösenordet kan ange något. Den första skärmen BANK20 öppnas.
 
-![](media/14-demo.png)
-![](media/15-demo.png)
+![Stordatorprogram visas välkomstskärm](media/14-demo.png)
+![stordatorprogram visa - surfa - undersystemet Demonstration skärmen](media/15-demo.png)
 
 Grattis! Nu körs ett CICS program i Azure med hjälp av Micro fokus Enterprise Server.
 

@@ -8,12 +8,12 @@ ms.date: 02/17/2019
 ms.topic: conceptual
 ms.author: raynew
 manager: carmonm
-ms.openlocfilehash: b579816a4367537a7da4aa0f68c8776465295448
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 61afefb955914c75606c4fff36ebcc05a4ad0057
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56670761"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57010913"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>Stödmatris för säkerhetskopiering med Microsoft Azure Recovery Services MARS-agenten
 
@@ -29,7 +29,7 @@ MARS-agenten används av Azure Backup för att säkerhetskopiera data från loka
 Vad du kan säkerhetskopiera beror på där agenten är installerad.
 
 - [Läs mer](backup-architecture.md#architecture-direct-backup-of-on-premises-windows-machinesazure-vm-filesfolders) om arkitektur för säkerhetskopiering med MARS-agenten.
-- [Läs mer]() om MABS/DPM [säkerhetskopiera arkitektur](backup-architecture.md#architecture-back-up-to-dpmmabs)och [krav](backup-support-matrix-mabs-dpm.md).
+- Mer information om MABS/DPM [säkerhetskopiera arkitektur](backup-architecture.md#architecture-back-up-to-dpmmabs)och [krav](backup-support-matrix-mabs-dpm.md).
 
 
 ## <a name="supported-installation"></a>Installation som stöds
@@ -37,7 +37,7 @@ Vad du kan säkerhetskopiera beror på där agenten är installerad.
 **Installera** | **Detaljer**
 --- | ---
 **Hämta senaste MARS-agenten** | Du kan hämta den senaste versionen av agenten från valvet eller [ladda ned den direkt](https://aka.ms/azurebackup_agent).
-**Installera direkt på en dator** | Du kan installera MARS-agenten direkt på en lokal Windows server eller Windows Azure virtuell dator som kör någon av de [operativsystem som stöds]().
+**Installera direkt på en dator** | Du kan installera MARS-agenten direkt på en lokal Windows server eller Windows Azure virtuell dator som kör någon av de [operativsystem som stöds](backup-support-matrix-mabs-dpm.md#supported-mabs-and-dpm-operating-systems).
 **Installera på en sekundär server** | När du ställer in DPM- eller MABS att säkerhetskopiera till Azure, hämta och installera MARS-agenten på servern. Agenten kan installeras i enlighet med den [operativsystem som stöds](backup-support-matrix-mabs-dpm.md#supported-mabs-and-dpm-operating-systems) i matrisen säkerhetskopieringsserver support.
 
 > [!NOTE]

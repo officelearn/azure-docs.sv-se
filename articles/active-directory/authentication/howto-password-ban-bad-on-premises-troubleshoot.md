@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5727965373752d40e3ce508c1bc79046c2b3b70b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 8e3632fdb3b4d5c1d2b5465671f36a201c5ff990
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56177759"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57193304"
 ---
 # <a name="preview-azure-ad-password-protection-troubleshooting"></a>Förhandsversion: Felsökning av Azure AD-lösenordsskydd
 
@@ -27,27 +27,65 @@ ms.locfileid: "56177759"
 
 Efter distributionen av Azure AD-lösenordsskydd, kan felsökning krävas. Den här artikeln innehåller information för att förstå vanliga felsökningssteg.
 
-## <a name="weak-passwords-are-not-getting-rejected-as-expected"></a>Svaga lösenord komma inte avvisas som förväntat
+## <a name="the-dc-agent-cannot-locate-a-proxy-in-the-directory"></a>DC-agenten inte kan hitta en proxy i katalogen
 
-Detta kan ha flera möjliga orsaker:
+Den huvudsakliga symtom på det här problemet är 30017 händelser i händelseloggen för DC agent-administratör.
 
-1. DC-agenter har ännu inte hämta en princip. Symtom på detta är 30001 händelser i händelseloggen för DC agent-administratör.
+Vanliga orsaker till problemet är att en proxy inte har ännu har registrerats. Om en proxy har registrerats, kan det finnas en fördröjning på grund av AD-replikeringsfördröjning tills ett visst DC-agenten är kan du se att proxyinställningarna.
 
-    Möjliga orsaker till det här problemet är:
+## <a name="the-dc-agent-is-not-able-to-communicate-with-a-proxy"></a>DC-agenten kan inte kommunicera med en proxy
 
-    1. Skog har ännu inte registrerats
-    2. Proxy har ännu inte registrerats
-    3. Problem med nätverksanslutningen förhindrar Proxy-tjänsten från att kommunicera med Azure (kontrollera HTTP-Proxy krav)
+Den huvudsakliga symtom på det här problemet är 30018 händelser i händelseloggen för DC agent-administratör. Detta kan ha flera möjliga orsaker:
 
-2. Lösenord för tvinga principläge är fortfarande inställd på granska. Om så är fallet kan du konfigurera den att tvinga med hjälp av Azure AD-lösenordsskydd portal. Se [aktivera lösenordsskydd](howto-password-ban-bad-on-premises-operations.md#enable-password-protection).
+1. DC-agenten finns i en isolerad del av det nätverk som inte tillåter nätverksanslutning till den registrerade proxy(s). Det här problemet kan därför vara expected\benign så länge andra DC-agenter kan kommunicera med proxy(s) för att kunna hämta lösenordsprinciper från Azure, vilket sedan hämtas av isolerade domänkontrollanten via replikering av principfiler i sysvol-resursen.
 
-3. Lösenordsprincipen har inaktiverats. Om så är fallet kan du konfigurera om den aktiverat med hjälp av Azure AD-lösenordsskydd-portalen. Se [aktivera lösenordsskydd](howto-password-ban-bad-on-premises-operations.md#enable-password-protection).
+1. Värddatorn proxy blockerar åtkomst till RPC-slutpunkt mapper slutpunkt (port 135)
 
-4. Verifieringsalgoritm lösenord kanske fungerar som förväntat. Se [hur utvärderas lösenord](concept-password-ban-bad.md#how-are-passwords-evaluated).
+   Azure AD-lösenord Protection Proxy installationsprogrammet skapar automatiskt en Windows-brandväggen inkommande regel som tillåter åtkomst till port 135. Om den här regeln senare har tagits bort eller inaktiverats går DC agenter inte att kommunicera med Proxy-tjänsten. Om inbyggt Windows-brandväggen har inaktiverats i stället för en annan brandvägg, måste du konfigurera brandväggen för att tillåta åtkomst till port 135.
+
+1. Värddatorn proxy blockerar åtkomst till RPC-slutpunkt (dynamisk eller statisk) lyssnade på av Proxy-tjänsten
+
+   Azure AD-lösenord Protection Proxy installationsprogrammet skapar automatiskt en Windows-brandväggen inkommande regel som tillåter åtkomst till alla inkommande portar lyssnat på av Azure AD-lösenord Protection Proxy-tjänsten. Om den här regeln senare har tagits bort eller inaktiverats går DC agenter inte att kommunicera med Proxy-tjänsten. Om inbyggt Windows-brandväggen har inaktiverats i stället för en annan brandvägg, måste du konfigurera som brandväggen att tillåta åtkomst till några ingående portar lyssnat på av Azure AD-lösenord Protection Proxy-tjänsten. Den här konfigurationen kan göras mer specifika om tjänsten Proxy har konfigurerats för att lyssna på en viss statiska RPC-port (med hjälp av den `Set-AzureADPasswordProtectionProxyConfiguration` cmdlet).
+
+## <a name="the-proxy-service-can-receive-calls-from-dc-agents-in-the-domain-but-is-unable-to-communicate-with-azure"></a>Proxy-tjänsten kan ta emot samtal från DC-agenter i domänen men kan inte kommunicera med Azure
+
+Kontrollera proxy-datorn är ansluten till de slutpunkter som anges i den [distributionskrav](howto-password-ban-bad-on-premises-deploy.md).
+
+## <a name="the-dc-agent-is-unable-to-encrypt-or-decrypt-password-policy-files-and-other-state"></a>DC-agenten kan inte att kryptera eller dekryptera lösenordet principfiler och andra tillstånd
+
+Det här problemet kan visas med en rad olika symptom men har vanligtvis ett vanliga grundläggande orsaken.
+
+Azure AD-lösenordsskydd har ett kritiskt beroende på kryptering och dekryptering funktionerna som tillhandahålls av Microsoft Key Distribution Service som är tillgänglig på domänkontrollanter som kör Windows Server 2012 och senare. Tjänsten KDS måste vara aktiverad och fungerar på alla Windows Server 2012 och senare domänkontrollanter i en domän.  
+
+Som standard KDS konfigureras tjänstens startläget för tjänsten som manuell (utlösare Start). Den här konfigurationen innebär att den första gången en klient försöker använda tjänsten, den startas på begäran. Den här tjänsten start som är standardläget är godkänd för Azure AD-lösenord skyddet ska fungera. 
+
+Om startläget för KDS-tjänsten har konfigurerats på inaktiverad, måste den här konfigurationen åtgärdas innan Azure AD-lösenordsskydd kommer att fungera korrekt.
+
+Ett enkelt test för det här problemet är att starta tjänsten KDS via manuellt i Service management MMC-konsolen eller använder andra hanteringsverktyg för tjänsten (till exempel köra ”net start kdssvc” från en kommandotolk-konsol). Tjänsten KDS förväntas startas och körs.
+
+Den vanligaste orsaken är att Active Directory-domänkontrollantobjekt finns utanför standard Organisationsenheten domänkontrollanter. Den här konfigurationen stöds inte av tjänsten KDS och är inte en begränsning som införts av Azure AD-lösenordsskydd. Korrigering för det här villkoret är att flytta domänkontrollantobjekt till en plats under standard Organisationsenheten domänkontrollanter.
+
+## <a name="weak-passwords-are-being-accepted-but-should-not-be"></a>Svaga lösenord tas emot, men får inte vara
+
+Det här problemet kan ha flera orsaker.
+
+1. DC-agenter kan inte hämtas en princip eller gick inte att dekryptera befintliga principer. Sök efter möjliga orsaker i senare avsnitt.
+
+1. Lösenord för tvinga principläge är fortfarande inställd på granska. Om den här konfigurationen används kan du konfigurera om den att tvinga med hjälp av Azure AD-lösenordsskydd-portalen. Se [aktivera lösenordsskydd](howto-password-ban-bad-on-premises-operations.md#enable-password-protection).
+
+1. Lösenordsprincipen har inaktiverats. Om den här konfigurationen används kan du konfigurera om den aktiverat med hjälp av Azure AD-lösenordsskydd-portalen. Se [aktivera lösenordsskydd](howto-password-ban-bad-on-premises-operations.md#enable-password-protection).
+
+1. Du har inte installerat DC klientprogrammet på alla domänkontrollanter i domänen. I det här fallet är det svårt att se till att Windows-fjärrklienter rikta en viss domänkontrollant under en åtgärd för lösenordsbyte. Om du har tror att du har har mål en viss Domänkontrollant där DC klientprogrammet är installerat, kan du kontrollera av kollar DC agenten admin-händelseloggen: oavsett utfall kan, det ska finnas minst en händelse att dokumentera resultatet av lösenordet validering. Om det finns ingen händelse som är tillgänglig för användaren vars lösenord har ändrats, bearbetades sannolikt lösenordsändringen av en annan domänkontrollant.
+
+   Som ett alternativt test försöka setting\changing lösenord när du är inloggad direkt till en Domänkontrollant där DC klientprogrammet är installerat. Den här metoden rekommenderas inte för produktion Active Directory-domäner.
+
+   Stegvis distribution av DC klientprogrammet har stöd för omfattas av begränsningarna rekommenderar Microsoft att DC klientprogrammet har installerats på alla domänkontrollanter i en domän så snart som möjligt.
+
+1. Verifieringsalgoritm lösenord kanske faktiskt fungerar som förväntat. Se [hur utvärderas lösenord](concept-password-ban-bad.md#how-are-passwords-evaluated).
 
 ## <a name="directory-services-repair-mode"></a>Reparationsläge för katalogtjänster
 
-Om domänkontrollanten startas i reparationsläge för katalogtjänster, DC-agenttjänsten identifierar detta och leder till alla lösenordsverifieringen eller tvingande aktiviteter inaktiveras oavsett aktiva principkonfigurationen.
+Om domänkontrollanten startas i reparationsläge för katalogtjänster, DC-agenttjänsten identifierar det här tillståndet och leder till alla lösenordsverifieringen eller tvingande aktiviteter inaktiveras oavsett aktiva principkonfigurationen.
 
 ## <a name="emergency-remediation"></a>Vid akutfall reparation
 

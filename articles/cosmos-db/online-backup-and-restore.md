@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 8b5b56e39e1b9830d5b998ace2a384d6878cd510
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 6ed968b1613a96a2f4ab449c7b52488e066a38ab
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54041823"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56991826"
 ---
 # <a name="online-backup-and-on-demand-data-restore-in-azure-cosmos-db"></a>Onlinesäkerhetskopiering och på begäran data Återställ i Azure Cosmos DB
 
@@ -20,11 +20,18 @@ Azure Cosmos DB tar automatiskt säkerhetskopior av dina data med jämna mellanr
 
 ## <a name="automatic-and-online-backups"></a>Automatisk och online-säkerhetskopiering
 
-Med Azure Cosmos DB är inte bara dina data, utan även säkerhetskopior av dina data med hög redundant och motståndskraftig mot regionala katastrofer. Automatiska säkerhetskopior tas för närvarande var fjärde timme och när som helst tid de senaste två säkerhetskopiorna lagras. Om du har eller förstörs dina data, bör du kontakta [Azure-supporten](https://azure.microsoft.com/support/options/) inom åtta timmar så att Azure Cosmos DB-teamet kan du återställa data från säkerhetskopior.
+Med Azure Cosmos DB är inte bara dina data, utan även säkerhetskopior av dina data med hög redundant och motståndskraftig mot regionala katastrofer. Följande steg visar hur Azure Cosmos DB utför säkerhetskopiering av data:
 
-Säkerhetskopieringar kommer utan att påverka prestanda eller tillgänglighet för ditt program. Azure Cosmos DB utför säkerhetskopiering av data i bakgrunden utan att förbruka alla ytterligare etablerat dataflöde (ru) eller påverka prestanda och tillgänglighet för din databas.
+* Azure Cosmos DB gör automatiskt en säkerhetskopia av databasen var fjärde timme och när som helst tid endast de senaste 2 säkerhetskopiorna lagras. Men om behållare eller databasen tas bort, behåller Azure Cosmos DB befintliga ögonblicksbilder av en viss behållare eller databasen i 30 dagar.
 
-Azure Cosmos DB lagrar automatiska säkerhetskopieringar i Azure Blob Storage, medan de faktiska data som finns lokalt i Azure Cosmos DB. För att garantera låg latens, ögonblicksbilden av säkerhetskopian lagras i Azure Blob storage i samma region som den aktuella skrivregionen (eller en av Skriv-regioner, om du har en konfiguration med flera huvudservrar) i din Cosmos DB-databaskonto. Skydd mot regionalt haveri replikeras igen varje ögonblicksbild av data i Azure Blob storage till en annan region genom geo-redundant lagring (GRS). Den region som säkerhetskopieringen replikeras baseras på din region för källa och regionala par som är associerade med källregionen. Mer information finns i den [lista med geo-redundant par med Azure-regioner](../best-practices-availability-paired-regions.md) artikeln. Du kan inte komma åt den här säkerhetskopieringen direkt. Azure Cosmos DB använder den här säkerhetskopian endast om en säkerhetskopiering återställning initieras.
+* Azure Cosmos DB lagrar dessa säkerhetskopior i Azure Blob-lagring medan de faktiska data som finns lokalt i Azure Cosmos DB.
+
+*  För att garantera med låg latens, ögonblicksbilden av säkerhetskopian lagras i Azure Blob storage i samma region som den aktuella skrivregionen (eller någon av Skriv-regioner om du har en konfiguration med flera huvudservrar) av Azure-Cosmos-databaskonto. Skydd mot regionalt haveri replikeras igen varje ögonblicksbild av data i Azure Blob storage till en annan region genom geo-redundant lagring (GRS). Den region som säkerhetskopieringen replikeras baseras på din region för källa och regionala par som är associerade med källregionen. Mer information finns i den [lista med geo-redundant par med Azure-regioner](../best-practices-availability-paired-regions.md) artikeln. Du kan inte komma åt den här säkerhetskopieringen direkt. Azure Cosmos DB använder den här säkerhetskopian endast om en säkerhetskopiering återställning initieras.
+
+* Säkerhetskopieringar kommer utan att påverka prestanda eller tillgänglighet för ditt program. Azure Cosmos DB utför säkerhetskopiering av data i bakgrunden utan att förbruka alla ytterligare etablerat dataflöde (ru) eller påverka prestanda och tillgänglighet för din databas.
+
+* Om du har eller förstörs dina data, bör du kontakta [Azure-supporten](https://azure.microsoft.com/support/options/) inom åtta timmar så att Azure Cosmos DB-teamet kan du återställa data från säkerhetskopior.
+
 Följande bild visar hur en Azure Cosmos-behållare med alla tre primära fysiska partitioner i västra USA säkerhetskopieras i en fjärransluten Azure Blob Storage-konto i västra USA och sedan replikeras till östra USA:
 
 ![Regelbundna fullständiga säkerhetskopieringar för alla Cosmos DB-entiteter i GRS Azure Storage](./media/online-backup-and-restore/automatic-backup.png)

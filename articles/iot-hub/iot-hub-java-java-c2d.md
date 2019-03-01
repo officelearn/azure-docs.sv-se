@@ -1,19 +1,20 @@
 ---
 title: Meddelanden från molnet till enheten med Azure IoT Hub (Java) | Microsoft Docs
 description: Hur du skickar meddelanden från moln till enhet till en enhet från Azure IoT hub med Azure IoT SDK för Java. Du kan ändra en simulerad enhetsapp för att ta emot meddelanden från moln till enhet och ändra en backend-app för att skicka meddelanden från moln-till-enhet.
-author: dominicbetts
+author: wesmc7777
+manager: philmea
+ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: java
 ms.topic: conceptual
 ms.date: 06/28/2017
-ms.author: dobett
-ms.openlocfilehash: cb2b3d02cdeadbe45b93b0185a8c0064b9d61e93
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 035b7b7d51e3cb10f42d4983792282350ddb4208
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51227713"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57010777"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-java"></a>Skicka meddelanden från moln till enhet med IoT Hub (Java)
 

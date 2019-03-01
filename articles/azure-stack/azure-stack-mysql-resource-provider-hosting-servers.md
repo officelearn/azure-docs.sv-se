@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 02/28/2019
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: e1a00ea36efa6af816c371f5498085fc2cf491b6
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.lastreviewed: 02/28/2019
+ms.openlocfilehash: eb5d1ca55efed7e83739f21a432b61b6aad25f70
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56165038"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57194018"
 ---
 # <a name="add-hosting-servers-for-the-mysql-resource-provider"></a>Lägg till värdservrar för MySQL-resursprovider
 
@@ -44,7 +44,9 @@ Kontrollera att du har autentiseringsuppgifter för ett konto med systemadminist
 4. Ange anslutningsinformation för din MySQL-Server-instans.
 
    * För **MySQL som är värd för servernamnet**, ange det fullständigt kvalificerade domännamnet (FQDN) eller en giltig IPv4-adress. Använd inte det korta namnet för virtuell dator.
-   * En standardinstans för MySQL är inte anges, så du måste ange den **storlek av som är värd för Server i GB**. Ange en storlek som ligger nära kapaciteten för databasservern.
+   - Standard-administratör **användarnamn** för Bitnami MySQL-avbildningar tillgängliga i Azure Stack marketplace är *rot*. 
+   - Om du inte känner till roten **lösenord**, finns i den [Bitnami dokumentation](https://docs.bitnami.com/azure/faq/#how-to-find-application-credentials) att lära dig hur du hämtar den. 
+   - En standardinstans för MySQL är inte anges, så du måste ange den **storlek av som är värd för Server i GB**. Ange en storlek som ligger nära kapaciteten för databasservern.
    * Behålla standardinställningen för **prenumeration**.
    * För **resursgrupp**, skapa en ny eller använda en befintlig grupp.
 

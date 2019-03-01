@@ -8,12 +8,12 @@ manager: edprice
 editor: edprice
 tags: ''
 keywords: ''
-ms.openlocfilehash: 2b730179cecee32282b9a79d8b62e3a35ee91048
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 46b135aabaefb3a94e4470927297fb696f216b7a
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56739774"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57192538"
 ---
 # <a name="install-micro-focus-enterprise-server-40-and-enterprise-developer-40-on-azure"></a>Installera Micro fokus Enterprise Server 4.0 och företagsutvecklare 4.0 på Azure
 
@@ -66,11 +66,11 @@ Kolla in dessa krav innan du börjar:
 
 9. Dubbelklicka på filen för att starta installationen. I det första fönstret Välj installationsplats och acceptera licensavtalet för slutanvändare.
 
-     ![](media/01-enterprise-server.png)
+     ![Micro fokus Enterprise Server-konfiguration av företagsåtkomst](media/01-enterprise-server.png)
 
      När installationen är klar visas följande meddelande:
 
-     ![](media/02-enterprise-server.png)
+     ![Micro fokus Enterprise Server-konfiguration av företagsåtkomst](media/02-enterprise-server.png)
 
 ### <a name="check-for-updates"></a>Sök efter uppdateringar
 
@@ -82,11 +82,11 @@ Efter installationen, måste du söka efter eventuella ytterligare uppdateringar
 
 2. Klicka på **starta** \> **Micro fokus License Manager** \> **licens Administration**, och klicka sedan på den **installera** fliken. Välj typ av licens-format för att ladda upp: en licensfil eller en licenskod på 16 tecken. Till exempel för en fil i **licensfil**, bläddra till den **mflic** tidigare överföra filen till den virtuella datorn och välj **installera licenser**.
 
-     ![](media/03-enterprise-server.png)
+     ![Dialogrutan för Micro fokus licens Administration](media/03-enterprise-server.png)
 
-3. Kontrollera att Enterprise Server läses in. Försök starta den Enterprise Server-administrationsplatsen från en webbläsare med den här URL: en <http://localhost:86/> . Sidan Enterprise Administration visas som visas.
+3. Kontrollera att Enterprise Server läses in. Försök starta den Enterprise Server-administrationsplatsen från en webbläsare med den här URL: en <http://localhost:86/> . Sidan Enterprise Server Administration visas som visas.
 
-     ![](media/04-enterprise-admin.png)
+     ![Enterprise Server administrationssidan](media/04-enterprise-admin.png)
 
 ## <a name="install-enterprise-developer-on-the-developer-machine"></a>Installera företagsutvecklare på developer-dator
 
@@ -102,17 +102,17 @@ Efter installationen, måste du söka efter eventuella ytterligare uppdateringar
 
 4. Dubbelklicka på den **edvs2017.exe** filen för att starta installationen. I det första fönstret Välj installationsplats och acceptera licensavtalet för slutanvändare. Om du vill välja **installera surfa 9.5** att installera den här terminalemulator som du behöver förmodligen.
 
-     ![](media/04-enterprise-server.png)
+     ![Micro fokus företagsutvecklare för dialogrutan Installationsprogram för Visual Studio 2017](media/04-enterprise-server.png)
 
 5. När installationen är klar visas följande meddelande:
 
-     ![](media/05-enterprise-server.png)
+     ![Installationen lyckades meddelande](media/05-enterprise-server.png)
 
 6. Starta Micro fokus License Manager precis som du gjorde för Enterprise-Server. Välj **starta** \> **Micro fokus License Manager** \> **licens Administration**, och klicka på den **installera**fliken.
 
 7. Välj typ av licens-format för att ladda upp: en licensfil eller en licenskod på 16 tecken. Till exempel för en fil i **licensfil**, bläddra till den **mflic** tidigare överföra filen till den virtuella datorn och välj **installera licenser**.
 
-     ![](/edia/07-enterprise-server.png)
+     ![Dialogrutan för Micro fokus licens Administration](/edia/07-enterprise-server.png)
 
 När företagsutvecklare har lästs in är din miljö för utveckling och test en Micro fokus på Azure-distribution klar!
 

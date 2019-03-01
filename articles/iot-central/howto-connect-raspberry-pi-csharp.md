@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: f0232c8d2627cd600f4f05b5b501db85fa7d2ec4
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 4873c834a33ff5f401f38fdb810c65ca7ef20f5e
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54051398"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57191195"
 ---
 # <a name="connect-a-raspberry-pi-to-your-azure-iot-central-application-c"></a>Ansluta en Raspberry Pi till Azure IoT Central programmet (C#)
 
@@ -94,7 +94,7 @@ Du kan använda Visual Studio Code för att slutföra följande steg. Mer inform
     > [!NOTE]
     > Din **Microsoft.Azure.Devices.Client** versionsnummer för paketet kan vara högre än den som visas.
 
-1. Spara **pisample.csproj**. Om Visual Studio Code uppmanar dig att köra kommandot restore, välja **återställa**.
+1. Save **pisample.csproj**. Om Visual Studio Code uppmanar dig att köra kommandot restore, välja **återställa**.
 
 1. Öppna **Program.cs** och Ersätt innehållet med följande kod:
 
@@ -275,7 +275,7 @@ Du kan använda Visual Studio Code för att slutföra följande steg. Mer inform
 Lägga till specifika anslutningssträngen i koden för enheten för att autentisera med Azure IoT Central. Du antecknade den här anslutningssträngen när du har lagt till din verklig enhet till Azure IoT Central programmet.
 
   > [!NOTE]
-   > Azure IoT Central har övergått till med hjälp av Azure IoT Hub Device Provisioning-tjänsten (DPS) för alla anslutningar på enheten, följer du dessa instrustions till [hämta enhetens anslutningssträng](concepts-connectivity.md#getting-device-connection-string) och fortsätta med resten av kursen.
+   > Azure IoT Central har övergått till med hjälp av Azure IoT Hub Device Provisioning-tjänsten (DPS) för alla anslutningar på enheten, följer du dessa instruktioner för att [hämta enhetens anslutningssträng](concepts-connectivity.md#get-a-connection-string) och fortsätta med resten av kursen.
 
 1. Ersätt `{your device connection string}` i den **Program.cs** filen med den anslutningssträng som du antecknade tidigare.
 
@@ -331,11 +331,11 @@ Ett program som skapats från den **exempel Devkits** programmall innehåller en
 | Fältnamn     | Enheter  | Minimum | Maximal | Antal decimaler |
 | -------------- | ------ | ------- | ------- | -------------- |
 | luftfuktighet       | %      | 0       | 100     | 0              |
-| Temp           | ° C     | -40     | 120     | 0              |
+| temp           | °C     | -40     | 120     | 0              |
 | tryck       | hPa    | 260     | 1260    | 0              |
-| magnetometerX  | mgauss | där-1 000   | 1000    | 0              |
-| magnetometerY  | mgauss | där-1 000   | 1000    | 0              |
-| magnetometerZ  | mgauss | där-1 000   | 1000    | 0              |
+| magnetometerX  | mgauss | -1000   | 1000    | 0              |
+| magnetometerY  | mgauss | -1000   | 1000    | 0              |
+| magnetometerZ  | mgauss | -1000   | 1000    | 0              |
 | accelerometerX | mg     | -2000   | 2000    | 0              |
 | accelerometerY | mg     | -2000   | 2000    | 0              |
 | accelerometerZ | mg     | -2000   | 2000    | 0              |
@@ -361,7 +361,7 @@ Visa/Dölj inställningar
 
 ### <a name="properties"></a>Egenskaper
 
-| Typ            | Visningsnamn | Fältnamn | Datatyp |
+| Type            | Visningsnamn | Fältnamn | Datatyp |
 | --------------- | ------------ | ---------- | --------- |
 | Enhetsegenskap | Dör nummer   | dieNumber  | nummer    |
 | Text            | Plats     | location   | Gäller inte       |

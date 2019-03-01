@@ -6,22 +6,22 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 02/22/2019
+ms.date: 02/28/2019
 ms.author: normesta
-ms.openlocfilehash: abc20d8ef51f94e25d0e46ec199ca715bf6cce22
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 89cfdbdaa034bae5ca736ccb9164255b833ed75d
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56736795"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57194716"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Kända problem med Azure Data Lake Storage Gen2
 
 Den här artikeln innehåller kända problem och temporära begränsningar med Data Lake Storage Gen2.
 
-## <a name="data-lake-storage-gen2-apis"></a>Data Lake Storage Gen2 API: er
+## <a name="sdk-support-for-data-lake-storage-gen2-accounts"></a>SDK-stöd för Data Lake Storage Gen2 konton
 
-API: er är ännu inte tillgängliga för Data Lake Storage Gen2 konton.
+Det är inte SDK som fungerar med Data Lake Storage Gen2 konton.
 
 ## <a name="blob-storage-apis"></a>API: er för BLOB storage
 

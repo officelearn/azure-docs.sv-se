@@ -1,6 +1,6 @@
 ---
-title: Hur du använder Android kartkontroll i Azure Maps | Microsoft Docs
-description: Använd kartkontroll för Android i Azure Maps.
+title: Hur du använder Android kartkontrollen i Azure Maps | Microsoft Docs
+description: Android kartkontrollen i Azure Maps.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 02/12/2019
@@ -9,53 +9,53 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 57cc585d621c71872a4b7658c74f581c8998b245
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 15706addbe6b7f6310223978130158c792a47c89
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56341087"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57010675"
 ---
-# <a name="how-to-use-azure-maps-android-sdk"></a>Hur du använder Android SDK för Azure Maps
+# <a name="how-to-use-the-azure-maps-android-sdk"></a>Hur du använder Azure Maps Android SDK
 
-Azure Maps Android SDK är ett vektor maps-bibliotek för Android. Den här artikeln vägleder dig genom processen med att installera Android SDK för Azure Maps, läser in en karta och placera en PIN-kod på den.
+Android SDK för Azure Maps är ett vector map-bibliotek för Android. Den här artikeln vägleder dig genom processerna för installation av Android SDK för Azure Maps, läser in en karta och placera en PIN-kod på kartan.
 
-## <a name="prerequisites-to-get-started"></a>Förutsättningar för att komma igång
+## <a name="prerequisites"></a>Förutsättningar
 
-### <a name="create-an-azure-maps-account"></a>Skapa ett Azure Maps-konto 
+### <a name="create-an-azure-maps-account"></a>Skapa ett Azure Maps-konto
 
-Om du vill följa stegen i den här guiden, måste du först se [hantera konton och nycklar](how-to-manage-account-keys.md) du skapar och hanterar prenumerationen konto med S1 prisnivå.
+För att slutföra procedurerna i den här artikeln, måste du först [skapa ett Azure Maps-konto](how-to-manage-account-keys.md) i du prisnivån S1.
 
-### <a name="download-android-studio"></a>Ladda ned Android studio
+### <a name="download-android-studio"></a>Ladda ned Android Studio
 
-Du kan ladda ned [Android Studio](https://developer.android.com/studio/) kostnadsfritt från Google. För att kunna installera Android SDK för Azure Maps, måste du först ladda ned Android Studio och skapa ett projekt med en tom aktivitet.
+Du måste ladda ned Android Studio och skapa ett projekt med en tom aktivitet innan du kan installera Android SDK för Azure Maps. Du kan [ladda ned Android Studio](https://developer.android.com/studio/) kostnadsfritt från Google. 
 
 ## <a name="create-a-project-in-android-studio"></a>Skapa ett projekt i Android Studio
 
-Du behöver skapa ett nytt projekt med en tom aktivitet. Följ stegen nedan för att skapa ett nytt Android Studio-projekt:
+Först måste du skapa ett nytt projekt med en tom aktivitet. Utför stegen nedan för att skapa ett Android Studio-projekt:
 
-1. Under *väljer du projektet*, kontrollera ”Telefoner och surfplattor” som formfaktorn som programmet ska köras på.
-2. Klicka på *tom aktivitet* under formfaktorn och klicka på **nästa**.
-3. Under *konfigurera ditt projekt*väljer `API 21: Android 5.0.0 (Lollipop)` som lägsta möjliga SDK. Det här är den lägsta version som stöds av Android SDK för Azure Maps.
-4. Acceptera standardvärdet `Activity Name` och `Layout Name` och klicka på **Slutför**
+1. Under **väljer du projektet**väljer **Telefoner och surfplattor**. Programmet körs på den här formfaktorn.
+2. På den **Telefoner och surfplattor** fliken **tom aktivitet**, och välj sedan **nästa**.
+3. Under **konfigurera ditt projekt**väljer `API 21: Android 5.0.0 (Lollipop)` som lägsta möjliga SDK. Det här är den tidigaste version som stöds av Android SDK för Azure Maps.
+4. Acceptera standardvärdet `Activity Name` och `Layout Name` och välj **Slutför**.
 
-Se [Android Studio-dokumentation](https://developer.android.com/studio/intro/) mer att installera Android Studio och skapa ett nytt projekt.
+Se den [Android Studio-dokumentation](https://developer.android.com/studio/intro/) för mer hjälp med installation Android Studio och skapa ett nytt projekt.
 
-![Skapa ett nytt projekt](./media/how-to-use-android-map-control-library/form-factor-android.png)
+![Skapa ett projekt](./media/how-to-use-android-map-control-library/form-factor-android.png)
 
 ## <a name="set-up-a-virtual-device"></a>Konfigurera en virtuell enhet
 
-Android Studio kan du konfigurera en virtuell Android-enhet på datorn. Som kan hjälpa dig för att testa ditt program när du utvecklar. Du ställer in en virtuell enhet klickar du på Android Virtual Device (AVD) Manager-ikonen längst upp till höger på skärmen projekt. Klicka sedan på den **Skapa virtuell enhet** knappen. Du kan också få till manager via **Verktyg > Android > AVD Manager** i verktygsfältet. Från den **telefoner** kategori, väljer **Nexus 5 X** och klicka på **nästa**.
+Android Studio kan du konfigurera en virtuell Android-enhet på datorn. Detta kan hjälpa dig att testa ditt program under utveckling. Om du vill konfigurera en virtuell enhet, väljer du Android Virtual Device (AVD) Manager-ikonen i det övre högra hörnet på skärmen projektet och välj sedan **Skapa virtuell enhet**. Du kan också få till AVD Manager genom att välja **verktyg** > **Android** > **AVD Manager** från verktygsfältet. I den **telefoner** kategori, väljer **Nexus 5 X**, och välj sedan **nästa**.
 
-Läs mer om hur du konfigurerar en AVD i den [Android Studio-dokumentation](https://developer.android.com/studio/run/managing-avds).
+Du kan lära dig mer om hur du konfigurerar en AVD i den [Android Studio-dokumentation](https://developer.android.com/studio/run/managing-avds).
 
 ![Android-emulatorn](./media/how-to-use-android-map-control-library/android-emulator.png)
 
-## <a name="install-azure-maps-android-sdk"></a>Installera Azure Maps Android SDK
+## <a name="install-the-azure-maps-android-sdk"></a>Installera Azure Maps Android SDK
 
-Följ stegen nedan för att installera Azure Maps Android SDK innan du gå vidare för att skapa ditt program. 
+Nästa steg i att skapa ditt program är att installera Android SDK för Azure Maps. Utför stegen nedan för att installera SDK:
 
-1. Lägg till följande till den **alla projekt**, databaser genom att blockera i din **build.gradle** fil.
+1. Lägg till följande kod till den **alla projekt**, **databaser** blockera i din **build.gradle** fil.
 
     ```
     maven {
@@ -63,9 +63,9 @@ Följ stegen nedan för att installera Azure Maps Android SDK innan du gå vidar
     }
     ```
 
-2. Uppdatera din **App/build.gradle** och Lägg till följande:
+2. Uppdatera din **App/build.gradle** och Lägg till följande kod:
 
-    1. Lägg till följande Android blocket:
+    1. Lägg till följande kod i blocket Android:
 
         ```
         compileOptions {
@@ -73,13 +73,13 @@ Följ stegen nedan för att installera Azure Maps Android SDK innan du gå vidar
             targetCompatibility JavaVersion.VERSION_1_8
         }
         ```
-    2. Uppdatera din blocket med beroenden och Lägg till följande:
+    2. Uppdatera din blocket med beroenden och Lägg till följande kod:
 
         ```
         implementation "com.microsoft.azure.maps:mapcontrol:0.1"
         ```
 
-3. Konfigurera behörigheter genom att lägga till följande till din **AndroidManifest.xml**
+3. Konfigurera behörigheter genom att lägga till följande XML-filen till din **AndroidManifest.xml** fil:
 
     ```xml
     <?xml version="1.0" encoding="utf-8"?>
@@ -90,7 +90,7 @@ Följ stegen nedan för att installera Azure Maps Android SDK innan du gå vidar
     </manifest>
     ```
 
-4. Redigera **res > layout > activity_main.xml**, så att det ser ut som nedan XML-filen:
+4. Redigera **res** > **layout** > **activity_main.xml** så att det ser ut som den här XML:
     
     ```XML
     <?xml version="1.0" encoding="utf-8"?>
@@ -113,7 +113,7 @@ Följ stegen nedan för att installera Azure Maps Android SDK innan du gå vidar
     </FrameLayout>
     ```
 
-5. Redigera **MainActivity.java** att skapa en karta visa aktivitet klass. Det bör se ut klassen nedan när du har redigerat:
+5. Redigera **MainActivity.java** att skapa en karta visa aktivitet klass. När du har redigerat bör det se ut som den här klassen:
 
     ```java
     package com.example.myapplication;
@@ -187,21 +187,21 @@ Följ stegen nedan för att installera Azure Maps Android SDK innan du gå vidar
 
 ## <a name="import-classes"></a>Importera klasser
 
-När du har slutfört stegen ovan, är förmodligen får du varningar från Android Studio på en del av texten i koden. För att lösa dessa varningar, importera de klasser som refereras i `MainActivity.java`.
+När du har slutfört föregående steg kan får du förmodligen varningar från Android Studio om några av koden. För att lösa dessa varningar, importera de klasser som refereras i `MainActivity.java`.
 
-Du kan importera de här klasserna automatiskt genom att trycka på `Alt` + `Enter`(`Option` + `Return` på Mac). 
+Du kan automatiskt importera dessa klasser genom att välja Alt + Retur (ALT + RETUR på en Mac).
 
-Klicka på den **kör ”App”** knappen (eller `Control` + `R` på en Mac) att skapa ditt program.
+Välj knappen Kör som visas i följande bild (eller tryck på CTRL + R på en Mac), att skapa ditt program.
 
 ![Klicka på Kör](./media/how-to-use-android-map-control-library/run-app.png)
 
-Det tar några sekunder för android studio för att skapa programmet. När versionen har slutförts kan du testa ditt program i emulerade Android-enhet. Du kan se en karta som liknar den nedan.
+Android Studio tar några sekunder att skapa programmet. När versionen har slutförts, kan du testa ditt program i emulerade Android-enhet. Du bör se en karta som den här:
 
 ![Android karta](./media/how-to-use-android-map-control-library/android-map.png)
 
 ## <a name="add-a-marker-to-the-map"></a>Lägga till en markör på kartan
 
-För att lägga till en markör på kartan, lägger du till `mapView.getMapAsync()` funktionen för att den `MainActivity.java`. Sista `MainActivity.java` bör se ut som följande:
+Om du vill lägga till en markör till kartan, lägger du till den `mapView.getMapAsync()` funktionen för att `MainActivity.java`. Sista `MainActivity.java` kod bör se ut så här:
 
 ```java
 package com.example.myapplication;
@@ -288,6 +288,6 @@ public class MainActivity extends AppCompatActivity {
 }
 ```
 
-Köra ditt program och du bör se en markör på kartan som den som visas nedan.
+Kör programmet igen. Du bör se en markör på kartan som visas här:
 
 ![Android kartan PIN-kod](./media/how-to-use-android-map-control-library/android-map-pin.png)

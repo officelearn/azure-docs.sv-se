@@ -11,28 +11,28 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2019
-ms.author: jeffgilb
+ms.date: 02/27/2019
+ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: a017e1c70658953e1c08cd92a7e1e5184fee0bb5
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: c993322bdf4266939eab854e217cae6e90326d29
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447403"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56991571"
 ---
 # <a name="update-azure-app-service-on-azure-stack"></a>Uppdatera Azure App Service i Azure Stack
 
 *Gäller för: Integrerade Azure Stack-system och Azure Stack Development Kit*
 
 > [!IMPORTANT]  
-> Aktivera 1809 uppdateringen eller senare till Azure Stack-integrerat system eller distribuera den senaste Azure Stack development kit innan du distribuerar Azure App Service 1.4. Innan du uppdaterar resursprovidern, granska viktig information att lära dig om nya funktioner och korrigeringar kända problem som kan påverka din distribution.
+> Uppdateringen är 1901 integrerade Azure Stack-system eller distribuera den senaste Azure Stack development kit innan du distribuerar Azure App Service 1.5.
 
 Genom att följa anvisningarna i den här artikeln kan du uppgradera den [App Service-resursprovider](azure-stack-app-service-overview.md) distribueras i en Azure Stack-miljö som är ansluten till Internet.
 
 > [!IMPORTANT]  
-> Innan du kör uppgraderingen bör du kontrollera att du redan har slutfört den [distribution av Azure App Service i Azure Stack Resource Provider](azure-stack-app-service-deploy.md)
+> Innan du kör uppgraderingen bör du kontrollera att du redan har slutfört den [distribution av Azure App Service i Azure Stack Resource Provider](azure-stack-app-service-deploy.md) och att du har läst den [viktig](azure-stack-app-service-release-notes-update-five.md) som medföljer 1,5 versionen Läs mer om nya funktioner och korrigeringar kända problem som kan påverka din distribution.
 
 ## <a name="run-the-app-service-resource-provider-installer"></a>Kör installationsprogrammet för providern App Service-resurs
 

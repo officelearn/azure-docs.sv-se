@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: c6796d91835669ba174a866eb3c014e71549c0f2
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 2a08097b42f395bd0009353635cabbd264c3c421
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56877970"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56992098"
 ---
 # <a name="diagnostic-logging-in-azure-cosmos-db"></a>Diagnostisk loggning i Azure Cosmos DB 
 
@@ -448,7 +448,7 @@ I följande tabell beskrivs innehållet i varje loggpost.
 | **Egenskaper** | Saknas | Innehållet i det här fältet beskrivs i de rader som följer. |
 | **Aktivitets-ID** | **activityId_g** | Unikt GUID för den loggade åtgärden. |
 | **UserAgent** | **userAgent_s** | En sträng som anger klientanvändaragent som utför förfrågan. Formatet är {användarnamn för agenten} / {version}.|
-| **ResourceType** | **ResourceType** | Typ av resurs som används. Det här värdet kan vara något av följande resurstyper: Databasen, behållare, dokument, bifogad fil, användare, behörighet, StoredProcedure, utlösare, UserDefinedFunction eller erbjudandet. |
+| **requestResourceType** | **requestResourceType_s** | Typ av resurs som används. Det här värdet kan vara något av följande resurstyper: Databasen, behållare, dokument, bifogad fil, användare, behörighet, StoredProcedure, utlösare, UserDefinedFunction eller erbjudandet. |
 | **statusCode** | **statusCode_s** | Svarsstatus för åtgärden. |
 | **requestResourceId** | **Resurs-ID** | ResourceId som gäller för begäran. Värdet kan peka databaseRid, collectionRid eller documentRid beroende på de åtgärder som utförs.|
 | **clientIpAddress** | **clientIpAddress_s** | Klientens IP-adress. |

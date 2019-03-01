@@ -1,18 +1,19 @@
 ---
 title: Förstå enhetstvillingar för Azure IoT Hub | Microsoft Docs
 description: Utvecklarguide – Använd enhetstvillingar för att synkronisera tillstånd och konfiguration data mellan IoT Hub och dina enheter
-author: fsautomata
+author: wesmc7777
+manager: philmea
+ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
-ms.author: elioda
-ms.openlocfilehash: 606a7c64cc60fa81a71bf40a8087875e08e7c984
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 4cbb8e389f403aeb149998acc21956ebce40be78
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54053031"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57011508"
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>Förstå och använda enhetstvillingar i IoT Hub
 
@@ -185,12 +186,12 @@ Lösningens backend-server körs på enhetstvillingen med hjälp av följande at
    | --- | --- |
    $content-typ | application/json |
    $iothub-enqueuedtime |  Tid när meddelandet skickades |
-   $iothub-meddelande-källa | twinChangeEvents |
-   $content-kodning | UTF-8 |
+   $iothub-message-source | twinChangeEvents |
+   $content-encoding | utf-8 |
    deviceId | ID för enheten |
    HubName | Namnet på IoT Hub |
    operationTimestamp | [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) tidsstämpeln för åtgärden |
-   iothub-meddelande-schema | deviceLifecycleNotification |
+   iothub-message-schema | deviceLifecycleNotification |
    opType | ”replaceTwin” eller ”updateTwin” |
 
    Meddelandet Systemegenskaper föregås den `$` symbolen.

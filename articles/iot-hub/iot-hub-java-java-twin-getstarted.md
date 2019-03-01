@@ -1,19 +1,20 @@
 ---
 title: Kom igång med enhetstvillingar för Azure IoT Hub (Java) | Microsoft Docs
 description: Så här använder enhetstvillingar för Azure IoT Hub för att lägga till taggar och sedan använda en IoT Hub-fråga. Du kan använda Azure IoT-enhetens SDK för Java för att implementera app för enheter och tjänsten Azure IoT SDK för Java för att implementera en service-app som lägger till taggar och kör IoT Hub-frågan.
-author: dominicbetts
+author: wesmc7777
+manager: philmea
+ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: java
 ms.topic: conceptual
 ms.date: 07/04/2017
-ms.author: dobett
-ms.openlocfilehash: a938e5d872d2c1602f7ce898f0d14e3e04feb759
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 75acacdd36b7e0829f347f23652128ed07544eff
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53312576"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57011083"
 ---
 # <a name="get-started-with-device-twins-java"></a>Kom igång med enhetstvillingar (Java)
 

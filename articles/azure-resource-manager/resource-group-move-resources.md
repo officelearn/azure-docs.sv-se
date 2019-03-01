@@ -10,14 +10,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/15/2019
+ms.date: 02/28/2019
 ms.author: tomfitz
-ms.openlocfilehash: 5a9ea460684383bd09e5a679f3140d3b8f083d4d
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 579c23fc3092acb785e89ddfa390e9495fc004d3
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56823628"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57194535"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Flytta resurser till ny resursgrupp eller prenumeration
 
@@ -57,6 +57,7 @@ Följande lista innehåller en allmän översikt över Azure-tjänster som kan f
 * App Service-certifikat – Se [begränsningar för App Service Certificate](#app-service-certificate-limitations)
 * Automation - Runbooks måste finnas i samma resursgrupp som Automation-kontot.
 * Azure Active Directory B2C
+* Azure Cache för Redis - om Azure Cache för Redis-instans som är konfigurerad med ett virtuellt nätverk, instansen kan inte flyttas till en annan prenumeration. Se [virtuella nätverk begränsningar](#virtual-networks-limitations).
 * Azure Cosmos DB
 * Azure-datautforskaren
 * Azure-databas för MariaDB
@@ -64,6 +65,7 @@ Följande lista innehåller en allmän översikt över Azure-tjänster som kan f
 * Azure Database for PostgreSQL
 * Azure DevOps - köper Azure DevOps-organisationer med icke-Microsoft-tillägg måste [Avbryt sina inköp](https://go.microsoft.com/fwlink/?linkid=871160) innan de kan flytta kontot mellan prenumerationer.
 * Azure Maps
+* Azure Monitor-loggar
 * Azure Relay
 * Azure Stack - registreringar
 * Batch
@@ -91,11 +93,10 @@ Följande lista innehåller en allmän översikt över Azure-tjänster som kan f
 * Belastningsutjämnare – grundläggande SKU-belastningsutjämnare kan flyttas. Standard-SKU-belastningsutjämnare kan inte flyttas.
 * Logic Apps
 * Maskininlärning – Machine Learning Studio-webbtjänster kan flyttas till en resursgrupp i samma prenumeration, men inte en annan prenumeration. Andra Machine Learning-resurser kan flyttas mellan prenumerationer.
-* Managed Disks – Se [begränsningar för virtuella datorer för begränsningar](#virtual-machines-limitations)
+* Managed Disks - hanterade diskar i Availability Zones kan inte flyttas till en annan prenumeration
 * Hanterad identitet - användartilldelade
 * Media Services
 * Övervaka – Se till att flytta till ny prenumeration inte överstiger [prenumerationskvoter](../azure-subscription-service-limits.md#monitor-limits)
-* Azure Monitor-loggar
 * Notification Hubs
 * Operational Insights
 * Operations Management
@@ -103,7 +104,6 @@ Följande lista innehåller en allmän översikt över Azure-tjänster som kan f
 * Powerbi – både Power BI Embedded och Power BI-Arbetsytesamling
 * Offentliga IP - Basic SKU offentlig IP-adress kan flyttas. Standard-SKU offentlig IP-adress kan inte flyttas.
 * Recovery Services-valv – registrera dig i en [förhandsversion](#recovery-services-limitations).
-* Azure Cache för Redis - om Azure Cache för Redis-instans som är konfigurerad med ett virtuellt nätverk, instansen kan inte flyttas till en annan prenumeration. Se [virtuella nätverk begränsningar](#virtual-networks-limitations).
 * Scheduler
 * Sök - du kan inte flytta flera Sök efter resurser i olika regioner i en enda åtgärd. I stället flyttar du dem i separata åtgärder.
 * Service Bus
@@ -116,7 +116,7 @@ Följande lista innehåller en allmän översikt över Azure-tjänster som kan f
 * SQL Database-server - databas och server måste vara i samma resursgrupp. Om du flyttar en SQLServer, flyttas även alla dess databaser. Det här beteendet gäller för Azure SQL Database och Azure SQL Data Warehouse-databaser.
 * Time Series Insights
 * Traffic Manager
-* Virtual Machines – för virtuella datorer med hanterade diskar, se [begränsningar för virtuella datorer](#virtual-machines-limitations)
+* Virtual Machines – Se [begränsningar för virtuella datorer](#virtual-machines-limitations)
 * Virtuella datorer (klassiska) – Se [begränsningar för klassisk distribution](#classic-deployment-limitations)
 * VM Scale Sets – Se [begränsningar för virtuella datorer](#virtual-machines-limitations)
 * Virtuella nätverk - finns i [begränsningar för virtuella nätverk](#virtual-networks-limitations)
@@ -133,6 +133,7 @@ Följande lista innehåller en allmän översikt över Azure-tjänster som inte 
 * Azure Databricks
 * Azure Firewall
 * Azure Migrate
+* Azure NetApp Files
 * Certifikat - App Service-certifikat kan flyttas, men uppladdade certifikat har [begränsningar](#app-service-limitations).
 * Klassiska program
 * Container Instances
@@ -145,7 +146,6 @@ Följande lista innehåller en allmän översikt över Azure-tjänster som inte 
 * Lab Services – flytta till ny resursgrupp i samma prenumeration har aktiverats, men flytta över prenumerationer har inte aktiverats.
 * Managed Applications
 * Microsoft Genomics
-* Azure NetApp Files
 * SAP HANA på Azure
 * Säkerhet
 * Site Recovery
@@ -166,13 +166,12 @@ Avsnittet innehåller beskrivningar av hur du hanterar komplicerade scenarier f�
 
 ### <a name="virtual-machines-limitations"></a>Begränsningar för virtuella datorer
 
-Du kan flytta hanterade diskar från 24 September 2018. Det här stödet innebär att du kan flytta virtuella datorer med hanterade diskar, hanterade bilder, hanterade ögonblicksbilder och tillgänglighetsuppsättningar med virtuella datorer som använder hanterade diskar.
+Du kan flytta virtuella datorer med hanterade diskar, hanterade bilder, hanterade ögonblicksbilder och tillgänglighetsuppsättningar med virtuella datorer som använder hanterade diskar. Hanterade diskar i Availability Zones kan inte flyttas till en annan prenumeration.
 
 Följande scenarier stöds inte ännu:
 
 * Virtuella datorer med certifikat som lagras i Key Vault kan flyttas till en ny resursgrupp i samma prenumeration, men inte mellan prenumerationer.
-* Hanterade diskar i Availability Zones kan inte flyttas till en annan prenumeration
-* Virtual Machine Scale Sets med Standard-SKU-belastningsutjämnare eller SKU offentlig IP kan inte flyttas
+* Virtual Machine Scale Sets med Standard-SKU-belastningsutjämnare eller SKU offentlig IP kan inte flyttas.
 * Virtuella datorer som skapats från Marketplace-resurser med anslutna-planer kan inte flyttas mellan resursgrupper eller prenumerationer. Avetablera den virtuella datorn i den aktuella prenumerationen och distribuera igen i den nya prenumerationen.
 
 Om du vill flytta virtuella datorer som konfigurerats med Azure Backup, använder du följande lösning:
@@ -190,6 +189,8 @@ Om du vill flytta virtuella datorer som konfigurerats med Azure Backup, använde
 ### <a name="virtual-networks-limitations"></a>Begränsningar för virtuellt nätverk
 
 När du flyttar ett virtuellt nätverk, måste du även flytta beroende resurser. För VPN-gatewayer måste du flytta IP-adresser, virtuella nätverksgatewayer och alla associerade anslutningsresurser. Lokala nätverksgatewayer kan finnas i en annan resursgrupp.
+
+Om du vill flytta en virtuell dator med ett nätverkskort måste du flytta alla beroende resurser. Du måste flytta virtuellt nätverk för nätverkskortet, alla andra nätverkskort för det virtuella nätverket och VPN-gatewayer.
 
 Om du vill flytta en peer-kopplade virtuella nätverket måste du först inaktivera virtuell nätverkspeering. Du kan flytta det virtuella nätverket när inaktiverat. Återaktivera virtuell nätverkspeering efter överflyttningen.
 

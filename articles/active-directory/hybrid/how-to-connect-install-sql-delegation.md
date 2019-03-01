@@ -16,12 +16,12 @@ ms.date: 02/26/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 41859195474f19906118dbe94503bcbe04d0ac65
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 31cfcc6d2309b90565f71a7827fb7057145323c3
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56960368"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57192420"
 ---
 # <a name="install-azure-ad-connect-using-sql-delegated-administrator-permissions"></a>Installera Azure AD Connect med SQL-delegerade administratörsbehörigheter
 Före den senaste versionen av Azure AD Connect kan stöds administrativa delegering, när du distribuerar konfigurationer som krävs för SQL, inte.  Användare som vill installera Azure AD Connect som behövs för att ha administratörsbehörighet för servern (SA) på SQLServer.
@@ -59,9 +59,9 @@ Använd följande steg för att etablera databasen out of band och installera Az
  3. Skicka ett e-postmeddelande till Azure AD Connect-administratören som anger SQL server och instans namn som ska användas när du installerar Azure AD Connect.
 
 ## <a name="additional-information"></a>Ytterligare information
-När databasen har etablerats kan Azure AD Connect-administratören installera och konfigurera den lokala synkronisering när så önskas.  
+När databasen har etablerats kan Azure AD Connect-administratören installera och konfigurera den lokala synkronisering när så önskas.
 
-Läs mer om hur du installerar Azure AD Connect med en befintlig databas [installera Azure AD Connect med en befintlig ADSync-databas](how-to-connect-install-existing-database.md)
+Om SQL-administratören har återställts ADSync-databas från en tidigare säkerhetskopia av Azure AD Connect, måste du installera den nya Azure AD Connect-servern med hjälp av en befintlig databas. Mer information om hur du installerar Azure AD Connect med en befintlig databas finns i [installera Azure AD Connect med en befintlig ADSync-databas](how-to-connect-install-existing-database.md).
 
 ## <a name="next-steps"></a>Nästa steg
 - [Komma igång med Azure AD Connect med standardinställningar](how-to-connect-install-express.md)

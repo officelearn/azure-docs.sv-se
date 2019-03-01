@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/31/2019
 ms.author: iainfou
 ms.reviewer: nieberts, jomore
-ms.openlocfilehash: 7975516e80576a9d79b35da816d049f47ebc7d3a
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: b80177d17e0dc5a4e54396907ecee61890ec523f
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56650197"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57011355"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Använd kubenet nätverk med dina egna IP-adressintervall i Azure Kubernetes Service (AKS)
 
@@ -77,6 +77,9 @@ Använd *Azure CNI* när:
 - De flesta av pod-kommunikation är att resurser utanför klustret.
 - Du vill inte hantera de udr: er.
 - Du behöver avancerade funktioner, till exempel virtuella noder eller nätverksprincip.
+
+> [!NOTE]
+> Kuberouter gör det möjligt att aktivera principen för nätverk när du använder kubenet och kan installeras som en daemonset i ett AKS-kluster. Var medveten om kube-router är fortfarande i betaversioner och inget stöd erbjuds av Microsoft för projektet.
 
 ## <a name="create-a-virtual-network-and-subnet"></a>Skapa ett virtuellt nätverk och ett undernät
 

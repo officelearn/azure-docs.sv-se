@@ -8,16 +8,18 @@ ms.topic: article
 ms.author: mstewart
 ms.date: 02/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: faea1cc7c45393c10a240de2c92757ff8f2ac5c3
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: c0202dfa8316caec036b4ad288c2bd32f1c4eaf3
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55694120"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56989412"
 ---
 # <a name="azure-disk-encryption-troubleshooting-guide"></a>Felsökningsguide för Azure Disk Encryption
 
 Den här guiden är för IT-proffs, informationssäkerhetsanalytiker och molnadministratörer i organisationer som använder Azure Disk Encryption. Den här artikeln är att hjälpa till med felsökning av disk-kryptering-relaterade problem.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="troubleshooting-linux-os-disk-encryption"></a>Felsökning av Linux OS-diskkryptering
 
@@ -55,17 +57,17 @@ I vissa fall kan har Linux diskkryptering verkar ha fastnat på ”OS diskkrypte
 
 Linux OS-disk kryptering sekvensen demonterar operativsystemenheten tillfälligt. Den utför sedan block för block kryptering av hela OS-disken innan den monterar om i det krypterade tillståndet. Till skillnad från Azure Disk Encryption på Windows kan Linux-diskkryptering inte för samtidig användning av den virtuella datorn medan kryptering pågår. Prestandaegenskaperna för den virtuella datorn kan göra stor skillnad i den tid som krävs för att slutföra krypteringen. Följande egenskaper är storleken på disken och om lagringskontot är standard eller (SSD) premiumlagring.
 
-Om du vill kontrollera krypteringsstatus för, avsöker den **ProgressMessage** fält som returneras från den [Get-AzureRmVmDiskEncryptionStatus](/powershell/module/azurerm.compute/get-azurermvmdiskencryptionstatus) kommando. Medan operativsystemenheten krypteras den virtuella datorn försätts i ett tillstånd för underhåll och inaktiverar SSH för att förhindra eventuella avbrott i den pågående processen. Den **EncryptionInProgress** meddelande rapporter för flesta av tiden medan kryptering pågår. Flera timmar senare, en **VMRestartPending** uppmanas du att starta om den virtuella datorn. Exempel:
+Om du vill kontrollera krypteringsstatus för, avsöker den **ProgressMessage** fält som returneras från den [Get-AzVmDiskEncryptionStatus](/powershell/module/az.compute/get-azvmdiskencryptionstatus) kommando. Medan operativsystemenheten krypteras den virtuella datorn försätts i ett tillstånd för underhåll och inaktiverar SSH för att förhindra eventuella avbrott i den pågående processen. Den **EncryptionInProgress** meddelande rapporter för flesta av tiden medan kryptering pågår. Flera timmar senare, en **VMRestartPending** uppmanas du att starta om den virtuella datorn. Exempel:
 
 
 ```
-PS > Get-AzureRmVMDiskEncryptionStatus -ResourceGroupName $resourceGroupName -VMName $vmName
+PS > Get-AzVMDiskEncryptionStatus -ResourceGroupName $resourceGroupName -VMName $vmName
 OsVolumeEncrypted          : EncryptionInProgress
 DataVolumesEncrypted       : EncryptionInProgress
 OsVolumeEncryptionSettings : Microsoft.Azure.Management.Compute.Models.DiskEncryptionSettings
 ProgressMessage            : OS disk encryption started
 
-PS > Get-AzureRmVMDiskEncryptionStatus -ResourceGroupName $resourceGroupName -VMName $vmName
+PS > Get-AzVMDiskEncryptionStatus -ResourceGroupName $resourceGroupName -VMName $vmName
 OsVolumeEncrypted          : VMRestartPending
 DataVolumesEncrypted       : Encrypted
 OsVolumeEncryptionSettings : Microsoft.Azure.Management.Compute.Models.DiskEncryptionSettings

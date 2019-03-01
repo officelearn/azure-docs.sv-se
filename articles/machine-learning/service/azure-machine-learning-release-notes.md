@@ -11,18 +11,25 @@ ms.author: haining
 ms.reviewer: j-martens
 ms.date: 2/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5bb2c7d9eed2ed33f3cd0c33bfc479d2e3627370
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: aeda7377a2d5d070a2e36126d53f8f5c203a8256
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56889859"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56991401"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Viktig information för Azure Machine Learning-tjänsten
 
 I den här artikeln lär du dig om Azure Machine Learning-tjänstversioner.  En fullständig beskrivning av varje SDK finns i referensdokument för:
 + Azure Machine Learning [ **huvudsakliga SDK för Python**](https://aka.ms/aml-sdk)
 + Azure Machine Learning [ **Data Förbered SDK**](https://aka.ms/data-prep-sdk)
+
+## <a name="2019-02-27"></a>2019-02-27
+
+### <a name="azure-machine-learning-data-prep-sdk-v1016"></a>Azure Machine Learning Data Förbered SDK v1.0.16
+
++ **Felkorrigering**
+  + Problem har åtgärdats ett huvudnamn för tjänsten autentisering som orsakades av en ändring av API: et.
 
 ## <a name="2019-02-25"></a>2019-02-25
 
@@ -37,6 +44,7 @@ I den här artikeln lär du dig om Azure Machine Learning-tjänstversioner.  En 
   + Vi har lagt till stöd för Azure Machine Learning Pipelines för att ange egenskapen source_directory_data_store till en önskad datalager (till exempel en bloblagring) på [RunConfigurations](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.runconfig.runconfiguration?view=azure-ml-py) som skickas till den [ PythonScriptStep](https://docs.microsoft.com/en-us/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep?view=azure-ml-py). Som standard använder stegen Azure-lagring som säkerhetskopierar databasen som kan köras i begränsning problem när ett stort antal steg körs samtidigt.
 
 ### <a name="azure-portal"></a>Azure Portal
+
 + **Nya funktioner**
     + Ny dra och släpp tabell redigeraren upplevelse för rapporter. Användare kan dra en kolumn från brunnen till området tabellen där en förhandsgranskning av tabellen visas. Kolumnerna som kan skrivas om.
     + Ny kör-knappen för körningar som skickades med ScriptRunConfig. Användare kan köra igen en befintlig som körs på en fjärransluten beräkningsklustret för valfri.

@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/01/2019
 ms.author: spelluru
-ms.openlocfilehash: b69215a76b332db9b994827705d6bbc3b48af5c8
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 6dfa84eff8dcc104ae6f9c16262f3b1c697df6c1
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54465521"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56991214"
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Event Grid meddelandeleverans och försök igen
 
@@ -24,17 +24,20 @@ För närvarande skickar Event Grid varje händelse individuellt till prenumeran
 
 ## <a name="retry-schedule-and-duration"></a>Försök testschemat
 
-Event Grid använder en exponentiell backoff återförsöksprincipen för händelseleverans. Om en slutpunkt som inte svarar eller returnerar en felkod, försöker Event Grid leverans enligt följande schema:
+Event Grid använder en exponentiell backoff återförsöksprincipen för händelseleverans. Om en slutpunkt som inte svarar eller returnerar en felkod, försöker Event Grid leverans enligt följande schema efter bästa förmåga:
 
 1. 10 sekunder
-2. 30 sekunder
-3. 1 minut
-4. 5 minuter
-5. 10 minuter
-6. 30 minuter
-7. 1 timme
+1. 30 sekunder
+1. 1 minut
+1. 5 minuter
+1. 10 minuter
+1. 30 minuter
+1. 1 timme
+1. Per timme för upp till 24 timmar
 
-Event Grid lägger till en liten slumpmässig alla steg som försök igen. Efter en timme görs händelseleverans en gång i timmen.
+Event Grid lägger till en liten slumpmässig till alla åtgärder för återförsök och kan autentiseringsuuppsättningarna hoppa över vissa återförsök om en slutpunkt är konsekvent skadade, ned under en lång eller verkar vara överbelastas.
+
+För deterministisk beteende, ställer du in event time to live och max leverans försöker i den [prenumeration återförsöksprinciper](manage-event-delivery.md).
 
 Som standard Event Grid upphör att gälla alla händelser som inte levereras inom 24 timmar. Du kan [anpassa återförsöksprincipen](manage-event-delivery.md) när du skapar en händelseprenumeration. Ange det maximala antalet leveransförsök (standardvärdet är 30) och händelsen time to live (standardvärdet är 1 440 minuter).
 

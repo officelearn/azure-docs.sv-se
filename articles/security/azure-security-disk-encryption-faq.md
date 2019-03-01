@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mstewart
 ms.date: 01/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: fda7d6d3fddf2f4529a983ce2d4991797a5c8448
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: a1b045ecf10399ca2297e4d9d010d5c973c40f4e
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55661844"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57193287"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms-faq"></a>Azure Disk Encryption för virtuella IaaS-datorer: vanliga frågor och svar
 
@@ -72,6 +72,14 @@ Kom igång genom att läsa den [översikt över Azure Disk Encryption](azure-sec
 ## <a name="can-i-encrypt-both-boot-and-data-volumes-with-azure-disk-encryption"></a>Kan jag kryptera både start- och datavolymer med Azure Disk Encryption?
 
 Ja, du kan kryptera start- och datavolymer för Windows och Linux IaaS-datorer. Du kan inte krypteras data utan att första kryptera operativsystemvolymen för Windows-datorer. Det är möjligt att kryptera datavolymen utan att behöva kryptera operativsystemvolymen först för virtuella Linux-datorer. När du har krypterat operativsystemvolymen för Linux, stöds inaktivering av kryptering på en OS-volym för virtuella Linux IaaS-datorer inte.
+
+## <a name="how-do-i-rotate-secrets-or-encryption-keys"></a>Hur jag rotera hemligheter eller krypteringsnycklar?
+
+För att rotera hemligheter, anropar du bara samma kommando som du ursprungligen använde för att aktivera diskkryptering. Anropa samma kommando du använts för att aktivera diskkryptering, att ange den nya krypteringsnyckel för att rotera nyckeln krypteringsnyckeln. 
+
+## <a name="how-do-i-add-or-remove-a-key-encryption-key-if-i-didnt-originally-use-one"></a>Hur jag för att lägga till eller ta bort en nyckelkrypteringsnyckel om jag inte ursprungligen använder en?
+
+Om du vill lägga till en nyckelkrypteringsnyckel, anropa kommandot aktivera igen och skicka parametern nyckelkryptering. Om du vill ta bort en nyckelkrypteringsnyckel, anropa kommandot aktivera igen utan parametern nyckelkryptering.
 
 ## <a name="does-azure-disk-encryption-allow-you-to-bring-your-own-key-byok"></a>Azure Disk Encryption tillåter att du kan använda en egen nyckel (BYOK)?
 

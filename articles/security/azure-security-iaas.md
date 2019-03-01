@@ -4,7 +4,7 @@ description: " Migrering av arbetsbelastningar till Azure IaaS ger dig möjlighe
 services: security
 documentationcenter: na
 author: barclayn
-manager: barbkess
+manager: MBaldwin
 editor: TomSh
 ms.assetid: 02c5b7d2-a77f-4e7f-9a1e-40247c57e7e2
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/18/2018
 ms.author: barclayn
-ms.openlocfilehash: 6bf73bcc691e2ab27f3ec379530a59d3b616a070
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: de89e0a30f39ba97379b4d55914338702aef5c32
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56341224"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56990416"
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Rekommenderade säkerhetsmetoder för IaaS-arbetsbelastningar i Azure
 
@@ -39,7 +39,7 @@ De bästa metoderna är baserade på en enhälligt av åsikter och de fungerar m
 Det första steget i att skydda dina virtuella datorer är att säkerställa att endast behöriga användare kan ställa in nya virtuella datorer och åtkomst till virtuella datorer.
 
 **Bästa praxis**: Styra åtkomst till virtuell dator.   
-**Information om**: Använd [Azure principer](../governance/policy/overview.md) upprätta konventioner för resurser i din organisation och skapa anpassade principer. Använda dessa principer på resurser, till exempel [resursgrupper](../azure-resource-manager/resource-group-overview.md). Virtuella datorer som tillhör en resursgrupp ärver dess principer.
+**Information om**: Använd [Azure principer](../azure-policy/azure-policy-introduction.md) upprätta konventioner för resurser i din organisation och skapa anpassade principer. Använda dessa principer på resurser, till exempel [resursgrupper](../azure-resource-manager/resource-group-overview.md). Virtuella datorer som tillhör en resursgrupp ärver dess principer.
 
 Om din organisation har många prenumerationer, kanske du behöver ett sätt att effektivt hantera åtkomst, principer och efterlevnad för dessa prenumerationer. [Azure-hanteringsgrupper](../azure-resource-manager/management-groups-overview.md) ger en nivå av omfång över prenumerationer. Du organiserar prenumerationer till hanteringsgrupper (behållare) och tillämpa dina styrning villkor för dessa grupper. Alla prenumerationer i en hanteringsgrupp ärver automatiskt villkor som används för gruppen. Hanteringsgrupper tillhandahåller hantering i företagsklass i stor skala oavsett vilken typ av prenumeration du har.
 
@@ -153,10 +153,10 @@ Nedan följer bästa praxis för att använda Azure Disk Encryption:
 **Information om**: Azure Disk Encryption genererar och skriver dem till ditt nyckelvalv. Hantera krypteringsnycklar i ditt nyckelvalv kräver Azure AD-autentisering. Skapa ett Azure AD-program för detta ändamål. Du kan använda antingen autentisering med klient-hemlighet för autentisering, eller [klientautentisering certifikatbaserad Azure AD](../active-directory/active-directory-certificate-based-authentication-get-started.md).
 
 **Bästa praxis**: Använda en krypteringsnyckel nyckel (KEK) för ett extra lager av säkerhet för krypteringsnycklar. Lägg till en KEK till ditt nyckelvalv.   
-**Information om**: Använd den [Add-AzureKeyVaultKey](https://docs.microsoft.com/powershell/module/azurerm.keyvault/add-azurekeyvaultkey) cmdlet för att skapa en nyckelkrypteringsnyckel i nyckelvalvet. Du kan också importera en KEK från din lokala maskinvarusäkerhetsmodul (HSM) för hantering av nycklar. Mer information finns i den [dokumentationen för Key Vault](../key-vault/key-vault-hsm-protected-keys.md). När du anger en nyckelkrypteringsnyckel använder Azure Disk Encryption nyckeln för att omsluta kryptering hemligheter innan du skriver till Key Vault. Att behålla en escrow kopia av den här nyckeln i en lokal ger nyckelhantering HSM ytterligare skydd mot oavsiktlig borttagning av nycklar.
+**Information om**: Använd den [Lägg till AzKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyvault/add-azurekeyvaultkey) cmdlet för att skapa en nyckelkrypteringsnyckel i nyckelvalvet. Du kan också importera en KEK från din lokala maskinvarusäkerhetsmodul (HSM) för hantering av nycklar. Mer information finns i den [dokumentationen för Key Vault](../key-vault/key-vault-hsm-protected-keys.md). När du anger en nyckelkrypteringsnyckel använder Azure Disk Encryption nyckeln för att omsluta kryptering hemligheter innan du skriver till Key Vault. Att behålla en escrow kopia av den här nyckeln i en lokal ger nyckelhantering HSM ytterligare skydd mot oavsiktlig borttagning av nycklar.
 
 **Bästa praxis**: Ta en [ögonblicksbild](../virtual-machines/windows/snapshot-copy-managed-disk.md) och/eller säkerhetskopiera innan diskar krypteras. Säkerhetskopieringar ger ett återställningsalternativ om ett oväntat fel inträffar under krypteringen.   
-**Information om**: Virtuella datorer med hanterade diskar kräver en säkerhetskopia innan kryptering sker. När en säkerhetskopia görs, kan du använda den **Set-AzureRmVMDiskEncryptionExtension** cmdlet för att kryptera hanterade diskar genom att ange den *- skipVmBackup* parametern. Mer information om hur du säkerhetskopiera och återställa krypterade virtuella datorer finns i den [Azure Backup](../backup/backup-azure-vms-encryption.md) artikeln.
+**Information om**: Virtuella datorer med hanterade diskar kräver en säkerhetskopia innan kryptering sker. När en säkerhetskopia görs, kan du använda den **Set-AzVMDiskEncryptionExtension** cmdlet för att kryptera hanterade diskar genom att ange den *- skipVmBackup* parametern. Mer information om hur du säkerhetskopiera och återställa krypterade virtuella datorer finns i den [Azure Backup](../backup/backup-azure-vms-encryption.md) artikeln.
 
 **Bästa praxis**: Om du vill se till att kryptering hemligheterna inte går över regionala gränser, måste Azure Disk Encryption nyckelvalvet och de virtuella datorerna ska finnas i samma region.   
 **Information om**: Skapa och använda ett nyckelvalv som är i samma region som den virtuella datorn måste vara krypterade.

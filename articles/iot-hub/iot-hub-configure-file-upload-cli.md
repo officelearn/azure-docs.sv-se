@@ -1,18 +1,19 @@
 ---
 title: Konfigurera filuppladdning till IoT Hub med Azure CLI | Microsoft Docs
 description: Så här konfigurerar du fil laddas upp till Azure IoT Hub med hjälp av plattformsoberoende Azure CLI.
-author: dominicbetts
+author: robinsh
+manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/08/2017
-ms.author: dobett
-ms.openlocfilehash: 6cd0b657c8d0352c41e0da538396b166d633306a
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.author: robin.shahan
+ms.openlocfilehash: a77635b6c022527203d1df752723aac3ce2c296c
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42054809"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57010794"
 ---
 # <a name="configure-iot-hub-file-uploads-using-azure-cli"></a>Konfigurera IoT Hub-filöverföringar med hjälp av Azure CLI
 
@@ -88,15 +89,15 @@ Nu kan du konfigurera din IoT-hubb för att göra möjligheten att [ladda upp fi
 
 Konfigurationen kräver följande värden:
 
-* **Lagringsbehållare**: en blobbehållare i Azure storage-konto i din aktuella Azure-prenumeration ska associeras med din IoT-hubb. Du har hämtat den nödvändiga lagringskontoinformation i föregående avsnitt. IoT Hub genererar automatiskt SAS URI: er med skrivbehörighet till den här blob-behållare för enheter som ska användas när de laddar upp filer.
+* **Lagringsbehållare**: En blob-behållare i ett Azure storage-konto i din aktuella Azure-prenumeration ska associeras med din IoT-hubb. Du har hämtat den nödvändiga lagringskontoinformation i föregående avsnitt. IoT Hub genererar automatiskt SAS URI: er med skrivbehörighet till den här blob-behållare för enheter som ska användas när de laddar upp filer.
 
-* **Ta emot meddelanden om uppladdade filer**: aktivera eller inaktivera meddelanden för uppladdning av filen.
+* **Ta emot meddelanden om uppladdade filer**: Aktivera eller inaktivera meddelanden för uppladdning av filen.
 
-* **SAS TTL**: den här inställningen är den time-to-live SAS URI: er returneras till enheten av IoT Hub. Ange en timme som standard.
+* **SAS TTL**: Den här inställningen är den time-to-live SAS URI: er returneras till enheten av IoT Hub. Ange en timme som standard.
 
-* **Filen notification inställningar standard TTL**: den time-to-live för en fil ladda upp meddelandet innan det förfaller. Ange en dag som standard.
+* **Filen notification inställningar standard TTL**: De time-to-live för en fil ladda upp meddelandet innan det förfaller. Ange en dag som standard.
 
-* **Filen notification maximalt antal leveranser**: antalet gånger som IoT-hubben försöker leverera en fil ladda upp meddelandet. Värdet 10 som standard.
+* **Filen notification maximalt antal leveranser**: Hur många gånger som IoT-hubben försöker leverera en fil att överföra meddelanden. Värdet 10 som standard.
 
 Använd följande Azure CLI-kommandon för att ange inställningarna för ladda upp filen på din IoT-hubb:
 

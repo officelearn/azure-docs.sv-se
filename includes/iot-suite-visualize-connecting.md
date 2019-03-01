@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/24/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 5bb2db84a21efb9c8bffb345e05e17d99b866fe9
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: 9b9e28f18208674609d0842b0e3a54e3fc661c9f
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56825386"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56988106"
 ---
 ## <a name="view-device-telemetry"></a>Visa enhetstelemetri
 
@@ -33,7 +33,7 @@ Du kan visa telemetri som skickas från din enhet den **Device Explorer** sidan 
 
 ## <a name="act-on-your-device"></a>Agera på din enhet
 
-Om du vill anropa metoder på dina enheter, använda den **Device Explorer** sida i lösningen för fjärrövervakning. Till exempel i lösningen för fjärrövervakning **kylaggregat** enheter implementera en **FirmwareUpdate** metod.
+Om du vill anropa metoder på dina enheter, använda den **Device Explorer** sida i lösningen för fjärrövervakning. Till exempel i lösningen för fjärrövervakning **kylaggregat** enheter implementera en **omstart** metod.
 
 1. Välj **enheter** att navigera till den **Device Explorer** sidan i lösningen.
 
@@ -41,20 +41,16 @@ Om du vill anropa metoder på dina enheter, använda den **Device Explorer** sid
 
     ![Välj den verkliga enheten](media/iot-suite-visualize-connecting/devicesselect.png)
 
-1. Om du vill visa en lista över de metoder som du kan anropa på enheten, Välj **jobb**, sedan **köra metoden**. Om du vill schemalägga ett jobb ska köras på flera enheter, kan du välja flera enheter i listan. Den **jobb** panelen visas typerna av metoden som är gemensamma för alla enheter som du har valt.
+1. Om du vill visa en lista över de metoder som du kan anropa på enheten, Välj **jobb**, sedan **metoder**. Om du vill schemalägga ett jobb ska köras på flera enheter, kan du välja flera enheter i listan. Den **jobb** panelen visas typerna av metoden som är gemensamma för alla enheter som du har valt.
 
-1. Välj **FirmwareUpdate**, inställd på jobbnamnet **UpdatePhysicalChiller**. Ange **Version av inbyggd programvara** till **2.0.0**anger **Firmware URI** till **http://contoso.com/updates/firmware.bin**, och välj sedan **tillämpa**:
+1. Välj **omstart**, inställd på jobbnamnet **RebootPhysicalChiller** och välj sedan **tillämpa**:
 
     ![Schemalägg uppdatering av inbyggd programvara](media/iot-suite-visualize-connecting/deviceschedule.png)
 
 1. En serie meddelanden visas i konsolen som kör enhetskoden när den simulerade enheten hanterar metoden.
 
-1. När uppdateringen har slutförts, den nya versionen för inbyggd programvara visas på den **Device Explorer** sidan:
-
-    ![Uppdateringen slutfördes](media/iot-suite-visualize-connecting/complete.png)
-
 > [!NOTE]
-> Om du vill spåra statusen för jobbet i lösningen, Välj **visa**.
+> Om du vill spåra statusen för jobbet i lösningen, Välj **Visa jobbstatus**.
 
 ## <a name="next-steps"></a>Nästa steg
 

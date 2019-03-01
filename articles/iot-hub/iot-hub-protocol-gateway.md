@@ -1,45 +1,45 @@
 ---
-title: Azure IoT-protokollet gateway | Microsoft Docs
-description: Hur du använder en gateway för Azure IoT-protokollet för att utöka IoT-hubb funktioner och stöd för protokollet för att aktivera enheter att ansluta till hubben med hjälp av protokoll som inte stöds av IoT-hubb internt.
-author: fsautomata
-manager: ''
+title: Azure IoT-protokollgatewayen | Microsoft Docs
+description: Hur du använder en Azure-IoT-protokollgatewayen för att utöka IoT Hub funktioner och Protokollstöd för att aktivera enheter att ansluta till hubben med hjälp av protokoll som inte stöds av IoT Hub automatiskt.
+author: robinsh
+manager: philmea
+ms.author: robin.shahan
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 07/11/2017
-ms.author: elioda
-ms.openlocfilehash: 2c90ee899d0002d41ca21ed4a4927470ee53b2e1
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 91d61ffecc0e5345d02db88af73aee4586f7099e
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34635312"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57009859"
 ---
-# <a name="support-additional-protocols-for-iot-hub"></a>Stöd för fler protokoll för IoT-hubb
-Azure IoT-hubb har inbyggt stöd för kommunikation över MQTT, AMQP och HTTPS-protokoll. I vissa fall kan kanske enheter eller gateways för fältet inte kan använda någon av dessa standardprotokoll och kräver protokollet anpassning. I sådana fall måste använda du en anpassad gateway. En anpassad gateway aktiverar protokollet anpassning för IoT-hubb slutpunkter genom bryggning trafik till och från IoT-hubb. Du kan använda den [Azure IoT-protokollet gateway](https://github.com/Azure/azure-iot-protocol-gateway/blob/master/README.md) som en anpassad gateway för att aktivera protokollet anpassning för IoT-hubb.
+# <a name="support-additional-protocols-for-iot-hub"></a>Stöd för ytterligare protokoll för IoT Hub
+Azure IoT Hub har har inbyggt stöd för kommunikation över MQTT-, AMQP- och HTTPS-protokoll. I vissa fall kan kanske enheter eller fält-gateways inte kan använda någon av följande standardprotokoll och kräver protokollet anpassning. I sådana fall kan använda du en anpassad gateway. En anpassad gateway aktiverar protokoll anpassning om IoT Hub-slutpunkter genom bryggning trafik till och från IoT Hub. Du kan använda den [Azure IoT-protokollgatewayen](https://github.com/Azure/azure-iot-protocol-gateway/blob/master/README.md) som en anpassad gateway för att aktivera protokollet anpassning för IoT Hub.
 
-## <a name="azure-iot-protocol-gateway"></a>Azure IoT protocol-gateway
-Azure IoT protocol-gateway är ett ramverk för protokollet anpassning som är avsedd för hög skalning, enheten dubbelriktad kommunikation med IoT-hubben. Protocol-gateway är en direkt komponent som accepterar enhetsanslutningar över ett visst protokoll. Det få trafiken till IoT-hubb via AMQP 1.0. 
+## <a name="azure-iot-protocol-gateway"></a>Azure IoT-protokollgatewayen
+Azure IoT-protokollgatewayen är ett ramverk för anpassning av protokoll som är utformat för hög skalbarhet, dubbelriktad kommunikation för enheten med IoT Hub. Protokoll-gateway är en direkt komponent som accepterar anslutningar på enheten via ett visst protokoll. De här lösningarna överbryggar trafiken till IoT Hub över AMQP 1.0. 
 
-Du kan distribuera protocol-gateway i Azure på ett mycket skalbart sätt med hjälp av Azure Service Fabric, arbetsroller i Azure Cloud Services och Windows-datorer. Dessutom kan protocol-gateway distribueras i lokala miljöer, t.ex fältet gateways.
+Du kan distribuera protokoll-gateway i Azure på ett mycket skalbart sätt med hjälp av Azure Service Fabric, Azure Cloud Services worker-roller eller Windows-datorer. Protokoll-gateway kan dessutom distribueras i lokala miljöer, till exempel fält-gateways.
 
-Azure IoT-protokollet gateway innehåller en MQTT protocol-kortet som gör att du kan anpassa beteendet MQTT protokoll om det behövs. Eftersom IoT-hubben har inbyggt stöd för protokollet MQTT v3.1.1, bör endast du använda protocol-kortet MQTT om protokollet anpassningar eller särskilda krav för ytterligare funktioner krävs.
+Azure IoT-protokollgatewayen innehåller ett MQTT-protokollet kort där du kan anpassa beteendet MQTT-protokollet om det behövs. Eftersom IoT Hub ger inbyggt stöd för protokollet MQTT v3.1.1, bör du endast överväga att använda MQTT-protokollet kortet om protokollet anpassningar eller särskilda krav för ytterligare funktioner krävs.
 
-MQTT kortet visas också programmeringsmodell för att skapa protokollet nätverkskort för andra protokoll. Dessutom kan Azure IoT-protokollet gateway programmeringsmodell du ansluta i anpassade komponenter för särskild bearbetning som anpassad autentisering, meddelande omvandlingar, komprimering/dekomprimering eller kryptering och dekryptering av trafik mellan enheter och IoT-hubb.
+MQTT-kortet visar också programmeringsmodell för att skapa protokollet nätverkskort för andra protokoll. Azure IoT-protokoll-gateway programmeringsmodell kan dessutom att du installerar anpassade komponenter för särskild bearbetning som anpassad autentisering, meddelande transformationer, komprimering/dekomprimering eller kryptering/dekryptering av trafik mellan enheter och IoT Hub.
 
-För flexibilitet finns Azure IoT-protokollet gateway och MQTT implementering i ett projekt med öppen källkod. Du kan använda projektet öppen källkod för att lägga till stöd för olika protokoll och protokoll version eller anpassa implementeringen för ditt scenario. 
+För flexibilitet tillhandahålls Azure IoT-protokollgatewayen och MQTT implementering i ett program med öppen källkod-projekt. Du kan använda projekt för öppen källkod för att lägga till stöd för olika protokoll och protokollversioner eller anpassa implementeringen för ditt scenario. 
 
 ## <a name="next-steps"></a>Nästa steg
-Mer information om Azure IoT protocol-gateway och hur du använder och distribuera den som en del av IoT-lösningen finns:
+Mer information om Azure IoT-protokollgatewayen och hur du använder och distribuera den som en del av din IoT-lösning finns:
 
-* [Azure IoT-protokollet gateway-databasen på GitHub](https://github.com/Azure/azure-iot-protocol-gateway/blob/master/README.md)
-* [Azure IoT-protokollet gateway utvecklarhandboken](https://github.com/Azure/azure-iot-protocol-gateway/blob/master/docs/DeveloperGuide.md)
+* [Azure IoT-protokoll-gateway-arkivet på GitHub](https://github.com/Azure/azure-iot-protocol-gateway/blob/master/README.md)
+* [Azure IoT gateway developer-protokollguide](https://github.com/Azure/azure-iot-protocol-gateway/blob/master/docs/DeveloperGuide.md)
 
-Mer information om hur du planerar distributionen av IoT-hubb finns:
+Mer information om hur du planerar distributionen av IoT Hub finns:
 
-* [Jämför med Händelsehubbar][lnk-compare]
+* [Jämför med Event Hubs][lnk-compare]
 * [Skalning, hög tillgänglighet och katastrofåterställning][lnk-scaling]
-* [Utvecklarhandbok för IoT-hubb][lnk-devguide]
+* [Utvecklarhandboken för IoT Hub][lnk-devguide]
 
 [lnk-compare]: iot-hub-compare-event-hubs.md
 [lnk-scaling]: iot-hub-scaling.md

@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 10/26/2018
 ms.author: dobett
-ms.openlocfilehash: 19e340609e80998037938bdad59e9e6e74894bad
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: 00a6e518dd6ffa8ea5a38e8433da02e0b88fce20
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56098314"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57010726"
 ---
 # <a name="connected-factory-solution-accelerator-walkthrough"></a>Genomgång av lösningsacceleratorn Ansluten fabrik
 
@@ -229,7 +229,7 @@ Webbappen distribueras som en del av solution accelerator innehåller en integre
 
 Läs följande artiklar om du vill fortsätta och lära dig mer om lösningsacceleratorer i IoT:
 
-* [Behörigheter på webbplatsen azureiotsuite.com][lnk-permissions]
+* [Behörigheter på webbplatsen azureiotsolutions.com][lnk-permissions]
 * [Distribuera en gateway på Windows eller Linux för lösningsacceleratorn Ansluten fabrik](iot-accelerators-connected-factory-gateway-deployment.md)
 * [Referensimplementering för OPC Publisher](https://github.com/Azure/iot-edge-opc-publisher/blob/master/README.md).
 

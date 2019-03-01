@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/08/2018
 ms.author: raynew
-ms.openlocfilehash: eaef1c904b5404339c476d86c5b8c2a1740e5a3e
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 8b895580f2edc0b7af1c6195212490ce083208ad
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700085"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56991163"
 ---
 # <a name="best-practices-for-securing-and-managing-workloads-migrated-to-azure"></a>Metodtips för att skydda och hantera arbetsbelastningar migreras till Azure
 
@@ -588,7 +588,7 @@ Azure-resurser genererar ett verkligt antal loggningsdata mått och telemetri.
 
 - Som standard har de flesta typer av resurser inte Diagnostisk loggning är aktiverat.
 - Du kan fråga efter loggningsdata och skapa aviseringar och spelböcker baserat på den genom att aktivera Diagnostisk loggning för dina resurser.
-- När du aktiverar diagnostikloggning har varje resurs en specifik uppsättning kategorier. Du kan välja en eller flera loggningskategorier och en plats för loggdata. Loggar kan skickas till ett lagringskonto, händelsehubb, eller till Log Analytics. 
+- När du aktiverar diagnostikloggning har varje resurs en specifik uppsättning kategorier. Du kan välja en eller flera loggningskategorier och en plats för loggdata. Loggar kan skickas till ett lagringskonto, event hub eller Azure Monitor-loggar. 
 
 
 ![Diagnostisk loggning](./media/migrate-best-practices-security-management/diagnostics.png)
@@ -679,7 +679,7 @@ Precis som med alla produktionssystemet kan det påverka din miljö att göra al
 Azure har en lösning för ändringsspårning i Azure automation:
 
 - Lösningen spårar ändringar i Windows och Linux-programvara och filer, registernycklar för Windows, Windows-tjänster och Linux-daemon.
-- Ändringar på övervakade servrar skickas till Log Analytics-tjänsten i molnet för bearbetning.
+- Ändringar på övervakade servrar skickas till Azure Monitor-tjänsten i molnet för bearbetning.
 - Logiken tillämpas på den mottagna data och Molntjänsten innehåller data.
 - På instrumentpanelen för ändringsspårning kan du enkelt se ändringar som gjorts i din serverinfrastruktur.
 

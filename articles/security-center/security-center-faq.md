@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/19/2019
+ms.date: 02/25/2019
 ms.author: monhaber
-ms.openlocfilehash: 6696935cf23fa7286f23ae9b7d0e8a278e31403d
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 5fd885acc4294ae9f370d3becd0ad8cfb7935193
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56652670"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56992370"
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>Vanliga frågor och svar om Azure Security Center
 Den här vanliga frågor och svar innehåller frågor och svar om Azure Security Center, en tjänst som hjälper dig att förhindra, upptäcka och svara på hot med ökad insyn i och kontroll över säkerheten hos dina Microsoft Azure-resurser.
@@ -275,7 +275,7 @@ Azure Security Center automatiskt samlar in, analyserar och Smältsäkringar log
 * nyckelsökningsangrepp mot virtuella datorer
 * Säkerhetsaviseringar från integrerade partnerlösningar säkerhetslösningar som skadlig eller brandväggar för webbprogram
 
-### <a name="why-did-secure-scores-values-change"></a>Varför säker poäng ändras?
+### Varför säker poäng ändras? <a name="secure-score-faq"></a>
 Från och med februari 2019 justeras poängen för några rekommendationer för att bättre passa för deras allvarlighetsgrad i Security Center. Till följd av den här justering, det kan finnas ändringar i övergripande skyddar score värden.  Läs mer om säker poäng [skydda poängberäkningen](security-center-secure-score.md).
 
 ### <a name="whats-the-difference-between-threats-detected-and-alerted-on-by-microsoft-security-response-center-versus-azure-security-center"></a>Vad är skillnaden mellan hot identifieras och rapporteras på av Microsoft Security Response Center jämfört med Azure Security Center?

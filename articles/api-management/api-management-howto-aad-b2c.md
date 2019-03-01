@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: 8c60e7dec2d2a9bc3e063adfee0ffaff63417265
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: bdc479c6cc91c3ebba343a8423a73fb2e0404a73
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52960171"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56992710"
 ---
 # <a name="how-to-authorize-developer-accounts-by-using-azure-active-directory-b2c-in-azure-api-management"></a>Hur du auktorisera konton med hjälp av Azure Active Directory B2C i Azure API Management
 
@@ -38,7 +38,7 @@ Azure Active Directory B2C är en identitetshanteringslösning för molnet för 
    > [!NOTE]
    > Om du inte har skapat en API Management-tjänstinstans, se [skapa en API Management-tjänstinstans] [ Create an API Management service instance] i den [Kom igång med Azure API Management självstudien] [Get started with Azure API Management].
 
-2. Under **SECURITY**väljer **identiteter**. Klicka på **+ Lägg till** högst upp.
+2. Under **identiteter**. Klicka på **+ Lägg till** högst upp.
 
    Den **Lägg till identitetsprovider** visas i fönstret till höger. Välj **Azure Active Directory B2C**.
     
@@ -89,7 +89,7 @@ Azure Active Directory B2C är en identitetshanteringslösning för molnet för 
   ![Principer][api-management-howto-aad-b2c-policies]
 
   > [!NOTE]
-  > Mer information om principer finns i [Azure Active Directory B2C: utökningsbart principramverk].
+  > Mer information om principer finns i [Azure Active Directory B2C: Utökningsbart principramverk].
 
 14. När du har angett den önskade konfigurationen, klickar du på **spara**.
 

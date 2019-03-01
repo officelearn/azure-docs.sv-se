@@ -1,19 +1,19 @@
 ---
 title: Azure IoT Hub i ordlista | Microsoft Docs
 description: Utvecklarguide – en ordlista med vanliga termer som är relaterade till Azure IoT Hub.
-author: dominicbetts
-manager: timlt
+author: robinsh
+manager: philmea
+ms.author: robin.shahan
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 01/15/2019
-ms.author: dobett
-ms.openlocfilehash: d815f980a0583058957b7d87b6c99df59e9a4821
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: d79485fa7587a6cf8783f2e5779fa0a1d593aea7
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55817395"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57011440"
 ---
 # <a name="glossary-of-iot-hub-terms"></a>IoT Hub-ordlista
 Den här artikeln innehåller några av de vanliga termer som används i IoT Hub-artiklar.
@@ -97,7 +97,7 @@ I samband med en [enhetstvillingen](iot-hub-devguide-device-twins.md), önskade 
 Refererar till meddelanden som skickas från en ansluten enhet till [IoT Hub](#iot-hub). Dessa meddelanden kan vara [datapunkt](#data-point-message) eller [interaktiva](#interactive-message) meddelanden. Mer information finns i [skicka och ta emot meddelanden med IoT Hub](iot-hub-devguide-messaging.md).
 
 ## <a name="device"></a>Enhet
-En enhet är vanligtvis en småskalig, fristående datorenhet som kan samla in data eller andra enheter i kontexten för IoT. Till exempel kan en enhet vara en miljömässig övervakning enhet eller en domänkontrollant för vatten och ventilation system i en växthusgaser. Den [enhetskatalog](https://catalog.azureiotsuite.com/) innehåller en lista över maskinvaruenheter som certifierats för att fungera med [IoT Hub](#iot-hub).
+En enhet är vanligtvis en småskalig, fristående datorenhet som kan samla in data eller andra enheter i kontexten för IoT. Till exempel kan en enhet vara en miljömässig övervakning enhet eller en domänkontrollant för vatten och ventilation system i en växthusgaser. Den [enhetskatalog](https://catalog.azureiotsolutions.com/) innehåller en lista över maskinvaruenheter som certifierats för att fungera med [IoT Hub](#iot-hub).
 
 ## <a name="device-app"></a>App för enheter
 En app för enheter som körs på din [enhet](#device) och hanterar kommunikationen med din [IoT-hubb](#iot-hub). Normalt använder du någon av de [SDK: er för Azure IoT-enheter](#azure-iot-device-sdks) när du implementerar en enhetsapp. I många av IoT-självstudier, använder du en [simulerad enhet](#simulated-device) i informationssyfte.
@@ -220,7 +220,7 @@ I samband med en [enhetstvillingen](iot-hub-devguide-device-twins.md), rapporter
 ## <a name="retry-policy"></a>Återförsöksprincip
 Du hanterar med hjälp av en återförsöksprincip [tillfälliga fel](/azure/architecture/best-practices/transient-faults) när du ansluter till en tjänst i molnet.
 
-## <a name="routing-rules"></a>Routningsregler
+## <a name="routing-rules"></a>Hanteringsregler
 Du konfigurerar [routningsregler](iot-hub-devguide-messages-read-custom.md) i IoT-hubben att routa enhet-till-moln-meddelanden till en [inbyggd slutpunkt](#built-in-endpoints) eller [anpassade slutpunkter](#custom-endpoints) för bearbetning av lösningens backend-servrar .
 
 ## <a name="sasl-plain"></a>SASL OFORMATERAD

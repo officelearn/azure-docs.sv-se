@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 12/05/2018
 ms.author: raynew
-ms.openlocfilehash: e62a792e7503e65ebe008a52430f86f1f3a00006
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: f04b4dd473f98889b895fa3536c652fb6e3eb01a
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55456025"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56990807"
 ---
 # <a name="group-machines-using-machine-dependency-mapping"></a>Gruppera datorer med datorberoende mappning
 
@@ -21,7 +21,7 @@ Den här artikeln beskriver hur du skapar en grupp datorer för [Azure Migrate](
 > Funktionen för beroendevisualisering är inte tillgänglig i Azure Government.
 
 ## <a name="prepare-for-dependency-visualization"></a>Förbereda för visualisering av beroenden
-Azure Migrate använder Tjänstkarta-lösningen i Log Analytics för att aktivera beroendevisualisering av datorer.
+Azure Migrate använder tjänstkarta i Azure Monitor-loggar att aktivera beroendevisualisering av datorer.
 
 ### <a name="associate-a-log-analytics-workspace"></a>Associera en Log Analytics-arbetsyta
 Om du vill använda visualisering av beroenden, måste du koppla en Log Analytics-arbetsyta, ny eller befintlig, med ett Azure Migrate-projekt. Du kan bara skapa eller koppla en arbetsyta i samma prenumeration där migration-projekt skapas.
@@ -106,7 +106,7 @@ Mer information om stöd för beroende-agenten för den [Windows](../azure-monit
 4. Du kan titta på beroenden för olika tidsvaraktigheter genom att klicka på varaktighet i Intervalletikett tid. Intervallet är en timme som standard. Du kan ändra tidsintervallet eller ange start- och slutdatum och varaktighet.
 
     > [!NOTE]
-      Beroendevisualisering Användargränssnittet stöder för närvarande inte valet av ett tidsintervall som är längre än en timme. Använda Log Analytics för att [frågedata beroende](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies#query-dependency-data-from-log-analytics) över en längre period.
+      Beroendevisualisering Användargränssnittet stöder för närvarande inte valet av ett tidsintervall som är längre än en timme. Använd Azure Monitor loggar [frågedata beroende](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies#query-dependency-data-from-log-analytics) över en längre period.
 
 5. När du har identifierat beroende datorer som du vill gruppera kan använda Ctrl + klicka för att välja flera datorer på kartan Klicka på **gruppera datorer**.
 6. Ange ett gruppnamn. Kontrollera att de beroende datorerna identifieras av Azure Migrate.
@@ -119,19 +119,19 @@ Mer information om stöd för beroende-agenten för den [Windows](../azure-monit
 
 När gruppen har skapats, rekommenderar vi att du installerar agenter på alla datorer i gruppen och sedan ändra gruppen genom att visualisera beroenden för hela gruppen.
 
-## <a name="query-dependency-data-from-log-analytics"></a>Fråga efter data för programberoende från Log Analytics
+## <a name="query-dependency-data-from-azure-monitor-logs"></a>Fråga efter data för programberoende från Azure Monitor-loggar
 
-Beroendedata som hämtats av Tjänstkarta är tillgänglig för frågor i Log Analytics-arbetsyta som är associerade med Azure Migrate-projekt. [Läs mer](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#log-analytics-records) om Tjänstkarta datatabeller att fråga i Log Analytics. 
+Beroendedata som hämtats av Tjänstkarta är tillgänglig för frågor i Log Analytics-arbetsyta som är associerade med Azure Migrate-projekt. [Läs mer](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#log-analytics-records) om Tjänstkarta datatabeller att fråga i Azure Monitor-loggar. 
 
-Köra Log Analytics-frågor:
+Köra Kusto-frågor:
 
 1. När du har installerat agenterna, gå till portalen och klicka på **översikt**.
 2. I **översikt**går du till **Essentials** delen av projektet och klicka på arbetsytans namn tillhandahålls bredvid **OMS-arbetsyta**.
 3. På sidan Log Analytics-arbetsytan **Allmänt** > **loggar**.
-4. Skriv din fråga för att samla in data för programberoende med Log Analytics. Exempelfrågor för att samla in data för programberoende finns [här](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#sample-log-searches).
+4. Skriv din fråga för att samla in data för programberoende med Azure Monitor-loggar. Exempelfrågor för att samla in data för programberoende finns [här](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#sample-log-searches).
 5. Kör frågan genom att klicka på Kör. 
 
-[Läs mer](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal) om hur du skriver Log Analytics-frågor. 
+[Läs mer](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal) om hur du skriver Kusto-frågor. 
 
 ## <a name="next-steps"></a>Nästa steg
 

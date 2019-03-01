@@ -6,19 +6,19 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/05/2018
 ms.author: raynew
-ms.openlocfilehash: 88dcc7110acaf42243d0ebb3c1ae25aa6d0bca46
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: b266ff100d2573ce547564a52ec0efda6ec53458
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53257987"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56991860"
 ---
 # <a name="dependency-visualization"></a>Visualisering av beroenden
 
 Den [Azure Migrate](migrate-overview.md) tjänsterna utvärderar grupper av lokala datorer för migrering till Azure. Du kan använda beroendevisualiseringsfunktionen i Azure Migrate för att skapa grupper. Den här artikeln innehåller information om den här funktionen.
 
 > [!NOTE]
-> Beroendevisualiseringsfunktionen är inte tillgänglig i Azure Government.
+> Funktionen för beroendevisualisering är inte tillgänglig i Azure Government.
 
 ## <a name="overview"></a>Översikt
 
@@ -26,7 +26,7 @@ Visualisering av beroenden i Azure Migrate kan du skapa grupper med hög exakthe
 
 ## <a name="how-does-it-work"></a>Hur fungerar det?
 
-Azure Migrate använder den [Tjänstkarta](../operations-management-suite/operations-management-suite-service-map.md) lösning i [Log Analytics](../log-analytics/log-analytics-overview.md) för visualisering av beroenden.
+Azure Migrate använder den [Tjänstkarta](../operations-management-suite/operations-management-suite-service-map.md) lösning i [Azure Monitor loggar](../log-analytics/log-analytics-overview.md) för visualisering av beroenden.
 - Om du vill använda visualisering av beroenden, måste du koppla en Log Analytics-arbetsyta, ny eller befintlig, med ett Azure Migrate-projekt.
 - Du kan bara skapa eller koppla en arbetsyta i samma prenumeration där migration-projekt skapas.
 - Om du vill koppla en Log Analytics-arbetsyta till ett projekt, gå till **Essentials** avsnittet projektets **översikt** och klicka på **kräver konfiguration**

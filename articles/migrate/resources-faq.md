@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: snehaa
-ms.openlocfilehash: 9d1820215dd2b81edb694d71a1b9496237876d05
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: 9577e2c8eea153b38475bf5126a41641b3642ae9
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56416198"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56991333"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Azure Migrate – och vanliga frågor svar (FAQ)
 
@@ -176,7 +176,7 @@ Dessa egenskaper gäller endast för prestandabaserad storleksändring. Azure Mi
 
 ### <a name="what-is-dependency-visualization"></a>Vad är beroendevisualisering?
 
-Beroendevisualisering gör det möjligt för dig att utvärdera grupper med virtuella datorer för migrering med större tillförlitlighet genom att dubbelkontrollera datorberoenden innan du kör en utvärdering. Beroendevisualisering hjälper dig att se till att inget kvar, undvika oväntade avbrott när du migrerar till Azure. Azure Migrate använder Tjänstkarta-lösningen i Log Analytics för att aktivera beroendevisualisering.
+Beroendevisualisering gör det möjligt för dig att utvärdera grupper med virtuella datorer för migrering med större tillförlitlighet genom att dubbelkontrollera datorberoenden innan du kör en utvärdering. Beroendevisualisering hjälper dig att se till att inget kvar, undvika oväntade avbrott när du migrerar till Azure. Azure Migrate använder Tjänstkarta-lösningen i Azure Monitor-loggar att aktivera beroendevisualisering.
 
 ### <a name="do-i-need-to-pay-to-use-the-dependency-visualization-feature"></a>Behöver jag betala för att använda funktionen beroendevisualisering?
 
@@ -217,7 +217,7 @@ Lista över Windows-operativsystem som stöds av beroendeagenten är [här](http
 Listan med Linux-operativsystem som stöds av beroendeagenten är [här](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#supported-linux-operating-systems).
 
 ### <a name="can-i-visualize-dependencies-in-azure-migrate-for-more-than-one-hour-duration"></a>Kan jag visualisera beroenden i Azure Migrate för mer än en timme?
-Nej, Azure Migrate kan du visualisera beroenden för varaktighet för upp till en timme. Azure Migrate kan du gå tillbaka till ett visst datum i historiken för upp till senaste månaden, men maximal varaktighet för vilken du kan visualisera beroenden är upp till 1 timme. Exempel: du kan använda funktionen tid varaktighet på beroendekartan visar beroenden för igår, men kan bara visa för ett fönster med en timme. Du kan dock använda Log Analytics för att [frågedata beroende](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies#query-dependency-data-from-log-analytics) över en längre period.
+Nej, Azure Migrate kan du visualisera beroenden för varaktighet för upp till en timme. Azure Migrate kan du gå tillbaka till ett visst datum i historiken för upp till senaste månaden, men maximal varaktighet för vilken du kan visualisera beroenden är upp till 1 timme. Exempel: du kan använda funktionen tid varaktighet på beroendekartan visar beroenden för igår, men kan bara visa för ett fönster med en timme. Du kan dock använda Azure Monitor-loggar till [frågedata beroende](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies#query-dependency-data-from-log-analytics) över en längre period.
 
 ### <a name="is-dependency-visualization-supported-for-groups-with-more-than-10-vms"></a>Stöds visualisering av beroenden för grupper med fler än 10 virtuella datorer?
 Du kan [visualisera beroenden för grupper](https://docs.microsoft.com/azure/migrate/how-to-create-group-dependencies) som har upp till 10 virtuella datorer. Om du har en grupp med fler än 10 virtuella datorer rekommenderar vi att dela upp gruppen i mindre grupper och visualisera beroenden.

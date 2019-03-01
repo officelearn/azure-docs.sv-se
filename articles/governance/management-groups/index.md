@@ -70,10 +70,10 @@ Vissa kataloger som började använda hanteringsgrupper tidigt under förhandsgr
 Det finns två alternativ som du kan använda för att lösa problemet.
 
 1. Ta bort alla roll- och principtilldelningar från rothanteringsgruppen
-    1. När du tar bort princip- och rolltilldelningar från rothanteringsgruppen återfyller tjänsten alla prenumerationer till hierarkin nästa dagcykel.  Den här principen är till för att kontrollera att det inte har getts någon oavsiktlig åtkomst eller principtilldelning till alla prenumerationer i klientorganisationen.
-    1. Det bästa sättet att genomföra processen utan att påverka tjänsterna är att tilldela roll- eller principtilldelningar på en nivå lägre än rothanteringsgruppen. Sedan kan du ta bort alla tilldelningarna från rotomfånget.
+   1. När du tar bort princip- och rolltilldelningar från rothanteringsgruppen återfyller tjänsten alla prenumerationer till hierarkin nästa dagcykel.  Den här principen är till för att kontrollera att det inte har getts någon oavsiktlig åtkomst eller principtilldelning till alla prenumerationer i klientorganisationen.
+   1. Det bästa sättet att genomföra processen utan att påverka tjänsterna är att tilldela roll- eller principtilldelningar på en nivå lägre än rothanteringsgruppen. Sedan kan du ta bort alla tilldelningarna från rotomfånget.
 1. Direktanropa API:t och påbörja återfyllningsprocessen
-    1. Alla kunder i katalogen kan anropa API:erna *TenantBackfillStatusRequest* eller *StartTenantBackfillRequest*. När API:n StartTenantBackfillRequest anropas påbörjas den ursprungliga konfigurationsprocessen och alla prenumerationer flyttas till hierarkin. Processen gör även att alla nya prenumerationer blir underordnade rothanteringsgruppen. Den här processen kan utföras utan att ändra några tilldelningar på rotnivån. Genom att anropa API:et godkänner du att alla principer eller åtkomsttilldelningar på roten kan tillämpas på alla prenumerationer.
+   1. Alla kunder i katalogen kan anropa API:erna *TenantBackfillStatusRequest* eller *StartTenantBackfillRequest*. När API:n StartTenantBackfillRequest anropas påbörjas den ursprungliga konfigurationsprocessen och alla prenumerationer flyttas till hierarkin. Processen gör även att alla nya prenumerationer blir underordnade rothanteringsgruppen. Den här processen kan utföras utan att ändra några tilldelningar på rotnivån. Genom att anropa API:et godkänner du att alla principer eller åtkomsttilldelningar på roten kan tillämpas på alla prenumerationer.
 
 Om du har frågor om återfyllningsprocessen kan du kontakta: managementgroups@microsoft.com  
   
@@ -116,6 +116,6 @@ Läs mer om hanteringslösningar här:
 
 - [Skapa hanteringsgrupper för att organisera Azure-resurser](create.md)
 - [Så här ändrar, raderar och hanterar du dina hanteringsgrupper](manage.md)
-- [Granska hanteringsgrupper i Azure PowerShell-resursmodulen](https://aka.ms/mgPSdocs)
-- [Granska hanteringsgrupper i REST API](https://aka.ms/mgAPIdocs)
-- [Granska hanteringsgrupper i Azure CLI](https://aka.ms/mgclidoc)
+- [Granska hanteringsgrupper i Azure PowerShell-resursmodulen](/powershell/module/az.resources#resources)
+- [Granska hanteringsgrupper i REST API](/rest/api/resources/managementgroups)
+- [Granska hanteringsgrupper i Azure CLI](/cli/azure/account/management-group)

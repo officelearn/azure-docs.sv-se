@@ -44,12 +44,18 @@ items:
     href: how-application-gateway-works.md
   - name: Application Gateway-komponenter
     href: application-gateway-components.md
-  - name: Översikt över SSL-princip
-    href: application-gateway-ssl-policy-overview.md
+  - name: SSL
+    items:
+    - name: Översikt över SSL-princip
+      href: application-gateway-ssl-policy-overview.md
+    - name: Slutpunkt till slutpunkt för SSL
+      href: ssl-overview.md
   - name: Brandvägg för webbaserade program
-    href: waf-overview.md
-  - name: WAF-konfiguration
-    href: application-gateway-waf-configuration.md
+    items:
+    - name: Brandvägg för webbaserade program
+      href: waf-overview.md
+    - name: WAF-konfiguration
+      href: application-gateway-waf-configuration.md
   - name: URL-routning
     href: url-route-overview.md
   - name: Värdtjänster för flera webbplatser
@@ -206,9 +212,9 @@ items:
     href: https://azure.microsoft.com/regions/services/
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-application-gateway
-ms.openlocfilehash: 6e181ed44c473482c02c6fda6131f258838e9713
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: 7fd344a06dcd29c53d313a59c484101b1d0b2c8f
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56807753"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56985673"

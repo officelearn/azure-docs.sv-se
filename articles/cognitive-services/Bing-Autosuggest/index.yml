@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 2105919e0c21ef57ae2cd19450110df384252e97
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 43d28cde7e4287b5394087000b5e730a94748713
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56730944"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57010641"
 documentType: LandingData
 title: Dokumentation för Automatiska förslag i Bing
 metadata:
@@ -12,18 +12,39 @@ metadata:
   title: Dokumentation om automatiska förslag i Bing – självstudier, snabbstarter, API-referenser | Microsoft Docs
   description: Lär dig hur du använder API för automatiska förslag i Bing för att hämta frågeförslag baserat på en partiell fråga. Självstudier visar hur du skapar appar som använder tjänsten.
   services: cognitive-services
-  author: v-jaswel
-  manager: kamrani
+  author: aahill
+  manager: nitinme
   ms.service: cognitive-services
   ms.subservice: bing-autosuggest
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 10/10/2017
-  ms.author: v-jaswel
+  ms.date: 02/20/2019
+  ms.author: aahi
 abstract:
-  description: 'Med API för automatiska förslag i Bing kan du skicka en partiell sökfrågeterm till Bing och få en lista över föreslagna frågor som andra användare har sökt på.  Exempel: när användaren skriver in tecken i sin sökfråga anropar du det här API:et och fyller i sökrutans listrutan med föreslagna frågesträngar. Lär dig hur du använder API för automatiska förslag med våra snabbstarter, självstudier och exempel.'
+  description: Med API för automatiska förslag i Bing kan du skicka en partiell sökfrågeterm till Bing och få en lista över föreslagna frågor som andra användare har sökt på.  När användare till exempel skriver tecken i en sökfråga kan du anropa det här API:et för att fylla i sökrutans listruta med förslag. Lär dig hur du använder API för automatiska förslag med våra snabbstarter, självstudier och exempel.
 sections:
+- items:
+  - type: list
+    style: cards
+    className: cardsM
+    columns: 3
+    items:
+    - href: /azure/cognitive-services/bing-autosuggest/overview
+      html: <p>Lär dig om API:et för automatiska förslag i Bing</p>
+      image:
+        src: ../media/index/i_overview.svg
+      title: Vad är API:et för automatiska förslag i Bing?
+    - href: /azure/cognitive-services/bing-autosuggest/concepts/get-suggestions
+      html: <p>Lär dig hur du får sökförslag i realtid</p>
+      image:
+        src: ../media/index/i_guidelines.svg
+      title: Få förslag från API:et för automatiska förslag i Bing
+    - href: /azure/cognitive-services/bing-autosuggest/language-support
+      html: <p>Ta reda på vilka språk som stöds av API:et.</p>
+      image:
+        src: ../media/index/i_guidelines.svg
+      title: Språk som stöds
 - title: Snabbstarter på 5 minuter
   items:
   - type: paragraph
@@ -60,7 +81,7 @@ sections:
   - type: paragraph
     text: 'Lär dig att utveckla program med hjälp av API för automatiska förslag i Bing:'
   - type: paragraph
-    text: <a href="tutorials/autosuggest.md">Enkelsidig webbapp</a> &#124; <a href="tutorials/autosuggest-source.md">Källkod</a>
+    text: <a href="tutorials/autosuggest.md">Enkelsidig webbapp</a>
 - title: Referens
   items:
   - type: list

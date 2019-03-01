@@ -2,7 +2,7 @@
 ## [Agentövervakning](../monitoring/index.md)
 
 # Kom igång
-## [Log Analytics](../log-analytics/log-analytics-get-started.md)
+## [Azure Monitor-loggar](../log-analytics/log-analytics-get-started.md)
 ## [Automation](/azure/automation/)
 ## [Säkerhetskopiering](../backup/backup-introduction-to-azure-backup.md)
 ## [Site Recovery](../site-recovery/site-recovery-overview.md)
@@ -11,7 +11,7 @@
 # Gör så här för att
 
 ## Analysera
-### [Log Analytics](../azure-monitor/log-query/log-query-overview.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
+### [Azure Monitor-loggar](../azure-monitor/log-query/log-query-overview.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 ## Automatisera
 ### [Översikt över Azure Automation](../automation/automation-intro.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 

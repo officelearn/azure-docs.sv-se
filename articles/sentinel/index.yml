@@ -1,0 +1,68 @@
+### YamlMime:YamlDocument
+ms.openlocfilehash: 5f1d6005dd94bc700682e749f08c47356fcdc829
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56993341"
+documentType: LandingData
+title: Dokumentation om förhandsversionen av Azure Sentinel
+metadata:
+  title: Dokumentation om förhandsversionen av Azure Sentinel – självstudier, snabbstarter | Microsoft Docs
+  meta.description: Azure Sentinel is a cloud-native SIEM that provides intelligent security analytics for your entire enterprise at cloud scale.
+  services: sentinel
+  author: cmcclister
+  manager: carolz
+  ms.service: sentinel
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 02/28/19
+  ms.author: cmcclister
+abstract:
+  description: Förhandsversionen av Azure Sentinel är ett molnbaserat program för säkerhetsinformation och händelsehantering som tillhandahåller intelligenta säkerhetsanalyser för hela din organisation på molnskala. Få obegränsad hastighet och skala i molnet och fokusera på det som verkligen är viktigt. Samla enkelt in data från alla dina molnbaserade eller lokala resurser, till exempel Office 365, Azure-resurser och andra moln. Identifiera hot på ett effektivt sätt med inbyggd maskininlärning som utvecklats av Microsofts säkerhetsanalysexperter. Automatisera svar på hot med hjälp av inbyggda spelböcker för orkestrering och automatisering.
+sections:
+- title: Snabbstarter på 5 minuter
+  items:
+  - type: paragraph
+    text: Lär dig hur du publicerar dina data till Azure Sentinel och få insyn i dina data och potentiella hot.
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: media/index/deploy.svg
+      text: Registrera Azure Sentinel
+      href: /azure/sentinel/quickstart-onboard
+    - image:
+        src: media/index/get-started.svg
+      text: Komma igång med Azure Sentinel
+      href: /azure/sentinel/quickstart-get-visibility
+- title: Steg för steg-självstudier
+  items:
+  - type: paragraph
+    text: Lär dig att definiera säkerhetsprinciper, skydda dina resurser mot skadliga aktiviteter och åtgärda säkerhetsaviseringar och incidenter.
+  - type: list
+    style: ordered
+    items:
+    - html: <a href="/azure/sentinel/tutorial-detect-threats">Identifiera hot med Azure Sentinel</a>
+    - html: <a href="/azure/sentinel/tutorial-respond-threats-playbook">Konfigurera automatiserade svar på hot</a>
+- title: Utveckla dina färdigheter med Microsoft Learn
+  items:
+  - type: list
+    style: cards
+    className: cardsFTitle
+    items:
+    - title: Introduktion till säkerhet i Azure
+      href: https://docs.microsoft.com/learn/azure
+      image:
+        src: media/index/tutorial.svg
+        href: https://docs.microsoft.com/learn/azure
+  - type: paragraph
+    text: <a href="/learn/browse/?term=security">Mer interaktiv inlärning...</a>
+- title: Referens
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - html: <a href="https://azure.microsoft.com/updates/?product=sentinel">Tjänstuppdateringar</a>

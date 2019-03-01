@@ -16,12 +16,12 @@ ms.date: 10/04/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 91dd25eadd3842cf1a94608a6f0ad9cfcd25039a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: b55a7016ec0068234dfc6110d9d4afc04119ccdd
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56197240"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57194069"
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Anpassad installation av Azure AD Connect
 Du använder **anpassade inställningar** för Azure AD Connect om du behöver fler installationsalternativ. Du använder dem till exempel om du har flera skogar eller om du vill konfigurera valfria funktioner som inte omfattas av snabbinstallationen. De används i samtliga fall där en [**snabbinstallation**](how-to-connect-install-express.md) inte uppfyller dina distributions- eller topologikrav.
@@ -158,7 +158,7 @@ I en komplett produktionsdistribution blir det svårt att underhålla en enda gr
 På den här sidan kan du välja de valfria funktionerna för dina specifika scenarier.
 
 >[!WARNING]
->Azure AD Connect version **1.0.8641.0** och äldre förlitar sig på Azure Access Control-tjänsten för tillbakaskrivning av lösenord.  Den här tjänsten dras in den 7 november 2018.  Om du använder någon av de här versionerna av Azure AD Connect och har aktiverat tillbakaskrivning av lösenord, kanske användarna inte kan ändra eller återställa sina lösenord när tjänsten har dragits in. Tillbakaskrivning av lösenord med de här versionerna av Azure AD Connect stöds inte.
+>Azure AD Connect version **1.0.8641.0** och äldre förlitar sig på Azure Access Control-tjänsten för tillbakaskrivning av lösenord.  Den här tjänsten dras in den **7 november 2018**.  Om du använder någon av de här versionerna av Azure AD Connect och har aktiverat tillbakaskrivning av lösenord, kanske användarna inte kan ändra eller återställa sina lösenord när tjänsten har dragits in. Tillbakaskrivning av lösenord med de här versionerna av Azure AD Connect stöds inte.
 >
 >Mer information om Azure Access Control-tjänsten finns i [Anvisningar: Migrera från Azure Access Control-tjänsten](../develop/active-directory-acs-migration.md)
 >
@@ -365,7 +365,7 @@ Det går att konfigurera en ny synkroniseringsserver parallellt med mellanlagrin
 
 I mellanlagringsläge kan du göra nödvändiga ändringar i synkroniseringsmotorn och se vad som är på väg att exporteras. När konfigurationen ser bra ut kör du installationsguiden igen och inaktiverar mellanlagringsläge. Nu exporteras data till Azure AD från den här servern. Se till att inaktivera den andra servern på samma gång så att endast en server exporterar aktivt.
 
-Mer information finns i [Mellanlagringsläge](how-to-connect-sync-operations.md#staging-mode).
+Mer information finns i [Mellanlagringsläge](how-to-connect-sync-staging-server.md).
 
 ### <a name="verify-your-federation-configuration"></a>Verifiera federationkonfigurationen
 Azure AD Connect verifierar DNS-inställningarna åt dig när du klickar på knappen Kontrollera.

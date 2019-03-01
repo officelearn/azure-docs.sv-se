@@ -1,0 +1,94 @@
+items:
+- name: Dokumentation om förhandsversionen av Azure Sentinel
+  href: index.yml
+- name: Översikt
+  href: overview.md
+- name: Snabbstarter
+  items:
+  - name: Registrera Azure Sentinel
+    href: quickstart-onboard.md
+  - name: Få insyn i aviseringar
+    href: quickstart-get-visibility.md
+  expanded: true
+- name: Självstudier
+  items:
+  - name: Identifiera misstänkta hot
+    href: tutorial-detect-threats.md
+  - name: Undersöka ärenden
+    href: tutorial-investigate-cases.md
+  - name: Reagera på hot
+    href: tutorial-respond-threats-playbook.md
+- name: Instruktionsguider
+  items:
+  - name: Ansluta till datakällor
+    href: connect-data-sources.md
+    items:
+    - name: Ansluta till Microsoft-tjänster
+      items:
+      - name: Ansluta till Azure Active Directory
+        href: connect-azure-active-directory.md
+      - name: Ansluta till Office 365
+        href: connect-office-365.md
+      - name: Ansluta till Cloud App Security
+        href: connect-cloud-app-security.md
+      - name: Ansluta till Azure-aktivitetslogg
+        href: connect-azure-activity.md
+      - name: Ansluta Azure AD Identity Protection
+        href: connect-azure-ad-identity-protection.md
+      - name: Ansluta till Azure Information Protection
+        href: connect-azure-information-protection.md
+      - name: Ansluta till Azure ATP
+        href: connect-azure-atp.md
+      - name: Ansluta till Azure Security Center
+        href: connect-azure-security-center.md
+      - name: Ansluta till Windows-brandvägg
+        href: connect-windows-firewall.md
+      - name: Ansluta till Windows säkerhetshändelser
+        href: connect-windows-security-events.md
+    - name: Ansluta externa lösningar
+      items:
+      - name: Ansluta till generisk CEF
+        href: connect-common-event-format.md
+      - name: Ansluta till Barracuda
+        href: connect-barracuda.md
+      - name: Ansluta till Check Point
+        href: connect-checkpoint.md
+      - name: Ansluta till Palo Alto
+        href: connect-paloalto.md
+      - name: Ansluta till Fortinet
+        href: connect-fortinet.md
+      - name: Ansluta till F5
+        href: connect-f5.md
+      - name: Ansluta till Syslog
+        href: connect-syslog.md
+      - name: Ansluta till Cisco
+        href: connect-cisco.md
+    - name: Ansluta till hotinformation
+      href: connect-threat-intelligence.md
+  - name: Användaranalys
+    href: user-analytics.md
+  - name: Hotjakt
+    href: hunting.md
+    items:
+    - name: Använda anteckningsböcker för hotjakt
+      href: notebooks.md
+    - name: Använda bokmärken för hotjakt
+      href: bookmarks.md
+  - name: Aktivera fusion
+    href: connect-fusion.md
+- name: Resurser
+  items:
+  - name: Användbara resurser
+    href: resources.md
+  - name: Azure-översikt
+    href: https://azure.microsoft.com/roadmap/?category=security-identity
+  - name: Blogg om säkerhet, sekretess och efterlevnad i Azure
+    href: http://blogs.msdn.com/b/azuresecurity/
+  - name: Regional tillgänglighet
+    href: https://azure.microsoft.com/regions/services/
+ms.openlocfilehash: 50587fc6b2fca37ddbe5a9a1cbe4ff1914c809c9
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56993375"

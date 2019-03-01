@@ -1,22 +1,12 @@
 ---
 title: Ordna dina resurser med hanteringsgrupper i Azure – Azure Governance
-description: Läs om hanteringsgrupperna, hur behörigheterna fungerar och hur du använder dem.
+description: 'Läs om hanteringsgrupperna, hur behörigheterna fungerar och hur du använder dem.'
 author: rthorn17
-manager: rithorn
 ms.assetid: 482191ac-147e-4eb6-9655-c40c13846672
 ms.service: azure-resource-manager
-ms.devlang: na
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 11/20/2018
+ms.date: 02/20/2019
 ms.author: rithorn
 ms.topic: overview
-ms.openlocfilehash: 9d606a46bd08ce3e999806bed2357968e5ffd914
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56339295"
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Ordna resurser med hanteringsgrupper i Azure
 
@@ -30,9 +20,9 @@ Du kan skapa en flexibel struktur för hanteringsgrupper och prenumerationer fö
 
 ![träd](./media/tree.png)
 
-Skapa en hierarki så att du kan tillämpa en princip, till exempel begränsa VM-platser till regionen USA, västra i gruppen "Infrastrukturteamets hanteringsgrupp". Den här principen ärvs av EA-prenumerationerna under den hanteringsgruppen och gäller även för alla virtuella datorer under dessa prenumerationer. Den här säkerhetsprincipen kan inte ändras av resursen eller prenumerationsägaren, vilket leder till bättre styrning.
+Skapa en hierarki så att du kan tillämpa en princip, till exempel begränsa VM-platser till regionen USA, västra i gruppen ”Produktion”. Den här principen ärvs av EA-prenumerationerna under den hanteringsgruppen och gäller även för alla virtuella datorer under dessa prenumerationer. Den här säkerhetsprincipen kan inte ändras av resursen eller prenumerationsägaren, vilket leder till bättre styrning.
 
-Ett annat scenario där du kan använda hanteringsgrupper är för att ge användaråtkomst till flera prenumerationer. Genom att flytta många prenumerationer under hanteringsgruppen kan du skapa en tilldelning av [rollbaserad åtkomstkontroll](../../role-based-access-control/overview.md) (RBAC) till den. Detta gör även att alla prenumerationer ärver åtkomsten.
+Ett annat scenario där du kan använda hanteringsgrupper är för att ge användaråtkomst till flera prenumerationer. Genom att flytta flera prenumerationer under hanteringsgruppen kan du skapa en tilldelning av [rollbaserad åtkomstkontroll](../../role-based-access-control/overview.md) (RBAC) till den. Detta gör även att alla prenumerationer ärver åtkomsten.
 Genom att tilldela till hanteringsgruppen kan du ge användarna åtkomst till allt de behöver istället för att skapa skript för RBAC för flera prenumerationer.
 
 ### <a name="important-facts-about-management-groups"></a>Viktiga fakta om hanteringsgrupper
@@ -42,12 +32,12 @@ Genom att tilldela till hanteringsgruppen kan du ge användarna åtkomst till al
   - Den här gränsen omfattar inte rotnivån eller prenumerationsnivån.
 - Varje hanteringsgrupp och prenumeration har endast stöd för ett överordnat element.
 - Varje hanteringsgrupp kan ha många underordnade element.
-- Alla prenumerationer och hanteringsgrupper ingår i en hierarki i varje katalog. I artikeln med [viktiga fakta om rothanteringsgruppen](#important-facts-about-the-root-management-group) kan du läsa mer om undantag i förhandsversionen.
+- Alla prenumerationer och hanteringsgrupper ingår i en hierarki i varje katalog. Läs [Viktiga fakta om rothanteringsgruppen](#important-facts-about-the-root-management-group).
 
 ## <a name="root-management-group-for-each-directory"></a>En rothanteringsgrupp för varje katalog
 
 Varje katalog tilldelas en hanteringsgrupp på översta nivån som kallas för rothanteringsgruppen.
-Rothanteringsgruppen är inbyggd i hierarkin så att alla hanteringsgrupper och prenumerationer är dess underordnade element. Med hjälp av rothanteringsgruppen kan globala principer och RBAC-tilldelningar tillämpas på katalognivå. [Katalogadministratören måste att utöka sin behörighet](../../role-based-access-control/elevate-access-global-admin.md) först för att bli rotgruppens ägare. När administratören är ägare av gruppen kan personen hantera hierarkin och tilldela önskad RBAC-roll till andra kataloganvändare eller grupper.
+Rothanteringsgruppen är inbyggd i hierarkin så att alla hanteringsgrupper och prenumerationer är dess underordnade element. Med hjälp av rothanteringsgruppen kan globala principer och RBAC-tilldelningar tillämpas på katalognivå. [Den globala administratören för Azure Active Directory måste utöka sin behörighet](../../role-based-access-control/elevate-access-global-admin.md) först för att bli rotgruppens ägare. När administratören är ägare av gruppen kan personen hantera hierarkin och tilldela önskad RBAC-roll till andra kataloganvändare eller grupper.
 
 ### <a name="important-facts-about-the-root-management-group"></a>Viktiga fakta om rothanteringsgruppen
 
@@ -60,7 +50,7 @@ Rothanteringsgruppen är inbyggd i hierarkin så att alla hanteringsgrupper och 
   - Nya prenumerationer tilldelas som standard till rothanteringsgruppen när de skapas.
 - Alla Azure-kunder kan se rothanteringsgruppen, men alla kunder får inte hantera rothanteringsgruppen.
   - Alla som har åtkomst till en prenumeration kan se kontexten för den aktuella prenumerationens placering i hierarkin.  
-  - Det är inte någon som får åtkomst till rothanteringsgruppen som standard. Globala katalogadministratörer är de enda användarna som kan ge sig själva åtkomst.  Efter att ha fått åtkomst kan katalogadministratörerna tilldela önskade RBAC-roller till andra användare.  
+  - Det är inte någon som får åtkomst till rothanteringsgruppen som standard. Globala administratörer för Azure Active Directory är de enda användarna som kan ge sig själva åtkomst.  Efter att ha fått åtkomst kan de globala administratörerna tilldela önskade RBAC-roller till andra användare.  
 
 > [!IMPORTANT]
 > Alla tilldelningar av användaråtkomst eller principtilldelning för rothanteringsgruppen **gäller för alla resurser inom katalogen**.
@@ -69,11 +59,11 @@ Rothanteringsgruppen är inbyggd i hierarkin så att alla hanteringsgrupper och 
 
 ## <a name="initial-setup-of-management-groups"></a>Initial konfiguration av hanteringsgrupper
 
-När användarna börjar använda hanteringsgrupper måste de genomföra en initial konfigurationsprocess. Det första steget är att rothanteringsgruppen skapas i katalogen. När den här gruppen har skapats blir alla befintliga prenumerationer i katalogen underordnade rothanteringsgruppen. Den här processen är till för att kontrollera att det endast finns en hanteringsgrupphierarki i en katalog. Hierarkin i katalogen gör det möjligt för administrativa kunder att använda global åtkomst och principer som andra kunder i katalogen inte kan kringgå. Allt som tilldelas på roten gäller för alla hanteringsgrupper, prenumerationer, resursgrupper och resurser i katalogen genom att det finns en hierarki inom katalogen.
+När användarna börjar använda hanteringsgrupper måste de genomföra en initial konfigurationsprocess. Det första steget är att rothanteringsgruppen skapas i katalogen. När den här gruppen har skapats blir alla befintliga prenumerationer i katalogen underordnade rothanteringsgruppen. Den här processen är till för att kontrollera att det endast finns en hanteringsgrupphierarki i en katalog. Hierarkin i katalogen gör det möjligt för administrativa kunder att använda global åtkomst och principer som andra kunder i katalogen inte kan kringgå. Allt som tilldelas på roten gäller för hela hierarkin, vilket omfattar alla hanteringsgrupper, prenumerationer, resursgrupper och resurser i Azure Active Directory-klientorganisationen.
 
 ## <a name="trouble-seeing-all-subscriptions"></a>Problem med att visa alla prenumerationer
 
-Vissa kataloger som började använda hanteringsgrupper tidigt i förhandsversionen innan den här (25 juni 2018) märkte av ett problem med att inte alla prenumerationer lades till i hierarkin.  Processerna för att lägga till prenumerationer i hierarkin implementerades efter det att en roll- eller principtilldelning utfördes på katalogens rothanteringsgrupp.
+Vissa kataloger som började använda hanteringsgrupper tidigt under förhandsgranskningen, innan den 25 juni 2018, märkte av ett problem där alla prenumerationer inte fanns i hierarkin.  Processerna för att lägga till prenumerationer i hierarkin implementerades efter det att en roll- eller principtilldelning utfördes på katalogens rothanteringsgrupp.
 
 ### <a name="how-to-resolve-the-issue"></a>Så här löser du problemet
 
@@ -95,17 +85,18 @@ RBAC-rollen VM-deltagare kan till exempel tilldelas till en hanteringsgrupp. Rol
 
 Följande diagram visar listan över roller och åtgärder som stöds för hanteringsgrupper.
 
-| RBAC-rollnamn             | Skapa | Byt namn | Flytta | Ta bort | Tilldela åtkomst | Tilldela princip | Läsa  |
-|:-------------------------- |:------:|:------:|:----:|:------:|:-------------:| :------------:|:-----:|
-|Ägare                       | X      | X      | X    | X      | X             | X             | X     |
-|Deltagare                 | X      | X      | X    | X      |               |               | X     |
-|MG-deltagare*             | X      | X      | X    | X      |               |               | X     |
-|Läsare                      |        |        |      |        |               |               | X     |
-|MG-läsare*                  |        |        |      |        |               |               | X     |
-|Deltagare för resursprincip |        |        |      |        |               | X             |       |
-|Administratör för användaråtkomst   |        |        |      |        | X             |               |       |
+| RBAC-rollnamn             | Skapa | Byt namn | Flytta** | Ta bort | Tilldela åtkomst | Tilldela princip | Läsa  |
+|:-------------------------- |:------:|:------:|:------:|:------:|:-------------:| :------------:|:-----:|
+|Ägare                       | X      | X      | X      | X      | X             | X             | X     |
+|Deltagare                 | X      | X      | X      | X      |               |               | X     |
+|MG-deltagare*             | X      | X      | X      | X      |               |               | X     |
+|Läsare                      |        |        |        |        |               |               | X     |
+|MG-läsare*                  |        |        |        |        |               |               | X     |
+|Deltagare för resursprincip |        |        |        |        |               | X             |       |
+|Administratör för användaråtkomst   |        |        |        |        | X             |               |       |
 
 *: MG-deltagare och MG-läsare tillåter endast användare att utföra dessa åtgärder inom hanteringsgruppsomfånget.  
+**: Rolltilldelningar på rothanteringsgruppen krävs inte för att flytta en prenumeration eller hanteringsgrupp till och från den.  Läs [Hantera dina resurser med hanteringsgrupper](manage.md) för mer information om att flytta objekt inom hierarkin.
 
 ### <a name="custom-rbac-role-definition-and-assignment"></a>Definition och tilldelning av anpassad RBAC-roll
 
@@ -113,17 +104,11 @@ Anpassade RBAC-roller stöds inte för närvarande för hanteringsgrupper. Gå t
 
 ## <a name="audit-management-groups-using-activity-logs"></a>Granska hanteringsgrupper med hjälp av aktivitetsloggar
 
-Om du vill spåra hanteringsgrupper via det här API: et använder du [API:et för klientaktivitetsloggen](/rest/api/monitor/tenantactivitylogs). Det är för närvarande inte möjligt att använda PowerShell, CLI eller Azure-portalen för att spåra aktiviteter för hanteringsgrupper.
+Hanteringsgrupper kan användas i [Azure-aktivitetsloggar](../../azure-monitor/platform/activity-logs-overview.md). Du kan söka efter alla händelser i en hanteringsgrupp från samma centrala plats som andra Azure-resurser.  Du kan till exempel se alla ändringar för rolltilldelningar eller principtilldelningar som gjorts i en viss hanteringsgrupp.
 
-1. Som innehavaradministratör av Azure AD-klienten kan du [höja åtkomsten](../../role-based-access-control/elevate-access-global-admin.md) och sedan tilldela en läsarroll till granskningsanvändaren inom omfånget `/providers/microsoft.insights/eventtypes/management`.
-1. Som granskningsanvändare anropar du [API:et för klientaktivitetsloggen](/rest/api/monitor/tenantactivitylogs) för att visa aktiviteter för hanteringsgruppen. Filtrera efter Resursprovider **Microsoft.Management** för alla aktiviteter för hanteringsgruppen.  Exempel:
+![Aktivitetsloggar med hanteringsgrupper](media/al-mg.png)
 
-```http
-GET "/providers/Microsoft.Insights/eventtypes/management/values?api-version=2015-04-01&$filter=eventTimestamp ge '{greaterThanTimeStamp}' and eventTimestamp le '{lessThanTimestamp}' and eventChannels eq 'Operation' and resourceProvider eq 'Microsoft.Management'"
-```
-
-> [!NOTE]
-> Du kan anropa det här API:et från kommandoraden med hjälp av [ARMClient](https://github.com/projectkudu/ARMClient).
+När du vill fråga hanteringsgrupper utanför Microsoft Azure-portalen är målområdet för hanteringsgrupper: **"/providers/Microsoft.Management/managementGroups/{yourMgID}"**.
 
 ## <a name="next-steps"></a>Nästa steg
 

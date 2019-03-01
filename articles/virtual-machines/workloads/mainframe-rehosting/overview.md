@@ -8,12 +8,12 @@ manager: edprice
 editor: edprice
 tags: ''
 keywords: ''
-ms.openlocfilehash: 067ab7538924f4aef7c48731d10fa7e68855214a
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 8be0ebc486739f8826e8a1d5a5307a219ba71b6f
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56739768"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57192725"
 ---
 # <a name="mainframe-rehosting-on-azure-virtual-machines"></a>Stordatorprogram rehosting på Azure virtual machines
 
@@ -25,7 +25,7 @@ En Azure-dator (VM) används för att isolera och hantera resurser för ett viss
 
 Virtuella Azure-datorer kan köra stordatorprogram emulering miljöer och kompilatorer som har stöd för lift and shift-scenarier. Utveckling och testning är ofta bland de första arbetsbelastningarna du migrerar från en stordatorprogram till ett Azure dev/test-miljö. Serverkomponenter som du kan emulera innehålla online transaction-processen (OLTP), batch och system för inmatning av data som visas i följande bild.
 
-![](media/01-overview.png)
+![Emulering miljöer i Azure kan du köra z/OS-baserade system.](media/01-overview.png)
 
 Vissa stordatorprogram arbetsbelastningar kan migreras till Azure utan större besvär, medan andra kan rehosted på Azure med hjälp av en partnerlösning. Detaljerade anvisningar om hur du väljer en partnerlösning i [Azure Stordatormigrering center](https://azure.microsoft.com/migration/mainframe/) kan hjälpa.
 

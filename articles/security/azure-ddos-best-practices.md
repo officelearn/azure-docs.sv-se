@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/06/2018
 ms.author: barclayn
-ms.openlocfilehash: 9f837a5dbea15b159a226b12c034add1dcf69834
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 11f3dcefd283ada00e915c2d6cb8abf654590ec1
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56117858"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57247349"
 ---
 # <a name="azure-ddos-protection-best-practices-and-reference-architectures"></a>Azure DDoS Protection: Bästa praxis och referensarkitekturer
 
@@ -126,7 +126,7 @@ Tjänsten Azure DDoS Protection Basic hjälper att skydda kunder och förhindra 
 
 #### <a name="ddos-protection-telemetry-monitoring-and-alerting"></a>DDoS Protection telemetri, övervakning och avisering
 
-DDoS Protection Standard exponerar omfattande telemetri via [Azure Monitor](../azure-monitor/overview.md) för hela DDoS-angrepp. Du kan konfigurera aviseringar för någon av de Azure Monitor-mått som DDoS Protection använder. Du kan integrera loggning med Splunk (Azure Event Hubs), Azure Log Analytics och Azure Storage för avancerad analys via Azure Monitor Diagnostics-gränssnittet.
+DDoS Protection Standard exponerar omfattande telemetri via [Azure Monitor](../azure-monitor/overview.md) för hela DDoS-angrepp. Du kan konfigurera aviseringar för någon av de Azure Monitor-mått som DDoS Protection använder. Du kan integrera loggning med Splunk (Azure Event Hubs), Azure Monitor-loggar och Azure Storage för avancerad analys via Azure Monitor Diagnostics-gränssnittet.
 
 ##### <a name="ddos-mitigation-policies"></a>Principer för DDoS-minskning
 

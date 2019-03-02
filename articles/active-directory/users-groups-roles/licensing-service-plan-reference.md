@@ -4,7 +4,7 @@ description: Identifieraren kartan för att hantera Azure Active Directory-licen
 services: active-directory
 keywords: Azure Active Directory licensing service-planer
 documentationcenter: ''
-author: curtand
+author: ajayanti1
 manager: mtillman
 editor: ''
 ms.service: active-directory
@@ -13,15 +13,15 @@ ms.workload: identity
 ms.subservice: users-groups-roles
 ms.date: 01/28/2019
 ms.author: curtand
-ms.reviewer: sumitp
+ms.reviewer: ajayanti1
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f12a300afbf56d5f6149dcc71f2fc4efedbc44f8
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: 77f0308905ab33cd18160389dfe50a0ed8bb5152
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56430182"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57247536"
 ---
 # <a name="product-names-and-service-plan-identifiers-for-licensing"></a>Produktnamn och service-plan identifierare för licensiering
 

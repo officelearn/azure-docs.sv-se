@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 6dd413a6b6550e18551db1105d306f8a0bdaf9c2
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: daa81f4ec14a0e022ea22948324478b8e9cc3ce3
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56106757"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57247366"
 ---
 # <a name="azure-security-and-compliance-blueprint-iaas-web-application-for-fedramp"></a>Azure Blueprint för säkerhet och efterlevnad: IaaS-webbprogram för FedRAMP
 
@@ -72,8 +72,7 @@ Den här lösningen använder följande Azure-tjänster. Information om distribu
 - Azure Key Vault
 - Azure Active Directory (Azure AD)
 - Azure Resource Manager
-- Log Analytics
-- Azure Monitor
+- Azure Monitor (loggar)
 
 ## <a name="deployment-architecture"></a>Distributionsarkitektur för
 
@@ -148,11 +147,11 @@ Följande tekniker hanteringsfunktioner identitet i Azure-miljön:
 
 ### <a name="logging-and-auditing"></a>Loggning och granskning
 
-Log Analytics tillhandahåller omfattande loggning av system- och användaraktivitet, samt filsystemets hälsa. Den [Log Analytics](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) lösningen samlar in och analyserar data som genereras av resurser i Azure och lokala miljöer.
+Azure Monitor-loggar innehåller utförlig loggning av system- och användaraktivitet samt filsystemets hälsa. Den [Azure Monitor loggar](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) lösningen samlar in och analyserar data som genereras av resurser i Azure och lokala miljöer.
 
 - **Aktivitetsloggar:**  [Aktivitetsloggar](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) ger information om åtgärder som utförts på resurser i en prenumeration. Aktivitetsloggar kan hjälpa dig att fastställa en åtgärd initierare för förekomst och status.
 - **Diagnostikloggar:**  [Diagnostikloggar](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) är alla loggar som genereras av varje resurs. Dessa loggar är Windows-händelsesystemloggar, Azure storage-loggar, granskningsloggar för Key Vault och åtkomst och brandväggen loggar i Application Gateway.
-- **Logga arkivering:**  Alla diagnostikloggar skriva till en central och krypterade Azure storage-konto för arkivering. Kvarhållning konfigureras av användaren, upp till 730 dagar att uppfylla kraven för specifika kvarhållning. Dessa loggar kan ansluta till Azure Log Analytics för bearbetning, lagring och -instrumentpanelsrapportering.
+- **Logga arkivering:**  Alla diagnostikloggar skriva till en central och krypterade Azure storage-konto för arkivering. Kvarhållning konfigureras av användaren, upp till 730 dagar att uppfylla kraven för specifika kvarhållning. Dessa loggar ansluta till Azure Monitor-loggar för bearbetning, lagring och -instrumentpanelsrapportering.
 
 Dessutom installeras följande övervakningslösningar som en del av den här arkitekturen. Observera att det är kundens ansvar att konfigurera dessa lösningar för att anpassas till FedRAMP säkerhetskontroller:
 -   [AD-bedömning](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment): Kontroll av Active Directory hälsotillstånd lösningen utvärderar risker och hälsotillstånd i server-miljöer med regelbundna intervall och ger en prioriterad lista över rekommendationer som är specifika för den distribuerade serverinfrastrukturen.

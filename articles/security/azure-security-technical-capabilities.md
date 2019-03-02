@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: f615c4ca9ffc56daafcedd711f27672e0855e4fa
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 22160a46b0c1d8fe53abe20b3d8a1b83891de5da
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56883955"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57247587"
 ---
 # <a name="azure-security-technical-capabilities"></a>Tekniska funktioner för Azure-säkerhet
 
@@ -398,19 +398,19 @@ Dessutom checklistan:
 
 Azure driftsäkerhet bygger på ett ramverk som innehåller den kunskap som en olika funktioner som är unika för Microsoft, inklusive på Microsoft Security Development Lifecycle (SDL), Microsoft Security Response Center-program , och djup medvetenhet om hotlandskapet.
 
-### <a name="microsoft-azure-log-analytics"></a>Microsoft Azure Log Analytics
+### <a name="microsoft-azure-monitor"></a>Microsoft Azure Monitor
 
-[Log Analytics](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) är IT-hanteringslösningen för hybridmoln. Används fristående eller om du vill utöka den befintliga distributionen av System Center Log Analytics får du maximal flexibilitet och kontroll för molnbaserad hantering av infrastrukturen.
+[Azure Monitor](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) är IT-hanteringslösningen för hybridmoln. Används fristående eller för att utöka dina befintliga System Center-distributionen, Azure Monitor-loggarna ger dig stor flexibilitet och kontroll för molnbaserad hantering av infrastrukturen.
 
-![Log Analytics](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig8.png)
+![Azure Monitor](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig8.png)
 
-Du kan hantera en instans i alla moln, inklusive lokala, Azure, AWS, Windows Server, Linux, VMware och OpenStack, till en lägre kostnad än konkurrenskraftiga lösningar med Log Analytics. Byggd för den molnbaserade världen, tillhandahåller Log Analytics en ny metod för att hantera ditt företag är det snabbaste och mest kostnadseffektiva sättet att uppfylla nya utmaningar och hantera nya arbetsbelastningar, program och molnmiljöer.
+Med Azure Monitor kan hantera du en instans i alla moln, inklusive lokala, Azure, AWS, Windows Server, Linux, VMware och OpenStack, till en lägre kostnad än konkurrenskraftiga lösningar. Azure Monitor erbjuder skapats för den molnbaserade världen, ett nytt sätt att hantera ditt företag är det snabbaste och mest kostnadseffektiva sättet att uppfylla nya utmaningar och hantera nya arbetsbelastningar, program och molnmiljöer.
 
-### <a name="log-analytics"></a>Log Analytics
+### <a name="azure-monitor-logs"></a>Azure Monitor-loggar
 
-[Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics) tillhandahåller övervakning genom att samla in data från hanterade resurser i en central databas. Dessa data kan omfatta händelser, prestandadata eller anpassade data via API:t. När data har samlats in är de tillgängliga för avisering, analys och export.
+[Azure Monitor-loggar](https://azure.microsoft.com/documentation/services/log-analytics) tillhandahåller övervakning genom att samla in data från hanterade resurser i en central databas. Dessa data kan omfatta händelser, prestandadata eller anpassade data via API:t. När data har samlats in är de tillgängliga för avisering, analys och export.
 
-![Log Analytics](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig9.png)
+![Azure Monitor-loggar](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig9.png)
 
 Den här metoden kan du konsolidera data från olika källor, så att du kan kombinera data från dina Azure-tjänster med din befintliga lokala miljö. Metoden innebär också en tydlig separation mellan insamling av data från de åtgärder som vidtas för dessa data, vilket gör att alla åtgärder är tillgängliga för alla typer av data.
 
@@ -470,7 +470,7 @@ Tjänsten övervakar:
 
 - **Beroendefrekvens, svarstider och felfrekvens** – Ta reda på om externa tjänster gör systemet långsammare.
 
-- **Undantag** – analysera aggregerad statistik, eller Välj specifika instanser och öka detaljnivån i stackspårningen och relaterade begäranden. Både server- och webbläsarundantag rapporteras.
+- **Undantag** – Analysera aggregerad statistik eller välj specifika instanser och visa detaljerad information om stackspårningen och relaterade begäranden. Både server- och webbläsarundantag rapporteras.
 
 - **Sidvyer och inläsningsprestanda** – Rapporteras av användarnas webbläsare.
 

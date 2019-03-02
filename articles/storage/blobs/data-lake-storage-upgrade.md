@@ -8,12 +8,12 @@ ms.author: normesta
 ms.date: 02/07/2019
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: d07e11d005ac05c9bf048a48c5865885813707cb
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: d6644cf923d439a9f6ef13b53a84ff6626f04ade
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56874553"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57247468"
 ---
 # <a name="upgrade-your-big-data-analytics-solutions-from-azure-data-lake-storage-gen1-to-azure-data-lake-storage-gen2"></a>Uppgradera din big data analytics-lösningar från Azure Data Lake Storage Gen1 till Azure Data Lake Storage Gen2
 
@@ -45,7 +45,7 @@ Det finns dessutom övergripande komponenter att etablera, hantera och övervaka
 
 **Bild 2** visar ett exempel på hur dessa komponenter kommer att implementeras med hjälp av specifika tekniker.
 
-Funktionen lagring i **figur 1** tillhandahålls av Data Lake Storage Gen1 (**bild 2**). Observera hur de olika komponenterna i dataflödet interagera med Data Lake Storage Gen1 med hjälp av REST API: er eller SDK för Java. Tänk också på hur de övergripande funktioner komponenterna samverkar med Data Lake Storage Gen1. Komponenten etablering använder Azure Resource-mallar, medan övervakningskomponenten som använder Log Analytics använder driftdata som kommer från Data Lake Storage Gen1.
+Funktionen lagring i **figur 1** tillhandahålls av Data Lake Storage Gen1 (**bild 2**). Observera hur de olika komponenterna i dataflödet interagera med Data Lake Storage Gen1 med hjälp av REST API: er eller SDK för Java. Tänk också på hur de övergripande funktioner komponenterna samverkar med Data Lake Storage Gen1. Komponenten etablering använder Azure Resource-mallar, medan övervakningskomponenten som använder Azure Monitor-loggar använder driftdata som kommer från Data Lake Storage Gen1.
 
 Om du vill uppgradera en lösning från att använda Data Lake Storage Gen1 till Data Lake Storage Gen2, måste du kopiera data och metadata, nytt koppla dataflöden och sedan alla komponenter behöver för att kunna arbeta med Data Lake Storage Gen2.
 

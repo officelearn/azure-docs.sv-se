@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 7/10/2018
 ms.author: aljo
-ms.openlocfilehash: 963587415e1060997b4f90e822c6c57a05610544
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: c6b923808b7d1a1e29fa6847f3a975785ad7e798
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56807175"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57247502"
 ---
 # <a name="production-readiness-checklist"></a>Checklista för produktionsberedskap
 
@@ -42,9 +42,9 @@ ms.locfileid: "56807175"
 6. Förstå och ange den [hållbarhetsnivå](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster). Silver eller högre hållbarhetsnivå rekommenderas för nodtyper tillståndskänsliga arbetsbelastningar som körs. Den primära nodtypen ska ha en hållbarhetsnivå ange Silver eller högre.
 7. Förstå och välj den [tillförlitlighetsnivån](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster) av nodtyp. Silver eller högre tillförlitlighet rekommenderas.
 8. Testa arbetsbelastningar att identifiera belastning och skala [kapacitetskrav](service-fabric-cluster-capacity.md) för klustret. 
-9. Dina tjänster och program som övervakas och programloggar som ska skapas och lagras med aviseringar. Se exempelvis [Lägg till loggning i Service Fabric-programmet](service-fabric-how-to-diagnostics-log.md) och [övervaka behållare med Log Analytics](service-fabric-diagnostics-oms-containers.md).
-10. Klustret övervakas med aviseringar (till exempel med [Log Analytics](service-fabric-diagnostics-event-analysis-oms.md)). 
-11. Den underliggande infrastrukturen för VM scale set övervakas med aviseringar (till exempel med [Log Analytics](service-fabric-diagnostics-oms-agent.md).
+9. Dina tjänster och program som övervakas och programloggar som ska skapas och lagras med aviseringar. Se exempelvis [Lägg till loggning i Service Fabric-programmet](service-fabric-how-to-diagnostics-log.md) och [övervaka behållare med Azure Monitor-loggar](service-fabric-diagnostics-oms-containers.md).
+10. Klustret övervakas med aviseringar (till exempel med [Azure Monitor loggar](service-fabric-diagnostics-event-analysis-oms.md)). 
+11. Den underliggande infrastrukturen för VM scale set övervakas med aviseringar (till exempel med [Azure Monitor loggar](service-fabric-diagnostics-oms-agent.md).
 12. Klustret har [primära och sekundära certifikat](service-fabric-cluster-security-update-certs-azure.md) alltid (så att du inte blir utelåst).
 13. Underhålla separata kluster för utveckling, mellanlagring och produktion. 
 14. [Programuppgraderingar](service-fabric-application-upgrade.md) och [uppgraderingar av](service-fabric-tutorial-upgrade-cluster.md) testas i utveckling och mellanlagring kluster först. 

@@ -12,13 +12,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 02/08/2019
-ms.openlocfilehash: 4da18fffc98367f24ec95bd27617e7638e3d5705
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.date: 03/01/2019
+ms.openlocfilehash: 3e31842cf4b6afa2117ea71c644b0376e8434bd0
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56003677"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57247315"
 ---
 # <a name="sql-error-codes-for-sql-database-client-applications-database-connection-errors-and-other-issues"></a>SQL-felkoder för SQL Database-klientprogram: Anslutningsfel för databasen och andra problem
 
@@ -58,7 +58,7 @@ Följande fel är tillfälligt och ska göras i programlogiken:
 | 4060 |16 |Det går inte att öppna databasen ”%.&#x2a;ls” begärdes vid inloggningen. Inloggningen misslyckades. |
 | 40197 |17 |Tjänsten har påträffat ett fel när begäran bearbetades. Försök igen. Felkod: %d.<br/><br/>Du får detta felmeddelande när tjänsten är igång på grund av programvara eller uppgraderingar av maskinvara, maskinvarufel eller några andra problem med redundans. Felkod: (%d) som är inbäddad i meddelandet av fel 40197 tillhandahåller ytterligare information om vilken typ av fel eller växling vid fel som inträffat. Några exempel på felet koder är inbäddade i meddelandet felets 40197 är 40020, 40143, 40166 och 40540.<br/><br/>Återansluter till SQL Database-servern automatiskt ansluter till en felfri kopia av databasen. Programmet måste fånga upp 40197, felloggen embedded felkoden (%d) i meddelandet för att felsöka och försöka ansluta till SQL Database tills resurserna som är tillgängliga och din anslutning har upprättats igen. |
 | 40501 |20 |Tjänsten är upptagen. Försök begäran efter 10 sekunder. Incident-ID: %ls. Code: %d.<br/><br/>Mer information finns i:<br/>• [Azure SQL Database-resursgränser](sql-database-service-tiers-dtu.md). |
-| 40613 |17 |Databasen '%.&#x2a;ls' på servern '%.&#x2a;ls' är inte tillgänglig. Försök med anslutningen senare. Om problemet kvarstår kontaktar du kundsupport och ger dem session spårnings-ID (%.&#x2a;ls). |
+| 40613 |17 |Databasen '%.&#x2a;ls' på servern '%.&#x2a;ls' är inte tillgänglig. Försök med anslutningen senare. Om problemet kvarstår kontaktar du kundsupport och ger dem session spårnings-ID (%.&#x2a;ls).<br/><br/> Det här felet kan uppstå om det finns redan en befintlig DAC-anslutning (DAC) upprättats till databasen. |
 | 49918 |16 |Det går inte att bearbeta begäran. Det finns inte tillräckligt med resurser för att bearbeta begäran.<br/><br/>Tjänsten är upptagen. Försök begäran igen senare. |
 | 49919 |16 |Bearbeta det går inte att skapa eller uppdatera begäran. För många skapande- eller uppdateringsåtgärder pågår för prenumerationen ”% ld”.<br/><br/>Tjänsten är upptagen bearbetning av flera skapa eller uppdatera begäranden för din prenumeration eller en server. Begäranden är för närvarande blockerad för resursoptimering. Fråga [sys.dm_operation_status](https://msdn.microsoft.com/library/dn270022.aspx) för väntande åtgärder. Vänta tills väntande skapa eller uppdatera begäranden är klara eller ta bort en av dina väntande begäranden och försök igen med din begäran senare. |
 | 49920 |16 |Det går inte att bearbeta begäran. För många åtgärder pågår för prenumerationen ”% ld”.<br/><br/>Tjänsten är upptagen med flera begäranden för den här prenumerationen. Begäranden är för närvarande blockerad för resursoptimering. Fråga [sys.dm_operation_status](https://msdn.microsoft.com/library/dn270022.aspx) efter Åtgärdsstatus. Vänta tills väntande begäranden är klara eller ta bort en av dina väntande begäranden och försök igen med din begäran senare. |

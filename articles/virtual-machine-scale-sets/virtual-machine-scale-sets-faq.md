@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 01/30/2019
 ms.author: manayar
 ms.custom: na
-ms.openlocfilehash: 924ed7c2a253ab74a4807559d190218d3125b92c
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 8627f5bb704c963b628fb3dab29b6d2cfee0789b
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55978603"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57247332"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Vanliga frågor och svar för skalningsuppsättningar för virtuella Azure-datorer
 
@@ -374,9 +374,9 @@ Update-AzVmss -ResourceGroupName "resource_group_name" -VMScaleSetName "vmssName
 
 Du kan hitta Tilläggsnamn värdet i `$vmss`.
 
-### <a name="is-there-a-virtual-machine-scale-set-template-example-that-integrates-with-log-analytics"></a>Finns det en VM-skalningsuppsättningen exempelmall som kan integreras med Log Analytics?
+### <a name="is-there-a-virtual-machine-scale-set-template-example-that-integrates-with-azure-monitor-logs"></a>Finns det en VM-skalningsuppsättningen exempelmall som kan integreras med Azure Monitor-loggar?
 
-En VM-skalningsuppsättningen exempelmall som kan integreras med Log Analytics, finns i det andra exemplet i [distribuera ett Azure Service Fabric-kluster och aktivera övervakning genom att använda Log Analytics](https://github.com/krnese/AzureDeploy/tree/master/OMS/MSOMS/ServiceFabric).
+En VM-skalningsuppsättningen exempelmall som kan integreras med Azure Monitor-loggar, finns i det andra exemplet i [distribuera ett Azure Service Fabric-kluster och aktivera övervakning genom att använda Azure Monitor-loggar](https://github.com/krnese/AzureDeploy/tree/master/OMS/MSOMS/ServiceFabric).
 
 ### <a name="extensions-seem-to-run-in-parallel-on-virtual-machine-scale-sets-this-causes-my-custom-script-extension-to-fail-what-can-i-do-to-fix-this"></a>Tillägg verkar köras parallellt på VM-skalningsuppsättningar. Detta leder till min anpassade skripttillägg misslyckas. Vad kan jag göra för att åtgärda detta?
 
@@ -658,7 +658,7 @@ Ja, du kan använda avbildningsåterställningsåtgärden för att återställa 
 
 Mer information finns i [hantera alla virtuella datorer i en VM-skalningsuppsättning](https://docs.microsoft.com/rest/api/virtualmachinescalesets/manage-all-vms-in-a-set).
 
-### <a name="is-it-possible-to-integrate-scale-sets-with-azure-log-analytics"></a>Är det möjligt att integrera skalningsuppsättningar med Azure Log Analytics?
+### <a name="is-it-possible-to-integrate-scale-sets-with-azure-monitor-logs"></a>Är det möjligt att integrera skalningsuppsättningar med Azure Monitor-loggar?
 
 Ja, du kan installera tillägget Log Analytics på skalan som virtuella datorer. Här är ett Azure CLI-exempel:
 ```
@@ -666,7 +666,10 @@ az vmss extension set --name MicrosoftMonitoringAgent --publisher Microsoft.Ente
 ```
 Du hittar den nödvändiga workspaceId och workspaceKey i Log Analytics-arbetsyta för Azure-portalen. Klicka på panelen inställningar på sidan Översikt. Klicka på fliken anslutna källor högst upp.
 
-Obs: om din skalningsuppsättning _upgradePolicy_ har angetts till manuell, måste du tillämpa tillägget för alla virtuella datorer i uppsättningen genom att anropa uppgraderingen på dem. Detta kan vara i CLI _az vmss update-instances_.
+> [!NOTE]
+> Om din skalningsuppsättning _upgradePolicy_ har angetts till manuell, måste du tillämpa tillägget för alla virtuella datorer i uppsättningen genom att anropa uppgraderingen på dem. Detta kan vara i CLI _az vmss update-instances_.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="troubleshooting"></a>Felsökning
 

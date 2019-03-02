@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: c66f0e67b09dab15431a8c7c10db1c820038dea6
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 7c76f7c5810370fa396b81bcc16e7e2204393bc1
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56984993"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57247553"
 ---
 # <a name="introduction-to-azure-security"></a>Introduktion till Azure-säkerhet
 ## <a name="overview"></a>Översikt
@@ -75,7 +75,7 @@ De inbyggda funktionerna ordnas i sex (6) huvudområden: Åtgärder, program, la
 Det här avsnittet innehåller ytterligare information om viktiga funktioner i säkerhetsåtgärder och översiktlig information om dessa funktioner.
 
 ### <a name="security-and-audit-dashboard"></a>Säkerhet och granskning instrumentpanel
-Den [säkerhet och Granskningslösning](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started) ger en heltäckande översikt över din organisations IT-säkerhetsstatus med [inbyggda sökfrågor](https://blogs.technet.microsoft.com/msoms/2016/01/21/easy-microsoft-operations-management-suite-search-queries/) för viktiga problem som kräver din uppmärksamhet. Den [säkerhet och granskning](https://technet.microsoft.com/library/mt484091.aspx) instrumentpanelen är startsidan för allt som rör säkerhet i Log Analytics. Det ger en övergripande inblick i säkerhetstillståndet hos dina datorer. Här kan du också visa alla händelser från de senaste 24 timmarna, sju dagarna eller ett annat anpassat tidsintervall.
+Den [säkerhet och Granskningslösning](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started) ger en heltäckande översikt över din organisations IT-säkerhetsstatus med [inbyggda sökfrågor](https://blogs.technet.microsoft.com/msoms/2016/01/21/easy-microsoft-operations-management-suite-search-queries/) för viktiga problem som kräver din uppmärksamhet. Den [säkerhet och granskning](https://technet.microsoft.com/library/mt484091.aspx) instrumentpanelen är startsidan för allt som rör säkerhet i Azure Monitor-loggar. Det ger en övergripande inblick i säkerhetstillståndet hos dina datorer. Här kan du också visa alla händelser från de senaste 24 timmarna, sju dagarna eller ett annat anpassat tidsintervall.
 
 Du kan dessutom konfigurera säkerhet och efterlevnad av [automatiskt utföra specifika åtgärder](https://blogs.technet.microsoft.com/robdavies/2016/04/20/simple-look-at-oms-alert-remediation-with-runbooks-part-1/) när en viss händelse identifieras.
 
@@ -94,10 +94,10 @@ Om det finns krascher, fel eller prestandaproblem kan söka du igenom dessa data
 ### <a name="azure-monitor"></a>Azure Monitor
 [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) erbjuder visualisering, fråga, routning, aviseringar, Automatisk skala och automatisering på data både från Azure-infrastrukturen ([aktivitetsloggen](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)) och varje enskild Azure-resurs ([diagnostik Loggar](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)). Du kan använda Azure Monitor för att varna dig om säkerhetsrelaterade händelser som genereras i Azure-loggar.
 
-### <a name="log-analytics"></a>Log Analytics
-[Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/) – innehåller en IT-hanteringslösningen för både lokalt och från tredje part molnbaserad infrastruktur (till exempel AWS) utöver Azure-resurser. Data från Azure Monitor kan dirigeras direkt till Log Analytics så att du kan se mått och loggar i hela din miljö på samma ställe.
+### <a name="azure-monitor-logs"></a>Azure Monitor-loggar
+[Azure Monitor-loggar](https://azure.microsoft.com/documentation/services/log-analytics/) – innehåller en IT-hanteringslösningen för både lokalt och från tredje part molnbaserad infrastruktur (till exempel AWS) utöver Azure-resurser. Data från Azure Monitor kan dirigeras direkt till Azure Monitor-loggar så att du kan se mått och loggar i hela din miljö på samma ställe.
 
-Log Analytics kan vara användbart i kriminaltekniska och andra säkerhetsanalys som verktyget gör det möjligt att snabbt söka igenom stora mängder säkerhetsrelaterade transaktioner med en metod för flexibla frågor. Dessutom kan den lokala [loggar för brandväggen och proxyservern kan exporteras till Azure och göras tillgängliga för analys med hjälp av Log Analytics.](https://docs.microsoft.com/azure/log-analytics/log-analytics-proxy-firewall)
+Azure Monitor-loggar kan vara användbart i kriminaltekniska och andra säkerhetsanalys som verktyget gör det möjligt att snabbt söka igenom stora mängder säkerhetsrelaterade transaktioner med en metod för flexibla frågor. Dessutom kan den lokala [loggar för brandväggen och proxyservern kan exporteras till Azure och göras tillgängliga för analys med Azure Monitor-loggar.](https://docs.microsoft.com/azure/log-analytics/log-analytics-proxy-firewall)
 
 ### <a name="azure-advisor"></a>Azure Advisor
 [Azure Advisor](https://docs.microsoft.com/azure/advisor/) är en personligt anpassad molnrådgivare som hjälper dig att optimera dina Azure-distributioner. Den analyserar din resurskonfiguration och användningstelemetri. Den rekommenderar sedan lösningar för att förbättra den [prestanda](https://docs.microsoft.com/azure/advisor/advisor-performance-recommendations), [security](https://docs.microsoft.com/azure/advisor/advisor-security-recommendations), och [hög tillgänglighet](https://docs.microsoft.com/azure/advisor/advisor-high-availability-recommendations) för dina resurser vid sökning efter möjligheter att [minska de totala Azure spendera](https://docs.microsoft.com/azure/advisor/advisor-cost-recommendations). Azure Advisor tillhandahåller säkerhetsrekommendationer som förbättrar din övergripande säkerhetsposition för lösningar som du distribuerar i Azure. De här rekommendationerna hämtas från säkerhetsanalys som utförs av [Azure Security Center.](https://docs.microsoft.com/azure/security-center/security-center-intro)

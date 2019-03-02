@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/29/2018
 ms.author: terrylan
-ms.openlocfilehash: 38a69327e5aaa758dc70ca950956d0bdc8001a4f
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 6fd25bbf6910140a338267c51955a817d0195939
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56818093"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57247196"
 ---
 # <a name="azure-network-security-overview"></a>Översikt över Azure network security
 
@@ -324,7 +324,7 @@ Microsoft tillhandahåller DDoS protection kallas **grundläggande** som en del 
 * **Anpassningsbar justering:** Intelligent trafik profilering lär sig programmets trafik över tid, och väljer och uppdaterar den profil som är mest lämplig för din tjänst. Profilen justerar allt trafik ändras med tiden. Nivå 3 till nivå 7-skydd: Ger fullständig stack DDoS-skydd, när det används med en brandvägg för webbaserade program.
 * **Omfattande minskning skala:** Över 60 olika angreppstyper kan undvikas med globala kapacitet att skydda mot största kända DDoS-attacker.
 * **Attack mått:** Summerade mått från varje attack är tillgängliga via Azure Monitor.
-* **Attack varning:** Aviseringar kan konfigureras vid start och stopp av ett angrepp, och med hjälp av inbyggda attack mätvärden över den attack varaktighet. Aviseringar integrera i din operational programvara som Microsoft Azure Log Analytics, Splunk, Azure Storage, e-post och Azure-portalen.
+* **Attack varning:** Aviseringar kan konfigureras vid start och stopp av ett angrepp, och med hjälp av inbyggda attack mätvärden över den attack varaktighet. Aviseringar integrera i din operational programvara som Microsoft Azure Monitor-loggar, Splunk, Azure Storage, e-post och Azure-portalen.
 * **Kostnad garanti:**  Överföring av replikeringsdata och programmet skalbar servicekrediter för dokumenterad DDoS-attacker.
 * **DDoS snabba dynamiska** DDoS Protection Standard-kunder har nu tillgång till Rapid Response team under ett pågående angrepp. DRR kan hjälpa dig med attack undersökningar, anpassade åtgärder under en attack och efter attack analys.
 
@@ -401,4 +401,4 @@ Loggning på nätverksnivå är en viktig funktion för alla scenarier för nät
 Du kan också använda [Microsoft Power BI](https://powerbi.microsoft.com/what-is-power-bi/), ett kraftfullt datavisualiseringsverktyg, visa och analysera dessa loggar.
 Läs mer:
 
-* [Log Analytics för Nätverkssäkerhetsgrupper (NSG)](../virtual-network/virtual-network-nsg-manage-log.md)
+* [Azure Monitor-loggar för Nätverkssäkerhetsgrupper (NSG)](../virtual-network/virtual-network-nsg-manage-log.md)

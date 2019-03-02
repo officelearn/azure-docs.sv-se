@@ -5,18 +5,20 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: article
-ms.date: 2/25/2019
+ms.date: 3/1/2019
 ms.author: victorh
-ms.openlocfilehash: f1e92c8581f8528b3622ad88f086d3f66619b996
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 7f5f377f34a43dfb01ea516e023bb98f118d0dd4
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56823491"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57247230"
 ---
 # <a name="use-azure-dns-for-private-domains"></a>Använda Azure DNS för privata domäner
 
 Domain Name System- eller DNS, ansvarar för att översätta (eller lösa) ett tjänstnamn till dess IP-adress. En värdtjänst för DNS-domäner med Azure DNS ger namnmatchning med hjälp av Microsoft Azure-infrastrukturen. Förutom att stöda mot internet DNS-domäner, Azure DNS stöder nu också privata DNS-domäner som en förhandsversion av funktionen.
+
+[!INCLUDE [private-dns-public-preview-notice](../../includes/private-dns-public-preview-notice.md)]
 
 Azure DNS är en tillförlitlig och säker DNS-tjänst för att hantera och matcha namn i ett virtuellt nätverk utan att behöva lägga till en anpassad DNS-lösning. Du kan använda dina egna anpassade domännamn i stället för de Azure-tillhandahållen namn som är tillgängliga idag genom att använda privata DNS-zoner. Använda anpassade domännamn hjälper dig att skräddarsy dina virtuella nätverksarkitekturen som bäst passar organisationens behov. Det ger namnmatchning för virtuella datorer (VM) inom ett virtuellt nätverk och mellan virtuella nätverk. Du kan också konfigurera zoner namn med vyn Dela vågrätt, vilket ger en privat och en offentlig DNS-zon kan dela namn.
 
@@ -26,7 +28,8 @@ Om du anger ett virtuellt nätverk för registrering, DNS-posterna för de virtu
 
 ![Översikt över DNS](./media/private-dns-overview/scenario.png)
 
-[!INCLUDE [private-dns-public-preview-notice](../../includes/private-dns-public-preview-notice.md)]
+> [!NOTE]
+> As a best practice, do not use a .local domain for your private DNS zone. Inte alla operativsystem stöder detta.
 
 ## <a name="benefits"></a>Fördelar
 

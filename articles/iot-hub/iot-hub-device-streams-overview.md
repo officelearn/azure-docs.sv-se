@@ -8,12 +8,12 @@ ms.service: iot-hub
 ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: rezas
-ms.openlocfilehash: ea50902a557e8bd7aa18fbc03fca8fc4a99ac2e2
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 7b436acb937216ad02289282f4a7ac5f88df2eea
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55770796"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57245157"
 ---
 # <a name="iot-hub-device-streams-preview"></a>IoT Hub Device dataströmmar (förhandsversion)
 
@@ -117,16 +117,16 @@ az iot hub devicestream show --name <YourIoTHubName>
 
 ## <a name="troubleshoot-via-device-streams-activity-logs"></a>Felsök via enheten strömmar aktivitetsloggar
 
-Du kan ställa in Azure Log Analytics för att samla in aktivitetsloggen på strömmar av enheten i IoT Hub. Det kan vara mycket användbart vid felsökning av scenarier.
+Du kan ställa in Azure Monitor-loggar att samla in aktivitetsloggen på strömmar av enheten i IoT Hub. Det kan vara mycket användbart vid felsökning av scenarier.
 
-Följ stegen nedan för att konfigurera Azure Log Analytics för IoT-hubbens enheten stream aktiviteter:
+Följ stegen nedan för att konfigurera Azure Monitor-loggar för din IoT-hubb enheten stream aktiviteter:
 
 1. Navigera till den *diagnostikinställningar* i din IoT-hubb och klicka på *slå på diagnostik* länk.
 
   ![Alternativ text](./media/iot-hub-device-streams-overview/device-streams-diagnostics-settings.PNG "aktiverar disgnostics loggar")
 
 
-2. Ange ett namn för diagnostikinställningar och välj *skicka till Log Analytics* alternativet. Vägleds du vill välja en befintlig Log Analytics-resurs eller skapa en ny. Dessutom bör du läsa den *DeviceStreams* i listan.
+2. Ange ett namn för diagnostikinställningar och välj *skicka till Log Analytics* alternativet. Vägleds du vill välja en befintlig resurs i Log Analytics-arbetsyta eller skapa en ny. Dessutom bör du läsa den *DeviceStreams* i listan.
 
     ![Alternativ text](./media/iot-hub-device-streams-overview/device-streams-diagnostics.PNG "Aktivera enheten strömmar loggar")
 

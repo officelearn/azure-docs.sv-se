@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/04/2017
 ms.author: tomsh
-ms.openlocfilehash: 3e7717d4ee07a1f3bfebb5e09b983af68aa4ea31
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: c5b5f80a43530fe6d0b90e65c3aef89a815157e4
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56116228"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57241399"
 ---
 # <a name="azure-service-fabric-security-overview"></a>Säkerhetsöversikt för Azure Service Fabric
 [Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview) är en distribuerad systemplattform som gör det enkelt att paketera, distribuera och hantera skalbara och tillförlitliga mikrotjänster. Service Fabric hanterar utmaningarna i att utveckla och hantera molnprogram. Utvecklare och administratörer kan undvika komplicerade infrastrukturproblem och fokusera på att implementera verksamhetskritiska och krävande arbetsbelastningar som är skalbara och tillförlitliga.
@@ -64,7 +64,7 @@ Läs hur du konfigurerar certifikat säkerheten i ett kluster i [konfigurera ett
 
 Kluster som körs på Azure kan även skydda åtkomst till management-slutpunkter med hjälp av Azure Active Directory (AD Azure). Information om hur du skapar nödvändiga Azure Active Directory-artefakter, hur du fylla dem när klustret skapas och hur du ansluter till dessa kluster finns i [konfigurera ett kluster med hjälp av en Azure Resource Manager-mall](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm).
 
-Azure AD kan organisationer (kallas även klienter) för att hantera åtkomst till program. Det finns program med en webbaserad inloggning användargränssnitt och program med en intern klient-upplevelse.
+Med Azure AD kan organisationer (som kallas klientorganisationer) hantera användaråtkomst till program. Det finns program med en webbaserad inloggning användargränssnitt och program med en intern klient-upplevelse.
 
 Service Fabric-kluster erbjuder flera startpunkter för dess hanteringsfunktioner, inklusive webbaserade Service Fabric Explorer och Visual Studio. Därför kan du skapa två Azure AD-program för att styra åtkomsten till klustret: ett webbprogram och ett internt program.
 
@@ -87,7 +87,7 @@ Arbetsflöde för övervakning och diagnostik består av tre steg:
 
 2.  **Händelsen aggregering**: Händelser som genereras måste samlas in och sammanställs innan de kan visas. Bör du vanligtvis använda [Azure Diagnostics](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-aggregation-wad) (liknar agentbaserad Logginsamling) eller [EventFlow](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-aggregation-eventflow) (pågående Logginsamling).
 
-3.  **Analysis**: Händelser måste vara visualiserade och är tillgänglig i vissa format, för analys och visning. Det finns flera plattformar för analys och visualisering av data för övervakning och diagnostik. Vi rekommenderar att [Azure Log Analytics](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-analysis-oms) och [Azure Application Insights](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-analysis-appinsights) eftersom de kan integreras även med Service Fabric.
+3.  **Analysis**: Händelser måste vara visualiserade och är tillgänglig i vissa format, för analys och visning. Det finns flera plattformar för analys och visualisering av data för övervakning och diagnostik. Vi rekommenderar att [Azure Monitor loggar](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-analysis-oms) och [Azure Application Insights](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-analysis-appinsights) eftersom de kan integreras även med Service Fabric.
 
 Du kan också använda [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview) att övervaka många av de Azure-resurser som Service Fabric-kluster har skapats.
 

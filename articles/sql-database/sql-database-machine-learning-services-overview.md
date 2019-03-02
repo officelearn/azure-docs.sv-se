@@ -1,5 +1,5 @@
 ---
-title: Machine Learning-tjänster (med R) i översikt över Azure SQL Database (förhandsversion)
+title: Azure SQL Database Machine Learning Services med översikt över R (förhandsversion)
 description: Det här avsnittet beskrivs Azure SQL Database Machine Learning Services (med R) och hur det fungerar.
 services: sql-database
 ms.service: sql-database
@@ -11,30 +11,34 @@ author: dphansen
 ms.author: davidph
 ms.reviewer: carlrab
 manager: cgronlun
-ms.date: 02/06/2019
-ms.openlocfilehash: b50fd21e4d3325875134d2e2e9caeed9f8db75d0
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.date: 03/01/2019
+ms.openlocfilehash: 5f876deef4c92c0d678380a49aa38628e0afa660
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55875611"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57240312"
 ---
-# <a name="machine-learning-services-with-r-in-azure-sql-database-preview"></a>Machine Learning-tjänster (med R) i Azure SQL Database (förhandsversion)
+# <a name="azure-sql-database-machine-learning-services-with-r-preview"></a>Azure SQL Database Machine Learning Services med R (förhandsversion)
 
 Machine Learning Services är en funktion i Azure SQL-databas som används för att köra R-skript i databasen. Funktionen innehåller Microsoft R-paket för högpresterande förutsägande analys och maskininlärning. Relationella data kan användas i R-skript via lagrade procedurer, T-SQL-skript som innehåller R-uttryck eller R-kod som innehåller T-SQL.
 
 > [!IMPORTANT]
-> Machine Learning-tjänster (med R) i Azure SQL Database är för närvarande i förhandsversion för enskilda databaser och elastiska pooler med den vCore-baserade inköpsmodellen i den **generella** och **företag kritiska** tjänstnivåer. I den här första offentliga förhandsversionen kan den **hyperskala** tjänstnivå och **hanterad instans** distributionsalternativet stöds inte. R är för närvarande det enda språk som stöds. Det finns inget stöd för Python just nu. 
+> Azure SQL Database Machine Learning Services (med R) är för närvarande i offentlig förhandsversion.
+> Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade.
+> Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 >
-> Förhandsgranskningen är för närvarande tillgängligt i de följande regioner: västra Europa, Norra Europa, västra USA 2, östra USA, södra centrala USA, norra centrala USA, Kanada, centrala, Sydostasien, södra och Australien, sydöstra Australien. 
+> Den offentliga förhandsversionen är tillgängligt för enskilda databaser och elastiska pooler med den vCore-baserade inköpsmodellen i den **generella** och **affärskritisk** tjänstnivåer. I den här första offentliga förhandsversionen kan den **hyperskala** tjänstnivå och **hanterad instans** distributionsalternativet stöds inte. R är för närvarande det enda språk som stöds. Det finns inget stöd för Python just nu.
+>
+> Förhandsversionen är nu tillgänglig i följande regioner: Västeuropa, Nordeuropa, USA, västra 2, östra USA, södra centrala USA, norra centrala USA, Kanada, centrala, Sydostasien, södra och Australien, sydöstra Australien.
 >
 > [Registrera dig för förhandsversionen av](#signup) nedan.
 
 ## <a name="what-you-can-do-with-r"></a>Vad du kan göra med R
 
-Använd kraften i R-språket för att leverera avancerad analys och maskininlärning i databasen. Den här möjligheten ger beräkningar och bearbetning till där data finns, vilket eliminerar behovet av att hämta data över nätverket. Dessutom dra nytta av enterprise R-paket att tillhandahålla avancerade analyser i stor skala.
+Använd kraften hos R-språket för att leverera avancerad analys och maskininlärning i databasen. Den här funktionen ger beräkning och bearbetning där data finns, vilket eliminerar behovet av att hämta data över nätverket. Dessutom kan du dra nytta av R-företagspaket och tillhandahålla avancerad analys i stor skala.
 
-Machine Learning Services innehåller en grundläggande distribution av R, ett överlägg med enterprise R-paket från Microsoft. Microsoft R-funktioner och algoritmer är utformad för både skalning och verktyg, leverera förutsägande analys, statistisk modellering, datavisualiseringar och ledande machine learning-algoritmer.
+Machine Learning Services innehåller en grundläggande distribution av R med överlägg med R-företagspaket från Microsoft. Microsofts R-funktioner och algoritmer är utformade för både stor skala och nytta. De levererar förutsägelseanalys, statistisk modellering, datavisualiseringar och ledande algoritmer för maskininlärning.
 
 ### <a name="r-packages"></a>R-paket
 
@@ -54,13 +58,13 @@ Förutom de förinstallerade paket kan du [installera ytterligare paket](sql-dat
 
 Om du vill registrera dig för den offentliga förhandsversionen kan du följa dessa steg:
 
-1. Om du inte har någon Azure-prenumeration [skapa ett konto](https://azure.microsoft.com/free/) innan du börjar.
+1. Om du inte har någon Azure-prenumeration [skapar du ett konto](https://azure.microsoft.com/free/) innan du börjar.
 
 2. Skicka ett e-postmeddelande till Microsoft på [sqldbml@microsoft.com](mailto:sqldbml@microsoft.com) om du vill registrera dig för den offentliga förhandsversionen. Den offentliga förhandsversionen av Machine Learning Services (med R) i SQL Database är inte aktiverad som standard.
 
 När du är registrerad i programmet Microsoft publicerar du så att den allmänna förhandsgranskningen och aktivera R din befintliga eller nya databas.
 
-Använd inte Machine Learning-tjänster med R för produktionsarbetsbelastningar den offentliga förhandsversionen.
+Machine Learning-tjänster med R rekommenderas inte för produktionsarbetsbelastning den offentliga förhandsversionen.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -9,12 +9,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: rarangap
-ms.openlocfilehash: 28d1ed43ecdb1ff853e066567f331b8c302ce7aa
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 509d529c7e860f4c46bc3368028a4e8d24812051
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56730451"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57242827"
 ---
 # <a name="azure-security-and-compliance-blueprint---hipaahitrust-health-data-and-ai"></a>Azure-säkerhet och efterlevnad skissen - HIPAA/hitrust – hälsodata och AI
 
@@ -361,8 +361,8 @@ Lösningen har stöd för Azure Event Grid, en enskild tjänst för att hantera 
 ### <a name="azure-alerts"></a>Azure-aviseringar
 - [Aviseringar erbjuder en metod för att övervaka Azure-tjänster så att du kan konfigurera villkor för över data. Aviseringar tillhandahåller även meddelanden när en varningsvillkor matchar övervakningsdata.
 
-### <a name="log-analytics"></a>Log Analytics
-[Log Analytics](/azure/operations-management-suite/operations-management-suite-overview) är en samling hanteringstjänster.
+### <a name="azure-monitor-logs"></a>Azure Monitor-loggar
+[Azure Monitor-loggar](/azure/operations-management-suite/operations-management-suite-overview) är en samling hanteringstjänster.
 
 -   Arbetsytan har aktiverats för Security Center
 

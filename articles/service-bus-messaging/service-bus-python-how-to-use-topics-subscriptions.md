@@ -14,12 +14,12 @@ ms.devlang: python
 ms.topic: article
 ms.date: 09/20/2018
 ms.author: aschhab
-ms.openlocfilehash: 4726143559a91c1b8b911d8538efa32c6bf19c2e
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: 476c51d1835a1be0178faf28e6dd8a3c95371929
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56587590"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57240974"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-python"></a>Hur du använder Service Bus-ämnen och prenumerationer med Python
 
@@ -39,7 +39,7 @@ I den här artikeln beskrivs hur du använder Service Bus-ämnen och -prenumerat
 Den **ServiceBusService** objekt kan du arbeta med ämnen. Lägg till följande kod i den övre delen av alla Python-fil som du vill komma åt Service Bus via programmering:
 
 ```python
-from azure.servicebus import ServiceBusService, Message, Topic, Rule, DEFAULT_RULE_NAME
+from azure.servicebus.control_client import ServiceBusService, Message, Topic, Rule, DEFAULT_RULE_NAME
 ```
 
 Följande kod skapar en **ServiceBusService** objekt. Ersätt `mynamespace`, `sharedaccesskeyname`, och `sharedaccesskey` med namnområdet faktiska signatur för delad åtkomst (SAS) nyckelvärdet namn och nyckel.

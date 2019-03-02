@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: c71822f50879404ba943ef6e703364a09a80fbf3
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: e5c7d019a34736cfbc26e245dc54a93374aada9c
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56310951"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57242436"
 ---
 # <a name="azure-monitor-metrics-explorer"></a>Azure Monitor metrics explorer
 
@@ -76,16 +76,16 @@ Du kan använda filter på diagram som visar mått med dimensioner. Till exempel
 
 5. Du kan upprepa steg 1 – 4 använda flera filter i samma diagram.
 
-## <a name="segment-a-chart"></a>Segmentera ett diagram
+## <a name="apply-splitting-to-a-chart"></a>Tillämpa delar upp till ett diagram
 
 Du kan dela ett mått med dimensionen att visualisera hur olika segment av mått jämför mot varandra och identifiera öar segmenten i en dimension. 
 
-### <a name="to-segment-a-chart"></a>Ett diagram-segmentet
+### <a name="to-apply-splitting"></a>Att tillämpa dela
 
 1. Klicka på **gäller dela** ovanför diagrammet.
  
    > [!NOTE]
-   > Du kan ha flera filter men bara en dela/segmentering värdet på ett enkelt diagram.
+   > Dela kan inte användas med diagram som har flera mått. Du kan också ha flera filter men endast en delande dimension som tillämpas på ett enkelt diagram.
 
 2. Välj en dimension som du vill segmentera diagrammet:
 

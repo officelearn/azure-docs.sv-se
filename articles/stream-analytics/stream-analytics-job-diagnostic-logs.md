@@ -9,16 +9,16 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/19/2019
 ms.custom: seodec18
-ms.openlocfilehash: 34f994bfca8bdeaffde6732572f47aeaa86b2ac5
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: cc62a6b9f03bdd6dc8671a6cf96113a2234fc092
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54818939"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57247162"
 ---
 # <a name="troubleshoot-azure-stream-analytics-by-using-diagnostics-logs"></a>Felsöka Azure Stream Analytics med hjälp av diagnostikloggar
 
-Ibland kan slutar Azure Stream Analytics-jobb oväntat bearbetning. Det är viktigt att kunna felsöka den här typen av händelse. Fel kan orsakas av ett oväntat frågeresultat, anslutning till enheter eller ett oväntat tjänstavbrott. Diagnostikloggar i Stream Analytics kan du identifiera orsaken till problem när de inträffar och minska tiden för återställning.
+Ibland kan slutar Azure Stream Analytics-jobb oväntat bearbetning. Det är viktigt att kunna felsöka den här typen av händelse. Fel kan inträffa på grund av ett oväntat frågeresultat, enhetsanslutningar eller ett oväntat tjänstavbrott. Diagnostikloggar i Stream Analytics kan du identifiera orsaken till problem när de inträffar och minska tiden för återställning.
 
 ## <a name="log-types"></a>Loggtyper
 
@@ -29,7 +29,9 @@ Stream Analytics erbjuder två typer av loggar:
 * [Diagnostikloggar](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) (kan konfigureras), vilket ger bättre insyn i allt som händer med ett jobb. Diagnostik loggar start när jobbet skapas- och när jobbet har tagits bort. De täcker händelser när jobbet har uppdaterats och när den körs.
 
 > [!NOTE]
-> Du kan använda tjänster som Azure Storage, Azure Event Hubs och Azure Log Analytics för att analysera avvikande data. Du debiteras enligt priserna för dessa tjänster.
+> Du kan använda tjänster som Azure Storage, Azure Event Hubs och Azure Monitor loggar för att analysera avvikande data. Du debiteras enligt priserna för dessa tjänster.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="debugging-using-activity-logs"></a>Felsöka med hjälp av aktiviteten loggar
 
@@ -51,11 +53,11 @@ Aktivitetsloggar är aktiverade som standard och ge övergripande insikter om å
 
 5. Du kan vidta åtgärder utifrån felmeddelandet i JSON. I det här exemplet kontrollerar latitudvärdet är mellan-90 grader och 90 grader måste läggas till i frågan.
 
-6. Om ett felmeddelande i aktivitetsloggarna inte hjälpa dig att identifiera orsaken, aktivera diagnostikloggar och använda Log Analytics.
+6. Om ett felmeddelande i aktivitetsloggarna inte hjälpa dig att identifiera orsaken, aktivera diagnostikloggar och använda Azure Monitor-loggar.
 
-## <a name="send-diagnostics-to-log-analytics"></a>Skicka diagnostik till Log Analytics
+## <a name="send-diagnostics-to-azure-monitor-logs"></a>Skicka diagnostik till Azure Monitor-loggar
 
-Aktivera diagnostikloggar och skicka dem till Log Analytics rekommenderas starkt. Diagnostikloggar är **av** som standard. Aktivera diagnostikloggar genom att utföra följande steg:
+Aktivera diagnostikloggar och skicka dem till Azure Monitor-loggar rekommenderas starkt. Diagnostikloggar är **av** som standard. Aktivera diagnostikloggar genom att utföra följande steg:
 
 1.  Logga in på Azure Portal och gå till Stream Analytics-jobbet. Under **övervakning**väljer **diagnostikloggar**. Välj sedan **slå på diagnostik**.
 
@@ -67,7 +69,7 @@ Aktivera diagnostikloggar och skicka dem till Log Analytics rekommenderas starkt
 
 3. När ditt Stream Analytics-jobb startar dirigeras diagnostikloggar till Log Analytics-arbetsytan. Gå till Log Analytics-arbetsytan och välj **loggar** under den **Allmänt** avsnittet.
 
-   ![Log Analytics loggar under Allmänt avsnitt](./media/stream-analytics-job-diagnostic-logs/log-analytics-logs.png)
+   ![Azure Monitor-loggar under avsnittet Allmänt](./media/stream-analytics-job-diagnostic-logs/log-analytics-logs.png)
 
 4. Du kan [skriva en egen fråga](../azure-monitor/log-query/get-started-portal.md) om du vill söka efter termer, identifiera trender, analysera mönster och få insikter utifrån dina data. Exempel: du kan skriva en fråga att filtrera endast diagnostikloggar som har meddelandet ”det direktuppspelade jobbet misslyckades”. Diagnostikloggar från Azure Stream Analytics lagras i den **AzureDiagnostics** tabell.
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/22/2019
 ms.author: makromer
-ms.openlocfilehash: bc72fe2492d2eb38d60c6e96dcca35af5fb825ec
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: 17bcb9efbf28901f241d44231bc5c71ae20380b5
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56808711"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57241620"
 ---
 # <a name="execute-data-flow-activity-in-azure-data-factory"></a>Kör flödesaktivitet för data i Azure Data Factory
 Använda aktiviteten kör data flöde för att köra ditt ADF dataflöde i pipelinekörningar för felsökning (sandbox) och utlösta pipelinekörningar.
@@ -37,9 +37,7 @@ Använda aktiviteten kör data flöde för att köra ditt ADF dataflöde i pipel
       },
         "compute": {
           "computeType": "General",
-          "dataTransformationUnits": 4,
           "coreCount": 8,
-          "numberOfNodes": 0
       }
 }
 
@@ -49,6 +47,7 @@ Använda aktiviteten kör data flöde för att köra ditt ADF dataflöde i pipel
 
 * ```dataflow``` är namnet på entiteten data flödet som du vill köra
 * ```compute``` Beskriver Spark-körningsmiljö
+* ```coreCount``` är antalet kärnor som ska tilldelas den här aktivitetskörning av ditt dataflöde
 
 ![Köra dataflödet](media/data-flow/activity-data-flow.png "köra dataflödet")
 

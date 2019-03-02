@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: 58bad793ba44ae91d75324257f55648cf3207cd0
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: 90ec06b01b11b5cbe119f41483eaf794af4e991b
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52291461"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57243099"
 ---
 # <a name="monitoring-the-cluster"></a>Övervaka klustret
 
@@ -90,13 +90,13 @@ En lista över prestandaräknare som samlar in när du använder Service Fabric 
 Här följer två vanliga sätt som du kan konfigurera insamling av prestandadata för klustret:
 
 * **Med hjälp av en agent**  
-Detta är det bästa sättet för insamling av prestanda från en dator, eftersom agenter har vanligtvis en lista över möjliga prestandamått som kan samlas in och det är en relativt enkel process att välja de mått som du vill samla in eller ändra. Läs om Azure Monitor erbjuder Log Analytics i Service Fabric [Log Analytics-integrering](service-fabric-diagnostics-event-analysis-oms.md) och [ställa in Log Analytics-agenten](../log-analytics/log-analytics-windows-agent.md) vill veta mer om Log Analytics-agenten som är en sådana övervakningsagenten som kan hämta prestandadata för virtuella datorer klustret och distribueras behållare.
+Detta är det bästa sättet för insamling av prestanda från en dator, eftersom agenter har vanligtvis en lista över möjliga prestandamått som kan samlas in och det är en relativt enkel process att välja de mått som du vill samla in eller ändra. Läs om Azure Monitor erbjuder Azure Monitor-loggar i Service Fabric [Azure Monitor loggar integration](service-fabric-diagnostics-event-analysis-oms.md) och [ställa in Log Analytics-agenten](../log-analytics/log-analytics-windows-agent.md) vill veta mer om Log Analytics-agenten som är en sådan övervakningsagenten som kan hämta prestandadata för virtuella datorer klustret och distribueras behållare.
 
 * **Prestandaräknare som Azure Table Storage**  
 Du kan också skicka prestandamått till samma tabellagring som händelserna. Detta kräver ändra Azure Diagnostics-konfiguration och välj lämplig prestandaräknare från de virtuella datorerna i klustret och att avläsa docker statistik om du planerar att distribuera alla behållare. Läs om hur du konfigurerar [prestandaräknare i WAD](service-fabric-diagnostics-event-aggregation-wad.md) i Service Fabric att ställa in samling med prestandaräknare.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Läs mer om Service Fabric [Log Analytics-integrering](service-fabric-diagnostics-event-analysis-oms.md) att samla in diagnostik för klustret och skapa egna förfrågningar och aviseringar
+* Läs mer om Service Fabric [Azure Monitor loggar integration](service-fabric-diagnostics-event-analysis-oms.md) att samla in diagnostik för klustret och skapa egna förfrågningar och aviseringar
 * Lär dig mer om Service Fabric i inbyggda diagnostiska upplevelse, den [EventStore](service-fabric-diagnostics-eventstore.md)
 * Går igenom några [vanliga scenarier för diagnostiska](service-fabric-diagnostics-common-scenarios.md) i Service Fabric

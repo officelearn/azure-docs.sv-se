@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/08/2017
 ms.author: ryanwi
-ms.openlocfilehash: 12c5ba06eed37072d4c122be9e47a80ce94a5f1b
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 8beac9d4a84fdee4e8fa7689d60cb51c20acd671
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56872836"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57241841"
 ---
 # <a name="so-you-want-to-learn-about-service-fabric"></a>Så att du vill lära dig om Service Fabric?
 Azure Service Fabric är en distribuerad systemplattform som gör det enkelt att paketera, distribuera och hantera skalbara och tillförlitliga mikrotjänster.  Service Fabric har ett stort utsatt område för dock och det är mycket mer.  Den här artikeln innehåller en sammanfattning av Service Fabric och beskriver grundläggande begrepp, programmeringsmodeller, programmets hela livscykel, testning, kluster och övervakning av hälsotillstånd. Läs den [översikt](service-fabric-overview.md) och [vad är mikrotjänster?](service-fabric-overview-microservices.md) för en introduktion och hur Service Fabric kan användas för att skapa mikrotjänster. Den här artikeln innehåller inte en omfattande innehållslistan, men länka till översikt och komma igång artiklar för alla områden i Service Fabric. 
@@ -119,7 +119,7 @@ Ett [Service Fabric-kluster](service-fabric-deploy-anywhere.md) är en nätverks
 Service Fabric-kluster kan skapas på virtuella eller fysiska datorer som kör Windows Server eller Linux. Du kan distribuera och köra Service Fabric-program i alla miljöer där du har en uppsättning med Windows Server eller Linux-datorer som är sammankopplade: lokalt, på Microsoft Azure eller hos någon annan molnleverantör.
 
 ### <a name="clusters-on-azure"></a>Kluster i Azure
-Service Fabric-kluster som körs på Azure tillhandahåller integrering med andra Azure-funktioner och tjänster, vilket gör åtgärder och hantering av klustret enklare och mer tillförlitlig. Ett kluster är en Azure Resource Manager-resurs, så att du kan utforma kluster som andra resurser i Azure. Resource Manager tillhandahåller också enkel hantering av alla resurser som används av klustret som en enda enhet. Kluster på Azure är integrerade med Azure-diagnostik och Log Analytics. Klustertyper som noden är [VM-skalningsuppsättningar](/azure/virtual-machine-scale-sets/index), så funktion för automatisk skalning är inbyggd i.
+Service Fabric-kluster som körs på Azure tillhandahåller integrering med andra Azure-funktioner och tjänster, vilket gör åtgärder och hantering av klustret enklare och mer tillförlitlig. Ett kluster är en Azure Resource Manager-resurs, så att du kan utforma kluster som andra resurser i Azure. Resource Manager tillhandahåller också enkel hantering av alla resurser som används av klustret som en enda enhet. Kluster på Azure är integrerade med Azure-diagnostik och Azure Monitor-loggar. Klustertyper som noden är [VM-skalningsuppsättningar](/azure/virtual-machine-scale-sets/index), så funktion för automatisk skalning är inbyggd i.
 
 Du kan skapa ett kluster på Azure via den [Azure-portalen](service-fabric-cluster-creation-via-portal.md), från en [mall](service-fabric-cluster-creation-via-arm.md), eller från [Visual Studio](service-fabric-cluster-creation-via-visual-studio.md).
 

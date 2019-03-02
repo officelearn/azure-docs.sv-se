@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/15/2019
 ms.author: tomfitz
-ms.openlocfilehash: c343dfa3c0eac4aeabaa9244c6675b235fc95552
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 9914943cc5b3ef9e95f12c6890cb8e1646f7e335
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56311724"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57244247"
 ---
 # <a name="deploy-more-than-one-instance-of-a-resource-or-property-in-azure-resource-manager-templates"></a>Distribuera fler än en instans av en resurs eller egenskapen i Azure Resource Manager-mallar
 
@@ -272,6 +272,8 @@ Du kan använda resursen och egenskapen iteration tillsammans. Referens egenskap
 
 Du kan skapa flera instanser av en variabel med det `copy` -egenskapen i variables-avsnittet. Du skapar en matris med element som skapas från värdet i den `input` egenskapen. Du kan använda den `copy` egenskap i en variabel eller på den översta nivån av variables-avsnittet. När du använder `copyIndex` i en variabel iteration måste du ange namnet på iterationen.
 
+Ett enkelt exempel på hur du skapar en matris med strängvärden, se [matris mall](https://github.com/bmoore-msft/AzureRM-Samples/blob/master/copy-array/azuredeploy.json).
+
 I följande exempel visar flera olika sätt att skapa matrisvariabler med dynamiskt konstruerade element. Den visar hur du använder kopiera i en variabel för att skapa matriser av objekt och strängar. Den visar även hur du använder Kopiera på den översta nivån för att skapa matriser av objekt, strängar och heltal.
 
 ```json
@@ -344,6 +346,50 @@ I följande exempel visar flera olika sätt att skapa matrisvariabler med dynami
     }
   }
 }
+```
+
+Typen av variabel som skapas beror på indataobjektet. Till exempel variabeln med namnet **top-på flera nivåer – objekt-matris** i föregående exempel returnerar:
+
+```json
+[
+  {
+    "name": "myDataDisk1",
+    "diskSizeGB": "1",
+    "diskIndex": 0
+  },
+  {
+    "name": "myDataDisk2",
+    "diskSizeGB": "1",
+    "diskIndex": 1
+  },
+  {
+    "name": "myDataDisk3",
+    "diskSizeGB": "1",
+    "diskIndex": 2
+  },
+  {
+    "name": "myDataDisk4",
+    "diskSizeGB": "1",
+    "diskIndex": 3
+  },
+  {
+    "name": "myDataDisk5",
+    "diskSizeGB": "1",
+    "diskIndex": 4
+  }
+]
+```
+
+Och variabeln med namnet **top-nivå--Strängmatrisen** returnerar:
+
+```json
+[
+  "myDataDisk1",
+  "myDataDisk2",
+  "myDataDisk3",
+  "myDataDisk4",
+  "myDataDisk5"
+]
 ```
 
 ## <a name="depend-on-resources-in-a-loop"></a>Beroende resurser i en loop

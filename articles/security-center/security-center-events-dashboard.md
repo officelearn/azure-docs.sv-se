@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/05/2017
 ms.author: rkarlin
-ms.openlocfilehash: f1a3268fcacd4083b767a3fe89d6ab9b41b6cceb
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 2b9426043619887d99003677fd6e8488cb56cce2
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56114067"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57241076"
 ---
 # <a name="monitoring-and-processing-security-events-in-azure-security-center"></a>Övervakning och bearbetning av säkerhetshändelser i Azure Security Center
 Instrumentpanelen för händelser innehåller en översikt av antalet säkerhetshändelser som samlas in över tid och en lista över viktiga händelser som kan kräva din uppmärksamhet.  
@@ -28,6 +28,8 @@ Instrumentpanelen för händelser innehåller en översikt av antalet säkerhets
 > Om du vill använda den här funktionen, måste din arbetsyta köra Log Analytics version 2 och vara på Security Center Standard-nivån. Se de Säkerhetscenter [prissättningssidan](security-center-pricing.md) för mer information om Standard-nivån.
 >
 >
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="what-is-a-security-event"></a>Vad är en säkerhetshändelse?
 Security Center använder Microsoft Monitoring Agent att samla in olika säkerhetsrelaterade konfigurationer och händelser från dina virtuella datorer och lagrar dessa händelser i dina arbetsytor. Exempel på sådana data är: operativsystemloggar (Windows-händelseloggar), kör bearbetar och händelser från säkerhetslösningar som är integrerade med Security Center. Microsoft Monitoring Agent kopierar också kraschdumpfiler till dina arbetsytor.
@@ -70,7 +72,7 @@ Den **instrumentpanelen för händelser** innehåller en översikt över hur må
   ![Loggsökning][6]
 
 ## <a name="add-a-notable-event"></a>Lägg till en viktig händelse
-Security Center tillhandahåller out-of the box viktiga händelser. Du kan lägga till viktiga händelser baserat på din egen fråga med hjälp av den [Log Analytics-frågespråket](../log-analytics/log-analytics-search-reference.md). Vi återkommer till den **instrumentpanelen för händelser** att lägga till en viktig händelse.
+Security Center tillhandahåller out-of the box viktiga händelser. Du kan lägga till viktiga händelser baserat på din egen fråga med hjälp av den [Kusto-frågespråket](../log-analytics/log-analytics-search-reference.md). Vi återkommer till den **instrumentpanelen för händelser** att lägga till en viktig händelse.
 
 1. Välj **Lägg till viktig händelse**.
 
@@ -94,7 +96,7 @@ Om arbetsytan raden:
 - Har inte angetts - uppfyller din arbetsyta och att välja en arbetsyta tar dig till instrumentpanelen
 
 > [!NOTE]
-> Under **instrumentpanelen för händelser**, **händelser** kolumn visar antalet händelser i varje arbetsyta.  Den här kolumnen är tom i vissa arbetsytors eftersom Security Centers kostnadsfria nivån tillämpas på arbetsytan. Security Center samlar in händelser under den kostnadsfria nivån, men händelserna sparas inte i Log Analytics och är inte tillgängliga i instrumentpanelen.
+> Under **instrumentpanelen för händelser**, **händelser** kolumn visar antalet händelser i varje arbetsyta.  Den här kolumnen är tom i vissa arbetsytors eftersom Security Centers kostnadsfria nivån tillämpas på arbetsytan. Security Center samlar in händelser under den kostnadsfria nivån, men händelserna sparas inte i Azure Monitor-loggar och är inte tillgängliga i instrumentpanelen.
 >
 >
 
@@ -119,9 +121,9 @@ Om arbetsytan raden:
 ## <a name="next-steps"></a>Nästa steg
 I den här artikeln beskrivs hur du använder instrumentpanelen för Security Center-händelse. Mer information om hur instrumentpanelen fungerar och för att skriva din egen händelsefrågor, se:
 
-- [Vad är Log Analytics?](../log-analytics/log-analytics-overview.md) – Översikt på Log Analytics
-- [Förstå log söker i Log Analytics](../log-analytics/log-analytics-log-search-new.md) – beskriver hur du använder loggsökningar i Log Analytics och tillhandahåller begrepp som du bör känna till innan du skapar en loggsökning
-- [Log Analytics Sök referens](../log-analytics/log-analytics-search-reference.md) – Lär dig att skriva egna händelsefrågor med hjälp av frågespråket i loggen
+- [Vad är Azure Monitor-loggar?](../log-analytics/log-analytics-overview.md) – Översikt över Azure Monitor-loggar
+- [Förstå log söker i Kusto](../log-analytics/log-analytics-log-search-new.md) – beskriver hur du använder loggsökningar i Azure Monitor-loggar och tillhandahåller begrepp som du bör känna till innan du skapar en loggsökning
+- [Kusto-sökreferens](../log-analytics/log-analytics-search-reference.md) – Lär dig att skriva egna händelsefrågor med hjälp av frågespråket i loggen
 
 I följande avsnitt kan du lära dig mer om Security Center:
 

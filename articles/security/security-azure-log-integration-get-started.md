@@ -15,12 +15,12 @@ ums.workload: na
 ms.date: 01/14/2019
 ms.author: barclayn
 ms.custom: azlog
-ms.openlocfilehash: 93a4595ce0b36c8d0f447177bda69d2d8cab12c8
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: a8b792ee7731a9994ded76ef1614fc3966d033d0
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56117536"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57243813"
 ---
 # <a name="azure-log-integration-with-azure-diagnostics-logging-and-windows-event-forwarding"></a>Azure Log Integration med Azure Diagnostisk loggning och vidarebefordran av Windows-händelser
 
@@ -248,5 +248,5 @@ Mer information om Azure Log Integration finns i följande artiklar: Innan du f�
 * [Introduktion till Azure-Loggintegrering](security-azure-log-integration-overview.md). Den här artikeln ger en introduktion till Azure Log Integration, de viktigaste funktionerna och hur det fungerar.
 * [Partner konfigurationssteg](https://blogs.msdn.microsoft.com/azuresecurity/2016/08/23/azure-log-siem-configuration-steps/). Det här blogginlägget visar hur du konfigurerar Azure Log Integration att arbeta med partnerlösningar Splunk, HP ArcSight och IBM QRadar. Det beskriver våra aktuella vägledning om hur du konfigurerar SIEM-komponenter. Kontrollera med leverantören SIEM för ytterligare information.
 * [Vanliga frågor (och svar FAQ) om Azure Log Integration](security-azure-log-integration-faq.md). HÄR får du svar på vanliga frågor om Azure Log Integration.
-* [Integrera Azure Security Center-aviseringar med Azure Log Integration](../security-center/security-center-integrating-alerts-with-log-integration.md). Den här artikeln visar hur du synkroniserar Security Center-aviseringar och VM-säkerhetshändelser som samlas in av Azure Diagnostics och Azure-aktivitetsloggar loggar. Du kan synkronisera loggarna genom att använda din Azure Log Analytics eller SIEM-lösning.
+* [Integrera Azure Security Center-aviseringar med Azure Log Integration](../security-center/security-center-integrating-alerts-with-log-integration.md). Den här artikeln visar hur du synkroniserar Security Center-aviseringar och VM-säkerhetshändelser som samlas in av Azure Diagnostics och Azure-aktivitetsloggar loggar. Du kan synkronisera loggarna genom att använda din Azure Monitor-loggar eller SIEM-lösning.
 * [Nya funktioner för Azure Diagnostics och Azure-granskningsloggar](https://azure.microsoft.com/blog/new-features-for-azure-diagnostics-and-azure-audit-logs/). Det här blogginlägget ger en introduktion till Azure-granskningsloggar och andra funktioner som kan hjälpa dig att få insyn i driften av dina Azure-resurser.

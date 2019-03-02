@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 5b9d5d6252f22901d2b8ac5a61d924ce12cc7065
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 902fbde0eca8db9113dda51e5d912fa9d94644ee
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56004656"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57215174"
 ---
 # <a name="monitor-and-manage-performance-of-azure-sql-databases-and-pools-in-a-multi-tenant-saas-app"></a>Övervaka och hantera prestanda för Azure SQL-databaser och pooler i en SaaS-app för flera innehavare
 
@@ -57,7 +57,7 @@ Pooler och databaser i pooler, bör övervakas för att säkerställa att de hå
 
 [Azure-portalen](https://portal.azure.com) tillhandahåller inbyggd övervakning och avisering för de flesta resurser. För SQL Database, finns övervakning och avisering tillgängligt för databaser och pooler. Den här inbyggda övervakningen och aviseringen är resursspecifik, så det är praktiskt för små antal resurser, men är inte mindre praktisk när du arbetar med många resurser.
 
-För scenarion med stora volymer, där du arbetar med många resurser, [Log Analytics](saas-dbpertenant-log-analytics.md) kan användas. Det här är en separat Azure-tjänst som tillhandahåller analys för utgivna diagnostikloggar och telemetri som samlats in i en log analytics-arbetsyta. Log Analytics kan samla in telemetri från flera olika tjänster och användas för att fråga och ställa in aviseringar.
+För scenarion med stora volymer, där du arbetar med många resurser, [Azure Monitor loggar](saas-dbpertenant-log-analytics.md) kan användas. Det här är en separat Azure-tjänst som tillhandahåller analys för utgivna diagnostikloggar och telemetri som samlats in i Log Analytics-arbetsytan. Azure Monitor-loggar kan samla in telemetri från flera olika tjänster och användas för att fråga och ställa in aviseringar.
 
 ## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Hämta programskript Wingtip biljetter SaaS databas Per klient
 
@@ -247,4 +247,4 @@ I den här självstudiekursen får du lära du dig att:
 * Ytterligare [självstudier som bygger på programdistributionen Wingtip biljetter SaaS databas Per klient](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
 * [Elastiska SQL-pooler](sql-database-elastic-pool.md)
 * [Azure Automation](../automation/automation-intro.md)
-* [Log Analytics](saas-dbpertenant-log-analytics.md) - Guide för att konfigurera och använda Log Analytics
+* [Azure Monitor-loggar](saas-dbpertenant-log-analytics.md) - guide konfigurera och använda Azure Monitor-loggar självstudien

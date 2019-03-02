@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: af3cc229482021fe6d5e5c988bc98afe6f7f97ce
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 165617270bef58f7a92fab0adc75c916129ef317
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56114169"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57242708"
 ---
 # <a name="azure-security-center-data-security"></a>Datasäkerhet i Azure Security Center
 Azure Security Center hjälper kunder att förhindra, upptäcka och svara på hot genom att samla in och bearbeta säkerhetsrelaterade data, inklusive konfigurationsinformation, metadata, händelseloggar, kraschdumpfiler och annat. Microsoft följer strikta riktlinjer för efterlevnad och säkerhet – från kodning till driften av en tjänst.
@@ -76,7 +76,7 @@ Om du använder Azure Security Center Free, kan du inaktivera datainsamling frå
 Kunder kan använda Security Center-relaterade data från olika dataströmmar:
 
 * **Azure-aktivitet**: alla säkerhetsaviseringar, [just in time](https://docs.microsoft.com/azure/security-center/security-center-just-in-time)-begäranden som godkänts av Security Center och alla aviseringar som genereras av [adaptiva programkontroller](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application).
-* **Log Analytics**: alla säkerhetsaviseringar.
+* **Azure Monitor-loggar**: alla säkerhetsaviseringar.
 
 
 > [!NOTE]

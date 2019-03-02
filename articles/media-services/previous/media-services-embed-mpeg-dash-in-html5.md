@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 2c8e71a058b2c770741c38f07c6c440fea90f2b2
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: ab9bf868191238d933ae301b9a7df293842e8e36
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55998441"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57247060"
 ---
-# <a name="embedding-an-mpeg-dash-adaptive-streaming-video-in-an-html5-application-with-dashjs-legacy"></a>Bädda in en MPEG-DASH-anpassad direktuppspelad Video i ett HTML5-program med DASH.js (äldre)
+# <a name="embedding-an-mpeg-dash-adaptive-streaming-video-in-an-html5-application-with-dashjs"></a>Bädda in en MPEG-DASH-anpassad direktuppspelad Video i ett HTML5-program med DASH.js  
 
 ## <a name="overview"></a>Översikt
 MPEG-DASH är en ISO-standarden för anpassad strömning av video innehållet, vilket ger betydande fördelar för utvecklare som vill leverera högkvalitativa, anpassningsbar videoströmning utdata. Med MPEG-DASH, videoströmmen anpassar sig automatiskt till en lägre definition när nätverket blir överbelastad. Detta minskar risken för användaren ser ett ”pausat” video medan spelaren hämtar nästa några sekunder för att spela upp (även kallat buffring). Som överbelastning på nätverket minskar videospelaren i sin tur att återgå till en dataström med högre kvalitet. Den här möjligheten att anpassa den bandbredd som krävs resulterar också i en snabbare starttid för video. Som innebär att några sekunder kan spelas upp i ett fast att hämta lägre kvalitet segment och sedan steget upp till en högre kvalitet när tillräckligt med innehåll har buffrats.

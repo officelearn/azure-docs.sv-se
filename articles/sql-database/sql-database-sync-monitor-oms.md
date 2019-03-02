@@ -1,6 +1,6 @@
 ---
-title: Övervaka Azure SQL Data Sync med Log Analytics | Microsoft Docs
-description: Lär dig hur du övervakar Azure SQL Data Sync med Log Analytics
+title: Övervaka Azure SQL Data Sync med Azure Monitor-loggar | Microsoft Docs
+description: Lär dig att övervaka Azure SQL Data Sync med hjälp av Azure Monitor-loggar
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
@@ -12,16 +12,18 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.date: 12/20/2018
-ms.openlocfilehash: 75bbae000fa0fbbf783b3df43bd51ed2f8a73e96
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: a1f2b0e3095718caad7c35a20bf7e91c88568364
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55561424"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57213474"
 ---
-# <a name="monitor-sql-data-sync-with-log-analytics"></a>Övervaka SQL Data Sync med Log Analytics 
+# <a name="monitor-sql-data-sync-with-azure-monitor-logs"></a>Övervaka SQL Data Sync med Azure Monitor-loggar 
 
 För att kontrollera aktivitetsloggen SQL Data Sync och identifiera fel och varningar, var du tidigare tvungen att kontrollera SQL Data Sync manuellt i Azure portal eller Använd PowerShell eller REST API. Följ stegen i den här artikeln för att konfigurera en anpassad lösning som förbättrar datasynkronisering övervakningsupplevelse. Du kan anpassa den här lösningen för att passa ditt scenario.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 En översikt över SQL Data Sync finns i [Synkronisera data i flera moln och lokala databaser med Azure SQL Data Sync](sql-database-sync-data.md).
 
@@ -30,27 +32,27 @@ En översikt över SQL Data Sync finns i [Synkronisera data i flera moln och lok
 
 ## <a name="monitoring-dashboard-for-all-your-sync-groups"></a>Övervakningsinstrumentpanel för alla synkroniseringsgrupper 
 
-Du behöver inte längre att söka igenom loggarna för varje Synkroniseringsgrupp individuellt för att leta efter problem. Du kan övervaka alla synkroniseringsgrupper från någon av dina prenumerationer på en plats med hjälp av en anpassad Log Analytics-vy. Den här vyn hämtar information som är viktiga för SQL Data Sync-kunder.
+Du behöver inte längre att söka igenom loggarna för varje Synkroniseringsgrupp individuellt för att leta efter problem. Du kan övervaka alla synkroniseringsgrupper från någon av dina prenumerationer på en plats med hjälp av en anpassad log analytics-vy. Den här vyn hämtar information som är viktiga för SQL Data Sync-kunder.
 
 ![Instrumentpanelen för data Sync](media/sql-database-sync-monitor-oms/sync-monitoring-dashboard.png)
 
 ## <a name="automated-email-notifications"></a>Automatiserade e-postaviseringar
 
-Du behöver inte längre Kontrollera loggen manuellt i Azure portal eller via PowerShell eller REST API. Med [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview), du kan skapa aviseringar som går direkt till e-postadresserna för de personer som behöver se dem när ett fel uppstår.
+Du behöver inte längre Kontrollera loggen manuellt i Azure portal eller via PowerShell eller REST API. Med [Azure Monitor loggar](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview), du kan skapa aviseringar som går direkt till e-postadresserna för de personer som behöver se dem när ett fel uppstår.
 
 ![Data Sync e-postaviseringar](media/sql-database-sync-monitor-oms/sync-email-notifications.png)
 
 ## <a name="how-do-you-set-up-these-monitoring-features"></a>Hur ställer du in dessa övervakningsfunktioner? 
 
-Implementera en anpassad logganalys övervakningslösning för SQL Data Sync på mindre än en timme genom att göra följande:
+Implementera en anpassad Azure Monitor loggar övervakningslösning för SQL Data Sync i mindre än en timme genom att göra följande:
 
 Du måste konfigurera tre komponenter:
 
--   En PowerShell-runbook för att mata in loggdata för SQL Data Sync till Log Analytics.
+-   En PowerShell-runbook för att mata in loggdata för SQL Data Sync till Azure Monitor-loggar.
 
--   En avisering i Log Analytics för e-postmeddelanden.
+-   En avisering i log analytics för e-postmeddelanden.
 
--   En Log Analytics-vy för övervakning.
+-   En log analytics vy för övervakning.
 
 ### <a name="samples-to-download"></a>Exempel för att ladda ned
 
@@ -66,11 +68,11 @@ Kontrollera att du har konfigurerat följande saker:
 
 -   Ett Azure Automation-konto
 
--   Log Analytics Workspace
+-   Log Analytics-arbetsyta
 
 ## <a name="powershell-runbook-to-get-sql-data-sync-log"></a>PowerShell-Runbook att hämta SQL Data Sync-logg 
 
-Använd en PowerShell-runbook i Azure Automation för att hämta loggdata för SQL Data Sync och skicka den till Log Analytics. Ett exempelskript ingår. Du måste ha ett Azure Automation-konto som ett krav. Sedan måste du skapa en runbook och schemalägga den så att du kör. 
+Använd en PowerShell-runbook i Azure Automation för att hämta loggdata för SQL Data Sync och skicka den till Azure Monitor-loggar. Ett exempelskript ingår. Du måste ha ett Azure Automation-konto som ett krav. Sedan måste du skapa en runbook och schemalägga den så att du kör. 
 
 ### <a name="create-a-runbook"></a>Skapa en runbook
 
@@ -100,7 +102,7 @@ Mer information om hur du skapar en runbook finns i [min första PowerShell-runb
 
     2.  Synkroniseringsgruppen information.
 
-    3.  Logga Analytics information. Hitta denna information i Azure Portal | Inställningar | Anslutna källor. Mer information om hur du skickar data till Log Analytics finns i [skicka data till Log Analytics med HTTP Data Collector API (förhandsversion)](../azure-monitor/platform/data-collector-api.md).
+    3.  Azure Monitor loggar information. Hitta denna information i Azure Portal | Inställningar | Anslutna källor. Mer information om att skicka data till Azure Monitor-loggar finns i [skicka data till Azure Monitor-loggar med HTTP Data Collector API (förhandsversion)](../azure-monitor/platform/data-collector-api.md).
 
 11. Kör en runbook i rutan. Kontrollera att det lyckades.
 
@@ -120,7 +122,7 @@ Så här schemalägger runbook:
 
 4.  Välj **skapa ett nytt schema.**
 
-5.  Ange **upprepning** återkommande och ange intervallet du vill. Använd samma intervall här i skriptet och i Log Analytics.
+5.  Ange **upprepning** återkommande och ange intervallet du vill. Använd samma intervall här i skriptet och i Azure Monitor-loggar.
 
 6.  Välj **Skapa**.
 
@@ -130,7 +132,7 @@ Så här schemalägger runbook:
 
 ## <a name="create-a-log-analytics-reader-alert-for-email-notifications"></a>Skapa en avisering i Log Analytics Reader för e-postaviseringar
 
-Om du vill skapa en avisering som använder Log Analytics, gör du följande. Du måste ha Log Analytics som är kopplad till en Log Analytics-arbetsyta som ett krav.
+Gör du följande för att skapa en avisering som använder Azure Monitor-loggar. Du måste ha Azure Monitor-loggar som är kopplad till en Log Analytics-arbetsyta som ett krav.
 
 1.  I Azure-portalen väljer du **Loggsökning**.
 
@@ -152,7 +154,7 @@ Om du vill skapa en avisering som använder Log Analytics, gör du följande. Du
 
 ## <a name="create-a-log-analytics-view-for-monitoring"></a>Skapa en Log Analytics-vy för övervakning
 
-Det här steget skapar en Log Analytics-vy för att visuellt övervaka alla angivna synkroniseringsgrupper. Vyn innehåller flera komponenter:
+Det här steget skapar en log analytics-vy för att visuellt övervaka alla angivna synkroniseringsgrupper. Vyn innehåller flera komponenter:
 
 -   En översiktsikon som visar hur många fel, lyckade och varningar har alla synkroniseringsgrupper.
 
@@ -160,9 +162,9 @@ Det här steget skapar en Log Analytics-vy för att visuellt övervaka alla angi
 
 -   En panel för varje Synkroniseringsgrupp som visar antalet fel, har slutförts, och varningar och de senaste felmeddelandena.
 
-Om du vill konfigurera Log Analytics-vy, gör du följande:
+Om du vill konfigurera log analytics-vy, gör du följande:
 
-1.  På sidan Log Analytics, väljer du plus till vänster och öppna den **Vydesigner**.
+1.  På startsidan för log analytics väljer du plus till vänster och öppna den **Vydesigner**.
 
 2.  Välj **Import** i det översta fältet i view Designer. Välj sedan exempelfilen ”DataSyncLogOMSView”.
 
@@ -186,7 +188,7 @@ Den här lösningen är kostnadsfri i de flesta fall.
 
 **Azure Automation:** Det kan finnas en kostnader som uppstår med Azure Automation-kontot, beroende på din användning. De första 500 minuterna uppgiftskörtid per månad är kostnadsfria. I de flesta fall förväntas i den här lösningen använder mindre än 500 minuter per månad. Om du vill undvika kostnader genom att schemalägga att runbook körs vid ett intervall av två timmar eller mer. Mer information finns i [Automation-prissättning](https://azure.microsoft.com/pricing/details/automation/).
 
-**Log Analytics:** Det kan finnas en kostnad som hör till Log Analytics beroende på din användning. Den kostnadsfria nivån omfattar 500 MB inmatade data per dag. I de flesta fall förväntas i den här lösningen mata in mindre än 500 MB per dag. Använd endast fel filtrering ingår i runbook för att minska användningen. Om du använder mer än 500 MB per dag, uppgradera till den kostnadsfria nivån för att undvika risken för analytics stoppas när begränsningen har uppnåtts. Mer information finns i [priserna för Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/).
+**Azure Monitor-loggar:** Det kan finnas en kostnad som är associerade med Azure Monitor-loggar beroende på din användning. Den kostnadsfria nivån omfattar 500 MB inmatade data per dag. I de flesta fall förväntas i den här lösningen mata in mindre än 500 MB per dag. Använd endast fel filtrering ingår i runbook för att minska användningen. Om du använder mer än 500 MB per dag, uppgradera till den kostnadsfria nivån för att undvika risken för analytics stoppas när begränsningen har uppnåtts. Mer information finns i [Azure Monitor loggar priser](https://azure.microsoft.com/pricing/details/log-analytics/).
 
 ## <a name="code-samples"></a>Kodexempel
 

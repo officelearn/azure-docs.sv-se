@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 1d6f43b23bddf2d1ff7a2a41a11b4a2c8623d372
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: c8cba4006d1112ccc1529fc1769e046fe45468a7
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55768632"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57214188"
 ---
 # <a name="create-a-telemetry-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Skapa en regel för telemetri och konfigurera meddelanden med Azure IoT Central programmet
 
@@ -27,14 +27,9 @@ Enheter kan använda telemetri mätning skicka numeriska data från enheten. En 
 
 Om du vill skapa en regel för telemetri måste mallen enheten ha minst en telemetri-mätning som definierats. Det här exemplet används en kylda Varuautomat-enhet som skickar telemetri om temperatur och fuktighet. Regeln övervakar temperaturen som rapporteras av enheten och skickar ett e-postmeddelande när den går över 80 grader.
 
-1. Använd Device Explorer och navigera till enheten mallen som du lägger till regeln för.
+1. Med hjälp av den **enheten mallar** sidan, gå till enheten mallen som du lägger till regeln för.
 
-1. Klicka på en befintlig enhet under den valda mallen. 
-
-    >[!TIP]
-    >Om mallen inte har några enheter och sedan lägga till en ny enhet först.
-
-1. Om du inte skapat några regler ännu, visas följande skärm:
+1. Om du inte skapat några regler ännu kan se du följande skärm:
 
     ![Inga regler ännu](media/howto-create-telemetry-rules-experimental/Rules_Landing_Page.png)
 
@@ -60,11 +55,11 @@ Villkoret definierar de kriterier som övervakas av regeln.
 
 1. Välj den telemetri som du vill övervaka den **mätning** listrutan.
 
-   ![Tillstånd](media/howto-create-telemetry-rules-experimental/Aggregate_Condition_Filled_Out.png)
-
 1. Välj sedan **aggregering**, **operatorn**, och ange en **tröskelvärdet** värde.
-    - Aggregering är valfritt. Utan aggregering, regeln utlöses för varje datapunkt för telemetri som uppfyller villkoret. Exempel: om regeln är konfigurerad för att utlösa när temperaturen är över 80 och sedan regeln utlöser nästan direkt när enheten rapporterar temperatur > 80.
+    - Aggregering är valfritt. Utan aggregering, regeln utlöses för varje datapunkt för telemetri som uppfyller villkoret. Till exempel om regeln är konfigurerad att utlösaren när temperaturen är över 80 sedan regeln utlöses nästan omedelbart när enheten rapporterar temperatur > 80.
     - Om en mängdfunktion som genomsnitt, Min, Max, Count väljs sedan användaren måste ange en **sammanställd tidsfönster** över som villkoret måste utvärderas. Till exempel om du ställer in söker perioden som ”5 minuter” och regeln efter medeltemperaturen ovan 80, regeln utlöses när medeltemperaturen är över 80 för minst 5 minuter. Utvärderingsfrekvensen regeln är samma som den **sammanställd tidsfönster**, vilket innebär att, i det här exemplet regeln utvärderas var femte minut.
+
+    ![Tillstånd](media/howto-create-telemetry-rules-experimental/Aggregate_Condition_Filled_Out.png)
 
     >[!NOTE]
     >Mer än en telemetri-mätning kan läggas till under **villkor**. När flera villkor har angetts måste alla villkor vara uppfyllda för regeln för att utlösa. Varje villkor får sällskap av en 'Och'-sats implicit. När du använder aggregering, måste varje mätning aggregeras.

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2ead303257b0b5a4b56803abe57a0101b8f031c0
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: 9623cf727998348c313b7184c29e968afd33c6cc
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56589117"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57214154"
 ---
 # <a name="enable-combined-security-information-registration-preview"></a>Aktivera kombineras security information registrering (förhandsversion)
 
@@ -38,6 +38,9 @@ Utför följande steg för att aktivera registreringen av kombinerade:
 3. Under **användare kan använda förhandsversionsfunktioner för att registrera och hantera säkerhetsinformation – uppdatera**, väljer att aktivera en **valda** grupp av användare eller **alla** användare.
 
 ![Aktivera kombinerade security info förhandsversion upplevelsen för alla användare i Azure AD-portalen](media/howto-registration-mfa-sspr-combined/combined-security-info-enable.png)
+
+> [!IMPORTANT]
+> Från och med mars 2019 telefonsamtal alternativen kommer inte att MFA och SSPR-användare i kostnadsfria/utvärderingsversion Azure AD-klienter. SMS-meddelanden som inte påverkas av den här ändringen. Telefonsamtal fortsätter att vara tillgängliga för användare i betalda Azure AD-klienter. Den här ändringen påverkar endast kostnadsfria/utvärderingsversion Azure AD-klienter.
 
 > [!NOTE]
 > När du aktiverar kombinerade registrerings användare registrera eller bekräfta sina telefonnummer eller mobilappar via den nya upplevelsen kan använda dem för MFA och SSPR, om dessa metoder är aktiverade i MFA och SSPR-principer. Om du inaktiverar sedan den här upplevelsen kan användare gå till föregående SSPR-registrering sidan på [https:/aka.ms/ssprsetup](https:/aka.ms/ssprsetup) kommer att behöva utföra multifaktorautentisering innan de kan komma åt sidan.

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: ellacroi
-ms.openlocfilehash: 97a033e9e539bddb600a450d358b81e3d31c1e1e
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: e81f2b42e725e50473c09622a486586fb6721ad5
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56731369"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57214851"
 ---
 # <a name="containers-offer-publishing-guide"></a>Behållare erbjuder publicera Guide
 
@@ -42,7 +42,6 @@ Microsoft stöder för närvarande kostnadsfria och bring-your-own-license (BYOL
 | Avbildning som byggts från Dockerfile | Behållaravbildningar måste baseras på Docker-avbildning-specifikationen och måste skapas från en Dockerfile.<ul> <li>Mer information om hur du skapar docker-avbildningar finns i avsnittet användning finns på [docs.docker.com/engine/reference/builder/#usage](https://docs.docker.com/engine/reference/builder/#usage).</li> </ul> |  
 | Värd för i ACR | Behållaravbildningar måste finnas i en lagringsplats i Azure Container Registry (ACR).<ul> <li>Mer information om hur du arbetar med ACR finns i snabbstarten: Skapa ett behållarregister med hjälp av Azure portal sidan finns på [docs.microsoft.com/azure/container-registry/container-registry-get-started-portal](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-portal).</li> </ul> |  
 | Bild-märkning | Behållaravbildningar måste innehålla minst 1 taggen (högsta taggar: 16).<ul> <li>Mer information om en bild-märkning finns på sidan docker-tagg finns på [docs.docker.com/engine/reference/commandline/tag](https://docs.docker.com/engine/reference/commandline/tag).</li> </ul> |  
-
 
 ## <a name="next-steps"></a>Nästa steg
 

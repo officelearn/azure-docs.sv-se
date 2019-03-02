@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 74f6d5989d86cc92371b060caf164f895b75511f
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 9d8b425ff73672ce8989e235c4a2c130c763716c
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54263636"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57213559"
 ---
 # <a name="azure-saas-application-offer"></a>Azure SaaS-program-erbjudande
 
@@ -36,6 +36,9 @@ Här är några av fördelarna med att visa en lista över dina program på en M
 - Utöka försäljningsteamet: nå företag över hela världen och få en försäljningskanal som engagerar användare, genererar leads och initierar samtal med nya kunder branscher.
 
 - Få användbara insikter: Vi kommer att dela insikter om hur appen fungerar på AppSource, vad som fungerar bra och hur att ytterligare förbättra din försäljning procedurer.
+ 
+>[!Note]
+>Cloud Solution Providers (CSP) partner channel anmälan är nu tillgänglig.  Se [Cloud Solution Providers](../../cloud-solution-providers.md) mer information om marknadsföring av ditt erbjudande via Microsoft CSP partner kanaler.
 
 ## <a name="publishing-process-workflow"></a>Publicering av processen 
 

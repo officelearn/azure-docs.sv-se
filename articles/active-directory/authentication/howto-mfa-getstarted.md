@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cbfade56ff12aa719927d496606a6ce4b4fe5a38
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 07e98d5a93b8576c06e9be8274a974b1b574da4b
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56167158"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57217758"
 ---
 # <a name="deploy-cloud-based-azure-multi-factor-authentication"></a>Distribuera molnbaserad Azure Multi-Factor Authentication
 
@@ -42,6 +42,9 @@ Innan du börjar bör du kontrollera att du har följande krav:
 ## <a name="choose-authentication-methods"></a>Välj autentiseringsmetoder
 
 Aktivera minst en autentiseringsmetod för användarna utifrån organisationens krav. Vi hitta att Microsoft Authenticator-appen när aktiverad för användare ger den bästa användarupplevelsen. Om du vill förstå vilka metoder är tillgängliga och hur du konfigurerar dem finns i artikeln [vad är autentiseringsmetoder](concept-authentication-methods.md).
+
+> [!IMPORTANT]
+> Från och med mars 2019 telefonsamtal alternativen kommer inte att MFA och SSPR-användare i kostnadsfria/utvärderingsversion Azure AD-klienter. SMS-meddelanden som inte påverkas av den här ändringen. Telefonsamtal fortsätter att vara tillgängliga för användare i betalda Azure AD-klienter. Den här ändringen påverkar endast kostnadsfria/utvärderingsversion Azure AD-klienter.
 
 ## <a name="get-users-to-enroll"></a>Få användarna att registrera
 

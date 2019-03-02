@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: a951e60b417167f2e1566efb689ea0f2d4e65374
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: f3764e5f4a5d6bbc3d6988321a2d7648012825ae
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56111432"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57242249"
 ---
 # <a name="remediate-security-configurations-in-azure-security-center"></a>Åtgärda säkerhetskonfigurationer i Azure Security Center
 Azure Security Center analyserar dagligen operativsystemet (OS) på dina virtuella datorer (VM) och en konfiguration som kan göra de virtuella datorerna och datorer som är mer sårbara för angrepp. Security Center rekommenderar att du löser säkerhetsproblem när Operativsystemets konfiguration matchar inte de rekommendera säkerhetsreglerna för konfiguration och den rekommenderar konfigurationsändringar för att åtgärda dessa sårbarheter.
@@ -84,7 +84,7 @@ Det här exemplet beskriver ”åtgärda säkerhetskonfigurationer” rekommenda
    ![Listade arbetsytor][4]
 
 5. Välj en arbetsyta.  
-  En sökfråga för Log Analytics öppnas filtrerade till arbetsytan med säkerhet konfigurationer matchningsfel.
+  En sökfråga för Azure Monitor-loggar öppnas filtrerade till arbetsytan med säkerhet konfigurationer matchningsfel.
 
    ![Arbetsyta med OS-säkerhetsproblem][5]
 

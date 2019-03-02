@@ -1,6 +1,6 @@
 ---
 title: Definitioner av försäljning Insights | Microsoft Docs
-description: Innehåller definitioner för många av de termer som du hittar i försäljning Insights...
+description: Innehåller definitioner för många av de termer som du hittar i försäljning insikter
 services: Azure, Marketplace, Cloud Partner Portal,
 documentationcenter: ''
 author: v-miclar
@@ -14,118 +14,101 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: e97f963c7ca2362130ede5fe44b637a9a7ef57e2
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: cc90ee0506203433a61fe68d97055ea32f061f11
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48811429"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57240651"
 ---
 <a name="seller-insights-definitions"></a>Säljaren insikter definitioner
 =======================
 
 Följande tabell innehåller definitioner för många av de termer som används i försäljning insikter.
 
-|  **Termen**                                        |  **Definition**                                                                                                                              |
+|  **Termen**                 |  **Definition**                                                                                                                              |
 |  --------------------------------------------    |  ---------------------------------------------------------------------------------------------------------------------------------           |
-| Azure licenstyp                               | Typ av licensavtal som används av kunder för att köpa Azure. Även känt som kanalen.                                                  |
-| Azure licenstyp: Leverantörer av Molnlösningar      | Slutkunden procures Azure och ditt Marketplace-erbjudande via sin Molnlösningsleverantör som fungerar som en återförsäljare.                 |
-| Azure licenstyp: Enterprise                   | Slutkunden procures Azure och din Marketplace-erbjudande via ett Enterprise Agreement, signerade direkt med Microsoft.                  |
-| Azure licenstyp: Enterprise via återförsäljare  | Slutkunden procures Azure och ditt Marketplace-erbjudande genom en återförsäljare som underlättar Enterprise-avtal med Microsoft.     |
-| Azure licenstyp: betala                | Slutkunden procures Azure och din Marketplace-erbjudande via en betala-avtal som undertecknas direkt med Microsoft.                |
-| Azure-prenumeration GUID                          | Globala unika identifierare (GUID) för Azure-prenumerationen som kunden har köpt din Marketplace-erbjudandet.                     |
-| Beloppet (kopia)                               | Hur mycket debiteras till kunden, som kundens faktureringsvalutan (kopia).                                                                 |
-| Beloppet (PC)                               | Hur mycket debiteras för kunden, i den *Payout valuta (PC)*.                                                                      |
-| Belastningsdatum                                      | Det datum som kundens kostnad beräknades vanligtvis direkt efter användningsperiod.                                             |
-| Instansnamn för molnet                              | Microsoft Cloud som en VM-distribution inträffade. (Azure Government – Microsoft Cloud-instans för amerikanska myndigheter; Azure Kina – Microsoft Cloud-instansen i Kina. Azure Tyskland - instansen av Microsoft Cloud i Tyskland Azure Global – Microsoft Cloud-instanser för alla andra globala platser)                                                          |
-| Anpassade mäta användningen                               | Uppmätt enheter som används för anpassade mätaren erbjudandena.                                                                                        |
-| Kund                                         | Alla Azure-kund eller slutanvändare som skaffar, använder eller på annat sätt visar ett erbjudande som publicerats via Marketplace. Kunder kan identifieras av unika *GUID för Azure-prenumeration*.                                                                                                                                                                        |
-| Kunden stad                                    | Ortnamn som tillhandahålls av slutkunden.                                                                                                  |
-| Kunden Kommunikationsspråk                  | Det språk som föredras av kunden för kommunikation.                                                                                    |
-| Kundföretaget namn                            | Företagsnamnet som tillhandahålls av slutkunden.                                                                                               |
-| Kundens land                                 | Landsnamn som tillhandahålls av slutkunden.                                                                                               |
-| Kundens valuta (kopia)                           | Den valuta som kunden föredrar för priser och fakturering.                                                                              |
-| Kunden e-post                                   | E-postadress som tillhandahålls av slutkunden.                                                                                              |
-| Kundens förnamn                              | Kundens förnamn.                                                                                                              |
-| Senaste kundnamn                               | Efternamnet på kunden.                                                                                                               |
-| Betalning kundtyp                            | Typ av informationen om betalningsalternativet som används av kunden.                                                                                         |
-| Kunden postnummer                             | Postnummer som tillhandahålls av slutkunden.                                                                                                |
-| Kund-tillstånd                                   | Tillståndet som tillhandahålls av slutkunden.                                                                                                      |
-| Inköpsdatum                                    | Det första datumet i den Azure-prenumerationen köpt ett erbjudande som publicerats av dig.                                                                  |
-| Datum förlorat                                        | Det datum som Azure-prenumerationen har avbrutits alla erbjudanden som publicerats av dig.                                                                     |
-| Beräknad avgift om utökad (kopia)                   | Beräknade utökad kostnad för antalet enheter för användning för en viss SKU: N (i kundens valuta). Det här värdet är kanske inte exakt på grund av avrundning eller trunkering av fel.                                                                                                                                                                                           |
-| Beräknad avgift om utökad (PC)                   | Beräknad utökade kostnaden för antalet enheter för användning för en viss SKU som baseras på valutaväxling konvertering på datum-användning beräknas (i utgivarens valuta). Det här värdet är kanske inte exakt på grund av avrundning eller trunkering av fel.                                                                                                                |
-| Beräknad Payout (PC)                            | Beräknad betalningen för antalet enheter för användning för en viss SKU utifrån valutaväxling konvertering datumet användningen beräknas (i utgivarens valuta). Det här värdet är kanske inte exakt på grund av avrundning eller trunkering av fel.                                                                                                                |
-| Beräknat pris (PC)                             | Beräknat pris för en enhet för användning för en viss SKU som baseras på valutaväxling konvertering på datum-användning beräknas (i utgivarens valuta). Det här värdet är kanske inte exakt på grund av avrundning eller trunkering av fel.                                                                                                                                            |
-| Sista samling Status                          | För en viss kostnad, den senaste statusen för livscykel för fakturering och samling. Detta kan vara: *insamling pågår*, *som samlas in*, *betalas ut*, *återbetala,* eller *skriva ut*.                                                                                                                                                                                      |
-| Sista samling Status: samlas in               | Avgiften samlades in.                                                                                                                    |
-| Sista samling Status: Insamling pågår  | Tillägget har inte samlats från kunden ännu. Microsoft Azure-fakturering är fortfarande fakturering eller samla in från kunden.             |
-| Sista samling Status: återbetala                  | Tillägget har återbetalas (hela avgiften eller en partiell mängd).                                                                      |
-| Sista samling Status: Skriva               | Tillägget har skrivits som detta.                                                                                                      |
-| IsNew kund                                   | Kunden har distribuerat den här *SKU* för första gången i per kalendermånad.                                                               |
-| Marknad                                           | Landsnamn som tillhandahålls av slutkunden.                                                                                               |
-| Marketplace-licenstyp                         | Fakturera i Marketplace-erbjudandet.                                                                                                 |
-| Marketplace-licenstyp: Faktureras via Azure   | Microsoft är ditt ombud för det här erbjudandet i Marketplace och fakturerar kunder för din räkning. (PAYG kreditkort eller faktura Enterprise)       |
-| Marketplace-licenstyp: Använd din egen licens | Den virtuella datorn kräver en licensnyckel som tillhandahålls av kunden för att distribuera. Microsoft debiterar inte kunder för deras användning av den här Marketplace-erbjudanden. |
-| Marketplace-licenstyp: kostnadsfri                   | Marketplace-erbjudande är konfigurerad för att vara kostnadsfritt för alla användare. Microsoft debiterar inte kunder för deras användning i det här erbjudandet i Marketplace.    |
-| Marketplace licenstyp: Microsoft som din återförsäljare  | Microsoft är din återförsäljare för det här erbjudandet i Marketplace.                                                                                       |
-| Marketplace-Order                                | För virtuella datorer är en Marketplace-order distributionen av en eller flera virtuella datorer som är kopplad till en enda *SKU* på en unik Azure-prenumeration. En enstaka Marketplace-order kan representera många distributioner med varierande core storlekar. Hanterade program och tjänster för utveckling, en Marketplace-order representerar en enda *SKU* köpa genom en *GUID för Azure-prenumeration*.           |
-| Microsoft avgift (kopia)                               | Microsoft-avgift för transaktion i kundens valuta.                                                                                 |
-| Normaliserade användning                                 | Användningstimmar normaliseras till konto för antalet Virtuella kärnor som ingår i användningen: [antalet av VM-kärnor] x [timmar av rådata Usage]. Virtuella datorer anges som ”SHAREDCORE” Använd 1/6 (eller 0.1666) som multiplikator för [antalet av VM-kärnor].                                                                                                                                       |
-| Erbjudandets namn                                       | Namnet på Marketplace-erbjudande.                                                                                                           |
-| Erbjudandetyp                                       | Typ av lösning.                                                                                                                        |
-| Erbjudandetypen: Anpassade Meter-lösning                | Kunden distribuerade din anpassade förbrukade lösning från Marketplace.                                                                     |
-| Erbjudandetypen: Hanterat program                  | Kunden har köpt en prenumeration på ditt program med hanterad tjänst.                                                                   |
-| Erbjudandetypen: Enskild virtuell dator                            | Kunden kan du distribuera en avbildning genom att välja en enskild virtuell dator.                                                                                     |
-| Erbjudandetypen: Lösningsmallen                    | Kunden distribuera din mall.                                                                                                |
-| Avbryt beställningsdatum                                | Det datum som Marketplace-order avbröts.                                                                                                 |
-| Order-antal                                      | Antal beställningar (aktiva och avbrutna) den här specifika *GUID för Azure-prenumeration* har för någon av dina erbjudanden.                               |
-| Köp beställningsdatum                              | Det datum då den *Marketplace-Order* skapades. För virtuella datorer är det första datumet som din avbildning har distribuerats till kundens Azure-prenumeration. Efterföljande distributioner av samma avbildningen till samma Azure-prenumeration är alla anses vara en order.                                                                                                       |
-| Beställningsstatus                                     | Status för en Marketplace-order när data uppdaterades senast.                                                                   |
-| Orderstatus: aktiv                             | Ordningen är aktiv för hanterade program. Kunden har minst en distribution av avbildningen på sin Azure-prenumeration för virtuella datorer.   |
-| Orderstatus: har avbrutits                          | För hanterade program har på beställning annullerats. För virtuella datorer kan kunden har tagits bort alla distributioner av den *SKU* från sin Azure-prenumeration.        |
-| OrderID                                          | Den unika identifieraren för ordern. Kunden har köpt en månatlig prenumeration till din tjänst för hanterade program. Kunden har distribuerat din avbildning för virtuella datorer. Efterföljande distributioner av samma avbildningen till samma Azure-prenumeration är alla anses vara en order.                                                                       |
-| Betalningstypen: kort                               | Kunden betalar för deras Marketplace-avgifter med ett kreditkort.                                                                          |
-| Betalningstypen: faktura                            | Kunden betalar för deras Marketplace-debiteringar via faktura.                                                                                 |
-| Payout belopp (PC)                               | Hur mycket betalar till dig, i din prioriterade *Payout valuta (PC)*.                                                                            |
-| Payout valuta (PC)                             | Valutan som används för din payouts.                                                                                                          |
-| Payout datum                                      | Det datum då begäran om betalning skickades från Microsoft till din bank.                                                                           |
-| Betalnings-Status                                    | Anger transaktionen är i payout livscykel: *betalas ut*, *kommande Payout*, eller *inte är redo för Payout*.                        |
-| Payout Status: Är inte klar för Payout              | Transaktionen är inte klar för payout. (Se *slutlig Status för samlingen* för mer information)                                                    |
-| Payout Status: Betalas ut                          | Transaktionen ingick i en tidigare betalnings-beräkning. Positiva värden betalas och negativa värden kvittas mot totala beloppet. |
-| Betalnings-Status: Kommande Payout                   | Transaktionen är klar för payout och tas med i nästa tillgängliga betalnings beräkningen.                                           |
-| Förhandsversion av SKU                                      | Du har taggat den *SKU* som ”förhandsversion” och endast Azure-prenumerationer godkänd genom att du kan distribuera och använda den här avbildningen.                       |
-| Pris (kopia)                                       | Priset för en enhet för användning för en viss SKU (i kundens valuta).                                                                  |
-| Kampanjpris kontakta anmäla                       | Anger om kunden proaktivt har valt för erbjudanden kontakt från utgivare. Just nu, vi inte förmedla alternativet till kunder, så vi har angett ”Nej” för tavlan. När den här funktionen har distribuerats, börjar vi uppdaterar därefter.                                                                                          |
-| Utgivaren valuta (PC)                          | Den valuta som rekommenderas av utgivaren för payout.                                                                                          |
-| Rå användning                                        | Användningstid för ditt erbjudande i Marketplace.                                                                                                      |
-| Återförsäljarens e-post                                   | Återförsäljare som ingår i försäljning för e-postadress.                                                                  |
-| Återförsäljarens namn                                    | Namnet på Microsoft-återförsäljare hantera slutkunden.                                                                                |
-| Resurs-URI                                     | En unik identifierare för enskilda virtuella datorer eller utvecklare services-distributioner.                                                                    |
-| SKU                                              | *SKU* namn som definierats under publiceringen. Ett erbjudande kan ha många *SKU: er,* men en *SKU* kan bara associeras med ett erbjudande.              |
-| SKU-Faktureringstyp                                 | Fakturera av den *SKU*.                                                                                                             |
-| SKU-Faktureringstyp: BYOL                           | Den virtuella datorn kräver en licensnyckel som tillhandahålls av kunden för att distribuera. Microsoft debiterar inte kunder för deras användning av den här Marketplace-erbjudanden.   |
-| SKU-Faktureringstyp: kostnadsfri                           | Den *SKU* är konfigurerad för att vara kostnadsfritt för alla användare. Microsoft inte debiterar kunder för deras användning av det här *SKU.*                            |
-| SKU-Faktureringstyp: Microsoft som din återförsäljare          | Microsoft är din återförsäljare för den här *SKU.*                                                                                                   |
-| SKU-Faktureringstyp: betald                           | Microsoft är ditt ombud för det här *SKU* och fakturerar kunder för din räkning. (PAYG kreditkort eller faktura Enterprise)                   |
-| SKU-Faktureringstyp: utvärdering                          | Kunden är i sina utvärderingsperioden och kommer att konverteras till betald om de inte avbryta eller ta bort.                                         |
-| Skattebelopp (kopia)                                  | Skattebeloppet kundens faktura i den *kunden valuta (kopia)*.                                                               |
-| Transaktionsdatum                                 | Datum för transaktionen registreras i din betalnings-rapportering.                                                                               |
-| Transaktionstyp                                 | Typ av transaktion som rapporteras.                                                                                              |
-| Transaktionstyp: kostnad                         | Transaktionen är ett positivt värde som representerar hur mycket debiteras till kunden.                                                         |
-| Transaktionstyp: Kund återbetalning                | Kundens kostnad har gjort en återbetalning. Den här transaktionen är ett negativt värde som är lika med mängden kundens positivt kostnad. Du kan identifiera motsvarande positivt värde, som tidigare har betalat genom att identifiera transaktionen med samma *Belastningsdatum* och *transaktionstyp* = ”kostnad” och *sista Status för samlingen* = ”återbetala”.                   |
-| Transaktionstyp: Payout justering              | Transaktionen representerar en positiv eller negativ justering för ditt saldo av Microsoft, skapat till ett tidigare fel för fakturerings- eller betalnings-konto.                                                                                                                                                                                            |
-| Transaktionstyp: Skriva                      | Kundens kostnad skrevs till detta. Den här transaktionen är ett negativt värde som är lika med mängden kundens positivt kostnad. Du kan identifiera motsvarande positivt värde som tidigare har betalat genom att identifiera transaktionen med samma *Belastningsdatum* och *transaktionstyp* = ”kostnad” och *sista Status för samlingen* = ”Skriv”. |
-| Transaktionstyp: Skriva ut återföring             | Transaktionen är ett positivt värde som representerar en omvänd version av en tidigare skriven av transaktionen.                                         |
-| Slutdatum för utvärdering                                   | Datum utvärderingsperioden för den här ordningen avslutas eller har avslutats.                                                                              |
-| Användning                                            | Rapporterade kundens användning av den *SKU.* För VM-avbildningar, representerar användningsposter användningen för den rapporterade perioden för den VM-storleken och *SKU*.   |
-| Slutdatum för användning                                   | Slutdatum för användningsperiod som har rapporterats.                                                                                             |
-| Datum för användning                                       | Datum KUNDANVÄNDNING inträffade.                                                                                                             |
-| Användning-referens                                  | Identifierare för en eller flera dagar i kundens användning för en viss SKU som är associerade med en post i betalnings-rapporten.                         |
-| Startdatum för användning                                 | Startdatum för användningsperiod som har rapporterats.                                                                                           |
-| Användningstyp                                       | En beskrivning av användning som mäts. (*Normalized användning* eller *Raw användning*)                                                               |
-| Användning-enheter                                      | Måttenhet för den angivna användningen. Virtuella datorer är alltid mäts med timvis måttenheter.                                      |
-| Storlek på virtuell dator                                          | Representerar den maskinvara storleken i linje med Azure-erbjudande. Exempel är `Basic_A0`, `Standard_A11`, `Standard_D12`, och `Standard_G4`.   |
+| **Azure License Type**                               | Typ av licensavtal som används av kunder för att köpa Azure.  Även känt som kanalen.                                                  |
+| **Azure License Type: Leverantörer av Molnlösningar**      | Slutkunden procures Azure och ditt Marketplace-erbjudande via sin Molnlösningsleverantör som fungerar som en återförsäljare.                 |
+| **Azure License Type: Enterprise**                   | Slutkunden procures Azure och din Marketplace-erbjudande via ett Enterprise Agreement, signerade direkt med Microsoft.                  |
+| **Azure License Type: Enterprise via återförsäljare**  | Slutkunden procures Azure och ditt Marketplace-erbjudande genom en återförsäljare som underlättar Enterprise-avtal med Microsoft.     |
+| **Azure License Type: Betala**                | Slutkunden procures Azure och din Marketplace-erbjudande via en ”betala”-avtal som undertecknas direkt med Microsoft.                |
+| **Beloppet (kopia)**                              | Hur mycket debiteras för kunden, i den *kundens valuta* (kopia) för fakturering.                                                                 |
+| **Beloppet (PC)**                               | Hur mycket debiteras för kunden, i den *Payout valuta* (PC).                                                                      |
+| **Belastningsdatum**                                      | Det datum kundens kostnad beräknas (vanligtvis direkt efter användningsperiod).                                             |
+| **Instansnamn för molnet**                              | Microsoft Cloud som en VM-distribution inträffade.                                   |
+| **Cloud-instansnamn: Azure Global**                | Offentliga global Microsoft-molnet.                           |
+| **Cloud-instansnamn: Azure Government**        | Myndighetsspecifika Microsoft-molnet för en av följande myndigheter: Kina, Tyskland eller i USA.                           |
+| **Status för samlingen**  | För en viss kostnad, den senaste statusen för livscykel fakturerings- och samling.  Status kan exempelvis vara samling pågår som samlas in, eller återbetalning.                  |
+| **Core-storlek**  | Antal virtuella kärnor som presenteras av den virtuella datorn erbjudandet körs på.               |
+| **Kunden stad**  | Ortnamn som tillhandahålls av kunden. Detta kan vara annorlunda än ort i en kunds Azure-prenumeration.  |
+| **Kunden Kommunikationsspråk**        | Det språk som föredras av kunden för kommunikation.                                  |
+| **Kundföretaget namn**                  | Företagsnamnet som tillhandahålls av kunden. Detta kan vara annorlunda än ort i en kunds Azure-prenumeration.                                  |
+| **Kundens land**                       | Landsnamn som tillhandahålls av kunden.  Detta kan vara annorlunda än land i en kunds Azure-prenumeration.                               |
+| **Kundens valuta (kopia)**                 | Den valuta som kunden föredrar för priser och fakturering.                            |
+| **Kunden e-post**                         | E-postadress som tillhandahålls av slutkunden.  Detta kan vara annorlunda än den e-postadressen i en kunds Azure-prenumeration.                   |
+| **Kundens förnamn**                              | Det första namnet som tillhandahålls av kunden.  Detta kan vara annorlunda än det namn som i en kunds Azure-prenumeration.                    |
+| **Senaste kundnamn**                               | Efternamn som tillhandahålls av kunden.  Detta kan vara annorlunda än det namn som i en kunds Azure-prenumeration.                    |
+| **Kund-ID**                               | Den unika identifieraren som tilldelats till en kund.  En kund kan ha noll eller flera Azure Marketplace-prenumerationer.                    |
+| **Betalning kundtyp**                            | Typ av informationen om betalningsalternativet som används av kunden.  Det kan till exempel kort, faktura eller elektronisk kontroll.                             |
+| **Kunden postnummer**                             | Postnummer som tillhandahålls av kunden.  Detta kan vara annorlunda än postnumret i en kunds Azure-prenumeration.                                                                 |
+| **Kund-tillstånd**                                   | Status (adress) tillhandahålls av kunden.  Detta kan skilja sig från det senaste namn i en kunds Azure-prenumeration.                                                                 |
+| **Inköpsdatum**                                    | Det första datumet som kunden har köpt ett erbjudande som publicerats av dig.                 |
+| **Datum förlorat**                                        | Det sista datumet kunden har avbrutits sist för alla erbjudanden som redan har köpt.                                                         |
+| **Beräknad avgift om utökad (kopia)**                   | Beräknade utökad kostnad för antalet enheter för användning för en viss SKU: N (i kundens valuta). Det här värdet är kanske inte exakt på grund av avrundning eller trunkering av fel.                            |
+| **Beräknad avgift om utökad (PC)**                   | Beräknade utökad kostnad för antalet enheter för användning för en viss SKU som baseras på valutaväxling konvertering på datum-användning beräknas (i utgivarens valuta). Det här värdet är kanske inte exakt på grund av avrundning eller trunkering av fel.                  |
+| **Beräknad Payout (PC)**                            | Beräknad betalningen för antalet enheter för användning för en viss SKU som baseras på valutaväxling konvertering datumet användningen beräknas (i utgivarens valuta). Det här värdet är kanske inte exakt på grund av avrundning eller trunkering av fel.                        |
+| **Beräknat pris (PC)**                             | Beräknat pris för en enhet för användning för en viss SKU som baseras på valutaväxling konvertering på datum-användning beräknas (i utgivarens valuta). Det här värdet är kanske inte exakt på grund av avrundning eller trunkering av fel.                                             |
+| **Är ny kund**                                  | Värdet kan du fastställa om det är en ny kund förbrukar eller köp av en eller flera av dina Marketplace-erbjudanden för första gången (eller inte).  Värdet ska vara ”Ja” om det är samma kalendermånad för ”Date förvärvat”.  Värdet ska vara ”Nej” om kunden har köpt någon av dina erbjudanden innan rapporteras per kalendermånad.                                                       |
+| **Är förhandsversionen av SKU**                                  | Värdet meddelar dig om du har taggat SKU: N som ”förhandsversion”. Värdet ska vara ”Ja” om SKU: N har taggats i enlighet med detta och endast Azure-prenumerationer som du har godkänt kan distribuera och använda den här avbildningen.  Värdet kommer att ”Nej” om SKU: N inte har identifierats som ”förhandsversion”.                                          |
+| **Priset kontakta är anmäla**                   | Värdet meddelar dig om kunden proaktivt har valt för erbjudanden kontakt från utgivare. Just nu, vi inte förmedla alternativet till kunder, så vi har angett ”Nej” för tavlan. När den här funktionen har distribuerats, börjar vi uppdaterar därefter.                                          |
+| **Marketplace-licenstyp**                         | Fakturera i Marketplace-erbjudandet.                             |
+| **Marketplace-licenstyp: Fakturerade via Azure**   | Microsoft är ditt ombud för det här erbjudandet i Marketplace och fakturerar kunder för din räkning. (PAYG kreditkort eller faktura Enterprise)       |
+| **Marketplace-licenstyp: Använd din egen licens** | Den virtuella datorn kräver en licensnyckel som tillhandahålls av kunden att distribuera. Microsoft debiterar inte kunder för deras användning av den här Marketplace-erbjudanden. |
+| **Marketplace-licenstyp: Kostnadsfria**                   | Marketplace-erbjudande är konfigurerad för att vara kostnadsfritt för alla användare. Microsoft debiterar inte kunder för deras användning i det här erbjudandet i Marketplace.    |
+| **Marketplace-licenstyp: Microsoft som din återförsäljare**  | Microsoft är din återförsäljare för det här erbjudandet i Marketplace.                               |
+| **Marketplace-prenumeration företagsnamn**  | Företagsnamnet som tillhandahålls av kunden i sin Azure-prenumeration.                           |
+| **Marketplace prenumerations-ID**            | Den unika identifieraren som är associerade med Azure-prenumeration kunden använde för att köpa Marketplace-erbjudande.  Det var tidigare GUID för Azure-prenumeration.  I vissa fall som en SAAS-ordning krävs ingen prenumeration.           |
+| **Microsoft Fee (CC)**                               | Microsoft-avgift för transaktion i kundens valuta.                              |
+| **Erbjudandets namn**                                | Namnet på Marketplace-erbjudande.                                                             |
+| **Erbjudandetyp**                                | Typ av Microsoft Marketplace-erbjudande.  Exempelvis kan det hanterade programmet, VM-licenser eller behållare.                           |
+| **Avbryt beställningsdatum**                         | Det datum som Marketplace-order avbröts.                                                       |
+| **Order-ID**                                  | Den unika identifieraren för kund för din Marketplace-tjänst.  Användningsbaserade erbjudanden för virtuell dator är inte kopplade till en order.                 |
+| **Köp beställningsdatum**                       | Det datum då Marketplace-Order skapades.                                                        |
+| **Kvantitet**                       | Antal beställningar för samma SKU: N som är associerade med en Azure-prenumeration.  SAAS order representerar antalet platser som är associerade med den här instansen av en order.                                            |
+| **Beställningsstatus**                              | Status för en Marketplace-order när data uppdaterades senast.  Ordningen kan exempelvis vara active eller avbrutet.             |
+| **Beställningsstatus: Aktiva**                           | Kunden har köpt en order och inte har avbrutit deras inbördes ordning.   |
+| **Beställningsstatus: Har avbrutits**                        | Kunden redan har köpt en order och därefter har avbrutits deras inbördes ordning.        |
+| **Payout belopp (PC)**                             | Hur mycket betalar till dig, i din prioriterade betalnings valuta (dator).                                       |
+| **Payout valuta (PC)**                           | Valutan som används för din payouts.                                                                |
+| **Payout datum**                                    | Det datum då begäran om betalning skickades från Microsoft till din valda finansinstitut.                                                                         |
+| **Betalnings-Status**                                  | Status för payout när data uppdaterades senast.                                   |
+| **Payout Status: Pågår**               | Transaktionen är inte klar för payout. (Mer information finns i samlingen Status)                             |
+| **Payout Status: Betalas ut**                          | Transaktionen ingick i en tidigare betalnings-beräkning. Positiva värden betalas och negativa värden kvittas mot totala beloppet. |
+| **Payout Status: Kommande Payout**                   | Transaktionen är klar för payout och tas med i nästa tillgängliga betalnings beräkningen.                      |
+| **Pris (kopia)**                                   | Priset för en enhet för användning för en viss SKU (i kundens valuta).                                                                  |
+| **Leverantör e-post**                                 | E-postadress som ingår i relationen mellan Microsoft och slutkunden providern. Om kunden är ett företag via din återförsäljare, blir den återförsäljaren.  Om en Cloud Solution Provider (CSP) ingår, blir den CSP: N.                                                                 |
+| **Providernamn**                                 | Namnet på providern som ingår i relationen mellan Microsoft och end-kund. Om kunden är ett företag via din återförsäljare, blir den återförsäljaren.  Om en Cloud Solution Provider (CSP) ingår, blir den CSP: N.                                                                 |
+| **Resurs-URI**                                  | Sökvägen där distributionen artefakten har distribuerats.                                            |
+| **SKU**                                           | SKU-namnet som definierats under publiceringen. Ett erbjudande kan ha många SKU: er, men en SKU kan bara associeras med ett erbjudande.              |
+| **SKU-Faktureringstyp**                                 | Fakturera av SKU.                                                                                                             |
+| **SKU Faktureringstyp: Använd din egen licens**         | Kräver en licensnyckel som tillhandahålls av kunden att distribuera den virtuella datorn eller tjänsten. Microsoft debiterar inte kunder för deras användning av dessa Marketplace-erbjudanden.   |
+| **SKU Faktureringstyp: Microsoft As Reseller**          | Microsoft är din återförsäljare för denna SKU.   |
+| **SKU Faktureringstyp: Kostnadsfria**                           | SKU: N är konfigurerad för att vara kostnadsfritt för alla användare. Microsoft debiterar inte kunder för deras användning av denna SKU.                           |
+| **SKU Faktureringstyp: Betald**                           | Microsoft är ditt ombud för denna SKU och fakturerar kunder för din räkning. (PAYG kreditkort eller faktura Enterprise)                   |
+| **SKU Faktureringstyp: Utvärderingsversion**                          | Kunden är i sina utvärderingsperioden och kommer att konverteras till betald om de inte avbryta eller ta bort.                                         |
+| **Skattebelopp (kopia)**                                  | Skattebeloppet kundens faktura i kundens valuta (kopia).                                                               |
+| **Transaktionsdatum**                                 | Datum för transaktionen registreras i din betalnings-rapportering.                                                                           |
+| **Transaktionstyp**                               | Typ av transaktion som rapporteras.  Det kan till exempel en kostnad eller återbetalning betalnings justering.                                                                                        |
+| **Slutdatum för utvärdering**                                 | Datum utvärderingsperioden för den här ordningen avslutas eller har avslutats.                                                                           |
+| **Datum för användning**                                       | Datum KUNDANVÄNDNING inträffade.                                                                                                             |
+| **Användning kvantitet**                                       | Rapporterade kundens användning av SKU. För VM-avbildningar representerar användningsposter användningen för den rapporterade perioden för den storlek och SKU.                                               |
+| **Användning-referens**                                       | Identifierare för en eller flera dagar i kundens användning för en viss SKU som är associerade med en post i betalnings-rapporten.                                               |
+| **Användningstyp**                                       | En beskrivning av användning som mäts. (Normaliserade användning eller Raw användning)                                                              |
+| **Användningstyp: Normaliserade användning**                | Användningstimmar normaliseras till konto för antalet Virtuella kärnor som ingår i användningen: [antalet av VM-kärnor] x [timmar av rådata Usage]. Virtuella datorer anges som ”SHAREDCORE” Använd 1/6 (eller 0.1666) som multiplikator för [antalet av VM-kärnor].                                        |
+| **Användningstyp: Rå användning**                        | Användningstid för ditt erbjudande i Marketplace.  Den visas i ”kalender” timmar.  Det är antalet tid virtuella datorer har körts.                           |
+| **Användning-enheter**                                   | Måttenhet för den angivna användningen. Virtuella datorer är alltid mäts med timvis måttenheter.                               |
+| **VM-storlek**                                       | Representerar den maskinvara storleken i linje med Azure-erbjudande. Exempel är `Basic_A0`, `Standard_A11`, `Standard_D12`, och `Standard_G4`.   |
 |  |  |
 
 

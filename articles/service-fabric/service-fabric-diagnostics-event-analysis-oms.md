@@ -1,6 +1,6 @@
 ---
-title: Azure Service Fabric-Händelseanalys med Log Analytics | Microsoft Docs
-description: Läs mer om att visualisera och analysera händelser med hjälp av Log Analytics för övervakning och diagnostik för Azure Service Fabric-kluster.
+title: Azure Service Fabric-Händelseanalys med Azure Monitor loggar | Microsoft Docs
+description: Lär dig mer om att visualisera och analysera händelser med hjälp av Azure Monitor-loggarna för övervakning och diagnostik för Azure Service Fabric-kluster.
 services: service-fabric
 documentationcenter: .net
 author: srrengar
@@ -14,28 +14,30 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/21/2019
 ms.author: srrengar
-ms.openlocfilehash: e8719b071bf2e836ed92fa4f6dcddc5f1865b320
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 2f3106b33ab0cbea95efe2ac42c05a8543719190
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56668802"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57246924"
 ---
-# <a name="event-analysis-and-visualization-with-log-analytics"></a>Händelseanalys och visualisering med Log Analytics
- Log Analytics samlar in och analyserar telemetri från program och tjänster i molnet och ger analysverktyg som hjälper dig att maximera tillgänglighet och prestanda. Den här artikeln beskrivs hur du kör frågor i Log Analytics för att få insikter och felsöka vad som händer i ditt kluster. Följande vanliga frågor tas upp:
+# <a name="event-analysis-and-visualization-with-azure-monitor-logs"></a>Händelseanalys och visualisering med Azure Monitor-loggar
+ Azure Monitor-loggar samlas in och analyserar telemetri från program och tjänster i molnet och ger analysverktyg som hjälper dig att maximera tillgänglighet och prestanda. Den här artikeln beskrivs hur du kör frågor i Azure Monitor-loggar att få insikter och felsöka vad som händer i ditt kluster. Följande vanliga frågor tas upp:
 
 * Hur felsöker jag health-händelser?
 * Hur vet jag när en nod stängs av?
 * Hur vet jag om min programtjänster har startats eller stoppats?
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="overview-of-the-log-analytics-workspace"></a>Översikt över Log Analytics-arbetsytan
 
 >[!NOTE] 
 >När lagringskontot är aktiverat som standard när kluster skapas, måste du fortfarande ställa in Log Analytics-arbetsytan att läsa från den diagnostiska lagringen.
 
-Log Analytics samlar in data från hanterade resurser, inklusive en Azure storage-tabell eller en agent och underhåller i ett centrallager. Data kan sedan användas för analys, aviseringar och visualisering eller ytterligare export. Log Analytics har stöd för händelser, prestandadata eller anpassade data. Kolla in [steg för att konfigurera diagnostics-tillägg för att aggregera händelser](service-fabric-diagnostics-event-aggregation-wad.md) och [steg för att skapa en Log Analytics-arbetsyta för att läsa från händelser i storage](service-fabric-diagnostics-oms-setup.md) att kontrollera att data flödar till Log Analytics .
+Azure Monitor loggar samlar in data från hanterade resurser, inklusive en Azure storage-tabell eller en agent och underhåller den i ett centrallager. Data kan sedan användas för analys, aviseringar och visualisering eller ytterligare export. Azure Monitor loggar har stöd för händelser, prestandadata eller anpassade data. Kolla in [steg för att konfigurera diagnostics-tillägg för att aggregera händelser](service-fabric-diagnostics-event-aggregation-wad.md) och [steg för att skapa en Log Analytics-arbetsyta för att läsa från händelser i storage](service-fabric-diagnostics-oms-setup.md) att kontrollera att data flödar till Azure Monitor loggar.
 
-När data har tagits emot av Log Analytics, Azure har flera *hanteringslösningar* som är förpaketerade lösningar eller driftsinstrumentpaneler övervaka inkommande data, anpassade till flera scenarier. Dessa inkluderar en *Service Fabric-analys* lösning och en *behållare* lösning som är de två mest relevanta som diagnostik och övervakning av när du använder Service Fabric-kluster. Den här artikeln beskriver hur du använder Service Fabric-analys-lösning som har skapats med arbetsytan.
+När data har tagits emot av Azure Monitor-loggar, Azure har flera *övervakning lösningar* som är förpaketerade lösningar eller driftsinstrumentpaneler övervaka inkommande data, anpassade till flera scenarier. Dessa inkluderar en *Service Fabric-analys* lösning och en *behållare* lösning som är de två mest relevanta som diagnostik och övervakning av när du använder Service Fabric-kluster. Den här artikeln beskriver hur du använder Service Fabric-analys-lösning som har skapats med arbetsytan.
 
 ## <a name="access-the-service-fabric-analytics-solution"></a>Lösning för Service Fabric-analys
 
@@ -110,7 +112,7 @@ Kusto-frågespråket är kraftfullt. En annan värdefull fråga som du kan köra
 ## <a name="next-steps"></a>Nästa steg
 
 * Om du vill aktivera infrastrukturövervakning d.v.s. prestandaräknare, gå till [att lägga till Log Analytics-agenten](service-fabric-diagnostics-oms-agent.md). Agenten samlar in prestandaräknare och lägger till dem i din befintliga arbetsyta.
-* Log Analytics tillhandahåller en Gateway (HTTP framåt Proxy) som kan användas för att skicka data till Log Analytics för lokala kluster. Läs mer om att [ansluter datorer utan Internetåtkomst till Log Analytics med Log Analytics-gateway](../azure-monitor/platform/gateway.md).
+* För lokala kluster erbjuder Azure Monitor-loggar en Gateway (HTTP framåt Proxy) som kan användas för att skicka data till Azure Monitor-loggar. Läs mer om att [ansluter datorer utan Internetåtkomst till Azure Monitor-loggar med Log Analytics-gateway](../azure-monitor/platform/gateway.md).
 * Konfigurera [automatiserade aviseringar](../log-analytics/log-analytics-alerts.md) att underlätta identifiering och diagnostik.
-* Bekanta dig med funktionerna [loggsökning och frågor](../log-analytics/log-analytics-log-searches.md) i Log Analytics.
-* Få en mer detaljerad översikt över Log Analytics och den erbjuder, läsa [vad är Log Analytics?](../operations-management-suite/operations-management-suite-overview.md).
+* Bekanta dig med den [loggsökning och frågor](../log-analytics/log-analytics-log-searches.md) funktioner som erbjuds som en del av Azure Monitor-loggar.
+* Få en mer detaljerad översikt över Azure Monitor-loggar och den erbjuder, läsa [vad är Azure Monitor-loggar?](../operations-management-suite/operations-management-suite-overview.md).

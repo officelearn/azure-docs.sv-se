@@ -12,12 +12,12 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: f6874b1d97c36d22e60606ad8c8a356baec53b85
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 6f8dd8611e5e2120bdfa0ae111bf6e248ca0f3cb
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55893604"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57214757"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL Database-mått och diagnostikloggning
 
@@ -76,7 +76,7 @@ Du kan ställa in Azure SQL-databaser för att samla in följande diagnostiktele
 
 ### <a name="azure-portal"></a>Azure Portal
 
-Du använder den **diagnostikinställningar** menyn för var och en enkel tilldelade i poler, eller instans databas i Azure portal för att konfigurera strömning av diagnostiktelemetri för Azure SQL-databaser. Du kan ange följande mål: Azure Storage, Azure Event Hubs och Azure Log Analytics.
+Du använder den **diagnostikinställningar** menyn för var och en enkel tilldelade i poler, eller instans databas i Azure portal för att konfigurera strömning av diagnostiktelemetri för Azure SQL-databaser. Du kan ange följande mål: Azure Storage, Azure Event Hubs och Azure Monitor-loggar.
 
 ### <a name="configure-streaming-of-diagnostics-telemetry-for-single-pooled-or-instance-databases"></a>Konfigurera strömning av diagnostiktelemetri för en enskild, i pooler eller instans databaser
 
@@ -100,7 +100,7 @@ Att aktivera strömning av diagnostiktelemetri för en enskild, tilldelade i pol
    ![Konfigurera diagnostik för en enskild, i pooler eller instans databaser](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-sql-selection.png)
 
 > [!NOTE]
-> Granskningsloggar för säkerhet kan inte aktiveras från diagnostik databasinställningarna. För att aktivera granskning av loggströmningen, se [konfigurera granskning för din databas](sql-database-auditing.md#subheading-2), och [granskningsloggar i Azure Log Analytics och Azure Event Hubs](https://blogs.msdn.microsoft.com/sqlsecurity/2018/09/13/sql-audit-logs-in-azure-log-analytics-and-azure-event-hubs/).
+> Granskningsloggar för säkerhet kan inte aktiveras från diagnostik databasinställningarna. För att aktivera granskning av loggströmningen, se [konfigurera granskning för din databas](sql-database-auditing.md#subheading-2), och [granskningsloggar i Azure Monitor-loggar och Azure Event Hubs](https://blogs.msdn.microsoft.com/sqlsecurity/2018/09/13/sql-audit-logs-in-azure-log-analytics-and-azure-event-hubs/).
 > [!TIP]
 > Upprepa dessa steg för varje Azure SQL-databas som du vill övervaka.
 
@@ -152,7 +152,7 @@ Följ dessa steg om du vill aktivera strömning av diagnostiktelemetri för en e
 
 1. Ange ett namn på inställningen för din egen referens.
 1. Välj en mål-resurs för strömmande diagnostikdata: **Arkivet till lagringskontot**, **Stream till en händelsehubb**, eller **skicka till Log Analytics**.
-1. Log Analytics, Välj **konfigurera** och skapa en ny arbetsyta genom att välja **+ Skapa ny arbetsyta**, eller välj en befintlig arbetsyta.
+1. Log analytics, Välj **konfigurera** och skapa en ny arbetsyta genom att välja **+ Skapa ny arbetsyta**, eller välj en befintlig arbetsyta.
 1. Markera kryssrutan för telemetri för elastisk pool diagnostik: **AllMetrics**.
 1. Välj **Spara**.
 
@@ -181,7 +181,7 @@ Följ dessa steg om du vill aktivera strömning av diagnostiktelemetri för en h
 
 1. Ange ett namn på inställningen för din egen referens.
 1. Välj en mål-resurs för strömmande diagnostikdata: **Arkivet till lagringskontot**, **Stream till en händelsehubb**, eller **skicka till Log Analytics**.
-1. Log Analytics, Välj **konfigurera** och skapa en ny arbetsyta genom att välja **+ Skapa ny arbetsyta**, eller Använd en befintlig arbetsyta.
+1. Log analytics, Välj **konfigurera** och skapa en ny arbetsyta genom att välja **+ Skapa ny arbetsyta**, eller Använd en befintlig arbetsyta.
 1. Markera kryssrutan för instans-diagnostiktelemetri: **ResourceUsageStats**.
 1. Välj **Spara**.
 
@@ -288,7 +288,7 @@ Azure SQL Analytics är en molnlösning som övervakar prestandan för Azure SQL
 
 ![Översikt över Azure SQL Analytics](../azure-monitor/insights/media/azure-sql/azure-sql-sol-overview.png)
 
-SQL Database mått och diagnostik för loggar kan strömmas till Azure SQL Analytics med hjälp av inbyggt **skicka till Log Analytics** alternativet diagnostik på fliken Inställningar i portalen. Du kan också aktivera Log Analytics med hjälp av en diagnostikinställning via PowerShell-cmdletar, Azure CLI eller REST-API i Azure Monitor.
+SQL Database mått och diagnostik för loggar kan strömmas till Azure SQL Analytics med hjälp av inbyggt **skicka till Log Analytics** alternativet diagnostik på fliken Inställningar i portalen. Du kan också aktivera log analytics med hjälp av en diagnostikinställning via PowerShell-cmdletar, Azure CLI eller REST-API i Azure Monitor.
 
 ### <a name="installation-overview"></a>Installationsöversikt
 
@@ -379,7 +379,7 @@ Lär dig hur du [hämta mått och diagnostik för loggar från Storage](../stora
 
 ## <a name="data-retention-policy-and-pricing"></a>Policy för datalagring och prissättning
 
-Om du väljer Event Hubs eller ett lagringskonto kan ange du en bevarandeprincip. Den här principen tar bort data som är äldre än en vald tidsperiod. Om du anger Log Analytics beror bevarandeprincipen på den valda prisnivån. I det här fallet kan de tillhandahållna kostnadsfria enheterna för datainmatning kostnadsfria övervakning av flera databaser varje månad. Alla användning av diagnostiktelemetri som överstiger de kostnadsfria enheterna kan medföra kostnader. Tänk på att aktiva databaser med större arbetsbelastningar mata in mer data än inaktiva databaser. Mer information finns i [priserna för Log Analytics](https://azure.microsoft.com/pricing/details/monitor/).
+Om du väljer Event Hubs eller ett lagringskonto kan ange du en bevarandeprincip. Den här principen tar bort data som är äldre än en vald tidsperiod. Om du anger Log Analytics beror bevarandeprincipen på den valda prisnivån. I det här fallet kan de tillhandahållna kostnadsfria enheterna för datainmatning kostnadsfria övervakning av flera databaser varje månad. Alla användning av diagnostiktelemetri som överstiger de kostnadsfria enheterna kan medföra kostnader. Tänk på att aktiva databaser med större arbetsbelastningar mata in mer data än inaktiva databaser. Mer information finns i [priser för Log analytics](https://azure.microsoft.com/pricing/details/monitor/).
 
 Om du använder Azure SQL Analytics kan du övervaka din förbrukning för inmatning av data i lösningen genom att välja **OMS-arbetsyta** på navigeringsmenyn i Azure SQL Analytics och sedan välja **användning** och **beräknade kostnader**.
 

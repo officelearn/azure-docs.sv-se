@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 7b1d7c50970107300676213707368f9f16e04812
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: b22d719a25a93e1dffdba848e18f732b31e6e67d
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/01/2019
-ms.locfileid: "57194809"
+ms.locfileid: "57214528"
 ---
 # <a name="connect-a-generic-client-application-to-your-azure-iot-central-application-nodejs"></a>Ansluta ett allmänt klientprogram till ditt Azure IoT Central program (Node.js)
 
@@ -269,11 +269,11 @@ Som operatör i Azure IoT Central programmet för verkliga enheten kan du:
 
     ![Visa telemetrin](media/howto-connect-nodejs/viewtelemetry.png)
 
-* Visa enhet egenskapsvärden som skickas från din enhet den **egenskaper** sidan. Enhetens egenskaper panelerna uppdateras om anslutningen är klar. 
+* Visa enhet egenskapsvärden som skickas från din enhet den **egenskaper** sidan. Enhetens egenskaper panelerna uppdateras om anslutningen är klar.
 
     ![Visa egenskaper för enhet](media/howto-connect-nodejs/viewproperties.png)
 
-* Ange fläkt hastighet och mål temperaturen från den **inställningar** sidan. För inställningsvärden synkroniseras om anslutningen är klar. 
+* Ange fläkt hastighet och mål temperaturen från den **inställningar** sidan. För inställningsvärden att synkronisera om anslutningen är klar.
 
     ![Hastighet för set-fläkt](media/howto-connect-nodejs/setfanspeed.png)
 

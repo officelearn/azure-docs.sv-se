@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/14/2018
 ms.author: cynthn;azcspmt;jonbeck
 ms.custom: include file
-ms.openlocfilehash: fd37c0c118812bb3554b19fec9bf5ae3f33a2fdc
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: 8967e4b2cce052044abf2e2b0925f162478428d1
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54314095"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57203917"
 ---
 GPU-optimerad VM storlekar är specialiserade virtuella datorer som är tillgängliga med en eller flera NVIDIA GPU: er. De här storlekarna är utformade för arbetsbelastningar för beräkningsintensiva, grafik och visualisering. Den här artikeln innehåller information om antalet och typen av GPU: er, virtuella processorer, diskar och nätverkskort. Storage dataflöde och nätverket bandbredd ingår också för varje storlek i den här grupperingen. 
 
@@ -110,7 +110,7 @@ NDv2-serien virtuella datorn är en nyhet i GPU-familjen som utformats för beho
 
 | Storlek              | Virtuell processor | GPU              | Minne  | Nätverkskort (max.) | Max. Diskstorlek           | Max. datadiskar (1 023 GB som är var) | Maximal nätverksbandbredd | 
 |-------------------|------|------------------|---------|------------|--------------------------|--------------------------------|-----------------------|
-| Standard_ND40s_v2 | 40   | 8 V100 (NVlilnk) | 672 giB | 8          | Tillfällig 1344 / 2948XIO | 32                             | 24 000 Mbit/s           |
+| Standard_ND40s_v2 | 40   | 8 V100 (NVLink) | 672 giB | 8          | Tillfällig 1344 / 2948XIO | 32                             | 24 000 Mbit/s           |
 
 ## <a name="nd-series"></a>ND-serien
 

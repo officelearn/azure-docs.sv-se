@@ -11,12 +11,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 12/12/2017
 ms.author: glenga
-ms.openlocfilehash: 0a0d003f3d78c6d18938e9c87dd4862f7429d55b
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 4ef16a932eb50294ff3d1596873295d82f8d894e
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56728700"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57241485"
 ---
 # <a name="azure-functions-c-script-csx-developer-reference"></a>Azure Functions C#-skript (.csx) för utvecklare
 
@@ -376,7 +376,7 @@ Information om hur du överför filer till mappen funktionen finns i avsnittet p
 Katalogen som innehåller funktionen skriptfilen bevakas automatiskt för ändringar i paket. Titta på sammansättningen ändringar i andra kataloger, lägga till dem i den `watchDirectories` lista i [host.json](functions-host-json.md).
 
 ## <a name="using-nuget-packages"></a>Med hjälp av NuGet-paket
-Att använda NuGet-paket i en C# fungerar, ladda upp en *function.proj* filen till funktionens mapp på den funktionsapp filsystem. Här är ett exempel *function.proj* -fil som läggs en referens till *Microsoft.ProjectOxford.Face* version *1.1.0*:
+Använda NuGet-paket i en 2.x C# fungerar, ladda upp en *function.proj* filen till funktionens mapp på den funktionsapp filsystem. Här är ett exempel *function.proj* -fil som läggs en referens till *Microsoft.ProjectOxford.Face* version *1.1.0*:
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk">
@@ -390,19 +390,36 @@ Att använda NuGet-paket i en C# fungerar, ladda upp en *function.proj* filen ti
 </Project>
 ```
 
-Ange om du vill använda en anpassad NuGet feed på flödet på en *Nuget.Config* filen i roten för Funktionsappen. Mer information finns i [konfigurera NuGet beteende](/nuget/consume-packages/configuring-nuget-behavior).
+Ange om du vill använda en anpassad NuGet feed på flödet på en *Nuget.Config* filen i roten för Funktionsappen. Mer information finns i [konfigurera NuGet beteende](/nuget/consume-packages/configuring-nuget-behavior). 
 
-### <a name="using-a-extensionscsproj-file"></a>Med hjälp av en extensions.csproj-fil
+> [!NOTE]
+> I 1.x C# funktion, refereras NuGet-paket med en *project.json* fil i stället för en *function.proj* fil.
+
+1.x-funktion, använda en *project.json* filen i stället. Här är ett exempel *project.json* fil: 
+
+```json
+{
+  "frameworks": {
+    "net46":{
+      "dependencies": {
+        "Microsoft.ProjectOxford.Face": "1.1.0"
+      }
+    }
+   }
+}
+```
+
+### <a name="using-a-functionproj-file"></a>Med hjälp av en function.proj-fil
 
 1. Öppna funktionen i Azure-portalen. Fliken loggar visar resultatet för paket-installationen.
-2. Ladda upp en *extensions.csproj* fil ska du använda någon av metoderna som beskrivs i den [så här uppdaterar du funktionen appfiler](functions-reference.md#fileupdate) i referensavsnittet för Azure Functions-utvecklare.
-3. Efter den *extensions.csproj* fil laddas upp kan du se utdata som liknar följande exempel i din funktion strömning loggen:
+2. Ladda upp en *function.proj* fil ska du använda någon av metoderna som beskrivs i den [så här uppdaterar du funktionen appfiler](functions-reference.md#fileupdate) i referensavsnittet för Azure Functions-utvecklare.
+3. Efter den *function.proj* fil laddas upp kan du se utdata som liknar följande exempel i din funktion strömning loggen:
 
 ```
 2018-12-14T22:00:48.658 [Information] Restoring packages.
 2018-12-14T22:00:48.681 [Information] Starting packages restore
 2018-12-14T22:00:57.064 [Information] Restoring packages for D:\local\Temp\9e814101-fe35-42aa-ada5-f8435253eb83\function.proj...
-2016-04-04T19:02:50.511 Restoring packages for D:\home\site\wwwroot\HttpTriggerCSharp1\extensions.csproj...
+2016-04-04T19:02:50.511 Restoring packages for D:\home\site\wwwroot\HttpTriggerCSharp1\function.proj...
 2018-12-14T22:01:00.844 [Information] Installing Newtonsoft.Json 10.0.2.
 2018-12-14T22:01:01.041 [Information] Installing Microsoft.ProjectOxford.Common.DotNetStandard 1.0.0.
 2018-12-14T22:01:01.140 [Information] Installing Microsoft.ProjectOxford.Face.DotNetStandard 1.0.0.

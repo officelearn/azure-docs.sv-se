@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/14/2019
 ms.author: TomSh
-ms.openlocfilehash: 492beba1040cef3d5a910cc9db3fe16b41c33cd6
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: eb2f42b690099002f2f14aa4e782906a76c01d4c
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301595"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57241518"
 ---
 # <a name="azure-logging-and-auditing"></a>Loggning och granskning i Azure
 
@@ -50,7 +50,7 @@ I följande tabell visas de viktigaste typerna av loggar som är tillgängliga i
 |[Azure Storage Analytics](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics)|Med loggningen i Storage, tillhandahåller mätvärden för ett lagringskonto|Ger information om spåra förfrågningar, analyserar användningstrender och diagnostisera problem med ditt lagringskonto.|   REST API eller [klientbibliotek](https://msdn.microsoft.com/library/azure/mt347887.aspx)|
 |[Flödesloggar för Nätverkssäkerhetsgruppen (NSG)](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview)|JSON-format, visar utgående och inkommande flöden på basis av per regel|Visar information om ingående och utgående IP-trafik via en Nätverkssäkerhetsgrupp.|[Azure Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview)|
 |[Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview)|Loggar, undantag och anpassad diagnostik|   Innehåller en programprestandaövervakning (APM) tjänst för webbutvecklare på flera plattformar.| REST API, [Power BI](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/)|
-|Bearbeta data / säkerhetsaviseringar|    Aviseringar i Azure Security Center, Azure Log Analytics-aviseringar|   Innehåller säkerhetsinformation och aviseringar.|  REST API: er, JSON|
+|Bearbeta data / säkerhetsaviseringar|    Azure Security Center-aviseringar, aviseringar för Azure Monitor-loggar|    Innehåller säkerhetsinformation och aviseringar.|  REST API: er, JSON|
 
 ### <a name="activity-logs"></a>Aktivitetsloggar
 
@@ -78,7 +78,7 @@ Integrationsscenarier för en händelse i aktivitetsloggen:
 
 * Fråga den via PowerShell-cmdleten, Azure CLI eller REST API.
 
-* Exportera aktivitetslogg med loggprofiler till [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview).
+* Exportera aktivitetslogg med loggprofiler till [Azure Monitor loggar](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview).
 
 Du kan använda ett lagringskonto eller [händelsehubbnamnområde](https://docs.microsoft.com/azure/event-hubs/event-hubs-resource-manager-namespace-event-hub-enable-archive) som inte är i samma prenumeration som det som avger loggen. Den konfigurerar inställningen måste ha rätt [rollbaserad åtkomstkontroll (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) åtkomst till båda prenumerationerna.
 
@@ -96,15 +96,15 @@ Azure-diagnostikloggar erbjuder flera alternativ, till exempel Azure portal, Pow
 
 * [Stream dem till event hubs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs) för inmatning av en tjänst från tredje part eller anpassade analyslösning som [PowerBI](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/).
 
-* Analysera dem med [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview).
+* Analysera dem med [Azure Monitor loggar](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview).
 
 **Tjänster som stöds, schema för diagnostikloggar och stöds loggkategorier per resurstyp**
 
 
 | Tjänst | Schemat och dokumentation | Resurstyp | Kategori |
 | ------- | ------------- | ------------- | -------- |
-|Azure Load Balancer| [Log Analytics för belastningsutjämnaren (förhandsversion)](https://docs.microsoft.com/azure/load-balancer/load-balancer-monitor-log)|Microsoft.Network/loadBalancers<br>Microsoft.Network/loadBalancers| LoadBalancerAlertEvent<br>LoadBalancerProbeHealthStatus|
-|Nätverkssäkerhetsgrupper|[Log Analytics för Nätverkssäkerhetsgrupper](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log)|Microsoft.Network/networksecuritygroups<br>Microsoft.Network/networksecuritygroups|NetworkSecurityGroupEvent<br>NetworkSecurityGroupRuleCounter|
+|Azure Load Balancer| [Azure Monitor-loggar för belastningsutjämnaren (förhandsversion)](https://docs.microsoft.com/azure/load-balancer/load-balancer-monitor-log)|Microsoft.Network/loadBalancers<br>Microsoft.Network/loadBalancers|    LoadBalancerAlertEvent<br>LoadBalancerProbeHealthStatus|
+|Nätverkssäkerhetsgrupper|[Azure Monitor-loggar för Nätverkssäkerhetsgrupper](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log)|Microsoft.Network/networksecuritygroups<br>Microsoft.Network/networksecuritygroups|NetworkSecurityGroupEvent<br>NetworkSecurityGroupRuleCounter|
 |Azure Application Gateway|[Diagnostikloggning för Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics)|Microsoft.Network/applicationGateways<br>Microsoft.Network/applicationGateways<br>Microsoft.Network/applicationGateways|ApplicationGatewayAccessLog<br>ApplicationGatewayPerformanceLog<br>ApplicationGatewayFirewallLog|
 |Azure Key Vault|[Key Vault-loggar](https://docs.microsoft.com/azure/key-vault/key-vault-logging)|Microsoft.KeyVault/vaults|AuditEvent|
 |Azure Search|[Att aktivera och använda Search Traffic Analytics](https://docs.microsoft.com/azure/search/search-traffic-analytics)|Microsoft.Search/searchServices|OperationLogs|
@@ -112,7 +112,7 @@ Azure-diagnostikloggar erbjuder flera alternativ, till exempel Azure portal, Pow
 |Azure Data Lake Analytics|[Åtkomst till diagnostikloggar för Data Lake Analytics](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-diagnostic-logs)|Microsoft.DataLakeAnalytics/accounts<br>Microsoft.DataLakeAnalytics/accounts|Granska<br>Begäranden|
 |Azure Logic Apps|[Anpassat Logic Apps B2B-spårningsschema](https://docs.microsoft.com/azure/logic-apps/logic-apps-track-integration-account-custom-tracking-schema)|Microsoft.Logic/workflows<br>Microsoft.Logic/integrationAccounts|WorkflowRuntime<br>IntegrationAccountTrackingEvents|
 |Azure Batch|[Azure Batch-diagnostikloggar](https://docs.microsoft.com/azure/batch/batch-diagnostics)|Microsoft.Batch/batchAccounts|ServiceLog|
-|Azure Automation|[Logganalys för Azure Automation](https://docs.microsoft.com/azure/automation/automation-manage-send-joblogs-log-analytics)|Microsoft.Automation/automationAccounts<br>Microsoft.Automation/automationAccounts|JobLogs<br>JobStreams|
+|Azure Automation|[Azure Monitor-loggar för Azure Automation](https://docs.microsoft.com/azure/automation/automation-manage-send-joblogs-log-analytics)|Microsoft.Automation/automationAccounts<br>Microsoft.Automation/automationAccounts|JobLogs<br>JobStreams|
 |Azure Event Hubs|[Event Hubs-diagnostikloggar](https://docs.microsoft.com/azure/event-hubs/event-hubs-diagnostic-logs)|Microsoft.EventHub/namespaces<br>Microsoft.EventHub/namespaces|ArchiveLogs<br>OperationalLogs|
 |Azure Stream Analytics|[Jobbet diagnostikloggar](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-job-diagnostic-logs)|Microsoft.StreamAnalytics/streamingjobs<br>Microsoft.StreamAnalytics/streamingjobs|Körnings-<br>Redigering|
 |Azure Service Bus|[Service Bus-diagnostikloggar](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-diagnostic-logs)|Microsoft.ServiceBus/namespaces|OperationalLogs|
@@ -216,7 +216,7 @@ Av samma principer för kvarhållning av säkerhetskopior som visas på andra lo
 
 **Diagnostikloggar**
 
-Periodiska och spontant händelser skapas av nätverksresurser och loggas i storage-konton och skickas till en händelsehubb eller Log Analytics. Loggarna ge insikter om hälsotillståndet för en resurs. De kan visas i verktyg som Power BI och Log Analytics. Läs hur du visar diagnostikloggar i [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-networking-analytics).
+Periodiska och spontant händelser skapas av nätverksresurser och loggas i storage-konton och skickas till en event hub eller Azure Monitor-loggar. Loggarna ge insikter om hälsotillståndet för en resurs. De kan visas i Verktyg, till exempel Power BI och Azure Monitor-loggar. Läs hur du visar diagnostikloggar i [Azure Monitor loggar](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-networking-analytics).
 
 ![Diagnostikloggar](./media/azure-log-audit/azure-log-audit-fig5.png)
 
@@ -302,29 +302,31 @@ Security Center använder avancerade säkerhetsanalyser, som går mycket längre
 
 * **Avvikelseidentifiering**: Använder statistisk profilering för att skapa en historisk baslinje. Den här typen av identifiering varnar vid avvikelser från upprättade baslinjer som matchar vektorn för ett potentiellt angrepp.
 
-Många säkerhetsåtgärder och incidenter team beroende av en SIEM-lösning som startpunkt för sortering och undersökning av säkerhetsaviseringar. Du kan synkronisera aviseringar i Security Center och virtuella datorer säkerhetshändelser som samlas in av Azure diagnostics och granska loggar med din Log Analytics eller SIEM-lösning i nära realtid med Azure Log Integration.
+Många säkerhetsåtgärder och incidenter team beroende av en SIEM-lösning som startpunkt för sortering och undersökning av säkerhetsaviseringar. Du kan synkronisera aviseringar i Security Center och virtuella datorer säkerhetshändelser som samlas in av Azure diagnostics och granska loggar med Azure Monitor-loggar eller SIEM-lösningen i nära realtid med Azure Log Integration.
 
-## <a name="log-analytics"></a>Log Analytics
+## <a name="azure-monitor-logs"></a>Azure Monitor-loggar
 
-Log Analytics är en tjänst i Azure som hjälper dig att samla in och analysera data som genereras av resurser i molnet och lokala miljöer. Det ger dig realtidsinsikter med integrerad sökning och anpassade instrumentpaneler för snabb analys av miljontals poster över alla dina arbetsbelastningar och servrar, oavsett deras fysiska plats.
+Azure Monitor-loggar är en tjänst i Azure som hjälper dig att samla in och analysera data som genereras av resurser i molnet och lokala miljöer. Det ger dig realtidsinsikter med integrerad sökning och anpassade instrumentpaneler för snabb analys av miljontals poster över alla dina arbetsbelastningar och servrar, oavsett deras fysiska plats.
 
-![Log Analytics-diagram](./media/azure-log-audit/azure-log-audit-fig8.png)
+![Azure Monitor loggar diagram](./media/azure-log-audit/azure-log-audit-fig8.png)
 
-I centrum av de Log Analytics är Log Analytics-arbetsyta som ligger i Azure. Log Analytics samlar in data i arbetsytan från anslutna källor genom att konfigurera datakällor och lägga till lösningar i din prenumeration. Datakällor och lösningar som var och skapa olika posttyper, var och en med sin egen uppsättning egenskaper. Men datakällor och lösningar kan fortfarande analyseras tillsammans i förfrågningar till arbetsytan. Den här funktionen kan du använda samma verktyg och metoder för att arbeta med en mängd data som samlats från olika källor.
+Center för Azure Monitor-loggar finns Log Analytics-arbetsyta som ligger i Azure. Azure Monitor-loggar samlar in data i arbetsytan från anslutna källor genom att konfigurera datakällor och lägga till lösningar i din prenumeration. Datakällor och lösningar som var och skapa olika posttyper, var och en med sin egen uppsättning egenskaper. Men datakällor och lösningar kan fortfarande analyseras tillsammans i förfrågningar till arbetsytan. Den här funktionen kan du använda samma verktyg och metoder för att arbeta med en mängd data som samlats från olika källor.
 
-Anslutna datakällor är datorerna och andra resurser som genererar data som samlas in av Log Analytics. Källor kan omfatta agenter som är installerade på [Windows](https://docs.microsoft.com/azure/log-analytics/log-analytics-windows-agents) och [Linux](https://docs.microsoft.com/azure/log-analytics/log-analytics-linux-agents) datorer som ansluter direkt, eller agenter i [en ansluten System Center Operations Manager-hanteringsgrupp](https://docs.microsoft.com/azure/log-analytics/log-analytics-om-agents). Log Analytics kan också samla in data från en [Azure storage-konto](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-storage).
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+
+Anslutna datakällor är datorerna och andra resurser som genererar data som samlas in av Azure Monitor-loggar. Källor kan omfatta agenter som är installerade på [Windows](https://docs.microsoft.com/azure/log-analytics/log-analytics-windows-agents) och [Linux](https://docs.microsoft.com/azure/log-analytics/log-analytics-linux-agents) datorer som ansluter direkt, eller agenter i [en ansluten System Center Operations Manager-hanteringsgrupp](https://docs.microsoft.com/azure/log-analytics/log-analytics-om-agents). Azure Monitor-loggar kan också samla in data från en [Azure storage-konto](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-storage).
 
 [Datakällor](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-sources) finns olika typer av data som samlas in från varje anslutna källa. Källor inkludera händelser och [prestandadata](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-sources-performance-counters) från [Windows](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-sources-windows-events) och Linux-agenter förutom källor som [IIS-loggar](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-sources-iis-logs) och [anpassade textloggar](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-sources-custom-logs). Du kan konfigurera varje datakälla som du vill samla in och konfigurationen skickas automatiskt till varje ansluten källa.
 
 Det finns fyra sätt att [samla in loggar och mått för Azure-tjänster](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-storage):
 
-* Azure Diagnostics-data direkt till Log Analytics (**diagnostik** i tabellen nedan)
+* Azure Diagnostics-data direkt till Azure Monitor-loggar (**diagnostik** i tabellen nedan)
 
-* Azure Diagnostics-data till Azure-lagring till Log Analytics (**Storage** i tabellen nedan)
+* Azure Diagnostics till Azure storage till Azure Monitor-loggar (**Storage** i tabellen nedan)
 
 * Anslutningsappar för Azure-tjänster (**Connector** i tabellen nedan)
 
-* Skript för att samla in och publicera sedan data till Log Analytics (tomma celler i följande tabell och för tjänster som inte visas)
+* Skript för att samla in och publicera sedan data i Azure Monitor-loggar (tomma celler i följande tabell och för tjänster som inte visas)
 
 | Tjänst | Resurstyp | Logs | Mått | Lösning |
 | :------ | :------------ | :--- | :------ | :------- |
@@ -355,7 +357,7 @@ Det finns fyra sätt att [samla in loggar och mått för Azure-tjänster](https:
 |Skalningsuppsättningar för virtuella datorer|    Microsoft.Compute/<br>virtualMachines    ||Diagnostik||
 ||Microsoft.Compute/<br>virtualMachineScaleSets/<br>virtualMachines||||
 |Server webbgrupper|Microsoft.Web/<br>servergrupper||   Diagnostik
-|Websites|  Microsoft.Web/<br>Platser ||      Diagnostik|    [Mer information](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webappazure-oms-monitoring)|
+|Websites|  Microsoft.Web/<br>webbplatser ||      Diagnostik|    [Mer information](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webappazure-oms-monitoring)|
 ||Microsoft.Web/<br>platser /<br>fack|||||
 
 
@@ -369,7 +371,7 @@ Loggintegrering samlar in Azure-diagnostik från din Windows-datorer, Azure-akti
 
 Loggintegrering stöder för närvarande integreringen av Azure-aktivitetsloggar, Windows-händelseloggar från Windows-datorer med din Azure-prenumeration, Azure Security Center-aviseringar, Azure-diagnostikloggar och Azure AD-granskningsloggar.
 
-| Loggtyp | Log Analytics stöd för JSON (Splunk ArcSight och IBM QRadar) |
+| Loggtyp | Azure Monitor loggar stödjande JSON (Splunk ArcSight och IBM QRadar) |
 | :------- | :-------------------------------------------------------- |
 |Granskningsloggar för Azure AD|   Ja|
 |Aktivitetsloggar| Ja|
@@ -385,7 +387,7 @@ Integrationsscenarier för SIEM:
 
 * [Azure-Loggintegrering vanliga frågor och svar](https://docs.microsoft.com/azure/security/security-azure-log-integration-faq): Den här artikeln får du svar på frågor om Azure Log Integration.
 
-* [Integrera aviseringar i Security Center med Azure Log Integration](https://docs.microsoft.com/azure/security-center/security-center-integrating-alerts-with-log-integration): Den här artikeln beskrivs hur du synkroniserar aviseringar i Security Center, virtuell dator säkerhetshändelser som samlas in av Azure-diagnostikloggar och Azure granskningsloggar med din Log Analytics eller SIEM-lösning.
+* [Integrera aviseringar i Security Center med Azure Log Integration](https://docs.microsoft.com/azure/security-center/security-center-integrating-alerts-with-log-integration): Den här artikeln beskrivs hur du synkroniserar aviseringar i Security Center, virtuell dator säkerhetshändelser som samlas in av Azure-diagnostikloggar och Azure granskningsloggarna med Azure Monitor-loggar eller SIEM-lösning.
 
 ## <a name="next-steps"></a>Nästa steg
 

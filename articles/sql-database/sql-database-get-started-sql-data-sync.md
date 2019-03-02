@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.date: 01/14/2019
-ms.openlocfilehash: 04bb32abf7100975d72e5782b79b44006f1ac965
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 4cd7c61903bad5c0f1d6c41165e9bd7ff61a6d09
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567935"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57213440"
 ---
 # <a name="tutorial-set-up-sql-data-sync-between-azure-sql-database-and-sql-server-on-premises"></a>Självstudier: Ställ in SQL Data Sync mellan Azure SQL Database och SQL Server lokalt
 
@@ -232,7 +232,7 @@ Mer information om SQL Data Sync finns i:
 
 - [Data Sync-agenten för Azure SQL Data Sync](sql-database-data-sync-agent.md)
 - [Bästa praxis](sql-database-best-practices-data-sync.md) och [så här felsöker du problem med Azure SQL Data Sync](sql-database-troubleshoot-data-sync.md)
-- [Övervaka SQL Data Sync med Log Analytics](sql-database-sync-monitor-oms.md)
+- [Övervaka SQL Data Sync med Azure Monitor-loggar](sql-database-sync-monitor-oms.md)
 - [Uppdatera synkroniseringsschemat med Transact-SQL](sql-database-update-sync-schema.md) eller [PowerShell](scripts/sql-database-sync-update-schema.md)
 
 Mer information om SQL Database finns i:

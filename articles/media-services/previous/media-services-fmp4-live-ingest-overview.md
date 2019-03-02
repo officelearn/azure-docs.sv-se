@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 03/03/2019
 ms.author: cenkd;juliako
-ms.openlocfilehash: 16b8b5a012c5d2073a3472a70cf2064b8b0e59cd
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 6de31da1809173fb5fae1abcde47861ed7542f31
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55984842"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57240277"
 ---
-# <a name="azure-media-services-fragmented-mp4-live-ingest-specification-legacy"></a>Specifikation (äldre) för Azure Media Services fragmenterad MP4 live-inmatning
+# <a name="azure-media-services-fragmented-mp4-live-ingest-specification"></a>Specifikation för Azure Media Services fragmenterad MP4 live-inmatning 
 
 Den här specifikationen beskriver protokollet och format för fragmenterad MP4-baserade live direktuppspelning inmatning för Azure Media Services. Media Services tillhandahåller en liveuppspelningstjänst som kunder kan använda för att strömma direktsändningar och skicka innehållet i realtid genom att använda Azure som molnplattformen. Det här dokumentet beskriver också bästa metoder för att skapa mycket redundant och robust live mata in mekanismer.
 

@@ -15,12 +15,12 @@ ms.date: 02/27/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 02/27/2019
-ms.openlocfilehash: 197e79c2674d314c178444cc1f0d685503425031
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: cdc1be0c0274977fe14ef704fbb74fa955ad7e11
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56986928"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57242419"
 ---
 # <a name="enable-the-kubernetes-dashboard-in-azure-stack"></a>Aktivera Kubernetes-instrumentpanelen i Azure Stack 
 
@@ -107,7 +107,6 @@ Du kan hämta URL: en för instrumentpanelen från den överordnade noden i klus
 3. Anteckna filsökvägar. Uppdatera skriptet med platserna och sedan öppna PowerShell med en upphöjd kommandotolk. Kör det uppdaterade skriptet:  
 
     ```PowerShell   
-    Import  /etc/kubernetes/certs/ca.crt -CertStoreLocation cert:\LocalMachine\Root 
     Import-Certificate -Filepath "ca.crt" -CertStoreLocation cert:\LocalMachine\Root 
     $pfxpwd = Get-Credential -UserName 'Enter password below' -Message 'Enter password below' 
     Import-PfxCertificate -Filepath "client.pfx" -CertStoreLocation cert:\CurrentUser\My -Password $pfxpwd.Password 
@@ -121,9 +120,11 @@ Du kan hämta URL: en för instrumentpanelen från den överordnade noden i klus
 3.  Välj klientcertifikatet.
 4.  Ange token. 
 5. Återansluta till kommandoraden bash på huvudnoden och ge behörighet att `kubernetes-dashboard`. Kör följande kommando:
-    ```Bash   
+
+    ```Bash  
     kubectl create clusterrolebinding kubernetes-dashboard --clusterrole=cluster-admin --serviceaccount=kube-system:kubernetes-dashboard 
     ``` 
+
     Skriptet ger `kubernetes-dashboard` administratörsbehörighet i molnet. Mer information finns i [för RBAC-aktiverade kluster](https://docs.microsoft.com/azure/aks/kubernetes-dashboard).
 
 Du kan använda instrumentpanelen. Mer information om Kubernetes-instrumentpanelen finns i [Kubernetes-instrumentpanel för Webbgränssnitt](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/) 

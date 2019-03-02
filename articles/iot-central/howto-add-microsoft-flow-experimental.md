@@ -4,16 +4,16 @@ description: Använd IoT Central-anslutningen i Microsoft Flow att utlösa arbet
 services: iot-central
 author: viv-liu
 ms.author: viviali
-ms.date: 02/05/2019
+ms.date: 02/20/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: peterpr
-ms.openlocfilehash: 76b1940ea1724c7eee8d2784c0e2c2328dd4c8bf
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: ba6b8c76b31f09eb8f04097f935f865728a4e893
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55774135"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57217503"
 ---
 # <a name="build-workflows-with-the-iot-central-connector-in-microsoft-flow"></a>Skapa arbetsflöden med IoT Central-connector i Microsoft Flow
 
@@ -26,9 +26,9 @@ Använd Microsoft Flow för att automatisera arbetsflöden i många program och 
 - Ett program för betala per användning
 - Ett Microsoft personlig eller arbets eller skolkonto för att logga in på Flow ([Läs mer om Microsoft Flow prenumerationsavtal](https://aka.ms/microsoftflowplans))
 
-## <a name="trigger-a-workflow-when-a-rule-is-triggered"></a>Utlös ett arbetsflöde när en regel utlöses
+## <a name="trigger-a-workflow"></a>Utlös ett arbetsflöde
 
-Det här avsnittet visar hur du utlöser ett mobilmeddelande i Flow-mobilappen när en regel utlöses i IoT Central.
+Det här avsnittet visar hur du utlöser ett mobilmeddelande i Flow-mobilappen när en regel utlösare i IoT Central.
 
 1. Börja med att [skapar en regel i IoT Central](howto-create-telemetry-rules-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json). När du har sparat villkor klickar du på den **Microsoft Flow-åtgärden** som en ny åtgärd. En ny flik eller fönster ska öppnas i din webbläsare tar dig till Microsoft Flow.
 
@@ -70,9 +70,10 @@ Det här avsnittet visar hur du skapar en ny enhet i IoT Central vid push-instal
 
 1. Välj programmet och välj en mall för enheten du skapar en enhet från i listrutorna. Du ser åtgärden som utökas för att visa alla egenskaper och inställningar för enheten.
 
-1. Välj fältet enhetsnamn. Rutan med dynamiskt innehåll, Välj **enhetsnamn**. Det här värdet skickas från användaren anger indata via mobilappen och kommer att namnet på den nya enheten i IoT Central. I det här exemplet är det enda obligatoriska fältet namnet på enheten som anges med röd asterisk. Mall för en annan enhet kan ha flera obligatoriska fält som måste fyllas i för att skapa en ny enhet.
+1. Välj fältet enhetsnamn. Rutan med dynamiskt innehåll, Välj **enhetsnamn**. Det här värdet skickas från Indataposten användaren anger via mobilappen och är namnet på den nya enheten i IoT Central. I det här exemplet är det enda obligatoriska fältet namnet på enheten som anges med röd asterisk. Mall för en annan enhet kan ha flera obligatoriska fält som måste fyllas i för att skapa en ny enhet.
 
     ![Flow skapar dynamiska Enhetsfönstret för åtgärden](./media/howto-add-microsoft-flow-experimental/flowcreatedevice.png)
+
 1. (Valfritt) Fyll i andra fält som du vill för skapa nya enheter.
 
 1. Slutligen kan spara ditt arbetsflöde.
@@ -112,22 +113,24 @@ Det här avsnittet beskrivs hur du uppdaterar inställningar och egenskaper i Io
 Du kan ta bort en enhet med dess enhet-ID med den **Azure IoT Central - ta bort en enhet** åtgärd. Här är ett exempel på ett arbetsflöde som tar bort en enhet på en knapptryckning i Microsoft Flow-mobilappen.
 
    ![Arbetsflöde för Flow ta bort enhet](./media/howto-add-microsoft-flow-experimental/flowdeletedevice.png)
-    
+
 ## <a name="troubleshooting"></a>Felsökning
 
 Om du har problem med att skapa en anslutning till Azure IoT Central anslutningen följer här några tips om hur du.
 
-1. Personliga Microsoft-konton (till exempel @hotmail.com, @live.com, @outlook.com domäner) stöds inte just nu. Du måste använda ett AAD-arbetskonto eller skolkonto.
+1. Personliga Microsoft-konton (till exempel @hotmail.com, @live.com, @outlook.com domäner) stöds inte just nu. Du måste använda ett Azure Active Directory (AD)-arbetskonto eller skolkonto.
 
 2. Om du vill använda IoT Central-anslutningen i Microsoft Flow, måste du har loggat in minst en gång programmet IoT Central. Annars visas programmet inte programmet listrutorna.
 
-3. Om du får ett fel när du använder ett AAD-konto, försök att öppna Windows PowerShell och kör följande cmdletar har som administratör.
+3. Om du får ett fel när du använder en Azure AD-konto, försök att öppna Windows PowerShell och kör följande cmdletar har som administratör.
+
     ``` PowerShell
     Install-Module AzureAD
     Connect-AzureAD
     New-AzureADServicePrincipal -AppId 9edfcdd9-0bc5-4bd4-b287-c3afc716aac7 -DisplayName "Azure IoT Central"
     ```
-    
+
 ## <a name="next-steps"></a>Nästa steg
+
 Nu när du har lärt dig hur du använder Microsoft Flow för att skapa arbetsflöden, föreslagna nästa steg är att [hantera enheter](howto-manage-devices-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json).
 

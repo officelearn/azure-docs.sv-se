@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/19/2018
 ms.author: tomfitz
-ms.openlocfilehash: 9b136c73afc08e05694aed99d57139f77466788d
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 121011555d0ba6fdae392275495b89a9759f3978
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55490389"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57244272"
 ---
 # <a name="azure-resource-manager-template-best-practices"></a>Azure Resource Manager mall Metodtips
 
@@ -131,7 +131,7 @@ Informationen i det här avsnittet kan vara användbart när du arbetar med [par
 
 ## <a name="variables"></a>Variabler
 
-Följande information kan vara användbart när du arbetar med [variabler](resource-manager-templates-variables.md):
+Följande information kan vara användbart när du arbetar med [variabler](resource-group-authoring-templates.md#variables):
 
 * Använda variabler för värden som du behöver använda mer än en gång i en mall. Om ett värde används bara en gång, ett hårdkodat värde gör din mall lättare att läsa.
 
@@ -277,7 +277,7 @@ Följande information kan vara användbart när du arbetar med [resurser](resour
 
 ## <a name="outputs"></a>Utdata
 
-Om du använder en mall för att skapa offentliga IP-adresser kan innehålla en [matar ut avsnittet](resource-manager-templates-outputs.md) som returnerar information om IP-adressen och det fullständigt kvalificerade domännamnet (FQDN). Du kan använda utdatavärden för att enkelt hämta information om offentliga IP-adresser och FQDN efter distributionen.
+Om du använder en mall för att skapa offentliga IP-adresser kan innehålla en [matar ut avsnittet](resource-group-authoring-templates.md#outputs) som returnerar information om IP-adressen och det fullständigt kvalificerade domännamnet (FQDN). Du kan använda utdatavärden för att enkelt hämta information om offentliga IP-adresser och FQDN efter distributionen.
 
 ```json
 "outputs": {

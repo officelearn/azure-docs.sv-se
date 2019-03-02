@@ -14,16 +14,18 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/25/2019
 ms.author: srrengar
-ms.openlocfilehash: 377b41f6ea011c06457fb6550ddd8d448574835e
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 355b859428712b2e7b086fdfc152044814695b7b
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56881345"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57243949"
 ---
 # <a name="diagnose-common-scenarios-with-service-fabric"></a>Diagnostisera vanliga scenarier med Service Fabric
 
-Den här artikeln beskrivs vanliga scenarier som användare har uppstått i området för övervakning och diagnostik med Service Fabric. De scenarier som visas omfattar alla 3 nivåer av service fabric: Program, kluster och infrastruktur. Varje lösning använder Application Insights och Log Analytics, Azure övervakningsverktyg för att slutföra varje scenario. Stegen i varje lösning ger användarna en introduktion för hur du använder Application Insights och Log Analytics i samband med Service Fabric.
+Den här artikeln beskrivs vanliga scenarier som användare har uppstått i området för övervakning och diagnostik med Service Fabric. De scenarier som visas omfattar alla 3 nivåer av service fabric: Program, kluster och infrastruktur. Varje lösning använder Application Insights och Azure Monitor-loggar, Azure övervakningsverktyg, för att slutföra varje scenario. Stegen i varje lösning som ger användarna en introduktion om hur du använder Application Insights och Azure Monitor-loggar i samband med Service Fabric.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="prerequisites-and-recommendations"></a>Krav och rekommendationer
 
@@ -63,7 +65,7 @@ Lösningar i den här artikeln använder följande verktyg. Vi rekommenderar att
 1. Noden händelser spåras med Service Fabric-klustret. Gå till Service Fabric-analys lösning resursen med namnet **ServiceFabric(NameofResourceGroup)**
 2. Klicka på diagrammet längst ned på bladet med rubriken ”översikt”
 
-    ![Log Analytics-lösning](media/service-fabric-diagnostics-common-scenarios/oms-solution-azure-portal.png)
+    ![Azure Monitor loggar lösning](media/service-fabric-diagnostics-common-scenarios/oms-solution-azure-portal.png)
 
 3. Här har du många diagram och paneler som visar olika mått. Klicka på diagrammet och det tar dig till Loggsökningen. Här kan du fråga efter alla klusterhändelser eller prestandaräknare.
 4. Ange följande fråga. Dessa händelse-ID: N finns i den [nod-händelser](service-fabric-diagnostics-event-generation-operational.md#application-events)
@@ -75,7 +77,7 @@ Lösningar i den här artikeln använder följande verktyg. Vi rekommenderar att
 
 5. Klicka på ”ny Aviseringsregel” högst upp och nu när en händelse anländer baserat på den här frågan, du får en avisering i utvecklingsmetod för kommunikation.
 
-    ![Ny avisering i log Analytics](media/service-fabric-diagnostics-common-scenarios/oms-create-alert.png)
+    ![Azure Monitor loggar ny avisering](media/service-fabric-diagnostics-common-scenarios/oms-create-alert.png)
 
 ## <a name="how-can-i-be-alerted-of-application-upgrade-rollbacks"></a>Hur kan jag få aviseringar programmet uppgradera återställningar?
 
@@ -143,7 +145,7 @@ Kontrollera dessa länkar för en fullständig lista över prestandaräknare på
 
 * [Konfigurera aviseringar i AI](../azure-monitor/app/alerts.md) meddelas om ändringar i prestanda och användning
 * [Smart identifiering i Application Insights](../azure-monitor/app/proactive-diagnostics.md) utför en proaktiv analys av telemetri som skickas till AI att varna dig om potentiella prestandaproblem
-* Läs mer om Log Analytics [avisering](../log-analytics/log-analytics-alerts.md) att underlätta identifiering och diagnostik.
-* Log Analytics tillhandahåller en gateway (HTTP framåt Proxy) som kan användas för att skicka data till Log Analytics för lokala kluster. Läs mer om att [ansluter datorer utan Internetåtkomst till Log Analytics med Log Analytics-gateway](../azure-monitor/platform/gateway.md)
-* Bekanta dig med den [loggsökning och frågor](../log-analytics/log-analytics-log-searches.md) funktioner som erbjuds som en del av Log Analytics
-* Få en mer detaljerad översikt över Log Analytics och den erbjuder, läsa [vad är Log Analytics?](../operations-management-suite/operations-management-suite-overview.md)
+* Läs mer om Azure Monitor-loggar [avisering](../log-analytics/log-analytics-alerts.md) att underlätta identifiering och diagnostik.
+* För lokala kluster erbjuder Azure Monitor-loggar en gateway (HTTP framåt Proxy) som kan användas för att skicka data till Azure Monitor-loggar. Läs mer om att [ansluter datorer utan Internetåtkomst till Azure Monitor-loggar med Log Analytics-gateway](../azure-monitor/platform/gateway.md)
+* Bekanta dig med den [loggsökning och frågor](../log-analytics/log-analytics-log-searches.md) funktioner som erbjuds som en del av Azure Monitor-loggar
+* Få en mer detaljerad översikt över Azure Monitor-loggar och den erbjuder, läsa [vad är Azure Monitor-loggar?](../operations-management-suite/operations-management-suite-overview.md)

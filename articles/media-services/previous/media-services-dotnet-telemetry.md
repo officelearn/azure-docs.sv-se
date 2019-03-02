@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 5a24bf415cd575ebf62a2843207872c66bbeb021
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 27d3a386f434ba80211a3e0c28d1af0110ab7970
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55989885"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57241059"
 ---
-# <a name="configuring-azure-media-services-telemetry-with-net-legacy"></a>Konfigurera telemetri för Azure Media Services med .NET (äldre)
+# <a name="configuring-azure-media-services-telemetry-with-net"></a>Konfigurera telemetri för Azure Media Services med .NET 
 
 Den här artikeln beskriver allmänna steg som du kan följa när du konfigurerar Azure Media Services (AMS)-telemetri med .NET SDK. 
 

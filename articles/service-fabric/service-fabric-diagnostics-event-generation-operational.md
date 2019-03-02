@@ -14,16 +14,16 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/25/2019
 ms.author: srrengar
-ms.openlocfilehash: 51a334557ddfb57ceab318963e319fd046d3a703
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 6aec4e4bbf0abcfb6201da50381b6697a47716fa
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56820050"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57244595"
 ---
 # <a name="list-of-service-fabric-events"></a>Lista över Service Fabric-händelser 
 
-Service Fabric visar en primär uppsättning klusterhändelser om status för klustret som [Service Fabric-händelser](service-fabric-diagnostics-events.md). De bygger på åtgärder som utförs av Service Fabric på noderna och klustret eller beslut om gjorda av en kluster-ägaren /-operator. Dessa händelser kan nås genom att konfigurera i flera olika sätt, inklusive konfiguration av [Log Analytics med klustret](service-fabric-diagnostics-oms-setup.md), eller skicka en fråga i [EventStore](service-fabric-diagnostics-eventstore.md). På Windows-datorer måste matas dessa händelser in EventLog - så att du kan se Service Fabric-händelser i Loggboken. 
+Service Fabric visar en primär uppsättning klusterhändelser om status för klustret som [Service Fabric-händelser](service-fabric-diagnostics-events.md). De bygger på åtgärder som utförs av Service Fabric på noderna och klustret eller beslut om gjorda av en kluster-ägaren /-operator. Dessa händelser kan nås genom att konfigurera i flera olika sätt, inklusive konfiguration av [Azure Monitor-loggar med ditt kluster](service-fabric-diagnostics-oms-setup.md), eller skicka en fråga i [EventStore](service-fabric-diagnostics-eventstore.md). På Windows-datorer måste matas dessa händelser in EventLog - så att du kan se Service Fabric-händelser i Loggboken. 
 
 Här följer några egenskaper av dessa händelser
 * Varje händelse är kopplad till en specifik enhet i klustret t.ex. program, tjänst, Node, repliken.

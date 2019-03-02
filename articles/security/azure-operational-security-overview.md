@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/30/2018
 ms.author: tomsh
-ms.openlocfilehash: da58737314012255f26d344f279d855244f0c1ba
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 38054d6ee3799296887726954ef1f096945aeaeb
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56116481"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57241093"
 ---
 # <a name="azure-operational-security-overview"></a>Översikt över Azure driftsäkerhet
 
@@ -29,13 +29,13 @@ ms.locfileid: "56116481"
 
 En IT-driftsteamet ansvarar för att hantera infrastruktur med datacenter, program och data, inklusive stabilitet och säkerheten för dessa system. Informationshämtning säkerhet över ökar komplexa IT-miljöer ofta kräver dock organisationer att cobble ihop data från flera system för säkerhet och hantering.
 
-[Microsoft Log Analytics](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) är en molnbaserad IT-hanteringslösning som hjälper dig att hantera och skydda dina lokala och molnbaserade infrastruktur. Dess huvudfunktioner tillhandahåller följande tjänster som körs i Azure. Azure innehåller flera tjänster som hjälper dig att hantera och skydda dina lokala och molnbaserade infrastruktur. Varje tjänst tillhandahåller en specifik hanteringsfunktion. Du kan kombinera tjänster för olika hanteringsscenarier. 
+[Microsoft Azure Monitor-loggar](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) är en molnbaserad IT-hanteringslösning som hjälper dig att hantera och skydda dina lokala och molnbaserade infrastruktur. Dess huvudfunktioner tillhandahåller följande tjänster som körs i Azure. Azure innehåller flera tjänster som hjälper dig att hantera och skydda dina lokala och molnbaserade infrastruktur. Varje tjänst tillhandahåller en specifik hanteringsfunktion. Du kan kombinera tjänster för olika hanteringsscenarier. 
 
 ### <a name="azure-monitor"></a>Azure Monitor
 
 [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) samlar in data från hanterade källor till centrala datalager. Dessa data kan omfatta händelser, prestandadata eller anpassade data via API: et. När data har samlats in, är den tillgänglig för avisering, analys och export. 
 
-Du kan konsolidera data från olika källor och kombinera data från dina Azure-tjänster med din befintliga lokala miljö. Log Analytics skiljer också en tydlig insamling av data från de åtgärder som vidtagits på dessa data så att alla åtgärder är tillgängliga för alla typer av data.
+Du kan konsolidera data från olika källor och kombinera data från dina Azure-tjänster med din befintliga lokala miljö. Azure Monitor-loggar skiljer också en tydlig insamling av data från de åtgärder som vidtagits på dessa data så att alla åtgärder är tillgängliga för alla typer av data.
 
 ### <a name="automation"></a>Automation
 
@@ -93,7 +93,7 @@ Security Center utvärderar konfigurationen av dina resurser för att identifier
 >[!Note]
 >Mer information om roller och tillåtna åtgärder i Security Center finns i [behörigheter i Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-permissions).
 
-Security Center använder Microsoft Monitoring Agent. Det här är samma agent som använder tjänsten Log Analytics. Data som samlas in från agenten lagras i en befintlig logganalys [arbetsytan](https://docs.microsoft.com/azure/log-analytics/log-analytics-manage-access) som är associerade med din Azure-prenumeration eller en ny arbetsyta med hänsyn till geoplats för den virtuella datorn.
+Security Center använder Microsoft Monitoring Agent. Det här är samma agent som Azure Monitor-tjänsten använder. Data som samlas in från agenten lagras i en befintlig logganalys [arbetsytan](https://docs.microsoft.com/azure/log-analytics/log-analytics-manage-access) som är associerade med din Azure-prenumeration eller en ny arbetsyta med hänsyn till geoplats för den virtuella datorn.
 
 ## <a name="azure-monitor"></a>Azure Monitor
 

@@ -7,12 +7,12 @@ ms.service: storage
 ms.date: 01/02/2019
 ms.author: renash
 ms.subservice: files
-ms.openlocfilehash: 2a3c26c6a815cf934724fba4e8e0f9637803a4ce
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: f53df953d0a879d029a1cae3819a0e3154bd8f75
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55562393"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57213865"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Vanliga frågor (och svar FAQ) om Azure Files
 [Azure Files](storage-files-introduction.md) erbjuder fullständigt hanterade filresurser i molnet som är tillgängliga via vanliga [Server Message Block (SMB) protokollet](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx). Du kan montera Azure-filresurser samtidigt på molnet eller lokala distributioner av Windows, Linux och macOS. Du kan också cachelagra Azure-filresurser på Windows Server-datorer med hjälp av Azure File Sync för snabb åtkomst nära där data används.
@@ -244,6 +244,12 @@ Den här artikeln innehåller vanliga frågor och svar om Azure Files och funkti
    Azure Files körs ovanpå samma lagringsarkitektur som används i andra lagringstjänster i Azure Storage. Azure Files gäller efterlevnadsprinciper för samma data som används i andra Azure-lagringstjänster. Mer information om kompatibilitet för Azure Storage-data som du kan referera till [Azure Storage-efterlevnadserbjudanden](https://docs.microsoft.com/azure/storage/common/storage-compliance-offerings), och gå till den [Microsoft Trust Center](https://microsoft.com/trustcenter/default.aspx).
 
 ## <a name="on-premises-access"></a>Lokal åtkomst
+
+* <a id="port-445-blocked"></a>
+**Min Internet-leverantör eller IT-block-Port 445 som misslyckas Azure Files montera. Vad ska jag göra?**
+
+    Du kan lära dig om [olika sätt att lösa blockeras-port 445 här](https://docs.microsoft.com/en-us/azure/storage/files/storage-troubleshoot-windows-file-connection-problems#cause-1-port-445-is-blocked). Azure Files kan endast anslutningar som använder SMB 3.0 (med stöd för kryptering) från utanför den region eller datacenter. SMB 3.0-protokollet har infört många säkerhetsfunktioner inklusive kanalkrypteringen som är mycket säkert att använda via internet. Men dess möjligt att port 445 har blockerats på grund av historiska orsaker för sårbarheter upptäcktes i lägre SMB-versioner. Perfekt om porten ska blockeras för endast för SMB 1.0-trafik och bör inaktiveras SMB 1.0 på alla klienter.
+
 * <a id="expressroute-not-required"></a>
 **Måste jag använda Azure ExpressRoute för att ansluta till Azure Files eller om du vill använda Azure File Sync lokalt?**  
 

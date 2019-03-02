@@ -3,7 +3,7 @@ title: Funktioner i Azure Cloud Shell | Microsoft Docs
 description: Översikt över funktioner i Bash i Azure Cloud Shell
 services: Azure
 documentationcenter: ''
-author: jluk
+author: maertendMSFT
 manager: timlt
 tags: azure-resource-manager
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2018
-ms.author: juluk
-ms.openlocfilehash: 4ee36aaaeeda02025da6b01f4dd6c84afd72970f
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.author: damaerte
+ms.openlocfilehash: 7e2ead6d5fc13b0d7517258d75148d50a3f1bc62
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56233361"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57246363"
 ---
 # <a name="features--tools-for-azure-cloud-shell"></a>Funktioner och verktyg för Azure Cloud Shell
 

@@ -12,12 +12,12 @@ ms.author: arib
 ms.reviewer: vanto
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: 08c71ac1aba659a2e0fbb6655b6ee0a21576bf5d
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: bbf04104d70ecb6ea8d83c6167b5b9b0dfe2c2dc
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56339795"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57217452"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Kom igång med SQL-databasgranskning
 
@@ -30,6 +30,8 @@ Granskning för Azure [SQL Database](sql-database-technical-overview.md) och [SQ
 
 > [!NOTE] 
 > Det här avsnittet gäller för Azure SQL-servern, och för både SQL Database- och SQL Data Warehouse-databaser som skapas på Azure SQL-servern. För enkelhetens skull används SQL Database när det gäller både SQL Database och SQL Data Warehouse.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 
 ## <a id="subheading-1"></a>Azure SQL database auditing översikt
@@ -85,7 +87,7 @@ I följande avsnitt beskrivs konfigurationen av granskning med Azure portal.
 
     ![Navigeringsfönster][3]
 
-5. **Nya** – nu har du flera alternativ för att konfigurera där granskningsloggar ska skrivas. Du kan skriva loggar till ett Azure storage-konto, till en Log Analytics-arbetsyta för användning av Log Analytics eller till event hub för förbrukning med händelsehubben. Du kan konfigurera en kombination av dessa alternativ och granskningsloggar skrivs till var och en.
+5. **Nya** – nu har du flera alternativ för att konfigurera där granskningsloggar ska skrivas. Du kan skriva loggar till ett Azure storage-konto, till en Log Analytics-arbetsyta för användning av Azure Monitor-loggar eller till event hub för förbrukning med händelsehubben. Du kan konfigurera en kombination av dessa alternativ och granskningsloggar skrivs till var och en.
 
     ![lagringsalternativ](./media/sql-database-auditing-get-started/auditing-select-destination.png)
 
@@ -95,7 +97,7 @@ I följande avsnitt beskrivs konfigurationen av granskning med Azure portal.
 
 7. Konfigurera granskning för skrivning loggar på en Log Analytics-arbetsyta väljer **Log Analytics (förhandsversion)** och öppna **Log Analytics information**. Välj eller skapa Log Analytics-arbetsyta där loggarna sparas, och klicka sedan på **OK**.
 
-    ![Log Analytics](./media/sql-database-auditing-get-started/auditing_select_oms.png)
+    ![Log Analytics-arbetsyta](./media/sql-database-auditing-get-started/auditing_select_oms.png)
 
 8. Konfigurera granskning för skrivning loggar till en händelsehubb, Välj **Event Hub (förhandsversion)** och öppna **information om Händelsehubb**. Välj händelsehubb där loggarna sparas, och klicka sedan på **OK**. Var noga med att event hub finns i samma region som din databas och server.
 
@@ -112,7 +114,7 @@ I följande avsnitt beskrivs konfigurationen av granskning med Azure portal.
 
 ## <a id="subheading-3"></a>Analysera granskningsloggar och rapporter
 
-Om du har valt att skriva granskningsloggar till Log Analytics:
+Om du har valt att skriva granskningsloggar till Azure Monitor-loggar:
 
 - Använd den [Azure-portalen](https://portal.azure.com).  Öppna den aktuella databasen. Överst på databasens **granskning** klickar du på **visa granskningsloggar**.
 
@@ -123,7 +125,7 @@ Om du har valt att skriva granskningsloggar till Log Analytics:
     ![Öppna i Log Analytics](./media/sql-database-auditing-get-started/auditing_open_in_oms.png)
 
 - Du kan också du kan också komma åt granskningsloggarna från Log Analytics-bladet. Öppna Log Analytics-arbetsytan och under **Allmänt** klickar du på **loggar**. Du kan börja med en enkel fråga, till exempel: *Sök ”SQLSecurityAuditEvents”* att visa granskningen loggar.
-    Härifrån kan du också använda [Log Analytics](../log-analytics/log-analytics-log-search.md) att köra avancerade sökningar på din granskningsloggdata. Log Analytics ger dig operational realtidsinsikter med integrerad sökning och anpassade instrumentpaneler för snabb analys av miljontals poster över alla dina arbetsbelastningar och servrar. Ytterligare användbar information om Log Analytics-frågespråket och kommandon finns i [Log Analytics Sök referens](../log-analytics/log-analytics-log-search.md).
+    Härifrån kan du också använda [Azure Monitor loggar](../log-analytics/log-analytics-log-search.md) att köra avancerade sökningar på din granskningsloggdata. Azure Monitor-loggar ger dig operational realtidsinsikter med integrerad sökning och anpassade instrumentpaneler för snabb analys av miljontals poster över alla dina arbetsbelastningar och servrar. Ytterligare användbar information om Azure Monitor-loggar frågespråket och kommandon finns i [Azure Monitor loggar sökreferens](../log-analytics/log-analytics-log-search.md).
 
 Om du har valt att skriva granskningsloggar till Event Hub:
 
@@ -187,7 +189,7 @@ Med geo-replikerade databaser när du aktiverar granskning på den primära data
     >[!IMPORTANT]
     >Med granskning på databasnivå, ska lagringsinställningarna för den sekundära databasen vara identiskt för den primära databasen orsakar tvärregional trafik. Vi rekommenderar att du aktiverar endast serverniv och lämna granskning på databasnivå inaktiverad för alla databaser.
     > [!WARNING]
-    > Med hjälp av event hub eller log analytics som mål för granskningsloggar på servernivå stöds för närvarande inte för sekundär geo-replikerade databaser.
+    > Med hjälp av event hub eller Azure Monitor-loggar som mål för granskningsloggar på servernivå stöds för närvarande inte för sekundär geo-replikerade databaser.
 
 ### <a id="subheading-6">Storage åtkomstnyckeln återskapades</a>
 
@@ -256,7 +258,7 @@ Utökade princip med där satsen stöd för ytterligare filtrering:
 Du kan hantera Azure SQL database-granskning med hjälp av [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) mallar, som visas i följande exempel:
 
 - [Distribuera en Azure SQL-Server med granskning aktiverat för att skriva granskningsloggar till Azure Blob storage-konto](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-blob-storage)
-- [Distribuera en Azure SQL-Server med granskning aktiverat för att skriva granskningsloggar till Log Analytics](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-oms)
+- [Distribuera en Azure SQL-Server med granskning aktiverat för att skriva granskningsloggar till Azure Monitor-loggar](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-oms)
 - [Distribuera en Azure SQL-Server med granskning aktiverat för att skriva granskningsloggar till Event Hubs](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-eventhub)
 
 <!--Anchors-->

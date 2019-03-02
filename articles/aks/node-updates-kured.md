@@ -5,14 +5,14 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 11/06/2018
+ms.date: 02/28/2019
 ms.author: iainfou
-ms.openlocfilehash: 0bcc49df6540b73b8feb5bb1ec4312e680572797
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 75057f6bd92fbdc805da2e0e36dc2bff7b069f26
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51617876"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57243337"
 ---
 # <a name="apply-security-and-kernel-updates-to-nodes-in-azure-kubernetes-service-aks"></a>Gäller säkerhet och kernel-uppdateringar för noder i Azure Kubernetes Service (AKS)
 
@@ -27,7 +27,7 @@ Den här artikeln visar hur du använder öppen källkod [kured (KUbernetes star
 
 Den här artikeln förutsätter att du har ett befintligt AKS-kluster. Om du behöver ett AKS-kluster finns i snabbstarten om AKS [med Azure CLI] [ aks-quickstart-cli] eller [med Azure portal][aks-quickstart-portal].
 
-Du också ha Azure CLI version 2.0.49 eller senare installerat och konfigurerat. Kör `az --version` att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [installera Azure CLI][install-azure-cli].
+Du också ha Azure CLI version 2.0.59 eller senare installerat och konfigurerat. Kör  `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa  [Installera Azure CLI 2.0][install-azure-cli].
 
 ## <a name="understand-the-aks-node-update-experience"></a>Förstå av uppdateringar för AKS-nod
 
@@ -78,15 +78,15 @@ Du kan övervaka statusen för de noder som använder den [kubectl få noder] [ 
 
 ```
 NAME                       STATUS                     ROLES     AGE       VERSION
-aks-nodepool1-79590246-2   Ready,SchedulingDisabled   agent     1h        v1.9.11
+aks-nodepool1-28993262-0   Ready,SchedulingDisabled   agent     1h        v1.11.7
 ```
 
-När uppdateringen är klar kan du visa status för de noder som använder den [kubectl få noder] [ kubectl-get-nodes] med den `--output wide` parametern. Dessa ytterligare utdata kan du se en skillnad i *KERNEL-VERSION* av de underliggande noderna, som visas i följande Exempelutdata. Den *aks-nodepool1-79590246-2* uppdaterades i ett föregående steg och visar kernel-version *4.15.0-1025-azure*. Noden *aks-nodepool1-79590246-1* som inte har uppdaterat visar kernel-version *4.15.0-1023-azure*.
+När uppdateringen är klar kan du visa status för de noder som använder den [kubectl få noder] [ kubectl-get-nodes] med den `--output wide` parametern. Dessa ytterligare utdata kan du se en skillnad i *KERNEL-VERSION* av de underliggande noderna, som visas i följande Exempelutdata. Den *aks-nodepool1-28993262-0* uppdaterades i ett föregående steg och visar kernel-version *4.15.0-1039-azure*. Noden *aks-nodepool1-28993262-1* som inte har uppdaterat visar kernel-version *4.15.0-1037-azure*.
 
 ```
 NAME                       STATUS    ROLES     AGE       VERSION   INTERNAL-IP   EXTERNAL-IP   OS-IMAGE             KERNEL-VERSION      CONTAINER-RUNTIME
-aks-nodepool1-79590246-1   Ready     agent     1h        v1.9.11   10.240.0.6    <none>        Ubuntu 16.04.5 LTS   4.15.0-1023-azure   docker://1.13.1
-aks-nodepool1-79590246-2   Ready     agent     1h        v1.9.11   10.240.0.4    <none>        Ubuntu 16.04.5 LTS   4.15.0-1025-azure   docker://1.13.1
+aks-nodepool1-28993262-0   Ready     agent     1h        v1.11.7   10.240.0.4    <none>        Ubuntu 16.04.6 LTS   4.15.0-1039-azure   docker://3.0.4
+aks-nodepool1-28993262-1   Ready     agent     1h        v1.11.7   10.240.0.5    <none>        Ubuntu 16.04.6 LTS   4.15.0-1037-azure   docker://3.0.4
 ```
 
 ## <a name="next-steps"></a>Nästa steg

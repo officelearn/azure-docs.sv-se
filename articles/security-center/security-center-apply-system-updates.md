@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: afd6ded48bc330032b77be4bc8cd186a6f71ee5f
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 9c2d6c48b9bf51062181886c8a9ef789b1c2b359
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56105135"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57240838"
 ---
 # <a name="apply-system-updates-in-azure-security-center"></a>Tillämpa systemuppdateringar i Azure Security Center
 Azure Security Center övervakar dagliga Windows och Linux-datorer (VM) och datorer efter saknade uppdateringar av operativsystemet. Security Center hämtar en lista med tillgängliga säkerhetsuppdateringar och viktiga uppdateringar från Windows Update eller Windows Server Update Services (WSUS), beroende på vilken tjänst som har konfigurerats på en Windows-dator. Security Center söker också efter de senaste uppdateringarna i Linux-system. Om en virtuell dator eller en dator saknar en systemuppdatering, rekommenderar Security Center att du tillämpar systemuppdateringar.
@@ -63,13 +63,13 @@ I det här exemplet ska vi använda **Compute**.
 
    ![Saknade säkerhetsuppdateringen][3]
 
-4. Välj den **Search** ikonen i menyfliksområdet längst upp.  En sökfråga för Log Analytics öppnas filtrerade till de datorer som saknar uppdateringen.
+4. Välj den **Search** ikonen i menyfliksområdet längst upp.  En sökfråga för Azure Monitor-loggar öppnas filtrerade till de datorer som saknar uppdateringen.
 
-   ![Log Analytics-sökningen][4]
+   ![Azure Monitor loggar sökning][4]
 
 5. Välj en dator i listan för mer information. En annan sökresultat öppnas med information som filtrerad endast för den datorn.
 
-    ![Log Analytics-sökningen][5]
+    ![Azure Monitor loggar sökning][5]
 
 ## <a name="reboot-after-system-updates"></a>Starta om datorn efter uppdateringarna
 1. Gå tillbaka till den **rekommendationer** bladet. En ny post genererades när du har tillämpat systemuppdateringar, kallas **starta om efter systemuppdateringar**. Den här posten kan du vet att du behöver starta om den virtuella datorn för att slutföra processen med att tillämpa uppdateringar.

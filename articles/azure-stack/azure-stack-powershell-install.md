@@ -15,12 +15,12 @@ ms.date: 02/08/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 02/08/2019
-ms.openlocfilehash: 89e75afd3b9001f7a0b8a027744ef71c8bb69690
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: 1f51aee41937c531a987482a6a367970305e6594
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56299572"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57218030"
 ---
 # <a name="install-powershell-for-azure-stack"></a>Installera PowerShell för Azure Stack
 
@@ -107,7 +107,7 @@ Kör följande PowerShell-skript för att installera dessa moduler på utvecklin
 
     > [!Note]  
     > Azure Stack-Modulversion 1.7.0 är en viktig ändring. Migrera från Azure Stack 1.6.0 eller senare finns i den [Migreringsguide](https://aka.ms/azspshmigration170).
-
+    > AzureRm Modulversion 2.4.0 levereras med en stor förändring för cmdleten Remove-AzureRmStorageAccount. Den här cmdleten förväntar sig - Force prameter anges för att ta bort lagringskontot utan bekräftelse.
 - Azure Stack 1811:
 
     ```PowerShell
@@ -216,6 +216,12 @@ Installationen består av fyra steg:
     $Path = "<Path that is used to save the packages>"
     Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRM -Path $Path -Force -RequiredVersion 2.3.0
     Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 1.5.0
+    ```
+
+    > [!NOTE]  
+    >På datorer utan Internetanslutning rekommenderar vi att köra följande cmdlet för att inaktivera telemetridatainsamling. Det kan uppstå en försämring av cmldets utan att inaktivera telemetridatainsamling. Detta gäller endast för datorer utan internet-anslutningar
+    ```PowerShell
+    Disable-AzureRmDataCollection
     ```
 
 ### <a name="enable-additional-storage-features"></a>Aktivera ytterligare lagringsutrymme funktioner

@@ -12,16 +12,16 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 12/19/2018
-ms.openlocfilehash: a2b4f85ac9c62c93e06f73090b6b144ff79319d1
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 264d4cfc6b09813f34501a0e51d3100f4d2bce78
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55561883"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57217044"
 ---
 # <a name="use-the-intelligent-insights-azure-sql-database-performance-diagnostics-log"></a>Använda diagnostikloggen för Intelligent Insights Azure SQL Database-prestanda
 
-Den här sidan innehåller information om hur du använder Azure SQL Database prestanda diagnostik loggen genereras av [smarta insikter](sql-database-intelligent-insights.md), dess format och de data som den innehåller för anpassad utveckling behöver. Du kan skicka den här diagnostikloggen [Azure Log Analytics](../azure-monitor/insights/azure-sql.md), [Azure Event Hubs](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md), [Azure Storage](sql-database-metrics-diag-logging.md#stream-into-storage), eller en lösning från tredje part för anpassad DevOps avisering och rapportering funktioner.
+Den här sidan innehåller information om hur du använder Azure SQL Database prestanda diagnostik loggen genereras av [smarta insikter](sql-database-intelligent-insights.md), dess format och de data som den innehåller för anpassad utveckling behöver. Du kan skicka den här diagnostikloggen [Azure Monitor loggar](../azure-monitor/insights/azure-sql.md), [Azure Event Hubs](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md), [Azure Storage](sql-database-metrics-diag-logging.md#stream-into-storage), eller en lösning från tredje part för anpassad DevOps avisering och rapportering funktioner.
 
 ## <a name="log-header"></a>Log-huvud
 
@@ -135,7 +135,7 @@ Den sista delen av Intelligent Insights prestandaloggen gäller automatiserade R
 "rootCauseAnalysis_s" : "High data IO caused performance to degrade. It seems that this database is missing some indexes that could help."
 ```
 
-Du kan använda intelligenta insikter prestandaloggen med [Azure Log Analytics]( https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql) eller en lösning från tredje part för anpassad DevOps varningar och rapporter.
+Du kan använda intelligenta insikter prestandaloggen med [Azure Monitor loggar]( https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql) eller en lösning från tredje part för anpassad DevOps varningar och rapporter.
 
 ## <a name="next-steps"></a>Nästa steg
 - Lär dig mer om [smarta insikter](sql-database-intelligent-insights.md) begrepp.

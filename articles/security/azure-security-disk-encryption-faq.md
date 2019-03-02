@@ -6,14 +6,14 @@ ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 01/25/2019
+ms.date: 03/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: a1b045ecf10399ca2297e4d9d010d5c973c40f4e
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: 305a5c5d4f82c732dd796f5c5140c0da04fe7b13
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57193287"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57245224"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms-faq"></a>Azure Disk Encryption för virtuella IaaS-datorer: vanliga frågor och svar
 
@@ -73,9 +73,13 @@ Kom igång genom att läsa den [översikt över Azure Disk Encryption](azure-sec
 
 Ja, du kan kryptera start- och datavolymer för Windows och Linux IaaS-datorer. Du kan inte krypteras data utan att första kryptera operativsystemvolymen för Windows-datorer. Det är möjligt att kryptera datavolymen utan att behöva kryptera operativsystemvolymen först för virtuella Linux-datorer. När du har krypterat operativsystemvolymen för Linux, stöds inaktivering av kryptering på en OS-volym för virtuella Linux IaaS-datorer inte.
 
+## <a name="can-i-encrypt-an-unmounted-volume-with-azure-disk-encryption"></a>Kan jag kryptera en demonterats volym med Azure Disk Encryption?
+
+Nej, krypterar Azure Disk Encryption endast monterade volymer.
+
 ## <a name="how-do-i-rotate-secrets-or-encryption-keys"></a>Hur jag rotera hemligheter eller krypteringsnycklar?
 
-För att rotera hemligheter, anropar du bara samma kommando som du ursprungligen använde för att aktivera diskkryptering. Anropa samma kommando du använts för att aktivera diskkryptering, att ange den nya krypteringsnyckel för att rotera nyckeln krypteringsnyckeln. 
+Att rotera hemligheter, anropar du bara samma kommando som du ursprungligen använde för att aktivera diskkryptering, anger du ett annat Nyckelvalv. Anropa samma kommando du använts för att aktivera diskkryptering, att ange den nya krypteringsnyckel för att rotera nyckeln krypteringsnyckeln. 
 
 ## <a name="how-do-i-add-or-remove-a-key-encryption-key-if-i-didnt-originally-use-one"></a>Hur jag för att lägga till eller ta bort en nyckelkrypteringsnyckel om jag inte ursprungligen använder en?
 
@@ -145,6 +149,10 @@ På Windows, ADE använder BitLocker AES256 krypteringsmetod (AES256WithDiffuser
 
 ## <a name="if-i-use-encryptformatall-and-specify-all-volume-types-will-it-erase-the-data-on-the-data-drives-that-we-already-encrypted"></a>Om jag använder EncryptFormatAll och anger alla volymtyper av, kommer den att radera data på dataenheter som vi redan har krypterat?
 Nej, inte data raderas från enheter som redan är krypterade med Azure Disk Encryption. Liknande hur EncryptFormatAll inte kryptera operativsystemenheten, den kommer inte att kryptera enheten redan krypterade data. Mer information finns i den [EncryptFormatAll kriterier](azure-security-disk-encryption-linux.md#bkmk_EFACriteria).        
+
+## <a name="can-i-backup-and-restore-an-encrypted-vm"></a>Kan jag säkerhetskopiera och återställa en krypterad virtuell dator? 
+
+Azure Backup är en mekanism för att säkerhetskopiera och återställa krypterade Virtuella datorer i samma prenumeration och region.  Mer information finns på [säkerhetskopiera och återställa krypterade virtuella datorer med Azure Backup](https://docs.microsoft.com/en-us/azure/backup/backup-azure-vms-encryption).  Återställa en krypterad virtuell dator till en annan region stöds inte för närvarande.  
 
 ## <a name="where-can-i-go-to-ask-questions-or-provide-feedback"></a>Var kan jag få ställa frågor eller lämna feedback?
 

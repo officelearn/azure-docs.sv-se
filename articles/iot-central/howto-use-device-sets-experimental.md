@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpfr
-ms.openlocfilehash: dd8fa36acaf3f4871d63200a4863778180e9be1a
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: b3bd157f06c922d96f71627f885fe6de2537987a
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55773758"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57215301"
 ---
 # <a name="use-device-sets-in-your-azure-iot-central-application"></a>Använd enhetsuppsättningar i Azure IoT Central programmet
 
@@ -94,10 +94,10 @@ För att lägga till en platskarta till enheten som anger instrumentpanelen som 
 1. Välj kartan på instrumentpanelen ställa in enheten från biblioteket.
 2. Ge en rubrik och Välj egenskapen location som du tidigare har konfigurerat som en del av din enhetsegenskap.
 3. Spara och du ser kartan panelen Visa platsen för dina enheter i enheten inställd.
-4. Nu när en operatör vyer enhetsuppsättningar instrumentpanelen, operatören kan se alla paneler som du har konfigurerat, inklusive plats karta som visualiserar enheter plats på ett ögonblick! 
-    
-> [!NOTE] 
-> Du kommer att kunna ändra storlek på kartan för att den har önskad storleken. När du klickar på en PIN-kod på kartan visas information om enhet, namn och plats. Du kan klicka på popup-fönstret att gå till egenskapssidan för enheten.  
+4. Nu när en operatör vyer enhetsuppsättningar instrumentpanelen, operatören kan se alla paneler som du har konfigurerat, inklusive plats karta som visualiserar enheter plats på ett ögonblick!
+
+> [!NOTE]
+> Du kommer att kunna ändra storlek på kartan för att den har önskad storleken. När du klickar på en PIN-kod på kartan visas information om enhet, namn och plats. Du kan klicka på popup-fönstret att gå till egenskapssidan för enheten.
 
 ## <a name="configure-the-list-for-your-device-set"></a>Konfigurera en lista för din enhet
 

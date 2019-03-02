@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/19/2018
 ms.author: jlian
-ms.openlocfilehash: b05a8bfd46800c5b0b0126adcf2acb4852bb6683
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 9057245c108e4a1b9af2549bc87f98258da50535
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53339764"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57240175"
 ---
 # <a name="detect-and-troubleshoot-disconnects-with-azure-iot-hub"></a>Identifiera och felsöka kopplar bort med Azure IoT Hub
 
@@ -54,7 +54,7 @@ Mer information finns i [vad är klassiska aviseringar i Microsoft Azure?](../az
 
 ## <a name="resolve-connectivity-errors"></a>Lösa anslutningsfel
 
-När du aktiverar diagnostikloggar och varningar för anslutna enheter kan få du aviseringar när ett fel uppstår. Det här avsnittet beskriver hur du löser vanliga problem när du får en avisering. Stegen nedan förutsätter att du har konfigurerat Azure Log Analytics för dina diagnostikloggar.
+När du aktiverar diagnostikloggar och varningar för anslutna enheter kan få du aviseringar när ett fel uppstår. Det här avsnittet beskriver hur du löser vanliga problem när du får en avisering. Stegen nedan förutsätter att du har konfigurerat Azure Monitor-loggar för dina diagnostikloggar.
 
 1. Få din arbetsyta **Log Analytics** i Azure-portalen.
 1. Välj **Loggsöknings**.

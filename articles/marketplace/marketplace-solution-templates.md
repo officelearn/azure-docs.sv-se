@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 11/15/2018
 ms.author: ellacroi
-ms.openlocfilehash: 8e8bcc43a3bf26a40055e4258bf73bb047e61ef9
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: bbf9ab56bd7e070e40e2454a69f0a5e313597f14
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56737611"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57215380"
 ---
 # <a name="azure-applications-solution-template-offer-publishing-guide"></a>Azure-program: Lösningen mall erbjudandet publicera Guide
 
@@ -38,7 +38,6 @@ Dessa mallar för lösningar är transaktion erbjudanden som distribueras och fa
 |Azure-kompatibel virtuell hårddisk (VHD)  |   Virtuella datorer måste vara baserade på Windows eller Linux.  Mer information [Se Skapa en Azure-kompatibel VHD](./cloud-partner-portal/virtual-machine/cpp-create-vhd.md). |
 | Kundens användning Attribution | Aktivera kundens användning attribution krävs på alla mallar för lösningar som publicerats på Azure Marketplace. Läs mer på kundens användning attribution och hur du aktiverar det [Azure-partner kundens användning attribution](./azure-partner-customer-usage-attribution.md).  |
 |  |  |
-
 
 ## <a name="next-steps"></a>Nästa steg
 Om du inte redan gjort det, [registrera](https://azuremarketplace.microsoft.com/sell) i marketplace.

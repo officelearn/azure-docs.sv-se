@@ -15,12 +15,12 @@ ms.date: 01/30/2019
 ms.author: mabrigg
 ms.reviwer: xiaofmao
 ms.lastreviewed: 01/30/2019
-ms.openlocfilehash: 11736b978242416bcfb95d3025975028e4148e98
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 44fc096fa95be3a469ada7c7dc212ce4fc04e83b
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55486546"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57218064"
 ---
 # <a name="azure-stack-storage-differences-and-considerations"></a>Azure Stack-lagring: Skillnader och överväganden
 
@@ -44,6 +44,7 @@ Den här artikeln sammanfattas de kända Azure Stack Storage skillnaderna från 
 |Maxstorlek för block blob|4,75 TB (100 MB X 50 000 block)|4,75 TB (100 MB x 50 000 block) för 1802 update eller senare version. 50 000 x 4 MB (cirka 195 GB) för tidigare versioner.
 |Kopiering av sidan blob-ögonblicksbild|Säkerhetskopiering Azure ohanterade Virtuella diskar som är anslutna till en aktiv virtuell dator stöds|Stöds inte än.
 |Sidan kopiering av blob inkrementell ögonblicksbild|Premium och standard Azure sidblobar som stöds|Stöds inte än.
+|Sidan blob fakturering|Debitering för unika sidor, oavsett om de är i blob eller i ögonblicksbilden. Skulle inte att debiteras ytterligare avgifter för ögonblicksbilder som är associerade med en blob tills grundläggande blob håller på att uppdateras.|Debitering för grundläggande blob- och assiociated ögonblicksbilder. Skulle debiteras ytterligare avgifter för varje enskild ögonblicksbild.
 |Lagringsnivåer för bloblagring|Frekvent, lågfrekvent och arkivlagringsnivå.|Stöds inte än.
 |Mjuk borttagning för blob storage|Allmänt tillgänglig|Stöds inte än.
 |Maximal sidstorlek för blob|8 TB|1 TB

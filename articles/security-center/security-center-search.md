@@ -1,6 +1,6 @@
 ---
 title: Sök i Azure Security Center | Microsoft Docs
-description: Lär dig hur Azure Security Center använder Log Analytics-sökningen för att hämta och analysera dina säkerhetsdata.
+description: Lär dig hur Azure Security Center använder Azure Monitor-loggar search för att hämta och analysera dina säkerhetsdata.
 services: security-center
 documentationcenter: na
 author: rkarlin
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/11/2017
 ms.author: rkarlin
-ms.openlocfilehash: c02a9f61a4a8b88f8b6c4d861f1a6cbe904ad70d
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 7fae267b74677e93527b4e185c5b52d421ef149e
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56110548"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57244952"
 ---
 # <a name="azure-security-center-search"></a>Sök i Azure Security Center
-Azure Security Center använder [Log Analytics Sök](../log-analytics/log-analytics-log-searches.md) att hämta och analysera dina säkerhetsdata. Log Analytics tillhandahåller en frågesyntax för att snabbt hämta och konsolidera data. Du kan använda Log Analytics-sökningen för att skapa frågor och analysera insamlade data från Security Center.
+Azure Security Center använder [Azure Monitor loggar search](../log-analytics/log-analytics-log-searches.md) att hämta och analysera dina säkerhetsdata. Azure Monitor-loggar tillhandahåller en frågesyntax för att snabbt hämta och konsolidera data. Du kan använda Azure Monitor-loggar sökning för att skapa frågor och analysera insamlade data från Security Center.
 
 Search är tillgängliga i både den kostnadsfria nivån och standardnivån i Security Center.  Data som är tillgängliga i dina sökningar i loggen är beroende av den nivå som tillämpas på din arbetsyta.  Se de Säkerhetscenter [prissättningssidan](../security-center/security-center-pricing.md) för mer information.
 
@@ -49,15 +49,15 @@ Search är tillgängliga i både den kostnadsfria nivån och standardnivån i Se
 
   ![Sökresultat][3]
 
-Se [Log Analytics-frågespråket](../log-analytics/log-analytics-search-reference.md) för mer information om hur du frågar efter data under den valda arbetsytan.
+Se [Kusto-frågespråket](../log-analytics/log-analytics-search-reference.md) för mer information om hur du frågar efter data under den valda arbetsytan.
 
 ## <a name="next-steps"></a>Nästa steg
-I den här artikeln lärde du dig att komma åt Sök i Security Center. Security Center använder Log Analytics-sökningen. Mer information om Log Analytics search finns:
+I den här artikeln lärde du dig att komma åt Sök i Security Center. Security Center använder search som Azure Monitor-loggar. Mer information om Azure Monitor-loggar search finns:
 
-- [Vad är Log Analytics?](../log-analytics/log-analytics-overview.md) – Översikt på Log Analytics
-- [Förstå log söker i Log Analytics](../log-analytics/log-analytics-log-search-new.md) – beskriver hur du använder loggsökningar i Log Analytics och tillhandahåller begrepp som du bör känna till innan du skapar en loggsökning
-- [Hitta data med loggsökningar i Log Analytics](../log-analytics/log-analytics-log-searches.md) – självstudie om hur du använder loggsökning
-- [Log Analytics Sök referens](../log-analytics/log-analytics-search-reference.md) – beskriver frågespråket i Log Analytics
+- [Vad är Azure Monitor-loggar?](../log-analytics/log-analytics-overview.md) – Översikt över Azure Monitor-loggar
+- [Förstå log söker i Azure Monitor-loggar](../log-analytics/log-analytics-log-search-new.md) – beskriver hur du använder loggsökningar i Azure Monitor-loggar och tillhandahåller begrepp som du bör känna till innan du skapar en loggsökning
+- [Hitta data med hjälp av sökningar i loggen i Azure Monitor-loggar](../log-analytics/log-analytics-log-searches.md) – självstudie om hur du använder loggsökning
+- [Kusto-sökreferens](../log-analytics/log-analytics-search-reference.md) – beskriver frågespråket i Azure Monitor-loggar
 
 I följande avsnitt kan du lära dig mer om Security Center:
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: e6148a35540b08916a4f0468af39e0f088453286
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 3889aa1e8b19e203a3f6354c2d26fb82afe2b922
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52958874"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57214290"
 ---
 # <a name="create-a-new-device-template-version"></a>Skapa en ny enhet mallversion
 
@@ -56,7 +56,7 @@ Vad händer med regler och enheten instrumentpaneler när versionen ändras?
 
 Du kan skapa flera versioner av mallen för enheten. Med tiden har du flera anslutna enheter med hjälp av dessa mallar för enheten. Du kan migrera enheter från en version av din enhet-mall till en annan. Följande steg beskriver hur du migrerar en enhet:
 
-1. Gå till den **Explorer** sidan.
+1. Gå till den **Device Explorer** sidan.
 1. Välj den enhet som du behöver migrera till en annan version.
 1. Välj **migrera enheten**.
 1. Välj det lägre versionsnumret som du vill migrera till enheten och välj **migrera**.

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 12/31/2018
 ms.author: ellacroi
-ms.openlocfilehash: c420b1b5fc15f89bd14b8ae42919f24de97da4fc
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 25349593bd45949f662581160fa23d30b4682710
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55894164"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57214205"
 ---
 # <a name="marketplace-faqs"></a>Vanliga frågor och svar om Marketplace
 
@@ -66,10 +66,11 @@ Kunder kan hitta tekniska program som skapats för eller bygger på Azure med Az
 
 Azure Marketplace-erbjudanden kan köpas genom:
 
-* [webbaserade butiken](https://azuremarketplace.microsoft.com/marketplace/apps).
-* [Microsoft Azure-hanteringsportalen](https://portal.azure.com/), eller via den [Azure Marketplace kommandoradsgränssnitt (CLI)](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).
+* [webbaserade butiken](https://azuremarketplace.microsoft.com/marketplace/apps)
+* [Microsoft Azure-hanteringsportalen](https://portal.azure.com/), eller via den [Azure Marketplace kommandoradsgränssnitt (CLI)](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)
 
-Obs! Förbetald kredit och andra typer av betalningsåtaganden kan inte användas för att betala för programvarulicenser, men kan användas för att betala för associerade Azure-användning.  Undantag finns i [Azure-åtagandebelopp](https://azure.microsoft.com/updates/azure-marketplace-third-party-reseller-services-now-use-azure-monetary-commitment/).
+>[!Note]
+>Förbetald kredit och andra typer av betalningsåtaganden kan inte användas för att betala för programvarulicenser, men kan användas för att betala för associerade Azure-användning.  Undantag finns i [Azure-åtagandebelopp](https://azure.microsoft.com/updates/azure-marketplace-third-party-reseller-services-now-use-azure-monetary-commitment/).
 
 **Kan jag välja vilken Microsoft Azure-region för att distribuera min Azure Marketplace-köp?**
 
@@ -93,9 +94,11 @@ För närvarande är endast gratis- och bring-your-own-license (BYOL) Marketplac
 
 **Vilka länder/regioner kan användas för att köpa program och tjänster som säljs/etableras genom Azure Marketplace?**
 
-Azure Marketplace är tillgängligt för Microsoft Azure-kunder i följande länder:
+Azure Marketplace är tillgängligt för Microsoft Azure-kunder i de länder/regioner som anges i den [deltagandepolicyer](https://docs.microsoft.com/legal/marketplace/participation-policy).
 
-Algeriet, Argentina, Australien, Bahrain, Belgien, Brasilien, Bulgarien, Chile, Colombia, Costa Rica, Cypern, Danmark, Dominikanska republiken, Ecuador, Egypten, El Salvador, Estland, Filippinerna, Finland, Frankrike, Förenade Arabemiraten, Grekland, Guatemala, Hongkong SAR, Indien, Indonesien, Irland, Island, Israel, Italien, Japan, Jordanien, Kanada, Kazakstan, Kenya, Kroatien, Kuwait, Lettland, Liechtenstein, Litauen, Luxemburg, Makedonien (f. d. jugoslaviska republiken), Malaysia, Malta, Marocko, Mexiko, Montenegro, Nederländerna, Nigeria, Norge, Nya Zeeland, Oman, Pakistan, Panama, Paraguay, Peru, Polen, Portugal, Puerto Rico*, Qatar, Rumänien, Ryssland, Saudiarabien, Schweiz, Serbien, Singapore, Slovakien, Slovenien, Spanien, Sri Lanka, Storbritannien, Sverige, Sydafrika, Sydkorea, Taiwan, Thailand, Tjeckien, Trinidad och Tobago, Tunisien, Turkiet, Tyskland, Ukraina, Ungern, Uruguay, USA, Venezuela, Vitryssland, Österrike.
+**Vilka valutor som stöds av Azure Marketplace?**
+
+Transaktioner kan utföras i följande 17 valutor: AUD, BRL, CAD, CHF, DKK, EUR, GBP, INR, UPPDELADE, WON, NOK, NZD, RUB, SEK, TWD, USD, RMB.
 
 ### <a name="deploying-a-solution-from-azure-marketplace"></a>Distribuera en lösning från Azure Marketplace
 
@@ -180,17 +183,17 @@ Nej. Utgivaren som äger lösningar på Azure Marketplace kan ange priser.  Vanl
 
 **Hur betalar jag för dessa prenumerationer? Mitt Azure Marketplace-köp på Azure-faktura, eller finns det en separat faktura?**
 
-Azure Marketplace-köp ärver samma betalningssätt som Azure-prenumeration.  De faktureras separat från Azure-användning, såvida inte de är aktiverade för att använda betalningsåtagande.
+MOSP - [Microsoft Online Subscription Program](https://azure.microsoft.com/support/legal/subscription-agreement/?country=us&language=en) kunder (d.v.s. web-direct) debiteras via samma kreditkort som finns på profilen för deras Azure-prenumeration. Om du inte har något kreditkort på fil, kan du köpa från Azure Marketplace. I detta fall använder fått du beviljats ett särskilt tillstånd om du vill att dina Azure-avgifter fakturerade i stället.
 
-MOSP - kunder för Microsoft Online Subscription Program (web-direct) debiteras via samma kreditkort som finns på profilen för deras Azure-prenumeration. Om kunden inte har något kreditkort på fil (beviljats ett särskilt tillstånd att få Azure-avgifter fakturerade), kan de köpa från Azure Marketplace.
-
-Kunder med Enterprise Agreement (EA) debiteras mot deras EA. Specifika Azure Marketplace-erbjudanden som anges i [Azure-åtagandebelopp](https://azure.microsoft.com/updates/azure-marketplace-third-party-reseller-services-now-use-azure-monetary-commitment/) är först dras av från eventuellt tillgängligt betalningsåtagande, och sedan faktureras som överförbrukning på en gemensam kvartalsfaktura. Indirekta EA-kunder, utbildningskunder och myndighetskunder faktureras av deras providern LSP (Licensing Solution).
+Kunder med Enterprise Agreement (EA) debiteras mot deras EA. Specifika Azure Marketplace-erbjudanden som beskrivs här är först dras av från eventuellt tillgängligt betalningsåtagande sedan faktureras som överförbrukning på en gemensam kvartalsfaktura. Indirekta EA-kunder, utbildningskunder och myndighetskunder faktureras av deras providern LSP (Licensing Solution).
 
 **Var kan jag se på min Azure Marketplace-prenumeration och faktureringsinformation?**
 
-MOSP - kunder för Microsoft Online Subscription Program (web-direct) kan se information om Marketplace prenumeration under menyn ”Marketplace” i Azure-faktureringsportalen. Kunder som har köpt virtuella datorer från Marketplace kan se sina uppskattade, upplupna kostnader på Microsoft Azure-hanteringsportalen.
+MOSP - [Microsoft Online Subscription Program](https://azure.microsoft.com/support/legal/subscription-agreement/?country=us&language=en) (web-direct) kunder kan se information om en Marketplace-köp på fliken fakturor för kostnadshantering + fakturering avsnitt av Azure-hanteringsportalen.
 
-EA-kunder (Enterprise Agreement) kan se information om en Marketplace-prenumeration på fliken ”Azure Marketplace” i fakturerings- och kontohanteringsvyn på Enterprise-portalen. Obs! Indirekta EA-kunder ser bara erbjudande- och användningsinformation information. Prisinformation om är inte tillgängliga i Enterprise portal.
+Enterprise Agreement (EA)-kunder kan se information om en Marketplace-köp i fliken fakturor för kostnadshantering + fakturering avsnitt av Azure-hanteringsportalen.
+
+Partner för cloud Solution Provider (CSP) kan visa information om en Marketplace-köp för varje kund i Partner Center på fliken orderhistorik när du har valt ett företag i vyn kunder.
 
 **Hur avbryter jag ett Azure Marketplace-tillägg för virtuell dator i Azure?**
 
@@ -198,9 +201,9 @@ Eftersom tillägg är associerad till Azure Virtual Machine (VM), om du vill avb
 
 **Hur ofta faktureras jag för Mina Azure Marketplace-köp?**
 
-Enterprise Agreement-kunder för den [specifika tjänster som beskrivs](https://azure.microsoft.com/updates/azure-marketplace-third-party-reseller-services-now-use-azure-monetary-commitment/), först ha tillgängliga betalningsåtaganden reducerade med de totala kostnaderna för tjänsterna i den månad de förbrukas. Alla Azure Marketplace-erbjudanden som inte dras av från åtagandebeloppet, faktureras varje månad i efterhand.
+Enterprise Agreement-kunder för de specifika tjänster som beskrivs, först har tillgängliga betalningsåtaganden reducerade med tjänsterna totala kostnaderna för tjänsterna i den månad de förbrukas. Alla Azure Marketplace-erbjudanden som inte dras av från åtagandebeloppet, faktureras varje månad i efterhand. Årlig SaaS-prenumerationer faktureras en gång för tjänster som ett helt år.
 
-MOSP som är web-direct-kunder debiteras varje månad via samma kreditkort som finns på profilen för deras Azure-prenumeration.
+MOSP - [Microsoft Online Subscription Program](https://azure.microsoft.com/support/legal/subscription-agreement/?country=us&language=en) kunder (web-direct) debiteras varje månad via samma kreditkort som finns på profilen för deras Azure-prenumeration. Årlig SaaS-prenumerationer faktureras en gång för tjänster som ett helt år.
 
 **Hur kan jag flytta mina Azure Marketplace-köp från min MOSP-prenumeration till min direkta Enterprise Agreement (EA)-prenumeration?**
 
@@ -246,7 +249,7 @@ Kontakta leverantören utgivare för all teknisk produktsupport. Utgivarens kont
 
 **Om jag inte är nöjd kan jag lämna tillbaka det?**
 
-Köp på Azure Marketplace kan inte returneras, men de kan avbrytas/tas bort. När en prenumeration har avbrutits/tagits bort, är det inte debiteras för efterföljande månader.
+Köp som görs från [Azure Marketplace](https://azuremarketplace.microsoft.com/) kan inte returneras, men kan avbrytas/tas bort. Beroende erbjudanden faktureras enligt användning, förbrukning så debiterar när tjänsten har stoppats stoppas också. Prenumerationer avslutas och kommer inte att debiteras efter den aktuella faktureringsperioden. Om en prenumeration avbryts strax efter köp (24 timmar för varje månad och 14 dagar för årliga) tillhandahålls en full återbetalning.
 
 Kunder måste kontakta utgivaren direkt för alla tekniska problem som rör deras Marketplace-tjänst eller köp. Utgivarens kontaktuppgifter och/eller en länk till en supportwebbplats finns på lösningens detaljsida på Azure Marketplace.
 
@@ -335,6 +338,10 @@ Det finns inga publishing avgifter när du laddar upp en lista, utvärderingsver
 **Finns det några Transaktionsavgifter ut för köp via Azure Marketplace?**
 
 När de köps via Azure Marketplace, delas intäkter för programvarulicensen mellan utgivare och Microsoft.  Detta görs i enlighet med villkoren villkoren i den [Publiceringsavtalet Marketplace](https://cloudpartner.azure.com/Content/Unversioned/PublisherAgreement2.pdf). Dessutom är det inte möjligt att någon Transaktionsavgifter med lösningar med BYOL (Bring Your Own License) utgivare.
+
+**Vad är ett standardavtal?**
+
+Microsoft erbjuder Standardavtalsvillkor som en utgivare kan välja för att använda, så att kunder har en förenklad inköp och juridiska granskningsprocessen.
 
 **Var hittar jag riktlinjer för att integrera Mina program med Azure Active Directory (AAD)?**
 
@@ -490,6 +497,35 @@ För närvarande är endast gratis- och BYOL-erbjudanden (Bring-your-own-license
 Azure Marketplace är tillgängligt för Microsoft Azure-kunder i följande länder/regioner:
 
 Algeriet, Argentina, Australien, Bahrain, Belgien, Brasilien, Bulgarien, Chile, Colombia, Costa Rica, Cypern, Danmark, Dominikanska republiken, Ecuador, Egypten, El Salvador, Estland, Filippinerna, Finland, Frankrike, Förenade Arabemiraten, Grekland, Guatemala, Hongkong SAR, Indien, Indonesien, Irland, Island, Israel, Italien, Japan, Jordanien, Kanada, Kazakstan, Kenya, Kroatien, Kuwait, Lettland, Liechtenstein, Litauen, Luxemburg, Makedonien (f. d. jugoslaviska republiken), Malaysia, Malta, Marocko, Mexiko, Montenegro, Nederländerna, Nigeria, Norge, Nya Zeeland, Oman, Pakistan, Panama, Paraguay, Peru, Polen, Portugal, Puerto Rico*, Qatar, Rumänien, Ryssland, Saudiarabien, Schweiz, Serbien, Singapore, Slovakien, Slovenien, Spanien, Sri Lanka, Storbritannien, Sverige, Sydafrika, Sydkorea, Taiwan, Thailand, Tjeckien, Trinidad och Tobago, Tunisien, Turkiet, Tyskland, Ukraina, Ungern, Uruguay, USA, Venezuela, Vitryssland, Österrike.
+
+**Hur definierar jag min geografisk tillgänglighet att sälja i olika länder?**
+
+1.  Gå till SKU: N som du vill lägga till nya länder i partnerportalen i molnet.  Navigera till ”land/Region tillgänglighet” i ”SKU-information” och klicka ”utvalda regioner”.
+
+    ![Välj regioner](media/marketplace-publishers-guide/FAQ-choose-geo.png)
+
+1.  En lista visas med alla tillgängliga länder att sälja till.  Klicka på kryssrutan bredvid varje land/region som du vill att denna SKU. Klicka på ”OK”.
+
+    ![Välj landslista](media/marketplace-publishers-guide/FAQ-select-countries.png)
+
+1.  Klicka slutligen på ”Publicera” för att ändringarna ska tillämpas på ditt live erbjudande  
+
+>[!Note]
+>Det kan ta 24 timmar för att ändringarna ska börja gälla.
+
+<!---    ![Publish offer](media/marketplace-publishers-guide/FAQ-publish-offer.png) -->
+
+**Hur ändrar en utgivare geografisk tillgänglighet i ett befintligt erbjudande?**
+
+Utgivaren kan redigera ett befintligt erbjudande, Välj de nya länder/regioner och använda funktionen kalkylblad download/laddar upp för att ange priser.
+
+**I vilka länder/regioner kan kunder som köper Azure Marketplace-erbjudanden?**
+
+Azure Marketplace har stöd för 141 köp från geografiska områden som definieras av kundens faktureringsadress. Se [deltagandepolicyer](https://docs.microsoft.com/legal/marketplace/participation-policy) för en lista över länder.
+
+**Vilka valutor som stöds av Azure Marketplace?**
+
+Transaktioner kan utföras i följande 17 valutor: AUD, BRL, CAD, CHF, DKK, EUR, GBP, INR, UPPDELADE, WON, NOK, NZD, RUB, SEK, TWD, USD.
 
 ### <a name="deploying-a-solution-from-azure-marketplace"></a>Distribuera en lösning från Azure Marketplace
 

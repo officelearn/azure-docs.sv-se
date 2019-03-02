@@ -1,6 +1,6 @@
 ---
 title: Azure driftsäkerhet | Microsoft Docs
-description: Läs mer om Microsoft Azure Log Analytics, dess tjänster och hur det fungerar.
+description: Läs mer om Microsoft Azure Monitor-loggar, dess tjänster och hur det fungerar.
 services: security
 documentationcenter: na
 author: UnifyCloud
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: cc820d0e8a19ae3905fbd26a1b9a98e948ecfb63
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 2f68156e593281acb46dbeb132f0f45db4b3dfb9
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56107296"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57244782"
 ---
 # <a name="azure-operational-security"></a>Azure driftsäkerhet
 ## <a name="introduction"></a>Introduktion
@@ -53,36 +53,36 @@ Detta white paper beskriver Microsofts strategi för Azure driftsäkerhet inom M
 6.  [Azure Active directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis)
 
 
-## <a name="microsoft-azure-log-analytics"></a>Microsoft Azure Log Analytics
+## <a name="microsoft-azure-monitor-logs"></a>Microsoft Azure Monitor-loggar
 
-Microsoft Azure Log Analytics är IT-hanteringslösningen för hybridmoln. Används fristående eller om du vill utöka den befintliga distributionen av System Center Log Analytics får du maximal flexibilitet och kontroll för molnbaserad hantering av infrastrukturen.
+Microsoft Azure Monitor-loggar är IT-hanteringslösningen för hybridmoln. Används fristående eller för att utöka dina befintliga System Center-distributionen, Azure Monitor-loggarna ger dig stor flexibilitet och kontroll för molnbaserad hantering av infrastrukturen.
 
-![Log Analytics](./media/azure-operational-security/azure-operational-security-fig1.png)
+![Azure Monitor-loggar](./media/azure-operational-security/azure-operational-security-fig1.png)
 
-Du kan hantera en instans i alla moln, inklusive lokala, Azure, AWS, Windows Server, Linux, VMware och OpenStack, till en lägre kostnad än konkurrenskraftiga lösningar med Log Analytics. Byggd för den molnbaserade världen, tillhandahåller Log Analytics en ny metod för att hantera ditt företag är det snabbaste och mest kostnadseffektiva sättet att uppfylla nya utmaningar och hantera nya arbetsbelastningar, program och molnmiljöer.
+Du kan hantera en instans i alla moln, inklusive lokala, Azure, AWS, Windows Server, Linux, VMware och OpenStack, till en lägre kostnad än konkurrenskraftiga lösningar med Azure Monitor-loggar. Azure Monitor-loggar skapats för den molnbaserade världen, erbjuder ett nytt sätt att hantera ditt företag är det snabbaste och mest kostnadseffektiva sättet att uppfylla nya utmaningar och hantera nya arbetsbelastningar, program och molnmiljöer.
 
-### <a name="log-analytics-services"></a>Log Analytics-tjänster
+### <a name="azure-monitor-services"></a>Azure Monitor-tjänster
 
-Huvudfunktionerna i Log Analytics tillhandahåller en uppsättning tjänster som körs i Azure. Varje tjänst tillhandahåller en specifik hanteringsfunktion, och du kan kombinera tjänster för olika hanteringsscenarier.
+En uppsättning tjänster som körs i Azure tillhandahåller huvudfunktionerna i Azure Monitor-loggar. Varje tjänst tillhandahåller en specifik hanteringsfunktion, och du kan kombinera tjänster för olika hanteringsscenarier.
 
 | Tjänst  | Beskrivning|
 | :------------- | :-------------|
-| Log Analytics | Övervaka och analysera tillgänglighet och prestanda för olika resurser inklusive fysiska och virtuella datorer. |
+| Azure Monitor-loggar | Övervaka och analysera tillgänglighet och prestanda för olika resurser inklusive fysiska och virtuella datorer. |
 |Automation | Automatisera manuella processer och tillämpa konfigurationer för fysiska och virtuella datorer. |
 | Backup | Säkerhetskopiera och återställa kritiska data. |
 | Site Recovery | Ge hög tillgänglighet för viktiga program. |
 
-### <a name="log-analytics"></a>Log Analytics
+### <a name="azure-monitor-logs"></a>Azure Monitor-loggar
 
-[Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics) tillhandahåller övervakning genom att samla in data från hanterade resurser i en central databas. Dessa data kan omfatta händelser, prestandadata eller anpassade data via API:t. När data har samlats in är de tillgängliga för avisering, analys och export.
+[Azure Monitor-loggar](https://azure.microsoft.com/documentation/services/log-analytics) tillhandahåller övervakning genom att samla in data från hanterade resurser i en central databas. Dessa data kan omfatta händelser, prestandadata eller anpassade data via API:t. När data har samlats in är de tillgängliga för avisering, analys och export.
 
 
 Den här metoden kan du konsolidera data från olika källor, så att du kan kombinera data från dina Azure-tjänster med din befintliga lokala miljö. Metoden innebär också en tydlig separation mellan insamling av data från de åtgärder som vidtas för dessa data, vilket gör att alla åtgärder är tillgängliga för alla typer av data.
 
 
-![Log Analytics](./media/azure-operational-security/azure-operational-security-fig2.png)
+![Azure Monitor-loggar](./media/azure-operational-security/azure-operational-security-fig2.png)
 
-Log Analytics-tjänsten hanterar dina molnbaserade data på ett säkert sätt med hjälp av följande metoder:
+Azure Monitor-tjänsten hanterar dina molnbaserade data på ett säkert sätt med hjälp av följande metoder:
 -   dataavgränsning
 -   datakvarhållning
 -   fysisk säkerhet
@@ -92,22 +92,22 @@ Log Analytics-tjänsten hanterar dina molnbaserade data på ett säkert sätt me
 
 ### <a name="azure-backup"></a>Azure Backup
 
-[Azure Backup](https://azure.microsoft.com/documentation/services/backup) tillhandahåller data säkerhetskopiera och återställa tjänster och är en del av Log Analytics-programsviten produkter och tjänster.
+[Azure Backup](https://azure.microsoft.com/documentation/services/backup) tillhandahåller data säkerhetskopiera och återställa tjänster och är en del av Azure Monitor uppsättning produkter och tjänster.
 Tjänsten skyddar dina programdata och sparar dem i åratal utan stora investeringar och med minimala driftkostnader. Det kan säkerhetskopiera data från fysiska och virtuella Windows-servrar samt programarbetsbelastningar som SQL Server och SharePoint. Det kan även användas av [System Center Data Protection Manager (DPM)](https://en.wikipedia.org/wiki/System_Center_Data_Protection_Manager) att replikera skyddade data till Azure för redundans och långsiktig lagring.
 
 
 Skyddade data i Azure Backup lagras i ett säkerhetskopieringsvalv som finns i en viss geografisk region. Data replikeras inom samma region och, beroende på typen av valv, kan också replikeras till en annan region för ytterligare öka återhämtningsförmågan.
 
 ### <a name="management-solutions"></a>Hanteringslösningar
-[Log Analytics](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started) är Microsofts molnbaserade IT-hanteringslösning som hjälper dig att hantera och skydda dina lokala och molnbaserade infrastruktur.
+[Azure Monitor](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started) är Microsofts molnbaserade IT-hanteringslösning som hjälper dig att hantera och skydda dina lokala och molnbaserade infrastruktur.
 
 
-[Lösningar för hantering av](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-solutions) förpaketerade består av logics som implementerar ett visst hanteringsscenario med hjälp av en eller flera Log Analytics-tjänster. Olika lösningar är tillgängliga från Microsoft och partner att du enkelt kan lägga till din Azure-prenumeration att öka värdet på din investering i Log Analytics. Du kan skapa egna lösningar för dina program och tjänster och tillhandahålla dem till användare via Azure Marketplace eller Snabbstartsmallarna som partner.
+[Lösningar för hantering av](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-solutions) förpaketerade består av logics som implementerar ett visst hanteringsscenario med hjälp av en eller flera Azure Monitor-tjänster. Olika lösningar är tillgängliga från Microsoft och partner att du enkelt kan lägga till din Azure-prenumeration att öka värdet på din investering i Azure Monitor. Du kan skapa egna lösningar för dina program och tjänster och tillhandahålla dem till användare via Azure Marketplace eller Snabbstartsmallarna som partner.
 
 
 ![Hanteringslösningar](./media/azure-operational-security/azure-operational-security-fig4.png)
 
-Ett bra exempel på en lösning som använder flera tjänster för att tillhandahålla ytterligare funktioner är den [uppdateringshanteringslösningen](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-update-management). Den här lösningen använder den [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) agent för Windows och Linux att samla in information om nödvändiga uppdateringar på varje agent. Dessa data skrivs till Log Analytics-databasen där du kan analysera dem med en instrumentpanel.
+Ett bra exempel på en lösning som använder flera tjänster för att tillhandahålla ytterligare funktioner är den [uppdateringshanteringslösningen](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-update-management). Den här lösningen använder den [Azure Monitor loggar](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) agent för Windows och Linux att samla in information om nödvändiga uppdateringar på varje agent. Den skriver dessa data till Azure Monitor-loggar lagringsplatsen där du kan analysera dem med en instrumentpanel som ingår.
 
 När du skapar en distribution av runbooks i [Azure Automation](https://docs.microsoft.com/azure/automation/automation-intro) används för att installera nödvändiga uppdateringar. Du hanterar hela processen i portalen och du behöver inte tänka på de bakomliggande detaljerna.
 
@@ -312,7 +312,7 @@ Den här artikeln sammanfattningar skydda din integritet och skydda dina data oc
 
 Den här artikeln förklarar
 
--   Hur data som samlas in, bearbetas och skyddas i Log Analytics suite.
+-   Hur data som samlas in, bearbetas och skyddas i Azure Monitor-sviten.
 
 -   Analysera händelser snabbt via flera datakällor. Identifiera säkerhetsrisker och förstå omfattning och påverkan från hot och attacker för att mildra skador från en säkerhetsöverträdelse.
 
@@ -335,7 +335,7 @@ Den här artikeln förklarar
 
 Microsoft utformar sin tjänster och programvara med säkerheten i åtanke för att säkerställa att molninfrastrukturen är flexibel och försvaras från attacker.
 
-- [Log Analytics | Säkerhet och efterlevnad](https://www.microsoft.com/cloud-platform/security-and-compliance)
+- [Azure Monitor-loggar | Säkerhet och efterlevnad](https://www.microsoft.com/cloud-platform/security-and-compliance)
 
 Använd Microsoft säkerhetsdata och analys för att utföra mer intelligenta och effektiva hotidentifiering.
 

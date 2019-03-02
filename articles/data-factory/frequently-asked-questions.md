@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: shlo
-ms.openlocfilehash: 112ff38ad4e35ac284501c5dd3881c4f340b5f9b
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: cdd5c7592ebbc092c8e7be01a0fdd16e9c78aeaf
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56984653"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57240804"
 ---
 # <a name="azure-data-factory-faq"></a>Azure Data Factory vanliga frågor och svar
 Den här artikeln innehåller svar på vanliga frågor och svar om Azure Data Factory.  
@@ -195,7 +195,7 @@ Du kommer inte längre behöva ta med din egen Databricks-kluster. ADF att hante
 När Microsoft tillhandahåller hjälp eller felsökning med Data flödar, anger du den ”DSL kod plan (supportavtal). Det gör du genom att följa dessa steg:
 
 * Från Data flöda Designer klickar du på ”Code” i det övre högra hörnet. Då visas redigerbar JSON-koden för dataflödet.
-* Kodvy, klicka på ”planera” i det övre högra hörnet. Planera swtich från JSON till den formaterade DSL skript planen.
+* Kodvy, klicka på ”planera” i det övre högra hörnet. Plan växlingsknappen växlar från JSON till skrivskyddad formaterade DSL skriptet planen.
 * Kopiera och klistra in det här skriptet eller spara den i en textfil.
 
 ### <a name="how-do-i-access-data-using-the-other-80-dataset-types-in-adf"></a>Hur kommer jag åt data med andra 80 datauppsättningstyper i ADF?

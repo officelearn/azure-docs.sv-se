@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: a42f4ce85214ad2a8c5692736b7d36101ccb62ed
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: 7e196a912db723d5d118b0aadc98f73f1c7271e0
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53556228"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57243762"
 ---
 # <a name="configure-an-iot-edge-device-to-act-as-a-transparent-gateway"></a>Konfigurera en IoT Edge-enhet kan fungera som en transparent gateway
 
@@ -45,7 +45,10 @@ En Azure IoT Edge-enhet för att konfigurera som en gateway. Du kan använda utv
 * [Linux x64](./how-to-install-iot-edge-linux.md)
 * [Linux ARM32](./how-to-install-iot-edge-linux-arm.md)
 
-Du kan använda valfri dator för att generera certifikat och kopiera dem sedan till din IoT Edge-enhet. 
+Du kan använda valfri dator för att generera certifikat och kopiera dem sedan till din IoT Edge-enhet.
+
+>[!NOTE]
+>”Gatewaynamnet” används för att skapa certifikaten i den här instruktionen måste vara samma namn som används som värdnamn i IoT Edge config.yaml filen och som GatewayHostName i anslutningssträngen för den underordnade enheten. ”Gateway-name” måste kunna matchas till en IP-adress, antingen med hjälp av DNS- eller en host-filpost. Kommunikationen baserat på det protokoll som används (MQTTS:8883 / AMQPS:5671 / HTTPS:433) måste vara mellan underordnad enhet och transparant IoT Edge. Om en brandvägg mellan, måste respektive porten vara öppen.
 
 ## <a name="generate-certificates-with-windows"></a>Generera certifikat med Windows
 

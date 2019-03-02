@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/20/2018
 ms.author: rkarlin
-ms.openlocfilehash: 81bd34cdbe35f3e12d5afddc929b0fac7631f4cc
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: bec9be627937913c268d65bb6cdadcf68c7a3fb4
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56113081"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57244306"
 ---
 # <a name="manage-user-data-found-in-an-azure-security-center-investigation"></a>Hantera användardata finns i en undersökning av Azure Security Center
-Den här artikeln innehåller information om hur du hanterar användardata finns i undersökningsfunktionen i Azure Security Center. Undersökning data lagras i [Azure Log Analytics](../log-analytics/log-analytics-overview.md) och visas i Security Center. Hantering av användardata omfattar möjligheten att ta bort eller exportera data.
+Den här artikeln innehåller information om hur du hanterar användardata finns i undersökningsfunktionen i Azure Security Center. Undersökning data lagras i [Azure Monitor loggar](../log-analytics/log-analytics-overview.md) och visas i Security Center. Hantering av användardata omfattar möjligheten att ta bort eller exportera data.
 
 [!INCLUDE [gdpr-intro-sentence.md](../../includes/gdpr-intro-sentence.md)]
 
@@ -58,4 +58,4 @@ En Security Center-användare tilldelas rollen som ägare, deltagare, eller kont
 
 ## <a name="next-steps"></a>Nästa steg
 Läs mer om hur du hanterar användardata, [hanterar användardata i Azure Security Center](security-center-privacy.md).
-Mer information om att ta bort personliga data i Log Analytics finns [exportera och ta bort privata data](../azure-monitor/platform/personal-data-mgmt.md#how-to-export-and-delete-private-data).
+Mer information om att ta bort personliga data i Azure Monitor-loggar finns [exportera och ta bort privata data](../azure-monitor/platform/personal-data-mgmt.md#how-to-export-and-delete-private-data).

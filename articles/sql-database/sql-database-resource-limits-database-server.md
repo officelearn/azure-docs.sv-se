@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: sashan,moslake
 manager: craigg
-ms.date: 02/07/2019
-ms.openlocfilehash: 670ca1b8ba16122d4e969a41f8679e1a6d1b27c6
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.date: 03/01/2019
+ms.openlocfilehash: 011aa97d44a92feced7328b2bd014395d2c5b765
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55990112"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57246706"
 ---
 # <a name="sql-database-resource-limits-for-azure-sql-database-server"></a>SQL Database-resursgränser för Azure SQL Database-server
 
@@ -73,6 +73,29 @@ När den påträffar hög användning för sessionen eller arbete, är minskning
 
 - Öka tjänsten nivå eller beräkna storleken på databasen eller den elastiska poolen. Se [skala resurser för enkel databas](sql-database-single-database-scale.md) och [skala elastisk poolresurser](sql-database-elastic-pool-scale.md).
 - Optimera frågor för att minska resursanvändningen för varje fråga om orsaken till ökad worker användningen är på grund av konkurrens om beräkningsresurser. Mer information finns i [fråga justering/Hinting](sql-database-performance-guidance.md#query-tuning-and-hinting).
+
+### <a name="transaction-log-rate-governance"></a>Transaktionen Log Rate styrning 
+Transaktionen log rate styrning är en process i Azure SQL-databas som används för att begränsa enligt hög datainmatningsfrekvensen för arbetsbelastningar som bulk insert SELECT INTO och indexversioner. Dessa gränser spåras och tillämpas på nivån under en sekund att frekvensen för generering av loggar poster, begränsande dataflöde, oavsett hur många IOs kan utfärdas mot datafiler.  Transaktionspriser log generation för närvarande skalas linjärt upp till en tidpunkt som beror på maskinvaran, log-maximala hastighet tillåts som 48 MB/s med vCore köpa modellen. 
+
+> [!NOTE]
+> De faktiska fysiska IOs till transaktionsloggfiler är inte regleras eller begränsas. 
+
+Loggen är inställda så att de kan uppnås och varar i en mängd olika scenarier, medan den övergripande systemprestandan kan bibehålla sin funktionalitet minimerade påverkan på användarbelastningen. Log rate styrning garanterar att transaktionsloggen säkerhetskopior stannar inom publicerade återställningsmöjligheter serviceavtal.  Den här styrning förhindrar även att en orimlig eftersläpning på sekundära repliker.
+
+När poster skapas bör utvärderas varje åtgärd och om den ska fördröjas för att upprätthålla en önskad Loggfilens största hastighet (MB/s per sekund) för att utvärdera. Förskjutningar läggs inte när loggposter rensade till lagring, i stället log rate styrning används under generering av loggar rate själva.
+
+Den faktiska log-generationen priserna gäller vid körning kan också påverkas av återkopplingsmekanismerna, minskar de tillåtna log-priserna tillfälligt så att systemet kan stabilisera. Logghantering filen utrymme, undvika slut i loggen utrymme villkor och Tillgänglighetsgruppen replikeringsmekanismer kan tillfälligt försämra gränser för hela systemet. 
+
+Log rate resursstyrning-Trafikstyrning är visas via följande typer av vänta (visas i den [sys.dm_db_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-wait-stats-azure-sql-database) DMV):
+
+| Vänta typ | Anteckningar |
+| :--- | :--- |
+| LOG_RATE_GOVERNOR | Begränsning av databasen |
+| POOL_LOG_RATE_GOVERNOR | Begränsa poolen |
+| INSTANCE_LOG_RATE_GOVERNOR | Instans på begränsa |  
+| HADR_THROTTLE_LOG_RATE_SEND_RECV_QUEUE_SIZE | Feedback-kontroll, tillgänglighet grupp fysiska replikering i Premium/affärskritisk inte hänger |  
+| HADR_THROTTLE_LOG_RATE_LOG_SIZE | Feedback-kontroll, begränsa priserna för att undvika en out of utrymme loggvillkor |
+||||
 
 ## <a name="next-steps"></a>Nästa steg
 

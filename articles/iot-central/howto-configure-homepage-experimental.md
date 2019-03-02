@@ -1,47 +1,50 @@
 ---
-title: Konfigurera webbsida programmets Azure IoT Central | Microsoft Docs
-description: Lär dig hur du konfigurerar du startsidan för Azure IoT Central programmet som en builder.
+title: Konfigurera Azure IoT Central instrumentpanel för program | Microsoft Docs
+description: Lär dig hur du konfigurerar standard-instrumentpanel för Azure IoT Central program som en builder.
 author: dominicbetts
 ms.author: dobett
-ms.date: 02/05/2019
+ms.date: 02/13/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 599616f046b2eccee009e8a08e8a2f51cf968644
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 5d769de62ccae1b1480e4da9e9643b63633073a4
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55773827"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57215565"
 ---
-# <a name="configuring-homepage"></a>Konfigurera startsida
+# <a name="configure-the-application-dashboard"></a>Konfigurera instrumentpanel för program
 
-Startsidan är den sida som läses in när användare som har åtkomst till programmet går du till programmets URL. Om du har valt antingen ”exempel Contoso” eller ”exempel Devkits” programmallar när du skapar ditt program, ska ditt program ha fördefinierade startsidor. Om du valde å andra sidan programmallen ”anpassade program”, kommer din startsida måste anges.
+Den **instrumentpanelen** är den sida som läses in när användare som har åtkomst till programmet går du till programmets URL. Om du har valt antingen den **exempel Contoso** eller **exempel Devkits** programmall för att skapa ditt program, ditt program har en fördefinierad instrumentpanel. Om du väljer den **anpassade program** programmall, instrumentpanelen är tomt.
+
+> [!NOTE]
+> Användarna kan också [skapa sina egna personliga instrumentpaneler](howto-personalize-dashboard-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json) använder i stället standardinstrumentpanelen för programmet.
 
 ## <a name="add-tiles"></a>Lägg till paneler
 
-Här är till exempel startsidan för programmen baserat på mallen ”Contoso Sample”. Välj först för att anpassa startsidan för ditt program, **redigera** längst upp till höger. 
+I följande skärmbild visas på instrumentpanelen i ett program som skapats från den **exempel Contoso** mall. Om du vill anpassa standardinstrumentpanelen för ditt program, klickar du på **redigera** längst upp höger på sidan.
 
-![Startsida för programmen baserat på mallen ”Contoso exemplet”](media/howto-configure-homepage-experimental/image1.png)
+![Instrumentpanel för program baserat på mallen ”Contoso exemplet”](media/howto-configure-homepage-experimental/image1.png)
 
-Att välja **redigera**, öppnas instrumentpanelen biblioteket på en panel till vänster. Det finns många typer av paneler och instrumentpanelen primitiver som kan läggas till att anpassa din startsida.
+Klicka på **redigera**, öppnas panelen instrumentpanelen bibliotek. Biblioteket innehåller paneler och instrumentpanelen primitiver som du kan använda för att anpassa instrumentpanelen.
 
 ![Instrumentpanelen bibliotek](media/howto-configure-homepage-experimental/image2.png)
 
-Du kan till exempel lägga till en **inställningar och egenskaper** rutan för att visa ett urval av de aktuella värdena för inställningar och egenskaper. Om du vill göra det väljer du först en **enheten mallen** Välj sedan en **enhetsinstansen**. Efter som tillhandahåller panelen en rubrik och väljer en **inställningen** eller en **egenskapen** ska visas. I det här fallet har vi valt **ange temperatur**. Klicka på **klar** leder till den här panelen visas på startsidan.
+Du kan till exempel lägga till en **inställningar och egenskaper** rutan för att visa ett urval av de aktuella värdena för inställningar och egenskaper för en enhet. Om du vill göra det väljer du först en **enheten mallen** Välj sedan en **enhetsinstansen**. Efter som tillhandahåller panelen en rubrik och väljer en **inställningen** eller en **egenskapen** ska visas. I följande skärmbild visas inställningar och egenskaper som valts för att lägga till i panelen. Klicka på **klar** att spara ändringarna på instrumentpanelen.
 
 ![”Konfigurera enhetsinformation” formuläret med information om inställningar och egenskaper](media/howto-configure-homepage-experimental/image3.png)
 
-När en operatör visar startsidan, kan de nu se den här panelen som visar de egenskaper eller inställningarna för enheten:
+Nu när en operatör visar instrumentpanelen för standard-program, visas den nya panelen med den **ange temperatur** för enheten:
 
 ![Fliken ”instrumentpanel” med visas inställningar och egenskaper för panelen](media/howto-configure-homepage-experimental/image4.png)
 
-Experimentera med de olika andra typerna av paneler i biblioteket att upptäcka hur du kan anpassa ditt programs startsida ännu mer.
+Du kan utforska andra typer av paneler i biblioteket för att se hur att ytterligare anpassa standardinstrumentpanelen för programmet.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har lärt dig hur du konfigurerar din Azure IoT Central startsida, kan du:
+Nu när du har lärt dig hur du konfigurerar Azure IoT Central programmet standardinstrumentpanelen kan du:
 
 > [!div class="nextstepaction"]
 > [Lär dig hur du förbereder och ladda upp bilder](howto-prepare-images-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json)

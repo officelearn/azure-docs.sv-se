@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: jomolesk
-ms.openlocfilehash: 222957bb79a88ec7b4c6e9afd6d86fe2776dbfd3
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: 7f67b7363719f544c485503e0f8207bb1f1078ce
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301808"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57244714"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-hosting-for-uk-official-workloads"></a>Azure Blueprint för säkerhet och efterlevnad: PaaS-webbprogram som är värd för Storbritannien officiella arbetsbelastningar
 
@@ -57,9 +57,8 @@ Den här lösningen använder följande Azure-tjänster. Mer information om dist
 - API-app
 - Azure DNS
 - Key Vault
-- Azure Monitor
+- Azure Monitor (loggar)
 - Application Insights
-- Log Analytics
 - Azure Resource Manager
 - Azure Security Center
 - Azure SQL Database
@@ -169,11 +168,11 @@ Detaljerad information om hur du skyddar Azure Storage finns i den [säkerhetsgu
 
 ### <a name="monitoring-logging-and-audit"></a>Övervakning, loggning och granskning
 
-#### <a name="log-analytics"></a>Log Analytics
+#### <a name="azure-monitor-logs"></a>Azure Monitor-loggar
 
-[Log Analytics](https://azure.microsoft.com/services/log-analytics/) är en tjänst i Azure som hjälper dig att samla in och analysera data som genereras av resurser i molnet och lokala miljöer.
+[Azure Monitor-loggar](https://azure.microsoft.com/services/log-analytics/) är en tjänst i Azure som hjälper dig att samla in och analysera data som genereras av resurser i molnet och lokala miljöer.
 
-#### <a name="log-analytics-in-this-blueprint"></a>Log Analytics i denna skiss
+#### <a name="azure-monitor-logs-in-this-blueprint"></a>Azure Monitor-loggar i den här skissen
 
 - SQL-bedömning
 - Key Vault-diagnostik

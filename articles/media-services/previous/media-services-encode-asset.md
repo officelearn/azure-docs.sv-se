@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: ed4b581cb962c7db706a71ab995963a3c445af55
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 7acf4a0f937817b131763e040d452366c520fa6f
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55998229"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57247604"
 ---
-# <a name="overview-and-comparison-of-azure-on-demand-media-encoders-legacy"></a>Översikt över och jämförelse av Azure på begäran media kodare (äldre)
+# <a name="overview-and-comparison-of-azure-on-demand-media-encoders"></a>Översikt över och jämförelse av Azure på begäran media kodare 
 
 ## <a name="encoding-overview"></a>Kodning – översikt
 Azure Media Services erbjuder flera alternativ för kodning av media i molnet.
@@ -59,7 +59,7 @@ Kodare indatametadata beskrivs [här](media-services-input-metadata-schema.md).
 
 Kodare utgående metadata beskrivs [här](media-services-output-metadata-schema.md).
 
-### <a name="generate-thumbnails"></a>Generera miniatyrer
+### <a name="generate-thumbnails"></a>Skapa miniatyrbilder
 Mer information finns i [generera miniatyrer med Media Encoder Standard](media-services-advanced-encoding-with-mes.md#thumbnails).
 
 ### <a name="trim-videos-clipping"></a>Beskär videor (urklippet)

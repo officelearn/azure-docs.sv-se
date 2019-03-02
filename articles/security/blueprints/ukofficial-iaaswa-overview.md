@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: a7461f6160c4c848106b16b1a9eaacb96ddf7499
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 68503b399d132aae5a4999e6ce08c51e4542e2e7
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55699150"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57242623"
 ---
 # <a name="azure-security-and-compliance-blueprint---three-tier-iaas-web-application-for-uk-official"></a>Azure-säkerhet och efterlevnad skissen - Trelagers-IaaS-webbprogram för UK-OFFICIAL
 
@@ -176,7 +176,7 @@ De här virtuella nätverken hanteras fortfarande som separata resurser, men vis
 
 **Brandväggen loggar**: Application Gateway ger fullständig diagnostik och åtkomst till loggar. Brandväggsloggar är tillgängliga för Application Gateway-resurser som har WAF aktiverat.
 
-**Arkivera loggen**: Datalagring i loggen kan konfigureras för att skriva till en centraliserad Azure-lagringskonto för arkivering och en definierad kvarhållningsperiod. Loggar kan bearbetas med hjälp av Azure Log Analytics eller genom att SIEM-system från tredje part.
+**Arkivera loggen**: Datalagring i loggen kan konfigureras för att skriva till en centraliserad Azure-lagringskonto för arkivering och en definierad kvarhållningsperiod. Loggar kan bearbetas med Azure Monitor-loggar eller genom att SIEM-system från tredje part.
 
 ### <a name="identity"></a>Identitet
 

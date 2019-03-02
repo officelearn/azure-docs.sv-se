@@ -12,12 +12,12 @@ ms.author: genemi
 ms.reviewer: billgib, sstein
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 2775ceb3cf27b6feedfd73cd43855204490ebc31
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: d55d8f8f945e30402cb772c7e26b234e3e460698
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55471206"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57217877"
 ---
 # <a name="multi-tenant-saas-database-tenancy-patterns"></a>Flera innehavare SaaS innehavare mönster
 
@@ -99,7 +99,7 @@ När databaser distribueras i samma resursgrupp, kan du gruppera dem i elastiska
 
 ![Utformningen av app för flera klienter med databas-per-klient, med hjälp av elastisk pool.][image-mt-app-db-per-tenant-pool-153p]
 
-Azure SQL Database innehåller verktyg som behövs för att konfigurera, övervaka och hantera delning.  Båda pool på servernivå och databasnivå prestandamått är tillgängliga i Azure-portalen och via Log Analytics.  Mått kan ge bra insikter om sammanställd och klientspecifik prestanda.  Enskilda databaser kan flyttas mellan pooler för att tillhandahålla reserverade resurser för en specifik klient.  Dessa verktyg kan du säkerställa bra prestanda på ett kostnadseffektivt sätt.
+Azure SQL Database innehåller verktyg som behövs för att konfigurera, övervaka och hantera delning.  Båda pool på servernivå och databasnivå prestandamått är tillgängliga i Azure-portalen och via Azure Monitor-loggar.  Mått kan ge bra insikter om sammanställd och klientspecifik prestanda.  Enskilda databaser kan flyttas mellan pooler för att tillhandahålla reserverade resurser för en specifik klient.  Dessa verktyg kan du säkerställa bra prestanda på ett kostnadseffektivt sätt.
 
 #### <a name="operations-scale-for-database-per-tenant"></a>Åtgärder som skalas för databas-per-klient
 

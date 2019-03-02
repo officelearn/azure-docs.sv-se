@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: ''
 ms.author: haroldw
-ms.openlocfilehash: bf34d7e85632999056388eb74816140ce667ce10
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: b1a39016907e697ab03a8a6962fb1e75e4433675
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382352"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57218047"
 ---
 # <a name="openshift-in-azure"></a>OpenShift i Azure
 
@@ -46,7 +46,7 @@ Av fem versioner som beskrivs i den här artikeln är bara två tillgängliga id
 
 Behållarplattform är en företagsklar [kommersiella versioner](https://www.openshift.com) från och stöds av Red Hat. Med den här versionen kan kunder köper nödvändiga rättigheterna för OpenShift Container Platform och ansvarar för installation och hantering av hela infrastrukturen.
 
-Eftersom kunder ”äger” hela plattformen, kan de installera den i sina lokala datacenter eller i ett offentligt moln (till exempel Azure, AWS och Google).
+Eftersom kunder ”äger” hela plattformen, kan de installera den i sina lokala datacenter eller i ett offentligt moln (till exempel Azure).
 
 ## <a name="openshift-on-azure"></a>OpenShift på Azure
 
@@ -58,7 +58,7 @@ OKD är en [öppen källkod](https://www.okd.io/) överordnade projektet för Op
 
 ## <a name="openshift-dedicated"></a>OpenShift Dedicated
 
-Dedikerad är en Red Hat-hanterad *enda klient* OpenShift som använder OpenShift Container Platform. Red Hat hanterar den underliggande infrastrukturen (virtuella datorer, OpenShift kluster, nätverk, lagring osv.). Klustret är specifik för en kund och körs i ett offentligt moln (till exempel AWS eller Google). Ett från kluster innehåller fyra programnoder och alla kostnader är årliga och betalda förskott.
+Dedikerad är en Red Hat-hanterad *enda klient* OpenShift som använder OpenShift Container Platform. Red Hat hanterar den underliggande infrastrukturen (virtuella datorer, OpenShift kluster, nätverk, lagring osv.). Klustret är specifik för en kund och körs i ett offentligt moln (till exempel Azure). Ett från kluster innehåller fyra programnoder och alla kostnader är årliga och betalda förskott.
 
 ## <a name="openshift-online"></a>OpenShift Online
 

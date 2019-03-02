@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: ninarn, carlrab
 manager: craigg
-ms.date: 02/07/2019
-ms.openlocfilehash: 4e4de6d487aaad8a0d036928fe59b47f25157bf6
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.date: 02/28/2019
+ms.openlocfilehash: dd06ae6046ab96d95cf1c1907c74d0b4d9a843bb
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55963853"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57214341"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>Hjälper dig att hantera och skala flera Azure SQL-databaser för elastiska pooler
 
@@ -90,7 +90,7 @@ Minst två S3-databaser eller minst 15 S0-databaser behövs för en pool med 100
 
 ### <a name="maximum-number-of-concurrently-peaking-databases"></a>Högsta antal samtidigt databaser med aktivitetstoppar
 
-Genom att dela resurser kan använda inte alla databaser i en pool samtidigt resurser upp till den tillgängliga gränsen för enskilda databaser. Ju färre databaser som har hög aktivitet som samtidigt, desto lägre poolresurser kan anges och desto mer kostnadseffektiv blir poolen. I allmänhet bör bör inte mer än 2/3 (eller 67%) av databaserna i poolen toppar samtidigt till sin gräns på resurser.
+Genom att dela resurser kan använda inte alla databaser i en pool samtidigt resurser upp till den tillgängliga gränsen för enskilda databaser. Ju färre databaser som har hög aktivitet som samtidigt, desto lägre poolresurser kan anges och desto mer kostnadseffektiv blir poolen. I allmänna, inte mer än 2/3 (eller 67%) databaser i poolen bör toppar samtidigt till sin gräns på resurser.
 
 ***DTU-baserade inköpschef modell-exempel***
 
@@ -200,6 +200,20 @@ Som standard diagrammet i den **Databasresursanvändning** bladet visar de 5 fr�
 Du kan också välja fler mått att visa sida vid sida i den här databastabell för att få en mer komplett vy över dina databaser prestanda.
 
 Mer information finns i [skapa aviseringar för SQL-databas i Azure-portalen](sql-database-insights-alerts-portal.md).
+
+## <a name="customer-case-studies"></a>Kundfallstudier
+
+- [SnelStart](https://azure.microsoft.com/resources/videos/azure-sql-database-case-study-snelstart/)
+
+  SnelStart används elastiska pooler med Azure SQL Database för att snabbt utöka sina företagstjänster enligt en taxa på 1 000 nya Azure SQL-databaser per månad.
+
+- [Umbraco](https://azure.microsoft.com/resources/videos/azure-sql-database-case-study-umbraco/)
+
+  Umbraco använder elastiska pooler med Azure SQL Database för att snabbt etablera och skala tjänster för tusentals klienter i molnet.
+
+- [Daxko/CSI](http://customers.microsoft.com/story/csi-used-azure-to-accelerate-its-development-cycle-and-to-enhance-its-customer-services)
+
+  Daxko/CSI använder elastiska pooler med Azure SQL Database att påskynda dess utvecklingscykeln och förbättra sin kundtjänst och prestanda.
 
 ## <a name="next-steps"></a>Nästa steg
 

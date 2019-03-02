@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 301dd9357bc1585d96eda216d7e47601e488665b
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 60a0d7c2da25f63d0728dbb86f9a6c2328def811
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56871810"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57245264"
 ---
 # <a name="azure-advanced-threat-detection"></a>Azure avancerad hotidentifiering
 
-Azure erbjuder inbyggda funktioner för identifiering av Avancerat via tjänster som Azure Active Directory (AD Azure), Azure Log Analytics och Azure Security Center. Den här samlingen av tjänster och funktioner som ger ett snabbt och enkelt sätt att förstå vad som händer i din Azure-distributioner.
+Azure erbjuder inbyggda funktioner för identifiering av Avancerat via tjänster som Azure Active Directory (AD Azure), Azure Monitor-loggar och Azure Security Center. Den här samlingen av tjänster och funktioner som ger ett snabbt och enkelt sätt att förstå vad som händer i din Azure-distributioner.
 
 Azure tillhandahåller en mängd olika alternativ för att konfigurera och anpassa säkerheten för att uppfylla kraven för din appdistributioner. Den här artikeln beskriver hur du uppfyller dessa krav.
 
@@ -75,17 +75,17 @@ PIM hjälper dig att:
 
 -   Få aviseringar om åtkomst till en privilegierad roll.
 
-## <a name="azure-log-analytics"></a>Azure Log Analytics
+## <a name="azure-monitor-logs"></a>Azure Monitor-loggar
 
-[Log Analytics](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) är en Microsoft molnbaserade IT-hanteringslösning som hjälper dig att hantera och skydda dina lokala och molnbaserade infrastruktur. Eftersom Log Analytics har implementerats som en molnbaserad tjänst kan kan du ha den igång snabbt med minsta möjliga investering i infrastrukturtjänster. Nya säkerhetsfunktioner levereras automatiskt, sparar löpande underhåll och Uppgraderingskostnader.
+[Azure Monitor-loggar](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) är en Microsoft molnbaserade IT-hanteringslösning som hjälper dig att hantera och skydda dina lokala och molnbaserade infrastruktur. Eftersom Azure Monitor-loggar har implementerats som en molnbaserad tjänst kan kan du ha den igång snabbt med minsta möjliga investering i infrastrukturtjänster. Nya säkerhetsfunktioner levereras automatiskt, sparar löpande underhåll och Uppgraderingskostnader.
 
-Förutom att tillhandahålla värdefulla tjänster på egen hand, Log Analytics kan integreras med System Center-komponenter, till exempel [System Center Operations Manager](https://blogs.technet.microsoft.com/cbernier/2013/10/23/monitoring-windows-azure-with-system-center-operations-manager-2012-get-me-started/), för att utöka dina befintliga säkerhets hanteringsinvestering i molnet. System Center och Log Analytics kan hjälpa dig för att skapa en fullständig hybridhantering upplevelse.
+Förutom att tillhandahålla värdefulla tjänster på egen hand ska Azure Monitor loggar kan integreras med System Center-komponenter, till exempel [System Center Operations Manager](https://blogs.technet.microsoft.com/cbernier/2013/10/23/monitoring-windows-azure-with-system-center-operations-manager-2012-get-me-started/), för att utöka dina befintliga säkerhets hanteringsinvestering i den moln. System Center och Azure Monitor kan hjälpa dig för att skapa en fullständig hybridhantering upplevelse.
 
 ### <a name="holistic-security-and-compliance-posture"></a>Heltäckande säkerhets- och efterlevnadsstatus
 
-Den [Log Analytics säkerhet och granskning instrumentpanelen](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started) ger en heltäckande översikt över din organisations IT-säkerhetsstatus, med inbyggda sökfrågor för viktiga problem som kräver din uppmärksamhet. Instrumentpanelen för säkerhet och granskning är startsidan för allt som rör säkerhet i Log Analytics. Den innehåller en översikt över säkerhetsstatusen för dina datorer. Du kan också visa alla händelser från de senaste 24 timmarna, 7 dagar eller anpassad tidsram.
+Den [Log Analytics säkerhet och granskning instrumentpanelen](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started) ger en heltäckande översikt över din organisations IT-säkerhetsstatus, med inbyggda sökfrågor för viktiga problem som kräver din uppmärksamhet. Instrumentpanelen för säkerhet och granskning är startsidan för allt som rör säkerhet i Azure Monitor-loggar. Den innehåller en översikt över säkerhetsstatusen för dina datorer. Du kan också visa alla händelser från de senaste 24 timmarna, 7 dagar eller anpassad tidsram.
 
-Log Analytics kan du snabbt och lätt att förstå den övergripande säkerhetstillståndet för alla miljöer, allt inom ramen för IT-avdelningen, inklusive programvara som uppdatering av utvärdering, utvärdering av program mot skadlig kod och konfigurationsbaslinjer. Loggdata för säkerhet är allmänt tillgänglig för att effektivisera processer för säkerhets- och granskning.
+Azure Monitor loggar hjälper dig att snabbt och enkelt se övergripande säkerhetstillståndet för alla miljöer, allt inom ramen för IT-avdelningen, inklusive kontroll av uppdateringar av programvara, utvärdering av program mot skadlig kod och konfigurationsbaslinjer. Loggdata för säkerhet är allmänt tillgänglig för att effektivisera processer för säkerhets- och granskning.
 
 ![Instrumentpanelen för Log Analytics säkerhet och granskning](./media/azure-threat-detection/azure-threat-detection-fig3.jpg)
 
@@ -102,25 +102,25 @@ Log Analytics säkerhet och granskning instrumentpanelen är uppdelad i fyra huv
 -   **Vanliga säkerhetsfrågor**: Visar en lista över de vanligaste säkerhetsfrågorna som du kan använda för att övervaka din miljö. När du väljer en fråga, Sök-rutan öppnas och visar resultatet för frågan.
 
 ### <a name="insight-and-analytics"></a>Insikter och analys
-I mitten av [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) är lagringsplatsen, som är värd för Azure.
+I mitten av [Azure Monitor loggar](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) är lagringsplatsen, som är värd för Azure.
 
 ![Diagrammet insikter och analys](./media/azure-threat-detection/azure-threat-detection-fig4.png)
 
 Du samla in data till databasen från anslutna källor genom att konfigurera datakällor och lägga till lösningar i din prenumeration.
 
-![Log Analytics-instrumentpanelen](./media/azure-threat-detection/azure-threat-detection-fig5.png)
+![Instrumentpanelen för Azure Monitor-loggar](./media/azure-threat-detection/azure-threat-detection-fig5.png)
 
 Datakällor och lösningar skapar olika posttyper med sin egen uppsättning egenskaper, men du kan fortfarande analysera dem tillsammans i förfrågningar till databasen. Du kan använda samma verktyg och metoder för att arbeta med en mängd olika data som samlas in av olika källor.
 
 
-De flesta interaktionen med Log Analytics är via Azure-portalen, som körs i alla webbläsare och ger åtkomst till konfigurationsinställningar och flera olika verktyg för att analysera och agera utifrån insamlade data. Från portalen kan använda du:
+De flesta interaktionen med Azure Monitor-loggar är via Azure-portalen, som körs i alla webbläsare och ger åtkomst till konfigurationsinställningar och flera olika verktyg för att analysera och agera utifrån insamlade data. Från portalen kan använda du:
 * [Loggsökningar](https://docs.microsoft.com/azure/log-analytics/log-analytics-log-searches) där du skapar förfrågningar för att analysera insamlade data.
 * [Instrumentpaneler](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-logs-dashboards), som du kan anpassa med grafiska vyer över dina mest värdefulla sökningar.
 * [Lösningar](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions), som ger ytterligare funktioner och analysverktyg.
 
 ![Analysverktyg](./media/azure-threat-detection/azure-threat-detection-fig6.png)
 
-Lösningar lägger till funktioner i Log Analytics. De främst körs i molnet och ger analys av data som samlas in i Log Analytics-databasen. Lösningar kan också definiera nya typer av poster som ska samlas in som kan analyseras med loggsökningar eller genom att använda en ytterligare användargränssnitt som lösningen tillhandahåller i Log Analytics-instrumentpanelen.
+Lösningar lägger till funktioner i Azure Monitor-loggar. De främst körs i molnet och ger analys av data som samlas in i log analytics-databasen. Lösningar kan också definiera nya typer av poster som ska samlas in som kan analyseras med loggsökningar eller genom att använda en ytterligare användargränssnitt som lösningen tillhandahåller i log analytics-instrumentpanelen.
 
 Instrumentpanelen för säkerhet och granskning är ett exempel på dessa typer av lösningar.
 

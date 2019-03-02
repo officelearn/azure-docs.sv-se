@@ -14,12 +14,12 @@ ms.author: arib
 ms.reviewer: vanto
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: 452811cae74253570591e5ffe2c58708fe632b39
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 28891c103df91baa16b895ece7909658fede3b91
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55894402"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57213321"
 ---
 # <a name="get-started-with-azure-sql-database-managed-instance-auditing"></a>Kom igång med Azure SQL Database managed instance granskning
 
@@ -158,9 +158,9 @@ Ytterligare information:
 - [SKAPA SERVERGRANSKNING](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-transact-sql)
 - [ALTER SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/alter-server-audit-transact-sql)
 
-## <a name="set-up-auditing-for-your-server-to-event-hub-or-log-analytics"></a>Konfigurera granskning för din server och Event Hub eller Log Analytics
+## <a name="set-up-auditing-for-your-server-to-event-hub-or-azure-monitor-logs"></a>Konfigurera granskning för din server till Event Hub eller Azure Monitor-loggar
 
-Granskningsloggar från en hanterad instans kan skickas till och med hubbar eller Log Analytics med Azure Monitor. Det här avsnittet beskrivs hur du konfigurerar detta:
+Granskningsloggar från en hanterad instans kan skickas till och med Hubs eller Azure Monitor-loggar. Det här avsnittet beskrivs hur du konfigurerar detta:
 
 1. Navigera i den [Azure-portalen](https://portal.azure.com/) till den hanterade instansen.
 
@@ -170,7 +170,7 @@ Granskningsloggar från en hanterad instans kan skickas till och med hubbar elle
 
 4. Välj **SQLSecurityAuditEvents** i listan över loggar.
 
-5. Välj ett mål för granskningshändelser - Event Hub, Log Analytics eller båda. Konfigurera för varje mål de obligatoriska parametrarna (t.ex. Log Analytics-arbetsytan).
+5. Välj ett mål för granskningshändelser - Event Hub, Azure Monitor-loggar eller båda. Konfigurera för varje mål de obligatoriska parametrarna (t.ex. Log Analytics-arbetsytan).
 
 6. Klicka på **Spara**.
 
@@ -213,11 +213,13 @@ Det finns flera metoder som du kan använda för att visa blob granskningsloggar
 
 Om du vill använda granskning loggar data från Event Hub, behöver du ställer in en dataström som förbrukar händelser och skriva dem till ett mål. Mer information finns i dokumentation om Azure Event Hubs.
 
-### <a name="consume-and-analyze-logs-stored-in-log-analytics"></a>Använda och analysera loggar som lagras i Log Analytics
+### <a name="consume-and-analyze-logs-stored-in-azure-monitor-logs"></a>Använda och analysera loggar som lagras i Azure Monitor-loggar
 
-Om granskningsloggarna skrivs till Log Analytics, är de tillgängliga i Log Analytics-arbetsyta där du kan köra avancerade sökningar på granskningsdata. Som en startpunkt, navigera till Log Analytics och under *Allmänt* avsnittet klickar du på *loggar* och ange en enkel fråga, till exempel: `search "SQLSecurityAuditEvents"` att visa granskningen loggar.  
+Om granskningsloggarna skrivs till Azure Monitor-loggar, är de tillgängliga i Log Analytics-arbetsyta där du kan köra avancerade sökningar på granskningsdata. Som en startpunkt, navigera till Log Analytics-arbetsytan och under *Allmänt* avsnittet klickar du på *loggar* och ange en enkel fråga, till exempel: `search "SQLSecurityAuditEvents"` att visa granskningen loggar.  
 
-Log Analytics ger dig operational realtidsinsikter med integrerad sökning och anpassade instrumentpaneler för snabb analys av miljontals poster över alla dina arbetsbelastningar och servrar. Ytterligare användbar information om Log Analytics-frågespråket och kommandon finns i [Log Analytics Sök referens](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview).
+Azure Monitor-loggar ger dig operational realtidsinsikter med integrerad sökning och anpassade instrumentpaneler för snabb analys av miljontals poster över alla dina arbetsbelastningar och servrar. Ytterligare användbar information om Azure Monitor-loggar frågespråket och kommandon finns i [Azure Monitor loggar sökreferens](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview).
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="auditing-differences-between-databases-in-azure-sql-database-and-databases-in-sql-server"></a>Granskning skillnaderna mellan databaser i Azure SQL Database och databaser i SQL Server
 
@@ -232,7 +234,7 @@ XEvent granskning i hanterad instans stöder prestandamål i Azure Blob storage.
 Nyckeln skillnader i den `CREATE AUDIT` syntax för granskning till Azure Blob storage är:
 
 - En ny syntax `TO URL` tillhandahålls och kan du ange URL: en för Azure blob Storage-behållare där de `.xel` filerna är placerade.
-- En ny syntax `TO EXTERNAL MONITOR` är tillgänglig för att även Hub och Log Analytics-mål.
+- En ny syntax `TO EXTERNAL MONITOR` är tillgänglig för att även Hub och Azure Monitor-loggar mål.
 - Syntaxen `TO FILE` är **stöds inte** eftersom SQL-databas inte kan komma åt Windows-filresurser.
 - Stäng av alternativet är **stöds inte**.
 - `queue_delay` 0 är **stöds inte**.

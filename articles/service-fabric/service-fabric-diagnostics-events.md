@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: 936a47593b9db6e4989c30b2df37dfd82c286c59
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: c4ce8e01b1dc819453610f68d044cc268e27eed7
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52290526"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57242759"
 ---
 # <a name="service-fabric-events"></a>Service Fabric-händelser 
 
@@ -40,12 +40,12 @@ Här följer några exempel på scenarier som du bör se händelser för i klust
 * Program/tjänst distribution / borttagning: det finns händelser för varje program, en tjänst och en behållare, som skapats eller tagits bort och användbart när skala in eller ut t.ex. öka antalet repliker
 * Partition flyttar (omkonfiguration): när en tillståndskänslig partition genomgår en omkonfiguration (en ändring i replikuppsättningen), en händelse loggas. Detta är användbart om du vill förstå hur ofta replikuppsättningen partition ändrar eller växlar vid fel eller spåra vilken nod kördes den primära repliken vid någon tidpunkt i tid.
 * Chaos händelser: när du använder Service Fabric [Chaos](service-fabric-controlled-chaos.md) tjänsten måste visas händelser varje gång tjänsten startas eller stoppas eller när det lägger in ett fel i systemet.
-* Hälsohändelser: Service Fabric exponerar hälsohändelser varje gång en varning eller en felrapport för hälsotillstånd har skapats, eller en entitet går tillbaka till det OK hälsotillståndet eller en hälsorapport upphör att gälla. Dessa händelser är användbar för att spåra historiska hälsostatistik för en entitet. 
+* Health-händelser: Service Fabric exponerar hälsohändelser varje gång en varning eller en felrapport för hälsotillstånd har skapats, eller en entitet går tillbaka till det OK hälsotillståndet eller en hälsorapport upphör att gälla. Dessa händelser är användbar för att spåra historiska hälsostatistik för en entitet. 
 
 ## <a name="how-to-access-events"></a>Hur du kommer åt händelser
 
 Det finns några olika sätt som Service Fabric-händelser kan nås:
-* Händelser loggas via standard-kanaler, till exempel ETW/Windows-händelseloggar och kan visualiseras med alla övervakningsverktyg som har stöd för dessa, exempelvis Log Analytics. Som standard kluster som skapas i portalen diagnostik aktiveras och har en Windows Azure diagnostics-agenten skickar händelser till Azure table storage, men behöver ändå integrera det med Log Analytics-resursen. Läs mer om hur du konfigurerar den [Azure Diagnostics-agenten](service-fabric-diagnostics-event-aggregation-wad.md) att ändra diagnostikkonfigurationen på klustret att hämta fler loggar eller prestandaräknare och [Log Analytics-integrering](service-fabric-diagnostics-event-analysis-oms.md)
+* Händelser loggas via standard-kanaler, till exempel ETW/Windows-händelseloggar och kan visualiseras med alla övervakningsverktyg som har stöd för dessa, till exempel Azure Monitor-loggar. Som standard kluster som skapas i portalen diagnostik aktiveras och har en Windows Azure diagnostics-agenten skickar händelser till Azure table storage, men behöver ändå integrera det med dina log analytics-resursen. Läs mer om hur du konfigurerar den [Azure Diagnostics-agenten](service-fabric-diagnostics-event-aggregation-wad.md) att ändra diagnostikkonfigurationen på klustret att hämta fler loggar eller prestandaräknare och [integration av Azure Monitor-loggar](service-fabric-diagnostics-event-analysis-oms.md)
 * EventStore service Rest API: er som gör det möjligt att fråga klustret direkt eller via Service Fabric-klientbiblioteket. Se [fråga EventStore APIs för klusterhändelser](service-fabric-diagnostics-eventstore-query.md).
 
 ## <a name="next-steps"></a>Nästa steg

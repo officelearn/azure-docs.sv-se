@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/04/2018
+ms.date: 02/12/2019
 ms.author: jdial
-ms.openlocfilehash: 98b2c0bc27336e9ee5fe9aaf6332d9854e9af4de
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 5689cdb2e9f8028f8e1e05a9b43cc00719701fce
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56650299"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57213916"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Vanliga frågor (och svar FAQ) om Azure-nätverk
 
@@ -231,6 +231,26 @@ VNet-peering (eller virtuell nätverkspeering) kan du ansluta virtuella nätverk
 
 ### <a name="can-i-create-a-peering-connection-to-a-vnet-in-a-different-region"></a>Kan jag skapa en peering-anslutning till ett virtuellt nätverk i en annan region?
 Ja. Global VNet-peering kan du peerkoppla virtuella nätverk i olika regioner. Global VNet-peering är tillgängligt i alla offentliga Azure-regioner och regioner för Kina-molnet. Du kan inte globalt peer-kopplas från offentliga Azure-regioner till molnregioner för nationella. Global peering är inte tillgänglig för tillfället i Government-molnet.
+
+### <a name="what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers"></a>Vilka är de begränsningar som rör Global VNet-Peering och belastningsutjämnare?
+Om de två virtuella nätverken är i olika regioner (Global VNet-Peering) kan ansluta du inte till resurser som använder grundläggande belastningsutjämnare. Du kan ansluta till resurser som använder Standard Load Balancer.
+Följande resurser använder grundläggande belastningsutjämnare vilket innebär att du inte kan kommunicera till dem i Global VNet-Peering:
+- Virtuella datorer bakom grundläggande belastningsutjämnare
+- VM Scale Sets med grundläggande belastningsutjämnare 
+- Redis Cache 
+- Application Gateway (v1) SKU
+- Service Fabric
+- SQL alltid på
+- SQL MI
+- API Managemenet
+- ADDS
+- Logic Apps
+- HD Insight
+-   Azure Batch
+- AKS
+- App Service Environment
+
+Du kan ansluta till dessa resurser via ExpressRoute eller VNet-till-VNet via VNet-gatewayer.
 
 ### <a name="can-i-enable-vnet-peering-if-my-virtual-networks-belong-to-subscriptions-within-different-azure-active-directory-tenants"></a>Kan jag aktivera VNet-Peering om min virtuella nätverk som hör till prenumerationer i olika Azure Active Directory-klienter?
 Ja. Det går att upprätta VNet-Peering (antingen lokal eller global) om dina prenumerationer tillhör olika Azure Active Directory-klienter. Du kan göra detta via PowerShell eller CLI. Portal stöds inte ännu.

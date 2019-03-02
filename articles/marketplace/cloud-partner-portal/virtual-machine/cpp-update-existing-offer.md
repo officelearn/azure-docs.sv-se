@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 08/27/2018
 ms.author: Ankit.Sud
-ms.openlocfilehash: b48910b74d90072a360bad504e2b826402dceea5
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: ee828c908cb3b103befa3890b43bb2c1f04f7cf0
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49639881"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57214052"
 ---
 # <a name="update-an-existing-vm-offer-on-azure-marketplace"></a>Uppdatera en befintlig VM-erbjudandet på Azure Marketplace
 
@@ -35,6 +35,8 @@ Det finns ett antal vanliga orsaker till att du kan uppdatera ditt erbjudande, i
 
 För att hjälpa dig på de här ändringarna, portalen erbjuder den **jämför** och **historik** funktioner.  
 
+>[!Note]
+>Cloud Solution Providers (CSP) partner channel anmälan är nu tillgänglig.  Se [Cloud Solution Providers](../../cloud-solution-providers.md) mer information om marknadsföring av ditt erbjudande via Microsoft CSP partner kanaler.
 
 ## <a name="unpermitted-changes-to-vm-offer-or-sku"></a>Unpermitted ändringar i erbjudande för virtuell dator eller SKU
 
@@ -149,12 +151,12 @@ Om de redan har faktureras för cykeln då en minskning av priset inträffat, f�
 
 Från och med September 1 2018, ett nytt avsnitt kallas **förenklad valuta priser** kommer att läggas till på portalen. Microsoft effektivisera verksamheten Azure Marketplace genom att aktivera mer förutsägbara priser och samlingar från dina kunder över hela världen. Den här effektivisera omfattar att minska antalet valutor där vi fakturerar dina kunder.
 
-Nytt avsnitt tar priser i dessa nya valutor. När alla kunder har migrerats till dessa nya avräkning valutor, ursprungliga prissättningsavsnittet kommer att dras tillbaka och bara avsnittet förenklad valuta priser finns kvar.
+Nytt avsnitt tar priser i dessa nya valutor. När alla kunder har migrerats till dessa nya avräkning valutor, ursprungliga prissättningsavsnittet kommer att dras tillbaka och bara avsnittet förenklad valuta priser finns kvar.
 
 Du får förrän den 1 November 2018 att ange ett nytt pris för regionerna där avräkning valuta ändras. Du kommer inte att kunna öka priset för regioner där avräkning valuta inte ändras.
 
 > [!NOTE] 
-> Om du använder API: er för att publicera ditt erbjudande, kan du se ett nytt avsnitt i den JSON som erbjuder. Detta skulle kommenteras som `virtualMachinePricingV2` eller `monthlyPricingV2`, beroende på vilken typ av erbjudande. 
+> Om du använder API: er för att publicera ditt erbjudande, kan du se ett nytt avsnitt i den JSON som erbjuder. Detta skulle kommenteras som `virtualMachinePricingV2` eller `monthlyPricingV2`, beroende på vilken typ av erbjudande. 
 
 Om du har frågor om den här ändringen kan kontakta [Support för Azure Marketplace](../../support-azure-marketplace.md).
 

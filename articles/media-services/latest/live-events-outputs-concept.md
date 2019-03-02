@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 02/01/2019
+ms.date: 03/01/2019
 ms.author: juliako
-ms.openlocfilehash: cce3ea06ebd7d3469dad14e491124f81567610ea
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: c4be56b3ee32a5177c66353ba45c6b3647c732f2
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55894070"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57240090"
 ---
 # <a name="live-events-and-live-outputs"></a>Livehändelser och liveresultat
 
@@ -42,7 +42,7 @@ En [direktsänd händelse](https://docs.microsoft.com/rest/api/media/liveevents)
 
 ### <a name="pass-through"></a>Direkt
 
-![direktautentisering](./media/live-streaming/pass-through.png)
+![direktautentisering](./media/live-streaming/pass-through.svg)
 
 När du använder direkt **direktsänd händelse**, du förlita dig på din lokala livekodare för att generera en videoström för flera bithastigheter och skicka att som bidraget feed på Live-händelsen (med RTMP eller fragmenterad MP4-protokollet). Live-händelsen har sedan via inkommande video strömmar utan vidare bearbetning. En direkt LiveEvent är optimerad för tidskrävande direktsändningar eller 24 x 365 linjär liveuppspelning. När du skapar den här typen av direktsänd händelse kan du ange None (LiveEventEncodingType.None).
 
@@ -56,11 +56,16 @@ Se ett .NET-kodexempel i [MediaV3LiveApp](https://github.com/Azure-Samples/media
 
 ### <a name="live-encoding"></a>Live Encoding  
 
-![Live encoding](./media/live-streaming/live-encoding.png)
+![Live encoding](./media/live-streaming/live-encoding.svg)
 
 När du använder live encoding med Media Services, kan du konfigurera din lokala livekodare för att skicka en enkel bithastighet video som bidrag till Live-händelse (med RTMP eller fragmenterad Mp4-protokollet). Live-händelsen kodar den inkommande, enkel bithastigheten, strömma till en [flera video bithastighet](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming), gör den tillgänglig för leverans för uppspelning av protokoll som MPEG-DASH, HLS och Smooth Streaming-enheter. När du skapar den här typen av direktsänd händelse, ange kodningstyp som **Standard** (LiveEventEncodingType.Standard).
 
 Du kan skicka bidraget feed på upp till 1080 p upplösning vid en bildfrekvens av 30 bilder/sekund, med H.264/AVC video-codec och AAC (AAC-LC, HE-AACv1 eller HE-AACv2) ljudcodec. Se den [direktsänd händelse skriver jämförelse](live-event-types-comparison.md) nedan för mer information.
+
+När du använder live encoding (direktsänd händelse inställd **Standard**), förinställningen för kodningen definierar hur inkommande strömmen kodas i flera olika bithastigheter eller lager. Mer information finns i [systeminställningar](live-event-types-comparison.md#system-presets).
+
+> [!NOTE]
+> För närvarande den enda tillåtna förinställda värdet för standardtypen för direktsänd händelse är *Default720p*. Om du vill använda en anpassad förinställning för live encoding kan du kontakta amshelp@microsoft.com. Du bör ange den önskade tabellen i upplösning och bithastighet. Kontrollera att det finns ett lager vid 720p och högst 6 lager.
 
 ## <a name="live-event-creation-options"></a>Live-alternativ för skapande av händelse
 

@@ -1,21 +1,21 @@
 ---
-title: Exportera dina data i Azure IoT Central | Microsoft Docs
+title: Exportera data från Azure IoT Central | Microsoft Docs
 description: Exportera data från Azure IoT Central-programmet
 services: iot-central
 author: viv-liu
 ms.author: viviali
-ms.date: 02/05/2017
+ms.date: 02/20/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: peterpr
-ms.openlocfilehash: 15697f97a3b223e0a946795ce0dc5e9d3d86ccb8
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: c595627275848de5489fe11e1327a72bf6251199
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55773915"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57213270"
 ---
-# <a name="export-your-data-in-azure-iot-central"></a>Exportera dina data i Azure IoT Central
+# <a name="export-your-data-from-azure-iot-central"></a>Exportera data från Azure IoT Central
 
 *Det här avsnittet gäller för administratörer.*
 
@@ -26,7 +26,7 @@ Den här artikeln beskriver hur du använder funktionen löpande export i Azure 
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-- Du måste vara administratör i din IoT Central-App
+Du måste vara administratör i din IoT Central-App
 
 ## <a name="export-to-blob-storage"></a>Exportera till Blob Storage
 
@@ -38,7 +38,6 @@ Läs mer om [exporterar till Blob storage](howto-export-data-blob-storage.md?toc
 
 Mått, enheter och mallar enhetsdata exporteras till din händelsehubb eller Service Bus-kö eller ämne. Exporterade mätningar av data tas emot i nära realtid och innehåller i sin helhet meddelandet dina enheter som skickas till IoT Central, inte bara värdena för själva mätningarna. Exporterade enheter data tas emot i batchar varje minut och innehåller ändringar i egenskaper och inställningar för alla enheter och exporterade enheten mallar innehåller ändringar i alla mallar för enheten.
 
-
 Läs mer om [exportera till Event Hubs och Service Bus](howto-export-data-event-hubs-service-bus.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json).
 
 ## <a name="set-up-export-destination"></a>Konfigurera exportera
@@ -48,10 +47,12 @@ Följ dessa steg om du inte har en befintlig lagring/Event Hubs/Service Bus för
 ### <a name="create-storage-account"></a>Skapa lagringskonto
 
 1. Skapa en [nytt lagringskonto i Azure-portalen](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM). Du kan läsa mer i [Azure Storage-docs](https://aka.ms/blobdocscreatestorageaccount).
-2. Kontotyp, Välj **generella** eller **Blob-lagring**.
-3. Välj en prenumeration. 
 
-    > [!Note] 
+2. Kontotyp, Välj **generella** eller **Blob-lagring**.
+
+3. Välj en prenumeration.
+
+    > [!Note]
     > Nu kan du exportera data till andra prenumerationer som är **inte samma** som programmets användningsbaserad IoT Central. Du ansluter med en anslutningssträng i det här fallet.
 
 4. Skapa en behållare i ditt storage-konto. Gå till ditt lagringskonto. Under **Blobtjänsten**väljer **Bläddra efter Blobar**. Välj **+ behållare** överst för att skapa en ny behållare.
@@ -59,25 +60,28 @@ Följ dessa steg om du inte har en befintlig lagring/Event Hubs/Service Bus för
 ### <a name="create-event-hubs-namespace"></a>Skapa Event Hubs-namnområdet
 
 1. Skapa en [nya Event Hubs-namnområde i Azure-portalen](https://ms.portal.azure.com/#create/Microsoft.EventHub). Du kan läsa mer i [Händelsehubbar i Azure-docs](https://docs.microsoft.com/azure/event-hubs/event-hubs-create).
-2. Välj en prenumeration. 
 
-    > [!Note] 
+2. Välj en prenumeration.
+
+    > [!Note]
     > Nu kan du exportera data till andra prenumerationer som är **inte samma** som programmets användningsbaserad IoT Central. Du ansluter med en anslutningssträng i det här fallet.
+
 3. Skapa en händelsehubb i namnområdet för Event Hubs. Gå till ditt namnområde och välj **+ Event Hub** överst för att skapa en event hub-instans.
 
 ### <a name="create-service-bus-namespace"></a>Skapa Service Bus-namnområde
 
 1. Skapa en [nya Service Bus-namnområde i Azure-portalen](https://ms.portal.azure.com/#create/Microsoft.ServiceBus.1.0.5) . Du kan läsa mer i [Azure Service Bus docs](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-create-namespace-portal).
-2. Välj en prenumeration. 
 
-    > [!Note] 
+2. Välj en prenumeration.
+
+    > [!Note]
     > Nu kan du exportera data till andra prenumerationer som är **inte samma** som programmets användningsbaserad IoT Central. Du ansluter med en anslutningssträng i det här fallet.
 
 3. Gå till ditt Service Bus-namnområde och välj **+ kö** eller **+ ämne** överst för att skapa en kö eller ämne att exportera till.
 
 ## <a name="set-up-continuous-data-export"></a>Konfigurera löpande dataexport
 
-Nu när du har ett mål för lagring/Event Hubs/Service Bus att exportera data för att följa dessa steg för att konfigurera löpande dataexport. 
+Nu när du har ett mål för lagring/Event Hubs/Service Bus att exportera data för att följa dessa steg för att konfigurera löpande dataexport.
 
 1. Logga in på ditt IoT Central-program.
 
@@ -86,21 +90,21 @@ Nu när du har ett mål för lagring/Event Hubs/Service Bus att exportera data f
     > [!Note]
     > Om du inte ser löpande Export av Data på den vänstra menyn kan är du inte administratör i din app. Kontakta en administratör att ställa in export av data.
 
-    ![Skapa ny cde Event Hub](media/howto-export-data-experimental/export_menu.png)
+    ![Skapa ny Händelsehubb](media/howto-export-data-experimental/export_menu.png)
 
-3. Klicka på den **+ ny** knappen uppe till höger. Välj något av **Azure Blob Storage**, **Azure Event Hubs**, eller **Azure Service Bus** som mål för exporten. 
+3. Klicka på den **+ ny** knappen uppe till höger. Välj något av **Azure Blob Storage**, **Azure Event Hubs**, eller **Azure Service Bus** som mål för exporten.
 
-    > [!NOTE] 
-    > Det maximala antalet exporter per app är fem. 
+    > [!NOTE]
+    > Det maximala antalet exporter per app är fem.
 
     ![Skapa ny löpande dataexport](media/howto-export-data-experimental/export_new.png)
 
 4. I den nedrullningsbara listrutan väljer du din **Storage-konto/Event Hubs-namnområde/Service Bus-namnområde**. Du kan också välja alternativet sist i listan som **ange en anslutningssträng**. 
 
-    > [!NOTE] 
-    > Du ser bara Storage konton/Event Hubs-namnområden/Service Bus-namnområden i den **samma prenumeration som din IoT Central-app**. Om du vill exportera till ett mål utanför den här prenumerationen kan du välja **ange en anslutningssträng** och finns i steg 5.
+    > [!NOTE]
+    > Du kan bara se Storage konton/Event Hubs-namnområden/Service Bus-namnområden i den **samma prenumeration som din IoT Central-app**. Om du vill exportera till ett mål utanför den här prenumerationen kan du välja **ange en anslutningssträng** och finns i steg 5.
 
-    > [!NOTE] 
+    > [!NOTE]
     > 7 dagars utvärderingsversion appar, det enda sättet att konfigurera kontinuerlig data exportera är i via en anslutningssträng. Det beror på att 7 dagars utvärderingsversion appar inte har en associerad Azure-prenumeration.
 
     ![Skapa ny cde Event Hub](media/howto-export-data-experimental/export_create.png)
@@ -113,16 +117,16 @@ Nu när du har ett mål för lagring/Event Hubs/Service Bus att exportera data f
         - Under **inställningar**, klickar du på **principer för delad åtkomst**
         - Välj standard **RootManageSharedAccessKey** eller skapa en ny
         - Kopiera den primär eller sekundär anslutningssträngen
- 
+
 6. Välj en behållare/Event hub/kö eller ämne i nedrullningsbara listrutan.
 
 7. Under **Data som ska exporteras**, ange varje typ av data som ska exporteras genom att ställa in typen **på**.
 
-6. Se till att aktivera löpande dataexport genom **dataexport** är **på**. Välj **Spara**.
+8. Se till att aktivera löpande dataexport genom **dataexport** är **på**. Välj **Spara**.
 
-  ![Konfigurera löpande dataexport](media/howto-export-data-experimental/export_list.png)
+    ![Konfigurera löpande dataexport](media/howto-export-data-experimental/export_list.png)
 
-7. Efter ett par minuter visas dina data i ditt valda mål.
+9. Efter ett par minuter visas dina data i ditt valda mål.
 
 ## <a name="next-steps"></a>Nästa steg
 

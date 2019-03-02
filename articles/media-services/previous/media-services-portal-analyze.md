@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: 02b972c0591bb05f72887e3e1c3d057d373ff48c
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: fa48713034de5660218d2d568be6673a7d39a7e3
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56004884"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57245309"
 ---
-# <a name="analyze-your-media-using-the-azure-portal-legacy"></a>Analysera dina medier med Azure-portalen (äldre)
+# <a name="analyze-your-media-using-the-azure-portal"></a>Analysera dina medier med Azure Portal 
 > [!NOTE]
 > Du behöver ett Azure-konto för att slutföra den här självstudien. Mer information finns i [kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/). 
 > 

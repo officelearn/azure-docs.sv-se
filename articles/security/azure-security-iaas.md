@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/18/2018
 ms.author: barclayn
-ms.openlocfilehash: de89e0a30f39ba97379b4d55914338702aef5c32
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: c60022d43af1601359ab5de8b4d3e4eb06dd239a
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56990416"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57243235"
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Rekommenderade säkerhetsmetoder för IaaS-arbetsbelastningar i Azure
 
@@ -128,7 +128,7 @@ Cyberhot är under utveckling. Skydda dina virtuella datorer kräver en övervak
 
 Security Center kan övervaka aktivt för hot och potentiella hot som exponeras i säkerhetsaviseringar. Korrelerade hot räknas samman i en enda vy som kallas en säkerhetsincident.
 
-Security Center lagrar data i [Azure Log Analytics](../log-analytics/log-analytics-overview.md). Log Analytics tillhandahåller en fråga frågespråk och en analytisk motor som ger dig insikter om hur dina program och resurser. Data samlas även från [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md), hanteringslösningar och agenter som installerats på virtuella datorer i molnet eller lokalt. Denna delade funktion hjälper dig att få en komplett bild av din miljö.
+Security Center lagrar data i [Azure Monitor loggar](../log-analytics/log-analytics-overview.md). Azure Monitor-loggar innehåller en fråga frågespråk och en analytisk motor som ger dig insikter om hur dina program och resurser. Data samlas även från [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md), hanteringslösningar och agenter som installerats på virtuella datorer i molnet eller lokalt. Denna delade funktion hjälper dig att få en komplett bild av din miljö.
 
 Organisationer som inte framtvingar stark säkerhet för sina virtuella datorer vara ovetande om eventuella försök från obehöriga användare kringgå de säkerhetskontroller.
 

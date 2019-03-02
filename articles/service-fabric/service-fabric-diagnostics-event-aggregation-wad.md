@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/03/2018
 ms.author: srrengar
-ms.openlocfilehash: f9db156562692107a5603e15340f01ecf9f9d52c
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: afc833775894a01e8061401fe7601267f09edded
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56823424"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57243252"
 ---
 # <a name="event-aggregation-and-collection-using-windows-azure-diagnostics"></a>Händelsen aggregering och samling med Windows Azure Diagnostics
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ ms.locfileid: "56823424"
 
 När du kör ett Azure Service Fabric-kluster, är det en bra idé att samla in loggar från alla noder i en central plats. Med loggarna på en central plats hjälper dig att analysera och felsöka problem i ditt kluster eller problem i program och tjänster som körs i klustret.
 
-Ett sätt att överföra och samla in loggar är att använda tillägg för Windows Azure Diagnostics SÄKERHETSSPECIFIKA som överför loggar till Azure Storage och har också möjlighet att skicka loggarna till Azure Application Insights eller Event Hubs. Du kan också använda en extern process för att läsa händelser från storage och placera dem i en plattform produkten analys som [Log Analytics](../log-analytics/log-analytics-service-fabric.md) eller en annan lösning för parsning av loggen.
+Ett sätt att överföra och samla in loggar är att använda tillägg för Windows Azure Diagnostics SÄKERHETSSPECIFIKA som överför loggar till Azure Storage och har också möjlighet att skicka loggarna till Azure Application Insights eller Event Hubs. Du kan också använda en extern process för att läsa händelser från storage och placera dem i en plattform produkten analys som [Azure Monitor loggar](../log-analytics/log-analytics-service-fabric.md) eller en annan lösning för parsning av loggen.
 
 ## <a name="prerequisites"></a>Förutsättningar
 Följande verktyg används i den här artikeln:
@@ -57,7 +57,7 @@ Vi rekommenderar starkt att du har hämtat mallen **innan du klickar på Skapa**
 
 ![Kluster-mall](media/service-fabric-diagnostics-event-aggregation-wad/download-cluster-template.png)
 
-Nu när du aggregering av händelser i Azure Storage, [konfigurera Log Analytics](service-fabric-diagnostics-oms-setup.md) att få insikter och skicka frågor till dem i Log Analytics-portalen
+Nu när du aggregering av händelser i Azure Storage, [konfigurera Azure Monitor-loggar](service-fabric-diagnostics-oms-setup.md) att få insikter och skicka frågor till dem i Azure Monitor loggar portal
 
 >[!NOTE]
 >Det finns för närvarande inget sätt att filtrera eller rensa de händelser som skickas till tabeller. Om du inte har implementerat en process för att ta bort händelser från tabellen, tabellen fortsätter att växa (standard fästpunkten är 50 GB). Instruktioner om hur du ändrar det här är [ytterligare nedan i den här artikeln](service-fabric-diagnostics-event-aggregation-wad.md#update-storage-quota). Det finns också ett exempel på en rensning tjänst som körs i den [Watchdog exempel](https://github.com/Azure-Samples/service-fabric-watchdog-service), och vi rekommenderar att du skriver en själv, om det inte finns en anledning att lagra loggar utöver en tidsram för 30 eller 90 dagar.
@@ -340,11 +340,11 @@ För närvarande loggar från klustret visas som **spårningar** i Application I
 
 ## <a name="next-steps"></a>Nästa steg
 
-När du har korrekt konfigurerat Azure-diagnostik, visas data i ditt Storage-tabeller från ETW- och EventSource loggarna. Om du väljer att använda Log Analytics, Kibana eller andra data analys och visualisering plattformar som inte har konfigurerats i Resource Manager-mallen direkt, se till att konfigurera plattform för att läsa data från lagringstabellerna. Gör detta för Log Analytics är relativt enkelt och förklaras i [händelse och log analysis](service-fabric-diagnostics-event-analysis-oms.md). Application Insights är en del specialfall i detta avseende, eftersom den kan konfigureras som en del av konfigurationen av Diagnostiktillägget, så finns det [lämplig artikeln](service-fabric-diagnostics-event-analysis-appinsights.md) om du väljer att använda AI.
+När du har korrekt konfigurerat Azure-diagnostik, visas data i ditt Storage-tabeller från ETW- och EventSource loggarna. Om du väljer att använda Azure Monitor-loggar, Kibana eller andra data analys och visualisering plattformar som inte har konfigurerats i Resource Manager-mallen direkt, se till att konfigurera plattform för att läsa data från lagringstabellerna. Detta Azure Monitor-loggar är relativt enkelt och förklaras i [händelse och log analysis](service-fabric-diagnostics-event-analysis-oms.md). Application Insights är en del specialfall i detta avseende, eftersom den kan konfigureras som en del av konfigurationen av Diagnostiktillägget, så finns det [lämplig artikeln](service-fabric-diagnostics-event-analysis-appinsights.md) om du väljer att använda AI.
 
 >[!NOTE]
 >Det finns för närvarande inget sätt att filtrera eller rensa de händelser som skickas till tabellen. Om du inte implementerar en process för att ta bort händelser från tabellen, i tabellen kommer att fortsätta att växa. För närvarande finns ett exempel på en rensning tjänst som körs i den [Watchdog exempel](https://github.com/Azure-Samples/service-fabric-watchdog-service), och vi rekommenderar att du skriver en själv, om det inte finns en anledning att lagra loggar utöver en tidsram för 30 eller 90 dagar.
 
 * [Lär dig att samla in prestandaräknare eller loggar med hjälp av Diagnostics-tillägg](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Händelseanalys och visualisering med Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md)
-* [Händelseanalys och visualisering med Log Analytics](service-fabric-diagnostics-event-analysis-oms.md)
+* [Händelseanalys och visualisering med Azure Monitor-loggar](service-fabric-diagnostics-event-analysis-oms.md)

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: b8f2df14e0aa0246d794bd56f4187002cfdeee02
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: ba5a8cc09a098e58c39d42475d18e92e45222937
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/01/2019
-ms.locfileid: "57194476"
+ms.locfileid: "57216789"
 ---
 # <a name="connect-a-generic-client-application-to-your-azure-iot-central-application-nodejs"></a>Ansluta ett allmänt klientprogram till ditt Azure IoT Central program (Node.js)
 
@@ -93,7 +93,7 @@ Ange fältnamn exakt som de visas i tabellen i mallar för enheten. Om egenskaps
 
 ## <a name="add-a-real-device"></a>Lägga till en riktig enhet
 
-Lägg till en riktig enhet från enheten mallen du skapar och anteckna enhetens anslutningssträng i programmet Azure IoT Central. Stegvisa instruktioner om hur du ansluter en Node.js-program till IoT Central finns i [generera anslutningssträngen för riktig enhet från programmet](tutorial-add-device-experimental.md#generate-connection-string-for-real-device-from-application) och [förbereda klientkoden](tutorial-add-device-experimental.md#prepare-the-client-code) i självstudier > Lägg till en enhet.
+Lägg till en riktig enhet från enheten mallen du skapar och anteckna enhetens anslutningssträng i programmet Azure IoT Central. Stegvisa instruktioner om hur du ansluter en Node.js-program till IoT Central finns i [generera anslutningssträngen för riktig enhet från programmet](tutorial-add-device-experimental.md#generate-connection-string) och [förbereda klientkoden](tutorial-add-device-experimental.md#prepare-the-client-code) i självstudier > Lägg till en enhet.
 
 ### <a name="create-a-nodejs-application"></a>Skapa ett Node.js-program
 
@@ -268,11 +268,11 @@ Som operatör i Azure IoT Central programmet för verkliga enheten kan du:
 
     ![Visa telemetrin](media/howto-connect-nodejs-experimental/viewtelemetry.png)
 
-* Visa enhet egenskapsvärden som skickas från din enhet den **egenskaper** sidan. Enhetens egenskaper panelerna uppdateras om anslutningen är klar. 
+* Visa enhet egenskapsvärden som skickas från din enhet den **egenskaper** sidan. Egenskaper för paneler uppdaterats om anslutningen är klar.
 
     ![Visa egenskaper för enhet](media/howto-connect-nodejs-experimental/viewproperties.png)
 
-* Ange fläkt hastighet och mål temperaturen från den **inställningar** sidan. För inställningsvärden synkroniseras om anslutningen är klar. 
+* Ange fläkt hastighet och mål temperaturen från den **inställningar** sidan. För inställningsvärden att synkronisera om anslutningen är klar.
 
     ![Hastighet för set-fläkt](media/howto-connect-nodejs-experimental/setfanspeed.png)
 

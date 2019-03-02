@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 02/13/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: f57e793278af7eb03fe49fd657e45b0846db8b1c
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 3a8ee51656b5521916e68ee34edda91c34ea0c35
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56817923"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57216050"
 ---
 # <a name="authenticate-access-to-azure-blobs-and-queues-using-azure-active-directory-preview"></a>Autentisera åtkomsten till Azure BLOB-objekt och köer med hjälp av Azure Active Directory (förhandsversion)
 
@@ -57,9 +57,11 @@ När en RBAC-roll tilldelas till en Azure AD-säkerhetsobjekt, Azure beviljar å
 
 [!INCLUDE [storage-auth-rbac-roles-include](../../../includes/storage-auth-rbac-roles-include.md)]
 
+Läs hur du tilldelar en inbyggd roll i Azure-portalen i [bevilja åtkomst till Azure-behållare och köer med RBAC i Azure portal (förhandsversion)](storage-auth-aad-rbac.md).
+
 ### <a name="access-permissions-granted-by-rbac-roles"></a>Åtkomstbehörigheter som ges av RBAC-roller 
 
-I följande tabell sammanfattas åtkomsträttigheterna som beviljas av de inbyggda rollerna, beroende på omfattningen:
+I följande tabell sammanfattas åtkomsträttigheterna som beviljas av de inbyggda rollerna för olika nivåer av omfång:
 
 |Scope|Ägare för BLOB-Data|BLOB Data-deltagare|BLOB-dataläsare|Lagringsködata-deltagare|Lagringsködata-läsare|
 |---|---|---|---|---|---|

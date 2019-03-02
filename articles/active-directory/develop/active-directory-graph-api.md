@@ -12,27 +12,25 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/24/2018
+ms.date: 03/01/2019
 ms.author: alleonar
 ms.reviewer: dkershaw, sureshja
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 567ea09a50edc043f2022a47d08576720550e750
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: 47233d593e9539e5755daf331ce9dbff73207942
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56448100"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57213491"
 ---
 # <a name="azure-active-directory-graph-api"></a>Azure Active Directory Graph API
 
 > [!IMPORTANT]
 >
-> Från och med februari 2019 har Azure Active Directory Graph API ersatts av Microsoft Graph API.  
+> Från och med februari 2019 inledde vi processen med att inaktualisera vissa tidigare versioner av Azure Active Directory Graph API och ersatts med Microsoft Graph API. 
 >
-> För att underlätta övergången kan tas ur drift innan nyare som tidigare versioner av Azure AD Graph API.  
->
-> För information, uppdateringar och tidsramar, [Microsoft Graph eller Azure AD Graph](https://dev.office.com/blogs/microsoft-graph-or-azure-ad-graph) blogginlägget i Office Dev Center.
+> Information, uppdateringar och tidsramar finns i [Microsoft Graph eller Azure AD Graph](https://dev.office.com/blogs/microsoft-graph-or-azure-ad-graph) i Office Dev Center.
 >
 > Framöver kommer ska program använda Microsoft Graph API. 
 

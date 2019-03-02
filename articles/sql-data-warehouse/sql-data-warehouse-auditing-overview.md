@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 04/11/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: 701c5c175e22556aefa95d1ac3836d52cd19b845
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: d2093c5b4c07e6e62df4d1f52a7fbe6e12a91ea0
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56342312"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57217061"
 ---
 # <a name="auditing-in-azure-sql-data-warehouse"></a>Granskning i Azure SQL Data Warehouse
 
@@ -131,7 +131,7 @@ Det finns flera metoder som du kan använda för att visa blob granskningsloggar
 
     4. Sammanfogade filen öppnas i SSMS, där du kan visa och analysera dem, samt exportera den till en XEL eller CSV-fil eller till en tabell.
 
-* Använd den [synkronisera program](https://github.com/Microsoft/Azure-SQL-DB-auditing-OMS-integration) som vi har skapat. Den körs i Azure och använder Log Analytics offentliga API: er för att skicka SQL-granskningsloggar till Log Analytics. Synkronisera program skickar SQL-granskningsloggar till Log Analytics för användning via Log Analytics-instrumentpanelen.
+* Använd den [synkronisera program](https://github.com/Microsoft/Azure-SQL-DB-auditing-OMS-integration) som vi har skapat. Det körs i Azure och använder logganalys offentliga API: er för att skicka SQL-granskningsloggar i Azure Monitor-loggar. Synkronisera program skickar SQL-granskningsloggar i Azure Monitor-loggar för förbrukning via log analytics-instrumentpanelen.
 
 * Använda Powerbi. Du kan visa och analysera granskningsloggdata i Power BI. Läs mer om [Power BI och åtkomst till en mall för nedladdningsbara](https://blogs.msdn.microsoft.com/azuresqldbsupport/2017/05/26/sql-azure-blob-auditing-basic-power-bi-dashboard/).
 

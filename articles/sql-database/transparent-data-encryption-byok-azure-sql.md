@@ -12,12 +12,12 @@ ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
 ms.date: 02/20/2019
-ms.openlocfilehash: c8c2c58250b6f806b48241ad1bb2a85202b9b67a
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: bccf79cea88890d02e2e1bfeb952ca9e754705cb
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456885"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57217384"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-keys-in-azure-key-vault-bring-your-own-key-support"></a>Azure SQL Transparent datakryptering med Kundhanterade nycklar i Azure Key Vault: Stöd för Bring Your Own Key
 
@@ -72,7 +72,7 @@ När TDE först konfigureras för att använda ett TDE-skydd från Key Vault, sk
  > [!NOTE]
  > Om TDE krypterad SQL-databaser förlorar åtkomst till nyckelvalvet eftersom de inte kan kringgå brandväggen, databaserna är tillgängliga inom 24 timmar.
 
-- Aktivera granskning och rapportera alla krypteringsnycklar: Key Vault ger loggar som är lätt att mata in i andra säkerhetsinformation och händelse-hanteringsverktyg (SIEM). Operations Management Suite (OMS) [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-key-vault) är ett exempel på en tjänst som redan har integrerat.
+- Aktivera granskning och rapportera alla krypteringsnycklar: Key Vault ger loggar som är lätt att mata in i andra säkerhetsinformation och händelse-hanteringsverktyg (SIEM). Operations Management Suite (OMS) [Azure Monitor loggar](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-key-vault) är ett exempel på en tjänst som redan har integrerat.
 - För att säkerställa hög tillgänglighet med krypterade databaser, att konfigurera varje SQL Database-server med två Azure-Nyckelvalv som finns i olika regioner.
 
 ### <a name="guidelines-for-configuring-the-tde-protector-asymmetric-key"></a>Riktlinjer för att konfigurera TDE-skydd (asymmetrisk nyckel)

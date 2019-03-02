@@ -10,19 +10,25 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 3fcac10e32d6510510dc3a069c754a6f482e75eb
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: f287648758d2883226132c0f45418dacaaf27652
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/01/2019
-ms.locfileid: "57194851"
+ms.locfileid: "57216330"
 ---
 # <a name="indexing-json-blobs-with-azure-search-blob-indexer"></a>Indexera JSON-blobar med Azure Search Blob-indexeraren
 Den här artikeln visar hur du konfigurerar ett Azure Search blob-indexeraren för att extrahera strukturerat innehåll från JSON-dokument i Azure Blob storage och gör det sökbara i Azure Search. Det här arbetsflödet skapar ett Azure Search-index och läser in den med befintliga text som extraherats från JSON-blobar. 
 
 Du kan använda den [portal](#json-indexer-portal), [REST API: er](#json-indexer-rest), eller [.NET SDK](#json-indexer-dotnet) att indexera JSON-innehåll. Gemensamma för alla metoder är att JSON-dokument finns i en blobbehållare i Azure Storage-kontot. Anvisningar för push-överför JSON-dokument från andra icke-Azure-plattformar finns i [dataimport i Azure Search](search-what-is-data-import.md).
 
-JSON-blobar i Azure Blob storage är vanligtvis antingen ett enda JSON-dokument eller en JSON-matris. Blob-indexeraren i Azure Search kan parsa antingen konstruktion beroende på hur du ställer in den **parsingMode** parametern på begäran.
+JSON-blobar i Azure Blob storage är vanligtvis antingen ett enda JSON-dokument eller en samling av JSON-entiteter. För JSON-samlingar blob kan ha en **matris** välformulerad JSON-element. Blobbar kan också bestå av flera enskilda JSON-enheter med en ny rad. Blob-indexeraren i Azure Search kan parsa sådana konstruktion, beroende på hur du ställer in den **parsingMode** parametern på begäran.
+
+> [!IMPORTANT]
+> `json` och `jsonArray` parsningslägen är allmänt tillgängliga, men `jsonLines` parsningsläge finns i offentlig förhandsversion och ska inte användas i produktionsmiljöer. Mer information finns i [REST api-version = 2017-11-11-Preview](search-api-2017-11-11-preview.md). 
+
+> [!NOTE]
+> Följ rekommendationerna indexeraren konfiguration i [indexering en-till-många](search-howto-index-one-to-many-blobs.md) att mata ut flera söka efter dokument från en Azure-blob.
 
 <a name="json-indexer-portal"></a>
 
@@ -51,11 +57,13 @@ I den **datakälla** sidan måste vara **Azure Blob Storage**, med följande spe
 
 + **Data att extrahera** ska vara *innehåll och metadata*. Det här alternativet kan guiden härleda ett indexschema och mappa fält för import.
    
-+ **Parsning läge** ska vara inställd på *JSON* eller *JSON-matris*. 
++ **Parsning läge** ska vara inställd på *JSON*, *JSON-matris* eller *JSON rader*. 
 
   *JSON* tydliggör varje blob som en enda dokumentsökningsoperationer dyker upp som ett fristående objekt i sökresultaten. 
 
-  *JSON-matris* är för blobbar som består av flera element som du vill att varje element att vara uppvisat som en fristående, oberoende dokumentsökningsoperationer. Om BLOB-lagring är komplexa, och du inte väljer *JSON-matris* hela blob matas in som ett enskilt dokument.
+  *JSON-matris* är för blobbar som innehåller välformulerad JSON-data – välformulerad JSON motsvarar en matris med objekt eller har en egenskap som är en matris med objekt och du vill att varje element att vara uppvisat som en fristående, oberoende dokumentsökningsoperationer. Om BLOB-lagring är komplexa, och du inte väljer *JSON-matris* hela blob matas in som ett enskilt dokument.
+
+  *JSON-rader* är för blobbar som består av flera JSON-entiteter som är avgränsade med en ny rad, där du vill att varje entitet till att uppvisat som ett fristående oberoende search-dokument. Om BLOB-lagring är komplexa, och du inte väljer *JSON rader* parsning läge och sedan hela blob matas in som ett enskilt dokument.
    
 + **Lagringsbehållare** måste ange ditt storage-konto och behållare eller en anslutningssträng som matchas till behållaren. Du kan hämta anslutningssträngar på portalsidan för Blob service.
 
@@ -116,12 +124,13 @@ Använd för kodbaserad JSON indexering, [Postman](search-fiddler.md) och REST-A
 
 Till skillnad från guiden portalen en kodmetoden kräver att du har ett index på plats, kan acceptera JSON-dokument när du skickar den **skapa et indexerare** begäran.
 
-JSON-blobar i Azure Blob storage är vanligtvis antingen ett enda JSON-dokument eller en JSON-matris. Blob-indexeraren i Azure Search kan parsa antingen konstruktion, beroende på hur du ställer in den **parsingMode** parametern på begäran.
+JSON-blobar i Azure Blob storage är vanligtvis antingen ett enda JSON-dokument eller en JSON ”matris”. Blob-indexeraren i Azure Search kan parsa antingen konstruktion, beroende på hur du ställer in den **parsingMode** parametern på begäran.
 
 | JSON-dokument | parsingMode | Beskrivning | Tillgänglighet |
 |--------------|-------------|--------------|--------------|
-| En per blob | `json` | Parsar JSON-blobar som ett enda segment med text. Varje JSON-blob blir ett enskilt dokument i Azure Search. | Allmänt tillgängliga i både [REST](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) och [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer) API: er. |
-| Flera per blob | `jsonArray` | Tolkar en JSON-matris i blob där varje element i matrisen blir en separat Azure Search-dokument.  | Allmänt tillgängliga i både [REST](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) och [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer) API: er. |
+| En per blob | `json` | Parsar JSON-blobar som ett enda segment med text. Varje JSON-blob blir ett enskilt dokument i Azure Search. | Allmänt tillgängliga i både [REST](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) API och [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer) SDK. |
+| Flera per blob | `jsonArray` | Tolkar en JSON-matris i blob där varje element i matrisen blir en separat Azure Search-dokument.  | Tillgänglig som förhandsversion i både [REST](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) API och [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer) SDK. |
+| Flera per blob | `jsonLines` | Tolkar en blob som innehåller flera JSON entiteter (en ”matris”) avgränsade med en ny rad, där varje entitet blir en separat Azure Search-dokument. | Tillgänglig som förhandsversion i både [REST](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) API och [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer) SDK. |
 
 ### <a name="1---assemble-inputs-for-the-request"></a>1 – Assemblera indata för begäran
 
@@ -208,12 +217,16 @@ Fram till nu har definitioner för datakällan och indexet parsingMode oberoende
 
 + Ange **parsingMode** till `json` indexera varje blob som ett enskilt dokument.
 
-+ Ange **parsingMode** till `jsonArray` om dina blobar består av JSON-matriser och du behöver varje element i matrisen blir en separat dokument i Azure Search. Du kan tänka dig ett dokument som ett enskilt objekt i sökresultaten. Om du vill att varje element i matrisen visas i sökresultaten som ett fristående objekt, använder du den `jsonArray` alternativet.
++ Ange **parsingMode** till `jsonArray` om dina blobar består av JSON-matriser och du behöver varje element i matrisen blir en separat dokument i Azure Search. 
 
-För JSON-matriser om matrisen finns som en egenskap på lägre nivå, kan du ange en dokumentroten som anger där matrisen är placerad i blobben.
++ Ange **parsingMode** till `jsonLines` om dina blobar ska bestå av flera JSON-entiteter som skiljs åt av en ny rad, och du behöver varje entitet blir en separat dokument i Azure Search.
+
+Du kan tänka dig ett dokument som ett enskilt objekt i sökresultaten. Om du vill att varje element i matrisen visas i sökresultaten som ett fristående objekt, använder du den `jsonArray` eller `jsonLines` alternativ efter behov.
+
+Inom indexerardefinitionen, kan du använda [fältmappningar](search-indexer-field-mappings.md) att välja vilka egenskaper i JSON-dokumentet källa används för att fylla i sökindexet mål. För `jsonArray` parsningsläge, om matrisen finns som en egenskap på lägre nivå, du kan ange en dokumentroten som anger där matrisen är placerad i blobben.
 
 > [!IMPORTANT]
-> När du använder `json` eller `jsonArray` parsningsläge, Azure Search förutsätter att alla blobar i datakällan innehåller JSON. Om du vill hantera en blandning av JSON och icke-JSON-blobar i samma datakälla kan berätta för oss på [UserVoice-webbplatsen](https://feedback.azure.com/forums/263029-azure-search).
+> När du använder `json`, `jsonArray` eller `jsonLines` parsningsläge, Azure Search förutsätter att alla blobar i datakällan innehåller JSON. Om du vill hantera en blandning av JSON och icke-JSON-blobar i samma datakälla kan berätta för oss på [UserVoice-webbplatsen](https://feedback.azure.com/forums/263029-azure-search).
 
 
 ### <a name="how-to-parse-single-json-blobs"></a>Hur du Parsar enda JSON-blobar
@@ -232,7 +245,7 @@ Blob-indexeraren tolkar JSON-dokument i ett enda dokument i Azure Search. Indexe
 
 Enligt vad som anges, krävs inte fältmappningar. Får ett index med ”text” ”, datePublished och” taggar ”-fält, blobben som indexeraren kan hämta korrekt mappning utan ett fält som mappar finns i begäran.
 
-### <a name="how-to-parse-json-arrays"></a>Så här att parsa JSON-matriser
+### <a name="how-to-parse-json-arrays-in-a-well-formed-json-document"></a>Så här att parsa JSON-matriser i ett välformulerad JSON-dokument
 
 Du kan också välja funktionen JSON-matris. Den här funktionen är användbar när blobbarna innehåller en *matris av JSON-objekt*, och du vill att varje element blir en separat Azure Search-dokument. Till exempel med följande JSON-blob kan du kan fylla i ditt Azure Search-index med tre separata dokument, var och en med fälten ”id” och ”text”.  
 
@@ -281,7 +294,31 @@ Använd den här konfigurationen för att indexera matrisen i den `level2` egens
         "parameters" : { "configuration" : { "parsingMode" : "jsonArray", "documentRoot" : "/level1/level2" } }
     }
 
-### <a name="field-mappings"></a>Fältmappningar
+### <a name="how-to-parse-blobs-with-multiple-json-entities-separated-by-newlines"></a>Hur du Parsar BLOB-objekt med flera JSON-entiteter som är avgränsade med nya rader
+
+Om din blob innehåller flera JSON-entiteter som är avgränsade med en ny rad och du vill att varje element blir en separat Azure Search-dokument, kan du välja funktionen JSON rader. Till exempel få följande blob (där det finns tre olika JSON-enheter), kan du fylla i ditt Azure Search-index med tre separata dokument, var och en med fälten ”id” och ”text”.
+
+    { "id" : "1", "text" : "example 1" }
+    { "id" : "2", "text" : "example 2" }
+    { "id" : "3", "text" : "example 3" }
+
+För en JSON-rader bör indexerardefinitionen likna följande exempel. Observera att parametern parsingMode anger den `jsonLines` parser. 
+
+    POST https://[service name].search.windows.net/indexers?api-version=2017-11-11
+    Content-Type: application/json
+    api-key: [admin key]
+
+    {
+      "name" : "my-json-indexer",
+      "dataSourceName" : "my-blob-datasource",
+      "targetIndexName" : "my-target-index",
+      "schedule" : { "interval" : "PT2H" },
+      "parameters" : { "configuration" : { "parsingMode" : "jsonLines" } }
+    }
+
+Igen, Lägg märke till att fältmappningar kan vara utelämnas, vilket liknar den `jsonArray` parsningsläge.
+
+### <a name="using-field-mappings-to-build-search-documents"></a>Använder fältmappningar för att skapa söka efter dokument
 
 När källa och mål fälten inte är justerade perfekt, kan du definiera ett avsnitt för mappning av fält i begärandetexten för explicit-fälten associationer.
 

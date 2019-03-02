@@ -13,14 +13,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/09/2019
 ms.author: juliako;
-ms.openlocfilehash: 7fa1bec1b6f83b18684f6139bf6ac8db1ae9daec
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: eee0d5365c515f8a7764b9d5636ae3d1b34cb934
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56004901"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57240855"
 ---
-# <a name="redact-faces-with-azure-media-analytics-legacy"></a>Redigera ansikten med Azure Media Analytics (äldre)
+# <a name="redact-faces-with-azure-media-analytics"></a>Redigera ansikten med Azure Media Analytics 
 ## <a name="overview"></a>Översikt
 **Azure Media Redactor** är en [Azure Media Analytics](media-services-analytics-overview.md) mediebearbetare (MP) som erbjuder skalbara ansiktsredigering i molnet. Ansiktsredigering kan du ändra din video för att kunna oskärpa ansikten för valda individer. Du kanske vill använda tjänsten ansiktsredigering i offentliga säkerhet samt nyhetsmediescenarier. Några minuter med material som innehåller flera ansikten kan ta timmar att redigera manuellt, men med den här tjänsten ansikte ansiktsredigering processen tar bara några få enkla steg. Mer information finns i [detta](https://azure.microsoft.com/blog/azure-media-redactor/) blogg.
 

@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 02/26/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: be55fcd7bb4baab218f739094b91fc734c2fb70d
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: f9d431fe0ee76edf5d41c1ce7831f335128402a8
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56985567"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57244748"
 ---
 # <a name="media-services-concepts"></a>Media Services-koncepten
 
@@ -36,7 +36,7 @@ När du överför din digitala mediefiler med hög kvalitet till tillgångar, ka
 
 Om du vill koda med Media Services v3, måste du skapa **omvandlar** och **jobb**.
 
-![Transformering](./media/concepts/transforms-jobs.png)
+![Transformering](./media/encoding/transforms-jobs.png)
 
 - [Transformeringar och jobb](transforms-jobs-concept.md)
 - [Encoding med Media Services](encoding-concept.md)
@@ -55,7 +55,7 @@ När du skapar den **Strömningspositionerare**, förutom Tillgångsnamn, måste
 
 Dynamisk paketering används om du strömma ditt innehåll live eller på begäran. Följande diagram visar strömning på begäran med dynamisk paketering arbetsflöde.
 
-![Dynamic Encoding](./media/dynamic-packaging-overview/media-services-dynamic-packaging.svg)
+![Dynamisk paketering](./media/dynamic-packaging-overview/media-services-dynamic-packaging.svg)
 
 Med medietjänster kan du leverera live och på begäran innehåll dynamiskt krypterad med Advanced Encryption Standard (AES-128) eller / och några av de tre största digital rights management (DRM) system: Microsoft PlayReady, Google Widevine och FairPlay för Apple. Media Services tillhandahåller också en tjänst för att leverera AES-nycklar och DRM (PlayReady, Widevine och FairPlay) licenser till auktoriserade klienter.
 
@@ -63,11 +63,13 @@ Om att ange alternativ för kryptering på din stream kan du skapa den **innehå
 
 Följande bild illustrerar arbetsflödet för Media Services-content protection: 
 
-![Skydda innehåll](./media/concepts/content-protection.png)
+![Skydda innehåll](./media/content-protection/content-protection.svg)
+
+&#42;* dynamisk kryptering har stöd för AES-128 ”clear key” och CBCS CENC. 
 
 Du kan använda Media Services **dynamiska manifest** att strömma endast en specifik återgivning eller underklipp av videon. I följande exempel har en kodare använts för att koda en mezzanine tillgång till sju ISO MP4s video återgivningar (från 180p 1080p). Den kodade tillgången kan dynamiskt paketeras i någon av de följande protokollen med direktuppspelning: HLS, MPEG DASH och Smooth.  Längst ned i diagrammet visas HLS-manifest för tillgången utan filter (den innehåller alla sju återgivningar).  HLS-manifest som ett filter med namnet ”ott” användes visas i nedre vänstra hörnet. Filtret ”ott” anger för att ta bort alla bithastigheter för utdata nedan 1 Mbit/s, vilket resulterade i kvalitetsnivå längst ned två tas bort i svaret. I nederkant högra visas HLS manifestet som ett filter med namnet ”mobil” användes. Filtret ”mobil” anger för att ta bort återgivningar där den är större än 720p, vilket resulterade i två 1080p återgivningar tas bort.
 
-![Återgivningsfiltrering](./media/concepts/media-services-rendition-filter.png)
+![Återgivningsfiltrering](./media/filters-dynamic-manifest-overview/media-services-rendition-filter.png)
 
 - [Dynamisk paketering](dynamic-packaging-overview.md)
 - [Slutpunkter för direktuppspelning](streaming-endpoint-concept.md)
@@ -84,7 +86,7 @@ Azure Media Services kan du leverera händelser till dina kunder på Azure-molne
 
 Följande bild illustrerar arbetsflödet direkt typ:
 
-![direktautentisering](./media/concepts/pass-through.png)
+![direktautentisering](./media/live-streaming/pass-through.svg)
 
 - [Direktsänd strömning översikt](live-streaming-overview.md)
 - [Händelser och Live utdata](live-events-outputs-concept.md)

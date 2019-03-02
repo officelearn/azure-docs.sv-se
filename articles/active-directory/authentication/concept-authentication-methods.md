@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry, michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 185dfbcee7ab352a73e4a998cbd0d8c36cb92ff5
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: b9d90407dab29f431f5a592e077c859aea997c4c
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56588049"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57214103"
 ---
 # <a name="what-are-authentication-methods"></a>Vad är autentiseringsmetoder?
 
@@ -196,6 +196,9 @@ Ett SMS har skickats till mobiltelefonnumret som innehåller en Verifieringskod.
 
 Ett automatiserat röstsamtal upprättas till det telefonnummer som du anger. Besvara samtalet och tryck på # tangenten för att autentisera
 
+> [!IMPORTANT]
+> Från och med mars 2019 telefonsamtal alternativen kommer inte att MFA och SSPR-användare i kostnadsfria/utvärderingsversion Azure AD-klienter. SMS-meddelanden som inte påverkas av den här ändringen. Telefonsamtal fortsätter att vara tillgängliga för användare i betalda Azure AD-klienter. Den här ändringen påverkar endast kostnadsfria/utvärderingsversion Azure AD-klienter.
+
 ## <a name="office-phone"></a>Arbetstelefon
 
 Ett automatiserat röstsamtal upprättas till det telefonnummer som du anger. Besvara samtalet och trycka på #-tangenten för att autentisera.
@@ -203,6 +206,9 @@ Ett automatiserat röstsamtal upprättas till det telefonnummer som du anger. Be
 För att fungera korrekt telefonnummer måste vara i formatet *+ CountryCode PhoneNumber*, till exempel + 1 4255551234.
 
 Telefonattributet office hanteras av din administratör.
+
+> [!IMPORTANT]
+> Från och med mars 2019 telefonsamtal alternativen kommer inte att MFA och SSPR-användare i kostnadsfria/utvärderingsversion Azure AD-klienter. SMS-meddelanden som inte påverkas av den här ändringen. Telefonsamtal fortsätter att vara tillgängliga för användare i betalda Azure AD-klienter. Den här ändringen påverkar endast kostnadsfria/utvärderingsversion Azure AD-klienter.
 
 > [!NOTE]
 > Det måste finnas ett blanksteg mellan landskoden och telefonnumret.

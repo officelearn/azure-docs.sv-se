@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: keithcharlie
-ms.openlocfilehash: bd6c592f0d3d073ec2a05c8f4636086df01ddb06
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: b653b0276cedea1e3b45adf7a9dc390b24f0d03f
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54450753"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57213627"
 ---
 # <a name="saas-applications-offer-publishing-guide"></a>SaaS-program erbjuder publiceringsguide
 
@@ -143,6 +143,9 @@ Microsoft är värd för handel transaktionen. Microsoft fakturerar kunden å di
 |Annulleringen | Erbjudandet är avbrytbar av kunden när som helst. |  
 |Landningssida för transaktion | Du vara värd för en landningssidan för Azure anpassade transaktion där användare kan skapa och hantera sina SaaS-tjänstkontot. |   
 | Prenumeration API | Du kan exponera en tjänst som kan interagera med SaaS-prenumeration för att skapa, uppdatera och ta bort ett användaravtal för kontot och tjänsten. Viktiga API-ändringar måste stödjas inom 24 timmar. Icke-kritiska API-ändringar släpps regelbundet. |  
+
+>[!Note]
+>Cloud Solution Providers (CSP) partner channel anmälan är nu tillgänglig.  Se [Cloud Solution Providers](./cloud-solution-providers.md) mer information om marknadsföring av ditt erbjudande via Microsoft CSP partner kanaler.
 
 ## <a name="next-steps"></a>Nästa steg
 Om du inte redan gjort det,

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 02/06/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 82d072cc6f86ae758bd0fdd4d02b68b1ac1de53a
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: 6d86d4c03a41834322c98438958c0b9e87e6025c
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56097158"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57213533"
 ---
 # <a name="azure-application-offer"></a>Erbjudandet för Azure-program
 
@@ -44,6 +44,9 @@ Det finns två typer av Azure-program: hanterade program och lösningsmallar.
 
 Du kan också erbjuda hanterade program i en tjänstkatalog förutom på Azure Marketplace. Tjänstkatalogen är en intern katalog med godkända lösningar för användare i en organisation. Du kan använda katalogen för att uppfylla organisationens standarder och erbjuder lösningar för grupper i en organisation. De anställda kan använder katalogen till att enkelt hitta program som rekommenderas och godkänts av IT-avdelningen.
 
+>[!Note]
+>Cloud Solution Providers (CSP) partner channel anmälan är nu tillgänglig.  Se [Cloud Solution Providers](../../cloud-solution-providers.md) mer information om marknadsföring av ditt erbjudande via Microsoft CSP partner kanaler.
+
 Mer information om fördelar och typer av hanterade program finns i den [Azure hanterade program, översikt](https://docs.microsoft.com/azure/managed-applications/overview).
 
 
@@ -64,7 +67,6 @@ Anvisningar för att publicera ett erbjudande för Azure-program är:
 3. [Skapa SKU: N](./cpp-skus-tab.md) -skapa den SKU: er som är kopplad till erbjudandet. En unik SKU måste anges för varje bild som du planerar att publicera.
 
 4. Certifiera och [publicera erbjudandet](./cpp-publish-offer.md) -när erbjudandet och tekniska resurser har slutförts, kan du skicka erbjudandet. Den här publiceringen börjar publiceringsprocessen. Under den här processen testas lösningen verifierats, certifierade, sedan ”lanseras” på Azure Marketplace.
-
 
 ## <a name="next-steps"></a>Nästa steg
 

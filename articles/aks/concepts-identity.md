@@ -5,14 +5,14 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 10/16/2018
+ms.date: 02/28/2019
 ms.author: iainfou
-ms.openlocfilehash: 0af3133a1f9a903874c25bf34af0fbf99da8af14
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 64150438560d48575b4b65db4cdaf61aa0ada240
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49381292"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57243839"
 ---
 # <a name="access-and-identity-options-for-azure-kubernetes-service-aks"></a>Alternativ för åtkomst och identitet för Azure Kubernetes Service (AKS)
 
@@ -30,7 +30,7 @@ Den här artikeln beskrivs de grundläggande begrepp som hjälper dig att autent
 
 En primär användare-typer i Kubernetes är en *tjänstkontot*. Ett tjänstkonto finns i, och hanteras av Kubernetes-API. Autentiseringsuppgifterna för tjänstkonton lagras som hemligheter för Kubernetes, där de kan användas av auktoriserade poddar för att kommunicera med API-servern. De flesta API-begäranden tillhandahåller ett Autentiseringstoken för ett tjänstkonto eller ett vanligt användarkonto.
 
-Vanliga användarkonton kan mer traditionellt åtkomst för mänskliga administratörer eller utvecklare, inte bara tjänster och processer. Kubernetes själva ger inte en lösning för Identitetshantering där vanliga användarkonton och lösenord lagras. I stället kan externa identitetslösningar integreras i Kubernetes. Den här integrerade identitetslösning är Azure Active Directory för AKS-kluster.
+Vanliga användarkonton kan mer traditionellt åtkomst för mänskliga administratörer eller utvecklare, inte bara tjänster och processer. Kubernetes själva tillhandahåller inte en lösning för Identitetshantering där vanliga användarkonton och lösenord lagras. I stället kan externa identitetslösningar integreras i Kubernetes. Den här integrerade identitetslösning är Azure Active Directory för AKS-kluster.
 
 Mer information om alternativ för identiteten i Kubernetes finns i [Kubernetes autentisering][kubernetes-authentication].
 
@@ -75,6 +75,8 @@ En ClusterRoleBinding fungerar på samma sätt att binda roller till användare,
 
 Du kommer igång med Azure AD och Kubernetes RBAC, se [integrera Azure Active Directory med AKS][aks-aad].
 
+Associerade metodtips finns [bästa praxis för autentisering och auktorisering i AKS][operator-best-practices-identity].
+
 Mer information om core Kubernetes och AKS-begrepp finns i följande artiklar:
 
 - [Kubernetes / AKS-kluster och arbetsbelastningar][aks-concepts-clusters-workloads]
@@ -98,3 +100,4 @@ Mer information om core Kubernetes och AKS-begrepp finns i följande artiklar:
 [aks-concepts-scale]: concepts-scale.md
 [aks-concepts-storage]: concepts-storage.md
 [aks-concepts-network]: concepts-network.md
+[operator-best-practices-identity]: operator-best-practices-identity.md

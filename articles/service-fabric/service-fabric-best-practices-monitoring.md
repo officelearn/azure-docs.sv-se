@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/23/2019
 ms.author: pepogors
-ms.openlocfilehash: 9783c7f2837619d9b279a645668d06d9e0a144bb
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: d90daaf18e5161053e00671b7667d05ec8e5db76
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56804789"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57242929"
 ---
 # <a name="monitoring-and-diagnostics"></a>Övervakning och diagnostik
 
@@ -33,13 +33,13 @@ Programövervakning spårar hur funktioner och komponenter i ditt program använ
 
 Ett av målen för Service Fabric är att göra program motståndskraftig mot maskinvarufel. Det här målet uppnås via plattformens system services möjligheten att identifiera problem med infrastruktur och snabbt redundans arbetsbelastningar till andra noder i klustret. Men vad händer om systemtjänster själva har problem med? Eller om du i försök att distribuera eller flytta en arbetsbelastning kan reglerna för placering av tjänster har brutits? Service Fabric tillhandahåller diagnostik för dessa och andra problem med att kontrollera att du informeras om hur Service Fabric-plattformen samverkar med program, tjänster, behållare och noder.
 
-För Windows-kluster, rekommenderar vi att du ställer in klusterövervakning med [Diagnostikagenten](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-aggregation-wad) och [Log Analytics](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-oms-setup).
+För Windows-kluster, rekommenderar vi att du ställer in klusterövervakning med [Diagnostikagenten](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-aggregation-wad) och [Azure Monitor loggar](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-oms-setup).
 
-Log Analytics är också det rekommenderade verktyget för Azure-plattformen och övervakning av infrastruktur för Linux-kluster. Linux-plattformen diagnostik kräver olika konfigurationer som anges i [händelser för Service Fabric Linux-kluster i Syslog](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-oms-syslog).
+Azure Monitor-loggar är också det rekommenderade verktyget för Azure-plattformen och övervakning av infrastruktur för Linux-kluster. Linux-plattformen diagnostik kräver olika konfigurationer som anges i [händelser för Service Fabric Linux-kluster i Syslog](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-oms-syslog).
 
 ## <a name="infrastructure-monitoring"></a>Infrastrukturövervakning
 
-[Log Analytics](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-oms-agent) rekommenderas för övervakning nivå klusterhändelser. När du har konfigurerat Log Analytics-agenten med arbetsytan enligt beskrivningen i föregående länk kommer du att kunna samla in prestandavärden, till exempel processoranvändning, .NET prestandaräknare, till exempel processen på processoranvändning, Service Fabric-prestanda räknare, till exempel antal undantag från en tillförlitlig tjänst och behållarmätvärden, till exempel CPU-användning.  Du måste skriva behållarloggarna stdout och stderr så att de blir tillgängliga i Log Analytics.
+[Azure Monitor-loggar](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-oms-agent) rekommenderas för övervakning nivå klusterhändelser. När du har konfigurerat Log Analytics-agenten med arbetsytan enligt beskrivningen i föregående länk kommer du att kunna samla in prestandavärden, till exempel processoranvändning, .NET prestandaräknare, till exempel processen på processoranvändning, Service Fabric-prestanda räknare, till exempel antal undantag från en tillförlitlig tjänst och behållarmätvärden, till exempel CPU-användning.  Du måste skriva behållarloggarna stdout och stderr så att de blir tillgängliga i Azure Monitor-loggar.
 
 ## <a name="watchdogs"></a>Watchdogs
 
@@ -50,7 +50,7 @@ I allmänhet är en watchdog en separat tjänst som bevakar hälso- och belastni
 * Kom igång instrumentering av ditt program: [Genereringen av program på händelse- och log](service-fabric-diagnostics-event-generation-app.md).
 * Gå igenom stegen för att ställa in Application Insights för ditt program med [övervaka och diagnostisera ett ASP.NET Core-program i Service Fabric](service-fabric-tutorial-monitoring-aspnet.md).
 * Lär dig mer om hur du övervakar plattformen och de händelser som Service Fabric tillhandahåller åt dig: [Genereringen av plattform på händelse- och log](service-fabric-diagnostics-event-generation-infra.md).
-* Konfigurera Log Analytics-integrering med Service Fabric: [Konfigurera Log Analytics för ett kluster](service-fabric-diagnostics-oms-setup.md)
-* Lär dig hur du ställer in Log Analytics för att övervaka behållare: [Övervakning och diagnostik för Windows-behållare i Azure Service Fabric](service-fabric-tutorial-monitoring-wincontainers.md).
+* Konfigurera Azure Monitor-loggar integrering med Service Fabric: [Konfigurera Azure Monitor-loggar för ett kluster](service-fabric-diagnostics-oms-setup.md)
+* Lär dig hur du ställer in Azure Monitor-loggar för övervakning av behållare: [Övervakning och diagnostik för Windows-behållare i Azure Service Fabric](service-fabric-tutorial-monitoring-wincontainers.md).
 * Se exempel diagnostik problem och lösningar med Service Fabric: [diagnostisera vanliga scenarier](service-fabric-diagnostics-common-scenarios.md)
 * Läs mer om allmänna övervakning rekommendationer för Azure-resurser: [Metodtips – övervakning och diagnostik](https://docs.microsoft.com/azure/architecture/best-practices/monitoring).

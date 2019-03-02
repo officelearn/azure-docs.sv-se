@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.date: 12/20/2018
-ms.openlocfilehash: 78d85239e1e82c290b210d33d3ca7000d6a05a1f
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 40a5c21c2411d0f1bfdf3254799d8abbd585c3ee
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567918"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57217350"
 ---
 # <a name="data-sync-agent-for-azure-sql-data-sync"></a>Data Sync-agenten för Azure SQL Data Sync
 
@@ -148,7 +148,7 @@ Du upptäcker att agenten inte körs på en dator som är värd för SQL Server.
 - **Lösning**. Uppdatera agentens lösenordet till ditt nuvarande lösenord för servern:
 
   1. Leta upp tjänsten SQL Data Sync client agent.  
-    a. Välj **starta**.  
+    a. Välj **Starta**.  
     b. I sökrutan anger **services.msc**.  
     c. I sökresultaten väljer **Services**.  
     d. I den **Services** och rulla till posten för **SQL Data Sync-agenten**.  
@@ -326,7 +326,7 @@ Mer information om SQL Data Sync finns i följande artiklar:
         -  [Använda PowerShell för att synkronisera mellan flera Azure SQL-databaser](scripts/sql-database-sync-data-between-sql-databases.md)
         -  [Använd PowerShell för att synkronisera mellan en Azure SQL Database och en lokal SQL Server-databas](scripts/sql-database-sync-data-between-azure-onprem.md)
 -   Metodtips – [Metodtips för Azure SQL Data Sync](sql-database-best-practices-data-sync.md)
--   Övervakning – [Övervaka SQL Data Sync med Log Analytics](sql-database-sync-monitor-oms.md)
+-   Övervaka – [övervaka SQL Data Sync med Azure Monitor-loggar](sql-database-sync-monitor-oms.md)
 -   Felsökning – [Felsöka problem med Azure SQL Data Sync](sql-database-troubleshoot-data-sync.md)
 -   Uppdatera synkroniseringsschemat
     -   Med Transact-SQL – [Automatisera replikeringen av schemaändringar i Azure SQL Data Sync](sql-database-update-sync-schema.md)

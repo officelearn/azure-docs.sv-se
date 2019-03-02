@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 09/24/2018
-ms.openlocfilehash: bbebfca1684cad600d7ef0cc1a4cff2201fdc07e
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: c26f042cb749f9ab023e7033ea015b74d87ca92a
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55566161"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57214120"
 ---
 # <a name="introduction-to-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-sql-database"></a>Introduktion till en multitenant SaaS-app som använder mönstret databas-per-klient med SQL Database
 
@@ -46,7 +46,7 @@ När du har distribuerat appen, utforska följande självstudier som bygger på 
 |[Distribuera och utforska Wingtip SaaS-program](saas-dbpertenant-get-started-deploy.md)|  Distribuera och utforska Wingtip SaaS-program med din Azure-prenumeration. |
 |[Etablera och katalogisera klienter](saas-dbpertenant-provision-and-catalog.md)| Lär dig hur programmet ansluter till klienter med hjälp av en katalogdatabas och hur klienter mappas till sina data i katalogen. |
 |[Övervaka och hantera prestanda](saas-dbpertenant-performance-monitoring.md)| Lär dig hur du använder övervakningsfunktionerna i SQL-databas och ställa in aviseringar om prestanda tröskelvärden överskrids. |
-|[Övervaka med Azure Log Analytics](saas-dbpertenant-log-analytics.md) | Lär dig hur du använder [Log Analytics](../log-analytics/log-analytics-overview.md) övervaka stora mängder resurser över flera pooler. |
+|[Övervaka med Azure Monitor-loggar](saas-dbpertenant-log-analytics.md) | Lär dig hur du använder [Azure Monitor loggar](../log-analytics/log-analytics-overview.md) övervaka stora mängder resurser över flera pooler. |
 |[Återställa en enskild klientorganisation](saas-dbpertenant-restore-single-tenant.md)| Lär dig mer om att återställa en klientdatabas till en tidigare tidpunkt. Lär dig också att återställa till en parallell databas, vilket lämnar befintliga klientdatabasen online. |
 |[Hantera klientorganisationsschema för databasen](saas-tenancy-schema-management.md)| Lär dig hur du uppdaterar schemat och uppdaterar referensdata för alla klientdatabaser. |
 |[Köra distribuerade frågor för flera klienter](saas-tenancy-cross-tenant-reporting.md) | Skapa en ad hoc-analysdatabas och kör i realtid distribuerade frågor över alla klienter.  |

@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: b8844e6ca9effe78f8d98571af2ce59b4e0abee8
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 5e8e634bfb69d7c274322d34d26ff614f75905af
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55465324"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57215938"
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>Synkronisera data i flera moln och lokala databaser med SQL Data Sync
 
@@ -228,7 +228,7 @@ Behöver du uppdatera schemat för en databas i en synkroniseringsgrupp? Schema�
 
 SQL Data Sync som fungerar som förväntat? Om du vill övervaka och felsöka problem, finns i följande artiklar:
 
-- [Övervaka Azure SQL Data Sync med Log Analytics](sql-database-sync-monitor-oms.md)
+- [Övervaka Azure SQL Data Sync med Azure Monitor-loggar](sql-database-sync-monitor-oms.md)
 - [Felsöka problem med Azure SQL Data Sync](sql-database-troubleshoot-data-sync.md)
 
 ### <a name="learn-more-about-azure-sql-database"></a>Läs mer om Azure SQL Database

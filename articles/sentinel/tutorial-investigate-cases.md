@@ -4,7 +4,7 @@ description: Använd den här självstudiekursen om du vill lära dig att unders
 services: sentinel
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 ms.assetid: a493cd67-dc70-4163-81b8-04a9bc0232ac
 ms.service: sentinel
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2019
 ms.author: rkarlin
-ms.openlocfilehash: 424f7eeacf5ca3317462fa63cf684c0d5d1bac9e
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: 8d44c1448296df16e9dd58a486d4cfb21bb053de
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56993253"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57244208"
 ---
 # <a name="tutorial-investigate-cases-with-azure-sentinel-preview"></a>Självstudier: Undersöka fall med Azure Sentinel-förhandsgranskning
 
@@ -33,10 +33,10 @@ När du [anslutna datakällor](quickstart-onboard.md) Azure Sentinel du vill med
 
 > [!div class="checklist"]
 > * Skapa ärenden
-> * Undersöka fall
-> * Svara på hot
+> * Undersöka ärenden
+> * Reagera på hot
 
-## <a name="investigate-cases"></a>Undersöka fall
+## <a name="investigate-cases"></a>Undersöka ärenden
 
 Ett ärende kan innehålla flera aviseringar. Det är en sammanställning av alla relevanta bevis för specifika undersökningar. Ett ärende skapas baserat på aviseringar som du har definierat i den **Analytics** sidan. De egenskaper som rör aviseringar, till exempel allvarlighetsgrad och status är inställda på fallnivå. När du låter Azure Sentinel veta vilka typer av hot som du letar efter och du hittar dem, kan du övervaka hot som identifieras genom att undersöka fall. 
 
@@ -60,7 +60,7 @@ Ett ärende kan innehålla flera aviseringar. Det är en sammanställning av all
 
 
 
-## <a name="respond-to-threats"></a>Svara på hot
+## <a name="respond-to-threats"></a>Reagera på hot
 
 Azure Sentinel ger dig två huvudsakliga alternativ för att svara på hot med hjälp av spelböcker. Du kan ange en spelbok ska köras automatiskt när en avisering utlöses eller du kan köra en spelbok manuellt som svar på en avisering.
 

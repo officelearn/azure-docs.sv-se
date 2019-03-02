@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/2/2018
 ms.author: rkarlin
-ms.openlocfilehash: 0afc507a49ae7cc54fb0daa5c7ae71c3a40ee637
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 09abb8fa2c8d08b27b83a2510b4c1133458b8363
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56731114"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57240736"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Insamling av data i Azure Security Center
 Security Center samlar in data från dina virtuella Azure-datorer (VM) och icke-Azure-datorer för att övervaka säkerhetsproblem och hot. Data samlas in med Log Analytics-agenten, som läser olika säkerhetsrelaterade konfigurationer och händelseloggar från datorn och kopierar data till din arbetsyta för analys. Exempel på sådana data är: driva systemtyp och version, operativsystemloggar (Windows-händelseloggar), kör processer, datornamn, IP-adresser och inloggad användare. Log Analytics-agenten kopierar också kraschdumpfiler till din arbetsyta.
@@ -87,11 +87,11 @@ Välja den arbetsyta som skapats av Security Center:
 -   Security Center aktiverar automatiskt en Security Center-lösning på arbetsytan per prisnivån för prenumerationen. 
 
 > [!NOTE]
-> Log Analytics prisnivån för arbetsytor som skapats av Security Center påverkar inte Security Center fakturering. Security Center fakturering baseras alltid på din säkerhetsprincip i Security Center och de lösningar som är installerad på en arbetsyta. Den kostnadsfria nivån med Security Center kan de *SecurityCenterFree* lösning på standardarbetsytan. Standard-nivån med Security Center kan de *Security* lösning på standardarbetsytan.
+> Logganalys prisnivån för arbetsytor som skapats av Security Center påverkar inte Security Center fakturering. Security Center fakturering baseras alltid på din säkerhetsprincip i Security Center och de lösningar som är installerad på en arbetsyta. Den kostnadsfria nivån med Security Center kan de *SecurityCenterFree* lösning på standardarbetsytan. Standard-nivån med Security Center kan de *Security* lösning på standardarbetsytan.
 
 Mer information om priser finns i [Security Center-prissättning](https://azure.microsoft.com/pricing/details/security-center/).
 
-Mer information om befintliga Log Analytics-konton finns i [befintliga Log Analytics-kunder](security-center-faq.md#existingloganalyticscust).
+Mer information om befintliga log analytics-konton finns i [befintliga log analytics-kunder](security-center-faq.md#existingloganalyticscust).
 
 ### <a name="using-an-existing-workspace"></a>Med hjälp av en befintlig arbetsyta
 
@@ -149,7 +149,7 @@ När du väljer en arbetsyta där du vill lagra dina data finns alla arbetsytor 
 ## <a name="data-collection-tier"></a>Samling datanivå
 Att välja en nivå för insamling av data i Azure Security Center påverkar endast lagring av säkerhetshändelser i Log Analytics-arbetsytan. Log Analytics-agenten kommer fortfarande att samla in och analysera säkerhetshändelser som krävs för Azure Security Center threat identifieringar, oavsett vilken nivå av säkerhetshändelser som du väljer att lagra i Log Analytics-arbetsytan (om sådan finns). Välja att lagra säkerhetshändelser i din arbetsyta aktiverar undersökning, sökning och granskning av dessa händelser i din arbetsyta. 
 > [!NOTE]
-> Lagra data i Log Analytics kan debiteras ytterligare avgifter för lagring av data, se prissättningssidan för mer information.
+> Lagra data i log analytics kan debiteras ytterligare avgifter för lagring av data, se prissättningssidan för mer information.
 >
 Du kan välja rätt filtrera principer för dina prenumerationer och arbetsytor från fyra uppsättningar av händelser som ska lagras i din arbetsyta: 
 
@@ -212,8 +212,8 @@ Mer information finns i [vad händer om en SCOM eller OMS dirigera agenten är r
 
 -   Det finns en befintlig VM-tillägg<br>
     - Security center har stöd för befintliga installationer av tillägget och åsidosätts inte befintliga anslutningar. Security Center lagrar data från den virtuella datorn i arbetsytan redan är ansluten och ger skydd baserat på de lösningar som har aktiverats på arbetsytan.   
-    - Se på vilka arbetsyta befintliga tillägget skickar data för att köra testet till [Kontrollera anslutning med Azure Security Center](https://blogs.technet.microsoft.com/yuridiogenes/2017/10/13/validating-connectivity-with-azure-security-center/). Du kan också öppna Log analytics, Välj en arbetsyta, väljer den virtuella datorn och titta på Log Analytics-agenten anslutningen. 
-    - Om du har en miljö där Log Analytics-agenten är installerad på klientdatorer och rapporterar till en befintlig Log Analytics-arbetsyta, granska listan över [operativsystem som stöds av Azure Security Center](security-center-os-coverage.md) Kontrollera operativsystemet stöds och se [befintliga Log Analytics-kunder](security-center-faq.md#existingloganalyticscust) för mer information.
+    - Se på vilka arbetsyta befintliga tillägget skickar data för att köra testet till [Kontrollera anslutning med Azure Security Center](https://blogs.technet.microsoft.com/yuridiogenes/2017/10/13/validating-connectivity-with-azure-security-center/). Du kan också öppna Log Analytics-arbetsytor, Välj en arbetsyta, väljer den virtuella datorn och titta på Log Analytics-agenten anslutningen. 
+    - Om du har en miljö där Log Analytics-agenten är installerad på klientdatorer och rapporterar till en befintlig Log Analytics-arbetsyta, granska listan över [operativsystem som stöds av Azure Security Center](security-center-os-coverage.md) Kontrollera operativsystemet stöds och se [befintliga log analytics-kunder](security-center-faq.md#existingloganalyticscust) för mer information.
  
 ### Inaktivera automatisk etablering <a name="offprovisioning"></a>
 Du kan inaktivera automatisk etablering från resurser när som helst genom att stänga av den här inställningen i säkerhetsprincipen. 

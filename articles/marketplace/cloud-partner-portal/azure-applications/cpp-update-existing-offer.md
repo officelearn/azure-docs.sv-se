@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 3fbbf688f6de7c3fceb6695a6b085f917dbec242
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 1019c06afbdab0a6b0e172133da316aea01a5504
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53197224"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57216908"
 ---
 # <a name="update-an-existing-azure-application-offer"></a>Uppdatera ett befintligt Azure-program-erbjudande
 
@@ -75,6 +75,9 @@ Använd följande steg för att uppdatera metadata för marketplace som är asso
 2. Under **alla erbjudanden**, erbjudandet som du vill uppdatera.
 3. Gå till den **Marketplace** fliken. Följ instruktionerna i [publicera Azure-erbjudande för programmet](./cpp-publish-offer.md) att göra ändringar i metadata.
 4. Välj **publicera** att starta arbetsflödet för att publicera dina ändringar.
+ 
+>[!Note]
+>Cloud Solution Providers (CSP) partner channel anmälan är nu tillgänglig.  Se [Cloud Solution Providers](../../cloud-solution-providers.md) mer information om marknadsföring av ditt erbjudande via Microsoft CSP partner kanaler.
 
 ## <a name="deleting-an-existing-offer"></a>Tar bort ett befintligt erbjudande
 

@@ -4,7 +4,7 @@ description: Lär dig mer om att samla in data för Azure Information Protection
 services: sentinel
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 ms.assetid: bfa2eca4-abdc-49ce-b11a-0ee229770cdd
 ms.service: sentinel
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2019
 ms.author: rkarlin
-ms.openlocfilehash: db87561fc8c94776335ea910f8a4c0577d5f51fc
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: 37c6902d4604ca68b67ec4a2c9dc7cde6c67ac05
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56993050"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57246638"
 ---
 # <a name="collect-data-from-azure-information-protection"></a>Samla in data från Azure Information Protection
 

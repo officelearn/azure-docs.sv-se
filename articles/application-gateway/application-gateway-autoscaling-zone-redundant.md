@@ -5,27 +5,25 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 2/5/2019
+ms.date: 3/1/2019
 ms.author: victorh
-ms.openlocfilehash: bc1176ea97d1c2d4fc17487c0589fb4235163b46
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: c3ad62dd5f8af52ae9aed1f9469d4b00c4795fa7
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56446519"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57215862"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-public-preview"></a>Automatisk skalning och zonredundant Application Gateway (offentlig förhandsversion)
 
 Application Gateway och Web Application Firewall (WAF) finns nu i offentlig förhandsversion under en ny v2-SKU som ger prestandaförbättringar och lägger till stöd för viktiga nya funktioner som automatisk skalning, redundans och stöd för statiska virtuella IP-adresser. Befintliga funktioner under den allmänt tillgängliga SKU: N fortfarande användas i den nya v2-SKU, med några undantag som anges i avsnitt kända begränsningar. De nya v2-SKU: er inkluderar följande förbättringar:
 
-- **Automatisk skalning**: Application Gateway eller WAF-distributioner under autoskalning SKU kan skala upp eller ned utifrån ändrade trafikmönster belastningen. Automatisk skalning tar även bort behovet av att välja distributionsstorlek eller instansantal under etablering. Därför erbjuder SKU: N SANT elasticitet. I den nya SKU: N kan Application Gateway fungerar både fast kapacitet (automatisk skalning inaktiverat) och i läget för automatisk skalning aktiverat. Fast kapacitet läge är användbart för scenarier med konsekventa och förutsägbara arbetsbelastningar. Läget för automatisk skalning är bra i program som finns ser många variationer i programtrafiken.
+- **Automatisk skalning**: Application Gateway eller WAF-distributioner under autoskalning SKU kan skala upp eller ned utifrån ändrade trafikmönster belastningen. Automatisk skalning tar även bort behovet av att välja distributionsstorlek eller instansantal under etablering. Den här SKU: N erbjuder SANT elasticitet. I den nya SKU: N kan Application Gateway fungerar både fast kapacitet (automatisk skalning inaktiverat) och i läget för automatisk skalning aktiverat. Fast kapacitet läge är användbart för scenarier med konsekventa och förutsägbara arbetsbelastningar. Läget för automatisk skalning är bra i program som finns ser många variationer i programtrafiken.
 
-   > [!NOTE]
-   > Automatisk skalning är inte tillgänglig för WAF SKU. Konfigurera WAF med fast kapacitet läge, i stället för läget för automatisk skalning.
 - **Zon redundans**: En Application Gateway eller WAF-distribution kan sträcka sig över flera Tillgänglighetszoner, ta bort behovet av att etablera och skapa separata Application Gateway-instanser i varje zon med Traffic Manager. Du kan välja en enskild zon eller flera zoner där Application Gateway-instanser har distribuerats, därmed säkerställa fel zonelasticitet. Serverdelspoolen för program kan distribueras på samma sätt i olika tillgänglighetszoner.
 - **Prestandaförbättringar**: Autoskalning SKU: N erbjuder upp till 5 X bättre SSL-avlastning prestandan jämfört med den allmänt tillgängliga SKU: N.
 - **Snabbare distribution och uppdatering** autoskalning SKU ger distribution och uppdatering snabbare jämfört med den allmänt tillgängliga SKU: N.
-- **Statisk VIP**: VIP-Adressen för application gateway stöder nu statiska VIP-typ som är exklusivt. Detta säkerställer att det VIP som är associerat med Application Gateway inte ändras även efter en omstart.
+- **Statisk VIP**: VIP-Adressen för application gateway stöder nu statiska VIP-typ som är exklusivt. Detta säkerställer att VIP-Adressen som är associerade med application gateway inte ändras även efter en omstart.
 
 > [!IMPORTANT]
 > SKU:n för zonredundant programgateway för automatisk skalning är för närvarande tillgänglig som en offentlig förhandsversion. Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan ha begränsad funktionalitet. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -38,7 +36,7 @@ Autoskalning SKU är tillgänglig i följande regioner: Norra centrala USA, söd
 
 ## <a name="pricing"></a>Prissättning
 
-I förhandsversionen är gratis. Du debiteras för andra resurser än Programgateway, till exempel Key Vault, virtuella datorer och så vidare.
+I förhandsversionen är gratis. Du debiteras för andra resurser än Programgateway, till exempel Key Vault, virtuella datorer, och så vidare.
 
 ## <a name="known-issues-and-limitations"></a>Kända problem och begränsningar
 
@@ -52,7 +50,7 @@ I förhandsversionen är gratis. Du debiteras för andra resurser än Programgat
 |Fakturering|Det finns ingen fakturering för närvarande.|
 |FIPS-läge, WebSocket|Dessa stöds inte för närvarande.|
 |ILB läge|Detta stöds för närvarande inte. Offentliga och ILB-läget tillsammans stöds.|
-|Web application firewall automatisk skalning|WAF har inte stöd för läget för automatisk skalning. Fast kapacitet läge stöds.|
+|Web application firewall automatisk skalning|WAF saknar stöd för läget för automatisk skalning. Fast kapacitet läge stöds.|
 |NetWatcher-integrering|Stöds inte i den offentliga förhandsversionen.|
 
 ## <a name="next-steps"></a>Nästa steg

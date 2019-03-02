@@ -12,12 +12,12 @@ ms.author: josack
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/13/2019
-ms.openlocfilehash: 148dff16d56755755f71e24e658e29c116ac5df1
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: 2b8c35450ab4586f619993aeb9a578c83cafc0c6
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417643"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57216942"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-single-and-pooled-databases-in-azure-sql-database"></a>Ny DBA i molnet – hantera din enda och delade databaser i Azure SQL Database
 
@@ -261,9 +261,9 @@ Du kan fråga den [sys.dm_db_resource_stats](/sql/relational-databases/system-dy
 
 ![Query Performance Insight](./media/sql-database-manage-after-migration/query-performance-insight.png)
 
-#### <a name="azure-sql-analytics-preview-in-log-analytics"></a>Azure SQL-analys (förhandsversion) i Log Analytics
+#### <a name="azure-sql-analytics-preview-in-azure-monitor-logs"></a>Azure SQL-analys (förhandsversion) i Azure Monitor-loggar
 
-[Azure Log Analytics](../azure-monitor/insights/azure-sql.md) kan du samla in och visualisera viktiga Azure SQL Azure-prestandamått, stöd för upp till 150 000 SQL-databaser och 5 000 elastiska SQL-pooler per arbetsyta. Du kan använda den för att övervaka och ta emot meddelanden. Du kan övervaka SQL-databas och elastisk pool mått över flera Azure-prenumerationer och elastiska pooler och kan användas för att identifiera problem på varje lager i en programstack.
+[Azure Monitor-loggar](../azure-monitor/insights/azure-sql.md) kan du samla in och visualisera viktiga Azure SQL Azure-prestandamått, stöd för upp till 150 000 SQL-databaser och 5 000 elastiska SQL-pooler per arbetsyta. Du kan använda den för att övervaka och ta emot meddelanden. Du kan övervaka SQL-databas och elastisk pool mått över flera Azure-prenumerationer och elastiska pooler och kan användas för att identifiera problem på varje lager i en programstack.
 
 ### <a name="i-am-noticing-performance-issues-how-does-my-sql-database-troubleshooting-methodology-differ-from-sql-server"></a>Jag märker prestandaproblem: Hur skiljer sig Mina felsökning metoder för SQL Database från SQL Server
 

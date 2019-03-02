@@ -6,14 +6,14 @@ manager: carmonm
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-ms.date: 02/13/2019
+ms.date: 03/01/2019
 ms.author: raynew
-ms.openlocfilehash: 960d1df7c89383efc976fed959c1a39fae461c52
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 2225c978eade3af12e910d7f403ca06287cabbef
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56875819"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57214239"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Stöd matrix för haveriberedskap för virtuella VMware-datorer och fysiska servrar till Azure
 
@@ -230,6 +230,26 @@ FC-disk | Stöds ej. | Det går inte att kontrollera om stöds inte.
 BitLocker | Stöds ej. | BitLocker måste inaktiveras innan du aktiverar replikering för en dator. |
 VM-namn | Mellan 1 och 63 tecken.<br/><br/> Begränsat till bokstäver, siffror och bindestreck.<br/><br/> Namnet på datorn måste börja och sluta med en bokstav eller siffra. |  Uppdatera värdet i egenskaperna för datorn i Site Recovery.
 
+## <a name="azure-site-recovery-churn-limits"></a>Gränserna för Azure Site Recovery-omsättning
+
+Följande tabell innehåller gränserna för Azure Site Recovery. Dessa gränser är baserade på våra tester, men de täcker inte alla möjliga kombinationer av program-I/O. De faktiska resultaten kan variera beroende på blandningen av I/O i ditt program. För bästa resultat rekommenderar vi starkt att [kör verktyget Distributionshanteraren](site-recovery-deployment-planner.md) och köra omfattande programtester med redundanstest med att få en bild av verklig prestanda för programmet.
+
+**Replication Storage Target** (Lagringsmål för replikering) | **Average Source Disk I/O Size** (Genomsnittlig I/O-storlek för källdisk) |**Average Source Disk Data Churn** (Genomsnittlig dataomsättning för källdisk) | **Total Source Disk Data Churn Per Day** (Total dataomsättning per dag för källdisk)
+---|---|---|---
+Standard Storage | 8 kB | 2 MB/s | 168 GB per disk
+Premium P10- eller P15-disk | 8 kB  | 2 MB/s | 168 GB per disk
+Premium P10- eller P15-disk | 16 kB | 4 MB/s |  336 GB per disk
+Premium P10- eller P15-disk | 32 kB eller mer | 8 MB/s | 672 GB per disk
+Premium P20-, P30-, P40- eller P50-disk | 8 kB    | 5 MB/s | 421 GB per disk
+Premium P20-, P30-, P40- eller P50-disk | minst 16 kB |10 MB/s | 842 GB per disk
+
+**Källans dataomsättning** | **Övre gräns**
+---|---
+Genomsnittlig dataomsättning per virtuell dator| 25 MB/s
+Högsta dataomsättning av alla diskar på en virtuella dator | 54 MB/s
+Maximal dataomsättning per dag som stöds av en processerver | 2 TB
+
+Det här är genomsnittliga värden baserade på en I/O-överlappning på 30 procent. Site Recovery kan hantera högre dataflöden med annan överlappning, större skrivningsstorlek och verkligt I/O-beteende under arbetsbelastningen. Föregående antal antar en typisk eftersläpning på cirka fem minuter. Det vill säga, när data har överförts bearbetas de och en återställningspunkt skapas inom fem minuter.
 
 ## <a name="vault-tasks"></a>Valvet uppgifter
 

@@ -5,20 +5,20 @@ author: msvijayn
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 12/24/2018
+ms.date: 03/01/2019
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 6af1c5347a522f7e42feecb6722dfbb64439d086
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 7c8e2297426b098fa6e86a5cda81afc2d71b08f4
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56341019"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57214647"
 ---
 # <a name="switch-api-preference-for-log-alerts"></a>Växla API till inställningar för Loggaviseringar
 
 > [!NOTE]
-> Innehåll som anges **inte** gäller för användare av Azure GovCloud och endast på användare offentliga Azure-molnet.  
+> Innehåll som anges gäller för användare endast Azure offentligt moln och **inte** för Azure Government eller Azure Kina-molnet.  
 
 Tills nyligen hanterade Varningsregler i Microsoft Operations Management Suite-portalen. Det nya aviseringsgränssnittet har integrerats med ett antal tjänster i Microsoft Azure, inklusive Log Analytics och vi ombeds [utöka notifieringsregler från OMS-portalen till Azure](alerts-extend.md). Men för att säkerställa störningar för kunder, processen inte att ändra programmeringsgränssnitt för dess användning - [Log Analytics-avisering API](api-alerts.md) baserat på SavedSearch.
 
@@ -43,6 +43,7 @@ Påverkan av växeln inställning till scheduledQueryRules API kompileras nedan:
 
 - Alla interaktioner som klar för hantering av aviseringar via programgränssnitt måste nu utföras med hjälp av [scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) i stället. Mer information finns i, [exemplet används, via Azure-resursmall](alerts-log.md#managing-log-alerts-using-azure-resource-template) och [exemplet används, via Azure CLI och PowerShell](alerts-log.md#managing-log-alerts-using-powershell-cli-or-api)
 - Alla nya loggvarningsregel som skapats i Azure-portalen kommer att skapas med [scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) endast och att användare använder den [ytterligare funktioner för nya API: et](#Benefits-of-switching-to-new-Azure-API) via Azure portal samt
+- Allvarlighetsgrad för loggaviseringsregler växlar från: *Kritisk, varning och information*till *allvarlighetsgrader 0, 1 och 2*. Tillsammans med alternativet för att skapa/uppdatera Varningsregler med allvarlighetsgrad 4 samt.
 
 Alla kunder som vill växla frivilligt till den nya [scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) och blockera användning från den [äldre Log Analytics avisering API](api-alerts.md); kan göra det genom att utföra en PUT-anrop på den nedan API för att växla alla avisering regler som är associerade med specifika Log Analytics-arbetsytan.
 

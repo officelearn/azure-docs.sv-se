@@ -1,6 +1,6 @@
 ---
-title: Visa alla fakturering konton i Azure-portalen | Microsoft Docs
-description: Lär dig hur du visar både personliga och Enterprise-avtal fakturering konton i Azure-portalen.
+title: Visa din faktureringsinformation konton i Azure-portalen | Microsoft Docs
+description: Lär dig hur du visar dina fakturering konton i Azure-portalen.
 services: ''
 documentationcenter: ''
 author: amberbhargava
@@ -14,32 +14,36 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/11/2018
 ms.author: banders
-ms.openlocfilehash: a9f299f8987b5a2023d668d41c98b473f1a626d4
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 58a84848c8a0ccfe906cde7027129e2ca022ec0f
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54902270"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57244901"
 ---
-# <a name="view-all-your-billing-accounts-in-azure-portal"></a>Visa alla fakturering konton i Azure-portalen  
+# <a name="view-your-billing-accounts-in-azure-portal"></a>Visa din faktureringsinformation konton i Azure-portalen  
 
-Fakturering konton definiera dina Azure faktureringssupport relationer. Du kan ha flera konton för fakturering. Du kan till exempel har en Azure-prenumeration som du använder för personliga projekt. Du kan också ha åtkomst till Azure via din organisations Enterprise-avtal. Gå till [kostnadshantering + fakturering](https://portal.azure.com/#blade/Microsoft_Azure_Billing/BillingMenuBlade/Overview) i Azure portal för att visa alla fakturering konton.
+Ett faktureringskonto skapas för varje avtal som du loggar med Microsoft att använda Azure. Du använder ditt faktureringskonto för att hantera dina fakturor och betalningar metoder och spåra kostnader för Azure-tjänster. Du kan ha åtkomst till flera konton för fakturering. Exempelvis kan kanske du har registrerat dig för Azure för dina personliga projekt. Du kan också ha åtkomst till din organisations Enterprise-avtal eller Microsoft kundavtal.
 
-Du kan för närvarande endast visa dina person- och Enterprise-avtal fakturering konton. Som standard den [kostnadshantering + fakturering](https://portal.azure.com/#blade/Microsoft_Azure_Billing/BillingMenuBlade/Overview) visar ditt personliga faktureringskonto. Men du kan navigera till **fakturering konton** och ändra kontot.
+Azure-portalen stöder för närvarande följande typ av fakturering konton:
 
-För personliga fakturering konton som du kan hantera och visa alla kostnader på den [Azure-portalen](https://portal.azure.com). Men för Enterprise Agreement-konton, kan du bara visa Azure reservation inköp, belastningsutjämning och månad hittills avgifter. Dessa funktioner för Enterprise-avtal finns i förhandsversion och är endast tillgängligt om du är i en Enterprise-administratörsroll.
+- **Microsoft Online Services-programmet**: Faktureringskonto för en Microsoft onlinetjänster-programmet skapas när du registrerar dig för Azure via Azure-webbplats. Till exempel när du registrerar dig för en [kostnadsfritt Azure-konto](https://azure.microsoft.com/offers/ms-azr-0044p/), [Azure betala erbjudandet](https://azure.microsoft.com/offers/ms-azr-0003p/) eller som en [Visual studio-prenumerant](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/).
 
-## <a name="change-billing-account-view"></a>Ändra fakturering kontovyn 
+- **Enterprise-avtal**: Faktureringskonto för Enterprise Agreement-kund skapas när organisationen registrerar ett Enterprise-avtal för att använda Azure. Administratörer i faktureringskonto för Enterprise Agreement-kund använda avdelningar och kontofakturering Sökomfång för att hantera och ordna faktureringen för organisationen.
 
-1.  Logga in på [Azure-portalen](https://portal.azure.com).
+- **Microsoft kundavtal**: Faktureringskonto för en Microsoft-kundavtal skapas när organisationen registrerar en Microsoft-kundavtal att använda Azure. Administratörer i faktureringskonto för en Microsoft-kundavtal använda profiler för fakturering och fakturera avsnitt fakturering Sökomfång för att hantera och ordna faktureringen för organisationen. Mer information finns i [Kom igång med ditt faktureringskonto för Microsoft kundavtal](billing-mca-overview.md).
 
-2.  Till vänster på portalen, väljer du **kostnadshantering + fakturering**. 
+## <a name="change-billing-account-view"></a>Ändra fakturering kontovyn
 
-3.  Som standard om du har en, visas ditt personliga faktureringskonto. Om du inte har en personlig faktureringskonto eller om du vill ändra till ett Enterprise Agreement-konto, väljer **fakturering konton**.
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 
-4.  Välj ett konto för att visa information. För Enterprise-avtal visas bara de fakturering kontona där du är en företagsadministratör. Andra Enterprise Agreement-roller kommer att stödjas i framtiden.
+2. Sök på **Cost Management + fakturering**.
 
-    ![Skärmbild som visar listan över fakturering konton](./media/billing-view-all-accounts/billing-list-of-accounts.png)
+   ![Skärmbild som visar Azure portal-sökning](./media/billing-mca-section-invoice/billing-search-cost-management-billing.png)
+
+3. Som standard kan du se information om en av området fakturering som faktureringskonto avdelning i Enterprise-avtal eller fakturering profil i Microsoft kundavtal.
+
+4. Du kan ändra omfång genom att välja **fakturering scope** från vänster- och välj sedan ett omfång.
 
 ## <a name="need-help-contact-us"></a>Behöver du hjälp? Kontakta oss.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/21/2018
 ms.author: rkarlin
-ms.openlocfilehash: c32dcbac8ebab5fb71839a4525163c0e6cf028ed
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: bb987bcc38dee1f3d4ea2fce19e5e546ebfc8f7c
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56310748"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57240243"
 ---
 # <a name="file-integrity-monitoring-in-azure-security-center"></a>Övervakning av filintegritet i Azure Security Center
 Lär dig hur du konfigurerar filen integritet övervakning (FIM) i Azure Security Center med den här genomgången.
@@ -37,7 +37,7 @@ Entiteter för att övervaka, som du kan enkelt aktivera FIM på rekommenderar S
 
 > [!NOTE]
 > Filen integritet övervakning (FIM)-funktionen fungerar för Windows och Linux-datorer och virtuella datorer och är tillgängligt på standardnivån i Security Center. Mer information om prisalternativen för Security Center finns i [Priser](security-center-pricing.md).
-FIM överför data till Log Analytics-arbetsytan. Data kan tillkomma, baserat på mängden data som du överför. Se [priserna för Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/) vill veta mer.
+FIM överför data till Log Analytics-arbetsytan. Data kan tillkomma, baserat på mängden data som du överför. Se [priser för log analytics](https://azure.microsoft.com/pricing/details/log-analytics/) vill veta mer.
 >
 >
 

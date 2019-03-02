@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f0d1c2a35a6ad246eea593990c485181aa776594
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 76af36de833bc496df7c24ddb1cbfd75c91c7976
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56175122"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57214766"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Så här fungerar det: Återställning av lösenord för självbetjäning av Azure AD
 
@@ -59,7 +59,7 @@ Läs igenom följande steg för att lära dig om logiken bakom lösenordet för 
 
 ## <a name="authentication-methods"></a>Autentiseringsmetoder
 
-Om SSPR är aktiverad, måste du välja minst en av följande alternativ för autentiseringsmetoder. Ibland hör du de här alternativen som kallas ”gates”. Vi rekommenderar starkt att som du **väljer minst två autentiseringsmetoder** så att användarna har mer flexibilitet om de inte går att komma åt en när de behöver den.
+Om SSPR är aktiverad, måste du välja minst en av följande alternativ för autentiseringsmetoder. Ibland hör du de här alternativen som kallas ”gates”. Vi rekommenderar starkt att som du **väljer minst två autentiseringsmetoder** så att användarna har mer flexibilitet om de inte går att komma åt en när de behöver den. Mer information om de metoder som anges nedan finns i artikeln [vad är autentiseringsmetoder?](concept-authentication-methods.md).
 
 * Mobilappmeddelande (förhandsgranskning)
 * Mobilappkod (förhandsversion)
@@ -69,6 +69,9 @@ Om SSPR är aktiverad, måste du välja minst en av följande alternativ för au
 * Säkerhetsfrågor
 
 Användare kan bara återställa sina lösenord, om de har data som finns i de autentiseringsmetoder som administratören har aktiverat.
+
+> [!IMPORTANT]
+> Från och med mars 2019 telefonsamtal alternativen kommer inte att MFA och SSPR-användare i kostnadsfria/utvärderingsversion Azure AD-klienter. SMS-meddelanden som inte påverkas av den här ändringen. Telefonsamtal fortsätter att vara tillgängliga för användare i betalda Azure AD-klienter. Den här ändringen påverkar endast kostnadsfria/utvärderingsversion Azure AD-klienter.
 
 > [!WARNING]
 > Konton som har tilldelats Azure-administratörsroller kommer att behöva använda metoder som definierats i avsnittet [administratören återställa principen skillnader](concept-sspr-policy.md#administrator-reset-policy-differences).

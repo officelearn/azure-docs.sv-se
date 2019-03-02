@@ -1,5 +1,5 @@
 ---
-title: Viktiga skillnader vad gäller för Machine Learning Services (med R) översikt över Azure SQL Database (förhandsversion)
+title: Viktigaste skillnaderna för Azure SQL Database Machine Learning Services (förhandsversion)
 description: Det här avsnittet beskrivs viktiga skillnader mellan Azure SQL Database Machine Learning Services (med R) och SQL Server Machine Learning Services.
 services: sql-database
 ms.service: sql-database
@@ -11,17 +11,22 @@ author: dphansen
 ms.author: davidph
 ms.reviewer: carlrab
 manager: cgronlun
-ms.date: 01/31/2019
-ms.openlocfilehash: 4350fb0e75f140e120ba6cd2f074ffa1816a8fce
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.date: 03/01/2019
+ms.openlocfilehash: c750942f8f0f2727d1d11945a84bffb434a01193
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237492"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57242130"
 ---
-# <a name="key-differences-between-machine-learning-services-in-azure-sql-database-and-sql-server"></a>Viktiga skillnader mellan Machine Learning-tjänster i Azure SQL Database och SQL Server
+# <a name="key-differences-between-machine-learning-services-in-azure-sql-database-preview-and-sql-server"></a>Viktiga skillnader mellan Machine Learning-tjänster i Azure SQL Database (förhandsversion) och SQL Server
 
-Funktionerna i Machine Learning Services (med R) i Azure SQL Database liknar [SQL Server Machine Learning Services](https://docs.microsoft.com/sql/advanced-analytics/what-is-sql-server-machine-learning). Nedan visas några huvudsakliga skillnader mellan dessa.
+Funktionerna i Azure SQL Database Machine Learning Services (med R) (förhandsversion) liknar [SQL Server Machine Learning Services](https://docs.microsoft.com/sql/advanced-analytics/what-is-sql-server-machine-learning). Nedan visas några huvudsakliga skillnader.
+
+> [!IMPORTANT]
+> Azure SQL Database Machine Learning Services är för närvarande i offentlig förhandsversion.
+> Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade.
+> Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="language-support"></a>Stöd för språk
 
@@ -41,7 +46,19 @@ R-pakethantering och installationen fungerar olika mellan SQL Database och SQL S
 
 ## <a name="resource-governance"></a>Resursstyrning
 
-Det går inte att begränsa R-resurser via [Resursstyrningen](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor) och externa resurspooler. R-resurser är en del av SQL Database-resurser, och beror på vilken tjänstenivå som du väljer. Mer information finns i [Azure SQL Database köpa modeller](https://docs.microsoft.com/azure/sql-database/sql-database-service-tiers).
+Det går inte att begränsa R-resurser via [Resursstyrningen](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor) och externa resurspooler.
+
+Den offentliga förhandsversionen, R-resurser är inställda på högst 20% av SQL Database-resurser, och beror på vilken tjänstenivå som du väljer. Mer information finns i [Azure SQL Database köpa modeller](https://docs.microsoft.com/azure/sql-database/sql-database-service-tiers).
+
+### <a name="insufficient-memory-error"></a>Otillräckligt med minne-fel
+
+Om det finns inte tillräckligt med minne för R, får du ett felmeddelande. Vanliga felmeddelanden är:
+
+- Det går inte att kommunicera med körningen av skriptet ”R” för begärande-id: ***. Kontrollera kraven för ”R” runtime
+- ”R”-skriptfel inträffade vid körning av ”sp_execute_external_script” med HRESULT 0x80004004. ... en externt skriptfel inträffade ”:... Det gick inte att allokera minne (0 Mb) i C-funktionen ”R_AllocStringBuffer” ”
+- Det uppstod ett externt skriptfel: Fel: Det går inte att allokera vektor storlek.
+
+Användningen beror på hur mycket minne används i R-skript och antalet parallella frågor som körs. Om du får fel ovan, kan du skala databasen till en högre tjänstnivå för att lösa problemet.
 
 ## <a name="security-isolation"></a>Säkerhetsisolering
 

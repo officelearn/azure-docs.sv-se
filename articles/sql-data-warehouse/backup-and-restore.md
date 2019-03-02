@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
-ms.date: 09/06/2018
+ms.date: 03/01/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 0d2c7fbba8184fba81be5e93eae1dd816687ecb4
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: e9cf4fd448527e8104883e1c23c8c4b64fde3f0d
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56992676"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57213644"
 ---
 # <a name="backup-and-restore-in-azure-sql-data-warehouse"></a>Säkerhetskopiering och återställning i Azure SQL Data Warehouse
 
@@ -97,6 +97,10 @@ Du kan antingen behålla de återställda data warehouse och det aktuella eller 
 Om du vill återställa ett informationslager, se [Återställ ett informationslager med Azure portal](sql-data-warehouse-restore-database-portal.md), [Återställ ett informationslager med hjälp av PowerShell](sql-data-warehouse-restore-database-powershell.md), eller [Återställ ett informationslager med hjälp av REST API: er](sql-data-warehouse-restore-database-rest-api.md).
 
 Om du vill återställa en borttagen eller pausat informationslager kan du [skapa ett supportärende](sql-data-warehouse-get-started-create-support-ticket.md).
+
+## <a name="cross-subscription-restore"></a>Mellan återställning
+
+Om du vill återställa direkt över prenumerationer kan rösta på den här funktionen [här](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/36256231-enable-support-for-cross-subscription-restore). Återställ till en annan logisk server och ['Move-](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources) servern mellan prenumerationer att utföra en återställning av över prenumerationer. 
 
 ## <a name="geo-redundant-restore"></a>GEO-redundant återställning
 

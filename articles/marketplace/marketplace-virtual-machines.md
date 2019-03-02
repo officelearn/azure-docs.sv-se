@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: ellacroi
-ms.openlocfilehash: acfe5590edf5a3d04c44d7e3d8034e761a85cb86
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: b9403855949e87a287f543c2ac41738e92238303
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56728966"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57217214"
 ---
 # <a name="virtual-machine-offer-publishing-guide"></a>Erbjudande för virtuell dator publicerar Guide
 
@@ -67,6 +67,9 @@ Använd typ av erbjudande för virtuell dator när du distribuerar en virtuell i
 |:--- |:--- | 
 | Fakturering och mätning | Den virtuella datorn måste ha stöd för BYOL eller användningsbaserad fakturering. |  
 | Azure-kompatibel virtuell hårddisk (VHD) | Virtuella datorer måste vara baserade på Windows eller Linux. <ul> <li>Mer information om hur du skapar en Linux-VHD finns [Linux-distributioner på Azure-godkända](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).</li> <li>Läs mer om hur du skapar en virtuell Windows-Hårddisk [skapa en Azure-kompatibel VHD](./cloud-partner-portal/virtual-machine/cpp-create-vhd.md).</li> </ul> |  
+
+>[!Note]
+>Cloud Solution Providers (CSP) partner channel anmälan är nu tillgänglig.  Se [Cloud Solution Providers](./cloud-solution-providers.md) mer information om marknadsföring av ditt erbjudande via Microsoft CSP partner kanaler.
 
 ## <a name="next-steps"></a>Nästa steg
 

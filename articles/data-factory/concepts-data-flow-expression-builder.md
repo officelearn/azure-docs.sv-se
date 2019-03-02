@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: b99311a7a8742cdc5995e53a6b0d3e6a2ddf1328
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 7cf6b08655174ce6d9b851d635d5c8b9d9d358dd
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56736880"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57245547"
 ---
 # <a name="mapping-data-flow-expression-builder"></a>Mappningen Data Flow Uttrycksverktyget
 
@@ -70,3 +70,12 @@ regex_replace('100 and 200', '(\\d+)', 'digits')
 Med funktioner för uttryck som returnerar matriser, använder du hakparenteser [] att åtgärda specifika index i den returnerade matrisobjekt. Matrisen är de-baserade.
 
 ![Uttrycket Builder matris](media/data-flow/expb2.png "uttryck förhandsgranskning")
+
+## <a name="handling-names-with-special-characters"></a>Hantering av namn med specialtecken
+
+När du har kolumnnamn som innehåller specialtecken eller blanksteg omger du namnet med klammerparenteser.
+* ```{[dbo].this_is my complex name$$$}```
+
+## <a name="next-steps"></a>Nästa steg
+
+[Börja skapa uttryck för omvandling av data](data-flow-expression-functions.md)

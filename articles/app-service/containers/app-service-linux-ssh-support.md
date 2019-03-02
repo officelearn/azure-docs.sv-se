@@ -4,8 +4,8 @@ description: Lär dig mer om hur du använder SSH med Azure App Service i Linux.
 keywords: azure app service, web app, linux, oss
 services: app-service
 documentationcenter: ''
-author: wesmc7777
-manager: cfowler
+author: msangapu
+manager: jeconnoc
 editor: ''
 ms.assetid: 66f9988f-8ffa-414a-9137-3a9b15a5573c
 ms.service: app-service
@@ -13,15 +13,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/25/2017
-ms.author: wesmc
+ms.date: 02/25/2019
+ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 9a05769b4cfd4bcaca0df9e1af1816d99f78bc62
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 3b3a4b6767855fa2f7ba595072b187b7a8bff400
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55984485"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57216007"
 ---
 # <a name="ssh-support-for-azure-app-service-on-linux"></a>SSH-stöd för Azure App Service i Linux
 
@@ -111,18 +111,6 @@ Använder TCP tunneling du kan skapa en nätverksanslutning mellan din utvecklin
 
 Om du vill komma igång kan du behöva installera [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest). Om du vill se hur det fungerar utan att installera Azure CLI, öppna [Azure Cloud Shell](../../cloud-shell/overview.md). 
 
-Lägg till det senaste App Service-tillägget genom att köra [az-tillägget lägger du till](/cli/azure/extension?view=azure-cli-latest#az-extension-add):
-
-```azurecli-interactive
-az extension add --name webapp
-```
-
-Om du redan har kört `az extension add` innan, kör [az tilläggsuppdateringen](/cli/azure/extension?view=azure-cli-latest#az-extension-update) i stället:
-
-```azurecli-interactive
-az extension update --name webapp
-```
-
 Öppna en anslutning till din app med den [az webapp fjärr-connection skapa](/cli/azure/ext/webapp/webapp/remote-connection?view=azure-cli-latest#ext-webapp-az-webapp-remote-connection-create) kommando. Ange  _\<prenumeration\_id >_,  _\<grupp\_namn >_ och \_< app\_namn > _ för din app.
 
 ```azurecli-interactive
@@ -167,7 +155,7 @@ A P P   S E R V I C E   O N   L I N U X
 0e690efa93e2:~#
 ```
 
-Du är nu ansluten till din anslutning. 
+Du är nu ansluten till din anslutning.  
 
 Prova att köra den [upp](https://ss64.com/bash/top.html) kommando. Du bör kunna se hur din app i listan. I de exempel på utdata nedan är det med `PID 263`.
 

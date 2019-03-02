@@ -9,25 +9,25 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 02/25/2019
+ms.date: 02/27/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: ccf298c99851dc2418da894431c5c86adafe59b3
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: de2c60d4449762c4a8fcc3e2f486130f3df37c7c
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56959450"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57243627"
 ---
 # <a name="encoding-with-media-services"></a>Encoding med Media Services
 
-Azure Media Services kan du koda din digitala mediefiler med hög kvalitet till MP4-filer så att ditt innehåll kan spelas upp på en mängd olika webbläsare och enheter. En lyckad kodningsjobb för Media Services skapar utdata tillgång med en uppsättning med anpassningsbar bithastighet MP4s och manifestfiler (server och klient). Nu kan du dra nytta av [dynamisk paketering](dynamic-packaging-overview.md).
+Azure Media Services kan du koda din digitala mediefiler med hög kvalitet till MP4-filer så att ditt innehåll kan spelas upp på en mängd olika webbläsare och enheter. En lyckad kodningsjobb för Media Services skapar utdata tillgång med en uppsättning med anpassningsbar bithastighet MP4s och konfigurationsfiler för direktuppspelning. Konfigurationsfilerna omfattar .ism, .ismc, .mpi och andra filer som du inte bör ändra. När kodningsjobbet är klar kan du dra nytta av [dynamisk paketering](dynamic-packaging-overview.md) och starta direktuppspelning.
 
-Att göra videor i utdata tillgången som är tillgängliga för klienter för uppspelning, måste du skapa en **Strömningspositionerare** och sedan skapa strömmande URL: er. Sedan, baserat på formatet som anges i manifestet, klienterna får dataströmmen i protokollet som de har valt.
+Att göra videor i utdata tillgången som är tillgängliga för klienter för uppspelning, måste du skapa en **Strömningspositionerare** och skapa strömmande URL: er. Sedan, baserat på formatet som anges i manifestet, klienterna får dataströmmen i protokollet som de har valt.
 
 Följande diagram visar strömning på begäran med dynamisk paketering arbetsflöde.
 
-![Dynamic Encoding](./media/dynamic-packaging-overview/media-services-dynamic-packaging.png)
+![Dynamisk paketering](./media/dynamic-packaging-overview/media-services-dynamic-packaging.svg)
 
 Det här avsnittet ger vägledning om att koda ditt innehåll med Media Services v3.
 

@@ -4,7 +4,7 @@ description: Lär dig hur du köper en App Service-certifikat och bind den till 
 services: app-service
 documentationcenter: .net
 author: cephalin
-manager: cfowler
+manager: jpconnoc
 tags: buy-ssl-certificates
 ms.assetid: cdb9719a-c8eb-47e5-817f-e15eaea1f5f8
 ms.service: app-service
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: apurvajo;cephalin
 ms.custom: seodec18
-ms.openlocfilehash: b569165153ce713846be5e836a26f48e500be1fc
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: 3e113639dbe4220b943d49dc610ee22b6416e12a
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56594142"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57216585"
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-azure-app-service"></a>Köp och konfigurera ett SSL-certifikat för Azure App Service
 
@@ -121,28 +121,35 @@ Använd följande tabell när du konfigurerar bindningen i den **SSL-bindningar*
 
 Gå till din app med `HTTPS://<domain_name>` i stället för `HTTP://<domain_name>` att verifiera att certifikatet har konfigurerats korrekt.
 
-## <a name="rekey-and-sync-certificate"></a>Nyckeluppdatering och synkronisering av certifikat
+## <a name="rekey-certificate"></a>Uppdatera certifikatnyckel
 
-Om du behöver uppdatera ditt certifikat, väljer certifikatet i den [App Service-certifikat](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders) sidan och välj sedan **nyckeluppdatering och synkronisera** i det vänstra navigeringsfönstret.
+Om du tror att ditt certifikat är privata nyckeln äventyras, kan du uppdatera ditt certifikat. Välj certifikatet i den [App Service-certifikat](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders) sidan och välj sedan **uppdatera nyckel och synkronisera** i det vänstra navigeringsfönstret.
 
-Klicka på **uppdatera** för att starta processen. Den här processen kan ta 1 – 10 minuter att slutföra.
+Klicka på **uppdatera** att starta processen. Den här processen kan ta 1 – 10 minuter att slutföra.
 
 ![Infoga bild av uppdatera SSL](./media/app-service-web-purchase-ssl-web-site/Rekey.png)
 
 Certifikatet samlar certifikatet med ett nytt certifikat som utfärdats av certifikatutfärdaren.
 
+När nyckelförnyelseåtgärden är klar klickar du på **synkronisering**. Synkroniseringsåtgärden uppdateras automatiskt värdnamnsbindningar för certifikatet i App Service utan att orsaka några driftstopp för dina appar.
+
+> [!NOTE]
+> Om du inte klickar på **synkronisering**, App Service synkroniserar automatiskt dina certifikat inom 48 timmar.
+
 ## <a name="renew-certificate"></a>Förnya certifikat
 
-Om du vill aktivera automatisk förnyelse av certifikatet när som helst, väljer certifikatet i den [App Service-certifikat](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders) sidan och klicka sedan på **inställningarna för automatisk förnyelse** i det vänstra navigeringsfönstret. 
+Om du vill aktivera automatisk förnyelse av certifikatet när som helst, väljer certifikatet i den [App Service-certifikat](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders) sidan och klicka sedan på **inställningarna för automatisk förnyelse** i det vänstra navigeringsfönstret.
 
 Välj **på** och klicka på **spara**. Certifikat kan starta förnyas automatiskt 60 dagar innan den upphör om du har automatisk förnyelse aktiverad.
 
-![](./media/app-service-web-purchase-ssl-web-site/auto-renew.png)
+![förnya certifikat automatiskt](./media/app-service-web-purchase-ssl-web-site/auto-renew.png)
 
 Om du vill manuellt förnya certifikatet i stället, klickar du på **förnya manuellt**. Du kan begära för att förnya certifikatet manuellt 60 dagar före förfallodatum.
 
+När förnyelseåtgärden är klar klickar du på **synkronisering**. Synkroniseringsåtgärden uppdateras automatiskt värdnamnsbindningar för certifikatet i App Service utan att orsaka några driftstopp för dina appar.
+
 > [!NOTE]
-> Det förnyade certifikatet är inte automatiskt bunden till din app, oavsett om du förnyade manuellt eller den förnyas automatiskt. Om du vill binda det till din app, se [förnya certifikat](./app-service-web-tutorial-custom-ssl.md#renew-certificates). 
+> Om du inte klickar på **synkronisering**, App Service synkroniserar automatiskt dina certifikat inom 48 timmar.
 
 ## <a name="automate-with-scripts"></a>Automatisera med skript
 

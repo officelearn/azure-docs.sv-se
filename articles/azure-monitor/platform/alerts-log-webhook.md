@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 24e159ea2cccfdaab9c732835506a1a22abab134
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 68fb7678fac2a0a32278e813d03a0eebd20565ec
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56869163"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57216058"
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>Webhook-åtgärder för loggaviseringsregler
 När en [log aviseringen har skapats i Azure](alerts-log.md), har möjlighet att [konfigurera med åtgärdsgrupper](action-groups.md) att utföra en eller flera åtgärder.  Den här artikeln beskrivs olika webhook-åtgärder som är tillgängliga och information om hur du konfigurerar anpassade JSON-baserade webhooken.
@@ -78,9 +78,6 @@ För att inkludera sökresultat i en anpassad nyttolast, kontrollerar du att **I
 ## <a name="sample-payloads"></a>Exempel-nyttolaster
 Det här avsnittet visas exempel på en nyttolast för webhook för Loggaviseringar, inklusive när nyttolasten är standard och när dess anpassade.
 
-> [!NOTE]
-> För att säkerställa bakåtkompatibilitet standard webhook-nyttolasten för aviseringar med hjälp av Azure Log Analytics är samma som [Log Analytics Avisera management](alerts-metric.md). Men för loggvarningar med [Application Insights](../../azure-monitor/app/analytics.md), standard webhook-nyttolasten är baserad på åtgärdsgruppen schema.
-
 ### <a name="standard-webhook-for-log-alerts"></a>Standard-Webbhook för Loggaviseringar 
 Båda exemplen ha angett en dummy-nyttolast med bara två kolumner och två rader.
 
@@ -118,7 +115,11 @@ Följande är ett exempel på en nyttolast för en standard webhook-åtgärd *ut
     "Description": null,
     "Severity": "Warning"
  }
- ```   
+ ```
+
+> [!NOTE]
+> Allvarlighetsgrad för fältet kan ändras om du har [växlas föredrar API](alerts-log-api-switch.md) för loggaviseringar i Log Analytics.
+
 
 #### <a name="log-alert-for-azure-application-insights"></a>Log avisering för Azure Application Insights
 Följande är ett exempel på en nyttolast för en standard webhook *utan anpassade Json-alternativet* när den används för application insights-baserade log-aviseringar.
@@ -154,7 +155,7 @@ Följande är ett exempel på en nyttolast för en standard webhook *utan anpass
     "SearchIntervalInSeconds": 3600,
     "LinkToSearchResults": "https://analytics.applicationinsights.io/subscriptions/12345a-1234b-123c-123d-12345678e/?query=search+*+&timeInterval.intervalEnd=2018-03-26T09%3a10%3a40.0000000Z&_timeInterval.intervalDuration=3600&q=Usage",
     "Description": null,
-    "Severity": "Error",
+    "Severity": "3",
     "ApplicationId": "123123f0-01d3-12ab-123f-abc1ab01c0a1"
     }
 }

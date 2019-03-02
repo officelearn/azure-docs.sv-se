@@ -10,18 +10,27 @@ ms.reviewer: jmartens
 ms.author: aashishb
 author: aashishb
 ms.date: 01/08/2019
-ms.openlocfilehash: 60a76df6360ca66e8f55b03d5914283f669eb402
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 045a8fc3723c7bae176f0b99a83965bb2bef721d
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56118113"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57242946"
 ---
 # <a name="securely-run-experiments-and-inferencing-inside-an-azure-virtual-network"></a>Kör säkert experiment och inferensjobb i Azure-nätverk
 
 I den här artikeln lär du dig att köra dina experiment och inferensjobb i ett virtuellt nätverk. Ett virtuellt nätverk fungerar som en säkerhetsgräns isolera dina Azure-resurser från det offentliga internet. Du kan även ansluta Azure-nätverk till ditt lokala nätverk. Det kan du träna dina modeller och få åtkomst till dina distribuerade modeller för inferensjobb på ett säkert sätt.
 
 Azure Machine Learning-tjänsten är beroende av andra Azure-tjänster för compute-resurser. Beräkningsresurser (beräkningsmål) används för att träna och distribuera modeller. Dessa beräkningsalternativ mål kan skapas i ett virtuellt nätverk. Du kan till exempel använda Microsoft Data Science Virtual Machine för att träna en modell och distribuerar sedan modellen till Azure Kubernetes Service (AKS). Mer information om virtuella nätverk finns i den [översikt över Azure Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview).
+
+## <a name="prerequisites"></a>Förutsättningar
+
+Det här dokumentet förutsätter att du är bekant med virtuella Azure-nätverk och IP-nätverk i allmänhet. Det här dokumentet förutsätter också att du har skapat ett virtuellt nätverk och undernät som ska användas med dina beräkningsresurser. Om du inte är bekant med Azure Virtual Networks kan du läsa följande artiklar för att lära dig om tjänsten:
+
+* [IP-adress](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm)
+* [Säkerhetsgrupper](https://docs.microsoft.com/azure/virtual-network/security-overview)
+* [Snabbstart: Skapa ett virtuellt nätverk](https://docs.microsoft.com/azure/virtual-network/quick-create-portal)
+* [Filtrera nätverkstrafik](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic)
 
 ## <a name="storage-account-for-your-workspace"></a>Storage-konto för din arbetsyta
 

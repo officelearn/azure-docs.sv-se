@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2019
 ms.author: willzhan;juliako
-ms.openlocfilehash: 349bc45305539578aeebe851cf42df123bbd863e
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 86e3e551969ee8d354b2d3e369f6006a77fd7820
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55998269"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57243082"
 ---
-# <a name="hybrid-design-of-drm-subsystems-legacy"></a>Hybridutformning av DRM-undersystem (äldre)
+# <a name="hybrid-design-of-drm-subsystems"></a>Hybridutformning av DRM-undersystem 
 
 Det här avsnittet beskrivs hybridutformning av DRM-subsystem(s) med Azure Media Services.
 

@@ -9,12 +9,12 @@ ms.subservice: custom-translator
 ms.date: 02/21/2019
 ms.author: v-rada
 ms.topic: conceptual
-ms.openlocfilehash: 13d446f9f2aa651c766f250e551a97a97cf4d5d8
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: 6cab76a1169469853a4eb82a934bdc665e07ef8d
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/01/2019
-ms.locfileid: "57195242"
+ms.locfileid: "57217520"
 ---
 # <a name="migrate-hub-workspace-and-projects-to-custom-translator"></a>Migrera Hub arbetsyta och projekt till anpassad Translator
 
@@ -27,7 +27,7 @@ Dessa åtgärder utföras manuellt under migreringen:
 * När som helst BLEU poängen som har migrerats från hubben utbildning kan hittas på sidan TrainingDetails i modellen i ”Bleu poäng i MT-hubb” rubrik.
 
 >[!Note]
->För en utbildning ska lyckas, kräver anpassade Translator minst 10 000 unika extraherade meningar. Anpassade Translator kan inte genomföra en utbildningar med färre extraherade meningar än den [föreslagna minsta](sentence-alignment.md#suggested-minimum-number-of-extracted-and-aligned-sentences).
+För en utbildning ska lyckas, kräver anpassade Translator minst 10 000 unika extraherade meningar. Anpassade Translator kan inte genomföra en utbildningar med färre än den [föreslagna minsta](sentence-alignment.md#suggested-minimum-number-of-extracted-and-aligned-sentences).
 
 ## <a name="enable-account-migration"></a>Aktivera kontomigrering
 

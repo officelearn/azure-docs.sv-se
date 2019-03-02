@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 02/01/2019
 ms.author: juliako
-ms.openlocfilehash: e90dd052f6a4af83d2dd794dd405a4700da75bde
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 0f63896239615699db63c9f48be6b291208408db
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55656349"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57247179"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Liveuppspelning med Azure Media Services v3
 
@@ -42,13 +42,14 @@ För att förstå live direktuppspelning arbetsflödet i Media Services v3, som 
 
 - [Slutpunkter för direktuppspelning](streaming-endpoint-concept.md)
 - [Händelser och Live utdata](live-events-outputs-concept.md)
+- [Positionerare för direktuppspelning](streaming-locators-concept.md)
 
 ## <a name="live-streaming-workflow"></a>Live-arbetsflöde
 
 Här följer stegen för en live arbetsflöde:
 
 1. I ditt Media Services-konto, se till att den **Strömningsslutpunkt** körs. 
-2. Skapa en [direktsändning](live-events-outputs-concept.md). <br/>När du skapar händelsen, kan du ange att autostart den. Du kan också starta händelsen när du är redo att börja direktuppspelning.<br/> När autostart är satt till SANT, Live-händelsen kommer att startas rätt när du har skapat. Faktureringen startar när Live-händelsen börjar köras. Du måste explicit anropa Stop på resursen för direktsänd händelse att stoppa ytterligare fakturering. Mer information finns i [direktsänd händelse tillstånd och fakturering](live-event-states-billing.md).
+2. Skapa en [direktsändning](live-events-outputs-concept.md). <br/>När du skapar händelsen, kan du ange att autostart den. Du kan också starta händelsen när du är redo att börja direktuppspelning.<br/> När autostart är satt till SANT, Live-händelsen kommer att startas rätt när du har skapat. Faktureringen startar när Live-händelsen börjar köras. Du måste explicit anropa Stop på livehändelseresursen för att stoppa ytterligare fakturering. Mer information finns i [livehändelsetillstånd och fakturering](live-event-states-billing.md).
 3. Hämta URL: er för inmatning och konfigurera din lokala kodare för att använda Webbadressen för att skicka bidraget feed.<br/>Se [rekommenderas livekodare](recommended-on-premises-live-encoders.md).
 4. Få förhandsgransknings-URL och använda den för att kontrollera att indata från kodaren faktiskt tas emot.
 5. Skapa en ny **tillgången** objekt.

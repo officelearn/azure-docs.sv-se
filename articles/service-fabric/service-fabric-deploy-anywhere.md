@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/01/2019
 ms.author: dekapur
-ms.openlocfilehash: cf16a01ef1003b73740c05ff45f703a65aaf0acc
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: 8c344999839b3dcde98536b3d8d196a434f4cde8
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55961201"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57244918"
 ---
 # <a name="comparing-azure-and-standalone-service-fabric-clusters-on-windows-server-and-linux"></a>Jämförelse mellan Azure och fristående Service Fabric-kluster i Windows Server och Linux
 Service Fabric-kluster är en nätverksansluten uppsättning virtuella eller fysiska datorer som dina mikrotjänster distribueras och hanteras. En dator eller virtuell dator som ingår i ett kluster kallas för en nod i klustret. Kluster kan skalas till tusentals noder. Om du lägger till nya noder i klustret, balanserar Service Fabric service partitionsrepliker och instanser i det större antalet noder. Övergripande förbättrar programmets prestanda och minskar konkurrensen för åtkomst till minnet. Om noderna i klustret inte som används effektivt, kan du minska antalet noder i klustret. Service Fabric balanserar igen partitionsrepliker och instanser över minskade antalet noder för att bättre utnyttja maskinvaran på varje nod.
@@ -33,7 +33,7 @@ På Azure ger vi integrering med andra Azure-funktioner och tjänster som gör �
 * **Azure Resource Manager:** Använda Azure Resource Manager låter dig enkelt hantera alla resurser som används av klustret som en enhet och förenklar kostnadsspårning och fakturering.
 * **Service Fabric-kluster som en Azure-resurs** A Service Fabric-kluster är en Azure-resurs, så du kan utforma den precis som andra resurser i Azure.
 * **Integrering med Azure-infrastrukturen** Service Fabric samordnar med underliggande Azure-infrastrukturen för OS, nätverk och andra uppgraderingar att förbättra tillgängligheten och tillförlitligheten för dina program.  
-* **Diagnostik:** På Azure ger vi integrering med Azure-diagnostik och Log Analytics.
+* **Diagnostik:** Vi ger integrering med Azure-diagnostik i Azure, och Azure Monitor-loggar.
 * **Automatisk skalning:** Kluster på Azure kan tillhandahåller vi inbyggda funktioner för automatisk skalning på grund av skalningsuppsättningar för virtuella datorer. I både lokala och andra miljöer i molnet behöver du skapa din egen funktion eller en skala manuellt med hjälp av API: er som exponerar Service Fabric för att skala kluster som automatisk skalning.
 
 ## <a name="benefits-of-standalone-clusters"></a>Fördelar med fristående kluster

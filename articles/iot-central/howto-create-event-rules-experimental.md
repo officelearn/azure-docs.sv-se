@@ -3,17 +3,17 @@ title: Skapa och hantera händelseregler i ditt program med Azure IoT Central | 
 description: Azure IoT Central-händelseregler hjälper dig att övervaka dina enheter i nära realtid och automatiskt anropa åtgärder, till exempel skickar ett e-postmeddelande när regeln utlöses.
 author: ankitscribbles
 ms.author: ankitgup
-ms.date: 02/02/2019
+ms.date: 02/20/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 8655265f5f793741c2d563d1e79d4565700e0128
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 937f8fe09cae6284b318201657cf112138ac17c7
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55768536"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57217231"
 ---
 # <a name="create-an-event-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Skapa en regel för händelsen och ställa in meddelanden i Azure IoT Central programmet
 
@@ -27,29 +27,21 @@ Enheter kan använda event mått för att skicka viktiga eller endast i informat
 
 Om du vill skapa en regel för händelsen måste enheten mallen ha minst en händelse mått har definierats. Det här exemplet används en kylda Varuautomat-enhet som rapporterar en fläkt meddelar felhändelse. Regeln övervakar den händelse som rapporteras av enheten och skickar ett e-postmeddelande varje gång händelsen rapporteras.
 
-1. Använd Device Explorer och navigera till enheten mallen som du lägger till regeln för.
-
-1. Klicka på en befintlig enhet under den valda mallen.
-
-    >[!TIP] 
-    >Om mallen inte har några enheter och sedan lägga till en ny enhet först.
+1. Med hjälp av den **enheten mallar** sidan, gå till enheten mallen som du lägger till regeln för.
 
 1. Om du inte skapat några regler ännu kan se du följande skärm:
 
     ![Inga regler ännu](media/howto-create-event-rules-experimental/Rules_Landing_Page.png)
 
+1. På den **regler** fliken **+ ny regel** att se vilka typer av regler som du kan skapa.
 
-1. På den **regler** fliken **Redigera mall** och sedan **+ ny regel** att se vilka typer av regler som du kan skapa.
-
-
-1. Klicka på den **händelse** panelen för att skapa en händelse som övervakningsregel.
+1. Välj den **händelse** panelen för att skapa en händelse som övervakningsregel.
 
     ![Regeltyper](media/howto-create-event-rules-experimental/Rule_Types.png)
 
-    
 1. Ange ett namn som hjälper dig att identifiera regeln i den här mallen för enheten.
 
-1. Om du vill aktivera regeln för alla enheter som skapas från den här mallen omedelbart, växla **aktivera regeln för alla enheter för den här mallen**.
+1. Om du vill aktivera regeln för alla enheter som skapas från den här mallen omedelbart, växla **aktivera regeln för alla enheter av den här mallen**.
 
     ![Information om regeln](media/howto-create-event-rules-experimental/Rule_Detail.png)
 
@@ -65,17 +57,16 @@ Villkoret definierar de kriterier som övervakas av regeln.
 
    ![Tillstånd](media/howto-create-event-rules-experimental/Condition_Filled_Out.png)
 
-
 1. Du kan också ange **antal** som **aggregering** och ger motsvarande tröskelvärdet.
 
-    - Utan aggregering, regeln utlöses för varje datapunkt för händelsen som uppfyller villkoret. Till exempel om du konfigurerar regelns villkor som utlöser när en fläkt meddelar fel-händelse inträffar utlöser sedan regeln nästan omedelbart när enheten rapporterar att den händelsen.
-    - Om antalet används som en mängdfunktion så du måste ange en **tröskelvärdet** och en **sammanställd tidsfönster** över som villkoret måste utvärderas. I det här fallet antal händelser slås samman och regeln utlöser bara om aggregerade händelseantal matchar tröskelvärdet.
- 
-    Om du vill att varna när det finns fler än tre enhetshändelser inom 5 minuter, därefter händelsen och ange mängdfunktionen som ”antal”, operator som ”större än” och ”tröskelvärde” som 3. Ange ”aggregering tidsperiod” som ”5 minuter”. Regeln utlöses när fler än tre händelser skickas av enheten inom 5 minuter. Utvärderingsfrekvensen regeln är samma som den **sammanställd tidsfönster**, vilket innebär att, i det här exemplet regeln utvärderas var femte minut. 
+    - Utan aggregering, regeln utlöses för varje datapunkt för händelsen som uppfyller villkoret. Till exempel om du konfigurerar regelns villkor som utlöser när en **fläkt meddelar fel** händelse inträffar och sedan regeln utlöser nästan omedelbart när enheten rapporterar att den händelsen.
+    - Om antalet används som en mängdfunktion så du måste ange en **tröskelvärdet** och en **sammanställd tidsfönster** över som villkoret måste utvärderas. I det här fallet antal händelser slås samman och regeln utlöses endast om aggregerade händelseantal matchar tröskelvärdet.
+
+    Om du vill att varna när det finns fler än tre enhetshändelser inom 5 minuter, därefter händelsen och ange mängdfunktionen som ”antal”, operator som ”större än” och ”tröskelvärde” som 3. Ange ”aggregering tidsperiod” som ”5 minuter”. Regeln utlöses när fler än tre händelser skickas av enheten inom 5 minuter. Utvärderingsfrekvensen regeln är samma som den **sammanställd tidsfönster**, vilket innebär att, i det här exemplet regeln utvärderas var femte minut.
 
     ![Lägg till Händelsevillkor](media/howto-create-event-rules-experimental/Aggregate_Condition_Filled_Out.png)
 
-    >[!NOTE] 
+    >[!NOTE]
     >Mer än en händelse mätning kan läggas till under **villkor**. När flera villkor har angetts måste alla villkor vara uppfyllda för regeln för att utlösa. Varje villkor får sällskap av en 'Och'-sats implicit. När du använder aggregering, måste varje mätning aggregeras.
 
 ### <a name="configure-actions"></a>Konfigurera åtgärder

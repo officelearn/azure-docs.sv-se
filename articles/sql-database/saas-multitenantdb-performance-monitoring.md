@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 5be6acc28932cb3c7f0481b18cbcffae27c3ce13
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 1629e08d4ba1a7fd7cedb40b1e46d1bfd2766497
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56002382"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57215548"
 ---
 # <a name="monitor-and-manage-performance-of-sharded-multi-tenant-azure-sql-database-in-a-multi-tenant-saas-app"></a>Övervaka och hantera prestanda för shardade flera innehavare Azure SQL-databas i en SaaS-app för flera innehavare
 
@@ -52,7 +52,7 @@ Hantering av databasprestanda innebär kompilering och analys av prestandadata f
 
 [Azure-portalen](https://portal.azure.com) tillhandahåller inbyggd övervakning och avisering för de flesta resurser. För SQL-databas är övervakning och avisering tillgängligt för databaser. Den här inbyggda övervakningen och aviseringen är resursspecifik, så det är praktiskt för små antal resurser, men inte är praktiskt när du arbetar med många resurser.
 
-För scenarion med stora volymer, där du arbetar med många resurser, [Log Analytics](https://azure.microsoft.com/services/log-analytics/) kan användas. Det här är en separat Azure-tjänst som tillhandahåller analys för utgivna diagnostikloggar och telemetri som samlats in i en log analytics-arbetsyta. Log Analytics kan samla in telemetri från flera olika tjänster och användas för att fråga och ställa in aviseringar.
+För scenarion med stora volymer, där du arbetar med många resurser, [Azure Monitor loggar](https://azure.microsoft.com/services/log-analytics/) kan användas. Det här är en separat Azure-tjänst som tillhandahåller analys för utgivna diagnostikloggar och telemetri som samlats in i Log Analytics-arbetsytan. Azure Monitor-loggar kan samla in telemetri från flera olika tjänster och användas för att fråga och ställa in aviseringar.
 
 ## <a name="get-the-wingtip-tickets-saas-multi-tenant-database-application-source-code-and-scripts"></a>Hämta källkoden för databas för flera klienter i Wingtip biljetter SaaS-program och skript
 

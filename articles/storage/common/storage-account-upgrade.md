@@ -5,24 +5,23 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 10/18/2018
+ms.date: 02/28/2019
 ms.author: tamram
-ms.openlocfilehash: 500d5217a35cdc569964195558b6e4a2c023c614
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: d57023063fe23db9f57d52ab9cdf99e0687c1fdf
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54352146"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57217299"
 ---
 # <a name="upgrade-to-a-general-purpose-v2-storage-account"></a>Uppgradera till ett gpv2-konto
 
 Generell användning v2-konton stöder de senaste funktionerna i Azure Storage och alla funktioner i allmänna v1 och Blob storage-konton. Gpv2-konton rekommenderas för de flesta lagringsscenarier med. Gpv2-konton leverera lägsta per gigabyte kapacitet priser för Azure Storage, samt bransch konkurrenskraftiga transaktionspriser.
 
-Det är enkelt att uppgradera till ett gpv2-konto från dina allmänna v1- eller Blob storage-konton. Du kan uppgradera med Azure-portalen, PowerShell eller Azure CLI. 
+Det är enkelt att uppgradera till ett gpv2-konto från dina allmänna v1- eller Blob storage-konton. Du kan uppgradera med Azure-portalen, PowerShell eller Azure CLI.
 
-> [!NOTE]
-> Uppgradera ditt storage-konto till ett gpv2-konto är kostnadsfri.
-> Ändringar av lagringsnivån för åtkomst kan resultera i ändringar till din faktura. Mer information finns i avsnittet [Priser och fakturering](#pricing-and-billing).
+> [!IMPORTANT]
+> Uppgradera ett v1 storage-konto till gpv2 är permanent och kan inte ångras.
 
 ## <a name="upgrade-using-the-azure-portal"></a>Uppgradera med Azure portal
 
@@ -68,8 +67,10 @@ Som standard skapas ett nytt lagringskonto i frekvent åtkomstnivå och ett lagr
 
 I båda fallen är högsta prioritet att beräkna kostnaden för lagring, åtkomst och körs på dina data som lagras i ett gpv2-lagringskonto och jämföra det med dina nuvarande kostnader.
 
-
 ## <a name="pricing-and-billing"></a>Priser och fakturering
+
+Uppgradera ett v1-lagringskonto till ett gpv2-konto är kostnadsfri. Dock kan ändra åtkomstnivån resultera i ändringar till din faktura. 
+
 För alla lagringskonton används en prissättningsmodell för bloblagring som baseras på nivån för varje blob. När du använder ett lagringskonto gäller följande för debitering:
 
 * **Lagringskostnader**: Utöver mängden data som lagras, varierar för att lagra data beroende på åtkomstnivå för lagring. Kostnaden per gigabyte minskas när nivån blir mer lågfrekvent.

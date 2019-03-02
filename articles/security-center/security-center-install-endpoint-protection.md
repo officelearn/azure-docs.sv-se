@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 1ce1faa13c541939335d188866e15c683b6ffc28
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 2065381063058eb59dd5896e12c1aa34184148bf
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56110276"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57247009"
 ---
 # <a name="manage-endpoint-protection-issues-with-azure-security-center"></a>Hantera problem med endpoint protection med Azure Security Center
 Azure Security Center övervakar statusen för skydd mot skadlig kod och rapporterar detta under Endpoint protection problem-bladet. Security Center visar problem, till exempel identifierade hot och otillräckligt skydd, vilket kan göra att dina virtuella datorer (VM) och datorer sårbar för program mot skadlig kod hot. Med hjälp av informationen under **problem med Endpoint protection**, du kan identifiera en plan för att åtgärda eventuella problem som identifieras.
@@ -84,13 +84,13 @@ I det här exemplet ska vi använda **Compute**.  Vi ska titta på hur du instal
 
    ![Välj Endpoint protection inte installerat på Azure-datorer][4]
 
-2. Under **Endpoint protection inte installerat på Azure-datorer**, Välj en arbetsyta. En sökfråga för Log Analytics som filtrerats för arbetsytan öppnas och visar en lista över datorer som saknar program mot skadlig kod. Välj en dator i listan för mer information.
+2. Under **Endpoint protection inte installerat på Azure-datorer**, Välj en arbetsyta. En Azure Monitor-loggar sökfråga filtreras till arbetsytan öppnas och visar en lista över datorer som saknar program mot skadlig kod. Välj en dator i listan för mer information.
 
-   ![Log Analytics-sökningen][5]
+   ![Azure Monitor loggar sökning][5]
 
 En annan sökresultat öppnas med information som filtrerad endast för den datorn.
 
-  ![Log Analytics-sökningen][6]
+  ![Azure Monitor loggar sökning][6]
 
 > [!NOTE]
 > Vi rekommenderar att slutpunktsskydd ska etableras för alla virtuella datorer och datorer för att identifiera och ta bort virus, spionprogram och annan skadlig programvara.

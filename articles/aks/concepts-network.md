@@ -5,14 +5,14 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 10/16/2018
+ms.date: 02/28/2019
 ms.author: iainfou
-ms.openlocfilehash: 7de97097e9678410537895c3bafc48d67809331e
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: 360caaec0033136ffa250d636864fbed8359b8ef
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56594176"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57244255"
 ---
 # <a name="network-concepts-for-applications-in-azure-kubernetes-service-aks"></a>Nätverkskoncept för program i Azure Kubernetes Service (AKS)
 
@@ -23,7 +23,7 @@ Den här artikeln innehåller grundläggande begrepp som tillhandahåller nätve
 - [Tjänster](#services)
 - [Azure-nätverk](#azure-virtual-networks)
 - [Ingress-styrenheter](#ingress-controllers)
-- Nätverksprinciper
+- [Nätverksprinciper](#network-policies)
 
 ## <a name="kubernetes-basics"></a>Grundläggande om Kubernetes
 
@@ -68,7 +68,7 @@ I AKS, kan du distribuera ett kluster som använder någon av följande två mod
 
 Den *kubenet* nätverk alternativet är standardkonfigurationen för att skapa för AKS-kluster. Med *kubenet*, noder hämta en IP-adress från det virtuella Azure-undernätet. Poddar ta emot en IP-adress från en logiskt olika adressutrymmen till undernätet för Azure-nätverk av noderna. Network adress translation (NAT) konfigureras sedan så att poddarna kan nå resurser på Azure-nätverket. Källans IP-adress av trafiken är skulle NAT till nodens primära IP-adress.
 
-Noder använder den [kubenet] [ kubenet] Kubernetes-plugin-programmet. Du kan låta Azure-plattformen skapa och konfigurera de virtuella nätverken för dig eller välja att distribuera din AKS-kluster till ett befintligt undernät för virtuellt nätverk. Igen, använder endast de noder som tar emot en dirigerbara IP-adress och poddarna NAT för att kommunicera med andra resurser utanför AKS-klustret. Den här metoden minskar antalet IP-adresser som du behöver reservera i ditt nätverk kan poddar att använda.
+Noder använder den [kubenet] [ kubenet] Kubernetes-plugin-programmet. Du kan låta Azure-plattformen skapa och konfigurera de virtuella nätverken för dig eller välja att distribuera din AKS-kluster till ett befintligt undernät för virtuellt nätverk. Återigen endast noderna får en dirigerbara IP-adress och poddarna använder NAT för att kommunicera med andra resurser utanför AKS-klustret. Den här metoden minskar antalet IP-adresser som du behöver reservera i ditt nätverk kan poddar att använda.
 
 Mer information finns i [Konfigurera nätverk för ett AKS-kluster kubenet][aks-configure-kubenet-networking].
 
@@ -104,8 +104,6 @@ En annan vanlig funktion för ingång är SSL/TLS-avslutning. I stora webbprogra
 
 En nätverkssäkerhetsgrupp filtrerar trafik för virtuella datorer, till exempel AKS-noder. När du skapar tjänster, till exempel en LoadBalancer konfigurerar Azure-plattformen automatiskt alla regler för nätverkssäkerhetsgrupper som krävs. Inte manuellt konfigurera regler för nätverkssäkerhetsgrupper för att filtrera trafik för poddar i ett AKS-kluster. Definiera alla nödvändiga portar och vidarebefordran som en del av Kubernetes Service-manifest och låt Azure-plattformen skapa eller uppdatera lämpliga regler. Du kan också använda principer för nätverk, enligt beskrivningen i nästa avsnitt, att automatiskt tillämpa filter trafikregler på poddar.
 
-Nätverkssäkerhetsgrupp finns regler för trafik som SSH som standard. Det är dessa standardregler för klusterhantering och felsöka åtkomst. Ta bort dessa standardregler kan orsaka problem med hantering av AKS och delar upp servicenivåmål (SLO).
-
 ## <a name="network-policies"></a>Nätverksprinciper
 
 Som standard kan alla poddar i ett AKS-kluster skicka och ta emot trafik utan begränsningar. För ökad säkerhet kan du definiera regler som styr flödet av trafik. Serverdelsprogrammen exponeras ofta bara till nödvändiga frontend-tjänster eller databaskomponenter är endast tillgängliga på nivån för program som ansluter till dem.
@@ -117,6 +115,8 @@ Mer information finns i [skydda trafik mellan poddar med hjälp av principer fö
 ## <a name="next-steps"></a>Nästa steg
 
 Att komma igång med AKS nätverk, skapa och konfigurera ett AKS-kluster med dina egna IP-adressintervall med hjälp av [kubenet] [ aks-configure-kubenet-networking] eller [Azure CNI] [ aks-configure-advanced-networking].
+
+Associerade metodtips finns [bästa praxis för nätverksanslutning och säkerhet i AKS][operator-best-practices-network].
 
 Mer information om core Kubernetes och AKS-begrepp finns i följande artiklar:
 
@@ -148,3 +148,4 @@ Mer information om core Kubernetes och AKS-begrepp finns i följande artiklar:
 [aks-concepts-storage]: concepts-storage.md
 [aks-concepts-identity]: concepts-identity.md
 [use-network-policies]: use-network-policies.md
+[operator-best-practices-network]: operator-best-practices-network.md

@@ -1,5 +1,5 @@
 ---
-title: Azure Service Fabric - prestandaövervakning med Log Analytics | Microsoft Docs
+title: Azure Service Fabric - prestandaövervakning med Azure Monitor-loggar | Microsoft Docs
 description: Lär dig hur du ställer in Log Analytics-agenten för övervakning av behållare och prestandaräknare för Azure Service Fabric-kluster.
 services: service-fabric
 documentationcenter: .net
@@ -14,19 +14,21 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/16/2018
 ms.author: srrengar
-ms.openlocfilehash: 36402b7dc9c5ee801dd59b03f99b45d6428de187
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 3d35075c768855ebd907b96de2ded82757d5e525
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56816002"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57242912"
 ---
-# <a name="performance-monitoring-with-log-analytics"></a>Prestandaövervakning med Log Analytics
+# <a name="performance-monitoring-with-azure-monitor-logs"></a>Prestandaövervakning med Azure Monitor-loggar
 
 Den här artikeln beskriver stegen för att lägga till Log Analytics-agenten som en VM-skalningsuppsättningen tillägg till klustret och ansluter den till din befintliga Azure Log Analytics-arbetsyta. På så sätt kan samla in diagnostikdata om behållare, program och prestandaövervakning. Genom att lägga till det som ett tillägg till VM scale set resursen, garanterar Azure Resource Manager att det installeras på varje nod, även när skala klustret.
 
 > [!NOTE]
-> Den här artikeln förutsätter att du har en Azure Log Analytics-arbetsyta som redan har konfigurerat. Om du inte vill gå till [ställa in Azure Log Analytics](service-fabric-diagnostics-oms-setup.md)
+> Den här artikeln förutsätter att du har en Azure Log Analytics-arbetsyta som redan har konfigurerat. Om du inte vill gå till [ställa in Azure Azure Monitor-loggar](service-fabric-diagnostics-oms-setup.md)
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="add-the-agent-extension-via-azure-cli"></a>Lägg till agenttillägg via Azure CLI
 
@@ -34,9 +36,9 @@ Det bästa sättet att lägga till Log Analytics-agenten till ditt kluster anges
 
 1. När Cloud Shell har begärts, kontrollera att du arbetar i samma prenumeration som din resurs. Kontrollera detta med `az account show` och kontrollera att värdet för ”name” överensstämmer med ditt kluster-prenumeration.
 
-2. Navigera till resursgruppen där Log Analytics-arbetsytan finns i portalen. Klicka i Log Analytics-resursen (typ av resursen är Log Analytics). När du är på översiktssidan för resursen klickar du på **avancerade inställningar** under avsnittet inställningar på den vänstra menyn.
+2. Navigera till resursgruppen där Log Analytics-arbetsytan finns i portalen. Klicka i log analytics-resursen (typ av resursen är Log Analytics-arbetsytan). När du är på översiktssidan för resursen klickar du på **avancerade inställningar** under avsnittet inställningar på den vänstra menyn.
 
-    ![Log Analytics-egenskapssidan](media/service-fabric-diagnostics-oms-agent/oms-advanced-settings.png)
+    ![Log analytics-egenskapssidan](media/service-fabric-diagnostics-oms-agent/oms-advanced-settings.png)
  
 3. Klicka på **Windows-servrar** om du är att ställa upp ett Windows-kluster och **Linux-servrar** om du skapar ett Linux-kluster. Den här sidan visas dina `workspace ID` och `workspace key` (visas som primärnyckel i portalen). Du måste båda för nästa steg.
 
@@ -99,5 +101,5 @@ Nu när du har lagt till Log Analytics-agenten, head vill till Log Analytics-por
 ## <a name="next-steps"></a>Nästa steg
 
 * Samla in relevanta [prestandaräknare](service-fabric-diagnostics-event-generation-perf.md). Om du vill konfigurera Log Analytics-agenten för att samla in specifika prestandaräknare, granska [konfigurera datakällor](../azure-monitor/platform/agent-data-sources.md#configuring-data-sources).
-* Konfigurera Log Analytics för att ställa in [automatiserade aviseringar](../log-analytics/log-analytics-alerts.md) att underlätta identifiering och diagnostik
+* Konfigurera Azure Monitor-loggar att ställa in [automatiserade aviseringar](../log-analytics/log-analytics-alerts.md) att underlätta identifiering och diagnostik
 * Alternativt kan du samla in prestandaräknare via [Azure Diagnostics-tillägg och skicka dem till Application Insights](service-fabric-diagnostics-event-aggregation-wad.md#add-the-application-insights-sink-to-the-resource-manager-template)

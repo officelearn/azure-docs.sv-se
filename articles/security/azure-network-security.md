@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: a405583503b75a64dda2bf277a4a50be4e926d28
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 857672e8dee4dbe8d586db0cd80b206ec6ecb7df
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56111296"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57244578"
 ---
 # <a name="azure-network-security"></a>Azure-nätverkssäkerhet
 
@@ -393,7 +393,7 @@ Dessutom kan Application Gateway WAF hjälper dig att övervaka webbprogram mot 
 
 Loggen för JSON-formaterade går direkt till kundens lagringskonto. Du har fullständig kontroll över de här loggarna och kan använda din egen bevarandeprinciper.
 
-Du kan också mata in de här loggarna i dina egna system med [Azure Log Integration](https://aka.ms/AzLog). WAF-loggar är också integrerat med [Log Analytics](../log-analytics/log-analytics-overview.md) så att du kan använda Log Analytics för att köra avancerade detaljerade frågor.
+Du kan också mata in de här loggarna i dina egna system med [Azure Log Integration](https://aka.ms/AzLog). WAF-loggar är också integrerat med [Azure Monitor loggar](../log-analytics/log-analytics-overview.md) så att du kan använda Azure Monitor-loggar för att köra avancerade detaljerade frågor.
 
 #### <a name="azure-web-application-firewall-waf"></a>Azure web application firewall (WAF)
 
@@ -507,7 +507,7 @@ Azure erbjuder många verktyg för att övervaka, förhindra, upptäcka och svar
 
 -   Resursen på nätverksövervakning
 
--   Log Analytics
+-   Azure Monitor-loggar
 
 ### <a name="network-watcher"></a>Nätverksbevakare
 
@@ -547,7 +547,7 @@ Anger den [nästa hopp](https://docs.microsoft.com/azure/network-watcher/network
 
 Nästa hopp returnerar också routningstabellen som är associerad med nästa hopp. När du frågar efter en nästa hopp om vägen definieras som en användardefinierad väg, returneras det flödet. Annars returneras nästa hopp ”Systemväg”.
 
-#### <a name="security-group-view"></a>säkerhetsgruppvy
+#### <a name="security-group-view"></a>Säkerhetsgruppvy
 
 Hämtar de effektiva och tillämpade säkerhetsregler som tillämpas på en virtuell dator. Nätverkssäkerhetsgrupper är associerade på en undernätverksnivå eller på en NIC-nivå. När associerade på en undernätverksnivå måste tillämpas på alla VM-instanser i undernätet. Nätverk [säkerhetsgrupp visa](https://docs.microsoft.com/azure/network-watcher/network-watcher-security-group-view-overview) returnerar alla konfigurerade NSG: er och regler som är associerade på Nätverkskorts- och undernätsnivå nivå för en virtuell dator som ger inblick i konfigurationen. Dessutom returneras gällande säkerhetsregler för varje nätverkskort på en virtuell dator. Med hjälp av nätverkssäkerhetsgruppvy, kan du utvärdera en virtuell dator för nätverk, till exempel öppna portar. Du kan också bekräfta om Nätverkssäkerhetsgruppen fungerar som förväntat baserat på en [jämförelse mellan den konfigurerade och gällande säkerhetsregler](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-auditing-powershell).
 
@@ -597,17 +597,17 @@ Mått är prestandamått och prestandaräknare som samlas in under en period. M�
 
 #### <a name="diagnostic-logs"></a>Diagnostikloggar
 
-Periodiska och spontant händelser skapas av nätverksresurser och loggat in storage-konton kan skickas till en Event Hub, eller Log Analytics. Dessa loggar ge insikter om hälsotillståndet för en resurs. Dessa loggar kan ses i verktyg som Power BI och Log Analytics. Du kan få veta hur du visar diagnostikloggar [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-networking-analytics).
+Periodiska och spontant händelser skapas av nätverksresurser och loggat in storage-konton kan skickas till en Event Hub eller Azure Monitor-loggar. Dessa loggar ge insikter om hälsotillståndet för en resurs. Dessa loggar kan ses i Verktyg, till exempel Power BI och Azure Monitor-loggar. Du kan få veta hur du visar diagnostikloggar [Azure Monitor loggar](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-networking-analytics).
 
 Diagnostiska loggar är tillgängliga för [belastningsutjämnaren](https://docs.microsoft.com/azure/load-balancer/load-balancer-monitor-log), [Nätverkssäkerhetsgrupper](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log), vägar, och [Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics).
 
 Network Watcher innehåller en vy för diagnostikloggar. Den här vyn innehåller alla nätverksresurser som har stöd för Diagnostisk loggning. Du kan aktivera och inaktivera nätverksresurser smidigt och snabbt från den här vyn.
 
-### <a name="log-analytics"></a>Log Analytics
+### <a name="azure-monitor-logs"></a>Azure Monitor-loggar
 
-[Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) är en tjänst i Azure som övervakar dina molnbaserade och lokala miljöer för att bibehålla tillgänglighet och prestanda. Den samlar in data som genereras av resurser i dina miljöer i molnet och lokalt och från andra övervakningsverktyg för att tillhandahålla analyser över flera källor.
+[Azure Monitor-loggar](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) är en tjänst i Azure som övervakar dina molnbaserade och lokala miljöer för att bibehålla tillgänglighet och prestanda. Den samlar in data som genereras av resurser i dina miljöer i molnet och lokalt och från andra övervakningsverktyg för att tillhandahålla analyser över flera källor.
 
-Log Analytics erbjuder följande lösningar för att övervaka dina nätverk:
+Azure Monitor-loggar erbjuder följande lösningar för att övervaka dina nätverk:
 
 -   Övervakare av nätverksprestanda (NPM)
 
@@ -627,7 +627,7 @@ Används för att övervaka anslutningen mellan:
 -   Undernät som är värd för olika nivåer av ett program med flera nivåer.
 
 
-#### <a name="azure-application-gateway-analytics-in-log-analytics"></a>Azure application gateway analytics i log analytics
+#### <a name="azure-application-gateway-analytics-in-azure-monitor-logs"></a>Azure application gateway analytics i Azure Monitor-loggar
 
 Följande loggar kan användas för Application Gateway:
 
@@ -641,7 +641,7 @@ Följande mått har stöd för Application Gateway:
 
 -   5 minuter dataflöde
 
-#### <a name="azure-network-security-group-analytics-in-log-analytics"></a>Azure network security group analytics i log analytics
+#### <a name="azure-network-security-group-analytics-in-azure-monitor-logs"></a>Azure-nätverk grupp säkerhetsanalyser i Azure Monitor-loggar
 
 Följande loggar stöds för [nätverkssäkerhetsgrupper](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log):
 
@@ -652,7 +652,7 @@ Följande loggar stöds för [nätverkssäkerhetsgrupper](https://docs.microsoft
 ## <a name="next-steps"></a>Nästa steg
 Lär dig mer om säkerhet genom att läsa några av våra djupgående säkerhetsfrågor:
 
--   [Log Analytics för Nätverkssäkerhetsgrupper (NSG)](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log)
+-   [Azure Monitor-loggar för Nätverkssäkerhetsgrupper (NSG)](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log)
 
 -   [Nätverk innovationer som driver kan avbrott i molnet](https://azure.microsoft.com/blog/networking-innovations-that-drive-the-cloud-disruption/)
 

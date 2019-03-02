@@ -12,16 +12,16 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 1935c670b5c7622f45f8c96b8c2faf03da6282f3
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 34e4371902095c5802bf4fc180e09ce189c110fc
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55993647"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57214018"
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>Felsöka Azure SQL Database prestandaproblem med intelligenta insikter
 
-Den här sidan innehåller information om Azure SQL Database och prestandaproblem för hanterad instans har identifierats genom den [smarta insikter](sql-database-intelligent-insights.md) diagnostiklogg för databas prestanda. Diagnostiklogg telemetri kan strömmas till [Azure Log Analytics](../azure-monitor/insights/azure-sql.md), [Azure Event Hubs](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md), [Azure Storage](sql-database-metrics-diag-logging.md#stream-into-storage), eller en lösning från tredje part för anpassade DevOps-varningar och rapporteringsfunktioner.
+Den här sidan innehåller information om Azure SQL Database och prestandaproblem för hanterad instans har identifierats genom den [smarta insikter](sql-database-intelligent-insights.md) diagnostiklogg för databas prestanda. Diagnostiklogg telemetri kan strömmas till [Azure Monitor loggar](../azure-monitor/insights/azure-sql.md), [Azure Event Hubs](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md), [Azure Storage](sql-database-metrics-diag-logging.md#stream-into-storage), eller en lösning från tredje part för anpassade DevOps-varningar och rapporteringsfunktioner.
 
 > [!NOTE]
 > En snabb SQL Database-prestanda med hjälp av Intelligent Insights felsökningsguide finns den [rekommenderas felsöka flöde](sql-database-intelligent-insights-troubleshoot-performance.md#recommended-troubleshooting-flow) flödesschema i det här dokumentet.

@@ -13,12 +13,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: c11dc2b24e3cf5d201a73c1ed405ba4b7c09978b
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: 29a0d0679adc51cf1493d241273e3b572a7fd57d
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56992608"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57214307"
 ---
 # <a name="what-is-azure-sql-database-service"></a>Vad är Azure SQL Database-tjänsten?
 
@@ -95,7 +95,7 @@ Du använder de inbyggda verktygen för [prestandaövervakning](sql-database-per
 
 - **Azure Storage**: För arkivering av stora mängder telemetri till ett lågt pris
 - **Azure Event Hub**: För att integrera telemetri för SQL-databas med din anpassade övervakningslösning eller med heta pipelines
-- **Azure Log Analytics**: För inbyggd övervakningslösning med rapporter, aviseringar och problemlösningsfunktioner.
+- **Azure Monitor-loggar**: För inbyggd övervakningslösning med rapporter, aviseringar och problemlösningsfunktioner.
 
     ![Arkitektur](./media/sql-database-metrics-diag-logging/architecture.png)
 

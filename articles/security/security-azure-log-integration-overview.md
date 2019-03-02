@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 01/14/2019
 ms.author: TomSh
 ms.custom: azlog
-ms.openlocfilehash: 7b06d7bb85e7445f50956a003e46542062b09165
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: c644d81b647fc1151b10a94fb636e3eeaba1ce5c
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56118283"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57245054"
 ---
 # <a name="introduction-to-azure-log-integration"></a>Introduktion till Azure-Loggintegrering
 
@@ -61,7 +61,7 @@ Om inga andra alternativ är tillgängliga kan du använda Azure Log Integration
 |---------|--------------------------|-------------------------------------------|
 |**Splunk** | Börja migrera till den [Azure Monitor-tillägget för Splunk](https://splunkbase.splunk.com/app/3534/). | Använd den [Splunk connector](https://splunkbase.splunk.com/app/3534/). |
 |**QRadar** | Migrera till eller komma igång med QRadar anslutningen som beskrivs i det sista avsnittet i [Stream Azure-övervakningsdata till en händelsehubb för användning av något externt verktyg](../azure-monitor/platform/stream-monitoring-data-event-hubs.md). | Använda anslutningstjänsten QRadar som beskrivs i det sista avsnittet i [Stream Azure-övervakningsdata till en händelsehubb för användning av något externt verktyg](../azure-monitor/platform/stream-monitoring-data-event-hubs.md). |
-|**ArcSight** | Fortsätta att använda Azure log integrator tills en anslutning är tillgänglig och migrera sedan till den connector-baserad lösningen.  | Överväg att använda Azure Log Analytics som ett alternativ. Inte publicera till Azure Log Integration såvida du inte vill gå igenom migreringsprocessen när anslutningen blir tillgänglig. |
+|**ArcSight** | Fortsätta att använda Azure log integrator tills en anslutning är tillgänglig och migrera sedan till den connector-baserad lösningen.  | Överväg att använda Azure Monitor-loggar som ett alternativ. Inte publicera till Azure Log Integration såvida du inte vill gå igenom migreringsprocessen när anslutningen blir tillgänglig. |
 
 > [!NOTE]
 > Azure Log Integration är en kostnadsfri lösning, men det finns kostnader för Azure storage som är associerade med log fillagring för information.

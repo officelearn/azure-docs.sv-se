@@ -14,23 +14,25 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/23/2018
 ms.author: srrengar
-ms.openlocfilehash: 30b064e3c20b184023cb6ada25d673f5cab6597c
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 25452d3d65518511c47087d1cb712d0a512416fc
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55297675"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57245564"
 ---
 # <a name="service-fabric-linux-cluster-events-in-syslog"></a>Service Fabric Linux klusterhändelser i Syslog
 
 Service Fabric visar en uppsättning händelser på plattformsnivå om viktig aktivitet i klustret. En fullständig lista över händelser som visas är tillgänglig [här](service-fabric-diagnostics-event-generation-operational.md). Det finns olika sätt som de här händelserna kan användas. I den här artikeln ska vi att diskutera hur du konfigurerar Service Fabric för att skriva dessa händelser till Syslog.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="introduction"></a>Introduktion
 
 I utgåvan av 6.4 har SyslogConsumer introducerats för att skicka Service Fabric-plattformshändelser till Syslog för Linux-kluster. När aktiverad, flödar automatiskt händelser till Syslog som kan samlas in och skickas av Log Analytics-agenten.
 
 Varje Syslog-händelse har 4 komponenter
-* Anläggning
+* Lokal
 * Identitet
 * Meddelande
 * Severity
@@ -93,8 +95,8 @@ Här är ändringarna att anropa
     }
 ```
 
-## <a name="log-analytics-integration"></a>Log Analytics-integrering
-Du kan läsa de här Syslog-händelser i ett övervakningsverktyg, exempelvis Log Analytics. Du kan skapa en Log Analytics-arbetsyta med hjälp av Azure Marketplace med hjälp av [anvisningarna]. (.. / azure-monitor/learn/quick-create-workspace.md) måste du också lägga till Log Analytics-agenten till klustret för att samla in och skicka dessa data till arbetsytan. Det här är samma agent används för att samla in prestandaräknare. 
+## <a name="azure-monitor-logs-integration"></a>Integrering med Azure Monitor-loggar
+Du kan läsa de här Syslog-händelser i ett övervakningsverktyg, till exempel Azure Monitor-loggar. Du kan skapa en Log Analytics-arbetsyta med hjälp av Azure Marketplace med hjälp av [anvisningarna]. (.. / azure-monitor/learn/quick-create-workspace.md) måste du också lägga till Log Analytics-agenten till klustret för att samla in och skicka dessa data till arbetsytan. Det här är samma agent används för att samla in prestandaräknare. 
 
 1. Navigera till den `Advanced Settings` bladet
 
@@ -120,6 +122,6 @@ I exemplet ovan är av en NodeDown-händelse. Du kan visa en fullständig lista 
 
 ## <a name="next-steps"></a>Nästa steg
 * [Distribuera Log Analytics-agenten](service-fabric-diagnostics-oms-agent.md) till noderna kan samla in prestandaräknare och samla in loggar för dina behållare och docker-stats
-* Bekanta dig med den [loggsökning och frågor](../log-analytics/log-analytics-log-searches.md) funktioner som erbjuds som en del av Log Analytics
-* [Använd View Designer för att skapa anpassade vyer i Log Analytics](../log-analytics/log-analytics-view-designer.md)
-* Referens för hur du [Log Analytics-integrering med Syslog](../log-analytics/log-analytics-data-sources-syslog.md).
+* Bekanta dig med den [loggsökning och frågor](../log-analytics/log-analytics-log-searches.md) funktioner som erbjuds som en del av Azure Monitor-loggar
+* [Använd View Designer för att skapa anpassade vyer i Azure Monitor-loggar](../log-analytics/log-analytics-view-designer.md)
+* Referens för hur du [Azure Monitor-loggar integrering med Syslog](../log-analytics/log-analytics-data-sources-syslog.md).

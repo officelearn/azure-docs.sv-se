@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: a04a9f225d46ae3dc51381f01984a4ac2af3448f
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 5f97c2997711c30ad52e5209ba86e0d1bfe30ea8
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56890946"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57251861"
 ---
 # <a name="azure-premium-storage-design-for-high-performance"></a>Azure premium storage: design för hög prestanda
 
@@ -69,11 +69,11 @@ När du optimerar ditt program kan få högre IOPS och dataflöde, påverkar sva
 
 Följande kontrollplanåtgärder på hanterade diskar kan omfatta flödet av Disk från en lagringsplats till en annan. Detta är orkestreras via bakgrund kopia av data som kan ta flera timmar att slutföra, vanligtvis mindre än 24 timmar beroende på mängden data på diskarna. Under den tiden kan ditt program högre än vanligt lässvarstid uppleva eftersom vissa läsning kan hämta omdirigeras till den ursprungliga platsen och kan ta längre tid att slutföra. Det finns ingen inverkan på skrivfördröjningen under denna period.
 
-1. [Uppdatera lagringstypen](../articles/virtual-machines/windows/convert-disk-storage.md).
-1. [Koppla från och ansluta en disk från en virtuell dator till en annan](../articles/virtual-machines/windows/attach-disk-ps.md#attach-an-existing-data-disk-to-a-vm).
-1. [Skapa en hanterad disk från en virtuell Hårddisk](../articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-vhd.md).
-1. [Skapa en hanterad disk från en ögonblicksbild](../articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-snapshot.md).
-1. [Konvertera ohanterade diskar till managed disks](../articles/virtual-machines/windows/convert-unmanaged-to-managed-disks.md).
+- Uppdatera lagringstyp.
+- Koppla från och ansluta en disk från en virtuell dator till en annan.
+- Skapa en hanterad disk från en virtuell Hårddisk.
+- Skapa en hanterad disk från en ögonblicksbild.
+- Konvertera ohanterade diskar till hanterade diskar.
 
 # <a name="performance-application-checklist-for-disks"></a>Checklista för prestanda-programmet för diskar
 

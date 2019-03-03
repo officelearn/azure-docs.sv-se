@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/22/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 1556a7d482a6644831589937b1847b1d63e72693
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: cdfc858522c5b331c90259de0fb5ad84fa54bc5d
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56890992"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57251865"
 ---
 # <a name="what-disk-types-are-available-in-azure"></a>Vilka disktyper är tillgängliga i Azure?
 
@@ -95,11 +95,11 @@ Azure standard SSD: er är ett alternativ för kostnadseffektiv lagring som opti
 
 Storlekar som är markerade med en asterisk finns för närvarande i förhandsversion.
 
-| Standard SSD-storlekar  | E10               | E15               | E20             | E30 | E40              | E50              | E60*              | E70*              | E80*              |
-|---------------------|---------------------|---------------------|------------------|------------------|------------------|------------------|------------------|------------------|------------------|
-| Diskstorleken i GiB           | 128             | 256             | 512            | 1,024  | 2,048            | 4,095     | 8 192     | 16,384     | 32,767    |
-| IOPS per disk       | Upp till 500              | Upp till 500              | Upp till 500              | Upp till 500 | Upp till 500              | Upp till 500              | Upp till 500             | Upp till 500              | Upp till 1 300              | Upp till 2 000              | Upp till 2 000              |
-| Dataflöde per disk |  Upp till 60 MiB/sek | Upp till 60 MiB/sek | Upp till 60 MiB/sek | Upp till 60 MiB/sek | Upp till 60 MiB/sek | Upp till 60 MiB/sek| Upp till 300 MiB/sek |  Upp till 500 MiB/sek | Upp till 500 MiB/sek |
+| Standard SSD-storlekar  | E4                   | E6                   | E10               | E15               | E20             | E30 | E40              | E50              | E60*              | E70*              | E80*              |
+|---------------------|---------------------|---------------------|---------------------|---------------------|------------------|------------------|------------------|------------------|------------------|------------------|------------------|
+| Diskstorleken i GiB           | 32             | 64             | 128             | 256             | 512            | 1,024  | 2,048            | 4,095     | 8 192     | 16,384     | 32,767    |
+| IOPS per disk       | Upp till 120              | Upp till 240              | Upp till 500              | Upp till 500              | Upp till 500              | Upp till 500 | Upp till 500              | Upp till 500              | Upp till 500             | Upp till 500              | Upp till 1 300              | Upp till 2 000              | Upp till 2 000              |
+| Dataflöde per disk |  Upp till 25 MiB/sek  |  Upp till 50 MiB/sek  |  Upp till 60 MiB/sek | Upp till 60 MiB/sek | Upp till 60 MiB/sek | Upp till 60 MiB/sek | Upp till 60 MiB/sek | Upp till 60 MiB/sek| Upp till 300 MiB/sek |  Upp till 500 MiB/sek | Upp till 500 MiB/sek |
 
 ## <a name="standard-hdd"></a>Standard HDD
 

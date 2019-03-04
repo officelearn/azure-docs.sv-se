@@ -7,21 +7,35 @@ items:
     href: billing-understand-your-bill.md
   - name: Förstå EA-fakturan
     href: billing-understand-your-bill-ea.md
-  - name: Hämta faktura och användningsdata
-    href: billing-download-azure-invoice-daily-usage-date.md
+  - name: Förstå din faktura – endast Microsoft-kundavtal
+    href: billing-mca-understand-your-bill.md
+  - name: Visa och ladda ned din faktura för Microsoft Azure
+    href: billing-download-azure-invoice.md
+  - name: Visa och ladda ned information om din användning och dina avgifter för Microsoft Azure
+    href: billing-download-azure-daily-usage.md
+  - name: Visa och ladda ned skattedokument för ditt Microsoft-kundavtal
+    href: billing-mca-download-tax-document.md
   - name: Avgifter för tjänster från tredje part
     href: billing-understand-your-azure-marketplace-charges.md
   - name: Förklaring av användningsvillkor
     href: billing-understand-your-usage.md
+  - name: Förklaring av användningsvillkor – endast Microsoft-kundavtal
+    href: billing-mca-understand-your-usage.md
   - name: Förklaring av fakturavillkor
     href: billing-understand-your-invoice.md
+  - name: Förklaring av fakturavillkor – endast Microsoft-kundavtal
+    href: billing-mca-understand-your-invoice.md
+  - name: Faktureringskonton för Microsoft-kundavtal
+    href: billing-mca-overview.md
   expanded: true
 - name: Hantera kostnader
   items:
   - name: Undvik oväntade kostnader
     href: billing-getting-started.md
-  - name: Visa EA-priser
+  - name: Visa och ladda ned din organisations priser
     href: billing-ea-pricing.md
+  - name: Förklaring av termerna i prisdokumentet – endast Microsoft-kundavtal
+    href: billing-mca-understand-pricesheet.md
   - name: Använda resurstaggar
     href: ../azure-resource-manager/resource-group-using-tags.md?toc=/azure/billing/TOC.json
   - name: Börja analysera kostnader
@@ -30,6 +44,8 @@ items:
     href: ../cost-management/tutorial-acm-create-budgets.md?toc=/azure/billing/TOC.json
   - name: Optimera rekommendationer
     href: ../cost-management/tutorial-acm-opt-recommendations.md?toc=/azure/billing/TOC.json
+  - name: Spåra krediter för Microsoft-kundavtal
+    href: billing-mca-check-azure-credits-balance.md
   - name: Beräkna priser
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Förstå utgiftsgränser
@@ -90,12 +106,20 @@ items:
     href: billing-manage-access.md
   - name: EA-roller i Azure
     href: billing-understand-ea-roles.md
+  - name: Roller i Microsoft-kundavtal i Azure
+    href: billing-understand-mca-roles.md
   - name: Länka partner-ID
     href: billing-partner-admin-link-started.md
   - name: Visa faktureringskonton
     href: billing-view-all-accounts.md
+  - name: Ordna kostnader med fakturaavsnitt
+    href: billing-mca-section-invoice.md
+  - name: EA-uppgifter i Microsoft-kundavtal
+    href: billing-mca-enterprise-operations.md
   - name: Lös passerat betalningsdatum
     href: billing-azure-subscription-past-due-balance.md
+  - name: Konfigurera ett faktureringskonto för Microsoft-kundavtal
+    href: billing-mca-setup-account.md
   - name: Logga in med Office 365-konto
     href: billing-use-existing-office-365-account-azure-subscription.md
   - name: Registrera dig för Office 365 med ett Azure-konto
@@ -106,6 +130,8 @@ items:
     href: billing-subscription-become-disable.md
   - name: Överför ägarskap
     href: billing-subscription-transfer.md
+  - name: Begära ägarskap – Microsoft-kundavtal
+    href: billing-mca-request-billing-ownership.md
   - name: Avbryt prenumerationen
     href: billing-how-to-cancel-azure-subscription.md
   - name: Ändra kreditkort
@@ -122,6 +148,8 @@ items:
     href: ../azure-resource-manager/resource-group-move-resources.md?toc=/azure/billing/TOC.json
   - name: Skapa ytterligare prenumerationer
     href: billing-create-subscription.md
+  - name: Skapa ytterligare prenumeration – Microsoft kundavtal
+    href: billing-mca-create-subscription.md
   - name: Skapa Enterprise-prenumerationer programmässigt
     href: ../azure-resource-manager/programmatically-create-subscription.md?toc=/azure/billing/TOC.json
   - name: Exportera prenumerationsinformation
@@ -190,9 +218,9 @@ items:
     items:
     - name: REST API för Enterprise Reporting
       href: https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-balance-summary
-ms.openlocfilehash: 156f9f2ebb293855d541c779c7a2e3ba83cffc07
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: 5d56504730be60d872c9d1345850925a645c664e
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447709"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57241654"

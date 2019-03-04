@@ -14,6 +14,7 @@
 #### [Leadhantering](./lead-management-for-cloud-marketplace.md)
 #### [Transaktioner på Azure Marketplace](./marketplace-commercial-transaction-capabilities-and-considerations.md)
 #### [Privata erbjudanden](./private-offers.md)
+#### [Standardavtal](./standard-contract.md)
 
 ### [Publiceringsguide efter erbjudandetyp](./publisher-guide-by-offer-type.md)
 #### [Virtual Machines](./marketplace-virtual-machines.md)
@@ -30,13 +31,16 @@
 #### [Metodtips för erbjudandelistor](./gtm-offer-listing-best-practices.md)
 #### [Så här gör du för att sticka ut i mängden](./gtm-how-to-get-featured.md)
 #### [Validering av Marketplace-innehåll](./marketplace-criteria-content-validation.md)
+#### [Leverantörer av molnlösningar](./cloud-solution-providers.md)
 
 ### [Dina Marketplace-förmåner](./gtm-your-marketplace-benefits.md)
 #### [Marknadsför din verksamhet med Microsoft](./gtm-promote-your-business.md)
 #### [Önskade lösningar](./preferred-solutions.md) 
+#### [Integrerade lösningar](./integrated-solutions.md)
 
 ### [Support för Azure Marketplace och AppSource](./support-azure-marketplace.md)
 #### [Vanliga frågor och svar om Marketplace](./marketplace-faq-publisher-guide.md)
+#### [Geografisk tillgänglighet och valutor](./marketplace-geo-availability-currencies.md)
 
 <!-- Following section is for Cloud Partner Portal (CPP). -->
 

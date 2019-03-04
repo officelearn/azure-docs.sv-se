@@ -5,14 +5,14 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 10/16/2018
+ms.date: 03/01/2019
 ms.author: iainfou
-ms.openlocfilehash: df95329128c93f326b6f2c75fb7faef1a46029cc
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 66fc5c92410118f4e0042738d2107b272d68f9bf
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456511"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57240345"
 ---
 # <a name="security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks"></a>Säkerhetsbegrepp för program och -kluster i Azure Kubernetes Service (AKS)
 
@@ -28,13 +28,13 @@ Den här artikeln innehåller grundläggande begrepp som skyddar dina program i 
 
 ## <a name="master-security"></a>Master säkerhet
 
-I AKS är Kubernetes huvudkomponenter en del av hanterad tjänst som tillhandahålls av Microsoft. Varje AKS-kluster har sina egna enda Backups, dedikerad Kubernetes master ange API-servern, Scheduler, osv. Den här bakgrunden hanteras och underhålls av Microsoft
+I AKS är Kubernetes huvudkomponenter en del av hanterad tjänst som tillhandahålls av Microsoft. Varje AKS-kluster har sina egna enda Backups, dedikerad Kubernetes master ange API-servern, Scheduler, osv. Den här bakgrunden hanteras och underhålls av Microsoft.
 
 Som standard Kubernetes API-servern använder en offentlig IP-adress och namnge med fullständigt kvalificerade domännamnet (FQDN). Du kan styra åtkomst till API-servern med hjälp av Kubernetes rollbaserade åtkomstkontroller och Azure Active Directory. Mer information finns i [Azure AD-integrering med AKS][aks-aad].
 
 ## <a name="node-security"></a>Nod-säkerhet
 
-AKS-noder är Azure virtuella datorer som du hanterar och underhåller. Noderna kör en optimerad Ubuntu Linux-distribution med Docker container runtime. När ett AKS-kluster skapas eller skalas upp, distribueras automatiskt noderna med den senaste OS säkerhetsuppdateringar och konfigurationer.
+AKS-noder är Azure virtuella datorer som du hanterar och underhåller. Noderna kör en optimerad Ubuntu Linux-distribution med Moby behållare runtime. När ett AKS-kluster skapas eller skalas upp, distribueras automatiskt noderna med den senaste OS säkerhetsuppdateringar och konfigurationer.
 
 Azure-plattformen används automatiskt OS säkerhetsuppdateringar till noder på basis av varje natt. Om en OS-säkerhetsuppdatering kräver en omstart av värden, utförs inte att starta om automatiskt. Du kan manuellt starta om noderna eller en vanlig metod är att använda [Kured][kured], en omstart för öppen källkod-daemon för Kubernetes. Kured körs som en [DaemonSet] [ aks-daemonsets] och övervakar varje nod för förekomsten av en fil som anger att en omstart krävs. Omstarter hanteras i klustret med samma [här och tömma processen](#cordon-and-drain) som en uppgradering av klustret.
 
@@ -65,7 +65,7 @@ Du kan distribuera AKS-klustret i den befintliga Azure-nätverk undernät för a
 
 ### <a name="azure-network-security-groups"></a>Säkerhetsgrupper för Azure-nätverk
 
-Azure använder regler för nätverkssäkerhetsgrupper för att filtrera trafikflödet i virtuella nätverk. Reglerna definierar källa och mål-IP-adressintervall, portar och protokoll som tillåts eller nekas åtkomst till resurser. Standardregler skapas för att tillåta TLS-trafik till Kubernetes API-servern och för SSH-åtkomst till noderna. När du skapar tjänster med belastningsutjämnare, portmappningar eller ingående vägar ändrar nätverkssäkerhetsgruppen för trafik för att flöda automatiskt i AKS.
+Azure använder regler för nätverkssäkerhetsgrupper för att filtrera trafikflödet i virtuella nätverk. Reglerna definierar källa och mål-IP-adressintervall, portar och protokoll som tillåts eller nekas åtkomst till resurser. Standardregler skapas för att tillåta TLS-trafik till Kubernetes API-servern. När du skapar tjänster med belastningsutjämnare, portmappningar eller ingående vägar ändrar nätverkssäkerhetsgruppen för trafik för att flöda automatiskt i AKS.
 
 ## <a name="kubernetes-secrets"></a>Kubernetes-hemligheter
 
@@ -76,6 +76,8 @@ Användning av hemligheter minskar den känsliga informationen som definieras i 
 ## <a name="next-steps"></a>Nästa steg
 
 Kom igång med att skydda dina AKS-kluster, se [uppgradera ett AKS-kluster][aks-upgrade-cluster].
+
+Associerade metodtips finns [bästa praxis för Klustersäkerhet och uppgraderingar i AKS][operator-best-practices-cluster-security].
 
 Mer information om core Kubernetes och AKS-begrepp finns i följande artiklar:
 
@@ -99,3 +101,4 @@ Mer information om core Kubernetes och AKS-begrepp finns i följande artiklar:
 [aks-concepts-storage]: concepts-storage.md
 [aks-concepts-network]: concepts-network.md
 [cluster-isolation]: operator-best-practices-cluster-isolation.md
+[operator-best-practices-cluster-security]: operator-best-practices-cluster-security.md

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2019
 ms.author: monhaber
-ms.openlocfilehash: 5fd885acc4294ae9f370d3becd0ad8cfb7935193
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: 312e6c3c102946bcd19247f0730369dc7d0c8aba
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56992370"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57247434"
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>Vanliga frågor och svar om Azure Security Center
 Den här vanliga frågor och svar innehåller frågor och svar om Azure Security Center, en tjänst som hjälper dig att förhindra, upptäcka och svara på hot med ökad insyn i och kontroll över säkerheten hos dina Microsoft Azure-resurser.
@@ -54,8 +54,8 @@ Se [behörigheter i Azure Security Center](security-center-permissions.md) mer i
 ## <a name="data-collection-agents-and-workspaces"></a>Insamling av data, agenter och arbetsytor
 Security Center samlar in data från dina virtuella Azure-datorer (VM) och icke-Azure-datorer för att övervaka säkerhetsproblem och hot. Data samlas in med Microsoft Monitoring Agent, som läser olika säkerhetsrelaterade konfigurationer och händelseloggar från datorn och kopierar data till din arbetsyta för analys.
 
-### <a name="am-i-billed-for-log-analytics-on-the-workspaces-created-by-security-center"></a>Debiteras jag för Log Analytics på arbetsytor som skapats av Security Center?
-Nej. Arbetsytor som skapats av Security Center, medan konfigurerats för Log Analytics per nod fakturering, avgifter Log Analytics. Security Center fakturering baseras alltid på din säkerhetsprincip i Security Center och de lösningar som är installerad på en arbetsyta:
+### <a name="am-i-billed-for-azure-monitor-logs-on-the-workspaces-created-by-security-center"></a>Debiteras jag för Azure Monitor-loggar på arbetsytor som skapats av Security Center?
+Nej. Arbetsytor som skapats av Security Center, medan konfigurerad för Azure Monitor-loggar för noden fakturering per avgifter Azure Monitor-loggar. Security Center fakturering baseras alltid på din säkerhetsprincip i Security Center och de lösningar som är installerad på en arbetsyta:
 
 - **Kostnadsfri nivå** – Security Center aktiveras 'SecurityCenterFree' lösningen på standardarbetsytan. Du debiteras inte för den kostnadsfria nivån.
 - **Standard-nivån** – Security Center aktiveras ”säkerhet” lösningen på standardarbetsytan.
@@ -63,9 +63,11 @@ Nej. Arbetsytor som skapats av Security Center, medan konfigurerats för Log Ana
 Mer information om priser finns i [Security Center-prissättning](https://azure.microsoft.com/pricing/details/security-center/). Sidan med priser adresser ändringar av lagring av säkerhetsdata och beräknad fakturering börjar i juni 2017.
 
 > [!NOTE]
-> Log Analytics prisnivån för arbetsytor som skapats av Security Center påverkar inte Security Center fakturering.
+> Log analytics prisnivån för arbetsytor som skapats av Security Center påverkar inte Security Center fakturering.
 >
 >
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ### <a name="what-qualifies-a-vm-for-automatic-provisioning-of-the-microsoft-monitoring-agent-installation"></a>Vad innebär en virtuell dator för automatisk etablering av installationen av Microsoft Monitoring Agent?
 Kvalificera dig om Windows eller Linux IaaS-datorer:
@@ -217,7 +219,7 @@ Agenten använder en liten mängd systemresurser och bör ha liten inverkan på 
 ### <a name="where-is-my-data-stored"></a>Var lagras mina data?
 Data som samlas in från agenten lagras i en befintlig Log Analytics-arbetsyta som är associerad med din prenumeration eller en ny arbetsyta. Mer information finns i [datasäkerhet](security-center-data-security.md).
 
-## Befintliga Log Analytics-kunder<a name="existingloganalyticscust"></a>
+## Befintliga Azure Monitor loggar kunder<a name="existingloganalyticscust"></a>
 
 ### <a name="does-security-center-override-any-existing-connections-between-vms-and-workspaces"></a>Security Center åsidosätter alla befintliga anslutningar mellan virtuella datorer och arbetsytor?
 Om en virtuell dator redan har Microsoft Monitoring Agent installerad som en utökning av Azure, åsidosätts inte den befintliga arbetsyta-anslutningen i Security Center. Security Center använder i stället den befintliga arbetsytan.

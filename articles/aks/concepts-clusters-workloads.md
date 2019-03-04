@@ -5,18 +5,18 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 10/16/2018
+ms.date: 02/28/2019
 ms.author: iainfou
-ms.openlocfilehash: 7f964397b476d5a97ecdde0ae22bd6662a435e1a
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: d4293bf6a375f3e1a26c0c4fb50fcdc7bb5b8e8e
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456528"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57243864"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Kubernetes grundläggande begrepp för Azure Kubernetes Service (AKS)
 
-Eftersom programutveckling har flyttats till en behållarbaserad metod, blir behovet av att dirigera och hantera de sammankopplade resurserna viktigt. Kubernetes är den ledande plattformen som ger dig möjlighet att tillhandahålla tillförlitlig schemaläggning av arbetsbelastningar feltoleranta program. Azure Kubernetes Service (AKS) är en hanterad Kubernetes erbjudande som ytterligare förenklar behållarbaserade programdistribution och hantering.
+Allteftersom programutveckling sig mot en behållarbaserad metod, är det viktigt att behöva samordna och hantera resurser. Kubernetes är den ledande plattformen som ger dig möjlighet att tillhandahålla tillförlitlig schemaläggning av arbetsbelastningar feltoleranta program. Azure Kubernetes Service (AKS) är en hanterad Kubernetes erbjudande som ytterligare förenklar behållarbaserade programdistribution och hantering.
 
 Den här artikeln introducerar kärnkomponenter för Kubernetes-infrastrukturen som den *kluster master*, *noder*, och *nodpooler*. Arbetsbelastningen resurser, som *poddar*, *distributioner*, och *anger* också introduceras, tillsammans med hur du gruppera resurser i *namnområden*.
 
@@ -56,13 +56,15 @@ Den här bakgrunden hanterat kluster innebär att du inte behöver konfigurera k
 
 Om du vill konfigurera kluster-master i ett visst sätt eller behöver direkt åtkomst till dem. Du kan distribuera din egen Kubernetes-kluster med [aks-engine][aks-engine].
 
+Associerade metodtips finns [bästa praxis för Klustersäkerhet och uppgraderingar i AKS][operator-best-practices-cluster-security].
+
 ## <a name="nodes-and-node-pools"></a>Noder och nodpooler
 
 Om du vill köra dina program och tjänsterna du behöver ett Kubernetes *noden*. Ett AKS-kluster har en eller flera noder, vilket är en Azure-dator (VM) som kör Kubernetes noden komponenter och behållaren runtime:
 
 - Den `kubelet` är Kubernetes-agenten som bearbetar orchestration-begäranden från klustret master och schemaläggning i de begärda behållarna som körs.
 - Virtuella nätverk som hanteras av den *kube-proxy* på varje nod. Proxyvägar nätverkstrafik och hanterar IP-adresser för tjänster och poddar.
-- Den *behållare runtime* är den komponent som gör att program i behållare att köra och interagera med ytterligare resurser, till exempel virtuella nätverk och lagring. I AKS används Docker som behållare runtime.
+- Den *behållare runtime* är den komponent som gör att program i behållare att köra och interagera med ytterligare resurser, till exempel virtuella nätverk och lagring. I AKS används Moby som behållare runtime.
 
 ![Azure-dator och stödresurser för ett Kubernetes-nod](media/concepts-clusters-workloads/aks-node-resource-interactions.png)
 
@@ -70,7 +72,7 @@ Azure VM-storlek för noderna definierar hur många processorer, hur mycket minn
 
 I AKS baserat VM-avbildning för noderna i klustret för närvarande på Ubuntu Linux. När du skapar ett AKS-kluster eller skala upp antalet noder, skapar det begärda antalet virtuella datorer i Azure-plattformen och konfigurerar dem. Det finns ingen manuell konfiguration som du kan utföra.
 
-Om du vill använda en annan värd OS, körning av behållare, eller anpassade paket kan du distribuera din egen Kubernetes-kluster med [aks-engine][aks-engine]. Den överordnade `aks-engine` släpper funktioner och ger konfigurationsalternativ innan de stöds officiellt i AKS-kluster. Till exempel om du vill använda Windows-behållare eller en behållare runtime än Docker, du kan använda `aks-engine` att konfigurera och distribuera ett Kubernetes-kluster som uppfyller dina befintliga behov.
+Om du vill använda en annan värd OS, körning av behållare, eller anpassade paket kan du distribuera din egen Kubernetes-kluster med [aks-engine][aks-engine]. Den överordnade `aks-engine` släpper funktioner och ger konfigurationsalternativ innan de stöds officiellt i AKS-kluster. Till exempel om du vill använda Windows-behållare eller en behållare runtime än Moby du kan använda `aks-engine` att konfigurera och distribuera ett Kubernetes-kluster som uppfyller dina befintliga behov.
 
 ### <a name="resource-reservations"></a>Resurs-reservationer
 
@@ -92,6 +94,8 @@ Exempel:
     - Totalt *(32-4) = 28 GiB* är tillgänglig för noden
     
 Den underliggande noden OS kräver också vissa delar av processor och minne resurser för att slutföra sin egen kärnfunktioner.
+
+Associerade metodtips finns [bästa praxis för grundläggande scheduler funktioner i AKS][operator-best-practices-scheduler].
 
 ### <a name="node-pools"></a>Nodpooler
 
@@ -115,7 +119,7 @@ En *distribution* representerar en eller flera identiska poddar, hanteras av kon
 
 Du kan uppdatera distributioner om du vill ändra konfigurationen av poddar, behållaravbildning används eller ansluten lagring. Kontrollanten distribution tömmer avslutas ett visst antal repliker, skapar repliker från den nya distributionsdefinitionen och fortsätter processen tills alla repliker i distributionen uppdateras.
 
-De flesta tillståndslösa program i AKS ska använda distributionsmodellen i stället för att schemalägga enskilda poddar. Kubernetes kan övervaka hälsotillstånd och status för distributioner för att se till att de nödvändiga antal repliker som körs i klustret. När du bara schemalägga enskilda poddar poddarna inte startas om om de stöter på ett problem och ändras inte på felfria noder om deras aktuella noden påträffar ett problem.
+De flesta tillståndslösa program i AKS ska använda distributionsmodellen i stället för att schemalägga enskilda poddar. Kubernetes kan övervaka hälsotillstånd och status för distributioner för att se till att de nödvändiga antal repliker som körs i klustret. När du schemalägger endast enskilda poddar, startas poddarna inte om när de uppstår problem och schemaläggs på felfria noder om deras aktuella noden påträffar ett problem.
 
 Om ett program kräver ett kvorum av instanser ska alltid vara tillgänglig för hantering av beslut om, kan du inte vill en uppdateringsprocess stör den möjligheten. *Pod avbrott budgetar* kan användas för att definiera hur många repliker i en distribution kan stängas av under en uppdatering eller nod-uppgradering. Om du har till exempel *5* repliker i distributionen, kan du definiera en pod-avbrott i *4* för att endast tillåta en replik från att ta bort/schemaläggas i taget. Som med pod resursbegränsningar är bästa praxis att definiera pod avbrott budgetar på program som kräver ett minsta antal repliker alltid måste finnas.
 
@@ -236,3 +240,5 @@ Den här artikeln beskriver några av Kubernetes kärnkomponenter samt hur de an
 [aks-concepts-network]: concepts-network.md
 [acr-helm]: ../container-registry/container-registry-helm-repos.md
 [aks-helm]: kubernetes-helm.md
+[operator-best-practices-cluster-security]: operator-best-practices-cluster-security.md
+[operator-best-practices-scheduler]: operator-best-practices-scheduler.md

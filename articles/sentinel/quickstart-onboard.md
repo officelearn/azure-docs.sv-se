@@ -4,7 +4,7 @@ description: Lär dig mer om att samla in data i Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 ms.assetid: d5750b3e-bfbd-4fa0-b888-ebfab7d9c9ae
 ms.service: sentinel
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2019
 ms.author: rkarlin
-ms.openlocfilehash: 9c5f4c73bb516172773f6aad5e5393db6d40b3d5
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: c711ea3636a3ea045b4a145481f9da156b8c5bfc
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56992917"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57246992"
 ---
 # <a name="on-board-azure-sentinel-preview"></a>Integrera Azure Sentinel-förhandsversion
 
@@ -63,7 +63,7 @@ När du ansluter dina datakällor kan du välja från ett galleri med flytta ska
 6. Klicka på **lägga till Azure Sentinel**.
   
 
-## <a name="connect-data-sources"></a>Ansluta datakällor
+## <a name="connect-data-sources"></a>Ansluta till datakällor
 
 Azure Sentinel skapas en anslutning till tjänster och appar genom att ansluta till tjänsten och vidarebefordran av händelser och loggar till Sentinel-Azure. Du kan installera agenten Azure Sentinel som samlar in loggarna och vidarebefordrar dem till Azure Sentinel för datorer och virtuella datorer. För brandväggar och proxyservrar använder Sentinel-Azure en Linux Syslog-server. Agenten är installerad på den och från som agenten samlar in loggen filer och vidarebefordrar dem till Azure Sentinel. 
  

@@ -13,14 +13,17 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
-ms.openlocfilehash: 5e3ef7782f805e07e24783a987f2753e4e889946
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 1c145f100e22dbb268a7cd491eb8a43b51988c69
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56313041"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57315817"
 ---
 # <a name="log-analytics-faq"></a>Vanliga frågor och svar om Log Analytics
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Den här Microsoft-FAQ är en lista över vanliga frågor om Log Analytics i Microsoft Azure. Om du har ytterligare frågor om Log Analytics kan du gå till den [diskussionsforum](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights) och ställa frågor. När en fråga är vanliga vi lägga till det i den här artikeln så att den finns snabbt och enkelt.
 
 
@@ -168,7 +171,7 @@ Trafik till Log Analytics använder offentliga peering ExpressRoute-kretsen.
 
 ### <a name="q-is-there-a-simple-and-easy-way-to-move-an-existing-log-analytics-workspace-to-another-log-analytics-workspaceazure-subscription"></a>F. Finns det ett enkelt och smidigt sätt att flytta en befintlig Log Analytics-arbetsyta till en annan Log Analytics-arbetsyta/Azure-prenumeration?
 
-A. Den `Move-AzureRmResource` cmdlet kan du flytta en Log Analytics-arbetsyta och ett Automation-konto från en Azure-prenumeration till en annan. Mer information finns i [Move-AzureRmResource](https://msdn.microsoft.com/library/mt652516.aspx).
+A. Den `Move-AzResource` cmdlet kan du flytta en Log Analytics-arbetsyta och ett Automation-konto från en Azure-prenumeration till en annan. Mer information finns i [flytta AzResource](https://msdn.microsoft.com/library/mt652516.aspx).
 
 Den här ändringen kan också göras i Azure-portalen.
 
@@ -196,7 +199,7 @@ Under **Azure Log Analytics (OMS)**, ta bort alla arbetsytor som visas.
 
 ### <a name="q-why-am-i-getting-an-error-when-i-try-to-move-my-workspace-from-one-azure-subscription-to-another"></a>F: Varför får jag ett fel när jag försöker flytta Min arbetsyta från en Azure-prenumeration till en annan?
 
-S: Om du vill flytta en arbetsyta till en annan prenumeration eller resursgrupp du måste först ta bort länken till Automation-konto på arbetsytan. Tar bort länken ett Automation-konto kräver borttagning av dessa lösningar om de är installerade på arbetsytan: Uppdateringshantering, ändringsspårning eller starta/stoppa VM under kontorstid tas bort. När dessa lösningar har tagits bort, ta bort länken till Automation-kontot genom att välja **länkad arbetsytor** i det vänstra fönstret i Automation-kontot resursen och klicka på **ta bort arbetsytans länk** i menyfliksområdet.
+S: Om du vill flytta en arbetsyta till en annan prenumeration eller resursgrupp du måste först ta bort länken till Automation-konto på arbetsytan. Borttagning av ett Automation-konto kräver borttagning av dessa lösningar om de är installerade på arbetsytan: Uppdateringshantering, ändringsspårning eller starta/stoppa VM under kontorstid tas bort. När dessa lösningar har tagits bort, ta bort länken till Automation-kontot genom att välja **länkad arbetsytor** i det vänstra fönstret i Automation-kontot resursen och klicka på **ta bort arbetsytans länk** i menyfliksområdet.
  > Ta bort lösningar behöver installeras på arbetsytan och Automation-länk till arbetsytan måste räknas efter flytten.
 
 Se till att du har behörighet i både Azure-prenumerationer.

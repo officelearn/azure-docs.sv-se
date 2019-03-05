@@ -12,12 +12,12 @@ ms.author: jrasnick
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 12/19/2018
-ms.openlocfilehash: 05dfece2a2e69c5cdb3f08b51424720a1c2898db
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: f462940f652f568168c4d0b1e8012c7196d59b13
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55561951"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57314168"
 ---
 # <a name="managing-azure-sql-databases-using-azure-automation"></a>Hantera Azure SQL-databaser med Azure Automation
 
@@ -37,7 +37,7 @@ Azure SQL Database kan hanteras i Azure Automation med hjälp av den [Azure SQL 
 
 Azure Automation har också möjlighet att kommunicera med SQL-servrar direkt, genom att utfärda SQL-kommandon med hjälp av PowerShell.
 
-Den [Azure Automation runbook-galleriet](https://azure.microsoft.com/blog/2014/10/07/introducing-the-azure-automation-runbook-gallery/) innehåller en rad olika produkt-teamet och community runbooks för att komma igång med automatiserade hantering av Azure SQL-databaser, andra Azure-tjänster och program från tredje part. Runbooks från galleriet är:
+Den [Azure Automation runbook-galleriet](https://azure.microsoft.com/blog/20../../introducing-the-azure-automation-runbook-gallery/) innehåller en rad olika produkt-teamet och community runbooks för att komma igång med automatiserade hantering av Azure SQL-databaser, andra Azure-tjänster och program från tredje part. Runbooks från galleriet är:
 
 - [Kör SQL-frågor mot en SQL Server-databas](https://gallery.technet.microsoft.com/scriptcenter/How-to-use-a-SQL-Command-be77f9d2)
 - [Lodrätt skalning (upp eller ned) en Azure SQL Database enligt ett schema](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-Database-e957354f)
@@ -50,4 +50,4 @@ Nu när du har lärt dig grunderna i Azure Automation och hur den kan användas 
 
 - [Översikt över Azure Automation](../automation/automation-intro.md)
 - [Min första Runbook](../automation/automation-first-runbook-graphical.md)
-- [Azure Automation: Din SQL-Agent i molnet](https://azure.microsoft.com/blog/2014/06/26/azure-automation-your-sql-agent-in-the-cloud/) 
+- [Azure Automation: Din SQL-Agent i molnet](https://azure.microsoft.com/blog/20../../azure-automation-your-sql-agent-in-the-cloud/) 

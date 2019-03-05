@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/15/2018
+ms.date: 02/27/2019
 ms.author: markvi
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8dad650ac1cc7ab8822925a4a9759b68ee0d0088
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: b4015f99e9281285c530c6ae40dbda4e97846af8
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56186020"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57311057"
 ---
 # <a name="how-to-set-up-sharepoint-online-and-exchange-online-for-azure-active-directory-conditional-access"></a>Instruktioner: Konfigurera SharePoint Online och Exchange Online för villkorlig åtkomst i Azure Active Directory 
 
@@ -77,7 +77,7 @@ När du konfigurerar principer för villkorlig åtkomst för Exchange Online må
 
 Exchange Active Sync har stöd för modern autentisering, finns men det några begränsningar för stöd för scenarier med villkorlig åtkomst:
 
-- Du kan bara konfigurera villkor för enhet-plattformar  
+- När du väljer **Exchange Active Sync-klienter** i principen, du kan inte konfigurera andra villkor.  
 
     ![Enhetsplattformar](./media/conditional-access-for-exo-and-spo/05.png)
 
@@ -93,7 +93,7 @@ För att effektivt skydda åtkomst till Exchange Online från Exchange ActiveSyn
 
     ![Villkorlig åtkomst](./media/conditional-access-for-exo-and-spo/04.png)
 
-    b. Välj **Exchange Active Sync** som **klientappen**, och välj sedan **tillämpa principen endast på plattformar som stöds**.  
+    b. Välj **Exchange Active Sync** som **klientappen**.  
 
     ![Enhetsplattformar](./media/conditional-access-for-exo-and-spo/03.png)
 

@@ -3,7 +3,7 @@ title: Just-in-time-VM-åtkomst i Azure Security Center | Microsoft Docs
 description: Det här dokumentet beskriver hur just-in-time VM-åtkomst i Azure Security Center hjälper till att du styra åtkomst till virtuella datorer i Azure.
 services: security-center
 documentationcenter: na
-author: rkarlin
+author: monhaber
 manager: barbkess
 editor: ''
 ms.assetid: ''
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/4/2018
-ms.author: rkarlin
-ms.openlocfilehash: 2bfa3b6001d714da39ebeb709600504f9d7331c5
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.date: 2/28/2019
+ms.author: monhaber
+ms.openlocfilehash: 9cdcfbc6074f8e343e2571063cc5dafe54072753
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56733665"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57314780"
 ---
 # <a name="manage-virtual-machine-access-using-just-in-time"></a>Hantera VM-åtkomst med hjälp av just-in-time
 
@@ -144,11 +144,11 @@ På så sätt kan just-in-time-åtkomst för den virtuella datorn med hjälp av 
 - Windows-servrar:
     - RDP-porten 3389
     - tre timmar av högsta tillåtna åtkomst
-    - Tillåtna käll-IP-adresser har angetts till Per begäran
+    - Tillåtna käll-IP-adresser har angetts till ett
 - Linux-servrar:
     - SSH-porten 22
     - tre timmar av högsta tillåtna åtkomst
-    - Tillåtna käll-IP-adresser har angetts till Per begäran
+    - Tillåtna käll-IP-adresser har angetts till ett
      
 Om en virtuell dator har redan just-in-time aktiverat när du går till dess konfigurationssidan kommer du att kunna just-in-time är aktiverat och att du kan använda länken för att öppna den i Azure Security Center att visa och ändra inställningarna.
 

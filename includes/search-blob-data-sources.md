@@ -2,17 +2,17 @@
 author: mgottein
 ms.service: search
 ms.topic: include
-ms.date: 11/25/2018
+ms.date: 03/01/2019
 ms.author: magottei
-ms.openlocfilehash: 0f11ea02afb1f59afda215c7d95a660df6155b62
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 4a9ed5dcb32d0e53f933b7da9163a5c8c4b4aa43
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52440482"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57318435"
 ---
 * PDF
-* Microsoft Office-format: DOCX/DOC, XLSX/XLS, PPTX/PPT, MSG (Outlook e-postmeddelanden)  
+* Microsoft Office-format: DOCX/DOC, XLSX/XLS, PPTX/PPT, MSG (Outlook emails)  
 * HTML
 * XML
 * ZIP
@@ -23,5 +23,5 @@ ms.locfileid: "52440482"
 * CSV (se [indexera CSV-blobbar](../articles/search/search-howto-index-csv-blobs.md) förhandsgranskningsfunktion)
 
 > [!IMPORTANT]
-> Stöd för CSV och JSON-matriser förhandsvisas just nu. Dessa format är tillgängliga med enbart version **2016-09-01-Preview** i REST API eller version 2.x-förhandsversionen av .NET SDK. Du kommer ihåg, förhandsgranska API: er är avsedda för testning och utvärdering och ska inte användas i produktionsmiljöer.
+> Stöd för CSV och JSON-matriser förhandsvisas just nu. Dessa format är tillgängliga med enbart version **2017-11-11-Preview** i REST API eller version 7.x-förhandsversionen av .NET SDK. Du kommer ihåg, förhandsgranska API: er är avsedda för testning och utvärdering och ska inte användas i produktionsmiljöer.
 >

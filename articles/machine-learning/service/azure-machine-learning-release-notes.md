@@ -11,12 +11,12 @@ ms.author: haining
 ms.reviewer: j-martens
 ms.date: 2/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: aeda7377a2d5d070a2e36126d53f8f5c203a8256
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: d72676d7eaad539fc6e023bc96ccbb16f0958a7a
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56991401"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57311380"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Viktig information för Azure Machine Learning-tjänsten
 
@@ -47,7 +47,6 @@ I den här artikeln lär du dig om Azure Machine Learning-tjänstversioner.  En 
 
 + **Nya funktioner**
     + Ny dra och släpp tabell redigeraren upplevelse för rapporter. Användare kan dra en kolumn från brunnen till området tabellen där en förhandsgranskning av tabellen visas. Kolumnerna som kan skrivas om.
-    + Ny kör-knappen för körningar som skickades med ScriptRunConfig. Användare kan köra igen en befintlig som körs på en fjärransluten beräkningsklustret för valfri.
     + Granskaren nya loggar
     + Länkar till experiment körs, beräkning, modeller, bilder och distributioner från fliken aktiviteter
 

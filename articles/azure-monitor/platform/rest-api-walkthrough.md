@@ -8,20 +8,22 @@ ms.topic: conceptual
 ms.date: 03/19/2018
 ms.author: mcollier
 ms.subservice: ''
-ms.openlocfilehash: 707c04c22e54220f3020b5897c364318b427267b
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: 2ba0ea64aab67221aa1ee3a87ad35ce7d5516167
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56586601"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57310054"
 ---
 # <a name="azure-monitoring-rest-api-walkthrough"></a>Azure Monitoring REST API-genomgång
 
-Den här artikeln visar hur du utför autentisering så att din kod kan använda den [Microsoft Azure Monitor REST API-referens](https://msdn.microsoft.com/library/azure/dn931943.aspx).
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
+Den här artikeln visar hur du utför autentisering så att din kod kan använda den [Microsoft Azure Monitor REST API-referens](https://docs.microsoft.com/rest/api/monitor/).
 
 Azure Monitor-API gör det möjligt att du kan hämta den tillgängliga standarddefinitioner av mätvärden och kornighet måttvärden. Data kan sparas i ett separat datalager som Azure SQL Database, Azure Cosmos DB eller Azure Data Lake. Därifrån kan du utföra ytterligare analys efter behov.
 
-Förutom att arbeta med olika mått datapunkter, gör övervaka API: et det också möjligt att lista Varningsregler, visa aktivitetsloggar och mycket mer. En fullständig lista över tillgängliga åtgärder finns i den [Microsoft Azure Monitor REST API-referens](https://msdn.microsoft.com/library/azure/dn931943.aspx).
+Förutom att arbeta med olika mått datapunkter, gör övervaka API: et det också möjligt att lista Varningsregler, visa aktivitetsloggar och mycket mer. En fullständig lista över tillgängliga åtgärder finns i den [Microsoft Azure Monitor REST API-referens](https://docs.microsoft.com/rest/api/monitor/).
 
 ## <a name="authenticating-azure-monitor-requests"></a>Den autentiserande Azure Monitor-begäranden
 
@@ -34,24 +36,24 @@ $subscriptionId = "{azure-subscription-id}"
 $resourceGroupName = "{resource-group-name}"
 
 # Authenticate to a specific Azure subscription.
-Connect-AzureRmAccount -SubscriptionId $subscriptionId
+Connect-AzAccount -SubscriptionId $subscriptionId
 
 # Password for the service principal
 $pwd = "{service-principal-password}"
 $secureStringPassword = ConvertTo-SecureString -String $pwd -AsPlainText -Force
 
 # Create a new Azure AD application
-$azureAdApplication = New-AzureRmADApplication `
+$azureAdApplication = New-AzADApplication `
                         -DisplayName "My Azure Monitor" `
                         -HomePage "https://localhost/azure-monitor" `
                         -IdentifierUris "https://localhost/azure-monitor" `
                         -Password $secureStringPassword
 
 # Create a new service principal associated with the designated application
-New-AzureRmADServicePrincipal -ApplicationId $azureAdApplication.ApplicationId
+New-AzADServicePrincipal -ApplicationId $azureAdApplication.ApplicationId
 
 # Assign Reader role to the newly created service principal
-New-AzureRmRoleAssignment -RoleDefinitionName Reader `
+New-AzRoleAssignment -RoleDefinitionName Reader `
                           -ServicePrincipalName $azureAdApplication.ApplicationId.Guid
 
 ```
@@ -59,9 +61,9 @@ New-AzureRmRoleAssignment -RoleDefinitionName Reader `
 Om du vill fråga API: et för Azure Monitor bör klientprogrammet använda tidigare skapade tjänstens huvudnamn för autentisering. I följande exempel PowerShell-skript visas en itu med den [Active Directory Authentication Library](../../active-directory/develop/active-directory-authentication-libraries.md) (ADAL) för att hämta JWT-token för autentisering. Detta JWT-token skickas som en del av en HTTP-auktorisering parameter i begäranden till REST-API i Azure Monitor.
 
 ```PowerShell
-$azureAdApplication = Get-AzureRmADApplication -IdentifierUri "https://localhost/azure-monitor"
+$azureAdApplication = Get-AzADApplication -IdentifierUri "https://localhost/azure-monitor"
 
-$subscription = Get-AzureRmSubscription -SubscriptionId $subscriptionId
+$subscription = Get-AzSubscription -SubscriptionId $subscriptionId
 
 $clientId = $azureAdApplication.ApplicationId.Guid
 $tenantId = $subscription.TenantId
@@ -630,7 +632,7 @@ Resurs-ID kan också hämtas från Azure-portalen. Du gör detta genom att gå t
 Resurs-ID kan hämtas med hjälp av Azure PowerShell-cmdlets. Till exempel för att hämta resurs-ID för ett Azure Logic Apps, kör du cmdleten Get-AzureLogicApp, som i följande exempel:
 
 ```PowerShell
-Get-AzureRmLogicApp -ResourceGroupName azmon-rest-api-walkthrough -Name contosotweets
+Get-AzLogicApp -ResourceGroupName azmon-rest-api-walkthrough -Name contosotweets
 ```
 
 Resultatet bör likna följande exempel:

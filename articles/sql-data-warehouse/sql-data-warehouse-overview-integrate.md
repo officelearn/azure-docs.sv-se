@@ -10,12 +10,12 @@ ms.subservice: consume
 ms.date: 04/17/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: c1bc4265c44f007e794b873d732a06d1e30f324f
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 3546dd26ac7d376eed142629ceeeb30e0709e162
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55661946"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57309884"
 ---
 # <a name="integrate-other-services-with-sql-data-warehouse"></a>Integrera andra tjänster med SQL Data Warehouse
 Utöver dess huvudfunktioner kan SQL Data Warehouse du integrera med många av de andra tjänsterna i Azure. Några av de här tjänsterna är:
@@ -33,7 +33,7 @@ Power BI-integrering kan du kombinera beräkningskraft i SQL Data Warehouse med 
 * **Direktanslut**: En mer avancerad anslutning med logiska pushdown mot SQL Data Warehouse. Pushdown ger snabbare analys i större skala.
 * **Öppna i Powerbi**: Knappen ”Öppna i Power BI-skickar information om processinstans till Power BI för ett förenklat sätt att ansluta.
 
-Mer information finns i [integrera med Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md), eller [Power BI-dokumentationen](https://blogs.msdn.com/b/powerbi/archive/2015/06/24/exploring-azure-sql-data-warehouse-with-power-bi.aspx).
+Mer information finns i [integrera med Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md), eller [Power BI-dokumentationen](https://blogs.msdn.com/b/powerbi/archive/20../../exploring-azure-sql-data-warehouse-with-power-bi.aspx).
 
 ## <a name="azure-data-factory"></a>Azure Data Factory
 Azure Data Factory ger användare en hanterad plattform för att skapa komplexa extrahera och läsa in pipelines. SQL Data Warehouse-integrering med Azure Data Factory omfattar:

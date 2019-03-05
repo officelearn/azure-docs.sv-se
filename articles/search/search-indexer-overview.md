@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/17/2017
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 754bd06e6033b49d24112cb20686e1c9b200d0d0
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 0a6c894b08fd76a018035a824b463e41e31c2f2f
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56875488"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57310207"
 ---
 # <a name="indexers-in-azure-search"></a>Indexerare i Azure Search
 
@@ -48,14 +48,16 @@ Indexerare crawla datalager på Azure.
 * [Azure Cosmos DB](search-howto-index-cosmosdb.md)
 * [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md)
 * [Azure Table Storage](search-howto-indexing-azure-tables.md) 
-    * Observera att Azure Table Storage inte stöds för [kognitiv sökning](cognitive-search-concept-intro.md)
 
+> [!Note]
+> Azure Table Storage stöds inte för [kognitiv sökning](cognitive-search-concept-intro.md).
+>
 
 ## <a name="basic-configuration-steps"></a>Grundläggande konfigurationssteg
 Indexerare kan erbjuda funktioner som är unika för datakällan. I detta avseende varierar vissa aspekter av indexerarna och datakällskonfigurationen kan variera efter indexerartyp. Alla indexerare delar dock samma grundläggande sammansättning och krav. De steg som är gemensamma för alla indexerare beskrivs nedan.
 
 ### <a name="step-1-create-a-data-source"></a>Steg 1: Skapa en datakälla
-En indexerare hämtar data från en *datakälla* som innehåller information som till exempel en anslutningssträng och autentiseringsuppgifter. Anropa den [skapa Datasource](https://docs.microsoft.com/rest/api/searchservice/create-data-source) REST API eller [DataSource klass](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasource) att skapa resursen.
+En indexerare hämtar en anslutning till datakälla från en *datakälla* objekt. Definitionen av datakällan innehåller en anslutningssträng och eventuellt autentiseringsuppgifter. Anropa den [skapa Datasource](https://docs.microsoft.com/rest/api/searchservice/create-data-source) REST API eller [DataSource klass](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasource) att skapa resursen.
 
 Datakällor konfigureras och hanteras oberoende av indexerarna som använder dem, vilket innebär att en datakälla kan användas av flera indexerare för att läsa in mer än ett index i taget.
 
@@ -67,6 +69,59 @@ En indexerare automatiserar vissa uppgifter som rör datapåfyllning, men att sk
 
 ### <a name="step-3-create-and-schedule-the-indexer"></a>Steg 3: Skapa och Schemalägg indexeraren
 Indexerardefinitionen är en konstruktion som specificerar index, datakälla och schema. En indexerare referera till en datakälla från en annan tjänst så länge som den datakällan är från samma prenumeration. Mer information om att strukturera en indexerare finns i [Skapa et indexerare (REST-API för Azure Search)](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer).
+
+<a id="RunIndexer"></a>
+
+## <a name="run-indexers-on-demand"></a>Köra indexerare på begäran
+
+Det är vanligt att schemalägga indexering, kan du också anropa en indexerare på begäran med hjälp av kommandot Kör:
+
+    POST https://[service name].search.windows.net/indexers/[indexer name]/run?api-version=2017-11-11
+    api-key: [Search service admin key]
+
+> [!NOTE]
+> När du kör API: et returnerar har, indexeraren anrop har schemalagts, men den faktiska bearbetningen sker asynkront. 
+
+Du kan övervaka statusen indexerare på portalen eller via hämta indexeraren Status API, vilket beskrivs härnäst. 
+
+<a name="GetIndexerStatus"></a>
+
+## <a name="get-indexer-status"></a>Hämta status för indexerare
+
+Du kan hämta status och körning historiken för en indexerare via REST API:
+
+    GET https://[service name].search.windows.net/indexers/[indexer name]/status?api-version=2017-11-11
+    api-key: [Search service admin key]
+
+Svaret innehåller status för övergripande indexerare, senaste (eller pågående) indexer-anrop och historiken för de senaste indexer-anrop.
+
+    {
+        "status":"running",
+        "lastResult": {
+            "status":"success",
+            "errorMessage":null,
+            "startTime":"2014-11-26T03:37:18.853Z",
+            "endTime":"2014-11-26T03:37:19.012Z",
+            "errors":[],
+            "itemsProcessed":11,
+            "itemsFailed":0,
+            "initialTrackingState":null,
+            "finalTrackingState":null
+         },
+        "executionHistory":[ {
+            "status":"success",
+             "errorMessage":null,
+            "startTime":"2014-11-26T03:37:18.853Z",
+            "endTime":"2014-11-26T03:37:19.012Z",
+            "errors":[],
+            "itemsProcessed":11,
+            "itemsFailed":0,
+            "initialTrackingState":null,
+            "finalTrackingState":null
+        }]
+    }
+
+Körningshistorik innehåller upp till 50 senaste slutförda körningar, vilket är sorterade i omvänd kronologisk ordning (så att den senaste körningen kommer först i svaret).
 
 ## <a name="next-steps"></a>Nästa steg
 Nu när du har lagt grunden är nästa steg att granska krav och uppgifter som är specifika för varje typ av datakälla.

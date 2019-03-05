@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: 6e25c0970a48674e157dac5f51c9508596ff6ea1
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: 7631ec91b70e781b2818e99012e59e2aeafb3614
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56097090"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57317024"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-an-azure-sql-database"></a>Kopiera en transaktionsmässigt konsekvent kopia av en Azure SQL database
 
@@ -48,10 +48,12 @@ När kopieringen lyckas och innan andra användare mappas om logga inloggningen 
 
 ## <a name="copy-a-database-by-using-powershell"></a>Kopiera en databas med hjälp av PowerShell
 
-Om du vill kopiera en databas med hjälp av PowerShell, Använd den [New-AzureRmSqlDatabaseCopy](/powershell/module/azurerm.sql/new-azurermsqldatabasecopy) cmdlet. 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+Om du vill kopiera en databas med hjälp av PowerShell, Använd den [New AzSqlDatabaseCopy](/powershell/module/az.sql/new-azsqldatabasecopy) cmdlet. 
 
 ```PowerShell
-New-AzureRmSqlDatabaseCopy -ResourceGroupName "myResourceGroup" `
+New-AzSqlDatabaseCopy -ResourceGroupName "myResourceGroup" `
     -ServerName $sourceserver `
     -DatabaseName "MySampleDatabase" `
     -CopyResourceGroupName "myResourceGroup" `

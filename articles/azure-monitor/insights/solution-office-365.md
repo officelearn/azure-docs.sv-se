@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/24/2019
 ms.author: bwren
-ms.openlocfilehash: 92ba185ce3c271284ae20981408b2b12f516e3c8
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 003d5da137c88097d9555a9884286251af92d6f0
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55999308"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57311009"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Lösning för Office 365 i Azure (förhandsversion)
 
@@ -30,6 +30,8 @@ Hanteringslösning för Office 365 kan du övervaka din Office 365-miljö i Azur
 - Upptäck och undersök oönskad användarnas beteende och som kan anpassas efter organisationens behov.
 - Visa gransknings- och kompatibilitetskontroller. Du kan till exempel övervaka åtkomst filåtgärder på konfidentiella filer, som kan hjälpa dig med processen gransknings- och kompatibilitetskontroller.
 - Utföra operativa felsökning med hjälp av [logga frågor](../log-query/log-query-overview.md) ovanpå Office 365 aktivitetsdata för din organisation.
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Förutsättningar
 Följande krävs innan den här lösningen som den installeras och konfigureras.
@@ -123,10 +125,10 @@ Om du vill aktivera administratörskonto för första gången, måste du ange ad
     $option = [System.StringSplitOptions]::RemoveEmptyEntries 
     
     IF ($Subscription -eq $null)
-        {Login-AzureRmAccount -ErrorAction Stop}
-    $Subscription = (Select-AzureRmSubscription -SubscriptionId $($SubscriptionId) -ErrorAction Stop)
+        {Login-AzAccount -ErrorAction Stop}
+    $Subscription = (Select-AzSubscription -SubscriptionId $($SubscriptionId) -ErrorAction Stop)
     $Subscription
-    $Workspace = (Set-AzureRMOperationalInsightsWorkspace -Name $($WorkspaceName) -ResourceGroupName $($ResourceGroupName) -ErrorAction Stop)
+    $Workspace = (Set-AzOperationalInsightsWorkspace -Name $($WorkspaceName) -ResourceGroupName $($ResourceGroupName) -ErrorAction Stop)
     $WorkspaceLocation= $Workspace.Location
     $WorkspaceLocation
     
@@ -190,11 +192,11 @@ Det sista steget är att prenumerera på programmet till Log Analytics-arbetsyta
     $line='#-------------------------------------------------------------------------------------------------------------------------------------------------------------------------'
     $line
     IF ($Subscription -eq $null)
-        {Login-AzureRmAccount -ErrorAction Stop}
-    $Subscription = (Select-AzureRmSubscription -SubscriptionId $($SubscriptionId) -ErrorAction Stop)
+        {Login-AzAccount -ErrorAction Stop}
+    $Subscription = (Select-AzSubscription -SubscriptionId $($SubscriptionId) -ErrorAction Stop)
     $Subscription
     $option = [System.StringSplitOptions]::RemoveEmptyEntries 
-    $Workspace = (Set-AzureRMOperationalInsightsWorkspace -Name $($WorkspaceName) -ResourceGroupName $($ResourceGroupName) -ErrorAction Stop)
+    $Workspace = (Set-AzOperationalInsightsWorkspace -Name $($WorkspaceName) -ResourceGroupName $($ResourceGroupName) -ErrorAction Stop)
     $Workspace
     $WorkspaceLocation= $Workspace.Location
     $OfficeClientSecret =[uri]::EscapeDataString($OfficeClientSecret)
@@ -365,12 +367,12 @@ At C:\Users\v-tanmah\Desktop\ps scripts\office365_subscription.ps1:161 char:19
 Du kan se följande fel om ogiltiga parametervärden har angetts.
 
 ```
-Select-AzureRmSubscription : Please provide a valid tenant or a valid subscription.
+Select-AzSubscription : Please provide a valid tenant or a valid subscription.
 At line:12 char:18
-+ ... cription = (Select-AzureRmSubscription -SubscriptionId $($Subscriptio ...
++ ... cription = (Select-AzSubscription -SubscriptionId $($Subscriptio ...
 +                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    + CategoryInfo          : CloseError: (:) [Set-AzureRmContext], ArgumentException
-    + FullyQualifiedErrorId : Microsoft.Azure.Commands.Profile.SetAzureRMContextCommand
+    + CategoryInfo          : CloseError: (:) [Set-AzContext], ArgumentException
+    + FullyQualifiedErrorId : Microsoft.Azure.Commands.Profile.SetAzContextCommand
 
 ```
 
@@ -390,11 +392,11 @@ Du kan ta bort Office 365-hanteringslösning som använder processen i [ta bort 
     
     $line
     IF ($Subscription -eq $null)
-        {Login-AzureRmAccount -ErrorAction Stop}
-    $Subscription = (Select-AzureRmSubscription -SubscriptionId $($SubscriptionId) -ErrorAction Stop)
+        {Login-AzAccount -ErrorAction Stop}
+    $Subscription = (Select-AzSubscription -SubscriptionId $($SubscriptionId) -ErrorAction Stop)
     $Subscription
     $option = [System.StringSplitOptions]::RemoveEmptyEntries 
-    $Workspace = (Get-AzureRMOperationalInsightsWorkspace -Name $($WorkspaceName) -ResourceGroupName $($ResourceGroupName) -ErrorAction Stop)
+    $Workspace = (Set-AzOperationalInsightsWorkspace -Name $($WorkspaceName) -ResourceGroupName $($ResourceGroupName) -ErrorAction Stop)
     $Workspace
     $WorkspaceLocation= $Workspace.Location
     
@@ -522,7 +524,7 @@ Följande egenskaper är gemensamma för alla Office 365-poster.
 | ResultStatus | Anger om åtgärden (anges i egenskapen Operation) lyckades eller inte. Möjliga värden är Succeeded eller PartiallySucceeded misslyckades. Värdet är för administratörsaktivitet för Exchange, antingen SANT eller FALSKT. |
 | UserId | UPN (User Principal Name) för den användare som utförde den åtgärd som resulterade i posten loggades, till exempel my_name@my_domain_name. Observera att poster för aktiviteter som utförs av Systemkonton (som SHAREPOINT\system eller NTAUTHORITY\SYSTEM) ingår också. | 
 | UserKey | Ett alternativt ID för den användare som identifieras i användar-ID-egenskapen.  Den här egenskapen har fyllts i med unikt passport-ID (PUID) för händelser som utförs av användare i SharePoint, OneDrive för företag och Exchange. Den här egenskapen kan även ange samma värde som egenskapen användar-ID för händelser som inträffar i andra tjänster och händelser som utförs av systemkonton|
-| UserType | Typ av användare som utförde åtgärden.<br><br>Administratör<br>Program<br>DcAdmin<br>Vanliga<br>Reserverad<br>ServicePrincipal<br>System |
+| UserType | Typ av användare som utförde åtgärden.<br><br>Administratör<br>Program<br>DcAdmin<br>Normal<br>Reserverad<br>ServicePrincipal<br>System |
 
 
 ### <a name="azure-active-directory-base"></a>Azure Active Directory-bas

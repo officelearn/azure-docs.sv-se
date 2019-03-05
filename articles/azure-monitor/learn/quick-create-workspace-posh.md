@@ -13,16 +13,19 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/21/2019
 ms.author: magoedte
-ms.openlocfilehash: 6fd83a8304e8548087178aba50cf1b30320f58f0
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: 06c878d3b3ad2fe3144d5e55c1a01880ddcab62c
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56593734"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57312213"
 ---
 # <a name="create-a-log-analytics-workspace-with-azure-powershell"></a>Skapa en Log Analytics-arbetsyta med Azure PowerShell
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Azure PowerShell-modulen används för att skapa och hantera Azure-resurser från PowerShell-kommandoraden eller i skript. Den här snabbstarten visar hur du använder Azure PowerShell-modulen för att distribuera en Log Analytics-arbetsyta i Azure Monitor. En Log Analytics-arbetsyta är en unik miljö för Azure Monitor-loggdata. Varje arbetsyta har sin egen databas och konfiguration och datakällor och lösningar som är konfigurerade för att lagra sina data i en viss arbetsyta. Du behöver en Log Analytics-arbetsyta om du avser att samla in data från följande källor:
+
 
 * Azure-resurser i din prenumeration  
 * Lokala datorer som övervakas av System Center Operations Manager  
@@ -39,10 +42,10 @@ Om du inte har en Azure-prenumeration kan du skapa [ett kostnadsfritt konto](htt
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Om du väljer att installera och använda PowerShell lokalt krävs Azure PowerShell-modulen version 5.7.0 eller senare för att du ska kunna genomföra den här självstudiekursen. Kör `Get-Module -ListAvailable AzureRM` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/azurerm/install-azurerm-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Connect-AzureRmAccount` för att skapa en anslutning till Azure.
+Om du väljer att installera och använda PowerShell lokalt kräver den här självstudien Azure PowerShell-modulen AzureRM version 5.7.0-installationsprogram eller Az-Modulversion 1.0.0 eller senare. Kör `Get-Module -ListAvailable Az` för att hitta versionen. Om du behöver uppgradera kan du läsa [Installera Azure PowerShell-modulen](/powershell/azure/install-az-ps). Om du kör PowerShell lokalt måste du också köra `Connect-AzAccount` för att skapa en anslutning till Azure.
 
 ## <a name="create-a-workspace"></a>Skapa en arbetsyta
-Skapa en arbetsyta med [New-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment). I följande exempel skapas en arbetsyta med namnet *TestWorkspace* i resursgruppen *Lab* i den *eastus* plats med hjälp av en Resource Manager-mall från din lokala datorn. JSON-mallen har konfigurerats för att bara efterfråga du namnet på arbetsytan och anger ett standardvärde för de andra parametrarna som sannolikt skulle användas som en standardkonfiguration i din miljö. 
+Skapa en arbetsyta med [New AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment). I följande exempel skapas en arbetsyta med namnet *TestWorkspace* i resursgruppen *Lab* i den *eastus* plats med hjälp av en Resource Manager-mall från din lokala datorn. JSON-mallen har konfigurerats för att bara efterfråga du namnet på arbetsytan och anger ett standardvärde för de andra parametrarna som sannolikt skulle användas som en standardkonfiguration i din miljö. 
 
 Följande parametrar anger ett standardvärde:
 
@@ -116,7 +119,7 @@ Följande parametrar anger ett standardvärde:
 4. Nu är det dags att distribuera den här mallen. Använd följande kommandon från mappen som innehåller mallen:
 
     ```powershell
-        New-AzureRmResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <resource-group-name> -TemplateFile deploylaworkspacetemplate.json
+        New-AzResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <resource-group-name> -TemplateFile deploylaworkspacetemplate.json
     ```
 
 Det kan ta några minuter att slutföra distributionen. När den är klar kan du se ett meddelande som liknar följande som innehåller resultatet:

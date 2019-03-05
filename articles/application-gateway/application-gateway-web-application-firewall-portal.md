@@ -11,12 +11,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/26/2018
 ms.author: victorh
-ms.openlocfilehash: 7a090a068984a71c917cf5c33761dd78ac1ad2c8
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: d89e5d6fd21fdc37bffcc730fb20bae30ecc4f7c
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453264"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57315035"
 ---
 # <a name="create-an-application-gateway-with-a-web-application-firewall-using-the-azure-portal"></a>Skapa en Programgateway med en brandvägg för webbaserade program med Azure portal
 
@@ -30,6 +30,8 @@ I den här artikeln kan du se hur du:
 > * Skapa ett lagringskonto och konfigurera diagnostik
 
 ![Exempel på brandvägg för webbaserade program](./media/application-gateway-web-application-firewall-portal/scenario-waf.png)
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="log-in-to-azure"></a>Logga in på Azure
 
@@ -103,7 +105,7 @@ I det här exemplet skapar du två virtuella datorer som ska användas som serve
 2. Kör följande kommando för att installera IIS på den virtuella datorn: 
 
     ```azurepowershell-interactive
-    Set-AzureRmVMExtension `
+    Set-AzVMExtension `
       -ResourceGroupName myResourceGroupAG `
       -ExtensionName IIS `
       -VMName myVM `
@@ -114,7 +116,7 @@ I det här exemplet skapar du två virtuella datorer som ska användas som serve
       -Location EastUS
     ```
 
-3. Skapa en andra virtuell dator och installera IIS med hjälp av de steg som du just har slutfört. Ange *myVM2* som namn och VMName i Set-AzureRmVMExtension.
+3. Skapa en andra virtuell dator och installera IIS med hjälp av de steg som du just har slutfört. Ange *myVM2* för dess namn och VMName i Set-AzVMExtension.
 
 ### <a name="add-backend-servers"></a>Lägga till serverdelsservrar
 
@@ -130,7 +132,7 @@ I det här exemplet skapar du två virtuella datorer som ska användas som serve
 
 ## <a name="create-a-storage-account"></a>skapar ett lagringskonto
 
-I den här självstudien används ett lagringskonto till att lagra data för identifiering och förebyggande åtgärder. Du kan också använda Azure Monitor-loggar eller Event Hub för att registrera data.
+I den här självstudien används ett lagringskonto till att lagra data för identifiering och förebyggande åtgärder. Du kan även använda Azure Monitor-loggar eller Event Hub till att registrera data.
 
 1. Klicka på **New** hittades på det övre vänstra hörnet i Azure-portalen.
 2. Välj **Lagring** och sedan **Koppla undernät – blob, fil, tabell, kö**.

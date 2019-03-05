@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 2/20/2019
 ms.author: victorh
-ms.openlocfilehash: 09bb81b0382f18c9cb94e5e4d0932dc6597ae73c
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 58f448646efc4cac9298d5dc4ec7a99e0e39bddc
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56454329"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57309102"
 ---
 # <a name="create-and-configure-an-application-gateway-to-host-multiple-web-sites-using-the-azure-portal"></a>Skapa och konfigurera en Programgateway som värd för flera webbplatser med hjälp av Azure portal
 
@@ -94,6 +94,8 @@ I det här exemplet skapar du två virtuella datorer som ska användas som serve
 
 ### <a name="install-iis"></a>Installera IIS
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 1. Öppna det interaktiva gränssnittet och kontrollera att det är inställt på **PowerShell**.
 
     ![Installera anpassat tillägg](./media/create-multiple-sites-portal/application-gateway-extension.png)
@@ -102,7 +104,7 @@ I det här exemplet skapar du två virtuella datorer som ska användas som serve
 
     ```azurepowershell-interactive
     $publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/application-gateway/iis/appgatewayurl.ps1");  "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
-    Set-AzureRmVMExtension `
+    Set-AzVMExtension `
       -ResourceGroupName myResourceGroupAG `
       -Location eastus `
       -ExtensionName IIS `
@@ -113,7 +115,7 @@ I det här exemplet skapar du två virtuella datorer som ska användas som serve
       -Settings $publicSettings
     ```
 
-3. Skapa den andra virtuella datorn och installera IIS med hjälp av stegen som du har. Ange namnen på *fabrikamVM* för namnet och värdet för VMName i Set-AzureRmVMExtension.
+3. Skapa den andra virtuella datorn och installera IIS med hjälp av stegen som du har. Ange namnen på *fabrikamVM* för namnet och värdet för VMName i Set-AzVMExtension.
 
 ## <a name="create-backend-pools-with-the-virtual-machines"></a>Skapa backend-pooler med virtuella datorer
 

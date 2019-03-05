@@ -13,12 +13,12 @@ ms.author: vanto
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/03/2019
-ms.openlocfilehash: 670bdd43a4a581f349ca84c17ead67975fa0232e
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 27d25c0b7007489dbb3db3b44497268ad33e9b37
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56110174"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57309850"
 ---
 # <a name="always-encrypted-protect-sensitive-data-and-store-encryption-keys-in-azure-key-vault"></a>Alltid krypterad: Skydda känsliga data och lagra krypteringsnycklar i Azure Key Vault
 
@@ -37,13 +37,16 @@ Följ stegen i den här artikeln och lär dig hur du ställer in Always Encrypte
 * Skapa ett program som infogar väljer och visar data från de krypterade kolumnerna.
 
 ## <a name="prerequisites"></a>Förutsättningar
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Den här självstudien behöver du:
 
 * Ett Azure-konto och prenumeration. Om du inte har någon kan registrera dig för en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/pricing/free-trial/).
 * [SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) version 13.0.700.242 eller senare.
 * [.NET framework 4.6](https://msdn.microsoft.com/library/w0x726c2.aspx) eller senare (på klientdatorn).
 * [Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx).
-* [Azure PowerShell](/powershell/azure/overview), version 1.0 eller senare. Typ **(Get-Module azure - ListAvailable). Version** att se vilken version av PowerShell som du kör.
+* [Azure PowerShell](/powershell/azure/overview).
 
 ## <a name="enable-your-client-application-to-access-the-sql-database-service"></a>Aktivera ditt klientprogram att komma åt tjänsten SQL Database
 Du måste aktivera ditt klientprogram att komma åt SQL Database-tjänsten genom att skapa ett Azure Active Directory (AAD)-program och kopiera den *program-ID* och *nyckel* som du behöver autentisera ditt program.
@@ -65,15 +68,15 @@ Du kan snabbt skapa ett nyckelvalv genom att köra följande skript. En detaljer
     $vaultName = 'AeKeyVault'
 
 
-    Connect-AzureRmAccount
-    $subscriptionId = (Get-AzureRmSubscription -SubscriptionName $subscriptionName).Id
-    Set-AzureRmContext -SubscriptionId $subscriptionId
+    Connect-AzAccount
+    $subscriptionId = (Get-AzSubscription -SubscriptionName $subscriptionName).Id
+    Set-AzContext -SubscriptionId $subscriptionId
 
-    New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
-    New-AzureRmKeyVault -VaultName $vaultName -ResourceGroupName $resourceGroupName -Location $location
+    New-AzResourceGroup -Name $resourceGroupName -Location $location
+    New-AzKeyVault -VaultName $vaultName -ResourceGroupName $resourceGroupName -Location $location
 
-    Set-AzureRmKeyVaultAccessPolicy -VaultName $vaultName -ResourceGroupName $resourceGroupName -PermissionsToKeys create,get,wrapKey,unwrapKey,sign,verify,list -UserPrincipalName $userPrincipalName
-    Set-AzureRmKeyVaultAccessPolicy  -VaultName $vaultName  -ResourceGroupName $resourceGroupName -ServicePrincipalName $applicationId -PermissionsToKeys get,wrapKey,unwrapKey,sign,verify,list
+    Set-AzKeyVaultAccessPolicy -VaultName $vaultName -ResourceGroupName $resourceGroupName -PermissionsToKeys create,get,wrapKey,unwrapKey,sign,verify,list -UserPrincipalName $userPrincipalName
+    Set-AzKeyVaultAccessPolicy  -VaultName $vaultName  -ResourceGroupName $resourceGroupName -ServicePrincipalName $applicationId -PermissionsToKeys get,wrapKey,unwrapKey,sign,verify,list
 ```
 
 

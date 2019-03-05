@@ -12,16 +12,16 @@ ms.author: genemi
 ms.reviewer: sstein
 manager: craigg
 ms.date: 11/07/2018
-ms.openlocfilehash: df83149126c439aae6256cd65473470461810bca
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 96b6b4866b17e15f544a10124d07e651d747b58b
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56961235"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57306450"
 ---
 # <a name="ports-beyond-1433-for-adonet-45"></a>Portar utöver 1433 för ADO.NET 4.5
 
-Det här avsnittet beskriver beteendet för Azure SQL Database-anslutning för klienter som använder ADO.NET 4.5 eller senare. 
+Det här avsnittet beskriver beteendet för Azure SQL Database-anslutning för klienter som använder ADO.NET 4.5 eller senare.
 
 > [!IMPORTANT]
 > Läs om hur anslutningsarkitektur [Azure SQL Database anslutningsarkitektur](sql-database-connectivity-architecture.md).
@@ -31,18 +31,18 @@ Det här avsnittet beskriver beteendet för Azure SQL Database-anslutning för k
 
 För anslutningar till Azure SQL Database, måste vi först be om klientprogrammet körs *utanför* eller *inuti* gränsen för Azure-molnet. I underavsnitt beskrivs två vanliga scenarier.
 
-#### <a name="outside-client-runs-on-your-desktop-computer"></a>*Utomhus:* Klienten kör på din dator
+### <a name="outside-client-runs-on-your-desktop-computer"></a>*Utomhus:* Klienten kör på din dator
 
 Port 1433 är den enda port som måste vara öppna på din dator som är värd för din SQL Database-klientprogram.
 
-#### <a name="inside-client-runs-on-azure"></a>*Inuti:* Klienten kör på Azure
+### <a name="inside-client-runs-on-azure"></a>*Inuti:* Klienten kör på Azure
 
 När klienten körs inom gränsen för Azure-molnet, använder vi kan anropa en *vägen* att interagera med SQL Database-servern. När en anslutning har upprättats kan ytterligare omfattar samverkan mellan klienten och databasen inga Azure SQL Database-Gateway.
 
 Sekvensen är följande:
 
 1. ADO.NET 4.5 (eller senare) initierar en kort interaktion med Azure-molnet och tar emot ett dynamiskt identifierade portnummer.
-   
+
    * Dynamiskt identifierade portnumret är i intervallet 11000 11999 eller 14000 14999.
 2. ADO.NET ansluter sedan till SQL Database-server direkt, med inga mellanprogram däremellan.
 3. Frågor skickas direkt till databasen och resultaten returneras direkt till klienten.
@@ -55,23 +55,27 @@ Kontrollera att port cellområden 11000 11999 och 14000-14999 på Azure klientda
   * Du kan använda den [brandväggens gränssnitt](https://msdn.microsoft.com/library/cc646023.aspx) att lägga till en regel som du anger den **TCP** protokollet tillsammans med ett portintervall med syntax som **11000 11999**.
 
 ## <a name="version-clarifications"></a>Version förtydliganden
+
 Det här avsnittet visar monikers som refererar till produktversioner. Den visar även vissa par mellan produkter.
 
-#### <a name="adonet"></a>ADO.NET
+### <a name="adonet"></a>ADO.NET
+
 * ADO.NET 4.0 stöder 7.3 TDS-protokollet, men inte 7.4.
 * ADO.NET 4.5 och senare stöder 7.4 TDS-protokollet.
 
-#### <a name="odbc"></a>ODBC
+### <a name="odbc"></a>ODBC
+
 * Microsoft SQL Server ODBC 11 eller senare
 
-#### <a name="jdbc"></a>JDBC
+### <a name="jdbc"></a>JDBC
+
 * Microsoft SQL Server JDBC 4.2 eller senare (JDBC 4.0 faktiskt stöder TDS 7.4 men implementerar inte ”omdirigering”)
 
-
 ## <a name="related-links"></a>Relaterade länkar
-* ADO.NET 4.6 gavs ut den 20 juli 2015. En bloggmeddelandet från .NET-teamet är tillgängligt [här](https://blogs.msdn.com/b/dotnet/archive/2015/07/20/announcing-net-framework-4-6.aspx).
-* ADO.NET 4.5 gavs ut den 15 augusti 2012. En bloggmeddelandet från .NET-teamet är tillgängligt [här](https://blogs.msdn.com/b/dotnet/archive/2012/08/15/announcing-the-release-of-net-framework-4-5-rtm-product-and-source-code.aspx). 
-  * Det finns ett blogginlägg om ADO.NET 4.5.1 [här](https://blogs.msdn.com/b/dotnet/archive/2013/06/26/announcing-the-net-framework-4-5-1-preview.aspx).
+
+* ADO.NET 4.6 gavs ut den 20 juli 2015. En bloggmeddelandet från .NET-teamet är tillgängligt [här](https://blogs.msdn.com/b/dotnet/archive/20../../announcing-net-framework-4-6.aspx).
+* ADO.NET 4.5 gavs ut den 15 augusti 2012. En bloggmeddelandet från .NET-teamet är tillgängligt [här](https://blogs.msdn.com/b/dotnet/archive/20../../announcing-the-release-of-net-framework-4-5-rtm-product-and-source-code.aspx).
+  * Det finns ett blogginlägg om ADO.NET 4.5.1 [här](https://blogs.msdn.com/b/dotnet/archive/20../../announcing-the-net-framework-4-5-1-preview.aspx).
 
 * Microsoft® ODBC Driver 17 för SQL Server® – Windows, Linux och macOS https://www.microsoft.com/download/details.aspx?id=56567
 

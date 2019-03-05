@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: fc18262326a8474cac417b67a37df35d91d75439
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 99fce821c903a9638575eba9fe4a17d294bcbd60
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55657747"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57310513"
 ---
 # <a name="set-up-a-device-template"></a>Konfigurera en enhetsmall
 
@@ -65,7 +65,7 @@ Mätning av faktisk användning är de data som kommer från din enhet. Du kan l
 - **Tillstånd** mått representerar tillståndet för enheten eller dess komponenter under en viss tidsperiod. Till exempel ett fläkt-läge kan definieras som att ha **Operating** och **stoppad** som två möjliga tillstånd.
 
 ### <a name="create-a-telemetry-measurement"></a>Skapa ett telemetri-mått
-Om du vill lägga till ett nytt mått i telemetri, Välj **Redigera mall**, och klicka sedan på den **+ ny mätning** knappen. Välj **telemetri** som mätningen skriver och anger informationen den **skapa telemetri** formuläret.
+Om du vill lägga till ett nytt mått i telemetri, Välj **Redigera mall**, och välj sedan den **+ ny mätning** knappen. Välj **telemetri** som mätningen skriver och anger informationen den **skapa telemetri** formuläret.
 
 > [!NOTE]
 > Fältnamn i mallen enheten måste matcha egenskapsnamnen i motsvarande enhet koden för telemetri-mått som ska visas i programmet när en riktig enhet är ansluten. Göra detsamma när du konfigurerar inställningar och egenskaper för enhet kommandon när du fortsätter att definiera enhet-mall i följande avsnitt.
@@ -84,7 +84,7 @@ När du har valt **klar**, **temperatur** mått visas i listan över mått. Du k
   Datatypen för måttet telemetri är en flytande peka tal.
 
 ### <a name="create-an-event-measurement"></a>Skapa en händelse
-Om du vill lägga till en ny händelse mätning, Välj **Redigera mall**, och klicka sedan på den **+ ny mätning** knappen. Välj **händelse** som mätningen skriver och anger informationen den **Skapa händelse** formuläret.
+Om du vill lägga till en ny händelse mätning, Välj **Redigera mall**, och välj sedan den **+ ny mätning** knappen. Välj **händelse** som mätningen skriver och anger informationen den **Skapa händelse** formuläret.
 
 Ange den **visningsnamn**, **fältnamn**, och **allvarlighetsgrad** information om händelsen. Du kan välja mellan tre tillgängliga nivåer av allvarlighetsgrad: **Fel**, **varning**, och **Information**.  
 
@@ -108,7 +108,7 @@ Välj ikonen händelse i diagrammet om du vill visa mer information om händelse
   Datatypen för måttet händelse är sträng.
 
 ### <a name="create-a-state-measurement"></a>Skapa ett mått för tillstånd
-Om du vill lägga till ett nytt tillstånd mått, Välj **Redigera mall**, och klicka sedan på den **+ ny mätning** knappen. Välj **tillstånd** som mätningen skriver och anger informationen den **skapa tillstånd** formuläret.
+Om du vill lägga till ett nytt tillstånd mått, Välj **Redigera mall**, och välj sedan den **+ ny mätning** knappen. Välj **tillstånd** som mätningen skriver och anger informationen den **skapa tillstånd** formuläret.
 
 Ange information för **visningsnamn**, **fältnamn**, och **värden** av tillstånd. Varje värde kan också ha ett namn som ska användas när värdet visas i diagram och tabeller.
 
@@ -125,7 +125,7 @@ När du har valt **klar**, **fläkt läge** tillstånd mått visas i listan öve
 
 ![Statliga mätning diagram](./media/howto-set-up-template/statemeasurementschart.png)
 
-Om enheten skickar för många datapunkter i en liten varaktighet, visas mätningen tillstånd med ett annat visuellt objekt enligt följande skärmbild. Om du klickar på diagrammet visas alla datapunkter inom den tidsperioden i kronologisk ordning. Du kan också begränsa tidsintervall för mätningen ritas i diagrammet.
+Om enheten skickar för många datapunkter i en liten varaktighet, visas mätningen tillstånd med ett annat visuellt objekt enligt följande skärmbild. Om du väljer diagrammet visas alla datapunkter inom den tidsperioden i kronologisk ordning. Du kan också begränsa tidsintervall för mätningen ritas i diagrammet.
 
 > [!NOTE]
   Datatypen för måttet tillstånd är sträng.
@@ -241,7 +241,7 @@ Hur skiljer sig ett kommando från en inställning?
 * **Kommandot**: Du kan använda kommandon för att omedelbart köra ett kommando på enheten via en fjärranslutning från IoT Central. Om en enhet inte är ansluten kommandot tidsgränsen och misslyckas. Exempelvis kan du starta om en enhet.  
 
 
-Exempel: du kan lägga till en ny **Echo** kommandot genom att välja **redigera mallen**, klicka på **+ nytt kommando**, och ange i det nya kommandot:
+Exempel: du kan lägga till en ny **Echo** kommandot genom att välja **redigera mallen**, sedan välja **+ nytt kommando**, och ange i det nya kommandot:
 
 | Visningsnamn  | Fältnamn | Standardvärde för tidsgräns | Datatyp |
 | --------------| -----------|---------------- | --------- | 

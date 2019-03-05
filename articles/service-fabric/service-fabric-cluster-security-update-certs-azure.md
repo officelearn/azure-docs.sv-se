@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/13/2018
 ms.author: aljo
-ms.openlocfilehash: 047e058fee6cd72a7eeaecdde976b1b9d49aeb5c
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 534335b15d61d1e411ec2e7fb96123eb4701878e
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56958957"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57315288"
 ---
 # <a name="add-or-remove-certificates-for-a-service-fabric-cluster-in-azure"></a>Lägga till eller ta bort certifikat för Service Fabric-kluster i Azure
 Vi rekommenderar att du bekanta dig med hur Service Fabric använder X.509-certifikat och att du läser den [Klustersäkerhetsscenarier](service-fabric-cluster-security.md). Du måste förstå vad ett klustercertifikat är och vad som används för, innan du forsätter.
@@ -259,7 +259,7 @@ Snabbreferens här är kommandot för att hämta klusterhälsa
 Get-ServiceFabricClusterHealth 
 ```
 
-## <a name="deploying-application-certificates-to-the-cluster"></a>Distribution av certifikat för programmet till klustret.
+## <a name="deploying-client-certificates-to-the-cluster"></a>Distribuera certifikat till klustret.
 
 Du kan använda samma steg som beskrivs i föregående steg 5 ha de certifikat som distribueras från en keyvault till noderna. Du behöver bara definiera och använda olika parametrar.
 

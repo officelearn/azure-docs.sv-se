@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/14/2018
 ms.author: aschhab
-ms.openlocfilehash: d70b7acb906c60001ad005a0fe9361950bc029b7
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 8f5c1755462d2bbd28dd7f8db427cda141817588
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895864"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57308864"
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>Service Bus åtkomstkontroll med signaturer för delad åtkomst
 
@@ -84,7 +84,7 @@ Hash-beräkningen liknar följande pseudokod och returnerar en 256-bitars/32-byt
 SHA-256('https://<yournamespace>.servicebus.windows.net/'+'\n'+ 1438205742)
 ```
 
-Token innehåller icke-hash-värden så att mottagaren kan omberäkna hash med samma parametrar, verifiera att utfärdaren är en giltig signeringsnyckel tillgång. 
+Token innehåller icke-hash-värden så att mottagaren kan omberäkna hash med samma parametrar, verifiera att utfärdaren är en giltig signeringsnyckel tillgång.
 
 Resurs-URI är den fullständiga URI för Service Bus-resurs som åtkomst begärs. Till exempel `http://<namespace>.servicebus.windows.net/<entityPath>` eller `sb://<namespace>.servicebus.windows.net/<entityPath>`, det vill säga `http://contoso.servicebus.windows.net/contosoTopics/T1/Subscriptions/S3`. URI: N måste vara [procentkodad](https://msdn.microsoft.com/library/4fkewx0t.aspx).
 
@@ -156,7 +156,7 @@ helloMessage.MessageId = "SAS-Sample-Message";
 sendClient.Send(helloMessage);
 ```
 
-Du kan också använda Tokenleverantören direkt för att utfärda token ska skickas till andra klienter. 
+Du kan också använda Tokenleverantören direkt för att utfärda token ska skickas till andra klienter.
 
 Anslutningssträngar kan innehålla ett Regelnamn (*SharedAccessKeyName*) och regeln nyckel (*SharedAccessKey*) eller en tidigare utfärdade token (*SharedAccessSignature*). När de befinner sig i anslutningssträngen som skickades till konstruktorn eller standardmetod som tar emot en anslutningssträng, skapas och fylls i automatiskt den SAS-Tokenleverantören.
 
@@ -171,7 +171,7 @@ POST https://<yournamespace>.servicebus.windows.net/<yourentity>/messages
 Content-Type: application/json
 Authorization: SharedAccessSignature sr=https%3A%2F%2F<yournamespace>.servicebus.windows.net%2F<yourentity>&sig=<yoursignature from code above>&se=1438205742&skn=KeyName
 ContentType: application/atom+xml;type=entry;charset=utf-8
-``` 
+```
 
 Kom ihåg att det här fungerar för allt. Du kan skapa SAS för en kö, ett ämne eller en prenumeration.
 
@@ -183,7 +183,7 @@ I föregående avsnitt såg du hur du använder SAS-token med en HTTP POST-begä
 
 Innan du börjar skicka data till Service Bus, måste utgivaren skicka SAS-token i en AMQP-meddelande till en väldefinierad AMQP-nod med namnet **$cbs** (du kan se det som en ”särskilda” kö som används av tjänsten för att skaffa och verifiera alla SAS token). Utgivare måste ange den **ReplyTo** fältet i AMQP-meddelande, vilket noden där tjänsten svarar till utgivaren med resultatet från tokenvalidering (en enkel begäran/svar-mönster mellan utgivare och service ). Den här svars-noden har skapats ”i farten”, pratar om ”skapas dynamiskt fjärrnoden” enligt AMQP 1.0-specifikationen. När du har kontrollerat att SAS-token är giltig, utgivaren gå framåt och börja skicka data till tjänsten.
 
-Följande steg visar hur du skickar SAS-token med AMQP-protokollet med den [AMQP.Net Lite](https://github.com/Azure/amqpnetlite) biblioteket. Detta är användbart om du inte kan använda de officiella Service Bus SDK (till exempel på WinRT, .net Compact Framework, .net Framework Micro och Mono) utveckla i C\#. Naturligtvis kan det här biblioteket är användbart för att förstå hur anspråksbaserade fungerar på AMQP-nivå som du såg hur det fungerar på HTTP-nivå (med en HTTP POST-begäran och den SAS-token som skickas i rubriken ”Authorization”). Om du inte behöver sådan djupa kunskaper om AMQP, du kan använda de officiella Service Bus SDK med .net Framework-program, vilket gör det åt dig.
+Följande steg visar hur du skickar SAS-token med AMQP-protokollet med den [AMQP.NET Lite](https://github.com/Azure/amqpnetlite) biblioteket. Detta är användbart om du inte kan använda de officiella Service Bus SDK (till exempel på WinRT, .NET Compact Framework, .NET Micro Framework och Mono) utveckla i C\#. Naturligtvis kan det här biblioteket är användbart för att förstå hur anspråksbaserade fungerar på AMQP-nivå som du såg hur det fungerar på HTTP-nivå (med en HTTP POST-begäran och den SAS-token som skickas i rubriken ”Authorization”). Om du inte behöver sådan djupa kunskaper om AMQP, kan du använda officiella Service Bus SDK med .NET Framework-program, vilket gör det åt dig.
 
 ### <a name="c35"></a>C&#35;
 
@@ -236,12 +236,12 @@ private bool PutCbsToken(Connection connection, string sasToken)
 }
 ```
 
-Den `PutCbsToken()` metoden tar emot den *anslutning* (AMQP-anslutning-klassinstans som tillhandahålls av den [AMQP .NET Lite biblioteket](https://github.com/Azure/amqpnetlite)) som representerar TCP-anslutningen till tjänsten och *sasToken* parameter som är SAS-token för att skicka. 
+Den `PutCbsToken()` metoden tar emot den *anslutning* (AMQP-anslutning-klassinstans som tillhandahålls av den [AMQP .NET Lite biblioteket](https://github.com/Azure/amqpnetlite)) som representerar TCP-anslutningen till tjänsten och *sasToken* parameter som är SAS-token för att skicka.
 
 > [!NOTE]
 > Det är viktigt att anslutningen har skapats med **SASL-autentiseringsmekanismen inställd på anonym** (och inte standard OFORMATERAD med användarnamn och lösenord som användes när du inte behöver skicka SAS-token).
-> 
-> 
+>
+>
 
 Sedan skapas två AMQP länkar för att skicka SAS-token och ta emot svaret (tokenvalidering-resultat) från tjänsten.
 
@@ -295,7 +295,7 @@ I följande tabell visas de behörigheter som krävs för olika åtgärder på S
 | **Regler** | | |
 | Skapa en regel |Hantera |../myTopic/subscriptions/mySubscription |
 | Ta bort en regel |Hantera |../myTopic/subscriptions/mySubscription |
-| Räkna upp regler |Hantera eller lyssna |../myTopic/subscriptions/mySubscription/rules 
+| Räkna upp regler |Hantera eller lyssna |../myTopic/subscriptions/mySubscription/rules
 
 ## <a name="next-steps"></a>Nästa steg
 

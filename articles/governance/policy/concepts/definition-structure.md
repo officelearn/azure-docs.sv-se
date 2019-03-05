@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 1c65ea47f7dd091ea326d9300a8ef09208a03951
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: e3f2b60af574bc1d4e6633ce47b6cdf51e8e6d3e
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447794"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57308422"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy-definitionsstruktur
 
@@ -80,7 +80,7 @@ Den **läge** avgör vilka typer av resurser kommer att utvärderas för en prin
 
 Vi rekommenderar att du ställer in **läge** till `all` i de flesta fall. Alla principdefinitioner som skapats via portalen användning i `all` läge. Om du använder PowerShell eller Azure CLI kan du ange den **läge** parametern manuellt. Om principdefinitionen inte innehåller en **läge** , den standardvärdet `all` i Azure PowerShell och till `null` i Azure CLI. En `null` läge är detsamma som att använda `indexed` att stödja bakåtkompatibilitet kompatibilitet.
 
-`indexed` ska användas när du skapar principer som tillämpar taggar eller platser. Du måste inte, förhindrar resurser som inte stöder taggar och platser från dyker upp som icke-kompatibla i kompatibilitetsresultaten. Undantaget är **resursgrupper**. Principer som framtvinga plats eller taggar på en resursgrupp bör ange **läge** till `all` och specifikt mål den `Microsoft.Resources/subscriptions/resourceGroups` typen. Ett exempel finns i [framtvinga grupp resurstaggar](../samples/enforce-tag-rg.md).
+`indexed` ska användas när du skapar principer som tillämpar taggar eller platser. Du måste inte, förhindrar resurser som inte stöder taggar och platser från dyker upp som icke-kompatibla i kompatibilitetsresultaten. Undantaget är **resursgrupper**. Principer som framtvinga plats eller taggar på en resursgrupp bör ange **läge** till `all` och specifikt mål den `Microsoft.Resources/subscriptions/resourceGroups` typen. Ett exempel finns i [framtvinga grupp resurstaggar](../samples/enforce-tag-rg.md). En lista över resurser som stöder taggar finns i [tagga stöd för Azure-resurser](../../../azure-resource-manager/tag-support.md).
 
 ## <a name="parameters"></a>Parametrar
 

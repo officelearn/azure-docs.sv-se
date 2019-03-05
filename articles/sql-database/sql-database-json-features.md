@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/15/2019
-ms.openlocfilehash: 7e688abbe1b8188cb85e5762086009522b5b7d39
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 02cec7f3696a43e8effe9d551c1f3e3fddc25ec8
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54332089"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57317211"
 ---
 # <a name="getting-started-with-json-features-in-azure-sql-database"></a>Komma igång med JSON-funktioner i Azure SQL Database
 Azure SQL Database kan du parsa och skicka frågor till data som visas i JavaScript Object Notation [(JSON)](http://www.json.org/) formatera och exportera din relationsdata som JSON-texten. Följande JSON-scenarier är tillgängliga i Azure SQL Database:
@@ -190,7 +190,7 @@ Insamling av order formaterade som en JSON-matris och tillhandahålls som en par
 ## <a name="next-steps"></a>Nästa steg
 Kolla in dessa resurser om du vill veta hur du integrerar JSON i ditt program:
 
-* [TechNet-bloggen](https://blogs.technet.microsoft.com/dataplatforminsider/2016/01/05/json-in-sql-server-2016-part-1-of-4/)
+* [TechNet-bloggen](https://blogs.technet.microsoft.com/dataplatforminsider/20../../json-in-sql-server-2016-part-1-of-4/)
 * [MSDN-dokumentationen](https://msdn.microsoft.com/library/dn921897.aspx)
 * [Channel 9-video](https://channel9.msdn.com/Shows/Data-Exposed/SQL-Server-2016-and-JSON-Support)
 

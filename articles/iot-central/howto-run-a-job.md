@@ -8,12 +8,12 @@ ms.author: sahubbar
 ms.date: 09/15/2018
 ms.topic: conceptual
 manager: peterpr
-ms.openlocfilehash: ac5accc72369d811c0d36c4ef64cd8d523a061f3
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: f08167b4f37193c9a04da02fdd31e066a97aec66
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52724510"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57317670"
 ---
 # <a name="create-and-run-a-job-in-your-azure-iot-central-application"></a>Skapa och köra ett jobb i din Azure IoT Central-App
 
@@ -25,7 +25,7 @@ Det här avsnittet visar hur du skapar och kör ett jobb. Varje steg går igenom
 
 1. Gå till jobb i navigeringsfönstret.
 
-1. Klicka på **+ ny** för att kunna börja skapa ett nytt jobb.
+1. Välj **+ ny** för att kunna börja skapa ett nytt jobb.
 
     ![Skapa nytt jobb](./media/howto-run-a-job/createnewjob.png)
 
@@ -33,11 +33,11 @@ Det här avsnittet visar hur du skapar och kör ett jobb. Varje steg går igenom
 
 1. Markera de enheter du vill att jobbet ska tillämpas på. När du markerar enheten visas till höger fylla med enheter inom den valda enheten. Om du väljer en bruten enhetsuppsättning inga enheter visas och du ser ett meddelande som förklarar att din enhet är bruten.
 
-1. Välj sedan typ av jobb som ska definieras (en inställning, egenskapen eller kommando). Klicka på **+** markerat vid vilken typ av jobb och lägga till din önskade åtgärder.
+1. Välj sedan typ av jobb som ska definieras (en inställning, egenskapen eller kommando). Välj **+** markerat vid vilken typ av jobb och lägga till din önskade åtgärder.
 
     ![Konfigurera jobb](./media/howto-run-a-job/configurejob.png)
 
-1. Till höger, välja de enheter som du vill köra jobbet på. Genom att klicka på kryssrutan översta, markeras alla enheter i uppsättningen hela enheten. Genom att klicka på kryssrutan bredvid namnet, markeras alla enheter på den aktuella sidan.
+1. Till höger, välja de enheter som du vill köra jobbet på. Genom att välja den översta kryssrutan markeras alla enheter i uppsättningen hela enheten. Genom att välja kryssrutan nära namn markeras alla enheter på den aktuella sidan.
 
 1. När dina önskade enheter har valts, Välj **kör**. Jobbet kommer att synas på din huvud **jobb** sidan. På den här vyn kan kan du se ditt pågående jobb och historiken för alla tidigare köra jobb. Jobbet körs visas alltid överst i listan.
 
@@ -48,19 +48,19 @@ Det här avsnittet visar hur du skapar och kör ett jobb. Varje steg går igenom
     > [!NOTE]
     > Du kommer att kunna visa historiken för dina jobb som körts tidigare för upp till 30 dagar.
 
-1. Klicka på namnet på det jobb som du vill visa listan för att få en översikt över ditt jobb. Den här översikten innehåller jobbinformation, enheter och enhetsstatus.
+1. Välj namnet på det jobb som du vill visa listan för att få en översikt över ditt jobb. Den här översikten innehåller jobbinformation, enheter och enhetsstatus.
 
     ![Visa enhetsstatus](./media/howto-run-a-job/viewdevicestatus.png)
 
 ### <a name="stop-a-running-job"></a>Stoppa ett jobb som körs
 
-Om du vill stoppa ett jobb som körs för tillfället klickar du på namnet på det pågående jobbet som du vill stoppa. Välj den **stoppa** på panelen. Visas jobbets status har ändrats för att återspegla att jobbet har stoppats.
+Om du vill stoppa ett jobb som körs för tillfället väljer du namnet på det pågående jobbet som du vill stoppa. Välj den **stoppa** på panelen. Visas jobbets status har ändrats för att återspegla att jobbet har stoppats.
 
    ![Stoppa jobb](./media/howto-run-a-job/stopjob.png)
 
 ### <a name="run-a-stopped-job"></a>Kör ett stoppat jobb
 
-Om du vill köra ett jobb som har för närvarande stoppats klickar du på namnet på det stoppat jobb som du vill köra. Välj den **kör** på panelen. Du ser att jobbet har statusen har ändrats för att återspegla att jobbet körs nu igen.
+Välj namnet på det stoppat jobb som du vill köra om du vill köra ett jobb som har för närvarande stoppats. Välj den **kör** på panelen. Du ser att jobbet har statusen har ändrats för att återspegla att jobbet körs nu igen.
 
    ![Återupptagna jobb](./media/howto-run-a-job/resumejob.png)
 
@@ -85,7 +85,7 @@ Statusmeddelanden som följs av en översikt över enheter i jobbet. Dessa Enhet
 
 ### <a name="view-the-device-status"></a>Visa enhetens status
 
-Klicka på jobbnamnet för att kunna visa statusen för varje enhet i jobbet. Här visas information om jobbet och alla enheter som var en del av detta jobb. Bredvid varje enhetsnamn visas något av följande statusmeddelanden:
+Välj Jobbnamnet för att kunna visa statusen för varje enhet i jobbet. Här visas information om jobbet och alla enheter som var en del av detta jobb. Bredvid varje enhetsnamn visas något av följande statusmeddelanden:
 
 | Statusmeddelande       | Status betydelse                                                                |
 | -------------------- | ----------------------------------------------------------------------------- |

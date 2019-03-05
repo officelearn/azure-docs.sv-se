@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/26/2018
 ms.author: victorh
-ms.openlocfilehash: 23b627d480acf7bbbff7ade2ba6e596a57a15327
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 53c816ee8fa670c8a4dde3212325524a17d25aab
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52993344"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57314440"
 ---
 # <a name="create-an-application-gateway-with-multiple-site-hosting-using-the-azure-portal"></a>Skapa en Programgateway med flera för webbplatsen med Azure portal
 
@@ -96,6 +96,8 @@ I det här exemplet skapar du två virtuella datorer som ska användas som serve
 
 ### <a name="install-iis"></a>Installera IIS
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 1. Öppna det interaktiva gränssnittet och kontrollera att det är inställt på **PowerShell**.
 
     ![Installera anpassat tillägg](./media/application-gateway-create-multisite-portal/application-gateway-extension.png)
@@ -104,7 +106,7 @@ I det här exemplet skapar du två virtuella datorer som ska användas som serve
 
     ```azurepowershell-interactive
     $publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/application-gateway/iis/appgatewayurl.ps1");  "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
-    Set-AzureRmVMExtension `
+    Set-AzVMExtension `
       -ResourceGroupName myResourceGroupAG `
       -Location eastus `
       -ExtensionName IIS `
@@ -115,7 +117,7 @@ I det här exemplet skapar du två virtuella datorer som ska användas som serve
       -Settings $publicSettings
     ```
 
-3. Skapa den andra virtuella datorn och installera IIS med hjälp av stegen som du har. Ange namnen på *fabrikamVM* för namnet och värdet för VMName i Set-AzureRmVMExtension.
+3. Skapa den andra virtuella datorn och installera IIS med hjälp av stegen som du har. Ange namnen på *fabrikamVM* för namnet och värdet för VMName i Set-AzVMExtension.
 
 ## <a name="create-backend-pools-with-the-virtual-machines"></a>Skapa backend-pooler med virtuella datorer
 
@@ -177,7 +179,7 @@ När du har skapat programgatewayen med dess offentliga IP-adress kan du hämta 
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln har du lärt dig hur du:
+I den här artikeln lärde du dig att:
 
 > [!div class="checklist"]
 > * Skapa en programgateway

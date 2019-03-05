@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: magoedte
-ms.openlocfilehash: 1d01755ae62843ad1f2f1728df046b767fe123ca
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 2137a2e1d7cea9f2a2dbf565295323cb133513ee
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54886585"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57315801"
 ---
 # <a name="collect-azure-service-logs-and-metrics-for-use-in-log-analytics"></a>Samla in Azure-tjänstloggar och mått för användning i Log Analytics
 
@@ -79,16 +79,19 @@ Azure-resurser som stöder [Azure monitor](../../azure-monitor/overview.md) kan 
 * Information om tillgängliga loggar finns i [tjänster och -schemat stöds för diagnostikloggar](../../azure-monitor/platform/diagnostic-logs-schema.md).
 
 ### <a name="enable-diagnostics-with-powershell"></a>Aktivera diagnostik med PowerShell
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Du behöver i November 2016 (v2.3.0) eller senare versionen av [Azure PowerShell](/powershell/azure/overview).
 
-Följande PowerShell-exempel visar hur du använder [Set-AzureRmDiagnosticSetting](/powershell/module/azurerm.insights/set-azurermdiagnosticsetting) att aktivera diagnostik på en grupp. Samma metod som fungerar för alla resurser som stöds – ange `$resourceId` till resurs-id för den resurs du vill aktivera diagnostik för.
+Följande PowerShell-exempel visar hur du använder [Set-AzDiagnosticSetting](/powershell/module/az.insights/set-azdiagnosticsetting) att aktivera diagnostik på en grupp. Samma metod som fungerar för alla resurser som stöds – ange `$resourceId` till resurs-id för den resurs du vill aktivera diagnostik för.
 
 ```powershell
 $workspaceId = "/subscriptions/d2e37fee-1234-40b2-5678-0b2199de3b50/resourcegroups/oi-default-east-us/providers/microsoft.operationalinsights/workspaces/rollingbaskets"
 
 $resourceId = "/SUBSCRIPTIONS/ec11ca60-1234-491e-5678-0ea07feae25c/RESOURCEGROUPS/DEMO/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/DEMO"
 
-Set-AzureRmDiagnosticSetting -ResourceId $ResourceId  -WorkspaceId $workspaceId -Enabled $true
+Set-AzDiagnosticSetting -ResourceId $ResourceId  -WorkspaceId $workspaceId -Enabled $true
 ```
 
 ### <a name="enable-diagnostics-with-resource-manager-templates"></a>Aktivera diagnostik med Resource Manager-mallar

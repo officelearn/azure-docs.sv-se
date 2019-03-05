@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: victorh
-ms.openlocfilehash: 6a671744944527b64aab9a7b9afe05d6a9f2f27f
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: b41fbc3e834c7740d435e30a571d2a00671bfa64
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53002078"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57316412"
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-resource-manager-template"></a>Skapa en programgateway med hjälp av Azure Resource Manager-mallen
 
@@ -125,18 +125,20 @@ Du kan hämta den befintliga Azure Resource Manager-mallen för att skapa ett vi
 
 ## <a name="deploy-the-azure-resource-manager-template-by-using-powershell"></a>Distribuera Azure Resource Manager-mallen med hjälp av PowerShell
 
-Om du aldrig har använt Azure PowerShell, gå till: [hur du installerar och konfigurerar du Azure PowerShell](/powershell/azure/overview) och följ anvisningarna för att logga in på Azure och välj din prenumeration.
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+Om du aldrig har använt Azure PowerShell finns: [Hur du installerar och konfigurerar du Azure PowerShell](/powershell/azure/overview) och följ anvisningarna för att logga in på Azure och välj din prenumeration.
 
 1. Logga in på PowerShell
 
     ```powershell
-    Connect-AzureRmAccount
+    Connect-AzAccount
     ```
 
 1. Kontrollera prenumerationerna för kontot.
 
     ```powershell
-    Get-AzureRmSubscription
+    Get-AzSubscription
     ```
 
     Du ombeds att autentisera dig med dina autentiseringsuppgifter.
@@ -144,19 +146,19 @@ Om du aldrig har använt Azure PowerShell, gå till: [hur du installerar och kon
 1. Välj vilka av dina Azure-prenumerationer som du vill använda.
 
     ```powershell
-    Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
+    Select-AzSubscription -Subscriptionid "GUID of subscription"
     ```
 
 1. Om det behövs skapar du en resursgrupp med hjälp av cmdleten **New-AzureResourceGroup**. I följande exempel skapar du en resursgrupp kallad appgatewayrg med platsen East USA.
 
     ```powershell
-    New-AzureRmResourceGroup -Name AppgatewayRG -Location "West US"
+    New-AzResourceGroup -Name AppgatewayRG -Location "West US"
     ```
 
-1. Kör cmdleten **New-AzureRmResourceGroupDeployment** för att distribuera det nya virtuella nätverket med hjälp av de föregående mall- och parameterfilerna som du hämtade och ändrade.
+1. Kör den **New AzResourceGroupDeployment** cmdlet för att distribuera nya virtuella nätverket med hjälp av den föregående mall- och parameterfilerna filer du hämtade och ändrade.
     
     ```powershell
-    New-AzureRmResourceGroupDeployment -Name TestAppgatewayDeployment -ResourceGroupName AppgatewayRG `
+    New-AzResourceGroupDeployment -Name TestAppgatewayDeployment -ResourceGroupName AppgatewayRG `
     -TemplateFile C:\ARM\azuredeploy.json -TemplateParameterFile C:\ARM\azuredeploy-parameters.json
     ```
 
@@ -222,7 +224,7 @@ Om du vill ta bort alla resurser som skapats i den här artikeln, gör du något
 ### <a name="powershell"></a>PowerShell
 
 ```powershell
-Remove-AzureRmResourceGroup -Name appgatewayRG
+Remove-AzResourceGroup -Name appgatewayRG
 ```
 
 ### <a name="azure-cli"></a>Azure CLI
@@ -233,9 +235,9 @@ az group delete --name appgatewayRG
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du vill konfigurera SSL-avlastning läser du [Konfigurera en programgateway för SSL-avlastning](application-gateway-ssl.md).
+Om du vill konfigurera SSL-avlastning finns: [Konfigurera en Programgateway för SSL-avlastning](application-gateway-ssl.md).
 
-Om du vill konfigurera en programgateway för användning med en intern lastbalanserare läser du [Skapa en programgateway med en intern lastbalanserare (ILB)](application-gateway-ilb.md).
+Om du vill konfigurera en Programgateway för användning med en intern belastningsutjämnare, gå till: [Skapa en Programgateway med en intern belastningsutjämnare (ILB)](application-gateway-ilb.md).
 
 Om du vill ha mer information om belastningsutjämningsalternativ i allmänhet läser du:
 

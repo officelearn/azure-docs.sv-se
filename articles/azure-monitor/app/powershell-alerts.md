@@ -12,22 +12,23 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/31/2016
 ms.author: mbullwin
-ms.openlocfilehash: b94136f063f9d4793ce4c8a03c17454df920af26
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 1da3b71cbb809c92ba3228676f8a47235829b499
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54117562"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57309544"
 ---
 # <a name="use-powershell-to-set-alerts-in-application-insights"></a>Använd PowerShell för att ställa in aviseringar i Application Insights
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Du kan automatisera konfigurationen av [aviseringar](../../azure-monitor/app/alerts.md) i [Application Insights](../../azure-monitor/app/app-insights-overview.md).
 
 Dessutom kan du [ange webhooks för att automatisera dina svar på en avisering](../../azure-monitor/platform/alerts-webhooks.md).
 
 > [!NOTE]
 > Om du vill skapa resurser och aviseringar på samma gång kan du överväga att [med en Azure Resource Manager-mall](powershell.md).
->
->
 
 ## <a name="one-time-setup"></a>Konfigurationen gång
 Om du inte har använt PowerShell med Azure-prenumerationen innan du:
@@ -42,15 +43,15 @@ Starta Azure PowerShell och [ansluta till din prenumeration](/powershell/azure/o
 
 ```PowerShell
 
-    Add-AzureRmAccount
+    Add-AzAccount
 ```
 
 
 ## <a name="get-alerts"></a>Få aviseringar
-    Get-AzureRmAlertRule -ResourceGroup "Fabrikam" [-Name "My rule"] [-DetailedOutput]
+    Get-AzAlertRule -ResourceGroup "Fabrikam" [-Name "My rule"] [-DetailedOutput]
 
 ## <a name="add-alert"></a>Lägg till avisering
-    Add-AzureRmMetricAlertRule  -Name "{ALERT NAME}" -Description "{TEXT}" `
+    Add-AzMetricAlertRule  -Name "{ALERT NAME}" -Description "{TEXT}" `
      -ResourceGroup "{GROUP NAME}" `
      -ResourceId "/subscriptions/{SUBSCRIPTION ID}/resourcegroups/{GROUP NAME}/providers/microsoft.insights/components/{APP RESOURCE NAME}" `
      -MetricName "{METRIC NAME}" `
@@ -69,7 +70,7 @@ E-posta mig om serverns svar på HTTP-begäran än 5 minuter, i genomsnitt är l
 
 GUID är prenumerations-ID (inte instrumenteringsnyckeln för programmet).
 
-    Add-AzureRmMetricAlertRule -Name "slow responses" `
+    Add-AzMetricAlertRule -Name "slow responses" `
      -Description "email me if the server responds slowly" `
      -ResourceGroup "Fabrikam" `
      -ResourceId "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/Fabrikam/providers/microsoft.insights/components/IceCreamWebApp" `
@@ -83,7 +84,7 @@ GUID är prenumerations-ID (inte instrumenteringsnyckeln för programmet).
 ## <a name="example-2"></a>Exempel 2
 Jag har ett program som jag använder [TrackMetric()](../../azure-monitor/app/api-custom-events-metrics.md#trackmetric) att rapportera ett mått med namnet ”salesPerHour”. Skicka ett e-postmeddelande till min kollegor om ”salesPerHour” sjunker under 100, som ett genomsnitt under 24 timmar.
 
-    Add-AzureRmMetricAlertRule -Name "poor sales" `
+    Add-AzMetricAlertRule -Name "poor sales" `
      -Description "slow sales alert" `
      -ResourceGroup "Fabrikam" `
      -ResourceId "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/Fabrikam/providers/microsoft.insights/components/IceCreamWebApp" `

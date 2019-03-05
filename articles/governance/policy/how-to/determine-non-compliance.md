@@ -1,5 +1,5 @@
 ---
-title: Fastställa orsakerna till inkompatibilitet
+title: Fastställa orsaker till icke-kompatibilitet
 description: När en resurs är icke-kompatibla, finns det många möjliga orsaker. Lär dig att ta reda på vad som orsakade överträdelsen.
 services: azure-policy
 author: DCtheGeek
@@ -8,14 +8,14 @@ ms.date: 02/26/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: bdc7e635537eb4f836f0d4b5e2c18cc62b7fd310
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: dba8d9413229a0fa236b082e2e11dbd1a9fe5a5f
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56890483"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57314134"
 ---
-# <a name="determine-causes-of-non-compliance"></a>Fastställa orsakerna till inkompatibilitet
+# <a name="determine-causes-of-non-compliance"></a>Fastställa orsaker till icke-kompatibilitet
 
 När en Azure-resurs bedöms vara icke-kompatibla till en regel, är det bra att förstå vilken del av regeln resursen inte är kompatibel med. Det är också användbart för att förstå vilken ändring ändras en tidigare kompatibel resurs för att göra det icke-kompatibla. Det finns två sätt att hitta den här informationen:
 

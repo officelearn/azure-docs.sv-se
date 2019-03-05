@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 35927b038ee8caa7e826c4edfb7803a2bc0177c8
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: 31b65dc7a73d24066bee8088b3177a1300186eba
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56750692"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57316667"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Behörigheter för administratör i Azure Active Directory
 
@@ -42,7 +42,7 @@ Följande administratörsroller är tillgängliga:
 
 * **[Programutvecklare](#application-developer)**: Användare i den här rollen kan skapa programregistreringar när den ”användare kan registrera program” är inställt på Nej. Den här rollen kan också medlemmar måste samtycka på sina egna räkning när den ”användare kan godkänna att appar får åtkomst till företagets data å deras vägnar” är inställt på Nej. Medlemmar i den här rollen har lagts till som ägare när du skapar nya programregistreringar eller företagsprogram.
 
-* **[Administratören Authentication](#authentication-administrator)**: Användare med den här rollen kan ange eller återställa autentiseringsuppgifter för icke-password. Autentisering-administratörer kan kräva att användare kan Omregistrera mot befintliga autentiseringsuppgifter för icke-lösenord (till exempel MFA eller FIDO) och återkalla **MFA sparas på enheten**, pwhich rompts för MFA på den nästa inloggningen av användare icke-administratörer eller medlemmar i följande roller:
+* **[Administratören Authentication](#authentication-administrator)**: Användare med den här rollen kan ange eller återställa autentiseringsuppgifter för icke-password. Autentisering-administratörer kan kräva att användare kan Omregistrera mot befintliga autentiseringsuppgifter för icke-lösenord (till exempel MFA eller FIDO) och återkalla **MFA sparas på enheten**, som uppmanar för MFA på den nästa inloggningen av användare icke-administratörer eller medlemmar i följande roller:
   * Autentiseringsadministratör
   * Katalogläsare
   * Gäst bjuder in

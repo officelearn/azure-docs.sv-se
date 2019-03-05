@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.date: 01/17/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 6fa316452b5b9f56c33de00b96c2cf57c40edfcc
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: a978e1054367620f25043ab810c3fb78c45d9f72
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56429663"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57310683"
 ---
 # <a name="ocr-cognitive-skill"></a>OCR kognitiva kunskaper
 
@@ -67,32 +67,32 @@ Parametrar är skiftlägeskänsliga.
 
 ```json
 {
-    "skills": [
-      {
-        "description": "Extracts text (plain and structured) from image.",
-        "@odata.type": "#Microsoft.Skills.Vision.OcrSkill",
-        "context": "/document/normalized_images/*",
-        "defaultLanguageCode": null,
-        "detectOrientation": true,
-        "inputs": [
-          {
-            "name": "image",
-            "source": "/document/normalized_images/*"
-          }
-        ],
-        "outputs": [
-          {
-            "name": "text",
-            "targetName": "myText"
-          },
-          {
-            "name": "layoutText",
-            "targetName": "myLayoutText"
-          }
-        ]
-      }
-    ]
- }
+  "skills": [
+    {
+      "description": "Extracts text (plain and structured) from image.",
+      "@odata.type": "#Microsoft.Skills.Vision.OcrSkill",
+      "context": "/document/normalized_images/*",
+      "defaultLanguageCode": null,
+      "detectOrientation": true,
+      "inputs": [
+        {
+          "name": "image",
+          "source": "/document/normalized_images/*"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "targetName": "myText"
+        },
+        {
+          "name": "layoutText",
+          "targetName": "myLayoutText"
+        }
+      ]
+    }
+  ]
+}
 ```
 <a name="sample-output"></a>
 
@@ -136,9 +136,9 @@ Parametrar är skiftlägeskänsliga.
 
 ## <a name="sample-merging-text-extracted-from-embedded-images-with-the-content-of-the-document"></a>Exempel: Sammanslagning av text som extraherats från inbäddade bilder med innehållet i dokumentet.
 
-Ett vanligt användningsfall för Text fusion är möjligheten att slå samman textrepresentation av bilder (text från en OCR-kunskaper eller rubriken på en avbildning) i fältet content för ett dokument. 
+Ett vanligt användningsfall för Text fusion är möjligheten att slå samman textrepresentation av bilder (text från en OCR-kunskaper eller rubriken på en avbildning) i fältet content för ett dokument.
 
-Följande exempel kompetens skapar en *merged_text* fält. Det här fältet innehåller det faktiska innehållet i dokumentet och texten OCRed från var och en av de bilder som är inbäddade i detta dokument. 
+Följande exempel kompetens skapar en *merged_text* fält. Det här fältet innehåller det faktiska innehållet i dokumentet och texten OCRed från var och en av de bilder som är inbäddade i detta dokument.
 
 #### <a name="request-body-syntax"></a>Begärandetextsyntax
 ```json
@@ -147,22 +147,22 @@ Följande exempel kompetens skapar en *merged_text* fält. Det här fältet inne
   "skills":
   [
     {
-        "description": "Extract text (plain and structured) from image.",
-        "@odata.type": "#Microsoft.Skills.Vision.OcrSkill",
-        "context": "/document/normalized_images/*",
-        "defaultLanguageCode": "en",
-        "detectOrientation": true,
-        "inputs": [
-          {
-            "name": "image",
-            "source": "/document/normalized_images/*"
-          }
-        ],
-        "outputs": [
-          {
-            "name": "text"
-          }
-        ]
+      "description": "Extract text (plain and structured) from image.",
+      "@odata.type": "#Microsoft.Skills.Vision.OcrSkill",
+      "context": "/document/normalized_images/*",
+      "defaultLanguageCode": "en",
+      "detectOrientation": true,
+      "inputs": [
+        {
+          "name": "image",
+          "source": "/document/normalized_images/*"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text"
+        }
+      ]
     },
     {
       "@odata.type": "#Microsoft.Skills.Text.MergeSkill",
@@ -178,7 +178,7 @@ Följande exempel kompetens skapar en *merged_text* fält. Det här fältet inne
           "name": "itemsToInsert", "source": "/document/normalized_images/*/text"
         },
         {
-          "name":"offsets", "source": "/document/normalized_images/*/contentOffset" 
+          "name":"offsets", "source": "/document/normalized_images/*/contentOffset"
         }
       ],
       "outputs": [
@@ -193,14 +193,14 @@ Följande exempel kompetens skapar en *merged_text* fält. Det här fältet inne
 Exemplet ovan kompetens förutsätter att det finns ett normaliserat avbildningar fält. Om du vill generera det här fältet, ange den *imageAction* konfiguration i din indexerarens definition till *generateNormalizedImages* enligt nedan:
 
 ```json
-{  
-   //...rest of your indexer definition goes here ... 
-  "parameters":{  
-      "configuration":{  
-         "dataToExtract":"contentAndMetadata",
-         "imageAction":"generateNormalizedImages"
-      }
-   }
+{
+  //...rest of your indexer definition goes here ...
+  "parameters": {
+    "configuration": {
+      "dataToExtract":"contentAndMetadata",
+      "imageAction":"generateNormalizedImages"
+    }
+  }
 }
 ```
 

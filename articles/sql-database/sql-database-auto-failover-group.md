@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: 5afd5020b060961d215b922c9e49466b73f2a69e
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 862cc4da99aed02b81b6fd12913736bf30866f72
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56889893"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57313607"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Använda grupper för automatisk redundans för att aktivera transparent och samordnad redundans för flera databaser
 
@@ -304,14 +304,16 @@ Vilket beskrivs ovan, automatisk redundans grupper och aktiv kan geo-replikering
 
 ### <a name="powershell-manage-sql-database-failover-with-single-databases-and-elastic-pools"></a>PowerShell: Hantera redundans för SQL-databas med enskilda databaser och elastiska pooler
 
+[!INCLUDE [requires-azurerm](../../includes/requires-azurerm.md)]
+
 | Cmdlet | Beskrivning |
 | --- | --- |
-| [New-AzureRmSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabasefailovergroup) |Det här kommandot skapar en redundansgrupp och registrerar den på både primära och sekundära servrar|
-| [Remove-AzureRmSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/azurerm.sql/remove-azurermsqldatabasefailovergroup) | Tar bort redundansgruppen från servern och tar bort alla sekundära databaser ingår i gruppen |
-| [Get-AzureRmSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabasefailovergroup) | Hämtar redundanskonfiguration för grupp |
-| [Set-AzureRmSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabasefailovergroup) |Ändrar konfigurationen för redundansgruppen |
-| [Switch-AzureRMSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/azurerm.sql/switch-azurermsqldatabasefailovergroup) | Utlösare redundans för redundansgruppen till den sekundära servern |
-| [Add-AzureRmSqlDatabaseToFailoverGroup](https://docs.microsoft.com/powershell/module/azurerm.sql/add-azurermsqldatabasetofailovergroup)|Lägger till en eller flera databaser i en Azure SQL Database-redundansgrupp|
+| [New-AzSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabasefailovergroup) |Det här kommandot skapar en redundansgrupp och registrerar den på både primära och sekundära servrar|
+| [Remove-AzSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqldatabasefailovergroup) | Tar bort redundansgruppen från servern och tar bort alla sekundära databaser ingår i gruppen |
+| [Get-AzSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabasefailovergroup) | Hämtar redundanskonfiguration för grupp |
+| [Set-AzSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabasefailovergroup) |Ändrar konfigurationen för redundansgruppen |
+| [Switch-AzSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/switch-azsqldatabasefailovergroup) | Utlösare redundans för redundansgruppen till den sekundära servern |
+| [Add-AzSqlDatabaseToFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/add-azsqldatabasetofailovergroup)|Lägger till en eller flera databaser i en Azure SQL Database-redundansgrupp|
 |  | |
 
 > [!IMPORTANT]
@@ -341,11 +343,11 @@ Vilket beskrivs ovan, automatisk redundans grupper och aktiv kan geo-replikering
 
 | API | Beskrivning |
 | --- | --- |
-| New-AzureRmSqlDatabaseInstanceFailoverGroup |Det här kommandot skapar en redundansgrupp och registrerar den på både primära och sekundära servrar|
-| Set-AzureRmSqlDatabaseInstanceFailoverGroup |Ändrar konfigurationen för redundansgruppen|
-| Get-AzureRmSqlDatabaseInstanceFailoverGroup |Hämtar redundanskonfiguration för grupp|
-| Switch-AzureRmSqlDatabaseInstanceFailoverGroup |Utlösare redundans för redundansgruppen till den sekundära servern|
-| Remove-AzureRmSqlDatabaseInstanceFailoverGroup | Tar bort en redundansgrupp|
+| New-AzSqlDatabaseInstanceFailoverGroup |Det här kommandot skapar en redundansgrupp och registrerar den på både primära och sekundära servrar|
+| Set-AzSqlDatabaseInstanceFailoverGroup |Ändrar konfigurationen för redundansgruppen|
+| Get-AzSqlDatabaseInstanceFailoverGroup |Hämtar redundanskonfiguration för grupp|
+| Switch-AzSqlDatabaseInstanceFailoverGroup |Utlösare redundans för redundansgruppen till den sekundära servern|
+| Remove-AzSqlDatabaseInstanceFailoverGroup | Tar bort en redundansgrupp|
 
 ### <a name="rest-api-manage-sql-database-failover-groups-with-single-and-pooled-databases"></a>REST-API: Hantera SQL database-redundansgrupper med enkel och delade databaser
 

@@ -7,14 +7,16 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 12/20/2018
 ms.author: absha
-ms.openlocfilehash: 2babb6ff7b93ad9cf7c93565cadce9453a3b96ca
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 176e6804e6c98a1b9e9ffe4af04f02748c80928b
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55103436"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57310921"
 ---
 # <a name="rewrite-http-headers-with-application-gateway-public-preview"></a>Skriv om HTTP-huvuden med Application Gateway (offentlig förhandsversion)
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Med HTTP-huvuden kan klienten och servern skicka ytterligare information med begäran eller svaret. Skriva om dessa HTTP-huvuden hjälper till att du utföra flera viktiga scenarier, till exempel att lägga till säkerhetsrelaterade rubrik fält som HSTS / X XSS skydd eller ta bort svar huvudfält, som kan röja känslig information som backend-servernamn.
 
@@ -27,7 +29,7 @@ Application Gateway stöder nu möjligheten att skriva om rubrikerna för inkomm
 Stöd för Application Gateway-huvud omskrivning erbjuder:
 
 - **Global rubrik omskrivning**: Du kan skriva om specifika rubriker för alla begäranden och svar som hör till platsen.
-- **Sökvägsbaserad rubrik omskrivning**: den här typen av omarbetning gör det möjligt för rubriken omarbetning för dessa begäranden och svar som hör till endast på en viss plats, till exempel ett i kundvagnen område enligt/kundvagn / *.
+- **Sökvägsbaserad rubrik omskrivning**: den här typen av omarbetning gör det möjligt för rubriken omarbetning för dessa begäranden och svar som hör till endast på en viss plats, till exempel ett i kundvagnen område enligt /cart/\*.
 
 Med den här ändringen måste du:
 
@@ -48,7 +50,7 @@ Du kan skriva om värdet i rubriker för att:
   *Exempel:* 
 
   ```azurepowershell-interactive
-  $responseHeaderConfiguration = New-AzureRmApplicationGatewayRewriteRuleHeaderConfiguration -HeaderName "Strict-Transport-Security" -  HeaderValue "max-age=31536000")
+  $responseHeaderConfiguration = New-AzApplicationGatewayRewriteRuleHeaderConfiguration -HeaderName "Strict-Transport-Security" -  HeaderValue "max-age=31536000")
   ```
 
 - Värde från en annan rubrik. 
@@ -56,7 +58,7 @@ Du kan skriva om värdet i rubriker för att:
   *Exempel 1:* 
 
   ```azurepowershell-interactive
-  $requestHeaderConfiguration= New-AzureRmApplicationGatewayRewriteRuleHeaderConfiguration -HeaderName "X-New-RequestHeader" -HeaderValue {http_req_oldHeader}
+  $requestHeaderConfiguration= New-AzApplicationGatewayRewriteRuleHeaderConfiguration -HeaderName "X-New-RequestHeader" -HeaderValue {http_req_oldHeader}
   ```
 
   > [!Note] 
@@ -65,7 +67,7 @@ Du kan skriva om värdet i rubriker för att:
   *Exempel 2*:
 
   ```azurepowershell-interactive
-  $responseHeaderConfiguration= New-AzureRmApplicationGatewayRewriteRuleHeaderConfiguration -HeaderName "X-New-ResponseHeader" -HeaderValue {http_resp_oldHeader}
+  $responseHeaderConfiguration= New-AzApplicationGatewayRewriteRuleHeaderConfiguration -HeaderName "X-New-ResponseHeader" -HeaderValue {http_resp_oldHeader}
   ```
 
   > [!Note] 
@@ -76,7 +78,7 @@ Du kan skriva om värdet i rubriker för att:
   *Exempel:* 
 
   ```azurepowershell-interactive
-  $requestHeaderConfiguration = New-AzureRmApplicationGatewayRewriteRuleHeaderConfiguration -HeaderName "Ciphers-Used" -HeaderValue "{var_ciphers_used}"
+  $requestHeaderConfiguration = New-AzApplicationGatewayRewriteRuleHeaderConfiguration -HeaderName "Ciphers-Used" -HeaderValue "{var_ciphers_used}"
   ```
 
   > [!Note] 

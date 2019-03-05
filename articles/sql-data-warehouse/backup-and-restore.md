@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 03/01/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: e9cf4fd448527e8104883e1c23c8c4b64fde3f0d
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 8faeb06987577d7e0098e3b5047cdde91b1254ae
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57213644"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57315239"
 ---
 # <a name="backup-and-restore-in-azure-sql-data-warehouse"></a>Säkerhetskopiering och återställning i Azure SQL Data Warehouse
 
@@ -48,7 +48,6 @@ Den här funktionen kan du manuellt utlösaren ögonblicksbilder att skapa åter
 
 > [!NOTE]
 > Om du behöver återställningspunkter som är längre än 7 dagar kan du rösta på den här funktionen [här](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/35114410-user-defined-retention-periods-for-restore-points). Du kan också skapa en återställningspunkt för användardefinierade och återställa från den nyligen skapade återställningspunkten till ett nytt datalager. När du har återställt ha datalagret online och kan pausa på obestämd tid för att spara beräkningskostnader. Pausad databasen medför avgifter för lagring till Azure Premium Storage-kostnad. Om du behöver en aktiv kopia av återställda data warehouse kan återuppta du som tar bara några minuter.
->
 
 ### <a name="restore-point-retention"></a>Återställa kvarhållning av återställningspunkt
 
@@ -66,17 +65,15 @@ När du släpper ett data warehouse, SQL Data Warehouse skapar en slutlig ögonb
 
 > [!IMPORTANT]
 > Om du tar bort en logisk SQL server-instans, raderas också alla databaser som tillhör instansen och kan inte återställas. Du kan inte återställa en borttagen server.
->
 
 ## <a name="geo-backups-and-disaster-recovery"></a>GEO-säkerhetskopiering och disaster recovery
 
 SQL Data Warehouse utför en geo-säkerhetskopia en gång per dag för att en [kopplat Datacenter](../best-practices-availability-paired-regions.md). Återställningspunktmålet för en geo-återställning är 24 timmar. Du kan återställa geo-säkerhetskopiering till en server i alla andra regioner där det finns stöd för SQL Data Warehouse. En geo-säkerhetskopia säkerställer att du kan återställa datalagret om du inte åtkomst till återställningspunkter i den primära regionen.
 
-GEO-säkerhetskopiering är aktiverat som standard. Om ditt informationslager är Gen1, kan du [avanmäla dig](/powershell/module/azurerm.sql/set-azurermsqldatabasegeobackuppolicy) om du vill. Du kan inte välja bort geo-säkerhetskopiering för Gen2 eftersom dataskydd är en inbyggd garanteras.
+GEO-säkerhetskopiering är aktiverat som standard. Om ditt informationslager är Gen1, kan du [avanmäla dig](/powershell/module/az.sql/set-azsqldatabasegeobackuppolicy) om du vill. Du kan inte välja bort geo-säkerhetskopiering för Gen2 eftersom dataskydd är en inbyggd garanteras.
 
 > [!NOTE]
 > Om du behöver ett kortare Återställningspunktmål för geo-säkerhetskopiering kan rösta på den här funktionen [här](https://feedback.azure.com/forums/307516-sql-data-warehouse). Du kan också skapa en återställningspunkt för användardefinierade och återställa från den nyligen skapade återställningspunkten till ett nytt datalager i en annan region. När du har återställt ha datalagret online och kan pausa på obestämd tid för att spara beräkningskostnader. Pausad databasen medför avgifter för lagring till Azure Premium Storage-kostnad. Om du behöver en aktiv kopia av datalagret, kan du återuppta som tar bara några minuter.
->
 
 ## <a name="backup-and-restore-costs"></a>Kostnader för säkerhetskopiering och återställning
 
@@ -108,7 +105,6 @@ Du kan [återställa ditt informationslager](https://docs.microsoft.com/azure/sq
 
 > [!NOTE]
 > Om du vill utföra en geo-redundant återställning måste du inte har valt ut från den här funktionen.
->
 
 ## <a name="next-steps"></a>Nästa steg
 

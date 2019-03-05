@@ -8,14 +8,16 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 1/11/2019
 ms.author: victorh
-ms.openlocfilehash: a65aabc7b56c4dd5f2d22974756f5f3e54cebb31
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 5552ca80059b4aa7ef96caf7984b4c15ec177d38
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56867719"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57316599"
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>Vanliga frågor om Application Gateway
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="general"></a>Allmänt
 
@@ -41,10 +43,10 @@ Stöd för HTTP/2-protokollet är tillgängligt för klienter som ansluter till 
 
 Stöd för HTTP/2 är inaktiverad som standard. Följande Azure PowerShell-kodfragmentet kodexempel visar hur du kan aktivera den:
 
-```powershell
-$gw = Get-AzureRmApplicationGateway -Name test -ResourceGroupName hm
+```azurepowershell
+$gw = Get-AzApplicationGateway -Name test -ResourceGroupName hm
 $gw.EnableHttp2 = $true
-Set-AzureRmApplicationGateway -ApplicationGateway $gw
+Set-AzApplicationGateway -ApplicationGateway $gw
 ```
 
 ### <a name="what-resources-are-supported-today-as-part-of-backend-pool"></a>Vilka resurser som stöds i dag som en del av backend-pool?
@@ -70,6 +72,10 @@ Lyssnare bearbetas i den ordning som de visas. Därför om en grundläggande lys
 ### <a name="where-do-i-find-application-gateways-ip-and-dns"></a>Var hittar jag Application Gateway IP och DNS?
 
 När du använder en offentlig IP-adress som en slutpunkt kan kan den här informationen hittas på den offentliga IP-adressresursen eller på översiktssidan för application gateway i portalen. För interna IP-adresser finns det på sidan Översikt.
+
+### <a name="what-is-keep-alive-timeout-and-tcp-idle-timeout-setting-on-application-gateway"></a>Vad är timeoutvärdet och inställningen för TCP-tidsgräns vid inaktivitet på Application Gateway?
+
+Keep-Alive tidsgränsen på v1-SKU är 120 sek. Keep-Alive-tidsgräns vid v2-SKU är 75 sek. timeout för inaktivitet av TCP är 4 min standard på klientdelen VIP för Programgatewayen.
 
 ### <a name="does-the-ip-or-dns-name-change-over-the-lifetime-of-the-application-gateway"></a>Ändras IP-Adressen eller DNS-namnet över livslängden för Application Gateway?
 
@@ -126,7 +132,7 @@ Nätverkssäkerhetsgrupper (NSG) stöds i application gateway-undernätet med f�
 
 * Undantag måste placeras i inkommande trafik på portarna 65503 65534 för Application Gateway v1-SKU och portar 65200 – 65535 för v2-SKU. Den här portintervall krävs för Azures infrastrukturkommunikation. De är skyddade (låsta) med Azure-certifikat. Utan rätt certifikat kommer går externa entiteter, inklusive kunderna till dessa gateways, inte att initiera alla ändringar på dessa slutpunkter.
 
-* Det går inte att blockera utgående internet-anslutning.
+* Det går inte att blockera utgående internet-anslutning. Utgående standardregler i NSG: N kan redan ansluten till internet. Vi rekommenderar att du inte tar bort utgående standardregler och att du inte skapar andra utgående regler som nekar utgående internet-anslutning.
 
 * Trafik från taggen AzureLoadBalancer måste tillåtas.
 
@@ -342,7 +348,7 @@ Det finns tre loggar som är tillgängliga för Application Gateway. Mer informa
 
 ### <a name="how-do-i-know-if-my-backend-pool-members-are-healthy"></a>Hur vet jag om min medlemmar i serverdelspoolen är felfria?
 
-Du kan använda PowerShell-cmdleten `Get-AzureRmApplicationGatewayBackendHealth` eller kontrollera hälsa via portalen genom att besöka [Application Gateway-diagnostik](application-gateway-diagnostics.md)
+Du kan använda PowerShell-cmdleten `Get-AzApplicationGatewayBackendHealth` eller kontrollera hälsa via portalen genom att besöka [Application Gateway-diagnostik](application-gateway-diagnostics.md)
 
 ### <a name="what-is-the-retention-policy-on-the-diagnostics-logs"></a>Vad är bevarandeprincipen på diagnostikloggar?
 

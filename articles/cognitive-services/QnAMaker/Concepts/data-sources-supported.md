@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 01/04/2019
+ms.date: 03/04/2019
 ms.author: tulasim
-ms.openlocfilehash: 09e01f7705c61bdf110c0bc84cefa396f430f7f8
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: d41c7a24d72cdafac953e0215a6cbd2d9e8bba01
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55884519"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57316480"
 ---
 # <a name="data-sources-for-qna-maker-content"></a>Datakällor för QnA Maker-innehåll
 
@@ -122,7 +122,7 @@ Nedan visas ett exempel på ett strukturerade QnA word-dokument:
 
 Kunskapsbaser i form av strukturerade *.txt*, *.tsv* eller *.xls* filer kan också överföras till QnA Maker att skapa eller utöka en kunskapsbas.  Dessa kan antingen vara oformaterad text eller kan ha innehåll i RTF- eller HTML. 
 
-| Fråga  | Svar  | Metadata                |
+| Fråga  | Svar  | Metadata (1-nyckel: 1 värde) |
 |-----------|---------|-------------------------|
 | Question1 | Answer1 | <code>Key1:Value1 &#124; Key2:Value2</code> |
 | Question2 | Answer2 |      `Key:Value`           |
@@ -137,7 +137,7 @@ Nedan visas ett exempel på en strukturerade QnA *.xls* filen med HTML-innehåll
 
 Importera en kunskapsbas ersätter innehållet i den befintliga kunskapsbasen. Importera kräver en strukturerade TSV-fil som innehåller information om datakällan. Den här informationen hjälper QnA Maker gruppera frågor svar-par och attributet dem till en viss datakälla.
 
-| Fråga  | Svar  | Källa| Metadata                |
+| Fråga  | Svar  | Källa| Metadata (1-nyckel: 1 värde) |          
 |-----------|---------|----|---------------------|
 | Question1 | Answer1 | Url1 | <code>Key1:Value1 &#124; Key2:Value2</code> |
 | Question2 | Answer2 | Redigering|    `Key:Value`       |

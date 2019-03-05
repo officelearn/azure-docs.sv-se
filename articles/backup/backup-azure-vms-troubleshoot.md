@@ -6,14 +6,14 @@ author: srinathv
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 8/7/2018
+ms.date: 03/04/2019
 ms.author: srinathv
-ms.openlocfilehash: 057057b155c6c48dabd0b97b3f6a57f3ee4c7cc1
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 8e49abb224cf37c875b0c071ea7c461879c08fc9
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56888958"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57312774"
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Felsöka säkerhetskopiering av virtuell Azure-dator
 Du kan felsöka fel vid användning av Azure Backup med informationen som visas i följande tabell:
@@ -58,7 +58,7 @@ Du kan felsöka fel vid användning av Azure Backup med informationen som visas 
 
 | Felinformation | Lösning |
 | --- | --- |
-| Återställningen misslyckades med ett internt fel i molnet. |<ol><li>Molntjänsten som du försöker återställa har konfigurerats med DNS-inställningarna. Du kan kontrollera: <br>**$deployment = get-AzureDeployment - ServiceName ”ServiceName”-fack ”produktion” Get-AzureDns - DnsSettings $deployment. DnsSettings**.<br>Om **adress** konfigureras, och sedan DNS-inställningarna har konfigurerats.<br> <li>Molntjänsten som du försöker återställa har konfigurerats med **ReservedIP**, och befintliga virtuella datorer i Molntjänsten som är i ett stoppat tillstånd. Du kan kontrollera att en tjänst i molnet har reserverat en IP-adress med hjälp av följande PowerShell-cmdlets: **$deployment = Get-AzureDeployment - ServiceName ”servicename”-fack ”produktion” $dep. ReservedIPName**. <br><li>Du försöker återställa en virtuell dator med följande särskilda nätverkskonfigurationer i samma molntjänst: <ul><li>Virtuella datorer under konfigurationen för belastningsutjämnaren, interna och externa.<li>Virtuella datorer med flera reserverade IP-adresser. <li>Virtuella datorer med flera nätverkskort. </ul><li>Välj en ny molntjänst i Användargränssnittet eller se [återställa överväganden](backup-azure-arm-restore-vms.md#restore-vms-with-special-network-configurations) för virtuella datorer med särskilda nätverkskonfigurationer.</ol> |
+| Återställningen misslyckades med ett internt fel i molnet. |<ol><li>Molntjänsten som du försöker återställa har konfigurerats med DNS-inställningarna. Du kan kontrollera: <br>**$deployment = get-AzureDeployment - ServiceName ”ServiceName”-fack ”produktion” Get-AzureDns - DnsSettings $deployment. DnsSettings**.<br>Om **adress** konfigureras, och sedan DNS-inställningarna har konfigurerats.<br> <li>Molntjänsten som du försöker återställa har konfigurerats med **ReservedIP**, och befintliga virtuella datorer i Molntjänsten som är i ett stoppat tillstånd. Du kan kontrollera att en tjänst i molnet har reserverat en IP-adress med hjälp av följande PowerShell-cmdlets: **$deployment = Get-AzureDeployment - ServiceName ”servicename”-fack ”produktion” $dep. ReservedIPName**. <br><li>Du försöker återställa en virtuell dator med följande särskilda nätverkskonfigurationer i samma molntjänst: <ul><li>Virtuella datorer under konfigurationen för belastningsutjämnaren, interna och externa.<li>Virtuella datorer med flera reserverade IP-adresser. <li>Virtuella datorer med flera nätverkskort. </ul><li>Välj en ny molntjänst i Användargränssnittet eller se [återställa överväganden](backup-azure-arm-restore-vms.md#restore-vms-with-special-configurations) för virtuella datorer med särskilda nätverkskonfigurationer.</ol> |
 | Det valda DNS-namnet används redan: <br>Ange ett annat DNS-namn och försök igen. |Den här DNS-namn som refererar till molntjänstens namn, vanligtvis slutar med **. cloudapp.net**. Det här namnet måste vara unikt. Om du får det här felet kan behöva du välja ett annat namn under återställningen. <br><br> Det här felet visas endast för användare av Azure-portalen. Återställningsåtgärden via PowerShell lyckas eftersom den återställer endast diskar och skapar inte den virtuella datorn. Felet kommer riktas när den virtuella datorn uttryckligen har skapats av dig när disken återställningsåtgärden. |
 | Den angivna virtuella nätverkskonfigurationen är inte korrekt: <br>Ange ett annat virtuellt nätverk-konfiguration och försök igen. |Ingen |
 | Den angivna Molntjänsten använder en reserverad IP-adress som inte matchar konfigurationen för den virtuella datorn håller på att återställas: <br>Ange en annan molntjänst som inte använder en reserverad IP. Eller välj en annan återställningspunkt att återställa från. |Ingen |

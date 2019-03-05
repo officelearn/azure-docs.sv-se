@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 1/11/2019
 ms.author: amitsriva
-ms.openlocfilehash: c93434f060525f2f53f24c511bfa748a31d1fd61
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 14b99f648bb1d7e1926aa9d5dd9926e267ba9709
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453313"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57309136"
 ---
 # <a name="back-end-health-diagnostic-logs-and-metrics-for-application-gateway"></a>Backend-hälsotillstånd, diagnostikloggar och mått för Application Gateway
 
@@ -23,6 +23,8 @@ Med Azure Application Gateway kan övervaka du resurser på följande sätt:
 * [Loggar](#diagnostic-logging): Loggar kan prestanda, åtkomst och andra data sparas eller konsumeras från en resurs för övervakning.
 
 * [Mått](#metrics): Application Gateway har för närvarande sju mått för att visa prestandaräknare.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="back-end-health"></a>Backend-hälsotillstånd
 
@@ -47,10 +49,10 @@ Varje medlem i backend adresspoolen visas på den här sidan (om det är ett nä
 
 ### <a name="view-back-end-health-through-powershell"></a>Visa backend-hälsotillstånd via PowerShell
 
-Följande PowerShell-kod visar hur du visar backend-hälsotillstånd genom att använda den `Get-AzureRmApplicationGatewayBackendHealth` cmdlet:
+Följande PowerShell-kod visar hur du visar backend-hälsotillstånd genom att använda den `Get-AzApplicationGatewayBackendHealth` cmdlet:
 
 ```powershell
-Get-AzureRmApplicationGatewayBackendHealth -Name ApplicationGateway1 -ResourceGroupName Contoso
+Get-AzApplicationGatewayBackendHealth -Name ApplicationGateway1 -ResourceGroupName Contoso
 ```
 
 ### <a name="view-back-end-health-through-azure-cli"></a>Visa backend-hälsotillstånd via Azure CLI
@@ -121,7 +123,7 @@ Aktivitetsloggning är automatiskt aktiverad för alla Resource Manager-resurser
 3. Aktivera diagnostisk loggning med följande PowerShell-cmdlet:
 
     ```powershell
-    Set-AzureRmDiagnosticSetting  -ResourceId /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/applicationGateways/<application gateway name> -StorageAccountId /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Storage/storageAccounts/<storage account name> -Enabled $true     
+    Set-AzDiagnosticSetting  -ResourceId /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/applicationGateways/<application gateway name> -StorageAccountId /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Storage/storageAccounts/<storage account name> -Enabled $true     
     ```
     
 > [!TIP] 

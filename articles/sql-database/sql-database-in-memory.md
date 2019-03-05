@@ -12,12 +12,12 @@ ms.author: jodebrui
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 235d6174153e32b40885811350d967af5b98ecc4
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: fcfe8ed0bc132377fbaefaccb03e1d6a9374b8d6
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55478373"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57312490"
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-sql-database"></a>Optimera prestanda med hjälp av minnesinterna tekniker i SQL-databas
 
@@ -88,7 +88,7 @@ En snabb genomgång på In-Memory OLTP: [Snabbstart 1: InMemory-OLTP-tekniker f�
 Djupgående videor om tekniker:
 
 - [In-Memory OLTP i Azure SQL Database](https://channel9.msdn.com/Shows/Data-Exposed/In-Memory-OTLP-in-Azure-SQL-DB) (som innehåller en demonstration av prestandafördelarna och steg för att återskapa de här resultaten själv)
-- [In-Memory OLTP-videor: Vad det är och när/hur ska använda det.](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2016/10/03/in-memory-oltp-video-what-it-is-and-whenhow-to-use-it/)
+- [In-Memory OLTP-videor: Vad det är och när/hur ska använda det.](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../in-memory-oltp-video-what-it-is-and-whenhow-to-use-it/)
 
 Det finns ett programmässiga sätt att förstå om en viss databas har stöd för In-Memory OLTP. Du kan köra följande Transact-SQL-fråga:
 ```
@@ -150,7 +150,7 @@ Det finns två typer av columnstore-modeller som du kan använda för att ordna 
 
 Djupgående video om tekniken:
 
-- [Columnstore-Index: Minnesintern analys videor från Ignite 2016](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2016/10/04/columnstore-index-in-memory-analytics-i-e-columnstore-index-videos-from-ignite-2016/)
+- [Columnstore-Index: Minnesintern analys videor från Ignite 2016](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../columnstore-index-in-memory-analytics-i-e-columnstore-index-videos-from-ignite-2016/)
 
 ### <a name="data-size-and-storage-for-columnstore-indexes"></a>Datastorlek och lagring för columnstore-index
 

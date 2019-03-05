@@ -8,14 +8,16 @@ ms.topic: howto
 ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 1eaf73e1d8b3c60ea32fa7d4aaf51a212d24a18c
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 6e79aba5ae6d06c207b0070fd7741471db7d820c
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55894606"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57316922"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-using-a-resource-manager-template-for-a-windows-virtual-machine"></a>Skicka gäst-OS mått av Azure Monitor-måtten lagra med en Resource Manager-mall för en Windows-dator
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 Med hjälp av Azure Monitor [diagnostiktillägget](diagnostics-extension-overview.md), du kan samla in mått och loggar från gästoperativsystemet (gäst-OS) som körs som en del av en virtuell dator, en molntjänst eller ett Service Fabric-kluster. Tillägget kan skicka telemetri till [många olika platser.](https://docs.microsoft.com/azure/monitoring/monitoring-data-collection?toc=/azure/azure-monitor/toc.json)
 
@@ -29,7 +31,7 @@ Om du är nybörjare på Resource Manager-mallar kan du läsa om [malldistributi
 
 - Prenumerationen måste vara registrerad med [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services).
 
-- Du måste ha antingen [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-6.8.1) eller [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) installerad.
+- Du måste ha antingen [Azure PowerShell](/powershell/azure) eller [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) installerad.
 
 
 ## <a name="set-up-azure-monitor-as-a-data-sink"></a>Konfigurera Azure Monitor som mellanlagringsplats
@@ -237,17 +239,17 @@ Spara och Stäng båda filerna.
 För att distribuera Resource Manager-mall, kan vi använda Azure PowerShell.
 
 1. Starta PowerShell.
-1. Logga in på Azure med hjälp av `Login-AzureRmAccount`.
-1. Hämta listan över prenumerationer genom att använda `Get-AzureRmSubscription`.
+1. Logga in på Azure med hjälp av `Login-AzAccount`.
+1. Hämta listan över prenumerationer genom att använda `Get-AzSubscription`.
 1. Ange den prenumeration som du använder för att skapa/uppdatera den virtuella datorn i:
 
    ```PowerShell
-   Select-AzureRmSubscription -SubscriptionName "<Name of the subscription>"
+   Select-AzSubscription -SubscriptionName "<Name of the subscription>"
    ```
 1. Skapa en ny resursgrupp för den virtuella datorn som distribueras genom att köra följande kommando:
 
    ```PowerShell
-    New-AzureRmResourceGroup -Name "<Name of Resource Group>" -Location "<Azure Region>"
+    New-AzResourceGroup -Name "<Name of Resource Group>" -Location "<Azure Region>"
    ```
    > [!NOTE]
    > Kom ihåg att [använder en Azure-region som är aktiverad för anpassade mått](metrics-custom-overview.md).
@@ -257,7 +259,7 @@ För att distribuera Resource Manager-mall, kan vi använda Azure PowerShell.
    > Om du vill uppdatera en befintlig virtuell dator kan bara lägga till *-läge inkrementella* i slutet av följande kommando.
 
    ```PowerShell
-   New-AzureRmResourceGroupDeployment -Name "<NameThisDeployment>" -ResourceGroupName "<Name of the Resource Group>" -TemplateFile "<File path of your Resource Manager template>" -TemplateParameterFile "<File path of your parameters file>"
+   New-AzResourceGroupDeployment -Name "<NameThisDeployment>" -ResourceGroupName "<Name of the Resource Group>" -TemplateFile "<File path of your Resource Manager template>" -TemplateParameterFile "<File path of your parameters file>"
    ```
 
 1. Efter distributionen lyckas ska den virtuella datorn i Azure-portalen avger mått till Azure Monitor.

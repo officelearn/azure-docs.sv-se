@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 8/6/2018
 ms.author: victorh
-ms.openlocfilehash: 884775fc2783256d9fff43e8bc6b26cc4f638648
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 15481706d56af6cd9565e8c475b4770e432c1838
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55998628"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57337374"
 ---
 # <a name="application-gateway-health-monitoring-overview"></a>Application Gateway översikt över hälsoövervakning
 
@@ -22,6 +22,8 @@ Azure Application Gateway som standard övervakar hälsotillståndet för alla r
 ![Application gateway probe exempel][1]
 
 Förutom att använda standard hälsoövervakning för avsökning kan anpassa du också hälsoavsökningen så att det passar ditt program. I den här artikeln beskrivs både standard och anpassade hälsoavsökningar.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="default-health-probe"></a>Standard-hälsoavsökning
 
@@ -33,20 +35,20 @@ Om kontrollen för standard-avsökningen misslyckas Server A application gateway
 
 ### <a name="probe-matching"></a>Avsökning för matchning
 
-Som standard anses vara ett HTTP (S)-svar med statuskod 200 felfritt. Anpassade hälsoavsökningar har dessutom stöd för två matchande kriterier. Matchar villkoren kan användas för att ändra standard tolkningen av vad som utgör ett felfritt svar.
+Som standard anses vara ett HTTP (S)-svar med statuskod mellan 200 och 399 felfritt. Anpassade hälsoavsökningar har dessutom stöd för två matchande kriterier. Matchar villkoren kan användas för att ändra standard tolkningen av vad som utgör ett felfritt svar.
 
 Följande matchar villkoren: 
 
 - **HTTP-svar status kod matchning** - avsökningen som matchar villkoret för att acceptera användarspecificerade HTTP-svar kod eller ett svar kod intervall. Enskilda kommaavgränsad svarsstatuskoder eller ett intervall med statuskod stöds.
 - **HTTP-svar brödtext matchar** - avsökningen som matchar villkoret som ser ut på HTTP-svarstext och matchningar med en användare angav sträng. Matcha endast söker efter förekomst av användare som anges strängen i svarstexten och är inte en fullständig vanlig uttrycksmatchning.
 
-Matchar de villkor som kan anges med hjälp av den `New-AzureRmApplicationGatewayProbeHealthResponseMatch` cmdlet.
+Matchar de villkor som kan anges med hjälp av den `New-AzApplicationGatewayProbeHealthResponseMatch` cmdlet.
 
 Exempel:
 
-```powershell
-$match = New-AzureRmApplicationGatewayProbeHealthResponseMatch -StatusCode 200-399
-$match = New-AzureRmApplicationGatewayProbeHealthResponseMatch -Body "Healthy"
+```azurepowershell
+$match = New-AzApplicationGatewayProbeHealthResponseMatch -StatusCode 200-399
+$match = New-AzApplicationGatewayProbeHealthResponseMatch -Body "Healthy"
 ```
 När de matchar de villkor som anges, den kan kopplas för att avsöka konfiguration med hjälp av en `-Match` parameter i PowerShell.
 
@@ -57,7 +59,7 @@ När de matchar de villkor som anges, den kan kopplas för att avsöka konfigura
 | Avsökningswebbadress |http://127.0.0.1:\<port\>/ |URL-sökväg |
 | Intervall |30 |Hur lång tid i sekunder som ska förflyta innan nästa hälsoavsökningen skickas.|
 | Time-out |30 |Hur lång tid i sekunder application gateway probe svar inväntas innan du markerar avsökningen som skadad. Om en avsökning returnerar felfri, markeras direkt motsvarande serverdelen som felfritt.|
-| Tröskelvärde för ej felfri |3 |Styr hur många avsökningar för att skicka om det uppstår ett fel av regelbundna hälsoavsökningen. Dessa ytterligare hälsotillståndsavsökningar skickas i snabb följd att fastställa hälsotillståndet för serverdelen snabbt och väntar inte tills avsökningsintervallet. Backend-server markeras när antalet upprepade fel når tröskelvärde för ej felfri. |
+| Tröskelvärde för Ej felfri |3 |Styr hur många avsökningar för att skicka om det uppstår ett fel av regelbundna hälsoavsökningen. Dessa ytterligare hälsotillståndsavsökningar skickas i snabb följd att fastställa hälsotillståndet för serverdelen snabbt och väntar inte tills avsökningsintervallet. Backend-server markeras när antalet upprepade fel når tröskelvärde för ej felfri. |
 
 > [!NOTE]
 > Porten är samma port som backend-HTTP-inställningarna.
@@ -86,7 +88,7 @@ Följande tabell innehåller definitioner för egenskaperna för en anpassad hä
 | Sökväg |Relativa sökvägen för avsökningen. Giltig sökväg som börjar med ”/”. |
 | Intervall |Avsökningsintervall i sekunder. Det här värdet är tidsintervallet mellan två på varandra följande avsökningar. |
 | Time-out |Avsökning tidsgräns i sekunder. Om ett giltigt svar inte tas emot inom denna tidsgräns, markeras avsökningen som misslyckat.  |
-| Tröskelvärde för ej felfri |Avsökning för antal nya försök. Backend-server markeras när antalet upprepade fel når tröskelvärde för ej felfri. |
+| Tröskelvärde för Ej felfri |Avsökning för antal nya försök. Backend-server markeras när antalet upprepade fel når tröskelvärde för ej felfri. |
 
 > [!IMPORTANT]
 > Om Application Gateway har konfigurerats för en enda plats, som standard värden anges namnet som 127.0.0.1, såvida inte annat har konfigurerats i anpassad avsökning.

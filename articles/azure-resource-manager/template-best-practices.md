@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/19/2018
 ms.author: tomfitz
-ms.openlocfilehash: 121011555d0ba6fdae392275495b89a9759f3978
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: d40fcacc4612761b2c43b0dd3658042c38a0df75
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57244272"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57309527"
 ---
 # <a name="azure-resource-manager-template-best-practices"></a>Azure Resource Manager mall Metodtips
 
@@ -29,7 +29,7 @@ Rekommendationer om hur du skapar mallar som fungerar i alla Azure-molnmiljöer 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="parameters"></a>Parametrar
-Informationen i det här avsnittet kan vara användbart när du arbetar med [parametrar](resource-manager-templates-parameters.md).
+Informationen i det här avsnittet kan vara användbart när du arbetar med [parametrar](resource-group-authoring-templates.md#parameters).
 
 ### <a name="general-recommendations-for-parameters"></a>Allmänna rekommendationer för parametrar
 

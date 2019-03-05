@@ -12,12 +12,12 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 34e4371902095c5802bf4fc180e09ce189c110fc
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: fff4aa947f878974d2d0f18f373b8c0917ed7d70
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57214018"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57316064"
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>Felsöka Azure SQL Database prestandaproblem med intelligenta insikter
 
@@ -73,7 +73,7 @@ Diagnostikloggen matar ut fråga hash-värden för frågor som påverkas prestan
 
 Om du har nått gränserna tillgänglig, kan du optimera dina program genom att minska antalet inloggningar som gjorts i databasen. Om du inte att minska antalet inloggningar från dina program till databasen kan du överväga att öka prisnivån för din databas. Eller så kan du dela upp och flytta databasen till flera databaser för en mer avvägd arbetsbelastningsfördelning.
 
-Fler förslag om hur du löser tidsgränser för sessioner finns [hur du arbetar med gränserna för högsta inloggningar för SQL Database](https://blogs.technet.microsoft.com/latam/2015/06/01/how-to-deal-with-the-limits-of-azure-sql-database-maximum-logins/). Se [översikt över resource begränsar på en SQL-databasserver](sql-database-resource-limits-database-server.md) information om begränsningar på de server och prenumeration.
+Fler förslag om hur du löser tidsgränser för sessioner finns [hur du arbetar med gränserna för högsta inloggningar för SQL Database](https://blogs.technet.microsoft.com/latam/20../../how-to-deal-with-the-limits-of-azure-sql-database-maximum-logins/). Se [översikt över resource begränsar på en SQL-databasserver](sql-database-resource-limits-database-server.md) information om begränsningar på de server och prenumeration.
 
 ## <a name="workload-increase"></a>Ökning av arbetsbelastning
 
@@ -109,7 +109,7 @@ Du kan optimera eller ta bort frågor som rör lagerarbetare med högsta minnesa
 
 Du kan också minska arbetsbelastningen genom att optimera eller fördelat över flera databaser. Eller du kan distribuera arbetsbelastningen mellan flera databaser. Om lösningarna inte är möjligt kan du överväga att öka prisnivån för prenumerationen för SQL-databas att öka mängden minnesresurser som är tillgängliga i databasen.
 
-Ytterligare förslag om felsökning finns i [minne ger stensättningar: Mystiska SQL Server minne konsumenten med många namn](https://blogs.msdn.microsoft.com/sqlmeditation/2013/01/01/memory-meditation-the-mysterious-sql-server-memory-consumer-with-many-names/).
+Ytterligare förslag om felsökning finns i [minne ger stensättningar: Mystiska SQL Server minne konsumenten med många namn](https://blogs.msdn.microsoft.com/sqlmeditation/20../../memory-meditation-the-mysterious-sql-server-memory-consumer-with-many-names/).
 
 ## <a name="locking"></a>Låsning
 
@@ -259,7 +259,7 @@ Det här mönstret flashminnet prestanda kombinerar tre olika fall av plan regre
 
 Ny plan regression villkoret refererar till ett tillstånd som SQL Database starta körning av en ny körning frågeplan som inte är så effektivt som den gamla planen. Den gamla planen regression villkoren refererar till tillståndet när SQL Database växlar från att använda en ny, mer effektiv plan för att den gamla prenumerationen är inte lika effektiva som den nya planen. Den befintliga planer som ändrats arbetsbelastning regressionen refererar till tillståndet som gammalt och de nya planerna kontinuerligt alternativ, med saldo kommer fler mot planen dålig prestanda.
 
-Mer information om plan upprepningar finns [vad är plan regression i SQL Server?](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2017/06/09/what-is-plan-regression-in-sql-server/). 
+Mer information om plan upprepningar finns [vad är plan regression i SQL Server?](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../what-is-plan-regression-in-sql-server/). 
 
 ### <a name="troubleshooting"></a>Felsökning
 
@@ -267,7 +267,7 @@ Diagnostikloggen matar ut fråga hashvärden, bra planering ID, felaktig plan-ID
 
 Du kan analysera vilken plan som är bättre utför för dina specifika frågor som du kan identifiera med frågan-hashvärden som tillhandahålls. När du har bestämt vilken plan fungerar bäst för dina frågor kan du tvinga den manuellt. 
 
-Mer information finns i [Lär dig hur SQL Server förebygger plan regression](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2017/04/25/you-shall-not-regress-how-sql-server-2017-prevents-plan-regressions/).
+Mer information finns i [Lär dig hur SQL Server förebygger plan regression](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../you-shall-not-regress-how-sql-server-2017-prevents-plan-regressions/).
 
 > [!TIP]
 > Visste du att SQL Database inbyggd intelligens kan hantera bäst att genomföra frågan körningsplaner för dina databaser automatiskt?

@@ -16,12 +16,12 @@ ms.date: 12/07/2018
 ms.author: sethm
 ms.reviewer: xiaofmao
 ms.lastreviewed: 12/07/2018
-ms.openlocfilehash: def9026fb0422d8868af098f12180617aefe7eff
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 4499424ef25e7d2ba32b691cce6d5d3d1face0d0
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56877953"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57308473"
 ---
 # <a name="quota-types-in-azure-stack"></a>Kvottyper i Azure Stack
 
@@ -44,7 +44,7 @@ ms.locfileid: "56877953"
 
 | **Objekt** | **Standardvärde** | **Beskrivning** |
 | --- | --- | --- |
-| Maximal kapacitet (GB) |2048 |Total lagringskapacitet som kan användas av en prenumeration på den här platsen. |
+| Maximal kapacitet (GB) |2048 |Total lagringskapacitet (inklusive BLOB-objekt och alla assiociated ögonblicksbilder, tabeller, köer) som kan användas av en prenumeration på den här platsen. |
 | Totalt antal lagringskonton |20 |Det maximala antalet lagringskonton som en prenumeration kan skapa i den här platsen. |
 
 > [!NOTE]  

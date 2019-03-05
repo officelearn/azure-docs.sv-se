@@ -10,42 +10,42 @@ ms.subservice: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 6e4b754c02e21954efaab03b942b6994fd1b7b4d
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: aefb9b9f5da0f8fef5295b49fe0ee1431556e89f
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55472209"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57308881"
 ---
 # <a name="quickstart-pause-and-resume-compute-in-azure-sql-data-warehouse-with-powershell"></a>Snabbstart: Pausa och återuppta beräkning i Azure SQL Data Warehouse med PowerShell
 Använd PowerShell för att pausa beräkning i Azure SQL Data Warehouse för att sänka kostnaderna. [Återuppta beräkningarna](sql-data-warehouse-manage-compute-overview.md) när du är redo att använda datalagret.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
-För den här självstudien krävs Azure PowerShell-modul version 5.1.1 eller senare. Kör ` Get-Module -ListAvailable AzureRM` för att se vilken version du har. Om du behöver installera eller uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/azurerm/install-azurerm-ps) (Installera Azure PowerShell-modul).
-
 ## <a name="before-you-begin"></a>Innan du börjar
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Den här snabbstarten förutsätter att du redan har ett SQL data warehouse som du kan pausa och återuppta. Om du vill skapa ett kan du använda [skapa och ansluta – portal](create-data-warehouse-portal.md) att skapa ett informationslager med namnet **mySampleDataWarehouse**.
 
 ## <a name="log-in-to-azure"></a>Logga in på Azure
 
-Logga in på Azure-prenumerationen med kommandot [Connect-AzureRmAccount](/powershell/module/azurerm.profile/connect-azurermaccount) och följ anvisningarna på skärmen.
+Logga in på Azure-prenumerationen med den [Connect AzAccount](/powershell/module/az.profile/connect-azaccount) och följer den på skärmen riktningar.
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 ```
 
-Om du vill se vilken prenumeration du använder kör du [Get-AzureRmSubscription](/powershell/module/azurerm.profile/get-azurermsubscription).
+Om du vill se vilken prenumeration som du använder kör [Get-AzSubscription](/powershell/module/az.profile/get-azsubscription).
 
 ```powershell
-Get-AzureRmSubscription
+Get-AzSubscription
 ```
 
-Om du behöver använda en annan prenumeration än standardprenumerationen kör du [Set-AzureRmContext](/powershell/module/azurerm.profile/set-azurermcontext).
+Om du vill använda en annan prenumeration än standard, kör [Set-AzContext](/powershell/module/az.profile/set-azcontext).
 
 ```powershell
-Set-AzureRmContext -SubscriptionName "MySubscription"
+Set-AzContext -SubscriptionName "MySubscription"
 ```
 
 ## <a name="look-up-data-warehouse-information"></a>Leta upp information om informationslager
@@ -67,38 +67,38 @@ Följ de här anvisningarna för att hitta platsen för ditt informationslager.
 ## <a name="pause-compute"></a>Pausa databearbetning
 Du kan pausa och återuppta beräkning resurser på begäran för att spara kostnader. Till exempel om du inte använder databasen under natten och helger, kan du pausa under dessa tider och återuppta den under dagen. Det finns ingen kostnad för beräkningsresurser när databasen har pausats. Dock fortsätta att betala för lagring.
 
-För att pausa en databas, använda den [Suspend-AzureRmSqlDatabase](/powershell/module/azurerm.sql/suspend-azurermsqldatabase) cmdlet. Följande exempel pausar ett informationslager med namnet **mySampleDataWarehouse** finns på en server med namnet **newserver-20171113**. Servern är i ett Azure-resursgrupp med namnet **myResourceGroup**.
+För att pausa en databas, använda den [Suspend-AzSqlDatabase](/powershell/module/az.sql/suspend-azsqldatabase) cmdlet. Följande exempel pausar ett informationslager med namnet **mySampleDataWarehouse** finns på en server med namnet **newserver-20171113**. Servern är i ett Azure-resursgrupp med namnet **myResourceGroup**.
 
 
 ```Powershell
-Suspend-AzureRmSqlDatabase –ResourceGroupName "myResourceGroup" `
+Suspend-AzSqlDatabase –ResourceGroupName "myResourceGroup" `
 –ServerName "newserver-20171113" –DatabaseName "mySampleDataWarehouse"
 ```
 
-En variant den här nästa exempel hämtar databasen i $database-objekt. Det kommer sedan objektet till [Suspend-AzureRmSqlDatabase](/powershell/module/azurerm.sql/suspend-azurermsqldatabase). Resultaten lagras i objektet resultDatabase. Det slutliga kommandot visas resultatet.
+En variant den här nästa exempel hämtar databasen i $database-objekt. Det kommer sedan objektet till [Suspend-AzSqlDatabase](/powershell/module/az.sql/suspend-azsqldatabase). Resultaten lagras i objektet resultDatabase. Det slutliga kommandot visas resultatet.
 
 ```Powershell
-$database = Get-AzureRmSqlDatabase –ResourceGroupName "myResourceGroup" `
+$database = Get-AzSqlDatabase –ResourceGroupName "myResourceGroup" `
 –ServerName "newserver-20171113" –DatabaseName "mySampleDataWarehouse"
-$resultDatabase = $database | Suspend-AzureRmSqlDatabase
+$resultDatabase = $database | Suspend-AzSqlDatabase
 $resultDatabase
 ```
 
 
 ## <a name="resume-compute"></a>Återuppta beräkning
-Starta en databas med den [Resume-AzureRmSqlDatabase](/powershell/module/azurerm.sql/resume-azurermsqldatabase) cmdlet. I följande exempel startar en databas med namnet mySampleDataWarehouse som finns på en server med namnet newserver-20171113. Servern är i ett Azure-resursgrupp som heter myResourceGroup.
+Starta en databas med den [återuppta AzSqlDatabase](/powershell/module/az.sql/resume-azsqldatabase) cmdlet. I följande exempel startar en databas med namnet mySampleDataWarehouse som finns på en server med namnet newserver-20171113. Servern är i ett Azure-resursgrupp som heter myResourceGroup.
 
 ```Powershell
-Resume-AzureRmSqlDatabase –ResourceGroupName "myResourceGroup" `
+Resume-AzSqlDatabase –ResourceGroupName "myResourceGroup" `
 –ServerName "newserver-20171113" -DatabaseName "mySampleDataWarehouse"
 ```
 
-En variant den här nästa exempel hämtar databasen i $database-objekt. Det kommer sedan objektet till [Resume-AzureRmSqlDatabase](/powershell/module/azurerm.sql/resume-azurermsqldatabase) och lagrar resultatet i $resultDatabase. Det slutliga kommandot visas resultatet.
+En variant den här nästa exempel hämtar databasen i $database-objekt. Det kommer sedan objektet till [återuppta AzSqlDatabase](/powershell/module/az.sql/resume-azsqldatabase) och lagrar resultatet i $resultDatabase. Det slutliga kommandot visas resultatet.
 
 ```Powershell
-$database = Get-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup1" `
+$database = Get-AzSqlDatabase –ResourceGroupName "ResourceGroup1" `
 –ServerName "Server01" –DatabaseName "Database02"
-$resultDatabase = $database | Resume-AzureRmSqlDatabase
+$resultDatabase = $database | Resume-AzSqlDatabase
 $resultDatabase
 ```
 

@@ -7,12 +7,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
-ms.openlocfilehash: c88fe7051519440056fe85e7ff9172ae0239bd41
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: da7556b909ec4eb544a6b4e4fab7af4a0919a158
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56234245"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57308184"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-using-azure-monitor"></a>Skapa, visa och hantera aviseringar för aktivitetsloggar med Azure Monitor  
 
@@ -204,13 +204,26 @@ Exempel-json ovan kan sparas som (exempelvis) sampleActivityLogAlert.json i den 
 
 ## <a name="powershell"></a>PowerShell
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
+### <a name="deploy-resource-manager-template-with-powershell"></a>Distribuera Resource Manager-mall med PowerShell
+Du använder PowerShell för att distribuera exempel resursmall som visas i ett tidigare [resursmall avsnitt] (#resource-manager-mall, använder du följande kommando:
+
+```powershell
+New-AzResourceGroupDeployment -ResourceGroupName "myRG" -TemplateFile sampleActivityLogAlert.json -TemplateParameterFile sampleActivityLogAlert.parameters.json
+```
+
+sampleActivityLogAlert.parameters.json innehåller där de angivna värdena för de parametrar som behövs för att skapa en aviseringsregel.
+
+### <a name="use-activity-log-powershell-cmdlets"></a>Använd aktiviteten Log PowerShell-cmdletar
+
 Aktivitetsloggaviseringar ha dedikerade PowerShell-cmdlets som är tillgängliga:
 
-- [Set-AzureRmActivityLogAlert](https://docs.microsoft.com/powershell/module/azurerm.insights/set-azurermactivitylogalert): Att skapa en ny eller uppdatera befintlig aktivitet varningsregel loggresurs
-- [Get-AzureRmActivityLogAlert](https://docs.microsoft.com/powershell/module/azurerm.insights/get-azurermactivitylogalert): Att hämta en eller flera aktivitet log varningsregel resurser
-- [Remove-AzureRmActivityLogAlert](https://docs.microsoft.com/powershell/module/azurerm.insights/remove-azurermactivitylogalert): Att ta bort aktivitet varningsregel loggresurs med Användarbekräftelse
-- [Enable-AzureRmActivityLogAlert](https://docs.microsoft.com/powershell/module/azurerm.insights/enable-azurermactivitylogalert): Så här aktiverar du en befintlig aktivitet log varningsregel resurs
-- [Disable-AzureRmActivityLogAlert](https://docs.microsoft.com/powershell/module/azurerm.insights/disable-azurermactivitylogalert): Inaktivera en befintlig aktivitet log varningsregel resurs
+- [Set-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Set-AzActivityLogAlert?view=azps-1.3.0) : Skapar en ny eller uppdatera en befintlig aktivitetsloggavisering.
+- [Get-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Get-AzActivityLogAlert?view=azps-1.3.0) : Hämtar en eller flera aktivitet log aviseringsresurserna.
+- [Aktivera AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Enable-AzActivityLogAlert?view=azps-1.3.0) : Gör det möjligt för en befintlig aktivitetsloggavisering och anger dess taggar.
+- [Inaktivera AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Disable-AzActivityLogAlert?view=azps-1.3.0) : Inaktiverar en befintlig aktivitetsloggavisering och anger dess taggar.
+- [Ta bort AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Remove-AzActivityLogAlert?view=azps-1.3.0) : Tar bort en aktivitetsloggavisering.
 
 ## <a name="cli"></a>CLI
 

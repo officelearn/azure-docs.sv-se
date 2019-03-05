@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 839a6b3cc90c6a8fcc512c100c8825f9513ded26
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 21f3f9cba6fadb8f3d163fb5a9ed8b214e43c541
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56875947"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57316378"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Skapa, visa och hantera aviseringar med Azure Monitor
 
@@ -310,28 +310,29 @@ Exempel-json ovan kan sparas som (exempelvis) sampleScheduledQueryRule.json i de
 
 ## <a name="managing-log-alerts-using-powershell-cli-or-api"></a>Hantera aviseringar med PowerShell, CLI eller API
 
-[Azure Monitor - schemalagda Frågeregler API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) är en REST-API och helt kompatibla med Azure Resource Manager REST API. Därför kan den användas via Powershell med Resource Manager-cmdlet som Azure CLI.
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
+Azure Monitor - schemalagda Frågeregler API] (https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) är en REST-API och helt kompatibla med Azure Resource Manager REST API. Därför kan den användas via Powershell med Resource Manager-cmdlet som Azure CLI.
+
 
 > [!NOTE]
 > Loggaviseringar för Log Analytics kan också hanteras med hjälp av äldre [Log Analytics-avisering API](../../azure-monitor/platform/api-alerts.md) och äldre mallar för [sparade sökningar och aviseringar i Log Analytics](../../azure-monitor/insights/solutions-resources-searches-alerts.md) samt. Mer information om hur du använder den nya ScheduledQueryRules API som beskrivs här som standard finns i [växla till nya API: et för Log Analytics-aviseringar](alerts-log-api-switch.md).
 
+Aviseringar har för närvarande inte dedikerade PowerShell eller CLI-kommandon för närvarande; men som på bilden nedan kan användas via Azure Resource Managers PowerShell-cmdlet för exemplet resursmall som visades tidigare (sampleScheduledQueryRule.json) i den [Resource mallavsnittet](#azure-resource-template-for-application-insights) :
 
-Loggaviseringar har inte dedikerade PowerShell eller CLI-kommandon för närvarande; men som på bilden nedan kan användas via Azure Resource Managers PowerShell-cmdlet för exemplet resursmall som visades tidigare (sampleScheduledQueryRule.json) i avsnittet resursmall:
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName "contosoRG" -TemplateFile "D:\Azure\Templates\sampleScheduledQueryRule.json"
+New-AzResourceGroupDeployment -ResourceGroupName "contosoRG" -TemplateFile "D:\Azure\Templates\sampleScheduledQueryRule.json"
 ```
 
 Bilden nedan användning via Azure Resource Manager-kommando i Azure CLI för exemplet resursmall som visades tidigare (sampleScheduledQueryRule.json) i avsnittet resursmall:
 
 ```azurecli
 az group deployment create --resource-group contosoRG --template-file sampleScheduledQueryRule.json
-```
+On successful operation, 201 will be returned to state new alert rule creation or 200 will be returned if an existing alert rule was modified.
 
-Lyckade åtgärder 201 återgår till tillståndet skapandet av ny regel för varning eller 200 returneras om en befintlig varningsregel ändrades.
+## Next steps
 
-## <a name="next-steps"></a>Nästa steg
-
-* Lär dig mer om [Loggaviseringar i Azure-aviseringar](../../azure-monitor/platform/alerts-unified-log.md)
-* Förstå [Webhook-åtgärder för loggaviseringar](../../azure-monitor/platform/alerts-log-webhook.md)
-* Läs mer om [Application Insights](../../azure-monitor/app/analytics.md)
-* Läs mer om [Log Analytics](../../azure-monitor/log-query/log-query-overview.md).
+* Learn about [Log Alerts in Azure Alerts](../../azure-monitor/platform/alerts-unified-log.md)
+* Understand [Webhook actions for log alerts](../../azure-monitor/platform/alerts-log-webhook.md)
+* Learn more about [Application Insights](../../azure-monitor/app/analytics.md)
+* Learn more about [Log Analytics](../../azure-monitor/log-query/log-query-overview.md).

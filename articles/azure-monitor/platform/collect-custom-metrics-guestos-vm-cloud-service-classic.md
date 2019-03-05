@@ -8,14 +8,16 @@ ms.topic: howto
 ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 1e322c9bd6f78c4801c14e9982cc170b3af1971a
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: dba1f66be91d8fa8e151a2771bad70b721af02dc
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55893586"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57313080"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-classic-cloud-services"></a>Skicka gäst-OS mått av Azure Monitor-måtten lagra klassiska molntjänster 
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 Med Azure Monitor [diagnostiktillägget](diagnostics-extension-overview.md), du kan samla in mått och loggar från gästoperativsystemet (gäst-OS) som körs som en del av en virtuell dator, en molntjänst eller ett Service Fabric-kluster. Tillägget kan skicka telemetri till [många olika platser.](https://docs.microsoft.com/azure/monitoring/monitoring-data-collection?toc=/azure/azure-monitor/toc.json)
 
@@ -31,7 +33,7 @@ Processen som beskrivs i den här artikeln fungerar endast för prestandaräknar
 
 - Prenumerationen måste vara registrerad med [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services). 
 
-- Du måste ha antingen [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-6.8.1) eller [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) installerad.
+- Du måste ha antingen [Azure PowerShell](/powershell/azure) eller [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) installerad.
 
 ## <a name="provision-a-cloud-service-and-storage-account"></a>Etablera en cloud service och storage-konto 
 
@@ -141,7 +143,7 @@ Spara diagnostik filen lokalt.
 Starta PowerShell och logga in på Azure. 
 
 ```PowerShell
-Login-AzureRmAccount 
+Login-AzAccount 
 ```
 
 Använd följande kommandon för att lagra information om storage-kontot som du skapade tidigare. 

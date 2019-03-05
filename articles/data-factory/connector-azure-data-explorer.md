@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/25/2019
+ms.date: 03/04/2019
 ms.author: orspod
-ms.openlocfilehash: d30eab024fa988b3341c5efc9fe188ee4802720a
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 41cdae310fb9c2fc66ec9ed78ddc21596c9a5ba9
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56961082"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57317857"
 ---
 # <a name="copy-data-to-or-from-azure-data-explorer-using-azure-data-factory"></a>Kopiera data till och från Azure Data Explorer med Azure Data Factory
 
@@ -137,6 +137,9 @@ Om du vill kopiera data från Azure Data Explorer, ange den **typ** -egenskapen 
 | typ | Den **typ** egenskapen för aktiviteten kopieringskälla måste anges till: **AzureDataExplorerSource** | Ja |
 | DocumentDB | En skrivskyddad begäran som anges i en [KQL format](/azure/kusto/query/). Använd anpassade KQL fråga som referens. | Ja |
 | queryTimeout | Väntetid innan frågebegäran når sin tidsgräns. Standardvärdet är 10: e minut (00: 10:00); tillåtna maxvärdet är 1 timme (01: 00:00). | Nej |
+
+>[!NOTE]
+>Azure Data Explorer källan som standard har en storleksgräns på 500 000 poster eller 64 MB. Du kan ange om du vill hämta alla poster utan trunkering `set notruncation;` i början av din fråga. Referera till [fråga gränser](https://docs.microsoft.com/en-us/azure/kusto/concepts/querylimits) på mer information.
 
 **Exempel:**
 

@@ -11,13 +11,13 @@ author: ronitr
 ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 7ca54117b014cb093b63e265864b0b0efa787865
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 03/04/2019
+ms.openlocfilehash: c174167268e95e55b0916d2340005538d3ae8add
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55461227"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57336792"
 ---
 # <a name="sql-database-dynamic-data-masking"></a>SQL Database dynamisk datamaskning
 
@@ -57,8 +57,8 @@ Rekommendationsmotorn DDM flaggar vissa fält från databasen som potentiellt k�
 
 ## <a name="set-up-dynamic-data-masking-for-your-database-using-powershell-cmdlets"></a>Konfigurera dynamisk datamaskering för din databas med Powershell-cmdletar
 
-Se [cmdlet: ar för Azure SQL Database](https://docs.microsoft.com/powershell/module/azurerm.sql).
+Se [cmdlet: ar för Azure SQL Database](https://docs.microsoft.com/powershell/module/az.sql).
 
 ## <a name="set-up-dynamic-data-masking-for-your-database-using-rest-api"></a>Konfigurera dynamisk datamaskning för din databas med hjälp av REST API
 
-Se [åtgärder för Azure SQL Database](https://msdn.microsoft.com/library/dn505719.aspx).
+Se [åtgärder för Azure SQL Database](https://docs.microsoft.com/rest/api/sql/).

@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 02/18/2019
-ms.openlocfilehash: c5f90776cb0e8617f0e524bd6b1701f4bf20d0a1
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: 06c74aa85bda13ccd6849056ccc031ae6f1c12c2
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56415718"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57315562"
 ---
 # <a name="quickstart-import-a-bacpac-file-to-a-database-in-azure-sql-database"></a>Snabbstart: Importera en BACPAC-fil till en databas i Azure SQL Database
 
@@ -58,6 +58,8 @@ Importera en SQL Server-databas med den [SqlPackage](https://docs.microsoft.com/
 
 För skalbarhet och prestanda rekommenderar vi att med hjälp av SqlPackage i de flesta produktionsmiljöer i stället för att använda Azure portal. För en SQL Server Customer Advisory Team-blogg om hur du migrerar med hjälp av `BACPAC` filer, se [migrera från SQL Server till Azure SQL Database med BACPAC-filer](https://blogs.msdn.microsoft.com/sqlcat/2016/10/20/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/).
 
+Vi rekommenderar för skalbarhet och prestanda med hjälp av SqlPackage i de flesta produktionsmiljöer. En SQL Server Customer Advisory Team-blogg om migrering med BACPAC-filer finns i [Migrera från SQL Server till Azure SQL Database med BACPAC-filer](https://blogs.msdn.microsoft.com/sqlcat/20../../migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/) (på engelska).
+
 Följande SqlPackage kommando importerar den **AdventureWorks2008R2** databas från lokal lagring till en Azure SQL Database-server som kallas **mynewserver20170403**. Den skapar en ny databas med namnet **myMigratedDatabase** med en **Premium** tjänstnivå och en **P6** Tjänstmål. Ändra dessa värden som passar din miljö.
 
 ```cmd
@@ -80,16 +82,18 @@ SqlPackage.exe /a:Import /sf:testExport.bacpac /tdn:NewDacFX /tsn:apptestserver.
 > [En hanterad instans](sql-database-managed-instance.md) stöder för närvarande inte migrera en databas till en instans-databas från en BACPAC-fil med hjälp av Azure PowerShell]. Om du vill importera till en hanterad instans, använder du SQL Server Management Studio eller SQLPackage.
 
 
-Använd den [New-AzureRmSqlDatabaseImport](/powershell/module/azurerm.sql/new-azurermsqldatabaseimport) cmdlet för att skicka en begäran om importen till Azure SQL Database-tjänsten. Importen kan ta lite tid att slutföra beroende på databasens storlek.
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+Använd den [New AzSqlDatabaseImport](/powershell/module/az.sql/new-azsqldatabaseimport) cmdlet för att skicka en begäran om importen till Azure SQL Database-tjänsten. Importen kan ta lite tid att slutföra beroende på databasens storlek.
 
  ```powershell
- $importRequest = New-AzureRmSqlDatabaseImport
+ $importRequest = New-AzSqlDatabaseImport 
     -ResourceGroupName "<your_resource_group>" `
     -ServerName "<your_server>" `
     -DatabaseName "<your_database>" `
     -DatabaseMaxSizeBytes "<database_size_in_bytes>" `
     -StorageKeyType "StorageAccessKey" `
-    -StorageKey $(Get-AzureRmStorageAccountKey -ResourceGroupName "<your_resource_group>" -StorageAccountName "<your_storage_account").Value[0] `
+    -StorageKey $(Get-AzStorageAccountKey -ResourceGroupName "<your_resource_group>" -StorageAccountName "<your_storage_account").Value[0] `
     -StorageUri "https://myStorageAccount.blob.core.windows.net/importsample/sample.bacpac" `
     -Edition "Standard" `
     -ServiceObjectiveName "P6" `
@@ -98,14 +102,14 @@ Använd den [New-AzureRmSqlDatabaseImport](/powershell/module/azurerm.sql/new-az
 
  ```
 
- Du kan använda den [Get-AzureRmSqlDatabaseImportExportStatus](/powershell/module/azurerm.sql/get-azurermsqldatabaseimportexportstatus) cmdlet för att kontrollera den import pågår. Kör cmdleten omedelbart efter att begäran vanligtvis returnerar **Status: InProgress**. Importen är klar när du ser **Status: Lyckades**.
+ Du kan använda den [Get-AzSqlDatabaseImportExportStatus](/powershell/module/az.sql/get-azsqldatabaseimportexportstatus) cmdlet för att kontrollera den import pågår. Kör cmdleten omedelbart efter att begäran vanligtvis returnerar **Status: InProgress**. Importen är klar när du ser **Status: Lyckades**.
 
 ```powershell
-$importStatus = Get-AzureRmSqlDatabaseImportExportStatus -OperationStatusLink $importRequest.OperationStatusLink
+$importStatus = Get-AzSqlDatabaseImportExportStatus -OperationStatusLink $importRequest.OperationStatusLink
 [Console]::Write("Importing")
 while ($importStatus.Status -eq "InProgress")
 {
-    $importStatus = Get-AzureRmSqlDatabaseImportExportStatus -OperationStatusLink $importRequest.OperationStatusLink
+    $importStatus = Get-AzSqlDatabaseImportExportStatus -OperationStatusLink $importRequest.OperationStatusLink
     [Console]::Write(".")
     Start-Sleep -s 10
 }

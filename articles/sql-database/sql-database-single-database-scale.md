@@ -12,12 +12,12 @@ ms.author: jrasnick
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/25/2019
-ms.openlocfilehash: 40c72c8a3ac4b60c6361e0f5ca3ac16ccb78b05c
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 8fc3db005d8297683bf663085106ab9c4f176b6c
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56884006"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57307759"
 ---
 # <a name="scale-single-database-resources-in-azure-sql-database"></a>Skala resurser för enkel databas i Azure SQL Database
 
@@ -26,10 +26,12 @@ Den här artikeln beskriver hur du skalar beräknings- och lagringsresurser som 
 > [!IMPORTANT]
 > Du debiteras för varje timme som det finns en databas med hjälp av den högsta tjänstenivå + compute storlek som gällde under den timmen, oavsett användning eller om databasen var aktiv under mindre än en timme. Om du skapar en enkel databas och raderar den fem minuter senare visar din faktura en avgift för en databastimme.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="vcore-based-purchasing-model-change-storage-size"></a>vCore-baserade inköpsmodellen: Ändra lagringsstorlek
 
 - Storage kan etableras upp till den maximala storleksgränsen med hjälp av steg om 1 GB. Den minsta konfigurerbara datalagringen är 5 GB
-- Lagring för en enskild databas kan etableras genom att öka eller minska sin maximala storlek med hjälp av den [Azure-portalen](https://portal.azure.com), [Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#examples-1), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqldatabase), [Azure CLI](/cli/azure/sql/db#az-sql-db-update), eller [REST-API](https://docs.microsoft.com/rest/api/sql/databases/update).
+- Lagring för en enskild databas kan etableras genom att öka eller minska sin maximala storlek med hjälp av den [Azure-portalen](https://portal.azure.com), [Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#examples-1), [PowerShell](/powershell/module/az.sql/set-azsqldatabase), [Azure CLI](/cli/azure/sql/db#az-sql-db-update), eller [REST-API](https://docs.microsoft.com/rest/api/sql/databases/update).
 - SQL Database tilldelar automatiskt 30% av ytterligare lagringsutrymme för loggfilerna och 32GB per vCore för TempDB, men inte överskrida 384GB. TempDB finns på en ansluten SSD på alla tjänstnivåer.
 - Priset för lagringen för en enskild databas är summan av data lagring och log storage multiplicerat med a-pris för lagring av tjänstnivån. Kostnaden för TempDB ingår i det vCore-priset. Mer information om priset för extra lagringsutrymme finns [priser för SQL Database](https://azure.microsoft.com/pricing/details/sql-database/).
 
@@ -38,14 +40,14 @@ Den här artikeln beskriver hur du skalar beräknings- och lagringsresurser som 
 
 ## <a name="vcore-based-purchasing-model-change-compute-resources"></a>vCore-baserade inköpsmodellen: Ändra beräkningsresurser
 
-När du har valt antal virtuella kärnor, du kan skala en enskild databas upp eller ned dynamiskt utifrån det faktiska resultatet med hjälp av den [Azure-portalen](sql-database-single-databases-manage.md#manage-an-existing-sql-database-server), [Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#examples-1), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqldatabase), [Azure CLI](/cli/azure/sql/db#az-sql-db-update), eller [REST-API](https://docs.microsoft.com/rest/api/sql/databases/update).
+När du har valt antal virtuella kärnor, du kan skala en enskild databas upp eller ned dynamiskt utifrån det faktiska resultatet med hjälp av den [Azure-portalen](sql-database-single-databases-manage.md#manage-an-existing-sql-database-server), [Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#examples-1), [PowerShell](/powershell/module/az.sql/set-azsqldatabase), [Azure CLI](/cli/azure/sql/db#az-sql-db-update), eller [REST-API](https://docs.microsoft.com/rest/api/sql/databases/update).
 
 Tjänsten ändrades till nivå och/eller beräkna storleken på en databas skapas en replik av den ursprungliga databasen till den nya beräkningsstorleken och sedan växlas anslutningar över till repliken. Inga data förloras under den här processen men under kort tidsperiod när vi växlar över till repliken är anslutningar till databasen inaktiverade, så vissa transaktioner som sker då kan återställas. Hur lång tid för switch-over varierar, men är vanligtvis mindre än 30 sekunder 99% av tiden. Om det finns stora mängder transaktioner som rör sig just då anslutningarna är inaktiverade, hur lång tid för switch-over kan också ta längre.
 
 Varaktigheten för hela skala upp processen beror vanligtvis på storlek och tjänstnivå på databasen före och efter ändringen. Till exempel alla databaser i storlek som ändras beräkningsstorleken inom allmänna tjänstnivån bör slutföras inom några minuter å andra sidan, fördröjning för att ändra beräkningen storlek inom den affärskritisk nivå är vanligtvis 90 minuter eller mindre per 100 GB.
 
 > [!TIP]
-> För att övervaka åtgärder som pågår, se: [Hantera åtgärder med hjälp av REST-API SQL](https://docs.microsoft.com/rest/api/sql/operations/list), [hantera åtgärder med hjälp av CLI](/cli/azure/sql/db/op), [övervaka åtgärder med hjälp av T-SQL](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) och dessa två PowerShell-kommandon: [Get-AzureRmSqlDatabaseActivity](/powershell/module/azurerm.sql/get-azurermsqldatabaseactivity) och [Stop-AzureRmSqlDatabaseActivity](/powershell/module/azurerm.sql/stop-azurermsqldatabaseactivity).
+> För att övervaka åtgärder som pågår, se: [Hantera åtgärder med hjälp av REST-API SQL](https://docs.microsoft.com/rest/api/sql/operations/list), [hantera åtgärder med hjälp av CLI](/cli/azure/sql/db/op), [övervaka åtgärder med hjälp av T-SQL](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) och dessa två PowerShell-kommandon: [Get-AzSqlDatabaseActivity](/powershell/module/az.sql/get-azsqldatabaseactivity) och [Stop-AzSqlDatabaseActivity](/powershell/module/az.sql/stop-azsqldatabaseactivity).
 
 - Om du uppgraderar till en högre tjänstnivå eller compute storlek ökar den maximala databasstorleken inte såvida du inte uttryckligen anger en större storlek (maxsize).
 - Databasutrymme används måste vara mindre än det maximalt tillåtna storleken för måltjänstnivån och beräkningsstorleken för att nedgradera en databas.
@@ -56,7 +58,7 @@ Varaktigheten för hela skala upp processen beror vanligtvis på storlek och tj�
 ## <a name="dtu-based-purchasing-model-change-storage-size"></a>DTU-baserade inköpsmodellen: Ändra lagringsstorlek
 
 - DTU-priset för en enskild databas innehåller en viss mängd lagringsutrymme utan extra kostnad. Extra lagringsutrymme utöver mängden kan etableras för en ytterligare kostnad upp till den maximala storleksgränsen i steg om 250 GB upp till 1 TB och sedan i steg om 256 GB mer än 1 TB. Inkluderad lagring belopp och max storleksgränser finns i [enkel databas: Lagringsstorlekar och storlekar på](sql-database-dtu-resource-limits-single-databases.md#single-database-storage-sizes-and-compute-sizes).
-- Extra lagringsutrymme för en enskild databas kan etableras genom att öka sin maximala storlek med hjälp av Azure-portalen [Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#examples-1), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqldatabase), [Azure CLI](/cli/azure/sql/db#az-sql-db-update), eller [ REST-API](https://docs.microsoft.com/rest/api/sql/databases/update).
+- Extra lagringsutrymme för en enskild databas kan etableras genom att öka sin maximala storlek med hjälp av Azure-portalen [Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#examples-1), [PowerShell](/powershell/module/az.sql/set-azsqldatabase), [Azure CLI](/cli/azure/sql/db#az-sql-db-update), eller [ REST-API](https://docs.microsoft.com/rest/api/sql/databases/update).
 - Priset för extra lagringsutrymme för en enskild databas är det extra lagringsutrymmet multiplicerat med extra lagringsutrymme enhetspriset för tjänstnivån. Mer information om priset för extra lagringsutrymme finns [priser för SQL Database](https://azure.microsoft.com/pricing/details/sql-database/).
 
 > [!IMPORTANT]
@@ -64,7 +66,7 @@ Varaktigheten för hela skala upp processen beror vanligtvis på storlek och tj�
 
 ## <a name="dtu-based-purchasing-model-change-compute-resources-dtus"></a>DTU-baserade inköpsmodellen: Ändra beräkningsresurser (dtu: er)
 
-När du har valt en tjänstnivå och beräkningsstorleken lagringsutrymme, du kan skala en enskild databas upp eller ned dynamiskt baserat på den faktiska upplevelsen med Azure portal, [Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#examples-1), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqldatabase), [Azure CLI](/cli/azure/sql/db#az-sql-db-update), eller [REST-API](https://docs.microsoft.com/rest/api/sql/databases/update).
+När du har valt en tjänstnivå och beräkningsstorleken lagringsutrymme, du kan skala en enskild databas upp eller ned dynamiskt baserat på den faktiska upplevelsen med Azure portal, [Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#examples-1), [PowerShell](/powershell/module/az.sql/set-azsqldatabase), [Azure CLI](/cli/azure/sql/db#az-sql-db-update), eller [REST-API](https://docs.microsoft.com/rest/api/sql/databases/update).
 
 I följande video visas dynamiskt ändra tjänsten nivå och beräkna storleken för att öka tillgängliga dtu: er för en enskild databas.
 
@@ -76,7 +78,7 @@ Tjänsten ändrades till nivå och/eller beräkna storleken på en databas skapa
 Hur lång tid processen att skala upp tar beror på databasens storlek och tjänstnivå före och efter ändringen. Till exempel bör en 250 GB-databas som ändras till, från eller inom en Standard-tjänstnivå slutföras inom sex timmar. För en databas med samma storlek som ändras instansstorlekarna i Premium-tjänstnivån, bör skala upp slutföras inom tre timmar.
 
 > [!TIP]
-> För att övervaka åtgärder som pågår, se: [Hantera åtgärder med hjälp av REST-API SQL](https://docs.microsoft.com/rest/api/sql/operations/list), [hantera åtgärder med hjälp av CLI](/cli/azure/sql/db/op), [övervaka åtgärder med hjälp av T-SQL](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) och dessa två PowerShell-kommandon: [Get-AzureRmSqlDatabaseActivity](/powershell/module/azurerm.sql/get-azurermsqldatabaseactivity) och [Stop-AzureRmSqlDatabaseActivity](/powershell/module/azurerm.sql/stop-azurermsqldatabaseactivity).
+> För att övervaka åtgärder som pågår, se: [Hantera åtgärder med hjälp av REST-API SQL](https://docs.microsoft.com/rest/api/sql/operations/list), [hantera åtgärder med hjälp av CLI](/cli/azure/sql/db/op), [övervaka åtgärder med hjälp av T-SQL](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) och dessa två PowerShell-kommandon: [Get-AzSqlDatabaseActivity](/powershell/module/az.sql/get-azsqldatabaseactivity) och [Stop-AzSqlDatabaseActivity](/powershell/module/az.sql/stop-azsqldatabaseactivity).
 
 - Om du uppgraderar till en högre tjänstnivå eller compute storlek ökar den maximala databasstorleken inte såvida du inte uttryckligen anger en större storlek (maxsize).
 - Databasutrymme används måste vara mindre än det maximalt tillåtna storleken för måltjänstnivån och beräkningsstorleken för att nedgradera en databas.

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/30/2018
 ms.author: victorh
-ms.openlocfilehash: 3dac11ac4409ddde5264307439533bd583d75a9d
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: d41ad3232fef57d1008f1e15d5d7d5ee1e106e9b
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55993067"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57312659"
 ---
 # <a name="import-and-export-a-dns-zone-file-using-the-azure-cli"></a>Importera och exportera en DNS-zonfil med Azure CLI 
 
@@ -120,7 +120,7 @@ För att verifiera DNS-zonen när du importerar filen, kan du använda någon av
 * Du kan använda `nslookup` att verifiera namnmatchning för poster. Eftersom zonen inte delegeras ännu, måste du uttryckligen ange rätt Azure DNS-namnservrarna. I följande exempel visas hur du hämtar namnservernamnen tilldelas zonen. Detta visar även hur du frågar ”www”-post med hjälp av `nslookup`.
 
     ```azurecli
-    az network dns record-set ns list -g myresourcegroup -z  --output json 
+    az network dns record-set ns list -g myresourcegroup -z contoso.com  --output json 
     ```
 
     ```json

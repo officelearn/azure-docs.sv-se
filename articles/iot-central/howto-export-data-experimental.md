@@ -8,12 +8,12 @@ ms.date: 02/20/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: peterpr
-ms.openlocfilehash: c595627275848de5489fe11e1327a72bf6251199
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 80ba612bf0f76fb0c1e202bec0bf88fa75fb2c98
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57213270"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57314015"
 ---
 # <a name="export-your-data-from-azure-iot-central"></a>Exportera data från Azure IoT Central
 
@@ -85,14 +85,14 @@ Nu när du har ett mål för lagring/Event Hubs/Service Bus att exportera data f
 
 1. Logga in på ditt IoT Central-program.
 
-2. I den vänstra menyn klickar du på **löpande Export av Data**.
+2. I den vänstra menyn väljer du **löpande Export av Data**.
 
     > [!Note]
     > Om du inte ser löpande Export av Data på den vänstra menyn kan är du inte administratör i din app. Kontakta en administratör att ställa in export av data.
 
     ![Skapa ny Händelsehubb](media/howto-export-data-experimental/export_menu.png)
 
-3. Klicka på den **+ ny** knappen uppe till höger. Välj något av **Azure Blob Storage**, **Azure Event Hubs**, eller **Azure Service Bus** som mål för exporten.
+3. Välj den **+ ny** knappen uppe till höger. Välj något av **Azure Blob Storage**, **Azure Event Hubs**, eller **Azure Service Bus** som mål för exporten.
 
     > [!NOTE]
     > Det maximala antalet exporter per app är fem.
@@ -111,10 +111,10 @@ Nu när du har ett mål för lagring/Event Hubs/Service Bus att exportera data f
 
 5. (Valfritt) Om du har valt **ange en anslutningssträng**, en ny ruta visas där du kan klistra in anslutningssträngen. Att hämta anslutningssträngen för din:
     - Storage-konto, gå till Storage-konto i Azure Portal.
-        - Under **inställningar**, klickar du på **åtkomstnycklar**
+        - Under **inställningar**väljer **åtkomstnycklar**
         - Kopiera anslutningssträngen key1 och key2-anslutningssträng
     - Event Hubs eller Azure Service Bus, går du till namnområdet i Azure Portal.
-        - Under **inställningar**, klickar du på **principer för delad åtkomst**
+        - Under **inställningar**väljer **principer för delad åtkomst**
         - Välj standard **RootManageSharedAccessKey** eller skapa en ny
         - Kopiera den primär eller sekundär anslutningssträngen
 

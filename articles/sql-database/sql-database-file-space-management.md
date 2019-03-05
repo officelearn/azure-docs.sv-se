@@ -12,12 +12,12 @@ ms.author: moslake
 ms.reviewer: jrasnick, carlrab
 manager: craigg
 ms.date: 02/11/2019
-ms.openlocfilehash: 32cfb108964d67f865b1d03ffa745eb468feeea7
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: b537dd8360c39a744cf9963376387a4c89e33838
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56110157"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57311652"
 ---
 # <a name="manage-file-space-for-single-and-pooled-databases-in-azure-sql-database"></a>Hantera utrymmet för enkel och delade databaser i Azure SQL Database
 
@@ -27,6 +27,8 @@ Den här artikeln beskrivs olika typer av lagringsutrymme för enkel och delade 
 > Den här artikeln gäller inte för det hanterade instansen distributionsalternativet i Azure SQL Database.
 
 ## <a name="overview"></a>Översikt
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Med enkel och delade databaser i Azure SQL Database finns arbetsbelastningmönster där allokeringen av underliggande datafiler för databaser kan bli större än mängden data som används sidor. Den här situationen kan uppstå när mängden utnyttjat utrymme ökar och data därefter raderas. Anledningen är allokerade utrymmet inte frigörs automatiskt när data tas bort.
 
@@ -40,7 +42,7 @@ I följande scenarier kan det vara nödvändigt att övervaka användningen av f
 
 De flesta mätvärden i storage utrymme visas i Azure portal och följande API: er endast mäta storleken på data som används sidor:
 
-- Azure Resource Manager baserade mått API: er, inklusive PowerShell [get-mått](https://docs.microsoft.com/powershell/module/azurerm.insights/get-azurermmetric)
+- Azure Resource Manager baserade mått API: er, inklusive PowerShell [get-mått](https://docs.microsoft.com/powershell/module/az.insights/get-azmetric)
 - T-SQL: [sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)
 
 Dock följande API: er också mäta storleken på disken för databaser och elastiska pooler:
@@ -162,7 +164,7 @@ $userName = "name"
 $password = "password"
 
 # Get list of databases in elastic pool
-$databasesInPool = Get-AzureRmSqlElasticPoolDatabase `
+$databasesInPool = Get-AzSqlElasticPoolDatabase `
     -ResourceGroupName $resourceGroupName `
     -ServerName $serverName `
     -ElasticPoolName $poolName

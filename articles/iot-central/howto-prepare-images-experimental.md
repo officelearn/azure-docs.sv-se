@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: b0262ecbcc5a7f512c8779c230b2e2d4bb039842
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 29f838637a3881ab36d6edb58c215a55de422d68
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57216687"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57315018"
 ---
 # <a name="prepare-and-upload-images-to-your-azure-iot-central-application"></a>Förbereda och ladda upp bilder till Azure IoT Central programmet
 
@@ -74,17 +74,17 @@ Ladda upp en bild som används på den **Mina program** sidan, gå till den **pr
 
 ![Ladda upp programavbildning](media/howto-prepare-images-experimental/uploadapplicationmanager.png)
 
-Klicka på panelen programavbildningen att ladda upp en förberedd bild (268 x 160 bpt) från din lokala dator.
+Välj panelen programavbildningen att ladda upp en förberedd bild (268 x 160 bpt) från din lokala dator.
 
 ### <a name="application-dashboard"></a>Instrumentpanel för program
 
-Om du vill ladda upp en bild på instrumentpanelen för program, navigerar du till den **instrumentpanelen** i dina program och klicka på **redigera**. Du måste vara ett verktyg för att slutföra den här aktiviteten:
+Om du vill ladda upp en bild på instrumentpanelen för program, navigerar du till den **instrumentpanelen** i dina program och välj **redigera**. Du måste vara ett verktyg för att slutföra den här aktiviteten:
 
 ![Ladda upp instrumentpanelen bild](media/howto-prepare-images-experimental/uploadhomepage.png)
 
-Under Konfigurera bild klickar du på ikonen bild att ladda upp en förberedd bild från din lokala dator. Den minsta storlek panelen är 200 x 200 bildpunkter, större paneler kan vara antingen kvadratisk eller rektangulär multiplar av små paneler. Till exempel 200 x 400 bildpunkter, 400 x 200 bildpunkter eller 400 x 400 bildpunkter.
+Välj panelen bild att ladda upp en förberedd bild från din lokala dator under Konfigurera bild. Den minsta storlek panelen är 200 x 200 bildpunkter, större paneler kan vara antingen kvadratisk eller rektangulär multiplar av små paneler. Till exempel 200 x 400 bildpunkter, 400 x 200 bildpunkter eller 400 x 400 bildpunkter.
 
-**Spara** den uppladdade avbildningen. Du kan ändra storlek på den i redigeringsläget. Klicka på **Klar** när du är klar.
+**Spara** den uppladdade avbildningen. Du kan ändra storlek på den i redigeringsläget. Välj **klar** när du är klar.
 
 ### <a name="device-template"></a>Enhetsmall
 
@@ -92,7 +92,7 @@ Om du vill ladda upp en bild i en mall för enhet, gå till **enheten mallar** o
 
 ![Ladda upp enheten mall-bild](media/howto-prepare-images-experimental/uploaddevicetemplate.png)
 
-Klicka på bildpanel att ladda upp en förberedd bild (64 x 64 px) från din lokala dator.
+Välj panelen bild att ladda upp en förberedd bild (64 x 64 px) från din lokala dator.
 
 ### <a name="device-dashboard"></a>Instrumentpanel för enhet
 
@@ -100,19 +100,19 @@ Om du vill ladda upp en bild på en instrumentpanel för enhet, gå till **enhet
 
 ![Ladda upp enhetsavbildning för instrumentpanelen](media/howto-prepare-images-experimental/uploaddevicedashboard.png)
 
-Klicka på ikonen för avbildningen under Konfigurera bild och klicka på filen som ska överföras från din lokala dator. Den minsta storlek panelen är 200 x 200 bildpunkter, större paneler kan vara antingen kvadratisk eller rektangulär multiplar av små paneler. Till exempel 200 x 400 bildpunkter, 400 x 200 bildpunkter eller 400 x 400 bildpunkter.
+Välj panelen avbildningen under Konfigurera bild och klicka på filen som ska överföras från din lokala dator. Den minsta storlek panelen är 200 x 200 bildpunkter, större paneler kan vara antingen kvadratisk eller rektangulär multiplar av små paneler. Till exempel 200 x 400 bildpunkter, 400 x 200 bildpunkter eller 400 x 400 bildpunkter.
 
-**Spara** den uppladdade avbildningen. Du kan ändra storlek på och flytta den medan du är i redigeringsläget. Klicka på **Klar** när du är klar.
+**Spara** den uppladdade avbildningen. Du kan ändra storlek på och flytta den medan du är i redigeringsläget. Välj **klar** när du är klar.
 
 ### <a name="device-set-dashboard"></a>Instrumentpanelen för set
 
-Om du vill ladda upp en bild på en enhet set-instrumentpanel, gå till **enhetsuppsättningar** och välj enhetsuppsättningen och en enhet. Välj sedan den **instrumentpanelen** och klickar på **redigera**:
+Om du vill ladda upp en bild på en enhet set-instrumentpanel, gå till **enhetsuppsättningar** och välj enhetsuppsättningen och en enhet. Välj sedan den **instrumentpanelen** och välj **redigera**:
 
 ![Ladda upp enhetsavbildning set instrumentpanel](media/howto-prepare-images-experimental/uploaddevicesetdashboard.png)
 
-Under Konfigurera bild klickar du på ikonen bild att ladda upp en förberedd bild från din lokala dator. Den minsta storlek panelen är 200 x 200 bildpunkter, större paneler kan vara antingen kvadratisk eller rektangulär multiplar av små paneler. Till exempel 200 x 400 bildpunkter, 400 x 200 bildpunkter eller 400 x 400 bildpunkter.
+Välj panelen bild att ladda upp en förberedd bild från din lokala dator under Konfigurera bild. Den minsta storlek panelen är 200 x 200 bildpunkter, större paneler kan vara antingen kvadratisk eller rektangulär multiplar av små paneler. Till exempel 200 x 400 bildpunkter, 400 x 200 bildpunkter eller 400 x 400 bildpunkter.
 
-**Spara** den uppladdade avbildningen. Du kan ändra storlek på och flytta den medan du är i redigeringsläget. Klicka på **Klar** när du är klar.
+**Spara** den uppladdade avbildningen. Du kan ändra storlek på och flytta den medan du är i redigeringsläget. Välj **klar** när du är klar.
 
 ## <a name="next-steps"></a>Nästa steg
 

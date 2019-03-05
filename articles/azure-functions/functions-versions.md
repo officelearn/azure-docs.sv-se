@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 10/03/2018
 ms.author: glenga
-ms.openlocfilehash: cc19a2d7641b20a413bbc39efe0d1c5ede362e6d
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 6d4f588a98e519298b91c158b11730a23567aa7f
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56734463"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57310972"
 ---
 # <a name="azure-functions-runtime-versions-overview"></a>Azure Functions runtime versioner-översikt
 
@@ -49,7 +49,7 @@ Du kan välja att migrera en befintlig app som skrivits du använder version 1.x
 
 ### <a name="changes-in-triggers-and-bindings"></a>Ändringar i utlösare och bindningar
 
-Version 2.x måste du installera tillägget för specifika utlösare och bindningar som används av funktioner i din app. Det enda undantaget för den här HTTP- och timer-utlösare, som inte kräver ett tillägg.  Mer information finns i [Register och installera bindande tillägg](./functions-bindings-expressions-patterns.md).
+Version 2.x måste du installera tillägget för specifika utlösare och bindningar som används av funktioner i din app. Det enda undantaget för den här HTTP- och timer-utlösare, som inte kräver ett tillägg.  Mer information finns i [Register och installera bindande tillägg](./functions-bindings-register.md).
 
 Har det även skett några ändringar i den `function.json` eller attribut för funktionen mellan versioner. Till exempel Event Hub `path` egenskapen är nu `eventHubName`. Se den [befintliga bindande tabell](#bindings) länkar till dokumentationen för varje bindning.
 

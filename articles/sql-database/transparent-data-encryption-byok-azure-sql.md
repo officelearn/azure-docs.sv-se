@@ -12,12 +12,12 @@ ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
 ms.date: 02/20/2019
-ms.openlocfilehash: bccf79cea88890d02e2e1bfeb952ca9e754705cb
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: d7b25b641b91640c72ff6785de1b4bfddac3ea50
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57217384"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57314746"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-keys-in-azure-key-vault-bring-your-own-key-support"></a>Azure SQL Transparent datakryptering med Kundhanterade nycklar i Azure Key Vault: Stöd för Bring Your Own Key
 
@@ -38,6 +38,8 @@ TDE med Azure Key Vault-integrering ger följande fördelar:
 > För de som använder tjänsthanterad TDE som vill börja använda Key Vault, förblir TDE aktiv under processen med att växla till ett TDE-skydd i Key Vault. Det finns ingen nedtid eller omkryptering av databasfilerna. Byta från en tjänsthanterad nyckel till en Key Vault-nyckeln kräver endast omkryptering av databaskrypteringsnyckeln (DEK), vilket är en snabb och online igen.
 
 ## <a name="how-does-tde-with-azure-key-vault-integration-support-work"></a>Hur stöder transparent Datakryptering med Azure Key Vault-integrering arbete
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ![Autentisering av servern till Nyckelvalvet](./media/transparent-data-encryption-byok-azure-sql/tde-byok-server-authentication-flow.PNG)
 
@@ -86,11 +88,11 @@ När TDE först konfigureras för att använda ett TDE-skydd från Key Vault, sk
 
 - Använda en nyckel utan ett förfallodatum – och inte ställer in ett utgångsdatum på en nyckel redan: **när nyckeln upphör att gälla krypterade databaser att förlora åtkomst till sina TDE-skydd och är tillgängliga inom 24 timmar**.
 - Kontrollera att nyckeln är aktiverad och har behörighet att utföra *hämta*, *omsluta nyckel*, och *nyckelomslutning* åtgärder.
-- Skapa en säkerhetskopiering av Azure Key Vault nycklar innan du använder nyckeln i Azure Key Vault för första gången. Läs mer om den [Backup-AzureKeyVaultKey](https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-5.1.1) kommando.
+- Skapa en säkerhetskopiering av Azure Key Vault nycklar innan du använder nyckeln i Azure Key Vault för första gången. Läs mer om den [Backup AzKeyVaultKey](https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-5.1.1) kommando.
 - Skapa en ny säkerhetskopia varje gång några ändringar görs till nyckeln (till exempel lägga till ACL: er, lägga till taggar, lägga till viktiga attribut).
 - **Behåll tidigare versioner** för nyckeln i nyckelvalvet när du roterar nycklar, så äldre säkerhetskopior av databasen kan återställas. När TDE-skyddet ändras för en databas, gamla säkerhetskopior av databasen **uppdateras inte** att använda den senaste TDE-skydd.  Varje säkerhetskopiering måste TDE-skydd som den skapades vid en återställning. Nyckelrotationer kan utföras följa anvisningarna i [rotera Transparent Data Encryption skydd med hjälp av PowerShell](transparent-data-encryption-byok-azure-sql-key-rotation.md).
 - Behåll alla tidigare nycklar i Azure Key Vault när du har ändrat till tjänst-hanterade nycklar.  Detta säkerställer att säkerhetskopior av databasen kan återställas med TDE-skydd som lagras i Azure Key Vault.  TDE-skydd som skapats med Azure Key Vault måste finnas kvar tills alla lagrade säkerhetskopior har skapats med tjänst-hanterade nycklar.  
-- Säkerhetskopiera återställningsbara nycklarna på [Backup-AzureKeyVaultKey](https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-5.1.1).
+- Säkerhetskopiera återställningsbara nycklarna på [Backup AzKeyVaultKey](https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-5.1.1).
 - Om du vill ta bort en potentiellt komprometterade nyckel under en säkerhetsincident utan risk för dataförlust, följer du stegen i [tar bort en potentiellt komprometterade nyckel](transparent-data-encryption-byok-azure-sql-remove-tde-protector.md).
 
 ## <a name="high-availability-geo-replication-and-backup--restore"></a>Hög tillgänglighet, Geo-replikering och säkerhetskopiering / återställning
@@ -99,7 +101,7 @@ När TDE först konfigureras för att använda ett TDE-skydd från Key Vault, sk
 
 Hur du konfigurerar hög tillgänglighet med Azure Key Vault beror på konfigurationen av din databas och SQL Database-server och följer de rekommenderade konfigurationerna för två olika metoder.  Det första fallet är en fristående databas eller en SQL-databasserver med inga konfigurerade geo-redundans.  Det andra fallet är en databas eller en SQL Database-server som konfigurerats med redundansgrupper eller geo-redundans, där det säkerställas att varje geo-redundant kopia har en lokal Azure Key Vault i redundansgruppen så att arbetsrelaterad geo-redundans.
 
-I det första fallet om du behöver hög tillgänglighet för en databas och SQL Database-server med inga konfigurerade geo-redundans, rekommenderar vi starkt att konfigurera servern för att använda två olika nyckelvalv i två olika regioner med samma nyckelmaterial. Detta kan åstadkommas genom att skapa en TDE-skydd med den primära Key Vault är placerade i samma region som SQL Database-servern och kloning av nyckeln till ett nyckelvalv i en annan Azure-region, så att servern har åtkomst till andra key vault bör primärt nyckelvalv uppleva ett avbrott när databasen är igång. Använd Backup-AzureKeyVaultKey-cmdlet för att hämta nyckeln i krypterat format i primära key Vault och Använd cmdleten Restore-AzureKeyVaultKey och ange ett nyckelvalv i den andra regionen.
+I det första fallet om du behöver hög tillgänglighet för en databas och SQL Database-server med inga konfigurerade geo-redundans, rekommenderar vi starkt att konfigurera servern för att använda två olika nyckelvalv i två olika regioner med samma nyckelmaterial. Detta kan åstadkommas genom att skapa en TDE-skydd med den primära Key Vault är placerade i samma region som SQL Database-servern och kloning av nyckeln till ett nyckelvalv i en annan Azure-region, så att servern har åtkomst till andra key vault bör primärt nyckelvalv uppleva ett avbrott när databasen är igång. Använd cmdleten Backup AzKeyVaultKey att hämta nyckeln i krypterat format i primära key Vault och Använd cmdleten Restore-AzKeyVaultKey och ange ett nyckelvalv i den andra regionen.
 
 ![Enskild Server hög tillgänglighet och ingen geohaveriberedskap](./media/transparent-data-encryption-byok-azure-sql/SingleServer_HA_Config.PNG)
 
@@ -117,14 +119,14 @@ I följande avsnitt får du gå igenom stegen för installation och konfiguratio
 
 ### <a name="azure-key-vault-configuration-steps"></a>Konfigurationsstegen för Azure Key Vault
 
-- Installera [PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azurermps-5.6.0)
+- Installera [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps)
 - Skapa två Azure-Nyckelvalv i två olika regioner med hjälp av [PowerShell för att aktivera egenskapen ”mjuk borttagning”](https://docs.microsoft.com/azure/key-vault/key-vault-soft-delete-powershell) på nyckelvalven (det här alternativet inte är tillgängliga från AKV-Portal ännu – men krävs av SQL).
 - Både Azure-Nyckelvalv måste befinna sig i två regioner som är tillgängliga på samma Azure-geoplats för säkerhetskopiering och återställning av nycklar för att fungera.  Om du behöver två nyckelvalven finnas i olika geografiska områden till uppfyller kraven för SQL-Geohaveriberedskap, följer du de [BYOK processen](https://docs.microsoft.com/azure/key-vault/key-vault-hsm-protected-keys) som gör det möjligt för nycklar som ska importeras från en lokal HSM.
 - Skapa en ny nyckel i det första nyckelvalvet:  
   - RSA/RSA-HSA 2048 nyckel
   - Inget förfallodatum
   - Nyckeln är aktiverad och har behörighet att utföra get, wrap key och packa upp nyckelåtgärder
-- Säkerhetskopiera den primära nyckeln och återställa nyckeln till andra nyckelvalvet.  Se [BackupAzureKeyVaultKey](https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-5.1.1) och [Restore-AzureKeyVaultKey](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-5.5.0).
+- Säkerhetskopiera den primära nyckeln och återställa nyckeln till andra nyckelvalvet.  Se [BackupAzureKeyVaultKey](https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-5.1.1) och [återställning AzKeyVaultKey](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-5.5.0).
 
 ### <a name="azure-sql-database-configuration-steps"></a>Konfigurationsstegen för Azure SQL Database
 
@@ -172,10 +174,10 @@ Om du vill återställa en säkerhetskopia som krypterats med ett TDE-skydd frå
 
 Om en nyckel som kan behövas för att återställa en säkerhetskopia är inte längre i dess ursprungliga nyckelvalv, returneras följande felmeddelande visas: ”Målservern `<Servername>` har inte åtkomst till alla AKV URI: er skapas mellan < tidsstämpel nr 1 > och < tidsstämpel #2 >. Försök igen när du återställer alla AKV-URI: er ”.
 
-Åtgärda detta genom att köra den [Get-AzureRmSqlServerKeyVaultKey](/powershell/module/azurerm.sql/get-azurermsqlserverkeyvaultkey) cmdleten returnerade listan med nycklar från Key Vault som har lagts till servern (om de har tagits bort av en användare). För att säkerställa att alla säkerhetskopieringar kan återställas, kontrollera att målservern för säkerhetskopiering har åtkomst till alla de här nycklarna.
+Åtgärda detta genom att köra den [Get-AzSqlServerKeyVaultKey](/powershell/module/az.sql/get-azsqlserverkeyvaultkey) cmdleten returnerade listan med nycklar från Key Vault som har lagts till servern (om de har tagits bort av en användare). För att säkerställa att alla säkerhetskopieringar kan återställas, kontrollera att målservern för säkerhetskopiering har åtkomst till alla de här nycklarna.
 
 ```powershell
-Get-AzureRmSqlServerKeyVaultKey `
+Get-AzSqlServerKeyVaultKey `
   -ServerName <LogicalServerName> `
   -ResourceGroup <SQLDatabaseResourceGroupName>
 ```

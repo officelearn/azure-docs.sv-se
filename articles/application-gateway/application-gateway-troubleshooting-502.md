@@ -15,16 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2017
 ms.author: amsriva
-ms.openlocfilehash: 1db16f203755f9afc265495daba056313138a5dc
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: d50f25fbe10fc5ac4e834141fe7ac45fbed918ab
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55819458"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57309034"
 ---
 # <a name="troubleshooting-bad-gateway-errors-in-application-gateway"></a>Felsök Felaktig gateway-fel i Application Gateway
 
 Lär dig mer om att Felsök Felaktig gateway (502) tas emot när med application gateway.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="overview"></a>Översikt
 
@@ -50,21 +52,21 @@ Validera NSG, UDR och DNS-konfigurationen genom att gå igenom följande steg:
 * Kontrollera UDR som är associerade med Application Gateway-undernät. Se till att UDR inte dirigerar trafik från backend-undernät – till exempel söka efter routning för att virtuella installationer eller standardvägar som annonseras för Application Gateway-undernät via ExpressRoute/VPN.
 
 ```powershell
-$vnet = Get-AzureRmVirtualNetwork -Name vnetName -ResourceGroupName rgName
-Get-AzureRmVirtualNetworkSubnetConfig -Name appGwSubnet -VirtualNetwork $vnet
+$vnet = Get-AzVirtualNetwork -Name vnetName -ResourceGroupName rgName
+Get-AzVirtualNetworkSubnetConfig -Name appGwSubnet -VirtualNetwork $vnet
 ```
 
 * Kontrollera effektiva NSG och väg med den virtuella datorn på serversidan
 
 ```powershell
-Get-AzureRmEffectiveNetworkSecurityGroup -NetworkInterfaceName nic1 -ResourceGroupName testrg
-Get-AzureRmEffectiveRouteTable -NetworkInterfaceName nic1 -ResourceGroupName testrg
+Get-AzEffectiveNetworkSecurityGroup -NetworkInterfaceName nic1 -ResourceGroupName testrg
+Get-AzEffectiveRouteTable -NetworkInterfaceName nic1 -ResourceGroupName testrg
 ```
 
 * Kontrollera förekomst av anpassad DNS i det virtuella nätverket. DNS kan kontrolleras genom att titta på information om VNet-egenskaperna i utdata.
 
 ```json
-Get-AzureRmVirtualNetwork -Name vnetName -ResourceGroupName rgName 
+Get-AzVirtualNetwork -Name vnetName -ResourceGroupName rgName 
 DhcpOptions            : {
                            "DnsServers": [
                              "x.x.x.x"
@@ -84,7 +86,7 @@ Kontrollera att DNS-servern kan matcha FQDN för backend-poolmedlem korrekt om d
 | Avsökningswebbadress |http://127.0.0.1/ |URL-sökväg |
 | Intervall |30 |Avsökningsintervall i sekunder |
 | Time-out |30 |Avsökningen tidsgräns i sekunder |
-| Tröskelvärde för ej felfri |3 |Avsökning för antal nya försök. Backend-server markeras när antalet upprepade fel når tröskelvärde för ej felfri. |
+| Tröskelvärde för Ej felfri |3 |Avsökning för antal nya försök. Backend-server markeras när antalet upprepade fel når tröskelvärde för ej felfri. |
 
 ### <a name="solution"></a>Lösning
 
@@ -109,7 +111,7 @@ Anpassade hälsoavsökningar ger ytterligare flexibilitet till standard-avsökni
 | Sökväg |Relativa sökvägen för avsökningen. Giltig sökväg som börjar med ”/”. Avsökningen skickas till \<protokollet\>://\<värden\>:\<port\>\<sökväg\> |
 | Intervall |Avsökningsintervall i sekunder. Det här är tidsintervallet mellan två på varandra följande avsökningar. |
 | Time-out |Avsökning tidsgräns i sekunder. Om ett giltigt svar inte tas emot inom denna tidsgräns, markeras avsökningen som misslyckat. |
-| Tröskelvärde för ej felfri |Avsökning för antal nya försök. Backend-server markeras när antalet upprepade fel når tröskelvärde för ej felfri. |
+| Tröskelvärde för Ej felfri |Avsökning för antal nya försök. Backend-server markeras när antalet upprepade fel når tröskelvärde för ej felfri. |
 
 ### <a name="solution"></a>Lösning
 
@@ -132,7 +134,7 @@ När en begäran tas emot, Application Gateway gäller de konfigurerade reglerna
 Application Gateway kan du konfigurera den här inställningen via BackendHttpSetting, som sedan kan tillämpas på olika pooler. Olika serverdels-pooler kan ha olika BackendHttpSetting och därmed olika begäran timeout konfigurerats.
 
 ```powershell
-    New-AzureRmApplicationGatewayBackendHttpSettings -Name 'Setting01' -Port 80 -Protocol Http -CookieBasedAffinity Enabled -RequestTimeout 60
+    New-AzApplicationGatewayBackendHttpSettings -Name 'Setting01' -Port 80 -Protocol Http -CookieBasedAffinity Enabled -RequestTimeout 60
 ```
 
 ## <a name="empty-backendaddresspool"></a>Tom BackendAddressPool
@@ -146,7 +148,7 @@ Om Application Gateway inte har några virtuella datorer eller VM-skalningsupps�
 Kontrollera att backend-adresspoolen inte är tom. Detta kan göras via PowerShell, CLI eller portalen.
 
 ```powershell
-Get-AzureRmApplicationGateway -Name "SampleGateway" -ResourceGroupName "ExampleResourceGroup"
+Get-AzApplicationGateway -Name "SampleGateway" -ResourceGroupName "ExampleResourceGroup"
 ```
 
 Utdata från föregående cmdleten ska innehålla icke-tom backend adresspoolen. Följande är ett exempel där två pooler returneras som är konfigurerade med FQDN eller IP-adresser för serverdelens virtuella datorer. Etableringsstatus för BackendAddressPool måste vara ”klar”.

@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: b36db929d1ed6487f0da72bea5415d6ca4223b92
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: f5550b5a81c59faaad4521049b31000fc1f83ce0
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756057"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57309629"
 ---
 # <a name="in-memory-sample"></a>InMemory-exempel
 
@@ -183,7 +183,7 @@ På den virtuella datorn eller på det värd som du väljer, installera verktyg 
 Mer information finns i:
 - Ostress.exe diskussion i [exempeldatabasen för In-Memory OLTP](https://msdn.microsoft.com/library/mt465764.aspx).
 - [Exempel på databasen för In-Memory OLTP](https://msdn.microsoft.com/library/mt465764.aspx).
-- Den [blogg för att installera ostress.exe](https://blogs.msdn.com/b/psssql/archive/2013/10/29/cumulative-update-2-to-the-rml-utilities-for-microsoft-sql-server-released.aspx).
+- Den [blogg för att installera ostress.exe](https://blogs.msdn.com/b/psssql/archive/20../../cumulative-update-2-to-the-rml-utilities-for-microsoft-sql-server-released.aspx).
 
 
 

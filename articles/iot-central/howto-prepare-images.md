@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: f0e4d1badd0ed992c96f6624813e575d0f286d8b
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 4378ff4155cf0b2f9c4af8176f41fe35fc433792
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57216806"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57310717"
 ---
 # <a name="prepare-and-upload-images-to-your-azure-iot-central-application"></a>Förbereda och ladda upp bilder till Azure IoT Central programmet
 
@@ -74,17 +74,17 @@ Ladda upp en bild på den **Programhanterare**, navigera till den **programinst�
 
 ![Ladda upp programavbildning](media/howto-prepare-images/uploadapplicationmanager.png)
 
-Klicka på panelen programavbildningen att ladda upp en förberedd bild (268 x 160 bpt) från din lokala dator.
+Välj panelen programavbildningen att ladda upp en förberedd bild (268 x 160 bpt) från din lokala dator.
 
 ### <a name="application-dashboard"></a>Instrumentpanel för program
 
-Om du vill ladda upp en bild på instrumentpanelen för program, navigerar du till den **instrumentpanelen** för programmet och klicka på **redigera**. Du måste vara ett verktyg för att slutföra den här aktiviteten:
+Om du vill ladda upp en bild på instrumentpanelen för program, navigerar du till den **instrumentpanelen** för programmet och välj **redigera**. Du måste vara ett verktyg för att slutföra den här aktiviteten:
 
 ![Ladda upp program instrumentpanelen bild](media/howto-prepare-images/uploadhomepage.png)
 
-Under Konfigurera bild klickar du på ikonen bild att ladda upp en förberedd bild från din lokala dator. Den minsta storlek panelen är 200 x 200 bildpunkter, större paneler kan vara antingen kvadratisk eller rektangulär multiplar av små paneler. Till exempel 200 x 400 bildpunkter, 400 x 200 bildpunkter eller 400 x 400 bildpunkter.
+Välj panelen bild att ladda upp en förberedd bild från din lokala dator under Konfigurera bild. Den minsta storlek panelen är 200 x 200 bildpunkter, större paneler kan vara antingen kvadratisk eller rektangulär multiplar av små paneler. Till exempel 200 x 400 bildpunkter, 400 x 200 bildpunkter eller 400 x 400 bildpunkter.
 
-**Spara** den uppladdade avbildningen. Du kan ändra storlek på den i redigeringsläget. Klicka på **Klar** när du är klar. 
+**Spara** den uppladdade avbildningen. Du kan ändra storlek på den i redigeringsläget. Välj **klar** när du är klar.
 
 ### <a name="device-template"></a>Enhetsmall
 
@@ -92,27 +92,27 @@ Om du vill ladda upp en bild i en mall för enhet, gå till **Device Explorer**,
 
 ![Ladda upp enheten mall-bild](media/howto-prepare-images/uploaddevicetemplate.png)
 
-Klicka på bildpanel att ladda upp en förberedd bild (64 x 64 px) från din lokala dator. 
+Välj panelen bild att ladda upp en förberedd bild (64 x 64 px) från din lokala dator. 
 
 ### <a name="device-dashboard"></a>Instrumentpanel för enhet
 
-Om du vill ladda upp en bild på en instrumentpanel för enhet, gå till **Device Explorer**, väljer mallen enhet och en enhet. Välj sedan den **instrumentpanelen** och klickar på **Redigera mall**. Du måste vara ett verktyg för att slutföra den här aktiviteten:
+Om du vill ladda upp en bild på en instrumentpanel för enhet, gå till **Device Explorer**, väljer mallen enhet och en enhet. Välj sedan den **instrumentpanelen** och välj **Redigera mall**. Du måste vara ett verktyg för att slutföra den här aktiviteten:
 
 ![Ladda upp enhetsavbildning för instrumentpanelen](media/howto-prepare-images/uploaddevicedashboard.png)
 
-Klicka på ikonen för avbildningen under Konfigurera bild och klicka på filen som ska överföras från din lokala dator. Den minsta storlek panelen är 200 x 200 bildpunkter, större paneler kan vara antingen kvadratisk eller rektangulär multiplar av små paneler. Till exempel 200 x 400 bildpunkter, 400 x 200 bildpunkter eller 400 x 400 bildpunkter.
+Välj panelen avbildningen under Konfigurera bild och klicka på filen som ska överföras från din lokala dator. Den minsta storlek panelen är 200 x 200 bildpunkter, större paneler kan vara antingen kvadratisk eller rektangulär multiplar av små paneler. Till exempel 200 x 400 bildpunkter, 400 x 200 bildpunkter eller 400 x 400 bildpunkter.
 
-**Spara** den uppladdade avbildningen. Du kan ändra storlek på och flytta den medan du är i redigeringsläget. Klicka på **Klar** när du är klar.
+**Spara** den uppladdade avbildningen. Du kan ändra storlek på och flytta den medan du är i redigeringsläget. Välj **klar** när du är klar.
 
 ### <a name="device-set-dashboard"></a>Instrumentpanelen för set
 
-Om du vill ladda upp en bild på en enhet set-instrumentpanel, gå till **enhetsuppsättningar** och välj enhetsuppsättningen och en enhet. Välj sedan den **instrumentpanelen** och klickar på **redigera**:
+Om du vill ladda upp en bild på en enhet set-instrumentpanel, gå till **enhetsuppsättningar** och välj enhetsuppsättningen och en enhet. Välj sedan den **instrumentpanelen** och välj **redigera**:
 
 ![Ladda upp enhetsavbildning set instrumentpanel](media/howto-prepare-images/uploaddevicesetdashboard.png)
 
-Under Konfigurera bild klickar du på ikonen bild att ladda upp en förberedd bild från din lokala dator. Den minsta storlek panelen är 200 x 200 bildpunkter, större paneler kan vara antingen kvadratisk eller rektangulär multiplar av små paneler. Till exempel 200 x 400 bildpunkter, 400 x 200 bildpunkter eller 400 x 400 bildpunkter.
+Välj panelen bild att ladda upp en förberedd bild från din lokala dator under Konfigurera bild. Den minsta storlek panelen är 200 x 200 bildpunkter, större paneler kan vara antingen kvadratisk eller rektangulär multiplar av små paneler. Till exempel 200 x 400 bildpunkter, 400 x 200 bildpunkter eller 400 x 400 bildpunkter.
 
-**Spara** den uppladdade avbildningen. Du kan ändra storlek på och flytta den medan du är i redigeringsläget. Klicka på **Klar** när du är klar.
+**Spara** den uppladdade avbildningen. Du kan ändra storlek på och flytta den medan du är i redigeringsläget. Välj **klar** när du är klar.
 
 ## <a name="next-steps"></a>Nästa steg
 

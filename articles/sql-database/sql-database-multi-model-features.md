@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/17/2018
-ms.openlocfilehash: d833d6ea695c05f80f7823f391142fee28872c40
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 69ca51776a61b43768ce7cb1565451c4f118de6e
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55300259"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57316531"
 ---
 # <a name="multi-model-capabilities-of-azure-sql-database"></a>Flera datamodeller funktionerna i Azure SQL Database
 
@@ -124,7 +124,7 @@ CREATE TABLE Collection (
 
 Du kan anpassa den här nyckel / värde-strukturen så att de passar dina behov utan några begränsningar. Till exempel värdet kan vara XML-dokument i stället för `nvarchar(max)` typ, om värdet är JSON-dokument och du kan placera `CHECK` villkor som kontrollerar giltigheten för JSON-innehåll. Du kan placera valfritt antal värden som är relaterade till en nyckel i fler kolumner, lägga till beräknade kolumner och index för att förenkla och optimera dataåtkomst, definiera tabellen som minnesoptimerade/endast schema tabell för att få bättre prestanda, osv.
 
-Se [hur BWin använder Minnesintern OLTP för att uppnå en oöverträffad prestanda och skalning](https://blogs.msdn.microsoft.com/sqlcat/2016/10/26/how-bwin-is-using-sql-server-2016-in-memory-oltp-to-achieve-unprecedented-performance-and-scale/) för sina cachelagring av ASP.NET-lösning som uppnås 1.200.000 slår ihop per sekunder, som exempel hur relationella modell kan användas som nyckel / värde-par lösning i praktiken.
+Se [hur BWin använder Minnesintern OLTP för att uppnå en oöverträffad prestanda och skalning](https://blogs.msdn.microsoft.com/sqlcat/20../../how-bwin-is-using-sql-server-2016-in-memory-oltp-to-achieve-unprecedented-performance-and-scale/) för sina cachelagring av ASP.NET-lösning som uppnås 1.200.000 slår ihop per sekunder, som exempel hur relationella modell kan användas som nyckel / värde-par lösning i praktiken.
 
 ## <a name="next-steps"></a>Nästa steg
 Flera datamodeller funktioner i Azure SQL-databaser är även SQL Server Database Engine huvudfunktioner som delas mellan Azure SQL Database och SQL Server. Om du vill veta mer om dessa funktioner finns i SQL-relationsdatabas dokumentationssidorna för databasen:

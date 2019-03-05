@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 2c32ef84c1016d0058ee07220729a291aff19b70
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 7097c3852ad903e9d8f7c8786ea7fd616706f108
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56868076"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57317330"
 ---
 # <a name="hyperscale-service-tier-preview-for-up-to-100-tb"></a>Hyperskala tjänstnivå (förhandsversion) för upp till 100 TB
 
@@ -112,7 +112,7 @@ Med möjligheten att snabbt öka eller minska ytterligare skrivskyddad compute-n
 
 ## <a name="create-a-hyperscale-database"></a>Skapa en databas i hyperskala
 
-En storskalig databas kan skapas med den [Azure-portalen](https://portal.azure.com), [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current), [Powershell](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabase) eller [CLI](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-create). Hyperskala databaser är tillgängliga med enbart den [vCore-baserade inköpsmodellen](sql-database-service-tiers-vcore.md).
+En storskalig databas kan skapas med den [Azure-portalen](https://portal.azure.com), [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current), [Powershell](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabase) eller [CLI](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-create). Hyperskala databaser är tillgängliga med enbart den [vCore-baserade inköpsmodellen](sql-database-service-tiers-vcore.md).
 
 Följande T-SQL-kommando skapar en databas i hyperskala. Du måste ange både edition och tjänsten mål i den `CREATE DATABASE` instruktionen.
 
@@ -124,7 +124,7 @@ GO
 
 ## <a name="migrate-an-existing-azure-sql-database-to-the-hyperscale-service-tier"></a>Migrera en befintlig Azure SQL Database på tjänstnivån i hyperskala
 
-Du kan flytta dina befintliga Azure SQL-databaser till hyperskala med hjälp av den [Azure-portalen](https://portal.azure.com), [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current), [Powershell](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabase) eller [CLI](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-update). I offentlig förhandsversion är det en enkelriktad migrering. Du kan inte flytta databaser från hyperskala till en annan tjänstnivå. Vi rekommenderar att du gör en kopia av produktionsdatabaserna och migrera till hyperskala för bevis på koncept (POC).
+Du kan flytta dina befintliga Azure SQL-databaser till hyperskala med hjälp av den [Azure-portalen](https://portal.azure.com), [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current), [Powershell](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) eller [CLI](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-update). I offentlig förhandsversion är det en enkelriktad migrering. Du kan inte flytta databaser från hyperskala till en annan tjänstnivå. Vi rekommenderar att du gör en kopia av produktionsdatabaserna och migrera till hyperskala för bevis på koncept (POC).
 
 Följande T-SQL-kommando flyttar en databas i hyperskala tjänstnivån. Du måste ange både edition och tjänsten mål i den `ALTER DATABASE` instruktionen.
 

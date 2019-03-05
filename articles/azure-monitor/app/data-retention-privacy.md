@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 02/14/2019
+ms.date: 03/04/2019
 ms.author: mbullwin
-ms.openlocfilehash: 1de12f2dd2e31c3f5413424793f3bf78fdc8ff27
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: 8218da62eb8c3d8c454ca1dca1bd1071e0de67b0
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56300269"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57308762"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Datainsamling, kvarhållning och lagring i Application Insights
 
@@ -118,9 +118,7 @@ De kan skicka ytterligare telemetri till ditt konto med hjälp av instrumentatio
 Om du delar kod med andra projekt kan du komma ihåg att ta bort din instrumentationsnyckel.
 
 ## <a name="is-the-data-encrypted"></a>Krypteras data?
-Inte inuti servrar för närvarande.
-
-Krypteras alla data som flyttas mellan datacenter.
+Alla data krypteras i viloläge och som den flyttar mellan data datacenter.
 
 #### <a name="is-the-data-encrypted-in-transit-from-my-application-to-application-insights-servers"></a>Krypteras data under överföring från mitt program till Application Insights-servrar?
 Ja, vi använder https för att skicka data till portalen från nästan alla SDK: er, inklusive webbservrar, enheter och HTTPS-webbsidor. Det enda undantaget är data som skickas från vanlig HTTP-webbsidor.

@@ -4,15 +4,15 @@ description: Innehåller information om insamlingsprogrammet i Azure Migrate.
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 02/04/2019
+ms.date: 03/04/2019
 ms.author: snehaa
 services: azure-migrate
-ms.openlocfilehash: 0568df92db2114c57a0aa027ade369e4b256af84
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 3d9106fb682a370e18fc78d35ca31662bae44524
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55813338"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57310649"
 ---
 # <a name="about-the-collector-appliance"></a>Om insamlingsprogrammet
 
@@ -32,7 +32,7 @@ Insamlingsprogrammet anslutna kontinuerligt till Azure Migrate-projektet och kon
 - Den här modellen inte är beroende statistikinställningarna för vCenter-servern att samla in prestandadata.
 - Du kan stoppa kontinuerlig profilering vid när som helst från insamlaren.
 
-**Snabb utvärderingar:** Med kontinuerlig discovery-installation, när identifieringen har slutförts (det tar några timmar beroende på hur många virtuella datorer), kan du direkt skapa utvärderingar. Eftersom prestandadatainsamlingen startar när du startar identifieringen, om du söker snabb utvärderingar, ska du välja storlekskriteriet i utvärderingen som *som lokalt*. För prestandabaserade utvärderingar rekommenderas det att du väntar minst en dag efter att identifieringen har påbörjats för att få tillförlitliga storleksrekommendationer.
+**Snabba bedömningar:** Med kontinuerlig discovery-installation, när identifieringen har slutförts (det tar några timmar beroende på hur många virtuella datorer), kan du direkt skapa utvärderingar. Eftersom prestandadatainsamlingen startar när du påbörjar identifieringen bör du välja storlekskriteriet i utvärderingen som *lokalt* om du behöver göra en snabb bedömning. För prestandabaserade utvärderingar rekommenderas det att du väntar minst en dag efter att identifieringen har påbörjats för att få tillförlitliga storleksrekommendationer.
 
 Installationen endast samlar in prestandadata kontinuerligt, upptäcks inte varje konfigurationsändring i den lokala miljön (dvs. VM-tillägg, borttagning, disk tillägg osv.). Om det finns en konfigurationsändring i den lokala miljön kan du göra följande för att återspegla ändringarna i portalen:
 
@@ -111,7 +111,7 @@ Anslutningskontrollen verifieras genom att ansluta till en lista över webbadres
 --- | --- | ---
 *.portal.azure.com | Gäller för Azure-Global. Kontrollerar anslutningen med Azure-tjänsten och tidssynkronisering. | Åtkomst till URL måste anges.<br/><br/> Kravkontroll misslyckas om det finns ingen nätverksanslutning.
 *.portal.azure.us | Gäller endast för Azure Government. Kontrollerar anslutningen med Azure-tjänsten och tidssynkronisering. | Åtkomst till URL måste anges.<br/><br/> Kravkontroll misslyckas om det finns ingen nätverksanslutning.
-*.oneget.org:443<br/><br/> *.windows.net:443<br/><br/> *.windowsazure.com:443<br/><br/> *.powershellgallery.com:443<br/><br/> *.msecnd.net:443<br/><br/> *.visualstudio.com:443| Används för att hämta PowerShell-modulen vCenter PowerCLI. | Åtkomst till URL: er som är valfritt.<br/><br/> Kravkontrollen misslyckas inte.<br/><br/> Installation av automatiska modulen på VM-insamlaren misslyckas. Du måste installera modulen manuellt.
+*.oneget.org:443<br/><br/> *.windows.net:443<br/><br/> *.windowsazure.com:443<br/><br/> *.powershellgallery.com:443<br/><br/> *.msecnd.net:443<br/><br/> *.visualstudio.com:443| Används för att hämta PowerShell-modulen vCenter PowerCLI. | Åtkomst till URL: er måste anges.<br/><br/> Kravkontrollen misslyckas inte.<br/><br/> Installation av automatiska modulen på VM-insamlaren misslyckas. Du behöver installera modulen manuellt i en dator som är ansluten till internet och sedan kopiera modulerna till installationen. [Lär dig mer genom att gå till steg 4 i den här felsökningsguiden](https://docs.microsoft.com/azure/migrate/troubleshooting-general#error-unhandledexception-internal-error-occurred-systemiofilenotfoundexception).
 
 
 ### <a name="install-vmware-powercli-module-manually"></a>Installera VMware PowerCLI-modulen manuellt

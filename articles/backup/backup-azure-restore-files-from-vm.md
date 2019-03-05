@@ -7,14 +7,14 @@ manager: shivamg
 keywords: återställning på objektnivå; filåterställning från virtuell Azure-säkerhetskopiering; återställa filer från virtuella Azure-datorer
 ms.service: backup
 ms.topic: conceptual
-ms.date: 2/26/2019
+ms.date: 3/01/2019
 ms.author: pullabhk
-ms.openlocfilehash: 4bae9a09dad217b8d805a64372ed404eb7ada723
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 6c2ade276e43f5e40d334a62c62a1abaa42b1b78
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56874179"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57308949"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Återställa filer från säkerhetskopiering av Azure virtuella datorer
 
@@ -74,13 +74,15 @@ Om du vill återställa filer och mappar från återställningspunkten, gå till
     - utgående port 3260
 
 > [!Note]
-> Hämtade skriptfilnamnet har ”geo-namn” fyllas i URL: en. För t.ex.: Hämtade skriptets namn som börjar med \'VMname\'\_\'geoname\'_\'GUID\', som ContosoVM_wcus_12345678... URL: en är ”https://pod01-rec2.wcus.backup.windowsazure.com”
-> 
+>
+* Hämtade skriptfilnamnet har den **geo-name** fyllas i URL: en. För t.ex.: Hämtade skriptets namn som börjar med \'VMname\'\_\'geoname\'_\'GUID\', som ContosoVM_wcus_12345678...<br><br>
+* URL: en är ”https://pod01-rec2.wcus.backup.windowsazure.com”
+
 
    För Linux kräver skriptet 'iscsi-öppen' och 'lshw' komponenter att ansluta till återställningspunkten. Om komponenterna inte finns på den dator där skriptet körs begär skriptet behörighet att installera komponenterna. Ge medgivande till att installera de nödvändiga komponenterna.
-   
+
    Åtkomst till download.microsoft.com krävs för att hämta komponenter som används för att skapa en säker kanal mellan datorn där skriptet körs och data i återställningspunkten.
-   
+
    Du kan köra skriptet på en dator som har samma (eller kompatibla)-operativsystem som den säkerhetskopierade virtuella datorn. Se den [kompatibla OS tabell](backup-azure-restore-files-from-vm.md#system-requirements) för kompatibla operativsystem. Om skyddade virtuella Azure-datorer använder Windows-lagringsutrymmen (för Windows Azure virtuella datorer) eller LVM/RAID-matriser (för virtuella Linux-datorer) kan köra du inte körbara filer eller skript på samma virtuella dator. I stället köra körbara filer eller skript på någon annan dator med ett kompatibelt operativsystem.
 
 ### <a name="identifying-volumes"></a>Identifiera volymer
@@ -96,7 +98,7 @@ När du kör den körbara filen, monterar de nya volymerna i operativsystemet oc
 I Linux monteras volymer för återställningspunkten till den mapp där skriptet körs. Därefter visas anslutna diskar, volymer och motsvarande mount-sökvägar. Dessa montera sökvägar är synliga för användare med nivån rotåtkomst. Bläddra igenom de volymer som nämns i utdata från skriptet.
 
   ![Linux recovery filmenyn](./media/backup-azure-restore-files-from-vm/linux-mount-paths.png)
-  
+
 ## <a name="closing-the-connection"></a>Stänga anslutningen
 
 Ta bort (eller demontera) på ytterligare enheter när du identifierar filerna och kopiera dem till en lokal lagringsplats. Demontera enheter, på den **filåterställning** menyn i Azure-portalen klickar du på **demontera diskar**.
@@ -113,8 +115,8 @@ I Linux, när anslutningen till återställningspunkten är avskiljes Operativsy
 
 Om den skyddade virtuella Azure-datorn har volymer med en eller båda av följande egenskaper kan köra du inte körbara skriptet på samma virtuella dator.
 
-    - Volymer som sträcker sig över flera diskar (som omfattas och stripe-volymer)
-    - Feltoleranta volymer (volymer speglad eller RAID-5) på dynamiska diskar
+- Volymer som sträcker sig över flera diskar (som omfattas och stripe-volymer)
+- Feltoleranta volymer (volymer speglad eller RAID-5) på dynamiska diskar
 
 I stället köra skriptet körbara på andra datorer med ett kompatibelt operativsystem.
 
@@ -230,3 +232,41 @@ Om du har problem vid återställning av filer från de virtuella datorerna, kon
 | Exe-utdata: Skriptet har körts men ”nya volymer ansluten” visas inte på utdata från skriptet |    Det här är ett tillfälligt fel    | Volymerna skulle har redan bifogats. Öppna Utforskaren och Bläddra. Om du använder samma dator för att köra skript varje gång, Överväg att starta om datorn och listan ska visas i efterföljande exe-körningar. |
 | Linux specifika: Det går inte att visa de önskade volymerna | Operativsystemet där skriptet körs kanske inte kan identifiera det underliggande filsystemet för skyddad virtuell dator | Kontrollera om krascher konsekvent eller filkonsekvent återställningspunkten. Om filen konsekvent, kör skriptet på en annan dator vars operativsystem kan du identifierar den skyddade Virtuella datorns filsystem |
 | Windows specifika: Det går inte att visa de önskade volymerna | Diskarna har bifogats men volymerna har inte konfigurerats | Identifiera ytterligare diskar rör återställningspunkten från hanteringsskärmen disk. Om något av dessa diskar är offline tillstånd försök att göra dem online genom att högerklicka på disken och klicka på ”Online”|
+
+## <a name="security"></a>Säkerhet
+
+Det här avsnittet beskrivs de olika security-åtgärder som vidtagits för att genomföra filåterställning från Virtuella Azure-säkerhetskopieringar så att användarna är medvetna om säkerhetsaspekter i funktionen.
+
+### <a name="feature-flow"></a>Funktionen flöde
+
+Den här funktionen har skapats för att komma åt virtuella datorns data utan att behöva återställa hela virtuella datorn eller Virtuella diskar och i minsta steg. Åtkomst till VM-data tillhandahålls av ett skript (montera återställningsvolymen när kör som visas nedan) och kan därför den utgör en hörnsten i alla säkra implementeringar
+
+  ![Security funktionen flöde](./media/backup-azure-restore-files-from-vm/vm-security-feature-flow.png)
+
+### <a name="security-implementations"></a>Implementeringar av säkerhet
+
+#### <a name="select-recovery-point-who-can-generate-script"></a>Välj återställningspunkt (som kan generera skript)
+
+Skriptet ger åtkomst till data för virtuell dator, är det viktigt att reglera vem som kan generera i första hand. En behöver logga in på Azure-portalen och bör vara [RBAC behörighet](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions) för att kunna generera skript.
+
+Filåterställning behöver samma nivå av auktorisering som krävs för återställning av virtuella datorer och diskar återställning. Med andra ord bara behöriga användare kan visa virtuella datorns data kan generera skriptet.
+
+Det här genererade skriptet har registrerats med officiella Microsoft-certifikat för Azure Backup-tjänsten. Obehörig ändring skriptet innebär att signaturen är bruten och alla försök att köra skriptet markeras som en möjlig risk med Operativsystemet.
+
+#### <a name="mount-recovery-volume-who-can-run-script"></a>Montera återställningsvolymen (som kan köra skript)
+
+Endast administratören kan köra skriptet och ska köras med förhöjd. Skriptet endast kör en förgenererade uppsättning steg och tar inte emot indata från en extern källa.
+
+Om du vill köra skriptet, kräver en ett lösenord som endast visas till behöriga användare vid tidpunkten för generering av skript i Azure portal eller PowerShell/CLI. Detta är att se till att den auktoriserade användare som laddar ned skriptet också för att köra skriptet.
+
+#### <a name="browse-files-and-folders"></a>Bläddra bland filer och mappar
+
+Om du vill bläddra bland filer och mappar, skriptet använder iSCSI-initieraren på datorn och ansluta till den återställningspunkt som är konfigurerad som en iSCSI-mål. Här kan en anta scenarier där en försöker att imitera/spoof antingen/alla komponenter.
+
+Vi använder ömsesidig CHAP-autentiseringsmekanismen så att varje komponent autentiserar den andra. Det innebär att det är mycket svårt för en falsk initierare kan ansluta till iSCSI-målet och ett falska mål som är anslutna till datorn där skriptet körs.
+
+Dataflödet mellan recovery-tjänsten och datorn skyddas genom att skapa en säker SSL-tunnel via TCP ([TLS 1.2 ska stödjas](#system-requirements) på den dator där skriptet körs)
+
+Alla filer åtkomstkontrollistan (ACL) finns i det överordnade/säkerhetskopierat virtuella datorn bevaras också i det monterade filsystemet.
+
+Skriptet ger läsbehörighet till en återställningspunkt och gäller endast 12 timmar. Om du vill ta bort åtkomsten tidigare logga sedan in i Azure Portal/PowerShell/CLI och utföra de **demontera diskar** för den specifika återställningspunkten. Skriptet kommer att ogiltigförklaras omedelbart.

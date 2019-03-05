@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/06/2019
+ms.date: 03/04/2019
 ms.author: magoedte
-ms.openlocfilehash: 41ffd7229383f1006bb846f975aeccf83256032a
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: a497662ac7a885b53e69bb8c86a646045bd2eef7
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56807736"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57314678"
 ---
 # <a name="connect-computers-without-internet-access-by-using-the-log-analytics-gateway"></a>Ansluta datorer utan Internetåtkomst med hjälp av Log Analytics-gateway
 
@@ -154,29 +154,39 @@ Följ dessa steg om du vill installera en gateway.  (Om du har installerat en ti
 
 
 ## <a name="configure-network-load-balancing"></a>Konfigurera Utjämning av nätverksbelastning 
-Konfigurera gatewayen för hög tillgänglighet genom att använda Utjämning av nätverksbelastning (NLB). Använda Microsoft Azure Load Balancer eller maskinvarubaserade belastningsutjämnare.  Belastningsutjämnaren hanterar trafik genom att omdirigera begärda anslutningarna från Log Analytics-agenter eller Operations Manager-hanteringsservrar för dess noder. Om en gateway-servern slutar fungera kan dirigeras trafiken till andra noder.
+Du kan konfigurera gatewayen för hög tillgänglighet med hjälp av Utjämning av nätverksbelastning (NLB) med hjälp av antingen Microsoft [nätverk (Utjämning av nätverksbelastning)](https://docs.microsoft.com/windows-server/networking/technologies/network-load-balancing), [Azure Load Balancer](../../load-balancer/load-balancer-overview.md), eller maskinvarubaserade belastningsutjämnare. Belastningsutjämnaren hanterar trafik genom att omdirigera begärda anslutningarna från Log Analytics-agenter eller Operations Manager-hanteringsservrar för dess noder. Om en Gateway-servern slutar fungera kan omdirigeras trafiken till andra noder.
+
+### <a name="microsoft-network-load-balancing"></a>Microsoft Utjämning av nätverksbelastning
+Om du vill lära dig att utforma och distribuera en Windows Server 2016 nätverksbelastningsutjämnande kluster, se [Utjämning av nätverksbelastning](https://docs.microsoft.com/windows-server/networking/technologies/network-load-balancing). Följande steg beskriver hur du konfigurerar en Microsoft Utjämning av nätverksbelastning kluster.  
+
+1. Logga in på den Windows-server som är medlem i NLB-kluster med ett administratörskonto.  
+2. Öppna Hanteraren för Utjämning av nätverksbelastning i Serverhanteraren, klicka på **verktyg**, och klicka sedan på **hanteraren för Utjämning av nätverksbelastning**.
+3. Högerklicka på klustrets IP-adress för att ansluta en Log Analytics gateway-servern med Microsoft Monitoring Agent installerad, och klicka sedan på **Lägg till värddator till klustret**. 
+
+    ![Nätverket läsa in belastningsutjämning Manager – Lägg till värd i klustret](./media/gateway/nlb02.png)
+ 
+4. Ange IP-adressen för gateway-servern som du vill ansluta till. 
+
+    ![Nätverket läsa in belastningsutjämning Manager – Lägg till värd i klustret: Anslut](./media/gateway/nlb03.png) 
+
+### <a name="azure-load-balancer"></a>Azure Load Balancer
+Om du vill lära dig att utforma och distribuera en Azure Load Balancer, se [vad är Azure Load Balancer?](../../load-balancer/load-balancer-overview.md). Om du vill distribuera en grundläggande belastningsutjämnare, Följ stegen som beskrivs i det här [snabbstarten](../../load-balancer/quickstart-create-basic-load-balancer-portal.md) förutom de steg som beskrivs i avsnittet **skapa backend-servrar**.   
+
+> [!NOTE]
+> Konfigurera i Azure-belastningsutjämnare med hjälp av den **Basic SKU**, kräver att Azure-datorer som tillhör en Tillgänglighetsuppsättning. Läs mer om tillgänglighetsuppsättningar i [hantera tillgängligheten för Windows-datorer i Azure](../../virtual-machines/windows/manage-availability.md). Om du vill lägga till befintliga virtuella datorer i en tillgänglighetsuppsättning som avser [ange Azure Resource Manager VM-Tillgänglighetsuppsättning](https://gallery.technet.microsoft.com/Set-Azure-Resource-Manager-f7509ec4).
+> 
+
+När belastningsutjämnaren har skapats, måste en serverdelspool skapas, som distribuerar trafiken till en eller flera gateway-servrar. Följa stegen i artikelavsnittet snabbstarten [skapa resurser för belastningsutjämnaren](../../load-balancer/quickstart-create-basic-load-balancer-portal.md#create-resources-for-the-load-balancer).  
 
 >[!NOTE]
->Om du vill lära dig att utforma och distribuera en Windows Server 2016 NLB-kluster, se [Utjämning av nätverksbelastning](https://technet.microsoft.com/windows-server-docs/networking/technologies/network-load-balancing). 
+>När du konfigurerar hälsoavsökningen ska den konfigureras för att använda TCP-port för gateway-servern. Hälsoavsökningen lägger till eller tar bort gateway-servrar från belastningsutjämnarens rotation baserat på deras svar på hälsokontroller dynamiskt. 
 >
 
-Följ dessa steg om du vill konfigurera en belastningsutjämnare för Microsoft-kluster:  
-
-1. Använd ett administratörskonto för att logga in på Windows-Server som är medlem i klustret för belastningsutjämnaren.
-1. I Serverhanteraren, öppnar **hanteraren för Utjämning av nätverksbelastning**väljer **verktyg**, och välj sedan **hanteraren för Utjämning av nätverksbelastning**.
-1. Högerklicka på klustrets IP-adress för att ansluta en Log Analytics gateway-server som har Microsoft Monitoring Agent installerad, och klicka sedan på **Lägg till värddator till klustret**.
-
-   ![Skärmbild av NLB-hanteraren, med lägga till värden till klustret är valt](./media/gateway/nlb02.png)
-
-1. Ange IP-adressen för gateway-servern som du vill ansluta till.
-
-   ![Skärmbild av NLB-hanteraren, som visar sidan Lägg till värd i klustret: Anslut](./media/gateway/nlb03.png)
-    
 ## <a name="configure-the-log-analytics-agent-and-operations-manager-management-group"></a>Konfigurera Log Analytics-agenten och Operations Manager-hanteringsgrupp
 I det här avsnittet visas hur du konfigurerar direktanslutna Log Analytics-agenter, en Operations Manager-hanteringsgrupp eller Azure Automation Hybrid Runbook Worker med Log Analytics-gatewayen att kommunicera med Azure Automation och Log Analytics.  
 
 ### <a name="configure-a-standalone-log-analytics-agent"></a>Konfigurera en fristående Log Analytics-agenten
-När du konfigurerar Log Analytics-agenten, ersätter du värdet för proxy-server med IP-adressen för Log Analytics gateway-servern och dess portnummer. Om du har distribuerat flera gateway-servrar bakom en NLB är proxykonfiguration för Log Analytics-agenten den virtuella IP-adressen för Utjämning av nätverksbelastning.  
+När du konfigurerar Log Analytics-agenten, ersätter du värdet för proxy-server med IP-adressen för Log Analytics gateway-servern och dess portnummer. Om du har distribuerat flera gateway-servrar bakom en belastningsutjämnare, är proxykonfiguration för Log Analytics-agenten den virtuella IP-adressen för belastningsutjämnaren.  
 
 >[!NOTE]
 >Log Analytics-agenten på gateway- och Windows-datorer som ansluter direkt till Log Analytics Se [ansluta Windows-datorer till Log Analytics-tjänsten i Azure](agent-windows.md). Om du vill ansluta Linux-datorer, se [konfigurera en Log Analytics-agenten för Linux-datorer i en hybridmiljö](../../azure-monitor/learn/quick-collect-linux-computer.md). 
@@ -200,7 +210,7 @@ Om du vill använda OMS-gatewayen för att stödja Operations Manager, måste du
 > Om du anger något värde för gatewayen, skickas tomma värden till alla agenter.
 >
 
-Om din Operations Manager-hanteringsgrupp som registrerar med en arbetsyta för Log Analytics för första gången, visas inte alternativet för att ange proxykonfigurationen för hanteringsgruppen i driftkonsolen.  Det här alternativet är endast tillgängligt om hanteringsgruppen har registrerats med tjänsten.  
+Om din Operations Manager-hanteringsgrupp som registrerar med en arbetsyta för Log Analytics för första gången, visas inte alternativet för att ange proxykonfigurationen för hanteringsgruppen i driftkonsolen. Det här alternativet är endast tillgängligt om hanteringsgruppen har registrerats med tjänsten.  
 
 Om du vill konfigurera integration, uppdatera proxykonfiguration system med hjälp av Netsh på systemet där du kör driftkonsolen och på alla hanteringsservrar i hanteringsgruppen. Följ de här stegen:
 
@@ -220,7 +230,7 @@ När du har slutfört integrationen med Log Analytics, ta bort ändringen genom 
 
    ![Skärmbild av Operations Manager, som visar valet Konfigurera proxyserver](./media/gateway/scom01.png)
 
-1. Välj **använder en proxyserver för att få åtkomst till Operations Management Suite** och sedan ange IP-adressen för Log Analytics gateway-servern eller den virtuella IP-adressen för Utjämning av nätverksbelastning. Var noga med att inledas med prefixet `http://`.
+1. Välj **använder en proxyserver för att få åtkomst till Operations Management Suite** och sedan ange IP-adressen för Log Analytics gateway-server eller virtuell IP-adress för belastningsutjämnaren. Var noga med att inledas med prefixet `http://`.
 
    ![Skärmbild av Operations Manager, som visar proxyn serveradress](./media/gateway/scom02.png)
 

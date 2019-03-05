@@ -12,14 +12,16 @@ ms.author: sashan
 ms.reviewer: sstein, carlrab
 manager: craigg
 ms.date: 02/25/2019
-ms.openlocfilehash: 3a937af5fba2c534e291a51c33c50434ab166ee0
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 5401c852decf0bcae3e86d1914b7cb6b47b4422a
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56868773"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57317517"
 ---
 # <a name="use-read-only-replicas-to-load-balance-read-only-query-workloads-preview"></a>Använd skrivskyddade repliker för att läsa in balansera skrivskyddad frågearbetsbelastningar (förhandsversion)
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 **Lässkalning** kan du belastningsutjämna Azure SQL Database skrivskyddade arbetsbelastningar med hjälp av kapaciteten för en skrivskyddad replik.
 
@@ -29,7 +31,7 @@ Varje databas i Premium-nivån ([DTU-baserade inköpsmodellen](sql-database-serv
 
 De här replikeringarna etableras med samma beräkningsstorleken som används av de vanliga databasanslutningarna skrivskyddade replik. Den **Lässkalning** funktionen kan du belastningsutjämna SQL Database skrivskyddade arbetsbelastningar med hjälp av kapaciteten för en av de skrivskyddade replikerna istället för att dela Läs-och repliken. Det här sättet skrivskyddad arbetsbelastning isoleras från den huvudsakliga skrivskyddad arbetsbelastningen och påverkar inte dess prestanda. Funktionen är avsedd för de program som är logiskt avgränsade skrivskyddade arbetsbelastningar, till exempel analyser, och därför kan få prestandafördelarna med hjälp av den här ytterligare kapacitet utan extra kostnad.
 
-Om du vill använda funktionen Lässkalning med en viss databas, måste du uttryckligen aktivera det när du skapar databasen eller efteråt genom att ändra konfigurationen med hjälp av PowerShell genom att aktivera den [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) eller [ Ny-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) cmdletar eller Azure Resource Manager REST API med hjälp av den [databaser – skapa eller uppdatera](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) metod.
+Om du vill använda funktionen Lässkalning med en viss databas, måste du uttryckligen aktivera det när du skapar databasen eller efteråt genom att ändra konfigurationen med hjälp av PowerShell genom att aktivera den [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) eller [New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase) cmdletar eller Azure Resource Manager REST API med hjälp av den [databaser – skapa eller uppdatera](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) metod.
 
 När Lässkalning är aktiverade för en databas, program som ansluter till den här databasen kommer att dirigeras till Läs-och-repliken eller till en skrivskyddad replik av databasen enligt den `ApplicationIntent` egenskapen som konfigurerats i programmets anslutningssträng. Information om den `ApplicationIntent` egenskap, finns i [att ange Programavsikt](https://docs.microsoft.com/sql/relational-databases/native-client/features/sql-server-native-client-support-for-high-availability-disaster-recovery#specifying-application-intent).
 
@@ -82,24 +84,24 @@ Lässkalning är aktiverat som standard i [Managed Instance](sql-database-manage
 
 Hantera Lässkalning i Azure PowerShell kräver December 2016 Azure PowerShell-versionen eller senare. Den senaste versionen av PowerShell, se [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
 
-Aktivera eller inaktivera Läs skalbar i Azure PowerShell genom att aktivera den [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) cmdlet och skickar det önskade värdet – `Enabled` eller `Disabled` --för den `-ReadScale` parametern. Du kan också använda den [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) cmdlet för att skapa en ny databas med lässkalbarhet aktiverat.
+Aktivera eller inaktivera Läs skalbar i Azure PowerShell genom att aktivera den [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) cmdlet och skickar det önskade värdet – `Enabled` eller `Disabled` --för den `-ReadScale` parametern. Du kan också använda den [New AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase) cmdlet för att skapa en ny databas med lässkalbarhet aktiverat.
 
 Till exempel lässkalbarhet om du vill aktivera för en befintlig databas (Ersätt objekten i hakparenteser med rätt värden för din miljö och släppa hakparenteser):
 
 ```powershell
-Set-AzureRmSqlDatabase -ResourceGroupName <myresourcegroup> -ServerName <myserver> -DatabaseName <mydatabase> -ReadScale Enabled
+Set-AzSqlDatabase -ResourceGroupName <myresourcegroup> -ServerName <myserver> -DatabaseName <mydatabase> -ReadScale Enabled
 ```
 
 Inaktivera Läs skalbar för en befintlig databas (Ersätt objekten i hakparenteser med rätt värden för din miljö och släppa hakparenteser):
 
 ```powershell
-Set-AzureRmSqlDatabase -ResourceGroupName <myresourcegroup> -ServerName <myserver> -DatabaseName <mydatabase> -ReadScale Disabled
+Set-AzSqlDatabase -ResourceGroupName <myresourcegroup> -ServerName <myserver> -DatabaseName <mydatabase> -ReadScale Disabled
 ```
 
 Att skapa en ny databas med läsning skalbar aktiverad (Ersätt objekten i hakparenteser med rätt värden för din miljö och släppa hakparenteser):
 
 ```powershell
-New-AzureRmSqlDatabase -ResourceGroupName <myresourcegroup> -ServerName <myserver> -DatabaseName <mydatabase> -ReadScale Enabled -Edition Premium
+New-AzSqlDatabase -ResourceGroupName <myresourcegroup> -ServerName <myserver> -DatabaseName <mydatabase> -ReadScale Enabled -Edition Premium
 ```
 
 ### <a name="rest-api-enable-and-disable-read-scale-out"></a>REST-API: Aktivera och inaktivera Lässkalning
@@ -129,5 +131,5 @@ Om du använder lässkalbarhet att läsa in saldo skrivskyddade arbetsbelastning
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Information om hur du använder PowerShell för att ställa in Läs skalbar finns i den [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) eller [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) cmdletar.
+- Information om hur du använder PowerShell för att ställa in Läs skalbar finns i den [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) eller [New AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase) cmdletar.
 - Information om hur du använder REST API för att ställa in Läs skalbar finns i [databaser – skapa eller uppdatera](https://docs.microsoft.com/rest/api/sql/databases/createorupdate).

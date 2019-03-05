@@ -12,14 +12,17 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/02/2017
 ms.author: mbullwin
-ms.openlocfilehash: 74da56b5e90512f8b903d5a62f7dde4e903560b8
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: ea4bc61dec59308b2c2311e8300e44aae78fc041
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56817872"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57313522"
 ---
 #  <a name="create-application-insights-resources-using-powershell"></a>Skapa Application Insights-resurser med hjälp av PowerShell
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Den här artikeln visar hur du automatiskt skapa och uppdatera [Application Insights](../../azure-monitor/app/app-insights-overview.md) resurser automatiskt med hjälp av Azure Resource Manager. Du kan till exempel göra det som en del av en build-process. Tillsammans med grundläggande Application Insights-resursen kan du skapa [webbtester för tillgänglighet](../../azure-monitor/app/monitor-web-app-availability.md), Ställ in [aviseringar](../../azure-monitor/app/alerts.md), ange den [priser schema](pricing.md), och skapa andra Azure-resurser .
 
 Nyckeln till att skapa dessa resurser är JSON-mallar för [Azure Resource Manager](../../azure-resource-manager/manage-resources-powershell.md). Kortfattat, proceduren är: ladda ned JSON-definitioner av befintliga resurser. Parameterisera vissa värden, till exempel namn. och kör sedan mallen när du vill skapa en ny resurs. Du kan paketera flera resurser tillsammans, skapa dem på en go - exempel: en app Övervakare med tillgänglighetstester, aviseringar och lagring för löpande export. Det finns vissa nyanser till vissa av parameterizations som beskrivs här.
@@ -154,12 +157,12 @@ Skapa en ny .json-fil – vi kan kalla den `template1.json` i det här exemplet.
 ## <a name="create-application-insights-resources"></a>Skapa Application Insights-resurser
 1. Logga in på Azure i PowerShell:
    
-    `Connect-AzureRmAccount`
+    `Connect-AzAccount`
 2. Kör ett kommando som detta:
    
     ```PS
    
-        New-AzureRmResourceGroupDeployment -ResourceGroupName Fabrikam `
+        New-AzResourceGroupDeployment -ResourceGroupName Fabrikam `
                -TemplateFile .\template1.json `
                -appName myNewApp
 
@@ -175,8 +178,8 @@ Du kan lägga till andra parametrar – hittar du deras beskrivningar i avsnitte
 När du har skapat en resurs för en du instrumenteringsnyckeln: 
 
 ```PS
-    $resource = Find-AzureRmResource -ResourceNameEquals "<YOUR APP NAME>" -ResourceType "Microsoft.Insights/components"
-    $details = Get-AzureRmResource -ResourceId $resource.ResourceId
+    $resource = Find-AzResource -ResourceNameEquals "<YOUR APP NAME>" -ResourceType "Microsoft.Insights/components"
+    $details = Get-AzResource -ResourceId $resource.ResourceId
     $ikey = $details.Properties.InstrumentationKey
 ```
 
@@ -189,7 +192,7 @@ Du kan ange den [prisplan](pricing.md).
 Skapa en app-resurs med pris företagsplanen, med hjälp av mallen ovan:
 
 ```PS
-        New-AzureRmResourceGroupDeployment -ResourceGroupName Fabrikam `
+        New-AzResourceGroupDeployment -ResourceGroupName Fabrikam `
                -TemplateFile .\template1.json `
                -priceCode 2 `
                -appName myNewApp

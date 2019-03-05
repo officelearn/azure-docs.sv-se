@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 69c7da1a529e46c054d9c824c2aee71fa67bd8ff
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 8fbad5350170d0e5434dfc2db3c85c04c2807726
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55768650"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57311482"
 ---
 # <a name="manage-devices-in-your-azure-iot-central-application-new-ui-design"></a>Hantera enheter i Azure IoT Central programmet (nytt användargränssnitt)
 
@@ -66,7 +66,7 @@ Massinläsning registrerar enheter i ditt program:
     > [!NOTE]
     > Om du inte har en mall för enheten, men du kan sedan importera enheter under **oassocierade enheter** och registrera dem utan en mall. När enheter har importerats, kan du sedan koppla dem till en mall.
 
-1. Klicka på **Importera**.
+1. Välj **Import**.
 
     ![Importera åtgärd](./media/howto-manage-devices-experimental/BulkImport1.png)
 
@@ -92,11 +92,11 @@ Om du registrerar enheter genom att starta importen under **oassocierade enheter
 
 1. Markera de enheter som du vill associera med en mall:
 
-1. Klicka på **associera**:
+1. Välj **associera**:
 
     ![Koppla enheter](./media/howto-manage-devices-experimental/UnassociatedDevices2.png)
 
-1. Välj mallen i listan över tillgängliga mallar och klickar på **associera** knappen.
+1. Välj mallen i listan över tillgängliga mallar och välj **associera**.
 
 1. De valda enheterna är associerad med mallen för enheten som du har valt.
 
@@ -113,7 +113,7 @@ Massregistrera enheter för export från ditt program:
 
 1. Välj mallen enhet som du vill exportera enheterna på den vänstra panelen.
 
-1. Markera de enheter som du vill exportera och klicka sedan på den **exportera** åtgärd.
+1. Markera de enheter som du vill exportera och välj sedan den **exportera** åtgärd.
 
     ![Exportera](./media/howto-manage-devices-experimental/Export1.png)
 
@@ -121,7 +121,7 @@ Massregistrera enheter för export från ditt program:
 
 1. När exporten är klar visas ett meddelande tillsammans med en länk till ladda ned den genererade filen.
 
-1. Klicka på den **meddelande** att ladda ned filen till en lokal mapp på disken.
+1. Välj den **meddelande** att ladda ned filen till en lokal mapp på disken.
 
     ![Exporten lyckades](./media/howto-manage-devices-experimental/Export2.png)
 

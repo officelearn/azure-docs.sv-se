@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/01/2019
 ms.author: tomfitz
-ms.openlocfilehash: 7819dc62d766a6b35f5c2efe1179cb0adb0ab933
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 024a622484a83957c9ab5f4a684a346a55787ccf
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57243558"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57313369"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Förstå strukturen och syntaxen för Azure Resource Manager-mallar
 
@@ -31,13 +31,13 @@ I sin enklaste struktur har en mall följande element:
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "",
-    "parameters": {  },
-    "variables": {  },
-    "functions": [  ],
-    "resources": [  ],
-    "outputs": {  }
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "",
+  "parameters": {  },
+  "variables": {  },
+  "functions": [  ],
+  "resources": [  ],
+  "outputs": {  }
 }
 ```
 
@@ -55,106 +55,106 @@ Varje element har egenskaper som du kan ange. I följande exempel visas den full
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "",
-    "parameters": {  
-        "<parameter-name>" : {
-            "type" : "<type-of-parameter-value>",
-            "defaultValue": "<default-value-of-parameter>",
-            "allowedValues": [ "<array-of-allowed-values>" ],
-            "minValue": <minimum-value-for-int>,
-            "maxValue": <maximum-value-for-int>,
-            "minLength": <minimum-length-for-string-or-array>,
-            "maxLength": <maximum-length-for-string-or-array-parameters>,
-            "metadata": {
-                "description": "<description-of-the parameter>" 
-            }
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "",
+  "parameters": {  
+    "<parameter-name>" : {
+      "type" : "<type-of-parameter-value>",
+      "defaultValue": "<default-value-of-parameter>",
+      "allowedValues": [ "<array-of-allowed-values>" ],
+      "minValue": <minimum-value-for-int>,
+      "maxValue": <maximum-value-for-int>,
+      "minLength": <minimum-length-for-string-or-array>,
+      "maxLength": <maximum-length-for-string-or-array-parameters>,
+      "metadata": {
+        "description": "<description-of-the parameter>" 
+      }
+    }
+  },
+  "variables": {
+    "<variable-name>": "<variable-value>",
+    "<variable-object-name>": {
+      <variable-complex-type-value>
+    },
+    "<variable-object-name>": {
+      "copy": [
+        {
+          "name": "<name-of-array-property>",
+          "count": <number-of-iterations>,
+          "input": <object-or-value-to-repeat>
         }
+      ]
     },
-    "variables": {
-        "<variable-name>": "<variable-value>",
-        "<variable-object-name>": {
-            <variable-complex-type-value>
-        },
-        "<variable-object-name>": {
-            "copy": [
-                {
-                    "name": "<name-of-array-property>",
-                    "count": <number-of-iterations>,
-                    "input": <object-or-value-to-repeat>
-                }
-            ]
-        },
-        "copy": [
-            {
-                "name": "<variable-array-name>",
-                "count": <number-of-iterations>,
-                "input": <object-or-value-to-repeat>
-            }
-        ]
-    },
-    "functions": [
+    "copy": [
       {
-        "namespace": "<namespace-for-your-function>",
-        "members": {
-          "<function-name>": {
-            "parameters": [
-              {
-                "name": "<parameter-name>",
-                "type": "<type-of-parameter-value>"
-              }
-            ],
-            "output": {
-              "type": "<type-of-output-value>",
-              "value": "<function-expression>"
+        "name": "<variable-array-name>",
+        "count": <number-of-iterations>,
+        "input": <object-or-value-to-repeat>
+      }
+    ]
+  },
+  "functions": [
+    {
+      "namespace": "<namespace-for-your-function>",
+      "members": {
+        "<function-name>": {
+          "parameters": [
+            {
+              "name": "<parameter-name>",
+              "type": "<type-of-parameter-value>"
             }
+          ],
+          "output": {
+            "type": "<type-of-output-value>",
+            "value": "<function-expression>"
           }
         }
       }
-    ],
-    "resources": [
-      {
-          "condition": "<boolean-value-whether-to-deploy>",
-          "apiVersion": "<api-version-of-resource>",
-          "type": "<resource-provider-namespace/resource-type-name>",
-          "name": "<name-of-the-resource>",
-          "location": "<location-of-resource>",
-          "tags": {
-              "<tag-name1>": "<tag-value1>",
-              "<tag-name2>": "<tag-value2>"
-          },
-          "comments": "<your-reference-notes>",
-          "copy": {
-              "name": "<name-of-copy-loop>",
-              "count": "<number-of-iterations>",
-              "mode": "<serial-or-parallel>",
-              "batchSize": "<number-to-deploy-serially>"
-          },
-          "dependsOn": [
-              "<array-of-related-resource-names>"
-          ],
-          "properties": {
-              "<settings-for-the-resource>",
-              "copy": [
-                  {
-                      "name": ,
-                      "count": ,
-                      "input": {}
-                  }
-              ]
-          },
-          "resources": [
-              "<array-of-child-resources>"
-          ]
-      }
-    ],
-    "outputs": {
-        "<outputName>" : {
-            "condition": "<boolean-value-whether-to-output-value>",
-            "type" : "<type-of-output-value>",
-            "value": "<output-value-expression>"
-        }
     }
+  ],
+  "resources": [
+    {
+      "condition": "<boolean-value-whether-to-deploy>",
+      "apiVersion": "<api-version-of-resource>",
+      "type": "<resource-provider-namespace/resource-type-name>",
+      "name": "<name-of-the-resource>",
+      "location": "<location-of-resource>",
+        "tags": {
+          "<tag-name1>": "<tag-value1>",
+          "<tag-name2>": "<tag-value2>"
+        },
+        "comments": "<your-reference-notes>",
+        "copy": {
+          "name": "<name-of-copy-loop>",
+          "count": "<number-of-iterations>",
+          "mode": "<serial-or-parallel>",
+          "batchSize": "<number-to-deploy-serially>"
+        },
+        "dependsOn": [
+          "<array-of-related-resource-names>"
+        ],
+        "properties": {
+          "<settings-for-the-resource>",
+          "copy": [
+            {
+              "name": ,
+              "count": ,
+              "input": {}
+            }
+          ]
+        },
+        "resources": [
+          "<array-of-child-resources>"
+        ]
+    }
+  ],
+  "outputs": {
+    "<outputName>" : {
+      "condition": "<boolean-value-whether-to-output-value>",
+      "type" : "<type-of-output-value>",
+      "value": "<output-value-expression>"
+    }
+  }
 }
 ```
 
@@ -170,7 +170,7 @@ I följande exempel visas hur du använder flera funktioner när ett värde:
 
 ```json
 "variables": {
-    "storageName": "[concat(toLower(parameters('storageNamePrefix')), uniqueString(resourceGroup().id))]"
+  "storageName": "[concat(toLower(parameters('storageNamePrefix')), uniqueString(resourceGroup().id))]"
 }
 ```
 
@@ -180,20 +180,179 @@ En fullständig lista över Mallfunktioner finns [Azure Resource Manager-Mallfun
 
 I avsnittet parametrar i mallen kan du ange vilka värden som du kan ange när du distribuerar resurser. Dessa parametervärden kan du anpassa distributionen genom att tillhandahålla värden som är skräddarsydda för en viss miljö (till exempel utveckling, testning och produktion). Du behöver inte ange parametrar i mallen, men utan parametrar mallen distribuerar alltid samma resurser med samma namn, platser och egenskaper.
 
-I följande exempel visar en enkel parameterdefinition:
+Du är begränsad till 256 parametrar i en mall. Du kan minska antalet parametrar av objekt som innehåller flera egenskaper som visas i den här artikeln.
+
+### <a name="available-properties"></a>Tillgängliga egenskaper
+
+Tillgängliga egenskaper för en parameter är:
 
 ```json
 "parameters": {
-  "siteNamePrefix": {
-    "type": "string",
+  "<parameter-name>" : {
+    "type" : "<type-of-parameter-value>",
+    "defaultValue": "<default-value-of-parameter>",
+    "allowedValues": [ "<array-of-allowed-values>" ],
+    "minValue": <minimum-value-for-int>,
+    "maxValue": <maximum-value-for-int>,
+    "minLength": <minimum-length-for-string-or-array>,
+    "maxLength": <maximum-length-for-string-or-array-parameters>,
     "metadata": {
-      "description": "The name prefix of the web app that you wish to create."
+      "description": "<description-of-the parameter>" 
+    }
+  }
+}
+```
+
+| Elementnamn | Krävs | Beskrivning |
+|:--- |:--- |:--- |
+| parameterName |Ja |Namnet på parametern. Måste vara en giltig JavaScript-identifierare. |
+| typ |Ja |Typ av parametervärdet. Tillåtna typer och värden är **sträng**, **securestring**, **int**, **bool**, **objekt**, **secureObject**, och **matris**. |
+| Standardvärde |Nej |Standardvärdet för parametern, om inget värde har angetts för parametern. |
+| allowedValues |Nej |Matris med tillåtna värden för parametern för att se till att rätt värde har angetts. |
+| minValue |Nej |Det minsta värdet för parametrar av typen int det här värdet är inkluderande. |
+| maxValue |Nej |Det maximala värdet för parametrar av typen int det här värdet är inkluderande. |
+| minLength |Nej |Den minsta längden för string, säker sträng och matris typparametrar det här värdet är inkluderande. |
+| maxLength |Nej |Den maximala längden för string, säker sträng och matris typparametrar det här värdet är inkluderande. |
+| beskrivning |Nej |Beskrivning av den parameter som visas för användarna via portalen. Mer information finns i [kommentarer i mallar](#comments). |
+
+### <a name="define-and-use-a-parameter"></a>Definiera och Använd en parameter
+
+I följande exempel visar en enkel parameterdefinition. Den definierar namnet på parametern och anger att det tar ett strängvärde. Parametern accepterar endast värden som passar för att fungera. Den anger ett standardvärde om inget värde anges under distributionen. Slutligen innehåller parametern en beskrivning av dess användning.
+
+```json
+"parameters": {
+  "storageSKU": {
+    "type": "string",
+    "allowedValues": [
+      "Standard_LRS",
+      "Standard_ZRS",
+      "Standard_GRS",
+      "Standard_RAGRS",
+      "Premium_LRS"
+    ],
+    "defaultValue": "Standard_LRS",
+    "metadata": {
+      "description": "The type of replication to use for the storage account."
+    }
+  }   
+}
+```
+
+I mallen referera du till värdet för parametern med följande syntax:
+
+```json
+"resources": [
+  {
+    "type": "Microsoft.Storage/storageAccounts",
+    "sku": {
+      "name": "[parameters('storageSKU')]"
+    },
+    ...
+  }
+]
+```
+
+### <a name="template-functions-with-parameters"></a>Mallfunktioner med parametrar
+
+När du anger standardvärdet för en parameter, kan du använda de flesta Mallfunktioner. Du kan använda ett annat parametervärde för att skapa ett standardvärde. Följande mall visar hur du använder funktioner i standardvärdet:
+
+```json
+"parameters": {
+  "siteName": {
+    "type": "string",
+    "defaultValue": "[concat('site', uniqueString(resourceGroup().id))]",
+    "metadata": {
+      "description": "The site name. To use the default value, do not specify a new value."
     }
   },
+  "hostingPlanName": {
+    "type": "string",
+    "defaultValue": "[concat(parameters('siteName'),'-plan')]",
+    "metadata": {
+      "description": "The host name. To use the default value, do not specify a new value."
+    }
+  }
+}
+```
+
+Du kan inte använda den `reference` funktionen i parameteravsnittet. Parametrar utvärderas före distributionen så `reference` funktionen kan inte hämta runtime-tillståndet för en resurs. 
+
+### <a name="objects-as-parameters"></a>Objekt som parametrar
+
+Det kan vara enklare att organisera relaterade värden genom att skicka dem i som ett-objekt. Den här metoden minskar också antalet parametrar i mallen.
+
+Definiera parametern i mallen och ange ett JSON-objekt i stället för ett enda värde under distributionen. 
+
+```json
+"parameters": {
+  "VNetSettings": {
+    "type": "object",
+    "defaultValue": {
+      "name": "VNet1",
+      "location": "eastus",
+      "addressPrefixes": [
+        {
+          "name": "firstPrefix",
+          "addressPrefix": "10.0.0.0/22"
+        }
+      ],
+      "subnets": [
+        {
+          "name": "firstSubnet",
+          "addressPrefix": "10.0.0.0/24"
+        },
+        {
+          "name": "secondSubnet",
+          "addressPrefix": "10.0.1.0/24"
+        }
+      ]
+    }
+  }
 },
 ```
 
-Information om hur du definierar parametrar finns i [Parameters-avsnittet av Azure Resource Manager-mallar](resource-manager-templates-parameters.md).
+Sedan referera subegenskaper för parametern genom att använda punktoperatorn.
+
+```json
+"resources": [
+  {
+    "apiVersion": "2015-06-15",
+    "type": "Microsoft.Network/virtualNetworks",
+    "name": "[parameters('VNetSettings').name]",
+    "location": "[parameters('VNetSettings').location]",
+    "properties": {
+      "addressSpace":{
+        "addressPrefixes": [
+          "[parameters('VNetSettings').addressPrefixes[0].addressPrefix]"
+        ]
+      },
+      "subnets":[
+        {
+          "name":"[parameters('VNetSettings').subnets[0].name]",
+          "properties": {
+            "addressPrefix": "[parameters('VNetSettings').subnets[0].addressPrefix]"
+          }
+        },
+        {
+          "name":"[parameters('VNetSettings').subnets[1].name]",
+          "properties": {
+            "addressPrefix": "[parameters('VNetSettings').subnets[1].addressPrefix]"
+          }
+        }
+      ]
+    }
+  }
+]
+```
+
+### <a name="parameter-example-templates"></a>Parametern exempel på mallar
+
+Dessa exempel på mallar visar några scenarier för att använda parametrar. Distribuera dem för att testa hur parametrar ska hanteras i olika scenarier.
+
+|Mall  |Beskrivning  |
+|---------|---------|
+|[parametrar med funktioner för standardvärden](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/parameterswithfunctions.json) | Visar hur du använder Mallfunktioner när du definierar standardvärden för parametrar. Mallen distribuerar inte några resurser. Den skapar parametervärden och returnerar dessa värden. |
+|[Parametern-objekt](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/parameterobject.json) | Visar hur du använder ett objekt för en parameter. Mallen distribuerar inte några resurser. Den skapar parametervärden och returnerar dessa värden. |
 
 ## <a name="variables"></a>Variabler
 
@@ -205,26 +364,26 @@ I följande exempel visas de tillgängliga alternativen för att definiera en va
 
 ```json
 "variables": {
-    "<variable-name>": "<variable-value>",
-    "<variable-name>": { 
-        <variable-complex-type-value> 
-    },
-    "<variable-object-name>": {
-        "copy": [
-            {
-                "name": "<name-of-array-property>",
-                "count": <number-of-iterations>,
-                "input": <object-or-value-to-repeat>
-            }
-        ]
-    },
+  "<variable-name>": "<variable-value>",
+  "<variable-name>": { 
+    <variable-complex-type-value> 
+  },
+  "<variable-object-name>": {
     "copy": [
-        {
-            "name": "<variable-array-name>",
-            "count": <number-of-iterations>,
-            "input": <object-or-value-to-repeat>
-        }
+      {
+        "name": "<name-of-array-property>",
+        "count": <number-of-iterations>,
+        "input": <object-or-value-to-repeat>
+      }
     ]
+  },
+  "copy": [
+    {
+      "name": "<variable-array-name>",
+      "count": <number-of-iterations>,
+      "input": <object-or-value-to-repeat>
+    }
+  ]
 }
 ```
 
@@ -256,16 +415,16 @@ Du kan använda komplexa JSON-typer för att definiera relaterade värden för e
 
 ```json
 "variables": {
-    "environmentSettings": {
-        "test": {
-            "instanceSize": "Small",
-            "instanceCount": 1
-        },
-        "prod": {
-            "instanceSize": "Large",
-            "instanceCount": 4
-        }
+  "environmentSettings": {
+    "test": {
+      "instanceSize": "Small",
+      "instanceCount": 1
+    },
+    "prod": {
+      "instanceSize": "Large",
+      "instanceCount": 4
     }
+  }
 },
 ```
 
@@ -273,13 +432,13 @@ I parametrar skapar du ett värde som anger vilken konfiguration som värden som
 
 ```json
 "parameters": {
-    "environmentName": {
-        "type": "string",
-        "allowedValues": [
-          "test",
-          "prod"
-        ]
-    }
+  "environmentName": {
+    "type": "string",
+    "allowedValues": [
+      "test",
+      "prod"
+    ]
+  }
 },
 ```
 
@@ -289,7 +448,7 @@ Du kan hämta de aktuella inställningarna med:
 "[variables('environmentSettings')[parameters('environmentName')].instanceSize]"
 ```
 
-### <a name="variables-example-templates"></a>Exempel på mallar variabler
+### <a name="variable-example-templates"></a>Exempel på åtgärdsvariabler mallar
 
 Dessa exempel på mallar visar några scenarier för att använda variabler. Distribuera dem för att testa hur variabler ska hanteras i olika scenarier. 
 
@@ -384,11 +543,11 @@ I följande exempel visar strukturen för en utdata-definition:
 
 ```json
 "outputs": {
-    "<outputName>" : {
-        "condition": "<boolean-value-whether-to-output-value>",
-        "type" : "<type-of-output-value>",
-        "value": "<output-value-expression>"
-    }
+  "<outputName>" : {
+    "condition": "<boolean-value-whether-to-output-value>",
+    "type" : "<type-of-output-value>",
+    "value": "<output-value-expression>"
+  }
 }
 ```
 
@@ -446,7 +605,7 @@ I följande exempel visas hur du ställer in IP-adressen för en belastningsutj�
 
 ```json
 "publicIPAddress": {
-    "id": "[reference('linkedTemplate').outputs.resourceID.value]"
+  "id": "[reference('linkedTemplate').outputs.resourceID.value]"
 }
 ```
 
@@ -471,24 +630,24 @@ Du kan lägga till en `metadata` nästan var som helst i din mall. Resource Mana
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "metadata": {
-        "comments": "This template was developed for demonstration purposes.",
-        "author": "Example Name"
-    },
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "comments": "This template was developed for demonstration purposes.",
+    "author": "Example Name"
+  },
 ```
 
 För **parametrar**, lägga till en `metadata` objekt med en `description` egenskapen.
 
 ```json
 "parameters": {
-    "adminUsername": {
-      "type": "string",
-      "metadata": {
-        "description": "User name for the Virtual Machine."
-      }
-    },
+  "adminUsername": {
+    "type": "string",
+    "metadata": {
+      "description": "User name for the Virtual Machine."
+    }
+  },
 ```
 
 När du distribuerar mallen via portalen, används automatiskt texten som du anger i beskrivningen som ett tips för den parametern.
@@ -525,13 +684,13 @@ För **matar ut**, lägga till ett metadataobjekt i värdet.
 
 ```json
 "outputs": {
-    "hostname": {
-      "type": "string",
-      "value": "[reference(variables('publicIPAddressName')).dnsSettings.fqdn]",
-      "metadata": {
-        "comments": "Return the fully qualified domain name"
-      }
-    },
+  "hostname": {
+    "type": "string",
+    "value": "[reference(variables('publicIPAddressName')).dnsSettings.fqdn]",
+    "metadata": {
+      "comments": "Return the fully qualified domain name"
+    }
+  },
 ```
 
 Du kan inte lägga till ett metadataobjekt användardefinierade funktioner.
@@ -545,8 +704,8 @@ Du kan använda för infogade kommentarer `//` men den här syntaxen fungerar in
   "location": "[parameters('location')]", //defaults to resource group location
   "apiVersion": "2018-10-01",
   "dependsOn": [ // storage account and network interface must be deployed first
-      "[resourceId('Microsoft.Storage/storageAccounts/', variables('storageAccountName'))]",
-      "[resourceId('Microsoft.Network/networkInterfaces/', variables('nicName'))]"
+    "[resourceId('Microsoft.Storage/storageAccounts/', variables('storageAccountName'))]",
+    "[resourceId('Microsoft.Network/networkInterfaces/', variables('nicName'))]"
   ],
 ```
 

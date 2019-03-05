@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 7bf672715b45233807ab848c78aeb1bed2d352e9
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: e82c842ec8fce703c48c98eaf09ea5c8d91be9be
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55699354"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57307997"
 ---
 # <a name="understand-extended-offline-capabilities-for-iot-edge-devices-modules-and-child-devices-preview"></a>Förstå utökade offlinefunktionerna för IoT Edge-enheter, moduler och underordnade enheter (förhandsversion)
 
@@ -73,7 +73,7 @@ Förbättrad stabilitet, bör du ange DNS-serveradresser som används i din milj
 
 ```json
 {
-    "dns": [“1.1.1.1”]
+    "dns": ["1.1.1.1"]
 }
 ```
 
@@ -136,7 +136,7 @@ Du kan konfigurera miljövariabler och skapa alternativen för IoT Edge hub-modu
 
 Ersätt `<HostStoragePath>` och `<ModuleStoragePath>` med värden och modulen lagringen sökväg; både värden och modulen lagringssökväg måste vara en absolut sökväg. Binda lagringssökvägar värden och modulen tillsammans i Skapa-alternativen. Skapa sedan en miljövariabel som pekar på lagringssökväg modulen.  
 
-Till exempel `"Binds":["/etc/iotedge/storage/:/iotedge/storage/"]` innebär att katalogen **/etc/iotedge/storage** på din värd system mappas till katalogen **/iotedge/storage/** för behållaren. Eller ett annat exempel för Windows-System, `"Binds":["C:\\temp:C:\\contemp]"` innebär att katalogen **C:\\temp** på din värd system mappas till katalogen **C:\\contemp** för behållaren. 
+Till exempel `"Binds":["/etc/iotedge/storage/:/iotedge/storage/"]` innebär att katalogen **/etc/iotedge/storage** på din värd system mappas till katalogen **/iotedge/storage/** för behållaren. Eller ett annat exempel för Windows-System, `"Binds":["C:\\temp:C:\\contemp"]` innebär att katalogen **C:\\temp** på din värd system mappas till katalogen **C:\\contemp** för behållaren. 
 
 Du kan också hitta mer information om alternativ från för att skapa [docker docs](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate).
 

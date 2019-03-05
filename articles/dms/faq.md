@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 12/19/2018
-ms.openlocfilehash: b8001729c85c8447ab22bafffe24a32524a0662a
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.date: 03/05/2019
+ms.openlocfilehash: 99200e521ea844d20ef00ef70ad65ac0ab3bcddd
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53714703"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57337302"
 ---
 # <a name="faq-about-using-the-azure-database-migration-service"></a>Vanliga frågor och svar om hur du använder Azure Database Migration Service
 Den här artikeln innehåller vanliga frågor om hur du använder Azure Database Migration Service tillsammans med tillhörande svar.
@@ -90,7 +90,7 @@ När flera Microsoft-självstudier som kan vägleder dig genom processen med att
 Om användaren uttryckligen slutar Azure Database Migration Service (DMS) eller om tjänsten är inaktiv under en period på 24 timmar, kommer tjänsten vara i ett stoppat eller automatiskt pausläge. I båda fallen kan är tjänsten inte tillgänglig och en Stoppad status.  Starta om tjänsten om du vill återuppta aktiva migreringar.
 
 ### <a name="q-where-can-i-leave-feedback-about-the-azure-database-migration-service"></a>F. Var kan jag lämna feedback om Azure Database Migration Service?
-Vi vill gärna höra från dig. Skicka feedback och / idéer som du har om Azure Database Migration Service via User Voice [här](https://feedback.azure.com/forums/906100-azure-database-migration-service).
+Vi vill gärna höra från dig. Skicka feedback och / idéer som du har om Azure Database Migration Service via User Voice [här](https://feedback.azure.com/forums/906100-azure-database-migration-service), eller genom att kontakta teamet på [be Azure Databasmigreringar](mailto:AskAzureDatabaseMigrations@service.microsoft.com).
 
 ## <a name="next-steps"></a>Nästa steg
 En översikt över Azure Database Migration Service och regional tillgänglighet finns i artikeln [vad är Azure Database Migration Service](dms-overview.md). 

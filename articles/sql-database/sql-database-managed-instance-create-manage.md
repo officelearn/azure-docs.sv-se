@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 5d9952581049198131e30cd7d0ba0ebf6a14cc54
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: 852f181ff0bb84bc3bcdb6d674ecf72eca900d7d
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56098876"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57312587"
 ---
 # <a name="managed-api-reference-for-azure-sql-database-managed-instances"></a>Hanterade API-referens för Azure SQL Database-hanterade instanser
 
@@ -29,21 +29,23 @@ En Snabbstart som visar hur du skapar en Azure SQL Database Managed Instance fin
 
 ## <a name="powershell-create-and-manage-managed-instances"></a>PowerShell: Skapa och hantera hanterade instanser
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Använd följande PowerShell-cmdletar för att skapa och hantera hanterade instanser med Azure PowerShell. Om du behöver installera eller uppgradera PowerShell kan du läsa [installera Azure PowerShell-modulen](/powershell/azure/install-az-ps).
 
 > [!TIP]
-> Exempelskript för PowerShell, se [Snabbstart skript: Skapa Azure SQL Managed Instance med hjälp av PowerShell-biblioteket](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/27/quick-start-script-create-azure-sql-managed-instance-using-powershell/).
+> Exempelskript för PowerShell, se [Snabbstart skript: Skapa Azure SQL Managed Instance med hjälp av PowerShell-biblioteket](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../quick-start-script-create-azure-sql-managed-instance-using-powershell/).
 
 | Cmdlet | Beskrivning |
 | --- | --- |
-|[New-AzureRmSqlInstance](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqlinstance)|Skapar en Azure SQL Database Managed Instance |
-|[Get-AzureRmSqlInstance](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqlinstance)|Returnerar information om Azure SQL Managed Instance|
-|[Set-AzureRmSqlInstance](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqlinstance)|Anger egenskaperna för en Azure SQL Database Managed Instance|
-|[Remove-AzureRmSqlInstance](https://docs.microsoft.com/powershell/module/azurerm.sql/remove-azurermsqlinstance)|Tar bort en hanterad Azure SQL-databasinstans|
-|[New-AzureRmSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqlinstancedatabase)|Skapar en Azure SQL Database Managed Instance-databas|
-|[Get-AzureRmSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqlinstancedatabase)|Returnerar information om Azure SQL Managed Instance-databasen|
-|[Remove-AzureRmSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/remove-azurermsqlinstancedatabase)|Tar bort en hanterad databasinstans i Azure SQL-databas|
-|[Restore-AzureRmSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqlinstancedatabase)|Återställer en hanterad databasinstans i Azure SQL-databas|
+|[Ny AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlinstance)|Skapar en Azure SQL Database Managed Instance |
+|[Get-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlinstance)|Returnerar information om Azure SQL Managed Instance|
+|[Set-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstance)|Anger egenskaperna för en Azure SQL Database Managed Instance|
+|[Remove-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqlinstance)|Tar bort en hanterad Azure SQL-databasinstans|
+|[New-AzSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlinstancedatabase)|Skapar en Azure SQL Database Managed Instance-databas|
+|[Get-AzSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlinstancedatabase)|Returnerar information om Azure SQL Managed Instance-databasen|
+|[Remove-AzSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqlinstancedatabase)|Tar bort en hanterad databasinstans i Azure SQL-databas|
+|[Restore-AzSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqlinstancedatabase)|Återställer en hanterad databasinstans i Azure SQL-databas|
 
 ## <a name="azure-cli-create-and-manage-managed-instances"></a>Azure CLI: Skapa och hantera hanterade instanser
 
@@ -69,7 +71,7 @@ Skapa och hantera hanterade instanser med [Azure CLI](/cli/azure), Använd följ
 Använd följande T-SQL-kommandon för att skapa och hantera databasinstans när den hanterade instansen har skapats. Du kan skicka dessa kommandon med hjälp av Azure-portalen [SQL Server Management Studio](/sql/ssms/use-sql-server-management-studio), [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/what-is). [Visual Studio Code](https://code.visualstudio.com/docs), eller andra program som kan ansluta till en Azure SQL Database-server och skicka Transact-SQL-kommandon.
 
 > [!TIP]
-> Snabbstart som visar du behöva konfigurera och ansluta till en hanterad instans med SQL Server Management Studio på Microsoft Windows finns i [snabbstarten: Konfigurera virtuell Azure-dator att ansluta till en Azure SQL Database Managed Instance](sql-database-managed-instance-configure-vm.md) och [snabbstarten: Konfigurera en punkt-till-plats-anslutning till en Azure SQL Database Managed Instance från den lokala](sql-database-managed-instance-configure-p2s.md).
+> Snabbstart som visar du behöva konfigurera och ansluta till en hanterad instans med SQL Server Management Studio på Microsoft Windows finns i [snabbstarten: Konfigurera en virtuell Azure-dator för att ansluta till en hanterad Azure SQL Database-instans](sql-database-managed-instance-configure-vm.md) och [Snabbstart: Konfigurera en punkt-till-plats-anslutning till en hanterad Azure SQL Database-instans lokalt](sql-database-managed-instance-configure-p2s.md).
 > [!IMPORTANT]
 > Du kan inte skapa eller ta bort en hanterad instans med hjälp av Transact-SQL.
 

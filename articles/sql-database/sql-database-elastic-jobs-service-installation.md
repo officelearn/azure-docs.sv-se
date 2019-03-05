@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/04/2018
-ms.openlocfilehash: fb405d40458461fbdff8a7720425ff352bfc61de
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 67b9be6f7788acd44ac60fe0c71133d69a2c122e
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55565487"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57313845"
 ---
 # <a name="installing-elastic-database-jobs-overview"></a>Installera översikt över elastiska databasjobb
 
@@ -90,13 +90,13 @@ Parametrarna som anges på det här exemplet anropet kan ändras för dina önsk
 </tr>
     <tr>
     <td>ServiceVmSize</td>
-    <td>Innehåller VM-storleken för användning i Molntjänsten. Den här parametern standard A0. Parametervärdena för A0/A1/A2/A3 accepteras vilket leder till att worker-roll att använda en ExtraSmall/Small/Medium/Large storlek respektive. För mer information om storlekar för worker-roll, se [Elastic Database-jobb komponenter och priser](sql-database-elastic-jobs-overview.md#components-and-pricing).</td>
+    <td>Innehåller VM-storleken för användning i Molntjänsten. Den här parametern standard A0. Parametervärdena för... /.. / A3 accepteras vilket leder till att worker-roll att använda en ExtraSmall/Small/Medium/Large storlek respektive. För mer information om storlekar för worker-roll, se [Elastic Database-jobb komponenter och priser](sql-database-elastic-jobs-overview.md#components-and-pricing).</td>
 </tr>
 
 </tr>
     <tr>
     <td>SqlServerDatabaseSlo</td>
-    <td>Tillhandahåller beräkningsstorleken för en Standard-utgåva. Den här parametern standard S0. Parametervärdena för S0/S1/S2/S3/S4/S6/S9/S12 accepteras vilket leder till Azure SQL-databas att använda respektive beräkningsstorleken. Mer information om storlekar på SQL-databas finns i [Elastic Database-jobb komponenter och priser](sql-database-elastic-jobs-overview.md#components-and-pricing).</td>
+    <td>Tillhandahåller beräkningsstorleken för en Standard-utgåva. Den här parametern standard S0. Parametervärdena för... /.. /.. /.. / S9/S12 accepteras vilket leder till Azure SQL-databas att använda respektive beräkningsstorleken. Mer information om storlekar på SQL-databas finns i [Elastic Database-jobb komponenter och priser](sql-database-elastic-jobs-overview.md#components-and-pricing).</td>
 </tr>
 
 </tr>
@@ -148,7 +148,7 @@ För att uppdatera VM-storleken för en installation, kör du följande skript m
 
     <tr>
     <td>ServiceVmSize</td>
-    <td>Innehåller VM-storleken för användning i Molntjänsten. Den här parametern standard A0. Parametervärdena för A0/A1/A2/A3 accepteras vilket leder till att worker-roll att använda en ExtraSmall/Small/Medium/Large storlek respektive. För mer information om storlekar för worker-roll, se [Elastic Database-jobb komponenter och priser](sql-database-elastic-jobs-overview.md#components-and-pricing).</td>
+    <td>Innehåller VM-storleken för användning i Molntjänsten. Den här parametern standard A0. Parametervärdena för... /.. / A3 accepteras vilket leder till att worker-roll att använda en ExtraSmall/Small/Medium/Large storlek respektive. För mer information om storlekar för worker-roll, se [Elastic Database-jobb komponenter och priser](sql-database-elastic-jobs-overview.md#components-and-pricing).</td>
 </tr>
 
 </table>

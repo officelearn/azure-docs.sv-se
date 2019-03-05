@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 1/29/2019
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: a817e3681f6b94b1b9ad7d5a2d2a1369935ee064
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 8e9208981dd54fef1f56ee552d34bab78210b96d
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56651784"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57316565"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Skapa och hantera åtgärdsgrupper i Azure portal
 ## <a name="overview"></a>Översikt ##
@@ -69,7 +69,7 @@ När du har skapat en åtgärdsgrupp den syns i den **åtgärdsgrupper** delen a
 > [!NOTE]
 > Se [prenumerationstjänsten för övervakning](https://docs.microsoft.com/azure/azure-subscription-service-limits#monitor-limits) för numeriska gränser för vart och ett av objekten nedan.  
 
-**Azure-app Push** – du kan ha ett begränsat antal åtgärder för Azure i en åtgärdsgrupp. För tillfället stöder Azure-app-åtgärden endast ServiceHealth aviseringar. En annan tidpunkt som aviseringen kommer att ignoreras. Se [konfigurera aviseringar när en avisering om tjänstens hälsa publiceras](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).
+**Azure-app Push** – du kan ha ett begränsat antal åtgärder för Azure i en åtgärdsgrupp. För tillfället stöder Azure-app-åtgärden endast ServiceHealth aviseringar. Någon annan typ av avisering ignoreras. Se [konfigurera aviseringar när en avisering om tjänstens hälsa publiceras](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).
 
 **E-post** -e-postmeddelanden ska skickas från följande e-postadresser. Kontrollera att din e-filtrering har konfigurerats på rätt sätt
    - azure-noreply@microsoft.com

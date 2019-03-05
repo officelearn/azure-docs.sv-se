@@ -1,7 +1,7 @@
 ---
 title: Indexera CSV-blobar med Azure Search Blob-indexeraren – Azure Search
 description: Crawla CSV-blobar i Azure Blob storage för fulltextsökning med hjälp av ett Azure Search-index. Indexerare automatisera datainmatning för valda datakällor som Azure Blob storage.
-ms.date: 10/17/2018
+ms.date: 03/01/2019
 author: mgottein
 manager: cgronlun
 ms.author: magottei
@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: dce19e750c5546ddd5cac18411dcbb4a603e5c45
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 0bbb131b5fb155443c8c3dc340185f3a6fa950a3
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57216109"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57312935"
 ---
 # <a name="indexing-csv-blobs-with-azure-search-blob-indexer"></a>Indexera CSV-blobar med Azure Search blob-indexeraren
 Som standard [Azure Search blob-indexeraren](search-howto-indexing-azure-blob-storage.md) Parsar avgränsad text blobbar som ett enda segment med text. Men med BLOB-objekt som innehåller CSV-data, du ofta behandlar varje rad i bloben som ett separat dokument. Till exempel med följande avgränsad text kan du parsa den till två dokument, som var och en som innehåller ”id”, ”datePublished” och ”taggar” fält: 

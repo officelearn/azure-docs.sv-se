@@ -8,14 +8,16 @@ ms.topic: howto
 ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 2b032405a2fb3b8b608228d8a739bf91dcf439ef
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: afe1214299b7f1ecd741f992af75abedcfe77b84
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895949"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57308711"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-by-using-an-azure-resource-manager-template-for-a-windows-virtual-machine-scale-set"></a>Skicka gäst-OS mått till arkivet som Azure Monitor-mått med en Azure Resource Manager-mall för en Windows VM-skalningsuppsättning
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 Med hjälp av Azure Monitor [Windows Azure Diagnostics SÄKERHETSSPECIFIKA tillägget](diagnostics-extension-overview.md), du kan samla in mått och loggar från gästoperativsystemet (gästoperativsystem) som körs som en del av en virtuell dator, molntjänst eller Azure Service Fabric-kluster. Tillägget kan skicka telemetri till många olika platser som anges i tidigare länkade artikeln.  
 
@@ -27,7 +29,7 @@ Om du är nybörjare på Resource Manager-mallar kan du läsa om [malldistributi
 
 - Prenumerationen måste vara registrerad med [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services). 
 
-- Du måste ha [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-6.8.1) installerad, eller så kan du använda [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview). 
+- Du måste ha [Azure PowerShell](/powershell/azure) installerad, eller så kan du använda [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview). 
 
 
 ## <a name="set-up-azure-monitor-as-a-data-sink"></a>Konfigurera Azure Monitor som mellanlagringsplats 
@@ -236,17 +238,17 @@ Spara och Stäng båda filerna.
 Använd Azure PowerShell för att distribuera Resource Manager-mallen:  
 
 1. Starta PowerShell. 
-1. Logga in på Azure med `Login-AzureRmAccount`.
-1. Hämta listan över prenumerationer genom att använda `Get-AzureRmSubscription`.
+1. Logga in på Azure med `Login-AzAccount`.
+1. Hämta listan över prenumerationer genom att använda `Get-AzSubscription`.
 1. Ange den prenumeration du ska skapa eller uppdatera den virtuella datorn: 
 
    ```PowerShell
-   Select-AzureRmSubscription -SubscriptionName "<Name of the subscription>" 
+   Select-AzSubscription -SubscriptionName "<Name of the subscription>" 
    ```
 1. Skapa en ny resursgrupp för den virtuella datorn som ska distribueras. Kör följande kommando: 
 
    ```PowerShell
-    New-AzureRmResourceGroup -Name "VMSSWADtestGrp" -Location "<Azure Region>" 
+    New-AzResourceGroup -Name "VMSSWADtestGrp" -Location "<Azure Region>" 
    ```
 
    > [!NOTE]  
@@ -258,7 +260,7 @@ Använd Azure PowerShell för att distribuera Resource Manager-mallen:
    > Om du vill uppdatera en befintlig skalningsuppsättning, lägger du till **-läge inkrementella** i slutet av kommandot. 
  
    ```PowerShell
-   New-AzureRmResourceGroupDeployment -Name "VMSSWADTest" -ResourceGroupName "VMSSWADtestGrp" -TemplateFile "<File path of your azuredeploy.JSON file>" -TemplateParameterFile "<File path of your azuredeploy.parameters.JSON file>"  
+   New-AzResourceGroupDeployment -Name "VMSSWADTest" -ResourceGroupName "VMSSWADtestGrp" -TemplateFile "<File path of your azuredeploy.JSON file>" -TemplateParameterFile "<File path of your azuredeploy.parameters.JSON file>"  
    ```
 
 1. När distributionen har slutförts bör du hitta skalningsuppsättning för virtuell dator i Azure-portalen. Det ska sända mått till Azure Monitor. 

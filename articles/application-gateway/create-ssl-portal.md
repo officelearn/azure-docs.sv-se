@@ -10,12 +10,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 5/15/2018
 ms.author: victorh
-ms.openlocfilehash: 2ae8c14b40fa13a1aa8008588fb0efb1b1d2c3f6
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 33e24a8d8715dd6f2b37ed566a1479dffd93c466
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54159425"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57308099"
 ---
 # <a name="configure-an-application-gateway-with-ssl-termination-using-the-azure-portal"></a>Konfigurera en Programgateway med SSL-avslutning med Azure portal
 
@@ -29,6 +29,8 @@ I den här artikeln kan du se hur du:
 > * Skapa de virtuella datorerna som används som backend-servrar
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="log-in-to-azure"></a>Logga in på Azure
 
@@ -132,7 +134,7 @@ I det här exemplet skapar du två virtuella datorer som ska användas som serve
 2. Kör följande kommando för att installera IIS på den virtuella datorn: 
 
     ```azurepowershell-interactive
-    Set-AzureRmVMExtension `
+    Set-AzVMExtension `
       -ResourceGroupName myResourceGroupAG `
       -ExtensionName IIS `
       -VMName myVM `
@@ -143,7 +145,7 @@ I det här exemplet skapar du två virtuella datorer som ska användas som serve
       -Location EastUS
     ```
 
-3. Skapa en andra virtuell dator och installera IIS med hjälp av de steg som du just har slutfört. Ange *myVM2* som namn och VMName i Set-AzureRmVMExtension.
+3. Skapa en andra virtuell dator och installera IIS med hjälp av de steg som du just har slutfört. Ange *myVM2* för dess namn och VMName i Set-AzVMExtension.
 
 ### <a name="add-backend-servers"></a>Lägga till serverdelsservrar
 

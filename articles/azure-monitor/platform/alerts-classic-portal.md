@@ -6,12 +6,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: snmuvva
-ms.openlocfilehash: 6b74d83de0495e3436c9bef623a827e8a1496767
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 3e5fa15bbd6890bc6f36c97aadf3aeaa980b5031
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53343315"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57310326"
 ---
 # <a name="create-view-and-manage-classic-metric-alerts-using-azure-monitor"></a>Skapa, visa och hantera klassiska måttaviseringar med Azure Monitor
 
@@ -85,6 +85,8 @@ az monitor alert delete --name <alert name> --resource-group <group name>
 
 ## <a name="with-powershell"></a>Med PowerShell
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Detta avsnitt visar hur du använder PowerShell kommandon skapa, visa och hantera klassiska måttaviseringar. Exemplen i den här artikeln visar hur du kan använda Azure Monitor-cmdletar för klassiska måttaviseringar.
 
 1. Om du inte redan gjort konfigurera PowerShell att köra på datorn. Mer information finns i [installera och konfigurera PowerShell](/powershell/azure/overview). Du kan också granska hela listan med Azure Monitor PowerShell-cmdlets på [Azure Monitor (insikter) Cmdlets](https://docs.microsoft.com/powershell/module/azurerm.insights).
@@ -92,40 +94,40 @@ Detta avsnitt visar hur du använder PowerShell kommandon skapa, visa och hanter
 2. Logga först in på Azure-prenumerationen.
 
     ```PowerShell
-    Connect-AzureRmAccount
+    Connect-AzAccount
     ```
 
 3. Du ser ett tecken på skärmen. När du loggar in ditt konto, TenantID, och standard prenumerations-ID visas. Alla Azure-cmdlets fungerar i kontexten för din Standardprenumeration. Om du vill visa en lista över prenumerationer som du har åtkomst till, använder du följande kommando:
 
     ```PowerShell
-    Get-AzureRmSubscription
+    Get-AzSubscription
     ```
 
 4. Om du vill ändra den fungerande kontexten till en annan prenumeration, använder du följande kommando:
 
     ```PowerShell
-    Set-AzureRmContext -SubscriptionId <subscriptionid>
+    Set-AzContext -SubscriptionId <subscriptionid>
     ```
 
 5. Du kan hämta alla klassiska måttaviseringsregler på en resursgrupp:
 
     ```PowerShell
-    Get-AzureRmAlertRule -ResourceGroup montest
+    Get-AzAlertRule -ResourceGroup montest
     ```
 
 6. Du kan visa information om en klassisk måttaviseringsregel
 
     ```PowerShell
-    Get-AzureRmAlertRule -Name simpletestCPU -ResourceGroup montest -DetailedOutput
+    Get-AzAlertRule -Name simpletestCPU -ResourceGroup montest -DetailedOutput
     ```
 
 7. Du kan hämta alla Varningsregler för en målresurs. Till exempel ange alla Varningsregler på en virtuell dator.
 
     ```PowerShell
-    Get-AzureRmAlertRule -ResourceGroup montest -TargetResourceId /subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig
+    Get-AzAlertRule -ResourceGroup montest -TargetResourceId /subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig
     ```
 
-8. Klassiska Varningsregler kan inte längre skapas via PowerShell. Skapa en varningsregel som du behöver använda den nya [”Lägg till AzureRmMetricAlertRule'](https://docs.microsoft.com/powershell/module/azurerm.insights/add-azurermmetricalertrule?view=azurermps-6.13.0) kommando.
+8. Klassiska Varningsregler kan inte längre skapas via PowerShell. Skapa en varningsregel som du behöver använda den nya [”Lägg till AzMetricAlertRule'](https://docs.microsoft.com/powershell/module/az.insights/add-azmetricalertrule?view=azurermps-6.13.0) kommando.
 
 ## <a name="next-steps"></a>Nästa steg
 

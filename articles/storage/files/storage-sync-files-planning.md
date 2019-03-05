@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 2/7/2019
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 7b6a5a46e311fa54d6957c45d35ef20d94cf7632
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 97508c05ea26df1aaae7f41738835380767c81d2
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56200504"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57312723"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planera för distribution av Azure File Sync
 Använd Azure File Sync för att centralisera din organisations filresurser i Azure Files, samtidigt som den flexibilitet, prestanda och kompatibilitet för en lokal filserver. Azure File Sync omvandlar Windows Server till ett snabbt cacheminne för din Azure-filresurs. Du kan använda alla protokoll som är tillgänglig på Windows Server för att komma åt dina data lokalt, inklusive SMB, NFS och FTPS. Du kan ha så många cacheminnen som du behöver över hela världen.
@@ -235,6 +235,7 @@ Azure File Sync är tillgänglig i följande regioner:
 |--------|---------------------|
 | Östra Australien | New South Wales |
 | Sydöstra Australien | Victoria |
+| Södra Brasilien | Sao Paolo tillstånd |
 | Centrala Kanada | Toronto |
 | Östra Kanada | Quebec City |
 | Indien, centrala | Pune |
@@ -242,6 +243,8 @@ Azure File Sync är tillgänglig i följande regioner:
 | Östasien | Hongkong SAR |
 | Östra USA | Virginia |
 | USA, östra 2 | Virginia |
+| Östra Japan | Tokyo, Saitama |
+| Västra Japan | Osaka |
 | Norra centrala USA | Illinois |
 | Norra Europa | Irland |
 | Södra centrala USA | Texas |

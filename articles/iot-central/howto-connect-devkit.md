@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 6d2cb95efbff223aecf1f0525dbb93698639d41a
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 5412e0a7bae3667ceb29085da566ef3b73c82c35
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54198736"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57316633"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>Anslut en enhet för MXChip IoT DevKit till programmet Azure IoT Central
 
@@ -45,14 +45,14 @@ Fullständig information om konfigurationen finns i [MXChip mall enhetsinformati
 
 I Azure IoT Central programmet, lägger du till en riktig enhet från den **MXChip** enheten mallen och gjort en notering enhetsinformation för anslutningen (**Scope-ID, enhets-ID och primära nyckel**).
 
-1. Lägg till en **riktig enhet** från Device Explorer klickar du på **+ Ny > verkliga** att lägga till en riktig enhet.
+1. Lägg till en **riktig enhet** Device Explorer, Välj **+ Ny > verkliga** att lägga till en riktig enhet.
     * Ange enhets-Id **<span style="color:Red">(bör vara gemener)</span>** eller använder den föreslagna enhets-Id.
     * Ange namnet på enheten eller använda det föreslagna namnet
     
     ![Lägg till enhet](media/concepts-connectivity/add-device.png)
 
 
-1. Hämta anslutningsinformationen som **Scope-ID, enhets-ID och primära nyckel** för tillagd enhet genom att klicka på **Connect** på enhetssidan.
+1. Hämta anslutningsinformationen som **Scope-ID, enhets-ID och primära nyckel** för tillagd enhet genom att välja **Connect** på enhetssidan.
  
     ![Anslutningsinformation](media/concepts-connectivity/device-connect.PNG)
 
@@ -189,11 +189,11 @@ Ett program som skapats med mallen för exemplet Devkits program innehåller en 
 | Fältnamn     | Enheter  | Minimum | Maximal | Antal decimaler |
 | -------------- | ------ | ------- | ------- | -------------- |
 | luftfuktighet       | %      | 0       | 100     | 0              |
-| Temp           | ° C     | -40     | 120     | 0              |
+| temp           | °C     | -40     | 120     | 0              |
 | tryck       | hPa    | 260     | 1260    | 0              |
-| magnetometerX  | mgauss | där-1 000   | 1000    | 0              |
-| magnetometerY  | mgauss | där-1 000   | 1000    | 0              |
-| magnetometerZ  | mgauss | där-1 000   | 1000    | 0              |
+| magnetometerX  | mgauss | -1000   | 1000    | 0              |
+| magnetometerY  | mgauss | -1000   | 1000    | 0              |
+| magnetometerZ  | mgauss | -1000   | 1000    | 0              |
 | accelerometerX | mg     | -2000   | 2000    | 0              |
 | accelerometerY | mg     | -2000   | 2000    | 0              |
 | accelerometerZ | mg     | -2000   | 2000    | 0              |
@@ -230,7 +230,7 @@ Visa/Dölj inställningar
 
 ### <a name="properties"></a>Egenskaper
 
-| Typ            | Visningsnamn | Fältnamn | Datatyp |
+| Type            | Visningsnamn | Fältnamn | Datatyp |
 | --------------- | ------------ | ---------- | --------- |
 | Enhetsegenskap | Dör nummer   | dieNumber  | nummer    |
 | Enhetsegenskap | Enhetsplats   | location  | location    |

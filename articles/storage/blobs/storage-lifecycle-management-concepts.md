@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/04/2018
 ms.author: yzheng
 ms.subservice: common
-ms.openlocfilehash: 3013365f96fa6841e4db826f9010c6ea994eba2a
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: b6077ee98a1c94d26a44f8686394d28213e0786e
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56879605"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57315528"
 ---
 # <a name="managing-the-azure-blob-storage-lifecycle-preview"></a>Hantera Azure Blob storage livscykel (förhandsversion)
 
@@ -228,8 +228,7 @@ Det här exemplet visar hur du övergår blockblob-objekt med prefixet `containe
     {
       "name": "agingRule", 
       "type": "Lifecycle", 
-      "definition": 
-        {
+      "definition": {
           "filters": {
             "blobTypes": [ "blockBlob" ],
             "prefixMatch": [ "container1/foo", "container2/bar" ]
@@ -257,8 +256,7 @@ Vissa data förblir inaktiva i molnet och är data som sällan, kanske aldrig, e
     {
       "name": "archiveRule", 
       "type": "Lifecycle", 
-      "definition": 
-        {
+      "definition": {
           "filters": {
             "blobTypes": [ "blockBlob" ],
             "prefixMatch": [ "archivecontainer" ]
@@ -286,8 +284,7 @@ Vissa data förväntas upphör att gälla dagar eller månader när du har skapa
     {
       "name": "expirationRule", 
       "type": "Lifecycle", 
-      "definition": 
-        {
+      "definition": {
           "filters": {
             "blobTypes": [ "blockBlob" ]
           },
@@ -313,8 +310,7 @@ För data som ändras och komma åt regelbundet under hela dess livslängd, anv�
     {
       "name": "snapshotRule", 
       "type": "Lifecycle", 
-      "definition": 
-        {
+      "definition": {
           "filters": {
             "blobTypes": [ "blockBlob" ],
             "prefixMatch": [ "activedata" ]

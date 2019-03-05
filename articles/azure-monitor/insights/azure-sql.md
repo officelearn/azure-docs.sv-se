@@ -11,12 +11,12 @@ ms.author: danil
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 12/17/2018
-ms.openlocfilehash: 02832ee84e02251239ab4364aac9ad0894c681b9
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 5f4589e9423beb932e1192d44291315331884eba
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54884789"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57314797"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>Övervaka Azure SQL Database med Azure SQL Analytics (förhandsversion)
 
@@ -146,14 +146,16 @@ Om du vill använda Azure SQL Analytics måste användare tilldelas en minsta be
 
 ### <a name="creating-a-custom-role-in-portal"></a>Skapa en anpassad roll i portalen
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Upptäcker att vissa organisationer framtvinga strikt behörighetskontroller i Azure, hitta följande PowerShell-skript som aktiverar en anpassad roll ”SQL Analytics övervakning-operatör” i Azure-portalen med minsta Läs- och skrivbehörighet krävs för att skapa använda Azure SQL Analytics så stort som möjligt.
 
 Ersätt ”{SubscriptionId}” i den med ditt Azure-prenumerations-ID-skriptet nedan och kör skriptet med inloggad som en ägare eller deltagare roll i Azure.
 
    ```powershell
-    Connect-AzureRmAccount
-    Select-AzureRmSubscription {SubscriptionId}
-    $role = Get-AzureRmRoleDefinition -Name Reader
+    Connect-AzAccount
+    Select-AzSubscription {SubscriptionId}
+    $role = Get-AzRoleDefinition -Name Reader
     $role.Name = "SQL Analytics Monitoring Operator"
     $role.Description = "Lets you monitor database performance with Azure SQL Analytics as a reader. Does not allow change of resources."
     $role.IsCustom = $true
@@ -172,7 +174,7 @@ Ersätt ”{SubscriptionId}” i den med ditt Azure-prenumerations-ID-skriptet n
     $role.Actions.Add("Microsoft.Sql/servers/advisors/recommendedActions/write");
     $role.Actions.Add("Microsoft.Resources/deployments/write");
     $role.AssignableScopes = "/subscriptions/{SubscriptionId}"
-    New-AzureRmRoleDefinition $role
+    New-AzRoleDefinition $role
    ```
 
 När den nya rollen har skapats kan du tilldela den här rollen till varje användare som du måste tilldela anpassade behörigheter för att använda Azure SQL Analytics.

@@ -12,12 +12,12 @@ ms.author: moslake
 ms.reviewer: vanto, genemi
 manager: craigg
 ms.date: 02/20/2019
-ms.openlocfilehash: 6ded590ac5a9c30655d8ed19c370ce476d1c9631
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 15ca464e8e44183b445bfdabe9abf5dd560a4f70
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456290"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57312272"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-database-servers"></a>Använda tjänstslutpunkter i virtuella nätverk och regler för databasservrar
 
@@ -174,6 +174,8 @@ PolyBase är vanligt att läsa in data till Azure SQL Data Warehouse från Azure
 
 #### <a name="prerequisites"></a>Förutsättningar
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 1.  Installera Azure PowerShell använder det här [guide](https://docs.microsoft.com/powershell/azure/install-az-ps).
 2.  Om du har ett allmänt v1- eller blob storage-konto, måste du först uppgradera till gpv2 med det här [guide](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
 3.  Du måste ha **Tillåt att betrodda Microsoft-tjänster för att komma åt det här lagringskontot** markerade under Azure Storage-konto **brandväggar och virtuella nätverk** inställningsmenyn. Referera till denna [guide](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions) för mer information.
@@ -182,9 +184,9 @@ PolyBase är vanligt att läsa in data till Azure SQL Data Warehouse från Azure
 1.  I PowerShell **registrera din SQL Database-server** med Azure Active Directory (AAD):
 
     ```powershell
-    Add-AzureRmAccount
-    Select-AzureRmSubscription -SubscriptionId your-subscriptionId
-    Set-AzureRmSqlServer -ResourceGroupName your-database-server-resourceGroup -ServerName your-database-servername -AssignIdentity
+    Connect-AzAccount
+    Select-AzSubscription -SubscriptionId your-subscriptionId
+    Set-AzSqlServer -ResourceGroupName your-database-server-resourceGroup -ServerName your-database-servername -AssignIdentity
     ```
     
  1. Skapa en **Allmänt gpv2-Lagringskonto** använder det här [guide](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account).
@@ -273,7 +275,7 @@ Det här avsnittet beskriver hur du kan använda den [Azure-portalen] [ http-azu
 
 ## <a name="powershell-alternative"></a>PowerShell-alternativ
 
-Ett PowerShell-skript kan även skapa regler för virtuellt nätverk. Cmdleten avgörande **New-AzureRmSqlServerVirtualNetworkRule**. Om du vill använda, se [PowerShell för att skapa en tjänstslutpunkt för virtuellt nätverk och en regel för Azure SQL Database][sql-db-vnet-service-endpoint-rule-powershell-md-52d].
+Ett PowerShell-skript kan även skapa regler för virtuellt nätverk. Cmdleten avgörande **New AzSqlServerVirtualNetworkRule**. Om du vill använda, se [PowerShell för att skapa en tjänstslutpunkt för virtuellt nätverk och en regel för Azure SQL Database][sql-db-vnet-service-endpoint-rule-powershell-md-52d].
 
 ## <a name="rest-api-alternative"></a>REST API-alternativ
 

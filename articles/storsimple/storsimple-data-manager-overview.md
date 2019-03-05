@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/21/2018
 ms.author: vidarmsft
-ms.openlocfilehash: fe4d332859b3ec0ba03e64f9a830b7710586aa17
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: c5ffe3ec2ec3cb06297df6be4ba7021f692633bf
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54158825"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57312499"
 ---
 # <a name="storsimple-data-manager-solution-overview"></a>Översikt över lösning för StorSimple Data Manager
 
@@ -31,7 +31,7 @@ StorSimple Data Manager kan du sömlöst kan komma åt och använda StorSimple f
 
 Den här artikeln innehåller en översikt över StorSimple Data Manager-lösning. Den förklarar hur du kan använda den här tjänsten för att skriva program som använder StorSimple data och andra Azure-tjänster i molnet.
 
-## <a name="how-it-works"></a>Så här fungerar det?
+## <a name="how-it-works"></a>Hur fungerar det?
 
 StorSimple Data Manager-tjänsten identifierar StorSimple data i molnet från en StorSimple 8000-serien en lokal enhet. StorSimple-data i molnet är deduplicerade, komprimerade StorSimple-format. Data Manager-tjänsten tillhandahåller API: er för att extrahera StorSimple formatera data och omvandla det till andra format, t.ex. för Azure BLOB och Azure Files. Detta omvandlade data är sedan lätt som används av Azure HDInsight och Azure medietjänster. Transformering av data kan därför tjänsterna ska åtgärdas StorSimple omvandlade data från en lokal enhet i StorSimple 8000-serien. Det här flödet illustreras i följande diagram.
 
@@ -64,11 +64,13 @@ Den här uppsättningen är större eftersom resursdistributionen i någon av ov
 
 ## <a name="choosing-a-region"></a>Välja en region
 
-Vi rekommenderar att:
+Vi rekommenderar att du:
  - Din källagringskontot (ett som är associerade med din StorSimple-enhet) och mål-lagringskontot (där du vill att data i ursprungligt format) finnas i samma Azure-region.
  - Du sätta upp dina Data och definition i den region som innehåller StorSimple-lagringskonto. Om det inte är möjligt, sätta upp Data Manager i den närmaste Azure-regionen och sedan skapa jobbdefinitionen i samma region som ditt lagringskonto i StorSimple. 
 
-    Om din StorSimple-lagringskonto inte är i 26 regioner som har stöd för skapande av jobb definition, rekommenderar vi att du inte kör StorSimple Data Manager som du ser långa fördröjningar och kostnader för utgående potentiellt hög trafik.
+    Om din StorSimple-lagringskonto inte är i 26 regioner som har stöd för skapande av jobb definition, rekommenderar vi att du inte kör StorSimple Data Manager som du ser långa svarstider och eventuella kostnader för utgående trafik.
+    
+Microsoft strävar efter att säkerställa att Azure-tjänster som alltid är tillgängliga i alla regioner. Oplanerade driftstopp kan uppstå under korta perioder inom en viss region. I sådana fall kan du ta fram en definition av Data och i en region som inte påverkas av avbrottet och kör jobbet för omvandling. Du kan stöta på viss ytterligare fördröjning i ett sådant scenario, men det kan vara din strategi för om av ett regionalt strömavbrott.
 
 ## <a name="security-considerations"></a>Säkerhetsöverväganden
 

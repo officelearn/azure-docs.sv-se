@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/12/2018
-ms.openlocfilehash: 5a6f8328f6809a20b821f5b72106fa48fabf0e91
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 00a3904bd78f3bb76266c726af28582770b23921
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55755160"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57316497"
 ---
 # <a name="connect-to-sql-database-using-c-and-c"></a>Ansluta till SQL-databas med C och C++
 
@@ -37,7 +37,7 @@ Azure SQL bygger på Microsoft SQL Server och är utformad att ge en hög tillg�
 Azure har för närvarande två alternativ för att hantera SQL server-arbetsbelastningar: Azure SQL-databas, databas som en tjänst och SQLServer på virtuella datorer (VM). Vi kommer inte att hämta information om skillnaderna mellan dessa två förutom att Azure SQL-databas är lämpligast för nya molnbaserade program att kunna utnyttja besparingarna och prestandaoptimering som molntjänster. Om du funderar på att migrera eller utöka ditt lokala program till molnet, kanske SQLServer på Azure-dator fungerar ut bättre för dig. Om du vill att göra det enkelt för den här artikeln ska vi skapa en Azure SQL database.
 
 ## <a id="ODBC"></a>Dataåtkomsttekniker: ODBC- och OLE DB
-Ansluta till Azure SQL DB fungerar på samma sätt och det finns för närvarande två sätt att ansluta till databaser: ODBC (Open Database connectivity) och OLE DB (Object Linking och bädda in-database). På senare år har Microsoft justerad med [ODBC för inbyggd relationsdatabas dataåtkomst](https://blogs.msdn.microsoft.com/sqlnativeclient/2011/08/29/microsoft-is-aligning-with-odbc-for-native-relational-data-access/). ODBC är relativt enkla och även mycket snabbare än OLE DB. Den enda teamindela här är att ODBC använder en gammal C-stil-API.
+Ansluta till Azure SQL DB fungerar på samma sätt och det finns för närvarande två sätt att ansluta till databaser: ODBC (Open Database connectivity) och OLE DB (Object Linking och bädda in-database). På senare år har Microsoft justerad med [ODBC för inbyggd relationsdatabas dataåtkomst](https://blogs.msdn.microsoft.com/sqlnativeclient/20../../microsoft-is-aligning-with-odbc-for-native-relational-data-access/). ODBC är relativt enkla och även mycket snabbare än OLE DB. Den enda teamindela här är att ODBC använder en gammal C-stil-API.
 
 ## <a id="Create"></a>Steg 1:  Skapa din Azure SQL-databas
 Se den [komma igång med](sql-database-single-database-get-started.md) att lära dig hur du skapar en exempeldatabas.  Alternativt kan du följa den här [kort tvåminutersvideon](https://azure.microsoft.com/documentation/videos/azure-sql-database-create-dbs-in-seconds/) att skapa en Azure SQL-databas med Azure portal.
@@ -78,7 +78,7 @@ Du kan också skapa en DSN-fil med hjälp av guiden som startas när inga komman
 Grattis! Du har nu anslutit till Azure SQL med C++ och ODBC på Windows. Du kan fortsätta läsa för att göra detsamma för Linux-plattformen.
 
 ## <a id="Linux"></a>Steg 5: Ansluta från en Linux C/C++-program
-Om du inte har hört nyheterna ännu, kan Visual Studio du nu du utvecklar C++ Linux-program. Du kan läsa om den här nya scenariot i den [Visual C++ för Linux-utveckling](https://blogs.msdn.microsoft.com/vcblog/2016/03/30/visual-c-for-linux-development/) blogg. Om du vill skapa för Linux, måste en fjärrdator där din Linux-distribution som körs. Om du inte har någon tillgänglig, kan du ange ett snabbt med [Linux virtuella datorer med Azure](../virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Om du inte har hört nyheterna ännu, kan Visual Studio du nu du utvecklar C++ Linux-program. Du kan läsa om den här nya scenariot i den [Visual C++ för Linux-utveckling](https://blogs.msdn.microsoft.com/vcblog/20../../visual-c-for-linux-development/) blogg. Om du vill skapa för Linux, måste en fjärrdator där din Linux-distribution som körs. Om du inte har någon tillgänglig, kan du ange ett snabbt med [Linux virtuella datorer med Azure](../virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 Den här självstudien kan vi anta att du har en Ubuntu 16.04 Linux-distribution som ställer in. De här stegen bör också gälla 15.10 Ubuntu, Red Hat 6 och 7 för Red Hat.
 

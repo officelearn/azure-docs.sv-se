@@ -11,16 +11,19 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/06/2018
+ms.date: 02/28/2019
 ms.author: magoedte
-ms.openlocfilehash: 13da9e0d731e87b6cdd5830c9295847511c301ef
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 2e7c06d7dd673ff2a638b94996667607a079e707
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567306"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57307844"
 ---
 # <a name="how-to-onboard-azure-monitor-for-containers"></a>Hur du integrera Azure Monitor för behållare  
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Den här artikeln beskriver hur du ställer in Azure Monitor för behållare för att övervaka prestanda för arbetsbelastningar som distribueras till Kubernetes-miljöer och finns på [Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/).
 
 Azure Monitor för behållare kan aktiveras för nya eller stöd för en eller flera befintliga distributioner av AKS med hjälp av följande metoder:
@@ -31,8 +34,8 @@ Azure Monitor för behållare kan aktiveras för nya eller stöd för en eller f
 ## <a name="prerequisites"></a>Förutsättningar 
 Innan du börjar bör du kontrollera att du har följande:
 
-- En Log Analytics-arbetsyta. Du kan skapa den när du aktiverar övervakning av din nya AKS-klustret eller låta publiceringsupplevelsen skapa en standardarbetsyta i standardresursgruppen för prenumerationen för AKS-kluster. Om du väljer att skapa den själv, kan du skapa den via [Azure Resource Manager](../../azure-monitor/platform/template-workspace-configuration.md), via [PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json), eller i den [Azure-portalen](../../azure-monitor/learn/quick-create-workspace.md).
-- Du är medlem i rollen som deltagare Log Analytics för att aktivera behållarövervakning. Läs mer om hur du styr åtkomst till en Log Analytics-arbetsyta, [hantera arbetsytor](../../azure-monitor/platform/manage-access.md).
+- **En Log Analytics-arbetsyta.** Du kan skapa den när du aktiverar övervakning av din nya AKS-klustret eller låta publiceringsupplevelsen skapa en standardarbetsyta i standardresursgruppen för prenumerationen för AKS-kluster. Om du väljer att skapa den själv, kan du skapa den via [Azure Resource Manager](../../azure-monitor/platform/template-workspace-configuration.md), via [PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json), eller i den [Azure-portalen](../../azure-monitor/learn/quick-create-workspace.md).
+- Du är en **medlem i rollen Log Analytics contributor** att aktivera behållarövervakning. Läs mer om hur du styr åtkomst till en Log Analytics-arbetsyta, [hantera arbetsytor](../../azure-monitor/platform/manage-access.md).
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 
@@ -76,7 +79,7 @@ När du har aktiverat övervakning och alla åtgärder för konfiguration har sl
 När du har aktiverat övervakning, kan det ta ungefär 15 minuter innan du kan visa hälsomått för klustret. 
 
 ## <a name="enable-monitoring-for-existing-managed-clusters"></a>Aktivera övervakning för befintliga hanterade kluster
-Du kan aktivera övervakning av ett AKS-kluster som redan har distribuerats antingen med hjälp av Azure CLI, från portalen eller med den angivna Azure Resource Manager-mallen med hjälp av PowerShell-cmdleten `New-AzureRmResourceGroupDeployment`. 
+Du kan aktivera övervakning av ett AKS-kluster som redan har distribuerats antingen med hjälp av Azure CLI, från portalen eller med den angivna Azure Resource Manager-mallen med hjälp av PowerShell-cmdleten `New-AzResourceGroupDeployment`. 
 
 ### <a name="enable-monitoring-using-azure-cli"></a>Aktivera övervakning med hjälp av Azure CLI
 Följande steg aktiverar övervakning av AKS-klustret med hjälp av Azure CLI. I det här exemplet måste du behöver inte per skapa eller ange en befintlig arbetsyta. Det här kommandot gör enklare för dig genom att skapa en standardarbetsyta i standardresursgruppen för AKS-kluster-prenumeration om det inte redan finns i regionen.  Standardarbetsytan skapade liknar formatet *DefaultWorkspace -\<GUID >-\<Region >*.  
@@ -117,7 +120,7 @@ provisioningState       : Succeeded
 
 2. Lägg till den [azurerm_log_analytics_solution](https://www.terraform.io/docs/providers/azurerm/r/log_analytics_solution.html) följa stegen i Terraform-dokumentationen.
 
-### <a name="enable-monitoring-from-azure-monitor"></a>Aktivera övervakning från Azure Monitor
+### <a name="enable-monitoring-from-azure-monitor-in-the-portal"></a>Aktivera övervakning från Azure Monitor i portalen 
 Om du vill aktivera övervakning av AKS-kluster i Azure-portalen från Azure Monitor, gör du följande:
 
 1. I Azure-portalen väljer du **övervakaren**. 
@@ -297,7 +300,7 @@ Om du väljer att använda Azure CLI, måste du först installera och använda C
     * Använd följande PowerShell-kommandon i den mapp som innehåller mallen:
 
         ```powershell
-        New-AzureRmResourceGroupDeployment -Name OnboardCluster -ClusterResourceGroupName ClusterResourceGroupName -TemplateFile .\existingClusterOnboarding.json -TemplateParameterFile .\existingClusterParam.json
+        New-AzResourceGroupDeployment -Name OnboardCluster -ResourceGroupName <ResourceGroupName> -TemplateFile .\existingClusterOnboarding.json -TemplateParameterFile .\existingClusterParam.json
         ```
         Konfigurationsändringen kan ta några minuter att slutföra. När det är klart visas ett meddelande som liknar följande och som innehåller resultatet:
 

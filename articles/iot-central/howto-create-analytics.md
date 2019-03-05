@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: f0e589689ae9a63ad90a4449c120938066309050
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: d0b964c089e8aa234cd5eee56413ff56599ad5df
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52961288"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57307283"
 ---
 # <a name="how-to-use-analytics-to-analyze-your-device-data"></a>Hur du använder analytics för att analysera dina enhetsdata
 
@@ -27,18 +27,18 @@ Azure IoT Central innehåller omfattande analysfunktioner funktioner för att or
 
 ## <a name="querying-your-data"></a>Köra frågor mot dina data
 
-Du måste välja en **enhetsuppsättning**, lägga till en **filter** (valfritt), och välj en **tidsperiod** att komma igång. När du är klar klickar du på *visa resultat* att börja visualisera dina data.
+Du måste välja en **enhetsuppsättning**, lägga till en **filter** (valfritt), och välj en **tidsperiod** att komma igång. När du är klar väljer **visa resultat** att börja visualisera dina data.
 
 
-* **Enhetsuppsättningar:** A [enhetsuppsättning](howto-use-device-sets.md) är en användardefinierad grupp av dina enheter. Till exempel Rev. alla kylskåp i Oakland eller alla 2.0 vind syfte.
+* **Enhetsuppsättningar:** En [enhetsuppsättning](howto-use-device-sets.md) är en användardefinierad grupp av dina enheter. Till exempel Rev. alla kylskåp i Oakland eller alla 2.0 vind syfte.
 
 <!---
 to-do: confirm if 10 is the max number of filters
 to-do: do we need to explain how fiters work?
 --->
 
-* **Filter:** du kan du lägga till filter till din söktjänst för att få fram dina data. Du kan lägga till upp till 10 filter i taget. Hitta till exempel de som har haft temperatur gå överstiger 60 grader inom alla kylskåp i Oakland. 
-* **Tidsperiod:** som standard ska vi hämta data från de senaste 10 minuterna. Du kan ändra det här värdet till något av de fördefinierade tidsintervall eller välja en anpassad tidsperiod. 
+* **Filter:** Du kan du lägga till filter till din söktjänst för att få fram dina data. Du kan lägga till upp till 10 filter i taget. Hitta till exempel de som har haft temperatur gå överstiger 60 grader inom alla kylskåp i Oakland. 
+* **Tidsperiod:** Som standard ska vi hämta data från de senaste 10 minuterna. Du kan ändra det här värdet till något av de fördefinierade tidsintervall eller välja en anpassad tidsperiod. 
 
  ![Analytics-fråga](media/howto-create-analytics/analytics-query.png)
 
@@ -46,12 +46,12 @@ to-do: do we need to explain how fiters work?
 
 När du har frågat dina data, kommer du att kunna börja visualisera den. Du kan visa/dölj mätning av faktisk användning, ändra hur data är sammansatt, och ytterligare dela data med olika Enhetsegenskaper.  
 
-* **Dela med:** dela data med enhetsegenskaper gör det möjligt för ytterligare gå nedåt i dina data. Du kan till exempel dela dina resultat av enhets-ID eller plats.
+* **Dela efter:** Dela data med enhetsegenskaper kan du ytterligare gå nedåt i dina data. Du kan till exempel dela dina resultat av enhets-ID eller plats.
 <!---
 to-do: confirm if 10 is the max number of measurements
 --->
-* **Mätning av faktisk användning:** du kan välja att visa/dölj upp till 10 olika telemetri objekt som rapporteras av enheterna i taget. Mätning av faktisk användning är bland annat temperatur och fuktighet. 
-* **Sammansättning:** som standard vi sammanställa informationen enligt dess medelvärde, men du kan välja att ändra sammansättning data till något annat som passar dina behov. 
+* **Mätning av faktisk användning:** Du kan välja att visa/dölj upp till 10 olika telemetri objekt som rapporteras av enheterna i taget. Mätning av faktisk användning är bland annat temperatur och fuktighet. 
+* **Sammansättning:** Som standard vi sammanställa informationen enligt dess medelvärde, men du kan välja att ändra sammansättning data till något annat som passar dina behov. 
 
    ![Analytics-visualisering](media/howto-create-analytics/analytics-visualize.png) <br/><br/>
    ![Analytics-visualisering dela efter](media/howto-create-analytics/analytics-splitby.png)
@@ -60,32 +60,32 @@ to-do: confirm if 10 is the max number of measurements
 
 Det finns olika sätt som ändrar ytterligare frågeresultatet efter dina behov för visualisering. Du kan växla mellan en diagramvy och ett rutnät, Zooma in/ut, uppdatera datauppsättningen och ändra hur rader visas.
 
-* **Visa rutnät:** ditt resultatet blir tillgängliga i tabellformat, så att du kan visa det specifika värdet för varje datapunkt. Den här vyn även uppfyller hjälpmedelsstandarder. 
-* **Visa diagram:** dina resultat visas i en rad-format för att enkelt vinklar uppåtgående/nedåtgående trender och avvikelser. 
+* **Visa rutnät för:** Ditt resultatet blir tillgängliga i tabellformat, så att du kan visa det specifika värdet för varje datapunkt. Den här vyn även uppfyller hjälpmedelsstandarder. 
+* **Visa diagram:** Dina resultat visas i en rad-format för att enkelt vinklar uppåtgående/nedåtgående trender och avvikelser. 
 
  ![Visar rutnätsvyn för analys](media/howto-create-analytics/analytics-showgrid.png)
 
 Zoomning kan du fokusera på dina data. Om du hittar en tidsperiod som du vill fokusera på i din resultatuppsättning, använder du markören hämta det område som du vill zooma in och använda tillgängliga kontroller för att utföra någon av följande åtgärder:
-* **Zooma in:** när du har valt en tidsperiod, Zooma i aktiveras så att du kan zooma in till dina data.
-* **Zooma ut:** den här kontrollen kan du zooma ut en nivå från din senaste zoomning. Till exempel om du har zoomar in till dina data tre gånger, Zooma ut tar du säkerhetskopiera ett steg i taget.
-* **Zooma återställning:** när du har utfört olika nivåer av zoomning, du kan använda zoomkontrollen för återställning för att återgå till din ursprungliga resultatuppsättningen. 
+* **Zooma in:** När du har valt en tidsperiod, Zooma i aktiveras så att du kan zooma in till dina data.
+* **Zooma ut:** Den här kontrollen kan du zooma ut en nivå från din senaste zoomning. Till exempel om du har zoomar in till dina data tre gånger, Zooma ut tar du säkerhetskopiera ett steg i taget.
+* **Zooma återställning:** När du har utfört olika nivåer av zoomning, kan du använda zoomkontrollen för återställning för att återgå till din ursprungliga resultatuppsättningen. 
 
  ![Utföra zoomning på dina data](media/howto-create-analytics/analytics-zoom.png)
 
 
 Du kan ändra linjeformatet för att uppfylla dina behov. Du har fyra alternativ att välja mellan:
-* **Rad:** består en platt linje mellan var och en av datapunkterna. 
-* **Smooth:** består en kurva mellan varje punkt
-* **Steg:** linjen mellan varje punkt i diagrammet skapar ett stegdiagram
-* **Punktdiagram:** alla punkter ritas i diagrammet utan att ansluta dem rader. 
+* **Rad:** En platt linje mellan var och en av datapunkterna ska skapas. 
+* **Smidig:** En kurva mellan varje punkt består
+* **Steg:** Rad mellan varje punkt i diagrammet skapar ett stegdiagram
+* **Punktdiagram:** Alla punkter ritas i diagrammet utan att ansluta dem rader. 
 
  ![Olika tillgängliga typer i Analytics](media/howto-create-analytics/analytics-linetypes.png)
 
 Slutligen kan du ordna dina data på y-axeln genom att välja någon av tre lägen:
 
-* **Liggande:** ett diagram för varje mätning stående och var och en av diagrammen har sina egna y-axeln. Liggande diagram är användbara när du har flera mätningar som valts och vill ha distinkta vy över dessa mätningar.
-* **Ostaplade:** ett diagram för varje mått ritas mot en y-axeln, men värdena för y-axeln ändras baserat på det markerade måttet. Ostaplade diagram är användbara när du vill täcka över flera mått och vill se mönster över dessa åtgärder för samma tidsintervall.
-* **Delade y-axeln:** alla diagram dela samma y-axeln och ändra värdena för axeln inte. Delade y-axeln diagram är användbara när du vill titta på ett enda mått vid uppdelning med delning av data.
+* **Liggande:** Ett diagram för varje mätning är stående och var och en av diagrammen har sina egna y-axeln. Liggande diagram är användbara när du har flera mätningar som valts och vill ha distinkta vy över dessa mätningar.
+* **Ostaplade:** Ett diagram för varje mått ritas mot en y-axeln, men värdena för y-axeln ändras baserat på det markerade måttet. Ostaplade diagram är användbara när du vill täcka över flera mått och vill se mönster över dessa åtgärder för samma tidsintervall.
+* **Delade y-axeln:** Alla diagram delar samma y-axeln och ändra värdena för axeln inte. Delade y-axeln diagram är användbara när du vill titta på ett enda mått vid uppdelning med delning av data.
 
  ![Ordna data på y-axeln med annan visualisering lägen](media/howto-create-analytics/analytics-yaxis.png)
 

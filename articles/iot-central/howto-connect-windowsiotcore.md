@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: bd2f675fe646395b60aeb687f67269b0184563bd
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: 85fba27c856561eb1270e719dcf24b88d2d5a01f
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57193406"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57309918"
 ---
 # <a name="connect-a-windows-iot-core-device-to-your-azure-iot-central-application"></a>Anslut en Windows IoT Core-enhet till din Azure IoT Central program
 
@@ -72,10 +72,10 @@ För att distribuera klientprogrammet från föregående steg till din Windows 1
 När du har gjort det, måste du öppna den [Windows Device Portal](https://docs.microsoft.com/windows/iot-core/manage-your-device/deviceportal) genom att skriva i http://[device-IP-address]:8080 i alla webbläsare.
 
 Från det och, som visas i om nedan, bör du:
-1. Expandera noden ”appar” till vänster.
-2. Klicka på ”snabbt och kör exempel”.
-3. Klicka på ”Azure IoT Hub-klient”.
-4. Klicka på ”distribuera och kör”.
+1. Expandera den **appar** noden till vänster.
+2. Välj **snabbt och kör exempel**.
+3. Välj **för Azure IoT Hub Client**.
+4. Välj **distribuera och köra**.
 
 ![GIF av Azure IoT Hub-klienten på Windows Device Portal](./media/howto-connect-windowsiotcore/iothubapp.gif)
 

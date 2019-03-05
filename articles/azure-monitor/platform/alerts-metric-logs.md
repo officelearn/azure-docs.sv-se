@@ -8,16 +8,18 @@ ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: ac4391b91d818b21e392e134115294fb84473e69
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 8fd43228c5129395f9a61778fb83d32906fc85df
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54449665"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57311771"
 ---
 # <a name="create-metric-alerts-for-logs-in-azure-monitor"></a>Skapa Måttaviseringar för loggar i Azure Monitor
 
 ## <a name="overview"></a>Översikt
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 Azure Monitor stöder [måttaviseringstypen](../../azure-monitor/platform/alerts-metric-near-real-time.md) som har fördelar över den [klassiska aviseringar](../../azure-monitor/platform/alerts-classic-portal.md). Mått är tillgängliga för [lång lista med Azure-tjänster](../../azure-monitor/platform/metrics-supported.md). Den här artikeln beskriver användningen av en delmängd (det vill säga) för resurs - `Microsoft.OperationalInsights/workspaces`.
 
@@ -360,7 +362,7 @@ Under förutsättning att ovanstående parameterfilen sparas som metricfromLogsA
 En kan också använda Azure Powershell-kommandot nedan samt:
 
 ```PowerShell
-New-AzureRmResourceGroupDeployment -ResourceGroupName "myRG" -TemplateFile metricfromLogsAlertStatic.json TemplateParameterFile metricfromLogsAlertStatic.parameters.json
+New-AzResourceGroupDeployment -ResourceGroupName "myRG" -TemplateFile metricfromLogsAlertStatic.json TemplateParameterFile metricfromLogsAlertStatic.parameters.json
 ```
 
 Eller Använd distribuera resursmall med Azure CLI:
@@ -676,7 +678,7 @@ Under förutsättning att ovanstående parameterfilen sparas som metricfromLogsA
 En kan också använda Azure Powershell-kommandot nedan samt:
 
 ```PowerShell
-New-AzureRmResourceGroupDeployment -ResourceGroupName "myRG" -TemplateFile metricfromLogsAlertDynamic.json TemplateParameterFile metricfromLogsAlertDynamic.parameters.json
+New-AzResourceGroupDeployment -ResourceGroupName "myRG" -TemplateFile metricfromLogsAlertDynamic.json TemplateParameterFile metricfromLogsAlertDynamic.parameters.json
 ```
 
 Eller Använd distribuera resursmall med Azure CLI:

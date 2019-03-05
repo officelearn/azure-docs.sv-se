@@ -1,7 +1,7 @@
 ---
 title: Indexera Azure Blob storage-innehåll för fulltextsökning – Azure Search
 description: Lär dig mer om att indexera Azure Blob Storage och extrahera text från dokument med Azure Search.
-ms.date: 10/17/2018
+ms.date: 03/01/2019
 author: mgottein
 manager: cgronlun
 ms.author: magottei
@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 56afc933eff2e06df270b17403b767ebaddd4154
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 87dc1dab0670f69ff8c418be476986baec2821fb
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56873006"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57310887"
 ---
 # <a name="indexing-documents-in-azure-blob-storage-with-azure-search"></a>Indexera dokument i Azure Blob Storage med Azure Search
 Den här artikeln visar hur du använder Azure Search att indexera dokument (till exempel PDF: er och Microsoft Office-dokument och flera andra vanliga format) lagras i Azure Blob storage. Först förklarar den grunderna för att installera och konfigurera en blob-indexeraren. Sedan den erbjuder en djupare förklaring av beteenden och scenarier som du kan stöta på.
@@ -68,7 +68,7 @@ Mer information om API: et för skapa datakällan finns i [skapa Datasource](htt
 
 Du kan ange autentiseringsuppgifterna för blob-behållaren i något av följande sätt:
 
-- **Fullständig åtkomst lagringskontots anslutningssträng**: `DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>`. Du kan hämta anslutningssträngen från Azure portal genom att gå till bladet för storage-konto > Inställningar > nycklar (för klassiska lagringskonton) eller inställningar > åtkomstnycklar (för Azure Resource Manager-lagringskonton).
+- **Fullständig åtkomst lagringskontots anslutningssträng**: `DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>` Du kan hämta anslutningssträngen från Azure portal genom att gå till bladet för storage-konto > Inställningar > nycklar (för klassiska lagringskonton) eller inställningar > åtkomstnycklar (för Azure Resource Manager-lagringskonton).
 - **Signatur för delad åtkomst av Storage-konto** (SAS) anslutningssträng: `BlobEndpoint=https://<your account>.blob.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=b&sp=rl` SAS bör ha i listan och läsbehörighet på behållare och objekt (BLOB-objekt i det här fallet).
 -  **Signatur för delad åtkomst**: `ContainerSharedAccessUri=https://<your storage account>.blob.core.windows.net/<container name>?sv=2016-05-31&sr=c&sig=<the signature>&se=<the validity end time>&sp=rl` SAS bör ha i listan och läsbehörighet till behållaren.
 

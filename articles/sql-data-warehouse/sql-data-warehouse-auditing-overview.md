@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 04/11/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: d2093c5b4c07e6e62df4d1f52a7fbe6e12a91ea0
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: d9a911dccf3d59bf1159cf8576b95d86ef26657b
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57217061"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57314253"
 ---
 # <a name="auditing-in-azure-sql-data-warehouse"></a>Granskning i Azure SQL Data Warehouse
 
@@ -133,7 +133,7 @@ Det finns flera metoder som du kan använda för att visa blob granskningsloggar
 
 * Använd den [synkronisera program](https://github.com/Microsoft/Azure-SQL-DB-auditing-OMS-integration) som vi har skapat. Det körs i Azure och använder logganalys offentliga API: er för att skicka SQL-granskningsloggar i Azure Monitor-loggar. Synkronisera program skickar SQL-granskningsloggar i Azure Monitor-loggar för förbrukning via log analytics-instrumentpanelen.
 
-* Använda Powerbi. Du kan visa och analysera granskningsloggdata i Power BI. Läs mer om [Power BI och åtkomst till en mall för nedladdningsbara](https://blogs.msdn.microsoft.com/azuresqldbsupport/2017/05/26/sql-azure-blob-auditing-basic-power-bi-dashboard/).
+* Använda Powerbi. Du kan visa och analysera granskningsloggdata i Power BI. Läs mer om [Power BI och åtkomst till en mall för nedladdningsbara](https://blogs.msdn.microsoft.com/azuresqldbsupport/20../../sql-azure-blob-auditing-basic-power-bi-dashboard/).
 
 * Ladda ned loggfiler från dina Azure Storage blob-behållare via portalen eller genom att använda ett verktyg som [Azure Storage Explorer](http://storageexplorer.com/).
     * När du har hämtat en loggfil lokalt, kan du dubbelklicka på filen för att öppna, visa och analysera loggar i SSMS.
@@ -144,8 +144,8 @@ Det finns flera metoder som du kan använda för att visa blob granskningsloggar
 
    * Visa blobbgranskning loggar programmässigt:
 
-     * Använd den [utökade händelser läsare](https://blogs.msdn.microsoft.com/extended_events/2011/07/20/introducing-the-extended-events-reader/) C#-biblioteket.
-     * [Frågefiler utökade händelser](https://sqlscope.wordpress.com/2014/11/15/reading-extended-event-files-using-client-side-tools-only/) med hjälp av PowerShell.
+     * Använd den [utökade händelser läsare](https://blogs.msdn.microsoft.com/extended_events/20../../introducing-the-extended-events-reader/) C#-biblioteket.
+     * [Frågefiler utökade händelser](https://sqlscope.wordpress.com/20../../reading-extended-event-files-using-client-side-tools-only/) med hjälp av PowerShell.
 
 
 
@@ -169,17 +169,20 @@ I produktion förmodligen du uppdatera dina storage-nycklar med jämna mellanrum
 4. Gå tillbaka till lagringen Användargränssnittet och **återskapa** den *sekundära åtkomstnyckel* (som förberedelse inför nästa uppdatera nycklar cykel.
 
 ## <a id="subheading-5"></a>Automation (PowerShell/REST API)
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Du kan också konfigurera granskning i Azure SQL Data Warehouse med hjälp av följande verktyg för automatisering:
 
 * **PowerShell-cmdletar**:
 
-   * [Get-AzureRMSqlDatabaseAuditingPolicy](/powershell/module/azurerm.sql/get-azurermsqldatabaseauditingpolicy)
-   * [Get-AzureRMSqlServerAuditingPolicy](/powershell/module/azurerm.sql/Get-AzureRMSqlServerAuditingPolicy)
-   * [Remove-AzureRMSqlDatabaseAuditing](/powershell/module/azurerm.sql/Remove-AzureRMSqlDatabaseAuditing)
-   * [Remove-AzureRMSqlServerAuditing](/powershell/module/azurerm.sql/Remove-AzureRMSqlServerAuditing)
-   * [Set-AzureRMSqlDatabaseAuditingPolicy](/powershell/module/azurerm.sql/Set-AzureRMSqlDatabaseAuditingPolicy)
-   * [Set-AzureRMSqlServerAuditingPolicy](/powershell/module/azurerm.sql/Set-AzureRMSqlServerAuditingPolicy)
-   * [Use-AzureRMSqlServerAuditingPolicy](/powershell/module/azurerm.sql/Use-AzureRMSqlServerAuditingPolicy)
+   * [Get-AzSqlDatabaseAuditingPolicy](/powershell/module/az.sql/get-azsqldatabaseauditingpolicy)
+   * [Get-AzSqlServerAuditingPolicy](/powershell/module/az.sql/Get-azSqlServerAuditingPolicy)
+   * [Remove-AzSqlDatabaseAuditing](/powershell/module/az.sql/Remove-azSqlDatabaseAuditing)
+   * [Remove-AzSqlServerAuditing](/powershell/module/az.sql/Remove-azSqlServerAuditing)
+   * [Set-AzSqlDatabaseAuditingPolicy](/powershell/module/az.sql/Set-azSqlDatabaseAuditingPolicy)
+   * [Set-AzSqlServerAuditingPolicy](/powershell/module/az.sql/Set-azSqlServerAuditingPolicy)
+   * [Använd AzSqlServerAuditingPolicy](/powershell/module/az.sql/Use-azSqlServerAuditingPolicy)
 
 
 ## <a name="downlevel-clients-support-for-auditing-and-dynamic-data-masking"></a>Äldre klienter har stöd för granskning och dynamisk datamaskning

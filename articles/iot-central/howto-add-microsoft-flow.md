@@ -8,12 +8,12 @@ ms.date: 09/18/2018
 ms.topic: conceptual
 ms.service: iot-central
 manager: peterpr
-ms.openlocfilehash: c06939ccb920954c08ef02f38e6d12471ac267db
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: e0c4b90511da78ac5a8e454f653ab2a3819697c0
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50959298"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57317602"
 ---
 # <a name="build-workflows-with-the-iot-central-connector-in-microsoft-flow"></a>Skapa arbetsflöden med IoT Central-connector i Microsoft Flow
 
@@ -30,24 +30,24 @@ Använd Microsoft Flow för att automatisera arbetsflöden i många program och 
 
 Det här avsnittet visar hur du utlöser ett mobilmeddelande i Flow-mobilappen när en regel utlöses i IoT Central.
 
-1. Börja med att [skapar en regel i IoT Central](howto-create-telemetry-rules.md). När du har sparat villkor klickar du på den **Microsoft Flow-åtgärden** som en ny åtgärd. En ny flik eller fönster ska öppnas i din webbläsare tar dig till Microsoft Flow.
+1. Börja med att [skapar en regel i IoT Central](howto-create-telemetry-rules.md). När du har sparat villkor, Välj den **Microsoft Flow-åtgärden** som en ny åtgärd. En ny flik eller fönster ska öppnas i din webbläsare tar dig till Microsoft Flow.
 
     ![Skapa en ny Microsoft Flow-åtgärd](media/howto-add-microsoft-flow/createflowaction.PNG)
 
 1. Logga in på Microsoft Flow. Detta behöver inte vara samma konto som det som du använder i IoT Central. Kommer du att hamna på en översiktssida som visar en IoT Central-koppling som ansluter till en anpassad åtgärd.
 
-1. Logga in på den IoT Central-anslutningen och klicka på **Fortsätt**. Du kommer till Microsoft Flow-designern att bygga ditt arbetsflöde. Arbetsflödet har en IoT Central-utlösare som har programmet och regeln har redan fyllt i.
+1. Logga in på den IoT Central-anslutningen och välj **Fortsätt**. Du kommer till Microsoft Flow-designern att bygga ditt arbetsflöde. Arbetsflödet har en IoT Central-utlösare som har programmet och regeln har redan fyllt i.
 
 1. Välj **+ nytt steg** och **Lägg till en åtgärd**. Nu kan du lägga till alla åtgärder som du vill ditt arbetsflöde. Exempelvis kan vi skicka ett SMS. Sök efter **meddelande**, och välj **meddelanden – skicka ett SMS**.
 
 1. I åtgärden, fyller du i textfältet med vad du vill att dina meddelanden att säga. Du kan inkludera *dynamiskt innehåll* från regeln IoT Central, skicka längs viktig information, till exempel enhetens namn och tidsstämpel till ditt meddelande.
 
     > [!NOTE]
-    > Klicka på ”se mer”-texten i fönstret för dynamiskt innehåll för att hämta mått och egenskapsvärden som utlöste regeln.
+    > Välj den **mer** text i fönstret för dynamiskt innehåll för att hämta mått och egenskapen värden som utlöste regeln.
 
     ![Flow Redigera åtgärd med dynamiska fönstret öppet](./media/howto-add-microsoft-flow/flowdynamicpane.PNG)
 
-1. När du är klar redigering åtgärden, klickar du på **spara**. Du omdirigeras till sidan med översikten över ditt arbetsflöde. Här kan du se körningshistoriken och dela den med andra kollegor.
+1. När du är klar redigera åtgärden Välj **spara**. Du omdirigeras till sidan med översikten över ditt arbetsflöde. Här kan du se körningshistoriken och dela den med andra kollegor.
 
     > [!NOTE]
     > Om du vill att andra användare i din IoT Central-app för att redigera den här regeln, måste du dela den med dem i Microsoft Flow. Lägga till sina Microsoft Flow-konton som ägare i arbetsflödet.

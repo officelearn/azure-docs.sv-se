@@ -1,9 +1,9 @@
 ---
-title: Förbereda Azure VM-avbildning för användning med molnet init | Microsoft Docs
-description: Hur du förbereder en befintlig virtuell dator i Azure-avbildning för distribution med molnet initiering
+title: Förbereda Azure VM-avbildning för användning med cloud-init | Microsoft Docs
+description: Hur du förbereder en befintlig Azure VM-avbildning för distribution med cloud-init
 services: virtual-machines-linux
 documentationcenter: ''
-author: rickstercdn
+author: danis
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -12,37 +12,37 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 11/29/2017
-ms.author: rclaus
-ms.openlocfilehash: ff5c76ca0a164d09e45488cb7abf7f2c2ee50a95
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.date: 02/27/2019
+ms.author: danis
+ms.openlocfilehash: da539a5bebc1613115f89a7b47c513ce486b5e3a
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37064109"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57337319"
 ---
-# <a name="prepare-an-existing-linux-azure-vm-image-for-use-with-cloud-init"></a>Förbereda en befintlig Linux Azure VM-avbildning för användning med molnet initiering
-Den här artikeln visar hur du tar en befintlig Azure virtuell dator och förbereda den omdistribuerade och klar att använda molnet initiering. Bilden kan användas för att distribuera en ny virtuell dator eller skalningsuppsättningar i virtuella - som kan sedan anpassas ytterligare genom molnet init vid tidpunkten för distribution.  Skripten molnet init körs vid den första starten när resurserna som har etablerats genom Azure. Mer information om hur molnet init internt fungerar i Azure- och Linux-distributioner som stöds finns [moln init-översikt](using-cloud-init.md)
+# <a name="prepare-an-existing-linux-azure-vm-image-for-use-with-cloud-init"></a>Förbereda en befintlig Linux Azure VM-avbildning för användning med cloud-init
+Den här artikeln visar hur du tar en befintlig Azure virtuell dator och förbereda den för att vara omdistribuerade och redo att använda cloud-init. Bilden kan användas för att distribuera en ny virtuell dator eller VM-skalningsuppsättningar – vilket kan sedan anpassas ytterligare genom cloud-init vid tidpunkten för distribution.  Skripten cloud-init körs vid den första starten när resurserna har etablerats med Azure. Mer information om hur cloud-init fungerar internt i Azure och Linux-distributioner som stöds finns i [cloud-init-översikt](using-cloud-init.md)
 
 ## <a name="prerequisites"></a>Förutsättningar
-Det här dokumentet förutsätter att du redan har en körs virtuella Azure-datorn kör en version av Linux-operativsystem som stöds. Du redan har konfigurerat datorn så att de passar dina behov, installeras alla moduler som krävs, bearbetas alla nödvändiga uppdateringar och har testat den för att kontrollera att den uppfyller dina krav. 
+Det här dokumentet förutsätter att du redan har en aktiva Azure virtuell dator som kör en version av Linux-operativsystem som stöds. Du redan har konfigurerat datorn så att den passar dina behov, installeras alla moduler som krävs, bearbetas alla nödvändiga uppdateringar och har testat den för att säkerställa att den uppfyller dina krav. 
 
-## <a name="preparing-rhel-74--centos-74"></a>Förbereda RHEL 7.4 / CentOS 7.4
-Du behöver SSH till din Linux VM och kör följande kommandon för att kunna installera molnet initiering.
+## <a name="preparing-rhel-76--centos-76"></a>Förbereda RHEL 7.6 / CentOS 7.6
+Du behöver SSH till din Linux-VM och kör följande kommandon för att kunna installera cloud-init.
 
 ```bash
-sudo yum install -y cloud-init gdisk
-sudo yum check-update cloud-init -y
-sudo yum install cloud-init -y
+sudo yum makecache fast
+sudo yum install -y gdisk cloud-utils-growpart
+sudo yum install - y cloud-init 
 ```
 
-Uppdatering av `cloud_init_modules` i avsnittet `/etc/cloud/cloud.cfg` att inkludera följande moduler:
+Uppdatera den `cloud_init_modules` i avsnittet `/etc/cloud/cloud.cfg` att inkludera följande moduler:
 ```bash
 - disk_setup
 - mounts
 ```
 
-Här är ett exempel på vilka allmänna `cloud_init_modules` avsnitt ser ut.
+Här följer ett exempel på vilka allmänna `cloud_init_modules` avsnittet se ut.
 ```bash
 cloud_init_modules:
  - migrator
@@ -59,52 +59,37 @@ cloud_init_modules:
  - users-groups
  - ssh
 ```
-Ett antal åtgärder som rör etablering och hantering av tillfälliga diskar som behöver uppdateras i `/etc/waagent.conf`. Kör följande kommandon för att uppdatera inställningarna. 
+Ett antal uppgifter som rör etablering och hantering av differentierande diskar behöver uppdateras i `/etc/waagent.conf`. Kör följande kommandon för att uppdatera inställningarna. 
 ```bash
 sed -i 's/Provisioning.Enabled=y/Provisioning.Enabled=n/g' /etc/waagent.conf
 sed -i 's/Provisioning.UseCloudInit=n/Provisioning.UseCloudInit=y/g' /etc/waagent.conf
 sed -i 's/ResourceDisk.Format=y/ResourceDisk.Format=n/g' /etc/waagent.conf
 sed -i 's/ResourceDisk.EnableSwap=y/ResourceDisk.EnableSwap=n/g' /etc/waagent.conf
+cp /lib/systemd/system/waagent.service /etc/systemd/system/waagent.service
+sed -i 's/After=network-online.target/WantedBy=cloud-init.service\\nAfter=network.service systemd-networkd-wait-online.service/g' /etc/systemd/system/waagent.service
+systemctl daemon-reload
+cloud-init clean
 ```
-Tillåt endast Azure som en datakälla för Azure Linux-agenten genom att skapa en ny fil `/etc/cloud/cloud.cfg.d/91-azure_datasource.cfg` med hjälp av ett redigeringsprogram med följande rader:
+Tillåt endast Azure som en datakälla för Azure Linux Agent genom att skapa en ny fil `/etc/cloud/cloud.cfg.d/91-azure_datasource.cfg` med hjälp av ett redigeringsprogram med följande rader:
 
 ```bash
-# This configuration file is provided by the WALinuxAgent package.
+# Azure Data Source config
 datasource_list: [ Azure ]
-```
-
-Lägga till en konfiguration för att åtgärda en utestående hostname registrering programfel.
-```bash
-cat > /etc/cloud/hostnamectl-wrapper.sh <<\EOF
-#!/bin/bash -e
-if [[ -n $1 ]]; then
-  hostnamectl set-hostname $1
-else
-  hostname
-fi
-EOF
-
-chmod 0755 /etc/cloud/hostnamectl-wrapper.sh
-
-cat > /etc/cloud/cloud.cfg.d/90-hostnamectl-workaround-azure.cfg <<EOF
-# local fix to ensure hostname is registered
 datasource:
-  Azure:
-    hostname_bounce:
-      hostname_command: /etc/cloud/hostnamectl-wrapper.sh
-EOF
+   Azure:
+     agent_command: [systemctl, start, waagent, --no-block]
 ```
 
-Om din befintlig Azure-avbildning har en växlingsfil konfigurerats och du vill ändra konfigurationen för växlingsutrymme-filen för nya avbildningar med molnet init, måste du ta bort befintliga växlingsfilen.
+Om din befintliga Azure avbildningen har en växlingsfil som konfigurerats och du vill ändra konfigurationen för swap-fil för nya avbildningar med cloud-init, måste du ta bort befintliga växlingsfilen.
 
-För Red Hat-baserad bilder - följer du anvisningarna i den följande Red Hat dokument som förklarar hur du [ta bort växlingsfilen](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/storage_administration_guide/swap-removing-file).
+För Red Hat-baserade avbildningar - följer du anvisningarna i den följande förklarar för Red Hat dokumentet så [ta bort växlingsfilen](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/storage_administration_guide/swap-removing-file).
 
-Du kan köra följande kommando för att stänga av växlingsfil för CentOS bilder med växlingsfil aktiverad:
+CentOS-avbildningar med växlingsfil aktiverat kan köra du följande kommando för att stänga av växlingsfil:
 ```bash
 sudo swapoff /mnt/resource/swapfile
 ```
 
-Växlingsfil-referens tas bort från `/etc/fstab` -det bör se ut ungefär som följande utdata:
+Referens för växlingsfil tas bort från `/etc/fstab` -det bör likna följande utdata:
 ```text
 # /etc/fstab
 # Accessible filesystems, by reference, are maintained under '/dev/disk'
@@ -118,28 +103,27 @@ Du kan köra följande kommando för att spara utrymme och ta bort växlingsfile
 ```bash
 rm /mnt/resource/swapfile
 ```
-## <a name="extra-step-for-cloud-init-prepared-image"></a>Extra steg för molnet init förberedda avbildningen
+## <a name="extra-step-for-cloud-init-prepared-image"></a>Extra steg för cloud-init förberett bild
 > [!NOTE]
-> Om avbildningen tidigare var en **moln init** förberedda och konfigurerade bilden, behöver du följande steg.
+> Om din avbildning tidigare var en **cloud-init** förberedd och förkonfigurerad avbildning, behöver du följande steg.
 
-Följande tre kommandon används bara om den virtuella datorn du anpassar så att en ny specialiserade Källavbildningen tidigare har etablerats av molnet initiering.  Du behöver inte köra dessa om bilden har konfigurerats med hjälp av Azure Linux-agenten.
+Följande tre kommandon används bara om den virtuella datorn som du anpassar för att vara en ny specialiserade källbild etablerades tidigare med cloud-init.  Du behöver inte köra dessa om avbildningen har konfigurerats med hjälp av Azure Linux Agent.
 
 ```bash
-sudo rm -rf /var/lib/cloud/instances/* 
-sudo rm -rf /var/log/cloud-init*
+sudo cloud-init clean --logs
 sudo waagent -deprovision+user -force
 ```
 
 ## <a name="finalizing-linux-agent-setting"></a>Slutför Linux-agenten inställningen 
-Alla avbildningar i Azure-plattformen har Azure Linux-agenten installerad, oavsett om den har konfigurerats av molnet init eller inte.  Kör följande kommando för att slutföra avetablering användaren från Linux-dator. 
+Alla avbildningar i Azure-plattformen har Azure Linux Agent installerad, oavsett om den har konfigurerats med cloud-init eller inte.  Kör följande kommando för att slutföra avetablering användaren från Linux-dator. 
 
 ```bash
 sudo waagent -deprovision+user -force
 ```
 
-Mer information om Azure Linux-agenten avetablering kommandon finns på [Azure Linux-agenten](../extensions/agent-linux.md) för mer information.
+Mer information om Azure Linux Agent avetablering kommandon finns i den [Azure Linux Agent](../extensions/agent-linux.md) för mer information.
 
-Avsluta SSH-session från din bash shell och kör sedan följande kommandon för AzureCLI att frigöra, generalisera och skapa en ny virtuell dator i Azure-avbildning.  Ersätt `myResourceGroup` och `sourceVmName` med lämplig information reflektion din sourceVM.
+Avsluta SSH-sessionen från bash-gränssnitt och kör sedan följande AzureCLI-kommandon för att frigöra, generalisera och skapa en ny Azure VM-avbildning.  Ersätt `myResourceGroup` och `sourceVmName` med lämplig information som uppfyller dina sourceVM.
 
 ```bash
 az vm deallocate --resource-group myResourceGroup --name sourceVmName
@@ -148,9 +132,9 @@ az image create --resource-group myResourceGroup --name myCloudInitImage --sourc
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-Ytterligare molnet initiering exempel av konfigurationsändringar finns i följande:
+Ytterligare cloud-init exempel av konfigurationsändringar finns i följande:
  
-- [Lägga till en ytterligare Linux-användare till en virtuell dator](cloudinit-add-user.md)
-- [Kör en package manager för att uppdatera befintliga paket på första starten](cloudinit-update-vm.md)
-- [Ändra lokala värdnamnet för VM](cloudinit-update-vm-hostname.md) 
+- [Lägg till en ytterligare Linux-användare till en virtuell dator](cloudinit-add-user.md)
+- [Kör en pakethanterare för att uppdatera befintliga paket vid första start](cloudinit-update-vm.md)
+- [Ändra lokala värdnamnet för virtuell dator](cloudinit-update-vm-hostname.md) 
 - [Installera ett programpaket, uppdatera konfigurationsfiler och mata in nycklar](tutorial-automate-vm-deployment.md)

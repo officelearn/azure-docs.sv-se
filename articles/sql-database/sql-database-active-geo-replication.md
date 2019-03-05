@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 02/27/2019
-ms.openlocfilehash: 0d0ee3664a5f442e4fbf61af3111a53110afd740
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: a243dbfa8b63d45f87fd16370fa8e120ff68711c
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56984755"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57309153"
 ---
 # <a name="creating-and-using-active-geo-replication"></a>Skapa och använda aktiv geo-replikering
 
@@ -155,13 +155,15 @@ Enligt beskrivningen tidigare kan aktiv geo-replikering också hanteras via prog
 
 ### <a name="powershell-manage-failover-of-single-and-pooled-databases"></a>PowerShell: Hantera redundans för enkel och delade databaser
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 | Cmdlet | Beskrivning |
 | --- | --- |
-| [Get-AzureRmSqlDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabase) |Hämtar en eller flera databaser. |
-| [New-AzureRmSqlDatabaseSecondary](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabasesecondary) |Skapar en sekundär databas för en befintlig databas och startar datareplikeringen. |
-| [Set-AzureRmSqlDatabaseSecondary](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabasesecondary) |Växlar en sekundär databas till att vara primär för att initiera redundans. |
-| [Remove-AzureRmSqlDatabaseSecondary](https://docs.microsoft.com/powershell/module/azurerm.sql/remove-azurermsqldatabasesecondary) |Avslutar datareplikering mellan en SQL Database och den angivna sekundära databasen. |
-| [Get-AzureRmSqlDatabaseReplicationLink](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabasereplicationlink) |Hämtar geo-replikeringslänkar mellan en Azure SQL Database och en resursgrupp eller SQL Server. |
+| [Get-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabase) |Hämtar en eller flera databaser. |
+| [New-AzSqlDatabaseSecondary](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabasesecondary) |Skapar en sekundär databas för en befintlig databas och startar datareplikeringen. |
+| [Set-AzSqlDatabaseSecondary](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabasesecondary) |Växlar en sekundär databas till att vara primär för att initiera redundans. |
+| [Remove-AzSqlDatabaseSecondary](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqldatabasesecondary) |Avslutar datareplikering mellan en SQL Database och den angivna sekundära databasen. |
+| [Get-AzSqlDatabaseReplicationLink](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabasereplicationlink) |Hämtar geo-replikeringslänkar mellan en Azure SQL Database och en resursgrupp eller SQL Server. |
 |  | |
 
 > [!IMPORTANT]

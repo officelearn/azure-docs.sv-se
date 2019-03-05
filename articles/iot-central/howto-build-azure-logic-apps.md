@@ -8,12 +8,12 @@ ms.date: 1/3/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: peterpr
-ms.openlocfilehash: 971c01ec8002e73dbc6abfb66a0ede26f90a4d9c
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 8fd46bdc5971ce1e9bcee6599dd73f09cc3c00be
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54453321"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57314355"
 ---
 # <a name="build-workflows-with-the-iot-central-connector-in-azure-logic-apps"></a>Skapa arbetsflöden med IoT Central-anslutningsapp i Azure Logic Apps
 
@@ -32,13 +32,13 @@ Du kan använda IoT Central-anslutningen i Microsoft Flow. Både Azure Logic App
 
 Det här avsnittet visar hur du publicera ett meddelande till Microsoft Teams när en regel utlöses. Du kan konfigurera ditt arbetsflöde om du vill använda andra anslutningsappar för att göra saker som att skicka en händelse till din Event hub, skapa ett nytt Azure DevOps-arbetsobjekt eller infoga en ny rad i SQLServer.
 
-1. Börja med att [skapar en regel i IoT Central](howto-create-telemetry-rules.md). När du har sparat villkor klickar du på den **Azure Logic Apps** panelen som en ny åtgärd. Klicka på **skapa i Azure-portalen**. Du tas till Azure portal för att skapa en ny logikapp. Du kan behöva logga in på ditt Azure-konto.
+1. Börja med att [skapar en regel i IoT Central](howto-create-telemetry-rules.md). När du har sparat villkor, Välj den **Azure Logic Apps** panelen som en ny åtgärd. Välj **skapa i Azure-portalen**. Du tas till Azure portal för att skapa en ny logikapp. Du kan behöva logga in på ditt Azure-konto.
 
-1. Ange informationen som krävs för att skapa en ny logikapp. Du kan välja en Azure-prenumeration att etablera den nya logikappen till. Det behöver inte vara samma prenumeration som IoT Central-appen skapades i. Klicka på **Skapa**.
+1. Ange informationen som krävs för att skapa en ny logikapp. Du kan välja en Azure-prenumeration att etablera den nya logikappen till. Det behöver inte vara samma prenumeration som IoT Central-appen skapades i. Välj **Skapa**.
 
     ![Skapa logikapp i Azure-portalen](./media/howto-build-azure-logic-apps/createinazureportal.PNG)
 
-1. När logikappen har skapats, då kommer du automatiskt till Logic Apps Designer. Klicka på **tom Logikapp**. 
+1. När logikappen har skapats, då kommer du automatiskt till Logic Apps Designer. Välj **tom Logikapp**. 
 
     ![Skapa en tom logikapp](./media/howto-build-azure-logic-apps/blanklogicapp.PNG)
 
@@ -54,11 +54,11 @@ Det här avsnittet visar hur du publicera ett meddelande till Microsoft Teams n�
 
 1. I åtgärden, väljer du den **Team** och **kanal**. Fyll i den **meddelande** med vad du vill att varje meddelande att säga. Du kan inkludera *dynamiskt innehåll* från regeln IoT Central, skicka längs viktig information, till exempel enhetens namn och tidsstämpel till ditt meddelande.
     > [!NOTE]
-    > Klicka på ”se mer”-texten i fönstret för dynamiskt innehåll för att hämta mått och egenskapsvärden som utlöste regeln.
+    > Välj den **mer** text i fönstret för dynamiskt innehåll för att hämta mått och egenskapen värden som utlöste regeln.
 
     ![Logic app redigering åtgärd med dynamiska rutan Öppna](./media/howto-build-azure-logic-apps/buildworkflow.PNG)
 
-1. När du är klar redigering åtgärden, klickar du på **spara**.
+1. När du är klar redigera åtgärden Välj **spara**.
 
 1. Om du går tillbaka till din IoT Central-app, visas den här regeln har en Azure Logic Apps-åtgärd i området åtgärder.
 

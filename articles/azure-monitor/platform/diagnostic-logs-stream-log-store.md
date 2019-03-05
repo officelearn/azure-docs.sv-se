@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/04/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: 8f4b39141a9509990525769833e2cd193419752c
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 3d187851fda9054bbfbae245ef34440b66ad017e
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54469380"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57309323"
 ---
 # <a name="stream-azure-diagnostic-logs-to-log-analytics"></a>Stream Azure diagnostikloggar till Log Analytics
 
@@ -65,10 +65,13 @@ Log Analytics-arbetsytan behöver inte finnas i samma prenumeration som resursen
 Den nya inställningen visas i din lista över inställningar för den här resursen efter en liten stund och diagnostiska loggar strömmas till arbetsytan när nya händelsedata genereras. Observera att det kan ta upp till 15 minuter mellan när en händelse genereras och när den visas i Log Analytics.
 
 ### <a name="via-powershell-cmdlets"></a>Via PowerShell-cmdletar
-Strömning den [Azure PowerShell-Cmdlets](../../azure-monitor/platform/powershell-quickstart-samples.md), du kan använda den `Set-AzureRmDiagnosticSetting` cmdlet med följande parametrar:
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
+Strömning den [Azure PowerShell-Cmdlets](../../azure-monitor/platform/powershell-quickstart-samples.md), du kan använda den `Set-AzDiagnosticSetting` cmdlet med följande parametrar:
 
 ```powershell
-Set-AzureRmDiagnosticSetting -ResourceId [your resource ID] -WorkspaceID [resource ID of the Log Analytics workspace] -Categories [list of log categories] -Enabled $true
+Set-AzDiagnosticSetting -ResourceId [your resource ID] -WorkspaceID [resource ID of the Log Analytics workspace] -Categories [list of log categories] -Enabled $true
 ```
 
 Observera att egenskapen workspaceID tar fullständiga Azure-resurs-ID för arbetsytan kan inte arbetsytan ID-/ nyckel visas i Log Analytics-portalen.

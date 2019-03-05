@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: victorh
-ms.openlocfilehash: f7050514d5f0de0cade09c6be672d7dfd3568da3
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 0f3bdaaa038dcd0ef2a0ad6466cbb7a09ec7c2bc
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54037420"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57312451"
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-resource-manager-template"></a>Skapa en programgateway med hjälp av Azure Resource Manager-mallen
 
@@ -27,6 +27,8 @@ Azure Application Gateway är en Layer 7-lastbalanserare. Den tillhandahåller r
 Den här artikeln beskriver hur du laddar ned och ändra en befintlig [Azure Resource Manager-mall](../azure-resource-manager/resource-group-authoring-templates.md) från GitHub och distribuerar mallen från GitHub, PowerShell och Azure CLI.
 
 Om du bara distribuerar mallen direkt från GitHub utan ändringar, kan du gå vidare och distribuera en mall från GitHub.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="scenario"></a>Scenario
 
@@ -123,13 +125,13 @@ Om du aldrig har använt Azure PowerShell finns: [Hur du installerar och konfigu
 1. Logga in på PowerShell
 
     ```powershell
-    Login-AzureRmAccount
+    Login-AzAccount
     ```
 
 1. Kontrollera prenumerationerna för kontot.
 
     ```powershell
-    Get-AzureRmSubscription
+    Get-AzSubscription
     ```
 
     Du ombeds att autentisera dig med dina autentiseringsuppgifter.
@@ -137,19 +139,19 @@ Om du aldrig har använt Azure PowerShell finns: [Hur du installerar och konfigu
 1. Välj vilka av dina Azure-prenumerationer som du vill använda.
 
     ```powershell
-    Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
+    Select-AzSubscription -Subscriptionid "GUID of subscription"
     ```
 
 1. Om det behövs skapar du en resursgrupp med hjälp av cmdleten **New-AzureResourceGroup**. I följande exempel skapar du en resursgrupp kallad appgatewayrg med platsen East USA.
 
     ```powershell
-    New-AzureRmResourceGroup -Name AppgatewayRG -Location "West US"
+    New-AzResourceGroup -Name AppgatewayRG -Location "West US"
     ```
 
-1. Kör cmdleten **New-AzureRmResourceGroupDeployment** för att distribuera det nya virtuella nätverket med hjälp av de föregående mall- och parameterfilerna som du hämtade och ändrade.
+1. Kör den **New AzResourceGroupDeployment** cmdlet för att distribuera nya virtuella nätverket med hjälp av den föregående mall- och parameterfilerna filer du hämtade och ändrade.
     
     ```powershell
-    New-AzureRmResourceGroupDeployment -Name TestAppgatewayDeployment -ResourceGroupName AppgatewayRG `
+    New-AzResourceGroupDeployment -Name TestAppgatewayDeployment -ResourceGroupName AppgatewayRG `
     -TemplateFile C:\ARM\azuredeploy.json -TemplateParameterFile C:\ARM\azuredeploy-parameters.json
     ```
 
@@ -215,7 +217,7 @@ Om du vill ta bort alla resurser som skapats i den här artikeln, gör du något
 ### <a name="powershell"></a>PowerShell
 
 ```powershell
-Remove-AzureRmResourceGroup -Name appgatewayRG
+Remove-AzResourceGroup -Name appgatewayRG
 ```
 
 ### <a name="azure-cli"></a>Azure CLI

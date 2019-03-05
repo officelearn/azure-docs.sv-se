@@ -13,14 +13,17 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/21/2019
 ms.author: magoedte
-ms.openlocfilehash: d6933d5fd72a3a6c945d3afc3fdd3512be5b28d1
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: 7654de7041b2aa7a5b72f551893c3e0fb60bbd40
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56591609"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57309867"
 ---
 # <a name="manage-log-analytics-using-azure-resource-manager-templates"></a>Hantera Log Analytics med hjälp av Azure Resource Manager-mallar
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Du kan använda [Azure Resource Manager-mallar](../../azure-resource-manager/resource-group-authoring-templates.md) du skapar och konfigurerar Log Analytics-arbetsytor. Exempel på de uppgifter du kan utföra med mallar:
 
 * Skapa en arbetsyta inklusive inställningen prisnivå 
@@ -122,7 +125,7 @@ Följande parametrar anger ett standardvärde:
    * För PowerShell använder du följande kommandon från mappen som innehåller mallen:
    
         ```powershell
-        New-AzureRmResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <resource-group-name> -TemplateFile deploylaworkspacetemplate.json
+        New-AzResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <resource-group-name> -TemplateFile deploylaworkspacetemplate.json
         ```
 
    * För kommandoraden, använder du följande kommandon från mappen som innehåller mallen:
@@ -500,7 +503,7 @@ För att distribuera exempelmallen:
 
 #### <a name="powershell"></a>PowerShell
 ```powershell
-New-AzureRmResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <resource-group-name> -TemplateFile azuredeploy.json
+New-AzResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <resource-group-name> -TemplateFile azuredeploy.json
 ```
 
 #### <a name="command-line"></a>Kommandorad

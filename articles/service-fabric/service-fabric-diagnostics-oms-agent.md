@@ -14,19 +14,19 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/16/2018
 ms.author: srrengar
-ms.openlocfilehash: 3d35075c768855ebd907b96de2ded82757d5e525
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 6562156432a86c346a0fee382af50f210e3cf6dc
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57242912"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57308524"
 ---
 # <a name="performance-monitoring-with-azure-monitor-logs"></a>Prestandaövervakning med Azure Monitor-loggar
 
 Den här artikeln beskriver stegen för att lägga till Log Analytics-agenten som en VM-skalningsuppsättningen tillägg till klustret och ansluter den till din befintliga Azure Log Analytics-arbetsyta. På så sätt kan samla in diagnostikdata om behållare, program och prestandaövervakning. Genom att lägga till det som ett tillägg till VM scale set resursen, garanterar Azure Resource Manager att det installeras på varje nod, även när skala klustret.
 
 > [!NOTE]
-> Den här artikeln förutsätter att du har en Azure Log Analytics-arbetsyta som redan har konfigurerat. Om du inte vill gå till [ställa in Azure Azure Monitor-loggar](service-fabric-diagnostics-oms-setup.md)
+> Den här artikeln förutsätter att du har en Azure Log Analytics-arbetsyta som redan har konfigurerat. Om du inte vill gå till [konfigurera Azure Monitor-loggar](service-fabric-diagnostics-oms-setup.md)
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -39,13 +39,13 @@ Det bästa sättet att lägga till Log Analytics-agenten till ditt kluster anges
 2. Navigera till resursgruppen där Log Analytics-arbetsytan finns i portalen. Klicka i log analytics-resursen (typ av resursen är Log Analytics-arbetsytan). När du är på översiktssidan för resursen klickar du på **avancerade inställningar** under avsnittet inställningar på den vänstra menyn.
 
     ![Log analytics-egenskapssidan](media/service-fabric-diagnostics-oms-agent/oms-advanced-settings.png)
- 
+
 3. Klicka på **Windows-servrar** om du är att ställa upp ett Windows-kluster och **Linux-servrar** om du skapar ett Linux-kluster. Den här sidan visas dina `workspace ID` och `workspace key` (visas som primärnyckel i portalen). Du måste båda för nästa steg.
 
 4. Kör kommandot för att installera Log Analytics-agenten på klustret med hjälp av den `vmss extension set` API i Cloud Shell:
 
     För ett Windows-kluster:
-    
+
     ```sh
     az vmss extension set --name MicrosoftMonitoringAgent --publisher Microsoft.EnterpriseCloud.Monitoring --resource-group <nameOfResourceGroup> --vmss-name <nameOfNodeType> --settings "{'workspaceId':'<Log AnalyticsworkspaceId>'}" --protected-settings "{'workspaceKey':'<Log AnalyticsworkspaceKey>'}"
     ```
@@ -59,7 +59,7 @@ Det bästa sättet att lägga till Log Analytics-agenten till ditt kluster anges
     Här är ett exempel på Log Analytics-agenten som läggs till ett Windows-kluster.
 
     ![Logga in cli-kommando för Analytics-agenten](media/service-fabric-diagnostics-oms-agent/cli-command.png)
- 
+
 5. Det bör ta mindre än 15 minuter att lägga till agenten till noderna. Du kan kontrollera att agenterna har lagts till med hjälp av den `az vmss extension list` API:
 
     ```sh
@@ -74,7 +74,7 @@ Du kan hämta och ändra den här mallen om du vill distribuera ett kluster som 
 
 ## <a name="view-performance-counters"></a>Visa prestandaräknare
 
-Nu när du har lagt till Log Analytics-agenten, head vill till Log Analytics-portalen för att välja vilka räknare som du samla in. 
+Nu när du har lagt till Log Analytics-agenten, head vill till Log Analytics-portalen för att välja vilka räknare som du samla in.
 
 1. Gå till resursgruppen där du skapade Service Fabric-analys-lösningen i Azure-portalen. Select **ServiceFabric\<nameOfLog AnalyticsWorkspace\>**.
 
@@ -92,7 +92,7 @@ Nu när du har lagt till Log Analytics-agenten, head vill till Log Analytics-por
 
 8. Paneler i form av ett diagram visas för var och en av de lösningar som är aktiverad, inklusive ett för Service Fabric. Klicka på den **Service Fabric** graph för att fortsätta till Service Fabric-analys-lösningen.
 
-9. Du ser några paneler med diagram på användningskanal och reliable services-händelser. Grafisk representation av de data som flödar i för räknarna som du har valt visas under noden mått. 
+9. Du ser några paneler med diagram på användningskanal och reliable services-händelser. Grafisk representation av de data som flödar i för räknarna som du har valt visas under noden mått.
 
 10. Klicka på ett diagram för behållaren mått du vill ha ytterligare information. Du kan också fråga på prestandaräknardata på samma sätt som klusterhändelser och filtrerar på noder, perf räknarens namn och värden med hjälp av det Kusto-frågespråket.
 

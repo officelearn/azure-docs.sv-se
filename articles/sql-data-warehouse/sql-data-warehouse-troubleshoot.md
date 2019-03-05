@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 12/04/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: d94d434f83e1a8507b1a98660e8169ff6be4ee24
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 5c9d8330e857a8f76e143631f17e29ba44244a88
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55244597"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57307929"
 ---
 # <a name="troubleshooting-azure-sql-data-warehouse"></a>Felsöka Azure SQL Data Warehouse
 Den här artikeln innehåller vanliga frågor för felsökning.
@@ -52,7 +52,7 @@ Den här artikeln innehåller vanliga frågor för felsökning.
 | Msg 40847: Det gick inte att utföra åtgärden eftersom servern skulle överskrida den tillåtna Database Transaction Unit-kvoten för 45000. | Antingen den [DWU] [ DWU] av databasen som du försöker skapa eller [öka kvoten][request a quota increase]. |
 | Undersöka användningen                              | Se [tabellen storlekar] [ Table sizes] att förstå användningen av systemet. |
 | Hjälp med att hantera tabeller                                    | Se den [tabellöversikt] [ Overview] artikeln om du behöver hjälp med att hantera dina tabeller.  Den här artikeln innehåller också länkar till mer detaljerad information som [Tabelldatatyper][Data types], [distribuerar en tabell][Distribute], [Indexera en tabell][Index], [partitionering en tabell][Partition], [underhålla tabellstatistik] [ Statistics] och [temporära tabeller][Temporary]. |
-| Transparent data encryption (TDE) förloppsindikatorn uppdateras inte i Azure Portal | Du kan visa status för transparent Datakryptering via [powershell](/powershell/module/azurerm.sql/get-azurermsqldatabasetransparentdataencryption). |
+| Transparent data encryption (TDE) förloppsindikatorn uppdateras inte i Azure Portal | Du kan visa status för transparent Datakryptering via [powershell](/powershell/module/az.sql/get-azsqldatabasetransparentdataencryption). |
 
 ## <a name="polybase"></a>Polybase
 | Problem                                           | Lösning                                                   |

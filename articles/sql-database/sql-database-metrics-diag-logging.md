@@ -12,12 +12,12 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: 6f8dd8611e5e2120bdfa0ae111bf6e248ca0f3cb
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 8b8f7aa559fa8b9adc805636c377f31dd252687b
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57214757"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57309612"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL Database-mått och diagnostikloggning
 
@@ -192,12 +192,14 @@ Följ dessa steg om du vill aktivera strömning av diagnostiktelemetri för en h
 
 ### <a name="powershell"></a>PowerShell
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Du kan aktivera mätvärden och diagnostikloggning med hjälp av PowerShell.
 
 - Använd följande kommando om du vill aktivera lagring av diagnostikloggar i ett lagringskonto:
 
    ```powershell
-   Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -StorageAccountId [your storage account id] -Enabled $true
+   Set-AzDiagnosticSetting -ResourceId [your resource id] -StorageAccountId [your storage account id] -Enabled $true
    ```
 
    Storage-konto-ID är resurs-ID för mållagringskontot.
@@ -205,7 +207,7 @@ Du kan aktivera mätvärden och diagnostikloggning med hjälp av PowerShell.
 - Om du vill aktivera strömning av diagnostikloggar till en händelsehubb, Använd följande kommando:
 
    ```powershell
-   Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -ServiceBusRuleId [your service bus rule id] -Enabled $true
+   Set-AzDiagnosticSetting -ResourceId [your resource id] -ServiceBusRuleId [your service bus rule id] -Enabled $true
    ```
 
    Regel-ID för Azure Service Bus är en sträng med det här formatet:
@@ -217,20 +219,20 @@ Du kan aktivera mätvärden och diagnostikloggning med hjälp av PowerShell.
 - Använd följande kommando om du vill aktivera skicka diagnostikloggar till en Log Analytics-arbetsyta:
 
    ```powershell
-   Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -WorkspaceId [resource id of the log analytics workspace] -Enabled $true
+   Set-AzDiagnosticSetting -ResourceId [your resource id] -WorkspaceId [resource id of the log analytics workspace] -Enabled $true
    ```
 
 - Du kan hämta resurs-ID för Log Analytics-arbetsytan med hjälp av följande kommando:
 
    ```powershell
-   (Get-AzureRmOperationalInsightsWorkspace).ResourceId
+   (Get-AzOperationalInsightsWorkspace).ResourceId
    ```
 
 Du kan kombinera dessa parametrar om du vill aktivera flera Utdataalternativ för.
 
 ### <a name="to-configure-multiple-azure-resources"></a>Konfigurera flera Azure-resurser
 
-För att stödja flera prenumerationer, använder du PowerShell-skriptet från [aktivera Azure resource mått loggning med hjälp av PowerShell](https://blogs.technet.microsoft.com/msoms/2017/01/17/enable-azure-resource-metrics-logging-using-powershell/).
+För att stödja flera prenumerationer, använder du PowerShell-skriptet från [aktivera Azure resource mått loggning med hjälp av PowerShell](https://blogs.technet.microsoft.com/msoms/20../../enable-azure-resource-metrics-logging-using-powershell/).
 
 Ange resurs-ID för arbetsyta \<$WSID\> som en parameter när du kör skriptet `Enable-AzureRMDiagnostics.ps1` skicka diagnostikdata från flera resurser till arbetsytan.
 

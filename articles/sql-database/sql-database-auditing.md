@@ -12,12 +12,12 @@ ms.author: arib
 ms.reviewer: vanto
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: bbf04104d70ecb6ea8d83c6167b5b9b0dfe2c2dc
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 38a5434d4b6f27aacdf1861fa0b005501ad1e28b
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57217452"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57308898"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Kom igång med SQL-databasgranskning
 
@@ -160,7 +160,7 @@ Om du väljer att skriva granskningsloggar till ett Azure storage-konto, finns d
 
     4. Sammanfogade filen öppnas i SSMS, där du kan visa och analysera dem, samt exportera den till en XEL eller CSV-fil, eller till en tabell.
 
-- Använda Powerbi. Du kan visa och analysera granskningsloggdata i Power BI. Mer information och för att komma åt en nedladdningsbar mall finns i [analysera granskningsloggdata i Power BI](https://blogs.msdn.microsoft.com/azuresqldbsupport/2017/05/26/sql-azure-blob-auditing-basic-power-bi-dashboard/).
+- Använda Powerbi. Du kan visa och analysera granskningsloggdata i Power BI. Mer information och för att komma åt en nedladdningsbar mall finns i [analysera granskningsloggdata i Power BI](https://blogs.msdn.microsoft.com/azuresqldbsupport/20../../sql-azure-blob-auditing-basic-power-bi-dashboard/).
 - Ladda ned loggfiler från dina Azure Storage blob-behållare via portalen eller genom att använda ett verktyg som [Azure Storage Explorer](http://storageexplorer.com/).
   - När du har hämtat en loggfil lokalt, dubbelklicka på filen för att öppna, visa och analysera loggar i SSMS.
   - Du kan också hämta flera filer samtidigt via Azure Storage Explorer. Du gör detta genom att högerklicka på en viss undermapp och välj **Spara som** att spara i en lokal mapp.
@@ -170,8 +170,8 @@ Om du väljer att skriva granskningsloggar till ett Azure storage-konto, finns d
   - När du hämtat flera filer eller en undermapp som innehåller loggfiler, kan du slå samman dem lokalt enligt beskrivningen i SSMS Merge granskningsfilerna anvisningarna som beskrivs ovan.
   - Visa blobbgranskning loggar programmässigt:
 
-    - Använd den [utökade händelser läsare](https://blogs.msdn.microsoft.com/extended_events/2011/07/20/introducing-the-extended-events-reader/) C#-biblioteket.
-    - [Frågefiler utökade händelser](https://sqlscope.wordpress.com/2014/11/15/reading-extended-event-files-using-client-side-tools-only/) med hjälp av PowerShell.
+    - Använd den [utökade händelser läsare](https://blogs.msdn.microsoft.com/extended_events/20../../introducing-the-extended-events-reader/) C#-biblioteket.
+    - [Frågefiler utökade händelser](https://sqlscope.wordpress.com/20../../reading-extended-event-files-using-client-side-tools-only/) med hjälp av PowerShell.
 
 ## <a id="subheading-5"></a>Produktionsmetoder
 

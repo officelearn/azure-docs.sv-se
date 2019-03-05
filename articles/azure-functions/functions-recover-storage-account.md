@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2018
 ms.author: alkarche
-ms.openlocfilehash: 861a4d4d64f970a13aba68f831d2148f8a354ef4
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: bddfccaf0749bbb5eaf206e5961c713efa5eea17
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55732166"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57311907"
 ---
 # <a name="how-to-troubleshoot-functions-runtime-is-unreachable"></a>Så här felsöker du ”functions-körning kan inte nås”
 
@@ -66,7 +66,7 @@ I föregående steg om du inte har en anslutningssträng för lagringskonto har 
 ### <a name="guidance"></a>Riktlinjer
 
 * Markera inte ”platsinställning” för någon av dessa inställningar. När du växla distributionsfack funktionen bryts.
-* Ange inte dessa inställningar när du använder automatisk distribution.
+* Ändra inte de här inställningarna som en del av automatisk distribution.
 * Dessa inställningar måste vara angivna och giltig vid tidpunkten för skapandet. En automatisk distribution som inte innehåller de här inställningarna resulterar i en icke-fungerande App, även om inställningarna har lagts till i efterhand.
 
 ## <a name="storage-account-credentials-invalid"></a>Autentiseringsuppgifter för lagringskonto ogiltig

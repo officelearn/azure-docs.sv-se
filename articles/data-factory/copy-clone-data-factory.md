@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: douglasl
-ms.openlocfilehash: c62581447cd395bd48a787fa7dc89659d5172486
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: a1071bb690fc5714890116c757c3036916bf1700
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54192302"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57314103"
 ---
 # <a name="copy-or-clone-a-data-factory-in-azure-data-factory"></a>Kopiera eller klona en datafabrik i Azure Data Factory
 
@@ -35,6 +35,8 @@ Här följer några omständigheter där det kan vara bra att kopiera eller klon
 1. Användargränssnittet för Data Factory i Azure-portalen kan du exportera hela nyttolasten för din datafabrik i Resource Manager-mall, tillsammans med en parameterfil som du kan ändra alla värden som du vill ändra när du klonar din datafabrik.
 
 1. Som ett krav måste du skapa datafabriken mål från Azure-portalen.
+
+1. Om du har en SelfHosted IntegrationRuntime i din källan factory måste du skapa det i förväg med samma namn i mål-factory. Om du vill dela SelfHosted IRs mellan olika fabriker kan du använda mönstret publicerade [här](author-visually.md#best-practices-for-git-integration).
 
 1. Om du använder GIT-läge, varje gång du publicerar från portalen kan sparas den fabriken Resource Manager-mall till GIT i grenen adf_publish av databasen.
 

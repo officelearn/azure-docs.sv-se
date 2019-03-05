@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/22/2019
 ms.author: nikiest
 ms.subservice: logs
-ms.openlocfilehash: f02b17ff4e83c3300973c86f26db76ebff5a8d0a
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: 5328173090bce3e3adf51a1503e18c8da5532b0e
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56750896"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57310916"
 ---
 # <a name="archive-the-azure-activity-log"></a>Arkivera Azure-aktivitetsloggen
 I den här artikeln visar vi hur du kan använda Azure-portalen, PowerShell-Cmdlets och plattformsoberoende CLI för att arkivera dina [ **Azure-aktivitetsloggen** ](../../azure-monitor/platform/activity-logs-overview.md) i ett lagringskonto. Det här alternativet är användbart om du vill behålla din aktivitetslogg som är längre än 90 dagar (med fullständig kontroll över bevarandeprincipen) för granskning, statiska analys eller säkerhetskopiering. Om du behöver bara att behålla dina händelser i 90 dagar eller mindre du behöver inte konfigurera arkivering till ett lagringskonto eftersom aktivitetslogghändelser finns kvar i Azure-plattformen i 90 dagar utan att aktivera arkivering.
@@ -44,10 +44,12 @@ Om du vill arkivera aktivitetsloggen med någon av metoderna nedan, anger du den
 
 ## <a name="archive-the-activity-log-via-powershell"></a>Arkivera aktivitetsloggen via PowerShell
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
    ```powershell
    # Settings needed for the new log profile
    $logProfileName = "default"
-   $locations = (Get-AzureRmLocation).Location
+   $locations = (Get-AzLocation).Location
    $locations += "global"
    $subscriptionId = "<your Azure subscription Id>"
    $resourceGroupName = "<resource group name your storage account belongs to>"
@@ -56,13 +58,13 @@ Om du vill arkivera aktivitetsloggen med någon av metoderna nedan, anger du den
    # Build the storage account Id from the settings above
    $storageAccountId = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Storage/storageAccounts/$storageAccountName"
 
-   Add-AzureRmLogProfile -Name $logProfileName -Location $locations -StorageAccountId $storageAccountId
+   Add-AzLogProfile -Name $logProfileName -Location $locations -StorageAccountId $storageAccountId
    ```
 
 | Egenskap  | Krävs | Beskrivning |
 | --- | --- | --- |
 | StorageAccountId |Ja |Resurs-ID för det Lagringskonto där aktivitetsloggar ska sparas. |
-| Platser |Ja |Kommaavgränsad lista över regioner som du vill samla in händelser i aktivitetsloggen. Du kan visa en lista över alla regioner för din prenumeration med hjälp av `(Get-AzureRmLocation).Location`. |
+| Platser |Ja |Kommaavgränsad lista över regioner som du vill samla in händelser i aktivitetsloggen. Du kan visa en lista över alla regioner för din prenumeration med hjälp av `(Get-AzLocation).Location`. |
 | RetentionInDays |Nej |Antal dagar för vilka händelser ska behållas, mellan 1 och 2147483647. Värdet noll lagrar loggarna på obestämd tid (alltid). |
 | Kategorier |Nej |Kommaavgränsad lista över kategorier som ska samlas in. Möjliga värden är skriva, ta bort och åtgärder.  Om det inte anges, antas alla möjliga värden |
 

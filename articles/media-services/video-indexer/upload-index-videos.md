@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 02/17/2019
 ms.author: juliako
-ms.openlocfilehash: 4127b6b2b2601b640a6fda4ccb60960d1762ee81
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: 657b726dc3724637a3099e95d4974840fbb0cc8c
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56414752"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57316344"
 ---
 # <a name="upload-and-index-your-videos"></a>Ladda upp och indexera dina videor  
 
@@ -31,8 +31,8 @@ När din video har laddats upp, kodar Video Indexer kan du kan också videon (be
 ## <a name="uploading-considerations"></a>Att tänka på gällande uppladdning
 
 - När du laddar upp videon baserat på URL:en (rekommenderas) måste slutpunkten skyddas med TLS 1.2 (eller senare)
-- Överföringsstorlek med URL: er är begränsad till 25GB
-- Överföringsstorlek med alternativet byte-matrisen är begränsat till 2GB
+- Överföringsstorlek med URL: er är begränsad till 30 GB
+- Överföringsstorlek med alternativet byte-matrisen är begränsat till 2 GB
 - Alternativet byte-matris på grund av timeout efter 30 min
 - URL:en som anges i parametern `videoURL` måste kodas
 

@@ -9,14 +9,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 02/28/2019
 ms.author: diberry
-ms.openlocfilehash: ceed37a8482051bb0fae14c2fe1fe8a366c6a6f3
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 9099cdbb91e41998065d953b9d48b3b501df7c10
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57215344"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57336945"
 ---
 # <a name="dimension-prebuilt-entity-for-a-luis-app"></a>Dimensionen fördefinierade entitet för en LUIS-app
 Entiteten fördefinierade dimension identifierar olika typer av dimensioner, oavsett språkinställningar för LUIS-app. Eftersom den här entiteten har redan tränats, behöver du inte lägga till exempel yttranden som innehåller dimensioner till programmet avsikter. Dimensionen entitet stöds i [många kulturer](luis-reference-prebuilt-entities.md). 

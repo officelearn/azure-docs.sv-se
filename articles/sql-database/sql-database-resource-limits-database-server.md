@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: CarlRabeler
 ms.author: carlrab
-ms.reviewer: sashan,moslake
+ms.reviewer: sashan,moslake,josack
 manager: craigg
 ms.date: 03/01/2019
-ms.openlocfilehash: 011aa97d44a92feced7328b2bd014395d2c5b765
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 00b20b3f144a2e98fb028e3db7c50af61330d721
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57246706"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57316463"
 ---
 # <a name="sql-database-resource-limits-for-azure-sql-database-server"></a>SQL Database-resursgränser för Azure SQL Database-server
 
@@ -74,7 +74,7 @@ När den påträffar hög användning för sessionen eller arbete, är minskning
 - Öka tjänsten nivå eller beräkna storleken på databasen eller den elastiska poolen. Se [skala resurser för enkel databas](sql-database-single-database-scale.md) och [skala elastisk poolresurser](sql-database-elastic-pool-scale.md).
 - Optimera frågor för att minska resursanvändningen för varje fråga om orsaken till ökad worker användningen är på grund av konkurrens om beräkningsresurser. Mer information finns i [fråga justering/Hinting](sql-database-performance-guidance.md#query-tuning-and-hinting).
 
-### <a name="transaction-log-rate-governance"></a>Transaktionen Log Rate styrning 
+## <a name="transaction-log-rate-governance"></a>Transaktionen Log Rate styrning 
 Transaktionen log rate styrning är en process i Azure SQL-databas som används för att begränsa enligt hög datainmatningsfrekvensen för arbetsbelastningar som bulk insert SELECT INTO och indexversioner. Dessa gränser spåras och tillämpas på nivån under en sekund att frekvensen för generering av loggar poster, begränsande dataflöde, oavsett hur många IOs kan utfärdas mot datafiler.  Transaktionspriser log generation för närvarande skalas linjärt upp till en tidpunkt som beror på maskinvaran, log-maximala hastighet tillåts som 48 MB/s med vCore köpa modellen. 
 
 > [!NOTE]

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/04/2018
 ms.author: jdial
-ms.openlocfilehash: ed611eeeffa77aa42ab017ee97c6b1a0b7f7822e
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 0b859b6c3fa37e8dbac82436d1e2f2444c9d2dcf
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57240668"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57312162"
 ---
 # <a name="diagnostic-logging-for-a-network-security-group"></a>Diagnostisk loggning för en grupp
 
@@ -120,7 +120,7 @@ az monitor diagnostic-settings create \
   --resource-group myWorkspaces
 ```
 
-Om du inte har en befintlig arbetsyta kan du skapa en med den [Azure-portalen](../azure-monitor/learn/quick-create-workspace.md?toc=%2fazure%2fvirtual-network%2ftoc.json) eller [PowerShell](/powershell/module/az.operationalinsights/new-azoperationalinsightsworkspace). Det finns två typer av loggning som du kan aktivera loggar för. 
+Om du inte har en befintlig arbetsyta kan du skapa en med den [Azure-portalen](../azure-monitor/learn/quick-create-workspace.md?toc=%2fazure%2fvirtual-network%2ftoc.json) eller [PowerShell](/powershell/module/az.operationalinsights/new-azoperationalinsightsworkspace). Det finns två typer av loggning som du kan aktivera loggar för.
 
 Ta bort den kategori som du inte vill logga data för i det föregående kommandot om du bara vill logga data i en kategori eller den andra. Om du vill logga in till en annan [mål](#log-destinations) än en Log Analytics-arbetsyta, använder du parametrarna för en Azure [lagringskonto](../azure-monitor/platform/archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) eller [Event Hub](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
@@ -131,7 +131,7 @@ Visa och analysera loggar. Mer information finns i [visa och analysera loggar](#
 Diagnostics-data kan vara:
 - [Skrivs till ett Azure Storage-konto](../azure-monitor/platform/archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json), för granskning eller manuell granskning. Du kan ange kvarhållningstid (i dagar) med hjälp av resursdiagnostikinställningar.
 - [Strömma till en Event hub](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ska matas in av en tjänst från tredje part eller anpassade analytics-lösning, t.ex Power BI.
-- [Skrivs till Azure Azure Monitor-loggar](../azure-monitor/platform/collect-azure-metrics-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-diagnostics-direct-to-log-analytics).
+- [Skrivs till Azure Monitor-loggar](../azure-monitor/platform/collect-azure-metrics-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-diagnostics-direct-to-log-analytics).
 
 ## <a name="log-categories"></a>Loggkategorier
 
@@ -155,7 +155,7 @@ Händelseloggen innehåller information om vilka NSG-regler tillämpas på virtu
         "primaryIPv4Address":"192.168.1.4",
         "ruleName":"[SECURITY-RULE-NAME]",
         "direction":"[DIRECTION-SPECIFIED-IN-RULE]",
-        "priority":[PRIORITY-SPECIFIED-IN-RULE],
+        "priority":"[PRIORITY-SPECIFIED-IN-RULE]",
         "type":"[ALLOW-OR-DENY-AS-SPECIFIED-IN-RULE]",
         "conditions":{
             "protocols":"[PROTOCOLS-SPECIFIED-IN-RULE]",

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpfr
-ms.openlocfilehash: b3bd157f06c922d96f71627f885fe6de2537987a
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 935c9bbbb3e3d66eeef7258299677b44a32f7a13
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57215301"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57311049"
 ---
 # <a name="use-device-sets-in-your-azure-iot-central-application"></a>Använd enhetsuppsättningar i Azure IoT Central programmet
 
@@ -27,7 +27,7 @@ Skapa en enhetsuppsättning:
 
 1. Välj **enhetsuppsättningar** på den vänstra navigeringsmenyn.
 
-1. Klicka på **+ Ny**.
+1. Välj **+ ny**.
 
     ![Ny enhetsuppsättning](media/howto-use-device-sets-experimental/image1.png)
 
@@ -52,7 +52,7 @@ När du skapar din enhetsuppsättning kan du konfigurera dess **instrumentpanele
 
 1. Välj fliken **Instrumentpanel**.
 
-1. Klicka på **Redigera**.
+1. Välj **Redigera**.
 
     ![Designläge på](media/howto-use-device-sets-experimental/image3.png)
 
@@ -61,7 +61,7 @@ När du skapar din enhetsuppsättning kan du konfigurera dess **instrumentpanele
 1. Lägg till en panel på länken:
     1. Välj **länken** i den högra rutan.
     1. Ge din länk ett **rubrik**.
-    1. Välj en URL som ska öppnas när du klickar på länken.
+    1. Välj en URL som ska öppnas när länken har valts.
     1. Ge din länk till en beskrivning som visas nedan i **rubrik**.
     1. Välj **Spara**.
 
@@ -83,7 +83,7 @@ När du skapar din enhetsuppsättning kan du konfigurera dess **instrumentpanele
         > [!NOTE]
         > Du kan lägga till flera avbildningar, länkar och rutnät.
   
-    1. Klicka på **Klar**.
+    1. Välj **Done** (Klar).
 
 ### <a name="configuring-location-map-in-your-device-sets-dashboard"></a>Konfigurera platskarta i enheten anger instrumentpanel
 
@@ -97,7 +97,7 @@ För att lägga till en platskarta till enheten som anger instrumentpanelen som 
 4. Nu när en operatör vyer enhetsuppsättningar instrumentpanelen, operatören kan se alla paneler som du har konfigurerat, inklusive plats karta som visualiserar enheter plats på ett ögonblick!
 
 > [!NOTE]
-> Du kommer att kunna ändra storlek på kartan för att den har önskad storleken. När du klickar på en PIN-kod på kartan visas information om enhet, namn och plats. Du kan klicka på popup-fönstret att gå till egenskapssidan för enheten.
+> Du kommer att kunna ändra storlek på kartan för att den har önskad storleken. Att välja en PIN-kod i kartan visas information om enhet, namn och plats. Du kan välja popup-fönstret att gå till egenskapssidan för enheten.
 
 ## <a name="configure-the-list-for-your-device-set"></a>Konfigurera en lista för din enhet
 

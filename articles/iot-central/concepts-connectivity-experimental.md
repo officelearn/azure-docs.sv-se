@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: timlt
-ms.openlocfilehash: 76976fef7d5372ad5ebbb063f7af12342b001467
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: 47fde9099ed8172b83f9f12085c5aee219c4716c
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57193780"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57318027"
 ---
 # <a name="device-connectivity-in-azure-iot-central"></a>Enhetsanslutning i Azure IoT Central
 
@@ -90,9 +90,9 @@ Följande steg beskriver hur du ansluter enheter till IoT Central med X.509-cert
       Om du har en säkerhetsöverträdelse eller primära certifikatet upphör att gälla, kan du använda sekundärt certifikat för att minska driftstopp. Du kan fortsätta att etablera enheter med hjälp av sekundärt certifikat när du uppdaterar primära certifikatet.
 
     - Verifiera att du äger certifikat säkerställer att överföring för certifikatet har certifikatets privata nyckel. För att verifiera certifikatet:
-        - Klicka på knappen bredvid **Verifieringskod** att generera en kod.
+        - Välj knappen bredvid **Verifieringskod** att generera en kod.
         - Skapa ett X.509-certifikat för verifiering med verifieringskoden som du genererade i föregående steg. Spara certifikatet som en .cer-fil.
-        - Ladda upp signerad verifieringscertifikatet och klicka på verifiera.
+        - Ladda upp signerad verifieringscertifikatet och välj **Kontrollera**.
 
           ![Inställningar för anslutning](media/concepts-connectivity-experimental/verify-cert.png)
 
@@ -173,7 +173,7 @@ När: en riktig enhet som ansluter till ditt IoT Central-program, dess etablerin
 
 Följande steg beskriver hur du skaffar en anslutningssträng för en enhet:
 
-1. Klicka på **Connect** på den **Device Explorer** att hämta anslutningsinformationen: **Scope-ID**, **enhets-ID**, och **enheten primärnyckel**:
+1. Välj **Connect** på den **Device Explorer** att hämta anslutningsinformationen: **Scope-ID**, **enhets-ID**, och **enheten primärnyckel**:
 
     ![Anslutningsinformation](media/concepts-connectivity-experimental/device-connect.png)
 

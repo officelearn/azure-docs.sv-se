@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 83225af7cb2cbdff4a264693e30b2a813f6ec9c7
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 69b941b97a533740322d9070497de6845e834a16
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57214937"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57315647"
 ---
 # <a name="how-to-use-analytics-to-analyze-your-device-data"></a>Hur du använder analytics för att analysera dina enhetsdata
 
@@ -23,7 +23,7 @@ Azure IoT Central innehåller omfattande analysfunktioner funktioner för att or
 
 ## <a name="querying-your-data"></a>Köra frågor mot dina data
 
-Du måste välja en **enhetsuppsättning**, lägga till en **filter** (valfritt), och välj en **tidsperiod** att komma igång. När du är klar klickar du på *visa resultat* att börja visualisera dina data.
+Du måste välja en **enhetsuppsättning**, lägga till en **filter** (valfritt), och välj en **tidsperiod** att komma igång. När du är klar väljer **visa resultat** att börja visualisera dina data.
 
 * **Enhetsuppsättningar:** En [enhetsuppsättning](howto-use-device-sets-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json) är en användardefinierad grupp av dina enheter. Till exempel Rev. alla kylskåp i Oakland eller alla 2.0 vind syfte.
 

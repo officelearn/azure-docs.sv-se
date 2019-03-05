@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 12/7/2018
 ms.author: victorh
-ms.openlocfilehash: c27c31bc2f21cfae9036849973301a66a437de42
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 7aac6cfca3b5b6f36810d1fd88939929c14ac63b
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54435251"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57308745"
 ---
 # <a name="create-an-application-gateway-with-http-to-https-redirection-using-the-azure-portal"></a>Skapa en Programgateway med HTTP till HTTPS-omdirigering i Azure Portal
 
@@ -29,7 +29,9 @@ I den här artikeln kan du se hur du:
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-Den här självstudien kräver Azure PowerShell Modulversion 3.6 eller senare för att skapa ett certifikat och installera IIS. Kör `Get-Module -ListAvailable AzureRM` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/azurerm/install-azurerm-ps) (Installera Azure PowerShell-modul). För att köra kommandona i den här självstudien, behöver du också köra `Login-AzureRmAccount` att skapa en anslutning till Azure.
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+Den här självstudien kräver Azure PowerShell-Modulversion 1.0.0 eller senare för att skapa ett certifikat och installera IIS. Kör `Get-Module -ListAvailable Az` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-az-ps) (Installera Azure PowerShell-modul). För att köra kommandona i den här självstudien, behöver du också köra `Login-AzAccount` att skapa en anslutning till Azure.
 
 ## <a name="create-a-self-signed-certificate"></a>Skapa ett självsignerat certifikat
 
@@ -184,14 +186,14 @@ Klistra in följande kod i PowerShell-fönstret och tryck på RETUR.
 ```azurepowershell
 $publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/application-gateway/iis/appgatewayurl.ps1"); 
   "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
-$vmss = Get-AzureRmVmss -ResourceGroupName myResourceGroupAG -VMScaleSetName myvmss
-Add-AzureRmVmssExtension -VirtualMachineScaleSet $vmss `
+$vmss = Get-AzVmss -ResourceGroupName myResourceGroupAG -VMScaleSetName myvmss
+Add-AzVmssExtension -VirtualMachineScaleSet $vmss `
   -Name "customScript" `
   -Publisher "Microsoft.Compute" `
   -Type "CustomScriptExtension" `
   -TypeHandlerVersion 1.8 `
   -Setting $publicSettings
-Update-AzureRmVmss `
+Update-AzVmss `
   -ResourceGroupName myResourceGroupAG `
   -Name myvmss `
   -VirtualMachineScaleSet $vmss

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: b5ec8df9ff08aace69680c188f9ab05e944ce891
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 80c98d151c1b42b0c6106d4fa1af921bbb5ef55f
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55734580"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57308405"
 ---
 # <a name="set-up-a-device-template-new-ui-design"></a>Konfigurera en mall för enheten (nytt användargränssnitt)
 
@@ -46,7 +46,7 @@ Från den här enheten mallen en operatör kan skapa och ansluta riktiga fläkt 
 
 1. Navigera till den **enheten mallar** sidan.
 
-2. Klicka för att skapa en tom mall **+**, och ange sedan ett namn, till exempel **kylskåp** för den nya mallen för enheten. Välj sedan **skapa**:
+2. Om du vill skapa en tom mall, Välj **+**, och ange sedan ett namn, till exempel **kylskåp** för den nya mallen för enheten. Välj sedan **skapa**:
 
    ![Med ”kylskåp” som mallnamn på-enhetens informationssida](./media/howto-set-up-template-experimental/devicedetailspage.png)
 
@@ -64,7 +64,7 @@ Mätning av faktisk användning är de data som kommer från din enhet. Du kan l
 
 ### <a name="create-a-telemetry-measurement"></a>Skapa ett telemetri-mått
 
-Om du vill lägga till ett nytt mått i telemetri, klickar du på **+ ny mätning**, Välj **telemetri** som mätningen skriver och ange information i formuläret.
+Om du vill lägga till ett nytt mått i telemetri, Välj **+ ny mätning**, Välj **telemetri** som mätningen skriver och ange information i formuläret.
 
 > [!NOTE]
 > Fältnamn i mallen enheten måste matcha egenskapsnamnen i motsvarande enhet koden för telemetri-mått som ska visas i programmet när en riktig enhet är ansluten. Göra detsamma när du konfigurerar inställningar och egenskaper för enhet kommandon när du fortsätter att definiera enhet-mall i följande avsnitt.
@@ -77,14 +77,14 @@ Du kan exempelvis lägga till en ny temperatur telemetri mätning:
 
 ![”Skapa telemetri” formuläret med information om temperatur mätning](./media/howto-set-up-template-experimental/measurementsform.png)
 
-När du klickar på **spara**, **temperatur** mått visas i listan över mått. I en liten stund visas visualisering av temperaturdata från den simulerade enheten.
+När du har valt **spara**, **temperatur** mått visas i listan över mått. I en liten stund visas visualisering av temperaturdata från den simulerade enheten.
 
 > [!NOTE]
 > Datatypen för måttet telemetri är en flytande peka tal.
 
 ### <a name="create-an-event-measurement"></a>Skapa en händelse
 
-Lägg till en ny händelse mätning, klicka på **+ ny mätning** och välj **händelse** som måttenhet. Ange information den **Skapa händelse** formuläret.
+Om du vill lägga till en ny händelse mätning, Välj **+ ny mätning** och välj **händelse** som måttenhet. Ange information den **Skapa händelse** formuläret.
 
 Ange den **visningsnamn**, **fältnamn**, och **allvarlighetsgrad** information om händelsen. Du kan välja mellan tre tillgängliga nivåer av allvarlighetsgrad: **Fel**, **varning**, och **Information**.
 
@@ -96,9 +96,9 @@ Exempel: du kan lägga till en ny **fläkt meddelar fel** händelse.
 
 ![”Skapa händelse” formuläret med information om en fläkt meddelar händelse](./media/howto-set-up-template-experimental/eventmeasurementsform.png)
 
-När du klickar på **spara**, **fläkt meddelar fel** mått visas i listan över mått. I en liten stund visas visualiseringen av händelsedata från den simulerade enheten.
+När du har valt **spara**, **fläkt meddelar fel** mått visas i listan över mått. I en liten stund visas visualiseringen av händelsedata från den simulerade enheten.
 
-Klicka på ikonen händelse i diagrammet om du vill visa mer information om en händelse:
+Välj ikonen händelse i diagrammet om du vill visa mer information om en händelse:
 
 ![Information om händelsen ”fläkt meddelar fel”](./media/howto-set-up-template-experimental/eventmeasurementsdetail.png)
 
@@ -107,7 +107,7 @@ Klicka på ikonen händelse i diagrammet om du vill visa mer information om en h
 
 ### <a name="create-a-state-measurement"></a>Skapa ett mått för tillstånd
 
-Lägg till ett nytt tillstånd mått, klicka på den **+ ny mätning** och välj **tillstånd** som måttenhet. Ange information den **skapa tillstånd** formuläret.
+Om du vill lägga till ett nytt tillstånd mått, Välj den **+ ny mätning** och välj **tillstånd** som måttenhet. Ange information den **skapa tillstånd** formuläret.
 
 Ange information för **visningsnamn**, **fältnamn**, och **värden** av tillstånd. Varje värde kan också ha ett namn som ska användas när värdet visas i diagram och tabeller.
 
@@ -119,9 +119,9 @@ Exempel: du kan lägga till en ny **fläkt läge** tillstånd som har två möjl
 
 ![”Redigeringsläge” formuläret med information om fläkt läge](./media/howto-set-up-template-experimental/statemeasurementsform.png)
 
-När du klickar på **spara**, **fläkt läge** tillstånd mått visas i listan över mått. En kort stund har du se visualisering av systemtillstånd från den simulerade enheten.
+När du har valt **spara**, **fläkt läge** tillstånd mått visas i listan över mått. En kort stund har du se visualisering av systemtillstånd från den simulerade enheten.
 
-Om enheten skickar för många datapunkter i en liten varaktighet, visas mätningen tillstånd med ett annat visuellt objekt. Klicka på diagrammet för att visa alla datapunkter inom den tidsperioden i kronologisk ordning. Du kan också begränsa tidsintervall för mätningen ritas i diagrammet.
+Om enheten skickar för många datapunkter i en liten varaktighet, visas mätningen tillstånd med ett annat visuellt objekt. Välj diagrammet för att visa alla datapunkter inom den tidsperioden i kronologisk ordning. Du kan också begränsa tidsintervall för mätningen ritas i diagrammet.
 
 > [!NOTE]
 > Datatypen för måttet tillstånd är sträng.
@@ -138,7 +138,7 @@ Inställningarna kan vara i något av tre tillstånd. Enheten rapporterar tillst
 
 - **Fel**: Enheten har returnerat ett fel.
 
-Du kan till exempel lägga till en ny fläkt hastighet inställning genom att klicka på **inställningar** och ange i den nya **nummer** inställningen:
+Du kan till exempel lägga till en ny fläkt hastighet inställning genom att välja **inställningar** och ange i den nya **nummer** inställningen:
 
 | Visningsnamn  | Fältnamn    |  Enheter  | Decimals |Inledande|
 | --------------| ------------- |---------| ---------|---- |
@@ -198,7 +198,7 @@ Du kan skapa en plats-egenskap som en programegenskap med hjälp av Azure Maps i
    - **Platsen som en adress**
    - **Platsen som koordinater**
 
-4. Klicka på **Spara**. En operatör kan du uppdatera platsvärdet i den **Device Explorer**.
+4. Välj **Spara**. En operatör kan du uppdatera platsvärdet i den **Device Explorer**.
 
 #### <a name="add-location-as-a-device-property"></a>Lägg till plats som en enhetsegenskap
 
@@ -231,7 +231,7 @@ Hur skiljer sig ett kommando från en inställning?
 
 * **Kommandot**: Du kan använda kommandon för att omedelbart köra ett kommando på enheten via en fjärranslutning från IoT Central. Om en enhet inte är ansluten kommandot tidsgränsen och misslyckas. Exempelvis kan du starta om en enhet.
 
-Exempel: du kan lägga till en ny **Echo** kommandot genom att välja den **kommandon** och sedan klicka på **+ nytt kommando**, och ange information om nya kommandot:
+Exempel: du kan lägga till en ny **Echo** kommandot genom att välja den **kommandon** och sedan välja **+ nytt kommando**, och ange information om nya kommandot:
 
 | Visningsnamn  | Fältnamn | Standardvärde för tidsgräns | Datatyp |
 | --------------| -----------|---------------- | --------- |

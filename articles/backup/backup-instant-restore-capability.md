@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: sogup
-ms.openlocfilehash: 3f6d614d1487174a361d562212c08ec5b3aaf220
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 893e0f5738a013f22404d7ccfdd9a73647a511f6
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56960028"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57316089"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Få förbättrad säkerhetskopian och återställer prestanda med Azure Backup-omedelbar återställning kapacitet
 
@@ -78,7 +78,7 @@ Du kan också gå till **egenskaper** sidan i valvet för att hämta den **uppgr
 
 
 ## <a name="configure-snapshot-retention-using-azure-portal"></a>Konfigurera ögonblicksbild kvarhållning av säkerhetskopior med hjälp av Azure portal
-Det här alternativet är för närvarande tillgängligt i **USA, västra centrala**, **södra**, **östra**, och **Nordeuropa**.
+Det här alternativet är för närvarande tillgängligt i **USA, västra centrala**, **södra**, **östra**, **Nordeuropa**,  **Kanada, centrala**, **Östra Kanada**, **Frankrike, centrala**, **Frankrike, södra**, **centrala Korea**,  **Södra Korea**, **Storbritannien, södra 2**, **Storbritannien, norra**, **Storbritannien, södra**, och **Storbritannien, västra**.
 
 I Azure-portalen för de uppgraderade användarna, visas ett fält har lagts till i den **VM Backup-principen** bladet under den **omedelbar återställning** avsnittet. Du kan ändra kvarhållningsvaraktighetens ögonblicksbild från den **VM säkerhetskopieringsprincip** bladet för alla virtuella datorer som är associerade med principen för specifika säkerhetskopiering.
 

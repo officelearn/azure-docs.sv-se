@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 10/09/2018
-ms.openlocfilehash: ebe2af858aafaff62a7e3b629c0a8c84bbf49584
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.date: 03/05/2019
+ms.openlocfilehash: be6c31840abcf2503293c381aad2848afebe3d9b
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53721656"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57337132"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-db-for-mysql"></a>Begränsningar för kända problem/migrering med online migreringar till Azure DB för MySQL
 
@@ -80,7 +80,7 @@ Stora objekt (LOB)-kolumner är kolumner som kan växa i storlek. För MySQL, me
     SELECT max(length(description)) as LEN from catalog;
     ```
 
-    **Lösning**: Om du har LOB-objekt som är större än 32 KB, kontakta teknikteamet på [ dmsfeedback@microsoft.com ](mailto:dmsfeedback@microsoft.com). 
+    **Lösning**: Om du har LOB-objekt som är större än 32 KB, kontakta teknikteamet på [be Azure Databasmigreringar](mailto:AskAzureDatabaseMigrations@service.microsoft.com). 
 
 ## <a name="other-limitations"></a>Andra begränsningar
 - En sträng med lösenord som har inledande och avslutande klammerparentes {} i början och slutet av lösenordssträngen stöds inte. Den här begränsningen gäller för båda ansluter till källan MySQL och Azure-måldatabas för MySQL.

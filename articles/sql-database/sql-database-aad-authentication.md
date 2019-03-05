@@ -12,12 +12,12 @@ ms.author: mireks
 ms.reviewer: vanto, carlrab
 manager: craigg
 ms.date: 02/20/2019
-ms.openlocfilehash: 4f8ee5a3a72fc143822a71bcb933f34e2f371019
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 1318cd3d1c0c51889cc70b6836d06d6d6ee70c24
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453145"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57308388"
 ---
 # <a name="use-azure-active-directory-authentication-for-authentication-with-sql"></a>Använda Azure Active Directory-autentisering för autentisering med SQL
 
@@ -81,7 +81,7 @@ Om du vill skapa en oberoende databasanvändare i Azure SQL Database Managed Ins
 - Följande medlemmar av Azure AD kan etableras i Azure SQL-server eller SQL Data Warehouse:
 
   - Interna medlemmar: En medlem som skapats i Azure AD i den hanterade domänen eller en kund-domän. Mer information finns i [lägga till ditt eget domännamn i Azure AD](../active-directory/active-directory-domains-add-azure-portal.md).
-  - Federerad domänmedlemmar: En medlem som skapats i Azure AD med en federerad domän. Mer information finns i [Microsoft Azure har nu stöd för federation med Windows Server Active Directory](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/).
+  - Federerad domänmedlemmar: En medlem som skapats i Azure AD med en federerad domän. Mer information finns i [Microsoft Azure har nu stöd för federation med Windows Server Active Directory](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/).
   - Importerade medlemmar från andra Azure AD som är interna eller externa domänmedlemmar.
   - Active Directory-grupper skapas som säkerhetsgrupper.
 
@@ -105,11 +105,11 @@ Om du vill skapa en oberoende databasanvändare i Azure SQL Database Managed Ins
 - Ange Azure AD-server-huvudkonton (inloggningar) mappas till en Azure AD-grupp som databasens ägare inte stöds i [instanser som hanteras av](sql-database-managed-instance.md).
     - En utökning av det här är att när en grupp har lagts till som en del av den `dbcreator` serverrollen användare från den här gruppen kan ansluta till den hanterade instansen och skapa nya databaser, men kommer inte att kunna få åtkomst till databasen. Det beror på att den nya databasägaren är SA och inte Azure AD-användare. Det här problemet inte manifest om den enskilda användaren läggs till i `dbcreator` serverrollen.
 - SQL Agent hanterings- och jobb körning har stöd för Azure AD-server-huvudkonton (inloggningar).
-- Säkerhetskopiering av databas och återställning kan utföras av Azure AD-server-huvudkonton (inloggningar).
+- Åtgärder för databassäkerhetskopiering och -återställning kan köras av Azure AD-serverhuvudkonton (inloggningar).
 - Granskning av alla instruktioner som är relaterade till Azure AD-server-huvudkonton (inloggningar) och autentiseringshändelser stöds.
 - DAC-anslutning för Azure AD-server-huvudkonton (inloggningar) som är medlemmar i serverrollen sysadmin stöds.
     - Stöds via SQLCMD-verktyget och SQL Server Management Studio.
-- Inloggningsutlösare har stöd för inloggningshändelser som kommer från Azure AD-server-huvudkonton (inloggningar).
+- Inloggningsutlösare stöds för inloggningshändelser som kommer från Azure AD-serverhuvudkonton (inloggningar).
 - Service Broker och DB e-post kan konfigureras med ett huvudnamn för Azure AD-server (inloggning).
 
 

@@ -9,12 +9,12 @@ ms.topic: troubleshooting
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 0d49045eea5a65461b142262bae83b9b8e7f84c8
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: ff68bfc9cdd13563fa8f938870742e9e9ceac9c2
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56816597"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57313267"
 ---
 # <a name="troubleshoot-errors-using-azure-blueprints"></a>Felsöka med hjälp av Azure skisser
 
@@ -65,7 +65,7 @@ Skicka en skissparametern som använder en funktion som `[resourceGroup().tags.m
 
 #### <a name="resolution"></a>Lösning
 
-Om du vill skicka en funktion via som en parameter, escape-hela strängen med `[` så att skissparametern ser ut som `[[resourceGroup().tags.myTag]`. Escape-tecknet orsakar skisser värdet ska behandlas som en sträng vid bearbetning av skissen. Skisser placerar funktionen på den artefakt så att den kan vara dynamiska som förväntat.
+Om du vill skicka en funktion via som en parameter, escape-hela strängen med `[` så att skissparametern ser ut som `[[resourceGroup().tags.myTag]`. Escape-tecknet orsakar skisser värdet ska behandlas som en sträng vid bearbetning av skissen. Skisser placerar funktionen på den artefakt så att den kan vara dynamiska som förväntat. Mer information finns i [mall filstruktur - syntax](../../../azure-resource-manager/resource-group-authoring-templates.md#syntax).
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 12/20/2018
 ms.author: absha
-ms.openlocfilehash: 4784ac8ac619a1b9a00f2e869d796d05dd9658df
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 4747d824dcf531ed883d476a0daad182ea081c39
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54434418"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57314457"
 ---
 # <a name="tutorial-create-an-application-gateway-and-rewrite-http-headers"></a>Självstudier: Skapa en Programgateway och skriv om HTTP-huvuden
 
@@ -37,7 +37,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Den här självstudien kräver att du kör Azure PowerShell lokalt. Du måste ha Az Modulversion 1.0.0 eller senare. Kör `Import-Module Az` och sedan`Get-Module Az` att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) (Installera Azure PowerShell-modul). När du har verifierat PowerShell-versionen kör du `Login-AzAccount` för att skapa en anslutning till Azure.
+Den här självstudien kräver att du kör Azure PowerShell lokalt. Du måste ha Az Modulversion 1.0.0 eller senare. Kör `Import-Module Az` och sedan`Get-Module Az` att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps) (Installera Azure PowerShell-modul). När du har verifierat PowerShell-versionen kör du `Login-AzAccount` för att skapa en anslutning till Azure.
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
@@ -162,7 +162,7 @@ $appgw = New-AzApplicationGateway -Name "AutoscalingAppGw" -Zone 1,2,3 -Resource
 
 ## <a name="test-the-application-gateway"></a>Testa programgatewayen
 
-Använd Get-AzureRmPublicIPAddress till att hämta den offentliga IP-adressen för programgatewayen. Kopiera den offentliga IP-adressen eller DNS-namnet och klistra in det i webbläsarens adressfält.
+Använd Get-AzPublicIPAddress för att hämta den offentliga IP-adressen för application gateway. Kopiera den offentliga IP-adressen eller DNS-namnet och klistra in det i webbläsarens adressfält.
 
 ```azurepowershell
 Get-AzPublicIPAddress -ResourceGroupName $rg -Name AppGwVIP

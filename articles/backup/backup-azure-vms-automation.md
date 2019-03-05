@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 10/20/2018
+ms.date: 03/01/2019
 ms.author: raynew
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4dff64010b8b9d57810e37866f69cd5ee203e66f
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 2898a86aaa86f8f0f5681e10a806cbca700404df
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56888363"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57309646"
 ---
 # <a name="use-powershell-to-back-up-and-restore-virtual-machines"></a>Använd PowerShell för att säkerhetskopiera och återställa virtuella datorer
 
@@ -41,12 +41,12 @@ Om du vill visa AzureRm.RecoveryServices.Backup PowerShell cmdlet-referens, se d
 
 Börja:
 
-1. [Hämta den senaste versionen av PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) (den lägsta versionen är: 1.4.0)
+1. [Hämta den senaste versionen av PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps) (den lägsta versionen är Az 1.3.0)
 
 2. Hitta Azure Backup PowerShell-cmdletar tillgängliga genom att skriva följande kommando:
 
     ```powershell
-    Get-Command *azurermrecoveryservices*
+    Get-Command *Azrecoveryservices*
     ```    
     Alias och cmdlets för Azure Backup, Azure Site Recovery och Recovery Services-valv visas. Följande bild är ett exempel på vad som ska visas. Det är inte en fullständig lista över cmdletar.
 
@@ -60,18 +60,18 @@ Börja:
 4. Koppla den prenumeration du vill använda med kontot, eftersom ett konto kan ha flera prenumerationer:
 
     ```powershell
-    Select-AzureRmSubscription -SubscriptionName $SubscriptionName
+    Select-AzSubscription -SubscriptionName $SubscriptionName
     ```
 
 5. Om du använder Azure Backup för första gången, måste du använda den **[Register-AzureRmResourceProvider](https://docs.microsoft.com/powershell/module/azurerm.resources/register-azurermresourceprovider)** cmdlet för att registrera Azure Recovery Services-providern med din prenumeration.
 
     ```powershell
-    Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
+    Register-AzResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
     ```
 
 6. Du kan verifiera att Providers, registrerad med följande kommandon:
     ```powershell
-    Get-AzureRmResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
+    Get-AzResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
     ```
     I utdata från kommandot den **RegistrationState** bör ändras till **registrerad**. Om inte, kör bara det **[Register-AzureRmResourceProvider](https://docs.microsoft.com/powershell/module/azurerm.resources/register-azurermresourceprovider)** cmdlet igen.
 
@@ -90,18 +90,18 @@ Följande steg vägleder dig genom att skapa ett Recovery Services-valv. Recover
 1. Recovery Services-valvet är en Resource Manager-resurs, så du måste placera den i en resursgrupp. Du kan använda en befintlig resursgrupp eller skapa en resursgrupp med det **[New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup)** cmdlet. När du skapar en resursgrupp kan du ange namn och plats för resursgruppen.  
 
     ```powershell
-    New-AzureRmResourceGroup -Name "test-rg" -Location "West US"
+    New-AzResourceGroup -Name "test-rg" -Location "West US"
     ```
 2. Använd den **[New-AzureRmRecoveryServicesVault](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices/new-azurermrecoveryservicesvault)** cmdlet för att skapa Recovery Services-valvet. Glöm inte att ange samma plats för valvet som användes för resursgruppen.
 
     ```powershell
-    New-AzureRmRecoveryServicesVault -Name "testvault" -ResourceGroupName "test-rg" -Location "West US"
+    New-AzRecoveryServicesVault -Name "testvault" -ResourceGroupName "test-rg" -Location "West US"
     ```
 3. Ange vilken typ av lagringsredundans ska användas. Du kan använda [lokalt Redundant lagring (LRS)](../storage/common/storage-redundancy-lrs.md) eller [geografiskt Redundant lagring (GRS)](../storage/common/storage-redundancy-grs.md). I följande exempel visas alternativet - BackupStorageRedundancy för testvault anges till GeoRedundant.
 
     ```powershell
-    $vault1 = Get-AzureRmRecoveryServicesVault -Name "testvault"
-    Set-AzureRmRecoveryServicesBackupProperties  -Vault $vault1 -BackupStorageRedundancy GeoRedundant
+    $vault1 = Get-AzRecoveryServicesVault -Name "testvault"
+    Set-AzRecoveryServicesBackupProperties  -Vault $vault1 -BackupStorageRedundancy GeoRedundant
     ```
 
    > [!TIP]
@@ -114,7 +114,7 @@ Följande steg vägleder dig genom att skapa ett Recovery Services-valv. Recover
 Du kan visa alla valv i prenumerationen  **[Get-AzureRmRecoveryServicesVault](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices/get-azurermrecoveryservicesvault)**:
 
 ```powershell
-Get-AzureRmRecoveryServicesVault
+Get-AzRecoveryServicesVault
 ```
 
 Utdata liknar följande exempel kan du se den associerade ResourceGroupName och plats har angetts.
@@ -139,7 +139,7 @@ Använd Recovery Services-valvet för att skydda dina virtuella datorer. Innan d
 Innan du aktiverar skydd på en virtuell dator använder **[Set-AzureRmRecoveryServicesVaultContext](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices/set-azurermrecoveryservicesvaultcontext)** att ställa in valvets sammanhang. När valvet sammanhang är inställt gäller det alla efterkommande cmdletar. I följande exempel anger valvkontexten för valvet *testvault*.
 
 ```powershell
-Get-AzureRmRecoveryServicesVault -Name "testvault" | Set-AzureRmRecoveryServicesVaultContext
+Get-AzRecoveryServicesVault -Name "testvault" | Set-AzRecoveryServicesVaultContext
 ```
 
 ### <a name="create-a-protection-policy"></a>Skapa en skyddsprincip
@@ -149,7 +149,7 @@ När du skapar ett Recovery Services-valv medföljer standardskydd och principer
 Använd **[Get-AzureRmRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupprotectionpolicy)** att visa vilka skyddsprinciper som är tillgängliga i valvet. Du kan använda denna cmdlet för att hämta en specifik princip eller visa principerna som associeras med en Arbetsbelastningstyp av. I följande exempel hämtar principer för Arbetsbelastningstyp, AzureVM.
 
 ```powershell
-Get-AzureRmRecoveryServicesBackupProtectionPolicy -WorkloadType "AzureVM"
+Get-AzRecoveryServicesBackupProtectionPolicy -WorkloadType "AzureVM"
 ```
 
 Utdata ser ut ungefär så här:
@@ -165,12 +165,12 @@ DefaultPolicy        AzureVM            AzureVM              4/14/2016 5:00:00 P
 >
 >
 
-En säkerhetskopiering protection-princip är associerad med minst en bevarandeprincip. Bevarandeprincipen anger hur lång tid en återställningspunkt sparas innan de tas bort. Använd **[Get-AzureRmRecoveryServicesBackupRetentionPolicyObject](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupretentionpolicyobject)** att visa standardkvarhållningsprincip.  På samma sätt du kan använda **[Get-AzureRmRecoveryServicesBackupSchedulePolicyObject](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupschedulepolicyobject)** att hämta schemat standardprincipen. Den **[New-AzureRmRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/new-azurermrecoveryservicesbackupprotectionpolicy)** cmdlet skapar ett PowerShell-objekt som innehåller information om principen för säkerhetskopiering. Principobjekt schema och kvarhållning används som indata till den **[New-AzureRmRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/new-azurermrecoveryservicesbackupprotectionpolicy)** cmdlet. I följande exempel lagrar schema-principen och bevarandeprincipen i variabler. Exemplet använder dessa variabler för att definiera parametrar när du skapar en skyddsprincip *NewPolicy*.
+En säkerhetskopiering protection-princip är associerad med minst en bevarandeprincip. Bevarandeprincipen anger hur lång tid en återställningspunkt sparas innan de tas bort. Använd **[Get-AzureRmRecoveryServicesBackupRetentionPolicyObject](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupretentionpolicyobject)** att visa standardkvarhållningsprincip. På samma sätt du kan använda **[Get-AzureRmRecoveryServicesBackupSchedulePolicyObject](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupschedulepolicyobject)** att hämta schemat standardprincipen. Den **[New-AzureRmRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/new-azurermrecoveryservicesbackupprotectionpolicy)** cmdlet skapar ett PowerShell-objekt som innehåller information om principen för säkerhetskopiering. Principobjekt schema och kvarhållning används som indata till den **[New-AzureRmRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/new-azurermrecoveryservicesbackupprotectionpolicy)** cmdlet. I följande exempel lagrar schema-principen och bevarandeprincipen i variabler. Exemplet använder dessa variabler för att definiera parametrar när du skapar en skyddsprincip *NewPolicy*.
 
 ```powershell
-$schPol = Get-AzureRmRecoveryServicesBackupSchedulePolicyObject -WorkloadType "AzureVM"
-$retPol = Get-AzureRmRecoveryServicesBackupRetentionPolicyObject -WorkloadType "AzureVM"
-New-AzureRmRecoveryServicesBackupProtectionPolicy -Name "NewPolicy" -WorkloadType "AzureVM" -RetentionPolicy $retPol -SchedulePolicy $schPol
+$schPol = Get-AzRecoveryServicesBackupSchedulePolicyObject -WorkloadType "AzureVM"
+$retPol = Get-AzRecoveryServicesBackupRetentionPolicyObject -WorkloadType "AzureVM"
+New-AzRecoveryServicesBackupProtectionPolicy -Name "NewPolicy" -WorkloadType "AzureVM" -RetentionPolicy $retPol -SchedulePolicy $schPol
 ```
 
 Utdata ser ut ungefär så här:
@@ -190,24 +190,24 @@ I följande exempel aktiverar skyddet för objektet, V2VM, använder principen N
 Att aktivera skydd på **icke-krypterade Resurshanterar-VM**:
 
 ```powershell
-$pol = Get-AzureRmRecoveryServicesBackupProtectionPolicy -Name "NewPolicy"
-Enable-AzureRmRecoveryServicesBackupProtection -Policy $pol -Name "V2VM" -ResourceGroupName "RGName1"
+$pol = Get-AzRecoveryServicesBackupProtectionPolicy -Name "NewPolicy"
+Enable-AzRecoveryServicesBackupProtection -Policy $pol -Name "V2VM" -ResourceGroupName "RGName1"
 ```
 
 Att aktivera skydd på **krypterade virtuella datorer (krypterad med BEK och KEK)**, måste du ge Azure Backup-tjänstbehörighet att läsa nycklar och hemligheter från nyckelvalvet.
 
 ```powershell
-Set-AzureRmKeyVaultAccessPolicy -VaultName "KeyVaultName" -ResourceGroupName "RGNameOfKeyVault" -PermissionsToKeys backup,get,list -PermissionsToSecrets get,list -ServicePrincipalName 262044b1-e2ce-469f-a196-69ab7ada62d3
-$pol = Get-AzureRmRecoveryServicesBackupProtectionPolicy -Name "NewPolicy"
-Enable-AzureRmRecoveryServicesBackupProtection -Policy $pol -Name "V2VM" -ResourceGroupName "RGName1"
+Set-AzKeyVaultAccessPolicy -VaultName "KeyVaultName" -ResourceGroupName "RGNameOfKeyVault" -PermissionsToKeys backup,get,list -PermissionsToSecrets get,list -ServicePrincipalName 262044b1-e2ce-469f-a196-69ab7ada62d3
+$pol = Get-AzRecoveryServicesBackupProtectionPolicy -Name "NewPolicy"
+Enable-AzRecoveryServicesBackupProtection -Policy $pol -Name "V2VM" -ResourceGroupName "RGName1"
 ```
 
 Att aktivera skydd på **krypterade virtuella datorer (krypterad endast med BEK)**, måste du ge behörighet för Azure Backup-tjänsten ska kunna läsa hemligheter i key Vault.
 
 ```powershell
-Set-AzureRmKeyVaultAccessPolicy -VaultName "KeyVaultName" -ResourceGroupName "RGNameOfKeyVault" -PermissionsToSecrets backup,get,list -ServicePrincipalName 262044b1-e2ce-469f-a196-69ab7ada62d3
-$pol = Get-AzureRmRecoveryServicesBackupProtectionPolicy -Name "NewPolicy"
-Enable-AzureRmRecoveryServicesBackupProtection -Policy $pol -Name "V2VM" -ResourceGroupName "RGName1"
+Set-AzKeyVaultAccessPolicy -VaultName "KeyVaultName" -ResourceGroupName "RGNameOfKeyVault" -PermissionsToSecrets backup,get,list -ServicePrincipalName 262044b1-e2ce-469f-a196-69ab7ada62d3
+$pol = Get-AzRecoveryServicesBackupProtectionPolicy -Name "NewPolicy"
+Enable-AzRecoveryServicesBackupProtection -Policy $pol -Name "V2VM" -ResourceGroupName "RGName1"
 ```
 
 > [!NOTE]
@@ -218,8 +218,8 @@ Enable-AzureRmRecoveryServicesBackupProtection -Policy $pol -Name "V2VM" -Resour
 För att aktivera skydd på en klassisk virtuell dator:
 
 ```powershell
-$pol = Get-AzureRmRecoveryServicesBackupProtectionPolicy -Name "NewPolicy"
-Enable-AzureRmRecoveryServicesBackupProtection -Policy $pol -Name "V1VM" -ServiceName "ServiceName1"
+$pol = Get-AzRecoveryServicesBackupProtectionPolicy -Name "NewPolicy"
+Enable-AzRecoveryServicesBackupProtection -Policy $pol -Name "V1VM" -ServiceName "ServiceName1"
 ```
 
 ### <a name="modify-a-protection-policy"></a>Ändra en skyddsprincip
@@ -229,10 +229,10 @@ Använd för att ändra skyddsprincipen [Set-AzureRmRecoveryServicesBackupProtec
 I följande exempel ändras återställningspunkten och 365 dagar.
 
 ```powershell
-$retPol = Get-AzureRmRecoveryServicesBackupRetentionPolicyObject -WorkloadType "AzureVM"
+$retPol = Get-AzRecoveryServicesBackupRetentionPolicyObject -WorkloadType "AzureVM"
 $retPol.DailySchedule.DurationCountInDays = 365
-$pol = Get-AzureRmRecoveryServicesBackupProtectionPolicy -Name "NewPolicy"
-Set-AzureRmRecoveryServicesBackupProtectionPolicy -Policy $pol  -RetentionPolicy $RetPol
+$pol = Get-AzRecoveryServicesBackupProtectionPolicy -Name "NewPolicy"
+Set-AzRecoveryServicesBackupProtectionPolicy -Policy $pol  -RetentionPolicy $RetPol
 ```
 
 ## <a name="trigger-a-backup"></a>Utlösa en säkerhetskopia
@@ -240,9 +240,9 @@ Set-AzureRmRecoveryServicesBackupProtectionPolicy -Policy $pol  -RetentionPolicy
 Använd **[Backup-AzureRmRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/backup-azurermrecoveryservicesbackupitem)** att utlösa ett säkerhetskopieringsjobb. Om det är den första säkerhetskopieringen är det en fullständig säkerhetskopia. Efterföljande säkerhetskopieringar ta en inkrementell kopia. Se till att använda **[Set-AzureRmRecoveryServicesVaultContext](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices/set-azurermrecoveryservicesvaultcontext)** till anger valvkontexten innan du utlöser säkerhetskopieringsjobbet. I följande exempel förutsätter att valvkontexten har redan angetts.
 
 ```powershell
-$namedContainer = Get-AzureRmRecoveryServicesBackupContainer -ContainerType "AzureVM" -Status "Registered" -FriendlyName "V2VM"
-$item = Get-AzureRmRecoveryServicesBackupItem -Container $namedContainer -WorkloadType "AzureVM"
-$job = Backup-AzureRmRecoveryServicesBackupItem -Item $item
+$namedContainer = Get-AzRecoveryServicesBackupContainer -ContainerType "AzureVM" -Status "Registered" -FriendlyName "V2VM"
+$item = Get-AzRecoveryServicesBackupItem -Container $namedContainer -WorkloadType "AzureVM"
+$job = Backup-AzRecoveryServicesBackupItem -Item $item
 ```
 
 Utdata ser ut ungefär så här:
@@ -263,7 +263,7 @@ V2VM              Backup              InProgress          4/23/2016             
 Du kan övervaka långvariga åtgärder, till exempel säkerhetskopieringsjobb, utan att använda Azure-portalen. Hämta status för ett pågående jobb med den **[Get-AzureRmRecoveryservicesBackupJob](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupjob)** cmdlet. Denna cmdlet hämtar säkerhetskopieringsjobb för en specifik valvet och att valvet har angetts i valvets sammanhang. I följande exempel hämtar status för ett pågående jobb som en matris och lagrar status i variabeln $joblist.
 
 ```powershell
-$joblist = Get-AzureRmRecoveryservicesBackupJob –Status "InProgress"
+$joblist = Get-AzRecoveryservicesBackupJob –Status "InProgress"
 $joblist[0]
 ```
 
@@ -278,7 +278,7 @@ V2VM             Backup               InProgress            4/23/2016           
 I stället för att avsöka dessa jobb för slutförande, som är onödiga ytterligare kod – Använd den **[Wait-AzureRmRecoveryServicesBackupJob](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/wait-azurermrecoveryservicesbackupjob)** cmdlet. Denna cmdlet pausar körningen tills jobbet har slutförts eller det angivna tidsgränsvärdet har nåtts.
 
 ```powershell
-Wait-AzureRmRecoveryServicesBackupJob -Job $joblist[0] -Timeout 43200
+Wait-AzRecoveryServicesBackupJob -Job $joblist[0] -Timeout 43200
 ```
 
 ## <a name="restore-an-azure-vm"></a>Återställa en Azure virtuell dator
@@ -308,8 +308,8 @@ De grundläggande stegen för att återställa en Azure VM är:
 Starta från behållaren i valvet för att hämta PowerShell-objektet som identifierar objektet direkt säkerhetskopiering, och gå nedåt i objekthierarkin. För att markera den behållare som representerar den virtuella datorn använder den **[Get-AzureRmRecoveryServicesBackupContainer](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupcontainer)** cmdlet och skicka vidare som att den **[ Get-AzureRmRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupitem)** cmdlet.
 
 ```powershell
-$namedContainer = Get-AzureRmRecoveryServicesBackupContainer  -ContainerType "AzureVM" -Status "Registered" -FriendlyName "V2VM"
-$backupitem = Get-AzureRmRecoveryServicesBackupItem -Container $namedContainer  -WorkloadType "AzureVM"
+$namedContainer = Get-AzRecoveryServicesBackupContainer  -ContainerType "AzureVM" -Status "Registered" -FriendlyName "V2VM"
+$backupitem = Get-AzRecoveryServicesBackupItem -Container $namedContainer  -WorkloadType "AzureVM"
 ```
 
 ### <a name="choose-a-recovery-point"></a>Välj en återställningspunkt
@@ -321,7 +321,7 @@ I följande skript, variabeln, **$rp**, är en matris med återställningspunkte
 ```powershell
 $startDate = (Get-Date).AddDays(-7)
 $endDate = Get-Date
-$rp = Get-AzureRmRecoveryServicesBackupRecoveryPoint -Item $backupitem -StartDate $startdate.ToUniversalTime() -EndDate $enddate.ToUniversalTime()
+$rp = Get-AzRecoveryServicesBackupRecoveryPoint -Item $backupitem -StartDate $startdate.ToUniversalTime() -EndDate $enddate.ToUniversalTime()
 $rp[0]
 ```
 
@@ -348,7 +348,7 @@ Använd den **[Restore-AzureRmRecoveryServicesBackupItem](https://docs.microsoft
 Att återställa diskar och konfigurationsinformation:
 
 ```powershell
-$restorejob = Restore-AzureRmRecoveryServicesBackupItem -RecoveryPoint $rp[0] -StorageAccountName "DestAccount" -StorageAccountResourceGroupName "DestRG"
+$restorejob = Restore-AzRecoveryServicesBackupItem -RecoveryPoint $rp[0] -StorageAccountName "DestAccount" -StorageAccountResourceGroupName "DestRG"
 $restorejob
 ```
 
@@ -359,7 +359,7 @@ $restorejob
 >
 >
 
-Ange en extra parameter **TargetResourceGroupName** ange RG som hanterade diskar kommer att återställas. 
+Ange en extra parameter **TargetResourceGroupName** ange RG som hanterade diskar kommer att återställas.
 
 > [!NOTE]
 > Vi rekommenderar starkt att använda den **TargetResourceGroupName** parametern för att återställa hanterade diskar eftersom det leder till betydande prestandaförbättringar. Dessutom från Az för Azure Powershell-modulen 1.0 och senare, den här parametern är obligatorisk vid en återställning med hanterade diskar
@@ -368,7 +368,7 @@ Ange en extra parameter **TargetResourceGroupName** ange RG som hanterade diskar
 
 
 ```powershell
-$restorejob = Restore-AzureRmRecoveryServicesBackupItem -RecoveryPoint $rp[0] -StorageAccountName "DestAccount" -StorageAccountResourceGroupName "DestRG" -TargetResourceGroupName "DestRGforManagedDisks"
+$restorejob = Restore-AzRecoveryServicesBackupItem -RecoveryPoint $rp[0] -StorageAccountName "DestAccount" -StorageAccountResourceGroupName "DestRG" -TargetResourceGroupName "DestRGforManagedDisks"
 ```
 
 Den **VMConfig.JSON** filen kommer att återställas till storage-kontot och de hanterade diskarna kommer att återställas till det angivna målet RG.
@@ -384,14 +384,14 @@ V2VM              Restore           InProgress           4/23/2016 5:00:30 PM   
 Använd den **[Wait-AzureRmRecoveryServicesBackupJob](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/wait-azurermrecoveryservicesbackupjob)** cmdlet för att vänta på att återställningsjobbet är klart.
 
 ```powershell
-Wait-AzureRmRecoveryServicesBackupJob -Job $restorejob -Timeout 43200
+Wait-AzRecoveryServicesBackupJob -Job $restorejob -Timeout 43200
 ```
 
 När Återställningsjobbet har slutförts kan du använda den **[Get-AzureRmRecoveryServicesBackupJobDetails](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupjobdetails)** cmdlet för att hämta information om återställningen. Egenskapen JobDetails har information som behövs för att återskapa den virtuella datorn.
 
 ```powershell
-$restorejob = Get-AzureRmRecoveryServicesBackupJob -Job $restorejob
-$details = Get-AzureRmRecoveryServicesBackupJobDetails -Job $restorejob
+$restorejob = Get-AzRecoveryServicesBackupJob -Job $restorejob
+$details = Get-AzRecoveryServicesBackupJobDetails -Job $restorejob
 ```
 
 När du har återställt diskarna, går du till nästa avsnitt för att skapa den virtuella datorn.
@@ -418,7 +418,7 @@ De resulterande jobbinformation ger mall-URI som kan efterfrågas och distribuer
 Distribuera mallen för att skapa en ny virtuell dator som beskrivs bara [här](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy).
 
 ```powershell
-New-AzureRmResourceGroupDeployment -Name ExampleDeployment ResourceGroupName ExampleResourceGroup -TemplateUri $templateBlobURI -storageAccountType Standard_GRS
+New-AzResourceGroupDeployment -Name ExampleDeployment ResourceGroupName ExampleResourceGroup -TemplateUri $templateBlobURI -storageAccountType Standard_GRS
 ```
 
 I följande avsnitt visas hur du skapar en virtuell dator med ”VMConfig”-fil.
@@ -438,7 +438,7 @@ I följande avsnitt visas hur du skapar en virtuell dator med ”VMConfig”-fil
 2. Konfigurera Azure storage-kontext och återställa JSON-konfigurationsfil.
 
    ```powershell
-   Set-AzureRmCurrentStorageAccount -Name $storageaccountname -ResourceGroupName "testvault"
+   Set-AzCurrentStorageAccount -Name $storageaccountname -ResourceGroupName "testvault"
    $destination_path = "C:\vmconfig.json"
    Get-AzureStorageBlobContent -Container $containerName -Blob $configBlobName -Destination $destination_path
    $obj = ((Get-Content -Path $destination_path -Raw -Encoding Unicode)).TrimEnd([char]0x00) | ConvertFrom-Json
@@ -447,7 +447,7 @@ I följande avsnitt visas hur du skapar en virtuell dator med ”VMConfig”-fil
 3. Använda JSON-konfigurationsfil för att skapa VM-konfigurationen.
 
    ```powershell
-   $vm = New-AzureRmVMConfig -VMSize $obj.'properties.hardwareProfile'.vmSize -VMName "testrestore"
+   $vm = New-AzVMConfig -VMSize $obj.'properties.hardwareProfile'.vmSize -VMName "testrestore"
    ```
 
 4. Koppla operativsystemdisken och datadiskar. Det här steget innehåller exempel på olika hanteras och krypterade VM-konfigurationer. Använd exemplet som passar din VM-konfiguration.
@@ -455,11 +455,11 @@ I följande avsnitt visas hur du skapar en virtuell dator med ”VMConfig”-fil
    * **Icke-hanterade och icke-krypterade virtuella datorer** -Använd följande exempel för icke-hanterad, icke-krypterade virtuella datorer.
 
        ```powershell
-       Set-AzureRmVMOSDisk -VM $vm -Name "osdisk" -VhdUri $obj.'properties.StorageProfile'.osDisk.vhd.Uri -CreateOption "Attach"
+       Set-AzVMOSDisk -VM $vm -Name "osdisk" -VhdUri $obj.'properties.StorageProfile'.osDisk.vhd.Uri -CreateOption "Attach"
        $vm.StorageProfile.OsDisk.OsType = $obj.'properties.StorageProfile'.OsDisk.OsType
        foreach($dd in $obj.'properties.StorageProfile'.DataDisks)
        {
-        $vm = Add-AzureRmVMDataDisk -VM $vm -Name "datadisk1" -VhdUri $dd.vhd.Uri -DiskSizeInGB 127 -Lun $dd.Lun -CreateOption "Attach"
+        $vm = Add-AzVMDataDisk -VM $vm -Name "datadisk1" -VhdUri $dd.vhd.Uri -DiskSizeInGB 127 -Lun $dd.Lun -CreateOption "Attach"
        }
        ```
 
@@ -468,11 +468,11 @@ I följande avsnitt visas hur du skapar en virtuell dator med ”VMConfig”-fil
       ```powershell
       $dekUrl = "https://ContosoKeyVault.vault.azure.net:443/secrets/ContosoSecret007/xx000000xx0849999f3xx30000003163"
       $dekUrl = "/subscriptions/abcdedf007-4xyz-1a2b-0000-12a2b345675c/resourceGroups/ContosoRG108/providers/Microsoft.KeyVault/vaults/ContosoKeyVault"
-      Set-AzureRmVMOSDisk -VM $vm -Name "osdisk" -VhdUri $obj.'properties.storageProfile'.osDisk.vhd.uri -DiskEncryptionKeyUrl $dekUrl -DiskEncryptionKeyVaultId $keyVaultId -CreateOption "Attach" -Windows/Linux
+      Set-AzVMOSDisk -VM $vm -Name "osdisk" -VhdUri $obj.'properties.storageProfile'.osDisk.vhd.uri -DiskEncryptionKeyUrl $dekUrl -DiskEncryptionKeyVaultId $keyVaultId -CreateOption "Attach" -Windows/Linux
       $vm.StorageProfile.OsDisk.OsType = $obj.'properties.storageProfile'.osDisk.osType
       foreach($dd in $obj.'properties.storageProfile'.dataDisks)
       {
-       $vm = Add-AzureRmVMDataDisk -VM $vm -Name "datadisk1" -VhdUri $dd.vhd.Uri -DiskSizeInGB 127 -Lun $dd.Lun -CreateOption "Attach"
+       $vm = Add-AzVMDataDisk -VM $vm -Name "datadisk1" -VhdUri $dd.vhd.Uri -DiskSizeInGB 127 -Lun $dd.Lun -CreateOption "Attach"
       }
       ```
 
@@ -482,11 +482,11 @@ I följande avsnitt visas hur du skapar en virtuell dator med ”VMConfig”-fil
       $dekUrl = "https://ContosoKeyVault.vault.azure.net:443/secrets/ContosoSecret007/xx000000xx0849999f3xx30000003163"
       $kekUrl = "https://ContosoKeyVault.vault.azure.net:443/keys/ContosoKey007/x9xxx00000x0000x9b9949999xx0x006"
       $keyVaultId = "/subscriptions/abcdedf007-4xyz-1a2b-0000-12a2b345675c/resourceGroups/ContosoRG108/providers/Microsoft.KeyVault/vaults/ContosoKeyVault"
-      Set-AzureRmVMOSDisk -VM $vm -Name "osdisk" -VhdUri $obj.'properties.storageProfile'.osDisk.vhd.uri -DiskEncryptionKeyUrl $dekUrl -DiskEncryptionKeyVaultId $keyVaultId -KeyEncryptionKeyUrl $kekUrl -KeyEncryptionKeyVaultId $keyVaultId -CreateOption "Attach" -Windows
+      Set-AzVMOSDisk -VM $vm -Name "osdisk" -VhdUri $obj.'properties.storageProfile'.osDisk.vhd.uri -DiskEncryptionKeyUrl $dekUrl -DiskEncryptionKeyVaultId $keyVaultId -KeyEncryptionKeyUrl $kekUrl -KeyEncryptionKeyVaultId $keyVaultId -CreateOption "Attach" -Windows
       $vm.StorageProfile.OsDisk.OsType = $obj.'properties.storageProfile'.osDisk.osType
       foreach($dd in $obj.'properties.storageProfile'.dataDisks)
      {
-     $vm = Add-AzureRmVMDataDisk -VM $vm -Name "datadisk1" -VhdUri $dd.vhd.Uri -DiskSizeInGB 127 -Lun $dd.Lun -CreateOption "Attach"
+     $vm = Add-AzVMDataDisk -VM $vm -Name "datadisk1" -VhdUri $dd.vhd.Uri -DiskSizeInGB 127 -Lun $dd.Lun -CreateOption "Attach"
      }
       ```
 
@@ -509,11 +509,11 @@ I följande avsnitt visas hur du skapar en virtuell dator med ”VMConfig”-fil
     Om källan keyVault/hemligheter finns redan, behöver skriptet ovan inte utföras.
 
       ```powershell
-      Set-AzureRmVMOSDisk -VM $vm -Name "osdisk" -VhdUri $obj.'properties.StorageProfile'.osDisk.vhd.Uri -CreateOption "Attach"
+      Set-AzVMOSDisk -VM $vm -Name "osdisk" -VhdUri $obj.'properties.StorageProfile'.osDisk.vhd.Uri -CreateOption "Attach"
       $vm.StorageProfile.OsDisk.OsType = $obj.'properties.StorageProfile'.OsDisk.OsType
       foreach($dd in $obj.'properties.StorageProfile'.DataDisks)
       {
-      $vm = Add-AzureRmVMDataDisk -VM $vm -Name "datadisk1" -VhdUri $dd.vhd.Uri -DiskSizeInGB 127 -Lun $dd.Lun -CreateOption "Attach"
+      $vm = Add-AzVMDataDisk -VM $vm -Name "datadisk1" -VhdUri $dd.vhd.Uri -DiskSizeInGB 127 -Lun $dd.Lun -CreateOption "Attach"
       }
       ```
 
@@ -536,11 +536,11 @@ I följande avsnitt visas hur du skapar en virtuell dator med ”VMConfig”-fil
     Om källan keyVault/nyckel/hemligheter är tillgängliga, behöver skriptet ovan inte utföras.
 
     ```powershell
-      Set-AzureRmVMOSDisk -VM $vm -Name "osdisk" -VhdUri $obj.'properties.StorageProfile'.osDisk.vhd.Uri -CreateOption "Attach"
+      Set-AzVMOSDisk -VM $vm -Name "osdisk" -VhdUri $obj.'properties.StorageProfile'.osDisk.vhd.Uri -CreateOption "Attach"
       $vm.StorageProfile.OsDisk.OsType = $obj.'properties.StorageProfile'.OsDisk.OsType
       foreach($dd in $obj.'properties.StorageProfile'.DataDisks)
       {
-      $vm = Add-AzureRmVMDataDisk -VM $vm -Name "datadisk1" -VhdUri $dd.vhd.Uri -DiskSizeInGB 127 -Lun $dd.Lun -CreateOption "Attach"
+      $vm = Add-AzVMDataDisk -VM $vm -Name "datadisk1" -VhdUri $dd.vhd.Uri -DiskSizeInGB 127 -Lun $dd.Lun -CreateOption "Attach"
       }
       ```
 
@@ -557,9 +557,9 @@ I följande avsnitt visas hur du skapar en virtuell dator med ”VMConfig”-fil
     ```powershell
       $dekUrl = "https://ContosoKeyVault.vault.azure.net/secrets/ContosoSecret007/xx000000xx0849999f3xx30000003163"
       $keyVaultId = "/subscriptions/abcdedf007-4xyz-1a2b-0000-12a2b345675c/resourceGroups/ContosoRG108/providers/Microsoft.KeyVault/vaults/ContosoKeyVault"
-      $diskupdateconfig = New-AzureRmDiskUpdateConfig -EncryptionSettingsEnabled $true
-      $diskupdateconfig = Set-AzureRmDiskUpdateDiskEncryptionKey -DiskUpdate $diskupdateconfig -SecretUrl $dekUrl -SourceVaultId $keyVaultId  
-      Update-AzureRmDisk -ResourceGroupName "testvault" -DiskName $obj.'properties.StorageProfile'.osDisk.name -DiskUpdate $diskupdateconfig
+      $diskupdateconfig = New-AzDiskUpdateConfig -EncryptionSettingsEnabled $true
+      $diskupdateconfig = Set-AzDiskUpdateDiskEncryptionKey -DiskUpdate $diskupdateconfig -SecretUrl $dekUrl -SourceVaultId $keyVaultId  
+      Update-AzDisk -ResourceGroupName "testvault" -DiskName $obj.'properties.StorageProfile'.osDisk.name -DiskUpdate $diskupdateconfig
       ```
 
     När hemligheterna är tillgängliga och Krypteringsinformation är inställda på OS-disken, om du vill lägga till de återställda hanterade diskarna, se [ansluter en datadisk till en Windows-VM med hjälp av PowerShell](../virtual-machines/windows/attach-disk-ps.md).
@@ -572,10 +572,10 @@ I följande avsnitt visas hur du skapar en virtuell dator med ”VMConfig”-fil
      $dekUrl = "https://ContosoKeyVault.vault.azure.net/secrets/ContosoSecret007/xx000000xx0849999f3xx30000003163"
      $kekUrl = "https://ContosoKeyVault.vault.azure.net/keys/ContosoKey007/x9xxx00000x0000x9b9949999xx0x006"
      $keyVaultId = "/subscriptions/abcdedf007-4xyz-1a2b-0000-12a2b345675c/resourceGroups/ContosoRG108/providers/Microsoft.KeyVault/vaults/ContosoKeyVault"
-     $diskupdateconfig = New-AzureRmDiskUpdateConfig -EncryptionSettingsEnabled $true
-     $diskupdateconfig = Set-AzureRmDiskUpdateDiskEncryptionKey -DiskUpdate $diskupdateconfig -SecretUrl $dekUrl -SourceVaultId $keyVaultId  
-     $diskupdateconfig = Set-AzureRmDiskUpdateKeyEncryptionKey -DiskUpdate $diskupdateconfig -KeyUrl $kekUrl -SourceVaultId $keyVaultId  
-     Update-AzureRmDisk -ResourceGroupName "testvault" -DiskName $obj.'properties.StorageProfile'.osDisk.name -DiskUpdate $diskupdateconfig
+     $diskupdateconfig = New-AzDiskUpdateConfig -EncryptionSettingsEnabled $true
+     $diskupdateconfig = Set-AzDiskUpdateDiskEncryptionKey -DiskUpdate $diskupdateconfig -SecretUrl $dekUrl -SourceVaultId $keyVaultId  
+     $diskupdateconfig = Set-AzDiskUpdateKeyEncryptionKey -DiskUpdate $diskupdateconfig -KeyUrl $kekUrl -SourceVaultId $keyVaultId  
+     Update-AzDisk -ResourceGroupName "testvault" -DiskName $obj.'properties.StorageProfile'.osDisk.name -DiskUpdate $diskupdateconfig
     ```
 
     När nyckeln/hemligheter är tillgängliga och Krypteringsinformation är inställda på OS-disken, om du vill lägga till de återställda hanterade diskarna, se [ansluter en datadisk till en Windows-VM med hjälp av PowerShell](../virtual-machines/windows/attach-disk-ps.md).
@@ -584,19 +584,19 @@ I följande avsnitt visas hur du skapar en virtuell dator med ”VMConfig”-fil
 
     ```powershell
     $nicName="p1234"
-    $pip = New-AzureRmPublicIpAddress -Name $nicName -ResourceGroupName "test" -Location "WestUS" -AllocationMethod Dynamic
-    $virtualNetwork = New-AzureRmVirtualNetwork -ResourceGroupName "test" -Location "WestUS" -Name "testvNET" -AddressPrefix 10.0.0.0/16
-    $virtualNetwork | Set-AzureRmVirtualNetwork
-    $vnet = Get-AzureRmVirtualNetwork -Name "testvNET" -ResourceGroupName "test"
+    $pip = New-AzPublicIpAddress -Name $nicName -ResourceGroupName "test" -Location "WestUS" -AllocationMethod Dynamic
+    $virtualNetwork = New-AzVirtualNetwork -ResourceGroupName "test" -Location "WestUS" -Name "testvNET" -AddressPrefix 10.0.0.0/16
+    $virtualNetwork | Set-AzVirtualNetwork
+    $vnet = Get-AzVirtualNetwork -Name "testvNET" -ResourceGroupName "test"
     $subnetindex=0
-    $nic = New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName "test" -Location "WestUS" -SubnetId $vnet.Subnets[$subnetindex].Id -PublicIpAddressId $pip.Id
-    $vm=Add-AzureRmVMNetworkInterface -VM $vm -Id $nic.Id
+    $nic = New-AzNetworkInterface -Name $nicName -ResourceGroupName "test" -Location "WestUS" -SubnetId $vnet.Subnets[$subnetindex].Id -PublicIpAddressId $pip.Id
+    $vm=Add-AzVMNetworkInterface -VM $vm -Id $nic.Id
     ```
 
 6. Skapa den virtuella datorn.
 
     ```powershell  
-    New-AzureRmVM -ResourceGroupName "test" -Location "WestUS" -VM $vm
+    New-AzVM -ResourceGroupName "test" -Location "WestUS" -VM $vm
     ```
 
 7. Skicka ADE tillägget.
@@ -606,13 +606,13 @@ I följande avsnitt visas hur du skapar en virtuell dator med ”VMConfig”-fil
     **BEK endast**
 
       ```powershell  
-      Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $RG -VMName $vm -AadClientID $aadClientID -AadClientSecret $aadClientSecret -DiskEncryptionKeyVaultUrl $dekUrl -DiskEncryptionKeyVaultId $keyVaultId -VolumeType Data
+      Set-AzVMDiskEncryptionExtension -ResourceGroupName $RG -VMName $vm -AadClientID $aadClientID -AadClientSecret $aadClientSecret -DiskEncryptionKeyVaultUrl $dekUrl -DiskEncryptionKeyVaultId $keyVaultId -VolumeType Data
       ```
 
     **BEK och KEK**
 
       ```powershell  
-      Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $RG -VMName $vm -AadClientID $aadClientID -AadClientSecret $aadClientSecret -DiskEncryptionKeyVaultUrl $dekUrl -DiskEncryptionKeyVaultId $keyVaultId  -KeyEncryptionKeyUrl $kekUrl -KeyEncryptionKeyVaultId $keyVaultId -VolumeType Data
+      Set-AzVMDiskEncryptionExtension -ResourceGroupName $RG -VMName $vm -AadClientID $aadClientID -AadClientSecret $aadClientSecret -DiskEncryptionKeyVaultUrl $dekUrl -DiskEncryptionKeyVaultId $keyVaultId  -KeyEncryptionKeyUrl $kekUrl -KeyEncryptionKeyVaultId $keyVaultId -VolumeType Data
       ```
 
   * **För virtuell dator utan Azure AD** -Använd följande kommando för att manuellt Aktivera kryptering för datadiskar.
@@ -622,13 +622,13 @@ I följande avsnitt visas hur du skapar en virtuell dator med ”VMConfig”-fil
     **BEK endast**
 
       ```powershell  
-      Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $RG -VMName $vm -DiskEncryptionKeyVaultUrl $dekUrl -DiskEncryptionKeyVaultId $keyVaultId -SkipVmBackup -VolumeType "All"
+      Set-AzVMDiskEncryptionExtension -ResourceGroupName $RG -VMName $vm -DiskEncryptionKeyVaultUrl $dekUrl -DiskEncryptionKeyVaultId $keyVaultId -SkipVmBackup -VolumeType "All"
       ```
 
       **BEK och KEK**
 
       ```powershell  
-      Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $RG -VMName $vm -DiskEncryptionKeyVaultUrl $dekUrl -DiskEncryptionKeyVaultId $keyVaultId -KeyEncryptionKeyUrl $kekUrl -KeyEncryptionKeyVaultId $keyVaultId -SkipVmBackup -VolumeType "All"
+      Set-AzVMDiskEncryptionExtension -ResourceGroupName $RG -VMName $vm -DiskEncryptionKeyVaultUrl $dekUrl -DiskEncryptionKeyVaultId $keyVaultId -KeyEncryptionKeyUrl $kekUrl -KeyEncryptionKeyVaultId $keyVaultId -SkipVmBackup -VolumeType "All"
       ```
 
 ## <a name="restore-files-from-an-azure-vm-backup"></a>Återställa filer från en virtuell Azure-säkerhetskopiering
@@ -648,8 +648,8 @@ Grundläggande stegen för att återställa en fil från en virtuell Azure-säke
 Starta från behållaren i valvet för att hämta PowerShell-objektet som identifierar objektet direkt säkerhetskopiering, och gå nedåt i objekthierarkin. För att markera den behållare som representerar den virtuella datorn använder den **[Get-AzureRmRecoveryServicesBackupContainer](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupcontainer)** cmdlet och skicka vidare som att den **[ Get-AzureRmRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupitem)** cmdlet.
 
 ```powershell
-$namedContainer = Get-AzureRmRecoveryServicesBackupContainer  -ContainerType "AzureVM" -Status "Registered" -FriendlyName "V2VM"
-$backupitem = Get-AzureRmRecoveryServicesBackupItem -Container $namedContainer  -WorkloadType "AzureVM"
+$namedContainer = Get-AzRecoveryServicesBackupContainer  -ContainerType "AzureVM" -Status "Registered" -FriendlyName "V2VM"
+$backupitem = Get-AzRecoveryServicesBackupItem -Container $namedContainer  -WorkloadType "AzureVM"
 ```
 
 ### <a name="choose-a-recovery-point"></a>Välj en återställningspunkt
@@ -661,7 +661,7 @@ I följande skript, variabeln, **$rp**, är en matris med återställningspunkte
 ```powershell
 $startDate = (Get-Date).AddDays(-7)
 $endDate = Get-Date
-$rp = Get-AzureRmRecoveryServicesBackupRecoveryPoint -Item $backupitem -StartDate $startdate.ToUniversalTime() -EndDate $enddate.ToUniversalTime()
+$rp = Get-AzRecoveryServicesBackupRecoveryPoint -Item $backupitem -StartDate $startdate.ToUniversalTime() -EndDate $enddate.ToUniversalTime()
 $rp[0]
 ```
 
@@ -691,7 +691,7 @@ Använd den **[Get-AzureRmRecoveryServicesBackupRPMountScript](https://docs.micr
 >
 
 ```powershell
-Get-AzureRmRecoveryServicesBackupRPMountScript -RecoveryPoint $rp[0]
+Get-AzRecoveryServicesBackupRPMountScript -RecoveryPoint $rp[0]
 ```
 
 Utdata ser ut ungefär så här:
@@ -709,7 +709,7 @@ Kör skriptet på datorn där du vill återställa filerna. Du måste ange löse
 När de nödvändiga filerna kopieras Använd **[inaktivera AzureRmRecoveryServicesBackupRPMountScript](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/disable-azurermrecoveryservicesbackuprpmountscript?view=azurermps-5.0.0)** att demontera diskarna. Glöm inte att demontera diskarna så att åtkomst till filer för återställningspunkten tas bort.
 
 ```powershell
-Disable-AzureRmRecoveryServicesBackupRPMountScript -RecoveryPoint $rp[0]
+Disable-AzRecoveryServicesBackupRPMountScript -RecoveryPoint $rp[0]
 ```
 
 ## <a name="next-steps"></a>Nästa steg

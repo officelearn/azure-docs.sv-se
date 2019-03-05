@@ -9,12 +9,12 @@ ms.date: 08/11/2018
 ms.author: mbullwin
 ms.reviewer: Dale.Koetke
 ms.subservice: ''
-ms.openlocfilehash: e6207c44fbac63163d125a109cbdc1c6f08e9860
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 1ae35c30e0379ed7a0f1fac16c279651e3bcd8fd
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55734512"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57315885"
 ---
 # <a name="monitoring-usage-and-estimated-costs"></a>Övervaka användning och uppskattade kostnader
 
@@ -23,6 +23,8 @@ ms.locfileid: "55734512"
 > - [Hantera kostnader genom att kontrollera datavolymer och kvarhållning i Log Analytics](../../azure-monitor/platform/manage-cost-storage.md) beskrivs hur du kontrollerar dina kostnader genom att ändra kvarhållningsperioden för data.
 > - [Analysera dataanvändning i Log Analytics](../../azure-monitor/platform/data-usage.md) beskriver hur du analyserar och Avisera om din dataanvändning.
 > - [Hantera priser och datavolymer i Application Insights](../../azure-monitor/app/pricing.md) beskriver hur du analysera dataanvändning i Application Insights.
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 I övervakaren hub i Azure Portal i **användning och uppskattade kostnader** sidan förklaras användningen av grundläggande övervakningsfunktioner som [aviseringar, mått, meddelanden](https://azure.microsoft.com/pricing/details/monitor/), [Azure Log Analytics ](https://azure.microsoft.com/pricing/details/log-analytics/), och [Azure Application Insights](https://azure.microsoft.com/pricing/details/application-insights/). För kunder på priser avtal innan April 2018, omfattar detta även logganalys-användning som köpts via insikterna och Analytics erbjuder.
 
@@ -112,14 +114,14 @@ Om du vill flytta en prenumeration till den nya prismodellen, markera kryssrutan
 
 ## <a name="automate-moving-to-the-new-pricing-model"></a>Automatisera flyttas till den nya prismodellen
 
-Skripten nedan kräver Azure PowerShell-modulen. Kontrollera om du har den senaste versionen finns i [installera Azure PowerShell-modulen](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-6.1.0).
+Skripten nedan kräver Azure PowerShell-modulen. Kontrollera om du har den senaste versionen finns i [installera Azure PowerShell-modulen](/powershell/azure/install-az-ps).
 
-När du har den senaste versionen av Azure PowerShell kan du först behöva köra ``Connect-AzureRmAccount``.
+När du har den senaste versionen av Azure PowerShell kan du först behöva köra ``Connect-AzAccount``.
 
 ``` PowerShell
 # To check if your subscription is eligible to adjust pricing models.
 $ResourceID ="/subscriptions/<Subscription-ID-Here>/providers/microsoft.insights"
-Invoke-AzureRmResourceAction `
+Invoke-AzResourceAction `
  -ResourceId $ResourceID `
  -ApiVersion "2017-10-01" `
  -Action listmigrationdate `
@@ -138,7 +140,7 @@ Om du vill migrera prenumerationen till den nya prismodellen kör:
 
 ```PowerShell
 $ResourceID ="/subscriptions/<Subscription-ID-Here>/providers/microsoft.insights"
-Invoke-AzureRmResourceAction `
+Invoke-AzResourceAction `
  -ResourceId $ResourceID `
  -ApiVersion "2017-10-01" `
  -Action migratetonewpricingmodel `
@@ -149,7 +151,7 @@ Kontrollera att ändringen har lyckats kör:
 
 ```PowerShell
 $ResourceID ="/subscriptions/<Subscription-ID-Here>/providers/microsoft.insights"
-Invoke-AzureRmResourceAction `
+Invoke-AzResourceAction `
  -ResourceId $ResourceID `
  -ApiVersion "2017-10-01" `
  -Action listmigrationdate `
@@ -170,7 +172,7 @@ Om du vill återgå till den gamla prismodellen kör du:
 
 ```PowerShell
  $ResourceID ="/subscriptions/<Subscription-ID-Here>/providers/microsoft.insights"
-Invoke-AzureRmResourceAction `
+Invoke-AzResourceAction `
  -ResourceId $ResourceID `
  -ApiVersion "2017-10-01" `
  -Action rollbacktolegacypricingmodel `
@@ -184,7 +186,7 @@ Om du har flera prenumerationer som du vill migrera som finns under samma klient
 ```PowerShell
 #Query tenant and create an array comprised of all of your tenants subscription ids
 $TenantId = <Your-tenant-id>
-$Tenant =Get-AzureRMSubscription -TenantId $TenantId
+$Tenant =Get-AzSubscription -TenantId $TenantId
 $Subscriptions = $Tenant.Id
 ```
 
@@ -194,7 +196,7 @@ Om du vill kontrollera om alla prenumerationer i din klient är berättigad till
 Foreach ($id in $Subscriptions)
 {
 $ResourceID ="/subscriptions/$id/providers/microsoft.insights"
-Invoke-AzureRmResourceAction `
+Invoke-AzResourceAction `
  -ResourceId $ResourceID `
  -ApiVersion "2017-10-01" `
  -Action listmigrationdate `
@@ -212,7 +214,7 @@ Skriptet kan anpassas ytterligare genom att skapa ett skript som genererar tre m
 Foreach ($id in $Subscriptions)
 {
 $ResourceID ="/subscriptions/$id/providers/microsoft.insights"
-$Result= Invoke-AzureRmResourceAction `
+$Result= Invoke-AzResourceAction `
  -ResourceId $ResourceID `
  -ApiVersion "2017-10-01" `
  -Action listmigrationdate `
@@ -244,7 +246,7 @@ Nu när du har dina prenumerationer som är uppdelad i tre matriser bör du nogg
 Foreach ($id in $Eligible)
 {
 $ResourceID ="/subscriptions/$id/providers/microsoft.insights"
-Invoke-AzureRmResourceAction `
+Invoke-AzResourceAction `
  -ResourceId $ResourceID `
  -ApiVersion "2017-10-01" `
  -Action migratetonewpricingmodel `

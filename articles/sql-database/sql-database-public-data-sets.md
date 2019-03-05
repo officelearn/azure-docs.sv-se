@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/01/2018
-ms.openlocfilehash: 8aad3cf0bfeb2f8586bca1072f3e395e196f3e0c
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: 4963114f3646453510e20c7071157c952e52c40f
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56098501"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57307147"
 ---
 # <a name="public-data-sets-for-testing-and-prototyping"></a>Offentliga datauppsättningar för testning och prototyper
 
@@ -46,7 +46,7 @@ Bläddra i den här listan över offentliga datauppsättningar för data som du 
 | [Öppna Science Data molndata](https://www.opensciencedatacloud.org/) | ”Öppna Science Data molnet erbjuder vetenskapliga community med resurser för att lagra, dela och analysera terabyte och petabyte-skala vetenskapliga datauppsättningar”.| Uppgifter som är i olika format. |
 | [Global klimat-data – WorldClim](http://worldclim.org/) | ”WorldClim är en uppsättning globala klimat lager (förnätade klimat data) med en spatial upplösning på ca 1 km2. Dessa data kan användas för mappning och rumsliga modellering ”. | De här filerna innehåller geospatiala data. Mer information finns i [dataformat](http://worldclim.org/formats1). |
 | [Data om mänskliga society – The GDELT projekt](http://www.gdeltproject.org/data.html) | ”GDELT projektet är störst, mest omfattande och högsta upplösning öppna databasen för mänskliga society gång har skapat”. | De rådata-filerna finns i CSV-format. |
-| [Reklam klickar du på förutsägelsedata för maskininlärning från Criteo](http://labs.criteo.com/2013/12/download-terabyte-click-logs/) | ”Den största någonsin offentligt utgivna ML datauppsättningen”. Mer information finns i [Criteo's 1 TB klickar du på förutsägelse datauppsättning](https://blogs.technet.microsoft.com/machinelearning/2015/04/01/now-available-on-azure-ml-criteos-1tb-click-prediction-dataset/). | |
+| [Reklam klickar du på förutsägelsedata för maskininlärning från Criteo](http://labs.criteo.com/2013/12/download-terabyte-click-logs/) | ”Den största någonsin offentligt utgivna ML datauppsättningen”. Mer information finns i [Criteo's 1 TB klickar du på förutsägelse datauppsättning](https://blogs.technet.microsoft.com/machinelearning/20../../now-available-on-azure-ml-criteos-1tb-click-prediction-dataset/). | |
 | [ClueWeb09 text utvinning datauppsättning från The Lemur projekt](http://www.lemurproject.org/clueweb09.php/) | ”ClueWeb09 datauppsättningen har skapats för att stödja research på informationshämtning och relaterade mänskliga språk tekniker. Den består av cirka 1 miljard webbsidor i 10 språk som samlades in i januari och februari 2009 ”. | Se [Datamängdsinformation](http://www.lemurproject.org/clueweb09/datasetInformation.php).|
 
 ## <a name="online-service-data"></a>Online-tjänstdata

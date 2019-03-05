@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 8d638743b3cb07b0d060e754ecb76e74bd02719d
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 512956d2de0f9a838cc6378345a334e489d1d120
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57215021"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57306875"
 ---
 # <a name="trigger-azure-functions-using-webhooks-in-azure-iot-central"></a>Utlösa Azure Functions med webhookar i Azure IoT Central
 
@@ -31,7 +31,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
     ![Skapa en ny funktionsapp i Azure Portal](media/howto-trigger-azure-functions/createfunction.png)
 
-2. Expandera funktionsappen och klicka på den **+ knappen** bredvid funktioner. Om den här funktionen är den första funktionen i din funktionsapp väljer du **Anpassad funktion**. Detta visar en fullständig uppsättning med funktionsmallar.
+2. Expandera funktionsappen och välj den **+ knappen** bredvid funktioner. Om den här funktionen är den första funktionen i din funktionsapp väljer du **Anpassad funktion**. Detta visar en fullständig uppsättning med funktionsmallar.
 
     ![Välj anpassad funktion i funktionsappen](media/howto-trigger-azure-functions/customfunction.png)
 
@@ -39,7 +39,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
     ![Välj allmän webhook-utlösare](media/howto-trigger-azure-functions/genericwebhooktrigger.png)
 
-4. Klicka på **</> Hämta funktionswebbadress** och kopiera och spara värdet. Du kan använda det här värdet för att konfigurera webhooken.
+4. I den nya funktionen väljer **<> / hämta Funktionswebbadress**och kopiera och spara värdet. Du kan använda det här värdet för att konfigurera webhooken.
 
     ![Hämta URL: en för funktionen](media/howto-trigger-azure-functions/getfunctionurl.png)
 
@@ -49,7 +49,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
     ![Ange funktions-URL i fältet Motringnings-URL](media/howto-trigger-azure-functions/configurewebhook.PNG)
 
-6. Spara regeln. Nu anropar webhooken funktionsappen ska köras när regeln utlöses. I din funktionsapp, kan du klicka på **övervakaren** till funktionens anrop historik. Du kan använda App Insights eller klassiskt läge för att titta på historiken.
+6. Spara regeln. Nu anropar webhooken funktionsappen ska köras när regeln utlöses. Du kan välja i din funktionsapp **övervakaren** till funktionens anrop historik. Du kan använda App Insights eller klassiskt läge för att titta på historiken.
 
     ![Övervaka anrop historiken för funktionen](media/howto-trigger-azure-functions/monitorfunction.PNG)
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: a7de9126716437e4e90185f46c9cf95f7de20d40
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 2a989a98399e9d6701d92d8e4e22b243cb1ebff5
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57220538"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57315834"
 ---
 # <a name="create-and-manage-personal-dashboards"></a>Skapa och hantera personliga instrumentpaneler
 
@@ -21,15 +21,15 @@ Den **instrumentpanelen** är den sida som läses in när du navigerar till prog
 
 ## <a name="create-dashboard"></a>Skapa instrumentpanel
 
-I följande skärmbild visas på instrumentpanelen i ett program som skapats från den **exempel Contoso** mall. Du kan ersätta standardinstrumentpanelen för program med en personlig instrumentpanel. Om du vill göra det klickar du på **+ ny** längst upp höger på sidan.
+I följande skärmbild visas på instrumentpanelen i ett program som skapats från den **exempel Contoso** mall. Du kan ersätta standardinstrumentpanelen för program med en personlig instrumentpanel. Om du vill göra det, Välj **+ ny** längst upp höger på sidan.
 
 ![Instrumentpanel för program baserat på mallen ”Contoso exemplet”](media/howto-personalize-dashboard-experimental/defaultdashboard.png)
 
-Klicka på **+ ny**, öppnas Instrumentpanelsredigeraren. I redigeraren, du kan ge instrumentpanelen ett namn och välja objekt från biblioteket. Biblioteket innehåller paneler och instrumentpanelen primitiver som du kan använda för att anpassa instrumentpanelen.
+Att välja **+ ny**, öppnas Instrumentpanelsredigeraren. I redigeraren, du kan ge instrumentpanelen ett namn och välja objekt från biblioteket. Biblioteket innehåller paneler och instrumentpanelen primitiver som du kan använda för att anpassa instrumentpanelen.
 
 ![Instrumentpanelen bibliotek](media/howto-personalize-dashboard-experimental/dashboardeditor.png)
 
-Du kan till exempel lägga till en **inställningar och egenskaper** panelen för att inställningar och egenskaper för en av de enheter du hanterar visas. Om du vill göra det väljer du först en **enheten mallen** Välj sedan en **enhetsinstansen**. Ge sedan panelen en rubrik och väljer en **inställningen** eller en **egenskapen** ska visas. Följande skärmbild visar de **sprider hastighet** inställningen har valts för att lägga till i panelen. Klicka på **klar** att spara ändringarna på instrumentpanelen.
+Du kan till exempel lägga till en **inställningar och egenskaper** panelen för att inställningar och egenskaper för en av de enheter du hanterar visas. Om du vill göra det väljer du först en **enheten mallen** Välj sedan en **enhetsinstansen**. Ge sedan panelen en rubrik och väljer en **inställningen** eller en **egenskapen** ska visas. Följande skärmbild visar de **sprider hastighet** inställningen har valts för att lägga till i panelen. Välj **klar** att spara ändringarna på instrumentpanelen.
 
 ![”Konfigurera enhetsinformation” formuläret med information om inställningar och egenskaper](media/howto-personalize-dashboard-experimental/dashboardsetting.png)
 

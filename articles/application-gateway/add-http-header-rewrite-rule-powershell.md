@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 12/20/2018
 ms.author: absha
-ms.openlocfilehash: 68da63bcad3c670c5e8bda62dda656e29c41f899
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: f3bda2cf680fa1ad17b5cbb3b9ba5911c78a1e4e
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55692959"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57316514"
 ---
 # <a name="rewrite-http-headers-in-an-existing-application-gateway"></a>Skriv om HTTP-huvuden i en befintlig Programgateway
 
@@ -33,7 +33,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Den här självstudien kräver att du kör Azure PowerShell lokalt. Du måste ha Az Modulversion 1.0.0 eller senare. Kör `Import-Module Az` och sedan`Get-Module Az` att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) (Installera Azure PowerShell-modul). När du har verifierat PowerShell-versionen kör du `Login-AzAccount` för att skapa en anslutning till Azure.
+Den här självstudien kräver att du kör Azure PowerShell lokalt. Du måste ha Az Modulversion 1.0.0 eller senare. Kör `Import-Module Az` och sedan`Get-Module Az` att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps) (Installera Azure PowerShell-modul). När du har verifierat PowerShell-versionen kör du `Login-AzAccount` för att skapa en anslutning till Azure.
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 

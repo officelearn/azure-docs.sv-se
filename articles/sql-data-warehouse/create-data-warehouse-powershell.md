@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 11/15/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 3358c415e620165bf07e2810bc8f1873d1dea0d2
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 5ef8c8f32422352c01b8c7ceb4811863faad4e57
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55466395"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57308779"
 ---
 # <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-with-azure-powershell"></a>Snabbstart: Skapa och fråga en Azure SQL data warehouse med Azure PowerShell
 
@@ -23,32 +23,29 @@ Snabbt skapa ett Azure SQL data warehouse med Azure PowerShell.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
-För den här självstudien krävs Azure PowerShell-modul version 5.1.1 eller senare. Kör `Get-Module -ListAvailable AzureRM` för att se vilken version du har. Om du behöver installera eller uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/azurerm/install-azurerm-ps) (Installera Azure PowerShell-modul). 
-
-
 > [!NOTE]
 > Att skapa ett SQL Data Warehouse kan resultera i en ny fakturerbar tjänst.  Mer information finns på [prissidan för SQL Data Warehouse](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
->
->
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
-Logga in på Azure-prenumerationen med den [Add-AzureRmAccount](/powershell/module/azurerm.profile/add-azurermaccount) och följer den på skärmen riktningar.
+Logga in på Azure-prenumerationen med den [Lägg till AzAccount](/powershell/module/az.profile/add-azaccount) och följer den på skärmen riktningar.
 
 ```powershell
-Add-AzureRmAccount
+Add-AzAccount
 ```
 
-Om du vill se vilken prenumeration som du använder kör [Get-AzureRmSubscription](/powershell/module/azurerm.profile/get-azurermsubscription).
+Om du vill se vilken prenumeration som du använder kör [Get-AzSubscription](/powershell/module/az.profile/get-azsubscription).
 
 ```powershell
-Get-AzureRmSubscription
+Get-AzSubscription
 ```
 
-Om du behöver använda en annan prenumeration än standardprenumerationen kör du [Set-AzureRmContext](/powershell/module/azurerm.profile/set-azurermcontext).
+Om du vill använda en annan prenumeration än standard, kör [Set-AzContext](/powershell/module/az.profile/set-azcontext).
 
 ```powershell
-Set-AzureRmContext -SubscriptionName "MySubscription"
+Set-AzContext -SubscriptionName "MySubscription"
 ```
 
 
@@ -75,17 +72,17 @@ $databasename = "mySampleDataWarehosue"
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
-Skapa en [Azure-resursgrupp](../azure-resource-manager/resource-group-overview.md) med kommandot [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). En resursgrupp är en logisk container där Azure-resurser distribueras och hanteras som en grupp. I följande exempel skapas en resursgrupp med namnet `myResourceGroup` på platsen `westeurope`.
+Skapa en [Azure-resursgrupp](../azure-resource-manager/resource-group-overview.md) med hjälp av den [New AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) kommando. En resursgrupp är en logisk container där Azure-resurser distribueras och hanteras som en grupp. I följande exempel skapas en resursgrupp med namnet `myResourceGroup` på platsen `westeurope`.
 
 ```powershell
-New-AzureRmResourceGroup -Name $resourcegroupname -Location $location
+New-AzResourceGroup -Name $resourcegroupname -Location $location
 ```
 ## <a name="create-a-logical-server"></a>Skapa en logisk server
 
-Skapa en [logiska Azure SQL-servern](../sql-database/sql-database-logical-servers.md) med hjälp av den [New-AzureRmSqlServer](/powershell/module/azurerm.sql/new-azurermsqlserver) kommando. En logisk server innehåller en uppsättning databaser som hanteras som en grupp. I följande exempel skapas en slumpmässigt namn i resursgruppen med en administratörsanvändare med namnet `ServerAdmin` och lösenordet `ChangeYourAdminPassword1`. Ersätt dessa fördefinierade värden efter behov.
+Skapa en [logiska Azure SQL-servern](../sql-database/sql-database-logical-servers.md) med hjälp av den [New AzSqlServer](/powershell/module/az.sql/new-azsqlserver) kommando. En logisk server innehåller en uppsättning databaser som hanteras som en grupp. I följande exempel skapas en slumpmässigt namn i resursgruppen med en administratörsanvändare med namnet `ServerAdmin` och lösenordet `ChangeYourAdminPassword1`. Ersätt dessa fördefinierade värden efter behov.
 
 ```powershell
-New-AzureRmSqlServer -ResourceGroupName $resourcegroupname `
+New-AzSqlServer -ResourceGroupName $resourcegroupname `
     -ServerName $servername `
     -Location $location `
     -SqlAdministratorCredentials $(New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $adminlogin, $(ConvertTo-SecureString -String $password -AsPlainText -Force))
@@ -93,10 +90,10 @@ New-AzureRmSqlServer -ResourceGroupName $resourcegroupname `
 
 ## <a name="configure-a-server-firewall-rule"></a>Konfigurera en serverbrandväggsregel
 
-Skapa en [brandväggsregel för Azure SQL-servernivå](../sql-database/sql-database-firewall-configure.md) med hjälp av den [New-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/new-azurermsqlserverfirewallrule) kommando. En brandväggsregel på servernivå gör att externa program, till exempel SQL Server Management Studio eller SQLCMD-verktyget för att ansluta till ett SQL data warehouse via SQL Data Warehouse-tjänstens brandvägg. I följande exempel öppnas brandväggen bara för andra Azure-resurser. Aktivera extern anslutning, ändra IP-adressen till en adress som är lämplig för din miljö. Öppna alla IP-adresser genom att använda 0.0.0.0 som den första IP-adressen och 255.255.255.255 som slutadress.
+Skapa en [brandväggsregel för Azure SQL-servernivå](../sql-database/sql-database-firewall-configure.md) med hjälp av den [New AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule) kommando. En brandväggsregel på servernivå gör att externa program, till exempel SQL Server Management Studio eller SQLCMD-verktyget för att ansluta till ett SQL data warehouse via SQL Data Warehouse-tjänstens brandvägg. I följande exempel öppnas brandväggen bara för andra Azure-resurser. Aktivera extern anslutning, ändra IP-adressen till en adress som är lämplig för din miljö. Öppna alla IP-adresser genom att använda 0.0.0.0 som den första IP-adressen och 255.255.255.255 som slutadress.
 
 ```powershell
-New-AzureRmSqlServerFirewallRule -ResourceGroupName $resourcegroupname `
+New-AzSqlServerFirewallRule -ResourceGroupName $resourcegroupname `
     -ServerName $servername `
     -FirewallRuleName "AllowSome" -StartIpAddress $startip -EndIpAddress $endip
 ```
@@ -110,7 +107,7 @@ New-AzureRmSqlServerFirewallRule -ResourceGroupName $resourcegroupname `
 Det här exemplet skapar ett data warehouse med hjälp av tidigare definierade variablerna.  Den anger tjänstmålet som DW400, vilket är en lägre kostnad startpunkt för ditt informationslager. 
 
 ```Powershell
-New-AzureRmSqlDatabase `
+New-AzSqlDatabase `
     -ResourceGroupName $resourcegroupname `
     -ServerName $servername `
     -DatabaseName $databasename `
@@ -133,7 +130,7 @@ Valfria parametrar är:
 - **Sorteringsnamnet**: Standardsortering om inte anges är SQL_Latin1_General_CP1_CI_AS. Sortering kan inte ändras på en databas.
 - **MaxSizeBytes**: Maximal standardstorlek för en databas är 10 GB.
 
-Mer information om parameteralternativen finns i [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase).
+Mer information om parameteralternativen finns i [New AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase).
 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
@@ -145,7 +142,7 @@ De andra snabbstartsguiderna i den här samlingen bygger på den här snabbstart
 >
 
 ```powershell
-Remove-AzureRmResourceGroup -ResourceGroupName $resourcegroupname
+Remove-AzResourceGroup -ResourceGroupName $resourcegroupname
 ```
 
 ## <a name="next-steps"></a>Nästa steg

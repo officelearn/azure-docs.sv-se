@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 92af534642f5e1d56209944a481e244b8cf6207a
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: 0de87f1038a7e91e5d66bb579ac7087e75a8db5f
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56750109"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57308082"
 documentType: LandingData
 title: Hanterad Azure SQL Database-instans
 metadata:
@@ -81,8 +81,7 @@ sections:
     - html: (Förhandsversion) Använd <a href="https://aka.ms/managed-instance-failover-groups">geodistribuerad redundansgrupper</a> att behålla en kopia av instansen i en annan region och se till att dina data är tillgängliga även i scenariot regionalt haveri.
     - html: (Förhandsversion) <a href="https://aka.ms/managed-instance-tde-byok">Ta med era egna krypteringsnycklar</a> medan migrera lokala databaser som redan har aktiverat Transparent datakryptering (TDE).
     - html: Hanterade instanser är skyddade med <a href="sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md">inbyggda brandväggen</a>.
-    - html: (Förhandsversion) <a href="https://blogs.msdn.microsoft.com/sqlserverstorageengine/2019/01/21/recreate-dropped-database-on-azure-sql-managed-instance/">Återskapa släppas databaser</a>.
-    - html: Databasnamnet kan ändras med hjälp av sp_renamedb procedur eller ALTER DATABASE-instruktionen.
+    - html: (Förhandsversion) <a href="https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../recreate-dropped-database-on-azure-sql-managed-instance/">Återskapa släppas databaser</a>.
 - title: Snabbstarter på 5 minuter
   items:
   - type: paragraph
@@ -106,32 +105,32 @@ sections:
     - title: Skapa en ny instans
       values:
       - href: /azure/sql-database/sql-database-managed-instance-get-started
-      - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/11/14/create-azure-sql-managed-instance-using-azure-cli/
-      - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/27/quick-start-script-create-azure-sql-managed-instance-using-powershell/
+      - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../create-azure-sql-managed-instance-using-azure-cli/
+      - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../quick-start-script-create-azure-sql-managed-instance-using-powershell/
       - href: https://github.com/Azure/azure-quickstart-templates/tree/master/101-sqlmi-new-vnet
     - title: Ändra instansen
       values:
       - href: 
-      - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/11/14/modify-azure-sql-database-managed-instance-using-azure-cli/
-      - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/05/31/change-size-azure-sql-managed-instance-using-powershell/
+      - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../modify-azure-sql-database-managed-instance-using-azure-cli/
+      - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../change-size-azure-sql-managed-instance-using-powershell/
       - href: 
     - title: Konfigurera Azure-nätverksmiljön
       values:
       - href: /azure/sql-database/sql-database-managed-instance-get-started
       - href: 
-      - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/25/quick-start-script-setup-azure-network-environment-for-azure-sql-managed-instance/
+      - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../quick-start-script-setup-azure-network-environment-for-azure-sql-managed-instance/
       - href: https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-managed-instance-azure-environment
     - title: Återställning till tidpunkt
       values:
       - href: 
-      - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/07/cross-instance-point-in-time-restore-in-azure-sql-database-managed-instance/
-      - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/28/point-in-time-restore-of-a-database-on-azure-sql-managed-instance-using-azurerm-sql-powershell-library
+      - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../cross-instance-point-in-time-restore-in-azure-sql-database-managed-instance/
+      - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../point-in-time-restore-of-a-database-on-azure-sql-managed-instance-using-azurerm-sql-powershell-library
       - href: 
     - title: Återställa utelämnade databasen
       values:
       - href: 
       - href: 
-      - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/2019/01/21/recreate-dropped-database-on-azure-sql-managed-instance/
+      - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../recreate-dropped-database-on-azure-sql-managed-instance/
       - href: 
 - title: Stegvisa självstudier och material
   items:
@@ -144,11 +143,11 @@ sections:
     - html: Lär dig mer om <a href="/azure/sql-database/sql-database-managed-instance-resource-limits">maskinvaruegenskaper och begränsningar</a>, <a href="/azure/sql-database/sql-database-managed-instance-transact-sql-information">skillnader i Transact-SQL-språket</a>, och <a href="/azure/sql-database/sql-database-managed-instance-create-manage">Transact-SQL, PowerShell, Azure CLI-API för att konfigurera Managed Instance<a/>.
     - html: <a href="https://medium.com/azure-sqldb-managed-instance/the-ultimate-guide-for-creating-and-configuring-azure-sql-managed-instance-environment-91ff58c0be01">Konfigurera</a> virtuella Azure-nätverket där den hanterade instansen ska distribueras.
     - html: <a href="https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-vnet-configuration#validate-and-modify-an-existing-virtual-network">Verifiera</a> att dina befintliga virtuella Azure-nätverket kan användas för att distribuera hanterade instanser.
-    - html: Ansluta till din instans med hjälp av <a href="https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/09/21/the-easiest-way-to-create-azure-vm-that-can-access-your-azure-sql-managed-instance/">Azure-dator</a> eller <a href="/azure/sql-database/sql-database-managed-instance-configure-p2s">punkt-till-plats-anslutning</a>, eller <a href="https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-connect-app">program</a>.
-    - html: Kontrollera att databasen kan migreras med hjälp av <a href="https://www.microsoft.com/download/details.aspx?id=53595">Data Migration Assistant</a> eller <a href="https://blogs.msdn.microsoft.com/datamigration/2018/08/06/release-database-experimentation-assistant-dea-v2-6/">databasen experimentering Assistant</a>.
+    - html: Ansluta till din instans med hjälp av <a href="https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../the-easiest-way-to-create-azure-vm-that-can-access-your-azure-sql-managed-instance/">Azure-dator</a> eller <a href="/azure/sql-database/sql-database-managed-instance-configure-p2s">punkt-till-plats-anslutning</a>, eller <a href="https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-connect-app">program</a>.
+    - html: Kontrollera att databasen kan migreras med hjälp av <a href="https://www.microsoft.com/download/details.aspx?id=53595">Data Migration Assistant</a> eller <a href="https://blogs.msdn.microsoft.com/datamigration/20../../release-database-experimentation-assistant-dea-v2-6/">databasen experimentering Assistant</a>.
     - html: Ta med dina databaser till Managed Instance med <a href="/azure/sql-database/sql-database-managed-instance-get-started-restore">interna återställning</a> eller <a href="/azure/dms/tutorial-sql-server-managed-instance-online">Datamigreringstjänst</a>.
     - html: Flytta SSIS-paketen till <a href="/azure/data-factory/tutorial-deploy-ssis-packages-azure">Azure Data Factory</a>, tabellmodeller för SSAS att <a href="https://azure.microsoft.com/resources/videos/azure-analysis-services-moving-models/">Azure Analysis Service</a>, och rapporter för SSRS att <a href="https://docs.microsoft.com/business-applications-release-notes/april18/power-bi/service/sql-server-reporting-services-ssrs-reports-power-bi-premium">PowerBI Premium</a>.
-    - html: Lär dig mer om storage-skiktet i <a href="https://medium.com/azure-sqldb-managed-instance/file-layout-in-general-purpose-azure-sql-managed-instance-cf21fff9c76c">nivån generell användning</a> och tillämpa <a href="https://blogs.msdn.microsoft.com/sqlcat/2018/07/20/storage-performance-best-practices-and-considerations-for-azure-sql-db-managed-instance-general-purpose">bästa praxis för prestanda för lagring och överväganden för generell användning tjänstnivå</a>.
+    - html: Lär dig mer om storage-skiktet i <a href="https://medium.com/azure-sqldb-managed-instance/file-layout-in-general-purpose-azure-sql-managed-instance-cf21fff9c76c">nivån generell användning</a> och tillämpa <a href="https://blogs.msdn.microsoft.com/sqlcat/20../../storage-performance-best-practices-and-considerations-for-azure-sql-db-managed-instance-general-purpose">bästa praxis för prestanda för lagring och överväganden för generell användning tjänstnivå</a>.
     - html: Hitta de bästa praxis och rekommendationer för <a href="https://www.youtube.com/watch?v=vO6k05Ox1iI">skydda din instans</a>.
     - html: Hitta mer <a href="sql-database-howto-managed-instance.md">anvisningar hjälper</a> som hjälper dig att konfigurera din hanterade instans.
 - title: Referens

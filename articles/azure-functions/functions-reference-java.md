@@ -11,22 +11,26 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: routlaw
-ms.openlocfilehash: 96b22a6e44142fef8d47dc228d5491c31c65478f
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 14a9e369f3366fc103cde2f0faafb570de409de7
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56823067"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57311873"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Utvecklarguide för Azure Functions Java
 
 Azure Functions-körningen stöder [Java SE 8 LTS (zulu8.31.0.2-jre8.0.181-win_x64)](https://repos.azul.com/azure-only/zulu/packages/zulu-8/8u181/).
 
-## <a name="programming-model"></a>Programmeringsmodell
+Den här guiden innehåller information om krångla skriva Azure Functions med Java.
+
+En Java-funktionen är en `public` metoden dekorerad med anteckning `@FunctionName`. Den här metoden definierar posten för en java-funktion och måste vara unika i ett visst paket. 
+
+Den här artikeln förutsätter att du redan har läst den [Azure Functions för utvecklare](functions-reference.md). Du bör också slutföras Functions-Snabbstart för att skapa din första funktion med hjälp av [Visual Studio Code](functions-create-first-function-vs-code.md) eller [med hjälp av maven](functions-create-first-java-maven.md).
+
+## <a name="programming-model"></a>Programmeringsmodell 
 
 Begreppet [utlösare och bindningar](functions-triggers-bindings.md) är grundläggande för Azure Functions. Utlösare starta körning av din kod. Bindningar ger dig ett sätt att skicka data till och returnera data från en funktion utan att behöva skriva kod för åtkomst av anpassade data.
-
-En funktion ska vara en tillståndslös metod för att bearbeta indata och producerar utdata. Din funktion ska inte vara beroende av eventuella Instansfält i klassen. Alla metoder som funktionen ska vara `public` och metoden med anteckning @FunctionName måste vara unikt eftersom metodnamn definierar posten för en funktion.
 
 ## <a name="folder-structure"></a>mappstruktur
 

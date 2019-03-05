@@ -12,12 +12,12 @@ ms.author: mlandzic
 ms.reviewer: carlrab, jovanpop
 manager: craigg
 ms.date: 01/17/2019
-ms.openlocfilehash: c6d0d2eec61375760ee3dc4e4b100b24cef2b405
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: f27a5b0deb0dd446d4f05b0a6d6e96d67d24d9e9
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54388794"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57316004"
 ---
 # <a name="migrate-certificate-of-tde-protected-database-to-azure-sql-database-managed-instance"></a>Migrera certifikat för TDE skyddad databas till Azure SQL Database Managed Instance
 
@@ -35,17 +35,19 @@ Ett annat alternativ som använder en helt hanterad tjänst för smidig migrerin
 
 ## <a name="prerequisites"></a>Förutsättningar
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Du behöver följande för att slutföra stegen i den här artikeln:
 
 - [Pvk2Pfx](https://docs.microsoft.com/windows-hardware/drivers/devtest/pvk2pfx)-kommandoradsverktyget installerat på den lokala servern eller en annan dator med åtkomst till det certifikat som exporterats som en fil. Pvk2Pfx-verktyget är en del av [Enterprise Windows Driver Kit](https://docs.microsoft.com/windows-hardware/drivers/download-the-wdk), en fristående, självständig kommandoradsmiljö.
 - [Windows PowerShell](https://docs.microsoft.com/powershell/scripting/setup/installing-windows-powershell) version 5.0 eller senare installerat.
-- [Installerad och uppdaterad](https://docs.microsoft.com/powershell/azure/install-az-ps) AzureRM PowerShell-modul.
-- [AzureRM.Sql-modul](https://www.powershellgallery.com/packages/AzureRM.Sql) version 4.10.0 eller senare.
+- Azure PowerShell-modul [installerad och uppdaterad](https://docs.microsoft.com/powershell/azure/install-az-ps).
+- [Az.Sql modulen](https://www.powershellgallery.com/packages/Az.Sql).
   Kör följande kommandon i PowerShell för att installera/uppdatera PowerShell-modulen:
 
    ```powershell
-   Install-Module -Name AzureRM.Sql
-   Update-Module -Name AzureRM.Sql
+   Install-Module -Name Az.Sql
+   Update-Module -Name Az.Sql
    ```
 
 ## <a name="export-tde-certificate-to-a-personal-information-exchange-pfx-file"></a>Exportera TDE-certifikatet till en Personal Information Exchange-fil (.pfx)
@@ -116,13 +118,13 @@ Om certifikatet finns i SQL-serverns certifikatarkiv i lokal dator kan det expor
 
    ```powershell
    # Import the module into the PowerShell session
-   Import-Module AzureRM
+   Import-Module Az
    # Connect to Azure with an interactive dialog for sign-in
-   Connect-AzureRmAccount
+   Connect-AzAccount
    # List subscriptions available and copy id of the subscription target Managed Instance belongs to
-   Get-AzureRmSubscription
+   Get-AzSubscription
    # Set subscription for the session (replace Guid_Subscription_Id with actual subscription id)
-   Select-AzureRmSubscription Guid_Subscription_Id
+   Select-AzSubscription Guid_Subscription_Id
    ```
 
 2. När alla förberedelsesteg är klara kör du följande kommandon för att ladda upp det base-64-kodade certifikatet till den hanterade målinstansen:
@@ -133,7 +135,7 @@ Om certifikatet finns i SQL-serverns certifikatarkiv i lokal dator kan det expor
    $securePrivateBlob = $base64EncodedCert  | ConvertTo-SecureString -AsPlainText -Force
    $password = "SomeStrongPassword"
    $securePassword = $password | ConvertTo-SecureString -AsPlainText -Force
-   Add-AzureRmSqlManagedInstanceTransparentDataEncryptionCertificate -ResourceGroupName "<ResourceGroupName>" -ManagedInstanceName "<ManagedInstanceName>" -PrivateBlob $securePrivateBlob -Password $securePassword
+   Add-AzSqlManagedInstanceTransparentDataEncryptionCertificate -ResourceGroupName "<ResourceGroupName>" -ManagedInstanceName "<ManagedInstanceName>" -PrivateBlob $securePrivateBlob -Password $securePassword
    ```
 
 Certifikatet är nu tillgängligt för den angivna hanterade instansen, och en säkerhetskopia av motsvarande TDE-skyddad databas kan återställas.

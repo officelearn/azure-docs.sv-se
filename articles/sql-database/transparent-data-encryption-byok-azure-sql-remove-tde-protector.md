@@ -12,20 +12,22 @@ ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
 ms.date: 10/12/2018
-ms.openlocfilehash: 95a86dafc4705d58ac459ff57e4f221d19fb7a37
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 4a3677dc5402948fc0105190d1891d709291d0f7
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55990299"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57317738"
 ---
 # <a name="remove-a-transparent-data-encryption-tde-protector-using-powershell"></a>Ta bort ett Transparent datakryptering (TDE)-skydd med hjälp av PowerShell
 
 ## <a name="prerequisites"></a>Förutsättningar
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 - Du måste ha en Azure-prenumeration och vara administratör på den aktuella prenumerationen
-- Du måste ha Azure PowerShell-version 4.2.0 eller senare installerat och körs. 
-- Den här guiden förutsätter att du redan använder en nyckel från Azure Key Vault som TDE-skyddet för en Azure SQL Database eller datalagret. Se [Transparent datakryptering med Azure Key Vault-integrering - BYOK-stöd](transparent-data-encryption-byok-azure-sql.md) vill veta mer.
+- Du måste ha Azure PowerShell installerad och igång. 
+- Den här guiden förutsätter att du redan använder en nyckel från Azure Key Vault som TDE-skyddet för en Azure SQL Database eller datalagret. Se [Transparent datakryptering med BYOK-stöd](transparent-data-encryption-byok-azure-sql.md) vill veta mer.
 
 ## <a name="overview"></a>Översikt
 
@@ -45,34 +47,34 @@ Den här guiden går via två sätt beroende på det önskade resultatet efter i
 ## <a name="to-keep-the-encrypted-resources-accessible"></a>Att behålla krypterade resurser tillgängliga
 
 1. Skapa en [ny nyckel i Key Vault](https://docs.microsoft.com/powershell/module/azurerm.keyvault/add-azurekeyvaultkey?view=azurermps-4.1.0). Kontrollera att den här nya nyckeln skapas i ett separat nyckelvalv från potentiellt komprometterade TDE-skyddet, eftersom åtkomstkontroll etableras på en valvnivå. 
-2. Lägg till den nya nyckeln till servern med den [Lägg till AzureRmSqlServerKeyVaultKey](/powershell/module/azurerm.sql/add-azurermsqlserverkeyvaultkey) och [Set-AzureRmSqlServerTransparentDataEncryptionProtector](/powershell/module/azurerm.sql/set-azurermsqlservertransparentdataencryptionprotector) cmdletar och uppdatera som serverns nya TDE-skydd.
+2. Lägg till den nya nyckeln till servern med den [Lägg till AzSqlServerKeyVaultKey](/powershell/module/az.sql/add-azsqlserverkeyvaultkey) och [Set-AzSqlServerTransparentDataEncryptionProtector](/powershell/module/az.sql/set-azsqlservertransparentdataencryptionprotector) cmdletar och uppdatera som serverns nya TDE-skydd.
 
    ```powershell
    # Add the key from Key Vault to the server  
-   Add-AzureRmSqlServerKeyVaultKey `
+   Add-AzSqlServerKeyVaultKey `
    -ResourceGroupName <SQLDatabaseResourceGroupName> `
    -ServerName <LogicalServerName> `
    -KeyId <KeyVaultKeyId>
 
    # Set the key as the TDE protector for all resources under the server
-   Set-AzureRmSqlServerTransparentDataEncryptionProtector `
+   Set-AzSqlServerTransparentDataEncryptionProtector `
    -ResourceGroupName <SQLDatabaseResourceGroupName> `
    -ServerName <LogicalServerName> `
    -Type AzureKeyVault -KeyId <KeyVaultKeyId> 
    ```
 
-3. Kontrollera att servern och alla repliker har uppdaterat till den nya TDE-skydd med hjälp av den [Get-AzureRmSqlServerTransparentDataEncryptionProtector](/powershell/module/azurerm.sql/get-azurermsqlservertransparentdataencryptionprotector) cmdlet. 
+3. Kontrollera att servern och alla repliker har uppdaterat till den nya TDE-skydd med hjälp av den [Get-AzSqlServerTransparentDataEncryptionProtector](/powershell/module/az.sql/get-azsqlservertransparentdataencryptionprotector) cmdlet. 
 
    >[!NOTE]
    > Det kan ta några minuter innan det nya TDE-skyddet tillämpas på alla databaser och sekundära databaser under servern.
 
    ```powershell
-   Get-AzureRmSqlServerTransparentDataEncryptionProtector `
+   Get-AzSqlServerTransparentDataEncryptionProtector `
    -ServerName <LogicalServerName> `
    -ResourceGroupName <SQLDatabaseResourceGroupName>
    ```
 
-4. Ta en [säkerhetskopiering av den nya nyckeln](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey) i Key Vault.
+4. Ta en [säkerhetskopiering av den nya nyckeln](/powershell/module/az.keyvault/backup-azurekeyvaultkey) i Key Vault.
 
    ```powershell
    <# -OutputFile parameter is optional; 
@@ -82,18 +84,18 @@ Den här guiden går via två sätt beroende på det önskade resultatet efter i
    -Name <KeyVaultKeyName> `
    -OutputFile <DesiredBackupFilePath>
    ```
-
-5. Ta bort den komprometterade nyckeln från Key Vault med hjälp av den [Remove-AzureKeyVaultKey](/powershell/module/azurerm.keyvault/remove-azurekeyvaultkey) cmdlet. 
+ 
+5. Ta bort den komprometterade nyckeln från Key Vault med hjälp av den [Remove-AzKeyVaultKey](/powershell/module/az.keyvault/remove-azurekeyvaultkey) cmdlet. 
 
    ```powershell
-   Remove-AzureKeyVaultKey `
+   Remove-AzKeyVaultKey `
    -VaultName <KeyVaultName> `
    -Name <KeyVaultKeyName>
    ```
-
-6. Att återställa en nyckel till Key Vault i framtiden med den [Restore-AzureKeyVaultKey](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey) cmdlet:
+ 
+6. Att återställa en nyckel till Key Vault i framtiden med den [återställning AzKeyVaultKey](/powershell/module/az.keyvault/restore-azurekeyvaultkey) cmdlet:
    ```powershell
-   Restore-AzureKeyVaultKey `
+   Restore-AzKeyVaultKey `
    -VaultName <KeyVaultName> `
    -InputFile <BackupFilePath>
    ```

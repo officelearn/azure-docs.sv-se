@@ -12,20 +12,18 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 6ec0742c205204ee74ac9f9474af0394f9d1ab31
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: dc9b58402ed0fcc48d60b51d30f891ffcadddbe0
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55472661"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57315630"
 ---
 # <a name="create-and-manage-sql-database-elastic-jobs-using-powershell-preview"></a>Skapa och hantera SQL Database elastiska jobb med PowerShell (förhandsversion)
 
-
-[!INCLUDE [elastic-database-jobs-deprecation](../../includes/sql-database-elastic-jobs-deprecate.md)]
-
-
 PowerShell-APIs för **elastiska databasjobb** (i förhandsversion), kan du definiera en grupp med databaser mot vilken skript ska köras. Den här artikeln visar hur du skapar och hanterar **elastiska databasjobb** med PowerShell-cmdletar. Se [elastiska jobb översikt](sql-database-elastic-jobs-overview.md). 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Förutsättningar
 * En Azure-prenumeration. En kostnadsfri utvärderingsversion, se [kostnadsfri utvärderingsmånad](https://azure.microsoft.com/pricing/free-trial/).
@@ -34,9 +32,9 @@ PowerShell-APIs för **elastiska databasjobb** (i förhandsversion), kan du defi
 * **Elastic Database-jobb** PowerShell-paketet: Se [installera Elastic Database-jobb](sql-database-elastic-jobs-service-installation.md)
 
 ### <a name="select-your-azure-subscription"></a>Välj din Azure-prenumeration
-Välj prenumerationen som du behöver ditt prenumerations-Id (**- SubscriptionId**) eller prenumerationsnamn (**- SubscriptionName**). Om du har flera prenumerationer kan du köra den **Get-AzureRmSubscription** cmdlet och kopiera ange den önskade prenumerationsinformationen från resultatet. När du har din prenumerationsinformation, kör du följande cmdlet för att ange den här prenumerationen som standard, nämligen målet för att skapa och hantera jobb:
+Välj prenumerationen som du behöver ditt prenumerations-Id (**- SubscriptionId**) eller prenumerationsnamn (**- SubscriptionName**). Om du har flera prenumerationer kan du köra den **Get-AzSubscription** cmdlet och kopiera ange den önskade prenumerationsinformationen från resultatet. När du har din prenumerationsinformation, kör du följande cmdlet för att ange den här prenumerationen som standard, nämligen målet för att skapa och hantera jobb:
 
-    Select-AzureRmSubscription -SubscriptionId {SubscriptionID}
+    Select-AzSubscription -SubscriptionId {SubscriptionID}
 
 Den [PowerShell ISE](https://technet.microsoft.com/library/dd315244.aspx) rekommenderas för användning att utveckla och köra PowerShell-skript mot Elastic Database-jobb.
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: c8cba4006d1112ccc1529fc1769e046fe45468a7
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: f8af115824ec48492d0f53297a6e697f7011ff55
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57214188"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57316429"
 ---
 # <a name="create-a-telemetry-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Skapa en regel för telemetri och konfigurera meddelanden med Azure IoT Central programmet
 
@@ -35,7 +35,7 @@ Om du vill skapa en regel för telemetri måste mallen enheten ha minst en telem
 
 1. På den **regler** fliken **+ ny regel** att se vilka typer av regler som du kan skapa.
 
-1. Klicka på **telemetri** att skapa en regel för att övervaka enheternas telemetri.
+1. Välj **telemetri** att skapa en regel för att övervaka enheternas telemetri.
 
     ![Regeltyper](media/howto-create-telemetry-rules-experimental/Rule_Types.png)
 
@@ -51,7 +51,7 @@ Om du vill skapa en regel för telemetri måste mallen enheten ha minst en telem
 
 Villkoret definierar de kriterier som övervakas av regeln.
 
-1. Klicka på **+** bredvid **villkor** att lägga till ett nytt villkor.
+1. Välj **+** bredvid **villkor** att lägga till ett nytt villkor.
 
 1. Välj den telemetri som du vill övervaka den **mätning** listrutan.
 

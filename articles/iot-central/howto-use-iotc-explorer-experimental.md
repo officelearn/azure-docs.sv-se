@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: ace8eedf4b6f03c839fc2da7469e5e9c36bc5cae
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 167a7b008af521c5f4e403a3786b004138d69da9
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57213338"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57311159"
 ---
 # <a name="monitor-device-connectivity-using-the-azure-iot-central-explorer"></a>Övervaka enhetsanslutning med Azure IoT Central Explorer
 
@@ -48,10 +48,10 @@ I följande avsnitt beskrivs vanliga kommandon och alternativ som du kan använd
 Innan du startar måste du be en administratör för programmet IoT Central och få en åtkomsttoken som du kan använda. Administratören utför följande steg:
 
 1. Gå till **Administration** sedan **åtkomsttoken**.
-1. Klicka på **generera Token**.
+1. Välj **generera Token**.
     ![Skärmbild för åtkomst-token sidan](media/howto-use-iotc-explorer-experimental/accesstokenspage.png)
 
-1. Ange ett Tokennamn, klickar du på **nästa**, och sedan **kopiera**.
+1. Ange ett Tokennamn, Välj **nästa**, och sedan **kopiera**.
     > [!NOTE]
     > Token-värde visas bara en gång, så det måste kopieras innan du stänger dialogrutan. När du har stängt dialogrutan visas den aldrig igen.
 

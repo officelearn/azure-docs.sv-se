@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: 704c12bc2ea16fcad5672dde4181f63495fbe967
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 07ea18a767044f0f74249859bb46d8285d52d7ab
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56870847"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57310190"
 ---
 # <a name="collect-and-consume-log-data-from-your-azure-resources"></a>Samla in och använda loggdata från resurserna i Azure
 
@@ -113,12 +113,14 @@ Diagnostikinställningar för klient kan endast konfigureras på portalbladet f�
 
 ### <a name="enable-collection-of-resource-diagnostic-logs-via-powershell"></a>Aktivera insamling av resursdiagnostikloggar via PowerShell
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Om du vill aktivera insamling av resursdiagnostikloggar via Azure PowerShell använder du följande kommandon:
 
 Använd följande kommando om du vill aktivera lagring av diagnostiska loggar i ett lagringskonto:
 
 ```powershell
-Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -StorageAccountId [your storage account id] -Enabled $true
+Set-AzDiagnosticSetting -ResourceId [your resource id] -StorageAccountId [your storage account id] -Enabled $true
 ```
 
 Storage-konto-ID är resurs-ID för storage-konto som du vill skicka loggarna.
@@ -126,7 +128,7 @@ Storage-konto-ID är resurs-ID för storage-konto som du vill skicka loggarna.
 Om du vill aktivera strömning av diagnostiska loggar till en händelsehubb, Använd följande kommando:
 
 ```powershell
-Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -ServiceBusRuleId [your Service Bus rule id] -Enabled $true
+Set-AzDiagnosticSetting -ResourceId [your resource id] -ServiceBusRuleId [your Service Bus rule id] -Enabled $true
 ```
 
 Regel-ID för service bus är en sträng med det här formatet: `{Service Bus resource ID}/authorizationrules/{key name}`.
@@ -134,13 +136,13 @@ Regel-ID för service bus är en sträng med det här formatet: `{Service Bus re
 Om du vill aktivera utskick av diagnostikloggar till Log Analytics-arbetsytan, Använd följande kommando:
 
 ```powershell
-Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -WorkspaceId [resource id of the log analytics workspace] -Enabled $true
+Set-AzDiagnosticSetting -ResourceId [your resource id] -WorkspaceId [resource id of the log analytics workspace] -Enabled $true
 ```
 
 Du kan hämta resurs-ID för Log Analytics-arbetsytan med följande kommando:
 
 ```powershell
-(Get-AzureRmOperationalInsightsWorkspace).ResourceId
+(Get-AzOperationalInsightsWorkspace).ResourceId
 ```
 
 Du kan kombinera dessa parametrar om du vill aktivera flera Utdataalternativ för.

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 5d769de62ccae1b1480e4da9e9643b63633073a4
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 9834feed7ee3139f70e481bafb301b2003c2e2b6
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57215565"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57317296"
 ---
 # <a name="configure-the-application-dashboard"></a>Konfigurera instrumentpanel för program
 
@@ -24,15 +24,15 @@ Den **instrumentpanelen** är den sida som läses in när användare som har åt
 
 ## <a name="add-tiles"></a>Lägg till paneler
 
-I följande skärmbild visas på instrumentpanelen i ett program som skapats från den **exempel Contoso** mall. Om du vill anpassa standardinstrumentpanelen för ditt program, klickar du på **redigera** längst upp höger på sidan.
+I följande skärmbild visas på instrumentpanelen i ett program som skapats från den **exempel Contoso** mall. Om du vill anpassa standardinstrumentpanelen för ditt program, Välj **redigera** längst upp höger på sidan.
 
 ![Instrumentpanel för program baserat på mallen ”Contoso exemplet”](media/howto-configure-homepage-experimental/image1.png)
 
-Klicka på **redigera**, öppnas panelen instrumentpanelen bibliotek. Biblioteket innehåller paneler och instrumentpanelen primitiver som du kan använda för att anpassa instrumentpanelen.
+Att välja **redigera**, öppnas panelen instrumentpanelen bibliotek. Biblioteket innehåller paneler och instrumentpanelen primitiver som du kan använda för att anpassa instrumentpanelen.
 
 ![Instrumentpanelen bibliotek](media/howto-configure-homepage-experimental/image2.png)
 
-Du kan till exempel lägga till en **inställningar och egenskaper** rutan för att visa ett urval av de aktuella värdena för inställningar och egenskaper för en enhet. Om du vill göra det väljer du först en **enheten mallen** Välj sedan en **enhetsinstansen**. Efter som tillhandahåller panelen en rubrik och väljer en **inställningen** eller en **egenskapen** ska visas. I följande skärmbild visas inställningar och egenskaper som valts för att lägga till i panelen. Klicka på **klar** att spara ändringarna på instrumentpanelen.
+Du kan till exempel lägga till en **inställningar och egenskaper** rutan för att visa ett urval av de aktuella värdena för inställningar och egenskaper för en enhet. Om du vill göra det väljer du först en **enheten mallen** Välj sedan en **enhetsinstansen**. Efter som tillhandahåller panelen en rubrik och väljer en **inställningen** eller en **egenskapen** ska visas. I följande skärmbild visas inställningar och egenskaper som valts för att lägga till i panelen. Välj **klar** att spara ändringarna på instrumentpanelen.
 
 ![”Konfigurera enhetsinformation” formuläret med information om inställningar och egenskaper](media/howto-configure-homepage-experimental/image3.png)
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 1097d14c824bcdebb9062fcf63b04e9837b0d170
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 620ae30c684ad9105357d0d20bbde158d5ff0a5a
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55811621"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57309000"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>Anslut en enhet för MXChip IoT DevKit till programmet Azure IoT Central
 
@@ -43,14 +43,14 @@ Fullständig information om konfigurationen finns i [MXChip mall enhetsinformati
 
 I Azure IoT Central programmet, lägger du till en riktig enhet från den **MXChip** enheten mallen och gjort en notering enhetsinformation för anslutningen (**Scope-ID, enhets-ID och primära nyckel**).
 
-1. Lägg till en **riktig enhet** från Device Explorer klickar du på **+ Ny > verkliga** att lägga till en riktig enhet.
+1. Lägg till en **riktig enhet** Device Explorer, Välj **+ Ny > verkliga** att lägga till en riktig enhet.
 
     * Ange enhets-Id **<span style="color:Red">(bör vara gemener)</span>** eller använder den föreslagna enhets-Id.
     * Ange namnet på enheten eller använda det föreslagna namnet
 
     ![Lägg till enhet](media/howto-connect-devkit-experimental/add-device.png)
 
-1. Hämta anslutningsinformationen som **Scope-ID, enhets-ID och primära nyckel** för tillagd enhet genom att klicka på **Connect** på enhetssidan.
+1. Hämta anslutningsinformationen som **Scope-ID, enhets-ID och primära nyckel** för tillagd enhet genom att välja **Connect** på enhetssidan.
 
     ![Anslutningsinformation](media/howto-connect-devkit-experimental/device-connect.png)
 

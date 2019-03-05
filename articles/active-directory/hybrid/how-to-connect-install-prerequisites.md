@@ -16,12 +16,12 @@ ms.date: 12/28/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9925f2ed9f5b24a4113c30f1d00eb3a5bbed8eb5
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: d21fe7c70c09ad41faf628db45d82b995c8f2515
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56205349"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57311448"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Förhandskrav för Azure AD Connect
 Det här avsnittet beskriver kraven och maskinvarukrav för Azure AD Connect.
@@ -117,7 +117,7 @@ Läs mer om när du har problem med anslutningen [Felsöka anslutningsproblem](t
 * Valfritt: Ett test-användarkonto att verifiera synkronisering.
 
 ## <a name="component-prerequisites"></a>Komponent-krav
-### <a name="powershell-and-net-framework"></a>PowerShell och .net Framework
+### <a name="powershell-and-net-framework"></a>PowerShell och .NET Framework
 Azure AD Connect är beroende av Microsoft PowerShell och .NET Framework 4.5.1. Du behöver den här versionen eller senare installerat på servern. Beroende på din Windows Server-version kan du göra följande:
 
 * Windows Server 2012 R2
@@ -133,16 +133,16 @@ Före version 1.1.614.0 använder TLS 1.0 i Azure AD Connect som standard för a
 
 1. TLS 1.2 kan inte aktiveras före Windows Server 2008 R2 eller senare. Se till att du har .net 4.5.1 snabbkorrigeringen installeras för ditt operativsystem, se [Microsoft Security Advisory 2960358](https://technet.microsoft.com/security/advisory/2960358). Du kan ha den här snabbkorrigeringen eller en senare version redan installerat på servern.
 2. Om du använder Windows Server 2008 R2 kan du sedan kontrollera att TLS 1.2 är aktiverad. TLS 1.2 måste redan vara aktiverat på servern för Windows Server 2012 och senare versioner.
-   ```
-   [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2]
-   [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Client] "DisabledByDefault"=dword:00000000 "Enabled"=dword:00000001
-   [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Server] "DisabledByDefault"=dword:00000000 "Enabled"=dword:00000001
-   ```
+    ```
+    [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2]
+    [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Client] "DisabledByDefault"=dword:00000000 "Enabled"=dword:00000001
+    [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Server] "DisabledByDefault"=dword:00000000 "Enabled"=dword:00000001
+    ```
 3. Ange registernyckeln för alla operativsystem och starta om servern.
-   ```
-   HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v4.0.30319
-   "SchUseStrongCrypto"=dword:00000001
-   ```
+    ```
+    HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v4.0.30319
+    "SchUseStrongCrypto"=dword:00000001
+    ```
 4. Om du vill aktivera TLS 1.2 mellan synkronisering engine-server och en fjärransluten SQL Server och sedan kontrollera att du har de nödvändiga versionerna som installerats för [TLS 1.2-stöd för Microsoft SQL Server](https://support.microsoft.com/kb/3135244).
 
 ## <a name="prerequisites-for-federation-installation-and-configuration"></a>Krav för federation installation och konfiguration

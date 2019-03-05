@@ -13,14 +13,17 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 05/27/2017
 ms.author: bwren
-ms.openlocfilehash: 75ed69d749e23f39c03afb09f70a18cc1aed600b
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 5de5191ee616f38404e2423c23f4e8b363240b0e
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54078583"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57308337"
 ---
 # <a name="collect-data-in-log-analytics-with-an-azure-automation-runbook"></a>Samla in data i Log Analytics med en Azure Automation-runbook
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Du kan samla in en betydande mängd data i Log Analytics från olika källor, inklusive [datakällor](../../azure-monitor/platform/agent-data-sources.md) på agenter och även [data som samlas in från Azure](../../azure-monitor/platform/collect-azure-metrics-logs.md). Det finns en scenarier om när du behöver samla in data som inte är tillgängliga via dessa källor som standard. I dessa fall kan du använda den [HTTP Data Collector API](../../azure-monitor/platform/data-collector-api.md) att skriva data till Log Analytics från en REST API-klient. En vanlig metod att utföra den här Datasamlingen med hjälp av en runbook i Azure Automation.
 
 Den här självstudien beskriver steg för att skapa och schemalägga en runbook i Azure Automation för att skriva data till Log Analytics.
@@ -63,7 +66,7 @@ PowerShell-galleriet ger dig dock ett snabbt alternativ att distribuera en modul
 | Egenskap  | ID-värdet för arbetsyta | Nyckelvärdet för arbetsyta |
 |:--|:--|:--|
 | Namn | WorkspaceId | WorkspaceKey |
-| Typ | Sträng | Sträng |
+| Type | String | String |
 | Värde | Klistra in arbetsyte-ID för Log Analytics-arbetsytan. | Klistra in med primärt eller sekundärnyckeln för Log Analytics-arbetsytan. |
 | Krypterade | Nej | Ja |
 
@@ -92,7 +95,7 @@ Azure Automation har en redigerare i portalen där du kan redigera och testa din
     # Code copied from the runbook AzureAutomationTutorial.
     $connectionName = "AzureRunAsConnection"
     $servicePrincipalConnection=Get-AutomationConnection -Name $connectionName
-    Connect-AzureRmAccount `
+    Connect-AzAccount `
         -ServicePrincipal `
         -TenantId $servicePrincipalConnection.TenantId `
         -ApplicationId $servicePrincipalConnection.ApplicationId `
@@ -109,7 +112,7 @@ Azure Automation har en redigerare i portalen där du kan redigera och testa din
     $logType = "AutomationJob"
     
     # Get the jobs from the past hour.
-    $jobs = Get-AzureRmAutomationJob -ResourceGroupName $resourceGroupName -AutomationAccountName $automationAccountName -StartTime (Get-Date).AddHours(-1)
+    $jobs = Get-AzAutomationJob -ResourceGroupName $resourceGroupName -AutomationAccountName $automationAccountName -StartTime (Get-Date).AddHours(-1)
     
     if ($jobs -ne $null) {
         # Convert the job data to json

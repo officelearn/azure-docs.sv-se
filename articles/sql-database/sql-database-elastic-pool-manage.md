@@ -12,12 +12,12 @@ ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 2a719fcbe2180e366060fba11bf64ad9770aa672
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: e35de707abe04702201969fdfd008fc9713fc391
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756129"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57309748"
 ---
 # <a name="create-and-manage-elastic-pools-in-azure-sql-database"></a>Skapa och hantera elastiska pooler i Azure SQL Database
 
@@ -39,6 +39,8 @@ Härifrån kan du valfri kombination av följande ändringar och spara dem alla 
 
 ## <a name="powershell-manage-elastic-pools-and-pooled-databases"></a>PowerShell: Hantera elastiska pooler och databaser i en pool
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Använd följande PowerShell-cmdletar för att skapa och hantera SQL Database elastiska pooler och databaser i en pool med Azure PowerShell. Om du behöver installera eller uppgradera PowerShell kan du läsa [installera Azure PowerShell-modulen](/powershell/azure/install-az-ps). Om du vill skapa och hantera SQL Database-servrar för en elastisk pool, se [skapa och hantera SQL Database-servrar](sql-database-servers.md). För att skapa och hantera brandväggsregler, se [skapa och hantera brandväggsregler med hjälp av PowerShell](sql-database-firewall-configure.md#manage-server-level-ip-firewall-rules-using-azure-powershell).
 
 > [!TIP]
@@ -47,15 +49,15 @@ Använd följande PowerShell-cmdletar för att skapa och hantera SQL Database el
 
 | Cmdlet | Beskrivning |
 | --- | --- |
-|[New-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/new-azurermsqlelasticpool)|Skapar en elastisk pool.|
-|[Get-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/get-azurermsqlelasticpool)|Hämtar elastiska pooler och deras värden.|
-|[Set-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/set-azurermsqlelasticpool)|Ändrar egenskaperna för en elastisk pool till exempel den **StorageMB** egenskapen att ändra det maximala lagringsutrymmet för en elastisk pool.|
-|[Remove-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/remove-azurermsqlelasticpool)|Tar bort en elastisk pool.|
-|[Get-AzureRmSqlElasticPoolActivity](/powershell/module/azurerm.sql/get-azurermsqlelasticpoolactivity)|Hämtar status för åtgärder på en elastisk pool|
-|[New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase)|Skapar en ny databas i en befintlig pool eller som en enskild databas. |
-|[Get-AzureRmSqlDatabase](/powershell/module/azurerm.sql/get-azurermsqldatabase)|Hämtar en eller flera databaser.|
-|[Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase)|Anger egenskaperna för en databas eller flyttar en befintlig databas till, från eller mellan elastiska pooler.|
-|[Remove-AzureRmSqlDatabase](/powershell/module/azurerm.sql/remove-azurermsqldatabase)|Tar bort en databas.|
+|[New-AzSqlElasticPool](/powershell/module/az.sql/new-azsqlelasticpool)|Skapar en elastisk pool.|
+|[Get-AzSqlElasticPool](/powershell/module/az.sql/get-azsqlelasticpool)|Hämtar elastiska pooler och deras värden.|
+|[Set-AzSqlElasticPool](/powershell/module/az.sql/set-azsqlelasticpool)|Ändrar egenskaperna för en elastisk pool till exempel den **StorageMB** egenskapen att ändra det maximala lagringsutrymmet för en elastisk pool.|
+|[Remove-AzSqlElasticPool](/powershell/module/az.sql/remove-azsqlelasticpool)|Tar bort en elastisk pool.|
+|[Get-AzSqlElasticPoolActivity](/powershell/module/az.sql/get-azsqlelasticpoolactivity)|Hämtar status för åtgärder på en elastisk pool|
+|[New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase)|Skapar en ny databas i en befintlig pool eller som en enskild databas. |
+|[Get-AzSqlDatabase](/powershell/module/az.sql/get-azsqldatabase)|Hämtar en eller flera databaser.|
+|[Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase)|Anger egenskaperna för en databas eller flyttar en befintlig databas till, från eller mellan elastiska pooler.|
+|[Remove-AzSqlDatabase](/powershell/module/az.sql/remove-azsqldatabase)|Tar bort en databas.|
 
 > [!TIP]
 > Skapandet av flera databaser i en elastisk pool kan ta tid när det görs med portalen eller PowerShell-cmdletar som skapar bara en enskild databas i taget. Om du vill automatisera skapande i en elastisk pool, se [CreateOrUpdateElasticPoolAndPopulate](https://gist.github.com/billgib/d80c7687b17355d3c2ec8042323819ae).

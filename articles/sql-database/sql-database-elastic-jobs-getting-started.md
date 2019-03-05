@@ -12,22 +12,22 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/04/2018
-ms.openlocfilehash: ff7e15579bfb0edfe9229238c6a4d5672700d0ef
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 6c77bb1f17f93e25605d251c717c2a4d61f940dd
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567017"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57313978"
 ---
 # <a name="getting-started-with-elastic-database-jobs"></a>Komma igång med Elastic Database-jobb
-
-[!INCLUDE [elastic-database-jobs-deprecation](../../includes/sql-database-elastic-jobs-deprecate.md)]
 
 Elastic Database-jobb (förhandsversion) för Azure SQL Database kan du tillförlitligt köra T-SQL-skript som sträcker sig över flera databaser samtidigt som du försöker igen och ge garantier för slutlig slutförande automatiskt. Mer information om funktionen för Elastic Database-jobb finns i [elastiska jobb](sql-database-elastic-jobs-overview.md).
 
 Den här artikeln utökar exemplet finns i [komma igång med elastiska Databasverktyg](sql-database-elastic-scale-get-started.md). När du är klar kan du se hur du skapar och hanterar jobb som hanterar en grupp med relaterade databaser. Du behöver inte använda verktyg för elastisk skalning för att kunna dra nytta av fördelarna med elastiska jobb.
 
 ## <a name="prerequisites"></a>Förutsättningar
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Ladda ned och kör den [komma igång med Elastic Database-verktyg exempel](sql-database-elastic-scale-get-started.md).
 
@@ -55,7 +55,7 @@ Här vi vanligtvis skulle skapa en skärvkarta mål med hjälp av den **New Azur
     New-AzureSqlJobTarget -CustomCollectionName $customCollectionName
     $ResourceGroupName = "ddove_samples"
     $ServerName = "samples"
-    $dbsinserver = Get-AzureRMSqlDatabase -ResourceGroupName $ResourceGroupName -ServerName $ServerName
+    $dbsinserver = Get-AzSqlDatabase -ResourceGroupName $ResourceGroupName -ServerName $ServerName
     $dbsinserver | %{
     $currentdb = $_.DatabaseName
     $ErrorActionPreference = "Stop"

@@ -13,16 +13,18 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/09/2017
 ms.author: richrund
-ms.openlocfilehash: 785ccba6766b6a4f7400f3fdacf7ac24a234adf5
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: c3148ebe11ba0e23cbded5965234ece9fb6082aa
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53192778"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57317704"
 ---
 # <a name="azure-key-vault-analytics-solution-in-log-analytics"></a>Azure Key Vault Analytics-lösning i Log Analytics
 
 ![Key Vault-symbol](media/azure-key-vault/key-vault-analytics-symbol.png)
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 Du kan använda Azure Key Vault-lösningen i Log Analytics för att läsa igenom AuditEvent-loggarna i Azure Key Vault.
 
@@ -55,13 +57,13 @@ Använd följande instruktioner för att installera och konfigurera Azure Key Va
 8. Klicka på *spara* att aktivera loggning av diagnostik till Log Analytics
 
 ### <a name="enable-key-vault-diagnostics-using-powershell"></a>Aktivera diagnostik för Key Vault med hjälp av PowerShell
-Följande PowerShell-skript innehåller ett exempel på hur du använder `Set-AzureRmDiagnosticSetting` att aktivera Diagnostisk loggning för Key Vault:
+Följande PowerShell-skript innehåller ett exempel på hur du använder `Set-AzDiagnosticSetting` att aktivera Diagnostisk loggning för Key Vault:
 ```
 $workspaceId = "/subscriptions/d2e37fee-1234-40b2-5678-0b2199de3b50/resourcegroups/oi-default-east-us/providers/microsoft.operationalinsights/workspaces/rollingbaskets"
 
-$kv = Get-AzureRmKeyVault -VaultName 'ContosoKeyVault'
+$kv = Get-AzKeyVault -VaultName 'ContosoKeyVault'
 
-Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId  -WorkspaceId $workspaceId -Enabled $true
+Set-AzDiagnosticSetting -ResourceId $kv.ResourceId  -WorkspaceId $workspaceId -Enabled $true
 ```
 
 
@@ -103,9 +105,9 @@ Azure Key Vault-lösningen analyserar poster som har en typ av **KeyVaults** som
 
 | Egenskap  | Beskrivning |
 |:--- |:--- |
-| Typ |*AzureDiagnostics* |
+| Type |*AzureDiagnostics* |
 | SourceSystem |*Azure* |
-| callerIpAddress |IP-adressen för klienten som gjorde begäran |
+| CallerIpAddress |IP-adressen för klienten som gjorde begäran |
 | Kategori | *AuditEvent* |
 | CorrelationId |Ett valfritt GUID som klienten kan skicka för att korrelera loggar på klientsidan med loggar på tjänstsidan (Key Vault). |
 | . durationMs |Hur lång tid i millisekunder som det tog att utföra REST-API-begäran. Nu omfattar inte Nätverksfördröjningen, så den tid du mäter på klientsidan inte kanske stämmer med den här gången. |
@@ -113,14 +115,14 @@ Azure Key Vault-lösningen analyserar poster som har en typ av **KeyVaults** som
 | id_s |Unikt ID för begäran |
 | identity_claim_appid_g | GUID för program-id |
 | OperationName |Namnet på åtgärden, som beskrivs i [Azure Key Vault-loggning](../../key-vault/key-vault-logging.md) |
-| operationVersion |REST API-version som begärs av klienten (till exempel *2015-06-01*) |
+| OperationVersion |REST API-version som begärs av klienten (till exempel *2015-06-01*) |
 | requestUri_s |URI för begäran |
 | Resurs |Namnet på nyckelvalvet |
 | ResourceGroup |Resursgrupp för nyckelvalvet |
-| Resurs-ID |Azure Resource Manager Resource-ID. För Key Vault-loggar är detta Key Vault-resurs-ID. |
-| ResourceProvider |*MICROSOFT. KEYVAULT* |
+| ResourceId |Azure Resource Manager Resource-ID. För Key Vault-loggar är detta Key Vault-resurs-ID. |
+| ResourceProvider |*MICROSOFT.KEYVAULT* |
 | ResourceType | *VAULTS* |
-| resultSignature |HTTP-status (till exempel *OK*) |
+| ResultSignature |HTTP-status (till exempel *OK*) |
 | resultType |Resultatet av REST API-begäran (till exempel *lyckades*) |
 | SubscriptionId |Azure-prenumerations-ID för prenumerationen som innehåller Nyckelvalvet |
 

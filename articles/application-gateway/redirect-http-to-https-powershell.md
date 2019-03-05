@@ -11,12 +11,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 7/13/2018
 ms.author: victorh
-ms.openlocfilehash: 0028f183276eb93b5c71330ec650eaf178523bdd
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: a9bff2ab8569a6e070ce5ea4c02b022a172450a3
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54428928"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57310615"
 ---
 # <a name="create-an-application-gateway-with-http-to-https-redirection-using-azure-powershell"></a>Skapa en Programgateway med HTTP till HTTPS-omdirigering med Azure PowerShell
 
@@ -33,7 +33,9 @@ I den här artikeln kan du se hur du:
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-Den här självstudien kräver Azure PowerShell-modul version 3.6 eller senare. Kör `Get-Module -ListAvailable AzureRM` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/azurerm/install-azurerm-ps) (Installera Azure PowerShell-modul). För att köra kommandona i den här självstudien, behöver du också köra `Login-AzureRmAccount` att skapa en anslutning till Azure.
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+Den här självstudien kräver Azure PowerShell-Modulversion 1.0.0 eller senare. Kör `Get-Module -ListAvailable Az` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-az-ps) (Installera Azure PowerShell-modul). För att köra kommandona i den här självstudien, behöver du också köra `Login-AzAccount` att skapa en anslutning till Azure.
 
 ## <a name="create-a-self-signed-certificate"></a>Skapa ett självsignerat certifikat
 
@@ -67,30 +69,30 @@ Export-PfxCertificate `
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
-En resursgrupp är en logisk container där Azure-resurser distribueras och hanteras. Skapa en Azure-resursgrupp med namnet *myResourceGroupAG* med [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). 
+En resursgrupp är en logisk container där Azure-resurser distribueras och hanteras. Skapa en Azure-resursgrupp med namnet *myResourceGroupAG* med [New AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). 
 
 ```powershell
-New-AzureRmResourceGroup -Name myResourceGroupAG -Location eastus
+New-AzResourceGroup -Name myResourceGroupAG -Location eastus
 ```
 
 ## <a name="create-network-resources"></a>Skapa nätverksresurser
 
-Skapa undernätskonfigurationer för *myBackendSubnet* och *myAGSubnet* med [New-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig). Skapa ett virtuellt nätverk med namnet *myVNet* med [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork) och undernätskonfigurationerna. Skapa slutligen den offentliga IP-adressen med namnet *myAGPublicIPAddress* med [New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress). De här resurserna används för att ge nätverksanslutning till programgatewayen och tillhörande resurser.
+Skapa undernätskonfigurationerna för *myBackendSubnet* och *myAGSubnet* med [New AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig). Skapa virtuellt nätverk med namnet *myVNet* med [New AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) med undernätskonfigurationerna. Slutligen, skapa offentliga IP-adress med namnet *myAGPublicIPAddress* med [New AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress). De här resurserna används för att ge nätverksanslutning till programgatewayen och tillhörande resurser.
 
 ```powershell
-$backendSubnetConfig = New-AzureRmVirtualNetworkSubnetConfig `
+$backendSubnetConfig = New-AzVirtualNetworkSubnetConfig `
   -Name myBackendSubnet `
   -AddressPrefix 10.0.1.0/24
-$agSubnetConfig = New-AzureRmVirtualNetworkSubnetConfig `
+$agSubnetConfig = New-AzVirtualNetworkSubnetConfig `
   -Name myAGSubnet `
   -AddressPrefix 10.0.2.0/24
-$vnet = New-AzureRmVirtualNetwork `
+$vnet = New-AzVirtualNetwork `
   -ResourceGroupName myResourceGroupAG `
   -Location eastus `
   -Name myVNet `
   -AddressPrefix 10.0.0.0/16 `
   -Subnet $backendSubnetConfig, $agSubnetConfig
-$pip = New-AzureRmPublicIpAddress `
+$pip = New-AzPublicIpAddress `
   -ResourceGroupName myResourceGroupAG `
   -Location eastus `
   -Name myAGPublicIPAddress `
@@ -101,32 +103,32 @@ $pip = New-AzureRmPublicIpAddress `
 
 ### <a name="create-the-ip-configurations-and-frontend-port"></a>Skapa IP-konfigurationerna och klientdelsporten
 
-Associera *myAGSubnet* som du skapade tidigare till programgatewayen med [New-AzureRmApplicationGatewayIPConfiguration](/powershell/module/azurerm.network/new-azurermapplicationgatewayipconfiguration). Tilldela *myAGPublicIPAddress* till programgatewayen med [New-AzureRmApplicationGatewayFrontendIPConfig](/powershell/module/azurerm.network/new-azurermapplicationgatewayfrontendipconfig). Och du kan sedan skapa HTTPS-porten med [New AzureRmApplicationGatewayFrontendPort](/powershell/module/azurerm.network/new-azurermapplicationgatewayfrontendport).
+Associera *myAGSubnet* som du skapade tidigare i application gateway med hjälp av [New AzApplicationGatewayIPConfiguration](/powershell/module/az.network/new-azapplicationgatewayipconfiguration). Tilldela *myAGPublicIPAddress* i application gateway med hjälp av [New AzApplicationGatewayFrontendIPConfig](/powershell/module/az.network/new-azapplicationgatewayfrontendipconfig). Och du kan sedan skapa HTTPS-porten med [New AzApplicationGatewayFrontendPort](/powershell/module/az.network/new-azapplicationgatewayfrontendport).
 
 ```powershell
-$vnet = Get-AzureRmVirtualNetwork `
+$vnet = Get-AzVirtualNetwork `
   -ResourceGroupName myResourceGroupAG `
   -Name myVNet
 $subnet=$vnet.Subnets[0]
-$gipconfig = New-AzureRmApplicationGatewayIPConfiguration `
+$gipconfig = New-AzApplicationGatewayIPConfiguration `
   -Name myAGIPConfig `
   -Subnet $subnet
-$fipconfig = New-AzureRmApplicationGatewayFrontendIPConfig `
+$fipconfig = New-AzApplicationGatewayFrontendIPConfig `
   -Name myAGFrontendIPConfig `
   -PublicIPAddress $pip
-$frontendPort = New-AzureRmApplicationGatewayFrontendPort `
+$frontendPort = New-AzApplicationGatewayFrontendPort `
   -Name myFrontendPort `
   -Port 443
 ```
 
 ### <a name="create-the-backend-pool-and-settings"></a>Skapa serverdelspoolen och tillhörande inställningar
 
-Skapa serverdelspoolen med namnet *appGatewayBackendPool* för programgatewayen med [New-AzureRmApplicationGatewayBackendAddressPool](/powershell/module/azurerm.network/new-azurermapplicationgatewaybackendaddresspool). Konfigurera inställningar för serverdelspoolen med [New-AzureRmApplicationGatewayBackendHttpSettings](/powershell/module/azurerm.network/new-azurermapplicationgatewaybackendhttpsettings).
+Skapa backend-adresspoolen med namnet *appGatewayBackendPool* för application gateway med [New AzApplicationGatewayBackendAddressPool](/powershell/module/az.network/new-azapplicationgatewaybackendaddresspool). Konfigurera inställningar för backend-pool med [New AzApplicationGatewayBackendHttpSettings](/powershell/module/az.network/new-azapplicationgatewaybackendhttpsettings).
 
 ```powershell
-$defaultPool = New-AzureRmApplicationGatewayBackendAddressPool `
+$defaultPool = New-AzApplicationGatewayBackendAddressPool `
   -Name appGatewayBackendPool 
-$poolSettings = New-AzureRmApplicationGatewayBackendHttpSettings `
+$poolSettings = New-AzApplicationGatewayBackendHttpSettings `
   -Name myPoolSettings `
   -Port 80 `
   -Protocol Http `
@@ -138,24 +140,24 @@ $poolSettings = New-AzureRmApplicationGatewayBackendHttpSettings `
 
 Du behöver en lyssnare så att programgatewayen kan dirigera trafiken till serverdelspoolen på rätt sätt. I det här exemplet skapar du en grundläggande lyssnare som lyssnar efter HTTPS-trafik vid rotadressen. 
 
-Skapa en certifikat-objekt med [New-AzureRmApplicationGatewaySslCertificate](/powershell/module/azurerm.network/new-azurermapplicationgatewaysslcertificate) och sedan skapa en lyssnare med namnet *appGatewayHttpListener* med [ Ny AzureRmApplicationGatewayHttpListener](/powershell/module/azurerm.network/new-azurermapplicationgatewayhttplistener) med konfiguration för klientdel, frontend-port och certifikat som du skapade tidigare. Du måste ange en regel för lyssnaren som anger vilken serverdelspool som ska användas för inkommande trafik. Skapa en grundläggande regel med namnet *rule1* med [New-AzureRmApplicationGatewayRequestRoutingRule](/powershell/module/azurerm.network/new-azurermapplicationgatewayrequestroutingrule).
+Skapa en certifikat-objekt med [New-AzApplicationGatewaySslCertificate](/powershell/module/az.network/new-azapplicationgatewaysslcertificate) och sedan skapa en lyssnare med namnet *appGatewayHttpListener* med [ Ny AzApplicationGatewayHttpListener](/powershell/module/az.network/new-azapplicationgatewayhttplistener) med konfiguration för klientdel, frontend-port och certifikat som du skapade tidigare. Du måste ange en regel för lyssnaren som anger vilken serverdelspool som ska användas för inkommande trafik. Skapa en grundläggande regel med namnet *1* med [New AzApplicationGatewayRequestRoutingRule](/powershell/module/az.network/new-azapplicationgatewayrequestroutingrule).
 
 ```powershell
 $pwd = ConvertTo-SecureString `
   -String "Azure123456!" `
   -Force `
   -AsPlainText
-$cert = New-AzureRmApplicationGatewaySslCertificate `
+$cert = New-AzApplicationGatewaySslCertificate `
   -Name "appgwcert" `
   -CertificateFile "c:\appgwcert.pfx" `
   -Password $pwd
-$defaultListener = New-AzureRmApplicationGatewayHttpListener `
+$defaultListener = New-AzApplicationGatewayHttpListener `
   -Name appGatewayHttpListener `
   -Protocol Https `
   -FrontendIPConfiguration $fipconfig `
   -FrontendPort $frontendPort `
   -SslCertificate $cert
-$frontendRule = New-AzureRmApplicationGatewayRequestRoutingRule `
+$frontendRule = New-AzApplicationGatewayRequestRoutingRule `
   -Name rule1 `
   -RuleType Basic `
   -HttpListener $defaultListener `
@@ -165,14 +167,14 @@ $frontendRule = New-AzureRmApplicationGatewayRequestRoutingRule `
 
 ### <a name="create-the-application-gateway"></a>Skapa programgatewayen
 
-Nu när du har skapat de nödvändiga stödresurserna ska du ange parametrar för programgatewayen *myAppGateway* med [New-AzureRmApplicationGatewaySku](/powershell/module/azurerm.network/new-azurermapplicationgatewaysku). Skapa sedan gatewayen med [New-AzureRmApplicationGateway](/powershell/module/azurerm.network/new-azurermapplicationgateway) och certifikatet.
+Nu när du har skapat de stödjande resurserna som krävs, ange parametrar för programgatewayen med namnet *myAppGateway* med [New-AzApplicationGatewaySku](/powershell/module/az.network/new-azapplicationgatewaysku), och sedan skapa den med hjälp av [New AzApplicationGateway](/powershell/module/az.network/new-azapplicationgateway) med certifikatet.
 
 ```powershell
-$sku = New-AzureRmApplicationGatewaySku `
+$sku = New-AzApplicationGatewaySku `
   -Name Standard_Medium `
   -Tier Standard `
   -Capacity 2
-$appgw = New-AzureRmApplicationGateway `
+$appgw = New-AzApplicationGateway `
   -Name myAppGateway `
   -ResourceGroupName myResourceGroupAG `
   -Location eastus `
@@ -191,13 +193,13 @@ $appgw = New-AzureRmApplicationGateway `
 
 ### <a name="add-the-http-port"></a>Lägg till HTTP-porten
 
-Lägg till HTTP-porten till application gateway med [Lägg till AzureRmApplicationGatewayFrontendPort](/powershell/module/azurerm.network/add-azurermapplicationgatewayfrontendport).
+Lägg till HTTP-porten till application gateway med [Lägg till AzApplicationGatewayFrontendPort](/powershell/module/az.network/add-azapplicationgatewayfrontendport).
 
 ```powershell
-$appgw = Get-AzureRmApplicationGateway `
+$appgw = Get-AzApplicationGateway `
   -Name myAppGateway `
   -ResourceGroupName myResourceGroupAG
-Add-AzureRmApplicationGatewayFrontendPort `
+Add-AzApplicationGatewayFrontendPort `
   -Name httpPort  `
   -Port 80 `
   -ApplicationGateway $appgw
@@ -205,16 +207,16 @@ Add-AzureRmApplicationGatewayFrontendPort `
 
 ### <a name="add-the-http-listener"></a>Lägg till HTTP-lyssnare
 
-Lägg till HTTP-lyssnaren med namnet *myListener* i application gateway med hjälp av [Lägg till AzureRmApplicationGatewayHttpListener](/powershell/module/azurerm.network/add-azurermapplicationgatewayhttplistener).
+Lägg till HTTP-lyssnaren med namnet *myListener* i application gateway med hjälp av [Lägg till AzApplicationGatewayHttpListener](/powershell/module/az.network/add-azapplicationgatewayhttplistener).
 
 ```powershell
-$fipconfig = Get-AzureRmApplicationGatewayFrontendIPConfig `
+$fipconfig = Get-AzApplicationGatewayFrontendIPConfig `
   -Name myAGFrontendIPConfig `
   -ApplicationGateway $appgw
-$fp = Get-AzureRmApplicationGatewayFrontendPort `
+$fp = Get-AzApplicationGatewayFrontendPort `
   -Name httpPort `
   -ApplicationGateway $appgw
-Add-AzureRmApplicationGatewayHttpListener `
+Add-AzApplicationGatewayHttpListener `
   -Name myListener `
   -Protocol Http `
   -FrontendPort $fp `
@@ -224,13 +226,13 @@ Add-AzureRmApplicationGatewayHttpListener `
 
 ### <a name="add-the-redirection-configuration"></a>Lägga till konfigurationen för omdirigering
 
-Lägg till HTTP till HTTPS-omdirigeringskonfiguration i application gateway med hjälp av [Add-azurermapplicationgatewayredirectconfiguration har till](/powershell/module/azurerm.network/add-azurermapplicationgatewayredirectconfiguration).
+Lägg till HTTP till HTTPS-omdirigeringskonfiguration i application gateway med hjälp av [Lägg till AzApplicationGatewayRedirectConfiguration](/powershell/module/az.network/add-azapplicationgatewayredirectconfiguration).
 
 ```powershell
-$defaultListener = Get-AzureRmApplicationGatewayHttpListener `
+$defaultListener = Get-AzApplicationGatewayHttpListener `
   -Name appGatewayHttpListener `
   -ApplicationGateway $appgw
-Add-AzureRmApplicationGatewayRedirectConfiguration -Name httpToHttps `
+Add-AzApplicationGatewayRedirectConfiguration -Name httpToHttps `
   -RedirectType Permanent `
   -TargetListener $defaultListener `
   -IncludePath $true `
@@ -240,22 +242,22 @@ Add-AzureRmApplicationGatewayRedirectConfiguration -Name httpToHttps `
 
 ### <a name="add-the-routing-rule"></a>Lägg till regel för vidarebefordran
 
-Lägg till en routningsregel med konfigurationen för omdirigering i application gateway med hjälp av [Lägg till AzureRmApplicationGatewayRequestRoutingRule](/powershell/module/azurerm.network/add-azurermapplicationgatewayrequestroutingrule).
+Lägg till en routningsregel med konfigurationen för omdirigering i application gateway med hjälp av [Lägg till AzApplicationGatewayRequestRoutingRule](/powershell/module/az.network/add-azapplicationgatewayrequestroutingrule).
 
 ```powershell
-$myListener = Get-AzureRmApplicationGatewayHttpListener `
+$myListener = Get-AzApplicationGatewayHttpListener `
   -Name myListener `
   -ApplicationGateway $appgw
-$redirectConfig = Get-AzureRmApplicationGatewayRedirectConfiguration `
+$redirectConfig = Get-AzApplicationGatewayRedirectConfiguration `
   -Name httpToHttps `
   -ApplicationGateway $appgw
-Add-AzureRmApplicationGatewayRequestRoutingRule `
+Add-AzApplicationGatewayRequestRoutingRule `
   -Name rule2 `
   -RuleType Basic `
   -HttpListener $myListener `
   -RedirectConfiguration $redirectConfig `
   -ApplicationGateway $appgw
-Set-AzureRmApplicationGateway -ApplicationGateway $appgw
+Set-AzApplicationGateway -ApplicationGateway $appgw
 ```
 
 ## <a name="create-a-virtual-machine-scale-set"></a>Skapa en VM-skalningsuppsättning
@@ -263,40 +265,40 @@ Set-AzureRmApplicationGateway -ApplicationGateway $appgw
 I det här exemplet skapar du en VM-skalningsuppsättning som ska tillhandahålla servrar till serverdelspoolen i programgatewayen. Du tilldelar skalningsuppsättningen till serverdelspoolen när du konfigurerar IP-inställningarna.
 
 ```powershell
-$vnet = Get-AzureRmVirtualNetwork `
+$vnet = Get-AzVirtualNetwork `
   -ResourceGroupName myResourceGroupAG `
   -Name myVNet
-$appgw = Get-AzureRmApplicationGateway `
+$appgw = Get-AzApplicationGateway `
   -ResourceGroupName myResourceGroupAG `
   -Name myAppGateway
-$backendPool = Get-AzureRmApplicationGatewayBackendAddressPool `
+$backendPool = Get-AzApplicationGatewayBackendAddressPool `
   -Name appGatewayBackendPool `
   -ApplicationGateway $appgw
-$ipConfig = New-AzureRmVmssIpConfig `
+$ipConfig = New-AzVmssIpConfig `
   -Name myVmssIPConfig `
   -SubnetId $vnet.Subnets[1].Id `
   -ApplicationGatewayBackendAddressPoolsId $backendPool.Id
-$vmssConfig = New-AzureRmVmssConfig `
+$vmssConfig = New-AzVmssConfig `
   -Location eastus `
   -SkuCapacity 2 `
   -SkuName Standard_DS2 `
   -UpgradePolicyMode Automatic
-Set-AzureRmVmssStorageProfile $vmssConfig `
+Set-AzVmssStorageProfile $vmssConfig `
   -ImageReferencePublisher MicrosoftWindowsServer `
   -ImageReferenceOffer WindowsServer `
   -ImageReferenceSku 2016-Datacenter `
   -ImageReferenceVersion latest
   -OsDiskCreateOption FromImage
-Set-AzureRmVmssOsProfile $vmssConfig `
+Set-AzVmssOsProfile $vmssConfig `
   -AdminUsername azureuser `
   -AdminPassword "Azure123456!" `
   -ComputerNamePrefix myvmss
-Add-AzureRmVmssNetworkInterfaceConfiguration `
+Add-AzVmssNetworkInterfaceConfiguration `
   -VirtualMachineScaleSet $vmssConfig `
   -Name myVmssNetConfig `
   -Primary $true `
   -IPConfiguration $ipConfig
-New-AzureRmVmss `
+New-AzVmss `
   -ResourceGroupName myResourceGroupAG `
   -Name myvmss `
   -VirtualMachineScaleSet $vmssConfig
@@ -307,14 +309,14 @@ New-AzureRmVmss `
 ```powershell
 $publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/application-gateway/iis/appgatewayurl.ps1"); 
   "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
-$vmss = Get-AzureRmVmss -ResourceGroupName myResourceGroupAG -VMScaleSetName myvmss
-Add-AzureRmVmssExtension -VirtualMachineScaleSet $vmss `
+$vmss = Get-AzVmss -ResourceGroupName myResourceGroupAG -VMScaleSetName myvmss
+Add-AzVmssExtension -VirtualMachineScaleSet $vmss `
   -Name "customScript" `
   -Publisher "Microsoft.Compute" `
   -Type "CustomScriptExtension" `
   -TypeHandlerVersion 1.8 `
   -Setting $publicSettings
-Update-AzureRmVmss `
+Update-AzVmss `
   -ResourceGroupName myResourceGroupAG `
   -Name myvmss `
   -VirtualMachineScaleSet $vmss
@@ -322,10 +324,10 @@ Update-AzureRmVmss `
 
 ## <a name="test-the-application-gateway"></a>Testa programgatewayen
 
-Du kan använda [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) till att hämta den offentliga IP-adressen för programgatewayen. Kopiera den offentliga IP-adressen och klistra in den i webbläsarens adressfält. Till exempel, http://52.170.203.149
+Du kan använda [Get-AzPublicIPAddress](/powershell/module/az.network/get-azpublicipaddress) att hämta den offentliga IP-adressen för application gateway. Kopiera den offentliga IP-adressen och klistra in den i webbläsarens adressfält. Till exempel, http://52.170.203.149
 
 ```powershell
-Get-AzureRmPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAddress
+Get-AzPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAddress
 ```
 
 ![Säkerhetsvarning](./media/redirect-http-to-https-powershell/application-gateway-secure.png)

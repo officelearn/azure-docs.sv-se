@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/23/2018
 ms.author: victorh
-ms.openlocfilehash: 92d0e079f9fafbb6c000c6b1746f37a16add4cf7
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: 3b9108e08e1b1ad13fac75d00816755043d84672
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417355"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57308728"
 ---
 # <a name="create-an-application-gateway-with-an-internal-load-balancer-ilb"></a>Skapa en Programgateway med en intern belastningsutjämnare (ILB)
 
@@ -29,7 +29,9 @@ Den här artikeln beskriver steg för steg hur du konfigurerar en programgateway
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-1. Installera den senaste versionen av Azure PowerShell-cmdlets med hjälp av installationsprogrammet för webbplattform. Du kan hämta och installera den senaste versionen från avsnittet om **Windows PowerShell** på [hämtningssidan](https://azure.microsoft.com/downloads/).
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+1. Installera den senaste versionen av Azure PowerShell-modulen genom att följa den [Installationsinstruktioner](/powershell/azure/install-az-ps).
 2. Du ska skapa ett virtuellt nätverk och ett undernät för Application Gateway. Kontrollera att inga virtuella datorer eller molndistributioner använder undernätet. Application Gateway måste vara fristående i ett virtuellt nätverks undernät.
 3. De servrar som du konfigurerar för användning av programgatewayen måste finnas i det virtuella nätverket eller ha slutpunkter som skapats där eller tilldelats en offentlig IP-/VIP-adress.
 
@@ -60,7 +62,7 @@ Glöm inte att byta PowerShell-läge så att du kan använda cmdlets för Azure 
 ### <a name="step-1"></a>Steg 1
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 ```
 
 ### <a name="step-2"></a>Steg 2
@@ -68,7 +70,7 @@ Connect-AzureRmAccount
 Kontrollera prenumerationerna för kontot.
 
 ```powershell
-Get-AzureRmSubscription
+Get-AzSubscription
 ```
 
 Du ombeds att autentisera dig med dina autentiseringsuppgifter.
@@ -78,7 +80,7 @@ Du ombeds att autentisera dig med dina autentiseringsuppgifter.
 Välj vilka av dina Azure-prenumerationer som du vill använda.
 
 ```powershell
-Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
+Select-AzSubscription -Subscriptionid "GUID of subscription"
 ```
 
 ### <a name="step-4"></a>Steg 4
@@ -86,7 +88,7 @@ Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
 Skapa en ny resursgrupp (hoppa över detta steg om du använder en befintlig resursgrupp).
 
 ```powershell
-New-AzureRmResourceGroup -Name appgw-rg -location "West US"
+New-AzResourceGroup -Name appgw-rg -location "West US"
 ```
 
 Azure Resource Manager kräver att alla resursgrupper anger en plats. Den här platsen används som standardplats för resurser i resursgruppen. Se till att alla kommandon du använder för att skapa en programgateway använder samma resursgrupp.
@@ -100,7 +102,7 @@ Följande exempel illustrerar hur du skapar ett virtuellt nätverk med hjälp av
 ### <a name="step-1"></a>Steg 1
 
 ```powershell
-$subnetconfig = New-AzureRmVirtualNetworkSubnetConfig -Name subnet01 -AddressPrefix 10.0.0.0/24
+$subnetconfig = New-AzVirtualNetworkSubnetConfig -Name subnet01 -AddressPrefix 10.0.0.0/24
 ```
 
 Det här steget tilldelar adressintervallet 10.0.0.0/24 till en undernätsvariabel som används för att skapa ett virtuellt nätverk.
@@ -108,7 +110,7 @@ Det här steget tilldelar adressintervallet 10.0.0.0/24 till en undernätsvariab
 ### <a name="step-2"></a>Steg 2
 
 ```powershell
-$vnet = New-AzureRmVirtualNetwork -Name appgwvnet -ResourceGroupName appgw-rg -Location "West US" -AddressPrefix 10.0.0.0/16 -Subnet $subnetconfig
+$vnet = New-AzVirtualNetwork -Name appgwvnet -ResourceGroupName appgw-rg -Location "West US" -AddressPrefix 10.0.0.0/16 -Subnet $subnetconfig
 ```
 
 Det här steget skapar ett virtuellt nätverk med namnet ”appgwvnet” i resursgruppen ”appgw-rg” för regionen West US med prefixet 10.0.0.0/16 och undernätet 10.0.0.0/24.
@@ -126,7 +128,7 @@ Det här steget tilldelas Undernätsobjektet till variabeln $subnet för nästa 
 ### <a name="step-1"></a>Steg 1
 
 ```powershell
-$gipconfig = New-AzureRmApplicationGatewayIPConfiguration -Name gatewayIP01 -Subnet $subnet
+$gipconfig = New-AzApplicationGatewayIPConfiguration -Name gatewayIP01 -Subnet $subnet
 ```
 
 Det här steget skapar en IP-konfiguration för programgatewayen med namnet ”gatewayIP01”. När Application Gateway startar hämtar den en IP-adress från det konfigurerade undernätet och dirigerar nätverkstrafik till IP-adresserna i backend-IP-poolen. Tänk på att varje instans använder en IP-adress.
@@ -134,7 +136,7 @@ Det här steget skapar en IP-konfiguration för programgatewayen med namnet ”g
 ### <a name="step-2"></a>Steg 2
 
 ```powershell
-$pool = New-AzureRmApplicationGatewayBackendAddressPool -Name pool01 -BackendIPAddresses 10.1.1.8,10.1.1.9,10.1.1.10
+$pool = New-AzApplicationGatewayBackendAddressPool -Name pool01 -BackendIPAddresses 10.1.1.8,10.1.1.9,10.1.1.10
 ```
 
 Det här steget konfigurerar backend-IP-adresspoolen med namnet ”pool01” med IP-adresser ”10.1.1.8, 10.1.1.9, 10.1.1.10”. Det här är IP-adresserna som tar emot nätverkstrafiken som kommer från frontend-IP-slutpunkten. Du ersätter de omnämnda IP-adresserna och lägger till ditt eget programs IP-adresslutpunkter.
@@ -142,7 +144,7 @@ Det här steget konfigurerar backend-IP-adresspoolen med namnet ”pool01” med
 ### <a name="step-3"></a>Steg 3
 
 ```powershell
-$poolSetting = New-AzureRmApplicationGatewayBackendHttpSettings -Name poolsetting01 -Port 80 -Protocol Http -CookieBasedAffinity Disabled
+$poolSetting = New-AzApplicationGatewayBackendHttpSettings -Name poolsetting01 -Port 80 -Protocol Http -CookieBasedAffinity Disabled
 ```
 
 Det här steget konfigurerar programmet programgatewayinställningen ”poolsetting01” för den belastningsutjämnade nätverkstrafiken i backend-poolen.
@@ -150,7 +152,7 @@ Det här steget konfigurerar programmet programgatewayinställningen ”poolsett
 ### <a name="step-4"></a>Steg 4
 
 ```powershell
-$fp = New-AzureRmApplicationGatewayFrontendPort -Name frontendport01  -Port 80
+$fp = New-AzApplicationGatewayFrontendPort -Name frontendport01  -Port 80
 ```
 
 Det här steget konfigurerar frontend IP-porten med namnet ”frontendport01” för den interna Belastningsutjämnaren.
@@ -158,7 +160,7 @@ Det här steget konfigurerar frontend IP-porten med namnet ”frontendport01” 
 ### <a name="step-5"></a>Steg 5
 
 ```powershell
-$fipconfig = New-AzureRmApplicationGatewayFrontendIPConfig -Name fipconfig01 -Subnet $subnet
+$fipconfig = New-AzApplicationGatewayFrontendIPConfig -Name fipconfig01 -Subnet $subnet
 ```
 
 Det här steget skapar du IP-konfigurationen namnet ”fipconfig01” och associerar den med en privat IP-adress från det aktuella virtuella nätverkets undernätet.
@@ -166,7 +168,7 @@ Det här steget skapar du IP-konfigurationen namnet ”fipconfig01” och associ
 ### <a name="step-6"></a>Steg 6
 
 ```powershell
-$listener = New-AzureRmApplicationGatewayHttpListener -Name listener01  -Protocol Http -FrontendIPConfiguration $fipconfig -FrontendPort $fp
+$listener = New-AzApplicationGatewayHttpListener -Name listener01  -Protocol Http -FrontendIPConfiguration $fipconfig -FrontendPort $fp
 ```
 
 Det här steget skapar en lyssnare med namnet ”listener01” och associerar frontend-porten till frontend-IP-konfigurationen.
@@ -174,7 +176,7 @@ Det här steget skapar en lyssnare med namnet ”listener01” och associerar fr
 ### <a name="step-7"></a>Steg 7
 
 ```powershell
-$rule = New-AzureRmApplicationGatewayRequestRoutingRule -Name rule01 -RuleType Basic -BackendHttpSettings $poolSetting -HttpListener $listener -BackendAddressPool $pool
+$rule = New-AzApplicationGatewayRequestRoutingRule -Name rule01 -RuleType Basic -BackendHttpSettings $poolSetting -HttpListener $listener -BackendAddressPool $pool
 ```
 
 Det här steget skapar den routningsregel för belastningsutjämnaren namnet ”rule01” som konfigurerar belastningsutjämnarens beteende.
@@ -182,7 +184,7 @@ Det här steget skapar den routningsregel för belastningsutjämnaren namnet ”
 ### <a name="step-8"></a>Steg 8
 
 ```powershell
-$sku = New-AzureRmApplicationGatewaySku -Name Standard_Small -Tier Standard -Capacity 2
+$sku = New-AzApplicationGatewaySku -Name Standard_Small -Tier Standard -Capacity 2
 ```
 
 Det här steget konfigurerar programgatewayens instansstorlek.
@@ -195,7 +197,7 @@ Det här steget konfigurerar programgatewayens instansstorlek.
 Skapar en Programgateway med alla konfigurationsobjekt från föregående steg. I det här exemplet heter programgatewayen ”appgwtest”.
 
 ```powershell
-$appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg -Location "West US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku
+$appgw = New-AzApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg -Location "West US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku
 ```
 
 Det här steget skapar en Programgateway med alla konfigurationsobjekt från föregående steg. I det här exemplet heter programgatewayen ”appgwtest”.
@@ -204,8 +206,8 @@ Det här steget skapar en Programgateway med alla konfigurationsobjekt från fö
 
 Om du vill ta bort en application gateway, måste du göra följande steg i ordning:
 
-1. Stoppa gatewayen med hjälp av cmdleten `Stop-AzureRmApplicationGateway`.
-2. Ta bort gatewayen med hjälp av cmdleten `Remove-AzureRmApplicationGateway`.
+1. Stoppa gatewayen med hjälp av cmdleten `Stop-AzApplicationGateway`.
+2. Ta bort gatewayen med hjälp av cmdleten `Remove-AzApplicationGateway`.
 3. Kontrollera att gatewayen har tagits bort med hjälp av cmdleten `Get-AzureApplicationGateway`.
 
 ### <a name="step-1"></a>Steg 1
@@ -213,15 +215,15 @@ Om du vill ta bort en application gateway, måste du göra följande steg i ordn
 Hämta objektet för programgatewayen och associera det med variabeln ”$getgw”.
 
 ```powershell
-$getgw =  Get-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg
+$getgw =  Get-AzApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg
 ```
 
 ### <a name="step-2"></a>Steg 2
 
-Använd `Stop-AzureRmApplicationGateway` för att stoppa programgatewayen. Det här exemplet visar den `Stop-AzureRmApplicationGateway` cmdleten på den första raden, följt av utdata.
+Använd `Stop-AzApplicationGateway` för att stoppa programgatewayen. Det här exemplet visar den `Stop-AzApplicationGateway` cmdleten på den första raden, följt av utdata.
 
 ```powershell
-Stop-AzureRmApplicationGateway -ApplicationGateway $getgw  
+Stop-AzApplicationGateway -ApplicationGateway $getgw  
 ```
 
 ```
@@ -232,10 +234,10 @@ Name       HTTP Status Code     Operation ID                             Error
 Successful OK                   ce6c6c95-77b4-2118-9d65-e29defadffb8
 ```
 
-När programgatewayen är i ett stoppat läge kan du använda cmdleten `Remove-AzureRmApplicationGateway` för att ta bort tjänsten.
+När programgatewayen är i ett stoppat läge kan du använda cmdleten `Remove-AzApplicationGateway` för att ta bort tjänsten.
 
 ```powershell
-Remove-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg -Force
+Remove-AzApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg -Force
 ```
 
 ```
@@ -249,10 +251,10 @@ Successful OK                   055f3a96-8681-2094-a304-8d9a11ad8301
 > [!NOTE]
 > Du kan använda växeln **-force** om du inte vill att några bekräftelsemeddelanden ska visas.
 
-Du kan kontrollera att tjänsten har tagits bort genom att använda cmdleten `Get-AzureRmApplicationGateway`. Det här steget är inte obligatoriskt.
+Du kan kontrollera att tjänsten har tagits bort genom att använda cmdleten `Get-AzApplicationGateway`. Det här steget är inte obligatoriskt.
 
 ```powershell
-Get-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg
+Get-AzApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg
 ```
 
 ```

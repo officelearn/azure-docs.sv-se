@@ -13,12 +13,12 @@ ms.author: ninarn
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 11/14/2018
-ms.openlocfilehash: 1a13f5f038afed914fd2b2a178974a0ba2e7255f
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 0377f192ea9bc6502065fa037704ec8461ce1447
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56984228"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57311126"
 ---
 # <a name="working-with-sql-database-connection-issues-and-transient-errors"></a>Arbeta med anslutningsproblem för SQL-databas och tillfälliga fel
 
@@ -211,7 +211,7 @@ Om ditt program använder ADO.NET-klasser som **System.Data.SqlClient.SqlConnect
 
 När du använder ett anslutningsobjekt från en anslutningspool, rekommenderar vi att programmet tillfälligt stängs anslutningen när den inte är omedelbart används. Det är inte dyrt att öppna en anslutning, men det är att skapa en ny anslutning.
 
-Om du använder ADO.NET 4.0 eller tidigare, rekommenderar vi att du uppgraderar till den senaste ADO.NET. Från och med augusti 2018 kan du [ladda ned ADO.NET 4.6.2](https://blogs.msdn.microsoft.com/dotnet/2018/04/30/announcing-the-net-framework-4-7-2/).
+Om du använder ADO.NET 4.0 eller tidigare, rekommenderar vi att du uppgraderar till den senaste ADO.NET. Från och med augusti 2018 kan du [ladda ned ADO.NET 4.6.2](https://blogs.msdn.microsoft.com/dotnet/20../../announcing-the-net-framework-4-7-2/).
 
 <a id="e-diagnostics-test-utilities-connect" name="e-diagnostics-test-utilities-connect"></a>
 

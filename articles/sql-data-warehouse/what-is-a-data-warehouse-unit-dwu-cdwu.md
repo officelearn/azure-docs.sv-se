@@ -10,12 +10,12 @@ ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 7da813022527830a5ede62c9f4ce98645fe63d4b
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 32a3ec7146e4dd43e0c5f522187856132745b539
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56871618"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57307097"
 ---
 # <a name="data-warehouse-units-dwus-and-compute-data-warehouse-units-cdwus"></a>Informationslagerenheter (dwu: er) och beräkning Informationslagerenheter (cDWUs)
 Rekommendationer om hur du väljer perfekt antalet informationslagerenheter (dwu: er, cDWUs) för att optimera pris och prestanda och hur du ändrar antalet enheter. 
@@ -124,10 +124,13 @@ JOIN    sys.databases                     AS db ON ds.database_id = db.database_
 3. Klicka på **Spara**. Ett bekräftelsemeddelande visas. Klicka på **Ja** för att bekräfta eller **Nej** för att avbryta.
 
 ### <a name="powershell"></a>PowerShell
-Du kan ändra dwu: er eller cDWUs med den [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) PowerShell-cmdlet. I följande exempel anger servicenivåmålet till DW1000 för MySQLDW som finns på servern minserver-databasen.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+Du kan ändra dwu: er eller cDWUs med den [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) PowerShell-cmdlet. I följande exempel anger servicenivåmålet till DW1000 för MySQLDW som finns på servern minserver-databasen.
 
 ```Powershell
-Set-AzureRmSqlDatabase -DatabaseName "MySQLDW" -ServerName "MyServer" -RequestedServiceObjectiveName "DW1000"
+Set-AzSqlDatabase -DatabaseName "MySQLDW" -ServerName "MyServer" -RequestedServiceObjectiveName "DW1000"
 ```
 
 Mer information finns i [PowerShell-cmdletar för SQL Data Warehouse](sql-data-warehouse-reference-powershell-cmdlets.md)

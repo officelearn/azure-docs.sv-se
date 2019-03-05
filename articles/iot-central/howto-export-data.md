@@ -8,12 +8,12 @@ ms.date: 12/07/2018
 ms.topic: conceptual
 ms.service: iot-central
 manager: peterpr
-ms.openlocfilehash: cba0bad2e81ffddedfc4ca04e82e17e4286b389b
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: ecfd9671587c0544cf82aa7ddbccef975e1fe5c6
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53312127"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57310428"
 ---
 # <a name="export-your-data-in-azure-iot-central"></a>Exportera dina data i Azure IoT Central
 
@@ -34,7 +34,7 @@ Mått, enheter och mallar enhetsdata exporteras till ditt storage-konto en gång
 
 Läs mer om [exporterar till Blob storage](howto-export-data-blob-storage.md).
 
-## <a name="export-to-event-hubs-and-service-bus"></a>Exportera till Händelsehubbar och Service Bus
+## <a name="export-to-event-hubs-and-service-bus"></a>Exportera till Event Hubs och Service Bus
 
 Mått, enheter och mallar enhetsdata exporteras till din händelsehubb eller Service Bus-kö eller ämne. Exporterade mätningar av data tas emot i nära realtid och innehåller i sin helhet meddelandet dina enheter som skickas till IoT Central, inte bara värdena för själva mätningarna. Exporterade enheter data tas emot i batchar varje minut och innehåller ändringar i egenskaper och inställningar för alla enheter och exporterade enheten mallar innehåller ändringar i alla mallar för enheten.
 
@@ -81,14 +81,14 @@ Nu när du har ett mål för lagring/Event Hubs/Service Bus att exportera data f
 
 1. Logga in på ditt IoT Central-program.
 
-2. I den vänstra menyn klickar du på **löpande Export av Data**.
+2. I den vänstra menyn väljer du **löpande Export av Data**.
 
     > [!Note]
     > Om du inte ser löpande Export av Data på den vänstra menyn kan är du inte administratör i din app. Kontakta en administratör att ställa in export av data.
 
     ![Skapa ny cde Event Hub](media/howto-export-data/export_menu.PNG)
 
-3. Klicka på den **+ ny** knappen uppe till höger. Välj något av **Azure Blob Storage**, **Azure Event Hubs**, eller **Azure Service Bus** som mål för exporten. 
+3. Välj den **+ ny** knappen uppe till höger. Välj något av **Azure Blob Storage**, **Azure Event Hubs**, eller **Azure Service Bus** som mål för exporten. 
 
     > [!NOTE] 
     > Det maximala antalet exporter per app är fem. 
@@ -107,10 +107,10 @@ Nu när du har ett mål för lagring/Event Hubs/Service Bus att exportera data f
 
 5. (Valfritt) Om du har valt **ange en anslutningssträng**, en ny ruta visas där du kan klistra in anslutningssträngen. Att hämta anslutningssträngen för din:
     - Storage-konto, gå till Storage-konto i Azure Portal.
-        - Under **inställningar**, klickar du på **åtkomstnycklar**
+        - Under **inställningar**väljer **åtkomstnycklar**
         - Kopiera anslutningssträngen key1 och key2-anslutningssträng
     - Event Hubs eller Azure Service Bus, går du till namnområdet i Azure Portal.
-        - Under **inställningar**, klickar du på **principer för delad åtkomst**
+        - Under **inställningar**väljer **principer för delad åtkomst**
         - Välj standard **RootManageSharedAccessKey** eller skapa en ny
         - Kopiera den primär eller sekundär anslutningssträngen
  

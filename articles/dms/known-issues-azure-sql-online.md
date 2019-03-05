@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 01/11/2019
-ms.openlocfilehash: b066c7f6c32b6e9fe1c1f63b5db88b4deaa2edae
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.date: 03/05/2019
+ms.openlocfilehash: a5f44e5f7f19507723eeb75518a9a573d6563e2b
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54231826"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57337217"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-sql-db"></a>Begränsningar för kända problem/migrering med online migreringar till Azure SQL DB
 
@@ -28,7 +28,7 @@ Kända problem och begränsningar som är associerade med online migreringar fr�
 
 Om din källdatabas består av en eller flera temporala tabeller, Databasmigreringen misslyckas under åtgärden ”fullständiga Datainläsningen” och följande felmeddelande:
 
-{”resourceId” ”: /subscriptions/<subscription id>/resourceGroups/migrateready/providers/Microsoft.DataMigration/services/<DMS Service name>”, ”errorType”: ”databasmigreringsfel”, ”errorEvents”: ”[” avbildning funktioner gick inte att ange. RetCode: SQL_ERROR SqlState: 42000 NativeError: 13570 meddelande: [Microsoft] [SQL Server Native Client 11.0] [SQL Server] användning av replikering stöds inte med den temporala systemversionstabellen ' [program. Städer], rad: 1 kolumn: -1 ”]”}
+{”resourceId” ”: /subscriptions/<subscription id>/resourceGroups/migrateready/providers/Microsoft.DataMigration/services/<DMS Service name>”, ”errorType”: ”databasmigreringsfel”, ”errorEvents”: ”[” avbildning funktioner gick inte att ange. RetCode: SQL_ERROR SqlState: 42000 NativeError: 13570 meddelande: [Microsoft] [SQL Server Native Client 11.0] [SQL Server] användning av replikering stöds inte med den temporala systemversionstabellen ' [program. Cities]' Line: 1 Column: -1 "]" }
  
  ![Den temporala tabellen fel exempel](media/known-issues-azure-sql-online/dms-temporal-tables-errors.png)
 
@@ -89,7 +89,7 @@ SELECT max(DATALENGTH(ColumnName)) as LEN from TableName
 
 **Lösning**
 
-Om du har en LOB-kolumn som är större än 32 KB, kontakta teknikteamet på [ dmsfeedback@microsoft.com ](mailto:dmsfeedback@microsoft.com).
+Om du har en LOB-kolumn som är större än 32 KB, kontakta teknikteamet på [be Azure Databasmigreringar](mailto:AskAzureDatabaseMigrations@service.microsoft.com).
 
 ### <a name="issues-with-timestamp-columns"></a>Problem med tidsstämpelkolumner
 
@@ -99,7 +99,7 @@ DMS migrera inte tidsstämpel källvärdet; i stället genererar DMS ett nytt ti
 
 **Lösning**
 
-Om du behöver DMS att migrera det exakta tidsstämpelvärde som lagras i källtabellen, kontakta teknikteamet på [ dmsfeedback@microsoft.com ](mailto:dmsfeedback@microsoft.com).
+Om du behöver DMS att migrera det exakta tidsstämpelvärde som lagras i källtabellen, kontakta teknikteamet på [be Azure Databasmigreringar](mailto:AskAzureDatabaseMigrations@service.microsoft.com).
 
 ### <a name="data-migration-errors-do-not-provide-additional-details-on-the-database-detailed-status-blade"></a>Migreringsfel innehåller ytterligare information på bladet Database detaljerad statusinformation om.
 

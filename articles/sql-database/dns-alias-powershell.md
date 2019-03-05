@@ -1,6 +1,6 @@
 ---
 title: PowerShell för DNS-alias Azure SQL | Microsoft Docs
-description: PowerShell-cmdletar, till exempel New-AzureRMSqlServerDNSAlias kan du omdirigera nya klientanslutningar till en annan Azure SQL Database-server utan att behöva röra alla klientkonfigurationen.
+description: PowerShell-cmdletar, till exempel New-AzSqlServerDNSAlias kan du omdirigera nya klientanslutningar till en annan Azure SQL Database-server utan att behöva röra alla klientkonfigurationen.
 keywords: DNS-sql-databas
 services: sql-database
 ms.service: sql-database
@@ -12,25 +12,25 @@ ms.author: moslake
 ms.reviewer: genemi,amagarwa,maboja, jrasnick
 manager: craigg
 ms.date: 01/17/2019
-ms.openlocfilehash: 115c4a290bc6dfba049e0ce49498877c1a2466b6
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: f75bb4f46ea6d6d2c8bb00ef2ece1d80634fff92
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54388791"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57316033"
 ---
 # <a name="powershell-for-dns-alias-to-azure-sql-database"></a>PowerShell för DNS-Alias till Azure SQL Database
 
 Den här artikeln innehåller ett PowerShell-skript som visar hur du kan hantera ett DNS-alias för Azure SQL Database. Skriptet kör du följande cmdlets som utförs följande åtgärder:
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 De cmdletar som används i kodexempel är följande:
 
-- [New-AzureRMSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/AzureRM.Sql/New-AzureRmSqlServerDnsAlias?view=azurermps-5.1.1): Skapar en ny DNS-alias i systemet för Azure SQL Database-tjänsten. Aliaset som refererar till Azure SQL Database-server 1.
-- [Get-AzureRMSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/AzureRM.Sql/Get-AzureRmSqlServerDnsAlias?view=azurermps-5.1.1): Hämta och visa alla DNS-alias som är kopplade till SQL DB server 1.
-- [Set-AzureRMSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/AzureRM.Sql/Set-AzureRmSqlServerDnsAlias?view=azurermps-5.1.1): Ändrar servernamnet som alias har konfigurerats för att referera till, från 1 till SQL DB server 2-servern.
-- [Remove-AzureRMSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/AzureRM.Sql/Remove-AzureRmSqlServerDnsAlias?view=azurermps-5.1.1): Ta bort DNS-alias från SQL DB server 2, med hjälp av namnet på aliaset.
-
-Föregående PowerShell-cmdletar har lagts till i den **i AzureRm.Sql** modul från och med version 5.1.1.
+- [New-AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/New-azSqlServerDnsAlias?view=azurermps-5.1.1): Skapar en ny DNS-alias i systemet för Azure SQL Database-tjänsten. Aliaset som refererar till Azure SQL Database-server 1.
+- [Get-AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/Get-azSqlServerDnsAlias?view=azurermps-5.1.1): Hämta och visa alla DNS-alias som är kopplade till SQL DB server 1.
+- [Set-AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/Set-azSqlServerDnsAlias?view=azurermps-5.1.1): Ändrar servernamnet som alias har konfigurerats för att referera till, från 1 till SQL DB server 2-servern.
+- [Remove-AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/Remove-azSqlServerDnsAlias?view=azurermps-5.1.1): Ta bort DNS-alias från SQL DB server 2, med hjälp av namnet på aliaset.
 
 ## <a name="dns-alias-in-connection-string"></a>DNS-alias i anslutningssträngen
 
@@ -43,9 +43,9 @@ Om du vill ansluta en viss Azure SQL Database-server, kan en klient, till exempe
 Om du vill köra demo PowerShell-skriptet som anges i den här artikeln gäller följande krav:
 
 - En Azure-prenumeration och konto. För en kostnadsfri utvärderingsversion, klickar du på [ https://azure.microsoft.com/free/ ] [ https://azure.microsoft.com/free/].
-- Azure PowerShell-modulen med cmdleten **New-AzureRMSqlServerDNSAlias**.
-  - Om du vill installera eller uppgradera, se [installera Azure PowerShell-modulen][install-azurerm-ps-84p].
-  - Kör `Get-Module -ListAvailable AzureRM;` i powershell\_ise.exe att hitta versionen.
+- Azure PowerShell-modulen med cmdleten **New AzSqlServerDNSAlias**.
+  - Om du vill installera eller uppgradera, se [installera Azure PowerShell-modulen][install-Az-ps-84p].
+  - Kör `Get-Module -ListAvailable Az;` i powershell\_ise.exe att hitta versionen.
 - Två Azure SQL Database-servrar.
 
 ## <a name="code-example"></a>Kodexempel
@@ -76,10 +76,10 @@ Write-Host " ";
 $yesno = Read-Host '[yes/no]  Do you need to log into Azure now?';
 if ('yes' -eq $yesno)
 {
-    Connect-AzureRmAccount -SubscriptionName $SubscriptionName;
+    Connect-AzAccount -SubscriptionName $SubscriptionName;
 }
 
-$SubscriptionGuid_Get = Get-AzureRmSubscription `
+$SubscriptionGuid_Get = Get-AzSubscription `
     -SubscriptionName $SubscriptionName;
 
 ################################################################
@@ -87,18 +87,18 @@ $SubscriptionGuid_Get = Get-AzureRmSubscription `
 ################################################################
 
 Write-Host '[1] Assign a DNS alias to SQL DB server 1.';
-New-AzureRMSqlServerDNSAlias `
+New-AzSqlServerDNSAlias `
     –ResourceGroupName  $1ResourceGroupName `
     -ServerName         $1SqlServerName `
     -ServerDNSAliasName $SqlServerDnsAliasName;
 
 Write-Host '[2] Get and list all the DNS aliases that are assigned to SQL DB server 1.';
-Get-AzureRMSqlServerDNSAlias `
+Get-AzSqlServerDNSAlias `
     –ResourceGroupName $1ResourceGroupName `
     -ServerName        $1SqlServerName;
 
 Write-Host '[3] Move the DNS alias from 1 to SQL DB server 2.';
-Set-AzureRMSqlServerDNSAlias `
+Set-AzSqlServerDNSAlias `
     –ResourceGroupName  $2ResourceGroupName `
     -NewServerName      $2SqlServerName `
     -ServerDNSAliasName $SqlServerDnsAliasName `
@@ -110,10 +110,10 @@ Set-AzureRMSqlServerDNSAlias `
 # by using "$SqlServerDnsAliasName" in the server name.
 # For example, server:  "any-unique-alias-name.database.windows.net".
 
-# Remove-AzureRMSqlServerDNSAlias  - would fail here for SQL DB server 1.
+# Remove-AzSqlServerDNSAlias  - would fail here for SQL DB server 1.
 
 Write-Host '[4] Remove the DNS alias from SQL DB server 2.';
-Remove-AzureRMSqlServerDNSAlias `
+Remove-AzSqlServerDNSAlias `
     –ResourceGroupName  $2ResourceGroupName `
     -ServerName         $2SqlServerName `
     -ServerDNSAliasName $SqlServerDnsAliasName;
@@ -160,6 +160,6 @@ En fullständig förklaring av funktionen för DNS-Alias för SQL Database finns
 
 [https://azure.microsoft.com/free/]: https://azure.microsoft.com/free/
 
-[install-azurerm-ps-84p]: https://docs.microsoft.com/powershell/azure/install-az-ps
+[install-Az-ps-84p]: https://docs.microsoft.com/powershell/azure/install-az-ps
 
 [dns-alias-overview-37v]: dns-alias-overview.md

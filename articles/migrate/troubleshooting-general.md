@@ -4,14 +4,14 @@ description: Innehåller en översikt över kända problem i Azure Migrate-tjän
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 01/25/2019
+ms.date: 03/04/2019
 ms.author: raynew
-ms.openlocfilehash: cb1bed847f5b7afe7c1eff0243c64e8c25ddb814
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: e85608c411c0aea7b7bf71be19939f6859139c56
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56992574"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57314381"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Felsöka Azure Migrate
 
@@ -163,10 +163,34 @@ Det här problemet kan inträffa på grund av ett problem med VMware PowerCLI-in
         C:\Program Files (x86)\WindowsPowerShell\Modules
 
    d. Starta om tjänsten Azure Migrate Collector i Windows Service Manager (öppna ”kör” och Skriv services.msc att öppna Windows Service Manager). Högerklicka på Azure Migrate Collector-tjänsten och klicka på Start.
-   
-   e. Dubbelklicka på genvägen kör-insamlare att starta insamlingsprogrammet. Insamlingsprogrammet bör automatiskt hämta och installera versionen som krävs för PowerCLI.
 
-3. Om ovanstående inte löser problemet manuellt installera [VMware PowerCLI 6.5.2](https://www.powershellgallery.com/packages/VMware.PowerCLI/6.5.2.6268016) och kontrollera om problemet är löst.
+   e. Dubbelklicka på genvägen kör-insamlare att starta insamlingsprogrammet. Insamlingsprogrammet bör automatiskt hämta och installera rätt version av PowerCLI.
+
+3. Om ovanstående inte löser problemet följer du stegen en till c ovan och sedan installera PowerCLI manuellt i installationen med hjälp av följande steg:
+
+   a. Rensa alla ofullständiga PowerCLI installationsfilerna genom att följa steg #a till #c i steg #2 ovan.
+
+   b. Gå till Start > Kör > Öppna Windows PowerShell(x86) i administratörsläge
+
+   c. Kör kommandot:  Install-Module ”VMWare.VimAutomation.Core” - RequiredVersion ”6.5.2.6234650” (”A” när den frågar efter bekräftelse-typ)
+
+   d. Starta om tjänsten Azure Migrate Collector i Windows Service Manager (öppna ”kör” och Skriv services.msc att öppna Windows Service Manager). Högerklicka på Azure Migrate Collector-tjänsten och klicka på Start.
+
+   e. Dubbelklicka på genvägen kör-insamlare att starta insamlingsprogrammet. Insamlingsprogrammet bör automatiskt hämta och installera rätt version av PowerCLI.
+
+4. Om det inte går att hämta modulen i installationen på grund av brandväggsproblem kan hämta och installera modulen på en dator som har åtkomst till internet med hjälp av följande steg:
+
+    a. Rensa alla ofullständiga PowerCLI installationsfilerna genom att följa steg #a till #c i steg #2 ovan.
+
+    b. Gå till Start > Kör > Öppna Windows PowerShell(x86) i administratörsläge
+
+    c. Kör kommandot:  Install-Module ”VMWare.VimAutomation.Core” - RequiredVersion ”6.5.2.6234650” (”A” när den frågar efter bekräftelse-typ)
+
+    d. Kopiera alla moduler som börjar med ”VMware” från ”C:\Program Files (x86) \WindowsPowerShell\Modules” till samma plats på den Virtuella insamlardatorn.
+
+    e. Starta om tjänsten Azure Migrate Collector i Windows Service Manager (öppna ”kör” och Skriv services.msc att öppna Windows Service Manager). Högerklicka på Azure Migrate Collector-tjänsten och klicka på Start.
+
+    f. Dubbelklicka på genvägen kör-insamlare att starta insamlingsprogrammet. Insamlingsprogrammet bör automatiskt hämta och installera rätt version av PowerCLI.
 
 ### <a name="error-unabletoconnecttoserver"></a>Error UnableToConnectToServer
 

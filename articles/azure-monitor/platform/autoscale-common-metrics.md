@@ -8,14 +8,17 @@ ms.topic: conceptual
 ms.date: 12/6/2016
 ms.author: ancav
 ms.subservice: autoscale
-ms.openlocfilehash: 736ff5565bb279d26e686421cc13f54a73b1c7e9
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 9da8e5fb88ff34e561b579b760973ecd23c884a3
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54461101"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57312060"
 ---
 # <a name="azure-monitor-autoscaling-common-metrics"></a>Azure Monitor autoskalning vanliga mått
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Automatisk skalning med Azure Monitor kan du skala antalet instanser som körs upp eller ned, baserat på dessa data (mått). Det här dokumentet beskriver vanliga mått som du kanske vill använda. Du kan välja mått på resursen att skala genom att i Azure-portalen. Du kan också välja vilka mått som helst från en annan resurs kan skala med.
 
 Automatisk skalning i Azure Monitor gäller endast [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [molntjänster](https://azure.microsoft.com/services/cloud-services/), [App Service – Web Apps](https://azure.microsoft.com/services/app-service/web/), och [API Management-tjänster](https://docs.microsoft.com/azure/api-management/api-management-key-concepts). Andra Azure-tjänster använder olika metoder för skalning.
@@ -43,7 +46,7 @@ När du skapar en virtuell dator i Azure kan aktiveras diagnostik genom att anv�
 Du kan skapa en lista över mått med hjälp av följande kommando i PowerShell.
 
 ```
-Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,Unit
+Get-AzMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,Unit
 ```
 
 Du kan skapa en avisering för följande mått:
@@ -84,7 +87,7 @@ När du skapar en virtuell dator i Azure, är diagnostik aktiverat som standard 
 Du kan skapa en lista över mått med hjälp av följande kommando i PowerShell.
 
 ```
-Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,Unit
+Get-AzMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,Unit
 ```
 
  Du kan skapa en avisering för följande mått:
@@ -137,7 +140,7 @@ Du kan också utföra automatisk skalning baserat på vanliga web servermått, t
 Du kan skapa en lista över mått för Web Apps med hjälp av följande kommando i PowerShell.
 
 ```
-Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,Unit
+Get-AzMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,Unit
 ```
 
 Du kan Avisera om och av de här måtten.

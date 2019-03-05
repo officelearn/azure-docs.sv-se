@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 06/18/2018
 ms.author: martincoetzer
-ms.openlocfilehash: d81ab4283b408f7490f0dc40cce3199ca29c0af1
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 92546e6aabdf43c2f9cb0339fb21dd2dfc641d44
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56737237"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57314321"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>Fem steg för att skydda din infrastruktur för Identitetshantering
 
-Om du läser det här dokumentet, är medveten om betydelsen av säkerhet. Du förmodligen har redan ansvar för att skydda din organisation. Om du behöver övertyga andra om vikten av säkerhet kan du skicka dem att läsa senast [Microsoft Security Intelligence report](https://www.microsoft.com/security/intelligence-report).
+Om du läser det här dokumentet, är medveten om betydelsen av säkerhet. Du förmodligen har redan ansvar för att skydda din organisation. Om du behöver övertyga andra om vikten av säkerhet kan du skicka dem att läsa senast [Microsoft Security Intelligence report](https://go.microsoft.com/fwlink/p/?linkid=2073747).
 
 Det här dokumentet hjälper dig att få en mer säkerhetsställning med funktionerna i Azure Active Directory med hjälp av en checklista för fem steg till Inokulera organisationen mot cyberattacker.
 

@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: 7afc1170ba2503c8a8c97be9a19459c92e331449
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 4a3b48be893c596f1a86bbf308a97868ed546006
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453587"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57313930"
 ---
 # <a name="automated-backups"></a>Automatiserade säkerhetskopieringar
 
@@ -126,12 +126,11 @@ Du kan ändra standard PITR kvarhållningsperioden för säkerhetskopior med hj�
 
 ### <a name="change-pitr-backup-retention-period-using-powershell"></a>Ändra PITR kvarhållningsperiod för säkerhetskopior med hjälp av PowerShell
 
-```powershell
-Set-AzureRmSqlDatabaseBackupShortTermRetentionPolicy -ResourceGroupName resourceGroup -ServerName testserver -DatabaseName testDatabase -RetentionDays 28
-```
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-> [!IMPORTANT]
-> Den här API: et ingår i i AzureRM.Sql PowerShell-modul från och med version [4.7.0-preview](https://www.powershellgallery.com/packages/AzureRM.Sql/4.7.0-preview).
+```powershell
+Set-AzSqlDatabaseBackupShortTermRetentionPolicy -ResourceGroupName resourceGroup -ServerName testserver -DatabaseName testDatabase -RetentionDays 28
+```
 
 ### <a name="change-pitr-retention-period-using-rest-api"></a>Ändra PITR kvarhållningsperiod med REST API
 
@@ -174,4 +173,4 @@ Mer information finns i [säkerhetskopiering kvarhållning REST API](https://doc
 - Om du vill återställa till en tidpunkt med hjälp av Azure-portalen, se [återställa databasen till en tidpunkt med hjälp av Azure-portalen](sql-database-recovery-using-backups.md).
 - Om du vill återställa till en tidpunkt med hjälp av PowerShell, se [återställa databasen till en tidpunkt med hjälp av PowerShell](scripts/sql-database-restore-database-powershell.md).
 - Att konfigurera, hantera och återställa från långsiktig kvarhållning av automatiska säkerhetskopior i Azure Blob storage med Azure portal, se [hantera långsiktig kvarhållning av säkerhetskopior med Azure portal](sql-database-long-term-backup-retention-configure.md).
-- Att konfigurera, hantera och återställa från långsiktig kvarhållning av automatiska säkerhetskopior i Azure BLOB-lagring med hjälp av PowerShell, se [hantera långsiktig kvarhållning av säkerhetskopior med hjälp av PowerShell](sql-database-long-term-backup-retention-configure.md).
+- Att konfigurera, hantera och återställa från långsiktig kvarhållning av automatiska säkerhetskopior i Azure Blob storage med hjälp av PowerShell, se [hantera långsiktig kvarhållning av säkerhetskopior med hjälp av PowerShell](sql-database-long-term-backup-retention-configure.md).

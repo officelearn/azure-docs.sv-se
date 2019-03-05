@@ -1,7 +1,7 @@
 ---
 title: Anslut och indexera Azure SQL Database-innehåll med hjälp av indexerare – Azure Search
 description: Lär dig mer om att uppdatera data i Azure SQL Database med hjälp av indexerare för fulltextsökning i Azure Search. Den här artikeln beskriver anslutningar, indexerarkonfiguration och datainmatning.
-ms.date: 10/17/2018
+ms.date: 03/01/2019
 author: mgottein
 manager: cgronlun
 ms.author: magottei
@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 7df785d1493ad2df698ff197d72824ceb15d39ad
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 5453bcdd371c0639cb1d3568f05a1768e6204d3d
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55752900"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57315222"
 ---
 # <a name="connect-to-and-index-azure-sql-database-content-using-azure-search-indexers"></a>Ansluta till och indexera Azure SQL Database-innehåll med hjälp av Azure Search-indexerare
 
@@ -306,7 +306,7 @@ SQL-indexeraren visar flera konfigurationsinställningar:
 | Inställning | Datatyp | Syfte | Standardvärde |
 | --- | --- | --- | --- |
 | queryTimeout |sträng |Anger timeout för SQL-frågekörning |5 minuter (”00: 05:00”) |
-| disableOrderByHighWaterMarkColumn |Bool |Gör att SQL-fråga som används av vattenmärke för principen för att utelämna ORDER BY-satsen. Se [vattenmärke för principen](#HighWaterMarkPolicy) |false |
+| disableOrderByHighWaterMarkColumn |bool |Gör att SQL-fråga som används av vattenmärke för principen för att utelämna ORDER BY-satsen. Se [vattenmärke för principen](#HighWaterMarkPolicy) |false |
 
 De här inställningarna används i den `parameters.configuration` objekt i att indexerarens definition. Till exempel om du vill ange timeout-värde till 10 minuter, skapa eller uppdatera indexeraren med följande konfiguration:
 

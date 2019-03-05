@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: af85ff8272853be82bae5c79622295fddfc60ade
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 84610c94621e887e20bb903385e2d6ddbe67189d
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53337282"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57307861"
 ---
 # <a name="create-an-event-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Skapa en regel för händelsen och ställa in meddelanden i Azure IoT Central programmet
 
@@ -29,7 +29,7 @@ Om du vill skapa en regel för händelsen måste enheten mallen ha minst en hän
 
 1. Använd Device Explorer och navigera till enheten mallen som du lägger till regeln för.
 
-1. Klicka på en befintlig enhet under den valda mallen. 
+1. Välj en befintlig enhet under den valda mallen.
 
     >[!TIP] 
     >Om mallen inte har några enheter och sedan lägga till en ny enhet först.
@@ -42,7 +42,7 @@ Om du vill skapa en regel för händelsen måste enheten mallen ha minst en hän
 1. På den **regler** fliken **Redigera mall** och sedan **+ ny regel** att se vilka typer av regler som du kan skapa.
 
 
-1. Klicka på den **händelse** panelen för att skapa en händelse som övervakningsregel.
+1. Välj den **händelse** panelen för att skapa en händelse som övervakningsregel.
 
     ![Regeltyper](media/howto-create-event-rules/Rule_Types.png)
 

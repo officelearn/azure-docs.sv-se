@@ -8,14 +8,17 @@ ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: johnkem
 ms.subservice: ''
-ms.openlocfilehash: 4ca5803ca410e3250e025eb60b5c1ff9fc7216b1
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 55a7a26815dac1140d100c05a47057f8d5000f9d
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54465249"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57317823"
 ---
 # <a name="get-started-with-roles-permissions-and-security-with-azure-monitor"></a>Kom igång med roller, behörigheter och säkerhet med Azure Monitor
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Många team behöver strikt reglera åtkomst till övervakningsdata och inställningar. Till exempel om du har som fungerar endast om hur du övervakar (support-tekniker, devops-tekniker) eller om du använder en leverantör av hanterade tjänster kan du behöva ge dem åtkomst till endast övervakningsdata samtidigt begränsa deras möjlighet att skapa, ändra, eller ta bort resurser. Den här artikeln visar hur du snabbt gäller en inbyggd övervakning RBAC-roll för en användare i Azure eller skapa en egen anpassad roll för en användare behöver begränsade behörigheter för övervakning. Det diskuterar sedan säkerhetsaspekter för dina Azure Monitor-relaterade resurser och hur du kan begränsa åtkomsten till den data de innehåller.
 
 ## <a name="built-in-monitoring-roles"></a>Inbyggd övervakning roller
@@ -49,8 +52,8 @@ Personer som har tilldelats rollen övervakning läsare kan visa alla övervakni
 Personer som har tilldelats rollen övervakning deltagare kan visa alla övervakningsdata i en prenumeration och skapa eller ändra inställningar för övervakning, men kan inte ändra andra resurser. Den här rollen är en supermängd rollen Läsare för övervakning och är lämplig för medlemmar i en organisation övervakning team eller leverantörer av hanterade tjänster som, utöver behörigheterna som ovan, måste också kunna:
 
 * Publicera övervakning instrumentpaneler som en delad instrumentpanel.
-* Ange [diagnostikinställningar](../../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings) för en resource.*
-* Ange den [loggprofilen](../../azure-monitor/platform/activity-logs-overview.md#export-the-activity-log-with-a-log-profile) för en subscription.*
+* Ange [diagnostikinställningar](../../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings) för en resurs.\*
+* Ange den [loggprofilen](../../azure-monitor/platform/activity-logs-overview.md#export-the-activity-log-with-a-log-profile) för en prenumeration.\*
 * Ställ in Varningsregler aktivitet och inställningar via [Azure Alerts](../../azure-monitor/platform/alerts-overview.md).
 * Skapa webbtester med Application Insights och komponenter.
 * Lista Log Analytics-arbetsyta delade nycklar.
@@ -58,7 +61,7 @@ Personer som har tilldelats rollen övervakning deltagare kan visa alla övervak
 * Skapa och ta bort och köra sparade sökningar Log Analytics.
 * Skapa och ta bort konfigurationen för logganalys-lagring.
 
-* användaren måste också ha behörigheten Listnycklar på målresursen (lagring eller event hub namnrymden) att ange en av loggprofil eller diagnostikinställning.
+\*användaren måste också ha behörigheten Listnycklar på målresursen (lagring eller event hub namnrymden) att ange en av loggprofil eller diagnostiska inställningen.
 
 > [!NOTE]
 > Den här rollen ger inte läsbehörighet för loggdata som strömmas till en event hub eller lagras i ett lagringskonto. [Se nedan](#security-considerations-for-monitoring-data) information om hur du konfigurerar åtkomst till dessa resurser.
@@ -98,7 +101,7 @@ Om ovanstående inbyggda roller inte uppfyller de specifika behoven för ditt te
 Till exempel med tabellen ovan som du kan skapa en anpassad RBAC-roll för en ”aktivitet Log Reader” så här:
 
 ```powershell
-$role = Get-AzureRmRoleDefinition "Reader"
+$role = Get-AzRoleDefinition "Reader"
 $role.Id = $null
 $role.Name = "Activity Log Reader"
 $role.Description = "Can view activity logs."
@@ -106,7 +109,7 @@ $role.Actions.Clear()
 $role.Actions.Add("Microsoft.Insights/eventtypes/*")
 $role.AssignableScopes.Clear()
 $role.AssignableScopes.Add("/subscriptions/mySubscription")
-New-AzureRmRoleDefinition -Role $role 
+New-AzRoleDefinition -Role $role 
 ```
 
 ## <a name="security-considerations-for-monitoring-data"></a>Säkerhetsöverväganden för övervakning av data
@@ -127,8 +130,8 @@ Alla tre av följande datatyper kan lagras i ett lagringskonto eller strömma ti
 När en användare eller program behöver tillgång till övervakning av data i ett lagringskonto, bör du [Generera en konto-SAS](https://msdn.microsoft.com/library/azure/mt584140.aspx) för lagringskontot som innehåller övervakningsdata med tjänstnivå skrivskyddad åtkomst till blob storage. I PowerShell, kan det se ut:
 
 ```powershell
-$context = New-AzureStorageContext -ConnectionString "[connection string for your monitoring Storage Account]"
-$token = New-AzureStorageAccountSASToken -ResourceType Service -Service Blob -Permission "rl" -Context $context
+$context = New-AzStorageContext -ConnectionString "[connection string for your monitoring Storage Account]"
+$token = New-AzStorageAccountSASToken -ResourceType Service -Service Blob -Permission "rl" -Context $context
 ```
 
 Du kan sedan ge token till enheten som måste för att läsa från den storage-konto och den kan lista och läsa från alla blobbar i det lagringskontot.
@@ -136,7 +139,7 @@ Du kan sedan ge token till enheten som måste för att läsa från den storage-k
 Du kan också om du vill styra den här behörigheten med RBAC kan kan du ge entiteten Microsoft.Storage/storageAccounts/listkeys/action behörighet på det specifika lagringskontot. Detta är nödvändigt för användare som behöver för att kunna ange en diagnostikinställning eller loggprofilen att arkivera till ett lagringskonto. Du kan till exempel skapa följande anpassade RBAC roll för en användare eller program som behöver bara läsa från ett lagringskonto:
 
 ```powershell
-$role = Get-AzureRmRoleDefinition "Reader"
+$role = Get-AzRoleDefinition "Reader"
 $role.Id = $null
 $role.Name = "Monitoring Storage Account Reader"
 $role.Description = "Can get the storage account keys for a monitoring storage account."
@@ -145,7 +148,7 @@ $role.Actions.Add("Microsoft.Storage/storageAccounts/listkeys/action")
 $role.Actions.Add("Microsoft.Storage/storageAccounts/Read")
 $role.AssignableScopes.Clear()
 $role.AssignableScopes.Add("/subscriptions/mySubscription/resourceGroups/myResourceGroup/providers/Microsoft.Storage/storageAccounts/myMonitoringStorageAccount")
-New-AzureRmRoleDefinition -Role $role 
+New-AzRoleDefinition -Role $role 
 ```
 
 > [!WARNING]
@@ -160,7 +163,7 @@ Ett liknande mönster kan följas med event hubs, men först måste du skapa en 
 2. Om användaren behöver för att kunna hämta den viktiga ad hoc, bevilja användaren listnycklar för åtgärden för den händelsehubben. Detta är också nödvändigt för användare som behöver för att kunna ange en diagnostikinställning eller loggprofilen strömma till event hubs. Du kan till exempel skapa en regel för RBAC:
    
    ```powershell
-   $role = Get-AzureRmRoleDefinition "Reader"
+   $role = Get-AzRoleDefinition "Reader"
    $role.Id = $null
    $role.Name = "Monitoring Event Hub Listener"
    $role.Description = "Can get the key to listen to an event hub streaming monitoring data."
@@ -169,7 +172,7 @@ Ett liknande mönster kan följas med event hubs, men först måste du skapa en 
    $role.Actions.Add("Microsoft.ServiceBus/namespaces/Read")
    $role.AssignableScopes.Clear()
    $role.AssignableScopes.Add("/subscriptions/mySubscription/resourceGroups/myResourceGroup/providers/Microsoft.ServiceBus/namespaces/mySBNameSpace")
-   New-AzureRmRoleDefinition -Role $role 
+   New-AzRoleDefinition -Role $role 
    ```
 
 ## <a name="monitoring-within-a-secured-virtual-network"></a>Övervakning i ett skyddat virtuellt nätverk

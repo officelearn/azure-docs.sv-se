@@ -4,19 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: ''
 author: diberry
 manager: nitinme
-displayName: active learning, suggestion, dialog prompt, train api, feedback loop, autolearn, auto-learn, user setting, service setting, services setting
 services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 01/29/2019
+ms.date: 02/26/2019
 ms.author: diberry
-ms.openlocfilehash: 93e735958669dd39deaf88d1d468a9148b7db3d1
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: cff4199663bce39353f8c10c68f51f15d6a72a22
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56960317"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57314831"
 ---
 # <a name="use-active-learning-to-improve-knowledge-base"></a>Använda aktiv inlärning för att förbättra kunskapsbasen
 
@@ -33,13 +32,13 @@ QnA Maker lär sig nya fråga variationer med implicit och explicit feedback.
 
 Båda metoderna ger rankningen med liknande frågor som är klustrade.
 
-När liknande frågor är klustrade föreslår QnA Maker användarbaserade frågorna kunskapsbas Designer ska godkänna eller avvisa.
-
 ## <a name="how-active-learning-works"></a>Hur active learning fungerar
 
 Aktiv inlärning utlöses baserat på poäng för övre några svar returnerades av QnA Maker för en viss fråga. Om skillnaderna poäng ligger inom ett mindre intervall kommer frågan betraktas som ett möjligt _förslag_ för var och en av de möjliga svar. 
 
 Alla förslag är klustrade tillsammans efter likhet och övre förslag på alternativa frågor visas baserat på åtkomstfrekvensen för de specifika frågorna av slutanvändare. Aktiv inlärning ger bästa möjliga förslagen i fall där slutpunkterna får ett rimligt antal och mängd användningsfrågor.
+
+När frågor föreslås i QnA Maker-portalen, måste du granska och godkänna eller avvisa dessa förslag. 
 
 ## <a name="upgrade-version-to-use-active-learning"></a>Uppgradera versionen om du vill använda aktiv inlärning
 
@@ -58,6 +57,8 @@ Algoritm och fastställa närhet är inte en enkel beräkning. Intervall i före
 ## <a name="turn-on-active-learning"></a>Aktivera aktiv inlärning
 
 Aktiv inlärning är inaktiverat som standard. Aktivera den föreslagna frågor. 
+
+1. Välj **publicera** att publicera i knowledge base. Aktiv inlärning frågor samlas in från GenerateAnswer API förutsägelse slutpunkten endast. Frågorna till rutan i Qna Maker portal inverkar inte aktiv inlärning.
 
 1. Om du vill aktivera active learning på, klicka på din **namn**går du till [ **tjänstinställningar** ](https://www.qnamaker.ai/UserSettings) i QnA Maker-portalen i det övre högra hörnet.  
 
@@ -88,6 +89,9 @@ Aktiv inlärning är inaktiverat som standard. Aktivera den föreslagna frågor.
 
 1. Välj **spara och träna** att spara ändringarna i kunskapsbasen.
 
+1. Välj **publicera** så att ändringarna ska vara tillgängliga från GenerateAnswer-API: et.
+
+    När 5 eller mer liknande frågor är klustrade visas föreslår varje halvtimme QnA Maker användarbaserade frågorna kunskapsbas Designer ska godkänna eller avvisa.
 
 ## <a name="determine-best-choice-when-several-questions-have-similar-scores"></a>Fastställa bästa valet när flera frågor har liknande resultat
 

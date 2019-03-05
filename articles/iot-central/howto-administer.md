@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: feaedff2cb9f8eae30fd17c497b4a2f6de490b07
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: d325c30173955ff7c08099a125094ffe620c7ee3
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822603"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57313386"
 ---
 # <a name="administer-your-iot-central-application"></a>Administrera ditt IoT Central-program
 
@@ -46,7 +46,7 @@ Om du vill ändra programavbildningen [Förbered och ladda upp bilder till Azure
 ### <a name="copy-an-application"></a>Kopiera ett program
 Du kan skapa en kopia av alla program, minus eventuella enhetsinstanser, historik för enheten och användardata. Kopian blir en betala per användning-program som du kommer att debiteras för. Du kan inte skapa ett program för utvärdering i det här sättet.
 
-Klicka på den **kopia** knappen. I dialogrutan, ange information för det nya programmet betala per användning. Klicka sedan på den **kopiera** för att bekräfta att du vill fortsätta. Mer information om fälten i det här formuläret i [skapar ett program](quick-deploy-iot-central.md) Snabbstart.
+Välj **kopiera**. I dialogrutan, ange information för det nya programmet betala per användning. Välj sedan **kopia** att bekräfta att du vill fortsätta. Mer information om fälten i det här formuläret i [skapar ett program](quick-deploy-iot-central.md) Snabbstart.
 
 ![Inställningssidan för program](media/howto-administer/appCopy2.png)
 
@@ -131,13 +131,13 @@ Följ dessa steg för att slutföra denna självbetjäningsprocess:
 
     ![Utvärderingsversion tillstånd](media/howto-administer/freetrialbilling.png)
 
-1. Klicka på **konvertera till betala per användning**. 
+1. Välj **konvertera till betala per användning**. 
 
     ![Konvertera utvärderingsversionen](media/howto-administer/convert.png)
 
 1. Välj lämplig Azure Active Directory och sedan Azure-prenumeration du använder för din betala per användning-program.
 
-1. När du klickar på **konvertera**, ditt program är nu en betala per användning-program och du börja faktureras.
+1. När du har valt **konvertera**, ditt program är nu en betala per användning-program och du börja faktureras.
 
 ## <a name="export-data"></a>Exportera data
 

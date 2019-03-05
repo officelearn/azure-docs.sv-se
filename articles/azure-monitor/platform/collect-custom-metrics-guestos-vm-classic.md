@@ -8,14 +8,16 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: ''
-ms.openlocfilehash: f6bf672905fe7752a6c3d07492861f43af43e1f5
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 57212da1a8da7ee6c57faf2413b88a413df04817
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55893977"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57315137"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-data-store-for-a-windows-virtual-machine-classic"></a>Skicka gäst-OS mått till Azure Monitor-datalager för en Windows-dator (klassisk)
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 Azure Monitor [diagnostiktillägget](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) (kallas ”WAD” eller ”diagnostik”) kan du samla in mått och loggar från gästoperativsystemet (gäst-OS) som körs som en del av en virtuell dator, en molntjänst eller ett Service Fabric kluster. Tillägget kan skicka telemetri till [många olika platser.](https://docs.microsoft.com/azure/monitoring/monitoring-data-collection?toc=/azure/azure-monitor/toc.json)
 
@@ -31,7 +33,7 @@ Processen som beskrivs i den här artikeln fungerar bara på klassiska virtuella
 
 - Prenumerationen måste vara registrerad med [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services). 
 
-- Du måste ha antingen [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-6.8.1) eller [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) installerad.
+- Du måste ha antingen [Azure PowerShell](/powershell/azure) eller [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) installerad.
 
 ## <a name="create-a-classic-virtual-machine-and-storage-account"></a>Skapa en klassisk virtuell dator och storage-konto
 
@@ -145,7 +147,7 @@ Ge den här appen ”övervakning mått Publisher” behörigheter till den resu
 1. Starta PowerShell och logga in.
 
     ```powershell
-    Login-AzureRmAccount
+    Login-AzAccount
     ```
 
 1. Börja med att kontexten för den klassiska virtuella datorn.
@@ -157,7 +159,7 @@ Ge den här appen ”övervakning mått Publisher” behörigheter till den resu
 1. Ange sedan kontexten för det klassiska lagringskontot som har skapats med den virtuella datorn.
 
     ```powershell
-    $StorageContext = New-AzureStorageContext -StorageAccountName <name of your storage account from earlier steps> -storageaccountkey "<storage account key from earlier steps>"
+    $StorageContext = New-AzStorageContext -StorageAccountName <name of your storage account from earlier steps> -storageaccountkey "<storage account key from earlier steps>"
     ```
 
 1.  Ange sökvägen till diagnostik-filen till en variabel med hjälp av följande kommando:

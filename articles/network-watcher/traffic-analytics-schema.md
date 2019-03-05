@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: vinigam
-ms.openlocfilehash: ca7aba3d92542f1b73160c726a555487e17fd8e2
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: 34c455b5bf77906d9b6525731c09b62f15e4ccd2
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57012037"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57313233"
 ---
 # <a name="schema-and-data-aggregation-in-traffic-analytics"></a>Schema och data aggregering i trafikanalys
 
@@ -112,15 +112,15 @@ Nedan visas fälten i schemat och vad de en obestämd
     
 1. När det gäller AzurePublic och ExternalPublic flöden ägs kunden Azure VM-IP har fyllts i i VMIP_s fält, medan de offentliga IP-adresserna uppdateras i fältet PublicIPs_s. För dessa flödestyper av två använder vi VMIP_s och PublicIPs_s i stället SrcIP_s och DestIP_s fält. För AzurePublic och ExternalPublicIP aggregera vi ytterligare, så att antalet poster som matas in kund log analytics-arbetsytan är minimal. (Det här fältet upphör att gälla snart och vi ska använda SrcIP_ och DestIP_s beroende på om virtuell azure-dator var källan eller målet i flödet) 
 2. Information om typer av användarflöden: Baserat på IP-adresser som ingår i flödet kan kategorisera vi flöden i till följande flödestyper av: 
- *  IntraVNet – båda IP-adresserna i flödet finns i samma Azure Virtual Network. 
- *  Saknar - IP-adresser i flödet finns i de två olika Azure-nätverk. 
-*   S2S – (plats till plats) och en av IP-adresser som hör till Azure Virtual Network medan den andra IP-adressen tillhör kundens nätverk (plats) som är ansluten till det virtuella Azure-nätverket via VPN-gateway eller Expressroute. 
-*   P2S - (punkt till plats) en av IP-adresser som hör till Azure Virtual Network medan den andra IP-adressen tillhör kundens nätverk (plats) som är anslutna till Azure-nätverk via VPN-gateway.
-*   AzurePublic - en av IP-adresser som tillhör Azure Virtual Network medan den andra IP-adressen tillhör Azure interna offentliga IP-adresser som ägs av Microsoft. Kundägda offentliga IP-adresser inte kommer vara en del av den här flödestypen av. Exempelvis ägs vilken kund som VM som skickar trafik till en Azure-tjänst (slutpunkt för lagring) skulle kategoriseras under den här flödestypen av. <br><br>
-*   ExternalPublic - en av IP-adresser tillhör Azure Virtual Network medan den andra IP-adressen är en offentlig IP-adress som inte är i Azure, har inte rapporterats som skadlig i ASC-flöden som trafikanalys förbrukar för bearbetning av intervallet mellan ” FlowIntervalStartTime_t ”och” FlowIntervalEndTime_t ”. 
-*   MaliciousFlow - en av IP-adresser tillhör azure-nätverk medan den andra IP-adressen är en offentlig IP-adress som inte är i Azure och har rapporterats som skadlig i ASC-flöden som trafikanalys förbrukar för bearbetning av intervallet mellan ” FlowIntervalStartTime_t ”och” FlowIntervalEndTime_t ”. 
-*   UnknownPrivate - en av IP-adresser tillhör Azure Virtual Network medan den andra IP-adressen tillhör intervall för privata IP-adresser som definieras i RFC 1918 och gick inte att mappa av trafikanalys till kundägda plats eller Azure Virtual Network.
-*   Okänd – det går inte att mappa något av IP-adresser i flöden med kunden i Azure samt lokalt (plats).
+* IntraVNet – båda IP-adresserna i flödet finns i samma Azure Virtual Network. 
+* Saknar - IP-adresser i flödet finns i de två olika Azure-nätverk. 
+* S2S – (plats till plats) och en av IP-adresser som hör till Azure Virtual Network medan den andra IP-adressen tillhör kundens nätverk (plats) som är ansluten till det virtuella Azure-nätverket via VPN-gateway eller Expressroute. 
+* P2S - (punkt till plats) en av IP-adresser som hör till Azure Virtual Network medan den andra IP-adressen tillhör kundens nätverk (plats) som är anslutna till Azure-nätverk via VPN-gateway.
+* AzurePublic - en av IP-adresser som tillhör Azure Virtual Network medan den andra IP-adressen tillhör Azure interna offentliga IP-adresser som ägs av Microsoft. Kundägda offentliga IP-adresser inte kommer vara en del av den här flödestypen av. Exempelvis ägs vilken kund som VM som skickar trafik till en Azure-tjänst (slutpunkt för lagring) skulle kategoriseras under den här flödestypen av. 
+* ExternalPublic - en av IP-adresser tillhör Azure Virtual Network medan den andra IP-adressen är en offentlig IP-adress som inte är i Azure, har inte rapporterats som skadlig i ASC-flöden som trafikanalys förbrukar för bearbetning av intervallet mellan ” FlowIntervalStartTime_t ”och” FlowIntervalEndTime_t ”. 
+* MaliciousFlow - en av IP-adresser tillhör azure-nätverk medan den andra IP-adressen är en offentlig IP-adress som inte är i Azure och har rapporterats som skadlig i ASC-flöden som trafikanalys förbrukar för bearbetning av intervallet mellan ” FlowIntervalStartTime_t ”och” FlowIntervalEndTime_t ”. 
+* UnknownPrivate - en av IP-adresser tillhör Azure Virtual Network medan den andra IP-adressen tillhör intervall för privata IP-adresser som definieras i RFC 1918 och gick inte att mappa av trafikanalys till kundägda plats eller Azure Virtual Network.
+* Okänd – det går inte att mappa något av IP-adresser i flöden med kunden i Azure samt lokalt (plats).
 
 ### <a name="next-steps"></a>Nästa steg
 Om du vill få svar på vanliga frågor och svar, se [Traffic analytics vanliga frågor och svar](traffic-analytics-faq.md) information om funktionerna finns i [Traffic analytics-dokumentation](traffic-analytics.md)

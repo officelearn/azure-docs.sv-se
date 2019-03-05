@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 02/21/2019
+ms.date: 02/26/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 4d1624e324f7d83ef17e6a321a086cdb2c91b142
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 72a3bead4ba8670187c35856f9cd4e4f4b975a30
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56651064"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57311703"
 ---
 # <a name="best-practices-of-a-qna-maker-knowledge-base"></a>Bästa praxis för en kunskapsbas med QnA Maker
 Den [kunskapsbas för säkerhetsutveckling](../Concepts/development-lifecycle-knowledge-base.md) guidar dig om hur du hanterar din Kunskapsbas från början till slut. Använda dessa bästa metoder för att förbättra din kunskapsbas och ge bättre resultat för din robot program/chatt slutanvändare.
@@ -108,7 +108,7 @@ QnA Maker kan användarna [samarbeta](../How-to/collaborate-knowledge-base.md) p
 
 ## <a name="active-learning"></a>Aktiv inlärning
 
-[Aktiv inlärning](../How-to/improve-knowledge-base.md) fungerar på bästa sätt för att föreslå alternativa frågor när den har en mängd olika kvalitet och kvantitet för användarbaserad frågor. Det är viktigt att tillåta-klientprogram användarfrågor att delta i aktivt learning återkopplingssystem utan censur.
+[Aktiv inlärning](../How-to/improve-knowledge-base.md) fungerar på bästa sätt för att föreslå alternativa frågor när den har en mängd olika kvalitet och kvantitet för användarbaserad frågor. Det är viktigt att tillåta-klientprogram användarfrågor att delta i aktivt learning återkopplingssystem utan censur. När frågor föreslås i QnA Maker-portalen, måste du granska och godkänna eller avvisa dessa förslag. 
 
 ## <a name="next-steps"></a>Nästa steg
 

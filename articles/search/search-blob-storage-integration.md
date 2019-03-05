@@ -4,17 +4,17 @@ description: Crawlningen textinnehåll i Azure Blob storage för Azure Search in
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 10/17/2018
+ms.date: 03/01/2019
 author: mgottein
 manager: cgronlun
 ms.author: magottei
 ms.custom: seodec2018
-ms.openlocfilehash: 7bd7bcf66f0d91a87519a5d5bff7df7c73e2603f
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: dcecb98d5e254e3fadd114c227e783a60fc6fa4e
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53310886"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57316157"
 ---
 # <a name="searching-blob-storage-with-azure-search"></a>Söka i Blob Storage med Azure Search
 
@@ -38,7 +38,7 @@ Ett vanligt scenario som gör det enkelt att gå igenom blobar från alla inneh�
 ## <a name="image-search"></a>Bildsökning
 Azure Search fulltextsökning, fasetterad navigering och sortering funktioner kan nu tillämpas på metadata för bilder som lagras i blobbar.
 
-Om dessa avbildningar bearbetas före med den [API för visuellt innehåll](https://www.microsoft.com/cognitive-services/computer-vision-api) från Microsofts Cognitive Services, är det möjligt att indexera den visuellt innehåll som hittas i varje avbildning, inklusive OCR-och handskriftsigenkänning. Vi arbetar på att lägga till OCR och andra funktioner för bearbetning av avbildning direkt till Azure Search, om du är intresserad av dessa funktioner du skicka en begäran för på vår [UserVoice](https://aka.ms/azsuv) eller [mejla oss](mailto:azscustquestions@microsoft.com).
+Cognitive Search omfattar bild bearbetning färdigheter som [optisk teckenläsning (OCR)](cognitive-search-skill-ocr.md) och identifiering av [visuella funktioner](cognitive-search-skill-image-analysis.md) som gör det möjligt att indexera den visuellt innehåll som hittas i varje bild.
 
 ## <a name="index-and-search-through-json-blobs"></a>Index och Sök igenom JSON-blobar
 Azure Search kan konfigureras för att extrahera strukturerad innehåll som hittas i BLOB-objekt som innehåller JSON. Azure Search kan läsa JSON-blobar och parsa strukturerade innehållet i lämpliga fält i ett Azure Search-dokument. Azure Search kan även dra BLOB-objekt som innehåller en matris av JSON-objekt och mappa varje element till ett separat Azure Search-dokument.

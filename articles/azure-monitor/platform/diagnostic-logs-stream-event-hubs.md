@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/25/2018
 ms.author: johnkem
 ms.subservice: ''
-ms.openlocfilehash: 1ef779e64995c6996538b68b892cb45f11788067
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: b5299af375646e7759d0770139df2cd6d7ce105c
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54477472"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57314086"
 ---
 # <a name="stream-azure-diagnostic-logs-to-an-event-hub"></a>Stream, Azure-diagnostikloggar till en händelsehubb
 **[Azure diagnostikloggar](diagnostic-logs-overview.md)**  kan strömmas i nära realtid för program med hjälp av alternativet inbyggda ”exportera till Event Hubs” i portalen eller genom att aktivera Event Hub auktorisering regel-ID i en diagnostikinställning via Azure PowerShell-cmdletar eller Azure CLI.
@@ -83,10 +83,12 @@ Den nya inställningen visas i din lista över inställningar för den här resu
 
 ### <a name="via-powershell-cmdlets"></a>Via PowerShell-cmdletar
 
-Strömning den [Azure PowerShell-Cmdlets](../../azure-monitor/platform/powershell-quickstart-samples.md), du kan använda den `Set-AzureRmDiagnosticSetting` cmdlet med följande parametrar:
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
+Strömning den [Azure PowerShell-Cmdlets](../../azure-monitor/platform/powershell-quickstart-samples.md), du kan använda den `Set-AzDiagnosticSetting` cmdlet med följande parametrar:
 
 ```powershell
-Set-AzureRmDiagnosticSetting -ResourceId [your resource ID] -EventHubAuthorizationRuleId [your Event Hub namespace auth rule ID] -Enabled $true
+Set-AzDiagnosticSetting -ResourceId [your resource ID] -EventHubAuthorizationRuleId [your Event Hub namespace auth rule ID] -Enabled $true
 ```
 
 Event Hub auktorisering regel-ID är en sträng med det här formatet: `{Event Hub namespace resource ID}/authorizationrules/{key name}`, till exempel `/subscriptions/{subscription ID}/resourceGroups/{resource group}/providers/Microsoft.EventHub/namespaces/{Event Hub namespace}/authorizationrules/RootManageSharedAccessKey`. Du kan inte för närvarande välja en viss event hub-namn med PowerShell.

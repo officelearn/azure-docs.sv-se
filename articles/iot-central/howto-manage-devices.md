@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: b882c31f40f177b81fc84eb7071f396bddeaa0dd
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 21c29d90d8ed149062f24b470603b0e0e03cc6ab
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55658122"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57315613"
 ---
 # <a name="manage-devices-in-your-azure-iot-central-application"></a>Hantera enheter i ditt program med Azure IoT Central
 
@@ -67,7 +67,7 @@ Massinläsning registrerar enheter i ditt program:
  >   [!NOTE] 
     Om du inte har en mall för enheten, men du kan sedan importera enheter under **oassocierade enheter** och registrera dem utan någon mall. När enheterna har importerats, kan därefter du associera dem med en mall som ett senare skede.
 
-1. Klicka på **Importera**.
+1. Välj **Import**.
 
     [![Importera åtgärd](./media/howto-manage-devices/BulkImport1.png)](./media/howto-manage-devices/BulkImport1.png#lightbox)
 
@@ -79,7 +79,7 @@ Massinläsning registrerar enheter i ditt program:
 
     [![Importresultat](./media/howto-manage-devices/BulkImport3.png)](./media/howto-manage-devices/BulkImport3.png#lightbox)
 
-Om enheten importerar misslyckas, visas ett felmeddelande visas i rutnätet för enheten. En loggfil samla in alla fel genereras och kan hämtas genom att klicka på felmeddelandet.
+Om enheten importerar misslyckas, visas ett felmeddelande visas i rutnätet för enheten. En loggfil samla in alla fel genereras och kan hämtas genom att välja ett felmeddelande.
 
 
 **Kopplar enheter till en mall**
@@ -89,9 +89,9 @@ Om du registrerar enheter genom att starta importen under **oassocierade enheter
 1. I den vänstra panelen, väljer **oassocierade enheter**.
     [![Olänkade enheter](./media/howto-manage-devices/UnassociatedDevices1.png)](./media/howto-manage-devices/UnassociatedDevices1.png#lightbox)
 1. Välj de enheter som du vill associera med en mall.
-1. Klicka på **associera** alternativet.
+1. Välj **associera** alternativet.
     [![Koppla enheter](./media/howto-manage-devices/UnassociatedDevices2.png)](./media/howto-manage-devices/UnassociatedDevices2.png#lightbox)
-1. Välj mallen i listan över tillgängliga mallar och klickar på **associera** knappen.
+1. Välj mallen i listan över tillgängliga mallar och välj **associera**.
 1. De valda enheterna kommer att flyttas under respektive enhet-mall.
 
  >   [!NOTE] 
@@ -106,7 +106,7 @@ Massregistrera enheter för export från ditt program:
 
 1. Välj mallen enhet som du vill exportera enheterna på den vänstra panelen.
 
-1. Markera de enheter som du vill exportera och klicka sedan på den **exportera** åtgärd.
+1. Markera de enheter som du vill exportera och välj sedan den **exportera** åtgärd.
 
     [![Exportera](./media/howto-manage-devices/Export1.png)](./media/howto-manage-devices/Export1.png#lightbox)
 
@@ -114,7 +114,7 @@ Massregistrera enheter för export från ditt program:
 
 1. När exporten är klar visas ett meddelande tillsammans med en länk till ladda ned den genererade filen.
 
-1. Klicka på den **meddelande** att ladda ned filen till en lokal mapp på disken.
+1. Välj den **meddelande** att ladda ned filen till en lokal mapp på disken.
 
     [![Exporten lyckades](./media/howto-manage-devices/Export2.png)](./media/howto-manage-devices/Export2.png#lightbox)
 

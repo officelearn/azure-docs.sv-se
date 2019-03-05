@@ -199,7 +199,9 @@
 ##### [Fliken Kontakter](./cloud-partner-portal/saas-app/cpp-contacts-tab.md)
 #### [Publicera erbjudande](./cloud-partner-portal/saas-app/cpp-publish-offer.md)
 #### [Uppdatera befintligt erbjudande](./cloud-partner-portal/saas-app/cpp-update-existing-offer.md)
-#### [SaaS-API:er](./cloud-partner-portal-orig/cloud-partner-portal-saas-subscription-apis.md)
+#### [API:er för uppfyllnad av SaaS](./cloud-partner-portal/saas-app/cpp-saas-fulfillment-apis.md)
+##### [API för SaaS V1](./cloud-partner-portal/saas-app/cpp-saas-fulfillment-api-v1.md) 
+##### [API för SaaS V2](./cloud-partner-portal/saas-app/cpp-saas-fulfillment-api-v2.md) 
 
 ### [Erbjudande på virtuella datorer](./cloud-partner-portal/virtual-machine/cpp-virtual-machine-offer.md)
 #### [Förutsättningar](./cloud-partner-portal/virtual-machine/cpp-prerequisites.md)

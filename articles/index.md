@@ -1314,7 +1314,7 @@ Automatisera Azure-uppgifter med hjälp av skript med PowerShell </a>
                                         <li>
                                             <a href="/azure/iot-fundamentals">
                                                 <img src="media/index/IoTHub.svg" alt="" />
-                                                <p>Grunderna i IoT</p>
+                                                <p>Azure IoT</p>
                                             </a>
                                         </li>
                                         <li>
@@ -3929,12 +3929,12 @@ Automatisera Azure-uppgifter med hjälp av skript med PowerShell </a>
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/iothub.svg" alt="" />
+                                                        <img src="media/index/question-mark-grey.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Grunderna i IoT</h3>
-                                                    <p>Kom igång med att ansluta dina enheter</p>
+                                                    <h3>Är Azure IoT nytt för dig?</h3>
+                                                    <p>Börja här och upptäck vilka tjänster som passar dina behov</p>
                                                 </div>
                                             </div>
                                         </div>

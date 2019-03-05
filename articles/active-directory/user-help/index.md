@@ -51,10 +51,9 @@ Det här innehållet är avsett som hjälp att konfigurera och använda säkerhe
                         <p>
                         <a href="/azure/active-directory/user-help/myprofile-portal-overview">Översikt</a><br/>
                         <a href="/azure/active-directory/user-help/user-help-security-info-overview">Hantera säkerhetsinformation</a><br/>
-                        <a href="/azure/active-directory/user-help/myprofile-portal-recent-activity-page">Visa senaste inloggningsaktivitet</a><br/>
                         <a href="/azure/active-directory/user-help/myprofile-portal-organizations-page">Hantera dina organisationer</a><br/>
                         <a href="/azure/active-directory/user-help/myprofile-portal-devices-page">Hantera dina anslutna enheter</a><br/>
-                        <a href="/azure/active-directory/user-help/myprofile-portal-privacy-page">Visa din sekretessrelaterade information</a><br/>                       
+                        <a href="/azure/active-directory/user-help/myprofile-portal-privacy-page">Visa din sekretessrelaterade information</a>
                         </p>
                     </div>
                 </div>

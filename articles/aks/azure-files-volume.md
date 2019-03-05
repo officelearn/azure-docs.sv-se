@@ -5,44 +5,42 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 10/08/2018
+ms.date: 03/01/2019
 ms.author: iainfou
-ms.openlocfilehash: 1a8609dbf5fa1c1e7d5f4e35b081ecaa09994eb6
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: f8558529df24c0aaede0c58744e17829ec0b5669
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49068085"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57337540"
 ---
 # <a name="manually-create-and-use-a-volume-with-azure-files-share-in-azure-kubernetes-service-aks"></a>Manuellt skapa och använda en volym med Azure Files-resurs i Azure Kubernetes Service (AKS)
 
 Behållarbaserade program behöver ofta åtkomst till och bevara data i en extern datavolym. Om flera poddar behöver samtidig åtkomst till samma lagringsvolymen kan du använda Azure Files för att ansluta med den [Server Message Block (SMB) protokollet][smb-overview]. Den här artikeln visar hur du manuellt skapa en Azure Files-resurs och koppla den till en pod i AKS.
 
-Mer information om Kubernetes volymer finns i [Kubernetes volymer][kubernetes-volumes].
+Mer information om Kubernetes volymer finns i [lagringsalternativ för program i AKS][concepts-storage].
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
 Den här artikeln förutsätter att du har ett befintligt AKS-kluster. Om du behöver ett AKS-kluster finns i snabbstarten om AKS [med Azure CLI] [ aks-quickstart-cli] eller [med Azure portal][aks-quickstart-portal].
 
-Du också ha Azure CLI version 2.0.46 eller senare installerat och konfigurerat. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][install-azure-cli].
+Du också ha Azure CLI version 2.0.59 eller senare installerat och konfigurerat. Kör  `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa  [Installera Azure CLI 2.0][install-azure-cli].
 
 ## <a name="create-an-azure-file-share"></a>Skapa en Azure-filresurs
 
-Innan du kan använda Azure Files som en Kubernetes-volym, måste du skapa ett Azure Storage-konto och filresursen. Följande skript skapar en resursgrupp med namnet *myAKSShare*, ett lagringskonto och en resurs för filer som heter *aksshare*:
+Innan du kan använda Azure Files som en Kubernetes-volym, måste du skapa ett Azure Storage-konto och filresursen. Följande kommandon för skapar en resursgrupp med namnet *myAKSShare*, ett lagringskonto och en resurs för filer som heter *aksshare*:
 
-```azurecli
-#!/bin/bash
-
-# Change these four parameters
+```azurecli-interactive
+# Change these four parameters as needed for your own environment
 AKS_PERS_STORAGE_ACCOUNT_NAME=mystorageaccount$RANDOM
 AKS_PERS_RESOURCE_GROUP=myAKSShare
 AKS_PERS_LOCATION=eastus
 AKS_PERS_SHARE_NAME=aksshare
 
-# Create the Resource Group
+# Create a resource group
 az group create --name $AKS_PERS_RESOURCE_GROUP --location $AKS_PERS_LOCATION
 
-# Create the storage account
+# Create a storage account
 az storage account create -n $AKS_PERS_STORAGE_ACCOUNT_NAME -g $AKS_PERS_RESOURCE_GROUP -l $AKS_PERS_LOCATION --sku Standard_LRS
 
 # Export the connection string as an environment variable, this is used when creating the Azure file share
@@ -104,7 +102,7 @@ spec:
 
 Använd den `kubectl` kommando för att skapa en pod.
 
-```azurecli-interactive
+```console
 kubectl apply -f azure-files-pod.yaml
 ```
 
@@ -117,7 +115,7 @@ Containers:
     Image:          nginx:1.15.5
     Image ID:       docker-pullable://nginx@sha256:9ad0746d8f2ea6df3a17ba89eca40b48c47066dfab55a75e08e2b70fc80d929e
     State:          Running
-      Started:      Mon, 08 Oct 2018 19:28:34 +0000
+      Started:      Sat, 02 Mar 2019 00:05:47 +0000
     Ready:          True
     Mounts:
       /mnt/azure from azure (rw)
@@ -135,7 +133,46 @@ Volumes:
 [...]
 ```
 
+## <a name="mount-options"></a>Monteringsalternativ
+
+Standard *fileMode* och *dirMode* värden skiljer sig åt mellan Kubernetes-versioner som beskrivs i följande tabell.
+
+| version | värde |
+| ---- | ---- |
+| V1.6.x, v1.7.x | 0777 |
+| v1.8.0-v1.8.5 | 0700 |
+| V1.8.6 eller senare | 0755 |
+| v1.9.0 | 0700 |
+| V1.9.1 eller senare | 0755 |
+
+Om du använder ett kluster av version 1.8.5 återställning eller större och statiskt skapar objektet permanent volym, monteringsalternativ måste anges på den *PersistentVolume* objekt.
+
+```yaml
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: azurefile
+spec:
+  capacity:
+    storage: 5Gi
+  accessModes:
+    - ReadWriteMany
+  azureFile:
+    secretName: azure-secret
+    shareName: azurefile
+    readOnly: false
+  mountOptions:
+  - dir_mode=0777
+  - file_mode=0777
+  - uid=1000
+  - gid=1000
+```
+
+Om du använder ett kluster av version 1.8.0 - 1.8.4, en säkerhetskontext kan bara anges med den *användare* värdet *0*. Läs mer på Pod säkerhetskontext [konfigurera en säkerhetskontext][kubernetes-security-context].
+
 ## <a name="next-steps"></a>Nästa steg
+
+Associerade metodtips finns [bästa praxis för lagring och säkerhetskopiering i AKS][operator-best-practices-storage].
 
 Mer information om AKS-kluster interagerar med Azure Files, finns i den [Kubernetes-plugin-programmet för Azure Files][kubernetes-files].
 
@@ -145,6 +182,7 @@ Mer information om AKS-kluster interagerar med Azure Files, finns i den [Kuberne
 [kubernetes-secret]: https://kubernetes.io/docs/concepts/configuration/secret/
 [kubernetes-volumes]: https://kubernetes.io/docs/concepts/storage/volumes/
 [smb-overview]: /windows/desktop/FileIO/microsoft-smb-protocol-and-cifs-protocol-overview
+[kubernetes-security-context]: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/
 
 <!-- LINKS - internal -->
 [az-group-create]: /cli/azure/group#az-group-create
@@ -154,3 +192,5 @@ Mer information om AKS-kluster interagerar med Azure Files, finns i den [Kuberne
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
 [install-azure-cli]: /cli/azure/install-azure-cli
+[operator-best-practices-storage]: operator-best-practices-storage.md
+[concepts-storage]: concepts-storage.md

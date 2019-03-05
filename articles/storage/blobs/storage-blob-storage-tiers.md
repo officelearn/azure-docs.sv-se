@@ -5,15 +5,15 @@ services: storage
 author: kuhussai
 ms.service: storage
 ms.topic: article
-ms.date: 01/09/2018
+ms.date: 03/05/2019
 ms.author: kuhussai
 ms.subservice: blobs
-ms.openlocfilehash: 3e89f5de247cf18abdb710577ce55c6e2cb5765e
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 4660a45014e6afdb091fb40b8fe7f03fdb647aab
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251902"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57339206"
 ---
 # <a name="azure-blob-storage-premium-preview-hot-cool-and-archive-storage-tiers"></a>Azure Blob storage: Premium (förhandsversion), lagringsnivåerna frekvent, lågfrekvent lagring och Arkivlagring
 
@@ -56,16 +56,6 @@ BLOB storage- och GPv2-konton visas den **åtkomstnivå** attributet på kontoni
 Tillgängligt i förhandsversionen är en Premium åtkomstnivå, vilket gör ofta använda data som är tillgängliga via maskinvara med höga prestanda. Data som lagras i den här nivån lagras på SSD-enheter som är optimerade för kortare svarstider och högre transaktionella priser jämfört med traditionella hårddiskar. Åtkomstnivå Premium är tillgängligt via Blockblob lagringskontotypen endast.
 
 Den här nivån är perfekt för arbetsbelastningar som kräver snabb och konsekvent svarstider. Data som innebär att slutanvändare, till exempel interaktiva videoredigering, statiskt webbinnehåll, onlinetransaktioner och liknande är bra kandidater för nivån Premium och åtkomst. Den här nivån är utformad för arbetsbelastningar som utför många små transaktioner, till exempel samla in telemetridata, meddelanden och transformering av data.
-
-Om du vill använda den här nivån, etablera ett nytt Block Blob storage-konto och börja skapa behållare och blobar med hjälp av den [REST-API för Blob Service](/rest/api/storageservices/blob-service-rest-api), [AzCopy](/azure/storage/common/storage-use-azcopy), eller [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/).
-
-I förhandsversionen Premium åtkomstnivå:
-
-- Är tillgängligt som lokalt redundant lagring (LRS)
-- Är bara tillgängligt i följande regioner: USA, Öst 2, centrala USA och västra USA
-- Stöder inte objekt på lagringsnivåer eller automatiserade lagringsnivåer med hanteringen av datalivscykeln
-
-Läs hur du registrera dig för förhandsversionen av Premium åtkomst nivå i [introduktion till Azure Premium-Bloblagring](https://aka.ms/premiumblob).
 
 ## <a name="hot-access-tier"></a>Frekvent åtkomstnivå
 

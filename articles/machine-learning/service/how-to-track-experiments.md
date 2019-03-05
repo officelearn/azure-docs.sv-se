@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 356326c7270bb18cec1fdd37dfc6f7f2638b3839
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: bd3adaee275dbb8a705c7b0a35335385d1026eed
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56822059"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57337948"
 ---
 # <a name="track-experiments-and-training-metrics-in-azure-machine-learning"></a>Spåra experiment och utbildning mått i Azure Machine Learning
 
@@ -124,7 +124,7 @@ Skriptet slutar med ```run.complete()```, som markeras körningen som slutfört.
 
 ## <a name="option-2-use-scriptrunconfig"></a>Alternativ 2: Använda ScriptRunConfig
 
-**ScriptRunConfig** är en klass för att konfigurera konfigurationer för skriptet körs. Du kan använda det här alternativet för att lägga till koden för övervakning för att aviseras om slutförande eller för att hämta en visual widget att övervaka.
+[**ScriptRunConfig** ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py) är en klass för att konfigurera konfigurationer för skriptet körs. Du kan använda det här alternativet för att lägga till koden för övervakning för att aviseras om slutförande eller för att hämta en visual widget att övervaka.
 
 Det här exemplet kan utökas med grundläggande sklearn upphöjning modellen ovan. Den gör en enkel parameter Svep svep över alfavärden av modellen för att hämta mått och tränade modeller i körs under experimentet. Exemplet körs lokalt mot en användarhanterade miljö. 
 

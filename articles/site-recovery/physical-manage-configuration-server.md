@@ -2,17 +2,17 @@
 title: Hantera konfigurationsservern för haveriberedskap för lokala fysiska servrar till Azure med Azure Site Recovery | Microsoft Docs
 description: Den här artikeln beskriver hur du hanterar Azure Site Recovery konfigurationsserver för fysisk server haveriberedskap till Azure.
 services: site-recovery
-author: Rajeswari-Mamilla
+author: mayurigupta13
 ms.service: site-recovery
 ms.topic: article
-ms.date: 11/27/2018
-ms.author: ramamill
-ms.openlocfilehash: d5ce80e44ee1a3a48443b190ea9259fe2dea0dcb
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.date: 02/28/2019
+ms.author: mayg
+ms.openlocfilehash: 80fbc84c2284b7078b07040a74566cf1e8d57fb4
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55983227"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57341093"
 ---
 # <a name="manage-the-configuration-server-for-physical-server-disaster-recovery"></a>Hantera konfigurationsservern för fysisk server disaster recovery
 
@@ -77,7 +77,7 @@ Den senaste versionen av installationsfilen för configuration server är tillg�
 9. I **Installationsplats** väljer du om du vill installera binärfilerna och lagra cachen. Enheten du väljer måste ha minst 5 GB tillgängligt utrymme, men vi rekommenderar en cacheenhet med 600 GB eller mer ledigt utrymme.
 
     ![Installationsplats](./media/physical-manage-configuration-server/combined-wiz8.png)
-10. I **Val av nätverk** anger du lyssnare (nätverkskort och SSL-port) där konfigurationsservern skickar och tar emot replikeringsdata. Port 9443 är standardporten som används för att skicka och ta emot replikeringstrafik, men du kan ändra portnumret så att det passar din miljö. Förutom port 9443 öppnar vi också port 443, som används av en webbserver för att dirigera replikeringsåtgärder. Använd inte port 443 för att skicka eller ta emot replikeringstrafik.
+10. I **val av nätverk**, väljer du det nätverkskort som inbyggd processervern som används för identifiering och push-installation av mobilitetstjänsten på källdatorer först och sedan väljer du det nätverkskort som konfigurationsservern använder för anslutning med Azure. Port 9443 är standardporten som används för att skicka och ta emot replikeringstrafik, men du kan ändra portnumret så att det passar din miljö. Förutom port 9443 öppnar vi också port 443, som används av en webbserver för att dirigera replikeringsåtgärder. Använd inte port 443 för att skicka eller ta emot replikeringstrafik.
 
     ![Val av nätverk](./media/physical-manage-configuration-server/combined-wiz9.png)
 

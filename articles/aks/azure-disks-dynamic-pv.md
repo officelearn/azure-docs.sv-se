@@ -5,14 +5,14 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 10/08/2018
+ms.date: 03/01/2019
 ms.author: iainfou
-ms.openlocfilehash: 02ebfb711c5f51c71f42f7b67b8804b91a0be368
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 735be71faecb9882b13f6f536d43715139d0f4db
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56329276"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57342028"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-disks-in-azure-kubernetes-service-aks"></a>Dynamiskt skapa och använda en permanent volym med Azure-diskar i Azure Kubernetes Service (AKS)
 
@@ -21,13 +21,13 @@ En permanent volym representerar en typ av lagring som har etablerats för anvä
 > [!NOTE]
 > En Azure-disk kan endast monteras med *åtkomstläge* typ *ReadWriteOnce*, vilket gör dem tillgängliga för endast en enda pod i AKS. Om du vill dela en permanent volym över flera poddar kan använda [Azure Files][azure-files-pvc].
 
-Mer information om Kubernetes beständiga volymer finns i [Kubernetes beständiga volymer][kubernetes-volumes].
+Mer information om Kubernetes volymer finns i [lagringsalternativ för program i AKS][concepts-storage].
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
 Den här artikeln förutsätter att du har ett befintligt AKS-kluster. Om du behöver ett AKS-kluster finns i snabbstarten om AKS [med Azure CLI] [ aks-quickstart-cli] eller [med Azure portal][aks-quickstart-portal].
 
-Du måste också ha installerat och konfigurerat Azure CLI version 2.0.46 eller senare. Kör  `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa  [Installera Azure CLI 2.0][install-azure-cli].
+Du också ha Azure CLI version 2.0.59 eller senare installerat och konfigurerat. Kör  `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa  [Installera Azure CLI 2.0][install-azure-cli].
 
 ## <a name="built-in-storage-classes"></a>Inbyggda lagringsklasser
 
@@ -42,7 +42,7 @@ Varje AKS-kluster innehåller två färdiga lagringsklasser, båda är konfigure
 
 Använd den [kubectl hämta sc] [ kubectl-get] kommando för att se de förinställda lagringsklasser. I följande exempel visas den skapa lagringsklasser som är tillgängliga i ett AKS-kluster:
 
-```
+```console
 $ kubectl get sc
 
 NAME                PROVISIONER                AGE
@@ -51,7 +51,7 @@ managed-premium     kubernetes.io/azure-disk   1h
 ```
 
 > [!NOTE]
-> Beständig volym anspråk har angetts i GiB men Azure hanterade diskar faktureras av SKU: N för en viss storlek. Dessa SKU: er mellan 32GiB för S4 eller P4 diskar och 32TiB för S80 eller P80 diskar. Dataflöde och IOPS-prestanda för en Premium managed disk beror på båda SKU och instansstorleken för noderna i AKS-klustret. Mer information finns i [priser och prestanda för Managed Disks][managed-disk-pricing-performance].
+> Beständig volym anspråk har angetts i GiB men Azure hanterade diskar faktureras av SKU: N för en viss storlek. Dessa SKU: er mellan 32GiB för S4 eller P4 diskar och 32TiB för S80 eller P80 diskar (i förhandsversion). Dataflöde och IOPS-prestanda för en Premium managed disk beror på båda SKU och instansstorleken för noderna i AKS-klustret. Mer information finns i [priser och prestanda för Managed Disks][managed-disk-pricing-performance].
 
 ## <a name="create-a-persistent-volume-claim"></a>Skapa ett anspråk för permanent volym
 
@@ -78,7 +78,7 @@ spec:
 
 Skapa permanent volym-anspråk med den [kubectl gäller] [ kubectl-apply] kommandot och ange din *azure premium.yaml* fil:
 
-```
+```console
 $ kubectl apply -f azure-premium.yaml
 
 persistentvolumeclaim/azure-managed-disk created
@@ -117,7 +117,7 @@ spec:
 
 Skapa en pod med den [kubectl gäller] [ kubectl-apply] kommandot, som visas i följande exempel:
 
-```
+```console
 $ kubectl apply -f azure-pvc-disk.yaml
 
 pod/mypod created
@@ -125,7 +125,7 @@ pod/mypod created
 
 Nu har du en aktiv pod med din Azure-disken monteras i den `/mnt/azure` directory. Den här konfigurationen kan visas vid kontroll av din pod via `kubectl describe pod mypod`, enligt följande komprimerade exempel:
 
-```
+```console
 $ kubectl describe pod mypod
 
 [...]
@@ -154,7 +154,7 @@ Ta en ögonblicksbild av den hantera disken på volymen om du vill säkerhetskop
 
 Hämta först volymnamnet på med den `kubectl get pvc` kommandot, till exempel för PVC med namnet *azure managed disk*:
 
-```
+```console
 $ kubectl get pvc azure-managed-disk
 
 NAME                 STATUS    VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS      AGE
@@ -163,7 +163,7 @@ azure-managed-disk   Bound     pvc-faf0f176-8b8d-11e8-923b-deb28c58d242   5Gi   
 
 Den här volymnamn utgör underliggande Azure diskens namn. Fråga för disk-ID och [az disk list] [ az-disk-list] och anger din PVC volymens namn som visas i följande exempel:
 
-```
+```azurecli-interactive
 $ az disk list --query '[].id | [?contains(@,`pvc-faf0f176-8b8d-11e8-923b-deb28c58d242`)]' -o tsv
 
 /subscriptions/<guid>/resourceGroups/MC_MYRESOURCEGROUP_MYAKSCLUSTER_EASTUS/providers/MicrosoftCompute/disks/kubernetes-dynamic-pvc-faf0f176-8b8d-11e8-923b-deb28c58d242
@@ -171,7 +171,7 @@ $ az disk list --query '[].id | [?contains(@,`pvc-faf0f176-8b8d-11e8-923b-deb28c
 
 Använd disk-ID för att skapa en ögonblicksbild disk med [az snapshot skapa][az-snapshot-create]. I följande exempel skapas en ögonblicksbild med namnet *pvcSnapshot* i samma resursgrupp som AKS-klustret (*MC_myResourceGroup_myAKSCluster_eastus*). Du kan stöta på problem med behörighet om du skapar ögonblicksbilder och Återställ diskar i resursgrupper som AKS-klustret inte har åtkomst till.
 
-```azurecli
+```azurecli-interactive
 $ az snapshot create \
     --resource-group MC_myResourceGroup_myAKSCluster_eastus \
     --name pvcSnapshot \
@@ -184,13 +184,13 @@ Beroende på mängden data på disken, kan det ta några minuter att skapa ögon
 
 Om du vill återställa disken och använder den med en Kubernetes-pod kan du använda ögonblicksbilden som källa när du skapar en disk med [az disk skapa][az-disk-create]. Den här åtgärden bevarar den ursprungliga resursen om du sedan behöver komma åt den ursprungliga dataögonblicksbilden. I följande exempel skapas en disk med namnet *pvcRestored* från ögonblicksbilden med namnet *pvcSnapshot*:
 
-```azurecli
+```azurecli-interactive
 az disk create --resource-group MC_myResourceGroup_myAKSCluster_eastus --name pvcRestored --source pvcSnapshot
 ```
 
 Om du vill använda den återställda disken med en pod, ange ID för disken i manifestet. Hämta diskens ID med den [az disk show] [ az-disk-show] kommando. I följande exempel hämtas disk-ID för *pvcRestored* skapade i föregående steg:
 
-```azurecli
+```azurecli-interactive
 az disk show --resource-group MC_myResourceGroup_myAKSCluster_eastus --name pvcRestored --query id -o tsv
 ```
 
@@ -225,7 +225,7 @@ spec:
 
 Skapa en pod med den [kubectl gäller] [ kubectl-apply] kommandot, som visas i följande exempel:
 
-```
+```console
 $ kubectl apply -f azure-restored.yaml
 
 pod/mypodrestored created
@@ -233,7 +233,7 @@ pod/mypodrestored created
 
 Du kan använda `kubectl describe pod mypodrestored` att visa detaljer för en pod, till exempel följande komprimerade exempel som visar volyminformationen:
 
-```
+```console
 $ kubectl describe pod mypodrestored
 
 [...]
@@ -250,6 +250,8 @@ Volumes:
 ```
 
 ## <a name="next-steps"></a>Nästa steg
+
+Associerade metodtips finns [bästa praxis för lagring och säkerhetskopiering i AKS][operator-best-practices-storage].
 
 Läs mer om Kubernetes beständiga volymer med Azure-diskar.
 
@@ -275,3 +277,5 @@ Läs mer om Kubernetes beständiga volymer med Azure-diskar.
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
 [install-azure-cli]: /cli/azure/install-azure-cli
+[operator-best-practices-storage]: operator-best-practices-storage.md
+[concepts-storage]: concepts-storage.md

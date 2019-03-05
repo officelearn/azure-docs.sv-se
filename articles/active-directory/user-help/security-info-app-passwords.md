@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 02/13/2018
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fcf0e421572a9a698bcc68af47d8950795ac8791
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 55dfab0c60e77b86157a005db34c37917a5e08d2
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456817"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57341111"
 ---
 # <a name="manage-app-passwords-from-your-security-info-preview-page"></a>Hantera lösenord från sidan Security info (förhandsversion)
 Vissa appar, till exempel Outlook 2010 stöder inte tvåstegsverifiering. Den här avsaknaden av stöd innebär att appen inte fungerar om du använder tvåstegsverifiering i din organisation. För att undvika det här problemet, kan du skapa ett automatiskt genererat lösenord ska användas med varje icke-Webbläsarprogrammet, separat från normala lösenordet.
@@ -47,11 +47,11 @@ Om du använder tvåstegsverifiering med ditt arbets- eller skolkonto konto och 
 ### <a name="to-create-a-new-app-password"></a>Skapa ett nytt applösenord
 1. Logga in på ditt arbets- eller skolkonto konto och gå sedan till din https://myprofile.microsoft.com/ sidan.
 
-    ![Min profil-sidan som visar markerad Security info länkar](media/security-info/securityinfo-myprofile.png)
+    ![Min profil-sidan som visar markerad Security info länkar](media/security-info/securityinfo-myprofile-page.png)
 
 2. Välj **säkerhetsinformation** från det vänstra navigeringsfönstret eller från länken i den **säkerhetsinformation** blockera och sedan välja **tilläggsmetod** från den **säkerhetsinformation**  sidan.
 
-    ![Sidan för Security information med markerade Lägg till metodalternativet](media/security-info/securityinfo-myprofile-addmethod.png)
+    ![Sidan för Security information med markerade Lägg till metodalternativet](media/security-info/securityinfo-myprofile-addmethod-page.png)
 
 3. På den **Lägg till en metod** väljer **applösenord** från listrutan och välj sedan **Lägg till**.
 

@@ -12,24 +12,36 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 09/13/2018
+ms.date: 3/3/2019
 ms.author: pbutlerm
-ms.openlocfilehash: ec3784a91f8aeb7f0fedd13c9ab86a844832a578
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 7df96d53b02e80283f263901dc7e26ed4edb947d
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48811278"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57342385"
 ---
-<a name="seller-insights-release-notes"></a>Säljaren insikter viktig information 
-===============================
-(Utgivningsdatum: 28 juli 2018)
+# <a name="seller-insights-release-notes"></a>Säljaren insikter viktig information 
+
+(Utgivningsdatum: Den 1 mars 2019)
 
 Den här artikeln innehåller information om ändringar i funktionen försäljning insikter i den [Cloud Partner Portal](https://cloudpartner.azure.com/#insights).
 
+## <a name="release-highlights-for-march-1-2019"></a>Versionen viktig information om den 1 mars 2019
 
-<a name="release-highlights"></a>Versionen höjdpunkter
-------------------
+* *Kunden Trend* läggs till sammanfattning
+* *De främsta fem kunder* återspeglar alla Azure-prenumerationer som en kund har på Sammanfattning
+* *Normalized informationen om Användningstrenden & Active order Trend* på Sammanfattning under flyttas *månatliga order i korthet*
+* *Payout Licensavstämning* uppdateras
+* *De främsta fem kunder* på Payout återspeglar alla Azure-prenumerationer som en kund har
+* *Användningsrapporten* uppdateras med kund-ID
+* *Kunden tjänstgöringsperiod i* visar alla Azure-prenumerationer som en kund har på order & användning
+
+
+(Utgivningsdatum: 28 juli 2018)
+
+## <a name="release-highlights-for-july-28-2018"></a>Versionen viktig information om den 28 juli 2018
+
 
 -   *Beräknad priserna* ge en översikt över tillägg med valuta konvertering effekter.
 -   *Prognostiserat payouts* ger en tidigare överblick över potentiella payouts.
@@ -37,8 +49,7 @@ Den här artikeln innehåller information om ändringar i funktionen försäljni
 -   *Användning enligt en daglig kornighet* ger mer detaljrikedom och bättre insikt i kundens användning.
 
 
-<a name="changes-to-data-structure-and-taxonomy"></a>Ändringar av datastruktur och taxonomi
---------------------------------------
+### <a name="changes-to-data-structure-and-taxonomy"></a>Ändringar av datastruktur och taxonomi
 
 I följande tabell visas de mått som har lagts till eller ändrats avsevärt med den här versionen. 
 

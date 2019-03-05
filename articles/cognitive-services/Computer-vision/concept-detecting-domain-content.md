@@ -11,22 +11,22 @@ ms.topic: conceptual
 ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 66137f01672820584f97273ddca26a66ada781ba
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 92859667e1dc53b9c6ca9e46a2db1c6dc335ae37
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56312560"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57339019"
 ---
 # <a name="detect-domain-specific-content"></a>Identifiera domänspecifika innehåll
 
-Dessutom stöder till taggning och övergripande kategorisering, visuellt också ytterligare domänspecifika analys med modeller som har tränats på särskilda data. 
+Dessutom stöder till taggning och övergripande kategorisering, visuellt också ytterligare domänspecifika analys med modeller som har tränats på särskilda data.
 
 Det finns två sätt att använda domänspecifika modeller: fristående (analys av begränsade) eller som en förbättring av funktionen för kategorisering.
 
 ### <a name="scoped-analysis"></a>Begränsade analys
 
-Du kan analysera en bild med endast valda domänspecifika-modellen genom att anropa den [modeller /\<modellen\>/analysera](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e200) API. 
+Du kan analysera en bild med endast valda domänspecifika-modellen genom att anropa den [modeller /\<modellen\>/analysera](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e200) API.
 
 Följande är ett exempel på JSON-svaret som returnerades av den **modeller/kändisar/analysera** API för den angivna avbildningen:
 
@@ -55,28 +55,28 @@ Följande är ett exempel på JSON-svaret som returnerades av den **modeller/kä
 }
 ```
 
-### <a name="enhanced-categorization-analysis"></a>Förbättrad kategorisering analys  
+### <a name="enhanced-categorization-analysis"></a>Förbättrad kategorisering analys
 
-Du kan också använda domänspecifika modeller för att komplettera Allmänt bildanalys. Du gör detta som en del av [övergripande kategorisering](concept-categorizing-images.md) genom att ange domänspecifika modeller i den *information* -parametern för den [analysera](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) API-anrop. 
+Du kan också använda domänspecifika modeller för att komplettera Allmänt bildanalys. Du gör detta som en del av [övergripande kategorisering](concept-categorizing-images.md) genom att ange domänspecifika modeller i den *information* -parametern för den [analysera](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) API-anrop.
 
-I det här fallet kallas 86 kategoritaxonomi klassificeraren först. Om någon av de identifierade kategorierna har en matchande domänspecifika modell leds avbildningen genom att modellen samt och resultatet läggs. 
+I det här fallet kallas 86 kategoritaxonomi klassificeraren först. Om någon av de identifierade kategorierna har en matchande domänspecifika modell leds avbildningen genom att modellen samt och resultatet läggs.
 
 Följande JSON-svar visar hur domänspecifika analys kan ingå som den `detail` nod i en bredare kategorisering analys.
 
 ```json
-"categories":[  
-  {  
+"categories":[
+  {
     "name":"abstract_",
     "score":0.00390625
   },
-  {  
+  {
     "name":"people_",
     "score":0.83984375,
-    "detail":{  
-      "celebrities":[  
-        {  
+    "detail":{
+      "celebrities":[
+        {
           "name":"Satya Nadella",
-          "faceRectangle":{  
+          "faceRectangle":{
             "left":597,
             "top":162,
             "width":248,
@@ -85,8 +85,8 @@ Följande JSON-svar visar hur domänspecifika analys kan ingå som den `detail` 
           "confidence":0.999028444
         }
       ],
-      "landmarks":[  
-        {  
+      "landmarks":[
+        {
           "name":"Forbidden City",
           "confidence":0.9978346
         }
@@ -108,20 +108,20 @@ Visuellt stöder för närvarande följande domänspecifika modeller:
 Anropa den [modeller](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fd) API: et returnerar den här informationen tillsammans med de kategorier som varje modell kan gälla:
 
 ```json
-{  
-  "models":[  
-    {  
+{
+  "models":[
+    {
       "name":"celebrities",
-      "categories":[  
+      "categories":[
         "people_",
         "人_",
         "pessoas_",
         "gente_"
       ]
     },
-    {  
+    {
       "name":"landmarks",
-      "categories":[  
+      "categories":[
         "outdoor_",
         "户外_",
         "屋外_",

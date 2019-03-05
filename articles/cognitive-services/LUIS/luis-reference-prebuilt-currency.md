@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 02/28/2019
 ms.author: diberry
-ms.openlocfilehash: e214870e74b2680555cf1d116862c568cc5068b1
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 76531e3ebba5519d9ddab7733abb2890003cbcd5
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57213131"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57339920"
 ---
 # <a name="currency-prebuilt-entity-for-a-luis-app"></a>Valuta fördefinierade entitet för en LUIS-app
 Valutaentiteten fördefinierade identifierar valuta i många benämningar och länder/regioner, oavsett LUIS app kultur. Eftersom den här entiteten har redan tränats, behöver du inte lägga till exempel yttranden som innehåller den valuta som programmet avsikter. Valuta entitet stöds i [många kulturer](luis-reference-prebuilt-entities.md). 

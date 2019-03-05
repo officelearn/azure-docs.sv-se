@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/05/2019
+ms.date: 02/28/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: 2255f14d026d406dc41802c321d0a673ee2f2f23
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 6a26b4c08915b44d24290fde2c74d71b9362c11c
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55766868"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57338577"
 ---
 # <a name="tutorial-optimize-costs-from-recommendations"></a>Självstudier: Optimera kostnader från rekommendationer
 
@@ -29,7 +29,7 @@ I den här guiden får du lära dig att:
 > * Bekräfta åtgärden för att säkerställa att den virtuella datorn har har ändrats
 
 ## <a name="prerequisites"></a>Förutsättningar
-Rekommendationer är tillgängliga för en mängd olika typer av Azure-konto, inklusive [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) kunder. Om du vill visa en fullständig lista över typer av stöds, se [förstå kostnadshantering data](understand-cost-mgt-data.md). Du måste minst ha skrivskyddad åtkomst till ett eller flera av följande omfång för att visa kostnadsdata.
+Rekommendationer är tillgängliga för en mängd olika omfång och typer av Azure-konto, inklusive [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) kunder. Om du vill se hela listan med kontotyper som stöds kan du läsa [Förstå Cost Management-data](understand-cost-mgt-data.md). Du måste minst ha skrivskyddad åtkomst till ett eller flera av följande omfång för att visa kostnadsdata. Mer information om scope finns [förstå och arbeta med omfattningar](understand-work-scopes.md).
 
 - Prenumeration
 - Resursgrupp

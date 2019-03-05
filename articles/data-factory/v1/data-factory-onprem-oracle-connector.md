@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 6b97968540914bf1edf5624d04e8f47956de7f0d
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 28227ce9ebc5680f68c05cb1296a8ba35eac2c74
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822263"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57338356"
 ---
 # <a name="copy-data-to-or-from-oracle-on-premises-by-using-azure-data-factory"></a>Kopiera data till eller från Oracle på plats med hjälp av Azure Data Factory
 
@@ -183,7 +183,7 @@ I Kopieringsaktiviteten när källan är den **OracleSource** typ, följande ege
 | writeBatchTimeout |Väntetid för batch Infoga åtgärden har slutförts innan tidsgränsen uppnås. |**timespan**<br/><br/> Exempel: 00:30:00 (30 minuter) |Nej |
 | WriteBatchSize |Infogar data i SQL-tabell när buffertstorleken når värdet för **writeBatchSize**. |Heltal (antal rader) |Nej (standard: 100) |
 | sqlWriterCleanupScript |Anger en fråga för Kopieringsaktiviteten till att köra så att data för en viss sektor rensas. |Ett frågeuttryck. |Nej |
-| sliceIdentifierColumnName |Anger kolumnens namn för Kopieringsaktiviteten att fylla med en identifierare som genererats automatiskt sektorn.  Värdet för **sliceIdentifierColumnName** används för att rensa data för en viss sektor när köras på nytt. |Kolumnnamnet för en kolumn med datatypen för **binary(32)**. |Nej |
+| sliceIdentifierColumnName |Anger kolumnens namn för Kopieringsaktiviteten att fylla med en identifierare som genererats automatiskt sektorn. Värdet för **sliceIdentifierColumnName** används för att rensa data för en viss sektor när köras på nytt. |Kolumnnamnet för en kolumn med datatypen för **binary(32)**. |Nej |
 
 ## <a name="json-examples-for-copying-data-to-and-from-the-oracle-database"></a>JSON-exempel för att kopiera data till och från Oracle-databasen
 
@@ -557,7 +557,7 @@ Pipelinen innehåller en Kopieringsaktivitet som har konfigurerats för att anv�
 
 **Felmeddelande**
 
-    Copy activity met invalid parameters: 'UnknownParameterName', Detailed message: Unable to find the requested .Net Framework Data Provider. It may not be installed.
+    Copy activity met invalid parameters: 'UnknownParameterName', Detailed message: Unable to find the requested .NET Framework Data Provider. It may not be installed.
 
 **Möjliga orsaker**
 
@@ -568,8 +568,8 @@ Pipelinen innehåller en Kopieringsaktivitet som har konfigurerats för att anv�
 
 * Om du inte har installerat .NET-Provider för Oracle, [installera den](http://www.oracle.com/technetwork/topics/dotnet/downloads/), och försök sedan scenariot.
 * Om du ser felmeddelandet även när du har installerat providern, gör du följande:
-   1. Öppna datorkonfigurationsfilen för .NET 2.0 från mappen < systemdisken\>: \Windows\Microsoft.NET\Framework64\v2.0.50727\CONFIG\machine.config.
-   2. Sök efter **Oracle dataprovider för .NET**. Du ska kunna hitta en post som du ser i följande exempel under **system.data** > **DbProviderFactories**: `<add name="Oracle Data Provider for .NET" invariant="Oracle.DataAccess.Client" description="Oracle Data Provider for .NET" type="Oracle.DataAccess.Client.OracleClientFactory, Oracle.DataAccess, Version=2.112.3.0, Culture=neutral, PublicKeyToken=89b483f429c47342" />`
+    1. Öppna datorkonfigurationsfilen för .NET 2.0 från mappen < systemdisken\>: \Windows\Microsoft.NET\Framework64\v2.0.50727\CONFIG\machine.config.
+    2. Sök efter **Oracle dataprovider för .NET**. Du ska kunna hitta en post som du ser i följande exempel under **system.data** > **DbProviderFactories**: `<add name="Oracle Data Provider for .NET" invariant="Oracle.DataAccess.Client" description="Oracle Data Provider for .NET" type="Oracle.DataAccess.Client.OracleClientFactory, Oracle.DataAccess, Version=2.112.3.0, Culture=neutral, PublicKeyToken=89b483f429c47342" />`
 * Kopiera den här posten i Machine.config i .NET 4.0 följande mapp: < systemdisken\>: \Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config. Sedan kan ändra versionen till 4.xxx.x.x.
 * Installera < ODP.NET installerat sökväg\>\11.2.0\client_1\odp.net\bin\4\Oracle.DataAccess.dll i den globala sammansättningscachen (GAC) genom att köra **gacutil /i [providersökvägen]**.
 

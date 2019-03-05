@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/06/2019
 ms.author: spelluru
-ms.openlocfilehash: a15797e9b181aa877b6dfa3350e69b210af5885e
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 69c26ab522a925032c5a255d07489de0052756c0
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55731775"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57340865"
 ---
 # <a name="dead-letter-and-retry-policies"></a>Obeställbara meddelanden och principer för återförsök
 
@@ -21,6 +21,9 @@ När du skapar en händelseprenumeration kan anpassa du inställningarna för h�
 ## <a name="set-dead-letter-location"></a>Ange platsen för obeställbara meddelanden
 
 Om du vill ange en plats för obeställbara meddelanden, behöver du ett storage-konto för att lagra händelser som inte kan levereras till en slutpunkt. Exemplen hämta resurs-ID för ett befintligt lagringskonto. De skapa en händelseprenumeration som använder en behållare i det lagringskontot för förlorade-slutpunkten.
+
+> [!NOTE]
+> Skapa ett lagringskonto och en blob-behållare i storage innan du kör kommandona i den här artikeln.
 
 ### <a name="azure-cli"></a>Azure CLI
 
@@ -40,7 +43,7 @@ az eventgrid event-subscription create \
 Om du vill inaktivera dead-lettering, kör kommandot för att skapa händelseprenumerationen men inte anger ett värde för `deadletter-endpoint`. Du behöver inte ta bort händelseprenumerationen.
 
 > [!NOTE]
-> Om du använder Azure CLI på din lokala dator, använder du Azure CLI version 2.0.56 eller större. Anvisningar om hur du installerar den senaste versionen av Azure CLI finns i [installera Azure CLI](/cli/azure/install-azure-cli).
+> Om du använder Azure CLI på din lokala dator ska du använda Azure CLI version 2.0.56 eller större. Anvisningar om hur du installerar den senaste versionen av Azure CLI finns i [Installera Azure CLI](/cli/azure/install-azure-cli).
 
 ### <a name="powershell"></a>PowerShell
 

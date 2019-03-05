@@ -11,13 +11,13 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
 manager: craigg
-ms.date: 02/20/2019
-ms.openlocfilehash: ced83fc31e9e4944f7392169b703056dc5b4fd98
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.date: 03/04/2019
+ms.openlocfilehash: e4ccb9be5d13ea72086fbaae2ffb2ec63ad55786
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56454845"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57340328"
 ---
 # <a name="configure-and-manage-azure-active-directory-authentication-with-sql"></a>Konfigurera och hantera Azure Active Directory-autentisering med SQL
 
@@ -28,11 +28,13 @@ Den här artikeln visar hur du skapar och fylla i Azure AD och Använd sedan Azu
 > [!IMPORTANT]  
 > Ansluta till SQL Server som körs på en Azure virtuell dator stöds inte med ett Azure Active Directory-konto. Använd en domän Active Directory-konto i stället.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="create-and-populate-an-azure-ad"></a>Skapa och fylla i en Azure AD
 
 Skapa en Azure AD och fyller den med användare och grupper. Azure AD kan vara den första Azure AD hanterade domänen. Azure AD kan också vara en lokal Active Directory Domain Services som är federerad med Azure AD.
 
-Mer information finns i [Integrera dina lokala identiteter med Azure Active Directory](../active-directory/hybrid/whatis-hybrid-identity.md), [Add your own domain name to Azure AD](../active-directory/active-directory-domains-add-azure-portal.md) (Lägga till dina egna domännamn i Azure AD), [Microsoft Azure now supports federation with Windows Server Active Directory](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/) (Microsoft stöder nu federation med Windows Server Active Directory), [Administering your Azure AD directory](../active-directory/fundamentals/active-directory-administer.md) (Administrera Azure Active Directory), [Manage Azure AD using Windows PowerShell](/powershell/azure/overview?view=azureadps-2.0) (Hantera Azure AD med Windows PowerShell) och [Hybrid Identity Required Ports and Protocols](../active-directory/hybrid/reference-connect-ports.md) (Portar och protokoll som krävs för hybrididentiet).
+Mer information finns i [Integrera dina lokala identiteter med Azure Active Directory](../active-directory/hybrid/whatis-hybrid-identity.md), [Add your own domain name to Azure AD](../active-directory/active-directory-domains-add-azure-portal.md) (Lägga till dina egna domännamn i Azure AD), [Microsoft Azure now supports federation with Windows Server Active Directory](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/) (Microsoft stöder nu federation med Windows Server Active Directory), [Administering your Azure AD directory](../active-directory/fundamentals/active-directory-administer.md) (Administrera Azure Active Directory), [Manage Azure AD using Windows PowerShell](/powershell/azure/overview?view=azureadps-2.0) (Hantera Azure AD med Windows PowerShell) och [Hybrid Identity Required Ports and Protocols](../active-directory/hybrid/reference-connect-ports.md) (Portar och protokoll som krävs för hybrididentiet).
 
 ## <a name="associate-or-add-an-azure-subscription-to-azure-active-directory"></a>Koppla eller lägga till en Azure-prenumeration i Azure Active Directory
 
@@ -186,35 +188,35 @@ Senare ta bort en administratör kan högst upp på den **Active Directory-admin
 
 Om du vill köra PowerShell-cmdlets som du behöver ha Azure PowerShell installerad och igång. Mer information finns i [Så här installerar och konfigurerar du Azure PowerShell](/powershell/azure/overview). Kör följande Azure PowerShell-kommandon för att etablera en Azure AD-administratör:
 
-- Connect-AzureRmAccount
-- Select-AzureRmSubscription
+- Connect-AzAccount
+- Select-AzSubscription
 
 Cmdlet: ar för att etablera och hantera Azure AD-administratör:
 
 | Cmdlet-namn | Beskrivning |
 | --- | --- |
-| [Set-AzureRmSqlServerActiveDirectoryAdministrator](/powershell/module/azurerm.sql/set-azurermsqlserveractivedirectoryadministrator) |Etablerar en Azure Active Directory-administratör för Azure SQL-server eller Azure SQL Data Warehouse. (Måste vara från den aktuella prenumerationen.) |
-| [Remove-AzureRmSqlServerActiveDirectoryAdministrator](/powershell/module/azurerm.sql/remove-azurermsqlserveractivedirectoryadministrator) |Tar bort en Azure Active Directory-administratör för Azure SQL-server eller Azure SQL Data Warehouse. |
-| [Get-AzureRmSqlServerActiveDirectoryAdministrator](/powershell/module/azurerm.sql/get-azurermsqlserveractivedirectoryadministrator) |Returnerar information om en Azure Active Directory-administratör som har konfigurerats för Azure SQL-server eller Azure SQL Data Warehouse. |
+| [Set-AzSqlServerActiveDirectoryAdministrator](/powershell/module/az.sql/set-azsqlserveractivedirectoryadministrator) |Etablerar en Azure Active Directory-administratör för Azure SQL-server eller Azure SQL Data Warehouse. (Måste vara från den aktuella prenumerationen.) |
+| [Remove-AzSqlServerActiveDirectoryAdministrator](/powershell/module/az.sql/remove-azsqlserveractivedirectoryadministrator) |Tar bort en Azure Active Directory-administratör för Azure SQL-server eller Azure SQL Data Warehouse. |
+| [Get-AzSqlServerActiveDirectoryAdministrator](/powershell/module/az.sql/get-azsqlserveractivedirectoryadministrator) |Returnerar information om en Azure Active Directory-administratör som har konfigurerats för Azure SQL-server eller Azure SQL Data Warehouse. |
 
-Använd PowerShell-kommandot get-help för att se information om var och en av följande kommandon, till exempel ``get-help Set-AzureRmSqlServerActiveDirectoryAdministrator``.
+Använd PowerShell-kommandot get-help för att se information om var och en av följande kommandon, till exempel ``get-help Set-AzSqlServerActiveDirectoryAdministrator``.
 
 Följande skript etablerar en administratör Azure AD-grupp med namnet **DBA_Group** (objekt-ID `40b79501-b343-44ed-9ce7-da4c8cc7353f`) för den **demo_server** server i en resursgrupp med namnet **grupp-23**:
 
 ```powershell
-Set-AzureRmSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23"
+Set-AzSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23"
 -ServerName "demo_server" -DisplayName "DBA_Group"
 ```
 
 Den **DisplayName** indataparameter accepterar antingen Azure AD-visningsnamn eller UPN-namnet. Till exempel ``DisplayName="John Smith"`` och ``DisplayName="johns@contoso.com"``. Visningsnamn stöds för Azure AD-grupper bara Azure AD.
 
 > [!NOTE]
-> Azure PowerShell-kommando ```Set-AzureRmSqlServerActiveDirectoryAdministrator``` förhindrar inte att du etablerar Azure AD-administratörer för användare som inte stöds. En användare som inte stöds kan etableras, men kan inte ansluta till en databas.
+> Azure PowerShell-kommando ```Set-AzSqlServerActiveDirectoryAdministrator``` förhindrar inte att du etablerar Azure AD-administratörer för användare som inte stöds. En användare som inte stöds kan etableras, men kan inte ansluta till en databas.
 
 I följande exempel används det valfria **ObjectID**:
 
 ```powershell
-Set-AzureRmSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23"
+Set-AzSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23"
 -ServerName "demo_server" -DisplayName "DBA_Group" -ObjectId "40b79501-b343-44ed-9ce7-da4c8cc7353f"
 ```
 
@@ -224,16 +226,16 @@ Set-AzureRmSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23"
 I följande exempel returneras information om aktuellt Azure AD-administratör för Azure SQL-server:
 
 ```powershell
-Get-AzureRmSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23" -ServerName "demo_server" | Format-List
+Get-AzSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23" -ServerName "demo_server" | Format-List
 ```
 
 I följande exempel tar bort en Azure AD-administratör:
 
 ```powershell
-Remove-AzureRmSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23" -ServerName "demo_server"
+Remove-AzSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23" -ServerName "demo_server"
 ```
 
-Du kan också etablera en Azure Active Directory-administratör med hjälp av REST-API: er. Mer information finns i [Service Management REST API-referens och åtgärder för Azure SQL Database-åtgärder för Azure SQL Database](https://msdn.microsoft.com/library/azure/dn505719.aspx)
+Du kan också etablera en Azure Active Directory-administratör med hjälp av REST-API: er. Mer information finns i [Service Management REST API-referens och åtgärder för Azure SQL Database-åtgärder för Azure SQL Database](https://docs.microsoft.com/rest/api/sql/)
 
 ### <a name="cli"></a>CLI  
 
@@ -308,7 +310,7 @@ Mer information om hur du skapar innehåller databasen användare baserat på Az
 > [!NOTE]
 > Tar bort Azure Active Directory-administratör för Azure SQL-server förhindrar alla Azure AD authentication-användare ansluter till servern. Vid behov går inte att använda Azure AD-användare kan tas bort manuellt av en administratör för SQL-databas.
 > [!NOTE]
-> Om du får en **anslutning tidsgränsen gick ut**, du kan behöva ange den `TransparentNetworkIPResolution` -parametern för anslutningssträngen till false. Mer information finns i [timeout anslutningsproblem med .NET Framework 4.6.1 - TransparentNetworkIPResolution](https://blogs.msdn.microsoft.com/dataaccesstechnologies/2016/05/07/connection-timeout-issue-with-net-framework-4-6-1-transparentnetworkipresolution/).
+> Om du får en **anslutning tidsgränsen gick ut**, du kan behöva ange den `TransparentNetworkIPResolution` -parametern för anslutningssträngen till false. Mer information finns i [timeout anslutningsproblem med .NET Framework 4.6.1 - TransparentNetworkIPResolution](https://blogs.msdn.microsoft.com/dataaccesstechnologies/20../../connection-timeout-issue-with-net-framework-4-6-1-transparentnetworkipresolution/).
 
 När du skapar en databasanvändare som användaren tar emot den **CONNECT** behörighet och kan ansluta till databasen som en medlem i den **offentliga** roll. Inledningsvis endast tillgängligt för användaren behörigheter är alla behörigheter som beviljas den **offentliga** roll eller alla behörigheter som tilldelats några grupper i Azure AD att de är medlem i. När du etablerar en Azure AD-baserad innehöll databasanvändare, kan du bevilja användaren ytterligare behörighet på samma sätt som du vill ge behörighet till någon annan typ av användare. Normalt bevilja behörigheter till databasroller och lägga till användare till roller. Mer information finns i [Database Engine behörighet grunderna](https://social.technet.microsoft.com/wiki/contents/articles/4433.database-engine-permission-basics.aspx). Läs mer om SQL Database specialroller [hantera databaser och inloggningar i Azure SQL Database](sql-database-manage-logins.md).
 En federerad domän-användarkonto som har importerats till en hanterad domän som en extern användare måste använda den hanterade domän identiteten.
@@ -403,7 +405,7 @@ conn.AccessToken = "Your JWT token"
 conn.Open();
 ```
 
-Mer information finns i [SQL Server Security-bloggen](https://blogs.msdn.microsoft.com/sqlsecurity/2016/02/09/token-based-authentication-support-for-azure-sql-db-using-azure-ad-auth/). Information om att lägga till ett certifikat finns i [Kom igång med certifikatbaserad autentisering i Azure Active Directory](../active-directory/authentication/active-directory-certificate-based-authentication-get-started.md).
+Mer information finns i [SQL Server Security-bloggen](https://blogs.msdn.microsoft.com/sqlsecurity/20../../token-based-authentication-support-for-azure-sql-db-using-azure-ad-auth/). Information om att lägga till ett certifikat finns i [Kom igång med certifikatbaserad autentisering i Azure Active Directory](../active-directory/authentication/active-directory-certificate-based-authentication-get-started.md).
 
 ### <a name="sqlcmd"></a>sqlcmd
 

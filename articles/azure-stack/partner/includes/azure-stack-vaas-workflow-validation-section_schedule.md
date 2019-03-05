@@ -2,16 +2,16 @@
 author: mattbriggs
 ms.service: azure-stack
 ms.topic: include
-ms.date: 11/26/2018
+ms.date: 03/04/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/26/2018
-ms.openlocfilehash: 5cd64b806392162fd3bee14ddaf607385ac05264
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: e9d59fadb9cbfeb7463f799bdab2e6da49208fe9
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55807183"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57343507"
 ---
 I arbetsflöden verifiering **schemaläggning** ett test använder de gemensamma parametrarna för arbetsflödet på servernivå som du angav under arbetsflödet skapats (se [arbetsflödets gemensamma parametrar för Azure Stack-verifiering som en tjänst](../azure-stack-vaas-parameters.md)). Om någon av test parametervärden blir ogiltiga måste du resupply dem som finns beskrivet i [ändra arbetsflödesparametrar](../azure-stack-vaas-monitor-test.md#change-workflow-parameters).
 

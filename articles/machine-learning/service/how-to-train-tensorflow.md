@@ -11,16 +11,16 @@ author: mx-iao
 ms.reviewer: sgilley
 ms.date: 02/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: b06151b9cb5603ef54c8e84d261bb7a4e7885e1b
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: b41098907f801f7dae839a470249834b02c8d519
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56880469"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57338560"
 ---
 # <a name="train-tensorflow-and-keras-models-with-azure-machine-learning-service"></a>Skapa TensorFlow och Keras modeller med Azure Machine Learning-tjänsten
 
-För djupa neurala (DNN) nätverksutbildning med TensorFlow, Azure Machine Learning ger en anpassad `TensorFlow` klassen för den `Estimator`. Azure SDK `TensorFlow` kostnadsuppskattning (inte för att vara conflated med den [ `tf.estimator.Estimator` ](https://www.tensorflow.org/api_docs/python/tf/estimator/Estimator) klassen) kan du enkelt skicka TensorFlow-utbildningsjobb för både en nod och distribuerade körs på Azure compute.
+För djupa neurala (DNN) nätverksutbildning med TensorFlow, Azure Machine Learning ger en anpassad `TensorFlow` klassen för den `Estimator`. Azure SDK [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py) kostnadsuppskattning (inte för att vara conflated med den [ `tf.estimator.Estimator` ](https://www.tensorflow.org/api_docs/python/tf/estimator/Estimator) klassen) kan du enkelt skicka TensorFlow-utbildningsjobb för både en nod och distribuerade körs på Azure beräkning.
 
 ## <a name="single-node-training"></a>Nod-utbildning
 Utbildning med den `TensorFlow` kostnadsuppskattning är ungefär som att använda den [grundläggande `Estimator` ](how-to-train-ml-models.md), så först läsa igenom artikeln och kontrollera att du förstår begreppen som förklaras det.

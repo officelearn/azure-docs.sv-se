@@ -15,18 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/19/2019
 ms.author: banders
-ms.openlocfilehash: 3c5f5778d68b8df4d4b3132ff96bedb9d5da24ee
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 9e43d122bfb758e2e9e14db2ef200cbf3adbefcb
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57249230"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57340422"
 ---
 # <a name="understand-the-charges-on-your-microsoft-customer-agreements-invoice"></a>Förstå debiteringar på ditt Microsoft kundavtal faktura
 
-Du kan stämma av avgifterna på din faktura genom att analysera enskilda transaktioner på fakturan.
+Du kan förstå debiteringar på fakturan genom att analysera enskilda transaktioner.
 
-I faktureringskonto för en Microsoft-kundavtal skapas en faktura varje månad för varje fakturering profilen. Fakturan omfattar alla avgifter från föregående månad. Du kan visa dina fakturor i Azure-portalen. Mer information finns i [visa och ladda ned Microsoft Azure fakturerar](billing-download-azure-invoice.md).
+I faktureringskonto för en Microsoft-kundavtal skapas en faktura varje månad för varje fakturering profilen. Fakturan omfattar alla avgifter från föregående månad. Du kan visa dina fakturor i Azure-portalen. Mer information finns i [ladda ner fakturor för en Microsoft-kundavtal](billing-download-azure-invoice-daily-usage-date.md#download-invoices-for-a-microsoft-customer-agreement).
 
 Den här artikeln gäller för något faktureringskonto för en Microsoft-kundavtal. [Kontrollera om du har åtkomst till en Microsoft-kundavtal](#check-access-to-a-microsoft-customer-agreement).
 
@@ -59,13 +59,13 @@ Den här artikeln gäller för något faktureringskonto för en Microsoft-kundav
 
 ### <a name="view-transactions-by-invoice-sections"></a>Visa transaktioner med faktura avsnitt
 
-Faktura avsnitt kan du ordna kostnader på en fakturering profil faktura. Mer information finns i [förstå fakturan avsnittet](billing-mca-overview.md#understand-invoice-sections). När en faktura skapas, avgifter för alla avsnitt i fakturering profilen som visas på fakturan.
+Faktura avsnitt kan du ordna kostnader på en fakturering profil faktura. Mer information finns i [förstå fakturan avsnittet](billing-mca-overview.md#understand-invoice-sections). När en faktura skapas, återspeglar avgifter för alla avsnitt i profilen för fakturering på fakturan.
 
-Följande bild visar kostnaderna för IT-avdelningen faktura avsnittet på en exempel-faktura.
+Följande bild visar kostnaderna för redovisning Avd faktura avsnittet på en exempel-faktura.
 
 ![Exempelbild som visar information av avsnittet fakturainformation](./media/billing-understand-your-bill-mca/invoicesection-details.png)
 
-När du har identifierat avgifterna för en faktura-avsnittet kan visa du transaktioner i Azure portal för att stämma av kostnaderna.
+När du har identifierat avgifterna för en faktura-avsnittet, kan du visa transaktioner i Azure portal för att förstå debiteringar.
 
 1. Gå till sidan alla transaktioner i Azure portal för att visa transaktioner för en faktura. Mer information finns i [Visa transaktioner för en faktura i Azure-portalen](#view-transactions-for-an-invoice-in-the-azure-portal).
 
@@ -73,9 +73,9 @@ När du har identifierat avgifterna för en faktura-avsnittet kan visa du transa
 
 ## <a name="understand-pending-charges-to-estimate-your-next-invoice"></a>Förstå väntande avgifter för att uppskatta ditt nästa faktura
 
-I faktureringskonto för en Microsoft-kundavtal tills kostnaderna faktureras de uppskattning och anses vara väntande. De underkänts och betraktas som faktureras när de visas på fakturan. Du kan visa väntande avgifter för en fakturering profil att uppskatta kostnader på din nästa faktura.
+I faktureringskonto för en Microsoft-kundavtal tills kostnaderna faktureras de uppskattning och anses vara väntande. Du kan visa väntande kostnader på Azure portal för att beräkna din nästa faktura. Väntande avgifterna är uppskattning och inkluderar inte skatt så att de faktiska kostnader på din nästa faktura varierar från de väntande kostnaderna.
 
-### <a name="view-charges-summary"></a>Visa avgifter sammanfattning
+### <a name="view-summary-of-pending-charges"></a>Visa en sammanfattning av väntande avgifter
 
 1. Logga in på [Azure Portal](https://www.azure.com).
 
@@ -91,11 +91,11 @@ I faktureringskonto för en Microsoft-kundavtal tills kostnaderna faktureras de 
 
    ![Skärmbild som visar Azure portal-sökning för kostnadshantering + fakturering](./media/billing-understand-your-bill-mca/mca-billing-profile-summary.png)
 
-Månad-till-date-avgifter är väntande avgifter för den aktuella månaden och faktureras när fakturan skapas för månaden. Om fakturan för senaste månaden genereras fortfarande inte så avgifter förra månaden är också väntande.
+Månad-till-date-avgifter är väntande avgifter för den aktuella månaden och faktureras när fakturan skapas för månaden. Om fakturan för senaste månaden genereras fortfarande inte så avgifter förra månaden är också väntande och visas på din nästa faktura.
 
 ### <a name="view-pending-transactions"></a>Visa väntande transaktioner
 
-När du har identifierat väntande kostnader kan du visa enskilda transaktioner som bidrar till avgifter på sidan alla transaktioner. Väntande användning visas avgifter nu inte på sidan alla transaktioner. Du kan visa de väntande användningskostnader på sidan för Azure-prenumerationer. Mer information finns i [vyn väntande avgifter för användning](#view-pending-usage-charges)
+När du har identifierat väntande avgifter förstå du kostnaderna genom att analysera de enskilda transaktioner som ingår avgifterna. Väntande användning visas avgifter nu inte på sidan alla transaktioner. Du kan visa de väntande användningskostnader på sidan för Azure-prenumerationer. Mer information finns i [vyn väntande avgifter för användning](#view-pending-usage-charges)
 
 1. Logga in på [Azure Portal](https://www.azure.com).
 
@@ -127,8 +127,6 @@ När du har identifierat väntande kostnader kan du visa enskilda transaktioner 
 
     ![Skärmbild som visar listan över Azure-prenumerationer för fakturering profil](./media/billing-understand-your-bill-mca/mca-billing-profile-subscriptions-list.png)
 
-Du kan visa de användningsdebitering med hjälp av Azure användning och avgifter-filen. Mer information finns i nästa avsnitt.
-
 ## <a name="analyze-your-azure-usage-charges"></a>Analysera användningen av Azure-avgifter
 
 Använd Azure användning och avgifter csv-filen för att analysera dina användningsbaserade avgifter. Du kan ladda ned filen för en faktura eller väntande avgifter. Mer information finns i [hämta din Azure-fakturering och daglig användningsdata](billing-download-azure-invoice-daily-usage-date.md).
@@ -143,9 +141,9 @@ Följande steg beskriver hur du stämma av beräkningsrelaterade avgifter för a
 
  | Faktura PDF | Azure-användning och kostnader CSV |
  | --- | --- |
- |IT-avdelningen |InvoiceSectionName |
- |Avgifter för användning – Azure Standard |productOrderName |
- |Storage |serviceFamily |
+ |Redovisning Avd |InvoiceSectionName |
+ |Avgifter för användning – Microsoft Azure-Plan |productOrderName |
+ |Compute |serviceFamily |
 
 1. Filter i **invoiceSectionName** kolumn i CSV-filen till **redovisning Avd**.
 2. Filter i **productOrderName** kolumn i CSV-filen till **Microsoft Azure planera**.
@@ -173,7 +171,7 @@ Filter i **subscriptionName** kolumn i Azure användning och avgifter CSV-filen 
 
 Anvisningar för att betala fakturan visas längst ned på fakturan. [Lär dig att betala](billing-mca-understand-your-invoice.md#how-to-pay).
 
-Om du har redan betalat fakturan, kan du kontrollera status för betalning sidan fakturor i Azure-portalen. 
+Om du har redan betalat fakturan, kan du kontrollera status för betalning sidan fakturor i Azure-portalen.
 
 ## <a name="check-access-to-a-microsoft-customer-agreement"></a>Kontrollera åtkomst till en Microsoft-kundavtal
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]

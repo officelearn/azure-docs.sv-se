@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.workload: na
 ms.date: 02/28/2019
 ms.author: banders
-ms.openlocfilehash: a9fa2ed58cbd84c83d3109fe173515b07d93db30
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: f903f85dfafb61562698a437465f8421aaf3a3d8
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57249146"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57339495"
 ---
 # <a name="create-sections-on-your-invoice-to-organize-your-costs"></a>Skapa avsnitt på din faktura för att organisera dina kostnader
 
-Skapa avsnitt på din faktura för att organisera dina kostnader med en avdelning, utvecklingsmiljö, eller baserat på organisationens behov. Sedan ge andra användare behörighet att skapa Azure-prenumerationer för avsnittet. Alla avgifter för användning eller köp för prenumerationer och visa i avsnittet faktura. Visar den totala kostnaden för avsnittet på din faktura, på Azure-portalen eller granska dem i Azure kostnadsanalys. Mer information finns i [Visa transaktioner med faktura avsnitt](billing-mca-understand-your-bill.md#view-transactions-by-invoice-sections).
+Skapa avsnitt på din faktura för att organisera dina kostnader med en avdelning, utvecklingsmiljö, eller baserat på organisationens behov. Sedan ge andra användare behörighet att skapa Azure-prenumerationer för avsnittet. Alla avgifter för användning eller köp för prenumerationerna visas i avsnittet faktura. Visar den totala kostnaden för avsnittet på din faktura, på Azure-portalen eller granska dem i Azure kostnadsanalys. Mer information finns i [Visa transaktioner med faktura avsnitt](billing-mca-understand-your-bill.md#view-transactions-by-invoice-sections).
 
 Den här artikeln gäller för något faktureringskonto för en Microsoft-kundavtal. [Kontrollera om du har åtkomst till en Microsoft-kundavtal](#check-access-to-a-microsoft-customer-agreement).
 

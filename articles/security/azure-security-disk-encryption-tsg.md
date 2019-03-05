@@ -6,14 +6,14 @@ ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 02/04/2019
+ms.date: 03/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: c0202dfa8316caec036b4ad288c2bd32f1c4eaf3
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: d4698ad54e08587b223bb65388d399c0cbf3ff63
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56989412"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57342521"
 ---
 # <a name="azure-disk-encryption-troubleshooting-guide"></a>Felsökningsguide för Azure Disk Encryption
 
@@ -60,14 +60,14 @@ Linux OS-disk kryptering sekvensen demonterar operativsystemenheten tillfälligt
 Om du vill kontrollera krypteringsstatus för, avsöker den **ProgressMessage** fält som returneras från den [Get-AzVmDiskEncryptionStatus](/powershell/module/az.compute/get-azvmdiskencryptionstatus) kommando. Medan operativsystemenheten krypteras den virtuella datorn försätts i ett tillstånd för underhåll och inaktiverar SSH för att förhindra eventuella avbrott i den pågående processen. Den **EncryptionInProgress** meddelande rapporter för flesta av tiden medan kryptering pågår. Flera timmar senare, en **VMRestartPending** uppmanas du att starta om den virtuella datorn. Exempel:
 
 
-```
-PS > Get-AzVMDiskEncryptionStatus -ResourceGroupName $resourceGroupName -VMName $vmName
+```azurepowershell
+PS > Get-AzVMDiskEncryptionStatus -ResourceGroupName "MyVirtualMachineResourceGroup" -VMName "VirtualMachineName"
 OsVolumeEncrypted          : EncryptionInProgress
 DataVolumesEncrypted       : EncryptionInProgress
 OsVolumeEncryptionSettings : Microsoft.Azure.Management.Compute.Models.DiskEncryptionSettings
 ProgressMessage            : OS disk encryption started
 
-PS > Get-AzVMDiskEncryptionStatus -ResourceGroupName $resourceGroupName -VMName $vmName
+PS > Get-AzVMDiskEncryptionStatus -ResourceGroupName "MyVirtualMachineResourceGroup" -VMName "VirtualMachineName"
 OsVolumeEncrypted          : VMRestartPending
 DataVolumesEncrypted       : Encrypted
 OsVolumeEncryptionSettings : Microsoft.Azure.Management.Compute.Models.DiskEncryptionSettings
@@ -93,7 +93,7 @@ Alla inställningar för nätverkssäkerhetsgrupper som tillämpas måste fortfa
 När kryptering aktiveras med [autentiseringsuppgifter för Azure AD](azure-security-disk-encryption-prerequisites-aad.md), den Virtuella måldatorn måste tillåta anslutning till både Azure Active Directory-slutpunkter och Key Vault-slutpunkter. Aktuella autentiseringsslutpunkter för Azure Active Directory underhålls i avsnitt 56 och 59 i den [Office 365-URL: er och IP-adressintervall](https://docs.microsoft.com/office365/enterprise/urls-and-ip-address-ranges) dokumentation. Key Vault-anvisningar finns i dokumentationen om hur du [åtkomst till Azure Key Vault bakom en brandvägg](../key-vault/key-vault-access-behind-firewall.md).
 
 ### <a name="azure-instance-metadata-service"></a>Azure Instance Metadata Service 
-Den virtuella datorn måste kunna komma åt den [tjänsten Azure Instance Metadata](../virtual-machines/windows/instance-metadata-service.md) slutpunkt som använder en välkänd icke-dirigerbara IP-adress (`169.254.169.254`) som kan nås från den virtuella datorn.
+Den virtuella datorn måste kunna komma åt den [tjänsten Azure Instance Metadata](../virtual-machines/windows/instance-metadata-service.md) slutpunkt som använder en välkänd icke-dirigerbara IP-adress (`169.254.169.254`) som kan nås från den virtuella datorn.  Proxykonfigurationer som ändrar lokala HTTP-trafik till den här adressen (till exempel att lägga till en X-vidarebefordrade-för-rubrik) stöds inte.
 
 ### <a name="linux-package-management-behind-a-firewall"></a>Linux pakethantering bakom en brandvägg
 
@@ -138,6 +138,12 @@ DISKPART> list vol
 
 If the expected encryption state does not match what is being reported in the portal, see the following support article:
 [Encryption status is displayed incorrectly on the Azure Management Portal](https://support.microsoft.com/en-us/help/4058377/encryption-status-is-displayed-incorrectly-on-the-azure-management-por) --> 
+
+## <a name="troubleshooting-encryption-status"></a>Felsöka krypteringsstatus 
+
+Portalen visas en disk som är krypterade även när det har varit okrypterade i den virtuella datorn.  Detta kan inträffa när på låg nivå kommandon används för att dekryptera direkt disken från den virtuella datorn istället för att använda de högre nivån Azure Disk Encryption kommandona för hantering.  Den högre nivån kommandon inte bara företagsprinciperna disken från den virtuella datorn, men utanför den virtuella datorn de också uppdatera inställningar för viktiga plattform filnivåkryptering och tillägg som är associerade med den virtuella datorn.  Om dessa inte sparas i justering, kommer plattformen inte kunna rapportera krypteringsstatus eller etablera den virtuella datorn korrekt.   
+
+Starta från en fungerande tillstånd där kryptering är aktiverat för att inaktivera korrekt Azure Disk Encryption, och sedan använda den [Disable-AzureRmVmDiskEncryption](https://docs.microsoft.com/en-us/powershell/module/azurerm.compute/disable-azurermvmdiskencryption) och [Remove-AzureRmVmDiskEncryptionExtension](https://docs.microsoft.com/en-us/powershell/module/azurerm.compute/remove-azurermvmdiskencryptionextension) PowerShell-kommandon eller [az vm encryption inaktivera](https://docs.microsoft.com/en-us/cli/azure/vm/encryption) CLI-kommando. 
 
 ## <a name="next-steps"></a>Nästa steg
 

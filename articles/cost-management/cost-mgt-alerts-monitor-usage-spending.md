@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/05/2019
+ms.date: 02/28/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: alavital
 ms.custom: ''
-ms.openlocfilehash: 813ec8f74371b6ae76ac306aea2c462f0beea1fb
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: d6f7a597ff5737bb5e9a3f07122ece313bd432ff
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55774174"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57337792"
 ---
 # <a name="use-cost-alerts-to-monitor-usage-and-spending"></a>Använda cost aviseringar för att övervaka användning och utgifter
 
@@ -23,7 +23,7 @@ Den här artikeln hjälper dig att förstå och använda Cost Management aviseri
 
 ## <a name="budget-alerts"></a>Budget aviseringar
 
-Budget aviseringar meddelar dig när utgifter baserat på användning eller kostnaden, når eller överstiger den mängd som definierats i den [Avisera villkor för budgeten](tutorial-acm-create-budgets.md). Cost Management budgetar skapas med hjälp av Azure portal eller [Azure Consumption](https://docs.microsoft.com/rest/api/consumption) API. 
+Budget aviseringar meddelar dig när utgifter baserat på användning eller kostnaden, når eller överstiger den mängd som definierats i den [Avisera villkor för budgeten](tutorial-acm-create-budgets.md). Cost Management budgetar skapas med hjälp av Azure portal eller [Azure Consumption](https://docs.microsoft.com/rest/api/consumption) API.
 
 I Azure-portalen definieras budgetar av kostnaden. Med hjälp av Azure Consumption-API, definieras budgetar av kostnaden eller förbrukningen / användningen. Budget aviseringar har stöd för både kostnadsbaserad och användningsbaserad budgetar. Budget aviseringar genereras automatiskt när budget avisering villkor är uppfyllda. Du kan visa alla kostnader aviseringar i Azure-portalen. När en avisering har genererats visas den i kostnad aviseringar. En e-postavisering skickas även till dem i listan över signalmottagare av budgeten.
 
@@ -34,6 +34,18 @@ Kredit aviseringar meddelar dig när din Azure-kredit monetära åtaganden förb
 ## <a name="department-spending-quota-alerts"></a>Avdelning utgiftsgränsen kvot aviseringar
 
 Avdelning utgiftsgränsen kvot aviseringar meddelar dig när avdelning utgifter når ett fast tröskelvärde för kvoten. Utgiftsgränsen kvoter konfigureras i EA-portalen. När ett tröskelvärde uppfylls genererar ett e-postmeddelande till avdelningen ägare och visas i kostnad aviseringar. Till exempel 50% eller 75% av kvoten.
+
+## <a name="supported-alert-features-by-offer-categories"></a>Aviseringen funktioner som stöds av erbjudandet kategorier
+
+Stöd för aviseringstyper beror på vilken typ av Azure-konto att du har (Microsoft erbjuder). I följande tabell visas de aviseringarna funktioner som stöds av olika Microsoft-erbjudanden. Du kan visa en fullständig lista över Microsoft-erbjudanden på [förstå kostnadshantering data](understand-cost-mgt-data.md).
+
+| Aviseringstyp | Enterprise Agreement | Microsofts kundavtal | Web direct/betala per användning-As-You-Go |
+|---|---|---|---|
+| Budget | ✔ | ✔ | ✔ |
+| Kredit | ✔ |✘ | ✘ |
+| Avdelningens utgiftskvot | ✔ | ✘ | ✘ |
+
+
 
 ## <a name="view-cost-alerts"></a>Visa aviseringar
 

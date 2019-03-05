@@ -2,19 +2,19 @@
 title: ta med fil
 description: ta med fil
 services: site-recovery
-author: rayne-wiselman
-manager: carmonm
+author: mayurigupta13
+manager: rochakm
 ms.service: site-recovery
 ms.topic: include
-ms.date: 09/06/2018
-ms.author: raynew
+ms.date: 02/28/2019
+ms.author: mayg
 ms.custom: include file
-ms.openlocfilehash: 2ca4916d48da6fe8a2c061056a1ea0fed9a78bb6
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 7c682105113dac7c1d457489cf926210ead77993
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44058585"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57343575"
 ---
 1. Kör det enhetliga installationsprogrammet.
 2. I **innan du börjar**väljer **installera konfigurationsservern och processervern**.
@@ -43,7 +43,7 @@ ms.locfileid: "44058585"
 9. I **Installationsplats** väljer du om du vill installera binärfilerna och lagra cachen. Enheten du väljer måste ha minst 5 GB tillgängligt utrymme, men vi rekommenderar en cacheenhet med 600 GB eller mer ledigt utrymme.
 
     ![Installationsplats](./media/site-recovery-add-configuration-server/combined-wiz8.png)
-10. I **Val av nätverk** anger du lyssnare (nätverkskort och SSL-port) där konfigurationsservern skickar och tar emot replikeringsdata. Port 9443 är standardporten som används för att skicka och ta emot replikeringstrafik, men du kan ändra portnumret så att det passar din miljö. Förutom port 9443 öppnar vi också port 443, som används av en webbserver för att dirigera replikeringsåtgärder. Använd inte port 443 för att skicka eller ta emot replikeringstrafik.
+10. I **val av nätverk**, väljer du det nätverkskort som inbyggd processervern som används för identifiering och push-installation av mobilitetstjänsten på källdatorer först och sedan väljer du det nätverkskort som konfigurationsservern använder för anslutning med Azure. Port 9443 är standardporten som används för att skicka och ta emot replikeringstrafik, men du kan ändra portnumret så att det passar din miljö. Förutom port 9443 öppnar vi också port 443, som används av en webbserver för att dirigera replikeringsåtgärder. Använd inte port 443 för att skicka eller ta emot replikeringstrafik.
 
     ![Val av nätverk](./media/site-recovery-add-configuration-server/combined-wiz9.png)
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/31/2019
 ms.author: alkohli
-ms.openlocfilehash: e3412e31ae976efc8164076b30ad61360a030db4
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: ea8a6d604187a25e5186d7200feba6aaab1f676a
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55511946"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57339461"
 ---
 # <a name="options-to-migrate-data-from-storsimple-5000-7000-series"></a>Alternativ för att migrera data från StorSimple 5000-7000-serien 
 
@@ -54,6 +54,10 @@ StorSimple 5000-7000-kunder kan välja att migrera till Panzura frihet NAS att b
 #### <a name="migrate-to-cohesity"></a>Migrera till Cohesity
 
 Cohesity kan du migrera data från din aktuella StorSimple 5000 – 7000 till Cohesity Data Platform på Azure. Cohesity Data Platform är en programvarudefinierad webbskalade-lösning som konsoliderar filer, säkerhetskopieringar, objekt och virtuella datorer till en enda lösning i molnet. Du kan hantera, skydda och etablera data och appar från molnet till kärna via en enda glasruta efter migrering till Dataplattformen. Med Cohesity, börjar du med bara tre noder. Läs mer på [migrering till Cohesity DataPlatform](https://info.cohesity.com/migrate-from-storsimple-to-cohesity.html).
+
+#### <a name="migrate-to-nasuni"></a>Migrera till Nasuni
+
+Nasuni gör det enkelt för StorSimple 5000-7000-kunder att migrera och behålla sina data i Azure.  Nasuni är en ledande lösning i Azure-baserade NAS lagring, vilket ger kunderna prestanda och säkerhet som de förväntar sig från en lokal lösningar med molnbaserad Ekonomihantering och skala.  Förutom högpresterande fillagring, Nasuni och Azure hantera säkerhetskopiering och Katastrofåterställning, samtidigt som du vill dela och samarbeta med dina data i hela världen med centraliserad hantering av lagring. Nasuni har erfarenhet av att göra din migrering enkelt – Kom igång idag: https://info.nasuni.com/nasuni-storsimple-migration
 
 ## <a name="migration---frequently-asked-questions"></a>Migrering – vanliga frågor och svar
 

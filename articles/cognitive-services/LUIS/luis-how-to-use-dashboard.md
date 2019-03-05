@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 11/26/2018
+ms.date: 03/04/2019
 ms.author: diberry
-ms.openlocfilehash: 8927213dc4f1cf01eccdd8f54a946f9dbbaaa04d
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: c173152d0a59e391fe77ee855311a867a1b2b6c0
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55869967"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57338441"
 ---
 # <a name="model-and-usage-statistics-in-the-dashboard"></a>Modell- och användningsdata statistik på instrumentpanelen
 Appinstrumentpanelen kan du övervaka din app på en snabb titt. Den **instrumentpanelen** visas när du öppnar en app genom att klicka på namnet på programmet på **Mina appar** sedan väljer **instrumentpanelen** från övre panelen. 
@@ -69,21 +69,8 @@ Den **avsikt analys på detaljnivå** visar en uppdelning av avsikter utifrån t
 
 ![Avsiktshantering analys på detaljnivå](./media/luis-how-to-use-dashboard/intent-breakdown.png)
 
-Kontrollera om en analys på detaljnivå baseras på märkta yttranden eller slutpunkten träffar:
-
-1. Klicka på **ytterligare inställningar** ![ytterligare inställningar för att åtkomstlista](./media/luis-how-to-use-dashboard/Dashboard-Settings-btn.png) att få åtkomst till listan som i följande bild:
-
-    ![Avsiktshantering analys på detaljnivå lista](./media/luis-how-to-use-dashboard/intent-breakdown-based-on.png)
-2. Välj ett värde i listan och klicka sedan på bakåtpilen ![Bakåtpil](./media/luis-how-to-use-dashboard/Dashboard-backArrow.png) att visa diagrammet.
-
 ## <a name="entity-breakdown"></a>Entiteten analys på detaljnivå
 Instrumentpanelen visar en uppdelning av enheter baserat på märkta yttranden eller slutpunkten träffar. Den här översiktsdiagrammet visar den relativa prioriteten för varje entitet i appen. När du håller muspekaren över en sektor visas enhetens namn och procent i taggade yttranden eller slutpunktens träffar. 
 
 ![Entiteten analys på detaljnivå](./media/luis-how-to-use-dashboard/entity-breakdown.png)
 
-Kontrollera om en analys på detaljnivå baseras på märkta yttranden eller slutpunkten träffar:
-
-1. Klicka på **ytterligare inställningar** ![ytterligare inställningar för att hämta lista](./media/luis-how-to-use-dashboard/Dashboard-Settings-btn.png) att få åtkomst till listan som i följande bild:
-
-    ![Uppdelning Entitetslista](./media/luis-how-to-use-dashboard/entity-breakdown-based-on.png)
-2. Välj ett värde i listan och klicka sedan på bakåtpilen ![Bakåtpil](./media/luis-how-to-use-dashboard/Dashboard-backArrow.png) att visa diagrammet i enlighet med detta.

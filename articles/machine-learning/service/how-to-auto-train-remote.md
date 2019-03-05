@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 95c495bf3a8ad7b82c42d4071899d045cb49f27b
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: b45f48289eda9096c84537eaaa7bc2df74c9d05d
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247552"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57341431"
 ---
 # <a name="train-models-with-automated-machine-learning-in-the-cloud"></a>Träna modeller med automatiserade maskininlärning i molnet
 
@@ -80,8 +80,8 @@ Du kan också bifoga en befintlig Linux DSVM som beräkningsmål. Det här exemp
 
 > [!NOTE]
 >
-> I följande kod används den `RemoteCompute` målklassen att bifoga en befintlig virtuell dator som din beräkningsmål.
-> Den `DsvmCompute` klassen kommer att inaktualiseras i framtida versioner av det här designmönstret.
+> I följande kod används den [RemoteCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.remote.remotecompute?view=azure-ml-py) målklassen att bifoga en befintlig virtuell dator som din beräkningsmål.
+> Den [DsvmCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.dsvmcompute?view=azure-ml-py) klassen kommer att inaktualiseras i framtida versioner av det här designmönstret.
 
 Kör följande kod för att skapa beräkningsmål från en befintlig Linux DSVM.
 

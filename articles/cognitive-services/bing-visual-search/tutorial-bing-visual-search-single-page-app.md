@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: article
-ms.date: 10/04/2017
+ms.date: 03/04/2019
 ms.author: aahi
-ms.openlocfilehash: cf8525d4cc829805532210bf09e9ea9da240405d
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: e06fd7a4b2d072e5528643c2c8517d7545c36ef3
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55857757"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57338662"
 ---
 # <a name="create-a-visual-search-single-page-web-app"></a>Skapa en enda sida i Visual Search webbapp 
 
-API:t Bing Visual Search ger en upplevelse som liknar avbildningsdetaljerna som visas på Bing.com/images. Med visuell sökning kan du ange en bild och få tillbaka insikter om bilden som visuellt likartade bilder, shoppingkällor, webbsidor som innehåller bilden och mycket mer. 
+Bing Visual Search API ger en upplevelse som liknar avbildningsdetaljerna som visas på Bing.com/images. Med visuell sökning kan du ange en bild och få tillbaka insikter om bilden som visuellt likartade bilder, shoppingkällor, webbsidor som innehåller bilden och mycket mer. 
 
 Den här artikeln förklarar hur du utökar en enda sida webbapp för sökning i Bing. Om du vill visa självstudien eller hämta källkoden används här, se [självstudien: Skapa en ensidesapp för Bings API för bildsökning](../Bing-Image-Search/tutorial-bing-image-search-single-page-app.md). 
 

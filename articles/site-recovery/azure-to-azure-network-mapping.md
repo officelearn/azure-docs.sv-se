@@ -5,24 +5,24 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 2/28/2018
 ms.author: mayg
-ms.openlocfilehash: b52bdd5948676c09c433cbda249248ce26ce8a48
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: c4309b20664520bc1912adadee72d614a085f573
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56866036"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57338961"
 ---
 # <a name="set-up-network-mapping-and-ip-addressing-for-vnets"></a>Konfigurera nätverksmappning och IP-adresser för virtuella nätverk
 
-Den här artikeln beskrivs hur du mappar två instanser av virtuella Azure-nätverk (Vnet) finns i olika Azure-regioner och hur du ställer in IP-adressering mellan nätverk. Nätverksmappning så att en replikerad virtuell dator kan skapas i mål-Azure-region har skapats i det virtuella nätverket som är mappad till det virtuella nätverket för den Virtuella källdatorn.
+Den här artikeln beskrivs hur du mappar två instanser av virtuella Azure-nätverk (Vnet) finns i olika Azure-regioner och hur du ställer in IP-adressering mellan nätverk. Nätverksmappning innehåller en standardmetod för val av mål-nätverk baserat på källnätverket vid tidpunkten för att aktivera replikering.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 Innan du mappa nätverk måste du ha [virtuella Azure-nätverk](../virtual-network/virtual-networks-overview.md) i källan och rikta in Azure-regioner. 
 
-## <a name="set-up-network-mapping"></a>Konfigurera nätverksmappning
+## <a name="set-up-network-mapping-manually-optional"></a>Konfigurera nätverksmappning manuellt (valfritt)
 
 Mappa nätverk på följande sätt:
 
@@ -44,8 +44,13 @@ Om du inte har skapat nätverksmappning innan du konfigurerar haveriberedskap f�
 
 - Baserat på det mål som du väljer, skapar Site Recovery automatiskt nätverksmappningar från källa till målregion och från målet till källregionen.
 - Som standard skapar Site Recovery ett nätverk i målregionen som är identisk med källnätverket. Site Recovery lägger **-asr** som suffix till namnet på källnätverket. Du kan anpassa målnätverket.
-- Om nätverksmappning redan har inträffat, kan du inte ändra det virtuella målnätverket när du aktiverar replikering. Om du vill ändra målets virtuella nätverk som du behöver ändra den befintliga nätverksmappningen.
-- Om du ändrar en nätverksmappning från region A till B-region, se till att du också ändra nätverksmappningen från B-region till region A.]
+- Om nätverksmappning redan har inträffat för en källnätverket mappade målnätverket alltid att vara standard vid tidpunkten för att aktivera replikeringar för flera virtuella datorer. Du kan välja att ändra det virtuella målnätverket genom att välja andra tillgängliga alternativ i listrutan. 
+- Om du vill ändra standard målets virtuella nätverk för nya replikeringar, måste du ändra den befintliga nätverksmappningen.
+- Om du vill ändra en nätverksmappning från region A till B-region, se till att du först ta bort nätverksmappningen från B-region till region A. Ändrar nätverksmappning från region A till B-region efter omvänd mappning borttagningen och skapa sedan den relevanta omvända mappningen.
+
+>[!NOTE]
+>* Ändra nätverksmappningen ändras bara standardinställningarna för nya VM-replikeringar. Det påverkar inte target virtuellt nätverk valen för befintliga replikeringar. 
+>* Om du vill ändra målnätverket för en befintlig replikering, gå till beräknings- och nätverksinställningarna för det replikerade objektet.
 
 ## <a name="specify-a-subnet"></a>Ange ett undernät
 

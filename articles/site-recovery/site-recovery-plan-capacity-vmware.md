@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 12/12/2018
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: 29e01177d4b096449cd906a22b47223078c6493e
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 8325e2d1dccf1184c5297a60161200b41fc1d412
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54107828"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57338288"
 ---
 # <a name="plan-capacity-and-scaling-for-vmware-disaster-recovery-to-azure"></a>Planera kapacitet och skalning för VMware-haveriberedskap till Azure
 
@@ -42,7 +42,7 @@ Processor | Minne | Cachestorleken för disk | Dataändringshastigheten | Skydda
 12 virtuella processorer (2 platser * 6 kärnor \@ 2,5 GHz) | 18 GB | 600 GB | 501 GB till 1 TB | Använd för att replikera 100-150 datorer.
 16 virtuella processorer (2 platser * 8 kärnor \@ 2,5 GHz) | 32 GB | 1 TB | > 1 TB till 2 TB | Använd för att replikera 151 till 200 virtuella datorer.
 Distribuera en annan konfigurationsserver med hjälp av en [OVF-mall](vmware-azure-deploy-configuration-server.md#deployment-of-configuration-server-through-ova-template). | | | | Distribuera en ny configuration server om du replikerar mer än 200 datorer.
-Distribuera en annan [processervern](vmware-azure-set-up-process-server-scale.md#download-installation-file). | | | &GT; 2 TB| Distribuera en ny skalbar processerver om den totala dagliga förändringstakten för data är större än 2 TB.
+Distribuera en annan [processervern](vmware-azure-set-up-process-server-scale.md#download-installation-file). | | | >2 TB| Distribuera en ny skalbar processerver om den totala dagliga förändringstakten för data är större än 2 TB.
 
 I de här konfigurationerna:
 
@@ -114,7 +114,7 @@ Innan du konfigurerar Site Recovery-infrastruktur kan du komma åt miljön för 
 1. Kör Distributionshanteraren för Site Recovery på din miljö för att mäta dessa parametrar. Användbara riktlinjer finns i [om Site Recovery Deployment Planner för VMware till Azure](site-recovery-deployment-planner.md).
 2. Distribuera en konfigurationsserver som uppfyller den [storleksrekommendationer för konfigurationsservern](site-recovery-plan-capacity-vmware.md#size-recommendations-for-the-configuration-server-and-inbuilt-process-server). Om din produktionsarbetsbelastning överskrider 650 virtuella datorer kan du distribuera en annan konfigurationsserver.
 3. Baserat på de uppmätta dagliga dataändringshastigheten, distribuera [skala ut processervrar](vmware-azure-set-up-process-server-scale.md#download-installation-file) med hjälp av [storlek riktlinjer](site-recovery-plan-capacity-vmware.md#size-recommendations-for-the-process-server).
-4. Om du förväntar dig dataändringshastighet för en virtuell dator för disken överskrider 2 Mbit/s [ställa in ett premiumlagringskonto](tutorial-prepare-azure.md#create-a-storage-account). Site Recovery Deployment Planner körs för en viss tidsperiod. Toppar i förändringstakten för data vid andra tillfällen kan inte finnas i rapporten.
+4. Om du tror dataändringshastighet för en virtuell dator för disken överskrider 2 Mbit/s kan du kontrollera att du använder premium-hanterade diskar. Site Recovery Deployment Planner körs för en viss tidsperiod. Toppar i förändringstakten för data vid andra tillfällen kan inte finnas i rapporten.
 5. [Ange nätverksbandbredden](site-recovery-plan-capacity-vmware.md#control-network-bandwidth) baserat på det RPO som du vill uppnå.
 6. När infrastrukturen har ställts in, aktivera haveriberedskap för din arbetsbelastning. Läs hur genom att läsa [konfigurera källmiljön för VMware till Azure-replikering](vmware-azure-set-up-source.md).
 

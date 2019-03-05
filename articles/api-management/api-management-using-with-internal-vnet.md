@@ -12,14 +12,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/29/2017
+ms.date: 03/01/2019
 ms.author: apimpm
-ms.openlocfilehash: 9a2cf35203c673d6296754360ac4f794241d4c43
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: 0fe4da13e8242d858d553e0532b82cf1adca450a
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57008686"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57338767"
 ---
 # <a name="using-azure-api-management-service-with-an-internal-virtual-network"></a>Med Azure API Management-tjänsten med ett internt virtuellt nätverk
 Med Azure Virtual Networks, kan Azure API Management hantera API: er som är inte tillgänglig på internet. Ett antal VPN-tekniker är tillgängliga för att upprätta anslutningen. API Management kan distribueras i två huvudlägen i ett virtuellt nätverk:
@@ -59,7 +59,7 @@ API Management-tjänsten i ett internt virtuellt nätverk finns bakom en intern 
 
 4. Välj **Spara**.
 
-När distributionen är klar bör du se interna virtuella IP-adressen för din tjänst på instrumentpanelen.
+När distributionen är klar bör du se **privata** virtuell IP-adress och **offentliga** virtuella IP-adressen för API Management-tjänsten på översiktsbladet. Den **privata** virtuella IP-adressen är en belastning belastningsutjämnade IP-adress från API Management delegerad undernät som `gateway`, `portal`, `management` och `scm` slutpunkter kan nås. Den **offentliga** virtuell IP-adress används **endast** för plan trafiken till `management` slutpunkt över port 3443 och kan vara låst till den [ApiManagement] [ ServiceTags] servicetag.
 
 ![API Management-instrumentpanel med ett internt virtuellt nätverk som har konfigurerats][api-management-internal-vnet-dashboard]
 
@@ -83,25 +83,25 @@ När API Management är i läget för externt virtuellt nätverk, hanteras DNS a
 > API Management-tjänsten lyssnar inte på förfrågningar som kommer från IP-adresser. Det är bara svarar på förfrågningar till värdnamn som konfigurerats på dess tjänstslutpunkter. De här slutpunkterna är gateway, Azure-portalen och Developer-portalen, direkthantering slutpunkt och Git.
 
 ### <a name="access-on-default-host-names"></a>Åtkomst på standard-värdnamn
-När du skapar en API Management-tjänsten med namnet ”contoso” exempelvis konfigureras följande tjänstslutpunkter som standard:
+När du skapar en API Management-tjänsten med namnet ”contosointernalvnet” exempelvis konfigureras följande tjänstslutpunkter som standard:
 
-   * Gateway eller proxy: contoso.azure-api.net
+   * Gateway eller proxy: contosointernalvnet.azure api.net
 
-   * Azure-portalen och Developer-portalen: contoso.portal.azure api.net
+   * Azure-portalen och Developer-portalen: contosointernalvnet.portal.azure api.net
 
-   * Direkthantering slutpunkt: contoso.management.azure api.net
+   * Direkthantering slutpunkt: contosointernalvnet.management.azure api.net
 
-   * Git: contoso.scm.azure api.net
+   * Git: contosointernalvnet.scm.azure api.net
 
-Om du vill få åtkomst till dessa slutpunkter för API Management-tjänsten måste skapa du en virtuell dator i ett undernät som är anslutna till det virtuella nätverket där API Management har distribuerats. Under förutsättning att den interna virtuella IP-adressen för din tjänst är 10.0.0.5, kan du mappa hosts-filen % SystemDrive%\drivers\etc\hosts, enligt följande:
+Om du vill få åtkomst till dessa slutpunkter för API Management-tjänsten måste skapa du en virtuell dator i ett undernät som är anslutna till det virtuella nätverket där API Management har distribuerats. Under förutsättning att den interna virtuella IP-adressen för din tjänst är 10.1.0.5, kan du mappa hosts-filen % SystemDrive%\drivers\etc\hosts, enligt följande:
 
-   * 10.0.0.5 contoso.azure-api.net
+   * 10.1.0.5 contosointernalvnet.azure api.net
 
-   * 10.0.0.5 contoso.portal.azure api.net
+   * 10.1.0.5 contosointernalvnet.portal.azure api.net
 
-   * 10.0.0.5 contoso.management.azure api.net
+   * 10.1.0.5 contosointernalvnet.management.azure api.net
 
-   * 10.0.0.5 contoso.scm.azure api.net
+   * 10.1.0.5 contosointernalvnet.scm.azure api.net
 
 Du kan sedan komma åt alla tjänstslutpunkter från den virtuella datorn som du skapade. Om du använder en anpassad DNS-server i ett virtuellt nätverk kan du också skapa en DNS-poster och åtkomst till dessa slutpunkter från valfri plats i det virtuella nätverket. 
 
@@ -125,10 +125,12 @@ Mer information finns i följande artiklar:
 * [Vanliga frågor och svar för virtuellt nätverk](../virtual-network/virtual-networks-faq.md)
 * [Skapa en post i DNS](https://msdn.microsoft.com/library/bb727018.aspx)
 
-[api-management-using-internal-vnet-menu]: ./media/api-management-using-with-internal-vnet/api-management-internal-vnet-menu.png
+[api-management-using-internal-vnet-menu]: ./media/api-management-using-with-internal-vnet/api-management-using-with-internal-vnet.png
 [api-management-internal-vnet-dashboard]: ./media/api-management-using-with-internal-vnet/api-management-internal-vnet-dashboard.png
 [api-management-custom-domain-name]: ./media/api-management-using-with-internal-vnet/api-management-custom-domain-name.png
 
 [Create API Management service]: get-started-create-service-instance.md
 [Common network configuration problems]: api-management-using-with-vnet.md#network-configuration-issues
+
+[ServiceTags]: ../virtual-network/security-overview.md#service-tags
 

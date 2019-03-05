@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 4f89fab47cf07538d1915d359fc29a21deb1e560
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: f402aeb82271d4e0f5023f05b0d61713c4ab73c1
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56986098"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57338475"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Distribuera modeller med Azure Machine Learning-tjänsten
 
@@ -482,7 +482,7 @@ sudo ./deploymodel <ContainerRegistryName> <username> <password> <imageLocationU
 Du kan också följa stegen i den [distribuera Azure IoT Edge-moduler från Azure portal](../../iot-edge/how-to-deploy-modules-portal.md) dokumentet för att distribuera avbildningen till din enhet. När du konfigurerar den __registerinställningar__ för enheten, använda den __inloggningsserver__, __användarnamn__, och __lösenord__ för arbetsytan behållarregister.
 
 > [!NOTE]
-> Om du är bekant med Azure IoT finns i följande dokument för information om att komma igång med tjänsten:
+> Om du är bekant med Azure IoT Edge finns i följande dokument för information om att komma igång med tjänsten:
 >
 > * [Snabbstart: Distribuera din första IoT Edge-modul till en Linux-enhet](../../iot-edge/quickstart-linux.md)
 > * [Snabbstart: Distribuera din första IoT Edge-modul till en Windows-enhet](../../iot-edge/quickstart.md)

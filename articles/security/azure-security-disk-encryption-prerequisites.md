@@ -6,14 +6,14 @@ ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 03/01/2019
+ms.date: 03/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: c6ba74b47272c58861a161016eca492157a317b8
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 34fe0f35f0f2ec7f7acc129e6146d2aa1ff43ead
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57243388"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57340923"
 ---
 # <a name="azure-disk-encryption-prerequisites"></a>Krav för Azure Disk Encryption
 
@@ -151,13 +151,13 @@ Du kan skapa ett nyckelvalv med Azure PowerShell med hjälp av den [New AzKeyVau
      
      ```azurepowershell-interactive
      # Get-AzLocation 
-     New-AzResourceGroup –Name 'MySecureRG' –Location 'East US'
+     New-AzResourceGroup –Name 'MyKeyVaultResourceGroup' –Location 'East US'
      ```
 
 3. Skapa ett nytt nyckelvalv med [New-AzKeyVault](/powershell/module/az.keyvault/New-azKeyVault)
     
       ```azurepowershell-interactive
-     New-AzKeyVault -VaultName 'MySecureVault' -ResourceGroupName 'MySecureRG' -Location 'East US'
+     New-AzKeyVault -VaultName 'MySecureVault' -ResourceGroupName 'MyKeyVaultResourceGroup' -Location 'East US'
      ```
 
 4. Obs den **valv namn**, **resursgruppnamn**, **resurs-ID**, **Valvets URI**, och **objekt-ID** som returneras för senare användning när du krypterar diskarna. 
@@ -171,13 +171,13 @@ Du kan hantera ditt nyckelvalv med Azure CLI med hjälp av den [az keyvault](/cl
      
      ```azurecli-interactive
      # To list locations: az account list-locations --output table
-     az group create -n "MySecureRG" -l "East US"
+     az group create -n "MyKeyVaultResourceGroup" -l "East US"
      ```
 
 3. Skapa ett nytt nyckelvalv med [az keyvault skapa](/cli/azure/keyvault#az-keyvault-create).
     
      ```azurecli-interactive
-     az keyvault create --name "MySecureVault" --resource-group "MySecureRG" --location "East US"
+     az keyvault create --name "MySecureVault" --resource-group "MyKeyVaultResourceGroup" --location "East US"
      ```
 
 4. Obs den **Valvnamnet** (namn), **Resursgruppsnamn**, **resurs-ID** (ID), **Valvets URI**, och **objekt-ID** som returneras för användning senare. 
@@ -199,19 +199,19 @@ Azure-plattformen behöver åtkomst till krypteringsnycklar och hemligheter i di
   - **Aktivera Key Vault för diskkryptering:** EnabledForDiskEncryption krävs för Azure Disk encryption.
       
      ```azurepowershell-interactive 
-     Set-AzKeyVaultAccessPolicy -VaultName 'MySecureVault' -ResourceGroupName 'MySecureRG' -EnabledForDiskEncryption
+     Set-AzKeyVaultAccessPolicy -VaultName 'MySecureVault' -ResourceGroupName 'MyKeyVaultResourceGroup' -EnabledForDiskEncryption
      ```
 
   - **Aktivera Key Vault för distribution, om det behövs:** Gör det möjligt för Microsoft.Compute-resursprovidern att hämta hemligheter från det här nyckelvalvet när det här nyckelvalvet är refererad i resursskapande, till exempel när du skapar en virtuell dator.
 
      ```azurepowershell-interactive
-      Set-AzKeyVaultAccessPolicy -VaultName 'MySecureVault' -ResourceGroupName 'MySecureRG' -EnabledForDeployment
+      Set-AzKeyVaultAccessPolicy -VaultName 'MySecureVault' -ResourceGroupName 'MyKeyVaultResourceGroup' -EnabledForDeployment
      ```
 
   - **Aktivera Key Vault för malldistribution, om det behövs:** Gör det möjligt för Azure Resource Manager för att hämta hemligheter från det här nyckelvalvet när det här nyckelvalvet är refereras till i en för malldistribution.
 
      ```azurepowershell-interactive             
-     Set-AzKeyVaultAccessPolicy -VaultName 'MySecureVault' -ResourceGroupName 'MySecureRG' -EnabledForTemplateDeployment
+     Set-AzKeyVaultAccessPolicy -VaultName 'MySecureVault' -ResourceGroupName 'MyKeyVaultResourceGroup' -EnabledForTemplateDeployment
      ```
 
 ### <a name="bkmk_KVperCLI"></a> Ställ in avancerade åtkomstprinciper med hjälp av Azure CLI för nyckelvalvet
@@ -220,18 +220,18 @@ Använd [az keyvault update](/cli/azure/keyvault#az-keyvault-update) vill aktive
  - **Aktivera Key Vault för diskkryptering:** Aktiverad-för-disk-kryptering krävs. 
 
      ```azurecli-interactive
-     az keyvault update --name "MySecureVault" --resource-group "MySecureRG" --enabled-for-disk-encryption "true"
+     az keyvault update --name "MySecureVault" --resource-group "MyKeyVaultResourceGroup" --enabled-for-disk-encryption "true"
      ```  
 
  - **Aktivera Key Vault för distribution, om det behövs:** Gör det möjligt för Microsoft.Compute-resursprovidern att hämta hemligheter från det här nyckelvalvet när det här nyckelvalvet är refererad i resursskapande, till exempel när du skapar en virtuell dator.
 
      ```azurecli-interactive
-     az keyvault update --name "MySecureVault" --resource-group "MySecureRG" --enabled-for-deployment "true"
+     az keyvault update --name "MySecureVault" --resource-group "MyKeyVaultResourceGroup" --enabled-for-deployment "true"
      ``` 
 
  - **Aktivera Key Vault för malldistribution, om det behövs:** Tillåt Resource Manager för att hämta hemligheter från valvet.
      ```azurecli-interactive  
-     az keyvault update --name "MySecureVault" --resource-group "MySecureRG" --enabled-for-template-deployment "true"
+     az keyvault update --name "MySecureVault" --resource-group "MyKeyVaultResourceGroup" --enabled-for-template-deployment "true"
      ```
 
 
@@ -246,7 +246,7 @@ Använd [az keyvault update](/cli/azure/keyvault#az-keyvault-update) vill aktive
 
 
 ## <a name="bkmk_KEK"></a> Konfigurera en nyckelkrypteringsnyckel (valfritt)
-Om du vill använda en krypteringsnyckel nyckel (KEK) för ett extra lager av säkerhet för krypteringsnycklar, lägger du till en KEK till ditt nyckelvalv. Använd den [Add-AzureKeyVaultKey](/powershell/module/az.keyvault/add-azurekeyvaultkey) cmdlet för att skapa en nyckelkrypteringsnyckel i nyckelvalvet. Du kan också importera en KEK från din lokala nyckelhantering HSM. Mer information finns i [dokumentation om Key Vault](../key-vault/key-vault-hsm-protected-keys.md). När du anger en nyckelkrypteringsnyckel använder Azure Disk Encryption nyckeln för att omsluta kryptering hemligheter innan du skriver till Key Vault.
+Om du vill använda en krypteringsnyckel nyckel (KEK) för ett extra lager av säkerhet för krypteringsnycklar, lägger du till en KEK till ditt nyckelvalv. Använd den [Lägg till AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey) cmdlet för att skapa en nyckelkrypteringsnyckel i nyckelvalvet. Du kan också importera en KEK från din lokala nyckelhantering HSM. Mer information finns i [dokumentation om Key Vault](../key-vault/key-vault-hsm-protected-keys.md). När du anger en nyckelkrypteringsnyckel använder Azure Disk Encryption nyckeln för att omsluta kryptering hemligheter innan du skriver till Key Vault.
 
 * Använd en RSA-nyckeltyp vid generering av nycklar. Azure Disk Encryption stöder ännu inte med Elliptic Curve nycklar.
 
@@ -266,21 +266,21 @@ Innan du använder PowerShell-skriptet, bör du känna till kraven för Azure Di
 
  ```powershell
  # Step 1: Create a new resource group and key vault in the same location.
-     # Fill in 'MyLocation', 'MySecureRG', and 'MySecureVault' with your values.
+     # Fill in 'MyLocation', 'MyKeyVaultResourceGroup', and 'MySecureVault' with your values.
      # Use Get-AzLocation to get available locations and use the DisplayName.
      # To use an existing resource group, comment out the line for New-AzResourceGroup
      
      $Loc = 'MyLocation';
-     $rgname = 'MySecureRG';
+     $KVRGname = 'MyKeyVaultResourceGroup';
      $KeyVaultName = 'MySecureVault'; 
-     New-AzResourceGroup –Name $rgname –Location $Loc;
-     New-AzKeyVault -VaultName $KeyVaultName -ResourceGroupName $rgname -Location $Loc;
-     $KeyVault = Get-AzKeyVault -VaultName $KeyVaultName -ResourceGroupName $rgname;
-     $KeyVaultResourceId = (Get-AzKeyVault -VaultName $KeyVaultName -ResourceGroupName $rgname).ResourceId;
-     $diskEncryptionKeyVaultUrl = (Get-AzKeyVault -VaultName $KeyVaultName -ResourceGroupName $rgname).VaultUri;
+     New-AzResourceGroup –Name $KVRGname –Location $Loc;
+     New-AzKeyVault -VaultName $KeyVaultName -ResourceGroupName $KVRGname -Location $Loc;
+     $KeyVault = Get-AzKeyVault -VaultName $KeyVaultName -ResourceGroupName $KVRGname;
+     $KeyVaultResourceId = (Get-AzKeyVault -VaultName $KeyVaultName -ResourceGroupName $KVRGname).ResourceId;
+     $diskEncryptionKeyVaultUrl = (Get-AzKeyVault -VaultName $KeyVaultName -ResourceGroupName $KVRGname).VaultUri;
      
  #Step 2: Enable the vault for disk encryption.
-     Set-AzKeyVaultAccessPolicy -VaultName $KeyVaultName -ResourceGroupName $rgname -EnabledForDiskEncryption;
+     Set-AzKeyVaultAccessPolicy -VaultName $KeyVaultName -ResourceGroupName $KVRGname -EnabledForDiskEncryption;
       
  #Step 3: Create a new key in the key vault with the Add-AzureKeyVaultKey cmdlet.
      # Fill in 'MyKeyEncryptionKey' with your value.
@@ -290,10 +290,11 @@ Innan du använder PowerShell-skriptet, bör du känna till kraven för Azure Di
      $keyEncryptionKeyUrl = (Get-AzureKeyVaultKey -VaultName $KeyVaultName -Name $keyEncryptionKeyName).Key.kid;
      
  #Step 4: Encrypt the disks of an existing IaaS VM
-     # Fill in 'MySecureVM' with your value. 
+     # Fill in 'MySecureVM' and 'MyVirtualMachineResourceGroup' with your values. 
      
      $VMName = 'MySecureVM';
-     Set-AzVMDiskEncryptionExtension -ResourceGroupName $rgname -VMName $vmName -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId -KeyEncryptionKeyUrl $keyEncryptionKeyUrl -KeyEncryptionKeyVaultId $KeyVaultResourceId;
+     $VMRGName = 'MyVirtualMachineResourceGroup';
+     Set-AzVMDiskEncryptionExtension -ResourceGroupName $VMRGName -VMName $vmName -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId -KeyEncryptionKeyUrl $keyEncryptionKeyUrl -KeyEncryptionKeyVaultId $KeyVaultResourceId;
 ```
 
 

@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.reviewer: trbye
 ms.date: 02/20/2019
-ms.openlocfilehash: 08e83cdcadabdcf7234d0bbd0fb7e6d103c8369c
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: 8e39734a6f5fa13240d24eb35c431f746e540484
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447539"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57342130"
 ---
 # <a name="enable-logging-in-azure-machine-learning-service"></a>Aktivera loggning i Azure Machine Learning-tjänsten
 
@@ -41,7 +41,7 @@ run = exp.start_logging()
 run.log("test-val", 10)
 ```
 
-Finns i referensen [dokumentation](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py) för den `Run` klass för ytterligare loggningsfunktioner.
+Se referensdokumentationen för den [kör](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py) klass för ytterligare loggningsfunktioner.
 
 Aktivera lokal loggning av programtillstånd under utbildning förloppet genom att använda den `show_output` parametern. Aktivera utförlig loggning kan du visa information från träningsprocess samt information om alla fjärranslutna resurser eller beräkningsmål. Använd följande kod för att aktivera loggning när experiment.
 

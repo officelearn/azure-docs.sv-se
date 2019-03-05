@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/28/2019
 ms.author: banders
-ms.openlocfilehash: 89c2f380fb4007256273b10b1fcc0fc99627ccb4
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 7c93911ce824bc1111e0c348070cc11817c5b45c
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57249236"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57341858"
 ---
 # <a name="create-an-additional-azure-subscription-for-microsoft-customer-agreement"></a>Skapa en ytterligare Azure-prenumeration för Microsoft kundavtal
 
@@ -27,7 +27,7 @@ Skapa ytterligare prenumerationer för ditt faktureringskonto att konfigurera se
 
 Den här artikeln gäller för något faktureringskonto för en Microsoft-kundavtal. [Kontrollera om du har åtkomst till en Microsoft-kundavtal](#check-access-to-a-microsoft-customer-agreement). Om du vill skapa prenumerationer för andra fakturering konton finns i [skapa ytterligare en prenumeration på Azure-portalen](billing-create-subscription.md).
 
-Om du vill skapa en prenumeration, måste du vara en **faktura avsnittet ägare**, **faktura avsnittet deltagare**, eller **Azure-prenumeration skapare**. Mer information finns i [prenumeration roller och uppgifter](billing-understand-mca-roles.md#subscription-billing-roles-and-tasks). För att ge andra behörighet att skapa Azure-prenumerationer för kontot, se [ge andra användare behörighet att skapa Azure-prenumerationer](#give-others-permission-to-create-azure-subscriptions).
+Om du vill skapa en prenumeration, måste du vara en **faktura avsnittet ägare**, **faktura avsnittet deltagare**, eller **Azure-prenumeration skapare**. Mer information finns i [prenumeration fakturering roller och uppgifter](billing-understand-mca-roles.md#subscription-billing-roles-and-tasks). För att ge andra behörighet att skapa Azure-prenumerationer för kontot, se [ge andra användare behörighet att skapa Azure-prenumerationer](#give-others-permission-to-create-azure-subscriptions).
 
 ## <a name="create-a-subscription-in-the-azure-portal"></a>Skapa en prenumeration på Azure-portalen
 
@@ -45,7 +45,7 @@ Om du vill skapa en prenumeration, måste du vara en **faktura avsnittet ägare*
 
 5. Välj en profil för fakturering. Avgifterna för din prenumeration visas på fakturering profilens faktura och kommer att betalas till med hjälp av dess betalningsmetoder. Om du har åtkomst till endast en fakturering profil nedtonade valet.
 
-6. Välj en faktura-avsnitt. Avgifterna för din prenumeration visas i det här avsnittet av fakturering profilens faktura. Om du har åtkomst till endast en faktura avsnitt nedtonade valet.
+6. Välj en faktura-avsnitt. Avgifterna för din prenumeration kommer att användas på det här avsnittet av fakturering profilens faktura. Om du har åtkomst till endast en faktura avsnitt nedtonade valet.
 
 7. Välj en plan för prenumerationen. Välj **Microsoft Azure-prenumeration för DevTest**, om du planerar att använda den här prenumerationen för utveckling eller annan testningsarbetsbelastningar med **Microsoft Azure-prenumeration**. Om du har åtkomst till endast en plan nedtonade valet.
 

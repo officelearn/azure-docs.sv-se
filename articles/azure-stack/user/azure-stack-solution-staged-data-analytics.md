@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/01/2018
+ms.date: 03/04/2018
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 12/01/2018
-ms.openlocfilehash: be7bf4596989cf8dfd154e0a366f93650546224b
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 0261dff10e553ecbd39d394eb19e7ad3dd76f0a2
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247365"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57340974"
 ---
 # <a name="tutorial-create-a-staged-data-analytics-solution-with-azure-and-azure-stack"></a>Självstudier: Skapa en lösning för dataanalys av mellanlagrade data med Azure och Azure Stack 
 
@@ -185,7 +185,7 @@ Skapa en ny Azure Stack-funktion för att flytta rensa data från Azure Stack ti
 
     | Inställning | Föreslaget värde | Beskrivning |
     | ------- | ------- | ------- |
-    | Name | Ett unikt namn i funktionsappen | Namnge funktionen som utlöses av blobben. |
+    | Namn | Ett unikt namn i funktionsappen | Namnge funktionen som utlöses av blobben. |
     | Sökväg | \<sökväg från lagringsplatsen ovan > | Platsen i Blob Storage som övervakas. Filnamnet för bloben skickas i bindningen som Namnparametern. |
     | Anslutning till lagringskonto | Funktionen App-anslutning | Du kan använda den lagringskontoanslutning som redan används av funktionsappen eller skapa en ny. |
 
@@ -245,7 +245,7 @@ Använd stegen och inställningar som beskrivs ovan för att skapa ett annat kon
 
     | Inställning | Föreslaget värde | Beskrivning |
     | ------- | ------- | ------- |
-    | Name | Ett unikt namn i funktionsappen | Namnge funktionen som utlöses av kön. |
+    | Namn | Ett unikt namn i funktionsappen | Namnge funktionen som utlöses av kön. |
     | Sökväg | \<sökväg från lagringsplatsen ovan > | Plats i storage som övervakas. Namnet på kön skickas i bindningen som Namnparametern. |
     | Anslutning till lagringskonto | Funktionen App-anslutning | Du kan använda den lagringskontoanslutning som redan används av funktionsappen eller skapa en ny. |
 

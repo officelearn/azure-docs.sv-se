@@ -15,12 +15,12 @@ ms.date: 01/09/2019
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 01/09/2019
-ms.openlocfilehash: a075fdceaf57625280ef73499d868d5c3724426c
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 1211edde43d802a4c48cbd936473b1a6f83af705
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56236489"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57342096"
 ---
 # <a name="delegate-offers-in-azure-stack"></a>Delegera erbjudanden i Azure Stack
 
@@ -78,7 +78,7 @@ Om du vill använda den här genomgången behöver du två Azure AD-konton föru
 | Användare |Användare |
 
  > [!NOTE]
-   > Om du vill skapa den här delegerade providern när det gäller en CSP-återförsäljare måste dessa användare i klientkatalog (användare AAD). Azure Stack-operatör måste [först publicera](https://docs.microsoft.com/azure/azure-stack/azure-stack-enable-multitenancy) som AAD-klient och sedan konfigurera användning och fakturering genom att följa [här](https://docs.microsoft.com/azure/azure-stack/azure-stack-csp-howto-register-tenants).
+ > När det gäller en CSP-återförsäljare kräver skapar den här delegerade providern dessa användare i klientkatalogen (användare AAD). Azure Stack-operator måste [först publicera](azure-stack-enable-multitenancy.md) som AAD-klient och sedan konfigurera användning och fakturering genom att följa [här](azure-stack-csp-howto-register-tenants.md).
 
 ### <a name="identify-the-delegated-provider"></a>Identifiera den delegerade providern
 

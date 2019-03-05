@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 02/08/2019
-ms.openlocfilehash: 735c3dc4764f45512386a0c53a389f355f069aa3
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.date: 03/04/2019
+ms.openlocfilehash: f4d6826d13f92db7a430f668c56825926d198235
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55998179"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57340107"
 ---
 # <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-a-single-database"></a>Azure SQL Database vCore-baserade köpa modellen gränser för en enskild databas
 
@@ -47,6 +47,7 @@ Du kan ange tjänstnivå, beräkningsstorleken och lagringsutrymmet för en enke
 |Lagringstyp|Premium (Fjärrlagring)|Premium (Fjärrlagring)|Premium (Fjärrlagring)|Premium (Fjärrlagring)|Premium (Fjärrlagring)|Premium (Fjärrlagring)|
 |I/o-svarstid (ungefärlig)|5 – 7 ms (skriva)<br>5 – 10 ms (läsa)|5 – 7 ms (skriva)<br>5 – 10 ms (läsa)|5 – 7 ms (skriva)<br>5 – 10 ms (läsa)|5 – 7 ms (skriva)<br>5 – 10 ms (läsa)|5 – 7 ms (skriva)<br>5 – 10 ms (läsa)|5 – 7 ms (skriva)<br>5 – 10 ms (läsa)|
 |Mål-IOPS (64 KB)|500|1000|1500|2000|2500|3000|
+|Logga hastighetsbegränsningar (Mbit/s)|2.5|5|7.5|10|12.5|15|
 |Maximalt antal samtidiga arbetare (begäranden)|200|400|600|800|1000|1200|
 |Maximalt antal tillåtna sessioner|30000|30000|30000|30000|30000|30000|
 |Antal repliker|1|1|1|1|1|1|
@@ -69,6 +70,7 @@ Du kan ange tjänstnivå, beräkningsstorleken och lagringsutrymmet för en enke
 |Lagringstyp|Premium (Fjärrlagring)|Premium (Fjärrlagring)|Premium (Fjärrlagring)|Premium (Fjärrlagring)|Premium (Fjärrlagring)|Premium (Fjärrlagring)|
 |I/o-svarstid (ungefärlig)|5 – 7 ms (skriva)<br>5 – 10 ms (läsa)|5 – 7 ms (skriva)<br>5 – 10 ms (läsa)|5 – 7 ms (skriva)<br>5 – 10 ms (läsa)|5 – 7 ms (skriva)<br>5 – 10 ms (läsa)|5 – 7 ms (skriva)<br>5 – 10 ms (läsa)|5 – 7 ms (skriva)<br>5 – 10 ms (läsa)
 |Mål-IOPS (64 KB)|3500|4000|4500|5000|7000|7000|
+|Logga hastighetsbegränsningar (Mbit/s)|17.5|20|20|20|20|20|
 |Maximalt antal samtidiga arbetare (begäranden)|1400|1600|1800|2000|3200|4800|
 |Maximalt antal tillåtna sessioner|30000|30000|30000|30000|30000|30000|
 |Antal repliker|1|1|1|1|1|1|
@@ -85,12 +87,13 @@ Du kan ange tjänstnivå, beräkningsstorleken och lagringsutrymmet för en enke
 |Minne (GB)|10.2|20.4|30.6|40.8|51|61.2|71.4|
 |Stöd för Columnstore|Ja|Ja|Ja|Ja|Ja|Ja|Ja|
 |InMemory-OLTP-lagring (GB)|Gäller inte|Saknas|Saknas|Saknas|Saknas|Saknas|Gäller inte|
-|Maximal datastorlek (GB)|1024|1024|1024|1536|1536|1536|1536|
+|Maximal datastorlek (GB)|1024|1024|1536|1536|1536|3072|3072|
 |Maximal storlek (GB)|307|307|307|461|461|461|461|
 |TempDB-storlek (GB)|64|128|192|256|320|384|384|
 |Lagringstyp|Premium (Fjärrlagring)|Premium (Fjärrlagring)|Premium (Fjärrlagring)|Premium (Fjärrlagring)|Premium (Fjärrlagring)|Premium (Fjärrlagring)|Premium (Fjärrlagring)|
 |I/o-svarstid (ungefärlig)|5 – 7 ms (skriva)<br>5 – 10 ms (läsa)|5 – 7 ms (skriva)<br>5 – 10 ms (läsa)|5 – 7 ms (skriva)<br>5 – 10 ms (läsa)|5 – 7 ms (skriva)<br>5 – 10 ms (läsa)|5 – 7 ms (skriva)<br>5 – 10 ms (läsa)|5 – 7 ms (skriva)<br>5 – 10 ms (läsa)|5 – 7 ms (skriva)<br>5 – 10 ms (läsa)|
 |Mål-IOPS (64 KB)|500|1000|1500|2000|2500|3000|3500|
+|Logga hastighetsbegränsningar (Mbit/s)|2.5|56|7.5|10|12.5|15|17.5|
 |Maximalt antal samtidiga arbetare (begäranden)|200|400|600|800|1000|1200|1400|
 |Maximalt antal tillåtna sessioner|30000|30000|30000|30000|30000|30000|30000|
 |Antal repliker|1|1|1|1|1|1|1|
@@ -113,6 +116,7 @@ Du kan ange tjänstnivå, beräkningsstorleken och lagringsutrymmet för en enke
 |Lagringstyp|Premium (Fjärrlagring)|Premium (Fjärrlagring)|Premium (Fjärrlagring)|Premium (Fjärrlagring)|Premium (Fjärrlagring)|Premium (Fjärrlagring)|Premium (Fjärrlagring)|
 |I/o-svarstid (ungefärlig)|5 – 7 ms (skriva)<br>5 – 10 ms (läsa)|5 – 7 ms (skriva)<br>5 – 10 ms (läsa)|5 – 7 ms (skriva)<br>5 – 10 ms (läsa)|5 – 7 ms (skriva)<br>5 – 10 ms (läsa)|5 – 7 ms (skriva)<br>5 – 10 ms (läsa)|5 – 7 ms (skriva)<br>5 – 10 ms (läsa)|5 – 7 ms (skriva)<br>5 – 10 ms (läsa)|
 |Mål-IOPS (64 KB)|4000|4500|5000|6000|7000|7000|7000|
+|Logga hastighetsbegränsningar (Mbit/s)|20|20|20|20|20|20|20|
 |Maximalt antal samtidiga arbetare (begäranden)|1600|1800|2000|2400|3200|4000|8000|
 |Maximalt antal tillåtna sessioner|30000|30000|30000|30000|30000|30000|30000|
 |Antal repliker|1|1|1|1|1|1|1|
@@ -129,15 +133,17 @@ Du kan ange tjänstnivå, beräkningsstorleken och lagringsutrymmet för en enke
 |Maskinvaran generation|4|4|4|4|4|4|
 |vCores|1|2|3|4|5|6|
 |Minne (GB)|7|14|21|28|35|42|
-|Stöd för Columnstore|Gäller inte|Saknas|Saknas|Saknas|Saknas|Gäller inte|
+|Stöd för Columnstore|Ja|Ja|Ja|Ja|Ja|Ja|
 |InMemory-OLTP-lagring (GB)|1|2|3|4|5|6|
 |Lagringstyp|Lokal SSD|Lokal SSD|Lokal SSD|Lokal SSD|Lokal SSD|Lokal SSD|
-|Maximal datastorlek (GB)|1024|1024|1024|1024|1024|1024|
-|Maximal storlek (GB)|307|307|307|307|307|307|
+|Maximal datastorlek (GB)|650|650|650|650|650|650|
+|Maximal storlek (GB)|195|195|195|195|195|195|
 |TempDB-storlek (GB)|32|64|96|128|160|192|
 |I/o-svarstid (ungefärlig)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|
 |Mål-IOPS (64 KB)|5000|10000|15 000|20000|25000|30000|
+|Logga hastighetsbegränsningar (Mbit/s)|6|12|18|24|30|36|
 |Maximalt antal samtidiga arbetare (begäranden)|200|400|600|800|1000|1200|
+|Maximalt antal samtidiga inloggningar|200|400|600|800|1000|1200|
 |Maximalt antal tillåtna sessioner|30000|30000|30000|30000|30000|30000|
 |Antal repliker|4|4|4|4|4|4|
 |Multi-AZ|Ja|Ja|Ja|Ja|Ja|Ja|
@@ -151,15 +157,17 @@ Du kan ange tjänstnivå, beräkningsstorleken och lagringsutrymmet för en enke
 |Maskinvaran generation|4|4|4|4|4|4|
 |vCores|7|8|9|10|16|24|
 |Minne (GB)|49|56|63|70|112|168|
-|Stöd för Columnstore|Gäller inte|Saknas|Saknas|Saknas|Saknas|Gäller inte|
+|Stöd för Columnstore|Ja|Ja|Ja|Ja|Ja|Ja|
 |InMemory-OLTP-lagring (GB)|7|8|9.5|11|20|36|
 |Lagringstyp|Lokal SSD|Lokal SSD|Lokal SSD|Lokal SSD|Lokal SSD|Lokal SSD|
-|Maximal datastorlek (GB)|1024|1024|1024|1024|1024|1024|
-|Maximal storlek (GB)|307|307|307|307|307|307|
+|Maximal datastorlek (GB)|650|650|650|650|1024|1024|
+|Maximal storlek (GB)|195|195|195|195|307|307|
 |TempDB-storlek (GB)|224|256|288|320|384|384|
 |I/o-svarstid (ungefärlig)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|
 |Mål-IOPS (64 KB)|35000|40000|45000|50000|80000|120000|
+|Logga hastighetsbegränsningar (Mbit/s)|42|48|48|48|48|48|
 |Maximalt antal samtidiga arbetare (begäranden)|1400|1600|1800|2000|3200|4800|
+|Maximalt antal samtidiga inloggningar (begäranden)|1400|1600|1800|2000|3200|4800|
 |Maximalt antal tillåtna sessioner|30000|30000|30000|30000|30000|30000|
 |Antal repliker|4|4|4|4|4|4|
 |Multi-AZ|Ja|Ja|Ja|Ja|Ja|Ja|
@@ -175,13 +183,15 @@ Du kan ange tjänstnivå, beräkningsstorleken och lagringsutrymmet för en enke
 |Minne (GB)|10.2|20.4|30.6|40.8|51|61.2|71.4|
 |Stöd för Columnstore|Ja|Ja|Ja|Ja|Ja|Ja|Ja|
 |InMemory-OLTP-lagring (GB)|1.571|3.142|4.713|6.284|8.655|11.026|13.397|
-|Maximal datastorlek (GB)|1024|1024|1024|1536|1536|1536|1536|
-|Maximal storlek (GB)|307|307|307|461|461|461|461|
+|Maximal datastorlek (GB)|1024|1024|1536|1536|1536|3072|3072|
+|Maximal storlek (GB)|307|307|307|461|461|922|922|
 |TempDB-storlek (GB)|64|128|192|256|320|384|384|
 |Lagringstyp|Lokal SSD|Lokal SSD|Lokal SSD|Lokal SSD|Lokal SSD|Lokal SSD|Lokal SSD|
 |I/o-svarstid (ungefärlig)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|
 |Mål-IOPS (64 KB)|5000|10000|15 000|20000|25000|30000|35000|
+|Logga hastighetsbegränsningar (Mbit/s)|6|12|18|24|30|36|42|
 |Maximalt antal samtidiga arbetare (begäranden)|200|400|600|800|1000|1200|1400|
+|Maximalt antal samtidiga inloggningar|200|400|600|800|1000|1200|1400|
 |Maximalt antal tillåtna sessioner|30000|30000|30000|30000|30000|30000|30000|
 |Antal repliker|4|4|4|4|4|4|4|
 |Multi-AZ|Ja|Ja|Ja|Ja|Ja|Ja|Ja|
@@ -203,10 +213,12 @@ Du kan ange tjänstnivå, beräkningsstorleken och lagringsutrymmet för en enke
 |Lagringstyp|Lokal SSD|Lokal SSD|Lokal SSD|Lokal SSD|Lokal SSD|Lokal SSD|Lokal SSD|
 |I/o-svarstid (ungefärlig)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|
 |Mål-IOPS (64 KB)|40000|45000|50000|60000|80000|100000|200000|
+|Logga hastighetsbegränsningar (Mbit/s)|48|48|48|48|48|48|48|
 |Maximalt antal samtidiga arbetare (begäranden)|1600|1800|2000|2400|3200|4000|8000|
+|Maximalt antal samtidiga inloggningar|1600|1800|2000|2400|3200|4000|8000|
 |Maximalt antal tillåtna sessioner|30000|30000|30000|30000|30000|30000|30000|
-|Antal repliker|4|4|4|4|4|4|
-|Multi-AZ|Ja|Ja|Ja|Ja|Ja|Ja|
+|Antal repliker|4|4|4|4|4|4|4|
+|Multi-AZ|Ja|Ja|Ja|Ja|Ja|Ja|Ja|
 |Lässkalbarhet|Gäller inte|Saknas|Saknas|Saknas|Saknas|Saknas|Gäller inte|
 |Inkluderad lagring av säkerhetskopior|1 X-databasstorlek|1 X-databasstorlek|1 X-databasstorlek|1 X-databasstorlek|1 X-databasstorlek|1 X-databasstorlek|1 X-databasstorlek|
 
@@ -262,7 +274,7 @@ Du kan ange tjänstnivå, beräkningsstorleken och lagringsutrymmet för en enke
 
 - DTU-resursgränser för en enskild databas, se [resursgränser för enskilda databaser med hjälp av den DTU-baserade inköpsmodellen](sql-database-dtu-resource-limits-single-databases.md)
 - VCore-resursgränser för elastiska pooler, se [resursgränser för elastiska pooler med hjälp av den vCore-baserade inköpsmodellen](sql-database-vcore-resource-limits-elastic-pools.md)
-- DTU-resurs limites för elastiska pooler, se [resursgränser för elastiska pooler med hjälp av den DTU-baserade inköpsmodellen](sql-database-dtu-resource-limits-elastic-pools.md)
+- DTU-resursgränser för elastiska pooler, se [resursgränser för elastiska pooler med hjälp av den DTU-baserade inköpsmodellen](sql-database-dtu-resource-limits-elastic-pools.md)
 - Resursgränser för hanterade instanser, se [hanterad instans resursbegränsningar](sql-database-managed-instance-resource-limits.md).
 - Information om allmänna Azure-begränsningar finns i [Azure-prenumeration och tjänstbegränsningar, kvoter och begränsningar](../azure-subscription-service-limits.md).
 - Läs om hur resursbegränsningar på en databasserver, [översikt över resursgränser på en SQL-databasserver](sql-database-resource-limits-database-server.md) information om begränsningar på de server och prenumeration.

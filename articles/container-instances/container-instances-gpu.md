@@ -8,12 +8,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 11/29/2018
 ms.author: danlep
-ms.openlocfilehash: 2cbfb21469df45f29a70b5d10d8c99ecd894c30c
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: adb893a9d37219409f81b2fb402f2d4afd36aa34
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53755027"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57338866"
 ---
 # <a name="deploy-container-instances-that-use-gpu-resources"></a>Distribuera behållarinstanser som använder GPU-resurser
 
@@ -24,7 +24,7 @@ Som du ser i den här artikeln kan du kan lägga till GPU-resurser när du distr
 > [!IMPORTANT]
 > Den här funktionen finns för närvarande i förhandsversion och vissa [begränsningar gäller](#preview-limitations). Förhandsversioner är tillgängliga för dig under förutsättning att du godkänner de [kompletterande användningsvillkoren][terms-of-use]. Vissa aspekter av funktionen kan ändras innan den är allmänt tillgänglig (GA).
 
-## <a name="preview-limitations"></a>Begränsningar i förhandsversionen
+## <a name="preview-limitations"></a>Begränsningar för förhandsversion
 
 I förhandsversion begränsningar gäller följande när du använder GPU-resurser i grupper med behållare. 
 
@@ -85,6 +85,10 @@ Ange Processorn och minnesresurser passar arbetsbelastningen, upp till de högst
 
 * **CUDA drivrutiner** – Container instances med GPU-resurser är företablerade med NVIDIA CUDA-drivrutiner och behållarkörningar, så du kan använda behållaravbildningar som har utvecklats för CUDA-arbetsbelastningar.
 
+  Vi stöder CUDA 9.0 i det här skedet. Du kan exempelvis använda följande Källavbildningen Docker-filen:
+  * [nvidia/cuda:9.0-base-ubuntu16.04](https://hub.docker.com/r/nvidia/cuda/)
+  * [tensorflow/tensorflow: 1.12.0-gpu-py3](https://hub.docker.com/r/tensorflow/tensorflow)
+    
 ## <a name="yaml-example"></a>YAML-exempel
 
 Ett sätt att lägga till GPU-resurser är att distribuera en behållargrupp med en [YAML-fil](container-instances-multi-container-yaml.md). Kopiera följande YAML till en ny fil med namnet *gpu distribuera aci.yaml*, spara filen. Den här YAML skapar en behållargrupp med namnet *gpucontainergroup* att ange en behållarinstans med en K80 GPU. Instansen körs ett CUDA vektor tillägg-exempelprogram. Resursbegäranden är tillräckliga för att köra arbetsbelastningen.

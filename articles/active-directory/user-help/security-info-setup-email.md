@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7c6bf2c8ea6a2526f8548a785706e5ed3a7460ff
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 720aafac79a67f64b0974dba0dd60c6aa24a8c54
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56455219"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57342079"
 ---
 # <a name="set-up-security-info-preview-to-use-your-email-address"></a>Konfigurera säkerhetsinformation (förhandsversion) för att använda din e-postadress
 Du kan följa stegen nedan för att lägga till metoden för återställning av lösenord. När du har konfigurerat detta första gången kan du gå tillbaka till den **säkerhetsinformation** sidan för att lägga till, uppdatera eller ta bort din säkerhetsinformation.
@@ -36,11 +36,11 @@ Beroende på organisationens inställningar kan kanske du kan använda din e-pos
 
 1. Logga in på ditt arbets- eller skolkonto konto och gå sedan till din https://myprofile.microsoft.com/ sidan.
 
-    ![Min profil-sidan som visar markerad Security info länkar](media/security-info/securityinfo-myprofile.png)
+    ![Min profil-sidan som visar markerad Security info länkar](media/security-info/securityinfo-myprofile-page.png)
 
 2. Välj **säkerhetsinformation** från det vänstra navigeringsfönstret eller från länken i den **säkerhetsinformation** blockera och sedan välja **tilläggsmetod** från den **säkerhetsinformation**  sidan.
 
-    ![Sidan för Security information med markerade Lägg till metodalternativet](media/security-info/securityinfo-myprofile-addmethod.png)
+    ![Sidan för Security information med markerade Lägg till metodalternativet](media/security-info/securityinfo-myprofile-addmethod-page.png)
 
 3. På den **Lägg till en metod** väljer **e-post** från listrutan och välj sedan **Lägg till**.
 
@@ -89,6 +89,6 @@ Du har ytterligare alternativ för hur din organisation kontakter du verifiera d
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Återställa lösenordet om du har förlorat den, från den [portal för lösenordsåterställning](https://passwordreset.microsoftonline.com/) eller följer du stegen i den [återställa lösenordet för arbets- eller skolkonto](user-help-reset-password.md) artikeln.
+- Återställ lösenordet om du har tappat eller glömt det från [portalen för lösenordsåterställning](https://passwordreset.microsoftonline.com/) eller följ stegen i artikeln [Återställa lösenordet för arbets- eller skolkonto](user-help-reset-password.md).
 
-- Hämta felsöka tips och hjälp med inloggningsproblem i den [kan inte logga in på ditt Microsoft-konto](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant) artikeln.
+- Få felsökningstips och hjälp om inloggningsproblem i artikeln [Det går inte att logga in på ditt Microsoft-konto](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant).

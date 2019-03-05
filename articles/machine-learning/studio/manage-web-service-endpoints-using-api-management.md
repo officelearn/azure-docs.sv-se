@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 11/03/2017
-ms.openlocfilehash: b15fddcace19abcd1cd08d059c497c1c209f74d0
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: d4029d7f15918ea75ebcb10bfa8f8f7657eb11ca
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56823441"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57342589"
 ---
 # <a name="manage-azure-machine-learning-studio-web-services-using-api-management"></a>Hantera Azure Machine Learning Studio-webbtjänster som använder API Management
 ## <a name="overview"></a>Översikt
@@ -23,9 +23,6 @@ Den här guiden visar hur du snabbt kommer igång med att använda API Managemen
 
 ## <a name="what-is-azure-api-management"></a>Vad är Azure API Management?
 Azure API Management är en Azure-tjänst som låter dig hantera REST API-slutpunkter genom att definiera användaråtkomst, begränsning av nätverksbandbredd och instrumentpanelen för övervakning. Klicka på [här](https://azure.microsoft.com/services/api-management/) för information om Azure API Management. Klicka på [här](/azure/api-management/import-and-publish) en guide om hur du kommer igång med Azure API Management. Den här andra guiden som den här guiden är baserad på omfattar flera ämnen, t.ex. meddelande-konfigurationer, priserna för nivån, hantering av svar, autentisering av användare, skapa produkter, developer prenumerationer och användning dashboarding.
-
-## <a name="what-is-azureml"></a>Vad är AzureML?
-AzureML är en Azure-tjänst för maskininlärning som hjälper dig att enkelt bygga, distribuera och dela avancerade Analyslösningar. Klicka på [här](https://azure.microsoft.com/services/machine-learning/) mer information om AzureML.
 
 ## <a name="prerequisites"></a>Förutsättningar
 Du behöver följande för att slutföra den här guiden:

@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/02/2019
+ms.date: 03/04/2019
 ms.author: diberry
-ms.openlocfilehash: 621e691eaedb06c26b5e6a05a12d0b742c798172
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 98df1d9612d18e4ab5044bd92822b2df76286b12
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56864523"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57340872"
 ---
 # <a name="language-and-region-support-for-luis"></a>Stöd för språk och din region för LUIS
 
@@ -30,7 +30,7 @@ Om du behöver ett klientprogram för flera språk LUIS som en chattrobot finns 
 
 LUIS förstår yttranden på följande språk:
 
-| Språk |Nationell inställning  |  Fördefinierade domän | Fördefinierade entitet | Fras förslag | **[Textanalys](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)<br>(Känsla och<br>Nyckelord)|
+| Språk |Nationell inställning  |  Fördefinierade domän | Fördefinierade entitet | Fras lista rekommendationer | **[Textanalys](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)<br>(Känsla och<br>Nyckelord)|
 |--|--|:--:|:--:|:--:|:--:|
 | Amerikansk engelska |`en-US` | ✔ | ✔  |✔|✔|
 | *[Kinesiska](#chinese-support-notes) |`zh-CN` | ✔ | ✔ |✔|-|

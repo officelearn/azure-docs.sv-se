@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/28/2019
 ms.author: banders
-ms.openlocfilehash: c263669d7f74d8abebcd84e818ae2ccf2dcac0f0
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: ea625a61ed600dbaa22fef85987e9570a6fb7dbc
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57249247"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57337421"
 ---
 # <a name="get-started-with-your-billing-account-for-a-microsoft-customer-agreement"></a>Kom igång med ditt faktureringskonto för en Microsoft-kundavtal
 
@@ -28,13 +28,13 @@ Den här artikeln gäller för något faktureringskonto för en Microsoft-kundav
 
 ## <a name="understand-billing-account"></a>Förstå faktureringskonto
 
-Ditt faktureringskonto för Microsoft-kundavtal innehåller en eller flera fakturering profiler. Varje fakturering profil har sin egen faktura och betalning metoder. Fakturering profilen innehåller ett eller flera faktura-avsnitt som kan du ordna kostnaderna i fakturering profilens fakturan.
+Ditt faktureringskonto för Microsoft-kundavtal innehåller en eller flera fakturering profiler som låter dig hantera dina fakturor och betalningsmetoder. Varje fakturering profil innehåller en eller flera faktura-avsnitt som kan du ordna kostnaderna i fakturering profilens fakturan.
 
 Följande diagram visar relationen mellan en faktureringskonto, profiler för fakturering och faktura avsnitt.
 
 ![Diagram som visar fakturering hierarkin för Microsoft kundavtal](./media/billing-mca-overview/mca-billing-hierarchy.png)
 
-Roller på faktureringskontot ha den högsta nivån av behörigheter. Tilldela dessa roller till användare som behöver visa fakturor och spåra kostnader för hela organisationen som finans- eller IT-chefer. Mer information finns i [fakturering kontoroller och uppgifter](billing-understand-mca-roles.md#billing-account-roles-and-tasks).
+Roller på faktureringskontot ha den högsta nivån av behörigheter. Som standard får endast globala administratörer i din organisations Azure Active Directory du tillgång till faktureringskontot. Dessa roller ska tilldelas till användare som behöver visa fakturor och spåra kostnader för hela organisationen som finans- eller IT-chefer. Mer information finns i [fakturering kontoroller och uppgifter](billing-understand-mca-roles.md#billing-account-roles-and-tasks).
 
 ## <a name="understand-billing-profiles"></a>Förstå fakturering profiler
 
@@ -50,7 +50,7 @@ Roller på fakturering profiler har behörighet att visa och hantera fakturor oc
 
 En månadsfaktura genereras på fakturadatum för varje fakturering profil. Fakturan innehåller alla avgifter för föregående månad.
 
-Du kan visa fakturan, hämta dokument och ändrar inställningen för att hämta framtida fakturor via e-post i Azure-portalen. Mer information finns i [får fakturan i e-post](billing-download-azure-invoice-daily-usage-date.md#get-your-invoice-in-email-pdf).
+Du kan visa fakturan, hämta dokument och ändrar inställningen för att hämta framtida fakturor via e-post i Azure-portalen. Mer information finns i [ladda ner fakturor för en Microsoft-kundavtal](billing-download-azure-invoice-daily-usage-date.md#download-invoices-for-a-microsoft-customer-agreement).
 
 ### <a name="invoices-paid-through-payment-methods"></a>Fakturor betalda via betalningsmetoder
 
@@ -58,7 +58,7 @@ Varje fakturering profil har sin egen betalningsmetoder som används för att be
 
 | Type             | Definition  |
 |------------------|-------------|
-|Azure-krediter    |  Krediter tillämpas automatiskt på datamängd som faktureras på din faktura för att beräkna den mängd som du behöver betala. Mer information finns i [spåra Azure-saldot för din faktureringsinformation profil](billing-mca-check-azure-credits-balance.md). |
+|Azure-krediter    |  Krediter tillämpas automatiskt på datamängd som faktureras på din faktura för att beräkna den mängd som du behöver betala. Mer information finns i [spåra Azure saldot för din faktureringsinformation profil](billing-mca-check-azure-credits-balance.md). |
 |Check eller banköverföring | Du kan betala det förfallna beloppet för din faktura överföra genom kontroll eller under överföring. Instruktioner för betalning återfinns på fakturan |
 
 ### <a name="control-azure-marketplace-and-reservation-purchases-by-applying-policies"></a>Kontrollera Azure Marketplace och Reservation inköp genom att tillämpa principer
@@ -72,7 +72,7 @@ Azure planer aktiveras automatiskt när du skapar en profil för fakturering. Al
 | Planera             | Definition  |
 |------------------|-------------|
 |Microsoft Azure Plan   | Tillåt användare att skapa prenumerationer som kan köra alla arbetsbelastningar. Mer information finns i [planera för Microsoft Azure](https://azure.microsoft.com/offers/ms-azr-0017g/) |
-|Microsoft Azure-Plan för utveckling och testning | Tillåt Visual Studio-prenumeranter skapa prenumerationer som är begränsad för utveckling eller testning arbetsbelastningar. Dessa prenumerationer får förmåner, till exempel lägre pris och åtkomst till exklusiva avbildningar i Azure-portalen. Mer information finns i [Microsoft Azure planera för DevTest](https://azure.microsoft.com/offers/ms-azr-0148g/)| <!--- TODO - Add the link to plan details page -->
+|Microsoft Azure-Plan för utveckling och testning | Tillåt Visual Studio-prenumeranter skapa prenumerationer som är begränsad för utveckling eller testning arbetsbelastningar. Dessa prenumerationer får förmåner, till exempel lägre pris och åtkomst till exklusiva avbildningar i Azure-portalen. Mer information finns i [Microsoft Azure planera för DevTest](https://azure.microsoft.com/offers/ms-azr-0148g/)|
 
 ## <a name="understand-invoice-sections"></a>Förstå fakturan avsnitt
 
@@ -94,5 +94,5 @@ Om du behöver hjälp, [supporten](https://portal.azure.com/?#blade/Microsoft_Az
 Se följande artiklar för att lära dig om ditt faktureringskonto:
 
 - [Förstå Microsoft kundavtal administrativa roller i Azure](billing-understand-mca-roles.md)
-- [Skapa en Azure-prenumeration för ditt faktureringskonto för Microsoft kundavtal](billing-mca-create-subscription.md)
-- [Organisera kostnaderna med faktura avsnitt](billing-mca-section-invoice.md)
+- [Skapa en ytterligare Azure-prenumeration för Microsoft kundavtal](billing-mca-create-subscription.md)
+- [Skapa avsnitt på din faktura för att organisera dina kostnader](billing-mca-section-invoice.md)

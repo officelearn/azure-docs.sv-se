@@ -11,19 +11,19 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 09/22/2018
-ms.openlocfilehash: ec91eec9baba1f337f18e1927a87971bf1499040
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 363a4bd4be5e175aad346486b56c4f6efd877143
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53724155"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57340532"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-db-for-postgresql"></a>Begränsningar för kända problem/migrering med online migreringar till Azure DB för PostgreSQL
 
 I följande avsnitt beskrivs kända problem och begränsningar som är associerade med online migreringar från PostgreSQL till Azure Database för PostgreSQL. 
 
 ## <a name="online-migration-configuration"></a>Onlinemigrering konfiguration
-- Källan PostgreSQL-servern måste köra version 9.5.11, 9.6.7 eller 10.3 eller senare. Mer information finns i artikeln [versioner som stöds av PostgreSQL-databasen](../postgresql/concepts-supported-versions.md).
+- Källan PostgreSQL-servern måste köra version 9.5.11, 9.6.7 eller 10.3 eller senare. Mer information finns i artikeln [Versioner av PostgreSQL Database som stöds](../postgresql/concepts-supported-versions.md).
 - Endast samma version migreringar stöds. Till exempel stöds migrera PostgreSQL 9.5.11 till Azure Database för PostgreSQL 9.6.7 inte.
 - Att aktivera logiska replikering i den **source PostgreSQL postgresql.conf** fil, ange följande parametrar:
     - **wal_level** = logical
@@ -97,7 +97,7 @@ Stora objekt (LOB)-kolumner är kolumner som kan växa. För PostgreSQL är exem
     SELECT max(length(cast(body as text))) as body FROM customer_mail
     ```
 
-    **Lösning**: Om du har LOB-objekt som är större än 32 KB, kontakta teknikteamet på [ dmsfeedback@microsoft.com ](mailto:dmsfeedback@microsoft.com).
+    **Lösning**: Om du har LOB-objekt som är större än 32 KB, kontakta teknikteamet på [be Azure Databasmigreringar](mailto:AskAzureDatabaseMigrations@service.microsoft.com).
 
 - **Begränsningen**: Om det finns LOB-kolumner i tabellen och det finns inga primära nyckeluppsättning för tabellen, kan det inte att migrera data för den här tabellen.
 

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: douglasl
-ms.openlocfilehash: 408776b0b0053b2b2d45112568a2e28467123768
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: ba59ca4ac9a200c4579a4f71ff94be6bd554f180
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56805383"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57341569"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Use custom activities in an Azure Data Factory pipeline (Använda anpassade aktiviteter i en Azure Data Factory-pipeline)
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -107,12 +107,13 @@ I följande tabell beskrivs namn och beskrivningar för egenskaper som är speci
 | folderPath            | Sökvägen till mappen för anpassade program och alla dess beroenden<br/><br/>Om du har beroenden som lagras i undermappar – det vill säga i en hierarkisk mappstruktur under *folderPath* -mappstrukturen för närvarande förenklas när filerna har kopierats till Azure Batch. Det vill säga kopieras alla filer till en enda mapp med utan undermappar. Överväg att komprimerar filerna, kopiera den komprimerade filen och packat upp den med anpassad kod i önskad plats för att undvika problemet. | Nej&#42;       |
 | referenceObjects      | En matris med befintliga länkade tjänster och datauppsättningar. Refererade länkade tjänster och datauppsättningar som skickas till det anpassa programmet i JSON-format så att din anpassade kod kan hänvisa till resurser av Data Factory | Nej       |
 | extendedProperties    | Användardefinierade egenskaper som kan skickas till det anpassa programmet i JSON-format så att din anpassade kod kan referera till ytterligare egenskaper | Nej       |
+| retentionTimeInDays | Kvarhållningstid för filer som skickats för anpassad aktivitet. Standardvärdet är 30 dagar. | Nej |
 
 &#42;Egenskaperna `resourceLinkedService` och `folderPath` måste antingen anges eller båda utelämnas.
 
 > [!NOTE]
 > Om du skickar länkade tjänster som referenceObjects i anpassad aktivitet, är det en bra säkerhetsrutin att skicka ett Azure Key Vault aktiverat länkad tjänst (eftersom den inte innehåller någon säker strängar) och hämta autentiseringsuppgifterna med hemligt namn direkt från nyckel Valvet från koden. Du kan se ett exempel [här](https://github.com/nabhishek/customactivity_sample/tree/linkedservice) att referenser AKV aktiverade länkade tjänsten hämtar autentiseringsuppgifterna från Key Vault och sedan får åtkomst till lagringen i koden.  
- 
+
 ## <a name="custom-activity-permissions"></a>Behörigheter för anpassad aktivitet
 
 Den anpassade aktiviteten anger Azure Batch-kontot automatiskt användare till *inte är administratörer åtkomst med uppgiften omfattning* (standard automatiskt användare specifikation). Du kan inte ändra automatisk-användarkontot behörighetsnivå. Mer information finns i [kör aktiviteter på användarkonton i Batch | Automatisk användarkonton](../batch/batch-user-accounts.md#auto-user-accounts).
@@ -321,7 +322,7 @@ Komma åt egenskaper av typen *SecureString* från en anpassad aktivitet läsa d
 
 ## <a name="compare-v2-v1"></a> Jämför v2 anpassad aktivitet och version 1 (anpassad) DotNet-aktivitet
 
-I Azure Data Factory version 1 kan du implementera en (anpassad) DotNet-aktivitet genom att skapa en .net-klassbiblioteket projekt med en klass som implementerar den `Execute` -metoden för den `IDotNetActivity` gränssnitt. Den länkade tjänster, datauppsättningar och utökade egenskaper i JSON-nyttolast med en (anpassad) DotNet-aktivitet skickas till metoden körning som starkt typifierade objekt. Mer information om beteendet version 1 finns [(anpassad) DotNet i version 1](v1/data-factory-use-custom-activities.md). På grund av den här implementeringen har din version 1 DotNet-Aktivitetskod att fokusera på .net Framework 4.5.2. Version 1 DotNet aktiviteten har också köras på Windows-baserade Azure Batch-Pool-noder.
+I Azure Data Factory version 1 kan du implementera en (anpassad) DotNet-aktivitet genom att skapa en .net-klassbiblioteket projekt med en klass som implementerar den `Execute` -metoden för den `IDotNetActivity` gränssnitt. Den länkade tjänster, datauppsättningar och utökade egenskaper i JSON-nyttolast med en (anpassad) DotNet-aktivitet skickas till metoden körning som starkt typifierade objekt. Mer information om beteendet version 1 finns [(anpassad) DotNet i version 1](v1/data-factory-use-custom-activities.md). På grund av den här implementeringen har din version 1 DotNet-Aktivitetskod att fokusera på .NET Framework 4.5.2. Version 1 DotNet aktiviteten har också köras på Windows-baserade Azure Batch-Pool-noder.
 
 I Azure Data Factory V2 anpassade aktiviteten behöver du inte implementera ett .net-gränssnitt. Du kan nu direkt köra kommandon, skript och din egen kod, kompilerad som en körbar fil. Om du vill konfigurera den här implementeringen, anger du den `Command` egenskapen tillsammans med den `folderPath` egenskapen. Den anpassade aktiviteten laddar upp den körbara filen och dess beroenden till `folderpath` och kör kommandot för dig.
 
@@ -335,7 +336,7 @@ I följande tabell beskrivs skillnaderna mellan Data Factory V2 anpassad aktivit
 |Skillnader      | Anpassad aktivitet      | version 1 (anpassad) DotNet-aktivitet      |
 | ---- | ---- | ---- |
 |Hur anpassad logik har definierats      |Genom att tillhandahålla en körbar fil      |Genom att implementera ett .net DLL      |
-|Körningsmiljö för den anpassade logiken      |Windows- eller Linux      |Windows (.Net Framework 4.5.2)      |
+|Körningsmiljö för den anpassade logiken      |Windows- eller Linux      |Windows (.NET Framework 4.5.2)      |
 |Kör skript      |Har stöd för körning av skript direkt (till exempel ”cmd /c echo hello world” på Windows virtuell dator)      |Kräver implementering i .net DLL      |
 |Datauppsättning som krävs      |Valfri      |Krävs för att länka aktiviteter och skickar information      |
 |Skicka information från aktiviteten till anpassad logik      |Via ReferenceObjects (LinkedServices och datauppsättningar) och ExtendedProperties (anpassade egenskaper)      |Via ExtendedProperties (anpassade egenskaper), indata och utdata datauppsättningar      |

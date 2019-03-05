@@ -2,18 +2,18 @@
 title: Distribuera konfigurationsservern för VMware-haveriberedskap med Azure Site Recovery | Microsoft Docs
 description: Den här artikeln beskriver hur du distribuerar en konfigurationsserver för VMware-haveriberedskap med Azure Site Recovery
 services: site-recovery
-author: Rajeswari-Mamilla
+author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/05/2018
-ms.author: ramamill
-ms.openlocfilehash: 4260aaf814b344c1a30106651959d4e4e9ad2335
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.date: 02/28/2019
+ms.author: mayg
+ms.openlocfilehash: e7ee8f58e42f99ebc087f21837511979c578fb89
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56594227"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57340090"
 ---
 # <a name="deploy-a-configuration-server"></a>Distribuera en konfigurationsserver
 
@@ -121,7 +121,7 @@ Om du vill lägga till ett extra nätverkskort i konfigurationsservern, lägger 
 
 ### <a name="configure-settings"></a>Konfigurera inställningar
 
-1. I konfigurationsguiden för serverhantering väljer du **Ställ in anslutning** och väljer sedan det nätverkskort som processervern använder för att ta emot replikeringstrafik från virtuella datorer. Välj sedan **Spara**. Du kan inte ändra den här inställningen när den har konfigurerats. Det rekommenderas starkt att inte ändra IP-adressen för en konfigurationsserver. Se till att IP-Adressen som tilldelats till konfigurationsservern är statisk IP-adress och inte DHCP IP.
+1. I guiden Konfigurera serverhantering, väljer **Ställ in anslutning**. Först väljer du det nätverkskort som inbyggd processervern som används för identifiering och push-installation av mobilitetstjänsten på källdatorer listrutor, och sedan väljer du det nätverkskort som konfigurationsservern använder för anslutning till Azure. Välj sedan **Spara**. Du kan inte ändra den här inställningen när den har konfigurerats. Det rekommenderas starkt att inte ändra IP-adressen för en konfigurationsserver. Se till att IP-Adressen som tilldelats till konfigurationsservern är statisk IP-adress och inte DHCP IP.
 2. I **Välj Recovery Services-valv**, logga in på Microsoft Azure med autentiseringsuppgifter som används i **steg 6** av ”[registrera konfigurationsservern med Azure Site Recovery Services](#register-the-configuration-server-with-azure-site-recovery-services)” .
 3. Efter inloggningen, väljer du din Azure-prenumeration samt relevant resursgrupp och valv.
 

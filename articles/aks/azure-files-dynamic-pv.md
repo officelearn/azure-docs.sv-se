@@ -5,26 +5,26 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 10/08/2018
+ms.date: 03/01/2019
 ms.author: iainfou
-ms.openlocfilehash: 2cf9a98a2f27c9088266a976118acdb56f8a65d7
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: 43f3a55bc820a232ccebc3a940faa86f9eb730f7
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56300830"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57338271"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-files-in-azure-kubernetes-service-aks"></a>Dynamiskt skapa och använda en permanent volym med Azure Files i Azure Kubernetes Service (AKS)
 
 En permanent volym representerar en typ av lagring som har etablerats för användning med Kubernetes-poddar. En permanent volym kan användas av en eller flera poddar och kan etableras statiskt eller dynamiskt. Om flera poddar behöver samtidig åtkomst till samma lagringsvolymen kan du använda Azure Files för att ansluta med den [Server Message Block (SMB) protokollet][smb-overview]. Den här artikeln visar hur du skapar en Azure Files-resurs för användning av flera poddar dynamiskt i ett kluster i Azure Kubernetes Service (AKS).
 
-Mer information om Kubernetes beständiga volymer finns i [Kubernetes beständiga volymer][kubernetes-volumes].
+Mer information om Kubernetes volymer finns i [lagringsalternativ för program i AKS][concepts-storage].
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
 Den här artikeln förutsätter att du har ett befintligt AKS-kluster. Om du behöver ett AKS-kluster finns i snabbstarten om AKS [med Azure CLI] [ aks-quickstart-cli] eller [med Azure portal][aks-quickstart-portal].
 
-Du måste också ha installerat och konfigurerat Azure CLI version 2.0.46 eller senare. Kör  `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa  [Installera Azure CLI 2.0][install-azure-cli].
+Du också ha Azure CLI version 2.0.59 eller senare installerat och konfigurerat. Kör  `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa  [Installera Azure CLI 2.0][install-azure-cli].
 
 ## <a name="create-a-storage-class"></a>Skapa en storage-klass
 
@@ -127,7 +127,7 @@ kubectl apply -f azure-file-pvc.yaml
 
 När klar skapas filresursen. En Kubernetes-hemlighet skapas också som innehåller anslutningsinformationen och autentiseringsuppgifterna. Du kan använda den [kubectl hämta] [ kubectl-get] kommando för att visa status för PVC: N:
 
-```
+```console
 $ kubectl get pvc azurefile
 
 NAME        STATUS    VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS   AGE
@@ -180,7 +180,7 @@ Containers:
     Image:          nginx:1.15.5
     Image ID:       docker-pullable://nginx@sha256:d85914d547a6c92faa39ce7058bd7529baacab7e0cd4255442b04577c4d1f424
     State:          Running
-      Started:      Wed, 15 Aug 2018 22:22:27 +0000
+      Started:      Fri, 01 Mar 2019 23:56:16 +0000
     Ready:          True
     Mounts:
       /mnt/azure from volume (rw)
@@ -223,32 +223,11 @@ parameters:
   skuName: Standard_LRS
 ```
 
-Om du använder ett kluster av version 1.8.5 återställning eller större och statiskt skapar objektet permanent volym, monteringsalternativ måste anges på den *PersistentVolume* objekt. Läs mer om hur du skapar en permanent volym statiskt [Statiska beständiga volymer][pv-static].
-
-```yaml
-apiVersion: v1
-kind: PersistentVolume
-metadata:
-  name: azurefile
-spec:
-  capacity:
-    storage: 5Gi
-  accessModes:
-    - ReadWriteMany
-  azureFile:
-    secretName: azure-secret
-    shareName: azurefile
-    readOnly: false
-  mountOptions:
-  - dir_mode=0777
-  - file_mode=0777
-  - uid=1000
-  - gid=1000
-```
-
 Om du använder ett kluster av version 1.8.0 - 1.8.4, en säkerhetskontext kan bara anges med den *användare* värdet *0*. Läs mer på Pod säkerhetskontext [konfigurera en säkerhetskontext][kubernetes-security-context].
 
 ## <a name="next-steps"></a>Nästa steg
+
+Associerade metodtips finns [bästa praxis för lagring och säkerhetskopiering i AKS][operator-best-practices-storage].
 
 Läs mer om Kubernetes beständiga volymer med Azure Files.
 
@@ -266,7 +245,6 @@ Läs mer om Kubernetes beständiga volymer med Azure Files.
 [kubernetes-storage-classes]: https://kubernetes.io/docs/concepts/storage/storage-classes/#azure-file
 [kubernetes-volumes]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/
 [pv-static]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/#static
-[kubernetes-rbac]: https://kubernetes.io/docs/reference/access-authn-authz/rbac/
 [smb-overview]: /windows/desktop/FileIO/microsoft-smb-protocol-and-cifs-protocol-overview
 
 <!-- LINKS - internal -->
@@ -283,3 +261,6 @@ Läs mer om Kubernetes beständiga volymer med Azure Files.
 [install-azure-cli]: /cli/azure/install-azure-cli
 [az-aks-show]: /cli/azure/aks#az-aks-show
 [storage-skus]: ../storage/common/storage-redundancy.md
+[kubernetes-rbac]: concepts-identity.md#role-based-access-controls-rbac
+[operator-best-practices-storage]: operator-best-practices-storage.md
+[concepts-storage]: concepts-storage.md

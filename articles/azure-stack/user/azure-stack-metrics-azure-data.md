@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/01/2018
+ms.date: 03/04/2018
 ms.author: mabrigg
 ms.lastreviewed: 12/01/2018
-ms.openlocfilehash: c16f218903557a6d3a10f3ef201587d2885fffa9
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: b8df87e5d5091219b9b44a6b957250e254c97fec
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55239119"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57341822"
 ---
 # <a name="azure-monitor-on-azure-stack"></a>Azure Monitor på Azure Stack
 
@@ -27,7 +27,7 @@ ms.locfileid: "55239119"
 
 Den här artikeln innehåller en översikt över Azure Monitor-tjänsten i Azure Stack. Det diskuterar hur Azure Monitor och ytterligare information om hur du använder Azure Monitor på Azure Stack. 
 
-En introduktion översikt och hur du kommer igång med Azure Monitor finns i globala Azure-artikeln [Kom igång med Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-get-started).
+En introduktion översikt och hur du kommer igång med Azure Monitor finns i globala Azure-artikeln [Kom igång med Azure Monitor på Azure Stack](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-get-started).
 
 ![Azure Stack Monitor-bladet](./media/azure-stack-metrics-azure-data/azs-monitor.png)
 
@@ -36,7 +36,7 @@ Azure Monitor är plattformstjänst som tillhandahåller en enda källa för öv
 > [!Note]  
 Mått och diagnostikloggar är inte tillgängliga för Azure Stack Development Kit.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites-for-azure-monitor-on-azure-stack"></a>Krav för Azure Monitor på Azure Stack
 
 Registrera den **Microsoft.insights** resursprovidern på din prenumeration erbjudandet resursinställningar providers. Du kan kontrollera att resursprovidern är tillgänglig i erbjudandet som är associerade med din prenumeration:
 
@@ -46,13 +46,13 @@ Registrera den **Microsoft.insights** resursprovidern på din prenumeration erbj
 4. Välj **resursprovidrar** under **inställningar.** 
 5. Hitta **Microsoft.Insights** i listan och kontrollera att statusen är **registrerad.**.
 
-## <a name="overview"></a>Översikt
+## <a name="overview-of-azure-monitor-on-azure-stack"></a>Översikt över Azure Monitor på Azure Stack
 
 Som Azure Monitor på Azure ger Azure Monitor på Azure Stack beroende på infrastruktur-mått och loggar för de flesta tjänster.
 
-## <a name="azure-monitor-sources-compute-subset"></a>Med Azure monitor källor: compute delmängd
+## <a name="azure-monitor-sources-compute-subset"></a>Azure Monitor-källor: compute delmängd
 
-![Med Azure monitor datakällor - beräkning delmängd](media//azure-stack-metrics-azure-data/azs-monitor-computersubset.png)
+![Azure Monitor på Azure Stack datakällor - beräkning delmängd](media//azure-stack-metrics-azure-data/azs-monitor-computersubset.png)
 
 Den **Microsoft.Compute** resursprovidern i Azure Stack innehåller:
  - Virtuella datorer 
@@ -86,7 +86,7 @@ Du kan söka aktivitetsloggar för information om dina beräkningsresurser som s
 
 ## <a name="azure-monitor-sources-everything-else"></a>Med Azure monitor källor: allt annat
 
-![Med Azure monitor källor – allt annat](media//azure-stack-metrics-azure-data/azs-monitor-othersubset.png)
+![Azure Monitor på Azure Stack-källor – allt annat](media//azure-stack-metrics-azure-data/azs-monitor-othersubset.png)
 
 ### <a name="resources---metrics-and-diagnostics-logs"></a>Resurser - mått och diagnostik för loggar
 

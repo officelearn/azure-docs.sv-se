@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 02/28/2019
 ms.author: diberry
-ms.openlocfilehash: 923d6aa6864f1fba42890c7f7ec5642dab47a282
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 83f7cc7c0da2682244fa9c4e0e2b153aff2e2380
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57213287"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57339308"
 ---
 # <a name="number-prebuilt-entity-for-a-luis-app"></a>Antal fördefinierade entitet för en LUIS-app
 Det finns många sätt som numeriska värden som används för att kvantifiera, express och beskriver typer av information. Den här artikeln beskriver bara några av exempel som möjligt. LUIS tolkar variationerna i användaren uttryck och returnerar konsekvent numeriska värden. Eftersom den här entiteten har redan tränats, behöver du inte lägga till exempel yttranden som innehåller tal som ska programmet avsikter. 

@@ -6,14 +6,14 @@ ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 1/31/2019
+ms.date: 03/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: a5a42f544fa2552dc7bc85b4bee67925291bef00
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: 331f7e58f1ef74d2cb8b7ab7e0f90ae16f740fd4
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56992422"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57341994"
 ---
 # <a name="enable-azure-disk-encryption-for-windows-iaas-vms"></a>Aktivera Azure Disk Encryption för Windows virtuella IaaS-datorer
 
@@ -39,30 +39,32 @@ I det här scenariot kan du aktivera kryptering med hjälp av en mall, PowerShel
 ### <a name="bkmk_RunningWinVMPSH"></a> Aktivera kryptering på befintliga eller köra virtuella datorer med Azure PowerShell 
 Använd den [Set-AzVMDiskEncryptionExtension](/powershell/module/az.compute/set-azvmdiskencryptionextension) cmdlet för att aktivera kryptering på en aktiv IaaS virtuell dator i Azure. 
 
--  **Kryptera en aktiv virtuell dator:** Skriptet nedan initierar dina variabler och kör cmdleten Set-AzVMDiskEncryptionExtension. Den resursgrupp, virtuell dator och nyckelvalvet bör redan har skapats som krav. Ersätt MySecureRg och MySecureVM MySecureVault med dina värden.
+-  **Kryptera en aktiv virtuell dator:** Skriptet nedan initierar dina variabler och kör cmdleten Set-AzVMDiskEncryptionExtension. Den resursgrupp, virtuell dator och nyckelvalvet bör redan har skapats som krav. Ersätt MyKeyVaultResourceGroup, MyVirtualMachineResourceGroup, MySecureVM och MySecureVault med dina värden.
 
-     ```azurepowershell-interactive
-      $rgName = 'MySecureRg';
+     ```azurepowershell
+      $KVRGname = 'MyKeyVaultResourceGroup';
+      $VMRGName = 'MyVirtualMachineResourceGroup';
       $vmName = 'MySecureVM';
       $KeyVaultName = 'MySecureVault';
-      $KeyVault = Get-AzKeyVault -VaultName $KeyVaultName -ResourceGroupName $rgname;
+      $KeyVault = Get-AzKeyVault -VaultName $KeyVaultName -ResourceGroupName $KVRGname;
       $diskEncryptionKeyVaultUrl = $KeyVault.VaultUri;
       $KeyVaultResourceId = $KeyVault.ResourceId;
 
-      Set-AzVMDiskEncryptionExtension -ResourceGroupName $rgname -VMName $vmName -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId;
+      Set-AzVMDiskEncryptionExtension -ResourceGroupName $VMRGname -VMName $vmName -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId;
     ```
 - **Kryptera en aktiv virtuell dator med hjälp av KEK:** 
 
-     ```azurepowershell-interactive
-     $rgName = 'MySecureRg';
+     ```azurepowershell
+     $KVRGname = 'MyKeyVaultResourceGroup';
+     $VMRGName = 'MyVirtualMachineResourceGroup';
      $KeyVaultName = 'MySecureVault';
      $keyEncryptionKeyName = 'MyKeyEncryptionKey';
-     $KeyVault = Get-AzKeyVault -VaultName $KeyVaultName -ResourceGroupName $rgname;
+     $KeyVault = Get-AzKeyVault -VaultName $KeyVaultName -ResourceGroupName $KVRGname;
      $diskEncryptionKeyVaultUrl = $KeyVault.VaultUri;
      $KeyVaultResourceId = $KeyVault.ResourceId;
      $keyEncryptionKeyUrl = (Get-AzureKeyVaultKey -VaultName $KeyVaultName -Name $keyEncryptionKeyName).Key.kid;
 
-     Set-AzVMDiskEncryptionExtension -ResourceGroupName $rgname -VMName $vmName -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId -KeyEncryptionKeyUrl $keyEncryptionKeyUrl -KeyEncryptionKeyVaultId $KeyVaultResourceId;
+     Set-AzVMDiskEncryptionExtension -ResourceGroupName $VMRGname -VMName $vmName -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId -KeyEncryptionKeyUrl $keyEncryptionKeyUrl -KeyEncryptionKeyVaultId $KeyVaultResourceId;
 
      ```
      
@@ -71,13 +73,13 @@ Använd den [Set-AzVMDiskEncryptionExtension](/powershell/module/az.compute/set-
 
 - **Kontrollera att diskarna är krypterade:** Om du vill kontrollera statusen för kryptering av en IaaS-VM, använda den [Get-AzVmDiskEncryptionStatus](/powershell/module/az.compute/get-azvmdiskencryptionstatus) cmdlet. 
      ```azurepowershell-interactive
-     Get-AzVmDiskEncryptionStatus -ResourceGroupName 'MySecureRg' -VMName 'MySecureVM'
+     Get-AzVmDiskEncryptionStatus -ResourceGroupName 'MyVirtualMachineResourceGroup' -VMName 'MySecureVM'
      ```
     
 - **Inaktivera diskkryptering:** Om du vill inaktivera kryptering, använda den [inaktivera AzVMDiskEncryption](/powershell/module/az.compute/disable-azvmdiskencryption) cmdlet. Inaktivera data-diskkryptering på virtuella Windows-datorn när både Operativsystemet och datadiskarna har krypterats fungerar inte som förväntat. Inaktivera kryptering på alla diskar i stället.
 
      ```azurepowershell-interactive
-     Disable-AzVMDiskEncryption -ResourceGroupName 'MySecureRG' -VMName 'MySecureVM'
+     Disable-AzVMDiskEncryption -ResourceGroupName 'MyVirtualMachineResourceGroup' -VMName 'MySecureVM'
      ```
 
 ### <a name="bkmk_RunningWinVMCLI"></a>Aktivera kryptering på befintliga eller köra virtuella datorer med Azure CLI
@@ -86,13 +88,13 @@ Använd den [az vm encryption aktivera](/cli/azure/vm/encryption#az-vm-encryptio
 -  **Kryptera en aktiv virtuell dator:**
 
      ```azurecli-interactive
-     az vm encryption enable --resource-group "MySecureRg" --name "MySecureVM" --disk-encryption-keyvault "MySecureVault" --volume-type [All|OS|Data]
+     az vm encryption enable --resource-group "MyVirtualMachineResourceGroup" --name "MySecureVM" --disk-encryption-keyvault "MySecureVault" --volume-type [All|OS|Data]
      ```
 
 - **Kryptera en aktiv virtuell dator med hjälp av KEK:**
 
      ```azurecli-interactive
-     az vm encryption enable --resource-group "MySecureRg" --name "MySecureVM" --disk-encryption-keyvault  "MySecureVault" --key-encryption-key "MyKEK_URI" --key-encryption-keyvault "MySecureVaultContainingTheKEK" --volume-type [All|OS|Data]
+     az vm encryption enable --resource-group "MyVirtualMachineResourceGroup" --name "MySecureVM" --disk-encryption-keyvault  "MySecureVault" --key-encryption-key "MyKEK_URI" --key-encryption-keyvault "MySecureVaultContainingTheKEK" --volume-type [All|OS|Data]
      ```
 
      >[!NOTE]
@@ -101,13 +103,13 @@ Använd den [az vm encryption aktivera](/cli/azure/vm/encryption#az-vm-encryptio
 - **Kontrollera att diskarna är krypterade:** Om du vill kontrollera statusen för kryptering av en IaaS-VM, använda den [az vm encryption show](/cli/azure/vm/encryption#az-vm-encryption-show) kommando. 
 
      ```azurecli-interactive
-     az vm encryption show --name "MySecureVM" --resource-group "MySecureRg"
+     az vm encryption show --name "MySecureVM" --resource-group "MyVirtualMachineResourceGroup"
      ```
 
 - **Inaktivera kryptering:** Inaktivera kryptering med den [az vm encryption inaktivera](/cli/azure/vm/encryption#az-vm-encryption-disable) kommando. Inaktivera data-diskkryptering på virtuella Windows-datorn när både Operativsystemet och datadiskarna har krypterats fungerar inte som förväntat. Inaktivera kryptering på alla diskar i stället.
 
      ```azurecli-interactive
-     az vm encryption disable --name "MySecureVM" --resource-group "MySecureRg" --volume-type [ALL, DATA, OS]
+     az vm encryption disable --name "MySecureVM" --resource-group "MyVirtualMachineResourceGroup" --volume-type [ALL, DATA, OS]
      ```
  
  > [!NOTE]
@@ -128,7 +130,7 @@ I följande tabell visas Resource Manager-mallens parametrar för befintliga ell
 | Parameter | Beskrivning |
 | --- | --- |
 | vmName | Namnet på den virtuella datorn att köra krypteringsåtgärden. |
-| keyVaultName | Namnet på nyckelvalvet som BitLocker-nyckel ska överföras till. Du kan hämta den med hjälp av cmdleten `(Get-AzKeyVault -ResourceGroupName <MyResourceGroupName>). Vaultname` eller Azure CLI-kommando `az keyvault list --resource-group "MySecureGroup" |ConvertFrom-JSON`|
+| keyVaultName | Namnet på nyckelvalvet som BitLocker-nyckel ska överföras till. Du kan hämta den med hjälp av cmdleten `(Get-AzKeyVault -ResourceGroupName <MyKeyVaultResourceGroupName>). Vaultname` eller Azure CLI-kommando ' az keyvault list--resource-group ”MyKeyVaultResourceGroup” |ConvertFrom-JSON ”|
 | keyVaultResourceGroup | Namnet på resursgruppen som innehåller nyckelvalvet|
 |  KeyEncryptionKeyURL | URL för nyckelkrypteringsnyckel som används för att kryptera den genererade BitLocker-nyckeln. Den här parametern är valfri om du väljer **nokek** i listrutan UseExistingKek. Om du väljer **kek** i listrutan UseExistingKek måste du ange den _keyEncryptionKeyURL_ värde. |
 | VolumeType | Typ av volym som krypteringsåtgärden utförs på. Giltiga värden är _OS_, _Data_, och _alla_. 
@@ -161,28 +163,30 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
 Använd den [Set-AzVmssDiskEncryptionExtension](/powershell/module/az.compute/set-azvmssdiskencryptionextension) cmdlet för att aktivera kryptering på en Windows VM-skalningsuppsättning. Den resursgrupp, virtuell dator och nyckelvalvet bör redan har skapats som krav.
 
 -  **Kryptera en VM-skalningsuppsättning**:
-    ```azurepowershell-interactive
-     $rgName= "MySecureRg";
+    ```azurepowershell
+     $KVRGname = 'MyKeyVaultResourceGroup';
+     $VMSSRGname = 'MyVMScaleSetResourceGroup';
      $VmssName = "MySecureVmss";
      $KeyVaultName= "MySecureVault";
-     $KeyVault = Get-AzKeyVault -VaultName $KeyVaultName -ResourceGroupName $rgName;
+     $KeyVault = Get-AzKeyVault -VaultName $KeyVaultName -ResourceGroupName $KVRGname;
      $DiskEncryptionKeyVaultUrl = $KeyVault.VaultUri;
      $KeyVaultResourceId = $KeyVault.ResourceId;
-     Set-AzVmssDiskEncryptionExtension -ResourceGroupName $rgName -VMScaleSetName $VmssName -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId;
+     Set-AzVmssDiskEncryptionExtension -ResourceGroupName $VMSSRGame -VMScaleSetName $VmssName -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId;
 
 
 -  **Encrypt a running virtual machine scale set using KEK to wrap the key**:
 
-    ```azurepowershell-interactive
-     $rgName= "MySecureRg";
+    ```azurepowershell
+     $KVRGname = 'MyKeyVaultResourceGroup';
+     $VMSSRGname = 'MyVMScaleSetResourceGroup';
      $VmssName = "MySecureVmss";
      $KeyVaultName= "MySecureVault";
      $keyEncryptionKeyName = "MyKeyEncryptionKey";
-     $KeyVault = Get-AzKeyVault -VaultName $KeyVaultName -ResourceGroupName $rgName;
+     $KeyVault = Get-AzKeyVault -VaultName $KeyVaultName -ResourceGroupName $KVRGname;
      $DiskEncryptionKeyVaultUrl = $KeyVault.VaultUri;
      $KeyVaultResourceId = $KeyVault.ResourceId;
      $KeyEncryptionKeyUrl = (Get-AzKeyVaultKey -VaultName $KeyVaultName -Name $keyEncryptionKeyName).Key.kid;
-     Set-AzRmVmssDiskEncryptionExtension -ResourceGroupName $rgName -VMScaleSetName $VmssName -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId -KeyEncryptionKeyUrl $KeyEncryptionKeyUrl -KeyEncryptionKeyVaultId $KeyVaultResourceId;
+     Set-AzRmVmssDiskEncryptionExtension -ResourceGroupName $VMSSRGame -VMScaleSetName $VmssName -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId -KeyEncryptionKeyUrl $KeyEncryptionKeyUrl -KeyEncryptionKeyVaultId $KeyVaultResourceId;
     ```
 
    >[!NOTE]
@@ -191,13 +195,13 @@ Använd den [Set-AzVmssDiskEncryptionExtension](/powershell/module/az.compute/se
 - **Hämta krypteringsstatus för en VM-skalningsuppsättning:** Använd den [Get-AzRmVmssVMDiskEncryption](/powershell/module/azurerm.compute/get-azurermvmssvmdiskencryption) cmdlet.
     
     ```azurepowershell-interactive
-    get-AzVmssVMDiskEncryption -ResourceGroupName "MySecureRG" -VMScaleSetName "MySecureVmss"
+    get-AzVmssVMDiskEncryption -ResourceGroupName "MyVMScaleSetResourceGroup" -VMScaleSetName "MySecureVmss"
     ```
 
 - **Inaktivera kryptering på en VM-skalningsuppsättning**: Använd den [inaktivera AzVmssDiskEncryption](/powershell/module/az.compute/disable-azvmssdiskencryption) cmdlet. 
 
     ```azurepowershell-interactive
-    Disable-AzVmssDiskEncryption -ResourceGroupName "MySecureRG" -VMScaleSetName "MySecureVmss"
+    Disable-AzVmssDiskEncryption -ResourceGroupName "MyVMScaleSetResourceGroup" -VMScaleSetName "MySecureVmss"
     ```
 
 ### <a name="register-for-disk-encryption-preview-using-azure-cli"></a>Registrera dig för förhandsversion av disk encryption med Azure CLI
@@ -222,12 +226,12 @@ Använd den [az vmss-kryptering aktiverar](/cli/azure/vmss/encryption#az-vmss-en
 
 -  **Kryptera en VM-skalningsuppsättning**
     ```azurecli-interactive
-     az vmss encryption enable --resource-group "MySecureRG" --name "MySecureVmss" --disk-encryption-keyvault "MySecureVault" 
+     az vmss encryption enable --resource-group "MyVMScaleSetResourceGroup" --name "MySecureVmss" --disk-encryption-keyvault "MySecureVault" 
     ```
 
 -  **Kryptera en aktiv virtuell dator skalningsuppsättning med KEK du omsluter nyckeln**
     ```azurecli-interactive
-     az vmss encryption enable --resource-group "MySecureRG" --name "MySecureVmss" --disk-encryption-keyvault "MySecureVault" --key-encryption-key "MyKEK" --key-encryption-keyvault "MySecureVault" 
+     az vmss encryption enable --resource-group "MyVMScaleSetResourceGroup" --name "MySecureVmss" --disk-encryption-keyvault "MySecureVault" --key-encryption-key "MyKEK" --key-encryption-keyvault "MySecureVault" 
 
      ```
      
@@ -237,12 +241,12 @@ Använd den [az vmss-kryptering aktiverar](/cli/azure/vmss/encryption#az-vmss-en
 - **Hämta krypteringsstatus för en VM-skalningsuppsättning:** Använd [az vmss kryptering show](/cli/azure/vmss/encryption#az-vmss-encryption-show)
 
     ```azurecli-interactive
-     az vmss encryption show --resource-group "MySecureRG" --name "MySecureVmss"
+     az vmss encryption show --resource-group "MyVMScaleSetResourceGroup" --name "MySecureVmss"
     ```
 
 - **Inaktivera kryptering på en VM-skalningsuppsättning**: Använd [az vmss kryptering inaktivera](/cli/azure/vmss/encryption#az-vmss-encryption-disable)
     ```azurecli-interactive
-     az vmss encryption disable --resource-group "MySecureRG" --name "MySecureVmss"
+     az vmss encryption disable --resource-group "MyVMScaleSetResourceGroup" --name "MySecureVmss"
     ```
 
 ### <a name="azure-resource-manager-templates-for-windows-virtual-machine-scale-sets"></a>Anger om Azure Resource Manager-mallar för Windows VM-skalningsuppsättning
@@ -275,10 +279,10 @@ Följ instruktionerna i tillägget för att förbereda förkrypterade avbildning
 ### <a name="bkmk_VHDprePSH"> </a> Kryptera virtuella datorer med förkrypterade virtuella hårddiskar med Azure PowerShell
 Du kan aktivera diskkryptering på en krypterad virtuell Hårddisk med hjälp av PowerShell-cmdleten [Set-AzVMOSDisk](/powershell/module/az.compute/set-azvmosdisk#examples). I exemplet nedan visas några vanliga parametrar. 
 
-```azurepowershell-interactive
+```azurepowershell
 $VirtualMachine = New-AzVMConfig -VMName "MySecureVM" -VMSize "Standard_A1"
-$VirtualMachine = Set-AzVMOSDisk -VM $VirtualMachine -Name "SecureOSDisk" -VhdUri "os.vhd" Caching ReadWrite -Windows -CreateOption "Attach" -DiskEncryptionKeyUrl "https://mytestvault.vault.azure.net/secrets/Test1/514ceb769c984379a7e0230bddaaaaaa" -DiskEncryptionKeyVaultId "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.KeyVault/vaults/mytestvault"
-New-AzVM -VM $VirtualMachine -ResourceGroupName "MySecureRG"
+$VirtualMachine = Set-AzVMOSDisk -VM $VirtualMachine -Name "SecureOSDisk" -VhdUri "os.vhd" Caching ReadWrite -Windows -CreateOption "Attach" -DiskEncryptionKeyUrl "https://mytestvault.vault.azure.net/secrets/Test1/514ceb769c984379a7e0230bddaaaaaa" -DiskEncryptionKeyVaultId "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myKVresourcegroup/providers/Microsoft.KeyVault/vaults/mytestvault"
+New-AzVM -VM $VirtualMachine -ResourceGroupName "MyVirtualMachineResourceGroup"
 ```
 
 ## <a name="enable-encryption-on-a-newly-added-data-disk"></a>Aktivera kryptering på en nyligen tillagd datadisk
@@ -289,33 +293,35 @@ Du kan [lägga till en ny disk till en Windows virtuell dator med hjälp av Powe
   
  
 
--  **Kryptera en aktiv virtuell dator:** Skriptet nedan initierar dina variabler och kör cmdleten Set-AzVMDiskEncryptionExtension. Den resursgrupp, virtuell dator och nyckelvalvet bör redan har skapats som krav. Ersätt MySecureRg och MySecureVM MySecureVault med dina värden. Det här exemplet använder ”alla” för parametern - VolumeType som innehåller både OS- och datavolymer. Om du bara vill kryptera operativsystemvolymen använda ”OS” för parametern - VolumeType. 
+-  **Kryptera en aktiv virtuell dator:** Skriptet nedan initierar dina variabler och kör cmdleten Set-AzVMDiskEncryptionExtension. Den resursgrupp, virtuell dator och nyckelvalvet bör redan har skapats som krav. Ersätt MyKeyVaultResourceGroup, MyVirtualMachineResourceGroup, MySecureVM och MySecureVault med dina värden. Det här exemplet använder ”alla” för parametern - VolumeType som innehåller både OS- och datavolymer. Om du bara vill kryptera operativsystemvolymen använda ”OS” för parametern - VolumeType. 
 
-     ```azurepowershell-interactive
-      $sequenceVersion = [Guid]::NewGuid();
-      $rgName = 'MySecureRg';
+     ```azurepowershell
+      $KVRGname = 'MyKeyVaultResourceGroup';
+      $VMRGName = 'MyVirtualMachineResourceGroup';
       $vmName = 'MySecureVM';
       $KeyVaultName = 'MySecureVault';
-      $KeyVault = Get-AzKeyVault -VaultName $KeyVaultName -ResourceGroupName $rgname;
+      $KeyVault = Get-AzKeyVault -VaultName $KeyVaultName -ResourceGroupName $KVRGname;
       $diskEncryptionKeyVaultUrl = $KeyVault.VaultUri;
       $KeyVaultResourceId = $KeyVault.ResourceId;
+      $sequenceVersion = [Guid]::NewGuid();
 
-      Set-AzVMDiskEncryptionExtension -ResourceGroupName $rgname -VMName $vmName -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId -VolumeType "All" –SequenceVersion $sequenceVersion;
+      Set-AzVMDiskEncryptionExtension -ResourceGroupName $VMRGname -VMName $vmName -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId -VolumeType "All" –SequenceVersion $sequenceVersion;
     ```
 - **Kryptera en aktiv virtuell dator med hjälp av KEK:** Det här exemplet använder ”alla” för parametern - VolumeType som innehåller både OS- och datavolymer. Om du bara vill kryptera operativsystemvolymen använda ”OS” för parametern - VolumeType.
 
-     ```azurepowershell-interactive
-     $sequenceVersion = [Guid]::NewGuid();
-     $rgName = 'MySecureRg';
+     ```azurepowershell
+     $KVRGname = 'MyKeyVaultResourceGroup';
+     $VMRGName = 'MyVirtualMachineResourceGroup';
      $vmName = 'MyExtraSecureVM';
      $KeyVaultName = 'MySecureVault';
      $keyEncryptionKeyName = 'MyKeyEncryptionKey';
-     $KeyVault = Get-AzKeyVault -VaultName $KeyVaultName -ResourceGroupName $rgname;
+     $KeyVault = Get-AzKeyVault -VaultName $KeyVaultName -ResourceGroupName $KVRGname;
      $diskEncryptionKeyVaultUrl = $KeyVault.VaultUri;
      $KeyVaultResourceId = $KeyVault.ResourceId;
      $keyEncryptionKeyUrl = (Get-AzureKeyVaultKey -VaultName $KeyVaultName -Name $keyEncryptionKeyName).Key.kid;
+     $sequenceVersion = [Guid]::NewGuid();
 
-     Set-AzVMDiskEncryptionExtension -ResourceGroupName $rgname -VMName $vmName -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId -KeyEncryptionKeyUrl $keyEncryptionKeyUrl -KeyEncryptionKeyVaultId $KeyVaultResourceId -VolumeType "All" –SequenceVersion $sequenceVersion;
+     Set-AzVMDiskEncryptionExtension -ResourceGroupName $VMRGname -VMName $vmName -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId -KeyEncryptionKeyUrl $keyEncryptionKeyUrl -KeyEncryptionKeyVaultId $KeyVaultResourceId -VolumeType "All" –SequenceVersion $sequenceVersion;
 
      ```
 
@@ -328,13 +334,13 @@ Du kan [lägga till en ny disk till en Windows virtuell dator med hjälp av Powe
 -  **Kryptera en aktiv virtuell dator:**
 
      ```azurecli-interactive
-     az vm encryption enable --resource-group "MySecureRg" --name "MySecureVM" --disk-encryption-keyvault "MySecureVault" --volume-type "All"
+     az vm encryption enable --resource-group "MyVirtualMachineResourceGroup" --name "MySecureVM" --disk-encryption-keyvault "MySecureVault" --volume-type "All"
      ```
 
 - **Kryptera en aktiv virtuell dator med hjälp av KEK:**
 
      ```azurecli-interactive
-     az vm encryption enable --resource-group "MySecureRg" --name "MySecureVM" --disk-encryption-keyvault  "MySecureVault" --key-encryption-key "MyKEK_URI" --key-encryption-keyvault "MySecureVaultContainingTheKEK" --volume-type "All"
+     az vm encryption enable --resource-group "MyVirtualMachineResourceGroup" --name "MySecureVM" --disk-encryption-keyvault  "MySecureVault" --key-encryption-key "MyKEK_URI" --key-encryption-keyvault "MySecureVaultContainingTheKEK" --volume-type "All"
      ```
 
 
@@ -343,12 +349,12 @@ Du kan inaktivera kryptering med Azure PowerShell, Azure CLI, eller med en Resou
 
 - **Inaktivera disk encryption med Azure PowerShell:** Om du vill inaktivera kryptering, använda den [inaktivera AzVMDiskEncryption](/powershell/module/az.compute/disable-azvmdiskencryption) cmdlet. 
      ```azurepowershell-interactive
-     Disable-AzVMDiskEncryption -ResourceGroupName 'MySecureRG' -VMName 'MySecureVM' -VolumeType "all"
+     Disable-AzVMDiskEncryption -ResourceGroupName 'MyVirtualMachineResourceGroup' -VMName 'MySecureVM' -VolumeType "all"
      ```
 
 - **Inaktivera kryptering med Azure CLI:** Inaktivera kryptering med den [az vm encryption inaktivera](/cli/azure/vm/encryption#az-vm-encryption-disable) kommando. 
      ```azurecli-interactive
-     az vm encryption disable --name "MySecureVM" --resource-group "MySecureRg" --volume-type "all"
+     az vm encryption disable --name "MySecureVM" --resource-group "MyVirtualMachineResourceGroup" --volume-type "all"
      ```
 - **Inaktivera kryptering med en Resource Manager-mall:** 
 

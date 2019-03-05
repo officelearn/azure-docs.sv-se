@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: efd6db6b8dbbe051dba129b0d9f3e87f293d6706
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: bea9a987078799436c9dcad650ee56d5d6d81512
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56458072"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57341349"
 ---
 # <a name="manage-your-connected-devices-from-the-my-profile-preview-portal"></a>Hantera dina anslutna enheter från min profil (förhandsgranskning)-portalen
 Du kan hantera enheter som du är ansluten till ditt arbets- eller skolkonto konto inaktiverar alla som du äger inte längre, från den **enheter** för den **min profil** portal.
@@ -29,7 +29,7 @@ Du kan hantera enheter som du är ansluten till ditt arbets- eller skolkonto kon
 
 2. Välj **enheter** från den vänstra navigeringsfönstret eller Välj den **hantera enheter** länka från den **enheter** block.
 
-    ![Min profilsida som visar den markerade enheter länkar](media/myprofile-portal/myprofile-portal-devices-links.png)
+    ![Min profilsida som visar den markerade enheter länkar](media/myprofile-portal/myprofile-portal-devices.png)
 
 3. Granska informationen för dina anslutna enheter, vilket gör att du känner igen alla. 
 
@@ -49,4 +49,4 @@ Du kan inaktivera några av dina anslutna enheter när som helst. Detta är sär
 
 ## <a name="next-steps"></a>Nästa steg
 
-- När du visar dina senaste aktiviteter inloggning kan du välja att visa eller hantera din [säkerhetsinformation](user-help-security-info-overview.md), [senaste inloggningsaktivitet](myprofile-portal-recent-activity-page.md), dina anslutna [organisationer](myprofile-portal-organizations-page.md), eller visa hur din organisation [använder dina data](myprofile-portal-privacy-page.md).
+- När du visar dina anslutna enheter kan du välja att visa eller hantera din [säkerhetsinformation](user-help-security-info-overview.md), din [organisationer](myprofile-portal-organizations-page.md), eller visa hur din organisation [använder dina data](myprofile-portal-privacy-page.md).

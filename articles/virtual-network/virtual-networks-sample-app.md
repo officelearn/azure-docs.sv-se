@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/03/2017
 ms.author: jonor
-ms.openlocfilehash: a8e52af1a1feb8a01ed5556efb6e153c56b25cca
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 52058469b531383b32974ccc5bc77b31783583bd
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700595"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57339955"
 ---
 # <a name="sample-application-for-use-with-dmzs"></a>Exempelprogram för användning med DMZ-miljöer
 [Gå tillbaka till gränsen bästa praxis sidan][HOME]
@@ -42,7 +42,7 @@ Om du använder följande skript, är den här brandväggen regeln lägga den f�
 Det här skriptet kommer att:
 
 1. Öppna IMCPv4 (Ping) på lokal server windows-brandväggen för enklare testning
-2. Installera IIS och .net Framework 4.5
+2. Installera IIS och .NET Framework 4.5
 3. Skapa en ASP.NET-webbsida och en Web.config-fil
 4. Ändra standardprogrampoolen för att underlätta filåtkomst
 5. Ange anonym användare till ditt administratörskonto och lösenord
@@ -152,12 +152,12 @@ Det här skriptet ställer in backend-server för den här enkla programmet. Det
 2. Skapa en katalog för webbplatsen
 3. Skapa en textfil för att vara via en fjärranslutning åtkomst av webbsidan
 4. Ange behörigheter för katalogen och filen att anonym åtkomst ska tillåtas
-5. Inaktivera Förbättrad säkerhet i Internet Explorer så att enklare surfning från den här servern 
+5. Inaktivera Förbättrad säkerhet i Internet Explorer så att enklare surfning från den här servern
 
 > [!IMPORTANT]
 > **Bästa praxis**: Inaktivera Förbättrad säkerhetskonfiguration aldrig på en produktionsserver, samt det är vanligtvis en felaktig idé att surfa på Internet från servrar i produktionsmiljö. Öppnar upp filresurser för anonym åtkomst är också en felaktig idé, men klar här för enkelhetens skull.
-> 
-> 
+>
+>
 
 Det här PowerShell-skriptet ska köras lokalt medan RDP hade till AppVM01. PowerShell krävs för att köras som administratör för att se till att åtgärden har körts.
 

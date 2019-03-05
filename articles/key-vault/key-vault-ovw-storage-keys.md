@@ -9,12 +9,12 @@ author: prashanthyv
 ms.author: pryerram
 manager: barbkess
 ms.date: 10/03/2018
-ms.openlocfilehash: 9b1a4e23ed0da0637b44ac52dd4d1baeb22cd6ce
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 684d6a87b5cf33a3ebed36381d2db21b285a6f0c
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56118062"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57338815"
 ---
 # <a name="azure-key-vault-managed-storage-account---cli"></a>Azure Key Vault hanteras lagringskonto – CLI
 
@@ -55,42 +55,36 @@ I den nedan information vi tilldela Key Vault som en tjänst har operatorn behö
 > [!NOTE]
 > . Observera att när du har konfigurerat Azure Key Vault hanteras storage kontonycklar de bör **nr** längre ändras utom via Key Vault. Hanterade Storage-kontonycklar innebär att Key Vault administrerar rotera nyckeln till lagringskontot
 
+> [!IMPORTANT]
+> En Azure AD-klient ger varje registrerade program med en  **[tjänstens huvudnamn](/azure/active-directory/develop/developer-glossary#service-principal-object)**, som fungerar som programmets identitet. Program-ID för tjänstens huvudnamn används när ger den behörighet att komma åt andra Azure-resurser via rollbaserad åtkomstkontroll (RBAC). Eftersom Key Vault är ett Microsoft-program, är den redan registrerad i alla Azure AD-klienter under samma program-ID, i varje Azure-molnet:
+> - Azure AD-klienter i Azure government-molnet använder program-ID `7e7c393b-45d0-48b1-a35e-2905ddf8183c`.
+> - Azure AD-klienter i offentliga Azure-molnet och alla andra använda program-ID `cfa8b339-82a2-471a-a3c9-0fc0be7a4093`.
+
+
 1. När du har skapat ett lagringskonto som kör följande kommando för att hämta resurs-ID för lagringskontot som vill du hantera
 
     ```
     az storage account show -n storageaccountname 
     ```
-    Kopiera ID-fält av resultatet av kommandot ovan
-    
-2. Hämta objekt-ID: T för Azure Key Vault-tjänsten huvudnamn genom att köra i kommandot nedan
-
+    Kopiera ID-fält av resultatet av kommandot ovan, som ser ut som nedan
     ```
-    az ad sp show --id cfa8b339-82a2-471a-a3c9-0fc0be7a4093
+    /subscriptions/0xxxxxx-4310-48d9-b5ca-0xxxxxxxxxx/resourceGroups/ResourceGroup/providers/Microsoft.Storage/storageAccounts/StorageAccountName
     ```
-    
-    Hitta objekt-ID i resultatet vid slutförande av det här kommandot:
-    ```console
-        {
-            ...
             "objectId": "93c27d83-f79b-4cb2-8dd4-4aa716542e74"
-            ...
-        }
+    
+2. Tilldela RBAC-roll ”Storage-konto nyckeln Tjänstroll som operatör” till Key Vault, begränsar åtkomstomfånget till ditt lagringskonto. För ett klassiskt lagringskonto använder du ”klassisk lagring konto nyckeln Tjänstroll som operatör”.
+    ```
+    az role assignment create --role "Storage Account Key Operator Service Role"  --assignee-object-id <ObjectIdOfKeyVault> --scope 93c27d83-f79b-4cb2-8dd4-4aa716542e74
     ```
     
-3. Tilldela rollen operatör för Storage-nyckel till Azure Key Vault-identitet.
-
-    ```
-    az role assignment create --role "Storage Account Key Operator Service Role"  --assignee-object-id <ObjectIdOfKeyVault> --scope <IdOfStorageAccount>
-    ```
+    ”93c27d83-f79b-4cb2-8dd4-4aa716542e74” är objekt-ID för Key Vault i offentliga molnet. För att hämta objekt-ID för Key Vault i nationella moln finns i avsnittet viktiga ovan
     
-4. Skapa Key Vault hanteras Storage-konto.     <br /><br />
+3. Skapa Key Vault hanteras Storage-konto.     <br /><br />
    Nedan har anger vi en återskapandeperiod 90 dagar. Efter 90 dagar, Key Vault återskapa ”key1” och växla den aktiva nyckeln från ”key2” till ”key1”. Det blir det Key1 den aktiva nyckeln nu. 
    
     ```
     az keyvault storage add --vault-name <YourVaultName> -n <StorageAccountName> --active-key-name key1 --auto-regenerate-key --regeneration-period P90D --resource-id <Id-of-storage-account>
     ```
-    Om användaren inte har skapat lagringskontot och inte har behörighet att storage-konto, ange behörigheter för ditt konto så att du kan hantera alla behörigheter som lagring i Key Vault i stegen nedan.
-    
 
 <a name="step-by-step-instructions-on-how-to-use-key-vault-to-create-and-generate-sas-tokens"></a>Steg för steg-instruktioner om hur du använder Key Vault för att skapa och generera SAS-token
 --------------------------------------------------------------------------------

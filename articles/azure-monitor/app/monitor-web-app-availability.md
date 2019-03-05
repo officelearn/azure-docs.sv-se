@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.reviewer: sdash
 ms.author: lagayhar
-ms.openlocfilehash: d3127b7f9bea9a35d9ac25d0724700cad72fa509
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: b5bca3b4c9f5fbe4c9d7dd917b4e2f0767abf145
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54857156"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57341025"
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>Övervaka tillgänglighet och svarstider på valfri webbplats
 När du har distribuerat din webbapp eller webbplats till en server kan du konfigurera tester för att övervaka appens tillgänglighet och svarstider. [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) skickar begäranden till ditt program med jämna mellanrum från platser över hela världen. Den varnar dig om programmet inte svarar eller svarar långsamt.
@@ -329,7 +329,8 @@ När testet är klart visas svarstiderna och slutförandefrekvens.
 
 * *Stöds HTTPS?*
 
-    Vi stöder TLS 1.1 och TLS 1.2.
+    Vi stöder TLS 1.1 och TLS 1.2. Vi Kontrollera för närvarande inte certifikatfel för HTTPS.  
+
 * *Är det någon skillnad mellan ”webbtester” och ”tillgänglighetstester”?*
 
     De är synonyma begrepp. Tillgänglighetstest är ett mer allmänt begrepp som innefattar tester med en URL-ping utöver webbtester i flera steg.

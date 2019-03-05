@@ -1,18 +1,18 @@
 ---
 title: VMware till Azure disaster recovery-arkitekturen i Azure Site Recovery | Microsoft Docs
 description: Den här artikeln innehåller en översikt över komponenter och arkitektur som används när du konfigurerar haveriberedskap för lokala virtuella VMware-datorer till Azure med Azure Site Recovery
-author: rayne-wiselman
+author: mayurigupta13
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-ms.date: 12/31/2018
-ms.author: raynew
-ms.openlocfilehash: 3d91788544c49c260eff051185950bdfd164b802
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.date: 3/3/2019
+ms.author: mayg
+ms.openlocfilehash: 5f9ead8df3d0dfb2695def46087d2ea994b8b75b
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55217959"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57340449"
 ---
 # <a name="vmware-to-azure-disaster-recovery-architecture"></a>VMware till Azure disaster recovery-arkitekturen
 
@@ -25,7 +25,7 @@ Följande tabell och bild ger en översikt över de komponenter som används fö
 
 **Komponent** | **Krav** | **Detaljer**
 --- | --- | ---
-**Azure** | En Azure-prenumeration, Azure Storage-konto och Azure-nätverk. | Replikerade data från lokala virtuella datorer lagras i lagringskontot. Virtuella Azure-datorer skapas med replikerad data när du kör en redundans från lokalt till Azure. Virtuella Azure-datorer ansluter till det virtuella Azure-nätverket när de skapas.
+**Azure** | En Azure-prenumeration, Azure Storage-konto för cache och Managed Disk- och Azure. | Replikerade data från lokala virtuella datorer lagras i Azure storage. Virtuella Azure-datorer skapas med replikerad data när du kör en redundans från lokalt till Azure. Virtuella Azure-datorer ansluter till det virtuella Azure-nätverket när de skapas.
 **Configuration server-dator** | En enda lokal dator. Vi rekommenderar att du ska köra den som en VMware-VM som kan distribueras från en nedladdade OVF-mall.<br/><br/> Datorn kör alla lokala Site Recovery-komponenter, bland annat konfigurationsservern, processervern och huvudmålservern. | **Konfigurationsservern**: Samordnar kommunikationen mellan lokala och Azure och hanterar datareplikering.<br/><br/> **Processerver**: Installeras som standard på konfigurationsservern. Den tar emot replikeringsdata; optimerar dem med cachelagring, komprimering och kryptering och skickar dem till Azure Storage. Processervern installerar också Azure Site Recovery-Mobilitetstjänsten på virtuella datorer du vill replikera, samt utför automatisk identifiering av lokala datorer. Allt eftersom distributionen växer kan du lägga till ytterligare, separat processervrar för att hantera större mängder replikeringstrafik.<br/><br/> **Huvudmålservern**: Installeras som standard på konfigurationsservern. Den hanterar replikeringsdata vid återställning från Azure. För stora distributioner, kan du lägga till en ytterligare, separat huvudmålserver för återställning efter fel.
 **VMware-servrar** | Virtuella VMware-datorer finns på den lokala vSphere ESXi-servrar. Vi rekommenderar en vCenter-server hanterar värdarna. | Under distributionen av Site Recovery måste du lägga till VMware-servrar till Recovery Services-valvet.
 **Replikerade datorer** | Mobilitetstjänsten installeras på varje VMware VM som du replikerar. | Vi rekommenderar att du tillåter automatisk installation från processervern. Du kan också installera tjänsten manuellt eller använda en metod för automatisk distribution, till exempel System Center Configuration Manager.

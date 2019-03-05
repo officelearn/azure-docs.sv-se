@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b797cc6e1c0ef0df61c4d1384d2beb12c37112ba
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 336b30a8e8687b3a2bdd05a17e558f44905f135e
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456868"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57338849"
 ---
 # <a name="set-up-security-info-preview-to-use-an-authenticator-app"></a>Konfigurera säkerhetsinformation (förhandsversion) för att använda en autentiseringsapp
 Du kan följa stegen nedan för att lägga till två faktorer verifieringen och metoder för återställning av lösenord. När du har konfigurerat detta första gången kan du gå tillbaka till den **säkerhetsinformation** sidan för att lägga till, uppdatera eller ta bort din säkerhetsinformation.
@@ -36,11 +36,11 @@ Beroende på organisationens inställningar kan kanske du använda en authentica
 
 1. Logga in på ditt arbets- eller skolkonto konto och gå sedan till din https://myprofile.microsoft.com/ sidan.
 
-    ![Min profil-sidan som visar markerad Security info länkar](media/security-info/securityinfo-myprofile.png)
+    ![Min profil-sidan som visar markerad Security info länkar](media/security-info/securityinfo-myprofile-page.png)
 
 2. Välj **säkerhetsinformation** från det vänstra navigeringsfönstret eller från länken i den **säkerhetsinformation** blockera och sedan välja **tilläggsmetod** från den **säkerhetsinformation**  sidan.
 
-    ![Sidan för Security information med markerade Lägg till metodalternativet](media/security-info/securityinfo-myprofile-addmethod.png)
+    ![Sidan för Security information med markerade Lägg till metodalternativet](media/security-info/securityinfo-myprofile-addmethod-page.png)
 
 3. På den **Lägg till en metod** väljer **autentiseringsapp** från listrutan och välj sedan **Lägg till**.
 
@@ -48,42 +48,42 @@ Beroende på organisationens inställningar kan kanske du använda en authentica
 
 4. På den **börja med att hämta appen** väljer **Hämta nu** att ladda ned och installera Microsoft Authenticator-appen på din mobila enhet och välj sedan **nästa**.
 
-    Läs mer om hur du hämtar och installerar appen [ladda ned och installera Microsoft Authenticator-appen](user-help-auth-app-download-install.md).
+    Mer information om hur du laddar ned och installerar appen finns i [Ladda ned och installera Microsoft Authenticator-appen](user-help-auth-app-download-install.md).
 
     ![Börja med att hämta sidan](media/security-info/securityinfo-myprofile-getauthapp.png)
 
     >[!Note]
-    >Om du vill använda en autentiseringsapp än Microsoft Authenticator-appen, väljer du den **jag vill använda en annan autentiseringsapp** länk.
+    >Om du vill använda en annan autentiseringsapp än Microsoft Authenticator-appen väljer du länken **Jag vill använda en annan autentiseringsapp**.
     
-    >Om din organisation kan du välja en annan metod än authenticator-appen, kan du välja den **jag vill ställa in en annan metod länk**.
+    >Om din organisation låter dig välja en annan metod än autentiseringsappen kan du välja länken **Jag vill konfigurera en annan metod**.
 
-5. Finns kvar på den **konfigurerar ditt konto** sidan medan du konfigurerar Microsoft Authenticator-appen på din mobila enhet.
+5. Ha sidan **Konfigurera ditt konto** öppen medan du konfigurerar Microsoft Authenticator-appen på din mobila enhet.
 
     ![Ställ in sidan authenticator](media/security-info/securityinfo-myprofile-setupauthapp.png)
 
-6. Öppna Microsoft Authenticator-appen, väljer för att tillåta meddelanden (om du uppmanas), Välj **Lägg till konto** från den **anpassa och styra** -ikonen i det övre högra hörnet, och välj sedan **arbete eller skolkonto**.
+6. Öppna Microsoft Authenticator-appen, välj att tillåta meddelanden (om du uppmanas), välj **Lägg till konto** från ikonen **Customize and control** (Anpassa och styr) uppe till höger och välj sedan **Arbets- eller skolkonto**.
 
 7. Gå tillbaka till den **konfigurerar ditt konto** sidan på din, och välj sedan **nästa**.
 
-    Den **skanna QR-koden** visas.
+    Sidan **Skanna QR-koden** visas.
 
-    ![Skanna QR-kod med hjälp av Authenticator-appen](media/security-info/securityinfo-myprofile-qrcodeauthapp.png)
+    ![Skanna QR-koden med hjälp av Authenticator-appen](media/security-info/securityinfo-myprofile-qrcodeauthapp.png)
 
 6. Skanna koden som tillhandahålls med Microsoft Authenticator-appen QR-kod reader, som fanns på din mobila enhet när du har skapat ditt arbets- eller skolkonto konto i steg 6.
 
-    Authenticator-appen ska har Lägg till ditt arbets- eller skolkonto utan någon ytterligare information från dig. Men om QR-kod läsaren inte kan läsa koden, kan du välja den **kan inte skanna QR-kod länken** och manuellt ange koden och Webbadressen till Microsoft Authenticator-appen. Mer information om att lägga till en kod manuellt finns i [manuellt lägga till ett konto i appen](user-help-auth-app-add-account-manual.md).
+    Authenticator-appen bör lägga till ditt arbets- eller skolkonto utan att någon ytterligare information krävs från dig. Men om QR-kodläsaren inte kan läsa koden kan du välja länken **Jag kan inte skanna QR-koden** och manuellt ange koden och URL:en i Microsoft Authenticator-appen. Mer information om att lägga till en kod manuellt finns i [Lägga till ett konto i appen manuellt](user-help-auth-app-add-account-manual.md).
 
 7. Välj **nästa** på den **skanna QR-koden** sidan på din.
 
     Ett meddelande skickas till Microsoft Authenticator-appen på din mobila enhet för att testa ditt konto.
 
-    ![Testa ditt konto med authenticator-appen](media/security-info/securityinfo-myprofile-tryitauthapp.png)
+    ![Testa ditt konto med Authenticator-appen](media/security-info/securityinfo-myprofile-tryitauthapp.png)
 
-8. Godkänn meddelandet i Microsoft Authenticator-appen och välj sedan **nästa**.
+8. Godkänn meddelandet i Microsoft Authenticator-appen och välj sedan **Nästa**.
 
-    ![Meddelande för lyckade, ansluta appen och ditt konto](media/security-info/securityinfo-myprofile-successauthapp.png)
+    ![Meddelande om att det lyckades; appen och ditt konto ansluts](media/security-info/securityinfo-myprofile-successauthapp.png)
 
-    Din säkerhetsinformation uppdateras om du vill använda Microsoft Authenticator-appen som standard för att verifiera din identitet när du använder återställning för tvåstegsverifiering verifiering eller lösenord.
+    Din säkerhetsinformation uppdateras till att använda Microsoft Authenticator-appen som standard för att verifiera din identitet vid användning av tvåstegsverifiering eller återställning av lösenord.
 
 ## <a name="delete-your-authenticator-app-from-your-security-info-methods"></a>Ta bort din authenticator-app från din info säkerhetsmetoder
 Om du inte längre vill använda din autentiserare som en säkerhetsmetod information du kan ta bort den från den **säkerhetsinformation** sidan. Detta fungerar för alla authenticator-appar, inte bara Microsoft Authenticator-appen. När du tar bort appen, har du gå till autentiseringsappen på din mobila enhet och ta bort kontot.
@@ -136,6 +136,6 @@ Du har ytterligare alternativ för hur din organisation kontakter du verifiera d
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Återställa lösenordet om du har förlorat den, från den [portal för lösenordsåterställning](https://passwordreset.microsoftonline.com/) eller följer du stegen i den [återställa lösenordet för arbets- eller skolkonto](user-help-reset-password.md) artikeln.
+- Återställ lösenordet om du har tappat eller glömt det från [portalen för lösenordsåterställning](https://passwordreset.microsoftonline.com/) eller följ stegen i artikeln [Återställa lösenordet för arbets- eller skolkonto](user-help-reset-password.md).
 
-- Hämta felsöka tips och hjälp med inloggningsproblem i den [kan inte logga in på ditt Microsoft-konto](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant) artikeln.
+- Få felsökningstips och hjälp om inloggningsproblem i artikeln [Det går inte att logga in på ditt Microsoft-konto](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant).

@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 67a8c4d4fe5476d00677c08bef9668066c4ec4f3
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: c6053313c6971f1bcf66bc447b4f4f5fe5817666
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56458065"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57339750"
 ---
 # <a name="manage-your-organizations-from-the-my-profile-preview-portal"></a>Hantera din organisations från min profil (förhandsgranskning)-portalen
 Du kan hantera din organisations från den **organisationer** för den **min profil** portal.
@@ -35,7 +35,7 @@ Det finns två typer av organisationer som visas på den **organisationer** sida
 
 2. Välj **organisationer** från den vänstra navigeringsfönstret eller Välj den **Hantera organisationer** länka från den **organisationer** block.
 
-    ![Min profilsida som visar den markerade organisationer länkar](media/myprofile-portal/myprofile-portal-organizations-links.png)
+    ![Min profilsida som visar den markerade organisationer länkar](media/myprofile-portal/myprofile-portal-organizations.png)
 
 3. Granska informationen för din **Home organisation**. 
 
@@ -57,4 +57,4 @@ Du kan lämna en organisation som inte är organisationen hem.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- När du visar dina senaste aktiviteter inloggning kan du välja att visa eller hantera din [säkerhetsinformation](user-help-security-info-overview.md), [senaste inloggningsaktivitet](myprofile-portal-recent-activity-page.md), anslutna [enheter](myprofile-portal-devices-page.md), eller visa hur din organisation [använder dina data](myprofile-portal-privacy-page.md).
+- När du har visat ditt företag, som du kan välja att visa eller hantera din [säkerhetsinformation](user-help-security-info-overview.md), anslutna [enheter](myprofile-portal-devices-page.md), eller visa hur din organisation [använder dina data](myprofile-portal-privacy-page.md).

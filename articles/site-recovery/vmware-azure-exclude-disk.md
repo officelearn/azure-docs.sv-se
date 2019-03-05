@@ -1,19 +1,19 @@
 ---
 title: Undanta diskar från replikering för VMware-haveriberedskap till Azure med hjälp av Azure Site Recovery | Microsoft Docs
 description: Beskriver varför och hur du undantar VM-diskar från replikering för VMware-haveriberedskap till Azure.
-author: Rajeswari-Mamilla
+author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.workload: storage-backup-recovery
-ms.date: 11/27/2018
-ms.author: ramamill
+ms.date: 3/3/2019
+ms.author: mayg
 ms.topic: conceptual
-ms.openlocfilehash: af610aaec238e1b2ae8ec2387e5a8f71225cab8c
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: b281531e76ecb73947597bb97110dc18d4e99c59
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52848178"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57339767"
 ---
 # <a name="exclude-disks-from-replication-of-vmware-vms-to-azure"></a>Undanta diskar från replikering av virtuella VMware-datorer till Azure
 
@@ -56,8 +56,8 @@ Följ arbetsflödet i [Aktivera replikering](vmware-azure-enable-replication.md)
 > * Endast standarddiskar kan undantas från replikering. Du kan inte undanta operativsystemdiskar eller dynamiska diskar.
 > * När du har aktiverat replikering kan du inte lägga till eller ta bort diskar för replikering. Om du vill lägga till eller undanta en disk måste du inaktivera skyddet för datorn och sedan aktivera det igen.
 > * Om du undantar en disk som behövs för att ett program ska fungera efter redundansväxlingen till Azure måste du skapa disken manuellt i Azure så att det replikerade programmet kan köras. Du kan också integrera Azure Automation i en återställningsplan för att skapa disken under en redundansväxling av datorn.
-> * Virtuell Windows-dator: Diskar som du skapar manuellt i Azure växlas inte tillbaka igen. Om du till exempel växlar över tre diskar och skapar två diskar direkt i Azure Virtual Machines kommer endast tre diskar som växlades över att växlas tillbaka. Du kan inte ta med diskar som har skapats manuellt i redundansväxlingar eller vars skydd har återaktiverats från en lokal plats till Azure.
-> * Virtuell Linux-dator: Diskar som du skapar manuellt i Azure växlas tillbaka igen. Om du till exempel växlar över tre diskar och skapar två diskar direkt i Azure Virtual Machines kommer alla fem diskar att växlas tillbaka. Du kan inte undanta diskar som har skapats manuellt från återställningen.
+> * Windows-dator: Diskar som du skapar manuellt i Azure växlas inte tillbaka igen. Om du till exempel växlar över tre diskar och skapar två diskar direkt i Azure Virtual Machines kommer endast tre diskar som växlades över att växlas tillbaka. Du kan inte ta med diskar som har skapats manuellt i redundansväxlingar eller vars skydd har återaktiverats från en lokal plats till Azure.
+> * Linux-dator: Diskar som du skapar manuellt i Azure växlas tillbaka igen. Om du till exempel växlar över tre diskar och skapar två diskar direkt i Azure Virtual Machines kommer alla fem diskar att växlas tillbaka. Du kan inte undanta diskar som har skapats manuellt från återställningen.
 >
 
 
@@ -203,7 +203,7 @@ Här följer inställningarna för växlingsfiler på den virtuella Azure-källd
 
 ![Inställningar för växlingsfiler på den virtuella Azure-datorn](./media/vmware-azure-exclude-disk/pagefile-on-azure-vm-after-failover.png)
 
-### <a name="case-2-the-paging-file-is-configured-on-another-drive-other-than-d-drive"></a>Fall 2: Växlingsfilen är konfigurerad på en annan enhet (än D:)
+### <a name="case-2-the-paging-file-is-configured-on-another-drive-other-than-d-drive"></a>Fall 2: Växlingsfilen är konfigurerad på en annan enhet (än d:)
 
 Här är diskkonfigurationen av den virtuella källdatorn:
 

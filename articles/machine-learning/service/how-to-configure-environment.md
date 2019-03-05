@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 02/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: e055ddc49120d77047fa349b7e58c612eb724b41
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 6a51e57cfac326663d41b545c9f2883a446467d3
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56881557"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57340770"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Konfigurera en utvecklingsmiljö för Azure Machine Learning
 
@@ -42,7 +42,7 @@ Om du redan har en Python 3-miljö eller bara vill ha de grundläggande stegen f
 
 - En arbetsyta för Azure Machine Learning-tjänsten. Om du vill skapa arbetsytan [Kom igång med Azure Machine Learning-tjänsten](quickstart-get-started.md).
 
-- Antingen den [jämför Anaconda](https://www.anaconda.com/download/) eller [Miniconda](https://conda.io/miniconda.html) Pakethanteraren.
+- Antingen den [Anaconda](https://www.anaconda.com/download/) eller [Miniconda](https://conda.io/miniconda.html) Pakethanteraren.
 
     > [!IMPORTANT]
     > Anaconda och Miniconda krävs inte när du använder Azure-anteckningsböcker.

@@ -5,15 +5,15 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 services: site-recovery
-ms.date: 02/13/2019
+ms.date: 03/03/2019
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: 84f53b0ddf2d9dfbf25eabbe028c2cfaa0c3fb55
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 038716161845e94011688e8af80a5d4830ac1a5b
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56880061"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57338152"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Vanliga frågor – VMware till Azure replikering
 
@@ -33,13 +33,10 @@ Data replikeras till Azure-lagring under replikering, och du behöver inte betal
 
 ## <a name="azure"></a>Azure
 ### <a name="what-do-i-need-in-azure"></a>Vad behöver jag i Azure?
-Du behöver en Azure-prenumeration, Recovery Services-valvet, ett lagringskonto och ett virtuellt nätverk. Valvet, lagringskontot och nätverket måste vara i samma region.
-
-### <a name="what-azure-storage-account-do-i-need"></a>Vilka Azure-lagringskonto behöver jag?
-Du behöver ett LRS eller GRS-lagringskonto. Vi rekommenderar GRS så att dina data är flexibla i händelse av ett regionalt strömavbrott, eller om det inte går att återställa den primära regionen. Premium storage stöds.
+Du behöver en Azure-prenumeration, Recovery Services-valvet, ett cachelagringskonto, hanterade diskar och ett virtuellt nätverk. Valvet cachelagringskontot, hanterade diskar och nätverket måste finnas i samma region.
 
 ### <a name="does-my-azure-account-need-permissions-to-create-vms"></a>Behöver Mina Azure-konto behörighet att skapa virtuella datorer?
-Om du är administratör för prenumerationen har Replikeringsbehörighet som du behöver. Om du inte behöver du behörighet att skapa en Azure-dator i resursgruppen och virtuellt nätverk som du anger när du konfigurerar Site Recovery och behörighet att skriva till det valda lagringskontot. [Läs mer](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines).
+Om du är administratör för prenumerationen har Replikeringsbehörighet som du behöver. Om du inte behöver behörighet att skapa en Azure-dator i resursgruppen och virtuellt nätverk som du anger genom att konfigurera Site Recovery och behörighet att skriva till det valda lagringskontot eller hanterad disk baserat på din konfiguration. [Läs mer](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines).
 
 ### <a name="can-i-use-guest-os-server-license-on-azure"></a>Kan jag använda gäst-OS server-licens i Azure?
 Ja, Microsoft Software Assurance-kunder kan använda [Azure Hybrid-förmånen](https://azure.microsoft.com/en-in/pricing/hybrid-benefit/) att spara på licenskostnaden för **datorer med Windows Server** som migreras till Azure, eller att använda Azure för haveriberedskap.
@@ -107,7 +104,7 @@ Den lokala konfigurationsservern kan distribueras på följande sätt:
 
 
 ### <a name="where-do-on-premises-vms-replicate-to"></a>Där replikerar lokala virtuella datorer till?
-Data replikeras till Azure storage. När du kör en redundansväxling skapar Site Recovery automatiskt virtuella datorer i Azure från storage-kontot.
+Data replikeras till Azure storage. När du kör en redundans, Site Recovery automatiskt skapar virtuella Azure-datorer från storage-konto eller en hanterad disk baserat på din konfiguration.
 
 ## <a name="replication"></a>Replikering
 
@@ -122,15 +119,19 @@ Nej, detta är ett scenario som inte stöds.
 Site Recovery replikerar data från en lokal plats till Azure storage via en offentlig slutpunkt eller med offentlig peering i ExpressRoute. Replikering via ett plats-till-plats VPN-nätverk stöds inte.
 
 ### <a name="can-i-replicate-to-azure-with-expressroute"></a>Kan jag replikera till Azure med ExpressRoute?
-Ja, ExpressRoute kan användas för att replikera datorer till Azure. Site Recovery replikerar data till ett Azure Storage-konto via en offentlig slutpunkt. Du måste konfigurera [offentlig peering](../expressroute/expressroute-circuit-peerings.md#publicpeering) eller [Microsoft-peering](../expressroute/expressroute-circuit-peerings.md#microsoftpeering) använder ExpressRoute under Site Recovery-replikering. Microsoft-peering är den rekommenderade routningsdomän för replikering. Se till att den [nätverk krav](vmware-azure-configuration-server-requirements.md#network-requirements) uppfylls också för replikering. När virtuella datorer som redundansväxlar till Azure-nätverk, du kan komma åt dem med hjälp av [privat peering](../expressroute/expressroute-circuit-peerings.md#privatepeering).
+Ja, ExpressRoute kan användas för att replikera datorer till Azure. Site Recovery replikerar data till Azure Storage via en offentlig slutpunkt. Du måste konfigurera [offentlig peering](../expressroute/expressroute-circuit-peerings.md#publicpeering) eller [Microsoft-peering](../expressroute/expressroute-circuit-peerings.md#microsoftpeering) använder ExpressRoute under Site Recovery-replikering. Microsoft-peering är den rekommenderade routningsdomän för replikering. Se till att den [nätverk krav](vmware-azure-configuration-server-requirements.md#network-requirements) uppfylls också för replikering. När virtuella datorer som redundansväxlar till Azure-nätverk, du kan komma åt dem med hjälp av [privat peering](../expressroute/expressroute-circuit-peerings.md#privatepeering).
 
 ### <a name="how-can-i-change-storage-account-after-machine-is-protected"></a>Hur kan jag ändra storage-konto när datorn är skyddad?
 
-Storage-konto kan bara uppgraderas till premium. Om du vill använda ett annat lagringskonto måste du inaktivera replikeringen av källdatorn och återaktivera skyddet med nya storage-konto. Förutom detta finns det en något annat sätt att ändra storage-konto när skyddsinställningarna är aktiverade.
+För en pågående replikering kan storage-konto bara uppgraderas till premium. Om du vill använda standardpriserna måste du inaktivera replikeringen av källdatorn och återaktivera skyddet med hanterade standarddiskar. Förutom detta finns det en något annat sätt att ändra storage-konto när skyddsinställningarna är aktiverade.
+
+### <a name="how-can-i-change-managed-disk-type-after-machine-is-protected"></a>Hur kan jag ändra typ av hanterad Disk när datorn är skyddad?
+
+Ja, du kan enkelt ändra typen av hanterade diskar. [Läs mer](https://docs.microsoft.com/azure/virtual-machines/windows/convert-disk-storage).
 
 ### <a name="why-cant-i-replicate-over-vpn"></a>Varför kan inte replikera via VPN?
 
-När du replikerar till Azure replikeringstrafik når de offentliga slutpunkterna för ett Azure Storage-konto och därför kan du bara replikera via det offentliga internet med ExpressRoute (offentlig peering) VPN fungerar inte.
+När du replikerar till Azure replikeringstrafik når de offentliga slutpunkterna i ett Azure Storage och därför kan du bara replikera via det offentliga internet med ExpressRoute (offentlig peering) VPN fungerar inte.
 
 ### <a name="what-are-the-replicated-vm-requirements"></a>Vilka är kraven för replikerade virtuella datorer?
 
@@ -150,6 +151,9 @@ Det stöds inte. Begär den här funktionen i den [Feedbackforum](http://feedbac
 
 ### <a name="can-i-exclude-disks"></a>Kan jag utesluta diskar?
 Ja, kan du undanta diskar från replikering.
+
+### <a name="can-i-change-the-target-vm-size-or-vm-type-before-failover"></a>Kan jag ändra storlek för virtuell måldator eller typ av virtuell dator innan redundans?
+Ja, du kan ändra typen eller storleken på den virtuella datorn före redundans genom att gå till beräknings- och nätverksinställningar objektets replikering från portalen.
 
 ### <a name="can-i-replicate-vms-with-dynamic-disks"></a>Kan jag replikera virtuella datorer med dynamiska diskar?
 Dynamiska diskar kan replikeras. Operativsystemdisken måste vara en standarddisk.
@@ -267,6 +271,9 @@ Ja, både kryptering under överföring och [kryptering i Azure](https://docs.mi
 
 
 ## <a name="failover-and-failback"></a>Redundans och återställning efter fel
+### <a name="can-i-use-the-process-server-at-on-premises-for-failback"></a>Kan jag använda processervern på den lokala för återställning efter fel?
+Vi rekommenderar starkt att skapa en processerver i Azure för återställning efter fel för att undvika fördröjning för överföring av data. Dessutom om du åtskiljda källnätverket för virtuella datorer med Azure mot nätverket på konfigurationsservern är det viktigt att använda den Processerver som skapats i Azure för återställning efter fel.
+
 ### <a name="how-far-back-can-i-recover"></a>Hur långt tillbaka kan jag återställa?
 För VMware till Azure är den äldsta återställningspunkten som du kan använda 72 timmar.
 

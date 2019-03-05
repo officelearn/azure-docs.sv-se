@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/05/2019
+ms.date: 02/28/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: b41d086c092f3b18715d8fb70cd1a487a97c6869
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 1db3fbbd39418504f98469c7b4999c5a91b5d6de
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55814052"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57342198"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>Självstudier: Skapa och hantera budgetar för Azure
 
@@ -35,11 +35,11 @@ I den här guiden får du lära dig att:
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Budgetar har stöd för en mängd olika typer av Azure-konto. Om du vill visa en fullständig lista över typer av stöds, se [förstå kostnadshantering data](understand-cost-mgt-data.md). Om du vill visa budgetar, behöver du minst skrivskyddad åtkomst för dina Azure-konto.
+Budgetar har stöd för en mängd olika typer av Azure-konto. Om du vill se hela listan med kontotyper som stöds kan du läsa [Förstå Cost Management-data](understand-cost-mgt-data.md). Om du vill visa budgetar, behöver du minst skrivskyddad åtkomst för dina Azure-konto.
 
  Du måste ha läsbehörighet till Visa budgetar för Azure EA-prenumerationer. För att skapa och hantera budgetar, måste du ha behörigheten deltagare. Du kan skapa enskilda budgetar för EA-prenumerationer och resursgrupper. Du kan dock skapa budgetar för EA fakturering konton.
 
-Följande Azure-behörigheter stöds per prenumeration för budgetar för användare och grupp:
+Följande Azure-behörigheter eller scope, stöds per prenumeration för budgetar av användare och grupper. Mer information om scope finns [förstå och arbeta med omfattningar](understand-work-scopes.md).
 
 - Ägare – Kan skapa, ändra och ta bort budgetar för en prenumeration.
 - Deltagare och kostnadshantering deltagare – kan skapa, ändra eller ta bort egna budgetar. Kan ändra budgetbeloppet för budgetar som skapats av andra.
@@ -53,7 +53,7 @@ Läs mer om att tilldela behörighet till Cost Management-data, [tilldela åtkom
 
 ## <a name="create-a-budget-in-the-azure-portal"></a>Skapa en budget i Azure portal
 
-Du kan skapa en Azure-prenumeration budget under en månad, kvartal eller årlig. Styra innehållet i Azure portal anger om du skapar en budget för en prenumeration eller för en resursgrupp. Till exempel i Azure-portalen går du till **prenumerationer** &gt; Välj en prenumeration &gt; **budgetar**. I det här exemplet är budget som du skapar för den prenumeration du valde. Om du vill skapa en budget för en resursgrupp, navigerar du till **resursgrupper** > Välj en resursgrupp > **budgetar**.
+Du kan skapa en Azure-prenumeration budget under en månad, kvartal eller årlig. Styra innehållet i Azure portal anger om du skapar en budget för en prenumeration eller för en resursgrupp. Till exempel i Azure-portalen går du till **prenumerationer** &gt; Välj en prenumeration &gt; **budgetar**. I det här exemplet är budget som du skapar för den prenumeration du valde. Om du vill skapa en budget för en resursgrupp, navigerar du till **resursgrupper** > Välj en resursgrupp > **budgetar**...
 
 När du har skapat din budget visar de en enkel vy över dina aktuella utgifter mot dessa.
 
@@ -85,6 +85,28 @@ Beroende på vilken åtkomstnivå som du har, kan du redigera en budget för att
 
 ![Exempel på att redigera en budget om du vill ändra olika egenskaper](./media/tutorial-acm-create-budgets/edit-budget.png)
 
+## <a name="trigger-an-action-group"></a>Utlösa en åtgärdsgrupp
+
+När du skapar eller redigerar en budget för en prenumeration eller resource Gruppomfång, kan du konfigurera den för att anropa en åtgärdsgrupp. Åtgärdsgruppen kan utföra en mängd olika åtgärder när budgettröskeln för ditt uppfylls. Läs mer om åtgärdsgrupper [skapa och hantera åtgärdsgrupper i Azure-portalen](../azure-monitor/platform/action-groups.md). Läs mer om hur du använder baserat på budget automation med åtgärdsgrupper [hantera kostnader med Azure budgetar](../billing/billing-cost-management-budget-scenario.md).
+
+Om du vill skapa eller uppdatera åtgärdsgrupper, klickar du på **hantera åtgärdsgrupper** medan du skapar eller redigerar en budget.
+
+![Exempel på att skapa en budget för att visa hantera åtgärdsgrupper](./media/tutorial-acm-create-budgets/manage-action-groups01.png)
+
+Klicka sedan på **Lägg till åtgärdsgrupp** och skapa åtgärdsgruppen.
+
+
+![Bild av rutan Lägg till åtgärd grupp](./media/tutorial-acm-create-budgets/manage-action-groups02.png)
+
+Gruppen har skapats efter åtgärden, Stäng rutan för att återgå till din budget.
+
+Konfigurera din budget för att använda din grupp när ett tröskelvärde för enskilda uppfylls. Upp till fem olika trösklar stöds.
+
+![Exempel som visar val av åtgärd för en aviseringstillståndet](./media/tutorial-acm-create-budgets/manage-action-groups03.png)
+
+I följande exempel visas budgetgränser inställd på 50%, 75% och 100%. Var och en har konfigurerats för att utlösa de angivna åtgärderna inom avsedda åtgärdsgruppen.
+
+![Exempel på aviseringsvillkor som konfigurerats med olika åtgärdsgrupper och typ av åtgärder](./media/tutorial-acm-create-budgets/manage-action-groups04.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

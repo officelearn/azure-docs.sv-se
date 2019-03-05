@@ -1,5 +1,5 @@
 ---
-title: Lägga till B2B-samarbete användare utan inbjudan - Azure Active Directory | Microsoft Docs
+title: Lägg till användare i B2B-samarbetet utan en inbjudan länk eller e-post – Azure Active Directory | Microsoft Docs
 description: Du kan låta en gästanvändare lägga till andra gästanvändare till din Azure AD utan löser in inbjudan i Azure Active Directory B2B-samarbete.
 services: active-directory
 documentationcenter: ''
@@ -12,14 +12,14 @@ author: msmimart
 manager: daveba
 ms.reviewer: sasubram
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a75656eec8e2c79c48ab48bd96a504d6e5dbac3a
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 8c33d9a3755f2fb5397dd013c88ab542e727e125
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56672244"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57337676"
 ---
-# <a name="add-b2b-collaboration-guest-users-without-an-invitation"></a>Lägga till gästanvändare för B2B-samarbete utan inbjudan
+# <a name="add-b2b-collaboration-guest-users-without-an-invitation-link-or-email"></a>Lägga till gästanvändare för B2B-samarbete utan en inbjudan länk eller e-post
 
 Du kan nu bjuda in gästanvändare genom att skicka ut en direktlänk till en delad app. Med den här metoden behöver inte längre gästanvändare rätt att använda e-postinbjudan utom i vissa särskilda fall. En gästanvändare klickar på länken för app, granskar och accepterar sekretesspolicyn och sedan har åtkomst till smidigt appen. Mer information finns i [inlösning av inbjudan för B2B-samarbete](redemption-experience.md).   
 

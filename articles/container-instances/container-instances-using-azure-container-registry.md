@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/04/2019
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: f577a7dd9f517be6ab7b632a82227e4807862ba5
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: b596af8ae9fbbaee6964622df44d316a11582cb9
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55727916"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57337931"
 ---
 # <a name="deploy-to-azure-container-instances-from-azure-container-registry"></a>Distribuera till Azure Container Instances från Azure Container Registry
 
@@ -33,7 +33,7 @@ I följande avsnitt, skapa ett Azure key vault och ett huvudnamn för tjänsten 
 
 ### <a name="create-key-vault"></a>Skapa nyckelvalv
 
-Om du inte redan har ett valv i [Azure Key Vault](/azure/key-vault/), skapar du ett med Azure CLI och följande kommandon.
+Om du inte redan har ett valv i [Azure Key Vault](../key-vault/key-vault-overview.md), skapar du ett med Azure CLI och följande kommandon.
 
 Uppdatera den `RES_GROUP` variabeln med namnet på en befintlig resursgrupp där du vill skapa key vault och `ACR_NAME` med namnet på ditt behållarregister. Ange ett namn för ett nytt nyckelvalv i `AKV_NAME`. Valvnamnet måste vara unikt i Azure och måste vara 3-24 alfanumeriska tecken långt, börja med en bokstav, sluta med en bokstav eller siffra, och får inte innehålla bindestreck.
 

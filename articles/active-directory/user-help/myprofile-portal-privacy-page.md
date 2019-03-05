@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fda3cb2b8d8edd4567440be627a58f576aebcca0
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: dbfcab7900a1552a46341ec71b8b0ea4b41b0bce
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56458058"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57339173"
 ---
 # <a name="view-your-privacy-related-info-from-the-my-profile-preview-portal"></a>Visa din sekretessrelaterade information från portalen min profil (förhandsversion)
 Du kan visa hur din organisation använder dina data från den **sekretess** för den **min profil** portal.
@@ -29,7 +29,7 @@ Du kan visa hur din organisation använder dina data från den **sekretess** fö
 
 2. Välj **sekretess** från den vänstra navigeringsfönstret eller Välj den **granska sekretess** länka från den **sekretess** block.
 
-    ![Min profil-sidan som visar markerad sekretesslänkarna](media/myprofile-portal/myprofile-portal-privacy-links.png)
+    ![Min profil-sidan som visar markerad sekretesslänkarna](media/myprofile-portal/myprofile-portal-privacy.png)
 
 3. Granska information, inklusive:
 
@@ -39,4 +39,4 @@ Du kan visa hur din organisation använder dina data från den **sekretess** fö
 
 ## <a name="next-steps"></a>Nästa steg
 
-- När du visar dina senaste aktiviteter inloggning kan du välja att visa eller hantera din [säkerhetsinformation](user-help-security-info-overview.md), [senaste inloggningsaktivitet](myprofile-portal-recent-activity-page.md), anslutna [enheter](myprofile-portal-devices-page.md) eller [ organisationer](myprofile-portal-organizations-page.md).
+- När du har visat hur din organisation använder dina data, kan du välja att visa eller hantera din [säkerhetsinformation](user-help-security-info-overview.md), dina anslutna [enheter](myprofile-portal-devices-page.md), eller din [organisationer](myprofile-portal-organizations-page.md).

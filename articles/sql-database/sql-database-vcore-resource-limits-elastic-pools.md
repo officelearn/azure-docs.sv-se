@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 02/15/2019
-ms.openlocfilehash: b0bd5c0ba8641bd287951168485be715a0b46224
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.date: 03/04/2019
+ms.openlocfilehash: a372a955578f3621c1b8a9226809671927c9bfd3
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56328681"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57342759"
 ---
 # <a name="resource-limits-for-elastic-pools-using-the-vcore-based-purchasing-model-limits"></a>Resursgränser för elastiska pooler när gränserna vCore-baserade inköpschef modell
 
@@ -50,7 +50,9 @@ Du kan ange tjänstnivå, beräkningsstorleken och storage mycket med den [Azure
 |Lagringstyp|Premium (Fjärrlagring)|Premium (Fjärrlagring)|Premium (Fjärrlagring)|Premium (Fjärrlagring)|Premium (Fjärrlagring)|Premium (Fjärrlagring)|
 |I/o-svarstid (ungefärlig)|5 – 7 ms (skriva)<br>5 – 10 ms (läsa)|5 – 7 ms (skriva)<br>5 – 10 ms (läsa)|5 – 7 ms (skriva)<br>5 – 10 ms (läsa)|5 – 7 ms (skriva)<br>5 – 10 ms (läsa)|5 – 7 ms (skriva)<br>5 – 10 ms (läsa)|5 – 7 ms (skriva)<br>5 – 10 ms (läsa)|
 |Mål-IOPS (64 KB)|500|1000|1500|2000|2500|3000|
+|Logga hastighetsbegränsningar (Mbit/s)|2.5|5|7.5|10|12.5|15|
 |Maximalt antal samtidiga arbetare per pool (begäranden) * |210|420|630|840|1050|1260|
+|Maximalt antal samtidiga inloggningar per pool * |210|420|630|840|1050|1260|
 |Maximalt antal tillåtna sessioner|30000|30000|30000|30000|30000|30000|
 |Maximalt antal databaser per pool|100|200|300|500|500|500|
 |Min/max-databaspool vCore val per databas|0, 0.25, 0.5, 1|0, 0.25, 0.5, 1, 2|0, 0.25, 0.5, 1...3|0, 0.25, 0.5, 1...4|0, 0.25, 0.5, 1...5|0, 0.25, 0.5, 1...6|
@@ -76,7 +78,9 @@ Du kan ange tjänstnivå, beräkningsstorleken och storage mycket med den [Azure
 |Lagringstyp|Premium (Fjärrlagring)|Premium (Fjärrlagring)|Premium (Fjärrlagring)|Premium (Fjärrlagring)|Premium (Fjärrlagring)|Premium (Fjärrlagring)|
 |I/o-svarstid (ungefärlig)|5 – 7 ms (skriva)<br>5 – 10 ms (läsa)|5 – 7 ms (skriva)<br>5 – 10 ms (läsa)|5 – 7 ms (skriva)<br>5 – 10 ms (läsa)|5 – 7 ms (skriva)<br>5 – 10 ms (läsa)|5 – 7 ms (skriva)<br>5 – 10 ms (läsa)|5 – 7 ms (skriva)<br>5 – 10 ms (läsa)|
 |Mål-IOPS (64 KB)|3500|4000|4500|5000|7000|7000|
+|Logga hastighetsbegränsningar (Mbit/s)|17.5|20|20|20|20|20|
 |Maximalt antal samtidiga arbetare per pool (begäranden) *|1470|1680|1890|2 100|3360|5040|
+|Maximalt antal samtidiga inloggningar pool (begäranden) *|1470|1680|1890|2 100|3360|5040|
 |Maximalt antal tillåtna sessioner|30000|30000|30000|30000|30000|30000|
 |Maximalt antal databaser per pool|200|500|500|500|500|500|
 |Min/max-databaspool vCore val per databas|0, 0.25, 0.5, 1...7|0, 0.25, 0.5, 1...8|0, 0.25, 0.5, 1...9|0, 0.25, 0.5, 1...10|0, 0.25, 0.5, 1...10, 16|0, 0.25, 0.5, 1...10, 16, 24|
@@ -102,7 +106,9 @@ Du kan ange tjänstnivå, beräkningsstorleken och storage mycket med den [Azure
 |Lagringstyp|Premium (Fjärrlagring)|Premium (Fjärrlagring)|Premium (Fjärrlagring)|Premium (Fjärrlagring)|Premium (Fjärrlagring)|Premium (Fjärrlagring)|Premium (Fjärrlagring)|
 |I/o-svarstid (ungefärlig)|5 – 7 ms (skriva)<br>5 – 10 ms (läsa)|5 – 7 ms (skriva)<br>5 – 10 ms (läsa)|5 – 7 ms (skriva)<br>5 – 10 ms (läsa)|5 – 7 ms (skriva)<br>5 – 10 ms (läsa)|5 – 7 ms (skriva)<br>5 – 10 ms (läsa)|5 – 7 ms (skriva)<br>5 – 10 ms (läsa)|5 – 7 ms (skriva)<br>5 – 10 ms (läsa)|
 |Mål-IOPS (64 KB)|500|1000|1500|2000|2500|3000|3500|
+|Logga hastighetsbegränsningar (Mbit/s)|2.5|56|7.5|10|12.5|15|17.5|
 |Maximalt antal samtidiga arbetare per pool (begäranden) *|210|420|630|840|1050|1260|1470|
+|Maximalt antal samtidiga inloggningar per pool (begäranden) *|210|420|630|840|1050|1260|1470|
 |Maximalt antal tillåtna sessioner|30000|30000|30000|30000|30000|30000|30000|
 |Maximalt antal databaser per pool|200|500|500|500|500|500|500|
 |Min/max-databaspool vCore val per databas|0, 0.25, 0.5, 1, 2|0, 0.25, 0.5, 1...4|0, 0.25, 0.5, 1...6|0, 0.25, 0.5, 1...8|0, 0.25, 0.5, 1...10|0, 0.25, 0.5, 1...12|0, 0.25, 0.5, 1...14|
@@ -128,7 +134,9 @@ Du kan ange tjänstnivå, beräkningsstorleken och storage mycket med den [Azure
 |Lagringstyp|Premium (Fjärrlagring)|Premium (Fjärrlagring)|Premium (Fjärrlagring)|Premium (Fjärrlagring)|Premium (Fjärrlagring)|Premium (Fjärrlagring)|Premium (Fjärrlagring)|
 |I/o-svarstid (ungefärlig)|5 – 7 ms (skriva)<br>5 – 10 ms (läsa)|5 – 7 ms (skriva)<br>5 – 10 ms (läsa)|5 – 7 ms (skriva)<br>5 – 10 ms (läsa)|5 – 7 ms (skriva)<br>5 – 10 ms (läsa)|5 – 7 ms (skriva)<br>5 – 10 ms (läsa)|5 – 7 ms (skriva)<br>5 – 10 ms (läsa)|5 – 7 ms (skriva)<br>5 – 10 ms (läsa)|
 |Mål-IOPS (64 KB)|4000|4500|5000|6000|7000|7000|7000|
+|Logga hastighetsbegränsningar (Mbit/s)|20|20|20|20|20|20|20|
 |Maximalt antal samtidiga arbetare per pool (begäranden) *|1680|1890|2 100|2520|33600|4200|8400|
+|Maximalt antal samtidiga inloggningar per pool (begäranden) *|1680|1890|2 100|2520|33600|4200|8400|
 |Maximalt antal databaser per pool|500|500|500|500|500|500|500|
 |Min/max-databaspool vCore val per databas|0, 0.25, 0.5, 1...16|0, 0.25, 0.5, 1...18|0, 0.25, 0.5, 1...20|0, 0.25, 0.5, 1...20, 24|0, 0.25, 0.5, 1...20, 24, 32|0, 0.25, 0.5, 1...16, 24, 32, 40|0, 0.25, 0.5, 1...16, 24, 32, 40, 80|
 |Antal repliker|1|1|1|1|1|1|1|
@@ -146,16 +154,18 @@ Du kan ange tjänstnivå, beräkningsstorleken och storage mycket med den [Azure
 |:--- | --: |--: |--: |--: |--: |--: |
 |Maskinvaran generation|4|4|4|4|4|4|
 |vCores|1|2|3|4|5|6|
-|Minne (GB)|10.2|20.4|30.6|40.8|51|61.2|71.4|
-|Stöd för Columnstore|Gäller inte|Saknas|Saknas|Saknas|Saknas|Gäller inte|
+|Minne (GB)|7|14|21|28|35|42|
+|Stöd för Columnstore|Ja|Ja|Ja|Ja|Ja|Ja|
 |InMemory-OLTP-lagring (GB)|1|2|3|4|5|6|
 |Lagringstyp|Lokal SSD|Lokal SSD|Lokal SSD|Lokal SSD|Lokal SSD|Lokal SSD|
-|Maximal datastorlek (GB)|1024|1024|1024|1024|1024|1024|
-|Maximal storlek (GB)|307|307|307|307|307|307|
+|Maximal datastorlek (GB)|650|650|650|650|650|650|
+|Maximal storlek (GB)|195|195|195|195|195|195|
 |TempDB-storlek (GB)|32|64|96|128|160|192|
 |I/o-svarstid (ungefärlig)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|
 |Mål-IOPS (64 KB)|5000|10000|15 000|20000|25000|30000|
+|Logga hastighetsbegränsningar (Mbit/s)|6|12|18|24|30|36|
 |Maximalt antal samtidiga arbetare per pool (begäranden) *|210|420|630|840|1050|1260|
+|Maximalt antal samtidiga inloggningar per pool (begäranden) *|210|420|630|840|1050|1260|
 |Maximalt antal tillåtna sessioner|30000|30000|30000|30000|30000|30000|
 |Maximalt antal databaser per pool|Endast enskild databaser har stöd för den här beräkningsstorleken|50|100|100|100|100|
 |Min/max-databaspool vCore val per databas|Gäller inte|0, 0.25, 0.5, 1, 2|0, 0.25, 0.5, 1...3|0, 0.25, 0.5, 1...4|0, 0.25, 0.5, 1...5|0, 0.25, 0.5, 1...6|
@@ -176,12 +186,14 @@ Du kan ange tjänstnivå, beräkningsstorleken och storage mycket med den [Azure
 |Stöd för Columnstore|Gäller inte|Saknas|Saknas|Saknas|Saknas|Gäller inte|
 |InMemory-OLTP-lagring (GB)|7|8|9.5|11|20|36|
 |Lagringstyp|Lokal SSD|Lokal SSD|Lokal SSD|Lokal SSD|Lokal SSD|Lokal SSD|
-|Maximal datastorlek (GB)|1024|1024|1024|1024|1024|1024|
-|Maximal storlek (GB)|307|307|307|307|307|307|
+|Maximal datastorlek (GB)|650|650|650|650|1024|1024|
+|Maximal storlek (GB)|195|195|195|195|307|307|
 |TempDB-storlek (GB)|224|256|288|320|384|384|
 |I/o-svarstid (ungefärlig)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|
 |Mål-IOPS (64 KB)|35000|40000|45000|50000|80000|120000|
+|Logga hastighetsbegränsningar (Mbit/s)|
 |Maximalt antal samtidiga arbetare per pool (begäranden) *|1470|1680|1890|2 100|3360|5040|
+|Maximalt antal samtidiga inloggningar per pool (begäranden) *|1470|1680|1890|2 100|3360|5040|
 |Maximalt antal tillåtna sessioner|30000|30000|30000|30000|30000|30000|
 |Maximalt antal databaser per pool|100|100|100|100|100|100|
 |Min/max-databaspool vCore val per databas|0, 0.25, 0.5, 1...7|0, 0.25, 0.5, 1...8|0, 0.25, 0.5, 1...9|0, 0.25, 0.5, 1...10|0, 0.25, 0.5, 1...10, 16|0, 0.25, 0.5, 1...10, 16, 24|
@@ -201,13 +213,15 @@ Du kan ange tjänstnivå, beräkningsstorleken och storage mycket med den [Azure
 |Minne (GB)|10.2|20.4|30.6|40.8|51|61.2|71.4|
 |Stöd för Columnstore|Ja|Ja|Ja|Ja|Ja|Ja|Ja|
 |InMemory-OLTP-lagring (GB)|1.571|3.142|4.713|6.284|8.655|11.026|13.397|
-|Maximal datastorlek (GB)|1024|1024|1024|1536|1536|1536|1536|
-|Maximal storlek (GB)|307|307|307|461|461|461|461|
+|Maximal datastorlek (GB)|1024|1024|1536|1536|1536|3072|3072|
+|Maximal storlek (GB)|307|307|307|461|461|922|922|
 |TempDB-storlek (GB)|64|128|192|256|320|384|384|
 |Lagringstyp|Lokal SSD|Lokal SSD|Lokal SSD|Lokal SSD|Lokal SSD|Lokal SSD|Lokal SSD|
 |I/o-svarstid (ungefärlig)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|
 |Mål-IOPS (64 KB)|5000|10000|15 000|20000|25000|30000|35000|
+|Logga hastighetsbegränsningar (Mbit/s)|48|48|48|48|48|48|48|
 |Maximalt antal samtidiga arbetare per pool (begäranden) *|210|420|630|840|1050|1260|1470|
+|Maximalt antal samtidiga inloggningar per pool (begäranden) *|210|420|630|840|1050|1260|1470|
 |Maximalt antal tillåtna sessioner|30000|30000|30000|30000|30000|30000|30000|
 |Maximalt antal databaser per pool|Endast enskild databaser har stöd för den här beräkningsstorleken|50|100|100|100|100|100|
 |Min/max-databaspool vCore val per databas|Gäller inte|0, 0.25, 0.5, 1...4|0, 0.25, 0.5, 1...6|0, 0.25, 0.5, 1...8|0, 0.25, 0.5, 1...10|0, 0.25, 0.5, 1...12|0, 0.25, 0.5, 1...14|
@@ -233,12 +247,14 @@ Du kan ange tjänstnivå, beräkningsstorleken och storage mycket med den [Azure
 |Lagringstyp|Lokal SSD|Lokal SSD|Lokal SSD|Lokal SSD|Lokal SSD|Lokal SSD|Lokal SSD|
 |I/o-svarstid (ungefärlig)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|
 |Mål-IOPS (64 KB)|40000|45000|50000|60000|80000|100000|200000|
+|Logga hastighetsbegränsningar (Mbit/s)|48|48|48|48|48|48|48|
 |Maximalt antal samtidiga arbetare per pool (begäranden) *|1680|1890|2 100|2520|3360|4200|8400|
+|Maximalt antal samtidiga inloggningar per pool (begäranden) *|1680|1890|2 100|2520|3360|4200|8400|
 |Maximalt antal tillåtna sessioner|30000|30000|30000|30000|30000|30000|30000|
 |Maximalt antal databaser per pool|100|100|100|100|100|100|100|
 |Min/max-databaspool vCore val per databas|0, 0.25, 0.5, 1...16|0, 0.25, 0.5, 1...18|0, 0.25, 0.5, 1...20|0, 0.25, 0.5, 1...20, 24|0, 0.25, 0.5, 1...20, 24, 32|0, 0.25, 0.5, 1...20, 24, 32, 40|0, 0.25, 0.5, 1...20, 24, 32, 40, 80|
 |Antal repliker|4|4|4|4|4|4|4|
-|Multi-AZ|Ja|Ja|Ja|Ja|Ja|Ja|
+|Multi-AZ|Ja|Ja|Ja|Ja|Ja|Ja|Ja|
 |Lässkalbarhet|Ja|Ja|Ja|Ja|Ja|Ja|Ja|
 |Inkluderad lagring av säkerhetskopior|1 X-databasstorlek|1 X-databasstorlek|1 X-databasstorlek|1 X-databasstorlek|1 X-databasstorlek|1 X-databasstorlek|1 X-databasstorlek|
 

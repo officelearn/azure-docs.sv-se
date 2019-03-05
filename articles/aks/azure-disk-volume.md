@@ -5,14 +5,14 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 10/08/2018
+ms.date: 03/01/2019
 ms.author: iainfou
-ms.openlocfilehash: 9c5879474568885d9a705e7bfd16e2a4e2304b96
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 02a863a4ddf59fb36c5f2ae7f3092896d2e1d860
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49068193"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57337999"
 ---
 # <a name="manually-create-and-use-a-volume-with-azure-disks-in-azure-kubernetes-service-aks"></a>Manuellt skapa och använda en volym med Azure-diskar i Azure Kubernetes Service (AKS)
 
@@ -21,13 +21,13 @@ Behållarbaserade program behöver ofta åtkomst till och bevara data i en exter
 > [!NOTE]
 > En Azure-disk kan endast monteras till en enda pod i taget. Om du vill dela en permanent volym över flera poddar kan använda [Azure Files][azure-files-volume].
 
-Mer information om Kubernetes volymer finns i [Kubernetes volymer][kubernetes-volumes].
+Mer information om Kubernetes volymer finns i [lagringsalternativ för program i AKS][concepts-storage].
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
 Den här artikeln förutsätter att du har ett befintligt AKS-kluster. Om du behöver ett AKS-kluster finns i snabbstarten om AKS [med Azure CLI] [ aks-quickstart-cli] eller [med Azure portal][aks-quickstart-portal].
 
-Du också ha Azure CLI version 2.0.46 eller senare installerat och konfigurerat. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][install-azure-cli].
+Du också ha Azure CLI version 2.0.59 eller senare installerat och konfigurerat. Kör  `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa  [Installera Azure CLI 2.0][install-azure-cli].
 
 ## <a name="create-an-azure-disk"></a>Skapa en Azure-disk
 
@@ -35,7 +35,7 @@ När du skapar en Azure-disk för användning med AKS kan du skapa diskresursen 
 
 Den här artikeln är att skapa disken i resursgruppen noden. Hämta först resursgruppens namn med den [az aks show] [ az-aks-show] kommandot och lägga till den `--query nodeResourceGroup` frågeparameter. I följande exempel hämtar noden resursgruppen för AKS-klusternamnet *myAKSCluster* i resursgruppens namn *myResourceGroup*:
 
-```azurecli
+```azurecli-interactive
 $ az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv
 
 MC_myResourceGroup_myAKSCluster_eastus
@@ -52,7 +52,7 @@ az disk create \
 ```
 
 > [!NOTE]
-> Azure-diskar faktureras av SKU: N för en viss storlek. Dessa SKU: er mellan 32GiB för S4 eller P4 diskar och 8TiB för S60 eller P60 diskar. Dataflöde och IOPS-prestanda för en Premium managed disk beror på både SKU: N och instansstorleken för noderna i AKS-klustret. Se [priser och prestanda för hanterade diskar][managed-disk-pricing-performance].
+> Azure-diskar faktureras av SKU: N för en viss storlek. Dessa SKU: er mellan 32GiB för S4 eller P4 diskar och 32TiB för S80 eller P80 diskar (i förhandsversion). Dataflöde och IOPS-prestanda för en Premium managed disk beror på både SKU: N och instansstorleken för noderna i AKS-klustret. Se [priser och prestanda för hanterade diskar][managed-disk-pricing-performance].
 
 Resurs-ID för disken visas när kommandot har slutförts, enligt följande på Exempelutdata. Den här disk-ID används för att montera disken i nästa steg.
 
@@ -126,6 +126,8 @@ Events:
 
 ## <a name="next-steps"></a>Nästa steg
 
+Associerade metodtips finns [bästa praxis för lagring och säkerhetskopiering i AKS][operator-best-practices-storage].
+
 Mer information om AKS kluster interagera med Azure-diskar, finns i den [Kubernetes-plugin för Azure Disks][kubernetes-disks].
 
 <!-- LINKS - external -->
@@ -143,3 +145,5 @@ Mer information om AKS kluster interagera med Azure-diskar, finns i den [Kuberne
 [az-aks-show]: /cli/azure/aks#az-aks-show
 [install-azure-cli]: /cli/azure/install-azure-cli
 [azure-files-volume]: azure-files-volume.md
+[operator-best-practices-storage]: operator-best-practices-storage.md
+[concepts-storage]: concepts-storage.md

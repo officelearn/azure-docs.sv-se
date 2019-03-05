@@ -11,13 +11,13 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 02/07/2019
-ms.openlocfilehash: dcd0c7073f2126e001a65e2142ea54a229553ebd
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.date: 03/04/2019
+ms.openlocfilehash: 58eb7729dd0d2dda728d2008d5bb674f5222c08e
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55894708"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57337846"
 ---
 # <a name="azure-sql-database-and-sql-data-warehouse-ip-firewall-rules"></a>Azure SQL Database och SQL Data Warehouse IP-brandväggsregler
 
@@ -82,7 +82,7 @@ Om du vill tillåta att program från Azure ansluter till din Azure SQL-server m
 
 ## <a name="creating-and-managing-ip-firewall-rules"></a>Skapa och hantera IP-brandväggsregler
 
-Första brandväggsinställningen på servernivå kan skapas med den [Azure-portalen](https://portal.azure.com/) eller programmässigt med [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql), [Azure CLI](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-create), eller [ REST-API](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate). Efterföljande IP-brandväggsregler för på servernivå kan skapas och hanteras med hjälp av dessa metoder samt via Transact-SQL.
+Första brandväggsinställningen på servernivå kan skapas med den [Azure-portalen](https://portal.azure.com/) eller programmässigt med [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.sql), [Azure CLI](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-create), eller [ REST-API](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate). Efterföljande IP-brandväggsregler för på servernivå kan skapas och hanteras med hjälp av dessa metoder samt via Transact-SQL.
 
 > [!IMPORTANT]
 > IP-brandväggsregler på databasnivå kan bara skapas och hanteras med hjälp av Transact-SQL.
@@ -149,17 +149,19 @@ EXECUTE sp_delete_firewall_rule @name = N'ContosoFirewallRule'
 
 ## <a name="manage-server-level-ip-firewall-rules-using-azure-powershell"></a>Hantera brandväggsregler på servernivå IP med Azure PowerShell
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 | Cmdlet | Nivå | Beskrivning |
 | --- | --- | --- |
-| [Get-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/get-azurermsqlserverfirewallrule) |Server |Returnerar de aktuella brandväggsreglerna för servernivå IP |
-| [New-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/new-azurermsqlserverfirewallrule) |Server |Skapar en ny på servernivå IP-brandväggsregel |
-| [Set-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/set-azurermsqlserverfirewallrule) |Server |Uppdaterar egenskaperna för en befintlig på servernivå IP-brandväggsregel |
-| [Remove-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/remove-azurermsqlserverfirewallrule) |Server |Tar bort IP-brandväggsregler på servernivå |
+| [Get-AzSqlServerFirewallRule](/powershell/module/az.sql/get-azsqlserverfirewallrule) |Server |Returnerar de aktuella brandväggsreglerna på servernivå |
+| [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule) |Server |Skapar en ny brandväggsregel på servernivå |
+| [Set-AzSqlServerFirewallRule](/powershell/module/az.sql/set-azsqlserverfirewallrule) |Server |Uppdaterar egenskaperna för en befintlig brandväggsregel på servernivå |
+| [Remove-AzSqlServerFirewallRule](/powershell/module/az.sql/remove-azsqlserverfirewallrule) |Server |Tar bort brandväggsregler på servernivå |
 
 I följande exempel anger en servernivå IP-brandväggsregel med hjälp av PowerShell:
 
 ```powershell
-New-AzureRmSqlServerFirewallRule -ResourceGroupName "myResourceGroup" `
+New-AzSqlServerFirewallRule -ResourceGroupName "myResourceGroup" `
     -ServerName $servername `
     -FirewallRuleName "AllowSome" -StartIpAddress "0.0.0.0" -EndIpAddress "0.0.0.0"
 ```

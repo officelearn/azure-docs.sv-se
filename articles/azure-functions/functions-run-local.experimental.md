@@ -11,18 +11,29 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: glenga
-ms.openlocfilehash: 2e2a388b399ff34e36ab65a734593704cf274dc0
+ms.openlocfilehash: 401cd6b2a78072c8299f32f60f1ac3677f05557c
 ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/04/2019
-ms.locfileid: "57312094"
+ms.locfileid: "57318749"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Arbeta med Azure Functions Core Tools
 
 Azure Functions Core Tools kan du utveckla och testa dina funktioner på den lokala datorn från Kommandotolken eller terminal. Din lokala funktioner kan ansluta levande Azure-tjänster och du kan felsöka dina funktioner på den lokala datorn med hjälp av den fullständiga Functions-körningen. Du kan även distribuera en funktionsapp till din Azure-prenumeration.
 
 [!INCLUDE [Don't mix development environments](../../includes/functions-mixed-dev-environments.md)]
+
+Utveckla funktioner på din lokala dator och publicera dem på Azure med hjälp av Core Tools följer du de här stegen:
+
+> [!div class="checklist"]
+> * [Installera de viktigaste verktygen och beroenden.](#v2)
+> * [Skapa ett funktionsapprojekt från en mall för vissa språk.](#create-a-local-functions-project)
+> * [Registrera utlösare och bindningen tillägg.](#register-extensions)
+> * [Definiera lagring och andra anslutningar.](#local-settings-file)
+> * [Skapa en funktion från en utlösare och språkspecifika mall.](#create-func)
+> * [Kör funktionen lokalt](#start)
+> * [Publicera projektet på Azure](#publish)
 
 ## <a name="core-tools-versions"></a>Core Tools versioner
 

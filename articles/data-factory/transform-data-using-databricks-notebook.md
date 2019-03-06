@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 03/12/2018
 ms.author: abnarain
 ms.reviewer: douglasl
-ms.openlocfilehash: 7035035823e00fb0c12de3f4eeae11d8b3e1d54d
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 181e2c1d1a9758d6f196c9cb2b281eefa141d81a
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54016931"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56984772"
 ---
 # <a name="run-a-databricks-notebook-with-the-databricks-notebook-activity-in-azure-data-factory"></a>Kör en Databricks Notebook med Databricks Notebook-aktiviteten i Azure Data Factory
 
@@ -109,7 +109,7 @@ I det här avsnittet skapar du en Databricks-länkad tjänst. Den här länkade 
 
     1.  Generera en **Åtkomsttoken** från Azure Databricks-arbetsplatsen. Du hittar anvisningar [här](https://docs.databricks.com/api/latest/authentication.html#generate-token).
 
-    1.  För **Klusterversion** väljer du **4.0** (med Apache Spark 2.3.0, Scala 2.11)
+    1.  För **Klusterversion** väljer du **4.2** (med Apache Spark 2.3.1, Scala 2.11)
 
     1.  För **Klusternodtyp** väljer du **Standard\_D3\_v2** under kategorin **Generell användning (HDD)** för den här självstudien. 
     

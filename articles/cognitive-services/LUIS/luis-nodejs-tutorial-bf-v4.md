@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 01/30/2019
 ms.author: diberry
-ms.openlocfilehash: 8a24ffa4717244d8ce2ef507183cff06cbea5797
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 852cc5e5b3b018d871bd40775dce64d669fb3011
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55492240"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56880622"
 ---
 # <a name="tutorial-luis-bot-in-nodejs-with-the-bot-framework-4x-and-the-azure-web-app-bot"></a>Självstudier: LUIS-bot i Node.js med Bot Framework 4.x och Azure Web App-robot
 Med Node.js kan du skapa en chattrobot som är integrerad med språkförståelse (LUIS). Den här roboten använder HomeAutomation-appen för att implementera en robotlösning. Roboten bygger på Azures [webbappsrobot](https://docs.microsoft.com/azure/bot-service/) med [Bot Framework version](https://github.com/Microsoft/botbuilder-js) v4.
@@ -66,7 +66,7 @@ Med Node.js kan du skapa en chattrobot som är integrerad med språkförståelse
     
 5. Välj **Skapa**. Nu skapas och distribueras robottjänsten till Azure. I en del av den här processen skapas en LUIS-app med namnet `luis-nodejs-bot-XXXX`. Det här namnet baseras på robotens och appens namn i föregående avsnitt.
 
-    [ ![Skapa en webbappsrobot](./media/bfv4-nodejs/create-web-app-service.png) ](./media/bfv4-nodejs/create-web-app-service.png#lightbox)
+    [![Skapa en webbappsrobot](./media/bfv4-nodejs/create-web-app-service.png)](./media/bfv4-nodejs/create-web-app-service.png#lightbox)
 
 6. Lämna den här webbläsarfliken öppen. Öppna en ny webbläsarflik för steg som utförs på LUIS-portalen. Fortsätt till nästa avsnitt när den nya robottjänsten har distribuerats.
 
@@ -106,7 +106,7 @@ Ladda ned koden för webbappsroboten så att du kan utveckla den och använda de
 
 3. Välj **Download Bot source code** (Ladda ned robotens källkod). 
 
-    [ ![Ladda ned källkoden för webbappsroboten för grundläggande robot](../../../includes/media/cognitive-services-luis/bfv4/download-code.png) ](../../../includes/media/cognitive-services-luis/bfv4/download-code.png#lightbox)
+    [![Ladda ned källkoden för webbappsroboten för grundläggande robot](../../../includes/media/cognitive-services-luis/bfv4/download-code.png)](../../../includes/media/cognitive-services-luis/bfv4/download-code.png#lightbox)
 
 4. Om källkoden är zippad innehåller meddelandet en länk för att ladda ned koden. Klicka på länken. 
 
@@ -230,7 +230,7 @@ Kontrollera att roboten fungerar innan du ändrar koden eller några inställnin
 
 2. I robotemulatorn väljer du *.bot-filen i roten av projektet. Den här `.bot`-filen innehåller robotens URL-slutpunkt för meddelanden:
 
-    [ ![Robotemulatorn v4](../../../includes/media/cognitive-services-luis/bfv4/bot-emulator-v4.png) ](../../../includes/media/cognitive-services-luis/bfv4/bot-emulator-v4.png#lightbox)
+    [![Robotemulatorn v4](../../../includes/media/cognitive-services-luis/bfv4/bot-emulator-v4.png)](../../../includes/media/cognitive-services-luis/bfv4/bot-emulator-v4.png#lightbox)
 
 3. Ange den robothemlighet som du kopierade från Programinställningar i Azure Bot Service i steg 1 i avsnittet **[Ladda ned webbappsroboten](#download-the-web-app-bot)**. På så sätt kan emulatorn få åtkomst till alla krypterade fält i .bot-filen.
 
@@ -239,7 +239,7 @@ Kontrollera att roboten fungerar innan du ändrar koden eller några inställnin
 
 4. Ange `Hello` i robotemulatorn och få lämpligt svar för den grundläggande roboten.
 
-    [ ![Svar från grundläggande robot i emulatorn](../../../includes/media/cognitive-services-luis/bfv4/emulator-test.png) ](../../../includes/media/cognitive-services-luis/bfv4/emulator-test.png#lightbox)
+    [![Svar från grundläggande robot i emulatorn](../../../includes/media/cognitive-services-luis/bfv4/emulator-test.png)](../../../includes/media/cognitive-services-luis/bfv4/emulator-test.png#lightbox)
 
 ## <a name="modify-bot-code"></a>Ändra robotkoden 
 

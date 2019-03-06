@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/09/2018
 ms.author: elsung
-ms.openlocfilehash: ed2d1256508e588000970879dae7ac653797fbf9
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 7f20f237b83550b4c78b1fb7488e62119470a85a
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54883321"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56877001"
 ---
 # <a name="virtual-network-integration-for-azure-data-lake-storage-gen1"></a>Integrering av virtuella nätverk för Azure Data Lake Storage Gen1
 
@@ -87,7 +87,7 @@ Några tillgängliga alternativ är:
 
 1.  Gå till Azure-portalen och logga in på ditt konto.
  
-2.  [Skapa ett nytt virtuellt nätverk ](https://docs.microsoft.com/azure/virtual-network/quick-create-portal)i din prenumeration. Eller så går du till ett befintligt virtuellt nätverk. Det virtuella nätverket måste finnas i samma region som Data Lake Storage Gen1-kontot.
+2.  [Skapa ett nytt virtuellt nätverk](https://docs.microsoft.com/azure/virtual-network/quick-create-portal) i din prenumeration. Eller så går du till ett befintligt virtuellt nätverk. Det virtuella nätverket måste finnas i samma region som Data Lake Storage Gen1-kontot.
  
 3.  På bladet **Virtuellt nätverk** väljer du **Tjänstslutpunkter**.
  

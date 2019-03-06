@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 12/04/2018
 ms.author: zachal
 ms.custom: mvc
-ms.openlocfilehash: bd7072ce8212366bf3d8a0a9e0a30000debea2ea
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: fbca620fca1aeb53acc9bd70561e783b49ff1a60
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54434622"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56822365"
 ---
 # <a name="manage-windows-updates-by-using-azure-automation"></a>Hantera Windows-uppdateringar med hjälp av Azure Automation
 
@@ -66,7 +66,7 @@ Under **Uppdateringshantering**, ange platsen, Log Analytics-arbetsytan och Auto
 
 ![Aktivera fönstret Uppdateringshanteringslösning](./media/automation-tutorial-update-management/manageupdates-update-enable.png)
 
-Det kan ta några minuter att aktivera lösningen. Under tiden ska du inte stänga webbläsaren. När lösningen har aktiverats flödar information om saknade uppdateringar på den virtuella datorn till Log Analytics. Det kan ta mellan 30 minuter och 6 timmar innan data blir tillgängliga för analys.
+Det kan ta några minuter att aktivera lösningen. Under tiden ska du inte stänga webbläsaren. När lösningen har aktiverats flödar information om saknade uppdateringar på den virtuella datorn till Azure Monitor-loggar. Det kan ta mellan 30 minuter och 6 timmar innan data blir tillgängliga för analys.
 
 ## <a name="view-update-assessment"></a>Visa kontroll av uppdateringar
 
@@ -137,7 +137,7 @@ Under **Ny uppdateringsdistribution** anger du följande information:
 
 * **Grupper som ska uppdateras (förhandsversion)**: Definiera en fråga som baseras på en kombination av prenumeration, resursgrupper, platser och taggar för att skapa en dynamisk grupp med virtuella Azure-datorer som ska ingå i din distribution. Mer information finns i [Dynamiska grupper](automation-update-management.md#using-dynamic-groups)
 
-* **Datorer som ska uppdateras**: Välj en sparad sökning eller en importerad grupp, eller välj Dator i listrutan och välj enskilda datorer. Om du väljer **Datorer** visas beredskapen för datorn i kolumnen **Uppdatera agentberedskap**. Mer om de olika metoderna för att skapa datorgrupper i Log Analytics finns i dokumentationen om [datorgrupper i Log Analytics](../azure-monitor/platform/computer-groups.md)
+* **Datorer som ska uppdateras**: Välj en sparad sökning eller en importerad grupp, eller välj Dator i listrutan och välj enskilda datorer. Om du väljer **Datorer** visas beredskapen för datorn i kolumnen **Uppdatera agentberedskap**. Information om de olika metoderna för att skapa datorgrupper i Azure Monitor-loggar finns i [datorgrupper i Azure Monitor-loggar](../azure-monitor/platform/computer-groups.md)
 
 * **Uppdatera klassificering**: Välj vilka typer av programvaror som ingick i distributionen av uppdateringsdistributionen. Låt alla typer vara markerade för den här självstudien.
 

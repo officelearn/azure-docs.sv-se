@@ -1,80 +1,88 @@
 ---
-title: 'Snabbstart: API för stavningskontroll i Bing, Ruby'
+title: 'Snabbstart: Kontrollera stavning med REST API för stavningskontroll i Bing och Ruby'
 titlesuffix: Azure Cognitive Services
-description: Hämta information och kodexempel som hjälper dig att snabbt komma igång med API:et för stavningskontroll i Bing.
+description: Kom igång med REST API för stavningskontroll i Bing för att kontrollera stavning och grammatik.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: quickstart
-ms.date: 09/14/2017
+ms.date: 02/20/2019
 ms.author: aahi
-ms.openlocfilehash: d3c273c7e5774e4f6d5b6984b77ff76bfb041343
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: d488923f38a9c65cb117b4535b50bb9fdff2dbfc
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55873180"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56888856"
 ---
-# <a name="quickstart-for-bing-spell-check-api-with-ruby"></a>Snabbstart för API:et för stavningskontroll i Bing med Ruby 
+# <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-ruby"></a>Snabbstart: Kontrollera stavning med REST API för stavningskontroll i Bing och Ruby
 
-Den här artikeln visar hur du använder [API:et för stavningskontroll i Bing](https://azure.microsoft.com/services/cognitive-services/spell-check/)  med Ruby. API:et för stavningskontroll returnerar en lista med ord som det inte kan identifiera tillsammans med föreslagna ersättningar. Vanligtvis skickar du text till det här API:et och sedan gör du antingen föreslagna ersättningar i texten eller visar dem för användaren av programmet så att de kan avgöra om de vill göra ersättningarna. Den här artikeln visar hur du skickar en begäran som innehåller texten ”ylld wrld”! Föreslagna ersättningar är ”Hello” och ”world”.
+Använd den här snabbstarten för att skicka ditt första anrop till REST API för stavningskontroll i Bing med hjälp av Ruby. Det här enkla programmet skickar en begäran till API:et och returnerar en lista över ord som det inte kände igen följt av föreslagna korrigeringar. Även om det här programmet är skrivet i Ruby, är API:n en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk. Källkoden till det här programmet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/ruby/Search/BingSpellCheckv7.rb)
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-Du behöver [Ruby 2.4](https://www.ruby-lang.org/en/downloads/) eller senare för att köra den här koden.
+* [Ruby 2.4](https://www.ruby-lang.org/en/downloads/) eller senare.
 
-Du måste ha ett [API-konto för Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med **API v7 för stavningskontroll i Bing**. Det räcker med en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/try/cognitive-services/#lang) för den här snabbstarten. Du behöver den åtkomstnyckel som du fick när du aktiverade din kostnadsfria utvärderingsversion, eller så kan du använda en betald prenumerationsnyckel från instrumentpanelen i Azure. Se även [Priser för Cognitive Services – API för Bing-sökning](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+[!INCLUDE [cognitive-services-bing-spell-check-signup-requirements](../../../../includes/cognitive-services-bing-spell-check-signup-requirements.md)]
 
-## <a name="get-spell-check-results"></a>Få stavningskontrollsresultat
 
-1. Skapa ett nytt Ruby-projekt i din favorit-IDE.
-2. Lägg till koden nedan.
-3. Ersätt värdet `key` med en giltig åtkomstnyckel för din prenumeration.
-4. Kör programmet.
+## <a name="create-and-initialize-the-application"></a>Skapa och initiera appen
 
-```ruby
-require 'net/http'
-require 'uri'
-require 'json'
+1. Skapa en ny Ruby-fil i valfri IDE eller redigeringsprogram och lägg till följande krav. 
 
-uri = 'https://api.cognitive.microsoft.com'
-path = '/bing/v7.0/spellcheck?'
-params = 'mkt=en-us&mode=proof'
+    ```javascript
+    require 'net/http'
+    require 'uri'
+    require 'json'
+    ```
 
-uri = URI(uri + path + params)
-uri.query = URI.encode_www_form({
-    # Request parameters
-    'text' => 'Hollo, wrld!'
-})
+2. Skapa variabler för din prenumerationsnyckel, slutpunkts-URI och sökväg. Skapa dina begärandeparametrar genom att lägga till parametern `mkt=` i din marknad samt `&mode` till bevisläget `proof`.
 
-# NOTE: Replace this example key with a valid subscription key.
-key = 'ENTER KEY HERE'
+    ```ruby
+    key = 'ENTER YOUR KEY HERE'
+    uri = 'https://api.cognitive.microsoft.com'
+    path = '/bing/v7.0/spellcheck?'
+    params = 'mkt=en-us&mode=proof'
+    ```
 
-# The headers in the following example 
-# are optional but should be considered as required:
-#
-# X-MSEdge-ClientIP: 999.999.999.999  
-# X-Search-Location: lat: +90.0000000000000;long: 00.0000000000000;re:100.000000000000
-# X-MSEdge-ClientID: <Client ID from Previous Response Goes Here>
-#
-# See below for more information.
+## <a name="send-a-spell-check-request"></a>Skicka en begäran om stavningskontroll
 
-request = Net::HTTP::Post.new(uri)
-request['Content-Type'] = "application/x-www-form-urlencoded"
+1. Skapa en URI från din värd-URI, sökväg och parametersträng. Ange dess fråga till att innehålla den text som du vill stavningskontrollera.
 
-request['Ocp-Apim-Subscription-Key'] = key
+   ```ruby
+   uri = URI(uri + path + params)
+   uri.query = URI.encode_www_form({
+      # Request parameters
+   'text' => 'Hollo, wrld!'
+   })
+   ```
 
-response = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https') do |http|
-    http.request(request)
-end
+2. Skapa en begäran med hjälp av den URI som skapats ovan. Lägg till nyckeln till `Ocp-Apim-Subscription-Key`-rubriken.
 
-result = JSON.pretty_generate(JSON.parse(response.body))
-puts result
-```
+    ```ruby
+    request = Net::HTTP::Post.new(uri)
+    request['Content-Type'] = "application/x-www-form-urlencoded"
+    request['Ocp-Apim-Subscription-Key'] = key
+    ```
 
-**Svar**
+3. Skicka begäran.
+
+    ```ruby
+    response = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https') do |http|
+        http.request(request)
+    end
+    ```
+
+4. Hämta JSON-svaret och skriv ut det till konsolen. 
+
+    ```ruby
+    result = JSON.pretty_generate(JSON.parse(response.body))
+    puts result
+    ```
+
+## <a name="example-json-response"></a>Exempel på JSON-svar
 
 Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följande exempel: 
 
@@ -119,9 +127,7 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Självstudie för stavningskontroll i Bing](../tutorials/spellcheck.md)
+> [Skapa en webbapp med en sida](../tutorials/spellcheck.md)
 
-## <a name="see-also"></a>Se även
-
-- [Översikt över stavningskontroll i Bing](../proof-text.md)
+- [Vad är API för stavningskontroll i Bing?](../overview.md)
 - [API-referens för stavningskontroll i Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference)

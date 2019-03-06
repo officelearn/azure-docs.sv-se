@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 01/15/2019
 ms.author: rezas
-ms.openlocfilehash: edd3912b3674f3a80a81fd47ed490479f663852c
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 7b3a8ac0500652b8c4250b4bc3b4f5514b62c4aa
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54830831"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56816950"
 ---
 # <a name="quickstart-communicate-to-device-applications-in-c-via-iot-hub-device-streams-preview"></a>Snabbstart: Kommunicera med enhetsprogram i C# via IoT Hub-enhetsströmmar (förhandsversion)
 
@@ -39,8 +39,7 @@ Du kan kontrollera den aktuella versionen av C# på utvecklingsdatorn med följa
 dotnet --version
 ```
 
-Ladda ned exempelprojektet för C# från https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip och extrahera ZIP-arkivet.
-
+Ladda ned exempelprojektet för C# från https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip och extrahera ZIP-arkivet. Du behöver den på både enhetssidan och tjänstsidan.
 
 ## <a name="create-an-iot-hub"></a>Skapa en IoT Hub
 
@@ -86,18 +85,17 @@ En enhet måste vara registrerad vid din IoT-hubb innan den kan ansluta. I den h
     Anteckna det returnerade värdet, som ser ut så här:
 
    `"HostName={YourIoTHubName}.azure-devices.net;SharedAccessKeyName=service;SharedAccessKey={YourSharedAccessKey}"`
-    
 
 ## <a name="communicate-between-device-and-service-via-device-streams"></a>Kommunicera mellan enhet och tjänst via enhetsströmmar
 
 ### <a name="run-the-service-side-application"></a>Köra programmet på tjänstsidan
 
-Gå till `device-streams-echo/service` i den uppackade projektmappen. Du behöver ha följande information till hands:
+Gå till `iot-hub/Quickstarts/device-streams-echo/service` i den uppackade projektmappen. Du behöver ha följande information till hands:
 
 | Parameternamn | Parametervärde |
 |----------------|-----------------|
-| `ServiceConnectionString` | Tjänstanslutningssträngen för din IoT-hubb. |
-| `DeviceId` | Identifieraren för den enhet som du skapade tidigare. |
+| `ServiceConnectionString` | Ange tjänstanslutningssträngen för din IoT-hubb. |
+| `DeviceId` | Ange ID för den enhet som du skapade tidigare, till exempel MyDevice. |
 
 Kompilera och kör koden på följande sätt:
 
@@ -109,19 +107,22 @@ dotnet build
 
 # Run the application
 # In Linux/MacOS
-dotnet run $ServiceConnectionString MyDevice
+dotnet run "<ServiceConnectionString>" "<MyDevice>"
 
 # In Windows
-dotnet run %ServiceConnectionString% MyDevice
+dotnet run <ServiceConnectionString> <MyDevice>
 ```
+
+> [!NOTE]
+> En timeout uppstår om programmet på enhetssidan inte svarade i tid.
 
 ### <a name="run-the-device-side-application"></a>Köra programmet på enhetssidan
 
-Gå till katalogen `device-streams-echo/device` i den uppackade projektmappen. Du behöver ha följande information till hands:
+Gå till katalogen `iot-hub/Quickstarts/device-streams-echo/device` i den uppackade projektmappen. Du behöver ha följande information till hands:
 
 | Parameternamn | Parametervärde |
 |----------------|-----------------|
-| `DeviceConnectionString` | Anslutningssträngen för den enhet som du skapade tidigare. |
+| `DeviceConnectionString` | Ange enhetsanslutningssträngen för din IoT-hubb. |
 
 Kompilera och kör koden på följande sätt:
 
@@ -133,28 +134,23 @@ dotnet build
 
 # Run the application
 # In Linux/MacOS
-dotnet run $DeviceConnectionString
+dotnet run "<DeviceConnectionString>"
 
 # In Windows
-dotnet run %DeviceConnectionString%
+dotnet run <DeviceConnectionString>
 ```
 
 I slutet av det sista steget initierar programmet på tjänstsidan en dataström till enheten, och när den har upprättats skickas en strängbuffert till tjänsten via dataströmmen. I det här exemplet returnerar programmet på tjänstsidan helt enkelt tillbaka samma data till enheten, vilket demonstrerar lyckad dubbelriktad kommunikation mellan de två programmen. Se bilden nedan.
 
 Konsolens utdata på enhetssidan: ![alternativ text](./media/quickstart-device-streams-echo-csharp/device-console-output.png "Konsolens utdata på enhetssidan")
 
-
 Konsolens utdata på tjänstsidan: ![alternativ text](./media/quickstart-device-streams-echo-csharp/service-console-output.png "Konsolens utdata på tjänstsidan")
 
-
-
 Den trafik som skickas via en strömmen dirigeras via IoT-hubben i stället för att skickas direkt. Detta ger [dessa fördelar](./iot-hub-device-streams-overview.md#benefits).
-
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
 [!INCLUDE [iot-hub-quickstarts-clean-up-resources](../../includes/iot-hub-quickstarts-clean-up-resources-device-streams.md)]
-
 
 ## <a name="next-steps"></a>Nästa steg
 

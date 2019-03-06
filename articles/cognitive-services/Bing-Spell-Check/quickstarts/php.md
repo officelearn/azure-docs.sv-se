@@ -1,31 +1,32 @@
 ---
-title: 'Snabbstart: API för stavningskontroll i Bing, PHP'
+title: 'Snabbstart: Kontrollera stavning med REST API för stavningskontroll i Bing och PHP'
 titlesuffix: Azure Cognitive Services
-description: Hämta information och kodexempel som hjälper dig att snabbt komma igång med API:et för stavningskontroll i Bing.
+description: Kom igång med stavningskontrolls-API i Bing för att kontrollera stavning och grammatik.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: quickstart
-ms.date: 09/14/2017
+ms.date: 02/20/2019
 ms.author: aahi
-ms.openlocfilehash: abce882edb9b6c97ea3b8a91219f8e2887cfb78d
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: bb952a9169710a7ba8248293e1eab30c7a2da6c0
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55862317"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56888941"
 ---
-# <a name="quickstart-for-bing-spell-check-api-with-php"></a>Snabbstart för API:et för stavningskontroll i Bing med PHP 
+# <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-php"></a>Snabbstart: Kontrollera stavning med REST API för stavningskontroll i Bing och PHP
 
-Den här artikeln visar hur du använder [API:et för stavningskontroll i Bing](https://azure.microsoft.com/services/cognitive-services/spell-check/)  med PHP. API:et för stavningskontroll returnerar en lista med ord som det inte kan identifiera tillsammans med föreslagna ersättningar. Vanligtvis skickar du text till det här API:et och sedan gör du antingen föreslagna ersättningar i texten eller visar dem för användaren av programmet så att de kan avgöra om de vill göra ersättningarna. Den här artikeln visar hur du skickar en begäran som innehåller texten ”ylld wrld”! Föreslagna ersättningar är ”Hello” och ”world”.
+Använd den här snabbstarten för att göra ditt första anrop till REST API för stavningskontroll i Bing. Det här enkla Python-programmet skickar en begäran till API:et och returnerar en lista över föreslagna korrigeringar. Även om det här programmet är skrivet i Python, är API:n en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-Du behöver [PHP 5.6.x](http://php.net/downloads.php) för att köra den här koden.
+* [PHP 5.6.x](http://php.net/downloads.php)
 
-Du måste ha ett [API-konto för Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med **API v7 för stavningskontroll i Bing**. Det räcker med en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/try/cognitive-services/#lang) för den här snabbstarten. Du behöver den åtkomstnyckel som du fick när du aktiverade din kostnadsfria utvärderingsversion, eller så kan du använda en betald prenumerationsnyckel från instrumentpanelen i Azure.  Se även [Priser för Cognitive Services – API för Bing-sökning](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+[!INCLUDE [cognitive-services-bing-spell-check-signup-requirements](../../../../includes/cognitive-services-bing-spell-check-signup-requirements.md)]
+
 
 ## <a name="get-spell-check-results"></a>Få stavningskontrollsresultat
 
@@ -130,13 +131,10 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
    ]
 }
 ```
-
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Självstudie för stavningskontroll i Bing](../tutorials/spellcheck.md)
+> [Skapa en webbapp med en sida](../tutorials/spellcheck.md)
 
-## <a name="see-also"></a>Se även
-
-- [Översikt över stavningskontroll i Bing](../proof-text.md)
+- [Vad är API för stavningskontroll i Bing?](../overview.md)
 - [API-referens för stavningskontroll i Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference)

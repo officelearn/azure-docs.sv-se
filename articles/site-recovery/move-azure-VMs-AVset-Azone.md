@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: 5597f3c017ccf2dbb58b7b6b046720c8f49803c5
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 77c38089a4f9c6518d9736df7f3020c66ad17b3b
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56312301"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56877052"
 ---
 # <a name="move-azure-vms-into-availability-zones"></a>Flytta virtuella Azure-datorer till tillgänglighetszoner
 Tillgänglighetszonerna i Azure skyddar dina program och data mot datacenterfel. Varje tillgänglighetszon utgörs av ett eller flera datacenter som är utrustade med fristående kraft, nedkylning och nätverk. För att säkerställa återhämtning finns det minst tre separata zoner i alla aktiverade regioner. Den fysiska avgränsningen av tillgänglighetszonerna inom en region skyddar program och data mot datacenterfel. Med tillgänglighetszonerna kan Azure erbjuda branschens bästa serviceavtal med en drifttid på 99,99 % för virtuella datorer. Tillgänglighetszoner stöds i utvalda regioner, vilket beskrivs [här](https://docs.microsoft.com/azure/availability-zones/az-overview#regions-that-support-availability-zones). 
@@ -70,9 +70,9 @@ I ett scenario där du har distribuerat dina virtuella datorer som ”enskilda i
     - [Nätverkssäkerhetsgrupper](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group)
     - [Lastbalanserare](https://docs.microsoft.com/azure/load-balancer/#step-by-step-tutorials
         
-     - [Offentlig IP ](https://docs.microsoft.com/azure/load-balancer/#step-by-step-tutorials)
+     - [Offentlig IP-adress](https://docs.microsoft.com/azure/load-balancer/#step-by-step-tutorials)
     
-   Alla andra nätverkskomponenter beskrivs i nätverkets [dokumentation.](https://docs.microsoft.com/azure/#pivot=products&panel=network) 
+   Alla andra nätverkskomponenter beskrivs i nätverkets [dokumentation](https://docs.microsoft.com/azure/#pivot=products&panel=network). 
 
 > [!IMPORTANT]
 > Du bör använda en zonredundant lastbalanserare i målet. Läs mer [här](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones).

@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: overview
 ms.date: 09/29/2017
 ms.author: aahi
-ms.openlocfilehash: 56be136aff3aa7fbe813fee500dcf2fe35ca0859
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 3a951f793ec946fc66d6a14acacd548a5f990be3
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55875407"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56872870"
 ---
 # <a name="what-is-the-bing-custom-search-api"></a>Vad är API:et för anpassad Bing-sökning?
 
@@ -29,7 +29,7 @@ Med API:et för anpassad Bing-sökning kan du skapa skräddarsydda reklamfria s�
 |[Anpassade funktioner för bildsökning](get-images-from-instance.md)     | Gör så att dina användare kan söka efter bilder från domäner och webbplatser som anges i din anpassade sökinstans.        |        
 |[Anpassade funktioner för videosökning](get-videos-from-instance.md)     | Gör så att dina användare kan söka efter videofilmer från domäner och webbplatser som anges i din anpassade sökinstans.        |    
 |[Dela din anpassade sökinstans](share-your-custom-search.md)     | Samarbeta för att redigera och testa sökinstansen genom att dela den med teammedlemmarna.        | 
-|[Konfigurera ett användargränssnitt för dina appar och webbplatser](hosted-ui.md)     | Samarbeta för att redigera och testa sökinstansen genom att dela den med teammedlemmarna.        | 
+|[Konfigurera ett användargränssnitt för dina program och webbplatser](hosted-ui.md)     | Samarbeta för att redigera och testa sökinstansen genom att dela den med teammedlemmarna.        | 
 ## <a name="workflow"></a>Arbetsflöde
 
 Du kan skapa en anpassad sökinstans genom att använda [portalen för Anpassad Bing-sökning](https://customsearch.ai). Med portalen kan du skapa en anpassad sökinstans som anger vilka domäner, webbplatser och webbsidor där Bing ska söka, tillsammans med sådana du inte vill att Bing ska söka. Du kan också använda portalen till följande: förhandsgranska sökfunktionerna, justera sökrangordningen som API:et tillhandahåller och, om du vill, konfigurera ett sökbart användargränssnitt som ska återges på webbplatser och i appar.

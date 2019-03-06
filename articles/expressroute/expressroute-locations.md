@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/20/2019
+ms.date: 02/26/2019
 ms.author: pareshmu
-ms.openlocfilehash: c80477eee18eda2bb3f6e273fdab760d27531310
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: e2c1dd0834ab659ac230dc67a760b10ca5c423ce
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456443"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56985520"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute-partners och peeringplatser
 
@@ -82,7 +82,7 @@ I följande tabell visas platser efter tjänstleverantör. Om du vill visa tillg
 | **[Ascenty Data Centers](https://ascenty.com/servicos/cloud-connect/microsoft-expressroute/)** |Stöds |Stöds |Sao Paulo |
 | **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** |Stöds |Stöds |Amsterdam, Chicago, Dallas, London, Silicon Valley, Singapore, Sydney, Tokyo, Toronto, Washington DC |
 | **[Bell Canada](https://business.bell.ca/shop/enterprise/cloud-connect-access-to-cloud-partner-services)** |Stöds |Stöds |Montreal, Toronto, Quebec City |
-| **[British Telecom](https://www.globalservices.bt.com/en/solutions/products/bt-compute-for-microsoft-azure)** |Stöds |Stöds |Amsterdam, Hongkong SAR, London, Sao Paulo, Silicon Valley, Singapore, Sydney, Tokyo, Washington DC |
+| **[British Telecom](https://www.globalservices.bt.com/en/solutions/products/bt-compute-for-microsoft-azure)** |Stöds |Stöds |Amsterdam, Hongkong SAR, London, Newport (Wales), Sao Paulo, Silicon Valley, Singapore, Sydney, Tokyo, Washington DC |
 | **C3ntro** |Kommer snart |Kommer snart |Miami |
 | **CDC** | Stöds | Stöds | Canberra, Canberra2 |
 | **[CenturyLink Cloud Connect](http://www.centurylink.com/cloudconnect)** |Stöds |Stöds |Las Vegas, New York, San Antonio, Silicon Valley, Tokyo, Toronto |
@@ -97,13 +97,13 @@ I följande tabell visas platser efter tjänstleverantör. Om du vill visa tillg
 | **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** |Stöds |Stöds |Amsterdam, Atlanta, Chicago, Dallas, Dublin, Hongkong SAR, London, London2, Los Angeles, Melbourne, Miami, New York, Osaka, Paris, Sao Paulo, Seattle, Silicon Valley, Singapore, Sydney, Tokyo, Toronto, Washington DC |
 | **euNetworks** |Stöds |Stöds |Amsterdam, Dublin, London |
 | **GÉANT** |Stöds |Stöds |Amsterdam |
-| **[Global Cloud Xchange (GCX)](http://globalcloudxchange.com/cloud-platform/cloud-x-fusion/cloud-x-fusion-for-azure/)** | Stöds| Stöds | Chennai, Mumbai |
+| **[Global Cloud Xchange (GCX)](http://globalcloudxchange.com/cloud-platform/cloud-x-fusion/)** | Stöds| Stöds | Chennai, Mumbai |
 | **[InterCloud](https://www.intercloud.com/)** |Stöds |Stöds |Amsterdam, London, New York, Paris, Silicon Valley, Singapore, Washington DC |
 | **Internet2** |Stöds |Stöds |Chicago, Dallas, Washington DC |
 | **[Internet Initiative Japan Inc. - IIJ](http://www.iij.ad.jp/en/news/pressrelease/2015/1216-2.html)** |Stöds |Stöds |Osaka, Tokyo |
 | **[Internet Solutions – Cloud Connect](https://www.is.co.za/solution/cloud-connect/)** |Stöds |Stöds |Kapstaden, Johannesburg, London |
 | **[Interxion](http://www.interxion.com/why-interxion/colocate-with-the-clouds/Microsoft-Azure/)** |Stöds |Stöds |Amsterdam, Amsterdam2, Dublin, London, Marseille, Paris |
-| **[IX Reach](https://www.ixreach.com/services/cloud-connectivity/microsoft-azure/)**|Stöds |Stöds | Amsterdam, Silicon Valley, Toronto |
+| **[IX Reach](https://www.ixreach.com/partners/cloud-partners/microsoft-azure/)**|Stöds |Stöds | Amsterdam, Silicon Valley, Toronto |
 | **Jisc** |Stöds |Stöds |London |
 | **[KINX](https://www.kinx.net/service/network/cloudhub/ms-expressroute/?lang=en)** |Stöds |Stöds |Seoul |
 | **[KPN](https://www.kpn.com/zakelijk/cloud/connect.htm)** | Stöds | Stöds | Amsterdam | 
@@ -185,7 +185,7 @@ Om inte din anslutningsleverantör finns med i föregående avsnitt, kan du fort
   * [CoreSite](http://www.coresite.com/)
   * [Equinix Cloud Exchange](http://www.equinix.com/services/interconnection-connectivity/cloud-exchange/)
   * [Interxion](http://www.interxion.com/products/interconnection/cloud-connect/)
-  * [IX Reach](https://www.ixreach.com/services/cloud-connectivity/microsoft-azure/)
+  * [IX Reach](https://www.ixreach.com/partners/cloud-partners/microsoft-azure/)
   * [Megaport](https://www.megaport.com/services/microsoft-expressroute/)
   * [NextDC](http://www.nextdc.com/)
   * [PacketFabric](https://www.packetfabric.com/packetcor/microsoft-azure/) 
@@ -199,7 +199,7 @@ Om inte din anslutningsleverantör finns med i föregående avsnitt, kan du fort
 | **Anslutningsleverantör** | **Exchange** | **Platser** |
 | --- | --- | --- |
 | **[1CLOUDSTAR](http://www.1cloudstar.com/service/cloudconnect-azure-expressroute/)** |Equinix |Singapore |
-| **[Airgate Technologies, Inc.](http://airgate.ca/cloud-express/)** | Equinix, Cologix | Toronto, Montreal |
+| **[Airgate Technologies, Inc.](https://www.airgate.ca/expressroute)** | Equinix, Cologix | Toronto, Montreal |
 | **[Alaska Communications](http://www.alaskacommunications.com/For-Your-Business/Direct-Cloud-Service)** |Equinix |Seattle |
 | **[Altice Business](https://golightpath.com/transport)** |Equinix |New York, Washington DC |
 | **[Arteria Networks Corporation](https://www.arteria-net.com/business/service/cloud/sca/)** |Equinix |Tokyo |
@@ -289,7 +289,7 @@ Att aktivera privata anslutningar så att de passar dina behov kan vara svårt, 
 | **[Equinix Professional Services](http://www.equinix.com/services/consulting/)** | Nordamerika |
 | **[FlexManage](http://www.flexmanage.com/cloud)** | Nordamerika |
 | **[Lightstream](https://www.ltstream.com/expressroute)** | Nordamerika |
-| **[The IT Consultancy Group](http://itconsult.com.au/microsoft-expressroute)** | Australien |
+| **[The IT Consultancy Group](http://itconsult.com.au/)** | Australien |
 | **[MOQdigital](http://www.moqdigital.com.au/insights/technical/network-connectivity-options-for-azure)** | Australien |
 | **[MSG Services](https://www.msg-services.de/it-services/managed-services/cloud-outsourcing/)** | Europa (Tyskland) |
 | **[Nelite](https://www.nelite.com/offres-services/)** | Europa |

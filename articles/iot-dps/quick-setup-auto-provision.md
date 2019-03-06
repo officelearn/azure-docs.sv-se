@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 15d243218632ce9010d0f4542fb97f311e8a3166
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 0b16c6da0066ac4e919c1bef031d3206a359aae6
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53182646"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56818127"
 ---
 # <a name="set-up-the-iot-hub-device-provisioning-service-with-the-azure-portal"></a>Konfigurera tjänsten IoT Hub Device Provisioning på Azure Portal
 
@@ -38,7 +38,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
     * **Namn:** Ange ett unikt namn för den nya instansen av enhetsetableringstjänsten. Om namnet som du anger är tillgängligt visas en grön bockmarkering.
     * **Prenumeration:** Välj den prenumeration som du vill använda för att skapa instansen av enhetsetableringstjänsten.
-    * **Resursgrupp:** I det här fältet kan du skapa en ny resursgrupp eller välja en befintlig som ska innehålla den nya instansen. Välj resursgruppen som innehåller den IoT-hubb du skapade, till exempel **TestResources**. Genom att lägga till alla relaterade resurser i en grupp kan du hantera dem tillsammans. Till exempel tas alla resurser som ingår i gruppen bort om resursgruppen tas bort. Mer information finns i [Använda resursgrupper för att hantera Azure-resurser](../azure-resource-manager/resource-group-portal.md).
+    * **Resursgrupp:** I det här fältet kan du skapa en ny resursgrupp eller välja en befintlig som ska innehålla den nya instansen. Välj resursgruppen som innehåller den IoT-hubb du skapade, till exempel **TestResources**. Genom att lägga till alla relaterade resurser i en grupp kan du hantera dem tillsammans. Till exempel tas alla resurser som ingår i gruppen bort om resursgruppen tas bort. Mer information finns i [Hantera Azure Resource Manager-resursgrupper](../azure-resource-manager/manage-resource-groups-portal.md).
     * **Plats:** Välj den plats som är närmast enheterna.
 
       ![Ange grundläggande information om instansen av enhetsetableringstjänsten på bladet på portalen](./media/quick-setup-auto-provision/create-iot-dps-portal.png)  

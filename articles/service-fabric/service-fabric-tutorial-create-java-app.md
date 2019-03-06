@@ -15,16 +15,17 @@ ms.workload: NA
 ms.date: 09/01/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 619f77b6b50a005b4b5cc688bdbf32d1ce3dce26
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 2ef38e34403a9c04eac5132c66682a045a589cf8
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55810822"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56733069"
 ---
 # <a name="tutorial-create-an-application-with-a-java-web-api-front-end-service-and-a-stateful-back-end-service-on-service-fabric"></a>Självstudier: Skapa ett program med en Java Web API-klientdelstjänst och en tillståndskänslig serverdelstjänst i Service Fabric
 
-Den här självstudien ingår i en serie. När du är klar har du ett röstningsprogram med en Java-webbklientdel som sparar röstningsresultaten i en tillståndskänslig serverdelstjänst i klustret. För den här självstudien måste du ha en fungerande dator för Mac OSX eller Linux-utvecklare. Om du inte vill skapa röstningsprogrammet manuellt kan du [ladda ned källkoden för det färdiga programmet](https://github.com/Azure-Samples/service-fabric-java-quickstart) och gå vidare till [Gå igenom exempelprogrammet för röstning](service-fabric-tutorial-create-java-app.md#walk-through-the-voting-sample-application).
+Den här självstudien ingår i en serie. När du är klar har du ett röstningsprogram med en Java-webbklientdel som sparar röstningsresultaten i en tillståndskänslig serverdelstjänst i klustret. För den här självstudien måste du ha en fungerande dator för Mac OSX eller Linux-utvecklare. Om du inte vill skapa röstningsprogrammet manuellt kan du [ladda ned källkoden för det färdiga programmet](https://github.com/Azure-Samples/service-fabric-java-quickstart) och gå vidare till [Gå igenom exempelprogrammet för röstning](service-fabric-tutorial-create-java-app.md#walk-through-the-voting-sample-application). Överväg även att följa [snabbstarten för Java-tillförlitliga tjänster.](service-fabric-quickstart-java-reliable-services.md)
+
 
 ![Lokal röstningsapp](./media/service-fabric-tutorial-create-java-app/votingjavalocal.png)
 
@@ -53,7 +54,7 @@ Innan du börjar den här självstudien:
 
 ## <a name="create-the-front-end-java-stateless-service"></a>Skapa en tillståndslös Java-tjänst för klientdelen
 
-Skapa först webbklientdelen för röstningsprogrammet. Den tillståndslösa Java-tjänsten har en förenklad HTTP-server som är värd för ett webbgränssnitt som drivs av AngularJS. Begäranden från en användare bearbetas av den tillståndslösa tjänsten och skickas som ett fjärrproceduranrop till tjänsten för att lagra rösterna. 
+Skapa först webbklientdelen för röstningsprogrammet. Ett webbgränssnitt som drivs av AngularJS skickar begäranden till den tillståndslösa Java-tjänsten, som kör en förenklad HTTP-server. Den här tjänsten bearbetar varje begäran och skickar ett fjärrproceduranrop till den tillståndskänsliga tjänsten för att lagra rösterna. 
 
 1. Starta Eclipse.
 
@@ -85,7 +86,7 @@ Tabellen innehåller en kort beskrivning av varje objekt i Package Explorer frå
 
 ### <a name="add-html-and-javascript-to-the-votingweb-service"></a>Lägga till HTML och Javascript i VotingWeb-tjänsten
 
-Om du vill lägga till användargränssnitt som kan renderas av den tillståndslösa tjänsten, lägger du till en HTML-fil i *VotingApplication/VotingWebPkg/Code*. HTML-filen renderas sedan av den förenklade HTTP-server som är inbäddad i den tillståndslösa Java-tjänsten.
+För att lägga till ett gränssnitt som kan renderas av den tillståndslösa tjänsten lägger du till en HTML-fil. HTML-filen renderas sedan av den förenklade HTTP-server som är inbäddad i den tillståndslösa Java-tjänsten.
 
 1. Expandera katalogen *VotingApplication* för att gå till katalogen *VotingApplication/VotingWebPkg/Code*.
 
@@ -209,7 +210,7 @@ app.controller("VotingAppController", ['$rootScope', '$scope', '$http', '$timeou
 
 I underprojektet **VotingWeb** öppnar du filen *VotingWeb/src/statelessservice/VotingWeb.java*. Tjänsten **VotingWeb** är en gateway till den tillståndslösa tjänsten och ansvarar för att konfigurera kommunikationslyssnaren för klientdelens API.
 
-Ersätt innehållet i metoden **createServiceInstanceListeners** i filen med följande och spara ändringarna.
+Ersätt den befintliga metoden **createServiceInstanceListeners** i filen med följande och spara ändringarna.
 
 ```java
 @Override
@@ -387,7 +388,7 @@ public class HttpCommunicationListener implements CommunicationListener {
 
 ### <a name="configure-the-listening-port"></a>Konfigurera lyssningsporten
 
-När klientdelstjänsten VotingWeb skapas, väljer Service Fabric en port som tjänsten ska lyssna på.  Tjänsten VotingWeb fungerar som klientdel för det här programmet och godkänner extern trafik, så vi kopplar den tjänsten till en fast och välkänd port. I Package Explorer öppnar du *VotingApplication/VotingWebPkg/ServiceManifest.xml*.  Leta rätt på resursen **Slutpunkt** i avsnittet **Resurser** och ändra värdet för **Port** till 8080, eller till någon annan port. Om du vill distribuera och köra programmet lokalt måste programmets lyssningsport vara öppen och tillgänglig på datorn. Klistra in följande kodavsnitt i elementet **ServiceManifest** (dvs. direkt under elementet ```<DataPackage>```).
+När klientdelstjänsten VotingWeb skapas, väljer Service Fabric en port som tjänsten ska lyssna på.  Tjänsten VotingWeb fungerar som klientdel för det här programmet och godkänner extern trafik, så vi kopplar den tjänsten till en fast och välkänd port. I Package Explorer öppnar du *VotingApplication/VotingWebPkg/ServiceManifest.xml*.  Hitta resursen **Slutpunkt** i avsnittet **Resurser** och ändra värdet för **Port** till 8080 (vi fortsätter att använda den här porten i självstudien). Om du vill distribuera och köra programmet lokalt måste programmets lyssningsport vara öppen och tillgänglig på datorn. Klistra in följande kodavsnitt i elementet **ServiceManifest** (dvs. direkt under elementet ```<DataPackage>```).
 
 ```xml
 <Resources>
@@ -547,9 +548,11 @@ class VotingDataService extends StatefulService implements VotingRPC {
 }
 ```
 
+Stommen för den tillståndslösa tjänsten i klientdelen och serverdelstjänsten har nu skapats.
+
 ## <a name="create-the-communication-interface-to-your-application"></a>Skapa kommunikationsgränssnittet till ditt program
 
-Stommen för den tillståndslösa tjänsten i klientdelen och serverdelstjänsten har nu skapats. Nästa steg är att ansluta de två tjänsterna. Både serverdels- och klientdelstjänsterna använder ett gränssnitt som kallas VotingRPC, som definierar åtgärder för röstningsprogrammet. Det här gränssnittet implementeras av både klientdels- och serverdelstjänsterna för att aktivera RPC (Remote Procedure Calls) mellan de två tjänsterna. Eftersom Eclipse inte stöder tillägg av Gradle-delprojekt, måste det paket som innehåller gränssnittet läggas till manuellt.
+ Nästa steg är att ansluta den tillståndslösa tjänsten i klientdelen och serverdelstjänsten. Både tjänsterna använder ett gränssnitt som kallas VotingRPC, som definierar åtgärder för röstningsprogrammet. Det här gränssnittet implementeras av både klientdels- och serverdelstjänsterna för att aktivera RPC (Remote Procedure Calls) mellan de två tjänsterna. Tyvärr har Eclipse inte stöd för tillägg av Gradle-delprojekt, så det paket som innehåller gränssnittet måste läggas till manuellt.
 
 1. Högerklicka på projektet **Voting** i Package Explorer och klicka på **Ny -> Mapp**. Ge mappen namnet **VotingRPC/src/rpcmethods**.
 
@@ -576,7 +579,7 @@ Stommen för den tillståndslösa tjänsten i klientdelen och serverdelstjänste
     }
     ``` 
 
-4. Skapa en fil med namnet *build.gradle* i katalogen *Voting/VotingRPC* och klistra in följande i den. Gradle-filen används för att bygga och skapa den jar-fil som importeras av andra tjänster. 
+4. Skapa en tom fil med namnet *build.gradle* i katalogen *Voting/VotingRPC* och klistra in följande i den. Gradle-filen används för att bygga och skapa den jar-fil som importeras av andra tjänster. 
 
     ```gradle
     apply plugin: 'java'
@@ -896,12 +899,14 @@ Programmet är nu redo att distribueras till ett lokalt Service Fabric-kluster.
     ```bash
     docker run -itd -p 19080:19080 -p 8080:8080 -p --name sfonebox servicefabricoss/service-fabric-onebox
     ``` 
+    Mer detaljerad information finns i [installationsguiden för OS X.](service-fabric-get-started-mac.md)
 
     Om du använder en Linux-dator startar du det lokala klustret med följande kommando: 
 
     ```bash 
     sudo /opt/microsoft/sdk/servicefabric/common/clustersetup/devclustersetup.sh
     ```
+    Mer detaljerad information finns i [installationsguiden för Linux.](service-fabric-get-started-linux.md)
 
 4. Högerklicka på projektet **Voting** i Package Explorer för Eclipse och klicka på **Service Fabric -> Publicera program ...** 
 5. I fönstret **Publish Application** (Publicera program) väljer du **Local.json** i listrutan och klickar på **Publish** (Publicera).

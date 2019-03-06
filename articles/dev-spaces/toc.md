@@ -25,6 +25,9 @@
 #### [2 – Utveckling för flera tjänster](multi-service-nodejs.md)
 #### [3 – Teamutveckling](team-development-nodejs.md)
 
+## Begrepp
+### [Så här fungerar Dev Spaces](how-dev-spaces-works.md)
+
 ## Gör så här för att
 ### [Skapa ett Kubernetes-kluster med Azure Cloud Shell](how-to/create-cluster-cloud-shell.md)
 ### [Dela Azure Dev Spaces](how-to/share-dev-spaces.md)

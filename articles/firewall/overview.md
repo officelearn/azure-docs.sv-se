@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.date: 11/28/2018
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
-ms.openlocfilehash: b01e16f85eaccee4d765b4985769df670d4d35ca
-ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
+ms.openlocfilehash: 003b43760b4c0ae5785315e6acf0ed9982d9b1fe
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53413038"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56960861"
 ---
 # <a name="what-is-azure-firewall"></a>Vad är Azure Firewall?
 
@@ -56,7 +56,7 @@ Inkommande nätverkstrafik till din brandväggs offentliga IP-adress översätts
 
 ### <a name="azure-monitor-logging"></a>Azure Monitor-loggning
 
-Alla händelser är integrerade med Azure Monitor, vilket gör att du kan arkivera loggar till ett lagringskonto, strömma händelser till din händelsehubb eller skicka dem till Log Analytics.
+Alla händelser är integrerade med Azure Monitor, vilket gör att du kan arkivera loggar till ett lagringskonto, strömma händelser till din händelsehubb eller skicka dem till Azure Monitor-loggar.
 
 ## <a name="known-issues"></a>Kända problem
 

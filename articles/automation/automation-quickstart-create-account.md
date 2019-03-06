@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: automation
 ms.subservice: process-automation
 ms.custom: mvc
-ms.openlocfilehash: d15b3859d5eccbd58d7f5b7902be84c94ec16b73
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 5fd29c47f87dc65d67961224d1e2c103871d4b06
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54429250"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56592459"
 ---
 # <a name="create-an-azure-automation-account"></a>Skapa ett Azure Automation-konto
 
@@ -39,7 +39,7 @@ Logga in i Azure på https://portal.azure.com
     > [!NOTE]
     > En uppdaterad lista över platser du kan distribuera ett Automation-konto på finns i [Tillgängliga produkter per region](https://azure.microsoft.com/en-us/global-infrastructure/services/?products=automation&regions=all).
 
-1. När distributionen är klar klickar du på ** **Alla tjänster**, väljer **Automation-konton** och väljer sedan det Automation-konto som du skapade.
+1. När distributionen är klar klickar du på **Alla tjänster**, väljer **Automation-konton** och väljer sedan det Automation-konto som du skapade.
 
     ![Översikt över Automation-konton](./media/automation-quickstart-create-account/automation-account-overview.png)
 

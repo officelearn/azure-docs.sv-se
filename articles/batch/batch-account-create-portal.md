@@ -12,15 +12,15 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/25/2019
+ms.date: 02/26/2019
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 04631431c03f6fdd378bfa99edb9b67f8d6a0cad
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: cf47e3b48f1047af88a19c59459c19c078f71a63
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56193925"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56984483"
 ---
 # <a name="create-a-batch-account-with-the-azure-portal"></a>Skapa ett Batch-konto med Azure Portal
 
@@ -42,19 +42,21 @@ Bakgrundsinformation om Batch-konton och Batch-scenarier finns i [funktionsöver
 
     ![Skapa ett Batch-konto][account_portal]
 
-    a. **Kontonamn**: Det namn du väljer måste vara unikt i den Azure-region där kontot skapas (se **Plats** nedan). Kontonamnet får bara innehålla gemener eller siffror och måste vara mellan 3 och 24 tecken långt.
+    a. **Prenumeration**: Den prenumeration som Batch-kontot skapas i. Om du bara har en prenumeration väljs den som standard.
 
-    b. **Prenumeration**: Den prenumeration som Batch-kontot skapas i. Om du bara har en prenumeration väljs den som standard.
+    b. **Resursgrupp**: Välj en befintlig resursgrupp för ditt nya Batch-konto. Du kan även skapa en ny resursgrupp.
 
-    c. **Resursgrupp**: Välj en befintlig resursgrupp för ditt nya Batch-konto. Du kan även skapa en ny resursgrupp.
+    c. **Kontonamn**: Det namn du väljer måste vara unikt i den Azure-region där kontot skapas (se **Plats** nedan). Kontonamnet får bara innehålla gemener eller siffror och måste vara mellan 3 och 24 tecken långt.
 
     d. **Plats**: Den Azure-region som Batch-kontot skapas i. Endast de regioner som stöds av din prenumeration och resursgrupp visas som alternativ.
 
-    e. **Lagringskonto** (valfritt): Ett Azure Storage-konto som du associerar med ditt Batch-konto. Detta rekommenderas för de flesta Batch-konton. För olika alternativ för lagringskonton, se [Översikt över Batch-funktionen](batch-api-basics.md#azure-storage-account). Välj ett befintligt lagringskonto på portalen eller skapa ett nytt om du vill.
+    e. **Lagringskonto**: Ett valfritt Azure Storage-konto som du associerar med ditt Batch-konto. Ett v2-lagringskonto för generell användning rekommenderas för bästa prestanda. Samtliga alternativ för lagringskonton i batch finns i [översikten över Batch-funktionen](batch-api-basics.md#azure-storage-account). I portalen väljer du ett befintligt lagringskonto eller skapar ett nytt.
 
       ![skapar ett lagringskonto][storage_account]
 
-    f. **Poolallokeringsläge**: För de flesta scenarier kan du acceptera standardinställningarna för **Batch-tjänsten**.
+    f. **Poolallokeringsläge**: På fliken med **avancerade** inställningar kan du ange poolallokeringsläge som **Batch-tjänst** eller **Användarprenumeration**. För de flesta scenarier kan du acceptera standardinställningarna för **Batch-tjänsten**.
+
+      ![Batch-poolallokeringsläge][pool_allocation]
 
 1. Skapa kontot genom att klicka på **Skapa**.
 
@@ -115,7 +117,7 @@ När du skapar Batch-kontot i användarprenumerationsläge använder du resursgr
 
 ### <a name="configure-subscription-quotas"></a>Konfigurera prenumerationskvoter
 
-Kärnkvoter anges inte som standard på Batch-konton för användarprenumerationer. Kärnkvoter måste anges manuellt eftersom vanliga Batch-kärnkvoter inte gäller för konton i läget för användarprenumeration.
+Kärnkvoter anges inte som standard på Batch-konton för användarprenumerationer. Kärnkvoter måste anges manuellt eftersom standardmässiga Batch-kärnkvoter inte gäller för konton i läget för användarprenumeration.
 
 1. I [Azure-portalen][azure_portal] väljer du ditt Batch-konto för läget för användarprenumeration för att visa dess inställningar och egenskaper.
 
@@ -142,8 +144,8 @@ Förutom att använda Azure Portal kan du skapa och hantera Batch-konton med ver
 [marketplace_portal]: ./media/batch-account-create-portal/marketplace-batch.png
 [account_blade]: ./media/batch-account-create-portal/batch_blade.png
 [account_portal]: ./media/batch-account-create-portal/batch-account-portal.png
+[pool_allocation]: ./media/batch-account-create-portal/batch-pool-allocation.png
 [account_keys]: ./media/batch-account-create-portal/batch-account-keys.png
-[account_url]: ./media/batch-account-create-portal/account_url.png
 [storage_account]: ./media/batch-account-create-portal/storage_account.png
 [subscription_access]: ./media/batch-account-create-portal/subscription_iam.png
 [add_permission]: ./media/batch-account-create-portal/add_permission.png

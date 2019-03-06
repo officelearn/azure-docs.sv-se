@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: tutorial
 ms.date: 01/03/2019
 ms.author: tamram
-ms.openlocfilehash: 2d86c0c4838fb2ae9d839e64a067824019133d8b
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 0cbb4d2bc6449dc1cf12a374085b429743224995
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54024441"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56872887"
 ---
 # <a name="tutorial-simulate-a-failure-in-accessing-read-access-redundant-storage"></a>Självstudier: Simulera ett fel vid läsåtkomst till redundant lagring
 
@@ -75,7 +75,7 @@ När det är klart väljer du **File** (Arkiv) och **Save** (Spara) för att spa
 
 ### <a name="interrupting-the-application"></a>Avbryta programmet
 
-# <a name="net-python-and-java-v7-tabdotnet-python-java-v7"></a>[.NET, Python och Java v7] (#tab/dotnet-python-java-v7)
+# <a name="net-python-and-java-v7tabdotnet-python-java-v7"></a>[.NET, Python och Java v7](#tab/dotnet-python-java-v7)
 
 Kör programmet i din IDE eller ditt gränssnitt.
 
@@ -83,7 +83,7 @@ När programmet börjar läsa från den primära slutpunkten trycker du på **va
 
 ![Scenarioprogram](media/storage-simulate-failure-ragrs-account-app/scenario.png)
 
-# <a name="java-v10-tabjava-v10"></a>[Java v10] (#tab/Java-v10)
+# <a name="java-v10tabjava-v10"></a>[Java v10](#tab/Java-v10)
 
 Kör programmet i din IDE eller ditt gränssnitt.
 
@@ -113,7 +113,7 @@ Avkommentera följande rader och ersätt `STORAGEACCOUNTNAME` med namnet på dit
          }
 ```
 
-# <a name="net-python-and-java-v7-tabdotnet-python-java-v7"></a>[.NET, Python och Java v7] (#tab/dotnet-python-java-v7)
+# <a name="net-python-and-java-v7tabdotnet-python-java-v7"></a>[.NET, Python och Java v7](#tab/dotnet-python-java-v7)
 
 Tryck på **valfri tangent** för att börja köra programmet igen.
 
@@ -123,7 +123,7 @@ Det här mönstret är [kretsbrytarmönstret](https://docs.microsoft.com/azure/a
 
 ![Klistra in den anpassade regeln](media/storage-simulate-failure-ragrs-account-app/figure3.png)
 
-# <a name="java-v10-tabjava-v10"></a>[Java v10] (#tab/Java-v10)
+# <a name="java-v10tabjava-v10"></a>[Java v10](#tab/Java-v10)
 
 Nu när du har infört felet anger du **G** för att testa felet.
 
@@ -133,7 +133,7 @@ Det informerar dig om att det använder den sekundära pipelinen i stället för
 
 ### <a name="simulate-primary-endpoint-restoration"></a>Simulerar en återställning av den primära slutpunkten
 
-# <a name="net-python-and-java-v7-tabdotnet-python-java-v7"></a>[.NET, Python och Java v7] (#tab/dotnet-python-java-v7)
+# <a name="net-python-and-java-v7tabdotnet-python-java-v7"></a>[.NET, Python och Java v7](#tab/dotnet-python-java-v7)
 
 Med den anpassade Fiddler-regeln som angavs i föregående steg misslyckas begäranden till den primära slutpunkten.
 
@@ -153,7 +153,7 @@ När det är klart trycker du på **valfri tangent** för att återuppta körnin
 
 ![Återuppta körningen av programmet](media/storage-simulate-failure-ragrs-account-app/figure4.png)
 
-# <a name="java-v10-tabjava-v10"></a>[Java v10] (#tab/Java-v10)
+# <a name="java-v10tabjava-v10"></a>[Java v10](#tab/Java-v10)
 
 Med den anpassade Fiddler-regeln som angavs i föregående steg misslyckas begäranden till den primära slutpunkten.
 
@@ -173,11 +173,11 @@ Du kan skapa en felaktig statisk väg för alla begäranden till den primära sl
 
 ### <a name="start-and-pause-the-application"></a>Starta och pausa programmet
 
-# <a name="net-python-and-java-v7-tabdotnet-python-java-v7"></a>[.NET, Python och Java v7] (#tab/dotnet-python-java-v7)
+# <a name="net-python-and-java-v7tabdotnet-python-java-v7"></a>[.NET, Python och Java v7](#tab/dotnet-python-java-v7)
 
 Kör programmet i din IDE eller ditt gränssnitt. När programmet börjar läsa från den primära slutpunkten trycker du på **valfri tangent** i konsolfönstret för att pausa programmet.
 
-# <a name="java-v10-tabjava-v10"></a>[Java v10] (#tab/Java-v10)
+# <a name="java-v10tabjava-v10"></a>[Java v10](#tab/Java-v10)
 
 Eftersom du styr exemplet behöver du inte avbryta det för att testa ett fel.
 
@@ -210,13 +210,13 @@ Om du vill lägga till en statisk väg för en målvärd skriver du följande ko
 
 Ersätt `<destination_ip>` med IP-adressen för ditt lagringskonto och `<gateway_ip>` med IP-adressen för din lokala värd.
 
-# <a name="net-python-and-java-v7-tabdotnet-python-java-v7"></a>[.NET, Python och Java v7] (#tab/dotnet-python-java-v7)
+# <a name="net-python-and-java-v7tabdotnet-python-java-v7"></a>[.NET, Python och Java v7](#tab/dotnet-python-java-v7)
 
 Tryck på **valfri tangent** för att börja köra programmet igen.
 
 När programmet är igång igen börjar begäranden till den primära slutpunkten att misslyckas. Programmet gör fem försök att ansluta till den primära slutpunkten. När feltröskeln på fem försök har nåtts begär programmet bilden från den sekundära skrivskyddade slutpunkten. När programmet har hämtat bilden 20 gånger från den sekundära slutpunkten försöker programmet ansluta till den primära slutpunkten. Om den primära slutpunkten fortfarande inte kan nås återupptar programmet läsningen från den sekundära slutpunkten. Det här mönstret är [kretsbrytarmönstret](/azure/architecture/patterns/circuit-breaker) som beskrivs i den föregående kursen.
 
-# <a name="java-v10-tabjava-v10"></a>[Java v10] (#tab/Java-v10)
+# <a name="java-v10tabjava-v10"></a>[Java v10](#tab/Java-v10)
 
 Nu när du har infört felet anger du **G** för att testa felet. Det informerar dig om att det använder den sekundära pipelinen i stället för den primära pipelinen.
 
@@ -236,14 +236,14 @@ Om du vill ta bort den statiska vägen för en målvärd skriver du följande ko
 
 `route delete <destination_ip>`
 
-# <a name="net-python-and-java-v7-tabdotnet-python-java-v7"></a>[.NET, Python och Java v7] (#tab/dotnet-python-java-v7)
+# <a name="net-python-and-java-v7tabdotnet-python-java-v7"></a>[.NET, Python och Java v7](#tab/dotnet-python-java-v7)
 
 Tryck på **valfri tangent** för att börja köra programmet igen. Programmet fortsätter att läsa från den primära slutpunkten tills den når 999 läsningar.
 
 ![Återuppta körningen av programmet](media/storage-simulate-failure-ragrs-account-app/figure4.png)
 
 
-# <a name="java-v10-tabjava-v10"></a>[Java v10] (#tab/Java-v10)
+# <a name="java-v10tabjava-v10"></a>[Java v10](#tab/Java-v10)
 
 Ange **G** för att testa nedladdningen. Programmet rapporterar att det nu använder den primära pipelinen igen.
 

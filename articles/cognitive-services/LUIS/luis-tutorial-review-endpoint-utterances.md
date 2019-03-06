@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/21/2018
+ms.date: 02/19/2019
 ms.author: diberry
-ms.openlocfilehash: 88ac9f07fb8791ca3d64123663b0380a56220cdd
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 25841971a2e7921c89c63032e8fd48bc528263aa
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55865965"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56878189"
 ---
 # <a name="tutorial-fix-unsure-predictions-by-reviewing-endpoint-utterances"></a>Självstudier: Åtgärda osäkra förutsägelser genom att granska slutpunktsyttranden
 I den här självstudien kommer vi att förbättra förutsägelserna i dina appar genom att verifiera eller korrigera yttranden som tas emot via HTTP-slutpunkten för LUIS och som LUIS inte kan fastställa säkert. I vissa yttranden kan avsikten behöva verifieras och i vissa kan du behöva verifiera entiteter. Du bör granska yttranden vid slutpunkter inom ramen för det schemalagda underhållet av LUIS. 
@@ -50,11 +50,13 @@ Använd följande steg:
 
 1.  Ladda ned och spara [JSON-filen för appen](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-sentiment-HumanResources.json).
 
-2. Importera JSON-koden till en ny app.
+1. Importera JSON-koden till en ny app.
 
-3. I avsnittet **Hantera** går du till fliken **Versioner**, klonar versionen och ger den namnet `review`. Kloning är ett bra sätt att prova på olika LUIS-funktioner utan att påverka originalversionen. Eftersom versionsnamnet används i webbadressen får namnet inte innehålla några tecken som är ogiltiga i webbadresser.
+1. I avsnittet **Hantera** går du till fliken **Versioner**, klonar versionen och ger den namnet `review`. Kloning är ett bra sätt att prova på olika LUIS-funktioner utan att påverka originalversionen. Eftersom versionsnamnet används i webbadressen får namnet inte innehålla några tecken som är ogiltiga i webbadresser.
 
-    Om du använder den här självstudien som en ny, importerad app måste du även träna, publicera och sedan lägga till yttrandena till slutpunkten med ett [skript](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/examples/demo-upload-endpoint-utterances/endpoint.js) eller från slutpunkten i en webbläsare. De yttranden som ska läggas till är:
+1. Träna och publicera den nya appen.
+
+1. Använd slutpunkten för att lägga till följande talindata. Du kan antingen göra det här med ett [skript](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/examples/demo-upload-endpoint-utterances/endpoint.js) eller från slutpunkten i en webbläsare. De yttranden som ska läggas till är:
 
    [!code-nodejs[Node.js code showing endpoint utterances to add](~/samples-luis/examples/demo-upload-endpoint-utterances/endpoint.js?range=15-26)]
 
@@ -64,13 +66,13 @@ Använd följande steg:
 
 1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
-2. Välj **Granska slutpunktsyttranden** i det vänstra navigeringsfönstret. Listan filtreras efter avsikten **ApplyForJob**. 
+1. Välj **Granska slutpunktsyttranden** i det vänstra navigeringsfönstret. Listan filtreras efter avsikten **ApplyForJob**. 
 
-    [ ![Skärmbild av knappen Granska slutpunktsyttranden i det vänstra navigeringsfönstret](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-entity-view.png)](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-entity-view.png#lightbox)
+    [![Skärmbild av knappen Granska slutpunktstalindata i det vänstra navigeringsfönstret](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-entity-view.png)](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-entity-view.png#lightbox)
 
-3. Växla **entitetsvyn** för att visa de märkta entiteterna. 
+1. Växla **entitetsvyn** för att visa de märkta entiteterna. 
     
-    [ ![Skärmbild av Granska slutpunktsyttranden med växeln Entitetsvy markerad](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-token-view.png)](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-token-view.png#lightbox)
+    [![Skärmbild av Granska slutpunktstalindata med växeln Entitetsvy markerad](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-token-view.png)](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-token-view.png#lightbox)
 
     |Yttrande|Rätt avsikt|Saknade entiteter|
     |:--|:--|:--|
@@ -78,29 +80,29 @@ Använd följande steg:
 
     Den här yttrandet är inte i rätt avsikt och har en poäng som är mindre än 50 %. Avsikten **ApplyForJob** har 21 yttranden jämfört med 7 yttranden i **GetJobInformation**. Utöver korrekt justering av slutpunktsyttrandena bör fler yttranden läggas till i avsikten **GetJobInformation**. Det kvarstår som en övning som du kan slutföra på egen hand. Varje avsikt, förutom avsikten **Ingen**, bör ha ungefär samma antal exempelyttranden. Avsikten **Ingen** bör ha 10 % av de totala yttrandena i appen. 
 
-4. För avsikten `I'm looking for a job with Natual Language Processing` väljer du rätt avsikt, **GetJobInformation**, i kolumnen **Aligned intent** (Justerad avsikt). 
+1. För avsikten `I'm looking for a job with Natual Language Processing` väljer du rätt avsikt, **GetJobInformation**, i kolumnen **Aligned intent** (Justerad avsikt). 
 
-    [ ![Skärmbild av Granska slutpunktsyttranden som justerar yttranden till avsikt](./media/luis-tutorial-review-endpoint-utterances/align-intent-1.png)](./media/luis-tutorial-review-endpoint-utterances/align-intent-1.png#lightbox)
+    [![Skärmbild av Granska slutpunktstalindata som justerar talindata till avsikt](./media/luis-tutorial-review-endpoint-utterances/align-intent-1.png)](./media/luis-tutorial-review-endpoint-utterances/align-intent-1.png#lightbox)
 
-5. I samma uttryck är entiteten för `Natural Language Processing` keyPhrase. Detta bör vara en **Job**-entitet (Jobb) i stället. Välj `Natural Language Processing` och välj sedan entiteten **Job** (Jobb) från listan.
+1. I samma uttryck är entiteten för `Natural Language Processing` keyPhrase. Detta bör vara en **Job**-entitet (Jobb) i stället. Välj `Natural Language Processing` och välj sedan entiteten **Job** (Jobb) från listan.
 
-    [ ![Skärmbild av Granska slutpunktsyttranden som märker entitet i yttrande](./media/luis-tutorial-review-endpoint-utterances/label-entity.png)](./media/luis-tutorial-review-endpoint-utterances/label-entity.png#lightbox)
+    [![Skärmbild av Granska slutpunktstalindata som märker entitet i talindata](./media/luis-tutorial-review-endpoint-utterances/label-entity.png)](./media/luis-tutorial-review-endpoint-utterances/label-entity.png#lightbox)
 
-6. På samma rad väljer du den inringade markeringen i kolumnen **Add to aligned intent** (Lägg till i justerad avsikt). 
+1. På samma rad väljer du den inringade markeringen i kolumnen **Add to aligned intent** (Lägg till i justerad avsikt). 
 
-    [ ![Skärmbild av slutförande av yttrandejustering i avsikt](./media/luis-tutorial-review-endpoint-utterances/align-utterance.png)](./media/luis-tutorial-review-endpoint-utterances/align-utterance.png#lightbox)
+    [![Skärmbild av slutförande av talindatajustering i avsikt](./media/luis-tutorial-review-endpoint-utterances/align-utterance.png)](./media/luis-tutorial-review-endpoint-utterances/align-utterance.png#lightbox)
 
     Den här åtgärden flyttar yttrandet från **yttrandena för slutpunktsgranskning** till avsikten **GetJobInformation**. Slutpunktsyttrandet är nu ett exempelyttrande för den avsikten. 
 
-7. Granska de återstående yttrandena i den här avsikten, och märk yttranden och korrigera den **justerade avsikten** om dessa är felaktiga.
+1. Granska de återstående yttrandena i den här avsikten, och märk yttranden och korrigera den **justerade avsikten** om dessa är felaktiga.
 
-8. När alla yttranden är korrekta markerar du kryssrutan på varje rad och väljer sedan **Add selected** (Lägg till valda) för att justera yttrandena korrekt. 
+1. När alla yttranden är korrekta markerar du kryssrutan på varje rad och väljer sedan **Add selected** (Lägg till valda) för att justera yttrandena korrekt. 
 
-    [ ![Skärmbild av slutförande av återstående yttranden till justerad avsikt](./media/luis-tutorial-review-endpoint-utterances/finalize-utterance-alignment.png)](./media/luis-tutorial-review-endpoint-utterances/finalize-utterance-alignment.png#lightbox)
+    [![Skärmbild av slutförande av återstående talindata till justerad avsikt](./media/luis-tutorial-review-endpoint-utterances/finalize-utterance-alignment.png)](./media/luis-tutorial-review-endpoint-utterances/finalize-utterance-alignment.png#lightbox)
 
-9. Listan bör inte längre ha dessa yttranden. Om du ser flera yttranden fortsätter du att gå igenom listan, korrigera avsikter och märka ut eventuella saknade entiteter tills listan är tom. 
+1. Listan bör inte längre ha dessa yttranden. Om du ser flera yttranden fortsätter du att gå igenom listan, korrigera avsikter och märka ut eventuella saknade entiteter tills listan är tom. 
 
-10. Välj nästa avsikt i listan Filter och fortsätt sedan korrigera yttranden och märka entiteter. Kom ihåg att det sista steget för varje avsikt är att antingen välja **Add to aligned intent** (Lägg till i justerad avsikt) på yttrandets rad eller markera kryssrutan bredvid varje avsikt och välja **Add selected** (Lägg till valda) ovanför tabellen.
+1. Välj nästa avsikt i listan Filter och fortsätt sedan korrigera yttranden och märka entiteter. Kom ihåg att det sista steget för varje avsikt är att antingen välja **Add to aligned intent** (Lägg till i justerad avsikt) på yttrandets rad eller markera kryssrutan bredvid varje avsikt och välja **Add selected** (Lägg till valda) ovanför tabellen.
 
     Fortsätt tills alla avsikter och entiteter i filterlistan har en tom lista. Det här är en mycket liten app. Granskningsprocessen tar bara några minuter. 
 

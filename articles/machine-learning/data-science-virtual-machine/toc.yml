@@ -9,8 +9,7 @@ items:
     href: deep-learning-dsvm-overview.md
   - name: Vad är en virtuell Geo-AI-dator för datavetenskap?
     href: geo-ai-dsvm-overview.md
-  expanded: true
-- name: Kom igång
+- name: Snabbstarter
   items:
   - name: Skapa en virtuell Windows-dator för datavetenskap
     href: provision-vm.md
@@ -22,27 +21,8 @@ items:
     href: provision-deep-learning-dsvm.md
   - name: Skapa en virtuell Geo-AI-dator för datavetenskap
     href: provision-geo-ai-dsvm.md
-- name: Gör så här för att
-  items:
-  - name: Använd en virtuell Windows-dator för datavetenskap
-    href: vm-do-ten-things.md
-  - name: Använd en virtuell Linux-dator för datavetenskap
-    href: linux-dsvm-walkthrough.md
-  - name: Använd en virtuell dator för djupinlärning
-    href: use-deep-learning-dsvm.md
-  - name: Använda en virtuell Geo-AI-dator för datavetenskap
-    href: use-geo-ai-dsvm.md
-- name: Riktlinjer för Enterprise
-  items:
-  - name: Översikt
-    href: dsvm-enterprise-overview.md
-  - name: Skalning
-    href: dsvm-pools.md
-  - name: Active Directory-integrering
-    href: dsvm-common-identity.md
-  - name: Skydda autentiseringsuppgifter för resursåtkomst
-    href: dsvm-secure-access-keys.md
-- name: Referens
+  expanded: true
+- name: Begrepp
   items:
   - name: Utforska DSVM
     href: dsvm-tools-overview.md
@@ -62,10 +42,29 @@ items:
     href: dsvm-data-platforms.md
   - name: Exempel och genomgångar
     href: dsvm-samples-and-walkthroughs.md
-  expanded: true
+- name: Instruktionsguider
+  items:
+  - name: Använd en virtuell Windows-dator för datavetenskap
+    href: vm-do-ten-things.md
+  - name: Använd en virtuell Linux-dator för datavetenskap
+    href: linux-dsvm-walkthrough.md
+  - name: Använd en virtuell dator för djupinlärning
+    href: use-deep-learning-dsvm.md
+  - name: Använda en virtuell Geo-AI-dator för datavetenskap
+    href: use-geo-ai-dsvm.md
+  - name: Riktlinjer för Enterprise
+    items:
+    - name: Översikt
+      href: dsvm-enterprise-overview.md
+    - name: Skalning
+      href: dsvm-pools.md
+    - name: Active Directory-integrering
+      href: dsvm-common-identity.md
+    - name: Skydda autentiseringsuppgifter för resursåtkomst
+      href: dsvm-secure-access-keys.md
 - name: Resurser
   items:
-  - name: Utvecklarguide för R
+  - name: R-utvecklarguide
     href: ../r-developers-guide.md
   - name: Blogg
     href: https://blogs.technet.microsoft.com/machinelearning/tag/dsvm/
@@ -73,9 +72,9 @@ items:
     href: https://social.microsoft.com/Forums/en-US/home?forum=dsvm
   - name: Stack Overflow
     href: https://stackoverflow.com/search?q=dsvm
-ms.openlocfilehash: e1617f3f5c36a5b006003e2f375dfac4143af7cd
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: eddadfc7b10cea364f8235bbd8ba378d9aeaf362
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47032572"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57431639"

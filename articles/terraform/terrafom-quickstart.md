@@ -7,16 +7,16 @@ ms.service: terraform
 ms.topic: quickstart
 ms.date: 02/04/2019
 ms.author: nepeters
-ms.openlocfilehash: 408e07e9b6214dbd223bd4ec7959b00ecc414f1e
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: b3d872008c95d94a8401e6f38665c3c88616a168
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55869185"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56736931"
 ---
 # <a name="create-a-terraform-configuration-for-azure"></a>Skapa en Terraform-konfigurations för Azure
 
-I det här exemplet får du erfarenhet av att skapa en Terraform-konfiguration och distribuera konfigurationen till Azure. När du är klar kommer du att ha distribuerat en Azure Cosmos DB-instans, en Azure Container Instances och ett program som fungerar över dessa två resurser. Det här dokumentet förutsätter att allt arbete har slutförts i Azure Cloud Shell, som har Terraform-verktyg förinstallerade. Om du vill gå igenom exemplet på din dator kan Terraform installeras med hjälp av instruktionerna [här](../virtual-machines/linux/terraform-install-configure.md).
+I det här exemplet får du erfarenhet av att skapa en Terraform-konfiguration och distribuera konfigurationen till Azure. När du är klar kommer du att ha distribuerat en Azure Cosmos DB-instans, en Azure Container-instans och ett program som fungerar över dessa två resurser. Det här dokumentet förutsätter att allt arbete har slutförts i Azure Cloud Shell, som har Terraform-verktyg förinstallerade. Om du vill gå igenom exemplet på din dator kan Terraform installeras med hjälp av instruktionerna [här](../virtual-machines/linux/terraform-install-configure.md).
 
 ## <a name="create-first-configuration"></a>Skapa den första konfigurationen
 
@@ -30,7 +30,7 @@ code .
 
 Kopiera och klistra in följande Terraform-konfiguration.
 
-Den här konfigurationen modellerar en Azure-resursgrupp, ett slumpvist heltal och en Azure Cosmos DB Instances. Det slumpvisa heltalet används i Cosmos DB-instansens namn. Dessutom konfigureras flera Cosmos DB-inställningar. En fullständig lista över Cosmos DB Terraform-konfigurationer finns i [referensen för Cosmos DB Terraform](https://www.terraform.io/docs/providers/azurerm/r/cosmosdb_account.html).
+Den här konfigurationen modellerar en Azure-resursgrupp, ett slumpvist heltal och en Azure Cosmos DB-instans. Det slumpvisa heltalet används i Cosmos DB-instansens namn. Dessutom konfigureras flera Cosmos DB-inställningar. En fullständig lista över Cosmos DB Terraform-konfigurationer finns i [referensen för Cosmos DB Terraform](https://www.terraform.io/docs/providers/azurerm/r/cosmosdb_account.html).
 
 Spara filen som `main.tf` när du är klar. Den här åtgärden kan utföras med hjälp av ellipserna i den övre högra delen av kodredigeraren.
 

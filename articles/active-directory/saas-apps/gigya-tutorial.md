@@ -1,275 +1,240 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med Gigya | Microsoft Docs'
+title: 'Självstudier: Azure Active Directory-katalogintegrering med Gigya | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Gigya.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 2c7d200b-9242-44a5-ac8a-ab3214a78e41
-ms.service: active-directory
-ms.subservice: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 06/18/2017
+ms.topic: tutorial
+ms.date: 02/18/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2ab947e17569f809ed4532c99dad7350b6b6814a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: MT
+ms.openlocfilehash: ac3242725438a7d5eaa6b93cb1f86f9344b59c1f
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56165073"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56864999"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-gigya"></a>Självstudier: Azure Active Directory-integrering med Gigya
+# <a name="tutorial-azure-active-directory-integration-with-gigya"></a>Självstudier: Azure Active Directory-katalogintegrering med Gigya
 
-I den här självstudien får du lära dig hur du integrerar Gigya med Azure Active Directory (AD Azure).
+I den här självstudien lär du dig att integrera Gigya med Azure Active Directory (AD Azure).
+När du integrerar Gigya med Azure AD innebär det följande fördelar:
 
-Integrera Gigya med Azure AD ger dig följande fördelar:
+* Du kan styra vem som har åtkomst till Gigya från Azure AD.
+* Du kan göra så att dina användare automatiskt loggas in på Gigya (enkel inloggning) med sina Azure AD-konton.
+* Du kan hantera dina konton på en central plats – Azure-portalen.
 
-- Du kan styra i Azure AD som har åtkomst till Gigya
-- Du kan aktivera användarna att automatiskt få loggat in på Gigya (Single Sign-On) med sina Azure AD-konton
-- Du kan hantera dina konton på en central plats – Azure portal
+Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-## <a name="prerequisites"></a>Förutsättningar
+För att konfigurera Azure AD-integrering med Gigya behöver du följande:
 
-Om du vill konfigurera Azure AD-integrering med Gigya, behöver du följande objekt:
-
-- En Azure AD-prenumeration
-- En Gigya enkel inloggning aktiverat prenumeration
-
-> [!NOTE]
-> Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
-
-Du bör följa de här rekommendationerna när du testar stegen i självstudien:
-
-- Använd inte din produktionsmiljö om det inte behövs.
-- Om du inte har en Azure AD-utvärderingsmiljö kan du skaffa en månads utvärderingsperiod [här](https://azure.microsoft.com/pricing/free-trial/).
+* En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
+* Gigya-prenumeration med enkel inloggning aktiverat
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
-I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
-1. Att lägga till Gigya från galleriet
-1. Konfigurera och testa Azure AD enkel inloggning
+I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-## <a name="adding-gigya-from-the-gallery"></a>Att lägga till Gigya från galleriet
-För att konfigurera integrering av Gigya i Azure AD, som du behöver lägga till Gigya från galleriet i din lista över hanterade SaaS-appar.
+* Gigya stöder **SP**-initierad enkel inloggning
+
+## <a name="adding-gigya-from-the-gallery"></a>Lägga till Gigya från galleriet
+
+För att konfigurera integreringen av Gigya i Azure AD måste du lägga till Gigya från galleriet till din lista över hanterade SaaS-appar.
 
 **Utför följande steg för att lägga till Gigya från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+1. I **[Azure-portalen](https://portal.azure.com)**, i den vänstra navigeringspanelen, klickar du på **Azure Active Directory**-ikonen.
 
-    ![Active Directory][1]
+    ![Azure Active Directory-knappen](common/select-azuread.png)
 
-1. Gå till **företagsprogram**. Gå till **alla program**.
+2. Gå till **Företagsprogram** och välj alternativet **Alla program**.
 
-    ![Appar][2]
-    
-1. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-    ![Appar][3]
+3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
-1. I sökrutan skriver **Gigya**.
+    ![Knappen Nytt program](common/add-new-app.png)
 
-    ![Skapa en Azure AD-användare för testning](./media/gigya-tutorial/tutorial_gigya_search.png)
+4. I sökrutan skriver du **Gigya**, väljer **Gigya** i resultatpanelen och klickar på knappen **Lägg till** för att lägga till programmet.
 
-1. I resultatpanelen väljer **Gigya**, och klicka sedan på **Lägg till** för att lägga till programmet.
+     ![Gigya i resultatlistan](common/search-new-app.png)
 
-    ![Skapa en Azure AD-användare för testning](./media/gigya-tutorial/tutorial_gigya_addfromgallery.png)
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med Gigya baserat på en testanvändare som kallas ”Britta Simon”.
+I det här avsnittet ska du konfigurera och testa enkel inloggning i Azure AD med Gigya baserat på testanvändaren **Britta Simon**.
+För att enkel inloggning ska fungera måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i Gigya upprättas.
 
-För enkel inloggning att fungera, behöver Azure AD du veta vad användaren motsvarighet i Gigya är till en användare i Azure AD. Med andra ord måste en länk relationen mellan en Azure AD-användare och relaterade användaren i Gigya upprättas.
+För att konfigurera och testa enkel inloggning i Azure AD med Gigya måste du utföra följande uppgifter:
 
-I Gigya, tilldela värdet för den **användarnamn** i Azure AD som värde för den **användarnamn** att upprätta länken-relation.
+1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
+2. **[Konfigurera enkel inloggning för Gigya](#configure-gigya-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på programsidan.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+5. **[Skapa Gigya-testanvändare](#create-gigya-test-user)** – för att ha en motsvarighet för Britta Simon i Gigya som är länkad till en Azure AD-representation av användaren.
+6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
-Om du vill konfigurera och testa Azure AD enkel inloggning med Gigya, måste du utföra följande byggblock:
+### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
-1. **[Konfigurera Azure AD enkel inloggning](#configuring-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-1. **[Skapa en Azure AD-testanvändare](#creating-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-1. **[Skapa en testanvändare Gigya](#creating-a-gigya-test-user)**  – du har en motsvarighet för Britta Simon i Gigya som är länkad till en Azure AD-representation av användaren.
-1. **[Tilldela Azure AD-testanvändare](#assigning-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-1. **[Testa enkel inloggning](#testing-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
+Utför följande steg för att konfigurera enkel inloggning i Azure AD med Gigya:
 
-I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i ditt Gigya program.
+1. Välj **Enkel inloggning** på sidan för programintegrering av **Gigya** på [Azure-portalen](https://portal.azure.com/).
 
-**Utför följande steg för att konfigurera Azure AD enkel inloggning med Gigya:**
+    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
-1. I Azure-portalen på den **Gigya** program integration-sidan klickar du på **enkel inloggning**.
+2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
-    ![Konfigurera enkel inloggning][4]
+    ![Välja läge för enkel inloggning](common/select-saml-option.png)
 
-1. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
- 
-    ![Konfigurera enkel inloggning](./media/gigya-tutorial/tutorial_gigya_samlbase.png)
+3. På sidan **Konfigurera enkel inloggning med SAML** klickar du på **redigeringsikonen** för att öppna dialogrutan **Grundläggande SAML-konfiguration**.
 
-1. På den **Gigya domän och URL: er** avsnittet, utför följande steg:
+    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-    ![Konfigurera enkel inloggning](./media/gigya-tutorial/tutorial_gigya_url.png)
+4. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
 
-    a. I textrutan **Inloggnings-URL** anger du en URL med följande mönster: `http://<companyname>.gigya.com`
+    ![Gigya-domän och webbadresser med information om enkel inloggning](common/sp-identifier.png)
 
-    b. I textrutan **Identifierare** anger du en URL med följande mönster: `https://fidm.gigya.com/saml/v2.0/<companyname>`
+    a. I textrutan **Inloggnings-URL** anger du en URL enligt följande mönster: `http://<companyname>.gigya.com`
 
-    > [!NOTE] 
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med faktisk inloggnings-URL och identifierare. Kontakta [Gigya klienten supportteamet](https://www.gigya.com/support-policy/) att hämta dessa värden. 
- 
-1. På den **SAML-signeringscertifikat** klickar du på **Certificate(Base64)** och spara certifikatfilen på datorn.
+    b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster: `https://fidm.gigya.com/saml/v2.0/<companyname>`
 
-    ![Konfigurera enkel inloggning](./media/gigya-tutorial/tutorial_gigya_certificate.png) 
+    > [!NOTE]
+    > Dessa värden är inte verkliga. Uppdatera de här värdena med faktisk inloggnings-URL och identifierare. Kontakta [supportteamet för Gigya](https://www.gigya.com/support-policy/) och be om dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-1. Klicka på knappen **Spara**.
+5. På sidan **Konfigurera enkel inloggning med SAML** går du till avsnittet **SAML-signeringscertifikat**, klickar du på **Ladda ned** för att ladda ned **Certifikat (Base64)** från de angivna alternativen enligt dina behov och sparar det på datorn.
 
-    ![Konfigurera enkel inloggning](./media/gigya-tutorial/tutorial_general_400.png)
+    ![Länk för nedladdning av certifikatet](common/certificatebase64.png)
 
-1. På den **Gigya Configuration** klickar du på **konfigurera Gigya** att öppna **konfigurera inloggning** fönster. Kopiera den **SAML entitets-ID och SAML enkel inloggning för tjänst-URL** från den **Snabbreferens avsnittet.**
+6. I avsnittet **Konfigurera Gigya** kopierar du lämpliga URL:er enligt dina behov.
 
-    ![Konfigurera enkel inloggning](./media/gigya-tutorial/tutorial_gigya_configure.png) 
+    ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
-1. Logga in på webbplatsen Gigya företag som en administratör i ett annat webbläsarfönster.
+    a. Inloggnings-URL
 
-1. Gå till **inställningar \> SAML-inloggningen**, och klicka sedan på den **Lägg till** knappen.
+    b. Azure AD-identifierare
+
+    c. Utloggnings-URL
+
+### <a name="configure-gigya-single-sign-on"></a>Konfigurera enkel inloggning för Gigya
+
+1. Logga in på Gigya-företagswebbplatsen som administratör.
+
+2. Gå till **Inställningar \>SAML-inloggning** och klicka sedan på knappen **Lägg till**.
    
-    ![SAML-inloggningen](./media/gigya-tutorial/ic789532.png "SAML-inloggning")
+    ![SAML-inloggning](./media/gigya-tutorial/ic789532.png "SAML-inloggning")
 
-1. I den **SAML-inloggningen** avsnittet, utför följande steg:
+3. Gå till avsnittet **SAML-inloggning** och utför följande steg:
    
     ![SAML-konfiguration](./media/gigya-tutorial/ic789533.png "SAML-konfiguration")
    
     a. I textrutan **Namn** skriver du ett namn för konfigurationen.
    
-    b. I **utfärdare** textrutan klistra in värdet för **SAML entitets-ID** som du har kopierat från Azure-portalen. 
+    b. I textrutan **Issuer**  (Utfärdare) klistrar du in det värde för **Azure AD-identifierare** som du har kopierat från Azure-portalen. 
    
-    c. I **enkel inloggnings-URL för** textrutan klistra in värdet för **enkel inloggnings-URL för** som du har kopierat från Azure-portalen.
+    c. I textrutan **URL för enkel inloggning** klistrar du in värdet för **Inloggnings-URL** som du kopierade från Azure-portalen.
    
-    d. I **Format för namn-ID** textrutan klistra in värdet för **Format för namn på identifierare** som du har kopierat från Azure-portalen.
+    d. I textrutan för **format för namn-ID** klistrar du in värdet för **formatet på namnidentifieraren** som du har kopierat från Azure-portalen.
    
     e. Öppna ditt base-64-kodade certifikat som du har laddat ned från Azure-portalen i Anteckningar, kopiera innehållet till Urklipp och klistra sedan in den i textrutan **X.509 Certificate** (X.509-certifikat).
    
-    f. Klicka på **spara inställningarna för**.
+    f. Klicka på **Spara inställningar**.
 
-> [!TIP]
-> Nu kan du läsa en kortare version av instruktionerna i [Azure Portal](https://portal.azure.com), samtidigt som du konfigurerar appen!  När du har lagt till appen från avsnittet **Active Directory > Företagsprogram**, behöver du bara klicka på fliken **Enkel inloggning**. Du kommer då till den inbäddade dokumentationen via avsnittet **Konfiguration** längst ned. Du kan läsa mer om funktionen för inbäddad dokumentation här: [Inbäddad Azure AD-dokumentation]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
-
-### <a name="creating-an-azure-ad-test-user"></a>Skapa en Azure AD-användare för testning
+### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
 
 Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
 
-![Skapa en Azure AD-användare][100]
+1. Gå till den vänstra rutan i Azure-portalen och välj **Azure Active Directory**, välj **Users** och sedan **Alla användare**.
 
-**Utför följande steg för att skapa en testanvändare i Azure AD:**
+    ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-1. I den **Azure-portalen**, i det vänstra navigeringsfönstret klickar du på **Azure Active Directory** ikon.
+2. Välj **Ny användare** överst på skärmen.
 
-    ![Skapa en Azure AD-användare för testning](./media/gigya-tutorial/create_aaduser_01.png) 
+    ![Knappen Ny användare](common/new-user.png)
 
-1. Om du vill visa en lista över användare, gå till **användare och grupper** och klicka på **alla användare**.
-    
-    ![Skapa en Azure AD-användare för testning](./media/gigya-tutorial/create_aaduser_02.png) 
+3. Genomför följande steg i Användaregenskaper.
 
-1. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i dialogrutan.
- 
-    ![Skapa en Azure AD-användare för testning](./media/gigya-tutorial/create_aaduser_03.png) 
+    ![Dialogrutan Användare](common/user-properties.png)
 
-1. På den **användaren** dialogrutan utför följande steg:
- 
-    ![Skapa en Azure AD-användare för testning](./media/gigya-tutorial/create_aaduser_04.png) 
+    a. I fältet **Namn** anger du **BrittaSimon**.
+  
+    b. I fältet **Användarnamn** anger du **brittasimon@yourcompanydomain.extension**  
+    Till exempel, BrittaSimon@contoso.com
 
-    a. I den **namn** textrutan typ **BrittaSimon**.
-
-    b. I den **användarnamn** textrutan skriver den **e-postadress** av BrittaSimon.
-
-    c. Välj **visa lösenord** och anteckna värdet för den **lösenord**.
+    c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
     d. Klicka på **Skapa**.
- 
-### <a name="creating-a-gigya-test-user"></a>Skapa en Gigya testanvändare
 
-För att aktivera Azure AD-användare att logga in på Gigya, måste de etableras i Gigya.  
-När det gäller Gigya är etablering en manuell aktivitet.
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
+
+I det här avsnittet gör du det möjligt för Britta Simon att använda enkel inloggning med Azure genom att ge åtkomst till Gigya.
+
+1. På Azure-portalen väljer du **Företagsprogram**, **Alla program** och sedan **Gigya**.
+
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
+
+2. I listan med program väljer du **Gigya**.
+
+    ![Gigya-länken i programlistan](common/all-applications.png)
+
+3. På menyn till vänster väljer du **Användare och grupper**.
+
+    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
+
+4. Klicka på knappen **Lägg till användare** och välj sedan **Användare och grupper** i dialogrutan **Lägg till tilldelning**.
+
+    ![Fönstret Lägg till tilldelning](common/add-assign-user.png)
+
+5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
+
+6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
+
+7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
+
+### <a name="create-gigya-test-user"></a>Skapa Gigya-testanvändare
+
+För att Azure AD-användare ska kunna logga in i Gigya måste de etableras till Gigya. I Gigya görs etablering manuellt.
 
 ### <a name="to-provision-a-user-accounts-perform-the-following-steps"></a>Utför följande steg för att tillhandahålla ett användarkonto:
 
-1. Logga in på din **Gigya** företagets plats som administratör.
+1. Logga in på **Gigya**-företagswebbplatsen som administratör.
 
-1. Gå till **Admin \> hantera användare**, och klicka sedan på **bjuda in användare**.
+2. Gå till **Admin \> Hantera användare** och klicka sedan på **Bjud in användare**.
    
-    ![Hantera användare](./media/gigya-tutorial/ic789535.png "hantera användare")
+    ![Hantera användare](./media/gigya-tutorial/ic789535.png "Hantera användare")
 
-1. I dialogrutan Bjud in användare utför du följande steg:
+3. Gör följande i dialogrutan Bjud in användare:
    
     ![Bjud in användare](./media/gigya-tutorial/ic789536.png "Bjud in användare")
    
-    a. I den **e-post** textrutan skriver du e-postalias för ett giltigt Azure Active Directory-konto som du vill etablera.
+    a. I textrutan **E-post** skriver du e-postalias för ett giltigt Azure Active Directory-konto som du vill etablera.
     
     b. Klicka på **Bjud in användare**.
       
     > [!NOTE]
-    > Azure Active Directory-kontoinnehavare får ett e-postmeddelande som innehåller en länk för att bekräfta kontot innan det blir aktiv.
+    > Azure Active Directory-kontoinnehavaren får ett e-postmeddelande med en länk för att bekräfta kontot innan det blir aktivt.
     > 
-    
 
-### <a name="assigning-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+### <a name="test-single-sign-on"></a>Testa enkel inloggning 
 
-I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till Gigya.
+I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-![Tilldela användare][200] 
-
-**Om du vill tilldela Britta Simon Gigya, utför du följande steg:**
-
-1. Öppna vyn program i Azure-portalen och gå till vyn directory och gå till **företagsprogram** klickar **alla program**.
-
-    ![Tilldela användare][201] 
-
-1. I listan med program väljer **Gigya**.
-
-    ![Konfigurera enkel inloggning](./media/gigya-tutorial/tutorial_gigya_app.png) 
-
-1. I menyn till vänster, klickar du på **användare och grupper**.
-
-    ![Tilldela användare][202] 
-
-1. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
-
-    ![Tilldela användare][203]
-
-1. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
-
-1. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
-
-1. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
-    
-### <a name="testing-single-sign-on"></a>Testa enkel inloggning
-
-Målet med det här avsnittet är att testa din Azure AD SSO-konfiguration med hjälp av åtkomstpanelen.
-
-När du klickar på panelen Gigya i åtkomstpanelen du bör få automatiskt loggat in på ditt Gigya program.
+När du klickar på Gigya-panelen i åtkomstpanelen bör du automatiskt loggas in på Gigya som du har konfigurerat enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-
-<!--Image references-->
-
-[1]: ./media/gigya-tutorial/tutorial_general_01.png
-[2]: ./media/gigya-tutorial/tutorial_general_02.png
-[3]: ./media/gigya-tutorial/tutorial_general_03.png
-[4]: ./media/gigya-tutorial/tutorial_general_04.png
-
-[100]: ./media/gigya-tutorial/tutorial_general_100.png
-
-[200]: ./media/gigya-tutorial/tutorial_general_200.png
-[201]: ./media/gigya-tutorial/tutorial_general_201.png
-[202]: ./media/gigya-tutorial/tutorial_general_202.png
-[203]: ./media/gigya-tutorial/tutorial_general_203.png
+- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

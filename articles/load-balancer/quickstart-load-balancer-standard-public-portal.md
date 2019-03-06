@@ -1,7 +1,7 @@
 ---
 title: 'Snabbstart: Skapa en Standard Load Balancer – Azure-portalen'
 titlesuffix: Azure Load Balancer
-description: I den här snabbstarten visas hur du skapar en offentlig Standard Load Balancer med Azure-portalen.
+description: I den här snabbstarten visas hur du skapar en offentlig Standard Load Balancer med Azure Portal.
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -15,46 +15,45 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/21/2018
+ms.date: 02/26/2019
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 1395c79b9c39d7376f39446eac6da8ee80b2ef18
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 97d1cf2817ebfbf2eb1a6ba5a4d20d457b6369c6
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54232676"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56961745"
 ---
-# <a name="quickstart-create-a-standard-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Snabbstart: Skapa en Standard Load Balancer som lastbalanserar virtuella datorer med Azure-portalen
+# <a name="quickstart-create-a-standard-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Snabbstart: Skapa en Standard Load Balancer som lastbalanserar virtuella datorer med Azure Portal
 
-Med belastningsutjämning får du högre tillgänglighet och skala genom att inkommande förfrågningar sprids över flera virtuella datorer. Du kan använda Azure-portalen för att skapa en lastbalanserare som lastbalanserar virtuella datorer (VM). Den här snabbstartsguiden visar hur du lastbalanserar virtuella datorer med en Standard Load Balancer.
+Med belastningsutjämning får du högre tillgänglighet och skala genom att inkommande förfrågningar sprids över flera virtuella datorer. Du kan använda Azure Portal för att skapa en lastbalanserare som lastbalanserar virtuella datorer (VM). Den här snabbstartsguiden visar hur du lastbalanserar virtuella datorer med en Standard Load Balancer.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar. 
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
-Logga in på Azure-portalen på [http://portal.azure.com](http://portal.azure.com).
+Logga in på Azure Portal på [http://portal.azure.com](http://portal.azure.com).
 
 ## <a name="create-a-public-load-balancer"></a>Skapa en offentlig lastbalanserare
 
 I det här avsnittet skapar du en offentlig lastbalanserare som hjälper till att lastbalansera virtuella datorer. En Standard Load Balancer stöder endast offentliga IP-standardadresser. När du skapar en Standard Load Balancer, och även måste skapa en ny offentlig IP-standardadress som är konfigurerad som klientdelen (med namnet *LoadBalancerFrontend* som standard) för Standard Load Balancer. 
 
 1. Längst upp till vänster på skärmen klickar du på **Skapa en resurs** > **Nätverk** > **Lastbalanserare**.
-2. I **Skapa lastbalanserare** anger eller väljer du följande information, accepterar standardinställningarna för de återstående inställningarna och väljer sedan **Skapa**:
+2. På fliken **Grundläggande inställningar** på sidan **Skapa lastbalanserare** anger eller väljer du följande information, accepterar standardinställningarna för de återstående inställningarna och väljer sedan **Granska + skapa**:
 
     | Inställning                 | Värde                                              |
     | ---                     | ---                                                |
+    | Prenumeration               | Välj din prenumeration.    |    
+    | Resursgrupp         | Välj **Skapa ny** och skriv *MyResourceGroupSLB* i textrutan.|
     | Namn                   | *myLoadBalancer*                                   |
-    | Typ          | Offentligt                                        |
-    | SKU           | Standard                          |
-    | Offentlig IP-adress | Välj **Skapa nytt** och skriv *myPublicIP* i textrutan. Standard-SKU för den offentliga IP-adressen är vald som standard. Välj **Zonredundant** för **Tillgänglighetszon**. |
-    | Prenumeration               | Välj din prenumeration.    |
-    |Resursgrupp | Välj **Skapa nytt** och skriv sedan *myResourceGroupSLB*.    |
-    | Plats           | Välj **Västeuropa**.                          |
-    
-
-![Skapa en lastbalanserare](./media/load-balancer-standard-public-portal/create-load-balancer.png)
-
+    | Region         | Välj **Västeuropa**.                                        |
+    | Typ          | Välj **Offentligt**.                                        |
+    | SKU           | Välj **standard**.                          |
+    | Offentlig IP-adress | Välj **Skapa ny**. |
+    | Namn på offentlig IP-adress              | Skriv *myPublicIP* i textrutan.   |
+    |Tillgänglighetszon| Välj **Zonredundant**.    |
+3. På fliken **Granska + skapa** klickar du på **Skapa**.   
 
 ## <a name="create-backend-servers"></a>Skapa serverdelsservrar
 
@@ -84,7 +83,7 @@ I det här avsnittet skapar du först ett virtuellt nätverk, sedan två virtuel
         2. Ange *myNetworkSecurityGroup* för **Namn** på sidan **Skapa nätverkssäkerhetsgrupp** och välj **OK**.
 5. Inaktivera startdiagnostikinställningar genom att klicka på **Inaktiverad**.
 6. Klicka på **OK**, granska inställningarna på sammanfattningssidan och klicka sedan på **Skapa**.
-7. Följ steg 1-6 och skapa en andra virtuell dator med namnet *VM2* med tillgänglighetsuppsättningen *myAvailabilityset*, det virtuella nätverket *myVnet*, undernätet *myBackendSubnet* och nätverkssäkerhetsgruppen **myNetworkSecurityGroup*. 
+7. Med hjälp av steg 1-6 skapar du en andra virtuell dator med namnet *VM2* med *myVnet* som dess virtuella nätverk, *myBackendSubnet* som dess undernät och **myNetworkSecurityGroup* som dess nätverkssäkerhetsgrupp. 
 
 ### <a name="create-nsg-rule"></a>Skapa NSG-regel
 

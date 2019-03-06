@@ -10,14 +10,14 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 2/20/2019
 ms.author: chlandsi
-ms.openlocfilehash: 359606c6dfe75d9910565cffa555b1e52d29267d
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: e02c99edcc1774510f9d10a5d19f49c4fc0530a9
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56448537"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56594091"
 ---
-# <a name="how-to-select-an-audio-input-device-with-the-speech-sdk"></a>Så här väljer du en enhet för ljudinspelning med Speech SDK 
+# <a name="select-an-audio-input-device-with-the-speech-sdk"></a>Välj en enhet för ljudinspelning med Speech SDK
 
 Version 1.3.0 av Speech SDK innehåller ett API för att välja ljudindata. Den här artikeln beskriver hur du skaffar ID:n för ljudenheterna som är anslutna till ett system.
 Dessa kan sedan användas i Speech SDK genom att du konfigurerar ljudenheten med `AudioConfig`-objektet:
@@ -367,3 +367,13 @@ Till exempel instruktionen
 ```
 
 innebär att ett Bluetooth-headset kan användas för en talaktiverad app.
+
+## <a name="next-steps"></a>Nästa steg
+
+> [!div class="nextstepaction"]
+> [Utforska våra exempel på GitHub](https://aka.ms/csspeech/samples)
+
+## <a name="see-also"></a>Se även
+
+- [Anpassa akustiska modeller](how-to-customize-acoustic-models.md)
+- [Anpassa språkmodeller](how-to-customize-language-model.md)

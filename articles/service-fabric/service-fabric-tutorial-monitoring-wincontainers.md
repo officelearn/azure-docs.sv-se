@@ -3,7 +3,7 @@ title: Övervaka och diagnostisera Windows-containers för Service Fabric i Azur
 description: I den här självstudien får du konfigurera Log Analytics för övervakning och diagnostisering av Windows-containers i Azure Service Fabric.
 services: service-fabric
 documentationcenter: .net
-author: TylerMSFT
+author: aljo-microsoft
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,16 +13,16 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/08/2018
-ms.author: twhitney, dekapur
+ms.author: aljo, dekapur
 ms.custom: mvc
-ms.openlocfilehash: 9249c0bb559328c878d784b54af5117b785daffe
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: f6aa0dcfa4a4f9e2780c8fb886523da347eeaa31
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300633"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56806461"
 ---
-# <a name="tutorial-monitor-windows-containers-on-service-fabric-using-log-analytics"></a>Självstudie: Övervaka Windows-containers i Service Fabric med Log Analytics
+# <a name="tutorial-monitor-windows-containers-on-service-fabric-using-log-analytics"></a>Självstudier: Övervaka Windows-containrar i Service Fabric med hjälp av Log Analytics
 
 Det här är del tre i självstudiekursen. Den vägleder dig genom att ställa in Log Analytics för att övervaka Windows-containrar som dirigeras i Service Fabric.
 
@@ -225,7 +225,7 @@ Det leder till Log Analytics-arbetsytan där du kan se dina lösningar, skapa an
 
 **Uppdatera** lösningen för övervakning av containrar efter ett par minuter. Du ska nu se information om *Datorprestanda* komma in. Det här hjälper dig att förstå hur dina resurser används. Du kan också använda de här måtten till att fatta rätt beslut om skalning av klustret och för att bekräfta om ett kluster balanserar ut belastningen som förväntat.
 
-*Obs! Kontrollera tidsfiltren är inställda på rätt sätt så att du kan använda de här måtten.*
+*Obs! Kontrollera att tidsfiltren är inställda på rätt sätt så att du kan använda de här måtten.*
 
 ![Prestandaräknare 2](./media/service-fabric-tutorial-monitoring-wincontainers/perf-counters2.png)
 

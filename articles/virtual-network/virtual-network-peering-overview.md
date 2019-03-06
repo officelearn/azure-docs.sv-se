@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/16/2018
+ms.date: 02/21/2019
 ms.author: jdial
-ms.openlocfilehash: c91292bff22a76e4c15f031094809e20fdc43031
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 3f308c38e9fa23c36f964b117f620a39e56c9bbd
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56175735"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56958192"
 ---
 # <a name="virtual-network-peering"></a>Virtuell nätverkspeering
 
@@ -63,7 +63,7 @@ När virtuella nätverk har peer-kopplats i samma region kan du också konfigure
 
 ![Överföring vid VNET-peering](./media/virtual-networks-peering-overview/figure04.png)
 
-Gatewayöverföring stöds inte i peer-relationer mellan virtuella nätverk som skapats i olika regioner. Båda virtuella nätverk i peer-relationen måste finnas i samma region för att gatewayöverföringen ska fungera. Gatewayöverföring mellan virtuella nätverk som skapats med olika distributionsmodeller (Resource Manager och klassisk) stöds endast om gatewayen finns i det virtuella nätverket (Resource Manager). Mer information om hur du använder en gateway för överföring finns i [Configure a VPN gateway for transit in a virtual network peering](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (Konfigurera en VPN-gateway för överföring i peer-kopplade virtuella nätverk).
+Gatewayöverföring stöds inte i peer-relationer mellan virtuella nätverk som skapats i olika regioner. Båda virtuella nätverk i peer-relationen måste finnas i samma region för att gatewayöverföringen ska fungera. Gatewayöverföring mellan virtuella nätverk som skapats med olika distributionsmodeller (Resource Manager och klassisk) stöds endast om gatewayen (VPN eller ExpressRoute) finns i det virtuella nätverket (Resource Manager). Mer information om hur du använder en gateway för överföring finns i [Configure a VPN gateway for transit in a virtual network peering](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (Konfigurera en VPN-gateway för överföring i peer-kopplade virtuella nätverk).
 
 När de virtuella nätverken som delar samma Azure ExpressRoute-anslutning är peer-kopplade går trafiken mellan dem genom peering-relationen (dvs. genom Azures stamnätverk). Du kan fortfarande använda lokala gateways i varje virtuellt nätverk för att ansluta till den lokala kretsen. Du kan även använda en delad gateway och konfigurera överföringen för lokala anslutningar.
 
@@ -77,8 +77,7 @@ Du kan också prova att gå igenom [felsökningsstegen för problem relaterade t
 
 ## <a name="requirements-and-constraints"></a>Krav och begränsningar
 
-Följande begränsningar gäller när virtuella nätverk peerkopplas globalt:
-- De virtuella nätverken kan finnas i valfri region för offentligt Azure-moln och i Azure Kina-regioner, men inte i Azure Government-moln.
+Följande begränsningar gäller endast när virtuella nätverk peerkopplas globalt:
 - Resurser i ett virtuellt nätverk kan inte kommunicera med IP-adressen i klientdelen för en intern Azure-belastningsutjämnare i ett globalt peerkopplat virtuellt nätverk. Belastningsutjämnaren och resurserna som kommunicerar med den måste finnas i samma region.
 - Du kan inte använda fjärrgatewayer eller tillåta gatewayöverföring. Om du vill använda fjärrgatewayer eller tillåta gatewayöverföring måste peerkopplade virtuella nätverk finnas i samma region.
 

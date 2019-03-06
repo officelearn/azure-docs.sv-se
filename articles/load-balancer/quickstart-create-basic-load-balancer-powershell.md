@@ -12,71 +12,78 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/20/2018
+ms.date: 02/21/2019
 ms.author: kumud
 ms:custom: seodec18
-ms.openlocfilehash: d3f8ae94cd6896aba1db29a00f6f45c81995bbd1
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: 6b27c21944131d01254e75c7120520a119998132
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301272"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56673776"
 ---
 # <a name="get-started"></a>Snabbstart: Skapa en offentlig lastbalanserare med Azure PowerShell
+
 Den här snabbstarten visar hur du skapar en Basic-lastbalanserare med Azure PowerShell. Om du vill testa lastbalanseraren så distribuera två virtuella datorer (VM) som kör Windows-servern och lastbalansera en webbapp mellan de virtuella datorerna.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-Om du väljer att installera och använda PowerShell lokalt kräver den här artikeln version 5.4.1 eller senare av Azure PowerShell-modulen. Kör `Get-Module -ListAvailable AzureRM` för att hitta den installerade versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/azurerm/install-azurerm-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Login-AzureRmAccount` för att skapa en anslutning till Azure. 
+Om du väljer att installera och använda PowerShell lokalt kräver den här artikeln version 5.4.1 eller senare av Azure PowerShell-modulen. Kör `Get-Module -ListAvailable Az` för att hitta den installerade versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-Az-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Connect-AzAccount` för att skapa en anslutning till Azure.
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
-Innan du kan skapa lastbalanseraren måste du skapa en resursgrupp med [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). I följande exempel skapas en resursgrupp med namnet *myResourceGroupLB* på platsen *eastus*:
+Innan du kan skapa lastbalanseraren måste du skapa en resursgrupp med [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). I följande exempel skapas en resursgrupp med namnet *myResourceGroupLB* på platsen *eastus*:
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroup `
+New-AzResourceGroup `
   -ResourceGroupName "myResourceGroupLB" `
   -Location "EastUS"
 ```
+
 ## <a name="create-a-public-ip-address"></a>Skapa en offentlig IP-adress
-För att kunna komma åt din app på Internet behöver du en offentlig IP-adress för lastbalanseraren. Skapa en offentlig IP-adress med [New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress). I följande exempel skapas en offentlig IP-adress med namnet *myPublicIP* i resursgruppen *myResourceGroupLB*:
+För att kunna komma åt din app på Internet behöver du en offentlig IP-adress för lastbalanseraren. Skapa en offentlig IP-adress med hjälp av [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress). I följande exempel skapas en offentlig IP-adress med namnet *myPublicIP* i resursgruppen *myResourceGroupLB*:
 
 ```azurepowershell-interactive
-$publicIP = New-AzureRmPublicIpAddress `
+$publicIP = New-AzPublicIpAddress `
   -ResourceGroupName "myResourceGroupLB" `
   -Location "EastUS" `
   -AllocationMethod "Static" `
   -Name "myPublicIP"
 ```
+
 ## <a name="create-basic-load-balancer"></a>Skapa en lastbalanserare
- I det här avsnittet konfigurerar du klientdelens IP-adress och serverdelsadresspoolen för lastbalanseraren och skapar sedan en Basic-lastbalanserare.
- 
-### <a name="create-frontend-ip"></a>Skapa klientdels-IP
-Skapa en IP-adress på klientdelen med [New-AzureRmLoadBalancerFrontendIpConfig](/powershell/module/azurerm.network/new-azurermloadbalancerfrontendipconfig). I följande exempel skapas en IP-konfiguration på klientdelen med namnet *myFrontEnd* och adressen *myPublicIP* kopplas: 
+
+I det här avsnittet konfigurerar du klientdelens IP-adress och serverdelsadresspoolen för lastbalanseraren och skapar sedan en Basic-lastbalanserare.
+
+### <a name="create-front-end-ip"></a>Skapa klientdels-IP
+
+Skapa en IP-adress på klientdelen med hjälp av [New-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/new-azloadbalancerfrontendipconfig). I följande exempel skapas en IP-konfiguration på klientdelen med namnet *myFrontEnd* och adressen *myPublicIP* kopplas:
 
 ```azurepowershell-interactive
-$frontendIP = New-AzureRmLoadBalancerFrontendIpConfig `
+$frontendIP = New-AzLoadBalancerFrontendIpConfig `
   -Name "myFrontEnd" `
   -PublicIpAddress $publicIP
 ```
 
-### <a name="configure-backend-address-pool"></a>Konfigurera en serverdelsadresspool
+### <a name="configure-back-end-address-pool"></a>Konfigurera en serverdelsadresspool
 
-Skapa en adresspool på serverdelen med [New-AzureRmLoadBalancerBackendAddressPoolConfig](/powershell/module/azurerm.network/new-azurermloadbalancerbackendaddresspoolconfig). Virtuella datorer ansluter till den här adresspoolen i de resterande stegen. I följande exempel skapas en adresspool på serverdelen med namnet *myBackEndPool*:
+Skapa en adresspool på serverdelen med hjälp av [New-AzLoadBalancerBackendAddressPoolConfig](/powershell/module/az.network/new-azloadbalancerbackendaddresspoolconfig). De virtuella datorerna ansluter till den här serverdelspoolen i de återstående stegen. I följande exempel skapas en adresspool på serverdelen med namnet *myBackEndPool*:
 
 ```azurepowershell-interactive
-$backendPool = New-AzureRmLoadBalancerBackendAddressPoolConfig -Name "myBackEndPool"
+$backendPool = New-AzLoadBalancerBackendAddressPoolConfig -Name "myBackEndPool"
 ```
+
 ### <a name="create-a-health-probe"></a>Skapa en hälsoavsökning
 Om du vill att lastbalanseraren ska övervaka status för din app kan du använda en hälsoavsökning. Hälsoavsökningen lägger till eller tar bort virtuella datorer dynamiskt från lastbalanserarens rotation baserat på deras svar på hälsokontroller. Som standard tas en virtuell dator bort från lastbalanserarens distribution efter två fel i följd inom ett intervall på 15 sekunder. Du skapar en hälsoavsökning baserat på ett protokoll eller en specifik hälsokontrollsida för din app. 
 
 I följande exempel skapas en TCP-avsökning. Du kan också skapa anpassade HTTP-avsökningar om du vill ha mer detaljerade hälsokontroller. När du använder en anpassad HTTP-avsökning måste du skapa en hälsokontrollsida, till exempel *healthcheck.aspx*. Avsökningen måste returnera svaret **HTTP 200 OK** för att lastbalanseraren ska behålla värden i rotation.
 
-Du skapar en TCP-hälsoavsökning med [New-AzureRmLoadBalancerProbeConfig](/powershell/module/azurerm.network/new-azurermloadbalancerprobeconfig).
-I följande exempel skapas en hälsoavsökning med namnet *myHealthProbe* som övervakar alla virtuella datorer på *HTTP*-port *80*:
+Du skapar en TCP-hälsoavsökning med hjälp av [Add-AzLoadBalancerProbeConfig](/powershell/module/az.network/add-azloadbalancerprobeconfig). I följande exempel skapas en hälsoavsökning med namnet *myHealthProbe* som övervakar alla virtuella datorer på *HTTP*-port *80*:
 
 ```azurepowershell-interactive
-$probe = New-AzureRmLoadBalancerProbeConfig `
+$probe = New-AzLoadBalancerProbeConfig `
   -Name "myHealthProbe" `
   -RequestPath healthcheck2.aspx `
   -Protocol http `
@@ -86,12 +93,13 @@ $probe = New-AzureRmLoadBalancerProbeConfig `
   ```
 
 ### <a name="create-a-load-balancer-rule"></a>Skapa en lastbalanseringsregel
+
 En lastbalanseringsregel används för att definiera hur trafiken ska distribueras till de virtuella datorerna. Du definierar IP-konfigurationen på klientdelen för inkommande trafik och IP-poolen på serverdelen för att ta emot trafik samt nödvändig käll- och målport. För att säkerställa att de virtuella datorerna endast tar emot felfri trafik definierar du också vilken hälsoavsökning som ska användas.
 
-Skapa en lastbalanseringsregel med [Add-AzureRmLoadBalancerRuleConfig](/powershell/module/azurerm.network/add-azurermloadbalancerruleconfig). I följande exempel skapas en lastbalanseringsregel med namnet *myLoadBalancerRule* och trafiken utjämnas på *TCP*-port *80*:
+Skapa en lastbalanseringsregel med hjälp av [Add-AzLoadBalancerRuleConfig](/powershell/module/az.network/add-azloadbalancerruleconfig). I följande exempel skapas en lastbalanseringsregel med namnet *myLoadBalancerRule* och trafiken utjämnas på *TCP*-port *80*:
 
 ```azurepowershell-interactive
-$lbrule = New-AzureRmLoadBalancerRuleConfig `
+$lbrule = New-AzLoadBalancerRuleConfig `
   -Name "myLoadBalancerRule" `
   -FrontendIpConfiguration $frontendIP `
   -BackendAddressPool $backendPool `
@@ -103,17 +111,17 @@ $lbrule = New-AzureRmLoadBalancerRuleConfig `
 
 ### <a name="create-the-nat-rules"></a>Skapa NAT-reglerna
 
-Skapa NAT-regler med [Add-AzureRmLoadBalancerRuleConfig](/powershell/module/azurerm.network/new-azurermloadbalancerinboundnatruleconfig). Följande exempel skapar NAT-regler som heter *myLoadBalancerRDP1* och *myLoadBalancerRDP2* för att tillåta RDP-anslutningar till backend-servarna med port 4221 och 4222:
+Skapa NAT-regler med [Add-AzLoadBalancerRuleConfig](/powershell/module/az.network/new-azloadbalancerinboundnatruleconfig). Följande exempel skapar NAT-regler som heter *myLoadBalancerRDP1* och *myLoadBalancerRDP2* för att tillåta RDP-anslutningar till backend-servarna med port 4221 och 4222:
 
 ```azurepowershell-interactive
-$natrule1 = New-AzureRmLoadBalancerInboundNatRuleConfig `
+$natrule1 = New-AzLoadBalancerInboundNatRuleConfig `
 -Name 'myLoadBalancerRDP1' `
 -FrontendIpConfiguration $frontendIP `
 -Protocol tcp `
 -FrontendPort 4221 `
 -BackendPort 3389
 
-$natrule2 = New-AzureRmLoadBalancerInboundNatRuleConfig `
+$natrule2 = New-AzLoadBalancerInboundNatRuleConfig `
 -Name 'myLoadBalancerRDP2' `
 -FrontendIpConfiguration $frontendIP `
 -Protocol tcp `
@@ -123,10 +131,10 @@ $natrule2 = New-AzureRmLoadBalancerInboundNatRuleConfig `
 
 ### <a name="create-load-balancer"></a>Skapa en lastbalanserare
 
-Skapa Basic-lastbalanseraren med [New-AzureRmLoadBalancer](/powershell/module/azurerm.network/new-azurermloadbalancer). Följande exempel skapar en offentlig Basic-lastbalanserare med namnet myLoadBalancer med klientdelens IP-konfiguration, serverdelspoolen, hälsoavsökningen, lastbalanseringsregeln och NAT-reglerna som du skapade i föregående steg:
+Skapa Basic-lastbalanseraren med [New-AzLoadBalancer](/powershell/module/az.network/new-azloadbalancer). Följande exempel skapar en offentlig Basic-lastbalanserare med namnet myLoadBalancer med klientdelens IP-konfiguration, serverdelspoolen, hälsoavsökningen, lastbalanseringsregeln och NAT-reglerna som du skapade i föregående steg:
 
 ```azurepowershell-interactive
-$lb = New-AzureRmLoadBalancer `
+$lb = New-AzLoadBalancer `
 -ResourceGroupName 'myResourceGroupLB' `
 -Name 'MyLoadBalancer' `
 -Location 'eastus' `
@@ -138,34 +146,38 @@ $lb = New-AzureRmLoadBalancer `
 ```
 
 ## <a name="create-network-resources"></a>Skapa nätverksresurser
+
 Innan du kan distribuera virtuella datorer och testa din belastningsutjämnare måste du skapar nätverksresurser som stöds – virtuellt nätverk och virtuella nätverkskort. 
 
 ### <a name="create-a-virtual-network"></a>Skapa ett virtuellt nätverk
-Skapa ett virtuellt nätverk med [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork). I följande exempel skapas ett virtuellt nätverk med namnet *myVnet* med *mySubnet*:
+
+Skapa ett virtuellt nätverk med hjälp av [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork). I följande exempel skapas ett virtuellt nätverk med namnet *myVnet* med *mySubnet*:
 
 ```azurepowershell-interactive
 # Create subnet config
-$subnetConfig = New-AzureRmVirtualNetworkSubnetConfig `
+$subnetConfig = New-AzVirtualNetworkSubnetConfig `
   -Name "mySubnet" `
   -AddressPrefix 10.0.2.0/24
 
 # Create the virtual network
-$vnet = New-AzureRmVirtualNetwork `
+$vnet = New-AzVirtualNetwork `
   -ResourceGroupName "myResourceGroupLB" `
   -Location "EastUS" `
   -Name "myVnet" `
   -AddressPrefix 10.0.0.0/16 `
   -Subnet $subnetConfig
 ```
+
 ### <a name="create-network-security-group"></a>Skapa nätverkssäkerhetsgrupp
+
 Skapa en nätverkssäkerhetsgrupp så att du kan definiera inkommande anslutningar till det virtuella nätverket.
 
 #### <a name="create-a-network-security-group-rule-for-port-3389"></a>Skapa en regel för nätverkssäkerhetsgruppen för port 3389
-Skapa en regel för nätverkssäkerhetsgrupp som tillåter RDP-anslutningar via port 3389 med [New-AzureRmNetworkSecurityRuleConfig](/powershell/module/azurerm.network/new-azurermnetworksecurityruleconfig).
+
+Skapa en regel för nätverkssäkerhetsgruppen som tillåter RDP-anslutningar via port 3389 med [New-AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetworksecurityruleconfig).
 
 ```azurepowershell-interactive
-
-$rule1 = New-AzureRmNetworkSecurityRuleConfig `
+$rule1 = New-AzNetworkSecurityRuleConfig `
 -Name 'myNetworkSecurityGroupRuleRDP' `
 -Description 'Allow RDP' `
 -Access Allow `
@@ -179,10 +191,11 @@ $rule1 = New-AzureRmNetworkSecurityRuleConfig `
 ```
 
 #### <a name="create-a-network-security-group-rule-for-port-80"></a>Skapa en regel för nätverkssäkerhetsgruppen för port 80
-Skapa en regel för nätverkssäkerhetsgrupp som tillåter inkommande anslutningar via port 80 med [New-AzureRmNetworkSecurityRuleConfig](/powershell/module/azurerm.network/new-azurermnetworksecurityruleconfig).
+
+Skapa en regel för nätverkssäkerhetsgruppen som tillåter inkommande anslutningar via port 80 med [New-AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetworksecurityruleconfig).
 
 ```azurepowershell-interactive
-$rule2 = New-AzureRmNetworkSecurityRuleConfig `
+$rule2 = New-AzNetworkSecurityRuleConfig `
 -Name 'myNetworkSecurityGroupRuleHTTP' `
 -Description 'Allow HTTP' `
 -Access Allow `
@@ -194,12 +207,13 @@ $rule2 = New-AzureRmNetworkSecurityRuleConfig `
 -DestinationAddressPrefix * `
 -DestinationPortRange 80
 ```
+
 #### <a name="create-a-network-security-group"></a>Skapa en nätverkssäkerhetsgrupp
 
-Skapa en nätverkssäkerhetsgrupp med [New-AzureRmNetworkSecurityGroup](/powershell/module/azurerm.network/new-azurermnetworksecuritygroup).
+Skapa en nätverkssäkerhetsgrupp med [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup).
 
 ```azurepowershell-interactive
-$nsg = New-AzureRmNetworkSecurityGroup `
+$nsg = New-AzNetworkSecurityGroup `
 -ResourceGroupName 'myResourceGroupLB' `
 -Location 'EastUS' `
 -Name 'myNetworkSecurityGroup' `
@@ -207,11 +221,12 @@ $nsg = New-AzureRmNetworkSecurityGroup `
 ```
 
 ### <a name="create-nics"></a>Skapa nätverkskort
-Skapa virtuella nätverkskort med [New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface). I följande exempel skapas två virtuella nätverkskort. (Det vill säga ett virtuellt nätverkskort för varje virtuell dator som du skapar för din app i följande steg.) Du kan skapa ytterligare virtuella nätverkskort och virtuella datorer när du vill och lägga till dem i lastbalanseraren:
+
+Skapa virtuella nätverkskort med [New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface). I följande exempel skapas två virtuella nätverkskort. (Det vill säga ett virtuellt nätverkskort för varje virtuell dator som du skapar för din app i följande steg.) Du kan skapa ytterligare virtuella nätverkskort och virtuella datorer när du vill och lägga till dem i lastbalanseraren:
 
 ```azurepowershell-interactive
 # Create NIC for VM1
-$nicVM1 = New-AzureRmNetworkInterface `
+$nicVM1 = New-AzNetworkInterface `
 -ResourceGroupName 'myResourceGroupLB' `
 -Location 'EastUS' `
 -Name 'MyNic1' `
@@ -221,7 +236,7 @@ $nicVM1 = New-AzureRmNetworkInterface `
 -Subnet $vnet.Subnets[0]
 
 # Create NIC for VM2
-$nicVM2 = New-AzureRmNetworkInterface `
+$nicVM2 = New-AzNetworkInterface `
 -ResourceGroupName 'myResourceGroupLB' `
 -Location 'EastUS' `
 -Name 'MyNic2' `
@@ -229,16 +244,16 @@ $nicVM2 = New-AzureRmNetworkInterface `
 -NetworkSecurityGroup $nsg `
 -LoadBalancerInboundNatRule $natrule2 `
 -Subnet $vnet.Subnets[0]
-
 ```
 
 ### <a name="create-virtual-machines"></a>Skapa virtuella datorer
+
 Placera dina virtuella datorer i en tillgänglighetsuppsättning för att förbättra tillgängligheten för din app.
 
-Skapa en tillgänglighetsuppsättning med [New-AzureRmAvailabilitySet](/powershell/module/azurerm.compute/new-azurermavailabilityset). I följande exempel skapas en tillgänglighetsuppsättning med namnet *myAvailabilitySet*:
+Skapa en tillgänglighetsuppsättning med hjälp av [New-AzAvailabilitySet](/powershell/module/az.compute/new-azavailabilityset). I följande exempel skapas en tillgänglighetsuppsättning med namnet *myAvailabilitySet*:
 
 ```azurepowershell-interactive
-$availabilitySet = New-AzureRmAvailabilitySet `
+$availabilitySet = New-AzAvailabilitySet `
   -ResourceGroupName "myResourceGroupLB" `
   -Name "myAvailabilitySet" `
   -Location "EastUS" `
@@ -253,12 +268,12 @@ Ange ett administratörsanvändarnamn och lösenord för de virtuella datorerna 
 $cred = Get-Credential
 ```
 
-Nu kan du skapa de virtuella datorerna med [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). I följande exempel skapas två virtuella datorer och de virtuella nätverkskomponenter som krävs, om de inte redan finns. När den virtuella exempeldatorn skapades kopplades nätverkskorten till de virtuella datorerna eftersom de tilldelas samma virtuella nätverk (*myVnet*) och undernät (*mySubnet*):
+Nu kan du skapa de virtuella datorerna med hjälp av [New-AzVM](/powershell/module/az.compute/new-azvm). I följande exempel skapas två virtuella datorer och de virtuella nätverkskomponenter som krävs, om de inte redan finns. När den virtuella exempeldatorn skapades kopplades nätverkskorten till de virtuella datorerna eftersom de tilldelas samma virtuella nätverk (*myVnet*) och undernät (*mySubnet*):
 
 ```azurepowershell-interactive
 for ($i=1; $i -le 2; $i++)
 {
-    New-AzureRmVm `
+    New-AzVm `
         -ResourceGroupName "myResourceGroupLB" `
         -Name "myVM$i" `
         -Location "East US" `
@@ -278,10 +293,10 @@ Parametern `-AsJob` skapar den virtuella datorn som en bakgrundsaktivitet så at
  
 Installera IIS med en anpassad webbsida på de båda virtuella datorerna på serversidan enligt följande:
 
-1. Hämta den offentliga IP-adressen för lastbalanseraren. Med `Get-AzureRmPublicIPAddress` hämtar du den offentliga IP-adressen för lastbalanseraren.
+1. Hämta den offentliga IP-adressen för lastbalanseraren. Med `Get-AzPublicIPAddress` hämtar du den offentliga IP-adressen för lastbalanseraren.
 
   ```azurepowershell-interactive
-    Get-AzureRmPublicIPAddress `
+    Get-AzPublicIPAddress `
     -ResourceGroupName "myResourceGroupLB" `
     -Name "myPublicIP" | select IpAddress
   ```
@@ -308,10 +323,10 @@ Installera IIS med en anpassad webbsida på de båda virtuella datorerna på ser
 6. Skapa en RDP-anslutning med *myVM2* genom att köra kommandot`mstsc /v:PublicIpAddress:4222` och upprepa steg 4 för *VM2*.
 
 ## <a name="test-load-balancer"></a>Testa lastbalanseraren
-Hämta den offentliga IP-adressen för lastbalanseraren med [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress). I följande exempel hämtas IP-adressen för *myPublicIP* som skapades tidigare:
+Hämta den offentliga IP-adressen för lastbalanseraren med hjälp av [Get-AzPublicIPAddress](/powershell/module/az.network/get-azpublicipaddress). I följande exempel hämtas IP-adressen för *myPublicIP* som skapades tidigare:
 
 ```azurepowershell-interactive
-Get-AzureRmPublicIPAddress `
+Get-AzPublicIPAddress `
   -ResourceGroupName "myResourceGroupLB" `
   -Name "myPublicIP" | select IpAddress
 ```
@@ -322,13 +337,12 @@ Du kan sedan ange den offentliga IP-adressen i en webbläsare. Webbplatsen visas
 
 Om du vill se hur lastbalanseraren distribuerar trafik över de båda virtuella datorerna som kör din app, kan du framtvinga uppdatering av webbläsaren.
 
-
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När den inte längre behövs du använda kommandot [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) för att ta bort resursgruppen, den virtuella datorn och alla relaterade resurser.
+När den inte längre behövs du använda kommandot [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) för att ta bort resursgruppen, den virtuella datorn och alla relaterade resurser.
 
 ```azurepowershell-interactive
-Remove-AzureRmResourceGroup -Name myResourceGroupLB
+Remove-AzResourceGroup -Name myResourceGroupLB
 ```
 
 ## <a name="next-steps"></a>Nästa steg

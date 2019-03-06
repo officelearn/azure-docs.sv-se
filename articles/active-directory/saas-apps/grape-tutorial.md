@@ -1,198 +1,195 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med gr Pe | Microsoft Docs'
-description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och tona Pe.
+title: 'Självstudier: Azure Active Directory-katalogintegrering med Gra-Pe | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Gra-Pe.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 073f8641-b64d-4754-b1a6-2b91c865b13d
-ms.service: active-directory
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 10/15/2018
+ms.topic: tutorial
+ms.date: 02/18/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 02df0a5d13aeb90049383f61d743e8a11e93fc79
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: MT
+ms.openlocfilehash: 689d0cdea70da4f4ad3c11ba25025ac4f9f342fb
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56188537"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56866155"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-gra-pe"></a>Självstudier: Azure Active Directory-integrering med gr Pe
+# <a name="tutorial-azure-active-directory-integration-with-gra-pe"></a>Självstudier: Azure Active Directory-katalogintegrering med Gra-Pe
 
-Lär dig hur du integrerar gr Pe med Azure Active Directory (AD Azure) i den här självstudien.
+I den här självstudien lär du dig att integrera Gra-Pe med Azure Active Directory (AD Azure).
+När du integrerar Gra-Pe med Azure AD innebär det följande fördelar:
 
-Integrera gr Pe med Azure AD ger dig följande fördelar:
+* Du kan styra vem som har åtkomst till Gra-Pe från Azure AD.
+* Du kan låta dina användare automatiskt loggas in på Gra-Pe (enkel inloggning) med sina Azure AD-konton.
+* Du kan hantera dina konton på en central plats – Azure-portalen.
 
-- Du kan styra i Azure AD som har åtkomst till gr Pe.
-- Du kan aktivera användarna att automatiskt få loggat in på gr-Pe (Single Sign-On) med sina Azure AD-konton.
-- Du kan hantera dina konton på en central plats – Azure-portalen.
+Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-## <a name="prerequisites"></a>Förutsättningar
+För att konfigurera Azure AD-integrering med Gra-Pe behöver du följande:
 
-Om du vill konfigurera Azure AD-integrering med gr Pe, behöver du följande objekt:
-
-- En Azure AD-prenumeration
-- En Tona-Pe enkel inloggning aktiverat prenumeration
-
-> [!NOTE]
-> Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
-
-Du bör följa de här rekommendationerna när du testar stegen i självstudien:
-
-- Använd inte din produktionsmiljö om det inte behövs.
-- Om du inte har en Azure AD-utvärderingsmiljö, kan du [få en månads utvärdering](https://azure.microsoft.com/pricing/free-trial/).
+* En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
+* Gra-Pe-prenumeration med enkel inloggning aktiverat
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
-I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
-1. Att lägga till gr Pe från galleriet
-2. Konfigurera och testa Azure AD enkel inloggning
+I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-## <a name="adding-gra-pe-from-the-gallery"></a>Att lägga till gr Pe från galleriet
-För att konfigurera integrering av gr Pe i Azure AD, som du behöver lägga till gr Pe från galleriet i din lista över hanterade SaaS-appar.
+* Gra-Pe har stöd för **SP**-initierad enkel inloggning
 
-**Utför följande steg för att lägga till gr Pe från galleriet:**
+## <a name="adding-gra-pe-from-the-gallery"></a>Lägga till Gra-Pe från galleriet
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+För att konfigurera integreringen av Gra-Pe i Azure AD måste du lägga till Gra-Pe från galleriet till din lista över hanterade SaaS-appar.
 
-    ![image](./media/grape-tutorial/selectazuread.png)
+**Utför följande steg för att lägga till Gra-Pe från galleriet:**
 
-2. Gå till **företagsprogram**. Gå till **alla program**.
+1. I **[Azure-portalen](https://portal.azure.com)**, i den vänstra navigeringspanelen, klickar du på **Azure Active Directory**-ikonen.
 
-    ![image](./media/grape-tutorial/a_select_app.png)
-    
+    ![Azure Active Directory-knappen](common/select-azuread.png)
+
+2. Gå till **Företagsprogram** och välj alternativet **Alla program**.
+
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
+
 3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
-    ![image](./media/grape-tutorial/a_new_app.png)
+    ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan skriver **gr Pe**väljer **gr Pe** resultatet panelen klickar **Lägg till** för att lägga till programmet.
+4. I sökrutan skriver du **Gra-Pe**, väljer **Gra-Pe** i resultatpanelen och klickar på knappen **Lägg till** för att lägga till programmet.
 
-     ![image](./media/grape-tutorial/tutorial_grape_addfromgallery.png)
+     ![Gra-Pe i resultatlistan](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med gr-Pe baserat på en testanvändare som kallas ”Britta Simon”.
+I det här avsnittet ska du konfigurera och testa enkel inloggning i Azure AD med Gra-Pe baserat på testanvändaren **Britta Simon**.
+För att enkel inloggning ska fungera så måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i Gra-Pe upprättas.
 
-För enkel inloggning att fungera, behöver Azure AD du veta vad du motsvarighet i gr Pe är till en användare i Azure AD. Med andra ord måste en länk relationen mellan en Azure AD-användare och relaterade användaren i gr Pe upprättas.
-
-Om du vill konfigurera och testa Azure AD enkel inloggning med gr Pe, måste du utföra följande byggblock:
+Om du vill konfigurera och testa Azure AD enkel inloggning med Gra-Pe måste du utföra följande byggblock:
 
 1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
-2. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
-3. **[Skapa en testanvändare gr Pe](#create-a-gra-pe-test-user)**  – du har en motsvarighet för Britta Simon i l-Pe som är länkad till en Azure AD-representation av användaren.
+2. **[Konfigurera enkel inloggning för Gra-Pe](#configure-gra-pe-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på programsidan.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
 4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
-5. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
+5. **[Skapa Gra-Pe-testanvändare](#create-gra-pe-test-user)** – för att ha en motsvarighet för Britta Simon i Gra-Pe som är länkad till en Azure AD-representation av användaren.
+6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
-I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i ditt gr Pe-program.
+I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-**Utför följande steg för att konfigurera Azure AD enkel inloggning med gr Pe:**
+Utför följande steg för att konfigurera enkel inloggning i Azure AD med Gra-Pe:
 
-1. I den [Azure-portalen](https://portal.azure.com/)på den **gr Pe** application integration markerar **enkel inloggning**.
+1. I [Azure-portalen](https://portal.azure.com/) går du till sidan för programintegrering för **Gra-Pe** och väljer **Enkel inloggning**.
 
-    ![image](./media/grape-tutorial/b1_b2_select_sso.png)
+    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
-2. På den **väljer du en metod för enkel inloggning** dialogrutan klickar du på **Välj** för **SAML** läge för att aktivera enkel inloggning.
+2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
-    ![image](./media/grape-tutorial/b1_b2_saml_sso.png)
+    ![Välja läge för enkel inloggning](common/select-saml-option.png)
 
-3. På sidan **Konfigurera enkel inloggning med SAML** klickar du på knappen **Redigera** för att öppna dialogrutan **Grundläggande SAML-konfiguration**.
+3. På sidan **Konfigurera enkel inloggning med SAML** klickar du på **redigeringsikonen** för att öppna dialogrutan **Grundläggande SAML-konfiguration**.
 
-    ![image](./media/grape-tutorial/b1-domains_and_urlsedit.png)
+    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
 4. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
 
-    I den **inloggnings-URL** anger en URL som:  `https://btm.tts.co.jp/portal/apl/SSOLogin.aspx`
+    ![Gra-Pe-domän och information om URL:er för enkel inloggning](common/sp-signonurl.png)
 
-    ![image](./media/grape-tutorial/tutorial_grape_url.png)
+    I rutan **Inloggnings-URL** anger du en URL: `https://btm.tts.co.jp/portal/apl/SSOLogin.aspx`
 
-5. På sidan **Konfigurera enkel inloggning med SAML** går du till avsnittet **SAML-signeringscertifikat**, klickar på **Ladda ned** för att ladda ned **Certifikat (Base64)** och spara det på datorn.
+5. På sidan **Konfigurera enkel inloggning med SAML** går du till avsnittet **SAML-signeringscertifikat**, klickar du på **Ladda ned** för att ladda ned **Certifikat (Base64)** från de angivna alternativen enligt dina behov och sparar det på datorn.
 
-    ![image](./media/grape-tutorial/tutorial_grape_certficate.png)
+    ![Länk för nedladdning av certifikatet](common/certificatebase64.png)
 
-6. På den **konfigurera gr Pe** avsnittet, kopiera den lämpliga URL enligt dina behov.
+6. I avsnittet **Konfigurera Gra-Pe** kopierar du lämpliga URL:er efter behov.
+
+    ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
     a. Inloggnings-URL
 
-    b. Microsoft Azure Active Directory-identifierare
+    b. Azure AD-identifierare
 
     c. Utloggnings-URL
 
-    ![image](./media/grape-tutorial/d1_samlsonfigure.png) 
+### <a name="configure-gra-pe-single-sign-on"></a>Konfigurera enkel inloggning för Gra-Pe
 
-7. Att konfigurera enkel inloggning på **gr Pe** sida, som du behöver skicka de hämtade **certifikat (Base64)** och kopierade **utloggnings-URL för inloggnings-URL, Azure AD-ID,** till [ Gr Pe supportteamet](https://www.toppantravel.com/inquiry/). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
+För att konfigurera enkel inloggning på **Gra-Pe**-sidan behöver du skicka det nedladdade **certifikatet (Base64)** och lämpliga kopierade URL:er från Azure-portalen till [supportteamet för Gra-Pe](https://www.toppantravel.com/inquiry/). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
-### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
+### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
 
 Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
 
 1. Gå till den vänstra rutan i Azure-portalen och välj **Azure Active Directory**, välj **Users** och sedan **Alla användare**.
 
-    ![image](./media/grape-tutorial/d_users_and_groups.png)
+    ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
 2. Välj **Ny användare** överst på skärmen.
 
-    ![image](./media/grape-tutorial/d_adduser.png)
+    ![Knappen Ny användare](common/new-user.png)
 
 3. Genomför följande steg i Användaregenskaper.
 
-    ![image](./media/grape-tutorial/d_userproperties.png)
+    ![Dialogrutan Användare](common/user-properties.png)
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
     b. I fältet **Användarnamn** anger du **brittasimon@yourcompanydomain.extension**  
     Till exempel, BrittaSimon@contoso.com
 
-    c. Välj **egenskaper**väljer den **Show lösenord** kryssrutan och sedan skriva ned det värde som visas i rutan lösenord.
+    c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
-    d. Välj **Skapa**.
- 
-### <a name="create-a-gra-pe-test-user"></a>Skapa en Tona-Pe testanvändare
+    d. Klicka på **Skapa**.
 
-I det här avsnittet skapar du en användare som kallas Britta Simon i gr Pe. Arbeta med [gr Pe supportteamet](https://www.toppantravel.com/inquiry/) att lägga till användare i gr Pe-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+I det här avsnittet gör du det möjligt för Britta Simon att använda enkel inloggning med Azure genom att ge åtkomst till Gra-Pe.
 
-I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till gr Pe.
+1. I Azure-portalen väljer du **Företagsprogram**, **Alla program** och sedan **Gra-Pe**.
 
-1. I Azure-portalen väljer du **företagsprogram**väljer **alla program**.
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-    ![image](./media/grape-tutorial/d_all_applications.png)
+2. Välj **Gra-Pe** i listan med program.
 
-2. I listan med program väljer **gr Pe**.
-
-    ![image](./media/grape-tutorial/tutorial_grape_app.png)
+    ![Gra-Pe-länken i programlistan](common/all-applications.png)
 
 3. På menyn till vänster väljer du **Användare och grupper**.
 
-    ![image](./media/grape-tutorial/d_leftpaneusers.png)
+    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
-4. Välj den **Lägg till** knappen och välj **användare och grupper** i den **Lägg till tilldelning** dialogrutan.
+4. Klicka på knappen **Lägg till användare** och välj sedan **Användare och grupper** i dialogrutan **Lägg till tilldelning**.
 
-    ![image](./media/grape-tutorial/d_assign_user.png)
+    ![Fönstret Lägg till tilldelning](common/add-assign-user.png)
 
-4. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
+5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
 
-5. I dialogrutan **Lägg till tilldelning** väljer du knappen **Tilldela**.
-    
-### <a name="test-single-sign-on"></a>Testa enkel inloggning
+6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
 
-I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
+7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-När du klickar på panelen gr Pe i åtkomstpanelen du bör få automatiskt loggat in på ditt gr Pe-program.
-Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../active-directory-saas-access-panel-introduction.md). 
+### <a name="create-gra-pe-test-user"></a>Skapa Gra-Pe-testanvändare
+
+I det här avsnittet ska du skapa en användare med namnet Britta Simon i Gra-Pe. Ta hjälp av  [supportteamet för Gra-Pe](https://www.toppantravel.com/inquiry/) för att lägga till användarna i Gra-Pe-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+
+### <a name="test-single-sign-on"></a>Testa enkel inloggning 
+
+I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
+
+När du klickar på Gra-Pe-panelen i åtkomstpanelen så borde du automatiskt loggas in på den Gra-Pe som du har konfigurerat enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+
+- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

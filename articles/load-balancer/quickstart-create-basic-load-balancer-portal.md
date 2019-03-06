@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/27/2018
+ms.date: 02/26/2019
 ms.author: kumud
 ms.custom: seodec18
-ms.openlocfilehash: 64c0a42ac3cc074e5fd9e2824180009431b11e1e
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 3ec4b8fb9ebb7a03983ce5da3dad56e0fe9917e8
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54231979"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56986336"
 ---
-# <a name="quickstart-create-a-public-basic-load-balancer-by-using-the-azure-portal"></a>Snabbstart: Skapa en offentlig grundläggande lastbalanserare med hjälp av Azure-portalen
+# <a name="quickstart-create-a-basic-load-balancer-by-using-the-azure-portal"></a>Snabbstart: Skapa en Basic-lastbalanserare med hjälp av Azure-portalen
 
 Med belastningsutjämning får du högre tillgänglighet och skala genom att inkommande begäranden sprids över virtuella datorer. Du kan använda Azure-portalen för att skapa en lastbalanserare och balansera trafik över virtuella datorer. Den här snabbstarten visar hur du skapar och konfigurerar en lastbalanserare, serverdelsservrar och nätverksresurser på prisnivån Grundläggande.
 
@@ -30,25 +30,27 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 Logga in på [Azure-portalen](http://portal.azure.com) för att genomföra alla uppgifter i den här snabbstarten.
 
-## <a name="create-a-basic-load-balancer"></a>Skapa en grundläggande lastbalanserare
+## <a name="create-a-basic-load-balancer"></a>Skapa en Basic-lastbalanserare
 
-Först skapar du en offentlig grundläggande lastbalanserare med hjälp av portalen. Det namn och den offentliga IP-adress som du skapar konfigureras automatiskt som lastbalanserarens klientdel.
+Först skapar du en Basic-lastbalanserare med hjälp av portalen. Det namn och den offentliga IP-adress som du skapar konfigureras automatiskt som lastbalanserarens klientdel.
 
-1. Längst upp till vänster i portalen väljer du **Skapa en resurs** > **Netverk** > **Lastbalanserare**.
-   
-1. I fönsterrutan **Skapa lastbalanserare** skriver eller väljer du dessa värden:
-   
-   - **Namn**: Skriv *MyLoadBalancer*.
-   - **Typ**: Välj **Offentlig**. 
-   - **SKU**: Välj **Grundläggande**.
-   - **Offentlig IP-adress:** Välj **Skapa ny**. 
-     - Fältet **Offentlig IP-adress**: Skriv *MyPublicIP*.
-     - **Konfigurera offentlig IP-adress** > **Tilldelning**: Välj **Dynamisk**.
-   - **ResourceGroup**: Välj **Skapa ny**, ange *MyResourceGroupLB* och välj **OK**. 
-   
-1. Välj **Skapa**.
-   
-![Skapa en lastbalanserare](./media/load-balancer-get-started-internet-portal/1-load-balancer.png)
+1. Längst upp till vänster på skärmen klickar du på **Skapa en resurs** > **Nätverk** > **Lastbalanserare**.
+2. På fliken **Grundläggande inställningar** på sidan **Skapa lastbalanserare** anger eller väljer du följande information, accepterar standardinställningarna för de återstående inställningarna och väljer sedan **Granska + skapa**:
+
+    | Inställning                 | Värde                                              |
+    | ---                     | ---                                                |
+    | Prenumeration               | Välj din prenumeration.    |    
+    | Resursgrupp         | Välj **Skapa ny** och skriv *MyResourceGroupLB* i textrutan.|
+    | Namn                   | *myLoadBalancer*                                   |
+    | Region         | Välj **Västeuropa**.                                        |
+    | Typ          | Välj **Offentligt**.                                        |
+    | SKU           | Välj **Grundläggande**.                          |
+    | Offentlig IP-adress | Välj **Skapa ny**. |
+    | Namn på offentlig IP-adress              | *MyPublicIP*   |
+    | Tilldelning| Statisk|
+
+3. På fliken **Granska + skapa** klickar du på **Skapa**.   
+
 
 ## <a name="create-back-end-servers"></a>Skapa serverdelsservrar
 

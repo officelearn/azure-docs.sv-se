@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 30c13b511fdc4c348cb7356ccc2fb64c40239fc4
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: b3de4517ae55212e6ad10301156b2d7a0c5509ec
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56169861"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56876899"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-blackboard-learn"></a>Självstudier: Azure Active Directory-integrering med Blackboard Learn
 
@@ -90,7 +90,7 @@ I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen
 
 Utför följande steg för att konfigurera enkel inloggning i Azure AD med Blackboard Learn:
 
-1. I [Azure-portalen](https://portal.azure.com/) går du till programintegreringssidan för **Blackboard Learn** och väljer **Enkel inloggning**.
+1. På [Azure-portalen](https://portal.azure.com/) går du till sidan för **Blackboard Learn**-programintegrering och väljer **Enkel inloggning**.
 
     ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
@@ -113,7 +113,7 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Black
     > [!NOTE]
     > Dessa värden är inte verkliga. Uppdatera de här värdena med faktisk inloggnings-URL och identifierare. Hämta dessa värden genom att kontakta [supportteamet för Blackboard Learn-klienten](https://www.blackboard.com/support/index.aspx). Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-5. Blackboard Learn-programmet förväntar sig SAML-försäkran i ett visst format. Konfigurera följande anspråk för det här programmet. Du kan hantera värdena för dessa attribut i avsnittet **Användarattribut** på sidan för programintegrering. På sidan **Konfigurera enkel inloggning med SAML** klickar du på knappen **Redigera** för att öppna dialogrutan **Användarattribut**.
+5. Blackboard Learn-programmet förväntar sig SAML-intyg i ett visst format. Konfigurera följande anspråk för det här programmet. Du kan hantera värdena för dessa attribut i avsnittet **Användarattribut** på sidan för programintegrering. På sidan **Konfigurera enkel inloggning med SAML** klickar du på knappen **Redigera** för att öppna dialogrutan **Användarattribut**.
 
     ![image](common/edit-attribute.png)
 
@@ -157,7 +157,7 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Black
 
 ### <a name="configure-blackboard-learn-single-sign-on"></a>Konfigurera enkel inloggning för Blackboard Learn
 
-För att konfigurera enkel inloggning på **Blackboard Learn**-sidan behöver du skicka nedladdad **federationsmetadata-XML** och **Azure AD-identifierare** till [supportteamet för Blackboard Learn](https://www.blackboard.com/support/index.aspx).
+För att konfigurera enkel inloggning på **Blackboard Learn**-sidan behöver du skicka det nedladdade **Federation Metadata-XML** och **Azure AD-identifieraren** till [Blackboard Learn-supporten](https://www.blackboard.com/support/index.aspx).
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
@@ -194,7 +194,7 @@ I det här avsnittet gör du det möjligt för Britta Simon att använda enkel i
 
 2. I programlistan väljer du **Blackboard Learn**.
 
-    ![Länken för Blackboard Learn i programlistan](common/all-applications.png)
+    ![Blackboard Learn-länken i programlistan](common/all-applications.png)
 
 3. På menyn till vänster väljer du **Användare och grupper**.
 
@@ -222,8 +222,8 @@ När du klickar på Blackboard Learn-panelen i åtkomstpanelen bör du automatis
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

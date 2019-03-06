@@ -11,22 +11,20 @@ ms.devlang: multiple
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/02/2018
+ms.date: 02/21/2019
 ms.author: tomfitz
-ms.openlocfilehash: 0b00bff2b32ac9dd16d4d38ee35be006c0247bb8
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 246ee5f8360869c1b0f901ee54d56e017ac8aeb7
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55493490"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56649687"
 ---
 # <a name="creating-and-deploying-azure-resource-groups-through-visual-studio"></a>Skapa och distribuera Azure-resursgrupper via Visual Studio
 
 Med Visual Studio kan du skapa ett projekt som distribuerar din infrastruktur och kod till Azure. Du kan till exempel definiera webbvärden, webbplatsen och databasen för din app och distribuera den infrastrukturen tillsammans med koden. Visual Studio har många olika startmallar som du kan använda för att distribuera vanliga scenarier. I den här artikeln ska du distribuera en webbapp och SQL Database.  
 
 I den här artikeln får du lära dig att använda [Visual Studio 2017 med Azure-utveckling och ASP.NET-arbetsbelastningar installerade](/dotnet/azure/dotnet-tools). Om du använder Visual Studio 2015 Update 2 och Microsoft Azure SDK för .NET 2.9, eller Visual Studio 2013 med Azure SDK 2.9 ser det ut i princip likadant.
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="create-azure-resource-group-project"></a>Skapa ett projekt för en Azure-resursgrupp
 
@@ -148,7 +146,9 @@ Nu är det dags att distribuera projektet. När du distribuerar ett Azure-resurs
 5. Distribuera projektet till Azure genom att välja knappen **Distribuera**. En PowerShell-konsol öppnas utanför Visual Studio-instansen. Ange SQL Server-administratörens lösenord i PowerShell-konsolen när du uppmanas att göra detta. **Din PowerShell-konsol kan vara dold bakom andra objekt eller minimerad i Aktivitetsfältet.** Leta reda på konsolen och välj den för att ange lösenordet.
    
    > [!NOTE]
-   > Visual Studio kan uppmana dig att installera Azure PowerShell-cmdlets. Du behöver Azure PowerShell-cmdlets för att distribuera resursgrupper. Installera dem om du uppmanas att göra det. Mer information finns i [Installera och konfigurera Azure PowerShell](/powershell/azure/install-az-ps).
+   > Visual Studio kan uppmana dig att installera Azure PowerShell-cmdlets. Installera dem om du uppmanas att göra det. Du behöver Azure PowerShell-moduler för att distribuera resursgrupper. PowerShell-skriptet i projektet fungerar inte med den nya [Azure PowerShell Az-modulen](/powershell/azure/new-azureps-module-az). 
+   >
+   > Mer information finns i [Install and configure Azure PowerShell modules](/powershell/azure/azurerm/install-azurerm-ps) (Installera och konfigurera Azure PowerShell-moduler).
    > 
    > 
 6. Distributionen kan ta några minuter. I fönstren **Utdata** kan du se status för distributionen. När distributionen är klar indikerar det sista meddelandet att distributionen är framgångsrik med något liknande:

@@ -11,18 +11,18 @@ ms.devlang: ''
 ms.topic: tutorial
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 02/02/2019
+ms.date: 02/20/2019
 ms.author: rolyon
-ms.openlocfilehash: 23ee8aef4ab9b7ea54dae0587e2caaafbf08e5b2
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 269bd74aca85ddbc2bafda30542c48f8ab391b32
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56339166"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56587370"
 ---
 # <a name="tutorial-create-a-custom-role-for-azure-resources-using-azure-powershell"></a>Självstudier: Skapa en anpassad roll för Azure-resurser med Azure PowerShell
 
-Om de [inbyggda rollerna för Azure-resurser](built-in-roles.md) inte uppfyller organisationens specifika krav, kan du skapa egna anpassade roller. För den här självstudien skapar du en anpassad roll med namnet Reader Support Tickets (Läsare av supportbegäranden) med hjälp av Azure PowerShell. Med den här anpassade rollen kan användare visa allt i prenumerationen samt öppna supportbegäranden.
+Om de [inbyggda rollerna för Azure-resurser](built-in-roles.md) inte uppfyller organisationens specifika krav, kan du skapa egna anpassade roller. För den här självstudien skapar du en anpassad roll med namnet Reader Support Tickets (Läsare av supportbegäranden) med hjälp av Azure PowerShell. Med den här anpassade rollen kan användare visa allt i en prenumerations hanteringsplan samt öppna supportbegäranden.
 
 I den här guiden får du lära dig att:
 
@@ -41,7 +41,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 För att kunna genomföra den här kursen behöver du följande:
 
 - Behörigheter att skapa anpassade roller som [Owner](built-in-roles.md#owner) (Ägare) eller [User Access Administrator](built-in-roles.md#user-access-administrator) (Administratör för användaråtkomst)
-- Lokalt installerat [Azure PowerShell](/powershell/azure/install-az-ps)
+- [Azure Cloud Shell](../cloud-shell/overview.md) eller [Azure PowerShell](/powershell/azure/install-az-ps)
 
 ## <a name="sign-in-to-azure-powershell"></a>Logga in till Azure PowerShell
 

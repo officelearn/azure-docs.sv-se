@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 11/08/2018
 ms.author: dobett
-ms.openlocfilehash: 3f30b46138fc7753a1a4282497cbb06b6a4defbc
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 60876cb95e6efe4fbde55bd8a224eab658b10d66
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53608365"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56749995"
 ---
 # <a name="quickstart-try-a-cloud-based-remote-monitoring-solution"></a>Snabbstart: Testa en molnbaserad fjärrövervakningslösning
 
@@ -45,7 +45,7 @@ Ange ett unikt **lösningsnamn** för din Fjärrövervakning-lösningsaccelerato
 Välj den **prenumeration** och den **region** du vill använda för att distribuera lösningsacceleratorn. Normalt väljer du regionen närmast dig. För den här snabbstarten använder vi **USA, östra**.
 Du kan välja **Visual Studio Enterprise**, men du måste vara en [global administratör eller användare](iot-accelerators-permissions.md) för att göra det.
 
-Inled distribution genom att trycka på **Skapa lösning**. Processen tar minst fem minuter att köra:
+Starta distributionen genom att trycka på **Skapa**. Processen tar minst fem minuter att köra:
 
 ![Information om Fjärrövervakning-lösningen](./media/quickstart-remote-monitoring-deploy/createform.png)
 
@@ -57,7 +57,7 @@ På sidan **Etablerade lösningar** klickar du på Fjärrövervakning-lösningsa
 
 ![Välj en ny lösning](./media/quickstart-remote-monitoring-deploy/choosenew.png)
 
-Du kan visa information om Fjärrövervakning-lösningsacceleratorn på panelen som visas. Välj **Lösningens instrumentpanel** för att visa Fjärrövervakning-lösningsacceleratorn:
+Du kan visa information om Fjärrövervakning-lösningsacceleratorn på panelen som visas. Välj **Go to your solution accelerator** (Gå till din lösningsaccelerator) för att visa lösningsacceleratorn Fjärrövervakning:
 
 ![Lösningens panel](./media/quickstart-remote-monitoring-deploy/solutionpanel.png)
 
@@ -134,6 +134,9 @@ Om du planerar att gå vidare till självstudierna låter du Fjärrövervakning-
 Om du inte längre behöver lösningsacceleratorn tar du bort den från sidan [Etablerade lösningar](https://www.azureiotsolutions.com/Accelerators#dashboard) genom att välja den och sedan klicka på **Ta bort lösning**:
 
 ![Ta bort lösningen](media/quickstart-remote-monitoring-deploy/deletesolution.png)
+
+
+![Ta bort lösningen](media/quickstart-remote-monitoring-deploy/deletesolution-page.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -13,15 +13,15 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 02/07/2019
+ms.date: 02/26/2019
 ms.author: juliako
 ms.custom: mvc
-ms.openlocfilehash: 0f4fd963ce3649c901a76f6677be059ba5be25af
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: de1bd8599682baae860737401d02c7c1dec9e223
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56337569"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56960657"
 ---
 # <a name="what-is-azure-media-services-v3"></a>Vad är Azure Media Services v3?
 
@@ -88,7 +88,7 @@ Innehållet för Media Services v3 är organiserat enligt följande struktur (de
 | Snabbstarter | Visar grundläggande dag 1-anvisningar så att nya kunder snabbt kan prova Media Services.|
 | Självstudier | Visa scenariobaserade procedurer för några av de viktigaste Media Services-uppgifterna.|
 | Exempel | Länkar till kodexempel. |
-| Begrepp | Innehåller en detaljerad förklaring av funktioner och diagram för Media Services v3. De grundläggande begrepp som beskrivs i de här ämnena bör granskas innan utveckling påbörjas.<br/><br/>* Uppladdning till och lagring i molnet<br/>* Kodning<br/>* Medieanalys<br/>* Paketering, leverans och skydd<br/>* Liveuppspelning<br/>* Kontinuerlig övervakning<br/>* Player-klienter<br/><br/>och mer. |
+| Begrepp | Innehåller en detaljerad förklaring av [begrepp och funktioner för Media Services v3](concepts-overview.md). De grundläggande begrepp som beskrivs i de här ämnena bör granskas innan utveckling påbörjas.<br/><br/>* Uppladdning till och lagring i molnet<br/>* Kodning<br/>* Medieanalys<br/>* Paketering, leverans och skydd<br/>* Liveuppspelning<br/>* Övervakning<br/>* Player-klienter<br/><br/>och mer. |
 | Instruktionsguider | Visar hur en uppgift slutförs.|
 
 ## <a name="next-steps"></a>Nästa steg

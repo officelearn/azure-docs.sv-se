@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: tutorial
-ms.date: 02/04/2019
+ms.date: 02/21/2019
 ms.author: alkohli
-ms.openlocfilehash: 0ceff87cd3075d517ee1c0027e19dbf423e44f5c
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: f36e13ccf91c983c54897dcff7e1c02689fb055c
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56108763"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56592663"
 ---
 # <a name="tutorial-transfer-data-with-azure-data-box-gateway-preview"></a>Självstudier: Överföra data med Azure Data Box Gateway (förhandsversion)
 
@@ -133,6 +133,7 @@ Utföra dessa steg på din Linux-klient som är ansluten till Data Box Edge.
 > Följande villkor gäller för förhandsversionen:
 > - När en fil skapas i resurser går det inte att byta namn på filen. 
 > - När en fil tas bort från en resurs försvinner inte posten i lagringskontot.
+> - Om du använder `rsync` för att kopiera data stöds inte alternativet `rsync -a`.
 
 ## <a name="next-steps"></a>Nästa steg
 

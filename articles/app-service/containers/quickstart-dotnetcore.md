@@ -1,5 +1,5 @@
 ---
-title: Skapa en .NET Core-app i Linux – Azure App Service | Microsoft Docs
+title: Skapa en ASP.NET Core-app i Linux – Azure App Service | Microsoft Docs
 description: Distribuera din första Hello World-app med .NET Core i App Service på Linux på bara några minuter.
 keywords: azure app service, web app, dotnet, core, linux, oss
 services: app-service
@@ -16,14 +16,14 @@ ms.topic: quickstart
 ms.date: 04/11/2018
 ms.author: cfowler
 ms.custom: seodec18
-ms.openlocfilehash: 047ed6026412cac7fc7c51135e1837a20decd910
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: af22473e0c9b56210b720ee5d122d96566689158
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53633939"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889723"
 ---
-# <a name="create-a-net-core-app-in-app-service-on-linux"></a>Skapa en .NET Core-app i App Service på Linux
+# <a name="create-an-aspnet-core-app-in-app-service-on-linux"></a>Skapa en ASP.NET Core-app i App Service på Linux
 
 > [!NOTE]
 > I den här artikeln distribueras en app till App Service i Linux. Om du vill distribuera en app till App Service i _Windows_ kan du läsa [Skapa en ASP.NET Core-app i Azure](../app-service-web-get-started-dotnet.md).
@@ -177,7 +177,7 @@ I den vänstra menyn, klickar du på **App Services** och därefter på namnet p
 
 ![Portalnavigering till Azure-app](./media/quickstart-dotnetcore/portal-app-service-list.png)
 
-Nu visas översiktssidan för din app. Här kan du utföra grundläggande hanteringsåtgärder som att bläddra, stoppa, starta, starta om och ta bort. 
+Du ser din apps översiktssida. Här kan du utföra grundläggande hanteringsåtgärder som att bläddra, stoppa, starta, starta om och ta bort. 
 
 ![App Service-sidan på Azure Portal](media/quickstart-dotnetcore/portal-app-overview.png)
 

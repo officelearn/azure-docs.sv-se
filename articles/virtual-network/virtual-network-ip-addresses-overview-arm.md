@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/08/2019
 ms.author: jdial
-ms.openlocfilehash: e145642a12db941d52c55081032e247b6d65d38b
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: a71870115c3ea5e64c8b365d6c4aa64920bc6ca3
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55997337"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56675049"
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>IP-adresstyper och allokeringsmetoder i Azure
 
@@ -121,7 +121,7 @@ Du kan associera en offentlig IP-adress som skapas med en [SKU](#SKU) till en [A
 
 ### <a name="application-gateways"></a>Programgateways
 
-Du kan associera en offentlig IP-adress med en Azure [Application Gateway](../application-gateway/application-gateway-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) genom att tilldela den till gatewayens konfiguration på **klientsidan**. Den här offentliga IP-adressen fungerar som en belastningsutjämnad virtuell IP-adress. Du kan endast tilldela en *dynamisk* grundläggande offentlig IP-adress till en programgateways konfiguration på klientsidan.
+Du kan associera en offentlig IP-adress med en Azure [Application Gateway](../application-gateway/application-gateway-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) genom att tilldela den till gatewayens konfiguration på **klientsidan**. Den här offentliga IP-adressen fungerar som en belastningsutjämnad virtuell IP-adress. Du kan endast tilldela en *dynamisk* grundläggande offentlig IP-adress till en programgateways konfiguration på klientsidan för V1 och endast en statisk, grundläggande eller SKU-standardadress till en V2-konfiguration på klientsidan.
 
 ### <a name="at-a-glance"></a>En snabb översikt
 Följande tabell visar den specifika egenskapen som kan användas för att associera en offentlig IP-adress till en resurs på den översta nivån, samt de metoder (dynamisk eller statisk) som kan användas.
@@ -131,7 +131,7 @@ Följande tabell visar den specifika egenskapen som kan användas för att assoc
 | Virtuell dator |Nätverksgränssnitt |Ja |Ja |
 | Internetuppkopplad lastbalanserare |Konfiguration på klientsidan |Ja |Ja |
 | VPN gateway |IP-konfiguration för gateway |Ja |Ja |
-| Programgateway |Konfiguration på klientsidan |Ja |Ja |
+| Programgateway |Konfiguration på klientsidan |Ja (endast V1) |Ja (endast V2) |
 
 ## <a name="private-ip-addresses"></a>Privata IP-adresser
 Privata IP-adresser gör att Azure-resurser kan kommunicera med andra resurser i ett [virtuellt nätverk](virtual-networks-overview.md) eller i ett lokalt nätverk via en VPN-gateway eller ExpressRoute-krets utan att en IP-adress som kan nås över Internet används.

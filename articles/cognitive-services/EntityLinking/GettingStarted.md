@@ -10,12 +10,12 @@ ms.subservice: entity-linking-intelligence
 ms.topic: tutorial
 ms.date: 07/06/2016
 ms.author: davl
-ms.openlocfilehash: c3e7d27fa0e62c1dcc92e7eac7ddb56a1de5ba49
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: fc1bdd5c6ad4829e22af9922c6749e60f842abaf
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55857828"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56594040"
 ---
 # <a name="tutorial-build-an-entity-linking-app-with-c"></a>Självstudier: Skapa en Entity Linking-app med C#
 
@@ -55,7 +55,7 @@ Entity Linking installeras som en del av ditt program. Du kan bekräfta detta ge
  ![Inkluderade nuget-biblioteket i projektet](./Images/NugetLibraryInProject.png)
  
 ### <a name="step-4-add-an-input-and-output-text-block-to-your-apps-xaml">Steg 4: Lägg till in- och utdatatextblock i appens XAML</a>
-Gå till ** MainPage.xaml ** i **Solution Explorer** och dubbelklicka på filen som öppnas i ett nytt fönster. För enkelhetens skull kan du dubbelklicka på **XAML**-knappen på fliken **Designer**. Då döljs **Visuell designer** och reservera allt utrymme för kodvyn.
+Gå till **MainPage.xaml** i **Solution Explorer** och dubbelklicka på filen. Då öppnas den i ett nytt fönster. För enkelhetens skull kan du dubbelklicka på **XAML**-knappen på fliken **Designer**. Då döljs **Visuell designer** och reservera allt utrymme för kodvyn.
 
  ![Inkluderade nuget-biblioteket i projektet](./Images/UWPMainPage.png)
  

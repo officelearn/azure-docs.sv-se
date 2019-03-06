@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/21/2018
+ms.date: 02/19/2019
 ms.author: diberry
-ms.openlocfilehash: dea623684454d4b14a370251df10599eb03bbb34
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: c17a74c81d9c9d2ac3f585ab17f0b7d2acc628f6
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55856928"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56873932"
 ---
 # <a name="tutorial-extract-contextually-related-data-from-an-utterance"></a>Självstudier: Extrahera sammanhangsmässigt relaterade data från ett yttrande
 
@@ -74,7 +74,7 @@ Den hierarkiska entiteten passar bra för den här typen av data eftersom följa
     |överför Steve Standish från San Diego mot Bellevue |
     |plocka bort Tanner Thompson från Kansas City och flytta över till Chicago|
 
-    [ ![Skärmbild på LUIS-appen med nya yttranden i avsikten MoveEmployee](./media/luis-quickstart-intent-and-hier-entity/hr-enter-utterances.png)](./media/luis-quickstart-intent-and-hier-entity/hr-enter-utterances.png#lightbox)
+    [![Skärmbild på LUIS-appen med nya talindata i avsikten MoveEmployee](./media/luis-quickstart-intent-and-hier-entity/hr-enter-utterances.png)](./media/luis-quickstart-intent-and-hier-entity/hr-enter-utterances.png#lightbox)
 
 ## <a name="create-a-location-entity"></a>Skapa en platsentitet
 LUIS-appen behöver förstå vad en plats är genom att märka ursprungs- och målplatser i yttranden. Om du behöver se ett yttrande i tokenvyn (obearbetad) väljer du växlingsknappen i fältet ovanför yttrandena som är märkta **Entities View** (Entitetsvy). När du byter läge är kontrollen märkt **Tokens View** (Tokenvy).
@@ -91,7 +91,7 @@ Om endast ett underordnat element (ursprung eller destination) för en hierarkis
 
 1. I yttrandet `move John W. Smith leaving Seattle headed to Dallas` väljer du ordet `Seattle`. En listrutemeny visas med en textruta längst upp. Ange entitetsnamnet `Location` i textrutan och välj sedan **Create new entity** (Skapa ny entitet) i listrutan. 
 
-    [![Skärmbild av skapande av ny entitet på avsiktssidan](media/luis-quickstart-intent-and-hier-entity/create-location-hierarchical-entity-from-example-utterance.png "Skärmbild av skapande av ny entitet på avsiktssidan")](media/luis-quickstart-intent-and-hier-entity/create-location-hierarchical-entity-from-example-utterance.png#lightbox)
+    [![Skärmbild av skapande av ny entitet på avsiktssidan](media/luis-quickstart-intent-and-hier-entity/tutorial-hierarichical-entity-labeling-1.png "Skärmbild av skapande av ny entitet på avsiktssidan")](media/luis-quickstart-intent-and-hier-entity/tutorial-hierarichical-entity-labeling-1.png#lightbox)
 
 1. I popup-fönstret väljer du entitetstypen **Hierarchical** (Hierarkisk) med `Origin` och `Destination` som underordnade entiteter. Välj **Done** (Klar).
 
@@ -99,7 +99,7 @@ Om endast ett underordnat element (ursprung eller destination) för en hierarkis
 
 1. Etiketten för `Seattle` har märkts som `Location` eftersom LUIS inte känner till om termen var ursprunget, målet, eller ingetdera. Välj `Seattle`, välj sedan **Location** (Plats), följ därefter menyn till höger och välj `Origin`.
 
-    [![Skärmbild av popup-fönstret för entitetsetikettering vid ändring av platsentitets underordnad](media/luis-quickstart-intent-and-hier-entity/choose-hierarchical-child-entity-from-example-utterance.png "Skärmbild av popup-fönstret för entitetsetikettering vid ändring av platsentitets underordnad")](media/luis-quickstart-intent-and-hier-entity/choose-hierarchical-child-entity-from-example-utterance.png#lightbox)
+    [![Skärmbild av popup-fönstret för entitetsetikettering vid ändring av platsentitets underordnad](media/luis-quickstart-intent-and-hier-entity/tutorial-hierarichical-entity-labeling-2.png "Skärmbild av popup-fönstret för entitetsetikettering vid ändring av platsentitets underordnad")](media/luis-quickstart-intent-and-hier-entity/tutorial-hierarichical-entity-labeling-2.png#lightbox)
 
 1. Märk de andra platserna i alla andra yttranden. När alla platser är märkta börjar yttrandena att få ett mönster. 
 

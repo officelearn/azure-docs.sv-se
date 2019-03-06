@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a494e403b8afa1424640ac2e24d0f832b3de02dd
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 89b264c35d7dc269252a156aad6a24a565dbd6ea
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56210619"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56872691"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-apex-portal"></a>Självstudier: Azure Active Directory-integrering med Apex-portalen
 
@@ -217,8 +217,8 @@ I det här avsnittet gör du det möjligt för Britta Simon att använda enkel i
 
 I det här avsnittet skapas en användare som heter Britta Simon i Apex Portal. Apex-portalen stöder just-in-time-användaretablering, vilket är aktiverat som standard. Det finns inget åtgärdsobjekt för dig i det här avsnittet. Om det inte redan finns någon användare på Apex-portalen skapas en ny efter autentisering.
 
-> [!NOTE]
-> Om du vill skapa en användare manuellt kan du behöva kontakta  [Apex Portal-supportteamet](mailto:support@apexanalytix.com).
+> [!NOTE]
+> Om du behöver skapa en användare manuellt behöver du kontakta  [supportteamet för Apex Portal](mailto:support@apexanalytix.com).
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
@@ -228,9 +228,9 @@ När du klickar på Apex Portal-panelen i åtkomstpanelen bör du automatiskt lo
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

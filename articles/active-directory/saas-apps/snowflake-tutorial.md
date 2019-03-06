@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f7bc6b57122072c2fe0c063c1278cf11d97469b6
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 0e86ede90a19d829e87b47d49fa4a12a17fe1d5c
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56191325"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56867056"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-snowflake"></a>Självstudier: Azure Active Directory-integrering med Snowflake
 
@@ -141,7 +141,7 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD med hj�
     > [!NOTE]
     > Det här är inte samma som den kontext du har valt i det övre högra hörnet under ditt användarnamn
     
-    ![Snowflake-administratören ](./media/snowflake-tutorial/tutorial_snowflake_accountadmin.png)
+    ![Snowflake-administratören](./media/snowflake-tutorial/tutorial_snowflake_accountadmin.png)
 
 10. Öppna det **nedladdade Base64-certifikatet** i anteckningar. Kopiera värdet mellan ”---BEGIN CERTIFICATE---” och ”---END CERTIFICATE---” och klistra in det i de dubbla citattecknen bredvid **certifikat** nedan. I **ssoUrl** klistrar du in värdet för **Inloggnings-URL** som du har kopierat från Azure-portalen. Välj **Alla frågor** och klicka på **Kör**.
 
@@ -219,11 +219,11 @@ Om du vill ge Azure AD-användare möjlighet att logga in på Snowflake måste d
 
 2. **Växla roll** till **ACCOUNTADMIN** genom att klicka på **profil** högst upp till höger på sidan.  
 
-    ![Snowflake-administratören ](./media/snowflake-tutorial/tutorial_snowflake_accountadmin.png)
+    ![Snowflake-administratören](./media/snowflake-tutorial/tutorial_snowflake_accountadmin.png)
 
 3. Skapa användaren genom att köra SQL-frågan nedan, och se till att Azure AD-användarnamnet anges som ”Inloggningsnamn” i kalkylbladet enligt nedan.
 
-    ![Snowflake-adminsql ](./media/snowflake-tutorial/tutorial_snowflake_usersql.png)
+    ![Snowflake-adminsql](./media/snowflake-tutorial/tutorial_snowflake_usersql.png)
 
     ```
     use role accountadmin;
@@ -238,9 +238,9 @@ När du klickar på Snowflake-panelen i åtkomstpanelen så borde du automatiskt
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

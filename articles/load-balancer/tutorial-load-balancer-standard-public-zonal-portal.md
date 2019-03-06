@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/17/2018
+ms.date: 02/27/2019
 ms.author: kumud
 ms.custom: seodec18
-ms.openlocfilehash: 76e55c643378e689f12d485100a81ccefa4196f4
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 5f3b9b48fc5f15738c3de9928ca0bb220a66db12
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54229820"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56985996"
 ---
 # <a name="tutorial-load-balance-vms-within-an-availability-zone-with-standard-load-balancer-by-using-the-azure-portal"></a>Självstudie: Lastbalansera virtuella datorer i en tillgänglighetszon med Standard Load Balancer med hjälp av Azure-portalen
 
@@ -48,18 +48,22 @@ Logga in på Azure Portal på [http://portal.azure.com](http://portal.azure.com)
 Standard Load Balancer stöder endast offentliga IP-standardadresser. När du skapar en ny offentlig IP-adress medan du skapar lastbalanseraren konfigureras den automatiskt som en standard-SKU-version. Den är också automatiskt zonredundant.
 
 1. Längst upp till vänster på skärmen väljer du **Skapa en resurs** > **Nätverk** > **Load Balancer**.
-2. Ange dessa värden för lastbalanseraren på sidan **Skapa en lastbalanserare**:
-    - **myLoadBalancer** för lastbalanserarens namn.
-    - **Public** för lastbalanserarens typ.
-      - **myPublicIPZonal** för den nya offentliga IP-adress som du skapar. Välj **Välj en offentlig IP-adress**. Välj sedan **Skapa ny**. Ange **myPublicIP** som namn. SKU är standard. Välj **Zon 1** som **Tillgänglighetszon**.
-    - **myResourceGroupZLB** som namn på den nya resursgrupp som du skapar.
-    - **westeurope** för platsen.
-3. Skapa lastbalanseraren genom att välja **Skapa**.
-   
-    ![Skapa en zonindelad Standard Load Balancer-instans med Azure Portal](./media/tutorial-load-balancer-standard-zonal-portal/create-load-balancer-zonal-frontend.png)
+2. På fliken **Grundläggande inställningar** på sidan **Skapa lastbalanserare** anger eller väljer du följande information, accepterar standardinställningarna för de återstående inställningarna och väljer sedan **Granska + skapa**:
 
+    | Inställning                 | Värde                                              |
+    | ---                     | ---                                                |
+    | Prenumeration               | Välj din prenumeration.    |    
+    | Resursgrupp         | Välj **Skapa ny** och skriv *MyResourceGroupZLB* i textrutan.|
+    | Namn                   | *myLoadBalancer*                                   |
+    | Region         | Välj **Västeuropa**.                                        |
+    | Typ          | Välj **Offentligt**.                                        |
+    | SKU           | Välj **standard**.                          |
+    | Offentlig IP-adress | Välj **Skapa ny**. |
+    | Namn på offentlig IP-adress              | Skriv *myPublicIP* i textrutan.   |
+    |Tillgänglighetszon| Välj **1**.    |
+3. På fliken **Granska + skapa** klickar du på **Skapa**.   
 
-## <a name="create-backend-servers"></a>Skapa serverdelsservrar
+ ## <a name="create-backend-servers"></a>Skapa serverdelsservrar
 
 I det här avsnittet skapar du ett virtuellt nätverk. Du kan också skapa två virtuella datorer i samma zon (dvs zon 1) för den region som ska läggas till i lastbalanserarens serverdelspool. Sedan installerar du IIS på de virtuella datorerna så att du enklare kan testa den zonredundanta lastbalanseraren. Om en virtuell dator misslyckas så misslyckas även hälsoavsökningen för den virtuella datorn i samma zon. Trafiken fortsätter att hanteras av andra virtuella datorer i samma zon.
 

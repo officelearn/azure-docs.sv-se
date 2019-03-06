@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 09/20/2017
 ms.author: msfussell
 ms.custom: mvc
-ms.openlocfilehash: 5c7586ae2ff1a648348c1155a528035fa72c7744
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: a48d14f20d885849a233c592db8d9cf587342755
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44299822"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56870080"
 ---
 # <a name="overview-of-azure-service-fabric"></a>Översikt över Azure Service Fabric
 Azure Service Fabric är en distribuerad systemplattform som gör det enkelt att paketera, distribuera och hantera skalbara och tillförlitliga mikrotjänster och containrar. Service Fabric tar också itu med betydande utmaningar vid utveckling och hantering av inbyggda molnprogram. Utvecklare och administratörer kan undvika komplexa infrastrukturproblem och fokusera på att implementera verksamhetskritiska, krävande arbetsbelastningar som är skalbara, tillförlitliga och hanterbara. Service Fabric representerar nästa generations plattform för att skapa och hantera dessa molskalningsprogram i företagsklass på nivå 1 som körs i containrar.
@@ -56,7 +56,7 @@ Mer information om att skapa kluster finns i [skapa ett kluster i Windows Server
 ## <a name="stateless-and-stateful-microservices-for-service-fabric"></a>Tillståndslösa och tillståndskänsliga mikrotjänster för Service Fabric
 Med Service Fabric kan du skapa program som består av mikrotjänster eller containrar. Tillståndslösa mikrotjänster (till exempel protokollgatewayar och webbproxyservrar) har inte ett föränderligt tillstånd utanför en begäran och svaret från tjänsten. Arbetsroller i Azure Cloud Services är ett exempel på en tillståndslös tjänst. Tillståndskänsliga mikrotjänster (till exempel användarkonton, databaser, enheter, kundvagnar och köer) har ett föränderligt och auktoritärt tillstånd bortom begäran och svaret. Dagens program med Internetskala består av en kombination av tillståndslösa och tillståndskänsliga mikrotjänster. 
 
-En viktig skillnad med Service Fabric är dess stora fokus på att skapa tillståndskänsliga tjänster, antingen med de [inbyggda programmeringsmodellerna](service-fabric-choose-framework.md) eller med tillståndskänsliga tjänster i container. [Programscenarier](service-fabric-application-scenarios.md) beskriver scenarier där tillståndskänsliga tjänster används.
+En viktig skillnad med Service Fabric är dess stora fokus på att skapa tillståndskänsliga tjänster, antingen med de [inbyggda programmeringsmodellerna](service-fabric-choose-framework.md) eller med tillståndskänsliga tjänster i containrar. [Programscenarier](service-fabric-application-scenarios.md) beskriver scenarier där tillståndskänsliga tjänster används.
 
 
 ## <a name="application-lifecycle-management"></a>Application Lifecycle Management

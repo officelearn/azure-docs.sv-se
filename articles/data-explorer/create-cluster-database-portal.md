@@ -7,17 +7,17 @@ ms.author: v-orspod
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
-ms.date: 09/24/2018
-ms.openlocfilehash: 1ab6fe13df111b5f56da1f368fc0dacf0a6206fc
-ms.sourcegitcommit: 4bf542eeb2dcdf60dcdccb331e0a336a39ce7ab3
+ms.date: 02/21/2019
+ms.openlocfilehash: e87f9b4905abec2c00ed238445b3e36e41cfa2f6
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56408841"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56674879"
 ---
 # <a name="quickstart-create-an-azure-data-explorer-cluster-and-database"></a>Snabbstart: Skapa ett Azure Data Explorer-kluster och en databas
 
-Azure Data Explorer är en snabb och mycket skalbar datautforskningstjänst för logg- och telemetridata. För att använda Azure Data Explorer måste du först skapa en *kluster*, och skapa en eller flera *databaser* i klustret. Sedan *matar du in* (läser in) data i databastabeller så att du kan köra frågor mot dem. I den här snabbstarten skapar du ett kluster och en databas. I efterföljande artiklar visar vi hur vi du kan mata in data.
+Azure Data Explorer är en snabb och mycket skalbar datautforskningstjänst för logg- och telemetridata. För att använda Azure Data Explorer skapar du först ett kluster och skapar en eller flera databaser i klustret. Sedan matar du in (läser in) data i databasen så att du kan köra frågor mot den. I den här snabbstarten skapar du ett kluster och en databas.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
 
@@ -27,7 +27,7 @@ Logga in på [Azure-portalen](https://portal.azure.com/).
 
 ## <a name="create-a-cluster"></a>Skapa ett kluster
 
-Du skapar ett Azure Data Explorer-kluster i en Azure-resursgrupp med en definierad uppsättning beräknings- och lagringsresurser.
+Skapa ett Azure Data Explorer-kluster med en definierad uppsättning beräknings- och lagringsresurser i en Azure-resursgrupp.
 
 1. Välj knappen **Skapa en resurs** (+) i det övre vänstra hörnet i portalen.
 
@@ -37,28 +37,22 @@ Du skapar ett Azure Data Explorer-kluster i en Azure-resursgrupp med en definier
 
 1. Under **Azure-datautforskaren** väljer du **Skapa** längst ned på skärmen.
 
-1. Ange ett unikt namn för ditt kluster, välj din prenumeration och skapa en resursgrupp med namnet *test-resource-group*.
-
-    ![Skapa resursgrupp](media/create-cluster-database-portal/create-resource-group.png)
-
-1. Fyll i formuläret med följande information.
+1. Fyll i grundläggande klusterinformation med uppgifter.
 
    ![Skapa kluster](media/create-cluster-database-portal/create-cluster-form.png)
 
     **Inställning** | **Föreslaget värde** | **Fältbeskrivning**
     |---|---|---|
-    | Klusternamn | Ett unikt klusternamn | Välj ett unikt namn som identifierar klustret. Till exempel *mytestcluster*. Domännamnet *[region]. kusto.windows .net* läggs till i klusternamnet som du anger. Namnet får bara innehålla gemena bokstäver och siffror. Det måste innehålla mellan 3 och 22 tecken.
     | Prenumeration | Din prenumeration | Välj den Azure-prenumeration som ska användas för klustret.|
-    | Resursgrupp | *test-resource-group* | Skapa en ny resursgrupp. |
+    | Resursgrupp | *test-resource-group* | Använd en befintlig resursgrupp eller skapa en ny resursgrupp. |
+    | Klusternamn | Ett unikt klusternamn | Välj ett unikt namn som identifierar klustret. Exempel: *mydataexplorercluster*. Domännamnet *[region]. kusto.windows .net* läggs till i klusternamnet som du anger. Namnet får bara innehålla gemena bokstäver och siffror. Det måste innehålla mellan 3 och 22 tecken.
     | Plats | *USA, västra* | Välj *USA, västra* för den här snabbstarten. Välj den region som bäst uppfyller dina behov för ett produktionssystem.
     | Beräkningsspecifikationer | *D13_v2* | Välj den lägsta prisspecifikationen för den här snabbstarten. För ett produktionssystem väljer du den specifikation som bäst uppfyller dina behov.
     | | |
 
-1. Välj **Skapa** för att etablera klustret. Etableringen tar vanligtvis ungefär tio minuter. Välj **Meddelanden** i verktygsfältet för att övervaka etableringsprocessen.
+1. Välj **Granska + skapa** för att granska din klusterinformation och **Skapa** för att etablera klustret. Etableringen tar normalt cirka 10 minuter.
 
-    ![Meddelanden](media/create-cluster-database-portal/notifications.png)
-
-1. När processen är klar, väljer du **Meddelanden** och sedan **Gå till resurs**.
+1. När distributionen är klar väljer du **Gå till resurs**.
 
     ![Gå till resurs](media/create-cluster-database-portal/notification-resource.png)
 
@@ -68,7 +62,7 @@ Nu är du redo för det andra steget i processen: skapa databasen.
 
 1. På fliken **Översikt** väljer du **Skapa databas**.
 
-    ![Steg två: skapa en databas](media/create-cluster-database-portal/database-creation.png)
+    ![Steg 2: Skapa en databas](media/create-cluster-database-portal/database-creation.png)
 
 1. Fyll i formuläret med följande information.
 
@@ -81,23 +75,19 @@ Nu är du redo för det andra steget i processen: skapa databasen.
     | Cacheperiod | *31* | Det tidsintervall (i dagar) då data som frågor körs mot ofta ska vara tillgängliga i SSD-lagring eller RAM i stället för i långsiktig lagring.
     | | | |
 
-1. Välj **Spara** för att skapa databasen. Det brukar ta mindre än en minut att skapa en databas. När processen är klar kan du är tillbaka på klustrets **översiktsflik**.
+1. Välj **Skapa** för att skapa databasen. Det brukar ta mindre än en minut att skapa en databas. När processen är klar kan du är tillbaka på klustrets **översiktsflik**.
 
 ## <a name="run-basic-commands-in-the-database"></a>Köra grundläggande kommandon i databasen
 
 Nu när du har ett kluster och en databas kan köra du frågor och kommandon. Du har inga data i databasen än, men du kan ändå se hur verktyg fungerar.
 
-1. Under ditt kluster väljer du **Fråga**.
-
-    ![Databasfråga](media/create-cluster-database-portal/query-database.png)
-
-1. Klistra in följande kommando i frågefönstret: `.show databases` och välj sedan **Kör**.
+1. Under ditt kluster väljer du **Fråga**. Klistra in kommandot `.show databases` i frågefönstret och välj sedan **Kör**.
 
     ![Visa databaskommando](media/create-cluster-database-portal/show-databases.png)
 
     Resultatuppsättningen visar **TestDatabase**, den enda databasen i klustret.
 
-1. Klistra in följande kommando i frågefönstret: `.show tables`, välj sedan kommandot i fönstret. Välj **Kör**.
+1. Klistra in kommandot `.show tables` i frågefönstret och välj **Kör**.
 
     Det här kommandot returnerar en tom resultatuppsättning eftersom du inte har några tabeller än. Du kan lägga till en tabell i nästa artikel i den här serien.
 
@@ -111,21 +101,15 @@ Du kan stoppa och starta om ett kluster beroende på företagets behov.
 
 1. Om du vill starta om klustret väljer du **Starta** överst på fliken **Översikt**.
 
-    När klustret har startats om tar det ungefär tio minuter för att det ska bli tillgängligt (som när den etablerades ursprungligen). Det tar extra tid för data att läsas in till den frekventa cachen.  
+    När klustret har startats om tar det ungefär 10 minuter för att det ska bli tillgängligt (som när det etablerades ursprungligen). Det tar extra tid för data att läsas in till den frekventa cachen.  
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du planerar att följa våra andra snabbstarter och självstudier kan du spara alla resurser som du skapade. Om inte rensar du **test-resource-group** för att undvika kostnader.
+Om du planerar att följa andra snabbstarter och självstudier kan du behålla alla resurser som du skapade. Annars bör du rensa resursgruppen för att undvika kostnader.
 
-1. Välj **Resursgrupper** i Azure Portal längst till vänster och välj sedan den resursgrupp du skapat.  
+1. I Azure-portalen väljer du **Resursgrupper** längst till vänster och väljer sedan den resursgrupp som innehåller ditt Data Explorer-kluster.  
 
-    Om den vänstra menyn är dold väljer du ![Knappen Expandera](media/create-cluster-database-portal/expand.png) för att expandera den.
-
-   ![Välj den resursgrupp som ska tas bort](media/create-cluster-database-portal/delete-resources-select.png)
-
-1. Under **test-resource-group** väljer du **Ta bort resursgrupp**.
-
-1. I det nya fönstret skriver du namnet på resursgruppen som ska tas bort (*test-resource-group*) och väljer sedan **Ta bort**.
+1. Välj **Ta bort resursgrupp** för att ta bort hela resursgruppen. Om du använder en befintlig resursgrupp kan du välja att bara ta bort Data Explorer-klustret.
 
 ## <a name="next-steps"></a>Nästa steg
 

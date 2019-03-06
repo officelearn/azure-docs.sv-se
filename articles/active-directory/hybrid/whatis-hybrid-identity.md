@@ -13,14 +13,14 @@ ms.date: 11/28/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: df5d42135c538ca3d0a63252805efb44cef7e8b0
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 536edcf74bff6f89dade4a713c40c9bef12e18af
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56190474"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56881812"
 ---
-# <a name="what-is-hybrid-identity"></a>Vad är hybrididentitet? 
+# <a name="what-is-hybrid-identity"></a>Vad är hybrididentitet?
 
 Företag och organisationer blir i dag allt mer en blandning av lokala och molnbaserade program.  Användare behöver åtkomst till dessa program både lokalt och i molnet. Det här kravet har blivit ett utmanande scenario. 
 
@@ -30,7 +30,7 @@ För att uppnå hybrididentitet kan en av tre autentiseringsmetoder användas, b
 
 - **[Synkronisering av lösenordshash (PHS)](whatis-phs.md)**  
 - **[Direktautentisering (PTA)](how-to-connect-pta.md)**  
-- **[Federation](whatis-fed.md)** 
+- **[Federation (AD FS)](whatis-fed.md)** 
 
 Dessa autentiseringsmetoder ger även funktioner för [enkel inloggning](how-to-connect-sso.md).  Enkel inloggning loggar automatiskt in användare när de är på sina företagsenheter som är anslutna till företagsnätverket.
 
@@ -47,7 +47,7 @@ Här följer några vanliga scenarier med hybrididentitet och åtkomsthantering 
 |Göra det möjligt för mina användare att logga in och komma åt molntjänster med sina lokala lösenord.|![Rekommenderas](./media/whatis-hybrid-identity/ic195031.png)| ![Rekommenderas](./media/whatis-hybrid-identity/ic195031.png) |![Rekommenderas](./media/whatis-hybrid-identity/ic195031.png)| 
 |Implementera enkel inloggning med hjälp av företagsautentiseringsuppgifter.|![Rekommenderas](./media/whatis-hybrid-identity/ic195031.png)| ![Rekommenderas](./media/whatis-hybrid-identity/ic195031.png) |![Rekommenderas](./media/whatis-hybrid-identity/ic195031.png)|  
 |Se till att inga lösenordshashvärden lagras i molnet.| |![Rekommenderas](./media/whatis-hybrid-identity/ic195031.png)|![Rekommenderas](./media/whatis-hybrid-identity/ic195031.png)| 
-|Stödja molnlösningar för multifaktorautentisering.| |![Rekommenderas](./media/whatis-hybrid-identity/ic195031.png)|![Rekommenderas](./media/whatis-hybrid-identity/ic195031.png)| 
+|Aktivera molnbaserade lösningar för multifaktorautentisering.|![Rekommenderas](./media/whatis-hybrid-identity/ic195031.png)|![Rekommenderas](./media/whatis-hybrid-identity/ic195031.png)|![Rekommenderas](./media/whatis-hybrid-identity/ic195031.png)| 
 |Stödja lokala lösningar för multifaktorautentisering.| | |![Rekommenderas](./media/whatis-hybrid-identity/ic195031.png)| 
 |Stödja autentisering med smartkort för mina användare.<sup>4</sup>| | |![Rekommenderas](./media/whatis-hybrid-identity/ic195031.png)| 
 |Visa meddelanden om lösenord som upphör att gälla i Office-portalen och i skrivbordsversionen av Windows 10.| | |![Rekommenderas](./media/whatis-hybrid-identity/ic195031.png)| 

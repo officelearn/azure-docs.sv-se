@@ -8,12 +8,12 @@ ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 12/18/2018
 ms.author: dkshir
-ms.openlocfilehash: 488b97074d74650ecf5602d25e2a90a1998e5585
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 8f8bdb4d601e35cf489c1c4c1db3574fb8c8f18f
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54883882"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56730793"
 ---
 # <a name="tutorial-visualize-and-analyze-events-from-your-azure-digital-twins-spaces-by-using-time-series-insights"></a>Självstudier: Visualisera och analysera händelser från dina Azure Digital Twins-utrymmen med hjälp av Time Series Insights
 
@@ -90,13 +90,13 @@ Med tjänsten [Event Hubs](../event-hubs/event-hubs-about.md) kan du skapa en pi
       - UdfCustom
       connectionString: Primary_connection_string_for_your_event_hub
       secondaryConnectionString: Secondary_connection_string_for_your_event_hub
-      path: Name_of_your_Event_Hubs_namespace
+      path: Name_of_your_Event_Hub
     - type: EventHub
       eventTypes:
       - DeviceMessage
       connectionString: Primary_connection_string_for_your_event_hub
       secondaryConnectionString: Secondary_connection_string_for_your_event_hub
-      path: Name_of_your_Event_Hubs_namespace
+      path: Name_of_your_Event_Hub
     ```
 
 1. Ersätt platshållarna `Primary_connection_string_for_your_event_hub` med värdet för **Anslutningssträng – primär nyckel** för händelsehubben. Kontrollera att formatet för den här anslutningssträngen är följande:
@@ -111,7 +111,7 @@ Med tjänsten [Event Hubs](../event-hubs/event-hubs-about.md) kan du skapa en pi
    Endpoint=sb://nameOfYourEventHubNamespace.servicebus.windows.net/;SharedAccessKeyName=ManageSend;SharedAccessKey=yourShareAccessKey2GUID;EntityPath=nameOfYourEventHub
    ```
 
-1. Ersätt platshållarna `Name_of_your_Event_Hubs_namespace` med namnet på ditt Event Hubs-namnområde.
+1. Ersätt platshållarna `Name_of_your_Event_Hub` med namnet på din händelsehubb.
 
     > [!IMPORTANT]
     > Ange alla värden utan citattecken. Se till att det finns minst ett blanksteg efter kolonen i YAML-filen. Du kan även verifiera YAML-filinnehållet med hjälp av en YAML-onlineverifierare, till exempel [det här verktyget](https://onlineyamltools.com/validate-yaml).

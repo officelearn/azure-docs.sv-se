@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/18/2019
 ms.author: spelluru
-ms.openlocfilehash: 0530dbac88fcfbfb05ab29d1c5934a468f263034
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: aff92e8dd45fecc3fabd005e8921eda7add07fb4
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55096644"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56804973"
 ---
 # <a name="tutorial-set-up-a-lab-by-using-azure-devtest-labs"></a>Självstudier: Konfigurera ett labb med hjälp av Azure DevTest Labs
 I självstudien skapar du ett labb med hjälp av Azure Portal. En labbadministratör konfigurerar ett labb i en organisation, skapar virtuella datorer i labbet och konfigurerar principer. Labbanvändarna (till exempel utvecklare och testare) gör anspråk på de virtuella datorerna i labbet, ansluter till dem och använder dem. 
@@ -80,7 +80,7 @@ Följande steg illustrerar hur du använder Azure-portalen för att skapa ett la
 1. När den virtuella datorn har skapats kan du se den i listan med **Virtuella datorer som kan tas i anspråk**. 
 
     > [!NOTE] 
-    > När du lägger till en virtuell Linux-dator till ett labb kan du aktivera SSH och RDP-åtkomst till den virtuella datorn. Om du inte aktiverar åtkomst när du skapar den virtuella datorn kan du manuellt lägga till regler i den nätverkssäkerhetsgrupp som är associerad med den virtuella datorn för att öppna portar för SSH och RDP.
+    > På sidan **Avancerade inställningar** kan du konfigurera en offentlig, privat eller delad IP-adress för den virtuella datorn. När den **delade IP-adressen** är aktiverad aktiverar Azure DevTest Labs automatiskt RDP för virtuella Windows-datorer och SSH för virtuella Linux-datorer. Om du skapar virtuella datorer med **offentliga IP-adresser** aktiveras RDP och SSH utan ändringar från DevTest Labs.  
 
 ## <a name="add-a-user-to-the-lab-user-role"></a>Lägga till en användare i rollen Labbanvändare
 

@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 02/15/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 8d7bd808540ac697bde073201e88f49ace8b527a
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 917243ccaf4ef3759e02bb92cad6f9ef04514e4a
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56308680"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56650520"
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>Skapa en Node.js-webbapp i Azure
 
@@ -112,11 +112,11 @@ När webbappen har skapats visar Azure CLI utdata liknande den i följande exemp
 
 ### <a name="set-nodejs-runtime"></a>Ange Node.js-körning
 
-Ange Node-körningen till 8.11.1. Om du vill se alla körningar som stöds ska du köra [`az webapp list-runtimes`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-list-runtimes).
+Ange Node-körningen till 10.14.1. Om du vill se alla körningar som stöds ska du köra [`az webapp list-runtimes`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-list-runtimes).
 
 ```azurecli-interactive
 # Bash and Powershell
-az webapp config appsettings set --resource-group myResourceGroup --name <app_name> --settings WEBSITE_NODE_DEFAULT_VERSION=8.11.1
+az webapp config appsettings set --resource-group myResourceGroup --name <app_name> --settings WEBSITE_NODE_DEFAULT_VERSION=10.14.1
 ```
 
 Bläddra till webbappen som precis skapades. Ersätt `<app_name>` med ett unikt appnamn.
@@ -149,13 +149,13 @@ Node.js-exempelkoden körs i en Azure App Service-webbapp.
 
 Öppna filen `index.js` i Node.js-appen med ett textredigeringsprogram och gör små ändringar i texten i anropet till `response.end`:
 
-```nodejs
+```javascript
 response.end("Hello Azure!");
 ```
 
 I det lokala terminalfönstret navigerar du till programmets rotkatalog och skapar en ny ZIP-fil för det uppdaterade projektet.
 
-```
+```azurecli-interactive
 # Bash
 zip -r myUpdatedAppFiles.zip .
 

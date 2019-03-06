@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/12/2018
 ms.author: yexu
-ms.openlocfilehash: 92441e55d0a423e1e716d15166791c85fcf5d8ec
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 70159b975fd38c918f0b21a384b76666957f058b
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54434231"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56593156"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information"></a>Läsa in data stegvis från Azure SQL-databas till Azure Blob Storage med ändringsspårningsinformation 
 I den här självstudien skapar du en Azure-datafabrik med en pipeline som läser in deltadata baserat på **ändringsspårningsinformation** i Azure SQL Database-källan till ett Azure Blob Storage.  
@@ -464,10 +464,10 @@ PersonID Name    Age    SYS_CHANGE_VERSION    SYS_CHANGE_OPERATION
 
     
 ## <a name="next-steps"></a>Nästa steg
-Fortsätt till följande självstudie och lär dig att transformera data med ett Spark-kluster på Azure:
+Fortsätt till följande självstudie och lär dig mer om hur du kopierar nya och ändrade filer endast baserat på deras LastModifiedDate:
 
 > [!div class="nextstepaction"]
->[Transformera data med Apache Spark i molnet](tutorial-transform-data-spark-portal.md)
+>[Kopiera nya filer genom lastmodifieddate](tutorial-incremental-copy-lastmodified-copy-data-tool.md)
 
 
 

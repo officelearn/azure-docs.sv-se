@@ -11,13 +11,13 @@ author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 02/04/2019
-ms.openlocfilehash: 66640bd60f6ba8c2f612a6bc9b88a07b13012997
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.date: 02/25/2019
+ms.openlocfilehash: 64d16073062c0fd7f0b97a64950ceab9efc0eacf
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55990042"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56984891"
 ---
 # <a name="quickstart-create-a-single-database-in-azure-sql-database-using-the-azure-portal"></a>Snabbstart: Skapa en enkel databas i Azure SQL Database med Azure-portalen
 
@@ -29,7 +29,7 @@ Logga in på [Azure Portal](https://portal.azure.com/) för alla steg i den här
 
 ## <a name="create-a-single-database"></a>Skapa en enkel databas
 
-En enkel databas har en definierad uppsättning resurser för beräkning, minne, IO och lagring som använder en av de två [purchasing model(sql-database-purchase-models.md). När du skapar en enkel databas definierar du även en [SQL-databasserver](sql-database-servers.md) för att hantera den och placera den i en [Azure-resursgrupp](../azure-resource-manager/resource-group-overview.md) i en specifik region.
+En enkel databas har en definierad uppsättning resurser för beräkning, minne, IO och lagring som använder en av de två [inköpsmodellerna](sql-database-purchase-models.md). När du skapar en enkel databas definierar du även en [SQL-databasserver](sql-database-servers.md) för att hantera den och placera den i en [Azure-resursgrupp](../azure-resource-manager/resource-group-overview.md) i en specifik region.
 
 Så här skapar du en enkel SQL-databas som innehåller AdventureWorksLT-exempeldata:
 
@@ -42,8 +42,8 @@ Så här skapar du en enkel SQL-databas som innehåller AdventureWorksLT-exempel
    - **Resursgrupp**: Välj **Skapa ny**, skriv *myResourceGroup* och välj **OK**.
    - **Välj källa**: Välj **Sample (AdventureWorksLT)** i den nedrullningsbara listrutan.
 
-    >[!IMPORTANT]
-    >Se till att välja data för **Sample (AdventureWorksLT)** så att du enkelt kan följa den här och andra snabbstarter för Azure SQL-databas som använder dessa data.
+    > [!IMPORTANT]
+    > Se till att välja data för **Sample (AdventureWorksLT)** så att du enkelt kan följa den här och andra snabbstarter för Azure SQL-databas som använder dessa data.
   
    ![Skapa en enkel databas](./media/sql-database-get-started-portal/create-database-1.png)
 
@@ -56,18 +56,18 @@ Så här skapar du en enkel SQL-databas som innehåller AdventureWorksLT-exempel
    - **Bekräfta lösenord**: Skriv lösenordet igen.
    - **Plats**: Välj valfri giltig plats i den nedrullningsbara listrutan.  
 
-   >[!IMPORTANT]
-   >Skriv ned serveradministratörens inloggning och lösenord så att du kan logga in på servern och databaserna till denna och andra snabbstarter. Om du glömmer din inloggning eller ditt lösenord kan du hämta inloggningsnamnet eller återställa lösenordet på **SQLServer**-sidan. För att öppna **SQLServer**-sidan väljer du servernamnet i databasens **översiktssida** när databasen har skapats.
+   > [!IMPORTANT]
+   > Skriv ned serveradministratörens inloggning och lösenord så att du kan logga in på servern och databaserna till denna och andra snabbstarter. Om du glömmer din inloggning eller ditt lösenord kan du hämta inloggningsnamnet eller återställa lösenordet på **SQLServer**-sidan. För att öppna **SQLServer**-sidan väljer du servernamnet i databasens **översiktssida** när databasen har skapats.
 
     ![Skapa server](./media/sql-database-get-started-portal/create-database-server.png)
 
 6. Välj **Välj**.
 7. I formuläret **SQL Database** väljer du **Prisnivå**. Undersök mängden DTU:er och lagring som är tillgänglig på varje tjänstnivå.
 
-   >[!NOTE]
-   >I den här snabbstarten används den [DTU-baserade inköpsmodellen](sql-database-service-tiers-dtu.md), men den [vCore-baserade inköpsmodellen](sql-database-service-tiers-vcore.md) är också tillgänglig.
-   >[!IMPORTANT]
-   >Mer än 1 TB lagringsutrymme på Premium-nivån är för närvarande tillgängligt i alla regioner förutom: Storbritannien, norra; USA, västra centrala; Storbritannien, södra 2; Kina, östra; US DoD, centrala; Tyskland, centrala; US DoD, östra; US Gov, sydvästra; US Gov, södra centrala; Tyskland, nordöstra; Kina, norra och US Gov, östra. I dessa regioner är det maximala lagringsutrymmet på Premium-nivån begränsat till 1 TB. Mer information finns i [Aktuella begränsningar för P11–P15](sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+   > [!NOTE]
+   > I den här snabbstarten används den [DTU-baserade inköpsmodellen](sql-database-service-tiers-dtu.md), men den [vCore-baserade inköpsmodellen](sql-database-service-tiers-vcore.md) är också tillgänglig.
+   > [!IMPORTANT]
+   > Mer än 1 TB lagringsutrymme på Premium-nivån är för närvarande tillgängligt i alla regioner förutom: Kina, östra; Kina, norra; Tyskland, centrala; Tyskland, nordöstra; USA, västra centrala; US DoD-regioner samt US Government Central. I dessa regioner är det maximala lagringsutrymmet på Premium-nivån begränsat till 1 TB.  Mer information finns i [Aktuella begränsningar för P11–P15](sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
 
 8. För den här snabbstarten väljer du tjänstnivån **Standard** och använder sedan skjutreglaget för att välja **10 DTU:er (S0)** och **1** GB lagring.
 9. Välj **Använd**.  

@@ -8,12 +8,12 @@ ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: quickstart
 ms.date: 02/15/2019
-ms.openlocfilehash: 9d00819143d9a8fc38bfc09844d55f088e732b46
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 1b5f05f3cddea986230327165399b0fe530e361b
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453034"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56588083"
 ---
 # <a name="quickstart-analyze-data-in-azure-data-lake-storage-gen2-by-using-azure-databricks"></a>Snabbstart: Analysera data i Azure Data Lake Storage Gen2 med hjälp av Azure Databricks
 
@@ -124,6 +124,9 @@ I det här avsnittet skapar du en anteckningsbok på Azure Databricks-arbetsytan
     > Det här kodblocket kommer åt Data Lake Gen2-slutpunkten direkt genom OAuth, men det finns även andra sätt att ansluta Databricks-arbetsytan till ditt Data Lake Storage Gen2-konto. Du kan till exempel montera filsystemet med hjälp av OAuth eller tillämpa direktåtkomst med delad nyckel. <br>Exempel på de här metoderna finns i artikeln om [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) på Azure Databricks-webbplatsen.
 
 5. I det här kodblocket ersätter du platshållarvärdena `storage-account-name`, `application-id`, `authentication-id` och `tenant-id` i det här kodblocket med de värden som du hämtade när du skapade tjänsthuvudnamnet. Ange det namn du vill använda för filsystemet med platshållarvärdet `file-system-name`.
+
+    > [!NOTE]
+    > I en produktionsinställning bör du överväga att lagra din autentiseringsnyckel i Azure Databricks. Sedan lägger du till en lookup-nyckel i kodblocket i stället för autentiseringsnyckeln. När du har slutfört den här snabbstarten kan du läsa artikeln [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) på Azure Databricks-webbplatsen för att se exemplen för den här metoden.
 
 6. Tryck på **SKIFT + RETUR** för att köra koden i det här blocket.
 

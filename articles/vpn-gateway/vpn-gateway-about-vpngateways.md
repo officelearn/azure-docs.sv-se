@@ -6,14 +6,14 @@ author: cherylmc
 Customer intent: As someone with a basic network background, but is new to Azure, I want to understand the capabilities of Azure VPN Gateway so that I can securely connect to my Azure virtual networks.
 ms.service: vpn-gateway
 ms.topic: overview
-ms.date: 10/19/2018
+ms.date: 02/22/2019
 ms.author: cherylmc
-ms.openlocfilehash: d35e7cfbf55d0dc53214bbb7b1153c3270c611c2
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 7b2b5c7201fe45fb52eb333b9e32b4996e00df9b
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49471330"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56822931"
 ---
 # <a name="what-is-vpn-gateway"></a>Vad är en VPN-gateway?
 
@@ -57,7 +57,7 @@ När du skapar en virtuell nätverksgateway anger du vilken gateway-SKU som du v
 
 ## <a name="diagrams"></a>Diagram för anslutningstopologi
 
-Det är viktigt att känna till att det finns olika konfigurationer för VPN-gatewayanslutningar. Du måste bestämma vilken konfiguration som passar bäst för dina behov. I avsnitten nedan kan du se information och topologidiagram om följande VPN-gatewayanslutningar: följande avsnitt innehåller tabeller som visar:
+Det är viktigt att känna till att det finns olika konfigurationer för VPN-gatewayanslutningar. Du måste bestämma vilken konfiguration som passar bäst för dina behov. I avsnitten nedan kan du se information och topologidiagram om följande VPN-gatewayanslutningar: Följande avsnitt innehåller tabeller som visar:
 
 * tillgänglig distributionsmodell
 * tillgängliga konfigurationsverktyg
@@ -152,7 +152,6 @@ Vanliga frågor om VPN Gateway finns i [Vanliga frågor och svar om VPN Gateway]
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Planera konfigurationen av din VPN-gateway. Se [Planering och design för VPN Gateway](vpn-gateway-plan-design.md).
 - Mer information finns i avsnittet [Vanliga frågor och svar om VPN Gateway](vpn-gateway-vpn-faq.md).
 - Läs [Prenumerations- och tjänstbegränsningar](../azure-subscription-service-limits.md#networking-limits).
 - Lär dig mer om de andra viktiga [nätverksfunktionerna](../networking/networking-overview.md) i Azure.

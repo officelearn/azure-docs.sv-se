@@ -2,19 +2,19 @@
 title: Snabbstart – Skicka telemetri till Azure IoT Hub | Microsoft Docs
 description: I den här snabbstarten kör du ett iOS-exempelprogram som skickar simulerad telemetri till en IoT-hubb, läser telemetrin från IoT-hubben och bearbetar den i molnet.
 author: kgremban
-manager: timlt
+manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 04/20/2018
+ms.date: 02/20/2019
 ms.author: kgremban
-ms.openlocfilehash: c2cfe40afb2c855e600e103fc8b9bb0845b09aa3
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: 05ae99425bbe16c27ca7efd475757499996e06b9
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515122"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56672125"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-ios"></a>Snabbstart: Skicka telemetri från en enhet till en IoT-hubb (iOS)
 
@@ -44,9 +44,9 @@ En enhet måste vara registrerad vid din IoT-hubb innan den kan ansluta. I den h
 
 1. Kör följande kommandon i Azure Cloud Shell för att lägga till IoT Hub CLI-tillägget och skapa enhetens identitet. 
 
-   **YourIoTHubName** : Ersätt platshållaren nedan med det namn du väljer för din IoT-hubb.
+   **YourIoTHubName** : Ersätt platshållaren nedan med det namn du valde för din IoT-hubb.
 
-   **myiOSdevice**: Det här är det namn du angav för den registrerade enheten. Använd myiOSdevice som det visas. Om du väljer ett annat namn för din enhet måste du även använda det namnet i hela artikeln, och uppdatera enhetsnamnet i exempelprogrammen innan du kör dem.
+   **myiOSdevice** : Det här är det namn du angav för den registrerade enheten. Använd myiOSdevice som det visas. Om du väljer ett annat namn för din enhet måste du även använda det namnet i hela artikeln, och uppdatera enhetsnamnet i exempelprogrammen innan du kör dem.
 
    ```azurecli-interactive
    az extension add --name azure-cli-iot-ext
@@ -136,7 +136,7 @@ I den här artikeln konfigurerade du en IoT-hubb, registrerade en enhet, skickad
 Om du vill veta hur du kan styra den simulerade enheten från ett serverdelsprogram fortsätter du till nästa snabbstart.
 
 > [!div class="nextstepaction"]
-> [Snabbstart: Kontrollera en enhet ansluten till en IoT-hubb](quickstart-control-device-node.md)
+> [Snabbstart: Kontrollera en enhet ansluten till en IoT Hub](quickstart-control-device-node.md)
 
 <!-- Links -->
 [lnk-process-d2c-tutorial]: tutorial-routing.md

@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
 ms.topic: quickstart
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: 003bd5ccae2b22dc411259226d84b11444694651
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: 829b566469e5fd61460c1451b196eec24fd4e3f8
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417913"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56882934"
 ---
 # <a name="quickstart-get-started-with-apache-hadoop-and-apache-hive-in-azure-hdinsight-using-the-azure-portal"></a>Snabbstart: Komma igång med Apache Hadoop och Apache Hive i Azure HDInsight med Azure-portalen
 
@@ -165,7 +165,7 @@ När du har slutfört vägledningen kanske du vill ta bort klustret. Med HDInsig
 I den här självstudien har du fått veta hur du skapar ett Linux-baserat HDInsight-kluster med en Resource Manager-mall och hur du utför grundläggande Hive-frågor. I nästa artikel får du lära dig hur du utför en extraktions-, transformations- eller inläsningsåtgärd (ETL) med Hadoop på HDInsight.
 
 > [!div class="nextstepaction"]
->[Extrahera, transformera och läsa in data med Apache Hive på HDInsight ](../hdinsight-analyze-flight-delay-data-linux.md)
+>[Extrahera, transformera och läsa in data med hjälp av Apache Hive på HDInsight](../hdinsight-analyze-flight-delay-data-linux.md)
 
 Om du är redo att börja arbeta med dina egna data och vill veta mer om hur data lagras i HDInsight eller om att hämta data till HDInsight, hittar du mer information i följande artiklar:
 

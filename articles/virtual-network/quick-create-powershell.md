@@ -14,12 +14,12 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 12/04/2018
 ms.author: jdial
-ms.openlocfilehash: ade8329e6e42fae9f3232617488a6d4a69f8ef1f
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 57c3b5099c24151794b27f4aeec7845495a4630a
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54437393"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56670430"
 ---
 # <a name="quickstart-create-a-virtual-network-using-powershell"></a>Snabbstart: Skapa ett virtuellt nätverk med hjälp av PowerShell
 
@@ -29,9 +29,9 @@ Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto]
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-powershell.md)]
 
-Om du väljer att installera och använda PowerShell lokalt istället, så kräver den här snabbstarten att du använder version 5.4.1 eller senare av AzureRM PowerShell-modulen. Kör `Get-Module -ListAvailable AzureRM` för att hitta den installerade versionen. Information om hur installerar och uppgraderar finns i [Installera Azure PowerShell-modulen](/powershell/azure/azurerm/install-azurerm-ps).
+Om du i stället väljer att installera och använda PowerShell lokalt kräver den här snabbstarten att du använder version 1.0.0 eller senare av Azure PowerShell-modulen. Kör `Get-Module -ListAvailable Az` för att hitta den installerade versionen. Information om hur installerar och uppgraderar finns i [Installera Azure PowerShell-modulen](/powershell/azure/install-az-ps).
 
-Till sist, om du kör PowerShell lokalt måste du även köra `Connect-AzureRmAccount`. Kommandot skapar en anslutning med Azure.
+Till sist, om du kör PowerShell lokalt måste du även köra `Connect-AzAccount`. Kommandot skapar en anslutning med Azure.
 
 ## <a name="create-a-resource-group-and-a-virtual-network"></a>Skapa en resursgrupp och ett virtuellt nätverk
 
@@ -39,18 +39,18 @@ Det finns en handfull steg du måste gå igenom för att konfigurera din resursg
 
 ### <a name="create-the-resource-group"></a>Skapa en resursgrupp
 
-Innan du kan skapa ett virtuellt nätverk måste du skapa en resursgrupp som ska vara värd för det virtuella nätverket. Skapa en resursgrupp med [New-AzureRmResourceGroup](/powershell/module/AzureRM.Resources/New-AzureRmResourceGroup). I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på platsen *eastus*:
+Innan du kan skapa ett virtuellt nätverk måste du skapa en resursgrupp som ska vara värd för det virtuella nätverket. Skapa en resursgrupp med [New-AzResourceGroup](/powershell/module/az.Resources/New-azResourceGroup). I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på platsen *eastus*:
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
+New-AzResourceGroup -Name myResourceGroup -Location EastUS
 ```
 
 ### <a name="create-the-virtual-network"></a>Skapa det virtuella nätverket
 
-Skapa ett virtuellt nätverk med [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork). I det här exemplet skapas ett virtuellt standardnätverk med namnet *myVirtualNetwork* på platsen *EastUS*:
+Skapa ett virtuellt nätverk med hjälp av [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork). I det här exemplet skapas ett virtuellt standardnätverk med namnet *myVirtualNetwork* på platsen *EastUS*:
 
 ```azurepowershell-interactive
-$virtualNetwork = New-AzureRmVirtualNetwork `
+$virtualNetwork = New-AzVirtualNetwork `
   -ResourceGroupName myResourceGroup `
   -Location EastUS `
   -Name myVirtualNetwork `
@@ -59,10 +59,10 @@ $virtualNetwork = New-AzureRmVirtualNetwork `
 
 ### <a name="add-a-subnet"></a>Lägga till ett undernät
 
-Azure distribuerar resurser till ett undernät i ett virtuellt nätverk, så du måste skapa ett undernät. Skapa en undernätskonfiguration med namnet *standard* med [New-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/add-azurermvirtualnetworksubnetconfig):
+Azure distribuerar resurser till ett undernät i ett virtuellt nätverk, så du måste skapa ett undernät. Skapa en undernätskonfiguration med namnet *standard* med [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/add-azvirtualnetworksubnetconfig):
 
 ```azurepowershell-interactive
-$subnetConfig = Add-AzureRmVirtualNetworkSubnetConfig `
+$subnetConfig = Add-AzVirtualNetworkSubnetConfig `
   -Name default `
   -AddressPrefix 10.0.0.0/24 `
   -VirtualNetwork $virtualNetwork
@@ -70,10 +70,10 @@ $subnetConfig = Add-AzureRmVirtualNetworkSubnetConfig `
 
 ### <a name="associate-the-subnet-to-the-virtual-network"></a>Associera undernätet med det virtuella nätverket
 
-Du kan skriva undernätskonfigurationen till det virtuella nätverket med [Set-AzureRmVirtualNetwork](/powershell/module/azurerm.network/Set-AzureRmVirtualNetwork). Det här kommandot skapar undernätet:
+Du kan skriva undernätskonfigurationen till det virtuella nätverket med [Set-AzVirtualNetwork](/powershell/module/az.network/Set-azVirtualNetwork). Det här kommandot skapar undernätet:
 
 ```azurepowershell-interactive
-$virtualNetwork | Set-AzureRmVirtualNetwork
+$virtualNetwork | Set-AzVirtualNetwork
 ```
 
 ## <a name="create-virtual-machines"></a>Skapa virtuella datorer
@@ -82,10 +82,10 @@ Skapa två virtuella datorer i det virtuella nätverket.
 
 ### <a name="create-the-first-vm"></a>Skapa den första virtuella datorn
 
-Skapa den första virtuella datorn med [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). När du kör följande kommando måste du ange autentiseringsuppgifter. Ange ett användarnamn och lösenord för den virtuella datorn:
+Skapa den första virtuella datorn med [New-AzVM](/powershell/module/az.compute/new-azvm). När du kör följande kommando måste du ange autentiseringsuppgifter. Ange ett användarnamn och lösenord för den virtuella datorn:
 
 ```azurepowershell-interactive
-New-AzureRmVm `
+New-AzVm `
     -ResourceGroupName "myResourceGroup" `
     -Location "East US" `
     -VirtualNetworkName "myVirtualNetwork" `
@@ -101,7 +101,7 @@ När Azure börjar skapa den virtuella datorn i bakgrunden får du tillbaka någ
 ```powershell
 Id     Name            PSJobTypeName   State         HasMoreData     Location             Command
 --     ----            -------------   -----         -----------     --------             -------
-1      Long Running... AzureLongRun... Running       True            localhost            New-AzureRmVM
+1      Long Running... AzureLongRun... Running       True            localhost            New-AzVM
 ```
 
 ### <a name="create-the-second-vm"></a>Skapa den andra virtuella datorn
@@ -109,7 +109,7 @@ Id     Name            PSJobTypeName   State         HasMoreData     Location   
 Skapa den andra virtuella datorn med det här kommandot:
 
 ```azurepowershell-interactive
-New-AzureRmVm `
+New-AzVm `
   -ResourceGroupName "myResourceGroup" `
   -VirtualNetworkName "myVirtualNetwork" `
   -SubnetName "default" `
@@ -123,10 +123,10 @@ Du måste skapa en annan användare och lösenord. Det tar några minuter för A
 
 ## <a name="connect-to-a-vm-from-the-internet"></a>Ansluta till en virtuell dator från Internet
 
-Använd [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) för att returnera den offentliga IP-adressen för en virtuell dator. I det här exemplet returneras den offentliga IP-adressen för den virtuella datorn *myVm1*:
+Använd [Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress) för att returnera den offentliga IP-adressen för en virtuell dator. I det här exemplet returneras den offentliga IP-adressen för den virtuella datorn *myVm1*:
 
 ```azurepowershell-interactive
-Get-AzureRmPublicIpAddress `
+Get-AzPublicIpAddress `
   -Name myVm1 `
   -ResourceGroupName myResourceGroup `
   | Select IpAddress
@@ -135,7 +135,7 @@ Get-AzureRmPublicIpAddress `
 Öppna en kommandotolk på den lokala datorn. Kör `mstsc`-kommandot. Ersätt `<publicIpAddress>` med den offentliga IP-adress som returnerades från det senaste steget:
 
 > [!NOTE]
-> Om du har kört dessa kommandon från en PowerShell-kommandotolk på din lokala dator, och du använder AzureRM PowerShell-modulversion 5.4.1 eller senare, kan du fortsätta i det gränssnittet.
+> Om du har kört dessa kommandon från en PowerShell-kommandotolk på din lokala dator, och du använder version 1.0 av Az PowerShell-modulen eller senare, kan du fortsätta i det gränssnittet.
 
 ```cmd
 mstsc /v:<publicIpAddress>
@@ -165,7 +165,7 @@ En fjärrskrivbordsprotokollsfil (*.rdp*) laddas ned till datorn och ett fjärrs
     ```powershell
     PS C:\Users\myVm1> ping myVm2
 
-    Pinging myVm2.ovvzzdcazhbu5iczfvonhg2zrb.bx.internal.cloudap
+    Pinging myVm2.ovvzzdcazhbu5iczfvonhg2zrb.bx.internal.cloudapp.net
     Request timed out.
     Request timed out.
     Request timed out.
@@ -214,10 +214,10 @@ En fjärrskrivbordsprotokollsfil (*.rdp*) laddas ned till datorn och ett fjärrs
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När du är klar med det virtuella nätverket och de virtuella datorerna tar du bort resursgruppen och alla resurser den innehåller med [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup):
+När du är klar med det virtuella nätverket och de virtuella datorerna tar du bort resursgruppen och alla resurser den innehåller med [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup):
 
 ```azurepowershell-interactive
-Remove-AzureRmResourceGroup -Name myResourceGroup -Force
+Remove-AzResourceGroup -Name myResourceGroup -Force
 ```
 
 ## <a name="next-steps"></a>Nästa steg

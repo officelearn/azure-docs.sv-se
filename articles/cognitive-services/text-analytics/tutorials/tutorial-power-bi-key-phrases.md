@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: tutorial
 ms.date: 02/13/2019
 ms.author: aahi
-ms.openlocfilehash: 2439244edcc1b7026a2cc8a62a946188e279f15f
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 4489fc82f836d8c311fcd776e211670897618b54
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245838"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889485"
 ---
 # <a name="tutorial-integrate-power-bi-with-the-text-analytics-cognitive-service"></a>Självstudier: Integrera Power BI med den kognitiva tjänsten för textanalys
 
@@ -94,7 +94,7 @@ Du kan också överväga att filtrera bort tomma meddelanden med filtret Ta bort
 | | |
 | - | - |
 | `id`  | En unik identifierare för det här dokumentet inom begäran. Svaret innehåller även det här fältet. På så sätt kan du enkelt koppla de extraherade nyckelfraserna med det dokument de kom från, om du bearbetar flera dokument. Eftersom du endast bearbetar ett dokument per begäran i denna självstudie kan du hårdkoda värdet för `id` så att det är samma som begäran.|
-| `text`  | Texten som ska bearbetas. Värdet för det här fältet kommer från kolumnen `Merged` som du skapade i [föregående avsnitt](#PreparingData) och som innehåller den kombinerade ämnesrad- och kommentarstexten. Enligt nyckelfras-API:et får dessa data inte vara längre än cirka 5 000 tecken.|
+| `text`  | Texten som ska bearbetas. Värdet för det här fältet kommer från kolumnen `Merged` som du skapade i [föregående avsnitt](#PreparingData) och som innehåller den kombinerade ämnesrad- och kommentarstexten. Enligt nyckelfras-API:et får dessa data inte vara längre än cirka 5 120 tecken.|
 | `language` | Koden för det naturliga språket som dokumentet är skrivet i. Alla meddelanden i exempelfilen är skrivna på engelska så du kan hårdkoda värdet `en` för detta fält.|
 
 ## <a name="create-a-custom-function"></a>Skapa anpassad funktion

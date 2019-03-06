@@ -8,16 +8,16 @@ services: iot-hub
 ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 06/20/2018
+ms.date: 02/22/2019
 ms.author: dobett
-ms.openlocfilehash: c8ef958b2f39a9271b9fa344f61329d48eccdee4
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: 5de2fa7e7ae18bf5a6212f6571acdf545116b88b
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51514754"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56673495"
 ---
-# <a name="quickstart-control-a-device-connected-to-an-iot-hub-net"></a>Snabbstart: Kontrollera en enhet ansluten till en IoT Hub (.NET)
+# <a name="quickstart-control-a-device-connected-to-an-iot-hub-net"></a>Snabbstart: Kontrollera en enhet som är ansluten till en IoT-hubb (.NET)
 
 [!INCLUDE [iot-hub-quickstarts-2-selector](../../includes/iot-hub-quickstarts-2-selector.md)]
 
@@ -49,21 +49,21 @@ Ladda ned C#-exempelprojektet från https://github.com/Azure-Samples/azure-iot-s
 
 ## <a name="create-an-iot-hub"></a>Skapa en IoT Hub
 
-Om du har slutfört [Snabbstart: Skicka telemetri från en enhet till en IoT-hubb](quickstart-send-telemetry-dotnet.md) kan du hoppa över det här steget.
+Om du har slutfört föregående [Snabbstart: Skicka telemetri från en enhet till en IoT-hubb](quickstart-send-telemetry-dotnet.md). Du kan hoppa över det här steget.
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
 ## <a name="register-a-device"></a>Registrera en enhet
 
-Om du har slutfört [Snabbstart: Skicka telemetri från en enhet till en IoT-hubb](quickstart-send-telemetry-dotnet.md) kan du hoppa över det här steget.
+Om du har slutfört föregående [Snabbstart: Skicka telemetri från en enhet till en IoT-hubb](quickstart-send-telemetry-dotnet.md). Du kan hoppa över det här steget.
 
 En enhet måste vara registrerad vid din IoT-hubb innan den kan ansluta. I den här snabbstarten använder du Azure Cloud Shell till att registrera en simulerad enhet.
 
-1. Kör följande kommandon i Azure Cloud Shell för att lägga till IoT Hub CLI-tillägget och skapa enhetens identitet. 
+1. Kör följande kommandon i Azure Cloud Shell för att lägga till IoT Hub CLI-tillägget och skapa enhetens identitet.
 
-   **YourIoTHubName** : Ersätt platshållaren nedan med det namn du valde för din IoT-hubb.
+   **YourIoTHubName**: Ersätt platshållaren nedan med det namn som du har valt för din IoT-hubb.
 
-   **MyDotnetDevice**: Det här är det namn som du angav för den registrerade enheten. Använd MyDotnetDevice såsom det visas. Om du väljer ett annat namn för din enhet måste du även använda det namnet i hela artikeln, och uppdatera enhetsnamnet i exempelprogrammen innan du kör dem.
+   **MyDotnetDevice**: Namnet på den enhet som du registrerar. Använd **MyDotnetDevice** såsom det visas. Om du väljer ett annat namn för enheten behöver du använda det namnet i hela artikeln och uppdatera enhetsnamnet i exempelprogrammen innan du kör dem.
 
     ```azurecli-interactive
     az extension add --name azure-cli-iot-ext
@@ -73,7 +73,7 @@ En enhet måste vara registrerad vid din IoT-hubb innan den kan ansluta. I den h
 
 2. Kör följande kommandon i Azure Cloud Shell för att hämta _enhetsanslutningssträngen_ för enheten du just registrerade:
 
-   **YourIoTHubName** : Ersätt platshållaren nedan med det namn du valde för din IoT-hubb.
+   **YourIoTHubName**: Ersätt platshållaren nedan med det namn som du har valt för din IoT-hubb.
 
     ```azurecli-interactive
     az iot hub device-identity show-connection-string \
@@ -169,4 +169,4 @@ I den här snabbstarten har du anropat en direktmetod på en enhet från ett ser
 Om du vill lära dig mer om hur man skickar enhet-till-molnet-meddelanden till olika mål i molnet går du vidare till nästa självstudier.
 
 > [!div class="nextstepaction"]
-> [Självstudier: Skicka telemetri till olika slutpunkter för bearbetning](tutorial-routing.md)
+> [Självstudie: Skicka telemetri till olika slutpunkter för bearbetning](tutorial-routing.md)

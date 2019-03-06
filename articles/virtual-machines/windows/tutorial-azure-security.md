@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 12/05/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: ebb1a3fba95ed5794b3737d75c4ec182163a32fb
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 4c54383df74d9cfd7941dc52d26856bc8da51457
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55984434"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56594720"
 ---
 # <a name="tutorial-use-azure-security-center-to-monitor-windows-virtual-machines"></a>Självstudier: Använda Azure Security Center för att övervaka virtuella Windows-datorer
 
@@ -65,7 +65,7 @@ Så här ställer du in en säkerhetsprincip för en hel prenumeration:
 
 1. Gå till instrumentpanelen i Security Center, välj **Säkerhetsprincip** och välj sedan din prenumeration.
 2. På bladet **Säkerhetsprincip** väljer du **Säkerhetsprincip**. 
-3. På bladet ** Säkerhetsprincip – Säkerhetsprincip ** aktiverar eller inaktiverar du de principposter du vill använda för prenumerationen.
+3. På bladet **Säkerhetsprincip – Säkerhetsprincip** aktiverar eller inaktiverar du de principobjekt du vill använda för prenumerationen.
 4. När du är färdig väljer du **Spara** längst upp på bladet. 
 
 

@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 06/15/2018
+ms.date: 02/24/2019
 ms.author: apimpm
-ms.openlocfilehash: 4173c0b26b2d176549d3a89cc6fdfa928b6cca5b
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 0e104f4cbdef7edc5c109781509e3924400e5ba4
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52963852"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56959739"
 ---
 # <a name="import-and-publish-your-first-api"></a>Importera och publicera ditt första API 
 
@@ -48,7 +48,7 @@ I den här guiden får du lära dig att:
 I det här avsnittet visas hur du importerar och publicerar en OpenAPI-specifikation för serverdels-API.
  
 1. Välj **API: er** under **API-HANTERING**.
-2. Välj **OpenAPI-specifikation** i listan.
+2. Välj **OpenAPI-specifikation** i listan och klicka på **Fullständig** i popup-fönstret.
 
     ![Skapa ett API](./media/api-management-get-started/create-api.png)
 
@@ -65,7 +65,8 @@ I det här avsnittet visas hur du importerar och publicerar en OpenAPI-specifika
     | **URL-schema**            | *HTTPS*                                            | Fastställer vilka protokoll som kan användas för att få åtkomst till API:et.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
     | **API URL-suffix**        | *konferens*                                       | Suffixet läggs till i API-hanteringstjänstens bas-URL. API Management skiljer API:erna åt med hjälp av deras suffix, och suffixet måste därför vara unikt för alla API:er för en viss utgivare.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
     | **Produkter**              | *Obegränsat*                                        | Produkter är associationer med en eller flera API:er. Du kan inkludera flera API:er i en produkt och erbjuda dem till utvecklare via utvecklarportalen. <br/>Du kan publicera API:et genom att associera det med en produkt (i det här exemplet *Unlimited*). Om du vill lägga till detta nya API till en produkt, så ange produktens namn (du kan också göra det senare från sidan **Inställningar**). Det här steget kan du upprepa flera gånger för om du ska lägga till API:et till flera produkter.<br/>För att få åtkomst till API:et måste utvecklarna först prenumerera på en produkt. När de prenumererar få de en prenumerationsnyckel som går att använda till alla API:er i produkten. <br/> Om du har skapat APIM-instansen är du redan administratör, vilket innebär att du prenumererar på alla produkter.<br/> Som standard medföljer två exempelprodukter varje API Management-instans: **Starter** och **Obegränsat**. |
-    | Vilken är versionen för det här API:et?         |                                                    | Om du vill ha mer versionsinformation kan du gå till [Publicera flera versioner av ditt API](api-management-get-started-publish-versions.md)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+    | **Taggar**                  |                                                    | Taggar för att organisera API:er. Taggar kan användas för sökning, gruppering och filtrering.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+    | **Version av det här API:et?**     |                                                    | Om du vill ha mer versionsinformation kan du gå till [Publicera flera versioner av ditt API](api-management-get-started-publish-versions.md)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 
     >[!NOTE]
     > Om du vill publicera API:t måste du associera det med en produkt. Du kan göra det från sidan **Inställningar**.

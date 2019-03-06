@@ -5,16 +5,17 @@ services: service-bus-messaging
 author: spelluru
 ms.service: service-bus-messaging
 ms.topic: include
-ms.date: 02/12/2019
+ms.date: 02/20/2019
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: b38f66670ba29022713ae39824a190fcffb688c7
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: d976a1c5e9366069b82cff718593ce72d7ad8a08
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56238770"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56588950"
 ---
+## <a name="create-a-namespace-in-the-azure-portal"></a>Skapa ett namnområde i Azure Portal
 För att komma igång med Service Bus-meddelandeentiteter i Azure måste du först skapa ett namnområde med ett namn som är unikt i Azure. Ett namnområde innehåller en omfattningscontainer för adressering av Service Bus-resurser i ditt program.
 
 Så här skapar du ett namnområde:
@@ -27,7 +28,7 @@ Så här skapar du ett namnområde:
     1. Ange ett **namn för namnrymden**. Systemet kontrollerar omedelbart om namnet är tillgängligt.
     2. Välj prisnivå (Basic, Standard eller Premium) för namnrymden. Om du vill använda [ämnen och prenumerationer](../articles/service-bus-messaging/service-bus-queues-topics-subscriptions.md#topics-and-subscriptions) väljer du antingen Standard eller Premium. Ämnen/prenumerationer stöds inte på Basic-prisnivån.
     3. Om du valde prisnivån **Premium** utför du följande steg: 
-        1. Ange antalet **meddelandefunktionsenheter**. Premium-nivån ger resursisolering på processor- och minnesnivå så att varje arbetsbelastning körs självständigt. Den här resurscontainern kallas för en meddelandefunktionsenhet. Varje Premium-namnrymd allokeras minst en meddelandefunktionsenhet. Du kan välja 1, 2 eller 4 meddelandefunktionsenheter för varje Service Bus Premium-namnrymd. Mer information finns i [Service Bus Premium-meddelanden](../articles/service-bus-messaging/service-bus-premium-messaging.md).
+        1. Ange antalet **meddelandefunktionsenheter**. Premium-nivån ger resursisolering på processor- och minnesnivå så att varje arbetsbelastning körs självständigt. Den här resurscontainern kallas för en meddelandefunktionsenhet. En Premium-namnrymd har minst en meddelandefunktionsenhet. Du kan välja 1, 2 eller 4 meddelandefunktionsenheter för varje Service Bus Premium-namnrymd. Mer information finns i [Service Bus Premium-meddelanden](../articles/service-bus-messaging/service-bus-premium-messaging.md).
         2. Ange huruvida du vill göra namnrymden **zonredundant**. Zonredundans ger förbättrad tillgänglighet genom att sprida repliker över tillgänglighetszoner inom en region utan extra kostnad. Mer information finns i [Tillgänglighetszoner i Azure](../articles/availability-zones/az-overview.md).
     4. För **Prenumeration** väljer du en Azure-prenumeration där du ska skapa namnrymden.
     5. För **Resursgrupp** väljer du en befintlig resursgrupp där namnrymden ska finnas, eller så skapar du en ny.      
@@ -45,7 +46,7 @@ Så här skapar du ett namnområde:
 
     ![Startsidan för din Service Bus-namnrymd](./media/service-bus-create-namespace-portal/service-bus-namespace-home-page.png)
 
-### <a name="get-the-management-credentials"></a>Hämta autentiseringsuppgifterna för hantering
+## <a name="get-the-connection-string"></a>Hämta anslutningssträngen 
 Om du skapar ett nytt namnområde så genereras en automatiskt en ursprunglig regel för signatur för delad åtkomst (SAS) med ett kopplat par med primära och sekundära nycklar som ger fullständig kontroll över alla namnområdets aspekter. Se [Service Bus – autentisering och auktorisering](../articles/service-bus-messaging/service-bus-authentication-and-authorization.md) för mer information om hur du skapar regler med mer begränsade rättigheter för regelbundna sändare och mottagare. Kopiera primärnycklar och sekundärnycklar för namnrymden genom att utföra följande steg: 
 
 1. Klicka på **Alla resurser**, sedan klickar du på den nyligen skapade namnrymden.
@@ -53,7 +54,7 @@ Om du skapar ett nytt namnområde så genereras en automatiskt en ursprunglig re
 3. I fönstret **Principer för delad åtkomst**, klickar du på **RootManageSharedAccessKey**.
    
     ![connection-info](./media/service-bus-create-namespace-portal/connection-info.png)
-4. I fönstret **Princip: RootManageSharedAccessKey** klickar du på kopieringsknappen intill **Primär anslutningssträng** för att kopiera anslutningssträngen till Urklipp för senare användning. Klistra in det här värdet i Anteckningar eller på en tillfällig plats.
+4. I **principen: RootManageSharedAccessKey** klickar du på kopieringsknappen intill **Primär anslutningssträng** för att kopiera anslutningssträngen till Urklipp för senare användning. Klistra in det här värdet i Anteckningar eller på en tillfällig plats.
    
     ![connection-string](./media/service-bus-create-namespace-portal/connection-string.png)
 5. Upprepa föregående steg, kopiera och klistra in värdet för **primärnyckeln** till en tillfällig plats för senare användning.

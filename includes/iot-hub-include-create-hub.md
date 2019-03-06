@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/02/2018
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: b1f1f8144ec5b65c21c5ddcecd278a018260047c
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: e22acc697e837bab91c8b9c32c1fe35f1a7bce1c
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51516023"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56824529"
 ---
 I det här avsnittet beskrivs hur du använder [Azure-portalen](https://portal.azure.com) för att skapa en IoT-hubb.
 
@@ -27,9 +27,9 @@ I det här avsnittet beskrivs hur du använder [Azure-portalen](https://portal.a
 
    Fyll i fälten.
 
-   **Prenumeration**: Välj prenumeration som du vill använda för din IoT-hubb.
+   **Prenumeration**: Välj den prenumeration som du vill använda för din IoT-hubb.
 
-   **Resursgrupp**: Du kan skapa en ny resursgrupp eller använda en befintlig. Klicka på **Skapa ny** för att skapa en ny och ange namnet som du vill använda. Om du vill använda en befintlig resursgrupp väljer du **Använd befintlig** och väljer en resursgruppen i listrutan. Mer information finns i [Använda resursgrupper för att hantera Azure-resurser](../articles/azure-resource-manager/resource-group-portal.md).
+   **Resursgrupp**: Du kan skapa en ny resursgrupp eller välja en befintlig. Klicka på **Skapa ny** för att skapa en ny och ange namnet som du vill använda. Om du vill använda en befintlig resursgrupp väljer du **Använd befintlig** och väljer en resursgruppen i listrutan. Mer information finns i [Hantera Azure Resource Manager-resursgrupper](../articles/azure-resource-manager/manage-resource-groups-portal.md).
 
    **Region**: Det här är den region som du vill att din hubb ska finnas i. Välj platsen som är närmast dig från listrutan.
 
@@ -43,9 +43,9 @@ I det här avsnittet beskrivs hur du använder [Azure-portalen](https://portal.a
 
    På den här skärmen kan du ta standardvärdena och klicka bara på **Granska + skapa** längst ned på sidan. 
 
-   **Pris- och skalnivå**: Du kan välja bland flera nivåer beroende på hur många funktioner du vill ha och hur många meddelanden du skickar via din lösning per dag. Den kostnadsfria nivån är avsedd för testning och utvärdering. Det gör att 500 enheter kan anslutas till IoT-hubben och upp till 8 000 meddelanden per dag. Varje Azure-prenumeration kan skapa en IoT-hubb på den kostnadsfria nivån. 
+   **Pris- och skalningsnivå**: Du kan välja bland flera nivåer beroende på hur många funktioner du vill ha och hur många meddelanden du skickar via din lösning per dag. Den kostnadsfria nivån är avsedd för testning och utvärdering. Det gör att 500 enheter kan anslutas till IoT-hubben och upp till 8 000 meddelanden per dag. Varje Azure-prenumeration kan skapa en IoT-hubb på den kostnadsfria nivån. 
 
-   **IoT Hub-enheter**: Antalet meddelanden som tillåts per enhet per dag beror på hubbens prisnivå. Om du till exempel vill att IoT-hubben ska stödja ingångshändelser på 700 000 meddelanden kan du välja två enheter på S1-nivån.
+   **IoT Hub-enheter**: Det antal meddelanden som tillåts per enhet per dag beror på hubbens prisnivå. Om du till exempel vill att IoT-hubben ska stödja ingångshändelser på 700 000 meddelanden kan du välja två enheter på S1-nivån.
 
    Mer information om de andra alternativen för nivån finns i avsnittet om att [välja rätt nivå för IoT Hub](../articles/iot-hub/iot-hub-scaling.md).
 

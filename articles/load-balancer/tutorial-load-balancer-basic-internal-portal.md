@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/28/2018
+ms.date: 02/27/2019
 ms.author: kumud
 ms.custom: seodec18
-ms.openlocfilehash: 16c9eea61391511f7515308131b3541e186cd7ae
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: b8600ed03140e302c730d44c6410d2020b7c48a3
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54232625"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56983191"
 ---
 # <a name="tutorial-balance-internal-traffic-load-with-a-basic-load-balancer-in-the-azure-portal"></a>Självstudie: Balansera intern trafikbelastning med en grundläggande lastbalanserare på Azure-portalen
 
@@ -87,24 +87,27 @@ Skapa en grundläggande intern lastbalanserare med hjälp av portalen. Det namn 
 
 1. Längst upp till vänster i portalen väljer du **Skapa en resurs** > **Netverk** > **Lastbalanserare**.
    
-1. I fönsterrutan **Skapa lastbalanserare** skriver eller väljer du dessa värden:
+2. På fliken **Grundläggande inställningar** på sidan **Skapa lastbalanserare** anger eller väljer du följande information, accepterar standardinställningarna för de återstående inställningarna och väljer sedan **Granska + skapa**:
+
+    | Inställning                 | Värde                                              |
+    | ---                     | ---                                                |
+    | Prenumeration               | Välj din prenumeration.    |    
+    | Resursgrupp         | Välj **Skapa ny** och skriv *MyResourceGroupLB* i textrutan.|
+    | Namn                   | *myLoadBalancer*                                   |
+    | Region         | Välj **Västeuropa**.                                        |
+    | Typ          | Välj **Offentligt**.                                        |
+    | SKU           | Välj **Grundläggande**.                          |
+    | Virtuellt nätverk           | Välj *MyVNet*.                          |    
+| Offentlig IP-adress | Välj **Skapa ny**. |
+    | Tilldelning av offentlig IP-adress              | Välj **Statisk**.   |
+    | Privat IP-adress|Skriv en adress som är i adressrymden för ditt virtuella nätverk och undernät, till exempel *10.3.0.7*.  |
+
+3. På fliken **Granska + skapa** klickar du på **Skapa**. 
    
-   - **Namn**: Skriv *MyLoadBalancer*.
-   - **Typ**: Välj **Intern**. 
-   - **SKU**: Välj **Grundläggande**.
-   - **Virtuellt nätverk**: Välj **Välj ett virtuellt nätverk** och sedan **MyVNet**.
-   - **Undernät**: Välj **Välj ett undernät** och sedan **MyBackendSubnet**.
-   - **IP-adresstilldelning**: Välj **Statisk** om det inte är valt.
-   - **Privat IP-adress**: Skriv en adress som är i adressrymden för ditt virtuella nätverk och undernät, till exempel *10.3.0.7*.
-   - **ResourceGroup**: I listrutan **Välj befintlig** väljer du **MyResourceGroupLB**. 
-   
-1. Välj **Skapa**.
-   
-![Skapa en lastbalanserare](./media/tutorial-load-balancer-basic-internal-portal/1-load-balancer.png)
 
 ## <a name="create-basic-load-balancer-resources"></a>Skapa resurser för en grundläggande lastbalanserare
 
-I det här avsnittet konfigurerar du inställningar för lastbalanseraren för en serverdelsadresspool och en hälsoavsökning och anger regler för lastbalanseraren.
+I det här avsnittet konfigurerar du inställningar för lastbalanseraren för en serverdelsadresspool och en hälsoavsökning samt anger regler för lastbalanseraren.
 
 ### <a name="create-a-back-end-address-pool"></a>Skapa en backend-adresspool
 

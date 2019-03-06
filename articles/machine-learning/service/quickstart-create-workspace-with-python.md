@@ -11,12 +11,12 @@ author: hning86
 ms.author: haining
 ms.date: 01/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1962cef85c5e663de640f296a6e8e9efd5a1f4d6
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 513df9f68fdd54b5dc90e57bd8389688c46bf615
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56310363"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56804254"
 ---
 # <a name="quickstart-use-the-python-sdk-to-get-started-with-azure-machine-learning"></a>Snabbstart: Kom igång med Azure Machine Learning med hjälp av Python-SDK:n
 
@@ -60,16 +60,18 @@ Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan
 
 Innan du installerar SDK:n rekommenderar vi att du skapar en isolerad Python-miljö. Även om den här artikeln använder [Miniconda](https://docs.conda.io/en/latest/miniconda.html) kan du även använda fullständiga [Anaconda](https://www.anaconda.com/) installerat eller [Python virtualenv](https://virtualenv.pypa.io/en/stable/).
 
+Anvisningarna i den här snabbstarten kommer att installera de paket som du behöver för köra anteckningsböckerna för snabbstart och självstudier.  Andra exempelanteckningsböcker kan kräva installation av ytterligare komponenter.  Mer information om dessa komponenter finns i avsnittet om att [installera Azure Machine Learning SDK för Python](https://docs.microsoft.com/python/api/overview/azure/ml/install).
+
 ### <a name="install-miniconda"></a>Installera Miniconda
 
-[Ladda ned och installera Miniconda](https://docs.conda.io/en/latest/miniconda.html). Välj Python 3.7 eller senare för att installera. Välj inte versionen Python 2.x.  
+[Ladda ned och installera Miniconda](https://docs.conda.io/en/latest/miniconda.html). Välj att installera versionen Python 3.7. Välj inte versionen Python 2.x.  
 
 ### <a name="create-an-isolated-python-environment"></a>Skapa en isolerad Python-miljö
 
-1. Öppna ett kommandoradsfönster och skapa sedan en ny conda-miljö med namnet *myenv* och installera Python 3.6. Azure Machine Learning-SDK:n fungerar med Python 3.5.2 eller senare, men de automatiserade maskininlärningskomponenterna är inte fullständigt funktionella på Python 3.7.
+1. Öppna ett kommandoradsfönster, skapa en ny conda-miljö med namnet *myenv* och installera Python 3.6.5. Azure Machine Learning-SDK:n fungerar med Python 3.5.2 eller senare, men de automatiserade maskininlärningskomponenterna är inte fullständigt funktionella på Python 3.7.  Det tar flera minuter att skapa miljön medan komponenter och paket laddas ned.
 
     ```shell
-    conda create -n myenv -y Python=3.6
+    conda create -n myenv python=3.6.5
     ```
 
 1. Aktivera miljön.
@@ -78,18 +80,24 @@ Innan du installerar SDK:n rekommenderar vi att du skapar en isolerad Python-mil
     conda activate myenv
     ```
 
+1. Aktivera miljöspecifika ipython-kernels:
+
+    ```shell
+    conda install notebook ipykernel
+    ```
+
+    Skapa sedan kernel:
+
+    ```shell
+    ipython kernel install --user
+    ```
+
 ### <a name="install-the-sdk"></a>Installera SDK:n
 
 1. Installera kärnkomponenterna för Machine Learning-SDK:n med Jupyter Notebook-funktioner i den aktiverade conda-miljön.  Installationen tar några minuter att slutföra beroende på datorns konfiguration.
 
   ```shell
     pip install --upgrade azureml-sdk[notebooks]
-    ```
-
-1. Installera en Jupyter Notebook-server i conda-miljön.
-
-  ```shell
-    conda install -y nb_conda
     ```
 
 1. Om du vill använda den här miljön för Azure Machine Learning- självstudier installerar du dessa paket.

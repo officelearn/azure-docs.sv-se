@@ -7,13 +7,14 @@ ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 01/24/2019
-ms.openlocfilehash: b48ac9cf8eff001e62f54e41b5f76a9d006bc5ba
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.workload: Active
+ms.date: 02/15/2019
+ms.openlocfilehash: 6ec32a40cea4f95d9225134cfb36d4930245d1c5
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56328936"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56750607"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-azure-databricks"></a>Självstudier: Extrahera, transformera och läsa in data med hjälp av Azure Databricks
 
@@ -21,14 +22,19 @@ I den här självstudien utför du en ETL-åtgärd (extrahera, transformera och 
 
 Stegen i den här självstudiekursen använder SQL Data Warehouse-anslutningsappen så att Azure Databricks kan överföra data till Azure Databricks. Den här anslutningsappen använder i sin tur Azure Blob Storage som temporär lagring för de data som överförs mellan ett Azure Databricks-kluster och Azure SQL Data Warehouse.
 
+Följande bild visar programflödet:
+
+![Azure Databricks med Data Lake Store och SQL Data Warehouse](./media/databricks-extract-load-sql-data-warehouse/databricks-extract-transform-load-sql-datawarehouse.png "Azure Databricks med Data Lake Store och SQL Data Warehouse")
+
 Den här självstudien omfattar följande uppgifter:
 
 > [!div class="checklist"]
 > * Skapa en Azure Databricks-tjänst.
 > * Skapa ett Spark-kluster i Azure Databricks.
-> * Skapa ett filsystem och ladda upp data till Azure Data Lake Storage Gen2.
+> * Skapa ett filsystem i Data Lake Storage Gen2-kontot.
+> * Ladda upp exempeldata till Azure Data Lake Storage Gen2-kontot.
 > * Skapa ett huvudnamn för tjänsten.
-> * Extrahera data från Data Lake Store.
+> * Extrahera data från Azure Data Lake Storage Gen2-kontot.
 > * Transformera data med Azure Databricks.
 > * Läs in data till Azure SQL Data Warehouse.
 
@@ -42,11 +48,40 @@ Slutför de här uppgifterna innan du startar självstudien:
 
 * Skapa en databashuvudnyckel för Azure SQL-informationslagret. Se [Skapa en databashuvudnyckel](https://docs.microsoft.com/sql/relational-databases/security/encryption/create-a-database-master-key).
 
-* Skapa ett Azure Data Lake Storage Gen2-konto. Se [Skapa ett Azure Data Lake Storage Gen2-konto](../storage/blobs/data-lake-storage-quickstart-create-account.md).
-
 * Skapa ett Azure Blob Storage-konto och en container i det. Få dessutom åtkomst till lagringskontot genom att hämta åtkomstnyckeln. Gå till [Snabbstart: Skapa ett Azure Blob Storage-konto](../storage/blobs/storage-quickstart-blobs-portal.md).
 
+* Skapa ett Azure Data Lake Storage Gen2-lagringskonto. Se [Skapa ett Azure Data Lake Storage Gen2-konto](../storage/blobs/data-lake-storage-quickstart-create-account.md).
+
+*  Skapa ett huvudnamn för tjänsten. Se [Anvisningar: Använd portalen för att skapa ett Azure AD-program och huvudnamn för tjänsten som kan komma åt resurser](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
+
+   Det finns några saker som du måste göra när du utför stegen i den här artikeln.
+
+   * När du utför stegen i avsnittet [Tilldela programmet till en roll](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role) i artikeln ska du tilldela rollen **Storage Blob Data-deltagare** till tjänstens huvudnamn.
+
+     > [!IMPORTANT]
+     > Se till att tilldela rollen i omfånget för Data Lake Storage Gen2-lagringskontot. Du kan tilldela en roll till den överordnade resursgruppen eller prenumerationen, men du får behörighetsrelaterade fel tills de rolltilldelningarna propageras till lagringskontot.
+
+   * När du utför stegen i avsnittet [Hämta värden för att logga in](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) i artikeln klistrar du in värdena för klient-ID, program-ID och autentiseringsnyckel i en textfil. Du kommer att behöva dem snart.
+
 * Logga in på [Azure-portalen](https://portal.azure.com/).
+
+## <a name="gather-the-information-that-you-need"></a>Samla in den information som du behöver
+
+Se till att du slutför kraven för den här självstudien.
+
+   Innan du börjar bör du ha följande information:
+
+   :heavy_check_mark:  Databasens namn, databasserverns namn, användarnamn och lösenord för ditt Azure SQL-informationslager.
+
+   :heavy_check_mark:  Åtkomstnyckeln för ditt Blog Storage-konto.
+
+   :heavy_check_mark:  Namnet på ditt Data Lake Storage Gen2-lagringskonto.
+
+   :heavy_check_mark:  Klientorganisations-ID för din prenumeration.
+
+   :heavy_check_mark:  Program-ID för den app som du registrerade med Azure Active Directory (AD Azure).
+
+   :heavy_check_mark:  Autentiseringsnyckeln för den app som du registrerade med Azure AD.
 
 ## <a name="create-an-azure-databricks-service"></a>Skapa en Azure Databricks-tjänst
 
@@ -94,40 +129,9 @@ I det här avsnittet skapar du en Azure Databricks-tjänst i Azure Portal.
 
     * Välj **Skapa kluster**. När klustret körs kan du ansluta anteckningsböcker till klustret och köra Spark-jobb.
 
-## <a name="create-a-file-system-and-upload-sample-data"></a>Skapa ett filsystem och ladda upp exempeldata
+## <a name="create-a-file-system-in-the-azure-data-lake-storage-gen2-account"></a>Skapa ett filsystem i Azure Data Lake Storage Gen2-kontot
 
-Först skapar du ett filsystem i ditt Data Lake Storage Gen2-konto. Sedan kan du ladda upp en exempeldatafil till Data Lake Store. Du kan använda den här filen senare i Azure Databricks om du vill köra vissa transformationer.
-
-1. Ladda ned exempeldatafilen [small_radio_json.json](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json) till det lokala filsystemet.
-
-2. Från [Azure-portalen](https://portal.azure.com/) går du till det Data Lake Storage Gen2-konto som du skapade som en förutsättning för den här självstudien.
-
-3. På sidan **Översikt** i lagringskontot väljer du **Öppna i Explorer**.
-
-   ![Öppna Storage Explorer](./media/databricks-extract-load-sql-data-warehouse/data-lake-storage-open-storage-explorer.png "Öppna Storage Explorer")
-
-4. Öppna Storage Explorer genom att välja **Öppna Azure Storage Explorer**.
-
-   ![Öppna Storage Explorer för andra gången](./media/databricks-extract-load-sql-data-warehouse/data-lake-storage-open-storage-explorer-2.png "Öppna Storage Explorer för andra gången")
-
-   Storage Explorer öppnas. Du kan skapa ett filsystem och ladda upp exempeldata med hjälp av vägledningen i det här ämnet: [Snabbstart: Använda Azure Storage Explorer för att hantera data i ett Azure Data Lake Storage Gen2-konto](../storage/blobs/data-lake-storage-explorer.md).
-
-<a id="service-principal"/>
-
-## <a name="create-a-service-principal"></a>Skapa ett huvudnamn för tjänsten
-
-Skapa ett huvudnamn för tjänsten genom att följa anvisningarna i det här avsnittet: [Anvisningar: Använd portalen för att skapa ett Azure AD-program och huvudnamn för tjänsten som kan komma åt resurser](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
-
-Det finns några saker du måste göra när du utför stegen i den här artikeln.
-
-:heavy_check_mark: När du utför stegen i avsnittet [Tilldela programmet till en roll](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role) i artikeln måste du tilldela programmet till **deltagarrollen för bloblagring**.
-
-:heavy_check_mark: När du utför stegen i avsnittet [Hämta värden för att logga in](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) i artikeln klistrar du in värdena för klient-ID, program-ID och autentiseringsnyckel i en textfil. Du kommer att behöva dem snart.
-Först måste du skapa en anteckningsbok på Azure Databricks-arbetsytan och köra kodfragment för att skapa filsystemet i lagringskontot.
-
-## <a name="extract-data-from-the-data-lake-store"></a>Extrahera data från Data Lake Store
-
-I det här avsnittet skapar du en anteckningsbok på Azure Databricks-arbetsytan och kör sedan kodavsnitt för att extrahera data från Data Lake Store till Azure Databricks.
+I det här avsnittet skapar du en anteckningsbok på Azure Databricks-arbetsytan och kör sedan kodavsnitt för att konfigurera lagringskontot
 
 1. Gå till Azure Databricks-tjänsten du skapade i [Azure Portal](https://portal.azure.com) och välj **Starta arbetsyta**.
 
@@ -149,13 +153,40 @@ I det här avsnittet skapar du en anteckningsbok på Azure Databricks-arbetsytan
    spark.conf.set("fs.azure.account.oauth2.client.id.<storage-account-name>.dfs.core.windows.net", "<application-id>")
    spark.conf.set("fs.azure.account.oauth2.client.secret.<storage-account-name>.dfs.core.windows.net", "<authentication-key>")
    spark.conf.set("fs.azure.account.oauth2.client.endpoint.<storage-account-name>.dfs.core.windows.net", "https://login.microsoftonline.com/<tenant-id>/oauth2/token")
+   spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "true")
+   dbutils.fs.ls("abfss://<file-system-name>@<storage-account-name>.dfs.core.windows.net/")
+   spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "false")
    ```
 
-6. I det här kodblocket ersätter du platshållarvärdena `application-id`, `authentication-id` och `tenant-id` med de värden som du hämtade när du genomförde stegen i Spara lagringskontokonfiguration. Ersätt platshållarvärdet `storage-account-name` med namnet på ditt lagringskonto.
+6. I det här kodblocket ersätter du platshållarvärdena `application-id`, `authentication-id`, `tenant-id` och `storage-account-name` i det här kodblocket med de värden som du hämtade när du slutförde förutsättningarna för den här självstudien. Ersätt platshållarvärdet `file-system-name` med det namn som du vill ge filsystemet.
+
+   * `application-id` och `authentication-id` kommer från den app som du registrerade med Active Directory som en del av skapandet av ett tjänsthuvudnamn.
+
+   * `tenant-id` kommer från din prenumeration.
+
+   * `storage-account-name` är namnet på ditt Azure Data Lake Storage Gen2-lagringskonto.
 
 7. Tryck på **SKIFT + RETUR** för att köra koden i det här blocket.
 
-8. Du kan nu läsa in json-exempelfilen som en dataram i Azure Databricks. Klistra in följande kod i en ny cell. Ersätt platshållarna inom hakparentes med dina värden.
+## <a name="ingest-sample-data-into-the-azure-data-lake-storage-gen2-account"></a>Mata in exempeldata i Azure Data Lake Storage Gen2-kontot
+
+Innan du börjar med det här avsnittet måste du slutföra följande krav:
+
+Ange följande kod i en cell i en arbetsbok:
+
+    %sh wget -P /tmp https://raw.githubusercontent.com/Azure/usql/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json
+
+Kör koden genom att trycka på **SKIFT + RETUR** i cellen.
+
+I en ny cell nedanför denna anger du följande kod, och ersätter värdena inom hakparentes med samma värden som du använde tidigare:
+
+    dbutils.fs.cp("file:///tmp/small_radio_json.json", "abfss://<file-system>@<account-name>.dfs.core.windows.net/")
+
+Kör koden genom att trycka på **SKIFT + RETUR** i cellen.
+
+## <a name="extract-data-from-the-azure-data-lake-storage-gen2-account"></a>Extrahera data från Azure Data Lake Storage Gen2-kontot
+
+1. Du kan nu läsa in json-exempelfilen som en dataram i Azure Databricks. Klistra in följande kod i en ny cell. Ersätt platshållarna inom hakparentes med dina värden.
 
    ```scala
    val df = spark.read.json("abfss://<file-system-name>@<storage-account-name>.dfs.core.windows.net/small_radio_json.json")
@@ -165,9 +196,9 @@ I det här avsnittet skapar du en anteckningsbok på Azure Databricks-arbetsytan
 
    * Ersätt platshållaren `storage-account-name` med namnet på ditt lagringskonto.
 
-9. Tryck på **SKIFT + RETUR** för att köra koden i det här blocket.
+2. Tryck på **SKIFT + RETUR** för att köra koden i det här blocket.
 
-10. Kör följande kod om du vill se dataramens innehåll:
+3. Kör följande kod om du vill se dataramens innehåll:
 
     ```scala
     df.show()
@@ -300,8 +331,8 @@ Som tidigare nämnts använder SQL Data Warehouse-anslutningen Azure Blob Storag
    val dwPass = "<password>"
    val dwJdbcPort =  "1433"
    val dwJdbcExtraOptions = "encrypt=true;trustServerCertificate=true;hostNameInCertificate=*.database.windows.net;loginTimeout=30;"
-   val sqlDwUrl = "jdbc:sqlserver://" + dwServer + ".database.windows.net:" + dwJdbcPort + ";database=" + dwDatabase + ";user=" + dwUser+";password=" + dwPass + ";$dwJdbcExtraOptions"
-   val sqlDwUrlSmall = "jdbc:sqlserver://" + dwServer + ".database.windows.net:" + dwJdbcPort + ";database=" + dwDatabase + ";user=" + dwUser+";password=" + dwPass
+   val sqlDwUrl = "jdbc:sqlserver://" + dwServer + ":" + dwJdbcPort + ";database=" + dwDatabase + ";user=" + dwUser+";password=" + dwPass + ";$dwJdbcExtraOptions"
+   val sqlDwUrlSmall = "jdbc:sqlserver://" + dwServer + ":" + dwJdbcPort + ";database=" + dwDatabase + ";user=" + dwUser+";password=" + dwPass
    ```
 
 5. Kör följande kodfragment för att läsa in den transformerande dataramen **renamedColumnsDf** som en tabell i ett SQL-informationslager. Det här kodfragmentet skapar en tabell med namnet **SampleTable** i SQL-databasen.

@@ -1,41 +1,45 @@
 ---
-title: Snabbstart för att skapa och använda en Azure-filresurs i Windows | Microsoft Docs
-description: Använd den här snabbstarten till att skapa och använda en Azure-filresurs för Windows.
+title: Azure-snabb – Skapa och använda en Azure Files-resurs på virtuella Windows-datorer | Microsoft Docs
+description: I den här snabbstarten konfigurerar du en Azure Files-resurs i Azure-portalen och ansluter den till en virtuell Windows-dator. Du ansluter till Files-resursen och laddar upp en fil till Files-resursen. Sedan tar du en ögonblicksbild av Files-resursen, ändrar filen Files-resursen och återställer en tidigare ögonblicksbild av Files-resursen.
 services: storage
-author: wmgries
+author: roygara
 ms.service: storage
 ms.topic: quickstart
 ms.date: 02/01/2019
-ms.author: wgries
-ms.component: files
-ms.openlocfilehash: 141a8c9d63d3f0fd615ec0648b15c669f28f7118
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.author: rogarana
+ms.subservice: files
+ms.openlocfilehash: 12dea044dab2aafad1d7597214d159011b5ab536
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55664003"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56652475"
 ---
-# <a name="quickstart-create-and-use-an-azure-file-share-for-windows"></a>Snabbstart: Skapa och använda en Azure-filresurs för Windows
-Artikeln visar de grundläggande stegen för att skapa och använda en Azure-filresurs. I den här snabbstarten fokuserar vi på att snabbt konfigurera en Azure-filresurs så att du kan se hur tjänsten fungerar. Om du behöver mer detaljerade instruktioner för att skapa och använda Azure-filresurser i din egen miljö, kan du läsa mer i [Använda en Azure-filresurs med Windows](storage-how-to-use-files-windows.md).
+# <a name="quickstart-create-and-manage-azure-files-share-with-windows-virtual-machines"></a>Snabbstart: Skapa och hantera Azure Files-resurs med virtuella Windows-datorer
+
+Artikeln visar de grundläggande stegen för att skapa och använda en Azure Files-resurs. I den här snabbstarten fokuserar vi på att snabbt konfigurera en Azure Files-resurs så att du kan se hur tjänsten fungerar. Om du behöver mer detaljerade instruktioner för att skapa och använda Azure-filresurser i din egen miljö, kan du läsa mer i [Använda en Azure-filresurs med Windows](storage-how-to-use-files-windows.md).
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
+
 Logga in på [Azure-portalen](https://portal.azure.com).
 
 ## <a name="prepare-your-environment"></a>Förbered din miljö
-Innan du skapar en Azure-filresurs måste du konfigurera följande objekt för den här snabbstarten:
+
+I den här snabbstarten konfigurerar du följande objekt:
 
 - Skapa ett Azure-lagringskonto och en Azure-filresurs
 - En virtuell Windows Server 2016 Datacenter-dator
 
 ### <a name="create-a-storage-account"></a>skapar ett lagringskonto
 
-Innan du kan arbeta med en Azure-filresurs måste du skapa ett Azure-lagringskonto. Ett lagringskonto är en delad lagringspool i vilken du kan distribuera en Azure-filresurs eller andra lagringsresurser, t.ex. blobar eller köer. Ett lagringskonto kan innehålla ett obegränsat antal resurser. En resurs kan lagra ett obegränsat antal filer, upp till kapacitetsbegränsningen för lagringskontot.
+Innan du kan arbeta med en Azure-filresurs måste du skapa ett Azure-lagringskonto. Ett v2-lagringskonto för generell användning ger åtkomst till alla Azure Storage-tjänster: blobar, filer, köer och tabeller. Snabbstarten skapar ett v2-lagringskonto för generell användning, men stegen för att skapa alla typer av lagringskonton liknar dessa. Ett lagringskonto kan innehålla ett obegränsat antal resurser. En resurs kan lagra ett obegränsat antal filer, upp till kapacitetsbegränsningen för lagringskontot.
 
 [!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
 
 ### <a name="create-an-azure-file-share"></a>Skapa en Azure-filresurs
+
 Därefter skapar du en filresurs.
 
 1. När distributionen av Azure-lagringskontot är klar väljer du **Gå till resurs**.
@@ -58,6 +62,7 @@ Därefter skapar du en filresurs.
 Nu har du skapat ett Azure Storage-konto och en filresurs med en fil i Azure. Därefter ska du skapa den virtuella Azure-datorn i Windows Server 2016 Datacenter som representerar den lokala servern i den här snabbstarten.
 
 ### <a name="deploy-a-vm"></a>Distribuera en virtuell dator
+
 1. Expandera sedan menyn till vänster om portalen och välj **Skapa en resurs** i det övre vänstra hörnet i Azure-portalen.
 1. I sökrutan ovanför listan över resurser i **Azure Marketplace**, söker di efter och väljer **Windows Server 2016 Datacenter** och därefter **Skapa**.
 1. På fliken **Grundinställningar** under **Projektinformation** väljer du den resursgrupp som du skapade för snabbstarten.
@@ -112,6 +117,7 @@ Nu har du skapat en ny virtuell dator och anslutit en datadisk. Nu måste du ans
       ![UNC-sökvägen från fönstret Anslut i Azure Files](./media/storage-files-quick-create-use-windows/portal_netuse_connect3.png)
 
 ## <a name="create-a-share-snapshot"></a>Skapa en ögonblicksbild av en resurs
+
 Nu när du har mappat enheten kan du skapa en ögonblicksbild.
 
 1. I portalen går du till filresursen och väljer **Skapa ögonblicksbild**.
@@ -132,7 +138,7 @@ Nu när du har mappat enheten kan du skapa en ögonblicksbild.
 
 ## <a name="restore-from-a-snapshot"></a>Återställa från en ögonblicksbild
 
-1. I portalen väljer du *qsTestFile* > välj knappen **Återställ**.
+1. Från bladet för filresursens ögonblicksbild högerklickar du på *qsTestFile* och väljer knappen **Återställ**.
 1. Välj **Skriv över originalfilen**.
 
    ![Knapparna Ladda ned och Återställ](./media/storage-files-quick-create-use-windows/snapshot-download-restore-portal.png)
@@ -147,6 +153,7 @@ Nu när du har mappat enheten kan du skapa en ögonblicksbild.
    ![Knappen Ta bort](./media/storage-files-quick-create-use-windows/portal-snapshots-delete.png)
 
 ## <a name="use-a-share-snapshot-in-windows"></a>Använda en resursögonblicksbild i Windows
+
 Precis som med lokala VSS-ögonblicksbilder, kan du visa ögonblicksbilder från din monterade Azure-filresurs med hjälp av fliken Tidigare versioner.
 
 1. Leta upp den monterade resursen i Utforskaren.

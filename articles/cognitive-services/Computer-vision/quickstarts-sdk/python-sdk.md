@@ -8,24 +8,27 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 02/15/2019
+ms.date: 02/26/2019
 ms.author: pafarley
-ms.openlocfilehash: 3043067f326f782c51be38382070ae0db0e90f4d
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: d14b9c88b447583eedc8b50f4f9acf80ae4e3c75
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56314180"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889638"
 ---
 # <a name="azure-cognitive-services-computer-vision-sdk-for-python"></a>Azure Cognitive Services-SDK för visuellt innehåll och för Python
 
-Via tjänsten Visuellt innehåll har utvecklare tillgång till avancerade algoritmer för bearbetning av bilder och returnering av information. Algoritmer för visuellt innehåll kan analysera innehållet i en bild på olika sätt beroende på vilka visuella egenskaper som du är intresserad av. Till exempel kan visuellt innehåll avgöra om en bild innehåller stötande eller olämpligt innehåll, hitta alla ansikten i en bild eller hämta handskriven eller tryckt text. Tjänsten fungerar med vanliga bildformat som JPEG och PNG. 
+Via tjänsten Visuellt innehåll har utvecklare tillgång till avancerade algoritmer för bearbetning av bilder och returnering av information. Algoritmer för visuellt innehåll kan analysera innehållet i en bild på olika sätt beroende på vilka visuella egenskaper som du är intresserad av. 
 
-Du kan använda visuellt innehåll i ditt program för att:
+* [Analysera en bild](#analyze-an-image)
+* [Hämta ämnesdomänlista](#get-subject-domain-list)
+* [Analysera en bild efter domän](#analyze-an-image-by-domain)
+* [Hämta textbeskrivning av en bild](#get-text-description-of-an-image)
+* [Hämta handskriven text från en bild](#get-text-from-image)
+* [Skapa en miniatyrbild](#generate-thumbnail)
 
-- Analysera bilder för att få insikter
-- Extrahera text från bilder
-- Skapa miniatyrbilder
+Mer information om den här tjänsten finns i [Vad är visuellt innehåll?][computervision_docs].
 
 Letar du efter mer dokumentation?
 
@@ -34,11 +37,21 @@ Letar du efter mer dokumentation?
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-* Azure-prenumeration – [Skapa ett kostnadsfritt konto][azure_sub]
-* Azure [resurs för visuellt innehåll][computervision_resource]
 * [Python 3.6+][python]
+* Kostnadsfri [nyckel för Visuellt innehåll][computervision_resource] och associerad region. Du behöver dessa värden när du skapar en instans av klientobjektet [ComputerVisionAPI][ref_computervisionclient]. Använd en av följande metoder för att hämta dessa värden. 
 
-Om du behöver ett API-konto för visuellt innehåll kan du skapa ett med det här [Azure CLI][azure_cli]-kommandot:
+### <a name="if-you-dont-have-an-azure-subscription"></a>Om du inte har en Azure-prenumeration
+
+Skapa en kostnadsfri nyckel som är giltig i 7 dagar med funktionen **Prova**. När nyckeln har skapats kopierar du namnet på nyckeln och regionen. Du behöver detta för att [skapa klienten](#create-client).
+
+Spara följande när nyckeln har skapats:
+
+* Nyckelvärdet: en sträng med 32 tecken med formatet `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` 
+* Nyckelregion: underdomänen för slutpunkts-URL:en https://**westcentralus**.api.cognitive.microsoft.com
+
+### <a name="if-you-have-an-azure-subscription"></a>Om du har en Azure-prenumeration
+
+Om du behöver ett konto för API för visuellt innehåll är det enklast att skapa ett sådant i din prenumeration med hjälp av följande [Azure CLI.kommando][azure_cli]. Du behöver välja resursgruppens namn, till exempel ”my-cogserv-group”, samt namnet på resursen för Visuellt innehåll, till exempel ”my-computer-vision-resource”. 
 
 ```Bash
 RES_REGION=westeurope 
@@ -54,18 +67,20 @@ az cognitiveservices account create \
     --yes
 ```
 
-## <a name="installation"></a>Installation
+<!--
+## Installation
 
-Installera Azure Cognitive Services-SDK för visuellt innehåll med [pip][pip], eventuellt i en [virtuell miljö][venv].
+Install the Azure Cognitive Services Computer Vision SDK with [pip][pip], optionally within a [virtual environment][venv].
 
-### <a name="configure-a-virtual-environment-optional"></a>Konfigurera en virtuell miljö (valfritt)
+### Configure a virtual environment (optional)
 
-Även om det inte krävs, du kan behålla dina grundläggande system- och Azure SDK-miljöer isolerade från varandra om du använder en [virtuell miljö][virtualenv]. Kör följande kommandon för att konfigurera och ange sedan en virtuell miljö med [venv][venv], till exempel `cogsrv-vision-env`:
+Although not required, you can keep your base system and Azure SDK environments isolated from one another if you use a [virtual environment][virtualenv]. Execute the following commands to configure and then enter a virtual environment with [venv][venv], such as `cogsrv-vision-env`:
 
 ```Bash
 python3 -m venv cogsrv-vision-env
 source cogsrv-vision-env/bin/activate
 ```
+-->
 
 ### <a name="install-the-sdk"></a>Installera SDK:n
 
@@ -81,9 +96,20 @@ När du skapar resursen för visuellt innehåll måste dess **region** och en av
 
 Använd dessa värden när du skapar en instans av klientobjektet [ComputerVisionAPI][ref_computervisionclient]. 
 
-### <a name="get-credentials"></a>Hämta autentiseringsuppgifter
+<!--
 
-Använd kodavsnittet [Azure CLI][cloud_shell] nedan för att fylla i två miljövariabler med kontots **region** för visuellt innehåll och en av dess **nycklar** (du hittar även dessa värden i [Azure-portalen][azure_portal]). Kodfragmentet är formaterat för Bash-gränssnittet.
+For example, use the Bash terminal to set the environment variables:
+
+```Bash
+ACCOUNT_REGION=<resourcegroup-name>
+ACCT_NAME=<computervision-account-name>
+```
+
+### For Azure subscription usrs, get credentials for key and region
+
+If you do not remember your region and key, you can use the following method to find them. If you need to create a key and region, you can use the method for [Azure subscription holders](#if-you-have-an-azure-subscription) or for [users without an Azure subscription](#if-you-dont-have-an-azure-subscription).
+
+Use the [Azure CLI][cloud_shell] snippet below to populate two environment variables with the Computer Vision account **region** and one of its **keys** (you can also find these values in the [Azure portal][azure_portal]). The snippet is formatted for the Bash shell.
 
 ```Bash
 RES_GROUP=<resourcegroup-name>
@@ -101,44 +127,25 @@ export ACCOUNT_KEY=$(az cognitiveservices account keys list \
     --query key1 \
     --output tsv)
 ```
+-->
 
 ### <a name="create-client"></a>Skapa en klient
 
-När du har fyllt i miljövariablerna `ACCOUNT_REGION` och `ACCOUNT_KEY`, kan du skapa [ComputerVisionAPI][ref_computervisionclient]-klientobjektet.
+Skapa [ComputerVisionAPI-klientobjektet][ref_computervisionclient]. Ändra region- och nyckelvärden i följande kodexempel till dina egna värden.
 
 ```Python
 from azure.cognitiveservices.vision.computervision import ComputerVisionAPI
 from azure.cognitiveservices.vision.computervision.models import VisualFeatureTypes
 from msrest.authentication import CognitiveServicesCredentials
 
-import os
-region = os.environ['ACCOUNT_REGION']
-key = os.environ['ACCOUNT_KEY']
+region = "westcentralus"
+key = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 
 credentials = CognitiveServicesCredentials(key)
 client = ComputerVisionAPI(region, credentials)
 ```
 
-## <a name="usage"></a>Användning
-
-När du har initierat ett [ComputerVisionAPI][ref_computervisionclient]-klientobjekt kan du:
-
-* Analysera en bild: Du kan analysera en bild för vissa funktioner, till exempel ansikten, färger, taggar.   
-* Skapa miniatyrbilder: Skapa en anpassad JPEG-bild som kan användas som en miniatyrbild för den ursprungliga bilden.
-* Hämta beskrivning av en avbildning: Få en beskrivning av avbildningen baserat på dess ämnesdomän. 
-
-Mer information om den här tjänsten finns i [Vad är visuellt innehåll?][computervision_docs].
-
-## <a name="examples"></a>Exempel
-
-Följande avsnitt innehåller flera kodfragment som täcker några av de vanligaste uppgifterna för visuellt innehåll, inklusive:
-
-* [Analysera en bild](#analyze-an-image)
-* [Hämta ämnesdomänlista](#get-subject-domain-list)
-* [Analysera en bild efter domän](#analyze-an-image-by-domain)
-* [Hämta textbeskrivning av en bild](#get-text-description-of-an-image)
-* [Hämta handskriven text från en bild](#get-text-from-image)
-* [Skapa en miniatyrbild](#generate-thumbnail)
+Du behöver [ComputerVisionAPI-klientobjektet][ref_computervisionclient] innan du använder någon av följande uppgifter.
 
 ### <a name="analyze-an-image"></a>Analysera en bild
 
@@ -169,8 +176,13 @@ for x in models.models_property:
 Du kan analysera en bild av ämnesdomänen med [`analyze_image_by_domain`][ref_computervisionclient_analyze_image_by_domain]. Hämta [listan med ämnesdomäner som stöds](#get-subject-domain-list) för att kunna använda rätt domännamn.  
 
 ```Python
+# type of prediction
 domain = "landmarks"
-url = "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Broadway_and_Times_Square_by_night.jpg/450px-Broadway_and_Times_Square_by_night.jpg"
+
+# Public domain image of Eiffel tower
+url = "https://images.pexels.com/photos/338515/pexels-photo-338515.jpeg"
+
+# English language response
 language = "en"
 
 analysis = client.analyze_image_by_domain(domain, url, language)
@@ -202,6 +214,10 @@ for caption in analysis.captions:
 Du kan hämta handskriven eller tryckt text från en bild. Detta kräver två anrop till SDK:n: [`recognize_text`][ref_computervisionclient_recognize_text] och [`get_text_operation_result`][ref_computervisionclient_get_text_operation_result]. Anropet till recognize_text är asynkront. I resultatet av anropet get_text_operation_result, måste du kontrollera om det första anropet slutfördes med [`TextOperationStatusCodes`][ref_computervision_model_textoperationstatuscodes] innan du extraherar textdatan. Resultatet är texten samt omgivande koordinater för textens avgränsningsfält. 
 
 ```Python
+# import models
+from azure.cognitiveservices.vision.computervision.models import TextRecognitionMode
+from azure.cognitiveservices.vision.computervision.models import TextOperationStatusCodes
+
 url = "https://azurecomcdn.azureedge.net/cvt-1979217d3d0d31c5c87cbd991bccfee2d184b55eeb4081200012bdaf6a65601a/images/shared/cognitive-services-demos/read-text/read-1-thumbnail.png"
 mode = TextRecognitionMode.handwritten
 raw = True
@@ -231,10 +247,19 @@ if result.status == TextOperationStatusCodes.succeeded:
 
 Du kan skapa en miniatyrbild (JPG) av en bild med [`generate_thumbnail`][ref_computervisionclient_generate_thumbnail]. Miniatyren behöver inte ha samma proportioner som den ursprungliga bilden. 
 
-I det här exemplet används paketet [Pillow][pypi_pillow] för att spara den nya miniatyrbilden lokalt.
+Installera **Pillow** för att använda det här exemplet:
+
+```bash
+pip install Pillow
+``` 
+
+När Pillow har installerats använder du paketet i följande kodexempel för att generera miniatyrbilden.
 
 ```Python
+# Pillow package
 from PIL import Image
+
+# IO package to create local image
 import io
 
 width = 50
@@ -281,17 +306,16 @@ except HTTPFailure as e:
 
 När du arbetar med [ComputerVisionAPI][ref_computervisionclient]-klienten, kan det uppstå tillfälliga fel som orsakas av [hastighetsbegränsningar][computervision_request_units] i tjänsten eller andra tillfälliga problem som t.ex. nätverksavbrott. Information om hur du hanterar dessa typer av fel finns i [Återförsöksmönster][azure_pattern_retry] i guiden för molndesignmönster och relaterade [Kretsbrytarmönster][azure_pattern_circuit_breaker].
 
-## <a name="next-steps"></a>Nästa steg
-
 ### <a name="more-sample-code"></a>Mer exempelkod
 
 Flera exempel på Python-SDK:er för visuellt innehåll finns tillgängliga på GitHub-lagringsplatsen för SDK:er. De här exemplen innehåller exempelkod för fler scenarier som ofta inträffar när du arbetar med visuellt innehåll:
 
 * [recognize_text][recognize-text]
 
-### <a name="additional-documentation"></a>Ytterligare dokumentation
+## <a name="next-steps"></a>Nästa steg
 
-Mer omfattande dokumentation om tjänsten Visuellt innehåll finns i [dokumentation för Azure Visuellt innehåll][computervision_docs] på docs.microsoft.com.
+> [!div class="nextstepaction"]
+> [Applicera innehållstaggar på bilder](../concept-tagging-images.md)
 
 <!-- LINKS -->
 [pip]: https://pypi.org/project/pip/

@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 11/13/2018
+ms.date: 02/25/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: c5bf56482534a55d24d8ca043e36c39cec99b1f0
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: be1249969fc50f5305dc5844f2578f8a24a6a220
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56267537"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56817957"
 ---
 # <a name="tutorial-create-azure-resource-manager-templates-with-dependent-resources"></a>Självstudier: Skapa Azure Resource Manager-mallar med beroende resurser
 
@@ -122,22 +122,10 @@ Det finns många metoder för att distribuera mallar.  I den här självstudien 
 
     ![Azure portal Cloud shell upload file](./media/resource-manager-tutorial-create-templates-with-dependent-resources/azure-portal-cloud-shell-upload-file.png)
 4. Välj den mall som du sparade tidigare i självstudien. Standardnamnet är **azuredeploy.json**.  Om du har en fil med samma namn skrivs den gamla filen över utan något meddelande.
-5. Från Cloud Shell kör du följande kommando för att kontrollera att filen har laddats upp. 
 
-    ```bash
-    ls
-    ```
+    Alternativt kan du använda kommandona **ls $HOME** och **cat $HOME/azuredeploy.json** för att kontrollera att filerna laddas upp. 
 
-    ![Azure portal Cloud shell list file](./media/resource-manager-tutorial-create-templates-with-dependent-resources/azure-portal-cloud-shell-list-file.png)
-
-    Det filnamn som visas på skärmbilden är azuredeploy.json.
-
-6. Från Cloud Shell kör du följande kommando för att verifiera innehållet i JSON-filen:
-
-    ```bash
-    cat azuredeploy.json
-    ```
-7. Från Cloud Shell kör du följande PowerShell-kommandon. För att förbättra säkerheten bör du använda ett genererat lösenord för den virtuella datorns administratörskonto. Se [Förutsättningar](#prerequisites).
+5. Från Cloud Shell kör du följande PowerShell-kommandon. För att förbättra säkerheten bör du använda ett genererat lösenord för den virtuella datorns administratörskonto. Se [Förutsättningar](#prerequisites).
 
     ```azurepowershell
     $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
@@ -146,17 +134,14 @@ Det finns många metoder för att distribuera mallar.  I den här självstudien 
     $adminPassword = Read-Host -Prompt "Enter the admin password" -AsSecureString
     $dnsLabelPrefix = Read-Host -Prompt "Enter the DNS label prefix"
 
-    New-AzResourceGroup -Name $resourceGroupName -Location $location
+    New-AzResourceGroup -Name $resourceGroupName -Location "$location"
     New-AzResourceGroupDeployment `
         -ResourceGroupName $resourceGroupName `
         -adminUsername $adminUsername `
         -adminPassword $adminPassword `
         -dnsLabelPrefix $dnsLabelPrefix `
-        -TemplateFile azuredeploy.json
+        -TemplateFile "$HOME/azuredeploy.json"
     ```
-
-    > [!NOTE]
-    > Det finns ett I/O-filproblem om Azure PowerShell används i Cloud Shell.  Felmeddelandet är *Cannot retrieve the dynamic parameters for the cmdlet. Cannot find path 'Azure:/azuredeploy.json' because it does not exist.* (Det går inte att hämta de dynamiska parametrarna för cmdleten. Det går inte att hitta sökvägen ”Azure:/azuredeploy.json” eftersom den inte finns.)  En tillfällig lösning är inte att ta med växeln **-TemplateFile** i kommandot `New-AzResourceGroupDeploy`. Kommandot uppmanar dig att ange namnet på filen.
 
 8. Kör följande PowerShell-kommando för att visa den nyligen skapade virtuella datorn:
 

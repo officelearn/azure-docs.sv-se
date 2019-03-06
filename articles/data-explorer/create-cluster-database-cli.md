@@ -1,6 +1,6 @@
 ---
-title: 'Snabbstart: Skapa ett Azure Data Explorer-kluster och en databas med CLI'
-description: I den här snabbstarten lär du dig att skapa ett Azure Data Explorer-kluster och en databas med Azure CLI
+title: 'Snabbstart: Skapa ett Azure Data Explorer-kluster och en databas med hjälp av CLI'
+description: Lär dig hur du skapar ett Azure Data Explorer-kluster och en databas med hjälp av Azure CLI
 services: data-explorer
 author: radennis
 ms.author: radennis
@@ -8,16 +8,16 @@ ms.reviewer: orspod
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 2/4/2019
-ms.openlocfilehash: 9e0ae547df34594674dc03702310a1537717a4ed
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 357f0efcf7300545d10113c92702d9fed4aad049
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55881124"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56958030"
 ---
-# <a name="create-an-azure-data-explorer-cluster-and-database-using-cli"></a>Skapa ett Azure Data Explorer-kluster och en databas med CLI
+# <a name="create-an-azure-data-explorer-cluster-and-database-by-using-the-cli"></a>Skapa ett Azure Data Explorer-kluster och en databas med hjälp av CLI
 
-Snabbstarten beskriver hur du skapar ett Azure Data Explorer-kluster och en databas med Azure CLI.
+Den här snabbstarten beskriver hur du skapar ett Azure Data Explorer-kluster och en databas med hjälp av Azure CLI.
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -25,11 +25,11 @@ Du behöver en Azure-prenumeration för att kunna utföra den här snabbstarten.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Om du väljer att installera och använda Azure CLI lokalt måste du köra Azure CLI version 2.0.4 eller senare. Kör `az --version` för att kontrollera vilken version du har. Om du behöver installera eller uppgradera kan du läsa informationen i [Installera Azure CLI](/cli/azure/install-azure-cli).
+Om du väljer att installera och använda Azure CLI kräver den här snabbstarten Azure CLI version 2.0.4 eller senare. Kör `az --version` för att kontrollera vilken version du har. Om du behöver installera eller uppgradera kan du läsa informationen i [Installera Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## <a name="configure-the-cli-parameters"></a>Konfigurera CLI-parametrarna
 
-Följande steg krävs inte om du kör kommandon i Cloud Shell. Om du kör CLI lokalt måste du utföra följande steg för att logga in i Azure och ange din aktuella prenumeration:
+Följande steg krävs inte om du kör kommandon i Azure Cloud Shell. Om du kör CLI lokalt följer du de här stegen för att logga in i Azure och ange din aktuella prenumeration:
 
 1. Kör följande kommandon för att logga in på Azure:
 
@@ -37,7 +37,7 @@ Följande steg krävs inte om du kör kommandon i Cloud Shell. Om du kör CLI lo
     az login
     ```
 
-2. Konfigurera prenumerationen där du vill att klustret ska skapas. Ersätt `MyAzureSub` med namnet på den Azure-prenumeration som du vill använda:
+2. Konfigurera den prenumeration där du vill att klustret ska skapas. Ersätt `MyAzureSub` med namnet på den Azure-prenumeration som du vill använda:
 
     ```azurecli-interactive
     az account set --subscription MyAzureSub
@@ -45,7 +45,7 @@ Följande steg krävs inte om du kör kommandon i Cloud Shell. Om du kör CLI lo
 
 ## <a name="create-the-azure-data-explorer-cluster"></a>Skapa Azure Data Explorer-klustret
 
-1. Skapa klustret med följande kommando:
+1. Skapa klustret med hjälp av följande kommando:
 
     ```azurecli-interactive
     az kusto cluster create --name azureclitest --sku D11_v2 --resource-group testrg
@@ -54,7 +54,7 @@ Följande steg krävs inte om du kör kommandon i Cloud Shell. Om du kör CLI lo
    |**Inställning** | **Föreslaget värde** | **Fältbeskrivning**|
    |---|---|---|
    | namn | *azureclitest* | Önskat namn på klustret.|
-   | sku | *D13_v2* | SKU:n som ska användas för klustret. |
+   | sku | *D13_v2* | Den SKU som ska användas för klustret. |
    | resource-group | *testrg* | Namnet på resursgruppen där klustret kommer att skapas. |
 
     Det finns ytterligare parametrar som du kan använda, till exempel kapaciteten för klustret.
@@ -65,11 +65,11 @@ Följande steg krävs inte om du kör kommandon i Cloud Shell. Om du kör CLI lo
     az kusto cluster show --name azureclitest --resource-group testrg
     ```
 
-Om resultatet innehåller ”provisioningState” med värdet ”Succeeded” har klustret skapats.
+Om resultatet innehåller `provisioningState` med värdet `Succeeded` har klustret skapats.
 
 ## <a name="create-the-database-in-the-azure-data-explorer-cluster"></a>Skapa databasen i Azure Data Explorer-klustret
 
-1. Skapa databasen med följande kommando:
+1. Skapa databasen med hjälp av följande kommando:
 
     ```azurecli-interactive
     az kusto database create --cluster-name azureclitest --name clidatabase --resource-group testrg --soft-delete-period 3650:00:00:00 --hot-cache-period 3650:00:00:00
@@ -77,13 +77,13 @@ Om resultatet innehåller ”provisioningState” med värdet ”Succeeded” ha
 
    |**Inställning** | **Föreslaget värde** | **Fältbeskrivning**|
    |---|---|---|
-   | cluster-name | *azureclitest* | Namnet på klustret där databasen ska skapas.|
-   | namn | *clidatabase* | Önskat namn på databasen.|
+   | cluster-name | *azureclitest* | Namnet på det kluster där databasen ska skapas.|
+   | namn | *clidatabase* | Namn på databasen.|
    | resource-group | *testrg* | Namnet på resursgruppen där klustret kommer att skapas. |
-   | soft-delete-period | *3650:00:00:00* | Hur lång tid data ska behållas för att vara tillgänglig för frågor. |
-   | hot-cache-period | *3650:00:00:00* | Hur länge data ska behållas i cacheminnet. |
+   | soft-delete-period | *3650:00:00:00* | Hur lång tid data ska behållas för att vara tillgängliga för frågor. |
+   | hot-cache-period | *3650:00:00:00* | Hur lång tid data ska behållas i cache. |
 
-2. Kör följande kommando för att se databasen som du skapade:
+2. Kör följande kommando för att se den databas som du skapade:
 
     ```azurecli-interactive
     az kusto database show --name clidatabase --resource-group testrg --cluster-name azureclitest
@@ -94,7 +94,7 @@ Nu har du ett kluster och en databas.
 ## <a name="clean-up-resources"></a>Rensa resurser
 
 * Om du planerar att följa våra andra snabbstarter och självstudier kan du spara alla resurser som du skapade.
-* Ta bort klustret om du vill rensa resurser. När du tar bort ett kluster, raderas också alla databaser i den. Använd kommandot nedan för att ta bort klustret:
+* Ta bort klustret om du vill rensa resurser. När du tar bort ett kluster, raderas också alla databaser i den. Använd följande kommando för att ta bort klustret:
 
     ```azurecli-interactive
     az kusto cluster delete --name azureclitest --resource-group testrg

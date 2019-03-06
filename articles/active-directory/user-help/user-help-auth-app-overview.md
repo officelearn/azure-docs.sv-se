@@ -12,14 +12,18 @@ ms.topic: overview
 ms.date: 01/24/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 79abead77705d13df909703a234bf72ee121a5be
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: 8585557672c7db15e07be6a5e663ba1811e07694
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301187"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56961320"
 ---
 # <a name="what-is-the-microsoft-authenticator-app"></a>Vad är Microsoft Authenticator-appen?
+
+>[!Important]
+>Innehållet är avsett för användare. Om du är administratör hittar du mer information om hur du konfigurerar och hanterar en Azure Active Directory (Azure AD)-miljö i [dokumentationen om Azure Active Directory](https://docs.microsoft.com/azure/active-directory).
+
 Med Microsoft Authenticator-appen kan du logga in på dina konton om du använder tvåfaktorsverifiering. Med tvåfaktorsverifiering kan du komma åt dina konton säkrare, särskilt när du visar känslig information. Eftersom lösenord kan glömmas, stjälas eller komprometteras är tvåfaktorsverifiering ett ytterligare steg som hjälper dig att skydda ditt konto genom att göra det svårare för andra att logga in.
 
 Du kan använda Microsoft Authenticator-appen på flera sätt, däribland följande:
@@ -31,7 +35,7 @@ Du kan använda Microsoft Authenticator-appen på flera sätt, däribland följa
 >[!Important]
 >Microsoft Authenticator-appen fungerar med alla appar som använder tvåfaktorsverifiering och alla konton som har stöd för tidsbaserade engångslösenord (TOTP).
 
->Innehållet är avsett för användare. Om du är administratör hittar du mer information om hur du konfigurerar och hanterar en Azure Active Directory (Azure AD)-miljö i [dokumentationen om Azure Active Directory](https://docs.microsoft.com/azure/active-directory).
+>Din organisation kan kräva att du använder en autentiseringsapp för att logga in och komma åt organisationens data och dokument. Även om ditt användarnamn kanske visas i appen är kontot inte konfigurerat så för att fungera som verifieringsmetod förrän du har slutfört registreringsprocessen. Mer information finns i [Lägga till ditt arbets- eller skolkonto](user-help-auth-app-overview.md).
 
 >Om du har problem med att logga in på ditt konto kan du läsa [When you can't sign in to your Microsoft account](https://support.microsoft.com/help/12429) (När du inte kan logga in på ditt Microsoft-konto) om du behöver hjälp. Få mer information om vad du gör när du får meddelandet [”Det Microsoft-kontot finns inte”](https://support.microsoft.com/help/13811) när du försöker logga in på ditt Microsoft-konto.
 
@@ -71,7 +75,7 @@ Beroende på din typ av konto kan organisationen välja att du måste använda t
 |------|------------|
 |[Ladda ned och installera appen](user-help-auth-app-download-install.md)|Beskriver var och hur du skaffar samt installerar Microsoft Authenticator-appen för enheter som kör Android och iOS.|
 |[Lägga till arbets- eller skolkonton](user-help-auth-app-add-work-school-account.md)|Beskriver hur du lägger till olika arbets- eller skolkonton till Microsoft Authenticator-appen.|
-|[Lägga till personliga konton](user-help-auth-app-add-personal-ms-account.md)|Beskriver hur du lägger till personliga Microsoft-konton i Microsoft Authenticator-appen.|
+|[Lägga till dina personliga konton](user-help-auth-app-add-personal-ms-account.md)|Beskriver hur du lägger till personliga Microsoft-konton i Microsoft Authenticator-appen.|
 |[Lägga till icke-Microsoft-konton](user-help-auth-app-add-non-ms-account.md)|Beskriver hur du lägger till icke-Microsoft-konton i Microsoft Authenticator-appen.|
 |[Lägga till konton manuellt](user-help-auth-app-add-account-manual.md)|Beskriver hur du manuellt lägger till ditt konto i Microsoft Authenticator-appen om du inte kan skanna QR-koden som tillhandahålls.|
 |[Logga in med appen](user-help-auth-app-sign-in.md)|Beskriver hur du loggar in på de olika kontona med Microsoft Authenticator-appen.|

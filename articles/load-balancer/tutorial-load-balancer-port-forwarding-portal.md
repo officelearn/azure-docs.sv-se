@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/11/18
+ms.date: 02/26/2019
 ms.author: kumud
 ms.custom: seodec18
-ms.openlocfilehash: da41b33f3e5d24c0391c8486d9c0b372877eff21
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 6cb9e839b1fffd29ce1d78e82fb4ab054b92efc6
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54232200"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56959139"
 ---
 # <a name="tutorial-configure-port-forwarding-in-azure-load-balancer-using-the-portal"></a>Självstudie: Konfigurera vidarebefordrade portar med Azure Load Balancer med portalen
 
@@ -44,25 +44,26 @@ Om du vill utföra stegen med den här självstudien loggar du in på Azure-port
 
 Börja med att skapa en offentlig standardbelastningsutjämnare som kan belastningsutjämna trafik över virtuella datorer. En Standard Load Balancer stöder endast offentliga IP-standardadresser. När du skapar en Standard Load Balancer, och även måste skapa en ny offentlig IP-standardadress som är konfigurerad som klientdelen med namnet **LoadBalancerFrontend** som standard. 
 
-1. Längst upp till vänster i portalen väljer du **Skapa en resurs** > **Netverk** > **Lastbalanserare**.
-   
-1. I fönsterrutan **Skapa lastbalanserare** skriver eller väljer du dessa värden:
-   
-   - **Namn**: Skriv *MyLoadBalancer*.
-   - **Typ**: Välj **Offentlig**. 
-   - **SKU**: Välj **standard**.
-   - **Offentlig IP-adress**: Välj **Skapa nytt** och skriv *myPublicIP* i textrutan.
-   - **Konfigurera den offentliga IP-adressens** > **tillgänglighetszon**: Välj **Zonredundant**.
-   - **ResourceGroup**: Välj **Skapa ny**, ange *MyResourceGroupLB* och välj **OK**. 
-   - **Plats**: Välj **Västeuropa**. 
-     
-     >[!NOTE]
-     >Se till att skapa en belastningsutjämnare och alla resurser för den på en plats som har stöd för tillgänglighetszoner. Mer information finns i [regioner som har stöd för tillgänglighetszoner](../availability-zones/az-overview.md#regions-that-support-availability-zones). 
-   
-1. Välj **Skapa**.
-   
-![Skapa en lastbalanserare](./media/tutorial-load-balancer-port-forwarding-portal/1-load-balancer.png)
+1. Längst upp till vänster på skärmen klickar du på **Skapa en resurs** > **Nätverk** > **Lastbalanserare**.
+2. På fliken **Grundläggande inställningar** på sidan **Skapa lastbalanserare** anger eller väljer du följande information, accepterar standardinställningarna för de återstående inställningarna och väljer sedan **Granska + skapa**:
 
+    | Inställning                 | Värde                                              |
+    | ---                     | ---                                                |
+    | Prenumeration               | Välj din prenumeration.    |    
+    | Resursgrupp         | Välj **Skapa ny** och skriv *MyResourceGroupLB* i textrutan.|
+    | Namn                   | *myLoadBalancer*                                   |
+    | Region         | Välj **Västeuropa**.                                        |
+    | Typ          | Välj **Offentligt**.                                        |
+    | SKU           | Välj **standard**.                          |
+    | Offentlig IP-adress | Välj **Skapa ny**. |
+    | Namn på offentlig IP-adress              | Skriv *myPublicIP* i textrutan.   |
+    |Tillgänglighetszon| Välj **Zonredundant**.    |
+     
+    >[!NOTE]
+     >Se till att skapa en belastningsutjämnare och alla resurser för den på en plats som har stöd för tillgänglighetszoner. Mer information finns i [regioner som har stöd för tillgänglighetszoner](../availability-zones/az-overview.md#regions-that-support-availability-zones). 
+
+3. På fliken **Granska + skapa** klickar du på **Skapa**.  
+  
 ## <a name="create-and-configure-back-end-servers"></a>Skapa och konfigurera serverdelsservrar
 
 Skapa ett virtuellt nätverk med två virtuella datorer för serverdelspoolen för din belastningsutjämnare. 

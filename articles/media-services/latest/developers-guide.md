@@ -13,19 +13,19 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 02/16/2019
+ms.date: 02/22/2019
 ms.author: juliako
 ms.custom: ''
-ms.openlocfilehash: 2f0191bd181a8e10fa59f6d1d53da348e6440aba
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 97123ec795353073b912bd83e0abb45e23549a75
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56343590"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56749808"
 ---
 # <a name="start-developing-with-media-services-v3-api-using-sdkstools"></a>Börja utveckla med Media Services v3 API med hjälp av SDK:er/verktyg
 
-Som utvecklare kan du använda Media Services [REST API](https://aka.ms/ams-v3-rest-sdk) eller klientbibliotek så att du kan interagera med REST API för att enkelt skapa, hantera och underhålla anpassade mediearbetsflöden. Media Services v3 API baseras på OpenAPI-specifikationen (kallades tidigare för en Swagger).
+Som utvecklare kan du använda Media Services [REST API](https://aka.ms/ams-v3-rest-ref) eller klientbibliotek så att du kan interagera med REST API för att enkelt skapa, hantera och underhålla anpassade mediearbetsflöden. [Media Services v3](https://aka.ms/ams-v3-rest-sdk) API baseras på OpenAPI-specifikationen (kallades tidigare för en Swagger).
 
 Det här avsnittet innehåller länkar till SDK:er, verktyg och dokumentation. Där finns även användbar information för olika utvecklarmiljöer.
 
@@ -95,6 +95,7 @@ Utforska Media Services [.NET-referensdokumentationen](https://aka.ms/ams-v3-dot
 - [Använda dynamisk DRM-kryptering och tjänsten för licensleverans – .NET](protect-with-drm.md)
 - [Hämta en signeringsnyckel från den befintliga principen – .NET](get-content-key-policy-dotnet-howto.md)
 - [Skapa filter med Media Services – .NET](filters-dynamic-manifest-dotnet-howto.md)
+- [Avancerad exempel på video på begäran för Azure Functions v2 med Media Services v3](http://aka.ms/ams3functions)
 
 ## <a name="java"></a>Java
 

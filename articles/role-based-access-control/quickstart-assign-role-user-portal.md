@@ -11,14 +11,14 @@ ms.devlang: ''
 ms.topic: tutorial
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 11/30/2018
+ms.date: 02/22/2019
 ms.author: rolyon
-ms.openlocfilehash: 41f1c6dc8904f167f34ea72aeb9b3866504b7087
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 9352130eeeb68a87947450cb5616aa59e8e99ae9
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56341308"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56807379"
 ---
 # <a name="tutorial-grant-a-user-access-to-azure-resources-using-rbac-and-the-azure-portal"></a>Självstudier: Bevilja åtkomst för en användare till Azure-resurser med hjälp av RBAC och Azure-portalen
 
@@ -38,9 +38,9 @@ Logga in på Azure Portal på http://portal.azure.com.
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
-1. Visa **resursgrupper** i navigationslistan.
+1. I navigeringslistan klickar du på **Resursgrupper**.
 
-1. Välj **Lägg till** för att öppna bladet **Resursgrupp**.
+1. Klicka på **Lägg till** för att öppna bladet **Resursgrupp**.
 
    ![Lägga till en ny resursgrupp](./media/quickstart-assign-role-user-portal/resource-group.png)
 
@@ -48,9 +48,9 @@ Logga in på Azure Portal på http://portal.azure.com.
 
 1. Välj en prenumeration och en plats.
 
-1. Välj **Skapa** för att skapa resursgruppen.
+1. Klicka på **Skapa** för att skapa resursgruppen.
 
-1. Välj **Uppdatera** för att uppdatera listan över resursgrupper.
+1. Klicka på **Uppdatera** för att uppdatera listan över resursgrupper.
 
    Den nya resursgruppen visas i listan med resursgrupper.
 
@@ -60,17 +60,19 @@ Logga in på Azure Portal på http://portal.azure.com.
 
 För att skapa åtkomst i RBAC skapar du rolltilldelningar.
 
-1. I listan över **Resursgrupper** väljer du den nya resursgruppen **rbac-resource-group**.
+1. I listan över **Resursgrupper** klicka du på den nya resursgruppen **rbac-resource-group**.
 
-1. Välj **Åtkomstkontroll (IAM)**.
+1. Klicka på **Åtkomstkontroll (IAM)**.
 
-1. Välj fliken **Rolltilldelningar** för att visa den aktuella listan med rolltilldelningar.
+1. Klicka på fliken **Rolltilldelningar** för att visa den aktuella listan med rolltilldelningar.
 
    ![Bladet Åtkomstkontroll (IAM) för resursgruppen](./media/quickstart-assign-role-user-portal/access-control.png)
 
-1. Välj **Lägg till rolltilldelning** för att öppna fönsterrutan Lägg till rolltilldelning.
+1. Klicka på **Lägg till** > **Lägg till rolltilldelning** för att öppna fönsterrutan Lägg till rolltilldelning.
 
    Om du inte har behörighet att tilldela roller är alternativet Lägg till rolltilldelning inaktiverat.
+
+   ![Menyn Lägg till](./media/role-assignments-portal/add-menu.png)
 
    ![Fönsterrutan Lägg till rolltilldelning](./media/quickstart-assign-role-user-portal/add-role-assignment.png)
 
@@ -78,7 +80,7 @@ För att skapa åtkomst i RBAC skapar du rolltilldelningar.
 
 1. I listan **Välj** väljer du själv eller någon annan användare.
 
-1. Välj **spara** för att skapa rolltilldelningen.
+1. Klicka på **Spara** för att skapa rolltilldelningen.
 
    Efter en liten stund tilldelas användaren rollen Virtuell datordeltagare för resursgruppsomfånget rbac-resource-group.
 
@@ -90,25 +92,25 @@ I RBAC kan du ta bort en rolltilldelning för att ta bort åtkomst.
 
 1. I listan över rolltilldelningar lägger du till en bockmarkering intill användaren med rollen Virtuell datordeltagare.
 
-1. Välj **Ta bort**.
+1. Klicka på **Ta bort**.
 
    ![Ta bort rolltilldelningsmeddelande](./media/quickstart-assign-role-user-portal/remove-role-assignment.png)
 
-1. När du ser meddelandet om att ta bort rolltilldelningen väljer du **Ja**.
+1. I meddelandet om att ta bort rolltilldelningen klickar du på **Ja**.
 
 ## <a name="clean-up"></a>Rensa
 
-1. Visa **resursgrupper** i navigationslistan.
+1. I navigeringslistan klickar du på **Resursgrupper**.
 
-1. Välj **rbac-resource-group** för att öppna resursgruppen.
+1. Klicka på **rbac-resource-group** för att öppna resursgruppen.
 
-1. Välj **Ta bort resursgrupp** för att ta bort resursgruppen.
+1. Klicka på **Ta bort resursgrupp** för att ta bort resursgruppen.
 
    ![Ta bort resursgrupp](./media/quickstart-assign-role-user-portal/delete-resource-group.png)
 
 1. På bladet **Är du säker på att du vill ta bort** skriver du resursgruppsnamnet: **rbac-resource-group**.
 
-1. Välj **Ta bort** för att ta bort resursgruppen.
+1. Klicka på **Ta bort** för att ta bort resursgruppen.
 
 ## <a name="next-steps"></a>Nästa steg
 

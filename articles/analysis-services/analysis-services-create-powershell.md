@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 01bd8b5d1f8ed0d78f3331b4150df37ef0a1049e
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 571cce2fafe1d19653dfa1e3d9a91042584621eb
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54426790"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56735949"
 ---
 # <a name="quickstart-create-a-server---powershell"></a>Snabbstart: Skapa en server – PowerShell
 
@@ -21,49 +21,51 @@ I den här snabbstarten beskrivs hur du använder PowerShell från kommandoraden
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 - **Azure-prenumeration**: Gå till [Kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/offers/ms-azr-0044p/) för att skapa ett konto.
 - **Azure Active Directory**: Prenumerationen måste vara kopplad till en Azure Active Directory-klientorganisation och du måste ha ett konto i den katalogen. Mer information finns i [Autentisering och användarbehörigheter](analysis-services-manage-users.md).
-- **Azure PowerShell-modul version 4.0 eller senare**. Kör ` Get-Module -ListAvailable AzureRM` för att hitta versionen. Information om att installera och uppgradera finns i [Install Azure PowerShell module](/powershell/azure/azurerm/install-azurerm-ps) (Installera Azure PowerShell-modul).
+- **Azure PowerShell**. Kör `Get-Module -ListAvailable Az` för att hitta den installerade versionen. Information om att installera och uppgradera finns i [Install Azure PowerShell module](/powershell/azure/install-Az-ps) (Installera Azure PowerShell-modul).
 
-## <a name="import-azurermanalysisservices-module"></a>Importera AzureRm.AnalysisServices modul
+## <a name="import-azanalysisservices-module"></a>Importera Az.AnalysisServices-modul
 
-Använd komponentmodulen [AzureRM.AnalysisServices](https://www.powershellgallery.com/packages/AzureRM.AnalysisServices) när du skapar en server i prenumerationen. Läs in AzureRm.AnalysisServices-modulen i PowerShell-sessionen.
+Du använder modulen [Az.AnalysisServices](/powershell/module/az.analysisservices) för att skapa en server i din prenumeration. Läs in Az.AnalysisServices-modulen i PowerShell-sessionen.
 
 ```powershell
-Import-Module AzureRM.AnalysisServices
+Import-Module Az.AnalysisServices
 ```
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
-Logga in till Azure-prenumerationen med kommandot [Connect-AzureRmAccount](/powershell/module/azurerm.profile/connect-azurermaccount). Följ anvisningarna på skärmen.
+Logga in på din Azure-prenumeration med hjälp av kommandot [Connect-AzAccount](/powershell/module/az.profile/connect-azaccount). Följ anvisningarna på skärmen.
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 ```
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
-En [Azure-resursgrupp](../azure-resource-manager/resource-group-overview.md) är en logisk container där Azure-resurser distribueras och hanteras som en grupp. När du skapar servern måste du ange en resursgrupp i prenumerationen. Om du inte redan har en resursgrupp, skapa en med kommandot [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). I följande exempel skapas en resursgrupp med namnet `myResourceGroup` i regionen västra USA.
+En [Azure-resursgrupp](../azure-resource-manager/resource-group-overview.md) är en logisk container där Azure-resurser distribueras och hanteras som en grupp. När du skapar servern måste du ange en resursgrupp i prenumerationen. Om du inte redan har en resursgrupp kan du skapa en med hjälp av kommandot [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). I följande exempel skapas en resursgrupp med namnet `myResourceGroup` i regionen västra USA.
 
 ```powershell
-New-AzureRmResourceGroup -Name "myResourceGroup" -Location "WestUS"
+New-AzResourceGroup -Name "myResourceGroup" -Location "WestUS"
 ```
 
 ## <a name="create-a-server"></a>Skapa en server
 
-Skapa en ny server med kommandot [New-AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/new-azurermanalysisservicesserver). I följande exempel skapas en server med namnet myServer i myResourceGroup, i regionen västra USA på nivå D1 (kostnadsfritt) och med philipc@adventureworks.com som serveradministratör.
+Skapa en ny server med hjälp av kommandot [New-AzAnalysisServicesServer](/powershell/module/az.analysisservices/new-azanalysisservicesserver). I följande exempel skapas en server med namnet myServer i myResourceGroup, i regionen västra USA på nivå D1 (kostnadsfritt) och med philipc@adventureworks.com som serveradministratör.
 
 ```powershell
-New-AzureRmAnalysisServicesServer -ResourceGroupName "myResourceGroup" -Name "myserver" -Location WestUS -Sku D1 -Administrator "philipc@adventure-works.com"
+New-AzAnalysisServicesServer -ResourceGroupName "myResourceGroup" -Name "myserver" -Location WestUS -Sku D1 -Administrator "philipc@adventure-works.com"
 ```
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Du kan ta bort servern från prenumerationen med kommandot [Remove-AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/new-azurermanalysisservicesserver). Ta inte bort servern om du fortsätter med andra snabbstartsguider och självstudier i den här samlingen. I följande exempel tar vi bort servern som skapades i föregående steg.
+Du kan ta bort servern från prenumerationen med hjälp av kommandot [Remove-AzAnalysisServicesServer](/powershell/module/az.analysisservices/new-azanalysisservicesserver). Ta inte bort servern om du fortsätter med andra snabbstartsguider och självstudier i den här samlingen. I följande exempel tar vi bort servern som skapades i föregående steg.
 
 
 ```powershell
-Remove-AzureRmAnalysisServicesServer -Name "myserver" -ResourceGroupName "myResourceGroup"
+Remove-AzAnalysisServicesServer -Name "myserver" -ResourceGroupName "myResourceGroup"
 ```
 
 ## <a name="next-steps"></a>Nästa steg

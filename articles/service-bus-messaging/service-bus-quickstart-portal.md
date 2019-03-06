@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 01/12/2019
 ms.author: spelluru
-ms.openlocfilehash: 69c9a6d2d059ffbac5fe3e0ddb103eaec51123c3
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: fa6d2b7d1fbd99e482cc013720c39b4b150f6742
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54264028"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889553"
 ---
 # <a name="quickstart-use-azure-portal-to-create-a-service-bus-queue"></a>Snabbstart: Skapa en Service Bus-kö i Azure-portalen
 Microsoft Azure Service Bus är en asynkron meddelandekö för företagsintegrering som erbjuder säkra meddelanden och absolut tillförlitlighet. Ett typiskt Service Bus-scenario innefattar vanligen frikoppling av två eller flera program, tjänster eller processer från varandra och överföring av status- eller dataförändringar. Sådana scenarier kan handla om schemaläggning av flera batchjobb i ett annat program eller tjänster eller att utlösa beställningsuppfyllelse. En butikskedja kanske skickar sina försäljningsdata till ett backoffice eller regionalt distributionscenter för påfyllning och lageruppdateringar. I det här scenariot, skickar klientappen och tar emot meddelanden från en Service Bus-kö.  
@@ -33,46 +33,9 @@ För att kunna följa de här självstudierna ska du kontrollera att du har inst
 - [Visual Studio 2017 Update 3 (version 15.3, 26730.01)](https://www.visualstudio.com/vs) eller senare.
 - [NET Core SDK](https://www.microsoft.com/net/download/windows), version 2.0 eller senare.
 
-## <a name="log-on-to-the-azure-portal"></a>Logga in på Azure-portalen
+[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
-Först går du till [Azure-portalen][Azure portal] och loggar in med din Azure-prenumeration. Det första steget är att skapa ett Service Bus-namnområde av typen **Meddelanden**.
-
-## <a name="create-a-service-bus-namespace"></a>Skapa ett namnområde för Service Bus
-
-Ett namnområde för Service Bus-meddelanden innehåller en unik omfattningscontainer som refereras till av dess [fullständigt kvalificerade domännamn][], där du skapar en eller fler köer, ämnen och prenumerationer. I följande exempel skapas ett namnområde för Service Bus-meddelanden i en ny eller befintlig [resursgrupp](/azure/azure-resource-manager/resource-group-portal):
-
-1. I det vänstra navigeringsfältet i portalen, klickar du på **+ Skapa en resurs**, därefter klickar du på **Enterprise-integration** och sedan på **Service Bus**.
-2. I dialogrutan **Skapa namnområde** anger du ett namn för namnområdet. Systemet kontrollerar omedelbart om namnet är tillgängligt.
-3. När du har kontrollerat att namnet för namnområdet är tillgängligt, väljer du prisnivå (Standard eller Premium).
-4. I fältet **Prenumeration** väljer du en Azure-prenumeration för vilken du vill skapa namnområdet.
-5. I fältet **Resursgrupp** väljer du en befintlig resursgrupp där namnområdet ska finnas eller skapar en ny.      
-6. I **Plats** väljer du land eller region där namnområdet ska finnas.
-7. Klicka på **Skapa**. Systemet skapar namnområdet och aktiverar det. Du kan behöva vänta några minuter medan systemet tilldelar resurser till ditt konto.
-
-![namnområde](./media/service-bus-quickstart-portal/create-namespace.png)
-
-### <a name="obtain-the-management-credentials"></a>Hämta autentiseringsuppgifterna för hantering
-
-Om du skapar ett nytt namnområde så genereras en automatiskt en ursprunglig regel för signatur för delad åtkomst (SAS) med ett kopplat par med primära och sekundära nycklar som ger fullständig kontroll över alla namnområdets aspekter. Gör så här om du vill kopiera den ursprungliga regeln: 
-
-1.  Klicka på **Alla resurser**, sedan klickar du på den nyligen skapade namnrymden.
-2. I namnområdesfönstret, klickar du på **Principer för delad åtkomst**.
-3. I fönstret **Principer för delad åtkomst**, klickar du på **RootManageSharedAccessKey**.
-4. I **principen: I fönstret RootManageSharedAccessKey** klickar du på knappen **Kopiera** bredvid **Primär anslutningssträng** för att kopiera anslutningssträngen till dina urklipp för senare användning. Klistra in det här värdet i Anteckningar eller på en tillfällig plats. 
-
-    ![connection-string][connection-string]
-5. Upprepa föregående steg, kopiera och klistra in värdet för **Primärnyckeln** till en tillfällig plats för senare användning.
-
-## <a name="create-a-queue"></a>Skapa en kö
-
-Du skapar en Service Bus-kö genom att ange namnområdet som du vill skapa det under. Följande exempel visar hur du skapar en kö på portalen:
-
-1. I det vänstra navigeringsfönstret i portalen klickar du på **Service Bus** (om du inte ser **Service Bus** klickar du på **More services** (Fler tjänster)).
-2. Klicka på det namnområde du vill skapa kön i.
-3. I namnområdesfönstret klickar du på **Köer**. I fönstret **Köer** klickar du sedan på **+ Kö**.
-4. Ange ett **namn** för kön och lämna de andra värdena med standardvärdena.
-5. Klicka på **Skapa** längst ned i fönstret.
-6. Anteckna köns namn.
+[!INCLUDE [service-bus-create-queue-portal](../../includes/service-bus-create-queue-portal.md)]
 
 ## <a name="send-and-receive-messages"></a>Skicka och ta emot meddelanden
 
@@ -82,28 +45,22 @@ Om du vill köra koden gör du följande:
 
 1. Klona [Service Bus GitHub-lagringsplatsen](https://github.com/Azure/azure-service-bus/) genom att utfärda följande kommando:
 
-   ```shell
+   ```
    git clone https://github.com/Azure/azure-service-bus.git
    ```
-
 3. Navigera till exempelmappen `azure-service-bus\samples\DotNet\GettingStarted\BasicSendReceiveQuickStart\BasicSendReceiveQuickStart`.
-
-4. Kopiera den anslutningssträng och det könamn som du fick i avsnittet [Hämta autentiseringsuppgifter](#obtain-the-management-credentials).
-
+4. Kopiera den anslutningssträng och det könamn som du hämtade i avsnittet Hämta autentiseringsuppgifter.
 5.  Skriv följande kommando i kommandotolken:
 
-   ```shell
-   dotnet build
-   ```
-
+    ```
+    dotnet build
+    ```
 6.  Gå till mappen `bin\Debug\netcoreapp2.0`.
-
 7.  Skriv följande kommando för att köra programmet. Se till att ersätta `myConnectionString` med det värde du tidigare fick och `myQueueName` med namnet på den kö som du skapade:
 
-   ```shell
-   dotnet BasicSendReceiveQuickStart.dll -ConnectionString "myConnectionString" -QueueName "myQueueName"
-   ``` 
-
+    ```shell
+    dotnet BasicSendReceiveQuickStart.dll -ConnectionString "myConnectionString" -QueueName "myQueueName"
+    ``` 
 8. Observera hur 10 meddelanden skickas till kön och därefter tas emot från kön:
 
    ![programmets utdata](./media/service-bus-quickstart-portal/dotnet.png)
@@ -254,8 +211,7 @@ I den här artikeln skapade du ett Service Bus-namnområde och andra resurser so
 
 
 [kostnadsfritt konto]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
-[fullständigt kvalificerade domännamn]: https://wikipedia.org/wiki/Fully_qualified_domain_name
+[fully qualified domain name]: https://wikipedia.org/wiki/Fully_qualified_domain_name
 [Azure portal]: https://portal.azure.com/
 
-[connection-string]: ./media/service-bus-quickstart-portal/connection-string.png
 [service-bus-flow]: ./media/service-bus-quickstart-portal/service-bus-flow.png

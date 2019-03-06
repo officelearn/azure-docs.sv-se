@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/11/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a0a648665f607234d585bb2bde8f6adc10ffbfea
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: abddd3f88e8e523b5856de0ff19998a0e07e7376
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56236415"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56870592"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-github"></a>Självstudier: Azure Active Directory-integrering med GitHub
 
@@ -91,7 +91,7 @@ I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen
 
 Utför följande steg för att konfigurera enkel inloggning i Azure AD med GitHub:
 
-1. I [Azure-portalen](https://portal.azure.com/) går du till programintegreringssidan för **GitHub** och väljer **Enkel inloggning**.
+1. På [Azure-portalen](https://portal.azure.com/) går du till sidan för **GitHub**-programintegrering och väljer **Enkel inloggning**.
 
     ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
@@ -134,7 +134,7 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med GitHu
 
 ### <a name="configure-github-single-sign-on"></a>Konfigurera enkel inloggning för GitHub
 
-1. I ett annat webbläsarfönster loggar du in på din GitHub-organisationswebbplats som administratör.
+1. I ett annat webbläsarfönster loggar du in på din GitHub-organisationsplats som administratör.
 
 2. Gå till **Inställningar** och klicka på **Säkerhet**
 
@@ -202,7 +202,7 @@ I det här avsnittet gör du det möjligt för Britta Simon att använda enkel i
 
 2. I programlistan väljer du **GitHub**.
 
-    ![Länken för GitHub i programlistan](common/all-applications.png)
+    ![GitHub-länken i programlistan](common/all-applications.png)
 
 3. På menyn till vänster väljer du **Användare och grupper**.
 
@@ -255,8 +255,8 @@ När du klickar på GitHub-panelen i åtkomstpanelen bör du automatiskt loggas 
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

@@ -7,18 +7,20 @@ ms.service: firewall
 ms.topic: tutorial
 ms.date: 10/24/2018
 ms.author: victorh
-ms.openlocfilehash: 1354faad4abf9a8a4b56414628d39d9a6f90d721
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 2befbf66733430e6077f5e5ff3044c30a77b7e5c
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426175"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56958991"
 ---
-# <a name="tutorial-monitor-azure-firewall-logs-and-metrics"></a>Självstudie: Övervaka Azure Firewall-loggar och mått
+# <a name="tutorial-monitor-azure-firewall-logs-and-metrics"></a>Självstudier: Övervaka Azure Firewall-loggar och mått
 
 Du kan övervaka Azure Firewall med hjälp av brandväggsloggarna. Du kan också använda aktivitetsloggar till att granska åtgärder som utförs på Azure Firewall-resurser. Med hjälp av mått kan du visa prestandaräknare i portalen. 
 
-Du kan komma åt vissa av de här loggarna via portalen. Du kan skicka loggar till [Log Analytics](../azure-monitor/insights/azure-networking-analytics.md), Storage och Event Hubs, och analysera dem i Log Analytics eller med andra verktyg som Excel och Power BI.
+Du kan komma åt vissa av de här loggarna via portalen. Du kan skicka loggar till [Azure Monitor-loggar](../azure-monitor/insights/azure-networking-analytics.md), Storage och Event Hubs samt analysera dem i Azure Monitor-loggar eller med andra verktyg såsom Excel och Power BI.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 I den här guiden får du lära dig att:
 
@@ -48,7 +50,7 @@ Det kan ta några minuter innan data visas i loggarna när du har aktiverat diag
 
 3. Om du vill börja samla in data klickar du på **Aktivera diagnostik**.
 4. På sidan **Diagnostikinställningar** kan du göra inställningar för de diagnostiska loggarna. 
-5. I det här exemplet lagras loggarna i Log Analytics, så använd **Firewall log analytics** som namn.
+5. I det här exemplet lagras loggarna av Azure Monitor-loggar, så använd **Firewall log analytics** som namn.
 6. Klicka på **Skicka till Log Analytics** för att konfigurera din arbetsyta. Du kan också använda händelsehubbar och ett lagringskonto till att spara dina diagnostiska loggar.
 7. Under **Log Analytics** klickar du på **Konfigurera**.
 8. På Log Analytics-sidan med arbetsytor klickar du på **Skapa ny arbetsyta**.
@@ -89,12 +91,12 @@ Så här aktiverar du diagnostisk loggning:
 
 Du kan visa och analysera aktivitetsloggdata med någon av följande metoder:
 
-* **Azure-verktyg**: Hämta information från aktivitetsloggen via Azure PowerShell, Azure-CLI:t, Azure REST-API:t eller Azure Portal. Det finns stegvisa instruktioner för respektive metod i artikeln [Aktivitetsåtgärder med Resource Manager](../azure-resource-manager/resource-group-audit.md).
+* **Azure-verktyg**: Hämta information från aktivitetsloggen via Azure PowerShell, Azure CLI, Azure REST API eller Azure-portalen. Det finns stegvisa instruktioner för respektive metod i artikeln [Aktivitetsåtgärder med Resource Manager](../azure-resource-manager/resource-group-audit.md).
 * **Power BI**: Om du inte redan har ett [Power BI](https://powerbi.microsoft.com/pricing)-konto kan du prova ett utan kostnad. Med [Azure Activity Logs-innehållspaketet för Power BI](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-pack-azure-audit-logs/) kan du analysera dina data på förkonfigurerade instrumentpaneler, som du både kan anpassa och använda i befintligt skick.
 
 ## <a name="view-and-analyze-the-network-and-application-rule-logs"></a>Visa och analysera loggar för nätverk och programregler
 
-Azure [Log Analytics](../azure-monitor/insights/azure-networking-analytics.md) samlar in data från räknaren och händelseloggfilerna. Där finns visualiseringar och kraftfulla sökfunktioner när du ska analysera dina loggar.
+[Azure Monitor-loggar](../azure-monitor/insights/azure-networking-analytics.md) samlar in data från räknaren och händelseloggfilerna. Där finns visualiseringar och kraftfulla sökfunktioner när du ska analysera dina loggar.
 
 Log Analytics-exempelfrågor för Azure Firewall finns i [Log Analytics-exempel för Azure Firewall](log-analytics-samples.md).
 
@@ -108,10 +110,10 @@ Bläddra till en Azure-brandvägg. Under **Övervakning** klickar du på **Mått
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har konfigurerat brandväggen för insamling av loggar kan du utforska hur du kan visa dina data i Log Analytics.
+Nu när du har konfigurerat brandväggen för insamling av loggar kan du utforska hur du visar dina data i Azure Monitor-loggar.
 
 > [!div class="nextstepaction"]
-> [Lösningar för nätverksövervakning i Log Analytics](../azure-monitor/insights/azure-networking-analytics.md)
+> [Lösningar för nätverksövervakning i Azure Monitor-loggar](../azure-monitor/insights/azure-networking-analytics.md)
 
 [1]: ./media/tutorial-diagnostics/figure1.png
 [2]: ./media/tutorial-diagnostics/figure2.png

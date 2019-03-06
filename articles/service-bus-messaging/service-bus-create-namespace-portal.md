@@ -14,21 +14,16 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 02/12/2019
 ms.author: aschhab
-ms.openlocfilehash: 632ef45d4db5de03369e0abb8b16590911bdffdb
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 7543fb6aed2e63a998dae2b0a855a70197a282ac
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56233310"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56587216"
 ---
 # <a name="create-a-service-bus-namespace-using-the-azure-portal"></a>Skapa ett Service Bus-namnområde med Azure Portal
 
-Ett namnområde är en omfångscontainer för alla meddelandekomponenter. Flera köer och ämnen kan finnas i ett enda namnområde och namnområden fungerar ofta som programcontainer. Det finns två sätt att skapa ett Service Bus-namnområde:
-
-1. Azure Portal (den här artikeln)
-2. [Resource Manager-mallar][create-namespace-using-arm]
-
-## <a name="create-a-namespace-in-the-azure-portal"></a>Skapa ett namnområde i Azure Portal
+Ett namnområde är en omfångscontainer för alla meddelandekomponenter. Flera köer och ämnen kan finnas i ett enda namnområde och namnområden fungerar ofta som programcontainer. Den här artikeln innehåller anvisningar för skapande av en namnrymd i Azure-portalen. 
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 

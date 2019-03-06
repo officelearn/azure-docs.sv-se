@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 02/07/2019
 ms.author: spelluru
-ms.openlocfilehash: 764b5ebb73340d377250d39e20b17ed0daf18bbe
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: 7cf0788bdd013eb6a42ee5aa3f5c054a557cbc77
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447692"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56651846"
 ---
 # <a name="tutorial-set-up-a-lab-account-with-azure-lab-services"></a>Självstudier: Konfigurera ett labbkonto med Azure Lab Services
 I Azure Lab Services, fungerar ett labbkonto som det centrala kontot där alla din organisations labbar hanteras. I ditt labbkonto, ger du behörighet till andra att skapa labbar och konfigurera principer som gäller för alla labbar under labbkontot. I den här självstudien, får du lära dig hur du skapar ett labbkonto som en labbadministratör. 
@@ -66,7 +66,7 @@ Om du vill konfigurera ett klassrumslabb i ett labbkonto måste användaren vara
 
 Ge lärarna behörighet att skapa labb åt sina klasser genom att lägga till dem i rollen **Labbskapare**:
 
-1. På sidan **Labbkonto** väljer du **Åtkomstkontroll (IAM)** och klickar på **+ Lägg till rolltilldelning** i verktygsfältet. 
+1. På sidan **Labbkonto** väljer du **Åtkomstkontroll (IAM)** följt av **+ Lägg till** och sedan **+ Lägg till rolltilldelning** i verktygsfältet. 
 
     ![Åtkomstkontroll -> Lägg till rolltilldelning, knapp](../media/tutorial-setup-lab-account/add-role-assignment-button.png)
 1. På sidan **Lägg till rolltilldelning** väljer du **Labbskapare** som **Roll**. Välj den användare som du vill lägga till rollen Labbskapare och välj **Spara**. 

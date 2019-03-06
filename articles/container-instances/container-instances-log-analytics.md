@@ -1,24 +1,26 @@
 ---
-title: Containerinstansloggning med Azure Log Analytics
-description: Läs hur du skickar containerutdata (STDOUT och STDERR) till Azure Log Analytics.
+title: Containerinstansloggning med Azure Monitor-loggar
+description: Lär dig hur du skickar containerutdata (STDOUT och STDERR) till Azure Monitor-loggar.
 services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: overview
 ms.date: 07/17/2018
 ms.author: danlep
-ms.openlocfilehash: 4dbcccc1a4b23ca37918495dc536df08a70cade7
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 13f1fa92365c284ed10bd7c0a1b2fdefef50b29e
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53337894"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56879721"
 ---
-# <a name="container-instance-logging-with-azure-log-analytics"></a>Containerinstansloggning med Azure Log Analytics
+# <a name="container-instance-logging-with-azure-monitor-logs"></a>Containerinstansloggning med Azure Monitor-loggar
 
-Log Analytics-arbetsytor erbjuder en central plats för att lagra och hämta loggdata från inte bara Azure-resurser, utan även på lokala resurser och resurser i andra moln. Azure Container Instances innehåller inbyggt stöd för att skicka data till Log Analytics.
+Log Analytics-arbetsytor erbjuder en central plats för att lagra och hämta loggdata från inte bara Azure-resurser, utan även på lokala resurser och resurser i andra moln. Azure Container Instances innehåller inbyggt stöd för att skicka data till Azure Monitor-loggar.
 
-Om du vill skicka containerinstansdata till Log Analytics, måste du skapa en containergrupp med Azure CLI (eller Cloud Shell) och en YAML-fil. I följande avsnitt beskrivs hur du skapar loggaktiverad containergrupp och frågning av loggar.
+Om du vill skicka containerinstansdata till Azure Monitor-loggar måste du skapa en containergrupp med Azure CLI (eller Cloud Shell) och en YAML-fil. I följande avsnitt beskrivs hur du skapar loggaktiverad containergrupp och frågning av loggar.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -31,7 +33,7 @@ Om du vill aktivera loggning i dina containerinstanser, behöver du följande:
 
 Azure Container Instances behöver behörighet för att skicka data till din Log Analytics-arbetsyta. Om du vill ge behörighet och aktivera loggning, måste du ange ID för Log Analytics-arbetsytan och en av dess nycklar (primär eller sekundär) när du skapar containergrupp.
 
-Du kan hämta ID och den primära nyckeln för Log Analytics-arbetsytan genom att:
+Gör följande för att hämta ID och den primära nyckeln för Log Analytics-arbetsytan:
 
 1. Navigera till Log Analytics-arbetsytan i Azure-portalen
 1. Under **Inställningar**, väljer du **Avancerade inställningar**
@@ -42,7 +44,7 @@ Du kan hämta ID och den primära nyckeln för Log Analytics-arbetsytan genom at
 
 ## <a name="create-container-group"></a>Skapa containergrupp
 
-Nu när du har Log Analytics arbetsyte-ID och primärnyckeln, är du redo att skapa en grupp för loggningsaktiverad containergrupp.
+Nu när du har Log Analytics arbetsyte-ID och primärnyckeln är du redo att skapa en grupp för loggningsaktiverad containergrupp.
 
 I följande exempel visas två sätt att skapa en containergrupp med en enda [fluentd][fluentd]-container: Azure CLI och Azure CLI med en YAML-mall. Fluentd-containern skapar flera rader utdata i sin standardkonfiguration. Eftersom dessa utdata skickas till din Log Analytics-arbetsyta fungerar det bra för att demonstrera visning och frågning av loggar.
 
@@ -96,7 +98,7 @@ az container create --resource-group myResourceGroup --name mycontainergroup001 
 
 Du bör få ett svar från Azure som innehåller distributionsinformation strax efter kommandot utfärdats.
 
-## <a name="view-logs-in-log-analytics"></a>Visa loggar i Log Analytics
+## <a name="view-logs-in-azure-monitor-logs"></a>Visa loggar i Azure Monitor-loggar
 
 När du har distribuerat containergruppen, kan det ta flera minuter (upp till 10) för de första loggposterna att visas i Azure-portalen. Om du vill visa containergruppens loggar, öppnar du din Log Analytics-arbetsyta och:
 
@@ -109,7 +111,7 @@ Du bör se flera resultat som visas av `search *`-frågan. Om du först inte ser
 
 ## <a name="query-container-logs"></a>Fråga containerloggar
 
-Log Analytics inkluderar ett omfattande [frågespråk][query_lang] för att ta emot information från potentiellt tusentals rader med loggutdata.
+Azure Monitor-loggar innehåller ett omfattande [frågespråk][query_lang] för att hämta information från potentiellt tusentals rader med loggutdata.
 
 Azure Container Instances-loggningsagenten skickar poster till `ContainerInstanceLog_CL`-tabellen i din Log Analytics-arbetsyta. Den grundläggande strukturen i en fråga är källtabellen (`ContainerInstanceLog_CL`) följt av en serie operatorer avgränsade av vertikalstrecket (`|`). Du kan länka flera operatorer för att förfina resultatet och utför avancerade funktioner.
 
@@ -130,11 +132,11 @@ ContainerInstanceLog_CL
 
 ## <a name="next-steps"></a>Nästa steg
 
-### <a name="log-analytics"></a>Log Analytics
+### <a name="azure-monitor-logs"></a>Azure Monitor-loggar
 
-Mer information om att fråga loggar och konfigurera aviseringar i Azure Log Analytics finns i:
+Mer information om att köra frågor mot loggar och konfigurera aviseringar i Azure Monitor-loggar finns i:
 
-* [Förstå loggsökningar i Log Analytics](../log-analytics/log-analytics-log-search.md)
+* [Förstå loggsökningar i Azure Monitor-loggar](../log-analytics/log-analytics-log-search.md)
 * [Enhetliga aviseringar i Azure Monitor](../azure-monitor/platform/alerts-overview.md)
 
 

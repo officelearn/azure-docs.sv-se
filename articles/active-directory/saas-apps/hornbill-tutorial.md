@@ -4,255 +4,226 @@ description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active D
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 173061e4-ac1d-458f-bb9b-e9a2493aab0e
-ms.service: active-directory
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 07/18/2018
+ms.topic: tutorial
+ms.date: 02/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 86f23a1520175827f775553e1ba949c62567cf83
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: MT
+ms.openlocfilehash: ba10ca6856d7b1bbeb934fafe68b8c2afc731271
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56201932"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56880911"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hornbill"></a>Självstudier: Azure Active Directory-integrering med Hornbill
 
-I den här självstudien får du lära dig hur du integrerar Hornbill med Azure Active Directory (AD Azure).
+I den här självstudien lär du dig att integrera Hornbill med Azure Active Directory (AD Azure).
+Integreringen av Hornbill med Azure AD medför följande fördelar:
 
-Integrera Hornbill med Azure AD ger dig följande fördelar:
+* Du kan i Azure AD styra vem som har åtkomst till Hornbill.
+* Du kan göra så att dina användare automatiskt loggas in på Hornbill (enkel inloggning) med sina Azure AD-konton.
+* Du kan hantera dina konton på en central plats – Azure-portalen.
 
-- Du kan styra i Azure AD som har åtkomst till Hornbill.
-- Du kan aktivera användarna att automatiskt få loggat in på Hornbill (Single Sign-On) med sina Azure AD-konton.
-- Du kan hantera dina konton på en central plats – Azure-portalen.
+Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-## <a name="prerequisites"></a>Förutsättningar
+För att konfigurera Azure AD-integrering med Hornbill behöver du följande:
 
-Om du vill konfigurera Azure AD-integrering med Hornbill, behöver du följande objekt:
-
-- En Azure AD-prenumeration
-- En Hornbill enkel inloggning aktiverat prenumeration
-
-> [!NOTE]
-> Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
-
-Du bör följa de här rekommendationerna när du testar stegen i självstudien:
-
-- Använd inte din produktionsmiljö om det inte behövs.
-- Om du inte har en Azure AD-utvärderingsmiljö, kan du [få en månads utvärdering](https://azure.microsoft.com/pricing/free-trial/).
+* En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
+* Hornbill-prenumeration med enkel inloggning aktiverat
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
-I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
-1. Att lägga till Hornbill från galleriet
-2. Konfigurera och testa Azure AD enkel inloggning
+I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-## <a name="adding-hornbill-from-the-gallery"></a>Att lägga till Hornbill från galleriet
-För att konfigurera integrering av Hornbill i Azure AD, som du behöver lägga till Hornbill från galleriet i din lista över hanterade SaaS-appar.
+* Hornbill har stöd för **SP**-initierad enkel inloggning
+* Hornbill har stöd för **just-in-time**-användaretablering
+
+## <a name="adding-hornbill-from-the-gallery"></a>Lägga till Hornbill från galleriet
+
+För att konfigurera integreringen av Hornbill i Azure AD behöver du lägga till Hornbill från galleriet till din lista över hanterade SaaS-appar.
 
 **Utför följande steg för att lägga till Hornbill från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+1. I **[Azure-portalen](https://portal.azure.com)**, i den vänstra navigeringspanelen, klickar du på **Azure Active Directory**-ikonen.
 
-    ![Azure Active Directory-knappen][1]
+    ![Azure Active Directory-knappen](common/select-azuread.png)
 
-2. Gå till **företagsprogram**. Gå till **alla program**.
+2. Gå till **Företagsprogram** och välj alternativet **Alla program**.
 
-    ![Bladet för Enterprise-program][2]
-    
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
+
 3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
-    ![Knappen Nytt program][3]
+    ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan skriver **Hornbill**väljer **Hornbill** resultatet panelen klickar **Lägg till** för att lägga till programmet.
+4. I sökrutan skriver du **Hornbill**, väljer **Hornbill** i resultatpanelen och klickar på knappen **Lägg till** för att lägga till programmet.
 
-    ![Hornbill i resultatlistan](./media/hornbill-tutorial/tutorial_hornbill_addfromgallery.png)
+     ![Hornbill i resultatlistan](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med Hornbill baserat på en testanvändare som kallas ”Britta Simon”.
+I det här avsnittet konfigurerar och testar du enkel inloggning i Azure AD med Hornbill baserat på en testanvändare med namnet **Britta Simon**.
+För att enkel inloggning ska fungera måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i Hornbill upprättas.
 
-För enkel inloggning att fungera, behöver Azure AD du veta vad användaren motsvarighet i Hornbill är till en användare i Azure AD. Med andra ord måste en länk relationen mellan en Azure AD-användare och relaterade användaren i Hornbill upprättas.
-
-Om du vill konfigurera och testa Azure AD enkel inloggning med Hornbill, måste du utföra följande byggblock:
+För att kunna konfigurera och testa enkel inloggning i Azure AD med Hornbill slutför du följande byggstenar:
 
 1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
-2. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
-3. **[Skapa en testanvändare Hornbill](#create-a-hornbill-test-user)**  – du har en motsvarighet för Britta Simon i Hornbill som är länkad till en Azure AD-representation av användaren.
+2. **[Konfigurera enkel inloggning för Hornbill](#configure-hornbill-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på programsidan.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
 4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
-5. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
+5. **[Skapa Hornbill-testanvändare](#create-hornbill-test-user)** – för att ha en motsvarighet för Britta Simon i Hornbill som är länkad till Azure AD-representationen av användaren.
+6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
-I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i ditt Hornbill program.
+I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-**Utför följande steg för att konfigurera Azure AD enkel inloggning med Hornbill:**
+Utför följande steg för att konfigurera enkel inloggning i Azure AD med Hornbill:
 
-1. I Azure-portalen på den **Hornbill** program integration-sidan klickar du på **enkel inloggning**.
+1. I [Azure-portalen](https://portal.azure.com/) går du till programintegreringssidan för **Hornbill** och väljer **Enkel inloggning**.
 
-    ![Konfigurera länk för enkel inloggning][4]
+    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
-2. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
- 
-    ![Enkel inloggning för dialogrutan](./media/hornbill-tutorial/tutorial_hornbill_samlbase.png)
+2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
-3. På den **Hornbill domän och URL: er** avsnittet, utför följande steg:
+    ![Välja läge för enkel inloggning](common/select-saml-option.png)
 
-    ![Hornbill domän och URL: er med enkel inloggning för information](./media/hornbill-tutorial/tutorial_hornbill_url.png)
+3. På sidan **Konfigurera enkel inloggning med SAML** klickar du på **redigeringsikonen** för att öppna dialogrutan **Grundläggande SAML-konfiguration**.
 
-    a. I textrutan **Inloggnings-URL** anger du en URL med följande mönster: `https://<SUBDOMAIN>.hornbill.com/<INSTANCE_NAME>/`
+    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-    b. I textrutan **Identifierare** anger du en URL med följande mönster: `https://<SUBDOMAIN>.hornbill.com/<INSTANCE_NAME>/lib/saml/auth/simplesaml/module.php/saml/sp/metadata.php/saml`
+4. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
 
-    > [!NOTE] 
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med faktisk inloggnings-URL och identifierare. Kontakta [Hornbill klienten supportteamet](https://www.hornbill.com/support/?request/) att hämta dessa värden. 
+    ![Information om enkel inloggning med Hornbill-domän och URL:er](common/sp-identifier.png)
 
-4. På den **SAML-signeringscertifikat** klickar du på kopieringsknappen för att kopiera **Appfederationsmetadata** och klistra in den i anteckningar.
+    a. I textrutan **Inloggnings-URL** anger du en URL enligt följande mönster: `https://<SUBDOMAIN>.hornbill.com/<INSTANCE_NAME>/`
 
-    ![Länk för nedladdning av certifikatet](./media/hornbill-tutorial/tutorial_hornbill_certificate.png) 
+    b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster: `https://<SUBDOMAIN>.hornbill.com/<INSTANCE_NAME>/lib/saml/auth/simplesaml/module.php/saml/sp/metadata.php/saml`
 
-5. Klicka på **spara** knappen.
+    > [!NOTE]
+    > Dessa värden är inte verkliga. Uppdatera de här värdena med faktisk inloggnings-URL och identifierare. Kontakta [kundsupporten för Hornbill](https://www.hornbill.com/support/?request/) och be om dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-    ![Konfigurera enkel inloggning – knappen Spara](./media/hornbill-tutorial/tutorial_general_400.png)
- 
-6. I ett annat webbläsarfönster, logga in på Hornbill som en administratör.
+5. På sidan **Set up Single Sign-On with SAML** (Konfigurera enkel inloggning med SAML) går du till avsnittet **SAML Signing Certificate** (SAML-signeringscertifikat), klickar på kopieringsknappen för att kopiera **App Federation Metadata-URL** och spara den på datorn.
 
-7. På startsidan klickar du på **System**.
+    ![Länk för nedladdning av certifikatet](common/copy-metadataurl.png)
 
-    ![Hornbill system](./media/hornbill-tutorial/tutorial_hornbill_system.png)
+### <a name="configure-hornbill-single-sign-on"></a>Konfigurera enkel inloggning för Hornbill
 
-8. Gå till **Security**.
+1. I ett annat webbläsarfönster loggar du in på Hornbill som säkerhetsadministratör.
 
-    ![Hornbill säkerhet](./media/hornbill-tutorial/tutorial_hornbill_security.png)
+2. På startsidan klickar du på **System**.
 
-9. Klicka på **SSO profiler**.
+    ![Hornbill-systemet](./media/hornbill-tutorial/tutorial_hornbill_system.png)
 
-    ![Hornbill enda](./media/hornbill-tutorial/tutorial_hornbill_sso.png)
+3. Gå till **Security** (Säkerhet).
 
-10. Till höger på sidan klickar du på **lägga till logotyp**.
+    ![Säkerhet för Hornbill](./media/hornbill-tutorial/tutorial_hornbill_security.png)
 
-    ![Lägg till hornbill](./media/hornbill-tutorial/tutorial_hornbill_addlogo.png)
+4. Klicka på **SSO Profiles** (Profil för enkel inloggning).
 
-11. På den **profilinformation** klickar du på **Import SAML-metadata logotyp**.
+    ![Hornbill, enkel inloggning](./media/hornbill-tutorial/tutorial_hornbill_sso.png)
+
+5. Till höger på sidan klickar du på **Add logo** (Lägg till logotyp).
+
+    ![Hornbill, lägg till](./media/hornbill-tutorial/tutorial_hornbill_addlogo.png)
+
+6. I fältet **Profile Details** (Profilinformation) klickar du på **Import SAML Meta logo** (Importera SAML-metalogotyp).
 
     ![Hornbill-logotyp](./media/hornbill-tutorial/tutorial_hornbill_logo.png)
 
-12. På popup-sidan i den **URL** textrutan, klistra in den **Appfederationsmetadata**, som du har kopierat från Azure-portalen och klicka på **processen**.
+7. På popup-sidan i textrutan **URL** klistrar du in den **URL för appfederationsmetadata** som du har kopierat från Azure-portalen och klickar på **Process** (Bearbeta).
 
-    ![Hornbill process](./media/hornbill-tutorial/tutorial_hornbill_process.png)
+    ![Hornbill-bearbetning](./media/hornbill-tutorial/tutorial_hornbill_process.png)
 
-13. När du klickar på processen hämta värdena fylls i automatiskt under automatiskt **profilinformation** avsnittet.
+8. När du har klickat på Process (Bearbeta) fylls värdena i avsnittet **Profile Details** (Profilinformation) i automatiskt.
 
-    ![Hornbill Sida1](./media/hornbill-tutorial/tutorial_hornbill_ssopage.png)
+    ![Hornbill, sida 1](./media/hornbill-tutorial/tutorial_hornbill_ssopage.png)
 
-    ![Hornbill page2](./media/hornbill-tutorial/tutorial_hornbill_ssopage1.png)
+    ![Hornbill, sida 2](./media/hornbill-tutorial/tutorial_hornbill_ssopage1.png)
 
-    ![Hornbill page3](./media/hornbill-tutorial/tutorial_hornbill_ssopage2.png)
+    ![Hornbill, sida 3](./media/hornbill-tutorial/tutorial_hornbill_ssopage2.png)
 
-14. Klicka på **Spara ändringar**.
+9. Klicka på **Spara ändringar**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
-Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
+Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
 
-   ![Skapa en Azure AD-testanvändare][100]
+1. Gå till den vänstra rutan i Azure-portalen och välj **Azure Active Directory**, välj **Users** och sedan **Alla användare**.
 
-**Utför följande steg för att skapa en testanvändare i Azure AD:**
+    ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-1. I Azure-portalen, i den vänstra rutan klickar du på den **Azure Active Directory** knappen.
+2. Välj **Ny användare** överst på skärmen.
 
-    ![Azure Active Directory-knappen](./media/hornbill-tutorial/create_aaduser_01.png)
+    ![Knappen Ny användare](common/new-user.png)
 
-2. Om du vill visa en lista över användare, gå till **användare och grupper**, och klicka sedan på **alla användare**.
+3. Genomför följande steg i Användaregenskaper.
 
-    ![”Användare och grupper” och ”alla användare”-länkar](./media/hornbill-tutorial/create_aaduser_02.png)
+    ![Dialogrutan Användare](common/user-properties.png)
 
-3. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i den **alla användare** dialogrutan.
+    a. I fältet **Namn** anger du **BrittaSimon**.
+  
+    b. I fältet **Användarnamn** anger du **brittasimon@yourcompanydomain.extension**  
+    Till exempel, BrittaSimon@contoso.com
 
-    ![Knappen Lägg till](./media/hornbill-tutorial/create_aaduser_03.png)
-
-4. I den **användaren** dialogrutan utför följande steg:
-
-    ![Dialogrutan användare](./media/hornbill-tutorial/create_aaduser_04.png)
-
-    a. I den **namn** skriver **BrittaSimon**.
-
-    b. I den **användarnamn** skriver användarens Britta Simon e-postadress.
-
-    c. Välj den **visa lösenord** kryssrutan och sedan skriva ned det värde som visas i den **lösenord** box.
+    c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
     d. Klicka på **Skapa**.
- 
-### <a name="create-a-hornbill-test-user"></a>Skapa en Hornbill testanvändare
 
-Målet med det här avsnittet är att skapa en användare som kallas Britta Simon i Hornbill. Hornbill stöder just-in-time-etablering, vilket är som standard aktiverat. Det finns inget åtgärdsobjekt för dig i det här avsnittet. En ny användare har skapats under ett försök att komma åt Hornbill om det inte finns ännu.
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
+
+I det här avsnittet gör du det möjligt för Britta Simon att använda enkel inloggning med Azure genom att ge åtkomst till Hornbill.
+
+1. I Azure-portalen väljer du **Företagsprogram**, **Alla program** och sedan **Hornbill**.
+
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
+
+2. I programlistan väljer du **Hornbill**.
+
+    ![Länken för Hornbill i programlistan](common/all-applications.png)
+
+3. På menyn till vänster väljer du **Användare och grupper**.
+
+    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
+
+4. Klicka på knappen **Lägg till användare** och välj sedan **Användare och grupper** i dialogrutan **Lägg till tilldelning**.
+
+    ![Fönstret Lägg till tilldelning](common/add-assign-user.png)
+
+5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
+
+6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
+
+7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
+
+### <a name="create-hornbill-test-user"></a>Skapa Hornbill-testanvändare
+
+I det här avsnittet skapas en användare som heter Britta Simon i Hornbill. Hornbill har stöd för just-in-time-användaretablering, vilket är aktiverat som standard. Det finns inget åtgärdsobjekt för dig i det här avsnittet. Om det inte redan finns någon användare i Hornbill skapas en ny efter autentisering.
 
 > [!Note]
-> Om du vill skapa en användare manuellt kan du kontakta [Hornbill klienten supportteamet](https://www.hornbill.com/support/?request/).
+> Om du behöver skapa en användare manuellt kontaktar du  [kundsupporten för Hornbill](https://www.hornbill.com/support/?request/).
 
-### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
-
-I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till Hornbill.
-
-![Tilldela rollen][200] 
-
-**Om du vill tilldela Britta Simon Hornbill, utför du följande steg:**
-
-1. Öppna vyn program i Azure-portalen och gå till vyn directory och gå till **företagsprogram** klickar **alla program**.
-
-    ![Tilldela användare][201] 
-
-2. I listan med program väljer **Hornbill**.
-
-    ![Länken Hornbill i listan med program](./media/hornbill-tutorial/tutorial_hornbill_app.png)  
-
-3. I menyn till vänster, klickar du på **användare och grupper**.
-
-    ![Länken ”användare och grupper”][202]
-
-4. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
-
-    ![Fönstret Lägg till tilldelning][203]
-
-5. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
-
-6. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
-
-7. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
-    
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
-I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
+I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på panelen Hornbill i åtkomstpanelen du bör få automatiskt loggat in på ditt Hornbill program.
-Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../active-directory-saas-access-panel-introduction.md). 
+När du klickar på Hornbill-panelen i åtkomstpanelen bör du automatiskt loggas in på Hornbill som du har konfigurerat enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-
-<!--Image references-->
-
-[1]: ./media/hornbill-tutorial/tutorial_general_01.png
-[2]: ./media/hornbill-tutorial/tutorial_general_02.png
-[3]: ./media/hornbill-tutorial/tutorial_general_03.png
-[4]: ./media/hornbill-tutorial/tutorial_general_04.png
-
-[100]: ./media/hornbill-tutorial/tutorial_general_100.png
-
-[200]: ./media/hornbill-tutorial/tutorial_general_200.png
-[201]: ./media/hornbill-tutorial/tutorial_general_201.png
-[202]: ./media/hornbill-tutorial/tutorial_general_202.png
-[203]: ./media/hornbill-tutorial/tutorial_general_203.png
+- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -8,14 +8,14 @@ services: iot-hub
 ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 06/20/2018
+ms.date: 02/22/2019
 ms.author: dobett
-ms.openlocfilehash: e13c0ac44f139bc72789f82e5b24de5b71324dfc
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 70dc14c2e518392719bf52246d77bc8803a6b095
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54243839"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56675372"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-c"></a>Snabbstart: Skicka telemetri från en enhet till en IoT-hubb och läsa den med ett serverdelsprogram (C#)
 
@@ -51,11 +51,11 @@ Ladda ned exempelprojektet för C# från https://github.com/Azure-Samples/azure-
 
 En enhet måste vara registrerad vid din IoT-hubb innan den kan ansluta. I den här snabbstarten använder du Azure Cloud Shell till att registrera en simulerad enhet.
 
-1. Kör följande kommandon i Azure Cloud Shell för att lägga till IoT Hub CLI-tillägget och skapa enhetens identitet. 
+1. Kör följande kommandon i Azure Cloud Shell för att lägga till IoT Hub CLI-tillägget och skapa enhetens identitet.
 
-   **YourIoTHubName** : Ersätt platshållaren nedan med det namn du valde för din IoT-hubb.
+   **YourIoTHubName**: Ersätt platshållaren nedan med det namn du valde för din IoT-hubb.
 
-   **MyDotnetDevice** : Det här är det namn du angav för den registrerade enheten. Använd MyDotnetDevice såsom det visas. Om du väljer ett annat namn för din enhet måste du även använda det namnet i hela artikeln, och uppdatera enhetsnamnet i exempelprogrammen innan du kör dem.
+   **MyDotnetDevice**: Namnet på den enhet som du registrerar. Använd **MyDotnetDevice** såsom det visas. Om du väljer ett annat namn för enheten behöver du använda det namnet i hela artikeln och uppdatera enhetsnamnet i exempelprogrammen innan du kör dem.
 
     ```azurecli-interactive
     az extension add --name azure-cli-iot-ext
@@ -64,7 +64,7 @@ En enhet måste vara registrerad vid din IoT-hubb innan den kan ansluta. I den h
 
 2. Kör följande kommandon i Azure Cloud Shell för att hämta _enhetsanslutningssträngen_ för enheten du just registrerade:
 
-   **YourIoTHubName** : Ersätt platshållaren nedan med det namn du valde för din IoT-hubb.
+   **YourIoTHubName**: Ersätt platshållaren nedan med det namn du valde för din IoT-hubb.
 
     ```azurecli-interactive
     az iot hub device-identity show-connection-string --hub-name YourIoTHubName --device-id MyDotnetDevice --output table
@@ -78,7 +78,7 @@ En enhet måste vara registrerad vid din IoT-hubb innan den kan ansluta. I den h
 
 3. Du behöver också den _Event Hubs-kompatibla slutpunkten_, den _Event Hubs-kompatibla sökvägen_ och _iothubowner-primärnyckeln_ från din IoT-hubb för att kunna aktivera serverdelsprogrammet och ansluta till din IoT-hubb och hämta meddelandena. Följande kommandon hämtar dessa värden för din IoT-hubb:
 
-   **YourIoTHubName** : Ersätt platshållaren nedan med det namn du valde för din IoT-hubb.
+   **YourIoTHubName**: Ersätt platshållaren nedan med det namn du valde för din IoT-hubb.
 
     ```azurecli-interactive
     az iot hub show --query properties.eventHubEndpoints.events.endpoint --name YourIoTHubName

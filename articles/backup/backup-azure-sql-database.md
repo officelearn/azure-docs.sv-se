@@ -8,18 +8,18 @@ ms.service: backup
 ms.topic: tutorial
 ms.date: 02/19/2018
 ms.author: raynew
-ms.openlocfilehash: 17ec7723044cec391ebe390bbcfba3aa6f2f29ca
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: 61219fc4e1fc329708a7e58ee6a293e4e25cca31
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56446859"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56887819"
 ---
 # <a name="back-up-sql-server-databases-on-azure-vms"></a>Säkerhetskopiera SQL Server-databaser på virtuella Azure-datorer 
 
 SQL Server-databaser är kritiska arbetsbelastningar som kräver ett lågt mål för återställningspunkt (RPO) och långsiktig kvarhållning. Du kan säkerhetskopiera SQL Server-databaser som körs på virtuella Azure-datorer med hjälp av [Azure Backup](backup-overview.md). 
 
-Den här artikeln visar hur du säkerhetskopierar en SQL Server-databas som körs på en Azure virtuell dator till ett Azure Backup Recovery Services-valv. I den här artikeln lär du dig att göra följande:
+Den här artikeln visar hur du säkerhetskopierar en SQL Server-databas som körs på en Azure virtuell dator till ett Azure Backup Recovery Services-valv. I den här artikeln kan du se hur du:
 
 > [!div class="checklist"]
 > * Kontrollera förutsättningarna för säkerhetskopiering av en SQL Server-instans.
@@ -52,8 +52,7 @@ Den här förhandsversionen har ett antal begränsningar.
 - Åtgärder för säkerhetskopiering och återställning för speglade FCI-databaser, ögonblicksbilder av databaser samt databaser stöds inte.
 - Databaser med ett stort antal filer kan inte skyddas. Det maximala antal filer som stöds är inte deterministiskt. Det beror inte bara på antalet filer, utan även på filernas sökvägslängd. 
 
-Mer information om support/scenarier som inte stöds finns i [avsnittet med vanliga frågor och svar](https://docs.microsoft.com/azure/backup/backup-azure-sql-database#faq).
-
+Granska [vanliga frågor och svar](faq-backup-sql-server.md) om säkerhetskopiering av SQL Server-databaser.
 ## <a name="scenario-support"></a>Scenariostöd
 
 **Support** | **Detaljer**
@@ -69,9 +68,9 @@ Mer information om support/scenarier som inte stöds finns i [avsnittet med vanl
 Kontrollera följande villkor innan du säkerhetskopierar SQL Server-databasen:
 
 1. Identifiera eller [skapa](backup-azure-sql-database.md#create-a-recovery-services-vault) ett Recovery Services-valv i samma region eller språkinställning som den virtuella dator som är värd för SQL Server-instansen.
-2. [Kontrollera de behörigheter för virtuella datorer](backup-azure-sql-database.md#set-permissions-for-non-marketplace-sql-vms) som behövs för att säkerhetskopiera SQL-databaserna.
+2. [Kontrollera de behörigheter för virtuella datorer](#fix-sql-sysadmin-permissions) som behövs för att säkerhetskopiera SQL-databaserna.
 3. Kontrollera att den virtuella datorn har [nätverksanslutning](backup-azure-sql-database.md#establish-network-connectivity).
-4. Kontrollera att SQL Server-databaserna namnges enligt [riktlinjerna för namngivning](backup-azure-sql-database.md#sql-database-naming-guidelines-for-azure-backup) för Azure Backup.
+4. Kontrollera att SQL Server-databaserna namnges enligt [riktlinjerna för namngivning](backup-azure-sql-database.md) för Azure Backup.
 5. Kontrollera att du inte har några andra lösningar för säkerhetskopiering aktiverade för databasen. Inaktivera alla andra SQL Server-säkerhetskopieringar innan du installerar det här scenariot. Du kan aktivera Azure Backup för en virtuell Azure-dator tillsammans med Azure Backup för en SQL Server-databas som körs på den virtuella datorn utan konflikter.
 
 
@@ -197,7 +196,7 @@ Konfigurera säkerhetskopiering på följande sätt:
 
     - Välja standardpolicy: **HourlyLogBackup**.
     - Välj en befintlig säkerhetskopieringspolicy som har skapats för SQL.
-    - [Definiera en ny policy](backup-azure-sql-database.md#define-a-backup-policy) baserat på ditt RPO och kvarhållningsintervall.
+    - [Definiera en ny policy](backup-azure-sql-database.md#configure-a-backup-policy) baserat på ditt RPO och kvarhållningsintervall.
     - Under förhandsversionen kan du inte redigera en befintlig säkerhetskopieringspolicy.
     
 9. På **säkerhetskopieringsmenyn** väljer du **Aktivera säkerhetskopiering**.
@@ -326,7 +325,7 @@ Om du behöver åtgärda behörigheter grund av felet **UserErrorSQLNoSysadminMe
 
     ![Meddelande som anger att distributionen lyckades](./media/backup-azure-sql-database/notifications-db-discovered.png)
 
-Alternativt kan du aktivera [automatiskt skydd](backup-azure-sql-database.md#auto-protect-sql-server-in-azure-vm) på hela instansen eller AlwaysOn-tillgänglighetsgruppen genom att välja alternativet **PÅ** i motsvarande listruta i kolumnen **AUTOPROTECT** (Automatiskt skydd). Funktionen [automatiskt skydd](backup-azure-sql-database.md#auto-protect-sql-server-in-azure-vm) aktiverar inte bara skydd på alla befintliga databaser i ett svep, utan skyddar även automatiskt alla nya nya databaser som läggs till i den instansen eller tillgänglighetsgruppen i framtiden.  
+Alternativt kan du aktivera [automatiskt skydd](backup-azure-sql-database.md#enable-auto-protection) på hela instansen eller AlwaysOn-tillgänglighetsgruppen genom att välja alternativet **PÅ** i motsvarande listruta i kolumnen **AUTOPROTECT** (Automatiskt skydd). Funktionen [automatiskt skydd](backup-azure-sql-database.md#enable-auto-protection) aktiverar inte bara skydd på alla befintliga databaser i ett svep, utan skyddar även automatiskt alla nya nya databaser som läggs till i den instansen eller tillgänglighetsgruppen i framtiden.  
 
    ![Aktivera automatiskt skydd i AlwaysOn-tillgänglighetsgruppen](./media/backup-azure-sql-database/enable-auto-protection.png)
 

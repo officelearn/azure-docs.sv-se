@@ -15,31 +15,33 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 03/20/2018
 ms.author: jdial
-ms.openlocfilehash: 710a74d47fd2742f55fbefd06fdbaa3dca91ea3f
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 98081e0404ceca162941ad17ad6fcd6839663dac
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54424956"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56650316"
 ---
 # <a name="peer-two-virtual-networks-script-sample"></a>Peer-skriptexempel två virtuella nätverk
 
 Skriptexemplet skapar och ansluter två virtuella nätverk i samma region via Azures nätverk. När du har kört skriptet har du en peering mellan två virtuella nätverk.
 
-Du kan köra skriptet från Azure [Cloud Shell](https://shell.azure.com/powershell), eller från en lokal installation av PowerShell. Om du använder PowerShell lokalt kräver det här skriptet version 5.4.1 eller senare av AzureRM PowerShell-modulen. Kör `Get-Module -ListAvailable AzureRM` för att hitta den installerade versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/azurerm/install-azurerm-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Connect-AzureRmAccount` för att skapa en anslutning till Azure.
+Du kan köra skriptet från Azure [Cloud Shell](https://shell.azure.com/powershell), eller från en lokal installation av PowerShell. Om du använder PowerShell lokalt kräver det här skriptet version 5.4.1 eller senare av Az PowerShell-modulen. Kör `Get-Module -ListAvailable Az` för att hitta den installerade versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-Az-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Connect-AzAccount` för att skapa en anslutning till Azure.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="sample-script"></a>Exempelskript
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 [!code-azurepowershell-interactive[main](../../../powershell_scripts/virtual-network/peer-two-virtual-networks/peer-two-virtual-networks.ps1 "Peer two networks")]
 
-## <a name="clean-up-deployment"></a>Rensa distribution 
+## <a name="clean-up-deployment"></a>Rensa distribution
 
 Kör följande kommando för att ta bort resursgruppen, den virtuella datorn och alla relaterade resurser:
 
 ```powershell
-Remove-AzureRmResourceGroup -Name myResourceGroup -Force
+Remove-AzResourceGroup -Name myResourceGroup -Force
 ```
 
 ## <a name="script-explanation"></a>Förklaring av skript
@@ -48,10 +50,10 @@ I det här skriptet används följande kommandon för att skapa en resursgrupp, 
 
 | Kommando | Anteckningar |
 |---|---|
-| [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) | Skapar en resursgrupp där alla resurser lagras. | 
-| [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork)| Skapar ett virtuellt Azure-nätverk och undernät. |
-| [Add-AzureRmVirtualNetworkPeering](/powershell/module/azurerm.network/add-azurermvirtualnetworkpeering) | Skapar en peering mellan två virtuella nätverk.  |
-| [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) | Tar bort en resursgrupp, inklusive alla kapslade resurser. |
+| [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Skapar en resursgrupp där alla resurser lagras. |
+| [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork)| Skapar ett virtuellt Azure-nätverk och undernät. |
+| [Add-AzVirtualNetworkPeering](/powershell/module/az.network/add-azvirtualnetworkpeering) | Skapar en peering mellan två virtuella nätverk.  |
+| [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Tar bort en resursgrupp, inklusive alla kapslade resurser. |
 
 ## <a name="next-steps"></a>Nästa steg
 

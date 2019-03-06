@@ -9,12 +9,12 @@ services: iot-accelerators
 ms.date: 11/15/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: a2dc5653b7579d9c5db4667d84e6e5b5082abaab
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 869f6d2391632c77e01e4383c1457f88b9171c8b
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54448082"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56651200"
 ---
 # <a name="tutorial-configure-devices-connected-to-your-monitoring-solution"></a>Självstudier: Konfigurera enheter som är anslutna till din övervakningslösning
 
@@ -36,7 +36,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 ## <a name="add-a-simulated-device"></a>Lägga till en simulerad enhet
 
-Navigera till sidan **Enheter** i lösningen och klicka sedan på **+ Ny enhet**:
+Navigera till sidan **Device Explorer** i lösningen och klicka sedan på **+ Ny enhet**:
 
 [![Etablera en simulerad enhet](./media/iot-accelerators-remote-monitoring-manage/devicesprovision-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesprovision-expanded.png#lightbox)
 
@@ -46,7 +46,7 @@ I panelen **Ny enhet** väljer du **Simulerad**, lämnar antalet enheter som ska
 
 ## <a name="test-the-simulated-device"></a>Testa den simulerade enheten
 
-För att testa att den simulerade motorenheten skickar telemetridata och rapporterar egenskapsvärden väljer du den i listan med enheter på sidan **Enheter**. Direktinformation om motorn visas i panelen **Enhetsinformation**:
+För att testa att den simulerade motorenheten skickar telemetridata och rapporterar egenskapsvärden väljer du den i listan med enheter på sidan **Device Explorer**. Direktinformation om motorn visas i panelen **Enhetsinformation**:
 
 [![Visa den nya simulerade enheten](./media/iot-accelerators-remote-monitoring-manage/devicesviewnew-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesviewnew-expanded.png#lightbox)
 
@@ -60,7 +60,7 @@ Om du vill visa detaljerad diagnostik rullar du nedåt i panelen **Enhetsinforma
 
 ## <a name="reconfigure-a-device"></a>Konfigurera om en enhet
 
-Du kan testa att du kan uppdatera motorns konfigurationsegenskaper genom att välja den i enhetslistan på sidan **Enheter**. Klicka sedan på **Jobb** och välj **Egenskaper**. Jobbpanelen visar de egenskapsvärden som kan uppdateras för den valda enheten:
+För att testa att du kan uppdatera motorns konfigurationsegenskaper väljer du den i enhetslistan på sidan **Device Explorer**. Klicka sedan på **Jobb** och välj **Egenskaper**. Jobbpanelen visar de egenskapsvärden som kan uppdateras för den valda enheten:
 
 [![Konfigurera om en enhet](./media/iot-accelerators-remote-monitoring-manage/devicesreconfigure-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesreconfigure-expanded.png#lightbox)
 
@@ -83,7 +83,7 @@ För att göra det enklare som operatör att organisera och hantera dina enheter
 * Teamet Smart Vehicle hanterar lastbilar och prototyper.
 * Teamet Smart Building hanterar kylaggregat, hissar och motorer.
 
-Du kan visa alla dina enheter genom att gå till sidan **Enheter** och välja filtret **Alla enheter**:
+Du kan visa alla dina enheter genom att gå till sidan **Device Explorer** och välja filtret **Alla enheter**:
 
 [![Visa alla enheter](./media/iot-accelerators-remote-monitoring-manage/devicesalldevices-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesalldevices-expanded.png#lightbox)
 
@@ -103,7 +103,7 @@ I panelen **Jobs** (Jobb) väljer du **Tagg**. Ange jobbnamnet till **AddSmartBu
 
 ### <a name="create-filters"></a>Skapa filter
 
-Nu kan du använda taggvärdena till att skapa filter. På sidan **Enheter** klickar du på **Hantera enhetsgrupper**:
+Nu kan du använda taggvärdena till att skapa filter. På sidan **Device Explorer** klickar du på **Hantera enhetsgrupper**:
 
 [![Hantera enhetsgrupper](./media/iot-accelerators-remote-monitoring-manage/devicesmanagefilters-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesmanagefilters-expanded.png#lightbox)
 

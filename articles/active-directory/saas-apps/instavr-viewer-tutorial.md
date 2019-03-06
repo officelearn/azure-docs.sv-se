@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 19039a6a1337c2ddc7494805b18f564466d4f1f8
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 85e773d74231b0b0847dad41a071be499724e2d4
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56168739"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56872938"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-instavr-viewer"></a>Självstudie: Azure Active Directory-integrering med InstaVR Viewer
 
@@ -136,11 +136,11 @@ Konfigurera enkel inloggning för Azure AD med InstaVR Viewer med hjälp av föl
 
 2. Klicka på **användarikonen** och välj **Konto**.
 
-    ![InstaVR Viewer-konfiguration ](media/instavr-viewer-tutorial/tutorial-instavr-viewer-account.png)
+    ![InstaVR Viewer-konfiguration](media/instavr-viewer-tutorial/tutorial-instavr-viewer-account.png)
 
 3. Rulla ned till **SAML Auth** och utför följande steg:
 
-    ![InstaVR Viewer-konfiguration ](media/instavr-viewer-tutorial/tutorial-instavr-viewer-configure.png)
+    ![InstaVR Viewer-konfiguration](media/instavr-viewer-tutorial/tutorial-instavr-viewer-configure.png)
 
     a. I textrutan **SSO URL** klistrar du värdet för **Inloggnings-URL**, som du har kopierat från Azure-portalen.
 
@@ -215,22 +215,22 @@ I det här avsnittet skapas en användare som heter Britta Simon i InstaVR Viewe
 
 2. Välj **Paket** i den vänstra navigeringspanelen och välj **Make package for Web** (Skapa paket för webben).
 
-    ![InstaVR Viewer-konfiguration ](media/instavr-viewer-tutorial/tutorial-instavr-viewer-testing1.png)
+    ![InstaVR Viewer-konfiguration](media/instavr-viewer-tutorial/tutorial-instavr-viewer-testing1.png)
 
 3. Välj **Ladda ned**.
 
-    ![InstaVR Viewer-konfiguration ](media/instavr-viewer-tutorial/tutorial-instavr-viewer-testing2.png)
+    ![InstaVR Viewer-konfiguration](media/instavr-viewer-tutorial/tutorial-instavr-viewer-testing2.png)
 
 4. Välj **Open Hosted Page** (Öppna hanterad sida). Efter det sker omdirigering till Azure AD för inloggning.
 
-    ![InstaVR Viewer-konfiguration ](media/instavr-viewer-tutorial/tutorial-instavr-viewer-testing3.png)
+    ![InstaVR Viewer-konfiguration](media/instavr-viewer-tutorial/tutorial-instavr-viewer-testing3.png)
 
 5. Ange dina autentiseringsuppgifter för Azure AD för att logga in med Azure AD via enkel inloggning.
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

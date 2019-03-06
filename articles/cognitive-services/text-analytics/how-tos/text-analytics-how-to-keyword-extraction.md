@@ -9,12 +9,12 @@ ms.subservice: text-analytics
 ms.topic: sample
 ms.date: 02/13/2019
 ms.author: aahi
-ms.openlocfilehash: bbf72847dd9d9a29bf1f2fa0574b83194d07a5c6
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: a427910c598ce7a93dd1b74fb4297d9825ba14ca
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245617"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56887394"
 ---
 # <a name="example-how-to-extract-key-phrases-using-text-analytics"></a>Exempel: Så här extraherar du nyckelfraser med textanalys
 
@@ -33,7 +33,7 @@ Extrahering av nyckelfraser fungerar bäst när du ger den en större mängd tex
 
 Du måste ha JSON-dokument i följande format: id, text, språk
 
-Dokumentstorleken måste vara under 5 000 tecken per dokument och du kan ha upp till 1 000 objekt (ID:n) per samling. Samlingen skickas i begäranstexten. Följande exempel är en illustration av innehåll som du kan skicka in för extrahering av nyckelfraser.
+Dokumentstorleken måste vara under 5 120 tecken per dokument, och du kan ha upp till 1 000 objekt (ID:n) per samling. Samlingen skickas i begäranstexten. Följande exempel är en illustration av innehåll som du kan skicka in för extrahering av nyckelfraser.
 
 ```json
     {

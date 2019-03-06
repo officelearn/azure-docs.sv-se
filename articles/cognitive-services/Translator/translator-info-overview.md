@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: overview
-ms.date: 12/06/2018
+ms.date: 02/21/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: df0f1570b4f876cbfb542a5571c8bec7e80e6895
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 80c9944628eaa828a34ea16eb9f79271d6cd5728
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55857733"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56729227"
 ---
 # <a name="what-is-translator-text-api"></a>Vad är Translator Text API?
 
@@ -34,14 +34,6 @@ Talöversättning, som drivs av Translator Text API, är också tillgängligt vi
 
 Microsoft Translator ger flerspråksstöd för översättning, translitteration, språkidentifiering och ordlistor. Se [språkstöd](language-support.md) för en fullständig lista, eller kom åt listan programmatiskt med [REST API](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-languages).  
 
-## <a name="language-customization"></a>Språkanpassning
-
-Den anpassade översättningstjänsten är ett tillägg till Microsofts grundläggande översättningstjänst. Den kan användas tillsammans med Translator Text API för att anpassa det neutrala översättningssystemet, så att specifik terminologi och stil översätts bättre.
-
-Med den anpassade översättningstjänsten kan du skapa översättningssystem som hanterar den terminologi som används inom företaget eller branschen. Det anpassade översättningssystemet är enkelt att integrera i befintliga program, arbetsflöden och webbplatser och på olika typer av enheter, via vanliga Microsoft Translator Text API, med hjälp av kategoriparametern.
-
-Läs mer om [språkanpassning](customization.md)
-
 ## <a name="microsoft-translator-neural-machine-translation"></a>Neural maskinöversättning med Microsoft Translator
 
 Neural maskinöversättning är den nya standarden för högkvalitativ AI-driven maskinöversättning. Den ersätter den äldre statistiska maskinöversättningen, som nådde en kvalitetsplatå i mitten av 2010-talet.
@@ -52,18 +44,16 @@ Neurala modeller är kärnan i API:et och visas inte för slutanvändaren. Den e
 
 Läs mer om [hur neural maskinöversättning fungerar](https://www.microsoft.com/en-us/translator/mt.aspx#nnt)
 
+## <a name="language-customization"></a>Språkanpassning
+
+Den anpassade översättningstjänsten är ett tillägg till Microsofts grundläggande översättningstjänst. Den kan användas tillsammans med Translator Text API för att anpassa det neutrala översättningssystemet, så att specifik terminologi och stil översätts bättre.
+
+Med den anpassade översättningstjänsten kan du skapa översättningssystem som hanterar den terminologi som används inom företaget eller branschen. Det anpassade översättningssystemet är enkelt att integrera i befintliga program, arbetsflöden och webbplatser och på olika typer av enheter, via vanliga Microsoft Translator Text API, med hjälp av kategoriparametern.
+
+Läs mer om [språkanpassning](customization.md)
+
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs mer om [prisinformation](https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/).
-
 - [Registrera dig ](translator-text-how-to-signup.md) och få en åtkomstnyckel.
-
-- [Snabbstart](quickstarts/csharp.md) är en genomgång av REST API-anropen skrivna i C#. Lär dig mer om att översätta text från ett språk till ett annat med minimal kod.
-
-- [API-referensdokumentationen](https://docs.microsoft.com/azure/cognitive-services/Translator/reference/v3-0-reference) innehåller den tekniska dokumentationen för API:erna.
-
-## <a name="see-also"></a>Se även
-
-- [Dokumentationssida om Cognitive Services](https://docs.microsoft.com/azure/#pivot=products&panel=ai)
-- [Produktsida om Cognitive Services](https://azure.microsoft.com/services/cognitive-services/)
-- [Information om lösningar och prissättning](https://www.microsoft.com/en-us/translator/default.aspx)
+- [API-referensen](https://docs.microsoft.com/azure/cognitive-services/Translator/reference/v3-0-reference) innehåller den tekniska dokumentationen för API:erna.
+- [Prisinformation](https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/)

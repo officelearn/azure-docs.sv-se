@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: alkohli
-ms.openlocfilehash: cec96871d379f9484bf8e08a9d511146a80d45c6
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 35a041216bf24a4c6ab73f9d5c3e85dff38a4501
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55095611"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56588117"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-via-nfs"></a>Självstudier: Kopiera data till Azure Data Box via NFS
 
@@ -71,6 +71,10 @@ Om du använder en Linux-värddator utför du stegen nedan för att konfigurera 
     I följande exempel visas hur du ansluter via NFS till en Data Box-resurs. Data Box-enhetens IP-adress är `10.161.23.130`, resursen `Mystoracct_Blob` är monterad på ubuntuVM, och monteringspunkten är `/home/databoxubuntuhost/databox`.
 
     `sudo mount -t nfs 10.161.23.130:/Mystoracct_Blob /home/databoxubuntuhost/databox`
+    
+    För Mac-klienter måste du lägga till ytterligare ett alternativ på följande sätt: 
+    
+    `sudo mount -t nfs -o sec=sys,resvport 10.161.23.130:/Mystoracct_Blob /home/databoxubuntuhost/databox`
 
     **Skapa alltid en mapp för de filer som du vill kopiera under resursen och kopiera sedan filerna till den mappen**. Mappen som skapas under blockblob- och sidblobresurser representerar en container som data laddas upp som blobar till. Du kan inte kopiera filer direkt till *root*-mappen i lagringskontot.
 

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/30/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4768c38b2e76bfa8cdff3187c32c03fdaaf57bbf
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: a2c6b95d62f6210ecfdd560bc1c00a3e055be3ee
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56207661"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56880363"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-dmarcian"></a>Självstudier: Azure Active Directory-integrering med dmarcian
 
@@ -143,15 +143,15 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD för dm
 
 2. Klicka på **Profil** i det övre högra hörnet och navigera till **Inställningar**.
 
-    ![Inställningarna ](./media/dmarcian-tutorial/tutorial_dmarcian_pref.png)
+    ![Inställningarna](./media/dmarcian-tutorial/tutorial_dmarcian_pref.png)
 
 3. Rulla nedåt och klicka på avsnittet **Enkel inloggning** följt av **Konfigurera**.
 
-    ![Enskild ](./media/dmarcian-tutorial/tutorial_dmarcian_sso.png)
+    ![Enskild](./media/dmarcian-tutorial/tutorial_dmarcian_sso.png)
 
 4. På sidan **Enkel inloggning med SAML** anger du **Status** till **Aktiverad** och utför följande steg:
 
-    ![Autentiseringen ](./media/dmarcian-tutorial/tutorial_dmarcian_auth.png)
+    ![Autentiseringen](./media/dmarcian-tutorial/tutorial_dmarcian_auth.png)
 
     * I avsnittet **Add dmarcian to your Identity Provider** (Lägg till dmarcian i identitetsprovidern) klickar du på **COPY** (Kopiera) för att kopiera **URL för konsumenttjänst för försäkran** för din instans och klistrar in den i textrutan **Svars-URL** i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
@@ -229,15 +229,15 @@ För att göra det möjligt för Azure AD-användare att logga in i dmarcian må
 
 2. Klicka på **Profil** i det övre högra hörnet och gå till **Hantera användare**.
 
-    ![Användaren ](./media/dmarcian-tutorial/tutorial_dmarcian_user.png)
+    ![Användaren](./media/dmarcian-tutorial/tutorial_dmarcian_user.png)
 
 3. På höger sida av avsnittet **SSO Users** (Användare av enkel inloggning) klickar du på **Lägg till ny användare**.
 
-    ![Lägg till användare ](./media/dmarcian-tutorial/tutorial_dmarcian_addnewuser.png)
+    ![Lägg till användare](./media/dmarcian-tutorial/tutorial_dmarcian_addnewuser.png)
 
 4. I popup-fönstret **Lägg till ny användare** utför du följande steg:
 
-    ![Den nya användaren ](./media/dmarcian-tutorial/tutorial_dmarcian_save.png)
+    ![Den nya användaren](./media/dmarcian-tutorial/tutorial_dmarcian_save.png)
 
     a. I textrutan **New User Email** (E-postadress för ny användare) anger du e-postadressen för användaren: **brittasimon@contoso.com**.
 
@@ -253,9 +253,9 @@ När du klickar på dmarcian-panelen i åtkomstpanelen bör du automatiskt logga
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

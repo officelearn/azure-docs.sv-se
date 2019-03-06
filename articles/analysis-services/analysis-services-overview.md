@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 02/14/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 114dac10592213d3b2fdfff909913039b3dba344
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: 53ce82a6e1180d4493e2d4014bf6e26e9bde2466
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56429442"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56731403"
 ---
 # <a name="what-is-azure-analysis-services"></a>Vad är Azure Analysis Services?
 
@@ -132,7 +132,7 @@ Totalkostnad beror på ett antal faktorer, exempelvis din valda region, nivå, f
 
 ## <a name="built-on-sql-server-analysis-services"></a>Bygger på SQL Server Analysis Services
 
-Azure Analysis Services är kompatibelt med många fantastiska funktioner som redan finns i SQL Server Analysis Services Enterprise. Azure Analysis Services stöder tabellmodeller på [kompatibilitetsnivå](analysis-services-compat-level.md) 1200 eller högre. Tabellmodeller är relationsbaserade modelleringskonstruktioner (modeller, tabeller, kolumner), som uttrycks i objektdefinitioner för tabellmetadata i TMSL-kod (Tabular Model Scripting Language) och TOM-kod (Tabular Object Model). Partitioner, perspektiv, säkerhet på radnivå, dubbelriktade relationer och översättningar stöds*. Flerdimensionella modeller och PowerPivot för SharePoint stöds *inte* i Azure Analysis Services.
+Azure Analysis Services är kompatibelt med många fantastiska funktioner som redan finns i SQL Server Analysis Services Enterprise. Azure Analysis Services stöder tabellmodeller på [kompatibilitetsnivå](analysis-services-compat-level.md) 1200 eller högre. Tabellmodeller är relationsbaserade modelleringskonstruktioner (modeller, tabeller, kolumner), som uttrycks i objektdefinitioner för tabellmetadata i TMSL-kod (Tabular Model Scripting Language) och TOM-kod (Tabular Object Model). Partitioner, perspektiv, säkerhet på radnivå, dubbelriktade relationer och översättningar stöds\*. Flerdimensionella modeller och PowerPivot för SharePoint stöds *inte* i Azure Analysis Services.
 
 Tabellmodeller både i minnet och DirectQuery-lägena stöds. Tabellmodeller i InMemory-läge (standard) har stöd för flera datakällor. Eftersom modelldata är mycket komprimerat och cachelagrade i minnet ger det här läget snabbast frågesvar över stora mängder data. Det ger också störst flexibilitet för komplexa datauppsättningar och frågor. Partitionering möjliggör stegvis inläsning, ökar parallellisering och minskar minnesanvändningen. Andra avancerade funktioner för datamodeller såsom beräknade tabeller samt alla DAX-funktioner stöds. InMemory-modeller måste uppdateras (bearbetas) för att uppdatera cachelagrade data från datakällor. Tack vare Azures stöd för tjänsthuvudnamn får du en flexibel oövervakad uppdatering med PowerShell, TOM, TMSL och REST, vilket innebär att du alltid kan vara säker på att dina modelldata är aktuella. 
 
@@ -203,7 +203,7 @@ Hantera dina servrar och modelldatabaser med hjälp av [SQL Server Management St
 
 ### <a name="powershell"></a>PowerShell
 
-Under hanteringsaktiviteter för serverresurser såsom att skapa serverresurser, pausa eller återuppta serveråtgärder eller ändra servicenivån, används cmdletar för Azure Resource Manager (AzureRM). Under andra aktiviteter för hantering av databaser, till exempel att lägga till eller ta bort rollmedlemmar, behandla eller köra TMSL-skript, används cmdletar i SqlServer-modulen. Se [Hantera Azure Analysis Services med PowerShell](analysis-services-powershell.md) för mer information.
+Under hanteringsaktiviteter för serverresurser såsom att skapa serverresurser, pausa eller återuppta serveråtgärder eller ändra servicenivån använder du Azure PowerShell-cmdletar. Under andra aktiviteter för hantering av databaser, till exempel att lägga till eller ta bort rollmedlemmar, behandla eller köra TMSL-skript, används cmdletar i SqlServer-modulen. Se [Hantera Azure Analysis Services med PowerShell](analysis-services-powershell.md) för mer information.
 
 ### <a name="object-model-and-scripting"></a>Objektmodell och skript
 

@@ -15,12 +15,12 @@ ms.workload: azure-vs
 ms.date: 03/26/2018
 ms.author: mikhegn
 ms.custom: mvc, devcenter, vs-azure
-ms.openlocfilehash: 3b7b70a5ac0c74cc920df823d1f9ae1152f86bff
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 8e83da53d0b2f71abc1f74a0ca8fbc2405e75bda
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55561203"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56736591"
 ---
 # <a name="quickstart-deploy-a-net-reliable-services-application-to-service-fabric"></a>Snabbstart: Distribuera ett .NET-program för tillförlitliga tjänster till Service Fabric
 
@@ -55,10 +55,10 @@ För att slutföra den här snabbstarten behöver du:
 
 När du har installerat runtime, SDK:er, Visual Studio Tools, Docker och har Docker igång skapar du ett lokalt utvecklingskluster med fem noder.
 
-> [!IMPORTANT]
-> Docker **måste** köras innan du kan skapa ett kluster.
+> [!Note]
+> Anledningen till att ha Docker körandes när du skapar klustret är att klustret skapas med containerfunktioner aktiverade. Om Docker inte körs måste du återskapa klustret för att aktivera containerfunktioner.
+> Även om det är inte nödvändigt för den här specifika snabbstarten ingår anvisningen om att ha Docker körandes när du skapar klustret som bästa praxis.
 > Testa att Docker körs genom att öppna ett terminalfönster och köra `docker ps` för att se om det uppstår något fel. Om svaret inte indikerar något fel körs Docker och du är redo att skapa ett kluster.
-
 
 1. Öppna ett nytt, upphöjt PowerShell-fönster som administratör.
 2. Kör följande PowerShell-kommando för att skapa till ett utvecklingskluster:

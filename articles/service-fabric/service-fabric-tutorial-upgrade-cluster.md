@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 11/28/2017
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: a881b8b91c906de381eba55e01ead214edb6cfee
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: e34856704b474ac1b7d25d589be5f98be2b113cc
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54431120"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56671564"
 ---
 # <a name="tutorial-upgrade-the-runtime-of-a-service-fabric-cluster-in-azure"></a>Självstudier: Uppgradera körningen av ett Service Fabric-kluster i Azure
 
@@ -39,7 +39,7 @@ I den här guiden får du lära dig att:
 
 I den här självstudieserien får du lära du dig att:
 > [!div class="checklist"]
-> * Skapa ett säkert [Windows-kluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md) eller [Linux-kluster](service-fabric-tutorial-create-vnet-and-linux-cluster.md) på Azure med hjälp av en mall
+> * Skapa ett säkert [Windows-kluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md) i Azure med hjälp av en mall
 > * [skala upp eller ned ett kluster](service-fabric-tutorial-scale-cluster.md)
 > * uppgradera körningen för ett kluster
 > * [Ta bort ett kluster](service-fabric-tutorial-delete-cluster.md)
@@ -50,9 +50,8 @@ Innan du börjar den här självstudien:
 
 * om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 * Installera [Azure Powershell-modulen version 4.1 eller senare](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) eller [Azure CLI](/cli/azure/install-azure-cli).
-* Skapa ett säkert [Windows-kluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md) eller [Linux-kluster](service-fabric-tutorial-create-vnet-and-linux-cluster.md) på Azure
-* Om du distribuerar ett Windows-kluster måste du konfigurera en Windows-utvecklingsmiljö. Installera [Visual Studio 2017](https://www.visualstudio.com) och arbetsbelastningarna **Azure Development**, **ASP.NET och webbutveckling** samt **.NET Core plattformsoberoende utveckling**.  Konfigurera sedan en [.NET-utvecklingsmiljö](service-fabric-get-started.md).
-* Om du distribuerar ett Linux-kluster måste du konfigurera en Java-utvecklingsmiljö på [Linux](service-fabric-get-started-linux.md) eller [MacOS](service-fabric-get-started-mac.md).  Installera [Service Fabric CLI](service-fabric-cli.md).
+* Skapa ett säkert [Windows-kluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md) i Azure
+* Konfigurera en Windows-utvecklingsmiljö. Installera [Visual Studio 2017](https://www.visualstudio.com) och arbetsbelastningarna **Azure Development**, **ASP.NET och webbutveckling** samt **.NET Core plattformsoberoende utveckling**.  Konfigurera sedan en [.NET-utvecklingsmiljö](service-fabric-get-started.md).
 
 ### <a name="sign-in-to-azure"></a>Logga in på Azure
 

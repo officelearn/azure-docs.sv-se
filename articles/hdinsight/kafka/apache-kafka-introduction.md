@@ -1,6 +1,6 @@
 ---
 title: En introduktion till Apache Kafka på HDInsight – Azure
-description: 'Lär dig mer om Apache Kafka på HDInsight: vad det är, dess syfte och var du hittar exempel och kommer igång.'
+description: 'Läs mer om Apache Kafka på HDInsight: Vad detta är, vad det används till och var du hittar exempel och information om att komma igång.'
 services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: overview
 ms.date: 04/11/2018
-ms.openlocfilehash: 587279d247b945b787051721d256f00a090d56db
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 4d054542d600f2569170f40b8f6c053e005fc8af
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52313970"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889196"
 ---
 # <a name="what-is-apache-kafka-on-hdinsight"></a>Vad är Apache Kafka på HDInsight?
 
@@ -38,7 +38,7 @@ Följande är kännetecknen för Kafka på HDInsight:
 
     Mer information finns i [Hög tillgänglighet med Apache Kafka i HDInsight](apache-kafka-high-availability.md).
 
-* Azure Log Analytics kan användas för att övervaka Kafka på HDInsight. I Log Analytics kan du se information på virtuell dator-nivå, som diskar, nätverksmått och JMX-mått, från Kafka.
+* Azure Monitor-loggar kan användas för att övervaka Kafka på HDInsight. Med Azure Monitor-loggar kan du se information på virtuell dator-nivå såsom mått för diskar och nätverkskort samt JMX-mått från Kafka.
 
     Mer information finns i [Analysera loggar för Apache Kafka i HDInsight](apache-kafka-log-analytics-operations-management.md).
 
@@ -60,19 +60,19 @@ Replikering används för att duplicera partitioner mellan noder, vilket skyddar
 
 Följande är vanliga uppgifter och mönster som kan utföras med hjälp av Kafka på HDInsight:
 
-* **Replikering av Apache Kafka-data**: Kafka innehåller verktyget MirrorMaker, som replikerar data mellan olika Kafka-kluster.
+* **Replikering av Apache Kafka-data**: Kafka innehåller verktyget MirrorMaker som replikerar data mellan olika Kafka-kluster.
 
     Information om hur du använder MirrorMaker finns i avsnittet om att [replikera Apache Kafka-ämnen med Apache Kafka i HDInsight](apache-kafka-mirroring.md).
 
-* **Meddelandemönster av typen publicera-prenumerera**: Kafka innehåller ett producent-API för publicering av poster till ett Kafka-ämne. Konsument-API används när det finns en prenumererar på ett ämne.
+* **Meddelandemönstret publicera/prenumerera**: Kafka innehåller ett producent-API för publicering av poster till ett Kafka-ämne. Konsument-API används när det finns en prenumererar på ett ämne.
 
     Mer information finns i [Kom igång med Apache Kafka i HDInsight](apache-kafka-get-started.md).
 
-* **Dataströmsbearbetning**: Kafka används ofta med Apache Storm eller Spark för bearbetning av dataströmmar i realtid. Kafka 0.10.0.0 (HDInsight version 3.5 och 3.6) införde en strömmande API som gör att du kan skapa direktuppspelade lösningar utan Storm eller Spark.
+* **Dataströmsbearbetning**: Kafka används ofta med Apache Storm eller Spark för dataströmsbearbetning i realtid. Kafka 0.10.0.0 (HDInsight version 3.5 och 3.6) införde en strömmande API som gör att du kan skapa direktuppspelade lösningar utan Storm eller Spark.
 
     Mer information finns i [Kom igång med Apache Kafka i HDInsight](apache-kafka-get-started.md).
 
-* **Vågrät skala**: Kafka partitionerar dataströmmar mellan noderna i HDInsight-klustret. Konsumentprocesser kan associeras med enskilda partitioner för att ge belastningsutjämning när poster används.
+* **Horisontell skala**: Kafka partitionerar dataströmmar mellan noderna i HDInsight-klustret. Konsumentprocesser kan associeras med enskilda partitioner för att ge belastningsutjämning när poster används.
 
     Mer information finns i [Kom igång med Apache Kafka i HDInsight](apache-kafka-get-started.md).
 
@@ -82,20 +82,20 @@ Följande är vanliga uppgifter och mönster som kan utföras med hjälp av Kafk
 
 ## <a name="use-cases"></a>Användningsfall
 
-* **Meddelanden**: Eftersom den stöder meddelandemönstret publicera-prenumerera används Kafka ofta som en asynkron meddelandekö.
+* **Meddelanden**: Eftersom Kafka stöder meddelandemönstret publicera-prenumerera används det ofta som en asynkron meddelandekö.
 
-* **Aktivitetsspårning**: Eftersom Kafka innehåller i ordningsbaserad loggning av poster kan den användas för att spåra och återskapa aktiviteter. Till exempel användaråtgärder på en webbplats eller i ett program.
+* **Aktivitetsspårning**: Eftersom Kafka ger ordningsbaserad loggning av poster kan det användas för att spåra och återskapa aktiviteter. Till exempel användaråtgärder på en webbplats eller i ett program.
 
 * **Sammanställning**: Med hjälp av strömbearbetning kan du sammanställa information från olika strömmar för att kombinera och centralisera information till användningsdata.
 
-* **Omvandling**: Med dataströmsbearbetning kan du kombinera och utöka data från flera inkommande avsnitt i ett eller flera utdataämnen.
+* **Transformering**: Med dataströmsbearbetning kan du kombinera och utöka data från flera inkommande avsnitt i ett eller flera utdataämnen.
 
 ## <a name="next-steps"></a>Nästa steg
 
 Använd följande länkar om du vill veta om hur du använder Apache Kafka på HDInsight:
 
-* [Snabbstart: Skapa Apache Kafka på HDInsight](apache-kafka-get-started.md)
+* [Snabbstart: Skapa Apache Kafka i HDInsight](apache-kafka-get-started.md)
 
-* [Självstudie: Använda Apache Spark med Apache Kafka i HDInsight](../hdinsight-apache-spark-with-kafka.md)
+* [Självstudier: Använda Apache Spark med Apache Kafka i HDInsight](../hdinsight-apache-spark-with-kafka.md)
 
-* [Självstudie: Använda Apache Storm med Apache Kafka i HDInsight](../hdinsight-apache-storm-with-kafka.md)
+* [Självstudier: Använda Apache Storm med Apache Kafka i HDInsight](../hdinsight-apache-storm-with-kafka.md)

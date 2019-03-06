@@ -8,12 +8,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: overview
 ms.date: 09/24/2018
-ms.openlocfilehash: ebce27f3558661aca9e1bd6e7130c96c396d33ee
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: bb173981e3f06c923fa7357eb64777493bd17b8c
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51257130"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56958277"
 ---
 # <a name="what-is-azure-data-explorer"></a>Vad är Azure Data Explorer?
 
@@ -47,9 +47,9 @@ Arbetet i Azure Data Explorer följer vanligtvis det här mönstret:
 
 1. **Skapa databas:** Skapa ett *kluster* och skapa sedan en eller flera *databaser* i klustret. [Snabbstart: Skapa ett Azure Data Explorer-kluster och en databas](create-cluster-database-portal.md)
 
-1. **Mata in data:** Läs in data i databastabeller så att du kan köra frågor mot dem. [Snabbstart: Mata in data från Event Hub i Azure Data Explorer](ingest-data-event-hub.md)
+1. **Mata in data:** Läs in data i databastabeller så att du kan köra frågor mot dem. [Snabbstart: Mata in data från Event Hub till Azure Data Explorer](ingest-data-event-hub.md)
 
-1. **Fråga databas:** Använd vårt webbprogram för att köra, granska och dela frågor och resultat. Webbprogrammet är tillgängligt i Azure-portalen och som ett fristående program. Du kan också skicka frågor via programmering (med ett SDK) eller till en REST API-slutpunkt. [Snabbstart: Fråga efter data i Azure Data Explorer](web-query-data.md)
+1. **Köra frågor mot databas:** Använd vår webbapp för att köra, granska och dela frågor och resultat. Webbprogrammet är tillgängligt i Azure-portalen och som ett fristående program. Du kan också skicka frågor via programmering (med ett SDK) eller till en REST API-slutpunkt. [Snabbstart: Fråga efter data i Azure Data Explorer](web-query-data.md)
 
 ## <a name="query-experience"></a>Frågor
 
@@ -57,7 +57,7 @@ En fråga i Azure Data Explorer är en skrivskyddad begäran att bearbeta data o
 
 Azure Data Explorer kan hantera stora mängder strukturerade, halvstrukturerade, (JSON-liknande kapslade typer av data) och ostrukturerade data (fritext) lika bra. Det gör att du kan söka efter specifika sökord, leta efter specifika händelser och utföra måttberäkningar i strukturerade data. Azure Data Explorer överbryggar klyftorna mellan ostrukturerade textloggar och strukturerade tal och mått genom att extrahera värden vid körning från fält med fritext. Utforskning av data förenklas genom en kombination av snabb textindexering, kolumnarkiv och tidsserieåtgärder.
 
-Azure Data Explorer-funktionerna utökas med andra tjänster som bygger på dess kraftfulla frågespråk, till exempel [Log Analytics](/azure/log-analytics/), [Application Insights](/azure/application-insights/), [Time Series Insights](/azure/time-series-insights/) och [Windows Defender Avancerat skydd](/windows/security/threat-protection/windows-defender-atp/windows-defender-advanced-threat-protection/).
+Azure Data Explorer-funktionerna utökas med andra tjänster som bygger på dess kraftfulla frågespråk, däribland [Azure Monitor-loggar](/azure/log-analytics/), [Application Insights](/azure/application-insights/), [Time Series Insights](/azure/time-series-insights/) och [Windows Defender Avancerat skydd](/windows/security/threat-protection/windows-defender-atp/windows-defender-advanced-threat-protection/).
 
 ## <a name="feedback"></a>Feedback
 
@@ -73,6 +73,6 @@ Vi vill gärna ha dina synpunkter på Azure Data Explorer och dess frågespråk.
 
 [Snabbstart: Skapa ett Azure Data Explorer-kluster och en databas](create-cluster-database-portal.md)
 
-[Snabbstart: Mata in data från Event Hub i Azure Data Explorer](ingest-data-event-hub.md)
+[Snabbstart: Mata in data från Event Hub till Azure Data Explorer](ingest-data-event-hub.md)
 
 [Snabbstart: Fråga efter data i Azure Data Explorer](web-query-data.md)

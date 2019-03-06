@@ -7,13 +7,13 @@ ms.author: v-orspod
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
-ms.date: 09/24/2018
-ms.openlocfilehash: 5d9819d60e21c80b882db1d12b0318599fa54095
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.date: 02/2/2018
+ms.openlocfilehash: 7b724219750154c5ec1410af64175bc70f5cbd6c
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55729752"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56805823"
 ---
 # <a name="quickstart-ingest-data-from-event-hub-into-azure-data-explorer"></a>Snabbstart: Mata in data från Event Hub i Azure Data Explorer
 
@@ -103,11 +103,7 @@ Nu ansluter du till händelsehubben från Azure-datautforskaren. När den här a
 
     ![Välj testdatabas](media/ingest-data-event-hub/select-test-database.png)
 
-1. Välj **Datainmatning** och sedan **Lägg till dataanslutning**.
-
-    ![Datainhämtning](media/ingest-data-event-hub/data-ingestion-create.png)
-
-1. Fyll i formuläret med följande information och välj sedan **Skapa**.
+1. Välj **Datainmatning** och **Lägg till dataanslutning**. Fyll sedan i formuläret med följande information. Välj **Skapa** när du är klar.
 
     ![Händelsehubbanslutning](media/ingest-data-event-hub/event-hub-connection.png)
 

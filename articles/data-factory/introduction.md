@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: overview
 ms.date: 01/11/2018
 ms.author: shlo
-ms.openlocfilehash: 9704002a30556c76c65ddcad1cb576fbf4502b55
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 66ea269e2f29bfd39cdb81086391e0277474219d
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54014309"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56961368"
 ---
 # <a name="introduction-to-azure-data-factory"></a>introduktion till Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -62,7 +62,7 @@ När data presenteras i ett centraliserat datalager i molnet, kan du bearbeta el
 Efter att rådata har förfinats till en form som företaget kan använda, läser du in data i Azure Data Warehouse, Azure SQL Database, Azure CosmosDB eller den analysmotor som ditt företags användare kan peka till från sina business intelligence-verktyg.
 
 ### <a name="monitor"></a>Övervaka
-När du har skapat och distribuerat din pipeline för dataintegrering och fått affärsvärde från förfinade data, kan du övervaka schemalagda aktiviteter och pipelines för att se hur många som lyckats respektive misslyckats. Azure Data Factory har ett inbyggt stöd för pipelineövervakning via Azure Monitor, API, PowerShell, Log Analytics och hälsopaneler i Azure Portal.
+När du har skapat och distribuerat din pipeline för dataintegrering och fått affärsvärde från förfinade data, kan du övervaka schemalagda aktiviteter och pipelines för att se hur många som lyckats respektive misslyckats. Azure Data Factory har ett inbyggt stöd för pipelineövervakning via Azure Monitor, API, PowerShell, Azure Monitor-loggar och hälsopaneler i Azure-portalen.
 
 ## <a name="top-level-concepts"></a>Toppnivåbegrepp
 En Azure-prenumeration kan ha en eller flera Azure Data Factory-instanser (eller datafabriker). Azure Data Factory består av fyra nyckelkomponenter. De här komponenterna samverkar för att tillhandahålla en plattform där du kan skapa datadrivna arbetsflöden med steg för att flytta och omvandla data.

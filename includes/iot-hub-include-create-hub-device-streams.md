@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/15/2019
 ms.author: rezas
 ms.custom: include file
-ms.openlocfilehash: 53d8df7e2366cfbf2f62e79fc99c8ef2f9b48ba1
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: ea82bdca23d8b34898261eb60fd908d281451fd0
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54830818"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56825603"
 ---
 I det här avsnittet beskrivs hur du använder [Azure-portalen](https://portal.azure.com) för att skapa en IoT-hubb.
 
@@ -29,7 +29,7 @@ I det här avsnittet beskrivs hur du använder [Azure-portalen](https://portal.a
 
    **Prenumeration**: Välj den prenumeration som du vill använda för din IoT-hubb.
 
-   **Resursgrupp**: Du kan skapa en ny resursgrupp eller välja en befintlig. Klicka på **Skapa ny** för att skapa en ny och ange namnet som du vill använda. Om du vill använda en befintlig resursgrupp väljer du **Använd befintlig** och väljer en resursgruppen i listrutan. Mer information finns i [Använda resursgrupper för att hantera Azure-resurser](../articles/azure-resource-manager/resource-group-portal.md).
+   **Resursgrupp**: Du kan skapa en ny resursgrupp eller välja en befintlig. Klicka på **Skapa ny** för att skapa en ny och ange namnet som du vill använda. Om du vill använda en befintlig resursgrupp väljer du **Använd befintlig** och väljer en resursgruppen i listrutan. Mer information finns i [Hantera Azure Resource Manager-resursgrupper](../articles/azure-resource-manager/manage-resource-groups-portal.md).
 
    **Region**: Det här är den region som du vill att din hubb ska finnas i. Se till att du väljer en region som stöds (t.ex. USA, centrala eller USA, centrala EUAP).
 

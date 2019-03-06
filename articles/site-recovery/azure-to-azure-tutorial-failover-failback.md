@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: ab920094561b9143945793ddd4ea3da877a7ae90
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 46dae28fd6c9eaa3d5e03f5f06c5e92449653679
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56340543"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56737730"
 ---
 # <a name="fail-over-and-fail-back-azure-vms-between-azure-regions"></a>Redundansväxling och felåterställning av virtuella Azure-datorer mellan Azure-regioner
 
@@ -48,7 +48,7 @@ Den här självstudien beskriver hur en virtuell Azure-dator redundansväxlas ti
    * **Senaste bearbetade**: Alternativet återställer den virtuella datorn till den senaste återställningspunkt som bearbetats av Site Recovery-tjänsten.
    * **Anpassad**: Använd detta alternativ för att redundansväxla till en specifik återställningspunkt. Det här alternativet är användbart för att utföra test av redundansväxling.
 
-3. Välj **Stäng datorn innan du påbörjar redundans** om du vill använda Site Recovery att göra en avstängning av virtuella källdatorer innan du utlöser redundansväxling. Redundansväxlingen fortsätter även om avstängningen misslyckas.
+3. Välj **Stäng datorn innan du påbörjar redundans** om du vill använda Site Recovery att göra en avstängning av virtuella källdatorer innan du utlöser redundansväxling. Redundansväxlingen fortsätter även om avstängningen misslyckas. Observera att Site Recovery inte rensar källan efter en redundansväxling.
 
 4. Följ redundansförloppet på sidan **Jobb**.
 

@@ -3,7 +3,7 @@ title: Distribuera ett containerprogram med CI/CD till ett Azure Service Fabric-
 description: I den här självstudiekursen får du lära dig hur du ställer in kontinuerlig integrering och distribution för ett Azure Service Fabric-containerprogram med hjälp av Visual Studio Azure DevOps.
 services: service-fabric
 documentationcenter: .net
-author: TylerMSFT
+author: aljo-microsoft
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,16 +13,16 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/29/2018
-ms.author: twhitney
+ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: 2320aaf2d502280a29562a49dfff1e4e9244d079
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 2da33f2a333529eb7a27a607484a407f869ee540
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52872976"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56807090"
 ---
-# <a name="tutorial-deploy-a-container-application-with-cicd-to-a-service-fabric-cluster"></a>Självstudie: Distribuera ett containerprogram med CI/CD till ett Service Fabric-kluster
+# <a name="tutorial-deploy-a-container-application-with-cicd-to-a-service-fabric-cluster"></a>Självstudier: Distribuera ett containerprogram med CI/CD till ett Service Fabric-kluster
 
 Den här självstudiekursen är del två i en serie. Du får lära dig hur du konfigurerar kontinuerlig integrering och distribution för ett Azure Service Fabric-containerprogram med hjälp av Visual Studio och Azure DevOps.  Ett befintligt Service Fabric-program krävs. Det som skapas i [Distribuera ett .NET-program i en Windows-container till Azure Service Fabric](service-fabric-host-app-in-a-container.md) används som exempel.
 

@@ -11,12 +11,12 @@ author: garyericson
 ms.author: garye
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 36e0ca360cfbdfc77ce0a1768222f43f8864537c
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: fd6ecb6cb45aef399a137c9eac2c8c6f845b610b
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56267277"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56872496"
 ---
 # <a name="what-is-azure-machine-learning-service"></a>Vad är tjänsten Azure Machine Learning?
 
@@ -32,7 +32,7 @@ Prognoser eller förutsägelser från maskininlärning kan göra appar och enhet
 
 Tjänsten Azure Machine Learning tillhandahåller en molnbaserad miljö som du kan använda för att förbereda data och träna, testa, distribuera, hantera och spåra maskininlärningsmodeller.
 
-[ ![Arbetsflöde i tjänsten Azure Machine Learning](./media/overview-what-is-azure-ml/aml.png)] (./media/overview-what-is-azure-ml/aml.png#lightbox)
+[![Azure Machine Learning Service-arbetsflöde](./media/overview-what-is-azure-ml/aml.png)] (./media/overview-what-is-azure-ml/aml.png#lightbox)
 
 Azure Machine Learning-tjänsten har fullständigt stöd för tekniker med öppen källkod. Du kan därför använda tiotusentals Python-paket som är baserade på öppen källkod med komponenter för maskininlärning. Exempel är PyTorch, TensorFlow och scikit-learn.
 Stöd för omfattande verktyg gör det enkelt att interaktivt utforska och förbereda data och sedan utveckla och testa modeller. Exempel är [Jupyter-anteckningsböcker](http://jupyter.org) eller tillägget [Azure Machine Learning för Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai#overview).
@@ -70,7 +70,7 @@ Kom igång med tjänsten Azure Machine Learning genom att gå till [Nästa steg]
 
 ## <a name="how-is-azure-machine-learning-service-different-from-machine-learning-studio"></a>Hur skiljer sig tjänsten Azure Machine Learning från Machine Learning Studio?
 
-Azure Machine Learning Studio är en gemensam, visuell ”dra och släpp”-arbetsyta där du kan skapa, testa och distribuera maskininlärningslösningar utan att behöva skriva kod. Den använder fördefinierade och förkonfigurerade maskininlärningsalgoritmer och datahanteringsmoduler. 
+[Azure Machine Learning Studio](../studio/what-is-ml-studio.md) är en visuell ”dra och släpp”-arbetsyta med samarbetsfunktioner där du kan skapa, testa och distribuera maskininlärningslösningar utan att behöva skriva kod. Den använder fördefinierade och förkonfigurerade maskininlärningsalgoritmer och datahanteringsmoduler.
 
 Använd Machine Learning Studio om du snabbt och enkelt vill experimentera med maskininlärningsmodeller och om de inbyggda maskininlärningsalgoritmerna räcker för dina lösningar.
 

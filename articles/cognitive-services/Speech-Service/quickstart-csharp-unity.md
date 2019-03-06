@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 2/20/2019
 ms.author: wolfma
-ms.openlocfilehash: 8e31717f9fd232a7c256b65d044a97396af8f960
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: 0978db31f4aa8caa273c63c2f55d5146b19dea26
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56448592"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56878021"
 ---
 # <a name="quickstart-recognize-speech-with-the-speech-sdk-for-unity-beta"></a>Snabbstart: Taligenkänning med Speech SDK för Unity (betaversion)
 
@@ -74,7 +74,7 @@ Vi lägger till ett minimalt användargränssnitt i scenen som består av en kna
 
 När du är klar bör användargränssnittet ut ungefär som på den här skärmbilden:
 
-[ ![Skärmbild av användargränssnitt för snabbstart i Unity Editor](media/sdk/qs-csharp-unity-02-ui-inline.png) ](media/sdk/qs-csharp-unity-02-ui-expanded.png#lightbox)
+[![Skärmbild av användargränssnittet för snabbstart i Unity Editor](media/sdk/qs-csharp-unity-02-ui-inline.png)](media/sdk/qs-csharp-unity-02-ui-expanded.png#lightbox)
 
 ## <a name="add-the-sample-code"></a>Lägga till exempelkoden
 
@@ -111,7 +111,7 @@ När du är klar bör användargränssnittet ut ungefär som på den här skärm
 
 * När appen har startats klickar du på knappen och talar in en fras eller mening på engelska i datorns mikrofon. Ditt tal överförs till Speech-tjänsten och transkriberas till text som visas i fönstret.
 
-  [ ![Skärmbild med den snabbstart som körs i Unity-spelfönstret](media/sdk/qs-csharp-unity-03-output-inline.png) ](media/sdk/qs-csharp-unity-03-output-expanded.png#lightbox)
+  [![Skärmbild med den snabbstart som körs i Unity-spelfönstret](media/sdk/qs-csharp-unity-03-output-inline.png)](media/sdk/qs-csharp-unity-03-output-expanded.png#lightbox)
 
 * Titta efter felsökningsmeddelanden i [konsolfönstret](https://docs.unity3d.com/Manual/Console.html).
 

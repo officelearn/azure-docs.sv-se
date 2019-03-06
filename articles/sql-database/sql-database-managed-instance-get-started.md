@@ -1,6 +1,6 @@
 ---
-title: 'Azure Portal: Skapa en SQL-hanterad instans | Microsoft Docs'
-description: Skapa en SQL-hanterad instans, en nätverksmiljö och en virtuell klientdator för åtkomst.
+title: 'Azure-portalen: Skapa en hanterad SQL-instans | Microsoft Docs'
+description: Skapa en hanterad SQL-instans, en nätverksmiljö och en virtuell klientdator för åtkomst.
 services: sql-database
 ms.service: sql-database
 ms.subservice: managed-instance
@@ -11,13 +11,13 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: Carlrab
 manager: craigg
-ms.date: 01/15/2019
-ms.openlocfilehash: a4e829f8ae89815c68d80a9f85dfbfd58a03b6a0
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.date: 02/18/2019
+ms.openlocfilehash: 481c82eb74bcf80c3d0546324009ec0bf6495cfb
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54452198"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56587063"
 ---
 # <a name="quickstart-create-an-azure-sql-database-managed-instance"></a>Snabbstart: Skapa en hanterad Azure SQL Database-instans
 
@@ -34,22 +34,22 @@ Logga in på [Azure-portalen](https://portal.azure.com/).
 I följande steg visas hur du skapar en hanterad instans.
 
 1. Välj **Skapa en resurs** längst upp till vänster i Azure Portal.
-2. Leta upp **Managed Instance** och välj sedan **Azure SQL Managed Instance**.
+2. Leta upp **hanterad instans** och välj sedan **Azure SQL Managed Instance**.
 3. Välj **Skapa**.
 
    ![Skapa en hanterad instans](./media/sql-database-managed-instance-get-started/managed-instance-create.png)
 
-4. Fyll i formuläret **Hanterad instans** med den begärda informationen, med hjälp av informationen i följande tabell:
+4. Fyll i formuläret **Hanterad SQL-instans** med den begärda informationen, med hjälp av informationen i följande tabell:
 
    | Inställning| Föreslaget värde | Beskrivning |
    | ------ | --------------- | ----------- |
    | **Prenumeration** | Din prenumeration | En prenumeration där du har behörighet att skapa nya resurser |
-   |**Namn på hanterad instans**|Valfritt giltigt namn|Giltiga namn finns i [Namngivningsregler och begränsningar](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
-   |**Administratörsinloggning för hanterad instans**|Giltigt användarnamn|Giltiga namn finns i [Namngivningsregler och begränsningar](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). Använd inte ”serveradmin” eftersom det är en reserverad servernivåroll.|
+   |**Namn på hanterad instans**|Valfritt giltigt namn|Giltiga namn finns i [namngivningsregler och begränsningar](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
+   |**Administratörsinloggning för hanterad instans**|Giltigt användarnamn|Giltiga namn finns i [namngivningsregler och begränsningar](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). Använd inte ”serveradmin” eftersom det är en reserverad servernivåroll.|
    |**Lösenord**|Valfritt giltigt lösenord|Lösenordet måste vara minst 16 tecken långt och uppfylla [de definierade kraven på komplexitet](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).|
-   |**Sortering**|Den sortering som du vill använda för din hanterade instans|Om du migrerar databaser från SQL Server kontrollerar du källans sortering med hjälp av `SELECT SERVERPROPERTY(N'Collation')` och det värdet. Mer information om sorteringar finns i [Sorteringar på servernivå](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-server-collation).|
-   |**Plats**|Platsen där du vill skapa den hanterade instansen|För information om regioner, se [Azure-regioner](https://azure.microsoft.com/regions/).|
-   |**Virtuellt nätverk**|Välj antingen **Skapa nytt virtuellt nätverk** eller ett giltigt virtuellt nätverk och undernät.| Om en nätverk/undernät är nedtonat måste det [ändras för att uppfylla nätverkskraven](sql-database-managed-instance-configure-vnet-subnet.md) innan du väljer det som mål för den nya hanterade instansen. Information om kraven för att konfigurera nätverksmiljön för en hanterad instans finns i [Konfigurera ett virtuellt nätverk för hanterad Azure SQL Database-instans](sql-database-managed-instance-connectivity-architecture.md). |
+   |**Sortering**|Den sortering som du vill använda för din hanterade instans|Om du migrerar databaser från SQL Server kontrollerar du källans sortering med hjälp av `SELECT SERVERPROPERTY(N'Collation')` och det värdet. Mer information om sorteringar finns i [sorteringar på servernivå](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-server-collation).|
+   |**Plats**|Den plats där du vill skapa den hanterade instansen|För information om regioner, se [Azure-regioner](https://azure.microsoft.com/regions/).|
+   |**Virtuellt nätverk**|Välj antingen **Skapa nytt virtuellt nätverk** eller ett giltigt virtuellt nätverk och undernät.| Om ett nätverk/undernät är nedtonat måste det [ändras för att uppfylla nätverkskraven](sql-database-managed-instance-configure-vnet-subnet.md) innan du väljer det som mål för den nya hanterade instansen. Information om kraven för att konfigurera nätverksmiljön för en hanterad instans finns i avsnittet om att [konfigurera ett virtuellt nätverk för en hanterad instans](sql-database-managed-instance-connectivity-architecture.md). |
    |**Resursgrupp**|En ny eller befintlig resursgrupp|Giltiga resursgruppnamn finns i [Namngivningsregler och begränsningar](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
 
    ![formulär för hanterad instans](./media/sql-database-managed-instance-get-started/managed-instance-create-form.png)
@@ -72,23 +72,41 @@ I följande steg visas hur du skapar en hanterad instans.
 
 När distributionen är färdig kan du granska resurserna som har skapats och hämta det fullständigt kvalificerade servernamnet för användning i senare snabbstarter.
 
-1. Öppna resursgruppen för din hanterade instans och visa resurserna som skapades åt dig i snabbstarten [Skapa en hanterad instans](#create-a-managed-instance).
+1. Öppna resursgruppen för din hanterade instans och visa dess resurser som skapades åt dig i snabbstarten [skapa en hanterad instans](#create-a-managed-instance).
 
-2. Välj din hanterade instans.
+   ![Resurser för hanterad instans](./media/sql-database-managed-instance-get-started/resources.png)
 
-   ![Hanterade instansresurser](./media/sql-database-managed-instance-get-started/resources.png)
+2. Välj routningstabellen för att granska den tabell för användardefinierad väg (UDR) som har skapats.
 
-3. På fliken **Översikt** letar du upp egenskapen **Värd** och kopierar den hanterade instansens fullständigt hanterade värdadress.
+   ![Routningstabell](./media/sql-database-managed-instance-get-started/route-table.png)
 
-   ![Hanterade instansresurser](./media/sql-database-managed-instance-get-started/host-name.png)
+3. I routningstabellen granskar du posterna för routningstrafik från och i den hanterade instansens virtuella nätverk. Om du skapar eller konfigurerar routningstabellen manuellt måste du att se till att skapa de här posterna i routningstabellen.
+
+   ![Posten för MI-undernätet till lokalt](./media/sql-database-managed-instance-get-started/udr.png)
+
+4. Gå tillbaka till resursgruppen och välj nätverkssäkerhetsgruppen för att granska säkerhetsreglerna.
+
+   ![Nätverkssäkerhetsgrupp](./media/sql-database-managed-instance-get-started/network-security-group.png)
+
+5. Granska inkommande och utgående säkerhetsregler.
+
+   ![Säkerhetsregler](./media/sql-database-managed-instance-get-started/security-rules.png)
+
+6. Gå tillbaka till resursgruppen och välj din hanterade instans.
+
+   ![Hanterad instans](./media/sql-database-managed-instance-get-started/managed-instance.png)
+
+7. På fliken **Översikt** letar du upp egenskapen **Värd** och kopierar den hanterade instansens fullständigt kvalificerade värdadress för användning i nästa snabbstart.
+
+   ![Värdnamn](./media/sql-database-managed-instance-get-started/host-name.png)
 
    Namnet ser ut ungefär så här: **ditt_datornamn.a1b2c3d4e5f6.database.windows.net**.
 
 ## <a name="next-steps"></a>Nästa steg
 
 - Läs om hur du ansluter till en hanterad instans i:
-  - En översikt över anslutningsalternativen för olika program finns i [Ansluta dina program till Managed Instance](sql-database-managed-instance-connect-app.md).
-  - [Konfigurera en anslutning till en virtuell Azure-dator](sql-database-managed-instance-configure-vm.md) är en snabbstart där du får se hur du ansluter till en hanterad instans från en virtuell Azure-dator.
-  - [Konfigurera en punkt-till-plats-anslutning](sql-database-managed-instance-configure-p2s.md) är en snabbstart där du får se hur du ansluter till en hanterad instans från en lokal klientdator via punkt-till-plats-anslutning.
+  - En översikt över anslutningsalternativen för olika program finns i [ansluta dina program till en hanterad instans](sql-database-managed-instance-connect-app.md).
+  - En snabbstart som visar hur du ansluter till en hanterad instans från en virtuell Azure-dator finns i [Konfigurera en anslutning för en virtuell Azure-dator](sql-database-managed-instance-configure-vm.md).
+  - En snabbstart som visar hur du ansluter till en hanterad instans från en lokal klientdator via punkt-till-plats-anslutning finns i [Konfigurera en punkt-till-plats-anslutning](sql-database-managed-instance-configure-p2s.md).
 - Om du vill återställa en lokal befintlig SQL Server-databas till en hanterad instans kan du använda [Azure Database Migration Service (DMS) för migrering](../dms/tutorial-sql-server-to-managed-instance.md) till att återställa från en databassäkerhetskopia eller kommandot [T-SQL RESTORE](sql-database-managed-instance-get-started-restore.md) till att återställa från en databassäkerhetskopia.
-- Information om avancerad övervakning av databasprestanda för hanterad instans med inbyggd intelligens som felsökning finns i artikeln om att [övervaka Azure SQL Database med Azure SQL-analys](../azure-monitor/insights/azure-sql.md)
+- Information om avancerad övervakning av databasprestanda för hanterad instans med inbyggd felsökningsintelligens finns i artikeln om att [övervaka Azure SQL Database med hjälp av Azure SQL-analys](../azure-monitor/insights/azure-sql.md)

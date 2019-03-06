@@ -9,16 +9,16 @@ services: iot-accelerators
 ms.date: 11/08/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 2f6e8b40907d02e62ede95a44fa10168f7590bd5
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: d28a88efc1a9f980d74737936bb960ba13573fa3
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53606256"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56675100"
 ---
 # <a name="tutorial-detect-anomalies-at-the-edge-with-the-remote-monitoring-solution-accelerator"></a>Självstudier: Identifiera avvikelser vid gränsen med lösningsacceleratorn för fjärrövervakning
 
-I den här självstudien konfigurerar du lösningen för fjärrövervakning för att svara på avvikelser som identifierats av en IoT Edge-enhet. Med IoT Edge-enheter kan du bearbeta telemetri vid gränsen att minska mängden telemetri som skickas till lösningen och aktivera snabbare svar på händelser på enheter. Läs mer om fördelarna med Edge-bearbetning i [Vad är Azure IoT Edge](../iot-edge/about-iot-edge.md).
+I den här självstudien konfigurerar du lösningen för fjärrövervakning för att svara på avvikelser som identifierats av en IoT Edge-enhet. Med IoT Edge-enheter kan du bearbeta telemetri vid gränsen för att minska mängden telemetri som skickas till lösningen och få snabbare svar på händelser på enheter. Läs mer om fördelarna med Edge-bearbetning i [Vad är Azure IoT Edge](../iot-edge/about-iot-edge.md).
 
 I den här självstudien används en simulerad oljepumpjackenhet för att introducera Edge-bearbetning med fjärrövervakning. Oljepumpjacket hanteras av en organisation som heter Contoso och är anslutet till lösningsacceleratorn Fjärrövervakning. Sensorer på oljepumpjacket mäter temperatur och tryck. Operatörer på Contoso vet att en onormal temperaturökning kan orsaka att oljepumpjacket blir långsammare. Operatörer på Contoso behöver inte övervaka enhetens temperatur när det är inom det normala intervallet.
 
@@ -55,26 +55,26 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 Det finns två steg för att lägga till en IoT Edge-enhet i lösningsacceleratorn för fjärrövervakning. Det här avsnittet visar hur du använder:
 
-* Lägg till en IoT Edge-enhet på sidan **Enheter** i webbgränssnittet för fjärrövervakning.
+* Lägg till en IoT Edge-enhet på sidan **Device Explorer** i webbgränssnittet för fjärrövervakning.
 * Installera IoT Edge-körning i en Linux-dator (VM).
 
 ### <a name="add-an-iot-edge-device-to-your-solution"></a>Lägga till en IoT Edge-enhet till din lösning
 
-Om du vill lägga till en IoT Edge-enhet till lösningsacceleratorn för fjärrövervakning navigerar du till sidan **Enheter** i webbgränssnittet och klickar på **+ Ny enhet**.
+Om du vill lägga till en IoT Edge-enhet till lösningsacceleratorn för fjärrövervakning navigerar du till sidan **Device Explorer** i webbgränssnittet och klickar på **+ Ny enhet**.
 
-I panelen **Ny enhet** väljer du **IoT Edge-enhet** och anger **oil-pump** som enhetens ID. Du behålla standardvärden för de andra inställningarna. Klicka sedan på **Använd**:
+I panelen **Ny enhet** väljer du **IoT Edge-enhet** och anger **oil-pump** som enhetens ID. Du kan behålla standardvärden för de andra inställningarna. Klicka sedan på **Använd**:
 
 [![Lägga till IoT Edge-enhet](./media/iot-accelerators-remote-monitoring-edge/addedgedevice-inline.png)](./media/iot-accelerators-remote-monitoring-edge/addedgedevice-expanded.png#lightbox)
 
-Anteckna enhetsanslutningssträngen. Du u behöver den i nästa avsnitt av den här självstudien.
+Anteckna enhetsanslutningssträngen. Du behöver den i nästa avsnitt av den här självstudien.
 
-När du registrerar en enhet med IoT-hubben i lösningsacceleratorn för fjärrövervakning visas den på sidan **Enheter** i webbgränssnittet:
+När du registrerar en enhet med IoT-hubben i lösningsacceleratorn för fjärrövervakning visas den på sidan **Device Explorer** i webbgränssnittet:
 
 [![Ny IoT Edge-enhet](./media/iot-accelerators-remote-monitoring-edge/newedgedevice-inline.png)](./media/iot-accelerators-remote-monitoring-edge/newedgedevice-expanded.png#lightbox)
 
 Om du vill göra det enklare att hantera IoT Edge-enheter i lösningen kan du skapa en enhetsgrupp och lägga till IoT Edge-enheten:
 
-1. Välj enheten **oil-pump** i listan på sidan **Enheter** och klicka på **Jobb**.
+1. Välj enheten **oil-pump** i listan på sidan **Device Explorer** och klicka på **Jobb**.
 
 1. Skapa ett jobb för att lägga till taggen **IsEdge** till tjänsten med följande inställningar:
 
@@ -90,7 +90,7 @@ Om du vill göra det enklare att hantera IoT Edge-enheter i lösningen kan du sk
 
 1. Klicka på **Använd** och sedan på **Stäng**.
 
-1. På sidan **Enheter** klickar du på **Hantera enhetsgrupper**.
+1. På sidan **Device Explorer** klickar du på **Hantera enhetsgrupper**.
 
 1. Klicka på **Skapa ny enhetsgrupp**. Skapa en ny enhetsgrupp med följande inställningar:
 
@@ -167,7 +167,7 @@ Du definierar Stream Analytics-jobbet i portalen innan du paketerar den som en E
     | Värdmiljö | Edge |
     | Strömningsenheter | 1 |
 
-1. Öppna Stream Analytics-jobbet **EdgeDeviceJob** i portalen, klicka på Indata och lägger till **Edge Hub**-strömindata med namnet **telemetry**.
+1. Öppna Stream Analytics-jobbet **EdgeDeviceJob** i portalen, klicka på Indata och lägg till **Edge Hub**-strömindata med namnet **telemetry**.
 
 1. I Stream Analytics-jobbet **EdgeDeviceJob** i portalen klickar du på **Utdata** och lägger till **Edge Hub**-utdata med namnet **output**.
 
@@ -195,7 +195,7 @@ Följande skärmbild visar det sparade Stream Analytics-jobbet:
 
 [![Stream Analytics-jobb](./media/iot-accelerators-remote-monitoring-edge/streamjob-inline.png)](./media/iot-accelerators-remote-monitoring-edge/streamjob-expanded.png#lightbox)
 
-Du har nu definierat ett Stream Analytics-jobb som ska köras på din Edge-enhet. Jobbet beräknar medeltemperaturen i ett femsekundersintervallfönster. Jobbet skickar också en avisering om medeltemperaturen i ett tresekundersfönster överstiger 400.
+Du har nu definierat ett Stream Analytics-jobb som ska köras på din Edge-enhet. Jobbet beräknar medeltemperaturen i ett fönster i intervaller om fem sekunder. Jobbet skickar också en avisering om medeltemperaturen i ett tresekundersfönster överstiger 400.
 
 ### <a name="create-the-iot-edge-deployment"></a>Skapa IoT Edge-distributionen
 
@@ -300,7 +300,7 @@ På sidan**Distributioner** visas följande mått:
 
 Du kan visa temperaturtelemetri från oljepumpenheten i webbgränssnittet för fjärrövervakning:
 
-1. Navigera till sidan **Enheter** och väljer din oljepumpenhet.
+1. Navigera till sidan **Device Explorer** och välj din oljepumpenhet.
 1. I avsnittet **Telemetri** i panelen **Enhetsinformation** i panelen, klickar du på **Temperatur**:
 
     [![Visa telemetri](./media/iot-accelerators-remote-monitoring-edge/viewtelemetry-inline.png)](./media/iot-accelerators-remote-monitoring-edge/viewtelemetry-expanded.png#lightbox)

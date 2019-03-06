@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 02/12/2019
-ms.openlocfilehash: 82b412d7fc9e54ca213fecde783a5e27f8ee93bc
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 6cc5d6a778f16b857d0596780a737df3358ac8c3
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56233566"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56867362"
 ---
 # <a name="quickstart-use-net-core-c-to-query-an-azure-sql-database"></a>Snabbstart: Köra frågor mot Azure SQL Database med hjälp av .NET Core (C#)
 
@@ -196,5 +196,5 @@ namespace sqltest
 
 - [Komma igång med .NET Core för Windows/Linux/macOS med hjälp av kommandoraden](/dotnet/core/tutorials/using-with-xplat-cli).
 - Lär dig att [ansluta till och fråga i en Azure SQL-databas med .NET Framework och Visual Studio](sql-database-connect-query-dotnet-visual-studio.md).  
-- Lär dig att [Utforma din första Azure SQL-databas med hjälp av SSMS](sql-database-design-first-database.md) eller [Utforma din första Azure SQL-databas och anslut med C# och ADO.NET](sql-database-design-first-database-csharp.md).
+- Lär dig att [Utforma din första Azure SQL-databas med hjälp av SSMS](sql-database-design-first-database.md) eller [Utforma en Azure SQL-databas och anslut med C# och ADO.NET](sql-database-design-first-database-csharp.md).
 - Mer information om .NET finns i [.NET-dokumentationen](https://docs.microsoft.com/dotnet/).

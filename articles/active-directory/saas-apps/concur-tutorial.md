@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/11/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c3dc83ef66e633205527c4a41ec2a0ff71d42e89
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 2fbbcc77a58001cce8880e14b5d48b6a5e64dfd4
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56182569"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56879806"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-concur"></a>Självstudier: Azure Active Directory-katalogintegrering med Concur
 
@@ -197,8 +197,8 @@ När du klickar på Concur-panelen i åtkomstpanelen så bör du automatiskt log
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

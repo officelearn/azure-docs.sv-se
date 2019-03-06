@@ -13,52 +13,26 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 05/21/2018
 ms.author: spelluru
-ms.openlocfilehash: e9c3cae7c7129cc489ddd38b5b2de18dd6f52e58
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 964f5624a3a588a1520a08365c5fa9c783114e48
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34660597"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56958838"
 ---
 # <a name="introduction-to-classroom-labs"></a>Introduktion till klassrumslabb
 Azure Lab Services låter dig snabbt konfigurera en ett klassrums-labbmiljö i molnet. En undervisare skapar ett klassrumslabb, etablerar virtuella Windows- eller Linux-datorer, installerar nödvändig programvara och verktyg i klassen och gör dem tillgängliga för studenterna. Studenterna i klassen ansluter till virtuella datorer (VM) i labbet och använder dem för sina projekt, uppgifter, klassrumsövningar. 
 
-Klassrumlabben är hanterade labb som hanteras av Azure. Själva tjänsten hanterar all infrastrukturhantering för ett hanterat labb, från att skapa virtuella datorer till att hantera fel och skala infrastrukturen. Du kan ange vilken typ av infrastruktur du behöver och installera alla verktyg och programvara som krävs för klassen. De hanterade labben finns för närvarande i en förhandsversion.  
+Klassrumlabben är hanterade labbtyper som hanteras av Azure. Själva tjänsten hanterar all infrastrukturhantering för en hanterad labbtyp, från att skapa virtuella datorer till att hantera fel och skala infrastrukturen. Du kan ange vilken typ av infrastruktur du behöver och installera alla verktyg och programvara som krävs för klassen. 
 
-## <a name="scenarios"></a>Scenarier
-Här är det huvudsakliga scenariot som klassrumslabben i Azure Lab Services stöder: 
+## <a name="automatic-management-of-azure-infrastructure-and-scale"></a>Automatisk hantering av Azure-infrastruktur och skala 
+Azure Lab Services är en hanterad tjänst. Det innebär att etablering och hantering av ett labbs underliggande infrastruktur hanteras automatiskt av tjänsten. Du behöver bara fokusera på att förbereda rätt labbupplevelse för dina användare. Låt tjänsten hantera resten och lansera labbets virtuella datorer till din publik. Skala ditt labb till hundratals virtuella datorer med ett enda klick.
 
-### <a name="set-up-a-resizable-computer-lab-in-the-cloud-for-your-classroom"></a>Konfigurera ett ändringsbart labb i molnet för ditt klassrum  
+## <a name="simple-experience-for-your-lab-users"></a>Enkelt att använda för dina labbanvändare 
+Användare som bjuds in till ditt labb får omedelbar åtkomst till de resurser som du ger dem i dina labb. De behöver bara logga in för att se den fullständig listan över virtuella datorer som de har åtkomst till i flera labb. De kan klicka på en enda knapp för att ansluta till de virtuella datorerna och börja arbeta. Användarna behöver inte ha Azure-prenumerationer för att använda tjänsten. 
 
-- Skapa ett hanterat klassrumslabb. Du säger bara till tjänsten exakt vad du behöver så skapar den och hanterar labbets infrastruktur åt dig så att du kan fokusera på att undervisa din klass istället för att lägga tid på labbets tekniska detaljer. 
-- Förse eleverna med ett labb med virtuella datorer som är konfigurerat med exakt det som behövs för en lektion. Ge varje elev ett begränsat antal timmar för användning av de virtuella datorerna för skolarbete.  
-- Flytta din skolas fysiska datorlabb till molnet. Skala automatiskt antalet virtuella datorer endast efter den maximala användning och de kostnadströsklar som du anger för labbet. 
-- Ta bort labbet med en enda klickning när du är klar. 
-
-## <a name="user-profiles"></a>Användarprofiler
-Den här artikeln beskriver olika användarprofiler i Azure Lab Services. 
-
-### <a name="lab-account-owner"></a>Labbkontoägare
-Vanligtvis fungerar en IT-administratör för organisationens molnresurser som ansvarar för Azure-prenumerationen som labbkontoägare och utför följande uppgifter:   
-
-- Konfigurerar ett labbkonto för organisationen.
-- Hanterar och konfigurerar principer för alla labb.
-- Ger behörigheter till personer i organisationen för att skapa ett labb under labbkontot.
-
-### <a name="educator"></a>Utbildare
-Normalt skapar användare till exempel en lärare eller en online-undervisare klassrumslabb under ett labbkonto. En utbildare utför följande uppgifter: 
-
-- Skapar ett klassrumslabb.
-- Skapar virtuella maskiner i labbet. 
-- Installerar rätt programvara på virtuella datorer.
-- Anger vem som kan få åtkomst till labbet.
-- Tillhandahåller registreringslänken till labbet för studenter.
-
-### <a name="student"></a>Student
-En student utför följande uppgifter:
-
-- Använder registreringslänken som denne får från labbskaparen för att registrera sig för labbet. 
-- Ansluter till en virtuell dator i labbet och använder den för att göra klassarbete, uppgifter och projekt. 
+## <a name="cost-optimization-and-tracking"></a>Kostnadsoptimering och spårning  
+Håll dig inom budgeten genom att kontrollera exakt hur många timmar dina labbanvändare kan använda de virtuella datorerna. Konfigurera scheman i labbet för att ge användarna åtkomst till de virtuella datorerna endast under angivna tidpunkter eller konfigurera återkommande avstängnings- och starttider. Håll koll på individuella användares användning och ange begränsningar.
 
 ## <a name="next-steps"></a>Nästa steg
 Kom igång med att konfigurera ett labbkonto som krävs för att skapa ett klassrumslabb med Azure Lab Services:

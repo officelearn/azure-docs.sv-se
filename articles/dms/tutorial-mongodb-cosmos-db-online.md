@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 02/12/2019
-ms.openlocfilehash: 95286b7a63471ee07f76276d8b4b63ca5f2aecce
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.date: 02/27/2019
+ms.openlocfilehash: 06e76b8eed283c6ef09f38e876c60b05477cf0ce
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56212096"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56985826"
 ---
 # <a name="tutorial-migrate-mongodb-to-azure-cosmos-dbs-api-for-mongodb-online-using-dms-preview"></a>Självstudier: Migrera MongoDB till Azure Cosmos DB:s API för MongoDB online med DMS (förhandsversion)
 Du kan använda Azure Database Migration Service till att utföra en onlinemigrering (minimal avbrottstid) av databaser från en lokal instans eller en molninstans av MongoDB till Azure Cosmos DB:s API för MongoDB.
@@ -121,7 +121,18 @@ När tjänsten har skapats letar du reda på den i Azure Portal, öppnar den och
        * **Anslutningssträngsläge** som tar emot en MongoDB-anslutningssträng som beskrivs i artikeln [URI-anslutningssträngens format](https://docs.mongodb.com/manual/reference/connection-string/).
        * **Data från Azure-lagring** som tar emot en blobcontainers SAS-URL. Välj **Bloben innehåller BSON-dumpar** om blobcontainern innehåller BSON-dumpar som producerats av MongoDB:s [bsondump-verktyg](https://docs.mongodb.com/manual/reference/program/bsondump/) och avmarkera den om containern innehåller JSON-filer.
 
-    Du kan även använda IP-adressen i situationer då DNS-namnmatchning inte är möjlig.
+      Om du väljer det här alternativet ska du se till att anslutningssträngen för lagringskontot har följande format:
+
+    ```
+    https://blobnameurl/container?SASKEY
+    ```
+      Baserat på typdumpsinformationen i Azure Storage bör du även beakta följande detalj.
+
+      * För BSON-dumpar måste data i blob-containern vara i bsondump-format, så att datafilerna placeras i mappar som namnges efter de innehållande databaserna i formatet collection.bson. Metadatafiler (om sådana finns) bör namnges med formatet *samling*.metadata.json.
+
+      * För JSON-dumpar måste filerna i blob-containern placeras i mappar som namnges efter de innehållande databaserna. I varje databasmapp måste datafiler placeras i en undermapp som heter ”data” och namnges med formatet *samling*.json. Metadatafiler (om sådana finns) måste placeras i en undermapp som heter ”metadata” och namnges med samma format, *samling*.json. Metadatafilerna måste vara i samma format som det som skapas av verktyget MongoDB bsondump.
+
+   Du kan även använda IP-adressen i situationer då DNS-namnmatchning inte är möjlig.
 
    ![Ange källinformation](media/tutorial-mongodb-to-cosmosdb-online/dms-specify-source1.png)
 

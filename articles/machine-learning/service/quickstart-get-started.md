@@ -11,12 +11,12 @@ author: hning86
 ms.author: haining
 ms.date: 01/18/2019
 ms.custom: seodec18
-ms.openlocfilehash: f04cd2c6d3d4eff0cbc03ee57b9a57c6883db1d6
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 9d441ed408f9c9348ba091178cf6ce84d67abb3a
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55239017"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56672941"
 ---
 # <a name="quickstart-use-the-azure-portal-to-get-started-with-azure-machine-learning"></a>Snabbstart: Använda Azure-portalen för att komma igång med Azure Machine Learning
 
@@ -81,7 +81,7 @@ Det här exemplet visar hur arbetsytan kan hjälpa dig att hålla reda på infor
 
  ![Klona ett bibliotek](./media/quickstart-get-started/clone.png)
 
-1. Om du ser att projektstatusen har stoppats klickar du på **Run on Free Compute** (Kör på kostnadsfri beräkning) för att använda den kostnadsfria anteckningsboksservern.
+1. Om du ser att projektstatusen har stoppats klickar du på **Run on Free Computer** (Kör på kostnadsfri dator) för att använda den kostnadsfria anteckningsboksservern.
 
     ![Köra ett projekt på kostnadsfri beräkning](./media/quickstart-get-started/run-project.png)
 

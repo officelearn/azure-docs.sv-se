@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 01/22/2019
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: b8ff8e671d51a148177e66b30225dd7536a48028
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 23a62a9d8d24bbf2223fb5295190ad9acb39faf0
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55299751"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56806606"
 ---
 # <a name="quickstart-create-a-private-container-registry-using-azure-powershell"></a>Snabbstart: Skapa ett privat containerregister med hjälp av Azure PowerShell
 
@@ -21,7 +21,9 @@ Azure Container Registry är en hanterad Docker-behållarregistertjänst för at
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-Den här snabbstarten kräver Azure PowerShell-modul version 5.7.0 eller senare. Kör `Get-Module -ListAvailable AzureRM` för att avgöra installerad version. Om du behöver installera eller uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/azurerm/install-azurerm-ps) (Installera Azure PowerShell-modul).
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+Den här snabbstarten kräver Azure PowerShell-modulen. Kör `Get-Module -ListAvailable Az` för att avgöra installerad version. Om du behöver installera eller uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-az-ps) (Installera Azure PowerShell-modul).
 
 Du måste också ha Docker installerat lokalt. Docker innehåller paket för [macOS][docker-mac]-, [Windows][docker-windows]- och [Linux][docker-linux]-system.
 
@@ -29,38 +31,38 @@ Eftersom Azure Cloud Shell inte innehåller alla nödvändiga Docker-komponenter
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
-Logga in på Azure-prenumerationen med kommandot [Connect-AzureRmAccount][Connect-AzureRmAccount] och följ anvisningarna på skärmen.
+Logga in på Azure-prenumerationen med kommandot [Connect-AzAccount][Connect-AzAccount] och följ anvisningarna på skärmen.
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 ```
 
 ## <a name="create-resource-group"></a>Skapa resursgrupp
 
-När du är autentiserad med Azure, skapa en resursgrupp med [New-AzureRmResourceGroup][New-AzureRmResourceGroup]. En resursgrupp är en logisk container där du kan distribuera och hantera dina Azure-resurser.
+När du är autentiserad med Azure skapar du en resursgrupp med [New-AzResourceGroup][New-AzResourceGroup]. En resursgrupp är en logisk container där du kan distribuera och hantera dina Azure-resurser.
 
 ```powershell
-New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
+New-AzResourceGroup -Name myResourceGroup -Location EastUS
 ```
 
 ## <a name="create-container-registry"></a>Skapa containerregister
 
-Skapa sedan ett behållarregister i din nya resursgrupp med kommandot [New-AzureRMContainerRegistry][New-AzureRMContainerRegistry].
+Skapa sedan ett containerregister i din nya resursgrupp med kommandot [New-AzContainerRegistry][New-AzContainerRegistry].
 
 Registernamnet måste vara unikt i Azure och innehålla 5–50 alfanumeriska tecken. I följande exempel skapas ett register med namnet ”myContainerRegistry007”. Ersätt *myContainerRegistry007* i följande kommando innan du kör det för att skapa registernyckeln:
 
 ```powershell
-$registry = New-AzureRMContainerRegistry -ResourceGroupName "myResourceGroup" -Name "myContainerRegistry007" -EnableAdminUser -Sku Basic
+$registry = New-AzContainerRegistry -ResourceGroupName "myResourceGroup" -Name "myContainerRegistry007" -EnableAdminUser -Sku Basic
 ```
 
 I den här snabbstarten skapar du ett *Basic*-register, vilket är ett kostnadsoptimerat alternativ för utvecklare som lär sig om Azure Container Registry. Mer information om tillgängliga tjänstnivåer finns i [SKU:er för Azure Container Registry][container-registry-skus].
 
 ## <a name="log-in-to-registry"></a>Logga in till registret
 
-Innan du skickar och hämtar containeravbildningar måste du logga in i ditt register. I produktionsscenarier bör du använda en individuell identitet eller tjänstens huvudnamn för åtkomst till containerregistret, men för att snabbstarten inte ska bli för lång aktiverar du administratörsanvändaren i registret med kommandot [Get-AzureRmContainerRegistryCredential][Get-AzureRmContainerRegistryCredential]:
+Innan du skickar och hämtar containeravbildningar måste du logga in i ditt register. I produktionsscenarier bör du använda en individuell identitet eller tjänstens huvudnamn för åtkomst till containerregistret, men för att snabbstarten inte ska bli för lång ska du aktivera administratörsanvändaren i registret med kommandot [Get-AzContainerRegistryCredential][Get-AzContainerRegistryCredential]:
 
 ```powershell
-$creds = Get-AzureRmContainerRegistryCredential -Registry $registry
+$creds = Get-AzContainerRegistryCredential -Registry $registry
 ```
 
 Kör därefter [docker-inloggning][docker-login] för att logga in:
@@ -77,10 +79,10 @@ Kommandot returnerar `Login Succeeded` när det har slutförts.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När du har arbetat klart med resurserna som du skapade i den här snabbstarten använder du kommandot [Remove-AzureRmResourceGroup][Remove-AzureRmResourceGroup] för att ta bort resursgruppen, containerregistret och containeravbildningarna som lagras där:
+När du har arbetat klart med de resurser som du skapade i den här snabbstarten använder du kommandot [Remove-AzResourceGroup][Remove-AzResourceGroup] för att ta bort resursgruppen, containerregistret och de containeravbildningar som lagras där:
 
 ```powershell
-Remove-AzureRmResourceGroup -Name myResourceGroup
+Remove-AzResourceGroup -Name myResourceGroup
 ```
 
 ## <a name="next-steps"></a>Nästa steg
@@ -99,11 +101,11 @@ I den här snabbstarten skapade du ett Azure Container Registry med Azure PowerS
 [docker-windows]: https://docs.docker.com/docker-for-windows/
 
 <!-- Links - internal -->
-[Connect-AzureRmAccount]: /powershell/module/azurerm.profile/connect-azurermaccount
-[Get-AzureRmContainerRegistryCredential]: /powershell/module/azurerm.containerregistry/get-azurermcontainerregistrycredential
+[Connect-AzAccount]: /powershell/module/az.profile/connect-azaccount
+[Get-AzContainerRegistryCredential]: /powershell/module/az.containerregistry/get-azcontainerregistrycredential
 [Get-Module]: /powershell/module/microsoft.powershell.core/get-module
-[New-AzureRMContainerRegistry]: /powershell/module/azurerm.containerregistry/New-AzureRMContainerRegistry
-[New-AzureRmResourceGroup]: /powershell/module/azurerm.resources/new-azurermresourcegroup
-[Remove-AzureRmResourceGroup]: /powershell/module/azurerm.resources/remove-azurermresourcegroup
+[New-AzContainerRegistry]: /powershell/module/az.containerregistry/New-AzContainerRegistry
+[New-AzResourceGroup]: /powershell/module/az.resources/new-azresourcegroup
+[Remove-AzResourceGroup]: /powershell/module/az.resources/remove-azresourcegroup
 [container-registry-tutorial-quick-task]: container-registry-tutorial-quick-task.md
 [container-registry-skus]: container-registry-skus.md

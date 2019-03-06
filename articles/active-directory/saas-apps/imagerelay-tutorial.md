@@ -1,300 +1,264 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med bild Relay | Microsoft Docs'
-description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och avbildning Relay.
+title: 'Självstudier: Azure Active Directory-integrering med Image Relay | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Image Relay.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 65bb5990-07ef-4244-9f41-cd28fc2cb5a2
-ms.service: active-directory
-ms.subservice: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 06/22/2017
+ms.topic: tutorial
+ms.date: 02/20/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f62e6e620dc88894b946ea9ce9e297be1b741841
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: MT
+ms.openlocfilehash: 9b9675289ab14b00d565a5863600845d42b55030
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56202391"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56985962"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-image-relay"></a>Självstudier: Azure Active Directory-integrering med bild Relay
+# <a name="tutorial-azure-active-directory-integration-with-image-relay"></a>Självstudier: Azure Active Directory-integrering med Image Relay
 
-Lär dig hur du integrerar bild Relay med Azure Active Directory (AD Azure) i den här självstudien.
+I den här självstudien lär du dig att integrera Image Relay med Azure Active Directory (AD Azure).
+Integreringen av Image Relay med Azure AD medför följande fördelar:
 
-Integrera bild Relay med Azure AD ger dig följande fördelar:
+* Du kan i Azure AD styra vem som har åtkomst till Image Relay.
+* Du kan göra så att dina användare automatiskt loggas in på Image Relay (enkel inloggning) med sina Azure AD-konton.
+* Du kan hantera dina konton på en central plats – Azure-portalen.
 
-- Du kan styra i Azure AD som har åtkomst till avbildningen Relay
-- Du kan aktivera användarna att automatiskt få loggat in på bild Relay (Single Sign-On) med sina Azure AD-konton
-- Du kan hantera dina konton på en central plats – Azure portal
+Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-## <a name="prerequisites"></a>Förutsättningar
+För att konfigurera Azure AD-integrering med Image Relay behöver du följande:
 
-Om du vill konfigurera Azure AD-integrering med bild Relay behöver du följande objekt:
-
-- En Azure AD-prenumeration
-- En bild Relay enkel inloggning aktiverat prenumeration
-
-> [!NOTE]
-> Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
-
-Du bör följa de här rekommendationerna när du testar stegen i självstudien:
-
-- Använd inte din produktionsmiljö om det inte behövs.
-- Om du inte har en Azure AD-utvärderingsmiljö kan du skaffa en månads utvärderingsperiod [här](https://azure.microsoft.com/pricing/free-trial/).
+* En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
+* Image Relay-prenumeration med enkel inloggning aktiverat
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
-I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
-1. Att lägga till Relay-avbildning från galleriet
-1. Konfigurera och testa Azure AD enkel inloggning
+I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-## <a name="adding-image-relay-from-the-gallery"></a>Att lägga till Relay-avbildning från galleriet
-För att konfigurera integrering av avbildningen Relay i Azure AD, som du behöver lägga till Relay-avbildning från galleriet i din lista över hanterade SaaS-appar.
+* Image Relay har stöd för **SP**-initierad enkel inloggning
 
-**Utför följande steg för att lägga till Relay-avbildning från galleriet:**
+## <a name="adding-image-relay-from-the-gallery"></a>Lägga till Image Relay från galleriet
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+För att konfigurera integreringen av Image Relay i Azure AD behöver du lägga till Image Relay från galleriet till din lista över hanterade SaaS-appar.
 
-    ![Active Directory][1]
+**Utför följande steg för att lägga till Image Relay från galleriet:**
 
-1. Gå till **företagsprogram**. Gå till **alla program**.
+1. I **[Azure-portalen](https://portal.azure.com)**, i den vänstra navigeringspanelen, klickar du på **Azure Active Directory**-ikonen.
 
-    ![Appar][2]
-    
-1. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
+    ![Azure Active Directory-knappen](common/select-azuread.png)
 
-    ![Appar][3]
+2. Gå till **Företagsprogram** och välj alternativet **Alla program**.
 
-1. I sökrutan skriver **bild Relay**.
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-    ![Skapa en Azure AD-användare för testning](./media/imagerelay-tutorial/tutorial_imagerelay_search.png)
+3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
-1. I resultatpanelen väljer **bild Relay**, och klicka sedan på **Lägg till** för att lägga till programmet.
+    ![Knappen Nytt program](common/add-new-app.png)
 
-    ![Skapa en Azure AD-användare för testning](./media/imagerelay-tutorial/tutorial_imagerelay_addfromgallery.png)
+4. I sökrutan skriver du **Image Relay**, väljer **Image Relay** i resultatpanelen och klickar på knappen **Lägg till** för att lägga till programmet.
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
-I det här avsnittet, konfigurera och testa Azure AD enkel inloggning med bild Relay baserat på en testanvändare som kallas ”Britta Simon”.
+    ![Image Relay i resultatlistan](common/search-new-app.png)
 
-För enkel inloggning att fungera, behöver Azure AD du veta vad användaren motsvarighet i avbildningen Relay är till en användare i Azure AD. Med andra ord måste en länk förhållandet mellan en Azure AD-användare och relaterade användaren i avbildningen Relay upprättas.
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-I bild-reläer, tilldela värdet för den **användarnamn** i Azure AD som värde för den **användarnamn** att upprätta länken-relation.
+I det här avsnittet konfigurerar och testar du enkel inloggning i Azure AD med Image Relay baserat på en testanvändare med namnet **Britta Simon**.
+För att enkel inloggning ska fungera måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i Image Relay upprättas.
 
-Om du vill konfigurera och testa Azure AD enkel inloggning med bild Relay, måste du utföra följande byggblock:
+För att kunna konfigurera och testa enkel inloggning i Azure AD med Image Relay slutför du följande byggstenar:
 
-1. **[Konfigurera Azure AD enkel inloggning](#configuring-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-1. **[Skapa en Azure AD-testanvändare](#creating-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-1. **[Skapa en avbildning Relay testanvändare](#creating-an-image-relay-test-user)**  – du har en motsvarighet för Britta Simon i avbildningen Relay som är länkad till en Azure AD-representation av användaren.
-1. **[Tilldela Azure AD-testanvändare](#assigning-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-1. **[Testa enkel inloggning](#testing-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
+2. **[Konfigurera enkel inloggning för Image Relay](#configure-image-relay-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på programsidan.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+5. **[Skapa Image Relay-testanvändare](#create-image-relay-test-user)** – för att ha en motsvarighet för Britta Simon i Image Relay som är länkad till Azure AD-representationen av användaren.
+6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
+### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
-I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i din avbildning Relay-program.
+I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-**Utför följande steg för att konfigurera Azure AD enkel inloggning med bild Relay:**
+Utför följande steg för att konfigurera enkel inloggning i Azure AD med Image Relay:
 
-1. I Azure-portalen på den **bild Relay** program integration-sidan klickar du på **enkel inloggning**.
+1. I [Azure-portalen](https://portal.azure.com/) går du till programintegreringssidan för **Image Relay** och väljer **Enkel inloggning**.
 
-    ![Konfigurera enkel inloggning][4]
+    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
-1. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
- 
-    ![Konfigurera enkel inloggning](./media/imagerelay-tutorial/tutorial_imagerelay_samlbase.png)
+2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
-1. På den **bild Relay domän och URL: er** avsnittet, utför följande steg:
+    ![Välja läge för enkel inloggning](common/select-saml-option.png)
 
-    ![Konfigurera enkel inloggning](./media/imagerelay-tutorial/tutorial_imagerelay_url.png)
+3. På sidan **Konfigurera enkel inloggning med SAML** klickar du på **redigeringsikonen** för att öppna dialogrutan **Grundläggande SAML-konfiguration**.
 
-    a. I textrutan **Inloggnings-URL** anger du en URL med följande mönster: `https://<companyname>.imagerelay.com/`
+    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-    b. I textrutan **Identifierare** anger du en URL med följande mönster: `https://<companyname>.imagerelay.com/sso/metadata`
+4. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
 
-    > [!NOTE] 
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med faktisk inloggnings-URL och identifierare. Kontakta [bild Relay klienten supportteamet](http://support.imagerelay.com/) att hämta dessa värden. 
- 
+    ![Information om enkel inloggning med Image Relay-domän och URL:er](common/sp-identifier.png)
 
+    a. I textrutan **Inloggnings-URL** anger du en URL enligt följande mönster: `https://<companyname>.imagerelay.com/`
 
-1. På den **SAML-signeringscertifikat** klickar du på **Certificate(Base64)** och spara certifikatfilen på datorn.
+    b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster: `https://<companyname>.imagerelay.com/sso/metadata`
 
-    ![Konfigurera enkel inloggning](./media/imagerelay-tutorial/tutorial_imagerelay_certificate.png) 
+    > [!NOTE]
+    > Dessa värden är inte verkliga. Uppdatera de här värdena med faktisk inloggnings-URL och identifierare. Kontakta [kundsupporten för Image Relay](http://support.imagerelay.com/) och be om dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-1. Klicka på knappen **Spara**.
+4. På sidan **Konfigurera enkel inloggning med SAML** går du till avsnittet **SAML-signeringscertifikat**, klickar du på **Ladda ned** för att ladda ned **Certifikat (Base64)** från de angivna alternativen enligt dina behov och sparar det på datorn.
 
-    ![Konfigurera enkel inloggning](./media/imagerelay-tutorial/tutorial_general_400.png)
+    ![Länk för nedladdning av certifikatet](common/certificatebase64.png)
 
-1. På den **Relay bildkonfiguration** klickar du på **konfigurera avbildningen Relay** att öppna **konfigurera inloggning** fönster. Kopiera den **tjänst-URL för utloggning och SAML enkel inloggning för tjänst-URL** från den **Snabbreferens avsnittet.**
+6. I avsnittet **Konfigurera Image Relay** kopierar du lämpliga URL:er efter behov.
 
-    ![Konfigurera enkel inloggning](./media/imagerelay-tutorial/tutorial_imagerelay_configure.png) 
+    ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
-1. I ett nytt webbläsarfönster loggar du in din avbildning Relay företagets webbplats som administratör.
+    a. Inloggnings-URL
 
-1. I verktygsfältet högst upp, klickar du på den **användare och behörigheter** arbetsbelastning.
-   
+    b. Azure AD-identifierare
+
+    c. Utloggnings-URL
+
+### <a name="configure-image-relay-single-sign-on"></a>Konfigurera enkel inloggning för Image Relay
+
+1. I ett annat webbläsarfönster loggar du in på din Image Relay-företagswebbplats som administratör.
+
+2. I verktygsfältet längst upp klickar du på arbetsbelastningen **Users & Permissions** (Användare och behörigheter).
+
     ![Konfigurera enkel inloggning](./media/imagerelay-tutorial/tutorial_imagerelay_06.png) 
 
-1. Klicka på **Skapa ny behörighetsuppsättning**.
-   
+3. Klicka på **Create New Permission** (Skapa ny behörighet).
+
     ![Konfigurera enkel inloggning](./media/imagerelay-tutorial/tutorial_imagerelay_08.png)
 
-1. I den **enkel inloggning på inställningar** arbetsbelastningen, väljer den **den här gruppen kan bara logga in via enkel inloggning** och klicka sedan på **spara**.
-   
+4. I arbetsbelastningen **Single Sign On Settings** (Inställningar för enkel inloggning) markerar du kryssrutan **This Group can only sign-in via Single Sign On** (Den här gruppen kan bara logga in via enkel inloggning) och klickar sedan på **Spara**.
+
     ![Konfigurera enkel inloggning](./media/imagerelay-tutorial/tutorial_imagerelay_09.png) 
 
-1. Gå till **kontoinställningar**.
-   
+5. Gå till **Kontoinställningar**.
+
     ![Konfigurera enkel inloggning](./media/imagerelay-tutorial/tutorial_imagerelay_10.png) 
 
-1. Gå till den **enkel inloggning på inställningar** arbetsbelastning.
-    
-     ![Konfigurera enkel inloggning](./media/imagerelay-tutorial/tutorial_imagerelay_11.png)
+6. Gå till arbetsbelastningen **Single Sign On Settings** (Inställningar för enkel inloggning).
 
-1. På den **SAML-inställningar** dialogrutan utför följande steg:
-    
+    ![Konfigurera enkel inloggning](./media/imagerelay-tutorial/tutorial_imagerelay_11.png)
+
+7. Gör följande i dialogrutan **SAML-inställningar**:
+
     ![Konfigurera enkel inloggning](./media/imagerelay-tutorial/tutorial_imagerelay_12.png)
-    
-    a. I **inloggnings-URL** textrutan klistra in värdet för **enkel inloggnings-URL för** som du har kopierat från Azure-portalen.
 
-    b. I **URL för utloggning** textrutan klistra in värdet för **tjänst-URL för enkel utloggning** som du har kopierat från Azure-portalen.
+    a. I textrutan för **inloggnings-URL** klistrar du in värdet för **inloggnings-URL:en** som du har kopierat från Azure-portalen.
 
-    c. Som **Format för namn-Id**väljer **urn: oasis: namn: tc: SAML:1.1:nameid-format: e-postadress**.
+    b. I textrutan för **utloggnings-URL** klistrar du in värdet för den **utloggnings-URL** som du har kopierat från Azure-portalen.
 
-    d. Som **bindning alternativ för begäranden från Service Provider (bild relä)** väljer **POST bindning**.
+    c. Som **Name Id Format** (Format för namn-ID) väljer du **urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress**.
 
-    e. Under **x.509 Certificate**, klickar du på **uppdatera certifikatet**.
+    d. Som **Binding Options for Requests from the Service Provider (Image Relay)** (Bindningsalternativ för begäranden från tjänstleverantör (Image Relay)) väljer du **POST Binding** (POST-bindning).
+
+    e. Under **x.509 Certificate** (x.509-certifikat) klickar du på **Update Certificate** (Uppdatera certifikat).
 
     ![Konfigurera enkel inloggning](./media/imagerelay-tutorial/tutorial_imagerelay_17.png)
 
-    f. Öppna det nedladdade certifikatet i anteckningar, kopiera innehållet och klistra in den i textrutan för x.509-certifikat.
+    f. Öppna det nedladdade certifikatet i Anteckningar, kopiera innehållet och klistra in det i textrutan **x.509 Certificate** (x.509-certifikat).
 
     ![Konfigurera enkel inloggning](./media/imagerelay-tutorial/tutorial_imagerelay_18.png)
 
-    g. I **just Användaretablering** väljer den **aktivera just Användaretablering**.
+    g. I avsnittet **Just-In-Time User Provisioning** (Just-in-time-användaretablering) väljer du **Enable Just-In-Time User Provisioning** (Aktivera just-in-time-användaretablering).
 
     ![Konfigurera enkel inloggning](./media/imagerelay-tutorial/tutorial_imagerelay_19.png)
 
-    h. Välj behörighetsgruppen (till exempel **SSO grundläggande**) som tillåts logga in endast via enkel inloggning.
+    h. Välj den behörighetsgrupp (till exempel **SSO Basic** (Enkel inloggning, grundläggande)) som endast tillåts logga in via enkel inloggning.
 
     ![Konfigurera enkel inloggning](./media/imagerelay-tutorial/tutorial_imagerelay_20.png)
 
     i. Klicka på **Spara**.
 
-> [!TIP]
-> Nu kan du läsa en kortare version av instruktionerna i [Azure Portal](https://portal.azure.com), samtidigt som du konfigurerar appen!  När du har lagt till appen från avsnittet **Active Directory > Företagsprogram**, behöver du bara klicka på fliken **Enkel inloggning**. Du kommer då till den inbäddade dokumentationen via avsnittet **Konfiguration** längst ned. Du kan läsa mer om funktionen för inbäddad dokumentation här: [Inbäddad Azure AD-dokumentation]( https://go.microsoft.com/fwlink/?linkid=845985)
+### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
-
-### <a name="creating-an-azure-ad-test-user"></a>Skapa en Azure AD-användare för testning
 Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
 
-![Skapa en Azure AD-användare][100]
+1. Gå till den vänstra rutan i Azure-portalen och välj **Azure Active Directory**, välj **Users** och sedan **Alla användare**.
 
-**Utför följande steg för att skapa en testanvändare i Azure AD:**
+    ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-1. I den **Azure-portalen**, i det vänstra navigeringsfönstret klickar du på **Azure Active Directory** ikon.
+2. Välj **Ny användare** överst på skärmen.
 
-    ![Skapa en Azure AD-användare för testning](./media/imagerelay-tutorial/create_aaduser_01.png) 
+    ![Knappen Ny användare](common/new-user.png)
 
-1. Om du vill visa en lista över användare, gå till **användare och grupper** och klicka på **alla användare**.
-    
-    ![Skapa en Azure AD-användare för testning](./media/imagerelay-tutorial/create_aaduser_02.png) 
+3. Genomför följande steg i Användaregenskaper.
 
-1. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i dialogrutan.
- 
-    ![Skapa en Azure AD-användare för testning](./media/imagerelay-tutorial/create_aaduser_03.png) 
+    ![Dialogrutan Användare](common/user-properties.png)
 
-1. På den **användaren** dialogrutan utför följande steg:
- 
-    ![Skapa en Azure AD-användare för testning](./media/imagerelay-tutorial/create_aaduser_04.png) 
+    a. I fältet **Namn** anger du **BrittaSimon**.
+  
+    b. I fältet **Användarnamn** anger du **brittasimon@yourcompanydomain.extension**  
+    Till exempel, BrittaSimon@contoso.com
 
-    a. I den **namn** textrutan typ **BrittaSimon**.
-
-    b. I den **användarnamn** textrutan skriver den **e-postadress** av BrittaSimon.
-
-    c. Välj **visa lösenord** och anteckna värdet för den **lösenord**.
+    c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
     d. Klicka på **Skapa**.
- 
-### <a name="creating-an-image-relay-test-user"></a>Skapa en avbildning Relay testanvändare
 
-Målet med det här avsnittet är att skapa en användare som kallas Britta Simon i avbildningen Relay.
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-**Om du vill skapa en användare som kallas Britta Simon i avbildningen Relay, utför du följande steg:**
+I det här avsnittet gör du det möjligt för Britta Simon att använda enkel inloggning med Azure genom att ge åtkomst till Image Relay.
 
-1. Inloggning till webbplatsen bild Relay företagets som administratör.
+1. I Azure-portalen väljer du **Företagsprogram**, **Alla program** och sedan **Image Relay**.
 
-1. Gå till **användare och behörigheter** och välj **skapa SSO användare**.
-   
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
+
+2. I programlistan väljer du **Image Relay**.
+
+    ![Länken för Image Relay i programlistan](common/all-applications.png)
+
+3. På menyn till vänster väljer du **Användare och grupper**.
+
+    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
+
+4. Klicka på knappen **Lägg till användare** och välj sedan **Användare och grupper** i dialogrutan **Lägg till tilldelning**.
+
+    ![Fönstret Lägg till tilldelning](common/add-assign-user.png)
+
+5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
+
+6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
+
+7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
+
+### <a name="create-image-relay-test-user"></a>Skapa Image Relay-testanvändare
+
+Målet med det här avsnittet är att skapa en användare med namnet Britta Simon i Image Relay.
+
+**Utför följande steg för att skapa en användare som heter Britta Simon i Image Relay:**
+
+1. Logga in på din Image Relay-företagswebbplats som administratör.
+
+2. Gå till **Users & Permissions** (Användare och behörigheter) och välj **Create SSO User** (Skapa användare för enkel inloggning).
+
     ![Konfigurera enkel inloggning](./media/imagerelay-tutorial/tutorial_imagerelay_21.png) 
 
-1. Ange den **e-post**, **Förnamn**, **efternamn**, och **företagets** för den användare som du vill etablera och välj behörighetsgruppen (för exempel grundläggande SSO) vilket är den grupp som kan logga in endast via enkel inloggning.
-   
-    ![Konfigurera enkel inloggning](./media/imagerelay-tutorial/tutorial_imagerelay_22.png) 
+3. Ange **E-postadress**, **Förnamn**, **Efternamn** och **Företag** för den användare som du vill etablera och välj den behörighetsgrupp (till exempel SSO Basic (Enkel inloggning, grundläggande)) som endast tillåts logga in via enkel inloggning.
 
-1. Klicka på **Skapa**.
+    ![Konfigurera enkel inloggning](./media/imagerelay-tutorial/tutorial_imagerelay_22.png)
 
-### <a name="assigning-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+4. Klicka på **Skapa**.
 
-I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning om du beviljar åtkomst till avbildningen relä.
+### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
-![Tilldela användare][200] 
+I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-**Om du vill tilldela Britta Simon till bild-relä, gör du:**
-
-1. Öppna vyn program i Azure-portalen och gå till vyn directory och gå till **företagsprogram** klickar **alla program**.
-
-    ![Tilldela användare][201] 
-
-1. I listan med program väljer **bild Relay**.
-
-    ![Konfigurera enkel inloggning](./media/imagerelay-tutorial/tutorial_imagerelay_app.png) 
-
-1. I menyn till vänster, klickar du på **användare och grupper**.
-
-    ![Tilldela användare][202] 
-
-1. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
-
-    ![Tilldela användare][203]
-
-1. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
-
-1. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
-
-1. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
-    
-### <a name="testing-single-sign-on"></a>Testa enkel inloggning
-
-Målet med det här avsnittet är att prova Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.    
-
-När du klickar på panelen bild Relay i åtkomstpanelen du bör få automatiskt loggat in på ditt bild Relay-program.
-
+När du klickar på Image Relay-panelen i åtkomstpanelen bör du automatiskt loggas in på Image Relay som du har konfigurerat enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-
-<!--Image references-->
-
-[1]: ./media/imagerelay-tutorial/tutorial_general_01.png
-[2]: ./media/imagerelay-tutorial/tutorial_general_02.png
-[3]: ./media/imagerelay-tutorial/tutorial_general_03.png
-[4]: ./media/imagerelay-tutorial/tutorial_general_04.png
-
-
-[100]: ./media/imagerelay-tutorial/tutorial_general_100.png
-
-[200]: ./media/imagerelay-tutorial/tutorial_general_200.png
-[201]: ./media/imagerelay-tutorial/tutorial_general_201.png
-[202]: ./media/imagerelay-tutorial/tutorial_general_202.png
-[203]: ./media/imagerelay-tutorial/tutorial_general_203.png
-
+- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

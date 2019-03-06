@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 04/24/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: 8738ac52eeaf1f27df5f9cc21ffb0c683a912195
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 0eb27e997d39ceb82098b63de607d3529ccc53b4
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52427037"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56984415"
 ---
 # <a name="what-is-azure-network-watcher"></a>Vad är Azure Network Watcher?
 
@@ -97,7 +97,7 @@ Lär mer om NSG flödet loggarna genom att slutföra kursen [Logga nätverkstraf
 
 ### <a name="view-diagnostic-logs-for-network-resources"></a>Visa diagnostikloggar för nätverksresurser
 
-Du kan aktivera diagnostisk loggning för Azures nätverksresurser, till exempel nätverkssäkerhetsgrupper, offentliga IP-adresser, lastbalanserare, gatewayer för virtuella nätverk och programgatewayer. Funktionen *Diagnostikloggar* innehåller ett enda gränssnitt som aktiverar och inaktiverar nätverksresursens diagnostikloggar för alla befintliga nätverksresurser som genererar en diagnostiklogg. Du kan visa diagnostikloggar med hjälp av verktyg som Microsoft Power BI och Azure Log Analytics. Mer information om att analysera diagnostikloggar för Azure-nätverk finns [Azures nätverkslösningar i Log Analytics](../azure-monitor/insights/azure-networking-analytics.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+Du kan aktivera diagnostisk loggning för Azures nätverksresurser, till exempel nätverkssäkerhetsgrupper, offentliga IP-adresser, lastbalanserare, gatewayer för virtuella nätverk och programgatewayer. Funktionen *Diagnostikloggar* innehåller ett enda gränssnitt som aktiverar och inaktiverar nätverksresursens diagnostikloggar för alla befintliga nätverksresurser som genererar en diagnostiklogg. Du kan visa diagnostikloggar med hjälp av verktyg som Microsoft Power BI och Azure Monitor-loggar. Mer information om att analysera diagnostikloggar för Azure-nätverk finns i [Azure-nätverkslösningar i Azure Monitor-loggar](../azure-monitor/insights/azure-networking-analytics.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 
 ## <a name="network-watcher-automatic-enablement"></a>Automatisk aktivering av Network Watcher
 När du skapar eller uppdaterar ett virtuellt nätverk i din prenumeration aktiveras Network Watcher automatiskt i din virtuella nätverksregion. Dina resurser påverkas inte av den automatiska aktiveringen av Network Watcher, och inga kostnader tillkommer. Mer information finns i avsnittet om att [skapa Network Watcher](network-watcher-create.md).

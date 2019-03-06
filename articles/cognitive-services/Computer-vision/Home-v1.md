@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 08/10/2017
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: 35002ccfc294b59a13e6826b4ca75a1ab6c68b62
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 812f957ffe2a3f24ead4ef0fe66a25c3cfd17995
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55870307"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56866920"
 ---
 # <a name="what-is-computer-vision-api-version-10"></a>Vad är visuellt innehåll API version 1.0?
 
@@ -29,7 +29,7 @@ Det molnbaserade API:et för visuellt innehåll ger utvecklare åtkomst till ava
 * Tagga bilder baserat på innehållet.
 * Kategorisera bilder.
 * Identifiera bilders typ och kvalitet.
-* [Identifiera ansikten och returnera deras koordinater. ](#Faces)
+* [Identifiera ansikten och returnera deras koordinater.](#Faces)
 * Identifiera domänspecifikt innehåll.
 * Generera beskrivningar av innehållet.
 * Använda optisk teckenläsning för att identifiera tryckt text i bilder.

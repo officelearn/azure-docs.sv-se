@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 09/26/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 5174bb696b456a66cfc0666ac5c475437e441d82
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: d4f530e38b6fd69d814765f4133201dd12a87f22
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54848860"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56668590"
 ---
 # <a name="tutorial-remove-a-service-fabric-cluster-running-in-azure"></a>Självstudier: Ta bort ett Service Fabric-kluster som körs i Azure
 
@@ -34,7 +34,7 @@ I den här guiden får du lära dig att:
 
 I den här självstudieserien får du lära du dig att:
 > [!div class="checklist"]
-> * Skapa ett säkert [Windows-kluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md) eller [Linux-kluster](service-fabric-tutorial-create-vnet-and-linux-cluster.md) på Azure med hjälp av en mall
+> * Skapa ett säkert [Windows-kluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md) i Azure med hjälp av en mall
 > * [skala upp eller ned ett kluster](service-fabric-tutorial-scale-cluster.md)
 > * [uppgradera körningen för ett kluster](service-fabric-tutorial-upgrade-cluster.md)
 > * Ta bort ett kluster
@@ -45,7 +45,7 @@ Innan du börjar den här självstudien:
 
 * om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 * Installera [Azure Powershell-modulen version 4.1 eller senare](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) eller [Azure CLI](/cli/azure/install-azure-cli).
-* Skapa ett säkert [Windows-kluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md) eller [Linux-kluster](service-fabric-tutorial-create-vnet-and-linux-cluster.md) på Azure
+* Skapa ett säkert [Windows-kluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md) i Azure
 
 ## <a name="delete-the-resource-group-containing-the-service-fabric-cluster"></a>Ta bort resursgruppen som innehåller Service Fabric-klustret
 Det enklaste sättet att ta bort klustret och alla de resurser det använder är att ta bort resursgruppen.
@@ -115,5 +115,5 @@ I den här självstudiekursen lärde du dig att:
 
 Nu när du har slutfört den här självstudien kan du prova följande:
 * Lär dig hur du granskar och hanterar ett Service Fabric-kluster med [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
-* Lär dig hur du [uppdaterar Windows-operativsystemet](service-fabric-patch-orchestration-application.md) eller [Linux-operativsystemet](service-fabric-patch-orchestration-application-linux.md) på klusternoderna.
-* Lär dig hur du aggregerar och samlar in händelser för [Windows-kluster](service-fabric-diagnostics-event-aggregation-wad.md) eller [Linux-kluster](service-fabric-diagnostics-event-aggregation-lad.md) och hur du [konfigurerar Log Analytics](service-fabric-diagnostics-oms-setup.md) för att övervaka klusterhändelser.
+* Lär dig hur du [uppdaterar Windows-operativsystemet](service-fabric-patch-orchestration-application.md) för klusternoderna.
+* Lär dig hur du aggregerar och samlar in händelser för [Windows-kluster](service-fabric-diagnostics-event-aggregation-wad.md) och hur du [konfigurerar Log Analytics](service-fabric-diagnostics-oms-setup.md) för att övervaka klusterhändelser.

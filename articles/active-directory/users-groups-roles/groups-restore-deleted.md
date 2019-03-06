@@ -1,72 +1,81 @@
 ---
 title: Återställa en borttagen Office 365-grupp i Azure AD | Microsoft Docs
-description: Återställa en borttagen grupp, visa återställningsbara grupper och ta bort en grupp permanent i Azure Active Directory
+description: Så återställer du en borttagen grupp, visar återställningsbara grupper och tar bort en grupp permanent i Azure Active Directory
 services: active-directory
-documentationcenter: ''
 author: curtand
-manager: mtillman
-editor: ''
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: quickstart
-ms.date: 08/28/2017
+ms.date: 02/21/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8d2e756676ee1abde88f75a1629640239f3162ea
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: cacd4a24becab1dfe797fe29aea125c016527192
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56430649"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56734395"
 ---
 # <a name="restore-a-deleted-office-365-group-in-azure-active-directory"></a>Återställa en borttagen Office 365-grupp i Azure Active Directory
-
 När du tar bort en Office 365-grupp i Azure Active Directory (Azure AD) bevaras den borttagna gruppen, men visas inte, i 30 dagar räknat från borttagningsdatumet. På så sätt kan gruppen och dess innehåll återställas om det behövs. Den här funktionen är begränsad till Office 365-grupper i Azure AD. Den är inte tillgänglig för säkerhetsgrupper och distributionsgrupper.
 
 > [!NOTE]
-> Använd inte `Remove-MsolGroup` eftersom det gör att gruppen tas bort permanent. Använd alltid `Remove-AzureADMSGroup` för att ta bort en O365-grupp.
+> Använd inte `Remove-MsolGroup` eftersom det gör att gruppen tas bort permanent. Använd alltid `Remove-AzureADMSGroup` för att ta bort en Office 365-grupp.
 
 Behörigheterna som krävs för att återställa en grupp kan vara någon av följande:
 
 Roll | Behörigheter
 --------- | ---------
-Företagsadministratör, Partnersupport, nivå 2 och InTune-tjänstadministratörer | Kan återställa alla borttagna Office 365-grupper
-Användarkontoadministratör och Partnersupport, nivå 2 | Kan återställa alla borttagna Office 365-grupper utom de som tilldelats rollen Företagsadministratör
+Företagsadministratör, Partnersupport, nivå 2 och Intune-tjänstadministratörer | Kan återställa alla borttagna Office 365-grupper
+Användarkontoadministratör och Partnersupport, nivå 2 | Kan återställa alla borttagna Office 365-grupper utom de grupper som tilldelats till rollen Företagsadministratör
 Användare | Kan återställa alla borttagna Office 365-grupper som de äger
 
+## <a name="view-and-manage-the-deleted-office-365-groups-that-are-available-to-restore"></a>Visa och hantera de borttagna Office 365-grupper som är tillgängliga för återställning
 
-## <a name="view-the-deleted-office-365-groups-that-are-available-to-restore"></a>Visa de borttagna Office 365-grupper som är tillgängliga för återställning
+1. Logga in på [Azure AD-administrationscenter](https://aad.portal.azure.com) med ett administratörskonto.
 
+2. Välj **Grupper** och sedan **Borttagna grupper** för att visa de borttagna grupper som är tillgängliga för återställning.
+
+    ![Bladet Borttagna grupper](media/groups-lifecycle/deleted-groups3.png)
+
+3. På bladet **Borttagna grupper** kan du:
+
+  - Återställa den borttagna gruppen och dess innehåll genom att välja **Återställ grupp**.
+  - Ta bort den borttagna gruppen permanent genom att välja **Ta bort permanent**. Du måste vara administratör för att ta bort en grupp permanent.
+
+## <a name="view-the-deleted-office-365-groups-that-are-available-to-restore-using-powershell"></a>Visa de borttagna Office 365-grupper som är tillgängliga för återställning med hjälp av PowerShell
 Du kan använda följande cmdlets för att visa de borttagna grupperna och kontrollera att den eller de grupper som du är intresserad av inte har raderats permanent än. Dessa cmdlets är en del av [Azure AD PowerShell-modulen](https://www.powershellgallery.com/packages/AzureAD/). Mer information om den här modulen finns i artikeln [Azure Active Directory PowerShell Version 2](/powershell/azure/install-adv2?view=azureadps-2.0).
 
 1.  Kör följande cmdlet för att visa alla borttagna Office 365-grupper i din klientorganisation som fortfarande är tillgängliga för återställning.
    
-  ```
-  Get-AzureADMSDeletedGroup
-  ```
+    ```
+    Get-AzureADMSDeletedGroup
+    ```
 
 2.  Om du har objectID för en specifik grupp (och du kan hämta det från cmdleten i steg 1), kan du även köra följande cmdlet för att kontrollera att den specifika borttagna gruppen inte har raderats permanent än.
-  
-  ```
-  Get-AzureADMSDeletedGroup –Id <objectId>
-  ```
 
-## <a name="how-to-restore-your-deleted-office-365-group"></a>Återställa den borttagna Office 365-gruppen
+    ```
+    Get-AzureADMSDeletedGroup –Id <objectId>
+    ```
+
+## <a name="how-to-restore-your-deleted-office-365-group-using-powershell"></a>Så återställer du den borttagna Office 365-gruppen med hjälp av PowerShell
 När du har kontrollerat att gruppen fortfarande är tillgänglig för återställning kan du återställa den borttagna gruppen med hjälp av något av följande steg. Om gruppen innehåller dokument, SharePoint-webbplatser eller andra beständiga objekt, kan det ta upp till 24 timmar att helt återställa en grupp och dess innehåll.
 
-1.  Kör följande cmdlet för att återställa gruppen och dess innehåll.
+1. Kör följande cmdlet för att återställa gruppen och dess innehåll.
  
- ```
- Restore-AzureADMSDeletedDirectoryObject –Id <objectId>
- ``` 
+   ```
+    Restore-AzureADMSDeletedDirectoryObject –Id <objectId>
+    ``` 
 
-Du kan också köra följande cmdlet om du vill ta bort den borttagna gruppen permanent.
- ```
- Remove-AzureADMSDeletedDirectoryObject –Id <objectId>
- ```
+2. Du kan också köra följande cmdlet om du vill ta bort den borttagna gruppen permanent.
+    
+    ```
+    Remove-AzureADMSDeletedDirectoryObject –Id <objectId>
+    ```
 
 ## <a name="how-do-you-know-this-worked"></a>Hur vet du att åtgärden har fungerat?
 

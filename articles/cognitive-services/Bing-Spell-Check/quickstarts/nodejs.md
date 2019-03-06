@@ -1,74 +1,77 @@
 ---
-title: 'Snabbstart: API för stavningskontroll i Bing med Node.js'
+title: 'Snabbstart: Kontrollera stavning med REST API för stavningskontroll i Bing och Node.js'
 titlesuffix: Azure Cognitive Services
-description: Hämta information och kodexempel som hjälper dig att snabbt komma igång med API:et för stavningskontroll i Bing.
+description: Kom igång med REST API för stavningskontroll i Bing för att kontrollera stavning och grammatik.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: quickstart
-ms.date: 09/14/2017
+ms.date: 02/20/2019
 ms.author: aahi
-ms.openlocfilehash: 0fea6f163e6d977f26e13c816c4eaa514eea676b
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 8e3379a086eb09745142f4e3997ed195eb4d1de5
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55864901"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56885915"
 ---
-# <a name="quickstart-for-bing-spell-check-api-with-nodejs"></a>Snabbstart för API:et för stavningskontroll i Bing med Node.js 
+# <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-nodejs"></a>Snabbstart: Kontrollera stavning med REST API för stavningskontroll i Bing och Node.js
 
-Den här artikeln visar hur du använder [API:et för stavningskontroll i Bing](https://azure.microsoft.com/services/cognitive-services/spell-check/) med Node.js. API:et för stavningskontroll returnerar en lista med ord som det inte kan identifiera tillsammans med föreslagna ersättningar. Vanligtvis skickar du text till det här API:et och sedan gör du antingen föreslagna ersättningar i texten eller visar dem för användaren av programmet så att de kan avgöra om de vill göra ersättningarna. Den här artikeln visar hur du skickar en begäran som innehåller texten ”Hollo, wrld!”. Föreslagna ersättningar blir ”Hello” och ”world”.
+Använd den här snabbstarten för att göra ditt första anrop till REST API för stavningskontroll i Bing. Det här enkla Python-programmet skickar en begäran till API:et och returnerar en lista över ord som det inte kände igen följt av föreslagna korrigeringar. Även om det här programmet är skrivet i Python, är API:n en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk. Källkoden till det här programmet finns [på GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingSpellCheckv7.js).
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-Du behöver [Node.js 6](https://nodejs.org/en/download/) för att kunna köra den här koden.
+* [Node.js 6](https://nodejs.org/en/download/) eller senare.
 
-Du måste ha ett [API-konto för Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med **API v7 för stavningskontroll i Bing**. Det räcker med en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/try/cognitive-services/#lang) för den här snabbstarten. Du behöver den åtkomstnyckel som du fick när du aktiverade din kostnadsfria utvärderingsversion, eller så kan du använda en betald prenumerationsnyckel från instrumentpanelen i Azure.  Se även [Priser för Cognitive Services – API för Bing-sökning](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+[!INCLUDE [cognitive-services-bing-spell-check-signup-requirements](../../../../includes/cognitive-services-bing-spell-check-signup-requirements.md)]
 
-## <a name="get-spell-check-results"></a>Få stavningskontrollsresultat
 
-1. Skapa ett nytt Node.js-projekt i valfri IDE.
-2. Lägg till koden nedan.
-3. Ersätt värdet `subscriptionKey` med en giltig åtkomstnyckel för din prenumeration.
-4. Kör programmet.
+## <a name="create-and-initialize-a-project"></a>Skapa och initiera ett projekt
 
-```nodejs
-'use strict';
+1. Skapa en ny JavaScript-fil i valfri IDE eller valfritt redigeringsprogram. Ange strikthet och kräv https. Skapa sedan variabler för API-slutpunktens värd, sökväg och prenumerationsnyckel.
 
-let https = require ('https');
+    ```javascript
+    'use strict';
+    let https = require ('https');
+    
+    let host = 'api.cognitive.microsoft.com';
+    let path = '/bing/v7.0/spellcheck';
+    let key = 'ENTER KEY HERE';
+    ```
 
-let host = 'api.cognitive.microsoft.com';
-let path = '/bing/v7.0/spellcheck';
+2. Skapa variabler för marknad, stavningskontrolläge och den text som du vill kontrollera. Skapa en sträng som lägger till parametern `?mkt=` i din marknad och `&mode=` i ditt läge.
 
-/* NOTE: Replace this example key with a valid subscription key (see the Prequisites section above). Also note v5 and v7 require separate subscription keys. */
-let key = 'ENTER KEY HERE';
+    ```javascript
+    let mkt = "en-US";
+    let mode = "proof";
+    let text = "Hollo, wrld!";
+    let query_string = "?mkt=" + mkt + "&mode=" + mode;
+    ```
 
-// These values are used for optional headers (see below).
-// let CLIENT_ID = "<Client ID from Previous Response Goes Here>";
-// let CLIENT_IP = "999.999.999.999";
-// let CLIENT_LOCATION = "+90.0000000000000;long: 00.0000000000000;re:100.000000000000";
+## <a name="create-the-request-parameters"></a>Skapa begärandeparametrar
 
-let mkt = "en-US";
-let mode = "proof";
-let text = "Hollo, wrld!";
-let query_string = "?mkt=" + mkt + "&mode=" + mode;
+Skapa dina begärandeparametrar genom att skapa ett nytt objekt med en `POST`-metod. Lägg till sökvägen genom att lägga till slutpunktssökvägen och frågesträngen. Lägg till din prenumerationsnyckel i `Ocp-Apim-Subscription-Key`-huvudet.
 
+```javascript
 let request_params = {
-    method : 'POST',
-    hostname : host,
-    path : path + query_string,
-    headers : {
-        'Content-Type' : 'application/x-www-form-urlencoded',
-        'Content-Length' : text.length + 5,
-        'Ocp-Apim-Subscription-Key' : key,
-//        'X-Search-Location' : CLIENT_LOCATION,
-//        'X-MSEdge-ClientID' : CLIENT_ID,
-//        'X-MSEdge-ClientIP' : CLIENT_ID,
-    }
+   method : 'POST',
+   hostname : host,
+   path : path + query_string,
+   headers : {
+   'Content-Type' : 'application/x-www-form-urlencoded',
+   'Content-Length' : text.length + 5,
+      'Ocp-Apim-Subscription-Key' : key,
+   }
 };
+```
 
+## <a name="create-a-response-handler"></a>Skapa en svarshanterare
+
+Skapa en funktion som heter `response_handler` för att ta JSON-svaret från API:et och skriva ut det. Skapa en variabel för svarstexten. Lägg till svaret när en `data`-flagga tas emot med hjälp av `response.on()`. När en `end`-flagga tas emot skriver du ut JSON-brödtexten till konsolen.
+
+```javascript
 let response_handler = function (response) {
     let body = '';
     response.on ('data', function (d) {
@@ -81,13 +84,19 @@ let response_handler = function (response) {
         console.log ('Error: ' + e.message);
     });
 };
+```
 
+## <a name="send-the-request"></a>Skicka begäran
+
+Anropa API:et med hjälp av `https.request()` med begärandeparametrarna samt svarshanteraren. Skriv texten till API:et och avsluta begäran efteråt.
+
+```javascript
 let req = https.request (request_params, response_handler);
 req.write ("text=" + text);
 req.end ();
 ```
 
-**Svar**
+## <a name="example-json-response"></a>Exempel på JSON-svar
 
 Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följande exempel: 
 
@@ -132,9 +141,7 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Självstudie för stavningskontroll i Bing](../tutorials/spellcheck.md)
+> [Skapa en webbapp med en sida](../tutorials/spellcheck.md)
 
-## <a name="see-also"></a>Se även
-
-- [Översikt över stavningskontroll i Bing](../proof-text.md)
+- [Vad är API för stavningskontroll i Bing?](../overview.md)
 - [API-referens för stavningskontroll i Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference)

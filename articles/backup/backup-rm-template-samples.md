@@ -9,12 +9,12 @@ ms.topic: sample
 ms.date: 01/31/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 96d4a61a14d3b1fac1c31c485edf66742c763673
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: c0b023b6bdd01bc64eb5a6deb5fafa8e3c34c616
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55497765"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56819028"
 ---
 # <a name="azure-resource-manager-templates-for-azure-backup"></a>Azure Resource Manager-mallar för Azure Backup
 
@@ -31,6 +31,6 @@ I följande tabell finns länkar till Azure Resource Manager-mallar du kan anvä
 | [Skapa en princip för daglig säkerhetskopiering av virtuella IaaS-datorer](https://github.com/Azure/azure-quickstart-templates/tree/master/101-recovery-services-daily-backup-policy-create) | Mallen skapar ett Recovery Services-valv och en princip för daglig säkerhetskopiering som används till att säkerhetskopiera klassiska virtuella datorer och virtuella Resource Manager-datorer.|
 | [Distribuera virtuella Windows Server-datorer med säkerhetskopiering aktiverad](https://github.com/Azure/azure-quickstart-templates/tree/master/101-recovery-services-create-vm-and-configure-backup) | Mallen skapar en virtuell Windows Server-dator och ett Recovery Services-valv med standardprincipen för säkerhetskopiering aktiverad.|
 |**Övervaka säkerhetskopieringsjobb** |  |
-| [Använda Log Analytics till att övervaka Azure Backup](https://github.com/Azure/azure-quickstart-templates/tree/master/101-backup-oms-monitoring) | Mallen distribuerar Log Analytics-övervakning för Azure Backup så att du kan övervaka säkerhetskopierings- och återställningsjobb, aviseringar om säkerhetskopiering och den molnlagring som används i dina Recovery Services-valv.|  
+| [Använda Azure Monitor-loggar med Azure Backup](https://github.com/Azure/azure-quickstart-templates/tree/master/101-backup-oms-monitoring) | Mallen distribuerar Azure Monitor-loggar med Azure Backup så att du kan övervaka säkerhetskopierings- och återställningsjobb, aviseringar om säkerhetskopiering samt den molnlagring som används i dina Recovery Services-valv.|  
 |   |   |
 

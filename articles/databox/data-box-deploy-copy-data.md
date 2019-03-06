@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: alkohli
-ms.openlocfilehash: 2af94deaedbafdfa638f5deb3150f1e7f711a238
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 62675df9f440df77d1098d5c89bd6810349fb3af
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55093533"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56750012"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-via-smb"></a>Självstudier: Kopiera data till Azure Data Box via SMB
 
@@ -90,7 +90,11 @@ Om du använder en Windows Server-värddator följer du stegen nedan för att an
 
     **Skapa alltid en mapp för de filer som du vill kopiera under resursen och kopiera sedan filerna till den mappen**. Mappen som skapas under blockblob- och sidblobresurser representerar en container som data laddas upp som blobar till. Du kan inte kopiera filer direkt till *root*-mappen i lagringskontot.
     
-     
+Om du använder en Linux-klient använder du följande kommando för att montera SMB-resursen. Parametern ”vers” nedan är den version av SMB din Linux-värd stödjer. Inför lämplig version i kommandot nedan. Versioner av SMB som Data Box har stöd för finns i avsnittet om [filsystem som stöds för Linux-klienter](https://docs.microsoft.com/en-us/azure/databox/data-box-system-requirements#supported-file-systems-for-linux-clients) 
+
+    `sudo mount -t nfs -o vers=2.1 10.126.76.172:/devicemanagertest1_BlockBlob /home/databoxubuntuhost/databox`
+    
+
 
 ## <a name="copy-data-to-data-box"></a>Kopiera data till Data Box
 

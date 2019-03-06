@@ -7,24 +7,24 @@ ms.reviewer: chipalost
 ms.service: iot-edge
 services: iot-edge
 ms.topic: overview
-ms.date: 06/12/2018
+ms.date: 02/25/2019
 ms.author: kgremban
 ms.custom: mvc
-ms.openlocfilehash: 6bd72fd91190c9ed54b4dfd3e7b1e957c375bd4c
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 2d1e4ce719311a28fb4b2075864f8f411cd2713d
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54230568"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56877461"
 ---
 # <a name="what-is-azure-iot-edge"></a>Vad är Azure IoT Edge?
 
-Azure IoT Edge flyttar molnbaserade analyser och anpassad affärslogik så att din organisation kan fokusera på affärsinsikter istället för datahantering. Gör det möjligt för lösningen att leva upp till kraven på skalning genom att konfigurera din IoT-programvara, distribuera den till enheten via standardcontainrar och övervaka alltihop från molnet.
+Azure IoT Edge flyttar molnbaserade analyser och anpassad affärslogik så att din organisation kan fokusera på affärsinsikter istället för datahantering. Konfigurera din IoT-programvara, distribuera den till enheter via standardcontainrar och övervaka alltihop från molnet.
 
 >[!NOTE]
 >Azure IoT Edge finns tillgängligt på kostnadsfri och standardnivå för IoT Hub. Den kostnadsfria nivån är endast för testning och utvärdering. Mer information om nivåerna Basic och Standard finns i artikeln om att [välja rätt nivå för IoT Hub](../iot-hub/iot-hub-scaling.md).
 
-Analyser ger IoT-lösningar värde, men alla analyser behövs inte i molnet. Om du vill att enheten ska reagera så snabbt som möjligt vid nödfall kan du utföra avvikelseidentifiering på själva enheten. Om du vill minska bandbreddskostnaderna och undvika att överföra terabyte med rådata kan du på samma sätt utföra datarensning och sammanställning lokalt. Skicka sedan insikterna till molnet. 
+Analyser ger IoT-lösningar värde, men alla analyser behövs inte i molnet. Om du vill att enheten ska reagera så snabbt som möjligt vid nödfall kan du utföra avvikelseidentifiering på själva enheten. Om du vill minska bandbreddskostnaderna och undvika att överföra terabyte med rådata kan du på samma sätt utföra datarensning och sammanställning lokalt. Skicka sedan insikterna till molnet för analys. 
 
 Azure IoT Edge består av tre komponenter:
 * IoT Edge-moduler är containrar som kör Azure-tjänster, tjänster från tredje part eller din egen kod. Moduler distribueras till IoT Edge-enheter och körs lokalt på enheterna. 
@@ -33,11 +33,11 @@ Azure IoT Edge består av tre komponenter:
 
 ## <a name="iot-edge-modules"></a>IoT Edge-moduler
 
-IoT Edge-moduler är körningsenheter som för närvarande är implementerade som Docker-kompatibla containrar som kör din affärslogik på gränsen. Flera moduler kan konfigureras för att kommunicera med varandra, vilket skapar en pipeline med databearbetning. Du kan utveckla anpassade moduler eller paketera vissa Azure-tjänster i moduler som ger insikter offline och på gränsen. 
+IoT Edge-moduler är körningsenheter som är implementerade som Docker-kompatibla containrar och kör din affärslogik på gränsen. Flera moduler kan konfigureras för att kommunicera med varandra, vilket skapar en pipeline med databearbetning. Du kan utveckla anpassade moduler eller paketera vissa Azure-tjänster i moduler som ger insikter offline och på gränsen. 
 
 ### <a name="artificial-intelligence-on-the-edge"></a>Artificiell intelligens på gränsen
 
-Med Azure IoT Edge kan du distribuera komplex händelsebearbetning, maskininlärning, bildigenkänning och annan värdefull AI utan att skriva internt. Azure-tjänster som Azure Functions, Azure Stream Analytics och Azure Machine Learning kan köras lokalt via Azure IoT Edge, men du är inte begränsad till Azure-tjänster. Vem som helst kan skapa AI-moduler och göra dem tillgängliga för communityn. 
+Med Azure IoT Edge kan du distribuera komplex händelsebearbetning, maskininlärning, bildigenkänning och annan värdefull AI utan att skriva internt. Azure-tjänster som Azure Functions, Azure Stream Analytics och Azure Machine Learning kan köras lokalt via Azure IoT Edge, men du är inte begränsad till Azure-tjänster. Vem som helst kan skapa AI-moduler och göra dem tillgängliga för communityn för användning via Microsoft Azure Marketplace. 
 
 ### <a name="bring-your-own-code"></a>Ha med din egen kod
 
@@ -55,7 +55,7 @@ Azure IoT Edge-körning möjliggör anpassad och molnbaserad logik på IoT Edge-
 
 ![IoT Edge-körning skickar insikter och rapportering till IoT Hub](./media/about-iot-edge/runtime.png)
 
-Det är upp till dig hur du använder en Azure IoT Edge-enhet. Körningen används ofta för att distribuera AI till gatewayer som sammanställer och bearbetar data från flera andra lokala enheter, men det är bara ett alternativ. Lövenheter kan också vara Azure IoT Edge-enheter oavsett om de är anslutna till en gateway eller direkt till molnet.
+Det är upp till dig hur du använder en Azure IoT Edge-enhet. Körningen används ofta för att distribuera AI till gatewayer som aggregerar och bearbetar data från andra lokala enheter, men den här distributionsmodellen är bara ett alternativ. Lövenheter kan också vara Azure IoT Edge-enheter oavsett om de är anslutna till en gateway eller direkt till molnet.
 
 Azure IoT Edge-körningen körs på en stor uppsättning IoT-enheter för att möjliggöra körningen på många olika sätt. Den stöder både Linux- och Windows-operativsystem och avlägsnar maskinvaruinformation. Använd en enhet som är mindre än en Raspberry Pi 3 om du inte hanterar stora datamängder eller skala upp till en industrialiserad server för att köra resursintensiva arbetsbelastningar.
 
@@ -74,5 +74,3 @@ Azure IoT Edge integreras sömlöst med Azure IoT-lösningsacceleratorer för at
 ## <a name="next-steps"></a>Nästa steg
 
 Prova de här koncepten genom att [distribuera IoT Edge på en simulerad enhet](quickstart.md).
-
- 

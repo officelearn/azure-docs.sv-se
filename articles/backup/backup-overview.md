@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 02/19/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 79a53c1b11a1bac0ea83afdd1333423aff4d6aa6
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: b590d75abb9e3f6465594a5c8c684b94e6f2e07f
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56428474"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56864310"
 ---
 # <a name="what-is-azure-backup"></a>Vad är Azure Backup?
 
@@ -78,7 +78,7 @@ Azure Backup kan säkerhetskopiera både lokala datorer och virtuella Azure-dato
 Fördelarna med att säkerhetskopiera datorer och appar till MABS/DPM-lagring och sedan säkerhetskopiera DPM/MABS-lagring till ett valv är följande:
 
 - Vid säkerhetskopiering till MABS/DPM ingår programmedvetna säkerhetskopior som är optimerade för vanliga program som SQL Server, Exchange och SharePoint. Dessutom ingår fil-/mapp-/volymsäkerhetskopior och säkerhetskopiering av systemtillstånd för datorer (utan operativsystem).
-- På lokala datorer behöver du inte installera MARS-agenten på varje dator som ska säkerhetskopieras. Alla datorer som kör DPM/MABS-skyddsagenten och MARS-agenten körs endast på MABS/DPM.
+- På lokala datorer behöver du inte installera MARS-agenten på varje dator som du vill säkerhetskopiera. Alla datorer som kör DPM/MABS-skyddsagenten och MARS-agenten körs endast på MABS/DPM.
 - Du får större flexibilitet och mer detaljerade schemaläggningsalternativ för säkerhetskopiering.
 - Du kan hantera säkerhetskopior för flera datorer som du grupperar i skyddsgrupper i en enda konsol. Detta är särskilt användbart för program som är nivåindelade över flera datorer och som behöver säkerhetskopieras tillsammans.
 

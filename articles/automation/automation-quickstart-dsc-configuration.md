@@ -11,12 +11,12 @@ ms.date: 11/06/2018
 ms.topic: quickstart
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: c0a7bb9dfe8553515816efd53785dbe661cee0fa
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: f272f72a0bcae70a25bada266dc6b080f46526cd
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54431596"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56817736"
 ---
 # <a name="configure-a-linux-virtual-machine-with-desired-state-configuration"></a>Konfigurera en virtuell Linux-dator med DSC (Desired State Configuration)
 
@@ -144,5 +144,5 @@ I den här snabbstarten har du registrerat en virtuell Linux-dator med DSC, skap
 
 * Mer information om PowerShell DSC finns i [PowerShell Desired State Configuration Overview](https://docs.microsoft.com/powershell/dsc/overview) (Översikt över PowerShell DSC).
 * Mer information om hur du hanterar Automation DSC från PowerShell finns i [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.automation/?view=azurermps-5.0.0)
-* Information om hur du vidarebefordrar DSC-rapporter till Log Analytics för rapportering och aviseringar finns i [Forwarding DSC Reporting to Log Analytics](https://docs.microsoft.com/azure/automation/automation-dsc-diagnostics) (Vidarebefordra DSC-rapportering till Log Analytics) 
+* Information om hur du vidarebefordrar DSC-rapporter till Azure Monitor-loggar för rapportering och aviseringar finns i avsnittet om att [vidarekoppla DSC-rapporter till Azure Monitor-loggar](https://docs.microsoft.com/azure/automation/automation-dsc-diagnostics) 
 

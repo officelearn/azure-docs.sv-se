@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: bbede01844f20c0240b154fd319b818a43463131
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: efa8f4fc604440b8c1396aa654834ce83a41844e
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55824683"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56875828"
 ---
 # <a name="move-azure-vms-to-another-region"></a>Migrera virtuella Azure-datorer till en annan region
 
@@ -28,7 +28,7 @@ I den här självstudien får du lära dig att flytta virtuella Azure-datorer ti
 > * [Kopiera data till målregionen](#copy-data-to-the-target-region)
 > * [Testa konfigurationen](#test-the-configuration)
 > * [Utföra flytten](#perform-the-move-to-the-target-region-and-confirm)
-> * [Ta bort resursen från källregionen](#discard-the-resource-in-the-source-region)
+> * [Ta bort resursen i källregionen](#discard-the-resource-in-the-source-region)
 
 > [!IMPORTANT]
 > I det här dokumentet får du hjälp att flytta virtuella Azure-datorer från en region till en annan i befintligt skick. Om du behöver förbättra tillgängligheten för din infrastruktur genom att flytta virtuella datorer till tillgänglighetszoner läser du självstudien här.

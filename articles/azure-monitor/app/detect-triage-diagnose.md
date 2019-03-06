@@ -13,12 +13,12 @@ ms.custom: mvc
 ms.topic: overview
 ms.date: 09/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 91814579675882ba969f5903ebeddcebbcbd6616
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: 45824ba93e86622b1bbd92aae01f18f89bee6adf
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301544"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56673350"
 ---
 # <a name="overview-of-application-insights-for-devops"></a>Översikt över Application Insights för DevOps
 
@@ -230,6 +230,7 @@ Du kan komma igång på flera sätt, beroende på programmets egenskaper. Välj 
 * [ASP.NET-webbapp](../../azure-monitor/app/asp-net.md)
 * [Java-webapp](../../azure-monitor/app/java-get-started.md)
 * [Node.js-webbapp](../../azure-monitor/app/nodejs.md)
-* Appar som redan har distribuerats och som har [IIS](../../azure-monitor/app/monitor-web-app-availability.md), [Java EE](../../azure-monitor/app/java-live.md) eller [Azure](../../azure-monitor/app/app-insights-overview.md) som värd.
+* Appar som redan har distribuerats som har [IIS](../../azure-monitor/app/monitor-web-app-availability.md) som värd
+* [Azure](../../azure-monitor/app/app-insights-overview.md).
 * [Webbsidor](../../azure-monitor/app/javascript.md) – En app med en enda sida eller en vanlig webbapp, använd det här på egen hand eller tillsammans med något av serveralternativen.
 * [Tillgänglighetstester](../../azure-monitor/app/monitor-web-app-availability.md) för att testa appen från internet.

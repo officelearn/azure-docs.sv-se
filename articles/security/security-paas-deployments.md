@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/21/2018
+ms.date: 03/05/2019
 ms.author: terrylan
-ms.openlocfilehash: 497fc1dd5691b5aa33207c6a3943a51c473d2f6c
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: e833317fa16576fa0006a774226d12974fd93ed8
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57247213"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57404815"
 ---
 # <a name="securing-paas-deployments"></a>Skydda PaaS-distributioner
 
@@ -85,7 +85,7 @@ Principer och mönster för perimeternätverket har varit tillgängliga för fle
 Här följer bästa praxis för att hantera identitet perimeternätverket.
 
 **Bästa praxis**: Skydda dina nycklar och autentiseringsuppgifter för att skydda PaaS-distribution.   
-**Information om**: Att förlora nycklar och autentiseringsuppgifter är ett vanligt problem. Du kan använda en centraliserad lösning där nycklar och hemligheter kan lagras i HSM: er. Azure ger dig en HSM i molnet med [Azure Key Vault](../key-vault/key-vault-whatis.md).
+**Information om**: Att förlora nycklar och autentiseringsuppgifter är ett vanligt problem. Du kan använda en centraliserad lösning där nycklar och hemligheter kan lagras i maskinvarusäkerhetsmoduler (HSM). [Azure Key Vault](../key-vault/key-vault-whatis.md) skyddar dina nycklar och hemligheter genom att kryptera autentiseringsnycklar, lagringskontonycklar, datakrypteringsnycklar, PFX-filer och lösenord med nycklar som skyddas av HSM: er.
 
 **Bästa praxis**: Placera inte autentiseringsuppgifter och andra hemligheter i källkoden eller GitHub.   
 **Information om**: Enda sämre resultat än att förlora dina nycklar och autentiseringsuppgifter som har en obehörig part få åtkomst till dem. Angripare kan dra nytta av bot tekniker för att hitta nycklar och hemligheter som lagras i koddatabaser, till exempel GitHub. Placera inte nyckeln och hemligheter i de här offentliga lagringsplatser.

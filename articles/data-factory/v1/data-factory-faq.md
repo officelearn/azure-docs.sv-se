@@ -13,16 +13,18 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 81c7c98f29c2e507e165a3943395e36a453cbf06
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 01ed1b94ffedb273321fa49653a614c659611e6a
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54024050"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57453209"
 ---
 # <a name="azure-data-factory---frequently-asked-questions"></a>Azure Data Factory – vanliga frågor och svar
 > [!NOTE]
 > Den här artikeln gäller för version 1 av Data Factory. Om du använder den aktuella versionen av Data Factory-tjänsten finns i [vanliga frågor och svar – Data Factory](../frequently-asked-questions.md).
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="general-questions"></a>Allmänna frågor
 ### <a name="what-is-azure-data-factory"></a>Vad är Azure Data Factory?
@@ -73,7 +75,7 @@ Följande tabell innehåller en lista över de beräkningsmiljöer som stöds av
 | [Azure Batch](data-factory-compute-linked-services.md#azure-batch-linked-service) |[DotNet](data-factory-use-custom-activities.md) |
 | [Azure Machine Learning](data-factory-compute-linked-services.md#azure-machine-learning-linked-service) |[Machine Learning-aktiviteter: Batchkörning och resursuppdatering](data-factory-azure-ml-batch-execution-activity.md) |
 | [Azure Data Lake Analytics](data-factory-compute-linked-services.md#azure-data-lake-analytics-linked-service) |[Data Lake Analytics U-SQL](data-factory-usql-activity.md) |
-| [Azure SQL](data-factory-compute-linked-services.md#azure-sql-linked-service), [Azure SQL Data Warehouse](data-factory-compute-linked-services.md#azure-sql-data-warehouse-linked-service), [SQLServer](data-factory-compute-linked-services.md#sql-server-linked-service) |[Lagrad procedur](data-factory-stored-proc-activity.md) |
+| [Azure SQL](data-factory-compute-linked-services.md#azure-sql-linked-service), [Azure SQL Data Warehouse](data-factory-compute-linked-services.md#azure-sql-data-warehouse-linked-service), [SQL Server](data-factory-compute-linked-services.md#sql-server-linked-service) |[Lagrad procedur](data-factory-stored-proc-activity.md) |
 
 ### <a name="how-does-azure-data-factory-compare-with-sql-server-integration-services-ssis"></a>Hur jämfört med SQL Server Integration Services (SSIS) i Azure Data Factory? 
 Se den [jämfört med Azure Data Factory. SSIS](http://www.sqlbits.com/Sessions/Event15/Azure_Data_Factory_vs_SSIS) presentation från en av våra MVP (Most värdefull Professionals): Reza Rad. Vissa av de senaste ändringarna i Data Factory kan inte visas i presentationen. Vi lägger kontinuerligt till fler funktioner till Azure Data Factory. Vi lägger kontinuerligt till fler funktioner till Azure Data Factory. Vi kommer införliva de här uppdateringarna i jämförelse av data Integreringstekniker från Microsoft en stund senare i år.   
@@ -171,12 +173,12 @@ Du kan köra en sektor i ett av följande sätt:
 
 * Använda appen övervaka och hantera för att köra ett aktivitetsfönster eller segment. Se [kör den markerade aktivitetsfönster](data-factory-monitor-manage-app.md#perform-batch-actions) anvisningar.   
 * Klicka på **kör** i kommandofältet på den **DATASEKTOR** bladet för sektorn i Azure-portalen.
-* Kör **Set-AzureRmDataFactorySliceStatus** cmdlet: en med statusen inställd **väntar på** för sektorn.   
+* Kör **Set-AzDataFactorySliceStatus** cmdlet: en med statusen inställd **väntar på** för sektorn.   
 
     ```PowerShell
-    Set-AzureRmDataFactorySliceStatus -Status Waiting -ResourceGroupName $ResourceGroup -DataFactoryName $df -TableName $table -StartDateTime "02/26/2015 19:00:00" -EndDateTime "02/26/2015 20:00:00"
+    Set-AzDataFactorySliceStatus -Status Waiting -ResourceGroupName $ResourceGroup -DataFactoryName $df -TableName $table -StartDateTime "02/26/2015 19:00:00" -EndDateTime "02/26/2015 20:00:00"
     ```
-Se [Set-AzureRmDataFactorySliceStatus] [ set-azure-datafactory-slice-status] mer information om cmdlet: en.
+Se [Set-AzDataFactorySliceStatus] [ set-azure-datafactory-slice-status] mer information om cmdlet: en.
 
 ### <a name="how-long-did-it-take-to-process-a-slice"></a>Hur lång tid tog den för att bearbeta en sektor?
 Använd aktiviteten fönstret Explorer i övervaknings- och Hanteringsappen veta hur lång tid det tog för att bearbeta en datasektor. Se [aktivitet fönstret Explorer](data-factory-monitor-manage-app.md#activity-window-explorer) mer information.
@@ -191,7 +193,7 @@ Du kan också göra följande i Azure portal:
 6. Du bör se den **varaktighet** med ett värde. Det här värdet är den tid det tar att bearbeta sektorn.   
 
 ### <a name="how-to-stop-a-running-slice"></a>Hur du stoppar ett pågående segment?
-Om du vill stoppa pipelinen körs kan du använda [Suspend-AzureRmDataFactoryPipeline](/powershell/module/azurerm.datafactories/suspend-azurermdatafactorypipeline) cmdlet. För närvarande pausar pipelinen inte att stoppa den sektor körningar som pågår. När den pågående körningar är klar, hämtas inga extra sektorn.
+Om du vill stoppa pipelinen körs kan du använda [Suspend-AzDataFactoryPipeline](/powershell/module/az.datafactory/suspend-azdatafactorypipeline) cmdlet. För närvarande pausar pipelinen inte att stoppa den sektor körningar som pågår. När den pågående körningar är klar, hämtas inga extra sektorn.
 
 Om du vill stoppa alla körningar direkt, är det enda sättet att ta bort pipelinen och skapa det igen. Om du väljer att ta bort pipelinen, behöver du inte ta bort tabeller och länkade tjänster som används av pipelinen.
 
@@ -199,9 +201,9 @@ Om du vill stoppa alla körningar direkt, är det enda sättet att ta bort pipel
 [msdn-class-library-reference]: /dotnet/api/microsoft.azure.management.datafactories.models
 [msdn-rest-api-reference]: /rest/api/datafactory/
 
-[adf-powershell-reference]: /powershell/module/azurerm.datafactories/
+[adf-powershell-reference]: /powershell/module/az.datafactory/
 [azure-portal]: http://portal.azure.com
-[set-azure-datafactory-slice-status]: /powershell/module/azurerm.datafactories/set-azurermdatafactoryslicestatus
+[set-azure-datafactory-slice-status]: /powershell/module/az.datafactory/set-Azdatafactoryslicestatus
 
 [adf-pricing-details]: http://go.microsoft.com/fwlink/?LinkId=517777
 [hdinsight-supported-regions]: http://azure.microsoft.com/pricing/details/hdinsight/

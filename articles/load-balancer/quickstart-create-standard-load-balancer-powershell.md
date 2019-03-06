@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Skapa en Standardbelastningsutjämnare – Azure PowerShell'
+title: 'Snabbstart: Skapa en Standard Load Balancer – Azure PowerShell'
 titlesuffix: Azure Load Balancer
 description: Den här snabbstarten visar hur du skapar en Standard Load Balancer med PowerShell
 services: load-balancer
@@ -10,20 +10,20 @@ Customer intent: I want to create a Standard Load balancer so that I can load ba
 ms.assetid: ''
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: qucikstart
+ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/22/2018
 ms.author: kumud
 ms:custom: seodec18
-ms.openlocfilehash: b2da2092c71d109081f05f3e4f12d7d11de37397
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
-ms.translationtype: MT
+ms.openlocfilehash: 56fc3942b82d43273ea39f6075382bcb255fc0f7
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56593955"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56673827"
 ---
-# <a name="get-started"></a>Snabbstart: Skapa en Standardbelastningsutjämnare med Azure PowerShell
+# <a name="get-started"></a>Snabbstart: Skapa en Standard Load Balancer med Azure PowerShell
 
 Den här snabbstarten visar hur du skapar en Standard Load Balancer med Azure PowerShell. Om du vill testa lastbalanseraren så distribuera två virtuella datorer (VM) som kör Windows-servern och lastbalansera en webbapp mellan de virtuella datorerna. Mer information om Standard Load Balancer finns i [Vad är en Standard Load Balancer](load-balancer-standard-overview.md).
 
@@ -35,7 +35,7 @@ Om du väljer att installera och använda PowerShell lokalt kräver den här art
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
-Innan du kan skapa belastningsutjämnaren måste du skapa en resursgrupp med [New AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). I följande exempel skapas en resursgrupp med namnet *myResourceGroupLB* på platsen *eastus*:
+Innan du kan skapa lastbalanseraren måste du skapa en resursgrupp med [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). I följande exempel skapas en resursgrupp med namnet *myResourceGroupLB* på platsen *eastus*:
 
 ```azurepowershell-interactive
 New-AzResourceGroup `
@@ -58,11 +58,11 @@ $publicIP = New-AzPublicIpAddress `
 
 ## <a name="create-standard-load-balancer"></a>Skapa en Standard Load Balancer
 
-I det här avsnittet konfigurerar frontend-IP och backend-adresspoolen för belastningsutjämnaren och sedan skapa grundläggande belastningsutjämnare.
+I det här avsnittet konfigurerar du klientdelens IP-adress och serverdelsadresspoolen för lastbalanseraren och skapar sedan Standard Load Balancer.
 
-### <a name="create-front-end-ip"></a>Skapa frontend-IP
+### <a name="create-front-end-ip"></a>Skapa klientdels-IP
 
-Skapa en frontend IP-adress med [New AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/new-azloadbalancerfrontendipconfig). I följande exempel skapas en frontend IP-konfigurationen med namnet *myFrontEnd* och kopplar den *myPublicIP* adress:
+Skapa en IP-adress på klientdelen med hjälp av [New-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/new-azloadbalancerfrontendipconfig). I följande exempel skapas en IP-konfiguration på klientdelen med namnet *myFrontEnd* och adressen *myPublicIP* kopplas:
 
 ```azurepowershell-interactive
 $frontendIP = New-AzLoadBalancerFrontendIpConfig `
@@ -70,9 +70,9 @@ $frontendIP = New-AzLoadBalancerFrontendIpConfig `
   -PublicIpAddress $publicIP
 ```
 
-### <a name="configure-back-end-address-pool"></a>Konfigurera backend adresspool
+### <a name="configure-back-end-address-pool"></a>Konfigurera en serverdelsadresspool
 
-Skapa en backend-adresspool med [New AzLoadBalancerBackendAddressPoolConfig](/powershell/module/az.network/new-azloadbalancerbackendaddresspoolconfig). Virtuella datorer ansluter till den här backend-poolen i de resterande stegen. I följande exempel skapas en backend-adresspool med namnet *myBackEndPool*:
+Skapa en adresspool på serverdelen med hjälp av [New-AzLoadBalancerBackendAddressPoolConfig](/powershell/module/az.network/new-azloadbalancerbackendaddresspoolconfig). De virtuella datorerna ansluter till den här serverdelspoolen i de återstående stegen. I följande exempel skapas en adresspool på serverdelen med namnet *myBackEndPool*:
 
 ```azurepowershell-interactive
 $backendPool = New-AzLoadBalancerBackendAddressPoolConfig -Name "myBackEndPool"
@@ -113,7 +113,7 @@ $lbrule = New-AzLoadBalancerRuleConfig `
 
 ### <a name="create-the-nat-rules"></a>Skapa NAT-reglerna
 
-Skapa NAT-regler med [Lägg till AzLoadBalancerRuleConfig](/powershell/module/az.network/new-azloadbalancerinboundnatruleconfig). I följande exempel skapas en NAT-regler med namnet *myLoadBalancerRDP1* och *myLoadBalancerRDP2* att tillåta RDP-anslutningar till backend-servrar med port 4221 och 4222:
+Skapa NAT-regler med [Add-AzLoadBalancerRuleConfig](/powershell/module/az.network/new-azloadbalancerinboundnatruleconfig). I följande exempel skapas NAT-regler med namnen *myLoadBalancerRDP1* och *myLoadBalancerRDP2* för att tillåta RDP-anslutningar till serverdelsservarna med port 4221 och 4222:
 
 ```azurepowershell-interactive
 $natrule1 = New-AzLoadBalancerInboundNatRuleConfig `
@@ -133,7 +133,7 @@ $natrule2 = New-AzLoadBalancerInboundNatRuleConfig `
 
 ### <a name="create-load-balancer"></a>Skapa en lastbalanserare
 
-Skapa belastningsutjämnaren på Standard med [nya AzLoadBalancer](/powershell/module/az.network/new-azloadbalancer). I följande exempel skapas en offentlig grundläggande belastningsutjämnare med namnet myLoadBalancer med frontend-IP-konfigurationen, backend-poolen, hälsoavsökning, belastningsutjämningsregel och NAT-regler som du skapade i föregående steg:
+Skapa Standard Load Balancer med [New-AzLoadBalancer](/powershell/module/az.network/new-azloadbalancer). I följande exempel skapas en offentlig Standard Load Balancer med namnet myLoadBalancer med klientdelens IP-konfiguration, serverdelspoolen, hälsoavsökningen, lastbalanseringsregeln och NAT-reglerna som du skapade i föregående steg:
 
 ```azurepowershell-interactive
 $lb = New-AzLoadBalancer `
@@ -173,7 +173,7 @@ $vnet = New-AzVirtualNetwork `
 Skapa en nätverkssäkerhetsgrupp så att du kan definiera inkommande anslutningar till det virtuella nätverket.
 
 #### <a name="create-a-network-security-group-rule-for-port-3389"></a>Skapa en regel för nätverkssäkerhetsgruppen för port 3389
-Skapa en nätverkssäkerhetsgruppregel för att tillåta RDP-anslutningar via port 3389 med [New AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetworksecurityruleconfig).
+Skapa en regel för nätverkssäkerhetsgrupp som tillåter RDP-anslutningar via port 3389 med [New-AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetworksecurityruleconfig).
 
 ```azurepowershell-interactive
 
@@ -191,7 +191,7 @@ $rule1 = New-AzNetworkSecurityRuleConfig `
 ```
 
 #### <a name="create-a-network-security-group-rule-for-port-80"></a>Skapa en regel för nätverkssäkerhetsgruppen för port 80
-Skapa en regel för nätverkssäkerhetsgrupp som tillåter inkommande anslutningar via port 80 med [New AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetworksecurityruleconfig).
+Skapa en regel för nätverkssäkerhetsgrupp som tillåter inkommande anslutningar via port 80 med [New-AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetworksecurityruleconfig).
 
 ```azurepowershell-interactive
 $rule2 = New-AzNetworkSecurityRuleConfig `
@@ -209,7 +209,7 @@ $rule2 = New-AzNetworkSecurityRuleConfig `
 
 #### <a name="create-a-network-security-group"></a>Skapa en nätverkssäkerhetsgrupp
 
-Skapa en nätverkssäkerhetsgrupp med [New AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup).
+Skapa en nätverkssäkerhetsgrupp med [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup).
 
 ```azurepowershell-interactive
 $nsg = New-AzNetworkSecurityGroup `
@@ -220,7 +220,7 @@ $nsg = New-AzNetworkSecurityGroup `
 ```
 
 ### <a name="create-nics"></a>Skapa nätverkskort
-Skapa virtuella nätverkskort som skapats med [New AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface). I följande exempel skapas två virtuella nätverkskort. (Det vill säga ett virtuellt nätverkskort för varje virtuell dator som du skapar för din app i följande steg.) Du kan skapa ytterligare virtuella nätverkskort och virtuella datorer när du vill och lägga till dem i lastbalanseraren:
+Skapa virtuella nätverkskort med [New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface). I följande exempel skapas två virtuella nätverkskort. (Det vill säga ett virtuellt nätverkskort för varje virtuell dator som du skapar för din app i följande steg.) Du kan skapa ytterligare virtuella nätverkskort och virtuella datorer när du vill och lägga till dem i lastbalanseraren:
 
 ```azurepowershell-interactive
 # Create NIC for VM1
@@ -288,7 +288,7 @@ Parametern `-AsJob` skapar den virtuella datorn som en bakgrundsaktivitet så at
 
 ### <a name="install-iis-with-custom-web-page"></a>Installera IIS med anpassad webbsida
 
-Installera IIS med en anpassad webbsida på båda backend-virtuella datorer enligt följande:
+Installera IIS med en anpassad webbsida på de båda virtuella datorerna på serverdelen enligt följande:
 
 1. Hämta den offentliga IP-adressen för lastbalanseraren. Med `Get-AzPublicIPAddress` hämtar du den offentliga IP-adressen för lastbalanseraren.
 
@@ -347,7 +347,7 @@ Remove-AzResourceGroup -Name myResourceGroupLB
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten har du skapat en grundläggande lastbalanserare, anslutit virtuella datorer till den, konfigurerat regeln för trafiklastbalansering, konfigurerat hälsoavsökningen och sedan testat lastbalanseraren. Om du vill läsa mer om Azure Load Balancer fortsätter du till självstudierna för Azure Load Balancer.
+I den här snabbstarten har du skapat en Standard Load Balancer, anslutit virtuella datorer till den, konfigurerat trafikregeln för lastbalansering, hälsoavsökningen och sedan testat lastbalanseraren. Om du vill läsa mer om Azure Load Balancer fortsätter du till självstudierna för Azure Load Balancer.
 
 > [!div class="nextstepaction"]
 > [Självstudier om Azure Load Balancer](tutorial-load-balancer-basic-internal-portal.md)

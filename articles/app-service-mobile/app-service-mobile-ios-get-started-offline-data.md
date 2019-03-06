@@ -14,12 +14,12 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: bc0afcf1ac7d9e7a777d850e1b6df7b915837f3a
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 1283f812799fe71ef6987dbc7fab092aed4d3417
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52956882"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57435141"
 ---
 # <a name="enable-offline-syncing-with-ios-mobile-apps"></a>Aktivera offline synkroniseras med iOS-appar
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
@@ -89,7 +89,7 @@ Nu ska vi utföra den faktiska synkroniseringsåtgärden och hämta data från f
        }];
    }
    ```
-* **SWIFT**:
+* **Swift**:
    ```swift
    func onRefresh(sender: UIRefreshControl!) {
       UIApplication.sharedApplication().networkActivityIndicatorVisible = true
@@ -101,7 +101,7 @@ Nu ska vi utföra den faktiska synkroniseringsåtgärden och hämta data från f
 
           if error != nil {
               // A real application would handle various errors like network conditions,
-              // server conflicts, etc via the MSSyncContextDelegate
+              // server conflicts, etc. via the MSSyncContextDelegate
               print("Error: \(error!.description)")
 
               // We will discard our changes and keep the server's copy for simplicity
@@ -159,12 +159,12 @@ När du använder funktionen offline-synkronisering kan du definiera tre systemt
 
 ![MS_TableOperations tabellattribut][defining-core-data-tableoperations-entity]
 
-| Attribut | Typ |
+| Attribut | Type |
 | --- | --- |
 | id | Heltal 64 |
-| itemId | Sträng |
+| itemId | String |
 | properties | Binära Data |
-| tabell | Sträng |
+| tabell | String |
 | tableKind | Heltal 16 |
 
 
@@ -172,9 +172,9 @@ När du använder funktionen offline-synkronisering kan du definiera tre systemt
 
  ![MS_TableOperationErrors tabellattribut][defining-core-data-tableoperationerrors-entity]
 
-| Attribut | Typ |
+| Attribut | Type |
 | --- | --- |
-| id |Sträng |
+| id |String |
 | operationId |Heltal 64 |
 | properties |Binära Data |
 | tableKind |Heltal 16 |
@@ -183,26 +183,26 @@ När du använder funktionen offline-synkronisering kan du definiera tre systemt
 
  ![][defining-core-data-tableconfig-entity]
 
-| Attribut | Typ |
+| Attribut | Type |
 | --- | --- |
-| id |Sträng |
-| key |Sträng |
+| id |String |
+| key |String |
 | KeyType |Heltal 64 |
-| tabell |Sträng |
-| värde |Sträng |
+| tabell |String |
+| värde |String |
 
 ### <a name="data-table"></a>Datatabell
 
 **TodoItem**
 
-| Attribut | Typ | Obs! |
+| Attribut | Type | Obs! |
 | --- | --- | --- |
 | id | Sträng, markeras krävs |primärnyckeln i fjärrlager |
 | Slutför | Boolesk | Fältet för att göra-objekt |
-| text |Sträng |Fältet för att göra-objekt |
+| text |String |Fältet för att göra-objekt |
 | createdAt | Date | (valfritt) Mappar till **createdAt** Systemegenskapen |
 | updatedAt | Date | (valfritt) Mappar till **updatedAt** Systemegenskapen |
-| version | Sträng | (valfritt) Används för att identifiera konflikter, mappas till version |
+| version | String | (valfritt) Används för att identifiera konflikter, mappas till version |
 
 ## <a name="setup-sync"></a>Ändra beteendet för synkronisering av appen
 I det här avsnittet ska ändra du appen, så att den inte synkroniserar på app-start eller när du infogar och uppdatera objekt. Det synkroniserar bara när knappen Uppdatera gest utförs.
@@ -224,7 +224,7 @@ I det här avsnittet ska ändra du appen, så att den inte synkroniserar på app
    }
    ```
 
-**SWIFT**:
+**Swift**:
 
 I `viewDidLoad`i **ToDoTableViewController.swift**, kommentera ut de två raderna som visas här, för att stoppa synkroniseringen på app-start. När detta skrivs uppdateras Swift Todo-appen inte tjänsten när någon lägger till eller Slutför en artikel. Uppdaterar tjänsten endast på app-start.
 
@@ -242,7 +242,7 @@ I det här avsnittet kan du ansluta till en ogiltig URL för att simulera ett of
    ```objc
    self.client = [MSClient clientWithApplicationURLString:@"https://sitename.azurewebsites.net.fail"];
    ```
-   **SWIFT**. I ToDoTableViewController.swift:
+   **SWIFT**. In ToDoTableViewController.swift:
    ```swift
    let client = MSClient(applicationURLString: "https://sitename.azurewebsites.net.fail")
    ```
@@ -272,7 +272,7 @@ När vi synkroniseras det lokala arkivet med servern, som vi använde den **MSSy
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 * [Synkronisering av offlinedata i mobila appar]
-* [Cloud Cover: Offlinesynkronisering i Azure mobila tjänster] \(videon handlar om mobiltjänster, men fungerar på liknande sätt som synkronisering med Mobile Apps offline.\)
+* [Cloud Cover: Offline-synkronisering i Azure mobila tjänster] \(videon handlar om mobiltjänster, men fungerar på liknande sätt som synkronisering med Mobile Apps offline.\)
 
 <!-- URLs. -->
 
@@ -285,5 +285,5 @@ När vi synkroniseras det lokala arkivet med servern, som vi använde den **MSSy
 [defining-core-data-tableconfig-entity]: ./media/app-service-mobile-ios-get-started-offline-data/defining-core-data-tableconfig-entity.png
 [defining-core-data-todoitem-entity]: ./media/app-service-mobile-ios-get-started-offline-data/defining-core-data-todoitem-entity.png
 
-[Cloud Cover: Offlinesynkronisering i Azure mobila tjänster]: https://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
+[Cloud Cover: Offline-synkronisering i Azure mobila tjänster]: https://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 [Azure Friday: Offline-enabled apps in Azure Mobile Services]: https://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/

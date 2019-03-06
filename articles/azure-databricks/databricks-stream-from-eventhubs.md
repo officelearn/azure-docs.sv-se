@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.workload: Active
 ms.date: 06/21/2018
 ms.author: alehall
-ms.openlocfilehash: 16095dabb0e5e3e303e82126c7f57cb4ff3fe8dd
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 006286b492b7431ca15b8a2dc9ac5b4116f7d1b1
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54200934"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56876286"
 ---
 # <a name="tutorial-stream-data-into-azure-databricks-using-event-hubs"></a>Självstudier: Strömma data i Azure Databricks med Event Hubs
 
@@ -58,7 +58,7 @@ Logga in på [Azure-portalen](https://portal.azure.com/).
 
 I det här avsnittet skapar du en Azure Databricks-arbetsyta med Azure-portalen.
 
-1. Välj **Skapa en resurs** > **Data och analys** > **Azure Databricks** i Azure-portalen.
+1. Välj **Skapa en resurs** > **Data och analys** > **Azure Databricks** i Azure Portal.
 
     ![Databricks på Azure-portalen](./media/databricks-stream-from-eventhubs/azure-databricks-on-portal.png "Databricks på Azure-portalen")
 
@@ -370,7 +370,7 @@ När du är klar med självstudien kan du avsluta klustret. Detta gör du genom 
 Om du inte manuellt avslutar klustret kommer det att stoppas automatiskt, förutsatt att du har markerat kryssrutan **Avsluta efter \_\_ minuters inaktivitet** när klustret skapades. I dessa fall stoppas klustret automatiskt om det har varit inaktivt under den angivna tiden.
 
 ## <a name="next-steps"></a>Nästa steg
-I den här självstudien lärde du dig att:
+I den här självstudiekursen lärde du dig att:
 
 > [!div class="checklist"]
 > * Skapa en Azure Databricks-arbetsyta
@@ -384,4 +384,4 @@ I den här självstudien lärde du dig att:
 Gå till nästa självstudie för att lära dig om att utföra attitydanalyser på strömmade data med Azure Databricks och [Microsoft Cognitive Services-API](../cognitive-services/text-analytics/overview.md).
 
 > [!div class="nextstepaction"]
->[Sentimentanalys på strömmade data med hjälp av Azure Databricks ](databricks-sentiment-analysis-cognitive-services.md)
+>[Sentimentanalys på strömmade data med hjälp av Azure Databricks](databricks-sentiment-analysis-cognitive-services.md)

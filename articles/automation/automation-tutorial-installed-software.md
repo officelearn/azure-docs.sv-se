@@ -11,12 +11,12 @@ ms.service: automation
 ms.subservice: change-inventory-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: ffa14e3fb3fd41d6a30e1cf30713b26d7ecd255a
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 2cce925f4b3e1acc6c93019615b81983a5c95f6f
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54436022"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56815900"
 ---
 # <a name="discover-what-software-is-installed-on-your-azure-and-non-azure-machines"></a>Identifiera vilken programvara som är installerad på dina datorer med och utan Azure
 
@@ -58,8 +58,10 @@ Aktivera lösningen genom att konfigurera platsen, Log Analytics-arbetsytan och 
 En [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fautomation%2ftoc.json)-arbetsyta används för att samla in data som genereras av funktioner och tjänster som Inventering.
 Arbetsytan tillhandahåller en enda plats för att granska och analysera data från flera källor.
 
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+
 Det kan ta upp till 15 minuter att aktivera lösningen. Under tiden ska du inte stänga webbläsaren.
-När lösningen har aktiverats flödar information om installerad programvara och ändringar på den virtuella datorn till Log Analytics.
+När lösningen har aktiverats flödar information om installerad programvara och ändringar på den virtuella datorn till Azure Monitor-loggar.
 Det kan ta mellan 30 minuter och 6 timmar innan data blir tillgängliga för analys.
 
 ## <a name="onboard-a-vm"></a>Publicera en virtuell dator
@@ -101,7 +103,7 @@ Om du exempelvis söker efter ”Contoso” returneras all programvara med ett n
 
 ## <a name="search-inventory-logs-for-installed-software"></a>Sök inventeringsloggar för installerad programvara
 
-Inventering genererar loggdata som skickas till Log Analytics. Om du vill söka i loggarna genom att köra frågor väljer du **Log Analytics** högst upp i fönstret **Inventering**.
+Inventering genererar loggdata som skickas till Azure Monitor-loggar. Om du vill söka i loggarna genom att köra frågor väljer du **Log Analytics** högst upp i fönstret **Inventering**.
 
 Inventeringsdata lagras under typen **ConfigurationData**.
 Följande exempelfråga i Log Analytics returnerar inventeringsresultaten där utgivaren är ”Microsoft Corporation”.
@@ -113,11 +115,11 @@ ConfigurationData
 | summarize arg_max(TimeGenerated, *) by SoftwareName, Computer
 ```
 
-Mer information om hur du kör och söker efter loggfiler i Log Analytics finns [Azure Log Analytics](../azure-monitor/log-query/log-query-overview.md).
+Mer information om hur du kör och söker efter loggfiler i Azure Monitor-loggar finns i [Azure Monitor-loggar](../azure-monitor/log-query/log-query-overview.md).
 
 ### <a name="single-machine-inventory"></a>Inventering för en enda dator
 
-Om du vill se programvaruinventeringen för en enda dator kan du få åtkomst till Inventering från resurssidan för den virtuella Azure-datorn eller använda Log Analytics för att filtrera fram motsvarande dator.
+Om du vill se programvaruinventeringen för en enda dator kan du få åtkomst till Inventering från resurssidan för den virtuella Azure-datorn eller använda Azure Monitor-loggar för att filtrera fram motsvarande dator.
 Följande Log Analytics-exempelfråga returnerar en lista över programvara för en dator med namnet ContosoVM.
 
 ```loganalytics

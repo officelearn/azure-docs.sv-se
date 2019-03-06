@@ -11,33 +11,38 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlr
 manager: craigg
-ms.date: 02/07/2019
-ms.openlocfilehash: 3940c2f239a4354cfb44a499f7375f4ba34f8aa8
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.date: 02/18/2019
+ms.openlocfilehash: 3bf0f62b0a8d909231ad747435ce363e6686fe80
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55892035"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56874757"
 ---
 # <a name="getting-started-with-azure-sql-database-managed-instance"></a>Komma igång med hanterad Azure SQL Database-instans
 
-Alternativet för distribution av [hanterad instans](sql-database-managed-instance-index.yml) skapar en databas med nästan 100 % kompatibilitet med den senaste lokala SQL Server-databasmotorn (Enterprise Edition), vilket ger en ursprunglig [virtuellt nätverk (VNet)](../virtual-network/virtual-networks-overview.md) implementering som åtgärdar vanliga säkerhetsproblem samt en [affärsmodell](https://azure.microsoft.com/pricing/details/sql-database/) som är fördelaktig för kunder med lokal SQL Server. I det här avsnittet lär du dig att snabbt konfigurera och skapa en hanterad instans och migrera dina databaser.
+Alternativet för distribution av [hanterad instans](sql-database-managed-instance-index.yml) skapar en databas med nästan 100 % kompatibilitet med den senaste lokala SQL Server-databasmotorn (Enterprise Edition), vilket ger en ursprunglig implementering av [virtuellt nätverk (VNet)](../virtual-network/virtual-networks-overview.md) som åtgärdar vanliga säkerhetsproblem samt en [affärsmodell](https://azure.microsoft.com/pricing/details/sql-database/) som är fördelaktig för kunder med lokal SQL Server. I den här artikeln lär du dig att snabbt konfigurera och skapa en hanterad instans och migrera dina databaser.
 
 ## <a name="quickstart-overview"></a>Snabbstart, översikt
 
-Med följande snabbstarter kan du snabbt skapa en hanterad instans, konfigurera en virtuell dator eller punkt-till-plats-VPN-anslutning för klientprogram samt återställa en databas till din nya hanterade instans med hjälp av en `.bak`-fil:
+Med följande snabbstarter kan du snabbt skapa en hanterad instans, konfigurera en virtuell dator eller punkt-till-plats-VPN-anslutning för klientprogram samt återställa en databas till din nya hanterade instans med hjälp av en `.bak`-fil.
 
-- [Skapa en hanterad instans med hjälp av Azure-portalen](sql-database-managed-instance-get-started.md). I Azure-portalen konfigurerar du nödvändiga parametrar (användarnamn/lösenord, antal kärnor, maximal lagring) skapar automatiskt Azure-nätverksmiljön utan att behöva känna till nätverksinformation och infrastrukturskrav. Du behöver bara se till att ha en [prenumerationstyp](sql-database-managed-instance-resource-limits.md#supported-subscription-types) som tillåts för att skapa en hanterad instans. Om du har ett eget nätverk som du vill använda eller om du vill anpassa nätverket, kan du läsa om hur du konfigurerar nätverksmiljön för en hanterad instans.
-- En hanterad instans skapas i ett eget virtuellt nätverk utan offentlig slutpunkt. För klientprogramåtkomst kan du skapa antingen en virtuell dator i samma virtuella nätverk (olika undernät) eller en punkt-till-plats-VPN-anslutning till det virtuella nätverket från klientdatorn med hjälp av någon av dessa snabbstarter.
+### <a name="configure-environment"></a>Konfigurera miljön
+Som ett första steg behöver du skapa din första hanterade instans med nätverksmiljön där den kommer att placeras, och aktivera anslutning från datorn eller den virtuella datorn där du kör frågor till hanterad instans. Du kan använda följande guider:
+
+- [Skapa en hanterad instans med hjälp av Azure-portalen](sql-database-managed-instance-get-started.md). I Azure-portalen konfigurerar du nödvändiga parametrar (användarnamn/lösenord, antal kärnor och maximalt lagringsutrymme) och skapar automatiskt Azure-nätverksmiljön utan att behöva känna till nätverksinformation och infrastrukturskrav. Du behöver bara se till att ha en [prenumerationstyp](sql-database-managed-instance-resource-limits.md#supported-subscription-types) som för närvarande tillåts att skapa en hanterad instans. Om du har ett eget nätverk som du vill använda eller om du vill anpassa nätverket kan du läsa [Konfigurera ett befintligt virtuellt nätverk för Azure SQL Database Managed Instance](sql-database-managed-instance-configure-vnet-subnet.md) eller [Skapa ett virtuellt nätverk för Azure SQL Database Managed Instance](sql-database-managed-instance-create-vnet-subnet.md).
+- En hanterad instans skapas i ett eget virtuellt nätverk utan offentlig slutpunkt. För klientprogramåtkomst kan du skapa antingen **en virtuell dator i samma virtuella nätverk (olika undernät)** eller **en punkt-till-plats-VPN-anslutning till det virtuella nätverket från klientdatorn** med hjälp av någon av dessa snabbstarter:
+
   - Skapa [virtuell Azure-dator i det virtuella nätverket för hanterad instans](sql-database-managed-instance-configure-vm.md) för klientprogrammets anslutning, inklusive SQL Server Management Studio.
   - Konfigurera [punkt-till-plats-VPN-anslutning till din hanterade instans](sql-database-managed-instance-configure-p2s.md) från den klientdator där du har SQL Server Management Studio och andra program för klientanslutningar. Det här är det andra av två alternativ för anslutning till din hanterade instans och till dess virtuella nätverk.
 
   > [!NOTE]
   > Du kan även använda ExpressRoute- eller plats-till-plats-anslutning från ditt lokala nätverk, men dessa metoder ligger utanför det område som behandlas i de här snabbstarterna.
 
-När du har skapat en hanterad instans och konfigurerat åtkomst kan du börja migrera dina databaser som placerats på lokal SQL Server eller på virtuella Azure-datorer. Migreringen misslyckas om du har vissa funktioner som inte stöds i den källdatabas som du vill migrera. För att undvika fel och kontrollera kompatibilitet kan du installera [Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595), som analyserar dina databaser på SQL Server och hittar eventuella problem som blockerar migrering till en hanterad instans, till exempel förekomsten av [FileStream](https://docs.microsoft.com/sql/relational-databases/blob/filestream-sql-server) eller flera loggfiler. Om du löser de här problemen är dina databaser redo att migreras till hanterad instans. [Database Experimentation Assistant](https://blogs.msdn.microsoft.com/datamigration/2018/08/06/release-database-experimentation-assistant-dea-v2-6/) är ett annat bra verktyg som kan registrera din arbetsbelastning på SQL Server och spela upp den på hanterad instans så att du kan fastställa huruvida det kommer att finnas prestandaproblem om du migrerar till hanterad instans.
+### <a name="migrate-your-databases"></a>Migrera dina databaser 
+När du har skapat en hanterad instans och konfigurerat åtkomst kan du börja migrera dina databaser från lokal SQL Server eller virtuella Azure-datorer. Migreringen misslyckas om du har vissa funktioner som inte stöds i den källdatabas som du vill migrera. För att undvika fel och kontrollera kompatibilitet kan du installera [Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595), som analyserar dina databaser på SQL Server och hittar eventuella problem som blockerar migrering till en hanterad instans, till exempel förekomsten av [FileStream](https://docs.microsoft.com/sql/relational-databases/blob/filestream-sql-server) eller flera loggfiler. Om du löser de här problemen är dina databaser redo att migreras till hanterad instans. [Database Experimentation Assistant](https://blogs.msdn.microsoft.com/datamigration/2018/08/06/release-database-experimentation-assistant-dea-v2-6/) är ett annat bra verktyg som kan registrera din arbetsbelastning på SQL Server och spela upp den på hanterad instans så att du kan fastställa huruvida det kommer att finnas prestandaproblem om du migrerar till hanterad instans.
 
-När du är säker på att du kan migrera din databas till en hanterad instans kan du använda inbyggda SQL Server-funktioner för återställning för att återställa en databas till en hanterad instans från en `.bak`-fil. En snabbstart finns i [Återställ från säkerhetskopia till en hanterad instans](sql-database-managed-instance-get-started-restore.md). I den här snabbstarten återställer du från en `.bak`-fil som lagras i Azures bloblagring med hjälp av Transact-SQL-kommandot `RESTORE`. 
+När du är säker på att du kan migrera din databas till en hanterad instans kan du använda inbyggda SQL Server-funktioner för återställning för att återställa en databas till en hanterad instans från en `.bak`-fil. Du kan använda den här metoden för att migrera databaser från en SQL Server-databasmotor som installerats lokalt eller en virtuell Azure-dator. En snabbstart finns i [Återställ från säkerhetskopia till en hanterad instans](sql-database-managed-instance-get-started-restore.md). I den här snabbstarten återställer du från en `.bak`-fil som lagras i Azures bloblagring med hjälp av Transact-SQL-kommandot `RESTORE`. 
 
 > [!TIP]
 > Mer information om användning av Transact-SQL-kommandot `BACKUP` för att skapa en säkerhetskopia av din databas i Azures bloblagring finns i [SQL Server-säkerhetskopiering till URL](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url).

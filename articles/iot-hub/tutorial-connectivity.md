@@ -6,15 +6,15 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.custom: mvc
-ms.date: 05/29/2018
+ms.date: 02/22/2019
 ms.topic: tutorial
 ms.service: iot-hub
-ms.openlocfilehash: bb9bcfcc5f78ee82f187d331055e8f2fd2ed9e64
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: ebd206f6de031ea73d621568e091632e2e8123b9
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55745817"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56674525"
 ---
 # <a name="tutorial-use-a-simulated-device-to-test-connectivity-with-your-iot-hub"></a>Självstudier: Använda en simulerad enhet för att testa anslutningen med din IoT-hubb
 
@@ -122,7 +122,7 @@ Den här gången ser du ett autentiseringsfel när programmet försöker ansluta
 
 Om enheten använder en av SDK:erna för IoT Hub-enheten, genererar SDK-bibliotekskoden en SAS-token som används för att autentisera mot hubben. En SAS-token skapas från namnet på din hubb, namnet på din enhet och enhetsnyckeln.
 
-I vissa scenarier, till exempel en molnprotokollgateway eller en del av ett anpassat autentiseringsschema, kan du behöva skapa en SAS-token själv. När du felsöker problem med din SAS-kod är det användbart att kunna skapa en fungerande SAS-token som kan användas vid test.
+I vissa scenarier, till exempel en molnprotokollgateway eller en del av ett anpassat autentiseringsschema, kan du behöva skapa en SAS-token själv. När du felsöker problem med din SAS-kod är det användbart att skapa en fungerande SAS-token som kan användas vid test.
 
 > [!NOTE]
 > SimulatedDevice-2.js-exemplet innehåller exempel på hur du genererar en SAS-token både med och utan SDK.
@@ -133,7 +133,7 @@ Om du vill skapa en fungerande SAS-token med hjälp av CLI kör du följande kom
 az iot hub generate-sas-token --device-id MyTestDevice --hub-name {YourIoTHubName}
 ```
 
-Anteckna den fullständiga texten i din genererade SAS-token. En SAS-token ser ut så här: `'SharedAccessSignature sr=tutorials-iot-hub.azure-devices.net%2Fdevices%2FMyTestDevice&sig=....&se=1524155307'`
+Anteckna den fullständiga texten i din genererade SAS-token. En SAS-token ser ut så här: `SharedAccessSignature sr=tutorials-iot-hub.azure-devices.net%2Fdevices%2FMyTestDevice&sig=....&se=1524155307`
 
 Navigera till rotmappen för Node.js-exempelprojektet som du hämtade i ett terminalfönster på din utvecklingsdator. Gå sedan till mappen **iot hub\Tutorials\ConnectivityTests\simulated-device**.
 
@@ -189,13 +189,9 @@ Terminalfönstret visar information när det skickar telemetri till din hubb:
 
 ![Simulerade enhet som skickar meddelanden](media/tutorial-connectivity/sim-3-sending.png)
 
-Du kan använda **mått** i portalen för att kontrollera att telemetrimeddelanden kommer fram till din IoT-hubb:
+Du kan använda **mått** i portalen för att kontrollera att telemetrimeddelanden kommer fram till din IoT-hubb. Välj IoT-hubb i listrutan **Resurs**, välj **Skickade telemetrimeddelanden** som mått och ange **Senaste timmen** som tidsintervall. Diagrammet visar det sammanlagda antalet meddelanden som har skickats av den simulerade enheten:
 
-![Navigera till mått för IoT-hubb](media/tutorial-connectivity/metrics-portal.png)
-
-Välj IoT-hubb i listrutan **Resurs**, välj **Skickade telemetrimeddelanden** som mått och ange **Senaste timmen** som tidsintervall. Diagrammet visar det sammanlagda antalet meddelanden som har skickats av den simulerade enheten:
-
-![Visa mått för IoT-hubb](media/tutorial-connectivity/metrics-active.png)
+![Visa mått för IoT-hubb](media/tutorial-connectivity/metrics-portal.png)
 
 Det tar några minuter för mätvärdena att bli tillgängliga efter att du har startat den simulerade enheten.
 

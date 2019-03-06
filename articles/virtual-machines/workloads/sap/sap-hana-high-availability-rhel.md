@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: 503e056a3fa87e48f61d26661110b9bb89456a51
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 0bed75090e82287e1239342884b5acea64e69bf0
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53338530"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57444012"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-red-hat-enterprise-linux"></a>Hög tillgänglighet för SAP HANA på Azure virtuella datorer på Red Hat Enterprise Linux
 
@@ -187,9 +187,9 @@ Mer information om portarna som krävs för SAP HANA, finns i kapitlet [anslutni
 
 Stegen i det här avsnittet använder följande prefix:
 
-* **[A]** : Steget gäller för alla noder.
-* **[1]** : Steget gäller nod 1.
-* **[2]** : Steget gäller nod 2 i Pacemaker-klustret.
+* **[A]**: Steget gäller för alla noder.
+* **[1]**: Steget gäller nod 1.
+* **[2]**: Steget gäller nod 2 i Pacemaker-klustret.
 
 1. **[A]**  Konfigurera disklayouten: **Logical Volume Manager (LVM)**.
 
@@ -327,7 +327,7 @@ Stegen i det här avsnittet använder följande prefix:
    * Ange databaslösenord för användare (SYSTEM): Ange lösenordet för användaren.
    * Bekräfta databas-användarlösenord (SYSTEM): Ange databas användarens lösenord igen för att bekräfta.
    * Starta om systemet efter omstart av datorn? [n]: Välj ange.
-   * Vill du fortsätta? (j/n): Verifiera sammanfattningen. Ange **y** att fortsätta.
+   * Vill du fortsätta? (y/n): Verifiera sammanfattningen. Ange **y** att fortsätta.
 
 1. **[A]**  Uppgradera Värdagenten SAP.
 
@@ -348,9 +348,9 @@ Stegen i det här avsnittet använder följande prefix:
 
 Stegen i det här avsnittet använder följande prefix:
 
-* **[A]** : Steget gäller för alla noder.
-* **[1]** : Steget gäller nod 1.
-* **[2]** : Steget gäller nod 2 i Pacemaker-klustret.
+* **[A]**: Steget gäller för alla noder.
+* **[1]**: Steget gäller nod 1.
+* **[2]**: Steget gäller nod 2 i Pacemaker-klustret.
 
 1. **[A]**  Konfigurera brandväggen
 
@@ -439,9 +439,9 @@ sudo firewall-cmd --zone=public --add-port=30342/tcp
 
 Stegen i det här avsnittet använder följande prefix:
 
-* **[A]** : Steget gäller för alla noder.
-* **[1]** : Steget gäller nod 1.
-* **[2]** : Steget gäller nod 2 i Pacemaker-klustret.
+* **[A]**: Steget gäller för alla noder.
+* **[1]**: Steget gäller nod 1.
+* **[2]**: Steget gäller nod 2 i Pacemaker-klustret.
 
 1. **[A]**  Konfigurera brandväggen
 
@@ -643,7 +643,7 @@ Resource Group: g_ip_HN1_03
 </code></pre>
 
 Du kan testa installationen av agenten att hägna in Azure genom att inaktivera nätverksgränssnittet på noden där den kör SAP HANA som Master.
-Se [Red Hat Knowledgebase-artikeln 79523](https://access.redhat.com/solutions/79523) för en descricption på hur du simulerar ett nätverksfel. I det här exemplet använder vi net_breaker skriptet för att blockera all åtkomst till nätverket.
+Se [Red Hat Knowledgebase-artikeln 79523](https://access.redhat.com/solutions/79523) för en beskrivning av hur du simulerar ett nätverksfel. I det här exemplet använder vi net_breaker skriptet för att blockera all åtkomst till nätverket.
 
 <pre><code>[root@hn1-db-1 ~]# sh ./net_breaker.sh BreakCommCmd 10.0.0.6
 </code></pre>

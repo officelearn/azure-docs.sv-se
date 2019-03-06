@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 06/18/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 88e55573e88a45d7733e12c3bb8751763a0ef901
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 0885671d777d79c6f8a9fc993aa1224312705bce
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56113370"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56650911"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>Självstudier: Mappa ett befintligt anpassat DNS-namn till Azure App Service
 
@@ -199,6 +199,15 @@ För `contoso.com`-domänexemplet skapar du A-posten och TXT-posten enligt följ
 | - | - | - |
 | A | `@` | IP-adress från [Kopiera appens IP-adress](#info) |
 | TXT | `@` | `<app_name>.azurewebsites.net` |
+
+> [!NOTE]
+> Om du vill lägga till en underdomän (t.ex. `www.contoso.com`) med en A-post i stället för en rekommenderad [CNAME-post](#map-a-cname-record) bör A-posten och TXT-posten se ut som följande tabell i stället:
+>
+> | Posttyp | Värd | Värde |
+> | - | - | - |
+> | A | `www` | IP-adress från [Kopiera appens IP-adress](#info) |
+> | TXT | `www` | `<app_name>.azurewebsites.net` |
+>
 
 När posterna har lagts till ser sidan för DNS-poster ut som i följande exempel:
 

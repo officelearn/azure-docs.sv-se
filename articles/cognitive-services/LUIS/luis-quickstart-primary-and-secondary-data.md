@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/21/2018
+ms.date: 02/19/2019
 ms.author: diberry
-ms.openlocfilehash: 9da2f8fa345ad3447d7c3344772458c451cf427e
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: d333eb6baa41321fdf7daca3c545d5d5e3ed5fe4
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55867247"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56732712"
 ---
 # <a name="tutorial-extract-names-with-simple-entity-and-a-phrase-list"></a>Självstudier: Extrahera namn med en enkel entitet och en fraslista
 
@@ -233,7 +233,9 @@ Eftersom ett namn kan vara vad som helst förutsäger LUIS-appen entiteter mer k
 
     [![Skärmbild på dialogrutan för att skapa en ny fraslista](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png "Skärmbild på dialogrutan för att skapa en ny fraslista")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png#lightbox)
 
-    Om du vill lägga till fler ord i fraslistan kan du gå igenom **Related Values** (Relaterade värden) och lägga till det som behövs. 
+    Om du vill lägga till fler ord i fraslistan kan du välja **Recommand** (Nytt kommando), gå igenom nya **Related Values** (Relaterade värden) och lägga till det som behövs. 
+
+    Se till att **These values are interchangeable** (Dessa värden är utbytbara) är markerad eftersom alla dessa värden ska behandlas som synonymer för jobb. Läs mer om utbytbara och icke utbytbara [begrepp i fraslistan](luis-concept-feature.md#how-to-use-phrase-lists).
 
 1. Välj **Save** (Spara) så aktiveras fraslistan.
 

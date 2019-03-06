@@ -1,269 +1,233 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med värdbaserade grafit | Microsoft Docs'
-description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och värdbaserade grafit.
+title: 'Självstudier: Azure Active Directory-integrering med Hosted Graphite | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Hosted Graphite.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: a1ac4d7f-d079-4f3c-b6da-0f520d427ceb
-ms.service: active-directory
-ms.subservice: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 06/22/2017
+ms.topic: tutorial
+ms.date: 02/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ce0ae55fdc43704670f1d74e52b55db91a20cceb
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: MT
+ms.openlocfilehash: c44b89b66c1908c00e075606d6b0201bd3ea6af6
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56179254"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56872955"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-hosted-graphite"></a>Självstudier: Azure Active Directory-integrering med värdbaserade grafit
+# <a name="tutorial-azure-active-directory-integration-with-hosted-graphite"></a>Självstudier: Azure Active Directory-integrering med Hosted Graphite
 
-Lär dig hur du integrerar finns grafit med Azure Active Directory (AD Azure) i den här självstudien.
+I den här självstudien lär du dig att integrera Hosted Graphite med Azure Active Directory (Azure AD).
+När du integrerar Hosted Graphite med Azure AD innebär det följande fördelar:
 
-Integrera finns grafit med Azure AD ger dig följande fördelar:
+* Du kan styra vem som har åtkomst till Hosted Graphite från Azure AD.
+* Du kan göra så att dina användare automatiskt loggas in på Hosted Graphite (enkel inloggning) med sina Azure AD-konton.
+* Du kan hantera dina konton på en central plats – Azure-portalen.
 
-- Du kan styra i Azure AD som har åtkomst till värd grafit
-- Du kan aktivera användarna att automatiskt få loggat in på värd grafit (Single Sign-On) med sina Azure AD-konton
-- Du kan hantera dina konton på en central plats – Azure portal
+Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-## <a name="prerequisites"></a>Förutsättningar
+För att konfigurera Azure AD-integrering med Hosted Graphite behöver du följande:
 
-Om du vill konfigurera Azure AD-integrering med värdbaserade grafit, behöver du följande objekt:
-
-- En Azure AD-prenumeration
-- En värd grafit enkel inloggning aktiverat prenumeration
-
-> [!NOTE]
-> Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
-
-Du bör följa de här rekommendationerna när du testar stegen i självstudien:
-
-- Använd inte din produktionsmiljö om det inte behövs.
-- Om du inte har en Azure AD-utvärderingsmiljö kan du skaffa en månads utvärderingsperiod [här](https://azure.microsoft.com/pricing/free-trial/).
+* En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
+* Hosted Graphite-prenumeration med enkel inloggning aktiverat
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
-I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
-1. Att lägga till värd grafit från galleriet
-1. Konfigurera och testa Azure AD enkel inloggning
+I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-## <a name="adding-hosted-graphite-from-the-gallery"></a>Att lägga till värd grafit från galleriet
-För att konfigurera integrering av värdbaserade grafit i Azure AD, som du behöver lägga till värd grafit från galleriet i din lista över hanterade SaaS-appar.
+* Hosted Graphite har stöd för **SP- och IDP**-initierad enkel inloggning
+* Hosted Graphite har stöd för **Just-in-time**-användaretablering
 
-**Utför följande steg för att lägga till värd grafit från galleriet:**
+## <a name="adding-hosted-graphite-from-the-gallery"></a>Lägga till Hosted Graphite från galleriet
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+För att konfigurera integreringen av Hosted Graphite i Azure AD måste du lägga till Hosted Graphite från galleriet i din lista över hanterade SaaS-appar.
 
-    ![Active Directory][1]
+**Utför följande steg för att lägga till Hosted Graphite från galleriet:**
 
-1. Gå till **företagsprogram**. Gå till **alla program**.
+1. I **[Azure-portalen](https://portal.azure.com)**, i den vänstra navigeringspanelen, klickar du på **Azure Active Directory**-ikonen.
 
-    ![Appar][2]
-    
-1. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
+    ![Azure Active Directory-knappen](common/select-azuread.png)
 
-    ![Appar][3]
+2. Gå till **Företagsprogram** och välj alternativet **Alla program**.
 
-1. I sökrutan skriver **finns grafit**.
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-    ![Skapa en Azure AD-användare för testning](./media/hostedgraphite-tutorial/tutorial_hostedgraphite_search.png)
+3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
-1. I resultatpanelen väljer **finns grafit**, och klicka sedan på **Lägg till** för att lägga till programmet.
+    ![Knappen Nytt program](common/add-new-app.png)
 
-    ![Skapa en Azure AD-användare för testning](./media/hostedgraphite-tutorial/tutorial_hostedgraphite_addfromgallery.png)
+4. I sökrutan skriver du **Hosted Graphite**, väljer **Hosted Graphite** i resultatpanelen och klickar på knappen **Lägg till** för att lägga till programmet.
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
-I det här avsnittet, konfigurera och testa Azure AD enkel inloggning med värdbaserade grafit baserat på en testanvändare som kallas ”Britta Simon”.
+     ![Hosted Graphite i resultatlistan](common/search-new-app.png)
 
-För enkel inloggning att fungera, behöver Azure AD du veta vad användaren motsvarighet i värdbaserade grafit är till en användare i Azure AD. Med andra ord måste en länk förhållandet mellan en Azure AD-användare och relaterade användaren i värdbaserade grafit upprättas.
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-I värdbaserade grafit tilldela värdet för den **användarnamn** i Azure AD som värde för den **användarnamn** att upprätta länken-relation.
+I det här avsnittet ska du konfigurera och testa enkel inloggning i Azure AD med Hosted Graphite baserat på testanvändaren **Britta Simon**.
+För att enkel inloggning ska fungera måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i Hosted Graphite upprättas.
 
-Om du vill konfigurera och testa Azure AD enkel inloggning med värdbaserade grafit, måste du utföra följande byggblock:
+För att konfigurera och testa enkel inloggning med Azure AD med Hosted Graphite måste du utföra följande byggblock:
 
-1. **[Konfigurera Azure AD enkel inloggning](#configuring-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-1. **[Skapa en Azure AD-testanvändare](#creating-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-1. **[Skapa en värdbaserad grafit testanvändare](#creating-a-hosted-graphite-test-user)**  – du har en motsvarighet för Britta Simon i värdbaserade grafit som är länkad till en Azure AD-representation av användaren.
-1. **[Tilldela Azure AD-testanvändare](#assigning-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-1. **[Testa enkel inloggning](#testing-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
+2. **[Konfigurera enkel inloggning för Hosted Graphite](#configure-hosted-graphite-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på programsidan.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+5. **[Skapa Hosted Graphite-testanvändare](#create-hosted-graphite-test-user)** – för att ha en motsvarighet för Britta Simon i Hosted Graphite som är länkad till en Azure AD-representation av användaren.
+6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
+### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
-I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i ditt program finns grafit.
+I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-**Utför följande steg för att konfigurera Azure AD enkel inloggning med värdbaserade grafit:**
+Utför följande steg för att konfigurera enkel inloggning i Azure AD med Hosted Graphite:
 
-1. I Azure-portalen på den **finns grafit** program integration-sidan klickar du på **enkel inloggning**.
+1. I [Azure-portalen](https://portal.azure.com/) går du till programintegreringssidan för **Hosted Graphite** och väljer **Enkel inloggning**.
 
-    ![Konfigurera enkel inloggning][4]
+    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
-1. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
- 
-    ![Konfigurera enkel inloggning](./media/hostedgraphite-tutorial/tutorial_hostedgraphite_samlbase.png)
+2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
-1. På den **finns grafit domän och URL: er** om du vill konfigurera programmet i **IDP-initierad läge**, utför följande steg:
+    ![Välja läge för enkel inloggning](common/select-saml-option.png)
 
-    ![Konfigurera enkel inloggning](./media/hostedgraphite-tutorial/tutorial_hostedgraphite_url.png)
+3. På sidan **Konfigurera enkel inloggning med SAML** klickar du på **redigeringsikonen** för att öppna dialogrutan **Grundläggande SAML-konfiguration**.
 
-    a. I textrutan **Identifierare** anger du en URL med följande mönster: `https://www.hostedgraphite.com/metadata/<user id>`
+    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
+
+4. I avsnittet **Grundläggande SAML-konfiguration**, om du vill konfigurera appen i **IDP**-initierat läge, gör du följande:
+
+    ![Information om enkel inloggning för Hosted Graphite-domän och -URL:er](common/idp-intiated.png)
+
+    a. I textrutan **Identifierare** skriver du en URL med följande mönster: `https://www.hostedgraphite.com/metadata/<user id>`
 
     b. I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://www.hostedgraphite.com/complete/saml/<user id>`
 
-1. På den **finns grafit domän och URL: er** om du vill konfigurera programmet i **SP initierade läge**, utför följande steg:
-   
-    ![Konfigurera enkel inloggning](./media/hostedgraphite-tutorial/tutorial_hostedgraphite_10.png)
-  
-    a. Klicka på den **visa avancerade URL-inställningar** alternativet
+5. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
-    b. I den **inloggning på URL: en** textrutan anger du ett URL med hjälp av följande mönster: `https://www.hostedgraphite.com/login/saml/<user id>/`   
+    ![Information om enkel inloggning för Hosted Graphite-domän och -URL:er](common/metadata-upload-additional-signon.png)
 
-    > [!NOTE] 
-    > Observera att detta inte är de verkliga värdena. Du måste uppdatera dessa värden med faktiska identifierare, svars-URL och logga på URL: en. För att få dessa värden kan du gå till åtkomst -> SAML-installationen på ditt program på klientsidan eller be [finns grafit supportteamet](mailto:help@hostedgraphite.com).
-    >
- 
-1. På den **SAML-signeringscertifikat** klickar du på **Certificate(Base64)** och spara certifikatfilen på datorn.
+    I textrutan **Inloggnings-URL** skriver du in en URL med följande mönster: `https://www.hostedgraphite.com/login/saml/<user id>/`
 
-    ![Konfigurera enkel inloggning](./media/hostedgraphite-tutorial/tutorial_hostedgraphite_certificate.png) 
+    > [!NOTE]
+    > Observera att detta inte är de verkliga värdena. Du måste uppdatera de här värdena med faktisk identifierare, svars-URL och inloggnings-URL. För att få de här värdena kan du gå till Åtkomst->SAML-konfiguration på programsidan eller kontakta [Hosted Graphite-supportteamet](mailto:help@hostedgraphite.com).
 
-1. Klicka på knappen **Spara**.
+6. På sidan **Konfigurera enkel inloggning med SAML** går du till avsnittet **SAML-signeringscertifikat**, klickar du på **Ladda ned** för att ladda ned **Certifikat (Base64)** från de angivna alternativen enligt dina behov och sparar det på datorn.
 
-    ![Konfigurera enkel inloggning](./media/hostedgraphite-tutorial/tutorial_general_400.png)
+    ![Länk för nedladdning av certifikatet](common/certificatebase64.png)
 
-1. På den **finns grafit Configuration** klickar du på **Konfigurera värdbaserade grafit** att öppna **konfigurera inloggning** fönster. Kopiera den **SAML entitets-ID och SAML enkel inloggning för tjänst-URL** från den **Snabbreferens avsnittet.**
+7. I avsnittet **Konfigurera Hosted Graphite** kopierar du lämpliga URL:er enligt dina behov.
 
-    ![Konfigurera enkel inloggning](./media/hostedgraphite-tutorial/tutorial_hostedgraphite_configure.png) 
+    ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
-1. Inloggning till din värdbaserade grafit-klient som administratör.
+    a. Inloggnings-URL
 
-1. Gå till den **SAML installationssidan** i sidopanelen (**åtkomst -> SAML installationsprogrammet**).
-   
-    ![Konfigurera enkel inloggning på App-sida](./media/hostedgraphite-tutorial/tutorial_hostedgraphite_000.png)
+    b. Azure AD-identifierare
 
-1. Bekräfta dessa URL: er matchar konfigurationen på den **finns grafit domän och URL: er** på Azure portal.
-   
-    ![Konfigurera enkel inloggning på App-sida](./media/hostedgraphite-tutorial/tutorial_hostedgraphite_001.png)
+    c. Utloggnings-URL
 
-1. I **entitet eller utfärdar-ID** och **inloggnings-URL för enkel inloggning** textrutor, klistra in värdet för **SAML entitets-ID** och **SAML enkel inloggning för tjänst-URL** som du har kopierat från Azure-portalen. 
-   
-    ![Konfigurera enkel inloggning på App-sida](./media/hostedgraphite-tutorial/tutorial_hostedgraphite_002.png)
-   
+### <a name="configure-hosted-graphite-single-sign-on"></a>Konfigurera enkel inloggning med Hosted Graphite
 
-1. Välj ”**skrivskyddad**” som **standard användarrollen**.
-    
-    ![Konfigurera enkel inloggning på App-sida](./media/hostedgraphite-tutorial/tutorial_hostedgraphite_004.png)
+1. Logga in på din Hosted Graphite-klientorganisation som administratör.
 
-1. Öppna ditt base-64-kodade certifikat som du har laddat ned från Azure-portalen i Anteckningar, kopiera innehållet till Urklipp och klistra sedan in den i textrutan **X.509 Certificate** (X.509-certifikat).
-    
-    ![Konfigurera enkel inloggning på App-sida](./media/hostedgraphite-tutorial/tutorial_hostedgraphite_005.png)
+2. Gå till sidan **SAML-konfiguration** i sidopanelen (**Åtkomst -> SAML-konfiguration**).
 
-1. Klicka på knappen **Spara**.
+    ![Konfigurera enkel inloggning på appsidan](./media/hostedgraphite-tutorial/tutorial_hostedgraphite_000.png)
 
-> [!TIP]
-> Nu kan du läsa en kortare version av instruktionerna i [Azure Portal](https://portal.azure.com), samtidigt som du konfigurerar appen!  När du har lagt till appen från avsnittet **Active Directory > Företagsprogram**, behöver du bara klicka på fliken **Enkel inloggning**. Du kommer då till den inbäddade dokumentationen via avsnittet **Konfiguration** längst ned. Du kan läsa mer om funktionen för inbäddad dokumentation här: [Inbäddad Azure AD-dokumentation]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+3. Bekräfta att dessa URL:er matchar konfigurationen i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-### <a name="creating-an-azure-ad-test-user"></a>Skapa en Azure AD-användare för testning
+    ![Konfigurera enkel inloggning på appsidan](./media/hostedgraphite-tutorial/tutorial_hostedgraphite_001.png)
+
+4. I textrutorna för **entitets- eller utfärdar-ID** och **inloggnings-URL för SSO** klistrar du in det värde för **Azure AD-identifierare** och **Inloggnings-URL** som du har kopierat från Azure-portalen.
+
+    ![Konfigurera enkel inloggning på appsidan](./media/hostedgraphite-tutorial/tutorial_hostedgraphite_002.png)
+
+5. Välj **Skrivskyddad** som **Standardanvändarroll**.
+
+    ![Konfigurera enkel inloggning på appsidan](./media/hostedgraphite-tutorial/tutorial_hostedgraphite_004.png)
+
+6. Öppna ditt base-64-kodade certifikat som du har laddat ned från Azure-portalen i Anteckningar, kopiera innehållet till Urklipp och klistra sedan in den i textrutan **X.509 Certificate** (X.509-certifikat).
+
+    ![Konfigurera enkel inloggning på appsidan](./media/hostedgraphite-tutorial/tutorial_hostedgraphite_005.png)
+
+7. Klicka på knappen **Spara**.
+
+### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
+
 Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
 
-![Skapa en Azure AD-användare][100]
+1. Gå till den vänstra rutan i Azure-portalen och välj **Azure Active Directory**, välj **Users** och sedan **Alla användare**.
 
-**Utför följande steg för att skapa en testanvändare i Azure AD:**
+    ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-1. I den **Azure-portalen**, i det vänstra navigeringsfönstret klickar du på **Azure Active Directory** ikon.
+2. Välj **Ny användare** överst på skärmen.
 
-    ![Skapa en Azure AD-användare för testning](./media/hostedgraphite-tutorial/create_aaduser_01.png) 
+    ![Knappen Ny användare](common/new-user.png)
 
-1. Om du vill visa en lista över användare, gå till **användare och grupper** och klicka på **alla användare**.
-    
-    ![Skapa en Azure AD-användare för testning](./media/hostedgraphite-tutorial/create_aaduser_02.png) 
+3. Genomför följande steg i Användaregenskaper.
 
-1. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i dialogrutan.
- 
-    ![Skapa en Azure AD-användare för testning](./media/hostedgraphite-tutorial/create_aaduser_03.png) 
+    ![Dialogrutan Användare](common/user-properties.png)
 
-1. På den **användaren** dialogrutan utför följande steg:
- 
-    ![Skapa en Azure AD-användare för testning](./media/hostedgraphite-tutorial/create_aaduser_04.png) 
+    a. I fältet **Namn** anger du **BrittaSimon**.
+  
+    b. I fältet **Användarnamn** anger du **brittasimon@yourcompanydomain.extension**  
+    Till exempel, BrittaSimon@contoso.com
 
-    a. I den **namn** textrutan typ **BrittaSimon**.
-
-    b. I den **användarnamn** textrutan skriver den **e-postadress** av BrittaSimon.
-
-    c. Välj **visa lösenord** och anteckna värdet för den **lösenord**.
+    c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
     d. Klicka på **Skapa**.
- 
-### <a name="creating-a-hosted-graphite-test-user"></a>Skapa en värdbaserad grafit testanvändare
 
-Målet med det här avsnittet är att skapa en användare som kallas Britta Simon i värdbaserade grafit. Värdbaserade grafit stöder just-in-time-etablering, vilket är som standard aktiverat.
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-Det finns inget åtgärdsobjekt för dig i det här avsnittet. En ny användare skapas vid ett försök att komma åt värdbaserade grafit om det inte finns ännu.
+I det här avsnittet gör du det möjligt för Britta Simon att använda enkel inloggning med Azure genom att ge åtkomst till Hosted Graphite.
 
->[!NOTE]
->Om du vill skapa en användare manuellt kan du behöva kontakta supportteamet finns grafit via <mailto:help@hostedgraphite.com>. 
+1. I Azure-portalen väljer du **Företagsprogram**, **Alla program** och därefter **Hosted Graphite**.
 
-### <a name="assigning-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till värd grafit.
+2. I programlistan väljer du **Hosted Graphite**.
 
-![Tilldela användare][200] 
+    ![Hosted Graphite-länken i programlistan](common/all-applications.png)
 
-**Om du vill tilldela finns grafit Britta Simon utför du följande steg:**
+3. På menyn till vänster väljer du **Användare och grupper**.
 
-1. Öppna vyn program i Azure-portalen och gå till vyn directory och gå till **företagsprogram** klickar **alla program**.
+    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
-    ![Tilldela användare][201] 
+4. Klicka på knappen **Lägg till användare** och välj sedan **Användare och grupper** i dialogrutan **Lägg till tilldelning**.
 
-1. I listan med program väljer **finns grafit**.
+    ![Fönstret Lägg till tilldelning](common/add-assign-user.png)
 
-    ![Konfigurera enkel inloggning](./media/hostedgraphite-tutorial/tutorial_hostedgraphite_app.png) 
+5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
 
-1. I menyn till vänster, klickar du på **användare och grupper**.
+6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
 
-    ![Tilldela användare][202] 
+7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-1. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
+### <a name="create-hosted-graphite-test-user"></a>Skapa Hosted Graphite-testanvändare
 
-    ![Tilldela användare][203]
+I det här avsnittet skapas en användare som heter Britta Simon i Hosted Graphite. Hosted Graphite har stöd för just-in-time-etablering av användare, vilket är aktiverat som standard. Det finns inget åtgärdsobjekt för dig i det här avsnittet. Om det inte redan finns någon användare i Hosted Graphite skapas en ny efter autentisering.
 
-1. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
+> [!NOTE]
+> Om du behöver skapa en användare manuellt måste du kontakta Hosted Graphite-supportteamet via <mailto:help@hostedgraphite.com>.
 
-1. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
+### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
-1. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
-    
-### <a name="testing-single-sign-on"></a>Testa enkel inloggning
+I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-Målet med det här avsnittet är att testa din Azure AD SSO-konfiguration med hjälp av åtkomstpanelen.
-
-När du klickar på panelen finns grafit i åtkomstpanelen du bör få automatiskt loggat in på ditt finns grafit program.
+När du klickar på Hosted Graphite-panelen i åtkomstpanelen bör du automatiskt loggas in på Hosted Graphite som du har konfigurerat enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-
-<!--Image references-->
-
-[1]: ./media/hostedgraphite-tutorial/tutorial_general_01.png
-[2]: ./media/hostedgraphite-tutorial/tutorial_general_02.png
-[3]: ./media/hostedgraphite-tutorial/tutorial_general_03.png
-[4]: ./media/hostedgraphite-tutorial/tutorial_general_04.png
-
-[100]: ./media/hostedgraphite-tutorial/tutorial_general_100.png
-
-[200]: ./media/hostedgraphite-tutorial/tutorial_general_200.png
-[201]: ./media/hostedgraphite-tutorial/tutorial_general_201.png
-[202]: ./media/hostedgraphite-tutorial/tutorial_general_202.png
-[203]: ./media/hostedgraphite-tutorial/tutorial_general_203.png
+- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

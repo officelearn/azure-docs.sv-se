@@ -9,12 +9,12 @@ ms.date: 09/22/2018
 ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
-ms.openlocfilehash: fb3358775881f102ecea62fbd20a1e4d85dda308
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 10f3f7d6b878e8f1d4efee360e0f8a9967ac07bc
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54001643"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56886442"
 ---
 # <a name="tutorial-update-inventory-using-azure-portal-and-topicssubscriptions"></a>Självstudie: Uppdatera lagret med Azure-portalen och ämnen/prenumerationer
 
@@ -45,49 +45,11 @@ För att kunna följa de här självstudierna ska du kontrollera att du har inst
 
 Varje [prenumeration på ett ämne](service-bus-messaging-overview.md#topics) får en kopia av varje meddelande. Ämnen är fullständigt protokollmässigt och semantiskt kompatibla med Service Bus-köer. Service Bus-ämnen stöder en mängd olika urvalsregler med filtervillkor, med valfria åtgärder som anger eller ändrar meddelandeegenskaperna. Varje gång en regel matchar så genererar den ett meddelande. Mer information om regler, filter och åtgärder, finns på den här [länken](topic-filters.md).
 
-## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
+[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
-Gå först till [Azure-portalen][Azure portal] och logga in med din Azure-prenumeration. Det första steget är att skapa ett Service Bus-namnområde av typen **Meddelanden**.
+[!INCLUDE [service-bus-create-topics-three-subscriptions-portal](../../includes/service-bus-create-topics-three-subscriptions-portal.md)]
 
-## <a name="create-a-service-bus-namespace"></a>Skapa ett namnområde för Service Bus
 
-Ett namnområde för Service Bus-meddelanden innehåller en unik omfattningscontainer som refereras till av dess [fullständigt kvalificerade domännamn][], där du skapar en eller fler köer, ämnen och prenumerationer. I följande exempel skapas ett namnområde för Service Bus-meddelanden i en ny eller befintlig [resursgrupp](/azure/azure-resource-manager/resource-group-portal):
-
-1. I det vänstra navigeringsfältet i portalen, klickar du på **+ Skapa en resurs**, därefter klickar du på **Enterprise-integration** och sedan på **Service Bus**.
-2. I dialogrutan **Skapa namnområde** anger du ett namn för namnområdet. Systemet kontrollerar omedelbart om namnet är tillgängligt.
-3. När du har kontrollerat att namnet för namnområdet är tillgängligt, väljer du prisnivå (Standard eller Premium).
-4. I fältet **Prenumeration** väljer du en Azure-prenumeration för vilken du vill skapa namnområdet.
-5. I fältet **Resursgrupp** väljer du en befintlig resursgrupp där namnområdet ska finnas eller skapar en ny.      
-6. I **Plats** väljer du land eller region där namnområdet ska finnas.
-7. Klicka på **Skapa**. Systemet skapar namnområdet och aktiverar det. Du kan behöva vänta några minuter medan systemet tilldelar resurser till ditt konto.
-
-  ![namnområde](./media/service-bus-tutorial-topics-subscriptions-portal/create-namespace.png)
-
-### <a name="obtain-the-management-credentials"></a>Hämta autentiseringsuppgifterna för hantering
-
-Om du skapar ett nytt namnområde så genereras en automatiskt en ursprunglig regel för signatur för delad åtkomst (SAS) med ett kopplat par med primära och sekundära nycklar som ger fullständig kontroll över alla namnområdets aspekter. Gör så här om du vill kopiera den ursprungliga regeln:
-
-1. Klicka på **Alla resurser**, sedan klickar du på den nyligen skapade namnrymden.
-2. I namnområdesfönstret, klickar du på **Principer för delad åtkomst**.
-3. I fönstret **Principer för delad åtkomst**, klickar du på **RootManageSharedAccessKey**.
-4. I **principen: I fönstret RootManageSharedAccessKey** klickar du på knappen **Kopiera** bredvid **Primär anslutningssträng** för att kopiera anslutningssträngen till dina urklipp för senare användning. Klistra in det här värdet i Anteckningar eller på en tillfällig plats.
-
-    ![connection-string][connection-string]
-5. Upprepa föregående steg, kopiera och klistra in värdet för **Primärnyckeln** till en tillfällig plats för senare användning.
-
-## <a name="create-a-topic-and-subscriptions"></a>Skapa ett ämne och en prenumeration
-
-Du skapar ett Service Bus-ämne genom att ange det namnområde som du vill skapa det under. Följande exempel visar hur du skapar ett ämne på portalen:
-
-1. I det vänstra navigeringsfönstret i portalen klickar du på **Service Bus** (om du inte ser **Service Bus** klickar du på **Alla tjänster**).
-2. Klicka på det namnområde där du vill skapa ämnet.
-3. I namnområdesfönstret, klickar du på **Ämnen** och därefter går du till fönstret **Köer** och klickar på **+ Ämnen**.
-4. Ange ämnet **Namn** kön och lämna de andra värdena med sina standardvärden.
-5. Klicka på **Skapa** längst ned i fönstret.
-6. Anteckna ämnets namn.
-7. Välj det avsnitt som du nyss skapade.
-8. Klicka på **+ Prenumeration**, ange prenumerationens namn **S1** och lämna alla andra värden som standard.
-9. Upprepa föregående steg två gånger till och skapa prenumerationer med namnet **S2** och **S3**.
 
 ## <a name="create-filter-rules-on-subscriptions"></a>Skapa filterregler för prenumerationer
 
@@ -103,9 +65,9 @@ Om du vill köra koden gör du följande:
    git clone https://github.com/Azure/azure-service-bus.git
    ```
 
-2. Gå till exempelmappen `azure-service-bus\samples\DotNet\GettingStarted\BasicSendReceiveTutorialwithFilters`.
+2. Navigera till exempelmappen `azure-service-bus\samples\DotNet\GettingStarted\BasicSendReceiveTutorialwithFilters`.
 
-3. Hämta anslutningssträngen som du kopierade till Anteckningar i avsnittet [Hämta autentiseringsuppgifter för hantering](#obtain-the-management-credentials) i den här självstudien. Du behöver också namnet på det ämne som du skapade i föregående avsnitt.
+3. Hämta anslutningssträngen som du kopierade till Anteckningar i avsnittet Hämta autentiseringsuppgifter för hantering i den här självstudien. Du behöver också namnet på det ämne som du skapade i föregående avsnitt.
 
 4. Skriv följande kommando i kommandotolken:
 
@@ -451,7 +413,7 @@ Gå vidare till nästa självstudie för att läsa mer om att använda Service B
 > [Uppdatera lagerplatsen med PowerShell och ämnen/prenumerationer](service-bus-tutorial-topics-subscriptions-powershell.md)
 
 [kostnadsfritt konto]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
-[fullständigt kvalificerade domännamn]: https://wikipedia.org/wiki/Fully_qualified_domain_name
+[fully qualified domain name]: https://wikipedia.org/wiki/Fully_qualified_domain_name
 [Azure portal]: https://portal.azure.com/
 
 [connection-string]: ./media/service-bus-tutorial-topics-subscriptions-portal/connection-string.png

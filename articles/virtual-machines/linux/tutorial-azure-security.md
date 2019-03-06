@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 06/11/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: ba23e9b8ac79a0a2a3899332bfc373665cf561af
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: b4c484f3dd118a19291741b071432b09894e836c
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52841174"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56593309"
 ---
 # <a name="tutorial-use-azure-security-center-to-monitor-linux-virtual-machines"></a>Självstudier: Övervaka virtuella Linux-datorer i Azure Security Center
 
@@ -65,7 +65,7 @@ Så här ställer du in en säkerhetsprincip för en hel prenumeration:
 
 1. Gå till instrumentpanelen i Security Center, välj **Säkerhetsprincip** och välj sedan din prenumeration.
 2. På bladet **Säkerhetsprincip** väljer du **Säkerhetsprincip**. 
-3. På bladet ** Säkerhetsprincip – Säkerhetsprincip ** aktiverar eller inaktiverar du de principposter du vill använda för prenumerationen.
+3. På bladet **Säkerhetsprincip – Säkerhetsprincip** aktiverar eller inaktiverar du de principobjekt du vill använda för prenumerationen.
 4. När du är färdig väljer du **Spara** längst upp på bladet. 
 
 ![Unik princip](./media/tutorial-azure-security/unique-policy.png)

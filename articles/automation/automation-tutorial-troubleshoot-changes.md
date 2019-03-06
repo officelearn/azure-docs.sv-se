@@ -11,12 +11,12 @@ ms.date: 12/05/2018
 ms.topic: tutorial
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 9fa1e3ffd92b3c375837c7b9a4a0e7fd1a80893a
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 77dda5f113a10f0bfb59457b1059563c58db0dde
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54433687"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56816954"
 ---
 # <a name="troubleshoot-changes-in-your-environment"></a>Felsöka ändringar i miljön
 
@@ -62,12 +62,14 @@ Under publiceringen etableras den virtuella datorn med MMA (Microsoft Monitoring
 Den här agenten används för att kommunicera med den virtuella datorn och hämta information om installerad programvara.
 
 Det kan ta upp till 15 minuter att aktivera lösningen. Under tiden ska du inte stänga webbläsaren.
-När lösningen har aktiverats flödar information om installerad programvara och ändringar på den virtuella datorn till Log Analytics.
+När lösningen har aktiverats flödar information om installerad programvara och ändringar på den virtuella datorn till Azure Monitor-loggar.
 Det kan ta mellan 30 minuter och 6 timmar innan data blir tillgängliga för analys.
 
-## <a name="using-change-tracking-in-log-analytics"></a>Använda Ändringsspårning i Log Analytics
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-Ändringsspårning genererar loggdata som skickas till Log Analytics.
+## <a name="using-change-tracking-in-azure-monitor-logs"></a>Använda Ändringsspårning i Azure Monitor-loggar
+
+Ändringsspårning genererar loggdata som skickas till Azure Monitor-loggar.
 Om du vill söka i loggarna genom att köra frågor väljer du **Log Analytics** högst upp i fönstret **Ändringsspårning**.
 Ändringsspårningsdata lagras under typen **ConfigurationChange**.
 Följande exempel på Log Analytics-fråga returnerar alla Windows-tjänster som har stoppats.
@@ -77,7 +79,7 @@ ConfigurationChange
 | where ConfigChangeType == "WindowsServices" and SvcState == "Stopped"
 ```
 
-Mer information om hur du kör och söker efter loggfiler i Log Analytics finns [Azure Log Analytics](../azure-monitor/log-query/log-query-overview.md).
+Mer information om hur du kör och söker efter loggfiler i Azure Monitor-loggar finns i [Azure Monitor-loggar](../azure-monitor/log-query/log-query-overview.md).
 
 ## <a name="configure-change-tracking"></a>Konfigurera spårning av ändringar
 

@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: 6447061e79946abf8070daf29eeb57bad7b6fa55
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 8e926c3ff7c3d7abc9467291e9b1de77781f664e
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53184975"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56805061"
 ---
 # <a name="create-and-provision-a-simulated-x509-device-using-java-device-and-service-sdk-and-group-enrollments-for-iot-hub-device-provisioning-service"></a>Skapa och etablera en simulerad X.509-enhet med Java-enhets-SDK och tjänst-SDK och gruppregistreringar för IoT Hub Device Provisioning-tjänsten
 
@@ -35,7 +35,7 @@ Se till att slutföra stegen i [Konfigurera IoT Hub Device Provisioning-tjänste
 1. Använd följande [certifikatöversikt](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) för att skapa dina testcertifikat.
 
     > [!NOTE]
-    > Det är steget kräver [OpenSSL](https://www.openssl.org/), vilket antingen kan byggas och installeras från källkoden eller laddas ned och installeras från en [tredje part](https://wiki.openssl.org/index.php/Binaries) som [det här](https://sourceforge.net/projects/openssl/). Om du redan har skapat dina _rot-_, _mellanliggande_ och _enhets_-certifikat kan du hoppa över det här steget.
+    > Det här steget kräver [OpenSSL](https://www.openssl.org/), som antingen kan byggas och installeras från källkoden eller laddas ned och installeras från en [tredje part](https://wiki.openssl.org/index.php/Binaries), till exempel [den här](https://sourceforge.net/projects/openssl/). Om du redan har skapat dina _rot-_, _mellanliggande_ och _enhets_-certifikat kan du hoppa över det här steget.
     >
 
     1. Gå igenom de två första stegen för att skapa dina _rot-_ och _mellanliggande_ certifikat.
@@ -46,7 +46,7 @@ Se till att slutföra stegen i [Konfigurera IoT Hub Device Provisioning-tjänste
 
         1. Under **Lägg till certifikat** anger du följande information:
             - Ange ett unikt certifikatnamn.
-            - Välj filen **_RootCA.pem_** som du nyss skapade.
+            - Välj filen **_RootCA.pem_** som du skapade.
             - Klicka på knappen **Spara** när det är klart.
 
            ![Lägg till certifikat](./media/tutorial-group-enrollments/add-certificate.png)
@@ -68,7 +68,7 @@ Se till att slutföra stegen i [Konfigurera IoT Hub Device Provisioning-tjänste
 ## <a name="create-a-device-enrollment-entry"></a>Skapa en post för enhetsregistrering
 
 1. Öppna en kommandotolk. Klona GitHub-lagringsplatsen för att hämta Java SDK-exempelkoden:
-    
+
     ```cmd/sh
     git clone https://github.com/Azure/azure-iot-sdk-java.git --recursive
     ```
@@ -77,11 +77,11 @@ Se till att slutföra stegen i [Konfigurera IoT Hub Device Provisioning-tjänste
 
     1. Lägg till `[Provisioning Connection String]` för etableringstjänsten från portalen enligt följande:
 
-        1. Navigera till etableringstjänsten i [Azure Portal](https://portal.azure.com). 
+        1. Navigera till etableringstjänsten i [Azure Portal](https://portal.azure.com).
 
-        1. Öppna **Policyer för delad åtkomst** och välj en princip med behörigheten *EnrollmentWrite*.
-    
-        1. Kopiera **Anslutningssträng – primär nyckel**. 
+        1. Öppna **Policyer för delad åtkomst** och välj en princip som har behörigheten *EnrollmentWrite*.
+
+        1. Kopiera **Anslutningssträng – primär nyckel**.
 
             ![Hämta etableringsanslutningssträngen från portalen](./media/tutorial-group-enrollments/provisioning-string.png)  
 
@@ -91,7 +91,9 @@ Se till att slutföra stegen i [Konfigurera IoT Hub Device Provisioning-tjänste
             private static final String PROVISIONING_CONNECTION_STRING = "[Provisioning Connection String]";
             ```
 
-    1. Öppna filen **_RootCA.pem_** i ett redigeringsprogram. Tilldela **rotcertifikatets** värde till parametern **PUBLIC_KEY_CERTIFICATE_STRING** enligt nedan:
+    1. Öppna filen med det mellanliggande signeringscertifikatet i ett redigeringsprogram. Uppdatera värdet `PUBLIC_KEY_CERTIFICATE_STRING` med värdet för det mellanliggande signeringscertifikatet.
+
+        Om du har genererat enhetscertifikaten med Bash-gränssnittet innehåller *./certs/azure-iot-test-only.intermediate.cert.pem* nyckeln för det mellanliggande certifikatet. Om certifikaten har genererats med PowerShell är *./Intermediate1.pem* filen med det mellanliggande certifikatet.
 
         ```java
         private static final String PUBLIC_KEY_CERTIFICATE_STRING =
@@ -108,7 +110,7 @@ Se till att slutföra stegen i [Konfigurera IoT Hub Device Provisioning-tjänste
                 "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
                 "-----END CERTIFICATE-----\n";
         ```
- 
+
     1. Navigera till IoT-hubben som är länkad till din etableringstjänst i [Azure Portal](https://portal.azure.com). Öppna fliken **Översikt** för hubben och kopiera **värdnamnet**. Tilldela **värdnamnet** till parametern *IOTHUB_HOST_NAME*.
 
         ```java
@@ -123,7 +125,7 @@ Se till att slutföra stegen i [Konfigurera IoT Hub Device Provisioning-tjänste
         provisioningServiceClient.deleteEnrollmentGroup(enrollmentGroupId);
         ```
 
-    1. Spara filen _ServiceEnrollmentGroupSample.java_. 
+    1. Spara filen _ServiceEnrollmentGroupSample.java_.
 
 1. Öppna ett kommandofönster och navigera till mappen **_azure-iot-sdk-java/provisioning/provisioning-samples/service-enrollment-group-sample_**.
 
@@ -144,12 +146,11 @@ Se till att slutföra stegen i [Konfigurera IoT Hub Device Provisioning-tjänste
 
     ![Lyckad registrering](./media/tutorial-group-enrollments/enrollment.png) 
 
-1. Navigera till etableringstjänsten i Azure Portal. Klicka på **Hantera registreringar**. Observera att gruppen med X.509-enheter visas under fliken **Registreringsgrupper**, med ett automatiskt genererat *GRUPPNAMN*. 
-
+1. Navigera till etableringstjänsten i Azure Portal. Klicka på **Hantera registreringar**. Observera att gruppen med X.509-enheter visas under fliken **Registreringsgrupper**, med ett automatiskt genererat *GRUPPNAMN*.
 
 ## <a name="simulate-the-device"></a>Simulera enheten
 
-1. På sammanfattningsbladet för etableringstjänsten väljer du **Översikt** och noterar _Id Scope_ (ID-omfång) och _Provisioning Service Global Endpoint_ (Global slutpunkt för etableringstjänsten).
+1. På sammanfattningsbladet för etableringstjänsten väljer du **Översikt** och noterar _ID-omfång_ och _Global slutpunkt för etableringstjänsten_.
 
     ![Tjänstinformation](./media/tutorial-group-enrollments/extract-dps-endpoints.png)
 
@@ -159,36 +160,79 @@ Se till att slutföra stegen i [Konfigurera IoT Hub Device Provisioning-tjänste
     cd azure-iot-sdk-java/provisioning/provisioning-samples/provisioning-X509-sample
     ```
 
-1. Ange registreringsinformation för gruppen på följande sätt:
+1. Redigera `/src/main/java/samples/com/microsoft/azure/sdk/iot/ProvisioningX509Sample.java` så att _ID-omfång_ och _Global slutpunkt för etableringstjänsten_ som du noterade tidigare inkluderas.
 
-    - Redigera `/src/main/java/samples/com/microsoft/azure/sdk/iot/ProvisioningX509Sample.java` så att _ID-omfång_ och _Provisioning Service Global Endpoint_ (Global slutpunkt för etableringstjänsten) inkluderas enligt tidigare notering. Öppna filen **_{deviceName}-public.pem_** och inkludera värdet som ditt _klientcertifikat_. Öppna filen **_{deviceName}-all.pem_** och kopiera texten från _-----BEGIN PRIVATE KEY-----_ (PÅBÖRJA PRIVAT NYCKEL) till _-----END PRIVATE KEY-----_ (AVSLUTA PRIVAT NYCKEL).  Använd det som din _privata klientcertifikatnyckel_.
+    ```java
+    private static final String idScope = "[Your ID scope here]";
+    private static final String globalEndpoint = "[Your Provisioning Service Global Endpoint here]";
+    private static final ProvisioningDeviceClientTransportProtocol PROVISIONING_DEVICE_CLIENT_TRANSPORT_PROTOCOL = ProvisioningDeviceClientTransportProtocol.HTTPS;
+    private static final int MAX_TIME_TO_WAIT_FOR_REGISTRATION = 10000; // in milli seconds
+    private static final String leafPublicPem = "<Your Public PEM Certificate here>";
+    private static final String leafPrivateKey = "<Your Private PEM Key here>";
+    ```
 
-        ```java
-        private static final String idScope = "[Your ID scope here]";
-        private static final String globalEndpoint = "[Your Provisioning Service Global Endpoint here]";
-        private static final ProvisioningDeviceClientTransportProtocol PROVISIONING_DEVICE_CLIENT_TRANSPORT_PROTOCOL = ProvisioningDeviceClientTransportProtocol.HTTPS;
-        private static final String leafPublicPem = "<Your Public PEM Certificate here>";
-        private static final String leafPrivateKey = "<Your Private PEM Key here>";
-        ```
+1. Uppdatera variablerna `leafPublicPem` och `leafPrivateKey` med de offentliga och privata enhetscertifikaten.
 
-        - Inkludera certifikatet och nyckeln med hjälp av följande format:
-            
-            ```java
-            private static final String leafPublicPem = "-----BEGIN CERTIFICATE-----\n" +
-                "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-                "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-                "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-                "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-                "+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-                "-----END CERTIFICATE-----\n";
-            private static final String leafPrivateKey = "-----BEGIN PRIVATE KEY-----\n" +
-                "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-                "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
-                "XXXXXXXXXX\n" +
-                "-----END PRIVATE KEY-----\n";
-            ```
+    Om du har genererat enhetscertifikaten med PowerShell innehåller filerna mydevice* den offentliga nyckeln, den privata nyckeln och PFX för enheten.
 
-1. Skapa exemplet. Navigera till målmappen och kör den skapade jar-filen.
+    Om du har genererat enhetscertifikaten med Bash-gränssnittet innehåller ./certs/new-device.cert.pem den offentliga nyckeln. Enhetens privata nyckel finns i filen ./private/new-device.key.pem.
+
+    Öppna filen med den offentliga nyckeln och uppdatera variabeln `leafPublicPem` med det värdet. Kopiera texten från _-----BEGIN PRIVATE KEY-----_ till _-----END PRIVATE KEY-----_.
+
+    ```java
+    private static final String leafPublicPem = "-----BEGIN CERTIFICATE-----\n" +
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+        "-----END CERTIFICATE-----\n";
+    ```
+
+    Öppna filen med den privata nyckeln och uppdatera variabeln `leafPrivatePem` med det värdet. Kopiera texten från _-----BEGIN RSA PRIVATE KEY-----_ till _-----END RSA PRIVATE KEY-----_.
+
+    ```java
+    private static final String leafPrivateKey = "-----BEGIN RSA PRIVATE KEY-----\n" +
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+        "-----END RSA PRIVATE KEY-----\n";
+    ```
+
+1. Lägg till en ny variabel nedanför `leafPrivateKey` för det mellanliggande certifikatet. Ge den här nya variabeln namnet `intermediateKey`. Ge den värdet för det mellanliggande signeringscertifikatet.
+
+    Om du har genererat enhetscertifikaten med Bash-gränssnittet innehåller *./certs/azure-iot-test-only.intermediate.cert.pem* nyckeln för det mellanliggande certifikatet. Om certifikaten har genererats med PowerShell är *./Intermediate1.pem* filen med det mellanliggande certifikatet.
+
+    ```java
+    private static final String intermediateKey = "-----BEGIN CERTIFICATE-----\n" +
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+        "-----END CERTIFICATE-----\n";
+    ```
+
+1. I funktionen `main` lägger du till `intermediateKey` i samlingen `signerCertificates` före initieringen av `securityProviderX509`.
+
+    ```java
+    public static void main(String[] args) throws Exception
+    {
+        ...
+
+        try
+        {
+            ProvisioningStatus provisioningStatus = new ProvisioningStatus();
+
+            // Add intermediate certificate as part of the certificate key chain.
+            signerCertificates.add(intermediateKey);
+
+            SecurityProvider securityProviderX509 = new SecurityProviderX509Cert(leafPublicPem, leafPrivateKey, signerCertificates);
+    ```
+
+1. Spara dina ändringar och skapa exemplet. Navigera till målmappen och kör den skapade jar-filen.
 
     ```cmd/sh
     mvn clean install

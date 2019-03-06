@@ -13,12 +13,12 @@ ms.topic: reference
 ms.date: 02/28/2019
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1d385fd8c8388e3ce54b89ff2ac863cd5a1aa0df
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 5cd3f7f1f1f17d6dedea0157760b03c7e55e3d8a
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57216143"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57410102"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Azure Functions skalar och som är värd för
 
@@ -43,9 +43,6 @@ Du kan skala mellan nivåerna för att allokera olika mängd resurser på en App
 
 När du använder en förbrukningsplan är dynamiskt instanser av Azure Functions-värden har lagts till och tas bort baserat på antalet inkommande händelser. Den här serverlösa planen skalas automatiskt och du debiteras för beräkningsresurser bara när dina funktioner körs. I en förbrukningsplan gör körning av en funktion timeout när en konfigurerbar tidsperiod.
 
-> [!NOTE]
-> Standardvärdet för timeout för funktioner i en förbrukningsplan är 5 minuter. Det kan du öka värdet för Funktionsappen upp till 10 minuter genom att ändra egenskapen `functionTimeout` i den [host.json](functions-host-json.md#functiontimeout) projektfilen.
-
 Fakturering baseras på antalet körningar, körningstid och minne som används. Fakturering slås samman över alla funktioner i en funktionsapp. Mer information finns i den [Azure Functions-priserna sidan].
 
 Med förbrukningsplanen är standard värdplan och har följande fördelar:
@@ -62,7 +59,7 @@ I den dedikerade App Service-planen kör dina funktionsappar på dedikerade virt
 * Du har befintliga, underutnyttjade virtuella datorer som redan kör andra App Service-instanser.
 * Dina funktionsappar kör kontinuerligt eller nästan kontinuerligt. I det här fallet kan en App Service Plan vara mer kostnadseffektivt.
 * Du behöver fler alternativ än vad som tillhandahålls på förbrukningsplanen som CPU eller minne.
-* Din kod måste köras längre än den högsta körningstiden som tillåts i förbrukningsplan som är upp till 10 minuter.
+* Koden ska köras längre än den [högsta körningstiden tillåtna](#timeout) på förbrukningsplanen.
 * Du behöver funktioner som endast är tillgängliga i en App Service-plan, till exempel stöd för App Service Environment, virtuellt nätverk/VPN-anslutning och större storlekar för Virtuella datorer.
 * Du vill köra funktionsappen på Linux eller vill du ange en anpassad avbildning som du vill köra dina funktioner.
 
@@ -77,6 +74,8 @@ När du kör JavaScript-funktioner i en App Service-plan, bör du välja en plan
 ###<a name="always-on"></a> Alltid på
 
 Om du kör i en App Service-plan, bör du aktivera den **alltid på** så att din funktionsapp körs korrekt. I en App Service-plan går att funktionskörningen inaktiv efter ett par minuter av inaktivitet, så att endast HTTP-utlösare ska ”aktivera” dina funktioner. Alltid är på endast tillgänglig på en App Service plan. I en förbrukningsplan aktiverar plattformen funktionsappar automatiskt.
+
+[!INCLUDE [Timeout Duration section](../../includes/functions-timeout-duration.md)]
 
 ## <a name="what-is-my-hosting-plan"></a>Vad är min värdplanen
 

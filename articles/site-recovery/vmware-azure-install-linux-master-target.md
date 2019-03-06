@@ -6,14 +6,14 @@ services: site-recovery
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 03/06/2019
 ms.author: mayg
-ms.openlocfilehash: 68892faf707a767ba9c25ce7317f775708e61a90
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 28b28dc15809aa5d37eb9347ff3bc7eecccc9a20
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55217993"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57452716"
 ---
 # <a name="install-a-linux-master-target-server-for-failback"></a>Installera en Linux-huvudmålserver för återställning efter fel
 När du växlar över dina virtuella datorer till Azure kan du återställa dit de virtuella datorerna till den lokala platsen. För att återställa, måste du återaktivera skyddet för den virtuella datorn från Azure till den lokala platsen. För den här processen behöver du ett lokala huvudmålservern tar emot trafiken. 
@@ -62,7 +62,7 @@ Följande stöds Ubuntu-kärnor stöds.
 
 Vidta följande steg för att installera Ubuntu 16.04.2 64-bitars operativsystem.
 
-1.   Gå till den [nedladdningslänk](http://old-releases.ubuntu.com/releases/16.04.2/ubuntu-16.04.2-server-amd64.iso), och välj den närmaste spegling anddownload en Ubuntu 16.04.2 minimal 64-bitars ISO.
+1.   Gå till den [nedladdningslänk](http://old-releases.ubuntu.com/releases/16.04.2/ubuntu-16.04.2-server-amd64.iso), Välj den närmaste speglingen och hämta en Ubuntu 16.04.2 minimal 64-bitars ISO.
 Håll en Ubuntu 16.04.2 minimal 64-bitars ISO i DVD-enheten och startas.
 
 1.  Välj **engelska** som önskat språk och välj sedan **RETUR**.
@@ -287,7 +287,6 @@ Använd följande steg för att skapa en kvarhållningsdisken:
 2. Anteckna konfigurationsserverns IP-adress. Kör följande kommando för att installera huvudmålservern och registrera servern med konfigurationsservern.
 
     ```
-    ./install -q -d /usr/local/ASR -r MT -v VmWare
     /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i <ConfigurationServer IP Address> -P passphrase.txt
     ```
 

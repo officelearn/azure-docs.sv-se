@@ -5,18 +5,18 @@ description: Använd C# och skapa en chattrobot som är integrerad med språkfö
 services: cognitive-services
 author: diberry
 ms.custom: seodec18
-manager: cjgronlund
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 01/09/2019
 ms.author: diberry
-ms.openlocfilehash: 98c65b7adfe35c1ca80846ff7619dad69c5ba266
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 028c06924e41606ba1d4e0b15fe26f2b7270db3c
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55219234"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56960314"
 ---
 # <a name="tutorial-luis-bot-in-c-with-the-bot-framework-4x-and-the-azure-web-app-bot"></a>Självstudie: LUIS-bot i C# med Bot Framework 4.x och Azure Web App-robot
 Använd C# och skapa en chattrobot som är integrerad med språkförståelse (LUIS). Den här roboten använder HomeAutomation-appen för att implementera en robotlösning. Roboten bygger på Azures [webbappsrobot](https://docs.microsoft.com/azure/bot-service/) med [Bot Framework version](https://github.com/Microsoft/botbuilder-js) v4.
@@ -66,7 +66,7 @@ Använd C# och skapa en chattrobot som är integrerad med språkförståelse (LU
     
 5. Välj **Skapa**. Nu skapas och distribueras robottjänsten till Azure. I en del av den här processen skapas en LUIS-app med namnet `luis-csharp-bot-XXXX`. Det här namnet baseras på robotens och appens namn i föregående avsnitt.
 
-    [ ![Skapa en webbappsrobot](./media/bfv4-csharp/create-web-app-service.png) ](./media/bfv4-csharp/create-web-app-service.png#lightbox)
+    [![Skapa en webbappsrobot](./media/bfv4-csharp/create-web-app-service.png)](./media/bfv4-csharp/create-web-app-service.png#lightbox)
 
 6. Lämna den här webbläsarfliken öppen. Öppna en ny webbläsarflik för steg som utförs på LUIS-portalen. Fortsätt till nästa avsnitt när den nya robottjänsten har distribuerats.
 
@@ -106,7 +106,7 @@ Ladda ned koden för webbappsroboten så att du kan utveckla den och använda de
 
 3. Välj **Download Bot source code** (Ladda ned robotens källkod). 
 
-    [ ![Ladda ned källkoden för webbappsroboten för grundläggande robot](../../../includes/media/cognitive-services-luis/bfv4/download-code.png) ](../../../includes/media/cognitive-services-luis/bfv4/download-code.png#lightbox)
+    [![Ladda ned källkoden för webbappsroboten för grundläggande robot](../../../includes/media/cognitive-services-luis/bfv4/download-code.png)](../../../includes/media/cognitive-services-luis/bfv4/download-code.png#lightbox)
 
 4. Om källkoden är zippad innehåller meddelandet en länk för att ladda ned koden. Klicka på länken. 
 
@@ -205,7 +205,7 @@ Kontrollera att roboten fungerar innan du ändrar koden eller några inställnin
 
 2. I robotemulatorn väljer du *.bot-filen i roten av projektet. Den här `.bot`-filen innehåller robotens URL-slutpunkt för meddelanden:
 
-    [ ![Robotemulatorn v4](../../../includes/media/cognitive-services-luis/bfv4/bot-emulator-v4.png) ](../../../includes/media/cognitive-services-luis/bfv4/bot-emulator-v4.png#lightbox)
+    [![Robotemulatorn v4](../../../includes/media/cognitive-services-luis/bfv4/bot-emulator-v4.png)](../../../includes/media/cognitive-services-luis/bfv4/bot-emulator-v4.png#lightbox)
 
 3. Ange den robothemlighet som du kopierade från Programinställningar i Azure Bot Service i steg 1 i avsnittet **[Ladda ned webbappsroboten](#download-the-web-app-bot)**. På så sätt kan emulatorn få åtkomst till alla krypterade fält i `.bot`-filen.
 
@@ -213,7 +213,7 @@ Kontrollera att roboten fungerar innan du ändrar koden eller några inställnin
 
 4. Ange `Hello` i robotemulatorn och få lämpligt svar för den grundläggande roboten.
 
-    [ ![Svar från grundläggande robot i emulatorn](../../../includes/media/cognitive-services-luis/bfv4/emulator-test.png) ](../../../includes/media/cognitive-services-luis/bfv4/emulator-test.png#lightbox)
+    [![Svar från grundläggande robot i emulatorn](../../../includes/media/cognitive-services-luis/bfv4/emulator-test.png)](../../../includes/media/cognitive-services-luis/bfv4/emulator-test.png#lightbox)
 
 ## <a name="modify-bot-code"></a>Ändra robotkoden 
 

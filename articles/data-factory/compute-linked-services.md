@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: douglasl
-ms.openlocfilehash: 5e620b03f5588369fc73a62f2019d857766596fd
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 490f11b4a35bb7e5669ccf1554c3a73f5156f3c7
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54321950"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57445661"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Compute-miljöer som stöds av Azure Data Factory
 Den här artikeln beskrivs olika beräkningsmiljöer som du kan använda för att bearbeta och omvandla data. Den innehåller också information om olika konfigurationer (på begäran och ta med din egen) som stöds av Data Factory när du konfigurerar länkade tjänster länkar dessa compute-miljöer i en Azure-datafabrik.
@@ -304,13 +304,15 @@ Du kan skapa en Azure HDInsight-länkad tjänst för att registrera ett eget HDI
 
 ## <a name="azure-batch-linked-service"></a>Tjänsten Azure Batch länkad
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Du kan skapa en Azure Batch-länkad tjänst för att registrera en Batch-pool med virtuella datorer (VM) till en data factory. Du kan köra anpassade aktiviteten med Azure Batch.
 
 Se följande avsnitt om du är nybörjare på Azure Batch-tjänsten:
 
 * [Azure Batch-grunder](../batch/batch-technical-overview.md) en översikt över Azure Batch-tjänsten.
-* [New-AzureRmBatchAccount](/powershell/module/azurerm.batch/New-AzureRmBatchAccount?view=azurermps-4.3.1) cmdlet för att skapa ett Batch-konto (eller) [Azure-portalen](../batch/batch-account-create-portal.md) att skapa Azure Batch-konto med hjälp av Azure portal. Se [använda PowerShell för att hantera Azure Batch-konto](http://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx) avsnittet detaljerade anvisningar om hur du använder cmdlet: en.
-* [Ny-AzureBatchPool](/powershell/module/azurerm.batch/New-AzureBatchPool?view=azurermps-4.3.1) cmdlet för att skapa en Azure Batch-pool.
+* [Ny AzBatchAccount](/powershell/module/az.batch/New-azBatchAccount) cmdlet för att skapa ett Batch-konto (eller) [Azure-portalen](../batch/batch-account-create-portal.md) att skapa Azure Batch-konto med hjälp av Azure portal. Se [använda PowerShell för att hantera Azure Batch-konto](http://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx) avsnittet detaljerade anvisningar om hur du använder cmdlet: en.
+* [Ny AzBatchPool](/powershell/module/az.batch/New-AzBatchPool) cmdlet för att skapa en Azure Batch-pool.
 
 ### <a name="example"></a>Exempel
 
@@ -380,7 +382,7 @@ Skapar du en Azure Machine Learning-länkad tjänst för att registrera en Machi
 ### <a name="properties"></a>Egenskaper
 | Egenskap                | Beskrivning                              | Krävs                                 |
 | ---------------------- | ---------------------------------------- | ---------------------------------------- |
-| Typ                   | Type-egenskapen ska anges till: **AzureML**. | Ja                                      |
+| Type                   | Type-egenskapen ska anges till: **AzureML**. | Ja                                      |
 | mlEndpoint             | Batchbedömnings-URL: en.                   | Ja                                      |
 | ApiKey                 | Den publicerade arbetsytemodellens API.     | Ja                                      |
 | updateResourceEndpoint | Uppdatera resurs-URL för en Azure ML Web Service-slutpunkt som används för att uppdatera förutsägande webbtjänsten med tränade modellfilen | Nej                                       |

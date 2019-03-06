@@ -1,6 +1,6 @@
 ---
 title: Lägg till autentisering på iOS med Azure Mobile Apps
-description: Lär dig hur du använder Azure Mobile Apps för att autentisera användare av iOS-appen via en mängd olika identitetsleverantörer, inklusive AAD, Google, Facebook, Twitter och Microsoft.
+description: Lär dig hur du använder Azure Mobile Apps du autentiserar användare i din iOS-app genom olika identitetsleverantörer, inklusive AAD, Google, Facebook, Twitter och Microsoft.
 services: app-service\mobile
 documentationcenter: ios
 author: conceptdev
@@ -14,34 +14,34 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: crdun
-ms.openlocfilehash: e0eeee05ebad2e8148752f988bbbc2f6a0d7c296
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 8c1c52790065015977add7e32a06063057b24dad
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2018
-ms.locfileid: "27592702"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57445916"
 ---
 # <a name="add-authentication-to-your-ios-app"></a>Lägg till autentisering i din iOS-app
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
 
-I kursen får du lägger till autentisering till den [iOS snabb start] projekt med en identitetsprovider som stöds. Den här kursen är baserad på den [iOS snabb start] självstudien måste du slutföra först.
+I den här självstudien lägger du till autentisering till den [Snabbstart för iOS] projektet med en identitetsprovider som stöds. Den här självstudien är baserad på den [Snabbstart för iOS] kursen måste du slutföra först.
 
 ## <a name="register"></a>Registrera din app för autentisering och konfigurera App Service
 [!INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
 
-## <a name="redirecturl"></a>Lägg till din app i tillåtna externa omdirigerings-URL
+## <a name="redirecturl"></a>Lägg till din app i de tillåtna externa Omdirigeringswebbadresser
 
-Säker autentisering måste du definiera en ny URL-schema för din app.  Detta gör att autentiseringssystemet kan omdirigera tillbaka till din app när autentiseringen är klar.  I den här självstudiekursen kommer vi använda URL-schemat _appname_ i hela.  Du kan dock använda alla URL-schema som du väljer.  Det bör vara unikt för din mobila program.  Du vill aktivera omdirigering på serversidan th:
+Säker autentisering måste du definiera en ny URL-schema för din app.  På så sätt kan autentiseringssystem att omdirigera tillbaka till din app när autentiseringen är klar.  I den här självstudien använder vi URL-schema _appname_ i hela.  Du kan dock använda alla URL-schema som du väljer.  Det bör vara unikt för det mobila programmet.  Aktivera omdirigering på serversidan för th:
 
-1. I den [Azure-portalen], Välj din Apptjänst.
+1. I den [Azure Portal], Välj din App Service.
 
-2. Klicka på den **autentisering / auktorisering** menyalternativet.
+2. Klicka på den **autentisering / auktorisering** menyalternativ.
 
-3. Klicka på **Azure Active Directory** under den **autentiseringsproviders** avsnitt.
+3. Klicka på **Azure Active Directory** under den **autentiseringsproviders** avsnittet.
 
 4. Ange den **hanteringsläge** till **Avancerat**.
 
-5. I den **tillåtna externa omdirigerings-URL: er**, ange `appname://easyauth.callback`.  Den _appname_ i den här strängen är URL-schemat för din mobila program.  Det bör följa den normala URL specifikation för ett protokoll (Använd bokstäver och siffror och börja med en bokstav).  Du bör anteckna den sträng som du väljer när du behöver justera mobilprogram koden med URL-schemat på flera platser.
+5. I den **tillåtna externa omdirigerings-URL: er**, ange `appname://easyauth.callback`.  Den _appname_ i den här strängen är URL-schemat för din mobilapp.  Den bör följa den normala URL specifikationen för ett protokoll (Använd bokstäver och siffror och börja med en bokstav).  Du bör anteckna den sträng som du väljer eftersom du behöver ändra programkoden mobila med URL-schema på flera platser.
 
 6. Klicka på **OK**.
 
@@ -50,12 +50,12 @@ Säker autentisering måste du definiera en ny URL-schema för din app.  Detta g
 ## <a name="permissions"></a>Begränsa behörighet för autentiserade användare
 [!INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
-Tryck på i Xcode **kör** starta appen. Ett undantagsfel genereras eftersom appen försöker komma åt serverdel som en oautentiserad användare men *TodoItem* tabellen nu kräver autentisering.
+I Xcode, trycker du på **kör** starta appen. Ett undantagsfel genereras eftersom appen försöker komma åt serverdelen som en oautentiserad användare men *TodoItem* tabell nu kräver autentisering.
 
 ## <a name="add-authentication"></a>Lägg till autentisering i appen
 **Objective-C**:
 
-1. Öppna på en Mac *QSTodoListViewController.m* i Xcode och Lägg till följande metod:
+1. Öppna på din Mac *QSTodoListViewController.m* i Xcode och Lägg till följande metod:
 
     ```Objective-C
     - (void)loginAndGetData
@@ -77,9 +77,9 @@ Tryck på i Xcode **kör** starta appen. Ett undantagsfel genereras eftersom app
     }
     ```
 
-    Ändra *google* till *microsoftaccount*, *twitter*, *facebook*, eller *windowsazureactivedirectory* om du inte använder Google som identitetsprovider. Om du använder Facebook, måste du [godkända Facebook domäner] [ 1] i din app.
+    Ändra *google* till *microsoftaccount*, *twitter*, *facebook*, eller *windowsazureactivedirectory* om du inte använder Google som identitetsprovider. Om du använder Facebook, måste du [vitlista Facebook domäner] [ 1] i din app.
 
-    Ersätt den **urlScheme** med ett unikt namn för ditt program.  UrlScheme bör vara samma som det URL-schema-protokoll som du angav i den **tillåtna externa omdirigerings-URL: er** i Azure-portalen. UrlScheme används av återanrop för autentisering för att växla tillbaka till ditt program när autentiseringsbegäran är klar.
+    Ersätt den **urlScheme** med ett unikt namn för ditt program.  UrlScheme bör vara samma som det URL-schema-protokoll som du angav i den **tillåtna externa omdirigerings-URL: er** i Azure-portalen. UrlScheme används av återanrop för autentisering för att växla tillbaka till programmet när autentiseringsbegäran är klar.
 
 2. Ersätt `[self refresh]` i `viewDidLoad` i *QSTodoListViewController.m* med följande kod:
 
@@ -87,7 +87,7 @@ Tryck på i Xcode **kör** starta appen. Ett undantagsfel genereras eftersom app
     [self loginAndGetData];
     ```
 
-3. Öppna den `QSAppDelegate.h` och Lägg till följande kod:
+3. Öppna den `QSAppDelegate.h` filen och Lägg till följande kod:
 
     ```Objective-C
     #import "QSTodoService.h"
@@ -95,7 +95,7 @@ Tryck på i Xcode **kör** starta appen. Ett undantagsfel genereras eftersom app
     @property (strong, nonatomic) QSTodoService *qsTodoService;
     ```
 
-4. Öppna den `QSAppDelegate.m` och Lägg till följande kod:
+4. Öppna den `QSAppDelegate.m` filen och Lägg till följande kod:
 
     ```Objective-C
     - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options
@@ -110,9 +110,9 @@ Tryck på i Xcode **kör** starta appen. Ett undantagsfel genereras eftersom app
     }
     ```
 
-   Lägg till denna kod direkt före den rad läsningen `#pragma mark - Core Data stack`.  Ersätt den _appname_ med urlScheme-värdet som du använde i steg 1.
+   Lägg till den här koden före rad läsning `#pragma mark - Core Data stack`.  Ersätt den _appname_ med urlScheme-värde som du använde i steg 1.
 
-5. Öppna den `AppName-Info.plist` (ersätter AppName med namnet på din app), och Lägg till följande kod:
+5. Öppna den `AppName-Info.plist` filen (ersättning AppName med namnet på din app) och Lägg till följande kod:
 
     ```XML
     <key>CFBundleURLTypes</key>
@@ -128,15 +128,15 @@ Tryck på i Xcode **kör** starta appen. Ett undantagsfel genereras eftersom app
     </array>
     ```
 
-    Den här koden ska placeras i den `<dict>` element.  Ersätt den _appname_ sträng (inom en matris för **CFBundleURLSchemes**) med namnet på appen som du valde i steg 1.  Du kan också göra dessa ändringar på plist editor - Klicka på den `AppName-Info.plist` filen i XCode för att öppna Redigeraren för plist.
+    Den här koden ska placeras i den `<dict>` element.  Ersätt den _appname_ sträng (inom matrisen för **CFBundleURLSchemes**) med det namn du valde i steg 1.  Du kan också göra dessa ändringar i plist redigeraren – Klicka på den `AppName-Info.plist` filen i XCode för att öppna plist-redigeraren.
 
     Ersätt den `com.microsoft.azure.zumo` sträng för **CFBundleURLName** med ditt Apple-paketidentifierare.
 
-6. Tryck på *kör* att starta appen och sedan logga in. När du har loggat in, bör du kunna visa Todo-listan och göra uppdateringar.
+6. Tryck på *kör* att starta appen och sedan logga in. När du är inloggad, bör du kunna visa att göra-listan och göra uppdateringar.
 
-**SWIFT**:
+**Swift**:
 
-1. Öppna på en Mac *ToDoTableViewController.swift* i Xcode och Lägg till följande metod:
+1. Öppna på din Mac *ToDoTableViewController.swift* i Xcode och Lägg till följande metod:
 
     ```swift
     func loginAndGetData() {
@@ -163,9 +163,9 @@ Tryck på i Xcode **kör** starta appen. Ett undantagsfel genereras eftersom app
     }
     ```
 
-    Ändra *google* till *microsoftaccount*, *twitter*, *facebook*, eller *windowsazureactivedirectory* om du inte använder Google som identitetsprovider. Om du använder Facebook, måste du [godkända Facebook domäner] [ 1] i din app.
+    Ändra *google* till *microsoftaccount*, *twitter*, *facebook*, eller *windowsazureactivedirectory* om du inte använder Google som identitetsprovider. Om du använder Facebook, måste du [vitlista Facebook domäner] [ 1] i din app.
 
-    Ersätt den **urlScheme** med ett unikt namn för ditt program.  UrlScheme bör vara samma som det URL-schema-protokoll som du angav i den **tillåtna externa omdirigerings-URL: er** i Azure-portalen. UrlScheme används av återanrop för autentisering för att växla tillbaka till ditt program när autentiseringsbegäran är klar.
+    Ersätt den **urlScheme** med ett unikt namn för ditt program.  UrlScheme bör vara samma som det URL-schema-protokoll som du angav i den **tillåtna externa omdirigerings-URL: er** i Azure-portalen. UrlScheme används av återanrop för autentisering för att växla tillbaka till programmet när autentiseringsbegäran är klar.
 
 2. Ta bort rader `self.refreshControl?.beginRefreshing()` och `self.onRefresh(self.refreshControl)` i slutet av `viewDidLoad()` i *ToDoTableViewController.swift*. Lägg till ett anrop till `loginAndGetData()` i stället:
 
@@ -173,7 +173,7 @@ Tryck på i Xcode **kör** starta appen. Ett undantagsfel genereras eftersom app
     loginAndGetData()
     ```
 
-3. Öppna den `AppDelegate.swift` och Lägg till följande rad i den `AppDelegate` klass:
+3. Öppna den `AppDelegate.swift` filen och Lägg till följande rad för att den `AppDelegate` klass:
 
     ```swift
     var todoTableViewController: ToDoTableViewController?
@@ -188,9 +188,9 @@ Tryck på i Xcode **kör** starta appen. Ett undantagsfel genereras eftersom app
     }
     ```
 
-    Ersätt den _appname_ med urlScheme-värdet som du använde i steg 1.
+    Ersätt den _appname_ med urlScheme-värde som du använde i steg 1.
 
-4. Öppna den `AppName-Info.plist` (ersätter AppName med namnet på din app), och Lägg till följande kod:
+4. Öppna den `AppName-Info.plist` filen (ersättning AppName med namnet på din app) och Lägg till följande kod:
 
     ```xml
     <key>CFBundleURLTypes</key>
@@ -206,18 +206,18 @@ Tryck på i Xcode **kör** starta appen. Ett undantagsfel genereras eftersom app
     </array>
     ```
 
-    Den här koden ska placeras i den `<dict>` element.  Ersätt den _appname_ sträng (inom en matris för **CFBundleURLSchemes**) med namnet på appen som du valde i steg 1.  Du kan också göra dessa ändringar på plist editor - Klicka på den `AppName-Info.plist` filen i XCode för att öppna Redigeraren för plist.
+    Den här koden ska placeras i den `<dict>` element.  Ersätt den _appname_ sträng (inom matrisen för **CFBundleURLSchemes**) med det namn du valde i steg 1.  Du kan också göra dessa ändringar i plist redigeraren – Klicka på den `AppName-Info.plist` filen i XCode för att öppna plist-redigeraren.
 
     Ersätt den `com.microsoft.azure.zumo` sträng för **CFBundleURLName** med ditt Apple-paketidentifierare.
 
-5. Tryck på *kör* att starta appen och sedan logga in. När du har loggat in, bör du kunna visa Todo-listan och göra uppdateringar.
+5. Tryck på *kör* att starta appen och sedan logga in. När du är inloggad, bör du kunna visa att göra-listan och göra uppdateringar.
 
-Användning-autentisering används äpplen Inter App kommunikation.  Mer information om detta finns i den [Apples dokumentation][2]
+App Service-autentisering använder äpplen Inter-App-kommunikation.  Mer information om det här ämnet i den [Apples dokumentation][2]
 <!-- URLs. -->
 
 [1]: https://developers.facebook.com/docs/ios/ios9#whitelist
 [2]: https://developer.apple.com/library/content/documentation/iPhone/Conceptual/iPhoneOSProgrammingGuide/Inter-AppCommunication/Inter-AppCommunication.html
-[Azure-portalen]: https://portal.azure.com
+[Azure Portal]: https://portal.azure.com
 
-[iOS snabb start]: app-service-mobile-ios-get-started.md
+[Snabbstart för iOS]: app-service-mobile-ios-get-started.md
 

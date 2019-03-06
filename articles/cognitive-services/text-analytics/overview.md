@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: overview
 ms.date: 02/13/2019
 ms.author: aahi
-ms.openlocfilehash: 0de4e0d750d8ae3061ed0b80d706dec545338a90
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 7623f98b9fd6c4bad8a41050e39b6e0e8650dccc
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56242948"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889298"
 ---
 # <a name="what-is-text-analytics"></a>Vad är textanalys?
 
@@ -64,11 +64,11 @@ Det här avsnittet har flyttats till en separat artikel för bättre synlighet. 
 
 ## <a name="data-limits"></a>Databegränsningar
 
-Alla av slutpunkterna för API för textanalys accepterar råtextdata. Den aktuella gränsen är 5 000 tecken för varje dokument. Om du behöver analysera större dokument kan du dela upp dem i mindre bitar. Om du fortfarande kräver en högre gräns kan du [kontakta oss](https://azure.microsoft.com/overview/sales-number/) så att vi kan diskutera dina krav.
+Alla av slutpunkterna för API för textanalys accepterar råtextdata. Den aktuella gränsen är 5 120 tecken för varje dokument. Om du behöver analysera större dokument kan du dela upp dem i mindre bitar. Om du fortfarande kräver en högre gräns kan du [kontakta oss](https://azure.microsoft.com/overview/sales-number/) så att vi kan diskutera dina krav.
 
 | Gräns | Värde |
 |------------------------|---------------|
-| Maximal storlek på ett enskilt dokument | 5 000 tecken enligt [`StringInfo.LengthInTextElements`](https://docs.microsoft.com/dotnet/api/system.globalization.stringinfo.lengthintextelements). |
+| Maximal storlek på ett enskilt dokument | 5 120 tecken enligt [`StringInfo.LengthInTextElements`](https://docs.microsoft.com/dotnet/api/system.globalization.stringinfo.lengthintextelements). |
 | Maximal storlek på hela begäran | 1 MB |
 | Maximalt antal dokument i en begäran | 1 000 dokument |
 
@@ -80,7 +80,7 @@ API för textanalys använder Unicode-kodning för textrepresentation och beräk
 
 ## <a name="next-steps"></a>Nästa steg
 
-Prova först den [interaktiva demon](https://azure.microsoft.com/services/cognitive-services/text-analytics/). Du kan klistra in en textinmatning (max. 5 000 tecken) för att identifiera språket (upp till 120), beräkna attitydpoäng eller extrahera nyckelfraser. Ingen registrering krävs.
+Prova först den [interaktiva demon](https://azure.microsoft.com/services/cognitive-services/text-analytics/). Du kan klistra in en textinmatning (max. 5 120 tecken) för att identifiera språket (upp till 120), beräkna attitydpoäng eller extrahera nyckelfraser. Ingen registrering krävs.
 
 När du är redo att anropa API:et direkt:
 

@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: snehaa
-ms.openlocfilehash: 9577e2c8eea153b38475bf5126a41641b3642ae9
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: 26992cfe1c6cb8555a7084075fed4d9c8daed031
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56991333"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57444387"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Azure Migrate – och vanliga frågor svar (FAQ)
 
@@ -104,7 +104,7 @@ Installationen-baserade identifieringen samlar in metadata om lokala virtuella d
   - Nätverk in
   - Nätverk ut
 
-Agentbaserad identifiering är ett alternativ som är tillgängligt utöver installationsbaserad identifiering och hjälper kunder att [visualisera beroenden](how-to-create-group-machine-dependencies.md) för deras lokala virtuella datorer. Beroendeagenterna samlar in information som FQDN, operativsystem, IP-adress, MAC-adress, processer som körs på den virtuella datorn och de inkommande/utgående TCP-anslutningarna från den virtuella datorn. Agentbaserad identifiering är valfritt och du kan välja att inte installera agenterna om du inte vill att visualisera beroenden för de virtuella datorerna.
+Agentbaserad identifiering är ett alternativ som är tillgängliga ovanpå installation-baserade identifieringen och hjälper kunder att [visualisera beroenden](how-to-create-group-machine-dependencies.md) av lokala virtuella datorer. Beroendeagenterna samlar in information som FQDN, operativsystem, IP-adress, MAC-adress, processer som körs på den virtuella datorn och de inkommande/utgående TCP-anslutningarna från den virtuella datorn. Agentbaserad identifiering är valfritt och du kan välja att inte installera agenterna om du inte vill att visualisera beroenden för de virtuella datorerna.
 
 ### <a name="would-there-be-any-performance-impact-on-the-analyzed-esxi-host-environment"></a>Skulle det finnas en prestandaförsämring på analyserade ESXi värdmiljön?
 
@@ -217,7 +217,7 @@ Lista över Windows-operativsystem som stöds av beroendeagenten är [här](http
 Listan med Linux-operativsystem som stöds av beroendeagenten är [här](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#supported-linux-operating-systems).
 
 ### <a name="can-i-visualize-dependencies-in-azure-migrate-for-more-than-one-hour-duration"></a>Kan jag visualisera beroenden i Azure Migrate för mer än en timme?
-Nej, Azure Migrate kan du visualisera beroenden för varaktighet för upp till en timme. Azure Migrate kan du gå tillbaka till ett visst datum i historiken för upp till senaste månaden, men maximal varaktighet för vilken du kan visualisera beroenden är upp till 1 timme. Exempel: du kan använda funktionen tid varaktighet på beroendekartan visar beroenden för igår, men kan bara visa för ett fönster med en timme. Du kan dock använda Azure Monitor-loggar till [frågedata beroende](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies#query-dependency-data-from-log-analytics) över en längre period.
+Nej, Azure Migrate kan du visualisera beroenden för varaktighet för upp till en timme. Azure Migrate kan du gå tillbaka till ett visst datum i historiken för upp till senaste månaden, men maximal varaktighet för vilken du kan visualisera beroenden är upp till 1 timme. Exempel: du kan använda funktionen tid varaktighet på beroendekartan visar beroenden för igår, men kan bara visa för ett fönster med en timme. Du kan dock använda Azure Monitor-loggar till [frågedata beroende](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies) över en längre period.
 
 ### <a name="is-dependency-visualization-supported-for-groups-with-more-than-10-vms"></a>Stöds visualisering av beroenden för grupper med fler än 10 virtuella datorer?
 Du kan [visualisera beroenden för grupper](https://docs.microsoft.com/azure/migrate/how-to-create-group-dependencies) som har upp till 10 virtuella datorer. Om du har en grupp med fler än 10 virtuella datorer rekommenderar vi att dela upp gruppen i mindre grupper och visualisera beroenden.

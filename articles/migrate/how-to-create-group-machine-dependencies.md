@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 12/05/2018
 ms.author: raynew
-ms.openlocfilehash: f04b4dd473f98889b895fa3536c652fb6e3eb01a
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: 3938dece92ed133d268fceda746cbe05305e15ae
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56990807"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57449503"
 ---
 # <a name="group-machines-using-machine-dependency-mapping"></a>Gruppera datorer med datorberoende mappning
 
@@ -106,7 +106,7 @@ Mer information om stöd för beroende-agenten för den [Windows](../azure-monit
 4. Du kan titta på beroenden för olika tidsvaraktigheter genom att klicka på varaktighet i Intervalletikett tid. Intervallet är en timme som standard. Du kan ändra tidsintervallet eller ange start- och slutdatum och varaktighet.
 
     > [!NOTE]
-      Beroendevisualisering Användargränssnittet stöder för närvarande inte valet av ett tidsintervall som är längre än en timme. Använd Azure Monitor loggar [frågedata beroende](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies#query-dependency-data-from-log-analytics) över en längre period.
+      Beroendevisualisering Användargränssnittet stöder för närvarande inte valet av ett tidsintervall som är längre än en timme. Använd Azure Monitor loggar [frågedata beroende](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies) över en längre period.
 
 5. När du har identifierat beroende datorer som du vill gruppera kan använda Ctrl + klicka för att välja flera datorer på kartan Klicka på **gruppera datorer**.
 6. Ange ett gruppnamn. Kontrollera att de beroende datorerna identifieras av Azure Migrate.

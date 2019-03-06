@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/27/2019
 ms.author: magoedte
-ms.openlocfilehash: b42eb963e33c14b003c053bb0f7fca6361dbd555
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: d09ce810605055b5be53219f254beb6660addbee
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56985112"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57445712"
 ---
 # <a name="manage-log-data-and-workspaces-in-azure-monitor"></a>Hantera loggdata och arbetsytor i Azure Monitor
 Azure Monitor-butiker logga data över en Log Analytics-arbetsyta som är i grunden en behållare som innehåller data och konfigurationsinformation. För att hantera åtkomst för att logga data måste utföra du olika administrativa uppgifter relaterade till arbetsytor. Du eller andra medlemmar i din organisation kan använda flera arbetsytor för att hantera olika uppsättningar av data som samlas in från alla eller delar av din IT-infrastruktur.
@@ -153,7 +153,7 @@ Om du vill konfigurera åtkomstläge i en Azure Resource Manager-mall, ange den 
 
 
 ## <a name="manage-accounts-and-users"></a>Hantera konton och användare
-Behörigheter till arbetsytan som tillämpas på en viss användare definieras av deras [åtkomstläge](#access-mode) och [kontroll åtkomstläge](#access-control-mode) i arbetsytan. **Behörigheter för arbetsytan** tillämpas när en användare har åtkomst till alla arbetsytan med **arbetsyta-centric** i [arbetsyta-centric läge](#access-modes). **Resursbehörighet** tillämpas när en användare ansluter till en arbetsyta med **använder resursen eller arbetsytan behörigheter** [kontroll åtkomstläge](#access-control-mode) med [resurs-centric läge ](#access-modes).
+Behörigheter till arbetsytan som tillämpas på en viss användare definieras av deras åtkomstläge och [kontroll åtkomstläge](#access-control-mode) i arbetsytan. **Behörigheter för arbetsytan** tillämpas när en användare har åtkomst till alla arbetsytan med **arbetsyta-centric** i [arbetsyta-centric läge](#access-modes). **Resursbehörighet** tillämpas när en användare ansluter till en arbetsyta med **använder resursen eller arbetsytan behörigheter** [kontroll åtkomstläge](#access-control-mode) med [resurs-centric läge ](#access-modes).
 
 ### <a name="workspace-permissions"></a>Behörigheter för arbetsytan
 Varje arbetsyta kan ha flera associerade konton, och varje konto kan ha åtkomst till flera arbetsytor. Åtkomst hanteras [Azure rollbaserad åtkomst](../../role-based-access-control/role-assignments-portal.md). 

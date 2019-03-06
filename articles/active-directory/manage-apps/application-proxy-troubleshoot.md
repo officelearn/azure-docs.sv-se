@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017; it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ee78516cbed46174e98c483970a21d740eac6829
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 5895325aa929e44128c331db847252835f563796
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56209633"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57437559"
 ---
 # <a name="troubleshoot-application-proxy-problems-and-error-messages"></a>Felsöka problem med Application Proxy och felmeddelanden
 Om fel uppstår i komma åt ett publicerat program eller publicera program kontrollerar du följande alternativ för att se om Microsoft Azure AD-programproxyn fungerar korrekt:
@@ -77,9 +77,9 @@ Den här listan innehåller fel som slutanvändarna kan stöta på när de förs
 | Fel | Rekommenderade åtgärder |
 | ----- | ----------------- |
 | Webbplatsen kan inte visa sidan. | Användaren kan få det här felet när du försöker få åtkomst till appen som du har publicerat om programmet är ett IWA-program. Definierade SPN-namnet för det här programmet kan vara felaktig. Kontrollera att tjänstens Huvudnamn som konfigurerats för det här programmet är korrekt för IWA appar. |
-| Webbplatsen kan inte visa sidan. | Användaren kan få det här felet när du försöker få åtkomst till appen som du har publicerat om programmet är ett program för OWA. Detta kan bero på något av följande:<br><li>Definierade SPN-namnet för det här programmet är felaktigt. Kontrollera att tjänstens Huvudnamn som konfigurerats för det här programmet är korrekt.</li><li>Den användare som försökte komma åt programmet använder ett Microsoft-konto i stället för på rätt företagskontot för att logga in eller användaren är en gästanvändare. Kontrollera att användaren loggar in med sitt företagskonto som matchar domänen för det publicerade programmet. Account användare och gäst kan inte komma åt IWA program.</li><li>Den användare som försökte komma åt programmet har inte definierats korrekt för det här programmet på en lokal sida. Se till att den här användaren har rätt behörigheter som har definierats för det här backend-programmet på den lokala datorn. |
+| Webbplatsen kan inte visa sidan. | Användaren kan få det här felet när du försöker få åtkomst till appen som du har publicerat om programmet är ett program för OWA. Detta kan bero på något av följande:<br><li>Definierade SPN-namnet för det här programmet är felaktigt. Kontrollera att tjänstens Huvudnamn som konfigurerats för det här programmet är korrekt.</li><li>Den användare som försökte komma åt programmet använder ett Microsoft-konto i stället för på rätt företagskontot för att logga in eller användaren är en gästanvändare. Kontrollera att användaren loggar in med sitt företagskonto som matchar domänen för det publicerade programmet. Account användare och gäst kan inte komma åt IWA program.</li><li>Den användare som försökte komma åt programmet har inte definierats korrekt för det här programmet på sida på plats. Se till att den här användaren har rätt behörigheter som har definierats för det här backend-programmet på plats på datorn. |
 | Den här företagets appen kan inte nås. Du har inte behörighet att komma åt det här programmet. Auktoriseringen misslyckades. Se till att tilldela användare med åtkomst till det här programmet. | Användarna kan få det här felet när du försöker få åtkomst till appen som du har publicerat om de använder Microsoft-konton i stället för sitt företagskonto för att logga in. Gästanvändare kan också få det här felet. Account användare och gäster kan inte komma åt IWA program. Kontrollera att användaren loggar in med sitt företagskonto som matchar domänen för det publicerade programmet.<br><br>Du har inte tilldelat användaren för det här programmet. Gå till den **programmet** fliken och under **användare och grupper**, tilldela den här användaren eller användargruppen till det här programmet. |
-| Den här företagets appen är inte tillgänglig just nu. Försök igen senare... Tidsgränsen för anslutningen har uppnåtts. | Användarna kan få det här felet när du försöker få åtkomst till appen som du har publicerat om de inte är korrekt definierade för det här programmet på en lokal sida. Se till att användarna har rätt behörigheter som har definierats för det här backend-programmet på den lokala datorn. |
+| Den här företagets appen är inte tillgänglig just nu. Försök igen senare... Tidsgränsen för anslutningen har uppnåtts. | Användarna kan få det här felet när de försöker få åtkomst till appen som du har publicerat om de inte är korrekt definierade för det här programmet på sida på plats. Se till att användarna har rätt behörigheter som har definierats för det här backend-programmet på plats på datorn. |
 | Den här företagets appen kan inte nås. Du har inte behörighet att komma åt det här programmet. Auktoriseringen misslyckades. Kontrollera att användaren har en licens för Azure Active Directory Premium eller Basic. | Användarna kan få det här felet när du försöker få åtkomst till appen som du har publicerat om de inte uttryckligen tilldelade med en Premium/Basic-licens av prenumerantens administratör. Gå till Active Directory för prenumerantens **licenser** fliken och se till att den här användaren eller användargruppen tilldelas en Premium eller Basic-licens. |
 
 ## <a name="my-error-wasnt-listed-here"></a>Mina fel visas inte här

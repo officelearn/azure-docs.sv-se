@@ -1,6 +1,6 @@
 ---
-title: Använd Data Box och andra metoder för offline samlats in till Azure File Sync.
-description: Processen och bästa praxis för att aktivera synkronisering kompatibla bulk migrering stöder.
+title: Migrera data till Azure File Sync med hjälp av Azure Data Box och andra metoder
+description: Migrera stora mängder data på ett sätt som är kompatibel med Azure File Sync.
 services: storage
 author: fauhse
 ms.service: storage
@@ -8,86 +8,83 @@ ms.topic: article
 ms.date: 02/12/2019
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 6781ce4a3cf5f6f883678ac848162790d45a5a0f
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 3b286bbe2c246345bf6acd84a4fc0c400451c706
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56669813"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57445355"
 ---
-# <a name="migrate-to-azure-file-sync"></a>Migrera till Azure File Sync
-Det finns flera alternativ för att flytta till Azure File Sync:
+# <a name="migrate-bulk-data-to-azure-file-sync"></a>Migrera stora mängder data till Azure File Sync
+Du kan migrera stora mängder data till Azure File Sync på två sätt:
 
-### <a name="uploading-files-via-azure-file-sync"></a>Överföra filer via Azure File Sync
-Det enklaste alternativet är att flytta dina filer lokalt på en Windows Server 2012 R2 eller senare och installerar du Azure File Sync-agenten. När synkronisering har konfigurerats kommer att överföra dina filer från servern. Vi får en genomsnittlig uppladdning hastighet mellan alla våra kunder på 1 TB om varje 2 dagar.
-Överväg en [bandbreddsbegränsning schema](storage-sync-files-server-registration.md#ensuring-azure-file-sync-is-a-good-neighbor-in-your-datacenter) att se till att din server är en bra medborgare i ditt datacenter.
+* **Överför filer med hjälp av Azure File Sync.** Det här är den enklaste metoden. Flytta dina filer lokalt på Windows Server 2012 R2 eller senare och installerar du Azure File Sync-agenten. När du har konfigurerat synkroniseringen, överförs dina filer från servern. (Våra kunder för närvarande uppleva en genomsnittlig ladda upp hastigheten på 1 TiB om varannan dag.) För att säkerställa att din server inte använder för mycket av bandbredd för ditt datacenter, kanske du vill konfigurera en [bandbreddsbegränsning schema](storage-sync-files-server-registration.md#ensuring-azure-file-sync-is-a-good-neighbor-in-your-datacenter).
+* **Överföra dina filer offline.** Om du inte har tillräckligt med bandbredd kan kanske du inte kan ladda upp filer till Azure inom en rimlig tid. Utmaningen är den första synkroniseringen av hela uppsättning filer. Om du vill lösa denna utmaning att använda Migreringsverktyg för offline samtidigt som den [Azure Data Box-familjen](https://azure.microsoft.com/services/storage/databox). 
 
-### <a name="offline-bulk-transfer"></a>Offline bulk överföring
-Laddar upp är verkligen det enklaste alternativet, fungera den inte för dig om den tillgängliga bandbredden inte tillåter för att synkronisera dina filer till Azure inom en rimlig tid. Utmaning att övervinna här är den första synkroniseringen av hela uppsättning filer. Azure File Sync flyttas därefter endast ändringar när de inträffar på det namnområde som du vanligtvis använder mycket mindre bandbredd.
-Att lösa den här inledande överföring utmaning, offline bulk Migreringsverktyg, till exempel Azure [Data Box-familjen](https://azure.microsoft.com/services/storage/databox) kan användas. I följande artikel fokuserar på processen som du måste följa för att gynnas av offline-migrering i ett kompatibelt Azure File Sync-sätt. Den beskriver metodtips som hjälper dig att undvika konfliktfiler och bevara dina filer och mappar ACL: er och tidsstämplar när du har aktiverat synkronisering.
+Den här artikeln beskrivs hur du migrerar filer offline på ett sätt som är kompatibel med Azure File Sync. Följ instruktionerna för att undvika filkonflikter och att bevara din fil- och mappen åtkomstkontrollistor (ACL) och tidsstämplar när du har aktiverat synkroniseringen.
 
-### <a name="online-migration-tools"></a>Online Migreringsverktyg
-Processen som beskrivs nedan fungerar inte bara för Data Box. Den fungerar för en migrering offline-verktyg (till exempel Data Box) eller online-verktyg, till exempel AzCopy, Robocopy eller tredje parts verktyg och tjänster. Så oavsett vilken metod att lösa inledande överföring utmaningen, det är fortfarande är viktigt att du följer stegen som beskrivs nedan kan använda dessa verktyg i en synkronisering kompatibla sätt.
+## <a name="online-migration-tools"></a>Online Migreringsverktyg
+Processen som beskrivs i den här artikeln fungerar inte bara för Data Box, men också för andra verktyg för offline-migrering. Den fungerar även för online-verktyg, till exempel AzCopy, Robocopy, eller partner verktyg och tjänster. Men du kan lösa första överför utmaning, följer du stegen i den här artikeln om du vill använda dessa verktyg på ett sätt som är kompatibel med Azure File Sync.
 
 
-## <a name="offline-data-transfer-benefits"></a>Förmåner för överföring av data offline
-De främsta fördelarna med migrering offline när du använder en Data Box är följande:
+## <a name="benefits-of-using-a-tool-to-transfer-data-offline"></a>Fördelarna med att använda ett verktyg för att överföra data offline
+Här är de främsta fördelarna med att använda ett verktyg för överföring som Data Box för offline-migrering:
 
-- När du migrerar filer till Azure via en process för offline bulk överföring, till exempel Data Box har du inte överför alla filer från din server i nätverket. Detta kan innebära avsevärda besparingar i nätverkets bandbredd och tid för stora namnområden.
-- När du använder Azure File Sync och sedan oavsett transportsätt används (Data Box, Azure Import osv.), överför din live-server endast de filer som har ändrats sedan du levererade data till Azure.
-- Azure File Sync säkerställer att dina filer och mappar ACL: er har synkroniserats samt - även om produkten offline bulk migrering inte transporterar ACL: er.
-- När du använder Azure Data Box och Azure File Sync, finns det någon avbrottstid. Om du använder Data Box för att överföra data i till Azure blir effektiv användning av nätverksbandbredd och behålla fil-återgivning. Det håller också namnområdet uppdaterad genom att ladda upp endast de filer som har ändrats sedan Data Box har skickats.
+- Du behöver att överföra alla dina filer över nätverket. För stora namnområden kan det här verktyget spara tid och betydande nätverksbandbredd.
+- När du använder Azure File Sync, oavsett vilket överföring verktyg du använder (Data Box, tjänsten Azure Import/Export och så vidare), din realtidsserver överför endast de filer som ändras när du flyttar data till Azure.
+- Azure File Sync synkroniserar dina filer och mappar ACL: er, även om Migreringsverktyget offline bulk inte transport ACL: er.
+- Data Box och Azure File Sync kräver inget avbrott. När du använder Data Box för att överföra data till Azure, använda bandbredd i nätverket effektivt och bevara filen återgivningen. Du också hålla ditt namnområde uppdaterade genom att ladda upp endast de filer som ändras när du flyttar data till Azure.
 
-## <a name="plan-your-offline-data-transfer"></a>Planera din överföring av data offline
-Innan du börjar bör du granska följande information:
+## <a name="prerequisites-for-the-offline-data-transfer"></a>Krav för överföringen offlinedata
+Innan du börjar din offline dataöverföring:
 
-- Slutför din grupp migrering till en eller flera Azure-filresurser innan du aktiverar synkronisering med Azure File Sync.
-- Om du planerar att använda Data Box för bulk-migrering: Granska den [distributionskraven för Data Box](../../databox/data-box-deploy-ordered.md#prerequisites).
-- Planera din slutliga Azure File Sync-topologi: [Planera för distribution av Azure File Sync](storage-sync-files-planning.md)
-- Välj Azure storage-konton som ska innehålla de filresurser som du vill synkronisera med. Se till att migreringen bulk händer med tillfällig mellanlagring resurser i samma lagringskonton. Massinläsning migrering kan bara aktiveras genom att använda ett sista- och en mellanlagrings-resurs som finns i samma lagringskonto.
-- En bulk-migrering kan endast användas när du skapar en ny synkroniseringsrelation med en plats på servern. Du kan inte aktivera en bulk-migrering med en befintlig synkronisering.
+- Migrera stora mängder data till en eller flera Azure-filresurser innan du aktiverar synkronisering med Azure File Sync.
+- Om du planerar att använda Data Box för bulk-migreringen, granska de [distributionskraven för Data Box](../../databox/data-box-deploy-ordered.md#prerequisites).
+- Planera din slutliga Azure File Sync-topologi. Mer information finns i [planera för distribution av Azure File Sync](storage-sync-files-planning.md).
+- Välj den Azure Storage-konto eller konton som ska innehålla de filresurser som du vill synkronisera med. Migrera stora mängder data till tillfällig mellanlagring resurser i samma lagringskonto eller konton. Du kan använda endast en slutlig resurs och en mellanlagrings-resurs som finns i samma lagringskonto.
+- Skapa en ny synkroniseringsrelation med en plats på servern. Du kan inte använda en befintlig synkronisering för att migrera stora mängder data.
 
-## <a name="offline-data-transfer-process"></a>Processen för överföring av data offline
-Det här avsnittet beskriver processen för att ställa in Azure File Sync på ett sätt kompatibel med bulk Migreringsverktyg, till exempel Azure Data Box.
+## <a name="process-for-offline-data-transfer"></a>Processen för att överföra data offline
+Här är hur du konfigurerar Azure File Sync på ett sätt som är kompatibel med bulk Migreringsverktyg, till exempel Azure Data Box:
 
-![Visualisera processtegen som också beskrivs i detalj i följande punkt](media/storage-sync-files-offline-data-transfer/data-box-integration-1-600.png)
+![Diagram som visar hur du konfigurerar Azure File Sync](media/storage-sync-files-offline-data-transfer/data-box-integration-1-600.png)
 
 | Steg | Information |
 |---|---------------------------------------------------------------------------------------|
-| ![Processen steg 1](media/storage-sync-files-offline-data-transfer/bullet_1.png) | [Beställa Data Box](../../databox/data-box-deploy-ordered.md). Det finns [flera erbjudanden i Data Box-familjen](https://azure.microsoft.com/services/storage/databox/data) att matcha dina behov. Ta emot Data Box och följ Data Box [dokumentationen för att kopiera dina data](../../databox/data-box-deploy-copy-data.md#copy-data-to-data-box). Se till att data har kopierats till den här UNC-sökväg på Data Box: `\\<DeviceIPAddres>\<StorageAccountName_AzFile>\<ShareName>` där den `ShareName` är namnet på den tillfälliga resursen. Skicka Data Box tillbaka till Azure. |
-| ![Processen steg 2](media/storage-sync-files-offline-data-transfer/bullet_2.png) | Vänta tills filerna som visas i de Azure-filresurser som du angett som tillfällig mellanlagring resurser. **Aktivera inte synkronisera till dessa resurser!** |
-| ![Processen steg 3](media/storage-sync-files-offline-data-transfer/bullet_3.png) | Skapa en ny resurs som är tomt för varje resurs som Data Box har skapat för dig. Se till att den här nya resursen är i samma lagringskonto som Data Box-resursen. [Så här skapar du en ny Azure-filresurs](storage-how-to-create-file-share.md). |
-| ![Processen steg 4](media/storage-sync-files-offline-data-transfer/bullet_4.png) | [Skapa en synkroniseringsgrupp](storage-sync-files-deployment-guide.md#create-a-sync-group-and-a-cloud-endpoint) i en tjänst för lagringssynkronisering och referens tom resursen som en molnslutpunkt. Upprepa det här steget för varje Data Box-filresurs. Granska den [distribuera Azure File Sync](storage-sync-files-deployment-guide.md) guide och följ anvisningarna för att ställa in Azure File Sync. |
-| ![Processen steg 5](media/storage-sync-files-offline-data-transfer/bullet_5.png) | [Lägg till ditt live serverkatalogen som en serverslutpunkt](storage-sync-files-deployment-guide.md#create-a-server-endpoint). Ange i processen för att du redan flyttade filer till Azure och referera till mellanlagrings-resurser. Det är att aktivera eller inaktivera molnlagringsnivåer efter behov. När du skapar en serverslutpunkt på live-servern, måste du referera till mellanlagring resursen. Aktivera ”Offline för överföring av Data” (se bilden nedan) i bladet för nya server-slutpunkt och referera till den tillfälliga resurs som måste finnas i samma lagringskonto som molnslutpunkten. Listan över tillgängliga resurser filtreras efter storage-konto och resurser som inte redan synkroniseras. |
+| ![Steg 1](media/storage-sync-files-offline-data-transfer/bullet_1.png) | [Beställa Data Box](../../databox/data-box-deploy-ordered.md). Data Box family erbjudanden [flera produkter](https://azure.microsoft.com/services/storage/databox/data) som uppfyller dina behov. När du får din Data box-enhet kan du följa dess [dokumentationen för att kopiera dina data](../../databox/data-box-deploy-copy-data.md#copy-data-to-data-box) till UNC-sökvägen på Data Box: *\\<DeviceIPAddres>\<StorageAccountName_AzFile>\<ShareName>*. Här kan *ShareName* är namnet på den tillfälliga resursen. Skicka Data Box tillbaka till Azure. |
+| ![Steg 2](media/storage-sync-files-offline-data-transfer/bullet_2.png) | Vänta tills filerna som visas i Azure-filresurser som du har valt som tillfällig mellanlagring resurser. *Aktivera inte synkroniseras till dessa resurser.* |
+| ![Steg 3](media/storage-sync-files-offline-data-transfer/bullet_3.png) | Skapa en ny tom resurs för varje resurs som Data Box har skapat för dig. Den här nya resursen måste vara i samma lagringskonto som Data Box-resursen. [Så här skapar du en ny Azure-filresurs](storage-how-to-create-file-share.md). |
+| ![Steg 4](media/storage-sync-files-offline-data-transfer/bullet_4.png) | [Skapa en synkroniseringsgrupp](storage-sync-files-deployment-guide.md#create-a-sync-group-and-a-cloud-endpoint) i en lagringssynkroniseringstjänst. Referens till tom resursen som en molnslutpunkt. Upprepa det här steget för varje Data Box-filresurs. [Konfigurera Azure File Sync](storage-sync-files-deployment-guide.md). |
+| ![Steg 5](media/storage-sync-files-offline-data-transfer/bullet_5.png) | [Lägg till ditt live serverkatalogen som en serverslutpunkt](storage-sync-files-deployment-guide.md#create-a-server-endpoint). Ange att du flyttar filerna till Azure i processen och referera till mellanlagrings-resurser. Du kan aktivera eller inaktivera molnlagringsnivåer efter behov. När du skapar en serverslutpunkt på live-servern måste referera till mellanlagring resursen. På den **Lägg till serverslutpunkt** bladet under **Offline dataöverföring**väljer **aktiverad**, och välj sedan den tillfälliga resurs som måste finnas i samma lagringskonto som molnet slutpunkt. Här kan filtreras listan över tillgängliga resurser efter storage-konto och resurser som redan inte är synkroniseras. |
 
-![Visualisera dina Azure portal användargränssnittet för att aktivera Offline för överföring av Data när du skapar en ny serverslutpunkt.](media/storage-sync-files-offline-data-transfer/data-box-integration-2-600.png)
+![Skärmbild av Azure portal användargränssnittet, som visar hur för överföring av data offline när du skapar en ny serverslutpunkt](media/storage-sync-files-offline-data-transfer/data-box-integration-2-600.png)
 
 ## <a name="syncing-the-share"></a>Synkronisera resursen
-När du har skapat din serverslutpunkt, påbörjas synkronisering. För varje fil som finns på servern, avgör synkronisera om den här filen finns även i mellanlagring resursen där Data Box deponerats filerna och om så synkronisering kommer att kopiera filen från mellanlagring resursen i stället för att ladda upp den från servern. Om filen finns inte på den tillfälliga resursen eller en nyare version är tillgänglig på den lokala servern, sedan synkronisering kommer att överföra filen från den lokala servern.
+När du har skapat din serverslutpunkt startar synkroniseringen. Synkroniseringen avgör om varje fil på servern också finns i tillfälliga resursen där Data Box deponerats filerna. Om filen finns det, kopieras filen från mellanlagring resursen i stället för att ladda upp den från servern i synkroniseringen. Om filen finns inte i tillfälliga resursen eller om det finns en nyare version på den lokala servern synkroniseringen Överför fil från den lokala servern.
 
 > [!IMPORTANT]
-> Du kan bara aktivera massinfogning migrering läge under genereringen av en serverslutpunkt. När en serverslutpunkt har upprättats, det finns för närvarande inget sätt att integrera bulk migrerat data från en redan synkroniserar server till namnområdet.
+> Du kan aktivera bulk migrering läget endast när du skapar en serverslutpunkt. När du har skapat en serverslutpunkt kan du integrera bulk-migrerade data från en redan synkroniserar server i namnområdet.
 
 ## <a name="acls-and-timestamps-on-files-and-folders"></a>ACL: er och tidsstämplar för filer och mappar
-Azure File Sync säkerställer att fil- och ACL: er har synkroniserats från live-servern även om Migreringsverktyget för massinläsning som användes för inte transporterar ACL: er från början. Det innebär att det är OK för mellanlagring resursen som inte innehåller några ACL: er för filer och mappar. När du aktiverar funktionen offlinedata migrering när du skapar en ny serverslutpunkt kan kommer ACL: er att synkroniseras vid den tiden för alla filer på servern. Detsamma gäller för skapa - och ändrade-tidsstämplar.
+Azure File Sync ser till att fil- och ACL: er har synkroniserats från live-servern även om Migreringsverktyget samtidigt som du använde inte inledningsvis transport ACL: er. Därför behöver inte tillfälliga resursen som innehåller alla ACL: er för filer och mappar. När du aktiverar funktionen offlinedata migrering när du skapar en ny serverslutpunkt, synkroniseras alla ACL på servern. Nyligen skapade och ändrade tidsstämplar synkroniseras också.
 
 ## <a name="shape-of-the-namespace"></a>Formen på namnområdet
-Formen på namnområdet som bestäms av vad som finns på servern när synkronisering har aktiverats. Om filer tas bort på den lokala servern efter Data Box ”-ögonblicksbild” och - migrering och de här filerna inte anslutas till live, synkroniserar namnområdet. De kan fortfarande i tillfälliga resursen men aldrig kopieras. Det är önskat beteende som synkronisering håller namnområdet enligt live servern. Data Box ”ögonblicksbild” är en mellanlagrings grunden för effektiv filkopiering och inte utfärdaren av formen för live-namnområdet.
+När du aktiverar synkroniseringen avgör serverns innehållet formen på namnområdet. Om filer tas bort från den lokala servern när Data Box ögonblicksbild och migreringen är klar, flytta inte filerna i live, synkroniserar namnrymd. De förblir i tillfälliga resursen, men de kopieras inte. Detta är nödvändigt eftersom synkroniseringen håller namnområdet enligt live servern. Data Box *ögonblicksbild* är en mellanlagrings grunden för effektiv filkopiering. Det är inte utfärdaren av formen för live-namnområdet.
 
-## <a name="finishing-bulk-migration-and-clean-up"></a>Slutföra bulk-migrering och rensa
-Skärmbilden nedan visar egenskapsbladet för server-slutpunkt i Azure-portalen. Du kan se statusen för processen under offline för överföring av Data. Den visas antingen ”pågår” eller ”slutfört”.
+## <a name="cleaning-up-after-bulk-migration"></a>Rensa upp efter bulk-migrering 
+Som servern är klar dess den första synkroniseringen av namnområdet, Använd Data Box bulk-migrerade filer mellanlagrings-filresursen. På den **egenskaper för Serverslutpunkter** bladet i Azure-portalen i den **Offline dataöverföring** avsnittet status ändras från **pågår** till **slutförd** . 
 
-När servern är klar dess den första synkroniseringen av hela namnområdet det kommer är klar med att använda den tillfälliga filen filresursen med Data Box-grupp migrerade filer. Observera i egenskaperna för slutpunkten för överföring av data offline som status ändras till ”Slutför”. Du kan rensa upp mellanlagring resursen kan minska kostnaderna för tillfället:
+![Skärmbild av bladet egenskaper för Serverslutpunkter där status och inaktivera kontroller för offline-dataöverföring finns](media/storage-sync-files-offline-data-transfer/data-box-integration-3-444.png)
 
-1. Tryck på ”inaktivera offline dataöverföring” i egenskaperna för server-slutpunkt när status är ”slutfört”.
-2. Överväg att ta bort tillfälliga resursen för att minska kostnaderna. Mellanlagringsplatser resursen är sannolikt inte kommer att innehålla filer och mappar ACL: er och är därför begränsad användbarhet. För ”peka i tiden” säkerhetskopiering, i stället skapa ett reellt [ögonblicksbild av synkroniserar Azure-filresursen](storage-snapshots-files.md). Du kan [aktivera Azure Backup för att ta ögonblicksbilder]( ../../backup/backup-azure-files.md) enligt ett schema.
+Du kan nu Rensa mellanlagring resursen att sänka kostnaderna:
 
-![Visualisera dina Azure portal användargränssnittet för egenskaper för serverslutpunkter där status och inaktivera kontrollerna för Offline för överföring av Data finns.](media/storage-sync-files-offline-data-transfer/data-box-integration-3-444.png)
+1. På den **egenskaper för Serverslutpunkter** bladet när status är **slutförd**väljer **inaktivera offline dataöverföring**.
+2. Överväg att ta bort tillfälliga resursen för att spara kostnader. Mellanlagringsplatser resursen innehåller förmodligen inte filer och mappar ACL: er, så att det inte är mycket användbart. För point-in-time-säkerhetskopiering, skapa en verklig [ögonblicksbild av synkroniserar Azure-filresursen](storage-snapshots-files.md). Du kan [konfigurera Azure Backup för att ta ögonblicksbilder]( ../../backup/backup-azure-files.md) enligt ett schema.
 
-Du bör bara inaktivera det här läget när tillståndet är ”slutfört” eller du verkligen vill avbryta pga en felkonfiguration. Om du inaktiverar läge förtid en distribution av legitima börjar filer ladda upp från servern, även om din tillfälliga filresurs är fortfarande tillgänglig.
+Inaktivera överföringsläge offlinedata bara när tillståndet är **slutförd** eller när du vill avbryta på grund av en felaktig konfiguration. Om du inaktiverar läge under en distribution, startar filer att ladda upp från servern, även om din tillfälliga filresurs är fortfarande tillgänglig.
 
 > [!IMPORTANT]
-> När du har inaktiverat offline dataöverföring går det inte att aktivera den igen, även om mellanlagring resursen från bulk migreringen fortfarande är tillgänglig.
+> När du har inaktiverat överföringsläge data offline, kan inte du aktivera den igen, även om mellanlagring resursen från bulk migreringen fortfarande är tillgänglig.
 
 ## <a name="next-steps"></a>Nästa steg
 - [Planera för distribution av Azure File Sync](storage-sync-files-planning.md)

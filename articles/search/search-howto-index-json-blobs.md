@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: acbd3c9ed55556ac792c3a98e6dbc1e4f7455fe1
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: d70ad65f5bbc4424b4224cf601d903ad7ec10691
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57311312"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57405121"
 ---
 # <a name="how-to-index-json-blobs-using-azure-search-blob-indexer"></a>Indexera JSON-blobar med Azure Search Blob-indexeraren
 Den här artikeln visar hur du konfigurerar en Azure Search-blob [indexeraren](search-indexer-overview.md) att extrahera strukturerat innehåll från JSON-dokument i Azure Blob storage och gör det sökbara i Azure Search. Det här arbetsflödet skapar ett Azure Search-index och läser in den med befintliga text som extraherats från JSON-blobar. 
@@ -288,7 +288,7 @@ Skapa indexeraren för Azure Search utlöser dataimporten. Den körs direkt och 
 
 <a name="parsing-modes"></a>
 
-### <a name="parsing-modes"></a>Parsningslägen
+## <a name="parsing-modes"></a>Parsningslägen
 
 JSON-blobar kan anta att flera formulär. Den **parsingMode** parametern på JSON-indexeraren avgör hur JSON-blobinnehåll parsas och strukturerade i ett Azure Search-index:
 

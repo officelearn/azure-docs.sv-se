@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 02/13/2019
 ms.author: aahi
-ms.openlocfilehash: 135b684c67776da7d722074abe185b5ed2a860fa
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 5e614d7fc1b45e5a1e1c11d04ed80fbb66bfbd28
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56889417"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57441618"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics-preview"></a>Hur du använder med namnet Entitetsidentifiering i Text Analytics (förhandsversion)
 
@@ -23,7 +23,7 @@ Den [entitet-API: T](https://westus.dev.cognitive.microsoft.com/docs/services/Te
 
 ## <a name="entity-linking-and-named-entity-recognition"></a>Entitetslänkning och igenkänning av namngivna entiteter
 
-Text Analytics `entities` endpoint supprts både med namnet entitetsidentifiering (NER) och entitetslänkning.
+Text Analytics `entities` slutpunkt stöder både namngivna entitetsidentifiering (NER) och för entitetslänkning.
 
 ### <a name="entity-linking"></a>Entity Linking
 Entitetslänkning är möjligheten att identifiera och disambiguate identiteten för en entitet som påträffats i texten (till exempel bestämma om ”Mars” används som arrangemang eller latinska krigsguden). Den här processen kräver förekomsten av en knowledge base som känns igen entiteter är länkade – Wikipedia används som kunskapsbas för den `entities` endpoint textanalys.

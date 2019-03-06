@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/15/2019
 ms.author: tomfitz
-ms.openlocfilehash: a5c08536614476de38c7bfde524a12163162bed4
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: f6ebeb1d9953311ad1cb85d8ab33c83d5e92d687
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56339271"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57405529"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Felsöka vanliga Azure-distributionsfel med Azure Resource Manager
 
@@ -37,7 +37,7 @@ Den här artikeln beskriver några vanliga Azure-distribution-fel och innehålle
 | AllocationFailed | Det kluster eller en region har resurser som är tillgängliga eller har inte stöd för den begärda VM-storleken. Gör om begäran vid ett senare tillfälle eller be en annan VM-storlek. | [Problem med etablering och allokering för Linux](../virtual-machines/linux/troubleshoot-deployment-new-vm.md), [problem med etablering och allokering för Windows](../virtual-machines/windows/troubleshoot-deployment-new-vm.md) och [Felsök Allokeringsfel](../virtual-machines/troubleshooting/allocation-failure.md)|
 | AnotherOperationInProgress | Vänta tills samtidiga åtgärden har slutförts. | |
 | AuthorizationFailed | Ditt konto eller tjänstens huvudnamn har inte behörighet att slutföra distributionen. Kontrollera ditt konto tillhör rollen och dess åtkomst för distributionsomfattningen.<br><br>Du kan se det här felet när en nödvändig resurs-providern inte är registrerad. | [Rollbaserad åtkomstkontroll i Azure](../role-based-access-control/role-assignments-portal.md)<br><br>[Lösa registrering](resource-manager-register-provider-errors.md) |
-| BadRequest | Du har skickat distribution värden som inte matchar vad som förväntas av Resource Manager. Kontrollera det inre statusmeddelanden för att få hjälp med felsökning. | [Mallreferensen](/azure/templates/) och [platser som stöds](resource-manager-templates-resources.md#location) |
+| BadRequest | Du har skickat distribution värden som inte matchar vad som förväntas av Resource Manager. Kontrollera det inre statusmeddelanden för att få hjälp med felsökning. | [Mallreferensen](/azure/templates/) och [platser som stöds](resource-group-authoring-templates.md#resource-location) |
 | Konflikt | Du ska få en åtgärd som inte är tillåtet i resursens aktuella tillstånd. Till exempel tillåts ändra storlek på disken endast när du skapar en virtuell dator eller när Virtuellt datorn frigörs. | |
 | DeploymentActive | Vänta tills samtidig distribuering till den här resursgruppen ska slutföras. | |
 | DeploymentFailed | DeploymentFailed-felet är ett allmänt fel som inte ger de information du behöver för att lösa felet. Titta i felinformationen för en felkod som innehåller mer information. | [Hitta felkoden](#find-error-code) |
@@ -58,7 +58,7 @@ Den här artikeln beskriver några vanliga Azure-distribution-fel och innehålle
 | InvalidTemplateCircularDependency | Ta bort onödiga beroenden. | [Lösa cirkulärt tjänstberoende](resource-manager-invalid-template-errors.md#circular-dependency) |
 | LinkedAuthorizationFailed | Kontrollera om ditt konto tillhör samma klientorganisation som du distribuerar till resursgruppen. | |
 | LinkedInvalidPropertyId | Resurs-ID för en resurs är inte korrekt lösning. Kontrollera att du ger alla nödvändiga värden för resurs-ID, inklusive prenumerations-ID, resursgruppens namn, resurstyp, överordnade resursnamnet (vid behov) och resursnamn. | |
-| LocationRequired | Ange en plats för din resurs. | [Ange en plats](resource-manager-templates-resources.md#location) |
+| LocationRequired | Ange en plats för din resurs. | [Ange en plats](resource-group-authoring-templates.md#resource-location) |
 | MismatchingResourceSegments | Se till att kapslad resurs har rätt antal segment i namn och typ. | [Lösa resource segment](resource-manager-invalid-template-errors.md#incorrect-segment-lengths)
 | MissingRegistrationForLocation | Kontrollera status för resursleverantör registrering och platser som stöds. | [Lösa registrering](resource-manager-register-provider-errors.md) |
 | MissingSubscriptionRegistration | Registrera din prenumeration med resursprovidern. | [Lösa registrering](resource-manager-register-provider-errors.md) |

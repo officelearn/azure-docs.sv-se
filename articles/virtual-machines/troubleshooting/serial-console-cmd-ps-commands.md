@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: 6eb0ce9098b5cc5f66035851c6837e9e46fcf2df
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 69aecf3d107000408f98f8ae53968355943c2881
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47414884"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57440819"
 ---
 # <a name="windows-commands---cmd-and-powershell"></a>Windows-kommandon - CMD och PowerShell
 
@@ -118,7 +118,7 @@ När begränsad till metoder som är tillgängliga i Windows som standard kan Po
 ### <a name="disable-windows-firewall"></a>Inaktivera Windows-brandväggen
 `netsh advfirewall set allprofiles state off`
 
-Du kan använda det här kommandot när du felsöker att tillfälligt utesluta Windows-brandväggen. Det kommer att aktivera vid nästa omstart eller när du enaable den med hjälp av kommandot nedan. Inte stoppa tjänsten Windows-brandväggen (MPSSVC) eller Base Basfiltreringsmodulen (BFE) tjänsten som sätt att utesluta Windows-brandväggen. Stoppa MPSSVC eller BFE resulterar i alla anslutningar som blockeras.
+Du kan använda det här kommandot när du felsöker att tillfälligt utesluta Windows-brandväggen. Det kommer att aktivera vid nästa omstart eller när du aktiverar den med hjälp av kommandot nedan. Inte stoppa tjänsten Windows-brandväggen (MPSSVC) eller Base Basfiltreringsmodulen (BFE) tjänsten som sätt att utesluta Windows-brandväggen. Stoppa MPSSVC eller BFE resulterar i alla anslutningar som blockeras.
 ### <a name="enable-windows-firewall"></a>Aktivera Windows-brandväggen
 `netsh advfirewall set allprofiles state on`
 ## <a name="manage-users-and-groups"></a>Hantera användare och grupper

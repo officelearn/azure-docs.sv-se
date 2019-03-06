@@ -9,12 +9,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 02/06/2019
 ms.author: aschhab
-ms.openlocfilehash: aaa8615c0358b89c02aad8241262320771e426a8
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: ea5f0e1ad6af6f301b684337941c7d9bce8590c1
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55818081"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57444488"
 ---
 # <a name="partitioned-queues-and-topics"></a>Partitionerade köer och ämnen
 
@@ -27,9 +27,9 @@ Det går inte att ändra alternativet partitionering på en befintlig kö eller 
 
 ## <a name="how-it-works"></a>Hur det fungerar
 
-Varje partitionerad kö eller ämne består av flera fragment. Varje fragment lagras i en annan meddelandearkiv och hanteras av en annan asynkron meddelandekö. När ett meddelande skickas till en partitionerad kö eller ett ämne tilldelar Service Bus meddelandet till en av fragment. Valet görs slumpmässigt av Service Bus eller genom att använda en partitionsnyckel som avsändaren kan ange.
+Varje partitionerad kö eller ämne består av flera partitioner. Varje partition lagras i en annan meddelandearkiv och hanteras av en annan asynkron meddelandekö. När ett meddelande skickas till en partitionerad kö eller ett ämne tilldelar Service Bus meddelandet till någon av partitionerna. Valet görs slumpmässigt av Service Bus eller genom att använda en partitionsnyckel som avsändaren kan ange.
 
-När en klient vill få ett meddelande från en partitionerad kö eller från en prenumeration på en partitionerad ämne, Service Bus frågor alla fragment för meddelanden, returnerar du det första meddelandet som erhålls från någon av meddelandearkiven på mottagaren. Den andra meddelanden och returnerar dem när den får ytterligare Service Bus-cacheminnen ta emot begäranden. En mottagande klienten är inte medveten om partitionering; klientinriktade beteendet för en partitionerad kö eller ett ämne (till exempel läsa, Slutför, skjuta upp systemkön, förhämtar,) är identiska i beteendet hos en vanlig entitet.
+När en klient vill få ett meddelande från en partitionerad kö eller från en prenumeration på en partitionerad ämne, Service Bus frågor alla partitioner för meddelanden, returnerar du det första meddelandet som erhålls från någon av meddelandearkiven på mottagaren. Den andra meddelanden och returnerar dem när den får ytterligare Service Bus-cacheminnen ta emot begäranden. En mottagande klienten är inte medveten om partitionering; klientinriktade beteendet för en partitionerad kö eller ett ämne (till exempel läsa, Slutför, skjuta upp systemkön, förhämtar,) är identiska i beteendet hos en vanlig entitet.
 
 Det finns ingen extra kostnad när de skickar ett meddelande till eller ta emot ett meddelande från en partitionerad kö eller ett ämne.
 
@@ -43,7 +43,7 @@ I Standard messaging-nivån kan skapa du Service Bus-köer och ämnen i 1, 2, 3,
 
 ### <a name="premium"></a>Premium
 
-I ett namnområde för Premium-nivån stöds partitionering entiteter inte. Du kan dock fortfarande skapa Service Bus-köer och ämnen i 1, 2, 3, 4, 5, 10, 20, 40 eller 80 GB storlekar (standardvärdet är 1 GB). Du kan se storleken på din kö eller ett ämne genom att titta på posten den [Azure-portalen][Azure portal]i den **översikt** bladet för denna entitet.
+I ett namnområde för Premium-nivån stöds inte partitionering entiteter. Du kan dock fortfarande skapa Service Bus-köer och ämnen i 1, 2, 3, 4, 5, 10, 20, 40 eller 80 GB storlekar (standardvärdet är 1 GB). Du kan se storleken på din kö eller ett ämne genom att titta på posten den [Azure-portalen][Azure portal]i den **översikt** bladet för denna entitet.
 
 ### <a name="create-a-partitioned-entity"></a>Skapa en partitionerad entitet
 
@@ -61,11 +61,11 @@ Du kan också skapa en partitionerad kö eller ett ämne i den [Azure-portalen][
 
 ## <a name="use-of-partition-keys"></a>Användning av partitionsnycklar
 
-När ett meddelande i kön till en partitionerad kö eller ett ämne, kontrollerar Service Bus förekomsten av en partitionsnyckel. Om den hittar en väljs fragment som baseras på nyckeln. Om den inte hittar en partitionsnyckel, väljs fragment baserat på en intern algoritm.
+När ett meddelande i kön till en partitionerad kö eller ett ämne, kontrollerar Service Bus förekomsten av en partitionsnyckel. Om den hittar en väljs partitionen baserat på nyckeln. Om den inte hittar en partitionsnyckel, väljs den partition som baseras på en intern algoritm.
 
 ### <a name="using-a-partition-key"></a>Med hjälp av en partitionsnyckel
 
-Vissa scenarier, till exempel sessioner eller transaktioner, behöver meddelanden som ska lagras i en specifik fragment. De här scenarierna kräver användning av en partitionsnyckel. Alla meddelanden som använder samma partitionsnyckel tilldelas till samma fragment. Om fragmentet är tillfälligt otillgänglig kan returneras Service Bus ett fel.
+Vissa scenarier, till exempel sessioner eller transaktioner, behöver meddelanden som ska lagras i en specifik partition. De här scenarierna kräver användning av en partitionsnyckel. Alla meddelanden som använder samma partitionsnyckel tilldelas till samma partition. Om partitionen är inte tillgänglig för tillfället, returneras ett fel i Service Bus.
 
 Beroende på scenario används olika meddelandeegenskaper som en partitionsnyckel:
 
@@ -77,13 +77,13 @@ Beroende på scenario används olika meddelandeegenskaper som en partitionsnycke
 
 ### <a name="not-using-a-partition-key"></a>Inte använder en partitionsnyckel
 
-Om en partitionsnyckel distribuerar Service Bus meddelanden i en resursallokering till alla delar av partitionerad kö eller ämne. Om det valda fragmentet inte är tillgänglig, tilldelar Service Bus meddelandet till en annan fragment. På så sätt kan skicka åtgärden lyckas trots meddelandelagring är tillfälligt otillgänglig. Du kommer dock inte uppnå garanterad sorteringen som tillhandahåller en partitionsnyckel.
+Om en partitionsnyckel distribuerar Service Bus meddelanden i en resursallokering till alla partitioner i partitionerad kö eller ämne. Om den valda partitionen inte är tillgänglig, tilldelar Service Bus meddelandet till en annan partition. På så sätt kan skicka åtgärden lyckas trots meddelandelagring är tillfälligt otillgänglig. Du kommer dock inte uppnå garanterad sorteringen som tillhandahåller en partitionsnyckel.
 
 En mer detaljerad beskrivning av förhållandet mellan tillgänglighet (inga partitionsnyckel) och konsekvens (med en partitionsnyckel) finns i [i den här artikeln](../event-hubs/event-hubs-availability-and-consistency.md). Den här informationen gäller lika partitionerade Service Bus-enheter.
 
-För att ge Service Bus finns tillräckligt med tid för att sätta meddelandet i en annan fragment i [OperationTimeout](/dotnet/api/microsoft.azure.servicebus.queueclient.operationtimeout) värdet som angetts för den klient som skickar meddelandet måste vara större än 15 sekunder. Vi rekommenderar att du ställer in den [OperationTimeout](/dotnet/api/microsoft.azure.servicebus.queueclient.operationtimeout) egenskapen till standardvärdet på 60 sekunder.
+För att ge Service Bus finns tillräckligt med tid för att sätta meddelandet i en annan partition, den [OperationTimeout](/dotnet/api/microsoft.azure.servicebus.queueclient.operationtimeout) värdet som angetts för den klient som skickar meddelandet måste vara större än 15 sekunder. Vi rekommenderar att du ställer in den [OperationTimeout](/dotnet/api/microsoft.azure.servicebus.queueclient.operationtimeout) egenskapen till standardvärdet på 60 sekunder.
 
-En partitionsnyckel ”PIN-koder”, ett meddelande till en specifik fragment. Om meddelandearkivet som innehåller det här fragmentet som är tillgänglig, returneras ett fel i Service Bus. Om en partitionsnyckel, Service Bus kan välja ett annat fragment och åtgärden lyckas. Vi rekommenderar därför att du inte anger en partitionsnyckel om det inte krävs.
+En partitionsnyckel ”PIN-koder”, ett meddelande till en specifik partition. Om meddelandearkivet som innehåller den här partitionen är tillgänglig, returneras ett fel i Service Bus. Om en partitionsnyckel, Service Bus kan välja en annan partition och åtgärden lyckas. Vi rekommenderar därför att du inte anger en partitionsnyckel om det inte krävs.
 
 ## <a name="advanced-topics-use-transactions-with-partitioned-entities"></a>Avancerade ämnen: använda transaktioner med partitionerade enheter
 
@@ -101,7 +101,7 @@ using (TransactionScope ts = new TransactionScope(committableTransaction))
 committableTransaction.Commit();
 ```
 
-Om någon av de egenskaper som fungerar som en partitionsnyckel ställs in, låser Service Bus meddelandet till en specifik fragment. Detta beror på om huruvida en transaktion används. Vi rekommenderar att du inte anger en partitionsnyckel om det inte är nödvändigt.
+Om någon av de egenskaper som fungerar som en partitionsnyckel ställs in, låser Service Bus meddelandet till en specifik partition. Detta beror på om huruvida en transaktion används. Vi rekommenderar att du inte anger en partitionsnyckel om det inte är nödvändigt.
 
 ## <a name="using-sessions-with-partitioned-entities"></a>Med sessioner med partitionerade enheter
 
@@ -126,9 +126,9 @@ committableTransaction.Commit();
 Service Bus stöder automatisk meddelande vidarebefordran från, till eller mellan partitionerade enheter. Om du vill aktivera automatisk vidarebefordring, ange den [QueueDescription.ForwardTo] [ QueueDescription.ForwardTo] egenskapen källkön eller prenumeration. Om meddelandet anger en partitionsnyckel ([SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid), [PartitionKey](/dotnet/api/microsoft.azure.servicebus.message.partitionkey), eller [MessageId](/dotnet/api/microsoft.azure.servicebus.message.messageid)), som partitionsnyckel används för målentitet.
 
 ## <a name="considerations-and-guidelines"></a>Överväganden och riktlinjer
-* **Hög konsekvens funktioner**: Om en entitet använder funktioner som sessioner, identifiering av dubbletter eller explicit kontroll över Partitioneringsnyckel, sedan dirigeras meddelandeåtgärder alltid till specifika fragment. Om någon av fragment har hög belastning eller det underliggande arkivet är i feltillstånd, dessa åtgärder misslyckas och tillgänglighet minskar. Övergripande är konsekvens fortfarande mycket högre än partitionerade enheter. endast en delmängd av trafiken upplever problem, till skillnad från all trafik. Mer information finns i den här [beskrivning av tillgänglighet och konsekvens](../event-hubs/event-hubs-availability-and-consistency.md).
-* **Hantering av**: Åtgärder som att skapa, uppdatera och ta bort måste utföras på alla fragment för entiteten. Om alla fragment är i feltillstånd, kan det resultera i fel för dessa åtgärder. För Get-åtgärden måste information som meddelandet som aggregeras från alla fragment. Om alla fragment är i feltillstånd, har Tillgänglighetsstatus för entiteten rapporterats som begränsad.
-* **Låg volym meddelande scenarier**: I sådana scenarier, särskilt när de använder HTTP-protokollet, kan du behöva utföra flera ta emot för att hämta alla meddelanden. Ta emot förfrågningar klientdelen utför mottagning på alla fragment och cachelagrar alla svar som tagits emot. En efterföljande receive-begäran på samma anslutning kan dra nytta av den här cachelagring och ta emot svarstiderna blir lägre. Men om du har flera anslutningar eller använda HTTP upprättar som en ny anslutning för varje begäran. Det finns därför ingen garanti för att den skulle hamna på samma nod. Om alla befintliga meddelanden är låst och cachelagras i en annan klientdel, Mottagningsåtgärden returnerar **null**. Meddelanden förfaller så småningom och du kan få dem igen. HTTP keep-alive rekommenderas.
+* **Hög konsekvens funktioner**: Om en entitet använder funktioner som sessioner, identifiering av dubbletter eller explicit kontroll över Partitioneringsnyckel, sedan dirigeras meddelandeåtgärder alltid till specifik partition. Om någon av partitionerna har hög belastning eller det underliggande arkivet är i feltillstånd, dessa åtgärder misslyckas och tillgänglighet minskar. Övergripande är konsekvens fortfarande mycket högre än partitionerade enheter. endast en delmängd av trafiken upplever problem, till skillnad från all trafik. Mer information finns i den här [beskrivning av tillgänglighet och konsekvens](../event-hubs/event-hubs-availability-and-consistency.md).
+* **Hantering av**: Åtgärder som att skapa, uppdatera och ta bort måste utföras på alla partitioner i entiteten. Om en partition är skadad, kan det resultera i fel för dessa åtgärder. För Get-åtgärden måste information som meddelandet som aggregeras från alla partitioner. Om en partition är felaktiga, har Tillgänglighetsstatus för entiteten rapporterats som begränsad.
+* **Låg volym meddelande scenarier**: I sådana scenarier, särskilt när de använder HTTP-protokollet, kan du behöva utföra flera ta emot för att hämta alla meddelanden. Ta emot förfrågningar klientdelen utför mottagning på alla partitioner och cachelagrar alla svar som tagits emot. En efterföljande receive-begäran på samma anslutning kan dra nytta av den här cachelagring och ta emot svarstiderna blir lägre. Men om du har flera anslutningar eller använda HTTP upprättar som en ny anslutning för varje begäran. Det finns därför ingen garanti för att den skulle hamna på samma nod. Om alla befintliga meddelanden är låst och cachelagras i en annan klientdel, Mottagningsåtgärden returnerar **null**. Meddelanden förfaller så småningom och du kan få dem igen. HTTP keep-alive rekommenderas.
 * **Bläddra/Peek meddelanden**: Endast tillgänglig i den äldre [WindowsAzure.ServiceBus](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) biblioteket. [PeekBatch](/dotnet/api/microsoft.servicebus.messaging.queueclient.peekbatch) inte alltid returnerar antalet meddelanden som anges i den [MessageCount](/dotnet/api/microsoft.servicebus.messaging.queuedescription.messagecount) egenskapen. Det finns två vanliga orsaker till problemet. En orsak är att mängden meddelanden aggregerade storlek överskrider den maximala storleken på 256 KB. En annan orsak är att om kön eller ämnet har den [EnablePartitioning egenskapen](/dotnet/api/microsoft.servicebus.messaging.queuedescription.enablepartitioning) inställd **SANT**, en partition kanske inte har tillräckligt med meddelanden för att slutföra det begärda antalet meddelanden. I allmänhet om ett program vill få ett visst antal meddelanden, det bör anropa [PeekBatch](/dotnet/api/microsoft.servicebus.messaging.queueclient.peekbatch) upprepade gånger tills det blir det antalet meddelanden eller så finns det inga fler meddelanden att granska. Mer information, inklusive exempel, finns det [QueueClient.PeekBatch](/dotnet/api/microsoft.servicebus.messaging.queueclient.peekbatch) eller [SubscriptionClient.PeekBatch](/dotnet/api/microsoft.servicebus.messaging.subscriptionclient.peekbatch) API-dokumentationen.
 
 ## <a name="latest-added-features"></a>Senaste tillagda funktioner

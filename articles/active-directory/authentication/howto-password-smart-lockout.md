@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e44b6a8232bcd0bc72c4faa0f7116d42cec79111
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 67f2af94f32d5439585ad4d727fd2b1bd80fc41b
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56172424"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57431713"
 ---
 # <a name="azure-active-directory-smart-lockout"></a>Azure Active Directory smart kontoutelåsning
 
@@ -72,9 +72,9 @@ För att kontrollera eller ändra smart kontoutelåsning värdena för din organ
 
 ![Anpassa Azure AD-princip i Azure-portalen för smart kontoutelåsning](./media/howto-password-smart-lockout/azure-active-directory-custom-smart-lockout-policy.png)
 
-## <a name="how-to-determine-if-the-smartlockout-feature-is-working-or-not"></a>Så här kontrollerar du om funktionen Smartlockout fungerar eller inte
+## <a name="how-to-determine-if-the-smart-lockout-feature-is-working-or-not"></a>Så här kontrollerar du om funktionen Smart kontoutelåsning fungerar eller inte
 
-När tröskelvärdet smartlockout utlöses får du följande meddelande när kontot är låst:
+När smart utelåsningströskeln utlöses får du följande meddelande när kontot är låst:
 
 **Ditt konto har låsts temporärt för att förhindra obehörig användning. Försök igen senare och kontakta administratören om du fortfarande har problem**
 

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: pbutlerm
-ms.openlocfilehash: f13d49fde7f0e40f6dcb026fcb20cb11c028c64b
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: fd51a9f70d60219a9429ff66d6f1d404391f6fb0
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56100904"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57446717"
 ---
 # <a name="azure-and-appsource-marketplace-offers"></a>Azure och AppSource Marketplace-erbjudanden
 
@@ -41,7 +41,7 @@ Processen för att skapa ett nytt erbjudande skiljer sig avsevärt mellan olika 
 
 ## <a name="test-drive"></a>Test Drive
 
-*Testkör* är en marketplace-funktion som ger kunderna ett ”testa innan du köper” demonstration alternativ för varje erbjudande möjlighet.  Test Drive-funktionen är begränsad till följande delmängden av typer av erbjudanden: [Azure-program](./azure-applications/cpp-azure-app-offer.md), [Dynamics 365 Business Central](../cloud-partner-portal-orig/cpp-business-central-offer.md), [Dynamics 365 för kundengagemang](./dyn365ce/cpp-customer-engagement-offer.md), [Dynamics 365 för Finance and Operations](../cloud-partner-portal-orig/cpp-dynamics-365-operations-offer.md), [ SaaS-program](./saas-app/cpp-saas-offer.md), och [virtuella datorer](./virtual-machine/cpp-virtual-machine-offer.md).  Den här funktionen kräver utgivaren för att skapa en Test Drive-mall som är anpassad efter dess erbjudandet.  Mer information finns i avsnittet [Test Drive](../cloud-partner-portal-orig/what-is-test-drive.md).
+*Testkör* är en marketplace-funktion som ger kunderna ett ”testa innan du köper” demonstration alternativ för varje erbjudande möjlighet.  Test Drive-funktionen är begränsad till följande delmängden av typer av erbjudanden: [Azure-program](./azure-applications/cpp-azure-app-offer.md), [Dynamics 365 Business Central](../cloud-partner-portal-orig/cpp-business-central-offer.md), [Dynamics 365 för kundengagemang](./dyn365ce/cpp-customer-engagement-offer.md), [Dynamics 365 för Finance and Operations](../cloud-partner-portal-orig/cpp-dynamics-365-operations-offer.md), [ SaaS-program](./saas-app/cpp-saas-offer.md), och [virtuella datorer](./virtual-machine/cpp-virtual-machine-offer.md).  Den här funktionen kräver utgivaren för att skapa en Test Drive-mall som är anpassad efter dess erbjudandet.  Mer information finns i avsnittet [Test Drive](./test-drive/what-is-test-drive.md).
 
 Du kan bläddra i marketplace-erbjudanden som har Test Drive demonstrationer genom att använda den [test drive filter](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?filters=test-drive). 
 

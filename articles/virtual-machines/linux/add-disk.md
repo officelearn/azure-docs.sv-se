@@ -16,12 +16,12 @@ ms.date: 06/13/2018
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
 ms.subservice: disks
-ms.openlocfilehash: 453cb838792ff5e80b0dbbe8e90f96792f9c5484
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 81805188c72bce6a7ea89496c8036743b29e9075
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56890138"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57452767"
 ---
 # <a name="add-a-disk-to-a-linux-vm"></a>Lägg till en disk till en virtuell Linux-dator
 Den här artikeln visar hur du kopplar en permanent disk till den virtuella datorn så att du kan behålla dina data, även om den virtuella datorn är nätverkskonfigurationsinställningar på grund av underhåll eller ändra storlek på.
@@ -122,6 +122,10 @@ The partition table has been altered!
 
 Calling ioctl() to re-read partition table.
 Syncing disks.
+```
+Använd den kommandot att uppdatera kernel nedan:
+```
+partprobe 
 ```
 
 Nu kan skapa ett filsystem på partitionen med den `mkfs` kommando. Ange din typ av filsystem och namnet på enheten. I följande exempel skapas en *ext4* filsystem på den */dev/sdc1* partition som skapades i föregående steg:

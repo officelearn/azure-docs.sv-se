@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 04/23/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d980bf28fb9248cc88c4b0802817e85992ef9ee
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 4091b20e97ca76629260a7420beecb77412b0d39
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56869708"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57453022"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-shmoop-for-schools"></a>Självstudier: Azure Active Directory-integrering med Shmoop för skolor
 
@@ -47,7 +47,7 @@ Om du vill konfigurera Azure AD-integrering med Shmoop för skolor, behöver du 
 
 Vi rekommenderar följande för att testa stegen i den här självstudien:
 
-- Med hjälp av din produktion evironment endast om det behövs.
+- Med hjälp av din produktionsmiljö endast om det behövs.
 - Hämta en [kostnadsfri utvärderingsmånad](https://azure.microsoft.com/pricing/free-trial/) om du inte redan har en Azure AD-utvärderingsmiljö.
 
 ## <a name="scenario-description"></a>Scenariobeskrivning

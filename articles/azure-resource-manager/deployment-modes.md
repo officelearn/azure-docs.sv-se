@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/27/2019
 ms.author: tomfitz
-ms.openlocfilehash: 618412f27efb71caf6e044b4768d7be00f0d0f47
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: 5213affe953636c46486614ee2a020d7727e1478
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57009248"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57407544"
 ---
 # <a name="azure-resource-manager-deployment-modes"></a>Azure Resource Manager-distributionslägen
 
@@ -26,7 +26,7 @@ Resource Manager försöker skapa alla resurser som angetts i mallen för båda 
 
 ## <a name="complete-mode"></a>Fullständig läge
 
-I Resource Manager-fullständig läge **tar bort** resurser som finns i resursgruppen men inte anges i mallen. Resurser som har angetts i mallen, men inte distribueras eftersom en [villkor](resource-manager-templates-resources.md#condition) utvärderas till false, tas inte bort.
+I Resource Manager-fullständig läge **tar bort** resurser som finns i resursgruppen men inte anges i mallen. Resurser som har angetts i mallen, men inte distribueras eftersom en [villkor](resource-group-authoring-templates.md#condition) utvärderas till false, tas inte bort.
 
 Det finns vissa skillnader i hur resurstyper hantera fullständiga läge borttagningar. Överordnad resurser tas bort automatiskt när inte i en mall som har distribuerats i fullständiga läge. Vissa underordnade resurser bort inte automatiskt när inte i mallen. Men dessa underordnade resursen tas bort om den överordnade resursen tas bort. 
 

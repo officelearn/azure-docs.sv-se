@@ -9,13 +9,13 @@ ms.topic: conceptual
 author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=pakalra, previous-author=pakalra
-ms.date: 12/18/2017
-ms.openlocfilehash: 8d0b123045ace223dbea6c8fa98980091cfe73e1
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.date: 03/04/2019
+ms.openlocfilehash: 4adcef601ca84b94d88ed65278310a94c7273353
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56819998"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57433331"
 ---
 # <a name="machine-learning-algorithm-cheat-sheet-for-azure-machine-learning-studio"></a>Machine learning-algoritmfacit för Azure Machine Learning Studio
 
@@ -36,7 +36,7 @@ Ladda ned och skriva Machine Learning Studio algoritmen facit ut i tabloidformat
 
 ## <a name="notes-and-terminology-definitions-for-the-machine-learning-studio-algorithm-cheat-sheet"></a>Viktig information och termer som är för Machine Learning Studio-algoritmen Lathund
 
-* Förslag erbjuds i den här algoritmfacit är ungefärliga regler för USB. Vissa kan böjda och vissa kan ha brutits flagrantly. Detta är avsett att föreslå en startpunkt. Inte rädd för att köra en jämförelse konkurrensen mellan flera algoritmer för dina data. Det är bara ingen ersättning för att förstå principerna för varje algoritm och förstå system som genererats av dina data.
+* Förslag erbjuds i den här algoritmfacit är ungefärliga regler för USB. Vissa kan böjda och vissa kan ha brutits flagrantly. Detta är avsett att föreslå en startpunkt. Inte rädd för att köra en jämförelse konkurrensen mellan flera algoritmer för dina data. Det är bara ingen ersättning för att förstå principerna för varje algoritm och systemet som genereras av dina data.
 
 * Varje maskininlärningsalgoritmen har sin egen style eller *induktiv bias*. Flera algoritmer kan vara lämpligt för ett specifikt program och en algoritm kan vara ett bättre alternativ än andra. Men det går inte alltid på förhand känna till som passar bäst. I sådana fall visas flera algoritmer tillsammans i facit. En lämplig strategi är att prova en algoritm och om resultatet inte är ännu tillfredsställande, kan du prova de andra. Här är ett exempel från den [Azure AI-galleriet](http://gallery.azure.ai/) av ett experiment som försöker flera algoritmer mot samma data och jämför resultaten: [Jämför flera klassificerare: Enhetsbokstaven för](http://gallery.azure.ai/Details/a635502fc98b402a890efe21cec65b92).
 
@@ -52,7 +52,7 @@ Ladda ned och skriva Machine Learning Studio algoritmen facit ut i tabloidformat
 
 * **Förstärkta regression för beslut** drar nytta av funktionsöverlappning eller interaktion mellan funktioner. Det innebär att värdet för en funktion i en viss datapunkt är något förebyggande av värdet för en annan. Till exempel i den dagliga hög/låg temperaturdata kan att känna till låg temperatur för dagen du se en rimlig gissning för stort. Informationen i de två funktionerna är något redundant.
 
-* Klassificera data i mer än två kategorier kan göras genom att antingen använda en klassificerare för sin natur flera klass eller genom att kombinera en uppsättning tvåklassförhöjt klassificerare i en **ensemble**. Det finns en separat tvåklassförhöjt klassificerare för varje klass i ensemble-metoden – var och en delar upp data i två kategorier: ”den här klassen” och ”inte den här klassen”. Sedan rösta dessa klassificerare på rätt tilldelning för datapunkt. Detta är operativa principen bakom [en eller alla Multiclass][one-vs-all-multiclass].
+* Klassificera data i mer än två kategorier kan göras med hjälp av sin natur flera klass-klassificeraren eller genom att kombinera en uppsättning tvåklassförhöjt klassificerare i en **ensemble**. Det finns en separat tvåklassförhöjt klassificerare för varje klass i ensemble-metoden – var och en delar upp data i två kategorier: ”den här klassen” och ”inte den här klassen”. Sedan rösta dessa klassificerare på rätt tilldelning för datapunkt. Detta är operativa principen bakom [en eller alla Multiclass][one-vs-all-multiclass].
 
 * Flera metoder, inklusive logistic regression och Bayes point-dator, förutsätter **linjär klassgränser**. Det vill säga antar de att gränserna mellan klasser är ungefär raka linjer (eller hyperplanes mer allmän om). Det här är ofta en egenskap för de data som du inte känner till när du har försökt att skilja den, men det är något som vanligtvis kan hämtas genom att visualisera i förväg. Om klassen gränserna tittar mycket oregelbunden, håll dig till beslutsträd, beslut jungles, stöd för vektor datorer eller neurala nätverk.
 
@@ -69,7 +69,7 @@ Ladda ned och skriva Machine Learning Studio algoritmen facit ut i tabloidformat
 
 
 <!-- Module References -->
-[a-z-list]: https://docs.microsoft.com/azure/machine-learning/studio-module-reference/a-z-module-list
-[initialize-model]: https://docs.microsoft.com/azure/machine-learning/studio-module-reference/machine-learning-initialize-model
-[k-means-clustering]: https://docs.microsoft.com/azure/machine-learning/studio-module-reference/k-means-clustering
-[one-vs-all-multiclass]: https://docs.microsoft.com/azure/machine-learning/studio-module-reference/one-vs-all-multiclass
+[a-z-list]: /azure/machine-learning/studio-module-reference/a-z-module-list
+[initialize-model]: /azure/machine-learning/studio-module-reference/machine-learning-initialize-model
+[k-means-clustering]: /azure/machine-learning/studio-module-reference/k-means-clustering
+[one-vs-all-multiclass]: /azure/machine-learning/studio-module-reference/one-vs-all-multiclass

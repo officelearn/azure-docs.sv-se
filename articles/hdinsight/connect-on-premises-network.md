@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/28/2018
 ms.author: hrasheed
-ms.openlocfilehash: 59d32657b3f65ee3e087ea8da3b95fff8a79a6fd
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 3041fba89ef29cb40cbdfdf9cd3d261ffeae816f
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53975431"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57450013"
 ---
 # <a name="connect-hdinsight-to-your-on-premises-network"></a>Ansluta HDInsight till det lokala nätverket
 
@@ -59,7 +59,7 @@ De här stegen används den [Azure-portalen](https://portal.azure.com) att skapa
   
 1. Logga in på [Azure-portalen](https://portal.azure.com).
   
-1. I den vänstra menyn, Välj **+ skapa en resurs**.
+1. Välj **+ Skapa en resurs** från menyn till vänster.
  
 1. Välj **Compute**.
 
@@ -135,7 +135,7 @@ När du har skapat den virtuella datorn får du en **distributionen lyckades** -
     sudo apt-get install bind9 -y
     ```
 
-3. Om du vill konfigurera bindning att vidarebefordra begäran till din DNS-server med en lokal namnmatchning, Använd följande text som innehållet i den `/etc/bind/named.conf.options` fil:
+3. Om du vill konfigurera bindning att vidarebefordra begäran till din på lokal DNS-server namnmatchning, Använd följande text som innehållet i den `/etc/bind/named.conf.options` fil:
 
         acl goodclients {
             10.0.0.0/16; # Replace with the IP address range of the virtual network

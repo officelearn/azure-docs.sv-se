@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/25/2019
 ms.author: jingwang
-ms.openlocfilehash: d464fc6dd67e036348b6de74c8920895cf99e113
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 16ac5684d519dc41326ada4afd1bb2965a738070
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55663854"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57405002"
 ---
 # <a name="copy-data-from-or-to-azure-file-storage-by-using-azure-data-factory"></a>Kopiera data från eller till Azure File Storage med hjälp av Azure Data Factory
 
@@ -43,7 +43,7 @@ Följande egenskaper har stöd för Azure File Storage-länkade tjänsten:
 |:--- |:--- |:--- |
 | typ | Type-egenskapen måste anges till: **FileServer**. | Ja |
 | värd | Anger Azure File Storage-slutpunkt som: <br/>-Med hjälp av Användargränssnittet: Ange `\\<storage name>.file.core.windows.net\<file service name>`<br/>-Använder JSON: `"host": "\\\\<storage name>.file.core.windows.net\\<file service name>"`. | Ja |
-| användar-ID | Ange att användaren kommer åt Azure File Storage som: <br/>-Med hjälp av Användargränssnittet: Ange `AZURE\<storage name>`<br/>-Använder JSON: `"userid": "AZURE\\<storage name>"`. | Ja |
+| userid | Ange att användaren kommer åt Azure File Storage som: <br/>-Med hjälp av Användargränssnittet: Ange `AZURE\<storage name>`<br/>-Använder JSON: `"userid": "AZURE\\<storage name>"`. | Ja |
 | lösenord | Ange åtkomstnyckel för lagring. Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 | connectVia | Den [Integration Runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. Du kan använda Azure Integration Runtime eller lokal Integration Runtime (om ditt datalager finns i privat nätverk). Om den inte anges används standard Azure Integration Runtime. |Nej för källa, Ja för mottagare |
 
@@ -109,6 +109,7 @@ För att kopiera data från/till Azure File Storage, ange typegenskapen på data
         },
         "typeProperties": {
             "folderPath": "folder/subfolder/",
+            "fileName": "*",
             "modifiedDatetimeStart": "2018-12-01T05:00:00Z",
             "modifiedDatetimeEnd": "2018-12-01T06:00:00Z",
             "format": {

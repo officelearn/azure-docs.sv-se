@@ -11,12 +11,12 @@ ms.topic: howto
 ms.service: virtual-machines-windows
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.openlocfilehash: 6a116c2f3d92b19f266be4d3b467a93fdeaced2c
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 096c7d54d0d6a166f62456e951b4c739074a8011
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54888982"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57444420"
 ---
 # <a name="how-to-enable-nested-virtualization-in-an-azure-vm"></a>Hur du aktiverar kapslad virtualisering i en Azure VM
 
@@ -26,7 +26,7 @@ Den här artikeln visar aktivera Hyper-V på en Azure virtuell dator och konfigu
 
 ## <a name="create-a-nesting-capable-azure-vm"></a>Skapa en kapslade kompatibla Azure VM
 
-Skapa en ny Windows Server 2016 Azure VM.  För snabb refernce stöder alla v3 virtuella datorer kapslad virtualisering. En fullständig lista över virtuella datorer storlekar som stöd för kapsling, kan du ta en titt på [Azure-beräkningsenhet artikeln](acu.md).
+Skapa en ny Windows Server 2016 Azure VM.  Snabbreferens stöder alla v3 virtuella datorer kapslad virtualisering. En fullständig lista över virtuella datorer storlekar som stöd för kapsling, kan du ta en titt på [Azure-beräkningsenhet artikeln](acu.md).
 
 Kom ihåg att välja en VM-storlek som är tillräckligt stor för att stödja kraven för en virtuell gästdator. I det här exemplet använder vi en D3_v3-storlek virtuella Azure-datorer. 
 

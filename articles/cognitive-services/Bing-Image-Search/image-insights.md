@@ -11,12 +11,12 @@ ms.subservice: bing-image-search
 ms.topic: article
 ms.date: 03/04/2019
 ms.author: scottwhi
-ms.openlocfilehash: 1e61ef59bba56a7cc7271c3b42f4d7986c59c004
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 33dfbe70d75335eca79d32807407b97e32c2dbbf
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57337795"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57440870"
 ---
 # <a name="get-image-insights-with-the-bing-image-search-api"></a>Hämta information om bilder med den bildsökning i Bing
 
@@ -374,7 +374,7 @@ Svaret visar en känd entitet.
 
 ## <a name="finding-visually-similar-products"></a>Hitta likartade produkter  
 
-För att hitta avbildningar som innehåller produkter som är visuellt liknar de produkter som finns i den ursprungliga bilden, ange den [modueles](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#modulesrequested) frågeparameter till SimilarProducts.  
+För att hitta avbildningar som innehåller produkter som är visuellt liknar de produkter som finns i den ursprungliga bilden, ange den [moduler](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#modulesrequested) frågeparameter till SimilarProducts.  
 
 Följande begäran visar hur du hämtar bilder på produkter med visuellt likartade produkter. Denna begäran använder den [insightsToken](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#insightstoken) fråga parametern för att identifiera ursprungligt bild som returnerades i en tidigare begäran. För att förbättra relevans, bör du inkludera användarens frågesträngen.  
 

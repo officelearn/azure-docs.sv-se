@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/05/2018
 ms.author: cynthn
-ms.openlocfilehash: 22a800e65c0f64dfa897433d1ea983006ed62250
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 2b078cd769a9b4e5e66fe132fd4ef73ec4621efc
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54412197"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57447854"
 ---
 # <a name="create-a-linux-virtual-machine-that-uses-ssh-authentication-with-the-rest-api"></a>Skapa en Linux-dator som använder SSH-autentisering med REST API
 
@@ -127,7 +127,7 @@ En exempel-begärandetexten är under. Kontrollera att du anger namnet på virtu
 }
 ```
 
-En fullständig lista över tillgängliga definitioner i begärandetexten, se [virtuella datorer skapa eller uppdatera begäran brödtext defintions](/rest/api/compute/virtualmachines/createorupdate#definitions).
+En fullständig lista över tillgängliga definitioner i begärandetexten, se [virtuella datorer skapa eller uppdatera definitioner för brödtexten för begäran](/rest/api/compute/virtualmachines/createorupdate#definitions).
 
 ## <a name="sending-the-request"></a>Begäran skickades
 

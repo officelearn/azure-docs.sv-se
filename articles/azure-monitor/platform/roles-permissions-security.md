@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: johnkem
 ms.subservice: ''
-ms.openlocfilehash: 55a7a26815dac1140d100c05a47057f8d5000f9d
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 591b30d0147e427e8a0dbc2d25276bdcd3b54be6
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57317823"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57445491"
 ---
 # <a name="get-started-with-roles-permissions-and-security-with-azure-monitor"></a>Kom igång med roller, behörigheter och säkerhet med Azure Monitor
 
@@ -160,7 +160,7 @@ New-AzRoleDefinition -Role $role
 Ett liknande mönster kan följas med event hubs, men först måste du skapa en dedikerad Listen auktoriseringsregeln. Om du vill bevilja åtkomst till ett program som endast ska lyssna på relaterade till prestandaövervakning händelsehubbar kan du göra följande:
 
 1. Skapa en princip för delad åtkomst på den event Hub som har skapats för direktuppspelning övervakningsdata med endast Listen anspråk. Detta kan göras i portalen. Exempel: du kan anropa den ”monitoringReadOnly”. Om möjligt ska du ge nyckeln direkt till konsumenten och hoppa över nästa steg.
-2. Om användaren behöver för att kunna hämta den viktiga ad hoc, bevilja användaren listnycklar för åtgärden för den händelsehubben. Detta är också nödvändigt för användare som behöver för att kunna ange en diagnostikinställning eller loggprofilen strömma till event hubs. Du kan till exempel skapa en regel för RBAC:
+2. Om användaren behöver för att kunna hämta nyckel för ad hoc-, bevilja användaren listnycklar för åtgärden för den händelsehubben. Detta är också nödvändigt för användare som behöver för att kunna ange en diagnostikinställning eller loggprofilen strömma till event hubs. Du kan till exempel skapa en regel för RBAC:
    
    ```powershell
    $role = Get-AzRoleDefinition "Reader"

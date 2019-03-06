@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2017
 ms.author: apimpm
-ms.openlocfilehash: 5dc39d2f64aa2cd895cbf57d95100d831a6f4432
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 4e7af92ed0ce04bb14bd49c24de4928baa4f00ec
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54159799"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57448075"
 ---
 # <a name="api-management-transformation-policies"></a>API Management-principer för anspråksomvandling
 Det här avsnittet innehåller en referens för följande API Management-principer. Information om att lägga till och konfigurerar principer finns i [principer i API Management](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -72,14 +72,14 @@ Det här avsnittet innehåller en referens för följande API Management-princip
 
 |Namn|Beskrivning|Krävs|
 |----------|-----------------|--------------|
-|JSON-to-xml|Rotelement.|Ja|
+|json-to-xml|Rotelement.|Ja|
 
 ### <a name="attributes"></a>Attribut
 
 |Namn|Beskrivning|Krävs|Standard|
 |----------|-----------------|--------------|-------------|
 |använd|Attributet måste anges till något av följande värden.<br /><br /> -alltid - alltid att gälla konvertering.<br />-innehåll-typ-json - convert endast om svar Content-Type-rubriken anger förekomsten av JSON.|Ja|Gäller inte|
-|Överväg att acceptera-sidhuvud|Attributet måste anges till något av följande värden.<br /><br /> gäller - true - konvertering om JSON har begärts i begäran Accept-huvud.<br />-false - alltid att gälla konvertering.|Nej|true|
+|consider-accept-header|Attributet måste anges till något av följande värden.<br /><br /> gäller - true - konvertering om JSON har begärts i begäran Accept-huvud.<br />-false - alltid att gälla konvertering.|Nej|true|
 |parsa datum|När värdet `false` datumvärden kopieras bara under omvandlingen|Nej|true|
 
 ### <a name="usage"></a>Användning
@@ -124,7 +124,7 @@ Det här avsnittet innehåller en referens för följande API Management-princip
 |----------|-----------------|--------------|-------------|
 |typ|Attributet måste anges till något av följande värden.<br /><br /> -javascript-vänlig - konverterade JSON har ett eget till JavaScript-utvecklare formulär.<br />– direkt - återspeglar konverterade JSON det ursprungliga XML-dokumentets struktur.|Ja|Gäller inte|
 |använd|Attributet måste anges till något av följande värden.<br /><br /> Konvertera - alltid - alltid.<br />-innehåll-typ-xml - convert endast om svar Content-Type-rubriken anger förekomsten av XML.|Ja|Gäller inte|
-|Överväg att acceptera-sidhuvud|Attributet måste anges till något av följande värden.<br /><br /> tillämpa - true - konvertering om begärs XML i begäran Accept-huvud.<br />-false - alltid att gälla konvertering.|Nej|true|
+|consider-accept-header|Attributet måste anges till något av följande värden.<br /><br /> tillämpa - true - konvertering om begärs XML i begäran Accept-huvud.<br />-false - alltid att gälla konvertering.|Nej|true|
 
 ### <a name="usage"></a>Användning
  Den här principen kan användas i följande princip [avsnitt](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [scope](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
@@ -152,7 +152,7 @@ Det här avsnittet innehåller en referens för följande API Management-princip
 
 |Namn|Beskrivning|Krävs|
 |----------|-----------------|--------------|
-|Sök och Ersätt|Rotelement.|Ja|
+|find-and-replace|Rotelement.|Ja|
 
 ### <a name="attributes"></a>Attribut
 
@@ -190,7 +190,7 @@ Det här avsnittet innehåller en referens för följande API Management-princip
 
 |Namn|Beskrivning|Krävs|
 |----------|-----------------|--------------|
-|innehåll omdirigeringswebbadresser|Rotelement.|Ja|
+|redirect-content-urls|Rotelement.|Ja|
 
 ### <a name="usage"></a>Användning
  Den här principen kan användas i följande princip [avsnitt](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [scope](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
@@ -254,7 +254,7 @@ I det här exemplet dirigerar principen begäran till en service fabric-serverde
 
 |Namn|Beskrivning|Krävs|
 |----------|-----------------|--------------|
-|set-backend-tjänst|Rotelement.|Ja|
+|set-backend-service|Rotelement.|Ja|
 
 ### <a name="attributes"></a>Attribut
 
@@ -264,7 +264,7 @@ I det här exemplet dirigerar principen begäran till en service fabric-serverde
 |backend-id|Identifierare för att dirigera till serverdelen.|Nej|Gäller inte|
 |sf-partition-key|Gäller endast när serverdelen är en Service Fabric-tjänst och har angetts med hjälp av backend-id. Används för att lösa en specifik partition från Namnmatchningstjänsten.|Nej|Gäller inte|
 |SF-replik-type|Gäller endast när serverdelen är en Service Fabric-tjänst och har angetts med hjälp av backend-id. Styr om begäran ska skickas till den primära eller sekundära repliken av en partition. |Nej|Gäller inte|
-|SF Lös villkor|Gäller endast när serverdelen är en Service Fabric-tjänst. Ange ett villkor för identifiera om anropet till Service Fabric-serverdelen har upprepas med nya lösningar.|Nej|Gäller inte|
+|sf-resolve-condition|Gäller endast när serverdelen är en Service Fabric-tjänst. Ange ett villkor för identifiera om anropet till Service Fabric-serverdelen har upprepas med nya lösningar.|Nej|Gäller inte|
 |sf-service-instance-name|Gäller endast när serverdelen är en Service Fabric-tjänst. Du kan ändra instanser av tjänsten vid körning. |Nej|Gäller inte|
 |sf-listener-name|Gäller endast när serverdelen är en Service Fabric-tjänst och har angetts med hjälp av backend-id. Service Fabric Reliable Services kan du skapa flera lyssnare i en tjänst. Det här attributet används för att välja en viss lyssnare när en serverdel tillförlitlig tjänst har mer än en lyssnare. Om det här attributet inte anges försöker API Management att använda en lyssnare utan namn. En lyssnare utan namn är typiskt för Reliable Services som har endast en lyssnare. |Nej|Gäller inte|
 
@@ -358,7 +358,7 @@ Den `set-body` principen kan konfigureras för att använda den [flytande](https
 > [!IMPORTANT]
 > Implementeringen av vätska som används i den `set-body` principen är konfigurerad för läget ”c”. Detta är särskilt viktigt när du gör sådant som filtrering. Till exempel med hjälp av ett filter måste du använda Pascal gemener och versaler och C# datum formatering t.ex.:
 >
-> {{body.foo.startDateTime| Datum: ”yyyyMMddTHH:mm:ddZ”}}
+> {{body.foo.startDateTime| Date:"yyyyMMddTHH:mm:ddZ"}}
 
 > [!IMPORTANT]
 > För att kunna bindas till en XML-text med en flytande mall, använda en `set-header` Grupprincip för att ange Content-Type till antingen application/xml, text/xml (eller någon typ som slutar med + xml); en JSON-brödtexten, det måste vara application/json, text/json (eller någon annan typ som slutar med + JSON).
@@ -376,7 +376,7 @@ Den `set-body` principen kan konfigureras för att använda den [flytande](https
 </set-body>
 ```
 
-#### <a name="tranform-json-using-a-liquid-template"></a>Tranform JSON med en flytande mall
+#### <a name="transform-json-using-a-liquid-template"></a>Transformera JSON med en flytande mall
 ```xml
 {
 "order": {
@@ -506,7 +506,7 @@ OriginalUrl.
 
 |Namn|Beskrivning|Krävs|Standard|
 |----------|-----------------|--------------|-------------|
-|Det finns åtgärder|Anger vilken åtgärd som ska vidtas när rubriken har redan angetts. Det här attributet måste ha något av följande värden.<br /><br /> -åsidosätt - ersätter värdet för befintlig rubrik.<br />-skip - ersätter inte befintliga huvudets värde.<br />-Tillägg - lägger till värdet till det befintliga värdet för sidhuvudet.<br />-delete - tar bort huvudet i begäran.<br /><br /> När värdet `override` ta med flera poster med samma namn resulterar i rubriken anges enligt alla poster (som visas flera gånger); endast listade värdena anges i resultatet.|Nej|åsidosättning|
+|exists-action|Anger vilken åtgärd som ska vidtas när rubriken har redan angetts. Det här attributet måste ha något av följande värden.<br /><br /> -åsidosätt - ersätter värdet för befintlig rubrik.<br />-skip - ersätter inte befintliga huvudets värde.<br />-Tillägg - lägger till värdet till det befintliga värdet för sidhuvudet.<br />-delete - tar bort huvudet i begäran.<br /><br /> När värdet `override` ta med flera poster med samma namn resulterar i rubriken anges enligt alla poster (som visas flera gånger); endast listade värdena anges i resultatet.|Nej|åsidosättning|
 |namn|Anger namnet på rubriken anges.|Ja|Gäller inte|
 
 ### <a name="usage"></a>Användning
@@ -566,7 +566,7 @@ OriginalUrl.
 
 |Namn|Beskrivning|Krävs|Standard|
 |----------|-----------------|--------------|-------------|
-|Det finns åtgärder|Anger vilken åtgärd som ska vidtas när Frågeparametern har redan angetts. Det här attributet måste ha något av följande värden.<br /><br /> -åsidosätt - ersätter värdet för parametern befintliga.<br />-skip - ersätter inte fråga befintlig parametervärdet.<br />-Tillägg - lägger till värdet till det befintliga frågan parametervärdet.<br />-ta bort – tar bort Frågeparametern från begäran.<br /><br /> När värdet `override` ta med flera poster med samma namn resulterar i Frågeparametern anges enligt alla poster (som visas flera gånger); endast listade värdena anges i resultatet.|Nej|åsidosättning|
+|exists-action|Anger vilken åtgärd som ska vidtas när Frågeparametern har redan angetts. Det här attributet måste ha något av följande värden.<br /><br /> -åsidosätt - ersätter värdet för parametern befintliga.<br />-skip - ersätter inte fråga befintlig parametervärdet.<br />-Tillägg - lägger till värdet till det befintliga frågan parametervärdet.<br />-ta bort – tar bort Frågeparametern från begäran.<br /><br /> När värdet `override` ta med flera poster med samma namn resulterar i Frågeparametern anges enligt alla poster (som visas flera gånger); endast listade värdena anges i resultatet.|Nej|åsidosättning|
 |namn|Anger namnet på parametern fråga att ställas in.|Ja|Gäller inte|
 
 ### <a name="usage"></a>Användning
@@ -645,7 +645,7 @@ OriginalUrl.
 |Attribut|Beskrivning|Krävs|Standard|
 |---------------|-----------------|--------------|-------------|
 |mall|Faktiska webbtjänstens URL med alla parametrar för frågesträngen. När du använder uttryck kan måste hela värdet vara ett uttryck.|Ja|Gäller inte|
-|Kopiera oöverträffad parametrar|Anger om Frågeparametrar i den inkommande begäranden finns inte i den ursprungliga mallen URL läggs till den URL som definierats av mallen skriva|Nej|true|
+|copy-unmatched-params|Anger om Frågeparametrar i den inkommande begäranden finns inte i den ursprungliga mallen URL läggs till den URL som definierats av mallen skriva|Nej|true|
 
 ### <a name="usage"></a>Användning
  Den här principen kan användas i följande princip [avsnitt](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [scope](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
@@ -707,7 +707,7 @@ OriginalUrl.
 
 |Namn|Beskrivning|Krävs|
 |----------|-----------------|--------------|
-|XSL-transformering|Rotelement.|Ja|
+|xsl-transform|Rotelement.|Ja|
 |Parameter|Används för att definiera variabler som används i listan i transformeringen|Nej|
 |XSL: stylesheet|Formatmall rotelement. Alla element och attribut som definierats i följer standarden [XSLT-specifikation](https://www.w3.org/TR/xslt)|Ja|
 

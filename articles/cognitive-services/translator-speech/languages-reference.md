@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/18/2018
 ms.author: v-jansko
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 111adad627ffd830d69efc61bc7a06a99fee30f3
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 7498ba08b9ce7b6aae10f38a393eb8cba37f3f4e
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56673332"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57435770"
 ---
 # <a name="translator-speech-api-languages"></a>API för Talöversättning: Languages
 
@@ -65,7 +65,7 @@ Det värde som tillhandahölls med varje egenskap är som följer.
 Värdet som är associerade med tal till text-egenskapen `speech`, är en dictionary med (nyckel, värde) par. Varje nyckel identifierar ett språk som stöds för tal till text. Nyckeln är identifieraren som klienten skickar till API: et. Värdet kopplat till nyckeln är ett objekt med följande egenskaper:
 
 * `name`: Visningsnamn för språket.
-* `language`: Språktaggen för den associerade skrivna språk. Se ”Text-transation” nedan.
+* `language`: Språktaggen för den associerade skrivna språk. Se ”Text-transaktion” nedan.
 Ett exempel är:
 
 ```

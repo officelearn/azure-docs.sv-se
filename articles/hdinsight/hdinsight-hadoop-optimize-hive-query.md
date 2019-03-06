@@ -9,18 +9,18 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 57e23c55342ee397ecb8590dd6da639ba766f351
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: ba332bb0f77dc198abdd76ccf024336788a77a33
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53385439"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57435044"
 ---
 # <a name="optimize-apache-hive-queries-in-azure-hdinsight"></a>Optimera Apache Hive-frågor i Azure HDInsight
 
 I Azure HDInsight finns flera klustertyper och tekniker som kan köra Apache Hive-frågor. När du skapar ditt HDInsight-kluster väljer du lämplig klustertypen för att optimera prestanda för dina arbetsbelastningsbehov. 
 
-Till exempel välja **interaktiv fråga** klustertyp att optimera för ad hoc, interaktiva frågor. Välj Apache **Hadoop** klustertyp att optimera för Hive-frågor som används som en batchprocess. **Spark** och **HBase** klustertyper kan också köra Hive-frågor. Mer information om hur du kör Hive-frågor på olika typer av HDInsight-kluster finns i [vad är Apache Hive och HiveQL på Azure HDInsight?](hadoop/hdinsight-use-hive.md).
+Till exempel välja **interaktiv fråga** klustertyp att optimera för ad hoc-, interaktiva frågor. Välj Apache **Hadoop** klustertyp att optimera för Hive-frågor som används som en batchprocess. **Spark** och **HBase** klustertyper kan också köra Hive-frågor. Mer information om hur du kör Hive-frågor på olika typer av HDInsight-kluster finns i [vad är Apache Hive och HiveQL på Azure HDInsight?](hadoop/hdinsight-use-hive.md).
 
 HDInsight-kluster av typ av Hadoop-kluster är inte optimerade för prestanda som standard. Den här artikeln beskriver några av de vanligaste Hive prestanda optimering-metoder som du kan tillämpa på dina frågor.
 

@@ -9,12 +9,12 @@ ms.subservice: bing-visual-search
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: rosh
-ms.openlocfilehash: 6444a49a95ee53fb624501bc464f6378423e6e26
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 2f7de10eeb65b36823d6c4cc84b0032913638889
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55863031"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57444607"
 ---
 # <a name="tutorial-crop-an-image-with-the-bing-visual-search-sdk-for-c"></a>Självstudier: Beskär en bild med Bing Visual Search SDK förC#
 
@@ -28,7 +28,7 @@ Den här självstudien visar hur du:
 > * Skicka en begäran med hjälp av Bing Visual Search SDK
 > * Beskära ett område i bild att söka med Bing Visual Search
 > * Ta emot och hantera svaret
-> * Hitta URL: er med åtgärdsobjekt i resposne
+> * Hitta URL: er med åtgärdsobjekt i svaret
 
 ## <a name="prerequisites"></a>Förutsättningar
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/3/2018
 ms.author: rkarlin
-ms.openlocfilehash: 1f9ea2fd1e9a346046c55db451bc333373896db5
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 6bd05a417bfb011dd86b61d654be836ef76099b7
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56118096"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57439691"
 ---
 # <a name="understanding-security-alerts-in-azure-security-center"></a>Förstå säkerhetsaviseringar i Azure Security Center
 Den här artikeln visar de olika typerna av säkerhetsaviseringar och meddelanden som är tillgängliga i Azure Security Center. Mer information om att hantera aviseringar och händelser finns i [Hantera och åtgärda säkerhetsaviseringar i Azure Security Center](security-center-managing-and-responding-alerts.md).
@@ -96,7 +96,7 @@ Security Center använder analyser för att identifiera resurser som har komprom
 * **Ögonblicksbilder av alla filer har tagits bort**: Den här varningen anger att skuggkopior har tagits bort.
 * **Kommandon för att rensa misstänkt fil**: Den här varningen anger en kombination av systeminformationskommandon som används för att utföra självrensning efter att potentiella.  Medan *systeminfo.exe* är ett legitimt Windows-verktyg, är det ovanligt att det körs två gånger i följd, följt av ett borttagningskommando på så sätt som har inträffat här.
 * **Skapande av misstänkt konto**: Den här varningen anger att ett konto har skapats med snarlikt ett befintlig inbyggt konto. Den här tekniken kan användas av angripare för att skapa ett falskt konto utan att bli identifierade.
-* **Aktivitet för skuggkopia av misstänkt volym**: Den här varningen anger aktivitet för borttagning av skuggkopia på resursen. Skuggkopia av volym (VSC) är en viktig artefakt som lagrar ögonblicksbilder av data. Den här aktiviteten är kopplad till Ransowmare, men det kan också vara legitim.
+* **Aktivitet för skuggkopia av misstänkt volym**: Den här varningen anger aktivitet för borttagning av skuggkopia på resursen. Skuggkopia av volym (VSC) är en viktig artefakt som lagrar ögonblicksbilder av data. Den här aktiviteten är associerad med Utpressningstrojaner, men det kan också vara legitim.
 * **Persistence-metod för Windows-registret**: Den här varningen anger ett försök att spara en körbar fil i Windows-registret. Skadlig kod använder ofta en sådan metod för att överleva en omstart.
 * **Misstänkt ny brandväggsregel**: Den här varningen anger att en ny brandväggsregel har lagts till via *netsh.exe* att tillåta trafik från en körbar fil på en misstänkt plats.
 * **Misstänkta XCOPY-körningar**: Den här varningen anger ett antal XCOPY-körningar som skulle kunna signalera att en av dina datorer har komprometterats och användes för att sprida skadlig kod.

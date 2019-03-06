@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 4/22/2018
 ms.author: xujing-ms
-ms.openlocfilehash: 4de6e4429543ea4f691cc3a38c15b896b866075b
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: d692eb471c514015271a688e4660700788f1baaa
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55980728"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57431470"
 ---
 # <a name="azure-hybrid-benefit-for-windows-server"></a>Azure Hybrid-förmånen för Windows Server
 För kunder med Software Assurance kan Azure Hybrid-förmånen för Windows Server du använda dina lokala Windows Server-licenser och köra Windows-datorer i Azure mot en lägre kostnad. Du kan använda Azure Hybrid-förmånen för Windows Server för att distribuera nya virtuella datorer med Windows OS. Den här artikeln går över anvisningar om hur du distribuerar nya virtuella datorer med Azure Hybrid-förmånen för Windows Server och hur du kan uppdatera befintliga köra virtuella datorer. Läs mer om Azure Hybrid-förmånen för Windows Server licensierings- och besparingar i den [Azure Hybrid-förmånen för Windows Server-licensiering sidan](https://azure.microsoft.com/pricing/hybrid-use-benefit/).
@@ -33,7 +33,7 @@ För kunder med Software Assurance kan Azure Hybrid-förmånen för Windows Serv
 >
 
 > [!NOTE]
-> För klassiska virtuella datorer stöds endast distribuera nya virtuella datorn från en lokal anpassade avbildningar. Om du vill dra nytta av funktionerna som stöds i den här artikeln, måste du först migrera klassiska virtuella datorer till Resource Manager-modellen.
+> För klassiska virtuella datorer stöds endast distribuera nya virtuella datorn från på plats anpassade avbildningar. Om du vill dra nytta av funktionerna som stöds i den här artikeln, måste du först migrera klassiska virtuella datorer till Resource Manager-modellen.
 >
 
 [!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]

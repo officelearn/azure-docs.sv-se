@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/06/2018
 ms.author: bahariri
-ms.openlocfilehash: 1345a5814faefd4074e7d9548d374bd79d977514
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: e704a2595130a2a815388447ac482ab96789d64a
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53015593"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57453991"
 ---
 # <a name="exchange-events-between-consumers-and-producers-that-use-different-protocols-amqp-kafka-and-https"></a>Exchange-händelser mellan konsumenter och producenter som använder olika protokoll: AMQP, Kafka och HTTPS
-Händelsehubbar i Azure har stöd för tre protokoll för konsumenter och producenter: AMQP, Kafka och HTTPS. Var och en av dessa protokoll har egna sätt att representera ett meddelande naturligt följande frågan: om ett program skickar händelser till en Händelsehubb med ett protokoll och använder dem med ett annat protokoll, göra vad de olika delarna och värdena för den händelse se ut när de anländer till konsumenten? Den här artikeln beskriver Metodtips för både producent och konsument att se till att värden i en händelse tolkas korrekt av den konsumerande appen.
+Azure Event Hubs stöder tre protokollen för konsumenter och producenter: AMQP, Kafka och HTTPS. Var och en av dessa protokoll har egna sätt att representera ett meddelande naturligt följande frågan: om ett program skickar händelser till en Händelsehubb med ett protokoll och använder dem med ett annat protokoll, göra vad de olika delarna och värdena för den händelse se ut när de anländer till konsumenten? Den här artikeln beskriver Metodtips för både producent och konsument att se till att värden i en händelse tolkas korrekt av den konsumerande appen.
 
 Råd i den här artikeln innehåller dessa klienter med de listade versionerna som används i att utveckla kodfragmenten:
 
@@ -38,7 +38,7 @@ Alla klienter Microsoft AMQP representerar händelsemeddelandet som ett Feltolka
 
 När du skickar en händelse via HTTPS är händelsen bokförd innehållet, vilket också behandlas som byte som inte tolkats. Det är enkelt att uppnå samma tillstånd i en Kafka-producent eller konsument med hjälp av angivna ByteArraySerializer och ByteArrayDeserializer enligt följande kod:
 
-### <a name="kafka-byte-producer"></a>Kafka byte []-producent
+### <a name="kafka-byte-producer"></a>Kafka byte[] producer
 
 ```java
 final Properties properties = new Properties();
@@ -344,5 +344,5 @@ I den här artikeln har du lärt dig hur du strömmar till Kafka-aktiverade Even
 * [Läs om Event Hubs](event-hubs-what-is-event-hubs.md)
 * [Läs om Event Hubs för Kafka](event-hubs-for-kafka-ecosystem-overview.md)
 * [Utforska fler exempel på Event Hubs för Kafka GitHub](https://github.com/Azure/azure-event-hubs-for-kafka)
-* Använd [MirrorMaker](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) för att [strömma händelser från Kafka lokalt till Kafka-aktiverade Event Hubs i molnet.](event-hubs-kafka-mirror-maker-tutorial.md)
+* Använd [MirrorMaker](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) till [stream händelser från Kafka lokalt till Kafka aktiverat Event Hubs i molnet.](event-hubs-kafka-mirror-maker-tutorial.md)
 * Lär dig att strömma till Kafka aktiverade Event Hubs med hjälp av [interna Kafka program](event-hubs-quickstart-kafka-enabled-event-hubs.md), [Apache Flink](event-hubs-kafka-flink-tutorial.md), eller [Akka strömmar](event-hubs-kafka-akka-streams-tutorial.md)

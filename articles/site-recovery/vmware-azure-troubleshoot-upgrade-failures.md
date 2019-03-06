@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: troubleshooting
 ms.date: 02/05/2019
 ms.author: v-doglov
-ms.openlocfilehash: 9423fc844e766129ad81a8a286cb5bbdc722e2ca
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 3a3e9da66cf9ca6e08bb25b4f4b9d09aa0c5b6e7
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55989329"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57431945"
 ---
 # <a name="troubleshoot-microsoft-azure-site-recovery-provider-upgrade-failures"></a>Felsöka uppgraderingsfel för Microsoft Azure Site Recovery-providern
 
@@ -42,9 +42,9 @@ Om du vill uppgradera, använder du följande steg:
 
 1. Gå tillbaka till den mapp som du hämtade det enhetliga installationsprogrammet och kör MicrosoftAzureSiteRecoveryUnifiedSetup.exe för att slutföra uppgraderingen. 
 
-## <a name="upgrade-failure-due-to-the-thirdparty-folder-being-renamed"></a>Uppgradera misslyckades på grund av mappen thirdparty namnbyte
+## <a name="upgrade-failure-due-to-the-3rd-party-folder-being-renamed"></a>Uppgraderingen misslyckades på grund av mappen 3 part namnbyte
 
-För att uppgraderingen ska lyckas måste mappen thirdparty inte ändras.
+För att uppgraderingen ska lyckas måste mappen 3 part inte ändras.
 
 Du löser problemet.
 

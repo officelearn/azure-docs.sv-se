@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/05/2019
 ms.author: bwren
-ms.openlocfilehash: 7e5d04f3ead4353c88a6b56ab530f41ff15022d1
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 0a29e453c723ecc9ac378ee337365525587aaef2
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56005394"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57444131"
 ---
-# <a name="computer-groups-in-azure-monitor-log-quereies"></a>Datorgrupper i Azure Monitor logga quereies
+# <a name="computer-groups-in-azure-monitor-log-queries"></a>Datorgrupper i Azure Monitor log-frågor
 Datorgrupper i Azure Monitor kan du även agera omfång [logga frågor](../log-query/log-query-overview.md) till en viss uppsättning datorer.  Varje grupp har fyllts i med datorer som antingen med hjälp av en fråga som du definierar eller genom att importera grupper från olika källor.  När gruppen ingår i en loggfråga, är resultat begränsade till poster som matchar datorerna i gruppen.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]

@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 01/19/2019
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 722fc5366d8f6863d19d09bd6e555fcc9a73d570
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 73c921df493eeda25c50047e861d3d30e6dc52a8
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56868127"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57456490"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Självstudier: Konfigurera Workday för automatisk användaretablering
 
@@ -858,7 +858,7 @@ Du kan också kontrollera om du har alla nödvändiga portar öppna genom att ö
 Om du vill se till att verktyget ger rätt resultat, måste du kontrollera att:
 
 * Öppna verktyget i en webbläsare från servern där du har installerat agenten etablering.
-* Se till att alla proxyservrar eller brandväggar som gäller för din etablering Agent används också till den här sidan. Detta kan göras i Internet Explorer genom att gå till **Inställningar -> Internet-alternativ -> anslutningar Lan-Inställningar ->**. På den här sidan kan se du fältet ”Använd en Proxy Server för ditt LAN”. Välj den här rutan och placera Proxyadressen i fältet ”adress”.
+* Se till att alla proxyservrar eller brandväggar som gäller för din etablering Agent används också till den här sidan. Detta kan göras i Internet Explorer genom att gå till **Inställningar -> Internet-alternativ -> anslutningar LAN-inställningar ->**. På den här sidan kan se du fältet ”Använd en Proxy Server för ditt LAN”. Välj den här rutan och placera Proxyadressen i fältet ”adress”.
 
 #### <a name="can-one-provisioning-agent-be-configured-to-provision-multiple-ad-domains"></a>Kan en Agent för etablering konfigureras för att etablera flera AD-domäner?
 

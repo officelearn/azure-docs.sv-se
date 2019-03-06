@@ -9,12 +9,12 @@ ms.subservice: custom-translator
 ms.date: 02/21/2019
 ms.author: v-rada
 ms.topic: conceptual
-ms.openlocfilehash: 6cab76a1169469853a4eb82a934bdc665e07ef8d
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 3442e322ac75f7757d7a59f6035fc35d77e70702
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57217520"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57431588"
 ---
 # <a name="migrate-hub-workspace-and-projects-to-custom-translator"></a>Migrera Hub arbetsyta och projekt till anpassad Translator
 
@@ -31,7 +31,7 @@ För en utbildning ska lyckas, kräver anpassade Translator minst 10 000 unika e
 
 ## <a name="enable-account-migration"></a>Aktivera kontomigrering
 
-För att kunna använda Migreringsverktyget måste ha din hubb kontomigrering har aktiverats. Detta gör att e- [ custommt@microsoft.com ](mailto:custommt@microsoft.com) med en lista över alla liveid konton som du vill ha aktiverat. Dessa konton bör vara e-postadresser som du loggar in med.
+För att kunna använda Migreringsverktyget måste ha din hubb kontomigrering har aktiverats. Detta gör att e- [ custommt@microsoft.com ](mailto:custommt@microsoft.com) med en lista över alla live ID-konton som du vill ha aktiverat. Dessa konton bör vara e-postadresser som du loggar in med.
 
 ## <a name="find-custom-translator-workspace-id"></a>Hitta anpassade Translator arbetsyte-ID
 
@@ -141,6 +141,10 @@ Den här tabellen jämförs funktionerna mellan Microsoft Translator Hub och anp
 | NMT anpassning | Nej    | Ja |
 | Nya enhetliga Speech services anpassning | Nej    | Ja |
 | Ingen spårning | Ja | Ja |
+
+## <a name="new-languages"></a>Nya språk
+
+Om du är en community eller en organisation som arbetar med att skapa ett nytt språksystem för Microsoft Translator, nå ut till [ custommt@microsoft.com ](mailto:custommt@microsoft.com) för mer information.
 
 ## <a name="next-steps"></a>Nästa steg
 

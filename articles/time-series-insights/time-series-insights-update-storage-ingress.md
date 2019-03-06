@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/05/2018
 ms.custom: seodec18
-ms.openlocfilehash: 6f0002c6aa98aaaddf50e4aac8929e8ddd379fd8
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: eba4c70a25cba2e456ed418a98b938f2029c4c1f
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301680"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57438371"
 ---
 # <a name="data-storage-and-ingress-in-azure-time-series-insights-preview"></a>Lagring av data- och ingångsanspråk i förhandsversionen av Azure Time Series Insights
 
@@ -116,7 +116,7 @@ Det är viktigt att välja en lämplig tid serien ID, eftersom det är en egensk
 
 När du skapar en användningsbaserad Time Series Insights-miljö kan du skapa två resurser: en Time Series Insights-miljö och ett Azure Storage allmänna V1-konto där data kommer att lagras. Vi valde att göra Azure Storage general-purpose V1 standardresurs på grund av dess samverkan, pris och prestanda. 
 
-Time Series Insights publicerar upp till två kopior av varje händelse i Azure storage-kontot. Den ursprungliga kopian bevaras alltid så att du kan fråga den performantly genom att använda andra tjänster. Du kan enkelt använda Spark, Hadoop och andra välbekanta verktyg över Time Series-ID: N via raw Parquet-filer, eftersom dessa motorer stöder grundläggande filtrering av filnamn. Gruppera blobar per år och månad är ett bra sätt att lista blobbar i en viss tidsperiod för ett anpassat jobb. 
+Time Series Insights publicerar upp till två kopior av varje händelse i Azure storage-kontot. Den ursprungliga kopian bevaras alltid så att du kan snabbt frågar den med hjälp av andra tjänster. Du kan enkelt använda Spark, Hadoop och andra välbekanta verktyg över Time Series-ID: N via raw Parquet-filer, eftersom dessa motorer stöder grundläggande filtrering av filnamn. Gruppera blobar per år och månad är ett bra sätt att lista blobbar i en viss tidsperiod för ett anpassat jobb. 
 
 Time Series Insights repartitions dessutom Parquet-filer för att optimera för API: er för Time Series Insights. Nyligen repartitioned filen sparas också.
 

@@ -10,12 +10,12 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: e6a671470a87f4509e466bcdfe7845b7bf7ec8dc
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: ebe555bfd7b34efd87d400d786049964665c76e6
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55209171"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57451067"
 ---
 # <a name="entity-resolvers"></a>Entiteten matchare
 
@@ -80,7 +80,7 @@ Den här självstudien krävs att Allmänt självstudiekursen bot körs
 8. Även använda etiketten texten ”Sunday nästa vecka” som ”return”
 9. Klicka på knappen ”poäng åtgärder”.
     - Observera hur den ”minne”-rutan innehåller avgång och gå sedan tillbaka datumen.
-    - Hovra över var och en och se hur entiteterna är date-objekt som tydligt fånga det faktiska kalender i stället för ”Sunday” eller ”imorgon”.
+    - Hovra över var och en och se hur entiteterna är date-objekt som tydligt avbilda faktiska kalenderdatumet istället för ”Sunday” eller ”imorgon”.
 10. Välj den ”du lämnar på...” Bot-svar.
 11. Klicka på knappen ”Spara”.
 

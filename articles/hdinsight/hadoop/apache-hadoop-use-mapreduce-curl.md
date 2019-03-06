@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: ff905f34ab63027e9708082c4690e4275220854f
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: fc2333b6bd41b9efdd1fcafd6168906525cb537a
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53406801"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57440581"
 ---
 # <a name="run-mapreduce-jobs-with-apache-hadoop-on-hdinsight-using-rest"></a>Kör MapReduce-jobb med Apache Hadoop på HDInsight med hjälp av REST
 
@@ -36,7 +36,7 @@ Lär dig använda Apache Hive WebHCat REST API för att köra MapReduce-jobb på
 >
 > REST API skyddas med hjälp av [grundläggande autentisering](https://en.wikipedia.org/wiki/Basic_access_authentication). Du bör alltid göra begäranden genom att använda HTTPS för att säkerställa att dina autentiseringsuppgifter skickas på ett säkert sätt till servern.
 
-1. Ange klusterinloggning som används av skripten i det här dokumentet genom att använda något av kommandona followig:
+1. Använd någon av följande kommandon för att ställa in klusterinloggning som används av skripten i det här dokumentet:
 
     ```bash
     read -p "Enter your cluster login account name: " LOGIN
@@ -108,7 +108,7 @@ Lär dig använda Apache Hive WebHCat REST API för att köra MapReduce-jobb på
 
    * **-d**: `-G` inte används, så att begäran som standard POST-metoden. `-d` Anger de datavärden som skickas med begäran.
     * **User.name**: Den användare som kör kommandot
-    * **JAR**: Platsen för den jar-fil som innehåller klassen för att köra
+    * **jar**: Platsen för den jar-fil som innehåller klassen för att köra
     * **klassen**: Den klass som innehåller logiken som MapReduce
     * **arg**: Argument som ska skickas till MapReduce-jobb. I det här fallet, indatafilen och den katalog som används för utdata
 

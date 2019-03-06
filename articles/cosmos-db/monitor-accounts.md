@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 9c307bbbef7b9eecc980dc6013c317f1ee231a0c
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: a12e0f567747b67c67f7bc825df1079d852e2f16
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54034309"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57448246"
 ---
 # <a name="monitor-performance-and-storage-metrics-in-azure-cosmos-db"></a>Övervaka prestanda- och mått i Azure Cosmos DB
 
@@ -27,7 +27,7 @@ Mått kan granskas på sidan för den nya mått-sidan, eller i Azure Monitor.
 
    Azure-portalen visar uppsättning tillgängliga mått för samlingen. Observera att måtten för dataflöde, lagring, tillgänglighet, svarstid och konsekvens tillhandahålls på en separat flik. Att hämta ytterligare information om måtten tillhandahålls, klicka på dubbelpilen längst upp till höger i fönstret för varje mått.
 
-   ![Skärmbild som visar övervakning instrumentpanel som visar programsviten mått](./media/monitor-accounts/metrics-suite.png)
+   ![Skärmbild av övervakning instrumentpanel som visar programsviten mått](./media/monitor-accounts/metrics-suite.png)
 
 ## <a name="view-performance-metrics-by-using-azure-monitoring"></a>Visa prestandamått med hjälp av Azure-övervakning
 1. I den [Azure-portalen](https://portal.azure.com/), klickar du på **övervakaren** i det vänstra fältet.
@@ -50,7 +50,7 @@ Mått kan granskas på sidan för den nya mått-sidan, eller i Azure Monitor.
 ## <a name="set-up-alerts-in-the-portal"></a>Konfigurera aviseringar i portalen
 1. I den [Azure-portalen](https://portal.azure.com/), klickar du på **alla tjänster**, klickar du på **Azure Cosmos DB**, och klicka sedan på namnet på det Azure Cosmos DB-konto som du vill konfigurera prestanda måttaviseringar.
 2. I resurs-menyn klickar du på **Varningsregler** att öppna sidan Varningsregler.  
-   ![Skärmbild som visar aviseringen regler del markerad](./media/monitor-accounts/madocdb10.5.png)
+   ![Skärmbild av Varningsregler del valda](./media/monitor-accounts/madocdb10.5.png)
 3. I den **Aviseringsregler** klickar du på **Lägg till avisering**.  
    ![Skärmbild av sidan Varningsregler med knappen Lägg till avisering markerad](./media/monitor-accounts/madocdb11.png)
 4. I den **Lägg till en varningsregel** anger du:
@@ -61,7 +61,7 @@ Mått kan granskas på sidan för den nya mått-sidan, eller i Azure Monitor.
    * Villkor, tröskelvärde och period som bestämmer när aviseringen aktiveras. Ett serverfel räknas exempelvis är större än 5 under de senaste 15 minuterna.
    * Om tjänstadministratören och medadministratörer via e-post när aviseringen utlöses.
    * Ytterligare e-postadresser för varningsmeddelanden.  
-     ![Skärmbild av guiden Lägg till en varningsregel-sida](./media/monitor-accounts/madocdb12.png)
+     ![Skärmbild av Lägg till en varningsregel-sida](./media/monitor-accounts/madocdb12.png)
 
 ## <a name="monitor-azure-cosmos-db-programmatically"></a>Övervaka Azure Cosmos DB programmässigt
 De konto statistik tillgänglig i portalen, till exempel konto storage-användning och Totalt antal begäranden, är inte tillgängliga via SQL-API: er. Du kan dock hämta användningsdata på samlingsnivå med hjälp av SQL-API: er. Om du vill hämta data för samlingen på, gör du följande:

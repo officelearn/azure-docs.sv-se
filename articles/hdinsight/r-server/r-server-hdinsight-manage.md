@@ -9,22 +9,22 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 7e135432ce8490c505e7d3a1022407dd5d9b9776
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 0699686338a14ed6cc1ddcb076e14de86d0249d9
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53584402"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57438618"
 ---
 # <a name="manage-ml-services-cluster-on-azure-hdinsight"></a>Hantera kluster för ML-tjänster på Azure HDInsight
 
-I den här artikeln får lära du att hantera ett befintligt kluster för ML-tjänster på Azure HDInsight för att utföra uppgifter som att lägga till multipel samtidiga användare, ansluter via en fjärranslutning till ett kluster med ML-tjänster, ändra beräkningskontext osv.
+I den här artikeln får du lära dig hantera ett befintligt kluster för ML-tjänster på Azure HDInsight för att utföra uppgifter som att lägga till flera samtidiga användare, fjärransluta till ett kluster som ML-tjänster, ändra beräkningskontext osv.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 * **En ML-Services-kluster i HDInsight**: Anvisningar finns i [Kom igång med ML-tjänster på HDInsight](r-server-get-started.md).
 
-* **En Secure Shell (SSH)-klient**: En SSH-klient används för att ansluta till HDInsight-kluster och köra kommandon direkt i klustret. Mer information finns i [använda SSH med HDInsight.](../hdinsight-hadoop-linux-use-ssh-unix.md).
+* **En Secure Shell-klient (SSH)**: En SSH-klient används för att ansluta till HDInsight-kluster och köra kommandon direkt i klustret. Mer information finns i [använda SSH med HDInsight.](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 
 ## <a name="enable-multiple-concurrent-users"></a>Aktivera flera samtidiga användare

@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: 96eb6a823299521a071edc87b5bce95409405ffb
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 3e9850a40d949ce09e9c44a6b4b63a1f58259e7a
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53096281"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57447140"
 ---
-# <a name="quickstart-create-and-share-a-notebook"></a>Snabbstart: Skapa och dela en anteckningsbok
+# <a name="quickstart-create-and-share-a-notebook"></a>Snabbstart: Skapa och dela en notebook-fil
 
 1. Gå till [Azure anteckningsböcker](https://notebooks.azure.com) och logga in. (Mer information finns i [Snabbstart – logga in på Azure-anteckningsböcker](quickstart-sign-in-azure-notebooks.md)).
 
@@ -93,7 +93,7 @@ ms.locfileid: "53096281"
 
     ![Spara ikonen i verktygsfältet Jupyter notebook](media/quickstarts/hello-results-save-icon.png)
 
-1. Välj den **filen** > **stanna och Stäng** menykommandot att stoppa servern och stänga webbläsarfönstret.
+1. Välj den **filen** > **Stäng och stoppa** menykommandot att stoppa servern och stänga webbläsarfönstret.
 
 ## <a name="share-the-notebook"></a>Dela anteckningsboken
 

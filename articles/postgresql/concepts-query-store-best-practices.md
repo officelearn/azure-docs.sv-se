@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/26/2018
-ms.openlocfilehash: 0c962dc6d8aff63a3b7dd34133a40c7ff9feec4c
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: c4fcdc43e8c88bf307e4de5727df0641616d7b78
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53540749"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57448143"
 ---
 # <a name="best-practices-for-query-store"></a>Metodtips för Query Store
 
@@ -28,14 +28,14 @@ Låter Query Store hämtade data som är viktiga för dig.
 
 |**pg_qs.query_capture_mode** | **Scenario**|
 |---|---|
-|_Alla_  |Analysera din arbetsbelastning noggrant vad gäller alla frågor och körningen frekvensen och annan statistik. Identifiera nya frågor i din arbetsbelastning. Identifiera om ad-hoc-frågor för att identifiera möjligheter för användare eller automatisk parameterisering. _Alla_ levereras med en ökad resursförbrukning kostnad. |
+|_Alla_  |Analysera din arbetsbelastning noggrant vad gäller alla frågor och körningen frekvensen och annan statistik. Identifiera nya frågor i din arbetsbelastning. Identifiera om ad hoc-frågor för att identifiera möjligheter för användare eller automatisk parameterisering. _Alla_ levereras med en ökad resursförbrukning kostnad. |
 |_längst upp_  |Fokusera din uppmärksamhet på de viktigaste frågorna - de utfärdade av klienter.
 |_Ingen_ |Du redan har hämtat en fråga uppsättning och tidsperioden som du vill undersöka och du vill undvika störningar som andra frågor kan införa. _Ingen_ är lämplig för testning och prestandamått miljöer. _Ingen_ ska användas med försiktighet eftersom du kan gå miste om möjlighet att spåra och optimera viktiga nya frågor. Du kan inte återställa data på de senaste tidsfönster. |
 
 Query Store innehåller också ett Arkiv för wait-statistik. Det finns en fråga i ytterligare avbildning som styr vänta statistik: **pgms_wait_sampling.query_capture_mode** kan anges till _ingen_ eller _alla_. 
 
 > [!NOTE] 
-> **pg_qs.query_capture_mode** ersätter **pgms_wait_sampling.query_capture_mode**. Om pg_qs.query_capture_mode är _ingen_, pgms_wait_sampling.query_capture_mode-inställningen har ingen effekt. 
+> **pg_qs.query_capture_mode** supersedes **pgms_wait_sampling.query_capture_mode**. Om pg_qs.query_capture_mode är _ingen_, pgms_wait_sampling.query_capture_mode-inställningen har ingen effekt. 
 
 
 ## <a name="keep-the-data-you-need"></a>Behåll de data du behöver

@@ -17,12 +17,12 @@ ms.date: 07/31/2018
 ms.author: markvi
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 66506a8abf130f27950fd958ba1a7c291e55a5a5
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 8b113dd3e354e778d2cf16182665afff5440d2e5
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56674267"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57408538"
 ---
 # <a name="control-the-hybrid-azure-ad-join-of-your-devices"></a>Kontrollera Azure AD-anslutningshybriden för dina enheter
 
@@ -99,16 +99,16 @@ Du kan styra beteendet enheten registreringen av din befintliga enheter genom at
 
 Konfigurera klientinställningen:
 
-1.  Öppna **Configuration Manager**, och gå till **molntjänster**.
+1.  Öppna **Configuration Manager**väljer **Administration**, och gå till **klientinställningar**.
 
-2.  Under **Enhetsinställningar**, väljer du något av följande inställningar för **automatiskt registrera nya Windows 10 domänanslutna enheter med Azure Active Directory**:
+2.  Öppna egenskaperna för **inställningar för standardklient** och välj **molntjänster**.
+
+3.  Under **Enhetsinställningar**, väljer du något av följande inställningar för **automatiskt registrera nya Windows 10 domänanslutna enheter med Azure Active Directory**:
 
     - **Inte**: Att förhindra automatisk enhetsregistrering.
     - **Ja**: Att aktivera automatisk enhetsregistrering.
 
-
-3.  Välj **OK**.
-    
+4.  Välj **OK**.
 
 Du måste länka den här klientinställningen till en valfri plats. Till exempel för att konfigurera den här klientinställningen för alla aktuella Windows-enheter i din organisation, länka klientinställningen till domänen. Du kan konfigurera för klienten att domänanslutna Windows befintliga enheter som hör till en organisationsenhet eller en säkerhetsgrupp om du vill göra en kontrollerad distribution.
 

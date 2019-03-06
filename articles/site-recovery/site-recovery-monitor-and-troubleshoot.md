@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: troubleshooting
 ms.date: 11/27/2018
 ms.author: bsiva
-ms.openlocfilehash: 48e53bcc542b9a0e00a544f80ec796082fa71f7b
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 7deea91a016616d9015004857ad9e5ae70e24111
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55210428"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57432880"
 ---
 # <a name="monitor-and-troubleshoot-site-recovery"></a>Övervaka och felsöka Site Recovery
 
@@ -40,7 +40,7 @@ Avsnittet replikerade objekt som visar hälsotillståndet för alla datorer som 
 Felfri | Replikeringen körs normalt. Inga fel eller varning symptom identifieras.
 Varning | En eller flera varningar problem som kan påverka replikering identifieras.
 Kritisk | En eller flera kritisk replikering Fel Symptom har identifierats.<br/><br/> Problemen fel är vanligtvis indikatorer att replikeringen har fastnat eller inte så snabbt som de dataändringshastighet.
-Ej tillämpligt | Servrar som inte är för närvarande förväntas vara replikeras. Detta kan innehålla datorer som har redundansväxlats.
+Inte tillämpligt | Servrar som inte är för närvarande förväntas vara replikeras. Detta kan innehålla datorer som har redundansväxlats.
 
 ## <a name="monitor-test-failovers"></a>Övervaka redundanstestning
 
@@ -53,7 +53,7 @@ Du kan visa status för test-redundans för virtuella datorer i valvet.
 --- | ---
 Test som rekommenderas | Datorer som inte har haft ett redundanstest sedan skyddet aktiverades.
 Genomfördes | Datorer med eller mer framgångsrika redundanstestningen.
-Ej tillämpligt | Datorer som inte är för närvarande är berättigade till ett redundanstest. Datorer som har redundansväxlats, har till exempel inledande replikering/redundanstest/redundansväxling pågår.
+Inte tillämpligt | Datorer som inte är för närvarande är berättigade till ett redundanstest. Datorer som har redundansväxlats, har till exempel inledande replikering/redundanstest/redundansväxling pågår.
 
 ## <a name="monitor-configuration-issues"></a>Problem med konfigurationen av Övervakare
 
@@ -84,7 +84,7 @@ Den **chyb** visar aktiva fel problem som kan påverka replikering av servrar i 
 Den **infrastruktur-vy** visar infrastrukturkomponenter som ingår i replikeringen och hälsotillståndet för anslutningen mellan servrar och Azure-tjänster.
 
 - En grön linje visar att anslutningen är felfri.
-- En röd linje med felikonen verlaid anger förekomsten av en eller flera fel inträffa som inverkan-anslutning.
+- En röd linje med putsade felikonen anger förekomsten av en eller flera fel inträffa som inverkan-anslutning.
 -  Hovra muspekaren över felikonen för att visa felet och antal berörda entiteter. Klicka på ikonen för en filtrerad lista över berörda entiteter.
 
     ![Site Recovery infrastruktur-vy (valv)](./media/site-recovery-monitor-and-troubleshoot/site-recovery-vault-infra-view.png)

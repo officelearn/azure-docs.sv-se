@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: ''
+ms.date: 02/02/2019
 ms.author: haroldw
-ms.openlocfilehash: 8436b530ac01f03e071604e5023b50f8de6989fd
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: b2a2e0ed48004a731ca15b3fb1d985bbee7e0c29
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51034815"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57440667"
 ---
 # <a name="post-deployment-tasks"></a>Uppgifter efter distribution
 
@@ -39,10 +39,10 @@ För att använda Azure Active Directory för autentisering, måste du först sk
 
 De här stegen används Azure CLI för att skapa registreringen och det grafiska Användargränssnittet (portal) att ange behörigheter. Om du vill skapa registreringen, behöver du följande fem typer av information:
 
-- Visningsnamn: registrering namn (till exempel OCPAzureAD)
-- Startsidan: OpenShift konsolen URL (t.ex. https://masterdns343khhde.westus.cloudapp.azure.com/console)
+- Visningsnamn: Registrering av namn (till exempel OCPAzureAD)
+- Startsida: OpenShift-konsolens URL (t.ex. https://masterdns343khhde.westus.cloudapp.azure.com/console)
 - Identifierar-URI: OpenShift-konsolens URL (t.ex. https://masterdns343khhde.westus.cloudapp.azure.com/console)
-- Svars-URL: Master offentlig URL och namnet på registrering (t.ex. https://masterdns343khhde.westus.cloudapp.azure.com/oauth2callback/OCPAzureAD)
+- Svars-URL: Master-offentlig URL och namnet på registrering (t.ex. https://masterdns343khhde.westus.cloudapp.azure.com/oauth2callback/OCPAzureAD)
 - Lösenord: Säkra lösenord (Använd ett starkt lösenord)
 
 I följande exempel skapas en appregistrering med hjälp av informationen ovan:

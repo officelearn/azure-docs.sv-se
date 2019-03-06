@@ -10,18 +10,18 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: maheshb
-ms.openlocfilehash: e0c1ec55a7f21ad223629d6d478cbd97c7974abb
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: f00a8a02ac7f9468516506b6e6a376209d24c270
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237985"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57448895"
 ---
 # <a name="call-your-bing-custom-search-instance-from-the-portal"></a>Anropa anpassad sökning i Bing-instans från portalen
 
 När du har konfigurerat anpassade användningen kan du testa den från inom Bing Custom Search [portal](https://customsearch.ai). 
 
-![en skärmbild av bing anpassad sökning i portalen](media/portal-search-screen.png)
+![en skärmbild av Bing anpassad sökning i portalen](media/portal-search-screen.png)
 ## <a name="create-a-search-query"></a>Skapa en sökfråga 
 
 När du har loggat in Bing Custom Search [portal](https://customsearch.ai), Välj din Sökinstans och klicka på den **produktion** fliken. Under **slutpunkter**, Välj en API-slutpunkt (till exempel webb-API). Prenumerationen avgör vilka slutpunkter som ska visas.

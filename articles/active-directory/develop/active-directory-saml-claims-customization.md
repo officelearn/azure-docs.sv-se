@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: luleon, jeedes
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9396fbc470f25e3cf6fad883ab525af1f96e96a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 23ce02bd35d9cd4afd881ec276fabb0720b61c09
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56188757"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57444046"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Anvisningar: Anpassa anspråk som utfärdats i SAML-token för företagsprogram
 
@@ -82,7 +82,7 @@ Du kan också använda funktionerna särskilda anspråk transformationer.
 
 ## <a name="adding-claims"></a>Att lägga till anspråk
 
-När du lägger till ett anspråk, kan du ange attributets namn (som strikt inte behöver följer ett mönster för URI enligt SAML-specifikationen). Ange värdet till valfria användarattribut som lagras i katalogen eller Använd ett gemenskapsgödselmedel-värde som en statisk post för alla användare i din organisation.
+När du lägger till ett anspråk, kan du ange attributets namn (som strikt inte behöver följer ett mönster för URI enligt SAML-specifikationen). Ange värdet till valfria användarattribut som lagras i katalogen eller Använd ett konstant värde som en statisk post för alla användare i din organisation.
 
 ![Lägg till användarattribut][7]
 

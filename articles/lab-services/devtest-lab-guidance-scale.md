@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 02/11/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: 781a897c99a28fbd1b695876f477b140521068e3
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 25a088686c739c53feadd6354baf75f3147bdc33
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56244887"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57431206"
 ---
 # <a name="scale-up-your-azure-devtest-labs-infrastructure"></a>Skala upp din Azure DevTest Labs-infrastruktur
 Innan du implementerar DevTest Labs på företagsnivå, finns det flera viktiga punkter. Förstå dessa beslutspunkter på hög nivå hjälper en organisation med designbeslut i framtiden. Men ska de här punkterna inte lämna en organisation från att starta ett konceptbevis. De tre översta områdena för den inledande planeringen av skala upp är:
@@ -46,7 +46,7 @@ Nu ska fokusera vi på proffsen med respektive metod.
 Ofta kan metod på en prenumeration inte hanteras i ett stort företag. Dock ger begränsar antalet prenumerationer följande fördelar:
 
 - **Prognoser** kostnader för företag.  Budgetera blir mycket enklare för en enskild prenumeration eftersom alla resurser som finns i en enda pool. Den här metoden möjliggör enklare beslutsfattande på när att utöva kostnadskontroll åtgärder vid en given tidpunkt under en faktureringsperiod.
-- **Hanterbarhet** av virtuella datorer, artefakter, formler, nätverkskonfiguration, behörigheter, principer, etc är enklare eftersom alla uppdateringar krävs endast i en prenumeration till skillnad från att göra uppdateringar för många prenumerationer.
+- **Hanterbarhet** av virtuella datorer, artefakter, formler, nätverkskonfiguration, behörigheter, principer, etc. är enklare eftersom alla uppdateringar krävs endast i en prenumeration till skillnad från att göra uppdateringar för många prenumerationer.
 - **Nätverk** arbete förenklas för en enskild prenumeration för företag där lokal anslutning är ett krav. Ansluta virtuella nätverk över prenumerationer (typen hub-spoke modellen) måste anges med ytterligare prenumerationer som kräver ytterligare konfiguration, hantering, IP-adressutrymmen, osv.
 - **Gruppsamarbete** är enklare när alla fungerar i samma prenumeration – till exempel är det enklare att tilldela om en virtuell dator till en medarbetare kan dela teamresurser, osv.
 

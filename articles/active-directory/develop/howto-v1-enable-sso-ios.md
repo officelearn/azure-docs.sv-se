@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 602fba95b3cc69521fe3fe17d8c89cc332131566
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: e79b73123b33a012c062a89fb9748fa101fabcea
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56190236"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57448687"
 ---
 # <a name="how-to-enable-cross-app-sso-on-ios-using-adal"></a>Anvisningar: Aktivera enkel inloggning mellan appar på iOS med hjälp av ADAL
 
@@ -231,7 +231,7 @@ När du har konfigurerat korrekt rättigheter bör se en fil i projektkatalogen 
 </plist>
 ```
 
-När du har berättigandet nyckelring aktiverat i var och en av dina program och du är redo att använda enkel inloggning kan berätta för odentity SDK om nyckelringen med hjälp av följande i din `ADAuthenticationSettings` med följande inställning:
+När du har berättigandet nyckelring aktiverat i var och en av dina program och du är redo att använda enkel inloggning kan berätta för identiteten SDK om nyckelringen med hjälp av följande i din `ADAuthenticationSettings` med följande inställning:
 
 ```
 defaultKeychainSharingGroup=@"com.myapp.mycache";

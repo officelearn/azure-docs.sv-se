@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: abnarain
-ms.openlocfilehash: d684ec56c7dfcc28d1057d0b20905db49bce9723
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: a996703f3719c2be90851241c1fe23c89f24e606
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55498081"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57447956"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Säkerhetsöverväganden för dataförflyttning i Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -51,6 +51,8 @@ I den här artikeln ska granska vi säkerhetsaspekter i följande två data move
 
 - **Scenariot med molnet**: I det här scenariot är både källan och målet tillgängliga för allmänheten via internet. Dessa inkluderar hanterade molnlagringstjänster, till exempel Azure Storage, Azure SQL Data Warehouse, Azure SQL Database, Azure Data Lake Store, Amazon S3, Amazon Redshift, SaaS-tjänster, till exempel Salesforce och webbprotokoll som FTP- och OData. En fullständig lista över datakällor som stöds i [datalager och format som stöds](copy-activity-overview.md#supported-data-stores-and-formats).
 - **Scenario med hybridanvändning**: I det här scenariot är antingen källan eller målet bakom en brandvägg eller i ett lokalt företagsnätverk. Eller så datalagret är i ett privat nätverk eller virtuella nätverk (oftast källan) och inte är allmänt tillgänglig. Database-servrar som körs på virtuella datorer omfattas också det här scenariot.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="cloud-scenarios"></a>Scenarier för molnet
 
@@ -109,9 +111,9 @@ Autentiseringsuppgifterna för dina lokala datalager alltid krypteras och lagras
 
 - **Store autentiseringsuppgifter lokalt**. Om du vill kryptera och lagra autentiseringsuppgifter lokalt på den lokala integreringskörningen, följer du stegen i [kryptera autentiseringsuppgifterna för den lokala datalager i Azure Data Factory](encrypt-credentials-self-hosted-integration-runtime.md). Alla anslutningar stöder det här alternativet. Lokal integration runtime använder Windows [DPAPI](https://msdn.microsoft.com/library/ms995355.aspx) att kryptera känsliga data och autentiseringsuppgifter information. 
 
-   Använd den **New-AzureRmDataFactoryV2LinkedServiceEncryptedCredential** cmdlet för att kryptera autentiseringsuppgifterna för den länkade tjänsten och känslig information i den länkade tjänsten. Du kan sedan använda den JSON som returneras (med den **EncryptedCredential** element i anslutningssträngen) skapa en länkad tjänst med hjälp av den **Set-AzureRmDataFactoryV2LinkedService** cmdlet.  
+   Använd den **New AzDataFactoryV2LinkedServiceEncryptedCredential** cmdlet för att kryptera autentiseringsuppgifterna för den länkade tjänsten och känslig information i den länkade tjänsten. Du kan sedan använda den JSON som returneras (med den **EncryptedCredential** element i anslutningssträngen) skapa en länkad tjänst med hjälp av den **Set-AzDataFactoryV2LinkedService** cmdlet.  
 
-- **Store i Azure Data Factory hanteras storage**. Om du använder direkt i **Set-AzureRmDataFactoryV2LinkedService** cmdlet med anslutningen anslutningssträngar och autentiseringsuppgifter infogade i JSON, den länkade tjänsten krypteras och lagras i Azure Data Factory hanterad lagring. Känslig information som krypteras fortfarande av certifikat och Microsoft hanterar dessa certifikat.
+- **Store i Azure Data Factory hanteras storage**. Om du använder direkt i **Set-AzDataFactoryV2LinkedService** cmdlet med anslutningen anslutningssträngar och autentiseringsuppgifter infogade i JSON, den länkade tjänsten krypteras och lagras i Azure Data Factory hanterad lagring. Känslig information som krypteras fortfarande av certifikat och Microsoft hanterar dessa certifikat.
 
 
 

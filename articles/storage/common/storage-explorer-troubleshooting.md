@@ -1,6 +1,6 @@
 ---
 title: Felsökningsguide för Azure Storage Explorer | Microsoft Docs
-description: Översikt över de två felsökning funktion i Azure
+description: Översikt över felsökning tekniker för Azure Storage Explorer
 services: virtual-machines
 author: Deland-Han
 ms.service: virtual-machines
@@ -8,18 +8,59 @@ ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
 ms.subservice: common
-ms.openlocfilehash: c192b3e995cacd3085f343d1f6b2c243f1531acc
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: 15ceaf1a75859ca53ddb946555880b360b29ee58
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56415518"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57405699"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Felsökningsguide för Azure Storage Explorer
 
 Microsoft Azure Storage Explorer är en fristående app som gör det enkelt att arbeta med Azure Storage-data i Windows, macOS och Linux. Appen kan ansluta till lagringskonton i Azure, nationella moln och Azure Stack.
 
 Den här guiden beskriver lösningar på vanliga problem i Storage Explorer.
+
+## <a name="role-based-access-control-permission-issues"></a>Role-based Access Control behörighetsproblem
+
+[Rollbaserad åtkomstkontroll (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview) ger detaljerad åtkomsthantering för Azure-resurser genom att kombinera uppsättningar av behörigheter till _roller_. Här följer några förslag som du kan följa för att få RBAC som arbetar i Storage Explorer.
+
+### <a name="what-do-i-need-to-see-my-resources-in-storage-explorer"></a>Vad behöver jag att se mina resurser i Storage Explorer?
+
+Om du har problem med åtkomst till lagringsresurser med RBAC kan vara det eftersom du inte har tilldelats lämpliga roller. I följande avsnitt beskrivs de behörigheter som Storage Explorer för närvarande kräver åtkomst till dina lagringsresurser.
+
+Kontakta administratören för Azure-konto om du är osäker på om du har rätt roller eller behörigheter.
+
+#### <a name="read-listget-storage-accounts"></a>Läs: Lista/hämta lagringskonton
+
+Du måste ha behörighet att lista lagringskonton. Du kan hämta den här behörigheten genom att de tilldelas rollen ”läsare”.
+
+#### <a name="list-storage-account-keys"></a>Lista nycklar för lagringskonto
+
+Lagringsutforskaren kan också använda nycklar för att autentisera begäranden. Du kan få åtkomst till nycklar med mer kraftfulla roller, till exempel rollen ”deltagare”.
+
+> [!NOTE]
+> Åtkomstnycklar ge obegränsad behörighet till någon som innehar dem. Därför vanligtvis rekommenderas inte de lämnas till användare av konton. Om du vill återkalla åtkomstnycklar kan du återskapa dem från den [Azure-portalen](https://portal.azure.com/).
+
+#### <a name="data-roles"></a>Data-roller
+
+Du måste tilldelas minst en roll som ger åtkomst läsa data från resurser. Till exempel om du vill visa eller ladda ned blobar behöver du minst rollen ”Storage Blob Data Reader”.
+
+### <a name="why-do-i-need-a-management-layer-role-to-see-my-resources-in-storage-explorer"></a>Varför behöver jag en ledningsroll layer se mina resurser i Storage Explorer?
+
+Azure Storage har två nivåer av åtkomst: _management_ och _data_. Prenumerationer och lagringskonton nås via hanteringslagret. Behållare, blobar och andra dataresurser som kan nås via data-lagret. Till exempel om du vill hämta en lista över dina lagringskonton från Azure kan skicka du en begäran till hanteringsslutpunkten. Om du vill en lista över blob-behållare i ett konto som kan skicka en begäran till lämplig tjänsteslutpunkt.
+
+RBAC-roller kan innehålla behörigheter för layer management eller data. Rollen ”läsare” ger till exempel skrivskyddad åtkomst management layer-resurser.
+
+Strikt sett rollen ”läsare” innehåller inga data layer behörigheter och är inte nödvändiga för att komma åt data-lagret.
+
+Lagringsutforskaren gör det enkelt att komma åt dina resurser genom att samla in nödvändig information för att ansluta till dina Azure-resurser åt dig. Om du vill visa din blob-behållare, skickar Lagringsutforskaren exempelvis en begäran om hanteringspaketlista behållare till blob-tjänsteslutpunkt. För att få att slutpunkten kan Lagringsutforskaren söker i listan över prenumerationer och lagringskonton som du har åtkomst till. Men för att hitta dina prenumerationer och lagringskonton, Lagringsutforskaren också behöver åtkomst till hanteringslagret.
+
+Om du inte har en roll som tillståndsbeviljande ett lager, kan inte Storage Explorer hämta information som behövs för att ansluta till data-lagret.
+
+### <a name="what-if-i-cant-get-the-management-layer-permissions-i-need-from-my-administrator"></a>Vad händer om jag kan inte hämta hanteringen layer behörigheter måste från min administratör?
+
+Vi har ännu inte en RBAC-relaterade lösning just nu. Som en lösning kan du begära en SAS-URI att [ansluta till din resurs](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=linux#attach-a-service-by-using-a-shared-access-signature-sas).
 
 ## <a name="error-self-signed-certificate-in-certificate-chain-and-similar-errors"></a>Fel: Självsignerat certifikat i certifikatkedjan (och liknande fel)
 
@@ -38,15 +79,13 @@ Det här problemet kan också vara resultatet av flera certifikat (rot och mella
 Om du är osäker på var certifikaten som kommer från, kan du dessa steg för att hitta den:
 
 1. Installera öppen SSL
-
     * [Windows](https://slproweb.com/products/Win32OpenSSL.html) (någon av de enklare versionerna bör vara tillräckligt med)
     * Mac och Linux: ska ingå i ditt operativsystem
 2. Kör öppen SSL
-
     * Windows: öppna installationskatalogen, klicka på **/bin/**, och dubbelklicka sedan på **openssl.exe**.
     * Mac och Linux: kör **openssl** från en terminal.
 3. Kör `s_client -showcerts -connect microsoft.com:443`
-4. Leta efter självsignerade certifikat. Om du är osäker på vilka som är självsignerade, leta efter var som helst ämnet `("s:")` och `("i:")` är desamma.
+4. Leta efter självsignerade certifikat. Om du är osäker på vilka certifikat som är självsignerade, leta efter var som helst ämnet `("s:")` och `("i:")` är desamma.
 5. När du har hittat självsignerade certifikat för vart och ett, kopiera och klistra in allt från och med **---BEGIN CERTIFICATE---** till **---END CERTIFICATE---** till en ny .cer-fil.
 6. Öppna Storage Explorer, klicka på **redigera** > **SSL-certifikat** > **Importera certifikat**, och Använd filväljaren för att hitta, select, och Öppna CER-filen som du skapade.
 
@@ -54,8 +93,10 @@ Om du inte hittar något självsignerat certifikat med föregående steg kan du 
 
 ## <a name="sign-in-issues"></a>Inloggningsproblem
 
-### <a name="blank-sign-in-dialog"></a>Tom logga i dialogrutan
-Tom logga i dialogrutor orsakas oftast av AD FS ber Storage Explorer att utföra en omdirigering som inte stöds av Electron. Du kan försöka att använda enheten kod Flow för att logga in för att lösa problemet. Det gör du på följande sätt:
+### <a name="blank-sign-in-dialog"></a>Tom inloggningsrutan
+
+Tom inloggning dialogrutor orsakas oftast av AD FS ber Storage Explorer att utföra en omdirigering, som inte stöds av Electron. Du kan försöka att använda enheten kod Flow för att logga in för att lösa problemet. Det gör du på följande sätt:
+
 1. ”Gå till experimentella” -> ”använda kod Enhetsinloggning”.
 2. Öppna dialogrutan Anslut (antingen via ikonen plugin på den vänstra vertikalstreck eller ”Lägg till konto” på panelen konto).
 3. Välj vilken miljö som du vill logga in på.
@@ -64,21 +105,27 @@ Tom logga i dialogrutor orsakas oftast av AD FS ber Storage Explorer att utföra
 
 Obs: den här funktionen finns för närvarande endast på 1.7.0 förhandsversion.
 
-Om du vill har problem med att logga in på kontot du använda eftersom din standardwebbläsare redan är inloggad på ett annat konto som du kan antingen:
+Om du har problem med att logga in på kontot som du vill använda eftersom din standardwebbläsare redan är inloggad på ett annat konto, kan du antingen:
+
 1. Manuellt kopiera länken och koden i en privat session i webbläsaren.
 2. Manuellt kopiera länken och koden i en annan webbläsare.
 
 ### <a name="reauthentication-loop-or-upn-change"></a>Återautentisering slinga eller UPN-ändring
+
 Om du är i en loop omautentisering eller har ändrats UPN-namnet för ett av dina konton, kan du prova följande:
+
 1. Ta bort alla konton och stäng sedan Storage Explorer
 2. Ta bort den. IdentityService mappen från din dator. På Windows, mappen finns i `C:\users\<username>\AppData\Local`. Du kan hitta mapp i användarkatalogen roten för Mac och Linux.
 3. Om du använder Mac- eller Linux, måste du också ta bort posten Microsoft.Developer.IdentityService från ditt operativsystem keystore. På Mac är keystore ”gör väldigt lätt nyckelringar”-program. Programmet kallas vanligtvis ”nyckelringen” för Linux, men namnet kan vara olika beroende på din distribution.
 
 ### <a name="conditional-access"></a>Villkorlig åtkomst
+
 Villkorlig åtkomst stöds inte när Lagringsutforskaren används på Windows 10, Linux eller macOS. Detta beror på en begränsning i AAD-biblioteket som används av Storage Explorer.
 
 ## <a name="mac-keychain-errors"></a>Mac-nyckelringen fel
-MacOS nyckelring kan ibland hamna i ett tillstånd som orsakar problem med Storage Explorer-autentiseringsbiblioteket. Hämta nyckelringen utanför det här tillståndet prova följande steg:
+
+MacOS nyckelring kan ibland hamna i ett tillstånd som orsakar problem med Storage Explorer-autentiseringsbiblioteket. För att få nyckelringen utanför det här tillståndet kan du prova följande steg:
+
 1. Stäng Storage Explorer.
 2. Öppna nyckelring (**cmd + blanksteg**, skriver i nyckelringen, träffar ange).
 3. Välj ”login”-nyckelringen.
@@ -91,7 +138,8 @@ MacOS nyckelring kan ibland hamna i ett tillstånd som orsakar problem med Stora
 7. Försök att logga in.
 
 ### <a name="general-sign-in-troubleshooting-steps"></a>Allmän inloggning felsökningssteg
-* Om du är på macOS och fönstret för inloggning visas aldrig över dialogrutan ”väntar på verifiering...”, försök [de här stegen](#mac-keychain-errors)
+
+* Om du är på macOS och fönstret för inloggning visas aldrig över den ”väntar på verifiering...” dialogrutan försök [de här stegen](#mac-keychain-errors)
 * Starta om Lagringsutforskaren
 * Om fönstret autentisering är tom, vänta minst en minut innan du stänger dialogrutan för autentisering.
 * Se till att proxy- och certifikat som är rätt konfigurerade, inställningar för både din dator och Storage Explorer.
@@ -103,7 +151,7 @@ Om ingen av dessa metoder fungerar [öppna ett ärende på GitHub](https://githu
 
 Om det inte går att hämta dina prenumerationer när du har loggat in kan du prova följande metoder för felsökning:
 
-* Kontrollera att ditt konto har åtkomst till de prenumerationer som du förväntar dig. Du kan kontrollera att du har åtkomst genom att logga in portalen för Azure-miljö du vill använda.
+* Kontrollera att ditt konto har åtkomst till de prenumerationer som du förväntar dig. Du kan verifiera din åtkomst genom att logga in portalen för Azure-miljö du vill använda.
 * Se till att du har loggat in med rätt Azure miljö (Azure, Azure Kina 21Vianet, Azure Germany, Azure US Government eller anpassad miljö).
 * Om du är bakom en proxyserver, se till att du har konfigurerat Storage Explorer-proxyservern korrekt.
 * Försök att ta bort och lägga till kontot igen.
@@ -118,10 +166,10 @@ Om det inte går att ta bort ett anslutna konto eller en resurs för lagring via
 * Linux: `~/.config/StorageExplorer`
 
 > [!NOTE]
->  Stäng Lagringsutforskaren innan du tar bort de ovanstående mapparna.
+> Stäng Lagringsutforskaren innan du tar bort de ovanstående mapparna.
 
 > [!NOTE]
->  Om du någonsin har importerat eventuella SSL-certifikat och sedan säkerhetskopiera innehållet i den `certs` directory. Du kan senare använda säkerhetskopian för att importera SSL-certifikat.
+> Om du någonsin har importerat eventuella SSL-certifikat och sedan säkerhetskopiera innehållet i den `certs` directory. Du kan senare använda säkerhetskopian för att importera SSL-certifikat.
 
 ## <a name="proxy-issues"></a>Proxyproblem
 
@@ -130,7 +178,8 @@ Kontrollera först att du har angett följande stämmer:
 * Proxy-URL och portnummer
 * Användarnamn och lösenord om det behövs av proxyn
 
-Observera att Lagringsutforskaren inte stöder filer för automatisk konfiguration av proxy för att konfigurera proxy-inställningar.
+> [!NOTE]
+> Lagringsutforskaren stöder inte filer för automatisk konfiguration av proxy för att konfigurera proxy-inställningar.
 
 ### <a name="common-solutions"></a>Vanliga lösningar
 
@@ -165,11 +214,12 @@ Om du är ansluten till Azure via en proxyserver, kontrollerar du att proxyinst�
 
 ## <a name="connection-string-does-not-have-complete-configuration-settings"></a>Anslutningssträngen har inte slutförts konfigurationsinställningar
 
-Om du får detta felmeddelande är det möjligt att du inte har behörigheten som krävs för att få nycklarna för ditt lagringskonto. Gå till portalen för att bekräfta om så är fallet, och leta upp ditt Storage-konto. Du kan snabbt göra detta genom att högerklicka på noden för ditt lagringskonto och klicka på ”Öppna i portalen”. När du gör det, går du till bladet ”åtkomstnycklar”. Om du inte har behörighet att visa nycklar sedan visas en sida med meddelandet ”du inte har åtkomst”. Lösa det här problemet kan du antingen hämta kontonyckeln från någon annan och bifoga med namn och nyckel, eller du kan be någon för en SAS för lagringskontot och använda den för att ansluta till Storage-kontot.
+Om du får detta felmeddelande är det möjligt att du inte har behörigheten som krävs för att få nycklarna för ditt lagringskonto. Gå till portalen för att bekräfta om så är fallet, och leta upp ditt Storage-konto. Du kan snabbt göra detta genom att högerklicka på noden för ditt lagringskonto och klicka på ”Öppna i portalen”. När du gör det, går du till bladet ”åtkomstnycklar”. Om du inte har behörighet att visa nycklar, sedan visas en sida med meddelandet ”du inte har åtkomst”. Undvik problemet genom du antingen hämta kontonyckeln från någon annan och bifoga med namn och nyckel, eller du kan be någon för en SAS för lagringskontot och använda den för att ansluta till Storage-kontot.
 
-Om du ser nycklar för kontot, sedan du rapportera problemet på GitHub så att vi kan hjälpa dig att lösa problemet.
+Om du ser nycklar för kontot kan du rapportera problemet på GitHub så att vi kan hjälpa dig att lösa problemet.
 
 ## <a name="issues-with-sas-url"></a>Problem med SAS-URL
+
 Om du vill ansluta till en tjänst med hjälp av en SAS-URL och upplever det här felet:
 
 * Kontrollera att URL: en ger tillräcklig behörighet för att läsa eller lista resurser.
@@ -177,15 +227,17 @@ Om du vill ansluta till en tjänst med hjälp av en SAS-URL och upplever det hä
 * Om SAS-Webbadressen är baserad på en åtkomstprincip, kontrollerar du att åtkomstprincipen inte har återkallats.
 
 Följ dessa steg om du av misstag ansluten med hjälp av en ogiltig SAS-URL och kan inte koppla från:
-1.  När du kör Lagringsutforskaren, trycker du på F12 för att öppna fönstret med utvecklingsverktyg.
-2.  Klicka på fliken program och klicka sedan på lokal lagring > file:// i trädet till vänster.
-3.  Hitta nyckeln som associeras med tjänsttypen problematiska SAS-URI. Till exempel om dåligt SAS-URI är för en blob-behållare, letar du efter nyckeln med namnet `StorageExplorer_AddStorageServiceSAS_v1_blob`.
-4.  Värdet för nyckeln ska vara en JSON-matris. Hitta det objekt som är associerade med den felaktiga URI och ta bort den.
-5.  Tryck på Ctrl + R för att läsa in Storage Explorer.
+
+1. När du kör Lagringsutforskaren, trycker du på F12 för att öppna fönstret med utvecklingsverktyg.
+2. Klicka på fliken program och klicka sedan på lokal lagring > file:// i trädet till vänster.
+3. Hitta nyckeln som associeras med tjänsttypen problematiska SAS-URI. Till exempel om dåligt SAS-URI är för en blob-behållare, letar du efter nyckeln med namnet `StorageExplorer_AddStorageServiceSAS_v1_blob`.
+4. Värdet för nyckeln ska vara en JSON-matris. Hitta det objekt som är associerade med den felaktiga URI och ta bort den.
+5. Tryck på Ctrl + R för att läsa in Storage Explorer.
 
 ## <a name="linux-dependencies"></a>Linux-beroenden
 
 Du kan behöva installera några beroenden manuellt för Linux-distributioner än Ubuntu 16.04. I allmänhet krävs följande paket:
+
 * [.NET Core 2.x](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x)
 * `libsecret`
 * `libgconf-2-4`

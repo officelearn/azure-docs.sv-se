@@ -1,26 +1,26 @@
 ---
-title: 'Snabbstart: Skicka ett arbetsflöde med FASTQ-filsindata – Microsoft Genomics'
+title: Skicka ett arbetsflöde med flera FASTQ-fil som indata – Microsoft Genomics
 titleSuffix: Azure
-description: I den här snabbstarten förutsätts det att du har klienten msgen installerad och har lyckats köra provdata genom tjänsten.
+description: Den här artikeln förutsätter att du har klienten msgen installerad och har kört exempeldata via tjänsten.
 services: genomics
 author: grhuynh
 manager: cgronlun
 ms.author: grhuynh
 ms.service: genomics
-ms.topic: quickstart
+ms.topic: conceptual
 ms.date: 12/07/2017
-ms.openlocfilehash: acbcceb32ec54ab85db05ef743e9c10cd8cf025c
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
-ms.translationtype: HT
+ms.openlocfilehash: 2662a8f52c58a39916e5789fa9ed7fadd91216c0
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45735857"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57438813"
 ---
 # <a name="submit-a-workflow-using-fastq-file-inputs-in-microsoft-genomics"></a>Skicka ett arbetsflöde med FASTQ-filsindata i Microsoft Genomics
 
-I den här snabbstarten visar vi hur du skickar ett arbetsflöde till Microsoft Genomics-tjänsten om indatafilerna är ett enskilt par FASTQ-filer. I det här avsnittet förutsätts det att du redan har installerat och kört `msgen`-klienten och att du vet hur du använder Azure Storage. Om du har lyckats skickat ett arbetsflöde med tillhandahållna provdata är du redo att fortsätta med den här snabbstarten. 
+Den här artikeln visar hur du skickar ett arbetsflöde till Microsoft Genomics-tjänsten om indatafilerna är ett enskilt par FASTQ-filer. I det här avsnittet förutsätts det att du redan har installerat och kört `msgen`-klienten och att du vet hur du använder Azure Storage. Om du har skickat ett arbetsflöde med tillhandahållna provdata är du redo att fortsätta med den här artikeln. 
 
-## <a name="set-up-upload-your-fastq-files-to-azure-storage"></a>Förberedelse: Ladda upp FASTQ-filerna till Azure Storage
+## <a name="set-up-upload-your-fastq-files-to-azure-storage"></a>Konfigurera: Ladda upp FASTQ-filerna till Azure storage
 Vi antar vi att du har två filer, *reads_1.fq.gz* och *reads_2.fq.gz*, och att du har laddat upp dem till ditt lagringskonto *myaccount* i Azure som **https://<span></span>myaccount.blob.core<span></span>.windows<span></span>.net<span></span>/indata/reads_1<span></span>. rk<span></span>.gz<span> </span>** och **https://<span></span>myaccount.blob.core.<span> </span>windows<span></span>.net /<span></span>indata /<span></span>reads_2.fq<span></span>.gz<span> </span>** . Du har API-URL och din åtkomstnyckel. Du vill ha utdata i **https://<span></span>myaccount.blob.core<span></span>.windows<span></span>.net<span></span>/outputs<span></span>**.
 
 
@@ -82,4 +82,4 @@ output_storage_account_container: outputs
 Skicka filen `config.txt` med det här anropet: `msgen submit -f config.txt`
 
 ## <a name="next-steps"></a>Nästa steg
-I den här artikeln har du laddat upp ett par FASTQ-filer Azure Storage och skickat ett arbetsflöde till Microsoft Genomics-tjänsten via `msgen` Python-klienten. Ytterligare information om att skicka arbetsflöden och andra kommandon som du kan använda med tjänsten Microsoft Genomics finns i [vanliga frågor och svar](frequently-asked-questions-genomics.md). 
+I den här artikeln har du laddat upp ett par FASTQ-filer Azure Storage och skickat ett arbetsflöde till Microsoft Genomics-tjänsten via `msgen` Python-klienten. Läs mer om att skicka arbetsflöden och andra kommandon som du kan använda med Microsoft Genomics-tjänsten i vår [vanliga frågor och svar](frequently-asked-questions-genomics.md). 

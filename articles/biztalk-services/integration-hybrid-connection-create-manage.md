@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2016
 ms.author: ccompy
-ms.openlocfilehash: 1c05a50f82f5c235c76ff234efe183172e0863bf
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 0a9197c8c46cc480f5f096f1d2ef98c0d5823f35
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51232988"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57455793"
 ---
 # <a name="create-and-manage-hybrid-connections"></a>Skapa och hantera hybridanslutningar
 
@@ -42,7 +42,7 @@ Det här avsnittet listar de här stegen.
 > Till exempel (pseudocode) som du definierar **10.4.5.6** som din lokala värd:
 > 
 > **Följande scenario fungerar:**  
-> `Application code -> GetHostByName("10.4.5.6") -> Resolves to 127.0.0.3 -> Connect("127.0.0.3") -> Hybrid Connection -> on-prem host`
+> `Application code -> GetHostByName("10.4.5.6") -> Resolves to 127.0.0.3 -> Connect("127.0.0.3") -> Hybrid Connection -> on premises host`
 > 
 > **Följande scenario fungerar inte:**  
 > `Application code -> Connect("10.4.5.6") -> ?? -> No route to host`
@@ -55,8 +55,8 @@ Du kan skapa en Hybridanslutning i [Azure App Service-Hybridanslutningar](../app
 <!-- **To create Hybrid Connections using Web Apps**, see [Connect Azure Web Apps to an On-Premises Resource](../app-service-web/web-sites-hybrid-connection-get-started.md). You can also install the Hybrid Connection Manager (HCM) from your web app, which is the preferred method.  -->
 
 #### <a name="additional"></a>Ytterligare adresser
-* Du kan skapa flera Hybridanslutningar. Se den [BizTalk Services: diagram över utgåvor](biztalk-editions-feature-chart.md) för antalet tillåtna anslutningar. 
-* Varje Hybridanslutning har skapats med ett par anslutningssträngar: program-nycklar för att skicka och lokala nycklar som lyssnar. Varje par har en primär och en sekundär nyckel. 
+* Du kan skapa flera Hybridanslutningar. Se den [BizTalk Services: Diagram över utgåvor](biztalk-editions-feature-chart.md) för antalet tillåtna anslutningar. 
+* Varje Hybridanslutning har skapats med ett par anslutningssträngar: Nycklar för programmet som skickar och nycklar som lyssnar på plats. Varje par har en primär och en sekundär nyckel. 
 
 ## <a name="LinkWebSite"></a>Länka ditt Azure App Service-Webbapp eller Mobilapp
 Om du vill länka en Webbapp eller Mobilapp i Azure App Service till en befintlig Hybridanslutning, Välj **använda en befintlig anslutning för Hybrid** på bladet Hybrid Connections. 
@@ -121,7 +121,7 @@ Har kopierats kan använda du Redigeraren för att ändra principen.
 [REST API för att hantera BizTalk Services i Microsoft Azure](https://msdn.microsoft.com/library/azure/dn232347.aspx)  
 [BizTalk Services: Diagram över utgåvor](biztalk-editions-feature-chart.md)  
 [Skapa en BizTalk-tjänst](biztalk-provision-services.md)  
-[BizTalk Services: Flikarna Instrumentpanel, Övervakare och Skalning](biztalk-dashboard-monitor-scale-tabs.md)
+[BizTalk Services: Flikarna instrumentpanel, Övervakare och skalning](biztalk-dashboard-monitor-scale-tabs.md)
 
 [HybridConnectionTab]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionTab.png
 [HCOnPremSetup]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionOnPremSetup.png

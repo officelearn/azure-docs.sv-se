@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 145a1d24e877cc4083706310694005c01c8c8fbf
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 727a503a2fd942e6fbef9009c760a39f90828d2f
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54020157"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57433135"
 ---
 # <a name="load-1-tb-into-azure-sql-data-warehouse-under-15-minutes-with-data-factory"></a>Läsa in 1 TB i Azure SQL Data Warehouse under 15 minuter med Data Factory
 > [!NOTE]
@@ -117,7 +117,7 @@ Nödvändiga steg har slutförts, är vi nu redo att konfigurera kopieringsaktiv
 3. I den **ny datafabrik** fönstret:
 
    1. Ange **LoadIntoSQLDWDataFactory** för den **namn**.
-       Namnet på Azure Data Factory måste vara globalt unikt. Om du får felet: **Datafabriksnamnet ”LoadIntoSQLDWDataFactory” är inte tillgänglig**, ändra namnet på datafabriken (till exempel yournameLoadIntoSQLDWDataFactory) och försöker skapa igen. Se artikeln [Data Factory – namnregler](data-factory-naming-rules.md) för namnregler för Data Factory-artefakter.  
+       Namnet på Azure Data Factory måste vara globalt unikt. Om du får följande fel: **Datafabriksnamnet ”LoadIntoSQLDWDataFactory” är inte tillgänglig**, ändra namnet på datafabriken (till exempel yournameLoadIntoSQLDWDataFactory) och försöker skapa igen. Se artikeln [Data Factory – namnregler](data-factory-naming-rules.md) för namnregler för Data Factory-artefakter.  
    2. Välj din Azure-**prenumeration**.
    3. För resursgruppen utför du något av följande steg:
       1. Välj **Använd befintlig** och välj en befintlig resursgrupp.
@@ -199,7 +199,7 @@ Det här avsnittet visar hur du konfigurerar mål: `lineitem` tabell i Azure SQL
 
     Du kan visa den kopian körningsinformation den **aktivitet fönstret Explorer** i den högra panelen, inklusive datavolymen läses från källan och skrivs till målet, varaktighet och genomsnittlig genomströmning för körningen.
 
-    Som du ser i följande skärmbild visar, tog kopierar 1 TB från Azure Blob Storage till SQL Data Warehouse 14 minuter, effektivt får 1,22 Gbit/s genomströmning!
+    Som du ser i följande skärmbild, tog kopierar 1 TB från Azure Blob Storage till SQL Data Warehouse 14 minuter, effektivt får 1,22 Gbit/s genomströmning!
 
     ![Kopieringsguiden - lyckades dialogrutan](media/data-factory-load-sql-data-warehouse/succeeded-info.png)
 

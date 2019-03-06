@@ -17,12 +17,12 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e7f3c50a272ef5cc0d4980cb4a623ac043d764dd
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 0f1ce786b748fedd1ec4c722b28bc11c28672c2f
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56190916"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57443410"
 ---
 # <a name="sign-in-activity-report-error-codes"></a>Felkoder för inloggningsaktivitet rapport 
 
@@ -79,7 +79,7 @@ Du kan även programmässigt komma åt inloggningsdata med hjälp av den [report
 |50027|Ogiltig JWT-token på grund av följande skäl:<ul><li>innehåller inte temporärt nonce-anspråk, sub-anspråk</li><li>felaktig matchning av ämnesidentifierare</li><li>duplicerade anspråk i idToken-anspråk</li><li>oväntad utfärdare</li><li>oväntad målgrupp</li><li>inte inom giltigt tidsintervall </li><li>fel tokenformat</li><li>Signaturverifieringen för externa ID-token från utfärdare misslyckades.</li></ul>Kontakta programägaren|
 |50029|Ogiltig URI – domännamnet innehåller ogiltiga tecken. Kontakta klientorganisationens administratör.|
 |50034|Användaren finns inte i katalogen. Kontakta din Innehavaradministratör.|
-|50042|Saltet som krävs för att skapa en paridentifierare saknas i huvudkontot. Kontakta klientorganisationens administratör.|
+|50042|Salt som krävs för att skapa en pairwise identifierare saknas i princip. Kontakta klientorganisationens administratör.|
 |50048|Ämnet överensstämmer inte med utfärdaranspråket i klientförsäkran. Kontakta klientorganisationens administratör.|
 |50050|Felaktig förfrågan. Kontakta appägaren.|
 |50053|Kontot är låst eftersom användaren försökte logga in för många gånger med ett felaktigt användar-ID eller lösenord.|
@@ -129,7 +129,7 @@ Du kan även programmässigt komma åt inloggningsdata med hjälp av den [report
 |50180|Windows-integrerad autentisering behövs. Aktivera klientorganisationen för sömlös SSO.|
 |51001|Tips för domänen finns inte med den lokala säkerhetsidentifierare - lokala UPN.|
 |51004|Användarkontot finns inte i katalogen.|
-|51006|Windows-integrerad autentisering behövs. Användaren har loggat in med sessionstoken som saknar WIA-anspråk. Begär att användaren loggar in igen.|
+|51006|Windows-integrerad autentisering behövs. Användaren har loggat in med sessionstoken som saknas via anspråk. Begär att användaren loggar in igen.|
 |52004|Användaren har inte gett medgivande för åtkomst till LinkedIn-resurser. |
 |53000|För en princip för villkorsstyrd åtkomst krävs en kompatibel enhet, och enheten är inte kompatibel. Låt användare registrera sina enheter med en godkänd MDM-provider som Intune.|
 |53001|För en princip för villkorsstyrd åtkomst krävs en domänansluten enhet, och enheten är inte domänansluten. Att användaren använder en domän har anslutit enheten.|
@@ -138,7 +138,7 @@ Du kan även programmässigt komma åt inloggningsdata med hjälp av den [report
 |53004|Användaren måste slutföra registreringen för multifaktorautentisering innan personen får åtkomst till innehållet. Användaren bör registrera sig för multifaktorautentisering.|
 |65001|Programmet X har inte behörighet att komma åt programmet Y eller behörigheten har återkallats. Eller användaren eller administratören har inte godkänt att använda programmet med ID X. Skicka en interaktiv auktoriseringsbegäran för den här användaren och resursen. Eller användaren eller administratören har inte godkänt att använda programmet med ID X. Send en auktoriseringsbegäran till din klientadministratör för att appens: Y för resursen: Z.|
 |65004|Användaren nekade samtycke till att komma åt appen. Låt användaren logga in igen och ge samtycke till appen|
-|65005|Resursåtkomstlistan som krävs av programmet innehåller inte program som kan upptäckas av resursen, eller så har klientprogrammet begärt åtkomst till en resurs som inte har angetts i listan över resurser med åtkomst, eller så returnerade diagramtjänsten en ogiltig begäran, eller så hittades inte resursen. Om programmet stöder SAML har du kanske konfigurerat programmet med fel identifierare (entitet). Testa lösningen för SAML via länken nedan: [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav#no-resource-in-requiredresourceaccess-list](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav#no-resource-in-requiredresourceaccess-list)|
+|65005|Resursåtkomstlistan som krävs av programmet innehåller inte program som kan upptäckas av resursen, eller så har klientprogrammet begärt åtkomst till en resurs som inte har angetts i listan över resurser med åtkomst, eller så returnerade diagramtjänsten en ogiltig begäran, eller så hittades inte resursen. Om programmet stöder SAML har du kanske konfigurerat programmet med fel identifierare (entitet). Testa lösningen för SAML via länken nedan: [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav#no-resource-in-requiredresourceaccess-list](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)|
 |70000|Ogiltigt beviljande på grund av följande skäl:<ul><li>Den begärda SAML 2.0-försäkran har en ogiltig ämnesbekräftelsemetod</li><li>Flödet i appen OnBehalfOf stöds inte på V2</li><li>Den primära uppdateringstoken är inte signerad med en sessionsnyckel</li><li>Ogiltig extern uppdateringstoken</li><li>Åtkomstbeviljandet hämtades för en annan klientorganisation.</li></ul>|
 |70001|Programmet X hittades inte i klienten Y. Detta kan inträffa om programmet med identifierare X inte har installerats av administratören för klienten eller godkänts av någon användare i klientorganisationen. Du kanske har felaktigt konfigurerat identifierarvärde för programmet eller skickat din autentiseringsbegäran om till fel klient.|
 |70002|Programmet returnerade ogiltiga autentiseringsuppgifter för klienten. Kontakta appägaren.|

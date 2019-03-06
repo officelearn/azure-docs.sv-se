@@ -17,12 +17,12 @@ ms.date: 10/03/2018
 ms.author: celested
 ms.reviewer: jlu, annaba, hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e8667db4ed4777614a8c99c823b833ff673c1e98
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: ed2164fc122621a4ba2aeb4bb0797db02b10a4bf
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211775"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57449146"
 ---
 # <a name="how-to-migrate-from-the-azure-access-control-service"></a>Anvisningar: Migrera från Azure Access Control Service
 
@@ -148,12 +148,12 @@ Varje Microsoft-molntjänst som accepterar token som utfärdas av Access Control
 
 ### <a name="sharepoint-customers"></a>SharePoint-kunder
 
-SharePoint 2013, 2016 och SharePoint Online-kunder har länge använt ACS för autentisering i molnet, lokalt och hybrid-scenarier. Vissa funktioner i SharePoint och användningsfall kommer att påverkas av ACS dras tillbaka medan inte. I tabellen nedan sammanfattas riktlinjer för några av de mest populära SharePoint funktion som utnyttjar ACS:
+SharePoint 2013, 2016 och SharePoint Online-kunder har länge använt ACS för autentisering i molnet, lokalt och hybridscenarier. Vissa funktioner i SharePoint och användningsfall kommer att påverkas av ACS dras tillbaka medan inte. I tabellen nedan sammanfattas riktlinjer för några av de mest populära SharePoint funktion som utnyttjar ACS:
 
 | Funktion | Riktlinjer |
 | ------- | -------- |
 | Autentisera användare från Azure AD | Tidigare Azure AD har stöd inte för SAML 1.1-tokens som krävs för SharePoint för autentisering och ACS användes som en mellanhand som gjorts SharePoint kompatibelt med Azure AD-token format. Nu kan du [ansluta SharePoint direkt till Azure AD med Azure AD-Appgalleriet SharePoint på lokala app](https://docs.microsoft.com/azure/active-directory/saas-apps/sharepoint-on-premises-tutorial). |
-| [Appautentisering & server-till-server-autentisering i SharePoint on-premises](https://technet.microsoft.com/library/jj219571(v=office.16).aspx) | Inte påverkas av ACS tillbakadragande; Inga ändringar som behövs. | 
+| [Appautentisering & server-till-server-autentisering i SharePoint lokalt](https://technet.microsoft.com/library/jj219571(v=office.16).aspx) | Inte påverkas av ACS tillbakadragande; Inga ändringar som behövs. | 
 | [Låg förtroende auktorisering för SharePoint-tillägg (värd-providern och SharePoint som värd)](https://docs.microsoft.com/sharepoint/dev/sp-add-ins/three-authorization-systems-for-sharepoint-add-ins) | Inte påverkas av ACS tillbakadragande; Inga ändringar som behövs. |
 | [SharePoint cloud hybrid search](https://blogs.msdn.microsoft.com/spses/2015/09/15/cloud-hybrid-search-service-application/) | Inte påverkas av ACS tillbakadragande; Inga ändringar som behövs. |
 
@@ -286,7 +286,7 @@ I dessa fall kan vilja du bör du migrera ditt webbprogram till en annan molntj�
 |     |     | 
 | --- | --- |
 | ![Auth0](./media/active-directory-acs-migration/rsz_auth0.png) | [Auth0](https://auth0.com/acs) är en flexibel molnidentitetstjänst som har skapat [övergripande riktlinjer för kunder för åtkomstkontroll](https://auth0.com/acs), och har stöd för nästan alla funktioner som ACS. |
-| ![Pinga](./media/active-directory-acs-migration/rsz_ping.png) | [Ping Identity](https://www.pingidentity.com) erbjuder två lösningar som liknar ACS. PingOne är en molnbaserad identitetstjänst som har stöd för många av samma funktioner som ACS och PingFederate är en produkt med liknande lokal identitet som erbjuder mer flexibilitet. Referera till [Ping's ACS tillbakadragande vägledning](https://www.pingidentity.com/en/company/blog/2017/11/20/migrating_from_microsoft_acs_to_ping_identity.html) för mer information om hur du använder dessa produkter. |
+| ![Pinga](./media/active-directory-acs-migration/rsz_ping.png) | [Ping Identity](https://www.pingidentity.com) erbjuder två lösningar som liknar ACS. PingOne är en molnbaserad identitetstjänst som har stöd för många av samma funktioner som ACS och PingFederate är liknande på lokala identitet produkt som erbjuder mer flexibilitet. Referera till [Ping's ACS tillbakadragande vägledning](https://www.pingidentity.com/en/company/blog/2017/11/20/migrating_from_microsoft_acs_to_ping_identity.html) för mer information om hur du använder dessa produkter. |
 
 Vårt syfte i att arbeta med Ping Identity och Auth0 är att säkerställa att alla Access Control-kunder har en migreringsvägen för sina appar och tjänster som minimerar mängden arbete som krävs för att flytta från Access Control.
 
@@ -348,7 +348,7 @@ I dessa fall kan du migrera ditt webbprogram till en annan molntjänst för aute
 |     |     | 
 | --- | --- |
 | ![Auth0](./media/active-directory-acs-migration/rsz_auth0.png) | [Auth0](https://auth0.com/acs) är en flexibel molnidentitetstjänst som har skapat [övergripande riktlinjer för kunder för åtkomstkontroll](https://auth0.com/acs), och har stöd för nästan alla funktioner som ACS. |
-| ![Pinga](./media/active-directory-acs-migration/rsz_ping.png) | [Ping Identity](https://www.pingidentity.com) erbjuder två lösningar som liknar ACS. PingOne är en molnbaserad identitetstjänst som har stöd för många av samma funktioner som ACS och PingFederate är en produkt med liknande lokal identitet som erbjuder mer flexibilitet. Referera till [Ping's ACS tillbakadragande vägledning](https://www.pingidentity.com/en/company/blog/2017/11/20/migrating_from_microsoft_acs_to_ping_identity.html) för mer information om hur du använder dessa produkter. |
+| ![Pinga](./media/active-directory-acs-migration/rsz_ping.png) | [Ping Identity](https://www.pingidentity.com) erbjuder två lösningar som liknar ACS. PingOne är en molnbaserad identitetstjänst som har stöd för många av samma funktioner som ACS och PingFederate är liknande på lokala identitet produkt som erbjuder mer flexibilitet. Referera till [Ping's ACS tillbakadragande vägledning](https://www.pingidentity.com/en/company/blog/2017/11/20/migrating_from_microsoft_acs_to_ping_identity.html) för mer information om hur du använder dessa produkter. |
 
 Vårt syfte i att arbeta med Ping Identity och Auth0 är att säkerställa att alla Access Control-kunder har en migreringsvägen för sina appar och tjänster som minimerar mängden arbete som krävs för att flytta från Access Control.
 

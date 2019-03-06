@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/20/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5c68fdadcf115f57ba524b1b4dc8a2c800cbfaf8
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 1a48b9e70fe3373b9bc87788ff11fc0a8edc7bdf
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56177928"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57439664"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pagerduty"></a>Självstudier: Azure Active Directory-integrering med PagerDuty
 
@@ -252,7 +252,7 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
 I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
 
-När du klickar på panelen PagerDuty åtkomst Panelyou bör hämta automatiskt loggat in på ditt PagerDuty-program.
+När du klickar på panelen PagerDuty i åtkomstpanelen du bör få automatiskt loggat in på ditt PagerDuty-program.
 
 Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](../user-help/active-directory-saas-access-panel-introduction.md).
 

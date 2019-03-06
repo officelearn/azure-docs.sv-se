@@ -14,12 +14,12 @@ ms.author: arib
 ms.reviewer: vanto
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: 28891c103df91baa16b895ece7909658fede3b91
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: ff29d60715001ddb98ffb7424784ae0b81cfbb3a
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57213321"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57437691"
 ---
 # <a name="get-started-with-azure-sql-database-managed-instance-auditing"></a>Kom igång med Azure SQL Database managed instance granskning
 
@@ -135,7 +135,7 @@ I följande avsnitt beskrivs konfigurationen av granskning på din hanterade ins
 
      1. Välj en prenumeration, lagringskontot och Blob-behållare från listrutorna eller skapa en egen behållare genom att klicka på **skapa**. När du är klar klickar du på **OK**:
 
-        ![Välj Azure-prenumeration, lagringskontot och blobl behållare](./media/sql-managed-instance-auditing/13_mi_SSMS_select_subscription_account_container.png)
+        ![Välj Azure-prenumeration, lagringskontot och blob-behållare](./media/sql-managed-instance-auditing/13_mi_SSMS_select_subscription_account_container.png)
 
      1. Klicka på **OK** i dialogrutan ”Skapa granskning”.
 

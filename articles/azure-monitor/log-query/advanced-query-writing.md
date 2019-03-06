@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: bwren
-ms.openlocfilehash: 62dffffee411519cdcafe80a11404f9e273dd9dd
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 65713ed9c2d0635e776a7a7e5f205b6d55438ed4
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56880792"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57451628"
 ---
 # <a name="writing-advanced-queries-in-azure-monitor"></a>Skriva avancerade frågor i Azure Monitor
 
@@ -76,7 +76,7 @@ Event
 ```
 
 ## <a name="print"></a>Skriva ut
-`print` Returnerar en tabell med en enda kolumn och en enskild rad som visar resultatet av en beräkning. Det här används ofta i fall där du behöver en enkel calcuation. Till exempel vill hitta den aktuella tiden i PST och lägga till en kolumn med EST:
+`print` Returnerar en tabell med en enda kolumn och en enskild rad som visar resultatet av en beräkning. Det här används ofta i fall där du behöver en enkel beräkning. Till exempel vill hitta den aktuella tiden i PST och lägga till en kolumn med EST:
 
 ```Kusto
 print nowPst = now()-8h

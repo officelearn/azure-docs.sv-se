@@ -8,53 +8,49 @@ ms.date: 02/17/2019
 ms.topic: conceptual
 ms.author: raynew
 manager: carmonm
-ms.openlocfilehash: 61afefb955914c75606c4fff36ebcc05a4ad0057
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: e12ca7561181412318fa594093b047cd95e4e6bc
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57010913"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57448047"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>Stödmatris för säkerhetskopiering med Microsoft Azure Recovery Services MARS-agenten
 
-Du kan använda den [Azure Backup-tjänsten](backup-overview.md) för säkerhetskopiering av lokala datorer och appar och virtuella Azure-datorer. Den här artikeln sammanfattas support inställningar och begränsningar för säkerhetskopiering av datorer med Microsoft Azure Recovery Services MARS-agenten.
+Du kan använda den [Azure Backup-tjänsten](backup-overview.md) för säkerhetskopiering av lokala datorer och appar och att säkerhetskopiera virtuella Azure-datorer (VM). Den här artikeln sammanfattas support inställningar och begränsningar när du använder Microsoft Azure Recovery Services MARS-agenten för att säkerhetskopiera virtuella datorer.
 
-## <a name="about-the-mars-agent"></a>Om MARS-agenten
+## <a name="the-mars-agent"></a>MARS-agenten
 
-MARS-agenten används av Azure Backup för att säkerhetskopiera data från lokala datorer och virtuella Azure-datorer till en backup Recovery Services-valv i Azure. MARS-agenten kan användas på följande sätt:
-- Kör agenten på den lokala Windows-datorer så att de kan säkerhetskopiera direkt till ett säkerhetskopieringsvalv i Azure Recovery Services.
-- Kör agenten på Windows Azure virtuella datorer så att du kan säkerhetskopiera direkt till ett valv.
-- Kör agenten på en Microsoft Azure Backup Server (MABS) eller en System Center Data Protection - server Manager (DPM). I det här scenariot, datorer och arbetsbelastningar som säkerhetskopiera till MABS/DPM och sedan MABS/DPM backas säkerhetskopiera till ett valv i Azure med hjälp av MARS-agenten. 
+Azure Backup använder MARS-agenten för att säkerhetskopiera data från lokala datorer och virtuella Azure-datorer till säkerhetskopieringsvalvet i Azure Recovery Services. MARS-agenten kan:
+- Köra på den lokala Windows-datorer så att de kan säkerhetskopiera direkt till ett säkerhetskopieringsvalv i Azure Recovery Services.
+- Kör på virtuella Windows-datorer så att de kan säkerhetskopiera direkt till ett valv.
+- Kör på Microsoft Azure Backup Server (MABS) eller en server för System Center Data Protection Manager (DPM). I det här scenariot säkerhetskopiera datorer och arbetsbelastningar MABS eller DPM-server. MARS-agenten säkerhetskopierar sedan på den här servern till ett valv i Azure. 
 
-Vad du kan säkerhetskopiera beror på där agenten är installerad.
+Alternativ för säkerhetskopiering beror på där agenten är installerad. Mer information finns i [Azure Backup-arkitektur med MARS-agenten](backup-architecture.md#architecture-direct-backup-of-on-premises-windows-machinesazure-vm-filesfolders). Information om MABS och DPM backup-arkitekturen finns i [säkerhetskopiera till DPM- eller MABS](backup-architecture.md#architecture-back-up-to-dpmmabs). Se även [krav](backup-support-matrix-mabs-dpm.md) för arkitektur för säkerhetskopiering.
 
-- [Läs mer](backup-architecture.md#architecture-direct-backup-of-on-premises-windows-machinesazure-vm-filesfolders) om arkitektur för säkerhetskopiering med MARS-agenten.
-- Mer information om MABS/DPM [säkerhetskopiera arkitektur](backup-architecture.md#architecture-back-up-to-dpmmabs)och [krav](backup-support-matrix-mabs-dpm.md).
+## <a name="supported-installations"></a>Stöds installationer
 
-
-## <a name="supported-installation"></a>Installation som stöds
-
-**Installera** | **Detaljer**
+**Installation** | **Detaljer**
 --- | ---
-**Hämta senaste MARS-agenten** | Du kan hämta den senaste versionen av agenten från valvet eller [ladda ned den direkt](https://aka.ms/azurebackup_agent).
-**Installera direkt på en dator** | Du kan installera MARS-agenten direkt på en lokal Windows server eller Windows Azure virtuell dator som kör någon av de [operativsystem som stöds](backup-support-matrix-mabs-dpm.md#supported-mabs-and-dpm-operating-systems).
-**Installera på en sekundär server** | När du ställer in DPM- eller MABS att säkerhetskopiera till Azure, hämta och installera MARS-agenten på servern. Agenten kan installeras i enlighet med den [operativsystem som stöds](backup-support-matrix-mabs-dpm.md#supported-mabs-and-dpm-operating-systems) i matrisen säkerhetskopieringsserver support.
+Hämta den senaste MARS-agenten | Du kan hämta den senaste versionen av agenten från valvet eller [ladda ned den direkt](https://aka.ms/azurebackup_agent).
+Installera direkt på en dator | Du kan installera MARS-agenten direkt på en lokal Windows server eller på en Windows-dator som kör någon av de [operativsystem som stöds](https://docs.microsoft.com/en-us/azure/backup/backup-support-matrix-mabs-dpm#supported-mabs-and-dpm-operating-systems).
+Installera på en sekundär server | När du ställer in DPM- eller MABS att säkerhetskopiera till Azure, hämta och installera MARS-agenten på servern. Du kan installera agenten på [operativsystem som stöds](backup-support-matrix-mabs-dpm.md#supported-mabs-and-dpm-operating-systems) i matrisen säkerhetskopieringsserver support.
 
 > [!NOTE]
-> Har en Azure Backup-tillägg-installation av standard Azure virtuella datorer aktiveras för säkerhetskopiering. Det här tillägget säkerhetskopierar hela VM. Du kan installera och köra MARS-agenten på en virtuell Azure-dator tillsammans med tillägget om du vill säkerhetskopiera specifika mappar och filer, i stället fullständig virtuell dator.
-> När du kör MARS-agenten på en Azure VM, säkerhetskopierar filer/mappar finns i tillfällig lagring på den virtuella datorn. Säkerhetskopieringar misslyckas om filer/mappar tas bort från temporär lagring eller om tillfällig lagring har tagits bort.
+> Som standard har en Azure Backup-tillägget-installation av Azure virtuella datorer som är aktiverade för säkerhetskopiering. Det här tillägget säkerhetskopierar hela VM. Du kan installera och köra MARS-agenten på en virtuell Azure-dator tillsammans med tillägget om du vill säkerhetskopiera specifika mappar och filer, i stället fullständig virtuell dator.
+> När du kör MARS-agenten på en Azure-dator kan säkerhetskopierar den filer eller mappar som finns i tillfällig lagring på den virtuella datorn. Säkerhetskopieringen misslyckas om de filer och mappar tas bort från temporär lagring eller temporär lagring tas bort.
 
 
 ## <a name="cache-folder-support"></a>Stöd för cache-mapp
 
-När du säkerhetskopierar på med MARS-agenten kan agenten tar en ögonblicksbild av data och lagrar den i en mapp i lokalt cacheminne innan de skickas till Azure. Cachemappen (grunden) har ett antal krav.
+När du använder MARS-agenten för säkerhetskopiering av data kan agenten tar en ögonblicksbild av data och lagrar den i en mapp i lokalt cacheminne innan den skickar data till Azure. Cachemappen (grunden) har flera krav:
 
 **Cache** | **Detaljer**
 --- | ---
-**Cachestorlek** |  Ledigt utrymme på cache-mappstorleken ska vara minst 5 – 10% av den totala storleken på dina säkerhetskopierade data. 
-**Cacheplats** | Cachelagringsmappen måste vara lokalt på datorn som säkerhetskopieras och måste vara online.<br/><br/> Cachemappen får inte finnas på en nätverksresurs, på flyttbara medier eller på en offline-volym. 
-**Cache-mappen** | Cachemappen ska krypteras på en deduplicerad volym eller på en mapp som är komprimerade/null-optimerade /-referenspunkt
-**Ändra cacheplatsen för** | Du kan ändra placeringen i cachen genom att stoppa säkerhetskopieringen (net stop bengine) och kopiera cachelagringsmappen till en ny enhet (se till att det finns tillräckligt med plats). Sedan du uppdaterar två registerposter under HKLM\SOFTWARE\Microsoft\Windows Azure Backup (Config/ScratchLocation och Config/CloudBackupProvider/ScratchLocation) till den nya platsen och starta om motorn.
+Storlek |  Ledigt utrymme i cachemappen bör vara minst 5 – 10 procent av den totala storleken på dina säkerhetskopierade data. 
+Plats | Cachemappen måste lagras lokalt på datorn som säkerhetskopieras och det måste vara online. Cachemappen får inte vara på en nätverksresurs, på flyttbara medier eller på en offline-volym. 
+Mapp | Cachemappen ska krypteras på en deduplicerad volym eller i en mapp som är komprimerade, som är gles eller som har en referenspunkt.
+Platsförändringar av | Du kan ändra placeringen i cachen genom att stoppa backup-motorn (`net stop bengine`) och kopierar cachelagringsmappen till en ny enhet. (Se till att den nya enheten har tillräckligt med utrymme.) Uppdatera sedan två registerposter under **HKLM\SOFTWARE\Microsoft\Windows Azure Backup** (**Config/ScratchLocation** och **Config/CloudBackupProvider/ScratchLocation**) till den nya platsen och starta om motorn.
 
 ## <a name="networking-and-access-support"></a>Stöd för nätverk och åtkomst
 
@@ -65,23 +61,19 @@ MARS-agenten behöver åtkomst till dessa webbadresser:
 - http://www.msftncsi.com/ncsi.txt
 - *.Microsoft.com
 - *.WindowsAzure.com
-- *.microsoftonline.com
-- *.windows.net
+- *.MicrosoftOnline.com
+- *.Windows.net
 
 ### <a name="throttling-support"></a>Begränsning av support
 
 **Funktion** | **Detaljer**
 --- | ---
-Bandbreddskontroll | Stöds<br/><br/> Använd **ändra egenskaper för** i MARS-agenten om du vill justera bandbredden.
-Nätverksbegränsning | Inte tillgängligt för säkerhetskopierade datorer som kör Windows Server 2008 R2, Windows Server 2008 SP2 eller Windows 7.
+Bandbreddskontroll | Stöds. I MARS-agenten använder **ändra egenskaper för** vill justera bandbredden.
+Nätverksbegränsning | Inte tillgängligt för säkerhetskopierade virtuella datorer som kör Windows Server 2008 R2, Windows Server 2008 SP2 eller Windows 7.
 
 ## <a name="support-for-direct-backups"></a>Stöd för säkerhetskopior
 
-I följande tabell sammanfattas vilka operativsystem som körs på lokala datorer och virtuella Azure-datorer kan säkerhetskopieras direkt till Azure med MARS-agenten.
-
-- Alla operativsystem är 64-bitars.
-- Alla operativsystem ska köras den senaste services Pack och uppdateringar.
-- Mer information om vilka DPM och MABS servrar kan säkerhetskopieras med MARS-agenten finns [den här tabellen](backup-support-matrix-mabs-dpm.md#supported-mabs-and-dpm-operating-systems).
+Du kan använda MARS-agenten för att säkerhetskopiera direkt till Azure på vissa operativsystem som körs på lokala datorer och virtuella Azure-datorer. Operativsystemen måste vara 64-bitars och bör vara som kör den senaste services Pack och uppdateringar. I följande tabell sammanfattas dessa operativsystem:
 
 **Operativsystem** | **Filer/mappar** | **Systemtillstånd**
 --- | --- | ---
@@ -94,66 +86,67 @@ Windows Server 2012 R2 (Standard, Datacenter, Foundation, Essentials) | Ja | Ja
 Windows Server 2012 (Standard, Datacenter, Foundation) | Ja | Ja
 Windows Server 2008 R2 (Standard, Enterprise, Datacenter, Foundation) | Ja | Ja
 Windows Server 2008 SP2 (Standard, Datacenter, Foundation) | Ja | Nej
-Windows Storage Server 2016/2012 R2/2012(Standard, Workgroup | Ja | Nej
+Windows Storage Server 2016/2012 R2/2012 (Standard, Workgroup) | Ja | Nej
 
+Mer information finns i [stöds MABS- och DPM operativsystem](backup-support-matrix-mabs-dpm.md#supported-mabs-and-dpm-operating-systems).
 
 ## <a name="backup-limits"></a>Begränsningar för säkerhetskopiering
 
-Azure Backup placerar en gräns på storleken på en fil/mapp-datakälla som kan säkerhetskopieras. Storleken på objekt som valts för säkerhetskopiering från en enskild volym får inte överskrida de storlekar som sammanfattas i tabellen.
+Azure Backup begränsar storleken på en fil eller mapp datakälla som kan säkerhetskopieras. De objekt som du säkerhetskopiera från en enskild volym får inte överskrida de storlekar som sammanfattas i den här tabellen:
 
 **Operativsystem** | **Storleksgräns**
 --- | ---
 Windows Server 2012 eller senare |  54 400 GB
-Windows Server 2008 R2 SP1 |    1 700 GB
-Windows Server 2008 SP2 | 1 700 GB
+Windows Server 2008 R2 SP1 |    1,700 GB
+Windows Server 2008 SP2 | 1,700 GB
 Windows 8 eller senare  | 54 400 GB
-Windows 7   | 1 700 GB
+Windows 7   | 1,700 GB
 
 
 ## <a name="supported-file-types-for-backup"></a>Filtyper som stöds för säkerhetskopiering
 
-**Typ** | **Stöds** 
+**Typ** | **Support** 
 --- | --- 
-Krypterade   | Ja 
-Komprimerade | Ja
-Utspridda | Ja 
-Komprimerade och sparse-filer | Ja
-Hårda länkar  | Stöds inte<br/><br/> Hoppades över
-Referenspunkt   | Stöds inte<br/><br/> Hoppades över
-Krypterade och utspridda |  Stöds inte<br/><br/> Hoppades över
-Komprimerad dataström   | Stöds inte<br/><br/> Hoppades över
-Utspridd ström   | Stöds inte<br/><br/> Hoppades över
-En enhet (synkroniserad filer är glesa strömmar)    | Stöds inte 
+Krypterade   | Stöds. 
+Komprimerade | Stöds.
+Utspridda | Stöds.
+Komprimerade och sparse-filer | Stöds.
+Hårda länkar  | Stöds ej. Hoppades över.
+Referenspunkt   | Stöds ej. Hoppades över.
+Krypterade och utspridda |  Stöds ej. Hoppades över.
+Komprimerad dataström   | Stöds ej. Hoppades över.
+Utspridd ström   | Stöds ej. Hoppades över.
+OneDrive (synkroniserade filer är glesa strömmar)  | Stöds ej. 
 
-## <a name="supported-drivesvolumes-for-backup"></a>Stöds enheter/volymer för säkerhetskopiering
+## <a name="supported-drives-or-volumes-for-backup"></a>De enheter som stöds eller volymer för säkerhetskopiering
 
-**Enhet/volym** | **Stöds** | **Detaljer**
+**Enhet/volym** | **Support** | **Detaljer**
 --- | --- | ---
-Skrivskyddade volymer   | Stöds inte | Volymen måste vara skrivbar för VSS ska fungera.
-Offlinevolymer | Stöds inte |   Volymen måste vara online för att VSS ska fungera.
-Nätverksresurs   | Stöds inte |   Volymen måste vara lokal på servern för säkerhetskopiering.
-BitLocker-skyddade volymer | Stöds inte |   Volymen måste låsas innan för säkerhetskopiering ska fungera.
-Identifiering av filsystem  | Stöds inte |   NTFS endast.
-Flyttbart medium | Stöds inte |   Alla källor för säkerhetskopieringsobjekt måste ha status för fast.
-Deduplicerade enheter | Stöds.<br/><br/> Azure Backup konverterar deduplicerade data till vanliga data. Det den optimerar data, krypterar dem, lagrar och skickar den till valvet.
+Skrivskyddade volymer   | Stöds inte | Volume Copy Shadow Service (VSS) fungerar bara om volymen är skrivskyddad.
+Offlinevolymer | Stöds inte |   VSS fungerar bara om volymen är online.
+Nätverksresurs   | Stöds inte |   Volymen måste vara lokal på servern.
+BitLocker-skyddade volymer | Stöds inte |   Volymen måste vara upplåst innan säkerhetskopieringen startar.
+Identifiering av filsystem  | Stöds inte |   Endast NTFS stöds.
+Flyttbart medium | Stöds inte |   Alla källor för säkerhetskopieringsobjekt måste ha en *fast* status.
+Deduplicerade enheter | Stöds | Azure Backup konverterar deduplicerade data till vanliga data. Det optimerar, krypterar, lagrar och skickar data till valvet.
 
 ## <a name="support-for-initial-offline-backup"></a>Stöd för inledande säkerhetskopiering offline
 
-Azure Backup stöder ”offlineseeding” överför första säkerhetskopierade informationen till Azure med hjälp av diskar. Det här är användbart om den första säkerhetskopieringen förmodas vara inom intervallet för terabyte (TB). Offlinesäkerhetskopiering stöds för:
+Azure Backup stöder *seeding offline* överföra första säkerhetskopierade informationen till Azure med hjälp av diskar. Det här stödet är användbar om den första säkerhetskopieringen troligen kommer att vara i intervallet storlek terabyte (TB). Offlinesäkerhetskopiering stöds för:
 
 - Direkt säkerhetskopiering av filer och mappar på lokala datorer som kör MARS-agenten.
 - Säkerhetskopiering av arbetsbelastningar och filer från en DPM-servern eller MABS.
-- Offlinesäkerhetskopiering kan inte användas för systemtillståndsfiler.
+
+Offlinesäkerhetskopiering kan inte användas för systemtillståndsfiler.
 
 
-## <a name="support-for-restore"></a>Stöd för återställning
+## <a name="support-for-data-restoration"></a>Stöd för återställning av data
 
-- Den nya [omedelbar återställning](backup-instant-restore-capability.md) versionen av Azure Backup kan du återställa data innan den har kopierats till valvet.<br/><br/> Du använder den här funktionen för datorn som säkerhetskopieras med .NET Framework 4.5.2 eller senare.
-- Säkerhetskopieringar kan inte återställas till en måldator som kör en tidigare version av operativsystemet. Till exempel kan en säkerhetskopia som gjorts från en dator med Windows 7 återställas på Windows 8 eller senare. En säkerhetskopia som gjorts från en Windows 8-dator kan dock inte återställas till en dator med Windows 7.
+Med hjälp av den [omedelbar återställning](backup-instant-restore-capability.md) funktionen Azure Backup kan du återställa data innan den kopieras till valvet. Den dator som du säkerhetskopierar måste köra .NET Framework 4.5.2 eller senare.
+
+Säkerhetskopieringar kan inte återställas till en måldator som kör en tidigare version av operativsystemet. Till exempel kan en säkerhetskopia som gjorts från en dator som kör Windows 7 återställas på Windows 8 eller senare. Men det går inte att återställa en säkerhetskopia som gjorts från en dator som kör Windows 8 på en dator som kör Windows 7.
 
 
 ## <a name="next-steps"></a>Nästa steg
-- [Läs mer](backup-architecture.md#architecture-direct-backup-of-on-premises-windows-machinesazure-vm-filesfolders) om arkitektur för säkerhetskopiering med MARS-agenten.
-- [Lär dig](backup-support-matrix-mabs-dpm.md) vad som stöds när du kör MARS-agenten på Microsoft Azure Backup Server (MABS) eller System Center DPM.
-
-
+- Läs mer om [arkitektur som använder MARS-agenten för säkerhetskopiering](backup-architecture.md#architecture-direct-backup-of-on-premises-windows-machinesazure-vm-filesfolders).
+- Lär dig vad har stöds när du [köra MARS-agenten på MABS eller en DPM-server](backup-support-matrix-mabs-dpm.md).

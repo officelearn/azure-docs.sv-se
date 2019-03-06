@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: sutalasi
-ms.openlocfilehash: e84c33b35ef7828cc16be4b532ab8406e0236ee3
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 2d141a330b6b6c5fc102dd70ae1d6b3b01283d19
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56876678"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57444879"
 ---
 # <a name="set-up-disaster-recovery-for-sql-server"></a>Konfigurera haveriberedskap för SQL Server 
 
@@ -70,7 +70,7 @@ Site Recovery kan integreras med SQL Server BCDR-teknik som sammanfattas i tabel
 
 Den här tabellen sammanfattas våra rekommendationer för integrering av SQL Server BCDR-teknik med Site Recovery.
 
-| **Version** | **Utgåva** | **Distribution** | **Lokal till lokal** | **Lokal till Azure** |
+| **Version** | **Utgåva** | **Distribution** | **Lokalt till lokalt** | **Lokal till Azure** |
 | --- | --- | --- | --- | --- |
 | SQLServer 2016, 2014 eller 2012 |Enterprise |Redundansklusterinstans |Always On-Tillgänglighetsgrupper |Always On-Tillgänglighetsgrupper |
 || Enterprise |Always On-Tillgänglighetsgrupper för hög tillgänglighet |Always On-Tillgänglighetsgrupper |Always On-Tillgänglighetsgrupper | |

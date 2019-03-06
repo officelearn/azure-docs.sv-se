@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mstewart
 ms.date: 03/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: 305a5c5d4f82c732dd796f5c5140c0da04fe7b13
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 14804de1d8507a49cda2ce1dd8ee97dc56c0223b
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57245224"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57439561"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms-faq"></a>Azure Disk Encryption för virtuella IaaS-datorer: vanliga frågor och svar
 
@@ -145,7 +145,7 @@ Om det här arbetsflödet inte är möjligt, förlitar sig på [Lagringstjänstk
 
 ## <a name="what-encryption-method-does-azure-disk-encryption-use"></a>Vilken krypteringsmetod som använder Azure Disk Encryption?
 
-På Windows, ADE använder BitLocker AES256 krypteringsmetod (AES256WithDiffuser på versioner före Windows Server 2012). På Linux använder ADE plain64-xts-aes dmcrypt standardvärdet med en 256-bitars volymens huvudnyckel.
+På Windows, ADE använder BitLocker AES256 krypteringsmetod (AES256WithDiffuser på versioner före Windows Server 2012). På Linux använder ADE dekryptera standardvärdet plain64-xts-aes med en 256-bitars volymens huvudnyckel.
 
 ## <a name="if-i-use-encryptformatall-and-specify-all-volume-types-will-it-erase-the-data-on-the-data-drives-that-we-already-encrypted"></a>Om jag använder EncryptFormatAll och anger alla volymtyper av, kommer den att radera data på dataenheter som vi redan har krypterat?
 Nej, inte data raderas från enheter som redan är krypterade med Azure Disk Encryption. Liknande hur EncryptFormatAll inte kryptera operativsystemenheten, den kommer inte att kryptera enheten redan krypterade data. Mer information finns i den [EncryptFormatAll kriterier](azure-security-disk-encryption-linux.md#bkmk_EFACriteria).        

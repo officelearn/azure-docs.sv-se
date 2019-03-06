@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 1629e08d4ba1a7fd7cedb40b1e46d1bfd2766497
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 731b87d7958bb461466b16f2ff724ea33f234ba8
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57215548"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57439816"
 ---
 # <a name="monitor-and-manage-performance-of-sharded-multi-tenant-azure-sql-database-in-a-multi-tenant-saas-app"></a>Övervaka och hantera prestanda för shardade flera innehavare Azure SQL-databas i en SaaS-app för flera innehavare
 
@@ -78,10 +78,10 @@ Den *Demo-PerformanceMonitoringAndManagement.ps1* skript har angetts som simuler
 
 | Demo | Scenario |
 |:--|:--|
-| 2 | Generera av normal intensitet (cirka 30 DTU) |
+| 2 | Generera normal intensitet (cirka 30 DTU) |
 | 3 | Generera belastning med längre toppar per klient|
 | 4 | Generera belastningar med högre DTU-toppar per klient (cirka 70 DTU)|
-| 5 | Generera en hög intensitet (cirka 90 DTU) på en enda klient plus en normal intensitet belastningen på alla klienter |
+| 5 | Generera en hög intensitet (cirka 90 DTU) på en enda klient plus en normal intensitet på alla klienter |
 
 Belastningsgeneratorn tillämpar en *syntetisk* enbart-CPU-belastning på varje klientdatabas. Generatorn startar ett jobb för varje klientdatabas som anropar en lagrad procedur med jämna mellanrum, vilket genererar belastningen. Den belastningsnivåer (i dtu: er), varaktighet och intervaller varierar över alla databaser, vilket simulerar oförutsägbar klientaktivitet.
 

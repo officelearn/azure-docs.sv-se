@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/30/2017
 ms.author: msfussell
-ms.openlocfilehash: 0012304412b343918ab69abf6eababc033cddc6f
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 492afcdd5143aa5a6597ba8c296d15059f9c7d64
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55198222"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57453277"
 ---
 # <a name="partition-service-fabric-reliable-services"></a>Partitionera Service Fabric reliable services
 Den här artikeln innehåller en introduktion till de grundläggande principerna för Azure Service Fabric tillförlitliga tjänster partitioneras. Källkoden som används i artikeln finns också på [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions).
@@ -59,7 +59,7 @@ Innan du implementerar en tjänst, bör du alltid partitioneringsstrategin som k
 
 En bra metod är att tänka på strukturen för de tillstånd som måste vara partitionerade som det första steget.
 
-Låt oss ta ett enkelt exempel. Om du bygger en tjänst för en countywide omröstning, kan du skapa en partition för varje ort i regionen. Sedan kan du lagra rösterna för varje person i stad i partition som motsvarar den staden. Bild 3 illustrerar en uppsättning personer och stad där de finns.
+Låt oss ta ett enkelt exempel. Om du bygger en tjänst i en region hela omröstning, kan du skapa en partition för varje ort i regionen. Sedan kan du lagra rösterna för varje person i stad i partition som motsvarar den staden. Bild 3 illustrerar en uppsättning personer och stad där de finns.
 
 ![Enkel partition](./media/service-fabric-concepts-partitioning/cities.png)
 

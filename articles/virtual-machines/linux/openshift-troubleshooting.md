@@ -13,22 +13,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: ''
+ms.date: 02/02/2019
 ms.author: haroldw
-ms.openlocfilehash: 6a4af0efb14d8ad45add906262ffd2121e8b78d0
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: f94189e8f39771e0c3d7856ccbb8a23ba81d94aa
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50085853"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57447282"
 ---
 # <a name="troubleshoot-openshift-deployment-in-azure"></a>Felsöka OpenShift-distribution i Azure
 
 Om OpenShift klustret inte har distribuerat, ger Azure-portalen utdata om felet. Utdata kan vara svårt att läsa vilket gör det svårt att identifiera problemet. Skanna snabbt dessa utdata för slutkoden 3, 4 eller 5. Följande innehåller information om de här tre slutkoder för aktiviteter:
 
-- Slutkod 3: din Red Hat-prenumeration användarnamn / lösenord eller organisations-ID / Sidladdning är felaktig
-- Slutkod 4: Your Red Hat Pool-ID är felaktigt eller det finns inga rättigheter
-- Slutkod 5: Det gick inte att etablera Docker tunn Pool-volym
+- Slutkod 3: Ditt Red Hat-prenumeration användarnamn / lösenord eller organisations-ID / Sidladdning är felaktig
+- Slutkod 4: Red Hat Pool-ID är felaktigt eller det finns inga rättigheter
+- Slutkod 5: Det går inte att etablera Docker tunn Pool-volym
 
 För alla andra slutkoder för aktiviteter, ansluta till värdarna via ssh för att visa loggfilerna.
 

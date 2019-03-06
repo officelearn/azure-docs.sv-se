@@ -1,6 +1,6 @@
 ---
-title: Hantera lösenord i Azure Active Directory | Microsoft Docs
-description: Den här sidan hjälper användarna att förstå vad applösenord är och hur de används med hänsyn till tvåstegsverifiering.
+title: Så här hanterar du applösenord - Azure Active Directory | Microsoft Docs
+description: Läs mer om applösenord och vad de är används för avseende tvåstegsverifiering.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -12,13 +12,14 @@ ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
+ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fdcd078714d8311cf59471492187314183de28b2
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: ee21080fd95815289f73654cc5bc650296c8e8dd
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56187312"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57433373"
 ---
 # <a name="manage-app-passwords-for-two-step-verification"></a>Hantera lösenord för tvåstegsverifiering
 

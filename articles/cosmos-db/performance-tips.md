@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: sngun
-ms.openlocfilehash: fbb7ae2e741ab6f2c5045f412e18cd9ce1d5b812
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: d9d2b58ff249e765620e2fbae5c9677e9412f1ea
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56870932"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57432064"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Prestandatips för Azure Cosmos DB och .NET
 
@@ -38,7 +38,7 @@ Så om du begär ”hur kan jag förbättra min databasprestanda”? Överväg f
 
    * Direkt-läge
 
-     Direkt-läge stöder anslutningar via TCP- och HTTPS-protokoll. För närvarande stöds direkt i .NET Standard 2.0. När du använder direkt läge, finns det två protokollalternativ:
+     Direkt-läge stöder anslutningar via TCP- och HTTPS-protokoll. Om du använder den senaste versionen av .net SDK stöds direktanslutning läge i .NET Standard 2.0 och .net framework. När du använder direkt läge, finns det två protokollalternativ:
 
     * TCP
     * HTTPS

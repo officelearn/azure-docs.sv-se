@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: beengen
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e96c7da9ac53927ed48003370f40f5861f48d3d6
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 71eeed62c6de2a3771909e8489ca816930993435
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56204787"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57442230"
 ---
 # <a name="linkedin-integration-data-sharing-and-consent"></a>Datadelning för LinkedIn-integrering och samtycke
 
@@ -76,7 +76,7 @@ När du ansluter dina Microsoft och LinkedIn-konton kan tillåta du Microsoft at
 
 Data som kan nås från Microsoft lagras inte permanent med LinkedIn, förutom kontakter. Microsoft Contacts lagras på LinkedIn tills användare tar bort dem. Läs mer om [tar bort importerade kontakter från LinkedIn](https://www.linkedin.com/help/linkedin/answer/43377).
 
-Läs mer på Linkedins användning av personliga data, den [LinkedIn-sekretesspolicy](https://www.linkedin.com/legal/privacy-policy). För LinkedIn-tjänster, dataöverföring och lagring, data kan flöda från den Europeiska unionen till USA och tillbaka och din integritet skyddas som beskrivs i [Europeiska unionen dataöverföringar](https://www.linkedin.com/help/linkedin/answer/62533).
+Läs mer på Linkedins användning av personliga data, den [LinkedIn-sekretesspolicy](https://www.linkedin.com/legal/privacy-policy). För LinkedIn-tjänster, dataöverföring och lagring, data kan flöda från den Europeiska unionen till USA och tillbaka och din integritet skyddas enligt beskrivningen i [Europeiska unionen dataöverföringar](https://www.linkedin.com/help/linkedin/answer/62533).
 
 ## <a name="next-steps"></a>Nästa steg
 

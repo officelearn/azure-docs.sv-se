@@ -5,15 +5,15 @@ services: storage
 author: kuhussai
 ms.service: storage
 ms.topic: article
-ms.date: 03/05/2019
+ms.date: 03/06/2019
 ms.author: kuhussai
 ms.subservice: blobs
-ms.openlocfilehash: 4660a45014e6afdb091fb40b8fe7f03fdb647aab
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: ec024f8f1cd411455a6cbb2a0b12e7b4751af5fe
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/05/2019
-ms.locfileid: "57339206"
+ms.locfileid: "57405342"
 ---
 # <a name="azure-blob-storage-premium-preview-hot-cool-and-archive-storage-tiers"></a>Azure Blob storage: Premium (förhandsversion), lagringsnivåerna frekvent, lågfrekvent lagring och Arkivlagring
 
@@ -56,6 +56,8 @@ BLOB storage- och GPv2-konton visas den **åtkomstnivå** attributet på kontoni
 Tillgängligt i förhandsversionen är en Premium åtkomstnivå, vilket gör ofta använda data som är tillgängliga via maskinvara med höga prestanda. Data som lagras i den här nivån lagras på SSD-enheter som är optimerade för kortare svarstider och högre transaktionella priser jämfört med traditionella hårddiskar. Åtkomstnivå Premium är tillgängligt via Blockblob lagringskontotypen endast.
 
 Den här nivån är perfekt för arbetsbelastningar som kräver snabb och konsekvent svarstider. Data som innebär att slutanvändare, till exempel interaktiva videoredigering, statiskt webbinnehåll, onlinetransaktioner och liknande är bra kandidater för nivån Premium och åtkomst. Den här nivån är utformad för arbetsbelastningar som utför många små transaktioner, till exempel samla in telemetridata, meddelanden och transformering av data.
+
+Läs mer om förhandsversionen av [förhandsversion av Azure Premium-Bloblagring](https://azure.microsoft.com/blog/azure-premium-blob-storage-public-preview/).
 
 ## <a name="hot-access-tier"></a>Frekvent åtkomstnivå
 

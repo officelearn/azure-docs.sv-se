@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 04/3/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e7d8f42b49fe3dbdecec163ab47579346b71f0bf
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: b4be5087af70e10e5a73ea2a183a25b326aea664
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56190508"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57433475"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-servicechannel"></a>Självstudier: Azure Active Directory-integrering med ServiceChannel
 
@@ -155,7 +155,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-hanteringsportal
 
     ![Konfigurera enkel inloggning](./media/servicechannel-tutorial/tutorial_general_400.png)
 
-1. På den **ServiceChannel Configuration** klickar du på **konfigurera ServiceChannel** att öppna **konfigurera inloggning** fönster. Observera den **SAML Enitity ID** från den **Snabbreferens** avsnittet.
+1. På den **ServiceChannel Configuration** klickar du på **konfigurera ServiceChannel** att öppna **konfigurera inloggning** fönster. Observera den **SAML entitets-ID** från den **Snabbreferens** avsnittet.
 
 1. Att konfigurera enkel inloggning på **ServiceChannel** sida, som du behöver skicka de hämtade **certifikat (Base64)** och **SAML entitets-ID** till [ServiceChannel supportteam](https://servicechannel.zendesk.com/hc/en-us). De kommer har konfigurerat för att få SAML SSO-anslutningen korrekt inställda på båda sidorna.
 

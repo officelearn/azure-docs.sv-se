@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/23/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: 3465a891d91bc54bfe39b9501a7ad0e970932860
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 62d8236abb2b5f21bdb4111480d95376faa2e379
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56309632"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57432608"
 ---
 # <a name="create-a-vm-from-a-specialized-vhd-in-a-storage-account"></a>Skapa en virtuell dator från en specialiserad virtuell Hårddisk i ett lagringskonto
 
@@ -271,7 +271,7 @@ $vm = Add-AzVMNetworkInterface -VM $vmConfig -Id $nic.Id
     ```powershell
     $osDiskUri = "https://myStorageAccount.blob.core.windows.net/myContainer/myOsDisk.vhd"
     ```
-2. Lägg till OS-disken. I det här exemplet är termen ”osDisk” appened till VM-namn för att skapa OS-disknamnet när OS-disken skapas. Det här exemplet anger också att den här Windows-baserade virtuella Hårddisken ska kopplas till den virtuella datorn som OS-disk.
+2. Lägg till OS-disken. I det här exemplet när OS-disken skapas, läggs termen ”osDisk” till VM-namn för att skapa OS-disknamnet. Det här exemplet anger också att den här Windows-baserade virtuella Hårddisken ska kopplas till den virtuella datorn som OS-disk.
     
     ```powershell
     $osDiskName = $vmName + "osDisk"

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/14/2018
 ms.author: cynthn;azcspmt;jonbeck
 ms.custom: include file
-ms.openlocfilehash: 8967e4b2cce052044abf2e2b0925f162478428d1
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: bbf619f27c9239ea1b42287c7e81f23da1d43fcb
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57203917"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57350487"
 ---
 GPU-optimerad VM storlekar är specialiserade virtuella datorer som är tillgängliga med en eller flera NVIDIA GPU: er. De här storlekarna är utformade för arbetsbelastningar för beräkningsintensiva, grafik och visualisering. Den här artikeln innehåller information om antalet och typen av GPU: er, virtuella processorer, diskar och nätverkskort. Storage dataflöde och nätverket bandbredd ingår också för varje storlek i den här grupperingen. 
 
@@ -52,7 +52,7 @@ Premium-lagring:  Stöds
 
 Premium Storage Caching:  Stöds
 
-Virtuella datorer NCv2-serien drivs av [NVIDIA Tesla P100](http://images.nvidia.com/content/tesla/pdf/nvidia-tesla-p100-datasheet.pdf) GPU: er. Dessa GPU: erna kan tillhandahålla mer än 2 x dataprestanda NC-serien. Kunder kan dra nytta av de här uppdaterade GPU: erna för traditionella HPC-arbetsbelastningar, till exempel modellering av behållare, DNA sekvensering, proteinanalys, Monte Carlo-simuleringar och andra. Konfigurationen för NC24rs v2 ger en låg fördröjning och stora dataflöden för tätt sammansatta parallella beräkningsarbetsbelastningar.
+Virtuella datorer NCv2-serien drivs av [NVIDIA Tesla P100](https://www.nvidia.com/data-center/tesla-p100/) GPU: er. Dessa GPU: erna kan tillhandahålla mer än 2 x dataprestanda NC-serien. Kunder kan dra nytta av de här uppdaterade GPU: erna för traditionella HPC-arbetsbelastningar, till exempel modellering av behållare, DNA sekvensering, proteinanalys, Monte Carlo-simuleringar och andra. Konfigurationen för NC24rs v2 ger en låg fördröjning och stora dataflöden för tätt sammansatta parallella beräkningsarbetsbelastningar.
 
 > [!IMPORTANT]
 > För den här storleksfamilj är vCPU (kärna)-kvoten i prenumerationen inledningsvis 0 i varje region. [Begära en kvot för vCPU](../articles/azure-supportability/resource-manager-core-quotas-request.md) för den här serien i en [tillgängliga regionen](https://azure.microsoft.com/regions/services/).

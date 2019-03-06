@@ -16,12 +16,12 @@ ms.date: 12/10/2018
 ms.author: jeffgilb
 ms.reviewer: jiahan
 ms.lastreviewed: 12/10/2018
-ms.openlocfilehash: 1bfdaef4523a714aed0f1b7bbdb5a600f7775ffb
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 5934d075378df9f04130b79eb43131d71eaa25af
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55244818"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57449469"
 ---
 # <a name="mysql-resource-provider-11300--release-notes"></a>MySQL resource provider 1.1.30.0 viktig information
 
@@ -49,7 +49,7 @@ Den här versionen av Azure Stack MySQL-resursprovider innehåller följande fö
 
 ### <a name="fixes"></a>Korrigeringar
 
-- **MySQL resource provider Azure Stack PowerShell kompatibiliteten**. MySQL-resursprovider har uppdaterats till arbetet med Azure Stack 2018-03-01-hybrid PowerShell-profilen och för att ge kompatibilitet med AzureRM 1.3.0 och senare.
+- **MySQL-resursprovider Azure Stack PowerShell kompatibilitet**. MySQL-resursprovider har uppdaterats till arbetet med Azure Stack 2018-03-01-hybrid PowerShell-profilen och för att ge kompatibilitet med AzureRM 1.3.0 och senare.
 
 - **MySQL-inloggning ändra lösenord-bladet**. Ett problem har åtgärdats där lösenordet kan inte ändras på bladet ändra lösenordet. Borttagna länkar från lösenord ändringsmeddelanden.
 

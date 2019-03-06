@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/15/2017
 ms.author: muralikk
 ms.subservice: common
-ms.openlocfilehash: 185e243838d2ccdc920fa5b5714995801567a24f
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 5ea510d8335437cb43f3e8824ec73175c35dcd03
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55454682"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57452376"
 ---
 # <a name="preparing-hard-drives-for-an-import-job"></a>Förbereda hårddiskar för ett importjobb
 Följ dessa steg för att förbereda en eller flera hårddiskar för ett importjobb:
@@ -108,7 +108,7 @@ Följ dessa steg för att förbereda en eller flera hårddiskar för ett importj
 |**/csas:**< ContainerSas\>|`Optional`. Behållaren SAS du använder för att importera data till lagringskontot. Du måste innehålla antingen **/sk:**< StorageAccountKey\> eller **/csas:**< ContainerSas\> i kommandot.<br /><br /> Värdet för den här parametern måste börja med behållarens namn följt av ett frågetecken (?) och SAS-token. Exempel:<br /><br /> `mycontainer?sv=2014-02-14&sr=c&si=abcde&sig=LiqEmV%2Fs1LF4loC%2FJs9ZM91%2FkqfqHKhnz0JM6bqIqN0%3D&se=2014-11-20T23%3A54%3A14Z&sp=rwdl`<br /><br /> Behörighet, om anges i URL: en eller i en lagrad åtkomstprincip, måste innehålla läsa, skriva och ta bort för importjobb, och Läs-, Skriv- och listan av export-jobb.<br /><br /> När den här parametern anges, måste alla BLOB-och importeras eller exporteras vara inom den behållare som angavs i signaturen för delad åtkomst.|
 |**/t:**<TargetDriveLetter\>|`Required.` Enhetsbeteckningen för target hårddisken för den aktuella kopia-sessionen utan avslutande kolon.|
 |**/ format**|`Optional.` Ange den här parametern när enheten måste vara formaterad; i annat fall utelämna den. Innan verktyget formaterar enheten, uppmanas du en bekräftelse från konsolen. Ange parametern /silentmode för att ignorera bekräftelsen.|
-|**/silentmode**|`Optional.` Ange den här parametern om du vill ignorera bekräftelse för att formatera targert-enhet.|
+|**/silentmode**|`Optional.` Ange den här parametern om du vill ignorera bekräftelse för att formatera målenheten.|
 |**/ kryptera**|`Optional.` Ange den här parametern när enheten inte har ännu krypterats med BitLocker och måste krypteras av verktyget. Om enheten har redan har krypterats med BitLocker, utelämnar den här parametern och ange den `/bk` parameter, vilket ger befintliga BitLocker-nyckel.<br /><br /> Om du anger den `/format` parametern och du måste också ange den `/encrypt` parametern.|
 |**/bk:**<BitLockerKey\>|`Optional.` Om `/encrypt` är anges utelämna den här parametern. Om `/encrypt` är utelämnas, måste du ha har redan krypterat enheten med BitLocker. Använd den här parametern för att ange BitLocker-nyckel. BitLocker-kryptering krävs för alla hårddiskar för importjobb.|
 |**/logdir:**< LogDirectory\>|`Optional.` Loggkatalogen anger en katalog som används för att lagra utförliga loggar samt tillfällig manifestfiler. Om den inte anges används den aktuella katalogen som log-katalogen.|

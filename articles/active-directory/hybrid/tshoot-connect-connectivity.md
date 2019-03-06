@@ -16,12 +16,12 @@ ms.date: 07/18/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 57f7d72be86a05b9785f7714380363d9c6ddb5c6
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: c0afc31bf08a5037d91885bc6a85c6aeaf858825
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56205706"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57436671"
 ---
 # <a name="troubleshoot-connectivity-issues-with-azure-ad-connect"></a>Felsökning av anslutningsproblem med Azure AD Connect
 Den här artikeln förklarar hur anslutningar mellan Azure AD Connect och Azure AD fungerar och hur du felsöker problem med nätverksanslutningen. Dessa problem är mest sannolikt ska synas i en miljö med en proxyserver.
@@ -76,7 +76,7 @@ Det här felet visas om slutpunkten **https://secure.aadcdn.microsoftonline-p.co
 
 ### <a name="the-password-cannot-be-verified"></a>Lösenordet kan inte verifieras
 Om installationsguiden lyckas ansluta till Azure AD, men själva lösenordet går inte att verifiera du ser detta fel:  
-![badpassword](./media/tshoot-connect-connectivity/badpassword.png)
+![Felaktigt lösenord.](./media/tshoot-connect-connectivity/badpassword.png)
 
 * Är ett tillfälligt lösenord för lösenordet och måste ändras? Är det faktiskt rätt lösenord? Försök att logga in på https://login.microsoftonline.com (på en annan dator än Azure AD Connect-servern) och kontrollera att konton som kan användas.
 
@@ -165,7 +165,7 @@ Dina autentiseringsuppgifter har upphört att gälla. Ändra lösenordet.
 ### <a name="authorization-failure"></a>Auktoriseringen misslyckades
 Det gick inte att auktorisera användare att utföra åtgärden i Azure AD.
 
-### <a name="authentication-cancelled"></a>Autentisering har avbrutits
+### <a name="authentication-canceled"></a>Autentisering har avbrutits
 Multifaktorautentisering (MFA) utmaningen avbröts.
 
 <div id="connect-msolservice-failed">

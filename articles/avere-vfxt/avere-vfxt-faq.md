@@ -4,14 +4,14 @@ description: Vanliga frågor om Avere vFXT för Azure
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 10/31/2018
+ms.date: 02/28/2019
 ms.author: v-erkell
-ms.openlocfilehash: 83229cdca0ccff68dcdd543495a7a19b6e6c4c5b
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: 1dda3e379a9dcec9dc48d741c107ee352c4f2033
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56990059"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57404645"
 ---
 # <a name="avere-vfxt-for-azure-faq"></a>Vanliga frågor och svar om Avere vFXT för Azure
 
@@ -216,6 +216,10 @@ Generellt sett Avere vFXT för Azure har stöd för följande system som core fi
 
 * Dell EMC Isilon (OneFS 7.1, 7.2, 8.0 och 8.1) 
 * NetApp ONTAP (klustrad läge 9.4, 9.3, 9.2, 9.1P1 8.0 8.3) och (7-läge 7.* 8.0 8.3) 
+
+  > [!NOTE] 
+  > Azure NetApp-filer stöds inte för närvarande. 
+
 * Azure blob-behållare (endast lokalt redundant lagring) 
 * AWS S3 buckets 
 * Google Cloud-buckets

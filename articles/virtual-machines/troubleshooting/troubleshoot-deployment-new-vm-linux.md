@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/09/2016
 ms.author: cjiang
-ms.openlocfilehash: 08009ca7f9faaa75e593670c22cf864c12236e8b
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 9fea914fdf9b025fd5d38219a6bfc81b4a9cc584
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47414710"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57450312"
 ---
 # <a name="troubleshoot-resource-manager-deployment-issues-with-creating-a-new-linux-virtual-machine-in-azure"></a>Felsöka distributionsproblem i Resource Manager med att skapa en ny virtuell Linux-dator i Azure
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-opening](../../../includes/virtual-machines-troubleshoot-deployment-new-vm-opening-include.md)]
@@ -43,32 +43,32 @@ Starta felsökning genom att samla in aktivitetsloggar för att identifiera fele
 
 [!INCLUDE [virtual-machines-linux-troubleshoot-deployment-new-vm-table](../../../includes/virtual-machines-linux-troubleshoot-deployment-new-vm-table.md)]
 
-**Y:** om Operativsystemet är generaliserad, Linux och den är laddat upp och/eller med inställningen generaliserad, så det finns inte några fel. På samma sätt om Operativsystemet är Linux specialiserade och det är laddat upp och/eller med inställningen specialiserade och det inte finns några fel.
+**Y:** Om Operativsystemet är generaliserad Linux, och det är laddat upp och/eller med generaliserad inställningen, kommer finnas det inte några fel. På samma sätt om Operativsystemet är Linux specialiserade och det är laddat upp och/eller med inställningen specialiserade och det inte finns några fel.
 
 **Uppladdningsfel:**
 
-**N<sup>1</sup>:** om Operativsystemet är generaliserad Linux och den har laddats upp som specialiserade, får du ett etablering tidsgränsfel eftersom den virtuella datorn har fastnat på scenen för etablering.
+**N<sup>1</sup>:** Om Operativsystemet är generaliserad Linux och den har laddats upp som specialiserade, får du ett etablering tidsgränsfel eftersom den virtuella datorn har fastnat på scenen för etablering.
 
-**N<sup>2</sup>:** om Operativsystemet är Linux specialiserade och den har laddats upp som generaliserad, visas en allokering fel eftersom den nya virtuella datorn körs med det ursprungliga datornamn, användarnamn och lösenord.
+**N<sup>2</sup>:** Om Operativsystemet är Linux specialiserade och den har laddats upp som generaliserad, får du en allokering fel eftersom den nya virtuella datorn körs med det ursprungliga datornamn, användarnamn och lösenord.
 
 **Lösning:**
 
-Ladda upp den ursprungliga virtuella Hårddisken finns tillgängliga lokalt, med samma inställning som för Operativsystemet (generaliserad/specialiserade) för att lösa båda dessa fel. Om du vill överföra som generaliserad, Kom ihåg att köra - avetablera först.
+Ladda upp den ursprungliga virtuella Hårddisken finns tillgängliga lokalt med samma inställning som för Operativsystemet (generaliserad/specialiserade) för att lösa båda dessa fel. Om du vill överföra som generaliserad, Kom ihåg att köra - avetablera först.
 
 **Samla in fel:**
 
-**N<sup>3</sup>:** om Operativsystemet är generaliserad Linux och den är klar som specialiserade, du får ett etablering tidsgränsfel eftersom den ursprungliga virtuella datorn inte kan användas eftersom den har markerats som generaliserad.
+**N<sup>3</sup>:** Om Operativsystemet är generaliserad Linux och den är klar som specialiserade, du får ett etablering tidsgränsfel eftersom den ursprungliga virtuella datorn inte kan användas eftersom den har markerats som generaliserad.
 
-**N<sup>4</sup>:** om Operativsystemet är Linux specialiserade och avbildningen som generaliserad, visas en allokering fel eftersom den nya virtuella datorn körs med det ursprungliga datornamn, användarnamn och lösenord. Dessutom ursprungligt virtuella datorn kan inte användas eftersom den är markerad som specialiserad.
+**N<sup>4</sup>:** Om Operativsystemet är Linux specialiserade och avbildningen som generaliserad, får du en allokering fel eftersom den nya virtuella datorn körs med det ursprungliga datornamn, användarnamn och lösenord. Dessutom ursprungligt virtuella datorn kan inte användas eftersom den är markerad som specialiserad.
 
 **Lösning:**
 
 Lös båda de här felen genom att ta bort den nuvarande avbildningen från portalen och [avbilda från de aktuella virtuella hårddiskarna](../linux/capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) med samma inställning som för Operativsystemet (generaliserad/specialiserade).
 
-## <a name="issue-custom-gallery-marketplace-image-allocation-failure"></a>Problem: Anpassade / galleriet / marketplace-avbildning Allokeringsfel
+## <a name="issue-custom-gallery-marketplace-image-allocation-failure"></a>Ärende: Anpassad / galleriet / marketplace-avbildning Allokeringsfel
 Det här felet uppstår i situationer när den nya VM-förfrågan är fäst på ett kluster som antingen har inte stöd för VM-storlek som begärts eller har inte tillgängligt ledigt utrymme för att hantera begäran.
 
-**Orsak 1:** klustret inte stöd för den begärda VM-storleken.
+**Orsak 1:** Klustret stöder inte den begärda VM-storleken.
 
 **Lösning 1:**
 
@@ -79,7 +79,7 @@ Det här felet uppstår i situationer när den nya VM-förfrågan är fäst på 
   * När alla virtuella datorer kan du skapa den nya virtuella datorn i önskad storlek.
   * Starta den nya virtuella datorn först och sedan väljer du stoppade virtuella datorer och klicka på **starta**.
 
-**Orsak 2:** klustret inte har kostnadsfria resurser.
+**Orsak 2:** Klustret har inte kostnadsfria resurser.
 
 **Lösning 2:**
 

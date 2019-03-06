@@ -16,12 +16,12 @@ ms.date: 04/23/2018
 ms.author: markvi
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7054946a15ca27f4b5a36d3d2ac712cba2fd68d8
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: ea658f18af7ae44d73f78cb5fe4f7ae1316ea901
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56185136"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57439134"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-down-level-devices"></a>Felsöka hybrid Azure Active Directory-anslutna äldre enheter 
 
@@ -95,7 +95,7 @@ Om enheten inte hybrid Azure AD-anslutna, kan du försöka göra hybrid Azure AD
      
      - Problem med nätverksanslutningen kan förhindra **autoworkplace.exe** från att nå AD FS eller URL: er för Azure AD. 
      
-     - **Autoworkplace.exe** kräver att klienten har direkt åtkomst från klienten till den orgnanization på lokala AD-domänkontrollant, vilket innebär att hybrid Azure AD-anslutning lyckas bara när klienten är ansluten till intranätet .
+     - **Autoworkplace.exe** kräver att klienten har direkt åtkomst från klienten till organisationens lokala AD-domänkontrollant, vilket innebär att hybrid Azure AD-anslutning lyckas bara när klienten är ansluten till intranätet.
      
      - Din organisation använder Azure AD sömlös enkel inloggning, `https://autologon.microsoftazuread-sso.com` eller `https://aadg.windows.net.nsatc.net` finns inte på enhetens intranätsinställningar för Internet Explorer, och **tillåta uppdateringar till statusfältet via skript** har inte aktiverats för zonen Intranät.
 

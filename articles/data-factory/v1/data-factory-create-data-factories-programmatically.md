@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: d05661c131d981538dada988131c39d4fd956ee9
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 8f333b626fa51fa60f80350547ee53f346d6cc3a
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54016752"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57436775"
 ---
 # <a name="create-monitor-and-manage-azure-data-factories-using-azure-data-factory-net-sdk"></a>Skapa, övervaka och hantera Azure-datafabriker med hjälp av Azure Data Factory .NET SDK
 > [!NOTE]
@@ -31,6 +31,9 @@ Du kan skapa, övervaka och hantera Azure-datafabriker programmässigt med hjäl
 > Den här artikeln beskriver inte hela .NET-API:et för Data Factory. Se [Data Factory .NET API-referens](/dotnet/api/index?view=azuremgmtdatafactories-4.12.1) för omfattande dokumentation om .NET API för Data Factory. 
 
 ## <a name="prerequisites"></a>Förutsättningar
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 * Visual Studio 2012, 2013 eller 2015
 * Ladda ned och installera [Azure .NET SDK](https://azure.microsoft.com/downloads/).
 * Azure PowerShell. Följ instruktionerna i artikeln [Så här installerar och konfigurerar du Azure PowerShell](/powershell/azure/overview) för att installera Azure PowerShell på datorn. Du kan använda Azure PowerShell för att skapa ett Azure Active Directory-program.
@@ -42,17 +45,17 @@ Skapa ett Azure Active Directory-program, skapa ett tjänstobjektnamn för progr
 2. Kör följande kommando och ange användarnamnet och lösenordet som du använder för att logga in på Azure-portalen.
 
     ```PowerShell
-    Connect-AzureRmAccount
+    Connect-AzAccount
     ```
 3. Kör följande kommando för att visa alla prenumerationer för det här kontot.
 
     ```PowerShell
-    Get-AzureRmSubscription
+    Get-AzSubscription
     ```
 4. Kör följande kommando för att välja den prenumeration som du vill arbeta med. Ersätt **&lt;NameOfAzureSubscription**&gt; med namnet på din Azure-prenumeration.
 
     ```PowerShell
-    Get-AzureRmSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzureRmContext
+    Get-AzSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzContext
     ```
 
    > [!IMPORTANT]
@@ -61,7 +64,7 @@ Skapa ett Azure Active Directory-program, skapa ett tjänstobjektnamn för progr
 5. Skapa en Azure-resursgrupp med namnet **ADFTutorialResourceGroup** genom att köra följande kommando i PowerShell.
 
     ```PowerShell
-    New-AzureRmResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
+    New-AzResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
     ```
 
     Om resursgruppen redan finns anger du om du vill uppdatera den (Y) eller lämna den som den är (N).
@@ -70,7 +73,7 @@ Skapa ett Azure Active Directory-program, skapa ett tjänstobjektnamn för progr
 6. Skapa ett Azure Active Directory-program.
 
     ```PowerShell
-    $azureAdApplication = New-AzureRmADApplication -DisplayName "ADFDotNetWalkthroughApp" -HomePage "https://www.contoso.org" -IdentifierUris "https://www.adfdotnetwalkthroughapp.org/example" -Password "Pass@word1"
+    $azureAdApplication = New-AzADApplication -DisplayName "ADFDotNetWalkthroughApp" -HomePage "https://www.contoso.org" -IdentifierUris "https://www.adfdotnetwalkthroughapp.org/example" -Password "Pass@word1"
     ```
 
     Om följande fel returneras anger du en annan URL och kör kommandot igen.
@@ -81,12 +84,12 @@ Skapa ett Azure Active Directory-program, skapa ett tjänstobjektnamn för progr
 7. Skapa AD-tjänstobjektet.
 
     ```PowerShell
-    New-AzureRmADServicePrincipal -ApplicationId $azureAdApplication.ApplicationId
+    New-AzADServicePrincipal -ApplicationId $azureAdApplication.ApplicationId
     ```
 8. Lägg till tjänstobjektet till rollen som **Data Factory-deltagare**.
 
     ```PowerShell
-    New-AzureRmRoleAssignment -RoleDefinitionName "Data Factory Contributor" -ServicePrincipalName $azureAdApplication.ApplicationId.Guid
+    New-AzRoleAssignment -RoleDefinitionName "Data Factory Contributor" -ServicePrincipalName $azureAdApplication.ApplicationId.Guid
     ```
 9. Hämta program-ID:t.
 
@@ -175,7 +178,7 @@ Kopieringsaktiviteten utför dataflyttningen i Azure Data Factory. Aktiviteten d
     ```
 
    > [!IMPORTANT]
-   > Ersätt värdet för **resourceGroupName** med namnet på Azure-resursgruppen. Du kan skapa en resurs med det [New-AzureResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) cmdlet.
+   > Ersätt värdet för **resourceGroupName** med namnet på Azure-resursgruppen. Du kan skapa en resurs med det [New-AzureResourceGroup](/powershell/module/az.resources/new-azresourcegroup) cmdlet.
    >
    > Uppdatera namnet på datafabriken (dataFactoryName) så att det är unikt. Namnet på datafabriken måste vara unikt globalt. Se artikeln [Data Factory – namnregler](data-factory-naming-rules.md) för namnregler för Data Factory-artefakter.
 7. Lägg till följande kod som skapar en **datafabrik** till **Main**-metoden.

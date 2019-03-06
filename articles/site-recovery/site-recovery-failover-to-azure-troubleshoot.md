@@ -7,14 +7,14 @@ ms.service: site-recovery
 services: site-recovery
 ms.topic: article
 ms.workload: storage-backup-recovery
-ms.date: 1/29/2019
+ms.date: 03/04/2019
 ms.author: mayg
-ms.openlocfilehash: 62b69364f0b3d3e14d0b2d877604cecfcc346dce
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 811d75ec2246199662a25afd6b96b23035444211
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55207504"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57436042"
 ---
 # <a name="troubleshoot-errors-when-failing-over-vmware-vm-or-physical-machine-to-azure"></a>Felsök fel när redundansväxlingen VMware VM eller en fysisk dator till Azure
 
@@ -110,7 +110,50 @@ Om den **Connect** knappen på den redundansväxlade virtuella datorn i Azure ä
 
 När du startar upp en virtuell Windows-dator efter redundans om en oväntad avstängning visas på den återställda virtuella datorn, anger en VM-avstängning inte hämtades i den återställningspunkt som används för redundans. Detta händer när du återställer till en tidpunkt när den virtuella datorn inte hade varit helt stängs av.
 
-Detta är vanligtvis inte en orsaka problem och kan vanligtvis ignoreras vid oplanerade redundanser. När det gäller en planerad redundans, kontrollera att den virtuella datorn är korrekt avstängd innan du redundansväxlar och ger tillräckligt med tid för väntande replikering data lokalt som ska skickas till Azure. Använd sedan den **senaste** alternativet på den [redundans skärmen](site-recovery-failover.md#run-a-failover) så att alla data som väntar på Azure har bearbetats i en återställningspunkt, som sedan används för VM-redundans.
+Detta är vanligtvis inte en orsaka problem och kan vanligtvis ignoreras vid oplanerade redundanser. Om redundansen planeras, kontrollera att den virtuella datorn är korrekt avstängd innan du redundansväxlar och ger tillräckligt med tid för väntande replikering data lokalt som ska skickas till Azure. Använd sedan den **senaste** alternativet på den [redundans skärmen](site-recovery-failover.md#run-a-failover) så att alla data som väntar på Azure har bearbetats i en återställningspunkt, som sedan används för VM-redundans.
+
+## <a name="unable-to-select-the-datastore"></a>Det går inte att välja databasen
+
+Det här problemet visas när det inte går att se datalager i Azure portalen när du försöker återaktivera skyddet för den virtuella dator som har uppstått en redundansväxling. Detta beror på Master target identifieras inte som en virtuell dator under vCenters som lagts till i Azure Site Recovery.
+
+Läs mer om att skydda en virtuell dator, [skydda igen och misslyckas tillbaka datorer till en lokal plats efter redundansväxlingen till Azure](vmware-azure-reprotect.md).
+
+Att lösa problemet:
+
+Skapa manuellt huvudservern mål i vCenter som hanterar källdatorn. Databasen blir tillgänglig efter nästa vCenter-identifiering och uppdatera fabric åtgärderna.
+
+> [!Note]
+> 
+> Identifiering och fabric uppdateringsåtgärder kan ta upp till 30 minuter att slutföra. 
+
+## <a name="linux-master-target-registration-with-cs-fails-with-an-ssl-error-35"></a>Linux Huvudmålserver registreringen med CS misslyckas med ett SSL-fel 35 
+
+Azure Site Recovery-huvudmål Target registreringen med konfigurationsservern misslyckas på grund av autentiserad Proxy som håller på att aktiveras på Huvudmålet. 
+ 
+Det här felet visas med följande strängar i installationsloggen: 
+
+RegisterHostStaticInfo påträffade undantaget config/talwrapper.cpp(107) [post] CurlWrapper Post misslyckades: server: 10.38.229.221 port: 443, phpUrl: request_handler.php, säker: SANT, ignoreCurlPartialError: false med fel: [på curlwrapperlib/curlwrapper.cpp:processCurlResponse:231] Det gick inte att skicka begäran: (35) - anslutningsfel för SSL. 
+ 
+Att lösa problemet:
+ 
+1. Öppna en kommandotolk på konfigurationsservern VM och kontrollera proxy-inställningar med hjälp av följande kommandon:
+
+    cat /etc/environment echo $http_proxy echo $https_proxy 
+
+2. Om utdata från de tidigare kommandona visar att den http_proxy eller https_proxy inställningar är definierade, använder du någon av följande metoder för att avblockera Master Target-kommunikation med konfigurationsservern:
+   
+   - Ladda ned den [PsExec verktyget](https://aka.ms/PsExec).
+   - Du kan använda verktyget för att komma åt användarkontext System och avgöra om Proxyadressen är konfigurerat. 
+   - Öppna Internet Explorer om proxyservern har konfigurerats i en användarkontext för system med hjälp av verktyget PsExec.
+  
+     **PSExec -s -i ”%programfiles%\Internet Explorer\iexplore.exe”**
+
+   - Att se till att huvudmålservern kan kommunicera med konfigurationsservern:
+  
+     - Ändra proxyinställningarna i Internet Explorer för att kringgå Huvudmålet serverns IP-adress via proxy.   
+     Eller
+     - Inaktivera proxyservern på huvudmålservern. 
+
 
 ## <a name="next-steps"></a>Nästa steg
 - Felsöka [RDP-anslutning till Windows-VM](../virtual-machines/windows/troubleshoot-rdp-connection.md)

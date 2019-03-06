@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d6d11de9dc82dad0426f141049603e99e99690f5
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 19b312f284d557c2c1344b82b9fcd570d3392077
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56873227"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57433747"
 ---
 # <a name="determine-hybrid-identity-lifecycle-adoption-strategy"></a>Fastställa hybrid införande för identitetslivscykel
 I det här steget ska du definiera identity management strategin för din hybrididentitetslösning att uppfylla affärskrav som du definierade i [fastställa hybrid identitetshanteringsaktiviteter](plan-hybrid-identity-design-considerations-hybrid-id-management-tasks.md).
@@ -95,7 +95,7 @@ Kontrollera i följande tabell för att jämföra synkroniseringsåtgärder som:
 | Synkronisering av Management-alternativ | Fördelar | Nackdelar |
 | --- | --- | --- |
 | Synkroniseringsbaserade (via DirSync eller AADConnect) |Användare och grupper som synkroniserats från lokal plats och molnet <br>  **Principkontroll**: Kontoprinciper kan ställas in via Active Directory, vilket ger administratören möjlighet att hantera principer för lösenord, arbetsstation, begränsningar, lås rapporteras kontroller och mer, utan att behöva utföra ytterligare uppgifter i molnet.  <br>  **Åtkomstkontroll**: Kan begränsa åtkomsten till Molntjänsten så att tjänsterna som kan nås via en företagsmiljö via online-servrar, eller båda. <br>  Minskar supportsamtalen: Om användarna har färre lösenord för att komma ihåg, är de mindre troligt att glömma dem. <br>  Säkerhet: Användaridentiteter och informationen skyddas eftersom alla servrar och tjänster som används i enkel inloggning, administreras och kontrolleras den lokala. <br>  Stöd för stark autentisering: Du kan använda stark autentisering (kallas även för tvåfaktorsautentisering) med Molntjänsten. Men om du använder stark autentisering, måste du använda enkel inloggning. | |
-| Federationsbaserat (via AD FS) |Aktiverat som säkerhetstokentjänst (STS). När du konfigurerar en STS att tillhandahålla enkel inloggning med ett Microsoft-molntjänst, skapar du ett federerat förtroende mellan din lokala STS och federerad domän du har angett i Azure AD-klienten. <br> Gör att du kan använda samma uppsättning autentiseringsuppgifter för att få åtkomst till flera resurser <br>slutanvändare behöver inte underhålla flera uppsättningar med autentiseringsuppgifter. Ännu, användare måste ange sina autentiseringsuppgifter för var och en av de deltagande resurserna., B2B och B2C-scenarier som stöds. |Kräver särskild personal för distribution och underhåll av dedikerad lokal AD FS-servrar. Det finns vissa restriktioner gällande användningen av stark autentisering om du planerar att använda AD FS för din STS. Mer information finns i [konfigurera avancerade alternativ för AD FS 2.0](https://go.microsoft.com/fwlink/?linkid=235649). |
+| Federationsbaserat (via AD FS) |Aktiverat som säkerhetstokentjänst (STS). När du konfigurerar en STS att tillhandahålla enkel inloggning med ett Microsoft-molntjänst, skapar du ett federerat förtroende mellan din lokala STS och federerad domän du har angett i Azure AD-klienten. <br> Gör att du kan använda samma uppsättning autentiseringsuppgifter för att få åtkomst till flera resurser <br>slutanvändare behöver inte underhålla flera uppsättningar med autentiseringsuppgifter. Ännu, användare måste ange sina autentiseringsuppgifter för var och en av de deltagande resurserna., B2B och B2C-scenarier som stöds. |Kräver särskild personal för distribution och underhåll av dedikerad lokalt AD FS-servrar. Det finns vissa restriktioner gällande användningen av stark autentisering om du planerar att använda AD FS för din STS. Mer information finns i [konfigurera avancerade alternativ för AD FS 2.0](https://go.microsoft.com/fwlink/?linkid=235649). |
 
 > [!NOTE]
 > Mer information finns i [integrera dina lokala identiteter med Azure Active Directory](whatis-hybrid-identity.md).

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 ms.subservice: common
-ms.openlocfilehash: 15ec4f006147cdffb46598d22a937aec429fd8ac
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 42246a5d2c8515c26ed399f041476c8ad70decfe
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55729412"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57442145"
 ---
 # <a name="creating-an-import-job-for-the-azure-importexport-service"></a>Skapa ett importjobb för tjänsten Azure Import/Export
 
@@ -33,7 +33,7 @@ Skapa ett importjobb för Microsoft Azure Import/Export-tjänsten med hjälp av 
 
 ## <a name="preparing-drives-with-the-azure-importexport-tool"></a>Förbereda enheter med verktyget Azure Import/Export
 
-Stegen för att förbereda enheter för ett importjobb är samma oavsett om du skapar jobvia portalen eller via REST API.
+Stegen för att förbereda enheter för ett importjobb är samma oavsett om du skapar jobbet via portalen eller via REST API.
 
 Nedan visas en kort översikt över förberedelsen av enheten. Referera till den [Azure Import ExportTool referens](storage-import-export-tool-how-to-v1.md) fullständiga anvisningar. Du kan ladda ned verktyget Azure Import/Export [här](https://go.microsoft.com/fwlink/?LinkID=301900).
 

@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 02/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 1c3f67cbe422ffe839018f0682fa2de6440de773
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 8578cd24b585bb5f0ba4930f005d8d2b2fece7f7
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56823373"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57449690"
 ---
 # <a name="how-to-change-the-licensing-model-for-a-sql-server-virtual-machine-in-azure"></a>Så här ändrar du så att licensieringsmodellen för en SQL Server-dator i Azure
 Den här artikeln beskriver hur du ändrar så att licensieringsmodellen för en SQL Server-dator i Azure med hjälp av den nya SQL-VM-resursprovidern - **Microsoft.SqlVirtualMachine**. Det finns två licensiering modeller för en virtuell dator (VM) som är värd för SQL Server – betala per användning, och Använd din egen licens (BYOL). Och nu, med hjälp av PowerShell eller Azure CLI, kan du ändra vilken licensieringsmodell som använder SQL Server-dator. 
@@ -32,7 +32,7 @@ Den **bring-your-own-license** (BYOL) modellen är även känd som den [Azure Hy
 Växla mellan de två modellerna licens medför **utan avbrott**, startar inte den virtuella datorn, lägger till **utan extra kostnad** (i själva verket aktivera AHB *minskar* kostnaden) och är **från och med nu**. 
 
   >[!NOTE]
-  > - Möjlighet att konvertera så att licensieringsmodellen är för närvarande bara tillgänglig när du börjar med en användningsbaserad SQL Server-VM-avbildning. Om du startar med en bring-your-own-license-avbildning från portalen, kan du inte konvertera avbildningen till betala per användning.
+  > - Möjligheten att konvertera licensieringsmodellen är för närvarande bara tillgänglig när du startar en SQL Server VM-avbildning med modellen Betala per användning. Om du startar med en Bring your own license-avbildning från portalen kan du inte konvertera avbildningen till Betala per användning.
   > - CSP-kunder kan använda AHB-förmånen genom att först distribuera en betala per virtuell dator och sedan konvertera den till bring-your-own-license. 
   > - Den här möjligheten är för närvarande endast aktiverad för offentligt moln-installationer.
 
@@ -65,7 +65,7 @@ Följande steg ska registrera SQL-resursprovider med din Azure-prenumeration med
   ![Ändra providern](media/virtual-machines-windows-sql-ahb/select-resource-provider-sql.png)
 
 ### <a name="with-azure-cli"></a>Med Azure CLI
-Följande kodavsnitt registreras med din Azure susbcription SQL-resursprovider. 
+Följande kodavsnitt registreras SQL-resursprovider med din Azure-prenumeration. 
 
 ```cli
 # Register the new SQL resource provider for your subscription 
@@ -109,7 +109,7 @@ När SQL Server-dator har registrerats med resursprovidern, kan du ändra så at
 
 
   >[!NOTE]
-  >  Möjlighet att konvertera så att licensieringsmodellen är för närvarande bara tillgänglig när du börjar med en användningsbaserad SQL Server-VM-avbildning. Om du startar med en bring-your-own-license-avbildning från portalen, kan du inte konvertera avbildningen till betala per användning. 
+  >  Möjligheten att konvertera licensieringsmodellen är för närvarande bara tillgänglig när du startar en SQL Server VM-avbildning med modellen Betala per användning. Om du startar med en Bring your own license-avbildning från portalen kan du inte konvertera avbildningen till Betala per användning. 
 
 ### <a name="with-the-azure-portal"></a>Med Azure Portal
 Du kan ändra så att licensieringsmodellen direkt från portalen. 

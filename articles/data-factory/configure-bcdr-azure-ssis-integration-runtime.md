@@ -13,18 +13,20 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 2012ccf4d9fd3e62ba248f29f922f868077e4061
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: dea0153b9ca6d8e751fd94cc558abd44b2591907
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42061521"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57453039"
 ---
 # <a name="configure-the-azure-ssis-integration-runtime-with-azure-sql-database-geo-replication-and-failover"></a>Konfigurera Azure-SSIS Integration Runtime med Azure SQL Database geo-replikering och redundans
 
 Den här artikeln beskriver hur du konfigurerar Azure-SSIS Integration Runtime med Azure SQL Database geo-replikering för SSIDB-databasen. När det uppstår redundans, kan du se till att Azure-SSIS IR ser till att arbeta med den sekundära databasen.
 
-Mer information om geo-replikering och redundans för SQL Database finns i [översikt: aktiv geo-replikering och automatisk redundans grupper](../sql-database/sql-database-geo-replication-overview.md).
+Mer information om geo-replikering och redundans för SQL Database finns i [översikt: Aktiv geo-replikering och automatisk redundans grupper](../sql-database/sql-database-geo-replication-overview.md).
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="scenario-1---azure-ssis-ir-is-pointing-to-read-write-listener-endpoint"></a>Scenario 1 – Azure-SSIS IR pekar du skrivskyddad lyssnarslutpunkt
 
@@ -34,7 +36,7 @@ Det här avsnittet gäller när följande villkor är uppfyllda:
 
 - Azure-SSIS IR pekar på skrivskyddad lyssnarslutpunkt av redundansgruppen.
 
-  OCH
+  AND
 
 - SQL Database-servern är *inte* konfigurerats med slutpunkt-regel för virtuella nätverk-tjänsten.
 
@@ -87,7 +89,7 @@ Följ dessa steg för att stoppa din Azure-SSIS IR, växla IR till en ny region 
 2. Anropa följande kommando i PowerShell för att uppdatera IR med de nya inställningarna.
 
     ```powershell
-    Set-AzureRmDataFactoryV2IntegrationRuntime -Location "new region" `
+    Set-AzDataFactoryV2IntegrationRuntime -Location "new region" `
                     -CatalogServerEndpoint "Azure SQL Database server endpoint" `
                     -CatalogAdminCredential "Azure SQL Database server admin credentials" `
                     -VNetId "new VNet" `

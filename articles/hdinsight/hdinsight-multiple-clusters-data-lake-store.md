@@ -10,12 +10,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: hrasheed
-ms.openlocfilehash: 0760d850bdc6dab84722f00f1061d53f9b95cfcf
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: 0d57c65c93ffcd6c4c5249a1e5effeb457ed1736
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54912426"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57440904"
 ---
 # <a name="use-multiple-hdinsight-clusters-with-an-azure-data-lake-storage-account"></a>Använda flera HDInsight-kluster med ett Azure Data Lake Storage-konto
 
@@ -30,7 +30,7 @@ Den här artikeln innehåller rekommendationer till Data Lake Storage-administra
 Resten av den här artikeln förutsätter att du har goda kunskaper om fil- och nivå ACL: er i Azure Data Lake Storage, som beskrivs i detalj i [åtkomstkontroll i Azure Data Lake Storage](../data-lake-store/data-lake-store-access-control.md).
 
 ## <a name="data-lake-storage-setup-for-multiple-hdinsight-clusters"></a>Data Lake lagringsinställningar för flera HDInsight-kluster
-Låt oss ta en mapphierarkin med två nivåer som förklarar rekommendationer för att använda fler HDInsight-kluster med ett Data Lake Storage-konto. Överväg att du har ett Data Lake Storage-konto med mappstrukturen **/kluster/ekonomi**. Med den här strukturen använda alla kluster som krävs av ekonomi organisationen /clusters/finance som lagringsplats. I framtiden, om en annan organisation, säger marknadsföring, om du vill skapa HDInsight-kluster med samma Data Lake Storage-konto, kan de Skapa/kluster /-marknadsföring. Nu ska vi bara använda **/kluster/ekonomi**.
+Låt oss ta en mapphierarkin med två nivåer som förklarar rekommendationer för att använda flera HDInsight-kluster med ett Data Lake Storage-konto. Överväg att du har ett Data Lake Storage-konto med mappstrukturen **/kluster/ekonomi**. Med den här strukturen använda alla kluster som krävs av ekonomi organisationen /clusters/finance som lagringsplats. I framtiden, om en annan organisation, säger marknadsföring, om du vill skapa HDInsight-kluster med samma Data Lake Storage-konto, kan de Skapa/kluster /-marknadsföring. Nu ska vi bara använda **/kluster/ekonomi**.
 
 Om du vill aktivera den här mappstrukturen som effektivt ska användas av HDInsight-kluster, måste lagring av Data Lake-administratören tilldela rätt behörighet, enligt beskrivningen i tabellen. De behörigheter som visas i tabellen motsvarar åtkomst-ACL: er och inte standard-ACL: er. 
 
@@ -54,7 +54,7 @@ Vissa viktiga saker att tänka på.
 - Två nivå mappstrukturen (**/kluster/ekonomi/**) måste skapas och etableras med rätt behörighet av Data Lake Storage administratören **innan** använder storage-konto för kluster. Den här strukturen skapas inte automatiskt när du skapar kluster.
 - I exemplet ovan rekommenderar att den ägande gruppen för **/kluster/ekonomi** som **FINGRP** och gör det möjligt att **r-x** åtkomst till FINGRP till hela mapphierarkin startar från roten. Detta säkerställer att medlemmarna i FINGRP kan navigera mappstrukturen från roten.
 - I fall när olika AAD-tjänsthuvudnamn kan skapa kluster under **/kluster/ekonomi**, sticky-bit (när inställda på den **ekonomi** mapp) så att mappar skapas av en tjänstens huvudnamn Det går inte att tas bort av den andra.
-- När mappstrukturen och behörigheter är på plats kan HDInsight-klusterskapningsprocessen skapar en klusterspecifika storage loaction under **/kluster/ekonomi/**. Lagring för ett kluster med namnet fincluster01 kan till exempel vara **/clusters/finance/fincluster01**. Äganderätt och behörigheter för mappar som skapas av HDInsight-klustret visas i den här tabellen.
+- När mappstrukturen och behörigheter är på plats kan HDInsight-klusterskapningsprocessen skapar en klusterspecifika lagringsplats under **/kluster/ekonomi/**. Lagring för ett kluster med namnet fincluster01 kan till exempel vara **/clusters/finance/fincluster01**. Äganderätt och behörigheter för mappar som skapas av HDInsight-klustret visas i den här tabellen.
 
     |Mapp  |Behörigheter  |Ägande användare  |Ägande grupp  | Namngiven användare | Behörigheter för namngiven användare | Namngiven grupp | Behörigheter för namngiven grupp |
     |---------|---------|---------|---------|---------|---------|---------|---------|

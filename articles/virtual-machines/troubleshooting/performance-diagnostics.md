@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 9/20/2018
 ms.author: anandh
-ms.openlocfilehash: 67778a269aa962b3184bf55c692154570e8357ba
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: c2089f9f6267f318dafe641a6a5b22e7e87427ca
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387403"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57441074"
 ---
 # <a name="performance-diagnostics-for-azure-virtual-machines"></a>Prestandadiagnostik för virtuella Azure-datorer
 
@@ -42,7 +42,7 @@ Prestandadiagnostik installerar ett VM-tillägg som kör en diagnostikverktyget 
     ![Skärmbild av Azure portal utan att installera prestanda diagnostik knappen markerad](media/performance-diagnostics/performance-diagnostics-install.png)
 
     > [!NOTE]
-    > I den här skärmbild är bladet i namn på virtuella datorer dold.
+    > I den här skärmbilden döljs bladet i namn på virtuella datorer.
 1. Välj ett lagringskonto (valfritt)
 
     Om du vill använda ett enda lagringskonto för att lagra Diagnostikresultat prestanda för flera virtuella datorer kan du välja ett lagringskonto genom att klicka på den **inställningar** i verktygsfältet. Klicka på den **OK** knappen när du har valt lagringskontot.
@@ -143,10 +143,10 @@ Du kan visa informationen om lagringsutrymme med hjälp av knappen Inställninga
 ### <a name="how-do-i-share-this-data-with-microsoft-customer-support"></a>Hur gör jag för att dela dessa data med Microsofts kundsupport? 
 Det finns flera sätt att dela diagnostik-rapport med Microsoft.
 
-**Alternativ 1:** automatiskt dela den senaste rapporten  
+**Alternativ 1:** Automatiskt dela den senaste rapporten  
 När du öppnar ett supportärende med Microsoft, är det viktigt att dela diagnostik prestandarapporten. Om du har valt för att dela den här informationen med Microsoft medan du kör diagnostiken (genom att välja den ”**jag samtycker till att dela diagnostikinformation med Microsoft**” kryssrutan), Microsoft kommer att kunna komma åt rapporten från din lagring konto med hjälp av en SAS-länk till zip-filen för utdata i upp till 30 dagar från datumet som kör. Endast den senaste rapporten är tillgänglig för supportteknikern. 
 
-**Alternativ 2:** Generera en signatur för delad åtkomst för diagnostiken rapportera komprimerad fil  
+**Alternativ 2:** Generera en signatur för delad åtkomst för den komprimerade filen för diagnostik-rapport  
 Du kan dela en länk till den komprimerade filen i rapporter med hjälp av signaturer för delad åtkomst. Det gör du genom att följa dessa steg: 
 1.  Bläddra till det lagringskonto där diagnostics-data lagras i Azure-portalen.
 1.  Välj **Blobar** under den **Blobtjänst** avsnittet. 
@@ -156,7 +156,7 @@ Du kan dela en länk till den komprimerade filen i rapporter med hjälp av signa
 1.  Klicka på **generera blob SAS-token och URL: en**.
 1.  Kopiera den **Blob SAS-Webbadressen**, och dela dem med supportteknikern. 
 
-**Alternativ 3:** ladda ned rapporten från storage-kontot
+**Alternativ 3:** Ladda ned rapporten från storage-kontot
 
 Du kan även hitta den komprimerade filen för prestanda diagnostik rapporten med hjälp av steg 1 – 4 i alternativ 2. Välj det här alternativet om du vill ladda ned filen, och sedan dela den via e-post eller be supportteknikern anvisningar att ladda upp filen.  
 

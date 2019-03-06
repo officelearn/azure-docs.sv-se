@@ -17,12 +17,12 @@ ms.author: celested
 ms.reviewer: hirsin, justhu
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a80ed6af005f04ec48729e918543b2de67810eba
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 16f7dc81d8174e3d8da39d3af95b945f8034cecd
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56738597"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57452037"
 ---
 # <a name="authentication-and-authorization-error-codes"></a>Autentisering och felkoder vid autentisering
 
@@ -68,7 +68,7 @@ Letar du efter information om felkoder AADSTS som returneras från Azure Active 
 | AADSTS50032 | WeakRsaKey - anger felaktiga användaren försöker använda en svag RSA-nyckel. |
 | AADSTS50033 | RetryableError - anger ett tillfälligt fel som inte rör databasåtgärderna. |
 | AADSTS50034 | UserAccountNotFound - att logga in på det här programmet kontot måste läggas till katalogen. |
-| AADSTS50042 | UnableToGeneratePairwiseIdentifierWithMissingSalt - salt som krävs för att skapa en pairwise identifierare saknas i huvudnamn. Kontakta administratören för klientorganisationen. |
+| AADSTS50042 | UnableToGeneratePairwiseIdentifierWithMissingSalt - salt som krävs för att skapa en pairwise identifierare saknas i princip. Kontakta administratören för klientorganisationen. |
 | AADSTS50043 | UnableToGeneratePairwiseIdentifierWithMultipleSalts |
 | AADSTS50048 | SubjectMismatchesIssuer - ämne matchningsfel utfärdare anspråk i klientförsäkran. Kontakta administratören för klientorganisationen. |
 | AADSTS50049 | NoSuchInstanceForDiscovery - okänt eller ogiltigt instans. |
@@ -140,7 +140,7 @@ Letar du efter information om felkoder AADSTS som returneras från Azure Active 
 | AADSTS54000 | MinorUserBlockedLegalAgeGroupRule |
 | AADSTS65001 | DelegationDoesNotExist - användaren eller administratören har inte godkänt att använda programmet med ID X. Send en interaktiv auktoriseringsbegäran för den här användaren och resursen. |
 | AADSTS65004 | UserDeclinedConsent - användaren nekade samtycker till att komma åt appen. Låt användaren logga in igen och ge samtycke till appen|
-| AADSTS65005 | MisconfiguredApplication - appen krävs åtkomst resurslistan innehåller inte appar som kan upptäckas av resursen eller klientappen har begärt åtkomst till resursen, som inte har angetts i dess nödvändig resurs åtkomstlista eller diagramtjänsten returnerade felaktiga begäran eller resursen hittades inte. Om appen stöder SAML, har du konfigurerat appen med fel-ID (entitet). Testa lösningen för SAML via länken nedan: [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#no-resource-in-requiredresourceaccess-list](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav#no-resource-in-requiredresourceaccess-list) |
+| AADSTS65005 | MisconfiguredApplication - appen krävs åtkomst resurslistan innehåller inte appar som kan upptäckas av resursen eller klientappen har begärt åtkomst till resursen, som inte har angetts i dess nödvändig resurs åtkomstlista eller diagramtjänsten returnerade felaktiga begäran eller resursen hittades inte. Om appen stöder SAML, har du konfigurerat appen med fel-ID (entitet). Testa lösningen för SAML via länken nedan: [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#no-resource-in-requiredresourceaccess-list](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav) |
 | AADSTS67003 | ActorNotValidServiceIdentity |
 | AADSTS70000 | InvalidGrant - autentiseringen misslyckades. Uppdateringstoken är inte giltig. Felet kan bero på följande orsaker:<ul><li>Token-bindning är tom</li><li>Token bindning hash matchar inte</li></ul> |
 | AADSTS70001 | UnauthorizedClient - programmet har inaktiverats. |

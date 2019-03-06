@@ -13,12 +13,12 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: jingwang
-ms.openlocfilehash: c7731de810dab8b252294d694ace5df3f5d0a185
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 859cd6cfd3db68dad2607f1dc8905facb43dd290
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54427567"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57453787"
 ---
 # <a name="invoke-an-ssis-package-using-stored-procedure-activity-in-azure-data-factory"></a>Anropa ett SSIS-paket med hjälp av aktivitet för lagrad procedur i Azure Data Factory
 Den här artikeln beskriver hur du anropar ett SSIS-paket från en Azure Data Factory-pipeline med hjälp av en lagrad procedur-aktivitet. 
@@ -165,7 +165,9 @@ Mer information om hur du övervakar pipelines finns i [övervaka och hantera Az
 ## <a name="azure-powershell"></a>Azure PowerShell
 I det här avsnittet använder du Azure PowerShell för att skapa en Data Factory-pipeline med en lagrad procedur-aktivitet som anropar ett SSIS-paket.
 
-Installera de senaste Azure PowerShell-modulerna enligt instruktionerna i [Installera och konfigurera Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps).
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
+Installera de senaste Azure PowerShell-modulerna enligt instruktionerna i [Installera och konfigurera Azure PowerShell](/powershell/azure/install-az-ps).
 
 ### <a name="create-a-data-factory"></a>Skapa en datafabrik
 Följande procedur innehåller steg för att skapa en datafabrik. Du kan skapa en pipeline med en aktivitet för lagrad procedur i den här datafabriken. Lagrad procedur-aktivitet kör en lagrad procedur i SSISDB-databasen för att köra dina SSIS-paket.
@@ -180,7 +182,7 @@ Följande procedur innehåller steg för att skapa en datafabrik. Du kan skapa e
 2. Kör följande kommando för att skapa en Azure-resursgrupp: 
 
     ```powershell
-    $ResGrp = New-AzureRmResourceGroup $resourceGroupName -location 'eastus'
+    $ResGrp = New-AzResourceGroup $resourceGroupName -location 'eastus'
     ``` 
     Om resursgruppen redan finns behöver du kanske inte skriva över den. Ge variabeln `$ResourceGroupName` ett annat värde och kör kommandot igen. 
 3. Definiera en variabel för datafabrikens namn. 
@@ -192,10 +194,10 @@ Följande procedur innehåller steg för att skapa en datafabrik. Du kan skapa e
     $DataFactoryName = "ADFTutorialFactory";
     ```
 
-5. Om du vill skapa data factory, kör du följande **New-AzureRmDataFactory** cmdlet, med hjälp av den platsen och egenskapen ResourceGroupName från variabeln $ResGrp: 
+5. Om du vill skapa data factory, kör du följande **New AzDataFactory** cmdlet, med hjälp av den platsen och egenskapen ResourceGroupName från variabeln $ResGrp: 
     
     ```powershell       
-    $df = New-AzureRmDataFactory -ResourceGroupName $ResourceGroupName -Name $dataFactoryName -Location "East US"
+    $df = New-AzDataFactory -ResourceGroupName $ResourceGroupName -Name $dataFactoryName -Location "East US"
     ```
 
 Observera följande punkter:
@@ -227,10 +229,10 @@ Skapa en länkad tjänst för att länka Azure SQL database som är värd för S
         }
     ```
 2. I **Azure PowerShell**, växla till den **C:\ADF\RunSSISPackage** mapp.
-3. Kör cmdleten **New-AzureRmDataFactoryLinkedService** för att skapa den länkade tjänsten: **AzureSqlDatabaseLinkedService**. 
+3. Kör den **New AzDataFactoryLinkedService** cmdlet för att skapa den länkade tjänsten: **AzureSqlDatabaseLinkedService**. 
 
     ```powershell
-    New-AzureRmDataFactoryLinkedService $df -File ".\AzureSqlDatabaseLinkedService.json"
+    New-AzDataFactoryLinkedService $df -File ".\AzureSqlDatabaseLinkedService.json"
     ```
 
 ### <a name="create-an-output-dataset"></a>Skapa en datauppsättning för utdata
@@ -252,10 +254,10 @@ Det här är en dummy datauppsättning som styr schemat för pipelinen. Lägg m�
         }
     }
     ```
-2. Kör den **New AzureRmDataFactoryDataset** cmdlet för att skapa en datauppsättning. 
+2. Kör den **New AzDataFactoryDataset** cmdlet för att skapa en datauppsättning. 
 
     ```powershell
-    New-AzureRmDataFactoryDataset $df -File ".\OutputDataset.json"
+    New-AzDataFactoryDataset $df -File ".\OutputDataset.json"
     ```
 
 ### <a name="create-a-pipeline-with-stored-procedure-activity"></a>Skapa en pipeline med en aktivitet för lagrad procedur 
@@ -294,24 +296,24 @@ I det här steget skapar du en pipeline med en lagrad procedur-aktivitet. Aktivi
     }    
     ```
 
-2. Så här skapar du pipelinen: **RunSSISPackagePipeline**, kör den **New AzureRmDataFactoryPipeline** cmdlet.
+2. Så här skapar du pipelinen: **RunSSISPackagePipeline**, kör den **New AzDataFactoryPipeline** cmdlet.
 
     ```powershell
-    $DFPipeLine = New-AzureRmDataFactoryPipeline -DataFactoryName $DataFactory.DataFactoryName -ResourceGroupName $ResGrp.ResourceGroupName -Name "RunSSISPackagePipeline" -DefinitionFile ".\RunSSISPackagePipeline.json"
+    $DFPipeLine = New-AzDataFactoryPipeline -DataFactoryName $DataFactory.DataFactoryName -ResourceGroupName $ResGrp.ResourceGroupName -Name "RunSSISPackagePipeline" -DefinitionFile ".\RunSSISPackagePipeline.json"
     ```
 
 ### <a name="monitor-the-pipeline-run"></a>Övervaka pipelinekörningen
 
-2. Kör **Get-AzureRmDataFactorySlice** att få information om alla sektorer av den utdata datauppsättning **, vilket är utdatatabellen för pipelinen.
+2. Kör **Get-AzDataFactorySlice** att få information om alla sektorer av den utdata datauppsättning **, vilket är utdatatabellen för pipelinen.
 
     ```PowerShell
-    Get-AzureRmDataFactorySlice $df -DatasetName sprocsampleout -StartDateTime 2017-10-01T00:00:00Z
+    Get-AzDataFactorySlice $df -DatasetName sprocsampleout -StartDateTime 2017-10-01T00:00:00Z
     ```
     Observera att StartDateTime som du anger här är samma starttid som angavs i din pipeline-JSON. 
-3. Kör **Get-AzureRmDataFactoryRun** för att hämta information om aktiviteten som körs för en viss sektor.
+3. Kör **Get-AzDataFactoryRun** för att hämta information om aktiviteten som körs för en viss sektor.
 
     ```PowerShell
-    Get-AzureRmDataFactoryRun $df -DatasetName sprocsampleout -StartDateTime 2017-10-01T00:00:00Z
+    Get-AzDataFactoryRun $df -DatasetName sprocsampleout -StartDateTime 2017-10-01T00:00:00Z
     ```
 
     Du kan köra denna cmdlet tills du ser att sektorn har statusen **Klar** eller **Misslyckades**. 

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: raynew
-ms.openlocfilehash: 4be483994bd7bc5bd97b1e59df230f66e9b4e24e
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: 034f7f6d8636ced748987c9b0e584790205c0083
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56430354"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57435311"
 ---
 # <a name="azure-backup-architecture"></a>Azure Backup-arkitektur
 

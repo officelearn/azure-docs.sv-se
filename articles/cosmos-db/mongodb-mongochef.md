@@ -9,12 +9,12 @@ ms.date: 12/26/2018
 author: sivethe
 ms.author: sivethe
 ms.custom: seodec18
-ms.openlocfilehash: f2ba1a6fef944911c0706ca4e71be6a55bc4b16a
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: 9b0a6393d2372c831fdc964dee18acbccfd39a77
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55961847"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57449384"
 ---
 # <a name="connect-to-cosmos-account-using-studio-3t"></a>Anslut till Cosmos-konto använda Studio 3T
 
@@ -34,16 +34,16 @@ Utför följande steg för att lägga till ditt Cosmos-konto till Studio 3T conn
     ![Skärmbild av Anslutningshanteraren för Studio 3T](./media/mongodb-mongochef/ConnectionManager.png)
 3. I den **ny anslutning** fönstret på den **Server** ange värden (FQDN) för Azure Cosmos DB-kontot och PORT.
 
-    ![Skärmbild som visar fliken Studio 3T connection manager server](./media/mongodb-mongochef/ConnectionManagerServerTab.png)
+    ![Skärmbild av fliken Studio 3T connection manager server](./media/mongodb-mongochef/ConnectionManagerServerTab.png)
 4. I den **ny anslutning** fönstret på den **autentisering** fliken, välja autentiseringsläge **Basic (MONGODB-CR eller SCARM-SHA-1)** och ange användarnamn och lösenord.  Acceptera standardvärdet autentisering db (admin) eller ange ett eget värde.
 
-    ![Skärmbild som visar fliken Studio 3T connection manager autentisering](./media/mongodb-mongochef/ConnectionManagerAuthenticationTab.png)
+    ![Skärmbild av fliken Studio 3T connection manager autentisering](./media/mongodb-mongochef/ConnectionManagerAuthenticationTab.png)
 5. I den **ny anslutning** fönstret på den **SSL** fliken, kontrollera den **Använd SSL-protokollet för att ansluta** markerar du kryssrutan och **accepterar server självsignerat SSL-certifikat**  alternativknappen.
 
-    ![Skärmbild som visar fliken Studio 3T anslutning manager SSL](./media/mongodb-mongochef/ConnectionManagerSSLTab.png)
+    ![Skärmbild av fliken Studio 3T connection manager SSL](./media/mongodb-mongochef/ConnectionManagerSSLTab.png)
 6. Klicka på den **Testanslutningen** knappen för att verifiera anslutningsinformationen och klickar på **OK** tillbaka till fönstret Ny anslutning och klicka sedan på **spara**.
 
-    ![Skärmbild av fönstret Studio 3T Testa anslutning](./media/mongodb-mongochef/TestConnectionResults.png)
+    ![Skärmbild av Studio 3T testa fönster för anslutningen](./media/mongodb-mongochef/TestConnectionResults.png)
 
 ## <a name="use-studio-3t-to-create-a-database-collection-and-documents"></a>Använda Studio 3T för att skapa en databas, samling och dokument
 Om du vill skapa en databas, samling och dokument med hjälp av Studio 3T, utför du följande steg:
@@ -53,13 +53,13 @@ Om du vill skapa en databas, samling och dokument med hjälp av Studio 3T, utfö
     ![Skärmbild av Anslutningshanteraren för Studio 3T](./media/mongodb-mongochef/ConnectToAccount.png)
 2. Högerklicka på värden och välj **lägga till databas**.  Ange ett databasnamn och klicka på **OK**.
 
-    ![Skärmbild som visar alternativet Studio 3T Lägg till databas](./media/mongodb-mongochef/AddDatabase1.png)
+    ![Skärmbild av alternativet Studio 3T Lägg till databas](./media/mongodb-mongochef/AddDatabase1.png)
 3. Högerklicka på databasen och välj **Lägg till samling**.  Ange ett samlingsnamn och klicka på **skapa**.
 
-    ![Skärmbild som visar alternativet Lägg till samling Studio 3T](./media/mongodb-mongochef/AddCollection.png)
+    ![Skärmbild av alternativet Lägg till samling Studio 3T](./media/mongodb-mongochef/AddCollection.png)
 4. Klicka på den **samling** menyn, klicka sedan på **Lägg till dokument**.
 
-    ![Skärmbild som visar menyalternativet Studio 3T Lägg till dokument](./media/mongodb-mongochef/AddDocument1.png)
+    ![Skärmbild av menyalternativet Studio 3T Lägg till dokument](./media/mongodb-mongochef/AddDocument1.png)
 5. Klistra in följande i dialogrutan Lägg till dokument och klicka sedan på **Lägg till dokument**.
 
         {
@@ -107,7 +107,7 @@ Om du vill skapa en databas, samling och dokument med hjälp av Studio 3T, utfö
         }
 7. Kör en exempelfråga. Till exempel söka efter familjer med efternamn ”Andersen” och returnera föräldrar och statusfält.
 
-    ![Skärmbild av Mongo-Chef frågeresultat](./media/mongodb-mongochef/QueryDocument1.png)
+    ![Skärmbild av Mongo Chef frågeresultat](./media/mongodb-mongochef/QueryDocument1.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 220a95f1bc95a8866a459eb878047e7f47920bd1
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 4652f23bdf30e1b9e582cd1e83dc95f7716c8394
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55175102"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57436416"
 ---
 # <a name="define-a-validation-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definiera en teknisk verifieringsprofil i en anpassad princip för Azure Active Directory B2C
 
@@ -52,7 +52,7 @@ Den **ValidationTechnicalProfile** elementet innehåller följande attribut:
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
 | Tjänsten | Ja | En identifierare för en tekniska profilen som redan har definierats i principen eller överordnad principen. |
-|ContinueOnError|Nej| Som anger om verifiering av alla efterföljande verifiering tekniska profiler ska fortsätta om den här tekniska profilen validaiton genererar ett fel. Möjliga värden: `true` eller `false` (standard bearbetning av ytterligare verifiering profiler stoppas och ett fel returneras). |
+|ContinueOnError|Nej| Som anger om verifiering av alla efterföljande verifiering tekniska profiler ska fortsätta om den här tekniska verifieringsprofil genererar ett fel. Möjliga värden: `true` eller `false` (standard bearbetning av ytterligare verifiering profiler stoppas och ett fel returneras). |
 |ContinueOnSuccess | Nej | Som anger om verifiering av alla efterföljande verifiering profiler ska fortsätta om den här tekniska profilen verifiering lyckas. Möjliga värden: `true` eller `false`. Standardvärdet är `true`, vilket innebär att bearbetningen av ytterligare verifiering profiler kommer att fortsätta. |
 
 Den **ValidationTechnicalProfile** elementet innehåller följande element:
@@ -72,7 +72,7 @@ Den **Förhandsvillkoret** elementet innehåller följande element:
 
 | Element | Förekomster | Beskrivning |
 | ------- | ----------- | ----------- |
-| Value | 1:n | De data som används av kontrollen. Om den här kontrollen är `ClaimsExist`, det här fältet anger en ClaimTypeReferenceId att fråga efter. Om typ av kontroll är `ClaimEquals`, det här fältet anger en ClaimTypeReferenceId att fråga efter. Även om ett annat värde element innehåller värdet som ska kontrolleras.|
+| Värde | 1:n | De data som används av kontrollen. Om den här kontrollen är `ClaimsExist`, det här fältet anger en ClaimTypeReferenceId att fråga efter. Om typ av kontroll är `ClaimEquals`, det här fältet anger en ClaimTypeReferenceId att fråga efter. Även om ett annat värde element innehåller värdet som ska kontrolleras.|
 | Åtgärd | 1:1 | Den åtgärd som ska vidtas om kontrollen Förhandsvillkoret inom en orkestreringssteget är sant. Värdet för den **åtgärd** är inställd på `SkipThisValidationTechnicalProfile`. Anger att den tekniska profilen med tillhörande inte ska köras. |
 
 ### <a name="example"></a>Exempel

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 03/05/2019
-ms.openlocfilehash: 99200e521ea844d20ef00ef70ad65ac0ab3bcddd
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: f66babf5ee72876692a5ae1b371f811534db6875
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57337302"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57452342"
 ---
 # <a name="faq-about-using-the-azure-database-migration-service"></a>Vanliga frågor och svar om hur du använder Azure Database Migration Service
 Den här artikeln innehåller vanliga frågor om hur du använder Azure Database Migration Service tillsammans med tillhörande svar.
@@ -28,7 +28,7 @@ Azure Database Migration Service är en fullständigt hanterad tjänst som utfor
 - Fortsatt investeringar i problemfri migrering.
 
 ### <a name="q-what-source-target-pairs-does-the-azure-database-migration-service-currently-support"></a>F. Vilken källa / mål-par Azure Database Migration Service stöder för närvarande?
-Tjänsten stöder för närvarande en mängd olika Migreringsscenarier. En fullständig lista över statusen för varje tillgänglig Migreringsscenario finns i artikeln [Status för migreringsscenarier som stöds av Azure Database Migration Service](https://docs.microsoft.com/azure/dms/resource-scenario-status). Andra Migreringsscenarier är i en begränsad förhandsversion och kräver att skicka en utnämning via webbplatsen DMS-förhandsversion. En fullständig lista över scenarier i en begränsad förhandsversion och för att logga in och particpate i någon av dessa erbjudanden, finns det [plats DMS förhandsversion](https://aka.ms/dms-preview/).
+Tjänsten stöder för närvarande en mängd olika Migreringsscenarier. En fullständig lista över statusen för varje tillgänglig Migreringsscenario finns i artikeln [Status för migreringsscenarier som stöds av Azure Database Migration Service](https://docs.microsoft.com/azure/dms/resource-scenario-status). Andra Migreringsscenarier är i en begränsad förhandsversion och kräver att skicka en utnämning via webbplatsen DMS-förhandsversion. En fullständig lista över scenarier i en begränsad förhandsversion och för att registrera dig för att delta i ett av dessa erbjudanden, finns det [plats DMS förhandsversion](https://aka.ms/dms-preview/).
 
 ### <a name="q-how-does-the-azure-database-migration-service-compare-to-other-microsoft-database-migration-tools-such-as-the-database-migration-assistant-dma-or-sql-server-migration-assistant-ssma"></a>F. Hur Azure Database Migration Service jämfört med andra Microsoft-databasmigreringsverktyg, till exempel Database Migration Assistant (DMA) eller SQL Server Migration Assistant (SSMA)?
 Azure Database Migration Service är den bästa metoden för Databasmigreringen till Microsoft Azure i skala. Mer information om hur Azure Database Migration Service Jämför med andra Microsoft-databasen Migreringsverktyg och rekommendationer om hur du använder tjänsten för olika scenarier finns i bloggen bokföring [särskiljer Microsofts databas Migreringsverktyg och tjänster](https://blogs.msdn.microsoft.com/datamigration/2017/10/13/differentiating-microsofts-database-migration-tools-and-services/).

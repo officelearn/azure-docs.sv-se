@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: f4dbfae4bada77cf882f7249353a17defebf312e
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: ce6fc0a90ad093a6bba5a4720777e409202c73ea
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55209357"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57439833"
 ---
 # <a name="understand-stream-analytics-job-monitoring-and-how-to-monitor-queries"></a>Förstå övervakning av Stream Analytics-jobb och övervaka frågor
 
@@ -43,7 +43,7 @@ I fönstret visas som visas:
 | Sena indatahändelser      | Händelser som anlänt senare än det konfigurera sent ankomst tolerans fönstret. Läs mer om [Azure Stream Analytics händelse ordning överväganden](stream-analytics-out-of-order-and-late-events.md) . |
 | Out ordning händelser    | Antal händelser som tagits emot fel ordning som antingen släpptes eller får en justerade tidsstämpel, baserat på händelse ordning principen. Detta kan påverkas av konfigurationen av inställningen ordning för Out of Tolerance fönster. |
 | Utdatahändelser          | Mängden data som skickas av Stream Analytics-jobb till utdatamål, i antal händelser. |
-| Körningsfel         | Totalt antal fel som rör frågebearbetning (exklusive fel hittades när mata in händelser eller outputing resultat) |
+| Körningsfel         | Totalt antal fel som rör frågebearbetning (exklusive fel hittades när mata in händelser eller genererar resultat) |
 | SU % utnyttjande       | Användningen av enhet(er) för strömning som har tilldelats till ett jobb från fliken Skala för jobbet. Indikatorn når 80% eller ovan, är hög sannolikhet att bearbetning av händelser kan fördröjas eller stoppats. |
 | Vattenstämpelfördröjning       | Den maximala vattenstämpel fördröjningen för alla partitioner för alla utdata i jobbet. |
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2018
 ms.author: tomsh
-ms.openlocfilehash: 01688c120a8302da4903302ab8bcd2d1fa4ab351
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 3fb6e42e55119684ace8547a55297d38dbb9a26e
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56113421"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57402384"
 ---
 # <a name="azure-security-white-papers"></a>Azure Security-faktablad
 | | |
@@ -42,4 +42,4 @@ ms.locfileid: "56113421"
 |[Översikt över efterlevnad i Azure](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942)|Den här hämtningsbara dokument innehåller Azure efterlevnadserbjudanden, däribland formella certifieringar, attesteringar, verifieringar, tillstånd och utvärderingar som produceras av fristående från tredje part granskning företag, samt avtalsenliga ändringar självutvärderingar, och kunden vägledning dokument kommer från Microsoft. <br/> Varje erbjudande beskrivning tillstånd kundinriktad vilka Azure-tjänster är inom omfånget för utvärderingen och innehåller länkar till hämtningsbara resurser för att hjälpa kunder med sina egna efterlevnad skyldigheter.|
 |[Säkerhetshantering i Azure](azure-security-management.md)|Beskrivs problem i fjärråtkomst för Azure-resurser. Natur i molnet kräver fjärråtkomst administration och därför säkerhet är avgörande. Beskriver allmänna riktlinjer, klientkonfiguration, bästa praxis och operativa principer och procedurer. |
 |[Azure AD-data och säkerhet](https://aka.ms/aaddatawhitepaper) | Nedladdningsbara dokumentet beskriver de olika komponenterna i Azure Active Directory och deras interaktion med varandra. Den beskriver hur de olika komponenterna skydda, säker, kryptera eller hash-sina data under överföring (till exempel via Internet) och hur den är skyddad i vila. Den förklarar olika datacenter-platser för Azure AD och deras interaktion med lokala kataloger, samt flödena till och från Azure AD. Slutligen beskriver operativa rutiner som används av det tekniska teamet för Azure AD för att hantera och skydda tjänsten.|
-
+|[En översikt över lösenord utan autentisering](https://aka.ms/pwdless-whitepaper)|Det här dokumentet är en översikt över de främsta fördelarna med lösenord utan autentisering med hjälp av Windows Hello för företag, FIDO2 säkerhetsnycklar och Microsoft Authenticator-appen. Vi rekommenderar för säkerhetspersonal och Ciso som är intresserade av att förstå hur Microsoft kan hjälpa dig att gå bortom lösenord och distribuera nästa generations-autentiseringsuppgifter.|

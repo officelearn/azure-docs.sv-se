@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: kasinh
-ms.openlocfilehash: b94d6bd9cc129d80f3ece82c13df375abecafd26
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: f81e7a0008c015c033d30045970fe1bd67597ff9
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55493451"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57452206"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Installera och uppgradera Azure Backup Server
 > [!div class="op_single_selector"]
@@ -29,7 +29,7 @@ Den här artikeln beskriver hur du förbereder din miljö för att säkerhetskop
 >
 >
 
-MABS som distribueras i en Azure-dator kan säkerhetskopiera Virtuella datorer i Azure men de måste vara i samma domän att säkerhetskopiera igen. Processen för att säkerhetskopiera en Azure VM är samma som att säkerhetskopiera virtuella datorer på lokal, men distribuerar MABS i Azure har vissa begränsningar. Läs mer på begränsning [DPM som en Azure virtuell dator](https://docs.microsoft.com/system-center/dpm/install-dpm?view=sc-dpm-1807#setup-prerequisites)
+MABS som distribueras i en Azure-dator kan säkerhetskopiera Virtuella datorer i Azure men de måste vara i samma domän att säkerhetskopiera igen. Processen för att säkerhetskopiera en Azure VM är samma som säkerhetskopiering av virtuella datorer på plats, men distribuerar MABS i Azure har vissa begränsningar. Läs mer på begränsning [DPM som en Azure virtuell dator](https://docs.microsoft.com/system-center/dpm/install-dpm?view=sc-dpm-1807#setup-prerequisites)
 
 > [!NOTE]
 > Azure har två distributionsmodeller för att skapa och arbeta med resurser: [Resource Manager och klassisk](../azure-resource-manager/resource-manager-deployment-model.md). Den här artikeln innehåller information och procedurer för att återställa virtuella datorer som distribueras med hjälp av Resource Manager-modellen.

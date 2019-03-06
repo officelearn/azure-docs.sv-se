@@ -1,5 +1,5 @@
 ---
-title: 'Kontrollera anslutningen – ExpressRoute felsökningsguide: Azure | Microsoft Docs'
+title: 'Kontrollera anslutningen – ExpressRoute felsökningsguide: Azure| Microsoft Docs'
 description: Den här sidan innehåller anvisningar för felsökning och verifiera anslutningen från slutpunkt till slutpunkt för en ExpressRoute-krets.
 services: expressroute
 author: rambk
@@ -8,19 +8,19 @@ ms.topic: article
 ms.date: 09/26/2017
 ms.author: rambala
 ms.custom: seodec18
-ms.openlocfilehash: a64aa59b205e8986b80a575c50041f826606e16f
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: c4b20b4007a4824ee2dea0e1b22f1ea886218885
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53272821"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57453617"
 ---
 # <a name="verifying-expressroute-connectivity"></a>Verifiera ExpressRoute-anslutning
 Den här artikeln hjälper dig att kontrollera och felsökning av ExpressRoute-anslutningar. ExpressRoute, som utökar ett lokalt nätverk till Microsoft-molnet över en privat anslutning som är från en anslutningsleverantör, omfattar följande tre separata nätverkszoner:
 
--   Kundens nätverk
+-   Kundnätverk
 -   -Providernätverket
--   Microsoft-Datacenter
+-   Microsoft Datacenter
 
 Syftet med det här dokumentet är att hjälpa användare att identifiera var (eller även om) ett anslutningsproblem finns och inom vilken zon därmed för att få hjälp från lämpligt team att lösa problemet. Om Microsoft-supporten krävs för att lösa ett problem, öppna ett supportärende med [Microsoft Support][Support].
 
@@ -28,6 +28,8 @@ Syftet med det här dokumentet är att hjälpa användare att identifiera var (e
 > Det här dokumentet är avsett för att diagnostisera och åtgärda enkel problem. Det är inte avsedd att ersätta för Microsoft-supporten. Öppna ett supportärende med [Microsoft Support] [ Support] om det inte går att lösa problemet med hjälp av riktlinjerna.
 >
 >
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="overview"></a>Översikt
 Följande diagram visar logiska anslutning av en kundens nätverk till Microsoft-nätverk via ExpressRoute.
@@ -41,7 +43,7 @@ Beroende på modellen för ExpressRoute-anslutning (Cloud Exchange samplacering,
 2.  CEs: Klientens gränsroutrar 
 3.  Sämsta (CE riktar sig mot): Providern edge-routrar/växlar som står inför gränsroutrar. Kallas PE CEs i det här dokumentet.
 4.  Sämsta (msee: N riktar sig mot): Providern edge-routrar/växlar som står inför msee. Kallas PE msee i det här dokumentet.
-5.  Msee: Microsoft Enterprise Edge (MSEE) ExpressRoute routrar
+5.  Msee: Microsoft Enterprise Edge (MSEE) ExpressRoute routers
 6.  Gateway för virtuellt nätverk (VNet)
 7.  Compute-enhet på Azure VNet
 
@@ -88,16 +90,16 @@ För en ExpressRoute-krets ska fungera, den *krets status* måste vara *aktivera
 ### <a name="verification-via-powershell"></a>Verifiering via PowerShell
 Om du vill visa alla ExpressRoute-kretsar i en resursgrupp, använder du följande kommando:
 
-    Get-AzureRmExpressRouteCircuit -ResourceGroupName "Test-ER-RG"
+    Get-AzExpressRouteCircuit -ResourceGroupName "Test-ER-RG"
 
 >[!TIP]
->Du kan få namn på resursgruppen via Azure. Se underavsnittet tidigare i det här dokumentet och Observera att resursgruppens namn visas i exemplet skärmbild.
+>Du kan få namn på resursgruppen via Azure. Se underavsnittet tidigare i det här dokumentet och Observera att resursgruppens namn visas i exemplet på skärmbilden.
 >
 >
 
 Om du vill välja en viss ExpressRoute-krets i en resursgrupp, använder du följande kommando:
 
-    Get-AzureRmExpressRouteCircuit -ResourceGroupName "Test-ER-RG" -Name "Test-ER-Ckt"
+    Get-AzExpressRouteCircuit -ResourceGroupName "Test-ER-RG" -Name "Test-ER-Ckt"
 
 En exempelsvaret är:
 
@@ -155,7 +157,7 @@ En exempelsvaret är:
     Sku                              : Standard
     Status                           : Enabled
 
-För att bekräfta om en ExpressRoute-krets fungerar, särskilt uppmärksam på följande fält: Korsanslutningens: Etablerade Status: Enabled
+För att bekräfta om en ExpressRoute-krets fungerar, särskilt uppmärksam på följande fält: ServiceProviderProvisioningState : Etablerade Status: Enabled
 
 >[!NOTE]
 >Om den *Status* är inte aktiverad, kontakta [Microsoft Support][Support]. Om den *Korsanslutningens* har inte etablerats kontakta tjänstleverantören.
@@ -186,8 +188,8 @@ I föregående exempel, som anges Azure är privat peering routning kontext akti
 ### <a name="verification-via-powershell"></a>Verifiering via PowerShell
 För att få Azure privat peering konfigurationsinformation, använder du följande kommandon:
 
-    $ckt = Get-AzureRmExpressRouteCircuit -ResourceGroupName "Test-ER-RG" -Name "Test-ER-Ckt"
-    Get-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRouteCircuit $ckt
+    $ckt = Get-AzExpressRouteCircuit -ResourceGroupName "Test-ER-RG" -Name "Test-ER-Ckt"
+    Get-AzExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRouteCircuit $ckt
 
 En exempelsvaret för en har konfigurerats privat peering, är:
 
@@ -210,21 +212,21 @@ En exempelsvaret för en har konfigurerats privat peering, är:
 
 För att få Azure offentlig peering konfigurationsinformation, använder du följande kommandon:
 
-    $ckt = Get-AzureRmExpressRouteCircuit -ResourceGroupName "Test-ER-RG" -Name "Test-ER-Ckt"
-    Get-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering" -ExpressRouteCircuit $ckt
+    $ckt = Get-AzExpressRouteCircuit -ResourceGroupName "Test-ER-RG" -Name "Test-ER-Ckt"
+    Get-AzExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering" -ExpressRouteCircuit $ckt
 
 Om du vill hämta konfigurationsinformationen för Microsoft-peering, använder du följande kommandon:
 
-    $ckt = Get-AzureRmExpressRouteCircuit -ResourceGroupName "Test-ER-RG" -Name "Test-ER-Ckt"
-     Get-AzureRmExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt
+    $ckt = Get-AzExpressRouteCircuit -ResourceGroupName "Test-ER-RG" -Name "Test-ER-Ckt"
+     Get-AzExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt
 
 Om en peer-koppling har konfigurerats, skulle det finnas ett felmeddelande. Ett exempelsvar när den angivna peering (offentlig Azure-peering i det här exemplet) inte har konfigurerats i kretsen:
 
-    Get-AzureRmExpressRouteCircuitPeeringConfig : Sequence contains no matching element
+    Get-AzExpressRouteCircuitPeeringConfig : Sequence contains no matching element
     At line:1 char:1
-        + Get-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering ...
+        + Get-AzExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering ...
         + ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-            + CategoryInfo          : CloseError: (:) [Get-AzureRmExpr...itPeeringConfig], InvalidOperationException
+            + CategoryInfo          : CloseError: (:) [Get-AzExpr...itPeeringConfig], InvalidOperationException
             + FullyQualifiedErrorId : Microsoft.Azure.Commands.Network.GetAzureExpressRouteCircuitPeeringConfigCommand
 
 

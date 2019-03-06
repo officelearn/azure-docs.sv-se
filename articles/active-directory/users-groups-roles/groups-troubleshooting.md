@@ -13,20 +13,50 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a1fef19c555b9d2e52d4734a8f7bc5e39183e684
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 2a1210360690384b07e6d88007ccd118731ecce0
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56169317"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57405444"
 ---
-# <a name="troubleshooting-dynamic-memberships-for-groups"></a>Felsöka dynamiska medlemskap för grupper
+# <a name="troubleshoot-and-resolve-groups-issues"></a>Felsöka och lösa problem
 
-**Jag har konfigurerat en regel för en grupp, men inget medlemskap uppdateras i gruppen**<br/>Kontrollera värdena för användarattribut på regeln: det finns användare som uppfyller regeln? Om allt ser bra ut, det kan ta lite tid att fylla i gruppen. Beroende på klientens storlek så kan det ta upp till 24 timmar att fylla gruppen första gången eller efter en regeländring.
+## <a name="troubleshooting-group-creation-issues"></a>Felsökning av problem med skapande av grupp
+**Jag har inaktiverat security skapas i Azure-portalen men kan fortfarande skapas via Powershell** den **användare kan skapa säkerhetsgrupper i Azure-portaler** i Azure portal-kontrollerna huruvida icke-administratörer användare kan skapa säkerhetsgrupper i åtkomstpanelen eller Azure-portalen. Det styr inte security skapas via Powershell.
+
+Inaktivera skapande av en grupp för icke-administratörer i Powershell:
+1. Kontrollera att icke-administratörer har behörighet att skapa grupper:
+   
+  ```
+  PS C:\> Get-MsolCompanyInformation | fl UsersPermissionToCreateGroupsEnabled
+  ```
+  
+2. Om den returnerar `UsersPermissionToCreateGroupsEnabled : True`, icke-administratörer kan skapa grupper. Inaktivera den här funktionen:
+  
+  ``` 
+  Set-MsolCompanySettings -UsersPermissionToCreateGroupsEnabled $False
+  ```
+
+<br/>**Jag har fått en max grupper tillåtna fel vid försök att skapa en dynamisk grupp i Powershell**<br/>
+Om du får ett meddelande i Powershell som anger _dynamiska grupprinciper max tillåtna grupper antalet har nåtts_, det innebär att du har nått maxgränsen för dynamiska grupper i din klient. Max antal dynamiska grupper per klient är 5 000.
+
+För att skapa några nya dynamiska grupper, behöver du först ta bort några befintliga dynamiska grupper. Det går inte att öka gränsen.
+
+## <a name="troubleshooting-dynamic-memberships-for-groups"></a>Felsöka dynamiska medlemskap för grupper
+
+**Jag har konfigurerat en regel för en grupp, men inget medlemskap uppdateras i gruppen**<br/>
+1. Kontrollera värdena för användaren eller enhetens egenskaper i regeln. Se till att det finns användare som uppfyller regeln. Kontrollera egenskaperna för enheten för att säkerställa att alla synkroniserade attributen innehåller de förväntade värdena för enheter.<br/>
+2. Kontrollera medlemskapet för Bearbetningsstatus för att bekräfta om den är klar. Du kan kontrollera den [medlemskap Bearbetningsstatus](\groups-create-rule.md#check-processing-status-for-a-rule) och senaste uppdaterade datum på den **översikt** för gruppen.
+
+Om allt ser bra ut, det kan ta lite tid att fylla i gruppen. Beroende på klientens storlek så kan det ta upp till 24 timmar att fylla gruppen första gången eller efter en regeländring.
 
 **Jag har konfigurerat en regel, men nu de befintliga medlemmarna i regeln tas bort**<br/>Detta är förväntat. Befintliga medlemmar i gruppen tas bort när en regel är aktiverat eller ändrats. De användare som har returnerats från utvärdering av regeln läggs till som medlemmar i gruppen.
 
 **Jag ser inte medlemskap ändras direkt när jag lägger till eller ändra en regel, varför inte?**<br/>Dedikerad medlemskapsutvärdering sker regelbundet i en asynkron bakgrundsprocess. Hur lång tid processen tar bestäms av antalet användare i din katalog och storleken på gruppen skapas till följd av regeln. Normalt ser kataloger med ett litet antal användare ändringarna av gruppmedlemskap i mindre än ett par minuter. Kataloger med ett stort antal användare kan ta 30 minuter eller längre tid att fylla i.
+
+**Hur kan jag tvinga gruppen som ska bearbetas nu?**<br/>
+Det finns för närvarande inget sätt att automatiskt utlösa gruppen som ska bearbetas på begäran. Du kan dock manuellt utlösa när denna ombearbetning genom att uppdatera medlemskapsregeln för att lägga till ett blanksteg i slutet.  
 
 **Jag påträffade ett fel vid bearbetning av regel**<br/>I följande tabell visas vanliga dynamiskt medlemskap regeln fel och hur du åtgärdar dem.
 

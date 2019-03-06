@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/03/2019
 ms.author: wielriac
 ms.subservice: blobs
-ms.openlocfilehash: a61e78ff54cdc2a3db6c166686c2c51a19856a9c
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: b03da04c97475dcb9ce15f2ed69d7ca333d6f431
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55252319"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57456218"
 ---
 # <a name="overview-of-azure-page-blobs"></a>Översikt över Azure-sidblobar
 
@@ -29,7 +29,7 @@ Vi ska diskutera några användningsområden för sidblobar som börjar med Azur
 
 Första parts Microsoft-tjänster som Azure Site Recovery, Azure Backup, samt många tredjepartsutvecklare har implementerat branschledande innovationer med hjälp av sidans blob REST-gränssnittet. Här följer några av de unika scenarier implementerat i Azure: 
 * Hantering av program-riktade inkrementell ögonblicksbild: Program kan använda sidan blob-ögonblicksbilder och REST API: er för att spara programmet kontrollpunkter utan att det medför kostsamma duplicering av data. Azure Storage stöder lokala ögonblicksbilder för sidblobbar, som inte kräver kopiera hela blobben. De här offentliga ögonblicksbild API: er också kan få åtkomst till och kopiera deltan mellan ögonblicksbilder.
-* Direktmigrering av program och data från lokal till molnet: Kopiera lokala data och använda REST API: er för att skriva direkt till en sida för Azure-blob när den lokala virtuella datorn fortsätter att köras. När målet har fått allt, men du kan snabbt växla över till virtuell Azure-dator med hjälp av dessa data. På så sätt kan du migrera dina virtuella datorer och virtuella diskar från lokal till molnet med minimal avbrottstid eftersom migrering av data sker i bakgrunden medan du fortsätter att använda den virtuella datorn och den stilleståndstiden som behövs för redundans kommer att korta (i minuter).
+* Direktmigrering av program och data från lokalt till molnet: Kopiera data på plats och Använd REST API: er för att skriva direkt till en sida för Azure-blob när den lokala virtuella datorn fortsätter att köras. När målet har fått allt, men du kan snabbt växla över till virtuell Azure-dator med hjälp av dessa data. På så sätt kan du migrera dina virtuella datorer och virtuella diskar från lokalt till molnet med minimal avbrottstid eftersom migrering av data sker i bakgrunden medan du fortsätter att använda den virtuella datorn och den stilleståndstiden som behövs för redundans kommer att korta (i minuter).
 * [SAS-baserad](../common/storage-dotnet-shared-access-signature-part-1.md) delad åtkomst, vilket möjliggör scenarier som flera läsare och single-skrivare med stöd för samtidighetskontroll.
 
 ## <a name="page-blob-features"></a>Funktioner för sidblob

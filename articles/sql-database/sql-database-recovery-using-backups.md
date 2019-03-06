@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: b4b514350e36e9fe71e7c5cb5cd978764e0108d5
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 90f7ef32a54f257a64942b37938cff5703112d6c
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57317194"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57409877"
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>Återställa en Azure SQL database med hjälp av automatiska databassäkerhetskopieringar
 
@@ -141,7 +141,7 @@ Som tidigare beskrivs, utöver Azure portal, kan databasåterställning utföras
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-- Om du vill återställa en fristående eller en databas i pool, se [återställning AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/restore-azurermsqldatabase)
+- Om du vill återställa en fristående eller en databas i pool, se [återställning AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase).
 
   | Cmdlet | Beskrivning |
   | --- | --- |
@@ -153,7 +153,7 @@ Som tidigare beskrivs, utöver Azure portal, kan databasåterställning utföras
   > [!TIP]
   > En PowerShell-exempelskript som visar hur du utför en point-in-time-återställning av en databas, se [återställa en SQL-databas med hjälp av PowerShell](scripts/sql-database-restore-database-powershell.md).
 
-- Om du vill återställa en databas för hanterad instans, se [Point-in-time-återställning av en databas på Azure SQL Managed Instance med hjälp av PowerShell i AzureRm.Sql bibliotek](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../point-in-time-restore-of-a-database-on-azure-sql-managed-instance-using-Az-sql-powershell-library/)
+- Om du vill återställa en databas för hanterad instans, se [Point-in-time-återställning av en databas på Azure SQL Managed Instance med hjälp av PowerShell i AzureRm.Sql bibliotek](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/28/point-in-time-restore-of-a-database-on-azure-sql-managed-instance-using-azurerm-sql-powershell-library/).
 
 ### <a name="rest-api"></a>REST-API
 

@@ -10,12 +10,12 @@ manager: jeconnoc
 ms.reviewer: klam, LADocs
 ms.date: 10/03/2018
 ms.topic: article
-ms.openlocfilehash: aac59e087ba106bc20d94fea85cb8a3cd9273482
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 9e485797dcc40c426b208971c04acffa168e528a
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233080"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57455912"
 ---
 # <a name="run-actions-based-on-group-status-with-scopes-in-azure-logic-apps"></a>Kör åtgärder baserat på status för distributionsgrupp med omfång i Azure Logic Apps
 
@@ -54,7 +54,7 @@ Du kan spara din logikapp när som helst, så spara ditt arbete ofta.
 
 1. Logga in på den <a href="https://portal.azure.com" target="_blank">Azure-portalen</a>, om du inte redan har gjort. Skapa en tom logikapp.
 
-1. Lägg till den **schema – återkommande** utlösaren med de här inställningarna: **intervall** = ”1” och **frekvens** = ”Minute”
+1. Lägg till den **schema – återkommande** utlösaren med de här inställningarna: **Intervall** = ”1” och **frekvens** = ”Minute”
 
    ![Konfigurera utlösaren ”schema – återkommande”](./media/logic-apps-control-flow-run-steps-group-scopes/recurrence.png)
 
@@ -79,7 +79,7 @@ Du kan spara din logikapp när som helst, så spara ditt arbete ofta.
 
       | Inställning | Värde | Beskrivning |
       | ------- | ----- | ----------- |
-      | **Waypoint 1** (Platsmarkör 1) | <*Starta*> | Ange resvägen. | 
+      | **Waypoint 1** (Platsmarkör 1) | <*start*> | Ange resvägen. | 
       | **Waypoint 2** (Platsmarkör 2) | <*slutpunkt*> | Ange slutpunkten för resvägen. | 
       | **Avoid** (Undvik) | Ingen | Ange objekt för att undvika vägen, till exempel motorvägar, vägtullar, och så vidare. Möjliga värden finns i [beräkna en väg](https://msdn.microsoft.com/library/ff701717.aspx). | 
       | **Optimize** (Optimera) | timeWithTraffic | Välj en parameter för att optimera färdvägen, till exempel avstånd, med information om aktuella trafik och så vidare. Det här exemplet används det här värdet: ”timeWithTraffic” | 
@@ -91,7 +91,7 @@ Du kan spara din logikapp när som helst, så spara ditt arbete ofta.
 
 1. [Lägg till ett villkor](../logic-apps/logic-apps-control-flow-conditional-statement.md) som kontrollerar om den aktuella restiden med trafik överskrider en angiven tid. Följ anvisningarna i det här exemplet:
 
-   1. Byt namn på villkoret med den här beskrivningen: **om tiden för trafik är mer än en angiven tid**
+   1. Byt namn på villkoret med den här beskrivningen: **Om tiden för trafik är mer än en angiven tid**
 
    1. I kolumnen längst till vänster klickar du i den **Välj ett värde** rutan så visas listan med dynamiskt innehåll. Från listan, Välj den **Travel Duration Traffic** fält som är i sekunder. 
 
@@ -99,7 +99,7 @@ Du kan spara din logikapp när som helst, så spara ditt arbete ofta.
 
    1. I den mellersta rutan väljer du operatorn: **är större än**
 
-   1. I kolumnen längst till höger anger du den här Jämförelsevärde som är i sekunder och equivlent till 10 minuter: **600**
+   1. Ange den här Jämförelsevärde, som är i sekunder och motsvarande till 10 minuter i kolumnen längst till höger: **600**
 
       När du är klar ser villkoret ut som i det här exemplet:
 
@@ -142,7 +142,7 @@ Du kan spara din logikapp när som helst, så spara ditt arbete ofta.
 
       ![Slut uttrycket](./media/logic-apps-control-flow-run-steps-group-scopes/send-email-3.png)  
 
-   1. När du är klar väljer **OK**.
+   1. När du är klar väljer du **OK**.
 
   1. När uttrycket matchar, lägger du till den här texten med ett inledande blanksteg: ``` minutes```
   
@@ -179,7 +179,7 @@ Lägg sedan till ett omfång så att du kan gruppera specifika åtgärder och ut
 
    ![Omfång som har lagts till](./media/logic-apps-control-flow-run-steps-group-scopes/scope-added.png)
 
-1. Lägg till ett villkor som kontrollerar scopets status under omfånget. Byt namn på villkoret med den här beskrivningen: **om omfång misslyckades**
+1. Lägg till ett villkor som kontrollerar scopets status under omfånget. Byt namn på villkoret med den här beskrivningen: **Om omfång misslyckades**
 
    ![Lägg till villkor för att kontrollera status för omfång](./media/logic-apps-control-flow-run-steps-group-scopes/add-condition-check-scope-status.png)
   

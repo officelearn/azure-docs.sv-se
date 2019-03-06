@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ef9dbe1bb0ed9e5aad545453c409b0959bdd3fd4
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 7bb9fc806779565581fa7667749402f5608edd80
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56207236"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57438082"
 ---
 # <a name="security-considerations-for-accessing-apps-remotely-with-azure-ad-application-proxy"></a>Säkerhetsöverväganden för att komma åt appar med Azure AD Application Proxy
 
@@ -69,7 +69,7 @@ Mer information om anslutningsappar finns i [alternativ för Azure AD-programpro
 
 Få de senaste säkerhetsskydd.
 
-Eftersom det är en del av Azure Active Directory Application Proxy kan utnyttja [Azure AD Identity Protection](../active-directory-identityprotection.md), med data från Microsoft Security Response Center och Digital Crimes Unit. Tillsammans vi proaktivt identifiera komprometterade konton och erbjuder skydd mot med hög risk inloggningar. Vi tar hänsyn till flera faktorer som påverkar vilka försök logga in är hög risk. Dessa faktorer omfattar flaggning smittade enheter, maskera nätverk och ovanliga eller osannolikt platser.
+Eftersom det är en del av Azure Active Directory Application Proxy kan utnyttja [Azure AD Identity Protection](../active-directory-identityprotection.md), med data från Microsoft Security Response Center och Digital Crimes Unit. Tillsammans vi proaktivt identifiera komprometterade konton och erbjuder skydd mot med hög risk inloggningar. Vi tar hänsyn till flera faktorer som påverkar vilka inloggningsförsök är hög risk. Dessa faktorer omfattar flaggning smittade enheter, maskera nätverk och ovanliga eller osannolikt platser.
 
 Många av dessa rapporter och händelser är redan tillgänglig via ett API för integrering med din säkerhetsinformation och Händelsehanteringssystem (SIEM).
 

@@ -16,12 +16,12 @@ ms.date: 02/25/2019
 ms.author: jeffgilb
 ms.reviewer: quying
 ms.lastreviewed: 10/23/2018
-ms.openlocfilehash: f81a781bf3d1232c0af519b81f38c1d27fa6b2df
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: ed149398a1244ad0cb09c3e0fe128973c6caa00d
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56818399"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57408011"
 ---
 # <a name="tutorial-offer-highly-available-sql-databases"></a>Självstudier: Erbjud högtillgänglig SQL-databaser
 
@@ -44,7 +44,7 @@ Innan du börjar med stegen i den här självstudien, se till att den [SQL Serve
 > Följande krävs för Azure Stack-snabbstartsmall som ska användas.
 
 - [Windows Server 2016 Datacenter](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.WindowsServer) marketplace-avbildning.
-- SQL Server 2016 SP1 eller SP2 (Enterprise, Standard eller utvecklare) på Windows Server 2016 server-avbildning. Den här självstudien används den [SQL Server 2016 SP2 Enterprise på Windows Server 2016](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft.sqlserver2016sp2enterprisewindowsserver2016) marketplace-avbildning.
+- SQL Server 2016 SP1 eller SP2 (Enterprise, Standard eller utvecklare) på Windows Server 2016 server-avbildning. Den här självstudien används den [SQL Server 2016 SP2 Enterprise på Windows Server 2016](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoftsqlserver.sql2016sp2-ws2016) marketplace-avbildning.
 - [SQL Server IaaS-tillägget](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension) version 1.2.30 eller högre. SQL IaaS-tillägget installerar nödvändiga komponenter som krävs av Marketplace SQL Server-objekt för alla Windows-versioner. Det gör att SQL-specifika inställningar konfigureras på virtuella datorer med SQL. Om tillägget inte är installerat på den lokala Marketplace, misslyckas etableringen av SQL.
 - [Tillägget för anpassat skript för Windows](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.CustomScriptExtension) version 1.9.1 eller högre. Tillägget för anpassat skript är ett verktyg som kan användas för att starta automatiskt efter distributionen uppgifter för anpassning av virtuell dator.
 - [PowerShell Desired State Configuration (DSC)](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.DSC-arm) version 2.76.0.0 eller högre. DSC är en hanteringsplattform i Windows PowerShell som gör det möjligt för distribution och hantering av konfigurationsdata för programtjänster och hantering av miljön där de här tjänsterna körs.

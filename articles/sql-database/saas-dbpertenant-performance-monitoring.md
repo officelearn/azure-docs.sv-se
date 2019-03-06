@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 902fbde0eca8db9113dda51e5d912fa9d94644ee
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: df54f9dd4047fffb578a1a95a2edc47cba711ba1
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57215174"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57433526"
 ---
 # <a name="monitor-and-manage-performance-of-azure-sql-databases-and-pools-in-a-multi-tenant-saas-app"></a>Övervaka och hantera prestanda för Azure SQL-databaser och pooler i en SaaS-app för flera innehavare
 
@@ -83,7 +83,7 @@ Den *Demo-PerformanceMonitoringAndManagement.ps1* skript har angetts som simuler
 
 | Demo | Scenario |
 |:--|:--|
-| 2 | Generera belastning av normal intensitet (ca 40 DTU) |
+| 2 | Generera normal intensitet (cirka 40 DTU) |
 | 3 | Generera belastning med längre och mer frekventa toppar per databas|
 | 4 | Generera belastningar med högre DTU-toppar per databas (cirka 80 DTU)|
 | 5 | Generera en normal belastning plus en hög belastning på en enskild klient (cirka 95 DTU)|
@@ -196,7 +196,7 @@ Om en enskild databas i en pool får en varaktigt hög belastning, beroende på 
 Den här övningen simulerar effekten av att Contosos konserthall upplever en hög belastning när biljetter börjar säljas för ett populärt evenemang.
 
 1. I den **PowerShell ISE**öppnar den... \\ *Demo-PerformanceMonitoringAndManagement.ps1* skript.
-1. Ställ in **$DemoScenario = 5, generera en normal belastning plus en hög belastning för en enskild klient (cirka 95 DTU).**
+1. Ange **$DemoScenario = 5, generera en normal belastning plus en hög belastning på en enskild klient (cirka 95 DTU).**
 1. Ställ in **$SingleTenantDatabaseName = contosoconcerthall**
 1. Kör skriptet med **F5**.
 

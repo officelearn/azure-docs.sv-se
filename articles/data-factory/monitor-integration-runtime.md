@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 07/25/2018
 ms.author: douglasl
-ms.openlocfilehash: 8c3883ae6dd2928fb6cc4f22510e7992daac7793
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 60d4d9224a6a70c8fa2702dede8721f742fa6256
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015312"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57434954"
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Övervaka en integration runtime i Azure Data Factory  
 **Integreringskörningen** är beräkningsinfrastrukturen som används av Azure Data Factory för att tillhandahålla olika funktioner för dataintegrering i olika nätverksmiljöer. Det finns tre typer av integration Runtime som erbjuds av Data Factory:
@@ -26,16 +26,18 @@ ms.locfileid: "54015312"
 - Integration Runtime med egen värd
 - Azure SSIS Integration Runtime
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Kör följande PowerShell-kommando för att hämta status för en instans av integration runtime (IR): 
 
 ```powershell
-Get-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName MyDataFactory -ResourceGroupName MyResourceGroup -Name MyAzureIR -Status
+Get-AzDataFactoryV2IntegrationRuntime -DataFactoryName MyDataFactory -ResourceGroupName MyResourceGroup -Name MyAzureIR -Status
 ``` 
 
 Cmdleten returnerar olika typer av information för olika typer av integration runtime. Den här artikeln beskriver egenskaper och status för varje typ av integration runtime.  
 
 ## <a name="azure-integration-runtime"></a>Azure Integration Runtime
-Beräkningsresurs för en Azure integration runtime är fullständigt hanterad Elastiskt i Azure. I följande tabell innehåller beskrivningar av egenskaper som returneras av den **Get-AzureRmDataFactoryV2IntegrationRuntime** kommando:
+Beräkningsresurs för en Azure integration runtime är fullständigt hanterad Elastiskt i Azure. I följande tabell innehåller beskrivningar av egenskaper som returneras av den **Get-AzDataFactoryV2IntegrationRuntime** kommando:
 
 ### <a name="properties"></a>Egenskaper
 Följande tabell innehåller beskrivningar av egenskaper som returneras av cmdlet: en för en Azure integration runtime:
@@ -58,7 +60,7 @@ Följande tabell innehåller olika statusar av en Azure integration runtime:
 | Offline | Azure integration runtime är offline på grund av ett internt fel. |
 
 ## <a name="self-hosted-integration-runtime"></a>Integration Runtime med egen värd
-Det här avsnittet innehåller beskrivningar av egenskaper som returneras av cmdleten Get-AzureRmDataFactoryV2IntegrationRuntime. 
+Det här avsnittet innehåller beskrivningar av egenskaper som returneras av cmdleten Get-AzDataFactoryV2IntegrationRuntime. 
 
 > [!NOTE] 
 > Innehåller information om övergripande lokal integration runtime och varje nod i runtime egenskaperna som returneras och status.  
@@ -86,7 +88,7 @@ Standardvärdet för samtidiga jobb anges gränsen baserat på storleken på dat
 
 Du skala ut genom att öka antalet noder. När du ökar antalet noder, är samtidiga jobb gränsen summan av gränsvärdena för samtidiga jobb av alla tillgängliga noder.  Till exempel om en nod kan du köra upp till tolv samtidiga jobb, kan lägger till tre fler liknande noder du köra upp till 48 samtidiga jobb (4 x 12). Vi rekommenderar att du ökar gräns för samtidiga jobb bara när du ser låg Resursanvändning med standardvärdena på varje nod.
 
-Du kan åsidosätta beräknade standardvärdet i Azure-portalen. Välj Skapa > anslutningar > Integreringskörningar > Redigera > noder > ändra värdet för samtidiga jobb per nod. Du kan också använda PowerShell [uppdatering azurermdatafactoryv2integrationruntimenode](https://docs.microsoft.com/powershell/module/azurerm.datafactoryv2/update-azurermdatafactoryv2integrationruntimenode?view=azurermps-6.4.0#examples) kommando.
+Du kan åsidosätta beräknade standardvärdet i Azure-portalen. Välj Skapa > anslutningar > Integreringskörningar > Redigera > noder > ändra värdet för samtidiga jobb per nod. Du kan också använda PowerShell [uppdatering Azdatafactoryv2integrationruntimenode](https://docs.microsoft.com/powershell/module/az.datafactory/update-Azdatafactoryv2integrationruntimenode#examples) kommando.
   
 ### <a name="status-per-node"></a>Status (per nod)
 Följande tabell innehåller olika statusar en lokal integration runtime-noden:
@@ -111,10 +113,10 @@ Följande tabell innehåller olika statusar av en lokal integration runtime. Den
 | Offline | Någon nod är online. |
 | Begränsad | Inte alla noder i det här lokal integration runtime är i felfritt tillstånd. Den här statusen är en varning om att vissa noder kanske inte körs. Den här statusen kan bero på en autentiseringsuppgift synkroniseringsproblem på dispatcher-/ arbetsnoden. |
 
-Använd den **Get-AzureRmDataFactoryV2IntegrationRuntimeMetric** cmdlet för att hämta JSON-nyttolasten som innehåller detaljerade egenskaper för integration runtime med egen värd och deras ögonblicksbild värden under tiden för körningen av den cmdlet.
+Använd den **Get-AzDataFactoryV2IntegrationRuntimeMetric** cmdlet för att hämta JSON-nyttolasten som innehåller detaljerade egenskaper för integration runtime med egen värd och deras ögonblicksbild värden under tiden för körningen av cmdlet: en.
 
 ```powershell
-Get-AzureRmDataFactoryV2IntegrationRuntimeMetric -name $integrationRuntimeName -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName  | | ConvertTo-Json 
+Get-AzDataFactoryV2IntegrationRuntimeMetric -name $integrationRuntimeName -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName  | | ConvertTo-Json 
 ```
 
 Exempel på utdata (förutsätter att det finns två noder som är associerade med den här lokal integration runtime):
@@ -174,7 +176,7 @@ Azure-SSIS integration runtime är ett fullständigt hanterat kluster av Azure v
 | VNetId | Det virtuella resource ID för din Azure-SSIS integration runtime att ansluta till. |
 | Undernät | Namnet på undernätet för din Azure-SSIS integration runtime kan anslutas till. |
 | ID | Resurs-ID för din Azure-SSIS integration runtime. |
-| Typ | Typen (hanterade/Self-signed-Hosted) på din Azure-SSIS integration runtime. |
+| Type | Typen (hanterade/Self-signed-Hosted) på din Azure-SSIS integration runtime. |
 | ResourceGroupName | Namnet på din Azure-resursgrupp som din data factory och Azure-SSIS integration runtime har skapats. |
 | DataFactoryName | Namnet på din Azure data factory. |
 | Namn | Namnet på din Azure-SSIS integration runtime. |
@@ -188,7 +190,7 @@ Azure-SSIS integration runtime är ett fullständigt hanterat kluster av Azure v
 | Startar | Den här noden förbereds. |
 | Tillgängligt | Den här noden är redo att distribuera/köra SSIS-paket. |
 | Återvinning | Den här noden är att reparera/omstart. |
-| Ej tillgänglig | Den här noden är inte redo att distribuera/köra SSIS-paket och användbara fel/problem som du kan lösa. |
+| Inte tillgängligt | Den här noden är inte redo att distribuera/köra SSIS-paket och användbara fel/problem som du kan lösa. |
 
 ### <a name="status-overall-azure-ssis-integration-runtime"></a>Status (övergripande Azure-SSIS integration runtime)
 
@@ -213,7 +215,7 @@ Följande skärmbilder visar hur du väljer Azure-SSIS IR att övervaka och ge e
 Använd ett skript som i följande exempel för att kontrollera status för Azure-SSIS IR.
 
 ```powershell
-Get-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $AzureSSISName -ResourceGroupName $ResourceGroupName -Status
+Get-AzDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $AzureSSISName -ResourceGroupName $ResourceGroupName -Status
 ```
 
 ### <a name="more-info-about-the-azure-ssis-integration-runtime"></a>Mer information om Azure-SSIS integration runtime
@@ -222,7 +224,7 @@ Se följande artiklar för att lära dig mer om Azure-SSIS integration runtime:
 
 - [Azure-SSIS Integration Runtime](concepts-integration-runtime.md#azure-ssis-integration-runtime). Den här artikeln innehåller information om integreringskörningar i allmänhet, inklusive Azure-SSIS IR. 
 - [Självstudie: distribuera SSIS-paket till Azure](tutorial-create-azure-ssis-runtime-portal.md). Den här artikeln innehåller stegvisa instruktioner för att skapa en Azure-SSIS IR och använder en Azure SQL-databas som värd för SSIS-katalogen. 
-- [Hur: Skapa en Azure-SSIS integration runtime](create-azure-ssis-integration-runtime.md). Den här artikeln utökas med självstudien och innehåller instruktioner för hur du använder Azure SQL Database Managed Instance och ansluter IR till ett virtuellt nätverk. 
+- [Anvisningar: Skapa en Azure-SSIS integration runtime](create-azure-ssis-integration-runtime.md). Den här artikeln utökas med självstudien och innehåller instruktioner för hur du använder Azure SQL Database Managed Instance och ansluter IR till ett virtuellt nätverk. 
 - [Hantera en Azure-SSIS IR](manage-azure-ssis-integration-runtime.md). Den här artikeln visar hur du stoppar, startar eller tar bort en Azure-SSIS IR. Den också visar hur du skalar ut Azure-SSIS IR genom att lägga till fler noder i IR. 
 - [Anslut Azure-SSIS IR till ett virtuellt nätverk](join-azure-ssis-integration-runtime-virtual-network.md). Den här artikeln innehåller begreppsrelaterad information om att ansluta Azure-SSIS IR till ett virtuellt Azure-nätverk. Det ger också steg för att konfigurera det virtuella nätverket så att Azure-SSIS IR kan ansluta till det virtuella nätverket med hjälp av Azure portal. 
 

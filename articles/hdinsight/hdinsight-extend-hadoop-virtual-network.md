@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: bf9d8e6d3aa8d1995c705ecdec95b6f3dea028ff
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 8a67b94c7f2355872b243a05a7908604e88cf778
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57242351"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57433798"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Utöka Azure HDInsight med hjälp av Azure Virtual Network
 
@@ -235,7 +235,7 @@ Om du tänker använda **nätverkssäkerhetsgrupper** eller **användardefiniera
 3. Skapa eller ändra nätverkssäkerhetsgrupper eller användardefinierade vägar för det undernät som du planerar att installera HDInsight i.
 
     * __Nätverkssäkerhetsgrupper__: Tillåt __inkommande__ trafik på port __443__ från IP-adresser. Det säkerställer att HDI hanteringstjänster kan nå klustret från utanför VNET.
-    * __Användardefinierade vägar__: Om du planerar att använda udr: er, skapa en väg för varje IP-adress och ange den __nästa hopptyp__ till __Internet__. Du bör också tillåta all utgående trafik från det virtuella nätverket utan begränsning. Exempelvis kan du dirigera all trafik till din Azure firwall eller nätverks virtuella installation (installation i Azure) för övervakning, men den utgående trafiken inte ska blockeras.
+    * __Användardefinierade vägar__: Om du planerar att använda udr: er, skapa en väg för varje IP-adress och ange den __nästa hopptyp__ till __Internet__. Du bör också tillåta all utgående trafik från det virtuella nätverket utan begränsning. Exempelvis kan du dirigera all annan trafik till din Azure eller en network virtuella installation (installation i Azure) för övervakning, men den utgående trafiken inte ska blockeras.
 
 Mer information om nätverkssäkerhetsgrupper eller användardefinierade vägar finns i följande dokumentation:
 
@@ -245,7 +245,7 @@ Mer information om nätverkssäkerhetsgrupper eller användardefinierade vägar 
 
 #### <a name="forced-tunneling-to-on-premise"></a>Tvingad tunneltrafik till lokala
 
-Tvingad tunneltrafik är en användardefinierad konfiguration där all trafik från ett undernät tvingas att ett visst nätverk eller plats, till exempel ditt lokala nätverk. HDInsight har __inte__ support Tvingad tunneltrafik till lokala nätverk. Om du använder Azure brandvägg eller en virtuell installation för nätverk i Azure kan använda du udr: er att dirigera trafiken till den för övervakning och tillåter all utgående trafik.
+Tvingad tunneltrafik är en användardefinierad konfiguration där all trafik från ett undernät tvingas att ett visst nätverk eller plats, till exempel ditt lokala nätverk. HDInsight har __inte__ support Tvingad tunneltrafik till lokala nätverk. Om du använder Azure brandvägg eller en virtuell nätverksinstallation som finns i Azure kan använda du udr: er att dirigera trafiken till den för övervakning och tillåter all utgående trafik.
 
 ## <a id="hdinsight-ip"></a> Den begärda IP-adresser
 

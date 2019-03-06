@@ -11,12 +11,12 @@ ms.assetid: e11c6b4d-65a5-4d2d-8e13-38150db09c0b
 ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
-ms.openlocfilehash: 1c30f77c061ec25c88186caee3f60e65f3afb3de
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 01da06ca55199989a3a27012bec101580f5ef853
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50232876"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57442213"
 ---
 # <a name="call-http-or-https-endpoints-with-azure-logic-apps"></a>Anropa HTTP eller HTTPS-slutpunkter med Azure Logic Apps
 
@@ -46,7 +46,7 @@ Om du är nybörjare till logic apps, granska [vad är Azure Logic Apps?](../log
 
    ![Välj HTTP-utlösare](./media/connectors-native-http/select-http-trigger.png)
 
-1. Ange den [HTTP-utlösare parametrar och värden](../logic-apps/logic-apps-workflow-actions-triggers.md##http-trigger) du vill ska ingå i anropet till mål-slutpunkten. Konfigurera upprepningen för hur ofta du vill att utlösaren för att kontrollera target endpont.
+1. Ange den [HTTP-utlösare parametrar och värden](../logic-apps/logic-apps-workflow-actions-triggers.md##http-trigger) du vill ska ingå i anropet till mål-slutpunkten. Konfigurera upprepningen för hur ofta du vill att utlösaren för att kontrollera slutpunkten som mål.
 
    ![Ange parametrar för HTTP-utlösare](./media/connectors-native-http/http-trigger-parameters.png)
 
@@ -77,7 +77,7 @@ Om du är nybörjare till logic apps, granska [vad är Azure Logic Apps?](../log
 
 1. När du är klar kan du kontrollera att du sparar din logikapp. Välj **Spara** i designerverktygsfältet. 
 
-## <a name="authentication"></a>Autentisering
+## <a name="authentication"></a>Authentication
 
 Om du vill ange autentisering, Välj **visa avancerade alternativ** inuti åtgärd eller utlösare. Mer information om tillgängliga autentiseringstyper för HTTP-utlösare och åtgärder finns i [utlösare och åtgärd typer referens](../logic-apps/logic-apps-workflow-actions-triggers.md#connector-authentication).
 

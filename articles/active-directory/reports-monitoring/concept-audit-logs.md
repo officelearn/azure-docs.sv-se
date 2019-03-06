@@ -17,12 +17,12 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e7f221b815b6800f635c07525fdbd332ac508786
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 5895ad1f1452b5a0c13765821c5b623472a0bb1e
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56171544"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57447123"
 ---
 # <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Granska aktivitetsrapporter i Azure Active Directory-portalen 
 
@@ -41,7 +41,7 @@ Den här artikeln ger en översikt över granskningsrapporten.
  
 ## <a name="who-can-access-the-data"></a>Vem kan komma åt dessa data?
 
-* Användare i den **Security administratör i fältet**, **Säkerhetsläsare** eller **Global administratör** roller
+* Användare i den **säkerhetsadministratör**, **Säkerhetsläsare** eller **Global administratör** roller
 * Dessutom kan kan alla användare (icke-administratörer) Se sina egna granskningsaktiviteter
 
 ## <a name="audit-logs"></a>Granskningsloggar

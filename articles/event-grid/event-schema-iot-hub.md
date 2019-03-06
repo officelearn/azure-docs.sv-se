@@ -10,12 +10,12 @@ ms.service: event-grid
 ms.topic: reference
 ms.date: 01/17/2019
 ms.author: kgremban
-ms.openlocfilehash: df1c0f8256b49e23b720df47c513fba8c62677b5
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 5fcd7c10002e7e1ae9683fdd89d3af14a1500050
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54475211"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57449197"
 ---
 # <a name="azure-event-grid-event-schema-for-iot-hub"></a>Azure Event Grid-Händelseschema för IoT Hub
 
@@ -141,7 +141,7 @@ Innehållet i dataobjektet är olika för varje händelse-utgivare. För **skapa
 
 | Egenskap  | Typ | Beskrivning |
 | -------- | ---- | ----------- |
-| twin | objekt | Information om enhetstvillingen, vilket är molnet represenation programmetadata för enheten. | 
+| twin | objekt | Information om enhetstvillingen, som är molnet-representation av enhetsmetadata för programmet. | 
 | deviceID | sträng | Den unika identifieraren för enhetstvillingen. | 
 | etag | sträng | En systemhälsoverifierare för att säkerställa konsekvens för uppdateringar av en enhetstvilling. Varje etag garanteras vara unikt per enhetstvillingen. |  
 | deviceEtag| sträng | En systemhälsoverifierare för att säkerställa konsekvens av uppdateringar till en enhetsregister. Varje deviceEtag garanteras vara unikt per enhetsregister. |

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/30/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 311ec7bacdfe58982ee670277000d81756f92005
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 03e10497b033fc3d97fde4cd524b358c05fdc943
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55648595"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57457768"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Vanliga frågor och svar om virtuella Azure IaaS-datorer och hanterade och ohanterade premiumdiskar
 
@@ -347,7 +347,7 @@ Att uppnå diskgenomflöde i Standard SSD och HDD-Standard storlekar för stora 
 
 **Vilka regioner är de hanterade diskar som är större än 4 TiB stöds i?**
 
-För närvarande i förhandsversionen stöds i hanterade diskar som är i västra centrala USA, Nordeuropa, Västeuropa, USA, Väst 2, USA, Öst 2, USA, Öst.
+Förhandsversionen av hanterade diskar som är längre än 4 TiB stöds i alla produktion i Azure-regioner utom Government, Kina och Tyskland. 
 
 **Vi har stöd för att aktivera cachelagring av värden på den nya diskstorleken?**
 

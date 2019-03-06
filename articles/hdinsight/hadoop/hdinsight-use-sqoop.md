@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.openlocfilehash: 4e56d22dde5fca50d17c055be93db5b91deeb287
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 0a03bfe61da6a1de073401fca9c61f3212b9d0bb
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56819181"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57440105"
 ---
 # <a name="use-apache-sqoop-with-hadoop-in-hdinsight"></a>Använd Apache Sqoop med Hadoop i HDInsight
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
@@ -82,9 +82,9 @@ Om du föredrar att använda Azure PowerShell för att skapa klustret och SQL-da
     - **Klustrets inloggningsnamn och lösenord**: Standardinloggningsnamnet är admin.
     - **SSH-användarnamn och lösenord**.
     - **SQL-databas serverns inloggningsnamn och lösenord**.
-    - **_artifacts plats**: Använd standardvärdet om du inte vill använda din egen backpac-fil på en annan plats.
+    - **_artifacts plats**: Använd standardvärdet om du inte vill använda din egen bacpac-fil på en annan plats.
     - **Sas-Token för _artifacts plats**: Lämna tomt.
-    - **Bacpac filnamn**: Använd standardvärdet om du inte vill använda din egen backpac-fil.
+    - **Bacpac filnamn**: Använd standardvärdet om du inte vill använda din egen bacpac-fil.
      
         Följande värden är hårdkodad i variables-avsnittet:
         

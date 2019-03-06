@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: d65704f7037eb4152b4f91d4cbe68ceaad2cea48
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: e29f36897dd52fcb09456768a799209a385d74fe
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56650232"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57444505"
 ---
 # <a name="data-acquisition-and-understanding-stage-of-the-team-data-science-process"></a>Datainsamling och förstå steget i Team Data Science Process
 
@@ -68,7 +68,7 @@ Följande är slutprodukter i det här steget:
 
    * [Data quality rapporten](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Data_Report/DataSummaryReport.md): Den här rapporten omfattar sammanfattningar av data, relationerna mellan varje attribut och mål, variabel rangordning och mycket mer. Den [IDEAR](https://github.com/Azure/Azure-TDSP-Utilities/blob/master/DataScienceUtilities/DataReport-Utils) verktyg som tillhandahålls som en del av TDSP kan snabbt skapa den här rapporten på valfri tabular datamängd, till exempel en CSV-fil eller en relationsdatabastabell. 
    * **Lösningsarkitektur**: Lösningsarkitekturen kan vara ett diagram eller beskrivning av din pipeline för data som används för att köra bedömning eller förutsägelser på nya data när du har skapat en modell. Den innehåller också pipeline för att träna din modell som baseras på nya data. Store dokument i den [projekt](https://github.com/Azure/Azure-TDSP-ProjectTemplate/tree/master/Docs/Project) directory när du använder TDSP directory struktur mall.
-   * **Kontrollpunkt beslut**: Innan du börjar fullständig funktionsframställning och modellskapandet omvärdera du projektet för att avgöra om det förväntade värdet är tillräckliga för att fortsätta arbetar den. Du kan till exempel vara redo att fortsätta, måste du samla in mer data eller Avbryt projektet eftersom data inte finns för att besvara frågan.
+   * **Kontrollpunkt beslut**: Innan du börjar fullständig funktionsframställning och modellskapandet omvärdera du projektet för att avgöra om det förväntade värdet är tillräckliga för att fortsätta att försöka den. Du kan till exempel vara redo att fortsätta, måste du samla in mer data eller Avbryt projektet eftersom data inte finns för att besvara frågan.
 
 ## <a name="next-steps"></a>Nästa steg
 

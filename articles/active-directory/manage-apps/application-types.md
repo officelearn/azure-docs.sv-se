@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3037d1de83e34aa8489498c65dbc5fd3423b081b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 7475969f3b1437a8d42345f00a974957c15d00fa
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56162670"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57444306"
 ---
 # <a name="unexpected-application-in-my-applications-list"></a>Ett oväntat program i listan över program
 
@@ -108,7 +108,7 @@ Att **ta bort ett program**, Följ dessa steg:
 
 ## <a name="i-want-to-disable-all-future-user-consent-operations-to-any-application"></a>Jag vill inaktivera alla framtida medgivande användaråtgärder för program
 
-Inaktiverar användarens medgivande för hela katalogen förhindra slutanvändare från principer för alla program. Administratörer kan fortfarande ge samtycke på användarens behalves. Mer information om programtillåtelser och varför du kanske eller kanske inte vill ge samtycke, läsa [Förstå användar- och administratörens godkännande](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview).
+Inaktiverar användarens medgivande för hela katalogen förhindra slutanvändare från principer för alla program. Administratörer kan fortfarande ge samtycke för användarens räkning. Mer information om programtillåtelser och varför du kanske eller kanske inte vill ge samtycke, läsa [Förstå användar- och administratörens godkännande](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview).
 
 Att **inaktivera alla framtida medgivande användaråtgärder i hela katalogen**, Följ dessa steg:
 

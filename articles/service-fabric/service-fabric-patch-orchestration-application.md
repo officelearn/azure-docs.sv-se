@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/01/2019
 ms.author: brkhande
-ms.openlocfilehash: 1f6ce2e51255ddf43b6c123585866117d76f8d0b
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: d5d7f45b4833bb535e98542ee513e9ea8bf0f9e5
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57313658"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57432999"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Uppdatera Windows-operativsystemet i Service Fabric-klustret
 
@@ -418,4 +418,4 @@ En administratör måste ingripa och avgöra varför programmet eller kluster fi
 - Ändra standardvärdet för InstallWindowsOSOnlyUpdates till FALSKT.
 
 ### <a name="version-132"></a>Version 1.3.2
-- Åtgärda ett problem som berörs uppdatering livscykel på en nod om det finns noder med namn som är del av namnet på aktuella noden. För sådana noder, möjliga korrigeringar saknas eller omstart väntar. 
+- Åtgärda ett problem som berörs uppdatering liv-cyle på en nod om det finns noder med namn som är del av namnet på aktuella noden. För sådana noder, möjliga korrigeringar saknas eller omstart väntar. 

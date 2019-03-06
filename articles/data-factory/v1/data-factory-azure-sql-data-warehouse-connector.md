@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 72a666db6157300942b966b88d9c3369495b9fd4
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 4c431b149edb0677585da3c84e37d64873478ccf
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54331242"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57432744"
 ---
 # <a name="copy-data-to-and-from-azure-sql-data-warehouse-using-azure-data-factory"></a>Kopieringsdata till och från Azure SQL Data Warehouse med Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -228,7 +228,7 @@ Om kraven inte uppfylls, Azure Data Factory kontrollerar du inställningarna och
 När dina källdata inte uppfyller de kriterier som presenteras i föregående avsnitt, kan du Aktivera kopiering av data via tillfälliga mellanlagringsplatsen Azure Blob Storage (inte får vara Premium Storage). I det här fallet utför Azure Data Factory automatiskt transformationer på data för att uppfylla krav om formatet för data med PolyBase och sedan använda PolyBase för att läsa in data till SQL Data Warehouse, och på senaste Rensa dina temp data från Blob storage. Se [mellanlagrad kopiering](data-factory-copy-activity-performance.md#staged-copy) för information om hur kopiering av data via en mellanlagrings Azure-Blob fungerar i allmänhet.
 
 > [!NOTE]
-> När kopiering av data från en lokal data lagra i Azure SQL Data Warehouse med PolyBase och mellanlagring, om din Data Management Gateway-version är lägre än 2.4 krävs JRE (Java Runtime Environment) på din gateway-dator som används för att omvandla dina källdata i rätt format. Rekommenderar att du uppgraderar din gateway till den senaste versionen för att undvika sådana beroende.
+> När kopierar data från en lokala datalager till Azure SQL Data Warehouse med PolyBase och mellanlagring, om din Data Management Gateway-version är lägre än 2.4 krävs JRE (Java Runtime Environment) på din gateway-dator som används för att omvandla din källa data i rätt format. Rekommenderar att du uppgraderar din gateway till den senaste versionen för att undvika sådana beroende.
 >
 
 Om du vill använda denna funktion kan du skapa en [länkad Azure Storage-tjänst](data-factory-azure-blob-connector.md#azure-storage-linked-service) som refererar till Azure Storage-konto som har tillfälliga blob-lagringen, ange sedan den `enableStaging` och `stagingSettings` egenskaperna för aktiviteten kopiera enligt följande kod:

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 12/19/2018
 ms.author: liydu
-ms.openlocfilehash: 038b1d9fa319837f3877c20c9fc3b1b83970e7b4
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: b072efbbf02528a3c62662c5543007ef3332d434
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54158626"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57440720"
 ---
 # <a name="use-iot-devkit-az3166-with-azure-functions-and-cognitive-services-to-make-a-language-translator"></a>Använda IoT DevKit AZ3166 med Azure Functions och Cognitive Services för att göra en språköversättaren
 
@@ -54,7 +54,7 @@ För att slutföra stegen i den här självstudien måste du först göra följa
 
   Anteckna namnet på Azure IoT Hub enheten som du skapade.
 
-1. Öppna `Functions\DevKitTranslatorFunction.cs` och uppdaterar följande rader med kod med devce namnet och Speech Service-nyckeln som du antecknade.
+1. Öppna `Functions\DevKitTranslatorFunction.cs` och uppdaterar följande rader med kod med enhetens namn och Speech Service-nyckeln som du antecknade.
   ```csharp
   // Subscription Key of Speech Service
   const string speechSubscriptionKey = "";
@@ -136,7 +136,7 @@ IoT DevKit registrerar din röst när du sedan skickar en HTTP-begäran till Azu
 
 Om du får problem kan se den [IoT DevKit vanliga frågor och svar](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/) eller kontakta oss med hjälp av följande kanaler:
 
-* [Gitter.IM](http://gitter.im/Microsoft/azure-iot-developer-kit)
+* [Gitter.im](http://gitter.im/Microsoft/azure-iot-developer-kit)
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/iot-devkit)
 
 ## <a name="next-steps"></a>Nästa steg

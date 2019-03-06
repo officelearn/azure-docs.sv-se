@@ -16,12 +16,12 @@ ms.date: 11/14/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c15b42572648f875ac4bda2eae5813f0cf6b17ef
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 11ebb8bbeb2a58cad41294b6bba805585127844a
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56187193"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57442401"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Azure Active Directory sömlös enkel inloggning: Vanliga frågor och svar
 
@@ -49,7 +49,7 @@ Nedan följer en ofullständig lista över program som kan skicka dessa parametr
 | Outlook på webben | https://outlook.office365.com/contoso.com |
 | Office 365-portaler | https://portal.office.com?domain_hint=contoso.com, https://www.office.com?domain_hint=contoso.com |
 
-Dessutom kan användare får en tyst inloggning om ett program skickar inloggningsförfrågningar till Azure AD: s klientslutpunkter – det vill säga https://login.microsoftonline.com/contoso.com/<..> eller https://login.microsoftonline.com/<tenant_ID>/<..> – i stället för Azure AD: s vanliga slutpunkt - det vill säga https://login.microsoftonline.com/common/<...>. Nedan följer en ofullständig lista över program som gör att dessa typer av inloggningsförfrågningar.
+Dessutom kan användare får en tyst inloggning om ett program skickar inloggningsförfrågningar till Azure AD-slutpunkter som klienter – det vill säga https://login.microsoftonline.com/contoso.com/<..> eller https://login.microsoftonline.com/<tenant_ID>/<..> – i stället för Azure AD: s vanliga slutpunkt - det vill säga https://login.microsoftonline.com/common/<...>. Nedan följer en ofullständig lista över program som gör att dessa typer av inloggningsförfrågningar.
 
 | Programnamn | Programmets URL som ska användas |
 | -- | -- |

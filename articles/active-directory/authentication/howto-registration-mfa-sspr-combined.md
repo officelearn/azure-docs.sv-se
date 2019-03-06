@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9623cf727998348c313b7184c29e968afd33c6cc
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: d9d7e6f7505b8af76ff6c42c040918a274d89c3c
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57214154"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57407957"
 ---
 # <a name="enable-combined-security-information-registration-preview"></a>Aktivera kombineras security information registrering (förhandsversion)
 
@@ -43,7 +43,7 @@ Utför följande steg för att aktivera registreringen av kombinerade:
 > Från och med mars 2019 telefonsamtal alternativen kommer inte att MFA och SSPR-användare i kostnadsfria/utvärderingsversion Azure AD-klienter. SMS-meddelanden som inte påverkas av den här ändringen. Telefonsamtal fortsätter att vara tillgängliga för användare i betalda Azure AD-klienter. Den här ändringen påverkar endast kostnadsfria/utvärderingsversion Azure AD-klienter.
 
 > [!NOTE]
-> När du aktiverar kombinerade registrerings användare registrera eller bekräfta sina telefonnummer eller mobilappar via den nya upplevelsen kan använda dem för MFA och SSPR, om dessa metoder är aktiverade i MFA och SSPR-principer. Om du inaktiverar sedan den här upplevelsen kan användare gå till föregående SSPR-registrering sidan på [https:/aka.ms/ssprsetup](https:/aka.ms/ssprsetup) kommer att behöva utföra multifaktorautentisering innan de kan komma åt sidan.
+> När du aktiverar kombinerade registrerings användare registrera eller bekräfta sina telefonnummer eller mobilappar via den nya upplevelsen kan använda dem för MFA och SSPR, om dessa metoder är aktiverade i MFA och SSPR-principer. Om du inaktiverar sedan den här upplevelsen kan användare gå till föregående SSPR-registrering sidan på `https:/aka.ms/ssprsetup` kommer att behöva utföra multifaktorautentisering innan de kan komma åt sidan.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 86b33bfa0f5383ac68080e2f8f7f9a004a1364a0
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: 618414331ab22cff41c7ac02c78f4bef333d0c84
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53652633"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57433458"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>Förbereda för distribution av din IoT Edge-lösning i produktion
 
@@ -167,12 +167,12 @@ Den här checklistan är en startpunkt för brandväggsregler:
 
    | URL: en (\* = jokertecken) | Utgående TCP-portar | Användning |
    | ----- | ----- | ----- |
-   | MCR.microsoft.com  | 443 | Microsoft behållarregister |
-   | Global.Azure-enheter – provisioning.net  | 443 | DPS-åtkomst (valfritt) |
-   | \*. azurecr.io | 443 | Personliga och 3 part behållarregister |
+   | mcr.microsoft.com  | 443 | Microsoft behållarregister |
+   | global.azure-devices-provisioning.net  | 443 | DPS-åtkomst (valfritt) |
+   | \*.azurecr.io | 443 | Personliga och 3 part behållarregister |
    | \*.blob.core.windows.net | 443 | Nedladdningen av bilden deltan | 
-   | \*.Azure devices.net | 5671, 8883, 443 | IoT Hub-åtkomst |
-   | \*. docker.io  | 443 | Docker-åtkomst (valfritt) |
+   | \*.azure-devices.net | 5671, 8883, 443 | IoT Hub access |
+   | \*.docker.io  | 443 | Docker-åtkomst (valfritt) |
 
 ### <a name="configure-communication-through-a-proxy"></a>Konfigurera kommunikation via en proxyserver
 
@@ -186,7 +186,7 @@ Om dina enheter kommer att distribueras på ett nätverk som använder en proxys
 
 ### <a name="set-up-logs-and-diagnostics"></a>Konfigurera loggar och diagnostik
 
-På Linux använder IoT Edge-daemon journald som Standarddrivrutin för loggning. Du kan använda kommandoradsverktyget `journalctl` att fråga daemon loggar. På Windows använder IoT Edge-daemon PowerShell diagnostik. Använd `Get-WinEvent` till fråga loggar från daemon. IoT Edge-moduler använder JSON-drivrutinen för loggning, vilket är standard för Docker.  
+På Linux använder IoT Edge-daemon journaler som standard loggning av drivrutinen. Du kan använda kommandoradsverktyget `journalctl` att fråga daemon loggar. På Windows använder IoT Edge-daemon PowerShell diagnostik. Använd `Get-WinEvent` till fråga loggar från daemon. IoT Edge-moduler använder JSON-drivrutinen för loggning, vilket är standard för Docker.  
 
 När du testar en IoT Edge-distribution kan du normalt komma åt dina enheter för att hämta loggar och felsöka. Du kanske inte har alternativet i ett scenario för distribution. Överväg hur du ska samla in information om dina enheter i produktionen. Ett alternativ är att använda en loggningsmodul som samlar in information från andra moduler och skickar dem till molnet. Ett exempel på en loggningsmodul är [logspout loganalytics](https://github.com/veyalla/logspout-loganalytics), eller du kan utforma dina egna. 
 
@@ -194,7 +194,7 @@ Om du oroar loggar blir för stort på en begränsad resurs-enhet, har du några
 
 * Mer specifikt kan du begränsa storleken på alla docker-loggfiler i Docker-daemon själva. För Linux, konfigurera daemon på `/etc/docker/daemon.json`. För Windows, `C:\ProgramData\docker\confige\daemon.json`. 
 * Om du vill justera logfile-storleken för varje behållare kan göra du det i CreateOptions för varje modul. 
-* Konfigurera Docker för att hantera loggar automatiskt med inställningen journald som standard loggning drivrutinen för Docker. 
+* Konfigurera Docker för att hantera loggar automatiskt genom att ange journaler som loggning Standarddrivrutin för Docker. 
 * Regelbundet ta bort gamla loggarna från din enhet genom att installera ett logrotate-verktyg för Docker. Använd följande filspecifikationen: 
 
    ```

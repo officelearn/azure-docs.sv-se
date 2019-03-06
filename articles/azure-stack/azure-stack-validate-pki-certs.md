@@ -15,12 +15,12 @@ ms.date: 01/08/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
 ms.lastreviewed: 01/08/2019
-ms.openlocfilehash: 898fb12c4e38804cca71be6ef08b078f92633e32
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 9300e60902b9234af01a64173eefcfb1bc033c61
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55240162"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57410204"
 ---
 # <a name="validate-azure-stack-pki-certificates"></a>Verifiera Azure Stack PKI-certifikat
 
@@ -83,7 +83,11 @@ Följ dessa steg för att förbereda och kontrollera Azure Stack PKI-certifikat 
     ```
     
     > [!Note]  
-    > AD FS och Graph krävs om du använder AD FS som ID-system.
+    > AD FS och Graph krävs om du använder AD FS som ID-system. Exempel:
+    >
+    > ```PowerShell  
+    > $directories = 'ADFS','Graph','ACSBlob','ACSQueue','ACSTable','Admin Portal','ARM Admin','ARM Public','KeyVault','KeyVaultInternal','Public Portal','Admin Extension Host','Public Extension Host'
+    > ```
     
      - Placera ditt certifikat i lämplig katalogerna som skapades i föregående steg. Exempel:  
         - `c:\certificates\ACSBlob\CustomerCertificate.pfx`

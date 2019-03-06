@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: sutalasi
-ms.openlocfilehash: 1f3168cef503fed0aea09228c9bc11dfb456f2ab
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 5f477cf20b817d7a6c8be856636bf1e3755b5424
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52848484"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57443495"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sharepoint-application-for-disaster-recovery-using-azure-site-recovery"></a>Konfigurera haveriberedskap för en SharePoint-flernivåapp för haveriberedskap med hjälp av Azure Site Recovery
 
@@ -29,7 +29,7 @@ En bra katastrofåterställningslösning ska tillåta modellering av återställ
 
 Den här artikeln beskrivs i detalj hur du skyddar en SharePoint-program med [Azure Site Recovery](site-recovery-overview.md). Den här artikeln beskriver Metodtips för att replikera en tre nivån, SharePoint-program till Azure, hur du kan göra ett haveriberedskapstest och hur du kan redundansväxla programmet till Azure.
 
-Du kan titta på den nedan video om hur du återställer en multi-nivåprogram till Azure.
+Du kan titta på den nedan video om hur du återställer ett flerskiktat program till Azure.
 
 > [!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/Disaster-Recovery-of-load-balanced-multi-tier-applications-using-Azure-Site-Recovery/player]
 
@@ -85,7 +85,7 @@ Följ [den här vägledningen](site-recovery-vmware-to-azure.md) att börja repl
 
 * När replikeringen är klar kan du se till att du går till varje virtuell dator på respektive nivå och välj samma tillgänglighetsuppsättning i ”replikerat objekt > Inställningar > Egenskaper > beräkning och nätverk”. Exempel: om din webbnivå har 3 virtuella datorer, se till att alla 3 virtuella datorer är konfigurerade som en del av samma tillgänglighetsuppsättning i Azure.
 
-    ![Ställ in Tillgänglighetsuppsättning](./media/site-recovery-sharepoint/select-av-set.png)
+    ![Set-Availability-Set](./media/site-recovery-sharepoint/select-av-set.png)
 
 * Anvisningar om hur du skyddar Active Directory och DNS avser [skydda Active Directory och DNS](site-recovery-active-directory.md) dokumentet.
 
@@ -104,7 +104,7 @@ Följ [den här vägledningen](site-recovery-vmware-to-azure.md) att börja repl
 
     ![Ställ in statisk IP-adress](./media/site-recovery-sharepoint/set-static-ip.png)
 
-### <a name="dns-and-traffic-routing"></a>DNS- och routning av nätverkstrafik
+### <a name="dns-and-traffic-routing"></a>DNS and Traffic Routing
 
 För platser som riktas mot internet [skapa en Traffic Manager-profil av typen ”prioritet”](../traffic-manager/traffic-manager-create-profile.md) i Azure-prenumeration. Och sedan konfigurera din DNS- och Traffic Manager-profil på följande sätt.
 
@@ -147,9 +147,9 @@ Du kan distribuera de mest använda Azure Site Recovery-skript i ditt Automation
 
 1. Lägg till en åtgärd skript till ”grupp 1” till redundans SQL-tillgänglighetsgrupp. Använd ”ASR-SQL-FailoverAG'-skript som publiceras i exempelskripten. Se till att du följer riktlinjerna i skriptet och gör nödvändiga ändringar i skriptet på rätt sätt.
 
-    ![Lägg till-AG-skript-steg-1](./media/site-recovery-sharepoint/add-ag-script-step1.png)
+    ![Add-AG-Script-Step-1](./media/site-recovery-sharepoint/add-ag-script-step1.png)
 
-    ![Lägg till-AG-skript-steg-2](./media/site-recovery-sharepoint/add-ag-script-step2.png)
+    ![Add-AG-Script-Step-2](./media/site-recovery-sharepoint/add-ag-script-step2.png)
 
 2. Lägg till en post åtgärd skript om du vill koppla en belastningsutjämnare på den redundansväxlade virtuella datorerna på webbnivå (Grupp2). Använd ”ASR-AddSingleLoadBalancer'-skript som publiceras i exempelskripten. Se till att du följer riktlinjerna i skriptet och gör nödvändiga ändringar i skriptet på rätt sätt.
 

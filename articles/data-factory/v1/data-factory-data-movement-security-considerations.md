@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 197762255a1a693821b8416227b4abf52755eb31
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 0d601df7914b7280de4b3c16c8b00c96cb5427e4
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015754"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57435992"
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>Azure Data Factory - säkerhetsöverväganden för dataförflyttning
 
@@ -45,6 +45,8 @@ I den här artikeln ska granska vi säkerhetsaspekter i följande två data move
 
 - **Scenariot med molnet**– i det här scenariot både käll- och mål som är tillgängliga för allmänheten via internet. Dessa inkluderar hanterad lagring molntjänster som Azure Storage, Azure SQL Data Warehouse, Azure SQL Database, Azure Data Lake Store, Amazon S3, Amazon Redshift, SaaS-tjänster, till exempel Salesforce och webbprotokoll som FTP- och OData. Du hittar en fullständig lista över datakällor som stöds [här](data-factory-data-movement-activities.md#supported-data-stores-and-formats).
 - **Scenario med hybridanvändning**– i det här scenariot källan eller målet finns bakom en brandvägg eller i ett lokalt företagsnätverk eller data store är i ett privat nätverk per virtuell nätverks-(oftast källan) och inte är allmänt tillgänglig. Database-servrar som körs på virtuella datorer omfattas också det här scenariot.
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="cloud-scenarios"></a>Scenarier för molnet
 ### <a name="securing-data-store-credentials"></a>Att säkra autentiseringsuppgifter för datalagring
@@ -93,7 +95,7 @@ Autentiseringsuppgifterna för dina lokala datalager lagras lokalt (inte i molne
 - Med hjälp av **textformat** (mindre säkert) via HTTPS från Azure Portal / Kopieringsguiden. Autentiseringsuppgifterna skickas i klartext till en lokal gateway.
 - Med hjälp av **kryptering med JavaScript-biblioteket från guiden Kopiera**.
 - Med hjälp av **klickar du på-när baserat autentiseringsuppgifter manager app**. Klicka-när programmet körs på den lokala datorn som har åtkomst till gatewayen och anger autentiseringsuppgifter för datalagret. Det här alternativet och nästa kommando är de säkraste alternativen. Appen credential manager använder som standard port 8050 på datorn med gateway för säker kommunikation.  
-- Använd [New AzureRmDataFactoryEncryptValue](/powershell/module/azurerm.datafactories/New-AzureRmDataFactoryEncryptValue) PowerShell-cmdlet för att kryptera autentiseringsuppgifterna. Cmdlet: en använder certifikatet som gatewayen är konfigurerad för att använda för att kryptera autentiseringsuppgifterna. Du kan använda de krypterade autentiseringsuppgifterna som returneras av denna cmdlet och lägger till den i **EncryptedCredential** elementet i den **connectionString** i JSON-filen som du använder med den [ New-AzureRmDataFactoryLinkedService](/powershell/module/azurerm.datafactories/new-azurermdatafactorylinkedservice) cmdlet eller i JSON-kodfragmentet i Data Factory Editor i portalen. Det här alternativet och klicka på-när programmet är de säkraste alternativen. 
+- Använd [New AzDataFactoryEncryptValue](/powershell/module/az.datafactory/New-azDataFactoryEncryptValue) PowerShell-cmdlet för att kryptera autentiseringsuppgifterna. Cmdlet: en använder certifikatet som gatewayen är konfigurerad för att använda för att kryptera autentiseringsuppgifterna. Du kan använda de krypterade autentiseringsuppgifterna som returneras av denna cmdlet och lägger till den i **EncryptedCredential** elementet i den **connectionString** i JSON-filen som du använder med den [ Ny AzDataFactoryLinkedService](/powershell/module/az.datafactory/new-azdatafactorylinkedservice) cmdlet eller i JSON-kodfragmentet i Data Factory Editor i portalen. Det här alternativet och klicka på-när programmet är de säkraste alternativen. 
 
 #### <a name="javascript-cryptography-library-based-encryption"></a>JavaScript kryptografi biblioteksbaserad kryptering
 Du kan kryptera autentiseringsuppgifter för datalagring med [kryptering med JavaScript-biblioteket](https://www.microsoft.com/download/details.aspx?id=52439) från den [Kopieringsguiden](data-factory-copy-wizard.md). När du väljer det här alternativet kan Kopieringsguiden hämtar den offentliga nyckeln för gateway och används för att kryptera autentiseringsuppgifter för datalagring. Autentiseringsuppgifterna dekrypteras av gateway-datorn och skyddas av Windows [DPAPI](https://msdn.microsoft.com/library/ms995355.aspx).

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: 5403b5506a3758ede5ad06640335b873b6b9aa96
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: a89043f814bc97aeb081789e92d9e4488712a465
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54820843"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57439034"
 ---
 # <a name="load-balancing-with-azures-application-delivery-suite"></a>Belastningsutjämning med Azures paket för programleverans
 
@@ -59,7 +59,7 @@ När du väljer en global belastningsutjämnare mellan Traffic Manager och Azure
 | Traffic Manager | Azure Front Door Service |
 | --------------- | ------------------------ |
 |**Alla protokoll:** Eftersom Traffic Manager fungerar på DNS-nivå, kan du dirigera alla typer av nätverkstrafik; HTTP, TCP, UDP, osv. | **HTTP-acceleration:** Med ytterdörren är trafik via proxy på den Edge av Microsofts nätverk.  Därför se begäranden för HTTP (S) svarstid och dataflöde förbättringar svarstiden för SSL-förhandling och använder frekvent anslutningar från AFD till ditt program.|
-|**En lokal routning:** Trafiken går alltid från punkt till punkt med routning på en DNS-nivå.  Routning från filialen till ditt lokala datacenter kan ta en direkt sökväg. med Traffic Manager även på ditt eget nätverk. | **Oberoende skalbarhet:** Eftersom ytterdörren arbetar med HTTP-begäran, begäranden till olika URL-sökvägar kan vara dirigera till andra backend / regionala pooler (mikrotjänster) baserat på regler och hälsotillståndet för varje program mikrotjänst-tjänsten.|
+|**En lokal routning:** Trafiken går alltid från punkt till punkt med routning på en DNS-nivå.  Routning från filialen till din lokalt datacenter kan ta en direkt sökväg. med Traffic Manager även på ditt eget nätverk. | **Oberoende skalbarhet:** Eftersom ytterdörren arbetar med HTTP-begäran, begäranden till olika URL-sökvägar kan vara dirigera till andra backend / regionala pooler (mikrotjänster) baserat på regler och hälsotillståndet för varje program mikrotjänst-tjänsten.|
 |**Fakturering format:** DNS-baserade fakturering kan skalas upp med dina användare och tjänster med fler användare, högplaåter för att minska kostnaden vid högre användning. |**Infogad säkerhet:** Åtkomsten kan regler som t.ex hastighetsbegränsning, och IP-åtkomstkontrollposter så att du kan skydda serverdelen innan trafiken når ditt program. 
 
 </br>På grund av prestanda, funktionalitet och säkerhetsfördelarna till HTTP-arbetsbelastningar med ytterdörren rekommenderar vi att kunder använder åtkomsten för sina HTTP-arbetsbelastningar.    Traffic Manager och ytterdörren kan användas parallellt för att hantera all trafik för ditt program. 

@@ -1,26 +1,26 @@
 ---
-title: 'Snabbstart: Skicka ett arbetsflöde med BAM-filsindata – Microsoft Genomics'
+title: Skicka ett arbetsflöde med en BAM-fil indata – Microsoft Genomics
 titleSuffix: Azure
-description: I den här snabbstarten förutsätts det att du har klienten msgen installerad och har lyckats köra provdata genom tjänsten.
+description: Den här artikeln förutsätter att du har klienten msgen installerad och har kört exempeldata via tjänsten.
 services: genomics
 author: grhuynh
 manager: cgronlun
 ms.author: grhuynh
 ms.service: genomics
-ms.topic: quickstart
+ms.topic: conceptual
 ms.date: 12/07/2017
-ms.openlocfilehash: 91bc13dbf024df20ac23ca0ff83a73ed246dce28
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
-ms.translationtype: HT
+ms.openlocfilehash: 329ac374edbffa65a1b654a05a4934828f25d5de
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45729512"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57435091"
 ---
 # <a name="submit-a-workflow-using-a-bam-file-input"></a>Skicka ett arbetsflöde med en BAM-fil som indata
 
-I den här snabbstarten visar vi hur du skickar ett arbetsflöde till Microsoft Genomics-tjänsten om indatafilen är en enskild BAM-fil. I det här avsnittet förutsätts det att du redan har installerat och kört `msgen`-klienten och att du vet hur du använder Azure Storage. Om du har lyckats skickat ett arbetsflöde med tillhandahållna provdata är du redo att fortsätta med den här snabbstarten. 
+Den här artikeln visar hur du skickar ett arbetsflöde till Microsoft Genomics-tjänsten om indatafilen är en enskild BAM-fil. I det här avsnittet förutsätts det att du redan har installerat och kört `msgen`-klienten och att du vet hur du använder Azure Storage. Om du har skickat ett arbetsflöde med tillhandahållna provdata är du redo att fortsätta med den här artikeln. 
 
-## <a name="set-up-upload-your-bam-file-to-azure-storage"></a>Förberedelse: Överför BAM-filen till Azure Storage
+## <a name="set-up-upload-your-bam-file-to-azure-storage"></a>Konfigurera: Överför BAM-filen till Azure storage
 Vi antar att du har en enskild BAM-fil, *reads.bam*, och du har laddat upp den till ditt lagringskonto *myaccount* i Azure som **https://<span></span>myaccount.BLOB.Core<span></span>.windows<span></span>.net<span></span>/inputs/reads<span></span>.bam<span> </span>** . Du har API-URL och din åtkomstnyckel. Du vill ha utdata i **https://<span></span>myaccount.blob.core<span></span>.windows<span></span>.net<span></span>/outputs<span></span>**.
 
 

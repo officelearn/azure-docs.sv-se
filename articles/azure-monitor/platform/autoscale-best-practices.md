@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/07/2017
 ms.author: ancav
 ms.subservice: autoscale
-ms.openlocfilehash: 85a326c97ecf8476bdd802a718e082d0e5c7a89c
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 3700fb90318da3787830f9b6c202436c0e45e2fe
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54467372"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57454110"
 ---
 # <a name="best-practices-for-autoscale"></a>Bästa metoder för autoskalning
 Automatisk skalning i Azure Monitor gäller endast [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [molntjänster](https://azure.microsoft.com/services/cloud-services/), [App Service – Web Apps](https://azure.microsoft.com/services/app-service/web/), och [API Management-tjänster](https://docs.microsoft.com/azure/api-management/api-management-key-concepts).
@@ -38,7 +38,7 @@ Om du har en inställning som har minst = 2, maximalt = 2 och aktuellt instansan
 Om du manuellt uppdatera instansantalet till ett värde över eller under maximalt, skalas motorn för automatisk skalning automatiskt tillbaka till lägsta (om nedan) eller högsta (om ovan). Exempelvis kan du ställa in intervall mellan 3 och 6. Om du har en instans som körs kan skalas motorn för automatisk skalning till tre instanser på dess nästa körning. På samma sätt, om du manuellt anger skalan till åtta instanser på nästa körning skalar autoskalningsfunktionen den tillbaka till sex instanser på dess nästa körning.  Manuell skalning är tillfällig, såvida inte du återställer samt reglerna för automatisk skalning.
 
 ### <a name="always-use-a-scale-out-and-scale-in-rule-combination-that-performs-an-increase-and-decrease"></a>Använd alltid en skalbar och skala in kombination som utför en ökning och minskning
-Om du använder bara en del av en kombination, vidtar automatisk skalning endast åtgärder i en riktning (skala ut eller i) tills den når högsta eller lägsta Dölj avstånd räknar av anges i profilen för. Det är inte optimalt, helst du vill att din resurs att skala upp vid tidpunkter med hög användning för att säkerställa tillgänglighet. På samma sätt kan ibland av låg användning som du vill att din resurs att skala ned, så du kan spara kostnadsbesparingar.
+Om du använder bara en del av en kombination, vidtar automatisk skalning endast åtgärder i en riktning (skala ut eller i) tills den når högsta eller lägsta instans räknas av anges i profilen för. Det är inte optimalt, helst du vill att din resurs att skala upp vid tidpunkter med hög användning för att säkerställa tillgänglighet. På samma sätt kan ibland av låg användning som du vill att din resurs att skala ned, så du kan spara kostnadsbesparingar.
 
 ### <a name="choose-the-appropriate-statistic-for-your-diagnostics-metric"></a>Välj lämplig statistik för diagnostik-mått
 För diagnostik mått som du kan välja bland *genomsnittliga*, *minsta*, *maximala* och *totala* som ett mått för att skala genom. De vanligaste statistik är *genomsnittlig*.

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: danis
-ms.openlocfilehash: b88d850b708a10d0e0fdff2f54b68cb9b39988f5
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: 8638b788762a56813c622c0abffe2a8eae3c70c2
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42055005"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57437113"
 ---
 # <a name="use-the-azure-custom-script-extension-version-1-with-linux-virtual-machines"></a>Använda Azure anpassade skript-tillägget Version 1 med Linux-datorer
 
@@ -34,7 +34,7 @@ Den här artikeln beskriver hur du använder tillägget för anpassat skript fr�
 
 Det finns två Linux anpassade skripttillägg:
 
-* Version 1 – Microsoft.OSTCExtensions.CustomScriptForLinux
+* Version 1 - Microsoft.OSTCExtensions.CustomScriptForLinux
 
 * Version 2 – Microsoft.Azure.Extensions.CustomScript
 
@@ -126,10 +126,10 @@ De här objekten ska behandlas som känsliga data och anges i den skyddade Konfi
 | typ | CustomScriptForLinux | sträng |
 | typeHandlerVersion | 1.5 | int |
 | fileUris (t.ex.) | https://github.com/MyProject/Archive/MyPythonScript.py | matris |
-| commandToExecute (t.ex.) | Python MyPythonScript.py \<Mina param1\> | sträng |
+| commandToExecute (t.ex.) | python MyPythonScript.py \<my-param1\> | sträng |
 | enableInternalDNSCheck | true | boolesk |
 | storageAccountName (t.ex.) | examplestorageacct | sträng |
-| storageAccountKey (t.ex.) | TmJK/1N3AbAZ3q / + hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg == | sträng |
+| storageAccountKey (t.ex.) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | sträng |
 
 ### <a name="property-value-details"></a>Information om egenskapen
 
@@ -305,7 +305,7 @@ Nästa steg är att gå en kontroll av loggfilen, vilket format:
 /var/log/azure/<extension-name>/<version>/extension.log file.
 ```
 
-Du bör se ut för induvidual körningen, det ser ut ungefär som:
+Du bör se ut för enskilda körningen, det ser ut ungefär som:
 
 ```text
 2018/04/26 15:29:46 [Microsoft.OSTCExtensions.CustomScriptForLinux-1.5.2.2] Enable,transitioning,0,Launching the script...

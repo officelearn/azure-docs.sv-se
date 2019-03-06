@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: f04903cc1ffd16edd951969c86659c8f1f33105f
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 65763eb57904210b202fb30b4394deea3a1f7baf
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55814137"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57449571"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Pipelines och aktiviteter i Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -32,6 +32,8 @@ I den här artikeln beskriver vi pipelines och aktiviteter i Azure Data Factory 
 
 > [!NOTE]
 > Den här artikeln förutsätter att du har gått igenom [introduktion till Azure Data Factory](data-factory-introduction.md). Om du inte har praktiska-på-upplevelse med att skapa datafabriker, gå igenom [självstudien för omvandling av data](data-factory-build-your-first-pipeline.md) och/eller [data movement självstudien](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) skulle hjälpa dig att bättre förstå den här artikeln.
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="overview"></a>Översikt
 En datafabrik kan ha en eller flera pipelines. En pipeline är en logisk gruppering aktiviteter som tillsammans utför en uppgift. Aktiviteterna i en pipeline definierar åtgärder som ska utföras för dina data. Du kan till exempel använda en kopieringsaktivitet för att kopiera data från en lokal SQL Server till Azure Blob Storage. Använd sedan en Hive-aktivitet som kör ett Hive-skript på ett Azure HDInsight-kluster för att bearbeta/transformera data från Blob Storage för att producera utdata. Till sist använder du en andra kopieringsaktivitet för att kopiera utdata till ett Azure SQL Data Warehouse som Business Intelligence-rapporteringslösningar har skapats på.
@@ -94,10 +96,10 @@ Nu tar vi en närmare titt på hur en pipeline definieras i JSON-format. Den all
 
 | Tagga | Beskrivning | Krävs |
 | --- | --- | --- |
-| namn |Namnet på pipeline. Ange ett namn som representerar åtgärden som pipeline utför. <br/><ul><li>Maximalt antal tecken: 260</li><li>Måste börja med en bokstav siffra eller ett understreck (\_)</li><li>Följande tecken är inte tillåtna ”:”., ”+” ”,”?, ”/”, ”<” ”, >” ”, *”, ”%”, ”&” ”,:” ”,\\”</li></ul> |Ja |
+| namn |Namnet på pipeline. Ange ett namn som representerar åtgärden som pipeline utför. <br/><ul><li>Maximalt antal tecken: 260</li><li>Måste börja med en bokstav siffra eller ett understreck (\_)</li><li>Följande tecken är inte tillåtna ”:”., ”+” ”,”?, ”/”, ”<” ”, >” ”,\*”, ”%”, ”&” ”,:” ”,\\”</li></ul> |Ja |
 | beskrivning | Ange texten som beskriver vad pipeline används till. |Ja |
 | activities | Avsnittet **activities** kan ha en eller flera definierade aktiviteter. Se nästa avsnitt för information om aktiviteter JSON-element. | Ja |
-| start | Starta datum / tid för pipelinen. Måste vara i [ISO-format](http://en.wikipedia.org/wiki/ISO_8601). Till exempel: `2016-10-14T16:32:41Z`. <br/><br/>Det är möjligt att ange en lokal tid, till exempel en EST tid. Här är ett exempel: `2016-02-27T06:00:00-05:00`”, vilket är 6 AM uppskattad<br/><br/>Egenskaper för start- och ange tillsammans aktiva perioden för pipelinen. Utdatasegment produceras bara med i den här aktiva period. |Nej<br/><br/>Om du anger ett värde för end-egenskapen, måste du ange värdet för egenskapen start.<br/><br/>Start- och sluttider kan vara tom för att skapa en pipeline. Du måste ange båda värdena för att ställa in en aktiva perioden för pipelinen att köra. Om du inte anger start- och sluttider när du skapar en pipeline kan du ange dem med hjälp av cmdleten Set-AzureRmDataFactoryPipelineActivePeriod senare. |
+| start | Starta datum / tid för pipelinen. Måste vara i [ISO-format](http://en.wikipedia.org/wiki/ISO_8601). Till exempel: `2016-10-14T16:32:41Z`. <br/><br/>Det är möjligt att ange en lokal tid, till exempel en EST tid. Här är ett exempel: `2016-02-27T06:00:00-05:00`”, vilket är 6 AM uppskattad<br/><br/>Egenskaper för start- och ange tillsammans aktiva perioden för pipelinen. Utdatasegment produceras bara med i den här aktiva period. |Nej<br/><br/>Om du anger ett värde för end-egenskapen, måste du ange värdet för egenskapen start.<br/><br/>Start- och sluttider kan vara tom för att skapa en pipeline. Du måste ange båda värdena för att ställa in en aktiva perioden för pipelinen att köra. Om du inte anger start- och sluttider när du skapar en pipeline kan du ange dem med hjälp av cmdleten Set-AzDataFactoryPipelineActivePeriod senare. |
 | slut | Slutdatum /-tid för pipelinen. Om anges måste vara i ISO-format. Exempel: `2016-10-14T17:32:41Z` <br/><br/>Det är möjligt att ange en lokal tid, till exempel en EST tid. Här är ett exempel: `2016-02-27T06:00:00-05:00`, vilket är 6 AM EST.<br/><br/>Om du vill köra pipelinen på obestämd tid, ange 9999-09-09 som värde för end-egenskapen. <br/><br/> En pipeline är aktiv endast mellan dess start- och sluttid. Då utförs inte före starttiden eller efter sluttiden. Om pipelinen pausas körs den inte oavsett dess start- och tid. För en pipeline kan köras, bör det inte pausas. Se [schemaläggning och körning](data-factory-scheduling-and-execution.md) förstår hur schemaläggning och körning fungerar i Azure Data Factory. |Nej <br/><br/>Om du anger ett värde för egenskapen start, måste du ange värdet för egenskapen slutet.<br/><br/>Se information om den **starta** egenskapen. |
 | isPaused | Om värdet är true, pipelinen inte körs. Det är i pausläge. Standardvärde = false. Du kan använda den här egenskapen för att aktivera eller inaktivera en pipeline. |Nej |
 | pipelineMode | Metod för att schemalägga körningar för pipelinen. Tillåtna värden är: schemalagd (standard), genomfört.<br/><br/>”Schemalagd” anger att pipelinen körs vid ett angivet tidsintervall enligt den aktiva perioden (start- och -tid). ”Onetime” anger att pipelinen körs bara en gång. Onetime pipelines som är skapade får inte vara ändrade/uppdateras för tillfället. Se [Onetime pipeline](#onetime-pipeline) mer information om hur du genomfört. |Nej |

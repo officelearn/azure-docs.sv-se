@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: ce65f71349ae6d7e86ebae1ee2067653a63b89b4
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: e464787919577b89b1cfec11e579cb17c18e2878
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55161077"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57404234"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-ad-b2c"></a>Konfigurera resursägarens lösenord autentiseringsuppgifter flöde i Azure AD B2C
 
@@ -40,7 +40,7 @@ Följande flöden stöds inte:
 1.  Logga in på Azure Portal som global administratör för din Azure AD B2C-klient.
 2.  Om du vill växla till din Azure AD B2C-klient, väljer du B2C-katalogen i det övre högra hörnet i portalen.
 3.  Klicka på **användarflöden**, och välj **nytt användarflöde**.
-4.  Klicka på den **alla** fliken och markera **Resursägaren**.
+4.  Klicka på den **alla** fliken och markera **logga in med ROPC**.
 5.  Ange ett namn för användarflödet, till exempel *ROPC_Auth*.
 6.  Under **Programanspråk**, klickar du på **visa fler**.
 7.  Välj Programanspråk som du behöver för ditt program, till exempel visningsnamn, e-postadress och identitetsprovider.
@@ -69,7 +69,7 @@ Använd din favorit-API-program för utveckling för att generera ett API-anrop 
 
 `https://yourtenant.b2clogin.com/<yourtenant.onmicrosoft.com>/oauth2/v2.0/token?p=B2C_1_ROPC_Auth`
 
-| Nyckel | Value |
+| Nyckel | Värde |
 | --- | ----- |
 | användarnamn | leadiocl@outlook.com |
 | lösenord | Passxword1 |
@@ -83,7 +83,7 @@ Använd din favorit-API-program för utveckling för att generera ett API-anrop 
 Den faktiska POST-begäran som ser ut som följande:
 
 ```
-POST /yourtenant.onmicrosoft.com/oauth2/v2.0/token?B2C_1_ROPC_Auth HTTP/1.1
+POST /yourtenant.onmicrosoft.com/oauth2/v2.0/token?p=B2C_1_ROPC_Auth HTTP/1.1
 Host: yourtenant.b2clogin.com
 Content-Type: application/x-www-form-urlencoded
 
@@ -109,7 +109,7 @@ Skapa en POST-anrop som den som visas här med informationen i följande tabell 
 
 `https://yourtenant.b2clogin.com/<yourtenant.onmicrosoft.com>/oauth2/v2.0/token?p=B2C_1_ROPC_Auth`
 
-| Nyckel | Value |
+| Nyckel | Värde |
 | --- | ----- |
 | _typ av beviljande | refresh_token |
 | response_type | id_token |

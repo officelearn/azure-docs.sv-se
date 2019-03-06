@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 09/11/2018
+ms.date: 03/05/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 940a5839fe2c2eea11d9570d3dca48cd514e21af
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: 7a3990366814beda83852fc7c07c896445388c23
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417252"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57454909"
 ---
 # <a name="azure-automation-runbook-types"></a>Typer av Azure Automation-runbooks
 
@@ -22,10 +22,10 @@ Azure Automation har stöd för flera typer av runbooks som beskrivs kortfattat 
 
 | Type | Beskrivning |
 |:--- |:--- |
-| [Grafisk](#graphical-runbooks) |Baserat på Windows PowerShell och skapas och redigerade helt i grafiska redigeraren i Azure-portalen. |
-| [Grafiskt PowerShell-arbetsflöde](#graphical-runbooks) |Baserade på Windows PowerShell-arbetsflöden och skapas och redigeras helt i den grafiska redigeraren i Azure-portalen. |
+| [Grafisk](#graphical-runbooks)|Baserat på Windows PowerShell och skapas och redigerade helt i grafiska redigeraren i Azure-portalen. |
+| [Grafiskt PowerShell-arbetsflöde](#graphical-runbooks)|Baserade på Windows PowerShell-arbetsflöden och skapas och redigeras helt i den grafiska redigeraren i Azure-portalen. |
 | [PowerShell](#powershell-runbooks) |Text-runbook som baseras på Windows PowerShell-skript. |
-| [PowerShell-arbetsflöde](#powershell-workflow-runbooks) |Text-runbook som baseras på Windows PowerShell-arbetsflöde. |
+| [PowerShell-arbetsflöde](#powershell-workflow-runbooks)|Text-runbook som baseras på Windows PowerShell-arbetsflöde. |
 | [Python](#python-runbooks) |Text-runbook är baserad på Python. |
 
 ## <a name="graphical-runbooks"></a>Grafiska runbooks
@@ -45,6 +45,7 @@ Azure Automation har stöd för flera typer av runbooks som beskrivs kortfattat 
 * Det går inte att redigera runbook utanför Azure-portalen.
 * Kan kräva en kodaktiviteten som innehåller PowerShell-kod för att köra komplex logik.
 * Det går inte att visa eller redigera PowerShell-koden som skapas av grafiskt arbetsflöde direkt. Du kan visa koden som du skapar i alla aktiviteter i kod.
+* Det går inte att köra på en Linux Hybrid Runbook Worker
 
 ## <a name="powershell-runbooks"></a>PowerShell-runbooks
 
@@ -54,6 +55,7 @@ PowerShell-runbooks är baserade på Windows PowerShell.  Du kan direkt redigera
 
 * Implementera alla komplex logik med PowerShell-kod utan ytterligare komplexiteten i PowerShell-arbetsflöde.
 * Runbook startar snabbare än PowerShell Workflow-runbooks eftersom det inte behöver kompileras innan du kör.
+* Kan köra i Azure eller på både Linux och Windows Hybrid Runbook Worker
 
 ### <a name="limitations"></a>Begränsningar
 
@@ -88,6 +90,7 @@ PowerShell Workflow-runbooks är text-runbookflöden baserade på [Windows Power
 * Runbook måste hantera den ytterligare komplexiteten med PowerShell-arbetsflöde som [deserialisera objekt](automation-powershell-workflow.md#code-changes).
 * Runbook tar längre tid att starta än PowerShell-runbooks eftersom den måste kompileras innan du kör.
 * PowerShell-runbooks kan bara ingå som underordnade runbooks med hjälp av cmdleten Start-AzureAutomationRunbook, vilket skapar ett nytt jobb.
+* Det går inte att köra på en Linux Hybrid Runbook Worker
 
 ## <a name="python-runbooks"></a>Python-runbooks
 
@@ -96,6 +99,7 @@ Python runbooks kompilera under Python 2.  Du kan redigera koden för en runbook
 ### <a name="advantages"></a>Fördelar
 
 * Utnyttja de robusta Python-biblioteken.
+* Kan köra i Azure eller på både Linux Hybrid Runbook Worker. Windows Hybrid Runbook Worker stöds med [python2.7](https://www.python.org/downloads/release/latest/python2) installerad.
 
 ### <a name="limitations"></a>Begränsningar
 

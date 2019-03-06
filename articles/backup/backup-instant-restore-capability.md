@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: sogup
-ms.openlocfilehash: 893e0f5738a013f22404d7ccfdd9a73647a511f6
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 3b367619e2d22754b45e8178a25021a677cab6da
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57316089"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57405768"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Få förbättrad säkerhetskopian och återställer prestanda med Azure Backup-omedelbar återställning kapacitet
 
@@ -78,7 +78,7 @@ Du kan också gå till **egenskaper** sidan i valvet för att hämta den **uppgr
 
 
 ## <a name="configure-snapshot-retention-using-azure-portal"></a>Konfigurera ögonblicksbild kvarhållning av säkerhetskopior med hjälp av Azure portal
-Det här alternativet är för närvarande tillgängligt i **USA, västra centrala**, **södra**, **östra**, **Nordeuropa**,  **Kanada, centrala**, **Östra Kanada**, **Frankrike, centrala**, **Frankrike, södra**, **centrala Korea**,  **Södra Korea**, **Storbritannien, södra 2**, **Storbritannien, norra**, **Storbritannien, södra**, och **Storbritannien, västra**.
+Det här alternativet är för närvarande tillgängligt i **USA, västra centrala**, **södra**, **östra**, **Nordeuropa**,  **Kanada, centrala**, **Östra Kanada**, **Frankrike, centrala**, **Frankrike, södra**, **centrala Korea**,  **Södra Korea**, **Storbritannien, södra 2**, **Storbritannien, norra**, **Storbritannien, södra**, **Storbritannien, västra**, **Indien, centrala** , **Australien, sydöstra**, **Östasien**, **centrala USA**, **Sydostasien**,  **Norra centrala USA**, **USA, västra 2**, **södra centrala USA**, **östra Japan**, **västra Japan**, och **Östra usa2**.
 
 I Azure-portalen för de uppgraderade användarna, visas ett fält har lagts till i den **VM Backup-principen** bladet under den **omedelbar återställning** avsnittet. Du kan ändra kvarhållningsvaraktighetens ögonblicksbild från den **VM säkerhetskopieringsprincip** bladet för alla virtuella datorer som är associerade med principen för specifika säkerhetskopiering.
 

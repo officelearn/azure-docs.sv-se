@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/16/2017
 ms.author: kumud
-ms.openlocfilehash: 1bf2222e09644520bbfc6c5424c7f29d05b3c799
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 454d06912c34a07b0b2617936769888e92adaba1
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51257705"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57453668"
 ---
 # <a name="performance-considerations-for-traffic-manager"></a>Prestandaöverväganden för Traffic Manager
 
@@ -58,7 +58,7 @@ Verktygen på dessa platser mått DNS svarstider och visa löst IP-adresser för
 
 * [Övervakare för CA-App syntetiska](https://asm.ca.com/en/checkit.php)
 
-    Kallades tidigare för verktyget Watchmouse Kontrollera webbplats, den här platsen visar DNS-matchningstid från flera geografiska områden samtidigt. Ange URL: en om du vill se DNS-matchningstid, anslutningstid och hastighet från flera geografiska platser. Använd det här testet om du vill se vilka värdtjänsten returneras för olika platser runt om i världen.
+    Kallades tidigare för verktyget Watch-mus Kontrollera webbplats, den här platsen visar DNS-matchningstid från flera geografiska områden samtidigt. Ange URL: en om du vill se DNS-matchningstid, anslutningstid och hastighet från flera geografiska platser. Använd det här testet om du vill se vilka värdtjänsten returneras för olika platser runt om i världen.
 
     ![pulse1](./media/traffic-manager-performance-considerations/traffic-manager-web-site-watchmouse.png)
 

@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
-ms.openlocfilehash: 0246b19c0155fe2707ac780c7acb61be424d2caf
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: 1ff7d430edd3f638ad5efcc5a89604e4ed732211
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57008939"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57450999"
 ---
 # <a name="azure-iot-hub-developer-guide"></a>Azure IoT Hub developer guide
 
@@ -55,7 +55,7 @@ Den här utvecklarhandboken för IoT Hub innehåller följande artiklar:
 
 * [Kontrollera åtkomsten till IoT Hub](iot-hub-devguide-security.md) beskriver säkerhetsmodellen används för att ge åtkomst till IoT Hub funktioner för både enheter och komponenter i molnet. Artikeln innehåller information om hur du använder token och X.509-certifikat, samt information om de behörigheter som du kan ge.
 
-* [Använda enhetstvillingar för att synkronisera tillstånd och konfigurationer](iot-hub-devguide-device-twins.md) beskriver den *enhetstvillingen* begrepp. Artikeln också beskrivs enhetstvillingar funktioner att innehålla, till exempel synkronisera en enhet med dess enhetstvilling. Artikeln innehåller information om de data som lagras i enhetstvillingen.
+* [Använda enhetstvillingar för att synkronisera tillstånd och konfigurationer](iot-hub-devguide-device-twins.md) beskriver den *enhetstvillingen* begrepp. Artikeln beskriver också funktioner enheten twins exponera, till exempel synkronisera en enhet med dess enhetstvilling. Artikeln innehåller information om de data som lagras i enhetstvillingen.
 
 * [Anropa en direkt metod på en enhet](iot-hub-devguide-direct-methods.md) beskriver livscykeln för en direkt metod. Artikeln beskriver hur du anropa metoder på en enhet från din serverdelsapp och hanterar den direkta metoden på enheten.
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: d8059ac4965ce5582b899ebc0d765e00ae9deb35
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 7e97983e1316476848eb4a051cd636339b8caff7
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55892804"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57440972"
 ---
 # <a name="azure-iot-edge-supported-systems"></a>Azure IoT Edge stöds system
 
@@ -40,7 +40,7 @@ Azure IoT Edge som körs på de flesta operativsystem som kan köra behållare. 
     * har det här operativsystemet i automatiska tester
     * tillhandahåller installationspaket för dem.
 * Nivå 2-system kan betraktas som kompatibelt med Azure IoT Edge och relativt lätt kan användas. Detta innebär att:
-    * Microsoft har gjort ad hoc testning på plattformarna eller känner av en partner som kör Azure IoT Edge-plattformen
+    * Microsoft har gjort ad hoc-testning på plattformarna eller känner av en partner som kör Azure IoT Edge-plattformen
     * Installationspaket för andra plattformar fungerar på följande plattformar
     
 Familjen av värdens operativsystem måste alltid matcha familjen av gäst-OS som används i en modul behållare. Med andra ord, kan du bara använda Linux-behållare på Linux och Windows-behållare på Windows. När du använder Windows kan är bara processen isolerade behållare stöds, inte hyper-v isolerad behållare.  

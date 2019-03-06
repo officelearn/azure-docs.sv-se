@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 9d6b72a994b034b0bbc735e5cca2ce987a02af61
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 0fa3638ef47fb8cb1d0237a2ab9530ab76d316dc
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53197473"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57449276"
 ---
 # <a name="saas-application-test-drive-tab"></a>SaaS-program Test Drive-fliken
 
@@ -33,7 +33,7 @@ Provkörning förser kunder med en praktisk Migreringsprocess provversion av din
 
 ## <a name="how-a-test-drive-works"></a>Så här fungerar en provkörning
 
-En potentiell kund söker och identifierar ditt program på Marketplace. Kunden loggar in och samtycker till att användningsvillkoren. Kunden får då din miljö som är förkonfigurerade för att prova i ett fast antal timmar, medan du får ett högt kvalificerade lead att följa upp med. Mer information finns i [vad är en provkörning?](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/what-is-test-drive)
+En potentiell kund söker och identifierar ditt program på Marketplace. Kunden loggar in och samtycker till att användningsvillkoren. Kunden får då din miljö som är förkonfigurerade för att prova i ett fast antal timmar, medan du får ett högt kvalificerade lead att följa upp med. Mer information finns i [vad är en provkörning?](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/what-is-test-drive)
 
 ## <a name="publishing-steps"></a>Publicera steg
 
@@ -49,9 +49,9 @@ De viktigaste publishing stegen för att lägga till ett test Drive är:
 Det finns fyra olika typer av Provkörningar, var och en baserat på vilken typ av produkt, scenario och du är på marketplace.
 |  **Typ**          |  **Beskrivning**  |  **Konfigurationsanvisningar**  |
 |  ---------------   |  ---------------  |  ---------------  |
-|     Azure Resource Manager               |    Testköra en Azure Resource Manager är en Distributionsmall som innehåller alla Azure-resurser som utgör en lösning som skapas av utgivaren. Produkter som passar den här typen av Test Drive är sådana som använder endast Azure-resurser.               |       [Azure Resource Manager Test Drive](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/azure-resource-manager-test-drive)            |
-|       Värdbaserad             |       En värd Test Drive tar bort komplexiteten i installationen av Microsoft hosting och underhålla den tjänst som utför Test Drive användaren etablering och borttagning.             |         [Värdbaserad Test Drive](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/hosted-test-drive)          |
-|      Logikapp              |       En Logic App Test Drive är en Distributionsmall som är avsedd att omfatta alla komplexa lösningsarkitekturer. Alla Dynamics-program eller anpassade produkter bör använda den här typen av Test Drive.            |      [Logic App-provkörning](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/logic-app-test-drive)             |
+|     Azure Resource Manager               |    Testköra en Azure Resource Manager är en Distributionsmall som innehåller alla Azure-resurser som utgör en lösning som skapas av utgivaren. Produkter som passar den här typen av Test Drive är sådana som använder endast Azure-resurser.               |       [Azure Resource Manager Test Drive](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/azure-resource-manager-test-drive)            |
+|       Värdbaserad             |       En värd Test Drive tar bort komplexiteten i installationen av Microsoft hosting och underhålla den tjänst som utför Test Drive användaren etablering och borttagning.             |         [Värdbaserad Test Drive](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/hosted-test-drive)          |
+|      Logikapp              |       En Logic App Test Drive är en Distributionsmall som är avsedd att omfatta alla komplexa lösningsarkitekturer. Alla Dynamics-program eller anpassade produkter bör använda den här typen av Test Drive.            |      [Logic App-provkörning](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/logic-app-test-drive)             |
 |       Power BI             |         Testa Power BI består av en inbäddad länk till en anpassade instrumentpanel. En produkt som du vill visa en interaktiva Power BI-objekt bör använda den här typen av Test Drive. Allt du behöver ladda upp är din inbäddade Power BI-URL.          |        [Power BI-provkörning](#Power-BI-test-drive)           |
 
 ### <a name="power-bi-test-drive"></a>Power BI-provkörning
@@ -83,4 +83,4 @@ Använd följande steg för att konfigurera en testenhet.
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Fliken storefront information](./cpp-storefront-tab.md)
+[Fliken Butiksinformation](./cpp-storefront-tab.md)

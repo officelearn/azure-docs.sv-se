@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: d451b53868dcd3253aba2a1c3118ddcc140445c3
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 3f4e87e5602b3c77178ab5bc842705cfedf64af2
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56883002"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57448381"
 ---
 # <a name="security-frame-communication-security--mitigations"></a>Security ram: Communication Security | Mitigations 
 | Produkt/tjänst | Artikel |
 | --------------- | ------- |
 | **Azure Event Hub** | <ul><li>[Säker kommunikation till Event Hub med hjälp av SSL/TLS](#comm-ssltls)</li></ul> |
 | **Dynamics CRM** | <ul><li>[Kontrollera behörighet för tjänsten och kontrollera att anpassade Services eller ASP.NET-sidor respekterar CRM-säkerhet](#priv-aspnet)</li></ul> |
-| **Azure Data Factory** | <ul><li>[Använd Data management gateway vid anslutning på lokal SQL Server till Azure Data Factory](#sqlserver-factory)</li></ul> |
+| **Azure Data Factory** | <ul><li>[Använd Data management gateway när du ansluter en lokal SQL Server till Azure Data Factory](#sqlserver-factory)</li></ul> |
 | **Identitetsserver** | <ul><li>[Se till att all trafik till Identity Server är över HTTPS-anslutning](#identity-https)</li></ul> |
 | **Webbprogram** | <ul><li>[Verifiera X.509-certifikat som används för att autentisera anslutningar för SSL, TLS och DTLS](#x509-ssltls)</li><li>[Konfigurera SSL-certifikat för anpassad domän i Azure App Service](#ssl-appservice)</li><li>[Tvinga all trafik till Azure App Service via HTTPS-anslutning](#appservice-https)</li><li>[Aktivera HTTP strikt Transport Security (HSTS)](#http-hsts)</li></ul> |
 | **Databas** | <ul><li>[Se till att SQL server-kryptering och certifikatet anslutningsverifiering](#sqlserver-validation)</li><li>[Framtvinga krypterad kommunikation till SQLServer](#encrypted-sqlserver)</li></ul> |
@@ -60,7 +60,7 @@ ms.locfileid: "56883002"
 | **Referenser**              | Gäller inte  |
 | **Steg** | Kontrollera behörighet för tjänsten och kontrollera att anpassade Services eller ASP.NET-sidor respekterar CRM-säkerhet |
 
-## <a id="sqlserver-factory"></a>Använd Data management gateway vid anslutning på lokal SQL Server till Azure Data Factory
+## <a id="sqlserver-factory"></a>Använd Data management gateway när du ansluter en lokal SQL Server till Azure Data Factory
 
 | Rubrik                   | Information      |
 | ----------------------- | ------------ |
@@ -68,7 +68,7 @@ ms.locfileid: "56883002"
 | **SDL fas**               | Distribution |  
 | **Tillämpliga tekniker** | Generisk |
 | **Attribut**              | Länkade tjänsttyper – Azure och lokalt |
-| **Referenser**              |[Flytta data mellan lokal och Azure Data Factory](https://azure.microsoft.com/documentation/articles/data-factory-move-data-between-onprem-and-cloud/#create-gateway), [gateway för datahantering](https://azure.microsoft.com/documentation/articles/data-factory-data-management-gateway/) |
+| **Referenser**              |[Flytta data mellan lokala och Azure Data Factory](https://azure.microsoft.com/documentation/articles/data-factory-move-data-between-onprem-and-cloud/#create-gateway), [gateway för datahantering](https://azure.microsoft.com/documentation/articles/data-factory-data-management-gateway/) |
 | **Steg** | <p>Verktyget Data Management Gateway (DMG) krävs för att ansluta till datakällor som skyddas bakom corpnet eller brandvägg.</p><ol><li>Låsa datorn isolerar DMG-verktyget och förhindrar att felaktiga program från att skadas eller snooping på källdatorn data. (T.ex.) senaste uppdateringarna måste installeras, aktivera minsta nödvändiga portar kontrollerad konton etablering, granskning aktiverat diskkryptering aktiverat osv.)</li><li>Data Gateway-nyckeln måste roteras regelbundet eller när du förnyar DMG tjänstkontolösenord</li><li>Data eltransit via länken-tjänsten måste vara krypterat</li></ol> |
 
 ## <a id="identity-https"></a>Se till att all trafik till Identity Server är över HTTPS-anslutning

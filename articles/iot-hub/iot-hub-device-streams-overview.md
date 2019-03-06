@@ -8,12 +8,12 @@ ms.service: iot-hub
 ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: rezas
-ms.openlocfilehash: 7b436acb937216ad02289282f4a7ac5f88df2eea
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: b5e42585178505ee4c23ca4054e83f61ee1254b8
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57245157"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57436144"
 ---
 # <a name="iot-hub-device-streams-preview"></a>IoT Hub Device dataströmmar (förhandsversion)
 
@@ -153,7 +153,7 @@ Två sidor av varje dataström (på enheten och tjänsten sida) använder IoT Hu
 ## <a name="iot-hub-device-stream-samples"></a>IoT Hub Device Stream-exempel
 
 Vi har publicerat två [Snabbstart exempel](/azure/iot-hub) till demonstrerar användningen av enheten strömmar av program.
-* Den *echo* exempel visar programatic användning av enheten strömmar (genom att anropa API SDK: er direkt).
+* Den *echo* exempel visar programmässig användning av enheten strömmar (genom att anropa API SDK: er direkt).
 * Den *lokal proxy* exempel visar tunneling trafiktyper startklara klient/server-program (till exempel SSH, RDP eller web) via enheten strömmar.
 
 De här exemplen beskrivs mer i detalj nedan.

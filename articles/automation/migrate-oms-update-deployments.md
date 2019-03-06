@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 07/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 9a897cdb10506939232f667250dfb0dbaf196bc0
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 6c85060e3ca566cbf9fe51904fa9bf62322075a5
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56822233"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57436229"
 ---
 # <a name="migrate-your-oms-update-deployments-to-azure"></a>Migrera dina distributioner av OMS till Azure
 
@@ -66,7 +66,7 @@ För datorer som ska uppdateras, väljer du den sparade sökningen som används 
 |Uppdateringar som ska uteslutas|Ange uppdateringarna som ska uteslutas. För Windows, ange KB-artikel utan den **KB** prefix. Ange paketnamnet för Linux, eller Använd ett jokertecken.  |
 |Schemainställningar|Välj tid att starta och välj sedan antingen **när** eller **återkommande** för upprepningen.|| Underhållsperiod |Antal minuter som angetts för uppdateringar. Värdet får inte vara mindre än 30 minuter eller mer än 6 timmar. |
 | Underhållsperiod |Antal minuter som angetts för uppdateringar. Värdet kan inte vara mindre än 30 minuter och högst 6 timmar |
-| Starta om kontroll| Detemines hur omstarter ska hanteras.</br>De tillgängliga alternativen är:</br>Starta om vid behov (standard)</br>Starta alltid om</br>Starta aldrig om</br>Endast omstart – uppdateringar installeras inte|
+| Starta om kontroll| Anger hur omstarter ska hanteras.</br>De tillgängliga alternativen är:</br>Starta om vid behov (standard)</br>Starta alltid om</br>Starta aldrig om</br>Endast omstart – uppdateringar installeras inte|
 
 Klicka på **schemalagda uppdateringsdistributioner** att visa status för den nyligen skapade uppdateringsdistributionen.
 

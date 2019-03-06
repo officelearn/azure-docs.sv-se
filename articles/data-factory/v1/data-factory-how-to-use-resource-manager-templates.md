@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 9fb63ae141665dbeb64ee7046427098d4482aa55
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 904b5db35281ed07745b33c364c03e3f4c4bfd2b
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56111330"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57449214"
 ---
 # <a name="use-templates-to-create-azure-data-factory-entities"></a>Använd mallar för att skapa Azure Data Factory-entiteter
 > [!NOTE]
@@ -28,7 +28,7 @@ ms.locfileid: "56111330"
 ## <a name="overview"></a>Översikt
 När du använder Azure Data Factory för dina databehov integration, kan bli återanvända samma mönster i olika miljöer eller utför samma uppgift upprepade gånger inom samma lösning. Mallar kan du implementera och hantera dessa scenarier på ett enkelt sätt. Mallar i Azure Data Factory är perfekt för scenarier som innefattar återanvändning och upprepas.
 
-Överväg att situation där en organisation har 10 fabriker över hela världen. Loggar från varje anläggning lagras i en separat lokal SQL Server-databas. Företaget vill skapa ett enda datalager i molnet för adhoc-analys. Det vill också har den samma logik, men olika konfigurationer för utveckling, testning och produktionsmiljöer.
+Överväg att situation där en organisation har 10 fabriker över hela världen. Loggar från varje anläggning lagras i en separat lokal SQL Server-databas. Företaget vill skapa ett enda datalager i molnet för ad hoc-analyser. Det vill också har den samma logik, men olika konfigurationer för utveckling, testning och produktionsmiljöer.
 
 I det här fallet måste en uppgift du upprepa i samma miljö, men med olika värden över 10 datafabriker för varje anläggning. I praktiken **upprepning** finns. Mall kan abstraktion av den här Allmänt flöde (det vill säga pipelines som har samma aktiviteter i varje data factory), men använder en separat parameterfil för varje anläggning.
 

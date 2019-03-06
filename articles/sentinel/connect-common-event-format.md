@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2019
 ms.author: rkarlin
-ms.openlocfilehash: c09e999779ddc384cf70d20c9368f9d93d695e2a
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: b1065c583bb7f10f2a584f77b182e4e53084073b
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57243541"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57440216"
 ---
 # <a name="connect-your-external-solution-using-common-event-format"></a>Ansluta din externa lösning med hjälp av Common Event Format
 
@@ -48,13 +48,13 @@ Anslutningen mellan Sentinel-Azure och din CEF-installation sker i tre steg:
 
 ## <a name="step-1-connect-to-your-cef-appliance-via-dedicated-azure-vm"></a>Steg 1: Ansluta till din CEF-installation via dedikerade virtuella Azure-datorer
 
-Du måste distribuera en agent på en dedikerad Linux-dator (VM eller lokal) för att stödja kommunikation mellan enheten och Azure Sentinel. Du kan distribuera agenten automatiskt eller manuellt. Automatisk distribution baseras på Resource Manager-mallar och kan bara användas om den dedikerade Linux-datorn är en ny virtuell dator som du skapar i Azure.
+Du måste distribuera en agent på en dedikerad Linux-dator (VM eller lokalt) för kommunikationen mellan enheten och Azure Sentinel. Du kan distribuera agenten automatiskt eller manuellt. Automatisk distribution baseras på Resource Manager-mallar och kan bara användas om den dedikerade Linux-datorn är en ny virtuell dator som du skapar i Azure.
 
  ![CEF i Azure](./media/connect-cef/cef-syslog-azure.png)
 
 Du kan också distribuera agenten manuellt på en befintlig Azure-dator på en virtuell dator i ett annat moln eller på en lokal dator. 
 
- ![CEF on-premises](./media/connect-cef/cef-syslog-onprem.png)
+ ![CEF lokalt](./media/connect-cef/cef-syslog-onprem.png)
 
 ### <a name="deploy-the-agent-in-azure"></a>Distribuera agenten i Azure
 
@@ -91,7 +91,7 @@ Du kan också distribuera agenten manuellt på en befintlig Azure-dator på en v
       2. Starta om Syslog-agenten med hjälp av det här kommandot: `sudo /opt/microsoft/omsagent/bin/service_control restart [{workspace GUID}]`
       1. Bekräfta att det inte finns några fel i agentloggen genom att köra det här kommandot: `tail /var/opt/microsoft/omsagent/log/omsagent.log`
 
-### <a name="deploy-the-agent-on-an-on-prem-linux-server"></a>Distribuera agenten på en lokal Linux-server
+### <a name="deploy-the-agent-on-an-on-premises-linux-server"></a>Distribuera agenten på en på lokala Linux-server
 
 Om du inte använder Azure, distribuera manuellt Azure Sentinel-agenten ska köras på en dedikerad server för Linux.
 

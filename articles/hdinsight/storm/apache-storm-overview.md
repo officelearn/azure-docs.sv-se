@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: 3bae6d93ffe7ea028d3329dcc69c2f33bdf7aa2a
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: ce458328967337976ed713f78ead24e2f1fcdb96
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53635467"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57451289"
 ---
 # <a name="what-is-apache-storm-on-azure-hdinsight"></a>Vad är Apache Storm på Azure HDInsight?
 
@@ -48,7 +48,7 @@ Storm på HDInsight har följande funktioner:
 
 En lista över företag som använder Apache Storm för sina lösningar för analys i realtid finns i [Företag som använder Apache Storm](https://storm.apache.org/documentation/Powered-By.html).
 
-Kom igång med Storm, se [Kom igång med pache Storm på HDInsight][gettingstarted].
+Kom igång med Storm, se [Kom igång med Apache Storm på HDInsight][gettingstarted].
 
 ## <a name="how-does-apache-storm-work"></a>Hur fungerar Apache Storm
 
@@ -94,7 +94,7 @@ Du kan skapa ett nytt Storm-kluster i HDInsight på några minuter. Mer informat
 
 * __Azure Data Lake Storage__: Ett exempel på hur du använder Data Lake Storage med Storm-kluster finns i [använda Azure Data Lake Storage med Apache Storm på HDInsight](apache-storm-write-data-lake-store.md).
 
-* __Händelsehubbar__: Ett exempel på hur du använder Event Hubs med Storm-kluster finns i följande exempel:
+* __Event Hubs__: Ett exempel på hur du använder Event Hubs med Storm-kluster finns i följande exempel:
 
     * [Bearbeta händelser från Azure Event Hubs med Apache Storm i HDInsight (Java)](https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/)
 
@@ -142,7 +142,7 @@ Mer information finns i [Garantier om databearbetning](https://storm.apache.org/
 
 ### <a name="ibasicbolt"></a>IBasicBolt
 
-Ett vanligt mönster är att läsa en inkommande tuppel, sända noll eller flera tupplar och sedan kvittera den inkommande tuppeln omedelbart i slutet av metoden. Storm innehåller ett [IBasicBolt](https://storm.apache.org/releases/current/javadocs/org/apache/storm/topology/IBasicBolt.html)-gränssnitt för att automatisera detta mönster.
+Det är vanligt mönster för att läsa en inkommande tuppel, sända noll eller flera tupplar och kanske uttrycka den inkommande tuppeln omedelbart i slutet av metoden. Storm innehåller ett [IBasicBolt](https://storm.apache.org/releases/current/javadocs/org/apache/storm/topology/IBasicBolt.html)-gränssnitt för att automatisera detta mönster.
 
 ### <a name="joins"></a>Kopplingar
 

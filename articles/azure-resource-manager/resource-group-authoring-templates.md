@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/01/2019
+ms.date: 03/04/2019
 ms.author: tomfitz
-ms.openlocfilehash: 024a622484a83957c9ab5f4a684a346a55787ccf
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: f67741417c6d31c4adf1d063aac3bd3ccc310fde
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57313369"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57440258"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Förstå strukturen och syntaxen för Azure Resource Manager-mallar
 
@@ -33,6 +33,7 @@ I sin enklaste struktur har en mall följande element:
 {
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "",
+  "apiProfile": "",
   "parameters": {  },
   "variables": {  },
   "functions": [  ],
@@ -45,120 +46,14 @@ I sin enklaste struktur har en mall följande element:
 |:--- |:--- |:--- |
 | $schema |Ja |Platsen för schemat JSON-fil som beskriver versionen av mallspråk.<br><br> För distribution av resursgrupper, använder du: `https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#`<br><br>För prenumerationsdistributioner av, använder du: `https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#` |
 | contentVersion |Ja |Versionen av mallen (till exempel 1.0.0.0). Du kan ange ett värde för det här elementet. Använd det här värdet till dokumentet betydande förändringar i mallen. Det här värdet kan användas för att se till att rätt mall används när du distribuerar resurser med hjälp av mallen. |
-| parameters |Nej |Värden som tillhandahålls när distributionen körs för att anpassa resursdistributionen. |
-| Variabler |Nej |Värden som används som JSON-fragment i mallen för att förenkla mallspråksuttryck. |
-| functions |Nej |Användardefinierade funktioner som är tillgängliga i mallen. |
-| resurser |Ja |Resurstyper som är distribuerade eller uppdateras i en resursgrupp eller prenumeration. |
-| utdata |Nej |Värden som returneras efter distributionen. |
+| apiProfile |Nej | En API-version som fungerar som en uppsättning API-versioner för resurstyper. Använd det här värdet för att undvika att behöva ange API-versioner för varje resurs i mallen. När du anger en profil för API-version och inte anger en API-version för resurstypen använder Resource Manager API-versionen från profilen för den resurstypen. Mer information finns i [spåra versioner med hjälp av API-profiler](templates-cloud-consistency.md#track-versions-using-api-profiles). |
+| [parameters](#parameters) |Nej |Värden som tillhandahålls när distributionen körs för att anpassa resursdistributionen. |
+| [Variabler](#variables) |Nej |Värden som används som JSON-fragment i mallen för att förenkla mallspråksuttryck. |
+| [Funktioner](#functions) |Nej |Användardefinierade funktioner som är tillgängliga i mallen. |
+| [Resurser](#resources) |Ja |Resurstyper som är distribuerade eller uppdateras i en resursgrupp eller prenumeration. |
+| [utdata](#outputs) |Nej |Värden som returneras efter distributionen. |
 
-Varje element har egenskaper som du kan ange. I följande exempel visas den fullständiga syntaxen för en mall:
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "",
-  "parameters": {  
-    "<parameter-name>" : {
-      "type" : "<type-of-parameter-value>",
-      "defaultValue": "<default-value-of-parameter>",
-      "allowedValues": [ "<array-of-allowed-values>" ],
-      "minValue": <minimum-value-for-int>,
-      "maxValue": <maximum-value-for-int>,
-      "minLength": <minimum-length-for-string-or-array>,
-      "maxLength": <maximum-length-for-string-or-array-parameters>,
-      "metadata": {
-        "description": "<description-of-the parameter>" 
-      }
-    }
-  },
-  "variables": {
-    "<variable-name>": "<variable-value>",
-    "<variable-object-name>": {
-      <variable-complex-type-value>
-    },
-    "<variable-object-name>": {
-      "copy": [
-        {
-          "name": "<name-of-array-property>",
-          "count": <number-of-iterations>,
-          "input": <object-or-value-to-repeat>
-        }
-      ]
-    },
-    "copy": [
-      {
-        "name": "<variable-array-name>",
-        "count": <number-of-iterations>,
-        "input": <object-or-value-to-repeat>
-      }
-    ]
-  },
-  "functions": [
-    {
-      "namespace": "<namespace-for-your-function>",
-      "members": {
-        "<function-name>": {
-          "parameters": [
-            {
-              "name": "<parameter-name>",
-              "type": "<type-of-parameter-value>"
-            }
-          ],
-          "output": {
-            "type": "<type-of-output-value>",
-            "value": "<function-expression>"
-          }
-        }
-      }
-    }
-  ],
-  "resources": [
-    {
-      "condition": "<boolean-value-whether-to-deploy>",
-      "apiVersion": "<api-version-of-resource>",
-      "type": "<resource-provider-namespace/resource-type-name>",
-      "name": "<name-of-the-resource>",
-      "location": "<location-of-resource>",
-        "tags": {
-          "<tag-name1>": "<tag-value1>",
-          "<tag-name2>": "<tag-value2>"
-        },
-        "comments": "<your-reference-notes>",
-        "copy": {
-          "name": "<name-of-copy-loop>",
-          "count": "<number-of-iterations>",
-          "mode": "<serial-or-parallel>",
-          "batchSize": "<number-to-deploy-serially>"
-        },
-        "dependsOn": [
-          "<array-of-related-resource-names>"
-        ],
-        "properties": {
-          "<settings-for-the-resource>",
-          "copy": [
-            {
-              "name": ,
-              "count": ,
-              "input": {}
-            }
-          ]
-        },
-        "resources": [
-          "<array-of-child-resources>"
-        ]
-    }
-  ],
-  "outputs": {
-    "<outputName>" : {
-      "condition": "<boolean-value-whether-to-output-value>",
-      "type" : "<type-of-output-value>",
-      "value": "<output-value-expression>"
-    }
-  }
-}
-```
-
-Den här artikeln beskriver avsnitt i mallen i större detalj.
+Varje element har egenskaper som du kan ange. Den här artikeln beskriver avsnitt i mallen i större detalj.
 
 ## <a name="syntax"></a>Syntax
 
@@ -515,23 +410,274 @@ Du anropar en funktion med:
 ```
 
 ## <a name="resources"></a>Resurser
-I resursavsnittet kan du definiera de resurser som är distribuerade eller uppdateras. Det här avsnittet kan bli komplicerade eftersom du måste förstå de typer som du distribuerar för att ge rätt värden.
+I resursavsnittet kan du definiera de resurser som är distribuerade eller uppdateras.
+
+### <a name="available-properties"></a>Tillgängliga egenskaper
+
+Du definierar resurser med följande struktur:
 
 ```json
 "resources": [
   {
-    "apiVersion": "2016-08-01",
-    "name": "[variables('webSiteName')]",
-    "type": "Microsoft.Web/sites",
-    "location": "[resourceGroup().location]",
-    "properties": {
-      "serverFarmId": "/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.Web/serverFarms/<plan-name>"
-    }
+      "condition": "<true-to-deploy-this-resource>",
+      "apiVersion": "<api-version-of-resource>",
+      "type": "<resource-provider-namespace/resource-type-name>",
+      "name": "<name-of-the-resource>",
+      "location": "<location-of-resource>",
+      "tags": {
+          "<tag-name1>": "<tag-value1>",
+          "<tag-name2>": "<tag-value2>"
+      },
+      "comments": "<your-reference-notes>",
+      "copy": {
+          "name": "<name-of-copy-loop>",
+          "count": <number-of-iterations>,
+          "mode": "<serial-or-parallel>",
+          "batchSize": <number-to-deploy-serially>
+      },
+      "dependsOn": [
+          "<array-of-related-resource-names>"
+      ],
+      "properties": {
+          "<settings-for-the-resource>",
+          "copy": [
+              {
+                  "name": ,
+                  "count": ,
+                  "input": {}
+              }
+          ]
+      },
+      "sku": {
+          "name": "<sku-name>",
+          "tier": "<sku-tier>",
+          "size": "<sku-size>",
+          "family": "<sku-family>",
+          "capacity": <sku-capacity>
+      },
+      "kind": "<type-of-resource>",
+      "plan": {
+          "name": "<plan-name>",
+          "promotionCode": "<plan-promotion-code>",
+          "publisher": "<plan-publisher>",
+          "product": "<plan-product>",
+          "version": "<plan-version>"
+      },
+      "resources": [
+          "<array-of-child-resources>"
+      ]
   }
-],
+]
 ```
 
-Villkorligt inkludera eller exkludera en resurs under distributionen, använda den [elementet](resource-manager-templates-resources.md#condition). Mer information om resurser finns i [resursavsnittet i Azure Resource Manager-mallar](resource-manager-templates-resources.md).
+| Elementnamn | Krävs | Beskrivning |
+|:--- |:--- |:--- |
+| villkor | Nej | Booleskt värde som anger om resursen ska etableras under den här distributionen. När `true`, där resursen skapas under distributionen. När `false`, resursen är hoppades över för den här distributionen. |
+| apiVersion |Ja |Version av REST-API för att använda för att skapa resursen. Information om tillgängliga värden finns [mallreferensen](/azure/templates/). |
+| typ |Ja |Typ av resursen. Det här värdet är en kombination av namnområde med resursprovidern och resurstypen (till exempel **Microsoft.Storage/storageAccounts**). Information om tillgängliga värden finns [mallreferensen](/azure/templates/). |
+| namn |Ja |Resursens namn. Namnet måste följa URI-komponent begränsningar som definierats i RFC3986. Dessutom är Azure-tjänster som exponerar resursnamnet externa parter Kontrollera namnet och kontrollera att det inte ett försök att imitera en annan identitet. |
+| location |Varierar |Geo-platser som stöds för den angivna resursen. Du kan välja någon av de tillgängliga platserna, men vanligtvis det vara bra att välja ett som är nära användarna. Vanligtvis är det också vara bra att placera resurser som interagerar med varandra i samma region. De flesta typer av resurser kräver en plats, men vissa typer (till exempel en rolltilldelning) kräver inte en plats. |
+| tags |Nej |Taggar som är kopplade till resursen. Lägga till taggar för att organisera resurser logiskt i din prenumeration. |
+| kommentarer |Nej |Dina anteckningar för att dokumentera resurserna i mallen. Mer information finns i [kommentarer i mallar](resource-group-authoring-templates.md#comments). |
+| kopiera |Nej |Om fler än en instans, hur många resurser för att skapa. Standardläget är parallell. Ange seriell läge när du inte vill att alla eller resurserna som ska distribueras på samma gång. Mer information finns i [och skapa flera instanser av resurser i Azure Resource Manager](resource-group-create-multiple.md). |
+| dependsOn |Nej |Resurser som måste distribueras innan den här resursen har distribuerats. Resource Manager utvärderar beroenden mellan resurser och distribuerar dem i rätt ordning. När resurserna inte är beroende av varandra, är de distribueras parallellt. Värdet kan vara en kommaavgränsad lista över en resurs namn eller resurs unika identifierare. Endast lista över resurser som distribueras i den här mallen. Resurser som inte har definierats i den här mallen måste redan finnas. Undvik att lägga till onödiga beroenden som de kan sakta distributionen och skapa cirkulärt tjänstberoende. Anvisningar för inställningen beroenden finns i [definiera beroenden i Azure Resource Manager-mallar](resource-group-define-dependencies.md). |
+| properties |Nej |Resurs-specifika konfigurationsinställningar. Värdena för egenskaperna är samma som de värden som du anger i begärandetexten för REST API-åtgärd (PUT-metoden) att skapa resursen. Du kan också ange en kopia matris för att skapa flera instanser av en egenskap. Information om tillgängliga värden finns [mallreferensen](/azure/templates/). |
+| sku | Nej | Vissa resurser kan värden som definierar SKU för att distribuera. Du kan till exempel ange typen av redundans för ett lagringskonto. |
+| typ | Nej | Vissa resurser kan ett värde som definierar typ av resurs som du distribuerar. Du kan till exempel ange vilken typ av Cosmos DB för att skapa. |
+| plan | Nej | Vissa resurser kan värden som definierar planerar att distribuera. Du kan till exempel ange marketplace-avbildning för en virtuell dator. | 
+| resurser |Nej |Underordnade resurser som är beroende av resursen som definieras. Ange endast resurstyper som tillåts av schemat för den överordnade resursen. Den fullständigt kvalificerade typ av den underordnade resursen omfattar resurstyp överordnade som **Microsoft.Web/sites/extensions**. Beroende på den överordnade resursen är inte underförstådd. Du måste uttryckligen definiera det beroendet. |
+
+### <a name="condition"></a>Tillstånd
+
+När du måste bestämma under distributionen om du vill skapa en resurs eller inte, använda den `condition` element. Värdet för det här elementet matchas till true eller false. När värdet är true, skapas resursen. När värdet är false är inte resursen skapas. Värdet kan bara tillämpas på hela resursen.
+
+Normalt använder du det här värdet när du vill skapa en ny resurs eller Använd en befintlig. Till exempel vill ange om ett nytt lagringskonto har distribuerats eller ett befintligt lagringskonto används, använder du:
+
+```json
+{
+    "condition": "[equals(parameters('newOrExisting'),'new')]",
+    "type": "Microsoft.Storage/storageAccounts",
+    "name": "[variables('storageAccountName')]",
+    "apiVersion": "2017-06-01",
+    "location": "[resourceGroup().location]",
+    "sku": {
+        "name": "[variables('storageAccountType')]"
+    },
+    "kind": "Storage",
+    "properties": {}
+}
+```
+
+För en komplett exempel-mall som använder den `condition` element, se [virtuell dator med ett nytt eller befintligt virtuellt nätverk, lagring och offentlig IP-adress](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-new-or-existing-conditions).
+
+### <a name="resource-names"></a>Resursnamn
+
+I allmänhet bör arbeta du med tre typer av resursnamn i Resource Manager:
+
+* Resursnamn som måste vara unika.
+* Resursnamn som inte behöver vara unikt, men du kan du välja att ange ett namn som hjälper dig att identifiera resursen.
+* Resursnamn som kan vara allmän.
+
+Ange en **unika resursnamn** för någon resurstyp som har en slutpunkt för åtkomst av data. Vissa vanliga typer av resurser som kräver ett unikt namn är:
+
+* Azure Storage<sup>1</sup> 
+* Funktionen Web Apps i Azure App Service
+* SQL Server
+* Azure Key Vault
+* Azure Cache for Redis
+* Azure Batch
+* Azure Traffic Manager
+* Azure Search
+* Azure HDInsight
+
+<sup>1</sup> lagringskontonamn måste också vara gemener, 24 tecken eller mindre, och inte har någon bindestreck.
+
+När du anger namnet, du kan manuellt skapa ett unikt namn eller använda den [uniqueString()](resource-group-template-functions-string.md#uniquestring) funktionen för att skapa ett namn. Du kanske också vill lägga till ett prefix eller suffix till den **uniqueString** resultatet. Ändra det unika namnet kan du enkelt identifiera resurstyp från namn. Du kan till exempel generera ett unikt namn för ett lagringskonto med hjälp av följande variabel:
+
+```json
+"variables": {
+  "storageAccountName": "[concat(uniqueString(resourceGroup().id),'storage')]"
+}
+```
+
+För vissa typer av resurser, kanske du vill ange en **namn för att identifiera**, men namnet behöver inte vara unika. Ange ett namn som beskriver den användning eller egenskaper för dessa typer av resurser.
+
+```json
+"parameters": {
+  "vmName": { 
+    "type": "string",
+    "defaultValue": "demoLinuxVM",
+    "metadata": {
+      "description": "The name of the VM to create."
+    }
+  }
+}
+```
+
+För resurstyperna som du främst åtkomst via en annan resurs, kan du använda en **allmänt namn** som är hårdkodad i mallen. Du kan till exempel ange ett standard, allmän namn på brandväggsregler på en SQLServer:
+
+```json
+{
+  "type": "firewallrules",
+  "name": "AllowAllWindowsAzureIps",
+  ...
+}
+```
+
+### <a name="resource-location"></a>Resursplats
+
+När du distribuerar en mall måste du ange en plats för varje resurs. Olika resurstyper stöds på olika platser. För att få platser som stöds för en resurstyp kan se [Azure resursproviders och resurstyper](resource-manager-supported-services.md).
+
+Använd en parameter för att ange plats för resurser och ange standardvärdet till `resourceGroup().location`.
+
+I följande exempel visas ett lagringskonto som har distribuerats till en plats som anges som en parameter:
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "storageAccountType": {
+      "type": "string",
+      "defaultValue": "Standard_LRS",
+      "allowedValues": [
+        "Standard_LRS",
+        "Standard_GRS",
+        "Standard_ZRS",
+        "Premium_LRS"
+      ],
+      "metadata": {
+        "description": "Storage Account type"
+      }
+    },
+    "location": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]",
+      "metadata": {
+        "description": "Location for all resources."
+      }
+    }
+  },
+  "variables": {
+    "storageAccountName": "[concat('storage', uniquestring(resourceGroup().id))]"
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Storage/storageAccounts",
+      "name": "[variables('storageAccountName')]",
+      "location": "[parameters('location')]",
+      "apiVersion": "2018-07-01",
+      "sku": {
+        "name": "[parameters('storageAccountType')]"
+      },
+      "kind": "StorageV2",
+      "properties": {}
+    }
+  ],
+  "outputs": {
+    "storageAccountName": {
+      "type": "string",
+      "value": "[variables('storageAccountName')]"
+    }
+  }
+}
+```
+
+### <a name="child-resources"></a>Underordnade resurser
+
+Du kan också definiera en uppsättning underordnade resurser inom vissa typer av resurser. Underordnade resurser finns resurser som finns bara inom ramen för en annan resurs. Till exempel kan inte en SQL-databas finnas utan en SQLServer så att databasen är en underordnad till servern. Du kan definiera databasen i definitionen för servern.
+
+```json
+{
+  "name": "exampleserver",
+  "type": "Microsoft.Sql/servers",
+  "apiVersion": "2014-04-01",
+  ...
+  "resources": [
+    {
+      "name": "exampledatabase",
+      "type": "databases",
+      "apiVersion": "2014-04-01",
+      ...
+    }
+  ]
+}
+```
+
+När kapslade, vilken anges till `databases` men dess fullständiga resurstypen är `Microsoft.Sql/servers/databases`. Du inte anger `Microsoft.Sql/servers/` eftersom det antas från den överordnade resurstypen. Namnet på underordnade resursen är inställd `exampledatabase` men det fullständiga namnet innehåller namnet på överordnade. Du inte anger `exampleserver` eftersom det antas från den överordnade resursen.
+
+Formatet för den underordnade resurstypen är: `{resource-provider-namespace}/{parent-resource-type}/{child-resource-type}`
+
+Formatet på namnet på underordnade resursen är: `{parent-resource-name}/{child-resource-name}`
+
+Men du behöver definiera databasen på servern. Du kan definiera den underordnade resursen på den översta nivån. Du kan använda den här metoden om den överordnade resursen inte är distribuerat i samma mall, eller om vill använda `copy` att skapa fler än en underordnad resurs. Med den här metoden måste du ange fullständig resurstypen och inkludera namnet på överordnade resursen i namnet på underordnade resursen.
+
+```json
+{
+  "name": "exampleserver",
+  "type": "Microsoft.Sql/servers",
+  "apiVersion": "2014-04-01",
+  "resources": [ 
+  ],
+  ...
+},
+{
+  "name": "exampleserver/exampledatabase",
+  "type": "Microsoft.Sql/servers/databases",
+  "apiVersion": "2014-04-01",
+  ...
+}
+```
+
+När en fullständiga referens till en resurs, inte bara en sammanfogning av två den för att kombinera segment från typ och namn. Använd i stället en sekvens med efter namnområdet, *typnamn/* par från minst specifika att mest specifika:
+
+```json
+{resource-provider-namespace}/{parent-resource-type}/{parent-resource-name}[/{child-resource-type}/{child-resource-name}]*
+```
+
+Exempel:
+
+`Microsoft.Compute/virtualMachines/myVM/extensions/myExt` stämmer `Microsoft.Compute/virtualMachines/extensions/myVM/myExt` stämmer inte
 
 ## <a name="outputs"></a>Utdata
 
@@ -716,20 +862,6 @@ I VS Code kan du ange språkläge till JSON med kommentarer. Infogade kommentare
 1. Välj **JSON med kommentarer**.
 
    ![Välj språkläge](./media/resource-group-authoring-templates/select-json-comments.png)
-
-## <a name="template-limits"></a>Mall för gränser
-
-Begränsa storleken på din mall till 1 MB och varje parameterfilen till 64 KB. Gränsen på 1 MB gäller sluttillstånd för mallen när det har utökats med iterativ resursdefinitioner och värden för variabler och parametrar. 
-
-Du är också begränsad till:
-
-* 256 parametrar
-* 256 variabler
-* 800 resurser (inklusive antal kopior)
-* 64 utdatavärden
-* 24,576 tecken i ett malluttryck
-
-Du kan överskrida vissa begränsningar för mallen med hjälp av en kapslad mall. Mer information finns i [använda länkade mallar när du distribuerar Azure-resurser](resource-group-linked-templates.md). Du kan kombinera flera värden i ett objekt för att minska antalet parametrar, variabler eller utdata. Mer information finns i [objekt som parametrar](resource-manager-objects-as-parameters.md).
 
 [!INCLUDE [arm-tutorials-quickstarts](../../includes/resource-manager-tutorials-quickstarts.md)]
 

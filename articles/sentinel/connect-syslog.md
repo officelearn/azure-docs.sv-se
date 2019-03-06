@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2019
 ms.author: rkarlin
-ms.openlocfilehash: ec23d4cec5ec1dbcaba5eca73ae6aba8391f2742
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 55949da97f58f1d8c1670f69d25e92d6bb4e9eef
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57242147"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57447310"
 ---
 # <a name="connect-your-external-solution-using-syslog"></a>Ansluta din externa lösning med hjälp av Syslog
 
@@ -27,7 +27,7 @@ ms.locfileid: "57242147"
 > Azure Sentinel är för närvarande i offentlig förhandsversion.
 > Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Du kan ansluta alla lokala installation som stöder Syslog till Sentinel-Azure. Detta görs med hjälp av en agent som baseras på en Linux-dator mellan enheten och Azure Sentinel. Om din Linux-dator i Azure kan strömma du loggar från din enheten eller programmet till en dedikerad arbetsyta som du skapar i Azure och ansluter den. Om din Linux-datorn inte är i Azure kan du strömma loggar från din installation i en dedikerad lokal virtuell dator eller en dator där du installerar agenten för Linux. 
+Du kan ansluta alla lokala installation som stöder Syslog till Sentinel-Azure. Detta görs med hjälp av en agent som baseras på en Linux-dator mellan enheten och Azure Sentinel. Om din Linux-dator i Azure kan strömma du loggar från din enheten eller programmet till en dedikerad arbetsyta som du skapar i Azure och ansluter den. Om din Linux-dator inte finns i Azure kan du strömma loggar från din installation till en dedikerad i lokala virtuella datorn eller datorn där du installerar agenten för Linux. 
 
 > [!NOTE]
 > Om din installation stöder Syslog CEF, anslutningen är fullständig och du bör välja det här alternativet och följ instruktionerna i [samla in data från CEF](connect-common-event-format.md).

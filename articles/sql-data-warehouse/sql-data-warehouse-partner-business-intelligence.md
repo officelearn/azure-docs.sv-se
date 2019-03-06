@@ -10,12 +10,12 @@ ms.subservice: consume
 ms.date: 04/17/2018
 ms.author: jrj
 ms.reviewer: igorstan
-ms.openlocfilehash: a45ed3ad5360f613a4949799c60ec09f4a30afb9
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: 7a02fff5a727bd0a3be762e9e458a71f66b87ba2
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56427776"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57452682"
 ---
 # <a name="sql-data-warehouse-business-intelligence-partners"></a>SQL Data Warehouse business intelligence-partner
 Välj från ett brett utbud av branschledande verktyg för att skapa ditt informationslager-lösning från slutpunkt till slutpunkt.  Den här artikeln visar Microsoft partnerföretag med stöd för Azure SQL Data Warehouse för business intelligence (BI)-lösningar.

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 72d6784eec847d610c4dfecea2f73953a9ed8615
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 5e53c427564e37e04045d59d35c0d5d5ff285d05
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57312672"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57403962"
 ---
 # <a name="create-and-provision-an-iot-edge-device-with-a-virtual-tpm-on-a-linux-virtual-machine"></a>Skapa och etablera en IoT Edge-enhet med en virtuell TPM på en Linux-dator
 
@@ -95,7 +95,7 @@ I den virtuella datorn, skapar du ett C SDK-verktyg som du kan använda för att
 3. Logga in på den virtuella datorn och sedan följa stegen i [ställa in en Linux-utvecklingsmiljö](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md#linux) att installera och skapa Azure IoT-enhetens SDK för C. 
 
    >[!TIP]
-   >Under den här artikeln får du kopiera till och klistra in från från den virtuella datorn, som inte är enkelt att programmet för Hyper-V Manager-anslutning. Du kanske vill ansluta till den virtuella datorn via Hyper-V Manager en gång till läsa dess IP-adress: `ifconfig`. Du kan sedan använda IP-adress för att ansluta via SSH: `ssh <username>@<ipaddress>`.
+   >Under den här artikeln får du kopiera till och klistra in från från den virtuella datorn, som inte är enkelt att programmet för Hyper-V Manager-anslutning. Du kanske vill ansluta till den virtuella datorn via Hyper-V Manager en gång att hämta dess IP-adress: `ifconfig`. Du kan sedan använda IP-adress för att ansluta via SSH: `ssh <username>@<ipaddress>`.
 
 4. Kör följande kommandon för att skapa ett C SDK-verktyg som hämtar din etablering enhetsinformationen. 
 

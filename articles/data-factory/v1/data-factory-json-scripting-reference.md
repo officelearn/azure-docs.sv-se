@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: f65b9904b15815c997c1608940109ad296ee6007
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 7b32a493dc7dc8aa3ac2bbf1f195a43621c7449a
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822875"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57447191"
 ---
 # <a name="azure-data-factory---json-scripting-reference"></a>Azure Data Factory - JSON-skript referens
 > [!NOTE]
@@ -26,6 +26,8 @@ ms.locfileid: "55822875"
 
 
 Den här artikeln innehåller JSON-scheman och exempel för att definiera Azure Data Factory-enheter (pipeline, aktivitet, datauppsättningen och länkad tjänst).
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="pipeline"></a>Pipeline
 Den övergripande strukturen för en pipelinedefinition är följande:
@@ -50,7 +52,7 @@ Följande tabell beskrivs egenskaperna i pipeline-JSON-definition:
 | namn | Namnet på pipeline. Ange ett namn som representerar åtgärden aktivitet eller pipeline har konfigurerats för att göra<br/><ul><li>Maximalt antal tecken: 260</li><li>Måste börja med en bokstav siffra eller ett understreck (\_)</li><li>Följande tecken är inte tillåtna ”:”., ”+” ”,”?, ”/”, ”<” ”, >” ”, *”, ”%”, ”&” ”,:” ”,\\”</li></ul> |Ja |
 | beskrivning |Text som beskriver vad aktiviteten eller pipeline används till | Nej |
 | activities | Innehåller en lista över aktiviteter. | Ja |
-| start |Starta datum / tid för pipelinen. Måste vara i [ISO-format](http://en.wikipedia.org/wiki/ISO_8601). Exempel: 2014-10-14T16:32:41. <br/><br/>Det är möjligt att ange en lokal tid, till exempel en EST tid. Här är ett exempel: `2016-02-27T06:00:00**-05:00`, vilket är 6 AM EST.<br/><br/>Egenskaper för start- och ange tillsammans aktiva perioden för pipelinen. Utdatasegment produceras bara med i den här aktiva period. |Nej<br/><br/>Om du anger ett värde för end-egenskapen, måste du ange värdet för egenskapen start.<br/><br/>Start- och sluttider kan vara tom för att skapa en pipeline. Du måste ange båda värdena för att ställa in en aktiva perioden för pipelinen att köra. Om du inte anger start- och sluttider när du skapar en pipeline kan du ange dem med hjälp av cmdleten Set-AzureRmDataFactoryPipelineActivePeriod senare. |
+| start |Starta datum / tid för pipelinen. Måste vara i [ISO-format](http://en.wikipedia.org/wiki/ISO_8601). Exempel: 2014-10-14T16:32:41. <br/><br/>Det är möjligt att ange en lokal tid, till exempel en EST tid. Här är ett exempel: `2016-02-27T06:00:00**-05:00`, vilket är 6 AM EST.<br/><br/>Egenskaper för start- och ange tillsammans aktiva perioden för pipelinen. Utdatasegment produceras bara med i den här aktiva period. |Nej<br/><br/>Om du anger ett värde för end-egenskapen, måste du ange värdet för egenskapen start.<br/><br/>Start- och sluttider kan vara tom för att skapa en pipeline. Du måste ange båda värdena för att ställa in en aktiva perioden för pipelinen att köra. Om du inte anger start- och sluttider när du skapar en pipeline kan du ange dem med hjälp av cmdleten Set-AzDataFactoryPipelineActivePeriod senare. |
 | slut |Slutdatum /-tid för pipelinen. Om anges måste vara i ISO-format. Exempel: 2014-10-14T17:32:41 <br/><br/>Det är möjligt att ange en lokal tid, till exempel en EST tid. Här är ett exempel: `2016-02-27T06:00:00**-05:00`, vilket är 6 AM EST.<br/><br/>Om du vill köra pipelinen på obestämd tid, ange 9999-09-09 som värde för end-egenskapen. |Nej <br/><br/>Om du anger ett värde för egenskapen start, måste du ange värdet för egenskapen slutet.<br/><br/>Se information om den **starta** egenskapen. |
 | isPaused |Om värdet är true pipelinen inte körs. Standardvärde = false. Du kan använda den här egenskapen för att aktivera eller inaktivera. |Nej |
 | pipelineMode |Metod för att schemalägga körningar för pipelinen. Tillåtna värden är: schemalagd (standard), genomfört.<br/><br/>”Schemalagd” anger att pipelinen körs vid ett angivet tidsintervall enligt den aktiva perioden (start- och -tid). ”Onetime” anger att pipelinen körs bara en gång. Onetime pipelines som är skapade får inte vara ändrade/uppdateras för tillfället. Se [Onetime pipeline](data-factory-create-pipelines.md#onetime-pipeline) mer information om hur du genomfört. |Nej |
@@ -2458,7 +2460,7 @@ Följande tabell innehåller en beskrivning för JSON-element som är specifika 
 | användarnamn |Ange användarnamnet om du använder Windows-autentisering. Exempel: **domainname\\användarnamn**. |Nej |
 | lösenord |Ange lösenord för det användarkonto som du angav för användarnamnet. |Nej |
 
-Du kan kryptera autentiseringsuppgifter med hjälp av den **New-AzureRmDataFactoryEncryptValue** cmdlet och Använd dem i anslutningssträngen som du ser i följande exempel (**EncryptedCredential** egenskapen):
+Du kan kryptera autentiseringsuppgifter med hjälp av den **New-AzDataFactoryEncryptValue** cmdlet och Använd dem i anslutningssträngen som du ser i följande exempel (**EncryptedCredential** egenskapen):
 
 ```json
 "connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=True;EncryptedCredential=<encrypted credential>",
@@ -3319,7 +3321,7 @@ Du kan länka ett lokalt filsystem till en Azure-datafabrik med den **lokala fil
 | värd |Anger rotsökvägen i den mapp som du vill kopiera. Använd escape-tecknet ”\” för specialtecken i strängen. Se exemplet länkade tjänsten och datauppsättningen definitioner för exempel. |Ja |
 | användar-ID |Ange ID för den användare som har åtkomst till servern. |Nej (om du väljer encryptedCredential) |
 | lösenord |Ange lösenordet för användaren (användar-ID). |Nej (om du väljer encryptedCredential |
-| encryptedCredential |Ange de krypterade autentiseringsuppgifterna som du kan få genom att köra cmdlet New-AzureRmDataFactoryEncryptValue. |Nej (om du vill ange användar-ID och lösenord i klartext) |
+| encryptedCredential |Ange de krypterade autentiseringsuppgifterna som du kan få genom att köra cmdlet New-AzDataFactoryEncryptValue. |Nej (om du vill ange användar-ID och lösenord i klartext) |
 | gatewayName |Anger namnet på den gateway som Data Factory ska använda för att ansluta till den lokala servern. |Ja |
 
 #### <a name="sample-folder-path-definitions"></a>Exemplet mappen sökväg definitioner
@@ -3732,7 +3734,7 @@ För att definiera en HDFS länkad tjänst genom att ange den **typ** på den l�
 | Användarnamn |Användarnamn för Windows-autentisering. |Ja (för Windows-autentisering) |
 | lösenord |Lösenordet för Windows-autentisering. |Ja (för Windows-autentisering) |
 | gatewayName |Namnet på den gateway som Data Factory-tjänsten ska använda för att ansluta till med HDFS. |Ja |
-| encryptedCredential |[Ny AzureRMDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/azurerm.datafactories/new-azurermdatafactoryencryptvalue) utdata för åtkomst-autentiseringsuppgift. |Nej |
+| encryptedCredential |[Ny AzDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/az.datafactory/new-azdatafactoryencryptvalue) utdata för åtkomst-autentiseringsuppgift. |Nej |
 
 #### <a name="example-using-anonymous-authentication"></a>Exempel: Använder anonym autentisering
 
@@ -4272,7 +4274,7 @@ För att definiera en OData länkad tjänst genom att ange den **typ** på den l
 | användarnamn |Ange användarnamnet om du använder grundläggande autentisering. |Ja (endast om du använder grundläggande autentisering) |
 | lösenord |Ange lösenord för det användarkonto som du angav för användarnamnet. |Ja (endast om du använder grundläggande autentisering) |
 | authorizedCredential |Om du använder OAuth, klickar du på **auktorisera** i Data Factory-Kopieringsguide eller redigerare och ange dina autentiseringsuppgifter och sedan värdet för den här egenskapen kommer att genereras automatiskt. |Ja (endast om du använder OAuth-autentisering) |
-| gatewayName |Namnet på den gateway som Data Factory-tjänsten ska använda för att ansluta till OData-tjänst på plats. Ange endast om du kopierar data från en lokal OData-källan. |Nej |
+| gatewayName |Namnet på den gateway som Data Factory-tjänsten ska använda för att ansluta till OData-tjänst på plats. Ange endast om du kopierar data från lokala OData-källan. |Nej |
 
 #### <a name="example---using-basic-authentication"></a>Exempel – använder grundläggande autentisering
 ```json
@@ -4462,7 +4464,7 @@ För att definiera en ODBC länkad tjänst genom att ange den **typ** på den l�
 }
 ```
 #### <a name="example---using-basic-authentication-with-encrypted-credentials"></a>Exempel – med grundläggande autentisering och krypterade autentiseringsuppgifter
-Du kan kryptera autentiseringsuppgifterna med den [New-AzureRMDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/azurerm.datafactories/new-azurermdatafactoryencryptvalue) (version 1.0 av Azure PowerShell) cmdlet eller [New-AzureDataFactoryEncryptValue](https://msdn.microsoft.com/library/dn834940.aspx) (0,9 eller tidigare version av Azure PowerShell).
+Du kan kryptera autentiseringsuppgifterna med den [New AzDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/az.datafactory/new-azdatafactoryencryptvalue) cmdlet.
 
 ```json
 {
@@ -5062,7 +5064,7 @@ Följande tabell innehåller en beskrivning för JSON-element som är specifika 
 | användarnamn |Ange användarnamnet om du använder Windows-autentisering. Exempel: **domainname\\användarnamn**. |Nej |
 | lösenord |Ange lösenord för det användarkonto som du angav för användarnamnet. |Nej |
 
-Du kan kryptera autentiseringsuppgifter med hjälp av den **New-AzureRmDataFactoryEncryptValue** cmdlet och Använd dem i anslutningssträngen som du ser i följande exempel (**EncryptedCredential** egenskapen):
+Du kan kryptera autentiseringsuppgifter med hjälp av den **New-AzDataFactoryEncryptValue** cmdlet och Använd dem i anslutningssträngen som du ser i följande exempel (**EncryptedCredential** egenskapen):
 
 ```JSON
 "connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=True;EncryptedCredential=<encrypted credential>",
@@ -5125,7 +5127,7 @@ Du kan ange följande egenskaper i en Hive-aktivitet JSON-definition. Egenskapen
 
 | Egenskap  | Beskrivning | Krävs |
 | --- | --- | --- |
-| skriptet |Ange infogat för Hive-skript |Nej |
+| skript |Ange infogat för Hive-skript |Nej |
 | skriptets sökväg |Store Hive-skriptet i Azure blob storage och ange sökvägen till filen. Använd ”skript” eller ”scriptPath-egenskapen. Båda kan inte användas tillsammans. Filnamnet är skiftlägeskänsligt. |Nej |
 | definierar |Ange parametrar som nyckel/värde-par för refererar till Hive-skript med hjälp av ”hiveconf” |Nej |
 
@@ -5171,7 +5173,7 @@ Du kan ange följande egenskaper i en Pig aktivitets-JSON-definition. Egenskapen
 
 | Egenskap  | Beskrivning | Krävs |
 | --- | --- | --- |
-| skriptet |Ange infogat för Pig-skript |Nej |
+| skript |Ange infogat för Pig-skript |Nej |
 | skriptets sökväg |Store Pig-skriptet i Azure blob storage och ange sökvägen till filen. Använd ”skript” eller ”scriptPath-egenskapen. Båda kan inte användas tillsammans. Filnamnet är skiftlägeskänsligt. |Nej |
 | definierar |Ange parametrar som nyckel/värde-par för refererar till Pig-skript |Nej |
 
@@ -5525,7 +5527,7 @@ Du kan ange följande egenskaper i en U-SQL aktivitets-JSON-definition. Egenskap
 |:--- |:--- |:--- |
 | scriptPath |Sökvägen till mappen som innehåller U-SQL-skriptet. Filens namn är skiftlägeskänsligt. |Nej (om du använder skriptet) |
 | scriptLinkedService |Länkade tjänst som länkar den lagring som innehåller skriptet som data factory |Nej (om du använder skriptet) |
-| skriptet |Ange infogade skript istället för att ange scriptPath och scriptLinkedService. Till exempel: ”skript”: ”CREATE DATABASE-test”. |Nej (om du använder scriptPath och scriptLinkedService) |
+| skript |Ange infogade skript istället för att ange scriptPath och scriptLinkedService. Till exempel: ”skript”: ”CREATE DATABASE-test”. |Nej (om du använder scriptPath och scriptLinkedService) |
 | degreeOfParallelism |Det maximala antalet noder samtidigt används för att köra jobbet. |Nej |
 | prioritet |Anger vilka jobb av alla som är köade ska väljas att köras först. Ju lägre nummer, desto högre prioritet. |Nej |
 | parameters |Parametrar för U-SQL-skript |Nej |

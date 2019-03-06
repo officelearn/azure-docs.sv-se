@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/19/2018
 ms.author: genli
-ms.openlocfilehash: 777d5cb9449bcf9424e2514b2b8f90a9ca6c479c
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: c6918126c36e1940daf564ee7eae562e31b280c3
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52285452"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57449112"
 ---
 # <a name="cannot-connect-remotely-to-a-windows-10-or-windows-server-2016-vm-in-azure-because-of-netvscsys"></a>Det går inte att fjärransluta till en Windows 10 eller Windows Server 2016-dator i Azure på grund av netvsc.sys
 
@@ -26,7 +26,7 @@ Den här artikeln förklarar hur du felsöker ett problem där det inte finns n�
 
 ## <a name="symptoms"></a>Symtom
 
-Du kan inte ansluta till en Azure Windows 10 eller Windows Server 2016-dator med hjälp av Rmote Desktop Protocol (RDP). I [Startdiagnostik](boot-diagnostics.md), skärmen visas ett rött kryss över nätverkskort (NIC). Detta anger att den virtuella datorn inte har någon anslutning efter att operativsystemet har lästs in helt.
+Du kan inte ansluta till en Azure Windows 10 eller Windows Server 2016-dator med hjälp av Remote Desktop Protocol (RDP). I [Startdiagnostik](boot-diagnostics.md), skärmen visas ett rött kryss över nätverkskort (NIC). Detta anger att den virtuella datorn inte har någon anslutning efter att operativsystemet har lästs in helt.
 
 Vanligtvis det här problemet uppstår i Windows [skapa 14393](http://support.microsoft.com/help/4093120/) och [skapa 15063](http://support.microsoft.com/help/4015583/). Om versionen av operativsystemet är senare än dessa versioner, gäller inte den här artikeln för ditt scenario. Om du vill kontrollera vilken version av systemet, öppna en CMD-session i [funktionen åtkomst Seriekonsolen](serial-console-windows.md), och kör sedan **Ver**.
 

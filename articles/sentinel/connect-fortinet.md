@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2019
 ms.author: rkarlin
-ms.openlocfilehash: 9b268c6d310f773017ff57f7f937338612894f82
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 8992847ed6d6c25f5384da9b74b8ddaab063ed45
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57245003"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57455419"
 ---
 # <a name="connect-your-fortinet-appliance"></a>Ansluta din Fortinet-installation 
 
@@ -34,7 +34,7 @@ Du kan ansluta Azure Sentinel till alla Fortinet-installation för genom att spa
 
 ## <a name="step-1-connect-your-fortinet-appliance-using-an-agent"></a>Steg 1: Ansluta din Fortinet-installation med hjälp av en agent
 
-För att ansluta din Fortinet installation till Azure Sentinel, måste du distribuera en agent på en dedikerad dator (VM eller lokal) för att stödja kommunikation mellan enheten och Azure Sentinel. Du kan deploly agenten automatiskt eller manuellt. Automatisk distribution är endast tillgänglig om den dedikerade datorn är en ny virtuell dator som du skapar i Azure. 
+För att ansluta din Fortinet installation till Azure Sentinel, måste du distribuera en agent på en dedikerad dator (VM eller lokalt) för kommunikationen mellan enheten och Azure Sentinel. Du kan deploly agenten automatiskt eller manuellt. Automatisk distribution är endast tillgänglig om den dedikerade datorn är en ny virtuell dator som du skapar i Azure. 
 
 Du kan också distribuera agenten manuellt på en befintlig Azure-dator på en virtuell dator i ett annat moln eller på en lokal dator.
 
@@ -74,7 +74,7 @@ Ett nätverksdiagram för båda alternativen finns i [ansluta datakällor](conne
       2. Starta om Syslog-agenten med hjälp av det här kommandot: `sudo /opt/microsoft/omsagent/bin/service_control restart [{workspace GUID}]`
       1. Bekräfta att det inte finns några fel i agentloggen genom att köra det här kommandot: `tail /var/opt/microsoft/omsagent/log/omsagent.log`
 
-### <a name="deploy-the-agent-on-an-on-prem-linux-server"></a>Distribuera agenten på en lokal Linux-server
+### <a name="deploy-the-agent-on-an-on-premises-linux-server"></a>Distribuera agenten på en på lokala Linux-server
 
 Om du inte använder Azure, distribuera manuellt Azure Sentinel-agenten ska köras på en dedikerad server för Linux.
 

@@ -10,12 +10,12 @@ ms.author: jehunte
 ms.date: 02/06/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: c0caece57885dfa3c26d368990a6af8e5b14eed6
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 59f36595e0b6cc8b9d9ea0669c9ecb5be1e74b42
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56824002"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57441397"
 ---
 # <a name="manage-an-azure-virtual-machine-with-inventory-collection"></a>Hantera en virtuell Azure-dator med inventeringssamling
 
@@ -105,7 +105,7 @@ Att välja en datorgrupp i listan öppnas sidan datorn grupper. Den här sidan v
 
 Klicka på den **+ klona** knappen för att klona datorgruppen. Här måste du ge gruppen ett nytt namn och alias för gruppen. Definitionen kan ändras just nu. När du har ändrat den frågan genom att trycka på **verifiera fråga** att förhandsgranska de datorer som markeras. När du är nöjd med gruppen klickar du på **skapa** att skapa en dator
 
-Om du vill skapa en ny grupp mchine väljer **+ skapa en datorgrupp**. Den här knappen öppnar den **skapa en dator servergruppssida** där du kan definiera den nya gruppen. Klicka på **skapa** att skapa gruppen.
+Om du vill skapa en ny datorgrupp, Välj **+ skapa en datorgrupp**. Den här knappen öppnar den **skapa en dator servergruppssida** där du kan definiera den nya gruppen. Klicka på **skapa** att skapa gruppen.
 
 ![Skapa ny datorgrupp](./media/automation-vm-inventory/create-new-group.png)
 

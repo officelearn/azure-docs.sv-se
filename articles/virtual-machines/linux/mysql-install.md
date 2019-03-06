@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/01/2016
 ms.author: cynthn
-ms.openlocfilehash: c8043064ac1df40eaa31ae56e9ec31c0152e0130
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 6062c31d1ec87d7b958feafef5824a5814995541
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54888438"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57431979"
 ---
 # <a name="how-to-install-mysql-on-azure"></a>Så installerar du MySQL på Azure
 I den här artikeln får lära du dig att installera och konfigurera MySQL på Azure-datorer som kör Linux.
@@ -51,7 +51,7 @@ Vi använder Linux VM med Ubuntu från Azure här.
             #[root@mysqlnode ~]# apt-get update
             #[root@mysqlnode ~]# apt-get -y install mysql-server-5.6
   
-    Under installationen visas en dialogruta fönstret poping upp till som ber dig att ange lösenordet för MySQL-roten nedan, och du måste ange lösenord här.
+    Under installationen visas en dialogruta som visas för att be dig att ange lösenordet för MySQL-roten nedan och du måste ange lösenord här.
   
     ![image](./media/mysql-install/virtual-machines-linux-install-mysql-p1.png)
 

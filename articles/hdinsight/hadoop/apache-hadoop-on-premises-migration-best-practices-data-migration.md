@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: 5d0259726a45346f1e9b891cb235531d6c24d4a2
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 488e1adb6d533dc88994e1dc08513870f56bd9c0
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53433431"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57433050"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---data-migration-best-practices"></a>Migrera lokala Apache Hadoop-kluster till Azure HDInsight - Metodtips för migrering av data
 
@@ -36,7 +36,7 @@ I följande tabell har ungefärliga data transfer varaktighet baserat på bandbr
 
 |**Mängd data**|**Nätverkets bandbredd**|||
 |---|---|---|---|
-|| **45 Mbit/s (T3)**|**100 Mbit/s**|**1 Gbit/s**|**10 Gbit/s**
+|| **45 Mbps (T3)**|**100 Mbit/s**|**1 Gbit/s**|**10 Gbit/s**
 |1 TB|2 dagar|1 dag| 2 timmar|14 minuter|
 |10 TB|22 dagar|10 dagar|1 dag|2 timmar|
 |35 TB|76 dagar|34 dagar|3 dagar|8 timmar|
@@ -94,7 +94,7 @@ Hive-metaarkiv kan migreras med hjälp av skript eller med hjälp av DB-repliker
 
 #### <a name="hive-metastore-migration-using-scripts"></a>Hive-metaarkiv migrering med hjälp av skript
 
-1. Skapa Hive-DDLs från en lokal Hive-metaarkiv. Det här steget kan göras med hjälp av en [omslutning bash-skript](https://github.com/hdinsight/hdinsight.github.io/blob/master/hive/hive-export-import-metastore.md).
+1. Skapa Hive-DDLs från på plats Hive-metaarkiv. Det här steget kan göras med hjälp av en [omslutning bash-skript](https://github.com/hdinsight/hdinsight.github.io/blob/master/hive/hive-export-import-metastore.md).
 1. Redigera den genererade DDL för att ersätta HDFS url med WASB/ADLS/ABFS URL: er.
 1. Kör den uppdaterade DDL på metaarkiv från HDInsight-kluster.
 1. Se till att Hive-metaarkiv version är kompatibla mellan lokala platser och molnet.
@@ -111,7 +111,7 @@ Hive-metaarkiv kan migreras med hjälp av skript eller med hjälp av DB-repliker
 ### <a name="apache-ranger"></a>Apache Ranger
 
 - Exportera lokala Ranger-principer till XML-filer.
-- Omvandla en lokal specifika HDFS-baserade sökvägar till WASB/ADLS med ett verktyg som XSLT.
+- Omvandla lokalt specifika HDFS-baserade sökvägar till WASB/ADLS med ett verktyg som XSLT.
 - Importera principer in Ranger som körs på HDInsight.
 
 ## <a name="next-steps"></a>Nästa steg

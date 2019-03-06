@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: magoedte
-ms.openlocfilehash: fb59740289caffaf8325aa75aaf8ae649611b347
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: fa94bffc05879be9d6bbaaa7cd884c36ffe7e0b8
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55991641"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57451297"
 ---
 # <a name="syslog-data-sources-in-azure-monitor"></a>Syslog-datakällor i Azure Monitor
 Syslog är ett protokoll för loggning av händelse som är gemensamma för Linux.  Program skickar meddelanden som kan lagras på den lokala datorn eller levereras till en Syslog-insamlare.  När Log Analytics-agenten för Linux installeras konfigurerar den lokala Syslog-daemon för att vidarebefordra meddelanden till agenten.  Agenten skickar sedan meddelandet till Azure Monitor där en motsvarande post skapas.  
@@ -205,6 +205,6 @@ I följande tabell innehåller olika exempel på loggfrågor som hämtar Syslog-
 | Syslog &#124; sammanfatta AggregatedValue = antal() efter lokal |Räkna Syslog-poster efter anläggning. |
 
 ## <a name="next-steps"></a>Nästa steg
-* Lär dig mer om [logga queriesi](../../azure-monitor/log-query/log-query-overview.md) att analysera data som samlas in från datakällor och lösningar.
+* Lär dig mer om [logga frågor](../../azure-monitor/log-query/log-query-overview.md) att analysera data som samlas in från datakällor och lösningar.
 * Använd [anpassade fält](../../azure-monitor/platform/custom-fields.md) att parsa data från syslog-poster i enskilda fält.
 * [Konfigurera Linux-agenter](../../azure-monitor/learn/quick-collect-linux-computer.md) att samla in andra typer av data.

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/16/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3af5c3d5d92dea804221b2285d4fa5b9cedae665
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: c6b8109c8d3834f932ba492eddb8d6332acc1707
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56168098"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57443632"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rfpio"></a>Självstudier: Azure Active Directory-integrering med RFPIO
 
@@ -234,12 +234,12 @@ När det gäller RFPIO är etablering en manuell aktivitet.
 
     a. Ange **e-postadress** i den **ange en e-postadress per rad** fält.
 
-    b. Välj igen **rollen** enligt dina krav.
+    b. Välj **rollen** enligt dina krav.
 
     c. Klicka på **Lägg till MEDLEMMAR**.
         
     > [!NOTE]
-    > Azure Active Directory-kontoinnehavare tar emot ett e-postmeddelande och följer en länk för att bekräfta sina konton innan den blir aktiv.
+    > Azure Active Directory-kontoinnehavaren får ett e-postmeddelande och följer en länk för att bekräfta kontot innan det blir aktivt.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 

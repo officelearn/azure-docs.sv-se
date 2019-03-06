@@ -10,12 +10,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.topic: conceptual
 ms.date: 02/21/2019
-ms.openlocfilehash: 951bb978ac78529959acbf878a72c22573400f11
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 7d93e5777e3456098e1282fd70da55e85e1f80d0
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56822794"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57438253"
 ---
 # <a name="use-data-lake-tools-for-visual-studio-to-connect-to-azure-hdinsight-and-run-apache-hive-queries"></a>Använd Data Lake Tools för Visual Studio för att ansluta till Azure HDInsight och kör Apache Hive-frågor
 
@@ -62,7 +62,7 @@ För att kunna genomföra den här självstudien och använda Data Lake Tools f�
 
 3. Från den **tillägg och uppdateringar** fönstret expanderar **uppdateringar** till vänster.
 
-4. Om en uppdatering är tillgänglig **Azure Data Lake och Stream analysverktyg** kommer att visas i huvudfönstret.  Välj **uppdatering**.
+4. Om en uppdatering är tillgänglig **Azure Data Lake och Stream analysverktyg** kommer att visas i huvudfönstret.  Välj **Uppdatera**.
 
 > [!NOTE]  
 > Du kan endast använda Data Lake Tools i version 2.3.0.0 eller senare för att ansluta till interaktiva frågekluster och köra interaktiva Hive-frågor.
@@ -113,7 +113,7 @@ När du har öppnat en behållare kan du använda följande knappar för att öv
 ## <a name="run-interactive-apache-hive-queries"></a>Köra interaktiva Apache Hive-frågor
 [Apache Hive](https://hive.apache.org) är en infrastruktur för informationslager som bygger på Hadoop. Hive används för att sammanfatta data, frågor och analys. Du kan använda Data Lake Tools för Visual Studio för att köra Hive-frågor från Visual Studio. Mer information om Hive finns i [använda Apache Hive med HDInsight](hdinsight-use-hive.md).
 
-Den [interaktiva frågan](../interactive-query/apache-interactive-query-get-started.md) använder [Hive på LLAP](https://cwiki.apache.org/confluence/display/Hive/LLAP) i Apache Hive 2.1. Interaktiva frågor ger interaktivitet till komplexa informationslagerfrågor i stora, lagrade datauppsättningar. Det går mycket snabbare att köra Hive-frågor på interaktiva frågor jämfört med traditionella Hive-batchjobb. Mer information finns i [kör Apache Hive-batchjobb](#run-hive-batch-jobs).
+Den [interaktiva frågan](../interactive-query/apache-interactive-query-get-started.md) använder [Hive på LLAP](https://cwiki.apache.org/confluence/display/Hive/LLAP) i Apache Hive 2.1. Interaktiva frågor ger interaktivitet till komplexa informationslagerfrågor i stora, lagrade datauppsättningar. Det går mycket snabbare att köra Hive-frågor på interaktiva frågor jämfört med traditionella Hive-batchjobb. Mer information finns i kör Apache Hive-batchjobb.
 
 > [!NOTE]  
 > Du kan bara köra interaktiva Hive-frågor när du ansluter till ett kluster med en [interaktiv HDInsight-fråga](../interactive-query/apache-interactive-query-get-started.md).

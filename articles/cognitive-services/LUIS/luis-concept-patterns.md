@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 02/22/2019
 ms.author: diberry
-ms.openlocfilehash: 1c408a77f0bdd097db1fb462fa06245133773b71
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: af73d78b911d59f68c5e824931b5634d8c69f309
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57195395"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57449010"
 ---
 # <a name="patterns-improve-prediction-accuracy"></a>Mönster förbättra prognosens noggrannhet
 Mönster är utformade för att förbättra noggrannheten när flera uttryck är mycket lika.  Ett mönster kan du få mer precision för en avsikt utan att ange många fler yttranden. 
@@ -62,7 +62,7 @@ Entiteter i mönster omges av klammerparenteser, `{}`. Mönster kan innehålla e
 
 Mönstret syntax stöder följande syntax:
 
-|Funktion|Syntax|[Kapslingsnivå](#nesting-syntax)|Exempel|
+|Funktion|Syntax|Kapslingsnivå|Exempel|
 |--|--|--|--|
 |entitet| {} -klammerparenteser|2|Var är formuläret {entity-name}?|
 |valfri|[] - hakparenteser<BR><BR>Det finns en gräns på 3 på kapslingsnivåer av valfri kombination av valfria och gruppering |2|Frågetecknet är valfritt [?]|
@@ -167,7 +167,7 @@ Markera valfri text i uttryck som använder syntax för reguljära uttryck hakpa
 |Mönstret med valfri text|Betydelse|
 |--|--|
 |`[find] email about {subject} [from {person}]`|`find` och `from {person}` är valfria|
-|”Kan du hjälpa mig [?] | Skiljetecknet är valfritt|
+|”Kan du hjälpa mig [?]|Skiljetecknet är valfritt|
 
 Skiljetecken (`?`, `!`, `.`) ska ignoreras och du behöver att ignorera dem med hjälp av hakparentes-syntax i ett mönster. 
 

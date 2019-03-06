@@ -13,17 +13,19 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 2f08d5b8548b8b7af282356d41c26442edd145b0
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: fe38ffd5e9e57c0357417144e733311f3b14ea83
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56669589"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57448347"
 ---
 # <a name="how-to-start-and-stop-azure-ssis-integration-runtime-on-a-schedule"></a>Så här startar och stoppar Azure-SSIS Integration Runtime enligt ett schema
 Den här artikeln beskriver hur du schemalägger startas och stoppas av Azure-SSIS Integration Runtime (IR) med hjälp av Azure Data Factory (ADF). Azure-SSIS IR är ADF-beräkningsresurs som dedikerade för att köra SQL Server Integration Services (SSIS)-paket. Kör Azure-SSIS IR har ingen associerad kostnad till den. Därför vanligtvis du kör din IR endast när du behöver att köra SSIS-paket i Azure och stoppa din IR när du inte behöver den längre. Du kan använda ADF User Interface (UI) / app eller Azure PowerShell för att [manuellt starta eller stoppa din IR](manage-azure-ssis-integration-runtime.md)).
 
 Du kan också skapa webbaktiviteter i ADF pipelines för att starta/stoppa din IR enligt schema, t.ex. Starta den på morgonen innan du kör dina dagliga ETL-arbetsbelastningar och stoppa den på eftermiddagen när de är klar.  Du kan också länka en aktivitet för köra SSIS-paket mellan två webbaktiviteter som startar och stoppar dina IR så att din IR ska starta/stoppa på begäran, precis i tid före/efter körning av paket. Mer information om aktivitet kör SSIS-paket finns i [kör ett SSIS-paket med aktiviteten kör SSIS-paket i ADF pipeline](how-to-invoke-ssis-package-ssis-activity.md) artikeln.
+
+[!INCLUDE [requires-azurerm](../../includes/requires-azurerm.md)]
 
 ## <a name="prerequisites"></a>Förutsättningar
 Om du inte har etablerat din Azure-SSIS IR redan, etablerar du den genom att följa instruktionerna i den [självstudien](tutorial-create-azure-ssis-runtime-portal.md). 
@@ -188,19 +190,19 @@ Du kan använda skript som i följande exempel för att övervaka pipelines och 
 1. Hämta status för en pipeline-körning.
 
   ```powershell
-  Get-AzureRmDataFactoryV2PipelineRun -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -PipelineRunId $myPipelineRun
+  Get-AzDataFactoryV2PipelineRun -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -PipelineRunId $myPipelineRun
   ```
 
 2. Få information om en utlösare.
 
   ```powershell
-  Get-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name  "myTrigger"
+  Get-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name  "myTrigger"
   ```
 
 3. Hämta status för en utlösarkörning.
 
   ```powershell
-  Get-AzureRmDataFactoryV2TriggerRun -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -TriggerName "myTrigger" -TriggerRunStartedAfter "2018-07-15" -TriggerRunStartedBefore "2018-07-16"
+  Get-AzDataFactoryV2TriggerRun -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -TriggerName "myTrigger" -TriggerRunStartedAfter "2018-07-15" -TriggerRunStartedBefore "2018-07-16"
   ```
 
 ## <a name="create-and-schedule-azure-automation-runbook-that-startsstops-azure-ssis-ir"></a>Skapa och schemalägga Azure Automation-runbook som börjar/slutar Azure-SSIS IR
@@ -292,7 +294,7 @@ Följande avsnitt innehåller steg för att skapa en PowerShell-runbook. Skripte
         $servicePrincipalConnection=Get-AutomationConnection -Name $connectionName         
     
         "Logging in to Azure..."
-        Connect-AzureRmAccount `
+        Connect-AzAccount `
             -ServicePrincipal `
             -TenantId $servicePrincipalConnection.TenantId `
             -ApplicationId $servicePrincipalConnection.ApplicationId `
@@ -312,12 +314,12 @@ Följande avsnitt innehåller steg för att skapa en PowerShell-runbook. Skripte
     if($Operation -eq "START" -or $operation -eq "start")
     {
         "##### Starting #####"
-        Start-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $AzureSSISName -Force
+        Start-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $AzureSSISName -Force
     }
     elseif($Operation -eq "STOP" -or $operation -eq "stop")
     {
         "##### Stopping #####"
-        Stop-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $AzureSSISName -ResourceGroupName $ResourceGroupName -Force
+        Stop-AzDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $AzureSSISName -ResourceGroupName $ResourceGroupName -Force
     }  
     "##### Completed #####"    
     ```
@@ -328,7 +330,7 @@ Följande avsnitt innehåller steg för att skapa en PowerShell-runbook. Skripte
 
    ![Runbook-knappen Starta](./media/how-to-schedule-azure-ssis-integration-runtime/start-runbook-button.png)
     
-5. I **starta Runbook** fönstret gör följande ations: 
+5. I **starta Runbook** fönstret göra följande: 
 
     1. För **RESURSGRUPPENS namn**, ange namnet på resursgruppen som innehåller din ADF med Azure-SSIS IR. 
     2. För **DATAFABRIKSNAMNET**, anger du namnet på din ADF med Azure-SSIS IR. 

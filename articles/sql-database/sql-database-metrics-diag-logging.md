@@ -12,12 +12,12 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: 8b8f7aa559fa8b9adc805636c377f31dd252687b
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: b6242475376a37abb1bce6994f7c31c7adfee859
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57309612"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57443070"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL Database-mått och diagnostikloggning
 
@@ -46,7 +46,7 @@ Du kan aktivera och hantera mått och diagnostik telemetri loggning genom att an
 - Azure Monitor REST-API
 - Azure Resource Manager-mall
 
-När du aktiverar mått och diagnostik loggning kan behöva du ange Azure-resurs-mål för att samla in telemetri som diagnotics. Tillgängliga alternativ inkluderar:
+När du aktiverar mått och diagnostik loggning kan behöva du ange Azure-resurs-mål för att samla in diagnostiktelemetri. Tillgängliga alternativ inkluderar:
 
 - Azure SQL-analys
 - Azure Event Hubs

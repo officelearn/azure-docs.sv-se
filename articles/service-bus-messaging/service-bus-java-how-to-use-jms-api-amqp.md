@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 08/10/2018
+ms.date: 03/05/2019
 ms.author: aschhab
-ms.openlocfilehash: 23a0c731eea22a772d7423bc3047af1183d55b7f
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 2cba3744180a257638aca202d44fa433a5e1a2bc
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56312897"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57453413"
 ---
 # <a name="how-to-use-the-java-message-service-jms-api-with-service-bus-and-amqp-10"></a>Hur du använder Java Message Service (JMS) API med Service Bus och AMQP 1.0
 AMQP Advanced Message Queuing Protocol () 1.0 är ett effektivt, pålitligt meddelandeprotokoll på trådnivå som du kan använda för att skapa robusta och plattformsöverskridande meddelandeprogram.
@@ -341,6 +341,16 @@ MODIFIED_FAILED = 4; -> Abandon() which increases delivery count
 MODIFIED_FAILED_UNDELIVERABLE = 5; -> Defer()
 ```
 
+## <a name="jms-topics-vs-service-bus-topics"></a>Jämfört med JMS ämnen Avsnitt om Service Bus
+Azure Service Bus-ämnen och prenumerationer via den Java Message Service JMS () API innehåller grundläggande skicka och ta emot funktioner. Det är ett praktiskt val när porta program från andra koordinatorerna med JMS kompatibla API: er, även om Service Bus-ämnen skiljer sig från JMS ämnen och kräver några justeringar. 
+
+Azure Service Bus-ämnen dirigera meddelanden till namngivna, delad och varaktiga prenumerationer som hanteras via Azure Resource Manager-gränssnittet, Azure kommandoradsverktyg eller Azure-portalen. Varje prenumeration kan för upp till 2 000 villkor, vart och ett av som kan ha ett filtervillkor och för SQL-filter, även en åtgärd för metadata-omvandling. Varje filter villkor matchning väljs det inkommande meddelandet som ska kopieras till tehj-prenumeration.  
+
+Ta emot meddelanden från prenumerationer är identisk med att ta emot meddelanden från köer. Varje prenumeration har en associerad kö för obeställbara samt möjligheten att automatiskt vidarebefordra meddelanden till en annan kö eller ett avsnitt. 
+
+JMS ämnen tillåter klienter att dynamiskt skapa tillfälliga och varaktiga abonnenter som tillåter du kan också filtrera meddelanden med meddelandet väljare. Entiteterna delats stöds inte av Service Bus. Regeln syntaxen för SQL-filtret för Service Bus är mycket lik meddelande väljare syntax som stöds av JMS. 
+
+JMS avsnittet publisher sida är kompatibel med Service Bus, som visas i det här exemplet, men dynamisk prenumeranter finns inte. Följande topologi-relaterade JMS API: er stöds inte med Service Bus. 
 
 ## <a name="unsupported-features-and-restrictions"></a>Funktioner som inte stöds och begränsningar
 Följande begränsningar gäller när du använder JMS över AMQP 1.0 med Service Bus, nämligen:

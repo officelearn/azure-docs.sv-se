@@ -16,12 +16,12 @@ ms.date: 05/21/2018
 ms.author: celested
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dc032a15a2938333cd25d05c271187f218f9be4d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 995f9d2bc0ad0a6b985790d75a63866a3a2d55bc
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56206811"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57445372"
 ---
 # <a name="cant-access-this-corporate-application-error-when-using-an-application-proxy-application"></a>”Det går inte att komma åt företagets programmet” fel när du använder ett programproxy-program
 
@@ -85,7 +85,7 @@ Att kontrollera att tilldelas till ett aktivt Anslutningsgrupp:
 
   * Flytta en aktiv anslutning till gruppen: Om du har en aktiv anslutning som ska tillhöra den här gruppen och har åtkomst till målprogrammet för serverdel kan flytta du anslutningen till den tilldelade gruppen. Du gör detta genom att klicka på kopplingen. I fältet ”Anslutningsgrupp” använder du listrutan att välja rätt grupp Klicka på Spara.
 
-  * Ladda ned en ny koppling för gruppen: Den här sidan kan du hämta en länk till [hämta en ny Anslutningsapp](https://download.msappproxy.net/Subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/Connector/Download). Installera anslutningen på en dator med direkt åtkomst till backend-applikationer. Typicall, Anslutningsappen är installerad på samma server som programmet. Använd download Connector-länk för att hämta en anslutningsapp på måldatorn. Sedan klickar du på anslutningen och använda ”Anslutningsgruppen” listrutan för att se till att det hör till rätt grupp.
+  * Ladda ned en ny koppling för gruppen: Den här sidan kan du hämta en länk till [hämta en ny Anslutningsapp](https://download.msappproxy.net/Subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/Connector/Download). Installera anslutningen på en dator med direkt åtkomst till backend-applikationer. Anslutningen är vanligtvis installerad på samma server som programmet. Använd download Connector-länk för att hämta en anslutningsapp på måldatorn. Sedan klickar du på anslutningen och använda ”Anslutningsgruppen” listrutan för att se till att det hör till rätt grupp.
 
   * Undersöka en inaktiv anslutning: Om en koppling visas som inaktiva, är det inte går att nå tjänsten. Det här felet beror vanligtvis på vissa portar som krävs blockeras. För att lösa problemet, gå vidare till ”verifiera alla nödvändiga portar är godkänd”.
 

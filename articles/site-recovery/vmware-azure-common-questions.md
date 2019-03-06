@@ -8,12 +8,12 @@ services: site-recovery
 ms.date: 03/03/2019
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: 038716161845e94011688e8af80a5d4830ac1a5b
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 9e15f2e1b064ec2e64bfa8254075eac5bc801115
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57338152"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57442621"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Vanliga frågor – VMware till Azure replikering
 
@@ -165,7 +165,7 @@ Ja, kan du lägga till nya virtuella datorer till en befintlig replikeringsgrupp
 
 Du kan ändra diskens storlek för VMware-replikering till Azure. Om du vill lägga till nya diskar måste du lägga till disken och återaktivera skyddet för den virtuella datorn.
 
-### <a name="can-i-migrate-on-prem-machines-to-a-new-vcenter-without-impacting-ongoing-replication"></a>Kan jag migrera lokala datorer till en ny Vcenter utan att påverka pågående replikering?
+### <a name="can-i-migrate-on-premises-machines-to-a-new-vcenter-without-impacting-ongoing-replication"></a>Kan jag migrera på lokala datorer till en ny Vcenter utan att påverka pågående replikering?
 Nej, ändring av Vcenter eller migrering kommer att påverka pågående replikering. Du måste konfigurera ASR med nya Vcenter och aktivera replikering för virtuella datorer.
 
 ### <a name="can-i-replicate-to-cachetarget-storage-account-which-has-a-vnet-with-azure-storage-firewalls-configured-on-it"></a>Kan jag replikera till cache/mål-lagringskontot som har ett virtuellt nätverk (med Azure storage-brandväggar) konfigurerats på den?

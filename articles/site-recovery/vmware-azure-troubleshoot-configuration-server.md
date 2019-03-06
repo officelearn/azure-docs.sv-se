@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/13/2019
 ms.author: ramamill
-ms.openlocfilehash: ab72091c58420459620352c8169773111149316d
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: a81bcf26234f3b7840a75e7134596cb777071e8f
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245736"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57432798"
 ---
 # <a name="troubleshoot-configuration-server-issues"></a>Felsöka problem med konfigurationen av servern
 
@@ -82,7 +82,7 @@ Det går inte att skapa ett certifikat som krävs för att autentisera Site Reco
 
 ## <a name="failure-to-activate-windows-licence-from-server-standard-evaluation-to-server-standard"></a>Det gick inte att aktivera Windows-licens från utvärdering av Standard-Server till Server Standard
 
-1. Som en del av distribution av konfigurationsserver via OVF används en licens för utvärdering, vilket är giltig i 180 dagar. Du måste aktivera den här licensen innan det upphör. Annars kan detta leda till frekventa avstängning av konfigurationsservern och därmed orsaka hinderance replikering aktiviteter.
+1. Som en del av distribution av konfigurationsserver via OVF används en utvärderingslicens, vilket är giltig i 180 dagar. Du måste aktivera den här licensen innan det upphör. Annars kan detta leda till frekventa avstängning av konfigurationsservern och därmed orsaka hinderance replikering aktiviteter.
 2. Om det inte går att aktivera Windows-licens kan nå ut till [Windows supportteam](https://aka.ms/Windows_Support) att lösa problemet.
 
 ## <a name="register-source-machine-with-configuration-server"></a>Registrera källdatorn med konfigurationsservern

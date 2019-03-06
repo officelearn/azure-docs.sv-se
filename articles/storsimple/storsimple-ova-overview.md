@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 08/02/2018
 ms.author: alkohli
-ms.openlocfilehash: a7aace89ad4323d6fad6942fe03c4240fb53c8fd
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: decc63ad7ce0b35de41ec53e6b5e02276aa33705
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55811213"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57456082"
 ---
 # <a name="introduction-to-the-storsimple-virtual-array"></a>Introduktion till StorSimple Virtual Array
 
@@ -101,7 +101,7 @@ Du kan använda StorSimple Device Manager-tjänsten som körs i Azure-portalen f
 ![Molnbaserad lagringshantering](./media/storsimple-ova-overview/cloud-based-storage-management.png)
 
 ### <a name="location-independent-backup"></a>Platsoberoende säkerhetskopiering
-Med den virtuella matrisen ger ögonblicksbilder av molnet som dig en Platsoberoende, point-in-time kopia av en volym eller resurs. Ögonblicksbilder av molnet som är aktiverade som standard och kan inte inaktiveras. Alla volymer och resurser finns säkerhetskopiera samtidigt via en enda princip för daglig säkerhetskopiering du kan vidta ytterligare ad hoc-säkerhetskopiering när det behövs.
+Med den virtuella matrisen ger ögonblicksbilder av molnet som dig en Platsoberoende, point-in-time kopia av en volym eller resurs. Ögonblicksbilder av molnet som är aktiverade som standard och kan inte inaktiveras. Alla volymer och resurser finns säkerhetskopiera samtidigt via en enda princip för daglig säkerhetskopiering du kan göra ytterligare ad hoc-säkerhetskopior när det behövs.
 
 ### <a name="data-protection-and-disaster-recovery"></a>Dataåterställning för skydd och haveriberedskap
 Den virtuella matrisen har stöd för följande dataskydd och katastrofåterställning:

@@ -13,18 +13,20 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: douglasl
 robots: noindex
-ms.openlocfilehash: c41f03494720c9283bb3ce91fda6e3981f305084
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 053cabfa29bd5e436fecd922e4bcdbca9483d25a
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54023030"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57455691"
 ---
 # <a name="troubleshoot-data-factory-issues"></a>Felsök Data Factory-problem
 > [!NOTE]
 > Den här artikeln gäller för version 1 av Azure Data Factory. 
 
 Den här artikeln innehåller felsökningstips för problem när du använder Azure Data Factory. Den här artikeln visar inte alla möjliga problem när du använder tjänsten, men omfattar vissa problem och allmänna felsökningstips.   
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="troubleshooting-tips"></a>Felsökningstips
 ### <a name="error-the-subscription-is-not-registered-to-use-namespace-microsoftdatafactory"></a>Fel: Prenumerationen har inte registrerats för användning av namnområdet 'Microsoft.DataFactory ”
@@ -34,20 +36,20 @@ Om du får det här felmeddelandet har inte Azure Data Factory-resursprovidern r
 2. Logga in på ditt Azure-konto med följande kommando.
 
     ```powershell
-    Connect-AzureRmAccount
+    Connect-AzAccount
     ```
 3. Kör följande kommando för att registrera Azure Data Factory-providern.
 
     ```powershell        
-    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
+    Register-AzResourceProvider -ProviderNamespace Microsoft.DataFactory
     ```
 
 ### <a name="problem-unauthorized-error-when-running-a-data-factory-cmdlet"></a>Problem: Behörighetsfel när du kör en Data Factory-cmdlet
 Du använder förmodligen inte rätt Azure-konto eller -prenumeration med Azure PowerShell. Använd följande cmdlets för att välja rätt Azure-konto och -prenumeration för Azure PowerShell.
 
-1. Connect-AzureRmAccount – Använd rätt användar-ID och lösenord
-2. Get-AzureRmSubscription – visa alla prenumerationer för kontot.
-3. SELECT-AzureRmSubscription &lt;prenumerationsnamn&gt; – Välj rätt prenumeration. Använd samma som du använder för att skapa en datafabrik i Azure-portalen.
+1. Ansluta-AzAccount – Använd rätt användar-ID och lösenord
+2. Get-AzSubscription – visa alla prenumerationer för kontot.
+3. Välj AzSubscription &lt;prenumerationsnamn&gt; – Välj rätt prenumeration. Använd samma som du använder för att skapa en datafabrik i Azure-portalen.
 
 ### <a name="problem-fail-to-launch-data-management-gateway-express-setup-from-azure-portal"></a>Problem: Det gick inte att starta Expressinstallationen för Data Management Gateway från Azure-portalen
 Expressinstallationen för Data Management Gateway kräver Internet Explorer eller en Microsoft ClickOnce-kompatibel webbläsare. Om det inte går att starta expressinstallationen, gör du något av följande:

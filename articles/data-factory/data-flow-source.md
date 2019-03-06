@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/12/2019
-ms.openlocfilehash: 80f0aa3158ce4f3eeafaeb5c7834dc820e8ba75b
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: e33606e0b5be0db5306cfd42f87baf59671eb2a8
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56886603"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57451737"
 ---
 # <a name="mapping-data-flow-source-transformation"></a>Mappningen Dataomvandling Flow källa
 
@@ -74,7 +74,7 @@ Du kan välja att partitionera anslutningar baserat på en fråga. För det här
 ## <a name="source-file-management"></a>Hantering av källa
 ![Nya inställningar för datakälla](media/data-flow/source2.png "nya inställningar")
 
-* Wilcard sökväg för att välja ett antal filer från din källmapp som matchar ett mönster. Detta åsidosätter alla filer som du har angett i din datauppsättning finns.
+* Wilcard sökväg för att välja ett antal filer från din källmapp som matchar ett mönster. Detta åsidosätter alla filer som du har angett i definitionen av datauppsättningen.
 * Lista över filer. Samma som en uppsättning. Peka en textfil som du skapar en lista med relativa sökvägen filer som ska bearbetas.
 * Kolumnen för att lagra filnamn lagrar namnet på filen från källan i en kolumn i dina data. Ange ett nytt namn för att lagra filen namnsträngen.
 * När du har slutfört (kan du göra något med källfilen när dataflödet körs tar du bort källfiler eller flytta källfilerna. Sökvägar för flytt är relativa sökvägar.

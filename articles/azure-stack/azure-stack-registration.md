@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/14/2019
+ms.date: 03/04/2019
 ms.author: jeffgilb
 ms.reviewer: brbartle
-ms.lastreviewed: 02/14/2019
-ms.openlocfilehash: 1fb9917e30a88cf5a68c9e170d66eeaa1d477deb
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.lastreviewed: 03/04/2019
+ms.openlocfilehash: 12edea505ba3b0c8009512a52e3eea9ecea5bb26
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56877154"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57405206"
 ---
 # <a name="register-azure-stack-with-azure"></a>Registrera Azure Stack med Azure
 
@@ -303,7 +303,7 @@ Du kan även använda cmdleten Get-innehåll för att den pekar på en fil som i
 
 ## <a name="verify-azure-stack-registration"></a>Verifiera Azure Stack-registrering
 
-Du kan använda den **regionshantering** panelen för att kontrollera att Azure Stack-registreringen har lyckats. Den här panelen är tillgänglig på standardinstrumentpanelen i administratörsportalen. Status kan vara registrerad eller inte registrerad. Om registrerat, visar den även Azure prenumerations-ID som användes för att registrera din Azure-Stack tillsammans med resursgruppen för registrering och namn.
+Du kan använda den **regionshantering** panelen för att kontrollera att Azure Stack-registreringen har lyckats. Den här panelen är tillgänglig på standardinstrumentpanelen i administrationsportalen. Status kan vara registrerad eller inte registrerad. Om registrerat, visar den även Azure prenumerations-ID som användes för att registrera din Azure-Stack tillsammans med resursgruppen för registrering och namn.
 
 1. Logga in på den [Azure Stack-administrationsportalen](https://adminportal.local.azurestack.external).
 
@@ -325,7 +325,7 @@ Du kan använda den **regionshantering** panelen för att kontrollera att Azure 
 
     Azure Stack-app-registreringar har prefixet **Azure Stack**.
 
-Du kan också kontrollera om din registreringen har lyckats genom att använda funktionen för hantering av Marketplace. Om du ser en lista med marketplace-objekt i bladet Marketplace hantering har registreringen slutförts. Men i frånkopplade miljöer kommer du inte att kunna se marketplace-objekt i Marketplace-hantering. Du kan dock använda verktyget offline för att verifiera registrering.
+Du kan också kontrollera om din registreringen har lyckats genom att använda funktionen för hantering av Marketplace. Om du ser en lista med marketplace-objekt i bladet Marketplace hantering har registreringen slutförts. Men i frånkopplade miljöer kommer du inte att kunna se marketplace-objekt i Marketplace-hantering.
 
 > [!NOTE]
 > När registreringen är klar, visas inte längre den aktiva varningen för att inte registrera. I scenarier med frånkopplade visas ett meddelande i Marketplace management där du uppmanas att registrera och aktivera din Azure Stack, även om du har registrerats.

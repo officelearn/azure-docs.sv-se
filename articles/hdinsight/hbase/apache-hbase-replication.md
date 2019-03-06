@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/15/2018
-ms.openlocfilehash: 933506e732926b0f3827f039a65e78acd3a6932b
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: 52b52cce1e93e55563cf695f06bd7821ebcfc585
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53653823"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57444913"
 ---
 # <a name="set-up-apache-hbase-cluster-replication-in-azure-virtual-networks"></a>Konfigurera replikering för Apache HBase-kluster i Azure-nätverk
 
@@ -82,12 +82,12 @@ Vissa hårdkodade värden i mallen:
 | Gateway-SKU | Basic |
 | Gateway IP | vnet1gwip |
 
-**VNet-2**
+**VNet 2**
 
 | Egenskap  | Värde |
 |----------|-------|
 | Plats | Östra USA |
-| Namn på virtuellt nätverk | &lt;ClusterNamePrevix >-vnet2 |
+| Namn på virtuellt nätverk | &lt;ClusterNamePrevix>-vnet2 |
 | Adressutrymmets prefix | 10.2.0.0/16 |
 | Namn på undernät | subnät 1 |
 | Undernätets prefix | 10.2.0.0/24 |
@@ -136,7 +136,7 @@ Följ anvisningarna nedan om du vill installera bindning:
     sudo apt-get install bind9 -y
     ```
 
-3. Konfigurera Bind att vidarebefordra begäran till din DNS-server med en lokal namnmatchning. Du gör detta genom att använda följande text som innehållet i den `/etc/bind/named.conf.options` fil:
+3. Konfigurera Bind att vidarebefordra begäran om namnmatchning till din på lokal DNS-server. Du gör detta genom att använda följande text som innehållet i den `/etc/bind/named.conf.options` fil:
 
     ```
     acl goodclients {
@@ -304,7 +304,7 @@ Obligatoriska argument:
 
 |Namn|Beskrivning|
 |----|-----------|
-|-s,--src-kluster | Anger DNS-namnet på källan HBase-kluster. Till exempel: -s hbsrccluster,--src-cluster = hbsrccluster |
+|-s, --src-cluster | Anger DNS-namnet på källan HBase-kluster. Till exempel: -s hbsrccluster,--src-cluster = hbsrccluster |
 |-d,--dst-kluster | Anger DNS-namnet på målet (replik) HBase-kluster. Till exempel: -s dsthbcluster,--src-cluster = dsthbcluster |
 |-sp,--src-ambari-lösenord | Anger lösenordet för serveradministratören för Ambari på källan HBase-kluster. |
 |-dp,--dst-ambari-lösenord | Anger lösenordet för serveradministratören för Ambari på HBase målklustret.|
@@ -313,13 +313,13 @@ Valfria argument:
 
 |Namn|Beskrivning|
 |----|-----------|
-|-su-och--src-ambari-användare | Anger ett administratörsanvändarnamn för Ambari på källan HBase-kluster. Standardvärdet är **admin**. |
-|-du--dst-ambari-användare | Anger ett administratörsanvändarnamn för Ambari på mål HBase-kluster. Standardvärdet är **admin**. |
+|-su, --src-ambari-user | Anger ett administratörsanvändarnamn för Ambari på källan HBase-kluster. Standardvärdet är **admin**. |
+|-du, --dst-ambari-user | Anger ett administratörsanvändarnamn för Ambari på mål HBase-kluster. Standardvärdet är **admin**. |
 |-t,--tabell lista | Anger tabellerna som ska replikeras. Till exempel:--Tabellista = ”tabell1; tabell2; tabell 3”. Om du inte anger tabeller, replikeras alla befintliga HBase-tabeller.|
 |-m, – dator | Anger huvudnoden där skriptåtgärd körs. Värdet är antingen **hn0** eller **hn1** och bör vara den valda baserat på vilket är den aktiva huvudnoden. Använd det här alternativet när du kör skriptet $0 som en skriptåtgärd från HDInsight-portalen eller Azure PowerShell.|
-|-cp, - copydata | Gör det möjligt att migrera befintliga data i tabellerna där replikering har aktiverats. |
+|-cp, -copydata | Gör det möjligt att migrera befintliga data i tabellerna där replikering har aktiverats. |
 |-rpm, -replikera-phoenix-metadata | Aktiverar replikering på Phoenix systemtabeller. <br><br>*Använd det här alternativet med försiktighet.* Vi rekommenderar att du återskapar Phoenix tabeller på repliken kluster innan du använder det här skriptet. |
-|-h, – hjälp | Visar användningsinformation. |
+|-h, --help | Visar användningsinformation. |
 
 Den `print_usage()` delen av den [skriptet](https://github.com/Azure/hbase-utils/blob/master/replication/hdi_enable_replication.sh) har en detaljerad förklaring av parametrarna.
 

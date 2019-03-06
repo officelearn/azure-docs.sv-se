@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 60790f0f31915a50829df09d039a4f74860a47d7
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: d8f2ae64e2f8e694de5a7cf5aa9049e63998dca0
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55076442"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57452665"
 ---
 # <a name="manage-azure-devtest-labs-formulas"></a>Hantera Azure DevTest Labs formler
 
@@ -69,7 +69,7 @@ Följande steg vägleder dig genom processen att skapa en formel från en anpass
     - **IP-adresskonfigurationen** – ange om du vill att de offentliga, privata eller delade IP-adresserna. Mer information om delade IP-adresser finns i [Förstå delade IP-adresser i Azure DevTest Labs](./devtest-lab-shared-ip.md).
     - **Utgångsdatum och utgångstid** – ange datumet och tiden för den virtuella datorn så att den virtuella datorn tas bort automatiskt. 
     - **Gör till virtuell dator** – att göra en dator ”tillgängliga” innebär att den inte tilldelas ägarskap vid tidpunkten för skapandet. I stället kan labbanvändare bli ägare (”anspråk”) datorn i den testmiljön sidan.     
-    - **Antalet tillgängliga instanser** – ange hur många tillgängliga instacnes som du vill skapa. 
+    - **Antalet tillgängliga instanser** – ange hur många tillgängliga instanser som du vill skapa. 
 8. Välj **skicka** att skapa formeln.
 
 9. När formeln har skapats visas den i listan på den **formler** sidan.

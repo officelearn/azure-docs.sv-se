@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: billgib
 manager: craigg
 ms.date: 09/19/2018
-ms.openlocfilehash: 2f747eb09fd13647c4b6764ce3cc4fe72c00bcf0
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 39c4884fcca2b041603305d73526e3310ab99a21
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47054854"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57441890"
 ---
 # <a name="manage-schema-in-a-saas-application-using-the-database-per-tenant-pattern-with-azure-sql-database"></a>Hantera schemat i ett SaaS-program med hjälp av mönstret för databas-per-klient med Azure SQL Database
  
@@ -73,7 +73,7 @@ Den *Demo-SchemaManagement.ps1* anropar skriptet den *Deploy-SchemaManagement.ps
 
 ## <a name="create-a-job-to-deploy-new-reference-data-to-all-tenants"></a>Skapa ett jobb för att distribuera nya referensdata till alla klienter
 
-Varje klientdatabas inkluderar en uppsättning platstyper som stöds i appen Wingtip biljetter. Varje plats är av en typ av lokal som definierar vilken typ av händelser som kan finnas och avgör bakgrundsbild som används i appen. För program som stöder nya typer av händelser, måste dessa referensdata vara uppdaterade och nya platstyperna har lagts till.  I den här övningen, distribuerar du en uppdatering till alla klientdatabaser för att lägga till två ytterligare platstyper: *Motorcycle Racing* och *Swimming Club*.
+Varje klientdatabas inkluderar en uppsättning platstyper som stöds i appen Wingtip biljetter. Varje plats är av en typ av lokal som definierar vilken typ av händelser som kan finnas och avgör bakgrundsbild som används i appen. För program som stöder nya typer av händelser, måste dessa referensdata vara uppdaterade och nya platstyperna har lagts till.  I den här övningen ska distribuera du en uppdatering till alla klientdatabaser för att lägga till två ytterligare platstyper: *Motorcycle Racing* och *Swimming Club*.
 
 Granska först platstyper som ingår i varje klientdatabas. Ansluta till en av klientdatabaser i SQL Server Management Studio (SSMS) och granska tabellen VenueTypes.  Du kan också fråga den här tabellen i frågeredigeraren i Azure-portalen kan nås via databas. 
 
@@ -87,7 +87,7 @@ Om du vill skapa ett nytt jobb, använder du en uppsättning jobb system lagrade
 1. I SSMS, Anslut till katalogservern: *catalog-dpt -&lt;användaren&gt;. database.windows.net* server 
 1. Öppna filen i SSMS... \\Inlärningsmoduler\\schemahantering\\DeployReferenceData.sql
 1. Ändra instruktionen: Ange @wtpUser = &lt;användaren&gt; och ersätta det värde för användaren som används när du distribuerade appen Wingtip biljetter SaaS databas Per klient
-1. Se till att du är ansluten till den _jobagent_ databasen och tryck **F5** att köra skriptet
+1. Se till att du är ansluten till den _jobagent_ databasen och tryck **F5** att köra skriptet
 
 Observera följande element i den *DeployReferenceData.sql* skript:
 * **SP\_lägga till\_target\_grupp** skapar målgruppnamnet DemoServerGroup.

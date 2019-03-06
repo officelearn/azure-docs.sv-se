@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/16/2017
 ms.author: kumud
-ms.openlocfilehash: efaa9101fbe46e0db2f582fe5a208dd8b16f095f
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 2b480df0100690a7a5064044d435a34845516fa6
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56003592"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57442111"
 ---
 # <a name="using-powershell-to-manage-traffic-manager"></a>Använda PowerShell för att hantera Traffic Manager
 
@@ -208,7 +208,7 @@ New-AzTrafficManagerEndpoint -Name child-endpoint -ProfileName parent -ResourceG
 
 ## <a name="adding-endpoints-from-another-subscription"></a>Lägga till slutpunkter från en annan prenumeration
 
-Traffic Manager kan arbeta med slutpunkter från olika prenumerationer. Du måste växla till en prenumeration med den slutpunkt som du vill lägga till för att hämta nödvändiga indata till Traffic Manager. Sedan måste växla till prenumerationer med Traffic Manager-profilen och lägga till encpoint till den. I exemplet nedan visar hur du gör detta med en offentlig IP-adress.
+Traffic Manager kan arbeta med slutpunkter från olika prenumerationer. Du måste växla till en prenumeration med den slutpunkt som du vill lägga till för att hämta nödvändiga indata till Traffic Manager. Du måste växla till prenumerationer med Traffic Manager-profilen och lägga till slutpunkten. I exemplet nedan visar hur du gör detta med en offentlig IP-adress.
 
 ```powershell
 Set-AzContext -SubscriptionId $EndpointSubscription

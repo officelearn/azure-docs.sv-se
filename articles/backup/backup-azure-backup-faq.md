@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: raynew
-ms.openlocfilehash: bfc1c419d5d58b4528b76dbed6fd0060f6b2833d
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: 914dcd02f2d35d56b50169967ca1f5c251a6e6f3
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56446672"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57408623"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure Backup – vanliga frågor och svar
 Den här artikeln innehåller vanliga frågor och svar om Azure Backup-tjänsten.
@@ -101,7 +101,8 @@ Windows 8.1 64-bitars | Enterprise, Pro | Datorer ska köra den senaste services
 Windows 8 64-bitars | Enterprise, Pro | Datorer ska köra den senaste services Pack och uppdateringar.
 Windows 7 64-bitars | Ultimate, Enterprise, Professional, Home Premium, Home Basic, Starter | Datorer ska köra den senaste services Pack och uppdateringar.
 Server | |
-Windows Server 2016 64-bitars | Standard, Datacenter, Essentials | Med den senaste servicen Pack/uppdateringar.
+Windows Server 2019 64-bitars | Standard, Datacenter, Essentials | Med de senaste service Pack/uppdateringarna.
+Windows Server 2016 64-bitars | Standard, Datacenter, Essentials | Med de senaste service Pack/uppdateringarna.
 Windows Server 2012 R2 64 bit | Standard, Datacenter, Foundation | Med de senaste service Pack/uppdateringarna.
 Windows Server 2012 64 bit | Datacenter, Foundation, Standard | Med de senaste service Pack/uppdateringarna.
 Windows Storage Server 2016 64 bit | Standard, Workgroup | Med de senaste service Pack/uppdateringarna.

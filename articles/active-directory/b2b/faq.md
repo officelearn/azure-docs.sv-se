@@ -11,12 +11,12 @@ author: msmimart
 manager: daveba
 ms.reviewer: sasubram
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e70a74be372e4374fac5aaa2bfda8ca955e6d305
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 1ee08e4dc2f6a4616c4b427ad7d33f56e135b27a
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56671870"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57442503"
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Azure Active Directory B2B-samarbete vanliga frågor och svar
 
@@ -107,7 +107,7 @@ Om partnern har en Azure AD-klient som är federerat till lokal autentisering in
 Vi tar bort skillnaderna mellan B2B och företag till konsument (B2C) samarbete enligt vilken identiteter stöds. Den identitet som används är inte ett bra skäl att välja mellan att använda B2B eller med hjälp av B2C. Information om hur du väljer ett samarbetsalternativ finns i [jämför B2B-samarbete och B2C i Azure Active Directory](compare-with-b2c.md).
 
 ### <a name="what-applications-and-services-support-azure-b2b-guest-users"></a>Vilka program och tjänster stöder Azure B2B-gästanvändare?
-Alla Azure AD-integrerade program som stöder Azure B2B-gästanvändare, men de måste använda en slutpunkt för innehavare för att autentisera gästanvändare. Du kan också behöva [anpassa anspråk](claims-mapping.md) i SAML-token som utfärdas när en gästanvändare autentiserar till appen. 
+Alla Azure AD-integrerade program som stöder Azure B2B-gästanvändare, men de måste använda en slutpunkt som en klient för att autentisera gästanvändare. Du kan också behöva [anpassa anspråk](claims-mapping.md) i SAML-token som utfärdas när en gästanvändare autentiserar till appen. 
 
 ### <a name="can-we-force-multi-factor-authentication-for-b2b-guest-users-if-our-partners-dont-have-multi-factor-authentication"></a>Kan vi tvinga Multi-Factor authentication för B2B-gästanvändare om våra partners inte har multifaktorautentisering?
 Ja. Mer information finns i [villkorlig åtkomst för användare i B2B-samarbetet](conditional-access.md).

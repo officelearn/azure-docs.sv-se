@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 10/17/2018
 ms.author: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d7f3619e345666256a63181eb978506914d55d1e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: d2275d1ef3534e6d8e984595a816315b7b74a760
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56196543"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57439850"
 ---
 # <a name="how-to-remove-a-users-access-to-an-application"></a>Hur du tar bort en användares åtkomst till ett program
 
@@ -56,7 +56,7 @@ Att **ta bort ett program**, följer du dessa instruktioner:
 
 ## <a name="i-want-to-disable-all-future-user-consent-operations-to-any-application"></a>Jag vill inaktivera alla framtida medgivande användaråtgärder för program
 
-Inaktiverar användarens medgivande för hela katalogen förhindra slutanvändare från principer för alla program. Administratörer kan fortfarande ge samtycke på användarens behalves. Mer information om programmet samtycke och varför du kanske eller kanske inte vill göra detta, Läs [Förstå användar- och administratörens godkännande](../develop/howto-convert-app-to-be-multi-tenant.md#understand-user-and-admin-consent). Se även [behörigheter och samtycke](../develop/v2-permissions-and-consent.md).
+Inaktiverar användarens medgivande för hela katalogen förhindra slutanvändare från principer för alla program. Administratörer kan fortfarande ge samtycke för användarens räkning. Mer information om programmet samtycke och varför du kanske eller kanske inte vill göra detta, Läs [Förstå användar- och administratörens godkännande](../develop/howto-convert-app-to-be-multi-tenant.md#understand-user-and-admin-consent). Se även [behörigheter och samtycke](../develop/v2-permissions-and-consent.md).
 
 Att **inaktivera alla framtida medgivande användaråtgärder i hela katalogen**, följer du dessa instruktioner:
 

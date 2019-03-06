@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 06/25/2018
 ms.author: priyamo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e3933f10a777a1aa10a4e04f8901e7fd1af5c48
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 09bdffbceafc11d99889cbda1461e4af4d89168e
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56195642"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57444624"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-rest-api-calls"></a>Konfigurera hanterade identiteter för Azure-resurser på en Azure-dator med hjälp av REST API-anrop
 
@@ -294,7 +294,7 @@ Om du vill inaktivera systemtilldelade hanterad identitet på en virtuell dator,
 
    Ta bort systemtilldelade hanterad identitet från en virtuell dator som har användartilldelade hanterade identiteter genom att ta bort `SystemAssigned` från den `{"identity":{"type:" "}}` värdet medan den `UserAssigned` värde och `userAssignedIdentities` ordlista värden om du använder **API-versionen 2018-06-01**. Om du använder **API-versionen 2017-12-01** eller tidigare, Behåll den `identityIds` matris.
 
-## <a name="user-assigned-managed-identity"></a>Användartilldelade hanterad identitet
+## <a name="user-assigned-managed-identity"></a>Användartilldelad hanterad identitet
 
 Du lär dig hur du lägger till och ta bort Användartilldelad hanterad identitet på en Azure virtuell dator som använder CURL för att göra anrop till Azure Resource Manager REST-slutpunkten i det här avsnittet.
 
@@ -511,7 +511,7 @@ Om du vill tilldela en Användartilldelad identitet till en virtuell dator, ditt
    |---------|---------|
    |*Auktorisering*     | Krävs. Ange att ett giltigt `Bearer` åtkomsttoken.
 
-    Om du har alla användare eller systemtilldelade hanterade identiteter tilldelas den virtuella datorn vilket identifieras i den `identity` värde i svaret, gå vidare till steg 5 som visar hur du behåller Genoms systemtilldelade hanterad identitet när du lägger till en hanterad Användartilldelad identitet på den virtuella datorn.
+    Om du har alla användare eller systemtilldelade hanterade identiteter tilldelas den virtuella datorn vilket identifieras i den `identity` värde i svaret, gå vidare till steg 5 som visar hur du behåller systemtilldelade hanterad identitet när du lägger till en hanterad Användartilldelad identitet på den virtuella datorn.
 
 4. Om du inte har någon användartilldelade hanterade identiteter tilldelade till den virtuella datorn, kan du använda följande CURL-kommando för att anropa Azure Resource Manager REST-slutpunkt för att tilldela den första hanterade användartilldelade-identitet till den virtuella datorn.
 

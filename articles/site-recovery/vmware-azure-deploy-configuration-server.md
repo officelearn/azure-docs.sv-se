@@ -6,14 +6,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/28/2019
-ms.author: mayg
-ms.openlocfilehash: e7ee8f58e42f99ebc087f21837511979c578fb89
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.date: 03/06/2019
+ms.author: ramamill
+ms.openlocfilehash: 3f500abe0ea37b35236547824c655adc1a4c4d93
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57340090"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57448840"
 ---
 # <a name="deploy-a-configuration-server"></a>Distribuera en konfigurationsserver
 
@@ -74,7 +74,7 @@ Om du replikerar mer än en VMware VM läsa [överväganden vid kapacitetsplaner
 >Du kan också hämta den senaste versionen av konfigurationsservermallen direkt från [Microsoft Download Center](https://aka.ms/asrconfigurationserver).
 
 >[!NOTE]
-Licensen som medföljer mallen för OVA är en licens för utvärdering som är giltig i 180 dagar. Efter måste denna period kunden aktivera windows med upphandlade licens.
+Licensnumret du fått med OVA mall är en utvärderingslicens som är giltig i 180 dagar. Efter måste denna period kunden aktivera windows med en upphandlade licens.
 
 ## <a name="import-the-template-in-vmware"></a>Importera mallen i VMware
 
@@ -113,8 +113,8 @@ Om du vill lägga till ett extra nätverkskort i konfigurationsservern, lägger 
 3. När installationen är klar loggar du in på den virtuella datorn som administratör.
 4. Första gången du loggar in, inom några sekunder Azure Site Recovery-konfigurationsverktyget startar.
 5. Ange det namn som ska användas för att registrera konfigurationsservern med Site Recovery. Välj sedan **Nästa**.
-6. Verktyget kontrollerar att den virtuella datorn kan ansluta till Azure. När anslutningen har upprättats väljer du **Logga in** för att logga in i din Azure-prenumeration.
-    a. Autentiseringsuppgifterna måste ha åtkomst till det valv där du vill registrera konfigurationsservern.
+6. Verktyget kontrollerar att den virtuella datorn kan ansluta till Azure. När anslutningen har upprättats väljer du **Logga in** för att logga in i din Azure-prenumeration.</br>
+    a. Autentiseringsuppgifterna måste ha åtkomst till det valv där du vill registrera konfigurationsservern.</br>
     b. Kontrollera att valda användarkontot har behörighet att skapa ett program i Azure. Om du vill aktivera behörigheter som krävs, följer du riktlinjerna [här](#azure-active-directory-permission-requirements).
 7. Verktyget utför vissa konfigurationsåtgärder och startar sedan om datorn.
 8. Logga in på datorn igen. I guiden Konfigurera serverhantering startar **automatiskt** i några sekunder.
@@ -155,7 +155,7 @@ Se till att IP-adressen för konfigurationsservern inte ändras när konfigurati
 
 1. Hur lång tid är licensen som tillhandahålls på konfigurationsservern som distribueras via OVF är giltig? Vad händer om jag inte återaktivera licensen?
 
-    Licensen som medföljer mallen för OVA är en licens för utvärdering som är giltig i 180 dagar. Innan certifikatet går ut måste du aktivera licensen. Annars kan detta leda till frekventa avstängning av konfigurationsservern och därmed orsaka hinderance replikering aktiviteter.
+    Licensnumret du fått med OVA mall är en utvärderingslicens som är giltig i 180 dagar. Innan certifikatet går ut måste du aktivera licensen. Annars kan detta leda till frekventa avstängning av konfigurationsservern och därmed orsaka hinderance replikering aktiviteter.
 
 2. Kan jag använda den virtuella datorn, där konfigurationsservern installeras för olika syften?
 

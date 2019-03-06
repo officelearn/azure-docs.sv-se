@@ -6,29 +6,19 @@ author: PatAltimore
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 03/04/2019
 ms.author: patricka
 ms.reviewer: thoroet
-ms.lastreviewed: 01/23/19
-ms.openlocfilehash: 86a7f98f8232d4fb3e915efee6d9b53f1fae6e7e
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.lastreviewed: 03/04/2019
+ms.openlocfilehash: 65e5a678b4619897930873e77208005e14c054d2
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56737713"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57410289"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Integrering med Azure Stack datacenter - identitet
-Du kan distribuera Azure Stack med Azure Active Directory (AD Azure) eller Active Directory Federation Services (AD FS) som identitetsleverantör man. Du måste göra valet innan du distribuerar Azure Stack. Distributionen med hjälp av AD FS är kallas även distribuera Azure Stack i frånkopplat läge.
-
-I följande tabell visar skillnaderna mellan de två identity val:
-
-||Ansluten till internet|Ansluten till internet|
-|---------|---------|---------|
-|Fakturering|Måste vara kapacitet<br> Endast Enterprise Agreement (EA)|Kapacitet eller betalning som du-användning<br>EA- eller leverantörer av Molnlösningar (CSP)|
-|Identitet|Måste vara AD FS|Azure AD eller AD FS|
-|Marketplace |Stöds<br>BYOL-licensiering|Stöds<br>BYOL-licensiering|
-|Registrering|Krävs, kräver flyttbart medium<br> och en separat ansluten enhet.|Automatiserad|
-|Korrigeringar och uppdateringar|Krävs, kräver flyttbart medium<br> och en separat ansluten enhet.|Uppdateringspaket kan hämtas direkt<br> från Internet till Azure Stack.|
+Du kan distribuera Azure Stack med Azure Active Directory (AD Azure) eller Active Directory Federation Services (AD FS) som identitetsleverantör man. Du måste göra valet innan du distribuerar Azure Stack. I ett scenario med anslutna kan du välja Azure AD eller AD FS. För ett scenario med frånkopplade stöds endast AD FS.
 
 > [!IMPORTANT]
 > Du kan inte växla identitetsprovidern utan att omdistribuera hela Azure Stack-lösningen.
@@ -43,7 +33,7 @@ Autentisering är en del av identitet. Graph-komponent måste konfigureras för 
 
 Den befintliga AD FS är det konto säkerhetstokentjänst (STS) som skickar anspråk till Azure Stack AD FS (resurs STS). I Azure Stack skapar automation den anspråk provider förtroenden med metadataslutpunkten för befintliga AD FS.
 
-En förlitande part måste konfigureras i den befintliga AD FS. Det här steget görs inte av automation och måste konfigureras av operatorn. Azure Stack-metadataslutpunkt dokumenteras i filen AzureStackStampDeploymentInfo.JSON eller via privilegierad slutpunkt genom att köra kommandot `Get-AzureStackInfo`.
+En förlitande part måste konfigureras i den befintliga AD FS. Det här steget görs inte av automation och måste konfigureras av operatorn. Azure Stack VIP-slutpunkten för AD FS kan skapas med hjälp av mönstret `https://adfs.<Region>.<ExternalFQDN>/`.
 
 Förlitande part förtroende konfigurationen måste du konfigurera anspråksreglerna för omvandling som tillhandahålls av Microsoft.
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/31/2017
 ms.author: mikeray
-ms.openlocfilehash: 449df8e49eb63cb6e52cd4ec25dafc2bb0851347
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 89623adbddce07cbc3c3ead811f5174d108c9b0e
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51241778"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57444794"
 ---
 # <a name="configure-an-external-listener-for-always-on-availability-groups-in-azure"></a>Konfigurera en extern lyssnare för Always On-Tillgänglighetsgrupper i Azure
 > [!div class="op_single_selector"]
@@ -32,7 +32,7 @@ ms.locfileid: "51241778"
 Det här avsnittet visar hur du konfigurerar en lyssnare för en ständigt aktiverad tillgänglighetsgrupp som är externt tillgänglig på internet. Detta är möjligt genom att associera molntjänstens **offentliga virtuella IP (VIP)** adressen med lyssnaren.
 
 > [!IMPORTANT] 
-> Azure har två olika distributionsmodeller för att skapa och arbeta med resurser: [Resource Manager och klassisk](../../../azure-resource-manager/resource-manager-deployment-model.md). Den här artikeln beskriver den klassiska distributionsmodellen. Microsoft rekommenderar att de flesta nya distributioner använder Resource Manager-modellen.
+> Azure har två olika distributionsmodeller som används för att skapa och arbeta med resurser: [Resource Manager och klassisk](../../../azure-resource-manager/resource-manager-deployment-model.md). Den här artikeln beskriver den klassiska distributionsmodellen. Microsoft rekommenderar att de flesta nya distributioner använder Resource Manager-modellen.
 
 Tillgänglighetsgruppen kan innehålla repliker som finns lokalt, Azure, eller omfattar både lokala och Azure för hybridkonfigurationer. Azure repliker kan finnas i samma region eller mellan flera regioner med flera virtuella nätverk (Vnet). Stegen nedan förutsätter att du redan har [konfigurerat en tillgänglighetsgrupp](../classic/portal-sql-alwayson-availability-groups.md) men inte har konfigurerat en lyssnare.
 
@@ -60,7 +60,7 @@ Du måste skapa en belastningsutjämnad slutpunkt för varje virtuell dator som 
 3. Kontrollera att den **namn** och **offentlig Port** lyssnaren slutpunkten som du vill använda är inte redan används. Namnet är ”MyEndpoint” i exemplet nedan och porten är ”1433”.
 4. På din lokala klient, ladda ned och installera [senaste PowerShell-modulen](https://azure.microsoft.com/downloads/).
 5. Starta **Azure PowerShell**. Då öppnas en ny PowerShell-session med Azure-administrativa moduler läses in.
-6. Kör **Get-AzurePublishSettingsFile**. Denna cmdlet dirigerar dig till en webbläsare för att ladda ned en fil med Publiceringsinställningar till en lokal katalog. Du kan uppmanas för dina autentiseringsuppgifter för inloggning för dina Azure-prenumeration.
+6. Run **Get-AzurePublishSettingsFile**. Denna cmdlet dirigerar dig till en webbläsare för att ladda ned en fil med Publiceringsinställningar till en lokal katalog. Du kan uppmanas för dina autentiseringsuppgifter för inloggning för dina Azure-prenumeration.
 7. Kör den **Import AzurePublishSettingsFile** med sökvägen till den publiceringsinställningsfil som du laddade ned:
    
         Import-AzurePublishSettingsFile -PublishSettingsFile <PublishSettingsFilePath>
@@ -123,11 +123,11 @@ Skapa tillgänglighetsgruppens lyssnare i två steg. Först skapar klienten åtk
 [!INCLUDE [Test-Listener-Within-VNET](../../../../includes/virtual-machines-ag-listener-test.md)]
 
 ## <a name="test-the-availability-group-listener-over-the-internet"></a>Testa tillgänglighetsgruppens lyssnare (via internet)
-För att komma åt lyssnaren från utanför det virtuella nätverket måste du använda externa/offentlig belastningsutjämning (beskrivs i det här avsnittet) i stället för ILB, vilket är endast tillgänglig i samma virtuella nätverk. I anslutningssträngen anger du molntjänstens namn. Exempel: Om du hade en molntjänst med namnet *mycloudservice*, sqlcmd-instruktionen är enligt följande:
+För att komma åt lyssnaren från utanför det virtuella nätverket måste du använda externa/offentlig belastningsutjämning (beskrivs i det här avsnittet) i stället för ILB, vilket är endast åtkomlig inom samma virtuella nätverk. I anslutningssträngen anger du molntjänstens namn. Exempel: Om du hade en molntjänst med namnet *mycloudservice*, sqlcmd-instruktionen är enligt följande:
 
     sqlcmd -S "mycloudservice.cloudapp.net,<EndpointPort>" -d "<DatabaseName>" -U "<LoginId>" -P "<Password>"  -Q "select @@servername, db_name()" -l 15
 
-Till skillnad från det tidigare exemplet måste SQL-autentisering användas, eftersom anroparen inte kan använda windows-autentisering via internet. Mer information finns i [ständigt aktiverad tillgänglighetsgrupp i Azure VM: scenarier för anslutning av klienten](https://blogs.msdn.com/b/sqlcat/archive/2014/02/03/alwayson-availability-group-in-windows-azure-vm-client-connectivity-scenarios.aspx). När du använder SQL-autentisering måste du kontrollera att du skapar samma inloggning på båda replikerna. Läs mer om hur du felsöker inloggningar med Tillgänglighetsgrupper [mappa inloggningar eller använder oberoende databasanvändare som SQL för att ansluta till andra repliker och mappa tillgänglighetsdatabaserna](https://blogs.msdn.com/b/alwaysonpro/archive/2014/02/19/how-to-map-logins-or-use-contained-sql-database-user-to-connect-to-other-replicas-and-map-to-availability-databases.aspx).
+Till skillnad från det tidigare exemplet måste SQL-autentisering användas, eftersom anroparen inte kan använda windows-autentisering via internet. Mer information finns i [ständigt aktiverad tillgänglighetsgrupp i virtuell Azure-dator: Scenarier för anslutning av klienten](https://blogs.msdn.com/b/sqlcat/archive/2014/02/03/alwayson-availability-group-in-windows-azure-vm-client-connectivity-scenarios.aspx). När du använder SQL-autentisering måste du kontrollera att du skapar samma inloggning på båda replikerna. Läs mer om hur du felsöker inloggningar med Tillgänglighetsgrupper [mappa inloggningar eller använder oberoende databasanvändare som SQL för att ansluta till andra repliker och mappa tillgänglighetsdatabaserna](https://blogs.msdn.com/b/alwaysonpro/archive/2014/02/19/how-to-map-logins-or-use-contained-sql-database-user-to-connect-to-other-replicas-and-map-to-availability-databases.aspx).
 
 Om Always On-repliker är i olika undernät, måste klienter ange **MultisubnetFailover = True** i anslutningssträngen. Detta resulterar i parallella anslutningsförsök till kopior i olika undernät. Observera att det här scenariot innehåller en interregionala Always On Availability Group-distribution.
 

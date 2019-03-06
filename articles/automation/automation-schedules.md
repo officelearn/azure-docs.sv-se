@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 09/18/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: c1c36736e9d023ab1bd2ed607638b600bc468f2c
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: d6677733339babf45e7351e10d6de1c002a6ea93
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54437224"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57436518"
 ---
 # <a name="scheduling-a-runbook-in-azure-automation"></a>Schemaläggning av en Runbook i Azure Automation
 
@@ -52,7 +52,7 @@ Du kan skapa ett nytt schema för runbooks i Azure portal eller med Windows Powe
 1. På den **nytt schema** rutan Ange ett **namn** och eventuellt en **beskrivning** för det nya schemat.
 1. Välj om schemat har körts en gång, eller enligt ett återkommande schema genom att välja **när** eller **återkommande**. Om du väljer **när** anger en **starttid**, och klicka sedan på **skapa**. Om du väljer **återkommande**, ange en **starttid** och för **Upprepa varje**, väljer du frekvens för hur ofta du vill att runbook ska upprepas - av **timme**, **dag**, **vecka**, eller av **månad**.
     1. Om du väljer **vecka**, du får en lista över de veckodagar att välja bland. Välj så många dagar som du vill ha. Den första körningen av schemat sker på den första dagen efter starttiden.
-    2. Om du väljer **månad**, ges du olika alternativ. För den **månatliga occurrances** alternativet, väljer du antingen **dagar i månaden** eller **veckodagar**. Om du väljer **dagar i månaden** en kalender visas där du kan välja så många dagar som du vill. Om du väljer ett datum, till exempel den 31 inte inträffar i den aktuella månaden, körs inte schemat. Om du vill att schemat ska köras den sista dagen väljer **Ja** under **kör sista dagen i månaden**. Om du väljer **veckodagar**, **Upprepa varje** alternativ visas. Välj **första**, **andra**, **tredje**, **fjärde**, eller **senaste**. Välj slutligen en dag till Upprepa på.
+    2. Om du väljer **månad**, ges du olika alternativ. För den **månadsförekomster** alternativet, väljer du antingen **dagar i månaden** eller **veckodagar**. Om du väljer **dagar i månaden** en kalender visas där du kan välja så många dagar som du vill. Om du väljer ett datum, till exempel den 31 inte inträffar i den aktuella månaden, körs inte schemat. Om du vill att schemat ska köras den sista dagen väljer **Ja** under **kör sista dagen i månaden**. Om du väljer **veckodagar**, **Upprepa varje** alternativ visas. Välj **första**, **andra**, **tredje**, **fjärde**, eller **senaste**. Välj slutligen en dag till Upprepa på.
 1. När klar klickar du på **skapa**.
 
 ### <a name="to-create-a-new-schedule-with-windows-powershell"></a>Att skapa ett nytt schema med Windows PowerShell

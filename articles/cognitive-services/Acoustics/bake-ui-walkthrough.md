@@ -10,12 +10,12 @@ ms.subservice: acoustics
 ms.topic: conceptual
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: ce377234cceb22bc2c6979bedd92d800355e75da
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 3f567e66a1e84dccaa18db550f30d6bb34ad8162
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55872092"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57442944"
 ---
 # <a name="bake-acoustics"></a>Skapa Akustik
 
@@ -243,7 +243,7 @@ Till exempel på en dator med 8 kärnor med Intel Xeon E5-1660 @ 3 GHz och 32 GB
 ### <a name="setup-docker"></a>Konfigurera Docker
 Installera och konfigurera Docker på den dator som kommer att bearbeta simuleringen-
 1. Installera den [Docker verktygsuppsättningen](https://www.docker.com/products/docker-desktop).
-2. Starta Docker-inställningar, navigera till ”avancerat” alternativ och konfigurera resurser om du vill ha på minst 8 GB RAM-minne. Fler processorer som du kan allokera till Docker, desto snabbare ändamålet slutförs. ![Exempel på Docker-inställningar](media/DockerSettings.png)
+2. Starta Docker-inställningar, navigera till ”avancerat”-alternativ och konfigurera resurser för att ha minst 8GB RAM-minne. Fler processorer som du kan allokera till Docker, desto snabbare ändamålet slutförs. ![Exempel på Docker-inställningar](media/DockerSettings.png)
 3. Navigera till ”delade enheter” och aktivera delning av enheten som används för bearbetning.![DockerDriveSharing](media/DockerSharedDrives.png)
 
 ### <a name="run-local-bake"></a>Kör lokala ändamålet

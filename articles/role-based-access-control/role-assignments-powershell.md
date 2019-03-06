@@ -1,6 +1,6 @@
 ---
 title: Hantera åtkomst till Azure-resurser med RBAC och Azure PowerShell | Microsoft Docs
-description: Lär dig mer om att hantera åtkomst till Azure resoruces för användare, grupper och program med hjälp av rollbaserad åtkomstkontroll (RBAC) och Azure PowerShell. Detta innefattar hur du listar åtkomst, ger åtkomst och tar bort åtkomst.
+description: Lär dig mer om att hantera åtkomst till Azure-resurser för användare, grupper och program med hjälp av rollbaserad åtkomstkontroll (RBAC) och Azure PowerShell. Detta innefattar hur du listar åtkomst, ger åtkomst och tar bort åtkomst.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,16 +14,16 @@ ms.workload: identity
 ms.date: 02/20/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 7e7d92b2995d8d68b08b78ee02549fe5e713c4dd
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: ace70dea5277b4e9d8c8b0e6e0cdc49da0b674e0
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56817175"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57432234"
 ---
 # <a name="manage-access-to-azure-resources-using-rbac-and-azure-powershell"></a>Hantera åtkomst till Azure-resurser med RBAC och Azure PowerShell
 
-[Rollbaserad åtkomstkontroll (RBAC)](overview.md) är ett sätt som du hanterar åtkomst till Azure-resurser. Den här artikeln beskriver hur du hanterar åtkomst för användare, grupper och program med RBAC och Azure PowerShell.
+[Rollbaserad åtkomstkontroll (RBAC)](overview.md) är metoden som du använder när du hanterar åtkomst till Azure-resurser. Den här artikeln beskriver hur du hanterar åtkomst för användare, grupper och program med RBAC och Azure PowerShell.
 
 [!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
 

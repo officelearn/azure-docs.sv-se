@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/21/2016
 ms.author: ghogen
-ms.openlocfilehash: 518e14b991aa110a6ed55f984a66cd386a618f0f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 1a35d1cbd49a55b0c25f5e2b993358130589c125
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51228971"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57444641"
 ---
 # <a name="get-started-with-azure-table-storage-and-visual-studio-connected-services-aspnet"></a>Kom igång med Azure table storage och Visual Studio anslutna tjänster (ASP.NET)
 [!INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
@@ -114,7 +114,7 @@ Följande steg illustrerar hur du skapar en tabell:
     }
     ```
 
-1. I den **CreateTable** metod, hämta en **CloudStorageAccount** objekt som representerar information på lagringskontot. Använd följande kod för att hämta anslutningssträngen för lagring och lagringskontoinformation från konfigurationen i Azure service: (ändra  *&lt;lagringskontonamn->* till namnet på Azure storage-kontot du är åtkomst till.)
+1. I den **CreateTable** metod, hämta en **CloudStorageAccount** objekt som representerar information på lagringskontot. Använd följande kod för att hämta anslutningssträngen för lagring och lagringskontoinformation från konfigurationen i Azure service: (Ändra  *&lt;lagringskontonamn->* till namnet på Azure storage-konto du försöker komma åt.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -203,7 +203,7 @@ Enhetsklassen *måste* deklarera en offentlig parameterlös konstruktor.
     }
     ```
 
-1. I den **AddEntity** metod, hämta en **CloudStorageAccount** objekt som representerar information på lagringskontot. Använd följande kod för att hämta anslutningssträngen för lagring och lagringskontoinformation från konfigurationen i Azure service: (ändra  *&lt;lagringskontonamn->* till namnet på Azure storage-kontot du är åtkomst till.)
+1. I den **AddEntity** metod, hämta en **CloudStorageAccount** objekt som representerar information på lagringskontot. Använd följande kod för att hämta anslutningssträngen för lagring och lagringskontoinformation från konfigurationen i Azure service: (Ändra  *&lt;lagringskontonamn->* till namnet på Azure storage-konto du försöker komma åt.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -298,7 +298,7 @@ Förutom att [lägga till en entitet i en tabell en i taget](#add-an-entity-to-a
     }
     ```
 
-1. I den **AddEntities** metod, hämta en **CloudStorageAccount** objekt som representerar information på lagringskontot. Använd följande kod för att hämta anslutningssträngen för lagring och lagringskontoinformation från konfigurationen i Azure service: (ändra  *&lt;lagringskontonamn->* till namnet på Azure storage-kontot du är åtkomst till.)
+1. I den **AddEntities** metod, hämta en **CloudStorageAccount** objekt som representerar information på lagringskontot. Använd följande kod för att hämta anslutningssträngen för lagring och lagringskontoinformation från konfigurationen i Azure service: (Ändra  *&lt;lagringskontonamn->* till namnet på Azure storage-konto du försöker komma åt.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -418,7 +418,7 @@ Det här avsnittet visar hur du hämtar en enskild entitet från en tabell med d
     }
     ```
 
-1. I den **GetSingle** metod, hämta en **CloudStorageAccount** objekt som representerar information på lagringskontot. Använd följande kod för att hämta anslutningssträngen för lagring och lagringskontoinformation från konfigurationen i Azure service: (ändra  *&lt;lagringskontonamn->* till namnet på Azure storage-kontot du är åtkomst till.)
+1. I den **GetSingle** metod, hämta en **CloudStorageAccount** objekt som representerar information på lagringskontot. Använd följande kod för att hämta anslutningssträngen för lagring och lagringskontoinformation från konfigurationen i Azure service: (Ändra  *&lt;lagringskontonamn->* till namnet på Azure storage-konto du försöker komma åt.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -518,7 +518,7 @@ Som vi redan nämnt i avsnittet [lägga till en entitet i en tabell](#add-an-ent
     }
     ```
 
-1. I den **GetPartition** metod, hämta en **CloudStorageAccount** objekt som representerar information på lagringskontot. Använd följande kod för att hämta anslutningssträngen för lagring och lagringskontoinformation från konfigurationen i Azure service: (ändra  *&lt;lagringskontonamn->* till namnet på Azure storage-kontot du är åtkomst till.)
+1. I den **GetPartition** metod, hämta en **CloudStorageAccount** objekt som representerar information på lagringskontot. Använd följande kod för att hämta anslutningssträngen för lagring och lagringskontoinformation från konfigurationen i Azure service: (Ändra  *&lt;lagringskontonamn->* till namnet på Azure storage-konto du försöker komma åt.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -628,7 +628,7 @@ Det här avsnittet visas hur du tar bort en entitet från en tabell.
     }
     ```
 
-1. I den **DeleteEntity** metod, hämta en **CloudStorageAccount** objekt som representerar information på lagringskontot. Använd följande kod för att hämta anslutningssträngen för lagring och lagringskontoinformation från konfigurationen i Azure service: (ändra  *&lt;lagringskontonamn->* till namnet på Azure storage-kontot du är åtkomst till.)
+1. I den **DeleteEntity** metod, hämta en **CloudStorageAccount** objekt som representerar information på lagringskontot. Använd följande kod för att hämta anslutningssträngen för lagring och lagringskontoinformation från konfigurationen i Azure service: (Ändra  *&lt;lagringskontonamn->* till namnet på Azure storage-konto du försöker komma åt.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(

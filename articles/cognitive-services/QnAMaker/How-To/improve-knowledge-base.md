@@ -8,14 +8,14 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 02/26/2019
+ms.date: 03/05/2019
 ms.author: diberry
-ms.openlocfilehash: cff4199663bce39353f8c10c68f51f15d6a72a22
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 7281fb15e91195e1dd20095d9fdf80d3d9894a26
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57314831"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57433067"
 ---
 # <a name="use-active-learning-to-improve-knowledge-base"></a>Använda aktiv inlärning för att förbättra kunskapsbasen
 
@@ -37,6 +37,8 @@ Båda metoderna ger rankningen med liknande frågor som är klustrade.
 Aktiv inlärning utlöses baserat på poäng för övre några svar returnerades av QnA Maker för en viss fråga. Om skillnaderna poäng ligger inom ett mindre intervall kommer frågan betraktas som ett möjligt _förslag_ för var och en av de möjliga svar. 
 
 Alla förslag är klustrade tillsammans efter likhet och övre förslag på alternativa frågor visas baserat på åtkomstfrekvensen för de specifika frågorna av slutanvändare. Aktiv inlärning ger bästa möjliga förslagen i fall där slutpunkterna får ett rimligt antal och mängd användningsfrågor.
+
+När 5 eller mer liknande frågor är klustrade visas föreslår varje halvtimme QnA Maker användarbaserade frågorna kunskapsbas Designer ska godkänna eller avvisa.
 
 När frågor föreslås i QnA Maker-portalen, måste du granska och godkänna eller avvisa dessa förslag. 
 
@@ -77,7 +79,7 @@ Aktiv inlärning är inaktiverat som standard. Aktivera den föreslagna frågor.
 
     [![Växla knappen Visa förslag på inställningssidan för tjänsten](../media/improve-knowledge-base/show-suggestions-button.png)](../media/improve-knowledge-base/show-suggestions-button.png#lightbox)
 
-1. Filtrera kunskapsbas med frågor och svar-par till att bara visa förslag genom att välja **filtrera efter förslag**.
+1. Filtrera kunskapsbas med frågor och svar par att visa endast förslag genom att välja **filtrera efter förslag**.
 
     [![Filtrera efter förslag för att se på tjänstinställningssidan, bara de fråga/svar par](../media/improve-knowledge-base/filter-by-suggestions.png)](../media/improve-knowledge-base/filter-by-suggestions.png#lightbox)
 
@@ -162,6 +164,31 @@ Content-Type: application/json
 ```
 
 Mer information om hur du använder aktiv inlärning med en [Azure Bot C# exempel](https://github.com/Microsoft/BotBuilder-Samples/tree/master/experimental/csharp_dotnetcore/qnamaker-activelearning-bot)
+
+## <a name="active-learning-is-saved-in-the-exported-apps-tsv-file"></a>Aktiv inlärning sparas i den exporterade appens tsv-fil
+
+När din app har aktiv inlärning aktiverat, och du exportera en app i `SuggestedQuestions` kolumnen i filen tsv behåller data aktiv inlärning. 
+
+Den `SuggestedQuestions` kolumnen är ett JSON-objekt av information om implicit (`autosuggested`) och explicit (`usersuggested`) [feedback](#active-learning). Ett exempel på JSON-objektet för en enda Användarinitierat fråga om `help` är:
+
+```JSON
+[
+    {
+        "clusterHead": "help",
+        "totalAutoSuggestedCount": 1,
+        "totalUserSuggestedCount": 0,
+        "alternateQuestionList": [
+            {
+                "question": "help",
+                "autoSuggestedCount": 1,
+                "userSuggestedCount": 0
+            }
+        ]
+    }
+]
+```
+
+När du importera den här appen fortsätter aktiv inlärning att samla in information och rekommendera förslag på kunskapsbasen. 
 
 ## <a name="next-steps"></a>Nästa steg
  

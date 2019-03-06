@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.date: 3/3/2019
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: 043a49e679f2b8ec48213e28d229121d3f0e070d
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 47cd1c8e7a8ea02175f1f35eaf8c1658e03a2a53
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/05/2019
-ms.locfileid: "57338645"
+ms.locfileid: "57403319"
 ---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>Aktivera replikering till Azure för virtuella VMware-datorer
 
@@ -51,12 +51,15 @@ När du replikerar virtuella VMware-datorer:
 
 7. Välj det Azure-nätverk och undernät som virtuella Azure-datorer ska ansluta till efter en redundansväxling. Nätverket måste finnas i samma region som Recovery Services-valvet. Välj **Konfigurera nu för valda datorer** om du vill använda nätverksinställningen på alla datorer som du väljer att skydda. Välj **Konfigurera senare** om du vill välja Azure-nätverket för varje dator. Om du inte har ett nätverk kan behöva du skapa en. Om du vill skapa ett nätverk med hjälp av Resource Manager klickar du på **Skapa ny**. Välj ett undernät om det är tillämpligt, och klicka sedan på **OK**.
 
-    ![Aktivera replikering Målinställningar](./media/vmware-azure-enable-replication/enable-rep3.png)
+>[!NOTE]
+>Azure Site Recovery replikerar nu direkt till Managed Disks för alla nya replikeringar. Befintliga replikeringar påverkas inte. Replikering till storage-konton för en ny dator är bara tillgängliga via REST-API och Powershell. 
+
+    ![Enable replication target setting](./media/vmware-azure-enable-replication/enable-rep3.png)
 8. I **Virtual Machines** > **Välj virtuella datorer** väljer du de datorer som du vill replikera. Du kan bara välja datorer som stöder replikering. Klicka sedan på **OK**. Om du inte kan visa /välja en viss virtuell dator klickar du [här](https://aka.ms/doc-plugin-VM-not-showing) för att lösa problemet.
 
     ![Aktivera replikering väljer virtuella datorer](./media/vmware-azure-enable-replication/enable-replication5.png)
-9. I **egenskaper** > **konfigurera egenskaper**, väljer du det konto som används av processervern för att automatiskt installera Mobilitetstjänsten på datorn.  
-10. Som standard replikeras alla diskar. Om du vill undanta diskar från replikering klickar du på **alla diskar** och rensa alla diskar som du inte vill replikera.  Klicka sedan på **OK**. Du kan ange ytterligare egenskaper senare. [Läs mer](vmware-azure-exclude-disk.md) om att undanta diskar.
+9. I **egenskaper** > **konfigurera egenskaper**, väljer du det konto som används av processervern för att automatiskt installera Mobilitetstjänsten på datorn. Välj även den typ av hanterad måldisken som du vill replikera till utifrån dina data churn mönster.
+10. Som standard replikeras alla diskar på en källdator. Om du vill undanta diskar från replikering, avmarkera **inkludera** kryssrutan mot alla diskar som du inte vill replikera.  Klicka sedan på **OK**. Du kan ange ytterligare egenskaper senare. [Läs mer](vmware-azure-exclude-disk.md) om att undanta diskar.
 
     ![Aktivera replikering konfigurera egenskaper](./media/vmware-azure-enable-replication/enable-replication6.png)
 

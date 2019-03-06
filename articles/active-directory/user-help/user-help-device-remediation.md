@@ -1,5 +1,5 @@
 ---
-title: Potential anledningar för felmeddelandet ”du kan inte ta dig dit härifrån” i Azure Active Directory | Microsoft Docs
+title: Felsöka ”du kan inte ta dig dit härifrån”-fel – Azure Active Directory | Microsoft Docs
 description: Felsöka de möjliga orsakerna till att du får felmeddelandet ”du kan inte ta dig dit härifrån”.
 services: active-directory
 author: eross-msft
@@ -12,13 +12,14 @@ ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: lizross
 ms.reviewer: jairoc
+ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a7cd67a9a7027e8567e470acab006fd09748de54
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: a317680a39d4594aacdf84ccdf963bb84bfbf07b
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56181719"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57452047"
 ---
 # <a name="potential-reasons-for-the-you-cant-get-there-from-here-error-message"></a>Möjliga orsaker till felmeddelandet ”du kan inte ta dig dit härifrån”
 Vid åtkomst till organisationens interna webbprogram eller tjänster, kan du få ett felmeddelande som säger, **du kan inte ta dig dit härifrån**. Det här meddelandet innebär att din organisation har infört en princip som förhindrar enheten från att komma åt din organisations resurser. Medan du kan få behöva kontakta din supportavdelning för att åtgärda problemet, är här några saker som du kan försöka först.

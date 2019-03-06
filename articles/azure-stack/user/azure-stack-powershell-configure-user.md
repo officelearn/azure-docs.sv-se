@@ -15,12 +15,12 @@ ms.date: 02/11/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 01/24/2019
-ms.openlocfilehash: 65071df1dff6e25683510956c2d82de5252b67ac
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 6839d46efdcd9b6a09e8b2c98e0334f6e6ea1620
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56107250"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57405606"
 ---
 # <a name="connect-to-azure-stack-with-powershell-as-a-user"></a>Ansluta till Azure Stack med PowerShell som en användare
 
@@ -94,6 +94,7 @@ New-AzureRmResourceGroup -Name "MyResourceGroup" -Location "Local"
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Utveckla mallar för Azure Stack](azure-stack-develop-templates.md)
-- [Distribuera mallar med PowerShell](azure-stack-deploy-template-powershell.md)
+- [Utveckla mallar för Azure Stack](azure-stack-develop-templates.md)  
+- [Distribuera mallar med PowerShell](azure-stack-deploy-template-powershell.md)  
+- [Azure Stack modulreferens](https://docs.microsoft.com/en-us/powershell/azure/azure-stack/overview)  
 - Om du vill konfigurera PowerShell för operatorn molnmiljö avser den [konfigurera PowerShell-miljö för Azure Stack-operatör](../azure-stack-powershell-configure-admin.md) artikeln.

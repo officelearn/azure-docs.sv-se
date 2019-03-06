@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/01/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 19a4f8fc41ed4d6850f114e19f49f239befe08d0
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 8050027bac3d2f13ac457edcdad9275c040305da
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57242657"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57431864"
 ---
 # <a name="grant-access-to-azure-containers-and-queues-with-rbac-in-the-azure-portal-preview"></a>Bevilja åtkomst till Azure-behållare och köer med RBAC i Azure portal (förhandsversion)
 
@@ -62,7 +62,7 @@ Proceduren som visas här tilldelas en roll som är begränsade till en behålla
 1. Leta rätt på behållaren som du vill tilldela en roll och visa behållarens inställningar. 
 1. Välj **åtkomstkontroll (IAM)** att visa inställningar för åtkomstkontroll för behållaren. Välj den **rolltilldelningar** flik för att se en lista över rolltilldelningar.
 
-    ![Skärmbild som visar hur behållarinställningar för åtkomstkontroll](media/storage-auth-aad-rbac/portal-access-control-container.png)
+    ![Skärmbild som visar behörighetsinställningar för behållare](media/storage-auth-aad-rbac/portal-access-control-container.png)
 
 1. Klicka på den **Lägg till rolltilldelning** för att lägga till en ny roll.
 1. I den **Lägg till rolltilldelning** fönstret, Välj den Azure Storage-roll som du vill tilldela. Och sedan söka efter säkerhetsobjektet som du vill tilldela rollen.

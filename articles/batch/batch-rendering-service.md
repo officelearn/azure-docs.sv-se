@@ -6,18 +6,18 @@ author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
-ms.openlocfilehash: bc8c96345aeb1886696326edd230666ac8b6c41d
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: dbe3fe59fd2674cf3475fc5b589a2c938e706ab2
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53542221"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57441346"
 ---
 # <a name="rendering-using-azure"></a>Rendering med hjälp av Azure
 
 Rendering är processen för att utföra 3D-modeller och konvertera dem till 2D-bilder. 3D-scenfilerna är skrivna i program, till exempel Autodesk 3ds Max, Autodesk Maya och Blender.  Renderingsprogram som Autodesk Maya, Autodesk Arnold, Chaos Group V-Ray och Blender cykler producerar 2D-bilder.  Ibland enda avbildningar skapas från scenfilerna. Dock är det vanligt att modellera och återge flera bilder och sedan kombinera dem i en animering.
 
-Arbetsbelastningen rendering används kraftigt för effekter (VFX) i branschen Media och underhållning. Rendering används också i många andra industires, till exempel reklam, detaljhandel, olja och gas och tillverkning.
+Arbetsbelastningen rendering används kraftigt för effekter (VFX) i branschen Media och underhållning. Rendering används också i många branscher, till exempel reklam, detaljhandel, olja och gas och tillverkning.
 
 Processen för rendering är beräkningsmässigt intensivt; Det kan finnas många bildrutor/bilder för att producera och varje avbildning kan ta flera timmar att återge.  Rendering används därför en perfekt batch-bearbetning som kan använda Azure och Azure Batch för att köra många renderingar parallellt.
 

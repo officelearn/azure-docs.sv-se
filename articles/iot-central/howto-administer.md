@@ -1,6 +1,6 @@
 ---
 title: Administrera en Azure IoT Central program | Microsoft Docs
-description: Som en administratör, hur du administrerar Azure IoT Central programmet
+description: Som administratör, hur du administrerar Azure IoT Central programmet
 author: viv-liu
 ms.author: viviali
 ms.date: 04/16/2018
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: d325c30173955ff7c08099a125094ffe620c7ee3
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 1b79b6870766f9595e731206bae2d4251d294942
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57313386"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57431334"
 ---
 # <a name="administer-your-iot-central-application"></a>Administrera ditt IoT Central-program
 
@@ -149,7 +149,7 @@ Anslut enheter i stor skala i ditt program som använder nycklar och certifikat 
 
 ## <a name="use-access-tokens"></a>Använd åtkomsttoken
 
-Generera åtkomsttoken för att använda dem i utvecklarverktyg. Det finns för närvarande en utvecklarverktyget tillgängliga som är i IoT Central-Utforskaren för att övervaka meddelanden från enheten och ändringar i inställningarna och propreties. Läs mer om IoT Central-explorer. 
+Generera åtkomsttoken för att använda dem i utvecklarverktyg. Det finns för närvarande en utvecklarverktyget tillgängliga som är i IoT Central-Utforskaren för att övervaka meddelanden från enheten och ändringar i inställningar och egenskaper. Läs mer om IoT Central-explorer. 
 
 ## <a name="use-the-azure-sdks-for-control-plane-operations"></a>Använd Azure SDK för kontrollplanåtgärder
 

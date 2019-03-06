@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 12589d9fa4623dbb6ebfd12d2e007eb9303ecdbf
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 4f06af8044a79a7dc54d6fde55992111d24d22a7
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56008330"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57441568"
 ---
 # <a name="simple-query-syntax-in-azure-search"></a>Enkel frågesyntax i Azure Search
 Azure Search implementerar två Lucene-baserat frågespråk: [Enklare Frågeparsern](https://lucene.apache.org/core/4_7_0/queryparser/org/apache/lucene/queryparser/simple/SimpleQueryParser.html) och [Lucene Frågeparsern](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html). I Azure Search utesluter den enkla frågesyntaxen fuzzy/uppsamlingstankar alternativ.  
@@ -46,7 +46,7 @@ Du är vanligtvis mycket mer troligt att dessa beteenden i interaktion användar
 
 ## <a name="operators-in-simple-search"></a>Operatörer i enkel sökning
 
-Du kan bädda in operatörer i en frågesträng för att skapa en uppsättning villkor som mot vilken matchande dokument påträffas av ris. 
+Du kan bädda in operatörer i en frågesträng för att skapa en omfattande uppsättning villkor mot vilken matchande dokument påträffas. 
 
 ## <a name="and-operator-"></a>OCH operatör `+`
 

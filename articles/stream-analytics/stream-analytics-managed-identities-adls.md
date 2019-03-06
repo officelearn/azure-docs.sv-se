@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4537d15f88732d4b0c3c3cf514d6b8528af10f81
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 8b8d56befa49b74ba123ff250720ac581604bbd6
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56737475"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57452334"
 ---
 # <a name="authenticate-stream-analytics-to-azure-data-lake-storage-gen1-using-managed-identities-preview"></a>Autentisera Stream Analytics till Azure Data Lake Storage Gen1 med hjälp av hanterade identiteter (förhandsversion)
 
@@ -172,14 +172,14 @@ Den här artikeln visar tre sätt att aktivera hanterad identitet för Azure Str
    User -Id 14c6fd67-d9f5-4680-a394-cd7df1f9bacf -Permissions WriteExecute
    ```
 
-   Mer information om kommandot ovan PowerShell avser den [Set-AzDataLakeStoreItemAclEntry](https://docs.microsoft.com/powershell/module/az.datalakestore/set-azdatalakestoreitemaclentry#optional-parameters) dokumentation.
+   Mer information om kommandot ovan PowerShell avser den [Set-AzDataLakeStoreItemAclEntry](https://docs.microsoft.com/powershell/module/az.datalakestore/set-azdatalakestoreitemaclentry) dokumentation.
 
 ## <a name="limitations"></a>Begränsningar
 Den här funktionen stöder inte följande:
 
 1.  **Flera innehavare åtkomst**: Tjänstens huvudnamn som skapats för en viss Stream Analytics-jobbet kommer att finnas på Azure Active Directory-klient som jobbet har skapats och kan inte användas mot en resurs som finns på en annan Azure Active Directory-klient. Du kan därför bara använda MSI på ADLS Gen 1-resurser som ligger inom samma Azure Active Directory-klient som din Azure Stream Analytics-jobb. 
 
-2.  **[Tilldelade användaridentitet](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview#how-does-the-managed-identities-for-azure-resources-worka-namehow-does-it-worka/)**: stöds inte detta innebär att användaren inte kan ange sina egna tjänstens huvudnamn som ska användas av deras Stream Analytics-jobb. Tjänstens huvudnamn genereras av Azure Stream Analytics. 
+2.  **[Tilldelade användaridentitet](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview)**: stöds inte detta innebär att användaren inte kan ange sina egna tjänstens huvudnamn som ska användas av deras Stream Analytics-jobb. Tjänstens huvudnamn genereras av Azure Stream Analytics. 
 
 
 ## <a name="next-steps"></a>Nästa steg

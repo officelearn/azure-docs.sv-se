@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/09/2018
 ms.author: genli
-ms.openlocfilehash: 495325696dad79a6cc1a77b9a87f6db0af4c1156
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 26f60a6f1796b080df3294737ce93bfb43029bf1
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53253263"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57439133"
 ---
 # <a name="troubleshoot-azure-load-balancer"></a>Felsök Azure Load Balancer
 
@@ -77,7 +77,7 @@ Om alla föregående orsaker verkar valideras och matchas korrekt och den virtue
     - Kör en samtidig Netsh-spårning på serverdelspoolen mål VM och en annan virtuell test VM från samma virtuella nätverk. Nu kan köra ett test för PsPing under en viss tid, samla in vissa nätverksspår och stoppa sedan testet. 
     - Analysera nätverksbild och se om det finns både inkommande och utgående paket som är relaterade till ping-frågan. 
         - Om inga inkommande paket observeras i serverdelspoolen VM, finns det potentiellt en nätverkssäkerhetsgrupper eller UDR felkonfigurerad som blockerar trafiken. 
-        - Om ingen utgående paket observeras i serverdelspoolen VM, måste den virtuella datorn som ska genomsökas efter orelaterade problem (för lagringsdiskar; program som blockerar avsökningsporten). 
+        - Om ingen utgående paket observeras i serverdelspoolen VM, måste den virtuella datorn som ska genomsökas efter orelaterade problem (t.ex, program som blockerar avsökningsporten). 
     - Kontrollera om avsökningen paketen som tvingas att ett annat mål (eventuellt via UDR inställningar) innan de når belastningsutjämnaren. Detta kan orsaka trafiken till når aldrig den virtuella datorn på serversidan. 
 * Ändringstyp avsökning (till exempel HTTP till TCP) och konfigurera den motsvarande porten i nätverkssäkerhetsgrupper ACL: er och brandväggen för att verifiera om problemet beror på konfigurationen av avsökningen svar. Läs mer om hälsotillstånd avsökningskonfiguration [Endpoint Load Balancing hälsotillstånd avsökningskonfiguration](https://blogs.msdn.microsoft.com/mast/2016/01/26/endpoint-load-balancing-heath-probe-configuration-details/).
 

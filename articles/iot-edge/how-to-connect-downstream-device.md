@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: d41ec0bc959eb264564d49ae6ac31aa30b3be98a
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 32b9a00aa943813bec3c518c3c9dbf0e37a9bc63
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55492767"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57445933"
 ---
 # <a name="connect-a-downstream-device-to-an-azure-iot-edge-gateway"></a>En underordnad ansluts till en Azure IoT Edge-gateway
 
@@ -40,7 +40,10 @@ Innan du följer stegen i den här artikeln bör du ha två enheter som är redo
 2. En underordnad enhet som har en enhetsidentitet från IoT Hub. 
     Du kan inte använda en IoT Edge-enhet så att den underordnade enheten. Använd istället en enhet har registrerats som en vanlig IoT-enhet i IoT Hub. I portalen kan du registrera en ny enhet i den **IoT-enheter** avsnittet. Du kan också använda Azure CLI för att [registrera en enhet](../iot-hub/quickstart-send-telemetry-c.md#register-a-device). Kopiera anslutningssträngen och den kan användas i senare avsnitt. 
 
-    För närvarande ansluta endast underordnade enheter med symmetrisk nyckelautentisering via IoT Edge-gatewayer. X.509-certifikatutfärdare och självsignerat X.509-certifikat stöds inte för närvarande. 
+    För närvarande ansluta endast underordnade enheter med symmetrisk nyckelautentisering via IoT Edge-gatewayer. X.509-certifikatutfärdare och självsignerat X.509-certifikat stöds inte för närvarande.
+    
+> [!NOTE]
+> ”Gatewaynamnet” används för att skapa certifikaten i den här instruktionen måste vara samma namn som används som värdnamn i IoT Edge config.yaml filen och som GatewayHostName i anslutningssträngen för den underordnade enheten. ”Gateway-name” måste kunna matchas till en IP-adress, antingen med hjälp av DNS- eller en host-filpost. Kommunikationen baserat på det protokoll som används (MQTTS:8883 / AMQPS:5671 / HTTPS:433) måste vara mellan underordnad enhet och transparant IoT Edge. Om en brandvägg mellan, måste respektive porten vara öppen.
 
 ## <a name="prepare-a-downstream-device"></a>Förbereda en underordnad enhet
 

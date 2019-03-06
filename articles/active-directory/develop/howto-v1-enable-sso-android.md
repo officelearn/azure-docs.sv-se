@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: dadobali
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4e27ecc73c19b92f8dcf77849c2f91a5eb57ac8e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: e5085acad8a82394340892a3a67a3d1e5d85384b
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56168054"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57442179"
 ---
 # <a name="how-to-enable-cross-app-sso-on-android-using-adal"></a>Anvisningar: Aktivera enkel inloggning mellan appar på Android använder ADAL
 
@@ -119,7 +119,7 @@ AuthenticationSettings.Instance.setUseBroker(true);
 
 #### <a name="step-2-establish-a-new-redirect-uri-with-your-url-scheme"></a>Steg 2: Upprätta en ny omdirigerings-URI med URL-schema
 
-För att säkerställa att rätt program recevies den returnerade autentiseringsuppgifterna tokens, det är nödvändigt att kontrollera att anropet tillbaka till programmet på ett sätt som operativsystemet Android kan verifiera. Android-operativsystemet använder hash för certifikatet i Google Play-butiken. Den här hash för certifikatet kan inte förfalskas av en otillåtna program. Microsoft garanterar att token som returneras till rätt program tillsammans med URI: N för broker-programmet. En unik omdirigerings-URI krävs som ska registreras i programmet.
+För att säkerställa att rätt programmet tar emot den returnerade autentiseringsuppgifterna tokens, det är nödvändigt att kontrollera att anropet tillbaka till programmet på ett sätt som operativsystemet Android kan verifiera. Android-operativsystemet använder hash för certifikatet i Google Play-butiken. Den här hash för certifikatet kan inte förfalskas av en otillåtna program. Microsoft garanterar att token som returneras till rätt program tillsammans med URI: N för broker-programmet. En unik omdirigerings-URI krävs som ska registreras i programmet.
 
 Omdirigerings-URI måste vara i rätt format för:
 

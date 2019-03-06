@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/08/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e01b06b2031da20ee9349588bd4a7ee757fbc22c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: d86dc27822c91bd6b2b1cb3ec53b07978061cc7d
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56173308"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57437368"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ringcentral"></a>Självstudier: Azure Active Directory-integrering med RingCentral
 
@@ -191,7 +191,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     d. Klicka på **Spara**.
 
-    e. Från **steg 2** klickar du på **hämta** att ladda ned den **tjänstleverantör metadatafil** och ladda upp den i **SAML grundkonfiguration** avsnittet för automatisk polulate den **identifierare** och **svars-URL** värdena i Azure-portalen.
+    e. Från **steg 2** klickar du på **hämta** att ladda ned den **tjänstleverantör metadatafil** och ladda upp den i **SAML grundkonfiguration** avsnittet att automatiskt fylla i den **identifierare** och **svars-URL** värdena i Azure-portalen.
 
     ![image](./media/ringcentral-tutorial/ringcentral6.png) 
 

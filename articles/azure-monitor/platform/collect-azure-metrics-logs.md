@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: magoedte
-ms.openlocfilehash: 2137a2e1d7cea9f2a2dbf565295323cb133513ee
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: ae4e4487b3d9df4b2cf756174f0a56e721af91c4
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57315801"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57406919"
 ---
 # <a name="collect-azure-service-logs-and-metrics-for-use-in-log-analytics"></a>Samla in Azure-tjänstloggar och mått för användning i Log Analytics
 
@@ -84,7 +84,7 @@ Azure-resurser som stöder [Azure monitor](../../azure-monitor/overview.md) kan 
 
 Du behöver i November 2016 (v2.3.0) eller senare versionen av [Azure PowerShell](/powershell/azure/overview).
 
-Följande PowerShell-exempel visar hur du använder [Set-AzDiagnosticSetting](/powershell/module/az.insights/set-azdiagnosticsetting) att aktivera diagnostik på en grupp. Samma metod som fungerar för alla resurser som stöds – ange `$resourceId` till resurs-id för den resurs du vill aktivera diagnostik för.
+Följande PowerShell-exempel visar hur du använder [Set-AzDiagnosticSetting](/powershell/module/Az.Monitor/Set-AzDiagnosticSetting) att aktivera diagnostik på en grupp. Samma metod som fungerar för alla resurser som stöds – ange `$resourceId` till resurs-id för den resurs du vill aktivera diagnostik för.
 
 ```powershell
 $workspaceId = "/subscriptions/d2e37fee-1234-40b2-5678-0b2199de3b50/resourcegroups/oi-default-east-us/providers/microsoft.operationalinsights/workspaces/rollingbaskets"

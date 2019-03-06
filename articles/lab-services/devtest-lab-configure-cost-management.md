@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/05/2018
 ms.author: spelluru
-ms.openlocfilehash: e616df772bf11d1247f96c78bea2392252f5e5d0
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: d3a02a850059dc96e4e4ba306fed7cded2f7dd7d
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51259759"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57454195"
 ---
 # <a name="view-the-monthly-estimated-lab-cost-trend-in-azure-devtest-labs"></a>Visa månatliga uppskattade labbkostnadstrend i Azure DevTest Labs
 Funktionen kostnadshantering i DevTest Labs kan du spåra kostnaden för ditt labb. Den här artikeln beskrivs hur du använder den **månatliga uppskattade kostnaden Trend** diagram om du vill visa den aktuella kalendermånaden uppskattad kostnad hittills och kostnadsprognoser i slutet av månaden för den aktuella kalendermånaden. Den här artikeln visar också hur du hanterar bättre labbkostnader genom att ange utgiftsgränsen mål och tröskelvärden som, när uppnåtts utlösaren DevTest Labs och rapporterar resultaten till dig.
@@ -76,8 +76,8 @@ DevTest Labs kan du bättre hantera kostnaderna i labbet genom att ange en utgif
       - **Fast**: kostnaden mål spåras för datumintervall som du anger i Start- och slut-datumfält. Detta kan vanligtvis motsvarar hur länge ditt projekt är schemalagd att köras.
    - Ange en **rikta kostnaden**. Det kanske till exempel hur mycket du planerar att spendera på den här övningen under den tidsperioden som du har definierat.
    - Välj om du vill aktivera eller inaktivera eventuella tröskelvärde du vill rapporteras – i steg om 25% – upp till 125% av dina angivna **rikta kostnaden**.
-      - **Meddela**: när tröskelvärdet är uppfyllt, du får ett meddelande med en webhook-URL som du anger.
-      - **Vykreslit v grafu**: när den här tröskeln uppfylls resultatet ritas på kostnaden trend diagrammet som du kan visa, enligt beskrivningen i [visa diagrammet månatliga uppskattade kostnaden Trend](#viewing-the-monthly-estimated-cost-trend-chart).
+      - **Meddela**: När det här tröskelvärdet har uppnåtts, visas ett meddelande med en webhook-URL som du anger.
+      - **Vykreslit v grafu**: När den här tröskeln uppfylls resultatet ritas på kostnaden trend diagrammet som du kan visa, enligt beskrivningen i [visa diagrammet månatliga uppskattade kostnaden Trend](#viewing-the-monthly-estimated-cost-trend-chart).
    - Om du väljer att **meddela** när tröskelvärdet är uppfyllt, måste du ange en webhook-URL. I området kostnaden integreringar väljer **Klicka här för att lägga till en integration**.
 
       Ange en Webhook-URL i meddelandefönstret konfigurera och välj sedan **OK**.

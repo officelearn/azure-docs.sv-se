@@ -11,13 +11,14 @@ ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: lizross
 ms.reviewer: dhanyahk
+ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6fd42e1e06086a12b159a8510c3d53a7f32e46f6
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: e5c78786d48dbd8d399013507fe8edcd2ce2ad45
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57194647"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57456235"
 ---
 # <a name="archive-for-whats-new-in-azure-active-directory"></a>Arkiveringsjobb för vad som är nytt? i Azure Active Directory
 
@@ -918,7 +919,7 @@ Mer information finns i: [Anpassning av listan över Workday-användarattribut](
 Det är möjligt att ändra hur medlemskap hanteras i en grupp. Detta är användbart när du vill behålla samma gruppnamn och ID i systemet, så att alla befintliga referenser i gruppen är fortfarande giltiga. Skapa en ny grupp kräver uppdatering av dessa referenser.
 Vi har uppdaterat Azure AD-administratörscentret för att stödja den här funktionen. Nu kan konvertera kunder befintliga grupper från dynamiskt medlemskap till tilldelat medlemskap och vice versa. De befintliga PowerShell-cmdletarna finns också kvar.
 
-Mer information finns i [ändra dynamiskt medlemskap till statiskt och vice versa](https://docs.microsoft.com/azure/active-directory/active-directory-groups-dynamic-membership-azure-portal)
+Mer information finns i [regler för dynamiskt medlemskap för grupper i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-dynamic-membership)
 
 ---
 

@@ -11,12 +11,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: aaec8fd245c507e83967aa76f3e2f9d72b052cb1
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: d4d837bb49e4ce80340d59f8a01334f3c80ff413
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54849744"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57435532"
 ---
 # <a name="net-multi-tier-application-using-azure-service-bus-queues"></a>.NET-flernivåapp med hjälp av Azure Service Bus-köer
 
@@ -33,7 +33,7 @@ Du kommer att få lära dig följande:
 
 I den här självstudiekursen kommer du att skapa och köra flernivåappen i en molntjänst för Azure. Klientdelen är en ASP.NET MVC-webbroll och serverdelen en arbetsroll som använder en Service Bus-kö. Du kan skapa samma flernivåapp med klientdelen som ett webbprojekt som distribueras till en Azure-webbplats i stället för till en molntjänst. Du kan också prova att gå igenom självstudiekursen [.NET-hybridapp lokalt/i molnet](../service-bus-relay/service-bus-dotnet-hybrid-app-using-service-bus-relay.md).
 
-Följande skärmdump visar den färdiga appen.
+Följande skärmbild visar det färdiga programmet.
 
 ![][0]
 

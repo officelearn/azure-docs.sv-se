@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 03/4/2019
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 30bdadc3e135111f8c4f40116875f0c61e4064ce
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 281e1109964ac64853b8b82525579b7ff4de0d2f
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211503"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57406413"
 ---
 # <a name="authorize-access-to-web-applications-using-openid-connect-and-azure-active-directory"></a>Bevilja åtkomst till webbprogram med hjälp av OpenID Connect och Azure Active Directory
 
@@ -93,9 +93,9 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | klient |obligatorisk |Den `{tenant}` värdet i sökvägen för begäran som kan användas för att styra vem som kan logga in i programmet. Tillåtna värden är klient-ID: n, till exempel `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` eller `contoso.onmicrosoft.com` eller `common` för klient-oberoende token |
 | client_id |obligatorisk |Program-Id som tilldelats din app när du registrerade med Azure AD. Du hittar du i Azure Portal. Klicka på **Azure Active Directory**, klickar du på **Appregistreringar**, Välj programmet och leta upp det program-Id på programsidan. |
 | response_type |obligatorisk |Måste innehålla `id_token` för OpenID Connect-inloggning. De kan också innehålla andra response_types som `code` eller `token`. |
-| omfång |obligatorisk |En blankstegsavgränsad lista med omfattningar. Det måste innehålla omfånget för OpenID Connect, `openid`, vilket innebär att behörigheten ”logga du in” i godkännande-UI. Du kan också omfatta andra scope i den här begäran för att begära godkännande. |
+| omfång | Rekommenderas | OpenID Connect-specifikationen kräver omfånget `openid`, vilket innebär att behörigheten ”logga du in” i godkännande-UI. Detta och andra OIDC-scope ignoreras på v1.0-slutpunkt, men är fortfarande bästa praxis för standardkompatibel klienter. |
 | nonce |obligatorisk |Ett värde som ingår i den begäran som skapats av appen, som ingår i den resulterande `id_token` som ett anspråk. Appen kan sedan att verifiera det här värdet om du vill lösa token repetitionsattacker. Värdet är vanligtvis en slumpmässig, unik sträng eller ett GUID som kan användas för att fastställa ursprunget för begäran. |
-| redirect_uri |Rekommenderas |Redirect_uri för din app, där autentiseringssvar kan skickas och tas emot av din app. Det måste exakt matcha en av redirect_uris som du registrerade i portalen, men det måste vara url-kodas. |
+| redirect_uri | Rekommenderas |Redirect_uri för din app, där autentiseringssvar kan skickas och tas emot av din app. Det måste exakt matcha en av redirect_uris som du registrerade i portalen, men det måste vara url-kodas. Om det saknas, skickas användaragenten tillbaka till en av omdirigerings-URI: er har registrerats för appen, slumpmässigt. |
 | response_mode |valfri |Anger den metod som ska användas för att skicka den resulterande authorization_code tillbaka till din app. Värden som stöds är `form_post` för *HTTP formuläret post* och `fragment` för *URL fragment*. För webbprogram, bör du använda `response_mode=form_post` så säkraste överföringen av token för ditt program. Standardvärdet för alla flöden, inklusive en id_token är `fragment`.|
 | state |Rekommenderas |Ett värde i begäran som returneras i token-svaret. Det kan vara en sträng med innehåll som du önskar. Ett slumpmässigt genererat unikt värde som normalt används för [att förhindra attacker med förfalskning av begäran](https://tools.ietf.org/html/rfc6749#section-10.12). Tillstånd används också för att koda information om användarens tillstånd i appen innan autentiseringsbegäran inträffat, till exempel sidan eller vyn som de befann sig i. |
 | fråga |valfri |Anger vilken typ av interaktion från användaren som krävs. De enda giltiga värdena är för närvarande ”inloggning”, ”ingen” och ”godkänna”. `prompt=login` Tvingar användaren att ange sina autentiseringsuppgifter på begäran, vilket eliminerar enkel inloggning. `prompt=none` är motsatsen - ser till att användaren inte visas med den interaktiva prompten alls. Om begäran inte kan slutföras tyst via enkel inloggning, returnerar slutpunkten ett fel. `prompt=consent` utlösare OAuth godkänner dialogrutan när användaren loggar in, ber användaren att bevilja behörigheter till appen. |
@@ -155,12 +155,12 @@ I följande tabell beskrivs olika felkoder som kan returneras i de `error` -para
 
 Bara få ett `id_token` räcker inte att autentisera användaren; du måste verifiera signaturen och kontrollera anspråk i den `id_token` enligt krav för din app. Azure AD-slutpunkten använder JSON Web token (JWTs) och kryptering med offentlig nyckel för att signera token och kontrollera att de är giltiga.
 
-Du kan välja att verifiera den `id_token` i klienten kod, men en vanlig metod är att skicka den `id_token` till backend-servern och utföra valideringen det. När du har verifierat signaturen för den `id_token`, det finns några anspråk som krävs för att verifiera.
+Du kan välja att verifiera den `id_token` i klienten kod, men en vanlig metod är att skicka den `id_token` till backend-servern och utföra valideringen det. 
 
 Du kan också välja att validera ytterligare anspråk beroende på ditt scenario. Vissa vanliga verifieringar är:
 
 * Att se till att användaren/organisationen har registrerat sig för appen.
-* Se till att användaren har rätt auktorisering/behörighet
+* Se till att användaren har rätt auktorisering/privilegier med hjälp av den `wids` eller `roles` anspråk. 
 * Att se till att en viss styrkan hos autentisering har inträffat, till exempel multifaktorautentisering.
 
 När du har verifierat den `id_token`, du kan starta en session med användaren och använda anspråk i den `id_token` att hämta information om användare i din app. Den här informationen kan användas för visning, poster, anpassning, osv. Mer information om `id_tokens` och anspråk, läsa [AAD id_tokens](id-tokens.md).

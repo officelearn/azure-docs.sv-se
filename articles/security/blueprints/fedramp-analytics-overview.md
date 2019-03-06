@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 05/02/2018
 ms.author: jomolesk
-ms.openlocfilehash: e3bfc3d0f444bece0afe7b7f5bcdac343a693a13
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: fa10ff14bf893c268d6b6b1a0d181d11a3f27dc4
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57243711"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57451883"
 ---
 # <a name="azure-security-and-compliance-blueprint-analytics-for-fedramp"></a>Azure Blueprint för säkerhet och efterlevnad: Analytics for FedRAMP
 
@@ -140,7 +140,7 @@ Mer information om hur du använder säkerhetsfunktionerna i Azure SQL Database 
 [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis) är nödvändig för att hantera distributionen och etablering åtkomst till personal som interagerar med miljön. En befintlig Windows Server Active Directory kan integreras med AAD i [fyra klick](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-get-started-express). Kunder kan också koppla distribuerade Active Directory-infrastruktur (domänkontrollanter) till en befintlig AAD genom att göra den distribuerade Active Directory-infrastrukturen en underdomän till en AAD-skog.
 
 ### <a name="additional-services"></a>Ytterligare tjänster
-#### <a name="iaas---vm-vonsiderations"></a>IaaS - VM vonsiderations
+#### <a name="iaas---vm-considerations"></a>IaaS - överväganden för virtuella datorer
 Det här PaaS-lösning inte inkluderar alla Azure IaaS-VM. En kund kan skapa en virtuell Azure-dator för att köra många av de här PaaS-tjänster. I det här fallet kan specifika funktioner och tjänster för affärskontinuitet och Azure Monitor-loggar utnyttjas:
 
 ##### <a name="business-continuity"></a>Verksamhetskontinuitet

@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: carlrab, srbozovi, bonova
 manager: craigg
 ms.date: 02/18/2019
-ms.openlocfilehash: 640182b50492ed21cd604423fe1cef7301095941
-ms.sourcegitcommit: 4bf542eeb2dcdf60dcdccb331e0a336a39ce7ab3
+ms.openlocfilehash: 66ac3cf786abeebc2579a937d8670d639c1af270
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56408807"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57447004"
 ---
 # <a name="quickstart-configure-azure-vm-to-connect-to-an-azure-sql-database-managed-instance"></a>Snabbstart: Konfigurera virtuell Azure-dator att ansluta till en Azure SQL Database Managed Instance
 
@@ -84,7 +84,7 @@ Det enklaste sättet att skapa en virtuell dator för klienten med alla nödvän
    |**Lösenord**|Valfritt giltigt lösenord|Lösenordet måste vara minst 12 tecken långt och uppfylla [de definierade kraven på komplexitet](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).<br>Du använder det här lösenordet varje gång du [ansluta till den virtuella datorn](#connect-to-virtual-machine).|
    | **Storlek på virtuell dator** | Valfri giltig storlek | Standard i den här mallen för **Standard_B2s** är tillräcklig för den här snabbstarten. |
    | **Plats**|[resourceGroup () .location].| Ändra inte det här värdet. |
-   | **Namn på virtuellt nätverk**|Den virtuella nät nätverken nätverk där du skapade den hanterade instansen.|
+   | **Namn på virtuellt nätverk**|Det virtuella nätverket där du skapade den hanterade instansen.|
    | **Namn på undernät**|Namnet på det undernät som du skapade i föregående procedur| Välj inte undernätet där du skapade den hanterade instansen.|
    | **artefakter plats** | [distribution ().properties.templateLink.uri] | Ändra inte det här värdet. |
    | **artefakter plats Sas-token** | Lämna tomt | Ändra inte det här värdet. |

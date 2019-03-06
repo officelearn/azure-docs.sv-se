@@ -9,18 +9,18 @@ ms.author: grhuynh
 ms.service: genomics
 ms.topic: article
 ms.date: 12/07/2017
-ms.openlocfilehash: ecd6dd9e8eb6d11161faf6ed3b51f06cf0d3f454
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 1b52f47d692cf2fb2925ebb2a9882b9c79c29a87
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56868824"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57452648"
 ---
 # <a name="what-is-microsoft-genomics"></a>Vad är Microsoft Genomics?
 Microsoft Genomics erbjuder en molnimplementering av Burrows-Wheeler Aligner (BWA) och Genome Analysis Toolkit (GATK) för sekundär analys. Tjänsten är ISO-certifierad och följer HIPAA-bestämmelser och erbjuder prisförutsägbarhet för din genom sekvenseringsbehov. Lär dig hur du använder Microsoft Genomics-tjänsten och integrera med vårt API genom att läsa våra snabbstarter, självstudier och dokumentation.
 
 ## <a name="support-your-most-demanding-sequencing-needs"></a>Stöd dina mest krävande sekvenseringsbehov
-Istället för att hantera dina egna datacenter kan du dra nytta av skalan och erfarenheten hos Microsoft i att köra arbetsbelastningar i exabyteskala. Vårt moln av av BWA-GATK är mycket concordant med breda Institutes bästa praxis pipeline.
+Istället för att hantera dina egna datacenter kan du dra nytta av skalan och erfarenheten hos Microsoft i att köra arbetsbelastningar i exabyteskala. Vår molnimplementering av BWA-GATK är mycket concordant med breda Institutes bästa praxis pipeline.
 
 
 ## <a name="keep-your-business-running"></a>Håll verksamheten igång

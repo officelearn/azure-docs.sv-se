@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/17/2018
 ms.author: jingwang
-ms.openlocfilehash: 7550eac600f5b504d80bcc6b5465e24e8d423d2a
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: c4d694621e4ac5428256346e3994bc3233d399a2
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015091"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57441414"
 ---
 # <a name="copy-data-from-and-to-salesforce-by-using-azure-data-factory"></a>Kopiera data från och till Salesforce med hjälp av Azure Data Factory
-> [!div class="op_single_selector" title1="Välj vilken version av Data Factory-tjänsten du använder:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](v1/data-factory-salesforce-connector.md)
 > * [Aktuell version](connector-salesforce.md)
 
@@ -238,7 +238,7 @@ För att kopiera data till Salesforce, ange Mottagartyp i kopieringsaktiviteten 
 | WriteBehavior | Skriv beteendet för åtgärden.<br/>Tillåtna värden är **infoga** och **Upsert**. | Nej (standard är Insert) |
 | externalIdFieldName | Namnet på det externa ID-fältet för upsert-åtgärden. Det angivna fältet måste definieras som ”externa Id-fältet” i Salesforce-objekt. Det kan inte ha NULL-värden i motsvarande indata. | Ja för ”Upsert” |
 | WriteBatchSize | Antal rader för data som skrivs till Salesforce i varje batch. | Nej (standardvärdet är 5 000) |
-| ignoreNullValues | Anger om du vill ignorera NULL-värden från indata vid skrivning.<br/>Tillåtna värden är **SANT** och **FALSKT**.<br>- **SANT**: Lämna data i målobjektet oförändrade när du gör en upsert eller update-åtgärd. Infoga ett definierat standardvärde när du gör en insert-åtgärd.<br/>- **FALSKT**: Uppdatera data i målobjektet till NULL när du gör en upsert eller update-åtgärd. Infoga värdet NULL när du gör en insert-åtgärd. | Nej (standard är FALSKT) |
+| ignoreNullValues | Anger om du vill ignorera NULL-värden från indata vid skrivning.<br/>Tillåtna värden är **SANT** och **FALSKT**.<br>- **True**: Lämna data i målobjektet oförändrade när du gör en upsert eller update-åtgärd. Infoga ett definierat standardvärde när du gör en insert-åtgärd.<br/>- **False**: Uppdatera data i målobjektet till NULL när du gör en upsert eller update-åtgärd. Infoga värdet NULL när du gör en insert-åtgärd. | Nej (standard är FALSKT) |
 
 **Exempel: Salesforce-mottagare i en Kopieringsaktivitet**
 
@@ -289,9 +289,9 @@ Om du vill fråga de ej permanent borttagna posterna från Salesforce-Papperskor
 
 När du kopierar data från Salesforce, kan du använda antingen SOQL frågan eller SQL-fråga. Observera att dessa två har olika syntax och stöd för funktioner, inte blanda. Du rekommenderas för att använda SOQL frågan som stöds internt av Salesforce. I följande tabell visas de viktigaste skillnaderna:
 
-| Syntax | SOQL läge | SQL-läge |
+| Syntax | SOQL läge | SQL Mode |
 |:--- |:--- |:--- |
-| Kolumnurval | Måste du ange de fält som ska kopieras i frågan, t.ex. `SELECT field1, filed2 FROM objectname` | `SELECT *` stöds både kolumnen. |
+| Kolumnurval | Behovet av att räkna upp de fält som ska kopieras i frågan, t.ex. `SELECT field1, filed2 FROM objectname` | `SELECT *` stöds både kolumnen. |
 | Citattecken | Arkiverat/objektnamn kan inte innehålla citattecken. | Fältet/objektnamn kan innehålla citattecken, t.ex. `SELECT "id" FROM "Account"` |
 | DateTime-format |  Finns [här](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql_select_dateformats.htm) och exempel i nästa avsnitt. | Finns [här](https://docs.microsoft.com/sql/odbc/reference/develop-app/date-time-and-timestamp-literals?view=sql-server-2017) och exempel i nästa avsnitt. |
 | Booleska värden | Visas som `False` och `True`, t.ex. `SELECT … WHERE IsDeleted=True`. | Visas som 0 eller 1, t.ex. `SELECT … WHERE IsDeleted=1`. |
@@ -311,25 +311,25 @@ När du kopierar data från Salesforce, används följande mappningar från Sale
 
 | Salesforce-datatypen | Data Factory tillfälliga datatyp |
 |:--- |:--- |
-| Automatisk numrering |Sträng |
+| Automatisk numrering |String |
 | Kryssrutan |Boolesk |
 | Valuta |Decimal |
 | Date |DateTime |
 | Datum/tid |DateTime |
-| E-post |Sträng |
-| Id |Sträng |
-| Uppslagsrelation |Sträng |
-| Flervalsplocklista |Sträng |
+| E-post |String |
+| Id |String |
+| Uppslagsrelation |String |
+| Flervalsplocklista |String |
 | Tal |Decimal |
 | Procent |Decimal |
-| Telefon |Sträng |
-| Listruta |Sträng |
-| Text |Sträng |
-| Textområde |Sträng |
-| Textområde (Long) |Sträng |
-| Textområde (Rich) |Sträng |
-| Text (krypterad) |Sträng |
-| URL |Sträng |
+| Telefon |String |
+| Listruta |String |
+| Text |String |
+| Textområde |String |
+| Textområde (Long) |String |
+| Textområde (Rich) |String |
+| Text (krypterad) |String |
+| URL |String |
 
 ## <a name="next-steps"></a>Nästa steg
 En lista över datalager som stöds som källor och mottagare av kopieringsaktiviteten i Data Factory finns i [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats).

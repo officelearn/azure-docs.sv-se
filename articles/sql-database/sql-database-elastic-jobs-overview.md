@@ -12,18 +12,18 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/04/2018
-ms.openlocfilehash: 396e8a487feb2f7a7cb45f3713e641b5ebc6abcd
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 8abb2e3ac4f62a3ea51cc686bbf23260fccc4077
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55565249"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57441380"
 ---
 # <a name="managing-scaled-out-cloud-databases"></a>Hantera utskalade molndatabaser
 
 [!INCLUDE [elastic-database-jobs-deprecation](../../includes/sql-database-elastic-jobs-deprecate.md)]
 
-**Elastic Database-jobb** är en kund-värdbaserade Azure-molntjänst som möjliggör körning av ad hoc och schemalagda administrativa uppgifter, som kallas **jobb**. Med jobb, du kan enkelt och tillförlitligt sätt hantera stora grupper med Azure SQL-databaser genom att köra Transact-SQL-skript för att utföra administrativa åtgärder.
+**Elastic Database-jobb** är en kund är värd Azure molnbaserad tjänst som gör att körningen av ad hoc- och schemalagda administrativa uppgifter, som kallas **jobb**. Med jobb, du kan enkelt och tillförlitligt sätt hantera stora grupper med Azure SQL-databaser genom att köra Transact-SQL-skript för att utföra administrativa åtgärder.
 
 Hantera utskalade shardade databaser, den **elastiska databasjobb** funktionen (förhandsversion) kan du tillförlitligt köra ett skript för Transact-SQL (T-SQL) i en grupp med databaser, bland annat:
 

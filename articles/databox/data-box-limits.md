@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 12/20/2018
+ms.date: 02/22/2019
 ms.author: alkohli
-ms.openlocfilehash: 5849611ad346fc5ef1f0efd1e262d2ace8097520
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 2776433f01cae6c32eddc262ab9d42dad1c3936f
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53723460"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57407263"
 ---
 # <a name="azure-data-box-limits"></a>Azure Data Box-gränser
 
@@ -22,7 +22,7 @@ ms.locfileid: "53723460"
 
 ## <a name="data-box-service-limits"></a>Data Box-tjänstbegränsningar
 
- - Om du använder flera lagringskonton med Data Box-tjänsten, måste alla lagringskonton tillhöra samma Azure-region endast.
+ - Om du använder flera lagringskonton med Data Box-tjänsten kan måste alla lagringskonton tillhöra samma Azure-region.
  - Vi rekommenderar att du använder mer än tre lagringskonton. Använda flera konton kan potentiellt påverka prestandan.
 
 ## <a name="data-box-limits"></a>Databegränsningar för Box
@@ -40,17 +40,17 @@ Gå till den senaste informationen på tjänstbegränsningar för Azure storage 
 - [Blockblob-objekt och konventioner för sidan blob](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs)
 
 > [!IMPORTANT]
-> Om det finns några filer eller kataloger som överskrider gränserna för Azure Storage-tjänsten eller inte följer namngivningskonventionerna i Azure-filer/Blob, sedan dessa filer eller kataloger är inte matas in i Azure Storage via Data Box-tjänsten.
+> Om det finns några filer eller kataloger som överskrider gränserna för Azure Storage-tjänsten eller inte överensstämmer med namngivningskonventioner för Azure-filer/Blob, sedan dessa filer eller kataloger inte matas in i Azure Storage via Data Box-tjänsten.
 
 ## <a name="data-upload-caveats"></a>Överföra data varningar
 
-- Kopiera inte data direkt under införande resurser. Du måste skapa en mapp under resursen och kopiera sedan data till mappen.
+- Inte kopiera filerna direkt till någon av de införande resurserna. Du måste skapa en mapp under resursen och kopierar sedan filerna till mappen.
 - En mapp under den *StorageAccount_BlockBlob* och *StorageAccount_PageBlob* är en behållare. Exempelvis behållare skapas som *StorageAccount_BlockBlob/behållare* och *StorageAccount_PageBlob/behållare*.
 - Varje mapp som skapas direkt under *StorageAccount_AzureFiles* översätts till en Azure-filresurs.
 - Om du har ett befintligt Azure objekt (till exempel en blob eller en fil) i molnet med samma namn som det objekt som ska kopieras skrivs Data Box till filen i molnet.
 - Alla filer som skrivits till *StorageAccount_BlockBlob* och *StorageAccount_PageBlob* resurser överförs som en blockblob och sidblob respektive.
 - Azure blob storage stöder inte kataloger. Om du skapar en mapp under den *StorageAccount_BlockBlob* mapp, skapas virtuella mappar i blobnamnet. För Azure Files bevaras faktiska katalogstruktur.
-- Eventuella tomma Kataloghierarki (utan några filer) som skapats under *StorageAccount_BlockBlob* och *StorageAccount_PageBlob* mappar inte laddas.
+- Eventuella tomma Kataloghierarki (utan några filer) som skapats under *StorageAccount_BlockBlob* och *StorageAccount_PageBlob* mappar inte överförts.
 - Om det finns några fel när du överför data till Azure, skapas en fellogg i mållagringskontot. Sökvägen till den här loggen är tillgänglig när överföringen är klar och du kan granska loggen för att vidta åtgärder. Ta inte bort data från källan utan att verifiera överförda data.
 
 ## <a name="azure-storage-account-size-limits"></a>Storleksgränser för Azure storage-konto
@@ -60,7 +60,7 @@ Här finns gränserna på mängden data som kopieras till storage-konto. Kontrol
 | Storleken på data som kopieras till Azure storage-konto                      | Standardgräns          |
 |---------------------------------------------------------------------|------------------------|
 | Blockblob och page blob                                            | 500 TiB per lagringskonto. <br> Detta inkluderar data från alla källor, inklusive Data Box.|
-| Azure-fil                                                          | 5 TiB per resurs.<br> Alla mappar under *StorageAccount_AzureFiles* måste följa den här gränsen.       |
+| Azure File                                                          | 5 TiB per resurs.<br> Alla mappar under *StorageAccount_AzureFiles* måste följa den här gränsen.       |
 
 ## <a name="azure-object-size-limits"></a>Storleksgränser för Azure-objekt
 
@@ -70,13 +70,14 @@ Här följer storlekarna på de Azure-objekt som kan skrivas. Se till att alla f
 |-------------------|-----------------------------------------------------------|
 | Blockblob        | ~ 4,75 TiB                                                 |
 | Sidblob         | 8 TiB <br> Varje fil som laddats upp sidan blobformatet måste vara justerad 512 byte (en integrerad flera), annars överföringen misslyckas. <br> VHD- och VHDX är 512 byte justerad. |
-| Azure-fil        | 1 TiB                                                      |
+| Azure Files        | 1 TiB                                                      |
+| Hanterade diskar     | 4 TiB <br> Mer information om storlek och begränsningar finns: <li>[Skalbarhetsmål för Standard SSD-enheter](../virtual-machines/windows/disks-types.md#standard-ssd)</li><li>[Skalbarhetsmål för Premium SSD: er](../virtual-machines/windows/disks-types.md#standard-hdd)</li><li>[Skalbarhetsmål för standardhårddiskar](../virtual-machines/windows/disks-types.md#premium-ssd)</li><li>[Priser och fakturering av hanterade diskar](../virtual-machines/windows/disks-types.md#billing)</li>                                                     |
 
 ## <a name="azure-block-blob-page-blob-and-file-naming-conventions"></a>Azure blockblob, sidblob och namngivningsregler
 
 | Entitet                                       | Konventioner                                                                                                                                                                                                                                                                                                               |
 |----------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Namn på behållare för blockblob och page blob | Måste vara ett giltigt DNS-namn som är 3 till 63 tecken långt. <br>  Måste börja med en bokstav eller en siffra. <br> Kan innehålla endast gemener, siffror och bindestreck (-). <br> Varje bindestreck (-) måste föregås och följas av en bokstav eller siffra. <br> Flera bindestreck i rad tillåts inte i namn. |
+| Namn på behållare för blockblob och page blob | Måste vara ett giltigt DNS-namn som är 3 till 63 tecken långt. <br>  Måste börja med en bokstav eller en siffra. <br> Kan innehålla endast gemener, siffror och bindestreck (-). <br> Varje bindestreck (-) måste föregås och följas av en bokstav eller siffra. <br> Flera bindestreck i rad är inte tillåtet i namn. |
 | Resursnamn för Azure files                  | Samma som ovan                                                                                                                                                                                                                                                                                                             |
-| Katalog- och filnamn för Azure files     |<li> Bevara, skiftlägesokänslig och får inte överstiga 255 tecken långt. </li><li> Får inte sluta med snedstreck (/). </li><li>Om det tas automatiskt bort. </li><li> Följande tecken är inte tillåtna: ' ”\ /: | < > * ”?</li><li> Reserverade URL-tecken måste undantas korrekt. </li><li> Ogiltiga tecken i URL-sökväg är inte tillåtna. Kodpunkter som \uE000 är inte giltig Unicode-tecken. Vissa ASCII eller Unicode-tecken som kontrolltecken (0x00 0x1F, \u0081 etc.), också är inte tillåtna. Regler för att styra Unicode strängar i HTTP/1.1 finns i RFC 2616 avsnittet 2.2: Grundläggande regler och RFC 3987. </li><li> Följande filnamn är inte tillåtna: LPT1, LPT2, LPT3, LPT4, LPT5, LPT6, LPT7, LPT8, LPT9, COM1, COM2, COM3, COM4, COM5, COM6, COM7, COM8, COM9, PRN, AUX, NUL, CON, CLOCK$, punkt (.), och två punkter tecken (.).</li>|
+| Katalog- och filnamn för Azure files     |<li> Bevara, skiftlägesokänslig och får inte överstiga 255 tecken långt. </li><li> Får inte sluta med snedstreck (/). </li><li>Om det tas automatiskt bort. </li><li> Följande tecken tillåts inte: ' ”\ /: | < > * ?`</li><li> Reserverade URL-tecken måste undantas korrekt. </li><li> Ogiltiga tecken i URL-sökväg är inte tillåtna. Kodpunkter som \uE000 är inte giltig Unicode-tecken. Vissa ASCII eller Unicode-tecken som kontrolltecken (0x00 0x1F, \u0081 etc.), också är inte tillåtna. Regler för att styra Unicode strängar i HTTP/1.1 finns i RFC 2616 avsnittet 2.2: Grundläggande regler och RFC 3987. </li><li> Följande filnamn är inte tillåtna: LPT1, LPT2, LPT3, LPT4, LPT5, LPT6, LPT7, LPT8, LPT9, COM1, COM2, COM3, COM4, COM5, COM6, COM7, COM8, COM9, PRN, AUX, NUL, CON, CLOCK$, punkt (.), och två punkter tecken (.).</li>|
 | Blobnamn för blockblobar och sidblobar      | </li><li>Blobnamn är skiftlägeskänsliga och kan innehålla valfri kombination av tecken. </li><li>Ett blobnamn måste vara mellan 1 och 1 024 tecken långt. </li><li>Reserverade URL-tecken måste undantas korrekt. </li><li>Antalet sökvägssegment som blobnamnet består av får inte överskrida 254. Ett segment är strängen mellan avgränsningstecken (till exempel snedstreck ”/”) som motsvarar namnet på en virtuell katalog.</li> |

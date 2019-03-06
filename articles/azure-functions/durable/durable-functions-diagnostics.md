@@ -10,16 +10,16 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 4f6d49a60df09e78c3cbeee22d43827ecc9f9f64
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: ac9abaaea7f33627332a9bc7563745b5efdf3d12
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54118429"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57436256"
 ---
 # <a name="diagnostics-in-durable-functions-in-azure"></a>Diagnostik i varaktiga funktioner i Azure
 
-Det finns flera alternativ för att diagnostisera problem med [varaktiga funktioner](durable-functions-overview.md). Vissa av dessa alternativ är desamma för vanliga funktioner och vissa av dem är unika för varaktiga funktioner.
+Det finns flera alternativ för att diagnostisera problem med [varaktiga funktioner](durable-functions-overview.md). Vissa av dessa alternativ är desamma för vanliga funktioner medan andra är unika för Durable Functions.
 
 ## <a name="application-insights"></a>Application Insights
 
@@ -33,14 +33,14 @@ Varje livscykel händelse av en orchestration-instans orsakar en spårning händ
 
 * **hubName**: Namnet på aktiviteten hubben där din orkestreringar körs.
 * **appName**: Namnet på funktionsappen. Detta är användbart när du har flera funktionsappar som delar samma Application Insights-instans.
-* **Platsnamn**: Den [distributionsfacket](https://blogs.msdn.microsoft.com/appserviceteam/2017/06/13/deployment-slots-preview-for-azure-functions/) i vilken den aktuella funktionsappen körs. Detta är användbart när du dra nytta av distributionsplatser till version din orkestreringar.
+* **slotName**: Den [distributionsfacket](https://blogs.msdn.microsoft.com/appserviceteam/2017/06/13/deployment-slots-preview-for-azure-functions/) i vilken den aktuella funktionsappen körs. Detta är användbart när du dra nytta av distributionsplatser till version din orkestreringar.
 * **functionName**: Namnet på funktionen orchestrator eller aktivitet.
 * **egenskaperna functionType**: Typ av funktion, till exempel **Orchestrator** eller **aktivitet**.
 * **instanceId**: Unikt ID för orchestration-instans.
 * **tillstånd**: Livscykel körningstillstånd instansen. Giltiga värden är:
   * **Schemalagd**: Funktionen har schemalagts för körning men har inte startats ännu.
   * **Igång**: Funktionen har startats men har inte ännu slutförts eller har slutförts.
-  * **Slutförts**: Orchestrator har schemalagts för del arbete och väntar tills den avslutats.
+  * **Awaited**: Orchestrator har schemalagts för del arbete och väntar tills den avslutats.
   * **Lyssna**: Orchestrator lyssnar på en extern händelsemeddelande.
   * **Slutfört**: Funktionen har slutförts.
   * **Misslyckades**: Funktionen misslyckades med ett fel.
@@ -327,7 +327,7 @@ Azure Functions stöder felsökning Funktionskoden direkt och som har stöd för
 
 Som standard lagrar varaktiga funktioner tillstånd i Azure Storage. Det innebär att du kan granska status för din orkestreringar med verktyg som [Microsoft Azure Lagringsutforskaren](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer).
 
-![Azure Storage Explorer skärmbild](./media/durable-functions-diagnostics/storage-explorer.png)
+![Skärmbild av Azure Storage Explorer](./media/durable-functions-diagnostics/storage-explorer.png)
 
 Detta är användbart för felsökning eftersom du se exakt vilka tillstånd som en orkestrering kan finnas i. Meddelanden i köer kan också undersökas om du vill veta vilka arbete är i vänteläge (eller fastnar i vissa fall).
 

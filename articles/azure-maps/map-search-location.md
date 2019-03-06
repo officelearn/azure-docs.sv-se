@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: c68b4bdffde5f987fe07d50d76fa83e7bdfa5235
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 0db64916ca84737a6a713c3d2544b2f48c3682c0
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55755064"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57403099"
 ---
 # <a name="show-search-results-on-the-map"></a>Visa sökresultat på kartan
 
@@ -29,7 +29,7 @@ Det finns två sätt att söka efter en plats i närheten. Ett sätt är att anv
 
 I koden ovan första kodblocket konstruerar ett Kartobjekt och initierar klienttjänsten. Du kan se [skapa en karta](./map-create.md) anvisningar.
 
-Andra kodblocket använder den [getSearchFuzzy](https://docs.microsoft.com/javascript/api/azure-maps-rest/services.search?view=azure-iot-typescript-latest#getsearchfuzzy-string--searchgetsearchfuzzyoptionalparams-) -metod i den [tjänstemodulen](https://atlas.microsoft.com/sdk/js/atlas-service.js?api-version=1). Du kan utföra en fri form textsökning via den [Fuzzy-sökning rest API](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) att söka efter orienteringspunkt. Fuzzy-sökning API kan hantera valfri kombination av fuzzy indata. Svaret från tjänsten fuzzy-sökning parsas sedan till GeoJSON-format med den [getGeoJsonSearchResponse](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.geojson.geojsonsearchresponse?view=azure-iot-typescript-latest) metod. 
+Andra kodblocket använder den `getSearchFuzzy` -metod i den [tjänstemodulen](https://atlas.microsoft.com/sdk/js/atlas-service.js?api-version=1). Du kan utföra en fri form textsökning via den [Fuzzy-sökning rest API](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) att söka efter orienteringspunkt. Fuzzy-sökning API kan hantera valfri kombination av fuzzy indata. Svaret från tjänsten fuzzy-sökning parsas sedan till GeoJSON-format med den `getGeoJsonSearchResponse` metoden. 
 
 Det tredje kodblocket skapar en datakälla objekt med den [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) klassen och Lägg till sökresultat. En [symbol layer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.symbollayer?view=azure-iot-typescript-latest) använder text eller ikoner för att rendera platsbaserad data och är inneslutna i den [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) som symboler på kartan.  En symbol layer skapas och datakällan har lagts till symbol-lager, som sedan läggs till i kartan.
 

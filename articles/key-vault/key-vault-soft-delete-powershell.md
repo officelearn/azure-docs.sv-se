@@ -1,18 +1,18 @@
 ---
 title: Azure Key Vault - hur du använder mjuk borttagning med PowerShell
 description: Använda fallet exempel för mjuk borttagning med PowerShell-kodstycken
-author: bryanla
+author: msmbaldwin
 manager: barbkess
 ms.service: key-vault
 ms.topic: conceptual
 ms.date: 02/01/2018
-ms.author: bryanla
-ms.openlocfilehash: 70437403d3b78b7f8b9eef921c933a68793450da
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.author: mbaldwin
+ms.openlocfilehash: 3d199442564964d4eb70878e7e6460fe550cd4c2
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56113591"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57452496"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-powershell"></a>Hur du använder Key Vault mjuk borttagning med PowerShell
 
@@ -205,7 +205,7 @@ Undo-AzKeyVaultSecretRemoval -VaultName ContosoVault -Name SQLPAssword
 > [!IMPORTANT]
 > Rensa key vault eller något av de ingående objekten tas bort permanent den, vilket innebär att den inte kan återställas!
 
-Rensa funktion används för att ta bort ett nyckelvalv-objekt eller en hel nyckelvalv, som tidigare togs bort för mjuk permanent. Som visas i föregående avsnitt, kan objekt som lagras i ett nyckelvalv med mjuk borttagning funktionen är aktiverad, gå igenom olika tillstånd:
+Rensa-funktionen används för att permanent ta bort ett nyckelvalv-objekt eller en hel nyckelvalvet som har tidigare ej permanent borttagna. Som visas i föregående avsnitt, kan objekt som lagras i ett nyckelvalv med mjuk borttagning funktionen är aktiverad, gå igenom olika tillstånd:
 - **Aktiva**: före borttagningen.
 - **Ej permanent borttagna**: efter borttagningen kan visas och återställas till aktivt läge.
 - **Permanent bort**: efter att rensa, kunde inte återställas.

@@ -12,17 +12,19 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: abnarain
-ms.openlocfilehash: 8e8a4cabd948783278981c61fa718e51b679ad72
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 65518e7515f9e233b12ae5406819c91e8e3f2a77
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54014173"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57453175"
 ---
 # <a name="encrypt-credentials-for-on-premises-data-stores-in-azure-data-factory"></a>Kryptera autentiseringsuppgifterna för den lokala datalager i Azure Data Factory
 Du kan kryptera och lagra autentiseringsuppgifter för dina lokala datalager (länkade tjänster med känslig information) på en dator med lokal integration runtime. 
 
-Du skickar en JSON-definition-fil med autentiseringsuppgifter för att den <br/>[**Ny AzureRmDataFactoryV2LinkedServiceEncryptedCredential** ](https://docs.microsoft.com/powershell/module/azurerm.datafactoryv2/New-AzureRmDataFactoryV2LinkedServiceEncryptedCredential?view=azurermps-4.4.0) cmdlet för att skapa en JSON-definition utdatafil med de krypterade autentiseringsuppgifterna. Sedan använder du uppdaterade JSON-definition för att skapa länkade tjänster.
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+Du skickar en JSON-definition-fil med autentiseringsuppgifter för att den <br/>[**Ny AzDataFactoryV2LinkedServiceEncryptedCredential** ](/powershell/module/az.datafactory/New-AzDataFactoryV2LinkedServiceEncryptedCredential) cmdlet för att skapa en JSON-definition utdatafil med de krypterade autentiseringsuppgifterna. Sedan använder du uppdaterade JSON-definition för att skapa länkade tjänster.
 
 ## <a name="author-sql-server-linked-service"></a>Skapa länkad SQL Server-tjänsten
 Skapa en JSON-fil med namnet **SqlServerLinkedService.json** i valfri mapp med följande innehåll:  
@@ -49,17 +51,17 @@ Ersätt `<servername>`, `<databasename>`, `<username>`, och `<password>` med vä
 ```
 
 ## <a name="encrypt-credentials"></a>Kryptera autentiseringsuppgifter
-För att kryptera känsliga data från JSON-nyttolasten på en lokal lokal integration runtime kan köra **New-AzureRmDataFactoryV2LinkedServiceEncryptedCredential**, och skicka vidare JSON-nyttolast. Denna cmdlet säkerställer att autentiseringsuppgifterna krypteras med hjälp av DPAPI och lagras på lokal integration runtime-noden lokalt. Nyttolasten i utdata kan omdirigeras till en annan JSON-fil (i det här fallet ”encryptedLinkedService.json”) som innehåller krypterade autentiseringsuppgifter.
+För att kryptera känsliga data från JSON-nyttolasten på en lokal lokal integration runtime kan köra **New-AzDataFactoryV2LinkedServiceEncryptedCredential**, och skicka vidare JSON-nyttolast. Denna cmdlet säkerställer att autentiseringsuppgifterna krypteras med hjälp av DPAPI och lagras på lokal integration runtime-noden lokalt. Nyttolasten i utdata kan omdirigeras till en annan JSON-fil (i det här fallet ”encryptedLinkedService.json”) som innehåller krypterade autentiseringsuppgifter.
 
 ```powershell
-New-AzureRmDataFactoryV2LinkedServiceEncryptedCredential -DataFactoryName $dataFactoryName -ResourceGroupName $ResourceGroupName -Name "SqlServerLinkedService" -DefinitionFile ".\SQLServerLinkedService.json" > encryptedSQLServerLinkedService.json
+New-AzDataFactoryV2LinkedServiceEncryptedCredential -DataFactoryName $dataFactoryName -ResourceGroupName $ResourceGroupName -Name "SqlServerLinkedService" -DefinitionFile ".\SQLServerLinkedService.json" > encryptedSQLServerLinkedService.json
 ```
 
 ## <a name="use-the-json-with-encrypted-credentials"></a>Använda JSON med krypterade autentiseringsuppgifter
 Nu kan använda JSON-filen för utdata från föregående kommando som innehåller de krypterade autentiseringsuppgifterna för att ställa in den **SqlServerLinkedService**.
 
 ```powershell
-Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $ResourceGroupName -Name "EncryptedSqlServerLinkedService" -DefinitionFile ".\encryptedSqlServerLinkedService.json" 
+Set-AzDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $ResourceGroupName -Name "EncryptedSqlServerLinkedService" -DefinitionFile ".\encryptedSqlServerLinkedService.json" 
 ```
 
 ## <a name="next-steps"></a>Nästa steg

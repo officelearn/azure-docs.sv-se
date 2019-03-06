@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: article
 ms.date: 03/04/2019
 ms.author: tulasim
-ms.openlocfilehash: d41c7a24d72cdafac953e0215a6cbd2d9e8bba01
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 0e9e8456bb493ad4591c0f2a22d28bdf342f09e1
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57316480"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57433118"
 ---
 # <a name="data-sources-for-qna-maker-content"></a>Datakällor för QnA Maker-innehåll
 
@@ -25,7 +25,7 @@ Följande tabell sammanfattar typerna av innehåll och filformat som stöds av Q
 
 |Källtyp|Innehållstyp| Exempel|
 |--|--|--|
-|URL|Vanliga frågor och svar<br> (Fast avsnitt eller med en ämnen startsida)<br>Stöd för sidor <br> (En sida instruktionsartiklar, felsökningsartiklar osv.)|[Vanlig vanliga frågor och svar](https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs), <br>[Vanliga frågor och svar med länkar](https://www.microsoft.com/software-download/faq),<br> [Vanliga frågor och svar med ämnen startsida](https://support.microsoft.com/products/windows?os=windows-10)<br>[Support-artikel](https://docs.microsoft.com/azure/cognitive-services/qnamaker/concepts/best-practices)|
+|URL|Vanliga frågor och svar<br> (Fast avsnitt eller med en ämnen startsida)<br>Stöd för sidor <br> (En sida instruktionsartiklar, felsökningsartiklar osv.)|[Vanlig vanliga frågor och svar](https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs), <br>[Vanliga frågor och svar med länkar](https://www.microsoft.com/software-download/faq),<br> [Vanliga frågor och svar med ämnen startsida](https://www.microsoft.com/Licensing/servicecenter/Help/Faq.aspx)<br>[Support-artikel](https://docs.microsoft.com/azure/cognitive-services/qnamaker/concepts/best-practices)|
 |PDF / DOKUMENT|Vanliga frågor och svar,<br> Produkten manuellt<br> Broschyrer,<br> Dokumentet,<br> Flygblad princip<br> Supportguide,<br> Frågor och svar om strukturerade,<br> etc.|[Strukturerad QnA.doc](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/semi-structured.docx),<br> [Exempel på produkten Manual.pdf](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/product-manual.pdf),<br> [Exempel på halvstrukturerade structured.doc](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/semi-structured.docx),<br> [Exempel på vit paper.pdf](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/white-paper.pdf)|
 |Excel|Strukturerade QnA-fil<br> (inklusive RTF, HTML stöd)|[Exempel på frågor och svar om FAQ.xls](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/QnA%20Maker%20Sample%20FAQ.xlsx)|
 |TXT/TSV|Strukturerade QnA-fil|[Exemplet chit-chat.tsv](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/Scenario_Responses_Friendly.tsv)|

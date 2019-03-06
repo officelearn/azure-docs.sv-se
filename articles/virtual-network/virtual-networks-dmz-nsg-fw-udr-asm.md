@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: jonor;sivae
-ms.openlocfilehash: 93402f9124a5c2f6a251cb0e3b3dab21386fa5ff
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: c3a5cb540843c5ec4ceaf8522e9148cc7171149c
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55965264"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57456473"
 ---
 # <a name="example-3--build-a-dmz-to-protect-networks-with-a-firewall-udr-and-nsg"></a>Exempel 3 – skapa ett perimeternätverk för att skydda nätverk med en brandvägg, UDR och NSG
 [Gå tillbaka till gränsen bästa praxis sidan][HOME]
@@ -356,7 +356,7 @@ Egenskaperna för varje regel som krävs för att slutföra det här exemplet be
   
     Regeln Pass tillåter alla IIS-servrar på undernätet på klientsidan för att nå AppVM01 (IP-adressen 10.0.2.5) med hjälp av alla protokoll som ska få åtkomst till data som krävs av webbprogrammet på alla portar.
   
-    I den här skärmbilden en ”\<explicit dest\>” används i fältet mål för en obestämd 10.0.2.5 som mål. Det kan antingen explicit enligt eller en med namnet nätverksobjekt (som gjordes i förutsättningarna för DNS-servern). Det här är upp till administratören för brandväggen om vilka metoden ska användas. Om du vill lägga till 10.0.2.5 som ett Explict mål, dubbelklickar du på den första tomma raden under \<explicit dest\> och ange adressen i fönstret som öppnas.
+    I den här skärmbilden en ”\<explicit dest\>” används i fältet mål för en obestämd 10.0.2.5 som mål. Det kan antingen explicit enligt eller en med namnet nätverksobjekt (som gjordes i förutsättningarna för DNS-servern). Det här är upp till administratören för brandväggen om vilka metoden ska användas. Om du vill lägga till 10.0.2.5 som en Explicit mål, dubbelklickar du på den första tomma raden under \<explicit dest\> och ange adressen i fönstret som öppnas.
   
     Med regeln skicka krävs inga NAT eftersom detta är intern trafik så anslutningsmetoden kan anges till ”Nej SNAT”.
   
@@ -381,7 +381,7 @@ Egenskaperna för varje regel som krävs för att slutföra det här exemplet be
   
     ![DNS-brandväggsregel][15]
   
-    **Obs!** Som visar anslutningsmetoden ingår i den här skärmen. Eftersom den här regeln är för interna IP-adress till interna IP-adress-trafik, inga NATing krävs, detta anslutningsmetoden är inställt på ”Nej SNAT” för den här regeln Pass.
+    **Obs!** Anslutningsmetoden ingår i den här skärmbilden. Eftersom den här regeln är för interna IP-adress till interna IP-adress-trafik, inga NATing krävs, detta anslutningsmetoden är inställt på ”Nej SNAT” för den här regeln Pass.
 * **Undernätet till undernätet regeln**: Regeln Pass är en standardregel som har aktiverats och ändras för att låta alla servrar i serverdelen undernät att ansluta till en server på klientdelens undernät. Den här regeln är alla intern trafik så anslutningsmetoden vara inställt på Nej SNAT.
   
     ![Intra-VNet-brandväggsregeln][16]

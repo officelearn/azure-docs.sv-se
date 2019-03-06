@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 36b717bfd05a71639c5d1f467af8e9238474160d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: f1f34796a98acb3ed4241edff57e506990479d1a
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56170202"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57443275"
 ---
 # <a name="azure-active-directory-v20-and-the-oauth-20-device-code-flow"></a>Azure Active Directory v2.0- och kodflöde för OAuth 2.0-enhet
 
@@ -32,7 +32,7 @@ ms.locfileid: "56170202"
 Azure AD stöder den [enheten beviljande via](https://tools.ietf.org/html/draft-ietf-oauth-device-flow-12), vilket gör att användare att logga in på indata begränsad enheter, till exempel en smart-TV, IoT-enheter och skrivare.  Om du vill aktivera det här flödet har enheten användaren gå till en webbsida i webbläsaren på en annan enhet för att logga in.  När användaren loggar in, kan enheten att få åtkomst-token och uppdatera token efter behov.  
 
 > [!Important] 
-> För närvarande stöder v2.0-slutpunkten bara enheten flödet för Azure AD-klienter, men inte personliga konton.  Det innebär att du måste använda en slutpunkt för innehavare eller organisationer slutpunkten.  
+> För närvarande stöder v2.0-slutpunkten bara enheten flödet för Azure AD-klienter, men inte personliga konton.  Det innebär att du måste använda en slutpunkt som en klient eller organisationer slutpunkten.  
 >
 > Personliga konton som är välkomna till en Azure AD-klient kommer att kunna använda det för enheten flöde, men endast i kontexten för klienten.
 

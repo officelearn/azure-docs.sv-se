@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: a4e5087e53d4505d54b5ff4b8d17ad6166c6174b
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: c0e953434e947703308ff8d796107838df8cc979
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54002509"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57437322"
 ---
 # <a name="contoso-migration-rebuild-an-on-premises-app-to-azure"></a>Contoso-migrering: Återskapa en lokal app till Azure
 
@@ -154,7 +154,7 @@ Contoso-administratörer som kör ett distributionsskript för att skapa den han
 
 ### <a name="prerequisites"></a>Förutsättningar
 
-1. Innan de börjar kontrollera Contoso-administratörer att all programvara som prerequisitie i installerad på en utvecklingsdator som de använder för distributionen.
+1. Innan de börjar kontrollera Contoso-administratörer att all nödvändig programvara i installerad på en utvecklingsdator som de använder för distributionen.
 2. De klona lagringsplatsen lokalt på datorn för utveckling med Git: **git-klonen https://github.com/Microsoft/SmartHotel360-Azure-backend.git**
 
 
@@ -374,15 +374,15 @@ Anvisningar för det här avsnittet används den [SmartHotel360-public-web](http
 1.  I Azure-portalen kan de öppna storage-konto som har skapats och klickar på **Blobar**.
 2.  De skapar en ny behållare (**husdjur**) med offentlig åtkomstnivå som har angetts till behållaren. Användare kommer att överföra sina Husdjurets foton till den här behållaren.
 
-    ![Lagringsblob](./media/contoso-migration-rebuild/blob1.png)
+    ![Lagringslobb](./media/contoso-migration-rebuild/blob1.png)
 
 3. De skapar en andra ny behållare med namnet **inställningar**. En fil med alla inställningar för klient-appen kommer att placeras i den här behållaren.
 
-    ![Lagringsblob](./media/contoso-migration-rebuild/blob2.png)
+    ![Lagringslobb](./media/contoso-migration-rebuild/blob2.png)
 
 4. De fångar in åtkomstinformation för storage-konto i en textfil för framtida bruk.
 
-    ![Lagringsblob](./media/contoso-migration-rebuild/blob2.png)
+    ![Lagringslobb](./media/contoso-migration-rebuild/blob2.png)
 
 ### <a name="provision-a-cosmos-database"></a>Etablera en Cosmos-databas
 

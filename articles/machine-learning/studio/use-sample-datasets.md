@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/19/2018
-ms.openlocfilehash: 22b3480093b85507123cab886340713747433928
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: e4e29f4b714fe187622d778db58743ca4f02e84e
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56818365"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57445593"
 ---
 # <a name="use-the-sample-datasets-in-azure-machine-learning-studio"></a>Använd exemplen på datauppsättningar i Azure Machine Learning Studio
 [top]: #machine-learning-sample-datasets
@@ -233,7 +233,7 @@ Detta är kanske mest känd databasen ska finnas i mönstret för dokumentation.
 <tr>
   <td>Film Tweets</td>
   <td>
-Datauppsättningen är en utökad version av film Tweetings datauppsättningen. Datauppsättningen har 170K klassificeringar för filmer, extraheras från välstrukturerade tweets på Twitter. Varje instans som representerar en tweet och är en tuppel: användar-ID, IMDB film-ID, klassificering, tidsstämpel, antalet Favoriter för den här tweet och antal retweets av den här tweet. Datauppsättningen har gjorts tillgängliga av A. SA, S. Dooms, B. Loni och D. Tikk för rekommenderare system utmaning 2014.
+Datauppsättningen är en utökad version av film Tweetings datauppsättningen. Datauppsättningen har 170K klassificeringar för filmer, extraheras från välstrukturerade tweets på Twitter. Varje instans som representerar en tweet och är en tuppel: användar-ID, IMDB film-ID, klassificering, tidsstämpel, antal Favoriter för den här tweet och antal retweets av den här tweet. Datauppsättningen har gjorts tillgängliga av A. SA, S. Dooms, B. Loni och D. Tikk för rekommenderare system utmaning 2014.
   </td>
 </tr>
 

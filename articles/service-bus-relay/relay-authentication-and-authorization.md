@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2018
 ms.author: spelluru
-ms.openlocfilehash: fff484f2ee6722083a34383b8960931cb37b8316
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 206cca95c590a01f69d3664fb87398bc2fcb4ad9
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43700454"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57445797"
 ---
 # <a name="azure-relay-authentication-and-authorization"></a>Azure Relay-autentisering och auktorisering
 

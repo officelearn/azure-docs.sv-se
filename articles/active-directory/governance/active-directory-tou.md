@@ -15,12 +15,12 @@ ms.subservice: compliance
 ms.date: 02/09/2019
 ms.author: rolyon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 987b2b1ca028b816ed6909781f56c0b5174541bd
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 8f2de9274e1b6c996e75148d1a1f018d73a721bb
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56163775"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57443461"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Användningsvillkorsfunktion för Azure Active Directory
 Användningsvillkoren för Azure AD tillhandahåller en enkel metod som organisationer kan använda för att presentera information för slutanvändare. Den här presentationen gör att användare kan se relevanta ansvarsfriskrivningar för juridiska krav eller efterlevnadskrav. Den här artikeln beskriver hur du kommer igång med användningsvillkoren.
@@ -315,7 +315,7 @@ Principer för villkorlig åtkomst börjar gälla omedelbart. När detta händer
 
 De flesta organisationer har en process för sina anställda kan samtycka till sin organisations användningsvillkor och sekretesspolicyn. Men hur kan du ange samma medgivanden för Azure AD business-to-business (B2B) gästerna när de läggs via SharePoint eller team? Du kan använda villkorlig åtkomst och användningsvillkor, för att tillämpa en princip direkt mot B2B-gästanvändare. Under inbjudan inlösen flödet, kommer användaren att visas med användningsvillkoren. Det här stödet förhandsvisas just nu.
 
-Användningsvillkoren visas bara när användaren har ett gästkonto i Azure AD. SharePoint Online för närvarande har en [ad hoc extern delning mottagarens upplevelse](/sharepoint/what-s-new-in-sharing-in-targeted-release) att dela ett dokument eller en mapp som inte kräver att användaren har ett gästkonto. I det här fallet visas inte användningsvillkor.
+Användningsvillkoren visas bara när användaren har ett gästkonto i Azure AD. SharePoint Online för närvarande har en [ad hoc-mottagare upplevelse med extern delning](/sharepoint/what-s-new-in-sharing-in-targeted-release) att dela ett dokument eller en mapp som inte kräver att användaren har ett gästkonto. I det här fallet visas inte användningsvillkor.
 
 ![Alla gästanvändare](./media/active-directory-tou/b2b-guests.png)
 

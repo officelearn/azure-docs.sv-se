@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: yegu
-ms.openlocfilehash: e5e60e3370cc813685403cc979e6ef8dc043b7ac
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 383ea07005d7dae47cd0ef1da8a4a57d8b20d613
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56233276"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57435821"
 ---
 # <a name="how-to-configure-geo-replication-for-azure-cache-for-redis"></a>Konfigurera Geo-replikering för Azure Cache för Redis
 
@@ -175,7 +175,7 @@ I allmänhet rekommenderas för cacheminnet finnas i samma Azure-region som det 
 
 ### <a name="how-does-failing-over-to-the-secondary-linked-cache-work"></a>Hur fungerar växling till det sekundära länkat cacheminnet?
 
-I denna första version av Geo-replikering stöder Azure Cache för Redis inte automatisk redundans i Azure-regioner. GEO-replikering används främst i ett katastrofåterställningsscenario. I scenario för en distater, bör kunderna ta fram hel programstack i en säkerhetskopiering region på ett samordnat sätt i stället för att låta enskilda programkomponenter som bestämmer när du vill växla till deras säkerhetskopior på egen hand. Detta är särskilt relevanta till Redis. En av de främsta fördelarna med Redis är att det är en mycket låg latens butik. Om Redis som används av ett program som växlar över till en annan Azure-region, men Beräkningsnivån inte, skulle har lagts till tur och RETUR-tid ha en märkbar effekt på prestanda. Därför vill vi att undvika Redis misslyckas över automatiskt på grund av problem med tillfälliga tillgänglighet.
+I denna första version av Geo-replikering stöder Azure Cache för Redis inte automatisk redundans i Azure-regioner. GEO-replikering används främst i ett katastrofåterställningsscenario. I ett katastrofåterställningsscenario bör kunder ta fram en hel programstack i en säkerhetskopiering region på ett samordnat sätt i stället för att låta enskilda programkomponenter som bestämmer när du vill växla till deras säkerhetskopior på egen hand. Detta är särskilt relevanta till Redis. En av de främsta fördelarna med Redis är att det är en mycket låg latens butik. Om Redis som används av ett program som växlar över till en annan Azure-region, men Beräkningsnivån inte, skulle har lagts till tur och RETUR-tid ha en märkbar effekt på prestanda. Därför vill vi att undvika Redis misslyckas över automatiskt på grund av problem med tillfälliga tillgänglighet.
 
 För närvarande för att påbörja redundans måste du ta bort länken Geo-replikering i Azure-portalen och ändra sedan anslutning slutpunkten i Redis-klient från den primära länkade cachen till den sekundära cachen (tidigare länkade). När två cacheminnen är avassocieras repliken blir en vanlig skrivskyddad cache igen och accepterar begäranden direkt från Redis-klienter.
 

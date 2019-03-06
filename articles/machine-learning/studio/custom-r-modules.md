@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 11/29/2017
-ms.openlocfilehash: 8115994d1e4ac116a410cfa69824dc800717ab6f
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 9aebe878be97b489b460fff96001e2908cdb7b87
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56819261"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57432387"
 ---
 # <a name="define-custom-r-modules-for-azure-machine-learning-studio"></a>Definiera anpassade R-moduler för Azure Machine Learning Studio
 
@@ -123,7 +123,7 @@ Regler för tecken-begränsningar i modulen element:
 * Innehållet i den **beskrivning** element får inte överstiga 128 tecken långt.
 * Innehållet i den **ägare** element får inte överstiga 32 tecken.
 
-En modul resultaten kan vara deterministisk eller nondeterministic.* * som standard, alla moduler som anses vara deterministisk. Det vill säga ska med en oföränderlig uppsättning indataparametrar och data i modulen returnera samma resultat eacRAND eller en functionh gången den körs. Med det här beteendet kan Azure Machine Learning Studio produktmiljö endast moduler som markerats som deterministisk om en parameter eller indata har ändrats. Returnerar de cachelagrade resultaten innehåller också mycket snabbare körning av experiment.
+En modul resultaten kan vara deterministisk eller nondeterministic.* * som standard, alla moduler som anses vara deterministisk. Det vill säga ska med en oföränderlig uppsättning indataparametrar och data i modulen returnera samma resultat eacRAND eller en funktion gången den körs. Med det här beteendet kan Azure Machine Learning Studio produktmiljö endast moduler som markerats som deterministisk om en parameter eller indata har ändrats. Returnerar de cachelagrade resultaten innehåller också mycket snabbare körning av experiment.
 
 Det finns funktioner som är icke-deterministisk, till exempel RAND eller en funktion som returnerar aktuellt datum och tid. Om din modul använder en icke-deterministisk funktion, kan du ange att modulen är icke-deterministisk genom att ange den valfria **isDeterministic** attributet **FALSKT**. Detta garanterar att modulen ska köras på nytt när experimentet har körts, även om modulen som indata och parametrar inte har ändrats. 
 

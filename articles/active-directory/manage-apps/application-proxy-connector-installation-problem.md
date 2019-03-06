@@ -16,12 +16,12 @@ ms.date: 05/21/2018
 ms.author: celested
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 75570cb289af7c7b718414974e5770f692233758
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 645ba6e8306b063892babe25fde41d8dd3144fee
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56210874"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57444298"
 ---
 # <a name="problem-installing-the-application-proxy-agent-connector"></a>Problem med att installera anslutningsappen för programproxyagenten
 
@@ -64,7 +64,7 @@ När en anslutning misslyckas, är den grundläggande orsaken vanligtvis en av f
 
 ## <a name="verify-admin-is-used-to-install-the-connector"></a>Kontrollera att administratören används för att installera connector
 
-**Mål:** Kontrollera att den användare som försöker installera connector är en administratör med rätt autentiseringsuppgifter. För närvarande måste användaren vara en program-administratören eller global administratör för att installationen ska lyckas.
+**Mål:** Kontrollera att den användare som försöker installera connector är en administratör med rätt autentiseringsuppgifter. För närvarande kan måste användaren vara antingen en programadministratör eller global administratör för att installationen ska lyckas.
 
 **För att verifiera autentiseringsuppgifterna är korrekta:**
 

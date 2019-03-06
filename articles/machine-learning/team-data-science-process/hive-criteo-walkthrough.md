@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 55b6e6db14f3847eb659f9bee05b12585a613693
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 5cb3a029795dd69c80cfa580aa1bd135c67e609e
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55477224"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57451960"
 ---
 # <a name="the-team-data-science-process-in-action---using-an-azure-hdinsight-hadoop-cluster-on-a-1-tb-dataset"></a>Team Data Science Process fungerar – med hjälp av ett Azure HDInsight Hadoop-kluster på en datauppsättning som 1 TB
 
@@ -417,7 +417,7 @@ Använda data för att skapa antal tabeller på antal data, i mappen raw/antal. 
 Vår modell processen i Azure Machine Learning för att bygga följer de här stegen:
 
 1. [Hämta data från Hive-tabeller i Azure Machine Learning](#step1)
-2. [Skapa experimentet: rensa data och förtränade med antal tabeller](#step2)
+2. [Skapa experimentet: rensa data och gör den till en funktion med antal tabeller](#step2)
 3. [Skapa, träna och betygsätta modellen](#step3)
 4. [Utvärdera modellen](#step4)
 5. [Publicera modellen som en webbtjänst](#step5)
@@ -451,7 +451,7 @@ Högerklicka på utdataporten för den **importdata** modulen. Nu visas en **Spa
 
 Välj sparade datauppsättningen för användning i en machine learning-experiment genom att leta upp datauppsättningar med hjälp av den **Search** rutan som visas i följande bild. Sedan skriver ut namnet du gav datauppsättningen delvis vill komma åt den och dra datauppsättningen till åtgärdsfönstervärdens. Släppa den på åtgärdsfönstervärdens väljer den för användning i machine learning modellering.
 
-![Drage datauppsättning till panelen huvudsakliga](./media/hive-criteo-walkthrough/cl5tpGw.png)
+![Dra datauppsättningen till åtgärdsfönstervärdens](./media/hive-criteo-walkthrough/cl5tpGw.png)
 
 > [!NOTE]
 > Gör detta för både tåget och test-datauppsättningar. Kom också ihåg att använda databasens namn och tabellnamn som du gav för detta ändamål. De värden som används i bilden är enbart för illustration purposes.* *

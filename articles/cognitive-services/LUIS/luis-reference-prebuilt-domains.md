@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 03/04/2019
 ms.author: diberry
-ms.openlocfilehash: 964a0e0d4dd7ebae9f2881230fec921c3740ac39
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: e1e579233a5ad1af1ef8ee84019cd995959d3b2b
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57340600"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57433781"
 ---
 # <a name="prebuilt-domain-reference-for-your-luis-app"></a>Referens för fördefinierade för LUIS-appen
 Den här referensen innehåller information om den [fördefinierade domäner](luis-how-to-use-prebuilt-domains.md), som är färdiga samlingar med avsikter och entiteter som LUIS erbjuder.
@@ -62,7 +62,7 @@ Kalender-domänen innehåller avsikter och entiteter relaterade till kalenderpos
 | Lägg till | Lägga till ett nytt enstaka objekt i kalendern.| Skapa en avtalad tid med Lisa klockan 2 på söndag <br/><br/>Jag vill schemalägga ett möte<br/><br/>Jag behöver du ställer in ett möte|
 | CheckAvailability | Hitta tillgänglighet för en avtalad tid eller ett möte på användarens kalender eller en annan persons kalender.| När är tillgängliga för att möta Jim? <br/><br/>Visa när Carol är tillgänglig imorgon<br/><br/>Är Chris kostnadsfritt på lördag?|
 | Ta bort | Begäran att ta bort en kalenderpost.| Avbryta min avtalad tid med Carol. <br/><br/>Ta bort mitt 9: 00-möte<br/>|
-| Redigera | Begäran om för att ändra ett befintligt möte eller kalenderposten.| Flytta min 9: 00-möte till 10 am.<br/><br/>Jag vill uppdatera mitt schema.<br/><br/>Reschdule mitt möte med Ryan.|
+| Redigera | Begäran om för att ändra ett befintligt möte eller kalenderposten.| Flytta min 9: 00-möte till 10 am.<br/><br/>Jag vill uppdatera mitt schema.<br/><br/>Schemalägga om mötet med Ryan.|
 | Hitta | Visa kalendern varje vecka.| Hitta tandläkaren granska avtalad tid. <br/><br/>Visa min kalender<br/>|
 
 ### <a name="entities"></a>Entiteter
@@ -106,7 +106,7 @@ Kommunikation domänen innehåller avsikter och entiteter relaterade till e-post
 | Bekräfta| Bekräfta en åtgärd.|Ja<br/>Okej<br/>Ok<br/>Jag bekräftar att jag vill skicka den här e-post.<br/>|
 | Uppringning| Ringa ett telefonsamtal.|Anropa Jim<br/>Ring 311.<br/>|
 | FindContact| Hitta kontaktuppgifter efter namn.|Hitta Carols nummer<br/>Visa mig Carols tal<br/>|
-| FindSpeedDial| Hitta den speedial nummer ett telefonnummer anges till och vice versa.|Vad är mitt telefonnummer 5?<br/>Måste jag hastighet reglera set?<br/>Vad är telefonnummer för 941-5555-333?|
+| FindSpeedDial| Hitta hastighet telefonnummer ett telefonnummer anges till och vice versa.|Vad är mitt telefonnummer 5?<br/>Måste jag hastighet reglera set?<br/>Vad är telefonnummer för 941-5555-333?|
 | GetForwardingsStatus| Hämta den aktuella statusen för vidarekoppling.|Är Mina vidarekoppling aktiverad?<br/>Berätta om min samtalsstatus har aktiverats eller inaktiverats<br/>|
 | GoBack| Gå tillbaka till föregående steg.|Gå tillbaka till twitter<br/>Gå tillbaka ett steg<br/>Gå tillbaka|
 | Ignorera| Ignorera ett inkommande samtal.|Inte svara<br/>Ignorera anrop|
@@ -252,7 +252,7 @@ MovieTickets domänen innehåller avsikter och entiteter relaterade till boka bi
 ### <a name="intents"></a>Avsikter
 | Avsiktshantering namn | Beskrivning | Exempel |
 | ---------------- |-----------------------|----|
-| Bok | Köpa film biljetter.|Boka två biljetter för kapten Omar och två musketörer<br/>Jag vill köpa en biljett för morgondagens film<br/>Jag vill ha en biljett för Captian Omar del 2 nästa onsdag|
+| Bok | Köpa film biljetter.|Boka två biljetter för kapten Omar och två musketörer<br/>Jag vill köpa en biljett för morgondagens film<br/>Jag vill ha en biljett för kapten Omar del 2 nästa onsdag|
 |GetShowTime| Hämta showtime av en film.|När visar kapten Omar?|
 
 
@@ -412,7 +412,7 @@ Platser domänen innehåller avsikter för hantering av frågor som rör platser
 |GetMenu|Be om menyalternativ för en restaurang.|Hanterar Zucca några något vegan?<br/>Vad är på menyn på Sizzler<br/>Visa mig Applebees menyn|
 |GetPhoneNumber| Be om telefonnumret till en plats.|Vad är telefonnumret till den närmaste Starbucks?<br/>Numrera för start Depot| 
 |GetPriceRange| Begär prisintervall i en plats.|Är Zucca billiga?<br/>Är Cineplex halva priset på onsdagar?<br/>Hur mycket kostar en hela lobster middag på Sizzler?|
-|GetReviews|Be om granskningar av en plats.|Visa mig granskningar för Cheesecase Factory<br/>Läs Cineplex recensioner i Yelp|
+|GetReviews|Be om granskningar av en plats.|Visa mig granskningar för tårtbitar Factory<br/>Läs Cineplex recensioner i Yelp|
 |GetRoute|Fråga efter vägen till en plats.|Hur du går till Bellevue kvadratisk<br/>Visa det kortaste sättet att 8 och 59th härifrån<br/>Få mig en vägbeskrivning till Mountain View CA|
 |GetStarRating|Be om stjärnor för en plats.|Hur klassificeras Zucca enligt Yelp?<br/>Hur många stjärnor har franska tvätt?<br/>Är aquarium i Monterrey bra?|
 |GetTransportationSchedule|Hämta bus-schemat för en plats.|Vilken tid är nästa bussen för att centralt?<br/>Visa mig bussarna i King County|

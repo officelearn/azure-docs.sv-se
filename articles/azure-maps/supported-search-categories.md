@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: b2bb5e0f9b138af5ff69599b7ba35457788c8a65
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 64b28fc0db56be77bce9c22f9332110205a42b1d
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38968455"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57437354"
 ---
 # <a name="azure-maps-supported-categories"></a>Azure Maps stöds kategorier
 
@@ -25,9 +25,9 @@ När du gör en [kategorisökning](https://docs.microsoft.com/rest/api/maps/sear
 | --- | --- |
 | ÅTKOMST\_GATEWAY | flygbolag åtkomst, security gate, station åtkomst, åtkomst gateway |
 | ADMINISTRATIVA\_DIVISION | provins, fjärde-ordning administrativ avdelning, första ordningen administrativ avdelning, historiska tredje ordning administrativ avdelning, plats av en administrativ division plats av en administrativ division beroende politiska för sekund-ordningen för fjärde ordning entiteten, fylls i automatiskt plats, enhet av en administrativ avdelning tredje-ordning, fylls i automatiskt platser, sekund ordning administrativ avdelning, plats för en första ordningen som administrativa divisionen administrativ avdelning fylls ort, historiska region, historiska plats, historiska fylls i automatiskt plats, israeliska uppgörelser, historiska fjärde ordning administrativ avdelning, femte ordning administrativ avdelning, historiska första ordningen administrativ avdelning, tredje ordning administrativ avdelning, historiska politiska entiteten, historiska administrativ avdelning, plats myndighet av politisk enhet, historiska sekund ordning administrativ avdelning, kapital för en politisk enhet |
-| ADVENTURE\_SPORT\_PLATS | Adventure sport plats |
+| ADVENTURE\_SPORTS\_VENUE | Adventure sport plats |
 | JORDBRUK | trädgårdsnäring, primära producenten, jordbruk, servergrupp, servergrupp village, farmstead, vinterinspirerad, bete området, vanliga, vattenbruk anläggning, servergrupper, fiske området mjölkproducerande, fält |
-| FLYGPLATS | privata utfärdare, militära utfärdare, heliport, stängda, medel flygplats, stora flygplats, små flygplats, anläggning, seaplane bas, offentlig myndighet, pratbubblor port, flygplats |
+| AIRPORT | privata utfärdare, militära utfärdare, heliport, stängda, medel flygplats, stora flygplats, små flygplats, anläggning, seaplane bas, offentlig myndighet, pratbubblor port, flygplats |
 | UNDERHÅLLNING\_PARK | underhållning arkad, underhållning plats, underhållning park |
 | FORDON\_ÅTERFÖRSÄLJARE | atv/snowmobile, båtar, bus, motorcykel, lastbil, van, rekreationsfordon, bil, inom bilbranschen återförsäljare |
 | BANK | Bank, banker, bank(s) |
@@ -37,15 +37,15 @@ När du gör en [kategorisökning](https://docs.microsoft.com/rest/api/maps/sear
 | CAFE\_PUB | Internet café, te house, café, internet café café kafé, microbrewery/öl garden, pub, café/pub, café/pub |
 | CAMPING\_GRUNDEN | registreringssidan för Recreational, BOD plats, camping grunden |
 | BIL\_WASH | bil wash |
-| KONTANTER\_UTGIVAREN | automatisk kassa dator, kontanter utgivaren |
+| CASH\_DISPENSER | automatisk kassa dator, kontanter utgivaren |
 | CASINO | Casino |
-| BIOGRAFER | motorljud biografer, biografer |
+| CINEMA | motorljud biografer, biografer |
 | STAD\_CENTER | Neighborhood administrativa område, stad center center |
 | CLUB\_ASSOCIATION | Beach club, hockeyklubbdiagrammet club, club association |
 | COLLEGE\_UNIVERSITY | sitt första år college/högskola, skola/universitet, högskola, universitet prep skola, university |
 | KOMMERSIELLA\_BYGGNAD | kontorsbyggnad park huvudkontor kommersiella att skapa |
 | COMMUNITY\_CENTER | Community-center |
-| FÖRETAGETS | Electronics, produktion, datatjänster för datorn, folkhälsan tekniker, diversifierad financials, djur skydd, flygbolag, utvinning, tjänst, e-post/paket/frakt leverans, bus rader, hem installation reparation, rensning av tjänster, oem, skatt tjänster, olja naturligt gas, juridiska tjänster, konstruktion, tele kommunikation, transport, bil tillverkning, kemikalier, begravning service mortuaries, brygga tunnel åtgärder, bil, teknisk konstruktion, tjänster, investering rådgivare annonsering /-marknadsföring, flytta lagring, besparingar institution, insurance, programvara, bus pharmaceuticals, restaurang bröllop tjänster, Technologie, fastigheter, taxi, limousine shuttle service-auktoriserad uthyrningar utvinningsmodellen, publicera tekniker, kabel telefon, import/export-distribution, företag, genomföra, kol mine(s), estate(s), brewery, gold mine(s) |
+| FÖRETAG | Electronics, produktion, datatjänster för datorn, folkhälsan tekniker, diversifierad financials, djur skydd, flygbolag, utvinning, tjänst, e-post/paket/frakt leverans, bus rader, hem installation reparation, rensning av tjänster, oem, skatt tjänster, olja naturligt gas, juridiska tjänster, konstruktion, telekommunikation, transport, bil tillverkning, kemikalier, begravning service mortuaries, brygga tunnel åtgärder, bil, teknisk konstruktion, tjänster, investering rådgivare annonsering /-marknadsföring, flytta lagring, besparingar institution, insurance, programvara, bus pharmaceuticals, restaurang bröllop tjänster, Technologie, fastigheter, taxi, limousine shuttle service-auktoriserad uthyrningar utvinningsmodellen, publicera tekniker, kabel telefon, import/export-distribution, företag, genomföra, kol mine(s), estate(s), brewery, gold mine(s) |
 | COURTHOUSE | courthouse |
 | KULTURELLA\_CENTER | kulturella center |
 | TANDLÄKAREN | tandläkaren |
@@ -64,14 +64,14 @@ När du gör en [kategorisökning](https://docs.microsoft.com/rest/api/maps/sear
 | GEOGRAFISK\_FUNKTION | Bay, cove, pan, språk, upphöjning, del/hot fjädrar och simulering av behållare, marsh/båg/vlei, klinker, floden överbrygga, valley, mountain högsta, reef, sand, lagunen, oformaterad/fast, rapids, Kap, träffar, oasis, harbor, grottans, rocks, geografiska funktionen, promontory(-ies), -öarna, headland, pier, crater lake, cliff(s), topp, öknen, portage, glacier(s), gully, geyser, coral reef(s), uppehåll, Mellanöstern, jetty, ghat, hål, crater sjöar, gas fält, islet, crater(s), cove(s), vall, grus området, uppdelning zon, hälsoavsökning, gorge(s), island, headwaters, hängande valley, toppar, hot spring(s), furrow, anabranch |
 | GOLF\_KURSEN | Golf kursen |
 | GOVERNMENT\_OFFICE | Ordna 5 området, ordning 8 området, ordning 9 området, order 2 området, ordning 7 området, ordning 3 området stora nationella, ordning 4 området order 6 området, government office, diplomatiska anläggning, Förenta staternas myndigheter upprätta, lokala myndigheter office, tull house, tull inlägg |
-| HÄLSOTILLSTÅND\_FÖRSIKTIGHET\_SERVICE | blod bank, personlig service, personlig vård anläggning, ambulans enhet, hälsovård service, leprosarium, sanatorium, sjukhus, medicinska center, clinic |
+| HEALTH\_CARE\_SERVICE | blod bank, personlig service, personlig vård anläggning, ambulans enhet, hälsovård service, leprosarium, sanatorium, sjukhus, medicinska center, clinic |
 | HELIPAD\_HELIKOPTER\_LANDING | helipad/helikopter landing |
 | HELGDAG\_UTHYRNING | bungalow, cottage, chalet, villa, lägenhetsnummer, helgdag uthyrning |
 | SJUKHUSET\_POLYCLINIC | särskilda, sjukhus av kinesiska medicin, sjukhus för kvinnor barn, Allmänt sjukhuset/polyclinic |
 | HOTELL\_MOTEL | hytter lodges sängen bra gäst inrymmer, hotell, rest-camps, motel, utväg, hostel, hotell/motel, resthouse, hammock(s), Gäst house |
 | IS\_SKATING\_RINK | is skridskobanan |
 | VIKTIGA\_TURISTER\_FINNS | att skapa, observationsorganet, arch, tunnel, lagstiftning, tower, brygga, planetarium, mausoleum/graven, monument, vatten hål, naturliga finns, viktiga turister finns, promenade, pyramiderna, pagoda, slott, palace, hermitage, pyramid, inom vilken, gate, land house , moder, fyr, allvarligt |
-| INDUSTRIELLA\_BYGGNAD | foundry, bränsle anläggningen, industriella byggnad, factory |
+| INDUSTRIAL\_BUILDING | foundry, bränsle anläggningen, industriella byggnad, factory |
 | FRITID\_CENTER | bowling, snooker, pool biljardkulorna, som för club, dance studio skola, bastu, solarium massage, fritid center, spa |
 | BIBLIOTEKET | biblioteket |
 | TILLVERKAR\_ANLÄGGNING | tillverkningsanläggning |
@@ -81,7 +81,7 @@ När du gör en [kategorisökning](https://docs.microsoft.com/rest/api/maps/sear
 | MILITÄRA\_INSTALLATION | militära bas, västkust guard station, militära installation, militära base |
 | MOTORDRIVNING\_ORGANISATION\_OFFICE | motorbromsning organisation office |
 | MOUNTAIN\_SKICKA | Mountain pass |
-| MUSEUM | Museum |
+| MUSEUM | museum |
 | INTERNA\_RESERVATION | interna reservationen, reservation |
 | NATTLIVET | -fältet, karaoke club, jazz club, privata club, vin fältet, Komedi club, ämne fältet, discotheque, nattlivet |
 | ICKE\_GOVERNMENTAL\_ORGANISATION | icke-statliga organisation |
@@ -101,32 +101,32 @@ När du gör en [kategorisökning](https://docs.microsoft.com/rest/api/maps/sear
 | OFFENTLIGA\_TRANSPORT\_STOPPA | Coach stop, bus stop, taxi fristående, spårvagn stop, offentlig transport stop, metro station, railroad station, Busstation, railroad stop |
 | JÄRNVÄGEN\_STATION | National, järnvägen väggbeklädnad, metro, (under) Urbant, järnvägen station |
 | HYRA\_A\_BIL\_ANLÄGGNING | rent-a-CAR anläggning |
-| HYRA\_A\_BIL\_PÅ PARKERINGSSIDA | rent-en-car-på parkeringssida |
+| HYRA\_A\_BIL\_PÅ PARKERINGSSIDA | rent-a-car-parking |
 | REPARERA\_ANLÄGGNING | reparera anläggning bodyshops, däck (däck) tjänster, reparera butiker, bil glas ersättning butiker, allmän bil reparera behandlingen försäljning installation av biltillbehör, motorcykel reparation, lastbil repair-tjänst |
 | RESEARCH\_ANLÄGGNING | Research anläggning |
 | HEMADRESS\_LOGI | tillbakadragning community, radhus komplexa, provning/lägenhetskomplex, condominium komplexa, hemadress egendom, hemadress logi |
 | RESTAURANG | Tyska creole Cajun, nederländska, fest rum, bistro, israeliska, slovakiska, Jamaicansk, vegetariska, skaldjur, vietnamesiska, Maltesiska, av, Kymriska, kinesiska, japanska, Algeriet, Californian, fusion, Shandong, sallad fältet Savoie en, spanska, Etiopisk, taiwanesiska, munkar, Iransk, kanadensisk, American, norska, franska, Hunan, polynesiskt, afghan, vägarna, Orientalisk, Schweiz, erotic, crêperie, Surinamese, egyptiskt, ungerska, Nepalesiska, grill, frekvent pot, hamburgers, Medelhavsområdet, Latinamerika, tapas, British, Mexiko, Guangdong, asiatiska (annat), buffet, sushi, Mongolisk, international, musslor, thailändska, Venezuela, Rumanian, kyckling, från början, lågkalorikost, steak house, yoghurt/kraft-fältet, italienska, koreanska, Cypriotisk skrift, Bosniska, Boliviansk, Dominikanska, Belgien, Tunisien, Skotsk, Engelska, Pakistan, tjeckiska, hawaiiska, Maghrib, Tibetanska, arabisk, mitten, östra, Chilenska, Shanghai, polska, Filippinska, Sudanesiskt, armeniska, Burmesiska, Brasilien, Scandinavian, bulgariska, stärker själen food, Colombia, judiska, pizza Sicilian, organisk, grekiska, Baskiska, Undantag, cafeterior, finska, Centralafrikanska, Korsikanska, Arabrepubliken, Karibien, Dongbei, ryska, grill, ta bort, fast food, Australien, irländska, pub food, fondue, Libanon, indonesiska, danska, Provençal, teppanyaki, indiska, Mauritisk, western all Peruansk, Kambodjansk, godis, svenska, macrobiotic, glass parlor Slaviska, turkiska, argentinska, Österrike, främmande, portugisiska, luxemburgska, Marockansk, Sydsandwichöarna, Kubanska, restaurang |
 | RESTAURANG\_OMRÅDE | restaurang området |
-| REST\_OMRÅDE | REST området stoppa plats |
+| REST\_AREA | REST området stoppa plats |
 | VACKRA\_PANORAMIC\_VY | natur/Panoramavy, Fjärrvisning punkt |
 | DIN SKOLA | matlagningstidningar skola, primär skola, konst skola, senior gymnasiet Driver skolan, språk school, sport school, preschool, gymnasiet, mitten school, yrkesutbildning, andra, underordnade försiktighet anläggning, skola, högskola, militära school Agricultural skola |
-| LETA | Factory uttagsdelegat, säkerhetsprodukter, Julön/helgdag store, opticians, house trädgård: drar, lotteri kafé, musik instrument nagelfilar salon, rymmer trädgård: målningen avslutas att dekorera, hobbyer/ledig tid, newsagents såsom tobakshandlare, kläder tillbehör: special, Kemtvättar, påsar leatherwear övrig lagret, kläder tillbehör: barn, konstruktion samband utrustning smycken stämplar ur, kläder tillbehör: skor sko reparationer, house trädgård: gardiner/textilier, elektriska, office det: konsument Electronics, elektriska, office det: kamera&#39;s fotografier, cd&#39;s, DVD-filmer, tvätt, kläder tillbehör: män, blomsterhandlare, bonden leta, bok butiker, marina elektronik, mat drycker: Mat marknader, house trädgård: carpet/våning golvbeläggningar , kopia, båtar utrustning tillbehör, mobiltelefon leta, toys spel, special livsmedel, kläder tillbehör: Allmänt, mat drycker: bageri, skräddarsydda leta, gåvor, kort, skämtartiklar souvenirer, djur tjänster, sport utrustning kläder, stämpel kafé, Elektrisk installation elektriska, office det: office utrustning, foto lab/utveckling, parti föreningar, house trädgård: möbler tillbehör, lokala lösningar, mat drycker: butchers, olika store, mat drycker: Mat butiker, mat drycker: vinsprit, drug store , möbler/inventarier, elektriska, hemkontor det: datorn lagret, cd/video uthyrning, medicinska lagret utrustning, agricultural lagret, skönhetssalong, house trädgård: trädgård Datacenter tjänster, mat drycker: fishmongers, fina lagret kläder Tillbehör: kvinnor, resor agenter, försäljningsställe, återanvändning leta, house trädgård: glas windows, maskinvara, mäklare, glas/keramiskt, delicatessen, house trädgård: kök badrum, slår vad om station, hairdressers barbers, mat drycker: grocers, mat drycker: grön grocers, bekvämlighet butiker enhet via bottle kafé, house trädgård: gör det själv datacenter, antique/konst, leta, store |
+| SHOP | Factory uttagsdelegat, säkerhetsprodukter, Julön/helgdag store, opticians, house trädgård: drar, lotteri kafé, musik instrument nagelfilar salon, rymmer trädgård: målningen avslutas att dekorera, hobbyer/ledig tid, newsagents såsom tobakshandlare, kläder tillbehör: special, Kemtvättar, påsar leatherwear övrig lagret, kläder tillbehör: barn, konstruktion samband utrustning smycken stämplar ur, kläder tillbehör: skor sko reparationer, house trädgård: gardiner/textilier, elektriska, office det: konsument Electronics, elektriska, office det: kamera&#39;s fotografier, cd&#39;s, DVD-filmer, tvätt, kläder tillbehör: män, blomsterhandlare, bonden leta, bok butiker, marina elektronik, mat drycker: Mat marknader, house trädgård: carpet/våning golvbeläggningar , kopia, båtar utrustning tillbehör, mobiltelefon leta, toys spel, special livsmedel, kläder tillbehör: Allmänt, mat drycker: bageri, skräddarsydda leta, gåvor, kort, skämtartiklar souvenirer, djur tjänster, sport utrustning kläder, stämpel kafé, Elektrisk installation elektriska, office det: office utrustning, foto lab/utveckling, parti föreningar, house trädgård: möbler tillbehör, lokala lösningar, mat drycker: butchers, olika store, mat drycker: Mat butiker, mat drycker: vinsprit, drug store , möbler/inventarier, elektriska, hemkontor det: datorn lagret, cd/video uthyrning, medicinska lagret utrustning, agricultural lagret, skönhetssalong, house trädgård: trädgård Datacenter tjänster, mat drycker: fishmongers, fina lagret kläder Tillbehör: kvinnor, resor agenter, försäljningsställe, återanvändning leta, house trädgård: glas windows, maskinvara, mäklare, glas/keramiskt, delicatessen, house trädgård: kök badrum, slår vad om station, hairdressers barbers, mat drycker: grocers, mat drycker: grön grocers, bekvämlighet butiker enhet via bottle kafé, house trädgård: gör det själv datacenter, antique/konst, leta, store |
 | SHOPPING\_CENTER | mall, shopping center |
 | SPORT\_CENTER | prioriterade sport glasögon för squash domstol, lämplighet club center, sport center |
 | ARENAN | netball, football, basket, banan, flera syften, meddelar sport, cricket grunden, rugby grunden, ishockey, inom, häst racing basket, fotboll, arenan, inom fältet, rundat |
 | SIMMAR\_POOL | poolen |
 | TENNIS\_DOMSTOL | Tennisplan |
 | THEATER | amphitheater, konserthall, middag theater, musik center, opera, cabaret, theater, opera house |
-| PRIVAT\_INFORMATION\_OFFICE | privat information office |
-| TRAFIK\_LJUS | trafikljus |
-| TRAFIK\_SERVICE\_CENTER | trafik kontroll avdelning, traffic servicecenter |
-| TRAFIK\_INLOGGNING | trafik-inloggning |
-| SIST\_SYSTEM | Adventure vehicle, kör stiger, häst kör, mountain cykel, vandra, sist system |
+| TOURIST\_INFORMATION\_OFFICE | privat information office |
+| TRAFFIC\_LIGHT | trafikljus |
+| TRAFFIC\_SERVICE\_CENTER | trafik kontroll avdelning, traffic servicecenter |
+| TRAFFIC\_SIGN | trafik-inloggning |
+| TRAIL\_SYSTEM | Adventure vehicle, kör stiger, häst kör, mountain cykel, vandra, sist system |
 | TRANSPORT\_UTFÄRDARE VEHICLE\_REGISTRERING | transport-utfärdare/vehicle registrering |
-| LASTBIL\_STOPPA | lastbil stop |
+| TRUCK\_STOP | lastbil stop |
 | VETERINÄR | veterinärmedicinska anläggning, veterinär |
 | WATER\_SPORT | Water sport |
 | VÄG\_STATION | väg skalor, väga station |
 | VÄLBEFINNANDE\_ORGANISATION | välbefinnande organisation |
 | WINERY | Winery |
-| DJURPARKER\_ARBORETA\_BOTANISKA\_GARDEN | vilda park, vattenlevande zoo marina park, arboreta botaniska Garden, zoo, djurparker, arboreta botaniska trädgård |
+| ZOOS\_ARBORETA\_BOTANICAL\_GARDEN | vilda park, vattenlevande zoo marina park, arboreta botaniska Garden, zoo, djurparker, arboreta botaniska trädgård |

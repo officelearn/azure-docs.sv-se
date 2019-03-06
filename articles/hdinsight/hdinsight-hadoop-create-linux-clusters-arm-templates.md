@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: b8264e4f69a7561865f5d14087bc81bc933a6c59
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: cd02930394fd4cd09808a808765e54ff9ea6b4ea
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56821412"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57434309"
 ---
 # <a name="create-apache-hadoop-clusters-in-hdinsight-by-using-resource-manager-templates"></a>Skapa Apache Hadoop-kluster i HDInsight med hjälp av Resource Manager-mallar
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -30,7 +30,7 @@ Om du vill följa anvisningarna i den här artikeln behöver du:
 * Azure PowerShell och/eller Azure klassiskt CLI.
 
 ### <a name="resource-manager-templates"></a>Mallar för Resurshanteraren
-En Resource Manager-mallen gör det enkelt att skapa följande resoruces för ditt program i en enda, samordnad åtgärd:
+En Resource Manager-mallen gör det enkelt att skapa följande resurser för ditt program i en enda, samordnad åtgärd:
 * HDInsight-kluster och deras beroende resurser (till exempel standardkontot för lagring).
 * Andra resurser (till exempel Azure SQL Database för att använda [Apache Sqoop](https://sqoop.apache.org/)).
 

@@ -9,12 +9,12 @@ ms.reviewer: jehollan, klam, LADocs
 ms.topic: article
 ms.assetid: 19cbd921-7071-4221-ab86-b44d0fc0ecef
 ms.date: 08/25/2018
-ms.openlocfilehash: 69a4e4c59038599a7375466c46878bdd017582fa
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 3a72689be1902a05a2df409366bc5caba94d6a77
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50231618"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57436110"
 ---
 # <a name="scenario-trigger-logic-apps-with-azure-functions-and-azure-service-bus"></a>Scenario: Utlösaren logic apps med Azure Functions och Azure Service Bus
 
@@ -34,9 +34,9 @@ I det här exemplet har du en funktion som körs för varje logikapp som behöve
 
 1. Logga in på den [Azure-portalen](https://portal.azure.com), och skapa tom logikapp. 
 
-   Om du är nybörjare till logic apps, granska [Snabbstart: skapa din första logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+   Om du är nybörjare till logic apps, granska [Snabbstart: Skapa din första logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-1. Ange ”http-begäran” i sökrutan. Under listan över utlösare, väljer du den här utlösaren: **när en HTTP-begäran tas emot**
+1. Ange ”http-begäran” i sökrutan. Under listan över utlösare, väljer du den här utlösaren: **När en HTTP-begäran tas emot**
 
    ![Välj utlösare](./media/logic-apps-scenario-function-sb-trigger/when-http-request-received-trigger.png)
 
@@ -98,7 +98,7 @@ Skapa sedan den funktion som fungerar som utlösare och lyssnar efter kön.
 
 1. I Azure-portalen, öppna och expandera din funktionsapp, om inte redan är öppen. 
 
-1. Under din funktionsappens namn, expandera **Functions**. På den **Functions** fönstret Välj **ny funktion**. Välj den här mallen: **Service Bus-kö-utlösare – C#**
+1. Under din funktionsappens namn, expandera **Functions**. På den **Functions** fönstret Välj **ny funktion**. Välj den här mallen: **Utlösare för Service Bus-kö-C#**
    
    ![Välj Azure Functions-portalen](./media/logic-apps-scenario-function-sb-trigger/newqueuetriggerfunction.png)
 
@@ -114,14 +114,14 @@ Skapa sedan den funktion som fungerar som utlösare och lyssnar efter kön.
    
    private static string logicAppUri = @"https://prod-05.westus.logic.azure.com:443/.........";
    
+   // Re-use instance of http clients if possible - https://docs.microsoft.com/en-us/azure/azure-functions/manage-connections
+   private static HttpClient httpClient = new HttpClient();
+   
    public static void Run(string myQueueItem, TraceWriter log)
    {
        log.Info($"C# ServiceBus queue trigger function processed message: {myQueueItem}");
 
-       using (var client = new HttpClient())
-       {
-           var response = client.PostAsync(logicAppUri, new StringContent(myQueueItem, Encoding.UTF8, "application/json")).Result;
-       }
+       var response = httpClient.PostAsync(logicAppUri, new StringContent(myQueueItem, Encoding.UTF8, "application/json")).Result;
    }
    ```
 

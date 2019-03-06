@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: af90a946f12e11602d45300a2796787f839dcf02
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 6b16b6c4de8c8d2d7a821dd476f07c8ab1135408
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55811094"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57433441"
 ---
 # <a name="datasets-in-azure-data-factory"></a>Datauppsättningar i Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -238,7 +238,7 @@ I följande tabell beskrivs egenskaperna som du kan använda i avsnittet tillgä
 | frequency |Anger tidsenheten för datauppsättningen sektorn produktion.<br/><br/><b>Stöds frekvens</b>: Minut, timme, dag, vecka, månad |Ja |Ej tillämpligt |
 | interval |Anger en multiplikator för frekvensen.<br/><br/>”X frekvensintervall” avgör hur ofta sektorn skapas. Till exempel om du behöver datauppsättningen att delas timme kan du ange <b>frekvens</b> till <b>timme</b>, och <b>intervall</b> till <b>1</b>.<br/><br/>Observera att om du anger **frekvens** som **minut**, bör du ange intervallet till mindre än 15. |Ja |Ej tillämpligt |
 | stil |Anger om sektorn ska produceras i början eller slutet av intervallet.<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul>Om **frekvens** är inställd på **månad**, och **style** är inställd på **EndOfInterval**, sektorn skapas på den sista dagen i månaden. Om **style** är inställd på **StartOfInterval**, sektorn skapas på den första dagen i månaden.<br/><br/>Om **frekvens** är inställd på **dag**, och **style** är inställd på **EndOfInterval**, sektorn skapas under den senaste timmen på dagen.<br/><br/>Om **frekvens** är inställd på **timme**, och **style** är inställd på **EndOfInterval**, sektorn skapas i slutet av timmen. För en sektor under 1 PM - 14: 00, till exempel produceras sektorn klockan 2. |Nej |EndOfInterval |
-| anchorDateTime |Definierar absolut position i tid som används av scheduler för att beräkna datauppsättning sektorn gränser. <br/><br/>Observera att de mer detaljerade delarna ignoreras om den här propoerty har datumdelar som är större än den angivna frekvensen. Till exempel om den **intervall** är **per timme** (frequency: hour och interval: 1), och **anchorDateTime** innehåller **minuter och sekunder**, och sedan minuter och sekunder delar av **anchorDateTime** ignoreras. |Nej |01/01/0001 |
+| anchorDateTime |Definierar absolut position i tid som används av scheduler för att beräkna datauppsättning sektorn gränser. <br/><br/>Observera att om den här egenskapen har datumdelar som är större än den angivna frekvensen, ignoreras de mer detaljerade delarna. Till exempel om den **intervall** är **per timme** (frequency: hour och interval: 1), och **anchorDateTime** innehåller **minuter och sekunder**, och sedan minuter och sekunder delar av **anchorDateTime** ignoreras. |Nej |01/01/0001 |
 | offset |TimeSpan som början och slutet av alla datauppsättningen sektorer beräkningsarbete. <br/><br/>Observera att om båda **anchorDateTime** och **offset** anges, resultatet är kombinerade SKIFT. |Nej |Ej tillämpligt |
 
 ### <a name="offset-example"></a>förskjutningen exempel

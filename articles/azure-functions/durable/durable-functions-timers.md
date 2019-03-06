@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/08/2018
 ms.author: azfuncdf
-ms.openlocfilehash: e81e842e059e09f24627138ba9fbf6510a603efe
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: d225ece7b8a8841d17f20bc27de3aa640fa7d37b
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54353302"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57436433"
 ---
 # <a name="timers-in-durable-functions-azure-functions"></a>Timers i varaktiga funktioner (Azure Functions)
 
@@ -132,7 +132,7 @@ module.exports = df.orchestrator(function*(context) {
 ```
 
 > [!WARNING]
-> Använd en `CancellationTokenSource` att avbryta en hållbar timer (C#) eller ett anrop `cancel()` på den returnerade `TimerTask` (JavaScript) om din kod inte väntar på att den är klar. Hållbar uppgift ramverket ändras inte en orkestrering status som ”slutförd” tills alla utestående aktiviteter slutförts eller annullerats.
+> Använd en `CancellationTokenSource` att avbryta en hållbar timer (C#) eller ett anrop `cancel()` på den returnerade `TimerTask` (JavaScript) om din kod inte väntar på att den är klar. Hållbar uppgift ramverket ändras inte en orkestrering status som ”slutförd” tills alla utestående aktiviteter är slutförda eller avbrutna.
 
 Den här mekanismen avslutar inte faktiskt pågående aktivitetskörning av funktion. Det helt enkelt står orchestrator-funktion att ignorera resultatet och gå vidare. Om din funktionsapp använder förbrukningsplanen, debiteras du ändå för tids- och minne som används av funktionen övergivet aktivitet. Som standard har funktioner som körs i förbrukningsplanen en tidsgräns på fem minuter. Om den här gränsen överskrids, återanvänds Azure Functions-värden att stoppa alla körning och förhindra en lång körningstid fakturering situation. Den [funktionen timeout är konfigurerbara](../functions-host-json.md#functiontimeout).
 

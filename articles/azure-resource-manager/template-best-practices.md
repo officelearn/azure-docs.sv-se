@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/19/2018
+ms.date: 03/05/2019
 ms.author: tomfitz
-ms.openlocfilehash: d40fcacc4612761b2c43b0dd3658042c38a0df75
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: bcc529b02505359e6e4e320d4991a082797c5261
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57309527"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57440480"
 ---
 # <a name="azure-resource-manager-template-best-practices"></a>Azure Resource Manager mall Metodtips
 
@@ -26,7 +26,25 @@ Rekommendationer om hur du styr dina Azure-prenumerationer finns i [Azure enterp
 
 Rekommendationer om hur du skapar mallar som fungerar i alla Azure-molnmiljöer finns i [utveckla Azure Resource Manager-mallar för molnet konsekvens](templates-cloud-consistency.md).
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+## <a name="template-limits"></a>Mall för gränser
+
+Begränsa storleken på din mall till 1 MB och varje parameterfilen till 64 KB. Gränsen på 1 MB gäller sluttillstånd för mallen när det har utökats med iterativ resursdefinitioner och värden för variabler och parametrar. 
+
+Du är också begränsad till:
+
+* 256 parametrar
+* 256 variabler
+* 800 resurser (inklusive antal kopior)
+* 64 utdatavärden
+* 24,576 tecken i ett malluttryck
+
+Du kan överskrida vissa begränsningar för mallen med hjälp av en kapslad mall. Mer information finns i [använda länkade mallar när du distribuerar Azure-resurser](resource-group-linked-templates.md). Du kan kombinera flera värden i ett objekt för att minska antalet parametrar, variabler eller utdata. Mer information finns i [objekt som parametrar](resource-manager-objects-as-parameters.md).
+
+## <a name="resource-group"></a>Resursgrupp
+
+När du distribuerar resurser till en resursgrupp, lagrar metadata om resurserna i resursgruppen. Metadata lagras på platsen för resursgruppen.
+
+Om den resursgrupp regionen är inte tillgänglig för tillfället, kan du inte uppdatera resurser i resursgruppen eftersom metadata är inte tillgänglig. Resurser i andra regioner fortsätter att fungera som förväntat, men du kan inte uppdatera dem. För att minimera risken att leta upp din resursgrupp och resurser i samma region.
 
 ## <a name="parameters"></a>Parametrar
 Informationen i det här avsnittet kan vara användbart när du arbetar med [parametrar](resource-group-authoring-templates.md#parameters).
@@ -155,7 +173,7 @@ När du bestämmer vilka [beroenden](resource-group-define-dependencies.md) för
 
 * Ange en underordnad resurs som är beroende av dess överordnade.
 
-* Resurser med den [elementet](resource-manager-templates-resources.md#condition) inställt på false tas automatiskt bort från beroendeordningen. Ange beroenden som om resursen distribueras alltid.
+* Resurser med den [elementet](resource-group-authoring-templates.md#condition) inställt på false tas automatiskt bort från beroendeordningen. Ange beroenden som om resursen distribueras alltid.
 
 * Låt beroenden cascade utan att ange dem explicit. Till exempel den virtuella datorn är beroende av ett virtuellt nätverksgränssnitt och virtuella nätverksgränssnittet är beroende av ett virtuellt nätverk och offentliga IP-adresser. Därför kan den virtuella datorn är distribuerad när alla tre resurser, men uttryckligen ange inte den virtuella datorn som beroende på alla tre resurser. Den här metoden visar beroendeordningen och gör det lättare att ändra mallen senare.
 
@@ -163,7 +181,7 @@ När du bestämmer vilka [beroenden](resource-group-define-dependencies.md) för
 
 ## <a name="resources"></a>Resurser
 
-Följande information kan vara användbart när du arbetar med [resurser](resource-manager-templates-resources.md):
+Följande information kan vara användbart när du arbetar med [resurser](resource-group-authoring-templates.md#resources):
 
 * För att hjälpa andra deltagare förstå syftet med resursen, ange **kommentarer** för varje resurs i mallen:
    

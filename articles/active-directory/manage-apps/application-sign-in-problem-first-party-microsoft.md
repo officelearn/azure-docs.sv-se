@@ -16,12 +16,12 @@ ms.date: 09/10/2018
 ms.author: celested
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3bc5143803c7d031071cccbb9c6c3842bbdacd9c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 09f1ef137bbad50e72771c4368346716336c4faf
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56177197"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57447106"
 ---
 # <a name="problems-signing-in-to-a-microsoft-application"></a>Problem vid inloggning ett Microsoft-program
 
@@ -33,7 +33,7 @@ Det finns tre sätt att en användare kan få åtkomst till ett Microsoft-public
 
 -   För program som Microsoft eller tredje part publicerar fritt för allmän användning, kan användare få åtkomst via **användarmedgivande**. This0 innebär att de logga in i program med ett Azure AD för arbete eller skola och att den kan ha åtkomst till vissa begränsat uppsättning data på sitt konto.
 
--   För program som Microsoft eller 3 part publicerar fritt för allmän användning, användare kan också få åtkomst via **administratörens godkännande**. Det innebär att en administratör har fastställt programmet kan användas av alla i organisationen, så att de logga in på programmet med ett globalt administratörskonto och bevilja åtkomst till alla i organisationen.
+-   För program som Microsoft eller en 3 part publicerar fritt för allmän användning, användare kan också få åtkomst via **administratörens godkännande**. Det innebär att en administratör har fastställt programmet kan användas av alla i organisationen, så att de logga in på programmet med ett globalt administratörskonto och bevilja åtkomst till alla i organisationen.
 
 Om du vill felsöka problemet, börja med den [allmänna problemområden med programåtkomst att tänka på](#general-problem-areas-with-application-access-to-consider) och sedan läsa den här genomgången: Steg för att felsöka Microsoft Application åtkomst att hämta detaljer.
 

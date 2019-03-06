@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/11/2018
 ms.author: barclayn
-ms.openlocfilehash: cd84607f426d8a54ca21302b9a612f5ec09c9a1e
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 2c77f5abac69a1bade523d2a4b6793c2a9df8cf2
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56670391"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57447871"
 ---
 # <a name="frequently-asked-questions-faq"></a>Vanliga frågor och svar (FAQ)
 
@@ -164,7 +164,7 @@ Ja. Du kan skicka loggar från HSM-installation till en syslog-server
 
 ### <a name="q-is-it-possible-to-configure-high-availability-in-the-same-region-or-across-multiple-regions"></a>F: Är det möjligt att konfigurera hög tillgänglighet i samma region eller över flera regioner?
 
-Ja. Konfiguration för hög tillgänglighet och installationen utförs i HSM-klientprogrammet som tillhandahålls av Gemalto. HSM: er från samma virtuella nätverk eller andra virtuella nätverk i samma region eller i olika regioner eller en lokal HSM: er som är ansluten till ett virtuellt nätverk med plats-till-plats eller point-to-point VPN kan läggas till samma konfiguration för hög tillgänglighet.
+Ja. Konfiguration för hög tillgänglighet och installationen utförs i HSM-klientprogrammet som tillhandahålls av Gemalto. HSM: er från samma virtuella nätverk eller andra virtuella nätverk i samma region eller i olika regioner eller i lokala HSM: er som är ansluten till ett virtuellt nätverk med plats-till-plats eller point-to-point VPN kan läggas till samma konfiguration för hög tillgänglighet.
 
 ### <a name="can-i-add-hsms-from-my-on-premises-network-to-a-high-availability-group-with-azure-dedicated-hsm"></a>Kan jag lägga till HSM: er från mitt lokala nätverk till en grupp för hög tillgänglighet med Azure dedikerad HSM?
 

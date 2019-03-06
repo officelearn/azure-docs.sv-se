@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 18cd27ae8bf0a395fa351cf283bc1d40f94dac53
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 72238db8322132f42e14656c106b82d8604af21f
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53100114"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57435107"
 ---
 # <a name="understand-iot-edge-automatic-deployments-for-single-devices-or-at-scale"></a>Förstå IoT Edge automatiska distributioner för enskilda enheter eller i stor skala
 
@@ -62,7 +62,7 @@ Om modulen avbildningen lagras i ett privat behållarregister, har IoT Edge-agen
 
 ### <a name="target-condition"></a>Målvillkor
 
-Målvillkoret är kontinuerligt utvärderade throughtout livslängden för distributionen. Alla nya enheter som uppfyller kraven ingår och alla befintliga enheter som inte längre gör tas bort. Distributionen återaktiveras om tjänsten identifierar ändringar target villkor. 
+Målvillkoret utvärderas kontinuerligt under hela livslängden för distributionen. Alla nya enheter som uppfyller kraven ingår och alla befintliga enheter som inte längre gör tas bort. Distributionen återaktiveras om tjänsten identifierar ändringar target villkor. 
 
 Exempelvis kan du har en distribution A med ett mål villkor tags.environment = 'prod'. När du sätta igång distributionen finns 10 produktionsenheter. Modulerna som har installerats i dessa 10 enheter. IoT Edge-Agentstatus visas som 10 Totalt antal enheter, 10 lyckades, 0 misslyckades och 0 väntar. Nu lägger du till fem fler enheter med tags.environment = 'prod'. Tjänsten identifierar ändringen och IoT Edge-Agentstatus blir 15 totalt antal enheter, 10 lyckades, 0 misslyckades och 5 väntar vid försök att distribuera till fem nya enheter.
 

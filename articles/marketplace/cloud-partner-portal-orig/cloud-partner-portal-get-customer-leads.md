@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 997727acd1bbaf17577160bb996aad7e21d49c86
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 2ebc0c90d62d1299c076f8d91ba9fed1998a20e5
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48811422"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57450200"
 ---
 <a name="get-customer-leads"></a>Hämta kundleads
 ==================
@@ -77,13 +77,13 @@ Formatet för en leadkälla är **källa**-**åtgärd** |  **erbjuder**
 **Åtgärder**:
 - ”Moduler”--installationen. Den här åtgärden finns på Azure Marketplace eller AppSource när en kund köper din produkt.
 - ”PLT”--står för Partner ledde utvärderingsversion. Den här åtgärden är på AppSource när en kund använder kontakten mig alternativ.
-- ”DNC”--kontakta inte. Den här åtgärden är på AppSource när en Partner som har flera visas på sidan med appen hämtar begärde att kontaktas. Vi delar nytta av att kunden har mellan visas på din app, men de behöver inte kontaktas.
+- "DNC" -- Do Not Contact. Den här åtgärden är på AppSource när en Partner som har flera visas på sidan med appen hämtar begärde att kontaktas. Vi delar nytta av att kunden har mellan visas på din app, men de behöver inte kontaktas.
 - ”Skapa” – den här åtgärden är endast i Azure Portal och genereras när en kund köper ditt erbjudande till sitt konto.
 - ”StartTestDrive”--åtgärden avser endast för att testa enheter och genereras när en kund startar sin test-enhet.
 
 **Erbjudanden**
 
-I följande exempel visas unika identifierare som är kopplade till en utgivare och ett specifikt erbjudande: checkpoint.check-punkt-r77-10sg-byol och bitnami.openedxcypress docusign.3701c77e-1cfa - 4c 56-91e6-3ed0b622145a.
+I följande exempel visas unika identifierare som tilldelas till en utgivare och ett specifikt erbjudande: checkpoint.check-punkt-r77-10sg-byol och bitnami.openedxcypress docusign.3701c77e-1cfa - 4c 56-91e6-3ed0b622145a.
 
 
 ### <a name="customer-info"></a>Kundinformation
@@ -92,9 +92,9 @@ Fälten i följande exempel visas den kundinformation som ingår i ett lead.
 - Förnamn: John
 - Efternamn: Smith
 - E-postadress: jsmith\@microsoft.com
-- Telefonnummer: 1234567890
-- Land: USA
-- Företagets: Microsoft
+- Telefon: 1234567890
+- Land/region: USA
+- Företag: Microsoft
 - Rubrik: CTO
 
 >[!Note]

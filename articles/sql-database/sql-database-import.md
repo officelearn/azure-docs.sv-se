@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 02/18/2019
-ms.openlocfilehash: 06c74aa85bda13ccd6849056ccc031ae6f1c12c2
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.date: 03/05/2019
+ms.openlocfilehash: 09ee74ef661a3c60ecb617e14b4b05365298a93c
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57315562"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57407484"
 ---
 # <a name="quickstart-import-a-bacpac-file-to-a-database-in-azure-sql-database"></a>Snabbstart: Importera en BACPAC-fil till en databas i Azure SQL Database
 
@@ -79,7 +79,7 @@ SqlPackage.exe /a:Import /sf:testExport.bacpac /tdn:NewDacFX /tsn:apptestserver.
 ## <a name="import-into-a-single-database-from-a-bacpac-file-using-powershell"></a>Importera till en enskild databas från en BACPAC-fil med hjälp av PowerShell
 
 > [!NOTE]
-> [En hanterad instans](sql-database-managed-instance.md) stöder för närvarande inte migrera en databas till en instans-databas från en BACPAC-fil med hjälp av Azure PowerShell]. Om du vill importera till en hanterad instans, använder du SQL Server Management Studio eller SQLPackage.
+> [En hanterad instans](sql-database-managed-instance.md) stöder för närvarande inte migrera en databas till en instans-databas från en BACPAC-fil med hjälp av Azure PowerShell. Om du vill importera till en hanterad instans, använder du SQL Server Management Studio eller SQLPackage.
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]

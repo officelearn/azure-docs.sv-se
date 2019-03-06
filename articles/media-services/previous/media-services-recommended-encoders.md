@@ -9,15 +9,15 @@ ms.author: johndeu
 ms.date: 02/09/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: f07b2d128bd770854b7c240fd3c964d880029d3c
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 76c5c5d90045e1697f698895e522ffda47d47565
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55999019"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57447729"
 ---
 # <a name="recommended-on-premises-encoders"></a>Rekommenderade lokala kodare
-När direktsänd strömning med Azure Media Services, kan du ange hur du vill att din kanal tar emot Indataströmmen. Om du vill använda en lokala kodare med en livekanal med kodning ska kodaren skicka en dataström med hög kvalitet med enkel bithastighet som utdata. Om du vill använda en lokala kodare med släpp igenom kanal bör kodaren skicka en dataström med multibithastighet som utdata med alla önskade output-egenskaper. Mer information finns i [direktsänd strömning med lokala kodare](media-services-live-streaming-with-onprem-encoders.md).
+När direktsänd strömning med Azure Media Services, kan du ange hur du vill att din kanal tar emot Indataströmmen. Om du vill använda en på lokala kodare med en livekanal med kodning ska kodaren skicka en dataström med hög kvalitet med enkel bithastighet som utdata. Om du vill använda en på lokala kodare med släpp igenom kanal bör kodaren skicka en dataström med multibithastighet som utdata med alla önskade output-egenskaper. Mer information finns i [direktsänd strömning med på lokala kodare](media-services-live-streaming-with-onprem-encoders.md).
 
 Azure Media Services rekommenderar att du använder ett av följande livekodare som har RTMP som utdata:
 - Adobe Flash Media Live Encoder 3.2
@@ -44,8 +44,8 @@ Azure Media Services rekommenderar att du använder något av följande livekoda
 > [!NOTE]
 > En livekodare kan skicka en dataström med enkel bithastighet till släppa igenom kanal, men den här konfigurationen rekommenderas inte eftersom det inte tillåter för strömning med anpassad bithastighet till klienten.
 
-## <a name="how-to-become-an-on-prem-encoder-partner"></a>Hur du blir partner lokala kodare
-Som ett Azure Media Services lokala kodare partner främjar medietjänster din produkt genom att rekommendera kodaren för företagskunder. Om du vill bli en lokal encoder-partner måste du kontrollera kompatibiliteten för din lokala kodare med Media Services. Slutför följande verifieringar gör du:
+## <a name="how-to-become-an-on-premises-encoder-partner"></a>Hur du blir partner på lokala kodare
+Som ett Azure Media Services i lokala kodare partner främjar medietjänster din produkt genom att rekommendera kodaren för företagskunder. Om du vill bli partner kodare på plats måste du kontrollera kompatibiliteten för kodaren på plats med Media Services. Slutför följande verifieringar gör du:
 
 Passera kanal verifiering
 1. Skapa eller gå till ditt Azure Media Services-konto

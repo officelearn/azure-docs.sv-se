@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 11/29/2017
-ms.openlocfilehash: ca1487bea969703fddffd664b899d4e2f47b4277
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 15aa3921703871b9403ed4c01e800e4ae61594ea
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56824053"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57432405"
 ---
 # <a name="execute-python-machine-learning-scripts-in-azure-machine-learning-studio"></a>Kör skript för Python-maskininlärning i Azure Machine Learning Studio
 
@@ -58,7 +58,7 @@ Det primära gränssnittet till Python i Azure Machine Learning Studio är via d
 
 Figur 1. Den **kör Python-skript** modulen.
 
-Den [kör Python-skript] [ execute-python-script] modul i Azure ML Studio accepterar upp till tre indata och producerar upp till två utdata (beskrivs i följande avsnitt), som dess R-analog den [köra R Skriptet] [ execute-r-script] modulen. Python-kod som ska köras har angetts i parameterrutan som ett särskilt namngivna startpunkt anropade funktionen `azureml_main`. Här följer de viktiga designprinciperna som används för att implementera den här modulen:
+Den [kör Python-skript] [ execute-python-script] modul i Azure ML Studio accepterar upp till tre indata och producerar upp till två utdata (beskrivs i följande avsnitt), som dess R-analoga den [kör R-skript ] [ execute-r-script] modulen. Python-kod som ska köras har angetts i parameterrutan som ett särskilt namngivna startpunkt anropade funktionen `azureml_main`. Här följer de viktiga designprinciperna som används för att implementera den här modulen:
 
 1. *Måste vara idiomatiskt för Python-användare.* De flesta Python användare ta sin kod som funktioner i moduler. Placera så mycket av körbara uttryck i en översta modul är relativt sällsynta. Rutan skriptet tar därför även en särskild Python-funktion i stället för bara en sekvens av uttryck. De objekt som exponeras i funktionen är Standardtyper för Python-bibliotek som [Pandas](http://pandas.pydata.org/) dataramar och [NumPy](http://www.numpy.org/) matriser.
 2. *Måste ha hifi mellan lokala och molnbaserade körningar.* Serverdelen som används för att köra Python-koden är baserad på [Anaconda](https://store.continuum.io/cshop/anaconda/), ett används mycket plattformsoberoende vetenskapliga Python-distribution. Medföljer nära 200 av de vanligaste Python-paketen. Dataexperter kan därför Felsök och kvalificera sin kod på sina lokala Azure Machine Learning Studio-kompatibla Anaconda-miljön. Använda en befintlig utvecklingsmiljö, t.ex [IPython](http://ipython.org/) anteckningsboken eller [Python Tools för Visual Studio](https://aka.ms/ptvs), för att köra den som en del av ett Azure ML-experiment. Den `azureml_main` startpunkt är en vanliga Python-funktion och det *** kan skapas utan Azure ML-specifik kod eller SDK: N installerad.

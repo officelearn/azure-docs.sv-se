@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 64f348880bf8872c61a1d1c90930c25ce9551bbf
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 3fa7612b9e4cd8a714e60879229bd0d39349494f
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55658037"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57441448"
 ---
 # <a name="copy-data-from-and-to-oracle-by-using-azure-data-factory"></a>Kopiera data från och till Oracle med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -96,7 +96,7 @@ Följande egenskaper har stöd för Oracle-länkade tjänsten.
         openssl pkcs12 -in [Path to the file created in the previous step] -out [Path and name of TrustStore] -passout pass:[Keystore PWD] -nokeys -export
         ```
 
-        **Exempel:** skapar en PKCS12 trustsotre-fil med namnet MyTrustStoreFile med ett lösenord
+        **Exempel:** skapar en PKCS12 truststore-fil med namnet MyTrustStoreFile med ett lösenord
 
         ```
         openssl pkcs12 -in cert.txt -out MyTrustStoreFile -passout pass:ThePWD -nokeys -export  

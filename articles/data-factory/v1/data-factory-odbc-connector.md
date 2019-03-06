@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 11/19/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: c05c2e8941790dd30c42aca8d434a3b914d79de7
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 83de0046a56788e40b9224823af0411a18dea5eb
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56107301"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57449945"
 ---
 # <a name="move-data-from-odbc-data-stores-using-azure-data-factory"></a>Flytta data från ODBC-datalager med Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -32,6 +32,8 @@ ms.locfileid: "56107301"
 Den här artikeln förklarar hur du använder Kopieringsaktiviteten i Azure Data Factory för att flytta data från ett lokalt ODBC-datalager. Den bygger på den [Dataförflyttningsaktiviteter](data-factory-data-movement-activities.md) artikel som anger en allmän översikt över dataförflyttning med kopieringsaktiviteten.
 
 Du kan kopiera data från ett ODBC-datalager till alla datalager för mottagare som stöds. En lista över datalager som stöds som mottagare av Kopieringsaktivitet finns i den [datalager som stöds](data-factory-data-movement-activities.md#supported-data-stores-and-formats) tabell. Data factory stöder för närvarande endast flyttar data från ett ODBC-datalager till datalager, men inte för att flytta data från andra datalager till ett ODBC-datalager.
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="enabling-connectivity"></a>Aktivera anslutning
 Data Factory-tjänsten stöder anslutning till den lokala ODBC-källor med hjälp av Data Management Gateway. Se [flytta data mellan lokala platser och molnet](data-factory-move-data-between-onprem-and-cloud.md) du lär dig om Data Management Gateway och stegvisa instruktioner om hur du konfigurerar gatewayen. Använda gateway för att ansluta till en ODBC-datalager, även om den finns i en Azure IaaS-VM.
@@ -93,7 +95,7 @@ Följande tabell innehåller beskrivning för JSON-element som är specifika fö
 }
 ```
 ### <a name="using-basic-authentication-with-encrypted-credentials"></a>Med grundläggande autentisering och krypterade autentiseringsuppgifter
-Du kan kryptera autentiseringsuppgifterna med den [New-AzureRMDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/azurerm.datafactories/new-azurermdatafactoryencryptvalue) (version 1.0 av Azure PowerShell) cmdlet eller [New-AzureDataFactoryEncryptValue](https://msdn.microsoft.com/library/dn834940.aspx) (0,9 eller tidigare version av Azure PowerShell).
+Du kan kryptera autentiseringsuppgifterna med den [New-AzDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/az.datafactory/new-azdatafactoryencryptvalue) (version 1.0 av Azure PowerShell) cmdlet eller [New-AzureDataFactoryEncryptValue](https://msdn.microsoft.com/library/dn834940.aspx) (0,9 eller tidigare version av Azure PowerShell).
 
 ```json
 {

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 03/15/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=fboylu, previous-ms.author=fboylu
-ms.openlocfilehash: dad97fab8c4c8fe997ee9b8d9ac8c7dc6c0d1e48
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: d0e62edd156e8fafbf16437af33941a99f4607fd
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55454478"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57440615"
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-predictive-maintenance-in-aerospace"></a>Teknisk guide till lösningsmallen Cortana Intelligence för förebyggande underhåll i flygindustrin
 
@@ -195,7 +195,7 @@ Följande steg hjälper dig om hur du ansluter pbix-filen till den SQL-databas s
      <br/>
      ![Sista vy](./media/cortana-analytics-technical-guide-predictive-maintenance/final-view.png)
      <br/>
-   * Att schemalägga en uppdatering av data, håller du muspekaren över den **PredictiveMaintenanceAerospace** datauppsättning, klickar du på ![ellips-ikonen](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-elipsis.png) och välj sedan **Schemalägg uppdatering**.
+   * Att schemalägga en uppdatering av data, håller du muspekaren över den **PredictiveMaintenanceAerospace** datauppsättning, klickar du på ![ellipsikonen](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-elipsis.png) och välj sedan **Schemalägg uppdatering**.
      <br/>
      **Obs!** Om du ser en varning massage, klickar du på **redigera autentiseringsuppgifter** och se till att dina autentiseringsuppgifter på databasen är samma som de som beskrivs i steg 1.
      <br/>

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: shlo
-ms.openlocfilehash: 70f8533843668a86607e31a551e6ebf9abeab6c4
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 62c9a8e6375f6ac7db86ae81cdd4e5c9eb445770
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54016638"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57432829"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-schedule"></a>Skapa en utlösare som kör en pipeline enligt ett schema
 Den här artikeln innehåller information om schemautlösare och stegen för att skapa, starta och övervaka en schemautlösare. För andra typer av utlösare finns i [Pipelinekörning och utlösare](concepts-pipeline-execution-triggers.md).
@@ -66,6 +66,9 @@ Du kan skapa en **schemautlösare** att schemalägga en pipeline kan köras rege
     ![Övervaka utlösarkörningar](./media/how-to-create-schedule-trigger/monitor-trigger-runs.png)
 
 ## <a name="azure-powershell"></a>Azure PowerShell
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Det här avsnittet visar hur du använder Azure PowerShell för att skapa, starta och övervaka en schemautlösare. Om du vill se det här exemplet fungerar först gå igenom den [Snabbstart: Skapa en datafabrik med hjälp av Azure PowerShell](quickstart-create-data-factory-powershell.md). Lägg sedan till följande kod till main-metoden som skapar och startar en schemautlösare som körs var 15: e minut. Utlösaren är associerad med en pipeline med namnet **Adfv2QuickStartPipeline** som du skapar som en del av snabbstarten.
 
 1. Skapa en JSON-fil med namnet **MyTrigger.json** i mappen C:\ADFv2QuickStartPSH\ med följande innehåll:
@@ -108,34 +111,34 @@ Det här avsnittet visar hur du använder Azure PowerShell för att skapa, start
     - Utlösaren är associerad med den **Adfv2QuickStartPipeline** pipeline. Om du vill associera flera pipelines med en utlösare, lägga till fler **pipelineReference** avsnitt.
     - Pipelinen i snabbstarten tar två **parametrar** värden: **inputPath** och **outputPath**. Därför kan skicka du värden för dessa parametrar från utlösaren.
 
-2. Skapa en utlösare med hjälp av den **Set-AzureRmDataFactoryV2Trigger** cmdlet:
+2. Skapa en utlösare med hjälp av den **Set-AzDataFactoryV2Trigger** cmdlet:
 
     ```powershell
-    Set-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger" -DefinitionFile "C:\ADFv2QuickStartPSH\MyTrigger.json"
+    Set-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger" -DefinitionFile "C:\ADFv2QuickStartPSH\MyTrigger.json"
     ```
 
-3. Kontrollera att statusen för utlösaren är **stoppad** med hjälp av den **Get-AzureRmDataFactoryV2Trigger** cmdlet:
+3. Kontrollera att statusen för utlösaren är **stoppad** med hjälp av den **Get-AzDataFactoryV2Trigger** cmdlet:
 
     ```powershell
-    Get-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
+    Get-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
     ```
 
-4. Starta utlösaren med hjälp av den **Start-AzureRmDataFactoryV2Trigger** cmdlet:
+4. Starta utlösaren med hjälp av den **Start AzDataFactoryV2Trigger** cmdlet:
 
     ```powershell
-    Start-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
+    Start-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
     ```
 
-5. Kontrollera att statusen för utlösaren är **startad** med hjälp av den **Get-AzureRmDataFactoryV2Trigger** cmdlet:
+5. Kontrollera att statusen för utlösaren är **startad** med hjälp av den **Get-AzDataFactoryV2Trigger** cmdlet:
 
     ```powershell
-    Get-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
+    Get-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
     ```
 
-6.  Hämta som utlösaren körs i Azure PowerShell med hjälp av den **Get-AzureRmDataFactoryV2TriggerRun** cmdlet. Kör följande kommando med jämna mellanrum för att få information om utlösaren körs. Uppdatera den **TriggerRunStartedAfter** och **TriggerRunStartedBefore** värdena för att matcha värdena i utlösarens definition:
+6.  Hämta som utlösaren körs i Azure PowerShell med hjälp av den **Get-AzDataFactoryV2TriggerRun** cmdlet. Kör följande kommando med jämna mellanrum för att få information om utlösaren körs. Uppdatera den **TriggerRunStartedAfter** och **TriggerRunStartedBefore** värdena för att matcha värdena i utlösarens definition:
 
     ```powershell
-    Get-AzureRmDataFactoryV2TriggerRun -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -TriggerName "MyTrigger" -TriggerRunStartedAfter "2017-12-08T00:00:00" -TriggerRunStartedBefore "2017-12-08T01:00:00"
+    Get-AzDataFactoryV2TriggerRun -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -TriggerName "MyTrigger" -TriggerRunStartedAfter "2017-12-08T00:00:00" -TriggerRunStartedBefore "2017-12-08T01:00:00"
     ```
     
     Övervaka utlösaren körs och pipelinen körs i Azure-portalen, se [övervaka pipelinekörningar](quickstart-create-data-factory-resource-manager-template.md#monitor-the-pipeline).
@@ -322,12 +325,12 @@ I följande tabell ges en översikt över de viktigaste schemaelementen relatera
 
 ### <a name="schema-defaults-limits-and-examples"></a>Standardvärden för scheman, begränsningar och exempel
 
-| JSON-egenskap | Typ | Krävs | Standardvärde | Giltiga värden | Exempel |
+| JSON-egenskap | Type | Krävs | Standardvärde | Giltiga värden | Exempel |
 |:--- |:--- |:--- |:--- |:--- |:--- |
-| **startTime** | Sträng | Ja | Ingen | ISO 8601-datum/tid | `"startTime" : "2013-01-09T09:30:00-08:00"` |
+| **startTime** | String | Ja | Ingen | ISO 8601-datum/tid | `"startTime" : "2013-01-09T09:30:00-08:00"` |
 | **recurrence** | Objekt | Ja | Ingen | Upprepningsobjekt | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
 | **interval** | Tal | Nej | 1 | 1 till 1 000 | `"interval":10` |
-| **endTime** | Sträng | Ja | Ingen | Ett datum/tid-värde som representerar en tidpunkt i framtiden. | `"endTime" : "2013-02-09T09:30:00-08:00"` |
+| **endTime** | String | Ja | Ingen | Ett datum/tid-värde som representerar en tidpunkt i framtiden. | `"endTime" : "2013-02-09T09:30:00-08:00"` |
 | **schedule** | Objekt | Nej | Ingen | Schemaobjekt | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
 
 ### <a name="starttime-property"></a>Egenskapen startTime

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 23f1f4e8b6a3b71c3792a08645122779e4e629b2
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: f871174982e965a32d5f2dca5e2e53c5dc436055
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55465834"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57405495"
 ---
 # <a name="deploy-azure-file-sync"></a>Distribuera Azure File Sync
 Använd Azure File Sync för att centralisera din organisations filresurser i Azure Files, samtidigt som den flexibilitet, prestanda och kompatibilitet för en lokal filserver. Azure File Sync omvandlar Windows Server till ett snabbt cacheminne för din Azure-filresurs. Du kan använda alla protokoll som är tillgänglig på Windows Server för att komma åt dina data lokalt, inklusive SMB, NFS och FTPS. Du kan ha så många cacheminnen som du behöver över hela världen.
@@ -83,7 +83,7 @@ Distributionen av Azure File Sync som börjar med att placera en **Lagringssynkr
 > Storage Sync-tjänsten ärvda åtkomstbehörigheter från prenumeration och resursgrupp som den har distribuerats till. Vi rekommenderar att du noggrant kontrollera vem som har åtkomst till den. Entiteter med skrivåtkomst kan börja synkronisera nya grupper av filer från servrar som registrerats till den här lagringen synkroniseringstjänsten och orsaka data kan flöda till Azure storage som är tillgänglig för dem.
 
 # <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
-Om du vill distribuera en tjänst för Lagringssynkronisering, går du till den [Azure-portalen](https://portal.azure.com/), klickar du på *New* och söker sedan efter Azure File Sync. I sökresultaten väljer **Azure File Sync**, och välj sedan **skapa** att öppna den **distribuera synkronisering av lagring** fliken.
+Om du vill distribuera en tjänst för Lagringssynkronisering, går du till den [Azure-portalen](https://portal.azure.com/), klickar du på *skapa en resurs* och söker sedan efter Azure File Sync. I sökresultaten väljer **Azure File Sync**, och välj sedan **skapa** att öppna den **distribuera synkronisering av lagring** fliken.
 
 I fönstret som öppnas anger du följande information:
 

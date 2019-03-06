@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: abnarain
-ms.openlocfilehash: 68878a68b5f0051c1ee9beda96293dd7cd00eaf1
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: dc9f24f948e32d1b87745016852a875d440323de
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55493600"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57443706"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Skapa och konfigurera en lokal integration runtime
 Integration runtime (IR) är beräkningsinfrastrukturen som Azure Data Factory använder för att tillhandahålla funktioner för dataintegrering olika nätverksmiljöer integrationsfunktioner. Mer information om IR finns [översikten över Integration runtime](concepts-integration-runtime.md).
@@ -25,11 +25,13 @@ En lokal integration runtime kan köra Kopieringsaktivitet mellan ett molndatala
 
 Det här dokumentet beskriver hur du kan skapa och konfigurera en lokal IR.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="high-level-steps-to-install-a-self-hosted-ir"></a>Övergripande steg för att installera en lokal IR
 1. Skapa Integration Runtime med egen värd. Du kan använda Azure Data Factory-Användargränssnittet för den här uppgiften. Här är ett PowerShell-exempel:
 
     ```powershell
-    Set-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntimeName -Type SelfHosted -Description "selfhosted IR description"
+    Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntimeName -Type SelfHosted -Description "selfhosted IR description"
     ```
   
 2. [Ladda ned](https://www.microsoft.com/download/details.aspx?id=39717) och installera den lokala integreringskörningen på en lokal dator.
@@ -37,7 +39,7 @@ Det här dokumentet beskriver hur du kan skapa och konfigurera en lokal IR.
 3. Hämta autentiseringsnyckeln och registrera den lokala integreringskörningen med nyckeln. Här är ett PowerShell-exempel:
 
     ```powershell
-    Get-AzureRmDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntime.  
+    Get-AzDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntime.  
     ```
 
 ## <a name="setting-up-a-self-hosted-ir-on-an-azure-vm-by-using-an-azure-resource-manager-template-automation"></a>Konfigurera en lokal IR på en Azure virtuell dator med hjälp av en Azure Resource Manager-mall (automatiskt)
@@ -96,7 +98,7 @@ Du kan installera den lokala integreringskörningen genom att ladda ned en MSI-i
 9. Hämta autentiseringsnyckel för med hjälp av Azure PowerShell. Här är ett PowerShell-exempel för att hämta nyckeln:
 
     ```powershell
-    Get-AzureRmDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntime
+    Get-AzDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntime
     ```
 11. På den **registrera Integration Runtime (lokal installation)** sidan för Microsoft Integration Runtime Configuration Manager som körs på din dator, gör följande:
 
@@ -112,7 +114,7 @@ En lokal integration runtime kan associeras med flera lokala datorer. Dessa dato
 * Högre tillgänglighet för lokal integration runtime så att den är inte längre felpunkt i dina stordata lösning eller molnet dataintegrering med Azure Data Factory, att säkerställa affärskontinuitet med upp till fyra noder.
 * Förbättrad prestanda och genomflöde under dataförflyttning mellan lokala och molnbaserade datalager. Få mer information om [prestandajämförelser](copy-activity-performance.md).
 
-Du kan associera flera noder genom att installera lokal integration runtime-programvara från den [Download Center](https://www.microsoft.com/download/details.aspx?id=39717). Sedan, registrera den med någon av autentiseringsnycklarna har hämtats från den **New-AzureRmDataFactoryV2IntegrationRuntimeKey** cmdlet, enligt beskrivningen i den [självstudien](tutorial-hybrid-copy-powershell.md).
+Du kan associera flera noder genom att installera lokal integration runtime-programvara från den [Download Center](https://www.microsoft.com/download/details.aspx?id=39717). Sedan, registrera den med någon av autentiseringsnycklarna har hämtats från den **New-AzDataFactoryV2IntegrationRuntimeKey** cmdlet, enligt beskrivningen i den [självstudien](tutorial-hybrid-copy-powershell.md).
 
 > [!NOTE]
 > Du behöver inte skapa nya lokal integration runtime för att associera varje nod. Du kan installera den lokala integreringskörningen på en annan dator och registrera den med hjälp av samma autentiseringsnyckeln. 
@@ -197,8 +199,6 @@ Titta på följande videoklipp för en tolv minuters introduktion och demonstrat
 * Data factory som en länkad IR ska skapas måste ha en [MSI](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview). Som standard datafabriker skapas i Azure portal eller PowerShell-cmdlets har en MSI som skapats implicit. Men när en datafabrik har skapats via en Azure Resource Manager-mall eller SDK, den **identitet** egenskapen måste anges uttryckligen att säkerställa att Azure Resource Manager skapar en datafabrik som innehåller en MSI. 
 
 * Azure Data Factory .NET SDK som stöder den här funktionen är version 1.1.0 eller senare.
-
-* Azure PowerShell-version som stöder den här funktionen är 6.6.0 eller senare (AzureRM.DataFactoryV2, 0.5.7 eller senare).
 
 * Användaren måste rollen ägare eller ärvda ägarrollen i datafabriken där det finns delad IR för att ge behörighet.
 
@@ -343,7 +343,7 @@ msiexec /q /i IntegrationRuntime.msi NOFIREWALL=1
 > [!NOTE]
 > Programmet Autentiseringshanteraren är ännu inte tillgänglig för kryptering av autentiseringsuppgifter i Azure Data Factory V2.  
 
-Om du inte väljer att öppna port 8060 på den lokala installation av integration runtime-datorn, kan du använda metoder än programmet ange autentiseringsuppgifter för att konfigurera autentiseringsuppgifter för datalagring. Du kan till exempel använda den **New-AzureRmDataFactoryV2LinkedServiceEncryptCredential** PowerShell-cmdlet.
+Om du inte väljer att öppna port 8060 på den lokala installation av integration runtime-datorn, kan du använda metoder än programmet ange autentiseringsuppgifter för att konfigurera autentiseringsuppgifter för datalagring. Du kan till exempel använda den **New AzDataFactoryV2LinkedServiceEncryptCredential** PowerShell-cmdlet.
 
 
 ## <a name="next-steps"></a>Nästa steg

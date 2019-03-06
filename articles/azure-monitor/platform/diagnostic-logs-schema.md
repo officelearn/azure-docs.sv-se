@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 10/11/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: 6470e2e48854d091c219fb4ec3224e87b1567dd7
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 6e67b049ca179b1e93bcf645afd89b4a2eb0048d
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55300225"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57436510"
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Tjänster som stöds, scheman och kategorier för Azure-diagnostikloggar
 
@@ -47,7 +47,7 @@ Schemat för resursdiagnostikloggar varierar beroende på resursen och log kateg
 
 | Tjänst | Schema & Docs |
 | --- | --- |
-| Azure Active Directory | [Översikt över](../../active-directory/reports-monitoring/concept-activity-logs-azure-monitor.md), [Granska loggen schemat](../../active-directory/reports-monitoring/reference-azure-monitor-audit-log-schema.md) och [logga moduler schema](../../active-directory/reports-monitoring/reference-azure-monitor-sign-ins-log-schema.md) |
+| Azure Active Directory | [Översikt över](../../active-directory/reports-monitoring/concept-activity-logs-azure-monitor.md), [Granska loggen schemat](../../active-directory/reports-monitoring/reference-azure-monitor-audit-log-schema.md) och [inloggningar schema](../../active-directory/reports-monitoring/reference-azure-monitor-sign-ins-log-schema.md) |
 | Analysis Services | https://azure.microsoft.com/blog/azure-analysis-services-integration-with-azure-diagnostic-logs/ |
 | API Management | [API Management-diagnostikloggar](../../api-management/api-management-howto-use-azure-monitor.md#diagnostic-logs) |
 | Programgateways |[Diagnostikloggning för Application Gateway](../../application-gateway/application-gateway-diagnostics.md) |
@@ -83,7 +83,7 @@ Schemat för resursdiagnostikloggar varierar beroende på resursen och log kateg
 ## <a name="supported-log-categories-per-resource-type"></a>Loggkategorier per resurstyp som stöds
 |Resurstyp|Kategori|Visningsnamn för kategori|
 |---|---|---|
-|Microsoft.AnalysisServices/servers|Motorn|Motorn|
+|Microsoft.AnalysisServices/servers|Motor|Motor|
 |Microsoft.AnalysisServices/servers|Tjänst|Tjänst|
 |Microsoft.ApiManagement/service|GatewayLogs|Relaterade till ApiManagement-Gateway|
 |Microsoft.Automation/automationAccounts|JobLogs|Jobbloggar|
@@ -165,7 +165,7 @@ Schemat för resursdiagnostikloggar varierar beroende på resursen och log kateg
 |Microsoft.Network/expressRouteCircuits|PeeringRouteLog|Peering väg Tabelloggar|
 |Microsoft.Network/frontdoors|FrontdoorAccessLog|Frontdoor Åtkomstlogg|
 |Microsoft.Network/frontdoors|FrontdoorWebApplicationFirewallLog|Frontdoor Web Application-brandväggslogg|
-|Microsoft.PowerBIDedicated/capacities|Motorn|Motorn|
+|Microsoft.PowerBIDedicated/capacities|Motor|Motor|
 |Microsoft.RecoveryServices/Vaults|AzureBackupReport|Azure Backup rapportdata|
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryJobs|Azure Site Recovery-jobb|
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryEvents|Azure Site Recovery Events|

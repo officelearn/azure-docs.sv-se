@@ -8,12 +8,12 @@ ms.date: 12/05/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: bdffcdee87c0c5c9c878948797ac7c6be566c7ea
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: a8be44201a2181ab252dfba501469719dd675ffa
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56818858"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57410170"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>Felsökning av problem med hantering av uppdateringar
 
@@ -44,7 +44,7 @@ Det här felet kan orsakas av följande orsaker:
 
 1. Besök, [nätverksplanering](../automation-hybrid-runbook-worker.md#network-planning) att lära dig om vilka adresser och portar måste vara tillgängliga för hantering av uppdateringar ska fungera.
 2. Om du använder en klonade avbildningen:
-   1. I Log Analytics-arbetsytan, ta bort den virtuella datorn från den sparade sökningen för Omfattningskonfigurationen `MicrosoftDefaultScopeConfig-Updates`. Sparade sökningar finns under **Allmänt** i din arbetsyta.
+   1. I Log Analytics-arbetsytan, ta bort den virtuella datorn från den sparade sökningen för Omfattningskonfigurationen `MicrosoftDefaultScopeConfig-Updates` om det ska visas. Sparade sökningar finns under **Allmänt** i din arbetsyta.
    2. Kör `Remove-Item -Path "HKLM:\software\microsoft\hybridrunbookworker" -Recurse -Force`
    3. Kör `Restart-Service HealthService` att starta om den `HealthService`. Detta kommer att återskapa nyckeln och generera en ny UUID.
    4. Om det inte fungerar, sysprep avbildningen första och installerar MMA-agenten i efterhand.

@@ -11,12 +11,12 @@ ms.date: 11/20/2018
 ms.author: jeffgilb
 ms.reviewer: adshar
 ms.lastreviewed: 11/20/2018
-ms.openlocfilehash: bd1994aca3dbbc23977b01d3511f87b5ec08b96d
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 41609a75efec6c15d894b61867fb9d3ae727dc8c
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251868"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57440564"
 ---
 # <a name="azure-stack-diagnostics-tools"></a>Verktyg för Azure Stack-diagnostik
 
@@ -163,7 +163,7 @@ Följ dessa steg för att köra Get-AzureStackLog på en värddator för ASDK.
     -   ACS-loggarna samlas i den *Storage* och *ACS* roller.
 
 > [!NOTE]
-> Begränsningar för storlek och ålder tillämpas på loggarna som samlas in eftersom det är viktigt att säkerställa effektiv användning av ditt lagringsutrymme för att se till att den inte hämta svämmar över med loggar. Men vid diagnostisering av ett problem behöver du ibland loggar som inte finns längre på grund av dessa begränsningar. Därför är det **rekommenderas starkt** du avlasta loggarna till en extern lagringsutrymme (ett lagringskonto i Azure, en ytterligare en lokal lagringsenhet osv) var 8 och 12: e timme och håll dem det för 1 – 3 månader, beroende på din krav. Kontrollera också att den här lagringsplatsen är krypterad.
+> Begränsningar för storlek och ålder tillämpas på loggarna som samlas in eftersom det är viktigt att säkerställa effektiv användning av ditt lagringsutrymme för att se till att den inte hämta svämmar över med loggar. Men vid diagnostisering av ett problem behöver du ibland loggar som inte finns längre på grund av dessa begränsningar. Därför är det **rekommenderas starkt** du avlasta loggarna till en extern lagringsutrymme (ett lagringskonto i Azure, ytterligare på lokal lagringsenhet osv) var 8 och 12: e timme och hålla dem det för 1 – 3 månader, beroende på din krav. Kontrollera också att den här lagringsplatsen är krypterad.
 
 ## <a name="next-steps"></a>Nästa steg
 [Felsökning av Microsoft Azure Stack](azure-stack-troubleshooting.md)

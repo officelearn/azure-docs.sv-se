@@ -1,5 +1,5 @@
 ---
-title: Så här loggar du in med tvåstegsverifiering verifiering eller din säkerhetsinformation - Azure Active Directory | Microsoft Docs
+title: Logga in med tvåstegsverifiering verifiering eller din säkerhetsinformation - Azure Active Directory | Microsoft Docs
 description: Läs mer om hur du loggar in med olika identitet verifieringsmetoderna säkerhetsinformation.
 services: active-directory
 author: eross-msft
@@ -11,13 +11,14 @@ ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
+ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2aca321ac0902d115f4fc7622992d29183c1d35c
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: c892d616609151b5ad6025b4d0b535c494e6af82
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56452608"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57454229"
 ---
 # <a name="sign-in-using-two-step-verification-or-security-info"></a>Logga in med tvåstegsverifiering verifiering eller din säkerhetsinformation
 När du har konfigurerat tvåstegsverifiering eller säkerhetsinformation kommer du att kunna logga in på ditt konto med angivna autentiseringsmetod.
@@ -62,4 +63,4 @@ När du har konfigurerat tvåstegsverifiering eller säkerhetsinformation kommer
 
 - Återställa lösenordet om du har förlorat den, från den [portal för lösenordsåterställning](https://passwordreset.microsoftonline.com/)
 
-- Hämta felsöka tips och hjälp med inloggningsproblem i den [kan inte logga in på ditt Microsoft-konto](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant) artikeln.
+- Få felsökningstips och hjälp om inloggningsproblem i artikeln [Det går inte att logga in på ditt Microsoft-konto](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant).

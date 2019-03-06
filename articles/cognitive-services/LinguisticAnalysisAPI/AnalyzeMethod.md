@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/13/2016
 ms.author: lesun
 ROBOTS: NOINDEX
-ms.openlocfilehash: 2b02b048719dd7707db7e97df3641a314b512177
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 02c41e2510fd77f4bb65143faf62737f0985d2b7
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55861688"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57431146"
 ---
 # <a name="analyze-method"></a>Analysera metod
 
@@ -24,7 +24,7 @@ ms.locfileid: "55861688"
 > Förhandsversionen av Språkanalys upphörde den 9 augusti 2018. Vi rekommenderar att du använder [Azure Machine Learning-textanalysmoduler](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/text-analytics) för textbearbetning och -analys.
 
 Den **analysera** REST-API används för att analysera en viss naturligt språk som indata.
-Som kan innebära att bara söka efter den [meningar och token](Sentences-and-Tokens.md) inom som indata, att hitta den [av ordklasser taggar](POS-tagging.md), eller för att hitta den [constitutency trädet](Constituency-Parsing.md).
+Som kan innebära att bara söka efter den [meningar och token](Sentences-and-Tokens.md) inom som indata, att hitta den [av ordklasser taggar](POS-tagging.md), eller för att hitta den [av valkrets trädet](Constituency-Parsing.md).
 Du kan ange vilka resultat som du vill ha genom att välja relevanta analysverktyg.
 Om du vill visa alla tillgängliga analysverktyg, titta på den  **[analysverktyg](AnalyzersMethod.md)**.
 

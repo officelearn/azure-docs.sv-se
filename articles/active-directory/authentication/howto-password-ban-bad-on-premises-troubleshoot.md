@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8e3632fdb3b4d5c1d2b5465671f36a201c5ff990
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: 63fdd60c4c462626cc43a7a453bddc0b020b92cf
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57193304"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57409898"
 ---
 # <a name="preview-azure-ad-password-protection-troubleshooting"></a>Förhandsversion: Felsökning av Azure AD-lösenordsskydd
 
@@ -55,13 +55,13 @@ Kontrollera proxy-datorn är ansluten till de slutpunkter som anges i den [distr
 
 Det här problemet kan visas med en rad olika symptom men har vanligtvis ett vanliga grundläggande orsaken.
 
-Azure AD-lösenordsskydd har ett kritiskt beroende på kryptering och dekryptering funktionerna som tillhandahålls av Microsoft Key Distribution Service som är tillgänglig på domänkontrollanter som kör Windows Server 2012 och senare. Tjänsten KDS måste vara aktiverad och fungerar på alla Windows Server 2012 och senare domänkontrollanter i en domän.  
+Azure AD-lösenordsskydd har ett kritiskt beroende på kryptering och dekryptering funktionerna som tillhandahålls av Microsoft Key Distribution Service som är tillgänglig på domänkontrollanter som kör Windows Server 2012 och senare. Tjänsten KDS måste vara aktiverad och fungerar på alla Windows Server 2012 och senare domänkontrollanter i en domän.
 
-Som standard KDS konfigureras tjänstens startläget för tjänsten som manuell (utlösare Start). Den här konfigurationen innebär att den första gången en klient försöker använda tjänsten, den startas på begäran. Den här tjänsten start som är standardläget är godkänd för Azure AD-lösenord skyddet ska fungera. 
+Som standard KDS konfigureras tjänstens startläget för tjänsten som manuell (utlösare Start). Den här konfigurationen innebär att den första gången en klient försöker använda tjänsten, den startas på begäran. Den här tjänsten start som är standardläget är godkänd för Azure AD-lösenord skyddet ska fungera.
 
 Om startläget för KDS-tjänsten har konfigurerats på inaktiverad, måste den här konfigurationen åtgärdas innan Azure AD-lösenordsskydd kommer att fungera korrekt.
 
-Ett enkelt test för det här problemet är att starta tjänsten KDS via manuellt i Service management MMC-konsolen eller använder andra hanteringsverktyg för tjänsten (till exempel köra ”net start kdssvc” från en kommandotolk-konsol). Tjänsten KDS förväntas startas och körs.
+Ett enkelt test för det här problemet är att starta tjänsten KDS via MMC tjänsthanteringskonsolen manuellt eller använda andra hanteringsverktyg för tjänsten (till exempel köra ”net start kdssvc” från en kommandotolk-konsol). Tjänsten KDS förväntas startas och körs.
 
 Den vanligaste orsaken är att Active Directory-domänkontrollantobjekt finns utanför standard Organisationsenheten domänkontrollanter. Den här konfigurationen stöds inte av tjänsten KDS och är inte en begränsning som införts av Azure AD-lösenordsskydd. Korrigering för det här villkoret är att flytta domänkontrollantobjekt till en plats under standard Organisationsenheten domänkontrollanter.
 
@@ -118,7 +118,7 @@ Om det är valt att avinstallera den allmänna förhandsversionen av programvara
 
    Utelämna inte asterisken (”*”) i slutet av $keywords variabelvärdet.
 
-   De resulterande objekten som hittades den `Get-ADObject` kommando kan sedan skickas till `Remove-ADObject`, eller tagits bort manuellt. 
+   De resulterande objekten som hittades den `Get-ADObject` kommando kan sedan skickas till `Remove-ADObject`, eller tagits bort manuellt.
 
 4. Ta bort alla anslutningspunkter för DC-agenten manuellt i varje domännamngivningskontexten. Det kan finnas en dessa objekt per domänkontrollant i skogen, beroende på hur mycket den allmänna förhandsversionen av programvaran har distribuerats. Platsen för det objektet kan identifieras med följande Active Directory PowerShell-kommando:
 

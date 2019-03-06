@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: michaelhauss
-ms.openlocfilehash: b35bec31035c0219bf34a31cb34e20f7dc3a72c5
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: cac889b83bb0e7a7aab12ff4097556abf60663b6
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39397037"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57449129"
 ---
 # <a name="how-to-use-blob-storage-from-xamarin"></a>Hur du använder Blob Storage från Xamarin
 
@@ -29,7 +29,7 @@ Den här självstudien ska vi skapa en app som riktar sig till Android, iOS och 
 Följ stegen nedan för att skapa ditt program:
 
 1. Om du inte redan gjort det, ladda ned och installera [Xamarin för Visual Studio](https://www.xamarin.com/download).
-2. Öppna Visual Studio och skapa en tom App (interna bärbar): **fil > Nytt > Projekt > plattformsoberoende > tom App(Native Portable)**.
+2. Öppna Visual Studio och skapa en tom App (interna bärbar): **Fil > Nytt > Projekt > plattformsoberoende > tom App (interna Portable)**.
 3. Högerklicka på lösningen i Solution Explorer-fönstret och välj **hantera NuGet-paket för lösningen**. Sök efter **WindowsAzure.Storage** och installera den senaste stabila versionen för alla projekt i din lösning.
 4. Skapa och köra projektet.
 
@@ -155,7 +155,7 @@ namespace XamarinApp.iOS
             public override void DidReceiveMemoryWarning ()
             {
                 base.DidReceiveMemoryWarning ();
-                // Release any cached data, images, etc that aren't in use.
+                // Release any cached data, images, etc. that aren't in use.
             }
         }
     }

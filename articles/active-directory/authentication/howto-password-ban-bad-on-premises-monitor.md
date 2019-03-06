@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4a3127cde66ce7de9a3920d238193a3a3b2225be
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: f1f946eceab68b0fe49ea67dc33a7094458cd14c
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56195795"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57451494"
 ---
 # <a name="preview-azure-ad-password-protection-monitoring-and-logging"></a>Förhandsversion: Azure AD-lösenordsskydd övervakning och loggning
 
@@ -317,7 +317,7 @@ Textloggning är inaktiverad som standard. En omstart av Proxy-tjänsten krävs 
 
 PowerShell-cmdletar som resulterar i en tillståndsändring (till exempel registrera-AzureADPasswordProtectionProxy) loggar normalt en händelse i resultatet till arbetsloggen.
 
-I ytterligare, de flesta av Azure AD-lösenord Protection PowerShell-cmdlets skriver till en textlogg som finns under:
+Dessutom kan skriver de flesta av Azure AD-lösenord Protection PowerShell-cmdlets till en textlogg som finns under:
 
 `%ProgramFiles%\Azure AD Password Protection Proxy\Logs`
 

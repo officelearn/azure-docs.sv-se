@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/30/2017
 ms.author: ganesr
 ms.custom: seodec18
-ms.openlocfilehash: 1807bda35f6bfcc9dbbb30f054cedb9454a88a7f
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 01eac27b63f9eaaf62e863cd023201c3eab4b74e
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55158578"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57432149"
 ---
 # <a name="getting-arp-tables-in-the-resource-manager-deployment-model"></a>Hämta ARP-tabeller i distributionsmodellen för Resource Manager
 > [!div class="op_single_selector"]
@@ -28,6 +28,8 @@ Den här artikeln vägleder dig igenom stegen för att lära dig ARP-tabeller f�
 > Det här dokumentet är avsedd att hjälpa dig att diagnostisera och åtgärda enkel problem. Det är inte avsedd att ersätta för Microsoft-supporten. Du måste öppna ett supportärende med [Microsoft-supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) om det inte går att lösa problemet genom att följa vägledningen beskrivs nedan.
 > 
 > 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="address-resolution-protocol-arp-and-arp-tables"></a>Åtgärda Resolution Protocol (ARP) och ARP-tabeller
 Protokollet ARP (Address Resolution) är en layer 2-protokollet som definieras i [RFC 826](https://tools.ietf.org/html/rfc826). ARP används för att mappa Ethernet-adress (MAC-adress) med en ip-adress.
@@ -69,10 +71,10 @@ Följande cmdlet ger ARP tabeller för Azures privata peering
         $Name = "<Your ExpressRoute Circuit Name Here>"
 
         # ARP table for Azure private peering - Primary path
-        Get-AzureRmExpressRouteCircuitARPTable -ResourceGroupName $RG -ExpressRouteCircuitName $Name -PeeringType AzurePrivatePeering -DevicePath Primary
+        Get-AzExpressRouteCircuitARPTable -ResourceGroupName $RG -ExpressRouteCircuitName $Name -PeeringType AzurePrivatePeering -DevicePath Primary
 
         # ARP table for Azure private peering - Secondary path
-        Get-AzureRmExpressRouteCircuitARPTable -ResourceGroupName $RG -ExpressRouteCircuitName $Name -PeeringType AzurePrivatePeering -DevicePath Secondary 
+        Get-AzExpressRouteCircuitARPTable -ResourceGroupName $RG -ExpressRouteCircuitName $Name -PeeringType AzurePrivatePeering -DevicePath Secondary 
 
 Exempel på utdata visas nedan för en av sökvägarna
 
@@ -90,10 +92,10 @@ Följande cmdlet ger ARP tabeller för Azures offentliga peering
         $Name = "<Your ExpressRoute Circuit Name Here>"
 
         # ARP table for Azure public peering - Primary path
-        Get-AzureRmExpressRouteCircuitARPTable -ResourceGroupName $RG -ExpressRouteCircuitName $Name -PeeringType AzurePublicPeering -DevicePath Primary
+        Get-AzExpressRouteCircuitARPTable -ResourceGroupName $RG -ExpressRouteCircuitName $Name -PeeringType AzurePublicPeering -DevicePath Primary
 
         # ARP table for Azure public peering - Secondary path
-        Get-AzureRmExpressRouteCircuitARPTable -ResourceGroupName $RG -ExpressRouteCircuitName $Name -PeeringType AzurePublicPeering -DevicePath Secondary 
+        Get-AzExpressRouteCircuitARPTable -ResourceGroupName $RG -ExpressRouteCircuitName $Name -PeeringType AzurePublicPeering -DevicePath Secondary 
 
 
 Exempel på utdata visas nedan för en av sökvägarna
@@ -112,10 +114,10 @@ Följande cmdlet ger ARP tabeller för Microsoft-peering
         $Name = "<Your ExpressRoute Circuit Name Here>"
 
         # ARP table for Microsoft peering - Primary path
-        Get-AzureRmExpressRouteCircuitARPTable -ResourceGroupName $RG -ExpressRouteCircuitName $Name -PeeringType MicrosoftPeering -DevicePath Primary
+        Get-AzExpressRouteCircuitARPTable -ResourceGroupName $RG -ExpressRouteCircuitName $Name -PeeringType MicrosoftPeering -DevicePath Primary
 
         # ARP table for Microsoft peering - Secondary path
-        Get-AzureRmExpressRouteCircuitARPTable -ResourceGroupName $RG -ExpressRouteCircuitName $Name -PeeringType MicrosoftPeering -DevicePath Secondary 
+        Get-AzExpressRouteCircuitARPTable -ResourceGroupName $RG -ExpressRouteCircuitName $Name -PeeringType MicrosoftPeering -DevicePath Secondary 
 
 
 Exempel på utdata visas nedan för en av sökvägarna
@@ -141,7 +143,7 @@ ARP-tabell med en peer-koppling kan användas för att fastställa verifiera lay
           0 Microsoft         65.0.0.2   aaaa.bbbb.cccc
 
 ### <a name="arp-table-when-on-premises--connectivity-provider-side-has-problems"></a>ARP-tabell när den lokala / anslutning providern sida har problem
-Om det finns problem med lokalt eller connectivity-leverantör som du kan se att antingen bara en post visas i ARP-tabell eller en lokal MAC-adress visas ofullständig. Det här alternativet visas mappningen mellan MAC-adress och IP-adress som används i Microsoft-sida. 
+Om det finns problem med lokalt eller connectivity-leverantör som du kan se att antingen bara en post visas i ARP-tabell eller på MAC-adressen för plats visas ofullständig. Det här alternativet visas mappningen mellan MAC-adress och IP-adress som används i Microsoft-sida. 
   
        Age InterfaceProperty IpAddress  MacAddress    
        --- ----------------- ---------  ----------    

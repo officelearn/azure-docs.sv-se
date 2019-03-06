@@ -8,12 +8,12 @@ ms.author: saveenr
 ms.reviewer: jasonwhowell
 ms.topic: conceptual
 ms.date: 06/18/2017
-ms.openlocfilehash: bb219b6db97e654c8fb6db0b1c43f3326db7b9c5
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 9d9d5a7232529989901709013dcfac12f94afad0
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51232067"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57433084"
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-azure-cli"></a>Kom igång med Azure Data Lake Analytics med hjälp av Azure CLI
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
@@ -66,7 +66,7 @@ az group create --name "<Resource Group Name>" --location "<Azure Location>"
 
 * **Data Lake Analytics-kontonamn**. Varje Data Lake Analytics-konto har ett namn.
 * **Plats**. Använd ett av de Azure-datacenter som stöder Data Lake Analytics.
-* **Data Lake Store-standardkonto**: Varje Data Lake Analytics-konto har ett Data Lake Store-standardkonto.
+* **Standard Data Lake Store-konto**: Varje Data Lake Analytics-konto har ett Data Lake Store-standardkonto.
 
 Om du vill skapa en lista över befintliga Data Lake Store-konton:
 

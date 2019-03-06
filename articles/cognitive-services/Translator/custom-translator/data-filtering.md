@@ -9,12 +9,12 @@ ms.subservice: custom-translator
 ms.date: 02/21/2019
 ms.author: v-jansko
 ms.topic: conceptual
-ms.openlocfilehash: 5fab0446fe28cc279a732f48ca7560792f611e86
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 46af936cc479770fe5db8085106c9da310a9717e
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56731488"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57452410"
 ---
 # <a name="data-filtering"></a>Datafiltrering
 
@@ -23,7 +23,7 @@ När du skickar in dokument som ska användas för att träna en anpassad system
 ## <a name="sentence-alignment"></a>Meningsjustering
 Om dokumentet inte är i XLIFF, TMX eller JUSTERA format, justerar anpassad Translator meningar av dokument till varandra, mening efter källa och mål. Translator utföra inte dokumentet justering – det följer din namngivning av dokument att hitta det matchande dokumentet för andra språk. I dokumentet, anpassade Translator som försöker hitta motsvarande meningen på andra språk. Den använder dokumentet markup som inbäddat HTML-taggar för att hjälpa till med justering.  
 
-Om du ser en stor avvikelse mellan antalet meningar i källan och rikta in sida dokument, kanske dokumentet inte parallell i första hand eller av andra orsaker som inte bra alignable. Dokumentet kan användas med en stor skillnad (> 10%) garanterar en andra titt att kontrollera att de är verkligen parallella i meningar på varje sida. Anpassade Translator visar en varning bredvid dokumentet om antalet mening skiljer sig misstänkt.  
+Om du ser en stor avvikelse mellan antalet meningar i källan och rikta in sida dokument, dokumentet kan inte ha varit parallella i första hand eller av andra orsaker kunde inte justeras. Dokumentet kan användas med en stor skillnad (> 10%) garanterar en andra titt att kontrollera att de är verkligen parallella i meningar på varje sida. Anpassade Translator visar en varning bredvid dokumentet om antalet mening skiljer sig misstänkt.  
 
 
 ## <a name="deduplication"></a>Deduplicering

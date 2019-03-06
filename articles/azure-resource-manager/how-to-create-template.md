@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/27/2018
 ms.author: tomfitz
-ms.openlocfilehash: 67ea9ece7ba0c71484e9117db13fd2c708d87baf
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: b198f860c10bd207a191057e21a8a159c5ebde26
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57312876"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57403523"
 ---
 # <a name="create-azure-resource-manager-template"></a>Skapa Azure Resource Manager-mall
 
@@ -44,7 +44,7 @@ Vi ska gå igenom delarna av mallen för att förstå hur mallen fungerar. Malle
 
 * Den [functions](resource-group-authoring-templates.md#functions) avsnittet, som visar anpassade malluttryck som används i mallen.
 
-* Den [resurser](resource-manager-templates-resources.md) avsnitt som visar Azure-resurser som distribueras till din prenumeration.
+* Den [resurser](resource-group-authoring-templates.md#resources) avsnitt som visar Azure-resurser som distribueras till din prenumeration.
 
 * Den [matar ut](resource-group-authoring-templates.md#outputs) avsnitt som visar de värden som returneras när distributionen är klar.
 
@@ -98,7 +98,7 @@ Du kan lägga till taggar till dina resurser och organisera dem logiskt efter ka
 }
 ```
 
-Du kan också lägga till taggar dynamiskt från parametrar. Mer information finns i [taggar i mallen](resource-manager-templates-resources.md#tags).
+Du kan också lägga till taggar dynamiskt från parametrar. Mer information finns i [taggar i mallen](resource-group-using-tags.md#templates).
 
 ## <a name="review-template-functions"></a>Granska Mallfunktioner
 
@@ -176,7 +176,7 @@ I följande exempel distribueras villkorligt ett storage-konto:
 }
 ```
 
-Mer information finns i den [elementet](resource-manager-templates-resources.md#condition).
+Mer information finns i den [elementet](resource-group-authoring-templates.md#condition).
 
 ## <a name="review-dependencies"></a>Granska beroenden
 

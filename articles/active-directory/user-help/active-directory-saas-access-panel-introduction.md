@@ -1,5 +1,5 @@
 ---
-title: Vad är MyApps-portalen i Azure Active Directory? | Microsoft Docs
+title: Vad är MyApps-portalen – Azure Active Directory? | Microsoft Docs
 description: Lär dig hur du använder varianter av MyApps-portalen (webbläsare, Android-app, iPhone och iPad-app) för att få åtkomst till SaaS-appar.
 services: active-directory
 author: eross-msft
@@ -12,13 +12,14 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: lizross
 ms.reviewer: asteen
+ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9682611467311f06d60f6f393ebd7788f95f7f12
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 6df034264e54d7d421d9508fb3c08cc6675cb10d
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56177877"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57452002"
 ---
 # <a name="what-is-the-myapps-portal"></a>Vad är MyApps-portalen?
 

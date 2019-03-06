@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: genemi
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: 01c4bcfcea038f3e69620cdce78719c8c5128faf
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: 6ad8079985925d4b9bf74b22971ca3c387af199a
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55964805"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57455623"
 ---
 # <a name="sql-database-application-development-overview"></a>Översikt över SQL Database-programutveckling
 
@@ -58,7 +58,7 @@ Mer information om hur du förbereder planerat underhåll utförs på Azure SQL 
 - På den dator som är värd för ditt klientprogram, ska du se till att brandväggen tillåter utgående TCP-kommunikation på port 1433.  Mer information: [Konfigurera en Azure SQL Database-brandvägg](sql-database-configure-firewall-settings.md).
 - Om klientprogrammet ansluter till SQL Database medan klienten körs på en Azure-dator (VM), måste du öppna vissa portintervall på den virtuella datorn. Mer information: [Portar utöver 1433 för ADO.NET 4.5 och SQL Database](sql-database-develop-direct-route-ports-adonet-v12.md).
 - Klientanslutningar till Azure SQL Database ibland kringgå proxyn och interagera direkt med databasen. Andra portar än 1433 blir viktiga. Mer information [Azure SQL Database anslutningsarkitektur](sql-database-connectivity-architecture.md) och [portar utöver 1433 för ADO.NET 4.5 och SQL Database](sql-database-develop-direct-route-ports-adonet-v12.md).
-- Nätverk configation för den hanterade instansen finns [nätverkskonfiguration för hanterade instanser](sql-database-howto-managed-instance.md#network-configuration).
+- Nätverkskonfigurationen för en hanterad instans, se [nätverkskonfiguration för hanterade instanser](sql-database-howto-managed-instance.md#network-configuration).
 
 ## <a name="next-steps"></a>Nästa steg
 

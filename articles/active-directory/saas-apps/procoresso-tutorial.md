@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/13/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d72f4ac39ac992d0386b3971cd4d3bc6616f0a28
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 62320d6523652d91f35e55196a84cc32ea7bc55d
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56186464"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57440173"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-procore-sso"></a>Självstudier: Azure Active Directory-integrering med Procore SSO
 
@@ -123,7 +123,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     a. Inloggnings-URL
 
-    b. Microsoft Azure Active Directory-identifierare
+    b. Azure AD-identifierare
 
     c. Utloggnings-URL
 
@@ -214,7 +214,7 @@ Följ de stegen nedan för att skapa en Procore testanvändare på Procore SSOc 
 
     ![Konfigurera enkel inloggning](./media/procoresso-tutorial/Procore_user_check.png)
 
-5. Klicka på **spara och skicka Invitiation** (om det krävs en inbjudan via e-post) eller **spara** (spara direkt) för att slutföra registreringen för användaren.
+5. Klicka på **spara och skicka inbjudan** (om det krävs en inbjudan via e-post) eller **spara** (spara direkt) för att slutföra registreringen för användaren.
     
     ![Konfigurera enkel inloggning](./media/procoresso-tutorial/Procore_user_save.png)
 

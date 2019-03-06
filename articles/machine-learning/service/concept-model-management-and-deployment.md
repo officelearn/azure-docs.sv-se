@@ -11,12 +11,12 @@ author: chris-lauren
 ms.author: clauren
 ms.date: 1/23/2019
 ms.custom: seodec18
-ms.openlocfilehash: 583573db99eb6b59b82eb22ed88ed5265352e7dd
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 8dea667b15471accd4fc8b09d0ff1eb7aa5daed5
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56876032"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57403701"
 ---
 # <a name="manage-deploy-and-monitor-models-with-azure-machine-learning-service"></a>Hantera, distribuera och övervaka modeller med Azure Machine Learning-tjänsten
 
@@ -105,6 +105,6 @@ Uppdateringar i din modell registreras inte automatiskt. På samma sätt kan upp
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om [hur och var du kan distribuera modeller](how-to-deploy-and-where.md) med Azure Machine Learning-tjänsten.
+Läs mer om [hur och var du kan distribuera modeller](how-to-deploy-and-where.md) med Azure Machine Learning-tjänsten. Ett exempel på distribution finns i [självstudien: Distribuera en modell för klassificering av avbildning i Azure Container Instances](tutorial-deploy-models-with-aml.md).
 
 Lär dig hur du skapar klienten program och tjänster som [Använd en modell som distribueras som en webbtjänst](how-to-consume-web-service.md).

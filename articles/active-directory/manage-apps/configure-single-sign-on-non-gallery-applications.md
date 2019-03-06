@@ -12,12 +12,12 @@ ms.date: 01/08/2019
 ms.author: celested
 ms.reviewer: asmalser,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2804ebdbeb72bd35c7e63553184157066f9cfd32
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 93e33ea311a064058e739bfcf6d63dc2d5462110
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56177329"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57435073"
 ---
 # <a name="configure-single-sign-on-to-non-gallery-applications-in-azure-active-directory"></a>Konfigurera enkel inloggning till icke-galleriprogram i Azure Active Directory
 
@@ -60,7 +60,7 @@ Ange den grundläggande SAML-konfigurationen om du vill konfigurera Azure AD. Du
 
   ![Litware domän och URL: er](./media/configure-single-sign-on-non-gallery-applications/customapp4.png)
 
-- **Inloggning på URL: en (SP-initierat endast)** – där användaren går för att logga in till det här programmet. Om programmet har konfigurerats för tjänsten tjänstprovider-initierad enkel inloggning, och sedan när användarna navigerar till den här URL: en, tjänstleverantören gör nödvändiga omdirigeringen med Azure AD för att autentisera och logga in användaren i. Om det här fältet fylls sedan Azure AD ska använda den här URL: en starta program från Office 365 och Azure AD-åtkomstpanelen. Om det här fältet utelämnas kommer Azure AD i stället utför identitetsprovider-initierad inloggning när appen startas från Office 365, Azure AD-åtkomstpanelen eller från Azure AD enkel inloggnings-URL (kopieringsbar från fliken instrumentpanel).
+- **Inloggning på URL: en (SP-initierat endast)** – där användaren går för att logga in till det här programmet. Om programmet har konfigurerats för tjänsten tjänstprovider-initierad enkel inloggning, och sedan när användarna navigerar till den här URL: en, tjänstleverantören gör nödvändiga omdirigeringen med Azure AD för att autentisera och logga in användaren i. Om det här fältet fylls sedan Azure AD ska använda den här URL: en starta program från Office 365 och Azure AD-åtkomstpanelen. Om det här fältet utelämnas kommer Azure AD i stället utför identitetsprovider-initierad inloggning när appen startas från Office 365, Azure AD-åtkomstpanelen eller från Azure AD enkel inloggnings-URL (kan kopieras från fliken instrumentpanel).
 - **Identifieraren** -ska identifiera programmet som enkel inloggning konfigureras. Du hittar det här värdet som elementet utfärdaren i AuthRequest (SAML begäran) som skickas av programmet. Det här värdet visas också som den **entitets-ID** i alla SAML-metadata som tillhandahålls av programmet. Kontrollera programmets SAML-dokumentationen för information om vad som är attributvärdet entitets-ID eller målgrupp. 
 
     Följande är ett exempel på hur ID- eller Utfärdarnamn visas i SAML-begäran som skickas av programmet till Azure AD:

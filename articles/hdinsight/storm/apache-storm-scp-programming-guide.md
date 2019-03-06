@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2016
-ms.openlocfilehash: d017a2758ccd1530c4558f3dc92559f807df36b9
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 848663c509fd3635b33b8e7735feb940da215bfa
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54332106"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57441822"
 ---
 # <a name="scp-programming-guide"></a>Programmeringsguide för SCP
 SCP är en plattform för att skapa realtid, tillförlitliga och konsekventa, och bearbetning av högpresterande program. Det är byggt ovanpå [Apache Storm](https://storm.incubator.apache.org/) – ett system som utformats av OSS-communities för strömbearbetning. Storm är utformad av Nathan Marz och har öppen källkod med Twitter. Den använder [Apache ZooKeeper](https://zookeeper.apache.org/), en annan Apache-projektet för att möjliggöra tillförlitliga distribuerade samordning och tillstånd. 
@@ -71,7 +71,7 @@ ISCPSpout är gränssnittet för icke-transaktionell kanal.
 
 När `NextTuple()` anropas, C\# användarkod kan generera en eller flera tupplar. Om det finns inget att skapa ska den här metoden returnera utan avger något. Det bör noteras som `NextTuple()`, `Ack()`, och `Fail()` kallas i en tät loop i en enda tråd i C\# processen. När det finns inga tupplar att generera, är det Välkommen företagspolicy ha NextTuple strömsparläge under en kort tidsperiod (till exempel 10 millisekunder) utan att slösa bort för mycket CPU.
 
-`Ack()` och `Fail()` kallas endast när ack mekanism är aktiverat i klientfilsspecifik-filen. Den `seqId` används för att identifiera den tuppel som är bekräftat eller misslyckades. Så om ack är aktiverad i icke-transaktionell topologi, bör följande begär funktion användas i kanal:
+`Ack()` och `Fail()` kallas endast när ack mekanism är aktiverat i klientfilsspecifik-filen. Den `seqId` används för att identifiera den tuppel som är godkänt eller misslyckades. Så om ack är aktiverad i icke-transaktionell topologi, bör följande begär funktion användas i kanal:
 
     public abstract void Emit(string streamId, List<object> values, long seqId); 
 
@@ -431,7 +431,7 @@ Två metoder i SCP.NET Context-objektet har lagts till. De används för att gen
 Sänder till en icke-existerande stream gör runtime-undantag.
 
 ### <a name="fields-grouping"></a>Fält gruppering
-Den inbyggda fält gruppering i Strom inte fungerar korrekt i SCP.NET. Alla fält datatyper är faktiskt byte [] på Java-Proxy-sida och fälten gruppering använder byte [] objekt hash-koden för att utföra grupperingen. Byte [] objekt hash-koden är adressen för det här objektet i minnet. Grupperingen kommer så att fel för två byte [] objekt som delar samma innehåll men inte samma adress.
+Den inbyggda fält gruppering i Storm inte fungerar korrekt i SCP.NET. Alla fält datatyper är faktiskt byte [] på Java-Proxy-sida och fälten gruppering använder byte [] objekt hash-koden för att utföra grupperingen. Byte [] objekt hash-koden är adressen för det här objektet i minnet. Grupperingen kommer så att fel för två byte [] objekt som delar samma innehåll men inte samma adress.
 
 SCP.NET lägger till en metod för anpassad gruppering och innehållet i byte [] används för att göra grupperingen. I **SPEC** filen syntaxen är t.ex.:
 
@@ -573,7 +573,7 @@ Det finns två klientfilsspecifik filer, **HelloWorld.spec** och **HelloWorld\_E
     }
     Context.Logger.Info("enableAck: {0}", enableAck);
 
-I kanal om ack är aktiverad, används en ordlista för att cachelagra tupplar som inte har bekräftat. Om Fail() anropas, spelas den misslyckade tuppeln:
+I kanal, om ack aktiveras används en ordlista som för att cachelagra tupplar som inte har bekräftats. Om Fail() anropas, spelas den misslyckade tuppeln:
 
     public void Fail(long seqId, Dictionary<string, Object> parms)
     {

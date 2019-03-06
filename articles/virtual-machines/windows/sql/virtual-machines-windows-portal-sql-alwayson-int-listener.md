@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 02/16/2017
 ms.author: mikeray
-ms.openlocfilehash: 5e665cd0bcfdea436c2f493187c5bbea756f8f09
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 43f2694f597d99edaf127a6afd64376cca33dad2
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51248322"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57448160"
 ---
 # <a name="configure-a-load-balancer-for-an-always-on-availability-group-in-azure"></a>Konfigurera en belastningsutjämnare för en Always On-tillgänglighetsgrupp i Azure
 Den här artikeln förklarar hur du skapar en belastningsutjämnare för en SQL Server Always On-tillgänglighetsgrupp i Azure virtuella datorer som körs med Azure Resource Manager. En tillgänglighetsgrupp kräver en belastningsutjämnare när SQL Server-instanserna är på Azure virtual machines. Belastningsutjämnaren lagrar IP-adressen för tillgänglighetsgruppens lyssnare. Om en tillgänglighetsgrupp sträcker sig över flera regioner, måste en belastningsutjämnare i varje region.
@@ -66,8 +66,8 @@ Börja med att skapa belastningsutjämnaren.
    | Inställning | Värde |
    | --- | --- |
    | **Namn** |Ett namn som representerar belastningsutjämnaren. Till exempel **sqlLB**. |
-   | **Typ** |**Interna**: de flesta implementeringar av använder en intern belastningsutjämnare, vilket gör att program i samma virtuella nätverk att ansluta till tillgänglighetsgruppen.  </br> **Externa**: gör att program kan ansluta till tillgänglighetsgrupp via en offentlig Internetanslutning. |
-   | **Virtuellt nätverk** |Välj det virtuella nätverket som SQL Server-intances finns i. |
+   | **Typ** |**Interna**: De flesta implementeringar av använda en intern belastningsutjämnare, vilket gör att program i samma virtuella nätverk att ansluta till tillgänglighetsgruppen.  </br> **Externa**: Gör att program kan ansluta till tillgänglighetsgrupp via en offentlig Internetanslutning. |
+   | **Virtuellt nätverk** |Välj det virtuella nätverket som SQL Server-instanserna. |
    | **Undernät** |Välj det undernät som SQL Server-instanser är i. |
    | **IP-adresstilldelning** |**Statisk** |
    | **Privat IP-adress** |Ange en tillgänglig IP-adress från undernätet. Använd den här IP-adressen när du skapar en lyssnare på klustret. I ett PowerShell-skript, senare i den här artikeln använder du den här adressen för den `$ILBIP` variabeln. |
@@ -79,7 +79,7 @@ Börja med att skapa belastningsutjämnaren.
 
 Azure skapar belastningsutjämnaren. Belastningsutjämnaren tillhör ett visst nätverk, undernät, resursgrupp och plats. När uppgiften har slutförts i Azure kontrollerar du inställningarna för belastningsutjämnare i Azure. 
 
-### <a name="step-2-configure-the-back-end-pool"></a>Steg 2: Konfigurera backend poolen
+### <a name="step-2-configure-the-back-end-pool"></a>Steg 2: Konfigurera backend-pool
 Azure anropar backend-adresspoolen *serverdelspool*. I det här fallet är backend poolen adresserna till de två SQL Server-instanserna i tillgänglighetsgruppen. 
 
 1. Klicka på belastningsutjämnaren som du har skapat i din resursgrupp. 

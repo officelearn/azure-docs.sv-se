@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 09/13/2018
+ms.date: 03/05/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 430aa6e60efe63e6741436e53152126bc15798fc
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: c95fcd2e6369fae920481db2623124342c34a730
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56327858"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57447638"
 ---
 # <a name="azure-storage-account-overview"></a>Översikt över Azure storage-konto
 
@@ -60,11 +60,9 @@ Gpv2-konton rekommenderas i de flesta fall, är general-purpose v1-konton bäst 
 
 * Du använder en version av [Storage Services REST API](https://msdn.microsoft.com/library/azure/dd894041.aspx) som är äldre än 2014-02-14 eller ett klientbiblioteket med en tidigare version än 4.x och det inte går att uppgradera ditt program.
 
-### <a name="blob-storage-accounts"></a>Blob Storage-konton
+### <a name="block-blob-storage-accounts"></a>Block blob storage-konton
 
-Blob storage-kontot är ett specialiserat lagringskonto för att lagra Ostrukturerade objektdata som blockblobar. BLOB storage-konton har samma tillförlitlighet, tillgänglighet, skalbarhet och avancerade funktioner som är tillgängliga med gpv2-konton. BLOB storage-konton stöder lagra blockblobbar och lägga till BLOB-objekt, men inte sidblobar.
-
-BLOB storage-konton erbjuder flera åtkomstnivåerna för att lagra data baserat på dina användningsmönster. Mer information finns i [åtkomstnivåerna för block blob-data](#access-tiers-for-block-blob-data).
+Block blob storage-kontot är ett specialiserat lagringskonto för att lagra Ostrukturerade objektdata som blockblobar eller tilläggsblobar. Block blob storage-konton erbjuder flera åtkomstnivåerna för att lagra data baserat på dina användningsmönster. Mer information finns i [åtkomstnivåerna för block blob-data](#access-tiers-for-block-blob-data).
 
 ## <a name="naming-storage-accounts"></a>Namngivning av lagringskonton
 

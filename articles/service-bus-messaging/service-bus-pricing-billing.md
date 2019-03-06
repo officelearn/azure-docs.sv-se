@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/21/2018
+ms.date: 03/05/2019
 ms.author: aschhab
-ms.openlocfilehash: 5b9aae979a25a1f175b3d5a5e24960d6f392b9b4
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 859add6c9310cf5f18ed7090c8e93d4896b59a0b
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54852940"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57433390"
 ---
 # <a name="service-bus-pricing-and-billing"></a>Service Bus priser och fakturering
 
@@ -74,7 +74,7 @@ Standard-nivån tar bort gränsen per namnområde asynkron anslutning och räkna
 <br />
 
 > [!NOTE]
-> Fakturering baseras på det högsta antalet samtidiga anslutningar och beräknas procentuellt per timme baserat på 744 timmar per månad.
+> Fakturering baseras på det högsta antalet samtidiga anslutningar och beräknas procentuellt per timme baserat på 730 timmar per månad.
 >
 >
 
@@ -91,12 +91,12 @@ En Brokered Connection definieras som något av följande:
 1. En AMQP-anslutning från en klient till en Service Bus-kö eller ämne/prenumeration.
 2. Ett HTTP-anrop för att ta emot ett meddelande från ett ämne eller en kö i Service Bus med ett mottagningstidsgränsvärde som är större än noll.
 
-Service Bus-avgifter för det högsta antalet samtidiga brokered connections som överstiger antalet som ingår (1 000 i nivån Standard). Det högsta antalet mäts per timme. Detta beräknas proportionellt genom att dividera med 744 timmar per månad och summera över faktureringsperioden. Det antal som ingår (1 000 Brokered Connections per månad) räknas av mot summan av högsta antal per timme i slutet av faktureringsperioden.
+Service Bus-avgifter för det högsta antalet samtidiga brokered connections som överstiger antalet som ingår (1 000 i nivån Standard). Det högsta antalet mäts per timme, beräknas proportionellt genom att dividera med 730 timmar per månad och summeras över faktureringsperioden. Det antal som ingår (1 000 Brokered Connections per månad) räknas av mot summan av högsta antal per timme i slutet av faktureringsperioden.
 
 Exempel:
 
-1. Var och en av 10 000 enheter ansluts via en enkel AMQP-anslutning och tar emot kommandon från ett Service Bus-ämne. Enheterna skickar telemetrihändelser till ett Händelsenav. Om alla enheter är anslutna i 12 timmar varje dag, gäller följande anslutningsavgifter (utöver andra Service Bus avsnittet-avgifter): 10 000 anslutningar * 12 timmar * 31 dagar / 744 = 5 000 brokered connections. Efter månadskvoten på 1 000 brokered connections skulle du debiteras för 4 000 brokered connections enligt taxan $0.03 per brokered connection, sammanlagt $120.
-2. 10 000 enheter tar emot meddelanden från en Service Bus-kö via HTTP, med en tidsgräns som inte är noll. Om alla enheter är anslutna i 12 timmar varje dag, ser du följande anslutningsavgifter (utöver andra Service Bus-avgifter): 10 000 HTTP tar emot anslutningar * 12 timmar per dag * 31 dagar / 744 timmar = 5 000 brokered connections.
+1. Var och en av 10 000 enheter ansluts via en enkel AMQP-anslutning och tar emot kommandon från ett Service Bus-ämne. Enheterna skickar telemetrihändelser till ett Händelsenav. Om alla enheter är anslutna i 12 timmar varje dag, gäller följande anslutningsavgifter (utöver andra Service Bus avsnittet-avgifter): 10 000 anslutningar * 12 timmar * 30 dagar / 730 = 4,931 asynkrona anslutningar. Efter månadskvoten på 1 000 brokered connections skulle du debiteras för 4 000 brokered connections enligt taxan $0.03 per brokered connection, sammanlagt $120.
+2. 10 000 enheter tar emot meddelanden från en Service Bus-kö via HTTP, med en tidsgräns som inte är noll. Om alla enheter är anslutna i 12 timmar varje dag, ser du följande anslutningsavgifter (utöver andra Service Bus-avgifter): 10 000 HTTP tar emot anslutningar * 12 timmar per dag * 730 timmar/30 dagar = 4,931 asynkrona anslutningar.
 
 ### <a name="do-brokered-connection-charges-apply-to-queues-and-topicssubscriptions"></a>Gäller Brokered Connection-avgifter för köer och ämnen/prenumerationer?
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/22/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 1ebe600a305e6dbc2790d50c6e1eafcfda19c9b8
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: 75c453c9ac501eea681af32643a40e941555ffbd
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56749451"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57454926"
 ---
 #   <a name="image-analysis-cognitive-skill"></a>Bild Analysis kognitiva kunskaper
 
@@ -37,7 +37,7 @@ Parametrar är skiftlägeskänsliga.
 | Parameternamn     | Beskrivning |
 |--------------------|-------------|
 | defaultLanguageCode   |  En sträng som anger språket som ska returneras. Tjänsten returnerar resultat i ett angivet språk. Om den här parametern inte anges är standardvärdet ”SV”. <br/><br/>Språk som stöds är: <br/>*en* -engelska (standard) <br/> *zh* -kinesiska (förenklad)|
-|visualFeatures |   En matris med strängar som anger vilka visuell funktion som ska returneras. Giltigt visual funktionen typer är:  <ul><li> *kategorier* -kategoriserar bildinnehåll enligt en taxonomi som definierats i Cognitive Services [dokumentation](https://docs.microsoft.com/azure/cognitive-services/computer-vision/category-taxonomy).</li><li> *taggar* -taggar avbildningen med en detaljerad lista över ord som rör innehållet i.</li><li>*Beskrivning av* -beskriver bilden innehåll med en hel engelska mening.</li><li>*Ansikten* – identifierar om ansikten finns. Om det finns genererar koordinater, kön och ålder.</li><li> *ImageType* – identifierar om bild är clipart eller en Linjeteckning.</li><li>   *Färg* -anger accentfärg, dominant färg, och om en bild är svart och vit.</li><li>*Vuxet* – identifierar om avbildningen pornografiskt sin natur (visar nakenhet eller en kön act). Sexuellt något innehåll identifieras också.</li></ul> Namnen på visuella funktioner är skiftlägeskänsliga.|
+|visualFeatures |   En matris med strängar som anger vilka visuell funktion som ska returneras. Giltigt visual funktionen typer är:  <ul><li> *kategorier* -kategoriserar bildinnehåll enligt en taxonomi som definierats i Cognitive Services [dokumentation](https://docs.microsoft.com/azure/cognitive-services/computer-vision/category-taxonomy).</li><li> *taggar* -taggar avbildningen med en detaljerad lista över ord som rör innehållet i.</li><li>*Beskrivning av* -beskriver bilden innehåll med en hel engelska mening.</li><li>*Ansikten* – identifierar om ansikten finns. Om det finns genererar koordinater, kön och ålder.</li><li> *ImageType* – identifierar om bild är ClipArt eller en Linjeteckning.</li><li>  *Färg* -anger accentfärg, dominant färg, och om en bild är svart och vit.</li><li>*Vuxet* – identifierar om avbildningen pornografiskt sin natur (visar nakenhet eller en kön act). Sexuellt något innehåll identifieras också.</li></ul> Namnen på visuella funktioner är skiftlägeskänsliga.|
 | detaljer   | En matris med strängar som anger vilka domänspecifika information för att returnera. Giltigt visual funktionen typer är: <ul><li>*Kändisar* -identifierar kändisar om har identifierats i avbildningen.</li><li>*Landmärken* -identifierar landmärken om har identifierats i avbildningen.</li></ul>
  |
 

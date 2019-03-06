@@ -8,14 +8,14 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/13/2018
 ms.author: asrastog
-ms.openlocfilehash: dd811a48d6f3f1061bad49a81b7e833dcb40e1e3
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 20e7f8f5d2c0eb9fbfb231adfd20ff54d9eda20a
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57241297"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57404203"
 ---
-# <a name="use-message-routing-to-send-device-to-cloud-messages-to-different-endpoints"></a>Använd meddelanderoutning för att skicka meddelanden från enheten till molnet till olika slutpunkter
+# <a name="use-iot-hub-message-routing-to-send-device-to-cloud-messages-to-different-endpoints"></a>Använd IoT Hub meddelanderoutning för att skicka enhet-till-moln-meddelanden till olika slutpunkter
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
@@ -35,19 +35,39 @@ En IoT-hubb har en inbyggd-i-standardslutpunkten (**meddelanden/händelser**) so
 
 ### <a name="built-in-endpoint"></a>Inbyggd slutpunkt
 
-Du kan använda standard [Event Hubs-integrering och SDK: er](iot-hub-devguide-messages-read-builtin.md) att ta emot meddelanden från enheten till molnet från den inbyggda slutpunkten (**meddelanden/händelser**). Observera att när en väg har skapats kan data slutar flöda till inbyggda-i-slutpunkten såvida inte en väg skapas till denna slutpunkt.
+Du kan använda standard [Event Hubs-integrering och SDK: er](iot-hub-devguide-messages-read-builtin.md) att ta emot meddelanden från enheten till molnet från den inbyggda slutpunkten (**meddelanden/händelser**). När du har skapat en väg, stoppar data flöda till inbyggda-i-slutpunkten såvida inte en väg skapas till denna slutpunkt.
 
 ### <a name="azure-blob-storage"></a>Azure Blob Storage
 
-IoT Hub stöder endast skriva data till Azure Blob Storage i den [Apache Avro](http://avro.apache.org/) format. IoT Hub slår ihop meddelanden och skriver data till en blob när batchen når en viss storlek eller en viss tidsperiod har gått ut.
+IoT-hubb har stöd för skrivning av data till Azure Blob Storage i den [Apache Avro](http://avro.apache.org/) samt JSON-format. Möjligheten att koda JSON-format finns i förhandsversion i alla regioner som IoT Hub inte är tillgängligt i östra USA, västra USA och Västeuropa. Standardvärdet är AVRO. Du kan välja Kodningsformatet med hjälp av IoT Hub Create eller Update REST API, särskilt de [RoutingStorageContainerProperties](https://docs.microsoft.com/rest/api/iothub/iothubresource/createorupdate#routingstoragecontainerproperties), Azure-portalen [Azure CLI](https://docs.microsoft.com/cli/azure/iot/hub/routing-endpoint?view=azure-cli-latest#optional-parameters) eller [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.iothub/add-aziothubroutingendpoint?view=azps-1.3.0#optional-parameters). Kodningsformatet kan anges endast när bloblagringsslutpunkt konfigureras. Formatet kan inte redigeras för en befintlig slutpunkt. Följande diagram visar hur du väljer Kodningsformatet i Azure Portal.
 
-IoT Hub som standard följande namngivningskonvention för filen:
+![BLOB storage endpoint kodning](./media/iot-hub-devguide-messages-d2c/blobencoding.png)
+
+IoT Hub slår ihop meddelanden och skriver data till en blob när batchen når en viss storlek eller en viss tidsperiod har gått ut. IoT Hub som standard följande namngivningskonvention för filen:
 
 ```
 {iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}
 ```
 
 Du kan använda alla filnamnskonvention, men du måste använda alla listade token. IoT Hub skriver till en tom blob om det finns inga data att skriva.
+
+När routning till blob storage, rekommenderar vi ta blobar och sedan iterera över dem, så läses alla behållare utan att göra några antaganden för partitionen. Partitionsintervall potentiellt kan ändra under en [Microsoft-initierad redundans](iot-hub-ha-dr.md#microsoft-initiated-failover) eller IoT-hubb [manuell redundans](iot-hub-ha-dr.md#manual-failover-preview). Du kan använda den [lista Blobbar API](https://docs.microsoft.com/rest/api/storageservices/list-blobs) att räkna upp listan över blobar. Se följande exempel som vägledning.
+
+   ```csharp
+        public void ListBlobsInContainer(string containerName, string iothub)
+        {
+            var storageAccount = CloudStorageAccount.Parse(this.blobConnectionString);
+            var cloudBlobContainer = storageAccount.CreateCloudBlobClient().GetContainerReference(containerName);
+            if (cloudBlobContainer.Exists())
+            {
+                var results = cloudBlobContainer.ListBlobs(prefix: $"{iothub}/");
+                foreach (IListBlobItem item in results)
+                {
+                    Console.WriteLine(item.Uri);
+                }
+            }
+        }
+   ```
 
 ### <a name="service-bus-queues-and-service-bus-topics"></a>Service Bus-köer och Service Bus-ämnen
 
@@ -56,8 +76,6 @@ Service Bus-köer och ämnen som används som IoT Hub-slutpunkter inte får ha *
 ### <a name="event-hubs"></a>Event Hubs
 
 Du kan också vidarebefordra data till anpassade slutpunkter av typen Event Hubs förutom kompatibel slutpunkt inbyggda – Event Hubs. 
-
-När du använder Routning och anpassade slutpunkter levereras endast meddelanden till den inbyggda slutpunkten om de inte matchar några regler. Lägg till ett flöde som skickar meddelanden till slutpunkten händelser för att skicka meddelanden till den inbyggda slutpunkten och anpassade slutpunkter.
 
 ## <a name="reading-data-that-has-been-routed"></a>Läsning av data som har dirigerats
 
@@ -77,7 +95,7 @@ Använd följande självstudier om du vill veta hur du läser meddelandet från 
 
 ## <a name="fallback-route"></a>Återställningsplats väg
 
-Återställningsplats vägen skickar alla meddelanden som inte uppfyller villkoren för frågan på någon av de befintliga vägarna till inbyggda-Event-Hubs (**meddelanden/händelser**), som är kompatibel med [Händelsehubbar](/azure/event-hubs/). Om meddelanderoutning är aktiverat kan du aktivera funktionen återställningsplats väg. Observera att när en väg har skapats kan data slutar flöda till inbyggda-i-slutpunkten, såvida inte en väg skapas till denna slutpunkt. Om det finns inga vägar till inbyggda-i-slutpunkten och en återställningsplats väg är aktiverad, skickas endast meddelanden som inte matchar någon fråga villkoren på vägar till inbyggda-i-slutpunkten. Även om alla befintliga vägar tas bort måste återställningsplats väg aktiveras att ta emot alla data i inbyggda-i-slutpunkten. 
+Återställningsplats vägen skickar alla meddelanden som inte uppfyller villkoren för frågan på någon av de befintliga vägarna till inbyggda-Event-Hubs (**meddelanden/händelser**), som är kompatibel med [Händelsehubbar](/azure/event-hubs/). Om meddelanderoutning är aktiverat kan du aktivera funktionen återställningsplats väg. När du har skapat en väg data slutar flöda till inbyggda-i-slutpunkten, såvida inte en väg skapas till denna slutpunkt. Om det finns inga vägar till inbyggda-i-slutpunkten och en återställningsplats väg är aktiverad, skickas endast meddelanden som inte matchar någon fråga villkoren på vägar till inbyggda-i-slutpunkten. Även om alla befintliga vägar tas bort måste återställningsplats väg aktiveras att ta emot alla data i inbyggda-i-slutpunkten. 
 
 Du kan aktivera/inaktivera återställningsplats vägen i Azure Portal -> meddelanderoutning bladet. Du kan också använda Azure Resource Manager för [FallbackRouteProperties](/rest/api/iothub/iothubresource/createorupdate#fallbackrouteproperties) att använda en anpassad slutpunkt för återställningsplats vägen.
 
@@ -95,7 +113,7 @@ När du skapar en ny väg eller redigera ett befintligt flöde, bör du testa v�
 
 När du vidarebefordra telemetrimeddelanden från enheten till molnet med hjälp av inbyggda slutpunkter finns en liten ökning i svarstiden slutpunkt till slutpunkt när du har skapat för den första rutten.
 
-I de flesta fall är den genomsnittliga ökningen av svarstiden mindre än 500ms. Du kan övervaka svarstid med **routning: meddelande svarstiden för meddelanden/händelser** eller **d2c.endpoints.latency.builtIn.events** IoT Hub-mått. Skapa eller ta bort någon väg efter den första påverkar inte svarstiden slutpunkt till slutpunkt.
+I de flesta fall är den genomsnittliga ökningen av svarstiden mindre än 500 ms. Du kan övervaka svarstid med **routning: meddelande svarstiden för meddelanden/händelser** eller **d2c.endpoints.latency.builtIn.events** IoT Hub-mått. Skapa eller ta bort någon väg efter den första påverkar inte svarstiden slutpunkt till slutpunkt.
 
 ## <a name="monitoring-and-troubleshooting"></a>Övervakning och felsökning
 

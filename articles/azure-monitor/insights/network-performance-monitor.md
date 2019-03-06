@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.openlocfilehash: cff96ecb4f4b20e7e3542f6ae6e3e7740b750235
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: d35918659acb899e43f76e94168abcba080aa006
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55729803"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57452138"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Network Performance Monitor-lösning i Azure
 
@@ -119,19 +119,13 @@ Använd basic-processer för att installera agenter på [ansluta Windows-datorer
 
    **ExpressRoute-övervakning**: Välj **identifiera nu** att identifiera alla ExpressRoute privat peering-sessioner som är anslutna till de virtuella nätverken i Azure-prenumeration som är kopplad till den här Log Analytics-arbetsytan. 
 
-   >[!NOTE] 
-   > Lösningen identifierar för närvarande endast ExpressRoute privat peering-sessioner. 
-
-   >[!NOTE] 
-   > Endast identifieras privata peering-sessioner som är anslutna till virtuella nätverk som är associerade med prenumerationen är kopplad till den här Log Analytics-arbetsytan. Om ExpressRoute är ansluten till virtuella nätverk utanför den prenumeration som är länkad till den här arbetsytan kan du skapa en Log Analytics-arbetsyta i dessa prenumerationer. Du kan använda Övervakare av nätverksprestanda för att övervaka de peer-kopplingar.
-
    ![Visa ExpressRoute-övervakning](media/network-performance-monitor/npm-express-route.png)
 
-   När identifieringen har slutförts visas identifierade privata peerkopplingar i en tabell. 
+   När identifieringen har slutförts visas identifierade kretsar och peer-kopplingar i en tabell. 
 
    ![Sidan konfiguration av övervakaren av nätverksprestanda](media/network-performance-monitor/npm-private-peerings.png)
     
-Övervakning för dessa peer-kopplingar är först i ett inaktiverat tillstånd. Välj varje peering som du vill övervaka och konfigurera övervakning för dem från Informationsvyn till höger. Välj **spara** att spara konfigurationen. Mer information finns i artikeln ”konfigurera ExpressRoute-övervakning”. 
+Övervakning av dessa kretsar och peer-kopplingar är först i ett inaktiverat tillstånd. Markera varje resurs som du vill övervaka och konfigurera övervakning för dem från Informationsvyn till höger. Välj **spara** att spara konfigurationen. Mer information finns i artikeln ”konfigurera ExpressRoute-övervakning”. 
 
 När installationen är klar tar 30 minuter till en timme innan informationen som ska visas. Medan lösningen sammanställer data från ditt nätverk, visas meddelandet *ytterligare konfiguration krävs för lösningen* på Network Performance Monitor **översikt** panelen. När data samlas in och indexeras, den **översikt** panelen ändras och informerar dig om din nätverkets tillstånd i en sammanfattning. Du kan sedan redigera övervakning av noderna på vilka Log Analytics-agenter är installerade, samt de undernät som identifieras från din miljö.
 
@@ -269,7 +263,7 @@ Om du är en NPM-användare som skapar en avisering via Azure-portalen:
 3. Om du väljer att använda åtgärdsgrupper, måste du välja en tidigare skapad åtgärdsgrupp. Du kan lära dig hur du skapar en åtgärdsgrupp [här.](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups#create-an-action-group-by-using-the-azure-portal) 
 4. Du kan använda Hantera aviseringar länk för att hantera dina aviseringar när aviseringen har skapats. 
 
-Varje gång du skapar en avisering skapar NPM en frågebaserade loggvarningsregel i Azure Monitor. Den här frågan är triggerred var 5: e minut som standard. Med Azure monitor debiteras inte för de första 250 logga aviseringsregler skapade och Varningsregler ovan begränsa 250 loggvarningsregler debiteras enligt [aviseringar prissättning i Azure Monitor sidan med priser](https://azure.microsoft.com/en-us/pricing/details/monitor/).
+Varje gång du skapar en avisering skapar NPM en frågebaserade loggvarningsregel i Azure Monitor. Den här frågan utlöses var 5: e minut som standard. Med Azure monitor debiteras inte för de första 250 logga aviseringsregler skapade och Varningsregler ovan begränsa 250 loggvarningsregler debiteras enligt [aviseringar prissättning i Azure Monitor sidan med priser](https://azure.microsoft.com/en-us/pricing/details/monitor/).
 Meddelanden debiteras separat enligt [meddelanden prissättning i Azure Monitor sidan med priser](https://azure.microsoft.com/en-us/pricing/details/monitor/).
 
 

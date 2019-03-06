@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: szark
-ms.openlocfilehash: 70aa49cf15b095697eb00cc2a0b8e6dfd2e07546
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 62d17670a068304e0764c85d49da0aa9a736c477
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51240486"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57444446"
 ---
 # <a name="prepare-an-ubuntu-virtual-machine-for-azure"></a>Förbered en virtuell Ubuntu-dator för Azure
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -125,6 +125,16 @@ Den här artikeln förutsätter att du redan har installerat ett Ubuntu Linux-op
     >[!Note]
     Den `walinuxagent` paketet kan ta bort den `NetworkManager` och `NetworkManager-gnome` paket, om de är installerade.
 
+För Ubuntu 18.04/18.10 Azure-datakälla, redigera detta: /etc/cloud/cloud.cfg.d/90-azure.cfg, lägga till den här koden i slutet av filen:
+
+**Viktigt: koden måste läggas till exakt som de visas, inklusive blanksteg.**
+
+```bash
+datasource:
+   Azure:
+     agent_command: [service, walinuxagent, start]
+```
+
 8. Kör följande kommandon för att avetablera den virtuella datorn och förbereda den för etablering i Azure:
    
         # sudo waagent -force -deprovision
@@ -138,7 +148,4 @@ Den här artikeln förutsätter att du redan har installerat ett Ubuntu Linux-op
 
 ## <a name="next-steps"></a>Nästa steg
 Du är nu redo att använda din Ubuntu Linux-virtuell hårddisk för att skapa nya virtuella datorer i Azure. Om detta är första gången som du laddar upp VHD-filen till Azure, se [skapa en Linux VM från en anpassad disk](upload-vhd.md#option-1-upload-a-vhd).
-
-
-
 

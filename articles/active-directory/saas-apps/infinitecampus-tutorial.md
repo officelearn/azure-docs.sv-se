@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 53eb0c4ad5c0a21f46985062ef8202a87dc0d5e6
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: c23f16f5d3c665cb74e9e0460d2e5658fa716d72
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56189369"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57452869"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-infinite-campus"></a>Självstudier: Azure Active Directory-integrering med oändlig Campus
 
@@ -48,8 +48,8 @@ Om du vill konfigurera Azure AD-integrering med oändlig Campus, behöver du fö
 Du bör följa de här rekommendationerna när du testar stegen i självstudien:
 
 - Använd inte din produktionsmiljö om det inte behövs.
-- Om du inte har en Azure AD-utvärderingsmiljö, kan du [få en månads utvärdering](https://azure.microsoft.com/pricing/free-trial/).
-- Du måste vara en Azure Active Directory-administratör för att slutföra konfigurationen minimum.
+- Om du inte har en testmiljö för Azure AD kan du [få en månads kostnadsfri utvärdering](https://azure.microsoft.com/pricing/free-trial/).
+- Minimum måste du vara administratör för Azure Active Directory och har en säkerhetsroll för Campus produkten av ”Student Information System (SIS)” Slutför konfigurationen.
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
@@ -112,7 +112,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning](common/editconfigure.png)
 
-4. På den **SAML grundkonfiguration** om du har en **tjänstleverantör metadatafil**gör steg 4.a via 4.d och sedan gå vidare för att gå 11.c. Om du inte har en metadatafil för Service Provider kan du gå vidare till steg 5.
+4. På den **SAML grundkonfiguration** om du har en **tjänstleverantör metadatafil** exporteras från oändlig Campus slutföra steg 4.a via 4.d och sedan gå vidare för att gå 11.c. Om du inte har en metadatafil för Service Provider kan du gå vidare till steg 5.
 
     a. Klicka på **ladda upp metadatafilen**.
 
@@ -146,7 +146,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     a. Inloggnings-URL
 
-    b. Microsoft Azure Active Directory-identifierare
+    b. Azure AD-identifierare
 
     c. Utloggnings-URL
 
@@ -168,13 +168,15 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     a. Välj **aktivera SAML enkel inloggning**.
     
-    b. På den **Välj ett alternativ för att hämta serverdata identitet Provider (IDP)** väljer du **Metadata_url**, klistra in den **Appfederationsmetadata** i rutan och sedan Klicka på **synkronisering**.
+    b. Redigera den **valfritt attributnamnet** innehålla **namn**
+    
+    c. På den **Välj ett alternativ för att hämta serverdata identitet Provider (IDP)** väljer du **Metadata_url**, klistra in den **Appfederationsmetadata** (från steg 6 ovan) i rutan och klicka sedan på **synkronisering**.
 
-    c. Klicka på **Service Provider Metadata** länken för att spara den **metadatafil för Service Provider** på din dator och ladda upp den i **grundläggande SAML-konfiguration** avsnitt för att automatiskt Fyll i den **identifierare** och **svars-URL** värden i Azure-portalen (se steg 4 för uppladdning och automatisk ifyllning av värden eller steg 5 för manuell inmatning).
+    d. Klicka på **Service Provider Metadata** länken för att spara den **metadatafil för Service Provider** på din dator och ladda upp den i **grundläggande SAML-konfiguration** avsnitt för att automatiskt Fyll i den **identifierare** och **svars-URL** värden i Azure-portalen (se steg 4 för uppladdning och automatisk ifyllning av värden eller steg 5 för manuell inmatning).
 
-    d. När du klickar på **synkronisering** värdena får fylls i **SSO konfiguration av ServiceProvider** sidan.
+    e. När du klickar på **synkronisering** värdena får fylls i **SSO konfiguration av ServiceProvider** sidan.
 
-    e. Klicka på **Spara**.
+    f. Klicka på **Spara**.
 
 ### <a name="creating-an-azure-ad-test-user"></a>Skapa en Azure AD-användare för testning
 
@@ -233,7 +235,7 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
 I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
 
-När du klickar på panelen oändlig Campus i åtkomstpanelen du bör få automatiskt loggat in på ditt oändlig Campus-program. Om du loggar in i oändlig Camnpus programmet i samma webbläsare som du administrerar Azure AD, se till att du är inloggad i Azure AD som testanvändaren. Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../user-help/active-directory-saas-access-panel-introduction.md).
+När du klickar på panelen oändlig Campus i åtkomstpanelen du bör få automatiskt loggat in på ditt oändlig Campus-program. Om du loggar in i oändlig Campus-programmet i samma webbläsare som du administrerar Azure AD, se till att du är inloggad i Azure AD som testanvändaren. Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

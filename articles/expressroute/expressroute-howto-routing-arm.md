@@ -5,15 +5,15 @@ services: expressroute
 author: jaredr80
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 10/23/2018
+ms.date: 02/26/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: b8e9aadc63af563c47d42ed52445afbc270d98ec
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 1bf2ca22bf97ca1d4b91b52850ebe14225562f92
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53141551"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57409065"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-using-powershell"></a>Skapa och ändra peering för en ExpressRoute-krets med PowerShell
 
@@ -46,6 +46,8 @@ Du kan konfigurera en, två eller alla tre peerings (Azure privat, Azure offentl
 
 ### <a name="working-with-azure-powershell"></a>Arbeta med Azure PowerShell
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 [!INCLUDE [expressroute-cloudshell](../../includes/expressroute-cloudshell-powershell-about.md)]
 
 ## <a name="msft"></a>Microsoft-peering
@@ -64,13 +66,13 @@ Det här avsnittet hjälper dig att skapa, hämta, uppdatera och ta bort Microso
   Om du har installerat PowerShell lokalt måste du logga in. Om du använder Azure Cloud Shell kan du hoppa över det här steget.
 
   ```azurepowershell
-  Connect-AzureRmAccount
+  Connect-AzAccount
   ```
 
   Välj den prenumeration som du vill skapa ExpressRoute-krets.
 
   ```azurepowershell-interactive
-Select-AzureRmSubscription -SubscriptionId "<subscription ID>"
+Select-AzSubscription -SubscriptionId "<subscription ID>"
   ```
 2. Skapa en ExpressRoute-krets.
 
@@ -79,7 +81,7 @@ Select-AzureRmSubscription -SubscriptionId "<subscription ID>"
 3. Kontrollera ExpressRoute-krets för att kontrollera att den etablerats och aktiverats. Använd följande exempel:
 
   ```azurepowershell-interactive
-  Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
+  Get-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
   ```
 
   Svaret liknar följande exempel:
@@ -114,19 +116,19 @@ Select-AzureRmSubscription -SubscriptionId "<subscription ID>"
   * Ett giltigt VLAN-ID att upprätta denna peering på. Se till att ingen annan peering i kretsen använder samma VLAN-ID.
   * AS-tal för peering. Du kan använda både 2 byte och 4 byte som AS-tal.
   * Annonserade prefix: Du måste ange en lista över alla prefix som du planerar att annonsera i BGP-sessionen. Endast offentliga IP-adressprefix accepteras. Om du planerar att skicka en uppsättning prefix, kan du skicka en kommaavgränsad lista. Dessa prefix måste vara registrerade åt dig i ett RIR/IR. IPv4-BGP-sessioner kräver IPv4 annonserade prefix och IPv6-BGP-sessioner kräver IPv6 annonserade prefix. 
-  * Routningens registernamn: Du kan ange den RIR/IR mot vilken AS-numret och prefixet är registrerade.
+  * Routningens registernamn: Du kan ange RIR / IR mot vilken AS-numret och prefixet är registrerade.
   * Valfritt:
-    * Kund-ASN: Om du har reklamprefix som inte är registrerade på peeringens AS-nummer, kan du ange det AS-nummer som de är registrerade på.
+    * Kund-ASN: Om du har reklamprefix som inte är registrerade på peeringens AS number, kan du ange det AS-nummer som de är registrerade.
     * En MD5-hash om du väljer att använda en.
 
   Använd följande exempel för att konfigurera Microsoft-peering för din krets:
 
   ```azurepowershell-interactive
-  Add-AzureRmExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt -PeeringType MicrosoftPeering -PeerASN 100 -PeerAddressType IPv4 -PrimaryPeerAddressPrefix "123.0.0.0/30" -SecondaryPeerAddressPrefix "123.0.0.4/30" -VlanId 300 -MicrosoftConfigAdvertisedPublicPrefixes "123.1.0.0/24" -MicrosoftConfigCustomerAsn 23 -MicrosoftConfigRoutingRegistryName "ARIN"
+  Add-AzExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt -PeeringType MicrosoftPeering -PeerASN 100 -PeerAddressType IPv4 -PrimaryPeerAddressPrefix "123.0.0.0/30" -SecondaryPeerAddressPrefix "123.0.0.4/30" -VlanId 300 -MicrosoftConfigAdvertisedPublicPrefixes "123.1.0.0/24" -MicrosoftConfigCustomerAsn 23 -MicrosoftConfigRoutingRegistryName "ARIN"
 
-  Add-AzureRmExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt -PeeringType MicrosoftPeering -PeerASN 100 -PeerAddressType IPv6 -PrimaryPeerAddressPrefix "3FFE:FFFF:0:CD30::/126" -SecondaryPeerAddressPrefix "3FFE:FFFF:0:CD30::4/126" -VlanId 300 -MicrosoftConfigAdvertisedPublicPrefixes "3FFE:FFFF:0:CD31::/120" -MicrosoftConfigCustomerAsn 23 -MicrosoftConfigRoutingRegistryName "ARIN"
+  Add-AzExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt -PeeringType MicrosoftPeering -PeerASN 100 -PeerAddressType IPv6 -PrimaryPeerAddressPrefix "3FFE:FFFF:0:CD30::/126" -SecondaryPeerAddressPrefix "3FFE:FFFF:0:CD30::4/126" -VlanId 300 -MicrosoftConfigAdvertisedPublicPrefixes "3FFE:FFFF:0:CD31::/120" -MicrosoftConfigCustomerAsn 23 -MicrosoftConfigRoutingRegistryName "ARIN"
 
-  Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
+  Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
   ```
 
 ### <a name="getmsft"></a>Att hämta Microsofts peering-information
@@ -134,9 +136,9 @@ Select-AzureRmSubscription -SubscriptionId "<subscription ID>"
 Du kan få information om konfigurationen med följande exempel:
 
 ```azurepowershell-interactive
-$ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
+$ckt = Get-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 
-Get-AzureRmExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt
+Get-AzExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt
 ```
 
 ### <a name="updatemsft"></a>Att uppdatera konfigurationen för Microsoft-peering
@@ -144,11 +146,11 @@ Get-AzureRmExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -ExpressRou
 Du kan uppdatera någon del av konfigurationen med följande exempel:
 
 ```azurepowershell-interactive
-Set-AzureRmExpressRouteCircuitPeeringConfig  -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt -PeeringType MicrosoftPeering -PeerASN 100 -PeerAddressType IPv4 -PrimaryPeerAddressPrefix "123.0.0.0/30" -SecondaryPeerAddressPrefix "123.0.0.4/30" -VlanId 300 -MicrosoftConfigAdvertisedPublicPrefixes "124.1.0.0/24" -MicrosoftConfigCustomerAsn 23 -MicrosoftConfigRoutingRegistryName "ARIN"
+Set-AzExpressRouteCircuitPeeringConfig  -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt -PeeringType MicrosoftPeering -PeerASN 100 -PeerAddressType IPv4 -PrimaryPeerAddressPrefix "123.0.0.0/30" -SecondaryPeerAddressPrefix "123.0.0.4/30" -VlanId 300 -MicrosoftConfigAdvertisedPublicPrefixes "124.1.0.0/24" -MicrosoftConfigCustomerAsn 23 -MicrosoftConfigRoutingRegistryName "ARIN"
 
-Set-AzureRmExpressRouteCircuitPeeringConfig  -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt -PeeringType MicrosoftPeering -PeerASN 100 -PeerAddressType IPv6 -PrimaryPeerAddressPrefix "3FFE:FFFF:0:CD30::/126" -SecondaryPeerAddressPrefix "3FFE:FFFF:0:CD30::4/126" -VlanId 300 -MicrosoftConfigAdvertisedPublicPrefixes "3FFE:FFFF:0:CD31::/120" -MicrosoftConfigCustomerAsn 23 -MicrosoftConfigRoutingRegistryName "ARIN"
+Set-AzExpressRouteCircuitPeeringConfig  -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt -PeeringType MicrosoftPeering -PeerASN 100 -PeerAddressType IPv6 -PrimaryPeerAddressPrefix "3FFE:FFFF:0:CD30::/126" -SecondaryPeerAddressPrefix "3FFE:FFFF:0:CD30::4/126" -VlanId 300 -MicrosoftConfigAdvertisedPublicPrefixes "3FFE:FFFF:0:CD31::/120" -MicrosoftConfigCustomerAsn 23 -MicrosoftConfigRoutingRegistryName "ARIN"
 
-Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
+Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```
 
 ### <a name="deletemsft"></a>Ta bort Microsoft-peering
@@ -156,9 +158,9 @@ Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 Du kan ta bort peering-konfigurationen genom att köra följande cmdlet:
 
 ```azurepowershell-interactive
-Remove-AzureRmExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt
+Remove-AzExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt
 
-Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
+Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```
 
 ## <a name="private"></a>Azures privata peering
@@ -172,32 +174,31 @@ Det här avsnittet hjälper dig att skapa, hämta, uppdatera och ta bort Azures 
   Du måste installera den senaste versionen av PowerShell-installeraren från [PowerShell-galleriet](http://www.powershellgallery.com/) och importera modulerna i Azure Resource Manager i PowerShell-sessionen för att kunna börja använda ExpressRoute-cmdletar. Du måste köra PowerShell som administratör.
 
   ```azurepowershell-interactive
-  Install-Module AzureRM
-  Install-AzureRM
+  Install-Module Az
   ```
 
-  Importera alla moduler som AzureRM.* inom det kända semantiska versionsintervallet.
+  Importera alla Az.\* modulerna inom det kända semantiska versionsintervallet.
 
   ```azurepowershell-interactive
-  Import-AzureRM
+  Import-Module Az
   ```
 
   Du kan också importera en vald modul inom det kända semantiska versionsintervallet.
 
   ```azurepowershell-interactive
-  Import-Module AzureRM.Network 
+  Import-Module Az.Network 
   ```
 
   Logga in på ditt konto.
 
   ```azurepowershell-interactive
-  Connect-AzureRmAccount
+  Connect-AzAccount
   ```
 
   Välj den prenumeration som du vill skapa ExpressRoute-krets.
 
   ```azurepowershell-interactive
-  Select-AzureRmSubscription -SubscriptionId "<subscription ID>"
+  Select-AzSubscription -SubscriptionId "<subscription ID>"
   ```
 2. Skapa en ExpressRoute-krets.
 
@@ -206,7 +207,7 @@ Det här avsnittet hjälper dig att skapa, hämta, uppdatera och ta bort Azures 
 3. Kontrollera ExpressRoute-krets för att kontrollera att den etablerats och aktiverats. Använd följande exempel:
 
   ```azurepowershell-interactive
-  Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
+  Get-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
   ```
 
   Svaret liknar följande exempel:
@@ -246,15 +247,15 @@ Det här avsnittet hjälper dig att skapa, hämta, uppdatera och ta bort Azures 
   Använd följande exempel för att konfigurera Azures privata peering för din krets:
 
   ```azurepowershell-interactive
-  Add-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRouteCircuit $ckt -PeeringType AzurePrivatePeering -PeerASN 100 -PrimaryPeerAddressPrefix "10.0.0.0/30" -SecondaryPeerAddressPrefix "10.0.0.4/30" -VlanId 200
+  Add-AzExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRouteCircuit $ckt -PeeringType AzurePrivatePeering -PeerASN 100 -PrimaryPeerAddressPrefix "10.0.0.0/30" -SecondaryPeerAddressPrefix "10.0.0.4/30" -VlanId 200
 
-  Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
+  Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
   ```
 
   Om du väljer att använda en MD5-hash, använder du exemplet nedan:
 
   ```azurepowershell-interactive
-  Add-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRouteCircuit $ckt -PeeringType AzurePrivatePeering -PeerASN 100 -PrimaryPeerAddressPrefix "10.0.0.0/30" -SecondaryPeerAddressPrefix "10.0.0.4/30" -VlanId 200  -SharedKey "A1B2C3D4"
+  Add-AzExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRouteCircuit $ckt -PeeringType AzurePrivatePeering -PeerASN 100 -PrimaryPeerAddressPrefix "10.0.0.0/30" -SecondaryPeerAddressPrefix "10.0.0.4/30" -VlanId 200  -SharedKey "A1B2C3D4"
   ```
 
   > [!IMPORTANT]
@@ -267,9 +268,9 @@ Det här avsnittet hjälper dig att skapa, hämta, uppdatera och ta bort Azures 
 Du kan hämta information om konfigurationen med hjälp av följande exempel:
 
 ```azurepowershell-interactive
-$ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
+$ckt = Get-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 
-Get-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRouteCircuit $ckt
+Get-AzExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRouteCircuit $ckt
 ```
 
 ### <a name="updateprivate"></a>Att uppdatera konfigurationen av Azures privata peering
@@ -277,9 +278,9 @@ Get-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -Express
 Du kan uppdatera någon del av konfigurationen med följande exempel. I det här exemplet uppdateras VLAN-ID för kretsen från 100 till 500.
 
 ```azurepowershell-interactive
-Set-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRouteCircuit $ckt -PeeringType AzurePrivatePeering -PeerASN 100 -PrimaryPeerAddressPrefix "10.0.0.0/30" -SecondaryPeerAddressPrefix "10.0.0.4/30" -VlanId 200
+Set-AzExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRouteCircuit $ckt -PeeringType AzurePrivatePeering -PeerASN 100 -PrimaryPeerAddressPrefix "10.0.0.0/30" -SecondaryPeerAddressPrefix "10.0.0.4/30" -VlanId 200
 
-Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
+Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```
 
 ### <a name="deleteprivate"></a>Att ta bort Azures privata peering
@@ -292,9 +293,9 @@ Du kan ta bort peering-konfigurationen genom att köra följande exempel:
 > 
 
 ```azurepowershell-interactive
-Remove-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRouteCircuit $ckt
+Remove-AzExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRouteCircuit $ckt
 
-Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
+Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```
 
 ## <a name="public"></a>Azures offentliga peering
@@ -308,33 +309,31 @@ Det här avsnittet hjälper dig att skapa, hämta, uppdatera och ta bort Azures 
   Du måste installera den senaste versionen av PowerShell-installeraren från [PowerShell-galleriet](http://www.powershellgallery.com/) och importera modulerna i Azure Resource Manager i PowerShell-sessionen för att kunna börja använda ExpressRoute-cmdletar. Du måste köra PowerShell som administratör.
 
   ```azurepowershell-interactive
-  Install-Module AzureRM
+  Install-Module Az
+  ```
 
-  Install-AzureRM
-```
-
-  Importera alla moduler som AzureRM.* inom det kända semantiska versionsintervallet.
+  Importera alla Az.\* modulerna inom det kända semantiska versionsintervallet.
 
   ```azurepowershell-interactive
-  Import-AzureRM
+  Import-Module Az
   ```
 
   Du kan också importera en vald modul inom det kända semantiska versionsintervallet.
 
   ```azurepowershell-interactive
-  Import-Module AzureRM.Network
+  Import-Module Az.Network
 ```
 
   Logga in på ditt konto.
 
   ```azurepowershell-interactive
-  Connect-AzureRmAccount
+  Connect-AzAccount
   ```
 
   Välj den prenumeration som du vill skapa ExpressRoute-krets.
 
   ```azurepowershell-interactive
-  Select-AzureRmSubscription -SubscriptionId "<subscription ID>"
+  Select-AzSubscription -SubscriptionId "<subscription ID>"
   ```
 2. Skapa en ExpressRoute-krets.
 
@@ -343,7 +342,7 @@ Det här avsnittet hjälper dig att skapa, hämta, uppdatera och ta bort Azures 
 3. Kontrollera ExpressRoute-kretsen för att den har etablerats och aktiverats. Använd följande exempel:
 
   ```azurepowershell-interactive
-  Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
+  Get-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
   ```
 
   Svaret liknar följande exempel:
@@ -383,17 +382,17 @@ Det här avsnittet hjälper dig att skapa, hämta, uppdatera och ta bort Azures 
   Kör följande exempel för att konfigurera Azures offentliga peering för din krets
 
   ```azurepowershell-interactive
-  Add-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering" -ExpressRouteCircuit $ckt -PeeringType AzurePublicPeering -PeerASN 100 -PrimaryPeerAddressPrefix "12.0.0.0/30" -SecondaryPeerAddressPrefix "12.0.0.4/30" -VlanId 100
+  Add-AzExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering" -ExpressRouteCircuit $ckt -PeeringType AzurePublicPeering -PeerASN 100 -PrimaryPeerAddressPrefix "12.0.0.0/30" -SecondaryPeerAddressPrefix "12.0.0.4/30" -VlanId 100
 
-  Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
+  Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
   ```
 
   Om du väljer att använda en MD5-hash, använder du exemplet nedan:
 
   ```azurepowershell-interactive
-  Add-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering" -ExpressRouteCircuit $ckt -PeeringType AzurePublicPeering -PeerASN 100 -PrimaryPeerAddressPrefix "12.0.0.0/30" -SecondaryPeerAddressPrefix "12.0.0.4/30" -VlanId 100  -SharedKey "A1B2C3D4"
+  Add-AzExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering" -ExpressRouteCircuit $ckt -PeeringType AzurePublicPeering -PeerASN 100 -PrimaryPeerAddressPrefix "12.0.0.0/30" -SecondaryPeerAddressPrefix "12.0.0.4/30" -VlanId 100  -SharedKey "A1B2C3D4"
 
-  Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
+  Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
   ```
 
   > [!IMPORTANT]
@@ -406,9 +405,9 @@ Det här avsnittet hjälper dig att skapa, hämta, uppdatera och ta bort Azures 
 Du kan få information om konfigurationen med följande cmdlet:
 
 ```azurepowershell-interactive
-  $ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
+  $ckt = Get-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 
-  Get-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering" -Circuit $ckt
+  Get-AzExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering" -Circuit $ckt
   ```
 
 ### <a name="updatepublic"></a>Att uppdatera konfigurationen av Azures offentliga peering
@@ -416,9 +415,9 @@ Du kan få information om konfigurationen med följande cmdlet:
 Du kan uppdatera någon del av konfigurationen med följande exempel. I det här exemplet uppdateras VLAN-ID för kretsen från 200 till 600.
 
 ```azurepowershell-interactive
-Set-AzureRmExpressRouteCircuitPeeringConfig  -Name "AzurePublicPeering" -ExpressRouteCircuit $ckt -PeeringType AzurePublicPeering -PeerASN 100 -PrimaryPeerAddressPrefix "123.0.0.0/30" -SecondaryPeerAddressPrefix "123.0.0.4/30" -VlanId 600
+Set-AzExpressRouteCircuitPeeringConfig  -Name "AzurePublicPeering" -ExpressRouteCircuit $ckt -PeeringType AzurePublicPeering -PeerASN 100 -PrimaryPeerAddressPrefix "123.0.0.0/30" -SecondaryPeerAddressPrefix "123.0.0.4/30" -VlanId 600
 
-Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
+Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```
 
 ### <a name="deletepublic"></a>Att ta bort Azures offentliga peering
@@ -426,8 +425,8 @@ Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 Du kan ta bort peering-konfigurationen genom att köra följande exempel:
 
 ```azurepowershell-interactive
-Remove-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering" -ExpressRouteCircuit $ckt
-Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
+Remove-AzExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering" -ExpressRouteCircuit $ckt
+Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```
 
 ## <a name="next-steps"></a>Nästa steg

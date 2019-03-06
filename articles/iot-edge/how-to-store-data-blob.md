@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: ac40c4c974049f802da97846db5010652a420691
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 556ed3553185445432f9f95731ccfec0578fab62
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56961218"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57455674"
 ---
 # <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge-preview"></a>Store data på gränsen med Azure Blob Storage på IoT Edge (förhandsversion)
 
@@ -236,7 +236,7 @@ Följande snabbstarter använder språk som stöds också av IoT Edge, så att d
 
 BLOB storage-moduler på IoT Edge använder samma Azure Storage SDK och stämmer överens med 2018-03-28-versionen av Azure Storage-API för block blob-slutpunkter. Senare versioner är beroende av kundernas behov. 
 
-Inte alla åtgärder i Azure Blob Storage stöds av Azure Blob Storage på IoT Edge. Följande avsnitt visar vilka åtgärder som inte är en är stöds. 
+Inte alla åtgärder i Azure Blob Storage stöds av Azure Blob Storage på IoT Edge. Följande avsnitt visar vilka åtgärder inte stöds. 
 
 ### <a name="account"></a>Konto
 

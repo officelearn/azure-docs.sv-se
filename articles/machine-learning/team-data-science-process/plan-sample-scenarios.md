@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 514242eb759a2349d96b38ebe54bb98cf0e83423
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 6838f4db240a0712eece7a97bc2cfe99efb87215
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55468826"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57454960"
 ---
 # <a name="scenarios-for-advanced-analytics-in-azure-machine-learning"></a>Scenarier för avancerade analyser i Azure Machine Learning
 Den här artikeln beskrivs olika exempel datakällor och målscenarier som kan hanteras av den [Team Data Science Process (TDSP)](overview.md). TDSP erbjuder en systematisk metod för team att samarbeta med att skapa intelligenta program. De scenarier som presenteras här visar alternativ som är tillgängliga i bearbetning av arbetsflödet som beror på den dataegenskaper, datakällor och mål-databaser i Azure.
@@ -146,7 +146,7 @@ Var och en av de följande avsnitten presenterar ett exempelscenario. För varje
 1. Läsa data direkt från en SQL Server med hjälp av den [importdata] [ import-data] modulen. Klistra in nödvändiga frågan som extraherar fält, skapar funktioner och samplar data om det behövs direkt i den [importdata] [ import-data] fråga.
 1. Enkelt flöde för Azure Machine Learning experiment från och med överförd datamängd
 
-## <a name="largedbtodb"></a>Scenario \#6: Stor datauppsättning i en SQL Server-databas lokalt, riktar in sig på SQL Server i en Azure virtuell dator
+## <a name="largedbtodb"></a>Scenario \#6: Stor datauppsättning i en SQL Server-databas lokalt som riktar in sig på SQL Server i en Azure virtuell dator
 ![Stora SQL DB lokal till SQL-databas i Azure][6]
 
 #### <a name="additional-azure-resources-azure-virtual-machine-sql-server--ipython-notebook-server"></a>Ytterligare Azure-resurser: Azure-dator (SQL Server / IPython Notebook-server)
@@ -154,7 +154,7 @@ Var och en av de följande avsnitten presenterar ett exempelscenario. För varje
 1. Använd en av data exportera metoder för att exportera data från SQL Server till dumpfiler.
    
    > [!NOTE]
-   > Om du vill flytta alla data från en lokal databas, ett alternativ (snabbare) metod för att flytta fullständig databasen till SQL Server-instansen i Azure. Hoppa över stegen för att exportera data, skapa databas, och Läs in/importera data till måldatabasen och följa den alternativa metoden.
+   > Om du vill flytta alla data från på plats-databas, ett alternativ (snabbare) metod för att flytta fullständig databasen till SQL Server-instansen i Azure. Hoppa över stegen för att exportera data, skapa databas, och Läs in/importera data till måldatabasen och följa den alternativa metoden.
    > 
    > 
 1. Ladda upp filer med felsökningsdumpar till Azure storage-behållare.

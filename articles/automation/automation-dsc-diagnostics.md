@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 33b3ed52d198d162af666e0f38066ba936d7874f
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 7eb841a0f4a34e708734cf433fac82ab35ef35b6
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56819828"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57451305"
 ---
 # <a name="forward-azure-automation-state-configuration-reporting-data-to-azure-monitor-logs"></a>Vidarebefordra Azure Automation-Tillståndskonfiguration rapporterar data till Azure Monitor-loggar
 
@@ -97,7 +97,7 @@ Om du vill skapa en aviseringsregel, börja med att skapa en loggsökning för r
 
    Om du har lagt upp loggar från mer än en Automation-konto eller prenumeration till din arbetsyta kan gruppera du aviseringar av prenumeration och Automation-konto.  
    Automation-kontonamn kan härledas från fältet Resource i sökningen av DscNodeStatusData.  
-1. Öppna den **skapa regeln** klickar du på **+ ny Aviseringsregel** överst på sidan. Mer information om alternativen för att konfigurera aviseringen finns [skapar en avisering rulelert](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md).
+1. Öppna den **skapa regeln** klickar du på **+ ny Aviseringsregel** överst på sidan. Mer information om alternativen för att konfigurera aviseringen finns [skapar en aviseringsregel](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md).
 
 ### <a name="find-failed-dsc-resources-across-all-nodes"></a>Hitta misslyckade DSC-resurser i alla noder
 

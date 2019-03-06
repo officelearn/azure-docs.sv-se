@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 9760e6b9cdcd6f03f4377277f3426189b1fe0a61
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.lastreviewed: 02/21/2019
+ms.openlocfilehash: f58d4e4f8b0e095fe64489fb42f78ef82c5af359
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56182025"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57407824"
 ---
 # <a name="azure-stack-integrated-systems-connection-models"></a>Integrerade Azure Stack-system anslutning modeller
 Om du är intresserad av att köpa ett integrerat Azure Stack-system, måste du förstå [flera datacenter integration överväganden](azure-stack-datacenter-integration.md) för Azure Stack-distributioner att fastställa hur systemet ryms i ditt datacenter. Dessutom måste du bestämma hur du ska integrera Azure Stack i din hybridmiljö i molnet. Den här artikeln innehåller en översikt över dessa viktiga besluten, inklusive Azure-anslutningen, identitetsarkiv, och fakturering modellen beslut.
@@ -38,12 +38,14 @@ Du kan välja att distribuera Azure Stack är ansluten till internet (och till A
 
 
 |Alternativ|Är ansluten till Azure|Frånkopplad från Azure|
-|-----|-----|-----|
+|-----|:-----:|:-----:|
 |Azure AD|![Stöds](media/azure-stack-connection-models/check.png)| |
 |AD FS|![Stöds](media/azure-stack-connection-models/check.png)|![Stöds](media/azure-stack-connection-models/check.png)|
 |Konsumtionsbaserad fakturering|![Stöds](media/azure-stack-connection-models/check.png)| |
 |Kapacitetsbaserad fakturering|![Stöds](media/azure-stack-connection-models/check.png)|![Stöds](media/azure-stack-connection-models/check.png)|
-|Ladda ned uppdateringspaket direkt till Azure Stack|![Stöds](media/azure-stack-connection-models/check.png)|  |
+|Licensiering| Enterprise-avtal, Molnlösningsleverantör | Enterprise Agreement |
+|Korrigeringar och uppdateringar|Uppdateringspaket kan hämtas direkt från Internet till Azure Stack |  Krävs<br><br>Kräver också flyttbart medium<br> och en separat ansluten enhet |
+| Registrering | Automatiserad | Krävs<br><br>Kräver också flyttbart medium<br> och en separat ansluten enhet |
 
 När du har bestämt dig på Azure-anslutningen modellen som ska användas för Azure Stack-distributioner kan måste ytterligare, anslutning-beroende beslut göras för Identitetslagret och fakturera. 
 

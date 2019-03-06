@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 5412e0a7bae3667ceb29085da566ef3b73c82c35
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 6c9f128a046904eb8df90625ce1043b3d42e8be4
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57316633"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57448551"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>Anslut en enhet för MXChip IoT DevKit till programmet Azure IoT Central
 
@@ -31,7 +31,7 @@ Du behöver följande för att slutföra stegen i den här artikeln:
 
 Ett program som skapats från den **exempel Devkits** programmall innehåller en **MXChip** enheten mallen med följande egenskaper: 
 
-- Telemetri som innehåller mätningarna för enheten **fuktighet**, **temperatur**, **tryck**, **Magnometer** (mätt längs X Y, Z-axeln), **Accelorometer** (mätt längs X, Y, Z-axeln) och **gyroskop** (mätt längs X, Y, Z-axeln).
+- Telemetri som innehåller mätningarna för enheten **fuktighet**, **temperatur**, **tryck**, **Magnometer** (mätt längs X Y, Z-axeln), **Accelerometer** (mätt längs X, Y, Z-axeln) och **gyroskop** (mätt längs X, Y, Z-axeln).
 - Tillstånd som innehåller ett exempel mått för **enhetstillstånd**.
 - Mätning av händelse med en **knappen B nedtryckt** händelse. 
 - Inställningar som visar **Voltage**, **aktuella**, **fläkthastighet**, och en **IR** växlingsknappen.
@@ -56,7 +56,7 @@ I Azure IoT Central programmet, lägger du till en riktig enhet från den **MXCh
  
     ![Anslutningsinformation](media/concepts-connectivity/device-connect.PNG)
 
-3. Se till att spara dessa uppgifter som du kommer temporaritly hämta ansluten till internet när du förbereder DevKit enheten. 
+3. Se till att spara dessa uppgifter som du ska få bortkopplad från internet när du förbereder DevKit enheten. 
 
 
 ### <a name="prepare-the-devkit-device"></a>Förbered enheten DevKit

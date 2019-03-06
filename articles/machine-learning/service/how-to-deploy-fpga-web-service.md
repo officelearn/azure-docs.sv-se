@@ -11,12 +11,12 @@ ms.author: tedway
 author: tedway
 ms.date: 1/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: d7403d4f791151b167f03ee79c30623bbd644008
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: a82c3b3aef59ef53e5054f2beb2880e8a01dc8fa
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56100729"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57448668"
 ---
 # <a name="deploy-a-model-as-a-web-service-on-an-fpga-with-azure-machine-learning-service"></a>Distribuera en modell som en webbtjänst på en FPGA med Azure Machine Learning-tjänsten
 
@@ -51,7 +51,7 @@ Du kan distribuera en modell som en webbtjänst på [fältet programmable gate m
 Självstudien finns tillgänglig som en Jupyter Notebook. Följ kod här eller kör den [Snabbstart notebook](https://github.com/Azure/aml-real-time-ai/blob/master/notebooks/project-brainwave-quickstart.ipynb).
 
 ## <a name="create-and-deploy-your-model"></a>Skapa och distribuera din modell
-Skapa en pipeline för att Förbearbeta inmatad bild, förtränade med ResNet-50 på en FPGA och kör sedan funktionerna via en klassificerare som tränats på ImageNet-datauppsättning.
+Skapa en pipeline för att Förbearbeta inmatad bild, blir en funktion med ResNet-50 på en FPGA och kör sedan funktionerna via en klassificerare som tränats på ImageNet-datauppsättning.
 
 Följ anvisningarna för att:
 

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 85edaeab67c7b5164dabbc817429e2ab82f5ea11
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 08c3511b3efc7ee2e21ef5847976357292bf95bb
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56864676"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57446868"
 ---
 # <a name="move-data-from-an-on-premises-sql-server-to-sql-azure-with-azure-data-factory"></a>Flytta data från en lokal SQLServer till SQL Azure med Azure Data Factory
 
@@ -71,7 +71,7 @@ Instruktionerna för att skapa en ny Azure-Datafabrik och en resursgrupp i den [
 ## <a name="install-and-configure-azure-data-factory-integration-runtime"></a>Installera och konfigurera Azure Data Factory Integration Runtime
 Integration Runtime är en kund infrastruktur för dataintegrering används av Azure Data Factory för att tillhandahålla funktioner för dataintegrering i olika nätverksmiljöer. Den här körningen kallades ”Data Management Gateway”.
 
-Du ställer in, [följer instrutions för att skapa en pipeline](https://docs.microsoft.com/azure/data-factory/tutorial-hybrid-copy-portal#create-a-pipeline)
+Du ställer in, [följer du instruktionerna för att skapa en pipeline](https://docs.microsoft.com/azure/data-factory/tutorial-hybrid-copy-portal#create-a-pipeline)
 
 ## <a name="adflinkedservices"></a>Skapa länkade tjänster för att ansluta till dataresurser
 En länkad tjänst definierar den information som behövs för Azure Data Factory för att ansluta till en data. Vi har tre resurser i det här scenariot som krävs för länkade tjänster:

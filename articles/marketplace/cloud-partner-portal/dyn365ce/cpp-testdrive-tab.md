@@ -14,18 +14,18 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/25/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 664a2c6bfc4a73b7d792b71c4b81df54b05fcd74
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 373312b4c7f05fe41c9ca8165b8ff6f1b0e56f1b
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54083328"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57454977"
 ---
 # <a name="dynamics-365-for-customer-engagement-application-test-drive-tab"></a>Dynamics 365 för kundengagemang programfliken Test Drive
 
-Använd den **Test Drive** fliken för att skapa en utvärderingsmiljö för dina kunder.  Tjänsten ger kunderna med en praktisk Migreringsprocess provversion av ditt erbjudande viktiga funktioner och fördelar, visas i ett scenario med verkliga implementering.  För utvärderingsversionsalternativ som är tillgängliga är Test Drive de mest effektiva på att skapa högkvalitativa leads och ökad konvertering av dessa leads.  Mer information finns i [vad är en provkörning?](../../cloud-partner-portal-orig/what-is-test-drive.md)
+Använd den **Test Drive** fliken för att skapa en utvärderingsmiljö för dina kunder.  Tjänsten ger kunderna med en praktisk Migreringsprocess provversion av ditt erbjudande viktiga funktioner och fördelar, visas i ett scenario med verkliga implementering.  För utvärderingsversionsalternativ som är tillgängliga är Test Drive de mest effektiva på att skapa högkvalitativa leads och ökad konvertering av dessa leads.  Mer information finns i [vad är en provkörning?](../test-drive/what-is-test-drive.md)
 
-Test Drive-upplevelsen för Dynamics 365-program körs automatiskt som en Microsoft-lösning.  Mer information finns i [värdbaserad Test Drive](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/hosted-test-drive).
+Test Drive-upplevelsen för Dynamics 365-program körs automatiskt som en Microsoft-lösning.  Mer information finns i [värdbaserad Test Drive](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/hosted-test-drive).
 
 Fliken Test Drive har tre möjliga avsnitt: **Testkör**, **information**, och **teknisk konfiguration**.  De sista två avsnitten visas endast när du har aktiverat Test Drive-funktioner.  En asterisk (*) läggs till fältnamnet anger att det krävs. 
 
@@ -66,7 +66,7 @@ Där fälten har följande syften:
 | Driv varaktighet (timmar)   | Maximalt antal timmar som användarens Test Drive-instansen kommer att vara aktiv för. När denna tid har överskridits vara instansen avetablerad från din klient. Rekommenderat värde på 2 – 24 timmar beroende på komplexiteten för din app. Användaren kan begära ett annat Test Drive alltid om de körs utanför tid och vill utvärdera igen.  |
 | Instans-URL                  | URL som Test Drive från början går till. Detta är vanligtvis URL: en för din Dynamics 365-instans som har din app och exempeldata som installeras på.  |
 | Azure AD-klient-ID            | GUID för Azure-klient för din Dynamics 365-instans. Att hämta det här värdet, logga in på Azure-portalen och gå till **Azure Active Directory** > **Välj egenskaper** > **kopiera katalog-ID**.  |
-| Azure AD App-ID               | GUID för Azure AD-program  |
+| Azure AD App ID               | GUID för Azure AD-program  |
 | Azure AD App-nyckel              | Hemligheten för din Azure AD-program, till exempel: `IJUgaIOfq9b9LbUjeQmzNBW4VGn6grr1l/n3aMrnfdk=` |
 | Namn på Azure AD-klient          | Namnet på Azure-klient för din Dynamics 365-instans. Använd formatet < tenantname. > onmicrosoft.com, till exempel: `testdrive.onmicrosoft.com`  |
 | Instans-URL för webb-API          | Webb-API-URL för Dynamics 365-instansen. Du kan hämta det här värdet genom att logga in på din Microsoft Dynamics 365-instans och navigera till **inställningar** > **anpassning** > **Developer Resurser** > **instans webb-API (kopiera URL: en)**. Exempelvärde: `https://testdrive.crm.dynamics.com/api/data/v9.0`  |

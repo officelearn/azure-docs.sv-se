@@ -16,12 +16,12 @@ ms.date: 01/18/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 419a07ff6d423f363d6973da3df00fd4aa3f6278
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: d5fa81e564cf28f8b5478abe9ec5bb63d0f11bd3
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56727272"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57449673"
 ---
 # <a name="what-are-azure-ad-access-reviews"></a>Vad är Azure AD-Åtkomstgranskningar?
 
@@ -42,12 +42,12 @@ Azure AD kan du samarbeta internt inom organisationen och med användare från e
 
 ## <a name="when-to-use-access-reviews"></a>När du ska använda åtkomst går igenom?
 
-- **För många användare i Privilegierade roller:** Det är en bra idé att kontrollera hur många användare har administrativ åtkomst, hur många av dem är globala Admininistratörer och om det finns några bjuds in gäster eller partners som inte har tagits bort som har tilldelats att göra en administrativ åtgärd. Du kan certifiera om rollen tilldelning av användare i [Azure AD-katalogroller](../privileged-identity-management/pim-how-to-perform-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) , till exempel globala administratörer eller [Azure-resursroller](../privileged-identity-management/pim-resource-roles-perform-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) som administratör för användaråtkomst i den [Azure AD Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md) upplevelse.
+- **För många användare i Privilegierade roller:** Det är en bra idé att kontrollera hur många användare har administrativ åtkomst, hur många av dem är globala administratörer och om det finns några bjuds in gäster eller partners som inte har tagits bort som har tilldelats att göra en administrativ åtgärd. Du kan certifiera om rollen tilldelning av användare i [Azure AD-katalogroller](../privileged-identity-management/pim-how-to-perform-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) , till exempel globala administratörer eller [Azure-resursroller](../privileged-identity-management/pim-resource-roles-perform-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) som administratör för användaråtkomst i den [Azure AD Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md) upplevelse.
 - **När automation är omöjligt:** Du kan skapa regler för dynamiskt medlemskap för säkerhetsgrupper eller Office 365-grupper, men vad händer om HR data är inte i Azure AD eller om användare fortfarande behöver åtkomst efter att ha lämnat gruppen för att träna sina ersättning? Du kan sedan skapa en granskning på den gruppen för att se till att de som fortfarande behöver åtkomst bör ha fortsatt åtkomst.
 - **När en grupp används för ett nytt syfte:** Om du har en grupp som ska synkroniseras till Azure AD, eller om du planerar att aktivera programmet Salesforce för alla i teamet försäljningsgruppen, skulle det vara praktiskt att be gruppägare att granska gruppmedlemskap före gruppen som används i en annan risk co chning.
 - **Företag kritiska dataåtkomst:** för vissa resurser, kan det krävas att ställa personer utanför IT-avdelningen att regelbundet logga ut och ge en motivering på varför de behöver åtkomst i granskningssyfte.
 - **Att underhålla en princip undantagslistan:** I en perfekt värld följer alla användare åtkomst principer för säker åtkomst till organisationens resurser. Men finns ibland företagsfall som uppmanar dig att göra undantag. Som IT-administratör kan du hantera den här uppgiften, undvika översyn av rutinundantag och ge granskare bevis att sådana undantag granskas regelbundet.
-- **Be gruppägare att bekräfta att de fortfarande behöver gäster i deras grupper:** Medarbetarnas åtkomst kan automatiseras med vissa lokala IAM, men inte de inbjudna. Om en grupp får gäster företag känsligt innehåll och sedan dess gruppägarens ansvar att bekräfta gästerna fortfarande har en legitima företagsbehov för åtkomst.
+- **Be gruppägare att bekräfta att de fortfarande behöver gäster i deras grupper:** Medarbetarnas åtkomst kan automatiseras med några lokala IAM, men inte de inbjudna. Om en grupp får gäster företag känsligt innehåll och sedan dess gruppägarens ansvar att bekräfta gästerna fortfarande har en legitima företagsbehov för åtkomst.
 - **Har granskningar som utför regelbundet:** Du kan ställa in återkommande åtkomstgranskningar av användare i set-frekvenser som varje vecka, månadsvis, Kvartalsvis eller årligen och granskarna kommer att meddelas i början av varje granskning. Granskare kan godkänna eller neka åtkomst med ett eget gränssnitt och med hjälp av smarta rekommendationer.
 
 ## <a name="where-do-you-create-reviews"></a>Där skapas granskningar?

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: pullabhk
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
-ms.openlocfilehash: e7b1b3e3fba04276fc284fd71adabedc01185251
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 7daf76605d40495d6c9cb5076f0403a78819adfc
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56984823"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57439171"
 ---
 # <a name="monitoring-at-scale-using-azure-monitor"></a>Övervakning i stor skala med Azure Monitor
 
@@ -254,7 +254,7 @@ Resursen är här RS valvet själva och därför måste du upprepa samma åtgär
 
 ***Alla aviseringar som skapats från aktivitetsloggar och LA arbetsytor kan ses i Azure Monitor i fönstret ”aviseringar” till vänster.***
 
-Avisering via aktivitetsloggar kan användas, ***Azure Backup-tjänsten rekommenderar starkt att du [använda LA för övervakning i stor skala](#monitoring-at-scale) och inte aktivitetsloggar för följande***.
+Avisering via aktivitetsloggar kan användas, ***Azure Backup-tjänsten rekommenderar starkt att du använder LA för övervakning av skala och inte aktivitet av följande skäl***.
 
 - **Vissa scenarier:** Gäller endast för Virtuella Azure-säkerhetskopieringar och ska upprepas för varje RS-valvet.
 - **Definition av passar:** Den schemalagda aktiviteten för säkerhetskopiering inte ryms inom de senaste definitionerna för aktivitetsloggar och överensstämmer med [diagnostikloggar](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview#what-are-azure-monitor-diagnostic-logs). Det här leda till oväntade påverkan när data också finns via aktiviteten logg för driftshändelsekanal ändras som visade nedan.

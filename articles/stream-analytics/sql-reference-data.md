@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: 79f0e58ea11d8bdb8c30ca1e50fae2635f719681
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: cc6e4083ba952eb9799aa91f76cf6e5ab75c7f64
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56118028"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57449588"
 ---
 # <a name="use-reference-data-from-a-sql-database-for-an-azure-stream-analytics-job-preview"></a>Använd referensdata från en SQL-databas för Azure Stream Analytics-jobb (förhandsversion)
 
@@ -158,7 +158,7 @@ Det finns inga fler [kostnad per enhet för strömning](https://azure.microsoft.
 
 **Hur vet jag referens data ögonblicksbild som efterfrågas från SQL DB och används i Azure Stream Analytics-jobbet?**
 
-Det finns servernivå mått som filtreras via logiskt namn (under mått Azure Portal) som du kan använda för att övervaka hälsotillståndet för SQL database referensdata indata.
+Det finns två mått som filtreras via logiskt namn (under mått Azure Portal) som du kan använda för att övervaka hälsotillståndet för SQL database referensdata indata.
 
    * InputEvents: Det här mätvärdet mäter antalet poster som har lästs in i från referensdatauppsättning för SQL-databas.
    * InputEventBytes: Det här mätvärdet mäter storleken på referens dataögonblicksbilden inlästa i minnet för Stream Analytics-jobb. 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/30/2017
 ms.author: pakunapa
-ms.openlocfilehash: 3254b29ed380b526be6d5fe5f671adeccbd8ea46
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 4d97803117a875514fb36f770d551204ece0e55c
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54196713"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57448959"
 ---
 # <a name="reliable-services-lifecycle"></a>Reliable Services-livscykel
 > [!div class="op_single_selector"]
@@ -88,7 +88,7 @@ Precis som tillståndslösa tjänster Livscykelhändelser vid avstängningen är
 
 1. Dessa händelser inträffar parallellt:
     - Alla öppna lyssnare stängs. `CommunicationListener.closeAsync()` anropas på varje lyssnare.
-    - Annulleringen token som skickades till `runAsync()` avbröts. Ett anrop till annullering token `isCancelled()` metoden returnerar `true`, och om den anropas token `throwIfCancellationRequested()` metoden returnerar en `OperationCanceledException`.
+    - Annulleringen token som skickades till `runAsync()` har avbrutits. Ett anrop till annullering token `isCancelled()` metoden returnerar `true`, och om den anropas token `throwIfCancellationRequested()` metoden returnerar en `OperationCanceledException`.
 2. Efter `closeAsync()` har slutförts på varje lyssnare och `runAsync()` också är klar tjänstens `StatefulServiceBase.onChangeRoleAsync()` anropas. Det här anropet är vanligtvis inte åsidosätts i tjänsten.
 
    > [!NOTE]  

@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 02/17/2019
+ms.date: 02/24/2019
 ms.author: raynew
-ms.openlocfilehash: da615d76e9efa0ad8d0952a6d75bc341336a6596
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 264f10be1ecb22b6261a14f7185f88b101242d36
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57312978"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57440785"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Stöd matrix för virtuell Azure-säkerhetskopiering
 Du kan använda den [Azure Backup-tjänsten](backup-overview.md) för säkerhetskopiering av lokala datorer och arbetsbelastningar och virtuella Azure-datorer (VM). Den här artikeln sammanfattas support inställningar och begränsningar när du säkerhetskopierar virtuella Azure-datorer med Azure Backup.
@@ -157,8 +157,8 @@ Säkerhetskopiera virtuella datorer som migreras till Azure  | Stöds.<br/><br/>
 **Komponent** | **Support**
 --- | ---
 Datadiskar för virtuella Azure-datorer | Säkerhetskopiera en virtuell dator med 16 eller mindre datadiskar.
-Datadiskstorleken | Enskilda disk kan vara upp till 4 095 GB.<br/><br/> Om du kör den senaste versionen av virtuell Azure-säkerhetskopiering (även kallat omedelbar återställning), disken storlekar upp till 4 TB stöds. [Läs mer](backup-instant-restore-capability.md).
-Lagringstyp | Standard HDD, SSD som standard, premium SSD. <br/><br/> Standard SSD stöds om du kör den senaste versionen av virtuell Azure-säkerhetskopiering (kallas omedelbar återställning). [Läs mer](backup-instant-restore-capability.md).
+Datadiskstorleken | Enskilda disk kan vara upp till 4 095 GB.<br/><br/> Om dina valv kör den senaste versionen av Azure Backup (även kallat omedelbar återställning), disken storlekar upp till 4 TB stöds. [Läs mer](backup-instant-restore-capability.md).
+Lagringstyp | Standard HDD, SSD som standard, premium SSD. <br/><br/> Standard SSD stöds om dina valv har uppgraderats till den senaste versionen av virtuell Azure-säkerhetskopiering (kallas omedelbar återställning). [Läs mer](backup-instant-restore-capability.md).
 Hanterade diskar | Stöds.
 Krypterade diskar | Stöds.<br/><br/> Azure virtuella datorer aktiveras med Azure Disk Encryption kan säkerhetskopieras (med eller utan Azure AD-app).<br/><br/> Inte att återställa krypterade virtuella datorer på nivån fil/mapp. Du måste återställa en hel virtuell dator.<br/><br/> Du kan aktivera kryptering på virtuella datorer som redan skyddas av Azure Backup.
 Diskar med Write Accelerator-aktiverade | Stöds ej.<br/><br/> Om du kör den senaste versionen av virtuell Azure-säkerhetskopiering (kallas även [omedelbar återställning](backup-instant-restore-capability.md)), du kan utesluta diskar med Write Accelerator-aktiverade från en säkerhetskopia.

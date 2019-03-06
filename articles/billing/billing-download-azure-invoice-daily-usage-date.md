@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: banders
-ms.openlocfilehash: f4559c05a9f3d09feef12b0391e313ecd9a88142
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: b03b787e245129e5e51304a2bcc8740ebf3f6196
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57241246"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57406172"
 ---
 # <a name="download-or-view-your-azure-billing-invoice-and-daily-usage-data"></a>Ladda ned eller visa din faktura för Azure och uppgifter om daglig användning
 
@@ -65,7 +65,7 @@ Fakturor genereras för varje [fakturering profil](billing-mca-overview.md#under
 5. Klicka på ellipsknappen (`...`) i slutet av raden.
 6. I snabbmenyn download väljer **faktura**.
 
-Om du inte ser en faktura för den senaste faktureringsperioden, se [ytterligare information]() <!-- Fix this -->
+Om du inte ser en faktura för den senaste faktureringsperioden, se **ytterligare information**. <!-- Fix this -->
 ### <a name="noinvoice"></a> Varför ser jag en faktura för den senaste faktureringsperioden?
 
 Det kan finnas flera orsaker till att den inte visas:
@@ -100,7 +100,7 @@ Om du inte får ett e-postmeddelande när du har följt stegen, kontrollera din 
 
 ### <a name="opt-out-of-getting-your-subscriptions-invoices-in-email"></a>Avanmäla dig från att få din prenumeration fakturor via e-post
 
-Du kan välja bort komma fakturan via e-post genom att följa stegen ovan och klicka på **avanmäla dig från e-postfakturor**. Det här alternativet tar bort alla e-postadresser som är inställd på att ta emot fakturor via e-post. Du kan konfigurera om mottagarna om du väljer i.
+Du kan välja bort komma fakturan via e-post genom att följa stegen ovan och klicka på **avanmäla dig från e-postfakturor**. Det här alternativet tar bort alla e-postadresser som är inställda för att ta emot fakturor via e-post. Du kan konfigurera om mottagarna om du väljer i.
 
  ![Skärmbild som visar välja bort flödet](./media/billing-download-azure-invoice-daily-usage-date/InvoiceArticleStep4.PNG)
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/11/2017
 ms.author: maghan
-ms.openlocfilehash: 8c12190e3c34c3294d2735fdd228aafbf6073f12
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: c8b32e1d52768ea8450a2256d92d8cdb09f9fe8b
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55820121"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57445644"
 ---
 # <a name="use-powershell-to-create-an-azure-vm-with-a-native-mode-report-server"></a>Använd PowerShell för att skapa en virtuell Azure-dator med en rapportserver i enhetligt läge
 > [!IMPORTANT] 
@@ -124,7 +124,7 @@ Ett självsignerat certifikat skapades på den virtuella datorn när den virtuel
       
        Till exempel i följande bild, VM-namnet är **ssrsnativecloud** och användarnamnet är **testuser**.
       
-       ![inloggningsnamn innehåller vm](./media/virtual-machines-windows-classic-ps-sql-report/IC764111.png)
+       ![logga in som innehåller namn på virtuell dator](./media/virtual-machines-windows-classic-ps-sql-report/IC764111.png)
    2. Kör mmc.exe. Mer information finns i [Gör så här: Visa certifikat med MMC-snapin-modulen](https://msdn.microsoft.com/library/ms788967.aspx).
    3. I konsolprogrammet **filen** menyn Lägg till den **certifikat** snapin-modulen, väljer **datorkontot** när du uppmanas, och klicka sedan på **nästa**.
    4. Välj **lokala** att hantera och klicka sedan på **Slutför**.
@@ -160,7 +160,7 @@ Om du vill använda Windows PowerShell-skript för att konfigurera rapportserver
    
     Till exempel i följande bild, VM-namnet är **ssrsnativecloud** och användarnamnet är **testuser**.
    
-    ![inloggningsnamn innehåller vm](./media/virtual-machines-windows-classic-ps-sql-report/IC764111.png)
+    ![logga in som innehåller namn på virtuell dator](./media/virtual-machines-windows-classic-ps-sql-report/IC764111.png)
 2. På den virtuella datorn, öppna **Windows PowerShell ISE** med administrativa privilegier. PowerShell ISE installeras som standard på Windows server 2012. Det rekommenderas att du använder ISE i stället för en standard Windows PowerShell-fönstret så att du kan klistra in skriptet i ISE, ändra skriptet och sedan köra skriptet.
 3. I Windows PowerShell ISE klickar du på den **visa** menyn och klicka sedan på **visa Skriptfönster**.
 4. Kopiera följande skript och klistra in skriptet i skriptfönstret Windows PowerShell ISE.
@@ -294,7 +294,7 @@ Om du vill använda Windows PowerShell för att konfigurera rapportservern, utf�
    
     Till exempel i följande bild, VM-namnet är **ssrsnativecloud** och användarnamnet är **testuser**.
    
-    ![inloggningsnamn innehåller vm](./media/virtual-machines-windows-classic-ps-sql-report/IC764111.png)
+    ![logga in som innehåller namn på virtuell dator](./media/virtual-machines-windows-classic-ps-sql-report/IC764111.png)
 2. På den virtuella datorn, öppna **Windows PowerShell ISE** med administrativa privilegier. PowerShell ISE installeras som standard på Windows server 2012. Det rekommenderas att du använder ISE i stället för en standard Windows PowerShell-fönstret så att du kan klistra in skriptet i ISE, ändra skriptet och sedan köra skriptet.
 3. Om du vill aktivera skript som körs, kör du följande Windows PowerShell-kommando:
    

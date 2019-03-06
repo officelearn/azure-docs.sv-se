@@ -11,12 +11,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: ghogen
-ms.openlocfilehash: a6de5385046918c48b3f606477727ca4623a784c
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 098958cd729f1c616a93bbb5264445cb6d877f8b
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53998633"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57441992"
 ---
 # <a name="add-key-vault-to-your-web-application-by-using-visual-studio-connected-services"></a>Lägg till Key Vault i ditt webbprogram med hjälp av Visual Studio Connected Services
 
@@ -49,7 +49,7 @@ Mer information om ändringarna att Connected Services gör i ditt projekt för 
 
    ![Byt namn på Key Vault och välj en resursgrupp](media/vs-key-vault-add-connected-service/KeyVaultConnectedService-Edit.PNG)
 
-1. Välj en befintlig resursgrupp eller välja att skapa en ny med ett automatiskt genererade unika namnet.  Om du vill skapa en ny grupp med ett annat namn kan du använda den [Azure-portalen](https://portal.azure.com), och sedan stänga sidan och startas om för att läsa in listan över resursgrupper.
+1. Välj en befintlig resursgrupp eller välja att skapa en ny med ett unikt namn som skapas automatiskt.  Om du vill skapa en ny grupp med ett annat namn kan du använda den [Azure-portalen](https://portal.azure.com), och sedan stänga sidan och startas om för att läsa in listan över resursgrupper.
 1. Välj den region där du vill skapa Key Vault. Om ditt webbprogram finns i Azure, väljer du den region som är värd för webbprogram för optimala prestanda.
 1. Välj en prismodell. Mer information finns i [priser för Key Vault](https://azure.microsoft.com/pricing/details/key-vault/).
 1. Välj OK om du vill acceptera konfigurationsalternativ.

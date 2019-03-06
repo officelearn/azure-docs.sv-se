@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/16/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 441a00f066e897ee78476100b0fb34d411e86ac1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 02b831df98db5b9d63873a0da93e603cd7cbf308
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56185510"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57456048"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-iwellnessnow"></a>Självstudier: Azure Active Directory-integrering med iWellnessNow
 
@@ -180,7 +180,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
  
 ### <a name="create-an-iwellnessnow-test-user"></a>Skapa en iWellnessNow testanvändare
 
-I det här avsnittet skapar du en användare som kallas Britta Simon i iWellnessNow. Arbeta med [iWellnessNow supportteamet](mailto:info@iwellnessnow.com) att lägga till användare i iWellnessNow-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning
+I det här avsnittet skapar du en användare som kallas Britta Simon i iWellnessNow. Arbeta med [iWellnessNow supportteamet](mailto:info@iwellnessnow.com) att lägga till användare i iWellnessNow-plattformen. Användarna måste skapas och aktiveras innan du använder enkel inloggning
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 

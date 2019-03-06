@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: dekapur
-ms.openlocfilehash: 69680331bdad0faa36cb3df6117baf8b358da132
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: e9b87c19977fe35132d80729810c3a0547c486fe
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51251027"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57446120"
 ---
 # <a name="add-or-remove-nodes-to-a-standalone-service-fabric-cluster-running-on-windows-server"></a>Lägga till eller ta bort noder till fristående Service Fabric-kluster som körs på Windows Server
 När du har [skapade ditt fristående Service Fabric-kluster på Windows Server-datorer](service-fabric-cluster-creation-for-windows-server.md), behoven (företag) kan ändras och du måste lägga till eller ta bort noder i klustret. Den här artikeln innehåller detaljerade anvisningar för att uppnå detta. Observera att lägga till/ta bort noden funktionen inte stöds i kluster för lokal utveckling.
@@ -38,7 +38,7 @@ När du har [skapade ditt fristående Service Fabric-kluster på Windows Server-
     ```
     När skriptet är klar kan du kontrollera om den nya noden har lagts till genom att köra den [Get-ServiceFabricNode](/powershell/module/servicefabric/get-servicefabricnode?view=azureservicefabricps) cmdlet.
 
-7. Om du vill garantera konsekvensen mellan olika noder i klustret, måste du påbörja en uppgradering av konfiguration. Kör [Get-ServiceFabricClusterConfiguration](/powershell/module/servicefabric/get-servicefabricclusterconfiguration?view=azureservicefabricps) få den senaste konfigurationsfilen och lägga till den nyligen tillagda noden till ”noder”-avsnitt. Vi rekommenderar också att alltid har den senaste klusterkonfigurationen om att du behöver redploy ett kluster med samma konfiguration.
+7. Om du vill garantera konsekvensen mellan olika noder i klustret, måste du påbörja en uppgradering av konfiguration. Kör [Get-ServiceFabricClusterConfiguration](/powershell/module/servicefabric/get-servicefabricclusterconfiguration?view=azureservicefabricps) få den senaste konfigurationsfilen och lägga till den nyligen tillagda noden till ”noder”-avsnitt. Vi rekommenderar också att alltid har den senaste klusterkonfigurationen i de fall du måste distribuera ett kluster med samma konfiguration.
 
     ```
         {

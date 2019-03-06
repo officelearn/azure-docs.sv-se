@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: timlt
-ms.openlocfilehash: 47fde9099ed8172b83f9f12085c5aee219c4716c
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 46e8c0185ec94d0ea3429f761b3760dcbccc25aa
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57318027"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57432625"
 ---
 # <a name="device-connectivity-in-azure-iot-central"></a>Enhetsanslutning i Azure IoT Central
 
@@ -33,9 +33,9 @@ Med hjälp av DPS kan:
 I den här artikeln beskrivs följande fyra användningsfall:
 
 1. [Anslut snabbt en enskild enhet med hjälp av SAS](#connect-a-single-device)
-1. [Anslut enheter i stor skala med hjälp av SAS](#connect-devices-at-scale-using-shared-access-signatures)
+1. Anslut enheter i stor skala med hjälp av SAS
 1. [Anslut enheter i stor skala med X.509-certifikat](#connect-devices-using-x509-certificates) detta är den rekommendera metoden för produktionsmiljöer.
-1. [Ansluta utan att första registrera enheter](#connect-without-first-registering-devices) 
+1. Ansluta utan att första registrera enheter
 
 ## <a name="connect-a-single-device"></a>Ansluta en enskild enhet
 
@@ -69,7 +69,7 @@ Registrera ett stort antal enheter med ditt IoT Central-program genom att använ
 Att hämta anslutningsinformationen för de importera enheterna, [exportera en CSV-fil från programmets IoT Central](howto-manage-devices-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json#export-devices).
 
 > [!NOTE]
-> Information om hur du kan ansluta enheter utan att första registrera dem i IoT Central finns [Anslut utan första registrera enheter](#connect-without-first-registering-devices).
+> Information om hur du kan ansluta enheter utan att första registrera dem i IoT Central finns i avsnittet ansluta utan första registrera enheter.
 
 ### <a name="set-up-your-devices"></a>Konfigurera dina enheter
 

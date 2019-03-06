@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 7/20/2018
 ms.author: msfussell
-ms.openlocfilehash: 434f0639baa45dc83ee2fae4ec8b67a80517db14
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: b49df76bc5b9c4d5f469e702b65ffd5762e49a39
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51035940"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57455844"
 ---
 # <a name="dns-service-in-azure-service-fabric"></a>DNS-tjänsten i Azure Service Fabric
 DNS-tjänsten är en valfri systemtjänst som du kan aktivera i klustret för att identifiera andra tjänster med hjälp av DNS-protokollet. 
@@ -53,7 +53,7 @@ När du skapar ett kluster med hjälp av portalen, DNS-tjänsten är aktiverad s
 Om du inte använder portalen för att skapa klustret eller om du uppdaterar ett befintligt kluster, måste du aktivera DNS-tjänsten i en mall:
 
 - Om du vill distribuera ett nytt kluster, du kan använda den [exempel på mallar](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype) eller skapa en egen Resource Manager-mall. 
-- Om du vill uppdatera ett befintligt kluster som du kan navigera till resursgruppen på portalen och klicka på **Automationsskript** att arbeta med en mall som representerar resursgruppens aktuella tillstånd för klustret och andra resurser i gruppen. Mer information finns i [Exportera mallen från resursgruppen](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template#export-the-template-from-resource-group).
+- Om du vill uppdatera ett befintligt kluster som du kan navigera till resursgruppen på portalen och klicka på **Automationsskript** att arbeta med en mall som representerar resursgruppens aktuella tillstånd för klustret och andra resurser i gruppen. Mer information finns i [Exportera mallen från resursgruppen](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template).
 
 När du har skapat en mall kan aktivera du DNS-tjänsten med följande steg:
 

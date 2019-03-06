@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: article
-ms.date: 02/05/2019
+ms.date: 02/22/2019
 ms.author: alkohli
-ms.openlocfilehash: 0effc6af1ddc3273f0c6e2bf9cbfd0f2ecadf0a2
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 067bb6b806ddd9b83d4ea755876a980ca45d76e9
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55747330"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57407637"
 ---
 # <a name="azure-data-box-disk-system-requirements"></a>Systemkrav för Azure Data Box-Disk
 
@@ -52,7 +52,7 @@ Verktygsuppsättningen för Data Box-Disk installerar följande nödvändig prog
 
 ## <a name="supported-connection"></a>Stödd anslutning
 
-Klientdatorn som innehåller data måste ha en USB 3.0 eller senare port. Diskarna ansluta till den här klienten med den angivna kabeln. 
+Klientdatorn som innehåller data måste ha en USB 3.0 eller senare port. Diskarna ansluta till den här klienten med den angivna kabeln.
 
 ## <a name="supported-storage-accounts"></a>Stöds storage-konton
 
@@ -62,19 +62,22 @@ Här är en lista över typerna som stöds för Data Box-Disk.
 | --- | --- |
 | Klassisk | Standard |
 | Generellt syfte  |Standard. både V1 och V2 stöds. Både frekventa och lågfrekventa nivåer stöds. |
+| BLOB storage-konto | |
 
 >[!NOTE]
 > Azure Data Lake Storage Gen 2-konton stöds inte.
 
 
-## <a name="supported-storage-types"></a>Lagringstyper som stöds
+## <a name="supported-storage-types-for-upload"></a>Lagringstyper som stöds för överföring
 
-Här är en lista över typerna som stöds för Data Box-Disk.
+Här är en lista över de lagringstyper som stöds för överförs till Azure med hjälp av Data Box-Disk.
 
 | **Filformat** | **Anteckningar** |
 | --- | --- |
 | Azure blockblob | |
 | Sida för Azure-blob  | |
+| Azure Files  | |
+| Managed Disks | |
 
 
 ## <a name="next-step"></a>Nästa steg

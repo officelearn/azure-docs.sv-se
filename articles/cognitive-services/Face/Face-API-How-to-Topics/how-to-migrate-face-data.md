@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: lewlu
-ms.openlocfilehash: 433386ac873b5064b3f71650480b0807e96ddbbd
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 95b339e8d7f2c5c63c30e002411152b50cece2a5
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56669526"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57448789"
 ---
 # <a name="migrate-your-face-data-to-a-different-face-subscription"></a>Migrera dina ansikts-data till en annan Ansikts-prenumeration
 
@@ -83,7 +83,7 @@ var takeSnapshotResult = await FaceClientEastAsia.Snapshot.TakeAsync(
 
 ## <a name="retrieve-the-snapshot-id"></a>Hämta ögonblicksbild-ID
 
-Ögonblicksbilden med metoden är asynkron, så du måste vänta tills den har slutförandet (det inte går att avbryta operations snapshot). I den här koden i `WaitForOperation` metoden övervakar asynkrona anrop, kontrollerar statusen varje 100 MS. När åtgärden har slutförts kommer du att kunna hämta åtgärds-ID. Du kan skaffa det genom att parsa den `OperationLocation` fält. 
+Ögonblicksbilden med metoden är asynkron, så du måste vänta tills den har slutförandet (snapshot åtgärder inte kan annulleras). I den här koden i `WaitForOperation` metoden övervakar asynkrona anrop, kontrollerar statusen varje 100 MS. När åtgärden har slutförts kommer du att kunna hämta åtgärds-ID. Du kan skaffa det genom att parsa den `OperationLocation` fält. 
 
 ```csharp
 var takeOperationId = Guid.Parse(takeSnapshotResult.OperationLocation.Split('/')[2]);

@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewers: billgib,ayolubek
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: ccf6ff75cb041c7d9998f67d579d1b392f83cee9
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 39ff70670d628ca672022b84e59ed3cc8a17d925
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55476255"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57447047"
 ---
 # <a name="cross-tenant-reporting-using-distributed-queries"></a>Flera klienter, rapportering med hjälp av distribuerade frågor
 
@@ -61,7 +61,7 @@ Skapa biljett försäljningsdata genom att köra biljett-generatorn för att kö
 
 1. I den *PowerShell ISE*öppnar den... \\Inlärningsmoduler\\Verksamhetsanalyser\\ad hoc-rapportering\\*Demo-AdhocReporting.ps1* skript och ange följande värde:
    * **$DemoScenario** = 1, **köp biljetter för evenemang på alla platser**.
-2. Tryck på **F5** att köra skriptet och generera biljettförsäljningar. När skriptet körs, fortsätter du stegen i den här självstudien. Biljett-data som efterfrågas i det *köra ad hoc distribuerade frågor* avsnittet, så vänta tills biljett-generator att slutföra.
+2. Tryck på **F5** att köra skriptet och generera biljettförsäljningar. När skriptet körs, fortsätter du stegen i den här självstudien. Biljett-data som efterfrågas i det *kör distribuerade ad hoc-frågor* avsnittet, så vänta tills biljett-generator att slutföra.
 
 ## <a name="explore-the-global-views"></a>Utforska de globala vyerna
 
@@ -106,7 +106,7 @@ Den här övningen distribueras den _adhocreporting_ databas. Det här är head 
 
 1. i *PowerShell ISE*öppnar... \\Inlärningsmoduler\\Verksamhetsanalyser\\ad hoc-rapportering\\*Demo-AdhocReporting.ps1*. 
 
-1. Ange **$DemoScenario = 2**, _distribuera adhoc-rapportdatabasen_.
+1. Ange **$DemoScenario = 2**, _distribuera adhoc rapportdatabas_.
 
 1. Tryck på **F5** att köra skriptet och skapa den *adhocreporting* databas.
 

@@ -9,12 +9,12 @@ ms.date: 12/26/2018
 author: sivethe
 ms.author: sivethe
 ms.custom: seodec18
-ms.openlocfilehash: 26eccfd2a144d5bfcb285e6b52af246c3eefde75
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: c1343326b6db18608eb6a8994957d560124116ce
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822042"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57450710"
 ---
 # <a name="connect-a-nodejs-mongoose-application-to-azure-cosmos-db"></a>Ansluta en Node.js Mongoose-program till Azure Cosmos DB
 
@@ -183,7 +183,7 @@ Standardbeteendet i Mongoose är att skapa en MongoDB-samling varje gång du ska
 
 1. Nu ser går in på Azure portal, du två samlingar som skapats i Cosmos DB.
 
-    ![Node.js-självstudie – Skärmbild av Azure-portalen som visar ett Azure Cosmos DB-konto, med flera samlingsnamn markerade – Node-databas][multiple-coll]
+    ![Node.js-självstudie – Skärmbild av Azure-portalen som visar ett Azure Cosmos DB-konto med flera samlingsnamn markerade – Node-databas][multiple-coll]
 
 1. Slutligen ska vi läsa data från Cosmos DB. Eftersom vi använder standarddriftmodellen i Mongoose är läsningarna desamma som alla andra läsningar med Mongoose.
 

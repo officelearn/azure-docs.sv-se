@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: e8af73c955305c54efc478290608e627acb431ea
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: ad164e150b22af7d5a0c91fa0a8a80156952cfd0
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56099334"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57431123"
 ---
 # <a name="what-is-a-single-database-in-azure-sql-database"></a>Vad är en enskild databas i Azure SQL Database
 
@@ -28,7 +28,7 @@ Alternativ för distribution av enskild databas skapar en databas i Azure SQL Da
 > [!NOTE]
 > En ordlista i Azure SQL Database finns [SQL Database allmänna ordlista](sql-database-glossary-terms.md)
 
-## <a name="dynamic-scalabilty"></a>Dynamisk skalbarhet
+## <a name="dynamic-scalability"></a>Dynamisk skalbarhet
 
 Du kan skapa din första app på en liten, enkel databas till en låg kostnad per månad på tjänstnivå för lågt pris/prestanda och sedan [ändra dess tjänstnivå](sql-database-single-database-scale.md) manuellt eller programmässigt när som helst till thehigher pris/prestanda-tjänsten nivå för att uppfylla behoven i din lösning. Du kan justera prestandan utan driftavbrott för din app eller dina kunder. Dynamisk skalbarhet gör att databasen transparent kan svara på snabbt förändrade resurskrav och gör det möjligt för dig att endast betala för de resurser som du behöver, när du behöver dem.
 
@@ -42,7 +42,7 @@ Du använder inbyggt [prestandaövervakning](sql-database-performance.md) och [a
 
 ## <a name="availability-capabilities"></a>Kapacitet för tillgänglighet
 
-Enkla databaser, elastiska pooler och hanterade instanser ger många tillgänglighet characterics. Mer information finns i [tillgänglighet egenskaper](sql-database-technical-overview.md#availability-capabilities).
+Enkla databaser, elastiska pooler och hanterade instanser ger många tillgänglighet egenskaper. Mer information finns i [tillgänglighet egenskaper](sql-database-technical-overview.md#availability-capabilities).
 
 ## <a name="transact-sql-differences"></a>Transact-SQL-skillnader
 

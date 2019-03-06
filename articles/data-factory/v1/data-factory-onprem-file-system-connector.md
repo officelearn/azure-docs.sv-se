@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 04/13/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 2d586f28b426732433c027c950f8193e7503c72b
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 40086924731876dc44d9651ca46814149dba52f0
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54330814"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57432804"
 ---
 # <a name="copy-data-to-and-from-an-on-premises-file-system-by-using-azure-data-factory"></a>Kopieringsdata till och från ett lokalt filsystem med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -30,6 +30,8 @@ ms.locfileid: "54330814"
 
 
 Den här artikeln förklarar hur du använder Kopieringsaktivitet i Azure Data Factory för att kopiera data till/från ett lokalt filsystem. Den bygger på den [Dataförflyttningsaktiviteter](data-factory-data-movement-activities.md) artikel som anger en allmän översikt över dataförflyttning med kopieringsaktiviteten.
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="supported-scenarios"></a>Scenarier som stöds
 Du kan kopiera data **från ett lokalt filsystem** till följande data lagras:
@@ -75,7 +77,7 @@ Du kan länka ett lokalt filsystem till en Azure-datafabrik med den **lokala fil
 | värd |Anger rotsökvägen i den mapp som du vill kopiera. Använd escape-tecknet ”\” för specialtecken i strängen. Se [exempel länkad tjänst-och datauppsättningen](#sample-linked-service-and-dataset-definitions) exempel. |Ja |
 | användar-ID |Ange ID för den användare som har åtkomst till servern. |Nej (om du väljer encryptedCredential) |
 | lösenord |Ange lösenordet för användaren (användar-ID). |Nej (om du väljer encryptedCredential |
-| encryptedCredential |Ange de krypterade autentiseringsuppgifterna som du kan få genom att köra cmdlet New-AzureRmDataFactoryEncryptValue. |Nej (om du vill ange användar-ID och lösenord i klartext) |
+| encryptedCredential |Ange de krypterade autentiseringsuppgifterna som du kan få genom att köra cmdlet New-AzDataFactoryEncryptValue. |Nej (om du vill ange användar-ID och lösenord i klartext) |
 | gatewayName |Anger namnet på den gateway som Data Factory ska använda för att ansluta till den lokala servern. |Ja |
 
 

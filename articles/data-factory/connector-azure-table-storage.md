@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 32fc3f1c93261f6fb19c084f51dea4942310ac47
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 7ef8f80f44c921cc1f2524351c8acb78ebd713bf
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55664156"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57434801"
 ---
 # <a name="copy-data-to-and-from-azure-table-storage-by-using-azure-data-factory"></a>Kopiera data till och från Azure Table storage med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -25,6 +25,8 @@ ms.locfileid: "55664156"
 > * [Aktuell version](connector-azure-table-storage.md)
 
 Den här artikeln beskrivs hur du använder Kopieringsaktivitet i Azure Data Factory för att kopiera data till och från Azure Table storage. Den bygger på den [översikt över Kopieringsaktivitet](copy-activity-overview.md) artikel som ger en allmän översikt över Kopieringsaktivitet.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="supported-capabilities"></a>Funktioner som stöds
 
@@ -114,15 +116,15 @@ En signatur för delad åtkomst ger delegerad åtkomst till resurser i ditt stor
 
 > [!TIP]
 > Du kan köra följande PowerShell-kommandon för att generera en signatur för delad åtkomst av tjänsten för ditt lagringskonto. Ersätt platshållarna och bevilja behörigheten som krävs.
-> `$context = New-AzureStorageContext -StorageAccountName <accountName> -StorageAccountKey <accountKey>`
-> `New-AzureStorageContainerSASToken -Name <containerName> -Context $context -Permission rwdl -StartTime <startTime> -ExpiryTime <endTime> -FullUri`
+> `$context = New-AzStorageContext -StorageAccountName <accountName> -StorageAccountKey <accountKey>`
+> `New-AzStorageContainerSASToken -Name <containerName> -Context $context -Permission rwdl -StartTime <startTime> -ExpiryTime <endTime> -FullUri`
 
 Om du vill använda autentisering med signatur för delad åtkomst, stöds följande egenskaper.
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Type-egenskapen måste anges till **AzureTableStorage**. |Ja |
-| sasUri | Ange SAS-URI för signaturen för delad åtkomst URI i tabellen. <br/>Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory. Du kan också placera SAS-token i Azure Key Vault i leverate automatisk rotation och ta bort token delen. Följande exempel finns och [Store autentiseringsuppgifter i Azure Key Vault](store-credentials-in-key-vault.md) artikel med mer information. | Ja |
+| sasUri | Ange SAS-URI för signaturen för delad åtkomst URI i tabellen. <br/>Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory. Du kan också placera SAS-token i Azure Key Vault för att dra nytta av automatisk rotation och ta bort token delen. Följande exempel finns och [Store autentiseringsuppgifter i Azure Key Vault](store-credentials-in-key-vault.md) artikel med mer information. | Ja |
 | connectVia | Den [integreringskörningen](concepts-integration-runtime.md) som används för att ansluta till datalagret. Du kan använda Azure Integration Runtime eller den lokala Integration Runtime (om ditt datalager finns i ett privat nätverk). Om den inte anges används standard Azure Integration Runtime. |Nej |
 
 >[!NOTE]
@@ -331,7 +333,7 @@ När du flyttar data till och från Azure Table, följande [mappningar som defin
 | Azure tabelldatatyp | Data Factory tillfälliga datatyp | Information |
 |:--- |:--- |:--- |
 | Edm.Binary |byte |En matris med byte upp till 64 KB. |
-| Edm.Boolean |Bool |Ett booleskt värde. |
+| Edm.Boolean |bool |Ett booleskt värde. |
 | Edm.DateTime |DateTime |A 64-bit value expressed as Coordinated Universal Time (UTC). Det tillåtna intervallet för DateTime börjar midnatt 1 januari, 1601 e. kr. (C.E.), UTC. Intervallet slutar den 31 December 9999. |
 | Edm.Double |double |Ett 64-bitars flytande punktvärde. |
 | Edm.Guid |Guid |En globalt unik identifierare för 128-bitars. |

@@ -5,15 +5,15 @@ services: expressroute
 author: charwen
 ms.service: expressroute
 ms.topic: article
-ms.date: 04/17/2017
+ms.date: 02/21/2019
 ms.author: charwen
 ms.custom: seodec18
-ms.openlocfilehash: 8f8d021adae1cb25198c53e486fdb50e42ac211b
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 3c91fd6140b460d29b33e7d9b1fabafbbcf99422
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53097921"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57406226"
 ---
 # <a name="configure-a-virtual-network-gateway-for-expressroute-using-powershell"></a>Konfigurera en virtuell nätverksgateway för ExpressRoute med PowerShell
 > [!div class="op_single_selector"]
@@ -24,14 +24,19 @@ ms.locfileid: "53097921"
 > 
 > 
 
-Den här artikeln får du lägga till, ändra storlek på och ta bort en gateway för virtuellt nätverk (VNet) för ett befintliga virtuellt nätverk. Stegen för den här konfigurationen är avsedda för virtuella nätverk som har skapats med hjälp av Resource Manager-distributionsmodellen som ska användas i en ExpressRoute-konfiguration. Läs mer om virtuella nätverksgatewayer och konfigurationsinställningar för gateway för ExpressRoute, [om virtuella nätverksgatewayer för ExpressRoute](expressroute-about-virtual-network-gateways.md). 
-
+Den här artikeln får du lägga till, ändra storlek på och ta bort en gateway för virtuellt nätverk (VNet) för ett befintliga virtuellt nätverk. Anvisningarna för den här konfigurationen gäller virtuella nätverk som har skapats med hjälp av Resource Manager-distributionsmodellen för en ExpressRoute-konfigurationen. Mer information finns i [om virtuella nätverksgatewayer för ExpressRoute](expressroute-about-virtual-network-gateways.md).
 
 ## <a name="before-beginning"></a>Innan du börjar
-Kontrollera att du har installerat det senaste Azure PowerShell-cmdlet. Om du inte har installerat den senaste cmdlets som du behöver göra det innan du påbörjar konfigurationen. Mer information finns i [Installera och konfigurera Azure PowerShell](/powershell/azure/overview).
+
+### <a name="working-with-powershell"></a>Arbeta med PowerShell
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+[!INCLUDE [working with cloud shell](../../includes/expressroute-cloud-shell-powershell-about.md)]
+
+### <a name="configuration-reference-list"></a>Konfigurationen är en lista
 
 [!INCLUDE [expressroute-gateway-rm-ps](../../includes/expressroute-gateway-rm-ps-include.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 När du har skapat VNet-gateway, kan du länka ditt virtuella nätverk till en ExpressRoute-krets. Se [länka ett virtuellt nätverk till en ExpressRoute-krets](expressroute-howto-linkvnet-arm.md).
-

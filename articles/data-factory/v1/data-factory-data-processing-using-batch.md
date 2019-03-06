@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: adb9fb649d934d08ea546759bcf4733a1c6d9080
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: a0d5f42fa6725ba23a89904779040f379f31e59e
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822756"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57454161"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Bearbeta datauppsättningar i stor skala med hjälp av Data Factory och Batch
 > [!NOTE]
@@ -26,9 +26,12 @@ ms.locfileid: "55822756"
 
 Den här artikeln beskrivs en arkitekturen för en exempel-lösning som flyttar och bearbeta datauppsättningar i stor skala på ett automatiskt och schemalagt sätt. Det ger också en slutpunkt till slutpunkt-genomgång för att implementera lösningen genom att använda Data Factory och Azure Batch.
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Den här artikeln är längre än en typisk artikeln eftersom den innehåller en genomgång av en hel exempellösningen. Om du inte har använt Batch och Data Factory, du kan lära dig om de här tjänsterna och hur de fungerar tillsammans. Om du vet något om tjänsterna och designa/utforma en lösning, kan du fokusera på arkitekturen i artikeln. Om du utvecklar en prototyp eller en lösning, kan du prova att använda de stegvisa anvisningarna i den här genomgången. Vi bjuder in dina kommentarer om det här innehållet och hur du använder den.
 
 Först ska vi titta på hur Data Factory och Batch-tjänster kan hjälpa dig att bearbeta stora datamängder i molnet.     
+
 
 ## <a name="why-azure-batch"></a>Varför Azure Batch?
  Du kan använda Batch för att effektivt köra storskaliga parallella och högpresterande datorbearbetning (HPC) program i molnet. Det är en plattformstjänst som schemalägger beräkningsintensiva arbeten att köras på en hanterad samling virtuella datorer (VM). Den kan automatiskt skala beräkningsresurser för att uppfylla behoven i dina jobb.
@@ -40,7 +43,7 @@ Med Batch-tjänsten definierar du Azure-beräkningsresurser att köra dina progr
 * [Grunderna i Batch](../../batch/batch-technical-overview.md)
 * [Funktionsöversikt för batch](../../batch/batch-api-basics.md)
 
-Du kan också mer information om Batch finns [Batch documentatnion](https://docs.microsoft.com/azure/batch/).
+Du kan också mer information om Batch finns [dokumentation om Batch](https://docs.microsoft.com/azure/batch/).
 
 ## <a name="why-azure-data-factory"></a>Varför Azure Data Factory?
 Data Factory är en molnbaserad dataintegreringstjänst som samordnar och automatiserar förflyttning och transformering av data. Du kan använda Data Factory för att skapa hanterade datapipelines som flyttar data från lokala och molnbaserade datalager till ett centraliserat datalager. Ett exempel är Azure Blob storage. Du kan använda Data Factory för att bearbeta/omvandla data med hjälp av tjänster som Azure HDInsight och Azure Machine Learning. Du kan även schemalägga datapipelines för att köra på ett schemalagt sätt (till exempel varje timme, varje dag, och varje vecka). Du kan övervaka och hantera pipelines blixtsnabbt och identifiera problem och vidta åtgärder.
@@ -93,7 +96,7 @@ Om du inte har en Azure-prenumeration kan du snabbt skapa ett kostnadsfritt kont
 Du kan använda ett lagringskonto för att lagra data i den här självstudien. Om du inte har ett lagringskonto kan du läsa [skapa ett lagringskonto](../../storage/common/storage-quickstart-create-account.md). Exempellösningen använder blob storage.
 
 #### <a name="azure-batch-account"></a>Azure Batch-konto
-Skapa ett Batch-konto med hjälp av den [Azure-portalen](http://portal.azure.com/). Mer information finns i [skapa och hantera ett Batch-konto](../../batch/batch-account-create-portal.md). Observera Batch-konto och kontonyckeln. Du kan också använda den [New-AzureRmBatchAccount](https://docs.microsoft.com/powershell/module/azurerm.batch/new-azurermbatchaccount) cmdlet för att skapa ett Batch-konto. Anvisningar för hur du använder den här cmdleten finns i [Kom igång med Batch PowerShell-cmdlets](../../batch/batch-powershell-cmdlets-get-started.md).
+Skapa ett Batch-konto med hjälp av den [Azure-portalen](http://portal.azure.com/). Mer information finns i [skapa och hantera ett Batch-konto](../../batch/batch-account-create-portal.md). Observera Batch-konto och kontonyckeln. Du kan också använda den [New AzBatchAccount](https://docs.microsoft.com/powershell/module/az.batch/new-azbatchaccount) cmdlet för att skapa ett Batch-konto. Anvisningar för hur du använder den här cmdleten finns i [Kom igång med Batch PowerShell-cmdlets](../../batch/batch-powershell-cmdlets-get-started.md).
 
 Exempellösningen använder Batch (indirekt via en data factory-pipeline) att bearbeta data i en parallell sätt i en pool med beräkningsnoder (en hanterad samling virtuella datorer).
 
@@ -201,7 +204,7 @@ Metoden har några viktiga komponenter som du behöver för att förstå:
 1. Importera den **Azure Storage** NuGet-paketet i projektet. Du behöver det här paketet eftersom du använder Blob Storage-API i det här exemplet:
 
     ```powershell
-    Install-Package Azure.Storage
+    Install-Package Az.Storage
     ```
 1. Lägg till följande med hjälp av direktiv till källfilen i projektet:
 

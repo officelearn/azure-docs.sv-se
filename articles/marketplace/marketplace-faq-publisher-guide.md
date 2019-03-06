@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 12/31/2018
 ms.author: ellacroi
-ms.openlocfilehash: 25349593bd45949f662581160fa23d30b4682710
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 3ad38b215cf33bda0c9f9d0bcd7403b6201282ee
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57214205"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57437164"
 ---
 # <a name="marketplace-faqs"></a>Vanliga frågor och svar om Marketplace
 
@@ -114,7 +114,7 @@ Om du vill migrera en prenumeration på Azure Marketplace virtuell dator (VM) ti
 
 **Hur prissätts Azure Marketplace-prenumerationer?**
 
-Priset varierar beroende på produkttyp och utgivarens specifikationer. Avgifter för programvarulicenser och kostnader för Azure-användning faktureras separat genom din Azure-prenumeration.
+Prissättningen varierar beroende på produkttyp och utgivarens specifikationer. Avgifter för programvarulicenser och kostnader för Azure-användning faktureras separat genom din Azure-prenumeration.
 
 *Unbundled:*
 
@@ -249,7 +249,7 @@ Kontakta leverantören utgivare för all teknisk produktsupport. Utgivarens kont
 
 **Om jag inte är nöjd kan jag lämna tillbaka det?**
 
-Köp som görs från [Azure Marketplace](https://azuremarketplace.microsoft.com/) kan inte returneras, men kan avbrytas/tas bort. Beroende erbjudanden faktureras enligt användning, förbrukning så debiterar när tjänsten har stoppats stoppas också. Prenumerationer avslutas och kommer inte att debiteras efter den aktuella faktureringsperioden. Om en prenumeration avbryts strax efter köp (24 timmar för varje månad och 14 dagar för årliga) tillhandahålls en full återbetalning.
+Köp som görs från [Azure Marketplace](https://azuremarketplace.microsoft.com/) kan inte returneras, men kan avbrytas/tas bort. Beroende erbjudanden faktureras enligt användning, förbrukning så debiterar när tjänsten har stoppats stoppas också. Prenumerationer har avbrutits och kommer inte att debiteras efter den aktuella faktureringsperioden. Om en prenumeration avbryts strax efter köp (24 timmar för varje månad och 14 dagar för årliga) så tillhandahålls en full återbetalning.
 
 Kunder måste kontakta utgivaren direkt för alla tekniska problem som rör deras Marketplace-tjänst eller köp. Utgivarens kontaktuppgifter och/eller en länk till en supportwebbplats finns på lösningens detaljsida på Azure Marketplace.
 
@@ -541,7 +541,7 @@ Om du vill migrera virtuella datorer med BYOL till EA-prenumeration, behöver du
 
 **Hur prissätts Azure Marketplace-prenumerationer?**
 
-Priset varierar beroende på produkttyp och utgivarens specifikationer. Avgifter för programvarulicenser och kostnader för Azure-användning faktureras separat genom din Azure-prenumeration. Följande prissättningsmodeller tillämpas:
+Prissättningen varierar beroende på produkttyp och utgivarens specifikationer. Avgifter för programvarulicenser och kostnader för Azure-användning faktureras separat genom din Azure-prenumeration. Exempel på prissättningsmodeller:
 
 * **BYOL-modell**: Bring-your-own-license. När du har fått en programvarulicens för användning på Azure Marketplace direkt från utgivaren eller en återförsäljare debiteras inte någon ytterligare programvara-avgifter för användning.
 

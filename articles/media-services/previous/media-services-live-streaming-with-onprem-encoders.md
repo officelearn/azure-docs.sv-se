@@ -14,12 +14,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: cenkd;juliako
-ms.openlocfilehash: 67d86ca7ed79f431bf762d4a3679e18a7b4bc373
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 7fa2dad124b5ef9e93402d6d4c03d956b00184af
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55990231"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57442384"
 ---
 # <a name="live-streaming-with-on-premises-encoders-that-create-multi-bitrate-streams"></a>Direktsänd strömning med lokala kodare som skapar strömmar med flera bithastigheter
 
@@ -45,7 +45,7 @@ Från och med Media Services 2.10-versionen när du skapar en kanal kan ange du 
 > [!NOTE]
 > Den här artikeln beskrivs attributen för kanaler som inte har aktiverats att utföra live encoding. Information om hur du arbetar med kanaler som är aktiverade för att utföra live encoding finns i [direktsänd strömning med Azure Media Services för att skapa dataströmmar med flera bithastigheter](media-services-manage-live-encoder-enabled-channels.md).
 >
->Information om rekommenderade lokala kodare finns [rekommenderade lokala kodare](media-services-recommended-encoders.md).
+>Mer information om rekommenderade på lokala kodare finns i [rekommenderas på lokala kodare](media-services-recommended-encoders.md).
 
 Följande diagram visar en live-streaming-arbetsflöde som använder en lokal livekodare ha flera bithastigheter RTMP eller fragmenterad MP4 (Smooth Streaming) strömmar som utdata.
 
@@ -229,7 +229,7 @@ Här följer andra överväganden som rör arbetar med kanaler och relaterade ko
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-topics"></a>Relaterade ämnen
-[Rekommenderade lokala kodare](media-services-recommended-encoders.md)
+[Rekommenderas på lokala kodare](media-services-recommended-encoders.md)
 
 [Specifikation för Azure Media Services fragmenterad MP4 liv-inmatning](media-services-fmp4-live-ingest-overview.md)
 

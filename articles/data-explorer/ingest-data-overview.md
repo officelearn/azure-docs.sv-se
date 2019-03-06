@@ -8,12 +8,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 2/18/2019
-ms.openlocfilehash: 4fd0f0990163963fc0cc3c7caf221609da487909
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: bd1cb101a3bf9a4da9c681169d2a5c999e56b1b3
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56340186"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57438422"
 ---
 # <a name="azure-data-explorer-data-ingestion"></a>Azure Data Explorer-datainmatning
 
@@ -81,7 +81,7 @@ Kusto erbjuder klient-SDK som kan användas för att mata in och fråga efter da
 
 * Mata in data direkt i Azure Data Explorer-motor (passar bäst för utforskning och prototyper):
 
-  * **Infogad inmatning**: Trafikstyrning (.ingest infogade) som innehåller in-band-data är avsedd för ad hoc för testning.
+  * **Infogad inmatning**: Trafikstyrning (.ingest infogade) som innehåller in-band-data är avsedd för ad hoc-testning.
 
   * **Mata in från fråga**: Trafikstyrning (.set .set-eller-tillägg kan .set eller ersätta) som pekar på frågeresultaten används för att skapa rapporter eller små temporära tabeller.
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/07/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: b76162606c4d21cb6979d410fbaaaafc539cf403
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: b53e052182e3d775bdd3309bfd1e986c4f5896ed
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56668664"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57432268"
 ---
 # <a name="add-adfs-as-a-saml-identity-provider-using-custom-policies-in-azure-active-directory-b2c"></a>Lägg till AD FS som en SAML-identitetsprovider med anpassade principer i Azure Active Directory B2C
 
@@ -167,7 +167,7 @@ Ersätt följande värden:
 10. I **anspråksregelmall**väljer **skicka LDAP-attribut som anspråk**.
 11. Ange en **Regelnamn för anspråk**. För den **attributarkiv**väljer **Välj Active Directory**, lägga till följande anspråk och sedan på **Slutför** och **OK**.
 
-    | LDAP-attrubute | Typ av utgående anspråk |
+    | LDAP-attribut | Typ av utgående anspråk |
     | -------------- | ------------------- |
     | User-Principal-Name | userPrincipalName |
     | Efternamn | family_name |

@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/23/2016
 ms.author: ghogen
-ms.openlocfilehash: 5234f5c82e98fcb402cadf9a8a469a15bbb7ac6d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: ac36502a67f9deddf14b5eeae64df6f799d25e97
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51250823"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57446086"
 ---
 # <a name="get-started-with-azure-queue-storage-and-visual-studio-connected-services-aspnet"></a>Kom igång med Azure queue storage och Visual Studio anslutna tjänster (ASP.NET)
 
@@ -83,7 +83,7 @@ Följande steg illustrerar hur du skapar en kö:
     }
     ```
 
-1. I den **CreateQueue** metod, hämta en **CloudStorageAccount** objekt som representerar information på lagringskontot. Använd följande kod för att hämta anslutningssträngen för lagring och lagringskontoinformation från konfigurationen i Azure service: (ändra  *&lt;lagringskontonamn->* till namnet på Azure storage-kontot du är åtkomst till.)
+1. I den **CreateQueue** metod, hämta en **CloudStorageAccount** objekt som representerar information på lagringskontot. Använd följande kod för att hämta anslutningssträngen för lagring och lagringskontoinformation från konfigurationen i Azure service: (Ändra  *&lt;lagringskontonamn->* till namnet på Azure storage-konto du försöker komma åt.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -164,7 +164,7 @@ När du har [skapat en kö](#create-a-queue), du kan lägga till meddelanden i k
     }
     ```
  
-1. I den **AddMessage** metod, hämta en **CloudStorageAccount** objekt som representerar information på lagringskontot. Använd följande kod för att hämta anslutningssträngen för lagring och lagringskontoinformation från konfigurationen i Azure service: (ändra  *&lt;lagringskontonamn->* till namnet på Azure storage-kontot du är åtkomst till.)
+1. I den **AddMessage** metod, hämta en **CloudStorageAccount** objekt som representerar information på lagringskontot. Använd följande kod för att hämta anslutningssträngen för lagring och lagringskontoinformation från konfigurationen i Azure service: (Ändra  *&lt;lagringskontonamn->* till namnet på Azure storage-konto du försöker komma åt.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -253,7 +253,7 @@ Det här avsnittet visar hur du kan kika på meddelandet i kö (läsa det först
     }
     ```
  
-1. I den **PeekMessage** metod, hämta en **CloudStorageAccount** objekt som representerar information på lagringskontot. Använd följande kod för att hämta anslutningssträngen för lagring och lagringskontoinformation från konfigurationen i Azure service: (ändra  *&lt;lagringskontonamn->* till namnet på Azure storage-kontot du är åtkomst till.)
+1. I den **PeekMessage** metod, hämta en **CloudStorageAccount** objekt som representerar information på lagringskontot. Använd följande kod för att hämta anslutningssträngen för lagring och lagringskontoinformation från konfigurationen i Azure service: (Ändra  *&lt;lagringskontonamn->* till namnet på Azure storage-konto du försöker komma åt.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -337,7 +337,7 @@ I det här avsnittet lär du dig att läsa och ta bort ett meddelande från en k
     }
     ```
  
-1. I den **ReadMessage** metod, hämta en **CloudStorageAccount** objekt som representerar information på lagringskontot. Använd följande kod för att hämta anslutningssträngen för lagring och lagringskontoinformation från konfigurationen i Azure service: (ändra  *&lt;lagringskontonamn->* till namnet på Azure storage-kontot du är åtkomst till.)
+1. I den **ReadMessage** metod, hämta en **CloudStorageAccount** objekt som representerar information på lagringskontot. Använd följande kod för att hämta anslutningssträngen för lagring och lagringskontoinformation från konfigurationen i Azure service: (Ändra  *&lt;lagringskontonamn->* till namnet på Azure storage-konto du försöker komma åt.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -428,7 +428,7 @@ Det här avsnittet visar hur du kan hämta kölängden (antal meddelanden).
     }
     ```
  
-1. I den **ReadMessage** metod, hämta en **CloudStorageAccount** objekt som representerar information på lagringskontot. Använd följande kod för att hämta anslutningssträngen för lagring och lagringskontoinformation från konfigurationen i Azure service: (ändra  *&lt;lagringskontonamn->* till namnet på Azure storage-kontot du är åtkomst till.)
+1. I den **ReadMessage** metod, hämta en **CloudStorageAccount** objekt som representerar information på lagringskontot. Använd följande kod för att hämta anslutningssträngen för lagring och lagringskontoinformation från konfigurationen i Azure service: (Ändra  *&lt;lagringskontonamn->* till namnet på Azure storage-konto du försöker komma åt.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -515,7 +515,7 @@ Det här avsnittet visas hur du tar bort en kö.
     }
     ```
  
-1. I den **DeleteQueue** metod, hämta en **CloudStorageAccount** objekt som representerar information på lagringskontot. Använd följande kod för att hämta anslutningssträngen för lagring och lagringskontoinformation från konfigurationen i Azure service: (ändra  *&lt;lagringskontonamn->* till namnet på Azure storage-kontot du är åtkomst till.)
+1. I den **DeleteQueue** metod, hämta en **CloudStorageAccount** objekt som representerar information på lagringskontot. Använd följande kod för att hämta anslutningssträngen för lagring och lagringskontoinformation från konfigurationen i Azure service: (Ändra  *&lt;lagringskontonamn->* till namnet på Azure storage-konto du försöker komma åt.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(

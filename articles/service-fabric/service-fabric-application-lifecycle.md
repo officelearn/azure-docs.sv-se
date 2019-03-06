@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/19/2018
 ms.author: ryanwi
-ms.openlocfilehash: 1e714faa04717ac8e6687db3c074b8a77d649fb2
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 65104503af2e177f1898d8509c2d82bd9b58c266
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56217215"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57446972"
 ---
 # <a name="service-fabric-application-lifecycle"></a>Livscykeln för Service Fabric
 Som med andra plattformar, ett program på Azure Service Fabric vanligtvis går igenom följande faser: design, utveckling, testning, distribution, uppgradera, underhållet och borttagningen. Service Fabric erbjuder förstklassig support för hela programlivscykeln för molnprogram, från utveckling till distribution, daglig hantering och underhåll till eventuell inaktivering. Tjänstmodellen gör det möjligt för flera olika roller att delta oberoende av varandra i programmets hela livscykel. Den här artikeln innehåller en översikt över API: er och hur de används av de olika rollerna i hela faserna i livscykeln för Service Fabric-program.
@@ -29,7 +29,7 @@ Som med andra plattformar, ett program på Azure Service Fabric vanligtvis går 
 ## <a name="service-model-roles"></a>Service model-roller
 Service model-roller är:
 
-* **Tjänsten developer**: Utvecklar modulära och allmänna tjänster som kan vara dedikerat igen och används i flera program av samma typ eller olika typer. Till exempel kan en kö-tjänst användas för att skapa ett loggnings-program (supportavdelning) eller ett e-handelsprogram (kundvagn).
+* **Tjänsten developer**: Utvecklar modulära och allmänna tjänster som kan återanvändas och användas i flera program av samma typ eller olika typer. Till exempel kan en kö-tjänst användas för att skapa ett loggnings-program (supportavdelning) eller ett e-handelsprogram (kundvagn).
 * **Programutvecklare**: Skapar program genom att integrera en samling tjänster att uppfylla vissa särskilda krav eller scenarier. Webbplatser för e-handel kan till exempel integreras ”JSON tillståndslösa Front-End Service”, ”auktion tillståndskänslig tjänst” och ”kö tillståndskänslig tjänst” för att skapa en lösning för auctioning.
 * **Programadministratör**: Fattar beslut på programkonfiguration (fylla i mallparametrarna configuration), distribution (mappning till tillgängliga resurser) och tjänsternas kvalitet. Till exempel beslutar programadministratör språkinställningen (på engelska för USA) eller japanska för Japan, till exempel av programmet. Ett annat distribuerade program kan ha olika inställningar.
 * **Operatorn**: Distribuerar programmen baserat på programmets konfiguration och krav som anges av administratören för programmet. Exempelvis kan en operatör etablerar och distribuerar programmet och ser till att den körs i Azure. Operatörer övervaka hälsotillstånd och prestanda programinformation och underhålla den fysiska infrastrukturen efter behov.

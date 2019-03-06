@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/13/2018
 ms.author: ryanwi
-ms.openlocfilehash: d93ebb01c905be6bf799ed6e4a037e3ddfdc2430
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 527ab4ee0edaf3ac2048403d7063edef8fc58ae8
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55094180"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57451985"
 ---
 # <a name="scaling-azure-service-fabric-clusters"></a>Skala Azure Service Fabric-kluster
 Service Fabric-kluster är en nätverksansluten uppsättning virtuella eller fysiska datorer som dina mikrotjänster distribueras och hanteras. En dator eller virtuell dator som ingår i ett kluster kallas för en nod. Kluster kan innehålla potentiellt tusentals noder. När du har skapat ett Service Fabric-kluster, kan du skala klustret horisontellt (ändra antalet noder) eller lodrätt (ändra resurser noder).  Du kan skala klustret när som helst, även när arbetsbelastningar sedan körs på klustret.  När klustret skalas skalas programmen automatiskt samt.
@@ -81,7 +81,7 @@ När du skalar en Azure-kluster, ha följande riktlinjer i åtanke:
 Skala en nodtyp upp eller ned skiljer sig beroende på om det är en icke-primär eller primära nodtypen.
 
 ### <a name="scaling-non-primary-node-types"></a>Skalning av icke-primär nodtyper
-Skapa en ny nodtyp med de resurser du behöver.  Uppdatera placeringsbegränsningar för att köra tjänster att inkludera den nya noden.  Gradvis (en i taget) minska instansantalet för den gamla nodtyper instans till noll så att tillförlitligheten för klustret inte påverkas.  Tjänster migreras gradvis till den nya nodtypen eftersom den gamla nodtypen är decommisioned.
+Skapa en ny nodtyp med de resurser du behöver.  Uppdatera placeringsbegränsningar för att köra tjänster att inkludera den nya noden.  Gradvis (en i taget) minska instansantalet för den gamla nodtyper instans till noll så att tillförlitligheten för klustret inte påverkas.  Tjänster migreras gradvis till den nya nodtypen som den gamla nodtypen är inaktiverad.
 
 ### <a name="scaling-the-primary-node-type"></a>Skala den primära nodtypen
 Vi rekommenderar att du inte ändrar VM-SKU på den primära nodtypen. Om du behöver mer kapacitet i klustret, rekommenderar vi att lägga till fler instanser. 

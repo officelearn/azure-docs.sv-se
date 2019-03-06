@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 05/11/2018
 ms.author: tdsp
 ms.custom: seodec18, previous-author=fboylu, previous-ms.author=fboylu
-ms.openlocfilehash: ebf376f0bdba8c41f88d6f97cef2c17ecd259022
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 046d00eec9fd5a406a1e8bf78e48d4dd913b83fd
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55816653"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57437576"
 ---
 # <a name="azure-ai-guide-for-predictive-maintenance-solutions"></a>Azure AI-guide för lösningar för förebyggande underhåll
 
@@ -432,7 +432,7 @@ Microsoft Azure erbjuder utbildningsvägar för grundläggande koncepten bakom P
 | [Microsofts AI-skola](https://aischool.microsoft.com/learning-paths) | Offentligt |
 | [Azure AI-utbildning från GitHub](https://github.com/Azure/connectthedots/blob/master/readme.md) | Offentligt |
 | [LinkedIn Learning](http://www.linkedin.com/learning) | Offentligt |
-| [Microsoft AI Youtube Webbseminarier](https://www.youtube.com/watch?v=NvrH7_KKzoM&t=4s) | Offentligt |
+| [Microsoft AI YouTube Webbseminarier](https://www.youtube.com/watch?v=NvrH7_KKzoM&t=4s) | Offentligt |
 | [Microsoft AI Show](http://channel9.msdn.com/Shows/AI-Show) | Offentligt |
 | [LearnAI@MS](https://learnanalytics.microsoft.com) | Partner |
 | [Microsoft Partner Network](https://learningportal.microsoft.com) | Partner |

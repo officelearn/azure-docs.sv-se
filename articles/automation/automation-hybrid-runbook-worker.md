@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 01/31/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 8fb1b5e06e694368cf80029fe5ce2dcf0749cc62
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 0e38e921121f9b44356a33641bea4c2666412cca
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56818382"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57456201"
 ---
 # <a name="automate-resources-in-your-datacenter-or-cloud-by-using-hybrid-runbook-worker"></a>Automatisera resurser i ditt datacenter eller i molnet med hjälp av Hybrid Runbook Worker
 
@@ -101,7 +101,7 @@ För att Hybrid Runbook Worker att ansluta till och registrera med Azure Monitor
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-Se till att lämpliga resurser är tillgängliga om du använder en proxyserver för kommunikation mellan agenten och Azure Monitor-tjänsten. Om du använder en brandvägg för att begränsa åtkomsten till internet, måste du konfigurera brandväggen att tillåta åtkomst. Om du använder Log Analytics-gateway som en proxy, se till att den är konfigurerad för hybrid Worker-arbeten. Anvisningar för hur du gör detta finns i [konfigurerar Log Analytics-gateway för Automation Hybrid Worker](https://docs.microsoft.com/azure/log-analytics/log-analytics-oms-gateway#configure-for-automation-hybrid-workers).
+Se till att lämpliga resurser är tillgängliga om du använder en proxyserver för kommunikation mellan agenten och Azure Monitor-tjänsten. Om du använder en brandvägg för att begränsa åtkomsten till internet, måste du konfigurera brandväggen att tillåta åtkomst. Om du använder Log Analytics-gateway som en proxy, se till att den är konfigurerad för hybrid Worker-arbeten. Anvisningar för hur du gör detta finns i [konfigurerar Log Analytics-gateway för Automation Hybrid Worker](https://docs.microsoft.com/azure/log-analytics/log-analytics-oms-gateway).
 
 Följande port och URL: er krävs för att Hybrid Runbook Worker-rollen ska kommunicera med Automation:
 

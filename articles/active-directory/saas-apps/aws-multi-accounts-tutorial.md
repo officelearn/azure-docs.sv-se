@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 01/07/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 23ceb9c7b18de5262a38fc724aad9605e82a615a
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 322615203d188581dd04aadeff2a08307b733d06
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56238427"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57450574"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-multiple-amazon-web-services-aws-accounts"></a>Självstudier: Azure Active Directory-integrering med flera konton för Amazon Web Services (AWS)
 
@@ -215,7 +215,7 @@ I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-portalen 
   
     d. Klicka på **Nästa: Behörigheter**.
 
-9. På den **bifoga Säkerhetsbehörighetsprinciper** dialogrutan bifoga lämplig princip enligt din organisation. Klicka på **Nästa: Granskning**.  
+9. I dialogrutan **Attach Permissions Policies** (Koppla behörighetsprinciper) kopplar du lämplig princip enligt din organisation. Klicka på **Nästa: Granskning**.  
 
     ![Konfigurera princip för enkel inloggning][33]
 
@@ -363,7 +363,7 @@ Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../active-direct
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
+* [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->

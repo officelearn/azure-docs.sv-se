@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/07/2019
 ms.author: jdial
 ms.custom: include file
-ms.openlocfilehash: fe1993a914ea4d3bd8ab9116748198cbb0c1c43c
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: d43424e1377f7fa9cb8b272cc4ffbf3e5323f2ba
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55905214"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57457940"
 ---
 <a name="virtual-networking-limits-classic"></a>Följande begränsningar gäller endast för nätverksresurser som hanteras via den klassiska distributionsmodellen per prenumeration. Lär dig hur du [visa din aktuella användning mot din prenumerationsbegränsningar](../articles/networking/check-usage-against-limits.md).
 
@@ -23,7 +23,7 @@ ms.locfileid: "55905214"
 | Lokala nätverksplatser |20 |kontakta supporten |
 | DNS-servrar per virtuellt nätverk |20 |20 |
 | Privata IP-adresser per virtuellt nätverk |4096 |4096 |
-| Samtidiga TCP eller UDP flöden per nätverkskort för en virtuell dator eller rollinstans |500 000 |500 000 |
+| Samtidiga TCP eller UDP flöden per nätverkskort för en virtuell dator eller rollinstans |500K, upp till 1 000 K för två eller flera nätverkskort |500K, upp till 1 000 K för två eller flera nätverkskort |
 | Nätverkssäkerhetsgrupper (NSG) |100 |200 |
 | NSG-regler per NSG |200 |1000 |
 | Användardefinierade vägtabeller |100 |200 |

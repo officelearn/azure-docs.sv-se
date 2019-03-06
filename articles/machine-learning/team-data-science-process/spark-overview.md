@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: b49ec91af0c2b55185d7f750420825bb174c4b6d
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 82c4bca1c72d5440385e3fda6208b1e74a5444a1
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55473742"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57453158"
 ---
 # <a name="overview-of-data-science-using-spark-on-azure-hdinsight"></a>Översikt över datavetenskap med Spark på Azure HDInsight
 
@@ -132,7 +132,7 @@ Vi har tagit en 0,1% urval av de här filerna och anslutna resan\_data och resan
 | dropoff_longitude |Dropoff longitud |
 | dropoff_latitude |Dropoff latitud |
 | direct_distance |Dirigera avståndet mellan plocka upp och dropoff platser |
-| payment_type |Betalningstypen (CA: er, kreditkort osv.) |
+| payment_type |Betalningstypen (pengar, kreditkort osv.) |
 | fare_amount |Avgiften beloppet i |
 | Tilläggsavgift |Tilläggsavgift |
 | mta_tax |MTA skatt |

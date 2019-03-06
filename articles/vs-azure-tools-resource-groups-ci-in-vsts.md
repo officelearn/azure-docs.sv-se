@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/01/2016
 ms.author: mlearned
-ms.openlocfilehash: a3dfca48b52af39e7a536b3012a3f4cdac4e9a94
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: d7859572b090913db13fe9bb7f3ed67619fe5521
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955175"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57456354"
 ---
 # <a name="continuous-integration-in-azure-devops-services-using-azure-resource-group-deployment-projects"></a>Kontinuerlig integrering i Azure DevOps-tjänster med projekt för distribution av Azure-resursgrupp
-För att distribuera en Azure-mall kan du utföra uppgifter i olika faser: Build-, Test, kopiera till Azure (kallas även ”mellanlagring”) och distribuera mallen. Det finns två olika sätt att distribuera mallar till Azure DevOps-tjänsterna. Båda metoderna ger samma resultat, så du väljer det alternativ som bäst passar ditt arbetsflöde.
+För att distribuera en Azure-mall kan utföra du uppgifter i olika faser: Build-, Test, kopiera till Azure (kallas även ”mellanlagring”) och distribuera mallen. Det finns två olika sätt att distribuera mallar till Azure DevOps-tjänsterna. Båda metoderna ger samma resultat, så du väljer det alternativ som bäst passar ditt arbetsflöde.
 
 1. Lägga till ett enda steg till din build-pipeline som kör PowerShell-skript som ingår i distributionsprojektet för Azure-resursgrupp (distribuera AzureResourceGroup.ps1). Skriptet kopierar artefakter och distribuerar sedan mallen.
 2. Lägg till flera Azure DevOps-tjänsterna skapa steg, vart och ett utför en aktivitet för steg.
@@ -76,9 +76,9 @@ Följande procedurer för att gå igenom stegen för att konfigurera kontinuerli
       ![Alternativet för tjänstens huvudnamn][5]
    5. Lägg till din Azure-prenumerationsinformation till den **Lägg till Azure-prenumeration** dialogrutan. Du måste ange följande:
       
-      * Prenumerations-ID
+      * Prenumeration-ID
       * Prenumerationsnamn
-      * Id för tjänstens huvudnamn
+      * ID för tjänstens huvudnamn
       * Nyckel för tjänstens huvudnamn
       * Klient-ID
    6. Lägga till ett namn för att den **prenumeration** namnrutan. Det här värdet senare visas i den **Azure-prenumeration** listrutan i Azure DevOps-tjänsterna. 
@@ -136,7 +136,7 @@ Följande procedurer för att gå igenom stegen för att konfigurera kontinuerli
 
 1. Redigera din Azure DevOps-tjänsterna build-pipeline för att lägga till två nya skapa steg. Välj build-pipeline under den **Byggesdefinitioner** kategori och välj sedan den **redigera** länk.
    
-   ![Redigera build-definitionslänken][12]
+   ![Redigera byggesdefinition][12]
 2. Lägg till ny byggsteg i build pipeline med hjälp av den **Lägg till byggsteg...** till.
    
    ![Lägg till byggsteg][13]

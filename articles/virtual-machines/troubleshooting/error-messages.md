@@ -12,12 +12,12 @@ ms.topic: troubleshooting
 ms.workload: infrastructure
 ms.date: 5/22/2017
 ms.author: xujing
-ms.openlocfilehash: 80b99880362c3979ae5ead6d1cdff4091d23d065
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 5945be210812a6cbc24c9a3bb12414be5212be17
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54118983"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57437606"
 ---
 # <a name="understand-common-error-messages-when-you-manage-virtual-machines-in-azure"></a>Förstå vanliga felmeddelanden när du hanterar virtuella datorer i Azure
 
@@ -175,9 +175,9 @@ Det här avsnittet innehåller vanliga felmeddelanden som kan uppstå när du ha
 |  OSProvisioningClientError  |  Det gick inte att skapa SSH-värd-nyckel. Felinformation: {0}. För att lösa det här problemet kontrollerar du om Linux-agenten är korrekt konfigurerad. <ul><li>Du kan läsa anvisningarna på: https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux/ </li></ul> |
 |  OSProvisioningClientError  |  Användarnamnet som angetts för den virtuella datorn är ogiltigt för den här Linux-distribution. Felinformation: {0}.  |
 |  OSProvisioningInternalError  |  Operativsystemsetableringen misslyckades för den virtuella datorn '{0}' på grund av ett internt fel.  |
-|  Osprovisioningtimedout har uppstått  |  För den virtuella datorn '{0}' slutfördes inte inom avsedd tid. Den virtuella datorn kan fortfarande slutföras. Kontrollera installationstillståndet senare.  |
-|  Osprovisioningtimedout har uppstått  |  För den virtuella datorn '{0}' slutfördes inte inom avsedd tid. Den virtuella datorn kan fortfarande slutföras. Kontrollera installationstillståndet senare. Kontrollera också att avbildningen har förberetts ordentligt (generaliserats).   <ul><li>Instruktioner för Windows: https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/ </li><li> Anvisningar för Linux: https://azure.microsoft.com/documentation/articles/virtual-machines-linux-capture-image/</li></ul>  |
-|  Osprovisioningtimedout har uppstått  |  För den virtuella datorn '{0}' slutfördes inte inom avsedd tid. Men upptäcktes virtuella datorns gästagent, som körs. Det tyder på gästoperativsystemet inte har korrekt förberedd som ska användas som en VM-avbildning (med CreateOption = FromImage). För att lösa problemet, använda den virtuella Hårddisken skick med CreateOption = Attach eller förbereda den korrekt för användning som en bild:   <ul><li>Instruktioner för Windows: https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/ </li><li> Anvisningar för Linux: https://azure.microsoft.com/documentation/articles/virtual-machines-linux-capture-image/</li></ul>  |
+|  OSProvisioningTimedOut  |  För den virtuella datorn '{0}' slutfördes inte inom avsedd tid. Den virtuella datorn kan fortfarande slutföras. Kontrollera installationstillståndet senare.  |
+|  OSProvisioningTimedOut  |  För den virtuella datorn '{0}' slutfördes inte inom avsedd tid. Den virtuella datorn kan fortfarande slutföras. Kontrollera installationstillståndet senare. Kontrollera också att avbildningen har förberetts ordentligt (generaliserats).   <ul><li>Instruktioner för Windows: https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/ </li><li> Anvisningar för Linux: https://azure.microsoft.com/documentation/articles/virtual-machines-linux-capture-image/</li></ul>  |
+|  OSProvisioningTimedOut  |  För den virtuella datorn '{0}' slutfördes inte inom avsedd tid. Men upptäcktes virtuella datorns gästagent, som körs. Det tyder på gästoperativsystemet inte har korrekt förberedd som ska användas som en VM-avbildning (med CreateOption = FromImage). För att lösa problemet, använda den virtuella Hårddisken skick med CreateOption = Attach eller förbereda den korrekt för användning som en bild:   <ul><li>Instruktioner för Windows: https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/ </li><li> Anvisningar för Linux: https://azure.microsoft.com/documentation/articles/virtual-machines-linux-capture-image/</li></ul>  |
 |  OverConstrainedAllocationRequest  |  Den efterfrågade Virtuella datorstorleken är inte tillgänglig för tillfället på den valda platsen.  |
 |  ResourceUpdateBlockedOnPlatformUpdate  |  Resursen kan inte uppdateras på grund av en pågående plattformsuppdatering. Försök igen senare.  |
 |  StorageAccountLimitation  |  Storage-konto '{0}' stöder inte sidblobbar som krävs för att skapa diskar.  |

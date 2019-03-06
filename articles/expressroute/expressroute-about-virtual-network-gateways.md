@@ -5,18 +5,20 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 11/13/2018
+ms.date: 02/20/2019
 ms.author: mialdrid
 ms.custom: seodec18
-ms.openlocfilehash: dcae78e507597ae2b7f79cc1d6cbb326ee535696
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: d9c607114d6c6c56c25303a88dcc11f4ab804eb4
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53076601"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57404356"
 ---
 # <a name="about-virtual-network-gateways-for-expressroute"></a>Om virtuella nätverksgatewayer för ExpressRoute
 En virtuell nätverksgateway används för att skicka nätverkstrafik mellan Azure-nätverk och lokala platser. Du kan använda en virtuell nätverksgateway för ExpressRoute-trafik eller VPN-trafik. Den här artikeln fokuserar på virtuella nätverksgatewayer för ExpressRoute och innehåller information om SKU: er, uppskattade prestanda av SKU och gateway-typer.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="gateway-types"></a>Gateway-typer
 
@@ -31,7 +33,7 @@ Varje virtuellt nätverk kan bara ha en VNet-gateway per gateway-typ. Du kan exe
 ## <a name="gwsku"></a>Gateway-SKU:er
 [!INCLUDE [expressroute-gwsku-include](../../includes/expressroute-gwsku-include.md)]
 
-Om du vill uppgradera din gateway till en kraftfullare gateway-SKU, kan du använda storleksändring-AzureRmVirtualNetworkGateway PowerShell-cmdleten i de flesta fall. Detta fungerar för uppgradering till Standard och HighPerformance SKU: er. För att uppgradera till UltraPerformance SKU, kommer du dock behöva återskapa gatewayen. Återskapa en gateway medför driftavbrott.
+Om du vill uppgradera din gateway till en kraftfullare gateway-SKU, kan du använda 'Storleksändring AzVirtualNetworkGateway' PowerShell-cmdleten i de flesta fall. Detta fungerar för uppgradering till Standard och HighPerformance SKU: er. För att uppgradera till UltraPerformance SKU, kommer du dock behöva återskapa gatewayen. Återskapa en gateway medför driftavbrott.
 
 ### <a name="aggthroughput"></a>Uppskattade prestanda efter gateway-SKU
 I följande tabell visar gateway-typerna och uppskattade prestanda. Tabellen gäller både för Resource Manager- och den klassiska distributionsmodellen.
@@ -62,7 +64,7 @@ Ytterligare tekniska resurser och specifik syntax krav när du använder REST AP
 
 | **Klassisk** | **Resource Manager** |
 | --- | --- |
-| [PowerShell](https://docs.microsoft.com/powershell/module/servicemanagement/azure/?view=azuresmps-4.0.0#azure) |[PowerShell](https://docs.microsoft.com/powershell/module/azurerm.network#networking) |
+| [PowerShell](https://docs.microsoft.com/powershell/module/servicemanagement/azure/?view=azuresmps-4.0.0#azure) |[PowerShell](https://docs.microsoft.com/powershell/module/az.network#networking) |
 | [REST-API](https://msdn.microsoft.com/library/jj154113.aspx) |[REST-API](https://msdn.microsoft.com/library/mt163859.aspx) |
 
 ## <a name="next-steps"></a>Nästa steg

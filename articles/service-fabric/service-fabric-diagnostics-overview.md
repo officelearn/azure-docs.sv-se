@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/17/2019
 ms.author: srrengar
-ms.openlocfilehash: bb4ffe959fd3b973f55b08908ea603839222365d
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 71bff5473abe9f53804d702625b871f41309a787
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57243270"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57441839"
 ---
 # <a name="monitoring-and-diagnostics-for-azure-service-fabric"></a>Övervakning och diagnostik för Azure Service Fabric
 
@@ -73,7 +73,7 @@ Nu när vi har gått igenom diagnostik i ditt program och -plattformen, hur vi v
 
 En lista över prestandaräknare som ska samlas in på infrastrukturnivå finns på [prestandamått](service-fabric-diagnostics-event-generation-perf.md). 
 
-Service Fabric alsp innehåller en uppsättning av prestandaräknare för Reliable Services och aktörer programmeringsmodeller. Om du använder något av dessa modeller, kan de här prestandaräknarna information för att säkerställa att din aktörer skapa uppåt och nedåt korrekt eller att tillförlitlig tjänst-begäranden hanteras tillräckligt snabbt. Mer information finns i [övervakning för fjärrstyrd tillförlitlig tjänst](service-fabric-reliable-serviceremoting-diagnostics.md#performance-counters) och [prestandaövervakning för Reliable Actors](service-fabric-reliable-actors-diagnostics.md#performance-counters). 
+Service Fabric tillhandahåller också en uppsättning prestandaräknare för Reliable Services och aktörer programmeringsmodeller. Om du använder något av dessa modeller, kan de här prestandaräknarna information för att säkerställa att din aktörer skapa uppåt och nedåt korrekt eller att tillförlitlig tjänst-begäranden hanteras tillräckligt snabbt. Mer information finns i [övervakning för fjärrstyrd tillförlitlig tjänst](service-fabric-reliable-serviceremoting-diagnostics.md#performance-counters) och [prestandaövervakning för Reliable Actors](service-fabric-reliable-actors-diagnostics.md#performance-counters). 
 
 Azure Monitor-lösningen att samla in dessa är Azure Monitor-loggar precis som på övervakning av plattformen. Du bör använda den [Log Analytics-agenten](service-fabric-diagnostics-oms-agent.md) att samla in lämpliga prestandaräknarna och visa dem i Azure Monitor-loggar.
 

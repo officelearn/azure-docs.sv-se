@@ -9,12 +9,12 @@ author: brjohnstmsft
 ms.author: brjohnst
 manager: jlembicz
 ms.custom: seodec2018
-ms.openlocfilehash: 84147b250ea17df9af67cc8a9025cdf6ec59a705
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 326a449d3992d22a4be2d365061c99ef8b13aef9
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53314235"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57453498"
 ---
 # <a name="security-filters-for-trimming-results-in-azure-search"></a>Säkerhetsfilter för trimning resultat i Azure Search
 
@@ -152,7 +152,7 @@ Du bör få dokumenten tillbaka där `group_ids` innehåller ”group_id1” ell
 ```
 ## <a name="conclusion"></a>Sammanfattning
 
-Detta är hur du kan filtrera resultatet baserat på användarens identitet och Azure Search `search.in()` funktion. Du kan använda den här funktionen för att skicka in huvudnamn identifierare för användaren att matcha mot huvudnamn identifierare som är associerade med varje måldokument som. När en sökbegäran hanteras den `search.in` funktion som filtrerar ut sökresultat som ingen av användarens huvudnamn har läsbehörighet. Huvudkonto-ID: n kan representera exempelvis säkerhetsgrupper, roller eller även användarens identitet.
+Detta är hur du kan filtrera resultatet baserat på användarens identitet och Azure Search `search.in()` funktion. Du kan använda den här funktionen för att skicka in princip-ID: n för den begärande användaren att matcha mot huvudnamn identifierare som är associerade med varje måldokument som. När en sökbegäran hanteras den `search.in` funktion som filtrerar ut sökresultat som ingen av användarens huvudnamn har läsbehörighet. Huvudkonto-ID: n kan representera exempelvis säkerhetsgrupper, roller eller även användarens identitet.
  
 ## <a name="see-also"></a>Se också
 

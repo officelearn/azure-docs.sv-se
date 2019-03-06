@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: sashan,moslake,josack
 manager: craigg
 ms.date: 03/01/2019
-ms.openlocfilehash: 00b20b3f144a2e98fb028e3db7c50af61330d721
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 801b7de4b82c37503f2a14619112cbf46ca60a43
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57316463"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57447089"
 ---
 # <a name="sql-database-resource-limits-for-azure-sql-database-server"></a>SQL Database-resursgränser för Azure SQL Database-server
 
@@ -96,6 +96,11 @@ Log rate resursstyrning-Trafikstyrning är visas via följande typer av vänta (
 | HADR_THROTTLE_LOG_RATE_SEND_RECV_QUEUE_SIZE | Feedback-kontroll, tillgänglighet grupp fysiska replikering i Premium/affärskritisk inte hänger |  
 | HADR_THROTTLE_LOG_RATE_LOG_SIZE | Feedback-kontroll, begränsa priserna för att undvika en out of utrymme loggvillkor |
 ||||
+
+När den påträffar en hastighetsbegränsning för log som hindrar den önskade skalbarhet, Överväg följande alternativ:
+- Skala upp till en större nivå för att få högsta 48 MB/s log överföringshastighet. 
+- Om data som läses in är tillfälligt, kan organiserar data i ett ETL-processen dvs., den läsas in i tempdb (som loggas minimalt). 
+- Läs in i en klustrad columnstore som omfattas-tabell för analytiska scenarier. Detta minskar den nödvändiga log hastigheten på grund av komprimering. Den här tekniken ökar CPU-användning och gäller endast för datauppsättningar som används för att dra nytta av grupperade columnstore-index. 
 
 ## <a name="next-steps"></a>Nästa steg
 

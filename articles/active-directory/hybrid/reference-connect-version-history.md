@@ -16,12 +16,12 @@ ms.date: 12/18/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ca5dc106d3a524f9bdd6f2d989ef1189032cd60f
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: fd90cd18be1fdbac5948fb076a3358b070bad8eb
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57195531"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57455080"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Versionshistorik
 Azure Active Directory (Azure AD)-teamet uppdaterar regelbundet Azure AD Connect med nya funktioner. Inte alla tillägg gäller för alla målgrupper.
@@ -154,7 +154,7 @@ Azure AD Connect uppgradera misslyckas om SQL alltid på tillgänglighet har kon
 - Åtgärdat problem med flera för Regelredigeraren synkronisering och synkronisering av Service Manager  
 - Ett fel har åtgärdats där Azure AD Connect inte kan få inställningsinformation för registret
 - En bugg som skapade problem när användaren går framåt/tillbaka i guiden
-- Ett fel för att förhindra att ett fel som sker på grund av felaktig multi tråd vid i guiden har åtgärdats
+- Ett fel för att förhindra att ett fel som sker på grund av felaktig flera tråd vid i guiden har åtgärdats
 - När gruppen Synkroniseringsfiltrering sidan påträffar ett LDAP-fel när löses säkerhetsgrupper, returnerar undantag med fullständig exakthet nu i Azure AD Connect.  Den grundläggande orsaken för hänvisning undantaget är fortfarande okänd och kommer att åtgärdas av ett annat fel.
 -  Ett fel har åtgärdats där behörigheter för STK och NGC nycklar (ms-DS-KeyCredentialLink attribut för användare/enhet objekt för WHfB) har inte ställts in korrekt.     
 - Ett fel har åtgärdats där ”Set-ADSyncRestrictedPermissions' anropades inte korrekt
@@ -833,7 +833,7 @@ Utgiven: Mars 2017
 Azure AD Connect-synkronisering
 * Ett problem som gör att Azure AD Connect-guiden att misslyckas om visningsnamnet för Azure AD Connector inte innehåller den första onmicrosoft.com-domän som är tilldelade till Azure AD-klient har åtgärdats.
 * Ett problem som gör att Azure AD Connect-guiden att misslyckas när du gjorde anslutning till SQL database när lösenordet för synkroniseringstjänstkontot innehåller specialtecken, till exempel apostrof, kolon och utrymme har åtgärdats.
-* Ett problem som orsakar felet ”dimage har en fästpunkt som skiljer sig från bilden” har åtgärdats så att det sker en Azure AD Connect-server i mellanlagringsläge när du har tillfälligt exkluderat en lokal AD objektet från att synkronisera och sedan ingår det igen för att synkronisera.
+* Ett problem som orsakar felet ”avbildningen har en fästpunkt som skiljer sig från bilden” har åtgärdats så att det sker en Azure AD Connect-server i mellanlagringsläge när du har tillfälligt exkluderat en lokal AD objektet från att synkronisera och sedan ingår det igen för att synkronisera.
 * Ett problem som orsakar felet ”det objekt som hittas av DN är en fiktiv” har åtgärdats så att det sker en Azure AD Connect-server i mellanlagringsläge när du har tillfälligt exkluderat en lokal AD objektet från att synkronisera och sedan ingår det igen för att synkronisera.
 
 AD FS-hantering

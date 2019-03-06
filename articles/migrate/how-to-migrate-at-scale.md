@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 02/07/2019
 ms.author: snehaa
-ms.openlocfilehash: c0fc4fa0bdd58b8ecdf4f26051d60324118c4b21
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 74dabc49dd3d0e38f43dc758204c35ea1c0efd99
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55896721"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57438490"
 ---
 # <a name="scale-migration-of-vms-using-azure-site-recovery"></a>Skala migrering av virtuella datorer med Azure Site Recovery
 
@@ -31,7 +31,7 @@ Innan du börjar måste du göra följande:
 - Se till att konfigurationsservern och Processervern är installerade i källmiljön och valvet är inte identifiera miljön
 - Se till att en replikeringsprincip har skapats och associerats med konfigurationsservern
 - Se till att du har lagt till VM-administratörskonto till den config-server (som används för att replikera lokala virtuella datorer)
-- Se till att target av i Azure skapas
+- Kontrollera att mål-artefakter i Azure skapas
     - Målresursgrupp
     - Rikta Storage-konto (och dess resursgrupp)
     - Rikta virtuellt nätverk för redundans (och dess resursgrupp)
@@ -59,7 +59,7 @@ När CSV-filen är klar kan köra du följande steg för att utföra migreringen
 4 | asr_propertiescheck.ps1 | Kontrollera om uppdatera egenskaperna på rätt sätt
 5 | asr_testmigration.ps1 |  Starta redundanstestningen för de virtuella datorerna i CSV-filen, skriptet skapar en CSV-utdata med Jobbinformationen för varje virtuell dator
 6 | asr_cleanuptestmigration.ps1 | När du manuellt verifiera de virtuella datorerna som testa över kan du använda det här skriptet för att rensa redundanstestningen virtuella datorer
-7 | asr_migration.ps1 | Utför en oplanerad redundansväxling för de virtuella datorerna i CSV-filen, skriptet skapar en CSV-utdata med Jobbinformationen för varje virtuell dator. Skriptet har inte stänga av de lokala virtuella datorerna innan du utlöser redundansväxlingen för programkonsekvens, rekommenderar vi att du manuellt stänga av de virtuella datorerna innan du kör skriptet.
+7 | asr_migration.ps1 | Utför en oplanerad redundansväxling för de virtuella datorerna i CSV-filen, skriptet skapar en CSV-utdata med Jobbinformationen för varje virtuell dator. Skriptet har inte stänga av lokalt virtuella datorer innan du utlöser redundansväxlingen för programkonsekvens, rekommenderar vi att du manuellt stänga av de virtuella datorerna innan du kör skriptet.
 8 | asr_completemigration.ps1 | Utföra commit-åtgärden på de virtuella datorerna och ta bort ASR-entiteter
 9 | asr_postmigration.ps1 | Du kan använda det här skriptet för att göra det om du tänker tilldela nätverkssäkerhetsgrupper till nätverkskort efter en redundansväxling. Det tilldelar en NSG till alla ett nätverkskort på den Virtuella måldatorn.
 

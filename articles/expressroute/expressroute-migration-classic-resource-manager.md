@@ -8,18 +8,21 @@ ms.topic: conceptual
 ms.date: 01/17/2019
 ms.author: ganesr;cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 7b95c8b230714e1ba9306620e58628104cd676c9
-ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
+ms.openlocfilehash: 5fab6c6d6af7b0f7c61fcff269a214aff96c7a1e
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54401649"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57407331"
 ---
 # <a name="migrate-expressroute-associated-virtual-networks-from-classic-to-resource-manager"></a>Migrera ExpressRoute-associerade virtuella nätverk från klassisk till Resource Manager
 
 Den här artikeln förklarar hur du migrerar ExpressRoute-associerade virtuella nätverk från den klassiska distributionsmodellen Azure Resource Manager-distributionsmodellen när du har flyttat din ExpressRoute-krets. 
 
 ## <a name="before-you-begin"></a>Innan du börjar
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 * Kontrollera att du har den senaste versionen av Azure PowerShell-moduler. Mer information finns i [Installera och konfigurera Azure PowerShell](/powershell/azure/overview).
 * Se till att du har granskat den [krav](expressroute-prerequisites.md), [routningskrav](expressroute-routing.md), och [arbetsflöden](expressroute-workflows.md) innan du påbörjar konfigurationen.
 * Granska informationen som tillhandahålls under [flytta en ExpressRoute-krets från klassisk till Resource Manager](expressroute-move.md). Se till att du förstår gränser och begränsningar.
@@ -61,9 +64,9 @@ Det här avsnittet beskriver de steg som ska följas för att migrera ett virtue
 3. Registrera din prenumeration för resursmigrering. Om du vill registrera din prenumeration för resursmigrering, använder du följande PowerShell-kodavsnitt:
 
   ```powershell 
-  Select-AzureRmSubscription -SubscriptionName <Your Subscription Name>
-  Register-AzureRmResourceProvider -ProviderNamespace Microsoft.ClassicInfrastructureMigrate
-  Get-AzureRmResourceProvider -ProviderNamespace Microsoft.ClassicInfrastructureMigrate
+  Select-AzSubscription -SubscriptionName <Your Subscription Name>
+  Register-AzResourceProvider -ProviderNamespace Microsoft.ClassicInfrastructureMigrate
+  Get-AzResourceProvider -ProviderNamespace Microsoft.ClassicInfrastructureMigrate
   ```
 4. Validera, förbereda och migrera. Om du vill flytta det virtuella nätverket, använder du följande PowerShell-kodavsnitt:
 

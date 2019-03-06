@@ -10,12 +10,12 @@ ms.subservice: bing-local-business
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: 1a55a4e3f25bc5afef30e325ccdd38615ba7cc2b
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: de9c79d09c400aa95775b332580c3658c349ede7
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55820750"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57449095"
 ---
 # <a name="bing-local-business-search-api-v7-reference"></a>Lokala företag i Bing v7-referens
 
@@ -73,7 +73,7 @@ Begäran kan innehålla följande Frågeparametrar. Se kolumnen krävs för obli
   
 |Namn|Värde|Type|Krävs|  
 |----------|-----------|----------|--------------|
-|<a name="count" />Antal|Antalet resuts ska returneras från och med indexet anges av den `offset` parametern.|String|Nej|   
+|<a name="count" />Antal|Antalet resultat som ska returneras från och med indexet anges av den `offset` parametern.|String|Nej|   
 |<a name="localCategories" />localCategories|Lista med alternativ som definierar sökning efter kategori för företag.  Se [lokala företag kategorier Sök](local-categories.md)|String|Nej|  
 |<a name="mkt" />mkt|Marknaden som resultatet kommer från. <br /><br />En lista över möjliga marknaden värden finns i marknaden koder.<br /><br /> **Obs!** Lokala företag Search API: et stöder för närvarande endast en-us-marknaden och språk.<br /><br />|String|Ja|
 |<a name="offset"/>offset|Indexet startar resultat som anges av den `count` parametern.|Integer|Nej|  
@@ -154,7 +154,7 @@ Definierar information om en lokal företag, till exempel en restaurang eller ho
 |Namn|Värde|Type|  
 |----------|-----------|----------|  
 |_typ|Typ-tips som kan anges till något av följande:<br /><br /><ul><li>Hotell</li><li>LocalBusiness<br /></li><li>Restaurang</ul><li>|String|  
-|Adress|Postadress av där enheten är belägen.|PostalAddress|  
+|adress|Postadress av där enheten är belägen.|PostalAddress|  
 |entityPresentationInfo|Ytterligare information om entiteten, till exempel tips som du kan använda för att fastställa typen av entitetens. Till exempel om det är en restaurang eller hotell. Den `entityScenario` anges till ListItem.|EntityPresentationInfo|  
 |namn|Entitetsnamn.|String|  
 |Telefon|Enhetens telefonnummer.|String|  

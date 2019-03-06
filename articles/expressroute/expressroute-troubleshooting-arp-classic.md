@@ -1,5 +1,5 @@
 ---
-title: 'Hämta ARP-tabeller - felsökning ExpressRoute: klassiska: Azure | Microsoft Docs'
+title: 'Hämta ARP-tabeller - felsökning ExpressRoute: klassiska: Azure| Microsoft Docs'
 description: Den här sidan innehåller anvisningar för att hämta ARP-tabeller för en ExpressRoute-krets - klassiska distributionsmodellen.
 services: expressroute
 author: ganesr
@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/30/2017
 ms.author: ganesr
 ms.custom: seodec18
-ms.openlocfilehash: 367a79b04a8736e2eafb6851b682f2c244e80522
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 3e49a1da0e8ea83faf5fc5a10d4c01a41d62fa88
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53272294"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57439646"
 ---
 # <a name="getting-arp-tables-in-the-classic-deployment-model"></a>Hämta ARP-tabeller i den klassiska distributionsmodellen
 > [!div class="op_single_selector"]
@@ -54,7 +54,7 @@ Följande avsnitt innehåller information om hur du visar ARP-tabeller som visas
 Kontrollera att du har följande innan du fortsätter:
 
 * En giltig ExpressRoute-krets som har konfigurerats med minst en peering. Kretsen måste vara konfigurerade av anslutningsprovidern. Du (eller din anslutningsleverantör) måste konfigurera minst en av peerings (Azure privat, Azure offentlig eller Microsoft) på den här kretsen.
-* IP-adressintervall som används för att konfigurera peerings (Azure privat, Azure offentlig och Microsoft). Granska IP-adress tilldelning av exemplen i den [ExpressRoute routning kravsidan](expressroute-routing.md) att få en förståelse för hur IP-adresser mappas till gränssnitt på din aise och på ExpressRoute-sida. Du kan få information om peering-konfigurationen genom att granska den [konfigurationssidan i ExpressRoute-peering](expressroute-howto-routing-classic.md).
+* IP-adressintervall som används för att konfigurera peerings (Azure privat, Azure offentlig och Microsoft). Granska IP-adress tilldelning av exemplen i den [ExpressRoute routning kravsidan](expressroute-routing.md) att få en förståelse för hur IP-adresser mappas till gränssnitt på din sida och på ExpressRoute-sida. Du kan få information om peering-konfigurationen genom att granska den [konfigurationssidan i ExpressRoute-peering](expressroute-howto-routing-classic.md).
 * Information från ditt nätverk team eller anslutningen providern om MAC-adresser för de gränssnitt som används med IP-adresserna.
 * Den senaste Windows PowerShell-modulen för Azure (version 1,50 eller senare).
 

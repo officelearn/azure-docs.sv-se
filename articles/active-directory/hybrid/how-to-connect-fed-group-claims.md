@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 02/27/2019
 ms.author: billmath
 author: billmath
-ms.openlocfilehash: 8e4f9e76baf07e6ea2cb4cccb63ed0a9add5d767
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: 12ccb4978a8cfbaa7dede8d0093c78da05295fec
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57012051"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57410017"
 ---
 # <a name="configure-group-claims-for-applications-with-azure-active-directory-public-preview"></a>Konfigurera gruppanspråk för program med Azure Active Directory (förhandsversion)
 
@@ -26,8 +26,8 @@ Azure Active Directory kan ge en användarinformation om gruppmedlemskap i token
 - Grupper som identifieras av sina Azure Active Directory-objektidentifierare (OID) (allmänt tillgänglig)
 - Grupper som identifieras av SAMAccountName eller GroupSID för Active Directory (AD) synkroniseras grupper och användare (offentlig förhandsversion)
 
->[!Note]
->Stöd för användning av namn och en lokal säkerhetsidentifierare (SID) är satt så att flytta befintliga program från AD FS.    Grupper som hanteras i Azure AD innehåller inte attribut som krävs för att generera dessa anspråk.
+> [!Note]
+> Stöd för användning av namn och en lokal säkerhetsidentifierare (SID) är satt så att flytta befintliga program från AD FS.    Grupper som hanteras i Azure AD innehåller inte attribut som krävs för att generera dessa anspråk.
 
 ## <a name="group-claims-for-applications-migrating-from-ad-fs-and-other-idps"></a>Gruppanspråk för program som migrerar från AD FS och andra IDP: er
 
@@ -42,8 +42,8 @@ Format som stöds för gruppanspråk är:
 - **NetbiosDomain\samAccountName** (tillgänglig för grupper som synkroniseras från Active Directory)
 - **DNSDomainName\samAccountName** (tillgänglig för grupper som synkroniseras från Active Directory)
 
->[!NOTE]
->SAMAccountName och OnPremisesGroupSID attribut är bara tillgängliga på grupp-objekt som synkroniseras från Active Directory.   De är inte tillgängliga på grupper som skapats i Azure Active Directory eller Office 365.   Program som är beroende av den lokala Gruppattribut hämta dem för synkroniserade grupper.
+> [!NOTE]
+> SAMAccountName och OnPremisesGroupSID attribut är bara tillgängliga på grupp-objekt som synkroniseras från Active Directory.   De är inte tillgängliga på grupper som skapats i Azure Active Directory eller Office 365.   Program som är beroende av den lokala Gruppattribut hämta dem för synkroniserade grupper.
 
 ## <a name="options-for-applications-to-consume-group-information"></a>Alternativ för program kan använda gruppinformation
 
@@ -57,7 +57,7 @@ Men om ett befintligt program redan förväntar sig att använda gruppinformatio
 - Om programmet är konfigurerat för att hämta attributen som synkroniseras från Active Directory och en grupp innehåller inte de attribut som inte tas med i anspråken.
 - Gruppanspråk i token innehålla kapslade grupper.   Om en användare är medlem i GroupB och GroupB är medlem i GroupA, innehåller gruppanspråk för användaren både GroupA och GroupB. Antalet grupper som visas i token kan växa token storleken för organisationer med stor förbrukning av kapslade grupper och användare med stort antal gruppmedlemskap.   Azure Active Directory begränsar antalet grupper som den genererar i en SAML intyg 150 och 200 för JWT-token.
 
->Krav för att använda Gruppattribut som synkroniseras från Active Directory:   Grupperna som måste synkroniseras från Active Directory med Azure AD Connect.
+> Krav för att använda Gruppattribut som synkroniseras från Active Directory:   Grupperna som måste synkroniseras från Active Directory med Azure AD Connect.
 
 Det finns två steg för att konfigurera Azure Active Directory för att generera gruppnamn för Active Directory-grupper.
 
@@ -100,21 +100,21 @@ För att skapa grupper med hjälp av Active Directory attribut i stället för A
 
 ![anspråk UI](media/how-to-connect-fed-group-claims/group-claims-ui-5.png)
 
-Vissa program kräver information ska visas i rollanspråk gruppmedlemskap. Du kan eventuellt sända de användargrupper som roller genom att markera kryssrutan ”Skapa grupper som en roll anspråk”.  
+Vissa program kräver information ska visas i rollanspråk gruppmedlemskap. Du kan eventuellt sända de användargrupper som roller genom att markera kryssrutan ”Skapa grupper som en roll anspråk”.
 
 ![anspråk UI](media/how-to-connect-fed-group-claims/group-claims-ui-6.png)
 
->[!NOTE]
->Om alternativet för att generera Gruppdata som roller används, visas endast grupper i rollen anspråket.  Alla roller för programmet som användaren har tilldelats visas inte i rollen anspråket.
+> [!NOTE]
+> Om alternativet för att generera Gruppdata som roller används, visas endast grupper i rollen anspråket.  Alla roller för programmet som användaren har tilldelats visas inte i rollen anspråket.
 
-## <a name="configure-the-azure-ad-application-registration-for-group-attributes"></a>Konfigurera Azure AD-programregistrering för Gruppattribut  
+## <a name="configure-the-azure-ad-application-registration-for-group-attributes"></a>Konfigurera Azure AD-programregistrering för Gruppattribut
 
 Gruppanspråk kan också konfigureras i den [valfria anspråk](../../active-directory/develop/active-directory-optional-claims.md) delen av den [applikationsmanifestet](../../active-directory/develop/reference-app-manifest.md).
 
  1. I portalen Azure Active Directory -> program -> registreringar -> Välj program -> Manifest
 
  2. Aktivera medlemskap gruppanspråk genom att ändra groupMembershipClaim
- 
+
     Giltiga värden är:
 
     - ”Alla”
@@ -124,10 +124,10 @@ Gruppanspråk kan också konfigureras i den [valfria anspråk](../../active-dire
 
     Exempel:
 
-    ```
+    ```json
     "groupMembershipClaims": "SecurityGroup"
     ```
- 
+
     Som standard grupp ObjectIDs ska genereras i gruppen anspråksvärde.  Om du vill ändra anspråkets värde ska innehålla på attributen för plats eller ändra Anspråkstypen roll, använder du OptionalClaims konfigurationen på följande sätt:
 
  3. Ange grupp configuration valfria anspråk.
@@ -138,12 +138,12 @@ Gruppanspråk kan också konfigureras i den [valfria anspråk](../../active-dire
     - accessToken för den OAuth/OIDC åtkomst-token
     - Saml2Token för SAML-token.
 
-    >[!NOTE]
-    >Typen Saml2Token gäller både SAML1.1 och SAML2.0 format-token  
+    > [!NOTE]
+    > Typen Saml2Token gäller både SAML1.1 och SAML2.0 format-token
 
-    För varje relevant token typ måste du ändra de anspråk som grupperna som ska använda avsnittet OptionalClaims i manifestet. OptionalClaims schemat är följande:
+    För varje relevant tokentypen ändra grupper anspråk att använda OptionalClaims-avsnitt i manifestet. OptionalClaims schemat är följande:
 
- ```
+ ```json
  {
     "name": "groups",
     "source": null,
@@ -163,14 +163,14 @@ Gruppanspråk kan också konfigureras i den [valfria anspråk](../../active-dire
 
  Vissa program kräver gruppinformation om användaren i rollen anspråket.  Om du vill ändra typ av anspråk till anspråk till en rollanspråk från en grupp att lägga till ”emit_as_roles” till ytterligare egenskaper.  Gruppvärden ska genereras i rollen anspråket.
 
- >[!NOTE]
- >Om du använder ”emit_as_roles” alla roller för program som konfigurerats att användaren har tilldelats kommer visas inte i rollanspråk
+ > [!NOTE]
+ > Om du använder ”emit_as_roles” alla roller för program som konfigurerats att användaren har tilldelats kommer visas inte i rollanspråk
 
 ### <a name="examples"></a>Exempel
 
 Skapa grupper som gruppen i OAuth-åtkomsttoken i dnsDomainName\SAMAccountName format
 
-```
+```json
 "optionalClaims": {
     "accessToken": [{
         "name": "groups",
@@ -181,7 +181,7 @@ Skapa grupper som gruppen i OAuth-åtkomsttoken i dnsDomainName\SAMAccountName f
 
 Att skapa gruppnamn som ska returneras i netbiosDomain\samAccountName format som rollerna anspråk i SAML- och OIDC ID-token:
 
-```
+```json
 "optionalClaims": {
     "saml2Token": [{
         "name": "groups",

@@ -6,14 +6,14 @@ ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 12/07/2018
+ms.date: 03/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: c07fbccdcf77e68f497fe940fa730f294b5c34a1
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 67f1488af330ac666aa3f9fe83e5b5ee42e6df2f
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56727871"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57410051"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms"></a>Azure Disk Encryption för virtuella IaaS-datorer
 
@@ -72,7 +72,7 @@ Lösningen stöder följande scenarier för virtuella IaaS-datorer när de är a
    > [!NOTE]
    > OS-kryptering för vissa Linux-distributioner stöds inte. Mer information finns i den [Azure Disk Encryption vanliga frågor och svar](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport) artikeln.
    
-* Aktivera kryptering på Windows virtuella datorer som är konfigurerade med Windows-lagringsutrymmen.
+* Aktivera kryptering på virtuella datorer som är konfigurerade med Windows-lagringsutrymmen från och med Windows Server 2016.
 * Uppdatera krypteringsinställningar för en befintlig krypterade Premium- och icke - Premium Storage VM.
 * Säkerhetskopiera och återställa krypterade virtuella datorer för både nyckelkrypteringsnyckel (KEK) och icke-KEK-scenarier.
 * Alla offentliga Azure och Azure Government-regioner stöds.

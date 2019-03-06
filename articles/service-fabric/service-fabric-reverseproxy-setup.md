@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 11/13/2018
 ms.author: v-jamebr
-ms.openlocfilehash: 52d6781f83262162f261d094d4818f803e5f3866
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 8c405941417ad1a4e877cfd8fd0bdb53e186f6d0
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56670221"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57452308"
 ---
 # <a name="set-up-and-configure-reverse-proxy-in-azure-service-fabric"></a>Installera och konfigurera omvänd proxy i Azure Service Fabric
 Omvänd proxy är en valfri Azure Service Fabric-tjänst som hjälper dig att mikrotjänster som körs i ett Service Fabric-kluster identifiera och kommunicera med andra tjänster som har http-slutpunkter. Mer information finns i [omvänd proxy i Azure Service Fabric](service-fabric-reverseproxy.md). Den här artikeln visar hur du skapar och konfigurerar omvänd proxy i klustret. 
@@ -47,7 +47,7 @@ För ett nytt kluster, kan du [skapar en anpassad mall i Resource Manager](servi
 
 Du hittar exempel Resource Manager-mallar som kan hjälpa dig konfigurera säker omvänd proxy för ett Azure-kluster i den [säker omvänd Proxy-exempelmallar](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/ReverseProxySecureSample) på GitHub. Referera till [konfigurera HTTPS omvänd Proxy i ett säkert kluster](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/ReverseProxySecureSample/README.md#configure-https-reverse-proxy-in-a-secure-cluster) i filen Viktigt för anvisningar och mallarna för att använda för att konfigurera säker omvänd proxy med ett certifikat och att hantera förnya certifikatet.
 
-För ett befintligt kluster, kan du exportera Resource Manager-mallen för den klusterresursen gruppen med hjälp av den [Azure-portalen](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template#export-the-template-from-resource-group), [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template-powershell#export-resource-group-as-template), eller [Azure CLI](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template-cli#export-resource-group-as-template).
+För ett befintligt kluster, kan du exportera Resource Manager-mallen för den klusterresursen gruppen med hjälp av den [Azure-portalen](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template), [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template-powershell), eller [Azure CLI](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template-cli).
 
 När du har en Resource Manager-mall kan aktivera du den omvända proxyn med följande steg:
 

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: rimman
-ms.openlocfilehash: cb85d09a1d5dee6cb54254baac4698cdad093785
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: e6814224827aac0da9c6faf5108ecf585bae7c35
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55457674"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57445389"
 ---
 # <a name="optimize-query-cost-in-azure-cosmos-db"></a>Optimera kostnader för frågan i Azure Cosmos DB
 
@@ -53,7 +53,7 @@ while (queryable.HasMoreResults)
 
 ## <a name="factors-influencing-request-unit-charge-for-a-query"></a>Faktorer som påverkar enheter för att ta betalt för en fråga
 
-Begäransenheter för frågor är beroende av ett antal faktorer. Till exempel antalet objekt som Azure Cosmos lästs in/returneras, antal sökningar mot indexet kompileringstid fråga osv information. Azure Cosmos DB garanterar att samma fråga när den körs på samma data alltid kommer att använda samma antal enheter för programbegäran även med upprepningar körningar. Fråga-profil med hjälp av frågan körningsstatistik ger dig en uppfattning om hur du har använt enheter för programbegäran.  
+Begäransenheter för frågor är beroende av ett antal faktorer. Till exempel antalet Azure Cosmos-objekt läses in/returneras, antal sökningar mot index, fråga kompileringen tid information osv. Azure Cosmos DB garanterar att samma fråga när den körs på samma data alltid kommer att använda samma antal enheter för programbegäran även med upprepningar körningar. Fråga-profil med hjälp av frågan körningsstatistik ger dig en uppfattning om hur du har använt enheter för programbegäran.  
 
 I vissa fall kan du se en sekvens med 200 429 svar och variabeln begäransenheter i en växlade körning av frågor, som beror på att frågor körs så snabbt som möjligt baserat på tillgängliga ru: er. Du kan se en Frågekörningen dela i flera sidor/nätverksförfrågningar mellan servern och klienten. Till exempel kan 10 000 objekt returneras som flera sidor, var och en debiteras baserat på beräkningen utförs för sidan. När du summor över dessa sidor, bör du få samma antal ru: er som du skulle få för hela frågan.  
 

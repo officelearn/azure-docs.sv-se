@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 08/15/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 3664e231ad8aabe37fe350ac1eb7be2d27bbcbaa
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 71d97481b4d3bff1ef93839f57939875ac9268ff
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55734682"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57450071"
 ---
 # <a name="functions-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Funktionsreferens för Definitionsspråk för arbetsflödet i Azure Logic Apps
 
@@ -1004,7 +1004,7 @@ Och returnerar resultatet:
 
 <a name="bool"></a>
 
-### <a name="bool"></a>Bool
+### <a name="bool"></a>bool
 
 Returnera booleskt efter ett värde.
 
@@ -3085,7 +3085,7 @@ Och returnerar den här matrisen med de återstående objekt: `[1,2,3]`
 
 ### <a name="split"></a>split
 
-Returnera en matris som innehåller delsträngar, avgränsade med kommatecken, baserat på den angivna avgränsaren tecken i den ursprungliga strängen.
+Returnera en matris som innehåller delsträngar, avgränsade med kommatecken, baserat på den angivna avgränsningstecken i den ursprungliga strängen.
 
 ```
 split('<text>', '<delimiter>')

@@ -11,12 +11,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 06/18/2018
 ms.author: apimpm
-ms.openlocfilehash: 31959cc1bef6b6434f6d3f586052a845837aa438
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: fe77361c4c9bed9310f8443ed4ff37faf7ea53a9
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52442599"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57454515"
 ---
 # <a name="capacity-of-an-azure-api-management-instance"></a>Kapaciteten för en Azure API Management-instans
 
@@ -78,7 +78,7 @@ Mer avancerade åtgärder i begäranden är, desto högre den **kapacitet** komm
 4. Från avsnittet grön Välj **plats** för att dela måttet per dimension.
 5. Välj ett önskat tidsintervall från det översta fältet i avsnittet.
 
-    Du kan ange en metrisk varning så att du vet när något oväntat sker. Till exempel få meddelanden när APIM-instansen har anropskvoten sin förväntad maximal kapacitet för över 20 minuter.
+    Du kan ange en metrisk varning så att du vet när något oväntat sker. Till exempel få meddelanden när APIM-instansen har tagits överskrider sin förväntad maximal kapacitet för över 20 minuter.
 
     >[!TIP]
     > Du kan konfigurera aviseringar så att du vet när tjänsten har brist på kapacitet eller använda Azure Monitor-funktion för automatisk skalning att automatiskt lägga till en Azure API Management-enhet. Skala åtgärden kan ta upp till 30 minuter, så du bör planera dina regler på lämpligt sätt.  

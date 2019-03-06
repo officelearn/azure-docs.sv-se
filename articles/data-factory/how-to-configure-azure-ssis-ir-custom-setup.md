@@ -12,12 +12,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 66f41ffef5d72f5d574bb78d3b810f4a4dc2c4c1
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 5ade16bbd45203892cd9a3117dd52471884cf700
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55098739"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57455827"
 ---
 # <a name="customize-setup-for-the-azure-ssis-integration-runtime"></a>Anpassa installationsprogrammet för Azure-SSIS integration runtime
 
@@ -42,6 +42,8 @@ Du kan installera både kostnadsfria eller olicensierad komponenter och betalda 
 
 ## <a name="prerequisites"></a>Förutsättningar
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 För att anpassa din Azure-SSIS IR, behöver du följande:
 
 -   [Azure-prenumeration](https://azure.microsoft.com/)
@@ -54,7 +56,7 @@ För att anpassa din Azure-SSIS IR, behöver du följande:
 
 ## <a name="instructions"></a>Instruktioner
 
-1.  Ladda ned och installera [Azure PowerShell](https://github.com/Azure/azure-powershell/releases/tag/v5.5.0-March2018) (version 5.4 eller senare).
+1.  Ladda ned och installera [Azure PowerShell](/powershell/azure/install-az-ps).
 
 1.  Förbered din anpassade installationsskriptet och dess associerade filer (till exempel .bat, .cmd, .exe, .dll, .msi eller .ps1-filer).
 
@@ -103,15 +105,15 @@ För att anpassa din Azure-SSIS IR, behöver du följande:
 
        ![Ange Signatur för delad åtkomst](media/tutorial-create-azure-ssis-runtime-portal/advanced-settings.png)
 
-       När du etablerar eller konfigurera om din Azure-SSIS IR med PowerShell, innan du börjar din Azure-SSIS IR måste köra den `Set-AzureRmDataFactoryV2IntegrationRuntime` cmdlet med SAS-URI behållarens som värde för nya `SetupScriptContainerSasUri` parametern. Exempel:
+       När du etablerar eller konfigurera om din Azure-SSIS IR med PowerShell, innan du börjar din Azure-SSIS IR måste köra den `Set-AzDataFactoryV2IntegrationRuntime` cmdlet med SAS-URI behållarens som värde för nya `SetupScriptContainerSasUri` parametern. Exempel:
 
        ```powershell
-       Set-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName $MyDataFactoryName `
+       Set-AzDataFactoryV2IntegrationRuntime -DataFactoryName $MyDataFactoryName `
                                                   -Name $MyAzureSsisIrName `
                                                   -ResourceGroupName $MyResourceGroupName `
                                                   -SetupScriptContainerSasUri $MySetupScriptContainerSasUri
 
-       Start-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName $MyDataFactoryName `
+       Start-AzDataFactoryV2IntegrationRuntime -DataFactoryName $MyDataFactoryName `
                                                     -Name $MyAzureSsisIrName `
                                                     -ResourceGroupName $MyResourceGroupName
        ```
@@ -160,7 +162,7 @@ För att anpassa din Azure-SSIS IR, behöver du följande:
 
     ![Mappar i mappen scenarier](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image12.png)
 
-    e. Om du vill prova de här exemplen för anpassad installation, kopiera och klistra in innehållet från den valda mappen i din behållare. När du etablerar eller konfigurera om din Azure-SSIS IR med PowerShell, kör den `Set-AzureRmDataFactoryV2IntegrationRuntime` cmdlet med SAS-URI behållarens som värde för nya `SetupScriptContainerSasUri` parametern.
+    e. Om du vill prova de här exemplen för anpassad installation, kopiera och klistra in innehållet från den valda mappen i din behållare. När du etablerar eller konfigurera om din Azure-SSIS IR med PowerShell, kör den `Set-AzDataFactoryV2IntegrationRuntime` cmdlet med SAS-URI behållarens som värde för nya `SetupScriptContainerSasUri` parametern.
 
 ## <a name="next-steps"></a>Nästa steg
 

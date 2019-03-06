@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/24/2016
 ms.author: garye
-ms.openlocfilehash: 40bff35c1136d55e968a287d259f2304252f5248
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: bb5ef610e55495c372a47ff78e3252c9d8ec7055
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55078788"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57435924"
 ---
 # <a name="cortana-intelligence-solution-template-playbook-for-demand-forecasting-of-energy"></a>Cortana Intelligence Solution mallen Spelboken för prognostisering av efterfrågan på energi
 ## <a name="executive-summary"></a>Sammanfattning
@@ -187,7 +187,7 @@ Detta illustreras i följande diagram:
 
 Följande stycke beskrivs processen 4 steg:
 
-1. **Insamling av data** – alla avancerade baserat analyslösning förlitar sig på data (se **Data förstå**). Särskilt när det gäller förutsägelseanalys och prognoser, vi förlitar sig på pågående, dynamiska flödet av data. När det gäller energi prognoser för efterfrågan, dessa data kan hämtas direkt från smarta elmätare eller aggregeras redan i en lokal databas. Vi också beroende av andra externa datakällor, till exempel väder och temperatur. Den här pågående flödet av data måste samordnas, schemalagda och lagras. [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) (ADF) är vår största bestämmer hög grad för att utföra den här uppgiften.
+1. **Insamling av data** – alla avancerade baserat analyslösning förlitar sig på data (se **Data förstå**). Särskilt när det gäller förutsägelseanalys och prognoser, vi förlitar sig på pågående, dynamiska flödet av data. När det gäller energi prognoser för efterfrågan, dessa data kan hämtas direkt från smarta elmätare eller aggregeras redan i en on premises-databas. Vi också beroende av andra externa datakällor, till exempel väder och temperatur. Den här pågående flödet av data måste samordnas, schemalagda och lagras. [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) (ADF) är vår största bestämmer hög grad för att utföra den här uppgiften.
 2. **Modellering** – för korrekta och tillförlitliga energi prognoser, måste en utveckla (train) och underhålla en bra modell att gör använder av historiska data och extraherar meningsfulla och förutsägande mönster i data. Området för Machine Learning (ML) har växt snabbt med mer avancerade algoritmer som utvecklas regelbundet. Azure ML Studio ger en bra användarupplevelse som hjälper dig att använda de mest avancerade ML-algoritmerna i en fullständig arbetsflöde. Det här arbetsflödet illustreras i en intuitiv flödesdiagram tillsammans med förberedelse av data, extrahering av funktionen, modellering och utvärdering av modellen. Du kan hämta hundratals olika modeller som ingår i den här miljön. I slutet av den här fasen har inom data Science en aktiv-modell som är fullständigt utvärderade och klar för distribution.
 
    Följande diagram är en illustration av ett vanligt arbetsflöde:

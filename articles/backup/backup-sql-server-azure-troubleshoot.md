@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: article
 ms.date: 02/19/2019
 ms.author: anuragm
-ms.openlocfilehash: 0beb65d6ef7c036c8a294f53eeb3db327457ea84
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: 8bfa9f2fcdc3047ed5541db058f670a4bc464164
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56428627"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57449911"
 ---
 # <a name="troubleshoot-back-up-sql-server-on-azure"></a>Felsöka säkerhetskopiering av SQL Server på Azure
 
@@ -73,7 +73,7 @@ Följande tabeller är ordnade efter felkod.
 
 | Felmeddelande | Möjliga orsaker | Rekommenderad åtgärd |
 |---|---|---|
-| Första fullständig säkerhetskopiering saknas för den här datakällan. | Fullständig säkerhetskopiering saknas för databasen. Logg- och differentiella säkerhetskopieringar överordnad till en fullständig säkerhetskopia, så att fullständiga säkerhetskopior måste du vidta innan du aktiverar RDC eller säkerhetskopior. | Utlös en ad hoc fullständig säkerhetskopiering.   |
+| Första fullständig säkerhetskopiering saknas för den här datakällan. | Fullständig säkerhetskopiering saknas för databasen. Logg- och differentiella säkerhetskopieringar överordnad till en fullständig säkerhetskopia, så att fullständiga säkerhetskopior måste du vidta innan du aktiverar RDC eller säkerhetskopior. | Utlös en ad hoc-fullständig säkerhetskopiering.   |
 
 ### <a name="usererrorbackupfailedastransactionlogisfull"></a>UserErrorBackupFailedAsTransactionLogIsFull
 

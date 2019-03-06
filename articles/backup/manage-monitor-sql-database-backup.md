@@ -1,6 +1,6 @@
 ---
 title: Hantera och övervaka SQL Server-databaser på en Azure virtuell dator som backas upp av Azure Backup | Microsoft Docs
-description: Den här artikeln beskrivs hur du återställer SQL Server-databaser som körs på en virtuell Azure-dator som säkerhetskopieras med Azure Backup
+description: Den här artikeln beskriver hur du återställer SQL Server-databaser som körs på en virtuell Azure-dator och som backas upp av Azure Backup.
 services: backup
 author: rayne-wiselman
 manager: carmonm
@@ -8,44 +8,40 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/19/2018
 ms.author: raynew
-ms.openlocfilehash: 1c2ce0ba42f0bc3efd1dcc951113b05ab6941b98
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: da4264047830b21b3ac4dae723dd1fd2f9d7a8f4
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56430803"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57432863"
 ---
 # <a name="manage-and-monitor-backed-up-sql-server-databases"></a>Hantera och övervaka säkerhetskopierade SQL Server-databaser 
 
 
-Den här artikeln beskrivs vanliga uppgifter för hantering och övervakning av SQL Server-databaser som körs på en virtuell Azure-dator som säkerhetskopieras till en Azure Backup Recovery Services-valvet genom den [Azure Backup](backup-overview.md) service. Uppgifter som övervakning av jobb och aviseringar, stoppar och återupptar databasskyddet, kör säkerhetskopieringsjobb och avregistrera en virtuell dator från en säkerhetskopia.
+Den här artikeln beskrivs vanliga uppgifter för hantering och övervakning av SQL Server-databaser som körs på en Azure-dator (VM) och som ska säkerhetskopieras till en Azure Backup Recovery Services-valvet genom den [Azure Backup](backup-overview.md) service. Du lär dig att övervaka jobb och aviseringar, stoppa och återuppta databasskyddet, köra säkerhetskopieringsjobb och avregistrera en virtuell dator från säkerhetskopior.
 
 
 > [!NOTE]
-> Säkerhetskopiering av SQl Server-databaser som körs på en virtuell Azure-dator med Azure Backup är för närvarande i offentlig förhandsversion.
+> Säkerhetskopiering av SQL Server-databaser som körs på en virtuell Azure-dator med Azure Backup är för närvarande i offentlig förhandsversion.
 
 
-TIf som du inte har gjort men konfigurerad säkerhetskopiering för SQL Server-databaser, följer du anvisningarna i [i den här artikeln](backup-azure-sql-database.md)
+Om du inte har konfigurerat säkerhetskopiering för SQL Server-databaser, se [säkerhetskopiera SQL Server-databaser på Azure Virtual Machines](backup-azure-sql-database.md)
 
-## <a name="monitor-backup-jobs"></a>Övervaka säkerhetskopieringsjobb
+##  <a name="monitor-manual-backup-jobs-in-the-portal"></a>Övervaka manuell säkerhetskopieringsjobb i portalen
 
-###  <a name="monitor-ad-hoc-jobs-in-the-portal"></a>Övervaka ad hoc-jobb i portalen
+Azure Backup visar alla manuellt utlösta jobb i den **säkerhetskopieringsjobb** portal. De jobb som du ser i den här portalen inkludera databasidentifiering och registrera och säkerhetskopiering och återställning.
 
-Azure Backup visar alla manuellt utlösta jobb i den **säkerhetskopieringsjobb** portalen, inklusive identifiera och registrera databaser och säkerhetskopiering och återställning.
-
-![Portalen för säkerhetskopieringsjobb](./media/backup-azure-sql-database/jobs-list.png)
+![Backup jobb-portalen](./media/backup-azure-sql-database/jobs-list.png)
 
 > [!NOTE]
-> Schemalagda säkerhetskopieringsjobb visas inte i den **säkerhetskopieringsjobb** portal. Använd SQL Server Management Studio för att övervaka schemalagda säkerhetskopieringsjobb, enligt beskrivningen i nästa avsnitt.
+> Den **säkerhetskopieringsjobb** portalen inte visar schemalagda säkerhetskopieringsjobb. Använd SQL Server Management Studio för att övervaka schemalagda säkerhetskopieringsjobb, enligt beskrivningen i nästa avsnitt.
 >
 
-### <a name="monitor-backup-jobs-with-sql-server-management-studio"></a>Övervaka säkerhetskopieringsjobb med SQL Server Management Studio 
+## <a name="monitor-scheduled-backup-jobs-in-sql-server-management-studio"></a>Övervaka schemalagda säkerhetskopieringsjobb i SQL Server Management Studio 
 
-Azure Backup använder SQL-specifika API:er för alla säkerhetskopieringsåtgärder.
+Azure Backup använder SQL-specifika API:er för alla säkerhetskopieringsåtgärder. Använd specifika API:er för att hämta all jobbinformation från [SQL backupset-tabellen](https://docs.microsoft.com/sql/relational-databases/system-tables/backupset-transact-sql?view=sql-server-2017) i msdb-databasen.
 
-Använd specifika API:er för att hämta all jobbinformation från [SQL backupset-tabellen](https://docs.microsoft.com/sql/relational-databases/system-tables/backupset-transact-sql?view=sql-server-2017) i msdb-databasen.
-
-Följande exempel är en fråga som hämtar alla säkerhetskopieringsjobb för en databas med namnet **DB1**. Anpassa frågan för avancerad övervakning.
+I följande exempel är en fråga som hämtar alla säkerhetskopieringsjobb för en databas som heter **DB1**. Anpassa frågan för avancerad övervakning.
 
 ```
 select CAST (
@@ -70,21 +66,21 @@ backup_size AS BackupSizeInBytes
 
 ## <a name="view-backup-alerts"></a>Visa säkerhetskopieringsaviseringar
 
-Eftersom loggsäkerhetskopior sker var 15: e minut, kan det vara tråkigt att övervaka säkerhetskopieringsjobb. Azure Backup förenklar övervakning med e-postaviseringar.
+Eftersom loggsäkerhetskopior sker var 15: e minut, kan det vara tråkigt att övervaka säkerhetskopieringsjobb. Azure Backup förenklar övervakning genom att skicka e-postaviseringar. E-postaviseringar finns:
 
-- Aviseringar har utlösts för alla Säkerhetskopieringsfel.
-- Aviseringar konsolideras på databasnivå efter felkod.
-- En e-postavisering skickas endast för det första säkerhetskopieringsfelet för en databas. 
+- Utlöses för alla Säkerhetskopieringsfel.
+- Konsoliderade på databasnivå av felkoder.
+- Skickas endast för en databas första säkerhetskopieringen har misslyckats. 
 
-Så här övervakar du säkerhetskopieringsaviseringar:
+Övervaka aviseringar om säkerhetskopiering av databasen:
 
-1. Logga in på Azure-prenumerationen i den [Azure-portalen](https://portal.azure.com) att övervaka databasvarningar.
+1. Logga in på [Azure Portal](https://portal.azure.com).
 
-2. På instrumentpanelen för valvet väljer **aviseringar och händelser**.
+1. På instrumentpanelen för valvet väljer **aviseringar och händelser**.
 
    ![Välja aviseringar och händelser](./media/backup-azure-sql-database/vault-menu-alerts-events.png)
 
-4. I **aviseringar och händelser**väljer **säkerhetskopiering aviseringar**.
+1. I **aviseringar och händelser**väljer **säkerhetskopiering aviseringar**.
 
    ![Välja säkerhetskopieringsaviseringar](./media/backup-azure-sql-database/backup-alerts-dashboard.png)
 
@@ -93,49 +89,50 @@ Så här övervakar du säkerhetskopieringsaviseringar:
 Du kan stoppa säkerhetskopiering av SQL Server-databasen i ett par olika sätt:
 
 * Stoppa alla framtida säkerhetskopieringsjobb och ta bort alla återställningspunkter.
-* Stoppa alla framtida säkerhetskopieringsjobb, men lämna kvar återställningspunkterna.
+* Stoppa alla framtida säkerhetskopieringsjobb och lämna kvar återställningspunkterna.
 
-Tänk på följande:
+Om du väljer att lämna återställningspunkterna, Tänk på följande information:
 
-Om du lämnar återställningspunkterna tas poäng bort i enlighet med principen för säkerhetskopiering. Du debiteras för den skyddade instansen och förbrukad lagring tills alla återställningspunkter rensas. [Läs mer](https://azure.microsoft.com/pricing/details/backup/) om prissättning.
-- När du lämnar återställningspunkter intakta, även om de går ut enligt policy för datalagring, håller Azure Backup alltid en senaste återställningspunkt tills du uttryckligen tar bort säkerhetskopierade data.
-- Om du tar bort en datakälla utan att stoppa säkerhetskopiering kommer nya säkerhetskopior börjar misslyckas. Igen, gamla återställningspunkterna upphör att gälla enligt principen, men en senaste återställningspunkt sparas alltid tills du stoppar säkerhetskopiering och ta bort data.
-- Du kan inte stoppa säkerhetskopiering för en databas som har aktiverats för automatiskt skydd, tills automatiskt skydd har inaktiverats.
+* Alla återställningspunkter som du lämnar rensas enligt principen för säkerhetskopiering. 
+* Tills alla återställningspunkter rensas, debiteras du för den skyddade instansen och förbrukad lagring. Mer information finns i [priser för Azure Backup](https://azure.microsoft.com/pricing/details/backup/).
+* Azure Backup behåller alltid en senaste återställningspunkt tills du tar bort säkerhetskopierade data. 
+* Om du tar bort en datakälla utan att stoppa säkerhetskopiering misslyckas nya säkerhetskopior. 
+* Om din databas har aktiverats för autoprotection, kan du stoppa säkerhetskopiering såvida du inte inaktiverar autoprotection.
 
 Så här stoppar du skydd för en databas:
 
-1. I instrumentpanelen för valvet under **användning**väljer **Säkerhetskopieringsobjekt**.
+1. På instrumentpanelen för valvet under **användning**väljer **Säkerhetskopieringsobjekt**.
 
-    ![Öppna menyn Säkerhetskopieringsobjekt](./media/backup-azure-sql-database/restore-sql-vault-dashboard.png).
-
-2. I **typ av Säkerhetskopieringshantering**väljer **SQL i Azure VM**.
+1. Under **typ av Säkerhetskopieringshantering**väljer **SQL i Azure VM**.
 
     ![Välja SQL på Azure VM](./media/backup-azure-sql-database/sql-restore-backup-items.png)
 
 
-3. Välj den databas som du vill sluta skydda.
+1. Välj den databas som du vill sluta skydda.
 
     ![Välja den databas som skydd ska stoppas för](./media/backup-azure-sql-database/sql-restore-sql-in-vm.png)
 
 
-5. Databas-menyn, Välj **stoppa säkerhetskopiering**.
+1. Databas-menyn, Välj **stoppa säkerhetskopiering**.
 
     ![Välja Avbryt säkerhetskopiering](./media/backup-azure-sql-database/stop-db-button.png)
 
 
-6. I **stoppa säkerhetskopiering** menyn, Välj om du vill behålla eller ta bort data. Du kan också ange en orsak och en kommentar.
+1. På den **stoppa säkerhetskopiering** menyn, Välj om du vill behålla eller ta bort data. Om du vill ange en orsak och en kommentar.
 
-    ![Menyn Avbryt säkerhetskopiering](./media/backup-azure-sql-database/stop-backup-button.png)
+    ![Behålla eller ta bort data från menyn stoppa säkerhetskopiering](./media/backup-azure-sql-database/stop-backup-button.png)
 
-7. Klicka på **stoppa säkerhetskopiering** .
+1. Välj **stoppa säkerhetskopiering**.
 
   
 
-### <a name="resume-protection-for-a-sql-database"></a>Återuppta skyddet för en SQL-databas
+## <a name="resume-protection-for-a-sql-database"></a>Återuppta skyddet för en SQL-databas
 
-Om du valde alternativet **Behåll säkerhetskopieringsdata** när skyddet för SQL-databasen stoppades kan du återuppta skyddet. Om säkerhetskopieringsdata inte behölls går det inte att återuppta skyddet.
+När du stoppar skydd för SQL-databasen, om du väljer den **Behåll säkerhetskopieringsdata** alternativet kan du senare kan återuppta skyddet. Om du inte behåller säkerhetskopierade data, kan inte du återuppta skyddet.
 
-1. Om du vill återuppta skyddet för SQL-databasen öppnar du säkerhetskopieringsobjektet och väljer **Resume backup** (Återuppta säkerhetskopiering).
+Att återuppta skyddet av en SQL-databas:
+
+1. Öppna säkerhetskopieringsobjektet och välj **återuppta säkerhetskopiering**.
 
     ![Välj Resume backup (Återuppta säkerhetskopiering) för att återuppta databasskyddet](./media/backup-azure-sql-database/resume-backup-button.png)
 
@@ -150,11 +147,11 @@ Du kan köra olika typer av säkerhetskopieringar på begäran:
 * Differentiell säkerhetskopia
 * Loggsäkerhetskopia
 
-[Läs mer](backup-architecture.md#sql-server-backup-types) om SQL Server att säkerhetskopiera typer.
+Mer information finns i [SQL Server-säkerhetskopieringstyper](backup-architecture.md#sql-server-backup-types).
 
 ## <a name="unregister-a-sql-server-instance"></a>Avregistrera en SQL-serverinstans
 
-Avregistrera en SQL Server-instansen när du har inaktiverat skydd, men innan du tar bort valvet:
+Avregistrera en SQL Server-instansen när du inaktiverar skyddet men innan du tar bort valvet:
 
 1. På instrumentpanelen för valvet under **hantera**väljer **infrastruktur för säkerhetskopiering**.  
 
@@ -167,11 +164,11 @@ Avregistrera en SQL Server-instansen när du har inaktiverat skydd, men innan du
 
 3. I **skyddade servrar**, väljer du servern du avregistrera. Om du vill ta bort valvet måste du avregistrera alla servrar.
 
-4. Högerklicka på den skyddade servern > **ta bort**.
+4. Högerklicka på den skyddade servern och välj **ta bort**.
 
    ![Välja Ta bort](./media/backup-azure-sql-database/delete-protected-server.png)
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Granska](backup-sql-server-azure-troubleshoot.md) felsökningsinformation för säkerhetskopiering av SQL Server-databas.
+Mer information finns i [felsöka säkerhetskopieringar på en SQL Server-databas](backup-sql-server-azure-troubleshoot.md).

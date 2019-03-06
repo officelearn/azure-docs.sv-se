@@ -10,16 +10,16 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: 6024a11f518432b735ccec6a3d89db687aed8ae6
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: b45cd84322279d7f81cc3f047f72a75a6d898bc6
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54332599"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57452699"
 ---
 # <a name="azure-blockchain-workbench-configuration-reference"></a>Referens för Azure Blockchain Workbench-konfiguration
 
- Azure Blockchain Workbench-program är flerparti arbetsflöden som definieras av konfigurationsmetadata och smarta kontraktkod. Konfigurationsmetadata definierar avancerade arbetsflöden och interaktion modell blockchain-program. Smarta kontrakt definiera affärslogiken i blockchain-program. Workbench använder konfiguration och smarta kontraktkod för att generera användarupplevelser för blockchain-program.
+ Azure Blockchain Workbench-program är flerparti arbetsflöden som definieras av konfigurationsmetadata och smarta kontraktkod. Konfigurationsmetadata definierar avancerade arbetsflöden och interaktionsmodellen för blockkedjeprogrammet. Smarta kontrakt definiera affärslogiken i blockchain-program. Workbench använder konfiguration och smarta kontraktkod för att generera användarupplevelser för blockchain-program.
 
 Konfigurationsmetadata anger följande information för varje blockchain-program:
 
@@ -67,15 +67,15 @@ Ett programs affärslogik kan modelleras som en tillståndsdator där vidta åtg
 
 Ett exempel finns i [exempel på en konfigurationsfil](#configuration-file-example).
 
-## <a name="type"></a>Typ
+## <a name="type"></a>Type
 
 Datatyper som stöds.
 
-| Typ | Beskrivning |
+| Type | Beskrivning |
 |-------|-------------|
-| Adress  | Blockchain-adresstypen, till exempel *kontrakt* eller *användare*. |
+| adress  | Blockchain-adresstypen, till exempel *kontrakt* eller *användare*. |
 | matris    | Enskild nivå matris av typen heltal, bool, pengar och tid. Matriser kan vara statisk eller dynamisk. Använd **ElementType** Ange datatyp för element i matrisen. Se [exempelkonfiguration](#example-configuration-of-type-array). |
-| Bool     | Boolesk datatyp. |
+| bool     | Boolesk datatyp. |
 | kontrakt | Adress av typen kontrakt. |
 | Enum     | Numrerade uppsättning namngivna värden. När du använder uppräkningstypen kan ange du också en lista över EnumValues. Varje värde är begränsad till 255 tecken. Giltigt värde tecken omfattar övre och gemena bokstäver (A-Z, a – z) och siffror (0-9). Se [exempel på konfiguration och användning i Solidity](#example-configuration-of-type-enum). |
 | int      | Datatypen Integer. |
@@ -312,7 +312,7 @@ En samling av unika tillstånd i ett arbetsflöde. Varje tillstånd fångar ett 
     {
       "Name": "Terminated",
       "DisplayName": "Terminated",
-      "Description": "Asset transfer has been cancelled",
+      "Description": "Asset transfer has been canceled",
       "PercentComplete": 100,
       "Style": "Failure",
       "Transitions": []
@@ -988,7 +988,7 @@ Följande konfigurationsfil är för tillgången överföring exemplet:
         {
           "Name": "Terminated",
           "DisplayName": "Terminated",
-          "Description": "Asset transfer has been cancelled",
+          "Description": "Asset transfer has been canceled",
           "PercentComplete": 100,
           "Style": "Failure",
           "Transitions": []

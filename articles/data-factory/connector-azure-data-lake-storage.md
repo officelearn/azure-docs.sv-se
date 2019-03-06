@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: jingwang
-ms.openlocfilehash: d1f5f588ea29fd81d3f89a80e5cdd393c4a4f237
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: f27e7eba11dd98bc30f4f1b5d796488d3973f64a
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57217537"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57405631"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen2-using-azure-data-factory"></a>Kopiera data till och från Azure Data Lake Storage Gen2 med Azure Data Factory
 
@@ -219,6 +219,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
         },
         "typeProperties": {
             "folderPath": "mycontainer/myfolder",
+            "fileName": "*",
             "modifiedDatetimeStart": "2018-12-01T05:00:00Z",
             "modifiedDatetimeEnd": "2018-12-01T06:00:00Z",
             "format": {

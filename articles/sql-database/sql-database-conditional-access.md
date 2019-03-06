@@ -12,12 +12,12 @@ ms.author: mireks
 ms.reviewer: vanto
 manager: craigg
 ms.date: 09/24/2018
-ms.openlocfilehash: 95103ec7438a01e73617587bf919404e2bdcc686
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 8e7e72236abdaeb77a6bfe3dd85c9ab0c8fbe40e
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567204"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57442707"
 ---
 # <a name="conditional-access-mfa-with-azure-sql-database-and-data-warehouse"></a>Villkorlig åtkomst (MFA) med Azure SQL Database och Data Warehouse  
 
@@ -42,7 +42,7 @@ Följande steg visar hur du konfigurerar SQL-databas om du vill framtvinga princ
 
 4.  Välj **Molnappar**, klickar du på **Välj appar**. Du kan se alla appar som är tillgängliga för villkorlig åtkomst. Välj **Azure SQL Database**, längst ned på sidan klickar du på **Välj**, och klicka sedan på **klar**.  
   ![select SQL Database](./media/sql-database-conditional-access/select-sql-database.png)  
-  Om du inte hittar **Azure SQL Database** visas i följande tredje skärmbild, gör du följande:   
+  Om du inte hittar **Azure SQL Database** visas i skärmbilden tredje, gör du följande:   
   - Logga in på din Azure SQL DB/DW-instans med hjälp av SSMS med en AAD-administratörskonto.  
   - Köra `CREATE USER [user@yourtenant.com] FROM EXTERNAL PROVIDER`.  
   - Logga in på AAD och kontrollera att Azure SQL Database och Data Warehouse finns med i programmen i din AAD.  

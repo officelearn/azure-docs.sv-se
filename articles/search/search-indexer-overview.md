@@ -7,21 +7,21 @@ services: search
 ms.service: search
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/17/2017
+ms.date: 03/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 0a6c894b08fd76a018035a824b463e41e31c2f2f
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: b485b6b7f6ddbdb45d3ca6170c29a9af3c5b63dc
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57310207"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57407994"
 ---
 # <a name="indexers-in-azure-search"></a>Indexerare i Azure Search
 
-En *indexeraren* i Azure Search är en crawler som extraherar sökbara data och metadata från en extern datakälla för Azure och fylla ett index baserat på fältet till fält-mappningar mellan indexet och din datakälla. Den här metoden kallas ibland för en pull-modell eftersom tjänsten samlar in data utan att du behöver skriva någon kod som skickar data till ett index.
+En *indexeraren* i Azure Search är en crawler som extraherar sökbara data och metadata från en extern datakälla för Azure och fylla ett index baserat på fältet till fält-mappningar mellan indexet och din datakälla. Den här metoden kallas ibland en pull modell eftersom tjänsten samlar in data utan att du behöver skriva någon kod som lägger till data i ett index.
 
-Indexerarna baseras på de typer av datakällor och plattformar som finns tillgängliga. Det finns separata indexerare för SQL Server på Azure, Azure Cosmos DB, Azure Table Storage, Blob Storage och så vidare.
+Indexerare baseras på typer av datakällor och plattformar, med separata indexerare för SQL Server på Azure, Cosmos DB, Azure Table Storage och Blob Storage. BLOB storage-indexerare har ytterligare egenskaper som är specifika för blob-innehållstyper.
 
 Du kan använda en indexerare som enda metod för datapåfyllning eller använda en kombination av tekniker som inbegriper en indexerare för att läsa in bara några av fälten i ditt index.
 
@@ -37,6 +37,9 @@ Du kan skapa och hantera indexerare med hjälp av följande metoder:
 
 Varje ny indexerare lanseras först som en förhandsversion av funktionen. Funktionerna i förhandsversionen introduceras via API:er (REST och .NET) och integreras sedan i portalen när de blivit allmänt tillgängliga. Om du utvärderar en ny indexerare bör du även göra upp en plan för att skriva kod.
 
+## <a name="permissions"></a>Behörigheter
+
+Alla åtgärder som rör indexerare, inklusive GET-begäranden för status eller definitioner, kräver en [api-administratörsnyckel](search-security-api-keys.md). 
 
 <a name="supported-data-sources"></a>
 
@@ -62,19 +65,19 @@ En indexerare hämtar en anslutning till datakälla från en *datakälla* objekt
 Datakällor konfigureras och hanteras oberoende av indexerarna som använder dem, vilket innebär att en datakälla kan användas av flera indexerare för att läsa in mer än ett index i taget.
 
 ### <a name="step-2-create-an-index"></a>Steg 2: Skapa ett index
-En indexerare automatiserar vissa uppgifter som rör datapåfyllning, men att skapa ett index är vanligtvis inte en av dem. Som krav måste du ha ett fördefinierat index med fält som matchar de i din externa datakälla. Läs mer om att strukturera ett index, [skapa ett Index (Azure Search REST API)](https://docs.microsoft.com/rest/api/searchservice/Create-Index) eller [indexera klassen](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.index). Om du behöver hjälp med fältkopplingar kan du läsa mer i informationen om [fältmappningar för Azure Search-indexerare](search-indexer-field-mappings.md).
+En indexerare automatiserar vissa uppgifter som rör datapåfyllning, men att skapa ett index är vanligtvis inte en av dem. Som krav måste du ha ett fördefinierat index med fält som matchar de i din externa datakälla. Fält måste vara av namn och datatyp. Läs mer om att strukturera ett index, [skapa ett Index (Azure Search REST API)](https://docs.microsoft.com/rest/api/searchservice/Create-Index) eller [indexera klassen](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.index). Om du behöver hjälp med fältkopplingar kan du läsa mer i informationen om [fältmappningar för Azure Search-indexerare](search-indexer-field-mappings.md).
 
 > [!Tip]
 > Indexerare kan inte generera ett index åt dig, men du kan få hjälp av guiden **Importera data** i portalen. I de flesta fall kan guiden härleda ett indexschema från befintliga metadata i källan, vilket skapar ett preliminärt indexschema som du kan redigera direkt när guiden är aktiv. När indexet har skapats i tjänsten är ytterligare redigeringar i portalen i huvudsak begränsade till tillägg av nya fält. Överväg att använda guiden för att skapa, men inte revidera, ett index. I [steg-för-steg-beskrivningen för portalen](search-get-started-portal.md) kan du få en praktisk genomgång.
 
 ### <a name="step-3-create-and-schedule-the-indexer"></a>Steg 3: Skapa och Schemalägg indexeraren
-Indexerardefinitionen är en konstruktion som specificerar index, datakälla och schema. En indexerare referera till en datakälla från en annan tjänst så länge som den datakällan är från samma prenumeration. Mer information om att strukturera en indexerare finns i [Skapa et indexerare (REST-API för Azure Search)](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer).
+Indexerardefinitionen är en konstruktion som samlar alla element som rör datapåfyllning. Obligatoriska elementen omfattar en datakälla och index. Valfria element innehåller ett schema och fält-mappningar. Fältet mappning är endast valfri om källan och index fält motsvara tydligt. En indexerare referera till en datakälla från en annan tjänst så länge som den datakällan är från samma prenumeration. Mer information om att strukturera en indexerare finns i [Skapa et indexerare (REST-API för Azure Search)](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer).
 
 <a id="RunIndexer"></a>
 
 ## <a name="run-indexers-on-demand"></a>Köra indexerare på begäran
 
-Det är vanligt att schemalägga indexering, kan du också anropa en indexerare på begäran med hjälp av kommandot Kör:
+Det är vanligt att schemalägga indexering, en indexerare också kan anropas på begäran med den [Körningskommando](https://docs.microsoft.com/rest/api/searchservice/run-indexer):
 
     POST https://[service name].search.windows.net/indexers/[indexer name]/run?api-version=2017-11-11
     api-key: [Search service admin key]
@@ -82,13 +85,14 @@ Det är vanligt att schemalägga indexering, kan du också anropa en indexerare 
 > [!NOTE]
 > När du kör API: et returnerar har, indexeraren anrop har schemalagts, men den faktiska bearbetningen sker asynkront. 
 
-Du kan övervaka statusen indexerare på portalen eller via hämta indexeraren Status API, vilket beskrivs härnäst. 
+Du kan övervaka statusen indexerare i portalen eller via hämta API för indexerare Status. 
 
 <a name="GetIndexerStatus"></a>
 
 ## <a name="get-indexer-status"></a>Hämta status för indexerare
 
-Du kan hämta status och körning historiken för en indexerare via REST API:
+Du kan hämta status och körning historiken för en indexerare via den [hämta Status för indexeraren kommandot](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status):
+
 
     GET https://[service name].search.windows.net/indexers/[indexer name]/status?api-version=2017-11-11
     api-key: [Search service admin key]
@@ -100,8 +104,8 @@ Svaret innehåller status för övergripande indexerare, senaste (eller pågåen
         "lastResult": {
             "status":"success",
             "errorMessage":null,
-            "startTime":"2014-11-26T03:37:18.853Z",
-            "endTime":"2014-11-26T03:37:19.012Z",
+            "startTime":"2018-11-26T03:37:18.853Z",
+            "endTime":"2018-11-26T03:37:19.012Z",
             "errors":[],
             "itemsProcessed":11,
             "itemsFailed":0,
@@ -111,8 +115,8 @@ Svaret innehåller status för övergripande indexerare, senaste (eller pågåen
         "executionHistory":[ {
             "status":"success",
              "errorMessage":null,
-            "startTime":"2014-11-26T03:37:18.853Z",
-            "endTime":"2014-11-26T03:37:19.012Z",
+            "startTime":"2018-11-26T03:37:18.853Z",
+            "endTime":"2018-11-26T03:37:19.012Z",
             "errors":[],
             "itemsProcessed":11,
             "itemsFailed":0,

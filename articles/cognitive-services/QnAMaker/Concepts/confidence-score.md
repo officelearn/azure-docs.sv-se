@@ -4,19 +4,19 @@ titleSuffix: Azure
 description: Förtroendepoäng anger var säker på att svaret är rätt matchning för den angivna användarfrågan.
 services: cognitive-services
 author: tulasim88
-manager: pchoudh
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
 ms.date: 02/21/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: f144262f43396ac5d4f37939d35fca2645acc4bd
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: bf254d661f7819114d34631359aaecb97e9d0e0d
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56650180"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57403744"
 ---
 # <a name="confidence-score-of-a-qna-maker-knowledge-base"></a>Förtroendepoäng för en kunskapsbas med QnA Maker
 När en användarfråga matchas mot en kunskapsbas, returnerar QnA Maker relevanta svar, tillsammans med ett förtroenderesultat. Det här resultatet indikerar var säker på att svaret är rätt matchning för den angivna användarfrågan. 

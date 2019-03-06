@@ -7,18 +7,18 @@ ms.service: container-service
 ms.topic: article
 ms.date: 02/12/2019
 ms.author: iainfou
-ms.openlocfilehash: 250c4fc6e51bacc68c965394b9fd430b1b75a52c
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: d7d23300936cd512466e5c4b18f1f0922c81ceff
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447182"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57408198"
 ---
 # <a name="secure-traffic-between-pods-using-network-policies-in-azure-kubernetes-service-aks"></a>Säker trafik mellan poddar med hjälp av principer för nätverk i Azure Kubernetes Service (AKS)
 
 När du kör moderna, mikrotjänstbaserade program i Kubernetes kan vill du ofta styra vilka komponenter som kan kommunicera med varandra. Principen om lägsta behörighet ska tillämpas på hur trafiken kan flöda mellan poddar i ett AKS-kluster. Till exempel vill du förmodligen att blockera trafik direkt till serverdelsprogrammen. I Kubernetes, den *nätverkspolicy* funktionen kan du definiera regler för ingående och utgående trafik mellan poddar i ett kluster.
 
-Den här artikeln visar hur du använder principer för nätverk för att styra trafikflödet mellan poddar i AKS.
+Calico, en öppen källkod nätverks- och säkerhetslösning för nätverk från Tigera, erbjuder en motor för nätverket som kan implementera principregler för Kubernetes-nätverk. Den här artikeln visar hur du installerar principmodulen Calico nätverket och skapa principer för Kubernetes-nätverk för att styra trafikflödet mellan poddar i AKS.
 
 > [!IMPORTANT]
 > Den här funktionen är för närvarande en förhandsversion. Förhandsversioner är tillgängliga för dig under förutsättning att du godkänner de [kompletterande användningsvillkoren][terms-of-use]. Vissa aspekter av funktionen kan ändras innan den är allmänt tillgänglig (GA).

@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/21/2018
-ms.openlocfilehash: 70d1e08b1b81fd3aba159e18de3ee8829bc36548
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 600b2796f1cca5d6ac2c478a5eb30e12f30b670a
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54331018"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57449758"
 ---
 # <a name="use-apache-zeppelin-notebooks-with-apache-spark-cluster-on-azure-hdinsight"></a>Använda Apache Zeppelin-anteckningsböcker med Apache Spark-kluster i Azure HDInsight
 
@@ -103,7 +103,7 @@ HDInsight Spark-kluster innehåller [Apache Zeppelin](https://zeppelin.apache.or
     ![Starta tolk](./media/apache-spark-zeppelin-notebook/zeppelin-launch-interpreter.png "Hive-utdata")
 1. Bläddra till Livy tolk inställningar och klickar sedan på **starta om**.
    
-    ![Starta om Livy intepreter](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-restart-interpreter.png "starta om Zeppelin intepreter")
+    ![Starta om Livy-tolk](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-restart-interpreter.png "starta om Zeppelin-tolk")
 
 ## <a name="how-do-i-use-external-packages-with-the-notebook"></a>Hur jag för att använda externa paket med anteckningsboken?
 Du kan konfigurera Zeppelin notebook i Apache Spark-kluster i HDInsight (Linux) om du vill använda externa, communityn har bidragit med paket som inte är inkluderade out-of the box i klustret. Du kan söka i [Maven databasen](https://search.maven.org/) för en fullständig lista över paket som är tillgängliga. Du kan också hämta en lista över tillgängliga paket från andra källor. Exempelvis kan en fullständig lista över communityn har bidragit med paket finns på [Spark paket](https://spark-packages.org/).
@@ -150,7 +150,7 @@ I sådana fall måste du utföra följande steg innan du kan börja köra jobb f
     ![Starta tolk](./media/apache-spark-zeppelin-notebook/zeppelin-launch-interpreter.png "Hive-utdata")
 1. Bläddra till Livy tolk inställningar och klickar sedan på **starta om**.
    
-    ![Starta om Livy intepreter](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-restart-interpreter.png "starta om Zeppelin intepreter")
+    ![Starta om Livy-tolk](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-restart-interpreter.png "starta om Zeppelin-tolk")
 1. Kör en kodcell från en befintlig Zeppelin-anteckningsbok. Detta skapar en ny session Livy i HDInsight-klustret.
 
 ## <a name="seealso"></a>Se även

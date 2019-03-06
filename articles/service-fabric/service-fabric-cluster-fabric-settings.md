@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/11/2018
 ms.author: aljo
-ms.openlocfilehash: c8cfa0174d3e3300bdc3cfbc68ca416d9b736300
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: cefdc8819162a19a9b73b99a38f7028aa5fbacac
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56674913"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57438150"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Anpassa inställningar för Service Fabric-kluster
 Den här artikeln beskrivs de olika fabric-inställningarna för Service Fabric-kluster som du kan anpassa. För kluster i Azure kan du anpassa inställningar via den [Azure-portalen](https://portal.azure.com) eller genom att använda en Azure Resource Manager-mall. Mer information finns i [uppgradera konfigurationen av ett Azure-kluster](service-fabric-cluster-config-upgrade-azure.md). Fristående kluster kan du anpassa inställningar genom att uppdatera den *ClusterConfig.json* fil- och utför en konfiguration som uppgraderar på ditt kluster. Mer information finns i [uppgradera konfigurationen av ett fristående kluster](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -374,7 +374,7 @@ Följande är en lista över Fabric inställningar som du kan anpassa, ordnade e
 |SharedLogId |sträng, standardvärdet är ”” |Statisk|Unikt guid för delade log-behållare. Använd ”” om du använder standardsökvägen under fabric-dataroten. |
 |SharedLogPath |sträng, standardvärdet är ”” |Statisk|Sökvägen och filnamnet för plats för delade log behållare. Använd ”” för att använda standardsökvägen under fabric-dataroten. |
 |SharedLogSizeInMB |Int, standardvärdet är 8192 |Statisk|Antal MB för att allokera i delade log-behållaren. |
-|SharedLogThrottleLimitInPercentUsed|int, standardvärdet är 0 | Statisk | Procentandelen av användningen av delade loggen som ska ge upphov till begränsning. Värdet ska vara mellan 0 och 100. Värdet 0 innebär att med hjälp av standardvärdet för procent. Ett värde på 100 innebär ingen begränsning alls. Ett värde mellan 1 och 99 anger hur stor procentandel av logganvändning ovanstående begränsning av vilka sker; till exempel om delade loggen är 10GB och värdet är 90 sker throttleing när 9GB är i användning. Du bör använda standardvärdet.|
+|SharedLogThrottleLimitInPercentUsed|int, standardvärdet är 0 | Statisk | Procentandelen av användningen av delade loggen som ska ge upphov till begränsning. Värdet ska vara mellan 0 och 100. Värdet 0 innebär att med hjälp av standardvärdet för procent. Ett värde på 100 innebär ingen begränsning alls. Ett värde mellan 1 och 99 anger hur stor procentandel av logganvändning ovanstående begränsning av vilka sker; till exempel om delade loggen är 10GB och värdet är 90 och sedan begränsning inträffar när 9GB är i användning. Du bör använda standardvärdet.|
 |WriteBufferMemoryPoolMaximumInKB | int, standardvärdet är 0 |Dynamisk|Antal KB att tillåta skrivna minne buffertpoolen att växa upp till. Använd 0 för att ange någon gräns. |
 |WriteBufferMemoryPoolMinimumInKB |Int, standard är 8388608 |Dynamisk|Antal KB tilldelas inledningsvis för skrivna minne buffertpooltillägget. Använd 0 för att visa obegränsat standard bör överensstämma med SharedLogSizeInMB nedan. |
 
@@ -671,7 +671,7 @@ Följande är en lista över Fabric inställningar som du kan anpassa, ordnade e
 |InvokeInfrastructureCommand |sträng, standard är ”Admin” |Dynamisk| Säkerhetskonfiguration för kommandon för hantering av infrastruktur-uppgiften. |
 |InvokeInfrastructureQuery |sträng, standardvärdet är ”Admin\|\|användare” | Dynamisk|Säkerhetskonfiguration för frågor till infrastrukturen. |
 |Visa lista |sträng, standardvärdet är ”Admin\|\|användare” | Dynamisk|Säkerhetskonfiguration för avbildningen lagra klientåtgärden fil lista. |
-|MoveNextFabricUpgradeDomain |sträng, standard är ”Admin” |Dynamisk| Konfiguration för att kunna återuppta klusteruppgradering med en explicit Uppgraderingsdomänen. |
+|MoveNextFabricUpgradeDomain |sträng, standard är ”Admin” |Dynamisk| Konfiguration för att kunna återuppta klusteruppgradering med en explicit uppgradera domän. |
 |MoveNextUpgradeDomain |sträng, standard är ”Admin” |Dynamisk| Konfiguration för att kunna återuppta programuppgraderingar med en explicit uppgradera domän. |
 |MoveReplicaControl |sträng, standard är ”Admin” | Dynamisk|Flytta replik. |
 |NameExists |sträng, standardvärdet är ”Admin\|\|användare” | Dynamisk|Säkerhetskonfiguration om namngivnings-URI finns kontrollerar. |

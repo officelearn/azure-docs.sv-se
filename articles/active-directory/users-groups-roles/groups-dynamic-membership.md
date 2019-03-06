@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8a21e300c2540ddefb79fcaf593f752eef7e2c2e
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: 10a78df5169741371c122971afa47cb53ecc5a64
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57010199"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57450676"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Regler för dynamiskt medlemskap för grupper i Azure Active Directory
 
@@ -81,8 +81,8 @@ Här följer användaregenskaper som du kan använda för att skapa ett enkelt u
 | Land |Någon strängvärde eller *null* |(user.country - eq ”value”) |
 | companyName | Någon strängvärde eller *null* | (user.companyName -eq "value") |
 | avdelning |Någon strängvärde eller *null* |(user.department - eq ”value”) |
-| displayName |Ett värde |(user.displayName -eq "value") |
-| employeeId |Ett värde |(user.employeeId - eq ”value”)<br>(user.employeeId - ne *null*) |
+| displayName |ett värde |(user.displayName -eq "value") |
+| employeeId |ett värde |(user.employeeId - eq ”value”)<br>(user.employeeId - ne *null*) |
 | facsimileTelephoneNumber |Någon strängvärde eller *null* |(user.facsimileTelephoneNumber -eq "value") |
 | givenName |Någon strängvärde eller *null* |(user.givenName - eq ”value”) |
 | jobTitle |Någon strängvärde eller *null* |(user.jobTitle - eq ”value”) |
@@ -101,14 +101,14 @@ Här följer användaregenskaper som du kan använda för att skapa ett enkelt u
 | surname |Någon strängvärde eller *null* |(user.surname - eq ”value”) |
 | telephoneNumber |Någon strängvärde eller *null* |(user.telephoneNumber - eq ”value”) |
 | usageLocation |Två bokstäver landskod |(user.usageLocation -eq "US") |
-| userPrincipalName |Ett värde |(user.userPrincipalName -eq "alias@domain") |
+| userPrincipalName |ett värde |(user.userPrincipalName -eq "alias@domain") |
 | UserType |medlem gäst *null* |(user.userType -eq "Member") |
 
 ### <a name="properties-of-type-string-collection"></a>Egenskaper av typen sträng samling
 
 | Egenskaper | Tillåtna värden | Användning |
 | --- | --- | --- |
-| otherMails |Ett värde |(user.otherMails-innehåller ”alias@domain”) |
+| otherMails |ett värde |(user.otherMails-innehåller ”alias@domain”) |
 | proxyAddresses |SMTP: alias@domain smtp: alias@domain |(user.proxyAddresses-innehåller ”SMTP: alias@domain”) |
 
 Egenskaper som används för regler för enhet, se [regler för enheters](#rules-for-devices).
@@ -318,7 +318,7 @@ device.objectid -ne null
 
 ## <a name="extension-properties-and-custom-extension-properties"></a>Tilläggsegenskaper och anpassade tilläggsegenskaper
 
-Tilläggsattribut och anpassade extenson egenskaper stöds som egenskaper för anslutningssträngar i regler för dynamiskt medlemskap. Tilläggsattribut synkroniseras från den lokala Windows Server AD och vidta formatet för ”ExtensionAttributeX”, där X är lika med 1 – 15. Här är ett exempel på en regel som använder ett tilläggsattribut som en egenskap:
+Tilläggsattribut och anpassade tilläggsegenskaper stöds som egenskaper för anslutningssträngar i regler för dynamiskt medlemskap. Tilläggsattribut synkroniseras från den lokala Windows Server AD och vidta formatet för ”ExtensionAttributeX”, där X är lika med 1 – 15. Här är ett exempel på en regel som använder ett tilläggsattribut som en egenskap:
 
 ```
 (user.extensionAttribute15 -eq "Marketing")

@@ -9,12 +9,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: rarangap
-ms.openlocfilehash: 509d529c7e860f4c46bc3368028a4e8d24812051
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: ed43a376dd5bb3279fd7e6aa6522980234db3c5f
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57242827"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57441805"
 ---
 # <a name="azure-security-and-compliance-blueprint---hipaahitrust-health-data-and-ai"></a>Azure-säkerhet och efterlevnad skissen - HIPAA/hitrust – hälsodata och AI
 
@@ -48,7 +48,7 @@ Den här skissen är avsedd att fungera som en modulbaserad grund för kunder en
 
 -   **Arkitekturdiagram för.** Diagrammet visar referensarkitekturen används för skissen och exemplet användningsfallsscenario.
 
--   [IaaS-tillägget](https://github.com/Azure/Health-Data-and-AI-Blueprint/blob/master/README%20IaaS.md) den här lösningen visar hur du migrerar en lokal SQL-baserad lösning till Azure och för att implementera en privilegierad åtkomst arbetsstation för att på ett säkert sätt hantera moln-bsed tjänster och lösningar. 
+-   [IaaS-tillägget](https://github.com/Azure/Health-Data-and-AI-Blueprint/blob/master/README%20IaaS.md) den här lösningen visar hur du migrerar en lokal SQL-baserad lösning till Azure och för att implementera en privilegierad åtkomst arbetsstation för att på ett säkert sätt hantera molnbaserade tjänster och lösningar. 
 
 ## <a name="solution-components"></a>Lösningskomponenter
 

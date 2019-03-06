@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 01/24/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 9122cf5cc908d578d8b781c6fdc49d7b04b0ab58
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 2800385581ea3f08fc1013e980f8c133a2f7241e
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55990350"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57443740"
 ---
 # <a name="azure-automation-integration-modules"></a>Azure Automation-integreringsmoduler
 
@@ -227,7 +227,7 @@ Om du har distribuerat Service Management Automation och skapat integreringsmodu
     }
     ```
 
-6. Modulen bör finnas i ett Xcopy-aktiverat paket. Azure Automation-moduler är distributd till begränsat Automation-läge när runbooks behöver köra. Modulerna måste fungera oberoende av värden som de körs på. Du bör kunna Zip upp och flytta ett paket för modulen och låta den fungera som vanligt när de importeras till en annan värd PowerShell-miljö. För att det ska ske, bör inte modulen beror på några filer utanför modulmappen. Den här mappen är den mapp som dekomprimeras vid modulen importeras till Azure Automation. Modulen bör också inte beroende av unika registerinställningar på en värd som dessa inställningar anges när en produkt installeras. Om denna bästa praxis inte följs användas modulen inte i Azure Automation.  
+6. Modulen bör finnas i ett Xcopy-aktiverat paket. Azure Automation-moduler distribueras till begränsat Automation-läge när runbooks behöver köra. Modulerna måste fungera oberoende av värden som de körs på. Du bör kunna Zip upp och flytta ett paket för modulen och låta den fungera som vanligt när de importeras till en annan värd PowerShell-miljö. För att det ska ske, bör inte modulen beror på några filer utanför modulmappen. Den här mappen är den mapp som dekomprimeras vid modulen importeras till Azure Automation. Modulen bör också inte beroende av unika registerinställningar på en värd som dessa inställningar anges när en produkt installeras. Om denna bästa praxis inte följs användas modulen inte i Azure Automation.  
 
 7. Om du refererar till [Az för Azure Powershell-moduler](/powershell/azure/new-azureps-module-az?view=azps-1.1.0) i din modul, se till att du inte också refererar till `AzureRM`. Den `Az` modulen kan inte användas tillsammans med den `AzureRM` moduler. `Az` har stöd för runbooks men inte har importerat som standard. Vill veta mer om den `Az` moduler och saker att ta hänsyn till finns i [Az modulen stöd i Azure Automation](az-modules.md).
 

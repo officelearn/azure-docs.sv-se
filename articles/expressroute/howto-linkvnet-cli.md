@@ -1,5 +1,5 @@
 ---
-title: 'Länka ett virtuellt nätverk till en ExpressRoute-krets: CLI: Azure | Microsoft Docs'
+title: 'Länka ett virtuellt nätverk till en ExpressRoute-krets: CLI: Azure| Microsoft Docs'
 description: Den här artikeln visar hur du länka virtuella nätverk (Vnet) till ExpressRoute-kretsar med hjälp av distributionsmodellen resurshanteraren och CLI.
 services: expressroute
 author: cherylmc
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: anzaman,cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: ae97fff6a81f437510def1141dd226ad4e67209a
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 5ddcfe14873d13384b043f7a977dc4f069dbe8dd
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53074051"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57408266"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-cli"></a>Ansluta ett virtuellt nätverk till en ExpressRoute-krets med hjälp av CLI
 
@@ -125,7 +125,7 @@ az network express-route auth delete --circuit-name MyCircuit -g ExpressRouteRes
 Kretsen användaren måste peer-ID och en auktoriseringsnyckeln från Kretsägaren. Auktoriseringsnyckeln är ett GUID.
 
 ```azurecli
-Get-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
+Get-AzExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
 ```
 
 **Att kunna lösa in en anslutningsauktorisering**

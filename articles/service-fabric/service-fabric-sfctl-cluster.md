@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 0d9ee24e9ab104fb554033802507f78fcbf38fc3
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: e3aae5f7936204a7fe4fbce4102fc2727088e025
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55170937"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57442039"
 ---
 # <a name="sfctl-cluster"></a>sfctl cluster
 Välj, hantera och driva Service Fabric-kluster.

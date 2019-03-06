@@ -1,6 +1,6 @@
 ---
 title: Azure Windows Virtuella datorer – tidigare versioner | Microsoft Docs
-description: Visar en lista över tidigare versioner av storlekar som är tillgängliga för Windows-datorer i Azure. Visar information om hur många virtuella processorer, diskar och nätverkskort samt lagring dataflöde och nätverket bandbredd för storlekar i den här serien.
+description: Visar en lista över tidigare versioner av storlekar som är tillgängliga för Windows-datorer i Azure.
 services: virtual-machines-windows
 documentationcenter: ''
 author: jonbeck7
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 07/06/2018
 ms.author: jonbeck
-ms.openlocfilehash: b4b4c3fb1b0045edf59f1c29769659d7000278d4
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: c39a744a5ef57efa6486460ab84998d6600e7bc5
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56673383"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57405614"
 ---
 # <a name="previous-generations-of-virtual-machine-sizes"></a>Tidigare versioner av storlekar för virtuella datorer
 

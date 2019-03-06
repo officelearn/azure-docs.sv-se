@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 8feee92e9105259bddf45114ac48a54347266cd7
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 5d1b2718b360a55d9b1510bcfcb2ddb6492e2830
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54846007"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57436756"
 ---
 # <a name="suspend-and-reactivate-messaging-entities-disable"></a>Inaktivera och återaktivera meddelandeentiteter (inaktivera)
 
@@ -28,7 +28,7 @@ Pausa en entitet är normalt görs för brådskande administrativa skäl. Ett sc
 
 En inaktivering eller återaktivering kan utföras av användaren eller av systemet. Systemet pausar endast entiteter på grund av allvarligt administrativa orsaker, till exempel nått utgiftsgränsen. System-inaktiverad entiteter kan inte aktiveras av användaren, men återställs när orsaken till inaktiveringen har utförts.
 
-I portalen på **egenskaper** avsnittet för respektive entiteten kan ändra tillståndet; på skärmbilden nedan visar växlingsknappen för en kö:
+I portalen på **egenskaper** avsnittet för respektive entiteten kan ändra tillståndet; i följande skärmbild visas växlingsknappen för en kö:
 
 ![][1]
 

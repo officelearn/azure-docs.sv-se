@@ -12,12 +12,12 @@ ms.date: 02/21/2019
 ms.author: celested
 ms.reviewer: arvindh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 93d5a08d08a67a14d2e78f414fc40e7391653951
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: 186bc220778ed669672bfbc689dad6471195f4ce
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56593700"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57448568"
 ---
 # <a name="single-sign-on-to-applications-in-azure-active-directory"></a>Enkel inloggning till program i Azure Active Directory
 Lägger till säkerhet och bekvämlighet enkel inloggning (SSO) när användare-inloggning till program i Azure Active Directory (AD Azure). Den här artikeln beskrivs metoderna som enkel inloggning och hjälper dig att välja den lämpligaste SSO-metoden när du konfigurerar dina program.
@@ -153,11 +153,11 @@ Det här diagrammet beskriver flödet när en användare ansluter till ett lokal
 
 ![Flödesdiagram för Microsoft AAD-autentisering](./media/application-proxy-configure-single-sign-on-with-kcd/AuthDiagram.png)
 
-1. Användaren anger URL: en för att komma åt lokala program via programproxy.
+1. Användaren anger URL: en för att komma åt programmet på plats via programproxy.
 2. Programproxyn omdirigerar begäran till Azure AD-autentiseringstjänster till preauthenticate. Nu kan gäller Azure AD alla tillämpliga autentisering och auktoriseringsprinciper, till exempel multifaktorautentisering. Om användaren har verifierats, Azure AD skapar en token och skickar det till användaren.
 3. Användaren skickar token till Application Proxy.
 4. Programproxyn verifierar token och hämtar User Principal Name (UPN) från token. Den skickar sedan begäran, UPN och Service Principal Name (SPN) till anslutningstjänsten via en autentiserad dually säker kanal.
-5. Anslutningen används Kerberos-begränsad delegering (KCD)-förhandling med lokalt AD, Personifiera användare för att få en Kerberos-token för programmet.
+5. Anslutningen används Kerberos-begränsad delegering (KCD)-förhandling med lokala AD, Personifiera användare för att få en Kerberos-token för programmet.
 6. Active Directory skickar Kerberos-token för programmet till anslutningstjänsten.
 7. Kopplingen skickar den ursprungliga begäran till programservern som använder Kerberos-token som togs emot från AD.
 8. Programmet skickar svaret till anslutningstjänsten, som sedan returneras till Application Proxy-tjänsten och slutligen till användaren.

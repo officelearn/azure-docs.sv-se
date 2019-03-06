@@ -1,5 +1,5 @@
 ---
-title: 'Återställ krets-peering - ExpressRoute: Azure | Microsoft Docs'
+title: 'Återställ krets-peering - ExpressRoute:  Azure | Microsoft Docs'
 description: Så här inaktiverar och aktiverar du ExpressRoute-krets peerings.
 services: expressroute
 author: charwen
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/15/2018
 ms.author: charwen
 ms.custom: seodec18
-ms.openlocfilehash: ad050e11c98139af00ad752f8960d55a58ca2f34
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: f856753ae74b43e257cb222422f4d4eb27ee099c
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53132599"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57404883"
 ---
 # <a name="reset-expressroute-circuit-peerings"></a>Återställa ExpressRoute-krets peerkopplingar
 
@@ -25,6 +25,8 @@ Det finns ett par scenarier där du kan det vara bra när du återställer din E
 
 ### <a name="working-with-azure-powershell"></a>Arbeta med Azure PowerShell
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 [!INCLUDE [expressroute-cloudshell](../../includes/expressroute-cloudshell-powershell-about.md)]
 
 ## <a name="reset-a-peering"></a>Återställa en peer-koppling
@@ -32,22 +34,22 @@ Det finns ett par scenarier där du kan det vara bra när du återställer din E
 1. Om du kör PowerShell lokalt, öppna PowerShell-konsolen med förhöjd behörighet och Anslut till ditt konto. Använd följande exempel för att ansluta:
 
   ```azurepowershell
-  Connect-AzureRmAccount
+  Connect-AzAccount
   ```
 2. Om du har flera Azure-prenumerationer anger du prenumerationerna för kontot.
 
   ```azurepowershell-interactive
-  Get-AzureRmSubscription
+  Get-AzSubscription
   ```
 3. Ange den prenumeration som du vill använda.
 
   ```azurepowershell-interactive
-  Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
+  Select-AzSubscription -SubscriptionName "Replace_with_your_subscription_name"
   ```
 4. Kör följande kommandon för att hämta ExpressRoute-kretsen.
 
   ```azurepowershell-interactive
-  $ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
+  $ckt = Get-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
   ```
 5. Identifiera den peering som du vill inaktivera eller aktivera. *Peer-kopplingar* är en matris. I följande exempel är peer-kopplingar [0] Azure privat Peering och Microsoft-Peering peer-kopplingar [1].
 
@@ -136,7 +138,7 @@ GatewayManagerEtag               :
 
   ```azurepowershell-interactive
   $ckt.Peerings[0].State = "Disabled"
-  Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
+  Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
   ```
 Peer-kopplingen ska vara i ett tillstånd som du anger. 
 

@@ -17,12 +17,12 @@ ms.date: 10/26/2018
 ms.author: markvi
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 05e245bb55747b9415c16386cff48e5ac758f529
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: fd57b753a4e59f2fb9590f081345d7af0de9124d
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56177894"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57451477"
 ---
 # <a name="how-to-manage-devices-using-the-azure-portal"></a>Så här hanterar du enheter med hjälp av Azure-portalen
 
@@ -152,7 +152,7 @@ Om du vill aktivera / inaktivera en enhet, har du två alternativ:
 **Anmärkning:**
 
 - Du måste vara en global administratör i Azure AD för att aktivera / inaktivera en enhet. 
-- Inaktiverar en enhet förhindrar att en enhet autentisering med Azure AD, vilket gör förhindrar enheten från åtkomst till din Azure AD-resurser som är skyddad av enheten CA: N eller med dina autentiseringsuppgifter för WH4B. 
+- Inaktiverar en enhet förhindrar att en enhet autentisering med Azure AD, vilket förhindrar enheten från åtkomst till din Azure AD-resurser som är skyddad av enheten CA: N eller med dina autentiseringsuppgifter för WH4B. 
 
 
 

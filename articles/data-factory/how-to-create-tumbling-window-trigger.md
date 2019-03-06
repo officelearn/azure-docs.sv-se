@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/14/2018
 ms.author: shlo
-ms.openlocfilehash: e5910d08cf7ea5e1da094a0313513123d7c7813c
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 6fbdee71ab1123c258a5191a78e38f51eb41cbab
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567045"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57433237"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-tumbling-window"></a>Skapa en utlösare som kör en pipeline på ett rullande fönster
 Den här artikeln innehåller steg för att skapa, starta och övervaka en utlösare för rullande fönster. Allmän information om utlösare och typerna som stöds finns i [Pipelinekörning och utlösare](concepts-pipeline-execution-triggers.md).
@@ -120,7 +120,7 @@ Du kan använda den **WindowStart** och **WindowEnd** systemvariabler av utlösa
 Du använder den **WindowStart** och **WindowEnd** system variabelvärdena i pipeline-definition använder parametrarna ”MyWindowStart” och ”MyWindowEnd”, i enlighet med detta.
 
 ### <a name="execution-order-of-windows-in-a-backfill-scenario"></a>Körningsordning för Windows i ett scenario med återfyller
-När det finns flera fönster för körning (särskilt i ett scenario med återfyller), är ordningen för körningen för windows deterministisk från äldsta till nyaste intervall. Det här beteendet kan för närvarande kan inte ändras.
+När det finns flera fönster för körning (särskilt i ett scenario med återfyller), är ordningen för körningen för windows deterministisk från äldsta till nyaste intervall. Det här beteendet kan för närvarande inte ändras.
 
 ### <a name="existing-triggerresource-elements"></a>Befintliga TriggerResource element
 Följande punkter gäller för befintliga **TriggerResource** element:
@@ -129,6 +129,9 @@ Följande punkter gäller för befintliga **TriggerResource** element:
 * Om värdet för den **endTime** element i utlösaren ändringarna (läggs till eller uppdateras), tillståndet för windows som redan har behandlats är *inte* återställa. Utlösaren godkänner den nya **endTime** värde. Om den nya **endTime** värdet är innan windows som redan körs, stoppas för utlösaren. I annat fall utlösaren stannar när den nya **endTime** värde har påträffats.
 
 ## <a name="sample-for-azure-powershell"></a>Exempel för Azure PowerShell
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Det här avsnittet visar hur du använder Azure PowerShell för att skapa, starta och övervaka en utlösare.
 
 1. Skapa en JSON-fil med namnet **MyTrigger.json** i mappen C:\ADFv2QuickStartPSH\ med följande innehåll:
@@ -167,34 +170,34 @@ Det här avsnittet visar hur du använder Azure PowerShell för att skapa, start
     }
     ```
 
-2. Skapa en utlösare med hjälp av den **Set-AzureRmDataFactoryV2Trigger** cmdlet:
+2. Skapa en utlösare med hjälp av den **Set-AzDataFactoryV2Trigger** cmdlet:
 
     ```powershell
-    Set-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger" -DefinitionFile "C:\ADFv2QuickStartPSH\MyTrigger.json"
+    Set-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger" -DefinitionFile "C:\ADFv2QuickStartPSH\MyTrigger.json"
     ```
     
-3. Kontrollera att statusen för utlösaren är **stoppad** med hjälp av den **Get-AzureRmDataFactoryV2Trigger** cmdlet:
+3. Kontrollera att statusen för utlösaren är **stoppad** med hjälp av den **Get-AzDataFactoryV2Trigger** cmdlet:
 
     ```powershell
-    Get-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
+    Get-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
     ```
 
-4. Starta utlösaren med hjälp av den **Start-AzureRmDataFactoryV2Trigger** cmdlet:
+4. Starta utlösaren med hjälp av den **Start AzDataFactoryV2Trigger** cmdlet:
 
     ```powershell
-    Start-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
+    Start-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
     ```
 
-5. Kontrollera att statusen för utlösaren är **startad** med hjälp av den **Get-AzureRmDataFactoryV2Trigger** cmdlet:
+5. Kontrollera att statusen för utlösaren är **startad** med hjälp av den **Get-AzDataFactoryV2Trigger** cmdlet:
 
     ```powershell
-    Get-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
+    Get-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
     ```
 
-6. Hämta som utlösaren körs i Azure PowerShell med hjälp av den **Get-AzureRmDataFactoryV2TriggerRun** cmdlet. Kör följande kommando med jämna mellanrum för att få information om utlösaren körs. Uppdatera den **TriggerRunStartedAfter** och **TriggerRunStartedBefore** värdena för att matcha värdena i utlösarens definition:
+6. Hämta som utlösaren körs i Azure PowerShell med hjälp av den **Get-AzDataFactoryV2TriggerRun** cmdlet. Kör följande kommando med jämna mellanrum för att få information om utlösaren körs. Uppdatera den **TriggerRunStartedAfter** och **TriggerRunStartedBefore** värdena för att matcha värdena i utlösarens definition:
 
     ```powershell
-    Get-AzureRmDataFactoryV2TriggerRun -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -TriggerName "MyTrigger" -TriggerRunStartedAfter "2017-12-08T00:00:00" -TriggerRunStartedBefore "2017-12-08T01:00:00"
+    Get-AzDataFactoryV2TriggerRun -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -TriggerName "MyTrigger" -TriggerRunStartedAfter "2017-12-08T00:00:00" -TriggerRunStartedBefore "2017-12-08T01:00:00"
     ```
     
 Övervaka utlösarkörningar och pipeline som körs i Azure portal, se [övervaka pipelinekörningar](quickstart-create-data-factory-resource-manager-template.md#monitor-the-pipeline).

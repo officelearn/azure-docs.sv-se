@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/21/2018
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 4c39f47169071ceb9430f419a144e11f425d65b0
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 6d283840116a5e1f996602fd792456d3b8e8d9a0
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55240734"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57456099"
 ---
 # <a name="authenticate-with-azure-active-directory-from-an-application-for-access-to-blobs-and-queues-preview"></a>Autentisera med Azure Active Directory från ett program för åtkomst till blobbar och köer (förhandsversion)
 

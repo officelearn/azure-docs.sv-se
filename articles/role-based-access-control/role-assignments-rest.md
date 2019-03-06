@@ -1,5 +1,5 @@
 ---
-title: Hantera åtkomst till Azure resoruces med RBAC och REST-API – Azure | Microsoft Docs
+title: Hantera åtkomst till Azure-resurser med RBAC och REST-API – Azure | Microsoft Docs
 description: Lär dig mer om att hantera åtkomst till Azure-resurser för användare, grupper och program med hjälp av rollbaserad åtkomstkontroll (RBAC) och REST API. Detta innefattar hur du listar åtkomst, ger åtkomst och tar bort åtkomst.
 services: active-directory
 documentationcenter: na
@@ -15,16 +15,16 @@ ms.topic: conceptual
 ms.date: 06/20/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: c2ef9b0070cc9ac190b773f023ffc18d1b251a41
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: a66969504dee5ba526cdccbbb39471ef5af971c0
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56338418"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57439340"
 ---
 # <a name="manage-access-to-azure-resources-using-rbac-and-the-rest-api"></a>Hantera åtkomst till Azure-resurser med RBAC och REST API
 
-[Rollbaserad åtkomstkontroll (RBAC)](overview.md) är ett sätt som du hanterar åtkomst till Azure-resurser. Den här artikeln beskriver hur du hanterar åtkomst för användare, grupper och program med RBAC och REST API.
+[Rollbaserad åtkomstkontroll (RBAC)](overview.md) är metoden som du använder när du hanterar åtkomst till Azure-resurser. Den här artikeln beskriver hur du hanterar åtkomst för användare, grupper och program med RBAC och REST API.
 
 ## <a name="list-access"></a>Visar åtkomst
 

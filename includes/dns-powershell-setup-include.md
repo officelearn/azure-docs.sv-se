@@ -8,12 +8,12 @@ ms.topic: include file for PowerShell for Azure DNS
 ms.date: 03/21/2018
 ms.author: subsarma
 ms.custom: include file for PowerShell for Azure DNS
-ms.openlocfilehash: f9f348b19275050c99938ed616a98c4cc6f0c80e
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
-ms.translationtype: MT
+ms.openlocfilehash: 341a6096ddeb9fb9fe86203be04125129f76cae1
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56825557"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57457911"
 ---
 ## <a name="set-up-azure-powershell-for-azure-dns"></a>Konfigurera Azure PowerShell för Azure DNS
 
@@ -52,7 +52,7 @@ Install-Module -Name AzureRM.Network -Force
 
 ### <a name="sign-in-to-your-azure-account"></a>Logga in på ditt Azure-konto
 
-Öppna PowerShell-konsolen och anslut till ditt konto. Mer information finns i [logga in](/azure/install-az-ps.md?view=azps-1.2.0#sign-in).
+Öppna PowerShell-konsolen och anslut till ditt konto. Mer information finns i [logga in](/azure/install-az-ps.md?view=azps-1.2.0#sign-in)(/ powershell/azure/install-az-ps?view=azps-1.4.0#sign-in).
 
 ```powershell
 Connect-AzureRmAccount

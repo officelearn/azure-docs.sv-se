@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e0b1e784d4ca92f0da0e37d4afc1efcf09282cb4
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 6cc9b2b38ae0ba97e5a29d58d1605e5452224e4b
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56162874"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57445763"
 ---
 # <a name="azure-active-directory-v20-and-oauth-20-on-behalf-of-flow"></a>Azure Active Directory v2.0- och OAuth 2.0-Behalf-flöde
 
@@ -193,7 +193,7 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJub25jZSI6IkFRQUJBQUFBQUFCbmZpRy1tQTZOVG
 
 ## <a name="gaining-consent-for-the-middle-tier-application"></a>Få ditt medgivande för mellannivå-programmet
 
-Beroende på målgruppen för ditt program, kan du överväga att olika strategier för att säkerställa att OBO-flödet är slutförda. I samtliga fall är målet att säkerställa rätt tillstånd ges. Hur detta sker dock beror på vilka användare ditt program har stöd för. 
+Beroende på målgruppen för ditt program, kan du olika strategier för att säkerställa att OBO-flödet har lyckats. I samtliga fall är målet att säkerställa rätt tillstånd ges. Hur detta sker dock beror på vilka användare ditt program har stöd för. 
 
 ### <a name="consent-for-azure-ad-only-applications"></a>Medgivande för Azure endast AD-program
 

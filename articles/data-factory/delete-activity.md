@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/25/2019
-ms.openlocfilehash: fab5d69239c420c394645cef632d119848d0f4c4
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 64829cad24d7f436b8539659dc1f0c6ef6ed4da4
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56818841"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57404781"
 ---
 # <a name="delete-activity-in-azure-data-factory"></a>Ta bort aktivitet i Azure Data Factory
 
@@ -313,7 +313,7 @@ Du kan skapa en pipeline för att rensa upp de gamla eller har upphört att gäl
         },
         "type": "AzureBlob",
         "typeProperties": {
-            "fileName": "",
+            "fileName": "*",
             "folderPath": "mycontainer",
             "modifiedDatetimeEnd": "2018-01-01T00:00:00.000Z"
         }
@@ -563,6 +563,11 @@ Datauppsättning för datamålet som används av Kopieringsaktivitet.
     }
 }
 ```
+## <a name="known-limitation"></a>Känd begränsning
+
+-   Ta bort aktivitet stöder inte ta bort listan över mappar som beskrivs av jokertecken.
+
+-   När du använder attributet filfilter: modifiedDatetimeStart och modifiedDatetimeEnd att välja filer som ska tas bort, se till att ange ”fileName” ”: *” i datauppsättningen.
 
 ## <a name="next-steps"></a>Nästa steg
 

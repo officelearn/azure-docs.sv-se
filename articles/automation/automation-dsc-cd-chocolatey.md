@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 08/08/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 3eb68c4394afeb4719d92fb56d3ae9028d8566c9
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: b53cb65ec99637dadb16ed9d97c495571be956d7
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456120"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57451203"
 ---
 # <a name="usage-example-continuous-deployment-to-virtual-machines-using-automation-state-configuration-and-chocolatey"></a>Användningsexempel: Kontinuerlig distribution till virtuella datorer med Automation-Tillståndskonfiguration och Chocolatey
 
@@ -51,7 +51,7 @@ En viktig egenskap i en Resource Manager-mallen är möjligheten att installera 
 ## <a name="quick-trip-around-the-diagram"></a>Snabb resa runt i diagram
 
 Från toppen du skriver koden, bygg och testa sedan skapa ett installationspaket.
-Chocolatey kan hantera olika typer av installationspaket, till exempel MSI, MSU, ZIP. Och du har det mesta av PowerShell för att göra den faktiska installationen om Chocolateys inbyggda funktioner som inte är helt upp till den. Placera paketet i okänd nås – en paketdatabas. Det här exemplet för användning används en offentlig mapp i en Azure blob storage-konto, men det kan finnas var som helst. Chocolatey fungerar internt med NuGet-servrar och några andra för hantering av paketmetadata. [Den här artikeln](https://github.com/chocolatey/choco/wiki/How-To-Host-Feed) beskrivs alternativ. Det här exemplet användning använder NuGet. En Nuspec är metadata om dina paket. Nuspec ”kompileras” i Nupkgs och lagras i en NuGet-server. När din konfiguration av begäranden i ett paket med namnet och refererar till en NuGet-server, hämtar paketet Chocolatey DSC-resurs (nu på den virtuella datorn) och installerar den åt dig. Du kan också begära en viss version av ett paket.
+Chocolatey kan hantera olika typer av installationspaket, till exempel MSI, MSU, ZIP. Och du har det mesta av PowerShell för att göra den faktiska installationen om Chocolateys inbyggda funktioner som inte är helt upp till den. Placera paketet i någon plats går att nå – en paketdatabas. Det här exemplet för användning används en offentlig mapp i en Azure blob storage-konto, men det kan finnas var som helst. Chocolatey fungerar internt med NuGet-servrar och några andra för hantering av paketmetadata. [Den här artikeln](https://github.com/chocolatey/choco/wiki/How-To-Host-Feed) beskrivs alternativ. Det här exemplet användning använder NuGet. En Nuspec är metadata om dina paket. Nuspec ”kompileras” i Nupkgs och lagras i en NuGet-server. När din konfiguration av begäranden i ett paket med namnet och refererar till en NuGet-server, hämtar paketet Chocolatey DSC-resurs (nu på den virtuella datorn) och installerar den åt dig. Du kan också begära en viss version av ett paket.
 
 I det nedre vänstra hörnet i bilden har en Azure Resource Manager-mall. I det här exemplet för användning registrerar VM-tillägget den virtuella datorn med Azure Automation tillstånd Pull konfigurationsservern (det vill säga en pull-server) som en nod. Konfigurationen har sparats i pull-servern.
 Faktiskt, lagras den två gånger: en gång för som oformaterad text och när kompilerad som en MOF-fil (för de vet om sådant.) I portalen är MOF en ”nodkonfiguration” (i stället för bara ”configuration”). Det är den artefakt som är associerat med en nod, så att noden får information om dess konfiguration. Informationen nedan visar hur du tilldelar nodkonfigurationen till noden.

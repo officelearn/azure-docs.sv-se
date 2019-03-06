@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 02/12/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: fd33966a7c7d2ea72cdc98a23f601687d9577dde
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 058ed349e1aeb17dea7d550b9760082b464453f1
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56825215"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57404138"
 ---
 # <a name="use-azure-sql-vm-cli-to-configure-always-on-availability-group-for-sql-server-on-an-azure-vm"></a>Använda Azure SQL-dator med CLI för att konfigurera Always On-tillgänglighetsgrupp för SQL Server på en Azure VM
 Den här artikeln beskriver hur du använder [Azure SQL-dator med CLI](https://docs.microsoft.com/mt-mt/cli/azure/ext/sqlvm-preview/sqlvm?view=azure-cli-2018-03-01-hybrid) att distribuera en Windows-redundanskluster (WSFC), och lägga till SQL Server-datorer i klustret, samt skapa den interna belastningsutjämnaren och lyssnare för en Always On-tillgänglighetsgrupp.  Verklig distribution av Always On availability-gruppen fortfarande göras manuellt via SQL Server Management Studio (SSMS). 
@@ -151,6 +151,6 @@ Mer information finns i följande artiklar:
 * [Översikt över Always On-Tillgänglighetsgrupper &#40;SQLServer&#41;](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server)   
 * [Konfigurationen av en Server-instans för Always On-Tillgänglighetsgrupper &#40;SQLServer&#41;](/sql/database-engine/availability-groups/windows/configuration-of-a-server-instance-for-always-on-availability-groups-sql-server)   
 * [Administration av en tillgänglighetsgrupp &#40;SQLServer&#41;](/sql/database-engine/availability-groups/windows/administration-of-an-availability-group-sql-server)   
-* [Övervakning av Tillgänglighetsgrupper &#40;SQLServer&#41;](/sql/database-engine/availability-groups/windows/monitoring-of-availability-groups-sql-server.md)
+* [Övervakning av Tillgänglighetsgrupper &#40;SQLServer&#41;](/sql/database-engine/availability-groups/windows/monitoring-of-availability-groups-sql-server)
 * [Översikt över Transact-SQL-uttryck för Always On-Tillgänglighetsgrupper &#40;SQLServer&#41;](/sql/database-engine/availability-groups/windows/transact-sql-statements-for-always-on-availability-groups)   
 * [Översikt över PowerShell-cmdletar för Always On-Tillgänglighetsgrupper &#40;SQLServer&#41;](/sql/database-engine/availability-groups/windows/overview-of-powershell-cmdlets-for-always-on-availability-groups-sql-server)  

@@ -18,12 +18,12 @@ ms.author: billmath
 author: billmath
 ms.custom: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5a45d776ea241e04aacf39e45f7bf6d2cc58c689
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 8bd46bb820c7127c4fa6105fcc0be73bb66024c6
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56172173"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57446647"
 ---
 # <a name="manage-ad-fs-trust-with-azure-ad-using-azure-ad-connect"></a>Hantera AD FS-förtroende med Azure AD med Azure AD Connect
 
@@ -105,7 +105,7 @@ Azure AD Connect säkerställer att Azure AD-förtroende är alltid konfigurerad
 
 Azure AD Connect-version 1.1.873.0 eller senare gör en säkerhetskopia av Azure AD litar inställningar när en uppdatering görs i inställningarna för Azure AD-förtroende. Inställningar för Azure AD-förtroende som säkerhetskopieras på **%ProgramData%\AADConnect\ADFS**. Filnamnet är i formatet AadTrust -&lt;datum&gt;-&lt;tid&gt;.txt, till exempel - AadTrust-20180710-150216.txt
 
-![En sanpshot för till exempel som säkerhetskopiering av Azure AD-förtroende](./media/how-to-connect-azure-ad-trust/backup.png)
+![En skärmbild av exempel som säkerhetskopiering av Azure AD-förtroende](./media/how-to-connect-azure-ad-trust/backup.png)
 
 Du kan återställa de utfärdande av transformeringsregler med hjälp av de föreslagna åtgärderna nedan
 

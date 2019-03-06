@@ -16,12 +16,12 @@ ms.date: 09/24/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 94b027900a3be4a43d6524fa595a5b4dc2909fa7
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 00d0332e44b76cc3b883fd0472567f74cfde21b2
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56186224"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57444992"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>Azure Active Directory sömlös enkel inloggning
 
@@ -54,7 +54,7 @@ Sömlös enkel inloggning kan kombineras med antingen den [Lösenordshashsynkron
 - Logga in användarnamnet kan vara antingen en lokal Standardanvändarnamnet (`userPrincipalName`) eller ett annat attribut som konfigurerats i Azure AD Connect (`Alternate ID`). Båda använder fall arbetet eftersom sömlös SSO använder den `securityIdentifier` anspråk i Kerberos-biljetten för att leta upp motsvarande användarobjekt i Azure AD.
 - Sömlös SSO är en opportunistisk funktion. Om det misslyckas av någon anledning går inloggningen för användaren tillbaka till dess vanligt beteende - dvs, användaren måste ange sitt lösenord på sidan logga in.
 - Om ett program (till exempel https://myapps.microsoft.com/contoso.com) vidarebefordrar en `domain_hint` (OpenID Connect) eller `whr` (SAML) parametern – identifiera din klient eller `login_hint` parametern – identifiera den här användaren, användare finns i Azure AD-inloggningen begäran loggas in automatiskt utan dem att ange användarnamn eller lösenord.
-- Användare får också en tyst inloggning om ett program (till exempel https://contoso.sharepoint.com) skickar inloggningsförfrågningar till Azure AD: s klientslutpunkter – det vill säga https://login.microsoftonline.com/contoso.com/<..> eller https://login.microsoftonline.com/<tenant_ID>/<..> – i stället för Azure AD: s vanliga slutpunkt - det vill säga https://login.microsoftonline.com/common/<...>.
+- Användare får också en tyst inloggning om ett program (till exempel https://contoso.sharepoint.com) skickar inloggningsförfrågningar till Azure AD-slutpunkter som klienter – det vill säga https://login.microsoftonline.com/contoso.com/<..> eller https://login.microsoftonline.com/<tenant_ID>/<..> – i stället för Azure AD: s vanliga slutpunkt - det vill säga https://login.microsoftonline.com/common/<...>.
 - Logga ut stöds. På så sätt kan användarna kan välja en annan Azure AD-konto för att logga in med, i stället för att automatiskt som loggat in med sömlös enkel inloggning automatiskt.
 - Office 365 Win32-klienter (Outlook, Word, Excel och andra) med versioner 16.0.8730.xxxx och senare stöds med hjälp av en icke-interaktiv flow. För OneDrive, måste du aktivera den [OneDrive tyst config funktionen](https://techcommunity.microsoft.com/t5/Microsoft-OneDrive-Blog/Previews-for-Silent-Sync-Account-Configuration-and-Bandwidth/ba-p/120894) för en tyst inloggningsupplevelse.
 - Den kan aktiveras via Azure AD Connect.

@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: v-erkell
-ms.openlocfilehash: 7081d46af335f29e5723ef8d471814a1564907c2
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: 7dbfc39075bb42b1ec13823849eb769e117ddd4a
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56990212"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57409694"
 ---
 # <a name="deploy-the-vfxt-cluster"></a>Distribuera vFXT-klustret
 
@@ -32,7 +32,7 @@ Kontrollera att du har åtgärdat förutsättningarna innan du använder mallen 
 1. [Ägarbehörighet för prenumeration](avere-vfxt-prereqs.md#configure-subscription-owner-permissions)
 1. [Kvoten för vFXT klustret](avere-vfxt-prereqs.md#quota-for-the-vfxt-cluster)
 1. [Anpassad åtkomst roller](avere-vfxt-prereqs.md#create-access-roles) -du måste skapa en rollbaserad åtkomstkontroll roll att tilldela till klusternoderna. Har du möjlighet att också skapa en anpassad roll för kontrollanten kluster, men de flesta användare tar ägarrollen standard, vilket ger controller privilegier som motsvarar till en resursgruppägare. Läs [inbyggda roller för Azure-resurser](../role-based-access-control/built-in-roles.md#owner) för mer information.
-1. [Slutpunkt för lagring av tjänsten (vid behov)](avere-vfxt-prereqs.md#optional-create-a-storage-service-endpoint-in-your-virtual-network) – krävs för distribuerar med hjälp av ett befintligt virtuellt nätverk och skapa blob-lagring
+1. [Slutpunkt för lagring av tjänsten (vid behov)](avere-vfxt-prereqs.md#create-a-storage-service-endpoint-in-your-virtual-network-if-needed) – krävs för distribuerar med hjälp av ett befintligt virtuellt nätverk och skapa blob-lagring
 
 Mer information om distributionssteg för klustret och planera [planera datorn Avere vFXT](avere-vfxt-deploy-plan.md) och [distributionsöversikt](avere-vfxt-deploy-overview.md).
 
@@ -104,7 +104,7 @@ Den andra sidan i mallen för distribution kan du ange klusterstorleken, nodtyp,
 
 * **Avere vFXT klusternamnet** -ge ett unikt namn för klustret. 
 
-* **Storlek** – det här avsnittet visas den typ av virtuell dator som ska användas för klusternoderna. Även om det finns bara ett rekommenderade alternativ, den **ändra storleken på** länken öppnas en tabell med information om den här Instanstypen och en länk till en priskalkylator.  <!-- old: Specify the VM type to use when creating the cluster nodes.  -->
+* **Storlek** – det här avsnittet visas den typ av virtuell dator som ska användas för klusternoderna. Även om det finns bara ett rekommenderade alternativ, den **ändra storleken på** länken öppnas en tabell med information om den här Instanstypen och en länk till en priskalkylator.  
 
 * **Cachestorlek per nod** -kluster-cache fördelas mellan noderna i klustret så cacheminnets totala storlek i Avere vFXT klustret blir cachestorlek per nod multiplicerat med antalet noder. 
 
@@ -120,7 +120,7 @@ Den andra sidan i mallen för distribution kan du ange klusterstorleken, nodtyp,
   >  * Om du inte ställer in en offentlig IP-adress på kontrollanten, måste du använda en annan jump-värd, en VPN-anslutning eller ExpressRoute för åtkomst till klustret. Till exempel skapa kontrollanten inom ett virtuellt nätverk som redan har en VPN-anslutning som har konfigurerats.
   >  * Om du skapar en domänkontrollant med en offentlig IP-adress, bör du skydda kontrollanten VM med en nätverkssäkerhetsgrupp. Som standard Avere vFXT för Azure-distribution som skapar en nätverkssäkerhetsgrupp och begränsar inkommande åtkomsten till endast port 22 för styrenheter med offentliga IP-adresser. Du kan ytterligare skydda systemet genom att låsa åtkomst till ditt intervall med IP-källadresser – det vill säga Tillåt endast anslutningar från datorer som du planerar att använda för åtkomst till klustret.
 
-  Distribuera mallen konfigurerar också det nya vnet med en tjänstslutpunkt för lagring för Azure Blob storage och åtkomstkontroll för nätverk är låst till endast IP-adresser från undernätet på klustret. <!-- xxx make sure this is accurate --> <!-- do I need to say that this only happens if you choose to create storage? -->
+  Distribuera mallen konfigurerar också det nya vnet med en tjänstslutpunkt för lagring för Azure Blob storage och åtkomstkontroll för nätverk är låst till endast IP-adresser från undernätet på klustret. 
 
 * **Undernät** – Välj ett undernät från det befintliga virtuella nätverket eller skapa en ny. 
 

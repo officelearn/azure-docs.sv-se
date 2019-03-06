@@ -8,18 +8,18 @@ ms.service: sql-database
 ms.subservice: service
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 03/04/2019
+ms.date: 03/05/2019
 ms.author: carlrab
-ms.openlocfilehash: af0fd591393f9f187a75f79fea980d41085df5cb
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 9bd330c2be2b543bd7238dd1641df0d092a8a17d
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57342453"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57434914"
 ---
 # <a name="sql-database-release-notes"></a>Viktig information om SQL-databas
 
-Den här artikeln innehåller nya funktioner och förbättringar i tjänsten SQL Database och SQL Database-dokumentationen. Förbättringar av andra Azure-tjänster, se [uppdateringar av tjänsten](https://azure.microsoft.com/updates).
+Den här artikeln innehåller nya funktioner och förbättringar i tjänsten SQL Database och SQL Database-dokumentationen. Förbättringar för SQL Database-tjänsten, finns även [uppdateringar av tjänsten SQL Database](https://azure.microsoft.com/updates/?product=sql-database). Förbättringar av andra Azure-tjänster, se [uppdateringar av tjänsten](https://azure.microsoft.com/updates).
 
 ## <a name="march-2019"></a>Mars 2019
 
@@ -27,15 +27,17 @@ Den här artikeln innehåller nya funktioner och förbättringar i tjänsten SQL
 
 | Förbättringar av tjänsten | Information |
 | --- | --- |
+| &nbsp; |
 
 ### <a name="documentation-improvements"></a>Dokumentation om förbättringar
 
 | Dokumentation om förbättringar | Information |
 | --- | --- |
-| Har lagts till loggen gränser för enskilda databaser|Mer information finns i [enkel database vCore resursbegränsningar](sql-database-vcore-resource-limits-single-databases.md)|
-| Har lagts till loggen gränser för elastiska pooler och databaser i en pool|Mer information finns i [vCore resource begränsningar för elastiska pooler](sql-database-vcore-resource-limits-elastic-pools.md)|
-| Har lagts till Transaction log rate styrning| Lagt till nytt innehåll för [Transaction log rate styrning](sql-database-resource-limits-database-server.md#transaction-log-rate-governance)|
-| Uppdaterade PowerShell-exempel för enskilda databaser och elastiska pooler använda az.sql modul | Mer information finns i [PowerShell-exempel för enskilda databaser och elastiska pooler](sql-database-powershell-samples.md#single-database-and-elastic-pools).
+| Har lagts till loggen gränser för enskilda databaser|Mer information finns i [enkel database vCore-resursgränser](sql-database-vcore-resource-limits-single-databases.md).|
+| Har lagts till loggen gränser för elastiska pooler och databaser i en pool|Mer information finns i [vCore resource begränsningar för elastiska pooler](sql-database-vcore-resource-limits-elastic-pools.md).|
+| Har lagts till Transaction log rate styrning| Lagt till nytt innehåll för [Transaction log rate styrning](sql-database-resource-limits-database-server.md#transaction-log-rate-governance).|
+| Uppdaterade PowerShell-exempel för enskilda databaser och elastiska pooler använda az.sql modul | Mer information finns i [PowerShell-exempel för enskilda databaser och elastiska pooler](sql-database-powershell-samples.md#single-database-and-elastic-pools).|
+| &nbsp; |
 
 ## <a name="february-2019"></a>Februari 2019
 
@@ -43,16 +45,24 @@ Den här artikeln innehåller nya funktioner och förbättringar i tjänsten SQL
 
 | Förbättringar av tjänsten | Information |
 | --- | --- |
-|Skapa en återställningsbart online-index är nu allmänt tillgänglig| Mer information finns i [Create Index](https://docs.microsoft.com/sql/t-sql/statements/create-index-transact-sql)|
-|Hanterad instans-stöd för routningstabeller förbättrad| Mer information finns i [krav](sql-database-managed-instance-connectivity-architecture.md#network-requirements)|
+|Skapa en återställningsbart online-index är nu allmänt tillgänglig| Mer information finns i [Create Index](https://docs.microsoft.com/sql/t-sql/statements/create-index-transact-sql).|
+|Hanterad instans-stöd för routningstabeller förbättrad| Mer information finns i [krav på](sql-database-managed-instance-connectivity-architecture.md#network-requirements).|
+|Databasen namnbyte stöds i hanterade instansen | Mer information finns i den [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-mi-current) och [sp_rename](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-rename-transact-sql) syntax.|
+|SQL-databas som en källa för referensdata för Stream Analytics. | Mer information finns i [Stream Analytics](https://azure.microsoft.com/services/stream-analytics/).|
+|Data Migration Assistant lägger till stöd för den hanterade instansen. |Mer information finns i [vad är nytt i DMA](https://docs.microsoft.com/sql/dma/dma-whatsnew?view=sql-server-2017).|
+|SQL Server Migration Assistant lägger till stöd för target diagnostisk utvärdering av för den hanterade instansen. | Mer information finns i [SQL Server Migration Assistant](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant).
+|Datamigreringstjänst stöder migrering från Amazon RDS till managed instance | Mer information finns i [Självstudie: Migrera Fjärrskrivbordstjänster SQL Server till Azure SQL Database eller en Azure SQL Database hanterad instans online med DMS](../dms/tutorial-rds-sql-server-azure-sql-and-managed-instance-online.md).|
+| &nbsp; |
 
 ### <a name="documentation-improvements"></a>Dokumentation om förbättringar
 
 | Dokumentation om förbättringar | Information |
 | --- | --- |
-|Lägger till den hanterade instansen distribution alternativet förtydliganden|Uppdatera många artiklar för att förtydliga se om det gäller enkel databas och elastisk pool distributionsalternativ för hanterad instans |
-|Uppdaterade tempdb-storlekar för DTU-baserade inköpsmodellen | Mer information finns i [Tempdb-databasen i SQL-databas](https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database?view=sql-server-2017#tempdb-database-in-sql-database)|
-|Uppdaterade import och export med bacpac-fil för hanterad instans-support| Mer information finns i [Import från BACPAC](sql-database-import.md) och [exportera till BACPAC](sql-database-export.md) |
+|Lägger till den hanterade instansen distribution alternativet förtydliganden|Uppdatera många artiklar för att förtydliga se om det gäller enkel databas och elastisk pool distributionsalternativ för hanterad instans. |
+|Uppdaterade tempdb-storlekar för DTU-baserade inköpsmodellen | Mer information finns i [Tempdb-databasen i SQL Database](https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database?view=sql-server-2017#tempdb-database-in-sql-database).|
+|Uppdaterade import och export med bacpac-fil för hanterad instans-support| Mer information finns i [Import från BACPAC](sql-database-import.md) och [exportera till BACPAC](sql-database-export.md). |
+| &nbsp; |
+
 
 ## <a name="january-2019"></a>Januari 2019
 
@@ -62,7 +72,7 @@ Den här artikeln innehåller nya funktioner och förbättringar i tjänsten SQL
 | --- | --- |
 | Ytterligare kornighet alternativ för att beräkna resurser | Generell användning och affärskritisk tjänstnivåer för [enkla databaser](sql-database-vcore-resource-limits-single-databases.md) och [elastiska pooler](sql-database-vcore-resource-limits-elastic-pools.md) har nu mer detaljerade beräkningsalternativ.|
 | Visning av granskningsposter för den hanterade instansen i Azure portal | Visa [granskningsposter för hanterade instanser](sql-database-managed-instance-auditing.md) i Azure portal stöds nu.|
-| ADVANCE threat funktion för dubblettidentifiering bytt namn till avancerad säkerhet för Data | Funktionen för identifiering av avancerade hot som bytt namn till [avancerade datasäkerhet](sql-advanced-threat-protection.md) för enskilda databaser, elastiska pooler och hanterade instanser |
+| ADVANCE threat funktion för dubblettidentifiering bytt namn till avancerad säkerhet för Data | Funktionen för identifiering av avancerade hot som bytt namn till [avancerade datasäkerhet](sql-advanced-threat-protection.md) för enskilda databaser, elastiska pooler och hanterade instanser. |
 | &nbsp; |
 
 ### <a name="documentation-improvements"></a>Dokumentation om förbättringar

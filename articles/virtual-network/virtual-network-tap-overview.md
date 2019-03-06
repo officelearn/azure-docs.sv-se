@@ -13,35 +13,36 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/17/2018
+ms.date: 03/04/2019
 ms.author: kaanan
-ms.openlocfilehash: 7270ab6203cfa3602fc36bc6fa7d30cd622ce3a3
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5532174b6fc72f51e7ba7a946e601e7d97c7808e
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46946603"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57408453"
 ---
-# <a name="virtual-network-tap"></a>Virtuell nätverks-TAP
+# <a name="virtual-network-tap"></a>Virtual Network TAP
 
 Azure-nätverk TRYCK (Terminal åtkomstpunkt) kan du kontinuerligt stream dina VM-nätverkstrafik till en insamlare eller analytics verktyg för nätverkspaket. Verktyget insamlare eller analytics tillhandahålls av en [virtuell nätverksinstallation](https://azure.microsoft.com/solutions/network-appliances/) partner. En lista över partnerlösningar som godkänts för att fungera med virtuella nätverks-TAP finns i [partnerlösningar](#virtual-network-tap-partner-solutions).
 
 > [!IMPORTANT]
-> Virtuellt nätverk TRYCK förhandsvisas just nu utvecklare i regionen västra Azure. Om du vill använda virtuella nätverks-TAP som du måste registrera i förhandsgranskningen genom att skicka ett e-postmeddelande till <azurevnettap@microsoft.com> med ditt prenumerations-ID. Du får ett e-postmeddelande tillbaka när din prenumeration har registrerats. Du inte kan använda funktionen tills du får ett e-postmeddelande med bekräftelse. Den här developer preview tillhandahålls utan serviceavtal och ska inte användas för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller har begränsad funktionalitet, eller så är de inte tillgängliga på alla Azure-platser. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Virtuellt nätverk TRYCK förhandsvisas just nu utvecklare i regionen västra Azure. Om du vill använda virtuella nätverks-TAP som du måste registrera i förhandsgranskningen genom att skicka ett e-postmeddelande till <azurevnettap@microsoft.com> med ditt prenumerations-ID. Du får ett e-postmeddelande tillbaka när din prenumeration har registrerats. Du inte kan använda funktionen tills du får ett e-postmeddelande med bekräftelse. Den här developer preview tillhandahålls utan serviceavtal och ska inte användas för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller har begränsad funktionalitet, eller så är de inte tillgängliga på alla Azure-platser. Se den [kompletterande användningsvillkor för förhandsversioner av Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) information.
 
 ## <a name="virtual-network-tap-partner-solutions"></a>Virtuellt nätverk TRYCK partnerlösningar
 
 ### <a name="network-packet-brokers"></a>Paket asynkrona meddelandeköer för nätverk
 
 - [Big växel Big övervakning Fabric](https://www.bigswitch.com/products/big-monitoring-fabric/public-cloud/microsoft-azure)
-- [Flowmon](https://www.flowmon.com/blog/azure-vtap)
 - [Gigamon GigaSECURE](https://blog.gigamon.com/2018/09/13/why-microsofts-new-vtap-service-works-even-better-with-gigasecure-for-azure)
 - [Ixia CloudLens](https://www.ixiacom.com/cloudlens/cloudlens-azure)
 
 ### <a name="security-analytics-networkapplication-performance-management"></a>Säkerhetsanalyser, nätverk/hantering av programprestanda
 
+- [Aktiva säkerhet](https://awakesecurity.com/technology-partners/microsoft-azure/)
 - [ExtraHop Reveal(x)](https://www.extrahop.com/company/tech-partners/microsoft/)
 - [Fidelis Cybersäkerhet](https://www.fidelissecurity.com/technology-partners/microsoft-azure )
+- [Flowmon](https://www.flowmon.com/blog/azure-vtap)
 - [Netscout vSTREAM]( https://www.netscout.com/technology-partners/microsoft/azure-vtap)
 - [Nubeva Prisms](https://www.nubeva.com/azurevtap)
 - [RSA NetWitness® plattform](https://www.rsa.com/azure)

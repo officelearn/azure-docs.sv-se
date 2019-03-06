@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/14/2018
 ms.author: kumud
-ms.openlocfilehash: dc22f1392d14529c2944dde67315a278fca4fa73
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: 913693e684ba8640a93f50d21dd3df6a6295e1c5
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57195344"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57450455"
 ---
 # <a name="load-balancer-health-probes"></a>Läsa in Belastningsutjämnarens hälsotillståndsavsökningar
 
@@ -212,7 +212,7 @@ Aktivera inte [TCP tidsstämplar](https://tools.ietf.org/html/rfc1323).  Aktiver
 
 ## <a name="monitoring"></a>Övervakning
 
-Både offentliga och interna [Standardbelastningsutjämnare](load-balancer-standard-overview.md) exponera per slutpunkt och backend-instans avsökningen hälsostatus som flerdimensionella mätvärden via Azure Monitor. De här måtten kan användas av andra Azure-tjänster eller tredje arty program. 
+Både offentliga och interna [Standardbelastningsutjämnare](load-balancer-standard-overview.md) exponera per slutpunkt och backend-instans avsökningen hälsostatus som flerdimensionella mätvärden via Azure Monitor. De här måtten kan användas av andra Azure-tjänster eller program från partner. 
 
 Offentliga belastningsutjämnare visar avsökningen hälsostatus sammanfattas per serverdelspool via Azure Monitor-loggar.  Azure Monitor-loggar är inte tillgängliga för interna grundläggande belastningsutjämnare.  Du kan använda [Azure Monitor loggar](load-balancer-monitor-log.md) att söka på den offentliga avsökningen hälsostatusen för belastningsutjämnaren och avsökning antal. Loggning kan användas med Power BI eller Azure Operational Insights för att tillhandahålla statistik om hälsostatusen för belastningsutjämnaren.
 

@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: genemi
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: b94c5f712469183d64704307316f8bbdaa3d5a11
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 0ef6d258be0165c7a73ce060879f55f1c7f404f9
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55751641"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57453532"
 ---
 # <a name="how-to-use-batching-to-improve-sql-database-application-performance"></a>Hur du använder batchbearbetning för att förbättra programmets prestanda för SQL-databas
 

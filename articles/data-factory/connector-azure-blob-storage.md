@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 02/22/2019
 ms.author: jingwang
-ms.openlocfilehash: cacc17464d15e8872508cff0e626b383ee9a2808
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 115a02c7f8abee18c226c127fb84b4bb34250cd0
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56985401"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57456320"
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-by-using-azure-data-factory"></a>Kopiera data till och från Azure Blob storage med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -24,6 +24,8 @@ ms.locfileid: "56985401"
 Den här artikeln beskrivs hur du använder Kopieringsaktivitet i Azure Data Factory för att kopiera data till och från Azure Blob storage. Den bygger på den [översikt över Kopieringsaktivitet](copy-activity-overview.md) artikel som ger en allmän översikt över Kopieringsaktivitet.
 
 Läs om Azure Data Factory den [introduktionsartikeln](introduction.md).
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="supported-capabilities"></a>Funktioner som stöds
 
@@ -130,15 +132,15 @@ En signatur för delad åtkomst ger delegerad åtkomst till resurser i ditt stor
 
 > [!TIP]
 > Du kan köra följande PowerShell-kommandon för att generera en signatur för delad åtkomst av tjänsten för ditt lagringskonto. Ersätt platshållarna och bevilja behörigheten som krävs.
-> `$context = New-AzureStorageContext -StorageAccountName <accountName> -StorageAccountKey <accountKey>`
-> `New-AzureStorageContainerSASToken -Name <containerName> -Context $context -Permission rwdl -StartTime <startTime> -ExpiryTime <endTime> -FullUri`
+> `$context = New-AzStorageContext -StorageAccountName <accountName> -StorageAccountKey <accountKey>`
+> `New-AzStorageContainerSASToken -Name <containerName> -Context $context -Permission rwdl -StartTime <startTime> -ExpiryTime <endTime> -FullUri`
 
 Om du vill använda autentisering med signatur för delad åtkomst, stöds följande egenskaper:
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Type-egenskapen måste anges till **AzureBlobStorage** (rekommenderas) eller **AzureStorage** (se nedan). |Ja |
-| sasUri | Ange signaturen för delad åtkomst URI till lagringsresurser, t.ex blob-behållare. <br/>Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory. Du kan också placera SAS-token i Azure Key Vault i leverate automatisk rotation och ta bort token delen. Följande exempel finns och [Store autentiseringsuppgifter i Azure Key Vault](store-credentials-in-key-vault.md) artikel med mer information. |Ja |
+| sasUri | Ange signaturen för delad åtkomst URI till lagringsresurser, t.ex blob-behållare. <br/>Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory. Du kan också placera SAS-token i Azure Key Vault för att dra nytta av automatisk rotation och ta bort token delen. Följande exempel finns och [Store autentiseringsuppgifter i Azure Key Vault](store-credentials-in-key-vault.md) artikel med mer information. |Ja |
 | connectVia | Den [integreringskörningen](concepts-integration-runtime.md) som används för att ansluta till datalagret. Du kan använda Azure Integration Runtime eller den lokala Integration Runtime (om ditt datalager finns i ett privat nätverk). Om den inte anges används standard Azure Integration Runtime. |Nej |
 
 >[!NOTE]
@@ -329,6 +331,7 @@ Om du vill kopiera data till och från Blob storage, ange typegenskapen på data
         },
         "typeProperties": {
             "folderPath": "mycontainer/myfolder",
+            "fileName": "*",
             "modifiedDatetimeStart": "2018-12-01T05:00:00Z",
             "modifiedDatetimeEnd": "2018-12-01T06:00:00Z",
             "format": {

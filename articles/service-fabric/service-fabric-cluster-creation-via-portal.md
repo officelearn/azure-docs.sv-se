@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/06/2018
 ms.author: aljo
-ms.openlocfilehash: 71448125d7308ca28e7241fd4019aadba430214e
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 80a4014cb371f3c37c01fa1cf2d20041caf17184
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56106145"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57448229"
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>Skapa ett Service Fabric-kluster i Azure med hjälp av Azure-portalen
 > [!div class="op_single_selector"]
@@ -90,7 +90,7 @@ Navigera till den **Service Fabric-kluster** bladet och klickar på **skapa**.
 Den **skapa Service Fabric-kluster** bladet har följande fyra steg:
 
 ### <a name="1-basics"></a>1. Grundläggande inställningar
-![Skärmbild som visar skapa en ny resursgrupp.][CreateRG]
+![Skärmbild för att skapa en ny resursgrupp.][CreateRG]
 
 I bladet grundläggande inställningar som du behöver ange grundläggande information för klustret.
 
@@ -130,7 +130,7 @@ Konfigurera klusternoderna. Nodtyper definierar storlekarna, hur många virtuell
 > 
 
 ### <a name="3-security"></a>3. Säkerhet
-![Skärmdump av säkerhetskonfigurationer på Azure-portalen.][BasicSecurityConfigs]
+![Skärmbild av säkerhetskonfigurationer på Azure-portalen.][BasicSecurityConfigs]
 
 Om du vill se hur du konfigurerar ett testkluster med säker enkelt för dig har vi samlat den **grundläggande** alternativet. Om du redan har ett certifikat och har laddat upp den till din [nyckelvalv](/azure/key-vault/) och aktiverat nyckelvalvet för distribution, sedan använda den **anpassad** alternativet
 
@@ -191,7 +191,7 @@ Du kan se förloppet bland aviseringarna. (Klicka på klockikonen nära statusf�
 För att kunna utföra hanteringsåtgärder på ditt kluster med Powershell eller CLI, måste du ansluta till ditt kluster, Läs mer om hur du på [ansluter till ditt kluster](service-fabric-connect-to-secure-cluster.md).
 
 ## <a name="view-your-cluster-status"></a>Visa klusterstatus för
-![Skärmbild som visar information om kluster i instrumentpanelen.][ClusterDashboard]
+![Skärmbild av klusterinformation i instrumentpanelen.][ClusterDashboard]
 
 När klustret har skapats kan visa du ditt kluster i portalen:
 

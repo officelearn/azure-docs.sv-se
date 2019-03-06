@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 12/03/2018
 ms.author: genli
-ms.openlocfilehash: c62560d2f80375a725464607f38b9e8adf221d16
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 530bb83d753d27db4869b5725bc6d4c4e020e179
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56875607"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57446613"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Felsöka Azure Backup-fel: Problem med agenten eller -tillägget
 
@@ -229,14 +229,14 @@ Gör så här gör tillägget installeras under nästa säkerhetskopiering.
 
 ### <a name="clean_up_restore_point_collection"></a> Rensa samling med återställningspunkter
 När du tar bort låset har återställningspunkterna att rensas. Följ någon av metoderna för att rensa återställningspunkterna:<br>
-* [Rensa samling med återställningspunkter genom att köra ad hoc-säkerhetskopiering](#clean-up-restore-point-collection-by-running-ad-hoc-backup)<br>
+* [Rensa återställning samlingen med återställningspunkter genom att köra ad hoc-säkerhetskopiering](#clean-up-restore-point-collection-by-running-ad-hoc-backup)<br>
 * [Rensa återställning samlingen från Azure-portalen med återställningspunkter](#clean-up-restore-point-collection-from-azure-portal)<br>
 
-#### <a name="clean-up-restore-point-collection-by-running-ad-hoc-backup"></a>Rensa samling med återställningspunkter genom att köra ad hoc-säkerhetskopiering
-När du tar bort låset kan utlösa en manuell-ad-hoc-säkerhetskopiering. Detta säkerställer att återställningspunkterna automatiskt rensas. Förvänta dig den här ad-hoc/manuell åtgärd misslyckas första gången. men säkerställer det att automatisk rensning i stället för manuell borttagning av återställningspunkter. När rensningen ska nästa schemalagda säkerhetskopiering lyckas.
+#### <a name="clean-up-restore-point-collection-by-running-ad-hoc-backup"></a>Rensa återställning samlingen med återställningspunkter genom att köra ad hoc-säkerhetskopiering
+När du tar bort låset kan utlösa en ad hoc-/ manuell säkerhetskopiering. Detta säkerställer att återställningspunkterna automatiskt rensas. Förvänta dig den här ad hoc/manuell åtgärd misslyckas första gången. men säkerställer det att automatisk rensning i stället för manuell borttagning av återställningspunkter. När rensningen ska nästa schemalagda säkerhetskopiering lyckas.
 
 > [!NOTE]
-    > Automatisk rensning sker efter några timmars aktiverar manuell-ad-hoc-säkerhetskopiering. Om din schemalagd säkerhetskopiering fortfarande misslyckas kommer försök att manuellt ta bort den samling med återställningspunkter med hjälp av stegen visas [här](#clean-up-restore-point-collection-from-azure-portal).
+    > Automatisk rensning sker efter några timmars aktiverar ad hoc-/ manuell säkerhetskopiering. Om din schemalagd säkerhetskopiering fortfarande misslyckas kommer försök att manuellt ta bort den samling med återställningspunkter med hjälp av stegen visas [här](#clean-up-restore-point-collection-from-azure-portal).
 
 #### <a name="clean-up-restore-point-collection-from-azure-portal"></a>Rensa återställning samlingen från Azure-portalen med återställningspunkter <br>
 

@@ -71,7 +71,7 @@ Nu när du har en container kan du ladda upp dina exempeldata till den.
 
 1. Välj din container och välj **Ladda upp**.
 
-2. Välj den blå mappikon intill fältet **Filer** och bläddra till den lokala mapp där du extraherade exempeldata.
+2. Välj den blå mappikonen intill fältet **Filer** och bläddra till den lokala mapp där du extraherade exempeldata.
 
 3. Markera alla de extraherade filerna och välj **Öppna**.
 
@@ -226,7 +226,7 @@ Det enklaste sättet att ta bort de resurser som du har skapat är att ta bort h
 
 1. I Azure-portalen går du till listan över resursgrupper i din prenumeration.
 2. Välj den resursgrupp som du vill ta bort.
-3. Välj den knappen **Ta bort resursgrupp** och ange namnet på resursgruppen i borttagningsfältet.
+3. Välj knappen **Ta bort resursgrupp** och ange namnet på resursgruppen i borttagningsfältet.
 4. Välj **Ta bort**.
 
 ## <a name="next-steps"></a>Nästa steg

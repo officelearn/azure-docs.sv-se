@@ -77,7 +77,7 @@ Se till att **Microsoft Azure App Service** är markerat och klicka på **Public
 
 ![Publicera från projektöversiktssidan](./media/app-service-web-tutorial-dotnet-sqldatabase/publish-to-app-service.png)
 
-Dialogrutan **Skapa App Service** öppnas där du får hjälp att skapa alla Azure-resurser som behövs för att köra ASP.NET-appen i Azure.
+I dialogrutan **Skapa App Service** som öppnas efter publicering får du hjälp att skapa alla Azure-resurser som behövs för att köra ASP.NET-appen i Azure.
 
 ### <a name="sign-in-to-azure"></a>Logga in på Azure
 

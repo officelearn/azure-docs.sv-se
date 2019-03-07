@@ -16,7 +16,7 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 01/17/2019
 ms.locfileid: "54383298"
 ---
-1. I webbläsaren öppnar du [Azure Marketplace-avbildningen för Jenkins](https://azuremarketplace.microsoft.com/marketplace/apps/azure-oss.jenkins?tab=Overview).
+1. Öppna [Azure Marketplace-avbildningen för Jenkins](https://azuremarketplace.microsoft.com/marketplace/apps/azure-oss.jenkins?tab=Overview) i din webbläsare.
 
 1. Välj **GET IT NOW** (Hämta nu).
 
@@ -63,7 +63,7 @@ ms.locfileid: "54383298"
 
     - **Tjänstens huvudnamn** – Tjänstens huvudnamn läggs till i Jenkins som en autentiseringsuppgift för autentisering med Azure. `Auto` innebär att huvudkontot skapas av MSI (Hanterad tjänstidentitet). `Manual` innebär att huvudkontot ska skapas av dig. 
         - **Program-ID** och **Hemlighet** – Om du väljer alternativet `Manual` för alternativet **Tjänstens huvudnamn** måste du ange `Application ID` och `Secret` för din tjänstens huvudnamn. När du [skapar ett tjänsthuvudnamn](/cli/azure/create-an-azure-service-principal-azure-cli) bör du observera att standardrollen är **Deltagare**, vilket är tillräckligt för att arbeta med Azure-resurser.
-    - **Aktivera molnagenter** – Ange stanardmolnmall för agenter där `ACI` refererar till Azure Container Instance och `VM` refererar till virtuella datorer. Du kan även ange `No` om du inte vill aktivera en molnagent.
+    - **Aktivera molnagenter** – Ange standardmolnmall för agenter där `ACI` refererar till Azure Container Instance och `VM` refererar till virtuella datorer. Du kan även ange `No` om du inte vill aktivera en molnagent.
 
 1. Välj **OK** för att fortsätta till fliken **Sammanfattning**.
 

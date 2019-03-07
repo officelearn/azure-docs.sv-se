@@ -39,7 +39,7 @@ Välj sedan den organisation där du vill installera tillägget.
 
 Nu när tillägget har installerats loggar du på ditt Azure DevOps-konto och hitta ditt projekt i projektinstrumentpanelen. Du kan lägga till en [bygg-pipeline](https://docs.microsoft.com/azure/devops/pipelines/get-started-designer?view=vsts&tabs=new-nav) i projektet eller ändrar en befintlig bygg-pipeline. Om du redan har en bygg-pipeline kan du gå vidare till [Lägga till emulatorns build-uppgift i en build-definition](#addEmulatorBuildTaskToBuildDefinition).
 
-1. Du kan skapa en ny build-definition genom att gå till fliken **Build** (Bygg) i Azure DevOps. Välj **+New** (Ny). > **Ny bygg-pipeline**
+1. Du kan skapa en ny build-definition genom att gå till fliken **Build** (Bygg) i Azure DevOps. Välj **+New** (Ny)  >  **Ny bygg-pipeline**
 
    ![Skapa en ny bygg-pipeline](./media/tutorial-setup-ci-cd/CreateNewBuildDef_1.png)
 

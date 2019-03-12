@@ -9,14 +9,14 @@ ms.topic: reference
 author: hning86
 ms.author: haining
 ms.reviewer: j-martens
-ms.date: 2/25/2019
+ms.date: 03/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: d72676d7eaad539fc6e023bc96ccbb16f0958a7a
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: bb074dd848ce5e752ba8e4ca1d3a8ee533a2f5d2
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57311380"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57777455"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Viktig information för Azure Machine Learning-tjänsten
 
@@ -24,6 +24,21 @@ I den här artikeln lär du dig om Azure Machine Learning-tjänstversioner.  En 
 + Azure Machine Learning [ **huvudsakliga SDK för Python**](https://aka.ms/aml-sdk)
 + Azure Machine Learning [ **Data Förbered SDK**](https://aka.ms/data-prep-sdk)
 
+## <a name="2019-03-11"></a>2019-03-11
+
+### <a name="azure-machine-learning-sdk-for-python-v1018"></a>Azure Machine Learning-SDK för Python v1.0.18
+
+ + **Ändringar**
+   + Azureml-tensorboard paketet ersätter azureml-contrib-tensorboard.
+
+### <a name="azure-machine-learning-data-prep-sdk-v1017"></a>Azure Machine Learning Data Prep SDK v1.0.17
+
++ **Nya funktioner**
+  + Nu har stöd för att lägga till två numeriska kolumner för att generera en gällande kolumn med hjälp av uttryck som språket.
+
++ **Felkorrigeringar och förbättringar**
+  + Förbättrat dokumentationen och söker efter random_split-parametern.
+  
 ## <a name="2019-02-27"></a>2019-02-27
 
 ### <a name="azure-machine-learning-data-prep-sdk-v1016"></a>Azure Machine Learning Data Förbered SDK v1.0.16
@@ -37,25 +52,27 @@ I den här artikeln lär du dig om Azure Machine Learning-tjänstversioner.  En 
 
 + **Nya funktioner**
 
-  + Azure Machine Learning SDK nu stöder en [ `Chainer` ](https://docs.microsoft.com/en-us/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py) kostnadsuppskattning klassen för att effektivisera processen för att träna och distribuera en modell med anpassad Chainer-kod.
+  + Azure Machine Learning har nu förstklassigt stöd för populära DNN-ramverk Chainer. Med hjälp av [ `Chainer` ](https://docs.microsoft.com/en-us/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py) klassen användare enkelt kan träna och distribuera Chainer modeller.
+    + Lär dig hur du [kör distribuerad utbildning med ChainerMN](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/distributed-chainer/distributed-chainer.ipynb)
+    + Lär dig hur du [kör finjustering av hyperparametrar med Chainer med HyperDrive](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-chainer/train-hyperparameter-tune-deploy-with-chainer.ipynb)
   + Azure Machine Learning Pipelines lagt till möjligheten utlösare som en Pipeline som körs baserat på ändringar av datalager. Pipelinen [schema notebook](https://aka.ms/pl-schedule) har uppdaterats för att demonstrera den här funktionen.
-  
+
 + **Felkorrigeringar och förbättringar**
   + Vi har lagt till stöd för Azure Machine Learning Pipelines för att ange egenskapen source_directory_data_store till en önskad datalager (till exempel en bloblagring) på [RunConfigurations](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.runconfig.runconfiguration?view=azure-ml-py) som skickas till den [ PythonScriptStep](https://docs.microsoft.com/en-us/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep?view=azure-ml-py). Som standard använder stegen Azure-lagring som säkerhetskopierar databasen som kan köras i begränsning problem när ett stort antal steg körs samtidigt.
 
 ### <a name="azure-portal"></a>Azure Portal
 
 + **Nya funktioner**
-    + Ny dra och släpp tabell redigeraren upplevelse för rapporter. Användare kan dra en kolumn från brunnen till området tabellen där en förhandsgranskning av tabellen visas. Kolumnerna som kan skrivas om.
-    + Granskaren nya loggar
-    + Länkar till experiment körs, beräkning, modeller, bilder och distributioner från fliken aktiviteter
+  + Ny dra och släpp tabell redigeraren upplevelse för rapporter. Användare kan dra en kolumn från brunnen till området tabellen där en förhandsgranskning av tabellen visas. Kolumnerna som kan skrivas om.
+  + Granskaren nya loggar
+  + Länkar till experiment körs, beräkning, modeller, bilder och distributioner från fliken aktiviteter
 
 ### <a name="azure-machine-learning-data-prep-sdk-v1015"></a>Azure Machine Learning Data Förbered SDK v1.0.15
 
 + **Nya funktioner**
   + Data Prep stöder nu skriva filen dataströmmar från ett dataflöde. Ger också möjlighet att ändra stream filnamn för att skapa nya filnamn.
     + Här guiden: [Arbeta med filen strömmar notebook](https://aka.ms/aml-data-prep-file-stream-nb)
- 
+
 + **Felkorrigeringar och förbättringar**
   + Förbättrad prestanda för t-Digest på stora datamängder.
   + Dataförberedelser har nu stöd för läsning av data från en DataPath.

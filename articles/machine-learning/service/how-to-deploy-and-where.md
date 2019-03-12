@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: f402aeb82271d4e0f5023f05b0d61713c4ab73c1
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 2a88781e17313557438e64492ab84f59018f9914
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57338475"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57730184"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Distribuera modeller med Azure Machine Learning-tjänsten
 
@@ -30,7 +30,7 @@ Du kan distribuera modeller till följande beräkning:
 | Beräkningsmål | Distributionstyp | Beskrivning |
 | ----- | ----- | ----- |
 | [Azure Kubernetes Service (AKS)](#aks) | I realtid inferens | Bra för Produktionsdistribution av hög skalbarhet. Tillhandahåller automatisk skalning och snabba svarstider. |
-| Azure ML Compute | Batch inferens | Kör batch-förutsägelse på beräkning utan server. Har stöd för normal och lågprioriterade virtuella datorer. |
+| [Azure ML Compute](#azuremlcompute) | Batch inferens | Kör batch-förutsägelse på beräkning utan server. Har stöd för normal och lågprioriterade virtuella datorer. |
 | [Azure Container Instances (ACI)](#aci) | Testning | Bra för utveckling och testning. **Inte lämplig för produktionsarbetsbelastningar.** |
 | [Azure IoT Edge](#iotedge) | (Förhandsversion) IoT-modul | Distribuera modeller på IoT-enheter. Inferensjobb sker på enheten. |
 | [Fältet-programmable gate array FPGA)](#fpga) | (Förhandsversion) Webbtjänst | Extremt låg latens för i realtid inferensjobb. |
@@ -328,7 +328,7 @@ print(aks_target.provisioning_errors)
 
 #### <a name="use-an-existing-cluster"></a>Använd ett befintligt kluster
 
-Om du redan har AKS-kluster i Azure-prenumerationen och det är version 1.11. *, du kan använda den för att distribuera din avbildning. Följande kod visar hur du kopplar ett befintligt kluster till din arbetsyta:
+Om du redan har AKS-kluster i Azure-prenumerationen och det är version 1.11. ## och har minst 12 virtuella processorer, du kan använda den för att distribuera din avbildning. Följande kod visar hur du ansluter en befintlig AKS 1.11. ## klustret till din arbetsyta:
 
 ```python
 from azureml.core.compute import AksCompute, ComputeTarget
@@ -346,6 +346,11 @@ aks_target.wait_for_completion(True)
 ```
 
 **Uppskattad tidsåtgång**: Ca 3 minuter.
+
+Mer information om hur du skapar ett AKS-kluster utanför Azure Machine Learning SDK finns i följande artiklar:
+
+* [Skapa ett AKS-clsuter](https://docs.microsoft.com/cli/azure/aks?toc=%2Fen-us%2Fazure%2Faks%2FTOC.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json&view=azure-cli-latest#az-aks-create)
+* [Skapa ett AKS-kluster (portal)](https://docs.microsoft.com/azure/aks/kubernetes-walkthrough-portal?view=azure-cli-latest)
 
 #### <a name="deploy-the-image"></a>Distribuera avbildningen
 
@@ -372,7 +377,7 @@ print(service.state)
 
 Mer information finns i referensdokumentationen för den [AksWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py) och [webbtjänsten](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice.webservice?view=azure-ml-py) klasser.
 
-### <a id="fpga"></a> Inferens med Azure ML-beräkning
+### <a id="azuremlcompute"></a> Inferens med Azure ML-beräkning
 
 Azure ML-beräkningsmål skapas och hanteras av Azure Machine Learning-tjänsten. De kan användas för batch-förutsägelse från Azure ML-Pipelines.
 
@@ -387,9 +392,14 @@ En genomgång för att distribuera en modell med Project Brainwave finns i den [
 
 ### <a id="iotedge"></a> Distribuera till Azure IoT Edge
 
-En Azure IoT Edge-enhet är en Linux eller Windows-baserad enhet som kör Azure IoT Edge-körningen. Machine learning-modeller kan distribueras till dessa enheter som IoT Edge-moduler. Distribuera en modell till en IoT Edge-enhet gör att enheten använder modellen direkt, i stället för att skicka data till molnet för bearbetning. Du får kortare svarstider och överföra mindre data.
+En Azure IoT Edge-enhet är en Linux eller Windows-baserad enhet som kör Azure IoT Edge-körningen. Med Azure IoT Hub kan distribuera du machine learning-modeller till dessa enheter som IoT Edge-moduler. Distribuera en modell till en IoT Edge-enhet gör att enheten använder modellen direkt, i stället för att skicka data till molnet för bearbetning. Du får kortare svarstider och överföra mindre data.
 
 Azure IoT Edge-moduler distribueras till enheten från ett behållarregister. När du skapar en avbildning från din modell, lagras den i behållarregister för arbetsytan.
+
+> [!IMPORTANT]
+> Informationen i det här avsnittet förutsätter att du redan är bekant med Azure IoT Hub och Azure IoT Edge-moduler. Del av informationen i det här avsnittet är specifika för Azure Machine Learning-tjänsten, sker merparten av processen att distribuera till en edge-enhet i Azure IoT-tjänster.
+>
+> Om du inte känner till Azure IoT [grunderna i Azure IoT](https://docs.microsoft.com/azure/iot-fundamentals/) och [Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/) grundläggande information. Använd andra länkarna i det här avsnittet för mer information om specifika åtgärder.
 
 #### <a name="set-up-your-environment"></a>Konfigurera din miljö
 
@@ -399,36 +409,11 @@ Azure IoT Edge-moduler distribueras till enheten från ett behållarregister. N�
 
 * En tränad modell. Ett exempel på hur du tränar en modell finns i den [tränar en modell för klassificering av avbildning med Azure Machine Learning](tutorial-train-models-with-aml.md) dokumentet. En förtränade modellen är tillgänglig på den [AI-verktyg för Azure IoT Edge GitHub-lagringsplatsen](https://github.com/Azure/ai-toolkit-iot-edge/tree/master/IoT%20Edge%20anomaly%20detection%20tutorial).
 
-#### <a name="prepare-the-iot-device"></a>Förbereda IoT-enhet
-Du måste skapa en IoT-hubb och registrera en enhet eller återanvända en med [det här skriptet](https://raw.githubusercontent.com/Azure/ai-toolkit-iot-edge/master/amliotedge/createNregister).
+#### <a id="getcontainer"></a> Hämta autentiseringsuppgifter för registret
 
-``` bash
-ssh <yourusername>@<yourdeviceip>
-sudo wget https://raw.githubusercontent.com/Azure/ai-toolkit-iot-edge/master/amliotedge/createNregister
-sudo chmod +x createNregister
-sudo ./createNregister <The Azure subscriptionID you want to use> <Resourcegroup to use or create for the IoT hub> <Azure location to use e.g. eastus2> <the Hub ID you want to use or create> <the device ID you want to create>
-```
-
-Spara den resulterande anslutningssträngen efter ”cs”: ”{kopiera den här strängen}”.
-
-Initiera din enhet genom att ladda ned [det här skriptet](https://raw.githubusercontent.com/Azure/ai-toolkit-iot-edge/master/amliotedge/installIoTEdge) i en UbuntuX64 IoT Edge-nod eller DSVM att köra följande kommandon:
-
-```bash
-ssh <yourusername>@<yourdeviceip>
-sudo wget https://raw.githubusercontent.com/Azure/ai-toolkit-iot-edge/master/amliotedge/installIoTEdge
-sudo chmod +x installIoTEdge
-sudo ./installIoTEdge
-```
-
-IoT Edge-nod är redo att ta emot anslutningssträngen för IoT-hubben. Leta efter raden ```device_connection_string:``` och klistra in anslutningssträngen ovan mellan citattecknen.
-
-Du kan också lära dig hur du registrerar din enhet och installera IoT-runtime genom att följa den [Snabbstart: Distribuera din första IoT Edge-modul till en enhet med Linux x64](../../iot-edge/quickstart-linux.md) dokumentet.
-
-
-#### <a name="get-the-container-registry-credentials"></a>Hämta autentiseringsuppgifter för registret
 För att distribuera en IoT Edge-modul till din enhet, måste autentiseringsuppgifterna för behållarregistret som Azure Machine Learning-tjänsten lagrar docker-avbildningar i i Azure IoT.
 
-Du kan enkelt hämta autentiseringsuppgifter för nödvändiga container-registret på två sätt:
+Du kan hämta autentiseringsuppgifterna på två sätt:
 
 + **I Azure-portalen**:
 
@@ -469,24 +454,21 @@ Du kan enkelt hämta autentiseringsuppgifter för nödvändiga container-registr
 
      Dessa autentiseringsuppgifter krävs för att tillhandahålla IoT Edge Enhetsåtkomst till avbildningar i ditt privata behållarregister.
 
+#### <a name="prepare-the-iot-device"></a>Förbereda IoT-enhet
+
+Du måste registrera din enhet med Azure IoT Hub och sedan installera IoT Edge-körningen på enheten. Om du inte är bekant med den här processen finns i [snabbstarten: Distribuera din första IoT Edge-modul till en enhet med Linux x64](../../iot-edge/quickstart-linux.md).
+
+Andra metoder för att registrera en enhet är:
+
+* [Azure Portal](https://docs.microsoft.com/azure/iot-edge/how-to-register-device-portal)
+* [Azure CLI](https://docs.microsoft.com/azure/iot-edge/how-to-register-device-cli)
+* [Visual Studio Code](https://docs.microsoft.com/azure/iot-edge/how-to-register-device-vscode)
+
 #### <a name="deploy-the-model-to-the-device"></a>Distribuera modellen till enheten
 
-Du kan enkelt distribuera en modell genom att köra [det här skriptet](https://raw.githubusercontent.com/Azure/ai-toolkit-iot-edge/master/amliotedge/deploymodel) och anger följande information från stegen ovan: behållarregister namn, användarnamn, lösenord, bild-url för platsen, önskat namn och namnet på IoT-hubb och enhets-ID som du skapade. Du kan göra detta på den virtuella datorn genom att följa dessa steg: 
+För att distribuera modellen till enheten, använder du informationen i registret som samlats in den [hämta autentiseringsuppgifter för container-registret](#getcontainer) med distribution av principmodul steg för IoT Edge-moduler. Till exempel när [distribuera Azure IoT Edge-moduler från Azure portal](../../iot-edge/how-to-deploy-modules-portal.md), måste du konfigurera den __registerinställningar__ för enheten. Använd den __inloggningsserver__, __användarnamn__, och __lösenord__ för behållarregistret arbetsyta.
 
-```bash 
-wget https://raw.githubusercontent.com/Azure/ai-toolkit-iot-edge/master/amliotedge/deploymodel
-sudo chmod +x deploymodel
-sudo ./deploymodel <ContainerRegistryName> <username> <password> <imageLocationURL> <DeploymentID> <IoTHubname> <DeviceID>
-```
-
-Du kan också följa stegen i den [distribuera Azure IoT Edge-moduler från Azure portal](../../iot-edge/how-to-deploy-modules-portal.md) dokumentet för att distribuera avbildningen till din enhet. När du konfigurerar den __registerinställningar__ för enheten, använda den __inloggningsserver__, __användarnamn__, och __lösenord__ för arbetsytan behållarregister.
-
-> [!NOTE]
-> Om du är bekant med Azure IoT Edge finns i följande dokument för information om att komma igång med tjänsten:
->
-> * [Snabbstart: Distribuera din första IoT Edge-modul till en Linux-enhet](../../iot-edge/quickstart-linux.md)
-> * [Snabbstart: Distribuera din första IoT Edge-modul till en Windows-enhet](../../iot-edge/quickstart.md)
-
+Du kan också distribuera med hjälp av [Azure CLI](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-modules-cli) och [Visual Studio Code](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-modules-vscode).
 
 ## <a name="testing-web-service-deployments"></a>Testa webbtjänstdistributioner
 

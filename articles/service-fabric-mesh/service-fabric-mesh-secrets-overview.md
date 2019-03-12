@@ -6,15 +6,15 @@ keywords: hemligheter
 author: v-steg
 ms.author: v-steg
 ms.date: 10/25/2018
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.service: service-fabric-mesh
 manager: jeanpaul.connock
-ms.openlocfilehash: 63ac34e184d537eba2b915d4d108c7c1d8368aba
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
-ms.translationtype: HT
+ms.openlocfilehash: b6db9b6cb2ccbf1c8d29edb817d35677109ae755
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52891980"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57768629"
 ---
 # <a name="service-fabric-mesh-application-secrets"></a>Service Fabric Mesh-programhemligheter
 Service Fabric Mesh stöder hemligheter som Azure-resurser. En Service Fabric Mesh-hemlighet kan vara valfri känslig textinformation, till exempel lagringsanslutningssträngar, lösenord eller andra värden som bör lagras och överföras på ett säkert sätt.

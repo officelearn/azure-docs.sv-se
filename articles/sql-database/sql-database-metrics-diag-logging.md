@@ -11,13 +11,13 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
-ms.date: 02/07/2019
-ms.openlocfilehash: b6242475376a37abb1bce6994f7c31c7adfee859
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.date: 03/06/2019
+ms.openlocfilehash: 02f5b98026699be4c71e0cecf94634c7a139d21e
+ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57443070"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57727016"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL Database-mått och diagnostikloggning
 
@@ -54,17 +54,14 @@ När du aktiverar mått och diagnostik loggning kan behöva du ange Azure-resurs
 
 Du kan etablera en ny resurs i Azure eller välja en befintlig resurs. När du har valt en resurs med hjälp av den **diagnostikinställningar** , anger du vilka data du samlar in.
 
-> [!NOTE]
-> Om du även använder elastiska pooler eller en hanterad instans, rekommenderar vi att du aktiverar diagnostiktelemetri för dessa resurser också. Databasen behållare i elastiska pooler och en hanterad instans har sina egna separata diagnostiktelemetri.
-
-## <a name="enable-logging-for-azure-sql-databases"></a>Aktivera loggning för Azure SQL-databaser
+## <a name="supported-diagnostic-logging-for-azure-sql-databases-and-instance-databases"></a>Diagnostisk loggning som stöds för Azure SQL-databaser och instansdatabaser
 
 Aktivera för mått och diagnostik loggning på SQL-databaser – de är inte aktiverad som standard.
 
-Du kan ställa in Azure SQL-databaser för att samla in följande diagnostiktelemetri:
+Du kan ställa in Azure SQL-databaser och instansdatabaser att samla in följande diagnostiktelemetri:
 
-| Övervakning av telemetri för databaser | Enkel databas och stöd för databas i pool | Hanterad instans-stöd |
-| :------------------- | ------------------- | ------------------- |
+| Övervakning av telemetri för databaser | Enkel databas och stöd för databas i pool | Stöd för databaser i instansen |
+| :------------------- | ----- | ----- |
 | [Alla mått](#all-metrics): Innehåller DTU/CPU-procent, DTU/CPU-begränsning, fysiska data läses procent, skriva log procent brandväggsanslutningar, sessioner procent, arbetare procent, lagring, lagringsprocent och XTP lagringsprocent lyckades/misslyckades/blockerades. | Ja | Nej |
 | [QueryStoreRuntimeStatistics](#query-store-runtime-statistics): Innehåller information om den fråga runtime statistik, till exempel CPU-användning och fråga varaktighet. | Ja | Ja |
 | [QueryStoreWaitStatistics](#query-store-wait-statistics): Innehåller information om frågestatistik för vänta (vad dina frågor kan ha väntat), till exempel processor, LOG och låser. | Ja | Ja |
@@ -74,63 +71,12 @@ Du kan ställa in Azure SQL-databaser för att samla in följande diagnostiktele
 | [Block](#blockings-dataset): Innehåller information om blockering av händelser i databasen. | Ja | Nej |
 | [SQLInsights](#intelligent-insights-dataset): Innehåller intelligenta insikter om prestanda. Mer information finns i [smarta insikter](sql-database-intelligent-insights.md). | Ja | Ja |
 
-### <a name="azure-portal"></a>Azure Portal
+> [!IMPORTANT]
+> Elastiska pooler och hanterade instanser har en egen separat diagnostiktelemetri från databaser som de innehåller. Detta är viktigt att notera som diagnostiktelemetri konfigureras separat för var och en av dessa resurser, enligt beskrivningen nedan.
 
-Du använder den **diagnostikinställningar** menyn för var och en enkel tilldelade i poler, eller instans databas i Azure portal för att konfigurera strömning av diagnostiktelemetri för Azure SQL-databaser. Du kan ange följande mål: Azure Storage, Azure Event Hubs och Azure Monitor-loggar.
+## <a name="azure-portal"></a>Azure Portal
 
-### <a name="configure-streaming-of-diagnostics-telemetry-for-single-pooled-or-instance-databases"></a>Konfigurera strömning av diagnostiktelemetri för en enskild, i pooler eller instans databaser
-
-   ![Ikon för SQL-databas](./media/sql-database-metrics-diag-logging/icon-sql-database-text.png)
-
-Att aktivera strömning av diagnostiktelemetri för en enskild, tilldelade i poler, eller instans databaser, Följ dessa steg:
-
-1. Gå till din Azure SQL database-resurs.
-1. Välj **diagnostikinställningar**.
-1. Välj **slå på diagnostik** om inga tidigare inställningar finns, eller välj **Redigera inställning** så här redigerar du en föregående inställning.
-   - Du kan skapa upp till tre parallella anslutningar till stream-diagnostiktelemetri.
-   - Välj **+ Lägg till diagnostikinställning** konfigurera parallella strömning av diagnostikdata till flera resurser.
-
-   ![Aktivera diagnostik för en enskild, i pooler eller instans databaser](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-sql-enable.png)
-1. Ange ett namn på inställningen för din egen referens.
-1. Välj en mål-resurs för strömmande diagnostikdata: **Arkivet till lagringskontot**, **Stream till en händelsehubb**, eller **skicka till Log Analytics**.
-1. Välj följande kryssrutor för databasen diagnostik loggtelemetri för övervakningen standard, baserat på händelse: **SQLInsights**, **AutomaticTuning**, **QueryStoreRuntimeStatistics**, **QueryStoreWaitStatistics**, **fel** , **DatabaseWaitStatistics**, **tidsgränser**, **block**, och **låsningar**.
-1. För en avancerad, 1-minut-baserade övervakningsupplevelse, markerar du kryssrutan för **AllMetrics**.
-1. Välj **Spara**.
-
-   ![Konfigurera diagnostik för en enskild, i pooler eller instans databaser](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-sql-selection.png)
-
-> [!NOTE]
-> Granskningsloggar för säkerhet kan inte aktiveras från diagnostik databasinställningarna. För att aktivera granskning av loggströmningen, se [konfigurera granskning för din databas](sql-database-auditing.md#subheading-2), och [granskningsloggar i Azure Monitor-loggar och Azure Event Hubs](https://blogs.msdn.microsoft.com/sqlsecurity/2018/09/13/sql-audit-logs-in-azure-log-analytics-and-azure-event-hubs/).
-> [!TIP]
-> Upprepa dessa steg för varje Azure SQL-databas som du vill övervaka.
-
-### <a name="configure-streaming-of-diagnostics-telemetry-for-instance-databases-in-managed-instance"></a>Konfigurera strömning av diagnostiktelemetri exempelvis databaser i hanterad instans
-
-   ![Databasinstans i hanterad instans-ikon](./media/sql-database-metrics-diag-logging/icon-mi-database-text.png)
-
-Följ dessa steg om du vill aktivera strömning av diagnostiktelemetri exempelvis databaser i hanterade instansen:
-
-1. Gå till din instans-databas i hanterad instans.
-2. Välj **diagnostikinställningar**.
-3. Välj **slå på diagnostik** om inga tidigare inställningar finns, eller välj **Redigera inställning** så här redigerar du en föregående inställning.
-   - Du kan skapa upp till tre (3) parallella anslutningar till stream-diagnostiktelemetri.
-   - Välj **+ Lägg till diagnostikinställning** konfigurera parallella strömning av diagnostikdata till flera resurser.
-
-   ![Aktivera diagnostik till exempel databaser](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-mi-enable.png)
-
-4. Ange ett namn på inställningen för din egen referens.
-5. Välj en mål-resurs för strömmande diagnostikdata: **Arkivet till lagringskontot**, **Stream till en händelsehubb**, eller **skicka till Log Analytics**.
-6. Markera kryssrutorna för databastelemetri för diagnostik: **SQLInsights**, **QueryStoreRuntimeStatistics**, **QueryStoreWaitStatistics** och **fel**.
-7. Välj **Spara**.
-
-   ![Konfigurera diagnostik till exempel databaser](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-mi-selection.png)
-
-> [!TIP]
-> Upprepa dessa steg för varje instans som du vill övervaka.
-
-## <a name="enable-logging-for-elastic-pools-or-managed-instances"></a>Aktivera loggning för elastiska pooler eller hanterade instanser
-
-Aktivera diagnostiktelemetri för elastiska pooler och hanterade instanser som behållare för databasen. De har sina egna diagnostiktelemetri som inte är aktiverad som standard.
+Du kan använda **diagnostikinställningar** menyn för var och en enkel tilldelade i poler, eller instans databas i Azure portal för att konfigurera strömning av diagnostiktelemetri. Dessutom diagnostiktelemetri kan också konfigureras separat för databas-behållare: elastiska pooler och hanterade instanser. Du kan ange följande mål att strömma diagnostiktelemetri: Azure Storage, Azure Event Hubs och Azure Monitor-loggar.
 
 ### <a name="configure-streaming-of-diagnostics-telemetry-for-elastic-pools"></a>Konfigurera strömning av diagnostiktelemetri för elastiska pooler
 
@@ -158,8 +104,34 @@ Följ dessa steg om du vill aktivera strömning av diagnostiktelemetri för en e
 
    ![Konfigurera diagnostik för elastiska pooler](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-elasticpool-selection.png)
 
+> [!NOTE]
+> Utöver att konfigurera diagnostiktelemetri för elastisk pool behöver du även konfigurera diagnostiktelemetri för varje databas i elastisk pool, enligt beskrivningen nedan. 
+
+### <a name="configure-streaming-of-diagnostics-telemetry-for-single-datatbase-or-database-in-elastic-pool"></a>Konfigurera strömning av diagnostiktelemetri för enkel datatbase eller databasen i elastisk pool
+
+   ![Ikon för SQL-databas](./media/sql-database-metrics-diag-logging/icon-sql-database-text.png)
+
+Att aktivera strömning av diagnostiktelemetri för en enskild, tilldelade i poler, eller instans databaser, Följ dessa steg:
+
+1. Gå till din Azure SQL database-resurs.
+1. Välj **diagnostikinställningar**.
+1. Välj **slå på diagnostik** om inga tidigare inställningar finns, eller välj **Redigera inställning** så här redigerar du en föregående inställning.
+   - Du kan skapa upp till tre parallella anslutningar till stream-diagnostiktelemetri.
+   - Välj **+ Lägg till diagnostikinställning** konfigurera parallella strömning av diagnostikdata till flera resurser.
+
+   ![Aktivera diagnostik för en enskild, i pooler eller instans databaser](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-sql-enable.png)
+1. Ange ett namn på inställningen för din egen referens.
+1. Välj en mål-resurs för strömmande diagnostikdata: **Arkivet till lagringskontot**, **Stream till en händelsehubb**, eller **skicka till Log Analytics**.
+1. Välj följande kryssrutor för databasen diagnostik loggtelemetri för övervakningen standard, baserat på händelse: **SQLInsights**, **AutomaticTuning**, **QueryStoreRuntimeStatistics**, **QueryStoreWaitStatistics**, **fel** , **DatabaseWaitStatistics**, **tidsgränser**, **block**, och **låsningar**.
+1. För en avancerad, 1-minut-baserade övervakningsupplevelse, markerar du kryssrutan för **AllMetrics**.
+1. Välj **Spara**.
+
+   ![Konfigurera diagnostik för en enskild, i pooler eller instans databaser](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-sql-selection.png)
+
+> [!NOTE]
+> Granskningsloggar för säkerhet kan inte aktiveras från diagnostik databasinställningarna. För att aktivera granskning av loggströmningen, se [konfigurera granskning för din databas](sql-database-auditing.md#subheading-2), och [granskningsloggar i Azure Monitor-loggar och Azure Event Hubs](https://blogs.msdn.microsoft.com/sqlsecurity/2018/09/13/sql-audit-logs-in-azure-log-analytics-and-azure-event-hubs/).
 > [!TIP]
-> Upprepa dessa steg för varje elastisk pool som du vill övervaka.
+> Upprepa dessa steg för varje Azure SQL-databas som du vill övervaka.
 
 ### <a name="configure-streaming-of-diagnostics-telemetry-for-managed-instances"></a>Konfigurera strömning av diagnostiktelemetri för hanterade instanser
 
@@ -187,8 +159,32 @@ Följ dessa steg om du vill aktivera strömning av diagnostiktelemetri för en h
 
    ![Konfigurera diagnostik för den hanterade instansen](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-mi-selection.png)
 
+> [!NOTE]
+> Utöver att konfigurera diagnostiktelemetri för en hanterad instans, måste du också konfigurera diagnostiktelemetri för varje instans-databas, enligt beskrivningen nedan. 
+
+### <a name="configure-streaming-of-diagnostics-telemetry-for-instance-databases"></a>Konfigurera strömning av diagnostiktelemetri exempelvis databaser
+
+   ![Databasinstans i hanterad instans-ikon](./media/sql-database-metrics-diag-logging/icon-mi-database-text.png)
+
+Följ dessa steg om du vill aktivera strömning av diagnostiktelemetri exempelvis databaser:
+
+1. Gå till din instans-databas i hanterad instans.
+2. Välj **diagnostikinställningar**.
+3. Välj **slå på diagnostik** om inga tidigare inställningar finns, eller välj **Redigera inställning** så här redigerar du en föregående inställning.
+   - Du kan skapa upp till tre (3) parallella anslutningar till stream-diagnostiktelemetri.
+   - Välj **+ Lägg till diagnostikinställning** konfigurera parallella strömning av diagnostikdata till flera resurser.
+
+   ![Aktivera diagnostik till exempel databaser](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-mi-enable.png)
+
+4. Ange ett namn på inställningen för din egen referens.
+5. Välj en mål-resurs för strömmande diagnostikdata: **Arkivet till lagringskontot**, **Stream till en händelsehubb**, eller **skicka till Log Analytics**.
+6. Markera kryssrutorna för databastelemetri för diagnostik: **SQLInsights**, **QueryStoreRuntimeStatistics**, **QueryStoreWaitStatistics** och **fel**.
+7. Välj **Spara**.
+
+   ![Konfigurera diagnostik till exempel databaser](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-mi-selection.png)
+
 > [!TIP]
-> Upprepa dessa steg för varje hanterad instans som du vill övervaka.
+> Upprepa dessa steg för varje instans-databas som du vill övervaka.
 
 ### <a name="powershell"></a>PowerShell
 
@@ -247,6 +243,9 @@ Ange resurs-ID för arbetsyta \<$WSID\> som en parameter när du kör skriptet `
 ### <a name="azure-cli"></a>Azure CLI
 
 Du kan aktivera mätvärden och diagnostikloggning med hjälp av Azure CLI.
+
+> [!NOTE]
+> Skript för att aktivera loggning-diagnostik har stöd för Azure CLI version 1.0. Observera att CLI v2.0 inte stöds just nu.
 
 - Använd följande kommando om du vill aktivera lagring av diagnostikloggar i ett lagringskonto:
 
@@ -405,11 +404,11 @@ Avse följande tabell innehåller information om alla mått per resurs.
 |---|---|
 |Azure SQL-databas|DTU-procent DTU används, DTU-gränsen, CPU-procent, fysiska data Läs procent, skriva log procent, brandväggsanslutningar, sessioner procent, arbetare procent, lagring, lagringsprocent, XTP lagringsprocent, lyckades/misslyckades/blockerades och låsningar |
 
-## <a name="logs-for-managed-instances"></a>Loggar för hanterade instanser
+## <a name="all-logs"></a>Alla loggar
 
-Se tabellen nedan för mer information om loggar för hanterade instanser.
+Information om telemetri som är tillgängliga för alla loggar är detta i tabellerna nedan. Se [stöds diagnostikloggning](#supported-diagnostic-logging-for-azure-sql-databases-and-instance-databases) förstå vilka loggar som stöds för en viss databas smak – Azure SQL enkel, tilldelade i poler, eller database-instans.
 
-### <a name="resource-usage-statistics"></a>Användningsstatistik för resursen
+### <a name="resource-usage-stats-for-managed-instance"></a>Resursen användning statistik för den hanterade instansen
 
 |Egenskap |Beskrivning|
 |---|---|
@@ -433,10 +432,6 @@ Se tabellen nedan för mer information om loggar för hanterade instanser.
 |io_requests_s|Antal IOPS |
 |io_bytes_read_s|Lästa IOPS-byte |
 |io_bytes_written_s|Skrivna IOPS-byte |
-
-## <a name="logs-for-single-pooled-and-instance-databases"></a>Loggar för en enskild, pooler och instansen databaser
-
-Se följande tabeller för information om loggfiler för Azure SQL enkel, pooler och instansen databaser.
 
 ### <a name="query-store-runtime-statistics"></a>Query Store-körningsstatistik
 

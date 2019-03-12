@@ -8,22 +8,18 @@ ms.topic: include
 ms.date: 01/22/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 0d771f03f9f71151ef25140148d4dd4daf3d46ec
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: 3e303ce2b6f28500406bacf5b66d26f9c78ba46d
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56443402"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57783448"
 ---
 **Utgående dataöverföringar**: [Utgående dataöverföringar](https://azure.microsoft.com/pricing/details/bandwidth/) (data som går ut från Azures datacenter) debiteras för bandbreddsanvändning.
 
-**Transaktioner**: Du faktureras för antalet transaktioner som du kan utföra på en hanterad disk som standard. Azure debiterar $0.0036 per 100 000 transaktioner för standardhårddiskar. Transaktioner omfattar både läs- och skrivåtgärder till lagringsutrymmet.
+**Transaktioner**: Du faktureras för antalet transaktioner som du kan utföra på en hanterad disk som standard.
 
-Standard SSD-enheter använder storlek på i/o på 256 KB. Om de data som överförs är mindre än 256 KB, är det en i/o-enhet. Större i/o-storlekar räknas som flera I/o för storlek på 256 KB. Till exempel räknas en 1 100 KB-i/o som fem i/o-enheter.
-
-Det kostar ingenting för transaktioner för en hanterad disk i premium.
-
-Detaljerad information om priser för Managed Disks finns i [hanterade diskar priser](https://azure.microsoft.com/pricing/details/managed-disks).
+Detaljerad information om priser för Managed Disks, inklusive transaktionskostnader, finns i [hanterade diskar priser](https://azure.microsoft.com/pricing/details/managed-disks).
 
 ### <a name="ultra-ssd-vm-reservation-fee"></a>Ultra SSD VM reservation avgift
 

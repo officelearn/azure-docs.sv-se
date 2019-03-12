@@ -3,17 +3,17 @@ title: Skapa och hantera händelseregler i ditt program med Azure IoT Central | 
 description: Azure IoT Central-händelseregler hjälper dig att övervaka dina enheter i nära realtid och automatiskt anropa åtgärder, till exempel skickar ett e-postmeddelande när regeln utlöses.
 author: ankitscribbles
 ms.author: ankitgup
-ms.date: 08/14/2018
+ms.date: 02/20/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 84610c94621e887e20bb903385e2d6ddbe67189d
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 2fd06a2164761489af6ee84d56806ef858e3b5d8
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57307861"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57782691"
 ---
 # <a name="create-an-event-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Skapa en regel för händelsen och ställa in meddelanden i Azure IoT Central programmet
 
@@ -27,29 +27,21 @@ Enheter kan använda event mått för att skicka viktiga eller endast i informat
 
 Om du vill skapa en regel för händelsen måste enheten mallen ha minst en händelse mått har definierats. Det här exemplet används en kylda Varuautomat-enhet som rapporterar en fläkt meddelar felhändelse. Regeln övervakar den händelse som rapporteras av enheten och skickar ett e-postmeddelande varje gång händelsen rapporteras.
 
-1. Använd Device Explorer och navigera till enheten mallen som du lägger till regeln för.
-
-1. Välj en befintlig enhet under den valda mallen.
-
-    >[!TIP] 
-    >Om mallen inte har några enheter och sedan lägga till en ny enhet först.
+1. Med hjälp av den **enheten mallar** sidan, gå till enheten mallen som du lägger till regeln för.
 
 1. Om du inte skapat några regler ännu kan se du följande skärm:
 
     ![Inga regler ännu](media/howto-create-event-rules/Rules_Landing_Page.png)
 
-
-1. På den **regler** fliken **Redigera mall** och sedan **+ ny regel** att se vilka typer av regler som du kan skapa.
-
+1. På den **regler** fliken **+ ny regel** att se vilka typer av regler som du kan skapa.
 
 1. Välj den **händelse** panelen för att skapa en händelse som övervakningsregel.
 
     ![Regeltyper](media/howto-create-event-rules/Rule_Types.png)
 
-    
 1. Ange ett namn som hjälper dig att identifiera regeln i den här mallen för enheten.
 
-1. Om du vill aktivera regeln för alla enheter som skapas från den här mallen omedelbart, växla **aktivera regeln för alla enheter för den här mallen**.
+1. Om du vill aktivera regeln för alla enheter som skapas från den här mallen omedelbart, växla **aktivera regeln för alla enheter av den här mallen**.
 
     ![Information om regeln](media/howto-create-event-rules/Rule_Detail.png)
 
@@ -63,26 +55,25 @@ Villkoret definierar de kriterier som övervakas av regeln.
 
 1. Välj den händelse som du vill övervaka i listrutan mätning. I det här exemplet **fläkt meddelar fel** händelse har valts.
 
-   ![Tillstånd](media/howto-create-event-rules/Condition_Filled_Out.png) 
-
+   ![Tillstånd](media/howto-create-event-rules/Condition_Filled_Out.png)
 
 1. Du kan också ange **antal** som **aggregering** och ger motsvarande tröskelvärdet.
 
-    - Utan aggregering, regeln utlöses för varje datapunkt för händelsen som uppfyller villkoret. Till exempel om du konfigurerar regelns villkor som utlöser när en fläkt meddelar fel-händelse inträffar utlöser sedan regeln nästan omedelbart när enheten rapporterar att den händelsen.
-    - Om antalet används som en mängdfunktion så du måste ange en **tröskelvärdet** och en **sammanställd tidsfönster** över som villkoret måste utvärderas. I det här fallet antal händelser slås samman och regeln utlöser bara om aggregerade händelseantal matchar tröskelvärdet.
- 
-    Om du vill att varna när det finns fler än tre enhetshändelser inom 5 minuter, därefter händelsen och ange mängdfunktionen som ”antal”, operator som ”större än” och ”tröskelvärde” som 3. Ange ”aggregering tidsperiod” som ”5 minuter”. Regeln utlöses när fler än tre händelser skickas av enheten inom 5 minuter. Utvärderingsfrekvensen regeln är samma som den **sammanställd tidsfönster**, vilket innebär att, i det här exemplet regeln utvärderas var femte minut. 
+    - Utan aggregering, regeln utlöses för varje datapunkt för händelsen som uppfyller villkoret. Till exempel om du konfigurerar regelns villkor som utlöser när en **fläkt meddelar fel** händelse inträffar och sedan regeln utlöser nästan omedelbart när enheten rapporterar att den händelsen.
+    - Om antalet används som en mängdfunktion så du måste ange en **tröskelvärdet** och en **sammanställd tidsfönster** över som villkoret måste utvärderas. I det här fallet antal händelser slås samman och regeln utlöses endast om aggregerade händelseantal matchar tröskelvärdet.
+
+    Om du vill att varna när det finns fler än tre enhetshändelser inom 5 minuter, därefter händelsen och ange mängdfunktionen som ”antal”, operator som ”större än” och ”tröskelvärde” som 3. Ange ”aggregering tidsperiod” som ”5 minuter”. Regeln utlöses när fler än tre händelser skickas av enheten inom 5 minuter. Utvärderingsfrekvensen regeln är samma som den **sammanställd tidsfönster**, vilket innebär att, i det här exemplet regeln utvärderas var femte minut.
 
     ![Lägg till Händelsevillkor](media/howto-create-event-rules/Aggregate_Condition_Filled_Out.png)
 
-    >[!NOTE] 
+    >[!NOTE]
     >Mer än en händelse mätning kan läggas till under **villkor**. När flera villkor har angetts måste alla villkor vara uppfyllda för regeln för att utlösa. Varje villkor får sällskap av en 'Och'-sats implicit. När du använder aggregering, måste varje mätning aggregeras.
 
 ### <a name="configure-actions"></a>Konfigurera åtgärder
 
 Det här avsnittet visar hur du ställer in åtgärder att vidta när regeln utlöses. Åtgärder hämta anropas när de villkor som angetts i regeln utvärderas till SANT.
 
-1. Välj den **+** bredvid **åtgärder**. Här kan du se en lista över tillgängliga åtgärder. 
+1. Välj den **+** bredvid **åtgärder**. Här kan du se en lista över tillgängliga åtgärder.
 
     ![Lägg till åtgärd](media/howto-create-event-rules/Add_Action.png)
 
@@ -94,8 +85,6 @@ Det här avsnittet visar hur du ställer in åtgärder att vidta när regeln utl
    ![Konfigurera åtgärd](media/howto-create-event-rules/Configure_Action.png)
 
 1. För att spara regeln, Välj **spara**. Regeln lanseras inom några minuter och börjar övervaka de händelser som skickas till ditt program. När villkoren som anges i regeln matchar utlöser regeln konfigurerade e-poståtgärden.
-
-1. Välj **Klar** för att avsluta läget **Redigera mall**.
 
 Du kan lägga till andra åtgärder för regeln, till exempel Microsoft Flow och webhooks. Du kan lägga till upp till 5 åtgärder per regel.
 

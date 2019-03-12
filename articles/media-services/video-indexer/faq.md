@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: bc52c4eaf77b9441683eea8e5f899c6ef34d62e8
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 8d70fca5820dbd2152ca378916bfbcdbad4a027f
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56002365"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57776765"
 ---
 # <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 
@@ -158,6 +158,10 @@ Video Indexer API innehåller ett API för auktorisering och ett Operations-API.
 
 Video Indexer använder en enkel användningsbaserad prismodell som baseras på varaktigheten för innehåll indata som du indexera. Ytterligare kostnader kan tillkomma för kodning, strömning, lagring, nätverksanvändning och media reserverade enheter. Mer information finns i den [priser](https://azure.microsoft.com/pricing/details/cognitive-services/video-indexer/) sidan.
 
+### <a name="when-am-i-billed-for-using-video-indexer"></a>När faktureras jag för att använda Video Indexer?
+
+När du skickar en video som ska indexeras, definierar användaren indexering ska videoanalys ljudanalys eller båda. Detta avgör vilken SKU: er kommer att debiteras. Om det finns ett allvarligt på fel under bearbetning, returneras en felkod som ett svar. I sådana fall sker ingen fakturering.  Ett allvarligt fel kan orsakas av en bugg i vår kod eller ett kritiskt fel i ett internt beroende tjänsten har. Fel, till exempel fel identifiering eller insikter extrahering betraktas inte som kritiskt och ett svar returneras. I båda fallen inträffar fakturering där det är ett giltigt (icke-felkod)-svar returneras.
+ 
 ### <a name="does-video-indexer-offer-a-free-trial"></a>Erbjuder Video Indexer en kostnadsfri utvärderingsversion?
 
 Ja, Video Indexer erbjuder en kostnadsfri utvärderingsversion som ger fullständig tjänst och API-funktioner. Det finns en kvot på 600 minuter värt av videor för webbaserat gränssnitt användare och 2 400 minuter för API-användare. 

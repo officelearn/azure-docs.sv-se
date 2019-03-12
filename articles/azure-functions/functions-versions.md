@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 10/03/2018
 ms.author: glenga
-ms.openlocfilehash: aff7bd1d186c0b5e90657361aadb2a7b8b7b9951
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: a3a259b9734a1cc313e046d9946a090232cd14a1
+ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57433339"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57727067"
 ---
 # <a name="azure-functions-runtime-versions-overview"></a>Azure Functions runtime versioner-översikt
 
@@ -95,7 +95,7 @@ I Visual Studio väljer du runtime-versionen när du skapar ett projekt. Med Azu
 ##### <a name="version-2x"></a>Version 2.x
 
 ```xml
-<TargetFramework>netcoreapp2.1</TargetFramework>
+<TargetFramework>netcoreapp2.2</TargetFramework>
 <AzureFunctionsVersion>v2</AzureFunctionsVersion>
 ```
 

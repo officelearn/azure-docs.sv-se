@@ -9,43 +9,29 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/29/2019
+ms.date: 03/01/2019
 ms.author: diberry
-ms.openlocfilehash: 7c9f3c72d94955286d05cf68dbe698a46df3cdf3
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 7315c80ad74eae07e41577fb2ac13742002e729e
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56867039"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57781705"
 ---
 # <a name="using-subscription-keys-with-your-luis-app"></a>Använda prenumerationsnycklar med LUIS-appen
 
-Du behöver inte skapa prenumerationsnycklar om du vill använda dina kostnadsfria första 1000 endpoint-frågor. När dessa endpoint-frågor används kan skapa en Azure-resurs i den [Azure-portalen](http://portal.azure.com), sedan tilldela den här resursen till en LUIS-app i den [LUIS portal](https://www.luis.ai).
+Du behöver inte skapa prenumerationsnycklar om du vill använda dina kostnadsfria första 1000 endpoint-frågor. När dessa endpoint-frågor används kan skapa en Azure-resurs i den [Azure-portalen](https://portal.azure.com), sedan tilldela den här resursen till en LUIS-app i den [LUIS portal](https://www.luis.ai).
 
 Om du får en _slut på kvot för_ fel i form av ett HTTP 403 eller 429, måste du skapa en nyckel och tilldela den till din app. 
 
 Testning och prototyper endast kan du använda den kostnadsfria nivån av (F0). Produktionssystem, använda en [betald](https://aka.ms/luis-price-tier) nivå. Använd inte den [redigering nyckeln](luis-concept-keys.md#authoring-key) för slutpunkten frågor i produktion.
 
 <a name="create-luis-service"></a>
+<a name="create-language-understanding-endpoint-key-in-the-azure-portal"/>
 
-## <a name="create-language-understanding-endpoint-key-in-the-azure-portal"></a>Skapa Language Understanding slutpunktsnyckeln i Azure portal
+## <a name="create-prediction-endpoint-runtime-resource-in-the-azure-portal"></a>Skapa körningsresurser för förutsägelse slutpunkten i Azure portal
 
-Den här proceduren skapar en **Språkförståelse** resurs. Om du vill att en resurs som kan användas i Cognitive Services kan du skapa nyckeln allt-i-ett **[Cognitive Service](../cognitive-services-apis-create-account.md)** i stället för Language Understanding-resursen. 
-
-Den här nyckeln bör endast användas för slutpunkt-förutsägelsefrågor. Använd inte den här nyckeln för ändringar i den modell eller en app. 
-
-1. Logga in på den  **[Azure-portalen](https://ms.portal.azure.com/)**. 
-1. Välj gröna **+** logga i den övre vänstra panelen och Sök efter `Language Understanding` i marketplace, och markera på **Language Understanding** och följ de  **Skapa upplevelse** att skapa en LUIS-prenumerationskonto. 
-
-    ![Azure Search](./media/luis-azure-subscription/azure-search.png) 
-
-1. Konfigurera prenumerationen med inställningar som bland annat kontonamn, priser nivåer, osv. 
-
-    ![Azure API-alternativ](./media/luis-azure-subscription/azure-api-choice.png) 
-
-1. När du skapar resursen Språkförståelse, du kan visa åtkomstnycklar som genererats i **resurshantering -> nycklar**. Nästa avsnitt visas hur du ansluter den här nya resursen till en LUIS-app i LUIS-portalen. Du behöver namnet på LUIS-resursen från steg 3.
-
-    ![Azure-nycklar](./media/luis-azure-subscription/azure-keys.png)
+Lär dig mer med den [skapa en app](get-started-portal-build-app.md) Snabbstart.
 
 <a name="programmatic-key" ></a>
 <a name="authoring-key" ></a>
@@ -63,23 +49,7 @@ Den här nyckeln bör endast användas för slutpunkt-förutsägelsefrågor. Anv
 
 ## <a name="assign-resource-key-to-luis-app-in-luis-portal"></a>Tilldela Resursnyckeln LUIS-app i LUIS-portalen
 
-1. Logga in på LUIS-portalen, väljer du en app för att lägga till den nya nyckeln till och välj **hantera** i menyn längst upp till höger och markera **nycklar och slutpunkter**.
-
-    [![Sidan nycklar och slutpunkter](./media/luis-manage-keys/keys-and-endpoints.png)](./media/luis-manage-keys/keys-and-endpoints.png#lightbox)
-
-1. För att lägga till LUIS, välja **Tilldela resurs +**.
-
-    ![Tilldela en resurs till din app](./media/luis-manage-keys/assign-key.png)
-
-1. Väljer en klient i dialogrutan som är associerade med den e-postadressen för dina används för att logga in med LUIS-webbplatsen.  
-
-1. Välj den **prenumerationsnamn** som är associerade med Azure-resursen du vill lägga till.
-
-1. Välj den **LUIS resursnamn**. 
-
-1. Välj **Tilldela resurs**. 
-
-1. Hitta den nya raden i tabellen och kopiera slutpunkts-URL. Det är korrekt konstruerat för att göra en HTTP GET-begäran till LUIS-slutpunkten för en förutsägelse. 
+Lär dig mer med den [distribution](get-started-portal-deploy-app.md) Snabbstart.
 
 <!-- content moved to luis-reference-regions.md, need replacement links-->
 <a name="regions-and-keys"></a>

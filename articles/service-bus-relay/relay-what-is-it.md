@@ -10,15 +10,15 @@ ms.service: service-bus-relay
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: spelluru
-ms.openlocfilehash: 2937d1f665dae03795892f9ff0e8a93a894e1992
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 47fbce7ea26bcb7224fe2624d593d85cd178d610
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55818047"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57776316"
 ---
 # <a name="what-is-azure-relay"></a>Vad är Azure Relay?
 Med Azure Relay-tjänsten kan du på ett säkert sätt visa tjänster som körs i företagets nätverk för det offentliga molnet. Du kan göra det utan att behöva öppna en port i brandväggen eller göra störande ändringar i företagets nätverksinfrastruktur. 
@@ -82,7 +82,7 @@ Följande diagram visar hur inkommande reläbegäranden hanteras av Azure Relay-
 5. Gatewayen vidarebefordrar anslutningsbegäran till rätt gateway som nämns i gatewayarkivet. 
 6. Gatewayen skickar en begäran till den lyssnande klienten om att skapa en tillfällig kanal till den gatewaynod som är närmast den skickande klienten. 
 7. Den lyssnande klienten skapar en tillfällig kanal till den gateway som är närmast den skickande klienten. Nu när anslutningen har upprättats mellan klienter via en gateway kan klienterna utbyta meddelanden med varandra. 
-8. Gatewayen vidarebefordrar alla meddelanden från den lyssnande klienten till den skickande klienten. 
+8. Gatewayen vidarebefordrar meddelanden från den lyssnande klienten skickar klienten. 
 9. Gatewayen vidarebefordrar alla meddelanden från den skickande klienten till den lyssnande klienten.  
 
 ## <a name="next-steps"></a>Nästa steg

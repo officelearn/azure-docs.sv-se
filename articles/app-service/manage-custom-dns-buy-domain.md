@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/24/2017
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: c2bee4d35fe857d5ad3bf26dc1145b8721c85df4
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: 44252274cc3c0050ba138c3115deeceb2f06f8d8
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56594244"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57782776"
 ---
 # <a name="buy-a-custom-domain-name-for-azure-app-service"></a>Köp ett anpassat domännamn för Azure App Service
 
@@ -102,7 +102,7 @@ I den **anpassade domäner** klickar du på **köp domän**.
 ### <a name="configure-the-domain-purchase"></a>Konfigurera domän-köp
 
 I den **App Service-domänen** sidan den **Sök domän** skriver du domännamnet som du vill köpa och ange `Enter`. Föreslagna tillgängliga domäner visas nedanför textrutan. Välj en eller flera domäner som du vill köpa.
-   
+
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-2.png)
 
 > [!NOTE]
@@ -111,15 +111,15 @@ I den **App Service-domänen** sidan den **Sök domän** skriver du domännamnet
 >
 
 Klicka på den **kontaktuppgifter** och fylla i formuläret för domänens kontaktinformation. När du är klar klickar du på **OK** att återgå till sidan för App Service-domänen.
-   
-Det är viktigt att du fyller i alla obligatoriska fält med så mycket noggrannhet som möjligt. Det gick inte att köpa domäner kan leda till felaktiga data kontaktinformation. 
+
+Det är viktigt att du fyller i alla obligatoriska fält med så mycket noggrannhet som möjligt. Det gick inte att köpa domäner kan leda till felaktiga data kontaktinformation.
 
 Välj sedan önskat alternativ för din domän. Se tabellen nedan förklaringar:
 
 | Inställning | Föreslaget värde | Beskrivning |
 |-|-|-|
 |Sekretesskydd | Aktivera | Välj att ”sekretesskydd”, som ingår i priset och köp _kostnadsfritt_. Vissa toppnivådomäner som hanteras av registratorer som inte stöder sekretesskydd och de visas på den **sekretesskydd** sidan. |
-| Tilldela standard värdnamn | **www** och **@** | Välj önskade värdnamnet-bindningar, om så önskas. Din app kan nås på den valda värdnamnen när domänen köp åtgärden är klar. Om appen är bakom [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/), ser du alternativet för att tilldela rotdomänen (@), eftersom Traffic Manager har inte stöd för A-poster. Du kan ändra värdnamnet tilldelningar efter köp domän har slutförts. |
+| Tilldela standard värdnamn | **www** och **\@** | Välj önskade värdnamnet-bindningar, om så önskas. Din app kan nås på den valda värdnamnen när domänen köp åtgärden är klar. Om appen är bakom [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/), ser du alternativet för att tilldela rotdomänen (@), eftersom Traffic Manager har inte stöd för A-poster. Du kan ändra värdnamnet tilldelningar efter köp domän har slutförts. |
 
 ### <a name="accept-terms-and-purchase"></a>Acceptera villkoren och köp
 

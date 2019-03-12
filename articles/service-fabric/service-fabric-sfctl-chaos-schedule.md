@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 665fbbc8668e465c78d93b134f6a314d58791490
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: f955ed63af221a08313042fcc8373b179ecbc120
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53276459"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57569390"
 ---
 # <a name="sfctl-chaos-schedule"></a>sfctl chaos schedule
 Hämta och Schemalägg chaos.
@@ -42,11 +42,11 @@ Hämtar versionen av Chaos-schema används och Chaos schemat som definierar när
 | --- | --- |
 | --timeout -t | Tidsgräns för Server på några sekunder.  Standard\: 60. |
 
-### <a name="global-arguments"></a>Global argument
+### <a name="global-arguments"></a>Global Arguments
 
 |Argument|Beskrivning|
 | --- | --- |
-| --Felsöka | Öka detaljnivå loggning för att visa alla felsöka loggar. |
+| --debug | Öka detaljnivå loggning för att visa alla felsöka loggar. |
 | --hjälpa -h | Visa den här hjälpmeddelande och avsluta. |
 | --utdata -o | Utdataformat.  Tillåtna värden\: json, jsonc, tabell, TVs.  Standard\: json. |
 | – fråga | JMESPath-frågesträng. Se http\://jmespath.org/ för mer information och exempel. |
@@ -61,18 +61,18 @@ Chaos kommer automatiskt att schemalägga körningar baserat på schemat Chaos. 
 
 |Argument|Beskrivning|
 | --- | --- |
-| --chaos-parametrarna-ordlista | JSON-kodad lista som representerar en mappning av strängen namn för ChaosParameters som ska användas av jobb. |
-| --utc-datum-förfallodatum | Datum och tid när du vill sluta använda schemat för att schemalägga Chaos.  Standard\: 9999-12-31T23\:59\:59.999Z. |
+| --chaos-parameters-dictionary | JSON-kodad lista som representerar en mappning av strängen namn för ChaosParameters som ska användas av jobb. |
+| --expiry-date-utc | Datum och tid när du vill sluta använda schemat för att schemalägga Chaos.  Default\: 9999-12-31T23\:59\:59.999Z. |
 | --jobb | JSON-kodad lista över ChaosScheduleJobs som representerar när du ska köra Chaos och med vilka parametrar som ska köra Chaos med. |
-| --utc-datum-start | Datum och tid när du vill börja använda schemat för att schemalägga Chaos.  Standard\: 1601-01-01T00\:00\:00.000Z. |
+| --start-date-utc | Datum och tid när du vill börja använda schemat för att schemalägga Chaos.  Standard\: 1601-01-01T00\:00\:00.000Z. |
 | --timeout -t | Tidsgräns för Server på några sekunder.  Standard\: 60. |
 | --version | Versionsnummer för schemat. |
 
-### <a name="global-arguments"></a>Global argument
+### <a name="global-arguments"></a>Global Arguments
 
 |Argument|Beskrivning|
 | --- | --- |
-| --Felsöka | Öka detaljnivå loggning för att visa alla felsöka loggar. |
+| --debug | Öka detaljnivå loggning för att visa alla felsöka loggar. |
 | --hjälpa -h | Visa den här hjälpmeddelande och avsluta. |
 | --utdata -o | Utdataformat.  Tillåtna värden\: json, jsonc, tabell, TVs.  Standard\: json. |
 | – fråga | JMESPath-frågesträng. Se http\://jmespath.org/ för mer information och exempel. |
@@ -83,15 +83,15 @@ Chaos kommer automatiskt att schemalägga körningar baserat på schemat Chaos. 
 Följande kommando anger ett schema som startar på 2016-01-01 och upphör att gälla 2038-01-01 som kör Chaos 24 timmar på dagen, 7 dagar i veckan (förutsatt att det aktuella schemat har version 0). Chaos schemaläggs på klustret för den tiden.
 
     sfctl chaos schedule set --version 0 --start-date-utc "2016-01-01T00:00:00.000Z" --expiry-date-utc "2038-01-01T00:00:00.000Z"
-    --chaos-parameters-dictionary 
-    [  
-    {  
+    --chaos-parameters-dictionary
+    [
+    {
         "Key":"adhoc",
-        "Value":{  
+        "Value":{
             "MaxConcurrentFaults":3,
             "EnableMoveReplicaFaults":true,
-            "ChaosTargetFilter":{  
-                "NodeTypeInclusionList":[  
+            "ChaosTargetFilter":{
+                "NodeTypeInclusionList":[
                 "N0010Ref",
                 "N0020Ref",
                 "N0030Ref",
@@ -103,12 +103,12 @@ Följande kommando anger ett schema som startar på 2016-01-01 och upphör att g
             "WaitTimeBetweenIterationsInSeconds":15,
             "WaitTimeBetweenFaultsInSeconds":30,
             "TimeToRunInSeconds":"600",
-            "Context":{  
-                "Map":{  
+            "Context":{
+                "Map":{
                 "test":"value"
                 }
             },
-            "ClusterHealthPolicy":{  
+            "ClusterHealthPolicy":{
                 "MaxPercentUnhealthyNodes":0,
                 "ConsiderWarningAsError":true,
                 "MaxPercentUnhealthyApplications":0
@@ -116,11 +116,11 @@ Följande kommando anger ett schema som startar på 2016-01-01 och upphör att g
         }
     }
     ]
-    --jobs 
-    [  
-    {  
+    --jobs
+    [
+    {
         "ChaosParameters":"adhoc",
-        "Days":{  
+        "Days":{
             "Sunday":true,
             "Monday":true,
             "Tuesday":true,
@@ -129,13 +129,13 @@ Följande kommando anger ett schema som startar på 2016-01-01 och upphör att g
             "Friday":true,
             "Saturday":true
         },
-        "Times":[  
-            {  
-                "StartTime":{  
+        "Times":[
+            {
+                "StartTime":{
                 "Hour":0,
                 "Minute":0
                 },
-                "EndTime":{  
+                "EndTime":{
                 "Hour":23,
                 "Minute":59
                 }

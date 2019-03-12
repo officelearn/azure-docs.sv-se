@@ -3,22 +3,22 @@ title: SQLServer-lagrad Proceduraktivitet
 description: Lär dig hur du kan använda lagrade Proceduraktiviteten för SQL Server för att anropa en lagrad procedur i en Azure SQL Database eller Azure SQL Data Warehouse från Data Factory-pipeline.
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
 ms.assetid: 1c46ed69-4049-44ec-9b46-e90e964a4a8e
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.author: douglasl
+author: nabhishek
+ms.author: abnarain
+manager: craigg
 robots: noindex
-ms.openlocfilehash: 5604767b49e6234bba5c16179bebe717938170cf
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 77842b60108629168f423f25eb03b01079cf55e5
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55753273"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57775365"
 ---
 # <a name="sql-server-stored-procedure-activity"></a>SQLServer-lagrad Proceduraktivitet
 > [!div class="op_single_selector" title1="Transformation Activities"]
@@ -85,7 +85,7 @@ Den här genomgången använder den lagrade Proceduraktiviteten i en pipeline f�
     ```
 
    > [!IMPORTANT]
-   > **Namnet** och **gemener och versaler** för parametern (DateTime i det här exemplet) måste matcha parameter som anges i pipeline/JSON-aktiviteten. Se till att i definitionen av lagrade proceduren **@** används som ett prefix för parametern.
+   > **Namnet** och **gemener och versaler** för parametern (DateTime i det här exemplet) måste matcha parameter som anges i pipeline/JSON-aktiviteten. Se till att i definitionen av lagrade proceduren **\@** används som ett prefix för parametern.
 
 ### <a name="create-a-data-factory"></a>Skapa en datafabrik
 1. Logga in på [Azure-portalen](https://portal.azure.com/).

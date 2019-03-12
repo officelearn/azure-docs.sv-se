@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: 4a3b48be893c596f1a86bbf308a97868ed546006
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: fcd1868c1b17d6c1ad895757b32293d0abc79a24
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57313930"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57731557"
 ---
 # <a name="automated-backups"></a>Automatiserade säkerhetskopieringar
 
@@ -42,7 +42,7 @@ Du kan använda dessa säkerhetskopior till:
 
 ## <a name="how-long-are-backups-kept"></a>Hur lång tid hålls säkerhetskopior
 
-Varje SQL-databas har en standard-kvarhållningsperiod mellan 7 och 35 dagar som beror på inköpsmodellen och tjänstnivå. Du kan uppdatera säkerhetskopian) kvarhållningsperiod för en databas i SQL Database-server. Mer information finns i [ändra kvarhållningsperiod](#how-to-change-the-pitr-backup-retention-period).
+Varje SQL-databas har en standard-kvarhållningsperiod mellan 7 och 35 dagar som beror på inköpsmodellen och tjänstnivå. Du kan uppdatera kvarhållningsperioden för säkerhetskopior för en databas i SQL Database-server. Mer information finns i [ändra kvarhållningsperiod](#how-to-change-the-pitr-backup-retention-period).
 
 Om du tar bort en databas, behåller SQL Database säkerhetskopiorna på samma sätt som den skulle ha gjort för en online-databas. Om du tar bort en Basic-databas som har en kvarhållningsperiod på sju dagar, till exempel sparas en säkerhetskopia som är fyra dagar gamla i tre dagar.
 
@@ -66,7 +66,7 @@ Standardkvarhållningsperioden för en databas som skapats med den DTU-baserade 
 Om du använder den [vCore-baserade inköpsmodellen](sql-database-service-tiers-vcore.md), standard-kvarhållningsperiod är 7 dagar (för en enskild, pooler och databaser-instans). För alla Azure SQL-databaser (enkel, pooler, och instansdatabaser, kan du [ändra kvarhållningsperioden för säkerhetskopior upp till 35 dagar](#how-to-change-the-pitr-backup-retention-period).
 
 > [!WARNING]
-> Om du minskar den aktuella kvarhållningsperioden är alla befintliga säkerhetskopior som är äldre än den nya kvarhållningen tidsperiod inte längre tillgänglig. Om du ökar den aktuella kvarhållningsperioden, behåller SQL Database befintliga säkerhetskopior tills den längre kvarhållningsperioden har uppnåtts.
+> Om du minskar den aktuella kvarhållningsperioden är alla befintliga säkerhetskopior som är äldre än den nya kvarhållningsperioden inte längre tillgängliga. Om du ökar den aktuella kvarhållningsperioden, behåller SQL Database befintliga säkerhetskopior tills den längre kvarhållningsperioden har uppnåtts.
 
 ## <a name="how-often-do-backups-happen"></a>Hur ofta händer säkerhetskopior
 
@@ -144,9 +144,9 @@ PUT https://management.azure.com/subscriptions/00000000-1111-2222-3333-444444444
 
 ```json
 {
-  "properties":{  
-      "retentionDays":28
-   }
+  "properties":{
+    "retentionDays":28
+  }
 }
 ```
 

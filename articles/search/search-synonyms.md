@@ -10,12 +10,12 @@ ms.date: 04/20/2018
 manager: jlembicz
 ms.author: brjohnst
 ms.custom: seodec2018
-ms.openlocfilehash: cea95756f115e9efd6dc184fc85a0485ab49d1b9
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 4383cc327d8058ca44acd892f41a7a256e3b1727
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53634668"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57570444"
 ---
 # <a name="synonyms-in-azure-search"></a>Synonymer i Azure Search
 
@@ -52,7 +52,7 @@ Du kan skapa en ny synonymmappning med HTTP POST, som i följande exempel:
     POST https://[servicename].search.windows.net/synonymmaps?api-version=2017-11-11
     api-key: [admin key]
 
-    {  
+    {
        "name":"mysynonymmap",
        "format":"solr",
        "synonyms": "
@@ -65,7 +65,7 @@ Du kan också använda PUT och ange synonymen kartans namn på URI: N. Om mappni
     PUT https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2017-11-11
     api-key: [admin key]
 
-    {  
+    {
        "format":"solr",
        "synonyms": "
           USA, United States, United States of America\n

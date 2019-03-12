@@ -12,12 +12,12 @@ manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: c2f11b08f5d8e9bb3be7acfa8ba62100bdc55d99
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: fa6d90866be93645625fa82410f8dd0e3bd33d00
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56889808"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57774293"
 ---
 # <a name="transform-data-with-the-azure-machine-learning-data-prep-sdk"></a>Transformera data med Azure Machine Learning Data Prep SDK
 
@@ -39,8 +39,8 @@ Azure Machine Learning Data Prep SDK innehåller `substring` uttryck som du kan 
 import azureml.dataprep as dprep
 
 # loading data
-dataflow = dprep.read_csv(path=r'data\crime0-10.csv')
-dataflow.head(3)
+dflow = dprep.read_csv(path=r'data\crime0-10.csv')
+dflow.head(3)
 ```
 
 ||ID|Ärendenummer|Date|Blockera|IUCR|Primär typ|Beskrivning|Platsbeskrivning|Kvarhållande|Inrikes|...|Ward|Community-området|FBI: S kod|X-koordinat|Y-koordinaten|År|Uppdaterad den|Latitud|Longitud|Plats|
@@ -54,7 +54,7 @@ Använd den `substring(start, length)` uttryck för att extrahera prefixet från
 
 ```python
 substring_expression = dprep.col('Case Number').substring(0, 2)
-case_category = dataflow.add_column(new_column_name='Case Category',
+case_category = dflow.add_column(new_column_name='Case Category',
                                     prior_column='Case Number',
                                     expression=substring_expression)
 case_category.head(3)
@@ -72,7 +72,7 @@ Använd den `substring(start)` uttryck för att extrahera endast siffran från f
 
 ```python
 substring_expression2 = dprep.col('Case Number').substring(2)
-case_id = dataflow.add_column(new_column_name='Case Id',
+case_id = dflow.add_column(new_column_name='Case Id',
                               prior_column='Case Number',
                               expression=substring_expression2)
 case_id = case_id.to_number('Case Id')
@@ -86,10 +86,10 @@ SDK: N kan sedan imputera saknade värden i angivna kolumnerna. I det här exemp
 import azureml.dataprep as dprep
 
 # loading input data
-df = dprep.read_csv(r'data\crime0-10.csv')
-df = df.keep_columns(['ID', 'Arrest', 'Latitude', 'Longitude'])
-df = df.to_number(['Latitude', 'Longitude'])
-df.head(3)
+dflow = dprep.read_csv(r'data\crime0-10.csv')
+dflow = dflow.keep_columns(['ID', 'Arrest', 'Latitude', 'Longitude'])
+dflow = dflow.to_number(['Latitude', 'Longitude'])
+dflow.head(3)
 ```
 
 ||ID|Kvarhållande|Latitud|Longitud|
@@ -103,12 +103,12 @@ Den tredje posten saknar värden för latitud och longitud. Du använder för at
 Kontrollera den `MEAN` värdet för en latitud kolumn med hjälp av den [ `summarize()` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#summarize-summary-columns--typing-union-typing-list-azureml-dataprep-api-dataflow-summarycolumnsvalue---nonetype----none--group-by-columns--typing-union-typing-list-str---nonetype----none--join-back--bool---false--join-back-columns-prefix--typing-union-str--nonetype----none-----azureml-dataprep-api-dataflow-dataflow) funktion. Den här funktionen accepterar en matris med kolumner i den `group_by_columns` parametern för att ange nivå för aggregering. Den `summary_columns` parametern accepterar en `SummaryColumnsValue` anropa. Funktionsanropet anger kolumnnamnet på aktuella nya beräknade fältnamn och `SummaryFunction` att utföra.
 
 ```python
-df_mean = df.summarize(group_by_columns=['Arrest'],
+dflow_mean = dflow.summarize(group_by_columns=['Arrest'],
                        summary_columns=[dprep.SummaryColumnsValue(column_id='Latitude',
                                                                  summary_column_name='Latitude_MEAN',
                                                                  summary_function=dprep.SummaryFunction.MEAN)])
-df_mean = df_mean.filter(dprep.col('Arrest') == 'false')
-df_mean.head(1)
+dflow_mean = dflow_mean.filter(dprep.col('Arrest') == 'false')
+dflow_mean.head(1)
 ```
 
 ||Kvarhållande|Latitude_MEAN|
@@ -127,12 +127,12 @@ impute_mean = dprep.ImputeColumnArguments(column_id='Latitude',
 impute_custom = dprep.ImputeColumnArguments(column_id='Longitude',
                                             custom_impute_value=42)
 # get instance of ImputeMissingValuesBuilder
-impute_builder = df.builders.impute_missing_values(impute_columns=[impute_mean, impute_custom],
+impute_builder = dflow.builders.impute_missing_values(impute_columns=[impute_mean, impute_custom],
                                                    group_by_columns=['Arrest'])
 
 impute_builder.learn()
-df_imputed = impute_builder.to_dataflow()
-df_imputed.head(3)
+dflow_imputed = impute_builder.to_dataflow()
+dflow_imputed.head(3)
 ```
 
 ||ID|Kvarhållande|Latitud|Longitud|
@@ -144,7 +144,7 @@ df_imputed.head(3)
 I resultatet ovan visas saknas latitud har tillräknade med den `MEAN` värdet för `Arrest=='false'` grupp. Saknas longitud har tillräknade med 42.
 
 ```python
-imputed_longitude = df_imputed.to_pandas_dataframe()['Longitude'][2]
+imputed_longitude = dflow_imputed.to_pandas_dataframe()['Longitude'][2]
 assert imputed_longitude == 42
 ```
 
@@ -154,8 +154,8 @@ En av de mer avancerade verktyg i Azure Machine Learning Data Prep SDK är möjl
 
 ```python
 import azureml.dataprep as dprep
-dataflow = dprep.read_csv(path='https://dpreptestfiles.blob.core.windows.net/testfiles/BostonWeather.csv')
-dataflow.head(4)
+dflow = dprep.read_csv(path='https://dpreptestfiles.blob.core.windows.net/testfiles/BostonWeather.csv')
+dflow.head(4)
 ```
 
 ||DATE|REPORTTPYE|HOURLYDRYBULBTEMPF|HOURLYRelativeHumidity|HOURLYWindSpeed|
@@ -168,8 +168,8 @@ dataflow.head(4)
 Anta att du behöver ansluta till den här filen med en datauppsättning där datum och tid är i formatet ”10 mars 2018 | 2 AM - 4 AM ”.
 
 ```python
-builder = dataflow.builders.derive_column_by_example(source_columns=['DATE'], new_column_name='date_timerange')
-builder.add_example(source_data=df.iloc[1], example_value='Jan 1, 2015 12AM-2AM')
+builder = dflow.builders.derive_column_by_example(source_columns=['DATE'], new_column_name='date_timerange')
+builder.add_example(source_data=dflow.iloc[1], example_value='Jan 1, 2015 12AM-2AM')
 builder.preview(count=5) 
 ```
 
@@ -205,7 +205,7 @@ builder.preview(skip=30, count=5)
 Här kan du se ett problem med det genererade programmet. Endast baseras på ett exempel som du angav ovan, valde Härled programmet att tolka data som ”dag/månad/år”, vilket inte är vad du vill i det här fallet. Rikta en specifik post-ID index för att åtgärda problemet och ange ett annat exempel med hjälp av den `add_example()` fungera på den `builder` variabeln.
 
 ```python
-builder.add_example(source_data=df.iloc[3], example_value='Jan 2, 2015 12AM-2AM')
+builder.add_example(source_data=dflow.iloc[3], example_value='Jan 2, 2015 12AM-2AM')
 builder.preview(skip=30, count=5)
 ```
 
@@ -233,7 +233,7 @@ builder.preview(skip=75, count=5)
 |4|1/29/2015 7:54|Ingen|
 
 ```python
-builder.add_example(source_data=df.iloc[77], example_value='Jan 29, 2015 6AM-8AM')
+builder.add_example(source_data=dflow.iloc[77], example_value='Jan 29, 2015 6AM-8AM')
 builder.preview(skip=75, count=5)
 ```
 ||DATE|date_timerange|
@@ -263,21 +263,21 @@ I vissa fall om du vill ta bort exempel som är felaktigt, kan du skicka antinge
 Anropa `to_dataflow()` på builder, som returnerar ett dataflöde med de härledda kolumner har lagts till.
 
 ```python
-dataflow = builder.to_dataflow()
-df = dataflow.to_pandas_dataframe()
+dflow = builder.to_dataflow()
+df = dflow.to_pandas_dataframe()
 ```
 
 ## <a name="filtering"></a>Filtrering
 
-SDK innehåller metoder [ `Dataflow.drop_columns()` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#drop-columns-columns--multicolumnselection-----azureml-dataprep-api-dataflow-dataflow) och [ `Dataflow.filter()` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py) så att du kan filtrera bort kolumner eller rader.
+SDK innehåller metoder [ `drop_columns()` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#drop-columns-columns--multicolumnselection-----azureml-dataprep-api-dataflow-dataflow) och [ `filter()` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py) så att du kan filtrera bort kolumner eller rader.
 
 ### <a name="initial-setup"></a>Första installation
 
 ```python
 import azureml.dataprep as dprep
 from datetime import datetime
-dataflow = dprep.read_csv(path='https://dprepdata.blob.core.windows.net/demo/green-small/*')
-dataflow.head(5)
+dflow = dprep.read_csv(path='https://dprepdata.blob.core.windows.net/demo/green-small/*')
+dflow.head(5)
 ```
 
 ||lpep_pickup_datetime|Lpep_dropoff_datetime|Store_and_fwd_flag|RateCodeID|Pickup_longitude|Pickup_latitude|Dropoff_longitude|Dropoff_latitude|Passenger_count|Trip_distance|Tip_amount|Tolls_amount|Total_amount|
@@ -290,15 +290,15 @@ dataflow.head(5)
 
 ### <a name="filtering-columns"></a>Filtrera kolumner
 
-Filtrera kolumner och Använd `Dataflow.drop_columns()`. Den här metoden tar en lista med kolumner att släppa eller en mer komplex argumentet anropas [ `ColumnSelector` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.columnselector?view=azure-dataprep-py).
+Filtrera kolumner och Använd `drop_columns()`. Den här metoden tar en lista med kolumner att släppa eller en mer komplex argumentet anropas [ `ColumnSelector` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.columnselector?view=azure-dataprep-py).
 
 #### <a name="filtering-columns-with-list-of-strings"></a>Filtrera kolumner med lista med strängar
 
-I det här exemplet `drop_columns` tar en lista med strängar. Varje sträng måste exakt matcha den önskade kolumnen att släppa.
+I det här exemplet `drop_columns()` tar en lista med strängar. Varje sträng måste exakt matcha den önskade kolumnen att släppa.
 
 ```python
-dataflow = dataflow.drop_columns(['Store_and_fwd_flag', 'RateCodeID'])
-dataflow.head(2)
+dflow = dflow.drop_columns(['Store_and_fwd_flag', 'RateCodeID'])
+dflow.head(2)
 ```
 
 ||lpep_pickup_datetime|Lpep_dropoff_datetime|Pickup_longitude|Pickup_latitude|Dropoff_longitude|Dropoff_latitude|Passenger_count|Trip_distance|Tip_amount|Tolls_amount|Total_amount|
@@ -311,8 +311,8 @@ dataflow.head(2)
 Du kan också använda den `ColumnSelector` uttryck att ta bort kolumner som matchar ett regex-uttryck. Ta bort alla kolumner som matchar uttrycket i det här exemplet `Column*|.*longitude|.*latitude`.
 
 ```python
-dataflow = dataflow.drop_columns(dprep.ColumnSelector('Column*|.*longitud|.*latitude', True, True))
-dataflow.head(2)
+dflow = dflow.drop_columns(dprep.ColumnSelector('Column*|.*longitud|.*latitude', True, True))
+dflow.head(2)
 ```
 
 ||lpep_pickup_datetime|Lpep_dropoff_datetime|Passenger_count|Trip_distance|Tip_amount|Tolls_amount|Total_amount|
@@ -322,21 +322,21 @@ dataflow.head(2)
 
 ## <a name="filtering-rows"></a>Filtrera rader
 
-Använd om du vill filtrera rader `DataFlow.filter()`. Den här metoden tar ett Azure Machine Learning Data Prep SDK-uttryck som ett argument och returnerar ett nytt dataflöde med raderna som uttrycket utvärderas som True. Uttryck skapas med hjälp av uttrycket builders (`col`, `f_not`, `f_and`, `f_or`) och regelbundna operatörer (>, <>, =, < =, ==,! =).
+Använd om du vill filtrera rader `filter()`. Den här metoden tar ett Azure Machine Learning Data Prep SDK-uttryck som ett argument och returnerar ett nytt dataflöde med raderna som uttrycket utvärderas som True. Uttryck skapas med hjälp av uttrycket builders (`col`, `f_not`, `f_and`, `f_or`) och regelbundna operatörer (>, <>, =, < =, ==,! =).
 
 ### <a name="filtering-rows-with-simple-expressions"></a>Filtrera rader med enkla uttryck
 
-Använda Uttrycksverktyget `col`, ange kolumnnamnet som en Strängargumentet `col('column_name')`. Använd det här uttrycket i kombination med något av följande standard operatorer >, <>, =, < =, ==,! = för att skapa ett uttryck som `col('Tip_amount') > 0`. Slutligen skickar det inbyggda uttrycket i den `Dataflow.filter` funktion.
+Använda Uttrycksverktyget `col`, ange kolumnnamnet som en Strängargumentet `col('column_name')`. Använd det här uttrycket i kombination med något av följande standard operatorer >, <>, =, < =, ==,! = för att skapa ett uttryck som `col('Tip_amount') > 0`. Slutligen skickar det inbyggda uttrycket i den `filter()` funktion.
 
-I det här exemplet `dataflow.filter(col('Tip_amount') > 0)` returnerar ett nytt dataflöde med rader där värdet för `Tip_amount` är större än 0.
+I det här exemplet `dflow.filter(col('Tip_amount') > 0)` returnerar ett nytt dataflöde med rader där värdet för `Tip_amount` är större än 0.
 
 > [!NOTE] 
 > `Tip_amount` först omvandlas till numeriska, vilket gör att vi kan skapa ett uttryck för att jämföra den med andra numeriska värden.
 
 ```python
-dataflow = dataflow.to_number(['Tip_amount'])
-dataflow = dataflow.filter(dprep.col('Tip_amount') > 0)
-dataflow.head(2)
+dflow = dflow.to_number(['Tip_amount'])
+dflow = dflow.filter(dprep.col('Tip_amount') > 0)
+dflow.head(2)
 ```
 
 ||lpep_pickup_datetime|Lpep_dropoff_datetime|Passenger_count|Trip_distance|Tip_amount|Tolls_amount|Total_amount|
@@ -348,12 +348,12 @@ dataflow.head(2)
 
 Om du vill filtrera med komplexa uttryck, kombinera en eller flera enkla uttryck med uttryck builders `f_not`, `f_and`, eller `f_or`.
 
-I det här exemplet `Dataflow.filter()` returnerar ett nytt dataflöde med rader där `'Passenger_count'` är mindre än 5 och `'Tolls_amount'` är större än 0.
+I det här exemplet `dflow.filter()` returnerar ett nytt dataflöde med rader där `'Passenger_count'` är mindre än 5 och `'Tolls_amount'` är större än 0.
 
 ```python
-dataflow = dataflow.to_number(['Passenger_count', 'Tolls_amount'])
-dataflow = dataflow.filter(dprep.f_and(dprep.col('Passenger_count') < 5, dprep.col('Tolls_amount') > 0))
-dataflow.head(2)
+dflow = dflow.to_number(['Passenger_count', 'Tolls_amount'])
+dflow = dflow.filter(dprep.f_and(dprep.col('Passenger_count') < 5, dprep.col('Tolls_amount') > 0))
+dflow.head(2)
 ```
 
 ||lpep_pickup_datetime|Lpep_dropoff_datetime|Passenger_count|Trip_distance|Tip_amount|Tolls_amount|Total_amount|
@@ -367,10 +367,10 @@ Det är också möjligt att filtrera rader som kombinerar flera Uttrycksverktyge
 > `lpep_pickup_datetime` och `Lpep_dropoff_datetime` först konverteras till datetime, vilket gör att vi kan skapa ett uttryck för att jämföra den med andra datetime-värden.
 
 ```python
-dataflow = dataflow.to_datetime(['lpep_pickup_datetime', 'Lpep_dropoff_datetime'], ['%Y-%m-%d %H:%M:%S'])
-dataflow = dataflow.to_number(['Total_amount', 'Trip_distance'])
+dflow = dflow.to_datetime(['lpep_pickup_datetime', 'Lpep_dropoff_datetime'], ['%Y-%m-%d %H:%M:%S'])
+dflow = dflow.to_number(['Total_amount', 'Trip_distance'])
 mid_2013 = datetime(2013,7,1)
-dataflow = dataflow.filter(
+dflow = dflow.filter(
     dprep.f_and(
         dprep.f_or(
             dprep.col('lpep_pickup_datetime') > mid_2013,
@@ -378,7 +378,7 @@ dataflow = dataflow.filter(
         dprep.f_and(
             dprep.col('Total_amount') > 40,
             dprep.col('Trip_distance') < 10)))
-dataflow.head(2)
+dflow.head(2)
 ```
 
 ||lpep_pickup_datetime|Lpep_dropoff_datetime|Passenger_count|Trip_distance|Tip_amount|Tolls_amount|Total_amount|
@@ -404,8 +404,8 @@ Starta genom att läsa in vissa data från Azure Blob.
 import azureml.dataprep as dprep
 col = dprep.col
 
-df = dprep.read_csv(path='https://dpreptestfiles.blob.core.windows.net/testfiles/read_csv_duplicate_headers.csv', skip_rows=1)
-df.head(2)
+dflow = dprep.read_csv(path='https://dpreptestfiles.blob.core.windows.net/testfiles/read_csv_duplicate_headers.csv', skip_rows=1)
+dflow.head(2)
 ```
 
 | |stnam|fipst|leaid|leanm10|ncessch|MAM_MTH00numvalid_1011|
@@ -416,10 +416,10 @@ df.head(2)
 Trimma ned datauppsättningen och utföra vissa grundläggande transformeringar, inklusive ta bort kolumner, ersätta värden och konvertera typer.
 
 ```python
-df = df.keep_columns(['stnam', 'leanm10', 'ncessch', 'MAM_MTH00numvalid_1011'])
-df = df.replace_na(columns=['leanm10', 'MAM_MTH00numvalid_1011'], custom_na_list='.')
-df = df.to_number(['ncessch', 'MAM_MTH00numvalid_1011'])
-df.head(2)
+dflow = dflow.keep_columns(['stnam', 'leanm10', 'ncessch', 'MAM_MTH00numvalid_1011'])
+dflow = dflow.replace_na(columns=['leanm10', 'MAM_MTH00numvalid_1011'], custom_na_list='.')
+dflow = dflow.to_number(['ncessch', 'MAM_MTH00numvalid_1011'])
+dflow.head(2)
 ```
 
 | |stnam|leanm10|ncessch|MAM_MTH00numvalid_1011|
@@ -430,7 +430,7 @@ df.head(2)
 Leta efter null-värden med hjälp av följande filter.
 
 ```python
-df.filter(col('MAM_MTH00numvalid_1011').is_null()).head(2)
+dflow.filter(col('MAM_MTH00numvalid_1011').is_null()).head(2)
 ```
 
 | |stnam|leanm10|ncessch|MAM_MTH00numvalid_1011|
@@ -465,11 +465,11 @@ Du kan använda ett Python-skript för att skapa en ny kolumn som har namnet på
 Python-skriptet måste definiera en funktion som kallas `newvalue()` som tar ett argument `row`. Den `row` argumentet är en dict (`key`: kolumnnamnet `val`: aktuellt värde) och kommer att skickas till den här funktionen för varje rad i datauppsättningen. Den här funktionen måste returnera ett värde som ska användas i den nya kolumnen. Alla bibliotek som Python-skriptet importerar måste finnas i miljön där dataflödet körs.
 
 ```python
-df = df.new_script_column(new_column_name='county_state', insert_after='leanm10', script="""
+dflow = dflow.new_script_column(new_column_name='county_state', insert_after='leanm10', script="""
 def newvalue(row):
     return row['leanm10'] + ', ' + row['stnam'].title()
 """)
-df.head(2)
+dflow.head(2)
 ```
 
 ||stnam|leanm10|county_state|ncessch|MAM_MTH00numvalid_1011|
@@ -482,12 +482,12 @@ df.head(2)
 Skapa en Python-uttryck med [ `new_script_filter()` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#new-script-filter-script--str-----azureml-dataprep-api-dataflow-dataflow) att filtrera de uppgifter som skall endast rader där ”Hale' inte är i den nya `county_state` kolumn. Uttrycket returnerar `True` om vi vill hålla raden och `False` att släppa raden.
 
 ```python
-df = df.new_script_filter("""
+dflow = dflow.new_script_filter("""
 def includerow(row):
     val = row['county_state']
     return 'Hale' not in val
 """)
-df.head(2)
+dflow.head(2)
 ```
 
 ||stnam|leanm10|county_state|ncessch|MAM_MTH00numvalid_1011|

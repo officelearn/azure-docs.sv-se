@@ -12,16 +12,16 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 03/11/2019
 ms.author: jeffgilb
 ms.reviewer: anwestg
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: f2101c685ff7b3820f826da1d2e1d52b687d26c6
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: 776648fd5bab2dd4ef51ff4c26936f38d9987e94
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56446639"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57769820"
 ---
 # <a name="configure-deployment-sources"></a>Konfigurera distributionskällor
 
@@ -104,7 +104,7 @@ Du måste ha ett Account länkad till en OneDrive-konto att slutföra den här u
 ![OneDrive-program – Lägg till webbplattform][12]
 8. Lägg till den **Microsoft Graph-behörigheter** - **delegerade behörigheter**
     - **Files.ReadWrite.AppFolder**
-    - **User.Read**  
+    - **Användare. Läs**  
       ![Program i OneDrive - Graph-behörigheter][13]
 9. Klicka på **Spara**.
 10.  I en ny webbläsarflik eller fönstret kan logga in på administrationsportalen för Azure Stack (https://adminportal.local.azurestack.external) som tjänstadministratör.

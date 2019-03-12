@@ -12,12 +12,12 @@ ms.author: arib
 ms.reviewer: vanto
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: 38a5434d4b6f27aacdf1861fa0b005501ad1e28b
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 7069114a8cb63b8b166bc29e92d8f355c49824bb
+ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57308898"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57727152"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Kom igång med SQL-databasgranskning
 
@@ -230,28 +230,28 @@ I produktion förmodligen du uppdatera dina storage-nycklar med jämna mellanrum
 
 **PowerShell-cmdletar (inklusive WHERE-satsen stöd för ytterligare filtrering)**:
 
-- [Skapa eller uppdatera databasen Blob granskningsprincip (Set-AzSqlDatabaseAuditing)](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabaseauditing)
-- [Skapa eller uppdatera Server Blob granskningsprincip (Set-AzSqlServerAuditing)](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlserverauditing)
+- [Skapa eller uppdatera databasen granskningsprincip (Set-AzSqlDatabaseAuditing)](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabaseauditing)
+- [Skapa eller uppdatera princip för Server granskning (Set-AzSqlServerAuditing)](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlserverauditing)
 - [Hämta databasen granskningsprincip (Get-AzSqlDatabaseAuditing)](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabaseauditing)
-- [Hämta Server Blob granskningsprincip (Get-AzSqlServerAuditing)](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlserverauditing)
+- [Hämta Server granskningsprincip (Get-AzSqlServerAuditing)](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlserverauditing)
 
 Ett skript-exempel finns i [konfigurera granskning och hotidentifiering med hjälp av PowerShell](scripts/sql-database-auditing-and-threat-detection-powershell.md).
 
 ## <a id="subheading-9"></a>Hantera SQL database-granskning med REST API
 
-**REST-API – blobbgranskning**:
+**REST-API**:
 
-- [Skapa eller uppdatera databasen Blob granskningsprincip](https://docs.microsoft.com/rest/api/sql/database%20auditing%20settings/createorupdate)
-- [Skapa eller uppdatera Server Blob granskningsprincip](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/createorupdate)
-- [Hämta databasen Blob granskningsprincip](https://docs.microsoft.com/rest/api/sql/database%20auditing%20settings/get)
-- [Hämta Server Blob granskningsprincip](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/get)
+- [Skapa eller uppdatera databasen granskningsprincip](https://docs.microsoft.com/rest/api/sql/database%20auditing%20settings/createorupdate)
+- [Skapa eller uppdatera Server granskningsprincip](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/createorupdate)
+- [Hämta databas granskningsprincip](https://docs.microsoft.com/rest/api/sql/database%20auditing%20settings/get)
+- [Hämta Server granskningsprincip](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/get)
 
 Utökade princip med där satsen stöd för ytterligare filtrering:
 
-- [Skapa eller uppdatera databasen *utökade* Blob granskningsprincip](https://docs.microsoft.com/rest/api/sql/database%20extended%20auditing%20settings/createorupdate)
-- [Skapa eller uppdatera Server *utökade* Blob granskningsprincip](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/createorupdate)
-- [Hämta databas *utökade* Blob granskningsprincip](https://docs.microsoft.com/rest/api/sql/database%20extended%20auditing%20settings/get)
-- [Hämta Server *utökade* Blob granskningsprincip](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/get)
+- [Skapa eller uppdatera databasen *utökade* granskningsprincip](https://docs.microsoft.com/rest/api/sql/database%20extended%20auditing%20settings/createorupdate)
+- [Skapa eller uppdatera Server *utökade* granskningsprincip](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/createorupdate)
+- [Hämta databas *utökade* granskningsprincip](https://docs.microsoft.com/rest/api/sql/database%20extended%20auditing%20settings/get)
+- [Hämta Server *utökade* granskningsprincip](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/get)
 
 ## <a id="subheading-10"></a>Hantera SQL database-granskning med hjälp av ARM-mallar
 

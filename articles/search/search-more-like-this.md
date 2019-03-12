@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/27/2016
 ms.author: brjohnst
 ms.custom: seodec2018
-ms.openlocfilehash: 1b91fbbcc025456b48ac8fcfcb3f286ede893541
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: d55a6d883e0dcd5ad4b1c1584b76bae06e6c742a
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53314507"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57569050"
 ---
 # <a name="morelikethis-in-azure-search-preview"></a>moreLikeThis i Azure Search (förhandsversion)
 
@@ -25,17 +25,17 @@ ms.locfileid: "53314507"
 
 Nedan visas ett exempel på en moreLikeThis-fråga. Frågan hittar dokument vars beskrivning fälten liknar mest fältet dokumentets källa som anges av den `moreLikeThis` parametern.
 
-```  
+```
 Get /indexes/hotels/docs?moreLikeThis=1002&searchFields=description&api-version=2016-09-01-Preview
-```  
+```
 
-```  
+```
 POST /indexes/hotels/docs/search?api-version=2016-09-01-Preview
-    {  
-      "moreLikeThis": "1002",  
-      "searchFields": "description"  
-    }  
-```  
+    {
+      "moreLikeThis": "1002",
+      "searchFields": "description"
+    }
+```
 
 ## <a name="feature-availability"></a>Funktionstillgänglighet
 

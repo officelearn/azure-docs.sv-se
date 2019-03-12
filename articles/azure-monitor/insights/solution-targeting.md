@@ -7,18 +7,18 @@ author: bwren
 manager: carmonm
 editor: tysonn
 ms.assetid: 1f054a4e-6243-4a66-a62a-0031adb750d8
-ms.service: monitoring
+ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/27/2017
 ms.author: bwren
-ms.openlocfilehash: 4beb9811a57ecd0a1eada5b36bd65b67851d2564
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 4082847e1871fc03713471b0c043dddb80f91b0d
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56731981"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57769241"
 ---
 # <a name="targeting-monitoring-solutions-in-azure-monitor-preview"></a>Riktar in sig på övervakningslösningar i Azure Monitor (förhandsversion)
 Den distribueras automatiskt som standard att alla Windows- och Linux-agenter är anslutna till Log Analytics-arbetsytan när du lägger till en övervakningslösning till din prenumeration.  Du kanske vill hantera dina kostnader och begränsa mängden data som samlas in för en lösning genom att begränsa den till en viss uppsättning med agenter.  Den här artikeln beskriver hur du använder **Lösningsmål** som är en funktion som gör att du kan använda ett omfång för dina lösningar.

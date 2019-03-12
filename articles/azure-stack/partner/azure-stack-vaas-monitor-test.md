@@ -10,17 +10,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/04/2019
+ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.lastreviewed: 11/26/2018
+ms.lastreviewed: 03/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: d4854bd623bb11d50a712be3a5aea07db24c2951
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 9b64631b274423edda35189a942e2f142ae591f1
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57432251"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57761182"
 ---
 # <a name="monitor-and-manage-tests-in-the-vaas-portal"></a>Övervaka och hantera tester i VaaS-portalen
 
@@ -40,7 +40,7 @@ Schemalägga testerna mot din Azure Stack-lösning, verifiering som en tjänst (
 
 ## <a name="change-workflow-parameters"></a>Ändra parametrarna för arbetsflödet
 
-Varje arbetsflödestyp av kan du redigera den [parametrarna för Webbtestet](azure-stack-vaas-parameters.md#test-parameters) anges under arbetsflödet skapats.
+Du kan redigera den [parametrarna för Webbtestet](azure-stack-vaas-parameters.md#test-parameters) angavs vid skapande av arbetsflödet för alla typer av arbetsflödet.
 
 1. På sammanfattningssidan tester, Välj den **redigera** knappen.
 
@@ -60,9 +60,9 @@ I **testet** arbetsflöden, både den **lägga till tester** och **redigera** kn
 
 ## <a name="managing-test-instances"></a>Hantering av test-instanser
 
-För inofficiella körningar (d.v.s. den **testet** arbetsflöde), sammanfattningssidan testerna innehåller testerna schemalagda mot Azure Stack-lösning.
+För inofficiella körningar (det vill säga den **testet** arbetsflöde), sammanfattningssidan testerna innehåller testerna schemalagda mot Azure Stack-lösning.
 
-För officiella körningar (d.v.s. den **verifiering** arbetsflöden), sammanfattningssidan testerna innehåller testerna som krävs för att slutföra verifieringen av Azure Stack-lösning. Verifieringstester schemaläggs från den här sidan.
+För officiella körningar (det vill säga den **verifiering** arbetsflöden), sammanfattningssidan testerna innehåller testerna som krävs för att slutföra verifieringen av Azure Stack-lösning. Verifieringstester schemaläggs från den här sidan.
 
 Varje schemalagd test-instans visas följande information:
 
@@ -81,7 +81,7 @@ Varje schemalagd test-instans visas följande information:
 
 ### <a name="actions"></a>Åtgärder
 
-Varje test-instans Listar tillgängliga åtgärder som du kan vidta när du klickar på dess snabbmenyn **[...]**  i tabellen test-instanser.
+Varje test-instans Listar tillgängliga åtgärder som du kan vidta när du väljer dess snabbmenyn **[...]**  i tabellen test-instanser.
 
 #### <a name="view-information-about-the-test-definition"></a>Visa information om test-definition
 
@@ -118,7 +118,7 @@ Välj **Visa åtgärder** från kontexten menyn för att visa detaljerad statusi
 
 #### <a name="download-logs-for-a-completed-test-instance"></a>Hämta loggar för en slutförd test-instans
 
-Välj **Hämtningsloggar** från snabbmenyn för att ladda ned en `.zip` fil på loggar utdata vid testkörning. Den här åtgärden är endast tillgänglig för tester som har slutfört, t.ex, ett test med statusen `Cancelled`, `Failed`, `Aborted`, eller `Succeeded`.
+Välj **Hämtningsloggar** från snabbmenyn för att ladda ned en `.zip` fil på loggar utdata vid testkörning. Den här åtgärden är endast tillgänglig för tester som har slutfört, det vill säga ett test med statusen `Cancelled`, `Failed`, `Aborted`, eller `Succeeded`.
 
 #### <a name="reschedule-a-test-instance-or-schedule-a-test"></a>Omboka en test-instans eller schemalägga ett test
 

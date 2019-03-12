@@ -3,25 +3,25 @@ title: Transformera data med hjälp av U-SQL-skript – Azure | Microsoft Docs
 description: Lär dig hur du bearbeta eller omvandla data genom att köra U-SQL-skript på Azure Data Lake Analytics-databearbetningstjänst.
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
 ms.assetid: e17c1255-62c2-4e2e-bb60-d25274903e80
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/01/2017
-ms.author: douglasl
+author: nabhishek
+ms.author: abnarain
+manager: craigg
 robots: noindex
-ms.openlocfilehash: 7631b103d6d14cceb2c320d56e9f68d9ea57e4d8
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 5835c37363c7e9d2dd3253c08ab97f17852725f5
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54020854"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57777302"
 ---
 # <a name="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>Transformera data genom att köra U-SQL-skript på Azure Data Lake Analytics 
-> [!div class="op_single_selector" title1="Välj vilken version av Data Factory-tjänsten du använder:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](data-factory-usql-activity.md)
 > * [Version 2 (aktuell version)](../transform-data-using-data-lake-analytics.md)
 
@@ -49,7 +49,7 @@ Följande tabell innehåller beskrivningar av de allmänna egenskaper som använ
 | Egenskap  | Beskrivning | Krävs |
 | --- | --- | --- |
 | **typ** |Type-egenskapen ska anges till: **AzureDataLakeAnalytics**. |Ja |
-| **Kontonamn** |Azure Data Lake Analytics-kontonamn. |Ja |
+| **accountName** |Azure Data Lake Analytics-kontonamn. |Ja |
 | **dataLakeAnalyticsUri** |Azure Data Lake Analytics-URI. |Nej |
 | **Prenumerations-ID** |Azure-prenumerations-id |Nej (om inte anges i data factory-prenumeration används). |
 | **resourceGroupName** |Azure-resursgruppsnamn |Nej (om inte anges resursgruppen för data factory används). |
@@ -93,7 +93,7 @@ Du kan också använda användarautentisering för autentiseringsuppgifter för 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | **Auktorisering** | Klicka på den **auktorisera** i Data Factory-redigeraren och ange dina autentiseringsuppgifter som tilldelar automatiskt genererade auktorisering URL: en till den här egenskapen. | Ja |
-| **sessions-ID** | OAuth sessions-ID från OAuth-auktorisering sessionen. Varje sessions-ID är unik och kan bara användas en gång. Den här inställningen genereras automatiskt när du använder Data Factory-redigeraren. | Ja |
+| **sessionId** | OAuth sessions-ID från OAuth-auktorisering sessionen. Varje sessions-ID är unik och kan bara användas en gång. Den här inställningen genereras automatiskt när du använder Data Factory-redigeraren. | Ja |
 
 **Exempel: Användarautentisering för autentiseringsuppgifter**
 ```json
@@ -212,7 +212,7 @@ I följande tabell beskrivs namn och beskrivningar för egenskaper som är speci
 | linkedServiceName   | Referens till Azure Data Lake Analytics registrerad som en länkad tjänst i Data Factory | Ja                                      |
 | scriptPath          | Sökvägen till mappen som innehåller U-SQL-skriptet. Filens namn är skiftlägeskänsligt. | Nej (om du använder skriptet)                   |
 | scriptLinkedService | Länkade tjänst som länkar den lagring som innehåller skriptet som data factory | Nej (om du använder skriptet)                   |
-| skriptet              | Ange infogade skript istället för att ange scriptPath och scriptLinkedService. Till exempel: `"script": "CREATE DATABASE test"`. | Nej (om du använder scriptPath och scriptLinkedService) |
+| skript              | Ange infogade skript istället för att ange scriptPath och scriptLinkedService. Till exempel: `"script": "CREATE DATABASE test"`. | Nej (om du använder scriptPath och scriptLinkedService) |
 | degreeOfParallelism | Det maximala antalet noder samtidigt används för att köra jobbet. | Nej                                       |
 | prioritet            | Anger vilka jobb av alla som är köade ska väljas att köras först. Ju lägre nummer, desto högre prioritet. | Nej                                       |
 | parameters          | Parametrar för U-SQL-skript          | Nej                                       |
@@ -317,7 +317,7 @@ OUTPUT @rs1
       USING Outputters.Tsv(quoting:false, dateTimeFormat:null);
 ```
 
-Värdena för **@in** och **@out** parametrar i U-SQL-skriptet som skickas dynamiskt med ADF med hjälp av avsnittet ”parameters”. Se avsnittet ”parameters” i pipeline-definition.
+Värdena för  **\@i** och  **\@ut** parametrar i U-SQL-skriptet som skickas dynamiskt med ADF med hjälp av avsnittet ”parameters”. Se avsnittet ”parameters” i pipeline-definition.
 
 Du kan också ange andra egenskaper som degreeOfParallelism och prioritet i din pipelinedefinition för jobb som körs på Azure Data Lake Analytics-tjänsten.
 

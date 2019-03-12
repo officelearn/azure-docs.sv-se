@@ -11,15 +11,15 @@ ms.service: app-service-mobile
 ms.workload: na
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
-ms.topic: hero-article
+ms.topic: conceptual
 ms.date: 08/17/2018
 ms.author: crdun
-ms.openlocfilehash: 9809b51f1279c99de69cd1c219ffc57351ff21ef
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
-ms.translationtype: HT
+ms.openlocfilehash: d0d6a3d9da2768c2d7b04bd9c4a7c24fba9eb65e
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "41919608"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57781688"
 ---
 # <a name="create-an-ios-app"></a>Skapa en iOS-app
 
@@ -31,15 +31,15 @@ Den här kursen visar hur du lägger till [Azure App Service Mobile Apps](app-se
 
 Du behöver [ett Azure-konto](https://azure.microsoft.com/pricing/free-trial/) och en Mac-dator för att slutföra den här självstudien.
 
-## <a name="step-i-create-a-new-azure-mobile-app-backend"></a>Steg I: skapa en ny mobilappserverdel i Azure
+## <a name="step-i-create-a-new-azure-mobile-app-backend"></a>Steg I: Skapa en ny mobilappsserverdel i Azure
 
 [!INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
 
-## <a name="step-ii-configure-the-backend-project"></a>Steg II: konfigurera serverdelsprojektet
+## <a name="step-ii-configure-the-backend-project"></a>Steg II: Konfigurera serverdelsprojektet
 
 [!INCLUDE [app-service-mobile-configure-new-backend.md](../../includes/app-service-mobile-configure-new-backend.md)]
 
-## <a name="step-iii-download-and-run-the-ios-app"></a>Steg III: hämta och kör iOS-appen
+## <a name="step-iii-download-and-run-the-ios-app"></a>Steg III: Ladda ned och kör iOS-appen
 
 [!INCLUDE [app-service-mobile-ios-run-app](../../includes/app-service-mobile-ios-run-app.md)]
 

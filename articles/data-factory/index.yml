@@ -1,23 +1,23 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 8a1f9967b51d3655c962620b9436dfe4f9ffd521
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 2179b212dbbc7891b003664f4bea3d47cbb3a34e
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57442536"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57575400"
 documentType: LandingData
 title: Dokumentation om Azure Data Factory
 metadata:
   title: Dokumentation om Azure Data Factory – Självstudier, API-referens | Microsoft Docs
   description: Lär dig hur du använder Data Factory för att konfigurera automatiska datapipelines till och från källor på lokala platser och i molnet, för att flytta och bearbeta data för analys.
   services: data-factory
-  author: douglaslMS
+  author: sharonlo101
+  ms.author: shlo
   manager: craigg
   ms.service: data-factory
   ms.tgt_pltfrm: na
   ms.topic: overview
   ms.date: 08/06/2018
-  ms.author: douglasl
 abstract:
   description: Lär dig att använda Data Factory, en tjänst för molndataintegrering, för att ordna datalagrings-, rörelse- och bearbetningstjänster i automatiserade datapipelines. Självstudier och annan dokumentation visar hur du konfigurerar och hanterar datapipelines samt flyttar och omvandlar data för analys. <p>Om du använder V1 av Data Factory-tjänsten går du till <a href=/azure/data-factory/v1/data-factory-introduction>V1-dokumentationen.</a></p>
   aside:

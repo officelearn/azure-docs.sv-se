@@ -12,14 +12,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/01/2019
+ms.date: 03/11/2019
 ms.author: apimpm
-ms.openlocfilehash: 0fe4da13e8242d858d553e0532b82cf1adca450a
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 04712b1ba1eccd71dcfcc9012ebcbdfcbdcd2404
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57338767"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57773695"
 ---
 # <a name="using-azure-api-management-service-with-an-internal-virtual-network"></a>Med Azure API Management-tjänsten med ett internt virtuellt nätverk
 Med Azure Virtual Networks, kan Azure API Management hantera API: er som är inte tillgänglig på internet. Ett antal VPN-tekniker är tillgängliga för att upprätta anslutningen. API Management kan distribueras i två huvudlägen i ett virtuellt nätverk:
@@ -32,7 +32,7 @@ Du kan använda API Management i interna läge, för att åstadkomma följande s
 
 * Gör API: er som finns i ditt privata datacenter på ett säkert sätt komma åt av tredje part utanför den med hjälp av plats-till-plats eller Azure ExpressRoute VPN-anslutningar.
 * Aktivera hybridmolnscenarierna genom att exponera dina molnbaserade API: er och lokala API: er via en gemensam gateway.
-* Hantera dina API: er som finns i flera geografiska platser med hjälp av en enda gateway-slutpunkt. 
+* Hantera dina API: er som finns i flera geografiska platser med hjälp av en enda gateway-slutpunkt.
 
 [!INCLUDE [premium-dev.md](../../includes/api-management-availability-premium-dev.md)]
 
@@ -47,7 +47,7 @@ Om du vill utföra stegen som beskrivs i den här artikeln, måste du ha:
 + **En Azure API Management-instans**. Mer information finns i [skapa en Azure API Management-instans](get-started-create-service-instance.md).
 
 ## <a name="enable-vpn"> </a>Skapa en API Management i ett internt virtuellt nätverk
-API Management-tjänsten i ett internt virtuellt nätverk finns bakom en intern belastningsutjämnare (ILB).
+API Management-tjänsten i ett internt virtuellt nätverk finns bakom en [intern belastningsutjämnare (klassisk)](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-get-started-ilb-classic-cloud). Detta är det enda tillgängliga alternativet och kan inte ändras.
 
 ### <a name="enable-a-virtual-network-connection-using-the-azure-portal"></a>Aktivera en virtuell nätverksanslutning med Azure portal
 
@@ -103,11 +103,12 @@ Om du vill få åtkomst till dessa slutpunkter för API Management-tjänsten må
 
    * 10.1.0.5 contosointernalvnet.scm.azure api.net
 
-Du kan sedan komma åt alla tjänstslutpunkter från den virtuella datorn som du skapade. Om du använder en anpassad DNS-server i ett virtuellt nätverk kan du också skapa en DNS-poster och åtkomst till dessa slutpunkter från valfri plats i det virtuella nätverket. 
+Du kan sedan komma åt alla tjänstslutpunkter från den virtuella datorn som du skapade.
+Om du använder en anpassad DNS-server i ett virtuellt nätverk kan du också skapa en DNS-poster och åtkomst till dessa slutpunkter från valfri plats i det virtuella nätverket.
 
 ### <a name="access-on-custom-domain-names"></a>Åtkomst på anpassade domännamn
 
-   1. Om du inte vill få åtkomst till API Management-tjänsten med standard-värdnamn, kan du ställa in anpassade domännamn för alla dina tjänstslutpunkter som visas i följande bild: 
+   1. Om du inte vill få åtkomst till API Management-tjänsten med standard-värdnamn, kan du ställa in anpassade domännamn för alla dina tjänstslutpunkter som visas i följande bild:
 
    ![Konfigurera en anpassad domän för API Management][api-management-custom-domain-name]
 

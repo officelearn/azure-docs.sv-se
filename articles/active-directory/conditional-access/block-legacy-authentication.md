@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/01/2019
+ms.date: 03/11/2019
 ms.author: markvi
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 644a2279f555af05d711e1455923795b5271e159
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 97e5976603ee1574e8410702069b97a9f0ef6198
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56191630"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57768765"
 ---
 # <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>Anvisningar: Blockera äldre autentisering till Azure AD med villkorlig åtkomst   
 
@@ -114,6 +114,8 @@ Mer information finns i [hur ska du distribuera en ny princip?](best-practices.m
 
 
 ## <a name="what-you-should-know"></a>Det här bör du känna till
+
+Blockerar åtkomst med hjälp av **andra klienter** blockerar också Exchange Online PowerShell med hjälp av grundläggande autentisering.
 
 Konfigurera en princip för **andra klienter** blockerar för hela organisationen från vissa klienter som SPConnect. Det här blocket inträffar eftersom äldre klienter autentiseras på oväntade sätt. Problemet gäller inte för viktiga Office-program som de äldre Office-klienterna.
 

@@ -3,7 +3,6 @@ title: Viktigaste skillnaderna för Azure SQL Database Machine Learning Services
 description: Det här avsnittet beskrivs viktiga skillnader mellan Azure SQL Database Machine Learning Services (med R) och SQL Server Machine Learning Services.
 services: sql-database
 ms.service: sql-database
-ms.subservice: machine-learning-services
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +11,12 @@ ms.author: davidph
 ms.reviewer: carlrab
 manager: cgronlun
 ms.date: 03/01/2019
-ms.openlocfilehash: c750942f8f0f2727d1d11945a84bffb434a01193
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 57ea52c179376e8378680f436d396ffaf9357f68
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57242130"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57771858"
 ---
 # <a name="key-differences-between-machine-learning-services-in-azure-sql-database-preview-and-sql-server"></a>Viktiga skillnader mellan Machine Learning-tjänster i Azure SQL Database (förhandsversion) och SQL Server
 
@@ -59,10 +58,6 @@ Om det finns inte tillräckligt med minne för R, får du ett felmeddelande. Van
 - Det uppstod ett externt skriptfel: Fel: Det går inte att allokera vektor storlek.
 
 Användningen beror på hur mycket minne används i R-skript och antalet parallella frågor som körs. Om du får fel ovan, kan du skala databasen till en högre tjänstnivå för att lösa problemet.
-
-## <a name="security-isolation"></a>Säkerhetsisolering
-
-I Azure SQL Database ger SQL plattform Abstraction Layer (SQLPAL) isolering för externa processer. Denna isolering ger ett extra säkerhetslager för att köra R-skript.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -1,5 +1,5 @@
 ---
-title: Felsöka ditt Kubernetes-distribution till Azure Stackk | Microsoft Docs
+title: Felsöka ditt Kubernetes-distribution till Azure Stack | Microsoft Docs
 description: Lär dig hur du felsöker ditt Kubernetes-distribution till Azure Stack.
 services: azure-stack
 documentationcenter: ''
@@ -11,16 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/05/2019
-ms.author: mabrigg
+ms.author: mabvrigg
 ms.reviewer: waltero
 ms.lastreviewed: 01/24/2019
-ms.openlocfilehash: 551958317249cbfa25e3af9922f9ded6850c2521
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 5436b562b4f9054e0e00e3cc6abb1724797437db
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55752304"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57729645"
 ---
 # <a name="troubleshoot-your-kubernetes-deployment-to-azure-stack"></a>Felsöka ditt Kubernetes-distribution till Azure Stack
 
@@ -87,7 +86,7 @@ Följande diagram visar den allmänna processen för att distribuera klustret.
 Du kan samla in loggar på de virtuella datorerna som har stöd för Kubernetes-klustret. Du kan också granska loggen för distribution. Du kan behöva tala med din Azure Stack-administratör för att kontrollera vilken version av Azure Stack som du behöver för att använda och hämta loggar från Azure Stack som är relaterade till din distribution.
 
 1. Granska den [Distributionsstatus](#review-deployment-status) och [hämta loggarna](#get-logs-from-a-vm) från huvudnoden i Kubernetes-klustret.
-2. Var noga med att du använder den senaste versionen av Azure Stack. Om du är osäker på vilken version du använder administratören Azure Stack. Kubernetes-kluster marketplace tid 0.3.0-betaversionen kräver Azure Stack-version 1808 eller senare.
+2. Var noga med att du använder den senaste versionen av Azure Stack. Om du är osäker på vilken version du använder administratören Azure Stack.
 3.  Granska dina filer för virtuell dator skapas. Du kanske har haft följande problem:  
     - Den offentliga nyckeln kan vara ogiltig. Granska den nyckel som du skapade.  
     - Skapa en virtuell dator kan ha utlöses ett internt fel eller utlöses ett fel när skapades. Ett antal faktorer kan orsaka sådana fel, inklusive kapacitetsbegränsningar för Azure Stack-prenumerationen.
@@ -148,21 +147,26 @@ Om du vill hämta loggar, gör du följande:
 3. I samma session, kör du följande kommando med parametrar uppdateras så att den matchar din miljö:
 
     ```Bash  
-    ./getkuberneteslogs.sh --identity-file id_rsa --user azureuser --vmdhost 192.168.102.37
+    ./getkuberneteslogs.sh --identity-file id_rsa --user azureuser --vmd-host 192.168.102.37
     ```
 
 4. Granska parametrarna och ange värden baserat på din miljö.
     | Parameter           | Beskrivning                                                                                                      | Exempel                                                                       |
     |---------------------|------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------|
-    | -i, --identity-file | RSA filen för privat nyckel att ansluta den Kubernetes-Virtuellt huvuddatorn. Nyckeln måste börja med `-----BEGIN RSA PRIVATE KEY-----` | C:\data\privatekey.pem                                                        |
-    | -h, --host          | Den offentliga IP-Adressen eller det fullständigt kvalificerade domännamnet (FQDN) för Kubernetes-kluster huvudservern VM. VM-namnet börjar med `k8s-master-`.                       | IP: 192.168.102.37<br><br>FQDN: k8s-12345.local.cloudapp.azurestack.external      |
+    | -d, --vmd-host       | Den offentliga IP-Adressen eller det fullständiga Domännamnet för DVM. VM-namnet börjar med `vmd-`.                                                       | IP: 192.168.102.38<br><br>DNS: vmd-dnsk8-frog.local.cloudapp.azurestack.external |
+    | -f, --force | Fråga inte innan du laddar upp den privata nyckeln. | |
+    | -i, --identity-file | RSA filen för privat nyckel att ansluta den Kubernetes-Virtuellt huvuddatorn. Nyckeln måste börja med: <br>`-----BEGIN RSA PRIVATE KEY-----` | C:\data\id_rsa.pem                                                        |
+    | -h, --help  | Skriva ut kommandoanvändning `getkuberneteslogs.sh` skript. | |
+    | m-,--värd för överordnad Server          | Den offentliga IP-Adressen eller det fullständigt kvalificerade domännamnet (FQDN) för Kubernetes-kluster huvudservern VM. VM-namnet börjar med `k8s-master-`.                       | IP: 192.168.102.37<br><br>FQDN: k8s-12345.local.cloudapp.azurestack.external      |
     | -u, --user          | Användarnamn för Kubernetes-kluster huvudservern VM. Du kan ange det här namnet när du konfigurerar marketplace-objekt.                                                                    | azureuser                                                                     |
-    | -d, --vmdhost       | Den offentliga IP-Adressen eller det fullständiga Domännamnet för DVM. VM-namnet börjar med `vmd-`.                                                       | IP: 192.168.102.38<br><br>DNS: vmd-dnsk8-frog.local.cloudapp.azurestack.external |
+
+
+
 
    När du lägger till parametervärden kan det se ut ungefär som följande kod:
 
     ```Bash  
-    ./getkuberneteslogs.sh --identity-file "C:\secretsecret.pem" --user azureuser --vmdhost 192.168.102.37
+    ./getkuberneteslogs.sh --identity-file "C:\id_rsa.pem" --user azureuser --vmdhost 192.168.102.37
      ```
 
     En lyckad körning skapar loggarna.

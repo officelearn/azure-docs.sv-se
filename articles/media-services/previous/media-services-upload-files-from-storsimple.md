@@ -11,15 +11,15 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 22cf9b66ecf7bbbe8ef226635e84f0aaf9d26b17
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 555d68198329353b47641e8a22abfcb33ae5b61c
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55993936"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57768305"
 ---
 # <a name="upload-files-into-an-azure-media-services-account-from-azure-storsimple"></a>Ladda upp filer till ett Azure Media Services-konto från Azure StorSimple  
 
@@ -45,7 +45,7 @@ I Media Services överför du dina digitala filer till en tillgång. Tillgång k
 
     När jobbet börjar köras skapas en lagringskö. Den här kön fylls med meddelanden om transformerade blobbar i takt med att de är klara. Namnet på den här kön är detsamma som namnet på jobbdefinitionen. Du kan använda den här kön för att avgöra när tillgången är klar och anropa önskad Media Services-åtgärd som ska köras på den. Du kan till exempel använda den här kön för att utlösa en Azure-funktion som innehåller den nödvändiga Media Services-koden.
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 
 [Använd .Net SDK för att utlösa jobb i Data Manager](../../storsimple/storsimple-data-manager-dotnet-jobs.md)
 

@@ -1,5 +1,5 @@
 ---
-title: Med SAP på Linux-datorer | Microsoft Docs
+title: Använd SAP på Linux-datorer | Microsoft Docs
 description: Läs om att använda SAP på virtuella Linux-datorer (VM:ar) i Microsoft Azure
 services: virtual-machines-linux,virtual-network,storage
 documentationcenter: saponazure
@@ -11,31 +11,31 @@ keywords: ''
 ms.assetid: f9cd93dc-71ad-48a4-8778-4e48aec484a6
 ms.service: virtual-machines-linux
 ms.devlang: NA
-ms.topic: campaign-page
+ms.topic: conceptual
 ms.tgt_pltfrm: vm-linux
 ms.workload: na
 ms.date: 10/04/2016
 ms.author: sedusch
-ms.openlocfilehash: 0802816ba45a3d0fb390b64d4308ab2e966d86ce
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: e4c4afefe7a4746f2d8138bde7fea152f228a8bc
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34657187"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57773528"
 ---
-# <a name="using-sap-on-linux-virtual-machines-in-azure"></a>Med hjälp av SAP på Linux-datorer i Azure
+# <a name="using-sap-on-linux-virtual-machines-in-azure"></a>Använd SAP på Linux-datorer i Azure
 Cloud Computing är en välanvänd term som ökat i vikt inom IT-branschen, från småföretag upp till stora multinationella bolag. Microsoft Azure är Microsofts molntjänstplattform som erbjuder ett brett utbud av nya möjligheter. Kunder kan snabbt etablera och avetablera program som molntjänster så att de inte behöver hålla tillbaka på grund av tekniska eller budgetbegränsningar. Istället för att investera tid och budget i maskinvaruinfrastruktur, kan företag fokusera på programmet, verksamhetsprocesserna och dess fördelar för kunder och användare.
 
-Microsoft erbjuder ett omfattande infrastruktur som en tjänst (IaaS)-plattform med Microsoft Azure-datorer. SAP NetWeaver-baserade program stöds på virtuella Azure-datorer (IaaS). Faktablad nedan beskrivs hur du planerar och implementerar SAP NetWeaver baserat program på Windows-datorer i Azure. Du kan också implementeras SAP NetWeaver baserat program på [virtuella Windows-datorer](../../virtual-machines-windows-classic-sap-get-started.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+Microsoft erbjuder en omfattande infrastruktur som en tjänst (IaaS)-plattform med Microsoft Azure-datorer. SAP NetWeaver-baserade program stöds på virtuella Azure-datorer (IaaS). Vitboken nedan beskriver hur du planerar och implementerar SAP NetWeaver-baserade program på Windows-datorer i Azure. Du kan också implementera SAP NetWeaver-baserade program på [Windows virtuella datorer](../../virtual-machines-windows-classic-sap-get-started.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
 [!INCLUDE [virtual-machines-common-classic-sap-get-started](../../../../includes/virtual-machines-common-classic-sap-get-started.md)]
 
-## <a name="sap-netweaver-on-azure-suse-linux-virtual-machines"></a>SAP NetWeaver på Azure SUSE Linux virtuella datorer
-Rubrik: Testa SAP NetWeaver på Microsoft Azure SUSE Linux virtuella datorer
+## <a name="sap-netweaver-on-azure-suse-linux-virtual-machines"></a>SAP NetWeaver på Azure SUSE Linux-datorer
+Rubrik: Testa SAP NetWeaver på Microsoft Azure virtuella SUSE Linux-datorer
 
-Sammanfattning: Det finns inget officiella SAP-stöd för att köra SAP NetWeaver på virtuella Azure Linux-datorer vid denna tidpunkt. Dock kanske vill göra vissa tester kunder eller överväga för att köra SAP demo eller utbildningssystem på virtuella Azure Linux-datorer så länge som det ingen behövs för att kontakta supporten för SAP. Den här artikeln bör hjälp med att konfigurera Azure SUSE Linux virtuella datorer för att köra SAP och ger vissa grundläggande tips för att undvika vanliga fallgropar.
+Sammanfattning: Det finns inga officiella SAP-stöd för att köra SAP NetWeaver på virtuella Linux-datorer vid denna tidpunkt. Dock kunder kanske vill göra en del testning eller överväga att köra SAP-demo eller utbildningssystem på virtuella Linux-datorer så länge det finns inget behov av att kontakta supporten för SAP. Den här artikeln bör hjälp med att konfigurera virtuella SUSE Linux-datorer för att köra SAP och ger vissa grundläggande tips för att undvika vanliga fallgropar.
 
 Uppdaterad: December 2015
 
-[Den här artikeln hittar du här](suse-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+[Den här artikeln finns här](suse-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 

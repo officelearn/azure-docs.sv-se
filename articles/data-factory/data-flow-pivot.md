@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: fd7308e7ecb6e086dffb4bae0cc99c57dd699861
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 5548a62218aaac2e4da3853e8e5d43a584922bc0
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56729830"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57569900"
 ---
 # <a name="azure-data-factory-mapping-data-flow-pivot-transformation"></a>Azure Data Factory Dataomvandling Flow Pivot-mappning
 
@@ -42,7 +42,7 @@ Till sist väljer du den aggregering som du vill använda för pivoterat värden
 
 (Valfritt) Du kan ange ett namngivningsmönster från en med ett prefix, mitten och suffixet som ska läggas till varje nytt kolumnnamn från radvärdena.
 
-Exempelvis skulle pivotering ”försäljning” av ”Region” leda till nya kolumnvärdena från varje försäljningsvärde, dvs. "25", "50", "1000", etc. Men om du ställer in prefixvärdet ”försäljning” 
+Exempelvis skulle pivotering ”försäljning” av ”Region” leda till nya kolumnvärdena från varje försäljningsvärde, dvs. "25", "50", "1000", etc. Men om du ställer in prefixvärdet ”Sales-” varje kolumnvärde skulle lägga till ”Sales-” i början av värdet.
 
 ![Alternativ för pivotpunktens](media/data-flow/pivot5.png "pivotera 5")
 
@@ -56,4 +56,8 @@ Använda Flow Uttrycksspråk för ADF Data för att beskriva pivoterad kolumn om
 
 ### <a name="how-to-rejoin-original-fields"></a>Hur du återansluta till ursprungliga fält
 > [!NOTE]
-> Pivot-transformeringen kommer endast att projicera kolumner som används i aggregeringar, gruppering och pivot-åtgärd. Om du vill ta med de andra kolumnerna från föregående steg i ditt flöde använder en ny gren i föregående steg och Använd mönstret självkoppling för att ansluta flödet med ursprungliga metadata
+> Pivot-transformeringen kommer endast att projicera kolumner som används i aggregeringar, gruppering och pivot-åtgärd. Om du vill ta med de andra kolumnerna från föregående steg i ditt flöde, Använd en ny gren i föregående steg och mönstret självkoppling ansluta flödet med metadata.
+
+## <a name="next-steps"></a>Nästa steg
+
+Prova den [normalisera omvandling](data-flow-unpivot.md) att kolumnvärden radvärden. 

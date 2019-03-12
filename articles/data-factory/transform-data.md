@@ -3,20 +3,20 @@ title: Transformera data med Azure Data Factory | Microsoft Docs
 description: Lär dig hur du omvandlar data eller bearbeta data i Azure Data Factory med hjälp av Hadoop-, Machine Learning- eller Azure Data Lake Analytics.
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 07/31/2018
-ms.author: douglasl
-ms.openlocfilehash: 09b5f387b0c7f765ea0835dcef79932203d68338
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+author: nabhishek
+ms.author: abnarain
+manager: craigg
+ms.openlocfilehash: 2c674f77ef0f779c9764771e2e0ae7a4aea47548
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54014360"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57575230"
 ---
 # <a name="transform-data-in-azure-data-factory"></a>Transformera data i Azure Data Factory
 > [!div class="op_single_selector"]
@@ -86,7 +86,7 @@ Du kan skapa en anpassad aktivitet som kör R-skript i ditt HDInsight-kluster me
 ## <a name="compute-environments"></a>Compute-miljöer
 Du skapar en länkad tjänst för compute-miljö och sedan använda den länkade tjänsten när du definierar en transformeringsaktivitet. Det finns två typer av beräkningsmiljöer som stöds av Data Factory. 
 
-- **På begäran**:  I det här fallet hanteras datormiljön fullständigt av Data Factory. Den skapas automatiskt av Data Factory-tjänsten innan ett jobb skickas för att bearbeta data och tas bort när jobbet har slutförts. Du kan konfigurera och kontrollera detaljerade inställningar av på begäran beräkningsmiljö för jobbkörning, klusterhantering och start av åtgärder. 
+- **On-Demand**:  I det här fallet hanteras datormiljön fullständigt av Data Factory. Den skapas automatiskt av Data Factory-tjänsten innan ett jobb skickas för att bearbeta data och tas bort när jobbet har slutförts. Du kan konfigurera och kontrollera detaljerade inställningar av på begäran beräkningsmiljö för jobbkörning, klusterhantering och start av åtgärder. 
 - **Ta med din egen**: I det här fallet kan du registrera dina egna datormiljö (till exempel HDInsight-kluster) som en länkad tjänst i Datafabriken. Datormiljön hanteras av dig och Data Factory-tjänsten används för att köra aktiviteterna. 
 
 Se [beräkna länkade tjänster](compute-linked-services.md) artikeln om du vill veta mer om compute services som stöds av Data Factory. 

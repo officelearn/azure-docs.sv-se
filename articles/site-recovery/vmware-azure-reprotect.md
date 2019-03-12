@@ -1,18 +1,18 @@
 ---
 title: Återaktivera skyddet av virtuella datorer från Azure till en lokal plats under haveriberedskap för virtuella VMware-datorer och fysiska servrar | Microsoft Docs
 description: Lär dig hur du växlar tillbaka från Azure till den lokala platsen efter redundansväxlingen till Azure under haveriberedskap för virtuella VMware-datorer och fysiska servrar.
-author: rajani-janaki-ram
-manager: gauravd
+author: mayurigupta13
+manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 12/17/2018
-ms.author: rajanaki
-ms.openlocfilehash: 06337e205c472d26024289222dc8876d23b4184f
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.date: 3/12/2019
+ms.author: mayg
+ms.openlocfilehash: 4202d95b540efb98b526f8a8abd17da22a908ebe
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53791888"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57771825"
 ---
 # <a name="reprotect-and-fail-back-machines-to-an-on-premises-site-after-failover-to-azure"></a>Skydda igen och misslyckas tillbaka datorer till en lokal plats efter redundansväxlingen till Azure
 
@@ -114,7 +114,6 @@ Notera följande information:
 
 ## <a name="common-issues"></a>Vanliga problem
 
-- Site Recovery stöder för närvarande kan du växlar tillbaka till ett datalager VMFS eller virtuellt SAN-nätverk. En NFS-datalager stöds inte. På grund av den här begränsningen datalager val av indata på skärmen återaktivering av skydd är tomt för NFS-datalager, eller den visar virtuellt SAN-databasen men misslyckas under jobbet. Om du vill växla tillbaka du skapa ett VMFS datalager lokalt och växla tillbaka till den. Den här återställning efter fel gör en fullständig nedladdning av VMDK.
 - Om du vill göra en skrivskyddad användare vCenter-identifiering och skydda virtuella datorer, protection lyckas och redundans fungerar. Vid återaktiveringen av skyddet misslyckas växling vid fel eftersom datalagringen inte kan identifieras. Ett symtom är att datalagringen inte visas under återaktiveringen av skyddet. För att lösa detta problem kan du uppdatera vCenter-autentiseringsuppgifter med ett lämpligt konto som har behörighet och försök sedan igen. 
 - När du inte återställa en virtuell Linux-dator och köra den lokalt, ser du att paketet Network Manager har avinstallerats från datorn. Den här avinstallationen sker eftersom Nätverkshanteraren paketet tas bort när den virtuella datorn återställs i Azure.
 - När en Linux-dator är konfigurerad med en statisk IP-adress och växlas över till Azure, hämta IP-adress från DHCP. När du växlar över till den lokala fortsätter den virtuella datorn att använda DHCP för att hämta IP-adressen. Manuellt logga in på datorn och sedan ange IP-adressen till en statisk adress om det behövs. En Windows-dator kan hämta statiska IP-adressen igen.

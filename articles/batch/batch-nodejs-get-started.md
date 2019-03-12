@@ -7,22 +7,22 @@ manager: jeconnoc
 ms.assetid: ''
 ms.service: batch
 ms.devlang: nodejs
-ms.topic: hero-article
+ms.topic: conceptual
 ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: shwetams
-ms.openlocfilehash: 8844260c4364776ad0fc828dcd66932d37474ecf
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
-ms.translationtype: HT
+ms.openlocfilehash: bb0bfa5eac3dd9031718fb12f270f5fc03bbaea6
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53164627"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57772182"
 ---
 # <a name="get-started-with-batch-sdk-for-nodejs"></a>Kom igång med Batch SDK för Node.js
 
 Lär dig grunderna i att bygga en Batch-klient i Node.js med [Azure Batch Node.js SDK](/javascript/api/overview/azure/batch). Vi går igenom ett scenario med ett batch-program, steg för steg, och utför sedan en konfigurering med en Node.js-klient.  
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 Den här artikeln förutsätter att du har kunskaper om Node.js och att du är bekant med Linux. Den förutsätter också att du har ett Azure-konto med behörighet att skapa batch- och lagringstjänster.
 
 Vi rekommenderar att du läser [Azure Batch, teknisk översikt](batch-technical-overview.md) innan du går igenom stegen som beskrivs i den här artikeln.
@@ -260,7 +260,7 @@ Azure Batch-jobbet består av en logisk grupp av snarlika uppgifter. I vårt exe
 Dessa uppgifter körs parallellt och distribueras över flera noder, och allt detta samordnas av Azure Batch-tjänsten.
 
 > [!Tip]
-> Du kan använda egenskapen [maxTasksPerNode](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/Pool.html#add) för att ange högsta antal aktiviteter som kan köras samtidigt på en enda nod.
+> Du kan använda egenskapen [maxTasksPerNode](https://azure.github.io/azure-sdk-for-node/azure-batch/latest/Pool.html#add) för att ange högsta antal aktiviteter som kan köras samtidigt på en enda nod.
 >
 >
 
@@ -273,7 +273,7 @@ Om du använder Linux-noder har du normalt sett ett kommandoskript som installer
 Du kan ladda upp skriptet på Azure Storage-kontot och generera en SAS-URI för att komma åt skriptet. Den här processen kan också automatiseras med hjälp av Azure Storage Node.js SDK.
 
 > [!Tip]
-> Förberedande aktiviteter för ett jobb kan endast köras på de virtuella datornoder där en viss aktivitet ska köras. Om du vill att de obligatoriska programmen ska installeras på alla noder, oavsett vilka aktiviteter som körs på dem, kan du använda egenskapen [startTask](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/Pool.html#add) när du lägger till poolen. Du kan använda följande definition för förberedande aktiviteter som referens.
+> Förberedande aktiviteter för ett jobb kan endast köras på de virtuella datornoder där en viss aktivitet ska köras. Om du vill att de obligatoriska programmen ska installeras på alla noder, oavsett vilka aktiviteter som körs på dem, kan du använda egenskapen [startTask](https://azure.github.io/azure-sdk-for-node/azure-batch/latest/Pool.html#add) när du lägger till poolen. Du kan använda följande definition för förberedande aktiviteter som referens.
 >
 >
 
@@ -349,7 +349,7 @@ var container_list = ["con1","con2","con3","con4"]
 
 Koden lägger till flera aktiviteter i poolen. Varje aktivitet körs på en nod i poolen med virtuella datorer. Om antalet aktiviteter överskrider antalet virtuella datorer i en pool eller egenskapen maxTasksPerNode måste du vänta tills en nod blir ledig. Denna orkestrering hanteras automatiskt av Azure Batch.
 
-Portalen har detaljerade vyer för aktiviteter och jobbstatusar. Du kan också använda listan och hämta funktioner från Azure Node SDK. Detaljerad information kan fås via [dokumentationslänken](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/Job.html).
+Portalen har detaljerade vyer för aktiviteter och jobbstatusar. Du kan också använda listan och hämta funktioner från Azure Node SDK. Detaljerad information kan fås via [dokumentationslänken](https://azure.github.io/azure-sdk-for-node/azure-batch/latest/Job.html).
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/08/2019
+ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
 ms.lastreviewed: 01/08/2019
-ms.openlocfilehash: 9300e60902b9234af01a64173eefcfb1bc033c61
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 1e5154f4f6c77e9a024ced58f3b75a0111a614c3
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57410204"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57769387"
 ---
 # <a name="validate-azure-stack-pki-certificates"></a>Verifiera Azure Stack PKI-certifikat
 
@@ -75,7 +75,7 @@ Följ dessa steg för att förbereda och kontrollera Azure Stack PKI-certifikat 
     ```PowerShell  
     New-Item C:\Certificates -ItemType Directory
     
-    $directories = 'ACSBlob','ACSQueue','ACSTable','Admin Portal','ARM Admin','ARM Public','KeyVault','KeyVaultInternal','Public Portal','Admin Extension Host','Public Extension Host'
+    $directories = 'ACSBlob', 'ACSQueue', 'ACSTable', 'Admin Extension Host', 'Admin Portal', 'api_appservice', 'ARM Admin', 'ARM Public', 'ftp_appservice', 'KeyVault', 'KeyVaultInternal', 'Public Extension Host', 'Public Portal', 'sso_appservice', 'wildcard_dbadapter', 'wildcard_sso_appservice'
     
     $destination = 'c:\certificates'
     
@@ -86,7 +86,7 @@ Följ dessa steg för att förbereda och kontrollera Azure Stack PKI-certifikat 
     > AD FS och Graph krävs om du använder AD FS som ID-system. Exempel:
     >
     > ```PowerShell  
-    > $directories = 'ADFS','Graph','ACSBlob','ACSQueue','ACSTable','Admin Portal','ARM Admin','ARM Public','KeyVault','KeyVaultInternal','Public Portal','Admin Extension Host','Public Extension Host'
+    > $directories = 'ACSBlob', 'ACSQueue', 'ACSTable', 'ADFS', 'Admin Extension Host', 'Admin Portal', 'api_appservice', 'ARM Admin', 'ARM Public', 'ftp_appservice', 'Graph', 'KeyVault', 'KeyVaultInternal', 'Public Extension Host', 'Public Portal', 'sso_appservice', 'wildcard_dbadapter', 'wildcard_sso_appservice'
     > ```
     
      - Placera ditt certifikat i lämplig katalogerna som skapades i föregående steg. Exempel:  
@@ -254,17 +254,17 @@ Följ dessa steg för att förbereda och kontrollera Azure Stack PKI-certifikat 
 
 | Katalog | Certifikat |
 | ---    | ----        |
-| acsBlob | wildcard_blob_\< region>\< externalFQDN> |
-| ACSQueue  |  wildcard_queue\< region>\< externalFQDN> |
-| ACSTable  |  wildcard_table\< region >\< externalFQDN > |
-| Admininistrationstillägg värden  |  wildcard_adminhosting\< region >\< externalFQDN > |
-| Administratörsportalen  |  adminportal\< region >\< externalFQDN > |
-| ARM-administratör  |  adminmanagement\< region >\< externalFQDN > |
-| ARM-offentlig  |  hantering av\< region >\< externalFQDN > |
-| KeyVault  |  wildcard_vault\< region >\< externalFQDN > |
-| KeyVaultInternal  |  wildcard_adminvault\< region>\< externalFQDN> |
-| Offentliga tillägget värd  |  wildcard_hosting\< region >\< externalFQDN > |
-| Offentlig Portal  |  portalen\< region > _\< externalFQDN > |
+| acsBlob | wildcard_blob_\<region>_\<externalFQDN> |
+| ACSQueue  |  wildcard_queue_\<region>_\<externalFQDN> |
+| ACSTable  |  wildcard_table_\<region>_\<externalFQDN> |
+| Admininistrationstillägg värden  |  wildcard_adminhosting_\<region>_\<externalFQDN> |
+| Administratörsportalen  |  adminportal_\<region>_\<externalFQDN> |
+| ARM-administratör  |  adminmanagement_\<region>_\<externalFQDN> |
+| ARM-offentlig  |  management_\<region>_\<externalFQDN> |
+| KeyVault  |  wildcard_vault_\<region>_\<externalFQDN> |
+| KeyVaultInternal  |  wildcard_adminvault_\<region>_\<externalFQDN> |
+| Offentliga tillägget värd  |  wildcard_hosting_\<region>_\<externalFQDN> |
+| Offentlig Portal  |  portal_\<region>_\<externalFQDN> |
 
 ## <a name="using-validated-certificates"></a>Med verifierade certifikat
 

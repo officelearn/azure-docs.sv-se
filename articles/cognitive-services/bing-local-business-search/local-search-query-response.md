@@ -6,16 +6,15 @@ services: cognitive-services
 author: mikedodaro
 manager: rosh
 ms.service: cognitive-services
-ms.subservice: bing-local-business
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: rosh; v-gedod
-ms.openlocfilehash: 3e5fcf45ac1d8649203bdbb5b4aa3899332b3a1c
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 79219de775be96f35bd11ac85640efcc4a04a93b
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55153342"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57779801"
 ---
 # <a name="sending-and-using-bing-local-business-search-api-queries-and-responses"></a>Skicka och använda lokala företag i Bing med frågor och svar
 
@@ -55,7 +54,7 @@ JSON-svaren från den lokala företag i Bing innehåller en `SearchResponse` obj
 JSON-resultaten som returnerades av API: et omfattar följande attribut:
 
 * _typ
-* Adress
+* adress
 * entityPresentationInfo
 * geo
 * id
@@ -70,7 +69,7 @@ Allmän information om huvuden, parametrar, marknaden koder, svarsobjekt, fel, o
 > Du eller en tredje part för din räkning kan inte använda, behålla, lagra, cache, delar, eller distribuera alla data från lokala Sök-API för testning, utveckling, utbildning, distribuerar eller gör tillgänglig någon icke-Microsoft-tjänst eller funktion. 
 
 
-## <a name="example-json-response"></a>Exempel-JSON-svar
+## <a name="example-json-response"></a>Exempel på JSON-svar
 
 Följande JSON-svaret innehåller sökresultat som anges av frågan `?q=restaurant+in+Bellevue`.
 

@@ -10,14 +10,14 @@ ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: 3a1d363e08d4c7e9899f034b2260e764d07ed79d
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: c7eb490bdf484651613c5c7a72d2a31be5306634
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57344849"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57773800"
 ---
-# <a name="understand-and-work-with-scopes"></a>Förstå och arbeta med omfattningar
+# <a name="understand-and-work-with-scopes"></a>Förstå och arbeta med omfång
 
 Den här artikeln hjälper dig att förstå fakturerings- och resource management omfång som är tillgängliga i Azure och hur du använder scope i Cost Management och API: er.
 
@@ -31,7 +31,7 @@ Scope är där du hantera faktureringsinformation, har rollerna som är specifik
 
 ## <a name="how-cost-management-uses-scopes"></a>Hur Cost Management använder omfång
 
-Cost Management fungerar på alla scope ovan resurser kan användas att hantera kostnaderna på nivån som de har åtkomst, oavsett om det är hela faktureringskonto eller en enskild resursgrupp. Fakturering scope variera beroende på ditt Microsoft-avtal (prenumerationstyp), inte RBAC-omfång.
+Cost Management fungerar på alla scope ovan resurser kan användas att hantera kostnaderna på nivån som de har åtkomst, oavsett om det är hela faktureringskonto eller en enskild resursgrupp. Fakturering scope variera beroende på ditt Microsoft-avtal (prenumerationstyp), RBAC-scope inte.
 
 ## <a name="azure-rbac-scopes"></a>Azure RBAC-scope
 
@@ -145,6 +145,10 @@ Fakturering användare har inte åtkomst till hanteringsgrupper eftersom de inte
 ## <a name="cloud-solution-provider-csp-scopes"></a>Omfång för cloud Solution Provider (CSP)
 
 Partner för cloud Solution Provider (CSP) stöds inte i Cost Management idag. Använd i stället [Partnercenter](https://docs.microsoft.com/azure/cloud-solution-provider/overview/partner-center-overview).
+
+## <a name="how-to-switch-between-scopes-within-cost-management"></a>Hur man byter mellan scope i Cost Management
+
+Alla Cost Management-upplevelser i Azure-portalen innehåller en **omfång** pill längst upp till vänster i bladet där ger möjlighet att snabbt ändra omfång. Klicka på den **omfång** pill öppnas en omfattningsväljaren som visar fakturering konton, rot-hanteringsgruppen och alla prenumerationer som inte är kapslat under rot-hanteringsgruppen. För att välja ett omfång, klickar du på bakgrunden för att markera den och klicka sedan på den **Välj** längst ned. Om du vill öka detaljnivån till kapslade omfång (t.ex. resursgrupper inom en prenumeration), klickar du på länken omfång namn. Klicka för att välja den överordnade omfattningen på vilken kapslad nivå den **Välj det här <scope>**  längst upp på omfattningsväljaren.
 
 ## <a name="identify-the-resource-id-for-a-scope"></a>Identifiera resurs-ID för ett omfång
 

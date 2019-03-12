@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: 56c5846c-5d8c-4ad4-9652-60b07aa8fc3b
 ms.date: 02/06/2019
-ms.openlocfilehash: 03ac2e0f42ff05165aa2313d823710a71c7dffec
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 3cca995b353b88cc481cbda68df4211a724f7f09
+ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55768333"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57727322"
 ---
 # <a name="validate-xml-with-schemas-in-azure-logic-apps-with-enterprise-integration-pack"></a>Validera XML med scheman i Azure Logic Apps med Enterprise-Integrationspaket
 
@@ -89,7 +89,7 @@ Baserat på schemat (.xsd)-filens storlek, följer du stegen för att ladda upp 
 
 ### <a name="add-schemas-more-than-2-mb"></a>Lägga till scheman som är mer än 2 MB
 
-Om du vill lägga till större scheman, kan du ladda upp ditt schema till en Azure blobbehållare i Azure storage-kontot. Dina steg för att lägga till kartor variera beroende på om din blobbehållare har offentlig läsbehörighet. Så först kontrollera om din blobbehållare har offentlig läsbehörighet genom att följa dessa steg: [Ange offentlig åtkomstnivå för blob-behållare](../vs-azure-tools-storage-explorer-blobs.md#set-the-public-access-level-for-a-blob-container)
+Om du vill lägga till större scheman, kan du ladda upp ditt schema till en Azure blobbehållare i Azure storage-kontot. Dina steg för att lägga till scheman variera beroende på om din blobbehållare har offentlig läsbehörighet. Så först kontrollera om din blobbehållare har offentlig läsbehörighet genom att följa dessa steg: [Ange offentlig åtkomstnivå för blob-behållare](../vs-azure-tools-storage-explorer-blobs.md#set-the-public-access-level-for-a-blob-container)
 
 #### <a name="check-container-access-level"></a>Kontrollera åtkomstnivån för behållare
 

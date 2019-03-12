@@ -6,19 +6,19 @@ documentationcenter: ''
 author: kraigb
 manager: douge
 ms.assetid: c372175b-beb5-4b45-b2f8-34cb06990117
-ms.service: notebooks
+ms.service: azure
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: d29aac52948cddf9d7e274d28735e2c12143b5ca
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: d36cbe50ab040549353efd19dd794ec7fab51b7b
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53081429"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57774412"
 ---
 # <a name="run-a-notebook-slideshow"></a>Kör en notebook bildspel
 
@@ -102,7 +102,7 @@ Eftersom bildspelet renderas fragment med mer lodrätt avstånd än när alla pu
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Så här: konfigurera och hantera projekt](configure-manage-azure-notebooks-projects.md)
-- [Så här: Installera paket från inom en anteckningsbok](install-packages-jupyter-notebook.md)
-- [Så här: arbeta med filer](work-with-project-data-files.md)
-- [Så här: åtkomst till dataresurser](access-data-resources-jupyter-notebooks.md)
+- [Anvisningar: Konfigurera och hantera projekt](configure-manage-azure-notebooks-projects.md)
+- [Anvisningar: Installera paket från inom en anteckningsbok](install-packages-jupyter-notebook.md)
+- [Anvisningar: Arbeta med filer](work-with-project-data-files.md)
+- [Anvisningar: Få åtkomst till data-resurser](access-data-resources-jupyter-notebooks.md)

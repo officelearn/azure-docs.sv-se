@@ -3,7 +3,7 @@ title: Tillgänglighet för SQL Server grupperar - virtuella datorer i Azure - k
 description: Den här artikeln förklarar hur du konfigurerar en SQL Server-tillgänglighetsgrupp på virtuella Azure-datorer med en replik i en annan region.
 services: virtual-machines
 documentationCenter: na
-authors: MikeRayMSFT
+author: MikeRayMSFT
 manager: craigg
 editor: monicar
 tags: azure-service-management
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/02/2017
 ms.author: mikeray
-ms.openlocfilehash: d64c55857cda0aa64dc010566490e1696fffdea0
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 5e4b63d4fc8b437bd4d476c72d23f9dbf5242d5b
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53972388"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57780566"
 ---
 # <a name="configure-an-always-on-availability-group-on-azure-virtual-machines-in-different-regions"></a>Konfigurera en Always On-tillgänglighetsgrupp på virtuella Azure-datorer i olika regioner
 
@@ -169,7 +169,7 @@ När du testar anslutningen, flytta den primära repliken tillbaka till ditt pri
 | ----- | ----- | ----- | ----- | -----
 | Primära Datacenter | SQL-1 | Primär | Synkron | Automatisk
 | Primära Datacenter | SQL-2 | Sekundär | Synkron | Automatisk
-| Sekundär eller fjärranslutna Datacenter | SQL-3 | Sekundär | Asynkron | Manuell
+| Sekundär eller fjärranslutna Datacenter | SQL-3 | Sekundär | Asynkron | Manuellt
 
 
 ### <a name="more-information-about-planned-and-forced-manual-failover"></a>Mer information om planerat och framtvingad manuell redundans

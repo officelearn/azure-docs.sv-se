@@ -10,17 +10,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/04/2019
+ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.lastreviewed: 01/07/2019
+ms.lastreviewed: 03/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: a128be720675898a2512f43bf714b9ad6aca0450
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 3830dc15cebe24a8fb910b641b7b986437aeec52
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57338543"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57768986"
 ---
 # <a name="validation-as-a-service-key-concepts"></a>Verifiering som en tjänst viktiga begrepp
 
@@ -33,7 +33,7 @@ En lösning för VaaS representerar en Azure Stack-lösning med en viss maskinva
 ### <a name="create-a-solution-in-the-vaas-portal"></a>Skapa en lösning i VaaS-portalen
 
 1. Logga in på den [VaaS portal](https://azurestackvalidation.com).
-2. Lösningar-instrumentpanelen, klicka på **ny lösning**.
+2. På instrumentpanelen för lösningar väljer **ny lösning**.
 3. Ange ett namn för lösningen. Namnge förslag, finns i [namnkonventionen för VaaS lösningar](azure-stack-vaas-best-practice.md#naming-convention-for-vaas-solutions).
 4. Välj **spara** att skapa lösningen.
 
@@ -52,7 +52,7 @@ Läs mer på arbetsflödestyper [vad är verifiering som en tjänst för Azure S
 
 ### <a name="getting-started-with-vaas-workflows"></a>Komma igång med VaaS arbetsflöden
 
-1. Skapa en ny lösning eller välj en befintlig på instrumentpanelen för lösningar. Detta uppdaterar och gör att arbetsflödet paneler.
+1. Skapa en ny lösning eller välj en befintlig på instrumentpanelen för lösningar. Detta uppdaterar och aktiverar arbetsflödet paneler.
 2. Om du vill skapa ett nytt arbetsflöde, väljer du på **starta** på valfri panel. Information som är specifika för varje arbetsflöde finns i följande artiklar:
     - Testet: [Snabbstart: Använda verifieringen som en tjänst-portal för att schemalägga första testet](azure-stack-vaas-schedule-test-pass.md)
     - Lösningen-verifiering: [Verifiera en ny Azure Stack-lösning](azure-stack-vaas-validate-solution-new.md)

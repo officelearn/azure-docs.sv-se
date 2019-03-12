@@ -10,17 +10,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 02/19/2019
+ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.lastreviewed: 02/19/2019
+ms.lastreviewed: 03/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: f5b884ddda292b1c523a5364d34753ccb3a5bbdf
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: c2b0343ff472fe380750152712ca88d9ebb404e2
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57194453"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57782793"
 ---
 # <a name="validate-oem-packages"></a>Verifiera OEM-paket
 
@@ -42,58 +42,97 @@ När du använder den **Paketvalideringen** arbetsflöde för att verifiera ett 
 Skapa en behållare i ditt storage-konto för paketet BLOB. Den här behållaren kan användas för alla dina Paketvalideringen körs.
 
 1. I den [Azure-portalen](https://portal.azure.com)går du till det lagringskonto som skapats i [ställa in din validering som en tjänstresurser](azure-stack-vaas-set-up-resources.md).
-2. På bladet vänstra under **Blobtjänsten**väljer på **behållare**.
-3. Välj **+ behållare** på menyn menyraden och ange ett namn för behållaren, t.ex. `vaaspackages`.
+
+2. På bladet vänstra under **Blobtjänsten**väljer **behållare**.
+
+3. Välj **+ behållare** på menyraden.
+    1. Ange ett namn för behållaren, till exempel `vaaspackages`.
+    1. Välj önskad åtkomstnivå för oautentiserade klienter, till exempel VaaS. Mer information om hur du ger VaaS åtkomst till paket i varje scenario finns i [hantering av behållare åtkomstnivå](#handling-container-access-level).
 
 ### <a name="upload-package-to-storage-account"></a>Ladda upp paketet till lagringskonto
 
-1. Förbered det paket som du vill validera. Om ditt paket har flera filer, komprimera den i en `.zip` fil.
-2. I den [Azure-portalen](https://portal.azure.com), Välj paket-behållaren och ladda upp paketet genom att välja på **överför** på menyraden.
-3. Välj paketet `.zip` fil att ladda upp. Behåll standardinställningarna för **typ av Blob** (d.v.s. **Blockblob**) och **blockstorlek**.
+1. Förbered det paket som du vill validera. Det här är en `.zip` filen vars innehåll måste matcha strukturen som beskrivs i [skapa ett OEM-paket](azure-stack-vaas-create-oem-package.md).
 
-> [!NOTE]
-> Se till att den `.zip` innehållet är placerade i roten på den `.zip` filen. Det bör finnas några underordnade mappar i paketet.
+    > [!NOTE]
+    > Se till att den `.zip` innehållet är placerade i roten på den `.zip` filen. Det bör finnas några underordnade mappar i paketet.
+
+1. I den [Azure-portalen](https://portal.azure.com), Välj paket-behållaren och ladda upp paketet genom att välja på **överför** på menyraden.
+
+1. Välj paketet `.zip` fil att ladda upp. Behåll standardinställningarna för **typ av Blob** (det vill säga **Blockblob**) och **blockstorlek**.
 
 ### <a name="generate-package-blob-url-for-vaas"></a>Generera paketet blob-Webbadressen för VaaS
 
-När du skapar en **Paketvalideringen** arbetsflöde i VaaS-portalen, måste du ange en URL till Azure Storage-blob som innehåller ditt paket.
+När du skapar en **Paketvalideringen** arbetsflöde i VaaS-portalen, måste du ange en URL till Azure Storage-blob som innehåller ditt paket. Vissa *interaktiva* tester, inklusive **månatliga AzureStack Update verifiering** och **OEM-tillägget paketet verifiering**, kräver också en URL till BLOB-paketet.
 
-#### <a name="option-1-generating-a-blob-sas-url"></a>Alternativ 1: Generera en blob SAS-URL
+#### <a name="handling-container-access-level"></a>Åtkomstnivå för hantering av behållare
 
-Använd det här alternativet om du inte vill aktivera offentlig läsbehörighet till storage-behållare eller BLOB-objekt.
+Den minsta åtkomstnivå som krävs av VaaS beror på om du skapar ett arbetsflöde för Paketvalideringen eller schemalägga en *interaktiva* testa.
 
-1. I den [Azure-portalen](https://portal.azure.com/), gå till ditt storage-konto och navigera till .zip som innehåller ditt paket
+I fall med **privata** och **Blob** åtkomstnivåer, tillfälligt måste du ge åtkomst till bloben paketet genom att ge VaaS en [signatur för delad åtkomst](https://docs.microsoft.com/en-us/azure/storage/common/storage-dotnet-shared-access-signature-part-1?) (SAS). Den **behållare** åtkomstnivå kräver inte att generera SAS URL: er, men tillåter oautentiserad åtkomst till behållaren och dess blobbar.
 
-2. Välj **generera SAS** på snabbmenyn
+|Åtkomstnivå | Arbetsflödeskrav | Test krav |
+|---|---------|---------|
+|Privat | Skapa en SAS-Webbadressen per paket blob ([alternativ 1](#option-1-generate-a-blob-sas-url)). | Generera en SAS-URL på kontonivå och manuellt lägger till blob paketnamn ([alternativ 2](#option-2-construct-a-container-sas-url)). |
+|Blob | Ange URL-egenskapen för blob ([alternativ 3](#option-3-grant-public-read-access)). | Generera en SAS-URL på kontonivå och manuellt lägger till blob paketnamn ([alternativ 2](#option-2-construct-a-container-sas-url)). |
+|Container | Ange URL-egenskapen för blob ([alternativ 3](#option-3-grant-public-read-access)). | Ange URL-egenskapen för blob ([alternativ 3](#option-3-grant-public-read-access)).
 
-3. Välj **Läs** från **behörigheter**
+Alternativ för att bevilja åtkomst till dina paket sorteras från minst åtkomst till största åtkomst.
 
-4. Ange **starttid** till aktuell tid och **sluttid** minst 48 timmar från **starttid**. Om du ska köra andra tester med samma paket måste du överväga att öka **sluttid** för längden på testet. Alla tester som schemalagts via VaaS efter **sluttid** kommer misslyckas och en ny SAS behöver ska genereras.
+#### <a name="option-1-generate-a-blob-sas-url"></a>Alternativ 1: Generera en blob SAS-URL
+
+Använd det här alternativet om åtkomstnivån för lagringsbehållaren har angetts till **privata**, där behållaren inte aktivera offentlig läsbehörighet till behållaren eller dess blobar.
+
+> [!NOTE]
+> Den här metoden fungerar inte för *interaktiva* tester. Se [alternativ 2: Skapa en behållare SAS-Webbadressen](#option-2-construct-a-container-sas-url).
+
+1. I den [Azure-portalen](https://portal.azure.com/), gå till ditt storage-konto och navigera till .zip som innehåller ditt paket.
+
+2. Välj **generera SAS** på snabbmenyn.
+
+3. Välj **Läs** från **behörigheter**.
+
+4. Ange **starttid** till aktuell tid och **sluttid** minst 48 timmar från **starttid**. Om du skapar andra arbetsflöden med samma paket, överväga att öka **sluttid** för längden på testet.
 
 5. Välj **Generera blob-SAS-token och URL**.
 
 Använd den **Blob SAS-Webbadressen** när tillhandahåller paketet blob-URL: er till portalen.
 
-#### <a name="option-2-grant-public-read-access"></a>Alternativ 2: Ge offentlig läsbehörighet
+#### <a name="option-2-construct-a-container-sas-url"></a>Alternativ 2: Skapa en behållare SAS-URL
+
+Använd det här alternativet om åtkomstnivån för lagringsbehållaren har angetts till **privata** och måste du ange en blob-URL för paketet till en *interaktiva* testa. Den här URL: en kan även användas på arbetsflödesnivå.
+
+1. [!INCLUDE [azure-stack-vaas-sas-step_navigate](includes/azure-stack-vaas-sas-step_navigate.md)]
+
+1. Välj **Blob** från **tillåtna tjänster alternativ**. Avmarkera eventuella återstående alternativen.
+
+1. Välj **behållare** och **objekt** från **tillåtna resurstyper**.
+
+1. Välj **Läs** och **lista** från **behörigheter**. Avmarkera eventuella återstående alternativen.
+
+1. Välj **starttid** som aktuell tid och **sluttid** minst 14 dagar från **starttid**. Om du ska köra andra tester med samma paket måste du överväga att öka **sluttid** för längden på testet. Alla tester som schemalagts via VaaS efter **sluttid** kommer misslyckas och en ny SAS behöver ska genereras.
+
+1. [!INCLUDE [azure-stack-vaas-sas-step_generate](includes/azure-stack-vaas-sas-step_generate.md)]
+    Formatet ska visas på följande sätt: `https://storageaccountname.blob.core.windows.net/?sv=2016-05-31&ss=b&srt=co&sp=rl&se=2017-05-11T21:41:05Z&st=2017-05-11T13:41:05Z&spr=https`
+
+1. Ändra den genererade SAS-URL och inkludera behållaren paketet `{containername}`, och namnet på din paketet blob `{mypackage.zip}`, enligt följande:  `https://storageaccountname.blob.core.windows.net/{containername}/{mypackage.zip}?sv=2016-05-31&ss=b&srt=co&sp=rl&se=2017-05-11T21:41:05Z&st=2017-05-11T13:41:05Z&spr=https`
+
+    Använd det här värdet när tillhandahåller paketet blob-URL: er till portalen.
+
+#### <a name="option-3-grant-public-read-access"></a>Alternativ 3: Ge offentlig läsbehörighet
+
+Använd det här alternativet om du accepterar att tillåta åtkomst till enskilda blobbar, eller i fall med oautentiserade klienter *interaktiva* testar behållaren.
 
 > [!CAUTION]
 > Det här alternativet öppnas din BLOB(ar) för anonym åtkomst för skrivskyddat läge.
 
-1. Bevilja **offentlig läsbehörighet endast för blobbar** till behållaren paketet genom att följa anvisningarna i avsnittet [bevilja anonyma användare till behållare och blobbar](https://docs.microsoft.com/azure/storage/storage-manage-access-to-resources#grant-anonymous-users-permissions-to-containers-and-blobs).
+1. Ange åtkomstnivån för paketet behållaren **Blob** eller **behållare** genom att följa anvisningarna i avsnittet [bevilja anonyma användare till behållare och blobbar](https://docs.microsoft.com/azure/storage/storage-manage-access-to-resources#grant-anonymous-users-permissions-to-containers-and-blobs).
 
-> [!NOTE]
-> Om du tillhandahåller en paket-URL till en *interaktiva test* (t.ex, månatlig AzureStack Update verifiering eller OEM-tillägget paketet verifieringen), måste du ge **fullständig offentlig läsbehörighet** till Gå vidare med testning.
+    > [!NOTE]
+    > Om du tillhandahåller en paket-URL till en *interaktiva* test, måste du ge **fullständig offentlig läsbehörighet** till behållaren för att fortsätta med testning.
 
-2. I behållaren paket väljer du blobben som paketet ska öppna egenskapsfönstret.
+1. I behållaren paket väljer du blobben som paketet ska öppna egenskapsfönstret.
 
-3. Kopiera den **URL**. Använd det här värdet när tillhandahåller paketet blob-URL: er till portalen.
-
-## <a name="apply-monthly-update"></a>Tillämpa månatliga uppdatering
-
-[!INCLUDE [azure-stack-vaas-workflow-section_update-azs](includes/azure-stack-vaas-workflow-section_update-azs.md)]
-
-> [!NOTE]
-> När du har installerat månadsuppdateringen rekommenderar vi att du kör Test-AzureStack för att kontrollera att uppdateringen har tillämpats korrekt och att den är i felfritt tillstånd. Om Test-AzureStack misslyckas kan du rapportera problemet till Microsoft. Inte fortsätta med testet pass förrän problemet har lösts. Information om hur du kör kommandot Test Azure Stack finns i den här [artikeln](https://docs.microsoft.com/azure/azure-stack/azure-stack-diagnostic-test).
+1. Kopiera den **URL**. Använd det här värdet när tillhandahåller paketet blob-URL: er till portalen.
 
 ## <a name="create-a-package-validation-workflow"></a>Skapa ett arbetsflöde för verifiera paketet
 
@@ -123,7 +162,7 @@ Använd den **Blob SAS-Webbadressen** när tillhandahåller paketet blob-URL: er
 
 ## <a name="required-tests"></a>Tester som krävs
 
-Följande test krävs för att verifiera för OEM-paketet:
+Följande tester krävs för att verifiera för OEM-paketet:
 
 - Verifiering av OEM-tillägg-paketet
 - Cloud Simulation Engine
@@ -136,17 +175,44 @@ Följande test krävs för att verifiera för OEM-paketet:
 
     > [!NOTE]
     > Schemalägga ett verifieringstest över en befintlig instans skapas en ny instans i stället för den gamla instansen i portalen. Loggar för den gamla instansen kommer att hållas kvar, men är inte tillgängliga från portalen.  
-    När ett test har slutförts, den **schema** åtgärden inaktiveras.
+    > När ett test har slutförts, den **schema** åtgärden inaktiveras.
 
 2. Välj den agent som ska köra testet. Information om att lägga till lokala webbtestagenter körning, se [distribuera lokal agent](azure-stack-vaas-local-agent.md).
 
-3. Till fullständig verifiering av OEM-tillägget paketet Välj **schema** från snabbmenyn för att öppna en kommandotolk för att schemalägga test-instans.
+3. För att slutföra verifieringen för OEM-tillägg-paketet, Välj **schema** från snabbmenyn för att öppna en kommandotolk för att schemalägga test-instans.
 
 4. Granska de test-parametrarna och välj sedan **skicka** att schemalägga OEM-tillägget paketet verifiering för körning.
 
+    OEM-tillägget paketet verifiering är uppdelat i två manuella steg: Azure Stack-uppdatering och OEM-uppdatering.
+
+    1. **Välj** ”kör” i Användargränssnittet för att köra skriptet precheck. Det här är ett automatiserat test som tar cirka 5 minuter för att slutföra och kräver ingen åtgärd.
+
+    1. När precheck skriptet har slutförts kan du utföra den manuella åtgärden: **installera** den senaste tillgängliga Azure Stack uppdateringen med hjälp av Azure Stack-portalen.
+
+    1. **Kör** Test-AzureStack på stämpeln. Om något fel uppstår, Fortsätt inte med test- och kontakta [ vaashelp@microsoft.com ](mailto:vaashelp@microsoft.com).
+
+        Information om hur du kör kommandot Test-AzureStack finns i [Validera Azure Stack systemtillstånd](https://docs.microsoft.com/azure/azure-stack/azure-stack-diagnostic-test).
+
+    1. **Välj** ”nästa” för att köra skriptet postcheck. Detta är ett automatiserat test och markerar slutet av uppdateringsprocessen för Azure Stack.
+
+    1. **Välj** ”kör” för att köra skriptet precheck för OEM-uppdatering.
+
+    1. När kravkontrollen har slutförts kan utföra den manuella åtgärden: **installera** OEM-tilläggspaket via portalen.
+
+    1. **Kör** Test-AzureStack på stämpeln.
+
+        > [!NOTE]
+        > Som tidigare Fortsätt inte med test- och kontakta [ vaashelp@microsoft.com ](mailto:vaashelp@microsoft.com) om det misslyckas. Det här steget är kritiskt eftersom kan du spara en omdistributionen.
+
+    1. **Välj** ”nästa” för att köra skriptet postcheck. Detta markerar slutet av OEM update steg.
+
+    1. Svara på eventuella återstående frågor i slutet av testet och **Välj** ”skicka”.
+
+    1. Detta markerar slutet av det interaktiva testet.
+
 5. Granska resultatet för OEM-tillägget paketet verifiering. När testet har slutförts kan du schemalägga molnet simulering motorn för körning.
 
-När alla tester har slutförts, skicka namnet på din VaaS lösning och verifiera paketet till [ vaashelp@microsoft.com ](mailto:vaashelp@microsoft.com) till Begär signering av paketet.
+Om du vill skicka ett paket som förfrågan, skicka [ vaashelp@microsoft.com ](mailto:vaashelp@microsoft.com) Lösningsnamnet och verifiera paketet namn som är associerade med den här körningen.
 
 ## <a name="next-steps"></a>Nästa steg
 

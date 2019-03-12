@@ -3,15 +3,15 @@ title: Stöd för resurstyper genom Azure Resource Health | Microsoft Docs
 description: Stöds resurstyper genom Azure Resource health
 author: stephbaron
 ms.author: stbaron
-ms.topic: how-to
+ms.topic: conceptual
 ms.service: service-health
 ms.date: 01/29/2019
-ms.openlocfilehash: 6945573fffa5a8398a61bfa44737bec798e16be2
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: a8bc82a2717bfa6838b2331ef54ed8098422c223
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55881448"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57770356"
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Resurstyper och hälsokontroller i Azure resource health
 Nedan visas en fullständig lista över alla kontroller som utförs genom resource health av resurstyper.

@@ -9,17 +9,17 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 10/22/2018
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 10/22/2018
-ms.openlocfilehash: b12e696260793a79bab6b384fc7be810eb2a803c
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 3f23f62554ce7f4b90b4116fdd6085027e71650d
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55240836"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57770177"
 ---
 # <a name="connect-azure-stack-to-azure-using-azure-expressroute"></a>Ansluta Azure Stack till Azure med Azure ExpressRoute
 
@@ -106,9 +106,9 @@ Använd följande procedurer för att skapa de nödvändiga nätverksresurserna 
 
 5. Under **skapa virtuellt nätverk**, ange de värden som visas i följande tabell i lämpliga fält:
 
-   |Fält  |Value  |
+   |Fält  |Värde  |
    |---------|---------|
-   |Name     |Tenant1VNet1         |
+   |Namn     |Tenant1VNet1         |
    |Adressutrymme     |10.1.0.0/16|
    |Namn på undernät     |Tenant1-Sub1|
    |Adressintervall för undernätet     |10.1.1.0/24|

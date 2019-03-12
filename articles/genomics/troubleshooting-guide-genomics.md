@@ -7,23 +7,23 @@ services: microsoft-genomics
 author: ruchir
 editor: jasonwhowell
 ms.author: ruchir
-ms.service: microsoft-genomics
+ms.service: genomics
 ms.workload: genomics
 ms.topic: article
 ms.date: 10/29/2018
-ms.openlocfilehash: 2c10259e4b9fa180d09ceef0359e7ec99e8200b1
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 01f4cca8e177d8f9c9325a7920eb7e72c005bbd6
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50239907"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57760951"
 ---
 # <a name="troubleshooting-guide"></a>Felsökningsguide
 
 Här är några felsökningstips för några vanliga problem som du kanske stöter på när du använder tjänsten Microsoft Genomics MSGEN.
 
  Vanliga frågor och svar, inte relaterade till felsökning, finns i [vanliga frågor](frequently-asked-questions-genomics.md).
-## <a name="step-1-locate-error-codes-associated-with-the-workflow"></a>Steg 1: Hitta felkoder som är associerad med arbetsflödet
+## <a name="step-1-locate-error-codes-associated-with-the-workflow"></a>Steg 1: Leta upp felkoder som är associerad med arbetsflödet
 
 Du kan hitta de felmeddelanden som är associerad med arbetsflödet genom att:
 
@@ -93,13 +93,13 @@ Leta upp utdatabehållaren för arbetsflödet i fråga. MSGEN skapar en, `[workf
 Granska innehållet i standardoutput.txt för felsökning, och notera eventuella felmeddelanden som visas.
 
 
-## <a name="step-2-try-recommended-steps-for-common-errors"></a>Steg 2: Försök rekommenderade steg för vanliga fel
+## <a name="step-2-try-recommended-steps-for-common-errors"></a>Steg 2: Testa rekommenderade åtgärder för vanliga fel
 
 Det här avsnittet beskriver kortfattat vanliga fel utdata genom Microsoft Genomics-tjänsten (msgen) och de strategier som du kan använda för att lösa dem. 
 
 Microsoft Genomics-tjänsten (msgen) kan ge följande två typer av fel:
 
-1. Internt fel i tjänsten: Fel som är interna för tjänsten, som inte kan lösas genom att åtgärda parametrar eller indatafiler. Ibland skickar in igen arbetsflödet kan åtgärda dessa fel.
+1. Internt fel: Fel som är interna för tjänsten, som inte kan lösas genom att åtgärda parametrar eller indatafiler. Ibland skickar in igen arbetsflödet kan åtgärda dessa fel.
 2. Indatafel: Fel som kan lösas genom att använda rätt argument eller åtgärda filformat.
 
 ### <a name="1-internal-service-errors"></a>1. Internt fel
@@ -137,7 +137,7 @@ De här felen är användare som är användbara. Microsoft Genomics-tjänsten u
 | FASTQ        | 308        |  FASTQ läsfel. Läsningar av båda ändar svarat på olika sätt. Du väljer rätt FASTQ-filer?                                                                                       | Korrigera formatet på FASTQ-filen och skicka arbetsflödet igen.                                                                         |
 |        |       |                                                                                        |                                                                           |
 
-## <a name="step-3-contact-microsoft-genomics-support"></a>Steg 3: Kontakta Microsoft Genomics-stöd
+## <a name="step-3-contact-microsoft-genomics-support"></a>Steg 3: Kontakta supporten för Microsoft Genomics
 
 Om du fortsätter att ha misslyckade jobb, eller om du har andra frågor, kontakta Microsoft Genomics support från Azure-portalen. Mer information om hur du skickar en begäran kan hittas [här](file-support-ticket-genomics.md).
 

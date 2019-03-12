@@ -10,17 +10,17 @@ tags: azure-resource-manager
 ms.assetid: ''
 ms.service: vpn-gateway
 ms.devlang: na
-ms.topic: ''
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: fec5ef3ef190270d22e9a7d0306eb9477b39a8c8
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 4e11b1bc16f874f892288f9677a71023f483de7c
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53095247"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57769982"
 ---
 # <a name="integrate-azure-vpn-gateway-radius-authentication-with-nps-server-for-multi-factor-authentication"></a>Integrera Azure VPN gateway RADIUS-autentisering med NPS-server för Multifaktorautentisering 
 
@@ -40,8 +40,8 @@ Om du vill aktivera MFA måste användarna vara i Azure Active Directory (Azure 
     ![Bild som visar hur du lägger till gateway-undernät](./media/vpn-gateway-radiuis-mfa-nsp/gateway-subnet.png)
 3. Skapa en virtuell nätverksgateway genom att ange följande inställningar:
 
-    - **Gatewaytyp**: välj **VPN**.
-    - **VPN-typ**: Välj **routningsbaserad**.
+    - **Gateway-typ**: Välj **VPN**.
+    - **VPN-typ**: Välj **Routningsbaserad**.
     - **SKU**: Välj en SKU-typen baserat på dina krav.
     - **Virtuellt nätverk**: Välj det virtuella nätverket där du skapade gateway-undernätet.
 
@@ -55,7 +55,7 @@ Om du vill aktivera MFA måste användarna vara i Azure Active Directory (Azure 
 2. Öppna konsolen NSP:, högerklicka på **RADUIS klienter**, och välj sedan **New**. Skapa RADUIS-klienten genom att ange följande inställningar:
 
     - **Eget namn**: Skriv ett namn.
-    - **Adress (IP eller DNS)**: Skriv gateway-undernätet som du skapade i steg 1.
+    - **Adress (IP eller DNS)**: Ange gateway-undernätet som du skapade i steg 1.
     - **Delad hemlighet**: Skriv alla hemlig nyckel och spara den för senare användning.
 
       ![Bild som visar RADUIS-klientinställningar](./media/vpn-gateway-radiuis-mfa-nsp/create-radius-client1.png)
@@ -73,7 +73,7 @@ Om du vill aktivera MFA måste användarna vara i Azure Active Directory (Azure 
 2. Öppna den virtuella nätverksgatewayen som du skapade. Se till att gateway-typ har angetts till **VPN** och att den VPN-typ är **routningsbaserad**.
 3. Klicka på **peka platskonfiguration** > **konfigurera nu**, och sedan anger du följande inställningar:
 
-    - **Adresspool**: Skriv gateway-undernätet som du skapade i steg 1.
+    - **Adresspool**: Ange gateway-undernätet som du skapade i steg 1.
     - **Autentiseringstyp**: Välj **RADIUS-autentisering**.
     - **Serverns IP-adress**: Ange IP-adressen för NPS-servern.
 

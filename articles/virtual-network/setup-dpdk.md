@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: NA
-ms.topic: ''
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/27/2018
 ms.author: labattul
-ms.openlocfilehash: 34647c218bd5fd2eec775599a4d2f10373dbd2fd
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: b50f7c9b76e9309a1ee08257dd8b13ec289397a5
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48268284"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57775925"
 ---
 # <a name="set-up-dpdk-in-a-linux-virtual-machine"></a>Ställ in DPDK i en Linux-dator
 
@@ -33,7 +33,7 @@ DPDK kan köras på Azure virtuella datorer som stöder flera operativsystem-dis
 
 ## <a name="benefit"></a>Fördelar
 
-**Högre paket per sekund (PPS)**: kringgår kernel och få kontroll av paket i Användarutrymmet minskar antalet cykel genom att eliminera kontext växlar. Det förbättrar också paket som bearbetas per sekund i Azure Linux-datorer.
+**Högre paket per sekund (PPS)**: Kringgå kernel och få kontroll av paket i Användarutrymmet minskar antalet cykel genom att eliminera kontext växlar. Det förbättrar också paket som bearbetas per sekund i Azure Linux-datorer.
 
 
 ## <a name="supported-operating-systems"></a>Operativsystem som stöds
@@ -42,9 +42,9 @@ Följande distributioner från Azure-galleriet stöds:
 
 | Linux OS     | Kernel-version        |
 |--------------|----------------       |
-| Ubuntu 16.04 | 4.15.0-1015-Azure     |
-| Ubuntu 18.04 | 4.15.0-1015-Azure     |
-| SLES 15      | 4.12.14-5.5-Azure     |
+| Ubuntu 16.04 | 4.15.0-1015-azure     |
+| Ubuntu 18.04 | 4.15.0-1015-azure     |
+| SLES 15      | 4.12.14-5.5-azure     |
 | RHEL 7.5     | 3.10.0-862.9.1.el7    |
 | CentOS 7.5   | 3.10.0-862.3.3.el7    |
 
@@ -152,7 +152,7 @@ Om du kör ett DPDK program över felsäker Kontrollpanelstillägget garanterar 
 
 Om du vill köra testpmd i rot-läge, Använd `sudo` innan den *testpmd* kommando.
 
-### <a name="basic-sanity-check-failsafe-adapter-initialization"></a>Basic: Förstånd kontroll, felsäker att initiera nätverkskortets
+### <a name="basic-sanity-check-failsafe-adapter-initialization"></a>Grundläggande: Förstånd kontrollen felsäker att initiera nätverkskortets
 
 1. Kör följande kommandon för att starta en enskild port testpmd programmet:
 
@@ -180,7 +180,7 @@ Om du vill köra testpmd i rot-läge, Använd `sudo` innan den *testpmd* kommand
 
 De tidigare kommandona start *testpmd* i interaktivt läge som rekommenderas för att prova testpmd kommandon.
 
-### <a name="basic-single-sendersingle-receiver"></a>Basic: Enstaka avsändaren/enkel mottagare
+### <a name="basic-single-sendersingle-receiver"></a>Grundläggande: Enstaka avsändaren/enkel mottagare
 
 Följande kommandon utskriftsserverns regelbundet paket per sekund-statistik:
 
@@ -244,7 +244,7 @@ Följande kommandon utskriftsserverns regelbundet paket per sekund-statistik:
      -w <pci address NIC2> \
      --vdev="net_vdev_netvsc<id>,iface=<the iface to attach to>" \
      --vdev="net_vdev_netvsc<2nd id>,iface=<2nd iface to attach to>" (you need as many --vdev arguments as the number of devices used by testpmd, in this case) \
-     -- --nb-cores <number of cores to use for test pmd> \
+     -- --nb-cores <number of cores to use for test pmd> \
      --forward-mode=io \
      --eth-peer=<recv port id>,<sender peer MAC address> \
      --stats-period <display interval in seconds>

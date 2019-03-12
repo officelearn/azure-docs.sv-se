@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 07/12/2018
 ms.author: v-shysun
-ms.openlocfilehash: 46d51e787a388f0963788c6419a2d9e3af89bc4f
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: f308b814da06598b95337708f7a8c84d506eed78
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456664"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57781807"
 ---
 # <a name="frequently-asked-questions-for-sql-server-running-on-windows-virtual-machines-in-azure"></a>Vanliga frågor om SQL Server som körs på Windows-datorer i Azure
 
@@ -50,7 +50,7 @@ Den här artikeln innehåller svar på några av de vanligaste frågorna om att 
    Ja. Azure underhåller en avbildning per större version och utgåva. Till exempel när ett nytt SQL Server servicepack släpps, lägger Azure till en ny avbildning i galleriet för detta servicepack. SQL Server-avbildning för tidigare servicepack tas omedelbart bort från Azure-portalen. Det är dock fortfarande tillgängligt för etablering från PowerShell för de kommande tre månaderna. Föregående bild av service pack är inte längre tillgänglig efter tre månader. Den här principen för borttagning av skulle gäller även om en SQL Server-version blir stöds inte när den når slutet av sin livscykel.
 
 
-1. **Är det möjligt att distribuera en äldre bild av SQL Server som inte är synliga i Azure Portal?**
+1. **Är det möjligt att distribuera en äldre bild av SQL Server som inte är synliga i Azure-portalen?**
 
    Ja, med hjälp av PowerShell. Mer information om hur du distribuerar SQL Server-datorer med hjälp av PowerShell finns i [hur du etablerar SQL Server-datorer med Azure PowerShell](virtual-machines-windows-ps-sql-create.md).
 
@@ -82,7 +82,7 @@ Den här artikeln innehåller svar på några av de vanligaste frågorna om att 
 
 1. **Måste jag betala till SQL Server på en Azure VM-licens om den används endast för vänteläge/redundans?**
 
-   Om du har Software Assurance och använda License Mobility enligt beskrivningen i Virtual Machine vanliga frågor om licensiering,] (https://azure.microsoft.com/pricing/licensing-faq/) och du inte behöver betala för att licensiera en SQL-Server som deltar som en passiv sekundär replik i en distribution med hög tillgänglighet. I annat fall måste betala att licensiera den.
+   Om du har Software Assurance och använda License Mobility enligt beskrivningen i [VM vanliga frågor om licensiering](https://azure.microsoft.com/pricing/licensing-faq/), så du inte behöver betala för att licensiera en SQL-Server som deltar som en passiv sekundär replik i en distribution med hög tillgänglighet. I annat fall måste betala att licensiera den.
 
 1. **Kan jag ändra en virtuell dator om du vill använda min egen SQL Server-licens om den har skapats från en användningsbaserad galleriavbildningar?**
 
@@ -121,21 +121,30 @@ Den här artikeln innehåller svar på några av de vanligaste frågorna om att 
 
 1. **Är det möjligt att registrera lokal distribuerade SQL Server-datorer med SQL VM-resursprovidern?**
 
-   Ja. Om du distribueras SQL Server från din egen media och installera SQL IaaS-tillägget som du kan registrera din SQL Server-VM med resursprovidern att hämta de hanterbarhet fördelarna med SQL IaaS-tillägget. Du kan dock inte att konvertera en lokal distribuerade SQL-VM till betala per användning.  
+   Ja. Om du distribueras SQL Server från din egen media och installera SQL IaaS-tillägget som du kan registrera din SQL Server-VM med resursprovidern att hämta de hanterbarhet fördelarna med SQL IaaS-tillägget. Du kan dock inte att konvertera en lokal distribuerade SQL-VM till betala per användning.
 
 ## <a name="administration"></a>Administration
 
 1. **Kan jag installera en andra instans av SQL Server på samma virtuella dator? Kan jag ändra installerade funktioner på standardinstans?**
 
-   Ja. Media för installation av SQL Server finns i en mapp på den **C** enhet. Kör **Setup.exe** från den platsen för att lägga till nya SQL Server-instanser eller för att ändra andra installerade funktioner i SQL Server på datorn. Observera att vissa funktioner, till exempel automatisk säkerhetskopiering, automatisk uppdatering och Azure Key Vault-integrering, bara köras mot standardinstansen.
+   Ja. Media för installation av SQL Server finns i en mapp på den **C** enhet. Kör **Setup.exe** från den platsen för att lägga till nya SQL Server-instanser eller för att ändra andra installerade funktioner i SQL Server på datorn. Observera att vissa funktioner, till exempel automatisk säkerhetskopiering, automatisk uppdatering och Azure Key Vault-integrering, bara köras mot standardinstansen eller en namngiven instans som har konfigurerats korrekt (se fråga 3). 
 
 1. **Kan jag avinstallera standardinstansen av SQL Server?**
 
-   Ja, men det finns några överväganden. Enligt informationen i föregående svar, funktioner som förlitar sig på den [SQL Server IaaS Agent-tillägget](virtual-machines-windows-sql-server-agent-extension.md) fungerar bara på standardinstansen. Om du avinstallerar standardinstansen tillägget fortsätter att söka efter den och generera felen i händelseloggen. Felen är från följande två källor: **Microsoft SQL Server-Autentiseringshantering** och **Microsoft SQL Server IaaS Agent**. Felen kan vara något av liknar följande:
+   Ja, men det finns några överväganden. Enligt informationen i föregående svar, det finns funktioner som förlitar sig på den [SQL Server IaaS Agent-tillägget](virtual-machines-windows-sql-server-agent-extension.md).  Om du avinstallerar standardinstansen utan att ta bort tillägget IaaS också tillägget fortsätter att söka efter den och generera felen i händelseloggen. Felen är från följande två källor: **Microsoft SQL Server-Autentiseringshantering** och **Microsoft SQL Server IaaS Agent**. Felen kan vara något av liknar följande:
 
       Ett nätverksrelaterat eller instans-specifika fel uppstod när upprättar en anslutning till SQL Server. Servern hittades inte eller var inte tillgänglig.
 
    Om du bestämmer dig att avinstallera standardinstansen, avinstallera även den [SQL Server IaaS Agent-tillägget](virtual-machines-windows-sql-server-agent-extension.md) samt.
+
+1. **Kan jag använda en namngiven instans av SQL Server med IaaS-tillägget**?
+   
+   Ja, om den namngivna instansen är den enda instansen på SQL Server, och om den ursprungliga standardinstansen avinstallerades korrekt. Om du vill använda en namngiven instans, gör du följande:
+    1. Distribuera en SQL Server-VM från marketplace. 
+    1. Avinstallera tillägget IaaS.
+    1. Avinstallera SQL Server helt.
+    1. Installera SQL Server med en namngiven instans. 
+    1. Installera tillägget IaaS. 
 
 1. **Kan jag ta bort SQL Server helt från en SQL-VM?**
 
@@ -143,9 +152,9 @@ Den här artikeln innehåller svar på några av de vanligaste frågorna om att 
    
 ## <a name="updating-and-patching"></a>Uppdatering och uppdatera
 
-1. **Hur uppgraderar jag till en ny version/utgåva av SQL Server i en Azure-dator?**
+1. **Hur ändrar jag till en ny version/utgåva av SQL Server i en Azure-dator?**
 
-   För närvarande finns det ingen uppgradering på plats för SQL Server som körs på en virtuell dator i Azure. Skapa en ny Azure-dator med den önskade versionen/utgåvan av SQL Server och migrera sedan databaserna till den nya servern med hjälp av standard [för datamigrering](virtual-machines-windows-migrate-sql.md).
+   Kunder med Software Assurance går att plats uppgraderingar av sina SQL Server på en Azure-dator med hjälp av installationsmediet Volume Licensing-portalen. Men för närvarande, går det inte att ändra versionen av en instans av SQL Server. Skapa en ny Azure-dator med den önskade versionen av SQL Server och migrera sedan databaserna till den nya servern med hjälp av standard [för datamigrering](virtual-machines-windows-migrate-sql.md).
 
 1. **Hur uppdateringar och service packs tillämpas på en SQL Server VM?**
 

@@ -11,15 +11,15 @@ ms.service: service-bus-relay
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
-ms.topic: hero-article
+ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: spelluru
-ms.openlocfilehash: 2972d04d1617b755bb6c2ff60d9922accdd09f2a
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
-ms.translationtype: HT
+ms.openlocfilehash: 0dc50da5eb302e2f1b24c265b4675d93f0a2e849
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51614845"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57768373"
 ---
 # <a name="expose-an-on-premises-wcf-service-to-a-web-application-in-the-cloud-by-using-azure-relay"></a>Göra en lokal WCF-tjänst tillgänglig för en webbapp i molnet med Azure Relay 
 Den här artikeln visar hur du skapar ett hybridprogram i molnet med Microsoft Azure och Visual Studio. Du skapar ett program färdigt i molnet som använder en rad Azure-resurser.
@@ -38,7 +38,7 @@ I den här självstudien gör du följande:
 > * Distribuera webbappen till Azure
 > * Köra appen i Azure
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här självstudien, finns följande förhandskrav:
 
@@ -185,7 +185,7 @@ Först skapar du ett simulerat lokalt produktkatalogsystem.  Det här projektet 
         }
     }
     ```
-12. Dubbelklicka på filen **App.config** i Solution Explorer för att öppna den i Visual Studio-redigeraren. Längst ned i `<system.ServiceModel>`-elementet (men fortfarande i `<system.ServiceModel>`), lägger du till följande XML-kod: Se till att ersätta *yourServiceNamespace* med namnet på ditt namnområdet och *yourKey* med den SAS-nyckel som du tidigare hämtade från portalen:
+12. Dubbelklicka på filen **App.config** i Solution Explorer för att öppna den i Visual Studio-redigeraren. Längst ned på den `<system.ServiceModel>` element (men fortfarande i `<system.ServiceModel>`), Lägg till följande XML-kod: Se till att ersätta *yourServiceNamespace* med namnet på ditt namnområdet och *yourKey* med den SAS-nyckel som du tidigare hämtade från portalen:
 
     ```xml
     <system.serviceModel>
@@ -350,7 +350,7 @@ Nästa steg är att koppla samman den lokala produktservern med ASP.NET-programm
 
    ![Lägg till som en länk][24]
 
-6. Öppna nu filen **HomeController.cs** i Visual Studio-redigeringsprogrammet och ersätt definitionen för namnområdet med följande kod: se till att ersätta *yourServiceNamespace* med namnet på tjänstnamnområdet, och *yourKey* med din SAS-nyckel. Detta aktiverar klienten för att anropa den lokala tjänsten och returnera resultatet av anropet.
+6. Öppna nu den **HomeController.cs** i Visual Studio-redigeraren och Ersätt definitionen för namnområdet med följande kod: Se till att ersätta *yourServiceNamespace* med namnet på ditt namnområde för tjänsten och *yourKey* med din SAS-nyckel. Detta aktiverar klienten för att anropa den lokala tjänsten och returnera resultatet av anropet.
 
    ```csharp
    namespace ProductsWeb.Controllers
@@ -448,7 +448,7 @@ Innan du kör programmet i molnet måste du se till att **ProductsPortal** start
 
 ## <a name="run-the-application"></a>Köra programmet
 
-1. Tryck på F5 för att skapa och köra programmet. Den lokala servern (**ProductsServer**-konsolappen) bör starta först och sedan ska **ProductsPortal**-programmet starta i ett webbläsarfönster som visas i följande skärmbild: Lägg återigen märke till att produktinventarielistdata hämtas från produkttjänstens lokala system och visar dessa data i webbappen. Kontrollera URL:en för att se till att **ProductsPortal** körs i molnet, som en Azure-webbapp.
+1. Tryck på F5 för att skapa och köra programmet. Den lokala servern (den **ProductsServer** konsolapp) bör starta först och sedan **ProductsPortal** programmet ska starta i ett webbläsarfönster som visas i följande skärmbild: Återigen ser du att data för produktinventarielistorna hämtats från det lokala systemet för produkttjänster. Dessa data visas sedan i webbappen. Kontrollera URL:en för att se till att **ProductsPortal** körs i molnet, som en Azure-webbapp.
 
    ![Köra webbappen i Azure][1]
 

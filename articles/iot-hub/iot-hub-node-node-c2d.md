@@ -9,12 +9,12 @@ services: iot-hub
 ms.devlang: javascript
 ms.topic: conceptual
 ms.date: 06/16/2017
-ms.openlocfilehash: 0cc60ef0cddc2867ce10324334782fa6ed418bdd
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: 643fd4558c8edd65047eb9d9b780424076d9ea3b
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57009315"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57530985"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-node"></a>Skicka meddelanden från moln till enhet med IoT Hub (Node)
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
@@ -190,8 +190,8 @@ Mer information om hur du utvecklar lösningar med IoT Hub finns det [utvecklarh
 [Kom igång med IoT Hub]: quickstart-send-telemetry-node.md
 [IoT Hub developer guide - C2D]: iot-hub-devguide-messaging.md
 [Utvecklarhandboken för IoT Hub]: iot-hub-devguide.md
-[Azure IoT Developer Center]: http://azure.microsoft.com/develop/iot
-[lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
+[Azure IoT Developer Center]: https://azure.microsoft.com/develop/iot
+[lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md
 [Azure Portal]: https://portal.azure.com
 [Azure IoT-Remote Monitoring solution accelerator]: https://azure.microsoft.com/documentation/suites/iot-suite/

@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 01/15/2019
-ms.openlocfilehash: d79485fa7587a6cf8783f2e5779fa0a1d593aea7
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: ac7043d2967fcf3f083c09622c39f4649f04f6e7
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57011440"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57551678"
 ---
 # <a name="glossary-of-iot-hub-terms"></a>IoT Hub-ordlista
 Den här artikeln innehåller några av de vanliga termer som används i IoT Hub-artiklar.
@@ -191,7 +191,7 @@ Modulen identiteten är den unika identifieraren som tilldelats varje modul som 
 Liknar enhetstvillingen, en modultvilling är JSON-dokument som lagrar information om modulen tillstånd som metadata, konfigurationer och villkor. IoT Hub lagrar en modultvillingen för varje modul-identitet som du etablerar under en enhetsidentitet i IoT hub. Modultvillingar kan du synkronisera modulen villkor och konfigurationer mellan modulen och lösningens backend-server. Du kan fråga modultvillingar för att hitta specifika moduler och fråga efter statusen för långvariga åtgärder.
 
 ## <a name="mqtt"></a>MQTT
-[MQTT](http://mqtt.org/) är en av meddelandetjänsterna protokoll som [IoT Hub](#iot-hub) har stöd för att kommunicera med enheter. Mer information om meddelandeprotokoll som stöds av IoT Hub finns i [skicka och ta emot meddelanden med IoT Hub](iot-hub-devguide-messaging.md).
+[MQTT](https://mqtt.org/) är en av meddelandetjänsterna protokoll som [IoT Hub](#iot-hub) har stöd för att kommunicera med enheter. Mer information om meddelandeprotokoll som stöds av IoT Hub finns i [skicka och ta emot meddelanden med IoT Hub](iot-hub-devguide-messaging.md).
 
 ## <a name="operations-monitoring"></a>Övervakning av åtgärder
 IoT Hub [åtgärdsövervakning](iot-hub-operations-monitoring.md) kan du övervaka statusen för åtgärder på IoT hub i realtid. [IoT Hub](#iot-hub) spårar händelser över flera åtgärdskategorier. Du kan välja skicka händelser från en eller flera kategorier till en IoT Hub-slutpunkt för bearbetning. Du kan övervaka data för fel eller skapa mer komplexa bearbetning baserad på datamönster.

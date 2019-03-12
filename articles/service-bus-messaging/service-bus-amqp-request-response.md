@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 13495107aff24b868a4188c25768868945e70db8
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: c6d6fc813a2691e821f3ef8f7c719945851a5001
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55658223"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57570852"
 ---
 # <a name="amqp-10-in-microsoft-azure-service-bus-request-response-based-operations"></a>AMQP 1.0 i Microsoft Azure Service Bus: begäran-svar-baserade åtgärder
 
@@ -45,72 +45,72 @@ Alla åtgärder som beskrivs i detta dokument följer ett mönster för begäran
 
 Skapar en länk till hanteringsnoden för att skicka begäran.  
   
-```  
-requestLink = session.attach(     
-role: SENDER,   
-    target: { address: "<entity address>/$management" },   
-    source: { address: ""<my request link unique address>" }   
-)  
-  
-```  
+```
+requestLink = session.attach(
+role: SENDER,
+    target: { address: "<entity address>/$management" },
+    source: { address: ""<my request link unique address>" }
+)
+
+```
   
 ### <a name="create-link-for-receiving-responses"></a>Skapa länk för att ta emot svar  
 
 Skapar en länk för att ta emot svar från hanteringsnoden.  
   
-```  
-responseLink = session.attach(    
-role: RECEIVER,   
-    source: { address: "<entity address>/$management" }   
-    target: { address: "<my response link unique address>" }   
-)  
-  
-```  
+```
+responseLink = session.attach(
+role: RECEIVER,
+    source: { address: "<entity address>/$management" }
+    target: { address: "<my response link unique address>" }
+)
+
+```
   
 ### <a name="transfer-a-request-message"></a>Överföra ett meddelande om begäran  
 
 Överför ett meddelande om begäran.  
 En Transaktionstillståndet kan läggas till om du vill för åtgärder som har stöd för transaktionen.
 
-```  
-requestLink.sendTransfer(  
-        Message(  
-                properties: {  
-                        message-id: <request id>,  
-                        reply-to: "<my response link unique address>"  
-                },  
-                application-properties: {  
-                        "operation" -> "<operation>",  
+```
+requestLink.sendTransfer(
+        Message(
+                properties: {
+                        message-id: <request id>,
+                        reply-to: "<my response link unique address>"
+                },
+                application-properties: {
+                        "operation" -> "<operation>",
                 }
         ),
         [Optional] State = transactional-state: {
                 txn-id: <txn-id>
         }
 )
-```  
+```
   
 ### <a name="receive-a-response-message"></a>Ta emot ett svarsmeddelande  
 
 Tar emot svarsmeddelandet från länken svar.  
   
-```  
-responseMessage = responseLink.receiveTransfer()  
-```  
+```
+responseMessage = responseLink.receiveTransfer()
+```
   
 Svarsmeddelandet är i följande format:
   
-```  
-Message(  
-properties: {     
-        correlation-id: <request id>  
-    },  
-    application-properties: {  
-            "statusCode" -> <status code>,  
-            "statusDescription" -> <status description>,  
-           },         
-)  
-  
-```  
+```
+Message(
+properties: {
+        correlation-id: <request id>
+    },
+    application-properties: {
+            "statusCode" -> <status code>,
+            "statusDescription" -> <status description>,
+           },
+)
+
+```
   
 ### <a name="service-bus-entity-address"></a>Service Bus-adress för entitet  
 
@@ -612,7 +612,7 @@ Varje post i matrisen innehåller följande egenskaper:
 | 1 | sträng | Meddelande-ID |
 | 2 | sträng | Till |
 | 3 | sträng | Svara |
-| 4 | sträng | Etikett |
+| 4 | sträng | Label (Etikett) |
 | 5 | sträng | Sessions-ID |
 | 6 | sträng | Svar på sessions-ID|
 | 7 | sträng | Innehållstyp |

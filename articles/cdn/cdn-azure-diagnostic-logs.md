@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2018
 ms.author: magattus
-ms.openlocfilehash: edb2bbee8df24dc9f9747ff13f5e3526192d91b2
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 5b80dcfa5cef116bb2558f154a54d343e467ae83
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56874026"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57546661"
 ---
 # <a name="azure-diagnostic-logs"></a>Azure diagnostikloggar
 
@@ -45,11 +45,13 @@ I följande diagram visas en typisk CDN core analytics-vy över data.
 
 Läs mer om diagnostikloggar [diagnostikloggar](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs).
 
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+
 ## <a name="enable-logging-with-the-azure-portal"></a>Aktivera loggning med Azure portal
 
 Följ dessa steg aktivera loggning med CDN core analytics:
 
-Logga in på [Azure Portal](http://portal.azure.com). Om du inte redan har aktiverat CDN för ditt arbetsflöde [skapa en Azure CDN-profil och slutpunkt](cdn-create-new-endpoint.md) innan du fortsätter.
+Logga in på [Azure Portal](https://portal.azure.com). Om du inte redan har aktiverat CDN för ditt arbetsflöde [skapa en Azure CDN-profil och slutpunkt](cdn-create-new-endpoint.md) innan du fortsätter.
 
 1. I Azure-portalen går du till **CDN-profil**.
 
@@ -168,7 +170,7 @@ I följande exempel visas hur du aktiverar diagnostikloggar via Azure PowerShell
 Det här avsnittet beskriver schemat för CDN core analytics, hur de organiseras i ett Azure storage-konto och visar exempelkod för att hämta loggarna i en CSV-fil.
 
 ### <a name="using-microsoft-azure-storage-explorer"></a>Med Microsoft Azure Storage Explorer
-Innan du kan komma åt core analytics-data från ett Azure storage-konto, måste du först ett verktyg för att få åtkomst till innehållet i ett lagringskonto. Det finns flera verktyg på marknaden, är det som vi rekommenderar Microsoft Azure Storage Explorer. Om du vill hämta verktyget, se [Azure Storage Explorer](http://storageexplorer.com/). När du laddar ned och installera programvaran kan konfigureras för att använda samma Azure storage-kontot som har konfigurerats som ett mål för CDN-diagnostikloggar.
+Innan du kan komma åt core analytics-data från ett Azure storage-konto, måste du först ett verktyg för att få åtkomst till innehållet i ett lagringskonto. Det finns flera verktyg på marknaden, är det som vi rekommenderar Microsoft Azure Storage Explorer. Om du vill hämta verktyget, se [Azure Storage Explorer](https://storageexplorer.com/). När du laddar ned och installera programvaran kan konfigureras för att använda samma Azure storage-kontot som har konfigurerats som ett mål för CDN-diagnostikloggar.
 
 1.  Öppna **Microsoft Azure Lagringsutforskaren**
 2.  Leta upp lagringskontot
@@ -225,11 +227,11 @@ Om du vill använda Azure Monitor, måste du [aktivera loggning](#enable-logging
 
 Du kan visa data i en mängd olika sätt med hjälp av lösningar för hantering. Du kan hämta hanteringslösningar från den [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/monitoring-management?page=1&subcategories=management-solutions).
 
-Du kan installera hanteringslösningar från Azure marketplace genom att välja den **Hämta nu** länken längst ned i varje lösning.
+Du kan installera övervakningslösningar från Azure marketplace genom att välja den **Hämta nu** länken längst ned i varje lösning.
 
-### <a name="add-a-azure-monitor-cdn-management-solution"></a>Lägg till en hanteringslösning för Azure Monitor CDN
+### <a name="add-a-azure-monitor-cdn-monitoring-solution"></a>Lägg till en Azure CDN för övervakaren övervakningslösning
 
-Följ dessa steg för att lägga till en hanteringslösning för Azure Monitor:
+Följ dessa steg för att lägga till en Azure Monitor övervakningslösning:
 
 1.   Logga in på Azure portal med din Azure-prenumeration och gå till instrumentpanelen.
     ![Azure-instrumentpanelen](./media/cdn-diagnostics-log/13_Azure-dashboard.png)

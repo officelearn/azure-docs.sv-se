@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: snehaa
-ms.openlocfilehash: 26992cfe1c6cb8555a7084075fed4d9c8daed031
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 3744e51ffb4e0836eba4b1641413d8c0ee240f87
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57444387"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57729379"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Azure Migrate – och vanliga frågor svar (FAQ)
 
@@ -21,7 +21,7 @@ Den här artikeln innehåller vanliga frågor och svar om Azure Migrate. Om du h
 
 ### <a name="does-azure-migrate-support-assessment-of-only-vmware-workloads"></a>Stöder Azure Migrate bedömning av VMware-arbetsbelastningar?
 
-Ja, Azure Migrate stöder för närvarande endast bedömning av VMware-arbetsbelastningar. Stöd för Hyper-V och fysiska servrar kommer att aktiveras i framtiden.
+Ja, Azure Migrate stöder för närvarande endast bedömning av VMware-arbetsbelastningar. Stöd för Hyper-V är i förhandsversion, måste du registrera dig [här](http://aka.ms/migratefuture) att få åtkomst till förhandsversionen. Stöd för fysiska servrar kommer att aktiveras i framtiden.
 
 ### <a name="does-azure-migrate-need-vcenter-server-to-discover-a-vmware-environment"></a>Behöver Azure Migrate vCenter Server för att identifiera en VMware-miljö?
 
@@ -42,7 +42,7 @@ Azure Migrate är ett verktyg för migreringsplanering och Distributionshanterar
 
 **Migrering från VMware till Azure**: Om du planerar att migrera dina lokala arbetsbelastningar till Azure, kan du använda Azure Migrate för för planering av migreringsaktiviteter. Azure Migrate utvärderar lokala arbetsbelastningar och tillhandahåller vägledning, insikter och mekanismer för att hjälpa dig att migrera till Azure. Du kan använda tjänster som Azure Site Recovery och Azure Database Migration Service för att migrera datorerna till Azure när du är klar med din migreringsplan.
 
-**Migrering från Hyper-V till Azure**: Azure Migrate stöder för närvarande endast utvärdering av virtuella VMware-datorer för migrering till Azure. Stöd för Hyper-V är våra planer för Azure Migrate. Under tiden kan använda du Site Recovery Deployment Planner. När Hyper-V-stöd är aktiverat i Azure Migrate kan använda du Azure Migrate för att planera migrering av Hyper-V-arbetsbelastningar.
+**Migrering från Hyper-V till Azure**: Den allmänt tillgängliga versionen av Azure Migrate stöder för närvarande utvärdering av virtuella VMware-datorer för migrering till Azure. Stöd för Hyper-V är för närvarande i förhandsversion med produktionsstöd. Om du är intresserad av att prova förhandsversionen kan du registrera dig [här](http://aka.ms/migratefuture).
 
 **Haveriberedskap från VMware/Hyper-V till Azure**: Om du vill göra katastrofåterställning (DR) på Azure med hjälp av Azure Site Recovery (Site Recovery), kan du använda Site Recovery Deployment Planner för DR planera. Distributionshanteraren för site Recovery har en djupgående, ASR-specifika bedömning av din lokala miljö. Den innehåller rekommendationer som krävs av Site Recovery för lyckade DR-åtgärder, till exempel replikering, redundans för dina virtuella datorer.  
 
@@ -120,7 +120,7 @@ För visualisering av beroenden, om du installerar agenter på de virtuella dato
 
 ### <a name="what-is-the-volume-of-data-which-is-uploaded-by-azure-migrate-in-the-case-of-continuous-profiling"></a>Vad är mängden data som överförts av Azure Migrate när det gäller kontinuerlig profilering?
 
-Mängden data som skickas till Azure Migrate skulle varierar beroende på flera parametrar. För att ge ett vägledande nummer, skickar ett projekt med tio datorer (var och en med en disk och ett nätverkskort), ungefär 50 MB per dag. Detta är ett ungefärligt värde och skulle ändras baserat på antalet datapunkter för nätverkskort och diskar (data som skickas skulle vara icke-linjära om antalet datorer, nätverkskort eller diskar ökar). 
+Mängden data som skickas till Azure Migrate skulle varierar beroende på flera parametrar. För att ge ett vägledande nummer, skickar ett projekt med tio datorer (var och en med en disk och ett nätverkskort), ungefär 50 MB per dag. Detta är ett ungefärligt värde och skulle ändras baserat på antalet datapunkter för nätverkskort och diskar (data som skickas skulle vara icke-linjära om antalet datorer, nätverkskort eller diskar ökar).
 
 ### <a name="is-the-data-encrypted-at-rest-and-while-in-transit"></a>Data krypteras i vila och under överföring?
 

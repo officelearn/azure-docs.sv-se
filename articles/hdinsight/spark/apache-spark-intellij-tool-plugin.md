@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: maxluk
-ms.openlocfilehash: 76df7f57f44100a27fbe4583051fa25c61e27ee0
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 272ec7298785128caebd850dc488ca01937a3960
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56961830"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57548515"
 ---
 # <a name="use-azure-toolkit-for-intellij-to-create-apache-spark-applications-for-an-hdinsight-cluster"></a>Använd Azure Toolkit för IntelliJ för att skapa Apache Spark-program för ett HDInsight-kluster
 
@@ -209,7 +209,7 @@ När du har skapat ett Scala-program, kan du skicka den till klustret.
     |Spark-kluster (endast Linux)|Välj HDInsight Spark-klustret som du vill köra ditt program.|
     |Välj en artefakt att skicka|Lämna standardinställningen.|
     |Namn på main-klass|Standardvärdet är huvudklass från den valda filen. Du kan ändra klassen genom att välja ellipsen (**...** ) och välja en annan klass.|
-    |Jobbkonfigurationer|Du kan ändra standardnycklar och/eller värden. Mer information finns i [Apache Livy REST API](http://livy.incubator.apache.org./docs/latest/rest-api.html).|
+    |Jobbkonfigurationer|Du kan ändra standardnycklar och/eller värden. Mer information finns i [Apache Livy REST API](https://livy.incubator.apache.org./docs/latest/rest-api.html).|
     |Kommandoradsargument|Du kan ange argument avgränsade med blanksteg för huvudklass om det behövs.|
     |Refererade JAR-filer och refererade filer|Du kan ange sökvägarna för den refererade JAR-filer och filer eventuellt. Mer information: [Apache Spark-konfigurationen](https://spark.apache.org/docs/latest/configuration.html#runtime-environment).  Se även [ladda upp resurser ska ingå i klustret](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-storage-explorer).|
     |Ladda upp Jobblagring|Expandera för att visa ytterligare alternativ.|

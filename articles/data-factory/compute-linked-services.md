@@ -3,20 +3,20 @@ title: Compute-miljöer som stöds av Azure Data Factory | Microsoft Docs
 description: Läs mer om beräkningsmiljöer som du kan använda i Azure Data Factory pipelines (till exempel Azure HDInsight) för att transformera eller bearbeta data.
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/15/2019
-ms.author: douglasl
-ms.openlocfilehash: 490f11b4a35bb7e5669ccf1554c3a73f5156f3c7
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+author: nabhishek
+ms.author: abnarain
+manager: craigg
+ms.openlocfilehash: b4078303a0fabf70fe8bda82875dd312714f73de
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57445661"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57576896"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Compute-miljöer som stöds av Azure Data Factory
 Den här artikeln beskrivs olika beräkningsmiljöer som du kan använda för att bearbeta och omvandla data. Den innehåller också information om olika konfigurationer (på begäran och ta med din egen) som stöds av Data Factory när du konfigurerar länkade tjänster länkar dessa compute-miljöer i en Azure-datafabrik.
@@ -91,7 +91,7 @@ Följande JSON definierar en Linux-baserade på begäran HDInsight-länkad tjän
 > [!IMPORTANT]
 > HDInsight-klustret skapar en **standardcontainer** i den bloblagring som du angav i JSON (**linkedServiceName**). HDInsight tar inte bort den här containern när klustret tas bort. Det här beteendet är avsiktligt. Med en HDInsight-länkad tjänst på begäran skapas ett HDInsight-kluster varje gång en sektor behöver bearbetas, såvida det inte finns ett befintligt livekluster (**timeToLive**). Det raderas när bearbetningen är klar. 
 >
-> Allteftersom mer aktivitet körs kan se du många behållare i Azure blob storage. Om du inte behöver dem för att felsöka jobb, kan du ta bort dem för att minska lagringskostnaderna. Namnen på de här containrarna följer ett mönster: `adf**yourdatafactoryname**-**linkedservicename**-datetimestamp`. Använd verktyg som [Microsoft Lagringsutforskaren](http://storageexplorer.com/) till att ta bort containrar i din Azure bloblagring.
+> Allteftersom mer aktivitet körs kan se du många behållare i Azure blob storage. Om du inte behöver dem för att felsöka jobb, kan du ta bort dem för att minska lagringskostnaderna. Namnen på de här containrarna följer ett mönster: `adf**yourdatafactoryname**-**linkedservicename**-datetimestamp`. Använd verktyg som [Microsoft Lagringsutforskaren](https://storageexplorer.com/) till att ta bort containrar i din Azure bloblagring.
 >
 > 
 
@@ -311,7 +311,7 @@ Du kan skapa en Azure Batch-länkad tjänst för att registrera en Batch-pool me
 Se följande avsnitt om du är nybörjare på Azure Batch-tjänsten:
 
 * [Azure Batch-grunder](../batch/batch-technical-overview.md) en översikt över Azure Batch-tjänsten.
-* [Ny AzBatchAccount](/powershell/module/az.batch/New-azBatchAccount) cmdlet för att skapa ett Batch-konto (eller) [Azure-portalen](../batch/batch-account-create-portal.md) att skapa Azure Batch-konto med hjälp av Azure portal. Se [använda PowerShell för att hantera Azure Batch-konto](http://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx) avsnittet detaljerade anvisningar om hur du använder cmdlet: en.
+* [Ny AzBatchAccount](/powershell/module/az.batch/New-azBatchAccount) cmdlet för att skapa ett Batch-konto (eller) [Azure-portalen](../batch/batch-account-create-portal.md) att skapa Azure Batch-konto med hjälp av Azure portal. Se [använda PowerShell för att hantera Azure Batch-konto](https://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx) avsnittet detaljerade anvisningar om hur du använder cmdlet: en.
 * [Ny AzBatchPool](/powershell/module/az.batch/New-AzBatchPool) cmdlet för att skapa en Azure Batch-pool.
 
 ### <a name="example"></a>Exempel

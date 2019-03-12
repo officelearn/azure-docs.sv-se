@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/24/2017
 ms.author: dekapur
-ms.openlocfilehash: 1775eb4659ccc71d962d0beab9b605e01eb12f72
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: df836d46f244822c8c3dd35be6de08b0c4f34038
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51253626"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57760522"
 ---
 # <a name="secure-a-standalone-cluster-on-windows-by-using-windows-security"></a>Skydda ett fristående kluster i Windows med hjälp av Windows-säkerhet
 För att förhindra obehörig åtkomst till Service Fabric-kluster, måste du skydda klustret. Säkerhet är särskilt viktigt när klustret kör produktionsarbetsbelastningar. Den här artikeln beskriver hur du konfigurerar säkerheten för nod-till-nod och klient-till-nod med hjälp av Windows-säkerhet i den *ClusterConfig.JSON* fil.  Processen motsvarar konfigurera säkerhetssteg av [skapa ett fristående kluster som körs på Windows](service-fabric-cluster-creation-for-windows-server.md). Mer information om hur Service Fabric använder Windows-säkerhet finns i [Klustersäkerhetsscenarier](service-fabric-cluster-security.md).
@@ -32,22 +32,22 @@ För att förhindra obehörig åtkomst till Service Fabric-kluster, måste du sk
 ## <a name="configure-windows-security-using-gmsa"></a>Konfigurera Windows-säkerhet som använder gMSA  
 Exemplet *ClusterConfig.gMSA.Windows.MultiMachine.JSON* konfigurationsfilen som hämtas med den [Microsoft.Azure.ServiceFabric.WindowsServer.<version>. ZIP](https://go.microsoft.com/fwlink/?LinkId=730690) fristående kluster paketet innehåller en mall för att konfigurera Windows säkerhet med hjälp av [Grupphanterat tjänstkonto (gMSA)](https://technet.microsoft.com/library/hh831782.aspx):  
 
-```  
+```
 "security": {
-            "ClusterCredentialType": "Windows",
-            "ServerCredentialType": "Windows",
-            "WindowsIdentities": {  
-                "ClustergMSAIdentity": "[gMSA Identity]", 
-                "ClusterSPN": "[Registered SPN for the gMSA account]",
-                "ClientIdentities": [  
-                    {  
-                        "Identity": "domain\\username",  
-                        "IsAdmin": true  
-                    }  
-                ]  
-            }  
-        }  
-```  
+    "ClusterCredentialType": "Windows",
+    "ServerCredentialType": "Windows",
+    "WindowsIdentities": {  
+        "ClustergMSAIdentity": "[gMSA Identity]",
+        "ClusterSPN": "[Registered SPN for the gMSA account]",
+        "ClientIdentities": [
+            {
+                "Identity": "domain\\username",
+                "IsAdmin": true
+            }
+        ]
+    }
+}
+```
 
 | **Konfigurationsinställningen** | **Beskrivning** |
 | --- | --- |
@@ -60,43 +60,46 @@ Exemplet *ClusterConfig.gMSA.Windows.MultiMachine.JSON* konfigurationsfilen som 
 | Identitet |Lägga till domänanvändare domän\användarnamn för klientens identitet. |  
 | IsAdmin |Ange som SANT för att ange att domänanvändaren har administratörsåtkomst för klienten eller false för klientåtkomst för användaren. |  
 
-[Nod till nod-säkerhet](service-fabric-cluster-security.md#node-to-node-security) konfigureras genom att ange **ClustergMSAIdentity** när service fabric måste köras under gMSA. För att skapa betrodda relationer mellan noder, måste de bli meddelad från varandra. Detta kan åstadkommas på två olika sätt: Ange den Grupphanterat tjänstkonto som innehåller alla noder i klustret eller datorn domängrupp som innehåller alla noder i klustret. Vi rekommenderar starkt med hjälp av den [Grupphanterat tjänstkonto (gMSA)](https://technet.microsoft.com/library/hh831782.aspx) metoden, särskilt för större kluster (fler än 10 noder) eller för kluster som sannolikt kommer att öka eller minska.  
+> [!NOTE]
+> ClustergMSAIdentity värdet får inte innehålla domännamnet och får bara innehålla grupp hanterade namnet på tjänstkontot. I.E. ”mysfgmsa” är korrekt, och både ”mydomain / / mysfgmsa” eller ”mysfgmsa@mydomain” är ogiltigt; när domänen är underförstått av värddatorn.
+
+[Nod till nod-säkerhet](service-fabric-cluster-security.md#node-to-node-security) konfigureras genom att ange **ClustergMSAIdentity** när service fabric måste köras under gMSA. För att skapa betrodda relationer mellan noder, måste de bli meddelad från varandra. Detta kan åstadkommas på två olika sätt: Anger den Grupphanterat tjänstkonto som innehåller alla noder i klustret eller datorn domängrupp som innehåller alla noder i klustret. Vi rekommenderar starkt med hjälp av den [Grupphanterat tjänstkonto (gMSA)](https://technet.microsoft.com/library/hh831782.aspx) metoden, särskilt för större kluster (fler än 10 noder) eller för kluster som sannolikt kommer att öka eller minska.  
 Den här metoden kräver inte att skapa en domängrupp som klusteradministratörer har gett behörigheter att lägga till och ta bort medlemmar. Dessa konton är också användbara för automatisk lösenordshantering. Mer information finns i [komma igång med Grupphanterade tjänstkonton](https://technet.microsoft.com/library/jj128431.aspx).  
  
 [Klient till nod-säkerhet](service-fabric-cluster-security.md#client-to-node-security) konfigureras med hjälp av **ClientIdentities**. För att upprätta förtroende mellan en klient och klustret måste du konfigurera klustret om du vill veta vilken klient identiteter som den kan lita på. Detta kan göras på två olika sätt: Ange de gruppanvändare som kan ansluta till eller ange domänanvändare för noden som kan ansluta. Service Fabric stöder två typer av olika åtkomstkontroll för klienter som är anslutna till ett Service Fabric-kluster: administratör och användare. Åtkomstkontroll gör möjligheten för Klusteradministratören att begränsa åtkomsten till vissa typer av klusteråtgärder för olika grupper av användare, vilket gör att klustret säkrare.  Administratörer har fullständig åtkomst till funktioner för hantering (inklusive Läs-och skrivbehörighet). Användare, har som standard bara läsbehörighet till funktioner för hantering (till exempel frågefunktioner) och möjligheten att lösa program och tjänster. Läs mer på åtkomstkontroller [rollbaserad åtkomstkontroll för Service Fabric-klienter](service-fabric-cluster-security-roles.md).  
  
 I följande exempel **security** avsnittet konfigurerar Windows-säkerhet som använder gMSA och anger att datorer i *ServiceFabric.clusterA.contoso.com* gMSA är en del av klustret och den  *CONTOSO\usera* har administratörsåtkomst för klienten:  
   
-```  
+```
 "security": {
-    "ClusterCredentialType": "Windows",            
+    "ClusterCredentialType": "Windows",
     "ServerCredentialType": "Windows",
-    "WindowsIdentities": {  
-        "ClustergMSAIdentity" : "ServiceFabric.clusterA.contoso.com",  
-        "ClusterSPN" : "http/servicefabric/clusterA.contoso.com",  
-        "ClientIdentities": [{  
-            "Identity": "CONTOSO\\usera",  
-            "IsAdmin": true  
-        }]  
-    }  
-}  
-```  
+    "WindowsIdentities": {
+        "ClustergMSAIdentity" : "ServiceFabric.clusterA.contoso.com",
+        "ClusterSPN" : "http/servicefabric/clusterA.contoso.com",
+        "ClientIdentities": [{
+            "Identity": "CONTOSO\\usera",
+            "IsAdmin": true
+        }]
+    }
+}
+```
   
 ## <a name="configure-windows-security-using-a-machine-group"></a>Konfigurera Windows-säkerhet med hjälp av en datorgrupp  
 Den här modellen är inaktuell. Rekommendationen är att använda gMSA som beskrivs ovan. Exemplet *ClusterConfig.Windows.MultiMachine.JSON* konfigurationsfilen som hämtas med den [Microsoft.Azure.ServiceFabric.WindowsServer.<version>. ZIP](https://go.microsoft.com/fwlink/?LinkId=730690) fristående kluster paketet innehåller en mall för att konfigurera Windows-säkerhet.  Windows security har konfigurerats i den **egenskaper** avsnittet: 
 
 ```
 "security": {
-            "ClusterCredentialType": "Windows",
-            "ServerCredentialType": "Windows",
-            "WindowsIdentities": {
-                "ClusterIdentity" : "[domain\machinegroup]",
-                "ClientIdentities": [{
-                    "Identity": "[domain\username]",
-                    "IsAdmin": true
-                }]
-            }
-        }
+    "ClusterCredentialType": "Windows",
+    "ServerCredentialType": "Windows",
+    "WindowsIdentities": {
+        "ClusterIdentity" : "[domain\machinegroup]",
+        "ClientIdentities": [{
+            "Identity": "[domain\username]",
+            "IsAdmin": true
+        }]
+    }
+}
 ```
 
 | **Konfigurationsinställningen** | **Beskrivning** |

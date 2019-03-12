@@ -15,12 +15,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/18/2016
 ms.author: mikejo
-ms.openlocfilehash: ea46039583681bd89e254d153997e3a300041d4e
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: 40ba5814bce08037b9e4d0787defbab4d02e58df
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37341362"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57546270"
 ---
 # <a name="testing-the-performance-of-a-cloud-service-locally-in-the-azure-compute-emulator-using-the-visual-studio-profiler"></a>Testa prestanda hos en molntjänst lokalt i Azure-Beräkningsemulatorn med hjälp av Visual Studio Profiler
 En mängd olika verktyg och tekniker som är tillgängliga för att testa prestanda för molntjänster.
@@ -31,7 +31,7 @@ Du kanske också vill Profilera ditt program lokalt i beräkningsemulatorn innan
 Artikeln handlar om CPU-samplingsmetoden för profilering som kan göras lokalt i emulatorn. CPU-sampling är en metod för profilering som inte är mycket påträngande. Vid ett avsedda exempelintervall tar profiler en ögonblicksbild av anropsstacken. Data som samlas in under en viss tidsperiod och visas i en rapport. Profileringsmetoden tenderar att ange var i ett beräkningsintensivt program de flesta av CPU-arbetet sker.  Detta ger dig möjlighet att fokusera på den ”heta sökvägen” där ditt program ödslar mest tid.
 
 ## <a name="1-configure-visual-studio-for-profiling"></a>1: Konfigurera Visual Studio för att profilera
-Det finns först ett fåtal konfigurationsalternativ för Visual Studio som kan vara användbar när Profileringen. Om du vill göra uppfattning om Profileringen rapporterna måste symboler (.pdb-filer) för ditt program och även symboler för-bibliotek. Du vill kontrollera att du hänvisar till de tillgängliga symbol-servrarna. Att göra detta på den **verktyg** i Visual Studio, Välj **alternativ**, välj sedan **Debugging**, sedan **symboler**. Se till att Microsoft Symbol-servrar visas **symbolen filplatser (.pdb)**.  Du kan också referera http://referencesource.microsoft.com/symbols, som kan ha andra filer.
+Det finns först ett fåtal konfigurationsalternativ för Visual Studio som kan vara användbar när Profileringen. Om du vill göra uppfattning om Profileringen rapporterna måste symboler (.pdb-filer) för ditt program och även symboler för-bibliotek. Du vill kontrollera att du hänvisar till de tillgängliga symbol-servrarna. Att göra detta på den **verktyg** i Visual Studio, Välj **alternativ**, välj sedan **Debugging**, sedan **symboler**. Se till att Microsoft Symbol-servrar visas **symbolen filplatser (.pdb)**.  Du kan också referera https://referencesource.microsoft.com/symbols, som kan ha andra filer.
 
 ![Symbolalternativ][4]
 
@@ -113,7 +113,7 @@ När du vill stoppa Profileringen, välja den **stoppa Profileringen** länk.
 
 ![Stoppa Profileringen alternativet][10]
 
-## <a name="3-view-performance-reports"></a>3: Visa sestavy výkonu
+## <a name="3-view-performance-reports"></a>3: Visa prestandarapporter
 Systemprestanda-rapport för ditt program visas.
 
 Nu profiler stoppar kör, sparar data i en .vsp-fil och visar en rapport som visar en analys av dessa data.
@@ -130,7 +130,7 @@ Om du har lagt till sträng sammanfogning koden i den här artikeln bör du se e
 
 ![Prestanda-varningar][14]
 
-## <a name="4-make-changes-and-compare-performance"></a>4: ändra och jämför resultat
+## <a name="4-make-changes-and-compare-performance"></a>4: Göra ändringar och jämför resultat
 Du kan också jämföra prestanda före och efter en kodändring.  Stoppa processen och redigera koden för att ersätta strängen sammanfogning igen med hjälp av StringBuilder:
 
 ```csharp
@@ -162,14 +162,14 @@ Grattis! Du har kommit igång med profiler.
 * Använd Compute Emulator UI om du vill visa status för ditt program. 
 * Om du har problem med start av program i emulatorn eller koppla profiler, stänga ned beräkningsemulatorn och starta om den. Om det inte löser problemet, startar du om datorn. Det här problemet kan uppstå om du använder Compute-emulatorn att inaktivera och ta bort körs distributioner.
 * Om du har använt någon av Profileringen kommandon från kommandoraden, särskilt de globala inställningarna, se till att VSPerfClrEnv /globaloff har anropats och att VsPerfMon.exe har stängts av.
-* Om när sampling, visas meddelandet ”PRF0025: inga data har samlats in”, kontrollera att den process som du har bifogat har CPU-aktivitet. Program som inte genomför någon dataarbetet kan inte ge någon sampling av data.  Det är också möjligt att processen har avslutats innan alla sampling utfördes. Kontrollera att metoden Run för en roll som du Profileringen inte avslutar.
+* Om när sampling, visas meddelandet ”PRF0025: Inga data har samlats in ”Kontrollera att den process som du har bifogat har CPU-aktivitet. Program som inte genomför någon dataarbetet kan inte ge någon sampling av data.  Det är också möjligt att processen har avslutats innan alla sampling utfördes. Kontrollera att metoden Run för en roll som du Profileringen inte avslutar.
 
 ## <a name="next-steps"></a>Nästa steg
-Instrumentering av Azure-binärfiler i emulatorn stöds inte i Visual Studio-profiler, men om du vill testa minnesallokering du väljer det alternativet när Profileringen. Du kan också välja samtidighet profilering, som hjälper dig att avgöra om trådar slösa tid konkurrerande för lås, eller nivå interaktion profilering, som hjälper dig att spåra problem med prestanda när du interagerar mellan nivåer för ett program, mest ofta mellan datanivå och en arbetsroll.  Du kan visa databasfrågor som din app genererar och använder profileringsdata för att förbättra din användning av databasen. Information om nivån interaktion profilering, finns i bloggposten [genomgång: med nivån interaktion Profiler i Visual Studio Team System 2010][3].
+Instrumentering av Azure-binärfiler i emulatorn stöds inte i Visual Studio-profiler, men om du vill testa minnesallokering du väljer det alternativet när Profileringen. Du kan också välja samtidighet profilering, som hjälper dig att avgöra om trådar slösa tid konkurrerande för lås, eller nivå interaktion profilering, som hjälper dig att spåra problem med prestanda när du interagerar mellan nivåer för ett program, mest ofta mellan datanivå och en arbetsroll.  Du kan visa databasfrågor som din app genererar och använder profileringsdata för att förbättra din användning av databasen. Information om nivån interaktion profilering, finns i bloggposten [genomgång: Med hjälp av Profiler för nivån interaktion i Visual Studio Team System 2010][3].
 
 [1]: https://docs.microsoft.com/azure/application-insights/app-insights-profiler
-[2]: http://msdn.microsoft.com/library/azure/hh411542.aspx
-[3]: http://blogs.msdn.com/b/habibh/archive/2009/06/30/walkthrough-using-the-tier-interaction-profiler-in-visual-studio-team-system-2010.aspx
+[2]: https://msdn.microsoft.com/library/azure/hh411542.aspx
+[3]: https://blogs.msdn.com/b/habibh/archive/2009/06/30/walkthrough-using-the-tier-interaction-profiler-in-visual-studio-team-system-2010.aspx
 [4]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally09.png
 [5]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally10.png
 [6]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally02.png

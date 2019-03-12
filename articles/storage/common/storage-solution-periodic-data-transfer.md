@@ -4,16 +4,16 @@ description: Lär dig mer om att välja en Azure-lösning för att överföra da
 services: storage
 author: alkohli
 ms.service: storage
-ms.subservice: blob
+ms.subservice: blobs
 ms.topic: article
 ms.date: 12/05/2018
 ms.author: alkohli
-ms.openlocfilehash: 271be60bc26cf6bc9a64c459d030818d9e493a22
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: ba6d5e20f0d6a004fd85d7e9dc57584547d52ba3
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54158456"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57772865"
 ---
 # <a name="solutions-for-periodic-data-transfer"></a>Lösningar för periodiska dataöverföring
  
@@ -46,7 +46,7 @@ I följande tabell sammanfattas skillnaderna mellan de viktigaste funktionerna.
 |-----------------------------|----------------------------------------|-------------------------------|
 | Formfaktor                 | Kommandoradsverktyget från Microsoft       | Kunder som utvecklar mot Storage <br> REST API: er med hjälp av Azure-klientbiblioteken |
 | Enstaka installationen     | Minimalt                                | Måttlig, variabla utvecklingsarbete    |
-| Dataformat                 | Azure-Blobs, Azure Files, Azure-tabeller | Azure-Blobs, Azure Files, Azure-tabeller   |
+| Data Format                 | Azure-Blobs, Azure Files, Azure-tabeller | Azure-Blobs, Azure Files, Azure-tabeller   |
 | Prestanda                 | Redan optimerats                      | Optimera när du utvecklar                  |
 | Prissättning                     | Kostnadsfri, kostnaderna för utgående datatrafik gäller      | Kostnadsfri, kostnaderna för utgående datatrafik gäller        |
 
@@ -57,7 +57,7 @@ I följande tabell sammanfattas skillnaderna mellan de viktigaste funktionerna.
 | Formfaktor                                   | Virtuell enhet             | Fysisk enhet          | Tjänsten i Azure-portalen agenten lokalt                                                            |
 | Maskinvara                                      | Din hypervisor-programmet            | Tillhandahålls av Microsoft    | Ej tillämpligt                                                            |
 | Den ursprungliga installationen arbete                          | Låg (< 30 minuter.)            | Måttlig (~ koppla timmar) | Stor (~ dagar)                                                 |
-| Dataformat                                   | Azure-Blobs, Azure Files   | Azure-Blobs, Azure Files | [Stöder 70 + dataanslutningar för datalager och format](https://docs.microsoft.com/azure/data-factory/copy-activity-overview#supported-data-stores-and-formats)|
+| Data Format                                   | Azure Blobs, Azure Files   | Azure Blobs, Azure Files | [Stöder 70 + dataanslutningar för datalager och format](https://docs.microsoft.com/azure/data-factory/copy-activity-overview#supported-data-stores-and-formats)|
 | Förbearbetning av data                           | Nej                         | Ja, via Edge-beräkning    | Ja                                                           |
 | Lokal cache<br>(för att lagra data på plats)    | Ja                        | Ja                      | Nej                                                            |
 | Överföra från andra moln                    | Nej                         | Nej                       | Ja                                                           |

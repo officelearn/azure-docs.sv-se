@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 04/17/2017
 ms.author: rasquill
 ms.custom: mvc
-ms.openlocfilehash: 7ab63b869d9cd8a5b1f2b60429c5b54d0da5761f
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: cd2eb3ba1d3207f4f210aa259e938bb42b44d37a
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53002062"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57535458"
 ---
 # <a name="deprecated-canary-release-microservices-with-vamp-on-an-azure-container-service-dcos-cluster"></a>(INAKTUELL) Mikrotjänster av canary release med Vamp på ett Azure Container Service DC/OS-kluster
 
@@ -31,7 +31,7 @@ I den här genomgången ska konfigurera vi Vamp på Azure Container Service med 
 
 [Kontrollvärde lanserar](https://martinfowler.com/bliki/CanaryRelease.html) är en smart distributionsstrategi som antas av innovativa organisationer som Netflix, Facebook och Spotify. Det är en metod som passar, eftersom det minskar problem, introducerar säkerhet-nät och ökar innovation. Så varför inte alla företag som använder den? Att utöka en CI/CD-pipeline för att inkludera kontrollvärde strategier mer komplex och kräver omfattande devops-kunskaper och erfarenhet. Det är tillräckligt för att blockera mindre företag och företag som är både innan de även komma igång. 
 
-[Vamp](http://vamp.io/) ett system för öppen källkod som utformats för att underlätta övergången och ta med Kanarieöarna lanserar funktioner till din önskade behållare scheduler. Vamps kontrollvärde funktioner är mer omfattande än procent-baserade distributioner. Trafiken kan filtreras och delas upp på flera olika villkor, till exempel till specifika målanvändare, IP-adressintervall eller enheter. Vamp spårar och analyserar prestandamått, vilket ger automation baserat på verkliga data. Du kan ställa in automatisk återställning vid fel eller skala en enskild tjänst varianter baserat på belastning eller svarstid.
+[Vamp](https://vamp.io/) ett system för öppen källkod som utformats för att underlätta övergången och ta med Kanarieöarna lanserar funktioner till din önskade behållare scheduler. Vamps kontrollvärde funktioner är mer omfattande än procent-baserade distributioner. Trafiken kan filtreras och delas upp på flera olika villkor, till exempel till specifika målanvändare, IP-adressintervall eller enheter. Vamp spårar och analyserar prestandamått, vilket ger automation baserat på verkliga data. Du kan ställa in automatisk återställning vid fel eller skala en enskild tjänst varianter baserat på belastning eller svarstid.
 
 ## <a name="set-up-azure-container-service-with-dcos"></a>Ställ in Azure Container Service med DC/OS
 
@@ -93,7 +93,7 @@ Vamp kräver Elasticsearch för insamling av mått och aggregering. Du kan anvä
   ```
   
 
-3. Klicka på **distribuera**.
+3. Klicka på **Distribuera**.
 
   DC/OS distribuerar Elasticsearch-behållaren. Du kan följa förloppet på den **Services** sidan.  
 
@@ -129,7 +129,7 @@ När Elasticsearch rapporterar som **kör**, du kan lägga till Vamp DC/OS Unive
 
 Nu den Vamp är igång kan du distribuera en tjänst från en skiss. 
 
-I sin enklaste form en [Vamp skissen](http://vamp.io/documentation/using-vamp/blueprints/) beskriver slutpunkter (gateway), kluster och tjänster för att distribuera. Vamp använder kluster för att gruppera olika varianter av samma tjänst i logiska grupper kontrollvärde lanserar eller A / B-testning.  
+I sin enklaste form en [Vamp skissen](https://vamp.io/documentation/using-vamp/blueprints/) beskriver slutpunkter (gateway), kluster och tjänster för att distribuera. Vamp använder kluster för att gruppera olika varianter av samma tjänst i logiska grupper kontrollvärde lanserar eller A / B-testning.  
 
 Det här scenariot använder ett monolitiskt exempelprogram som kallas [ **sava**](https://github.com/magneticio/sava), vilket är version 1.0. Gammal är paketerat i en Docker-behållare som finns i Docker Hub under magneticio/sava:1.0.0. Appen körs vanligtvis på port 8080, men du vill exponera dem under port 9050 i det här fallet. Distribuera appen via Vamp med hjälp av en enkel skiss.
 
@@ -200,7 +200,7 @@ Att sammanfoga den nya sava 1.1-tjänsten med distributionen som körs:
 
 1. I Användargränssnittet för Vamp klickar du på **skisser**.
 
-2. Klicka på **Lägg till** och klistra in följande skissen YAML: den här skissen beskriver en ny tjänst-variant (sava: 1.1.0) ska distribueras i det befintliga klustret (sava_cluster).
+2. Klicka på **Lägg till** och klistra in följande skissen YAML: Den här skissen beskriver en ny tjänst-variant (sava: 1.1.0) ska distribueras i det befintliga klustret (sava_cluster).
 
   ```YAML
   name: sava:1.1.0      # blueprint name
@@ -291,9 +291,9 @@ Vi också snuddat vid vissa kraftfulla funktionerna i Vamp: sammanslagning av en
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Läs om hur du hanterar Vamp åtgärder via den [Vamp REST API](http://vamp.io/documentation/api/api-reference/).
+* Läs om hur du hanterar Vamp åtgärder via den [Vamp REST API](https://vamp.io/documentation/api/api-reference/).
 
 * Skapa Vamp automatiseringsskript i Node.js och köra dem som [Vamp arbetsflöden](https://vamp.io/documentation/using-vamp/v1.0.0/workflows/#create-a-workflow).
 
-* Se ytterligare [VAMP självstudier](http://vamp.io/documentation/tutorials/).
+* Se ytterligare [VAMP självstudier](https://vamp.io/documentation/tutorials/).
 

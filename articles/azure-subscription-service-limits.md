@@ -1,6 +1,6 @@
 ---
 title: Azure-prenumerationsbegränsningar och kvoter
-description: Innehåller en lista över vanliga Azure-prenumeration och tjänstbegränsningar, kvoter och begränsningar. Detta omfattar information om hur du ökar begränsningar tillsammans med högsta värden.
+description: Innehåller en lista över vanliga Azure-prenumeration och tjänstbegränsningar, kvoter och begränsningar. Den här artikeln innehåller information om hur du ökar begränsningar tillsammans med högsta värden.
 services: multiple
 author: rothja
 manager: jeffreyg
@@ -10,33 +10,33 @@ ms.service: billing
 ms.topic: article
 ms.date: 12/10/2018
 ms.author: byvinyal
-ms.openlocfilehash: 00930fd99fd4c0078623aa11f3e2cd5b1c549034
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 21a6734ab8af2e35643f6e9b25500dad2418a8c2
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55812675"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57772043"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure-prenumeration och tjänstbegränsningar, kvoter och krav
-Det här dokumentet innehåller några av de vanligaste Microsoft Azure-gränserna, som kallas ibland också kvoter. Det här dokumentet täcker inte för närvarande alla Azure-tjänster. Med tiden, kommer listan utökats och uppdaterats så att den täcker flera av plattformen.
+Det här dokumentet innehåller några av de vanligaste Microsoft Azure-gränserna, som kallas ibland också kvoter. Det här dokumentet täcker inte för närvarande alla Azure-tjänster. Med tiden, kommer listan utökats och uppdaterats så att den täcker fler tjänster.
 
-Besök [översikt över priser för Azure](https://azure.microsoft.com/pricing/) mer information om priser för Azure. Där kan du kan beräkna dina kostnader med hjälp av den [Priskalkylatorn](https://azure.microsoft.com/pricing/calculator/) eller genom att gå till sidan med prisinformation för en tjänst (till exempel [Windows virtuella datorer](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows)). Tips för att hantera dina kostnader finns i [att undvika oväntade kostnader med Azure-fakturering och kostnadshantering](billing/billing-getting-started.md).
-
-> [!NOTE]
-> Om du vill höja gränsen eller kvot ovan den **standard gränsen**, [öppna en kundsupportärende utan kostnad](azure-resource-manager/resource-manager-quota-errors.md). Gränserna kan inte höjas ovanför den **maxgränsen** värdet som visas i följande tabeller. Om det finns inga **maxgränsen** kolumnen och sedan resursen saknar justerbara gränser.
->
-> [Kostnadsfria utvärderingsversioner](https://azure.microsoft.com/offers/ms-azr-0044p) berättigar inte till gränsen eller kvot ökar. Om du har en [kostnadsfri utvärderingsprenumeration](https://azure.microsoft.com/offers/ms-azr-0044p), du kan uppgradera till en [användningsbaserad](https://azure.microsoft.com/offers/ms-azr-0003p/) prenumeration. Mer information finns i [uppgradera kostnadsfri utvärderingsversion av Azure till betala per användning](billing/billing-upgrade-azure-subscription.md) och [kostnadsfri utvärderingsprenumeration vanliga frågor och svar](https://azure.microsoft.com/free/free-account-faq).
->
-
-## <a name="limits-and-the-azure-resource-manager"></a>Gränser och Azure Resource Manager
-Nu är det möjligt att kombinera flera Azure-resurser i en enda Azure-resursgrupp. När du använder resursgrupper, hanteras gränser som en gång var globala på regional nivå med Azure Resource Manager. Läs mer om Azure-resursgrupper, [översikt över Azure Resource Manager](azure-resource-manager/resource-group-overview.md).
-
-En ny tabell har lagts till återspeglar eventuella skillnader i begränsningar när du använder Azure Resource Manager i gränserna nedan. Det finns till exempel en **prenumerationsbegränsningar** tabell och en **prenumerationsbegränsningar – Azure Resource Manager** tabell. När det gäller en gräns för båda scenarierna, visas den bara i den första tabellen. Om inget annat anges är gränserna globala i alla regioner.
+Läs mer om priser för Azure i [Azure prisöversikt](https://azure.microsoft.com/pricing/). Där kan du kan beräkna dina kostnader med hjälp av den [priskalkylatorn](https://azure.microsoft.com/pricing/calculator/). Även går du till sidan med prisinformation för en viss tjänst, till exempel [Windows virtuella datorer](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows). Tips för att hantera dina kostnader finns i [att undvika oväntade kostnader med Azure-fakturering och kostnadshantering](billing/billing-getting-started.md).
 
 > [!NOTE]
-> Det är viktigt att betona att kvoter för resurser i Azure-resursgrupper är per region tillgänglig för din prenumeration och är inte per prenumeration som kvoter för service management. Nu ska vi använda vCPU-kvoter som ett exempel. Om du vill öka kvoten med stöd för virtuella processorer, måste du bestämma hur många virtuella processorer som du vill använda i vilka regioner och gör sedan en specifik begäran för Azure-resursgrupp vCPU-kvoter för belopp och regioner som du vill. Om du behöver för att köra ditt program det med 30 virtuella processorer i Europa, västra, bör du därför uttryckligen begära 30 virtuella processorer i Västeuropa. Men du behöver inte en vCPU-kvot som ökar med alla andra regioner – endast Västeuropa har 30 vCPU-kvoten.
+> Om du vill höja gränsen eller kvot än Standardgränsen [öppna en kundsupportärende utan kostnad](azure-resource-manager/resource-manager-quota-errors.md). Gränserna kan inte höjas ovan maxgränsen värdet som visas i följande tabeller. Om det finns ingen övre gräns-kolumn, har resursen inte justerbara gränser.
+>
+> [Kostnadsfria utvärderingsversioner](https://azure.microsoft.com/offers/ms-azr-0044p) är inte berättigade till gränsen eller kvot ökar. Om du har en [kostnadsfri utvärderingsprenumeration](https://azure.microsoft.com/offers/ms-azr-0044p), du kan uppgradera till en [användningsbaserad](https://azure.microsoft.com/offers/ms-azr-0003p/) prenumeration. Mer information finns i [uppgradera din kostnadsfria utvärderingsversionen av Azure-prenumeration till betala per användning](billing/billing-upgrade-azure-subscription.md) och [kostnadsfri utvärderingsprenumeration vanliga frågor och svar](https://azure.microsoft.com/free/free-account-faq).
+>
+
+## <a name="limits-and-azure-resource-manager"></a>Gränser och Azure Resource Manager
+Nu är det möjligt att kombinera flera Azure-resurser till en enda Azure-resursgrupp. När du använder resursgrupper hanteras gränser som en gång var globala på regional nivå med Azure Resource Manager. Läs mer om Azure-resursgrupper, [översikt över Azure Resource Manager](azure-resource-manager/resource-group-overview.md).
+
+I följande lista över gränser återspeglar en ny tabell eventuella skillnader i begränsningar när du använder Azure Resource Manager. Det finns till exempel en **prenumerationsbegränsningar** tabell och en **prenumerationsbegränsningar – Azure Resource Manager** tabell. När det gäller en gräns för båda scenarierna, visas den bara i den första tabellen. Om inget annat anges är gränserna globala i alla regioner.
+
+> [!NOTE]
+> Kvoter för resurser i Azure-resursgrupper är per region tillgänglig för din prenumeration, inte per prenumeration som kvoter för service management. Nu ska vi använda vCPU-kvoter som ett exempel. Om du vill begära en kvot med stöd för virtuella processorer, måste du bestämma hur många virtuella processorer som du vill använda i vilka regioner. Du kan sedan göra en specifik begäran för Azure-resurs grupp vCPU-kvoter för belopp och regioner som du vill. Om du vill använda 30 virtuella processorer i västra Europa och köra dina program det begär du 30 virtuella processorer i Västeuropa. VCPU-kvot ökat inte under alla andra regioner – endast Västeuropa har 30 vCPU-kvoten.
 > <!-- -->
-> Du kan därför vara bra att tänka på följande beslutar vad dina Azure-resursgrupp kvoter måste vara för din arbetsbelastning i valfri en region och begära det beloppet i varje region där du funderar på att distributionen. Se [felsöka distributionsproblem](resource-manager-common-deployment-errors.md) mer hjälp för att identifiera dina aktuella kvoter för vissa regioner.
+> Därför bestämma vad dina kvoter för Azure-resurs-grupp måste vara för din arbetsbelastning i valfri en region. Begära det beloppet i varje region där du vill distribuera. Hjälp i så här kontrollerar du dina aktuella kvoter för vissa regioner finns i [felsöka distributionsproblem](resource-manager-common-deployment-errors.md).
 >
 >
 
@@ -47,47 +47,47 @@ En ny tabell har lagts till återspeglar eventuella skillnader i begränsningar 
 * [Application Gateway](#application-gateway-limits)
 * [Application Insights](#application-insights-limits)
 * [Automation](#automation-limits)
+* [Azure Cache for Redis](#azure-cache-for-redis-limits)
+* [Azure Cloud Services](#azure-cloud-services-limits)
 * [Azure Cosmos DB](#azure-cosmos-db-limits)
 * [Azure Database for MySQL](#azure-database-for-mysql)
 * [Azure Database for PostgreSQL](#azure-database-for-postgresql)
-* [Azure Event Grid](#azure-event-grid-limits)
+* [Azure DNS](#azure-dns-limits)
+* [Azure-brandväggen](#azure-firewall-limits)
+* [Azure Kubernetes Service](#azure-kubernetes-service-limits)
 * [Azure Maps](#azure-maps-limits)
 * [Azure Monitor](#monitor-limits)
 * [Azure Policy](#azure-policy-limits)
-* Azure Cache for Redis
+* [Azure Search](#azure-search-limits)
+* [Azure SignalR Service](#azure-signalr-service-limits)
 * [Säkerhetskopiering](#backup-limits)
 * [Batch](#batch-limits)
 * [BizTalk Services](#biztalk-services-limits)
-* [CDN](#cdn-limits)
-* [Cloud Services](#cloud-services-limits)
 * [Container Instances](#container-instances-limits)
 * [Container Registry](#container-registry-limits)
-* [Kubernetes-tjänst](#kubernetes-service-limits)
+* [Content Delivery Network](#content-delivery-network-limits)
 * [Data Factory](#data-factory-limits)
 * [Data Lake Analytics](#data-lake-analytics-limits)
 * [Data Lake Store](#data-lake-store-limits)
 * [Database Migration Service](#database-migration-service-limits)
-* [DNS](#dns-limits)
+* [Event Grid](#event-grid-limits)
 * [Event Hubs](#event-hubs-limits)
-* [Azure-brandväggen](#azure-firewall-limits)
-* [Ytterdörren](#azure-front-door-service-limits)
+* [Ytterdörren Service](#azure-front-door-service-limits)
+* [Identity Manager](#identity-manager-limits)
 * [IoT Hub](#iot-hub-limits)
 * [IoT Hub Device Provisioning Service](#iot-hub-device-provisioning-service-limits)
 * [Key Vault](#key-vault-limits)
 * [Log Analytics](#log-analytics-limits)
-* [Hanterad identitet](#managed-identity-limits)
 * [Media Services](#media-services-limits)
 * [Mobile Services](#mobile-services-limits)
-* [Multi-Factor Authentication](#multi-factor-authentication)
+* [Multi-Factor Authentication](#multi-factor-authentication-limits)
 * [Nätverk](#networking-limits)
 * [Network Watcher](#network-watcher-limits)
-* [Notification Hub-tjänsten](#notification-hub-service-limits)
+* [Notification Hubs](#notification-hubs-limits)
 * [Resursgrupp](#resource-group-limits)
 * [Rollbaserad åtkomstkontroll](#role-based-access-control-limits)
 * [Scheduler](#scheduler-limits)
-* [Sök](#search-limits)
 * [Service Bus](#service-bus-limits)
-* [SignalR Service](#signalr-service-limits)
 * [Site Recovery](#site-recovery-limits)
 * [SQL Database](#sql-database-limits)
 * [SQL Data Warehouse](#sql-data-warehouse-limits)
@@ -97,32 +97,32 @@ En ny tabell har lagts till återspeglar eventuella skillnader i begränsningar 
 * [Prenumeration](#subscription-limits)
 * [Traffic Manager](#traffic-manager-limits)
 * [Virtual Machines](#virtual-machines-limits)
-* [Virtual Machine Scale Sets](#virtual-machine-scale-sets-limits)
+* [VM-skalningsuppsättningar](#virtual-machine-scale-sets-limits)
 
 ### <a name="subscription-limits"></a>Prenumerationsgränser
-#### <a name="subscription-limits---azure-service-management-classic-resources"></a>Prenumerationsbegränsningar – Azure Service Management (klassiska resurser)
+#### <a name="subscription-limits---azure-service-management-classic-deployment-model"></a>Prenumerationsbegränsningar – Azure Service Management (klassisk distributionsmodell)
 [!INCLUDE [azure-subscription-limits](../includes/azure-subscription-limits.md)]
 
 #### <a name="subscription-limits---azure-resource-manager"></a>Prenumerationsbegränsningar – Azure Resource Manager
-Följande begränsningar gäller när du använder Azure Resource Manager och Azure-resursgrupper. Gränser som inte har ändrats med Azure Resource Manager visas inte nedan. Se tabellen ovan för de här gränserna.
+Följande begränsningar gäller när du använder Azure Resource Manager och Azure-resursgrupper. Gränser som inte har ändrats med Azure Resource Manager är inte visas. Se tabellen ovan för de här gränserna.
 
 Information om Resource Manager API läsa och skriva begränsningar, finns i [begränsning resurshanteraren begär](resource-manager-request-limits.md).
 
 [!INCLUDE [azure-subscription-limits-azure-resource-manager](../includes/azure-subscription-limits-azure-resource-manager.md)]
 
-### <a name="resource-group-limits"></a>Gränser för resursgrupp
+### <a name="resource-group-limits"></a>Resursgränser för grupp
 [!INCLUDE [azure-resource-groups-limits](../includes/azure-resource-groups-limits.md)]
 
 ### <a name="virtual-machines-limits"></a>Gränser för virtuella datorer
-#### <a name="virtual-machine-limits"></a>Gränser för virtuell dator
+#### <a name="virtual-machines-limits"></a>Gränser för virtuella datorer
 [!INCLUDE [azure-virtual-machines-limits](../includes/azure-virtual-machines-limits.md)]
 
 #### <a name="virtual-machines-limits---azure-resource-manager"></a>Gränser för virtuella datorer – Azure Resource Manager
-Följande begränsningar gäller när du använder Azure Resource Manager och Azure-resursgrupper. Gränser som inte har ändrats med Azure Resource Manager visas inte nedan. Se tabellen ovan för de här gränserna.
+Följande begränsningar gäller när du använder Azure Resource Manager och Azure-resursgrupper. Gränser som inte har ändrats med Azure Resource Manager är inte visas. Se tabellen ovan för de här gränserna.
 
 [!INCLUDE [azure-virtual-machines-limits-azure-resource-manager](../includes/azure-virtual-machines-limits-azure-resource-manager.md)]
 
-### <a name="virtual-machine-scale-sets-limits"></a>Begränsningar för Virtual Machine Scale Sets
+### <a name="virtual-machine-scale-sets-limits"></a>Gränser för skalningsuppsättningar för virtuella datorer
 [!INCLUDE [virtual-machine-scale-sets-limits](../includes/azure-virtual-machine-scale-sets-limits.md)]
 
 ### <a name="container-instances-limits"></a>Container Instances gränser
@@ -133,7 +133,7 @@ I följande tabell beskrivs de funktioner och begränsningar för Basic, Standar
 
 [!INCLUDE [container-registry-limits](../includes/container-registry-limits.md)]
 
-### <a name="kubernetes-service-limits"></a>Tjänstbegränsningar för Kubernetes
+### <a name="azure-kubernetes-service-limits"></a>Azure Kubernetes Service-gränser
 [!INCLUDE [container-service-limits](../includes/container-service-limits.md)]
 
 ### <a name="networking-limits"></a>Begränsningar för nätverk
@@ -153,7 +153,7 @@ I följande tabell gäller v1, v2, Standard och WAF SKU: er om inte annat anges.
 #### <a name="traffic-manager-limits"></a>Traffic Manager-begränsningar
 [!INCLUDE [traffic-manager-limits](../includes/traffic-manager-limits.md)]
 
-#### <a name="dns-limits"></a>DNS-gränser
+#### <a name="azure-dns-limits"></a>Azure DNS-gränser
 [!INCLUDE [dns-limits](../includes/dns-limits.md)]
 
 #### <a name="azure-firewall-limits"></a>Azure-brandväggen begränsar
@@ -166,7 +166,7 @@ I följande tabell gäller v1, v2, Standard och WAF SKU: er om inte annat anges.
 <!--like # storage accts -->
 [!INCLUDE [azure-storage-limits](../includes/azure-storage-limits.md)]
 
-Ytterligare information om begränsningar för lagringskonton finns i [skalbarhet för lagring av Azure- och prestandamål](storage/common/storage-scalability-targets.md).
+Mer information om begränsningar för lagringskonton finns i [skalbarhets- och prestandamål i Azure Storage](storage/common/storage-scalability-targets.md).
 
 #### <a name="storage-resource-provider-limits"></a>Lagringsgränser resource provider 
 
@@ -176,7 +176,7 @@ Ytterligare information om begränsningar för lagringskonton finns i [skalbarhe
 [!INCLUDE [storage-blob-scale-targets](../includes/storage-blob-scale-targets.md)]
 
 #### <a name="azure-files-limits"></a>Azure filer-gränser
-Ytterligare information om begränsningar för Azure Files finns i [skalbarhets- och prestandamål i Azure Files](storage/files/storage-files-scale-targets.md).
+Mer information om begränsningar för Azure Files finns i [skalbarhets- och prestandamål i Azure Files](storage/files/storage-files-scale-targets.md).
 
 [!INCLUDE [storage-files-scale-targets](../includes/storage-files-scale-targets.md)]
 
@@ -193,7 +193,7 @@ Ytterligare information om begränsningar för Azure Files finns i [skalbarhets-
 #### <a name="virtual-machine-disk-limits"></a>Diskgränser för virtuella datorer
 [!INCLUDE [azure-storage-limits-vm-disks](../includes/azure-storage-limits-vm-disks.md)]
 
-Se [storlekar för virtuella datorer](virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) för ytterligare information.
+Mer information finns i [storlekar för virtuella datorer](virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 #### <a name="managed-virtual-machine-disks"></a>Hanterade virtuella datordiskar
 
@@ -205,7 +205,7 @@ Se [storlekar för virtuella datorer](virtual-machines/linux/sizes.md?toc=%2fazu
 
 [!INCLUDE [azure-storage-limits-vm-disks-premium](../includes/azure-storage-limits-vm-disks-premium.md)]
 
-### <a name="cloud-services-limits"></a>Gränser för cloud Services
+### <a name="azure-cloud-services-limits"></a>Azure Cloud Services-gränser
 [!INCLUDE [azure-cloud-services-limits](../includes/azure-cloud-services-limits.md)]
 
 ### <a name="app-service-limits"></a>Gränser för Apptjänst
@@ -220,12 +220,12 @@ Följande begränsningar för App Service innehåller begränsningar för Web Ap
 [!INCLUDE [azure-batch-limits](../includes/azure-batch-limits.md)]
 
 ### <a name="biztalk-services-limits"></a>BizTalk Services gränser
-I följande tabell visar gränserna för Azure Biztalk Services.
+I följande tabell visar gränserna för Azure BizTalk Services.
 
 [!INCLUDE [biztalk-services-service-limits](../includes/biztalk-services-service-limits.md)]
 
 ### <a name="azure-cosmos-db-limits"></a>Azure Cosmos DB-gränser
-Azure Cosmos DB är en global skala databas där dataflöde och lagring kan skalas för att hantera vad ditt program kräver. Om du har frågor om skalbarhet som tillhandahåller Azure Cosmos DB kan du skicka e-postmeddelande till askcosmosdb@microsoft.com.
+Azure Cosmos DB är en global skala databas där dataflöde och lagring kan skalas för att hantera vad ditt program kräver. Om du har frågor om skalbarhet som tillhandahåller Azure Cosmos DB kan skicka e- askcosmosdb@microsoft.com.
 
 ### <a name="azure-database-for-mysql"></a>Azure Database for MySQL
 Azure Database för MySQL-gränser, se [begränsningar i Azure Database för MySQL](mysql/concepts-limits.md).
@@ -233,12 +233,12 @@ Azure Database för MySQL-gränser, se [begränsningar i Azure Database för MyS
 ### <a name="azure-database-for-postgresql"></a>Azure Database for PostgreSQL
 Azure Database för PostgreSQL-gränser, se [begränsningar i Azure Database för PostgreSQL](postgresql/concepts-limits.md).
 
-### <a name="search-limits"></a>Sök gränser
+### <a name="azure-search-limits"></a>Azure Search-gränser
 Prisnivåer avgör kapacitet och begränsningar för search-tjänsten. Nivåerna ingår:
 
-* *Kostnadsfria* multiklienttjänst, delas med andra Azure-prenumeranter, avsedd för utvärdering och små självständiga projekt.
-* *Grundläggande* tillhandahåller dedikerade resurser för produktionsarbetsbelastningar i mindre skala, med upp till tre repliker för hög tillgänglighet frågearbetsbelastningar.
-* *Standard (S1, S2, S3, S3 High Density)* är större för arbetsbelastningar under produktion. Flera nivåer som finns i standard-nivån så att du kan välja en resurskonfiguration som bäst passar din arbetsbelastning-profil.
+* **Kostnadsfria** multitenant-tjänst, delas med andra Azure-prenumeranter är avsedd för utvärdering och små utvecklingsprojekt.
+* **Grundläggande** tillhandahåller dedikerade resurser för produktionsarbetsbelastningar i mindre skala, med upp till tre repliker för hög tillgänglighet frågearbetsbelastningar.
+* **Standard**, vilket inkluderar S1, S2 och S3 och S3 High Density, är större för arbetsbelastningar under produktion. Flera nivåer som finns i Standard-nivån så att du kan välja en resurskonfiguration som bäst passar din arbetsbelastning-profil.
 
 **Gränserna per prenumeration**
 
@@ -253,7 +253,7 @@ Mer information om gränser för en mer detaljerad nivå, till exempel dokuments
 ### <a name="media-services-limits"></a>Begränsningar för Media Services
 [!INCLUDE [azure-mediaservices-limits](../includes/azure-mediaservices-limits.md)]
 
-### <a name="cdn-limits"></a>CDN-begränsningar
+### <a name="content-delivery-network-limits"></a>Content Delivery Network-gränser
 [!INCLUDE [cdn-limits](../includes/cdn-limits.md)]
 
 ### <a name="mobile-services-limits"></a>Begränsningar för mobiltjänster
@@ -262,7 +262,7 @@ Mer information om gränser för en mer detaljerad nivå, till exempel dokuments
 ### <a name="monitor-limits"></a>Övervaka gränser
 [!INCLUDE [monitoring-limits](../includes/monitoring-limits.md)]
 
-### <a name="notification-hub-service-limits"></a>Tjänstbegränsningar för Notification Hub
+### <a name="notification-hubs-limits"></a>Notification Hubs gränser
 [!INCLUDE [notification-hub-limits](../includes/notification-hub-limits.md)]
 
 ### <a name="event-hubs-limits"></a>Event Hubs gränser
@@ -295,7 +295,7 @@ Mer information om gränser för en mer detaljerad nivå, till exempel dokuments
 ### <a name="active-directory-limits"></a>Active Directory-gränser
 [!INCLUDE [AAD-service-limits](../includes/active-directory-service-limits-include.md)]
 
-### <a name="azure-event-grid-limits"></a>Azure Event Grid-gränser
+### <a name="event-grid-limits"></a>Event Grid begränsar
 [!INCLUDE [event-grid-limits](../includes/event-grid-limits.md)]
 
 ### <a name="azure-maps-limits"></a>Azure Maps-gränser
@@ -313,7 +313,7 @@ Mer information om gränser för en mer detaljerad nivå, till exempel dokuments
 ### <a name="backup-limits"></a>Begränsningar för säkerhetskopiering
 [!INCLUDE [azure-backup-limits](../includes/azure-backup-limits.md)]
 
-### <a name="signalr-service-limits"></a>SignalR tjänstbegränsningar
+### <a name="azure-signalr-service-limits"></a>Azure SignalR Service-gränser
 [!INCLUDE [signalr-service-limits](../includes/signalr-service-limits.md)]
 
 ### <a name="site-recovery-limits"></a>Gränser för Site Recovery
@@ -331,27 +331,25 @@ Mer information om gränser för en mer detaljerad nivå, till exempel dokuments
 ### <a name="key-vault-limits"></a>Key Vault-begränsningar
 [!INCLUDE [key-vault-limits](../includes/key-vault-limits.md)]
 
-### <a name="multi-factor-authentication"></a>Multi-Factor Authentication
+### <a name="multi-factor-authentication-limits"></a>Multifaktorautentisering begränsar
 [!INCLUDE [azure-mfa-service-limits](../includes/azure-mfa-service-limits.md)]
 
 ### <a name="automation-limits"></a>Automation-gränser
 [!INCLUDE [automation-limits](../includes/azure-automation-service-limits.md)]
 
-### <a name="managed-identity-limits"></a>Hanterad identitet gränser
+### <a name="identity-manager-limits"></a>Identity Manager-begränsningar
 [!INCLUDE [automation-limits](~/includes/managed-identity-limits.md)]
 
 ### <a name="role-based-access-control-limits"></a>Rollbaserad åtkomstkontroll gränser
 [!INCLUDE [role-based-access-control-limits](../includes/role-based-access-control-limits.md)]
 
 ### <a name="sql-database-limits"></a>SQL Database-gränser
-SQL Database-gränser för finns i [SQL Database-Resursgränser för enskilda databaser](sql-database/sql-database-vcore-resource-limits-single-databases.md) och [SQL Database-Resursgränser för elastiska pooler och databaser i pooler](sql-database/sql-database-vcore-resource-limits-elastic-pools.md).
+SQL Database-gränser för finns i [SQL Database-resursgränser för enskilda databaser](sql-database/sql-database-vcore-resource-limits-single-databases.md) och [SQL Database-resursgränser för elastiska pooler och databaser i pooler](sql-database/sql-database-vcore-resource-limits-elastic-pools.md).
 
 ### <a name="sql-data-warehouse-limits"></a>SQL Data Warehouse gränser
-SQL Data Warehouse gränser för finns i [Resursgränser för SQL Data Warehouse](sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md).
+SQL Data Warehouse gränser för finns i [resursgränser för SQL Data Warehouse](sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md).
 
 ## <a name="see-also"></a>Se också
-[Förstå Azure-gränser och ökar](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
-
-[Virtuell dator och Molntjänststorlekar för Azure](virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-
-[Storlekar för Cloud Services](cloud-services/cloud-services-sizes-specs.md)
+- [Förstå Azure-gränser och ökar](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
+- [Storlekar för virtuella datorer och molnet för Azure](virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+- [Storlekar för Azure Cloud Services](cloud-services/cloud-services-sizes-specs.md)

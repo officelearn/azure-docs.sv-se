@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2016
 ms.author: mandia
-ms.openlocfilehash: eb5b4b3741b064a934833b3094c69db85e9ccabb
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 5eac98ec88b960956c9a0931673e67f530aef8da
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238717"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57542190"
 ---
 # <a name="biztalk-services-issuer-name-and-issuer-key"></a>BizTalk Services: Utfärdarens namn och nyckel
 
@@ -38,8 +38,8 @@ Det här avsnittet visas hur du kan hämta Utfärdarens namn och nyckel.
 ## <a name="access-control-issuer-name-and-issuer-key"></a>Access Control Utfärdarens namn och nyckel
 Access Control Utfärdarens namn och nyckel som används av följande:
 
-* Ditt program för Azure BizTalk-tjänst som skapats i Visual Studio: för att distribuera din BizTalk Service-programmet i Visual Studio till Azure, ange åtkomstkontroll Utfärdarens namn och nyckel. 
-* På Azure BizTalk Services-portalen: När du skapar en BizTalk Service och öppna BizTalk Services-portalen, din åtkomstkontroll Utfärdarens namn och nyckel registreras automatiskt för dina distributioner med samma Access Control-värden.
+* Ditt program i Azure BizTalk-tjänst som skapats i Visual Studio: För att distribuera din BizTalk Service-programmet i Visual Studio till Azure, ange åtkomstkontroll Utfärdarens namn och nyckel. 
+* Azure BizTalk Services-portalen: När du skapar en BizTalk Service och öppna BizTalk Services-portalen, registreras automatiskt din åtkomstkontroll Utfärdarens namn och nyckel för dina distributioner med samma Access Control-värden.
 
 ### <a name="get-the-access-control-issuer-name-and-issuer-key"></a>Få åtkomstkontroll Utfärdarens namn och nyckel
 
@@ -68,7 +68,7 @@ Om du vill använda ACS för autentisering och hämta värdena som Utfärdarens 
     ```
 
 Sammanfattningsvis:  
-Utfärdarens namn = SharedSecretIssuer  
+Issuer Name = SharedSecretIssuer  
 Nyckel = SharedSecretKey
 
 Mer på den [New AzureSBNamespace](https://docs.microsoft.com/powershell/module/servicemanagement/azure/new-azuresbnamespace) cmdlet. 
@@ -77,7 +77,7 @@ Mer på den [New AzureSBNamespace](https://docs.microsoft.com/powershell/module/
 Service Bus-Utfärdarens namn och nyckel som används av BizTalk Adapter-tjänster. I din BizTalk Services-projekt i Visual Studio använder du BizTalk Adapter-tjänster för att ansluta till ett lokalt Line-of-Business (LOB)-system. För att ansluta, skapa enheterna LOB-reläer och ange din information för LOB-system. När du gör detta måste ange du också Service Bus-Utfärdarens namn och nyckel.
 
 ### <a name="to-retrieve-the-service-bus-issuer-name-and-issuer-key"></a>Att hämta Service Bus-Utfärdarens namn och nyckel
-1. Logga in på [Azure Portal](http://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Sök efter **Service Bus**, och ditt namnområde. 
 3. Öppna den **principer för delad åtkomst** egenskaper, Välj din princip och visa den **Connection String** för namn och värden.  
 
@@ -90,11 +90,11 @@ Avsnitt om ytterligare Azure BizTalk Services:
 * [Azure BizTalk Services](https://go.microsoft.com/fwlink/p/?LinkID=303664)<br/>
 
 ## <a name="see-also"></a>Se även
-* [Så här: använda ACS Management-tjänsten för att konfigurera tjänstidentiteter](https://go.microsoft.com/fwlink/p/?LinkID=303942)<br/>
+* [Anvisningar: Använd ACS Management-tjänsten för att konfigurera tjänstidentiteter](https://go.microsoft.com/fwlink/p/?LinkID=303942)<br/>
 * [BizTalk Services: Developer, Basic, Standard och Premium diagram över utgåvor](https://go.microsoft.com/fwlink/p/?LinkID=302279)<br/>
-* [BizTalk Services: etablering](https://go.microsoft.com/fwlink/p/?LinkID=302280)<br/>
+* [BizTalk Services: Etablering](https://go.microsoft.com/fwlink/p/?LinkID=302280)<br/>
 * [BizTalk Services: Etablering av statusdiagram](https://go.microsoft.com/fwlink/p/?LinkID=329870)<br/>
-* [BizTalk Services: Flikarna Instrumentpanel, Övervakare och Skalning](https://go.microsoft.com/fwlink/p/?LinkID=302281)<br/>
+* [BizTalk Services: Flikarna instrumentpanel, Övervakare och skalning](https://go.microsoft.com/fwlink/p/?LinkID=302281)<br/>
 * [BizTalk Services: Säkerhetskopiering och återställning](https://go.microsoft.com/fwlink/p/?LinkID=329873)<br/>
 * [BizTalk Services: Begränsning](https://go.microsoft.com/fwlink/p/?LinkID=302282)<br/>
 

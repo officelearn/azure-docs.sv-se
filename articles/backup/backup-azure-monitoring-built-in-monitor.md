@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/05/2019
 ms.author: pullabhk
 ms.assetid: 86ebeb03-f5fa-4794-8a5f-aa5cbbf68a81
-ms.openlocfilehash: 72a23617440e26c9dca69cab2a06370427c49768
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 50d766eed5800c58d0b0258b2be6637f139c542a
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57404730"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57730962"
 ---
 # <a name="monitoring-azure-backup-workloads"></a>Övervaka Azure Backup-arbetsbelastningar
 
@@ -94,7 +94,7 @@ Om frekvensen ställdes in på en sammanställning per timme och en avisering ha
 > [!NOTE]
 >
 * Om en destruktiv åtgärd som **stoppa skyddet med borttagningsdata** är utförs, en avisering genereras och ett e-postmeddelande skickas till prenumerationsägare, administratörer och medadministratörer även om meddelanden inte är konfigurerade för återställa tjänsten valvet.
-* Aviseringar genereras inte för lyckad säkerhetskopiering därför avisering aktiveras inte. Konfigurera meddelande för lyckade jobb använder [aktivitetsloggen](backup-azure-monitoring-use-azuremonitor.md#using-rs-vaults-activity-logs) eller [Log Analytics](backup-azure-monitoring-use-azuremonitor.md#using-log-analytics-workspace).
+* Konfigurera meddelande för lyckade jobb använder [Log Analytics](backup-azure-monitoring-use-azuremonitor.md#using-log-analytics-workspace).
 
 ## <a name="next-steps"></a>Nästa steg
 

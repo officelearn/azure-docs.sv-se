@@ -9,12 +9,12 @@ author: mgottein
 manager: cgronlun
 ms.author: magottei
 ms.custom: seodec2018
-ms.openlocfilehash: dcecb98d5e254e3fadd114c227e783a60fc6fa4e
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: b7e7ecd2a82a8d64967288def9c6ede7a292f72a
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57316157"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57759399"
 ---
 # <a name="searching-blob-storage-with-azure-search"></a>Söka i Blob Storage med Azure Search
 
@@ -52,5 +52,5 @@ Azure Search kan läggas till BLOB-direkt från Blob storage-portalsidan.
 
 Klicka på **Lägg till Azure Search** att starta ett flöde där du kan välja en befintlig Azure Search-tjänst eller skapa en ny tjänst. Om du skapar en ny tjänst är du navigerat utanför portalen för ditt lagringskonto. Du kan gå tillbaka till sidan Storage portal och välj nytt den **Lägg till Azure Search** alternativet, där du kan välja den befintliga tjänsten.
 
-### <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Nästa steg
 Läs mer om Azure Search Blob-indexeraren med fullständiga [dokumentation](https://aka.ms/azsblobindexer).

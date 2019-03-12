@@ -12,12 +12,12 @@ ms.date: 12/13/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0df959439eae703d18d8777e8d433e1ee176556c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 7406758a5e5c345aee4165139242025b8ceb4d18
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56184626"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57534726"
 ---
 # <a name="migrate-from-federation-to-pass-through-authentication-for-azure-active-directory"></a>Migrera från federation till direktautentisering för Azure Active Directory
 
@@ -71,7 +71,7 @@ Slutför stegen i följande avsnitt för att förstå vilken metod du ska använ
 
 #### <a name="verify-how-federation-was-configured"></a>Kontrollera hur federation har konfigurerats
 
-1. Öppna Azure AD Connect på din Azure AD Connect-servern. Välj **konfigurera**.
+1. Öppna Azure AD Connect på din Azure AD Connect-servern. Välj **Konfigurera**.
 2. På den **ytterligare uppgifter** väljer **visa aktuell konfiguration**, och välj sedan **nästa**.<br />
  
    ![Skärmbild av alternativet Visa aktuell konfiguration på sidan ytterligare uppgifter](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image2.png)<br />
@@ -128,9 +128,9 @@ Innan du konverterar från federerad identitet till hanterad identitet, titta p�
 |-|-|
 | Du planerar att fortsätta att använda AD FS med andra program (än Azure AD och Office 365). | När du har konverterat domäner ska du använda både AD FS och Azure AD. Överväg att användarupplevelsen. I vissa situationer kan användare vara tvungna att autentiseras två gånger: en gång till Azure AD (där en användare får åtkomst med enkel inloggning till andra program som Office 365) och igen för alla program som fortfarande är bundna till AD FS som en förlitande part. |
 | Din instans av AD FS är kraftigt anpassad och förlitar sig på specifika anpassningsinställningarna i onload.js-filen (till exempel om du har ändrat inloggningen så att användare bara använda en **SamAccountName** format för sina användarnamn i stället för en användare har huvudnamn (UPN) eller din organisation kraftigt märkesprodukter inloggningen går). Vara det går inte att dubbletter av onload.js-filen i Azure AD. | Innan du fortsätter måste du kontrollera att Azure AD kan uppfylla din aktuella anpassningskrav. Mer information och anvisningar finns i avsnitt om anpassning av AD FS och AD FS-anpassning.|
-| Du kan använda AD FS för att blockera tidigare versioner av autentiseringsklienter.| Överväg att ersätta AD FS-kontroller som blockerar tidigare versioner av autentiseringsklienter med hjälp av en kombination av [villkorlig åtkomstkontroller](https://docs.microsoft.com/azure/active-directory/conditional-access/conditions) och [åtkomstregler för Exchange Online-klienten](http://aka.ms/EXOCAR). |
+| Du kan använda AD FS för att blockera tidigare versioner av autentiseringsklienter.| Överväg att ersätta AD FS-kontroller som blockerar tidigare versioner av autentiseringsklienter med hjälp av en kombination av [villkorlig åtkomstkontroller](https://docs.microsoft.com/azure/active-directory/conditional-access/conditions) och [åtkomstregler för Exchange Online-klienten](https://aka.ms/EXOCAR). |
 | Du behöver användare att utföra multifaktorautentisering mot en lokal Multi-Factor authentication server-lösning när användare autentiseras till AD FS.| I en hanterad identitet-domän, kan du mata in en utmaning för multifaktorautentisering via lokal multifaktorautentisering lösning i autentiseringsflödet. Du kan dock använda Azure Multi-Factor Authentication-tjänsten för multi-Factor authentication när domänen har konverterats.<br /><br /> Om användarna inte använder Azure Multi-Factor Authentication, krävs ett genomfört användaren registreringssteget. Du måste förbereda för och kommunicera planerad registreringen till dina användare. |
-| Du använder principer för åtkomstkontroll (AuthZ-regler) i AD FS för att styra åtkomsten till Office 365.| Överväg att ersätta principerna med motsvarande Azure AD [principer för villkorlig åtkomst](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal) och [åtkomstregler för Exchange Online-klienten](http://aka.ms/EXOCAR).|
+| Du använder principer för åtkomstkontroll (AuthZ-regler) i AD FS för att styra åtkomsten till Office 365.| Överväg att ersätta principerna med motsvarande Azure AD [principer för villkorlig åtkomst](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal) och [åtkomstregler för Exchange Online-klienten](https://aka.ms/EXOCAR).|
 
 ### <a name="common-ad-fs-customizations"></a>Vanliga AD FS-anpassningar
 
@@ -377,7 +377,7 @@ När din klient används för federerad identitet, omdirigerades användare frå
 Så här testar direktautentisering:
 
 1. Öppna Internet Explorer i InPrivate-läge så att sömlös SSO inte logga in dig automatiskt.
-2. Gå till inloggningssidan för Office 365 ([http://portal.office.com](http://portal.office.com/)).
+2. Gå till inloggningssidan för Office 365 ([https://portal.office.com](https://portal.office.com/)).
 3. Ange ett användar-UPN och välj sedan **nästa**. Se till att du anger UPN-namnet för en hybrid-användare som har synkroniserats från din lokala Active Directory-instans och som har använt federerad autentisering. Det visas en sida där du anger det användarnamn och lösenord:
 
    ![Skärmbild som visar inloggningssidan där du anger ett användarnamn](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image27.png)

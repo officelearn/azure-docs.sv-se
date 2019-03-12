@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: b709851a0b8b4a095b5b1bf5e0f1008359b1f426
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 1f1fbc49a42ec9b72ebe74a96ee099630d7416b1
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57317415"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57570670"
 ---
 # <a name="odata-expression-syntax-for-filters-and-order-by-clauses-in-azure-search"></a>OData-uttryckssyntax för filter och order by-satser i Azure Search
 
@@ -36,21 +36,21 @@ En **$filter** uttryck kan köras fristående som ett fullständigt uttrycklig f
 
 
 ```POST
-POST /indexes/hotels/docs/search?api-version=2017-11-11  
-    {  
-      "filter": "(baseRate ge 60 and baseRate lt 300) or hotelName eq 'Fancy Stay'"  
-    }  
+POST /indexes/hotels/docs/search?api-version=2017-11-11
+    {
+      "filter": "(baseRate ge 60 and baseRate lt 300) or hotelName eq 'Fancy Stay'"
+    }
 ```
 
 Ett annat vanligt användningsfall är filter kombineras aspekter, där filtret minskar fråga ytan baserat på en användare-drivna aspekten navigering val:
 
 ```POST
-POST /indexes/hotels/docs/search?api-version=2017-11-11  
-    {  
-      "search": "test",  
-      "facets": [ "tags", "baseRate,values:80|150|220" ],  
-      "filter": "rating eq 3 and category eq 'Motel'"  
-    }  
+POST /indexes/hotels/docs/search?api-version=2017-11-11
+    {
+      "search": "test",
+      "facets": [ "tags", "baseRate,values:80|150|220" ],
+      "filter": "rating eq 3 and category eq 'Motel'"
+    }
 ```
 
 ### <a name="filter-operators"></a>Filteroperatorerna  
@@ -89,9 +89,9 @@ POST /indexes/hotels/docs/search?api-version=2017-11-11
     Den här tredje parametern är en sträng där varje tecken i strängen eller delmängd av den här strängen behandlas som avgränsare vid parsning av listan över värden i den andra parametern.
 
     > [!NOTE]   
-    >  Vissa scenarier kräver att jämföra ett fält mot ett stort antal konstanta värden. Till exempel kan implementera säkerhetsoptimering med filter kräva att jämföra dokumentfältet-ID: T mot en lista med ID som den begärande användaren beviljas läsbehörighet. I scenarier som detta rekommenderar vi starkt med hjälp av den `search.in` funktionen i stället för en mer komplicerad disjunktion av likhet uttryck. Till exempel använda `search.in(Id, '123, 456, ...')` i stället för `Id eq 123 or Id eq 456 or ....`. 
-
->  Om du använder `search.in`, du kan förvänta dig under en sekund svarstid när den andra parametern innehåller en lista över hundratals eller tusentals värden. Observera att det finns ingen explicit gräns för hur många objekt du kan skicka till `search.in`, även om du fortfarande är begränsad av tillåtna storleken. Svarstiden kommer dock att växa när antalet värden växer.
+    > Vissa scenarier kräver att jämföra ett fält mot ett stort antal konstanta värden. Till exempel kan implementera säkerhetsoptimering med filter kräva att jämföra dokumentfältet-ID: T mot en lista med ID som den begärande användaren beviljas läsbehörighet. I scenarier som detta rekommenderar vi starkt med hjälp av den `search.in` funktionen i stället för en mer komplicerad disjunktion av likhet uttryck. Till exempel använda `search.in(Id, '123, 456, ...')` i stället för `Id eq 123 or Id eq 456 or ....`. 
+    >
+    > Om du använder `search.in`, du kan förvänta dig under en sekund svarstid när den andra parametern innehåller en lista över hundratals eller tusentals värden. Observera att det finns ingen explicit gräns för hur många objekt du kan skicka till `search.in`, även om du fortfarande är begränsad av tillåtna storleken. Svarstiden kommer dock att växa när antalet värden växer.
 
 -   Den `search.ismatch` evaluerar sökfråga som en del av ett filteruttryck. Dokument som matchar sökfrågan returneras i resultatet. Följande överlagringar av den här funktionen är tillgängliga:
     - `search.ismatch(search)`
@@ -130,106 +130,106 @@ POST /indexes/hotels/docs/search?api-version=2017-11-11
 
  Hitta alla hotels med en basavgift mindre än 100 som är klassificerade vid eller över 4:  
 
-```  
-$filter=baseRate lt 100.0 and rating ge 4  
-```  
+```
+$filter=baseRate lt 100.0 and rating ge 4
+```
 
  Hitta alla hotell än ”Roach Motel” som har varit renoverade sedan 2010:  
 
-```  
-$filter=hotelName ne 'Roach Motel' and lastRenovationDate ge 2010-01-01T00:00:00Z  
-```  
+```
+$filter=hotelName ne 'Roach Motel' and lastRenovationDate ge 2010-01-01T00:00:00Z
+```
 
  Hitta alla hotell med en basavgift mindre än 200 USD som har varit renoverade sedan 2012 med en datetime-literalen som innehåller information om tidszonen för Pacific Standard Time:  
 
-```  
-$filter=baseRate lt 200 and lastRenovationDate ge 2012-01-01T00:00:00-08:00  
-```  
+```
+$filter=baseRate lt 200 and lastRenovationDate ge 2012-01-01T00:00:00-08:00
+```
 
  Hitta alla hotell som har parkeringssidans ingår och inte tillåter hälsan:  
 
-```  
-$filter=parkingIncluded and not smokingAllowed  
-```  
+```
+$filter=parkingIncluded and not smokingAllowed
+```
 
  \- ELLER –  
 
-```  
-$filter=parkingIncluded eq true and smokingAllowed eq false  
-```  
+```
+$filter=parkingIncluded eq true and smokingAllowed eq false
+```
 
  Hitta alla hotell som är Lyxig eller inkludera parkering och har en klassificering på 5:  
 
-```  
-$filter=(category eq 'Luxury' or parkingIncluded eq true) and rating eq 5  
-```  
+```
+$filter=(category eq 'Luxury' or parkingIncluded eq true) and rating eq 5
+```
 
  Hitta alla hotels med taggen ”wifi” (där varje hotell har taggar som lagras i ett Collection(Edm.String) fält):  
 
-```  
-$filter=tags/any(t: t eq 'wifi')  
-```  
+```
+$filter=tags/any(t: t eq 'wifi')
+```
 
  Hitta alla hotels utan taggen ”motel”:  
 
-```  
-$filter=tags/all(t: t ne 'motel')  
-```  
+```
+$filter=tags/all(t: t ne 'motel')
+```
 
  Hitta alla hotels med alla taggar:  
 
-```  
-$filter=tags/any()  
-```  
+```
+$filter=tags/any()
+```
 
 Hitta alla hotell som inte har taggar:  
 
-```  
-$filter=not tags/any()  
-```  
+```
+$filter=not tags/any()
+```
 
 
  Hitta alla hotels inom 10 kilometer för en viss referenspunkt (där platsen är ett fält av typen Edm.GeographyPoint):  
 
-```  
-$filter=geo.distance(location, geography'POINT(-122.131577 47.678581)') le 10  
-```  
+```
+$filter=geo.distance(location, geography'POINT(-122.131577 47.678581)') le 10
+```
 
  Hitta alla hotels inom en viss visningsområdet beskrivs som en polygon (där platsen är ett fält av typen Edm.GeographyPoint). Observera att polygonen är stängd (första och sista-mängder vara samma) och [punkterna måste anges i motsols ordning](https://docs.microsoft.com/rest/api/searchservice/supported-data-types#Anchor_1).
 
-```  
-$filter=geo.intersects(location, geography'POLYGON((-122.031577 47.578581, -122.031577 47.678581, -122.131577 47.678581, -122.031577 47.578581))')  
-```  
+```
+$filter=geo.intersects(location, geography'POLYGON((-122.031577 47.578581, -122.031577 47.678581, -122.131577 47.678581, -122.031577 47.578581))')
+```
 
  Hitta alla hotell som antingen inte har något värde i fältet ”Beskrivning”, eller att värdet uttryckligen anges till null:  
 
-```  
-$filter=description eq null  
-```  
+```
+$filter=description eq null
+```
 
 Hitta alla hotell med namn som är lika med antingen Roach motel ”eller” Budget hotell'):  
 
-```  
-$filter=search.in(name, 'Roach motel,Budget hotel', ',') 
+```
+$filter=search.in(name, 'Roach motel,Budget hotel', ',')
 ```
 
 Hitta alla hotell med namn som är lika med antingen Roach motel ”eller” Budget hotell, avgränsade med ' |'):  
 
-```  
-$filter=search.in(name, 'Roach motel|Budget hotel', '|') 
+```
+$filter=search.in(name, 'Roach motel|Budget hotel', '|')
 ```
 
 Hitta alla hotels med taggen ”wifi' eller 'pool”:  
 
-```  
-$filter=tags/any(t: search.in(t, 'wifi, pool'))  
+```
+$filter=tags/any(t: search.in(t, 'wifi, pool'))
 ```
 
 Hitta alla hotels utan taggen ”motel” eller ”utrustning”:  
 
-```  
-$filter=tags/all(t: not search.in(t, 'motel, cabin'))  
-```  
+```
+$filter=tags/all(t: not search.in(t, 'motel, cabin'))
+```
 
 Hitta dokument med ordet ”Hamnområde”. Den här filterfrågan är identisk med en [sökbegäran](https://docs.microsoft.com/rest/api/searchservice/search-documents) med `search=waterfront`.
 

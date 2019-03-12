@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.author: babanisa
 ms.topic: conceptual
 ms.date: 01/17/2019
-ms.openlocfilehash: 662e946eee633d12cf517549509281fca4047385
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 63a71065fc168f5eb80f19b93c014bdacc5af7e6
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54470434"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57542258"
 ---
 # <a name="manage-topics-and-publish-events-using-event-domains"></a>Hantera ämnen och publicera händelser med händelse-domäner
 
@@ -132,7 +132,7 @@ New-AzureRmEventGridSubscription `
 
 Om du behöver en test-slutpunkt för att prenumerera på dina händelser kan du alltid distribuera en [färdiga webbapp](https://github.com/Azure-Samples/azure-event-grid-viewer) som visar inkommande händelser. Du kan skicka händelser till din testwebbplats på `https://<your-site-name>.azurewebsites.net/api/updates`.
 
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"/></a>
 
 Behörigheter som anges för ett ämne som lagras i Azure Active Directory och måste uttryckligen tas bort. Tar bort en händelseprenumeration återkalla inte en användares åtkomst för att skapa prenumerationer på händelser om de har skrivbehörighet på ett ämne.
 

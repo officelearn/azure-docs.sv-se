@@ -14,18 +14,18 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 6/10/2018
 ms.author: aljo, subramar
-ms.openlocfilehash: 5d44904d6210dbc9520ae735605699b197f38bef
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: f92c8a7cca70dd9de6389c201d9589c7a31ce25f
+ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56804139"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57726999"
 ---
 # <a name="service-fabric-azure-files-volume-driver-preview"></a>Service Fabric Azure Files volym drivrutinen (förhandsversion)
 Plugin-programmet för Azure Files volym är en [Docker volym plugin-programmet](https://docs.docker.com/engine/extend/plugins_volume/) som ger [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) baserat på volymer för Docker-behållare. Det här plugin-program med Docker volymen kommer som ett Service Fabric-program som kan distribueras till Service Fabric-kluster. Dess syfte är att tillhandahålla Azure Files baserat på volymer för andra program i Service Fabric-behållare som distribueras till klustret.
 
 > [!NOTE]
-> Version 6.4.571.9494 av plugin-programmet för Azure Files volym är en förhandsversionen som är tillgängliga i det här dokumentet. Som en förhandsversionen är det **inte** stöds för användning i produktionsmiljöer.
+> Version 6.4.571.9590 av plugin-programmet för Azure Files volym är en förhandsversionen som är tillgängliga i det här dokumentet. Som en förhandsversionen är det **inte** stöds för användning i produktionsmiljöer.
 >
 
 ## <a name="prerequisites"></a>Förutsättningar
@@ -39,11 +39,11 @@ Plugin-programmet för Azure Files volym är en [Docker volym plugin-programmet]
 
 * Om du använder Hyper-v-behållare, måste följande kodavsnitt som ska läggas till i området ClusterManifest (lokala kluster) eller fabricSettings i ARM-mall (Azure-kluster) eller ClusterConfig.json (fristående kluster). Du måste volymens namn och port som volymen avlyssnar klustret. 
 
-I ClusterManifest följande behov som ska läggas till i avsnittet Hosting. I det här exemplet volymnamnet är **sfazurefile** och porten den lyssnar till i klustret är **19300**.  
+I ClusterManifest följande behov som ska läggas till i avsnittet Hosting. I det här exemplet volymnamnet är **sfazurefile** och porten den lyssnar till i klustret är **19100**.  
 
 ``` xml 
 <Section Name="Hosting">
-  <Parameter Name="VolumePluginPorts" Value="sfazurefile:19300" />
+  <Parameter Name="VolumePluginPorts" Value="sfazurefile:19100" />
 </Section>
 ```
 
@@ -56,7 +56,7 @@ Följande fragment måste läggas till i avsnittet fabricSettings i ARM-mall (f�
     "parameters": [
       {
           "name": "VolumePluginPorts",
-          "value": "sfazurefile:19300"
+          "value": "sfazurefile:19100"
       }
     ]
   }
@@ -66,7 +66,7 @@ Följande fragment måste läggas till i avsnittet fabricSettings i ARM-mall (f�
 
 ## <a name="deploy-the-service-fabric-azure-files-application"></a>Distribuera Service Fabric Azure Files-programmet
 
-Service Fabric-program som innehåller volymerna som för dina behållare kan hämtas från följande [länk](https://aka.ms/sfvolume6.4). Programmet kan distribueras till klustret via [PowerShell](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-remove-applications), [CLI](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-lifecycle-sfctl) eller [FabricClient APIs](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-remove-applications-fabricclient).
+Service Fabric-program som innehåller volymerna som för dina behållare kan hämtas från följande [länk](http://download.microsoft.com/download/C/0/3/C0373AA9-DEFA-48CF-9EBE-994CA2A5FA2F/AzureFilesVolumePlugin.6.4.571.9590.zip). Programmet kan distribueras till klustret via [PowerShell](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-remove-applications), [CLI](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-lifecycle-sfctl) eller [FabricClient APIs](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-remove-applications-fabricclient).
 
 1. I Kommandotolken, ändra katalogen till rotkatalogen för nedladdade.
 
@@ -99,14 +99,14 @@ Service Fabric-program som innehåller volymerna som för dina behållare kan h�
     sfctl application provision --application-type-build-path [ApplicationPackagePath]
     ```
 
-4. Skapa programmet i kommandot för att skapa programmet nedan måste du komma ihåg det **ListenPort** parametr aplikace. Värdet för parametern program är den port där plugin-programmet för Azure Files volym lyssnar efter förfrågningar från Docker-daemon. Det är viktigt att se till att den port som angetts för programmet inte står i konflikt med någon annan port med klustret eller dina program.
+4. Skapa programmet i kommandot för att skapa programmet nedan måste du komma ihåg det **ListenPort** parametr aplikace. Värdet för parametern program är den port där plugin-programmet för Azure Files volym lyssnar efter förfrågningar från Docker-daemon. Det är viktigt att se till att porten som application matchningen VolumePluginPorts i ClusterManifest och inte står i konflikt med någon annan port med klustret eller dina program.
 
     ```powershell
-    New-ServiceFabricApplication -ApplicationName fabric:/AzureFilesVolumePluginApp -ApplicationTypeName AzureFilesVolumePluginType -ApplicationTypeVersion 6.4.571.9494 -ApplicationParameter @{ListenPort='19100'}
+    New-ServiceFabricApplication -ApplicationName fabric:/AzureFilesVolumePluginApp -ApplicationTypeName AzureFilesVolumePluginType -ApplicationTypeVersion 6.4.571.9590 -ApplicationParameter @{ListenPort='19100'}
     ```
 
     ```bash
-    sfctl application create --app-name fabric:/AzureFilesVolumePluginApp --app-type AzureFilesVolumePluginType --app-version 6.4.571.9494 --parameter '{"ListenPort":"19100"}'
+    sfctl application create --app-name fabric:/AzureFilesVolumePluginApp --app-type AzureFilesVolumePluginType --app-version 6.4.571.9590 --parameter '{"ListenPort":"19100"}'
     ```
 
 > [!NOTE]
@@ -118,11 +118,11 @@ Service Fabric-program som innehåller volymerna som för dina behållare kan h�
 Standardinstansantalet för tjänsten för Azure Files volym-plugin-programmet är 1, vilket innebär att det finns en instans av tjänsten distribueras till varje nod i klustret. Men när du distribuerar programmet Azure Files volym-plugin-programmet på ett lokalt utvecklingskluster instansantalet service anges som 1. Detta kan göras den **InstanceCount** parametr aplikace. Därför är kommandot för att distribuera programmet Azure Files volym-plugin-programmet på ett lokalt utvecklingskluster:
 
 ```powershell
-New-ServiceFabricApplication -ApplicationName fabric:/AzureFilesVolumePluginApp -ApplicationTypeName AzureFilesVolumePluginType -ApplicationTypeVersion 6.4.571.9494 -ApplicationParameter @{ListenPort='19100';InstanceCount='1'}
+New-ServiceFabricApplication -ApplicationName fabric:/AzureFilesVolumePluginApp -ApplicationTypeName AzureFilesVolumePluginType -ApplicationTypeVersion 6.4.571.9590 -ApplicationParameter @{ListenPort='19100';InstanceCount='1'}
 ```
 
 ```bash
-sfctl application create --app-name fabric:/AzureFilesVolumePluginApp --app-type AzureFilesVolumePluginType --app-version 6.4.571.9494 --parameter '{"ListenPort": "19100","InstanceCount": "1"}'
+sfctl application create --app-name fabric:/AzureFilesVolumePluginApp --app-type AzureFilesVolumePluginType --app-version 6.4.571.9590 --parameter '{"ListenPort": "19100","InstanceCount": "1"}'
 ```
 ## <a name="configure-your-applications-to-use-the-volume"></a>Konfigurera ditt program så att använda volymen
 Följande kodfragment visar hur en Azure-filer baserat volym kan anges i applikationsmanifestet av ditt program. Specifika elementet av intresse är den **volym** tagg:

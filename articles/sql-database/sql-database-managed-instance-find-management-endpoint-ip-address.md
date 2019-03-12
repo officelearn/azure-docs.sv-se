@@ -6,18 +6,18 @@ ms.service: sql-database
 ms.subservice: managed-instance
 ms.custom: ''
 ms.devlang: ''
-ms.topic: howto
+ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 12/04/2018
-ms.openlocfilehash: 83eea565a12ee5201c42b543cdbdad72ddc28ca9
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 542db0200229b4fea4ac67ad19c468f2b9dc67d1
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53346727"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57772787"
 ---
 # <a name="determine-the-management-endpoint-ip-address"></a>Fastställa slutpunktens IP-adress för hantering
 
@@ -29,7 +29,7 @@ Anta att Managed Instance värden är `mi-demo.xxxxxx.database.windows.net`. Kö
 
 ![Lösa interna värdnamn](./media/sql-database-managed-instance-management-endpoint/01_find_internal_host.png)
 
-Nu göra en annan `nslookup` för att ta bort markerade namn den `.vnet.` segment. Du får den offentliga IP-adressen till följd av det här kommandot körs.
+Nu göra en annan `nslookup` för att ta bort markerade namn den `.vnet.` segment. Du får den offentliga IP-adressen när du har kört kommandot.
 
 ![Matcha den offentliga IP-adressen](./media/sql-database-managed-instance-management-endpoint/02_find_public_ip.png)
 

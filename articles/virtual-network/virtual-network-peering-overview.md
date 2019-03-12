@@ -7,21 +7,21 @@ documentationcenter: na
 author: jimdial
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2019
 ms.author: jdial
-ms.openlocfilehash: 3f308c38e9fa23c36f964b117f620a39e56c9bbd
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
-ms.translationtype: HT
+ms.openlocfilehash: 5687075b8b63755b8b04f8c8fd0d0706ec8e27bc
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56958192"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57774531"
 ---
 # <a name="virtual-network-peering"></a>Virtuell nätverkspeering
 
-Med VNET-peering kan du smidigt ansluta två [virtuella Azure-nätverk](virtual-networks-overview.md). När de virtuella nätverken har peer-kopplats visas de som ett nätverk för anslutningsändamål. Trafiken mellan virtuella datorer i peer-kopplade virtuella nätverk dirigeras via Microsoft-stamnätsinfrastrukturen på nästan samma sätt som trafik dirigeras mellan virtuella datorer i samma virtuella nätverk genom endast *privata* IP-adresser. Azure stöder:
+Virtuell nätverkspeering gör det möjligt för dig att sömlöst ansluta Azure [virtuella nätverk](virtual-networks-overview.md). När de virtuella nätverken har peer-kopplats visas de som ett nätverk för anslutningsändamål. Trafiken mellan virtuella datorer i peer-kopplade virtuella nätverk dirigeras via Microsoft-stamnätsinfrastrukturen på nästan samma sätt som trafik dirigeras mellan virtuella datorer i samma virtuella nätverk genom endast *privata* IP-adresser. Azure stöder:
 * VNet-peering – anslutning av virtuella nätverk i samma Azure-region
 * Global VNet-peering – anslutning av virtuella nätverk i olika Azure-regioner
 
@@ -78,7 +78,7 @@ Du kan också prova att gå igenom [felsökningsstegen för problem relaterade t
 ## <a name="requirements-and-constraints"></a>Krav och begränsningar
 
 Följande begränsningar gäller endast när virtuella nätverk peerkopplas globalt:
-- Resurser i ett virtuellt nätverk kan inte kommunicera med IP-adressen i klientdelen för en intern Azure-belastningsutjämnare i ett globalt peerkopplat virtuellt nätverk. Belastningsutjämnaren och resurserna som kommunicerar med den måste finnas i samma region.
+- Resurser i ett virtuellt nätverk kan inte kommunicera med frontend IP-adressen för en intern belastningsutjämnare i ett globalt peer-kopplade virtuella nätverk. Det finns bara stöd för grundläggande belastningsutjämnare inom samma region. Det finns stöd för Standard Load Balancer för både, Global VNet-Peering och VNet-Peering. 
 - Du kan inte använda fjärrgatewayer eller tillåta gatewayöverföring. Om du vill använda fjärrgatewayer eller tillåta gatewayöverföring måste peerkopplade virtuella nätverk finnas i samma region.
 
 Läs mer om krav och begränsningar i avsnittet om [krav och begränsningar för peering för virtuella nätverk](virtual-network-manage-peering.md#requirements-and-constraints). Du kan läsa om gränserna för hur många peerkopplingar du kan skapa för ett virtuellt nätverk i [Nätverksbegränsningar för Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). 

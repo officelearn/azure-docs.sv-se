@@ -11,15 +11,15 @@ ms.service: app-service-mobile
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 365f00ced38a1ddc20df211121fba43efff8ea87
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
-ms.translationtype: HT
+ms.openlocfilehash: 8a0bf1c39977d1659d398fce7c4bb3ae0024c88a
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2018
-ms.locfileid: "29460420"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57771148"
 ---
 # <a name="getting-started"> </a>Jag använder Mobile Services. Vad bidrar Apptjänst med?
 ## <a name="overview"></a>Översikt
@@ -35,7 +35,7 @@ Din nuvarande mobiltjänst Mobile Services är säker och kommer att kunna anvä
 * inbyggd mellanlagring, säkerhetskopiering, återställning och möjlighet till testning i produktionsmiljö
 
 ## <a name="new-hosting-features"></a>Nya värdfunktioner
-I *Azure App Service* körs serverdelskoden för *mobilappar* i samma behållare som för webbappen och API-appen. Du kan använda alla funktionerna i den här behållaren, inklusive några som för närvarande inte finns i Mobile Services:
+I *Azure App Service* körs serverdelskoden för *mobilappar* i samma container som för webbappen och API-appen. Du kan använda alla funktionerna i den här containern, inklusive några som för närvarande inte finns i Mobile Services:
 
 * Du kan lägga till serverdelslogik som körs hela tiden via WebJobs.
 * Du kan säkerställa att serverdelskoden alltid körs.

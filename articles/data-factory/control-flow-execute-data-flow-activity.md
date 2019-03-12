@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/22/2019
 ms.author: makromer
-ms.openlocfilehash: 17bcb9efbf28901f241d44231bc5c71ae20380b5
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 4e661f838cc0b8e52ff72e4e44a43d611fa3355f
+ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57241620"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57727390"
 ---
 # <a name="execute-data-flow-activity-in-azure-data-factory"></a>Kör flödesaktivitet för data i Azure Data Factory
 Använda aktiviteten kör data flöde för att köra ditt ADF dataflöde i pipelinekörningar för felsökning (sandbox) och utlösta pipelinekörningar.
@@ -54,8 +54,6 @@ Använda aktiviteten kör data flöde för att köra ditt ADF dataflöde i pipel
 ### <a name="run-on"></a>Kör på
 
 Välj compute-miljö för den här körningen av ditt dataflöde. Standardvärdet är Azure löses standard Integration Runtime. Det här alternativet körs dataflödet på Spark-miljö i samma region som din datafabrik. Compute-typ kommer att ett jobbkluster, vilket innebär att beräkningsmiljön tar flera minuter att start.
-
-Om du väljer en dedikerad IR kan du skapa en ny Azure IR med en Fäst region och compute-storlekar som uppfyller dina krav på flödet. Det här alternativet kommer snurra upp interaktiva kluster, som kommer start omedelbart efter det första jobbet har skickats iväg. Det här klustret kommer förblir aktiva tills TTL-Perioden upphör att gälla efter det senaste jobbet har körts.
 
 ### <a name="compute-type"></a>Typ av databehandling
 

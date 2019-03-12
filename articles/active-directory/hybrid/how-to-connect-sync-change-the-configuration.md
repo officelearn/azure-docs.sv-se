@@ -16,12 +16,12 @@ ms.date: 08/30/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 17f832947e289933fb7cde9513bc6e091aec30ae
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 6bf55cef00c0600963f8363e617c24fdc9113eae
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56206386"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57543873"
 ---
 # <a name="azure-ad-connect-sync-make-a-change-to-the-default-configuration"></a>Azure AD Connect-synkronisering: Gör en ändring i standardkonfigurationen
 Syftet med den här artikeln är att hjälper dig att göra ändringar i standardkonfigurationen i Azure Active Directory (Azure AD) Connect-synkronisering. Den innehåller steg för några vanliga scenarier. Med denna kunskap kan ska du kunna göra enkla ändringar i din egen konfiguration baserat på dina egna affärsregler.
@@ -294,7 +294,7 @@ Regel för inkommande synkronisering tillåter attributvärdet som flödar från
 
     | Flow-typ | Målattribut | Källa | Använda en gång | Kopplingstyp |
     | --- | --- | --- | --- | --- |
-    | Direkt | UserType | IIf(IsPresent([userPrincipalName]),IIf(CBool(Instr(LCase([userPrincipalName]) ”,@partners.fabrikam123.org”)=0) ”medlem”, ”Gäst”), fel (”UserPrincipalName finns inte att fastställa UserType”)) | Alternativet är avmarkerat | Uppdatering |
+    | Uttryck | UserType | IIf(IsPresent([userPrincipalName]),IIf(CBool(Instr(LCase([userPrincipalName]) ”,@partners.fabrikam123.org”)=0) ”medlem”, ”Gäst”), fel (”UserPrincipalName finns inte att fastställa UserType”)) | Alternativet är avmarkerat | Uppdatering |
 
 7. Klicka på **Lägg till** att skapa regel för inkommande trafik.
 

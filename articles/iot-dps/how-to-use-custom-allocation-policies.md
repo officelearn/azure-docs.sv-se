@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 4c02df5684036aef078b0f79c70d3b66d60e013b
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 739780bedc701cc63747db6100242d0d6cad6085
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56881523"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57542683"
 ---
 # <a name="how-to-use-custom-allocation-policies"></a>Hur du använder anpassade allokeringsprinciper
 
@@ -90,7 +90,7 @@ I det här avsnittet ska du använda Azure Cloud Shell för att skapa två nya I
 
 I det här avsnittet skapar du en ny grupp för registrering som använder den anpassade allokeringsprincipen. För enkelhetens skull använder den här artikeln [symmetriska nyckelattestering](concepts-symmetric-key-attestation.md) med registreringen. Överväg att använda för en säkrare lösningen [X.509-certifikat attestering](concepts-security.md#x509-certificates) med en certifikatkedja.
 
-1. Logga in på den [Azure-portalen](http://portal.azure.com), och öppna Device Provisioning Service-instans.
+1. Logga in på den [Azure-portalen](https://portal.azure.com), och öppna Device Provisioning Service-instans.
 
 2. Välj den **hantera registreringar** fliken och klicka sedan på den **Lägg till grupp för registrering** längst upp på sidan. 
 

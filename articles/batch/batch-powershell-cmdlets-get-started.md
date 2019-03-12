@@ -9,18 +9,18 @@ editor: ''
 ms.assetid: ''
 ms.service: batch
 ms.devlang: NA
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: powershell
 ms.workload: big-compute
 ms.date: 01/15/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 5f0358bf58e61632fdeef8363d24b39c2cf2ebf0
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 10d8683724622f164299016a801e1960e0a868c7
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55811434"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57770058"
 ---
 # <a name="manage-batch-resources-with-powershell-cmdlets"></a>Hantera Batch-resurser med PowerShell-cmdletar
 
@@ -30,7 +30,7 @@ En fullständig lista över alla Batch-cmdlets och en detaljerad cmdlet-syntax f
 
 Den har artikeln baseras på cmdletar i Azure Batch-modulen 1.0.0. Vi rekommenderar att du uppdaterar Azure PowerShell-moduler ofta för att dra nytta av tjänstuppdateringar och förbättringar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * [Installera och konfigurera Azure PowerShell-modulen](/powershell/azure/overview). Information om hur du installerar en viss Azure Batch-modul, till exempel en förhandsversion av en modul, finns i [PowerShell-galleriet](https://www.powershellgallery.com/packages/Az.Batch/1.0.0).
 

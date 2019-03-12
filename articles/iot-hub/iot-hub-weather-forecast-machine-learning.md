@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 04/11/2018
 ms.author: rangv
-ms.openlocfilehash: a331f8a8a69ffe41a368c1b36f1680890aaac8bf
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 7fdd2a96044acdae223243d751bfcffb7a99da78
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38666882"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57534267"
 ---
 # <a name="weather-forecast-using-the-sensor-data-from-your-iot-hub-in-azure-machine-learning"></a>Väderprognoser med sensordata från IoT hub i Azure Machine Learning
 
@@ -79,13 +79,13 @@ Du lär dig hur du använder Azure Machine Learning för att väder prognosen (r
 1. I [Azure Portal](https://portal.azure.com/) klickar du på **Skapa en resurs** > **Sakernas Internet** > **Stream Analytics-jobb**.
 1. Ange följande information för jobbet.
 
-   **Jobbnamn**: Jobbets namn. Namnet måste vara globalt unikt.
+   **Jobbnamn**: Namnet på jobbet. Namnet måste vara globalt unikt.
 
    **Resursgrupp**: Använd samma resursgrupp som din IoT-hubb använder.
 
    **Plats**: Använd samma plats som resursgruppen.
 
-   **Fäst på instrumentpanelen**: Välj det här alternativet för enkel åtkomst till IoT-hubben från instrumentpanelen.
+   **Fäst på instrumentpanelen**: Markera det här alternativet för enkel åtkomst till IoT-hubben från instrumentpanelen.
 
    ![Skapa ett Stream Analytics-jobb i Azure](media/iot-hub-weather-forecast-machine-learning/7_create-stream-analytics-job-azure.png)
 
@@ -94,14 +94,14 @@ Du lär dig hur du använder Azure Machine Learning för att väder prognosen (r
 ### <a name="add-an-input-to-the-stream-analytics-job"></a>Lägga till indata till Stream Analytics-jobbet
 
 1. Öppna Stream Analytics-jobb.
-1. Under **Jobbtopologi** klickar du på **Indata**.
+1. Klicka på **Indata** under **Jobbtopologi**.
 1. I den **indata** fönstret klickar du på **Lägg till**, och ange sedan följande information:
 
-   **Inmatat alias**: det unika aliaset för indata.
+   **Indataalias**: Det unika aliaset för indata.
 
-   **Källan**: Välj **IoT-hubb**.
+   **Källa**: Välj **IoT-hubb**.
 
-   **Konsumentgrupp**: Välj konsumentgrupp som du skapade.
+   **Konsumentgrupp**: Välja konsumentgrupp som du skapade.
 
    ![Lägg till indata för Stream Analytics-jobb i Azure](media/iot-hub-weather-forecast-machine-learning/8_add-input-stream-analytics-job-azure.png)
 
@@ -116,9 +116,9 @@ Du lär dig hur du använder Azure Machine Learning för att väder prognosen (r
 
    **Mottagare**: Välj **Blob-lagring**.
 
-   **Storage-konto**: storage-konto för blob storage. Du kan skapa ett lagringskonto eller Använd en befintlig.
+   **Lagringskonto**: Storage-konto för blob storage. Du kan skapa ett lagringskonto eller Använd en befintlig.
 
-   **Behållaren**: behållaren där bloben har sparats. Du kan skapa en behållare eller Använd en befintlig.
+   **behållaren**: Behållaren där bloben har sparats. Du kan skapa en behållare eller Använd en befintlig.
 
    **Händelseserialiseringsformat**: Välj **CSV**.
 
@@ -137,9 +137,9 @@ Du lär dig hur du använder Azure Machine Learning för att väder prognosen (r
 
    **Importalternativ**: Välj **Import från en annan prenumeration**.
 
-   **URL: en**: Ange WEBBTJÄNSTENS URL som du antecknade från Excel-arbetsboken.
+   **URL**: Ange WEBBTJÄNSTENS URL som du antecknade från Excel-arbetsboken.
 
-   **Nyckeln**: Ange ÅTKOMSTNYCKEL som du antecknade från Excel-arbetsboken.
+   **nyckeln**: Ange ÅTKOMSTNYCKEL som du antecknade från Excel-arbetsboken.
 
    ![Lägga till en funktion till Stream Analytics-jobbet i Azure](media/iot-hub-weather-forecast-machine-learning/10_add-function-stream-analytics-job-azure.png)
 
@@ -175,7 +175,7 @@ I Stream Analytics-jobbet klickar du på **Starta** > **Nu** > **Starta**. När 
 
 Kör klientprogrammet att börja samla in och skicka temperatur och fuktighet data till din IoT-hubb. Stream Analytics-jobbet anropar väderprognos webbtjänsten för att generera risken för regn för varje meddelande som din IoT-hubb tar emot. Resultatet sparas sedan i ditt Azure blob storage. Azure Storage Explorer är ett verktyg som du kan använda för att visa resultatet.
 
-1. [Ladda ned och installera Microsoft Azure Lagringsutforskaren](http://storageexplorer.com/).
+1. [Ladda ned och installera Microsoft Azure Lagringsutforskaren](https://storageexplorer.com/).
 1. Öppna Azure Storage Explorer.
 1. Logga in på ditt Azure-konto.
 1. Välj din prenumeration.

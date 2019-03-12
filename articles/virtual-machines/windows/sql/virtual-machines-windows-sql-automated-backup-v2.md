@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 05/03/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: e20599833d3073e4819dbc974d4b2afe962ba18a
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 540acd1735eb539ecaac468e74511ba5f751278f
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55984315"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57780022"
 ---
 # <a name="automated-backup-v2-for-azure-virtual-machines-resource-manager"></a>Automatisk säkerhetskopiering v2 för virtuella Azure-datorer (Resource Manager)
 
@@ -52,7 +52,7 @@ För att använda automatisk säkerhetskopiering v2, gå igenom följande krav:
 
 - Måldatabaserna måste använda den fullständiga återställningsmodellen. Mer information om effekten av den fullständiga återställningsmodellen säkerhetskopior finns i [säkerhetskopiering Under den fullständiga återställningsmodellen](https://technet.microsoft.com/library/ms190217.aspx).
 - Systemdatabaser behöver inte använda fullständiga återställningsmodellen. Om du behöver loggsäkerhetskopior vidtas för modellen eller MSDB, måste du använda fullständiga återställningsmodellen.
-- Måldatabaserna måste vara på standardinstansen för SQL Server. SQL Server IaaS-tillägget har inte stöd för namngivna instanser.
+- Måldatabaserna måste finnas på den antingen standard SQL Server-instansen, eller en [korrekt installerade](virtual-machines-windows-sql-server-iaas-faq.md#administration) namngiven instans. 
 
 > [!NOTE]
 > Automatisk säkerhetskopiering är beroende av den **SQL Server IaaS Agent-tillägget**. Aktuell SQL VM-galleriavbildningar lägga till det här tillägget som standard. Mer information finns i [SQL Server IaaS Agent-tillägget](virtual-machines-windows-sql-server-agent-extension.md).
@@ -107,7 +107,7 @@ Du har en SQL Server VM som innehåller ett antal stora databaser.
 
 På måndag aktiverar du automatisk säkerhetskopiering v2 med följande inställningar:
 
-- Schema för säkerhetskopiering: Manuell
+- Schema för säkerhetskopiering: Manuellt
 - Frekvens för fullständig säkerhetskopiering: Dagligen
 - Starttid för fullständig säkerhetskopiering: 22:00
 - Tidsperiod för fullständig säkerhetskopiering: 6 timmar

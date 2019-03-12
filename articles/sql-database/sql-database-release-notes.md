@@ -10,12 +10,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 03/05/2019
 ms.author: carlrab
-ms.openlocfilehash: 9bd330c2be2b543bd7238dd1641df0d092a8a17d
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 9a461f84577997ff976956b7f2f50500e9b3d323
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57434914"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57548072"
 ---
 # <a name="sql-database-release-notes"></a>Viktig information om SQL-databas
 
@@ -27,6 +27,7 @@ Den här artikeln innehåller nya funktioner och förbättringar i tjänsten SQL
 
 | Förbättringar av tjänsten | Information |
 | --- | --- |
+| Kommer snart ||
 | &nbsp; |
 
 ### <a name="documentation-improvements"></a>Dokumentation om förbättringar

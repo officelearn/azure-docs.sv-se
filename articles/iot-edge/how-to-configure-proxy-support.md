@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: d1ad1f34f51adbc177e5b4163d528dbe45ce03af
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 33f5cd6e1d2989a9ca5c26bbcf947bd6eade3831
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57339155"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57774208"
 ---
 # <a name="configure-an-iot-edge-device-to-communicate-through-a-proxy-server"></a>Konfigurera en IoT Edge-enhet kan kommunicera via en proxyserver
 
@@ -25,23 +25,23 @@ Konfigurera en IoT Edge-enhet för att arbeta med en proxyserver följer de här
 1. Installera IoT Edge-körningen på din enhet. 
 2. Konfigurera Docker-daemon och IoT Edge-daemon på enheten för att använda proxyservern.
 3. Konfigurera egenskaper för edgeAgent i config.yaml-filen på din enhet.
-4. Ange miljövariabler för IoT Edge-körningen och andra IoT-Edge moduler i manifestet distribution. 
+4. Ange miljövariabler för IoT Edge-körningen och andra IoT-Edge moduler i manifestet distribution.
 
 ## <a name="know-your-proxy-url"></a>Vet proxy-URL
 
-För att konfigurera både Docker-daemon och IoT Edge på din enhet, som du behöver veta din proxy-URL. 
+För att konfigurera både Docker-daemon och IoT Edge på din enhet, som du behöver veta din proxy-URL.
 
-Proxy-URL: er ta följande format: **protokollet**://**proxy_host**:**proxy_port**. 
+Proxy-URL: er ta följande format: **protokollet**://**proxy_host**:**proxy_port**.
 
 * Den **protokollet** är antingen HTTP eller HTTPS. Docker-daemon kan använda antingen protokollet, beroende på dina inställningar för behållarregister, men IoT Edge-daemon och runtime behållare bör alltid använda HTTPS.
 
-* Den **proxy_host** är en adress för proxyservern. Om proxyservern kräver autentisering, kan du ange dina autentiseringsuppgifter som en del av proxy_host i formatet **användaren**:**lösenord**@**proxy_host**. 
+* Den **proxy_host** är en adress för proxyservern. Om proxyservern kräver autentisering, kan du ange dina autentiseringsuppgifter som en del av proxy_host i formatet **användaren**:**lösenord**\@**proxy_host**.
 
-* Den **proxy_port** är den nätverksport som proxyn svarar på trafik. 
+* Den **proxy_port** är den nätverksport som proxyn svarar på trafik.
 
 ## <a name="install-the-runtime"></a>Installera runtime
 
-Om du installerar IoT Edge-körningen på en Linux-enhet, konfigurera package manager att gå igenom din proxyserver för att komma åt installationspaketet. Till exempel [konfigurera apt-get för att använda en http-proxy](https://help.ubuntu.com/community/AptGet/Howto/#Setting_up_apt-get_to_use_a_http-proxy). När du har konfigurerat din Pakethanteraren, följer du anvisningarna i [installera Azure IoT Edge-körningen på Linux (ARM32v7/armhf)](how-to-install-iot-edge-linux-arm.md) eller [installera Azure IoT Edge-körningen på Linux (x64)](how-to-install-iot-edge-linux.md) som vanligt. 
+Om du installerar IoT Edge-körningen på en Linux-enhet, konfigurera package manager att gå igenom din proxyserver för att komma åt installationspaketet. Till exempel [konfigurera apt-get för att använda en http-proxy](https://help.ubuntu.com/community/AptGet/Howto/#Setting_up_apt-get_to_use_a_http-proxy). När du har konfigurerat din Pakethanteraren, följer du anvisningarna i [installera Azure IoT Edge-körningen på Linux (ARM32v7/armhf)](how-to-install-iot-edge-linux-arm.md) eller [installera Azure IoT Edge-körningen på Linux (x64)](how-to-install-iot-edge-linux.md) som vanligt.
 
 Om du installerar IoT Edge-körningen på en Windows-enhet, måste du gå igenom proxyservern när att ladda ned skriptfilen installer sedan en gång under installationen att ladda ned de nödvändiga komponenterna. Du kan konfigurera proxyinformation i Windows-inställningar eller ta med din proxyinformation direkt i installationsskriptet. Följande powershell-skript är ett exempel på en windows-installationen med de `-proxy` argument:
 

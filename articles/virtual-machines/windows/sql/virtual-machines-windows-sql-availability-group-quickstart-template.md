@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 01/04/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 675933b46a228f636c4907e84d66263dde52f274
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 5390885ccb4bbc3e1552d3f5e80c1b451b7bee38
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56823339"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57570172"
 ---
 # <a name="use-azure-quickstart-templates-to-configure-always-on-availability-group-for-sql-server-on-an-azure-vm"></a>Använd Azure-Snabbstartsmallar för att konfigurera Always On-tillgänglighetsgrupp för SQL Server på en Azure VM
 Den här artikeln beskriver hur du använder Azure-Snabbstartsmallar att delvis automatisera distributionen av en Always On tillgänglighetsgruppens konfiguration för SQL Server-datorer i Azure. Det finns två Azure-Snabbstartsmallar som används i den här processen. 
@@ -39,6 +39,13 @@ För att automatisera installationen av en Always On-tillgänglighetsgrupp med q
 - En [Azure-prenumeration](https://azure.microsoft.com/free/).
 - En resursgrupp med en domänkontrollant. 
 - En eller flera domänanslutna [virtuella datorer i Azure som kör SQLServer 2016 (eller högre) Enterprise edition](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) i samma uppsättning eller tillgänglighet tillgänglighetszon som har [registrerad hos resursprovidern SQL VM](virtual-machines-windows-sql-ahb.md#register-sql-server-vm-with-sql-resource-provider).  
+- Två tillgängliga (inte används av en person) IP-adresser, en för den interna belastningsutjämnaren och en för tillgänglighetsgruppens lyssnare i samma undernät som tillgänglighetsgruppen. Om en befintlig belastningsutjämnare används krävs bara en tillgänglig IP-adress.  
+
+## <a name="permissions"></a>Behörigheter
+Följande behörigheter krävs för att konfigurera Always On availability-gruppen med hjälp av Azure-Snabbstartsmallar: 
+
+- Ett befintligt domänanvändarkonto som har behörighet att ”skapa datorobjekt' i domänen.  Till exempel ett domänadministratörskonto vanligtvis har tillräcklig behörighet (t.ex.: account@domain.com). _Detta konto bör också vara en del av den lokala administratörsgruppen på varje virtuell dator för att skapa klustret._
+- Domänanvändarkonto som styr SQL Server-tjänsten. 
 
 
 ## <a name="step-1---create-the-wsfc-and-join-sql-server-vms-to-the-cluster-using-quickstart-template"></a>Steg 1 – Skapa WSFC och ansluta till SQL Server-datorer till klustret med snabbstartsmall 

@@ -11,13 +11,13 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
 manager: jhubbard
-ms.date: 03/04/2019
-ms.openlocfilehash: 05398f98bb92da8bf8436f2421beacdde3fd91c9
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.date: 03/07/2019
+ms.openlocfilehash: 4e7f344dfa0b5cf38d36cec786169c5c7a51af3b
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57336572"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57576522"
 ---
 # <a name="rotate-the-transparent-data-encryption-tde-protector-using-powershell"></a>Rotera Transparent datakryptering (TDE)-skydd med hjälp av PowerShell
 
@@ -43,7 +43,7 @@ Den här guiden beskrivs två alternativ för att rotera TDE-skydd på servern.
 
 ## <a name="manual-key-rotation"></a>Manuell nyckelrotation
 
-Rotation av manuell använder den [Lägg till AzKeyVaultKey](/powershell/module/az.keyvault/Add-AzKeyVaultKey), [Lägg till AzSqlServerKeyVaultKey](/powershell/module/az.sql/add-azsqlserverkeyvaultkey), och [Set-AzSqlServerTransparentDataEncryptionProtector](/powershell/module/az.sql/az.sql/set-azsqlservertransparentdataencryptionprotector) -cmdletar för att lägga till en helt ny nyckel, vilket kan vara under ett nytt namn eller en annan nyckelvalv. Med den här metoden har stöd för att lägga till samma nyckel i olika nyckelvalv för att ge stöd för hög tillgänglighet och geo-dr-scenarier.
+Rotation av manuell använder den [Lägg till AzKeyVaultKey](/powershell/module/az.keyvault/Add-AzKeyVaultKey), [Lägg till AzSqlServerKeyVaultKey](/powershell/module/az.sql/add-azsqlserverkeyvaultkey), och [Set-AzSqlServerTransparentDataEncryptionProtector](/powershell/module/az.sql/set-azsqlservertransparentdataencryptionprotector) -cmdletar för att lägga till en helt ny nyckel, vilket kan vara under ett nytt namn eller en annan nyckelvalv. Med den här metoden har stöd för att lägga till samma nyckel i olika nyckelvalv för att ge stöd för hög tillgänglighet och geo-dr-scenarier.
 
 >[!NOTE]
 >Den kombinerade längden för key vault-namn och namn får inte överskrida 94 tecken.
@@ -71,7 +71,7 @@ Rotation av manuell använder den [Lägg till AzKeyVaultKey](/powershell/module/
 
 ## <a name="option-2-manual-rotation"></a>Alternativ 2: Manuell rotation
 
-Alternativet använder den [Lägg till AzKeyVaultKey](/powershell/module/az.keyvault/add-azurekeyvaultkey), [Lägg till AzSqlServerKeyVaultKey](/powershell/module/az.sql/add-azsqlserverkeyvaultkey), och [Set-AzSqlServerTransparentDataEncryptionProtector](/powershell/module/az.sql/set-azsqlservertransparentdataencryptionprotector) -cmdletar för att lägga till en helt ny nyckel, vilket kan vara under ett nytt namn eller en annan nyckelvalv. 
+Alternativet använder den [Lägg till AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey), [Lägg till AzSqlServerKeyVaultKey](/powershell/module/az.sql/add-azsqlserverkeyvaultkey), och [Set-AzSqlServerTransparentDataEncryptionProtector](/powershell/module/az.sql/set-azsqlservertransparentdataencryptionprotector) -cmdletar för att lägga till en helt ny nyckel, vilket kan vara under ett nytt namn eller en annan nyckelvalv. 
 
 >[!NOTE]
 >Den kombinerade längden för key vault-namn och namn får inte överskrida 94 tecken.

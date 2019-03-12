@@ -11,17 +11,17 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 12/04/2018
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 12/04/2018
-ms.openlocfilehash: 861784a2d22d15253c61884bfab62667c0560bcd
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 63de39fa97850c1df72bdcd964ed670e4e8b0608
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55250656"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57767200"
 ---
 # <a name="start-azsreadinesschecker-cmdlet-reference"></a>Start-AzsReadinessChecker cmdlet-referens
 
@@ -301,7 +301,7 @@ I det här exemplet distributions- eller support-teamet får beredskapsrapporten
 Anger namn på Azure Stack-distributioner område.
 |  |  |
 |----------------------------|--------------|
-|Ange:                       |Sträng        |
+|Ange:                       |String        |
 |Position:                   |med namnet         |
 |Standardvärde:              |Ingen          |
 |Acceptera indata från pipeline:      |False         |
@@ -312,7 +312,7 @@ Anger namn på Azure Stack-distributioner område.
 Anger Azure Stack-distributioner externa FQDN, även ett alias som ExternalFQDN och ExternalDomainName.
 |  |  |
 |----------------------------|--------------|
-|Ange:                       |Sträng        |
+|Ange:                       |String        |
 |Position:                   |med namnet         |
 |Standardvärde:              |ExternalFQDN, ExternalDomainName |
 |Acceptera indata från pipeline:      |False         |
@@ -323,7 +323,7 @@ Anger Azure Stack-distributioner externa FQDN, även ett alias som ExternalFQDN 
 Anger respektive Azure Stack-distributioner identitetssystem giltiga värden, AAD eller ADFS, för Azure Active Directory och Active Directory Federation Services.
 |  |  |
 |----------------------------|--------------|
-|Ange:                       |Sträng        |
+|Ange:                       |String        |
 |Position:                   |med namnet         |
 |Standardvärde:              |Ingen          |
 |Giltiga värden:               |'AAD', 'ADFS'  |
@@ -357,7 +357,7 @@ Anger hash-tabellen som innehåller sökvägar och lösenord till PaaS-certifika
 Anger Azure Stack-distribution data JSON-konfigurationsfil. Den här filen skapas för distribution.
 |  |  |
 |----------------------------|---------|
-|Ange:                       |Sträng   |
+|Ange:                       |String   |
 |Position:                   |med namnet    |
 |Standardvärde:              |Ingen     |
 |Acceptera indata från pipeline:      |False    |
@@ -368,7 +368,7 @@ Anger Azure Stack-distribution data JSON-konfigurationsfil. Den här filen skapa
 Anger sökvägen till ett problematiska certifikat som kräver import/export-rutin att åtgärda, som anges av certifikatsverifiering i det här verktyget.
 |  |  |
 |----------------------------|---------|
-|Ange:                       |Sträng   |
+|Ange:                       |String   |
 |Position:                   |med namnet    |
 |Standardvärde:              |Ingen     |
 |Acceptera indata från pipeline:      |False    |
@@ -379,7 +379,7 @@ Anger sökvägen till ett problematiska certifikat som kräver import/export-rut
 Anger målsökvägen för filen PFX från import/export-rutin.  
 |  |  |
 |----------------------------|---------|
-|Ange:                       |Sträng   |
+|Ange:                       |String   |
 |Position:                   |med namnet    |
 |Standardvärde:              |Ingen     |
 |Acceptera indata från pipeline:      |False    |
@@ -405,7 +405,7 @@ Anger den SAN-typ av certifikatförfrågan. Giltiga värden MultipleCSR, SingleC
 
 |  |  |
 |----------------------------|---------|
-|Ange:                       |Sträng   |
+|Ange:                       |String   |
 |Position:                   |med namnet    |
 |Standardvärde:              |Ingen     |
 |Giltiga värden:               |'MultipleCSR','SingleCSR' |
@@ -417,7 +417,7 @@ Anger den SAN-typ av certifikatförfrågan. Giltiga värden MultipleCSR, SingleC
 Anger sökvägen för begäran certifikatfiler, katalogen måste finnas.
 |  |  |
 |----------------------------|---------|
-|Ange:                       |Sträng   |
+|Ange:                       |String   |
 |Position:                   |med namnet    |
 |Standardvärde:              |Ingen     |
 |Acceptera indata från pipeline:      |False    |
@@ -439,7 +439,7 @@ Anger tjänstadministratör för Azure Active Directory som ska användas för A
 Anger namnet för Azure Active Directory som ska användas för Azure Stack-distributioner.
 |  |  |
 |----------------------------|---------|
-|Ange:                       |Sträng   |
+|Ange:                       |String   |
 |Position:                   |med namnet    |
 |Standardvärde:              |Ingen     |
 |Acceptera indata från pipeline:      |False    |
@@ -450,7 +450,7 @@ Anger namnet för Azure Active Directory som ska användas för Azure Stack-dist
 Anger en instans av Azure-tjänster som innehåller konton, kataloger och prenumerationer som ska användas för Azure Stack-distribution och registrering.
 |  |  |
 |----------------------------|---------|
-|Ange:                       |Sträng   |
+|Ange:                       |String   |
 |Position:                   |med namnet    |
 |Standardvärde:              |Ingen     |
 |Giltiga värden:               |'AzureCloud','AzureChinaCloud','AzureUSGovernment' |
@@ -462,7 +462,7 @@ Anger en instans av Azure-tjänster som innehåller konton, kataloger och prenum
 Anger det registrerings-konto som ska användas för Azure Stack-registrering.
 |  |  |
 |----------------------------|---------|
-|Ange:                       |Sträng   |
+|Ange:                       |String   |
 |Position:                   |med namnet    |
 |Standardvärde:              |Ingen     |
 |Acceptera indata från pipeline:      |False    |
@@ -473,7 +473,7 @@ Anger det registrerings-konto som ska användas för Azure Stack-registrering.
 Anger registrerings-ID för prenumerationen som ska användas för Azure Stack-registrering.
 |  |  |
 |----------------------------|---------|
-|Ange:                       |GUID     |
+|Ange:                       |Guid     |
 |Position:                   |med namnet    |
 |Standardvärde:              |Ingen     |
 |Acceptera indata från pipeline:      |False    |
@@ -484,7 +484,7 @@ Anger registrerings-ID för prenumerationen som ska användas för Azure Stack-r
 Anger sökvägen för beredskapsrapporten, aktuell katalog- och standard rapportnamn som standard.
 |  |  |
 |----------------------------|---------|
-|Ange:                       |Sträng   |
+|Ange:                       |String   |
 |Position:                   |med namnet    |
 |Standardvärde:              |Alla      |
 |Acceptera indata från pipeline:      |False    |
@@ -506,7 +506,7 @@ ACSBlob, ACSQueue, ACSTable, ADFS, Admin Portal, ARM Admin, ARM Public, Graph, K
 
 |  |  |
 |----------------------------|---------|
-|Ange:                       |Sträng   |
+|Ange:                       |String   |
 |Position:                   |med namnet    |
 |Standardvärde:              |. \Certificates |
 |Acceptera indata från pipeline:      |False    |
@@ -529,7 +529,7 @@ Anger om PaaS-tjänster/värdnamn ska läggas till certifikat-begäranden.
 Anger om du endast vill visa rapporten Sammanfattning utesluter detalj.
 |  |  |
 |----------------------------|---------|
-|Ange:                       |Sträng   |
+|Ange:                       |String   |
 |Position:                   |med namnet    |
 |Standardvärde:              |Alla      |
 |Giltiga värden:               |'Certificate','AzureRegistration','AzureIdentity','Jobs','All' |
@@ -565,7 +565,7 @@ Anger anpassad sökväg för att spara beredskap JSON-rapporten och detaljerad l
 
 |  |  |
 |----------------------------|------------------|
-|Ange:                       |Sträng            |
+|Ange:                       |String            |
 |Position:                   |med namnet             |
 |Standardvärde:              |$ENV:TEMP\AzsReadinessChecker  |
 |Acceptera indata från pipeline:      |False             |

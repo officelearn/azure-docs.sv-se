@@ -4,32 +4,32 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: rogarana
-ms.openlocfilehash: aa701ada917811382351fee9469a5cfa9a7599b8
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 09b4f94db3464943a8367bfb3ca89f9a88446193
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52279971"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57554181"
 ---
-En virtuell dator i Azure stöder tillkoppling av ett antal datadiskar. Den här artikeln beskriver mål för skalbarhet och prestanda för en virtuell dators datadiskar. Använd dessa mål för att bestämma antalet och typen av disk som du behöver för att uppfylla dina krav på prestanda och kapacitet. 
+Du kan koppla ett antal datadiskar till en Azure virtuell dator. Baserat på mål för skalbarhet och prestanda för en virtuell dators datadiskar kan bestämma du antalet och typen av disk som du behöver för att uppfylla dina kapacitetskrav på prestanda och.
 
 > [!IMPORTANT]
-> Begränsa antalet högutnyttjade diskar som är anslutna till den virtuella datorn för att undvika eventuell begränsning för optimala prestanda. Om alla anslutna diskar inte används mycket på samma gång, kan den virtuella datorn stöder ett större antal diskar.
+> Begränsa antalet högutnyttjade diskar som är anslutna till den virtuella datorn för att undvika eventuell begränsning för optimala prestanda. Om alla anslutna diskar inte är används mycket på samma gång, har den virtuella datorn stöd för ett större antal diskar.
 
 * **Hanterade diskar för Azure:** 
 
 > | Resurs | Standardgräns | Övre gräns |
 > | --- | --- | --- |
-> | Standard Managed Disks | 10 000 | 50,000 |
-> | Standard SSD Managed Disks | 10 000 | 50,000 |
-> | Premium Managed Disks | 10 000 | 50,000 |
+> | Hanterade standarddiskar | 10 000 | 50,000 |
+> | Hanterade Standard SSD-diskar | 10 000 | 50,000 |
+> | Hanterade premiumdiskar | 10 000 | 50,000 |
 > | Standard_LRS ögonblicksbilder | 10 000 | 50,000 |
 > | Standard_ZRS ögonblicksbilder | 10 000 | 50,000 |
 > | Hanterad avbildning | 10 000 | 50,000 |
 
-* **För standardlagringskonton:** Ett standardlagringskonto har en högsta totala begärandefrekvens på 20 000 IOPS. Det totala antalet IOPS för alla virtuella datordiskar på ett standardlagringskonto bör inte överskrida den här gränsen.
+* **För standardlagringskonton:** Ett standardlagringskonto har en högsta totala begärandefrekvens på 20 000 IOPS. Det totala antalet IOPS för alla virtuella diskar i ett standardlagringskonto bör inte överskrida den här gränsen.
   
-    Du kan på ett ungefär beräkna antalet högutnyttjade diskar som stöds av ett enda standardlagringskonto baserat på gränsen för begärandehastigheten. Till exempel för en grundläggande nivå virtuell dator, det maximala antalet högutnyttjade diskar som är cirka 66 (20 000/300 IOPS per disk) och för en virtuell dator på standardnivå, är den cirka 40 (20 000/500 IOPS per disk). 
+    Du kan ungefär beräkna antalet högutnyttjade diskar som stöds av en enda standardlagringskonto baserat på gränsen för begärandehastigheten. För en grundläggande nivå VM är det maximala antalet högutnyttjade diskar som exempelvis cirka 66, vilket är 20 000/300 IOPS per disk. Det maximala antalet högutnyttjade diskar för en virtuell dator på standardnivå är cirka 40, vilket är 20 000/500 IOPS per disk. 
 
-* **För premiumlagringskonton:** Ett premiumlagringskonto har en högsta totala dataflödeshastighet på 50 Gbit/s. Det totala dataflödet på alla virtuella datordiskar bör inte överskrida den här gränsen.
+* **För Premium storage-konton:** Ett premiumlagringskonto har en högsta totala dataflödeshastighet på 50 Gbit/s. Det totala dataflödet på alla virtuella datordiskar bör inte överskrida den här gränsen.
 

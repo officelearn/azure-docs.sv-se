@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/22/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 6a22a3dabf1aa71e0d092c4145523da9b0121c8c
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 017461d5b73bb48ce61678fbbd795026cef60bc1
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53322217"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57536858"
 ---
 # <a name="enabling-azure-diagnostics-in-azure-cloud-services"></a>Aktivera Azure-diagnostik i Azure Cloud Services
 Se [översikt över Azure-diagnostik](../azure-diagnostics.md) för en bakgrund på Azure-diagnostik.
@@ -113,7 +113,7 @@ namespace WorkerRole1
             ServicePointManager.DefaultConnectionLimit = 12;
 
             // For information on handling configuration changes
-            // see the MSDN topic at http://go.microsoft.com/fwlink/?LinkId=166357.
+            // see the MSDN topic at https://go.microsoft.com/fwlink/?LinkId=166357.
 
             return base.OnStart();
         }
@@ -199,9 +199,9 @@ Om du har problem med att se [felsökning av Azure Diagnostics](../azure-diagnos
 ## <a name="next-steps"></a>Nästa steg
 [Visa en lista över relaterade Azure VM-diagnostik artiklar](../azure-monitor/platform/diagnostics-extension-overview.md#cloud-services-using-azure-diagnostics) felsökning om du vill ändra de data som du kan samla in, eller Läs mer om diagnostik i allmänhet.
 
-[EventSource Class]: http://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource(v=vs.110).aspx
+[EventSource Class]: https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource(v=vs.110).aspx
 
-[Debugging an Azure Application]: http://msdn.microsoft.com/library/windowsazure/ee405479.aspx   
-[Collect Logging Data by Using Azure Diagnostics]: http://msdn.microsoft.com/library/windowsazure/gg433048.aspx
-[Free Trial]: http://azure.microsoft.com/pricing/free-trial/
-[Install and configure Azure PowerShell version 0.8.7 or later]: http://azure.microsoft.com/documentation/articles/install-configure-powershell/
+[Debugging an Azure Application]: https://msdn.microsoft.com/library/windowsazure/ee405479.aspx   
+[Collect Logging Data by Using Azure Diagnostics]: https://msdn.microsoft.com/library/windowsazure/gg433048.aspx
+[Free Trial]: https://azure.microsoft.com/pricing/free-trial/
+[Install and configure Azure PowerShell version 0.8.7 or later]: https://azure.microsoft.com/documentation/articles/install-configure-powershell/

@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/15/2018
 ms.author: magattus
-ms.openlocfilehash: 19f928d854618a5e29841dc45d7846faf7fb83b4
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: b070b302917d69e0145c1a10c90685b55aa4dcc2
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51253133"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57540287"
 ---
 # <a name="manage-expiration-of-web-content-in-azure-cdn"></a>Hanterar du förfallodatum för webbinnehåll i Azure CDN
 > [!div class="op_single_selector"]
@@ -106,7 +106,7 @@ I följande XML-konfiguration-filen exempel visar hur du ställer in den `<clien
 </configuration>
 ```
 
-Du använder den **cacheControlMaxAge** attribut, måste du ange värdet för den **cacheControlMode** attributet `UseMaxAge`. Den här inställningen orsakade HTTP-huvud och direktiv, `Cache-Control: max-age=<nnn>`, som ska läggas till svaret. Formatet för timespan-värde för den **cacheControlMaxAge** attributet är `<days>.<hours>:<min>:<sec>`. Värdet som konverteras till sekunder och används som värde för den `Cache-Control` `max-age` direktiv. Mer information om den `<clientCache>` element, se [klientcachen <clientCache> ](http://www.iis.net/ConfigReference/system.webServer/staticContent/clientCache).  
+Du använder den **cacheControlMaxAge** attribut, måste du ange värdet för den **cacheControlMode** attributet `UseMaxAge`. Den här inställningen orsakade HTTP-huvud och direktiv, `Cache-Control: max-age=<nnn>`, som ska läggas till svaret. Formatet för timespan-värde för den **cacheControlMaxAge** attributet är `<days>.<hours>:<min>:<sec>`. Värdet som konverteras till sekunder och används som värde för den `Cache-Control` `max-age` direktiv. Mer information om den `<clientCache>` element, se [klientcachen <clientCache> ](https://www.iis.net/ConfigReference/system.webServer/staticContent/clientCache).  
 
 ## <a name="setting-cache-control-headers-programmatically"></a>Ange Cache-Control-huvuden programmässigt
 För ASP.NET-program kan du styra CDN-nätverkets funktionssätt programmässigt genom att ange den **HttpResponse.Cache** egenskapen för .NET-API. Information om den **HttpResponse.Cache** egenskap, finns i [HttpResponse.Cache egenskapen](https://msdn.microsoft.com/library/system.web.httpresponse.cache.aspx) och [HttpCachePolicy klass](https://msdn.microsoft.com/library/system.web.httpcachepolicy.aspx).  
@@ -128,10 +128,10 @@ Response.Cache.SetLastModified(DateTime.Now);
 ```
 
 ## <a name="testing-the-cache-control-header"></a>Testa Cache-Control-huvudet
-Du kan enkelt kontrollera TTL-inställningarna för ditt webbinnehåll. Med din webbläsare [utvecklarverktyg](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/), test som webbinnehållet innehåller den `Cache-Control` svarshuvudet. Du kan också använda ett verktyg som **wget**, [Postman](https://www.getpostman.com/), eller [Fiddler](http://www.telerik.com/fiddler) att undersöka svarshuvuden.
+Du kan enkelt kontrollera TTL-inställningarna för ditt webbinnehåll. Med din webbläsare [utvecklarverktyg](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/), test som webbinnehållet innehåller den `Cache-Control` svarshuvudet. Du kan också använda ett verktyg som **wget**, [Postman](https://www.getpostman.com/), eller [Fiddler](https://www.telerik.com/fiddler) att undersöka svarshuvuden.
 
 ## <a name="next-steps"></a>Nästa steg
-* [Läs information om den **clientCache** element](http://www.iis.net/ConfigReference/system.webServer/staticContent/clientCache)
+* [Läs information om den **clientCache** element](https://www.iis.net/ConfigReference/system.webServer/staticContent/clientCache)
 * [Läs i dokumentationen för den **HttpResponse.Cache** egenskap](https://msdn.microsoft.com/library/system.web.httpresponse.cache.aspx) 
 * [Läs i dokumentationen för den **HttpCachePolicy-klass**](https://msdn.microsoft.com/library/system.web.httpcachepolicy.aspx)  
 * [Lär dig mer om cachelagring begrepp](cdn-how-caching-works.md)

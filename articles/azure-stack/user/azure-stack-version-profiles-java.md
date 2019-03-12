@@ -16,12 +16,12 @@ ms.date: 09/28/2018
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 09/28/2018
-ms.openlocfilehash: cd02845f648275ee17f763bd5a94b386f7ed64fd
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: c7a6330f8e0197092f4c581f46c3cc6e68dba247
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55246372"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57540276"
 ---
 # <a name="use-api-version-profiles-with-java-in-azure-stack"></a>Använd API-versionsprofiler med Java i Azure Stack
 
@@ -64,7 +64,7 @@ Använd följande steg för att installera Java SDK:
 
 1.  Följ officiella anvisningarna för att installera Git. Anvisningar finns i [komma igång - installerar Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
 
-2.  Följ officiella anvisningarna för att installera den [Java SDK](http://zulu.org/download/) och [Maven](https://maven.apache.org/). Rätt version är version 8 av Java Developer Kit. Rätt Apache Maven är version 3.0 eller senare. Miljövariabeln JAVA_HOME måste anges till installationsplatsen för Java Development Kit för att slutföra snabbstarten. Mer information finns i [skapa din första funktion med Java och Maven](../../azure-functions/functions-create-first-java-maven.md).
+2.  Följ officiella anvisningarna för att installera den [Java SDK](https://zulu.org/download/) och [Maven](https://maven.apache.org/). Rätt version är version 8 av Java Developer Kit. Rätt Apache Maven är version 3.0 eller senare. Miljövariabeln JAVA_HOME måste anges till installationsplatsen för Java Development Kit för att slutföra snabbstarten. Mer information finns i [skapa din första funktion med Java och Maven](../../azure-functions/functions-create-first-java-maven.md).
 
 3.  Installera rätt beroendepaketen genom att öppna filen Pom.xml i ditt Java-program. Lägg till ett beroende som visas i följande kod:
 

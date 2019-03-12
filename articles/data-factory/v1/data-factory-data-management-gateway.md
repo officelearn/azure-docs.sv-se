@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 28796c753e32a3c3b18052190618152c7669c93d
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 6bb37008b6a8b37e575dcf83dffcf57ab08996fd
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57437079"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57540002"
 ---
 # <a name="data-management-gateway"></a>Gateway för datahantering
 > [!NOTE]
@@ -439,7 +439,7 @@ Det här avsnittet innehåller steg för glidande gatewayklienten från en dator
 ## <a name="encrypting-credentials"></a>Kryptering av autentiseringsuppgifter
 För att kryptera autentiseringsuppgifter i Data Factory Editor, gör du följande:
 
-1. Starta webbläsare på den **gatewaydatorn**, gå till [Azure-portalen](http://portal.azure.com). Sök efter din datafabrik om det behövs, öppna data factory i den **DATA FACTORY** och klicka sedan på **författare och distribuera** att starta Data Factory-redigeraren.
+1. Starta webbläsare på den **gatewaydatorn**, gå till [Azure-portalen](https://portal.azure.com). Sök efter din datafabrik om det behövs, öppna data factory i den **DATA FACTORY** och klicka sedan på **författare och distribuera** att starta Data Factory-redigeraren.
 2. Klicka på en befintlig **länkad tjänst** i trädvyn att se jobbets JSON-definition eller skapa en länkad tjänst som kräver en data management gateway (till exempel: SQLServer eller Oracle).
 3. I JSON-redigerare för den **gatewayName** egenskap, anger du namnet på gatewayen.
 4. Ange servernamnet för den **datakälla** -egenskapen i den **connectionString**.

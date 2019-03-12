@@ -1,7 +1,7 @@
 ---
-title: Skydda webbtjänster med SSL
+title: Säkra webbtjänster med SSL
 titleSuffix: Azure Machine Learning service
-description: Lär dig hur du skyddar en webbtjänst som distribueras med Azure Machine Learning-tjänsten. Du kan begränsa åtkomsten till webbtjänster och skydda data som skickats av klienter som använder secure socket lager (SSL) och nyckel för autentisering.
+description: Lär dig hur du skyddar en webbtjänst som distribueras med Azure Machine Learning-tjänsten genom att aktivera HTTPS. HTTPS skyddar de data som skickats av klienterna som använder transport layer security (TLS), en ersättning för secure socket lager (SSL). Den används också av klienter för att verifiera identiteten för webbtjänsten.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,27 +11,34 @@ ms.author: aashishb
 author: aashishb
 ms.date: 02/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 160bc0e67b2686d17357241887a207cb4a03002c
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: 91958a76ffb3cafd818949c1475fd13bb978a928
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56098110"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57731886"
 ---
 # <a name="use-ssl-to-secure-web-services-with-azure-machine-learning-service"></a>Använda SSL för att skydda webbtjänster med Azure Machine Learning-tjänsten
 
-I den här artikeln får du lära dig hur du skyddar en webbtjänst som distribueras med Azure Machine Learning-tjänsten. Du kan begränsa åtkomsten till webbtjänster och skydda data som skickats av klienter som använder secure socket lager (SSL) och nyckel för autentisering.
+I den här artikeln får du lära dig hur du skyddar en webbtjänst som distribueras med Azure Machine Learning-tjänsten. Du kan begränsa åtkomsten till webbtjänster och skydda data som skickats av klienter som använder [Hypertext Transfer Protocol Secure (HTTPS)](https://en.wikipedia.org/wiki/HTTPS).
+
+HTTPS används för att skydda kommunikationen mellan en klient och din webbtjänst genom att kryptera kommunikationen mellan två. Kryptering hanteras med [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security). Ibland refereras det fortfarande till som SSL Secure Sockets Layer (), som var föregångare till TLS.
+
+> [!TIP]
+> Azure Machine Learning SDK använder termen ”SSL” för egenskaper som har att göra säker kommunikation. Detta innebär inte att TLS används inte av din webbtjänst, precis som SSL är mer identifierbara giltighetstiden för många läsare.
+
+TLS och SSL nåde förlitar sig på __digitala certifikat__, som används för att utföra verifiering av kryptering och identitet. Mer information om hur digitala certifikat fungerar finns i Wikipedia-posten på [offentlig nyckelinfrastruktur (PKI)](https://en.wikipedia.org/wiki/Public_key_infrastructure).
 
 > [!Warning]
-> Om du inte aktiverar SSL kan kommer alla användare på internet att kunna göra anrop till webbtjänsten.
+> Om du inte aktivera och använda HTTPS för din webbtjänst, kanske data som skickas till tjänsten visas vidare till andra på internet.
+>
+> HTTPS kan också klienten för att kontrollera att den server som den ansluter till. Detta skyddar klienter mot [man-in-the-middle](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) attacker.
 
-SSL krypterar data som skickas mellan klienten och webbtjänsten. Det används också av klienten för att verifiera identiteten för servern. Autentisering är bara aktiverat för tjänster som har angetts ett SSL-certifikat och nyckel.  Om du aktiverar SSL krävs en autentiseringsnyckel vid åtkomst till webbtjänsten.
-
-Oavsett om du distribuerar en webbtjänst som aktiverats med SSL eller om du aktiverar SSL för befintliga distribuerade webbtjänsten är samma stegen:
+Processen för att skydda en ny webbtjänst eller en befintlig är följande:
 
 1. Få ett domännamn.
 
-2. Få ett SSL-certifikat.
+2. Få ett digitalt certifikat.
 
 3. Distribuera eller uppdatera webbtjänsten med SSL-inställningen aktiverad.
 
@@ -45,7 +52,7 @@ Om du inte redan har ett domännamn kan du köpa en från en __domännamnsregist
 
 ## <a name="get-an-ssl-certificate"></a>Hämta ett SSL-certifikat
 
-Det finns många sätt att få ett SSL-certifikat. De vanligaste är att köpa en från en __certifikatutfärdare__ (CA). Oavsett om du har fått certifikatet, behöver du följande filer:
+Det finns många sätt att få ett SSL-certifikat (digitala certifikat). De vanligaste är att köpa en från en __certifikatutfärdare__ (CA). Oavsett om du har fått certifikatet, behöver du följande filer:
 
 * En __certifikat__. Certifikatet måste innehålla fullständig certifikatkedjan och måste vara PEM-kodat.
 * En __nyckeln__. Nyckeln måste vara PEM-kodat.

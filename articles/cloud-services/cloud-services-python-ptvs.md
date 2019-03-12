@@ -11,21 +11,21 @@ ms.service: cloud-services
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: python
-ms.topic: hero-article
+ms.topic: conceptual
 ms.date: 07/18/2017
 ms.author: jeconnoc
-ms.openlocfilehash: db540326ccdf1683394eda4e168a684e8e2ae3db
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
-ms.translationtype: HT
+ms.openlocfilehash: 2cfb8f922819802834d9833ae614f5bc5b4ff886
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53605882"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57764480"
 ---
 # <a name="python-web-and-worker-roles-with-python-tools-for-visual-studio"></a>Webb- och arbetsroller för Python med Python Tools för Visual Studio
 
 I den här artikeln ges en översikt över hur du använder webb- och arbetsroller för Python med hjälp av [Python Tools för Visual Studio][Python Tools for Visual Studio]. Lär dig hur du använder Visual Studio för att skapa och distribuera en grundläggande molntjänst som använder Python.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 * [Visual Studio 2013, 2015 eller 2017](https://www.visualstudio.com/)
 * [Python Tools för Visual Studio][Python Tools for Visual Studio] (PTVS)
 * [Azure SDK Tools för VS 2013][Azure SDK Tools for VS 2013] eller  
@@ -360,11 +360,11 @@ Mer information om hur du använder Azure-tjänster från dina webb- och arbetsr
 
 <!--External Link references-->
 
-[Python Tools for Visual Studio]: http://aka.ms/ptvs
-[Python Tools for Visual Studio Documentation]: http://aka.ms/ptvsdocs
+[Python Tools for Visual Studio]: https://aka.ms/ptvs
+[Python Tools for Visual Studio Documentation]: https://aka.ms/ptvsdocs
 [Cloud Service Projects]: https://docs.microsoft.com/visualstudio/python/python-azure-cloud-service-project-template
-[Azure SDK Tools for VS 2013]: http://go.microsoft.com/fwlink/?LinkId=746482
-[Azure SDK Tools for VS 2015]: http://go.microsoft.com/fwlink/?LinkId=746481
-[Azure SDK Tools for VS 2017]: http://go.microsoft.com/fwlink/?LinkId=746483
+[Azure SDK Tools for VS 2013]: https://go.microsoft.com/fwlink/?LinkId=746482
+[Azure SDK Tools for VS 2015]: https://go.microsoft.com/fwlink/?LinkId=746481
+[Azure SDK Tools for VS 2017]: https://go.microsoft.com/fwlink/?LinkId=746483
 [Python 2.7 32-bit]: https://www.python.org/downloads/
 [Python 3.5 32-bit]: https://www.python.org/downloads/

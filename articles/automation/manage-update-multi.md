@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 01/10/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 864e93dcd94fd36b0e34495e0ea27f22d8b0dd0c
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 65ea01047743c5894ac2ae8b38a197b57cb6971c
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56817685"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57531327"
 ---
 # <a name="manage-updates-for-multiple-machines"></a>Hantera uppdateringar av flera datorer
 
@@ -70,7 +70,7 @@ När onboardingsprocessen har slutförts, har uppdateringshantering aktiverats f
 
 ## <a name="enable-update-management-for-non-azure-virtual-machines-and-computers"></a>Aktivera uppdateringshantering för icke-Azure virtuella datorer och datorer
 
-Information om hur du aktiverar uppdateringshantering för icke - Azure Windows-datorer och datorer, se [ansluta Windows-datorer till Log Analytics-tjänsten i Azure](../log-analytics/log-analytics-windows-agent.md).
+Information om hur du aktiverar uppdateringshantering för icke - Azure Windows-datorer och datorer, se [ansluta Windows-datorer till Azure Monitor-tjänsten i Azure](../log-analytics/log-analytics-windows-agent.md).
 
 Information om hur du aktiverar uppdateringshantering för Azure Linux-datorer och datorer, se [ansluta dina Linux-datorer till Azure Monitor-loggar](../log-analytics/log-analytics-agent-linux.md).
 
@@ -132,7 +132,7 @@ I den **ny uppdateringsdistribution** fönstret anger du följande information:
 - **Namn**: Ange ett unikt namn som identifierar uppdateringsdistributionen.
 - **Operativsystem**: Välj **Windows** eller **Linux**.
 - **Grupper som ska uppdateras (förhandsversion)**: Definiera en fråga som baseras på en kombination av prenumeration, resursgrupper, platser och taggar för att skapa en dynamisk grupp med virtuella Azure-datorer som ska ingå i din distribution. Mer information finns i [Dynamiska grupper](automation-update-management.md#using-dynamic-groups)
-- **Datorer som ska uppdateras**: Välj en sparad sökning importerat gruppen, eller datorer att välja de datorer som du vill uppdatera. Om du väljer **Datorer** visas beredskapen för datorn i kolumnen **Uppdatera agentberedskap**. Du kan se hälsotillståndet för datorn innan du schemalägga distributionen av uppdateringen. Läs om de olika metoderna för att skapa datorgrupper i Azure Monitor-loggar i [datorgrupper i Azure Monitor-loggar](../azure-monitor/platform/computer-groups.md)
+- **Datorer som ska uppdateras**: Välj en sparad sökning importerat gruppen, eller datorer att välja de datorer som du vill uppdatera. Om du väljer **Datorer** visas beredskapen för datorn i kolumnen **Uppdatera agentberedskap**. Du kan se hälsotillståndet för datorn innan du schemalägga distributionen av uppdateringen. Information om de olika metoderna för att skapa datorgrupper i Azure Monitor-loggar finns i [datorgrupper i Azure Monitor-loggar](../azure-monitor/platform/computer-groups.md)
 
   ![Nya rutan för distribution av uppdatering](./media/manage-update-multi/update-select-computers.png)
 

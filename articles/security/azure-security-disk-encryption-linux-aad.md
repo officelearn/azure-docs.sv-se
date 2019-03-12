@@ -3,17 +3,16 @@ title: Azure Disk Encryption med Azure AD App Linux IaaS-datorer (tidigare versi
 description: Den här artikeln innehåller anvisningar om hur du aktiverar Microsoft Azure Disk Encryption för virtuella Linux IaaS-datorer.
 author: mestew
 ms.service: security
-ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 03/04/2019
+ms.date: 03/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 292dafb88362d7f7d0ec07a2a7961b98e6518204
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 659530d1dcea5593e86edf85cb6c2b15da57618e
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57339393"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57775644"
 ---
 # <a name="enable-azure-disk-encryption-for-linux-iaas-vms-previous-release"></a>Aktivera Azure Disk Encryption för virtuella Linux IaaS-datorer (tidigare version)
 
@@ -32,38 +31,8 @@ Ta en [ögonblicksbild](../virtual-machines/windows/snapshot-copy-managed-disk.m
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="bkmk_NewLinux"></a> Distribuera nya virtuella Linux IaaS-datorer med diskkryptering aktiverat 
-
-1. Använd den [Resource Manager-mall](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-full-disk-encrypted-rhel) att skapa en ny krypterade virtuella Linux IaaS-datorer. Mallen skapar en ny Red Hat Linux 7.2 VM med en 200 GB RAID-0-matris och fullständig diskkryptering som använder hanterade diskar. På den [vanliga frågor och svar](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport) artikeln ser du att vissa Linux-distributioner bara stöder kryptering för datadiskar. Den här mallen innehåller dock en möjlighet att bekanta dig med att distribuera mallar och verifierar krypteringsstatus med flera metoder. 
- 
-1. Klicka på **distribuera till Azure** på Azure Resource Manager-mall.
-
-2. Välj prenumeration, resursgrupp, resursgruppens plats, parametrar, juridiska villkor och avtal. Klicka på **skapa** att aktivera kryptering på den befintliga eller körs IaaS-VM.
-
-3. När du har distribuerat mallen Kontrollera krypteringsstatus VM med önskad metod:
-     - Kontrollera med Azure CLI med hjälp av den [az vm encryption show](/cli/azure/vm/encryption#az-vm-encryption-show) kommando. 
-
-         ```azurecli-interactive 
-         az vm encryption show --name "MySecureVM" --resource-group "MyVirtualMachineResourceGroup"
-         ```
-
-     - Kontrollera med Azure PowerShell med hjälp av den [Get-AzVmDiskEncryptionStatus](/powershell/module/az.compute/get-azvmdiskencryptionstatus) cmdlet. 
-
-         ```azurepowershell-interactive
-         Get-AzVmDiskEncryptionStatus -ResourceGroupName 'MyVirtualMachineResourceGroup' -VMName 'MySecureVM'
-         ```
-
-     - Välj den virtuella datorn, och klicka sedan på **diskar** under den **inställningar** rubrik för att kontrollera status för datakryptering i portalen. I diagrammet under **kryptering**, ser du om den är aktiverad. 
-
-| Parameter | Beskrivning |
-| --- | --- |
-| Klient-ID för AAD | Klient-ID för Azure AD-program som har behörighet att skriva hemligheter i key vault. |
-| Klienthemlighet för AAD | Klienthemlighet för Azure AD-program som har behörighet att skriva hemligheter till ditt nyckelvalv. |
-| Namn på Key Vault | Namnet på det nyckelvalv som nyckeln ska placeras. |
-| Key Vault-resursgrupp | Resursgrupp för nyckelvalvet. |
-
-
 ## <a name="bkmk_RunningLinux"> </a> Aktivera kryptering på en befintlig eller körs IaaS Linux virtuell dator
+
 I det här scenariot kan du aktivera kryptering med hjälp av Resource Manager-mall, PowerShell-cmdletar eller CLI-kommandon. 
 
 >[!IMPORTANT]

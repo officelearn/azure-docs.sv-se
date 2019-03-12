@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 09/18/2018
 ms.author: priyar
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: f7620c29e7d00a06be6d14740f05cc7543e49837
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 8f7de542610731f88104591dc27baac1406a9514
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56674573"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57548412"
 ---
 # <a name="bing-text-to-speech-api"></a>Bing text till tal-API
 
@@ -71,7 +71,7 @@ Auktorisering | Autentiseringstoken |  Se den <a href="#Subscription">auktoriser
 
 ### <a name="InputParam"></a>Indataparametrar
 
-Begäranden till den Bing text till tal-API som görs med hjälp av HTTP POST-anrop. Rubrikerna som anges i föregående avsnitt. Texten innehåller tal syntes Markup Language (SSML) indata som representerar texten som ska syntetiseras. En beskrivning av koden som används för att styra aspekter av tal, till exempel språket och kön talaren finns i den [SSML W3C-specifikationen](http://www.w3.org/TR/speech-synthesis/).
+Begäranden till den Bing text till tal-API som görs med hjälp av HTTP POST-anrop. Rubrikerna som anges i föregående avsnitt. Texten innehåller tal syntes Markup Language (SSML) indata som representerar texten som ska syntetiseras. En beskrivning av koden som används för att styra aspekter av tal, till exempel språket och kön talaren finns i den [SSML W3C-specifikationen](https://www.w3.org/TR/speech-synthesis/).
 
 >[!NOTE]
 >Den maximala storleken för SSML indata som stöds är 1 024 tecken, inklusive alla taggar.
@@ -141,42 +141,42 @@ Voice name not supported
 
 ## <a name="ChangeSSML"></a>Ändra röst utdata via SSML
 
-SSML 1.0 har stöd för Microsoft text till tal-API som definierats i W3C [tal syntes Markup Language (SSML) Version 1.0](http://www.w3.org/TR/2009/REC-speech-synthesis-20090303/). Det här avsnittet visas exempel på vissa egenskaper för genererade röst utdata som liknar talar Betygsätt uttal osv med hjälp av SSML taggar.
+SSML 1.0 har stöd för Microsoft text till tal-API som definierats i W3C [tal syntes Markup Language (SSML) Version 1.0](https://www.w3.org/TR/2009/REC-speech-synthesis-20090303/). Det här avsnittet visas exempel på vissa egenskaper för genererade röst utdata som liknar talar Betygsätt uttal osv med hjälp av SSML taggar.
 
 1. Att lägga till break
 
   ```
-  <speak version='1.0' xmlns="http://www.w3.org/2001/10/synthesis" xml:lang='en-US'><voice  name='Microsoft Server Speech Text to Speech Voice (en-US, BenjaminRUS)'> Welcome to use Microsoft Cognitive Services <break time="100ms" /> Text-to-Speech API.</voice> </speak>
+  <speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xml:lang='en-US'><voice  name='Microsoft Server Speech Text to Speech Voice (en-US, BenjaminRUS)'> Welcome to use Microsoft Cognitive Services <break time="100ms" /> Text-to-Speech API.</voice> </speak>
   ```
 
 2. Engelsktalande förändringstakten
 
   ```
-  <speak version='1.0' xmlns="http://www.w3.org/2001/10/synthesis" xml:lang='en-US'><voice  name='Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)'><prosody rate="+30.00%">Welcome to use Microsoft Cognitive Services Text-to-Speech API.</prosody></voice> </speak>
+  <speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xml:lang='en-US'><voice  name='Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)'><prosody rate="+30.00%">Welcome to use Microsoft Cognitive Services Text-to-Speech API.</prosody></voice> </speak>
   ```
 
 3. Uttal av
 
   ```
-  <speak version='1.0' xmlns="http://www.w3.org/2001/10/synthesis" xml:lang='en-US'><voice  name='Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)'> <phoneme alphabet="ipa" ph="t&#x259;mei&#x325;&#x27E;ou&#x325;"> tomato </phoneme></voice> </speak>
+  <speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xml:lang='en-US'><voice  name='Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)'> <phoneme alphabet="ipa" ph="t&#x259;mei&#x325;&#x27E;ou&#x325;"> tomato </phoneme></voice> </speak>
   ```
 
 4. Ändra volym
 
   ```
-  <speak version='1.0' xmlns="http://www.w3.org/2001/10/synthesis" xml:lang='en-US'><voice  name='Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)'><prosody volume="+20.00%">Welcome to use Microsoft Cognitive Services Text-to-Speech API.</prosody></voice> </speak>
+  <speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xml:lang='en-US'><voice  name='Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)'><prosody volume="+20.00%">Welcome to use Microsoft Cognitive Services Text-to-Speech API.</prosody></voice> </speak>
   ```
 
 5. Ändra försäljningsargument
 
   ```
-  <speak version='1.0' xmlns="http://www.w3.org/2001/10/synthesis" xml:lang='en-US'><voice  name='Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)'>Welcome to use <prosody pitch="high">Microsoft Cognitive Services Text-to-Speech API.</prosody></voice> </speak>
+  <speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xml:lang='en-US'><voice  name='Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)'>Welcome to use <prosody pitch="high">Microsoft Cognitive Services Text-to-Speech API.</prosody></voice> </speak>
   ```
 
 6. Ändra prosody profil
 
   ```
-  <speak version='1.0' xmlns="http://www.w3.org/2001/10/synthesis" xml:lang='en-US'><voice  name='Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)'><prosody contour="(80%,+20%) (90%,+30%)" >Good morning.</prosody></voice> </speak>
+  <speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xml:lang='en-US'><voice  name='Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)'><prosody contour="(80%,+20%) (90%,+30%)" >Good morning.</prosody></voice> </speak>
   ```
 
 > [!NOTE]

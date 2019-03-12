@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 7d845b0e434f21c6db46cddb26b7f55aeb33d080
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 8b5c5f316ff2c3ada035736755c7898270c49dee
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56733783"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57551831"
 ---
 # <a name="azure-devtest-labs-faq"></a>Azure DevTest Labs vanliga frågor och svar
 Få svar på några av de vanligaste frågorna om Azure DevTest Labs.
@@ -99,8 +99,8 @@ Om du använder Azure DevOps kan du använda en [DevTest Labs-uppgifter tillägg
 Följande blogginlägg erbjudandet vägledning och information om hur du använder tillägget Azure DevOps-tjänsterna:
 
 * [DevTest Labs och Azure DevOps-tillägget](https://blogs.msdn.microsoft.com/devtestlab/2016/06/15/azure-devtest-labs-vsts-extension/)
-* [Distribuera en ny virtuell dator i en befintlig labb i DevTest Labs från Azure DevOps-tjänster](http://www.visualstudiogeeks.com/blog/DevOps/Deploy-New-VM-To-Existing-AzureDevTestLab-From-VSTS)
-* [Med Azure DevOps-tjänsterna versionshantering för kontinuerlig distribution till DevTest Labs](http://www.visualstudiogeeks.com/blog/DevOps/Use-VSTS-ReleaseManagement-to-Deploy-and-Test-in-AzureDevTestLabs)
+* [Distribuera en ny virtuell dator i en befintlig labb i DevTest Labs från Azure DevOps-tjänster](https://www.visualstudiogeeks.com/blog/DevOps/Deploy-New-VM-To-Existing-AzureDevTestLab-From-VSTS)
+* [Med Azure DevOps-tjänsterna versionshantering för kontinuerlig distribution till DevTest Labs](https://www.visualstudiogeeks.com/blog/DevOps/Use-VSTS-ReleaseManagement-to-Deploy-and-Test-in-AzureDevTestLabs)
 
 För andra kontinuerlig integrering (CI) / kontinuerlig leverans (CD) verktygskedjor som du kan uppnå samma scenarier genom att distribuera [Azure Resource Manager-mallar](https://aka.ms/dtlquickstarttemplate) med hjälp av [Azure PowerShell-cmdlets](../azure-resource-manager/resource-group-template-deploy.md) och [.NET SDK: er](https://www.nuget.org/packages/Microsoft.Azure.Management.DevTestLabs/). Du kan också använda [REST API: er för DevTest Labs](https://aka.ms/dtlrestapis) att integrera med din verktygskedja.  
 

@@ -1,10 +1,18 @@
+---
+ms.openlocfilehash: 7eab9e74cac444671e9ce2a6081359a1f01eabd0
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57543142"
+---
 # <a name="legal-notices"></a>Juridisk information
 
 Microsoft och eventuella bidragsgivares ge dig en licens för Microsoft-dokumentationen och övrigt innehåll i den här databasen enligt den [Creative Commons Attribution 4.0 International Public License](https://creativecommons.org/licenses/by/4.0/legalcode), och ge dig en licens till all kod i databasen under den [MIT-licensen](https://opensource.org/licenses/MIT).
 
 Microsoft, Windows, Microsoft Azure och/eller andra Microsoft-produkter och tjänster som nämns i dokumentationen kan vara varumärken eller registrerade varumärken som tillhör Microsoft i USA och i andra länder.
 Licenserna för det här projektet ger dig inte behörighet att använda alla Microsoft-namn, logotyper eller varumärken.
-Microsofts allmänna riktlinjer för varumärken finns på [ https://go.microsoft.com/fwlink/?LinkID=254653 ](httpss://go.microsoft.com/fwlink/?LinkID=254653).
+Microsofts allmänna riktlinjer för varumärken finns på [ https://go.microsoft.com/fwlink/?LinkID=254653 ](https://go.microsoft.com/fwlink/?LinkID=254653).
 
 Sekretessinformation finns på [https://privacy.microsoft.com/en-us/](https://privacy.microsoft.com/en-us/)
 

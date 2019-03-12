@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8b8d56befa49b74ba123ff250720ac581604bbd6
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 43947413f061ec8b366392b676e848ebf5e6484e
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57452334"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57570121"
 ---
 # <a name="authenticate-stream-analytics-to-azure-data-lake-storage-gen1-using-managed-identities-preview"></a>Autentisera Stream Analytics till Azure Data Lake Storage Gen1 med hjälp av hanterade identiteter (förhandsversion)
 
@@ -93,62 +93,61 @@ Den här artikeln visar tre sätt att aktivera hanterad identitet för Azure Str
 
 1. Du kan skapa en *Microsoft.StreamAnalytics/streamingjobs* resursen med en hanterad identitet genom att inkludera följande egenskap i avsnittet för Resource Manager-mallen:
 
-   ```json
-   "Identity": {
-   "Type": "SystemAssigned",
-   },
-   ```
+    ```json
+    "Identity": {
+      "Type": "SystemAssigned",
+    },
+    ```
 
    Azure Resource Manager för att skapa och hantera identitet för Azure Stream Analytics-jobb anger den här egenskapen.
 
    **Exempeljobb**
 
-   ```json
-   { 
-   "Name": "AsaJobWithIdentity", 
-   "Type": "Microsoft.StreamAnalytics/streamingjobs", 
-   "Location": "West US",
-   "Identity": {
-     "Type": "SystemAssigned", 
-     }, 
-   "properties": {
-      "sku": {
-       "name": "standard"
-       },
-   "outputs": [
-         {
-           "name": "string",
-           "properties":{
-             "datasource": {        
-               "type": "Microsoft.DataLake/Accounts",
-               "properties": {
-                 "accountName": “myDataLakeAccountName",
-                 "filePathPrefix": “cluster1/logs/{date}/{time}",
-                 "dateFormat": "YYYY/MM/DD",
-                 "timeFormat": "HH",
-                 "authenticationMode": "Msi"
-                 }
-                 
-   }
+    ```json
+    {
+      "Name": "AsaJobWithIdentity",
+      "Type": "Microsoft.StreamAnalytics/streamingjobs",
+      "Location": "West US",
+      "Identity": {
+        "Type": "SystemAssigned",
+      },
+      "properties": {
+        "sku": {
+          "name": "standard"
+        },
+        "outputs": [
+          {
+            "name": "string",
+            "properties":{
+              "datasource": {
+                "type": "Microsoft.DataLake/Accounts",
+                "properties": {
+                  "accountName": "myDataLakeAccountName",
+                  "filePathPrefix": "cluster1/logs/{date}/{time}",
+                  "dateFormat": "YYYY/MM/DD",
+                  "timeFormat": "HH",
+                  "authenticationMode": "Msi"
+                }
+              }
    ```
   
    **Jobbet exempelsvar**
 
    ```json
-   { 
-   "Name": "mySAJob", 
-   "Type": "Microsoft.StreamAnalytics/streamingjobs", 
-   "Location": "West US",
-   "Identity": {
-   "Type": "SystemAssigned",
-    "principalId": "GUID", 
-    "tenantId": "GUID", 
-   }, 
-   "properties": {
-           "sku": {
-             "name": "standard"
-           },
-   }
+   {
+    "Name": "mySAJob",
+    "Type": "Microsoft.StreamAnalytics/streamingjobs",
+    "Location": "West US",
+    "Identity": {
+      "Type": "SystemAssigned",
+        "principalId": "GUID",
+        "tenantId": "GUID",
+      },
+      "properties": {
+        "sku": {
+          "name": "standard"
+        },
+      }
    ```
 
    Anteckna huvudkontots ID från svaret som jobbet att bevilja åtkomst till ADLS-resurser som krävs.

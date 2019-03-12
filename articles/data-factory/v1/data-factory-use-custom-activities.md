@@ -3,22 +3,22 @@ title: Use custom activities in an Azure Data Factory pipeline (Använda anpassa
 description: Lär dig hur du skapar anpassade aktiviteter och använda dem i ett Azure Data Factory-pipelinen.
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
 ms.assetid: 8dd7ba14-15d2-4fd9-9ada-0b2c684327e9
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.author: douglasl
+author: nabhishek
+ms.author: abnarain
+manager: craigg
 robots: noindex
-ms.openlocfilehash: 25592f80abc8aea338679f199f03114c2d0785f6
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 6d7aeef415fcc53fda2f5d66d748dd38f6d644fb
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55077496"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57576743"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Use custom activities in an Azure Data Factory pipeline (Använda anpassade aktiviteter i en Azure Data Factory-pipeline)
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -52,7 +52,7 @@ I den här genomgången kan du köra dina anpassade .NET-aktiviteter med hjälp 
 
 Skapa ett Batch-konto med en pool med virtuella datorer för den här självstudien. Här är stegen:
 
-1. Skapa en **Azure Batch-konto** med hjälp av den [Azure-portalen](http://portal.azure.com). Se [skapa och hantera ett Azure Batch-konto] [ batch-create-account] artikeln anvisningar.
+1. Skapa en **Azure Batch-konto** med hjälp av den [Azure-portalen](https://portal.azure.com). Se [skapa och hantera ett Azure Batch-konto] [ batch-create-account] artikeln anvisningar.
 2. Skriv ned Azure Batch-kontonamn, nyckel, URI: N och namn på programpool. Du behöver dem för att skapa ett Azure Batch-länkad tjänst.
     1. På startsidan för Azure Batch-konto, visas en **URL** i följande format: `https://myaccount.westus.batch.azure.com`. I det här exemplet **myaccount** är namnet på Azure Batch-kontot. URI: N som du använder i länkade tjänstedefinition är URL: en utan att namnet på kontot. Till exempel: `https://<region>.batch.azure.com`.
     2. Klicka på **nycklar** på den vänstra menyn och kopiera den **primära ÅTKOMSTNYCKEL**.
@@ -1040,15 +1040,15 @@ Den [Azure Data Factory - lokal miljö](https://github.com/gbrueckl/Azure.DataFa
 [azure-powershell-install]: https://github.com/Azure/azure-sdk-tools/releases
 
 
-[developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
-[cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456
+[developer-reference]: https://go.microsoft.com/fwlink/?LinkId=516908
+[cmdlet-reference]: https://go.microsoft.com/fwlink/?LinkId=517456
 
 [new-azure-batch-account]: https://msdn.microsoft.com/library/mt125880.aspx
 [new-azure-batch-pool]: https://msdn.microsoft.com/library/mt125936.aspx
-[azure-batch-blog]: http://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx
+[azure-batch-blog]: https://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx
 
-[nuget-package]: http://go.microsoft.com/fwlink/?LinkId=517478
-[adf-developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
+[nuget-package]: https://go.microsoft.com/fwlink/?LinkId=517478
+[adf-developer-reference]: https://go.microsoft.com/fwlink/?LinkId=516908
 [azure-preview-portal]: https://portal.azure.com/
 
 [adfgetstarted]: data-factory-copy-data-from-azure-blob-storage-to-sql-database.md

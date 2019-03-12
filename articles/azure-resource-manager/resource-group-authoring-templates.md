@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/04/2019
+ms.date: 03/11/2019
 ms.author: tomfitz
-ms.openlocfilehash: f67741417c6d31c4adf1d063aac3bd3ccc310fde
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 5c8ec54df0d578c6d12524a4128b9cc54e6464a0
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57440258"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57781909"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Förstå strukturen och syntaxen för Azure Resource Manager-mallar
 
@@ -46,7 +46,7 @@ I sin enklaste struktur har en mall följande element:
 |:--- |:--- |:--- |
 | $schema |Ja |Platsen för schemat JSON-fil som beskriver versionen av mallspråk.<br><br> För distribution av resursgrupper, använder du: `https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#`<br><br>För prenumerationsdistributioner av, använder du: `https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#` |
 | contentVersion |Ja |Versionen av mallen (till exempel 1.0.0.0). Du kan ange ett värde för det här elementet. Använd det här värdet till dokumentet betydande förändringar i mallen. Det här värdet kan användas för att se till att rätt mall används när du distribuerar resurser med hjälp av mallen. |
-| apiProfile |Nej | En API-version som fungerar som en uppsättning API-versioner för resurstyper. Använd det här värdet för att undvika att behöva ange API-versioner för varje resurs i mallen. När du anger en profil för API-version och inte anger en API-version för resurstypen använder Resource Manager API-versionen från profilen för den resurstypen. Mer information finns i [spåra versioner med hjälp av API-profiler](templates-cloud-consistency.md#track-versions-using-api-profiles). |
+| apiProfile |Nej | En API-version som fungerar som en uppsättning API-versioner för resurstyper. Använd det här värdet för att undvika att behöva ange API-versioner för varje resurs i mallen. När du anger en profil för API-version och inte anger en API-version för resurstypen använder Resource Manager API-versionen för den resurstyp som definieras i profilen.<br><br>API-profilegenskapen är särskilt användbart när du distribuerar en mall till olika miljöer, till exempel Azure Stack och globala Azure. Använda profilversionen API för att kontrollera att mallen använder automatiskt de versioner som stöds i båda miljöerna. En lista över de aktuella versionerna av API-profilen och resurserna som API-versioner som anges i profilen för finns i [API profil](https://github.com/Azure/azure-rest-api-specs/tree/master/profile).<br><br>Mer information finns i [spåra versioner med hjälp av API-profiler](templates-cloud-consistency.md#track-versions-using-api-profiles). |
 | [parameters](#parameters) |Nej |Värden som tillhandahålls när distributionen körs för att anpassa resursdistributionen. |
 | [Variabler](#variables) |Nej |Värden som används som JSON-fragment i mallen för att förenkla mallspråksuttryck. |
 | [Funktioner](#functions) |Nej |Användardefinierade funktioner som är tillgängliga i mallen. |
@@ -57,17 +57,38 @@ Varje element har egenskaper som du kan ange. Den här artikeln beskriver avsnit
 
 ## <a name="syntax"></a>Syntax
 
-Grundläggande syntaxen för mallen är JSON. Dock utöka uttryck och funktioner i JSON-värden som är tillgängliga i mallen.  Uttryck skrivs i JSON-stränglitteraler vars första och sista tecken börjar hakparenteserna: `[` och `]`respektive. Värdet för uttrycket utvärderas när mallen distribueras. Medan skrivs som en teckensträng, kan resultatet av utvärderingen av uttrycket vara av en annan JSON-typ, till exempel en matris eller ett heltal, beroende på faktiska uttrycket.  Ha en teckensträng som börjar med en hakparentes `[`, men inte har det tolkas som ett uttryck, lägga till en extra hakparentes för att starta strängen med `[[`.
-
-Normalt kan använda du uttryck med functions för att utföra åtgärder för att konfigurera distributionen. Precis som i JavaScript, funktionsanrop som är formaterade som `functionName(arg1,arg2,arg3)`. Du referera till egenskaper med hjälp av punkt och [index] operatörer.
-
-I följande exempel visas hur du använder flera funktioner när ett värde:
+Grundläggande syntaxen för mallen är JSON. Du kan dock använda uttryck för att utöka de JSON-värdena som är tillgängliga i mallen.  Uttryck börja och sluta med hakparenteser: `[` och `]`respektive. Värdet för uttrycket utvärderas när mallen distribueras. Ett uttryck kan returnera en sträng, heltal, booleskt värde, matris eller ett objekt. I följande exempel visar ett uttryck i standardvärdet för en parameter:
 
 ```json
-"variables": {
-  "storageName": "[concat(toLower(parameters('storageNamePrefix')), uniqueString(resourceGroup().id))]"
-}
+"parameters": {
+  "location": {
+    "type": "string",
+    "defaultValue": "[resourceGroup().location]"
+  }
+},
 ```
+
+I uttrycket syntaxen `resourceGroup()` anropar någon av de funktioner som Resource Manager tillhandahåller för användning i en mall. Precis som i JavaScript, funktionsanrop som är formaterade som `functionName(arg1,arg2,arg3)`. Syntaxen `.location` hämtar en egenskap från objektet som returnerades av funktionen.
+
+Mallfunktioner och deras parametrar är skiftlägeskänsliga. Exempel: Resource Manager löser **variables('var1')** och **VARIABLES('VAR1')** samma. När det granskades, såvida inte funktionen ändrar uttryckligen skiftläge (till exempel toUpper eller toLower), funktionen bevarar skiftläge. Vissa typer av resurser kan ha krav för användningsfall oavsett hur funktioner utvärderas.
+
+Ha en teckensträng som börjar med en hakparentes `[`, men inte har det tolkas som ett uttryck, lägga till en extra hakparentes för att starta strängen med `[[`.
+
+Om du vill skicka ett strängvärde som en parameter till en funktion, Använd enkla citattecken.
+
+```json
+"name": "[concat('storage', uniqueString(resourceGroup().id))]"
+```
+
+Använd ett omvänt snedstreck för att undvika dubbla citattecken i ett uttryck, till exempel lägga till en JSON-objekt i mallen.
+
+```json
+"tags": {
+    "CostCenter": "{\"Dept\":\"Finance\",\"Environment\":\"Production\"}"
+},
+```
+
+Ett malluttryck får inte överskrida 24,576 tecken.
 
 En fullständig lista över Mallfunktioner finns [Azure Resource Manager-Mallfunktioner](resource-group-template-functions.md). 
 

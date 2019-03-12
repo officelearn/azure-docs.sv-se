@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 3d4be0466f7f91c23666af4b155fe3b69c868d58
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 94c464733d731505cde0327ce9a295d3b4ab68de
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57449554"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57538705"
 ---
 # <a name="move-data-between-on-premises-sources-and-the-cloud-with-data-management-gateway"></a>Flytta data mellan lokala källor och molnet med Data Management Gateway
 > [!NOTE]
@@ -362,7 +362,7 @@ I det här steget skapar du en **pipeline** med en **Kopieringsaktiviteten** som
    * I den **typeProperties** avsnittet **SqlSource** har angetts som den **källtyp** och ** BlobSink ** har angetts som den **mottagare typ**.
    * SQL-fråga `select * from emp` har angetts för den **sqlReaderQuery** egenskapen för **SqlSource**.
 
-   Både start- och slutdatum måste vara i [ISO-format](http://en.wikipedia.org/wiki/ISO_8601). Exempel: 2014-10-14T16:32:41Z. **Sluttiden** är valfri, men vi använder den i den här självstudiekursen.
+   Både start- och slutdatum måste vara i [ISO-format](https://en.wikipedia.org/wiki/ISO_8601). Exempel: 2014-10-14T16:32:41Z. **Sluttiden** är valfri, men vi använder den i den här självstudiekursen.
 
    Om du inte anger värdet för **slut**egenskapen, beräknas det som ”**start + 48 timmar**”. Om du vill köra pipelinen på obestämd tid, anger du **9/9/9999** som värde för **slut**egenskapen.
 
@@ -407,7 +407,7 @@ I det här steget ska du använda Azure-portalen för att övervaka vad som hän
 6. Klicka på **X** att Stäng alla sidor tills du
 7. Gå tillbaka till startsidan för den **ADFTutorialOnPremDF**.
 8. (valfritt) Klicka på **Pipelines**, klickar du på **ADFTutorialOnPremDF**, och öka detaljnivån indatatabellerna (**förbrukade**) eller utdatauppsättningar (**producerat**).
-9. Använd verktyg som [Microsoft Lagringsutforskaren](http://storageexplorer.com/) att kontrollera att en blobfil skapas för varje timme.
+9. Använd verktyg som [Microsoft Lagringsutforskaren](https://storageexplorer.com/) att kontrollera att en blobfil skapas för varje timme.
 
    ![Azure Lagringsutforskaren](./media/data-factory-move-data-between-onprem-and-cloud/OnPremAzureStorageExplorer.png)
 

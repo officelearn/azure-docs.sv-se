@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: genemi
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 0ef6d258be0165c7a73ce060879f55f1c7f404f9
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 76b53132cca536f66aa2f739b27d74b08a3f16cf
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57453532"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57781399"
 ---
 # <a name="how-to-use-batching-to-improve-sql-database-application-performance"></a>Hur du använder batchbearbetning för att förbättra programmets prestanda för SQL-databas
 
@@ -168,7 +168,7 @@ using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.Ge
 }
 ```
 
-I exemplet ovan den **SqlCommand** objekt infogar rader från en tabellvärdesparameter **@TestTvp**. Den tidigare skapade **DataTable** objektet har tilldelats den här parametern med det **SqlCommand.Parameters.Add** metod. Batchbearbetning infogningar i ett anrop avsevärt ökar prestanda över sekventiella infogningar.
+I exemplet ovan den **SqlCommand** objekt infogar rader från en tabellvärdesparameter  **\@TestTvp**. Den tidigare skapade **DataTable** objektet har tilldelats den här parametern med det **SqlCommand.Parameters.Add** metod. Batchbearbetning infogningar i ett anrop avsevärt ökar prestanda över sekventiella infogningar.
 
 Använda en lagrad procedur i stället för ett textbaserat kommando för att förbättra det föregående exemplet ytterligare. Följande Transact-SQL-kommando skapar en lagrad procedur som tar den **SimpleTestTableType** tabellvärdesparametern.
 

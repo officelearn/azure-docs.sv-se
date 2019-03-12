@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8fed31d07f4bbe9fc47ce0d2c31f45fed288c4c4
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: e5639984c6eef7d1c081fd52061988d3535c00fa
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56218031"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57576998"
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Lösenordsprinciper och begränsningar i Azure Active Directory
 
@@ -50,6 +50,8 @@ Två gate-principen kräver två typer av autentiseringsdata, till exempel en **
   * Administratör för tjänsten webbprogramproxy
   * CRM-tjänstadministratör
   * Power BI-tjänstadministratör
+  * Autentiseringsadministratör
+  * Administratören för privilegierade Authentication
 
 * Om 30 dagar har i en utvärderingsprenumeration; eller
 * En anpassad domän finns, t.ex contoso.com; eller
@@ -75,13 +77,13 @@ Alla användarkonton som krävs för att logga in på Azure AD måste ha en unik
 
 ## <a name="password-policies-that-only-apply-to-cloud-user-accounts"></a>De principer som gäller endast för cloud-användarkonton
 
-I följande tabell beskrivs de tillgängliga lösenordsprincip som kan tillämpas på konton som skapas och hanteras i Azure AD:
+I följande tabell beskrivs de lösenordsprincip som tillämpas på konton som skapas och hanteras i Azure AD:
 
 | Egenskap  | Krav |
 | --- | --- |
 | Tecken som tillåts |<ul><li>A – Z</li><li>a - z</li><li>0 – 9</li> <li>@ # $ % ^ & * - _ ! + = [ ] { } &#124; \ : ‘ , . ? / ` ~ " ( ) ;</li></ul> |
-| Tecken som tillåts inte |<ul><li>Unicode-tecken.</li><li>Blanksteg.</li><li> Starka lösenord: Får inte innehålla en punkttecknet ””. Omedelbart före den ”\@ \" symbolen”.</li></ul> |
-| Begränsningar för lösenord |<ul><li>Minst 8 tecken och högst 16 tecken.</li><li>Starka lösenord: Kräver tre av fyra av följande:<ul><li>Gemener.</li><li>Versaler.</li><li>Numbers (0-9).</li><li>Symboler (se föregående begränsningar för lösenord).</li></ul></li></ul> |
+| Tecken som tillåts inte |<ul><li>Unicode-tecken.</li><li>Blanksteg.</li><li> Får inte innehålla en punkttecknet ””. omedelbart före den ”\@ \" symbolen”.</li></ul> |
+| Begränsningar för lösenord |<ul><li>Minst 8 tecken och högst 16 tecken.</li><li>Kräver tre av fyra av följande:<ul><li>Gemener.</li><li>Versaler.</li><li>Numbers (0-9).</li><li>Symboler (se föregående begränsningar för lösenord).</li></ul></li></ul> |
 | Lösenordet upphör att gälla varaktighet |<ul><li>Standardvärde: **90** dagar.</li><li>Värdet kan konfigureras med hjälp av den `Set-MsolPasswordPolicy` cmdlet från Azure Active Directory-modulen för Windows PowerShell.</li></ul> |
 | Förfallodatum lösenordsmeddelande |<ul><li>Standardvärde: **14** dagar (tills lösenordet upphör att gälla).</li><li>Värdet kan konfigureras med hjälp av den `Set-MsolPasswordPolicy` cmdlet.</li></ul> |
 | Lösenordet förfaller |<ul><li>Standardvärde: **FALSKT** dagar (anger att lösenordet förfaller är aktiverad).</li><li>Värdet kan konfigureras för enskilda användarkonton med hjälp av den `Set-MsolUser` cmdlet.</li></ul> |

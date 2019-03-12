@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: nitinme
-ms.openlocfilehash: 0d9ddbeae3a666d3b3cf56f80ae633a7ecaa650a
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: e52cf99e3bdd1960ca361ccde50d85dfaa2209c0
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46294041"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57544928"
 ---
 # <a name="stream-data-from-azure-storage-blob-into-azure-data-lake-storage-gen1-using-azure-stream-analytics"></a>Stream-data från Azure Storage Blob till Azure Data Lake Storage Gen1 med Azure Stream Analytics
 I den här artikeln får du lära dig hur du använder Azure Data Lake Storage Gen1 som utdata för Azure Stream Analytics-jobb. Den här artikeln visar ett enkelt scenario som läser data från en Azure Storage blob (indata) och skriver data till Data Lake Storage Gen1 (utdata).
@@ -106,7 +106,7 @@ Börja med att skapa ett Stream Analytics-jobb som innehåller en indatakälla o
 
     Klicka på **starta** att starta jobbet. Det kan ta upp till ett par minuter att starta jobbet.
 
-3. Kopiera en exempeldatafil till blob-behållaren för att utlösa jobbet så att den hämtar data från blob. Du kan få en exempeldatafil från den [Azure Data Lake Git-lagringsplats](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData/Drivers.txt). Den här självstudien ska vi kopiera filen **vehicle1_09142014.csv**. Du kan använda olika klienter, till exempel [Azure Storage Explorer](http://storageexplorer.com/), för att ladda upp data till en blob-behållare.
+3. Kopiera en exempeldatafil till blob-behållaren för att utlösa jobbet så att den hämtar data från blob. Du kan få en exempeldatafil från den [Azure Data Lake Git-lagringsplats](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData/Drivers.txt). Den här självstudien ska vi kopiera filen **vehicle1_09142014.csv**. Du kan använda olika klienter, till exempel [Azure Storage Explorer](https://storageexplorer.com/), för att ladda upp data till en blob-behållare.
 
 4. Från den **översikt** fliken, under **övervakning**, se hur data bearbetades.
 

@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 02/05/2019
 ms.author: alkohli
-ms.openlocfilehash: b36926365b85c576cbe2927c690a30cc64df23d8
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 4ad607ad7ef1ee91ea9c886a76faabb0f304969d
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55752780"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57538076"
 ---
 # <a name="azure-data-box-blob-storage-requirements"></a>Krav för Azure Data Box-Blob-lagring
 
@@ -53,7 +53,7 @@ Offentliga förhandsversionen (Azure Data Box 1.8 och senare)
 |     Klientbibliotek     |     Data Box Blob storage-version som stöds     |     Länk             |     Slutpunkt-specifikation         |
 |------------------------|-------------------------------------------------|---------------------------------------------|------------------------------------|
 |    .NET                |    Från 6.2.0 till 8.7.0.                         |    Nuget-paketet:   https://www.nuget.org/packages/WindowsAzure.Storage/ <br>GitHub-version:   https://github.com/Azure/azure-storage-net/releases                                                                      |    filen App.config                 |
-|    Java                |    Från 4.1.0 till 6.1.0                          |    Maven-paketet:   http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage   <br>GitHub-version:   https://github.com/Azure/azure-storage-java/releases                                                      |    Anslutningsinställningar för sträng         |
+|    Java                |    Från 4.1.0 till 6.1.0                          |    Maven-paketet:   https://mvnrepository.com/artifact/com.microsoft.azure/azure-storage   <br>GitHub-version:   https://github.com/Azure/azure-storage-java/releases                                                      |    Anslutningsinställningar för sträng         |
 |    Node.js             |    Från 1.1.0 till 2.7.0                          |    NPM-länk:   https://www.npmjs.com/package/azure-storage   (Till exempel: kör ”npm-installationsprogrammet azure-storage@2.7.0”)   <br>GitHub-version:   https://github.com/Azure/azure-storage-node/releases                            |    Instans tjänstedeklaration    |
 |    C++                 |    Från 2.4.0 till 3.1.0                          |    Nuget-paketet:   https://www.nuget.org/packages/wastorage.v140/   <br>GitHub-version:   https://github.com/Azure/azure-storage-cpp/releases                                                                            |    Anslutningsinställningar för sträng         |
 |    PHP                 |    Från 0.15.0 till 1.0.0                         |    GitHub-version:   https://github.com/Azure/azure-storage-php/releases   <br>Installera via Composer (se detaljer nedan)                                                                                                   |    Anslutningsinställningar för sträng         |
@@ -69,7 +69,7 @@ För Data Box-Blob-lagring finns specifika klientbibliotek och viss slutpunkts-s
 | Klientbibliotek     |Data Box Blob storage-version som stöds     | Länk   |     Slutpunkt-specifikation      |
 |--------------------|--------------------------------------------|--------|---------------------------------|
 |    .NET                |    8.7.0                                           |    Nuget-paketet:   https://www.nuget.org/packages/WindowsAzure.Storage/8.7.0    <br>GitHub-version:   https://github.com/Azure/azure-storage-net/releases/tag/v8.7.0                                                                                                                                                                                               |    filen App.config                 |
-|    Java                |    6.1.0                                           |    Maven-paketet:   http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage/6.1.0   <br>GitHub-version:   https://github.com/Azure/azure-storage-java/releases/tag/v6.1.0                                                                                                                                                                              |    Anslutningsinställningar för sträng         |
+|    Java                |    6.1.0                                           |    Maven-paketet:   https://mvnrepository.com/artifact/com.microsoft.azure/azure-storage/6.1.0   <br>GitHub-version:   https://github.com/Azure/azure-storage-java/releases/tag/v6.1.0                                                                                                                                                                              |    Anslutningsinställningar för sträng         |
 |    Node.js             |    2.7.0                                           |    NPM-länk:   https://www.npmjs.com/package/azure-storage   (Kör: Installera npm azure-storage@2.7.0)   <br>GitHub-version:   https://github.com/Azure/azure-storage-node/releases/tag/v2.7.0                                                                                                                                                                        |    Instans tjänstedeklaration    |
 |    C++                 |    3.1.0                                           |    Nuget-paketet:   https://www.nuget.org/packages/wastorage.v140/3.1.0   <br>GitHub-version:   https://github.com/Azure/azure-storage-cpp/releases/tag/v3.1.0                                                                                                                                                                                                     |    Anslutningsinställningar för sträng         |
 |    PHP                 |    1.0.0                                           |    GitHub-version:<br>Common: https://github.com/Azure/azure-storage-php/releases/tag/v1.0.0-common   <br>BLOB: https://github.com/Azure/azure-storage-php/releases/tag/v1.0.0-blob      <br>Installera via Composer (om du vill veta mer, se information nedan.)                                                                                                             |    Anslutningsinställningar för sträng         |

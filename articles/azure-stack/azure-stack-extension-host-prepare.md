@@ -1,26 +1,26 @@
 ---
 title: Förbereda för tillägget för värd för Azure Stack | Microsoft Docs
-description: Lär dig att förbereda för tillägget värden, vilket aktiveras automatiskt via ett framtida uppdateringspaket för Azure Stack.
+description: Lär dig att förbereda för tillägget värd, aktiveras automatiskt med ett framtida Azure Stack-uppdateringspaket.
 services: azure-stack
 keywords: ''
 author: mattbriggs
 ms.author: mabrigg
-ms.date: 02/07/2019
+ms.date: 03/07/2019
 ms.topic: article
 ms.service: azure-stack
 ms.reviewer: thoroet
 manager: femila
-ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: b0d3b3e4901fbcece13c201938be8bccb1bb9c82
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.lastreviewed: 03/07/2019
+ms.openlocfilehash: 47cc7d9f09b7fb22cf99ad010f1dc75e6388c314
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55962374"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57731917"
 ---
 # <a name="prepare-for-extension-host-for-azure-stack"></a>Förbereda för tillägget för värd för Azure Stack
 
-Tillägget värden skyddar Azure Stack genom att minska antalet TCP/IP-portar som krävs. Den här artikeln tittar på förbereder Azure Stack för tillägg som aktiveras automatiskt via ett Azure Stack uppdatera paket efter 1808 uppdateringen. Den här artikeln gäller för Azure Stack-uppdateringar 1808 1809 och 1811.
+Tillägget värden skyddar Azure Stack genom att minska antalet TCP/IP-portar som krävs. Den här artikeln tittar på förbereder Azure Stack för tillägget-värd som aktiveras automatiskt via ett Azure Stack-uppdateringspaket efter 1808 uppdateringen. Den här artikeln gäller för Azure Stack-uppdateringar 1808 1809 och 1811.
 
 ## <a name="certificate-requirements"></a>Certifikatkrav
 
@@ -66,15 +66,14 @@ Azure Stack-beredskap för installation-verktyget erbjuder möjligheten att skap
     > [!Note]  
     > Om du distribuerar med Azure Active Directory Federation Services (AD FS) till följande kataloger måste läggas till **$directories** i skriptet: `ADFS`, `Graph`.
 
-4. Kör följande cmdlets för att starta kontrollen certifikat:
+4. Placera de befintliga certifikat som du använder i Azure Stack, i rätt kataloger. Till exempel placera den **Admin ARM** -certifikatet i den `Arm Admin` mapp. Och sedan placera de nyligen skapade värdbaserade certifikat i den `Admin extension host` och `Public extension host` kataloger.
+5. Kör följande cmdlet för att starta kontrollen certifikat:
 
     ```PowerShell  
     $pfxPassword = Read-Host -Prompt "Enter PFX Password" -AsSecureString 
 
     Start-AzsReadinessChecker -CertificatePath c:\certificates -pfxPassword $pfxPassword -RegionName east -FQDN azurestack.contoso.com -IdentitySystem AAD
     ```
-
-5. Placera ditt certifikat i lämplig kataloger.
 
 6. Kontrollera utdata och certifikat klara alla tester.
 
@@ -141,7 +140,7 @@ I artikeln [datacenter-integrering med Azure Stack - publicera slutpunkter](azur
 
 ### <a name="publish-new-endpoints"></a>Publicera nya slutpunkter
 
-Det finns två nya slutpunkter som krävs för att publiceras via brandväggen. Den allokerade IP-adresser från den offentliga VIP-poolen kan hämtas med följande kod som måste köras via Azure Stack [miljö är privilegierad slutpunkt](https://docs.microsoft.com/azure/azure-stack/azure-stack-privileged-endpoint).
+Det finns två nya slutpunkter som krävs för att publiceras via brandväggen. Den allokerade IP-adresser från den offentliga VIP-poolen kan hämtas med följande kod som måste köras från Azure Stack [miljö är privilegierad slutpunkt](https://docs.microsoft.com/azure/azure-stack/azure-stack-privileged-endpoint).
 
 ```PowerShell
 # Create a PEP Session

@@ -10,16 +10,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/28/2019
+ms.date: 03/07/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 02/28/2019
-ms.openlocfilehash: fe5e998b919a3e2a876ef943424bd7161b71b5d4
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 261efda18b7cecc6370743c604622a8884ff8364
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57241212"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57732310"
 ---
 # <a name="use-api-version-profiles-with-azure-cli-in-azure-stack"></a>Använd API-versionsprofiler med Azure CLI i Azure Stack
 
@@ -151,6 +151,8 @@ Det här avsnittet vägleder dig genom hur du konfigurerar CLI om du använder A
 
 ### <a name="trust-the-azure-stack-ca-root-certificate"></a>Lita på Azure Stack Certifikatutfärdarens rotcertifikat
 
+Om du använder ASDK behöver ska lita på Certifikatutfärdarens rotcertifikat på din fjärrdatorn. Du behöver inte göra detta med intregrated-system.
+
 Om du vill lita på rotcertifikatet för Azure Stack-CA, lägger du till dem i det befintliga certifikatet för Python.
 
 1. Hitta certifikatsplats på din dator. Platsen kan variera beroende på var du har installerat Python. Öppna en kommandotolk eller en förhöjd PowerShell och Skriv följande kommando:
@@ -203,7 +205,14 @@ Om du vill lita på rotcertifikatet för Azure Stack-CA, lägger du till dem i d
     set ADAL_PYTHON_SSL_NO_VERIFY=1
     ```
 
-    Registrera din miljö genom att ange namnet. Ange namnet på miljön efter den `-n` växla. Använd `AzureStackUser` för användarmiljön. Om du är operatör kan du ange `AzureStackAdmin`.
+2. Registrera din miljö. Använd följande parametrar när du kör `az cloud register`.
+    | Värde | Exempel | Beskrivning |
+    | --- | --- | --- |
+    | Miljönamn | AzureStackUser | Använd `AzureStackUser` för användarmiljön. Om du är operatör kan du ange `AzureStackAdmin`. |
+    | Resource manager-slutpunkt | https://management.local.azurestack.external | Den **ResourceManagerUrl** i Azure Stack Development Kit (ASDK) är: `https://management.local.azurestack.external/` Den **ResourceManagerUrl** integrerade system är: `https://management.<region>.<fqdn>/` Att hämta de metadata som krävs: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0` Om du har en fråga om integrerade system-slutpunkten kan du kontakta din molnoperator. |
+    | Slutpunkt för lagring | local.azurestack.external | `local.azurestack.external` avser ASDK. För en intregrated-system, kommer du att använda en slutpunkt för ditt system.  |
+    | Keyvalut suffix | .vault.local.azurestack.external | `.vault.local.azurestack.external` avser ASDK. För ett integrerat system, kommer du att använda en slutpunkt för ditt system.  |
+    | VM-avbildning alias doc-slutpunkt- | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | URI för det dokument som innehåller VM-avbildning alias. Mer information finns i [### Konfigurera virtuella datorns alias slutpunkt](#set-up-the-virtual-machine-aliases-endpoint). |
 
     ```azurecli  
     az cloud register -n <environmentname> --endpoint-resource-manager "https://management.local.azurestack.external" --suffix-storage-endpoint "local.azurestack.external" --suffix-keyvault-dns ".vault.local.azurestack.external" --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases>
@@ -263,6 +272,8 @@ Det här avsnittet vägleder dig genom hur du konfigurerar CLI om du använder A
 
 ### <a name="trust-the-azure-stack-ca-root-certificate"></a>Lita på Azure Stack Certifikatutfärdarens rotcertifikat
 
+Om du använder ASDK behöver ska lita på Certifikatutfärdarens rotcertifikat på din fjärrdatorn. Du behöver inte göra detta med intregrated-system.
+
 1. Hitta certifikatsplats på din dator. Platsen kan variera beroende på var du har installerat Python. Öppna en kommandotolk eller en förhöjd PowerShell och Skriv följande kommando:
 
     ```PowerShell  
@@ -313,7 +324,14 @@ Det här avsnittet vägleder dig genom hur du konfigurerar CLI om du använder A
     set ADAL_PYTHON_SSL_NO_VERIFY=1
     ```
 
-    Registrera din miljö genom att ange namnet. Ange namnet på miljön efter den `-n` växla. Använd `AzureStackUser` för användarmiljön. Om du är operatör kan du ange `AzureStackAdmin`.
+2. Registrera din miljö. Använd följande parametrar när du kör `az cloud register`.
+    | Värde | Exempel | Beskrivning |
+    | --- | --- | --- |
+    | Miljönamn | AzureStackUser | Använd `AzureStackUser` för användarmiljön. Om du är operatör kan du ange `AzureStackAdmin`. |
+    | Resource manager-slutpunkt | https://management.local.azurestack.external | Den **ResourceManagerUrl** i Azure Stack Development Kit (ASDK) är: `https://management.local.azurestack.external/` Den **ResourceManagerUrl** integrerade system är: `https://management.<region>.<fqdn>/` Att hämta de metadata som krävs: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0` Om du har en fråga om integrerade system-slutpunkten kan du kontakta din molnoperator. |
+    | Slutpunkt för lagring | local.azurestack.external | `local.azurestack.external` avser ASDK. För en intregrated-system, kommer du att använda en slutpunkt för ditt system.  |
+    | Keyvalut suffix | .vault.local.azurestack.external | `.vault.local.azurestack.external` avser ASDK. För ett integrerat system, kommer du att använda en slutpunkt för ditt system.  |
+    | VM-avbildning alias doc-slutpunkt- | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | URI för det dokument som innehåller VM-avbildning alias. Mer information finns i [### Konfigurera virtuella datorns alias slutpunkt](#set-up-the-virtual-machine-aliases-endpoint). |
 
     ```azurecli  
     az cloud register -n <environmentname> --endpoint-resource-manager "https://management.local.azurestack.external" --suffix-storage-endpoint "local.azurestack.external" --suffix-keyvault-dns ".vault.local.azurestack.external" --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases>
@@ -336,26 +354,26 @@ Det här avsnittet vägleder dig genom hur du konfigurerar CLI om du använder A
 
 1. Logga in på Azure Stack-miljön med hjälp av den `az login` kommando. Du kan logga in på Azure Stack-miljön som en användare eller som en [tjänstens huvudnamn](../../active-directory/develop/app-objects-and-service-principals.md). 
 
-  - Logga in som en *användaren*: 
+  - Logga in som en *användaren*:
 
     Du kan antingen ange användarnamnet och lösenordet direkt inom den `az login` kommandot eller autentisera med hjälp av en webbläsare. Om ditt konto har aktiverat multifaktorautentisering måste du göra det senare:
 
     ```azurecli
     az cloud register  -n <environmentname>   --endpoint-resource-manager "https://management.local.azurestack.external"  --suffix-storage-endpoint "local.azurestack.external" --suffix-keyvault-dns ".vault.local.azurestack.external" --endpoint-active-directory-resource-id "https://management.adfs.azurestack.local/<tenantID>" --endpoint-active-directory-graph-resource-id "https://graph.local.azurestack.external/" --endpoint-active-directory "https://adfs.local.azurestack.external/adfs/" --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases>   --profile "2018-03-01-hybrid"
-    ``
+    ```
 
     > [!NOTE]
-    > If your user account has multi-factor authentication enabled, you can use the `az login` command without providing the `-u` parameter. Running this command gives you a URL and a code that you must use to authenticate.
+    > Om ditt konto har aktiverat multifaktorautentisering, kan du använda den `az login` kommandot utan att ange den `-u` parametern. Kör det här kommandot ger dig en URL och en kod som du måste använda för att autentisera.
 
-  - Sign in as a *service principal*: 
+  - Logga in som en *tjänstens huvudnamn*: 
     
-    Prepare the .pem file to be used for service principal login.
+    Förbered PEM-filen som ska användas för huvudsaklig inloggning på tjänsten.
 
-    On the client machine where the principal was created, export the service principal certificate as a pfx with the private key located at `cert:\CurrentUser\My`; the cert name has the same name as the principal.
+    Exportera tjänstobjektscertifikatet på klientdatorn där huvudkontot som har skapats, som en pfx med den privata nyckeln som finns på `cert:\CurrentUser\My`; cert namn har samma namn som huvudnamnet.
 
-    Convert the pfx to pem (use the OpenSSL utility).
+    Konvertera pfx till pem (Använd verktyget OpenSSL).
 
-    Sign in to the CLI:
+    Logga in på CLI:
   
     ```azurecli  
     az login --service-principal \
@@ -383,6 +401,8 @@ Om resursgruppen har skapats, visar följande egenskaper för den nyligen skapad
 Det här avsnittet vägleder dig genom hur du konfigurerar CLI om du använder Azure AD som identity management-tjänsten och använder CLI på en Linux-dator.
 
 ### <a name="trust-the-azure-stack-ca-root-certificate"></a>Lita på Azure Stack Certifikatutfärdarens rotcertifikat
+
+Om du använder ASDK behöver ska lita på Certifikatutfärdarens rotcertifikat på din fjärrdatorn. Du behöver inte göra detta med intregrated-system.
 
 Lita på Azure Stack Certifikatutfärdarens rotcertifikat genom att den läggs till det befintliga certifikatet för Python.
 
@@ -419,11 +439,18 @@ Använd följande steg för att ansluta till Azure Stack:
    set ADAL_PYTHON_SSL_NO_VERIFY=1
    ```
 
-2. Registrera din miljö genom att ange namnet. Ange namnet på miljön efter den `-n` växla. Använd `AzureStackUser` för användarmiljön. Om du är operatör kan du ange `AzureStackAdmin`.
+2. Registrera din miljö. Använd följande parametrar när du kör `az cloud register`.
+    | Värde | Exempel | Beskrivning |
+    | --- | --- | --- |
+    | Miljönamn | AzureStackUser | Använd `AzureStackUser` för användarmiljön. Om du är operatör kan du ange `AzureStackAdmin`. |
+    | Resource manager-slutpunkt | https://management.local.azurestack.external | Den **ResourceManagerUrl** i Azure Stack Development Kit (ASDK) är: `https://management.local.azurestack.external/` Den **ResourceManagerUrl** integrerade system är: `https://management.<region>.<fqdn>/` Att hämta de metadata som krävs: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0` Om du har en fråga om integrerade system-slutpunkten kan du kontakta din molnoperator. |
+    | Slutpunkt för lagring | local.azurestack.external | `local.azurestack.external` avser ASDK. För en intregrated-system, kommer du att använda en slutpunkt för ditt system.  |
+    | Keyvalut suffix | .vault.local.azurestack.external | `.vault.local.azurestack.external` avser ASDK. För ett integrerat system, kommer du att använda en slutpunkt för ditt system.  |
+    | VM-avbildning alias doc-slutpunkt- | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | URI för det dokument som innehåller VM-avbildning alias. Mer information finns i [### Konfigurera virtuella datorns alias slutpunkt](#set-up-the-virtual-machine-aliases-endpoint). |
 
-      ```azurecli  
-      az cloud register -n <environmentname> --endpoint-resource-manager "https://management.local.azurestack.external" --suffix-storage-endpoint "local.azurestack.external" --suffix-keyvault-dns ".vault.local.azurestack.external" --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases>
-      ```
+    ```azurecli  
+    az cloud register -n <environmentname> --endpoint-resource-manager "https://management.local.azurestack.external" --suffix-storage-endpoint "local.azurestack.external" --suffix-keyvault-dns ".vault.local.azurestack.external" --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases>
+    ```
 
 3. Ange aktiv miljö. 
 
@@ -485,6 +512,8 @@ Det här avsnittet vägleder dig genom hur du konfigurerar CLI om du använder A
 
 ### <a name="trust-the-azure-stack-ca-root-certificate"></a>Lita på Azure Stack Certifikatutfärdarens rotcertifikat
 
+Om du använder ASDK behöver ska lita på Certifikatutfärdarens rotcertifikat på din fjärrdatorn. Du behöver inte göra detta med intregrated-system.
+
 Lita på Azure Stack Certifikatutfärdarens rotcertifikat genom att den läggs till det befintliga certifikatet för Python.
 
 1. Hitta certifikatsplats på din dator. Platsen kan variera beroende på var du har installerat Python. Du måste ha pip och certifi [-modulen installerad](#install-python-on-linux). Du kan använda följande Python-kommandot från bash-Kommandotolken:
@@ -520,11 +549,18 @@ Använd följande steg för att ansluta till Azure Stack:
    set ADAL_PYTHON_SSL_NO_VERIFY=1
    ```
 
-2. Registrera din miljö genom att ange namnet. Ange namnet på miljön efter den `-n` växla. Använd `AzureStackUser` för användarmiljön. Om du är operatör kan du ange `AzureStackAdmin`.
+2. Registrera din miljö. Använd följande parametrar när du kör `az cloud register`.
+    | Värde | Exempel | Beskrivning |
+    | --- | --- | --- |
+    | Miljönamn | AzureStackUser | Använd `AzureStackUser` för användarmiljön. Om du är operatör kan du ange `AzureStackAdmin`. |
+    | Resource manager-slutpunkt | https://management.local.azurestack.external | Den **ResourceManagerUrl** i Azure Stack Development Kit (ASDK) är: `https://management.local.azurestack.external/` Den **ResourceManagerUrl** integrerade system är: `https://management.<region>.<fqdn>/` Att hämta de metadata som krävs: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0` Om du har en fråga om integrerade system-slutpunkten kan du kontakta din molnoperator. |
+    | Slutpunkt för lagring | local.azurestack.external | `local.azurestack.external` avser ASDK. För en intregrated-system, kommer du att använda en slutpunkt för ditt system.  |
+    | Keyvalut suffix | .vault.local.azurestack.external | `.vault.local.azurestack.external` avser ASDK. För ett integrerat system, kommer du att använda en slutpunkt för ditt system.  |
+    | VM-avbildning alias doc-slutpunkt- | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | URI för det dokument som innehåller VM-avbildning alias. Mer information finns i [### Konfigurera virtuella datorns alias slutpunkt](#set-up-the-virtual-machine-aliases-endpoint). |
 
-      ```azurecli  
-      az cloud register -n <environmentname> --endpoint-resource-manager "https://management.local.azurestack.external" --suffix-storage-endpoint "local.azurestack.external" --suffix-keyvault-dns ".vault.local.azurestack.external" --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases>
-      ```
+    ```azurecli  
+    az cloud register -n <environmentname> --endpoint-resource-manager "https://management.local.azurestack.external" --suffix-storage-endpoint "local.azurestack.external" --suffix-keyvault-dns ".vault.local.azurestack.external" --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases>
+    ```
 
 3. Ange aktiv miljö. 
 
@@ -547,12 +583,12 @@ Använd följande steg för att ansluta till Azure Stack:
 
   *  Som en **användaren** via en webbläsare med en kod för enheten:  
 
-    ```azurecli  
+  ```azurecli  
     az login --use-device-code
-    ```
+  ```
 
-    > [!NOTE]  
-    >Kör kommandot ger dig en URL och en kod som du måste använda för att autentisera.
+  > [!NOTE]  
+  >Kör kommandot ger dig en URL och en kod som du måste använda för att autentisera.
 
   * Som ett huvudnamn för tjänsten:
         
@@ -577,9 +613,9 @@ Använd följande steg för att ansluta till Azure Stack:
 Konfigurera med allt, Använd CLI för att skapa resurser i Azure Stack. Du kan till exempel skapa en resursgrupp för ett program och lägga till en virtuell dator. Använd följande kommando för att skapa en resursgrupp med namnet ”MyResourceGroup”:
 
 ```azurecli
-az group create \
-  -n MyResourceGroup -l local
+  az group create -n MyResourceGroup -l local
 ```
+
 Om resursgruppen har skapats, visar följande egenskaper för den nyligen skapade resursen i det föregående kommandot:
 
 ![Resursgrupp skapa utdata](media/azure-stack-connect-cli/image1.png)

@@ -16,12 +16,12 @@ ms.date: 02/28/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 02/28/2019
-ms.openlocfilehash: 14e587276deab9656c3be04c96182942767ae0f2
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 0e14e7eb20e87f5555fa6b494c0d09ccde08d2dd
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56986030"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57731652"
 ---
 # <a name="azure-stack-1811-update"></a>Uppdatering av Azure Stack 1811
 
@@ -87,7 +87,7 @@ Azure Stack snabbkorrigeringar med jämna mellanrum. Se till att installera den 
 
     Användarportalen för Azure Stack är inte tillgänglig under installationen av uppdateringen, medan tillägget värden konfigureras. Konfigurationen av tillägget värd kan ta upp till 5 timmar. Under den tiden kan du kontrollera status för en uppdatering eller återuppta en misslyckad uppdateringsinstallation med hjälp av [Azure Stack-administratören PowerShell eller privilegierad slutpunkt](azure-stack-monitor-update.md).
 
-- När Azure Stack hanteras av System Center Operations Manager (SCOM), är det viktigt att uppdatera Management Pack för Microsoft Azure Stack till version 10.0.3.11 innan du tillämpar 1811.
+- När Azure Stack hanteras av System Center Operations Manager (SCOM), är det viktigt att uppdatera Management Pack för Microsoft Azure Stack till version 1.0.3.11 innan du tillämpar 1811.
 
 ## <a name="new-features"></a>Nya funktioner
 

@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 1/18/2019
 ms.author: victorh
-ms.openlocfilehash: b513e898e25397f54b8f7f7590a4466523a705ff
-ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
+ms.openlocfilehash: e8163ad34046261d9671c57db2cd2d2052fe35e0
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54401426"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57550795"
 ---
 # <a name="use-azure-dns-to-provide-custom-domain-settings-for-an-azure-service"></a>Använda Azure DNS för att ange inställningar för anpassad domän för en Azure-tjänst
 
@@ -41,7 +41,7 @@ Gå till din DNS-zon och klicka på **+ postuppsättning**. Ange följande infor
 |Egenskap   |Värde  |Beskrivning  |
 |---------|---------|---------|
 |Namn     | myfunctionapp        | Det här värdet tillsammans med domännamnsetiketten är det fullständiga Domännamnet för det anpassade domännamnet.        |
-|Typ     | CNAME        | Använd en CNAME-post använder ett alias.        |
+|Type     | CNAME        | Använd en CNAME-post använder ett alias.        |
 |TTL     | 1        | 1 används för 1 timme        |
 |TTL-enhet     | Timmar        | Timmar används som tidmätning         |
 |Alias     | adatumfunction.azurewebsites.net        | DNS-namn du skapar aliaset som, i det här exemplet är det adatumfunction.azurewebsites.net DNS-namn som tillhandahålls som standard i funktionsappen.        |
@@ -54,7 +54,7 @@ På den **Lägg till värddatornamn** bladet Ange CNAME-post i den **värdnamn**
 
 ## <a name="public-ip-address"></a>Offentlig IP-adress
 
-Konfigurera en anpassad domän för tjänster som använder en offentlig IP-adressresurs som Application Gateway, belastningsutjämnare, molntjänst, virtuella datorer i Resource Manager och klassiska virtuella datorer, en CNAME-post används.
+Att konfigurera en anpassad domän för tjänster som använder en offentlig IP-adressresurs som Application Gateway, belastningsutjämnare, molntjänst, virtuella datorer i Resource Manager och klassiska virtuella datorer, en A-post används.
 
 Gå till **nätverk** > **offentliga IP-adressen**, Välj den offentliga IP-resursen och klickar på **Configuration**. Anteckna den IP-adressen som visas.
 
@@ -66,7 +66,7 @@ Gå till din DNS-zon och klicka på **+ postuppsättning**. Ange följande infor
 |Egenskap   |Värde  |Beskrivning  |
 |---------|---------|---------|
 |Namn     | mywebserver        | Det här värdet tillsammans med domännamnsetiketten är det fullständiga Domännamnet för det anpassade domännamnet.        |
-|Typ     | A        | Använd en A-post som resursen är en IP-adress.        |
+|Type     | A        | Använd en A-post som resursen är en IP-adress.        |
 |TTL     | 1        | 1 används för 1 timme        |
 |TTL-enhet     | Timmar        | Timmar används som tidmätning         |
 |IP-adress     | <your ip address>       | Offentliga IP-adress.|
@@ -93,7 +93,7 @@ Gå till din DNS-zon och klicka på **+ postuppsättning**. Ange följande infor
 |Egenskap   |Värde  |Beskrivning  |
 |---------|---------|---------|
 |Namn     | mywebserver        | Det här värdet tillsammans med domännamnsetiketten är det fullständiga Domännamnet för det anpassade domännamnet.        |
-|Typ     | CNAME        | Använd en CNAME-post använder ett alias. Om resursen används en IP-adress, används en A-post.        |
+|Type     | CNAME        | Använd en CNAME-post använder ett alias. Om resursen används en IP-adress, används en A-post.        |
 |TTL     | 1        | 1 används för 1 timme        |
 |TTL-enhet     | Timmar        | Timmar används som tidmätning         |
 |Alias     | webserver.azurewebsites.net        | DNS-namn du skapar aliaset som, i det här exemplet är det webserver.azurewebsites.net DNS-namn som tillhandahålls som standard till webbappen.        |
@@ -127,7 +127,7 @@ Gå till din DNS-zon och klicka på **+ postuppsättning**. Ange följande infor
 |Egenskap   |Värde  |Beskrivning  |
 |---------|---------|---------|
 |Namn     | asverify.mystorageaccount        | Det här värdet tillsammans med domännamnsetiketten är det fullständiga Domännamnet för det anpassade domännamnet.        |
-|Typ     | CNAME        | Använd en CNAME-post använder ett alias.        |
+|Type     | CNAME        | Använd en CNAME-post använder ett alias.        |
 |TTL     | 1        | 1 används för 1 timme        |
 |TTL-enhet     | Timmar        | Timmar används som tidmätning         |
 |Alias     | asverify.adatumfunctiona9ed.blob.core.windows.net        | DNS-namn du skapar aliaset som, i det här exemplet är det asverify.adatumfunctiona9ed.blob.core.windows.net DNS-namn som tillhandahålls som standard till lagringskontot.        |
@@ -155,7 +155,7 @@ Gå till din DNS-zon och klicka på **+ postuppsättning**. Ange följande infor
 |Egenskap   |Värde  |Beskrivning  |
 |---------|---------|---------|
 |Namn     | cdnverify.mycdnendpoint        | Det här värdet tillsammans med domännamnsetiketten är det fullständiga Domännamnet för det anpassade domännamnet.        |
-|Typ     | CNAME        | Använd en CNAME-post använder ett alias.        |
+|Type     | CNAME        | Använd en CNAME-post använder ett alias.        |
 |TTL     | 1        | 1 används för 1 timme        |
 |TTL-enhet     | Timmar        | Timmar används som tidmätning         |
 |Alias     | cdnverify.adatumcdnendpoint.azureedge.net        | DNS-namn du skapar aliaset som, i det här exemplet är det cdnverify.adatumcdnendpoint.azureedge.net DNS-namn som tillhandahålls som standard till lagringskontot.        |

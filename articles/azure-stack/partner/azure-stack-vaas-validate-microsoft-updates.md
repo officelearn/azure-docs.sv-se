@@ -10,17 +10,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/14/2019
+ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.lastreviewed: 01/14/2019
+ms.lastreviewed: 03/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: b7fa03cdf52fc3218e9556c9664daafdc60243f3
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: ad9d5057c18d316dcf3254dc57a3184c1b75fc50
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56593225"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57780853"
 ---
 # <a name="validate-software-updates-from-microsoft"></a>Verifiera programuppdateringar från Microsoft
 
@@ -56,7 +56,7 @@ Följande tester ska köras i följande ordning för månatliga programvara-veri
 1. Ange platsen för paketets OEM-tillägget för närvarande har distribuerats på stämpeln och platsen som OEM-tillägg-paket som ska användas under uppdateringen. För att konfigurera URL: er för dessa paket, se [hantera paket för verifiering](azure-stack-vaas-validate-oem-package.md#managing-packages-for-validation).
 1. Följ stegen i Användargränssnittet från den markerade agenten.
 
-Om du har frågor eller funderingar kan du kontakta [VaaS hjälp](mailto:vaashelp@microsoft.com).
+Om du har frågor eller funderingar kan kontakta [VaaS hjälp](mailto:vaashelp@microsoft.com).
 
 ## <a name="next-steps"></a>Nästa steg
 

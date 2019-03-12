@@ -7,12 +7,12 @@ ms.service: mysql
 ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 04/01/2018
-ms.openlocfilehash: 801f6dddfb3aaea850d76c80d43de93181c3d41c
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: f3850623f5918ea9405131edb1821b941019ac34
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54913486"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57532340"
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-mysql-using-the-azure-cli"></a>Hur du säkerhetskopierar och återställer en server i Azure Database for MySQL med Azure CLI
 
@@ -94,14 +94,14 @@ Använda Azure CLI för att skapa en server med en geo-redundant säkerhetskopia
 Ange följande kommando för att geo-återställa servern, Kommandotolken Azure CLI:
 
 ```azurecli-interactive
-az mysql server georestore --resource-group myresourcegroup --name mydemoserver-georestored --source-server mydemoserver --location eastus --sku-name GP_Gen4_8 
+az mysql server georestore --resource-group myresourcegroup --name mydemoserver-georestored --source-server mydemoserver --location eastus --sku-name GP_Gen5_8 
 ```
-Det här kommandot skapar en ny server som kallas *mydemoserver georestored* i USA, östra som hör till *myresourcegroup*. Det är en generell användning, generation 4-server med 8 vCores. Servern skapas från geo-redundant säkerhetskopia av *mydemoserver*, som också är resursgruppen *myresourcegroup*
+Det här kommandot skapar en ny server som kallas *mydemoserver georestored* i USA, östra som hör till *myresourcegroup*. Det är en generell användning, generation 5-server med 8 vCores. Servern skapas från geo-redundant säkerhetskopia av *mydemoserver*, som också är resursgruppen *myresourcegroup*
 
 Om du vill skapa den nya servern i en annan resursgrupp än den befintliga servern sedan i den `--source-server` parametern du kvalificerar servernamnet som i följande exempel:
 
 ```azurecli-interactive
-az mysql server georestore --resource-group newresourcegroup --name mydemoserver-georestored --source-server "/subscriptions/$<subscription ID>/resourceGroups/$<resource group ID>/providers/Microsoft.DBforMySQL/servers/mydemoserver" --location eastus --sku-name GP_Gen4_8
+az mysql server georestore --resource-group newresourcegroup --name mydemoserver-georestored --source-server "/subscriptions/$<subscription ID>/resourceGroups/$<resource group ID>/providers/Microsoft.DBforMySQL/servers/mydemoserver" --location eastus --sku-name GP_Gen5_8
 
 ```
 
@@ -113,7 +113,7 @@ Den `az mysql server georestore` kommandot kräver följande parametrar:
 |namn | mydemoserver georestored | Namnet på den nya servern. |
 |source-server | mydemoserver | Namnet på den befintliga servern vars geo-redundanta säkerhetskopieringar används. |
 |location | usaöstra | Platsen för den nya servern. |
-|sku-name| GP_Gen4_8 | Den här parametern anger prisnivå nivå, compute-generering och antal virtuella kärnor för den nya servern. GP_Gen4_8 mappas till en generell användning, generation 4-server med 8 vCores.|
+|sku-name| GP_Gen5_8 | Den här parametern anger prisnivå nivå, compute-generering och antal virtuella kärnor för den nya servern. GP_Gen5_8 mappas till en generell användning, generation 5-server med 8 vCores.|
 
 
 >[!Important]

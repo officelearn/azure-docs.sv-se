@@ -11,15 +11,15 @@ ms.service: biztalk-services
 ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: conceptual
 ms.date: 11/07/2016
 ms.author: mandia
-ms.openlocfilehash: fe56b84b881b2afce9da9a7f7dfe4637c3494aa8
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: d47aab9e3d083cd7f51b1c3ba613f421fc1777a6
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51261969"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57764106"
 ---
 # <a name="create-biztalk-services-using-the-azure-portal"></a>Skapa BizTalk Services med Azure-portalen
 
@@ -143,8 +143,8 @@ När en Azure BizTalk-tjänst skapas, skapas också en HTTPS-URL som innehåller
 <br/>
 
 <ul>
-<li><strong>Förbättrad nyckelanvändning</strong>: Azure BizTalk Services kräver minst serverautentisering.</li>
-<li><strong>Nätverksnamn</strong>: Ange det fullständiga domännamnet (FQDN) för Azure BizTalk-tjänstens URL. Se <a HREF="#CreateService">Skapa en BizTalk-tjänst</a> i den här artikeln.</li>
+<li><strong>Utökad nyckelanvändning</strong>: Azure BizTalk Services kräver minst serverautentisering.</li>
+<li><strong>Eget namn</strong>: Ange det fullständigt kvalificerade domännamnet (FQDN) för Azure BizTalk-tjänstens URL. Se <a HREF="#CreateService">Skapa en BizTalk-tjänst</a> i den här artikeln.</li>
 </ul>
 <br/>
 Ett nytt eller annat certifikat kan läggas till när BizTalk-tjänsten har skapats.
@@ -165,9 +165,9 @@ Hybridanslutningar används för att ansluta en Azure-webbplats eller mobil Azur
  Se [Hybridanslutningar](integration-hybrid-connection-overview.md) för mer information, inklusive att skapa och hantera hybridanslutningar.
 
 ## <a name="next-steps"></a>Nästa steg
-Nu när en BizTalk-tjänst har skapats kan du bekanta dig med [BizTalk Services: Flikarna Instrumentpanel, Övervakare och Skalning](biztalk-dashboard-monitor-scale-tabs.md). Din BizTalk-tjänst är redo för dina program. Om du vill börja skapa program går du till [Azure BizTalk Services](https://go.microsoft.com/fwlink/p/?LinkID=235197).
+Nu när en BizTalk Service har skapats kan du bekanta dig med de olika [BizTalk Services: Flikarna instrumentpanel, Övervakare och skalning](biztalk-dashboard-monitor-scale-tabs.md). Din BizTalk-tjänst är redo för dina program. Om du vill börja skapa program går du till [Azure BizTalk Services](https://go.microsoft.com/fwlink/p/?LinkID=235197).
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 * [BizTalk Services: Diagram över utgåvor](biztalk-editions-feature-chart.md)<br/>
 * [BizTalk Services: Statusdiagram](biztalk-service-state-chart.md)<br/>
 * [BizTalk Services: Säkerhetskopiering och återställning](biztalk-backup-restore.md)<br/>

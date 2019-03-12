@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 04/11/2018
 ms.author: rangv
-ms.openlocfilehash: e49a3063d6314947c59c5ae863077748d997f2b5
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: ae123638e26c9fb6c82666efddabf06874c7b7a8
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515479"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57539968"
 ---
 # <a name="connect-adafruit-feather-huzzah-esp8266-to-azure-iot-hub-in-the-cloud"></a>Anslut Adafruit Feather HUZZAH ESP8266 till Azure IoT Hub i molnet
 
@@ -27,7 +27,7 @@ ms.locfileid: "51515479"
 Anslut Adafruit Feather HUZZAH ESP8266 till en IoT-hubb som du skapar. Sedan kör du ett exempelprogram på ESP8266 att samla in temperatur och fuktighet data från en DHT22 sensor. Slutligen kan skicka du sensordata till din IoT hub.
 
 > [!NOTE]
-> Du kan följa stegen nedan för att ansluta till din IoT hub även om du använder andra ESP8266-kort. Beroende på den ESP8266 tavla som du använder kan du behöva konfigurera om den `LED_PIN`. Till exempel om du använder ESP8266 från AI-Thinker, du kan ändra den från `0` till `2`. Har inte ett kit ännu? Hämta den från den [Azure-webbplatsen](http://azure.com/iotstarterkits).
+> Du kan följa stegen nedan för att ansluta till din IoT hub även om du använder andra ESP8266-kort. Beroende på den ESP8266 tavla som du använder kan du behöva konfigurera om den `LED_PIN`. Till exempel om du använder ESP8266 från AI-Thinker, du kan ändra den från `0` till `2`. Har inte ett kit ännu? Hämta den från den [Azure-webbplatsen](https://azure.com/iotstarterkits).
 
 ## <a name="what-you-learn"></a>Detta får du får lära dig
 
@@ -66,7 +66,7 @@ Följande objekt är valfritt om du inte har en sensor. Du har också möjlighet
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
-### <a name="retrieve-connection-string-for-iot-hub"></a>Hämta anslutningssträngen för IoT hub
+### <a name="retrieve-connection-string-for-iot-hub"></a>Hämta anslutningssträngen för IoT-hubben
 
 [!INCLUDE [iot-hub-include-find-connection-string](../../includes/iot-hub-include-find-connection-string.md)]
 
@@ -160,7 +160,7 @@ Exempelprogrammet finns på GitHub. Klona exempellagringsplatsen med exempelprog
 
 6. I Visual Studio Code, ange `F1`.
 
-7. Typ **Arduino** och välj **Arduino: tavla Manager**.
+7. Typ **Arduino** och välj **Arduino: Tavla Manager**.
 
 8. I den **Arduino tavla Manager** fliken **ytterligare URL: er**.
 
@@ -184,7 +184,7 @@ Exempelprogrammet finns på GitHub. Klona exempellagringsplatsen med exempelprog
 
    ![Esp8266-paket installeras](media/iot-hub-arduino-huzzah-esp8266-get-started/13_vscode-esp8266-installed.png)
 
-13. Ange `F1`, Skriv **Arduino** och välj **Arduino: tavla Config**.
+13. Ange `F1`, Skriv **Arduino** och välj **Arduino: Board Config**.
 
 14. Klicka på kryssrutan för **valt tavla:** och skriv **esp8266**och välj sedan **Adafruit HUZZAH ESP8266 (esp8266)**.
 
@@ -192,7 +192,7 @@ Exempelprogrammet finns på GitHub. Klona exempellagringsplatsen med exempelprog
 
 ### <a name="install-necessary-libraries"></a>Installera nödvändiga bibliotek
 
-1. I Visual Studio Code, ange `F1`, Skriv **Arduino** och välj **Arduino: Library Manager**.
+1. I Visual Studio Code, ange `F1`, Skriv **Arduino** och välj **Arduino: Biblioteket Manager**.
 
 2. Sök efter följande biblioteket namn i taget. För alla bibliotek som du hittar, klickar du på **installera**.
    * `AzureIoTHub`
@@ -222,7 +222,7 @@ Exempelprogrammet simulera temperatur och fuktighet data om du inte har en verkl
 
 1. I Visual Studio Code, klickar du på **<Select Serial Port>** statusen, och klicka sedan på den seriella porten för Feather HUZZAH ESP8266.
 
-2. Ange `F1`, Skriv **Arduino** och välj **Arduino: ladda upp** att bygga och distribuera exempelprogrammet för att Feather HUZZAH ESP8266.
+2. Ange `F1`, Skriv **Arduino** och välj **Arduino: Ladda upp** att bygga och distribuera exempelprogrammet för att Feather HUZZAH ESP8266.
 
 ### <a name="enter-your-credentials"></a>Ange autentiseringsuppgifter
 

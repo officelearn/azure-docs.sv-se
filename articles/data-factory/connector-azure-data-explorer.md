@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/04/2019
+ms.date: 03/06/2019
 ms.author: orspod
-ms.openlocfilehash: 94cf153d7d88e0589edfb3c126c18e04e25e2ef2
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 4e2448b3043c194bda884963975d85536c329baf
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57431928"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57531648"
 ---
 # <a name="copy-data-to-or-from-azure-data-explorer-using-azure-data-factory"></a>Kopiera data till och från Azure Data Explorer med Azure Data Factory
 
@@ -68,9 +68,9 @@ Följande egenskaper har stöd för Azure Data Explorer länkade tjänsten:
 | typ | Den **typ** egenskapen måste anges till **AzureDataExplorer** | Ja |
 | slutpunkt | Slutpunkts-URL för Azure Data Explorer-klustret med formatet som `https://<clusterName>.<regionName>.kusto.windows.net `. | Ja |
 | databas | Namnet på databasen. | Ja |
-| klient | Ange klientinformation (domain name eller klient-ID) under där programmet finns. Hämta det genom att hovra med musen i det övre högra hörnet i Azure Portal. | Ja |
-| servicePrincipalId | Ange programmets klient-ID. | Ja |
-| servicePrincipalKey | Ange programmets nyckel. Markera det här fältet som en **SecureString** ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
+| klient | Ange klientinformation (domain name eller klient-ID) under där programmet finns. Det här är det du normalt kan som ”**utfärdare ID**” i [Kusto-anslutningssträngen](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto#application-authentication-properties). Hämta det genom att hovra med musen i det övre högra hörnet i Azure Portal. | Ja |
+| servicePrincipalId | Ange programmets klient-ID. Det här är det du normalt kan som ”**klient-ID för AAD-programmet**” i [Kusto-anslutningssträngen](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto#application-authentication-properties). | Ja |
+| servicePrincipalKey | Ange programmets nyckel. Det här är det du normalt kan som ”**AAD programnyckel**” i [Kusto-anslutningssträngen](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto#application-authentication-properties). Markera det här fältet som en **SecureString** ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 
 **Exempel på länkade egenskaper:**
 
@@ -139,7 +139,7 @@ Om du vill kopiera data från Azure Data Explorer, ange den **typ** -egenskapen 
 | queryTimeout | Väntetid innan frågebegäran når sin tidsgräns. Standardvärdet är 10: e minut (00: 10:00); tillåtna maxvärdet är 1 timme (01: 00:00). | Nej |
 
 >[!NOTE]
->Azure Data Explorer källan som standard har en storleksgräns på 500 000 poster eller 64 MB. Du kan ange om du vill hämta alla poster utan trunkering `set notruncation;` i början av din fråga. Referera till [fråga gränser](https://docs.microsoft.com/en-us/azure/kusto/concepts/querylimits) på mer information.
+>Azure Data Explorer källan som standard har en storleksgräns på 500 000 poster eller 64 MB. Du kan ange om du vill hämta alla poster utan trunkering `set notruncation;` i början av din fråga. Referera till [fråga gränser](https://docs.microsoft.com/azure/kusto/concepts/querylimits) på mer information.
 
 **Exempel:**
 

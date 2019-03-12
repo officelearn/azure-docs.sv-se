@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 9d009847856936d14a182b234910fb717c084d11
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 853c138c8cf73b41b0cebb6c1d349865e18eab6a
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51248069"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57550113"
 ---
 # <a name="create-a-custom-image-from-a-vhd-file"></a>Skapa en anpassad avbildning från en VHD-fil
 
@@ -60,9 +60,9 @@ Följande steg beskriver hur du skapar en anpassad avbildning från en VHD-fil m
 
 1. Du kan också ange ett namn, plan erbjudandet och plan publisher om den avbildning som används för att skapa den anpassade avbildningen inte är en licensierad avbildning (som publicerats av Microsoft).
 
-   - **Namn på prenumerationsavtal:** anger du namnet på Marketplace-avbildning (SKU) från den här anpassade avbildningen har skapats 
-   - **Planera erbjudande:** ange produktnyckel (erbjudandet) av Marketplace-avbildning från vilken den här anpassade avbildningen har skapats 
-   - **Planera utgivare:** ange utgivaren av Marketplace-avbildning från vilken den här anpassade avbildningen har skapats
+   - **Namn på prenumerationsavtal:** Ange namnet på Marketplace-avbildning (SKU) från den här anpassade avbildningen har skapats 
+   - **Planera erbjudande:** Ange produktnyckel (erbjudandet) av Marketplace-avbildning från vilken den här anpassade avbildningen har skapats 
+   - **Planera utgivare:** Ange utgivaren av Marketplace-avbildning från vilken den här anpassade avbildningen har skapats
 
    > [!NOTE]
    > Om den avbildning som du använder för att skapa en anpassad avbildning är **inte** en licensierad avbildning och sedan de här fälten är tomma och kan fyllas i om du väljer. Om avbildningen **är** en licensierad avbildning och sedan fälten är fylls i med information om supportavtalet automatiskt. Om du försöker ändra dem i det här fallet visas ett varningsmeddelande.
@@ -81,7 +81,7 @@ Efter några minuter, den anpassade avbildningen skapas och lagras i den testmil
 ## <a name="related-blog-posts"></a>Relaterade blogginlägg
 
 - [Anpassade avbildningar eller formler?](https://blogs.msdn.microsoft.com/devtestlab/2016/04/06/custom-images-or-formulas/)
-- [Kopiera anpassade avbildningar mellan Azure DevTest Labs](http://www.visualstudiogeeks.com/blog/DevOps/How-To-Move-CustomImages-VHD-Between-AzureDevTestLabs#copying-custom-images-between-azure-devtest-labs)
+- [Kopiera anpassade avbildningar mellan Azure DevTest Labs](https://www.visualstudiogeeks.com/blog/DevOps/How-To-Move-CustomImages-VHD-Between-AzureDevTestLabs#copying-custom-images-between-azure-devtest-labs)
 
 ## <a name="next-steps"></a>Nästa steg
 

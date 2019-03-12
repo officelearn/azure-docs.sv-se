@@ -3,17 +3,17 @@ title: Skapa och hantera regler för telemetri i programmet Azure IoT Central | 
 description: Azure IoT Central telemetri regler hjälper dig att övervaka dina enheter i nära realtid och automatiskt anropa åtgärder, till exempel skickar ett e-postmeddelande när regeln utlöses.
 author: ankitgupta
 ms.author: ankitgup
-ms.date: 11/02/2018
+ms.date: 02/02/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: aee31f54ddf4e71dd9b9391ec93d0f2319addc3f
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 4668ffd30742f81552cd29f6cdba4c0f82549687
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57307969"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57773511"
 ---
 # <a name="create-a-telemetry-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Skapa en regel för telemetri och konfigurera meddelanden med Azure IoT Central programmet
 
@@ -27,18 +27,13 @@ Enheter kan använda telemetri mätning skicka numeriska data från enheten. En 
 
 Om du vill skapa en regel för telemetri måste mallen enheten ha minst en telemetri-mätning som definierats. Det här exemplet används en kylda Varuautomat-enhet som skickar telemetri om temperatur och fuktighet. Regeln övervakar temperaturen som rapporteras av enheten och skickar ett e-postmeddelande när den går över 80 grader.
 
-1. Använd Device Explorer och navigera till enheten mallen som du lägger till regeln för.
+1. Med hjälp av den **enheten mallar** sidan, gå till enheten mallen som du lägger till regeln för.
 
-1. Välj en befintlig enhet under den valda mallen.
-
-    >[!TIP]
-    >Om mallen inte har några enheter och sedan lägga till en ny enhet först.
-
-1. Om du inte skapat några regler ännu, visas följande skärm:
+1. Om du inte skapat några regler ännu kan se du följande skärm:
 
     ![Inga regler ännu](media/howto-create-telemetry-rules/Rules_Landing_Page.png)
 
-1. På den **regler** fliken **Redigera mall** och sedan **+ ny regel** att se vilka typer av regler som du kan skapa.
+1. På den **regler** fliken **+ ny regel** att se vilka typer av regler som du kan skapa.
 
 1. Välj **telemetri** att skapa en regel för att övervaka enheternas telemetri.
 
@@ -49,9 +44,8 @@ Om du vill skapa en regel för telemetri måste mallen enheten ha minst en telem
 1. Om du vill aktivera regeln för alla enheter som skapats för den här mallen omedelbart, växla **aktivera regeln för alla enheter för den här mallen**.
 
    ![Information om regeln](media/howto-create-telemetry-rules/Rule_Detail.png)
-    
+
     Regeln tillämpas automatiskt på alla enheter under mallen enheten.
-    
 
 ### <a name="configure-the-rule-conditions"></a>Konfigurera villkor
 
@@ -61,16 +55,14 @@ Villkoret definierar de kriterier som övervakas av regeln.
 
 1. Välj den telemetri som du vill övervaka den **mätning** listrutan.
 
-   ![Tillstånd](media/howto-create-telemetry-rules/Aggregate_Condition_Filled_Out.png)
-
 1. Välj sedan **aggregering**, **operatorn**, och ange en **tröskelvärdet** värde.
-    - Aggregering är valfritt. Utan aggregering, regeln utlöses för varje datapunkt för telemetri som uppfyller villkoret. Exempel: om regeln är konfigurerad för att utlösa när temperaturen är över 80 och sedan regeln utlöser nästan direkt när enheten rapporterar temperatur > 80.
+    - Aggregering är valfritt. Utan aggregering, regeln utlöses för varje datapunkt för telemetri som uppfyller villkoret. Till exempel om regeln är konfigurerad att utlösaren när temperaturen är över 80 sedan regeln utlöses nästan omedelbart när enheten rapporterar temperatur > 80.
     - Om en mängdfunktion som genomsnitt, Min, Max, Count väljs sedan användaren måste ange en **sammanställd tidsfönster** över som villkoret måste utvärderas. Till exempel om du ställer in söker perioden som ”5 minuter” och regeln efter medeltemperaturen ovan 80, regeln utlöses när medeltemperaturen är över 80 för minst 5 minuter. Utvärderingsfrekvensen regeln är samma som den **sammanställd tidsfönster**, vilket innebär att, i det här exemplet regeln utvärderas var femte minut.
+
+    ![Tillstånd](media/howto-create-telemetry-rules/Aggregate_Condition_Filled_Out.png)
 
     >[!NOTE]
     >Mer än en telemetri-mätning kan läggas till under **villkor**. När flera villkor har angetts måste alla villkor vara uppfyllda för regeln för att utlösa. Varje villkor får sällskap av en 'Och'-sats implicit. När du använder aggregering, måste varje mätning aggregeras.
-    
-    
 
 ### <a name="configure-actions"></a>Konfigurera åtgärder
 
@@ -88,8 +80,6 @@ Det här avsnittet visar hur du ställer in åtgärder att vidta när regeln utl
    ![Konfigurera åtgärd](media/howto-create-telemetry-rules/Configure_Action.png)
 
 1. För att spara regeln, Välj **spara**. Regeln lanseras inom några minuter och börjar övervaka telemetri som skickas till ditt program. När villkoren som anges i regeln uppfylls utlöser regeln konfigurerade e poståtgärd.
-
-1. Välj **Klar** för att avsluta läget **Redigera mall**.
 
 Du kan lägga till andra åtgärder för regeln, till exempel Microsoft Flow och webhooks. Du kan lägga till upp till 5 åtgärder per regel.
 

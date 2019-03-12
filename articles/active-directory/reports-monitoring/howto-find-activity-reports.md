@@ -14,12 +14,12 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0ff5b998222f9a7320384edea1ed69e7a65e9139
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 46fc0a49ebae86a715685e1073b4eb7cc10e6032
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56171306"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57533416"
 ---
 # <a name="find-activity-reports-in-the-azure-portal"></a>Hitta aktivitetsrapporter i Azure portal
 
@@ -48,15 +48,46 @@ Granskningsloggar konsoliderar följande rapporter:
 
 ### <a name="filtering-on-audit-logs"></a>Filtrering på granskningsloggar
 
-Du kan använda avancerade filter i granskningsrapporten för att få åtkomst till en särskild kategori av granskningsdata, genom att ange den i den **aktivitetskategori** filter. Om du vill visa alla aktiviteter som rör lösenordsåterställning via självbetjäning, väljer du exempelvis den **egen lösenordshantering** kategori. 
+Du kan använda avancerade filter i granskningsrapporten för att få åtkomst till en särskild kategori av granskningsdata, genom att ange den i den **kategori** filter. Till exempel vill visa alla aktiviteter som rör användare väljer den **UserManagement** kategori. 
 
-Aktivitetskategorier är:
+Kategorierna är:
 
+- Alla
+- AdministrativeUnit
+- ApplicationManagement
+- Authentication
+- Auktorisering
+- Kontakt
+- Enhet
+- DeviceConfiguration
+- DirectoryManagement
+- EntitlementManagement
+- GroupManagement
+- Annat
+- Princip
+- ResourceManagement
+- RoleManagement
+- UserManagement
+
+Du kan också filtrera på en specifik tjänst med hjälp av den **Service** listrutan filter. Till exempel för att få alla granskningshändelser som rör hantering av lösenord för självbetjäning kan välja den **Self-service lösenordshantering** filter.
+
+Tjänsterna omfattar:
+
+- Alla
+- Åtkomstgranskningar
+- Kontoetablering 
+- Programmet SSO
+- Autentiseringsmetoder
+- B2C
+- Villkorlig åtkomst
 - Kärnkatalog
-- Hantering av lösenord för självbetjäning
+- Hantering av behörighet
+- Identity Protection
+- Inbjudna användare
+- PIM
 - Självbetjäning, grupphantering
-- Kontoetablering
-
+- Självbetjäning Passord Management
+- Användningsvillkor
 
 ## <a name="sign-ins-report"></a>Rapport över inloggningar 
 

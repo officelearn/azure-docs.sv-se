@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: a51eb8f560d598f86caf57b7b24737b0a3574b68
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 4cad09877a3fc4f586db2d92ce97a64b6efe295e
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49957232"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57537158"
 ---
 # <a name="service-to-service-authentication-with-azure-data-lake-storage-gen1-using-python"></a>Tjänst-till-tjänst-autentisering med Azure Data Lake Storage Gen1 med hjälp av Python
 > [!div class="op_single_selector"]
@@ -44,7 +44,7 @@ Att arbeta med Data Lake Storage Gen1 med hjälp av Python, måste du installera
 
 * `azure-mgmt-resource`-modulen, som innehåller Azure-moduler för Active Directory osv.
 * Den `azure-mgmt-datalake-store` modulen, som innehåller kontohanteringsåtgärder för Data Lake Storage Gen1. Mer information om den här modulen finns i [Gen1 för Azure Data Lake lagringshantering modulreferens](https://docs.microsoft.com/python/api/azure.mgmt.datalake.store?view=azure-python).
-* Den `azure-datalake-store` modulen, som innehåller Data Lake Storage Gen1 filsystemsåtgärder. Mer information om den här modulen finns i [referensen för azure-datalake-store Filesystem-modulen](http://azure-datalake-store.readthedocs.io/en/latest/).
+* Den `azure-datalake-store` modulen, som innehåller Data Lake Storage Gen1 filsystemsåtgärder. Mer information om den här modulen finns i [referensen för azure-datalake-store Filesystem-modulen](https://azure-datalake-store.readthedocs.io/en/latest/).
 
 Installera modulerna med hjälp av följande kommandon.
 

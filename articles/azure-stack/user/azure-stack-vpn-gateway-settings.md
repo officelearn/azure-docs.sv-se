@@ -11,16 +11,16 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 12/27/2018
 ms.author: sethm
 ms.lastreviewed: 12/27/2018
-ms.openlocfilehash: e7a22e6699a69bf89a9c3828433affa0a212116f
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: ac713e4abacc8cece1b14972ddf3a1f3fe2f1cdf
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55240785"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57770194"
 ---
 # <a name="vpn-gateway-configuration-settings-for-azure-stack"></a>Konfigurationsinställningar för VPN-gateway för Azure Stack
 
@@ -170,7 +170,7 @@ Till skillnad från Azure, som har stöd för flera erbjudanden som både en ini
 
 ### <a name="ike-phase-1-main-mode-parameters"></a>Parametrar för IKE fas 1 (huvudläge)
 
-| Egenskap               | Value|
+| Egenskap               | Värde|
 |-|-|
 | IKE-version           | IKEv2 |
 |Diffie-Hellman Group   | Grupp 2 (1 024 bitar) |
@@ -180,7 +180,7 @@ Till skillnad från Azure, som har stöd för flera erbjudanden som både en ini
 
 ### <a name="ike-phase-2-quick-mode-parameters"></a>Parametrar för IKE fas 2 (snabbläge)
 
-| Egenskap | Value|
+| Egenskap | Värde|
 |-|-|
 |IKE-version |IKEv2 |
 |Kryptering och hash-algoritmer (kryptering)     | GCMAES256|

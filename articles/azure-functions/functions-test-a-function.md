@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/10/2018
 ms.author: cshoe
-ms.openlocfilehash: 19a5dee53bee20438098d1aaeb773ebf08f252d4
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: d3da5cc9e0eff27fde6bcd503c033db12f49371e
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53993458"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57767710"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>Strategier för att testa din kod i Azure Functions
 
@@ -288,10 +288,10 @@ Därefter lägger du till en ny fil, ge den namnet **defaultTimer.js**, och Läg
 
 ```javascript
 module.exports = {
-    isPastDue: false
+    IsPastDue: false
 };
 ```
-Den här modulen implementerar den `isPastDue` egenskapen stå är som en falsk timer-instans.
+Den här modulen implementerar den `IsPastDue` egenskapen stå är som en falsk timer-instans.
 
 Använd funktioner för VS Code-tillägg till [skapa en ny funktion i JavaScript HTTP](https://code.visualstudio.com/tutorials/functions-extension/getting-started) och ge den namnet *HttpTrigger*. När funktionen har skapats kan du lägga till en ny fil i samma mapp med namnet **index.test.js**, och Lägg till följande kod:
 

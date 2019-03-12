@@ -7,28 +7,30 @@ tags: azure-portal
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 08/28/2018
+ms.date: 03/08/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 70343c0d66eb2a00ff2245b7e4876c2e94a96855
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: d5820c927b88eba37eaf092dfd4b209180bfc8eb
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53314497"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57775602"
 ---
 # <a name="service-administration-for-azure-search-in-the-azure-portal"></a>Administration av tjänster för Azure Search i Azure portal
 > [!div class="op_single_selector"]
-> * [Portal](search-manage.md)
 > * [PowerShell](search-manage-powershell.md)
+> * [REST-API](https://docs.microsoft.com/rest/api/searchmanagement/)
 > * [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.search)
+> * [Portal](search-manage.md)
 > * [Python](https://pypi.python.org/pypi/azure-mgmt-search/0.1.0)> 
 
 Azure Search är en fullständigt hanterad, molnbaserad search-tjänst som används för att skapa en fullständig sökfunktion i anpassade appar. Den här artikeln beskriver administrationsuppgifter för tjänsten som du kan utföra i den [Azure-portalen](https://portal.azure.com) för en search-tjänst som du redan har etablerat. Administration av tjänster är lätta i design, begränsat till följande uppgifter:
 
-* Hantera åtkomst till den *api-nycklar* används för Läs- eller skrivbehörighet till din tjänst.
-* Justera tjänstkapacitet genom att ändra allokeringen av partitioner och -repliker.
-* Övervaka Resursanvändning, i förhållande till gränsvärdena för din tjänstnivå.
+> [!div class="checklist"]
+> * Hantera åtkomst till den *api-nycklar* används för Läs- eller skrivbehörighet till din tjänst.
+> * Justera tjänstkapacitet genom att ändra allokeringen av partitioner och -repliker.
+> * Övervaka Resursanvändning, i förhållande till gränsvärdena för din tjänstnivå.
 
 Observera att *uppgradera* har inte listats som en administrativ åtgärd. Eftersom resurser tilldelas när tjänsten har etablerats, måste flytta till en annan nivå en ny tjänst. Mer information finns i [skapa en Azure Search-tjänst](search-create-service-portal.md).
 
@@ -58,7 +60,7 @@ När det gäller allmän information om din tjänst, kan du få information på 
 <a id="sub-5"></a>
 
 ## <a name="monitor-resource-usage"></a>Övervaka Resursanvändning
-Instrumentpanelen för är Resursövervakning begränsad till informationen som visas i instrumentpanelen för tjänsten och några mått som du kan få genom att fråga tjänsten. På instrumentpanelen för tjänsten i avsnittet användning kan du snabbt se om partitionen resursnivåer är lämpliga för ditt program.
+Instrumentpanelen för är Resursövervakning begränsad till informationen som visas i instrumentpanelen för tjänsten och några mått som du kan få genom att fråga tjänsten. På instrumentpanelen för tjänsten i avsnittet användning kan du snabbt se om partitionen resursnivåer är lämpliga för ditt program. Om du vill samla in och spara loggade händelser kan du etablera externa resurser, till exempel Azure-övervakning. Mer information finns i [övervakning av Azure Search](search-monitor-usage.md).
 
 Med Search Service REST API kan få du ett antal på dokument och index programmässigt: 
 

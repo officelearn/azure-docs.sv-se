@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 07/18/2018
-ms.openlocfilehash: 72604f84297ddc77b9732c19789d249ac4fa7774
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: 28019163cfec1a9d2e3c12346a6aba2bd00b30b1
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57010845"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57539555"
 ---
 # <a name="reference---iot-hub-endpoints"></a>Referens – IoT Hub-slutpunkter
 
@@ -53,7 +53,7 @@ I följande lista beskrivs slutpunkterna:
 
   * *Ta emot förfrågningar för direkt metod*. En enhet använder den här slutpunkten för att lyssna efter [direktmetod](iot-hub-devguide-direct-methods.md)'s begäranden.
 
-    De här slutpunkterna blir tillgängliga via [MQTT v3.1.1](http://mqtt.org/), HTTPS 1.1 och [AMQP 1.0](https://www.amqp.org/) protokoll. AMQP är också tillgänglig via [WebSockets](https://tools.ietf.org/html/rfc6455) på port 443.
+    De här slutpunkterna blir tillgängliga via [MQTT v3.1.1](https://mqtt.org/), HTTPS 1.1 och [AMQP 1.0](https://www.amqp.org/) protokoll. AMQP är också tillgänglig via [WebSockets](https://tools.ietf.org/html/rfc6455) på port 443.
 
 * **Tjänstslutpunkter**. Varje IoT-hubb Exponerar en uppsättning slutpunkter för lösningens backend-servrar att kommunicera med dina enheter. Med ett undantag slutpunkterna är bara tillgängliga via den [AMQP](https://www.amqp.org/) protokoll. Metoden anrop slutpunkten exponeras via HTTPS-protokollet.
   
@@ -83,6 +83,15 @@ IoT Hub stöder för närvarande följande Azure-tjänster som ytterligare slutp
 * Avsnitt om Service Bus
 
 Gränser för antalet slutpunkter som du kan lägga till, se [kvoter och begränsningar](iot-hub-devguide-quotas-throttling.md).
+
+Du kan använda REST-API [hämta Slutpunktshälsa](https://docs.microsoft.com/de-de/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) att hämta hälsostatus för slutpunkter. Vi rekommenderar att du använder den [IoT Hub mått](iot-hub-metrics.md) rör Routning meddelande svarstid för att identifiera och felsöka fel när slutpunktshälsa är döda eller är skadad.
+
+|Hälsostatus|Beskrivning|
+|---|---|
+|felfri|Slutpunkten som tar emot meddelanden som förväntat.|
+|Feltillstånd|Slutpunkten tar inte emot meddelanden som förväntat och IoT-hubben försöker på nytt för att skicka data till den här slutpunkten. Status för en defekt slutpunkt uppdateras till felfritt läge när IoT Hub har etablerat en konsekvent hälsotillstånd.|
+|okänt|IoT Hub har inte upprätta en anslutning med slutpunkten. Inga meddelanden har levereras till eller avvisas från den här slutpunkten.|
+|dead|Slutpunkten är inte ta emot meddelanden, efter att IoT Hub göras skicka meddelanden under retrial.|
 
 ## <a name="field-gateways"></a>Fält-gateways
 

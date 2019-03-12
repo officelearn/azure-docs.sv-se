@@ -3,21 +3,20 @@ title: Azure-funktion-aktiviteten i Azure Data Factory | Microsoft Docs
 description: Lär dig hur du använder Azure Function-aktiviteten för att köra en Azure-funktion i Data Factory-pipeline
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
-editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/09/2019
-ms.author: douglasl
-ms.openlocfilehash: ee99733440d74424f98a2ed16de83c88bae53ff1
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+author: sharonlo101
+ms.author: shlo
+manager: craigg
+ms.openlocfilehash: b98d20a1f96a6ab4a0dc72330e85fdc98ba04eae
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54321797"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57576386"
 ---
 # <a name="azure-function-activity-in-azure-data-factory"></a>Azure Function-aktivitet i Azure Data Factory
 
@@ -42,10 +41,10 @@ Returtypen för Azure-funktionen måste vara en giltig `JObject`. (Tänk på att
 
 | **Egenskap**  | **Beskrivning** | **Tillåtna värden** | **Krävs** |
 | --- | --- | --- | --- |
-| namn  | Namnet på aktiviteten i pipelinen  | Sträng | ja |
-| typ  | Aktiviteten är 'AzureFunctionActivity' | Sträng | ja |
+| namn  | Namnet på aktiviteten i pipelinen  | String | ja |
+| typ  | Aktiviteten är 'AzureFunctionActivity' | String | ja |
 | Länkad tjänst | Azure-funktion som är länkad tjänst för motsvarande Azure Function-App  | Länkade tjänstreferensen | ja |
-| Funktionsnamn  | Namnet på funktionen i Azure Function-App som anropar den här aktiviteten | Sträng | ja |
+| Funktionsnamn  | Namnet på funktionen i Azure Function-App som anropar den här aktiviteten | String | ja |
 | metod  | REST API-metoden för funktionsanropet | Sträng typer som stöds: ”HÄMTA”, ”POST”, ”PUT”   | ja |
 | sidhuvud  | Rubriker som skickas till begäran. Till exempel vill ange språk och typ för en begäran: ”headers”: {”Accept-språk” ”: en-us”, ”Content-Type”: ”application/json”} | Sträng (eller ett uttryck med resultType av sträng) | Nej |
 | brödtext  | texten som skickas tillsammans med begäran till funktionen api-metoden  | Sträng (eller ett uttryck med resultType av sträng) eller ett objekt.   | Krävs för PUT/POST-metoder |

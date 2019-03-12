@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 3/2/2019
+ms.date: 3/11/2019
 ms.author: victorh
-ms.openlocfilehash: 38b60536a05fc726ddcd06b631078c0a5f3d89ce
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 4ef9089c94d9e806cc519c4f8243cdcb7e73953a
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57249152"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57730525"
 ---
 # <a name="azure-firewall-threat-intelligence-based-filtering---public-preview"></a>Azure brandväggen threat intelligence-baserad filtrering – förhandsversion
 
@@ -22,8 +22,6 @@ Threat intelligence-baserad filtrering kan aktiveras för brandväggen för att 
 
 > [!IMPORTANT]
 > Threat intelligence filtrering baserad är för närvarande i offentlig förhandsversion och ingår ett serviceavtal för förhandsversionen. Vissa funktioner kanske inte stöds eller kan ha begränsad funktionalitet.  Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
->
->Threat intelligence filtrering är tillgängligt i alla offentliga regioner. Associerade portalens konfigurationsanvändargränssnittet läggs till regioner stegvis och blir tillgängliga i alla regioner inom en snar framtid.
 
 Om threat intelligence-baserad filtrering är aktiverat, bearbetas de associerade reglerna innan någon av NAT-regler, regler eller regler för program. I förhandsversionen inkluderas endast högsta förtroende poster.
 

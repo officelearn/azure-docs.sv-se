@@ -10,12 +10,12 @@ ms.subservice: acoustics
 ms.topic: conceptual
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: a9cc8c7b4cdcc05d38bc0d68561fc9d86305b0cb
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 9569b161dd5c6c79c5333d585f9ab4fcdb55fa97
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55879922"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57533994"
 ---
 # <a name="getting-started-with-project-acoustics"></a>Komma igång med projektet Akustik
 Den här snabbstartsguiden visar hur du integrerar plugin-programmet i dina Unity-projekt, skapa din scen och tillämpa Akustik till ljud källor. Den här snabbstarten måste du först skapa en [Azure batch-kontot](create-azure-account.md). Den här guiden förutsätter bekant med Unity.
@@ -24,7 +24,7 @@ Den här snabbstartsguiden visar hur du integrerar plugin-programmet i dina Unit
 Registrera [här](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRwMoAEhDCLJNqtVIPwQN6rpUOFRZREJRR0NIQllDOTQ1U0JMNVc4OFNFSy4u) till förhandsversionen Designer.
 
 ## <a name="supported-platforms-for-quickstart"></a>Plattformar som stöds för Snabbstart
-* [Unity 2018.2 +](http://www.unity3d.com)
+* [Unity 2018.2 +](https://www.unity3d.com)
   * Kräver att ställa in ditt projekt i **.NET 4.x motsvarande** skript körningsversion 
   * Kräver Windows-baserade Unity-redigeraren
 

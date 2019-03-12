@@ -1,6 +1,6 @@
 ---
-title: Aktivera Kubernetes-instrumentpanelen i Azure Stack | Microsoft Docs
-description: Lär dig hur du aktiverar Kubernetes-instrumentpanelen i Azure Stack
+title: Komma åt Kubernetes-instrumentpanelen i Azure Stack | Microsoft Docs
+description: Lär dig att komma åt Kubernetes-instrumentpanelen i Azure Stack
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -11,24 +11,24 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2019
+ms.date: 03/07/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 02/27/2019
-ms.openlocfilehash: cdc1be0c0274977fe14ef704fbb74fa955ad7e11
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 243fb01a5c8112afaf310f616b93c2667ac6f19d
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57242419"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57729866"
 ---
-# <a name="enable-the-kubernetes-dashboard-in-azure-stack"></a>Aktivera Kubernetes-instrumentpanelen i Azure Stack 
+# <a name="access-the-kubernetes-dashboard-in-azure-stack"></a>Komma åt Kubernetes-instrumentpanelen i Azure Stack 
 
 *Gäller för: Integrerade Azure Stack-system och Azure Stack Development Kit* 
 > [!Note]   
 > Kubernetes på Azure Stack är en förhandsversion. Azure Stack-frånkopplade scenariot stöds inte för närvarande av förhandsversionen. 
 
-Kubernetes innehåller en webbinstrumentpanel som du kan använda för grundläggande hanteringsåtgärder. Den här instrumentpanelen kan du visa grundläggande hälsostatus och mått för dina program, skapa och distribuera tjänster och redigera befintliga program. Den här artikeln visar hur du aktiverar Kubernetes-instrumentpanelen på Azure Stack.
+Kubernetes innehåller en webbinstrumentpanel som du kan använda för grundläggande hanteringsåtgärder. Den här instrumentpanelen kan du visa grundläggande hälsostatus och mått för dina program, skapa och distribuera tjänster och redigera befintliga program. Den här artikeln visar hur du ställer in Kubernetes-instrumentpanelen på Azure Stack.
 
 ## <a name="prerequisites-for-kubernetes-dashboard"></a>Krav för Kubernetes-instrumentpanelen
 

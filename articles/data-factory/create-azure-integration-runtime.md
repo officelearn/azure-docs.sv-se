@@ -3,20 +3,20 @@ title: Skapa Azure integration runtime i Azure Data Factory | Microsoft Docs
 description: Lär dig hur du skapar med Azure integration runtime i Azure Data Factory, som används för att kopiera data och skicka transformeringsaktiviteter.
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/15/2018
-ms.author: douglasl
-ms.openlocfilehash: 93777a3d9ecbb6c2749594985494975f61cc1948
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+author: nabhishek
+ms.author: abnarain
+manager: craigg
+ms.openlocfilehash: 4b166ded3dcef4a89951eb81f7f1b321f89a0e67
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57455708"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57576047"
 ---
 # <a name="how-to-create-and-configure-azure-integration-runtime"></a>Hur du skapar och konfigurerar Azure Integration Runtime
 Integration Runtime (IR) är beräkningsinfrastrukturen som används av Azure Data Factory för att tillhandahålla funktioner för dataintegrering i olika nätverksmiljöer. Mer information om IR finns i [integreringskörningen](concepts-integration-runtime.md).

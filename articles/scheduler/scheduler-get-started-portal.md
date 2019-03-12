@@ -8,14 +8,14 @@ author: derek1ee
 ms.author: deli
 ms.reviewer: klam
 ms.assetid: e69542ec-d10f-4f17-9b7a-2ee441ee7d68
-ms.topic: hero-article
+ms.topic: conceptual
 ms.date: 09/17/2018
-ms.openlocfilehash: f1f7e67fbd5d8a9ebfae03c00eb0de36e86d9a97
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 7e5abf1100c09f8f28d268b3f2defe953c5f36f0
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46949595"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57770143"
 ---
 # <a name="create-and-schedule-your-first-job-with-azure-scheduler---azure-portal"></a>Skapa och schemalägga ditt första jobb med Azure Scheduler – Azure-portalen
 
@@ -28,7 +28,7 @@ Om du heller inte har någon Azure-prenumeration kan du <a href="https://azure.m
 
 ## <a name="create-job"></a>Skapa jobb
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/).  
+1. Logga in på [Azure Portal](https://portal.azure.com/).  
 
 1. Välj **Skapa en resurs** på Azure-huvudmenyn. Ange ”Scheduler” i sökrutan. Välj **Scheduler** i resultatlistan och välj sedan **Skapa**.
 
@@ -38,7 +38,7 @@ Om du heller inte har någon Azure-prenumeration kan du <a href="https://azure.m
 
 1. Under **Scheduler-jobb**, ange den här informationen:
 
-   | Egenskap | Exempelvärde | Beskrivning |
+   | Egenskap  | Exempelvärde | Beskrivning |
    |----------|---------------|-------------| 
    | **Namn** | getMicrosoft | Ange ett namn för ditt jobb | 
    | **Jobbsamling** | <*jobbsamlingsnamnet*> | Skapa en jobbsamling eller välj en befintlig samling. | 
@@ -47,7 +47,7 @@ Om du heller inte har någon Azure-prenumeration kan du <a href="https://azure.m
 
 1. Välj **Åtgärdsinställningar – konfigurera**, ange den här informationen och välj sedan **OK** när du är klar:
 
-   | Egenskap | Exempelvärde | Beskrivning |
+   | Egenskap  | Exempelvärde | Beskrivning |
    |----------|---------------|-------------| 
    | **Åtgärd** | **Http** | Typ av åtgärd som ska köras | 
    | **Metod** | **Hämta** | Anropsmetod | 
@@ -60,7 +60,7 @@ Om du heller inte har någon Azure-prenumeration kan du <a href="https://azure.m
 
    Även om du kan skapa ett engångsjobb ställer det här exemplet in ett återkommande schema.
 
-   | Egenskap | Exempelvärde | Beskrivning |
+   | Egenskap  | Exempelvärde | Beskrivning |
    |----------|---------------|-------------| 
    | **Frekvens** | **Återkommande** | Antingen ett engångsjobb eller ett återkommande jobb | 
    | **Starta den** | <*dagens-datum*> | Jobbets startdatum | 

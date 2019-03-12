@@ -7,14 +7,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/07/2019
-ms.openlocfilehash: f95edc881e26576df216c92ff0b94c5c19bf7fa8
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 204ee1b812949311258be968de387dc5b66c4fc0
+ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56727935"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57726880"
 ---
-# <a name="azure-data-factory-data-flow-join-transformation"></a>Azure Data Factory Data Flow Join-transformering
+# <a name="mapping-data-flow-join-transformation"></a>Mappningen Dataomvandling Flow Join
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
@@ -24,11 +24,11 @@ Använd koppling för att kombinera data från två tabeller i ditt dataflöde. 
 
 ## <a name="join-types"></a>Kopplingstyper
 
-Välja anslutningstyp krävs för omvandlingen Join
+Välja anslutningstyp krävs för anslutning till transformeringen.
 
 ### <a name="inner-join"></a>Inre koppling
 
-Inre koppling släpps igenom endast rader som matchar villkor som kolumnen från båda tabellerna
+Inre koppling släpps igenom endast rader som matchar villkor som kolumnen från båda tabellerna.
 
 ### <a name="left-outer"></a>Vänster yttre
 
@@ -40,11 +40,11 @@ Alla rader från rätt dataströmmen uppfyller inte kopplingsvillkoret släpps i
 
 ### <a name="full-outer"></a>Fullständig yttre
 
-Fullständig ytter ger alla kolumner och rader från båda sidorna med NULL-värden för kolumner som finns inte i den andra tabellen
+Fullständig ytter ger alla kolumner och rader från båda sidorna med NULL-värden för kolumner som finns inte i den andra tabellen.
 
 ### <a name="cross-join"></a>Korskoppling
 
-Specifika kryssprodukten av två strömmar med ett uttryck
+Ange kryssprodukten av två dataströmmar med ett uttryck. Du kan använda detta för att skapa anpassade kopplingsvillkor.
 
 ## <a name="specify-join-conditions"></a>Ange kopplingsvillkor
 
@@ -67,3 +67,7 @@ Du kan uppnå självkoppling villkor i ADF dataflöde med hjälp av väljer omva
 ![Självkoppling](media/data-flow/selfjoin.png "självkoppling")
 
 I diagrammet ovan är väljer vi högst upp. Alla avbrytas är alias ursprungliga direkt för att ”OrigSourceBatting”. Du kan se att vi använder dataströmmen väljer alias som kopplingen till höger så att vi kan referera till samma nyckel i både vänster och höger sida av den inre koppling används i den markerade Join-transformeringen under den.
+
+## <a name="next-steps"></a>Nästa steg
+
+När du ansluter till data, kan du sedan [skapa nya kolumner](data-flow-derived-column.md) och [mottagare dina data till ett måldatalager](data-flow-sink.md).

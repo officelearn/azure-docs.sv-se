@@ -10,17 +10,17 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 01/18/2019
-ms.openlocfilehash: aa88c2c63d348d0c82e0ad93115ea49437a63567
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: bce00300e62b3ea04331530bbda2c16f0ddd2ab3
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895076"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57759380"
 ---
 # <a name="manage-storage-accounts-in-azure-stack"></a>Hantera lagringskonton i Azure Stack
 
@@ -46,7 +46,7 @@ Om du är intresserad av ett visst lagringskonto – kan du **filtrera och hämt
 
 1. Välj **Filter** överst i fönstret.
 2. I fönstret Filter kan du ange **kontonamn**, ** prenumerations-ID eller **status** att finjustera listan med lagringskonton som ska visas. Använd dem efter behov.
-3. Välj **uppdatering**. Listan bör uppdatera därefter.
+3. Välj **Uppdatera**. Listan bör uppdatera därefter.
    
     ![](media/azure-stack-manage-storage-accounts/image5.png)
 4. Att återställa filtret: Välj **Filter**, tar bort valen och uppdatera.

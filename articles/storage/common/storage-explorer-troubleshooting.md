@@ -7,13 +7,12 @@ ms.service: virtual-machines
 ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
-ms.subservice: common
-ms.openlocfilehash: 15ceaf1a75859ca53ddb946555880b360b29ee58
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: bff1e8c111a8a50e15b6d316e422a641a778c73c
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57405699"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57775177"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Felsökningsguide för Azure Storage Explorer
 
@@ -97,13 +96,11 @@ Om du inte hittar något självsignerat certifikat med föregående steg kan du 
 
 Tom inloggning dialogrutor orsakas oftast av AD FS ber Storage Explorer att utföra en omdirigering, som inte stöds av Electron. Du kan försöka att använda enheten kod Flow för att logga in för att lösa problemet. Det gör du på följande sätt:
 
-1. ”Gå till experimentella” -> ”använda kod Enhetsinloggning”.
+1. ”Gå till förhandsversion” -> ”använda kod Enhetsinloggning”.
 2. Öppna dialogrutan Anslut (antingen via ikonen plugin på den vänstra vertikalstreck eller ”Lägg till konto” på panelen konto).
 3. Välj vilken miljö som du vill logga in på.
 4. Klicka på ”signera” i knappen.
 5. Följ anvisningarna på nästa panel.
-
-Obs: den här funktionen finns för närvarande endast på 1.7.0 förhandsversion.
 
 Om du har problem med att logga in på kontot som du vill använda eftersom din standardwebbläsare redan är inloggad på ett annat konto, kan du antingen:
 
@@ -244,6 +241,14 @@ Du kan behöva installera några beroenden manuellt för Linux-distributioner ä
 * Uppdaterade GCC
 
 Beroende på din distribution, kan det finnas andra paket som du behöver installera. Lagringsutforskaren [viktig](https://go.microsoft.com/fwlink/?LinkId=838275&clcid=0x409) innehålla specifika åtgärder för vissa distributioner.
+
+## <a name="open-in-explorer-from-azure-portal-doesnt-work"></a>Öppna i Explorer från Azure portal fungerar inte
+
+Om knappen ”Öppna i Explorer” i Azure-portalen inte fungerar för dig kan du kontrollera att du använder en kompatibel webbläsare. Följande webbläsare har testats för kompatibilitet.
+* Microsoft Edge
+* Mozilla Firefox
+* Google Chrome
+* Microsoft Internet Explorer
 
 ## <a name="next-steps"></a>Nästa steg
 

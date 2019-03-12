@@ -5,15 +5,15 @@ services: storage
 author: artemuwka
 ms.service: storage
 ms.topic: article
-ms.date: 10/09/2018
+ms.date: 02/24/2019
 ms.author: artemuwka
 ms.subservice: common
-ms.openlocfilehash: 86d2569d0ab920bd32a25e1331d74ed4f623143a
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 111c24c1cd608542a5ef7da85f93ca22082af6d9
+ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57437675"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57726727"
 ---
 # <a name="transfer-data-with-the-azcopy-v10-preview"></a>Överföra data med AzCopy v10 (förhandsversion)
 
@@ -24,9 +24,9 @@ AzCopy v10 (förhandsversion) är nästa generations kommandoradsverktyg för at
 - Synkronisera ett filsystem till Azure Blob eller vice versa. Använd `azcopy sync <source> <destination>`. Perfekt för inkrementell kopia scenarier.
 - Har stöd för Azure Data Lake Storage Gen2 API: er. Använd `myaccount.dfs.core.windows.net` som en URI för att anropa API: er för ADLS Gen2.
 - Har stöd för kopiering av ett hela konto (endast Blob-tjänst) till ett annat konto.
-- Konto för att kopiera konto nu använder den nya [placera från URL: en](https://docs.microsoft.com/rest/api/storageservices/put-block-from-url) API: er. Det krävs ingen dataöverföring till klienten vilket gör överföringen snabbare!
+- Konto för att kopiera konto nu använder den nya [placera Block från URL: en](https://docs.microsoft.com/rest/api/storageservices/put-block-from-url) API: er. Det krävs ingen dataöverföring till klienten vilket gör överföringen snabbare!
 - Lista/ta bort filer och blobar i en viss sökväg.
-- Har stöd för mönster med jokertecken i en sökväg som--inkludera och--exkludera flaggor.
+- Stöder jokerteckensmönster i en sökväg samt som i--undanta flaggan.
 - Förbättrad flexibilitet: varje AzCopy-instans skapas en jobbet och en tillhörande loggfil. Du kan visa och starta om tidigare jobb och återuppta misslyckade jobb. AzCopy försöker automatiskt en överföring efter ett fel.
 - Förbättringar av allmänna prestanda.
 
@@ -35,9 +35,9 @@ AzCopy v10 (förhandsversion) är nästa generations kommandoradsverktyg för at
 ### <a name="latest-preview-version-v10"></a>Senaste förhandsversionen (v10)
 
 Ladda ned den senaste förhandsversionen av AzCopy:
-- [Windows](https://aka.ms/downloadazcopy-v10-windows)
-- [Linux](https://aka.ms/downloadazcopy-v10-linux)
-- [MacOS](https://aka.ms/downloadazcopy-v10-mac)
+- [Windows](https://aka.ms/downloadazcopy-v10-windows) (zip)
+- [Linux](https://aka.ms/downloadazcopy-v10-linux) (tar)
+- [MacOS](https://aka.ms/downloadazcopy-v10-mac) (zip)
 
 ### <a name="latest-production-version-v81"></a>Senaste produktionsversionen (v8.1)
 
@@ -49,18 +49,23 @@ Ladda ned den [AzCopy v7.3 stöd för kopiering av data till/från Microsoft Azu
 
 ## <a name="post-installation-steps"></a>Anvisningarna efter installation
 
-AzCopy v10 kräver inte en installation. Öppna ett kommandoradsprogram för önskade och navigera till mappen där den `azcopy.exe` körbara finns. Om du vill kan du lägga till mappen AzCopy systemsökvägen.
+AzCopy v10 kräver inte en installation. Öppna ett kommandoradsprogram för önskade och navigera till mappen där `azcopy.exe` (Windows) eller `azcopy` (Linux) körbara filen finns. Om du vill kan du lägga till mappen AzCopy systemsökvägen.
 
 ## <a name="authentication-options"></a>Autentiseringsalternativ
 
 AzCopy v10 kan du använda följande alternativ när du autentiserar med Azure Storage:
-- **Azure Active Directory [stöds för Blob-och ADLS Gen2]**. Använd ```.\azcopy login``` att logga in med Azure Active Directory.  Användaren bör ha [”Storage Blob Data-deltagare” rolltilldelningen](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac) att skriva till Blob storage med Azure Active Directory-autentisering.
+- **Azure Active Directory [stöds för Blob-och ADLS Gen2]**. Använd ```.\azcopy login``` att logga in med Azure Active Directory.  Användaren bör ha [”Storage Blob Data-deltagare” rolltilldelningen](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac) att skriva till Blob storage med Azure Active Directory-autentisering. För att autentisera med hjälp av hanterad tjänstidentitet (MSI), Använd `azcopy login --identity` efter att ha beviljat Azure beräkningsinstansen deltagarrollen data.
 - **SAS-token [stöds för Blob-och Filtjänster]**. Lägg till SAS-token till blob-sökväg på kommandoraden för att använda den. Du kan generera SAS-token med hjälp av Azure Portal, [Lagringsutforskaren](https://blogs.msdn.microsoft.com/jpsanders/2017/10/12/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer/), [PowerShell](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageblobsastoken), eller andra verktyg du väljer. Mer information finns i [exempel](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-shared-access-signature-part-2).
 
-> [!IMPORTANT]
-> När du skickar en supportbegäran om att Microsoft Support (eller felsöka problem som rör en 3 part). dela den redigerade versionen av kommandot som du försöker köra för att säkerställa SAS inte delas av misstag med vem som helst. Du hittar den redigerade versionen i början av loggfilen. Läs felsökningsavsnittet senare i den här artikeln för mer information.
-
 ## <a name="getting-started"></a>Komma igång
+
+> [!TIP]
+> **Föredrar du ett grafiskt användargränssnitt?**
+>
+> Försök [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/), en skrivbordsklient som förenklar hantering Azure Storage-data och **nu använder AzCopy** överföra data till och från Azure Storage för snabbare.
+>
+> Aktivera bara AzCopy-funktionen i Storage Explorer ”förhandsversion”-menyn. Lagringsutforskaren använder sedan AzCopy när ladda upp och ned data till Blob storage för bättre prestanda.
+> ![Aktivera AzCopy som en motor för överföring i Azure Storage Explorer](media/storage-use-azcopy-v10/enable-azcopy-storage-explorer.jpg)
 
 AzCopy v10 har en enkel lokal dokumenterade syntax. Den allmänna syntaxen ser ut så här när du har loggat in med Azure Active Directory:
 
@@ -80,7 +85,7 @@ AzCopy v10 har en enkel lokal dokumenterade syntax. Den allmänna syntaxen ser u
 Här är hur du kan hämta en lista över tillgängliga kommandon:
 
 ```azcopy
-.\azcopy -help
+.\azcopy --help
 # Using the alias instead
 .\azcopy -h
 ```
@@ -88,7 +93,7 @@ Här är hur du kan hämta en lista över tillgängliga kommandon:
 Se hjälpsidan och exempel för ett visst kommando kör du kommandot nedan:
 
 ```azcopy
-.\azcopy <cmd> -help
+.\azcopy <cmd> --help
 # Example:
 .\azcopy cp -h
 ```
@@ -153,7 +158,7 @@ Kopiering av data mellan två lagringskonton använder den [placera Block från 
 
 Om du vill kopiera data mellan två lagringskonton, använder du följande kommando:
 ```azcopy
-.\azcopy cp "https://myaccount.blob.core.windows.net/<sastoken>" "https://myotheraccount.blob.core.windows.net/<sastoken>" --recursive=true
+.\azcopy cp "https://account.blob.core.windows.net/<sastoken>" "https://otheraccount.blob.core.windows.net/<sastoken>" --recursive=true
 ```
 
 > [!NOTE]
@@ -161,27 +166,35 @@ Om du vill kopiera data mellan två lagringskonton, använder du följande komma
 
 ## <a name="copy-a-vhd-image-to-a-storage-account"></a>Kopiera en VHD-avbildning till ett lagringskonto
 
-AzCopy v10 som standard överför data till blockblobar. Men om en källfil har vhd-tillägg, AzCopy v10 kommer som standard att överföra den till en sidblobb. Det här beteendet är för närvarande inte kan konfigureras.
+Använd `--blob-type=PageBlob` att ladda upp en avbildning till Blob storage som en Sidblobb.
 
-## <a name="sync-incremental-copy-and-delete-blob-storage-only"></a>Synkronisering: inkrementell kopiera och ta bort (endast Blob storage)
+```azcopy
+.\azcopy cp "C:\myimages\diskimage.vhd" "https://account.blob.core.windows.net/mycontainer/diskimage.vhd<sastoken>" --blob-type=PageBlob
+```
+
+## <a name="sync-incremental-copy-and-optional-delete-blob-storage-only"></a>Synkronisering: inkrementell kopia och (valfritt) ta bort (endast Blob storage)
+
+Synkronisera kommandot synkroniserar innehållet i en källkatalog i en katalog i mål jämförelse filnamn och senast ändrade tidsstämplar. Du kan också den här åtgärden innehåller borttagning av målfilerna om de inte finns i källan när `--delete-destination=prompt|true` flagga har angetts. Ta bort beteendet är inaktiverad som standard.
 
 > [!NOTE]
-> Synkronisera kommandot synkroniserar innehåll från källa till mål, vilket omfattar borttagning av målfilerna om de inte finns i källan. Kontrollera att du använder det mål som du tänker synkronisera.
+> Använd `--delete-destination` flaggan med försiktighet. Aktivera [mjuk borttagning](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) funktionen innan du aktiverar delete beteende synkroniserade att förhindra oavsiktliga borttagningar i ditt konto.
+>
+> När `--delete-destination` har angetts till SANT, AzCopy tar bort filer som inte finns i källan från målet utan någon uppmaning till användaren. Om du vill uppmanas att bekräfta använda `--delete-destination=prompt`.
 
 Om du vill synkronisera det lokala filsystemet till storage-konto, använder du följande kommando:
 
 ```azcopy
-.\azcopy sync "C:\local\path" "https://account.blob.core.windows.net/mycontainer1<sastoken>" --recursive=true
+.\azcopy sync "C:\local\path" "https://account.blob.core.windows.net/mycontainer<sastoken>"
 ```
 
 På samma sätt som kan du synkronisera en Blob-behållare till ett lokalt filsystem:
 
 ```azcopy
 # If you're using Azure Active Directory authentication the sastoken is not required
-.\azcopy sync "https://account.blob.core.windows.net/mycontainer1" "C:\local\path" --recursive=true
+.\azcopy sync "https://account.blob.core.windows.net/mycontainer" "C:\local\path"
 ```
 
-Kommandot kan du synkronisera källan till målet baserat på tidsstämplar som senast ändrade inkrementellt. Om du lägger till eller ta bort en fil i källan, gör AzCopy v10 samma i målet. Före borttagningen uppmanas AzCopy för att bekräfta borttagningen av filerna.
+Kommandot kan du synkronisera källan till målet baserat på tidsstämplar som senast ändrade inkrementellt. Om du lägger till eller ta bort en fil i källan, gör AzCopy v10 samma i målet. Om beteendet delete är aktiverad i kommandot synkronisering, AzCopy ska ta bort filer från målet om de inte finns i källan längre.
 
 ## <a name="advanced-configuration"></a>Avancerad konfiguration
 
@@ -214,13 +227,6 @@ export AZCOPY_CONCURRENCY_VALUE=<value>
 # If the value is blank then the default value is currently in use
 ```
 
-## <a name="troubleshooting"></a>Felsökning
-
-AzCopy v10 skapar loggfiler och plan filer för alla jobb. Du kan använda loggarna för att undersöka och felsöka eventuella problem. Loggarna innehåller statusen för fel (UPLOADFAILED COPYFAILED och DOWNLOADFAILED), den fullständiga sökvägen och orsaken till felet. Jobbloggar och plan filer finns i % USERPROFILE\\.azcopy mapp på Windows eller $HOME\\.azcopy mapp på Mac och Linux.
-
-> [!IMPORTANT]
-> När du skickar en supportbegäran om att Microsoft Support (eller felsöka problem som rör en 3 part). dela den redigerade versionen av kommandot som du försöker köra för att säkerställa SAS inte delas av misstag med vem som helst. Du hittar den redigerade versionen i början av loggfilen.
-
 ### <a name="change-the-location-of-the-log-files"></a>Ändra platsen för loggfilerna
 
 Du kan ändra plats loggfiler om det behövs eller för att undvika att fylla OS-disken.
@@ -237,6 +243,17 @@ export AZCOPY_LOG_LOCATION=<value>
 # If the value is blank then the default value is currently in use
 ```
 
+### <a name="change-the-default-log-level"></a>Ändra standardnivån
+
+AzCopy loggningsnivån är som standard information. Om du vill minska log detaljnivå för att spara diskutrymme kan du skriva över den inställningen med hjälp av ``--log-level`` alternativet. Tillgängliga loggningsnivåerna är: FELSÖKNING, INFO, varning, fel, PANIK och oåterkalleligt fel
+
+## <a name="troubleshooting"></a>Felsökning
+
+AzCopy v10 skapar loggfiler och plan filer för alla jobb. Du kan använda loggarna för att undersöka och felsöka eventuella problem. Loggarna innehåller statusen för fel (UPLOADFAILED COPYFAILED och DOWNLOADFAILED), den fullständiga sökvägen och orsaken till felet. Jobbloggar och plan filer finns i % USERPROFILE %\\.azcopy mapp på Windows eller $HOME\\.azcopy mapp på Mac och Linux.
+
+> [!IMPORTANT]
+> När du skickar en supportbegäran om att Microsoft Support (eller felsöka problem som rör en 3 part). dela den redigerade versionen av kommandot som du försöker köra för att säkerställa SAS inte delas av misstag med vem som helst. Du hittar den redigerade versionen i början av loggfilen.
+
 ### <a name="review-the-logs-for-errors"></a>Granska loggarna efter fel
 
 Följande kommando får alla fel med UPLOADFAILED status från 04dc9ca9-158f-7945-5933-564021086c79-loggen:
@@ -244,6 +261,8 @@ Följande kommando får alla fel med UPLOADFAILED status från 04dc9ca9-158f-794
 ```azcopy
 cat 04dc9ca9-158f-7945-5933-564021086c79.log | grep -i UPLOADFAILED
 ```
+
+Alternativt kan du se filnamnen som inte har överförts med `azcopy jobs show <jobid> --with-status=Failed` kommando.
 
 ### <a name="view-and-resume-jobs"></a>Visa och återuppta jobb
 
@@ -265,15 +284,11 @@ Om du vill filtrera överföringar efter status, använder du följande kommando
 .\azcopy jobs show <job-id> --with-status=Failed
 ```
 
-Du kan återuppta en misslyckades/har avbrutits jobb med hjälp av dess identifierare tillsammans med SAS-token (det inte är beständiga av säkerhetsskäl):
+Du kan återuppta en misslyckades/avbrutna jobb med hjälp av dess identifierare tillsammans med SAS-token (det inte är beständiga av säkerhetsskäl):
 
 ```azcopy
 .\azcopy jobs resume <jobid> --sourcesastokenhere --destinationsastokenhere
 ```
-
-### <a name="change-the-default-log-level"></a>Ändra standardnivån
-
-AzCopy loggningsnivån är som standard information. Om du vill minska log detaljnivå för att spara diskutrymme kan du skriva över den inställningen med hjälp av ``--log-level`` alternativet. Tillgängliga loggningsnivåerna är: FELSÖKNING, INFO, varning, fel, PANIK och oåterkalleligt fel
 
 ## <a name="next-steps"></a>Nästa steg
 

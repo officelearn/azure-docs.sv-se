@@ -11,15 +11,15 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: apimpm
-ms.openlocfilehash: 549194ce1dcab5cd449c60c934421b3bea154d6a
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
-ms.translationtype: HT
+ms.openlocfilehash: 39284805d9b9b5c10f5e211dc7d4c461d15cc6bc
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53015695"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57763545"
 ---
 # <a name="add-caching-to-improve-performance-in-azure-api-management"></a>Förbättra prestanda i Azure API Management med cachelagring
 
@@ -40,7 +40,7 @@ Detta får du får lära dig:
 > [!NOTE]
 > Internt cacheminne är inte tillgängligt på nivån **Förbrukning** för Azure API Management. Du kan [använda en extern Azure Cache for Redis](api-management-howto-cache-external.md) istället.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här självstudien behöver du:
 

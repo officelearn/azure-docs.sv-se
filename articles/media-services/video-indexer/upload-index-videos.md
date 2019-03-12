@@ -7,14 +7,14 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 02/17/2019
+ms.date: 03/05/2019
 ms.author: juliako
-ms.openlocfilehash: ddf090664b1e5197603dadc26da92a0a1da1a63d
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: c11a206316cfb7b2d9e96b631fce01701da93565
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57404951"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57550490"
 ---
 # <a name="upload-and-index-your-videos"></a>Ladda upp och indexera dina videor  
 
@@ -36,6 +36,7 @@ När din video har laddats upp, kodar Video Indexer kan du kan också videon (be
 - Överföringsstorlek med alternativet byte-matrisen är begränsat till 2GB
 - Alternativet byte-matris på grund av timeout efter 30 min
 - URL:en som anges i parametern `videoURL` måste kodas
+- Indexering tillgångar i Media Services har samma begränsningar som indexering från URL
 
 > [!Tip]
 > Det rekommenderas att du använder .NET Framework version 4.6.2 eller senare eftersom äldre .NET Framework-versioner inte använder TLS 1.2 som standard.

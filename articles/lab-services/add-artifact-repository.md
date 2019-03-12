@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2019
 ms.author: spelluru
-ms.openlocfilehash: 393a5c0af5ff7ccaef8aa462391c5c9457aa9c08
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: 85763a895b61d184db033c09a413cc897ef6eaa3
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57011129"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57551610"
 ---
 # <a name="add-an-artifact-repository-to-your-lab-in-devtest-labs"></a>Lägga till en artefaktcentrallagret i ditt labb i DevTest Labs
 DevTest Labs kan du ange en artefakt som ska läggas till en virtuell dator vid tidpunkten för att skapa den virtuella datorn eller när den virtuella datorn har skapats. Den här artefakten kan vara ett verktyg eller ett program som du vill installera på den virtuella datorn. Artefakter har definierats i en JSON-fil lästs in från en GitHub- eller VSTS Git-lagringsplats. 
@@ -377,7 +377,7 @@ if ($ArtifactRepositoryName -eq $null){
 
 Skriptet lägger till en ny resurs i den aktuella prenumerationen. Använd [Get-AzContext](/powershell/module/az.accounts/get-azcontext) se den här informationen. Använd [Set-AzContext](/powershell/module/az.accounts/set-azcontext) att ange aktuell klient och prenumeration.
 
-Det bästa sättet att identifiera resursens namn och information om resursen är att använda den [Test Drive Azure REST API: er](https://azure.github.io/projects/apis/) webbplats. Kolla in den [DevTest Labs – 2016-05-15](http://aka.ms/dtlrestapis) provider för att se tillgängliga REST API: er för DevTest Labs-providern. Skriptanvändare följande resurs-ID. 
+Det bästa sättet att identifiera resursens namn och information om resursen är att använda den [Test Drive Azure REST API: er](https://azure.github.io/projects/apis/) webbplats. Kolla in den [DevTest Labs – 2016-05-15](https://aka.ms/dtlrestapis) provider för att se tillgängliga REST API: er för DevTest Labs-providern. Skriptanvändare följande resurs-ID. 
 
 ```powershell
 "/subscriptions/$SubscriptionId/resourceGroups/$($LabResource.ResourceGroupName)/providers/Microsoft.DevTestLab/labs/$LabName/artifactSources/$ArtifactRepositoryName"

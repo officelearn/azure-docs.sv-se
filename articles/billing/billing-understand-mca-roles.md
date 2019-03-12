@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/28/2019
 ms.author: banders
-ms.openlocfilehash: 43bf977483e9f24eb446e1c4c7b168c890604c39
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 9b14174541117878d7fd98b79d1cd139babb1027
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57249110"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57543465"
 ---
 # <a name="understand-microsoft-customer-agreement-administrative-roles-in-azure"></a>Förstå Microsoft kundavtal administrativa roller i Azure
 
@@ -183,7 +183,7 @@ I följande tabell visar vilken roll som du behöver utföra uppgifter i samband
 
 ## <a name="manage-billing-roles-in-the-azure-portal"></a>Hantera fakturering roller i Azure portal
 
-1. Logga in på [Azure Portal](http://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 
 2. Sök på **Cost Management + fakturering**.
 

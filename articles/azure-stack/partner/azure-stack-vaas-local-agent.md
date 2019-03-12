@@ -10,36 +10,36 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 03/04/2019
+ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.lastreviewed: 11/26/2018
+ms.lastreviewed: 03/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: c7bf766dc0f73b37fc7de537537c7a885a50c30a
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 09b8556a83dec286ce8d67fa5fd6d27e027325bf
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57339580"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57769224"
 ---
 # <a name="deploy-the-local-agent"></a>Distribuera lokal agent
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
-Lär dig hur du använder verifieringen som en lokal agent Service (VaaS) för att kontrollera om maskinvaran. Lokal agent måste distribueras på Azure Stack-lösningen som ska verifieras innan du kör verifieringstester.
+Lär dig hur du använder verifieringen som en lokal agent Service (VaaS) för att köra verifieringstester. Lokal agent måste distribueras innan du kör verifieringstester.
 
 > [!Note]  
-> Du måste se till att datorn som lokal agent körs inte förlorar ut bundna åtkomst till internet. Den här datorn måste vara tillgänglig endast för användare som du har behörighet för att använda VaaS för din klient.
+> Kontrollera att datorn som lokal agent körs inte förlorar utgående åtkomst till internet. Den här datorn ska vara tillgänglig endast för användare som har behörighet att använda VaaS för din klient.
 
 För att distribuera lokal agent:
 
-1. Installera lokal agent
-2. Utföra hälsokontroller
-3. Kör lokal agent
+1. Installera lokal agent.
+2. Utföra hälsokontroller.
+3. Kör lokal agent.
 
 ## <a name="download-and-start-the-local-agent"></a>Ladda ned och starta lokal agent
 
-Ladda ned agenten till en dator som uppfyller kraven i ditt datacenter som inte är en del av Azure Stack-system, men en som har åtkomst till alla Azure Stack-slutpunkter.
+Ladda ned agenten till en dator som uppfyller kraven i ditt datacenter och har åtkomst till alla Azure Stack-slutpunkter. Den här datorn får inte vara en del av Azure Stack-system eller i Azure Stack-molnet.
 
 ### <a name="machine-prerequisites"></a>Förutsättningar för dator
 
@@ -51,8 +51,6 @@ Kontrollera att datorn uppfyller följande kriterier:
 - Minst 8-kärniga processorer
 - Minsta 200 GB ledigt diskutrymme
 - Stabil nätverksanslutning till internet
-
-Azure Stack är systemet under testet. Datorn får inte vara en del av Azure Stack eller värd i Azure Stack-molnet.
 
 ### <a name="download-and-install-the-agent"></a>Ladda ned och installera agenten
 

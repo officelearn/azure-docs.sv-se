@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: v-jansko
-ms.openlocfilehash: a6aab8fda2459804b38afc113be58db7c31b54c5
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: 89a97b583407b448f296b1a54f5aabbf825b8b65
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56586859"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57537753"
 ---
 # <a name="translator-text-api-v2-to-v3-migration"></a>Translator Text API V2 till V3-migrering
 
@@ -136,13 +136,13 @@ Du använder Version 3 av API för textöversättning om du använder api.cognit
 * Ger åtkomst till anpassade översättningssystem som skapats med hjälp av Microsoft Translator Hub.
 * Du använder Version 2 av API för textöversättning om du använder api.microsofttranslator.com-slutpunkten.
 
-Ingen version av Translator API skapar en post för dina översättningar. Dina översättningar delas aldrig med vem som helst. Mer information om den [Translator Nej-spårning](http://www.aka.ms/NoTrace) webbsidan.
+Ingen version av Translator API skapar en post för dina översättningar. Dina översättningar delas aldrig med vem som helst. Mer information om den [Translator Nej-spårning](https://www.aka.ms/NoTrace) webbsidan.
 
 ## <a name="links"></a>Länkar
 
 * [Sekretesspolicy för Microsoft](https://privacy.microsoft.com/privacystatement)
 * [Juridisk Information om Microsoft Azure](https://azure.microsoft.com/support/legal)
-* [Villkoren för Online Services](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31)
+* [Villkoren för Online Services](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31)
 
 ## <a name="next-steps"></a>Nästa steg
 

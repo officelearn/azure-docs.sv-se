@@ -4,19 +4,19 @@ ms.service: redis-cache
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: wesmc
-ms.openlocfilehash: 71d19b5d922616944c176cdda98470607c515af9
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 77019068279261a36f8ba40247e5f5694ca77892
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53111892"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57554072"
 ---
 | Resurs | Gräns |
 | --- | --- |
 | Cachestorlek |530 GB |
 | Databaser |64 |
-| Högsta antal anslutna klienter |40,000 |
-| Azure Cache för Redis-repliker (för hög tillgänglighet) |1 |
+| Maximalt antal anslutna klienter |40,000 |
+| Azure Cache för Redis-repliker för hög tillgänglighet |1 |
 | Fragment i en premium-cache med klustring |10 |
 
 Azure Redis-Cache begränsar och storlekar är olika för varje prisnivå. Prisnivåerna och deras associerade storlekar finns i [Azure Cache Redis priser](https://azure.microsoft.com/pricing/details/cache/).

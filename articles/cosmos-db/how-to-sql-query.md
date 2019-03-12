@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: mjbrown
-ms.openlocfilehash: 185ff9c7f50fa08ba952f1519bf406d9017982e0
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 5833ee3964958437b7834ff25f1bce7837370fb1
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56455967"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57550591"
 ---
 # <a name="sql-query-examples-for-azure-cosmos-db"></a>SQL-exempelfrågor för Azure Cosmos DB
 
@@ -160,7 +160,7 @@ Här följer några aspekter av Cosmos DB-frågespråket via de exempel som du h
 
 * Det strukturerade frågespråket fungerar med schemalösa data. Därför måste typsystemet vara dynamiskt bundet. Samma uttryck kan ge olika typer på olika objekt. Resultatet av en fråga är ett giltigt JSON-värde men är inte nödvändigtvis av ett fast schema.  
 
-* Azure Cosmos DB stöder endast strikta JSON-objekt. Det innebär att typsystemet och uttryck är begränsade till att endast hantera JSON-typer. Mer information finns i [JSON-specifikationen](http://www.json.org/).  
+* Azure Cosmos DB stöder endast strikta JSON-objekt. Det innebär att typsystemet och uttryck är begränsade till att endast hantera JSON-typer. Mer information finns i [JSON-specifikationen](https://www.json.org/).  
 
 * En Cosmos DB-container är en schemafri samling med JSON-objekt. Relationer i dataentiteter inom och mellan objekt i en container registreras implicit av inneslutning, inte av primärnyckel- och sekundärnyckelrelationer. Det här är en viktig aspekt med tanke på de intraobjektkopplingar som tas upp senare i den här artikeln.
 

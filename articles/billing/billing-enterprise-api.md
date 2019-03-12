@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 04/25/2017
 ms.author: erikre
-ms.openlocfilehash: 1319c44dab465ec2d1fa5ead99e7f3cba8965850
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 52612419599ef69e7476c660b52f9e6e36946825
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54265642"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57535407"
 ---
 # <a name="overview-of-reporting-apis-for-enterprise-customers"></a>Översikt över Reporting API: er för företagskunder
 API: erna Reporting aktivera Enterprise Azure-kunder att hämta programmässigt förbrukning och faktureringsinformation till önskade data analysis-verktyg. Företagskunder har registrerat en [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) med Azure för att göra den förhandlade monetära åtaganden och få åtkomst till anpassad prissättning för Azure-resurser.
@@ -34,7 +34,7 @@ API: erna Reporting aktivera Enterprise Azure-kunder att hämta programmässigt 
 |Auktorisering| Ange värdet i det här formatet: **ägar {API_KEY}** <br/> Exempel: ägar eyr... 09| 
 
 ## <a name="consumption-apis"></a>Förbrukning API: er
-En Swagger-slutpunkten är tillgänglig [här](https://consumption.azure.com/swagger/ui/index) för API: erna som beskrivs nedan som ska aktivera enkelt introspektion av API: et och möjligheten att generera klient-SDK med hjälp av [AutoRest](https://github.com/Azure/AutoRest) eller [Swagger CodeGen](http://swagger.io/swagger-codegen/). Data från och med 1 maj 2014 är tillgängliga via den här API: et. 
+En Swagger-slutpunkten är tillgänglig [här](https://consumption.azure.com/swagger/ui/index) för API: erna som beskrivs nedan som ska aktivera enkelt introspektion av API: et och möjligheten att generera klient-SDK med hjälp av [AutoRest](https://github.com/Azure/AutoRest) eller [Swagger CodeGen](https://swagger.io/swagger-codegen/). Data från och med 1 maj 2014 är tillgängliga via den här API: et. 
 
 * **Saldo och sammanfattning** – [saldo och sammanfattning API](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-balance-summary) erbjuder månatligen information om saldo, nya inköp, tjänstavgifter för Azure Marketplace, justeringar och överförbrukningskostnader.
 
@@ -56,7 +56,7 @@ Etags returneras i svaret på alla ovanstående API. En ändring i Etag anger da
 |-|-|-|
 |200| Ok|Inget fel|
 |401| Behörighet saknas| API-nyckel som inte finns, är ogiltig, upphört att gälla osv.|
-|404| Ej tillgänglig| Rapportslutpunkt hittades inte|
+|404| Inte tillgängligt| Rapportslutpunkt hittades inte|
 |400| Felaktig begäran| Ogiltiga parametrar – datumintervall, EA siffror osv.|
 |500| Serverfel| Oväntat fel vid bearbetning av begäran| 
 

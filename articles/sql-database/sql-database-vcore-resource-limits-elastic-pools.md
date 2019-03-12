@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 03/04/2019
-ms.openlocfilehash: a372a955578f3621c1b8a9226809671927c9bfd3
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.date: 03/06/2019
+ms.openlocfilehash: a1e76aafa271ff021517c3d06c3c6e02103413d3
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57342759"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57571481"
 ---
 # <a name="resource-limits-for-elastic-pools-using-the-vcore-based-purchasing-model-limits"></a>Resursgränser för elastiska pooler när gränserna vCore-baserade inköpschef modell
 
@@ -30,6 +30,8 @@ DTU-baserade gränser för inköpschef modellen för finns i [SQL Database DTU-b
 
 Du kan ange tjänstnivå, beräkningsstorleken och storage mycket med den [Azure-portalen](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases), [PowerShell](sql-database-elastic-pool-manage.md#powershell-manage-elastic-pools-and-pooled-databases), [Azure CLI](sql-database-elastic-pool-manage.md#azure-cli-manage-elastic-pools-and-pooled-databases), eller [REST API](sql-database-elastic-pool-manage.md#rest-api-manage-elastic-pools-and-pooled-databases).
 
+> [!IMPORTANT]
+> Skala vägledning och överväganden finns i [skala en elastisk pool](sql-database-elastic-pool-scale.md)
 > [!NOTE]
 > Resursbegränsningar enskilda databaser i elastiska pooler är vanligtvis samma som för enskilda databaser utanför pooler som har samma compute storlek. Max samtidiga arbetare för en GP_Gen4_1-databas är till exempel 200 arbetare. Max samtidiga arbetare för en databas i poolen GP_Gen4_1 är därför också 200 arbetare. Observera att det totala antalet samtidiga arbetare i GP_Gen4_1 pool är 210.
 

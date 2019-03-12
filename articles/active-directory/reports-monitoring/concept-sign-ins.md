@@ -17,12 +17,12 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1f47de0544d6d708d3c8b104be4edada86c11551
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 993a8ca48df40b400c21852d3d28941d9d62affb
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56190372"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57549025"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Rapporter om inloggningsaktiviteter i Azure Active Directory-portalen
 
@@ -149,23 +149,13 @@ Om du lägger till ytterligare fält i inloggningsvyn läggs de automatiskt till
 
 ## <a name="download-sign-in-activities"></a>Ladda ned inloggningsaktivitet
 
-Du kan [ladda ned inloggningsdata](quickstart-download-sign-in-report.md) om du vill arbeta med dem utanför Azure-portalen. När du klickar på **Ladda ned** skapas en CSV-fil med de senaste 5 000 posterna.  Förutom en hämtningsknappen Azure-portalen ger dig möjlighet att [skapar ett skript för att hämta dina data](tutorial-signin-logs-download-script.md).  
+Du kan [ladda ned inloggningsdata](quickstart-download-sign-in-report.md) om du vill arbeta med dem utanför Azure-portalen. Klicka på **hämta** ger dig möjlighet att skapa en CSV- eller JSCON fil för de senaste 250 000 posterna.  
 
 ![Ladda ned](./media/concept-sign-ins/71.png "Ladda ned")
-
-Om du behöver mer flexibilitet kan du använda skriptlösningen. Klicka på **skriptet** skapar ett PowerShell.skript som innehåller alla filter som du har angett. Ladda ned och köra skriptet i **administratörsläge** att skapa CSV-filen. 
 
 > [!IMPORTANT]
 > Antalet poster som du kan ladda ned är begränsad av den [rapportkvarhållningsregler i Azure Active Directory](reference-reports-data-retention.md).  
 
-### <a name="running-the-script-on-a-windows-10-machine"></a>Kör skriptet på en Windows 10-dator
-
-Om du vill köra skriptet på en **Windows 10** dator, måste du utföra några ytterligare steg först. 
-
-1. Installera den [Az modulen](/powershell/azure/install-az-ps).
-2. Importera modulen genom att öppna en PowerShell-kommandotolk och kör kommandot **Import-Module Az**.
-3. Kör **Set-ExecutionPolicy obegränsad** och välj **Ja till alla**. 
-4. Du kan nu köra det hämta PowerShell-skriptet i administratörsläge för att skapa CSV-filen.
 
 ## <a name="sign-ins-data-shortcuts"></a>Inloggningar data genvägar
 

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: raynew
-ms.openlocfilehash: f4a2fe4c9307f7e59ca94e47683356143546d090
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 077b3e8b9aac47818b82384584d9b3cb410f9422
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57310751"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57541391"
 ---
 # <a name="about-azure-vm-backup"></a>Om Säkerhetskopiering av virtuella Azure-datorer
 
@@ -61,7 +61,7 @@ När du säkerhetskopierar virtuella Azure-datorer med Azure Backup är virtuell
 Azure Backup-ögonblicksbilder i enlighet med schemat för säkerhetskopiering.
 
 - **Virtuella Windows-datorer**: För Windows-datorer samordnar Backup-tjänsten med Volume Shadow Copy Service (VSS) att ta en programkonsekvent ögonblicksbild av VM-diskarna.
-    - Som standard tar Azure Backup Fullständig VSS-säkerhetskopiering. [Läs mer](http://blogs.technet.com/b/filecab/archive/2008/05/21/what-is-the-difference-between-vss-full-backup-and-vss-copy-backup-in-windows-server-2008.aspx).
+    - Som standard tar Azure Backup Fullständig VSS-säkerhetskopiering. [Läs mer](https://blogs.technet.com/b/filecab/archive/2008/05/21/what-is-the-difference-between-vss-full-backup-and-vss-copy-backup-in-windows-server-2008.aspx).
     - Om du vill ändra inställningen så att Azure-säkerhetskopior tar VSS säkerhetskopior anger du följande registernyckel från en kommandotolk: **REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgent" /v USEVSSCOPYBACKUP /t REG_SZ /d TRUE /f**.
 - **Virtuella Linux-datorer**: Om du vill ta appkonsekventa ögonblicksbilder av Linux VM använder Linux förskript och efterskript ramverk för att skriva egna skript för att säkerställa konsekvens.
     -  Azure Backup anropar bara före/efter-skript som har skrivits av dig.

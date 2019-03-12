@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 31b65dc7a73d24066bee8088b3177a1300186eba
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 98330152d8d88d538424c52b1bc5f49462010302
+ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57316667"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57727254"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Behörigheter för administratör i Azure Active Directory
 
@@ -155,6 +155,10 @@ Följande administratörsroller är tillgängliga:
 * **[Power BI-administratör](#power-bi-service-administrator)**: Användare med den här rollen har globala behörigheter inom Microsoft Power BI när tjänsten finns närvarande, liksom möjlighet att hantera supportbegäranden och kontrollera tjänstens hälsotillstånd. Mer information på [förstå administratörsrollen för Power BI](https://docs.microsoft.com/power-bi/service-admin-role).
   > [!NOTE]
   > I Microsoft Graph API, Azure AD Graph API och Azure AD PowerShell identifieras rollen som ”Power BI-tjänstadministratör”. Det är ”Power BI-administratör” i den [Azure-portalen](https://portal.azure.com).
+
+* **[Privilegierad administratören Authentication](#privileged-authentication-administrator)**: Användare med den här rollen kan ange eller återställa icke-password autentiseringsuppgifter för alla användare, inklusive globala administratörer. Privilegierade autentisering-administratörer kan tvinga användare att registrera mot befintliga icke-password autentiseringsuppgifter (t.ex. MFA, FIDO) och återkalla ”Kom ihåg att MFA på enheten' prompt för MFA vid nästa inloggning för alla användare. Privilegierade autentisering-administratörer kan:
+  * Tvinga användare att registrera mot befintliga icke-password autentiseringsuppgifter (t.ex. MFA, FIDO)
+  * Återkalla ”Kom ihåg att MFA på enheten' prompt för MFA vid nästa inloggning
 
 * **[Privilegierad Rolladministratör](#privileged-role-administrator)**: Användare med den här rollen kan hantera rolltilldelningar i Azure Active Directory, liksom i Azure AD Privileged Identity Management. Den här rollen kan dessutom hantera alla aspekter av Privileged Identity Management.
 
@@ -322,7 +326,6 @@ Kan utföra vanliga faktureringsrelaterade uppgifter som uppdatering av betalnin
 | **Åtgärder** | **Beskrivning** |
 | --- | --- |
 | microsoft.aad.directory/organization/basic/update | Uppdatera grundläggande egenskaper om organisation i Azure Active Directory. |
-| microsoft.aad.directory/organization/trustedCAsForPasswordlessAuth/update | Uppdatera egenskapen organization.trustedCAsForPasswordlessAuth i Azure Active Directory. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Läs och konfigurera Azure Service Health. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Skapa och hantera Azure-supportbegäranden. |
 | microsoft.commerce.billing/allEntities/allTasks | Hantera alla aspekter av Office 365-fakturering. |
@@ -451,14 +454,12 @@ Kan hantera alla aspekter av Azure AD och Microsoft-tjänster som använde Azure
 | microsoft.azure.supportTickets/allEntities/allTasks | Skapa och hantera Azure-supportbegäranden. |
 | microsoft.commerce.billing/allEntities/allTasks | Hantera alla aspekter av Office 365-fakturering. |
 | microsoft.intune/allEntities/allTasks | Hantera alla aspekter av Intune. |
-| microsoft.office365.webPortal/allEntities/basic/read | Läs grundläggande egenskaper för alla resurser i microsoft.office365.webPortal. |
 | microsoft.office365.complianceManager/allEntities/allTasks | Hantera alla aspekter av Office 365 Efterlevnadshanteraren |
 | microsoft.office365.desktopAnalytics/allEntities/allTasks | Hantera alla aspekter av Desktop Analytics. |
 | microsoft.office365.exchange/allEntities/allTasks | Hantera alla aspekter av Exchange Online. |
 | microsoft.office365.lockbox/allEntities/allTasks | Hantera alla aspekter av Office 365 Customer Lockbox |
 | microsoft.office365.messageCenter/messages/read | Läs meddelanden i microsoft.office365.messageCenter. |
 | microsoft.office365.messageCenter/securityMessages/read | Läs securityMessages i microsoft.office365.messageCenter. |
-| microsoft.powerApps.powerBI/allEntities/allTasks | Kan hantera alla aspekter av Power BI. |
 | microsoft.office365.protectionCenter/allEntities/allTasks | Hantera alla aspekter av Office 365 Säkerhetscenter. |
 | microsoft.office365.securityComplianceCenter/allEntities/allTasks | Skapa och ta bort alla resurser och läs och uppdatera standardegenskaper i microsoft.office365.securityComplianceCenter. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Läsa och konfigurera Office 365 Service Health. |
@@ -466,7 +467,9 @@ Kan hantera alla aspekter av Azure AD och Microsoft-tjänster som använde Azure
 | microsoft.office365.skypeForBusiness/allEntities/allTasks | Hantera alla aspekter av Skype för företag – Online. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Skapa och hantera Office 365-supportbegäranden. |
 | microsoft.office365.usageReports/allEntities/read | Läs Office 365-användningsrapporter. |
+| microsoft.office365.webPortal/allEntities/basic/read | Läs grundläggande egenskaper för alla resurser i microsoft.office365.webPortal. |
 | microsoft.powerApps.dynamics365/allEntities/allTasks | Hantera alla aspekter av Dynamics 365. |
+| microsoft.powerApps.powerBI/allEntities/allTasks | Kan hantera alla aspekter av Power BI. |
 | microsoft.windows.defenderAdvancedThreatProtection/allEntities/read | Läs alla resurser i microsoft.windows.defenderAdvancedThreatProtection. |
 
 ### <a name="compliance-administrator"></a>Efterlevnadsadministratör
@@ -520,8 +523,8 @@ Kan hantera alla aspekter av Dynamics 365-produkten.
 | microsoft.office365.serviceHealth/allEntities/allTasks | Läsa och konfigurera Office 365 Service Health. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Skapa och hantera Office 365-supportbegäranden. |
 
-### <a name="customer-lockbox-access-approver"></a>Customer Lockbox åtkomst godkännaren
-Kan godkänna förfrågningar till Microsoft Support om att få åtkomst till kundens organisationsdata. Den här rollen har ingen behörighet att visa, skapa eller hantera supportärenden.
+### <a name="customer-lockbox-access-approver"></a>Godkännare av åtkomst till Customer LockBox
+Kan godkänna förfrågningar till Microsoft Support om att få åtkomst till kundens organisationsdata.
 
   > [!NOTE]
   > Den här rollen har ytterligare behörigheter utanför Azure Active Directory. Mer information finns i rollen beskrivningen ovan.
@@ -785,7 +788,7 @@ Kan hantera alla aspekter av Skype för Business-produkten.
 | microsoft.office365.supportTickets/allEntities/allTasks | Skapa och hantera Office 365-supportbegäranden. |
 
 ### <a name="message-center-reader"></a>Meddelandecenterläsare
-Kan endast läsa meddelanden och uppdateringar avseende sin organisation i meddelandecenter för Office 365. Den här rollen har ingen behörighet att visa, skapa eller hantera supportärenden.
+Kan endast läsa meddelanden och uppdateringar avseende sin organisation i meddelandecenter för Office 365. 
 
   > [!NOTE]
   > Den här rollen har ytterligare behörigheter utanför Azure Active Directory. Mer information finns i rollen beskrivningen ovan.
@@ -848,7 +851,6 @@ Använd inte – inte avsett för allmänt bruk.
 | Microsoft.aad.Directory/groups/members/Update | Uppdatera egenskapen groups.members i Azure Active Directory. |
 | Microsoft.aad.Directory/groups/Restore | Återställ grupper i Azure Active Directory. |
 | microsoft.aad.directory/organization/basic/update | Uppdatera grundläggande egenskaper om organisation i Azure Active Directory. |
-| microsoft.aad.directory/organization/trustedCAsForPasswordlessAuth/update | Uppdatera egenskapen organization.trustedCAsForPasswordlessAuth i Azure Active Directory. |
 | microsoft.aad.directory/users/appRoleAssignments/update | Uppdatera egenskapen users.appRoleAssignments i Azure Active Directory. |
 | microsoft.aad.directory/users/assignLicense | Hantera licenser för användare i Azure Active Directory. |
 | microsoft.aad.directory/users/basic/update | Uppdatera grundläggande egenskaper för användare i Azure Active Directory. |
@@ -877,6 +879,19 @@ Kan hantera alla aspekter av Power BI-produkten.
 | microsoft.azure.serviceHealth/allEntities/allTasks | Läs och konfigurera Azure Service Health. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Skapa och hantera Azure-supportbegäranden. |
 | microsoft.powerApps.powerBI/allEntities/allTasks | Kan hantera alla aspekter av Power BI. |
+| microsoft.office365.webPortal/allEntities/basic/read | Läs grundläggande egenskaper för alla resurser i microsoft.office365.webPortal. |
+| microsoft.office365.serviceHealth/allEntities/allTasks | Läsa och konfigurera Office 365 Service Health. |
+| microsoft.office365.supportTickets/allEntities/allTasks | Skapa och hantera Office 365-supportbegäranden. |
+
+### <a name="privileged-authentication-administrator"></a>Privilegierad autentiseringsadministratör
+Har tillåtelse att visa, konfigurera och återställa autentiseringsmetodsinformation för alla användare (administratörer och icke-administratörer).
+
+| **Åtgärder** | **Beskrivning** |
+| --- | --- |
+| microsoft.aad.directory/users/invalidateAllRefreshTokens | Invalidera alla tokens för användaruppdatering i Azure Active Directory. |
+| microsoft.aad.directory/users/strongAuthentication/update | Uppdatera starka autentiseringsegenskaper som information om MFA-autentiseringsuppgifter. |
+| microsoft.azure.serviceHealth/allEntities/allTasks | Läs och konfigurera Azure Service Health. |
+| microsoft.azure.supportTickets/allEntities/allTasks | Skapa och hantera Azure-supportbegäranden. |
 | microsoft.office365.webPortal/allEntities/basic/read | Läs grundläggande egenskaper för alla resurser i microsoft.office365.webPortal. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Läsa och konfigurera Office 365 Service Health. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Skapa och hantera Office 365-supportbegäranden. |
@@ -1044,7 +1059,7 @@ Kan felsöka kommunikationsproblem i grupper med hjälp av grundläggande verkty
 | microsoft.office365.serviceHealth/allEntities/allTasks | Läsa och konfigurera Office 365 Service Health. |
 
 ### <a name="teams-service-administrator"></a>Teams-tjänstadministratör
-Kan hantera Microsoft Teams-tjänsten. 
+Kan hantera Microsoft Teams-tjänsten.
 
   > [!NOTE]
   > Den här rollen har ytterligare behörigheter utanför Azure Active Directory. Mer information finns i rollen beskrivningen ovan.

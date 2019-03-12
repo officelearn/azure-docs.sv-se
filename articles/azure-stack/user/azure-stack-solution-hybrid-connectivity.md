@@ -15,12 +15,12 @@ ms.date: 01/14/2019
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 2530f6f59ef458d5a7c2de5850d8fab322798ba3
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: a05021255c6226329f1d7a3f0e7fa8c9be756646
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55752670"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57546729"
 ---
 # <a name="tutorial-configure-hybrid-cloud-connectivity-with-azure-and-azure-stack"></a>Självstudie: Konfigurera molnet hybridanslutning med Azure och Azure Stack
 
@@ -119,7 +119,7 @@ Använd följande steg för att skapa ett virtuellt nätverk med hjälp av porta
 
 Skapa ett virtuellt nätverk i Azure:
 
-1. Använda webbläsaren för att ansluta till den [Azure-portalen](http://portal.azure.com/) och logga in med ditt Azure-konto.
+1. Använda webbläsaren för att ansluta till den [Azure-portalen](https://portal.azure.com/) och logga in med ditt Azure-konto.
 2. Välj **skapa en resurs**. I den **Sök på marketplace** anger `virtual network`''. Hitta **virtuellt nätverk** i resultatlistan och välj sedan **virtuellt nätverk**.
 3. Från den **Välj en distributionsmodell** väljer **Resource Manager**, och välj sedan **skapa**.
 4. På **skapa virtuellt nätverk**, konfigurera VNet-inställningarna. Obligatoriska fältnamnen på avbildningarna föregås en röd asterisk.  När du anger ett giltigt värde ändras asterisken till en grön bockmarkering.
@@ -132,7 +132,7 @@ Skapa ett virtuellt nätverk i Azure Stack:
 
 Innan du ansluter ditt virtuella nätverk till en gateway, måste du skapa gateway-undernätet för det virtuella nätverket som du vill ansluta till. Gatewaytjänsterna använder de IP-adresser som du anger i gateway-undernätet.
 
-I den [Azure-portalen](http://portal.azure.com/), navigera till Resource Manager-nätverk där du vill skapa en virtuell nätverksgateway.
+I den [Azure-portalen](https://portal.azure.com/), navigera till Resource Manager-nätverk där du vill skapa en virtuell nätverksgateway.
 
 1. Välj det virtuella nätverket kan öppna den **virtuellt nätverk** sidan.
 2. I **inställningar**väljer **undernät**.

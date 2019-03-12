@@ -5,14 +5,14 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: article
-ms.date: 1/16/2019
+ms.date: 3/11/2019
 ms.author: victorh
-ms.openlocfilehash: a83ded660b56028ea311992ba6161e8a8e43f65d
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: b8240f69649e9bcb9a705f2c9fcbb819cf119356
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55511980"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57761420"
 ---
 # <a name="azure-dns-faq"></a>Vanliga frågor och svar med Azure DNS
 
@@ -239,7 +239,7 @@ Ja. Om du vill ta bort länken till ett virtuellt registreringsnätverk från en
 
 Ja. När du tar bort ett virtuellt nätverk för registrering eller matchning utan att bryta dess länk från en privat zon först lyckas din borttagningen. Men det virtuella nätverket är inte automatiskt avlänkas från din privata zon, om sådana. Du måste manuellt ta bort länken till det virtuella nätverket från den privata zonen. Därför ta bort länken till ditt virtuella nätverk från din privata zonen innan du tar bort den.
 
-### <a name="will-dns-resolution-by-using-the-default-fqdn-internalcloudappnet-still-work-even-when-a-private-zone-for-example-contosolocal-is-linked-to-a-virtual-network"></a>DNS-matchningen med hjälp av standard FQDN (internal.cloudapp.net) fungerar fortfarande även när en privat zon (till exempel contoso.local) är länkad till ett virtuellt nätverk?
+### <a name="will-dns-resolution-by-using-the-default-fqdn-internalcloudappnet-still-work-even-when-a-private-zone-for-example-privatecontosocom-is-linked-to-a-virtual-network"></a>DNS-matchningen med hjälp av standard FQDN (internal.cloudapp.net) fungerar fortfarande även när en privat zon (till exempel private.contoso.com) är länkad till ett virtuellt nätverk?
 
 Ja. Privata zoner ersätter inte DNS-upplösning som standard med hjälp av Azure-tillhandahållen internal.cloudapp.net zonen. Den erbjuds som en ytterligare funktion eller förbättring. Om du förlitar dig på Azure-tillhandahållen internal.cloudapp.net eller på din egen privat zon använder du det fullständiga Domännamnet för zonen som du vill matcha mot. 
 
@@ -262,7 +262,7 @@ Ja. Den offentliga förhandsversionen finns följande begränsningar.
 
 ### <a name="are-there-any-quotas-or-limits-on-zones-or-records-for-private-zones"></a>Finns det någon kvoter eller gränser för zoner eller poster för privata zoner?
 
-Det finns ingen gräns för antalet zoner som tillåts per prenumeration för privata zoner. Det finns ingen gräns för antalet postuppsättningar per zon för privata zoner. Både offentliga och privata zoner tillgodoräknas övergripande DNS-gränser. Mer information finns i den [Azure-prenumeration och tjänstbegränsningar](../azure-subscription-service-limits.md#dns-limits)
+Det finns ingen gräns för antalet zoner som tillåts per prenumeration för privata zoner. Det finns ingen gräns för antalet postuppsättningar per zon för privata zoner. Både offentliga och privata zoner tillgodoräknas övergripande DNS-gränser. Mer information finns i den [Azure-prenumeration och tjänstbegränsningar](../azure-subscription-service-limits.md#azure-dns-limits)
 
 ### <a name="is-there-portal-support-for-private-zones"></a>Finns det portal-stöd för privata zoner?
 

@@ -9,17 +9,17 @@ editor: spelluru
 ms.assetid: ''
 ms.service: service-bus-messaging
 ms.devlang: tbd
-ms.topic: hero-article
+ms.topic: conceptual
 ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 28b15e950aa4ebbfcb1b04bfd495b3accf13528e
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
-ms.translationtype: HT
+ms.openlocfilehash: 19949b555a5be21c06c3acfbbd5fb9be08dc9f23
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56586910"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57766958"
 ---
 # <a name="get-started-with-service-bus-topics"></a>Kom igång med Service Bus-ämnen
 
@@ -33,7 +33,7 @@ Den här självstudien omfattar följande steg:
 4. Skriva ett .NET Core-konsolprogram för att skicka en uppsättning meddelanden till ämnet.
 5. Skriva ett .NET Core-konsolprogram för att ta emot meddelanden från prenumerationen.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 1. [Visual Studio 2017 Update 3 (version 15.3, 26730.01)](https://www.visualstudio.com/vs) eller senare.
 2. [NET Core SDK](https://www.microsoft.com/net/download/windows), version 2.0 eller senare.

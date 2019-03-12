@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 02/22/2019
 ms.author: absha
-ms.openlocfilehash: 7a645574a75a040c3b0218714363cf85e0384e68
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: cd15e139b2bcd0046d2cfbd7603809936adf1cfc
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56959841"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57548140"
 ---
 # <a name="troubleshoot-application-gateway-with-app-service--redirection-to-app-services-url"></a>Felsöka Application Gateway med App Service – omdirigering till App Service-URL:en
 
@@ -101,7 +101,7 @@ För att uppnå detta, måste du äga en anpassad domän och följ processen som
 
   Request Method: GET
 
-  Host: [www.contoso.com](http://www.contoso.com)
+  Host: www.contoso.com
 
   ## Response headers:
 

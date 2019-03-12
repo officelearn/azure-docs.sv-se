@@ -7,17 +7,17 @@ author: vhorne
 manager: jpconnock
 ms.service: application-gateway
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 4/23/2018
 ms.author: victorh
-ms.openlocfilehash: cf3e051e4833c6b654e5ff89cd084911521b3d67
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
-ms.translationtype: HT
+ms.openlocfilehash: 759f5e8441ec62ef11d4be93921e3c4f2629145c
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44049255"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57774170"
 ---
 # <a name="azure-application-gateway-url-path-based-routing-overview"></a>Översikt över routning av URL-sökvägsbaserat innehåll med Azure Application Gateway
 
@@ -25,7 +25,7 @@ URL-sökvägsbaserad routning låter dig routa trafik till serverdels-serverpool
 
 Ett av scenarierna är att dirigerar begäranden för olika innehållstyper till olika serverdels-serverpooler.
 
-I följande exempel servar Application Gateway trafik åt contoso.com från tre serverdels-serverpooler, till exempel: VideoServerPool, ImageServerPool och DefaultServerPool.
+I följande exempel Application Gateway fungerar som värd för trafik åt contoso.com från tre serverdels serverpooler till exempel: VideoServerPool, ImageServerPool och DefaultServerPool.
 
 ![imageURLroute](./media/url-route-overview/figure1.png)
 

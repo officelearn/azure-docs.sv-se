@@ -11,13 +11,13 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlrab, bonova
 manager: craigg
-ms.date: 02/20/2019
-ms.openlocfilehash: 98ca3478c3a8963c3bf57143354340d6ed14900e
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.date: 03/06/2019
+ms.openlocfilehash: 2f615214fb7b77614054841af7972eb814525dee
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56594346"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57549926"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Azure SQL Database Managed Instance T-SQL skillnader från SQL Server
 
@@ -26,6 +26,7 @@ Alternativ för distribution av Managed Instance tillhandahåller hög kompatibi
 ![Migrering](./media/sql-database-managed-instance/migration.png)
 
 Eftersom det finns fortfarande några skillnader i syntaxen och beteende, den här artikeln sammanfattar och förklarar skillnaderna. <a name="Differences"></a>
+
 - [Tillgänglighet](#availability) inklusive skillnaderna i [alltid på](#always-on-availability) och [säkerhetskopior](#backup),
 - [Security](#security) inklusive skillnaderna i [granskning](#auditing), [certifikat](#certificates), [autentiseringsuppgifter](#credential), [kryptografiproviders](#cryptographic-providers), [Inloggningar / användare](#logins--users), [nyckel och huvudnyckeln för tjänsten](#service-key-and-service-master-key),
 - [Konfigurationen](#configuration) inklusive skillnaderna i [buffra pool tillägget](#buffer-pool-extension), [sortering](#collation), [kompatibilitetsnivå](#compatibility-levels),[databas spegling](#database-mirroring), [databasalternativ](#database-options), [SQL Server Agent](#sql-server-agent), [Tabellalternativ](#tables),
@@ -61,10 +62,16 @@ Hanterade instanser har automatisk säkerhetskopiering och låta användare skap
 Begränsningar:  
 
 - Med en hanterad instans, du kan säkerhetskopiera en databasinstans till en säkerhetskopia med upp till 32 stripe, vilket räcker för databaser upp till 4 TB om komprimering av säkerhetskopior används.
-- Maxstorlek för säkerhetskopiering stripe är 195 GB (högsta blob storlek). Öka antalet stripe i backup kommandot för att minska Stripestorleken på enskilda och stannar inom den här gränsen.
+- Max säkerhetskopiering stripe storlek med den `BACKUP` kommandot i en hanterad instans är 195 GB (högsta blob storlek). Öka antalet stripe i backup kommandot för att minska Stripestorleken på enskilda och stannar inom den här gränsen.
 
-> [!TIP]
-> Att kringgå den här begränsningen lokalt, säkerhetskopiering till `DISK` i stället för säkerhetskopiering till `URL`, ladda upp säkerhetskopian blob och sedan återställa. Återställa stöder större filer eftersom en annan blob-typ används.  
+    > [!TIP]
+    > För att undvika denna begränsning när du säkerhetskopierar en databas från antingen SQL Server i en lokal miljö eller i en virtuell dator, kan du göra följande:
+    >
+    > - Säkerhetskopiering till `DISK` i stället för att säkerhetskopiera till `URL`
+    > - Överför säkerhetskopieringsfilerna till Blob storage
+    > - Återställa till den hanterade instansen
+    >
+    > Den `Restore` kommandot i en hanterade instanser stöder större storlekar för blob i de säkerhetskopiera filerna eftersom en annan blob-typ används för lagring av överförda säkerhetskopian.
 
 Information om säkerhetskopior med hjälp av T-SQL finns i [BACKUP](https://docs.microsoft.com/sql/t-sql/statements/backup-transact-sql).
 
@@ -125,44 +132,51 @@ En hanterad instans kan inte komma åt filer så det inte går att skapa kryptog
 
 - SQL-inloggningar som skapats `FROM CERTIFICATE`, `FROM ASYMMETRIC KEY`, och `FROM SID` stöds. Se [skapa inloggningen](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql).
 - Azure Active Directory (Azure AD)-server-huvudkonton (inloggningar) skapas med [CREATE LOGIN](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) syntax eller [skapa från ANVÄNDARINLOGGNING [Azure AD-kontoinloggning]](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql?view=azuresqldb-mi-current) syntax som stöds (**offentlig förhandsversion** ). Det här är inloggningar som skapats på servernivå.
-    - Hanterad instans har stöd för Azure AD-huvudkonton med syntaxen `CREATE USER [AADUser/AAD group] FROM EXTERNAL PROVIDER`. Detta kallas även för Azure AD finns databasanvändare.
+
+    Hanterad instans har stöd för Azure AD-huvudkonton med syntaxen `CREATE USER [AADUser/AAD group] FROM EXTERNAL PROVIDER`. Detta kallas även för Azure AD finns databasanvändare.
+
 - Windows-inloggningar som skapats med `CREATE LOGIN ... FROM WINDOWS` syntaxen stöds inte. Använd Azure Active Directory-inloggningar och användare.
 - Azure AD-användare som skapade instansen har [obegränsad administratörsprivilegier](sql-database-manage-logins.md#unrestricted-administrative-accounts).
 - Icke-Azure Active Directory (Azure AD) på databasnivå administratörer kan skapas med `CREATE USER ... FROM EXTERNAL PROVIDER` syntax. Se [skapa användare... FRÅN EXTERN PROVIDER](sql-database-manage-logins.md#non-administrator-users).
 - Azure AD-server-huvudkonton (inloggningar) stöder SQL-funktioner i en MI-instans. Funktioner som kräver interaktion mellan-instans, oavsett om inom samma Azure AD-klient eller annan klient inte stöds för Azure AD-användare. Exempel på sådana funktioner är:
-    - Transaktionsreplikering i SQL och
-    - Länka Server
+
+  - Transaktionsreplikering i SQL och
+  - Länka Server
+
 - Ange en Azure AD-inloggningen som mappades till en Azure AD-grupp som databasens ägare inte stöds.
 - Personifiering av Azure AD-servernivå säkerhetsobjekt som med andra Azure AD-huvudkonton stöds, till exempel den [EXECUTE AS](/sql/t-sql/statements/execute-as-transact-sql) satsen. Kör som begränsning:
-    - EXECUTE AS USER stöds inte för Azure AD-användare när namnet skiljer sig från inloggningsnamn. Till exempel när användaren har skapats via syntax skapa [myAadUser] från ANVÄNDARINLOGGNING [john@contoso.com], och personifiering görs via EXEC AS USER = _myAadUser_. När du skapar en **användaren** från en server huvudnamn för Azure AD (inloggning), ange användarnamn som samma login_name från **inloggning**.
-    - Endast SQL-huvudkonton på servernivå (inloggningar) som ingår i rollen `sysadmin` kan utföra följande åtgärder som riktar in sig på Azure AD-huvudkonton: 
-        - KÖRA SOM ANVÄNDARE
-        - KÖRA SOM INLOGGNING
+
+  - EXECUTE AS USER stöds inte för Azure AD-användare när namnet skiljer sig från inloggningsnamn. Till exempel när användaren har skapats via syntax skapa [myAadUser] från ANVÄNDARINLOGGNING [john@contoso.com], och personifiering görs via EXEC AS USER = _myAadUser_. När du skapar en **USER** (Användare) från ett Azure AD-serverhuvudkonto (inloggning) anger du samma user_name som login_name från **LOGIN** (Inloggning).
+  - Endast SQL-huvudkonton på servernivå (inloggningar) som ingår i rollen `sysadmin` kan utföra följande åtgärder som riktar in sig på Azure AD-huvudkonton:
+
+    - KÖRA SOM ANVÄNDARE
+    - KÖRA SOM INLOGGNING
+
 - **Offentlig förhandsversion** begränsningar för Azure AD-server-huvudkonton (inloggningar):
-    - Active Directory-administratör begränsningar för hanterad instans:
-        - Azure AD-administratören som används för att ställa in den hanterade instansen kan inte användas för att skapa en Azure AD-server principal (inloggning) i den hanterade instansen. Du måste skapa den första Azure AD serverhuvudobjekt (inloggning) med hjälp av en SQL Server-konto som är en `sysadmin`. Detta är en tillfällig begränsning som kommer att tas bort när Azure AD-server-huvudkonton (inloggningar) fungerar GA. Följande felmeddelande visas om du försöker använda en Azure AD-administratörskonto för att skapa inloggningen: `Msg 15247, Level 16, State 1, Line 1 User does not have permission to perform this action.`
-        - För närvarande är den första Azure AD-kontoinloggning som skapats i master DB måste ha skapats av den SQL Server-konto av standardtyp (icke-Azure AD) som är en `sysadmin` med hjälp av den [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) från extern PROVIDER. Efter allmän tillgänglighet, den här begränsningen kommer att borttagna och har en första Azure AD-inloggning kan skapas med Active Directory-administratör för hanterad instans.
+
+  - Active Directory-administratör begränsningar för hanterad instans:
+
+    - Azure AD-administratören som används för att ställa in den hanterade instansen kan inte användas för att skapa en Azure AD-server principal (inloggning) i den hanterade instansen. Du måste skapa det första Azure AD-serverhuvudkontot (inloggning) med hjälp av ett SQL Server-konto som är `sysadmin`. Det här är en tillfällig begränsning som kommer att tas bort när Azure AD-serverhuvudkonton (inloggningar) blir allmänt tillgängliga. Följande felmeddelande visas om du försöker använda en Azure AD-administratörskonto för att skapa inloggningen: `Msg 15247, Level 16, State 1, Line 1 User does not have permission to perform this action.`
+      - För närvarande är den första Azure AD-kontoinloggning som skapats i master DB måste ha skapats av den SQL Server-konto av standardtyp (icke-Azure AD) som är en `sysadmin` med hjälp av den [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) från extern PROVIDER. Efter allmän tillgänglighet, den här begränsningen kommer att borttagna och har en första Azure AD-inloggning kan skapas med Active Directory-administratör för hanterad instans.
     - DacFx (export/Import) användas med SQL Server Management Studio (SSMS) eller SqlPackage stöds inte för Azure AD-inloggningar. Den här begränsningen kommer att tas bort när Azure AD-server-huvudkonton (inloggningar) fungerar GA.
     - Med hjälp av Azure AD-server-huvudkonton (inloggningar) med SSMS
-        - Skript Azure AD-inloggningar (med valfri autentiserad inloggning) stöds inte.
-        - IntelliSense inte kan identifiera den **skapa inloggning från en extern PROVIDER** instruktionen och visar en röd understrykning.
+
+      - Skript Azure AD-inloggningar (med valfri autentiserad inloggning) stöds inte.
+      - IntelliSense inte kan identifiera den **skapa inloggning från en extern PROVIDER** instruktionen och visar en röd understrykning.
+
 - Endast huvudsaklig inloggning på servernivå (som skapats av den hanterade instansen etableringsprocessen), medlemmar i serverrollerna (`securityadmin` eller `sysadmin`), eller andra inloggningar med ALTER ANY LOGIN-behörighet på servernivå kan skapa Azure AD-server säkerhetsobjekt (inloggningar) i master-databasen för hanterad instans.
 - Om inloggningen är ett SQL-huvudkonto kan inloggningar som ingår i rollen `sysadmin` använda kommandot create för att skapa inloggningar för en Azure AD-konto.
 - Azure AD-inloggning måste vara medlem i en Azure AD i samma katalog används för Azure SQL Managed Instance.
 - Azure AD-server-huvudkonton (inloggningar) är synliga i object explorer som börjar med SSMS 18.0 preview 5.
 - Överlappande Azure AD-huvudkonton server (inloggningar) med ett administratörskonto för Azure AD är tillåtet. Azure AD-server-huvudkonton (inloggningar) högre prioritet än Azure AD-administratör när matchning av de primära och tillämpa behörigheterna för den hanterade instansen.
 - Under autentiseringen används följande sekvens för att lösa det autentiserande huvudnamnet:
+
     1. Om Azure AD-kontot finns som direkt mappade bevilja åtkomst till Azure AD tjänstens huvudnamn (inloggning) (finns i sys.server_principals som typen ”E”), och tillämpa behörigheter för Azure AD tjänstens huvudnamn (inloggning).
     2. Om Azure AD-kontot är medlem i en Azure AD-grupp som är mappad till Azure AD tjänstens huvudnamn (inloggning) (finns i sys.server_principals som skriver ”X”), bevilja åtkomst och tillämpa behörigheter för inloggningen för Azure AD-grupp.
     3. Om Azure AD-kontot är en särskild portal konfigurerade gäller Azure AD-administratör för hanterad instans (inte finns i systemvyer för hanterad instans), särskilt fast behörigheterna för Azure AD-administratör för hanterad instans (bakåtkompatibelt läge).
     4. Om Azure AD-kontot finns som direkt mappade till Azure AD-användare i en databas (i sys.database_principals som typen ”E”), kan du bevilja åtkomst och tillämpa behörigheter för Azure AD-databasanvändare.
     5. Om Azure AD-kontot är medlem i en Azure AD-grupp som är mappad till en Azure AD-användare i en databas (i sys.database_principals som typen ”X”) kan bevilja åtkomst och tillämpa behörigheter för inloggningen för Azure AD-grupp.
     6. Om det finns en Azure AD-inloggningen som mappades till en Azure AD-användarkonto eller ett konto för Azure AD-grupp, tillämpas matchning för den autentiserande användaren, alla behörigheter från den här Azure AD-kontoinloggning.
-
-
-
-
-
 
 ### <a name="service-key-and-service-master-key"></a>Tjänsten nycklar och tjänstens huvudnyckel
 
@@ -320,7 +334,6 @@ En hanterad instans kan inte komma åt delade filer och mappar i Windows, så g�
 - Endast `CREATE ASSEMBLY FROM BINARY` stöds. Se [skapa sammansättningen från binär](https://docs.microsoft.com/sql/t-sql/statements/create-assembly-transact-sql).  
 - `CREATE ASSEMBLY FROM FILE` is't som stöds. Se [skapa sammansättningen från filen](https://docs.microsoft.com/sql/t-sql/statements/create-assembly-transact-sql).
 - `ALTER ASSEMBLY` Det går inte att referera till filer. Se [ändring av sammansättningen](https://docs.microsoft.com/sql/t-sql/statements/alter-assembly-transact-sql).
-
 
 ### <a name="dbcc"></a>DBCC
 

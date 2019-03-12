@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/26/2018
 ms.author: wolfma
-ms.openlocfilehash: 88efa6b16e33fe928ad9354b7283f7c651e6710c
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: b8e6c8b125e8eeaadac2e6864b06d55c42d3b173
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55881308"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57542010"
 ---
 # <a name="support-and-help-options"></a>Alternativ för support och hjälp
 
@@ -61,11 +61,11 @@ Om du inte hittar svar på ditt problem vid en sökning, skicka en ny fråga att
 
 |Komponenten/område  |Taggar  |
 |---------|---------|
-|Taligenkänning |[[microsoft-cognitive + tal-till-text]](http://stackoverflow.com/questions/tagged/microsoft-cognitive+speech-to-text)|
-|Talsyntes |[[microsoft-cognitive + text-till-tal]](http://stackoverflow.com/questions/tagged/microsoft-cognitive+text-to-speech)|
-|Talöversättning |[[microsoft-cognitive + translation]](http://stackoverflow.com/questions/tagged/microsoft-cognitive+translation)|
-|Avsikten med tal |[[microsoft-cognitive + luis]](http://stackoverflow.com/questions/tagged/microsoft-cognitive+luis)|
-|General Speech SDK |[[microsoft-cognitive + microsoft-tal-API: n]](http://stackoverflow.com/questions/tagged/microsoft-cognitive+microsoft-speech-api)|
+|Taligenkänning |[[microsoft-cognitive + tal-till-text]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+speech-to-text)|
+|Talsyntes |[[microsoft-cognitive + text-till-tal]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+text-to-speech)|
+|Talöversättning |[[microsoft-cognitive + translation]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+translation)|
+|Avsikten med tal |[[microsoft-cognitive + luis]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+luis)|
+|General Speech SDK |[[microsoft-cognitive + microsoft-tal-API: n]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+microsoft-speech-api)|
 
 > [!TIP]
 > I följande inlägg från Stack Overflow innehåller tips om hur du formuläret frågor och Lägg till källkoden. Följa dessa riktlinjer kan hjälpa till att öka sannolikheten för att medlemmar i communityn utvärdera och svara snabbt på din fråga:  

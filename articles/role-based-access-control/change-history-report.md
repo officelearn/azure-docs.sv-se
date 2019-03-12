@@ -15,12 +15,12 @@ ms.date: 02/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5a06b7f66742ad7e97e4ae2ab57aabf15f21faf3
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: cab5b9317102a86dd75d2cb7e5a820cf64d2e831
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56957748"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57535557"
 ---
 # <a name="view-activity-logs-for-rbac-changes-to-azure-resources"></a>Visa aktivitetsloggar för RBAC ändringar till Azure-resurser
 
@@ -123,9 +123,9 @@ Här är de grundläggande stegen för att komma igång:
 
 1. [Konfigurera Activity Log Analytics-lösningen](../azure-monitor/platform/collect-activity-logs.md#configuration) för arbetsytan.
 
-1. [Visa aktivitetsloggar](../azure-monitor/platform/collect-activity-logs.md#using-the-solution). Ett snabbt sätt att gå till sidan Översikt över aktivitet Log Analytics är att klicka på den **Log Analytics** alternativet.
+1. [Visa aktivitetsloggar](../azure-monitor/platform/collect-activity-logs.md#using-the-solution). Ett snabbt sätt att navigera till översiktssidan Activity Log Analytics-lösning är att klicka på den **Log Analytics** alternativet.
 
-   ![Log Analytics-alternativet i portalen](./media/change-history-report/azure-log-analytics-option.png)
+   ![Azure Monitor loggar alternativet i portalen](./media/change-history-report/azure-log-analytics-option.png)
 
 1. Du kan också använda den [Loggsökning](../log-analytics/log-analytics-log-search.md) sidan eller [Advanced Analytics-portalen](../azure-monitor/log-query/get-started-portal.md) att fråga efter och visa loggarna. Mer information om de här två alternativen finns i [loggsökningssidan eller Advanced Analytics-portalen](../azure-monitor/log-query/portals.md).
 

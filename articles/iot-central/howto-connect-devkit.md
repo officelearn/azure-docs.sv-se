@@ -3,17 +3,17 @@ title: En ansluts DevKit till programmet Azure IoT Central | Microsoft Docs
 description: Lär dig hur du ansluter en enhet för MXChip IoT DevKit till Azure IoT Central programmet som utvecklare enheten.
 author: dominicbetts
 ms.author: dobett
-ms.date: 04/16/2018
+ms.date: 02/05/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 6c9f128a046904eb8df90625ce1043b3d42e8be4
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 150f2b9155d5e920a7394e2fa55ce28701497868
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57448551"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57763018"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>Anslut en enhet för MXChip IoT DevKit till programmet Azure IoT Central
 
@@ -26,19 +26,17 @@ Du behöver följande för att slutföra stegen i den här artikeln:
 1. Ett Azure IoT Central program som skapats från den **exempel Devkits** mall för program. Mer information finns i [snabbstarten om att skapa ett program](quick-deploy-iot-central.md).
 1. En DevKit-enhet. Du kan köpa en DevKit enhet [MXChip IoT DevKit](http://mxchip.com/az3166).
 
+## <a name="sample-devkits-application"></a>Devkits exempelprogrammet
 
-## <a name="sample-devkits-application"></a>**Exempel på Devkits** program
+Ett program som skapats från den **exempel Devkits** programmall innehåller en **MXChip** enheten mallen med följande egenskaper:
 
-Ett program som skapats från den **exempel Devkits** programmall innehåller en **MXChip** enheten mallen med följande egenskaper: 
-
-- Telemetri som innehåller mätningarna för enheten **fuktighet**, **temperatur**, **tryck**, **Magnometer** (mätt längs X Y, Z-axeln), **Accelerometer** (mätt längs X, Y, Z-axeln) och **gyroskop** (mätt längs X, Y, Z-axeln).
+- Telemetri som innehåller mätningarna för enheten **fuktighet**, **temperatur**, **tryck**, **Magnetometer** (mätt längs X, Y, Z-axeln), **Accelerometer** (mätt längs X, Y, Z-axeln) och **gyroskop** (mätt längs X, Y, Z-axeln).
 - Tillstånd som innehåller ett exempel mått för **enhetstillstånd**.
 - Mätning av händelse med en **knappen B nedtryckt** händelse. 
 - Inställningar som visar **Voltage**, **aktuella**, **fläkthastighet**, och en **IR** växlingsknappen.
 - Egenskaper som innehåller enhetsegenskap **dör nummer** och **enhetsplats** som är en Platsegenskapen samt som i en **tillverkade i** egenskap i molnet. 
 
-
-Fullständig information om konfigurationen finns i [MXChip mall enhetsinformation](howto-connect-devkit.md#mxchip-device-template-details)
+Fullständig information om konfigurationen finns i [MXChip mall enhetsinformation](#mxchip-device-template-details)
 
 
 ## <a name="add-a-real-device"></a>Lägga till en riktig enhet
@@ -46,28 +44,24 @@ Fullständig information om konfigurationen finns i [MXChip mall enhetsinformati
 I Azure IoT Central programmet, lägger du till en riktig enhet från den **MXChip** enheten mallen och gjort en notering enhetsinformation för anslutningen (**Scope-ID, enhets-ID och primära nyckel**).
 
 1. Lägg till en **riktig enhet** Device Explorer, Välj **+ Ny > verkliga** att lägga till en riktig enhet.
+
     * Ange enhets-Id **<span style="color:Red">(bör vara gemener)</span>** eller använder den föreslagna enhets-Id.
     * Ange namnet på enheten eller använda det föreslagna namnet
-    
-    ![Lägg till enhet](media/concepts-connectivity/add-device.png)
 
+    ![Lägg till enhet](media/howto-connect-devkit/add-device.png)
 
 1. Hämta anslutningsinformationen som **Scope-ID, enhets-ID och primära nyckel** för tillagd enhet genom att välja **Connect** på enhetssidan.
- 
-    ![Anslutningsinformation](media/concepts-connectivity/device-connect.PNG)
 
-3. Se till att spara dessa uppgifter som du ska få bortkopplad från internet när du förbereder DevKit enheten. 
+    ![Anslutningsinformation](media/howto-connect-devkit/device-connect.png)
 
+1. Se till att spara dessa uppgifter som du ska få bortkopplad från internet när du förbereder DevKit enheten.
 
 ### <a name="prepare-the-devkit-device"></a>Förbered enheten DevKit
 
 > [!NOTE]
 > Om du tidigare har använt enheten och har wifi autentiseringsuppgifter lagras och vill konfigurera om enheten för att använda ett annat Wi-Fi-nätverk eller anslutningssträng telemetri mätning, trycker du på både den **A** och **B** knappar på tavlan samtidigt. Om det inte fungerar, trycker du på **återställa** knappen och försök igen.
 
-
-
-#### <a name="to-prepare-the-devkit-device"></a>Förbereda enheten DevKit:
-
+#### <a name="to-prepare-the-devkit-device"></a>Förbereda enheten DevKit
 
 1. Ladda ned den senaste färdiga Azure IoT Central inbyggda programvaran för MXChip från den [släpper](https://aka.ms/iotcentral-docs-MXChip-releases) sidan på GitHub.
 1. Anslut DevKit enheten till din utvecklingsdator med hjälp av en USB-kabel. I Windows öppnas en fil explorer på en enhet som har mappats till lagring på DevKit enheten. Exempelvis kan enheten kan anropas **AZ3166 (D:)**.
@@ -78,12 +72,12 @@ I Azure IoT Central programmet, lägger du till en riktig enhet från den **MXCh
     ```
     Connect HotSpot:
     AZ3166_??????
-    go-> 192.168.0.1 
+    go-> 192.168.0.1
     PIN CODE xxxxx
     ```
 
     > [!NOTE]
-    > Om skärmen visar allt annat, återställa enheten och tryck på den **A** och **B** knappar på enheten på samma gång för att starta om enheten. 
+    > Om skärmen visar allt annat, återställa enheten och tryck på den **A** och **B** knappar på enheten på samma gång för att starta om enheten.
 
 1. Enheten är nu i åtkomstläge åtkomstpunkten (AP). Du kan ansluta till den här Wi-Fi-åtkomstpunkt från din dator eller mobil enhet.
 
@@ -178,7 +172,7 @@ Koden i den **iotHubClient.cpp** källfilen använder funktioner från den [ Mic
 
 Information om hur du ändrar, skapa och överföra kod till din enhet finns i den **readme.md** fil i den `AZ3166` mapp.
 
-## <a name="mxchip-device-template-details"></a>MXChip mall enhetsinformation 
+## <a name="mxchip-device-template-details"></a>MXChip mall enhetsinformation
 
 Ett program som skapats med mallen för exemplet Devkits program innehåller en MXChip enhet mall med följande egenskaper:
 

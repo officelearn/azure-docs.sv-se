@@ -11,17 +11,17 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 7730d15b0d3be9c0ffc7c7fbafe40fece713afbd
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: f0f9e0bd3e80bc0cac5a77d2b641badee44642e2
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55976800"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57761539"
 ---
-# <a name="upload-files-to-a-media-services-account-in-the-azure-portal-legacy"></a>Ladda upp filer till ett Media Services-konto i Azure-portalen (äldre)
+# <a name="upload-files-to-a-media-services-account-in-the-azure-portal"></a>Ladda upp filer till ett Media Services-konto på Azure-portalen 
 
 > [!div class="op_single_selector"]
 > * [Portal](media-services-portal-upload-files.md)

@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/04/2019
+ms.date: 03/11/2019
 ms.author: jeffgilb
 ms.reviewer: brbartle
 ms.lastreviewed: 03/04/2019
-ms.openlocfilehash: 12edea505ba3b0c8009512a52e3eea9ecea5bb26
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 2ed9598ecfb45323505e8527cfb3ab9fe7d8b58e
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57405206"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57764735"
 ---
 # <a name="register-azure-stack-with-azure"></a>Registrera Azure Stack med Azure
 
@@ -485,9 +485,16 @@ Get-AzsRegistrationToken [-PrivilegedEndpointCredential] <PSCredential> [-Privil
 
 En av nedanstående felmeddelanden kan visas vid försök registrering av Azure Stack:
 1. Kunde inte hämta obligatorisk maskinvara info för $hostName. Kontrollera fysisk värd och anslutning och försök köra registreringen.
+
 2. Det går inte att ansluta till $hostName att få information om maskinvara – Kontrollera fysisk värd och anslutning och sedan försöka köra registreringen.
 
-Orsak: Detta är vanligtvis eftersom vi försöker hämta information om maskinvara, till exempel UUID, Bios och processor från värdarna att försöka aktivera och kunde inte på grund av att det inte går att ansluta till den fysiska värden.
+> Orsak: Detta är vanligtvis eftersom vi försöker hämta information om maskinvara, till exempel UUID, Bios och processor från värdarna att försöka aktivera och kunde inte på grund av att det inte går att ansluta till den fysiska värden.
+
+När du försöker komma åt Marketplace management uppstår ett fel vid försök att syndikera produkter. 
+> Orsak: det här inträffar vanligtvis när Azure Stack inte kan komma åt resursen för registrering. En vanlig orsak till detta är att när en Azure-prenumeration directory-klient ändras återställer registreringen. Du kan inte komma åt Azure Stack marketplace eller rapporten användningen om du har ändrat prenumerationens directory-klient. Du måste registrera för att åtgärda problemet.
+
+Marketplace-hantering fortfarande ber dig att registrera och aktivera din Azure Stack, även om du redan har registrerat din stämpel med hjälp av den frånkopplade processen. 
+> Orsak: det här är ett känt problem för frånkopplade miljöer. Du kan kontrollera din registreringsstatus som genom att följa [här](azure-stack-registration.md#verify-azure-stack-registration). Om du vill använda hantering av Marketplace, kommer du behöva använda [offline verktyget](azure-stack-download-azure-marketplace-item.md#disconnected-or-a-partially-connected-scenario). 
 
 ## <a name="next-steps"></a>Nästa steg
 

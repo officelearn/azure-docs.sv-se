@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 8ff100cd3fc1c9def10b4e585119414281b90d92
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 4a3d1c513bcfb6449ca73d873c0dd9831c6fe01d
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54017386"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57540138"
 ---
 # <a name="use-case---product-recommendations"></a>Användningsfall - Produktrekommendationer
 Azure Data Factory är en av många tjänster som används för att implementera Cortana Intelligence Suite med Lösningsacceleratorer.  Se [Cortana Intelligence Suite](https://www.microsoft.com/cortanaanalytics) för information om de här. I det här dokumentet beskrivs ett vanligt användningsfall som Azure-användare som redan har löst och implementeras med hjälp av Azure Data Factory och andra tjänster för Cortana Intelligence-komponenten.
@@ -50,7 +50,7 @@ Alla data kombineras och skickas till en produkt rekommendation systemet att lev
 
 Gigabyte raw web loggfiler genereras per dag från den näthandelsföretagen webbplats som semistrukturerade filer. Rå web-loggfiler och kataloginformation kunden och produkten matas regelbundet in i Azure Blob storage med hjälp av Data Factorys globalt distribuerade data flyttas som en tjänst. Råa loggfiler för dagen partitioneras (per år och månad) i blob storage för långsiktig lagring.  [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/) används för att partitionera råa loggfiler i blob store och bearbeta inmatade loggar i stor skala med både Hive och Pig-skript. Den partitionerade webbloggar data bearbetas sedan för att extrahera nödvändiga indata för en rekommendation system för att generera personliga produktrekommendationer för maskininlärning.
 
-Rekommendationen systemet används för maskininlärning i det här exemplet är en maskininlärningsfunktion rekommendation plattform från [Apache Mahout](http://mahout.apache.org/).  Alla [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) eller anpassade modellen kan tillämpas på scenariot.  Mahout modellen används för att förutsäga likheten mellan objekt på den webbplats som baseras på allmänna användningsmönster och för att ge personanpassade rekommendationer baserat på den enskilda användaren.
+Rekommendationen systemet används för maskininlärning i det här exemplet är en maskininlärningsfunktion rekommendation plattform från [Apache Mahout](https://mahout.apache.org/).  Alla [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) eller anpassade modellen kan tillämpas på scenariot.  Mahout modellen används för att förutsäga likheten mellan objekt på den webbplats som baseras på allmänna användningsmönster och för att ge personanpassade rekommendationer baserat på den enskilda användaren.
 
 Slutligen flyttas resultatuppsättningen för personliga produktrekommendationer till en relationella datamart för användning med webbplatsen återförsäljaren.  Resultatuppsättningen kan även nås direkt från blob-lagring av ett annat program eller flyttas till ytterligare lager för andra konsumenter och användningsfall.
 

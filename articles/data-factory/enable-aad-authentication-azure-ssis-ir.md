@@ -3,30 +3,31 @@ title: Aktivera Azure Active Directory-autentisering för Azure-SSIS Integration
 description: Den här artikeln beskriver hur du aktiverar Azure Active Directory-autentisering med den hanterade identitet för Azure Data Factory för att skapa Azure-SSIS Integration Runtime.
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 2/19/2019
-ms.author: douglasl
-ms.openlocfilehash: 159aaf017265c09c2afc4b603ed5172fead9b29d
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.date: 3/11/2019
+author: swinarko
+ms.author: sawinark
+manager: craigg
+ms.openlocfilehash: 787c436261635376ff82e8762cbc1469f4375e6b
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57438660"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57729956"
 ---
 # <a name="enable-azure-active-directory-authentication-for-azure-ssis-integration-runtime"></a>Aktivera Azure Active Directory-autentisering för Azure-SSIS Integration Runtime
 
-Den här artikeln visar hur du aktiverar Azure Active Directory (Azure AD)-autentisering med den hanterade identitet för din Azure Data Factory (ADF) och använda den i stället för SQL-autentisering för att skapa en Azure-SSIS Integration Runtime (IR) som i sin tur skapar SSIS katalogdatabasen (SSISDB) i Azure SQL Database-server/hanterad instans för din räkning.
+Den här artikeln visar hur du aktiverar Azure Active Directory (Azure AD)-autentisering med den hanterade identitet för din Azure Data Factory (ADF) och använda den i stället för SQL-autentisering för att skapa en Azure-SSIS Integration Runtime (IR) som i sin tur etablerar SSIS-katalogdatabasen (SSISDB) i Azure SQL Database-server/hanterad instans för din räkning.
 
 Mer information om den hanterade identitet för din ADF finns i [hanterade identiy för Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity).
 
 > [!NOTE]
-> Om du redan har skapat en Azure-SSIS IR med SQL-autentisering, du kan inte konfigurera om din IR för att använda Azure AD-autentisering med PowerShell just nu, men du kan göra det i Azure portal/ADF-app. 
+>-  I det här scenariot, Azure AD-autentisering med den hanterade identitet för din ADF används bara för att skapa och efterföljande från åtgärder för din SSIS IR som kommer i Aktivera etablera och ansluta till SSISDB. För körningar för SSIS-paket, kommer din SSIS IR fortfarande ansluta till SSISDB med SQL-autentisering med fullständigt hanterade konton som skapas under SSISDB etablering.
+>-  Om du redan har skapat din SSIS IR med SQL-autentisering måste du konfigurera inte den för att använda Azure AD-autentisering via PowerShell just nu, men du kan göra detta via Azure portal/ADF-app. 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 

@@ -3,17 +3,17 @@ title: Ladda upp bilder till programmet Azure IoT Central | Microsoft Docs
 description: Lär dig hur du förbereder och ladda upp bilder till Azure IoT Central programmet som en builder.
 author: dominicbetts
 ms.author: dobett
-ms.date: 10/31/2018
+ms.date: 02/05/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 4378ff4155cf0b2f9c4af8176f41fe35fc433792
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: c8444fd57fe939dfb212d88c22a071c13dac691e
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57310717"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57767336"
 ---
 # <a name="prepare-and-upload-images-to-your-azure-iot-central-application"></a>Förbereda och ladda upp bilder till Azure IoT Central programmet
 
@@ -30,7 +30,7 @@ Du behöver följande för att slutföra stegen i den här artikeln:
 
 Du kan lägga till anpassade avbildningar på följande platser i en Azure IoT Central program:
 
-* Den **Programhanterare** sidan
+* Den **Mina program** sidan
 
     ![Bild på program manager-sidan](media/howto-prepare-images/applicationmanager.png)
 
@@ -70,7 +70,7 @@ I följande avsnitt beskrivs hur du laddar upp bilder på olika platser:
 
 ### <a name="application-manager"></a>Programhanterare
 
-Ladda upp en bild på den **Programhanterare**, navigera till den **programinställningar** sidan i den **Administration** avsnittet. Du måste vara administratör för att slutföra den här åtgärden:
+Ladda upp en bild som används på den **Mina program** sidan, gå till den **programinställningar** sidan i den **Administration** avsnittet. Du måste vara administratör för att slutföra den här åtgärden:
 
 ![Ladda upp programavbildning](media/howto-prepare-images/uploadapplicationmanager.png)
 
@@ -78,9 +78,9 @@ Välj panelen programavbildningen att ladda upp en förberedd bild (268 x 160 bp
 
 ### <a name="application-dashboard"></a>Instrumentpanel för program
 
-Om du vill ladda upp en bild på instrumentpanelen för program, navigerar du till den **instrumentpanelen** för programmet och välj **redigera**. Du måste vara ett verktyg för att slutföra den här aktiviteten:
+Om du vill ladda upp en bild på instrumentpanelen för program, navigerar du till den **instrumentpanelen** i dina program och välj **redigera**. Du måste vara ett verktyg för att slutföra den här aktiviteten:
 
-![Ladda upp program instrumentpanelen bild](media/howto-prepare-images/uploadhomepage.png)
+![Ladda upp instrumentpanelen bild](media/howto-prepare-images/uploadhomepage.png)
 
 Välj panelen bild att ladda upp en förberedd bild från din lokala dator under Konfigurera bild. Den minsta storlek panelen är 200 x 200 bildpunkter, större paneler kan vara antingen kvadratisk eller rektangulär multiplar av små paneler. Till exempel 200 x 400 bildpunkter, 400 x 200 bildpunkter eller 400 x 400 bildpunkter.
 
@@ -88,15 +88,15 @@ Välj panelen bild att ladda upp en förberedd bild från din lokala dator under
 
 ### <a name="device-template"></a>Enhetsmall
 
-Om du vill ladda upp en bild i en mall för enhet, gå till **Device Explorer**, väljer mallen enhet och sedan på en enhet. Du måste vara ett verktyg för att slutföra den här aktiviteten:
+Om du vill ladda upp en bild i en mall för enhet, gå till **enheten mallar** och välj mallen för enheten. Du måste vara ett verktyg för att slutföra den här aktiviteten:
 
 ![Ladda upp enheten mall-bild](media/howto-prepare-images/uploaddevicetemplate.png)
 
-Välj panelen bild att ladda upp en förberedd bild (64 x 64 px) från din lokala dator. 
+Välj panelen bild att ladda upp en förberedd bild (64 x 64 px) från din lokala dator.
 
 ### <a name="device-dashboard"></a>Instrumentpanel för enhet
 
-Om du vill ladda upp en bild på en instrumentpanel för enhet, gå till **Device Explorer**, väljer mallen enhet och en enhet. Välj sedan den **instrumentpanelen** och välj **Redigera mall**. Du måste vara ett verktyg för att slutföra den här aktiviteten:
+Om du vill ladda upp en bild på en instrumentpanel för enhet, gå till **enheten mallar** och välj mallen för enheten. Välj sedan den **instrumentpanelen** fliken. Du måste vara ett verktyg för att slutföra den här aktiviteten:
 
 ![Ladda upp enhetsavbildning för instrumentpanelen](media/howto-prepare-images/uploaddevicedashboard.png)
 

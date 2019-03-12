@@ -8,13 +8,13 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 02/24/2019
-ms.openlocfilehash: ff43a55429eb69a7f98fd4da7fdbeb5d4e51513c
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.date: 03/11/2019
+ms.openlocfilehash: b53cd54afdf6243769602971ab77145cfa9ba9cc
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56991265"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57758785"
 ---
 # <a name="access-to-azure-virtual-network-resources-from-azure-logic-apps-by-using-integration-service-environments-ises"></a>Åtkomst till Azure Virtual Network-resurser från Azure Logic Apps med hjälp av integreringstjänstmiljöer (ISEs)
 
@@ -64,13 +64,6 @@ Skillnaden mellan ISE och icke-ISE-anslutningar är i de platser där utlösare 
   ![Välj ISE-tjänster](./media/connect-virtual-network-vnet-isolated-environment-overview/select-ise-connectors.png)
 
 * Kopplingar som körs i en ISE är också tillgängliga i tjänsten för global Logic Apps.
-
-<a name="vnet-access"></a>
-
-## <a name="permissions-for-virtual-network-access"></a>Behörigheter för åtkomst till virtuellt nätverk
-
-Innan du kan välja ett Azure-nätverk för din miljö måste ställa du in behörigheter för rollbaserad åtkomstkontroll (RBAC) i det virtuella nätverket för Azure Logic Apps-tjänsten. Den här uppgiften kräver att du tilldelar den **Nätverksdeltagare** och **klassiska deltagare** roller till Azure Logic Apps-tjänsten.
-Om du vill konfigurera dessa behörigheter finns i [Anslut till Azure-nätverk från logikappar](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#vnet-access).
 
 <a name="create-integration-account-environment"></a>
 

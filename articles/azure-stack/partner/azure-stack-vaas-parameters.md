@@ -10,17 +10,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/04/2019
+ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.lastreviewed: 11/19/2018
+ms.lastreviewed: 03/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 9802184ebef764e9e493b8477fcca72e308987d0
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: f66f57799e1e6b6d0e27624e3dc08b4de5d09cac
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57337234"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57766208"
 ---
 # <a name="workflow-common-parameters-for-azure-stack-validation-as-a-service"></a>Arbetsflödets gemensamma parametrar för Azure Stack-verifiering som en tjänst
 
@@ -42,6 +42,7 @@ Miljö parametrar beskrivs Azure Stack-miljön under testet. Dessa värden måst
 
 1. Logga in på DVM eller datorer som har åtkomst till Azure Stack-miljön.
 2. Kör följande kommandon i ett upphöjt PowerShell-fönster:
+
     ```PowerShell  
     $CloudAdminUser = "<cloud admin username>"
     $CloudAdminPassword = ConvertTo-SecureString "<cloud admin password>" -AsPlainText -Force
@@ -62,7 +63,7 @@ Parameter    | Beskrivning
 -------------|-----------------
 Klient-administratör                            | Azure Active Directory Innehavaradministratör som etablerades tjänstadministratören i AAD-katalogen. Den här användaren utför på klientnivå åtgärder som att distribuera mallar att ställa in resurser (virtuella datorer, lagringskonton osv) och köra arbetsbelastningar. Mer information om etablering klientkonto finns [lägga till en ny Azure Stack-klient](https://docs.microsoft.com/azure/azure-stack/azure-stack-add-new-user-aad).
 Service-administratör             | Azure Active Directory-administratören för AAD-Directory-klient som anges under distributionen av Azure Stack Sök efter `AADTenant` i FN konfigurationen och väljer värdet i den `UniqueName` element.
-Molnadministratören användare               | Azure Stack-domänadministratörskonto (t.ex. `contoso\cloudadmin`). Sök efter `User Role="CloudAdmin"` i FN konfigurationen och väljer värdet i den `UserName` element.
+Molnadministratören användare               | Azure Stack-domänadministratörskonto (till exempel `contoso\cloudadmin`). Sök efter `User Role="CloudAdmin"` i FN konfigurationen och väljer värdet i den `UserName` element.
 Anslutningssträngen för diagnostik          | En SAS-URL till ett Azure Storage-konto på vilka felsökning loggfilerna kopieras under testkörning av. Anvisningar om att generera SAS-Webbadressen finns i [generera anslutningssträngen diagnostik](#generate-the-diagnostics-connection-string). |
 
 > [!IMPORTANT]

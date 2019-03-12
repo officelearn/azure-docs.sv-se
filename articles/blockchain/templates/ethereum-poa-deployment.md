@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: vamelech
-ms.openlocfilehash: 42e5fd713f6353a2a939236f34463e9ba4195e29
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 50d24fd41a0a933d9cfec37477773463a918ca0a
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56650214"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57549076"
 ---
 # <a name="ethereum-proof-of-authority-consortium"></a>Ethereum proof-of-authority consortium
 
@@ -38,15 +38,15 @@ Med en handfull användarindata och en enda musklick distribution via Azure-port
 
 ### <a name="proof-of-authority"></a>Proof-of-authority
 
-För dig som är nya för blockchain-communityn, är versionen av den här lösningen en fantastisk möjlighet att lära dig om tekniken på ett enkelt och konfigurerbara sätt på Azure. Proof of work är en mekanism för Sybil motstånd som utnyttjar beräkning kostnader för att reglera själva nätverket och Tillåt fair deltagande. Detta fungerar bra i anonym, öppna blockchain nätverk där tävling för kryptovalutor främjar säkerhet i nätverket. I privat/consortium nätverk har den underliggande Ether men inget värde. Ett alternativt protokoll proof-of-authority, är mer lämpliga för permissioned nätverk där alla konsensus-deltagare är kända och välkända. Utan att du behöver för utvinning är Proof-of-authority effektivare utan att försämra Byzantine feltolerans.
+För dig som är nya för blockchain-communityn, är versionen av den här lösningen en fantastisk möjlighet att lära dig om tekniken på ett enkelt och konfigurerbara sätt på Azure. Proof of work är en mekanism för Sybil motstånd som utnyttjar beräkning kostnader för att reglera själva nätverket och Tillåt fair deltagande. Detta fungerar bra i anonym, öppna blockchain nätverk där tävling för kryptovalutor främjar säkerhet i nätverket. I privat/consortium nätverk har den underliggande Ether men inget värde. Ett alternativt protokoll proof-of-authority, är mer lämpliga för tillåtna nätverk där alla konsensus-deltagare är kända och välkända. Utan att du behöver för utvinning är Proof-of-authority effektivare utan att försämra Byzantine feltolerans.
 
 ### <a name="consortium-governance"></a>Consortium styrning
 
-Eftersom proof-of-authority bygger på en permissioned förteckning över nätverket myndigheter att nätverket är felfritt, är det viktigt att tillhandahålla en rättvis mekanism för att göra ändringar i den här behörighetslistan. Varje distribution levereras med en uppsättning smarta kontrakt och -portalen för styrning i kedjan av den här permissioned listan. När en ändring av föreslagna når en majoritet av consortium medlemmar, ändringen är branschrekommendationer när det gäller. På så sätt kan nya konsensus-deltagare ska vara läggs till eller komprometterats deltagare som ska tas bort på ett transparent sätt som uppmuntrar till en ärlig nätverk.
+Eftersom proof-of-authority bygger på en lista över nätverket myndigheter att nätverket är felfritt tillåtna, är det viktigt att tillhandahålla en rättvis mekanism för att göra ändringar i den här behörighetslistan. Varje distribution levereras med en uppsättning smarta kontrakt och -portalen för styrning i kedjan av den här tillåts. När en ändring av föreslagna når en majoritet av consortium medlemmar, ändringen är branschrekommendationer när det gäller. På så sätt kan nya konsensus-deltagare ska vara läggs till eller komprometterats deltagare som ska tas bort på ett transparent sätt som uppmuntrar till en ärlig nätverk.
 
 ### <a name="admin-account"></a>Administratörskonto
 
-Under distributionen av proof-of-authority-noder ombeds du för en administratör Ethereum-adress. Du kan använda flera olika sätt för att generera och skydda den här Ethereum-konto. När den här adressen läggs till som en utfärdare i nätverket, kan du använda det här kontot för att delta i styrning. Den här administratörskonto används också för att delegera konsensus deltagande verifieraren noder som skapas som en del av den här distributionen. Eftersom endast den offentliga Ethereum-adressen används har varje administratör möjlighet att skydda sina privata nycklar på ett sätt som överensstämmer med deras önskade säkerhetsmodell.
+Under distributionen av proof-of-authority-noder, får du en fråga för en administratör Ethereum-adress. Du kan använda flera olika sätt för att generera och skydda den här Ethereum-konto. När den här adressen läggs till som en utfärdare i nätverket, kan du använda det här kontot för att delta i styrning. Den här administratörskonto används också för att delegera konsensus deltagande verifieraren noder som skapas som en del av den här distributionen. Eftersom endast den offentliga Ethereum-adressen används har varje administratör möjlighet att skydda sina privata nycklar på ett sätt som följer sin önskade säkerhetsmodell.
 
 ### <a name="validator-node"></a>Verifieraren nod
 
@@ -55,7 +55,7 @@ För att säkerställa en rättvis deltagande i nätverket, varje consortium med
 
 ### <a name="identity-store"></a>Identitetslagret
 
-Eftersom varje medlem har flera verifieraren noder som körs parallellt och varje nod måste ha en permissioned identitet, är det viktigt att systemhälsoverifierare på ett säkert sätt kan hämta en unik identitet som är aktiv i nätverket. Vi har skapat en Identity-Store som distribueras i varje medlems-prenumeration som innehåller de genererade Ethereum-identiteterna på ett säkert sätt för att underlätta detta. Vid distribution orchestration-behållaren Generera en Ethereum privat nyckel för varje verifieraren och lagra den i Azure Key Vault. Innan noden paritet startar inhämtar den första ett lån på ett oanvända identitet för att kontrollera identiteten inte är hämtas av en annan nod. Identiteten har angetts för klienten som ger den behörighet att skapa block. Om den värdbaserade Virtuellt uppstår ett avbrott, kommer identity lånet att publiceras, så att en ersättning nod att återuppta sin identitet i framtiden.
+Eftersom varje medlem har flera verifieraren noder som körs parallellt och varje nod måste ha en tillåtna identitet, är det viktigt att systemhälsoverifierare på ett säkert sätt kan hämta en unik identitet som är aktiv i nätverket. Vi har skapat en Identity-Store som distribueras i varje medlems-prenumeration som innehåller de genererade Ethereum-identiteterna på ett säkert sätt för att underlätta detta finns. Vid distribution, orchestration-behållaren Generera en Ethereum privat nyckel för varje verifieraren och lagra den i Azure Key Vault. Innan noden paritet startar inhämtar den första ett lån på ett oanvända identitet för att kontrollera identiteten inte är hämtas av en annan nod. Identiteten har angetts för klienten som ger den behörighet att skapa block. Om den värdbaserade Virtuellt uppstår ett avbrott, kommer identity lånet att publiceras, så att en ersättning nod att återuppta sin identitet i framtiden.
 
 ### <a name="bootnode-registrar"></a>Bootnode registrator
 
@@ -77,7 +77,7 @@ Ofta vill delta i nätverket styrning medlem consortium men vill inte använda o
 
 ### <a name="azure-monitor"></a>Azure Monitor
 
-Den här lösningen levereras också med Azure Monitor för att spåra noden statistik. Detta ger insyn i den underliggande blockchain att spåra block generation statistik för programutvecklare. Nätverksadministratörer kan använda Azure Monitor för att snabbt identifiera och förhindra avbrott i nätverket via infrastruktur statistik och frågningsbart loggar. Se [tjänsten övervakning](#service-monitoring) för mer information.
+Den här lösningen levereras också med Azure Monitor för att spåra noden statistik. Detta ger insyn i den underliggande blockchain att spåra block generation statistik för programutvecklare. Nätverksadministratörer kan använda Azure Monitor för att snabbt identifiera och förhindra avbrott i nätverket via infrastruktur statistik och frågningsbart loggar. Mer information finns i [tjänsten övervakning](#service-monitoring).
 
 ### <a name="deployment-architecture"></a>Distributionsarkitektur för
 
@@ -143,12 +143,12 @@ Administratörer har möjlighet att delegera konsensus deltagande till en uppsä
 -   **Granskningsbara ändringshistorik -** varje ändring registreras på den blockkedja som tillhandahåller transparens och revision.
 
 #### <a name="getting-started-with-governance"></a>Komma igång med styrning
-För att utföra alla typer av transaktioner via styrning DApp, behöver du använda en Ethereum-wallet.  Den enklaste metoden är att använda en i webbläsaren wallet som [MetaMask](https://metamask.io), men eftersom dessa smarta kontrakt som distribueras i nätverket kan du även automatisera dina interaktioner på styrning avtalet.
+För att utföra alla typer av transaktioner via styrning DApp, måste du använda en Ethereum-wallet.  Den enklaste metoden är att använda en i webbläsaren wallet som [MetaMask](https://metamask.io), men eftersom dessa smarta kontrakt som distribueras i nätverket kan du även automatisera dina interaktioner på styrning avtalet.
 
-När du har installerat MetaMask, navigerar du till styrning DApp i webbläsaren.  Du kan hitta URL: en i bekräftelsemeddelandet distribution eller via Azure-portalen i utdata för distribution.  Om du inte har en i webbläsaren wallet installerad du kommer inte att kunna utföra några åtgärder. Du kommer dock fortfarande att kunna läsa administratör tillstånd.  
+När du har installerat MetaMask, navigerar du till styrning DApp i webbläsaren.  Du kan hitta URL: en i bekräftelsemeddelandet distribution eller via Azure-portalen i utdata för distribution.  Om du inte har en i webbläsaren wallet installerad du kommer inte att kunna utföra några åtgärder. men du kan fortfarande kan läsa tillståndet administratör.  
 
 #### <a name="becoming-an-admin"></a>Bli en administratör
-Om du är den första medlemmen som distribuerats i nätverket, sedan du blir automatiskt en administratör och paritet noderna visas som systemhälsoverifierare.  Om du ansluter till nätverket, behöver du hämta röstade en administratör med majoritet (större än 50%) av den befintliga uppsättningen av administratören.  Om du väljer att inte bli administratör sedan dina noder fortfarande synkronisera och validera blockchain; de kommer dock inte deltar i block skapandeprocessen. Starta röstande processen för att bli administratör, klicka på __Nominate__ och ange ditt Ethereum-adress och alias.
+Om du är den första medlemmen som distribuerats i nätverket, sedan du blir automatiskt en administratör och paritet noderna visas som systemhälsoverifierare.  Om du ska ansluta till nätverket, måste du hämta röstade en administratör med majoritet (större än 50%) av den befintliga uppsättningen av administratören.  Om du väljer att inte bli administratör sedan dina noder fortfarande synkronisera och validera blockchain; de kommer dock inte deltar i block skapandeprocessen. Starta röstande processen för att bli administratör, klicka på __Nominate__ och ange ditt Ethereum-adress och alias.
 
 ![Nominera](./media/ethereum-poa-deployment/governance-dapp-nominate.png)
 
@@ -159,12 +159,12 @@ Att välja den __kandidater__ fliken visar den aktuella uppsättningen kandidat 
 
 
 #### <a name="admins"></a>Administratörer
-Den __administratörer__ fliken visas den aktuella uppsättningen av administratörer och ger dig möjlighet att rösta mot.  När en administratör förlorar mer än 50%-support, tas de bort som administratör på nätverket.  Verifieraren noder som äger den här administratören kommer att förlora verifieraren status och bli transaktion noder i nätverket.  En administratör kan tas bort av olika skäl. men är det upp till consortium att komma överens om en princip i förväg.
+Den __administratörer__ fliken visas den aktuella uppsättningen av administratörer och ger dig möjlighet att rösta mot.  När en administratör förlorar mer än 50%-support, kommer de tas bort som administratör på nätverket.  Verifieraren noder som äger den här administratören kommer att förlora verifieraren status och bli transaktion noder i nätverket.  En administratör kan tas bort av olika skäl. men är det upp till consortium att komma överens om en princip i förväg.
 
 ![Administratörer](./media/ethereum-poa-deployment/governance-dapp-admins.png)
 
 #### <a name="validators"></a>Systemhälsoverifierare
-Att välja den __systemhälsoverifierare__ fliken på den vänstra menyn visar aktuella distribuerade paritet noderna för den här instansen och deras aktuella status (nodtyp).  Observera att varje consortium medlem har en annan uppsättning systemhälsoverifierare i den här listan, eftersom den här vyn visar den aktuella medlemmen distribuerade consortium.  Om det är en nyligen distribuerade instans och du har inte har lagt till din systemhälsoverifierare, visas alternativet att lägga till systemhälsoverifierare.  Om du väljer detta automatiskt väljer en regionalt belastningsutjämnad uppsättning paritet noder och tilldela dem till din verifieraren uppsättning.  Om du har distribuerat fler noder än den tillåtna kapaciteten blir de återstående noderna transaktion noder i nätverket.
+Att välja den __systemhälsoverifierare__ fliken på den vänstra menyn visar aktuella distribuerade paritet noderna för den här instansen och deras aktuella status (nodtyp).  Varje consortium medlem har en annan uppsättning systemhälsoverifierare på den här listan, eftersom den här vyn visar den aktuella distribuerade consortium medlemmen.  Om det är en nyligen distribuerade instans och du inte har lagt till din systemhälsoverifierare, visas alternativet att lägga till systemhälsoverifierare.  Om du väljer detta automatiskt väljer en regionalt belastningsutjämnad uppsättning paritet noder och tilldela dem till din verifieraren uppsättning.  Om du har distribuerat fler noder än den tillåtna kapaciteten blir de återstående noderna transaktion noder i nätverket.
 
 Adressen för varje verifieraren tilldelas automatiskt den [identitetsarkiv](#identity-store) i Azure.  Om en nod stängs av, kommer den ifrån sig sin identitet, vilket gör att en annan nod i distributionen ta dess plats.  Detta garanterar att ditt deltagande konsensus har hög tillgänglighet.
 
@@ -208,7 +208,7 @@ En detaljerad beskrivning av varje parameter visas nedan:
 
 Parameternamn|Beskrivning|Tillåtna värden|Standardvärden
 ---|---|---|---
-Skapa ett nytt nätverk eller ansluta till befintliga nätverk?|Skapa ett nytt nätverk eller ansluta till en befintlig consortium-nätverk|Skapa ny koppling befintliga|Skapa ny
+Skapa ett nytt nätverk eller ansluta till befintliga nätverk?|Skapa ett nytt nätverk eller Anslut till ett befintligt consortium-nätverk|Skapa ny koppling befintliga|Skapa ny
 E-postadress (valfritt)|Du får ett e-postmeddelande när distributionen är klar med information om din distribution.|Giltig e-postadress|Ej tillämpligt
 VM-användarnamn|Administratörens användarnamn för varje distribuerad virtuell dator (endast alfanumeriska tecken)|1 – 64 tecken|Ej tillämpligt
 Autentiseringstyp|Metoden för att autentisera till den virtuella datorn.|Lösenordet eller SSH offentlig nyckel|Lösenord
@@ -254,7 +254,7 @@ En detaljerad beskrivning av varje parameter visas nedan:
 
 [Prisinformation för virtuell dator](https://azure.microsoft.com/pricing/details/virtual-machines/windows/)
 
-Observera att virtuella datorer och lagringsnivå påverkar nätverkets prestanda.  Vi rekommenderar följande SKU: er baserat på önskad kostnadseffektivitet:
+Virtuell dator och lagringsnivå påverkar nätverkets prestanda.  Vi rekommenderar följande SKU: er baserat på önskad kostnadseffektivitet:
 
   SKU för virtuell dator|Lagringsnivå|Pris|Dataflöde|Svarstid
   ---|---|---|---|---
@@ -272,14 +272,14 @@ En detaljerad beskrivning av varje parameter visas nedan:
 
   Parameternamn|Beskrivning|Tillåtna värden|Standardvärden
   ---|---|---|---
-Consortium medlems-ID|ID som är associerade med varje medlem som deltar i konsortienätverk som används för att konfigurera IP-adressutrymmen att undvika kollision. När det gäller ett privat nätverk måste medlems-ID vara unikt inom olika organisationer i samma nätverk.  Ett unikt medlems-ID krävs även när samma organisation distribuerar till flera regioner. Anteckna värdet för den här parametern eftersom du kommer att behöva dela den med andra sammanbinder medlemmar att se till att det finns inga kollision.|0-255|Ej tillämpligt
+Consortium medlems-ID|ID som är associerade med varje medlem som deltar i konsortienätverk som används för att konfigurera IP-adressutrymmen att undvika kollision. När det gäller ett privat nätverk måste medlems-ID vara unikt inom olika organisationer i samma nätverk.  Ett unikt medlems-ID krävs även när samma organisation distribuerar till flera regioner. Anteckna värdet för den här parametern eftersom du behöver dela den med andra sammanbinder medlemmar att se till att det finns inga kollision.|0-255|Ej tillämpligt
 Nätverks-ID|Nätverks-ID för consortium Ethereum-nätverk som ska distribueras.  Varje Ethereum-nätverk har sin egen, med 1 som ID för det offentliga nätverket.|5 - 999,999,999|10101010
 Administratören Ethereum-adress|Ethereum kontoadress som används för att delta i PoA styrning.  Vi rekommenderar att du använder MetaMask för att generera en Ethereum-adress.|42 alfanumeriska tecken som börjar med 0 x|Ej tillämpligt
 Avancerade alternativ|Avancerade alternativ för Ethereum-inställningar|Aktivera eller inaktivera|Inaktivera
 Offentlig IP-adress (avancerade alternativ = Enable)|Distribuerar nätverket bakom en VNet-Gateway och tar bort peering åtkomst. Om det här alternativet väljs, måste alla medlemmar använda en VNet-Gateway för anslutningen för att vara kompatibel.|Privat virtuellt nätverk för offentlig IP-adress|Offentlig IP-adress
 Block Gas Limit (Advanced Options = Enable)|Startar block gas gränsen på nätverket|Numerisk|50,000,00
 Reseal Blockeringsperiod (sek)|Frekvensen som tomt block skapas när det finns inga transaktioner i nätverket. Tätare har snabbare avveckling överföring men ökade lagringskostnader.|Numerisk|15
-Transaktionen behörighet kontraktet (avancerade alternativ = Enable)|ByteCode för transaktionen ge behörighet till kontraktet. Begränsar smarta kontrakt distribution och körning i en permissioned lista över Ethereum-konton.|Kontraktet bytecode|Ej tillämpligt
+Transaktionen behörighet kontraktet (avancerade alternativ = Enable)|ByteCode för transaktionen ge behörighet till kontraktet. Begränsar smarta kontrakt distribution och körning till en lista med tillåtna av Ethereum-konton.|Kontraktet bytecode|Ej tillämpligt
 
 En exempeldistribution visas nedan: ![ethereum-inställningar](./media/ethereum-poa-deployment/ethereum-settings.png)
 
@@ -287,13 +287,15 @@ En exempeldistribution visas nedan: ![ethereum-inställningar](./media/ethereum-
 
 Bladet övervakning kan du konfigurera en resurs med Azure Monitor-loggar för nätverket. Övervakningsagenten samlar in och surface användbart mått och loggar från ditt nätverk, ger möjligheten att snabbt kontrollera nätverkets tillstånd eller felsöka problem.
 
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
+
   Parameternamn|Beskrivning|Tillåtna värden|Standardvärden
   ---|---|---|---
 Övervakning|Möjlighet att aktivera övervakning|Aktivera eller inaktivera|Aktivera
 Ansluta till befintliga Azure Monitor-loggar|Skapa en ny instans av Azure Monitor-loggar eller Anslut till en befintlig instans|Skapa en ny eller ansluta till befintliga|Skapa ny
 Övervaka plats (Anslut till befintliga Azure Monitor-loggar = Skapa ny)|Den region där den nya Azure Monitor loggar instansen kommer att distribueras|Alla Azure Monitor loggar regioner|Ej tillämpligt
-Befintliga Log Analytics arbetsyte-Id (Anslut till befintliga Azure Monitor-loggar = ansluta befintliga)|Arbetsyte-ID för den befintliga Azure-övervakaren loggar instans||Ej tillämpligt
-Primärnyckeln för befintliga Log Analytics (Anslut till befintliga Log Analytics = ansluta befintliga)|Den primära nyckeln som används för att ansluta till den befintliga Log Analytics-instansen||Ej tillämpligt
+Befintliga log analytics arbetsyte-ID (Anslut till befintliga Azure Monitor-loggar = ansluta befintliga)|Arbetsyte-ID för den befintliga Azure-övervakaren loggar instans||Ej tillämpligt
+Primärnyckeln för befintliga log analytics (Anslut till befintliga Azure Monitor-loggar = ansluta befintliga)|Den primära nyckeln som används för att ansluta till den befintliga instansen av Azure Monitor-loggar||Ej tillämpligt
 
 
 En exempeldistribution visas nedan: ![med azure monitor](./media/ethereum-poa-deployment/azure-monitor.png)
@@ -308,7 +310,7 @@ Läs juridisk information och sekretess licensvillkoren och klicka på Köp om d
 
 ##### <a name="deployment-output"></a>Utdata för distribution
 
-När distributionen är klar kommer du att kunna komma åt de nödvändiga parametrarna via e-postbekräftelsen eller via Azure portal. I de här parametrarna hittar du:
+När distributionen är klar kan du komma åt de nödvändiga parametrarna via e-postbekräftelsen eller via Azure portal. I de här parametrarna hittar du:
 
 -   Ethereum RPC-slutpunkt
 
@@ -328,7 +330,7 @@ Om du anger en e-postadress ([grunderna avsnittet](#basics)), ett e-postmeddelan
 
 ##### <a name="portal"></a>Portalen
 
-När distributionen har slutförts och alla resurser som har etablerats kommer du att kunna visa utdataparametrarna i resursgruppen.
+När distributionen har slutförts och alla resurser som har etablerats kan du visa utdataparametrarna i resursgruppen.
 
 1.  Leta reda på resursgruppen i portalen
 
@@ -341,7 +343,7 @@ När distributionen har slutförts och alla resurser som har etablerats kommer d
 ### <a name="growing-the-consortium"></a>Växande consortium
 
 Om du vill expandera din consortium, måste du först ansluta det fysiska nätverket.
-Med hjälp av den offentliga IP-baserad distributionen är den här första steget sömlös. Om du distribuerar bakom en VPN-anslutning, se avsnittet [ansluter VNet-Gateway](#connecting-vnet-gateways) att utföra nätverksanslutning som en del av den nya medlemmen-distributionen.  När distributionen har slutförts används den [styrning DApp](#governance-dapp) att bli ett nätverk som administratör.
+Med hjälp av den offentliga IP-baserad distributionen är den här första steget sömlös. Om du distribuerar bakom en VPN-anslutning, se avsnittet [ansluter VNet-Gateway](#connecting-vnet-gateways) göra nätverksanslutning som en del av den nya medlemmen-distributionen.  När distributionen har slutförts används den [styrning DApp](#governance-dapp) att bli ett nätverk som administratör.
 
 #### <a name="new-member-deployment"></a>Ny medlem distribution
 
@@ -367,7 +369,7 @@ Med hjälp av den offentliga IP-baserad distributionen är den här första steg
 
 #### <a name="connecting-vnet-gateways"></a>Ansluta VNet-gatewayer
 
-Du kan ignorera det här steget om du har distribuerat med hjälp av standardinställningarna för offentlig IP-adress. När det gäller ett privat nätverk är i olika medlemmar anslutna via VNet-gateway-anslutningar. Innan en medlem kan ansluta till nätverket och se transaktion trafik, måste en befintlig medlem utföra en slutgiltig konfiguration på sina VPN-gateway för att godkänna anslutningen. Det innebär att Ethereum-noder för anslutande medlem inte kan köras förrän en anslutning har upprättats. Vi rekommenderar att skapa överflödiga nätverksanslutningar (nät) till consortium att minska risken för en enskild felpunkt.
+Du kan ignorera det här steget om du har distribuerat med hjälp av standardinställningarna för offentlig IP-adress. När det gäller ett privat nätverk är i olika medlemmar anslutna via VNet-gateway-anslutningar. Innan en medlem kan ansluta till nätverket och se transaktion trafik, måste en befintlig medlem göra en slutgiltig konfiguration på sina VPN-gatewayen för att godkänna anslutningen. Det innebär att Ethereum-noder för medlemmen som sammanbinder inte köras förrän en anslutning har upprättats. Vi rekommenderar att du skapar överflödiga nätverksanslutningar (nät) till consortium att minska risken för en enskild felpunkt.
 
 Efter den nya medlemmen distribuerar utföra befintliga medlemmen dubbelriktad anslutning genom att konfigurera en VNet-gateway-anslutning till den nya medlemmen. För att uppnå detta behöver befintlig medlem:
 
@@ -451,7 +453,7 @@ ParityLog_CL
 
 ### <a name="ssh-access"></a>SSH-åtkomst
 
-Av säkerhetsskäl nekas SSH-portåtkomst av en regel för säkerhet som standard. För att komma åt de virtuella datorinstanserna i PoA nätverk, behöver du ändra den här regeln till \"Tillåt\"
+Av säkerhetsskäl nekas SSH-portåtkomst av en regel för säkerhet som standard. För att komma åt de virtuella datorinstanserna i PoA nätverk, måste du ändra den här regeln till \"Tillåt\"
 
 1.  Starta i översiktsavsnittet för distribuerade resursgruppen från Azure-portalen.
 
@@ -510,17 +512,17 @@ Upprepa för varje region i distribuerade nätverk. När slutpunkterna är i den
 
 ### <a name="data-api"></a>Data API
 
-Varje consortium medlem är värd för nödvändig information för att andra kan ansluta till nätverket. Den befintliga medlemmen ger [CONSORTIUM_DATA_URL] innan den medlemmens distribueras. Vid distribution, att slå samman medlemmar hämta information från JSON-gränssnittet på följande slutpunkt:
+Varje consortium medlem är värd för nödvändig information för att andra kan ansluta till nätverket. Den befintliga medlemmen ger [CONSORTIUM_DATA_URL] innan den medlemmen distribution. Vid distribution, att slå samman medlemmar hämta information från JSON-gränssnittet på följande slutpunkt:
 
 `<CONSORTIUM_DATA_URL>/networkinfo`
 
-Svaret innehåller information som är användbar för att ansluta till medlemmar (Genesis block, verifieraren inställd på kontraktet ABI bootnodes) tillsammans med information som är användbar för att den befintliga medlemmen (verifieraren adresser). Vi rekommenderar användning av den här standardisering att utöka consortium över molnleverantörer. Den här API: et returnerar ett JSON-formaterade svar med följande struktur:
+Svaret innehåller information som är användbar för att ansluta till medlemmar (Genesis block, verifieraren inställd kontrakt ABI, bootnodes) och användbar information till den befintliga medlemmen (verifieraren adresser). Vi rekommenderar användning av den här standardisering att utöka consortium över molnleverantörer. Den här API: et returnerar ett JSON-formaterade svar med följande struktur:
 ```json
 {
   "$id": "",
   "type": "object",
   "definitions": {},
-  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$schema": "https://json-schema.org/draft-07/schema#",
   "properties": {
     "majorVersion": {
       "$id": "/properties/majorVersion",

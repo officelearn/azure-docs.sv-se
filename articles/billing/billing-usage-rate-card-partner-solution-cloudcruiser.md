@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 10/09/2017
 ms.author: erikre
-ms.openlocfilehash: 79582e59d9ad9396acf29d6e35d640edcb20dca3
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: bae35f9e153227ddcca6e0d20ce862317b968eb1
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52275963"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57536019"
 ---
 # <a name="cloud-cruiser-and-microsoft-azure-billing-api-integration"></a>Cloud Cruiser och Microsoft Azure Billing API-Integration
 Den här artikeln beskrivs hur informationen som samlas in från den nya Microsoft Azure Billing API: er kan användas i Cloud Cruiser för arbetsflödet kostnaden simulering och analys.
@@ -124,7 +124,7 @@ Slutgiltiga målet är att kunna skapa rapporter som det nedanstående och kunna
 
 ![Bild 10 - rapport med uppdelningar med hjälp av taggar][10]
 
-### <a name="microsoft-azure-tags"></a>Microsoft Azure-taggar
+### <a name="microsoft-azure-tags"></a>Microsoft Azure Tags
 Data som är tillgängliga via API för användning i Azure innehåller information om förbrukningen utan även resursmetadata, inklusive alla taggar som är kopplade till den. Taggar är ett enkelt sätt att organisera dina resurser, men för att gälla, måste du se till att:
 
 * Taggar tillämpas korrekt till resurserna på etablering
@@ -137,7 +137,7 @@ Med den nya API för Azure-användning, Cloud Cruiser hämta taggning resursinfo
 På sidan Ladda Cloud Cruiser automatiserar processen kostnadsrapporter/återbetalning och Tagginformationen kan använda för att knyta användningen av lämplig konsumenten (avdelning, avdelning, projekt osv.). Det här automation ger en enorm förbättring och kan säkerställa en konsekvent och granskningsbar laddas process.
 
 ### <a name="creating-a-resource-group-with-tags-on-microsoft-azure"></a>Skapa en resursgrupp med taggar på Microsoft Azure
-Det första steget i den här självstudien är att skapa en resursgrupp i Azure portal, skapa nya taggar om du vill koppla till resurserna. I det här exemplet vi skapa följande taggar: avdelning, miljö, ägare, projekt.
+Det första steget i den här självstudien är att skapa en resursgrupp i Azure portal, skapa nya taggar om du vill koppla till resurserna. I det här exemplet vi skapa följande taggar: Avdelning, miljö, ägare, projekt.
 
 Följande skärmbild visar ett urval resursgruppen med tillhörande taggar.
 
@@ -200,7 +200,7 @@ Nu behöver vi bara att lägga till ett steg för att publicera användningsdata
 Det bästa av allt är att du bara behöver gå igenom den här processen en gång. När arbetsboken är klar måste du lägga till den i scheduler och den körs varje timme eller varje dag vid den schemalagda tiden. Är det bara skapa nya rapporter och anpassa befintliga, för att analysera data för att få värdefull information från din molnanvändning.
 
 ### <a name="next-steps"></a>Nästa steg
-* Detaljerade anvisningar om hur du skapar Cloud Cruiser arbetsböcker och rapporter finns i Cloud Cruiser online [dokumentation](http://docs.cloudcruiser.com/) (giltigt inloggning).  Mer information om Cloud Cruiser Kontakta [ info@cloudcruiser.com ](mailto:info@cloudcruiser.com).
+* Detaljerade anvisningar om hur du skapar Cloud Cruiser arbetsböcker och rapporter finns i Cloud Cruiser online [dokumentation](https://docs.cloudcruiser.com/) (giltigt inloggning).  Mer information om Cloud Cruiser Kontakta [ info@cloudcruiser.com ](mailto:info@cloudcruiser.com).
 * Se [insyn i din Microsoft Azure-resursförbrukning](billing-usage-rate-card-overview.md) för en översikt över Azure Resource-användning och RateCard APIs.
 * Kolla in den [Azure Billing REST API-referens](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c) mer information om båda API: er som är en del av en uppsättning API: er som tillhandahålls av Azure Resource Manager.
 * Om du vill gå direkt till exempelkoden Kolla in våra Microsoft Azure Billing API-kodexempel på [kodexempel för Azure](https://azure.microsoft.com/documentation/samples/?term=billing).

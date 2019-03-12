@@ -4,16 +4,16 @@ description: Lär dig hur du väljer en Azure-lösning för att överföra data 
 services: storage
 author: alkohli
 ms.service: storage
-ms.subservice: blob
+ms.subservice: blobs
 ms.topic: article
 ms.date: 12/05/2018
 ms.author: alkohli
-ms.openlocfilehash: b9c19c4cd85b1ab2bc3ea010d029361957de3943
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 7cdaebe62c7071b26c29e599bb0614dbe7631085
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53264114"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57778033"
 ---
 # <a name="data-transfer-for-small-datasets-with-low-to-moderate-network-bandwidth"></a>Dataöverföringen för små datauppsättningar med låg till måttlig nätverksbandbredd
  
@@ -51,7 +51,7 @@ I följande tabell sammanfattas skillnaderna mellan de viktigaste funktionerna.
 
 | Funktion                                                            | Azure Lagringsutforskaren                    | Azure Portal  | AzCopy<br>Azure PowerShell<br>Azure CLI            | Azure Storage REST API: er eller SDK: er |
 |----------------------------------------------|-------------------------------------------|--------------------------------------|-------------------|---------------------------------------|
-| Tillgänglighet                                                       | Ladda ned och installera <br>Fristående verktyg | Verktyg för Webbaserad utforskning i Azure-portalen           | Kommandoradsverktyg |Programmerbara gränssnitt i .NET, Java, Python, JavaScript, C++, Go, Ruby och PHP                                                         |
+| Tillgänglighet                                                       | Hämta och installera <br>Fristående verktyg | Verktyg för Webbaserad utforskning i Azure-portalen           | Kommandoradsverktyg |Programmerbara gränssnitt i .NET, Java, Python, JavaScript, C++, Go, Ruby och PHP                                                         |
 | Grafiskt gränssnitt                                              | Ja                                       | Ja                                                     | Nej                | Nej                                                      |
 | Plattformar som stöds                                              | Windows, Mac, Linux                       | Webbaserad     |Windows, Mac, Linux     |Alla plattformar                                                         |
 | Tillåtna åtgärder för Blob storage<br>för blobbar och mappar            | Ladda upp<br>Ladda ned<br>Hantera    | Ladda upp<br>Ladda ned<br>Hantera  |Ladda upp<br>Ladda ned<br>Hantera             | Ja, anpassningsbara                                                        |

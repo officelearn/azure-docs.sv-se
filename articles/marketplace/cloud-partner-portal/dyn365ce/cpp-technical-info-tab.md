@@ -12,14 +12,14 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 01/02/2019
+ms.date: 03/05/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 214abd64232130dd3fd5fdde510f7545732ac82e
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 1dd488c2eb419b5e210a48d7a94f7d0bb423a2b1
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54083195"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57731478"
 ---
 # <a name="dynamics-365-for-customer-engagement-technical-info-tab"></a>Dynamics 365 för Customer Engagement teknisk informationsfliken
 
@@ -58,7 +58,7 @@ I följande tabell beskrivs de här fälten.
 |  Filnamn för ditt paket     |  Filnamn för ditt paket (.zip).  Det här namnet är *inte* offentliga och kommer att användas internt av certifieringsteam för Dynamics 365.  |
 |  URL                          |  URL för ett Azure Storage-konto som innehåller filen uppladdade paketet. Den här URL: en ska inkludera en skrivskyddad SAS-nyckel så att vårt team att den använder ditt paket för verifiering.  |
 | Mer än ett crm-paket     | Välj Ja endast om du stöder flera versioner av crm med olika paket.  Varje version har en motsvarande paketet fil här måste du skapa individuellt.  |
-| Scenariot och Använd fallet tillgång   | Gör det möjligt för överföring av en funktionell specifikationsdokument för ditt program för användning av Dynamics 365-verifieringsteamet.  Det önskade formatet för den här specifikationen är den [E2E scenariot användarmallen](http://download.microsoft.com/download/5/1/8/51812AC9-BCD8-489F-937C-5D439C494EC1/E2E%20User%20Scenario%20Template.docx).  |
+| Scenariot och Använd fallet tillgång   | Gör det möjligt för överföring av en funktionell specifikationsdokument för ditt program för användning av Dynamics 365-verifieringsteamet.  Det önskade formatet för den här specifikationen är den [E2E scenariot användarmallen](https://isvdocumentation.blob.core.windows.net/d365documentation/Power%20Platform%20E2E%20document.docx).  |
 |  |  |
 
 

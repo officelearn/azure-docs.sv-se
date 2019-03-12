@@ -15,12 +15,12 @@ ms.date: 01/30/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: a24ba9c0f19ce0a040671e4515dc2e7d2468fb5c
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 6e4402be7108f242e1d285ebe91dfece744f0805
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56985588"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57532158"
 ---
 # <a name="deploy-kubernetes-to-azure-stack-using-azure-active-directory"></a>Distribuera Kubernetes i Azure Stack med Azure Active Directory
 
@@ -53,7 +53,7 @@ Kom igång genom att kontrollera att du har rätt behörigheter och att Azure St
 
 Konfigurera ett huvudnamn för tjänsten i Azure. Tjänstens huvudnamn ger din ansökan ger åtkomst till Azure Stack-resurser.
 
-1. Logga in på den globala [Azure-portalen](http://portal.azure.com).
+1. Logga in på den globala [Azure-portalen](https://portal.azure.com).
 
 1. Kontrollera att du loggat in med Azure AD-klient som är associerade med Azure Stack-instans. Du kan växla din inloggning genom att klicka på filter-ikonen i verktygsfältet i Azure.
 

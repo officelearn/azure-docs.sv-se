@@ -1,5 +1,5 @@
 ---
-title: Azure Log Analytics VM-tillägget för Windows | Microsoft Docs
+title: Azure Monitor VM-tillägget för Windows | Microsoft Docs
 description: Distribuera Log Analytics-agenten på Windows-dator med tillägg för virtuell dator.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -15,16 +15,18 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/14/2017
 ms.author: roiyz
-ms.openlocfilehash: 66240ffebcd98bb8e14fb21bcb5c54b8fceb7a64
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 7c56b54f2d5be2bd47644e07369120468bb6015e
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57406396"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57533705"
 ---
-# <a name="log-analytics-virtual-machine-extension-for-windows"></a>Logga Analytics tillägg för virtuell dator för Windows
+# <a name="azure-monitor-virtual-machine-extension-for-windows"></a>Azure Monitor VM-tillägget för Windows
 
-Log Analytics ger övervakningsfunktionerna i molnet och lokala resurser. Log Analytics-agenten VM-tillägget för Windows är publicerat och stöds av Microsoft. Tillägget Log Analytics-agenten installeras på virtuella Azure-datorer och registreras virtuella datorer i en befintlig Log Analytics-arbetsyta. Det här dokumentet beskriver de plattformar som stöds, konfigurationer och distributionsalternativ för Log Analytics-tillägget för virtuell dator för Windows.
+Azure Monitor-loggar ger övervakningsfunktionerna i molnet och lokala tillgångar. Log Analytics-agenten VM-tillägget för Windows är publicerat och stöds av Microsoft. Tillägget Log Analytics-agenten installeras på virtuella Azure-datorer och registreras virtuella datorer i en befintlig Log Analytics-arbetsyta. Det här dokumentet beskriver de plattformar som stöds, konfigurationer och distributionsalternativen för Azure Monitor-tillägget för virtuell dator för Windows.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -34,7 +36,7 @@ Log Analytics-agenttillägg versioner för Windows kan köras mot Windows Server
 
 ### <a name="azure-security-center"></a>Azure Security Center
 
-Azure Security Center automatiskt etablerar Log Analytics-agenten och ansluter den med standard log analytics-arbetsyta för Azure-prenumerationen. Om du använder Azure Security Center kan inte köra stegen i det här dokumentet. Detta skriver över den konfigurerade arbetsytan och bryta länken med Azure Security Center.
+Azure Security Center automatiskt etablerar Log Analytics-agenten och ansluter den med standard Log Analytics-arbetsyta för Azure-prenumerationen. Om du använder Azure Security Center kan inte köra stegen i det här dokumentet. Detta skriver över den konfigurerade arbetsytan och bryta länken med Azure Security Center.
 
 ### <a name="internet-connectivity"></a>Internetanslutning
 Log Analytics-agenttillägg för Windows kräver att den virtuella måldatorn är ansluten till internet. 
@@ -85,7 +87,7 @@ Azure VM-tillägg kan distribueras med Azure Resource Manager-mallar. JSON-schem
 
 JSON för tillägg för virtuell dator kan kapslas i resursen för virtuella datorer eller placeras i roten eller översta nivån i en Resource Manager JSON-mall. Placeringen av JSON påverkar värdet för resursnamn och typ. Mer information finns i [ange namn och typ för underordnade resurser](../../azure-resource-manager/resource-group-authoring-templates.md#child-resources). 
 
-I följande exempel förutsätter Log Analytics-tillägget är kapslade i den virtuella datorresursen. När kapsla tillägget resursen JSON placeras i den `"resources": []` objekt av den virtuella datorn.
+I följande exempel förutsätter att tillägget Azure Monitor är kapslade i den virtuella datorresursen. När kapsla tillägget resursen JSON placeras i den `"resources": []` objekt av den virtuella datorn.
 
 
 ```json

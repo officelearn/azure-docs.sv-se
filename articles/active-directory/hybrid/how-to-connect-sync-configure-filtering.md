@@ -16,12 +16,12 @@ ms.date: 07/12/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5cc09756e30cec75a1a121c25f162aa0408fd7a9
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 53c14ce92a422c2254a1e9b7fc4989b49790a88a
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56173699"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57774446"
 ---
 # <a name="azure-ad-connect-sync-configure-filtering"></a>Azure AD Connect-synkronisering: Konfigurera filtrering
 Med hjälp av filtrering, kan du kontrollera vilka objekt som visas i Azure Active Directory (Azure AD) från din lokala katalog. Standardkonfigurationen tar alla objekt i alla domäner i de Konfigurera skogarna. I allmänhet är är det här den rekommenderade konfigurationen. Användare som använder Office 365-arbetsbelastningar, t.ex Exchange Online och Skype för företag, dra nytta av en fullständig globala adresslistan så att de kan skicka e-post och anropa alla. Med standardkonfigurationen, skulle de ha samma upplevelse som skulle uppstå med en lokal implementering av Exchange- eller Lync.
@@ -261,7 +261,7 @@ I det här exemplet ändrar du filtrering så att endast användare som har båd
 4. Beroende på vilken version av Connect som du använder antingen hitta regeln med namnet **ut till AAD – användare ansluta** eller **ut till AAD - användare ansluta-SOAInAD**, och klicka på **redigera**.
 5. I popup-fönstret besvara **Ja** att skapa en kopia av regeln.
 6. På den **beskrivning** , ändra **prioritet** till ett värde som inte används, till exempel 50.
-7. Klicka på **Scoping filter** i det vänstra navigeringsfältet och sedan på **Lägg till sats**. I **attributet**väljer **e**. I **operatorn**väljer **ENDSWITH**. I **värdet**, typ **@contoso.com**, och klicka sedan på **Lägg till sats**. I **attributet**väljer **userPrincipalName**. I **operatorn**väljer **ENDSWITH**. I **värdet**, typ **@contoso.com**.
+7. Klicka på **Scoping filter** i det vänstra navigeringsfältet och sedan på **Lägg till sats**. I **attributet**väljer **e**. I **operatorn**väljer **ENDSWITH**. I **värdet**, typ  **\@contoso.com**, och klicka sedan på **Lägg till sats**. I **attributet**väljer **userPrincipalName**. I **operatorn**väljer **ENDSWITH**. I **värdet**, typ  **\@contoso.com**.
 8. Klicka på **Spara**.
 9. Om du vill slutföra konfigurationen, måste du köra en **Full sync**. Fortsätt att läsa avsnittet [tillämpa och verifiera ändringar av](#apply-and-verify-changes).
 

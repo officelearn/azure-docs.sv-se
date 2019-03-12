@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/20/2018
 ms.author: cherylmc;ganesr
 ms.custom: seodec18
-ms.openlocfilehash: 45e87be071e09a19f1d8164eb9a002909a964201
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: e8b4ba8cddb8298e69ad45016a8e3c335146d226
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56960402"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57540172"
 ---
 # <a name="create-and-modify-an-expressroute-circuit"></a>Skapa och ändra en ExpressRoute-krets
 > [!div class="op_single_selector"]
@@ -35,7 +35,7 @@ Den här artikeln hjälper dig att skapa en ExpressRoute-krets med hjälp av Azu
 
 ## <a name="create"></a>Skapa och etablera en ExpressRoute-krets
 ### <a name="1-sign-in-to-the-azure-portal"></a>1. Logga in på Azure Portal
-Öppna en webbläsare, navigera till [Azure Portal](http://portal.azure.com) och logga in med ditt Azure-konto.
+Öppna en webbläsare, navigera till [Azure Portal](https://portal.azure.com) och logga in med ditt Azure-konto.
 
 ### <a name="2-create-a-new-expressroute-circuit"></a>2. Skapa en ny ExpressRoute-krets
 > [!IMPORTANT]

@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 01/10/2019
+ms.date: 03/05/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a7d290b9270d5d548a2e2b36cd73588639691b6c
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 84cf7d485295ae1a102957ee1f94ab3e9b2ea954
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56819113"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57548259"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Runbook-körning i Azure Automation
 
@@ -49,6 +49,7 @@ Runbooks i Azure Automation kan köras i vilketdera en sandbox i Azure eller en 
 |Använder-moduler med specifika krav| Hybrid Runbook Worker|Några exempel är:</br> **WinSCP** -beroendet av winscp.exe </br> **IISAdministration** -måste IIS vara aktiverat|
 |Installera modulen som kräver installationsprogram|Hybrid Runbook Worker|Moduler för begränsat läge måste vara xcopyable|
 |Med hjälp av runbooks eller moduler som kräver .NET Framework skiljer sig från 4.7.2|Hybrid Runbook Worker|Automation-sandboxar har .NET Framework 4.7.2 Det går inte att uppgradera den|
+|Skript som kräver utökade privilegier|Hybrid Runbook Worker|Sandbox-miljöer tillåter inte utökade privilegier. Du kan lösa det här används som en Hybrid Runbook Worker och du kan inaktivera UAC och Använd `Invoke-Command` när du kör kommandot som kräver utökade privilegier|
 
 ## <a name="runbook-behavior"></a>Runbook-beteende
 
@@ -224,7 +225,7 @@ Om du vill dela resurser mellan alla runbooks i molnet, Azure Automation tillfä
 
 För att långa köra aktiviteter, vi rekommenderar att du använder en [Hybrid Runbook Worker](automation-hrw-run-runbooks.md#job-behavior). Hybrid Runbook Worker inte begränsas av rättmätiga del och inte har en begränsning på hur lång tid en runbook kan köra. Det andra jobbet [gränser](../azure-subscription-service-limits.md#automation-limits) gäller både Azure sandbox-miljöer och Hybrid Runbook Worker. Hybrid Runbook Worker-arbeten inte är begränsad av tre timmar rättmätiga del gränsen runbooks kördes på dem fortfarande ha utvecklats för att stödja omstart beteenden från oväntat lokala infrastruktur problem.
 
-Ett annat alternativ är att optimera runbook med hjälp av underordnade runbooks. Om din runbook igenom samma funktion på flera resurser, till exempel en databasåtgärd på flera databaser kan du flytta funktionen till en [underordnad runbook](automation-child-runbooks.md) och anropa det med den [ Start-AzureRMAutomationRunbook](/powershell/module/azurerm.automation/start-azurermautomationrunbook) cmdlet. Var och en av dessa underordnade runbooks körs parallellt i separata processer, vilket minskar den överordnade runbookens totala körningstid. Du kan använda den [Get-AzureRmAutomationJob](/powershell/module/azurerm.automation/Get-AzureRmAutomationJob) cmdlet i din runbook för att kontrollera jobbstatus för varje underordnad om det finns åtgärder som måste utföras när den underordnade runbooken har slutförts.
+Ett annat alternativ är att optimera runbook med hjälp av underordnade runbooks. Om din runbook igenom samma funktion på flera resurser, till exempel en databasåtgärd på flera databaser kan du flytta funktionen till en [underordnad runbook](automation-child-runbooks.md) och anropa det med den [ Start-AzureRMAutomationRunbook](/powershell/module/azurerm.automation/start-azurermautomationrunbook) cmdlet. Var och en av dessa underordnade runbooks körs parallellt i separata processer, vilket minskar den överordnade runbookens totala körningstid. Du kan använda den [Get-AzureRmAutomationJob](/powershell/module/azurerm.automation/Get-AzureRmAutomationJob) cmdlet i din runbook för att kontrollera jobbstatus för varje underordnad om det finns åtgärder som utför när den underordnade runbooken har slutförts.
 
 ## <a name="next-steps"></a>Nästa steg
 

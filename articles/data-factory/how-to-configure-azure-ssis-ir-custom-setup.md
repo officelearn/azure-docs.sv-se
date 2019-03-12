@@ -12,12 +12,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 5ade16bbd45203892cd9a3117dd52471884cf700
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 27ebcee961cc81ad088cadfa8980b3bd51b3d7a4
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57455827"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57536937"
 ---
 # <a name="customize-setup-for-the-azure-ssis-integration-runtime"></a>Anpassa installationsprogrammet för Azure-SSIS integration runtime
 
@@ -64,7 +64,7 @@ För att anpassa din Azure-SSIS IR, behöver du följande:
 
     1.  Om du vill ha ytterligare loggar som genereras av andra verktyg (till exempel `msiexec.exe`) för att överföras till din behållare, ange miljövariabeln fördefinierade `CUSTOM_SETUP_SCRIPT_LOG_DIR` som loggmapp i dina skript (exempelvis `msiexec /i xxx.msi /quiet /lv %CUSTOM_SETUP_SCRIPT_LOG_DIR%\install.log`).
 
-1.  Hämta, installera och starta [Azure Storage Explorer](http://storageexplorer.com/).
+1.  Hämta, installera och starta [Azure Storage Explorer](https://storageexplorer.com/).
 
     1.  Under **(lokala och anslutna)**, höger-Välj **Lagringskonton** och välj **Anslut till Azure storage**.
 
@@ -148,9 +148,9 @@ För att anpassa din Azure-SSIS IR, behöver du följande:
 
        1. En `EXCEL` mappen som innehåller en anpassad installation för att installera open source-sammansättningar (`DocumentFormat.OpenXml.dll`, `ExcelDataReader.DataSet.dll`, och `ExcelDataReader.dll`) på varje nod i din Azure-SSIS IR.
 
-       1. En `ORACLE ENTERPRISE` mappen som innehåller en anpassad installationsskriptet (`main.cmd`) och konfigurationsfilen för tyst installation (`client.rsp`) att installera Oracle-kopplingar och OCI drivrutinen på varje nod i din Azure-SSIS IR Enterprise Edition. Den här konfigurationen kan du använda Anslutningshanteraren för Oracle-, käll- och målservrarna. Först ladda ned Microsoft Connectors v5.0 för Oracle (`AttunitySSISOraAdaptersSetup.msi` och `AttunitySSISOraAdaptersSetup64.msi`) från [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=55179) och den senaste Oracle-klienten – till exempel `winx64_12102_client.zip` – från [Oracle](http://www.oracle.com/technetwork/database/enterprise-edition/downloads/database12c-win64-download-2297732.html), sedan överföra dem alla tillsammans med `main.cmd` och `client.rsp` i din behållare. Om du använder TNS för att ansluta till Oracle kan du också behöva hämta `tnsnames.ora`, redigera den och överför den till din behållare, så det kan kopieras till Oracle-installationsmappen under installationen.
+       1. En `ORACLE ENTERPRISE` mappen som innehåller en anpassad installationsskriptet (`main.cmd`) och konfigurationsfilen för tyst installation (`client.rsp`) att installera Oracle-kopplingar och OCI drivrutinen på varje nod i din Azure-SSIS IR Enterprise Edition. Den här konfigurationen kan du använda Anslutningshanteraren för Oracle-, käll- och målservrarna. Först ladda ned Microsoft Connectors v5.0 för Oracle (`AttunitySSISOraAdaptersSetup.msi` och `AttunitySSISOraAdaptersSetup64.msi`) från [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=55179) och den senaste Oracle-klienten – till exempel `winx64_12102_client.zip` – från [Oracle](https://www.oracle.com/technetwork/database/enterprise-edition/downloads/database12c-win64-download-2297732.html), sedan överföra dem alla tillsammans med `main.cmd` och `client.rsp` i din behållare. Om du använder TNS för att ansluta till Oracle kan du också behöva hämta `tnsnames.ora`, redigera den och överför den till din behållare, så det kan kopieras till Oracle-installationsmappen under installationen.
 
-       1. En `ORACLE STANDARD ADO.NET` mappen som innehåller en anpassad installationsskriptet (`main.cmd`) att installera Oracle ODP.NET-drivrutin på varje nod i din Azure-SSIS IR. Den här konfigurationen kan du använda Anslutningshanteraren för ADO.NET, källa och mål. Först laddar du ned den senaste Oracle ODP.NET-drivrutinen – till exempel `ODP.NET_Managed_ODAC122cR1.zip` – från [Oracle](http://www.oracle.com/technetwork/database/windows/downloads/index-090165.html), och sedan ladda upp den tillsammans med `main.cmd` i din behållare.
+       1. En `ORACLE STANDARD ADO.NET` mappen som innehåller en anpassad installationsskriptet (`main.cmd`) att installera Oracle ODP.NET-drivrutin på varje nod i din Azure-SSIS IR. Den här konfigurationen kan du använda Anslutningshanteraren för ADO.NET, källa och mål. Först laddar du ned den senaste Oracle ODP.NET-drivrutinen – till exempel `ODP.NET_Managed_ODAC122cR1.zip` – från [Oracle](https://www.oracle.com/technetwork/database/windows/downloads/index-090165.html), och sedan ladda upp den tillsammans med `main.cmd` i din behållare.
        
        1. En `ORACLE STANDARD ODBC` mappen som innehåller en anpassad installationsskriptet (`main.cmd`) att installera Oracle ODBC-drivrutinen och konfigurera DSN på varje nod i din Azure-SSIS IR. Den här konfigurationen kan du använda ODBC Connection Manager/källa/mål- eller Power Query Manager/anslutningskälla med ODBC-typ av datakälla för att ansluta till Oracle-servern. Först laddar du ned de senaste Oracle omedelbar klienten (Baspaket eller Lite Baspaket) och ODBC-paket – till exempel 64-bitars paket från [här](https://www.oracle.com/technetwork/topics/winx64soft-089540.html) (Baspaket: `instantclient-basic-windows.x64-18.3.0.0.0dbru.zip`, Lite Baspaket: `instantclient-basiclite-windows.x64-18.3.0.0.0dbru.zip`, ODBC-paketet : `instantclient-odbc-windows.x64-18.3.0.0.0dbru.zip`) eller 32-bitars paket från [här](https://www.oracle.com/technetwork/topics/winsoft-085727.html) (Baspaket: `instantclient-basic-nt-18.3.0.0.0dbru.zip`, Lite Baspaket: `instantclient-basiclite-nt-18.3.0.0.0dbru.zip`, ODBC-paketet: `instantclient-odbc-nt-18.3.0.0.0dbru.zip`), och sedan ladda upp dem tillsammans med `main.cmd` i din behållare.
 

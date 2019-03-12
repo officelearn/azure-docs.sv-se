@@ -6,21 +6,21 @@ documentationcenter: ''
 author: kraigb
 manager: douge
 ms.assetid: e049f591-27a7-440f-a1a3-c5bef25e8a28
-ms.service: notebooks
+ms.service: azure
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: 9e5f4d6f2086048e428f313bc49cc6f599ee1bec
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 35b5f1e29ae125dcac79c278578e900a73ffc7be
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53085339"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57771403"
 ---
-# <a name="quickstart-create-a-project-with-a-custom-environment"></a>Snabbstart: Skapa ett projekt med anpassad miljö
+# <a name="quickstart-create-a-project-with-a-custom-environment"></a>Snabbstart: Skapa ett projekt med en anpassad miljö
 
 Ett projekt i Azure-datorer är en samling av filer, till exempel bärbara datorer, filer, dokumentation, bilder och så vidare, tillsammans med en miljö som kan konfigureras med specifika installationsprogrammet kommandon. Vem som helst som klonar projektet till sina egna anteckningsböcker i Azure-konto har all information som de behöver för att återskapa den nödvändiga miljön genom att definiera miljön med projektet.
 
@@ -38,7 +38,7 @@ Ett projekt i Azure-datorer är en samling av filer, till exempel bärbara dator
 
 1. I den **Skapa nytt projekt** popup-fönstret som visas, ange eller ange följande information och välj sedan **skapa**:
 
-    - **Projektnamnet**: projekt med anpassad miljö
+    - **Projektnamnet**: Projektet med anpassad miljö
     - **Projektet ID**: projekt-anpassad-miljö
     - **Offentliga projekt**: (avmarkerad)
     - **Skapa en README.md**: (avmarkerad)

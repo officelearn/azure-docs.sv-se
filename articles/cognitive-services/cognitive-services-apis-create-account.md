@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 02/01/2018
 ms.author: garye
-ms.openlocfilehash: c69e8b7360774971316b5a060aff9e7057d3e9aa
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 21e1eb00f688f2e7061e876cc4375d6d780838fc
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55873980"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57534811"
 ---
 # <a name="quickstart-create-a-cognitive-services-account-in-the-azure-portal"></a>Snabbstart: Skapa ett Cognitive Services-konto i Azure portal
 
@@ -35,7 +35,7 @@ I nästa avsnitt vägleder dig genom att skapa en enda eller flera tjänster pre
 
 ### <a name="single-service-subscription"></a>En tjänst-prenumeration
 
-1. Logga in på den [Azure-portalen](http://portal.azure.com), och klicka på **+ skapa en resurs**.
+1. Logga in på den [Azure-portalen](https://portal.azure.com), och klicka på **+ skapa en resurs**.
 
     ![Välj API: er för Cognitive Services](media/cognitive-services-apis-create-account/azurePortalScreen.png)
 
@@ -57,7 +57,7 @@ I nästa avsnitt vägleder dig genom att skapa en enda eller flera tjänster pre
 
 ### <a name="multi-service-subscription"></a>Flera tjänster prenumeration
 
-1. Logga in på den [Azure-portalen](http://portal.azure.com), och klicka på **+ skapa en resurs**.
+1. Logga in på den [Azure-portalen](https://portal.azure.com), och klicka på **+ skapa en resurs**.
 
     ![Välj API: er för Cognitive Services](media/cognitive-services-apis-create-account/azurePortalScreenMulti.png)
 

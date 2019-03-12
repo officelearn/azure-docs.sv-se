@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/20/2019
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: d976a1c5e9366069b82cff718593ce72d7ad8a08
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
-ms.translationtype: HT
+ms.openlocfilehash: a95f5ee5105c45ba9e5b1705e83d60bf24b1dc12
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56588950"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57457802"
 ---
 ## <a name="create-a-namespace-in-the-azure-portal"></a>Skapa ett namnområde i Azure Portal
 För att komma igång med Service Bus-meddelandeentiteter i Azure måste du först skapa ett namnområde med ett namn som är unikt i Azure. Ett namnområde innehåller en omfattningscontainer för adressering av Service Bus-resurser i ditt program.
@@ -25,7 +25,7 @@ Så här skapar du ett namnområde:
 
     ![Skapa en resurs -> Integration -> Service Bus](./media/service-bus-create-namespace-portal/create-resource-service-bus-menu.png)
 3. I dialogrutan **Skapa namnrymd** utför du följande steg: 
-    1. Ange ett **namn för namnrymden**. Systemet kontrollerar omedelbart om namnet är tillgängligt.
+    1. Ange ett **namn för namnrymden**. Systemet kontrollerar omedelbart om namnet är tillgängligt. En lista över regler för namngivning namnområden finns i [skapa Namespace REST API](/rest/api/servicebus/create-namespace).
     2. Välj prisnivå (Basic, Standard eller Premium) för namnrymden. Om du vill använda [ämnen och prenumerationer](../articles/service-bus-messaging/service-bus-queues-topics-subscriptions.md#topics-and-subscriptions) väljer du antingen Standard eller Premium. Ämnen/prenumerationer stöds inte på Basic-prisnivån.
     3. Om du valde prisnivån **Premium** utför du följande steg: 
         1. Ange antalet **meddelandefunktionsenheter**. Premium-nivån ger resursisolering på processor- och minnesnivå så att varje arbetsbelastning körs självständigt. Den här resurscontainern kallas för en meddelandefunktionsenhet. En Premium-namnrymd har minst en meddelandefunktionsenhet. Du kan välja 1, 2 eller 4 meddelandefunktionsenheter för varje Service Bus Premium-namnrymd. Mer information finns i [Service Bus Premium-meddelanden](../articles/service-bus-messaging/service-bus-premium-messaging.md).

@@ -11,15 +11,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 03/03/2019
+ms.date: 03/05/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 364b0bf611581f88fc87f163acbbb7529862d096
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 5c5f1d8d7a9c84d807db53933f0cbb176f9fb7f2
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57309578"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57551976"
 ---
 # <a name="sap-hana-large-instances-storage-architecture"></a>Storage-arkitektur för SAP HANA (stora instanser)
 
@@ -95,7 +95,7 @@ Lagring för stora HANA-instansen kan en transparent kryptering av data som lagr
 Med typen jag klassen av SKU: er, volym Start LUN som är lagrad på, är krypterad. Du måste kryptera Start LUN med OS-metoder för Type II-klassen för SKU: er för stora HANA-instansen. Mer information kontaktar du Microsoft Service Management-teamet.
 
 ## <a name="required-settings-for-larger-hana-instances-on-hana-large-instances"></a>Inställningar som krävs för stora HANA-instanser på stora HANA-instanser
-Lagring som används i stora HANA-instanser har en filstorleksbegränsningen. Den [högsta tillåtna storleken är 16TB](https://docs.netapp.com/ontap-9/index.jsp?topic=%2Fcom.netapp.doc.dot-cm-vsmg%2FGUID-AA1419CF-50AB-41FF-A73C-C401741C847C.html) per fil. Till skillnad från i fall av filstorleksbegränsningar som i EXT3 filsystem, är HANA inte medveten om implicit storage-begränsning som tillämpas av storage för stora HANA-instanser. Därmed skapas HANA inte automatiskt en ny datafil när gränsen för filstorlek på 16TB har uppnåtts. Eftersom HANA försöker öka filen utöver 16TB, rapporterar HANA fel och indexservern kraschar i slutet.
+Lagring som används i stora HANA-instanser har en filstorleksbegränsningen. Den [högsta tillåtna storleken är 16 TB](https://docs.netapp.com/ontap-9/index.jsp?topic=%2Fcom.netapp.doc.dot-cm-vsmg%2FGUID-AA1419CF-50AB-41FF-A73C-C401741C847C.html) per fil. Till skillnad från i filstorleksbegränsningar i filsystem EXT3 är HANA inte medveten om implicit storage-begränsning som tillämpas av storage för stora HANA-instanser. Därmed skapas HANA inte automatiskt en ny datafil när gränsen för filstorlek på 16TB har uppnåtts. Eftersom HANA försöker öka filen utöver 16 TB, rapporterar HANA fel och indexservern kraschar i slutet.
 
 > [!IMPORTANT]
 > För att förhindra HANA försöker öka datafiler utöver 16 TB gränsen för filstorlek för lagring av stora HANA-instansen, måste du ange följande parametrar i konfigurationsfilen global.ini Hana
@@ -103,6 +103,7 @@ Lagring som används i stora HANA-instanser har en filstorleksbegränsningen. De
 - datavolume_striping=true
 - datavolume_striping_size_gb = 15000
 - Se även SAP anteckning [#2400005](https://launchpad.support.sap.com/#/notes/2400005)
+- Tänk på SAP-kommentar [#2631285](https://launchpad.support.sap.com/#/notes/2631285)
 
 
 

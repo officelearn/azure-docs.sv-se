@@ -10,12 +10,12 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.workload: big-data
 ms.date: 10/30/2018
-ms.openlocfilehash: 0d9192e5ca4dba202ca5287481072bb0f8ae5621
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 27a873fac8bf2b53ee06780b8a348eaaa5c94e97
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53598527"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57768033"
 ---
 # <a name="best-practices-for-managing-u-sql-assemblies-in-a-cicd-pipeline"></a>Metodtips för hantering av U-SQL-sammansättningar i en CI/CD-pipeline
 
@@ -56,9 +56,9 @@ Följ dessa steg för att skapa projekt och Lägg till referenser.
 
     ![Data Lake Tools för Visual Studio – skapa sammansättning från referens](./media/data-lake-analytics-cicd-manage-assemblies/data-lake-tools-create-assembly-from-reference.png)
 
-7. Lägg till **hanteras beroenden** och **ytterligare filer**, om det finns några. När du lägger till ytterligare filer använder verktyget den relativa sökvägen för att se till att den kan hitta sammansättningarna på den lokala datorn och på build-datorn senare. 
+7. Lägg till **hanteras beroenden** och **ytterligare filer**, om det finns några. När du lägger till ytterligare filer använder verktyget den relativa sökvägen för att se till att den kan hitta sammansättningarna på den lokala datorn och på build-datorn senare.
 
-**@_DeployTempDirectory** fönstret längst ned på sidan är en fördefinierad variabel som pekar Utdatamappen build verktyget i redigeraren. Alla paket har en undermapp med namnet med sammansättningsnamnet under mappen build-utdata. Alla DLL: er och andra filer som finns i undermappen. 
+**\@_DeployTempDirectory** i redigeraren fönster längst ned på sidan är en fördefinierad variabel som pekar Utdatamappen build verktyget. Alla paket har en undermapp med namnet med sammansättningsnamnet under mappen build-utdata. Alla DLL: er och andra filer som finns i undermappen.
 
 ## <a name="build-a-u-sql-database-project"></a>Skapa ett projekt för U-SQL-databas
 

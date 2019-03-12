@@ -13,14 +13,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: multiple
 ms.topic: article
-ms.date: 01/24/2019
+ms.date: 03/11/2019
 ms.author: jowargo
-ms.openlocfilehash: f2f11abcb3290e1d9459c26167706abc79c1b7fa
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 863b380d4f36e24119e64fbd4a59e8cd66c911e1
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56670340"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57779427"
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Push-meddelanden med Azure Notification Hubs: Vanliga frågor och svar
 
@@ -205,6 +205,13 @@ Azure Meddelandehubbar ger flera funktioner för felsökning, särskilt för det
 ### <a name="what-telemetry-features-are-available"></a>Vilka telemetrifunktioner är tillgängliga?
 
 Azure Notification Hubs kan visa dessa data i den [Azure Portal]. Information om mått som är tillgängliga på den [Notification Hubs mått] sidan.
+
+Du kan även programmässigt komma åt mätvärden. Mer information finns i följande artiklar:
+
+- [Hämta Azure Monitor-mått med .NET](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/). Det här exemplet används det användarnamn och lösenord. Om du vill använda ett certifikat, överbelasta FromServicePrincipal-metod för att ange ett certifikat som visas i [det här exemplet](https://github.com/Azure/azure-libraries-for-net/blob/master/src/ResourceManagement/ResourceManager/Authentication/AzureCredentialsFactory.cs). 
+- [Hämta mått och aktivitet för en resurs](https://azure.microsoft.com/resources/samples/monitor-dotnet-query-metrics-activitylogs/)
+- [Azure Monitoring REST API-genomgång](../azure-monitor/platform/rest-api-walkthrough.md)
+
 
 > [!NOTE]
 > Lyckade meddelanden innebär helt enkelt att push-meddelanden har levererats till externa PNS (till exempel APNS för Apple) eller FCM för Google. Ansvarar för att leverera meddelanden till målenheterna pns-systemet. Normalt exponerar PNS inte mått för leverans till tredje part.  

@@ -9,26 +9,36 @@ editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.topic: get-started-article
-ms.date: 01/31/2019
+ms.topic: conceptual
+ms.date: 03/01/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 059746d0e3a277016f5d6b98fe0d0f90c9ee2b96
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: b5584e4ecc78a8805135cb3f36bd5f5cd7079129
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56217997"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57767081"
 ---
-# <a name="set-up-azure-active-directory-for-self-service-group-management"></a>Konfigurera Azure Active Directory för grupphantering via självbetjäning
+# <a name="set-up-self-service-group-management-in-azure-active-directory"></a>Konfigurera hantering av självbetjäning i Azure Active Directory 
 
-Dina användare kan skapa och hantera egna säkerhetsgrupper eller Office 365-grupper i Azure Active Directory (Azure AD). Användare kan även begära säkerhetsgruppsmedlemskap eller Office 365-gruppmedlemskap, och sedan kan gruppens ägare godkänna eller neka medlemskap. Den dagliga kontrollen av gruppmedlemskap delegeras till dem som förstår medlemskapets affärskontext. Funktioner för grupphantering via självbetjäning är bara tillgängliga för säkerhetsgrupper och Office 365-grupper, men inte för e-postaktiverade säkerhetsgrupper eller distributionslistor.
+Du kan aktivera användare att skapa och hantera egna säkerhetsgrupper eller Office 365-grupper i Azure Active Directory (AD Azure). Ägare av gruppen kan godkänna eller neka förfrågningar om medlemskap och delegera kontrollen av gruppmedlemskap. Självbetjäning funktioner för grupphantering är inte tillgängliga för e-postaktiverade säkerhetsgrupper eller distributionslistor. 
 
-Grupphantering via självbetjäning behandlar två scenarier: 
+## <a name="self-service-group-membership-defaults"></a>Självbetjäning medlemskap standardvärden
 
-* **Delegerad grupphantering** Ett exempel är en administratör som hanterar åtkomsten till ett SaaS-program som hennes företag använder. Eftersom det börjar bli svårt att hantera dessa åtkomstbehörigheter ber administratören företagsägaren att skapa en ny grupp. Administratören tilldelar åtkomst för programmet till den nya gruppen och lägger till alla personer som redan har åtkomst till programmet till gruppen. Företagsägaren kan sedan lägga till fler användare, som automatiskt tilldelas programmet. Företagsägaren behöver inte vänta på administratören för att kunna hantera åtkomst för användarna. Om administratören tilldelar en chef samma behörighet i en annan affärsgrupp, så kan den personen även hantera sina egna användare åtkomst. Varken företagsägaren eller chefen kan visa eller hantera varandras användare. Administratören kan fortfarande se alla användare som har åtkomst till programmet och blockera behörigheten om det behövs.
+När säkerhetsgrupper skapas i Azure portal eller med Azure AD PowerShell kan endast gruppens ägare uppdatera medlemskap. Säkerhetsgrupper som skapas i den [åtkomstpanelen](https://account.activedirectory.windowsazure.com/r#/joinGroups) och alla Office 365-grupper är tillgängliga för att ansluta till för alla användare om ägare godkänd eller som godkänts automatiskt. Du kan ändra medlemskap alternativ när du skapar gruppen i åtkomstpanelen.
+
+Grupper som skapats i | Standardbeteendet för säkerhet grupp | Standardbeteendet för Office 365-grupp
+------------------ | ------------------------------- | ---------------------------------
+[Azure AD PowerShell](groups-settings-cmdlets.md) | Endast ägare kan lägga till medlemmar<br>Synliga men finns inte för att gå med i åtkomstpanelen | Öppen för alla användare
+[Azure Portal](https://portal.azure.com) | Endast ägare kan lägga till medlemmar<br>Synliga men finns inte för att gå med i åtkomstpanelen<br>Ägare tilldelas inte automatiskt när en skapas | Öppen för alla användare
+[Åtkomstpanelen](https://account.activedirectory.windowsazure.com/r#/joinGroups) | Öppen för alla användare<br>Alternativ kan ändras när gruppen har skapats | Öppen för alla användare<br>Alternativ kan ändras när gruppen har skapats
+
+## <a name="self-service-group-management-scenarios"></a>Scenarier för hantering av självbetjäning
+
+* **Delegerad grupphantering** Ett exempel är en administratör som hanterar åtkomsten till ett SaaS-program som hennes företag använder. Eftersom det börjar bli svårt att hantera dessa åtkomstbehörigheter ber administratören företagsägaren att skapa en ny grupp. Administratören tilldelar åtkomst för programmet till den nya gruppen och lägger till alla personer som redan har åtkomst till programmet till gruppen. Företagsägaren kan sedan lägga till fler användare, som automatiskt tilldelas programmet. Företagsägaren behöver inte vänta på administratören för att kunna hantera åtkomst för användarna. Om administratören tilldelar samma behörighet till en chef i en annan affärsgrupp, kan sedan den personen också hantera åtkomst för sina egna medlemmar i gruppen. Varken företagsägaren eller chefen kan visa eller hantera varandras gruppmedlemskap. Administratören kan fortfarande se alla användare som har åtkomst till programmet och blockera behörigheten om det behövs.
 * **Grupphantering via självbetjäning** Ett exempel på det här scenariot är två användare som båda har SharePoint Online-platser som de har konfigurerat oberoende av varandra. De vill ge varandras grupper åtkomst till sina respektive webbplatser. De kan åstadkomma detta genom att först skapa en grupp i Azure AD och därefter var och en välja samma grupp i SharePoint Online, vilket ger dem åtkomst till varandras webbplatser. När någon vill ha åtkomst begär de det från åtkomstpanelen och efter godkännande får de automatiskt åtkomst till båda SharePoint Online-platserna. Senare beslutar den ena av dem att alla användare som har åtkomst till webbplatsen även ska få åtkomst till ett visst SaaS-program. SaaS-programmets administratör kan lägga till åtkomstbehörighet för programmet till SharePoint Online-webbplatsen. När det är gjort kommer alla förfrågningar som han godkänner att ge åtkomst till de två SharePoint Online-webbplatserna och även till SaaS-programmet.
 
 ## <a name="make-a-group-available-for-user-self-service"></a>Göra en grupp tillgänglig för självbetjäning av användare

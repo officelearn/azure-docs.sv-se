@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 28227ce9ebc5680f68c05cb1296a8ba35eac2c74
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 1dbac37e8b3bac5ee06ac3bdc3270c04efdcd408
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57338356"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57536699"
 ---
 # <a name="copy-data-to-or-from-oracle-on-premises-by-using-azure-data-factory"></a>Kopiera data till eller från Oracle på plats med hjälp av Azure Data Factory
 
@@ -69,7 +69,7 @@ Den här Oracle-anslutningsappen stöder två versioner av drivrutiner:
     > Microsoft driver för Oracle stöder för närvarande endast kopiering av data från Oracle. Drivrutinen stöder inte skriva till Oracle. Testa anslutningen-funktionen på Data Management Gateway **diagnostik** fliken stöder inte den här drivrutinen. Du kan också använda guiden Kopiera för att verifiera anslutningarna.
     >
 
-- **Oracle dataprovider för .NET**: Du kan använda Oracle Data Provider för att kopiera data från eller till Oracle. Den här komponenten som ingår i [Oracle Data Access-komponenter för Windows](http://www.oracle.com/technetwork/topics/dotnet/downloads/). Installera den aktuella versionen (32-bitars eller 64-bitars) på den dator där gatewayen är installerad. [Oracle dataprovider .NET 12.1](http://docs.oracle.com/database/121/ODPNT/InstallSystemRequirements.htm#ODPNT149) kan komma åt Oracle Database 10 g Release 2 och senare versioner.
+- **Oracle dataprovider för .NET**: Du kan använda Oracle Data Provider för att kopiera data från eller till Oracle. Den här komponenten som ingår i [Oracle Data Access-komponenter för Windows](https://www.oracle.com/technetwork/topics/dotnet/downloads/). Installera den aktuella versionen (32-bitars eller 64-bitars) på den dator där gatewayen är installerad. [Oracle dataprovider .NET 12.1](https://docs.oracle.com/database/121/ODPNT/InstallSystemRequirements.htm#ODPNT149) kan komma åt Oracle Database 10 g Release 2 och senare versioner.
 
     Om du väljer **XCopy Installation**, Slutför stegen som beskrivs i filen readme.htm. Vi rekommenderar att du väljer det installationsprogram som inte har användargränssnitt (inte XCopy installer).
 
@@ -566,7 +566,7 @@ Pipelinen innehåller en Kopieringsaktivitet som har konfigurerats för att anv�
 
 **Lösning**
 
-* Om du inte har installerat .NET-Provider för Oracle, [installera den](http://www.oracle.com/technetwork/topics/dotnet/downloads/), och försök sedan scenariot.
+* Om du inte har installerat .NET-Provider för Oracle, [installera den](https://www.oracle.com/technetwork/topics/dotnet/downloads/), och försök sedan scenariot.
 * Om du ser felmeddelandet även när du har installerat providern, gör du följande:
     1. Öppna datorkonfigurationsfilen för .NET 2.0 från mappen < systemdisken\>: \Windows\Microsoft.NET\Framework64\v2.0.50727\CONFIG\machine.config.
     2. Sök efter **Oracle dataprovider för .NET**. Du ska kunna hitta en post som du ser i följande exempel under **system.data** > **DbProviderFactories**: `<add name="Oracle Data Provider for .NET" invariant="Oracle.DataAccess.Client" description="Oracle Data Provider for .NET" type="Oracle.DataAccess.Client.OracleClientFactory, Oracle.DataAccess, Version=2.112.3.0, Culture=neutral, PublicKeyToken=89b483f429c47342" />`

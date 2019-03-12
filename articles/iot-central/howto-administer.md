@@ -3,17 +3,17 @@ title: Administrera en Azure IoT Central program | Microsoft Docs
 description: Som administratör, hur du administrerar Azure IoT Central programmet
 author: viv-liu
 ms.author: viviali
-ms.date: 04/16/2018
+ms.date: 02/20/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 1b79b6870766f9595e731206bae2d4251d294942
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 29ded279e2a76940049c257b954b1dae75f14836
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57431334"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57778611"
 ---
 # <a name="administer-your-iot-central-application"></a>Administrera ditt IoT Central-program
 
@@ -44,11 +44,11 @@ I den **programinställningar** kan du kan ändra namnet och URL: en för ditt p
 Om du vill ändra programavbildningen [Förbered och ladda upp bilder till Azure IoT Central programmet](howto-prepare-images.md).
 
 ### <a name="copy-an-application"></a>Kopiera ett program
-Du kan skapa en kopia av alla program, minus eventuella enhetsinstanser, historik för enheten och användardata. Kopian blir en betala per användning-program som du kommer att debiteras för. Du kan inte skapa ett program för utvärdering i det här sättet.
+Du kan skapa en kopia av alla program, minus eventuella enhetsinstanser, historik för enheten och användardata. Kopian är en betala per användning-program som du kommer att debiteras för. Du kan inte skapa ett program för utvärdering i det här sättet.
 
 Välj **kopiera**. I dialogrutan, ange information för det nya programmet betala per användning. Välj sedan **kopia** att bekräfta att du vill fortsätta. Mer information om fälten i det här formuläret i [skapar ett program](quick-deploy-iot-central.md) Snabbstart.
 
-![Inställningssidan för program](media/howto-administer/appCopy2.png)
+![Inställningssidan för program](media/howto-administer/appcopy2.png)
 
 När appen kopieringen lyckas, går du till det nya programmet som har skapats genom att kopiera ditt program med hjälp av länken som visas.
 
@@ -62,7 +62,7 @@ När appen kopieringen lyckas, går du till det nya programmet som har skapats g
 > [!Note]
 > Om du vill ta bort ett program, måste du också ha behörighet att ta bort resurser i Azure-prenumeration som du angav när du skapade programmet. Mer information finns i [använda rollbaserad åtkomstkontroll för att hantera åtkomst till din Azure-prenumerationsresurser](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure).
 
-Använd den **ta bort** för att permanent ta bort ditt IoT Central-program. Detta tar permanent bort alla data som är associerat med programmet.
+Använd den **ta bort** för att permanent ta bort ditt IoT Central-program. Detta permanent tar bort alla data som är associerat med programmet.
 
 ## <a name="manage-users"></a>Hantera användare
 
@@ -95,7 +95,7 @@ Om du vill ta bort användare, väljer du en eller flera kryssrutor på den **an
 
 ## <a name="manage-roles"></a>Hantera roller
 
-Roller kan du styra vem i din organisation kan utföra olika uppgifter i IoT Central. Det finns tre roller som du kan tilldela till användare i ditt program. 
+Roller kan du styra vem i din organisation kan utföra olika uppgifter i IoT Central. Det finns tre roller som du kan tilldela till användare i ditt program.
 
 ### <a name="administrator"></a>Administratör
 
@@ -111,7 +111,6 @@ Användare i den **Application Builder** roll kan göra allt i ett program föru
 
 Användare i den **program operatorn** rollen kan inte göra ändringar i mallarna för enheten och kan inte administrera programmet. Det innebär att operatörer kan lägga till och ta bort enheter, hantera enhetsuppsättningar och köra analyser och jobb. Operatörer har inte åtkomst till den **Application Builder** och **Administration** sidor.
 
-
 ## <a name="view-your-bill"></a>Visa din faktura
 
 Om du vill visa din faktura, går du till den **fakturering** sidan i den **Administration** avsnittet. Sidan för Azure-fakturering öppnas i en ny flik, där du kan se på fakturan för var och en av dina Azure IoT Central program.
@@ -124,14 +123,14 @@ Du kan konvertera din utvärderingsversion-program till betala per användning. 
 - **Betala per användning**-program debiteras per enhet, och de fem första enheterna är kostnadsfria.
 
 Läs mer om prissättning på [sidan med prisinformation för Azure IoT Central.](https://azure.microsoft.com/pricing/details/iot-central/)
-    
+
 Följ dessa steg för att slutföra denna självbetjäningsprocess:
 
-1. Gå till den **fakturering** sidan i den **Administration** avsnittet. 
+1. Gå till den **fakturering** sidan i den **Administration** avsnittet.
 
     ![Utvärderingsversion tillstånd](media/howto-administer/freetrialbilling.png)
 
-1. Välj **konvertera till betala per användning**. 
+1. Välj **konvertera till betala per användning**.
 
     ![Konvertera utvärderingsversionen](media/howto-administer/convert.png)
 
@@ -141,15 +140,15 @@ Följ dessa steg för att slutföra denna självbetjäningsprocess:
 
 ## <a name="export-data"></a>Exportera data
 
-Du kan aktivera **löpande dataexport** att exportera mått, enheter och enhetsdata för mallar till Azure Blob storage-kontot. Läs mer om hur du exporterar dina data.
+Du kan aktivera **löpande dataexport** att exportera mått, enheter och enhetsdata för mallar till Azure Blob storage-kontot. Mer information om hur du [exportera dina data](howto-export-data.md).
 
 ## <a name="manage-device-connection"></a>Hantera enhetsanslutning
 
-Anslut enheter i stor skala i ditt program som använder nycklar och certifikat här. Lär dig mer om att ansluta enheter.
+Anslut enheter i stor skala i ditt program som använder nycklar och certifikat här. Läs mer om [ansluta enheter](concepts-connectivity.md).
 
 ## <a name="use-access-tokens"></a>Använd åtkomsttoken
 
-Generera åtkomsttoken för att använda dem i utvecklarverktyg. Det finns för närvarande en utvecklarverktyget tillgängliga som är i IoT Central-Utforskaren för att övervaka meddelanden från enheten och ändringar i inställningar och egenskaper. Läs mer om IoT Central-explorer. 
+Generera åtkomsttoken för att använda dem i utvecklarverktyg. Det finns för närvarande en utvecklarverktyget tillgängliga som är i IoT Central-Utforskaren för att övervaka meddelanden från enheten och ändringar i inställningar och egenskaper. Läs mer om den [IoT Central explorer](howto-use-iotc-explorer.md).
 
 ## <a name="use-the-azure-sdks-for-control-plane-operations"></a>Använd Azure SDK för kontrollplanåtgärder
 

@@ -9,18 +9,20 @@ ms.author: gwallace
 ms.date: 03/04/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 33a01c7bfeacd57d2bea13318d054514daba008c
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: c8b25c0caf71835ccb5a055956d73a713efa5da0
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57410255"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57541221"
 ---
 # <a name="update-management-solution-in-azure"></a>Lösningen för uppdateringshantering i Azure
 
 Du kan använda lösningen för uppdateringshantering i Azure Automation för att hantera uppdateringar av operativsystemet för dina Windows- och Linux-datorer som distribueras i Azure, lokala miljöer eller andra molnleverantörer. Du kan snabbt bedöma status för tillgängliga uppdateringar på alla agentdatorer och hantera installationsprocessen för nödvändiga uppdateringar för servrar.
 
 Du kan aktivera uppdateringshantering för virtuella datorer direkt från Azure Automation-kontot. Information om hur du aktiverar uppdateringshantering för virtuella datorer från ditt Automation-konto, se [hantera uppdateringar för flera virtuella datorer](manage-update-multi.md). Du kan också aktivera uppdateringshantering för en virtuell dator från sidan virtuell dator i Azure-portalen. Det här scenariot är tillgänglig för [Linux](../virtual-machines/linux/tutorial-monitoring.md#enable-update-management) och [Windows](../virtual-machines/windows/tutorial-monitoring.md#enable-update-management) virtuella datorer.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="solution-overview"></a>Lösningsöversikt
 
@@ -155,12 +157,12 @@ Heartbeat
 | where OSType == "Windows" | summarize arg_max(TimeGenerated, *) by SourceComputerId | top 500000 by Computer asc | render table
 ```
 
-Du kan granska följande information för att verifiera agentanslutning med Log Analytics på en Windows-dator:
+På en Windows-dator kan du granska följande information för att verifiera agentanslutning med Azure Monitor-loggar:
 
 1. På Kontrollpanelen, öppna **Microsoft Monitoring Agent**. På den **Azure Log Analytics** fliken agenten visas följande meddelande: **Microsoft Monitoring Agent har anslutits till Log Analytics**.
 2. Öppna Windows-händelseloggen. Gå till **program- och tjänstloggar\operations Manager** och Sök efter händelse-ID 3000 och 5002 för händelse-ID från källan **tjänstanslutning**. Dessa händelser anger att datorn har registrerats med Log Analytics-arbetsytan och tar emot konfigurationen.
 
-Om agenten inte kan kommunicera med Log Analytics och agenten har konfigurerats att kommunicera med internet genom en brandvägg eller proxyserver, bekräfta att brandväggen eller proxyservern har konfigurerats korrekt. Läs hur du verifierar att brandväggen eller proxyservern har konfigurerats korrekt i [nätverkskonfiguration för Windows-agenten](../azure-monitor/platform/agent-windows.md) eller [nätverkskonfiguration för Linux-agenten](../log-analytics/log-analytics-agent-linux.md).
+Om agenten inte kan kommunicera med Azure Monitor-loggar och agenten är konfigurerad för att kommunicera med internet genom en brandvägg eller proxyserver, bekräfta att brandväggen eller proxyservern har konfigurerats korrekt. Läs hur du verifierar att brandväggen eller proxyservern har konfigurerats korrekt i [nätverkskonfiguration för Windows-agenten](../azure-monitor/platform/agent-windows.md) eller [nätverkskonfiguration för Linux-agenten](../log-analytics/log-analytics-agent-linux.md).
 
 > [!NOTE]
 > Om dina Linux-system har konfigurerats för att kommunicera med en proxy eller Log Analytics-Gateway och är onboarding den här lösningen, uppdatera den *proxy.conf* behörigheter som ska tilldelas den gruppen omiuser läsbehörighet för filen med hjälp av den följande kommandon:
@@ -170,7 +172,7 @@ Om agenten inte kan kommunicera med Log Analytics och agenten har konfigurerats 
 
 Nyligen tillagda Linux-agenter visar statusen **uppdaterad** när en utvärdering har utförts. Den här processen kan ta upp till 6 timmar.
 
-För att bekräfta att en Operations Manager-hanteringsgrupp kommunicerar med Log Analytics, se [verifiera Operations Manager-integrering med Log Analytics](../azure-monitor/platform/om-agents.md#validate-operations-manager-integration-with-log-analytics).
+För att bekräfta att en Operations Manager-hanteringsgrupp kommunicerar med Azure Monitor-loggar, se [verifiera Operations Manager-integrering med Azure Monitor-loggar](../azure-monitor/platform/om-agents.md#validate-operations-manager-integration-with-log-analytics).
 
 ## <a name="data-collection"></a>Datainsamling
 
@@ -182,7 +184,7 @@ I följande tabell beskrivs de anslutna källor som stöds av den här lösninge
 | --- | --- | --- |
 | Windows-agenter |Ja |Lösningen samlar in information om systemuppdateringar från Windows-agenter och initierar installationen av nödvändiga uppdateringar. |
 | Linux-agenter |Ja |Lösningen samlar in information om systemuppdateringar från Linux-agenter och initierar installationen av nödvändiga uppdateringar för distributioner som stöds. |
-| Operations Manager-hanteringsgrupp |Ja |Lösningen samlar in information om systemuppdateringar från agenter i en ansluten hanteringsgrupp.<br/>En direktanslutning från Operations Manager-agenten till Log Analytics krävs inte. Data vidarebefordras från hanteringsgruppen till Log Analytics-arbetsytan. |
+| Operations Manager-hanteringsgrupp |Ja |Lösningen samlar in information om systemuppdateringar från agenter i en ansluten hanteringsgrupp.<br/>En direktanslutning från Operations Manager-agenten till Azure Monitor-loggar krävs inte. Data vidarebefordras från hanteringsgruppen till Log Analytics-arbetsytan. |
 
 ### <a name="collection-frequency"></a>Insamlingsfrekvens
 
@@ -192,7 +194,7 @@ Utförs en sökning var tredje timme för varje hanterad Linux-dator.
 
 Det kan ta mellan 30 minuter och 6 timmar innan instrumentpanelen visar uppdaterade data från hanterade datorer.
 
-Genomsnittliga dataanvändning i Log Analytics för en virtuell dator med uppdateringshantering är cirka 25MB per månad. Det här värdet är bara en uppskattning och kan komma att ändras baserat på din miljö. Vi rekommenderar att du övervakar din miljö för att se exakt användningen som du har.
+Genomsnittliga dataanvändning för Azure Monitor-loggar för en virtuell dator med uppdateringshantering är cirka 25MB per månad. Det här värdet är bara en uppskattning och kan komma att ändras baserat på din miljö. Vi rekommenderar att du övervakar din miljö för att se exakt användningen som du har.
 
 ## <a name="viewing-update-assessments"></a>Visa uppdatering utvärderingar
 
@@ -206,7 +208,7 @@ Om du vill köra en loggsökning som returnerar information om datorn, uppdateri
 
 ## <a name="install-updates"></a>Installera uppdateringar
 
-När uppdateringar utvärderas för alla Linux- och Windows-datorer i din arbetsyta, kan du installera nödvändiga uppdateringar genom att skapa en *uppdateringsdistribution*. En uppdateringsdistribution är en schemalagd installation av nödvändiga uppdateringar för en eller flera datorer. Du kan ange datum och tid för distributionen och en dator eller grupp av datorer som ska ingå i omfattningen för en distribution. Läs mer om datorgrupper i [Computer groups in Log Analytics](../azure-monitor/platform/computer-groups.md) (Datorgrupper i Log Analytics).
+När uppdateringar utvärderas för alla Linux- och Windows-datorer i din arbetsyta, kan du installera nödvändiga uppdateringar genom att skapa en *uppdateringsdistribution*. En uppdateringsdistribution är en schemalagd installation av nödvändiga uppdateringar för en eller flera datorer. Du kan ange datum och tid för distributionen och en dator eller grupp av datorer som ska ingå i omfattningen för en distribution. Läs mer om datorgrupper i [datorgrupper i Azure Monitor-loggar](../azure-monitor/platform/computer-groups.md).
 
  När du inkluderar datorgrupper i din distribution utvärderas gruppmedlemskap bara en gång när schemat skapas. Efterföljande ändringar i en grupp syns inte. Att komma runt denna [dynamiska grupper](#using-dynamic-groups), dessa grupper har lösts vid tidpunkten för distribution och definieras av en fråga.
 
@@ -224,7 +226,7 @@ Om du vill skapa en ny uppdateringsdistribution, Välj **distribution av schemau
 | Namn |Unikt namn som identifierar uppdateringsdistributionen. |
 |Operativsystem| Linux eller Windows|
 | Grupper för att uppdatera (förhandsversion)|Definiera en fråga som baseras på en kombination av prenumeration, resursgrupper, platser och taggar för att skapa en dynamisk grupp med virtuella Azure-datorer som ska ingå i din distribution. Mer information finns i [Dynamiska grupper](automation-update-management.md#using-dynamic-groups)|
-| Datorer som ska uppdateras |Välj en sparad sökning eller en importerad grupp, eller välj Dator i listrutan och välj enskilda datorer. Om du väljer **Datorer** visas beredskapen för datorn i kolumnen **Uppdatera agentberedskap**.</br> Mer om de olika metoderna för att skapa datorgrupper i Log Analytics finns i dokumentationen om [datorgrupper i Log Analytics](../azure-monitor/platform/computer-groups.md) |
+| Datorer som ska uppdateras |Välj en sparad sökning eller en importerad grupp, eller välj Dator i listrutan och välj enskilda datorer. Om du väljer **Datorer** visas beredskapen för datorn i kolumnen **Uppdatera agentberedskap**.</br> Information om de olika metoderna för att skapa datorgrupper i Azure Monitor-loggar finns i [datorgrupper i Azure Monitor-loggar](../azure-monitor/platform/computer-groups.md) |
 |Uppdatera klassificeringar|Välj de uppdateringsklassificeringar som du behöver|
 |Inkludera/exkludera uppdateringar|Då öppnas det **ta med eller undanta** sidan. Uppdateringar som ska inkluderas eller exkluderas visas på en separat flik. Mer information om hur inkludering hanteras och finns i [inkluderingsbeteende](automation-update-management.md#inclusion-behavior) |
 |Schemainställningar|Välj tid att starta och välj antingen en gång eller återkommande för upprepningen|
@@ -353,7 +355,7 @@ Följande avsnitt innehåller Exempelfrågor för loggen för uppdateringsposter
 
 #### <a name="single-azure-vm-assessment-queries-windows"></a>Enkel utvärdering av Virtuella Azure-frågor (Windows)
 
-Ersätt värdet för VMUUID med VM-GUID för den virtuella datorn som du frågar. Du kan hitta VMUUID som ska användas genom att köra följande fråga i Log Analytics: `Update | where Computer == "<machine name>" | summarize by Computer, VMUUID`
+Ersätt värdet för VMUUID med VM-GUID för den virtuella datorn som du frågar. Du kan hitta VMUUID som ska användas genom att köra följande fråga i Azure Monitor-loggar: `Update | where Computer == "<machine name>" | summarize by Computer, VMUUID`
 
 ##### <a name="missing-updates-summary"></a>Sammanfattning av uppdateringar som saknas
 
@@ -382,7 +384,7 @@ Update
 
 #### <a name="single-azure-vm-assessment-queries-linux"></a>Enskild virtuell dator i Azure-utvärdering frågor (Linux)
 
-För vissa Linux-distributioner finns en [endianness](https://en.wikipedia.org/wiki/Endianness) inte överensstämmer med det VMUUID-värde som kommer från Azure Resource Manager och vad som lagras i Log Analytics. Följande fråga söker efter en matchning på antingen endianness. Ersätt värdena VMUUID med big endian och little endian formatering av GUID för att korrekt returnerar resultat. Du kan hitta VMUUID som ska användas genom att köra följande fråga i Log Analytics: `Update | where Computer == "<machine name>"
+För vissa Linux-distributioner finns en [endianness](https://en.wikipedia.org/wiki/Endianness) inte överensstämmer med det VMUUID-värde som kommer från Azure Resource Manager och vad som lagras i Azure Monitor-loggar. Följande fråga söker efter en matchning på antingen endianness. Ersätt värdena VMUUID med big endian och little endian formatering av GUID för att korrekt returnerar resultat. Du kan hitta VMUUID som ska användas genom att köra följande fråga i Azure Monitor-loggar: `Update | where Computer == "<machine name>"
 | summarize by Computer, VMUUID`
 
 ##### <a name="missing-updates-summary"></a>Sammanfattning av uppdateringar som saknas
@@ -623,7 +625,7 @@ Vill du fortsätta till självstudien om hur du hanterar uppdateringar för din 
 > [!div class="nextstepaction"]
 > [Hantera uppdateringar och korrigeringar för virtuella datorer i Windows Azure](automation-tutorial-update-management.md)
 
-* Använd loggsökningar i [Log Analytics](../log-analytics/log-analytics-log-searches.md) att visa detaljerad uppdateringsinformation.
+* Använd loggsökningar i [Azure Monitor loggar](../log-analytics/log-analytics-log-searches.md) att visa detaljerad uppdateringsinformation.
 * [Skapa aviseringar](automation-tutorial-update-management.md#configure-alerts) för status för uppdateringsdistributionen.
 
 * Läs hur du interagerar med uppdateringshantering via REST API i [Update konfigurationer](/rest/api/automation/softwareupdateconfigurations)

@@ -4,14 +4,14 @@ description: Innehåller en översikt över kända problem i Azure Migrate-tjän
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 03/04/2019
+ms.date: 03/11/2019
 ms.author: raynew
-ms.openlocfilehash: 7479f651a9fce5d65b1faf4113febb6e79c426b2
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 0eede0ae4623d68adf749dc528ac5cc1ce81e024
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57439086"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57730412"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Felsöka Azure Migrate
 
@@ -80,11 +80,9 @@ esourceGroups/ContosoDemo/providers/Microsoft.Migrate/projects/Demo/groups/conto
 
 4. När rapporten har hämtats, kan du använda Excel för att bläddra till mappen hämtade och öppna filen i Excel för att visa den.
 
-### <a name="performance-data-for-disks-and-networks-adapters-shows-as-zeros"></a>Prestandadata för diskar och nätverk-kort som visar nollor
+### <a name="performance-data-for-cpu-memory-and-disks-is-showing-up-as-zeroes"></a>Prestandadata för CPU, minne och diskar visas som noll
 
-Detta kan inträffa om statistikinställningen till nivå på vCenter-servern är inställt på mindre än tre. På nivån tre eller högre, lagrar vCenter VM prestandahistorik för beräkning, lagring och nätverk. För mindre än på tre lagrar inte vCenter lagring och nätverksdata, men processor- och data. I det här scenariot prestanda data visas som noll i Azure Migrate Azure Migrate ger storlek rekommendation för diskar och nätverk baserat på de metadata som samlas in från lokala datorer.
-
-Om du vill aktivera insamling av prestandadata för disk- och ändra nivån för statistikinställningar till tre. Sedan, vänta minst en dag för att identifiera din miljö och utvärdera den.
+Azure Migrate profiler kontinuerligt den lokala miljön för att samla in prestandadata för lokala virtuella datorer. Om du precis har startat identifieringen av din miljö måste du vänta minst en dag för insamlingen av prestandadata som ska utföras. Om en utvärdering skapas utan att behöva vänta en dag, visas prestandavärden som noll. Vänta en dag, kan du skapa en ny utvärdering eller uppdatera befintliga utvärderingen med hjälp av alternativet ”Beräkna om” i utvärderingsrapporten.
 
 ### <a name="i-specified-an-azure-geography-while-creating-a-migration-project-how-do-i-find-out-the-exact-azure-region-where-the-discovered-metadata-would-be-stored"></a>Jag har angett en Azure geografi när du skapar ett migreringsprojekt hur tar jag reda på exakt Azure-regionen där de identifierade metadata lagras?
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 1/24/2018
 ms.author: xujing
-ms.openlocfilehash: dc798dc78ed0cdbf11bbe3bc2dd805433b127a4d
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 7f43528c55cd22c2649ca0f1208da6f41695b98e
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55976933"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57569985"
 ---
 # <a name="how-to-deploy-windows-10-on-azure-with-multitenant-hosting-rights"></a>Hur du distribuerar Windows 10 på Azure med Multitenant som är värd för behörighet 
 För kunder med Windows 10 Enterprise E3/E5 per användare eller Windows virtuella skrivbord åtkomst per användare (användare prenumerationslicenser eller tillägg användarlicenser prenumeration), Multitenant som är värd för rättigheter för Windows 10 som gör att du kan ta med din Windows 10-licenser till molnet och kör Windows 10-datorer i Azure utan att betala för en annan licens. Mer information finns i [Multitenant som är värd för Windows 10](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx).
@@ -72,11 +72,11 @@ Add-AzVhd -ResourceGroupName "myResourceGroup" -LocalFilePath "C:\Path\To\myvhd.
 
 **Distribuera med hjälp av Azure Resource Manager-mall för distribution** i Resource Manager-mallar, en extra parameter för `licenseType` kan anges. Du kan läsa mer om [skapa Azure Resource Manager-mallar](../../resource-group-authoring-templates.md). När du har en virtuell Hårddisk som överförts till Azure kan redigera Resource Manager-mall för att inkludera licenstypen som en del av compute-providern och distribuera din mall som vanligt:
 ```json
-"properties": {  
-   "licenseType": "Windows_Client",
-   "hardwareProfile": {
+"properties": {
+    "licenseType": "Windows_Client",
+    "hardwareProfile": {
         "vmSize": "[variables('vmSize')]"
-   }
+    }
 ```
 
 **Distribuera via PowerShell** när du distribuerar Windows Server-dator via PowerShell måste du ha en extra parameter för `-LicenseType`. När du har en virtuell Hårddisk som överförts till Azure kan du skapa en virtuell dator med `New-AzVM` och ange vilken licensiering enligt följande:

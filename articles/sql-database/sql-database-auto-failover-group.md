@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 02/08/2019
-ms.openlocfilehash: 862cc4da99aed02b81b6fd12913736bf30866f72
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.date: 03/07/2019
+ms.openlocfilehash: 3c65d4360e3a20b7c2228e42fb4b4db1eecc75ff
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57313607"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57774804"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Använda grupper för automatisk redundans för att aktivera transparent och samordnad redundans för flera databaser
 
@@ -215,7 +215,7 @@ Om ditt program använder Managed Instance som datanivån, följer du dessa allm
   > [!NOTE]
   > I vissa tjänstnivåer, Azure SQL Database stöder användning av [skrivskyddade repliker](sql-database-read-scale-out.md) att läsa in saldo skrivskyddat arbetsbelastningar med hjälp av kapaciteten för en skrivskyddad replik och använder den `ApplicationIntent=ReadOnly` parameter i anslutningen sträng. När du har konfigurerat en geo-replikerad sekundär, använder du den här funktionen för att ansluta till antingen en skrivskyddad replik på den primära platsen eller i geo-replikerade platsen.
   > - Om du vill ansluta till en skrivskyddad replik på den primära platsen, `failover-group-name.zone_id.database.windows.net`.
-  > - Om du vill ansluta till en skrivskyddad replik på den primära platsen, `failover-group-name.secondary.zone_id.database.windows.net`.
+  > - Om du vill ansluta till en skrivskyddad replik på den sekundära platsen `failover-group-name.secondary.zone_id.database.windows.net`.
 
 - **Förberedas för perf försämring**
 
@@ -282,7 +282,9 @@ När du ställer in en redundansgrupper mellan primära och sekundära hanterade
 
 ## <a name="upgrading-or-downgrading-a-primary-database"></a>Uppgradera eller nedgradera en primär databas
 
-Du kan uppgradera eller nedgradera en primär databas till en annan beräkningsstorleken (inom samma tjänstenivå, inte mellan generell användning och affärskritisk) utan att koppla från alla sekundära databaser. När du uppgraderar, rekommenderar vi att du först uppgraderar den sekundära databasen och sedan uppgradera primärt. När du nedgraderar, i omvänd ordning: Nedgradera primärt först och sedan nedgraderar sekundär. När du uppgraderar eller nedgraderar databasen till en annan tjänstnivå, tillämpas den här rekommendationen.
+Du kan uppgradera eller nedgradera en primär databas till en annan beräkningsstorleken (inom samma tjänstenivå, inte mellan generell användning och affärskritisk) utan att koppla från alla sekundära databaser. När du uppgraderar, rekommenderar vi att du uppgradera alla sekundära databaserna först och sedan uppgradera primärt. När du nedgraderar, i omvänd ordning: Nedgradera primärt först och sedan nedgraderar alla sekundära databaser. När du uppgraderar eller nedgraderar databasen till en annan tjänstnivå, tillämpas den här rekommendationen.
+
+Den här sekvensen rekommenderas speciellt för att undvika problem där sekundärt vid en lägre SKU hämtar överbelastad och måste kunna igen förpopulerad under en uppgradering eller nedgradering. Du kan också undvika problemet genom att göra primärt skrivskyddade på bekostnad av påverkar alla skrivskyddade arbetsbelastningar mot primärt. 
 
 > [!NOTE]
 > Om du har skapat sekundär databas som en del av konfigurationen av redundans-grupp inte rekommenderas att nedgradera den sekundära databasen. Det här är att säkerställa att din datanivå har tillräckligt med kapacitet för att bearbeta din vanliga arbetsbelastning när redundans har aktiverats.
@@ -303,8 +305,6 @@ Information om hur du använder point-in-time-återställning med redundansgrupp
 Vilket beskrivs ovan, automatisk redundans grupper och aktiv kan geo-replikering också hanteras via programmering med hjälp av Azure PowerShell och REST-API. I följande tabeller beskrivs uppsättningen kommandon som är tillgängliga. Aktiv geo-replikering innehåller en uppsättning API: er för Azure Resource Manager för hantering, inklusive den [Azure SQL Database REST API: et](https://docs.microsoft.com/rest/api/sql/) och [Azure PowerShell-cmdlets](https://docs.microsoft.com/powershell/azure/overview). Dessa API: er kräver användning av resursgrupper och stöder rollbaserad säkerhet (RBAC). Mer information om hur du implementerar åtkomst roller finns i [rollbaserad åtkomstkontroll i](../role-based-access-control/overview.md).
 
 ### <a name="powershell-manage-sql-database-failover-with-single-databases-and-elastic-pools"></a>PowerShell: Hantera redundans för SQL-databas med enskilda databaser och elastiska pooler
-
-[!INCLUDE [requires-azurerm](../../includes/requires-azurerm.md)]
 
 | Cmdlet | Beskrivning |
 | --- | --- |

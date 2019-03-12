@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: jeconnoc
-ms.openlocfilehash: c9f0707f6d24ba899c89bf19066994ae860a69d5
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 2aa32d75edbacdfff6428a6526d9898cb6732d6b
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39620995"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57534743"
 ---
 # <a name="common-cloud-service-startup-tasks"></a>Vanliga startuppgifter för Cloud Service
 Den här artikeln innehåller några exempel på vanliga startuppgifter som du utför i din molntjänst. Du kan använda startåtgärder för att utföra åtgärder innan en roll startas. Åtgärder som du kanske vill utföra omfattar installera en komponent, registrerar COM-komponenter, ange registernycklar eller starta en tidskrävande process. 
@@ -186,7 +186,7 @@ powershell -ExecutionPolicy Unrestricted -command "Install-WindowsFeature Web-IP
 
 Uppgiften gör den **startup.cmd** batchfil som ska köras varje gång webbrollen har initierats, vilket säkerställer att de nödvändiga **ipSecurity** avsnittet är upplåst.
 
-Slutligen ändrar den [system.webServer avsnittet](http://www.iis.net/configreference/system.webserver/security/ipsecurity#005) din webbroll **web.config** fil att lägga till en lista över IP-adresser som beviljas åtkomst till, som visas i följande exempel:
+Slutligen ändrar den [system.webServer avsnittet](https://www.iis.net/configreference/system.webserver/security/ipsecurity#005) din webbroll **web.config** fil att lägga till en lista över IP-adresser som beviljas åtkomst till, som visas i följande exempel:
 
 Det här exemplet config **tillåter** alla IP-adresser till servern, förutom de två definierade
 

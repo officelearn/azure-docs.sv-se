@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/13/2018
 ms.author: asrastog
-ms.openlocfilehash: 20e7f8f5d2c0eb9fbfb231adfd20ff54d9eda20a
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: dc5bfe6b431659b7b99140eb29a0e64922a42275
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57404203"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57576352"
 ---
 # <a name="use-iot-hub-message-routing-to-send-device-to-cloud-messages-to-different-endpoints"></a>Använd IoT Hub meddelanderoutning för att skicka enhet-till-moln-meddelanden till olika slutpunkter
 
@@ -39,7 +39,7 @@ Du kan använda standard [Event Hubs-integrering och SDK: er](iot-hub-devguide-m
 
 ### <a name="azure-blob-storage"></a>Azure Blob Storage
 
-IoT-hubb har stöd för skrivning av data till Azure Blob Storage i den [Apache Avro](http://avro.apache.org/) samt JSON-format. Möjligheten att koda JSON-format finns i förhandsversion i alla regioner som IoT Hub inte är tillgängligt i östra USA, västra USA och Västeuropa. Standardvärdet är AVRO. Du kan välja Kodningsformatet med hjälp av IoT Hub Create eller Update REST API, särskilt de [RoutingStorageContainerProperties](https://docs.microsoft.com/rest/api/iothub/iothubresource/createorupdate#routingstoragecontainerproperties), Azure-portalen [Azure CLI](https://docs.microsoft.com/cli/azure/iot/hub/routing-endpoint?view=azure-cli-latest#optional-parameters) eller [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.iothub/add-aziothubroutingendpoint?view=azps-1.3.0#optional-parameters). Kodningsformatet kan anges endast när bloblagringsslutpunkt konfigureras. Formatet kan inte redigeras för en befintlig slutpunkt. Följande diagram visar hur du väljer Kodningsformatet i Azure Portal.
+IoT-hubb har stöd för skrivning av data till Azure Blob Storage i den [Apache Avro](https://avro.apache.org/) samt JSON-format. Möjligheten att koda JSON-format finns i förhandsversion i alla regioner som IoT Hub inte är tillgängligt i östra USA, västra USA och Västeuropa. Standardvärdet är AVRO. Kodningsformatet kan anges endast när bloblagringsslutpunkt konfigureras. Formatet kan inte redigeras för en befintlig slutpunkt. När du använder JSON-kodning, måste du ange contentType till JSON och contentEncoding till UTF-8 i meddelandet [Systemegenskaper](iot-hub-devguide-routing-query-syntax.md#system-properties). Du kan välja Kodningsformatet med hjälp av IoT Hub Create eller Update REST API, särskilt de [RoutingStorageContainerProperties](https://docs.microsoft.com/rest/api/iothub/iothubresource/createorupdate#routingstoragecontainerproperties), Azure-portalen [Azure CLI](https://docs.microsoft.com/cli/azure/iot/hub/routing-endpoint?view=azure-cli-latest) eller [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.iothub/add-aziothubroutingendpoint?view=azps-1.3.0). Följande diagram visar hur du väljer Kodningsformatet i Azure Portal.
 
 ![BLOB storage endpoint kodning](./media/iot-hub-devguide-messages-d2c/blobencoding.png)
 
@@ -118,6 +118,8 @@ I de flesta fall är den genomsnittliga ökningen av svarstiden mindre än 500 m
 ## <a name="monitoring-and-troubleshooting"></a>Övervakning och felsökning
 
 IoT Hub innehåller flera Routning och slutpunkten relaterade mått för att ge dig en översikt över hälsotillståndet för din hubb och meddelanden som skickas. Du kan kombinera information från flera mått för att identifiera rotorsaken till problem. Till exempel använda mått **routning: telemetrimeddelanden bort** eller **d2c.telemetry.egress.dropped** att identifiera hur många meddelanden som har tagits bort när de inte matchade frågor på någon av vägarna och återställningsplats vägen har inaktiverats. [IoT Hub mått](iot-hub-metrics.md) visar en lista över alla mått som är aktiverade som standard för din IoT-hubb.
+
+Du kan använda REST-API [hämta Slutpunktshälsa](https://docs.microsoft.com/de-de/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) att hämta [hälsostatus](iot-hub-devguide-endpoints.md#custom-endpoints) slutpunkter. Vi rekommenderar att du använder den [IoT Hub mått](iot-hub-metrics.md) rör Routning meddelande svarstid för att identifiera och felsöka fel när slutpunktshälsa är döda eller är skadad. Till exempel för typ av slutpunkt Event Hubs, du kan övervaka **d2c.endpoints.latency.eventHubs**. Status för en defekt slutpunkt uppdateras till felfritt läge när IoT Hub har etablerat en konsekvent hälsotillstånd.
 
 Med hjälp av den **vägar** diagnostikloggar i Azure Monitor [diagnostikinställningar](../iot-hub/iot-hub-monitor-resource-health.md), kan du spårar fel som uppstår under utvärderingen av ett routning hälsa för frågan och slutpunkten som uppfattas av IoT Hub, till exempel När en slutpunkt är inaktiv. Dessa diagnostikloggar kan skickas till Azure Monitor-loggar, Event Hubs eller Azure Storage för anpassad bearbetning.
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 12/13/2018
 ms.author: genli
-ms.openlocfilehash: f64f2cafb15a6cae71c304282e1fe6bd9231ef71
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 978667dcd3f7bd10192a396ec3e8d097bdb73509
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57432931"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57577151"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Förbereda en Windows-VHD eller VHDX för att överföra till Azure
 Innan du överför en Windows-dator (VM) från en lokal plats till Microsoft Azure, måste du förbereda den virtuella hårddisken (VHD eller VHDX). Azure stöder **endast 1 virtuella datorer i generation** som är i VHD-format och har en fast storlek disk. Den maximala storleken som tillåts för den virtuella Hårddisken är 1,023 GB. Du kan konvertera en generation 1 VM från VHDX filsystemet till virtuell Hårddisk och från en dynamiskt expanderande disk till fast storlek. Men du kan inte ändra en virtuell dator generation. Mer information finns i [bör jag skapa en generation 1 eller 2 virtuella datorer i Hyper-V](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).
@@ -415,11 +415,7 @@ Inte alla roll eller program som är installerad på en Windows-baserad dator st
 ## <a name="complete-recommended-configurations"></a>Ange rekommenderade konfigurationen
 Följande inställningar påverkar inte ladda upp VHD. Men rekommenderar vi starkt att du har konfigurerat dem.
 
-* Installera den [virtuella Azure-datorer agenten](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Sedan kan du aktivera VM-tillägg. VM-tillägg implementera de flesta av de viktiga funktioner som du kanske vill använda med dina virtuella datorer, som att återställa lösenord, konfigurera RDP och så vidare. Mer information finns i:
-
-    - [VM-agenten och tillägg – del 1](https://azure.microsoft.com/blog/vm-agent-and-extensions-part-1/)
-    - [VM-agenten och tillägg – del 2](https://azure.microsoft.com/blog/vm-agent-and-extensions-part-2/)
-
+* Installera den [virtuella Azure-datorer agenten](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Sedan kan du aktivera VM-tillägg. VM-tillägg implementera de flesta av de viktiga funktioner som du kanske vill använda med dina virtuella datorer, som att återställa lösenord, konfigurera RDP och så vidare. Mer information finns i [översikt över Azure VM-agenten](../extensions/agent-windows.md).
 *  När den virtuella datorn har skapats i Azure, rekommenderar vi att du anger växlingsfilen för ”Temporala” enheten att förbättra prestanda. Du kan ställa in detta på följande sätt:
 
     ```PowerShell

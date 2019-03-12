@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: fea90d273d156eec3bf29f376e4cf6668c68170f
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 0e0a249c53c90d3d8d03dcdb5fbb4f11f31c54df
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55697530"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57545171"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Compute-miljöer som stöds av Azure Data Factory
 > [!NOTE]
@@ -116,7 +116,7 @@ Följande JSON definierar en Linux-baserade på begäran HDInsight-länkad tjän
 > [!IMPORTANT]
 > HDInsight-klustret skapar en *standardbehållaren* i Azure Blob storage som du anger i JSON **linkedServiceName** egenskapen. Enligt design, HDInsight tar inte bort den här behållaren när klustret tas bort. I ett HDInsight-länkad tjänst på begäran skapas ett HDInsight-kluster varje gång en sektor behöver bearbetas, såvida det inte finns ett befintligt livekluster (**timeToLive**). Klustret tas bort när bearbetningen är klar. 
 >
-> Allteftersom fler sektorer bearbetas kan se du många behållare i Blob storage. Om du inte behöver behållarna för att felsöka jobb, kanske du vill ta bort behållare för att minska lagringskostnaderna. Namnen på de här containrarna följer ett mönster: `adf<your Data Factory name>-<linked service name>-<date and time>`. Du kan använda ett verktyg som [Microsoft Lagringsutforskaren](http://storageexplorer.com/) att ta bort behållare i Blob storage.
+> Allteftersom fler sektorer bearbetas kan se du många behållare i Blob storage. Om du inte behöver behållarna för att felsöka jobb, kanske du vill ta bort behållare för att minska lagringskostnaderna. Namnen på de här containrarna följer ett mönster: `adf<your Data Factory name>-<linked service name>-<date and time>`. Du kan använda ett verktyg som [Microsoft Lagringsutforskaren](https://storageexplorer.com/) att ta bort behållare i Blob storage.
 >
 > 
 
@@ -271,7 +271,7 @@ Du kan skapa en Batch länkad tjänst för att registrera en Batch-pool med virt
 Om du är van vid att använda Batch-tjänsten:
 
 * Lär dig mer om [grunderna om Azure Batch](../../batch/batch-technical-overview.md).
-* Lär dig mer om den [New AzureBatchAccount](https://msdn.microsoft.com/library/mt125880.aspx) cmdlet. Använd denna cmdlet för att skapa ett Batch-konto. Du kan också skapa Batch-konto med hjälp av den [Azure-portalen](../../batch/batch-account-create-portal.md). Detaljerad information om hur du använder cmdleten finns i [använda PowerShell för att hantera ett Batch-konto](http://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx).
+* Lär dig mer om den [New AzureBatchAccount](https://msdn.microsoft.com/library/mt125880.aspx) cmdlet. Använd denna cmdlet för att skapa ett Batch-konto. Du kan också skapa Batch-konto med hjälp av den [Azure-portalen](../../batch/batch-account-create-portal.md). Detaljerad information om hur du använder cmdleten finns i [använda PowerShell för att hantera ett Batch-konto](https://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx).
 * Lär dig mer om den [New-AzureBatchPool](https://msdn.microsoft.com/library/mt125936.aspx) cmdlet. Använd denna cmdlet för att skapa en Batch-pool.
 
 ### <a name="example"></a>Exempel

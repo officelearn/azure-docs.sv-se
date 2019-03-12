@@ -15,39 +15,37 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/26/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: ef46df4d5162a08d9dc4d8674cf5867f863ce332
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: ad97381d983446dfcc32dd1ba82af587a500b9da
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57342487"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57762151"
 ---
 # <a name="tutorial-set-up-resources-for-validation-as-a-service"></a>Självstudier: Konfigurera resurser för verifiering som en tjänst
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
-Du måste skapa en lösning. En verifiering som en tjänstlösning (VaaS) representerar en Azure Stack-lösning med en viss maskinvara struktur. Du kommer använda lösningen för att kontrollera om maskinvaran har stöd för kör Azure Stack. Följ den här kursen och gör dig redo att använda tjänsten med din lösning.
+Verifiering som en tjänst (VaaS) är en Azure-tjänst som används för att validera och stöd för Azure Stack-lösningar på marknaden. Följ den här artikeln innan du använder tjänsten för att verifiera din lösning.
 
 I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
-> * Gör dig redo att använda VaaS genom att konfigurera Azure AD (Azure AD)-instans.
+> * Gör dig redo att använda VaaS genom att ställa in din Azure Active Directory (AD).
 > * Skapa ett lagringskonto.
 
 ## <a name="configure-an-azure-ad-tenant"></a>Konfigurera en Azure AD-klient
 
-En Azure AD-klient krävs för autentisering och registrera dig hos VaaS. Rollbaserad åtkomstkontroll (RBAC) funktioner för klienten används av partnern för att hantera vilka i partnerorganisationen kan använda VaaS.
-
-Registrera din organisations Azure AD-klient katalog (i stället för Azure AD-klient-katalog som används för Azure Stack) och upprätta en princip för att hantera användarkonton i den. Mer information finns i [hantera Azure AD-katalogen](https://docs.microsoft.com/azure/active-directory/active-directory-administer).
+En Azure AD-klient används för att registrera en organisation och autentisera användare med VaaS. Partnern som använder funktioner för rollbaserad åtkomst-kontroll (RBAC) för klienten för att hantera vem i partnerorganisationen kan använda VaaS. Mer information finns i [Vad är Azure Active Directory?](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/active-directory-whatis).
 
 ### <a name="create-a-tenant"></a>Skapa en klient
 
-Skapa en klient som ska användas med VaaS med ett beskrivande namn, till exempel `ContosoVaaS@onmicrosoft.com`.
+Skapa en klient som din organisation använder för att komma åt VaaS tjänster. Använd ett beskrivande namn, till exempel `ContosoVaaS@onmicrosoft.com`.
 
 1. Skapa en Azure AD-klient i den [Azure-portalen](https://portal.azure.com), eller Använd en befintlig klient. <!-- For instructions on creating new Azure AD tenants, see [Get started with Azure AD](https://docs.microsoft.com/azure/active-directory/get-started-azure-ad). -->
 
 2. Lägg till medlemmar i din organisation för klienten. Dessa användare är ansvarig för att använda tjänsten för att visa eller schemalägga testerna. När du är klar med registreringen, definierar du användarnas åtkomstnivåer.
- 
+
     Auktorisera användare i din klient för att köra åtgärder i VaaS genom att tilldela någon av följande roller:
 
     | Rollnamn | Beskrivning |
@@ -63,7 +61,7 @@ Skapa en klient som ska användas med VaaS med ett beskrivande namn, till exempe
     3. Välj **företagsprogram** > **Azure Stack-verifiering Service** program.
     4. Välj **Användare och grupper**. Den **Azure Stack-verifiering Service - användare och grupper** bladet visar en lista över användare med behörighet att använda programmet.
     5. Välj **+ Lägg till användare** lägga till en användare från din klient och tilldela en roll.
-   
+
     Om du vill isolera VaaS resurser och åtgärder mellan olika grupper inom en organisation kan du skapa flera kataloger i Azure AD-klient.
 
 ### <a name="register-your-tenant"></a>Registrera din klient
@@ -102,10 +100,7 @@ Azure Storage-konto finns i Azure offentligt moln, inte på Azure Stack-miljön.
 
 3. Under **resursgrupp**väljer **Skapa ny**. Ange ett namn för din nya resursgrupp.
 
-4. Ange ett namn för lagringskontot. Det namn du väljer måste vara:
-    - Unikt i Azure
-    - Mellan 3 och 24 tecken
-    - Endast innehålla siffror och gemener
+4. Granska den [namngivningskonventioner](https://docs.microsoft.com/en-us/azure/architecture/best-practices/naming-conventions#storage) för Azure Storage-konton. Ange ett namn för lagringskontot.
 
 5. Välj den **västra USA** region för ditt lagringskonto.
 
@@ -119,7 +114,7 @@ Azure Storage-konto finns i Azure offentligt moln, inte på Azure Stack-miljön.
     - Den **replikering fältet** är inställd på **lokalt redundant lagring (LRS)** som standard.
     - **Åtkomstnivå** är inställt på **Frekvent** som standard.
 
-7. Klicka på **Granska + skapa** för att granska inställningarna för ditt lagringskonto och skapa kontot.
+7. Välj **Granska + skapa** för att granska inställningarna för ditt lagringskonto och skapa kontot.
 
 ## <a name="next-steps"></a>Nästa steg
 

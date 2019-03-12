@@ -1,24 +1,24 @@
 ---
 title: Tjänstkarta-integrering med System Center Operations Manager | Microsoft Docs
 description: Tjänstkarta är en lösning i Azure som automatiskt identifierar programkomponenter i Windows- och Linux-system och mappar kommunikationen mellan olika tjänster. Den här artikeln beskrivs med hjälp av Tjänstkarta för att automatiskt skapa diagram över distribuerade program i Operations Manager.
-services: monitoring
+services: azure-monitor
 documentationcenter: ''
-author: daveirwin1
-manager: jwhit
+author: mgoedtel
+manager: carmonm
 editor: tysonn
 ms.assetid: e8614a5a-9cf8-4c81-8931-896d358ad2cb
-ms.service: monitoring
+ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2017
-ms.author: bwren
-ms.openlocfilehash: 73e27044fc8cc79b2c95471e30bca558bd14d473
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.author: magoedte
+ms.openlocfilehash: 878abe79754c3286b77aef744d1bc4973a8af841
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55818761"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57729404"
 ---
 # <a name="service-map-integration-with-system-center-operations-manager"></a>Tjänstkarta-integrering med System Center Operations Manager
 

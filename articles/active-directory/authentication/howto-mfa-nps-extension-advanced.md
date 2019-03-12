@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b236cc799a4ff84c3833f181ebec6305f1ec6942
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 2690cb4243597c942b6679b5864016bf14fcbad1
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56171325"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57732429"
 ---
 # <a name="advanced-configuration-options-for-the-nps-extension-for-multi-factor-authentication"></a>Avancerade konfigurationsalternativ för NPS-tillägget för Multifaktorautentisering
 
@@ -46,7 +46,7 @@ Om du vill konfigurera en godkänd IP-lista, gå till `HKLM\SOFTWARE\Microsoft\A
 
 | Namn | Type | Standardvärde | Beskrivning |
 | ---- | ---- | ------------- | ----------- |
-| IP_WHITELIST | sträng | Tom | Ange en semikolonavgränsad lista med IP-adresser. Inkludera IP-adresser för datorer där tjänstbegäranden kommer t.ex NAS/VPN-servern. IP-intervall är undernät inte stöds. <br><br> Till exempel *10.0.0.1;10.0.0.2;10.0.0.3*.
+| IP_WHITELIST | sträng | Tom | Ange en semikolonavgränsad lista med IP-adresser. Inkludera IP-adresser för datorer där tjänstbegäranden kommer t.ex NAS/VPN-servern. IP-intervall och undernät stöds inte. <br><br> Till exempel *10.0.0.1;10.0.0.2;10.0.0.3*.
 
 När en begäran kommer från en IP-adress som finns på vitlistan, hoppas över tvåstegsverifiering. IP-vitlistan jämförs IP-adressen som har angetts i den *ratNASIPAddress* attribut för RADIUS-begäran. Om en RADIUS-begäran kommer utan attributet ratNASIPAddress, loggas följande varning: ”P_WHITE_LIST_WARNING::IP vitlista ignoreras eftersom käll-IP saknas i RADIUS-begäran i NasIpAddress attribut”.
 

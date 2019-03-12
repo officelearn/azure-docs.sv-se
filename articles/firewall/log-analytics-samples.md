@@ -7,24 +7,26 @@ ms.service: firewall
 ms.topic: article
 ms.date: 2/15/2019
 ms.author: victorh
-ms.openlocfilehash: f639f47997fc122efde2bc223bc24b5de7630710
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 21309060b7b4a93d798c444bd96bc21c62693a54
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57240158"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57534011"
 ---
 # <a name="azure-firewall-log-analytics-samples"></a>Azure brandväggen log analytics-exempel
 
-Följande exempel i log analytics kan användas för att analysera dina loggar från brandväggen för Azure. Exempelfilen är inbyggd i Log Analytics View Designer den [Log Analytics-Vydesigner](https://docs.microsoft.com/azure/log-analytics/log-analytics-view-designer) artikeln innehåller mer information om konceptet Vydesignen.
+Följande exempel för Azure Monitor-loggar kan användas för att analysera dina loggar från brandväggen för Azure. Exempelfilen är inbyggd i Vydesigner i Azure Monitor kan den [Vydesigner i Azure Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-view-designer) artikeln innehåller mer information om konceptet Vydesignen.
 
-## <a name="log-analytics-view"></a>Log Analytics-vy
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-Här är hur du kan konfigurera en exempel log analytics-visualisering. Du kan ladda ned exempel visualisering från den [azure-docs-json-samples](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-firewall/AzureFirewall.omsview) lagringsplats. Det enklaste sättet är att högerklicka på hyperlänken på den här sidan och välja *Spara som* och ange ett namn som **AzureFirewall.omsview**. 
+## <a name="azure-monitor-logs-view"></a>Azure Monitor loggar vy
 
-Kör följande steg för att lägga till vyn till log analytics-arbetsyta:
+Här är hur du kan konfigurera ett exempel visualisering för Azure Monitor-loggar. Du kan ladda ned exempel visualisering från den [azure-docs-json-samples](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-firewall/AzureFirewall.omsview) lagringsplats. Det enklaste sättet är att högerklicka på hyperlänken på den här sidan och välja *Spara som* och ange ett namn som **AzureFirewall.omsview**. 
 
-1. Öppna log analytics-arbetsyta i Azure Portal.
+Kör följande steg för att lägga till vyn till din Log Analytics-arbetsyta:
+
+1. Öppna Log Analytics-arbetsytan i Azure Portal.
 2. Öppna **visa Designer** nedan **Allmänt**.
 3. Klicka på **Importera**.
 4. Bläddra och välj den **AzureFirewall.omsview** filen du laddade ner innan.

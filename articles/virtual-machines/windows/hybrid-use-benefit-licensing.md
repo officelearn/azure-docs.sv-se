@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 4/22/2018
 ms.author: xujing-ms
-ms.openlocfilehash: d692eb471c514015271a688e4660700788f1baaa
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 64e9350606748116d2eef247790e88ed0d576c3f
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57431470"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57570376"
 ---
 # <a name="azure-hybrid-benefit-for-windows-server"></a>Azure Hybrid-förmånen för Windows Server
 För kunder med Software Assurance kan Azure Hybrid-förmånen för Windows Server du använda dina lokala Windows Server-licenser och köra Windows-datorer i Azure mot en lägre kostnad. Du kan använda Azure Hybrid-förmånen för Windows Server för att distribuera nya virtuella datorer med Windows OS. Den här artikeln går över anvisningar om hur du distribuerar nya virtuella datorer med Azure Hybrid-förmånen för Windows Server och hur du kan uppdatera befintliga köra virtuella datorer. Läs mer om Azure Hybrid-förmånen för Windows Server licensierings- och besparingar i den [Azure Hybrid-förmånen för Windows Server-licensiering sidan](https://azure.microsoft.com/pricing/hybrid-use-benefit/).
@@ -77,11 +77,11 @@ az vm create \
 ### <a name="template"></a>Mall
 I Resource Manager-mallar, en extra parameter `licenseType` måste anges. Du kan läsa mer om [skapa Azure Resource Manager-mallar](../../resource-group-authoring-templates.md)
 ```json
-"properties": {  
-   "licenseType": "Windows_Server",
-   "hardwareProfile": {
+"properties": {
+    "licenseType": "Windows_Server",
+    "hardwareProfile": {
         "vmSize": "[variables('vmSize')]"
-   }
+    }
 ```
 
 ## <a name="convert-an-existing-vm-using-azure-hybrid-benefit-for-windows-server"></a>Konvertera en befintlig virtuell dator med hjälp av Azure Hybrid-förmånen för Windows Server
@@ -161,7 +161,7 @@ Från virtuell dator eller virtuell dator scale sets resursbladet, kan du visa e
 
 ### <a name="powershell"></a>PowerShell
 ```powershell
-$vms = Get-AzVM 
+$vms = Get-AzVM
 $vms | ?{$_.LicenseType -like "Windows_Server"} | select ResourceGroupName, Name, LicenseType
 ```
 
@@ -171,7 +171,7 @@ az vm list --query "[?licenseType=='Windows_Server']" -o table
 ```
 
 ## <a name="deploy-a-virtual-machine-scale-set-with-azure-hybrid-benefit-for-windows-server"></a>Distribuera en VM-Skalningsuppsättning med Azure Hybrid-förmånen för Windows Server
-I din VM scale Sets Resource Manager-mallar, en extra parameter `licenseType` måste anges inom VirtualMachineProfile-egenskapen. Du kan göra det under Skapa eller uppdatera för din skalningsuppsättning med ARM-mallen, Powershell, Azure CLI eller REST.
+I din VM scale Sets Resource Manager-mallar, en extra parameter `licenseType` måste anges inom VirtualMachineProfile-egenskapen. Du kan göra det under Skapa eller uppdatera för din skalningsuppsättning med ARM-mallen, PowerShell, Azure CLI eller REST.
 
 I följande exempel använder ARM-mall med en Windows Server 2016 Datacenter-avbildning:
 ```json

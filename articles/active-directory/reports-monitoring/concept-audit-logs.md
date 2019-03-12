@@ -17,12 +17,12 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5895ad1f1452b5a0c13765821c5b623472a0bb1e
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 65bc0c0ee1ccc1e1f3da5e364582534dfbc0d425
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57447123"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57530713"
 ---
 # <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Granska aktivitetsrapporter i Azure Active Directory-portalen 
 
@@ -41,7 +41,7 @@ Den här artikeln ger en översikt över granskningsrapporten.
  
 ## <a name="who-can-access-the-data"></a>Vem kan komma åt dessa data?
 
-* Användare i den **säkerhetsadministratör**, **Säkerhetsläsare** eller **Global administratör** roller
+* Användare i den **Security administratör i fältet**, **Säkerhetsläsare**, **rapportläsare** eller **Global administratör** roller
 * Dessutom kan kan alla användare (icke-administratörer) Se sina egna granskningsaktiviteter
 
 ## <a name="audit-logs"></a>Granskningsloggar
@@ -53,38 +53,93 @@ Azure AD-audit-loggarna ger dokumentation över systemaktiviteter för efterlevn
 En granskningslogg har en standardlistvy som visar:
 
 - datum och tid för förekomsten
-- initieraren/aktören (*vem*) för en aktivitet 
-- aktiviteten (*vad*) 
+- den tjänst som visar
+- kategori och namnet på aktiviteten (*vad*) 
+- status för aktivitet (lyckade eller misslyckade)
 - målet
+- Initieraren / aktören (vem) för en aktivitet
 
-![Granskningsloggar](./media/concept-audit-logs/18.png "Granskningsloggar")
+![Granskningsloggar](./media/concept-audit-logs/listview.png "Granskningsloggar")
 
 Du kan anpassa listvyn genom att klicka på **Kolumner** i verktygsfältet.
 
-![Granskningsloggar](./media/concept-audit-logs/19.png "Granskningsloggar")
+![Granskningsloggar](./media/concept-audit-logs/columns.png "Granskningsloggar")
 
 På så sätt kan du visa ytterligare fält eller ta bort fält som redan visas.
 
-![Granskningsloggar](./media/concept-audit-logs/21.png "Granskningsloggar")
+![Granskningsloggar](./media/concept-audit-logs/columnselect.png "Granskningsloggar")
 
 Markera ett objekt i listvyn för att få mer detaljerad information.
 
-![Granskningsloggar](./media/concept-audit-logs/22.png "Granskningsloggar")
+![Granskningsloggar](./media/concept-audit-logs/details.png "Granskningsloggar")
 
 
 ## <a name="filtering-audit-logs"></a>Filtrera granskningsloggar
 
 Du kan filtrera granskningsdata på följande fält:
 
-- Datumintervall
-- Initierad av (aktör)
+- Tjänst
 - Kategori
-- Resurstyp för aktivitet
 - Aktivitet
+- Status
+- Mål
+- Initierad av (aktör)
+- Datumintervall
 
-![Granskningsloggar](./media/concept-audit-logs/23.png "Granskningsloggar")
+![Granskningsloggar](./media/concept-audit-logs/filter.png "Granskningsloggar")
 
-Med filtret för **datumintervall** kan du definiera en tidsram för de data som returneras.  
+Den **Service** filter kan du välja från en listruta för följande tjänster:
+
+- Alla
+- Åtkomstgranskningar
+- Kontoetablering 
+- Programmet SSO
+- Autentiseringsmetoder
+- B2C
+- Villkorlig åtkomst
+- Kärnkatalog
+- Hantering av behörighet
+- Identity Protection
+- Inbjudna användare
+- PIM
+- Självbetjäning, grupphantering
+- Självbetjäning Passord Management
+- Användningsvillkor
+
+Den **kategori** filter kan du välja något av följande filter:
+
+- Alla
+- AdministrativeUnit
+- ApplicationManagement
+- Authentication
+- Auktorisering
+- Kontakt
+- Enhet
+- DeviceConfiguration
+- DirectoryManagement
+- EntitlementManagement
+- GroupManagement
+- Annat
+- Princip
+- ResourceManagement
+- RoleManagement
+- UserManagement
+
+Den **aktivitet** filter baserat på kategori och aktivitet resursen typ du väljer. Du kan välja en specifik aktivitet som du vill visa eller välja alla. 
+
+Du kan hämta listan över alla granskningsaktiviteter med Graph API https://graph.windows.net/$tenantdomain/activities/auditActivityTypes?api-version=beta, där $tenantdomain = ditt domännamn eller refererar till artikeln [Granska rapporthändelser](reference-audit-activities.md).
+
+Den **Status** filter kan du filtrera baserat på status för en åtgärd för granskning. Statusen kan vara något av följande:
+
+- Alla
+- Lyckades
+- Fel
+
+Den **Target** filter kan du söka efter ett visst mål efter namn eller användarens huvudnamn (UPN). Målnamn och UPN är skiftlägeskänsliga. 
+
+Den **initieras av** filter kan du definiera en aktörs namn eller ett universal principal name (UPN). Namn- och UPN är skiftlägeskänsliga.
+
+Den **datumintervall** filter kan du definiera en tidsram för data som returneras.  
 Möjliga värden:
 
 - 1 månad
@@ -94,41 +149,9 @@ Möjliga värden:
 
 När du väljer en anpassad tidsram kan du konfigurera en starttid och en sluttid.
 
-Den **initieras av** filter kan du definiera en aktörs namn eller ett universal principal name (UPN).
+Du kan också välja att hämta filtrerade data, upp till 250 000 poster genom att välja den **hämta** knappen. Du kan välja att hämta loggarna i CSV eller JSON-format. Antalet poster som du kan ladda ned är begränsad av den [rapportkvarhållningsregler i Azure Active Directory](reference-reports-data-retention.md).
 
-Med filtret **kategori** kan du välja något av följande filter:
-
-- Alla
-- Grundläggande kategori
-- Grundläggande katalog
-- Lösenordshantering via självbetjäning
-- Självbetjäning, grupphantering
-- Kontoetablering – Automatiserad förnyelse av lösenord
-- Inbjudna användare
-- MIM-tjänst
-- Identity Protection
-- B2C
-
-Med filtret för **aktivitsresurstyp** kan du välja något av följande filter:
-
-- Alla 
-- Grupp
-- Katalog
-- Användare
-- Program
-- Princip
-- Enhet
-- Annat
-
-När du väljer **Grupp** som **aktivitetsresurstyp** får du tillgång till ytterligare en filterkategori som du kan använda för att även ange en **källa**:
-
-- Azure AD
-- O365
-
-
-Den **aktivitet** filter baserat på kategori och aktivitet resursen typ du väljer. Du kan välja en specifik aktivitet som du vill visa eller välja alla. 
-
-Du kan hämta listan över alla granskningsaktiviteter med Graph API https://graph.windows.net/$tenantdomain/activities/auditActivityTypes?api-version=beta, där $tenantdomain = ditt domännamn eller refererar till artikeln [Granska rapporthändelser](reference-audit-activities.md).
+![Granskningsloggar](./media/concept-audit-logs/download.png "Granskningsloggar")
 
 ## <a name="audit-logs-shortcuts"></a>Genvägar till granskningsloggar
 
@@ -157,9 +180,13 @@ Med användar- och gruppbaserade granskningsrapporter kan du få svar på frågo
 
 - Vilka licenser har tilldelats en grupp eller en användare?
 
-Om du bara vill kontrollera granskningsdata relaterade till användare och grupper finns det en filtrerad vy under **Granskningsloggar** i avsnittet **Aktivitet** i **Användare och grupper**. I det här området är **Användare och grupper** den förvalda **aktivitetsresurstypen**.
+Om du bara vill kontrollera granskningsdata som relateras till användare kan du hitta en filtrerad vy under **granskningsloggar** i den **aktivitet** delen av den **användare** fliken. Den här registreringspunkten har **UserManagement** som förvalda kategori.
 
-![Granskningsloggar](./media/concept-audit-logs/93.png "Granskningsloggar")
+![Granskningsloggar](./media/concept-audit-logs/users.png "Granskningsloggar")
+
+Om du bara vill kontrollera granskningsdata som relateras till grupper kan du hitta en filtrerad vy under **granskningsloggar** i den **aktivitet** delen av den **grupper** fliken. Den här registreringspunkten har **GroupManagement** som förvalda kategori.
+
+![Granskningsloggar](./media/concept-audit-logs/groups.png "Granskningsloggar")
 
 ### <a name="enterprise-applications-audit-logs"></a>Granskningsloggar för företagsprogram
 
@@ -171,13 +198,9 @@ Med programbaserade granskningsrapporter kan du få svar på frågor som:
 * Har namnen på program ändrats?
 * Vem gav tillstånd till ett program?
 
-Om du vill kontrollera granskningsdata relaterade till dina program kan du hitta en filtrerad vy under **granskningsloggar** i den **aktivitet** delen av den **företagsprogram** blad. Den här registreringspunkten har **företagsprogram** förvalda som den **Aktivitetsresurstyp**.
+Om du vill kontrollera granskningsdata relaterade till dina program kan du hitta en filtrerad vy under **granskningsloggar** i den **aktivitet** delen av den **företagsprogram** blad. Den här registreringspunkten har **företagsprogram** förvalda som den **programtyp**.
 
-![Granskningsloggar](./media/concept-audit-logs/134.png "Granskningsloggar")
-
-Du kan filtrera den här vyn ned till **grupper** eller **användare**.
-
-![Granskningsloggar](./media/concept-audit-logs/25.png "Granskningsloggar")
+![Granskningsloggar](./media/concept-audit-logs/enterpriseapplications.png "Granskningsloggar")
 
 ## <a name="office-365-activity-logs"></a>Office 365-aktivitetsloggar
 

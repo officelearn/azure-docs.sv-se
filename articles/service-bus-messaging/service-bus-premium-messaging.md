@@ -11,15 +11,15 @@ ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 08/30/2018
+ms.topic: conceptual
+ms.date: 03/05/2019
 ms.author: aschhab
-ms.openlocfilehash: ae35f73e601cfa83fc960c5331f9956863677941
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
-ms.translationtype: HT
+ms.openlocfilehash: 9e9c8918556b7ff003bcfed062ea1e15233b2845
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54855303"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57761964"
 ---
 # <a name="service-bus-premium-and-standard-messaging-tiers"></a>Service Bus Premium- och Standard-meddelandenivåer
 
@@ -34,7 +34,7 @@ En del övergripande skillnader visas i tabellen nedan.
 | Högt genomflöde |Variabelt genomflöde |
 | Förutsägbar prestanda |Variabel svarstid |
 | Fast prissättning |Variabla priser – betala per användning |
-| Möjlighet att skala arbetsbelastningen uppåt och nedåt |Saknas |
+| Möjlighet att skala arbetsbelastningen uppåt och nedåt |Gäller inte |
 | Meddelandestorlek upp till 1 MB |Meddelandestorlek upp till 256 kB |
 
 **Service Bus Premium-meddelanden** ger resursisolering på processor- och minnesnivån så att varje kunds arbetsbelastning körs i isolering. Den här resurscontainern kallas för en *meddelandefunktionsenhet*. Varje Premium-namnområde allokeras minst en meddelandefunktionsenhet. Du kan köpa 1, 2 eller 4 meddelandefunktionsenheter för varje Service Bus Premium-namnområde. En enda arbetsbelastning eller enhet kan spänna över flera meddelandefunktionsenheter, och antalet meddelandefunktionsenheter kan ändras när du vill, även om faktureringen är per 24 timmar eller daglig taxa. Resultatet är förutsägbara och repeterbara prestanda för Service Bus-lösningen.
@@ -54,6 +54,21 @@ Det finns inget stöd för partitionerade köer och ämnen i Premium Messaging. 
 Eftersom meddelandehanteringen på premiumnivå körs i en helt isolerad körningsmiljö, stöds inte längre expressenheter i premiumnamnområden. Mer information om expressfunktionen finns i egenskapen [QueueDescription.EnableExpress](/dotnet/api/microsoft.servicebus.messaging.queuedescription.enableexpress#Microsoft_ServiceBus_Messaging_QueueDescription_EnableExpress).
 
 Om du har kod som körs med meddelandehantering på standardnivå och vill portera den till premiumnivån kontrollerar du att egenskapen [EnableExpress](/dotnet/api/microsoft.servicebus.messaging.queuedescription.enableexpress#Microsoft_ServiceBus_Messaging_QueueDescription_EnableExpress) har värdet **false** (standardvärdet).
+
+## <a name="premium-messaging-resource-usage"></a>Resursanvändningen för Premium-meddelanden
+I allmänhet kan alla åtgärder på en entitet orsaka CPU och minnesanvändning. Här följer några av dessa åtgärder: 
+
+- Hanteringsåtgärder som CRUD (skapa, hämta, uppdatera och ta bort) åtgärder för köer, ämnen och prenumerationer.
+- Runtime-åtgärder (skicka och ta emot meddelanden)
+- Övervakningsåtgärder och aviseringar
+
+Ytterligare processor-och minnesanvändningen prissätts inte dessutom dock. Det finns ett enda pris för meddelandeenhet för Premium Messaging-nivån.
+
+Processor- och minnesanvändning spåras och visas för dig av följande skäl: 
+
+- Ger insyn i systemarkitekturen system
+- Förstå kapaciteten för resurser som har köpt.
+- Kapacitetsplanering som hjälper dig att bestämma att skala upp och ned.
 
 ## <a name="get-started-with-premium-messaging"></a>Kom igång med Premium-meddelandetjänster
 

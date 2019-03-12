@@ -3,17 +3,16 @@ title: Felsökning – Azure Disk Encryption för virtuella IaaS-datorer | Micro
 description: Den här artikeln innehåller felsökningstips för Microsoft Azure Disk Encryption för Windows och Linux IaaS-datorer.
 author: mestew
 ms.service: security
-ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
 ms.date: 03/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: d4698ad54e08587b223bb65388d399c0cbf3ff63
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 7e2fa8c526a1016e5b8157f5f8b3ecb38bf8ef15
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57342521"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57779971"
 ---
 # <a name="azure-disk-encryption-troubleshooting-guide"></a>Felsökningsguide för Azure Disk Encryption
 
@@ -143,7 +142,7 @@ If the expected encryption state does not match what is being reported in the po
 
 Portalen visas en disk som är krypterade även när det har varit okrypterade i den virtuella datorn.  Detta kan inträffa när på låg nivå kommandon används för att dekryptera direkt disken från den virtuella datorn istället för att använda de högre nivån Azure Disk Encryption kommandona för hantering.  Den högre nivån kommandon inte bara företagsprinciperna disken från den virtuella datorn, men utanför den virtuella datorn de också uppdatera inställningar för viktiga plattform filnivåkryptering och tillägg som är associerade med den virtuella datorn.  Om dessa inte sparas i justering, kommer plattformen inte kunna rapportera krypteringsstatus eller etablera den virtuella datorn korrekt.   
 
-Starta från en fungerande tillstånd där kryptering är aktiverat för att inaktivera korrekt Azure Disk Encryption, och sedan använda den [Disable-AzureRmVmDiskEncryption](https://docs.microsoft.com/en-us/powershell/module/azurerm.compute/disable-azurermvmdiskencryption) och [Remove-AzureRmVmDiskEncryptionExtension](https://docs.microsoft.com/en-us/powershell/module/azurerm.compute/remove-azurermvmdiskencryptionextension) PowerShell-kommandon eller [az vm encryption inaktivera](https://docs.microsoft.com/en-us/cli/azure/vm/encryption) CLI-kommando. 
+Starta från en fungerande tillstånd där kryptering är aktiverat för att inaktivera korrekt Azure Disk Encryption, och sedan använda den [inaktivera AzVMDiskEncryption](/powershell/module/az.compute/disable-azvmdiskencryption) och [Remove-AzVMDiskEncryptionExtension](/powershell/module/az.compute/remove-azvmdiskencryptionextension) Powershell kommandon eller [az vm encryption inaktivera](/cli/azure/vm/encryption) CLI-kommando. 
 
 ## <a name="next-steps"></a>Nästa steg
 

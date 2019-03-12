@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 43989ff9dac7cdad76117aaa6e3c862453b24813
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: ea071b704c58383ce52615bb1dfd88df8017ef7f
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56865118"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57544451"
 ---
 # <a name="how-to-provision-for-multitenancy"></a>Hur du etablerar för flera innehavare 
 
@@ -86,7 +86,7 @@ I det här avsnittet skapar du en ny grupp för registrering för klient-enheter
 
 För enkelhetens skull använder den här artikeln [symmetriska nyckelattestering](concepts-symmetric-key-attestation.md) med registreringen. Överväg att använda för en säkrare lösningen [X.509-certifikat attestering](concepts-security.md#x509-certificates) med en certifikatkedja.
 
-1. Logga in på den [Azure-portalen](http://portal.azure.com), och öppna Device Provisioning Service-instans.
+1. Logga in på den [Azure-portalen](https://portal.azure.com), och öppna Device Provisioning Service-instans.
 
 2. Välj den **hantera registreringar** fliken och klicka sedan på den **Lägg till grupp för registrering** längst upp på sidan. 
 

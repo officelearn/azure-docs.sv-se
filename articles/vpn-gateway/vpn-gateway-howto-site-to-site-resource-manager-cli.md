@@ -1,5 +1,5 @@
 ---
-title: 'Anslut ditt lokala nätverk till ett Azure-nätverk: Plats-till-plats-VPN: CLI | Microsoft Docs'
+title: 'Anslut ditt lokala nätverk till ett virtuellt Azure-nätverk: Plats-till-plats-VPN: CLI | Microsoft Docs'
 description: Steg för att skapa en IPsec-anslutning från ditt lokala nätverk till ett virtuellt Azure-nätverk via offentligt Internet. Dessa steg hjälper dig att skapa en plats-till-plats-anslutning med VPN Gateway med hjälp av CLI.
 services: vpn-gateway
 author: cherylmc
@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: cherylmc
-ms.openlocfilehash: 18834357651e5fb72dd849a8d8e2e7687f0a8141
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 6cf427ee1dbd47d3b762035abc2236bda65db116
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55730364"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57773188"
 ---
 # <a name="create-a-virtual-network-with-a-site-to-site-vpn-connection-using-cli"></a>Skapa ett virtuellt nätverk med en VPN-anslutning från plats till plats med CLI
 
@@ -36,7 +36,7 @@ En VPN-gatewayanslutning från plats till plats används för att ansluta ditt l
 Kontrollera att du har uppfyllt följande villkor innan du påbörjar konfigurationen:
 
 * Kontrollera att du har en kompatibel VPN-enhet och någon som kan konfigurera den. Se [Om VPN-enheter](vpn-gateway-about-vpn-devices.md) för mer information om kompatibla VPN-enheter och enhetskonfiguration.
-* Kontrollera att du har en extern offentlig IPv4-adress för VPN-enheten. Den här IP-adressen får inte finnas bakom en NAT.
+* Kontrollera att du har en extern offentlig IPv4-adress för VPN-enheten.
 * Om du inte vet vilka IP-adressintervaller som används i din lokala nätverkskonfiguration kontaktar du relevant person som kan ge dig den här informationen. När du skapar den här konfigurationen måste du ange prefix för IP-adressintervall som Azure dirigerar till den lokala platsen. Inget av undernäten i ditt lokala nätverk kan överlappa de virtuella nätverksundernät du vill ansluta till.
 * Du kan använda Azure Cloud Shell för att köra CLI-kommandon (anvisningarna nedan). Om du vill köra kommandon lokalt, kontrollera att du har installerat senaste versionen av CLI-kommandona (2.0 eller senare). Information om att installera CLI-kommandona finns i [Installera Azure CLI](/cli/azure/install-azure-cli) och [Kom igång med Azure CLI](/cli/azure/get-started-with-azure-cli). 
  
@@ -115,7 +115,7 @@ Den lokala nätverksgatewayen avser vanligtvis din lokala plats. Du namnger webb
 
 Ange följande värden:
 
-* *--gateway-ip-address* är IP-adressen till den lokala VPN-enheten. VPN-enheten får inte finnas bakom en NAT.
+* *--gateway-ip-address* är IP-adressen till den lokala VPN-enheten.
 * *--local-address-prefixes* är dina lokala adressutrymmen.
 
 Använd kommandot [az network local-gateway create](/cli/azure/network/local-gateway) för att lägga till en lokal nätverksgateway med flera adressprefix:

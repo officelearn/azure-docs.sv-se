@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 02/08/2019
-ms.openlocfilehash: 90f7ef32a54f257a64942b37938cff5703112d6c
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.date: 03/07/2019
+ms.openlocfilehash: f54e715f555f01a265ed89ac633f207546a73904
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57409877"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57576369"
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>Återställa en Azure SQL database med hjälp av automatiska databassäkerhetskopieringar
 
@@ -141,7 +141,7 @@ Som tidigare beskrivs, utöver Azure portal, kan databasåterställning utföras
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-- Om du vill återställa en fristående eller en databas i pool, se [återställning AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase).
+- Om du vill återställa en fristående eller en databas i pool, se [återställning AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase).
 
   | Cmdlet | Beskrivning |
   | --- | --- |
@@ -153,7 +153,13 @@ Som tidigare beskrivs, utöver Azure portal, kan databasåterställning utföras
   > [!TIP]
   > En PowerShell-exempelskript som visar hur du utför en point-in-time-återställning av en databas, se [återställa en SQL-databas med hjälp av PowerShell](scripts/sql-database-restore-database-powershell.md).
 
-- Om du vill återställa en databas för hanterad instans, se [Point-in-time-återställning av en databas på Azure SQL Managed Instance med hjälp av PowerShell i AzureRm.Sql bibliotek](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/28/point-in-time-restore-of-a-database-on-azure-sql-managed-instance-using-azurerm-sql-powershell-library/).
+- Om du vill återställa en databas för hanterad instans, se [återställning AzSqlInstanceDatabase](/powershell/module/az.sql/restore-azsqlinstancedatabase).
+
+  | Cmdlet | Beskrivning |
+  | --- | --- |
+  | [Get-AzSqlInstance](/powershell/module/az.sql/get-azsqlinstance) |Hämtar en eller flera hanterade instanser. |
+  | [Get-AzSqlInstanceDatabase](/powershell/module/az.sql/get-azsqlinstancedatabase) | Hämtar en instans databaser. |
+  | [Restore-AzSqlInstanceDatabase](/powershell/module/az.sql/restore-azsqlinstancedatabase) |Återställer en databasinstans. |
 
 ### <a name="rest-api"></a>REST-API
 
@@ -166,7 +172,8 @@ Du återställer en enda eller grupperade databas med hjälp av REST-API:
 
 ### <a name="azure-cli"></a>Azure CLI
 
-Om du vill återställa en enskild eller grupperade databas med Azure CLI, se [az sql db restore](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-restore).
+- Om du vill återställa en enskild eller grupperade databas med Azure CLI, se [az sql db restore](/cli/azure/sql/db#az-sql-db-restore).
+- Om du vill återställa en hanterad instans med hjälp av Azure CLI, se [az sql EXTEXTB återställning](/cli/azure/sql/db#az-sql-midb-restore)
 
 ## <a name="summary"></a>Sammanfattning
 

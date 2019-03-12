@@ -4,20 +4,20 @@ ms.service: application-gateway
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: victorh
-ms.openlocfilehash: 66dea07a1ff725c6707b19bc6ebdc5563f1b158b
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 77a391cc661ed33f5888d2b18cb9c5db16498cd6
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54211918"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57554245"
 ---
 | Resurs | Standardgräns | Obs! |
 | --- | --- | --- |
-| Application Gateway |1 000 per prenumeration | |
+| Azure Application Gateway |1 000 per prenumeration | |
 | Frontend IP-konfigurationer |2 |1 offentlig och 1 privat |
 | Klientportar |100<sup>1</sup> | |
 | Backend-adresspooler |100<sup>1</sup> | |
-| Backend-servrar per pool |1200 | |
+| Backend-servrar per pool |1,200 | |
 | HTTP-lyssnare |100<sup>1</sup> | |
 | Regler för HTTP-belastningsutjämning |100<sup>1</sup> | |
 | Backend-HTTP-inställningar |100<sup>1</sup> | |
@@ -31,10 +31,10 @@ ms.locfileid: "54211918"
 | URL-mappningar per lyssnare |1 | |
 | Maximal sökväg-baserade regler per URL: en karta|100||
 | Omdirigerings-konfigurationer |100<sup>1</sup>| |
-| Samtidiga WebSocket-anslutningar |5000| |
-| Maximal URL-längd|8000||
-| Maximala storleken för filöverföring Standard |2 GB | |
-| Maximal uppladdning storlek WAF |Medelhög WAF-gatewayer – 100 MB<br>Stora WAF-gatewayer – 500 MB| |
-| Storleksgräns för WAF brödtext (utan-filer)|128 KB||
+| Samtidiga WebSocket-anslutningar |5 000| |
+| Maximal URL-längd|8,000||
+| Ladda upp för maximal filstorlek, Standard |2 GB | |
+| Maximal uppladdning storlek WAF |Medelhög WAF-gatewayer, 100 MB<br>Stora WAF-gatewayer, 500 MB| |
+| WAF storleksgräns brödtext, utan filer|128 KB||
 
-<sup>1</sup> vid WAF-aktiverade SKU: er rekommenderar vi att du begränsar antalet resurser till 40 för optimala prestanda.
+<sup>1</sup> vid WAF-aktiverade SKU: er, rekommenderar vi att du begränsar antalet resurser till 40 för optimala prestanda.

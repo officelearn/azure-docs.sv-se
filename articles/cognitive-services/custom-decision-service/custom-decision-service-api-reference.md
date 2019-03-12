@@ -10,12 +10,12 @@ ms.subservice: custom-decision-service
 ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: slivkins
-ms.openlocfilehash: 2feaa6fa87b6e788683ad543bfb7780b0e517506
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: be9966f5d8e8d94aa3f49aac91b35b105195b108
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55867349"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57552071"
 ---
 # <a name="api"></a>API
 
@@ -44,7 +44,7 @@ Infoga det här kodfragmentet i HTML-huvudet på klient sidan (där en lista öv
 > Återanropsfunktionen måste definieras innan anropet till API: et rangordning.
 
 > [!TIP]
-> För att förbättra svarstiden, rangordning API: et exponeras via HTTP i stället för HTTPS, som i `http://ds.microsoft.com/api/v2/<appId>/rank/*`.
+> För att förbättra svarstiden, rangordning API: et exponeras via HTTP i stället för HTTPS, som i `https://ds.microsoft.com/api/v2/<appId>/rank/*`.
 > En HTTPS-slutpunkt måste dock användas om sidan klient hanteras via HTTPS.
 
 När parametrar inte används är HTTP-svaret från API: et rangordning en JSONP-formaterad sträng:

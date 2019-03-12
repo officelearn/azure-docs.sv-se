@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 02/15/2019
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: bfa616fb16470a3543f8c981a0104f6bda24cf4d
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: eb7a98d22e9005bb1d5db2f1fbd35a1279d84703
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56823490"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57537241"
 ---
 # <a name="troubleshoot-common-issues-in-azure-container-instances"></a>Felsöka vanliga problem i Azure Container Instances
 
@@ -197,7 +197,7 @@ På grund av varierande regionbaserad resurs läsa in i Azure, kan du få följa
 
 Det här felet indikerar att på grund av hög belastning i den region där du vill distribuera de resurser som angetts för din behållare inte kan allokeras vid den tidpunkten. Använda en eller flera av följande åtgärderna för att lösa problemet.
 
-* Kontrollera behållarinställningarna för distributionen faller inom de parametrar som definierats i [kvoter och regiontillgänglighet för Azure Container Instances](container-instances-quotas.md#region-availability)
+* Kontrollera behållarinställningarna för distributionen faller inom de parametrar som definierats i [regiontillgänglighet för Azure Container Instances](container-instances-region-availability.md)
 * Ange inställningar för lägre CPU och minne för behållaren
 * Distribuera till en annan Azure-region
 * Distribuera vid ett senare tillfälle

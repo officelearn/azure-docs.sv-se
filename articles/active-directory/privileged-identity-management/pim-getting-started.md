@@ -14,12 +14,12 @@ ms.date: 11/09/2018
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 09914de48df09dabd4069cd33e7acbea328fa89d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 26e94c9b56ba65e3a7c51c1a85e97f7521377bae
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56193160"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57546865"
 ---
 # <a name="start-using-pim"></a>Börja använda PIM
 
@@ -106,7 +106,6 @@ Du kan utföra dina identitetshanteringsaktiviteter när PIM har ställts in.
 | --- | --- |
 | **Mina roller**  | Visar en lista över tillgängliga och aktiva roller som är tilldelade till dig. Här kan du aktivera tilldelade berättigade roller. |
 | **Mina begäranden** | Visar väntande förfrågningar om att aktivera kvalificerade rolltilldelningar. |
-| **Programåtkomst** | Gör det möjligt för dig att minska potentiella fördröjningar och Använd en roll omedelbart efter aktiveringen. |
 | **Godkänna förfrågningar** | Visar en lista över förfrågningar om att aktivera berättigade roller av användare i din katalog som du är gjorda för att godkänna. |
 | **Granska åtkomst** | Visar en lista över aktiva åtkomstgranskningar som du har tilldelats slutföra, oavsett om du granskar åtkomst åt dig själv eller någon annan. |
 | **Azure AD-roller** | Visar en instrumentpanel och inställningar för privilegierade rolladministratörer att hantera rolltilldelningar för Azure AD-katalog. Instrumentpanelen är inaktiverad för alla som inte är en privilegierad rolladministratör. De här användarna har åtkomst till en särskild instrumentpanel som heter My view (Min vy). Instrumentpanelen My view (Min vy) visar endast information om användaren som har åtkomst till instrumentpanelen, inte hela klientorganisationen. |

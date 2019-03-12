@@ -8,12 +8,12 @@ ms.assetid: ef497a54-dc4d-4820-b5bf-c361b64b964d
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: 5d05371d9b948dc2f7d6f834eb9431af80fc6365
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 788e7a453e9879d9c901448659ff1c8cfa7201ff
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47406880"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57548327"
 ---
 # <a name="azure-data-catalog-prerequisites"></a>Förutsättningar för Azure Data Catalog
 
@@ -30,7 +30,7 @@ Om du vill konfigurera Data Catalog, måste du vara inloggad med ett användarko
 Azure AD tillhandahåller ett enkelt sätt för ditt företag att hantera identitet och åtkomst, både i molnet och lokalt. Användare kan använda ett arbets- eller skolkonto för enkel inloggning till alla moln och lokala webbprogram. Data Catalog använder Azure AD för att autentisera inloggningen. Mer information finns i [vad är Azure Active Directory?](../active-directory/fundamentals/active-directory-whatis.md).
 
 > [!NOTE]
-> Med hjälp av den [Azure-portalen](http://portal.azure.com/), kan du logga in med ett personligt microsoftkonto eller ett Azure Active Directory arbets- eller skolkonto. Du ställer in Data Catalog genom att använda antingen Azure portal eller [Data Catalog-portalen](http://www.azuredatacatalog.com), måste du logga in med ett Azure Active Directory-konto, inte ett personligt konto.
+> Med hjälp av den [Azure-portalen](https://portal.azure.com/), kan du logga in med ett personligt microsoftkonto eller ett Azure Active Directory arbets- eller skolkonto. Du ställer in Data Catalog genom att använda antingen Azure portal eller [Data Catalog-portalen](https://www.azuredatacatalog.com), måste du logga in med ett Azure Active Directory-konto, inte ett personligt konto.
 >
 >
 
@@ -41,7 +41,7 @@ Registreringsverktyget använder formulärautentisering för att verifiera dina 
 
 I den globala autentiseringsprincipen kan autentiseringsmetoder aktiveras separat för intranät- och Extranätsanslutningar, som visas i följande skärmbild. Inloggningsfel kan uppstå om formulärautentisering inte är aktiverad för det virtuella nätverket som du ansluter.
 
- ![Active Directory Global autentiseringsprincip](./media/data-catalog-prerequisites/global-auth-policy.png)
+ ![Active Directory Global Authentication Policy](./media/data-catalog-prerequisites/global-auth-policy.png)
 
 ## <a name="next-steps"></a>Nästa steg
 Mer information finns i [konfigurera autentiseringsprinciper](https://technet.microsoft.com/library/dn486781.aspx).

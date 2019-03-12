@@ -15,12 +15,12 @@ ms.date: 01/14/2019
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 299ea79a7a344a57bf302aae049ba87234427343
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 857aa71a4812534030ca638fd8bab11f60535ea0
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57442791"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57536954"
 ---
 # <a name="tutorial-create-a-geo-distributed-app-solution-with-azure-and-azure-stack"></a>Självstudier: Skapa en applösning för geo-distribuerad med Azure och Azure Stack
 
@@ -507,9 +507,9 @@ När App Service har överfört certifikatet, visas den i den **SSL-inställning
 
 1.  I den **Lägg till SSL-bindning** kan du använda listrutorna för att välja domännamn för att skydda och certifikatet som ska användas.
 
-2.  I **SSL-typ**, Välj om du vill använda [ **(Servernamnindikator)**](http://en.wikipedia.org/wiki/Server_Name_Indication)eller IP-baserad SSL.
+2.  I **SSL-typ**, Välj om du vill använda [ **(Servernamnindikator)**](https://en.wikipedia.org/wiki/Server_Name_Indication)eller IP-baserad SSL.
 
--   **SNI-baserad SSL**-flera SNI-baserad SSL-bindningar kan läggas till. Med det här alternativet kan flera SSL-certifikat skydda flera domäner på samma IP-adress. De flesta moderna webbläsare (inklusive Internet Explorer, Chrome, Firefox och Opera) stöder SNI (mer information om webbläsare som stöds finns i [Servernamnindikator](http://wikipedia.org/wiki/Server_Name_Indication)).
+-   **SNI-baserad SSL**-flera SNI-baserad SSL-bindningar kan läggas till. Med det här alternativet kan flera SSL-certifikat skydda flera domäner på samma IP-adress. De flesta moderna webbläsare (inklusive Internet Explorer, Chrome, Firefox och Opera) stöder SNI (mer information om webbläsare som stöds finns i [Servernamnindikator](https://wikipedia.org/wiki/Server_Name_Indication)).
 
 -   **IP-baserad SSL**-endast en IP-baserad SSL-bindning kan läggas till. Med det här alternativet tillåts endast ett SSL-certifikat för att skydda en dedikerad offentlig IP-adress. Om du vill skydda flera domäner, skydda dem alla med hjälp av samma SSL-certifikat. Detta är det vanligaste alternativet för SSL-bindning.
 

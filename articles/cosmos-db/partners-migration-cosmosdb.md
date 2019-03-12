@@ -6,12 +6,12 @@ ms.author: sngun
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/07/2018
-ms.openlocfilehash: 255182fe5e6c5576077dc97831628e4a13dfc026
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 748f4562e1efd613b87dd5ab44a83d3d50171f67
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453536"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57539929"
 ---
 # <a name="azure-cosmos-db-nosql-migration-and-application-development-partners"></a>Azure Cosmos DB NoSQL migrering och application development partner
 
@@ -22,34 +22,34 @@ Från NoSQL migrering till programutveckling, kan du välja från en mängd olik
 |**Partner**  |**Funktioner och upplevelse**  |**Länder som stöds**  |**Kontakta**  |
 |---------|---------|---------|---------|
 |![ImanisData][1]   | [Datamigrering](https://www.imanisdata.com/wp-content/uploads/2018/02/Imanis_DS_MongoDB_Azure_FINAL.pdf) från MongoDB till Azure Cosmos DB. <br/> Imanis Data kan globala företag snabbt och enkelt migrera sina lokala eller molnbaserade MongoDB-databaser till Azure Cosmos DB. Imanis Data tillhandahåller en agentfri, inkrementella alltid molnet förhållningssätt till Databasmigrering för MongoDB-datalager som förenklar migreringen och minskar avsevärt driftstopp.|  USA  |   [Webbplats](http://www.imanisdata.com/)      |
-|![Striims][2]    |  [Flytta data i realtid till Azure Cosmos DB](https://www.striim.com/striim-for-azure-cosmos-db/) från en mängd olika datakällor. <br/> Striims förenklar i realtid insamling och flödet av data från en mängd olika lokala källor, till exempel enterprise dokumentet och relationsdatabaser, sensorer och loggfilerna till Azure Cosmos DB. |   USA   |  [Webbplats](http://www.striim.com/)       |
+|![Striims][2]    |  [Flytta data i realtid till Azure Cosmos DB](https://www.striim.com/striim-for-azure-cosmos-db/) från en mängd olika datakällor. <br/> Striims förenklar i realtid insamling och flödet av data från en mängd olika lokala källor, till exempel enterprise dokumentet och relationsdatabaser, sensorer och loggfilerna till Azure Cosmos DB. |   USA   |  [Webbplats](https://www.striim.com/)       |
 
 ## <a name="systems-integrator-partners"></a>Systemintegrationspartner
 
 |**Partner**  |**Funktioner och upplevelse**  |**Länder som stöds**  |**Kontakta**  |
 |---------|---------|---------|---------|
 | ![10thMagnitude][13] | NoSQL-migrering; Ny apputveckling | USA | [Webbplats](https://www.10thmagnitude.com/)|
-|![Altoros utveckling LLC][3]    |  NoSQL-migrering <br/> Appinnovation (befintliga appar) <br/> Ny apputveckling |   USA, Norge, Finland, Vitryssland, Argentina |  [Webbplats](http://www.altoros.com/)     |
-|![Attunix Redapt][4]     |   NoSQL-migrering <br/> Appinnovation (befintliga appar) <br/> Ny apputveckling      |    USA     |  [Webbplats](http://www.attunix.com/)       |
+|![Altoros utveckling LLC][3]    |  NoSQL-migrering <br/> Appinnovation (befintliga appar) <br/> Ny apputveckling |   USA, Norge, Finland, Vitryssland, Argentina |  [Webbplats](https://www.altoros.com/)     |
+|![Attunix Redapt][4]     |   NoSQL-migrering <br/> Appinnovation (befintliga appar) <br/> Ny apputveckling      |    USA     |  [Webbplats](https://www.attunix.com/)       |
 | ![Avanade][26] | Ny apputveckling <br/> Appinnovation (befintliga appar) | Österrike, Tyskland, Schweiz, Italien, Norge, Spanien, Storbritannien | [Webbplats](https://www.avanade.com/)
 |![Bluemetal Architects][5]     |  NoSQL-migrering <br/> Appinnovation (befintliga appar) <br/> Ny apputveckling       |    Nordamerika, Asien –     |  [Webbplats](http://www.bluemetal.com/)       |
-|![Capax globala LLC][6]     |  NoSQL-migrering <br/> Appinnovation (befintliga appar) <br/> Ny apputveckling       |    USA     |  [Webbplats](http://www.capaxglobal.com/)       |
+|![Capax globala LLC][6]     |  NoSQL-migrering <br/> Appinnovation (befintliga appar) <br/> Ny apputveckling       |    USA     |  [Webbplats](https://www.capaxglobal.com/)       |
 | ![Capgemini][14] | NoSQL-migrering; Appinnovation (befintliga appar); Ny apputveckling | USA, Frankrike, Storbritannien, Nederländerna, Finland  | [Webbplats](https://www.capgemini.com/) | 
 |![Coeo][7]     |   Appinnovation (befintliga appar) <br/> Ny apputveckling |    Storbritannien     |  [Webbplats](http://www.coeo.com/)       |
 | ![Cognizant][15] | NoSQL-migrering |USA, Kanada, Storbritannien, Danmark, Nederländerna, Schweiz, Australien, Japan | [Webbplats](https://www.cognizant.com/)|
-|![Infosys][8]     |  NoSQL-migrering       |    Global     |  [Webbplats](http://www.infosys.com/)       |
+|![Infosys][8]     |  NoSQL-migrering       |    Global     |  [Webbplats](https://www.infosys.com/)       |
 | ![Lagash][16] | NoSQL-migrering <br/> Ny apputveckling | Argentina, Chile, Colombia, Mexiko| [Webbplats](https://www.lagash.com/)|
 | ![Lambda3 Informatics][17] | NoSQL-migrering <br/> Ny apputveckling | Brasilien| [Webbplats](https://www.lambda3.com.br/)|
-|![Neal Analytics][9]     |     Utveckling av appar (nya appar)    |    USA     |  [Webbplats](http://www.nealanalytics.com/)       |
-|![Pragmatic fungerar programvara Inc][10]    |   NoSQL-migrering      |   USA      |  [Webbplats](http://www.pragmaticworks.com/)       |
+|![Neal Analytics][9]     |     Utveckling av appar (nya appar)    |    USA     |  [Webbplats](https://www.nealanalytics.com/)       |
+|![Pragmatic fungerar programvara Inc][10]    |   NoSQL-migrering      |   USA      |  [Webbplats](https://www.pragmaticworks.com/)       |
 | ![Ricoh globala][18] | NoSQL-migrering <br/> Appinnovation (befintliga appar)| Storbritannien  | [Webbplats](https://www.ricoh.com/)|
 | ![SNP tekniker][19] | NoSQL-migrering| USA | [Webbplats](https://www.snp.com/)|
 | ![Solidsoft svar][20] | NoSQL-migrering | Kroatien, Sverige, Danmark, Irland, Bulgarien, Slovenien, Cypern, Malta, Litauen, Tjeckien, Island och Schweiz och Liechtenstein| [Webbplats](https://www.reply.com/solidsoft-reply/)|
 | ![Spanska peka tekniker][21] | NoSQL-migrering| Irland| [Webbplats](https://www.spanishpoint.ie/)|
 | ![Syone][22] | NoSQL-migrering| Portugal| [Webbplats](https://www.syone.com/)|
-|![Tallan][11]    |  NoSQL-migrering <br/> Appinnovation (befintliga appar) <br/> Ny apputveckling       |    USA     |  [Webbplats](http://www.tallan.com/)       |
+|![Tallan][11]    |  NoSQL-migrering <br/> Appinnovation (befintliga appar) <br/> Ny apputveckling       |    USA     |  [Webbplats](https://www.tallan.com/)       |
 | ![KAMERASYSTEM][23] | Appinnovation (befintliga appar) <br/> Ny apputveckling | USA, Storbritannien, Frankrike, Malaysia, Danmark, Norge, Sverige| [Webbplats](https://www.tcs.com/)|
-|![VTeamLabs][12]    | NoSQL-migrering       |  USA      | [Webbplats](http://www.vteamlabs.com/)       |
+|![VTeamLabs][12]    | NoSQL-migrering       |  USA      | [Webbplats](https://www.vteamlabs.com/)       |
 | ![Vit ankor][24] |NoSQL-migrering <br/> Ny apputveckling | Tyskland | [Webbplats](https://whiteducksoftware.com/)|
 | ![Visa IT][25] | Ny apputveckling | Portugal, Storbritannien| [Webbplats](https://www.xpand-it.com/)|
 

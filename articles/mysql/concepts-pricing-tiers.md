@@ -6,12 +6,12 @@ ms.author: janeng
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 02/01/2019
-ms.openlocfilehash: d84e3f834bd598bbd2cf84dfc46f6cd5507f6d8b
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: 21ddeb9cb0621f0f11ca23a7b12a82df0b7aa8ca
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56587131"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57546682"
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>Azure Database för MySQL prisnivåer
 
@@ -50,30 +50,30 @@ Compute-resurser som tillhandahålls som vCores, som representerar en logisk CPU
 |:---|:----------:|:--------------------:|
 | Centrala USA |  | X |
 | Östra USA |  | X |
-| USA, östra 2 | X | X |
-| Norra centrala USA | X | X |
+| USA, östra 2 |  | X |
+| Norra centrala USA |  | X |
 | Södra centrala USA | X | X |
-| Västra USA | X | X |
+| Västra USA |  | X |
 | Västra USA 2 |  | X |
-| Södra Brasilien | X | X |
-| Centrala Kanada | X | X |
-| Östra Kanada | X | X |
+| Södra Brasilien |  | X |
+| Centrala Kanada |  | X |
+| Östra Kanada |  | X |
 | Norra Europa | X | X |
 | Västra Europa |  | X |
 | Frankrike, centrala |  | X |
 | Storbritannien, södra |  | X |
 | Storbritannien, västra |  | X |
-| Östasien | X | X |
+| Östasien |  | X |
 | Sydostasien | X | X |
 | Östra Australien |  | X |
 | Australien, centrala |  | X |
 | Australien, centrala 2 |  | X |
 | Sydöstra Australien |  | X |
-| Indien, centrala | X | X |
+| Indien, centrala |  | X |
 | Södra Indien |  | X |
-| Indien, västra | X | X |
+| Indien, västra |  | X |
 | Östra Japan | X | X |
-| Västra Japan | X | X |
+| Västra Japan |  | X |
 | Sydkorea, centrala |  | X |
 | Sydkorea, södra |  | X |
 | Östra Kina 1 | X |  |

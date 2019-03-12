@@ -4,16 +4,16 @@ description: Lär dig hur du väljer en Azure-lösning för att överföra data 
 services: storage
 author: alkohli
 ms.service: storage
-ms.subservice: blob
+ms.subservice: blobs
 ms.topic: article
 ms.date: 12/07/2018
 ms.author: alkohli
-ms.openlocfilehash: bc5668d826395fb71ee70907f095303a43f1ec7f
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 4a8a014b365974bb8c138c74197d3d89cc63e42e
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54214325"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57771988"
 ---
 # <a name="data-transfer-for-large-datasets-with-moderate-to-high-network-bandwidth"></a>Dataöverföringen för stora datauppsättningar med måttlig till hög nätverksbandbredd
  
@@ -72,7 +72,7 @@ Om du använder offline dataöverföring, information om skillnaderna i viktiga 
 |    Exportera data från Azure           |    Nej                           |    Nej                                            |    Nej                                    |    Ja                                 |
 |    Kryptering                       |    AES 128-bitars                  |    AES 256-bitars                                   |    AES 256-bitars                           |    AES 128-bitars                         |
 |    Maskinvara                         |     Från Microsoft          |    Från Microsoft                            |    Från Microsoft                    |    Kunder som har angetts                   |
-|    Nätverksgränssnitt                |    USB-3.1/SATA                 |    RJ-45, SFP +                                   |    RJ45, QSFP +                           |    SATA II/SATA III                    |
+|    Nätverksgränssnitt                |    USB 3.1/SATA                 |    RJ 45, SFP+                                   |    RJ45, QSFP+                           |    SATA II/SATA III                    |
 |    Partnerintegration              |    Vissa                         |    [Hög](https://azuremarketplace.microsoft.com/campaigns/databox/azure-data-box)                                          |    [Hög](https://azuremarketplace.microsoft.com/campaigns/databox/azure-data-box)                                  |    Vissa                                |
 |    Fraktas                         |    Hanteras av Microsoft            |    Hanteras av Microsoft                             |    Hanteras av Microsoft                     |    Hanteras av kunden                    |
 | Använd när data flyttas         |Inom ett handel|Inom ett handel|Inom ett handel|Över geografiska gränser, t.ex. Vi kan EU|
@@ -83,9 +83,9 @@ Om du använder online dataöverföring, Använd tabell i följande avsnitt för
 
 ### <a name="high-network-bandwidth"></a>Hög nätverksbandbredd
 
-|                                     |    Verktyg för AzCopy <br>Azure PowerShell <br>Azure CLI             |    Azure Storage REST API: er, SDK: er                   |    Data Box-Gateway eller Data Box Edge (förhandsversion)           |    Azure Data Factory                                            |
+|                                     |    Verktyg för AzCopy <br>Azure PowerShell, <br>Azure CLI             |    Azure Storage REST API: er, SDK: er                   |    Data Box-Gateway eller Data Box Edge (förhandsversion)           |    Azure Data Factory                                            |
 |-------------------------------------|------------------------------------|----------------------------------------------|----------------------------------|-----------------------------------------------------------------------|
-|    Datatyp                  |    Azure-Blobs, Azure Files, Azure-tabeller    |    Azure-Blobs, Azure Files, Azure-tabeller    |    Azure-Blobs, Azure Files                           |   Stöder 70 + dataanslutningar för datalager och format    |
+|    Datatyp                  |    Azure-Blobs, Azure Files, Azure-tabeller    |    Azure-Blobs, Azure Files, Azure-tabeller    |    Azure Blobs, Azure Files                           |   Stöder 70 + dataanslutningar för datalager och format    |
 |    Formfaktor                |    Kommandoradsverktyg                        |    Programmeringsgränssnitt                    |    Microsoft tillhandahåller en virtuell <br>eller fysisk enhet     |    Tjänsten i Azure portal                                            |
 |    Enstaka installationen     |    Enkelt               |    Mellan                       |    Enkelt (< 30 minuter) till måttlig (1 – 2 timmar)            |    Omfattande                                                          |
 |    Förbearbetning av data              |    Nej                                        |    Nej                                        |    Ja (med Edge-beräkning)                               |    Ja                                                                |

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: kasinh
-ms.openlocfilehash: 35f9b76e27a0977a25f6d060f7362bc417e0568e
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 7e8043badbc0accd38ad618a7d455729ab6606b2
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55813865"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57541302"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure"></a>Säkerhetskopiera en SharePoint-servergrupp till Azure
 Du säkerhetskopiera en SharePoint-servergrupp till Microsoft Azure med hjälp av System Center Data Protection Manager (DPM) på samma sätt som du säkerhetskopiera andra datakällor. Azure Backup erbjuder flexibilitet i schemat för säkerhetskopiering så att dagligen, varje vecka, månad eller årlig säkerhetskopiering pekar och ger dig alternativ för kvarhållning för olika säkerhetskopieringspunkter. DPM ger möjlighet att lagra kopior av lokal disk för snabb återställning-återställningstiden (RTO) och för att lagra kopior till Azure för mer ekonomiskt, långsiktig kvarhållning.
@@ -47,7 +47,7 @@ Medan prestanda beror på många faktorer, till exempel storleken på SharePoint
 
 ### <a name="dpm-update-rollup-5"></a>DPM Samlad uppdatering 5
 Du måste installera DPM Samlad uppdatering 5 eller senare för att börja skydda en SharePoint-servergrupp till Azure. Samlad uppdatering 5 ger möjlighet att skydda en SharePoint-servergrupp till Azure om servergruppen konfigureras med hjälp av SQL AlwaysOn.
-Mer information finns i bloggen inlägg som introducerar [DPM Samlad uppdatering 5](http://blogs.technet.com/b/dpm/archive/2015/02/11/update-rollup-5-for-system-center-2012-r2-data-protection-manager-is-now-available.aspx)
+Mer information finns i bloggen inlägg som introducerar [DPM Samlad uppdatering 5](https://blogs.technet.com/b/dpm/archive/2015/02/11/update-rollup-5-for-system-center-2012-r2-data-protection-manager-is-now-available.aspx)
 
 ### <a name="whats-not-supported"></a>Vad som inte stöds
 * DPM som skyddar en SharePoint-servergrupp skyddar inte sökindex eller programtjänstdatabaser. Du måste konfigurera skyddet av databaserna separat.
@@ -240,6 +240,6 @@ Ja, objektet kan återställas till den ursprungliga SharePoint-webbplatsen.
 Eftersom SharePoint-databaserna har konfigurerats i SQL AlwaysOn, kan inte de ändras om inte tillgänglighetsgruppen tas bort. Därför kan kan inte DPM återställa en databas till den ursprungliga platsen. Du kan återställa en SQL Server-databas till en annan SQL Server-instans.
 
 ## <a name="next-steps"></a>Nästa steg
-* Mer information om DPM-skydd av SharePoint - Se [Video-serien – DPM skydd av SharePoint](http://channel9.msdn.com/Series/Azure-Backup/Microsoft-SCDPM-Protection-of-SharePoint-1-of-2-How-to-create-a-SharePoint-Protection-Group)
+* Mer information om DPM-skydd av SharePoint - Se [Video-serien – DPM skydd av SharePoint](https://channel9.msdn.com/Series/Azure-Backup/Microsoft-SCDPM-Protection-of-SharePoint-1-of-2-How-to-create-a-SharePoint-Protection-Group)
 * Granska [viktig information för System Center 2012 – Data Protection Manager](https://technet.microsoft.com/library/jj860415.aspx)
 * Granska [och viktig information om Data Protection Manager i System Center 2012 SP1](https://technet.microsoft.com/library/jj860394.aspx)

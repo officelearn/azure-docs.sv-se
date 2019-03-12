@@ -1,5 +1,5 @@
 ---
-title: 'REST API: Filsystemsåtgärder på Azure Data Lake Storage Gen1 | Microsoft Docs'
+title: 'REST-API: Filsystemsåtgärder på Azure Data Lake Storage Gen1 | Microsoft Docs'
 description: 'Använd WebHDFS REST API: er för att utföra filsystemsåtgärder på Azure Data Lake Storage Gen1'
 services: data-lake-store
 documentationcenter: ''
@@ -11,18 +11,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 62ecf3b1983853629f6bc5fd594231188aa67bcd
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 4c61d68a948cbc5638dab30713871d1aaf822f03
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391614"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57529265"
 ---
 # <a name="filesystem-operations-on-azure-data-lake-storage-gen1-using-rest-api"></a>Filsystemsåtgärder på Azure Data Lake Storage Gen1 med hjälp av REST API
 > [!div class="op_single_selector"]
 > * [.NET SDK](data-lake-store-data-operations-net-sdk.md)
 > * [Java SDK](data-lake-store-get-started-java-sdk.md)
-> * [REST API](data-lake-store-data-operations-rest-api.md)
+> * [REST-API](data-lake-store-data-operations-rest-api.md)
 > * [Python](data-lake-store-data-operations-python.md)
 >
 > 
@@ -34,7 +34,7 @@ I den här artikeln får du lära dig hur du använder WebHDFS REST API: er och 
 
 * **Azure Data Lake Storage Gen1 konto**. Följ anvisningarna på [Kom igång med Azure Data Lake Storage Gen1 med Azure portal](data-lake-store-get-started-portal.md).
 
-* **[cURL](http://curl.haxx.se/)**. Den här artikeln använder cURL för att demonstrera hur du gör REST API-anrop mot ett Data Lake Storage Gen1-konto.
+* **[cURL](https://curl.haxx.se/)**. Den här artikeln använder cURL för att demonstrera hur du gör REST API-anrop mot ett Data Lake Storage Gen1-konto.
 
 ## <a name="how-do-i-authenticate-using-azure-active-directory"></a>Hur autentiserar jag med Azure Active Directory?
 Du kan använda två sätt för att autentisera med Azure Active Directory.
@@ -44,7 +44,7 @@ Du kan använda två sätt för att autentisera med Azure Active Directory.
 
 
 ## <a name="create-folders"></a>Skapa mappar
-Den här åtgärden är baserad på det WebHDFS REST API-anrop som definierats [här](http://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Make_a_Directory).
+Den här åtgärden är baserad på det WebHDFS REST API-anrop som definierats [här](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Make_a_Directory).
 
 Använd följande cURL-kommando. Ersätt  **\<yourstorename >** med namnet på ditt Data Lake Storage Gen1.
 
@@ -57,7 +57,7 @@ Om åtgärden slutförs bör du se ett svar som följande fragment:
     {"boolean":true}
 
 ## <a name="list-folders"></a>Lista mappar
-Den här åtgärden är baserad på det WebHDFS REST API-anrop som definierats [här](http://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#List_a_Directory).
+Den här åtgärden är baserad på det WebHDFS REST API-anrop som definierats [här](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#List_a_Directory).
 
 Använd följande cURL-kommando. Ersätt  **\<yourstorename >** med namnet på ditt Data Lake Storage Gen1.
 
@@ -85,7 +85,7 @@ Om åtgärden slutförs bör du se ett svar som följande fragment:
     }
 
 ## <a name="upload-data"></a>Ladda upp data
-Den här åtgärden är baserad på det WebHDFS REST API-anrop som definierats [här](http://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Create_and_Write_to_a_File).
+Den här åtgärden är baserad på det WebHDFS REST API-anrop som definierats [här](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Create_and_Write_to_a_File).
 
 Använd följande cURL-kommando. Ersätt  **\<yourstorename >** med namnet på ditt Data Lake Storage Gen1.
 
@@ -107,7 +107,7 @@ De utdata som genereras liknar följande fragment:
     ...
 
 ## <a name="read-data"></a>Läsa data
-Den här åtgärden är baserad på det WebHDFS REST API-anrop som definierats [här](http://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Open_and_Read_a_File).
+Den här åtgärden är baserad på det WebHDFS REST API-anrop som definierats [här](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Open_and_Read_a_File).
 
 Läsa data från ett Data Lake Storage Gen1 är konto en tvåstegsprocess.
 
@@ -131,7 +131,7 @@ Du bör se utdata som liknar följande fragment:
     Hello, Data Lake Store user!
 
 ## <a name="rename-a-file"></a>Byt namn på en fil
-Den här åtgärden är baserad på det WebHDFS REST API-anrop som definierats [här](http://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Rename_a_FileDirectory).
+Den här åtgärden är baserad på det WebHDFS REST API-anrop som definierats [här](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Rename_a_FileDirectory).
 
 Använd kommandot cURL för att byta namn på en fil. Ersätt  **\<yourstorename >** med namnet på ditt Data Lake Storage Gen1.
 
@@ -145,7 +145,7 @@ Du bör se utdata som liknar följande fragment:
     {"boolean":true}
 
 ## <a name="delete-a-file"></a>Ta bort en fil
-Den här åtgärden är baserad på det WebHDFS REST API-anrop som definierats [här](http://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Delete_a_FileDirectory).
+Den här åtgärden är baserad på det WebHDFS REST API-anrop som definierats [här](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Delete_a_FileDirectory).
 
 Använd kommandot cURL för att ta bort en fil. Ersätt  **\<yourstorename >** med namnet på ditt Data Lake Storage Gen1.
 

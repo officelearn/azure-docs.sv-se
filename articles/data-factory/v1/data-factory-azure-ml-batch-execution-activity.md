@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: fe671dec730cd1a593c6413c38625677c3f9d164
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 6c71956bf43a0147d5abff4b708be93f62fe34fa
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55894113"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57545069"
 ---
 # <a name="create-predictive-pipelines-using-azure-machine-learning-and-azure-data-factory"></a>Skapa förutsägande pipelines med Azure Machine Learning och Azure Data Factory
 
@@ -303,7 +303,7 @@ Vi rekommenderar att du går igenom den [skapa din första pipeline med Data Fac
     }
     ```
 
-      Båda **starta** och **slutet** datum och tid måste vara i [ISO-format](http://en.wikipedia.org/wiki/ISO_8601). Exempel: 2014-10-14T16:32:41Z. Den **slutet** är valfri. Om du inte anger värdet för den **slutet** egenskapen, beräknas det som ”**start + 48 timmar.**” Om du vill köra pipelinen på obestämd tid, anger du **9999-09-09** som värde för **slut**egenskapen. Se [Referens för JSON-skript](https://msdn.microsoft.com/library/dn835050.aspx) för information om JSON-egenskaper.
+      Båda **starta** och **slutet** datum och tid måste vara i [ISO-format](https://en.wikipedia.org/wiki/ISO_8601). Exempel: 2014-10-14T16:32:41Z. Den **slutet** är valfri. Om du inte anger värdet för den **slutet** egenskapen, beräknas det som ”**start + 48 timmar.**” Om du vill köra pipelinen på obestämd tid, anger du **9999-09-09** som värde för **slut**egenskapen. Se [Referens för JSON-skript](https://msdn.microsoft.com/library/dn835050.aspx) för information om JSON-egenskaper.
 
       > [!NOTE]
       > Genom att ange indata för AzureMLBatchExecution är aktivitet valfritt.
@@ -407,7 +407,7 @@ När du använder läsmodulen i ett Azure Machine Learning-experiment, kan du an
 I JSON-exemplet ovan:
 
 * Den distribuerade Azure Machine Learning Web-tjänsten använder en läsare och en skrivarmodul för att läsa/skriva data från/till en Azure SQL Database. Den här webbtjänsten exponerar följande fyra parametrar:  -Databasens servernamn, databasnamn, Server användarens kontonamn och Server lösenord.
-* Båda **starta** och **slutet** datum och tid måste vara i [ISO-format](http://en.wikipedia.org/wiki/ISO_8601). Exempel: 2014-10-14T16:32:41Z. Den **slutet** är valfri. Om du inte anger värdet för den **slutet** egenskapen, beräknas det som ”**start + 48 timmar.**” Om du vill köra pipelinen på obestämd tid, anger du **9999-09-09** som värde för **slut**egenskapen. Se [Referens för JSON-skript](https://msdn.microsoft.com/library/dn835050.aspx) för information om JSON-egenskaper.
+* Båda **starta** och **slutet** datum och tid måste vara i [ISO-format](https://en.wikipedia.org/wiki/ISO_8601). Exempel: 2014-10-14T16:32:41Z. Den **slutet** är valfri. Om du inte anger värdet för den **slutet** egenskapen, beräknas det som ”**start + 48 timmar.**” Om du vill köra pipelinen på obestämd tid, anger du **9999-09-09** som värde för **slut**egenskapen. Se [Referens för JSON-skript](https://msdn.microsoft.com/library/dn835050.aspx) för information om JSON-egenskaper.
 
 ### <a name="other-scenarios"></a>Andra scenarier
 #### <a name="web-service-requires-multiple-inputs"></a>Webbtjänsten kräver flera inmatningar
@@ -557,7 +557,7 @@ Mer information om Azure Blob-/ Azure SQL-läsare/skrivaren finns [läsare](http
 ## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 **F:** Jag har flera filer som genereras av min stordatapipelines. Kan jag använda AzureMLBatchExecution aktiviteten för att arbeta med alla filer?
 
-**A:** Ja. Se den **med hjälp av en modul för dataläsare för att läsa data från flera filer i Azure Blob** information.
+**S:** Ja. Se den **med hjälp av en modul för dataläsare för att läsa data från flera filer i Azure Blob** information.
 
 ## <a name="azure-machine-learning-studio-batch-scoring-activity"></a>Azure Machine Learning studio Batch bedömning aktivitet
 Om du använder den **AzureMLBatchScoring** aktivitet för att integrera med Azure Machine Learning, rekommenderar vi att du använder senast **AzureMLBatchExecution** aktivitet.
@@ -634,4 +634,4 @@ Du kan också använda [Data Factory-funktioner](data-factory-functions-variable
 
 [adf-build-1st-pipeline]: data-factory-build-your-first-pipeline.md
 
-[azure-machine-learning]: http://azure.microsoft.com/services/machine-learning/
+[azure-machine-learning]: https://azure.microsoft.com/services/machine-learning/

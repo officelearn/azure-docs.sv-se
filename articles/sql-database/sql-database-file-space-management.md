@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: jrasnick, carlrab
 manager: craigg
-ms.date: 02/11/2019
-ms.openlocfilehash: b537dd8360c39a744cf9963376387a4c89e33838
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.date: 03/07/2019
+ms.openlocfilehash: a6fccb087d8a2c78bb1ad47758952b76b245dbde
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57311652"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57576216"
 ---
 # <a name="manage-file-space-for-single-and-pooled-databases-in-azure-sql-database"></a>Hantera utrymmet för enkel och delade databaser i Azure SQL Database
 
@@ -42,7 +42,7 @@ I följande scenarier kan det vara nödvändigt att övervaka användningen av f
 
 De flesta mätvärden i storage utrymme visas i Azure portal och följande API: er endast mäta storleken på data som används sidor:
 
-- Azure Resource Manager baserade mått API: er, inklusive PowerShell [get-mått](https://docs.microsoft.com/powershell/module/az.insights/get-azmetric)
+- Azure Resource Manager baserade mått API: er, inklusive PowerShell [get-mått](https://docs.microsoft.com/powershell/module/az.monitor/get-azmetric)
 - T-SQL: [sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)
 
 Dock följande API: er också mäta storleken på disken för databaser och elastiska pooler:

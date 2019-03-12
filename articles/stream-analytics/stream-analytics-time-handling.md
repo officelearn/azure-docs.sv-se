@@ -6,17 +6,17 @@ ms.author: zhongc
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 02/05/2018
-ms.openlocfilehash: 91193cc328c02f5ba4f5eb18e0bf853f9d91313a
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.date: 03/05/2018
+ms.openlocfilehash: 2a59a81b0894cbf58c5d3ab5a5569f4749b64b00
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56732270"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57543295"
 ---
 # <a name="understand-time-handling-in-azure-stream-analytics"></a>Förstå tid hantering i Azure Stream Analytics
 
-I den här artikeln diskuterar vi hur du ser information om designval för att lösa praktiska tid hantering av problem i Azure Stream Analytics-tjänsten. Tid hantering av design beslut är nära förknippat med Händelseordning faktorer. Mer information finns i den här relaterade artikeln: [Azure Stream Analytics händelse ordning överväganden](stream-analytics-out-of-order-and-late-events.md).
+I den här artikeln diskuterar vi hur du ser information om designval för att lösa praktiska tid hantering av problem i Azure Stream Analytics-tjänsten. Tid hantering av design beslut är nära förknippat med Händelseordning faktorer.
 
 ## <a name="background-time-concepts"></a>Bakgrund tid begrepp
 

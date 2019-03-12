@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/28/2019
+ms.date: 3/6/2019
 ms.author: rkarlin
-ms.openlocfilehash: 473dd307eac65856384e9d07dc307cf827d8140f
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 7cd90b987550dc60b30d3aa0cd1016b681eec85f
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57242198"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57547044"
 ---
 # <a name="collect-data-from-office-365-logs"></a>Samla in data från Office 365-loggar
 
@@ -33,7 +33,7 @@ Du kan strömma granskningsloggar från [Office 365](https://docs.microsoft.com/
 ## <a name="prerequisites"></a>Förutsättningar
 
 - Du måste vara en global administratör eller säkerhetsadministratör på din klient
-
+- Öppna port 4433 för Internet-trafik på den dator som du utför anslutningen för att lägga till en klient.
 
 ## <a name="connect-to-office-365"></a>Ansluta till Office 365
 

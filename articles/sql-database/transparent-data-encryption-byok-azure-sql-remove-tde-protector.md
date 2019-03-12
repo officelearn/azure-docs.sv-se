@@ -11,13 +11,13 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
-ms.date: 10/12/2018
-ms.openlocfilehash: 4a3677dc5402948fc0105190d1891d709291d0f7
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.date: 03/07/2019
+ms.openlocfilehash: a5b544db713f671230e4a226b1e0bdcfa77fbb2b
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57317738"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57575247"
 ---
 # <a name="remove-a-transparent-data-encryption-tde-protector-using-powershell"></a>Ta bort ett Transparent datakryptering (TDE)-skydd med hjälp av PowerShell
 
@@ -46,7 +46,7 @@ Den här guiden går via två sätt beroende på det önskade resultatet efter i
 
 ## <a name="to-keep-the-encrypted-resources-accessible"></a>Att behålla krypterade resurser tillgängliga
 
-1. Skapa en [ny nyckel i Key Vault](https://docs.microsoft.com/powershell/module/azurerm.keyvault/add-azurekeyvaultkey?view=azurermps-4.1.0). Kontrollera att den här nya nyckeln skapas i ett separat nyckelvalv från potentiellt komprometterade TDE-skyddet, eftersom åtkomstkontroll etableras på en valvnivå. 
+1. Skapa en [ny nyckel i Key Vault](/powershell/module/az.keyvault/add-azkeyvaultkey). Kontrollera att den här nya nyckeln skapas i ett separat nyckelvalv från potentiellt komprometterade TDE-skyddet, eftersom åtkomstkontroll etableras på en valvnivå.
 2. Lägg till den nya nyckeln till servern med den [Lägg till AzSqlServerKeyVaultKey](/powershell/module/az.sql/add-azsqlserverkeyvaultkey) och [Set-AzSqlServerTransparentDataEncryptionProtector](/powershell/module/az.sql/set-azsqlservertransparentdataencryptionprotector) cmdletar och uppdatera som serverns nya TDE-skydd.
 
    ```powershell
@@ -74,12 +74,12 @@ Den här guiden går via två sätt beroende på det önskade resultatet efter i
    -ResourceGroupName <SQLDatabaseResourceGroupName>
    ```
 
-4. Ta en [säkerhetskopiering av den nya nyckeln](/powershell/module/az.keyvault/backup-azurekeyvaultkey) i Key Vault.
+4. Ta en [säkerhetskopiering av den nya nyckeln](/powershell/module/az.keyvault/backup-azkeyvaultkey) i Key Vault.
 
    ```powershell
    <# -OutputFile parameter is optional; 
    if removed, a file name is automatically generated. #>
-   Backup-AzureKeyVaultKey `
+   Backup-AzKeyVaultKey `
    -VaultName <KeyVaultName> `
    -Name <KeyVaultKeyName> `
    -OutputFile <DesiredBackupFilePath>
@@ -93,7 +93,7 @@ Den här guiden går via två sätt beroende på det önskade resultatet efter i
    -Name <KeyVaultKeyName>
    ```
  
-6. Att återställa en nyckel till Key Vault i framtiden med den [återställning AzKeyVaultKey](/powershell/module/az.keyvault/restore-azurekeyvaultkey) cmdlet:
+6. Att återställa en nyckel till Key Vault i framtiden med den [återställning AzKeyVaultKey](/powershell/module/az.keyvault/restore-azkeyvaultkey) cmdlet:
    ```powershell
    Restore-AzKeyVaultKey `
    -VaultName <KeyVaultName> `

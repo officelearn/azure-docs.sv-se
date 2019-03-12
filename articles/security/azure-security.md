@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 7c76f7c5810370fa396b81bcc16e7e2204393bc1
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 934046ac4be6c0e85ee687cefb46b61ec8affca6
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57247553"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57543377"
 ---
 # <a name="introduction-to-azure-security"></a>Introduktion till Azure-säkerhet
 ## <a name="overview"></a>Översikt
@@ -287,7 +287,7 @@ Du kan hantera listan över DNS-servrar som används i ett virtuellt nätverk i 
 
 ### <a name="azure-dns"></a>Azure DNS
 Den [Domain Name System](https://technet.microsoft.com/library/bb629410.aspx), eller DNS, ansvarar för att översätta (eller lösa) namnet på en webbplats eller tjänst till dess IP-adress. [Azure DNS](https://docs.microsoft.com/azure/dns/dns-overview) är en värdtjänst för DNS-domäner som ger namnmatchning med hjälp av Microsoft Azure-infrastrukturen. Genom att använda Azure som värd för dina domäner kan du hantera dina DNS-poster med samma autentiseringsuppgifter, API:er, verktyg och fakturering som för dina andra Azure-tjänster. DNS stöder tillgänglighet aspekt av ”CIA” security triad.
-### <a name="log-analytics-nsgs"></a>Log Analytics NSGs
+### <a name="azure-monitor-logs-nsgs"></a>Azure Monitor loggar NSG: er
 Du kan aktivera följande diagnostiklogg kategorier för NSG: er:
 -   Händelse: Innehåller poster för vilka NSG reglerna tillämpas på virtuella datorer och instansroller som baseras på MAC-adress. Status för de här reglerna som samlas in var 60: e sekund.
 

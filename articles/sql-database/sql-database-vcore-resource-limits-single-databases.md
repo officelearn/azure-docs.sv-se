@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 03/04/2019
-ms.openlocfilehash: f4d6826d13f92db7a430f668c56825926d198235
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.date: 03/06/2019
+ms.openlocfilehash: 127e3385f1fd9cf0975ff19818d3112fe5a713d0
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57340107"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57571022"
 ---
 # <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-a-single-database"></a>Azure SQL Database vCore-baserade köpa modellen gränser för en enskild databas
 
@@ -29,6 +29,9 @@ DTU-baserade inköpschef modellen gränser för enskilda databaser på en SQL Da
 > Under vissa omständigheter kan du behöva minska en databas för att frigöra oanvänt utrymme. Mer information finns i [hantera utrymmet i Azure SQL Database](sql-database-file-space-management.md).
 
 Du kan ange tjänstnivå, beräkningsstorleken och lagringsutrymmet för en enkel databas med hjälp av den [Azure-portalen](sql-database-single-databases-manage.md#manage-an-existing-sql-database-server), [Transact-SQL](sql-database-single-databases-manage.md#transact-sql-manage-sql-database-servers-and-single-databases), [PowerShell](sql-database-single-databases-manage.md#powershell-manage-sql-database-servers-and-single-databases), [ Azure CLI](sql-database-single-databases-manage.md#azure-cli-manage-sql-database-servers-and-single-databases), eller [REST-API](sql-database-single-databases-manage.md#rest-api-manage-sql-database-servers-and-single-databases).
+
+> [!IMPORTANT]
+> Skala vägledning och överväganden finns i [skala en enskild databas](sql-database-single-database-scale.md).
 
 ## <a name="general-purpose-service-tier-storage-sizes-and-compute-sizes"></a>Tjänstnivå för allmänna ändamål: Lagringsstorlekar och storlekar
 
@@ -51,7 +54,7 @@ Du kan ange tjänstnivå, beräkningsstorleken och lagringsutrymmet för en enke
 |Maximalt antal samtidiga arbetare (begäranden)|200|400|600|800|1000|1200|
 |Maximalt antal tillåtna sessioner|30000|30000|30000|30000|30000|30000|
 |Antal repliker|1|1|1|1|1|1|
-|Multi-AZ|Gäller inte|Saknas|Saknas|Saknas|Saknas|Gäller inte|000
+|Multi-AZ|Gäller inte|Saknas|Saknas|Saknas|Saknas|Saknas|Gäller inte|
 |Lässkalbarhet|Gäller inte|Saknas|Saknas|Saknas|Saknas|Gäller inte|
 |Inkluderad lagring av säkerhetskopior|1 X-databasstorlek|1 X-databasstorlek|1 X-databasstorlek|1 X-databasstorlek|1 X-databasstorlek|1 X-databasstorlek|
 
@@ -146,7 +149,7 @@ Du kan ange tjänstnivå, beräkningsstorleken och lagringsutrymmet för en enke
 |Maximalt antal samtidiga inloggningar|200|400|600|800|1000|1200|
 |Maximalt antal tillåtna sessioner|30000|30000|30000|30000|30000|30000|
 |Antal repliker|4|4|4|4|4|4|
-|Multi-AZ|Ja|Ja|Ja|Ja|Ja|Ja|
+|Multi-AZ|Gäller inte|Saknas|Saknas|Saknas|Saknas|Gäller inte|
 |Lässkalbarhet|Ja|Ja|Ja|Ja|Ja|Ja|
 |Inkluderad lagring av säkerhetskopior|1 X-databasstorlek|1 X-databasstorlek|1 X-databasstorlek|1 X-databasstorlek|1 X-databasstorlek|1 X-databasstorlek|
 
@@ -170,7 +173,7 @@ Du kan ange tjänstnivå, beräkningsstorleken och lagringsutrymmet för en enke
 |Maximalt antal samtidiga inloggningar (begäranden)|1400|1600|1800|2000|3200|4800|
 |Maximalt antal tillåtna sessioner|30000|30000|30000|30000|30000|30000|
 |Antal repliker|4|4|4|4|4|4|
-|Multi-AZ|Ja|Ja|Ja|Ja|Ja|Ja|
+|Multi-AZ|Gäller inte|Saknas|Saknas|Saknas|Saknas|Gäller inte|
 |Lässkalbarhet|Ja|Ja|Ja|Ja|Ja|Ja|
 |Inkluderad lagring av säkerhetskopior|1 X-databasstorlek|1 X-databasstorlek|1 X-databasstorlek|1 X-databasstorlek|1 X-databasstorlek|1 X-databasstorlek|
 

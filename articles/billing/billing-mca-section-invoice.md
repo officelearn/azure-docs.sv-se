@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.workload: na
 ms.date: 02/28/2019
 ms.author: banders
-ms.openlocfilehash: f903f85dfafb61562698a437465f8421aaf3a3d8
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 21d6c1671c57341d785c002f360c05cc5c610657
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57339495"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57551627"
 ---
 # <a name="create-sections-on-your-invoice-to-organize-your-costs"></a>Skapa avsnitt på din faktura för att organisera dina kostnader
 
@@ -28,7 +28,7 @@ Den här artikeln gäller för något faktureringskonto för en Microsoft-kundav
 
 Om du vill skapa en faktura-avsnittet, måste du vara en **fakturering profilägare** eller en **fakturering profildeltagare**. Mer information finns i [hantera faktura avsnitt för fakturering profil](billing-understand-mca-roles.md#manage-invoice-sections-for-billing-profile).
 
-1. Logga in på [Azure Portal](http://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 
 2. Sök på **Cost Management + fakturering**.
 

@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/04/2018
-ms.openlocfilehash: 6bde6e74279fc16237c0c0436296e2d21c3a57c7
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 82559c89094649b377dc2a898798ce6aad5fbcc7
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56736625"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57570495"
 ---
 # <a name="mapping-data-flow-debug-mode"></a>Felsökningsläge för mappning av Data flöde
 
@@ -36,7 +36,7 @@ När du växlar på felsökningsläge uppmanas du att ett sidpanel formulär som
 >När du kör i felsökningsläge i dataflöde kan dina data skrivs inte till mottagaren omvandla. En felsökningssession är avsedd att fungera som ett test > stomme för dina transformeringar. Mottagare krävs inte vid felsökning och ignoreras i ditt dataflöde. Om du vill testa att data > i din mottagare kör Data flöda från en Azure Data Factory-Pipeline och använder Debug-körning från en pipeline.
 
 ## <a name="debug-settings"></a>Inställningar för felsökning
-Inställningar för felsökning kan vara varje källa från ditt dataflöde visas i panelen på klientsidan och kan även redigeras genom att välja ”datakällans inställningar” dataflöde design-verktygsfältet. Du kan välja de begränsningar och/eller källa för att använda den här källan omvandlingen för var och en. Du kan också välja vilka Databricks-kluster som du vill använda för felsökning.
+Inställningar för felsökning kan vara varje källa från ditt dataflöde visas i panelen på klientsidan och kan även redigeras genom att välja ”datakällans inställningar” dataflöde designerverktygsfältet. Du kan välja de begränsningar och/eller källa för att använda den här källan omvandlingen för var och en. Radbegränsningar i den här inställningen är endast för den aktuella felsökningssessionen. Du kan också använda inställningen Sampling i källan för att begränsa rader i källan transforamtion.
 
 ## <a name="cluster-status"></a>Klusterstatus
 Det finns en kluster-statusindikator överst på designytan som blir grön när klustret är klart för felsökning. Om klustret redan varma visas grön indikator nästan omedelbart. Om klustret inte körs redan när du har angett felsökningsläge, och du måste vänta 5 – 7 minuter att skapa klustret. Indikatorljus blir gul tills den är klar. När klustret är redo för dataflöde debug blir indikatorljus grön.

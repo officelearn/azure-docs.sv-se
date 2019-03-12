@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/11/2019
+ms.date: 03/04/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 01/24/2019
-ms.openlocfilehash: 6839d46efdcd9b6a09e8b2c98e0334f6e6ea1620
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 2012810e42c3a35e8e93f85402d92dae1151516b
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57405606"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57731530"
 ---
 # <a name="connect-to-azure-stack-with-powershell-as-a-user"></a>Ansluta till Azure Stack med PowerShell som en användare
 
@@ -94,7 +94,13 @@ New-AzureRmResourceGroup -Name "MyResourceGroup" -Location "Local"
 
 ## <a name="next-steps"></a>Nästa steg
 
+<<<<<<< HEAD
+- [Utveckla mallar för Azure Stack](azure-stack-develop-templates.md)
+- [Distribuera mallar med PowerShell](azure-stack-deploy-template-powershell.md)
+ - [Azure Stack PowerShell-modulen-referens](https://docs.microsoft.com/en-us/powershell/azure/azure-stack/overview)
+=======
 - [Utveckla mallar för Azure Stack](azure-stack-develop-templates.md)  
 - [Distribuera mallar med PowerShell](azure-stack-deploy-template-powershell.md)  
 - [Azure Stack modulreferens](https://docs.microsoft.com/en-us/powershell/azure/azure-stack/overview)  
+>>>>>>> ac8c5a2d00d4eb5b4ef65359c5349ddff1bf30cf
 - Om du vill konfigurera PowerShell för operatorn molnmiljö avser den [konfigurera PowerShell-miljö för Azure Stack-operatör](../azure-stack-powershell-configure-admin.md) artikeln.

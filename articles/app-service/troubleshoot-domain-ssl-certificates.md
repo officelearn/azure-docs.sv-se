@@ -12,15 +12,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/31/2018
+ms.date: 03/01/2019
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: 6f88079c5baac8cef677fd3afc5696cec5c00d92
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: d007f688483366f2f714a78b5bf9b56a67c55490
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53653670"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57730111"
 ---
 # <a name="troubleshoot-domain-and-ssl-certificate-problems-in-azure-app-service"></a>Felsöka domän och SSL-certifikat problem i Azure App Service
 
@@ -88,13 +88,84 @@ Det här problemet kan inträffa för någon av följande orsaker:
 - Prenumerationen nått gränsen för köp som tillåts för en prenumeration.
 
     **Lösningen**: App Service-certifikat har en gräns på 10 inköp av certifikat för prenumerationstyper betala per användning och EA. För andra prenumerationstyper av är gränsen 3. Om du vill öka gränsen kontaktar [Azure-supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
-- App Service certificate har markerats som bedrägeri. Du har fått följande felmeddelande visas: ”Ditt certifikat har flaggats för potentiellt bedrägeri. Begäran är för närvarande under granskning. Om certifikatet inte är användbar inom 24 timmar, kontakta supporten för Azure ”.
+- App Service certificate har markerats som bedrägeri. Du har fått följande felmeddelande visas: ”Ditt certifikat har flaggats för potentiellt bedrägeri. Begäran är för närvarande under granskning. Om certifikatet inte blir kan användas inom 24 timmar kontaktar du supporten för Azure ”.
 
     **Lösningen**: Om certifikatet har markerats som bedrägerier och inte är löst efter 24 timmar, följer du dessa steg:
 
     1. Logga in på [Azure Portal](https://portal.azure.com).
     2. Gå till **App Service-certifikat**, och välj certifikatet.
     3. Välj **certifikatet har konfigurerats** > **steg 2: Kontrollera** > **domänverifiering**. Det här steget skickar ett e-postmeddelande till Azure certifikatleverantör att lösa problemet.
+
+## <a name="custom-domain-problems"></a>Problem med anpassad domän
+
+### <a name="a-custom-domain-returns-a-404-error"></a>En anpassad domän returnerar ett 404-fel 
+
+#### <a name="symptom"></a>Symtom
+
+När du bläddrar till platsen med hjälp av det anpassade domännamnet får följande felmeddelande visas:
+
+”Fel 404-webbapp hittades inte”.
+
+#### <a name="cause-and-solution"></a>Orsak och lösning
+
+**Orsak 1** 
+
+Den anpassade domänen som du har konfigurerat saknar en CNAME-post eller en post. 
+
+**Lösning för orsak 1**
+
+- Om du lagt till en A-post, se till att läggs också en TXT-post. Mer information finns i [skapa A-posten](./app-service-web-tutorial-custom-domain.md#create-the-a-record).
+- Om du inte behöver använda rotdomänen för din app, rekommenderar vi att du använder en CNAME-post i stället för en A-post.
+- Använd inte både en CNAME-post och en A-post för samma domän. Det här problemet kan orsaka en konflikt och förhindra att domänen som matchas. 
+
+**Orsak 2** 
+
+Webbläsaren kan fortfarande cachelagring den gamla IP-adressen för din domän. 
+
+**Lösning för orsak 2**
+
+Rensa webbläsaren. För Windows-enheter, kan du köra kommandot `ipconfig /flushdns`. Använd [WhatsmyDNS.net](https://www.whatsmydns.net/) att verifiera att din domän pekar till appens IP-adress. 
+
+### <a name="you-cant-add-a-subdomain"></a>Du kan inte lägga till en underdomän 
+
+#### <a name="symptom"></a>Symtom
+
+Du kan inte lägga till ett nytt värdnamn till en app att tilldela en underdomän.
+
+#### <a name="solution"></a>Lösning
+
+- Kontakta prenumerationsadministratören för att se till att du har behörighet att lägga till ett värdnamn till appen.
+- Om du behöver mer underdomäner, rekommenderar vi att du ändrar domänvärdar till Azure Service DNS (Domain Name). Genom att använda Azure DNS kan du lägga till 500 värdnamn till din app. Mer information finns i [Lägg till en underdomän](https://blogs.msdn.microsoft.com/waws/2014/10/01/mapping-a-custom-subdomain-to-an-azure-website/).
+
+### <a name="dns-cant-be-resolved"></a>DNS kan inte lösas
+
+#### <a name="symptom"></a>Symtom
+
+Du har fått följande felmeddelande visas:
+
+”DNS-posten hittades inte”.
+
+#### <a name="cause"></a>Orsak
+Det här problemet beror på något av följande orsaker:
+
+- Time to live (TTL)-perioden har inte gått ut. Kontrollera DNS-konfigurationen för din domän att avgöra TTL-värdet och sedan vänta tills perioden att upphöra att gälla.
+- DNS-konfigurationen är felaktig.
+
+#### <a name="solution"></a>Lösning
+- Vänta tills 48 timmar innan det här problemet löser sig.
+- Om du kan ändra TTL-inställningen i din DNS-konfiguration, ändrar du värdet 5 minuter för att se om det löser problemet.
+- Använd [WhatsmyDNS.net](https://www.whatsmydns.net/) att verifiera att din domän pekar till appens IP-adress. Om inte kan konfigurera A-post till rätt IP-adressen för appen.
+
+### <a name="you-need-to-restore-a-deleted-domain"></a>Du behöver återställa en borttagen domän 
+
+#### <a name="symptom"></a>Symtom
+Din domän inte längre visas i Azure-portalen.
+
+#### <a name="cause"></a>Orsak 
+Prenumerationens ägare kan misstag har tagit bort domänen.
+
+#### <a name="solution"></a>Lösning
+Om din domän har tagits bort färre än sju dagar sedan, startats domänen inte har borttagningsprocessen. I det här fallet kan du köpa samma domän igen på Azure-portalen under samma prenumeration. (Vara noga med att skriva det exakta namnet i sökrutan.) Du debiteras inte igen för den här domänen. Om domänen har tagits bort mer än sju dagar sedan, kontakta [Azure-supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) hjälp med att återställa domänen.
 
 ## <a name="domain-problems"></a>Domän-problem
 
@@ -191,110 +262,67 @@ Det här problemet beror på något av följande orsaker:
     **Lösningen**: Kontakta prenumerationsadministratören för att ge dig behörighet att lägga till ett värdnamn.
 - Det gick inte att verifiera domänägarskapet.
 
-    **Lösningen**: Kontrollera att din CNAME-post eller en post har konfigurerats korrekt. Skapa en CNAME-post eller en A-post för att mappa en anpassad domän till en app. Om du vill använda en rotdomän måste du använda A- och TXT-poster:
+    **Lösningen**: Kontrollera att din CNAME-post eller en post har konfigurerats korrekt. Skapa en CNAME-post eller en A-post för att mappa en anpassad domän till en app. If you want to use a root domain, you must use A and TXT records:
 
     |Posttyp|Värd|Peka på|
     |------|------|-----|
     |A|@|IP-adress för en app|
-    |TXT|@|< appnamn >. azurewebsites.net|
-    |CNAME|www|< appnamn >. azurewebsites.net|
+    |TXT|@|<app-name>.azurewebsites.net|
+    |CNAME|www|<app-name>.azurewebsites.net|
 
-### <a name="dns-cant-be-resolved"></a>DNS kan inte lösas
+## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 
-#### <a name="symptom"></a>Symtom
+**Måste jag konfigurera min anpassad domän för Min webbplats när jag köper det?**
 
-Du har fått följande felmeddelande visas:
+När du köper en domän från Azure-portalen, konfigureras automatiskt App Service-programmet för att använda den anpassa domänen. Du behöver inte vidta ytterligare åtgärder. Mer information finns [Self-hjälp i Azure App Service: Lägg till ett anpassat domännamn](https://channel9.msdn.com/blogs/Azure-App-Service-Self-Help/Add-a-Custom-Domain-Name) på Channel 9.
 
-”DNS-posten hittades inte”.
+**Kan jag använda en domän som har köpt i Azure portal så att den pekar till en Azure virtuell dator i stället?**
 
-#### <a name="cause"></a>Orsak
-Det här problemet beror på något av följande orsaker:
+Ja, kan du peka domänen på en virtuell dator, lagring osv. Mer information finns i [skapa en anpassad fullständigt domännamn i Azure portal för en virtuell Windows-dator](../virtual-machines/windows/portal-create-fqdn.md).
 
-- Time to live (TTL)-perioden har inte gått ut. Kontrollera DNS-konfigurationen för din domän att avgöra TTL-värdet och sedan vänta tills perioden att upphöra att gälla.
-- DNS-konfigurationen är felaktig.
+**Min domän finns på GoDaddy och Azure DNS?**
 
-#### <a name="solution"></a>Lösning
-- Vänta tills 48 timmar innan det här problemet löser sig.
-- Om du kan ändra TTL-inställningen i din DNS-konfiguration, ändrar du värdet 5 minuter för att se om det löser problemet.
-- Använd [WhatsmyDNS.net](https://www.whatsmydns.net/) att verifiera att din domän pekar till appens IP-adress. Om inte kan konfigurera A-post till rätt IP-adressen för appen.
+App Service-domäner kan du använda GoDaddy för domänregistrering och Azure DNS som värd för domäner. 
 
-### <a name="you-need-to-restore-a-deleted-domain"></a>Du behöver återställa en borttagen domän 
+**Jag har automatisk förnyelse aktiverad men fortfarande tog emot ett meddelande om förnyelse för min domän via e-post. Vad ska jag göra?**
 
-#### <a name="symptom"></a>Symtom
-Din domän inte längre visas i Azure-portalen.
+Om du har den automatiska förnyelsen aktiverad, du behöver inte vidta några åtgärder. E-postmeddelandet meddelande tillhandahålls för att informera dig om att domänen är nära upphör att gälla och förnya manuellt om den automatiska förnyelsen inte är aktiverad.
 
-#### <a name="cause"></a>Orsak 
-Prenumerationens ägare kan misstag har tagit bort domänen.
+**Kommer jag att debiteras för Azure DNS vara värd för min domän?**
 
-#### <a name="solution"></a>Lösning
-Om din domän har tagits bort färre än sju dagar sedan, startats domänen inte har borttagningsprocessen. I det här fallet kan du köpa samma domän igen på Azure-portalen under samma prenumeration. (Vara noga med att skriva det exakta namnet i sökrutan.) Du debiteras inte igen för den här domänen. Om domänen har tagits bort mer än sju dagar sedan, kontakta [Azure-supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) för att få hjälp att återställa domänen.
+Inledande kostnaden för domän-köp gäller endast domänregistrering. Förutom registrering-kostnaden finns dra på dig kostnader för Azure DNS baserat på din användning. Mer information finns i [priser för Azure DNS](https://azure.microsoft.com/pricing/details/dns/) för mer information.
 
-### <a name="a-custom-domain-returns-a-404-error"></a>En anpassad domän returnerar ett 404-fel 
+**Jag har köpt min domän tidigare från Azure-portalen och vill flytta från GoDaddy värd till värd för Azure DNS. Hur gör jag?**
 
-#### <a name="symptom"></a>Symtom
+Det är inte obligatoriskt att migrera till Azure DNS-värd. Om du vill migrera till Azure DNS kan hanteringsupplevelse domän i Azure portal om du ger information om stegen för att flytta till Azure DNS. Om domänen har köpts via App Service, är migrering från GoDaddy som är värd för till Azure DNS relativt sömlös proceduren.
 
-När du bläddrar till platsen med hjälp av det anpassade domännamnet får följande felmeddelande visas:
+**Jag skulle vilja köpa min domän från App Service-domänen men kan jag använda min domän på GoDaddy i stället för Azure DNS?**
 
-”Fel 404-webbapp hittades inte”.
+Från och med den 24 juli 2017 finns App Service-domäner som har köpt i portalen på Azure DNS. Om du föredrar att använda en annan värdleverantör måste du gå till sin webbplats för att hämta en domän som värd-lösning.
 
+**Måste jag betala för sekretesskydd för min domän?**
 
-#### <a name="cause-and-solution"></a>Orsak och lösning
+När du köper en domän via Azure-portalen, kan du lägga till sekretess utan extra kostnad. Detta är en av fördelarna med att köpa din domän med Azure App Service.
 
-**Orsak 1** 
+**Om jag väljer jag vill inte längre min domän, kan jag få min pengar tillbaka?**
 
-Den anpassade domänen som du har konfigurerat saknar en CNAME-post eller en post. 
+Du debiteras inte för en period om fem dagar, under tiden kan du bestämma att du inte vill att domänen när du köper en domän. Om du bestämmer dig för du inte vill att domänen inom denna period på fem dagar, debiteras du inte. (.uk domäner är ett undantag till detta. Om du köper en .uk domän, debiteras du omedelbart och du kan inte återbetalas.)
 
-**Lösning för orsak 1**
+**Kan jag använda domänen i en annan Azure App Service-app i min prenumeration?**
 
-- Om du lagt till en A-post, se till att läggs också en TXT-post. Mer information finns i [skapa A-posten](./app-service-web-tutorial-custom-domain.md#create-the-a-record).
-- Om du inte behöver använda rotdomänen för din app, rekommenderar vi att du använder en CNAME-post i stället för en A-post.
-- Använd inte både en CNAME-post och en A-post för samma domän. Detta kan orsaka en konflikt och förhindra att domänen som matchas. 
+Ja. När du använder anpassade domäner och SSL-bladet i Azure-portalen kan se du de domäner som du har köpt. Du kan konfigurera din app för att använda någon av dessa domäner.
 
-**Orsak 2** 
+**Kan jag överföra en domän från en prenumeration till en annan prenumeration?**
 
-Webbläsaren kan fortfarande cachelagring den gamla IP-adressen för din domän. 
+Du kan flytta en domän till en annan prenumeration/resurs med det [Move-AzureRmResource](https://docs.microsoft.com/powershell/module/AzureRM.Resources/Move-AzureRmResource?view=azurermps-6.13.0) PowerShell-cmdlet.
 
-**Lösning för orsak 2**
+**Hur hanterar jag mina anpassade domäner om jag inte för närvarande har en Azure App Service-app?**
 
-Rensa webbläsaren. För Windows-enheter, kan du köra kommandot `ipconfig /flushdns`. Använd [WhatsmyDNS.net](https://www.whatsmydns.net/) att verifiera att din domän pekar till appens IP-adress. 
+Du kan hantera din domän, även om du inte har en App Service Web App. Domänen kan användas för Azure-tjänster som virtuell dator, lagring osv. Om du planerar att använda domänen för App Service Web Apps, måste du ta med en Webbapp som inte är på den kostnadsfria App Service-planen för att binda till domänen till din webbapp.
 
-### <a name="you-cant-add-a-subdomain"></a>Du kan inte lägga till en underdomän 
+**Kan jag flytta en webbapp med en anpassad domän till en annan prenumeration eller från App Service Environment v1 till V2?**
 
-#### <a name="symptom"></a>Symtom
+Ja, kan du flytta din webbapp mellan prenumerationer. Följ riktlinjerna i [hur du flyttar resurser i Azure](../azure-resource-manager/resource-group-move-resources.md). Det finns några begränsningar när du flyttar webbappen. Mer information finns i [begränsningar för att flytta App Service-resurser](../azure-resource-manager/resource-group-move-resources.md#app-service-limitations
+).
 
-Du kan inte lägga till ett nytt värdnamn till en app att tilldela en underdomän.
-
-#### <a name="solution"></a>Lösning
-
-- Kontakta prenumerationsadministratören för att se till att du har behörighet att lägga till ett värdnamn till appen.
-- Om du behöver mer underdomäner, rekommenderar vi att du ändrar domänvärdar till Azure DNS. Genom att använda Azure DNS kan du lägga till 500 värdnamn till din app. Mer information finns i [Lägg till en underdomän](https://blogs.msdn.microsoft.com/waws/2014/10/01/mapping-a-custom-subdomain-to-an-azure-website/).
-
-
-
-
-
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+När du har flyttat webbappen förblir värden namnet bindningar för domäner i de anpassade domäner inställningen desamma. Inga ytterligare åtgärder krävs för att konfigurera värden namnet bindningar.

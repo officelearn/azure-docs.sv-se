@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: jlembicz
 ms.custom: seodec2018
-ms.openlocfilehash: dedfc7db6aef6d55fd50c94a217bdc489b9615f3
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: d504635121c5153367cd0b89ce593b093bb3cd39
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53633869"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57537252"
 ---
 # <a name="how-full-text-search-works-in-azure-search"></a>Hur Fullständig textsökning fungerar i Azure Search
 
@@ -55,14 +55,14 @@ I följande exempel är en sökbegäran som du kan skicka till Azure Search med 
 
 ~~~~
 POST /indexes/hotels/docs/search?api-version=2017-11-11 
-{  
-    "search": "Spacious, air-condition* +\"Ocean view\"",  
-    "searchFields": "description, title",  
+{
+    "search": "Spacious, air-condition* +\"Ocean view\"",
+    "searchFields": "description, title",
     "searchMode": "any",
-    "filter": "price ge 60 and price lt 300",  
+    "filter": "price ge 60 and price lt 300",
     "orderby": "geo.distance(location, geography'POINT(-159.476235 22.227659)')", 
     "queryType": "full" 
- } 
+}
 ~~~~
 
 Denna begäran gör sökmotorn följande:
@@ -117,7 +117,7 @@ Som standard (`searchMode=any`), sökmotorn förutsätter bredare tolkning. Någ
 Anta att vi nu ställer `searchMode=all`. I det här fallet tolkas området som ett ”and”-åtgärd. Var och en av de återstående villkoren måste båda vara finns i dokumentet för att utgöra en matchning. Den resulterande exempelfråga skulle tolkas enligt följande: 
 
 ~~~~
-+Spacious,+air-condition*+"Ocean view"  
++Spacious,+air-condition*+"Ocean view"
 ~~~~
 
 Ett ändrade frågan träd för den här frågan är enligt följande, där ett matchande dokument är skärningspunkten för alla tre underfrågor: 
@@ -155,7 +155,7 @@ När standard analysatorn bearbetar termen, kommer den gemener ”ocean view” 
 Beteendet för en analyzer kan testas med hjälp av den [analysera API](https://docs.microsoft.com/rest/api/searchservice/test-analyzer). Ange text som du vill analysera för att se villkor anges analyzer genererar. Om du vill se hur standard analysatorn skulle bearbeta den texten ”air-condition”, till exempel kan du utfärda följande begäran:
 
 ~~~~
-{ 
+{
     "text": "air-condition",
     "analyzer": "standard"
 }
@@ -164,7 +164,7 @@ Beteendet för en analyzer kan testas med hjälp av den [analysera API](https://
 Standard analysatorn delar upp indatatexten i följande två token genom att kommentera dem med attribut som start och end förskjutningarna (används för markering av träffar) samt deras placering (som används för matchning av frasen):
 
 ~~~~
-{  
+{
   "tokens": [
     {
       "token": "air",
@@ -195,11 +195,11 @@ Lexikal analys gäller enbart för frågetyper som kräver fullständiga villkor
 Hämta dokument refererar till att söka efter dokument med matchande termer i indexet. Det här skedet har förstått bäst igenom ett exempel. Låt oss börja med ett hotell index som har följande enkla schema: 
 
 ~~~~
-{   
-    "name": "hotels",     
-    "fields": [     
-        { "name": "id", "type": "Edm.String", "key": true, "searchable": false },     
-        { "name": "title", "type": "Edm.String", "searchable": true },     
+{
+    "name": "hotels",
+    "fields": [
+        { "name": "id", "type": "Edm.String", "key": true, "searchable": false },
+        { "name": "title", "type": "Edm.String", "searchable": true },
         { "name": "description", "type": "Edm.String", "searchable": true }
     ] 
 } 
@@ -208,28 +208,28 @@ Hämta dokument refererar till att söka efter dokument med matchande termer i i
 Anta vidare att det här indexet innehåller följande fyra dokument: 
 
 ~~~~
-{ 
+{
     "value": [
-        {         
-            "id": "1",         
-            "title": "Hotel Atman",         
-            "description": "Spacious rooms, ocean view, walking distance to the beach."   
-        },       
-        {         
-            "id": "2",         
-            "title": "Beach Resort",        
-            "description": "Located on the north shore of the island of Kauaʻi. Ocean view."     
-        },       
-        {         
-            "id": "3",         
-            "title": "Playa Hotel",         
+        {
+            "id": "1",
+            "title": "Hotel Atman",
+            "description": "Spacious rooms, ocean view, walking distance to the beach."
+        },
+        {
+            "id": "2",
+            "title": "Beach Resort",
+            "description": "Located on the north shore of the island of Kauaʻi. Ocean view."
+        },
+        {
+            "id": "3",
+            "title": "Playa Hotel",
             "description": "Comfortable, air-conditioned rooms with ocean view."
-        },       
-        {         
-            "id": "4",         
-            "title": "Ocean Retreat",         
+        },
+        {
+            "id": "4",
+            "title": "Ocean Retreat",
             "description": "Quiet and secluded"
-        }    
+        }
     ]
 }
 ~~~~
@@ -261,7 +261,7 @@ Tillbaka till vårt exempel för den **rubrik** fält, vägar i inverterad index
 | havet | 4  |
 | playa | 3 |
 | utväg | 3 |
-| Återställ format | 4 |
+| retreat | 4 |
 
 I rubrikfältet endast *hotell* dyker upp i två dokument: 1, 3.
 
@@ -275,7 +275,7 @@ För den **beskrivning** fält, indexet är följande:
 | villkor | 3
 | nöjd | 3
 | avstånd | 1
-| ön | 2
+| island | 2
 | kauaʻi | 2
 | finns | 2
 | Nord | 2
@@ -327,7 +327,7 @@ Alla dokument i ett sökresultat tilldelas relevansgradering. Funktionen för re
 search=Spacious, air-condition* +"Ocean view"  
 ~~~~
 ~~~~
-{  
+{
   "value": [
     {
       "@search.score": 0.25610128,

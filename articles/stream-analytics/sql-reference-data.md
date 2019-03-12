@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: cc6e4083ba952eb9799aa91f76cf6e5ab75c7f64
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: efd450edb87316e75fc240cac80eda93151a22b3
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57449588"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57765092"
 ---
 # <a name="use-reference-data-from-a-sql-database-for-an-azure-stream-analytics-job-preview"></a>Använd referensdata från en SQL-databas för Azure Stream Analytics-jobb (förhandsversion)
 
@@ -134,19 +134,44 @@ Du kan testa frågelogiken lokalt mot live indata innan du distribuerar jobbet t
 
 När du använder deltafråga [temporala tabeller i Azure SQL Database](../sql-database/sql-database-temporal-tables.md) rekommenderas.
 
-1. Redigera frågan som ögonblicksbild. 
+1. Skapa en temporal tabell i Azure SQL Database.
+   
+   ```SQL 
+      CREATE TABLE DeviceTemporal 
+      (  
+         [DeviceId] int NOT NULL PRIMARY KEY CLUSTERED 
+         , [GroupDeviceId] nvarchar(100) NOT NULL
+         , [Description] nvarchar(100) NOT NULL 
+         , [ValidFrom] datetime2 (0) GENERATED ALWAYS AS ROW START
+         , [ValidTo] datetime2 (0) GENERATED ALWAYS AS ROW END
+         , PERIOD FOR SYSTEM_TIME (ValidFrom, ValidTo)
+      )  
+      WITH (SYSTEM_VERSIONING = ON (HISTORY_TABLE = dbo.DeviceHistory));  -- DeviceHistory table will be used in Delta query
+   ```
+2. Redigera frågan som ögonblicksbild. 
 
-   Använd den **@snapshotTime** parametern att instruera Stream Analytics-körning för att hämta referensdatauppsättningen från SQL database temporaltabellen giltig på systemklockan. Om du inte anger den här parametern kan riskerar du att en felaktig grundläggande referensdatauppsättning följd av klockavvikelser. Ett exempel på fullständig ögonblicksbild fråga visas nedan:
-
-   ![Stream Analytics-fråga för ögonblicksbild](./media/sql-reference-data/snapshot-query.png)
+   Använd den  **\@snapshotTime** parametern att instruera Stream Analytics-körning för att hämta referensdatauppsättningen från SQL database temporaltabellen giltig på systemklockan. Om du inte anger den här parametern kan riskerar du att en felaktig grundläggande referensdatauppsättning följd av klockavvikelser. Ett exempel på fullständig ögonblicksbild fråga visas nedan:
+   ```SQL
+      SELECT DeviceId, GroupDeviceId, [Description]
+      FROM dbo.DeviceTemporal
+      FOR SYSTEM_TIME AS OF @snapshotTime
+   ```
  
 2. Redigera deltafråga. 
    
-   Den här frågan returnerar alla rader i din SQL-databas som har infogats eller togs bort inom en starttid **@deltaStartTime**, och en sluttid **@deltaEndTime**. Delta-frågan måste returnera samma kolumner som ögonblicksbild frågan, samt kolumnen  **_åtgärden_**. Den här kolumnen anger om raden har infogats eller tagits bort mellan **@deltaStartTime** och **@deltaEndTime**. De resulterande raderna är flaggade som **1** om posterna infogades eller **2** om tas bort. 
+   Den här frågan returnerar alla rader i din SQL-databas som har infogats eller togs bort inom en starttid  **\@deltaStartTime**, och en sluttid  **\@deltaEndTime**. Delta-frågan måste returnera samma kolumner som ögonblicksbild frågan, samt kolumnen  **_åtgärden_**. Den här kolumnen anger om raden har infogats eller tagits bort mellan  **\@deltaStartTime** och  **\@deltaEndTime**. De resulterande raderna är flaggade som **1** om posterna infogades eller **2** om tas bort. 
 
    För poster som har uppdaterats, gör den temporala tabellen bokföring genom att samla in en infogning och borttagning åtgärd. Stream Analytics-runtime gäller sedan delta frågans resultat för den tidigare ögonblicksbilden att hålla referensdata uppdaterade. Ett exempel på deltafråga som visas nedan:
 
-   ![Stream Analytics delta query](./media/sql-reference-data/delta-query.png)
+   ```SQL
+      SELECT DeviceId, GroupDeviceId, Description, 1 as _operation_
+      FROM dbo.DeviceTemporal
+      WHERE ValidFrom BETWEEN @deltaStartTime AND @deltaEndTime   -- records inserted
+      UNION
+      SELECT DeviceId, GroupDeviceId, Description, 2 as _operation_
+      FROM dbo.DeviceHistory   -- table we created in step 1
+      WHERE ValidTo BETWEEN @deltaStartTime AND @deltaEndTime     -- record deleted
+   ```
  
   Observera att Stream Analytics runtime regelbundet kan köra ögonblicksbild frågan förutom deltafråga för att lagra kontrollpunkter.
 

@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 02/26/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 991a50828059d850627e1f8f3f34f65a55fdf3f6
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 22347ce7296dc55d98f1ee6d4458fa6d7c5a21e6
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56890240"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57551299"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Starta/stoppa virtuella datorer vid låg belastning på nätverket lösning i Azure Automation
 
@@ -62,8 +62,8 @@ Utför följande steg för att lägga till Starta/stoppa virtuella datorer vid l
 
    ![Lösning för virtuell dator lägger du till sidan](media/automation-solution-vm-management/azure-portal-add-solution-01.png)
 
-4. På den **lägga till lösning** väljer **arbetsytan**. Välj en Log Analytics-arbetsyta som är länkad till samma Azure-prenumeration som Automation-kontot. Om du inte har en arbetsyta, väljer **Skapa ny arbetsyta**. På den **Log Analytics-arbetsytan** utför följande steg:
-   - Ange ett namn för den nya **Log Analytics-arbetsytan**, till exempel ”ContosoLAWorkspace”.
+4. På den **lägga till lösning** väljer **arbetsytan**. Välj en Log Analytics-arbetsyta som är länkad till samma Azure-prenumeration som Automation-kontot. Om du inte har en arbetsyta, väljer **Skapa ny arbetsyta**. På den **Log Analytics-arbetsyta** utför följande steg:
+   - Ange ett namn för den nya **Log Analytics-arbetsyta**, till exempel ”ContosoLAWorkspace”.
    - Välj en **prenumeration** att länka till genom att välja från listrutan om standardvalet inte är lämpligt.
    - För **resursgrupp**, du kan skapa en ny resursgrupp eller välj en befintlig.
    - Välj en **Plats**. För närvarande endast tillgängliga regionerna är **Australien, sydöstra**, **centrala**, **centrala Indien**, **USA, östra**, **Östra japan**, **Sydostasien**, **Storbritannien, södra**, **Västeuropa**, och **USA, västra 2**.
@@ -289,8 +289,8 @@ Följande tabell innehåller exempel på sökningar i loggen för jobbposter som
 
 |Söka i data | Beskrivning|
 |----------|----------|
-|Hitta jobb för runbook ScheduledStartStop_Parent att har slutförts | ```search Category == "JobLogs" | where ( RunbookName_s == "ScheduledStartStop_Parent" ) | where ( ResultType == "Completed" )  | summarize |AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) | sort by TimeGenerated desc```|
-|Hitta jobb för runbook SequencedStartStop_Parent att har slutförts | ```search Category == "JobLogs" | where ( RunbookName_s == "SequencedStartStop_Parent" ) | where ( ResultType == "Completed" ) | summarize |AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) | sort by TimeGenerated desc```|
+|Hitta jobb för runbook ScheduledStartStop_Parent att har slutförts | ```search Category == "JobLogs" | där (RunbookName_s == ”ScheduledStartStop_Parent”) | där (ResultType == ”slutfört”)  | Sammanfatta |AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) | Sortera efter TimeGenerated fall '''|
+|Hitta jobb för runbook SequencedStartStop_Parent att har slutförts | ```search Category == "JobLogs" | där (RunbookName_s == ”SequencedStartStop_Parent”) | där (ResultType == ”slutfört”) | Sammanfatta |AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) | Sortera efter TimeGenerated fall '''|
 
 ## <a name="viewing-the-solution"></a>Visa lösningen
 
@@ -300,7 +300,7 @@ Om du väljer lösningen visas den **Start stoppa VM [workspace]** lösning sida
 
 ![Automation uppdateringshantering lösning sidan](media/automation-solution-vm-management/azure-portal-vmupdate-solution-01.png)
 
-Härifrån kan kan du utföra ytterligare analys av jobbposterna genom att klicka på panelen ringdiagram. Lösningens instrumentpanel Visar historik över och fördefinierade loggsökningsfrågor. Växla till Avancerat för Log Analytics-portalen för att söka baserat på dina sökfrågor.
+Härifrån kan kan du utföra ytterligare analys av jobbposterna genom att klicka på panelen ringdiagram. Lösningens instrumentpanel Visar historik över och fördefinierade loggsökningsfrågor. Växla till log analytics avancerad portal för att söka baserat på dina sökfrågor.
 
 ## <a name="configure-email-notifications"></a>Konfigurera e-postaviseringar
 

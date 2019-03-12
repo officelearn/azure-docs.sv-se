@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 03/05/2019
+ms.date: 03/06/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: c95fcd2e6369fae920481db2623124342c34a730
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: ce9635c108a948b4773c7d27cb254f01d06896f8
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57447638"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57544247"
 ---
 # <a name="azure-storage-account-overview"></a>Översikt över Azure storage-konto
 
@@ -38,7 +38,7 @@ Generell användning v2-konton stöder de senaste funktionerna i Azure Storage o
 > [!NOTE]
 > Microsoft rekommenderar att du använder ett gpv2-lagringskonto för de flesta scenarier. Du kan enkelt uppgradera allmänna v1- eller Blob storage-konto till ett gpv2-konto utan avbrott och utan att behöva kopiera data.
 >
-> Mer information om hur du uppgraderar till ett gpv2-konto finns i [uppgradera till ett gpv2-lagringskonto](storage-account-upgrade.md). 
+> Mer information om hur du uppgraderar till ett gpv2-konto finns i [uppgradera till ett gpv2-lagringskonto](storage-account-upgrade.md).
 
 Storage-konton för generell användning v2 erbjuder flera åtkomstnivåerna för att lagra data baserat på dina användningsmönster. Mer information finns i [åtkomstnivåerna för block blob-data](#access-tiers-for-block-blob-data).
 
@@ -85,7 +85,7 @@ Azure Storage tillhandahåller olika alternativ för åtkomst till block blob-da
 Tillgängliga åtkomstnivåer är:
 
 > [!NOTE]
-> Den [Premium åtkomstnivå](../blobs/storage-blob-storage-tiers.md#premium-access-tier) är tillgänglig i en begränsad förhandsversion som ett lokalt redundant lagring (LRS)-konto i Nordeuropa, USA, Öst 2, centrala USA och västra USA-regioner. Läs hur du registrera dig för förhandsversionen i [introduktion till Azure Premium-Bloblagring](https://aka.ms/premiumblob).
+> Den [premium åtkomstnivå (förhandsversion)](../blobs/storage-blob-storage-tiers.md#premium-access-tier), som är optimerad för känsliga program för prestanda, ger låg och konsekvent fördröjning med hög genomströmning och transaktionen. Premium-åtkomstnivå är endast tillgängligt med Block Blob storage-konton (förhandsversion). Mer information finns i [förhandsversion av Azure Premium-Bloblagring](https://azure.microsoft.com/blog/azure-premium-blob-storage-public-preview/).
 
 * Den **frekvent** åtkomstnivå, vilket är optimerad för frekvent åtkomst med objekt i lagringskontot. Åtkomst till data i den frekventa nivån är mest kostnadseffektiva, medan kostnader för lagring är något högre. Nya lagringskonton som skapas i frekvent nivå som standard.
 * Den **lågfrekvent** åtkomstnivå, vilket är optimerad för att lagra stora mängder data som används sällan och som lagras i minst 30 dagar. Lagra data i den lågfrekventa nivån är mer kostnadseffektivt, men åtkomsten till dessa data kan vara något dyrare än att komma åt data på frekvent lagringsnivå.

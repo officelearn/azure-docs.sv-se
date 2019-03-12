@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: iainfou
-ms.openlocfilehash: 7e08076364cef87ec27ad34ee9af17242245bbc6
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 77908e24a19a48bf9b84d5d5b664bf0443159118
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456001"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57537770"
 ---
 # <a name="enable-and-review-kubernetes-master-node-logs-in-azure-kubernetes-service-aks"></a>Aktivera och granska Kubernetes huvudnoden loggar i Azure Kubernetes Service (AKS)
 
@@ -88,7 +88,7 @@ pod/nginx created
 
 ## <a name="view-collected-logs"></a>Visa insamlade loggar
 
-Det kan ta några minuter för diagnostikloggar till aktiveras och visas i Log Analytics-arbetsytan. I Azure-portalen väljer du resursgruppen för din Log Analytics-arbetsyta som *myResourceGroup*, väljer din Log Analytics-resurs, till exempel *myAKSLogs*.
+Det kan ta några minuter för diagnostikloggar till aktiveras och visas i Log Analytics-arbetsytan. I Azure-portalen väljer du resursgruppen för din Log Analytics-arbetsyta som *myResourceGroup*, väljer din log analytics-resurs, till exempel *myAKSLogs*.
 
 ![Välj Log Analytics-arbetsytan för AKS-kluster](media/view-master-logs/select-log-analytics-workspace.png)
 

@@ -11,21 +11,21 @@ ms.service: storage
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 03/09/2017
 ms.author: cawa
-ms.openlocfilehash: 194b13e889de4bc1c5938a6ce9cfded6fe2c88c8
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
-ms.translationtype: HT
+ms.openlocfilehash: 391c5cc3b25d58faeb2615c29a76164d4e5292f2
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55768294"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57759147"
 ---
 # <a name="using-storage-explorer-with-azure-file-storage"></a>Använd Storage Explorer med Azure File Storage
 
 Azure File Storage är en tjänst som erbjuder filresurser i molnet med hjälp av SMB-standardprotokollet (Server Message Block). Både SMB 2.1 och SMB 3.0 stöds. Med Azure File Storage kan du snabbt och utan kostsamma omskrivningar migrera äldre program som är beroende av filresurser till Azure. Du kan använda File Storage om du vill exponera data offentligt eller lagra programdata privat. I den här artikeln lär du dig att använda Storage Explorer för att arbeta med filresurser och filer.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Du behöver följande för att slutföra stegen i den här artikeln:
 

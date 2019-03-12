@@ -8,14 +8,14 @@ author: derek1ee
 ms.author: deli
 ms.reviewer: klam
 ms.assetid: 3ef16fab-d18a-48ba-8e56-3f3e0a1bcb92
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 08/18/2016
-ms.openlocfilehash: 5ed15a58e5b709b003e9f45d04c3654f814aefc7
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
-ms.translationtype: HT
+ms.openlocfilehash: a58b247732125574a067deff1d5b03859cd036fc
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52334235"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57782300"
 ---
 # <a name="concepts-terminology-and-entities-in-azure-scheduler"></a>Begrepp, terminologi och entiteter i Azure Scheduler
 
@@ -69,8 +69,8 @@ Azure Scheduler stöder flera jobbtyper:
 På hög nivå har ett Scheduler-jobb de här grundläggande delarna:
 
 * Åtgärden som körs när jobbets timer utlöses
-* Valfritt: tiden då jobbet ska köras
-* Valfritt: när och hur ofta jobbet ska upprepas
+* Valfritt: Den tid som jobbet ska köras
+* Valfritt: När och hur ofta jobbet ska upprepas
 * Valfritt: En felåtgärd som körs om den primära åtgärden misslyckas
 
 Jobbet innehåller även systemangivna data, till exempel jobbets nästa schemalagda körning. Jobbets koddefinition är ett objekt i JavaScript Object Notation (JSON)-format, vilket har dessa element:
@@ -239,7 +239,7 @@ Ett jobb återkommer om jobbets JSON-definition innehåller objektet **upprepnin
 },
 ```
 
-| Egenskap | Krävs | Värde | Beskrivning | 
+| Egenskap  | Krävs | Value | Beskrivning | 
 |----------|----------|-------|-------------| 
 | **frequency** | Ja, när **upprepning** används | Minut, timme, dag, vecka, månad, år | Tidsenheten mellan förekomster | 
 | **interval** | Nej | 1 till och med 1 000 | Ett positivt heltal som anger antalet tidsenheter mellan varje förekomst utifrån **frekvens** | 
@@ -269,7 +269,7 @@ För fallet när ett Scheduler-jobb misslyckas, kan du ställa in en återförs�
 },
 ```
 
-| Egenskap | Krävs | Värde | Beskrivning | 
+| Egenskap  | Krävs | Value | Beskrivning | 
 |----------|----------|-------|-------------| 
 | **retryType** | Ja | **Fast**, **Ingen** | Avgör om du anger en återförsöksprincip (**fast**) eller inte (**ingen**). | 
 | **retryInterval** | Nej | PT30S | Anger intervall och frekvens mellan omförsök i [ISO 8601-format](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). Minimivärdet är 15 sekunder medan det högsta värdet är 18 månader. | 
@@ -313,7 +313,7 @@ Exempel:
 }
 ```
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 
 * [Vad är Azure Scheduler?](scheduler-intro.md)
 * [Begrepp, terminologi och entitetshierarki](scheduler-concepts-terms.md)

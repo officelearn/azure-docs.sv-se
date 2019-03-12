@@ -11,14 +11,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/27/2017
+ms.date: 03/11/2019
 ms.author: apimpm
-ms.openlocfilehash: 4e7af92ed0ce04bb14bd49c24de4928baa4f00ec
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 3d5962ec097c5cd72693530328b710af915054d0
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57448075"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57768920"
 ---
 # <a name="api-management-transformation-policies"></a>API Management-principer för anspråksomvandling
 Det här avsnittet innehåller en referens för följande API Management-principer. Information om att lägga till och konfigurerar principer finns i [principer i API Management](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -208,6 +208,15 @@ Det här avsnittet innehåller en referens för följande API Management-princip
 <set-backend-service base-url="base URL of the backend service" />
 ```
 
+eller
+
+```xml
+<set-backend-service backend-id="identifier of the backend entity specifying base URL of the backend service" />
+```
+
+> [!NOTE]
+> Backend-enheter kan hanteras via hantering av [API](https://docs.microsoft.com/en-us/rest/api/apimanagement/backend) och [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement).
+
 ### <a name="example"></a>Exempel
 
 ```xml
@@ -260,8 +269,8 @@ I det här exemplet dirigerar principen begäran till en service fabric-serverde
 
 |Namn|Beskrivning|Krävs|Standard|
 |----------|-----------------|--------------|-------------|
-|bas-url|Ny backend-tjänsten bas-URL.|Nej|Gäller inte|
-|backend-id|Identifierare för att dirigera till serverdelen.|Nej|Gäller inte|
+|bas-url|Ny backend-tjänsten bas-URL.|En av `base-url` eller `backend-id` måste finnas.|Gäller inte|
+|backend-id|Identifierare för att dirigera till serverdelen. (Serverdel entiteter hanteras via [API](https://docs.microsoft.com/en-us/rest/api/apimanagement/backend) och [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement).)|En av `base-url` eller `backend-id` måste finnas.|Gäller inte|
 |sf-partition-key|Gäller endast när serverdelen är en Service Fabric-tjänst och har angetts med hjälp av backend-id. Används för att lösa en specifik partition från Namnmatchningstjänsten.|Nej|Gäller inte|
 |SF-replik-type|Gäller endast när serverdelen är en Service Fabric-tjänst och har angetts med hjälp av backend-id. Styr om begäran ska skickas till den primära eller sekundära repliken av en partition. |Nej|Gäller inte|
 |sf-resolve-condition|Gäller endast när serverdelen är en Service Fabric-tjänst. Ange ett villkor för identifiera om anropet till Service Fabric-serverdelen har upprepas med nya lösningar.|Nej|Gäller inte|
@@ -482,17 +491,15 @@ OriginalUrl.
  Mer information finns i [principuttryck](api-management-policy-expressions.md) och [sammanhangsvariabel](api-management-policy-expressions.md#ContextVariables).
 
 > [!NOTE]
-> Flera värden i ett sidhuvud sammanfogas till en CSV-sträng, till exempel:  
-> `headerName: value1,value2,value3`
+> Flera värden i ett sidhuvud sammanfogas till en CSV-sträng, till exempel: `headerName: value1,value2,value3`
 >
 > Undantagen omfattar standardiserad rubriker, vilka värden:
 > - kan innehålla kommatecken (`User-Agent`, `WWW-Authenticate`, `Proxy-Authenticate`),
 > - kan innehålla datum (`Cookie`, `Set-Cookie`, `Warning`),
 > - innehåller datum (`Date`, `Expires`, `If-Modified-Since`, `If-Unmodified-Since`, `Last-Modified`, `Retry-After`).
 >
-> Vid dessa undantag flera värden i huvudet kommer inte att sammanfogas till en sträng och kommer att skickas som separata rubriker, till exempel:  
->`User-Agent: value1`  
->`User-Agent: value2`  
+> Vid dessa undantag flera värden i huvudet kommer inte att sammanfogas till en sträng och kommer att skickas som separata rubriker, till exempel: `User-Agent: value1`
+>`User-Agent: value2`
 >`User-Agent: value3`
 
 ### <a name="elements"></a>Element

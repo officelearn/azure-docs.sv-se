@@ -8,12 +8,12 @@ services: site-recovery
 ms.topic: conceptual
 ms.date: 03/06/2019
 ms.author: raynew
-ms.openlocfilehash: c869a341ac098ab2250bb8d9452b465a54ebeda3
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 637a8e91ba03240cd4c2c530ae2c982d2115c81d
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57448602"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57569832"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Stöd matrix för haveriberedskap för virtuella VMware-datorer och fysiska servrar till Azure
 
@@ -211,6 +211,7 @@ Storage-konton för generell användning v2 (frekvent och lågfrekvent nivå) | 
 **Funktion** | **Stöds**
 --- | ---
 Tillgänglighetsuppsättningar | Ja
+Tillgänglighetszoner | Nej
 HUB | Ja
 Hanterade diskar | Ja
 

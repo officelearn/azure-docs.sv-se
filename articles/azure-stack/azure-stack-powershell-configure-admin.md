@@ -15,12 +15,12 @@ ms.date: 03/04/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 01/24/2019
-ms.openlocfilehash: 5a959cdf15371aeda20df3796f31919484da11c5
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 728f97773c2eec62c54235a868daca52dd6029a5
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57409966"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57731829"
 ---
 # <a name="connect-to-azure-stack-with-powershell-as-an-operator"></a>Ansluta till Azure Stack med PowerShell som operatör
 
@@ -81,5 +81,8 @@ New-AzureRmResourceGroup -Name "MyResourceGroup" -Location "Local"
 ## <a name="next-steps"></a>Nästa steg
 
  - [Utveckla mallar för Azure Stack](user/azure-stack-develop-templates.md)
- - [Distribuera mallar med PowerShell](user/azure-stack-deploy-template-powershell.md)
+ - [Distribuera mallar med PowerShell](user/azure-stack-deploy-template-powershell.md) <<<<<<< HEAD
+ - [Azure Stack PowerShell-modulen-referens](https://docs.microsoft.com/en-us/powershell/azure/azure-stack/overview)
+=======
 - [Azure Stack modulreferens](https://docs.microsoft.com/en-us/powershell/azure/azure-stack/overview)  
+>>>>>>> ac8c5a2d00d4eb5b4ef65359c5349ddff1bf30cf

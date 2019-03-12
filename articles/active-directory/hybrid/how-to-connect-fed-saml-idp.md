@@ -14,12 +14,12 @@ ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 09151dee2d458e2ff4fae8a8a3bc93fa466e4efc
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 7b82c2261e949c724b1310ee43c6f3fe29766945
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56167804"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57531019"
 ---
 #  <a name="use-a-saml-20-identity-provider-idp-for-single-sign-on"></a>Använda en SAML 2.0-identitetsprovider (IdP) för enkel inloggning på
 
@@ -196,7 +196,7 @@ Läs mer om ”Set-MsolDomainAuthentication”: [ https://technet.microsoft.com/
 >[!NOTE]
 >Du måste köra användning ”$ecpUrl =”https://WS2012R2-0.contoso.com/PAOS”” bara om du har konfigurerat ett ECP-tillägg för din identitetsprovider. Exchange Online-klienter, exklusive Outlook Web Application (OWA) förlitar sig på ett INLÄGG baserat active slutpunkt. Om din SAML 2.0 STS implementerar en aktiv slutpunkt som liknar Shibboleth's ECP implementering av en aktiv slutpunkt kan det vara möjligt för dessa omfattande klienter kan interagera med Exchange Online-tjänsten.
 
-När federation har konfigurerats du kan gå tillbaka till ”icke-federerade” (eller ”hanterad”), men den här ändringen tar upp till två timmar att slutföra och måste tilldela nya slumpmässigt lösenord för molnbaserad inloggning till varje användare. Växla tillbaka till ”hanterad” kan krävas i vissa situationer för att återställa ett fel i dina inställningar. Läs mer på domänen konvertering: [ https://msdn.microsoft.com/library/windowsazure/dn194122.aspx ](httpss://msdn.microsoft.com/library/windowsazure/dn194122.aspx).
+När federation har konfigurerats du kan gå tillbaka till ”icke-federerade” (eller ”hanterad”), men den här ändringen tar upp till två timmar att slutföra och måste tilldela nya slumpmässigt lösenord för molnbaserad inloggning till varje användare. Växla tillbaka till ”hanterad” kan krävas i vissa situationer för att återställa ett fel i dina inställningar. Läs mer på domänen konvertering: [ https://msdn.microsoft.com/library/windowsazure/dn194122.aspx ](https://msdn.microsoft.com/library/windowsazure/dn194122.aspx).
 
 ## <a name="provision-user-principals-to-azure-ad--office-365"></a>Etablera användares huvudnamn till Azure AD / Office 365
 Innan du kan autentisera dina användare på Office 365, måste du etablera Azure AD med användares huvudnamn som motsvarar försäkran i SAML 2.0-anspråket. Om dessa användares huvudnamn inte är känner till Azure AD i förväg, kan sedan de inte användas för sammansluten inloggning. Azure AD Connect eller Windows PowerShell kan användas för att etablera användares huvudnamn.

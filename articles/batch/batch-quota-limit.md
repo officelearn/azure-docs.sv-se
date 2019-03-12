@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 12/18/2018
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 5194fa73d246cee039e113207bbde277b06d7130
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: f8941f84e85f330713cb4b263f2154acb80b520c
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53753207"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57532415"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Kvoter och begränsningar för Batch-tjänsten
 
@@ -67,7 +67,7 @@ Om du har skapat ett Batch-konto med poolallokeringsläget inställt **användar
 | Programpaket per program | 40 |
 | Maximal aktiviteternas livslängd | 180 dagar<sup>1</sup> |
 
-<sup>1</sup> högsta livstid för en uppgift, från när den läggs till i jobbet tills den slutförs, är 180 dagar. Slutförda uppgifter finns kvar för 7 dagar. data för uppgifter som inte slutförts inom den maximala livstiden är inte tillgänglig.
+<sup>1</sup> högsta livstid för en uppgift, från när den läggs till i jobbet tills den slutförs, är 180 dagar. Slutförda uppgifter bevaras i 7 dagar. Data för uppgifter som inte slutförts inom den maximala livstiden är inte tillgängliga.
 
 ## <a name="view-batch-quotas"></a>Visa Batch-kvoter
 
@@ -135,6 +135,6 @@ Dessa resurser allokeras i den prenumeration som innehåller det virtuella nätv
 
 [portal]: https://portal.azure.com
 [portal_classic_increase]: https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/
-[support_sev]: http://aka.ms/supportseverity
+[support_sev]: https://aka.ms/supportseverity
 
 [account_quotas]: ./media/batch-quota-limit/accountquota_portal.png

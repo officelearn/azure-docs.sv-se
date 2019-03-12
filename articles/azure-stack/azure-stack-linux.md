@@ -15,12 +15,12 @@ ms.date: 02/15/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 11/16/2018
-ms.openlocfilehash: af95c07b43682322693aed18b6bcf58ca70291d1
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 277af6f139e815f46894f5b8df82a1d92ef573d1
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57242793"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57537141"
 ---
 # <a name="add-linux-images-to-azure-stack"></a>Lägga till Linux-avbildningar i Azure Stack
 
@@ -38,7 +38,7 @@ Observera att det finns frekventa uppdateringar till dessa bilder, så kontrolle
 
 Om möjligt hämta avbildningar via Marketplace-hantering som har förberetts och testats för Azure Stack.
 
-Azure Linux Agent (kallas vanligtvis `WALinuxAgent` eller `walinuxagent`) krävs, och inte alla versioner av agenten fungerar i Azure Stack. Du bör använda den senaste versionen av WALA eller version 2.2.20 om du skapar en egen avbildning. Observera att mellan 2.2.20 och 2.2.36 inte fungerar på Azure Stack. Observera att [cloud-init](https://cloud-init.io/) stöds inte på Azure Stack just nu.
+Azure Linux Agent (kallas vanligtvis `WALinuxAgent` eller `walinuxagent`) krävs, och inte alla versioner av agenten fungerar i Azure Stack. Du bör använda den senaste versionen av WALA eller version 2.2.20 om du skapar en egen avbildning. Observera att mellan 2.2.20 och 2.2.35.1 (exklusiva) inte fungerar på Azure Stack. Observera att [cloud-init](https://cloud-init.io/) stöds inte på Azure Stack just nu.
 
 Du kan förbereda din egen Linux-avbildning med följande anvisningar:
 

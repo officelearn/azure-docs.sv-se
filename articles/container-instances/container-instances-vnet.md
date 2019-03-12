@@ -7,12 +7,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: danlep
-ms.openlocfilehash: 79ba32f85c608d98b29b235bf1417e74f7e2a4d4
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 5382c565e5afc42d65a3198d797b51d1b1a9dde6
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56313491"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57550778"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>Distribuera behållarinstanser till en Azure-nätverk
 
@@ -38,21 +38,15 @@ Vissa begränsningar gäller när du distribuerar behållargrupper till ett virt
 * Du kan inte använda en [hanterad identitet](container-instances-managed-identity.md) i en behållargrupp som distribueras till ett virtuellt nätverk.
 * På grund av de ytterligare nätverksresurser som ingår är distribuera en behållargrupp till ett virtuellt nätverk vanligtvis något långsammare än att distribuera en behållarinstans som standard.
 
-## <a name="preview-limitations"></a>Begränsningar i förhandsversionen
+## <a name="preview-limitations"></a>Begränsningar för förhandsversion
 
-Den här funktionen är i förhandsversion, gäller följande begränsningar när du distribuerar behållarinstanser till ett virtuellt nätverk. 
+Den här funktionen är i förhandsversion, gäller följande begränsningar när du distribuerar behållargrupper till ett virtuellt nätverk. 
 
-**Regioner som stöds och resursbegränsningar**
-
-| Plats | Operativsystem | Processor | Minne (GB) |
-| -------- | :---: | :---: | :-----------: |
-| Västra Europa | Linux | 4 | 14 |
-| Östra USA, västra USA | Linux | 2 | 3.5 |
-| Östra Europa, Norra | Linux | 1 | 1.5 |
+[!INCLUDE [container-instances-vnet-limits](../../includes/container-instances-vnet-limits.md)]
 
 Behållaren resursgränser kan skilja sig från gränser för icke-nätverksanslutna container instances i dessa regioner. För närvarande endast Linux-behållare har stöd för den här funktionen. Windows-stöd planeras.
 
-**Nätverk som inte stöds resurser och funktioner**
+### <a name="unsupported-network-resources-and-features"></a>Nätverk som inte stöds resurser och funktioner
 
 * Azure Load Balancer
 * Virtuell nätverkspeering

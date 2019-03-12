@@ -4,16 +4,16 @@ description: Samla in anpassade mått för en Linux VM med InfluxData Telegraf-a
 author: anirudhcavale
 services: azure-monitor
 ms.service: azure-monitor
-ms.topic: howto
+ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 6944eb922250ac23aaae28997465af5a7c1e6032
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 14415b88cd6036642442ef9ae23e8dee301bb908
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54474735"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57775619"
 ---
 # <a name="collect-custom-metrics-for-a-linux-vm-with-the-influxdata-telegraf-agent"></a>Samla in anpassade mått för en Linux VM med InfluxData Telegraf-agent
 

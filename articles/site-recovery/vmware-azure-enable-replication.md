@@ -3,15 +3,15 @@ title: Aktivera replikering av virtuella VMware-datorer för VMware-haveribereds
 description: Den här artikeln beskriver hur du aktiverar replikering av virtuella VMware-datorer för haveriberedskap till Azure med Azure Site Recovery.
 author: mayurigupta13
 ms.service: site-recovery
-ms.date: 3/3/2019
+ms.date: 3/6/2019
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: 47cd1c8e7a8ea02175f1f35eaf8c1658e03a2a53
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 26b0370af900e1c29bf11606339487cf27f88039
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57403319"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57533433"
 ---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>Aktivera replikering till Azure för virtuella VMware-datorer
 
@@ -39,6 +39,12 @@ När du replikerar virtuella VMware-datorer:
 
 ## <a name="enable-replication"></a>Aktivera replikering
 
+>[!NOTE]
+>* Azure Site Recovery replikerar nu direkt till Managed Disks för alla nya replikeringar. Processervern skriver replikeringsloggar till ett cachelagringskonto i målregionen. De här loggarna används för att skapa återställningspunkter i hanterade replikeringsdiskar. 
+>* Vid tidpunkten för växling vid fel används den återställningspunkt som valts av kunden för att skapa hanterade måldisken.
+>* Virtuella datorer som har tidigare konfigurerats för att replikera till mållagringskonton påverkas inte. 
+>* Replikering till storage-konton för en ny dator är bara tillgängliga via REST-API och Powershell. Använd API-versionen 2016-08-10 eller 2018-01-10 för att replikera till storage-konton.
+
 1. Klicka på **steg 2: Replikera program** > **källa**. När du har aktiverat replikering för första gången klickar du på **+Replikera** i valvet för att aktivera replikering för ytterligare datorer.
 2. I den **källa** sidan > **källa**, Välj configuration server.
 3. I **datortyp**väljer **virtuella datorer** eller **fysiska datorer**.
@@ -50,14 +56,13 @@ När du replikerar virtuella VMware-datorer:
 6. I **Target**, Välj prenumerationen och resursgrupp där du vill skapa de redundansväxlade virtuella datorerna. Välj den distributionsmodell som du vill använda i Azure för de redundansväxlade virtuella datorerna.
 
 7. Välj det Azure-nätverk och undernät som virtuella Azure-datorer ska ansluta till efter en redundansväxling. Nätverket måste finnas i samma region som Recovery Services-valvet. Välj **Konfigurera nu för valda datorer** om du vill använda nätverksinställningen på alla datorer som du väljer att skydda. Välj **Konfigurera senare** om du vill välja Azure-nätverket för varje dator. Om du inte har ett nätverk kan behöva du skapa en. Om du vill skapa ett nätverk med hjälp av Resource Manager klickar du på **Skapa ny**. Välj ett undernät om det är tillämpligt, och klicka sedan på **OK**.
+   
+   ![Aktivera replikering Målinställningar](./media/vmware-azure-enable-replication/enable-rep3.png)
 
->[!NOTE]
->Azure Site Recovery replikerar nu direkt till Managed Disks för alla nya replikeringar. Befintliga replikeringar påverkas inte. Replikering till storage-konton för en ny dator är bara tillgängliga via REST-API och Powershell. 
-
-    ![Enable replication target setting](./media/vmware-azure-enable-replication/enable-rep3.png)
 8. I **Virtual Machines** > **Välj virtuella datorer** väljer du de datorer som du vill replikera. Du kan bara välja datorer som stöder replikering. Klicka sedan på **OK**. Om du inte kan visa /välja en viss virtuell dator klickar du [här](https://aka.ms/doc-plugin-VM-not-showing) för att lösa problemet.
 
     ![Aktivera replikering väljer virtuella datorer](./media/vmware-azure-enable-replication/enable-replication5.png)
+
 9. I **egenskaper** > **konfigurera egenskaper**, väljer du det konto som används av processervern för att automatiskt installera Mobilitetstjänsten på datorn. Välj även den typ av hanterad måldisken som du vill replikera till utifrån dina data churn mönster.
 10. Som standard replikeras alla diskar på en källdator. Om du vill undanta diskar från replikering, avmarkera **inkludera** kryssrutan mot alla diskar som du inte vill replikera.  Klicka sedan på **OK**. Du kan ange ytterligare egenskaper senare. [Läs mer](vmware-azure-exclude-disk.md) om att undanta diskar.
 
@@ -72,9 +77,8 @@ När du replikerar virtuella VMware-datorer:
     >    * Samla ihop virtuella datorer och fysiska servrar så att de speglar dina arbetsbelastningar. Aktivering av konsekvens för flera datorer kan påverka prestandan. Använd bara om datorerna kör samma arbetsbelastning och konsekvens.
 
     ![Aktivera replikering](./media/vmware-azure-enable-replication/enable-replication7.png)
+    
 13. Klicka på **Aktivera replikering**. Du kan följa förloppet för jobbet **Aktivera skydd** i **Inställningar** > **Jobb** > **Site Recovery-jobb**. När jobbet **Slutför skydd** har körts är datorn redo för redundans.
-
-
 
 ## <a name="view-and-manage-vm-properties"></a>Visa och hantera egenskaper för virtuella datorer
 

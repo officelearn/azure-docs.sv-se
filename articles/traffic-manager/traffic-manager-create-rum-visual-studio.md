@@ -12,12 +12,12 @@ ms.workload: infrastructure
 ms.date: 03/16/2018
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: eec13db8bdbe1f40a51df14077adb8740e977f5d
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 35b4b06a09b8ef7b27e8d105d7f2336668c49f8f
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50138420"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57570869"
 ---
 # <a name="how-to-send-real-user-measurements-to-traffic-manager-with-visual-studio-mobile-center"></a>Hur du skickar faktisk Slutanvändarmätning till Traffic Manager med Visual Studio Mobile Center
 
@@ -28,7 +28,7 @@ Du kan ställa in din mobila program som utvecklats med Visual Studio Mobile Cen
 
 Om du vill konfigurera Real User Measurements måste du hämta en nyckel och instrumenterar din app med köra paketet.
 
-## <a name="step-1-obtain-a-key"></a>Steg 1: Få en nyckel
+## <a name="step-1-obtain-a-key"></a>Steg 1: Hämta en nyckel
     
 Mätningar du ta och skickas till Traffic Manager från klientprogrammet identifieras av tjänsten med hjälp av en unik sträng som kallas nyckeln Real User Measurements (ROM). Du kan få en köra nyckel med hjälp av Azure portal, REST-API eller med hjälp av PowerShell / CLI-gränssnitt.
 
@@ -72,7 +72,7 @@ Utför följande procedur för att använda Real User Measurements:
     I din **App/build.gradle** filen lägger du till följande rader:
 
     ```groovy
-    dependencies {   
+    dependencies {
      
         def mobileCenterSdkVersion = '0.12.1-16+3fe5b08'
         compile "com.microsoft.azure.mobile:mobile-center-rum:${mobileCenterSdkVersion}"

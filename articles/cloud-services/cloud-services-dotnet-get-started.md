@@ -1,6 +1,6 @@
 ---
 title: Kom igång med Azure Cloud Services och ASP.NET | Microsoft Docs
-description: Lär dig hur du kan skapa en app för flera nivåer med ASP.NET MVC och Azure. Appen körs i en molntjänst med en webbroll och en arbetsroll. Appen använder Entity Framework, SQL Database och Azure Storage-köer och -blobar.
+description: Lär dig hur du kan skapa en app för flera nivåer med ASP.NET MVC och Azure. Appen körs i en molntjänst med en webbroll och en arbetsroll. Appen använder Entity Framework, SQL Database och Azure Storage-köer och -blobbar.
 services: cloud-services, storage
 documentationcenter: .net
 author: jpconnock
@@ -11,20 +11,20 @@ ms.service: cloud-services
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
-ms.topic: hero-article
+ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 966536b7129a91f4c6fd8dd7bf0270be660bdf81
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
-ms.translationtype: HT
+ms.openlocfilehash: aa62db0948ffa036b37736477b872d694d14836b
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54332072"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57762622"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Kom igång med Azure Cloud Services och ASP.NET
 
 ## <a name="overview"></a>Översikt
-Under den här kursen får du lära dig hur du skapar ett .NET-program på flera nivåer med en ASP.NET MVC-klientdel, samt att distribuera det till en [Azure-molntjänst](cloud-services-choose-me.md). Programmet använder [Azure SQL Database](https://msdn.microsoft.com/library/azure/ee336279), [Azure Blob-tjänsten](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage) och [Azure-kötjänsten](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern). Du kan [hämta Visual Studio-projektet](https://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4) från MSDN Code Gallery.
+Under den här kursen får du lära dig hur du skapar ett .NET-program på flera nivåer med en ASP.NET MVC-klientdel, samt att distribuera det till en [Azure-molntjänst](cloud-services-choose-me.md). Programmet använder [Azure SQL Database](https://msdn.microsoft.com/library/azure/ee336279), [Azure Blob-tjänsten](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage) och [Azure-kötjänsten](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern). Du kan [hämta Visual Studio-projektet](https://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4) från MSDN Code Gallery.
 
 Under kursen får du lära dig hur du skapar och kör programmet lokalt, hur du distribuerar det till Azure och kör det i molnet, och hur du skapar det från grunden. Du kan börja med att skapa från grunden och sedan göra test- och distributionsstegen efteråt om du föredrar det.
 
@@ -33,7 +33,7 @@ Programmet är en anslagstavla för annonser. Användare skapar en annons genom 
 
 ![Annonslista](./media/cloud-services-dotnet-get-started/list.png)
 
-Programmet använder det [köcentriska arbetsmönstret](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern) för att avlasta det processorintensiva arbetet med att skapa miniatyrbilder till en serverdelsprocess.
+Programmet använder det [köcentriska arbetsmönstret](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern) för att avlasta det processorintensiva arbetet med att skapa miniatyrbilder till en serverdelsprocess.
 
 ## <a name="alternative-architecture-app-service-and-webjobs"></a>Alternativ arkitektur: App Service och WebJobs
 Under den här kursen får du lära dig hur du kör både klient- och serverdelen i en Azure-molntjänst. Ett alternativ är att köra klientdelen i en [Azure App Service](/azure/app-service/) och använda [WebJobs](https://go.microsoft.com/fwlink/?LinkId=390226)-funktionen för serverdelen. Om du vill följa en kurs som använder WebJobs går du till [Kom igång med Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki). Mer information om hur du väljer de tjänster som bäst passar din situation finns i [Jämförelse mellan Azure App Service, Cloud Services och Virtual Machines](../app-service/overview-compare.md).
@@ -46,8 +46,8 @@ Under den här kursen får du lära dig hur du kör både klient- och serverdele
 * Hur du laddar upp filer och lagrar dem i Azure Blob-tjänsten.
 * Hur du använder Azure-kötjänsten för kommunikation mellan nivåer.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
-Kursen förutsätter att du förstår [grundläggande koncept om Azure-molntjänster](cloud-services-choose-me.md), t.ex. termerna *webbroll* och *arbetsroll*.  Det förutsätts även att du kan använda [ASP.NET MVC](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started)- eller [Web Forms](http://www.asp.net/web-forms/tutorials/aspnet-45/getting-started-with-aspnet-45-web-forms/introduction-and-overview)-projekt i Visual Studio. Exempelprogrammet använder MVC, men större delen av kursen gäller också Web Forms.
+## <a name="prerequisites"></a>Förutsättningar
+Kursen förutsätter att du förstår [grundläggande koncept om Azure-molntjänster](cloud-services-choose-me.md), t.ex. termerna *webbroll* och *arbetsroll*.  Det förutsätts även att du kan använda [ASP.NET MVC](https://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started)- eller [Web Forms](https://www.asp.net/web-forms/tutorials/aspnet-45/getting-started-with-aspnet-45-web-forms/introduction-and-overview)-projekt i Visual Studio. Exempelprogrammet använder MVC, men större delen av kursen gäller också Web Forms.
 
 Du kan köra appen lokalt utan en Azure-prenumeration, men du behöver en prenumeration för att kunna distribuera programmet i molnet. Om du inte har ett konto kan du [aktivera MSDN-prenumerantförmåner](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A55E3C668) eller [registrera dig för en kostnadsfri utvärderingsversion](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A55E3C668).
 
@@ -64,7 +64,7 @@ Appen lagrar annonser i en SQL-databas och använder Entity Framework Code First
 
 ![Annonstabell](./media/cloud-services-dotnet-get-started/adtable.png)
 
-När en användare laddar upp en bild, lagrar klientdelen som körs i en webbroll bilden i en [Azure-blob](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage), och den lagrar annonsinformationen i databasen med en URL som pekar på bloben. Samtidigt skriver den ett meddelande till en Azure-kö. En serverdelsprocess som körs i en arbetsroll söker regelbundet i kön efter nya meddelanden. När ett nytt meddelande dyker upp, skapar arbetsrollen en miniatyrbild för den bilden och uppdaterar miniatyrbildens URL-databasfält för den annonsen. I följande diagram visas hur programmets olika delar fungerar tillsammans.
+När en användare laddar upp en bild, lagrar klientdelen som körs i en webbroll bilden i en [Azure-blob](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage), och den lagrar annonsinformationen i databasen med en URL som pekar på blobben. Samtidigt skriver den ett meddelande till en Azure-kö. En serverdelsprocess som körs i en arbetsroll söker regelbundet i kön efter nya meddelanden. När ett nytt meddelande dyker upp, skapar arbetsrollen en miniatyrbild för den bilden och uppdaterar miniatyrbildens URL-databasfält för den annonsen. I följande diagram visas hur programmets olika delar fungerar tillsammans.
 
 ![Contoso Ads-arkitektur](./media/cloud-services-dotnet-get-started/apparchitecture.png)
 
@@ -99,9 +99,9 @@ När en användare laddar upp en bild, lagrar klientdelen som körs i en webbrol
 
      ![Sidan Details (Detaljer)](./media/cloud-services-dotnet-get-started/details.png)
 
-Du har kört programmet helt på din lokala dator utan anslutning till molnet. Lagringsemulatorn lagrar kö- och blobdata i en SQL Server Express LocalDB-databas, och programmet lagrar annonsdata i en annan LocalDB-databas. Entity Framework Code First skapade automatiskt annonsdatabasen första gången webbappen försökte få tillgång till den.
+Du har kört programmet helt på din lokala dator utan anslutning till molnet. Lagringsemulatorn lagrar kö- och blobbdata i en SQL Server Express LocalDB-databas, och programmet lagrar annonsdata i en annan LocalDB-databas. Entity Framework Code First skapade automatiskt annonsdatabasen första gången webbappen försökte få tillgång till den.
 
-I följande avsnitt får du konfigurera lösningen så att den använder Azure-molnresurser för köer, blobar och programdatabasen när den körs i molnet. Om du vill fortsätta att köra lösningen lokalt men använda molnet och databasresurser kan du göra det. Det är bara att ställa in anslutningssträngar, vilket du får lära dig här.
+I följande avsnitt får du konfigurera lösningen så att den använder Azure-molnresurser för köer, blobbar och programdatabasen när den körs i molnet. Om du vill fortsätta att köra lösningen lokalt men använda molnet och databasresurser kan du göra det. Det är bara att ställa in anslutningssträngar, vilket du får lära dig här.
 
 ## <a name="deploy-the-application-to-azure"></a>Distribuera programmet till Azure
 Följ dessa steg för att köra programmet i molnet:
@@ -159,7 +159,7 @@ När appen körs i molnet använder den en molnbaserad databas.
 10. Klicka på **Skapa**.
 
 ### <a name="create-an-azure-storage-account"></a>Skapa ett Azure-lagringskonto
-Ett Azure-lagringskonto tillhandahåller resurser för att lagra kö- och blobdata i molnet.
+Ett Azure-lagringskonto tillhandahåller resurser för att lagra kö- och blobbdata i molnet.
 
 I ett riktigt program skapar du vanligtvis separata konton för programdata jämfört med loggningsdata, samt separata konton för testdata jämfört med produktionsdata. Under den här kursen använder du bara ett konto.
 
@@ -188,10 +188,10 @@ I ett riktigt program skapar du vanligtvis separata konton för programdata jäm
 ### <a name="configure-the-solution-to-use-your-azure-sql-database-when-it-runs-in-azure"></a>Konfigurera lösningen så att den använder Azure SQL Database när den körs i Azure
 Webbprojektet och arbetsrollsprojektet har varsin databasanslutningssträng, och båda strängarna måste peka på Azure SQL Database när appen körs i Azure.
 
-Du kommer att använda en [Web.config-transformering](http://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/web-config-transformations) för webbrollen och en inställning för molntjänstmiljö för arbetsrollen.
+Du kommer att använda en [Web.config-transformering](https://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/web-config-transformations) för webbrollen och en inställning för molntjänstmiljö för arbetsrollen.
 
 > [!NOTE]
-> I det här och i nästa avsnitt får du lagra autentiseringsuppgifter i projektfiler. [Lagra inte känsliga data i offentliga källkodslager](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control#secrets).
+> I det här och i nästa avsnitt får du lagra autentiseringsuppgifter i projektfiler. [Lagra inte känsliga data i offentliga källkodslager](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control#secrets).
 >
 >
 
@@ -321,7 +321,7 @@ Contoso Ads-programmet skapas i följande steg:
 * Konfigurera anslutningssträngar.
 * Lägg till kodfiler.
 
-När lösningen har skapats granskar du koden som är unik för molntjänstprojekt samt Azure-blobar och -köer.
+När lösningen har skapats granskar du koden som är unik för molntjänstprojekt samt Azure-blobbar och -köer.
 
 ### <a name="create-a-cloud-service-visual-studio-solution"></a>Skapa en Visual Studio-lösning med molntjänst
 1. I Visual Studio väljer du **New Project** (Nytt projekt) på menyn **File** (Arkiv).
@@ -391,7 +391,7 @@ I det här avsnittet konfigurerar du Azure Storage- och SQL-anslutningssträngar
 8. När du har egenskapsfönstret för **ContosoAdsWorker [roll]** öppet lägger du till ytterligare en anslutningssträng:
 
    * Namn: ContosoAdsDbConnectionString
-   * Ange: Sträng
+   * Ange: String
    * Värde: Klistra in samma anslutningssträng som du använde för webbrollsprojektet. (Följande exempel gäller Visual Studio 2013. Glöm inte att ändra datakällan om du kopierar det här exemplet och använder Visual Studio 2015 eller högre.)
 
        ```
@@ -415,11 +415,11 @@ Om du vill lägga till filer i ett projekt eller i en mapp, högerklickar du på
 
 Du kan nu skapa och köra programmet enligt de tidigare anvisningarna i kursen, och appen använder lokala databas- och lagringsemulatorresurser.
 
-I de följande avsnitten beskrivs den kod som gäller när du arbetar med Azure-miljön, -blobar och -köer. Under den här kursen förklaras inte hur du skapar MVC-kontrollanter och vyer med scaffold-teknik, hur du skriver Entity Framework-kod som fungerar med SQL Server-databaser eller grundläggande information om asynkron programmering i ASP.NET 4.5. Mer information om de här ämnena finns i följande resurser:
+I de följande avsnitten beskrivs den kod som gäller när du arbetar med Azure-miljön, -blobbar och -köer. Under den här kursen förklaras inte hur du skapar MVC-kontrollanter och vyer med scaffold-teknik, hur du skriver Entity Framework-kod som fungerar med SQL Server-databaser eller grundläggande information om asynkron programmering i ASP.NET 4.5. Mer information om de här ämnena finns i följande resurser:
 
-* [Kom igång med MVC 5](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started)
-* [Kom igång med EF 6 och MVC 5](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc)
-* [Introduktion till asynkron programmering i .NET 4.5](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices#async).
+* [Kom igång med MVC 5](https://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started)
+* [Kom igång med EF 6 och MVC 5](https://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc)
+* [Introduktion till asynkron programmering i .NET 4.5](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices#async).
 
 ### <a name="contosoadscommon---adcs"></a>ContosoAdsCommon – Ad.cs
 Filen Ad.cs definierar en uppräkning för annonskategorier och en POCO-entitetsklass för annonsinformation.
@@ -494,7 +494,7 @@ var storageAccount = CloudStorageAccount.Parse
     (RoleEnvironment.GetConfigurationSettingValue("StorageConnectionString"));
 ```
 
-Sedan hämtar den en referens till blobcontainern för *images*, skapar containern om den inte redan finns, och anger åtkomstbehörighet för den nya containern. Som standard tillåter nya containrar enbart klienter med lagringskontouppgifter att få tillgång till blobar. Webbplatsen kräver att blobarna är offentliga så att den kan visa bilder med URL:er som pekar på bildblobarna.
+Sedan hämtar den en referens till blobcontainern för *images*, skapar containern om den inte redan finns, och anger åtkomstbehörighet för den nya containern. Som standard tillåter nya containrar enbart klienter med lagringskontouppgifter att få tillgång till blobbar. Webbplatsen kräver att blobbarna är offentliga så att den kan visa bilder med URL:er som pekar på bildblobbarna.
 
 ```csharp
 var blobClient = storageAccount.CreateCloudBlobClient();
@@ -531,9 +531,9 @@ Filen *Views\Home\Index.cshtml* visar kategorilänkar på startsidan. Länkarna 
 ```
 
 ### <a name="contosoadsweb---adcontrollercs"></a>ContosoAdsWeb – AdController.cs
-I filen *AdController.cs* anropar konstruktorn metoden `InitializeStorage` för att skapa Azure Storage-klientbiblioteksobjekt som tillhandahåller en API som kan användas för blobar och köer.
+I filen *AdController.cs* anropar konstruktorn metoden `InitializeStorage` för att skapa Azure Storage-klientbiblioteksobjekt som tillhandahåller en API som kan användas för blobbar och köer.
 
-Sedan hämtar koden en referens till blobcontainern för *images* som du såg tidigare i *Global.asax.cs*. När den gör det anger den en [standardpolicy för återförsök](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/transient-fault-handling) som är lämplig för en webbapp. Standardpolicyn för återförsök med exponentiell begränsning kan hänga webbappen längre än en minut vid upprepade återförsök för ett tillfälligt fel. Återförsökspolicyn som anges här väntar i tre sekunder efter varje försök i upp till tre försök.
+Sedan hämtar koden en referens till blobcontainern för *images* som du såg tidigare i *Global.asax.cs*. När den gör det anger den en [standardpolicy för återförsök](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/transient-fault-handling) som är lämplig för en webbapp. Standardpolicyn för återförsök med exponentiell begränsning kan hänga webbappen längre än en minut vid upprepade återförsök för ett tillfälligt fel. Återförsökspolicyn som anges här väntar i tre sekunder efter varje försök i upp till tre försök.
 
 ```csharp
 var blobClient = storageAccount.CreateCloudBlobClient();
@@ -559,7 +559,7 @@ public async Task<ActionResult> Create(
     HttpPostedFileBase imageFile)
 ```
 
-Om användaren har valt en fil att ladda upp, laddar koden upp filen, sparar den i en blob och uppdaterar Ad-databasposten med en URL som pekar på bloben.
+Om användaren har valt en fil att ladda upp, laddar koden upp filen, sparar den i en blob och uppdaterar Ad-databasposten med en URL som pekar på blobben.
 
 ```csharp
 if (imageFile != null && imageFile.ContentLength != 0)
@@ -569,7 +569,7 @@ if (imageFile != null && imageFile.ContentLength != 0)
 }
 ```
 
-Koden som utför uppladdningen är i metoden `UploadAndSaveBlobAsync`. Den skapar ett GUID-namn för bloben, laddar upp och sparar filen, och returnerar en referens till den sparade bloben.
+Koden som utför uppladdningen är i metoden `UploadAndSaveBlobAsync`. Den skapar ett GUID-namn för blobben, laddar upp och sparar filen, och returnerar en referens till den sparade blobben.
 
 ```csharp
 private async Task<CloudBlockBlob> UploadAndSaveBlobAsync(HttpPostedFileBase imageFile)
@@ -592,7 +592,7 @@ var queueMessage = new CloudQueueMessage(queueMessageString);
 await queue.AddMessageAsync(queueMessage);
 ```
 
-Koden för HttpPost-metoden `Edit` är liknande, förutom att om användaren väljer en ny bildfil måste alla blobar som redan finns tas bort.
+Koden för HttpPost-metoden `Edit` är liknande, förutom att om användaren väljer en ny bildfil måste alla blobbar som redan finns tas bort.
 
 ```csharp
 if (imageFile != null && imageFile.ContentLength != 0)
@@ -603,7 +603,7 @@ if (imageFile != null && imageFile.ContentLength != 0)
 }
 ```
 
-I nästa exempel visas den kod som tar bort blobar när du tar bort en annons.
+I nästa exempel visas den kod som tar bort blobbar när du tar bort en annons.
 
 ```csharp
 private async Task DeleteAdBlobsAsync(Ad ad)
@@ -737,7 +737,7 @@ private void ProcessQueueMessage(CloudQueueMessage msg)
 Den här koden läser databasen för att hämta bildens URL, konverterar bilden till en miniatyrbild, sparar miniatyren i en blob, uppdaterar databasen med URL:en för miniatyren i bloben och tar bort kömeddelandet.
 
 > [!NOTE]
-> Koden i metoden `ConvertImageToThumbnailJPG` använder klasser i namnområdet System.Drawing för enkelhetens skull. Klasserna i det här namnområdet har emellertid skapats för användning med Windows Forms. De stöds inte för användning i en Windows- eller ASP.NET-tjänst. Mer information om alternativ för bildbearbetning finns i [Dynamic Image Generation](http://www.hanselman.com/blog/BackToBasicsDynamicImageGenerationASPNETControllersRoutingIHttpHandlersAndRunAllManagedModulesForAllRequests.aspx) och [Deep Inside Image Resizing](http://www.hanselminutes.com/313/deep-inside-image-resizing-and-scaling-with-aspnet-and-iis-with-imageresizingnet-author-na).
+> Koden i metoden `ConvertImageToThumbnailJPG` använder klasser i namnområdet System.Drawing för enkelhetens skull. Klasserna i det här namnområdet har emellertid skapats för användning med Windows Forms. De stöds inte för användning i en Windows- eller ASP.NET-tjänst. Mer information om alternativ för bildbearbetning finns i [Dynamic Image Generation](https://www.hanselman.com/blog/BackToBasicsDynamicImageGenerationASPNETControllersRoutingIHttpHandlersAndRunAllManagedModulesForAllRequests.aspx) och [Deep Inside Image Resizing](https://www.hanselminutes.com/313/deep-inside-image-resizing-and-scaling-with-aspnet-and-iis-with-imageresizingnet-author-na).
 >
 >
 
@@ -762,20 +762,20 @@ Om du vill ändra så att projektet använder den fullständiga emulatorn, höge
 Du måste öppna Visual Studio med administratörsbehörighet för att köra programmet med den fullständiga emulatorn.
 
 ## <a name="next-steps"></a>Nästa steg
-Contoso Ads-programmet har med avsikt förenklats för den här komma igång-kursen. Det implementerar exempelvis inte [beroendeinmatning](http://www.asp.net/mvc/tutorials/hands-on-labs/aspnet-mvc-4-dependency-injection) eller [centrallager och arbetsenhetsmönster](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/advanced-entity-framework-scenarios-for-an-mvc-web-application#repo), det använder inte [ett gränssnitt för loggning](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry#log) och inte heller [EF Code First Migrations](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application) för att hantera datamodelländringar eller [EF Connection Resiliency](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application) för att hantera tillfälliga nätverksfel osv.
+Contoso Ads-programmet har med avsikt förenklats för den här komma igång-kursen. Det implementerar exempelvis inte [beroendeinmatning](https://www.asp.net/mvc/tutorials/hands-on-labs/aspnet-mvc-4-dependency-injection) eller [centrallager och arbetsenhetsmönster](https://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/advanced-entity-framework-scenarios-for-an-mvc-web-application#repo), det använder inte [ett gränssnitt för loggning](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry#log) och inte heller [EF Code First Migrations](https://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application) för att hantera datamodelländringar eller [EF Connection Resiliency](https://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application) för att hantera tillfälliga nätverksfel osv.
 
 Här följer några exempelprogram för molntjänster som visar fler verklighetsbaserade kodningsexempel, i ordningen från mindre till mer komplexa:
 
 * [PhluffyFotos](https://code.msdn.microsoft.com/PhluffyFotos-Sample-7ecffd31). Liknande koncept som i Contoso Ads men här finns fler funktioner och fler verklighetsbaserade kodningsexempel.
-* [Azure Cloud Service Multi-Tier Application with Tables, Queues, and Blobs](https://code.msdn.microsoft.com/windowsazure/Windows-Azure-Multi-Tier-eadceb36). Introducerar Azure Storage-tabeller samt blobar och köer. Baserat på en äldre version av Azure SDK för .NET, kräver vissa ändringar för att fungera med den aktuella versionen.
+* [Azure Cloud Service Multi-Tier Application with Tables, Queues, and Blobs](https://code.msdn.microsoft.com/windowsazure/Windows-Azure-Multi-Tier-eadceb36). Introducerar Azure Storage-tabeller samt blobbar och köer. Baserat på en äldre version av Azure SDK för .NET, kräver vissa ändringar för att fungera med den aktuella versionen.
 
-Allmän information om hur du utvecklar för molnet finns i [Skapa verkliga molnappar med Azure](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/introduction).
+Allmän information om hur du utvecklar för molnet finns i [Skapa verkliga molnappar med Azure](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/introduction).
 
-Om du vill se en videointroduktion till bästa metoder och mönster i Azure Storage, kan du se [Microsoft Azure Storage – What's New, Best Practices and Patterns](http://channel9.msdn.com/Events/Build/2014/3-628).
+Om du vill se en videointroduktion till bästa metoder och mönster i Azure Storage, kan du se [Microsoft Azure Storage – What's New, Best Practices and Patterns](https://channel9.msdn.com/Events/Build/2014/3-628).
 
 Mer information finns i följande resurser:
 
-* [Azure Cloud Services del1: Introduktion](http://justazure.com/microsoft-azure-cloud-services-part-1-introduction/)
+* [Azure Cloud Services del1: Introduktion](https://justazure.com/microsoft-azure-cloud-services-part-1-introduction/)
 * [Hantera molntjänster](cloud-services-how-to-manage-portal.md)
 * [Azure Storage](https://docs.microsoft.com/azure/storage/)
 * [Hur man väljer molntjänstleverantör](https://azure.microsoft.com/overview/choosing-a-cloud-service-provider/)

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: sujayt
-ms.openlocfilehash: fdeef8be1cfaabde326f68a1207f7c38d037a502
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: b4359a90bb511b538499848effea7be22a23fac0
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56313304"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57570631"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Felsöka problem med Azure till Azure VM-replikering
 
@@ -173,7 +173,9 @@ För Site Recovery-replikering till arbete, utgående anslutning till specifika 
   - Azure Site Recovery krävs åtkomst till Office 365-IP-intervall för autentisering.
     Om du använder Azure Network security group (NSG) regler/brandväggsproxy för att styra utgående nätverksanslutning på den virtuella datorn, kontrollerar du att du tillåter kommunikation till IP-intervall för O365. Skapa en [Azure Active Directory (AAD) tjänsttagg](../virtual-network/security-overview.md#service-tags) baserat NSG-regel för att tillåta åtkomst till alla IP-adresser för AAD
         - Om nya adresser läggs till Azure Active Directory (AAD) i framtiden, måste du skapa nya NSG-regler.
-
+>[!NOTE]
+> Om de virtuella datorerna bakom **Standard** intern belastningsutjämnare och det skulle inte ha åtkomst till O365 IP-adresser, dvs login.micorsoftonline.com som standard. Antingen ändra det till **grundläggande** interna typ av belastningsutjämnare eller skapa ut bundna åtkomst som vi nämnde i [article] (https://aka.ms/lboutboundrulescli).
+>
 
 ### <a name="issue-3-site-recovery-configuration-failed-151197"></a>Problem 3: Konfiguration av site Recovery misslyckades (151197)
 - **Möjlig orsak** </br>

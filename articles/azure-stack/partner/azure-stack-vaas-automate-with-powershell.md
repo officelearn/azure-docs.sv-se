@@ -10,17 +10,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/04/2019
+ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.lastreviewed: 11/26/2018
+ms.lastreviewed: 03/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 7d675eb55e7ecda1dcf79859e85821c4e86ccbdd
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 7f9a4ce4f1e16f69a1d8998e24c1bfe955d17d92
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57338526"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57767115"
 ---
 # <a name="automate-azure-stack-validation-with-powershell"></a>Automatisera Azure Stack-verifiering med PowerShell
 
@@ -29,13 +29,13 @@ Verifiering som en tjänst (VaaS) gör möjligheten att automatisera starta test
 > [!NOTE]  
 > Automation är endast tillgänglig för testet arbetsflödet. Verifiera paketet och lösningen validering arbetsflöden stöds endast via VaaS-portalen.
 
-I den här självstudien får du lära dig hur du skapar ett skript som:
+Det här skriptet kan användas för att:
 
 > [!div class="checklist"]
-> * Installerar nödvändiga komponenter
-> * Installerar och startar den lokala agenten
-> * Startar en viss kategori av testerna som integrering, funktionell tillförlitlighet
-> * Testresultat för rapporter
+> * Installationskrav
+> * Installera och starta lokal agent
+> * Starta en viss kategori av testerna som *integrering*, *funktionella*, *tillförlitlighet*
+> * Rapportera testresultat
 
 ## <a name="launch-the-test-pass-workflow"></a>Starta testet arbetsflödet
 
@@ -89,7 +89,7 @@ I den här självstudien får du lära dig hur du skapar ett skript som:
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om PowerShell på Azure Stack, granska de senaste modulerna.
+Om du vill veta mer om PowerShell på Azure Stack kan du granska de senaste modulerna.
 
 > [!div class="nextstepaction"]
 > [Azure Stack Module](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.6.0)

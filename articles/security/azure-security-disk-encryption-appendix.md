@@ -3,17 +3,16 @@ title: Tillägg – Azure Disk Encryption för virtuella IaaS-datorer | Microsof
 description: Den här artikeln är tillägget för Microsoft Azure Disk Encryption för Windows och Linux IaaS-datorer.
 author: mestew
 ms.service: security
-ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 01/14/2019
+ms.date: 03/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: d23e6d00b77e69f7f3353938c52b450eebbfd142
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: 6632647c7782411d0d124c325f9bf0afff7e699d
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56990688"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57767797"
 ---
 # <a name="appendix-for-azure-disk-encryption"></a>Tillägg för Azure Disk Encryption 
 
@@ -164,14 +163,6 @@ I följande tabell visas vilka parametrar som kan användas i PowerShell-skripte
 
 - [Skapa en ny krypterade Windows IaaS Managed Disk virtuell dator från galleriet bilden](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-create-new-vm-gallery-image-managed-disks)
     - Den här mallen skapar en ny krypterade Windows virtuell dator med hanterade diskar som använder galleriavbildning för Windows Server 2012.
-
-- [Distribution av RHEL 7.2 med fullständig diskkryptering med hanterade diskar](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-full-disk-encrypted-rhel)
-    - Den här mallen skapar en fullständigt krypterade RHEL 7.2 VM i Azure med hanterade diskar. Den innehåller en krypterad 30 GB OS-enhet och en krypterad 200 GB matris (RAID-0) monterad på /mnt/raidencrypted. Se den [vanliga frågor och svar](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport) artikeln för Linux-server-distributioner som stöds. 
-
-- [Distribution av RHEL 7.2 med fullständig diskkryptering med ohanterade diskar](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-full-disk-encrypted-rhel-unmanaged)
-    - Den här mallen skapar en fullständigt krypterade RHEL 7.2 VM i Azure med en krypterad 30 GB OS-enhet och en krypterad 200 GB-matris (RAID-0) som är monterad på /mnt/raidencrypted. Se den [vanliga frågor och svar](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport) artikeln för Linux-server-distributioner som stöds. 
-
-- [Aktivera diskkryptering på en förkrypterade VHD för Windows eller Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-create-pre-encrypted-vm)
 
 - [Skapa en ny krypterade hanterad disk från en förkrypterade VHD-/ lagringsblob](https://github.com/Azure/azure-quickstart-templates/tree/master/201-create-encrypted-managed-disk)
     - Skapar en ny krypterade hanterad disk som en förkrypterade virtuell Hårddisk och dess motsvarande krypteringsinställningar
@@ -555,7 +546,7 @@ När du krypterar med hjälp av Azure AD-app (tidigare version), måste diskkryp
 ``` 
 
 ### <a name="bkmk_SecretnoKEK"></a> Diskkrypteringshemlighet som inte är krypterade med en KEK
-Om du vill konfigurera hemlighet i nyckelvalvet, använda [Set-AzureKeyVaultSecret](/powershell/module/az.keyvault/set-azurekeyvaultsecret). Om du har en Windows-dator kan filen bek kodas som en base64-sträng och sedan överförs till ditt nyckelvalv med hjälp av den `Set-AzureKeyVaultSecret` cmdlet. För Linux, lösenfrasen kodas som en base64-sträng och sedan överförs till nyckelvalvet. Kontrollera dessutom att följande taggar är inställda när du skapar hemligheten i nyckelvalvet.
+Om du vill konfigurera hemlighet i nyckelvalvet, använda [Set-AzKeyVaultSecret](/powershell/module/az.keyvault/set-azkeyvaultsecret). Om du har en Windows-dator kan filen bek kodas som en base64-sträng och sedan överförs till ditt nyckelvalv med hjälp av den `Set-AzureKeyVaultSecret` cmdlet. För Linux, lösenfrasen kodas som en base64-sträng och sedan överförs till nyckelvalvet. Kontrollera dessutom att följande taggar är inställda när du skapar hemligheten i nyckelvalvet.
 
 #### <a name="windows-bek-file"></a>BEK för Windows-fil
 ```powershell
@@ -604,7 +595,7 @@ $SecretUrl
 Använd den `$secretUrl` i nästa steg för [koppla OS-disk utan att använda KEK](#bkmk_URLnoKEK).
 
 ### <a name="bkmk_SecretKEK"></a> Diskkrypteringshemlighet som krypterats med en KEK
-Innan du laddar upp hemligheten till nyckelvalvet kryptera du om du vill det med hjälp av en nyckelkrypteringsnyckel. Använd radbyte [API](https://msdn.microsoft.com/library/azure/dn878066.aspx) att kryptera hemligheten med den viktiga krypteringsnyckeln först. Utdata från åtgärden radbyte är en base64-URL-kodad sträng som du kan sedan överföra som en hemlighet med hjälp av den [ `Set-AzureKeyVaultSecret` ](/powershell/module/az.keyvault/set-azurekeyvaultsecret) cmdlet.
+Innan du laddar upp hemligheten till nyckelvalvet kryptera du om du vill det med hjälp av en nyckelkrypteringsnyckel. Använd radbyte [API](https://msdn.microsoft.com/library/azure/dn878066.aspx) att kryptera hemligheten med den viktiga krypteringsnyckeln först. Utdata från åtgärden radbyte är en base64-URL-kodad sträng som du kan sedan överföra som en hemlighet med hjälp av den [ `Set-AzKeyVaultSecret` ](/powershell/module/az.keyvault/set-azkeyvaultsecret) cmdlet.
 
 ```powershell
     # This is the passphrase that was provided for encryption during the distribution installation

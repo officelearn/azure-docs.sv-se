@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 11/12/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: cddc6ccd8360ef88c95cd33c0bc8e141d721042d
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: 951f8f887a7b29aac67b50ff8f92ddfd4a66e26b
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57010522"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57766886"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Integrera din app med Azure-nätverk
 Det här dokumentet beskriver funktionen Azure App Service-integrering för virtuellt nätverk och visar hur du konfigurerar den med appar i [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). [Azure-nätverk] [ VNETOverview] (Vnet) gör att du kan placera många av dina Azure-resurser i ett icke-internet-dirigerbara nätverk. Dessa nätverk kan sedan anslutas till ditt lokala nätverk med hjälp av VPN-tekniker. 
@@ -277,7 +277,8 @@ Den nya versionen är en förhandsversion och har följande egenskaper.
 * Den nya VNet-integrering-funktionen fungerar inte för appar i en App Service Environment.
 * Du kan inte ta bort ett virtuellt nätverk med en integrerad app.  
 * Routningstabeller och global peering är inte tillgängliga än med den nya VNet-integrering.  
-* En adress används för varje instans för App Service-plan. Eftersom undernätets storlek inte kan ändras efter tilldelning, Använd ett undernät som kan mer än att täcka storleken på din maximal skala. En/27 med 32 adresser är den rekommenderade storleken som som vill hantera en App Service-plan som skalas till 20 instanser.  Du kan använda tjänstslutpunkt skyddade resurser med hjälp av den nya funktionen för VNet-integrering. Gör du genom att aktivera tjänstslutpunkter på det undernät som används för VNet-integrering.
+* En adress används för varje instans för App Service-plan. Eftersom undernätets storlek inte kan ändras efter tilldelning, Använd ett undernät som kan mer än att täcka storleken på din maximal skala. En/27 med 32 adresser är den rekommenderade storleken som som vill hantera en App Service-plan som skalas till 20 instanser.
+* Du kan använda tjänstslutpunkt skyddade resurser med hjälp av den nya funktionen för VNet-integrering. Gör du genom att aktivera tjänstslutpunkter på det undernät som används för VNet-integrering.
 
 Använda den nya funktionen:
 

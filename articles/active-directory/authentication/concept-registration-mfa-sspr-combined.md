@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 02/20/2019
+ms.date: 03/06/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 47d28eb63ffb700dc0f20020ac4007c5485b0edb
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: fa9872ef76264956430bb69856a197042c196dfd
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56589106"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57550198"
 ---
 # <a name="combined-security-information-registration-preview"></a>Kombinerade security information registrering (förhandsversion)
 
@@ -33,6 +33,8 @@ Granska den här administratören designmiljöer dokumentationen och fokus på a
 
 > [!IMPORTANT]
 > Om en användare har aktiverats för både den ursprungliga förhandsversionen och förbättrad kombinerade registrerings-upplevelse, visas så den nya upplevelsen. Användare som har aktiverats för båda upplevelser visas endast den nya upplevelsen för min profil. Den nya Mina profilen överensstämmer med utseendet och känslan kombinerade registrerings och ger en sömlös upplevelse för användare. Användare kan se min profil genom att gå till [ https://myprofile.microsoft.com ](https://myprofile.microsoft.com).
+
+Min profil sidorna är lokaliserade baserat på de aktuella språkinställningarna på datorn som kommer åt sidan. Microsoft lagrar det senaste språk som används i webbläsarens cacheminne så efterföljande försök att komma åt kommer fortsätta att visas i det senaste språk som används. Rensa cacheminnet kommer sidorna att visas igen. Om du vill tvinga fram ett visst språk att lägga till en `?lng=de-DE` i slutet av URL: en där `de-DE` har angetts till rätt språk kod tvingar sidorna att visas på det språket.
 
 ![Min profil gränssnitt som visar säkerhetsinformation och möjlighet för användaren att konfigurera SSPR eller andra verifieringsmetoder för ytterligare säkerhet.](media/howto-registration-mfa-sspr-combined/combined-security-info-my-profile.png)
 

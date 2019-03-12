@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: kasing
-ms.openlocfilehash: 0011ee646215c01e84aec71c7b992afca1ca3c2a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 34dad39e3784dd0bc73e3be108d6b31d4f479a1e
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46997173"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57543278"
 ---
 # <a name="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-azure-cli"></a>Migrera IaaS-resurser från klassisk till Azure Resource Manager med hjälp av Azure CLI
 De här stegen visar hur du använder Azure-kommandoradsgränssnittet (CLI)-kommandon för att migrera infrastruktur som en tjänst (IaaS)-resurser från den klassiska distributionsmodellen Azure Resource Manager-distributionsmodellen. Artikeln kräver den [Azure klassiskt CLI](../../cli-install-nodejs.md). Eftersom Azure CLI kan bara användas för Azure Resource Manager-resurser, kan inte användas för den här migreringen.
@@ -35,7 +35,7 @@ Här är ett flödesschema för att identifiera den ordning som stegen måste ut
 
 ![Skärmbild som visar migreringsstegen](../windows/media/migration-classic-resource-manager/migration-flow.png)
 
-## <a name="step-1-prepare-for-migration"></a>Steg 1: Förbered för migrering
+## <a name="step-1-prepare-for-migration"></a>Steg 1: Förbereda för migrering
 Här följer några metodtips som vi rekommenderar medan du utvärderar migrera IaaS-resurser från klassisk till Resource Manager:
 
 * Läs igenom den [lista över konfigurationer som inte stöds eller funktioner](../windows/migration-classic-resource-manager-overview.md). Om du har virtuella datorer som använder konfigurationer som inte stöds eller funktioner, rekommenderar vi att du väntar funktionen/konfigurationssupport meddelas. Du kan också ta bort funktionen eller flytta från den konfigurationen för att aktivera migrering om det passar dina behov.
@@ -85,7 +85,7 @@ Det här steget måste du växla till `arm` läge. Du kan göra detta med följa
 azure config mode arm
 ```
 
-Du kan använda följande CLI-kommando för att kontrollera det aktuella antalet virtuella processorer som du har i Azure Resource Manager. Läs mer om vCPU-kvoter i [gränser och Azure Resource Manager](../../azure-subscription-service-limits.md#limits-and-the-azure-resource-manager)
+Du kan använda följande CLI-kommando för att kontrollera det aktuella antalet virtuella processorer som du har i Azure Resource Manager. Läs mer om vCPU-kvoter i [gränser och Azure Resource Manager](../../azure-subscription-service-limits.md#limits-and-azure-resource-manager)
 
 ```
 azure vm list-usage -l "<Your VNET or Deployment's Azure region"

@@ -13,12 +13,12 @@ ms.topic: reference
 ms.date: 09/08/2018
 ms.author: cshoe
 ms.custom: ''
-ms.openlocfilehash: bdbb9d7c8b129642616a934dcc3d226434e69a03
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: 0779ca2083691949821999322a3d732aed7b2694
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53558982"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57760775"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Timerutlösare för Azure Functions 
 
@@ -50,13 +50,13 @@ Se exempel språkspecifika:
 
 ### <a name="c-example"></a>C#-exempel
 
-I följande exempel visas en [ C# funktionen](functions-dotnet-class-library.md) som körs varje gång minuterna har ett värde som är delbara av fem (t.ex om funktionen börjar kl. 18:57:00, blir nästa prestandan 19:00:00):
+I följande exempel visas en [ C# funktionen](functions-dotnet-class-library.md) som körs varje gång minuterna har ett värde som är delbara av fem (t.ex om funktionen börjar kl. 18:57:00, blir nästa prestandan 19:00:00). Den [ `TimerInfo` ](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs) objekt skickades till funktionen.
 
 ```cs
 [FunctionName("TimerTriggerCSharp")]
 public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, ILogger log)
 {
-    if(myTimer.IsPastDue)
+    if (myTimer.IsPastDue)
     {
         log.LogInformation("Timer is running late!");
     }
@@ -66,7 +66,7 @@ public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, ILogger
 
 ### <a name="c-script-example"></a>Exempel på C#-skript
 
-I följande exempel visas en timer som utlösare bindning i en *function.json* fil och en [C#-skriptfunktion](functions-reference-csharp.md) som använder bindningen. Funktionen skriver en logg som anger om den här funktionsanrop är på grund av en förekomst av missade schema.
+I följande exempel visas en timer som utlösare bindning i en *function.json* fil och en [C#-skriptfunktion](functions-reference-csharp.md) som använder bindningen. Funktionen skriver en logg som anger om den här funktionsanrop är på grund av en förekomst av missade schema. Den [ `TimerInfo` ](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs) objekt skickades till funktionen.
 
 Här är bindningsdata i den *function.json* fil:
 
@@ -84,7 +84,7 @@ Här är C#-skriptkoden:
 ```csharp
 public static void Run(TimerInfo myTimer, ILogger log)
 {
-    if(myTimer.IsPastDue)
+    if (myTimer.IsPastDue)
     {
         log.LogInformation("Timer is running late!");
     }
@@ -94,7 +94,7 @@ public static void Run(TimerInfo myTimer, ILogger log)
 
 ### <a name="f-example"></a>F#exempel
 
-I följande exempel visas en timer som utlösare bindning i en *function.json* fil och en [ F# skript funktionen](functions-reference-fsharp.md) som använder bindningen. Funktionen skriver en logg som anger om den här funktionsanrop är på grund av en förekomst av missade schema.
+I följande exempel visas en timer som utlösare bindning i en *function.json* fil och en [ F# skript funktionen](functions-reference-fsharp.md) som använder bindningen. Funktionen skriver en logg som anger om den här funktionsanrop är på grund av en förekomst av missade schema. Den [ `TimerInfo` ](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs) objekt skickades till funktionen.
 
 Här är bindningsdata i den *function.json* fil:
 
@@ -119,7 +119,7 @@ let Run(myTimer: TimerInfo, log: ILogger ) =
 
 ### <a name="javascript-example"></a>JavaScript-exempel
 
-I följande exempel visas en timer som utlösare bindning i en *function.json* fil och en [JavaScript-funktion](functions-reference-node.md) som använder bindningen. Funktionen skriver en logg som anger om den här funktionsanrop är på grund av en förekomst av missade schema.
+I följande exempel visas en timer som utlösare bindning i en *function.json* fil och en [JavaScript-funktion](functions-reference-node.md) som använder bindningen. Funktionen skriver en logg som anger om den här funktionsanrop är på grund av en förekomst av missade schema. En [timer-objekt](#usage) skickades till funktionen.
 
 Här är bindningsdata i den *function.json* fil:
 
@@ -138,7 +138,7 @@ Här är JavaScript-kod:
 module.exports = function (context, myTimer) {
     var timeStamp = new Date().toISOString();
 
-    if(myTimer.isPastDue)
+    if (myTimer.IsPastDue)
     {
         context.log('Node is running late!');
     }
@@ -191,7 +191,7 @@ I följande tabell förklaras konfigurationsegenskaper för bindning som du ange
 |**riktning** | Saknas | Måste anges till ”in”. Den här egenskapen anges automatiskt när du skapar utlösaren i Azure-portalen. |
 |**Namn** | Saknas | Namnet på variabeln som representerar timer-objekt i funktionskoden. | 
 |**schedule**|**ScheduleExpression**|En [CRON-uttryck](#cron-expressions) eller en [TimeSpan](#timespan) värde. En `TimeSpan` kan bara användas för en funktionsapp som körs på en App Service Plan. Du kan placera schema-uttrycket i en appinställning och ange egenskapen till appinställningen namn och är inneslutna i **%** tecken, som i följande exempel: ”% ScheduleAppSetting %”. |
-|**runOnStartup**|**runOnStartup**|Om `true`, funktionen anropas när körningen startar. Till exempel startar körningen när funktionsappen aktiveras efter inaktivitet på grund av inaktivitet. När appen startas om på grund av funktionen ändringar, och när appen skalas ut. Så **runOnStartup** sällan om någonsin sättas till `true`, särskilt i produktion. |
+|**runOnStartup**|**RunOnStartup**|Om `true`, funktionen anropas när körningen startar. Till exempel startar körningen när funktionsappen aktiveras efter inaktivitet på grund av inaktivitet. När appen startas om på grund av funktionen ändringar, och när appen skalas ut. Så **runOnStartup** sällan om någonsin sättas till `true`, särskilt i produktion. |
 |**useMonitor**|**useMonitor**|Ange `true` eller `false` att indikera om schemat ska övervakas. Övervakning av schema kvarstår schema förekomster som hjälper till att upprätthålla schemat underhålls korrekt även om funktionen app-instanserna startas om. Om inte har angetts uttryckligen är standardvärdet `true` för scheman som har ett intervall som är större än 1 minut. För scheman som utlöser mer än en gång per minut som standard används `false`.
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
@@ -201,7 +201,7 @@ I följande tabell förklaras konfigurationsegenskaper för bindning som du ange
 
 ## <a name="usage"></a>Användning
 
-När en timerutlösare anropas den [timer-objekt](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs) skickades till funktionen. Följande JSON är en exempel-representation av timer-objekt. 
+När en timerutlösare anropas skickades en timer-objekt till funktionen. Följande JSON är en exempel-representation av timer-objekt.
 
 ```json
 {
@@ -226,13 +226,13 @@ Azure Functions använder den [NCronTab](https://github.com/atifaziz/NCrontab) b
 
 Varje fält kan ha något av följande typer av värden:
 
-|Typ  |Exempel  |När det utlöses  |
+|Type  |Exempel  |När det utlöses  |
 |---------|---------|---------|
-|Ett specifikt värde |<nobr>”0-5 *** *”</nobr>|vid hh:05:00 där hh är varje timme (en gång i timmen)|
-|Alla värden (`*`)|<nobr>”0 * 5 ** *”</nobr>|vid 5:mm: 00 varje dag, mm är där varje minut av timme (60 gånger per dag)|
-|Ett intervall (`-` operatorn)|<nobr>”5 – 7 **** *”</nobr>|på hh:mm:05, hh:mm:06 och hh:mm:07 där HH: mm är varje minut av varje timme (3 gånger en minut)|  
-|En uppsättning värden (`,` operatorn)|<nobr>”5,8,10 **** *”</nobr>|på hh:mm:05, hh:mm:08 och hh:mm:10 där HH: mm är varje minut av varje timme (3 gånger en minut)|
-|Ett intervallvärde (`/` operatorn)|<nobr>”0 * / 5 *** *”</nobr>|vid hh:05:00, hh:10:00, hh:15:00 och så vidare till hh:55:00 där hh är varje Timma (12 gånger i timmen)|
+|Ett specifikt värde |<nobr>"0 5 * * * *"</nobr>|vid hh:05:00 där hh är varje timme (en gång i timmen)|
+|Alla värden (`*`)|<nobr>"0 * 5 * * *"</nobr>|vid 5:mm: 00 varje dag, mm är där varje minut av timme (60 gånger per dag)|
+|Ett intervall (`-` operatorn)|<nobr>"5-7 * * * * *"</nobr>|på hh:mm:05, hh:mm:06 och hh:mm:07 där HH: mm är varje minut av varje timme (3 gånger en minut)|  
+|En uppsättning värden (`,` operatorn)|<nobr>"5,8,10 * * * * *"</nobr>|på hh:mm:05, hh:mm:08 och hh:mm:10 där HH: mm är varje minut av varje timme (3 gånger en minut)|
+|Ett intervallvärde (`/` operatorn)|<nobr>"0 */5 * * * *"</nobr>|vid hh:05:00, hh:10:00, hh:15:00 och så vidare till hh:55:00 där hh är varje Timma (12 gånger i timmen)|
 
 Om du vill ange månader eller dagar kan du använda numeriska värden, namn eller förkortningar namn på:
 
@@ -277,7 +277,7 @@ Eller skapa en app-inställning för din funktionsapp med namnet `WEBSITE_TIME_Z
 
 När du använder `WEBSITE_TIME_ZONE`, tiden justeras efter tidsändringar i den specifika tidszonen, till exempel sommartid. 
 
-## <a name="timespan"></a>Tidsintervall
+## <a name="timespan"></a>TimeSpan
 
  En `TimeSpan` kan bara användas för en funktionsapp som körs på en App Service Plan.
 
@@ -287,8 +287,8 @@ Uttryckt i form av en sträng i `TimeSpan` format är `hh:mm:ss` när `hh` är m
 
 |Exempel |När det utlöses  |
 |---------|---------|
-|”01: 00:00” | varje timma        |
-|”00: 01:00”|Varje minut         |
+|"01:00:00" | varje timma        |
+|"00:01:00"|Varje minut         |
 |"24:00:00" | varje dag        |
 
 ## <a name="scale-out"></a>Skalbarhet

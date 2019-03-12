@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/17/2018
 ms.author: lahugh
-ms.openlocfilehash: 3c3d534392431e79feabe37fe940ea87f586c660
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: d3152eb4b2512e05cad60772f8c4c75dd929758a
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54051705"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57535601"
 ---
 # <a name="use-rdma-or-gpu-instances-in-batch-pools"></a>Använda RDMA eller GPU-instanser i Batch-pooler
 
@@ -45,18 +45,18 @@ Beräkningsintensiva storlekar i Batch RDMA eller GPU-funktioner stöds endast i
 
 | Storlek | Funktion | Operativsystem | Programvara som krävs | Poolinställningar |
 | -------- | -------- | ----- |  -------- | ----- |
-| [H16r, H16mr, A8, A9](../virtual-machines/linux/sizes-hpc.md#rdma-capable-instances)<br/>[NC24r, NC24rs_v2, NC24rs_v3, ND24rs<sup>*</sup>](../virtual-machines/linux/n-series-driver-setup.md#rdma-network-connectivity) | RDMA | Ubuntu 16.04 LTS, eller<br/>CentOS-baserade HPC<br/>(Azure Marketplace) | Intel MPI 5<br/><br/>Linux RDMA-drivrutiner | Aktivera kommunikation mellan noder, inaktivera för körning av samtidiga aktiviteten |
-| [NC, NCv2, NCv3, NDv2-serien](../virtual-machines/linux/n-series-driver-setup.md) | NVIDIA Tesla GPU (varierar beroende på serien) | Ubuntu 16.04 LTS, eller<br/>CentOS 7.3 eller 7.4<br/>(Azure Marketplace) | NVIDIA CUDA eller CUDA Toolkit drivrutiner | Gäller inte | 
-| [NV NVv2-serien](../virtual-machines/linux/n-series-driver-setup.md) | NVIDIA Tesla M60 GPU | Ubuntu 16.04 LTS, eller<br/>CentOS 7.3<br/>(Azure Marketplace) | NVIDIA GRID-drivrutiner | Gäller inte |
+| [H16r, H16mr, A8, A9](../virtual-machines/linux/sizes-hpc.md#rdma-capable-instances)<br/>[NC24r, NC24rs_v2, NC24rs_v3, ND24rs<sup>*</sup>](../virtual-machines/linux/n-series-driver-setup.md#rdma-network-connectivity) | RDMA | Ubuntu 16.04 LTS, eller<br/>CentOS-based HPC<br/>(Azure Marketplace) | Intel MPI 5<br/><br/>Linux RDMA-drivrutiner | Aktivera kommunikation mellan noder, inaktivera för körning av samtidiga aktiviteten |
+| [NC, NCv2, NCv3, NDv2 series](../virtual-machines/linux/n-series-driver-setup.md) | NVIDIA Tesla GPU (varierar beroende på serien) | Ubuntu 16.04 LTS, eller<br/>CentOS 7.3 eller 7.4<br/>(Azure Marketplace) | NVIDIA CUDA eller CUDA Toolkit drivrutiner | Gäller inte | 
+| [NV NVv2-serien](../virtual-machines/linux/n-series-driver-setup.md) | NVIDIA Tesla M60 GPU | Ubuntu 16.04 LTS, eller<br/>CentOS 7.3<br/>(Azure Marketplace) | NVIDIA GRID drivers | Gäller inte |
 <sup>*</sup>RDMA-kompatibla storlekar för N-serien även innehålla NVIDIA Tesla GPU: er
 
 ### <a name="windows-pools---virtual-machine-configuration"></a>Windows-pooler – konfiguration av virtuell dator
 
 | Storlek | Funktion | Operativsystem | Programvara som krävs | Poolinställningar |
 | -------- | ------ | -------- | -------- | ----- |
-| [H16r, H16mr, A8, A9](../virtual-machines/windows/sizes-hpc.md#rdma-capable-instances)<br/>[NC24r, NC24rs_v2, NC24rs_v3, ND24rs<sup>*</sup>](../virtual-machines/windows/n-series-driver-setup.md#rdma-network-connectivity) | RDMA | Windows Server 2016, 2012 R2, eller<br/>2012 (azure Marketplace) | Microsoft MPI 2012 R2 eller senare, eller<br/> Intel MPI 5<br/><br/>Windows RDMA-drivrutiner | Aktivera kommunikation mellan noder, inaktivera för körning av samtidiga aktiviteten |
-| [NC, NCv2, NCv3, ND, NDv2-serien](../virtual-machines/windows/n-series-driver-setup.md) | NVIDIA Tesla GPU (varierar beroende på serien) | Windows Server 2016 eller <br/>2012 R2 (Azure Marketplace) | NVIDIA CUDA eller CUDA Toolkit drivrutiner| Gäller inte | 
-| [NV NVv2-serien](../virtual-machines/windows/n-series-driver-setup.md) | NVIDIA Tesla M60 GPU | Windows Server 2016 eller<br/>2012 R2 (Azure Marketplace) | NVIDIA GRID-drivrutiner | Gäller inte |
+| [H16r, H16mr, A8, A9](../virtual-machines/windows/sizes-hpc.md#rdma-capable-instances)<br/>[NC24r, NC24rs_v2, NC24rs_v3, ND24rs<sup>*</sup>](../virtual-machines/windows/n-series-driver-setup.md#rdma-network-connectivity) | RDMA | Windows Server 2016, 2012 R2, eller<br/>2012 (Azure Marketplace) | Microsoft MPI 2012 R2 eller senare, eller<br/> Intel MPI 5<br/><br/>Windows RDMA-drivrutiner | Aktivera kommunikation mellan noder, inaktivera för körning av samtidiga aktiviteten |
+| [NC, NCv2, NCv3, ND, NDv2 series](../virtual-machines/windows/n-series-driver-setup.md) | NVIDIA Tesla GPU (varierar beroende på serien) | Windows Server 2016 eller <br/>2012 R2 (Azure Marketplace) | NVIDIA CUDA eller CUDA Toolkit drivrutiner| Gäller inte | 
+| [NV NVv2-serien](../virtual-machines/windows/n-series-driver-setup.md) | NVIDIA Tesla M60 GPU | Windows Server 2016 eller<br/>2012 R2 (Azure Marketplace) | NVIDIA GRID drivers | Gäller inte |
 <sup>*</sup>RDMA-kompatibla storlekar för N-serien även innehålla NVIDIA Tesla GPU: er
 
 ### <a name="windows-pools---cloud-services-configuration"></a>Windows-pooler – Cloud services-konfiguration
@@ -100,7 +100,7 @@ Om du vill konfigurera en specialiserad virtuell datorstorlek för Batch-poolen,
 
 Du måste installera NVDIA GPU-drivrutiner för att köra CUDA-program i en pool med Windows NC-noder. Följande exempel använder ett programpaket för att installera NVIDIA GPU-drivrutiner. Du kan välja det här alternativet om din arbetsbelastning är beroende av en specifik GPU-drivrutinsversion.
 
-1. Hämta en installationspaketet för GPU-drivrutiner på Windows Server 2016 från den [NVIDIA-webbplatsen](https://www.nvidia.com/Download/index.aspx) , till exempel [version 411.82](http://us.download.nvidia.com/Windows/Quadro_Certified/411.82/411.82-tesla-desktop-winserver2016-international.exe). Spara filen lokalt med hjälp av ett kort namn som liknar *GPUDriverSetup.exe*.
+1. Hämta en installationspaketet för GPU-drivrutiner på Windows Server 2016 från den [NVIDIA-webbplatsen](https://www.nvidia.com/Download/index.aspx) , till exempel [version 411.82](https://us.download.nvidia.com/Windows/Quadro_Certified/411.82/411.82-tesla-desktop-winserver2016-international.exe). Spara filen lokalt med hjälp av ett kort namn som liknar *GPUDriverSetup.exe*.
 2. Skapa en zip-fil av paketet.
 3. Ladda upp paketet till Batch-kontot. Anvisningar finns i den [programpaket](batch-application-packages.md) vägledning. Ange en program-id som *GPUDriver*, och en version som *411.82*.
 1. Skapa en pool i konfigurationen av virtuella datorn med det önskade antalet noder och skala med Batch-API: er eller Azure-portalen. I följande tabell visas exempel på inställningar att installera NVIDIA GPU-drivrutiner tyst med hjälp av en startaktivitet:
@@ -111,7 +111,7 @@ Du måste installera NVDIA GPU-drivrutiner för att köra CUDA-program i en pool
 | **Utgivare** | MicrosoftWindowsServer |
 | **Erbjudande** | WindowsServer |
 | **Sku** | 2016-Datacenter |
-| **Nodstorlek** | Standard för NC6 |
+| **Nodstorlek** | NC6 Standard |
 | **Referenser för programpaket** | GPUDriver, version 411.82 |
 | **Startaktivitet aktiverat** | True<br>**Från kommandoraden** - `cmd /c "%AZ_BATCH_APP_PACKAGE_GPUDriver#411.82%\\GPUDriverSetup.exe /s"`<br/>**Användaridentitet** -Pool autouser, admin<br/>**Vänta tills lyckades** – SANT
 
@@ -130,8 +130,8 @@ Om du vill köra CUDA-program i en pool med Linux NC-noder som du behöver insta
 | ---- | ---- |
 | **Avbildningstyp** | Anpassad avbildning |
 | **Anpassad avbildning** | *Namnet på avbildningen* |
-| **Nodagentens SKU** | batch.node.Ubuntu 16.04 |
-| **Nodstorlek** | Standard för NC6 |
+| **Nodagentens SKU** | batch.node.ubuntu 16.04 |
+| **Nodstorlek** | NC6 Standard |
 
 ## <a name="example-microsoft-mpi-on-a-windows-h16r-vm-pool"></a>Exempel: Microsoft MPI på en Windows H16r VM-pool
 

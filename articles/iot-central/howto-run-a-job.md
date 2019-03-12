@@ -5,15 +5,15 @@ ms.service: iot-central
 services: iot-central
 author: sarahhubbard
 ms.author: sahubbar
-ms.date: 09/15/2018
+ms.date: 02/04/2019
 ms.topic: conceptual
 manager: peterpr
-ms.openlocfilehash: f08167b4f37193c9a04da02fdd31e066a97aec66
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 142881e0a72ef9db7397276f092a4b7502b61fed
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57317670"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57781451"
 ---
 # <a name="create-and-run-a-job-in-your-azure-iot-central-application"></a>Skapa och köra ett jobb i din Azure IoT Central-App
 
@@ -40,8 +40,6 @@ Det här avsnittet visar hur du skapar och kör ett jobb. Varje steg går igenom
 1. Till höger, välja de enheter som du vill köra jobbet på. Genom att välja den översta kryssrutan markeras alla enheter i uppsättningen hela enheten. Genom att välja kryssrutan nära namn markeras alla enheter på den aktuella sidan.
 
 1. När dina önskade enheter har valts, Välj **kör**. Jobbet kommer att synas på din huvud **jobb** sidan. På den här vyn kan kan du se ditt pågående jobb och historiken för alla tidigare köra jobb. Jobbet körs visas alltid överst i listan.
-
-    ![Kör jobb](./media/howto-run-a-job/runjob.png)
 
     ![Visa jobb](./media/howto-run-a-job/viewjob.png)
 

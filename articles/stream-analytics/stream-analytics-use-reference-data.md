@@ -9,12 +9,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: cc8c10f8a3f515d3401dbb469a7e4a31c4fe3501
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 4ddbec6b163a939c1663630e39e89140ac6f7efe
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56329821"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57546491"
 ---
 # <a name="using-reference-data-for-lookups-in-stream-analytics"></a>Med hjälp av referensdata för sökningar i Stream Analytics
 Referensdata (även kallat en uppslagstabell) är en begränsad mängd data som är statiska eller långsamt ändrad karaktär används för att utföra en sökning eller att korrelera med din dataström. I en IoT-scenario kan du till exempel lagra metadata om sensorer (som inte ändras ofta) i referensdata och träffa realtid IoT-dataströmmar. Azure Stream Analytics läser in referensdata i minnet för att uppnå bearbetning av dataströmmar med låg latens. Att göra använder referensdata i Azure Stream Analytics-jobb kan du vanligtvis använder en [referens Data ansluta](https://msdn.microsoft.com/library/azure/dn949258.aspx) i frågan. 
@@ -78,7 +78,7 @@ Azure SQL Database-referensdata hämtas av ditt Stream Analytics-jobb och lagras
 
 Om din referensdata är en uppsättning med långsamt föränderliga data, måste regelbundet uppdatera ögonblicksbilden som används i jobbet. Stream Analytics kan du ange ett intervall när du konfigurerar din Azure SQL Database inkommande anslutning. Stream Analytics-runtime frågar Azure SQL Database med det intervall som anges av uppdateringsfrekvensen. Den snabbaste uppdateringsintervall som stöds är en gång per minut. Stream Analytics lagrar en ny ögonblicksbild i storage-kontot som angetts för varje uppdatering.
 
-Stream Analytics har två alternativ för att fråga Azure SQL Database. En ögonblicksbild fråga är obligatoriskt och måste inkluderas i varje jobb. Stream Analytics kör ögonblicksbild-frågan med jämna mellanrum baserat på din uppdateringsintervall och använder resultatet av frågan (snapshot) som referensdatauppsättningen. Ögonblicksbild frågan ska rymmas i de flesta fall, men om du får prestandaproblem med stora datamängder och snabb uppdateringsintervall, du kan använda frågealternativet delta.
+Stream Analytics har två alternativ för att fråga Azure SQL Database. En ögonblicksbild fråga är obligatoriskt och måste inkluderas i varje jobb. Stream Analytics kör ögonblicksbild-frågan med jämna mellanrum baserat på din uppdateringsintervall och använder resultatet av frågan (snapshot) som referensdatauppsättningen. Ögonblicksbild frågan ska rymmas i de flesta fall, men om du får prestandaproblem med stora datamängder och snabb uppdateringsintervall, du kan använda frågealternativet delta. Frågor som tar mer än 60 sekunder att gå tillbaka referensdatauppsättning resulterar i en tidsgräns.
 
 Med frågealternativet delta kör Stream Analytics ögonblicksbild-fråga från början för att få en referensdatauppsättning för baslinjen. Efter kör Stream Analytics deltafråga med jämna mellanrum baserat på din uppdateringsintervallet för att hämta stegvisa ändringar. Dessa stegvisa ändringar tillämpas kontinuerligt referensdatauppsättning att hålla det uppdaterat. Deltafråga hjälp kan minska kostnaden för lagring och nätverks-i/o-åtgärder.
 

@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: hrasheed
-ms.openlocfilehash: 89878b2774727d49d81ebec4c2a3c2cee355d8e8
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: 84251b16d91ca74e11298c7aa54c9a7a8b7fd6d6
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53743671"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57576726"
 ---
 # <a name="availability-and-reliability-of-apache-hadoop-clusters-in-hdinsight"></a>Tillgänglighet och tillförlitlighet för Apache Hadoop-kluster i HDInsight
 
@@ -36,7 +36,7 @@ Noder i ett HDInsight-kluster implementeras med hjälp av Azure virtuella datore
 
 HDInsight tillhandahåller två huvudnoder för att garantera hög tillgänglighet för Hadoop-tjänster. Både huvudnoderna är aktiv och körs i ett HDInsight-kluster samtidigt. Vissa tjänster, till exempel Apache HDFS eller Apache Hadoop YARN är endast aktiv på en huvudnod vid en given tidpunkt. Andra tjänster, till exempel HiveServer2 eller Hive-Metaarkiv är aktiva på både huvudnoderna på samma gång.
 
-Huvudnoder (och andra noder i HDInsight) har ett numeriskt värde som en del av värdnamnet för noden. Till exempel `hn0-CLUSTERNAME` eller `hn4-CLUSTERNAME`.
+Huvudnoder (och andra noder i HDInsight) har ett numeriskt värde som en del av värdnamnet för noden. Exempel: `hn0-CLUSTERNAME` eller `hn4-CLUSTERNAME`.
 
 > [!IMPORTANT]  
 > Koppla inte det numeriska värdet till om en nod är primär eller sekundär. Det numeriska värdet finns bara att ange ett unikt namn för varje nod.
@@ -97,7 +97,7 @@ Du kan ansluta till noder som inte är direkt åtkomliga via internet med hjälp
 
 * **SSH Tunnel**: Om du behöver komma åt en webbtjänst som finns på en av noderna som inte är exponerad för internet, måste du använda en SSH-tunnel. Mer information finns i den [använder en SSH-tunnel med HDInsight](hdinsight-linux-ambari-ssh-tunnel.md) dokumentet.
 
-* **Azure-nätverk**: Om ditt HDInsight-kluster är en del av Azure Virtual Network, alla resurser på samma virtuella nätverk direkt åtkomst till alla noder i klustret. Mer information finns i den [utöka HDInsight med hjälp av Azure Virtual Network](hdinsight-extend-hadoop-virtual-network.md) dokumentet.
+* **Azure Virtual Network**: Om ditt HDInsight-kluster är en del av Azure Virtual Network, alla resurser på samma virtuella nätverk direkt åtkomst till alla noder i klustret. Mer information finns i den [utöka HDInsight med hjälp av Azure Virtual Network](hdinsight-extend-hadoop-virtual-network.md) dokumentet.
 
 ## <a name="how-to-check-on-a-service-status"></a>Hur du kontrollerar på en Tjänststatus
 
@@ -111,7 +111,50 @@ När du kommer på sidan Ambari visas installerade tjänster till vänster på s
 
 ![Installerade tjänster](./media/hdinsight-high-availability-linux/services.png)
 
-Det finns en serie med ikoner som kan visas bredvid en tjänst för att ange status. Alla aviseringar som rör en tjänst kan granskas med den **aviseringar** länken längst upp på sidan. Du kan välja varje tjänst och visa mer information om den.
+Det finns en serie med ikoner som kan visas bredvid en tjänst för att ange status. Alla aviseringar som rör en tjänst kan granskas med den **aviseringar** länken längst upp på sidan.  Ambari erbjuder flera fördefinierade aviseringar.
+
+Följande aviseringar hjälpa att övervaka tillgängligheten för ett kluster:
+
+| Namn på påminnelse                               | Beskrivning                                                                                                                                                                                  |
+|------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Metrisk Monitor-Status                    | Den här varningen anger status för mått övervaka processen systemets övervaka status för skriptet.                                                                                   |
+| Ambari Agentpulsslag                   | Den här aviseringen utlöses om servern har tappat kontakten med en agent.                                                                                                                        |
+| ZooKeeper Server Process                 | Den här värdnivå aviseringen utlöses om serverprocessen ZooKeeper inte får vara fastställs att upp och lyssnar på nätverket.                                                               |
+| Status för IOCache Metadata           | Den här värdnivå aviseringen utlöses om IOCache Metadata-servern inte kan vara fastställs att upp och svarar på klientbegäranden                                                            |
+| JournalNode webbgränssnittet                       | Den här värdnivå aviseringen utlöses om Webbgränssnittet JournalNode inte kan nås.                                                                                                                 |
+| Spark2 Thrift Server                     | Den här värdnivå aviseringen utlöses om Spark2 Thrift-Server inte kan fastställas att vara igång.                                                                                                |
+| Historik serverprocessen                   | Den här värdnivå aviseringen utlöses om historik serverprocessen inte får vara etablerade att vara igång och lyssnar på nätverket.                                                                |
+| Historik-Server webbgränssnittet                    | Den här värdnivå aviseringen utlöses om Webbgränssnittet för historik Server inte kan nås.                                                                                                              |
+| ResourceManager webbgränssnittet                   | Den här värdnivå aviseringen utlöses om Webbgränssnittet ResourceManager inte kan nås.                                                                                                             |
+| Sammanfattning av NodeManager hälsotillstånd               | Den här tjänstnivå aviseringen utlöses om det finns felaktiga NodeManagers                                                                                                                    |
+| App-tidslinje webbgränssnittet                      | Den här värdnivå aviseringen utlöses om Webbgränssnittet för App tidslinje Server inte kan nås.                                                                                                         |
+| Sammanfattning av DataNode hälsotillstånd                  | Den här tjänstnivå aviseringen utlöses om det finns felaktiga DataNodes                                                                                                                       |
+| NameNode webbgränssnittet                          | Den här värdnivå aviseringen utlöses om Webbgränssnittet NameNode inte kan nås.                                                                                                                    |
+| ZooKeeper Redundansväxla kontrollenhet Process    | Den här värdnivå aviseringen utlöses om ZooKeeper Redundansväxla kontrollenhet processen inte får vara bekräftat att vara igång och lyssnar på nätverket.                                                   |
+| Oozie Server Web UI                      | Den här värdnivå aviseringen utlöses om Webbgränssnittet för Oozie-servern inte kan nås.                                                                                                                |
+| Status för Oozie                      | Den här värdnivå aviseringen utlöses om Oozie-servern inte kan vara fastställs att upp och svarar på klientförfrågningar.                                                                      |
+| Processen för hive-Metaarkiv                   | Den här värdnivå aviseringen utlöses om Hive-Metaarkiv processen inte får vara fastställs att upp och lyssnar på nätverket.                                                                 |
+| HiveServer2 Process                      | Den här värdnivå aviseringen utlöses om HiveServer inte får vara fastställs att upp och svarar på klientförfrågningar.                                                                        |
+| WebHCat Server Status                    | Den här värdnivå aviseringen utlöses om statusen för templeton-servern inte är felfri.                                                                                                            |
+| Procent ZooKeeper-servrar som är tillgängliga      | Den här aviseringen utlöses om antalet ned ZooKeeper-servrarna i klustret är större än det konfigurera kritiska tröskelvärdet. Det aggregerar resultaten av ZooKeeper processen kontroller.     |
+| Spark2 Livy Server                       | Den här värdnivå aviseringen utlöses om Livy2 servern inte kan fastställas att vara igång.                                                                                                        |
+| Spark2 Historikserver                    | Den här värdnivå aviseringen utlöses om Spark2 historik servern inte kan fastställas att vara igång.                                                                                               |
+| Mått insamlaren Process                | Den här aviseringen utlöses om inte insamlaren mått får vara bekräftat att vara igång och lyssnar på den konfigurerade porten för antalet sekunder som är lika med tröskelvärdet.                                 |
+| Mått insamlaren - HBase Master Process | Den här aviseringen utlöses om mått insamlarens HBase master processer inte kan bekräftad att vara igång och lyssnar på nätverket för det angivna kritiska tröskelvärdet, beroende på några sekunder. |
+| Procent mått Övervakare som är tillgängliga       | Den här aviseringen utlöses om en del av mått övervaka processer inte är igång och lyssnar på nätverket för den konfigurerade varningar och kritiska tröskelvärden.                             |
+| Procent NodeManagers som är tillgängliga           | Den här aviseringen utlöses om antalet ned NodeManagers i klustret är större än det konfigurera kritiska tröskelvärdet. Det aggregerar resultaten av NodeManager processen kontroller.        |
+| NodeManager hälsotillstånd                       | Den här aviseringen på värdnivå kontrollerar noden hälsotillstånd egenskapen som är tillgänglig från komponenten NodeManager.                                                                                              |
+| NodeManager webbgränssnittet                       | Den här värdnivå aviseringen utlöses om Webbgränssnittet NodeManager inte kan nås.                                                                                                                 |
+| NameNode High Availability Health        | Den här tjänstnivå aviseringen utlöses om den aktiva NameNode eller vänteläge NameNode inte körs.                                                                                     |
+| DataNode Process                         | Den här värdnivå aviseringen utlöses om de enskilda DataNode processerna inte får vara etablerade att vara igång och lyssnar på nätverket.                                                         |
+| DataNode webbgränssnittet                          | Den här värdnivå aviseringen utlöses om Webbgränssnittet DataNode inte kan nås.                                                                                                                    |
+| Procent JournalNodes som är tillgängliga           | Den här aviseringen utlöses om antalet ned JournalNodes i klustret är större än det konfigurera kritiska tröskelvärdet. Det aggregerar resultaten av JournalNode processen kontroller.        |
+| Procent DataNodes som är tillgängliga              | Den här aviseringen utlöses om antalet ned DataNodes i klustret är större än det konfigurera kritiska tröskelvärdet. Det aggregerar resultaten av DataNode processen kontroller.              |
+| Zeppelin serverstatus                   | Den här värdnivå aviseringen utlöses om Zeppelin-servern inte kan vara fastställs att upp och svarar på klientförfrågningar.                                                                   |
+| HiveServer2 Interactive Process          | Den här värdnivå aviseringen utlöses om HiveServerInteractive inte får vara fastställs att upp och svarar på klientförfrågningar.                                                             |
+| LLAP program                         | Den här aviseringen utlöses om LLAP programmet kan inte definieras för att vara igång och svarar på förfrågningar.                                                                                    |
+
+Du kan välja varje tjänst och visa mer information om den.
 
 När sidan innehåller information om status och konfiguration för varje tjänst, innehåller inte information som på vilka huvudnoden tjänsten körs på. Du kan visa den här informationen i **värdar** länken längst upp på sidan. Den här sidan visar värdarna i klustret, inklusive huvudnoderna.
 

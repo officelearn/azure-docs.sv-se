@@ -7,25 +7,25 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/12/2019
-ms.openlocfilehash: e33606e0b5be0db5306cfd42f87baf59671eb2a8
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 20491981cb02e428ff4114b9456d74b0de651be8
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57451737"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57569033"
 ---
 # <a name="mapping-data-flow-source-transformation"></a>Mappningen Dataomvandling Flow källa
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
-Käll-transformeringen konfigurerar en datakälla som du vill använda för att hämta data till ditt dataflöde. Du kan ha fler än en källa transformeringen i en enda dataflöde. Alltid börja utforma dina Data flödar med källan.
+Käll-transformeringen konfigurerar en datakälla som du vill använda för att hämta data till ditt dataflöde. Du kan ha fler än en källa transformeringen i en enda dataflöde. Alltid börja utforma dina Data som flödar genom att omvandla en källa.
 
 > [!NOTE]
-> Varje dataflöde kräver minst en transformering av källa. Lägg till så många ytterligare datakällor som du behöver för att slutföra din Datatransformationer. Du kan ansluta till dessa källor tillsammans med ett Join- eller Union omvandling.
+> Varje dataflöde kräver minst en transformering av källa. Lägg till så många ytterligare datakällor som du behöver för att slutföra din Datatransformationer. Du kan ansluta till dessa källor tillsammans med ett Join- eller Union omvandling. När du felsöker ditt dataflöde i debug-sessioner, läsa data från källan med hjälp av inställningen för Sampling eller Debug källa gränser. Men skrivs inga data till en mottagare tills du kör ditt dataflöde från en pipeline data flödesaktivitet. 
 
 ![Käll-omvandling alternativ](media/data-flow/source.png "källa")
 
-Varje transformering av Data flöda källa måste vara kopplad till exakt en Data Factory-datauppsättningen som definierar formen och var dina data att skriva till eller läsa från. Du kan använda jokertecken och filen listor i din källan för att arbeta med fler än en fil i taget.
+Varje transformering av Data flöda källa måste vara kopplad till exakt en Data Factory-datauppsättningen. Datauppsättningen definierar formen och var dina data att skriva till eller läsa från. Du kan använda jokertecken och filen listor i din källan för att arbeta med fler än en fil i taget när du använder filen källor.
 
 ## <a name="data-flow-staging-areas"></a>Dataflöde Mellanlagringsområden
 
@@ -43,7 +43,7 @@ Välj Tillåt schemat Drift om källkolumner ändras ofta. Den här inställning
 Körningen av dataflödet misslyckas om den inkommande versionen för datakällan inte matchar definierat schema.
 
 ### <a name="sampling"></a>Samling
-Använda Sampling för att begränsa antalet rader från källan.  Detta är användbart när du behöver bara ett exempel på dina källdata för testning och felsökning.
+Använda Sampling för att begränsa antalet rader från källan.  Detta är användbart när du testar eller samlar data från källan för felsökning.
 
 ## <a name="define-schema"></a>Definiera Schema
 

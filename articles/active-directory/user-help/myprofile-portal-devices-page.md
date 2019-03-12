@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bea9a987078799436c9dcad650ee56d5d6d81512
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: b303a1cd3da7010573ce34dd4762616f4b6581d0
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57341349"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57729096"
 ---
 # <a name="manage-your-connected-devices-from-the-my-profile-preview-portal"></a>Hantera dina anslutna enheter från min profil (förhandsgranskning)-portalen
 Du kan hantera enheter som du är ansluten till ditt arbets- eller skolkonto konto inaktiverar alla som du äger inte längre, från den **enheter** för den **min profil** portal.
@@ -36,7 +36,7 @@ Du kan hantera enheter som du är ansluten till ditt arbets- eller skolkonto kon
     ![Enhetens sida, som visar anslutna enheter](media/myprofile-portal/myprofile-portal-devices-page.png)
 
 ## <a name="disable-a-device"></a>Inaktivera en enhet
-Du kan inaktivera några av dina anslutna enheter när som helst. Detta är särskilt viktigt om en enhet inte är bekant med, eller om en enhet blir borttappad eller stulen.
+Du kan inaktivera några av dina anslutna enheter när som helst. Detta är särskilt viktigt om en enhet inte är bekant med, eller om en enhet blir borttappad eller stulen. När du inaktiverar en enhet inte längre kan autentiseras av din organisation och går inte att få åtkomst till någon av din organisations resurser.
 
 >[!Important]
 >Om du inaktiverar en enhet av misstag, går det inte att ångra åtgärden. Du måste kontakta organisationens administratör för att lägga till enheten igen.

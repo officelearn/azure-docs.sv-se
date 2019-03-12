@@ -1,45 +1,45 @@
 ---
 title: Säker poddar med principer för nätverk i Azure Kubernetes Service (AKS)
-description: Lär dig att skydda trafik som flödar in och ut ur poddar med hjälp av Kubernetes-nätverksprinciper i Azure Kubernetes Service (AKS)
+description: Lär dig att skydda trafik som flödar in och ut ur poddar genom att använda nätverksprinciper för Kubernetes i Azure Kubernetes Service (AKS)
 services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
 ms.date: 02/12/2019
 ms.author: iainfou
-ms.openlocfilehash: d7d23300936cd512466e5c4b18f1f0922c81ceff
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 81b45a25c8040916b835ab333c5ce80ab6c1a788
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57408198"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57772321"
 ---
-# <a name="secure-traffic-between-pods-using-network-policies-in-azure-kubernetes-service-aks"></a>Säker trafik mellan poddar med hjälp av principer för nätverk i Azure Kubernetes Service (AKS)
+# <a name="secure-traffic-between-pods-by-using-network-policies-in-azure-kubernetes-service"></a>Säker trafik mellan poddar med hjälp av principer för nätverk i Azure Kubernetes Service
 
-När du kör moderna, mikrotjänstbaserade program i Kubernetes kan vill du ofta styra vilka komponenter som kan kommunicera med varandra. Principen om lägsta behörighet ska tillämpas på hur trafiken kan flöda mellan poddar i ett AKS-kluster. Till exempel vill du förmodligen att blockera trafik direkt till serverdelsprogrammen. I Kubernetes, den *nätverkspolicy* funktionen kan du definiera regler för ingående och utgående trafik mellan poddar i ett kluster.
+När du kör moderna, mikrotjänstbaserade program i Kubernetes kan vill du ofta styra vilka komponenter som kan kommunicera med varandra. Principen om lägsta behörighet ska tillämpas på hur trafiken kan flöda mellan poddar i ett kluster i Azure Kubernetes Service (AKS). Vi antar att du förmodligen vill blockera trafik direkt till backend-program. Den *nätverkspolicy* funktionen i Kubernetes kan du definiera regler för ingående och utgående trafik mellan poddar i ett kluster.
 
 Calico, en öppen källkod nätverks- och säkerhetslösning för nätverk från Tigera, erbjuder en motor för nätverket som kan implementera principregler för Kubernetes-nätverk. Den här artikeln visar hur du installerar principmodulen Calico nätverket och skapa principer för Kubernetes-nätverk för att styra trafikflödet mellan poddar i AKS.
 
 > [!IMPORTANT]
-> Den här funktionen är för närvarande en förhandsversion. Förhandsversioner är tillgängliga för dig under förutsättning att du godkänner de [kompletterande användningsvillkoren][terms-of-use]. Vissa aspekter av funktionen kan ändras innan den är allmänt tillgänglig (GA).
+> Den här funktionen är för närvarande en förhandsversion. Förhandsversioner är tillgängliga för dig under förutsättning att du godkänner de [kompletterande användningsvillkoren][terms-of-use]. Vissa aspekter av den här funktionen kan ändras innan den allmänt tillgängliga (GA).
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
 Du behöver Azure CLI version 2.0.56 eller senare installerat och konfigurerat. Kör  `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa  [Installera Azure CLI 2.0][install-azure-cli].
 
-Om du vill skapa ett AKS med nätverksprincip först aktivera en funktionsflagga i prenumerationen. Att registrera den *EnableNetworkPolicy* funktion flaggan, använda den [az funktionen registrera] [ az-feature-register] kommandot som visas i följande exempel:
+Om du vill skapa ett AKS-kluster som kan använda nätverksprincip först aktivera en funktionsflagga i prenumerationen. Att registrera den *EnableNetworkPolicy* funktion flaggan, använda den [az funktionen registrera] [ az-feature-register] kommandot som visas i följande exempel:
 
 ```azurecli-interactive
 az feature register --name EnableNetworkPolicy --namespace Microsoft.ContainerService
 ```
 
-Det tar några minuter för statusen att visa *registrerad*. Du kan kontrollera statusen registrering med den [az funktionslistan] [ az-feature-list] kommando:
+Det tar några minuter för statusen att visa *registrerad*. Du kan kontrollera registreringsstatus med hjälp av den [az funktionslistan] [ az-feature-list] kommando:
 
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/EnableNetworkPolicy')].{Name:name,State:properties.state}"
 ```
 
-När du är klar kan du uppdatera registreringen av den *Microsoft.ContainerService* resursprovidern med hjälp av den [az provider register] [ az-provider-register] kommando:
+När du är klar kan du uppdatera registreringen av den *Microsoft.ContainerService* resursprovidern genom att använda den [az provider register] [ az-provider-register] kommando:
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerService
@@ -47,11 +47,11 @@ az provider register --namespace Microsoft.ContainerService
 
 ## <a name="overview-of-network-policy"></a>Översikt över nätverksprincip
 
-Som standard kan alla poddar i ett AKS-kluster skicka och ta emot trafik utan begränsningar. Du kan definiera regler som styr flödet av trafik för att förbättra säkerheten. Till exempel serverdelsprogrammen exponeras ofta bara till nödvändiga frontend-tjänster eller databaskomponenter är endast tillgängliga på nivån för program som ansluter till dem.
+Alla poddar i ett AKS-kluster kan skicka och ta emot trafik utan begränsningar, som standard. Du kan definiera regler som styr flödet av trafik för att förbättra säkerheten. Serverprogram exponeras ofta bara för nödvändiga frontend-tjänster, till exempel. Eller databaskomponenter är endast tillgängliga på nivån för program som ansluter till dem.
 
-Nätverksprinciper är Kubernetes-resurser att reglera trafikflödet mellan poddar. Du kan välja att tillåta eller neka trafik baserat på inställningar, till exempel tilldelade etiketter, namnområde eller trafik port. Nätverksprinciper definieras som en YAML manifest, och kan ingå som en del av ett bredare manifest som även skapar en distribution eller tjänst.
+Nätverksprinciper är Kubernetes-resurser att reglera trafikflödet mellan poddar. Du kan välja att tillåta eller neka trafik baserat på inställningarna som tilldelade etiketter, namnområde eller trafik port. Nätverksprinciper definieras som YAML-manifestet. Dessa principer kan ingå som en del av ett bredare manifest som även skapar en distribution eller tjänst.
 
-Nu ska vi se nätverksprinciper i praktiken, skapa och expandera sedan en princip som definierar trafikflödet på följande sätt:
+Nu ska vi se nätverksprinciper i praktiken, skapa och expandera sedan en princip som definierar trafikflödet:
 
 * Neka all trafik till pod.
 * Tillåta trafik baserat på pod etiketter.
@@ -61,16 +61,16 @@ Nu ska vi se nätverksprinciper i praktiken, skapa och expandera sedan en princi
 
 Principen för nätverk kan bara aktiveras när klustret har skapats. Du kan inte aktivera principen för nätverk i ett befintligt AKS-kluster. 
 
-Om du vill använda principen för nätverk med ett AKS-kluster, måste du använda den [plugin-programmet Azure CNI] [ azure-cni] och definiera dina egna virtuella nätverk och undernät. Mer detaljerad information om hur du planerar ut nödvändiga undernätets adressintervall finns i [konfigurera avancerade nätverk][use-advanced-networking].
+Om du vill använda principen för nätverk med ett AKS-kluster, måste du använda den [Azure CNI plugin-programmet] [ azure-cni] och definiera dina egna virtuella nätverk och undernät. Mer detaljerad information om hur du planerar ut nödvändiga undernätets adressintervall finns i [konfigurera avancerade nätverk][use-advanced-networking].
 
 Följande exempelskript:
 
 * Skapar ett virtuellt nätverk och undernät.
-* Skapar ett Azure Active Directory (AD) tjänstens huvudnamn för användning med AKS-klustret.
+* Skapar ett Azure Active Directory (Azure AD) tjänstens huvudnamn för användning med AKS-klustret.
 * Tilldelar *deltagare* behörigheter för AKS-kluster tjänstens huvudnamn i det virtuella nätverket.
 * Skapar ett AKS-kluster i definierade virtuella nätverk och aktiverar nätverksprincip.
 
-Ange ditt eget säkra *SP_PASSWORD*. Om du vill kan du ersätta den *RESOURCE_GROUP_NAME* och *klusternamn* variabler:
+Ange ditt eget säkra *SP_PASSWORD*. Du kan ersätta den *RESOURCE_GROUP_NAME* och *klusternamn* variabler:
 
 ```azurecli-interactive
 SP_PASSWORD=mySecurePassword
@@ -106,12 +106,12 @@ az role assignment create --assignee $SP_ID --scope $VNET_ID --role Contributor
 SUBNET_ID=$(az network vnet subnet show --resource-group $RESOURCE_GROUP_NAME --vnet-name myVnet --name myAKSSubnet --query id -o tsv)
 
 # Create the AKS cluster and specify the virtual network and service principal information
-# Enable network policy using the `--network-policy` parameter
+# Enable network policy by using the `--network-policy` parameter
 az aks create \
     --resource-group $RESOURCE_GROUP_NAME \
     --name $CLUSTER_NAME \
     --node-count 1 \
-    --kubernetes-version 1.12.4 \
+    --kubernetes-version 1.12.6 \
     --generate-ssh-keys \
     --network-plugin azure \
     --service-cidr 10.0.0.0/16 \
@@ -123,7 +123,7 @@ az aks create \
     --network-policy calico
 ```
 
-Det tar några minuter att skapa klustret. När du är klar kan du konfigurera `kubectl` att ansluta till ditt Kubernetes-kluster med den [aaz aks get-credentials] [ az-aks-get-credentials] kommando. Det här kommandot laddar ned autentiseringsuppgifter och konfigurerar Kubernetes CLI för att använda dem:
+Det tar några minuter att skapa klustret. När klustret är klart, konfigurera `kubectl` att ansluta till ditt Kubernetes-kluster med hjälp av den [aaz aks get-credentials] [ az-aks-get-credentials] kommando. Det här kommandot laddar ned autentiseringsuppgifter och konfigurerar Kubernetes CLI för att använda dem:
 
 ```azurecli-interactive
 az aks get-credentials --resource-group $RESOURCE_GROUP_NAME --name $CLUSTER_NAME
@@ -133,32 +133,32 @@ az aks get-credentials --resource-group $RESOURCE_GROUP_NAME --name $CLUSTER_NAM
 
 Innan du kan definiera regler för att tillåta specifika nätverkstrafik, bör du först skapa en princip för nätverk om du vill neka all trafik. Den här principen ger dig en utgångspunkt för att börja godkänna önskad trafik. Du kan också tydligt se att trafiken ignoreras när nätverksprincipen som tillämpas.
 
-Våra exempel Programmiljö och trafikregler vi först skapa ett namnområde som kallas *utveckling* att köra våra exempel poddarna:
+Exemplet Programmiljö och trafikregler, vi först skapa ett namnområde som kallas *utveckling* att köra exemplet poddarna:
 
 ```console
 kubectl create namespace development
 kubectl label namespace/development purpose=development
 ```
 
-Nu ska du skapa en exempel-serverdel poddar som kör NGINX. Den här backend-pod kan användas för att simulera en serverdel webbaserade exempelprogrammet. Skapa den här pod i den *utveckling* namnområdet, och öppna port *80* att betjäna webbtrafik. Etiketten pod med *app = webapp, roll = serverdel* så att vi kan rikta dem med en princip i nästa avsnitt:
+Skapa en pod för exempel backend-server som kör NGINX. Den här backend-pod kan användas för att simulera en backend-webbaserade exempelprogrammet. Skapa den här pod i den *utveckling* namnområdet, och öppna port *80* att betjäna webbtrafik. Etiketten pod med *app = webapp, roll = serverdel* så att vi kan rikta dem med en princip i nästa avsnitt:
 
 ```console
 kubectl run backend --image=nginx --labels app=webapp,role=backend --namespace development --expose --port 80 --generator=run-pod/v1
 ```
 
-Om du vill testa att du har kan nå standardwebbsidan för NGINX, skapa en annan pod och bifoga en terminalsession:
+Skapa en annan pod och bifoga en terminalsession för att testa att du har kan nå standard NGINX-webbsidan:
 
 ```console
 kubectl run --rm -it --image=alpine network-policy --namespace development --generator=run-pod/v1
 ```
 
-En gång i shell-prompten använder `wget` att bekräfta att du kan komma åt NGINX-standardwebbsidan:
+I shell-prompten använder `wget` att bekräfta att du kan komma åt NGINX-webbsidan standard:
 
 ```console
 wget -qO- http://backend
 ```
 
-Följande exempel på utdata visar att standardwebbsidan för NGINX returneras:
+Följande exempel på utdata visar att NGINX-webbsidan standard returneras:
 
 ```
 <!DOCTYPE html>
@@ -168,7 +168,7 @@ Följande exempel på utdata visar att standardwebbsidan för NGINX returneras:
 [...]
 ```
 
-Stänger ner anslutna terminalsessionen. Test-pod tas bort automatiskt:
+Stänger ner anslutna terminalsessionen. Test-pod tas bort automatiskt.
 
 ```console
 exit
@@ -176,7 +176,7 @@ exit
 
 ### <a name="create-and-apply-a-network-policy"></a>Skapa och tillämpa en princip för nätverk
 
-Nu när du har bekräftat att du kan komma åt grundläggande NGINX-webbsidan på backend-pod exemplet kan du skapa en princip för nätverk om du vill neka all trafik. Skapa en fil med namnet `backend-policy.yaml` och klistra in följande YAML-manifestet. Den här manifestet använder en *podSelector* att koppla principen till poddar som har den *app:webapp, roll: serverdel* etikett, till exempel din pod för NGINX av exemplet. Inga regler har definierats *ingående*, så att all inkommande trafik till din pod nekas:
+Nu när du har bekräftat att du kan använda den grundläggande NGINX-webbsidan på exemplet backend-pod kan du skapa en princip för nätverk om du vill neka all trafik. Skapa en fil med namnet `backend-policy.yaml` och klistra in följande YAML-manifestet. Den här manifestet använder en *podSelector* att koppla principen till poddar som har den *app:webapp, roll: serverdel* etikett som din pod för NGINX av exemplet. Inga regler har definierats *ingående*, så att all inkommande trafik till din pod nekas:
 
 ```yaml
 kind: NetworkPolicy
@@ -192,7 +192,7 @@ spec:
   ingress: []
 ```
 
-Använd nätverk princip med de [kubectl gäller] [ kubectl-apply] kommandot och ange namnet på ditt YAML-manifest:
+Tillämpa princip för nätverk med hjälp av den [kubectl gäller] [ kubectl-apply] kommandot och ange namnet på ditt YAML-manifest:
 
 ```azurecli-interactive
 kubectl apply -f backend-policy.yaml
@@ -200,13 +200,14 @@ kubectl apply -f backend-policy.yaml
 
 ### <a name="test-the-network-policy"></a>Testa nätverksprincipen
 
-Låt oss se om du kan komma åt NGINX-webbsidan på backend-pod igen. Skapa en annan test pod och bifoga en terminalsession:
+
+Låt oss se om du kan använda NGINX-webbsidan på backend-pod igen. Skapa en annan test pod och bifoga en terminalsession:
 
 ```console
 kubectl run --rm -it --image=alpine network-policy --namespace development --generator=run-pod/v1
 ```
 
-En gång i shell-prompten använda `wget` om du har åtkomst till standardwebbsidan för NGINX. Den här tiden kan ange ett timeout-värde *2* sekunder. Nätverksprincipen blockerar nu all inkommande trafik, så det inte går att läsa in sidan, som visas i följande exempel:
+I shell-prompten använda `wget` om du har åtkomst till standard NGINX-webbsidan. Den här tiden kan ange ett timeout-värde *2* sekunder. Nätverksprincipen blockerar nu all inkommande trafik, så det inte går att läsa in sidan, som visas i följande exempel:
 
 ```console
 $ wget -qO- --timeout=2 http://backend
@@ -214,7 +215,7 @@ $ wget -qO- --timeout=2 http://backend
 wget: download timed out
 ```
 
-Stänger ner anslutna terminalsessionen. Test-pod tas bort automatiskt:
+Stänger ner anslutna terminalsessionen. Test-pod tas bort automatiskt.
 
 ```console
 exit
@@ -222,9 +223,9 @@ exit
 
 ## <a name="allow-inbound-traffic-based-on-a-pod-label"></a>Tillåt inkommande trafik baserat på en pod-etikett
 
-En serverdel NGINX pod har schemalagts i föregående avsnitt, en princip har skapats för att neka all trafik. Nu ska vi skapa en frontend-pod och uppdatera nätverksprincipen för att tillåta trafik från klientdelens poddar.
+I det föregående avsnittet en backend-NGINX pod har schemalagts, en princip har skapats för att neka all trafik. Nu ska vi skapa en frontend pod och uppdatera nätverksprincipen för att tillåta trafik från klientdelen poddar.
 
-Uppdatera princip för nätverk för att tillåta trafik från poddar med etiketter *app:webapp, roll: frontend* och i alla namnområden. Redigera den tidigare *backend-policy.yaml* filen och Lägg till en *matchLabels* inkommande regler så att ditt manifest ser ut som i följande exempel:
+Uppdatera princip för nätverk för att tillåta trafik från poddar med etiketter *app:webapp, roll: frontend* och i alla namnområden. Redigera den tidigare *backend-policy.yaml* filen och Lägg till *matchLabels* inkommande regler så att ditt manifest ser ut som i följande exempel:
 
 ```yaml
 kind: NetworkPolicy
@@ -247,27 +248,27 @@ spec:
 ```
 
 > [!NOTE]
-> Den här nätverksprincipen används en *namespaceSelector* och en *podSelector* element för inkommande regel. YAML-syntax är viktigt för inkommande regler är additiva eller inte. Båda elementen måste matcha för inkommande regel som ska användas i det här exemplet. Kubernetes-versioner före *1.12* kan inte tolka de här elementen på rätt sätt och begränsa nätverkstrafik som förväntat. Mer information finns i [funktionssätt till och från väljare][policy-rules].
+> Den här nätverksprincipen används en *namespaceSelector* och en *podSelector* element för inkommande regel. YAML-syntax är viktigt för inkommande regler är additiva. Båda elementen måste matcha för inkommande regel som ska användas i det här exemplet. Kubernetes-versioner före *1.12* kan inte tolka de här elementen på rätt sätt och begränsa nätverkstrafik som förväntat. Mer information om det här problemet finns i [funktionssätt till och från väljare][policy-rules].
 
-Tillämpa den uppdaterade nätverk princip med hjälp av den [kubectl gäller] [ kubectl-apply] kommandot och ange namnet på ditt YAML-manifest:
+Tillämpa den uppdaterade nätverksprincipen med hjälp av den [kubectl gäller] [ kubectl-apply] kommandot och ange namnet på ditt YAML-manifest:
 
 ```azurecli-interactive
 kubectl apply -f backend-policy.yaml
 ```
 
-Schemalägg nu en pod som är märkta som *app = webapp, roll = klientdel* och bifoga en terminalsession:
+Schemalägga en pod som är märkta som *app = webapp, roll = klientdel* och bifoga en terminalsession:
 
 ```console
 kubectl run --rm -it frontend --image=alpine --labels app=webapp,role=frontend --namespace development --generator=run-pod/v1
 ```
 
-En gång i shell-prompten använda `wget` om du har åtkomst till NGINX-standardwebbsidan:
+I shell-prompten använda `wget` om du har åtkomst till standard NGINX-webbsidan:
 
 ```console
 wget -qO- http://backend
 ```
 
-Som inkommande regeln tillåter trafik med poddar som har etiketterna *app: webapp, roll: frontend*, tillåts trafik från frontend-pod. Följande Exempelutdata visar den standardwebbsidan för NGINX som returneras:
+Eftersom den inkommande regeln tillåter trafik med poddar som har etiketterna *app: webapp, roll: frontend*, tillåts trafik från klientdelen pod. Följande Exempelutdata visar standard NGINX-webbsidan returneras:
 
 ```
 <!DOCTYPE html>
@@ -277,7 +278,7 @@ Som inkommande regeln tillåter trafik med poddar som har etiketterna *app: weba
 [...]
 ```
 
-Stänger ner anslutna terminalsessionen. Poden tas bort automatiskt:
+Stänger ner anslutna terminalsessionen. Poden tas bort automatiskt.
 
 ```console
 exit
@@ -285,13 +286,13 @@ exit
 
 ### <a name="test-a-pod-without-a-matching-label"></a>Testa en pod utan en motsvarande etikett
 
-Nätverksprincipen tillåter trafik från poddar som är märkt *app: webapp, roll: frontend*, men bör nekar all annan trafik. Nu ska vi testa att en annan pod utan dessa etiketter inte kan komma åt NGINX-pod serverdel. Skapa en annan test pod och bifoga en terminalsession:
+Nätverksprincipen tillåter trafik från poddar som är märkt *app: webapp, roll: frontend*, men bör nekar all annan trafik. Nu ska vi testa för att se om en annan pod utan dessa etiketter kan komma åt NGINX-pod backend-server. Skapa en annan test pod och bifoga en terminalsession:
 
 ```console
 kubectl run --rm -it --image=alpine network-policy --namespace development --generator=run-pod/v1
 ```
 
-En gång i shell-prompten använda `wget` om du har åtkomst till standardwebbsidan för NGINX. Nätverksprincipen blockerar inkommande trafik, så det inte går att läsa in sidan, som visas i följande exempel:
+I shell-prompten använda `wget` om du har åtkomst till standard NGINX-webbsidan. Nätverksprincipen blockerar inkommande trafik, så det inte går att läsa in sidan, som visas i följande exempel:
 
 ```console
 $ wget -qO- --timeout=2 http://backend
@@ -299,7 +300,7 @@ $ wget -qO- --timeout=2 http://backend
 wget: download timed out
 ```
 
-Stänger ner anslutna terminalsessionen. Test-pod tas bort automatiskt:
+Stänger ner anslutna terminalsessionen. Test-pod tas bort automatiskt.
 
 ```console
 exit
@@ -307,7 +308,7 @@ exit
 
 ## <a name="allow-traffic-only-from-within-a-defined-namespace"></a>Tillåt endast trafik från inom en definierad namnområde
 
-I föregående exempel har skapat du en princip för nätverk som nekas all trafik och sedan uppdatera principen för att tillåta trafik från poddar med en viss etikett. En andra vanliga behov är att begränsa trafik till endast inom ett visst namnområde. Om föregående exempel för trafik i en *utveckling* namnområdet, kan du sedan skapa en princip för nätverk som förhindrar trafik från en annan namnrymd som *produktion*, från att nå den poddar.
+I föregående exempel har skapat du en princip för nätverk som nekas all trafik och sedan uppdateras principen för att tillåta trafik från poddar med en viss etikett. Behovet av en annan vanliga är att begränsa trafik till endast inom ett visst namnområde. Om föregående exempel för trafik i en *utveckling* namnrymd, skapa en princip för nätverk som förhindrar trafik från en annan namnrymd som *produktion*, från att nå poddarna.
 
 Börja med att skapa ett nytt namnområde för att simulera ett namnområde för produktion:
 
@@ -322,13 +323,13 @@ Schemalägga en test-pod i den *produktion* namnområde som är märkta som *app
 kubectl run --rm -it frontend --image=alpine --labels app=webapp,role=frontend --namespace production --generator=run-pod/v1
 ```
 
-En gång i shell-prompten använder `wget` att bekräfta att du kan komma åt NGINX-standardwebbsidan:
+I shell-prompten använder `wget` att bekräfta att du kan komma åt NGINX-webbsidan standard:
 
 ```console
 wget -qO- http://backend.development
 ```
 
-Eftersom etiketterna för poden matchar vad tillåts för närvarande i nätverksprincipen, tillåts trafik. Nätverksprincipen titta inte på namnrymder, endast pod-etiketter. Följande Exempelutdata visar den standardwebbsidan för NGINX som returneras:
+Eftersom etiketterna för poden matchar vad tillåts för närvarande i nätverksprincipen, tillåts trafik. Nätverksprincipen titta inte på namnrymder, endast pod-etiketter. Följande Exempelutdata visar standard NGINX-webbsidan returneras:
 
 ```
 <!DOCTYPE html>
@@ -338,7 +339,7 @@ Eftersom etiketterna för poden matchar vad tillåts för närvarande i nätverk
 [...]
 ```
 
-Stänger ner anslutna terminalsessionen. Test-pod tas bort automatiskt:
+Stänger ner anslutna terminalsessionen. Test-pod tas bort automatiskt.
 
 ```console
 exit
@@ -370,9 +371,9 @@ spec:
           role: frontend
 ```
 
-I mer komplexa exempel du definiera flera inkommande regler som du använder en *namespaceSelector* och sedan en *podSelector*.
+I mer komplexa exempel kan du definiera flera inkommande regler som en *namespaceSelector* och sedan en *podSelector*.
 
-Tillämpa den uppdaterade nätverk princip med hjälp av den [kubectl gäller] [ kubectl-apply] kommandot och ange namnet på ditt YAML-manifest:
+Tillämpa den uppdaterade nätverksprincipen med hjälp av den [kubectl gäller] [ kubectl-apply] kommandot och ange namnet på ditt YAML-manifest:
 
 ```azurecli-interactive
 kubectl apply -f backend-policy.yaml
@@ -380,13 +381,13 @@ kubectl apply -f backend-policy.yaml
 
 ### <a name="test-the-updated-network-policy"></a>Testa den uppdaterade nätverksprincipen
 
-Nu schemalägga en annan pod i den *produktion* namnområde och bifoga en terminalsession:
+Schemalägga en annan pod i den *produktion* namnområde och bifoga en terminalsession:
 
 ```console
 kubectl run --rm -it frontend --image=alpine --labels app=webapp,role=frontend --namespace production --generator=run-pod/v1
 ```
 
-En gång i shell-prompten använder `wget` att se nätverksprincipen som nu nekar trafik:
+I shell-prompten använder `wget` att se att nätverksprincipen nu nekar trafik:
 
 ```console
 $ wget -qO- --timeout=2 http://backend.development
@@ -400,19 +401,19 @@ Stänger ner test-pod:
 exit
 ```
 
-Med trafik nekas från den *produktion* namnområde nu schemat en test-pod tillbaka i den *utveckling* namnområde och bifoga en terminalsession:
+Med trafik nekas från den *produktion* namnområde, schema för en test-pod igen den *utveckling* namnområde och bifoga en terminalsession:
 
 ```console
 kubectl run --rm -it frontend --image=alpine --labels app=webapp,role=frontend --namespace development --generator=run-pod/v1
 ```
 
-En gång i shell-prompten använder `wget` för att se nätverket principen Tillåt trafiken:
+I shell-prompten använder `wget` att se att nätverksprincipen tillåter trafik:
 
 ```console
 wget -qO- http://backend
 ```
 
-Som en pod har schemalagts i namnområdet som matchar vad som tillåts i nätverksprincipen tillåts trafiken. Följande exempel på utdata visar den standardwebbsidan för NGINX som returneras:
+Trafik tillåts eftersom poden schemaläggs i namnområdet som matchar vad tillåts i nätverksprincipen. Följande exempel på utdata visar standard NGINX-webbsidan returneras:
 
 ```
 <!DOCTYPE html>
@@ -422,7 +423,7 @@ Som en pod har schemalagts i namnområdet som matchar vad som tillåts i nätver
 [...]
 ```
 
-Stänger ner anslutna terminalsessionen. Test-pod tas bort automatiskt:
+Stänger ner anslutna terminalsessionen. Test-pod tas bort automatiskt.
 
 ```console
 exit
@@ -430,7 +431,7 @@ exit
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-I den här artikeln har vi skapa två namnområden och tillämpas en princip. Om du vill rensa de här resurserna kan använda den [kubectl ta bort] [ kubectl-delete] kommandot och ange resursnamnen enligt följande:
+I den här artikeln har vi skapat två namnområdena och tillämpat en princip för. Om du vill rensa de här resurserna kan använda den [kubectl ta bort] [ kubectl-delete] kommandot och ange resursnamnen:
 
 ```console
 kubectl delete namespace production
@@ -439,9 +440,9 @@ kubectl delete namespace development
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om nätverksresurser finns [Network begrepp för program i Azure Kubernetes Service (AKS)][concepts-network].
+Mer information om nätverksresurser finns i [Network begrepp för program i Azure Kubernetes Service (AKS)][concepts-network].
 
-Mer information om hur du använder principer finns [Kubernetes nätverksprinciper][kubernetes-network-policies].
+Mer information om principer finns [Kubernetes nätverksprinciper][kubernetes-network-policies].
 
 <!-- LINKS - external -->
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply

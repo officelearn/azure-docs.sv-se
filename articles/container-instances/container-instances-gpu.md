@@ -8,12 +8,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 11/29/2018
 ms.author: danlep
-ms.openlocfilehash: adb893a9d37219409f81b2fb402f2d4afd36aa34
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: f35b2cd8d360bd46913eaa34b91e1fd19bc1ba9b
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57338866"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57533603"
 ---
 # <a name="deploy-container-instances-that-use-gpu-resources"></a>Distribuera behållarinstanser som använder GPU-resurser
 
@@ -28,15 +28,7 @@ Som du ser i den här artikeln kan du kan lägga till GPU-resurser när du distr
 
 I förhandsversion begränsningar gäller följande när du använder GPU-resurser i grupper med behållare. 
 
-**Regioner som stöds**:
-
-* Östra USA (eastus)
-* Västra USA 2 (västra USA 2)
-* Södra centrala USA (usasödracentrala)
-* Västeuropa (westeurope)
-* Nordeuropa (europanorra)
-* Östasien (asienöstra)
-* Centrala Indien (indiencentrala)
+[!INCLUDE [container-instances-gpu-regions](../../includes/container-instances-gpu-regions.md)]
 
 Stöd kommer att läggas till för ytterligare regioner över tid.
 
@@ -59,21 +51,9 @@ Om du vill använda GPU: er i en behållarinstans, ange en *GPU resource* med f�
   | P100 | [NCv2](../virtual-machines/linux/sizes-gpu.md#ncv2-series) |
   | V100 | [NCv3](../virtual-machines/linux/sizes-gpu.md#ncv3-series) |
 
-### <a name="cpu-and-memory"></a>CPU och minne
+[!INCLUDE [container-instances-gpu-limits](../../includes/container-instances-gpu-limits.md)]
 
-Ange Processorn och minnesresurser passar arbetsbelastningen, upp till de högsta värden som visas i följande tabell när du distribuerar GPU-resurser. Dessa värden är för närvarande är större än processor- och minnesgränser i container instances utan GPU-resurser.  
-
-| GPU-SKU | GPU-antal | Processor |  Minne (GB) |
-| --- | --- | --- | --- |
-| K80 | 1 | 6 | 56 |
-| K80 | 2 | 12 | 112 |
-| K80 | 4 | 24 | 224 |
-| P100 | 1 | 6 | 112 |
-| P100 | 2 | 12 | 224 |
-| P100 | 4 | 24 | 448 |
-| V100 | 1 | 6 | 112 |
-| V100 | 2 | 12 | 224 |
-| V100 | 4 | 24 | 448 |
+När du distribuerar GPU-resurser kan ange du Processorn och minnesresurser passar arbetsbelastningen, upp till de högsta värden som visas i tabellen ovan. Dessa värden är för närvarande är större än processor- och resurserna som är tillgängliga i behållargrupper utan GPU-resurser.  
 
 ### <a name="things-to-know"></a>Saker att känna till
 

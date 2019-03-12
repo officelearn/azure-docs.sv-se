@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/28/2019
+ms.date: 3/6/2019
 ms.author: rkarlin
-ms.openlocfilehash: 8d44c1448296df16e9dd58a486d4cfb21bb053de
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 7c4994863f3c145c7095bcc12dd69ff02fab8455
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57244208"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57540291"
 ---
 # <a name="tutorial-investigate-cases-with-azure-sentinel-preview"></a>Självstudier: Undersöka fall med Azure Sentinel-förhandsgranskning
 
@@ -42,7 +42,7 @@ Ett ärende kan innehålla flera aviseringar. Det är en sammanställning av all
 
 1. Välj **fall**. Den **fall** sidan får du reda på hur många fall som du har, hur många är öppna, hur många som du angett till **pågår**, och hur många är stängda. För varje enskilt fall ser du den tid som felet uppstod och status för ärendet. Titta på allvarlighetsgraden till Bestäm vad du vill hantera först. I den **fall** klickar du på den **aviseringar** flik för att visa alla aviseringar som är relaterade till ett ärende. Entiteter som du tilldelade tidigare som en del av fallet kan visas i den **entiteter** fliken.  Du kan filtrera fall som behövs, till exempel efter status eller allvarlighetsgrad. När du granskar den **fall** fliken visas öppna ärenden som innehåller aviseringar som utlöses av dina regler för identifiering som definierats i **Analytics**. Överst ser du din aktiva ärenden, nya ärenden och i förloppet fall. Du kan också se en översikt över alla fall efter allvarlighetsgrad.
 
-  ![Aviseringsinstrumentpanel](./media/tutorial-detect-threats/alert-dashboard.png)
+  ![Aviseringsinstrumentpanel](./media/tutorial-investigate-cases/cases.png)
 
 2. Starta en undersökning genom att klicka på specifika fall. Du kan se detaljerad information om fallet inklusive dess allvarlighetsgrad, Sammanfattning av antalet enheter som ingår (baserat på dina mappning) till höger. Varje enskilt fall har ett unikt ID. Ärendets allvarlighetsgrad bestäms beroende på allvarligaste aviseringen som ingår i fallet.  
 

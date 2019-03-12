@@ -13,14 +13,17 @@ ms.topic: article
 ms.date: 08/29/2018
 ms.author: routlaw
 ms.custom: seodec18
-ms.openlocfilehash: 6618e5317db1a7a4332a35b7ee9cd74934c8a787
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: ee39d2d2cf85b8de52804ac764b17db348a053e0
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56737900"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57538229"
 ---
 # <a name="java-enterprise-guide-for-app-service-on-linux"></a>Java företagens guide för App Service på Linux
+
+> [!NOTE] 
+> Java Enterprise Edition i App Service på Linux är för närvarande i förhandsversion. Den här stacken är **inte** rekommenderas för produktion-riktade arbete. Finns det [Java developer's guide](app-service-linux-java.md) information om våra Java SE och Tomcat-stackar.
 
 Azure App Service i Linux kan Java-utvecklare för att bygga, distribuera och skala Java (EE Java) program på en helt hanterad tjänst för Linux-baserade.  Den underliggande Java Enterprise-körningsmiljön är öppen källkod [Wildfly](https://wildfly.org/) programserver.
 

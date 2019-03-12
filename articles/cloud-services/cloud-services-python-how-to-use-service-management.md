@@ -14,12 +14,12 @@ ms.devlang: python
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: lmazuel
-ms.openlocfilehash: df949b65ac4a193c9e7bdb6ee3c32d7026f7c93d
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: 573c6d3ded8fea58e0c9ba1afa7da2d8dd0fce91
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43782972"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57531851"
 ---
 # <a name="use-service-management-from-python"></a>Använda service management från Python
 Den här guiden visar hur du programmässigt kan utföra vanliga hanteringsuppgifter för tjänsten från Python. Den **ServiceManagementService** klassen i den [Azure SDK för Python](https://github.com/Azure/azure-sdk-for-python) stöder Programmeringsåtkomst till stor del av service management-relaterade funktioner, som är tillgängliga i den [Azure portalen][management-portal]. Du kan använda den här funktionen för att skapa, uppdatera och ta bort cloud services, distributioner, datahanteringstjänster och virtuella datorer. Den här funktionen kan användas för att skapa program som behöver Programmeringsåtkomst till service management.
@@ -44,7 +44,7 @@ Om du vill ansluta till hanteringsslutpunkten service behöver du ditt Azure-pre
 >
 
 ### <a name="management-certificates-on-windowsmaclinux-openssl"></a>Hanteringscertifikat i Windows/Mac/Linux (OpenSSL)
-Du kan använda [OpenSSL](http://www.openssl.org/) att skapa ditt hanteringscertifikat. Du måste skapa två certifikat, en för servern (en `.cer` fil) och en för klienten (en `.pem` fil). Att skapa den `.pem` filen, kör:
+Du kan använda [OpenSSL](https://www.openssl.org/) att skapa ditt hanteringscertifikat. Du måste skapa två certifikat, en för servern (en `.cer` fil) och en för klienten (en `.pem` fil). Att skapa den `.pem` filen, kör:
 
     openssl req -x509 -nodes -days 365 -newkey rsa:1024 -keyout mycert.pem -out mycert.pem
 
@@ -52,7 +52,7 @@ Att skapa den `.cer` certifikat, kör:
 
     openssl x509 -inform pem -in mycert.pem -outform der -out mycert.cer
 
-Läs mer om Azure-certifikat, [Certifikatöversikt för Azure Cloud Services](cloud-services-certs-create.md). En fullständig beskrivning av OpenSSL parametrar finns i dokumentationen på [ http://www.openssl.org/docs/apps/openssl.html ](http://www.openssl.org/docs/apps/openssl.html).
+Läs mer om Azure-certifikat, [Certifikatöversikt för Azure Cloud Services](cloud-services-certs-create.md). En fullständig beskrivning av OpenSSL parametrar finns i dokumentationen på [ https://www.openssl.org/docs/apps/openssl.html ](https://www.openssl.org/docs/apps/openssl.html).
 
 När du har skapat dessa filer, ladda upp den `.cer` filen till Azure. I den [Azure-portalen][management-portal]på den **inställningar** fliken **överför**. Obs där du sparade den `.pem` filen.
 
@@ -400,7 +400,7 @@ Mer information om hur du sammanställer en Linux-dator i den klassiska distribu
 Läs mer om att avbilda en Windows-dator i den klassiska distributionsmodellen i [avbilda en Windows-dator](../virtual-machines/windows/classic/capture-image-classic.md).
 
 ## <a name="What's Next"> </a>Nästa steg
-Nu när du har lärt dig grunderna i service management, kan du komma åt den [fullständig API-referensdokumentation för Azure Python SDK](http://azure-sdk-for-python.readthedocs.org/) och utföra komplexa uppgifter enkelt för att hantera ditt Python-program.
+Nu när du har lärt dig grunderna i service management, kan du komma åt den [fullständig API-referensdokumentation för Azure Python SDK](https://azure-sdk-for-python.readthedocs.org/) och utföra komplexa uppgifter enkelt för att hantera ditt Python-program.
 
 Mer information finns i [Python Developer Center](https://azure.microsoft.com/develop/python/).
 
@@ -423,7 +423,7 @@ Mer information finns i [Python Developer Center](https://azure.microsoft.com/de
 [Delete a virtual machine]: #DeleteVM
 [Next steps]: #NextSteps
 [management-portal]: https://portal.azure.com/
-[svc-mgmt-rest-api]: http://msdn.microsoft.com/library/windowsazure/ee460799.aspx
+[svc-mgmt-rest-api]: https://msdn.microsoft.com/library/windowsazure/ee460799.aspx
 
 
 [cloud service]:/azure/cloud-services/

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 096bc96558f0fe33f8046622dc2443728674e405
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: a9f6dfb0de2cf09b27d08eb6b7dc425c8cd1f17d
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55876892"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57549229"
 ---
 # <a name="speech-devices-sdk-license-agreement"></a>Licensavtal för tal Devices SDK
 
@@ -52,7 +52,7 @@ c) ta bort, minimera, blockera eller ändra meddelanden från Microsoft eller de
 
 f) du måste använda programvaran endast i kombination med Microsoft Azure Cognitive Services, tal-tjänst
 
-**3\. INSAMLING AV DATA.** Det här programmet kan interagera med andra Microsoft-produkter som samlar in data som överförs till Microsoft. Mer information om hur Microsoft processer personliga data vi samlar in finns i sekretesspolicyn för Microsoft på http://go.microsoft.com/fwlink/?LinkId=248681.
+**3\. INSAMLING AV DATA.** Det här programmet kan interagera med andra Microsoft-produkter som samlar in data som överförs till Microsoft. Mer information om hur Microsoft processer personliga data vi samlar in finns i sekretesspolicyn för Microsoft på https://go.microsoft.com/fwlink/?LinkId=248681.
 
 **4\. FÖRHANDSVERSIONEN.** Programvaran är en förhandsversion. Det kanske inte fungerar korrekt. Det kan skilja sig från den kommersiella versionen.
 

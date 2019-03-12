@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 2/20/2019
+ms.date: 3/5/2019
 ms.author: moderakh
-ms.openlocfilehash: a090f40bcbc0dab1f685c02308243aff8fbac9fd
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: 356838f16f7f13506657326bae5dbe994d54bdd5
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56588474"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57570104"
 ---
 # <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Async Java SDK för SQL-API: Viktig information och resurser
 > [!div class="op_single_selector"]
@@ -43,6 +43,12 @@ SQL API Async Java SDK skiljer sig från SQL API Java-SDK: N genom att tillhanda
 | **Lägsta stödda körningar**|[JDK 8](https://aka.ms/azure-jdks) | 
 
 ## <a name="release-notes"></a>Viktig information
+
+### <a name="a-name243243"></a><a name="2.4.3"/>2.4.3
+* Bugfix för resurs-läcka på client#close() ([github #88](https://github.com/Azure/azure-cosmosdb-java/issues/88)).
+
+### <a name="a-name242242"></a><a name="2.4.2"/>2.4.2
+* Har lagts till fortsatt stöd för token för mellan partition frågor.
 
 ### <a name="a-name241241"></a><a name="2.4.1"/>2.4.1
 * Fast vissa buggar i direkt-läge.
@@ -140,6 +146,8 @@ Varje begäran till Cosmos DB med hjälp av en pensionerad SDK avvisas av tjäns
 
 | Version | Utgivningsdatum | Slutdatum |
 | --- | --- | --- |
+| [2.4.3](#2.4.3) |5 mar 2019|--- |
+| [2.4.2](#2.4.2) |Den 1 mars 2019|--- |
 | [2.4.1](#2.4.1) |20 februari 2019|--- |
 | [2.4.0](#2.4.0) |Den 8 februari 2019|--- |
 | [2.4.0-beta-1](#2.4.0-beta-1) |4 februari 2019|--- |

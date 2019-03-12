@@ -3,7 +3,7 @@ title: Utforma lösningar för haveriberedskap – Azure SQL Database | Microsof
 description: Lär dig hur du utformar din lösning för haveriberedskap i molnet genom att välja rätt redundans-mönster.
 services: sql-database
 ms.service: sql-database
-ms.subservice: elastic-poolss
+ms.subservice: elastic-pools
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 2e1ceda45e756220bf08bc32039da2123f782f4a
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 6a332ce265a4bb41a9ad3c0c3a29683187a0f0d4
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55454200"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57760503"
 ---
 # <a name="disaster-recovery-strategies-for-applications-using-sql-database-elastic-pools"></a>Strategier för haveriberedskap för program som använder SQL Database elastiska pooler
 

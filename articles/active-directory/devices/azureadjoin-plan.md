@@ -17,12 +17,12 @@ ms.date: 11/21/2018
 ms.author: markvi
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8a299c5cf59a3c5b7a994303c9d85783ecfbb424
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 7b681915eb3ad9960f335d46508b857fa6ec2e20
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56201898"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57551780"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>Anvisningar: Planera implementeringen av Azure AD-anslutningen
 
@@ -40,7 +40,7 @@ Den här artikeln förutsätter att du är bekant med den [introduktionen till e
 
 ## <a name="plan-your-implementation"></a>Planera implementeringen
 
-Om du vill planera hybridimplementeringen Azure AD, bör du bekanta dig med:
+Om du vill planera implementeringen av Azure AD join, bör du bekanta dig med:
 
 |   |   |
 |---|---|

@@ -7,19 +7,19 @@ documentationcenter: ''
 author: ggailey777
 manager: erikre
 ms.assetid: ''
-ms.service: na
+ms.service: azure
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: glenga
-ms.openlocfilehash: 7c4eefa09f0a70d42601a5b1fe8694500b5c6be2
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: d78998c3eab79c3c9d5511335c5d27be5803cc3e
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54118259"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57762511"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Introduktionsguide för Azure-utvecklare
 
@@ -154,7 +154,7 @@ Azure tillhandahåller flera olika sätt att använda behållare i dina program.
 
     >**Kom igång**: [Använd en anpassad Docker-avbildning för App Service på Linux](../../app-service/containers/quickstart-docker-go.md).
 
-### <a name="authentication"></a>Autentisering
+### <a name="authentication"></a>Authentication
 
 Det är viktigt att inte bara veta vem som använder dina program utan också för att förhindra obehörig åtkomst till dina resurser. Azure tillhandahåller flera olika sätt att autentisera din appklienter.
 

@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2018
 ms.author: aschhab
-ms.openlocfilehash: 69dc9c974c259f51ac0c6c9d64bfcda7ee65e181
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: a839a4cad824a74bde388317cf3aaddf9c5bd47f
+ms.sourcegitcommit: 89b5e63945d0c325c1bf9e70ba3d9be6888da681
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54844593"
+ms.lasthandoff: 03/08/2019
+ms.locfileid: "57588762"
 ---
 # <a name="overview-of-service-bus-transaction-processing"></a>Översikt över Service Bus transaktionsbearbetning
 
-Den här artikeln beskrivs funktionerna i Microsoft Azure Service Bus transaktion. Mycket av diskussionen illustreras av den [atomiska transaktioner med Service Bus-exempel](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/AtomicTransactions). Den här artikeln är begränsad till en översikt över transaktionsbearbetning och *skicka via* funktionen i Service Bus, medan atomiska transaktioner exemplet har en större och mer komplexa omfång.
+Den här artikeln beskrivs funktionerna i Microsoft Azure Service Bus transaktion. Mycket av diskussionen illustreras av den [AMQP transaktioner med Service Bus-exempel](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/TransactionsAndSendVia/TransactionsAndSendVia/AMQPTransactionsSendVia). Den här artikeln är begränsad till en översikt över transaktionsbearbetning och *skicka via* funktionen i Service Bus, medan atomiska transaktioner exemplet har en större och mer komplexa omfång.
 
 ## <a name="transactions-in-service-bus"></a>Transaktioner i Service Bus
 
-En [ *transaktion* ](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/AtomicTransactions#what-are-transactions) för att gruppera två eller flera åtgärder i en *körning omfång*. Enligt natur har sådana en transaktion måste se till att alla åtgärder som hör till en viss grupp av åtgärder lyckas eller misslyckas gemensamt. I detta avseende transaktioner som fungerar som en enhet, vilket ofta kallas *Atomicitet*. 
+En *transaktion* för att gruppera två eller flera åtgärder i en *körning omfång*. Enligt natur har sådana en transaktion måste se till att alla åtgärder som hör till en viss grupp av åtgärder lyckas eller misslyckas gemensamt. I detta avseende transaktioner som fungerar som en enhet, vilket ofta kallas *Atomicitet*.
 
 Service Bus är en transaktionell asynkron meddelandekö och säkerställer transaktionsintegritet för alla interna åtgärder mot butikerna meddelande. Alla överföringar av meddelanden i Service Bus, till exempel flytta meddelanden till en [obeställbara meddelanden](service-bus-dead-letter-queues.md) eller [automatisk vidarebefordran](service-bus-auto-forwarding.md) är transaktionella meddelanden mellan entiteter. Därför om Service Bus tar emot ett meddelande, har det redan lagras och som är märkt med ett sekvensnummer. Kommer alla överföringar av meddelanden i Service Bus är samordnad åtgärder över entiteter och kommer varken leda till förlust (lyckas källa och mål misslyckas) eller duplicering (källan startar och mål lyckas) för meddelandet.
 
@@ -55,26 +55,47 @@ Kraften i den här transaktionella funktionen blir tydligt när kön överförin
 Om du vill konfigurera sådana överföringar, skapar du en avsändaren som riktar sig till målkön via kön överföring. Du kan också ha en mottagare som tar emot meddelanden från den samma kö. Exempel:
 
 ```csharp
-var sender = this.messagingFactory.CreateMessageSender(destinationQueue, myQueueName);
-var receiver = this.messagingFactory.CreateMessageReceiver(myQueueName);
+var connection = new ServiceBusConnection(connectionString);
+
+var sender = new MessageSender(connection, QueueName);
+var receiver = new MessageReceiver(connection, QueueName);
 ```
 
-En enkel transaktion sedan använder de här elementen som i följande exempel:
+En enkel transaktion sedan använder de här elementen som i följande exempel. Om du vill referera fullständigt exempel, finns det [källkod på GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/TransactionsAndSendVia/TransactionsAndSendVia/AMQPTransactionsSendVia):
 
 ```csharp
-var msg = receiver.Receive();
+var receivedMessage = await receiver.ReceiveAsync();
 
-using (scope = new TransactionScope())
+using (var ts = new TransactionScope(TransactionScopeAsyncFlowOption.Enabled))
 {
-    // Do whatever work is required 
+    try
+    {
+        // do some processing
+        if (receivedMessage != null)
+            await receiver.CompleteAsync(receivedMessage.SystemProperties.LockToken);
 
-    var newmsg = ... // package the result 
+        var myMsgBody = new MyMessage
+        {
+            Name = "Some name",
+            Address = "Some street address",
+            ZipCode = "Some zip code"
+        };
 
-    msg.Complete(); // mark the message as done
-    sender.Send(newmsg); // forward the result
+        // send message
+        var message = myMsgBody.AsMessage();
+        await sender.SendAsync(message).ConfigureAwait(false);
+        Console.WriteLine("Message has been sent");
 
-    scope.Complete(); // declare the transaction done
-} 
+        // complete the transaction
+        ts.Complete();
+    }
+    catch (Exception ex)
+    {
+        // This rolls back send and complete in case an exception happens
+        ts.Dispose();
+        Console.WriteLine(ex.ToString());
+    }
+}
 ```
 
 ## <a name="next-steps"></a>Nästa steg

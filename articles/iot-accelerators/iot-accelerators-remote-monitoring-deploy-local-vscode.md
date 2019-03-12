@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: 6e2fafa398b09d0822c4582e196345b812e6fc52
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: 68f82c7e5b66cf94824bde930923f11423046e9a
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54392247"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57544264"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---visual-studio-code"></a>Distribuera lösningsacceleratorn för fjärrövervakning lokalt – Visual Studio Code
 
@@ -34,7 +34,7 @@ För att slutföra lokal distribution, behöver du följande verktygen som insta
 * [Git](https://git-scm.com/)
 * [.NET core](https://dotnet.microsoft.com/download)
 * [Docker](https://www.docker.com)
-* [Nginx](http://nginx.org/en/download.html)
+* [Nginx](https://nginx.org/en/download.html)
 * [Visual Studio Code](https://code.visualstudio.com/)
 * [VS Code C# tillägg](https://code.visualstudio.com/docs/languages/csharp)
 * [Node.js v8](https://nodejs.org/) -programvaran är en förutsättning för PCS CLI som skript som använder för att skapa Azure-resurser. Använd inte v10 för Node.js
@@ -88,7 +88,7 @@ Ställa in en omvänd proxy-server för att länka webbprogram och mikrotjänste
 * Kopiera den **nginx.conf** fil från den **webui\scripts\localhost** mappen till den **nginx\conf** installationskatalog.
 * Kör **nginx**.
 
-Mer information om att köra **nginx**, se [nginx för Windows](http://nginx.org/en/docs/windows.html).
+Mer information om att köra **nginx**, se [nginx för Windows](https://nginx.org/en/docs/windows.html).
 
 ### <a name="connect-to-the-dashboard"></a>Ansluta till instrumentpanelen
 

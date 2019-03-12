@@ -11,14 +11,14 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: ea5084128848db7d799b1791aef528305b4f6df4
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: 9bb574fcb9782aad41ea0fd276b8addee19caf01
+ms.sourcegitcommit: 89b5e63945d0c325c1bf9e70ba3d9be6888da681
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57192375"
+ms.lasthandoff: 03/08/2019
+ms.locfileid: "57588983"
 ---
-# <a name="recognize-printed-and-handwritten-text"></a>Känner igen utskrivna och handskriven text
+# <a name="recognize-printed-and-handwritten-text"></a>Känna igen tryckt och handskriven text
 
 Visuellt innehåll ger ett antal tjänster som kan identifiera och extrahera utskrivna eller handskriven text som visas i bilder. Detta är användbart i en mängd olika scenarier, till exempel notetaking, medicinska journaler, säkerhet och banktjänster. I följande tre avsnitt detalj tre olika textigenkänning API: er, som var och en optimerad för olika användningsfall.
 
@@ -26,7 +26,7 @@ Visuellt innehåll ger ett antal tjänster som kan identifiera och extrahera uts
 
 Läs API: et identifierar textinnehåll i en avbildning med hjälp av våra senaste modeller för taligenkänning och konverterar den identifierade texten till en maskinläsningsbar teckenström. Tjänsten är optimerad för textintensiv avbildningar (t.ex dokument som har genomsökts digitalt) och avbildningar med en massa visual bruset. Den kan köras asynkront eftersom större dokument kan ta flera minuter att beräkna ett resultat.
 
-Läs-åtgärden bevarar de ursprungliga rad grupperingarna av identifierade ord i dess utdata. Varje rad med avgränsar koordinater för avgränsningsfält, och varje ord i raden har också sin egen koordinater. Om ett ord identifieras med låg tryggt som informationen överförs även. Se den [Läs API-referensdokumenten](https://westus.api.cognitive.microosft.com/vision/v2.0/read/core/asyncBatchAnalyze) vill veta mer.
+Läs-åtgärden bevarar de ursprungliga rad grupperingarna av identifierade ord i dess utdata. Varje rad med avgränsar koordinater för avgränsningsfält, och varje ord i raden har också sin egen koordinater. Om ett ord identifieras med låg tryggt som informationen överförs även. Se den [Läs API-referensdokumenten](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) vill veta mer.
 
 > [!NOTE]
 > Den här funktionen är för närvarande en förhandsversion och är endast tillgänglig för engelsk text.

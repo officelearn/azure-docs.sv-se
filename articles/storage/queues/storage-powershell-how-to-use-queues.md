@@ -4,16 +4,16 @@ description: Hur du utför åtgärder på Azure-kölagring med PowerShell
 services: storage
 author: roygara
 ms.service: storage
-ms.topic: how-to
+ms.topic: conceptual
 ms.date: 09/14/2017
 ms.author: rogarana
 ms.subservice: queues
-ms.openlocfilehash: dddd82cd80d853607b28db906d298d5c301ab9df
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 64e8f9d1fb29718b0a3d4655c739abc93ecb088c
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55770711"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57763848"
 ---
 # <a name="perform-azure-queue-storage-operations-with-azure-powershell"></a>Utföra åtgärder för Azure Queue storage med Azure PowerShell
 
@@ -22,7 +22,7 @@ Azure Queue storage är en tjänst för att lagra stora mängder meddelanden som
 > [!div class="checklist"]
 > * Skapa en kö
 > * Hämta en kö
-> * Lägg till ett meddelande
+> * Lägga till ett meddelande
 > * Läsa ett meddelande
 > * Ta bort ett meddelande 
 > * Ta bort en kö
@@ -52,7 +52,7 @@ $location = "eastus"
 
 ## <a name="create-resource-group"></a>Skapa resursgrupp
 
-Skapa en resursgrupp med det [New AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) kommando. 
+Skapa en resursgrupp med kommandot [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). 
 
 En Azure-resursgrupp är en logisk container där Azure-resurser distribueras och hanteras. Store resursgruppens namn i en variabel för framtida användning. I det här exemplet, en resursgrupp med namnet *howtoqueuesrg* skapas i den *eastus* region.
 
@@ -185,7 +185,7 @@ I den här artikeln berättade om grundläggande Queue storage management med Po
 > [!div class="checklist"]
 > * Skapa en kö
 > * Hämta en kö
-> * Lägg till ett meddelande
+> * Lägga till ett meddelande
 > * Läs nästa meddelande
 > * Ta bort ett meddelande 
 > * Ta bort en kö

@@ -6,12 +6,12 @@ ms.author: janeng
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 02/01/2019
-ms.openlocfilehash: 0df36f4c939ed9bd7bb6a134a356b37d699abc1d
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: a8dbb2c06d3622dcde19f298ee12fa49afb4cd4b
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56586351"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57532056"
 ---
 # <a name="azure-database-for-postgresql-pricing-tiers"></a>Azure Database för PostgreSQL prisnivåer
 
@@ -51,30 +51,30 @@ Compute-resurser som tillhandahålls som vCores, som representerar en logisk CPU
 |:---|:----------:|:--------------------:|
 | Centrala USA |  | X |
 | Östra USA |  | X |
-| USA, östra 2 | X | X |
-| Norra centrala USA | X | X |
+| USA, östra 2 |  | X |
+| Norra centrala USA |  | X |
 | Södra centrala USA | X | X |
-| Västra USA | X | X |
+| Västra USA |  | X |
 | Västra USA 2 |  | X |
-| Södra Brasilien | X | X |
-| Centrala Kanada | X | X |
-| Östra Kanada | X | X |
+| Södra Brasilien |  | X |
+| Centrala Kanada |  | X |
+| Östra Kanada |  | X |
 | Norra Europa | X | X |
 | Västra Europa |  | X |
 | Frankrike, centrala |  | X |
 | Storbritannien, södra |  | X |
 | Storbritannien, västra |  | X |
-| Östasien | X | X |
+| Östasien |  | X |
 | Sydostasien | X | X |
 | Östra Australien |  | X |
 | Australien, centrala |  | X |
 | Australien, centrala 2 |  | X |
 | Sydöstra Australien |  | X |
-| Indien, centrala | X | X |
+| Indien, centrala |  | X |
 | Södra Indien |  | X |
-| Indien, västra | X | X |
+| Indien, västra |  | X |
 | Östra Japan | X | X |
-| Västra Japan | X | X |
+| Västra Japan |  | X |
 | Sydkorea, centrala |  | X |
 | Sydkorea, södra |  | X |
 | Östra Kina 1 | X |  |

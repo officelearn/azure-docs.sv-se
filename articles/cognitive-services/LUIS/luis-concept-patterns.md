@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 02/22/2019
+ms.date: 03/05/2019
 ms.author: diberry
-ms.openlocfilehash: af73d78b911d59f68c5e824931b5634d8c69f309
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 42ac75b6ed0d4489ccae014b9cfe3b08269c1218
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57449010"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57547426"
 ---
 # <a name="patterns-improve-prediction-accuracy"></a>Mönster förbättra prognosens noggrannhet
 Mönster är utformade för att förbättra noggrannheten när flera uttryck är mycket lika.  Ett mönster kan du få mer precision för en avsikt utan att ange många fler yttranden. 
@@ -41,8 +41,11 @@ Mönster lösa följande situationer:
 ## <a name="patterns-are-not-a-guarantee-of-intent"></a>Mönster är inte en garanti för avsikt
 Mönster använder en blandning av tekniker för förutsägelse. Ange ett syfte med en mall för uttryck i ett mönster är ingen garanti för avsiktlig förutsägelser men det är en stark signal. 
 
-## <a name="patterns-do-not-improve-entity-detection"></a>Mönster förbättras inte entiteten identifiering
-Medan mönster kräver entiteter, hjälper arbetsprofilen inte identifiera entiteten. Ett mönster är endast avsedd att hjälpa förutsägelser med avsikter och roller.  
+<a name="patterns-do-not-improve-entity-detection"/>
+
+## <a name="patterns-do-not-improve-machine-learned-entity-detection"></a>Mönster förbättras inte datorn lärt dig entitet identifiering
+
+Ett mönster är främst avsett att hjälpa förutsägelser av avsikter och roller. Pattern.any entiteten används för att extrahera fri form entiteter. Mönster använda entiteter, hjälper arbetsprofilen inte identifiera en dator lärt dig entitet.  
 
 Inte räknar med att se förbättrad entitet förutsägelse när du minimerar flera uttryck i ett enda mönster. För enkla enheter innan behöver du lägga till yttranden eller Använd listan över entiteter annan mönstret inte utlöses.
 

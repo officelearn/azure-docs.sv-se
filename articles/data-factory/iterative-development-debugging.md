@@ -1,9 +1,6 @@
 ---
 title: Iterativ utveckling och felsökning i Azure Data Factory | Microsoft Docs
 description: Lär dig hur du utvecklar och felsöker Data Factory-pipelines upprepade gånger i Azure-portalen.
-author: douglaslMS
-ms.author: douglasl
-manager: craigg
 ms.date: 09/26/2018
 ms.topic: conceptual
 ms.service: data-factory
@@ -11,12 +8,15 @@ services: data-factory
 documentationcenter: ''
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.openlocfilehash: c80b67ac5575360a6556befd3fd2a6a5c8e562c0
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+author: gauravmalhot
+ms.author: gamal
+manager: craigg
+ms.openlocfilehash: a8028fdde93d06f7b25bf9bd8b4ed5a560a35f83
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015771"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57575281"
 ---
 # <a name="iterative-development-and-debugging-with-azure-data-factory"></a>Iterativ utveckling och felsökning med Azure Data Factory
 

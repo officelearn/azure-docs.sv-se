@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/10/2019
+ms.date: 03/07/2019
 ms.author: diberry
-ms.openlocfilehash: 093c60287b16073a6c04e824dc439f5dc069ec96
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: bbe46db1972951b466b431c9efc0420e15ff6dee
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55863677"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57765178"
 ---
 # <a name="authoring-and-publishing-regions-and-the-associated-keys"></a>Skapa och publicera regioner och associerade nycklar
 
@@ -95,6 +95,9 @@ I följande tabell beskrivs de parametrar som är markerad med klammerparenteser
 |appID|LUIS-app-ID används i URL: en väg och finns på app-instrumentpanel|
 |frågor och|uttryck-texten som skickas från klientprogram, till exempel chattrobot|
 
+## <a name="failover-regions"></a>Redundans regioner
+
+Varje region har en sekundär region för att växla över till. Europa misslyckas over i Europa och Australien växlas över i Australien.
 
 ## <a name="next-steps"></a>Nästa steg
 

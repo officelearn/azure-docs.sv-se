@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 01/09/2019
+ms.date: 03/05/2019
 ms.author: alkohli
-ms.openlocfilehash: 887c1d554cd5bd2b935178a77a2de19e687ca3f2
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 84eb458c68c7accf1b638b8e21907516328cb892
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54450412"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57545098"
 ---
 # <a name="tutorial-connect-set-up-activate-azure-data-box-gateway-preview"></a>Självstudier: Ansluta, konfigurera, aktiverar Azure Data Box-Gateway (förhandsversion) 
 
@@ -43,7 +43,6 @@ Kontrollera följande innan du konfigurerar och ställa in din Data Box-Gateway:
 * Du har etablerat en virtuell enhet och fick en ansluten URL till den som beskrivs i den [etablera en Data Box-Gateway i Hyper-V](data-box-gateway-deploy-provision-hyperv.md) eller [etablera en Data Box-Gateway i VMware](data-box-gateway-deploy-provision-vmware.md).
 * Du har aktiveringsnyckeln från Data Box-Gateway-tjänsten som du skapade för att hantera Data Box Gateway-enheter. Mer information går du till [förbereda för distribution av Azure Data Box Gateway](data-box-gateway-deploy-prep.md).
 
-<!--* If this is the second or subsequent virtual device that you are registering with an existing StorSimple Device Manager service, you should have the service data encryption key. This key was generated when the first device was successfully registered with this service. If you have lost this key, see [Get the service data encryption key](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key) for your Data Box Gateway.-->
 
 ## <a name="connect-to-the-local-web-ui-setup"></a>Ansluta till lokala web UI-installationen 
 
@@ -53,15 +52,15 @@ Kontrollera följande innan du konfigurerar och ställa in din Data Box-Gateway:
    
    Använd anslutnings-URL som anges i föregående självstudie. Du ser ett felmeddelande om att det finns ett problem med webbplatsens säkerhetscertifikat. Klicka på **Fortsätt till den här webbsidan**. (De här stegen kan vara annorlunda utifrån webbläsaren som används.)
    
-    ![](./media/data-box-gateway-deploy-connect-setup-activate/image2.png)
+    ![Ett fel uppstod vid anslutning](./media/data-box-gateway-deploy-connect-setup-activate/image2.png)
 
 2. Logga in på webbgränssnittet på den virtuella enheten. Standardlösenordet är *Password1*. 
    
-    ![](./media/data-box-gateway-deploy-connect-setup-activate/image3.png)
+    ![Logga in på lokala webbgränssnittet](./media/data-box-gateway-deploy-connect-setup-activate/image3.png)
 
 3. Du uppmanas att ändra enhetens administratörslösenord. Ange ett nytt lösenord som innehåller mellan 8 och 16 tecken. Lösenordet måste innehålla 3 av följande: versaler, gemener, siffror och specialtecken.
 
-    ![](./media/data-box-gateway-deploy-connect-setup-activate/image4.png)
+    ![Ändra lösenordet för enhetsadministratörer](./media/data-box-gateway-deploy-connect-setup-activate/image4.png)
 
 Du har kommit till den **instrumentpanelen** för din enhet.
 
@@ -69,15 +68,15 @@ Du har kommit till den **instrumentpanelen** för din enhet.
  
 1. Du kan gå till olika inställningar som krävs för att konfigurera och registrera den virtuella enheten med Data Box-Gateway-tjänsten från instrumentpanelen. Den **nätverksinställningar**, **Web proxyinställningar**, och **tidsinställningar** är valfria. De enda obligatoriska inställningarna är **enhetsnamn** och **Molninställningar**.
    
-    ![](./media/data-box-gateway-deploy-connect-setup-activate/image5.png)
+    ![Lokala webbgränssnittet ”instrumentpanel” sidan](./media/data-box-gateway-deploy-connect-setup-activate/image5.png)
 
 2. I den **enhetsnamn** konfigurerar du ett eget namn för din enhet. Det egna namnet kan vara 1 och 15 tecken långt och får innehålla bokstäver, siffror och bindestreck.
 
-    ![](./media/data-box-gateway-deploy-connect-setup-activate/image6.png)
+    ![Lokala Användargränssnittet ”enhetsnamn” webbsida](./media/data-box-gateway-deploy-connect-setup-activate/image6.png)
 
 3. (Valfritt) Konfigurera din **nätverksinställningar**. Du kan se minst 1 nätverksgränssnitt och beroende på hur många du konfigurerade i den underliggande virtuella datorn. Den **nätverksinställningar** sidan för en virtuell enhet med ett nätverksgränssnitt som är aktiverad är enligt nedan.
     
-    ![](./media/data-box-gateway-deploy-connect-setup-activate/image7.png)
+    ![Lokala Användargränssnittet ”nätverksinställningar” webbsida](./media/data-box-gateway-deploy-connect-setup-activate/image7.png)
    
     När du konfigurerar nätverksinställningar, Tänk på följande:
 
@@ -90,7 +89,7 @@ Du har kommit till den **instrumentpanelen** för din enhet.
 
 4. (Valfritt) Konfigurera din webbproxyserver. Men webbproxykonfigurationen är valfritt, Tänk på att om du använder en webbproxy, du kan bara konfigurera den här.
    
-   ![](./media/data-box-gateway-deploy-connect-setup-activate/image8.png)
+   ![Lokala Användargränssnittet ”Webbproxyinställningar” webbsida](./media/data-box-gateway-deploy-connect-setup-activate/image8.png)
    
    I den **webbproxy** sidan:
    
@@ -101,7 +100,7 @@ Du har kommit till den **instrumentpanelen** för din enhet.
 
 5. (Valfritt) Konfigurera inställningarna för tid för din enhet, till exempel tidszon och de primära och sekundära NTP-servrarna. NTP-servrar krävs eftersom din enhet måste synkronisera tiden så att den kan autentisera med molntjänstleverantören.
     
-    ![](./media/data-box-gateway-deploy-connect-setup-activate/image9.png)
+    ![Local web UI "Time settings" page](./media/data-box-gateway-deploy-connect-setup-activate/image9.png)
     
     I den **tidsinställningar** sidan:
     
@@ -116,10 +115,17 @@ Du har kommit till den **instrumentpanelen** för din enhet.
 
     2. Klicka på **Aktivera**. 
        
-         ![](./media/data-box-gateway-deploy-connect-setup-activate/image10.png)
+         ![Local web UI "Cloud settings" page](./media/data-box-gateway-deploy-connect-setup-activate/image10a.png)
     
-    3. Du kan behöva vänta en minut innan enheten har aktiverats. Efter aktiveringen uppdaterar sidan som visar att enheten har aktiverats.
+    3. Först aktiveras enheten. Enheten genomsöks sedan viktiga uppdateringar och om det finns uppdateringar tillämpas automatiskt. Du ser ett meddelande om detta. 
 
+        Dialogrutan har också en återställningsnyckel som du bör kopiera och spara den på en säker plats. Den här nyckeln används för att återställa dina data i den händelse att enheten inte kan starta.
+
+        ![Local web UI "Cloud settings" page](./media/data-box-gateway-deploy-connect-setup-activate/image12.png)    
+
+    4. Du kan behöva vänta flera minuter när uppdateringen har slutförts. Sidan att uppdateras för att indikera att enheten har aktiverats.
+
+        ![Local web UI "Cloud settings" page updated](./media/data-box-gateway-deploy-connect-setup-activate/image13.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/23/2018
+ms.date: 03/5/2019
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cb2329a2a67e2e54084d2289cb8cb1a18663b329
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: 02183abb60fe24b9ee9c769f7af696355966ab24
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56593683"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57551066"
 ---
 # <a name="v20-protocols---oauth-20-authorization-code-flow"></a>v2.0-protokoll – OAuth 2.0-auktoriseringskodflöde
 
@@ -271,7 +271,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | `grant_type`    | obligatorisk    | Måste vara `refresh_token` för den här delen i auktoriseringskodsflödet. |
 | `scope`         | obligatorisk    | En blankstegsavgränsad lista med omfattningar. Omfattningar som efterfrågas i det här ben måste vara motsvarar eller en delmängd av scope som efterfrågas i det ursprungliga authorization_code begäran ben. Om omfattningar som angetts i den här begäran sträcker sig över flera resursservern, returnerar en token för den resurs som angetts i det första omfånget v2.0-slutpunkten. En mer detaljerad förklaring av omfång finns [behörigheter och samtycke scope](v2-permissions-and-consent.md). |
 | `refresh_token` | obligatorisk    | Refresh_token som du har köpt i den andra delen i flödet. |
-| `redirect_uri`  | obligatorisk    | Samma redirect_uri värde som används för att hämta authorization_code. |
+| `redirect_uri`  | obligatorisk    |  En `redirect_uri`registrerad i klientprogrammet. |
 | `client_secret` | krävs för web apps | Programhemlighet som du skapade i portalen för registrering av app för din app. Den bör inte användas i en inbyggd app eftersom client_secrets inte lagras på ett tillförlitligt sätt på enheter. Det krävs för webbappar och webb-API: er som har möjlighet att lagra client_secret på ett säkert sätt på serversidan.                                                                                                                                                    |
 
 #### <a name="successful-response"></a>Lyckat svar

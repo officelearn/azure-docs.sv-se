@@ -8,12 +8,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 12/14/2018
 ms.author: alinast
-ms.openlocfilehash: 912a3ed558f8fabfcad517aeb7b7e864cf8f359e
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: e7efe1a8632643e2a299b6c9a1b1407414deee4b
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53436933"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57542955"
 ---
 # <a name="understand-digital-twins-object-models-and-spatial-intelligence-graph"></a>Förstå Digital Twins objektmodeller och rumsliga intelligence graph
 
@@ -99,7 +99,7 @@ Mer information om hur du använder spatial intelligence diagram på förhandsti
 
 Läs mer om [hur du använder Swagger](how-to-use-swagger.md).
 
-Alla API-anrop måste autentiseras med hjälp av [OAuth](https://docs.microsoft.com/azure/active-directory/develop/v1-protocols-oauth-code). API: er följer [riktlinjerna för Microsofts REST API-konventioner](https://github.com/Microsoft/api-guidelines/blob/master/Guidelines.md). Stöd för de flesta av de API: er som returnerar samlingar [OData](http://www.odata.org/getting-started/basic-tutorial/#queryData) system frågealternativ.
+Alla API-anrop måste autentiseras med hjälp av [OAuth](https://docs.microsoft.com/azure/active-directory/develop/v1-protocols-oauth-code). API: er följer [riktlinjerna för Microsofts REST API-konventioner](https://github.com/Microsoft/api-guidelines/blob/master/Guidelines.md). Stöd för de flesta av de API: er som returnerar samlingar [OData](https://www.odata.org/getting-started/basic-tutorial/#queryData) system frågealternativ.
 
 ## <a name="next-steps"></a>Nästa steg
 

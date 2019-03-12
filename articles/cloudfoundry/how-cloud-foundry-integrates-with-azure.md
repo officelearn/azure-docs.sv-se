@@ -1,6 +1,6 @@
 ---
 title: Hur Cloud Foundry är integrerat med Azure | Microsoft Docs
-description: Beskriver hur Cloud Foundry kan utnyttja Azure-tjänster för att förbättra upplevelsen Enterprice
+description: Beskriver hur Cloud Foundry kan använda Azure-tjänster för att förbättra Enterprise-upplevelse
 services: virtual-machines-linux
 documentationcenter: ''
 author: ningk
@@ -15,17 +15,17 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/11/2018
 ms.author: ningk
-ms.openlocfilehash: 908b7e40c0509d7034b86985ac0775635726a6b9
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 7cbffdd40e574c7e906a9388b70ca9d32fd84649
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54329811"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57550181"
 ---
 # <a name="integrate-cloud-foundry-with-azure"></a>Integrera Cloud Foundry med Azure
 
-[Cloud Foundry](https://docs.cloudfoundry.org/) är en PaaS-plattform som körs ovanpå molnleverantörer IaaS-plattformen. Den erbjuder enhetlig tillämpning distributionsupplevelse över molnleverantörer. Dessutom kan den också integreras med olika Azure-tjänster, med företagsklass hög tillgänglighet, skalbarhet och kostnadsbesparingar.
-Det finns [6 delsystem i Cloud Foundry](https://docs.cloudfoundry.org/concepts/architecture/), som kan vara ett flexibelt sätt skala online, inklusive: Routning, autentisering, livscykelhantering för program, servicehantering, meddelanden och övervakning. För varje delsystem kan du konfigurera Cloud Foundry för att använda motsvarande Azure-tjänsten. 
+[Cloud Foundry](https://docs.cloudfoundry.org/) är en PaaS-plattform som körs ovanpå molnleverantörer IaaS-plattformen. Den erbjuder enhetlig tillämpning distributionsupplevelse över molnleverantörer. Den kan också integreras med olika Azure-tjänster, med företagsklass hög tillgänglighet, skalbarhet och kostnadsbesparingar.
+Det finns [6 delsystem i Cloud Foundry](https://docs.cloudfoundry.org/concepts/architecture/), som kan vara ett flexibelt sätt skala online, inklusive: Routning, autentisering, hantering av livscykeln, servicehantering, meddelanden och övervakning. Du kan konfigurera Cloud Foundry för att använda motsvarande Azure-tjänst för varje delsystem. 
 
 ![Cloud Foundry på Azure-Integreringsarkitektur](media/CFOnAzureEcosystem-colored.png)
 
@@ -41,15 +41,15 @@ Azure Tillgänglighetszoner ger hög tillgänglighet genom att placera en uppsä
 > Azure-Tillgänglighetszon erbjuds inte ännu för alla regioner, kontrollera senast [meddelande för listan över regioner som stöds](https://docs.microsoft.com/azure/availability-zones/az-overview). Öppna källa Cloud Foundry, kontrollera [Azure Tillgänglighetszon råd om öppen Cloud Foundry](https://github.com/cloudfoundry-incubator/bosh-azure-cpi-release/tree/master/docs/advanced/availability-zone).
 
 ## <a name="2-network-routing"></a>2. Nätverksroutning
-Som standard används Azure belastningsutjämnare för inkommande CF API/apps-begäranden, vidarebefordrar dem till Gorouters. CF-komponenter som Diego hjärna, MySQL, ERT kan också använda belastningsutjämnaren för att belastningsutjämna trafiken för hög tillgänglighet. Azure tillhandahåller också en uppsättning med helt hanterad nätverkslösningar för belastningsutjämning. Om du behöver för TLS-avslutning (”SSL-avlastning”) eller per HTTP/HTTPS-begäran application layer bearbetning, kan du överväga att Application Gateway. Överväg att standardbelastningsutjämnare för hög tillgänglighet och skalbarhet för belastningsutjämning på layer 4.
+Som standard används Azure belastningsutjämnare för inkommande CF API/apps-begäranden, vidarebefordrar dem till Gorouters. CF-komponenter som Diego hjärna, MySQL, ERT kan också använda belastningsutjämnaren för att belastningsutjämna trafiken för hög tillgänglighet. Azure tillhandahåller också en uppsättning fullständigt hanterade lösningar för belastningsutjämning. Om du behöver för TLS-avslutning (”SSL-avlastning”) eller per HTTP/HTTPS-begäran application layer bearbetning, kan du överväga att Application Gateway. Överväg att standardbelastningsutjämnare för hög tillgänglighet och skalbarhet för belastningsutjämning på layer 4.
 ### <a name="azure-application-gateway-"></a>Azure Application Gateway *
 [Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction) erbjuder olika layer 7 belastningsutjämning, inklusive SSL-avlastning, från slutpunkt till slutpunkt SSL, Brandvägg för webbaserade program, Cookiebaserad sessionstillhörighet och mycket mer. Du kan [konfigurera Application Gateway i öppen källkod Cloud Foundry](https://github.com/cloudfoundry-incubator/bosh-azure-cpi-release/tree/master/docs/advanced/application-gateway). PCF kan kontrollera den [PCF 2.1 viktig](https://docs.pivotal.io/pivotalcf/2-1/pcf-release-notes/opsmanager-rn.html#azure-application-gateway) för POC-test.
 
 ### <a name="azure-standard-load-balancer-"></a>Azure Standard Load Balancer *
-Azure Load Balancer är en Layer 4-belastningsutjämnare. Används för att distribuera trafik mellan instanser av tjänster i en belastningsutjämnad uppsättning. Standardversionen ger [avancerade funktioner](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview) över grundläggande version. Till exempel 1. Maxgränsen för backend-poolen utlöses från 100 till 1000 virtuella datorer.  2. Slutpunkterna har nu stöd för flera tillgänglighetsuppsättningar i stället för en enskild tillgänglighetsuppsättning.  3. Ytterligare funktioner som högtillgänglighetsportar, rikare övervakningsdata osv. Om du flyttar till Azure-Tillgänglighetszon krävs standardbelastningsutjämnare. För en ny distribution rekommenderar vi att du börjar med Azure Standard Load Balancer. 
+Azure Load Balancer är en Layer 4-belastningsutjämnare. Används för att distribuera trafik mellan instanser av tjänster i en belastningsutjämnad uppsättning. Standardversionen ger [avancerade funktioner](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview) över grundläggande version. Till exempel 1. Maxgränsen för backend-poolen utlöses från 100 till 1000 virtuella datorer.  2. Slutpunkterna har nu stöd för flera tillgänglighetsuppsättningar i stället för en enskild tillgänglighetsuppsättning.  3. Ytterligare funktioner som hög tillgänglighet portar, rikare övervakningsdata och så vidare. Om du flyttar till Azure-Tillgänglighetszon krävs standardbelastningsutjämnare. För en ny distribution rekommenderar vi att du börjar med Azure Standard Load Balancer. 
 
-## <a name="3-authentication"></a>3. Autentisering 
-[Cloud Foundry-användarkonto och autentisering](https://docs.cloudfoundry.org/concepts/architecture/uaa.html) är centrala identity management-tjänsten för CF och dess olika komponenter. [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis) är Microsofts flera innehavare, molnbaserad katalog- och identity management-tjänsten. Som standard används UAA för Cloud Foundry-autentisering. Som ett avancerat alternativ stöd UAA också för Azure AD som en extern användare butik. Azure AD-användare kan komma åt Cloud Foundry med sina LDAP-identitet, utan ett Cloud Foundry-konto. Följ dessa steg för att [konfigurera Azure AD för UAA i PCF](http://docs.pivotal.io/p-identity/1-6/azure/index.html).
+## <a name="3-authentication"></a>3. Authentication 
+[Cloud Foundry-användarkonto och autentisering](https://docs.cloudfoundry.org/concepts/architecture/uaa.html) är centrala identity management-tjänsten för CF och dess olika komponenter. [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis) är Microsofts flera innehavare, molnbaserad katalog- och identity management-tjänsten. Som standard används UAA för Cloud Foundry-autentisering. Som ett avancerat alternativ stöd UAA också för Azure AD som en extern användare butik. Azure AD-användare kan komma åt Cloud Foundry med sina LDAP-identitet, utan ett Cloud Foundry-konto. Följ dessa steg för att [konfigurera Azure AD för UAA i PCF](https://docs.pivotal.io/p-identity/1-6/azure/index.html).
 
 ## <a name="4-data-storage-for-cloud-foundry-runtime-system"></a>4. Datalagring för Cloud Foundry Runtime System
 Cloud Foundry erbjuder bra utökningsbarhet för att använda Azure blobstore eller Azure MySQL/PostgreSQL-tjänster för Programlagring runtime system.
@@ -69,10 +69,12 @@ Som standard kan du använda en lokal databas (MySQL). För hög tillgänglighet
 Azure service broker erbjuder enhetligt gränssnitt för att hantera programåtkomst till Azure-tjänster. Den nya [Open Service Broker for Azure-projekt](https://github.com/Azure/open-service-broker-azure) tillhandahåller en enkel och enkelt sätt att erbjuda tjänster till program i Cloud Foundry, OpenShift och Kubernetes. Se den [Azure Open Service Broker för PCF panel](https://network.pivotal.io/products/azure-open-service-broker-pcf/) anvisningar för distribution på PCF.
 
 ## <a name="6-metrics-and-logging"></a>6. Mått och loggning
-Azure Log Analytics Nozzle är en Cloud Foundry-komponent som vidarebefordrar mått från den [Cloud Foundry loggregator firehose](https://docs.cloudfoundry.org/loggregator/architecture.html) till [Azure Log Analytics](https://azure.microsoft.com/services/log-analytics/). Du kan använda Nozzle för att samla in, visa och analysera dina CF systemmått hälsa och prestanda mellan flera distributioner.
-Klicka på [här](https://docs.microsoft.com/azure/cloudfoundry/cloudfoundry-oms-nozzle) att lära dig hur du distribuerar Azure Log Analytics Nozzle för både öppen källkod och Pivotal Cloud Foundry-miljön och komma åt data från Azure Log Analytics-konsolen. 
+Azure Log Analytics Nozzle är en Cloud Foundry-komponent som vidarebefordrar mått från den [Cloud Foundry loggregator firehose](https://docs.cloudfoundry.org/loggregator/architecture.html) till [Azure Monitor loggar](https://azure.microsoft.com/services/log-analytics/). Du kan använda Nozzle för att samla in, visa och analysera dina CF systemmått hälsa och prestanda mellan flera distributioner.
+Klicka på [här](https://docs.microsoft.com/azure/cloudfoundry/cloudfoundry-oms-nozzle) att lära dig hur du distribuerar Azure Log Analytics Nozzle för både öppen källkod och Pivotal Cloud Foundry-miljön och komma åt data från Azure Monitor loggar konsolen. 
 > [!NOTE]
-> PCF 2.0 BOSH hälsomått för virtuella datorer vidarebefordras till Loggregator Firehose som standard och är integrerade i Azure Log Analytics-konsolen.
+> PCF 2.0 BOSH hälsomått för virtuella datorer vidarebefordras till Loggregator Firehose som standard och är integrerade i Azure Monitor-loggar-konsolen.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="7-cost-saving"></a>7. Kostnadsbesparande
 ### <a name="cost-saving-for-devtest-environments"></a>Kostnadsbesparingar i miljöer för utveckling/testning
@@ -85,12 +87,12 @@ Premium-diskar rekommenderades för pålitlig prestanda i produktion.  Med [Mana
 Idag alla CF virtuella datorer debiteras enligt ”på begäran” prissättning, även om miljöer vanligtvis vara igång på obestämd tid. Du kan nu reserverad kapacitet för virtuell dator på en term för 1 eller 3 år och få rabatter på 45-65%. Rabatter i faktureringssystem, utan ändringar i din miljö. Mer information finns i [hur Azure reservationer fungerar](https://azure.microsoft.com/pricing/reserved-vm-instances/). 
 #### <a name="managed-premium-disk-with-smaller-sizes"></a>Hanterade Premiumdiskar med mindre storlekar: 
 Hanterade diskar support mindre diskstorlekar, till exempel P4(32 GB) och P6(64 GB) för både premium och standard-diskar. Om du har liten arbetsbelastningar kan minska du kostnaderna när du migrerar från standard premium-diskar till hanterade premiumdiskar.
-#### <a name="utilizing-azure-first-party-services"></a>Använda Azure-tjänster som första part: 
+#### <a name="use-azure-first-party-services"></a>Använd Azure-tjänster som första part: 
 Dra nytta av Azures tjänst från första part sänker långsiktig administrationen kostnad förutom hög tillgänglighet och tillförlitlighet som nämns i senare avsnitt. 
 
 Pivotal har lanserat en [små utrymmeskrav ERT](https://docs.pivotal.io/pivotalcf/2-0/customizing/small-footprint.html) för PCF kunder komponenterna är samordnad i bara 4 virtuella datorer som kör upp till 2 500 programinstanser. Utvärderingsversionen är nu tillgängligt via [Azure-marknadsplatsen](https://azuremarketplace.microsoft.com/marketplace/apps/pivotal.pivotal-cloud-foundry).
 
 ## <a name="next-steps"></a>Nästa steg
-Integrering med Azure-funktioner finns först med [öppen källkod Cloud Foundry](https://github.com/cloudfoundry-incubator/bosh-azure-cpi-release/tree/master/docs/advanced/), innan den är tillgänglig på Pivotal Cloud Foundry. Funktioner som markerats med * är fortfarande inte tillgängliga via PCF. Cloud Foundry-integrering med Azure Stack ingår inte i det här dokumentet antingen.
+Integrering med Azure-funktioner finns först med [öppen källkod Cloud Foundry](https://github.com/cloudfoundry-incubator/bosh-azure-cpi-release/tree/master/docs/advanced/), innan den är tillgänglig på Pivotal Cloud Foundry. Funktioner som markerats med * är fortfarande inte tillgängliga via PCF. Cloud Foundry-integrering med Azure Stack som inte omfattas i det här dokumentet antingen.
 För PCF-supporten om funktionerna som markerats med *, eller Cloud Foundry-integrering med Azure Stack, kontakta din Kontoansvariga Pivotal och Microsoft för senaste status. 
 

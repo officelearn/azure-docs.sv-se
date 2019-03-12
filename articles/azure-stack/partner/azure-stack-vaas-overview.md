@@ -10,17 +10,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/20/2018
+ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.lastreviewed: 12/20/2018
+ms.lastreviewed: 03/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 6126bacf50d47029c29772b35f6dc1d552d47029
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: ca22f29597cb452d6d33338b8ba0367c9377f6fb
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56592646"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57772525"
 ---
 # <a name="what-is-validation-as-a-service-for-azure-stack"></a>Vad är verifiering som en tjänst för Azure Stack?
 
@@ -65,7 +65,7 @@ Mer information finns i [ Snabbstart: Använda verifieringen som en tjänst-port
 |----|------------|
 | [Ny solution-validering](azure-stack-vaas-validate-solution-new.md) | Cloud Simulation Engine<br>Compute SDK operativa Suite<br>Disk identifiering Test<br>KeyVault Extension SDK Operational Suite<br>KeyVault SDK Operational Suite<br>Network SDK Operational Suite<br>Storage-konto SDK operativa Suite<br> |
 | [Verifiera för OEM-paketet](azure-stack-vaas-validate-oem-package.md) | Verifiering av OEM-tillägg-paketet<br>Cloud Simulation Engine |
-| [Månatliga verifiering av update](azure-stack-vaas-validate-microsoft-updates.md) | Månatliga AzureStack Update-verifiering<br>Cloud Simulation Engine<br> |
+| [Månatliga verifiering av update](azure-stack-vaas-validate-microsoft-updates.md) | Verifiering av månatlig Azure Stack-uppdatering<br>Cloud Simulation Engine<br> |
 
 ## <a name="next-steps"></a>Nästa steg
 

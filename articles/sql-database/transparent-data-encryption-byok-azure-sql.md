@@ -11,13 +11,13 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
-ms.date: 02/20/2019
-ms.openlocfilehash: a0f909dcb78a782945517b6691805ea66f2d0cfd
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.date: 03/07/2019
+ms.openlocfilehash: 13642827a6a0f6524a1f9222b72e75f51a5442a3
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57456388"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57576913"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-keys-in-azure-key-vault-bring-your-own-key-support"></a>Azure SQL Transparent datakryptering med Kundhanterade nycklar i Azure Key Vault: Stöd för Bring Your Own Key
 
@@ -88,11 +88,11 @@ När TDE först konfigureras för att använda ett TDE-skydd från Key Vault, sk
 
 - Använda en nyckel utan ett förfallodatum – och inte ställer in ett utgångsdatum på en nyckel redan: **när nyckeln upphör att gälla krypterade databaser att förlora åtkomst till sina TDE-skydd och är tillgängliga inom 24 timmar**.
 - Kontrollera att nyckeln är aktiverad och har behörighet att utföra *hämta*, *omsluta nyckel*, och *nyckelomslutning* åtgärder.
-- Skapa en säkerhetskopiering av Azure Key Vault nycklar innan du använder nyckeln i Azure Key Vault för första gången. Läs mer om den [Backup AzKeyVaultKey](https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-5.1.1) kommando.
+- Skapa en säkerhetskopiering av Azure Key Vault nycklar innan du använder nyckeln i Azure Key Vault för första gången. Läs mer om den [Backup AzKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyvault/backup-azkeyvaultkey) kommando.
 - Skapa en ny säkerhetskopia varje gång några ändringar görs till nyckeln (till exempel lägga till ACL: er, lägga till taggar, lägga till viktiga attribut).
 - **Behåll tidigare versioner** för nyckeln i nyckelvalvet när du roterar nycklar, så äldre säkerhetskopior av databasen kan återställas. När TDE-skyddet ändras för en databas, gamla säkerhetskopior av databasen **uppdateras inte** att använda den senaste TDE-skydd.  Varje säkerhetskopiering måste TDE-skydd som den skapades vid en återställning. Nyckelrotationer kan utföras följa anvisningarna i [rotera Transparent Data Encryption skydd med hjälp av PowerShell](transparent-data-encryption-byok-azure-sql-key-rotation.md).
 - Behåll alla tidigare nycklar i Azure Key Vault när du har ändrat till tjänst-hanterade nycklar.  Detta säkerställer att säkerhetskopior av databasen kan återställas med TDE-skydd som lagras i Azure Key Vault.  TDE-skydd som skapats med Azure Key Vault måste finnas kvar tills alla lagrade säkerhetskopior har skapats med tjänst-hanterade nycklar.  
-- Säkerhetskopiera återställningsbara nycklarna på [Backup AzKeyVaultKey](https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-5.1.1).
+- Säkerhetskopiera återställningsbara nycklarna på [Backup AzKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyvault/backup-azkeyvaultkey).
 - Om du vill ta bort en potentiellt komprometterade nyckel under en säkerhetsincident utan risk för dataförlust, följer du stegen i [tar bort en potentiellt komprometterade nyckel](transparent-data-encryption-byok-azure-sql-remove-tde-protector.md).
 
 ## <a name="high-availability-geo-replication-and-backup--restore"></a>Hög tillgänglighet, Geo-replikering och säkerhetskopiering / återställning
@@ -126,7 +126,7 @@ I följande avsnitt får du gå igenom stegen för installation och konfiguratio
   - RSA/RSA-HSA 2048 nyckel
   - Inget förfallodatum
   - Nyckeln är aktiverad och har behörighet att utföra get, wrap key och packa upp nyckelåtgärder
-- Säkerhetskopiera den primära nyckeln och återställa nyckeln till andra nyckelvalvet.  Se [BackupAzureKeyVaultKey](https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-5.1.1) och [återställning AzKeyVaultKey](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-5.5.0).
+- Säkerhetskopiera den primära nyckeln och återställa nyckeln till andra nyckelvalvet.  Se [BackupAzureKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyvault/backup-azkeyvaultkey) och [återställning AzKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyvault/restore-azkeyvaultkey).
 
 ### <a name="azure-sql-database-configuration-steps"></a>Konfigurationsstegen för Azure SQL Database
 

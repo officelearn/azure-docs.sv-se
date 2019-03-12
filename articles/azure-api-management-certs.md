@@ -7,19 +7,19 @@ author: jpconnock
 manager: timlt
 editor: ''
 ms.assetid: 1b813833-39c8-46be-8666-fd0960cfbf04
-ms.service: na
+ms.service: api-management
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/01/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 62bc6507e4b56c9df31a561f7677907486b0d562
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 3b6f1a004e4fb69bc08d5163734021bcb2aed9a2
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52421597"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57765806"
 ---
 # <a name="upload-an-azure-service-management-certificate"></a>Ladda upp ett certifikat för Azure Service Management
 Hanteringscertifikat kan du autentisera med den klassiska distributionsmodellen som tillhandahålls av Azure. Många program och verktyg (till exempel Visual Studio eller Azure SDK) kan du använda dessa certifikat för att automatisera konfigurationen och distributionen av olika Azure-tjänster. 
@@ -33,7 +33,7 @@ Om du vill ha mer information om Azure-certifikat (inklusive att skapa ett själ
 
 Du kan också använda [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) att autentisera klientkod för automation.
 
-**Obs:** du måste vara en medadministratör för prenumerationen för att utföra åtgärder under Hanteringscertifikat. [Läs mer](https://go.microsoft.com/fwlink/?linkid=849300) om hur du Lägg till eller ta bort Medadministratörer från den nya Azure Portal 
+**Obs!** Du måste vara en medadministratör för prenumerationen för att utföra åtgärder under Hanteringscertifikat. [Läs mer](https://go.microsoft.com/fwlink/?linkid=849300) om hur du Lägg till eller ta bort Medadministratörer från den nya Azure Portal 
 
 ## <a name="upload-a-management-certificate"></a>Överföra ett hanteringscertifikat
 När du har ett hanteringscertifikat som skapade, (CER-fil med endast den offentliga nyckeln) kan du överföra den till portalen. Om certifikatet är tillgänglig i portalen, kan vem som helst med ett matchande certifikat (privat nyckel) ansluta via API Management och komma åt resurser för samma prenumeration.

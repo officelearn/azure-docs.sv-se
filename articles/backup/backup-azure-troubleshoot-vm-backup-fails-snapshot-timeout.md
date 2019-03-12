@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 12/03/2018
 ms.author: genli
-ms.openlocfilehash: 530bb83d753d27db4869b5725bc6d4c4e020e179
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 3be2ab8bd4be56de945303bec9969f531be77864
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57446613"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57535605"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Felsöka Azure Backup-fel: Problem med agenten eller -tillägget
 
@@ -220,7 +220,7 @@ För Linux VM, om VMSnapshot-tillägget inte visas i Azure-portalen [uppdatera A
 Gör så här gör tillägget installeras under nästa säkerhetskopiering.
 
 ### <a name="remove_lock_from_the_recovery_point_resource_group"></a>Ta bort låset från recovery point resursgruppen.
-1. Logga in på [Azure Portal](http://portal.azure.com/).
+1. Logga in på [Azure Portal](https://portal.azure.com/).
 2. Gå till **alla resurser alternativet**, väljer du resursgruppen för återställningspunkt samling i formatet AzureBackupRG_`<Geo>`_`<number>`.
 3. I den **inställningar** väljer **Lås** att visa låsen.
 4. Om du vill ta bort låset, Välj ellipsen och klicka på **ta bort**.
@@ -241,7 +241,7 @@ När du tar bort låset kan utlösa en ad hoc-/ manuell säkerhetskopiering. Det
 #### <a name="clean-up-restore-point-collection-from-azure-portal"></a>Rensa återställning samlingen från Azure-portalen med återställningspunkter <br>
 
 För att manuellt ta bort återställningen pekar du samlingen som inte tas bort på grund av låset på resursgruppen, prova följande steg:
-1. Logga in på [Azure Portal](http://portal.azure.com/).
+1. Logga in på [Azure Portal](https://portal.azure.com/).
 2. På den **Hub** -menyn klickar du på **alla resurser**, väljer du resursgruppen med formatet AzureBackupRG_`<Geo>`_`<number>` där den virtuella datorn finns.
 
     ![Ta bort lås](./media/backup-azure-arm-vms-prepare/resource-group.png)

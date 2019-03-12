@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: d44cfc0164892c34bcbe16ca07e9ec67190ada24
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: c961238d1fbce1ff590e0b0843ae1390aa7f1cd9
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50415312"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57534828"
 ---
-# <a name="deployment-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problem med distribution för Azure Cloud Services: vanliga frågor (FAQ)
+# <a name="deployment-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Distributionsproblem för Azure Cloud Services: Vanliga frågor och svar (FAQ)
 
 Den här artikeln innehåller vanliga frågor om distributionsproblem [Microsoft Azure Cloud Services](https://azure.microsoft.com/services/cloud-services). Du kan också läsa den [VM-storlek för Cloud Services-sidan](cloud-services-sizes-specs.md) storlek information.
 
@@ -33,27 +33,27 @@ Om en tjänst i molnet har en distribution i antingen fack, fästa hela Molntjä
 
 Allokeringsfel inträffa när klustret där Molntjänsten finns inte har tillräckligt med fysiska beräkningsresurser för att uppfylla begäran om din distribution.
 
-Hjälp med att minimera sådana Allokeringsfel finns i [Allokeringsfel för Cloud Service: lösningar](cloud-services-allocation-failures.md#solutions).
+Hjälp med att minimera sådana Allokeringsfel finns i [Allokeringsfel för Cloud Service: Lösningar](cloud-services-allocation-failures.md#solutions).
 
 ## <a name="why-does-scaling-up-or-scaling-out-a-cloud-service-deployment-sometimes-result-in-allocation-failure"></a>Varför fungerar skala upp eller skala ut en molntjänstdistribution ibland resultera i Allokeringsfel?
 När en molnbaserad tjänst har distribuerats kan hämtar det vanligtvis fästa på ett specifikt kluster. Det innebär att skala in/ut en befintlig molntjänst måste tilldela nya instanser i samma kluster. Om klustret närmar sig kapacitetsgränsen eller önskade VM-storlek/typ är inte tillgänglig, misslyckas begäran.
 
-Hjälp med att minimera sådana Allokeringsfel finns i [Allokeringsfel för Cloud Service: lösningar](cloud-services-allocation-failures.md#solutions).
+Hjälp med att minimera sådana Allokeringsfel finns i [Allokeringsfel för Cloud Service: Lösningar](cloud-services-allocation-failures.md#solutions).
 
 ## <a name="why-does-deploying-a-cloud-service-into-an-affinity-group-sometimes-result-in-allocation-failure"></a>Varför distribuerar en tjänst i molnet till en tillhörighetsgrupp ibland resulterar i Allokeringsfel?
 En ny distribution till en tom molntjänst kan allokeras av infrastrukturresurser i alla kluster i den regionen, såvida inte Molntjänsten som är fäst på en tillhörighetsgrupp. Distributioner till samma tillhörighetsgrupp görs i samma kluster. Om klustret närmar sig kapacitetsgränsen, misslyckas begäran.
 
-Hjälp med att minimera sådana Allokeringsfel finns i [Allokeringsfel för Cloud Service: lösningar](cloud-services-allocation-failures.md#solutions).
+Hjälp med att minimera sådana Allokeringsfel finns i [Allokeringsfel för Cloud Service: Lösningar](cloud-services-allocation-failures.md#solutions).
 
 ## <a name="why-does-changing-vm-size-or-adding-a-new-vm-to-an-existing-cloud-service-sometimes-result-in-allocation-failure"></a>Varför ändra VM-storlek eller lägga till en ny virtuell dator till en befintlig molntjänst ibland resulterar i Allokeringsfel?
 Kluster i ett datacenter kan ha olika konfigurationer för typer av virtuella datorer (t.ex. en serien, Av2-serien, D-serien, Dv2-serien, G-serien, H-serien osv.). Men inte alla kluster behöver nödvändigtvis alla typer av virtuella datorer. Till exempel om du försöker lägga till D-serien VM till en molnbaserad tjänst som redan har distribuerats i en A-serien endast kluster får ett Allokeringsfel. Detta kommer också inträffa om du försöker ändra VM SKU-storlekar (till exempel byta från en A-serien till en D-serien).
 
-Hjälp med att minimera sådana Allokeringsfel finns i [Allokeringsfel för Cloud Service: lösningar](cloud-services-allocation-failures.md#solutions).
+Hjälp med att minimera sådana Allokeringsfel finns i [Allokeringsfel för Cloud Service: Lösningar](cloud-services-allocation-failures.md#solutions).
 
-Du kan kontrollera storlekarna som finns i din region [Microsoft Azure: produkttillgänglighet per region](https://azure.microsoft.com/regions/services).
+Du kan kontrollera storlekarna som finns i din region [Microsoft Azure: Produkttillgänglighet per region](https://azure.microsoft.com/regions/services).
 
 ## <a name="why-does-deploying-a-cloud-service-sometime-fail-due-to-limitsquotasconstraints-on-my-subscription-or-service"></a>Varför distribuerar en tjänst i molnet en stund misslyckas på grund av begränsningar/kvoter/begränsningar i mitt abonnemang eller tjänst?
-Distribution av en molnbaserad tjänst kan misslyckas om de resurser som krävs för att allokera överskrider standard eller maximal kvot som tillåts för din tjänst på nivån region/datacenter. Mer information finns i [molntjänster begränsar](../azure-subscription-service-limits.md#cloud-services-limits).
+Distribution av en molnbaserad tjänst kan misslyckas om de resurser som krävs för att allokera överskrider standard eller maximal kvot som tillåts för din tjänst på nivån region/datacenter. Mer information finns i [molntjänster begränsar](../azure-subscription-service-limits.md#azure-cloud-services-limits).
 
 Du kan också spåra aktuella användningskvot för din prenumeration på portalen: Azure-portalen = > prenumerationer = > \<lämpliga prenumeration > = > ”användning + kvoter”.
 

@@ -3,22 +3,22 @@ title: Vad är Azure Cognitive Services?
 description: 'Azure Cognitive Services är API: er, SDK: er och tjänster som du kan använda med Microsoft Azure för att skapa intelligenta program.'
 services: cognitive-services
 author: nitinme
-manager: nitinmed
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: ''
 ms.topic: article
-ms.date: 01/17/2018
+ms.date: 03/11/2019
 ms.author: nitinme
-ms.openlocfilehash: 38ad921c7c4b2fef9d325c2e2c9eea25bd3c913b
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 5c6d9bbfe5cf3632b21f374c23bf5df728478ce0
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56734684"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57761063"
 ---
 # <a name="what-are-azure-cognitive-services"></a>Vad är Azure Cognitive Services?
 
-Azure Cognitive Services är API: er, SDK: er och tjänster som är tillgängliga för att hjälpa utvecklare att bygga intelligenta program utan direkt AI eller datakunskaper eller kunskap. Azure Cognitive Services Expandera Microsofts växande portfölj av machine learning-API: er och gör att utvecklare kan enkelt lägga till kognitiva funktioner – till exempel känslo- och video identifiering; videodetektion, tal och syn, igenkänning av och tal- och språkförståelse i sina program. Målet med Azure Cognitive Services är att hjälpa utvecklare att skapa program som kan se, höra, tala, förstå och man orsak. Katalogen med tjänster inom Azure Cognitive Services kan kategoriseras i fem huvudsakliga pelare - visuellt innehåll, tal, språk, Sök och kunskap.
+Azure Cognitive Services är API: er, SDK: er och tjänster som är tillgängliga för att hjälpa utvecklare att bygga intelligenta program utan direkt AI eller datakunskaper eller kunskap. Azure Cognitive Services kan utvecklare enkelt lägga till kognitiva funktioner, till exempel känslo- och video identifiering; videodetektion, tal och syn, igenkänning av och tal- och språkförståelse i sina program. Målet med Azure Cognitive Services är att hjälpa utvecklare att skapa program som kan se, höra, tala, förstå och man orsak. Katalogen med tjänster inom Azure Cognitive Services kan kategoriseras i fem huvudsakliga pelare - visuellt innehåll, tal, språk, Sök och kunskap.
 
 ## <a name="vision-apis"></a>Visions-API:er
 
@@ -28,7 +28,6 @@ Azure Cognitive Services är API: er, SDK: er och tjänster som är tillgänglig
 |[Custom Vision Service](https://docs.microsoft.com/azure/cognitive-services/Custom-Vision-Service/home "Custom Vision Service") (förhandsversion)|Custom Vision Service kan du skapa anpassade bildklassificerare.|
 |[Content Moderator](https://docs.microsoft.com/azure/cognitive-services/content-moderator/overview "Content Moderator")|Content Moderator tillhandahåller övervakning för möjliga stötande, oönskade och riskfyllda innehåll.|
 |[API för ansiktsigenkänning](https://docs.microsoft.com/azure/cognitive-services/face/ "Ansikts-API")|Ansikts-API ger åtkomst till avancerade ansiktsigenkänningsalgoritmer, aktivera attributet ansiktsigenkänning och taligenkänning.|
-|[Känslo-API](https://docs.microsoft.com/azure/cognitive-services/emotion/home "Känslo-API") (förhandsversion)|Känslo-API tar en bild som indata och returnerar en rad olika uppsättning känslor för varje ansikte i bilden.|
 | [Video Indexer](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview "Video Indexer")|Video Indexer kan du extrahera insikter från din video.|
 
 ## <a name="speech-apis"></a>API:er för taligenkänning
@@ -36,7 +35,6 @@ Azure Cognitive Services är API: er, SDK: er och tjänster som är tillgänglig
 |Tjänstnamn|Tjänstbeskrivning|
 |:-----------|:------------------|
 |[Med Taltjänsten](https://docs.microsoft.com/azure/cognitive-services/speech-service/ "Taltjänst") (förhandsversion)|Med Taltjänsten lägger till stöd för tal funktioner till program.|
-|[Custom Speech Service](https://docs.microsoft.com/azure/cognitive-services/custom-speech-service/cognitive-services-custom-speech-home "Custom Speech Service") (förhandsversion)|Med Custom Speech Service kan du skapa anpassade språkmodeller och akustiska modeller skräddarsydda för din app och dina användare.|
 |[Bing-taligenkänning](https://docs.microsoft.com/azure/cognitive-services/speech/home "Bing-taligenkänning")|API för Bing-taligenkänning ger dig ett enkelt sätt att skapa talbaserade funktioner i dina program.|
 |[Translator Speech](https://docs.microsoft.com/azure/cognitive-services/translator-speech/ "Translator Speech")|Translator för Talöversättning är en tjänst för maskinöversättning.|
 |[API för Talarigenkänning](https://docs.microsoft.com/azure/cognitive-services/speaker-recognition/home "API för Talarigenkänning") (förhandsversion)|API för Talarigenkänning innehåller algoritmer för talaridentifiering och verifiering.|
@@ -47,10 +45,8 @@ Azure Cognitive Services är API: er, SDK: er och tjänster som är tillgänglig
 |:-----------|:------------------|
 |[Stavningskontroll i Bing](https://docs.microsoft.com/azure/cognitive-services/bing-spell-check/ "stavningskontroll i Bing")|Stavningskontroll i Bing kan du utföra sammanhangsberoende grammatik och stavningskontroll.|
 |[LUIS Language Understanding](https://docs.microsoft.com/azure/cognitive-services/luis/ "Språkförståelse")|Tjänst för Språkförståelse (LUIS) tillåter programmet att förstå vad en person vill med egna ord.|
-|[Språklig analys](https://docs.microsoft.com/azure/cognitive-services/linguisticanalysisapi/home "lingvistiska") (förhandsversion)|Språklig analys innehåller naturligt språk bearbetning verktyg som identifierar strukturen för text.|
 |[Textanalys](https://docs.microsoft.com/azure/cognitive-services/text-analytics/ "textanalys")|Text Analytics tillhandahåller naturlig språkbearbetning rå text för attitydanalys, extrahering av diskussionsämne och språkidentifiering.|
 |[Translator för textöversättning](https://docs.microsoft.com/azure/cognitive-services/translator/ "textöversättning")|Translator för textöversättning ger datorbaserade textöversättning i nära realtid.||
-|[Webbspråksmodell](https://docs.microsoft.com/azure/cognitive-services/web-language-model/home "Webbspråksmodell") (förhandsversion)|Naturlig språkbearbetning för att förutsäga word ordningsföljd och slutföranden ordnedbrytning med strängar utan blanksteg.|
 
 ## <a name="search-apis"></a>Sök API:er
 
@@ -64,12 +60,12 @@ Azure Cognitive Services är API: er, SDK: er och tjänster som är tillgänglig
 |[Entitetssökning i Bing](https://docs.microsoft.com/azure/cognitive-services/bing-entities-search/ "Entitetssökning i Bing")|Entitetssökning i Bing returnerar information om entiteter som Bing avgör är relevanta för en användares fråga.|
 |[Bildsökning i Bing](https://docs.microsoft.com/azure/cognitive-services/bing-image-search "bildsökning i Bing")|Bildsökning i Bing returnerar en visning av bilder som bedöms vara relevanta för användarens fråga.|
 |[Bing Visual Search](https://docs.microsoft.com/azure/cognitive-services/bing-visual-search "Bing Visual Search")|Bing Visual Search innehåller returnerar information om en bild som visuellt likartade bilder shopping källor för produkter hittades i avbildningen och relaterade sökningar.|
+|[Sökning i Bing lokala företag](https://docs.microsoft.com/azure/cognitive-services/bing-local-business-search/ "sökning i Bing lokala företag")| Lokala företag i Bing kan dina program att hitta information om lokala företag baserat på sökfrågor kontakta och plats.|
 
 ## <a name="knowledge-apis"></a>Knowledge API: er
 
 |Tjänstnamn|Tjänstbeskrivning|
 |:-----------|:------------------|
-| [Custom Decision Service](https://docs.microsoft.com/azure/cognitive-services/custom-decision-service/ "Custom Decision Search") (förhandsversion)|Custom Decision Service kan du skapa intelligenta system med sammanhangsberoende beslutsfattande för att anpassa och optimera användarupplevelsen.|
 |[QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/index "QnA Maker")|QnA Maker kan du skapa en fråga och besvara tjänsten från din delvis strukturerat innehåll.|
 
 ## <a name="use-free-trials"></a>Använd kostnadsfria utvärderingsversioner

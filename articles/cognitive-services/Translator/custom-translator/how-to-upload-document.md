@@ -5,16 +5,16 @@ description: Du kan ladda upp parallella dokument f√∂r dina utbildningar med hj√
 author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
-ms.subservice: custom-translator
+ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: v-rada
 ms.topic: conceptual
-ms.openlocfilehash: 83d6791740cd6aebb9da14b86e0d5272ab78f43a
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 7df7dd44716e98c74282bd0f0700ec7881ef31ef
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56737594"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57766962"
 ---
 # <a name="upload-a-document"></a>Ladda upp ett dokument
 

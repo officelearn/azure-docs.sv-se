@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: b7a785cc506f12360edc14555b7241a557dc400c
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: dc72ec9bf2e7e7c5c77685368167357a0108f2d3
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55817350"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57541935"
 ---
 # <a name="move-data-from-amazon-redshift-using-azure-data-factory"></a>Flytta data från Amazon Redshift med Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -36,7 +36,7 @@ Data Factory stöder för närvarande endast flyttar data från Amazon Redshift 
 > För att uppnå bästa möjliga prestanda vid kopiering av stora mängder data från Amazon Redshift, Överväg att använda den inbyggda Redshift **INAKTIVERAS** kommandot via Amazon Simple Storage Service (Amazon S3). Mer information finns i [Använd INAKTIVERAS för att kopiera data från Amazon Redshift](#use-unload-to-copy-data-from-amazon-redshift).
 
 ## <a name="prerequisites"></a>Förutsättningar
-* Om du flyttar data till ett lokalt datalager, installera [Data Management Gateway](data-factory-data-management-gateway.md) på en lokal dator. Bevilja åtkomst för en gateway till Amazon Redshift-klustret med hjälp av IP-adressen för den lokala datorn. Anvisningar finns i [auktorisera åtkomst till klustret](http://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html).
+* Om du flyttar data till ett lokalt datalager, installera [Data Management Gateway](data-factory-data-management-gateway.md) på en lokal dator. Bevilja åtkomst för en gateway till Amazon Redshift-klustret med hjälp av IP-adressen för den lokala datorn. Anvisningar finns i [auktorisera åtkomst till klustret](https://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html).
 * För att flytta data till en Azure data store, ser de [Compute IP-adress och SQL-intervall som används av Microsoft Azure-datacentren](https://www.microsoft.com/download/details.aspx?id=41653).
 
 ## <a name="getting-started"></a>Komma igång
@@ -100,7 +100,7 @@ Du kan också använda den **RelationalSource** typ, som inkluderar Amazon Redsh
 
 ## <a name="use-unload-to-copy-data-from-amazon-redshift"></a>Använd ta bort för att kopiera data från Amazon Redshift
 
-Amazon Redshift [ **INAKTIVERAS** ](http://docs.aws.amazon.com/redshift/latest/dg/r_UNLOAD.html) kommando inaktiverar resultatet av en fråga till en eller flera filer på Amazon S3. Det här kommandot rekommenderas av Amazon för att kopiera stora datamängder från Redshift.
+Amazon Redshift [ **INAKTIVERAS** ](https://docs.aws.amazon.com/redshift/latest/dg/r_UNLOAD.html) kommando inaktiverar resultatet av en fråga till en eller flera filer på Amazon S3. Det här kommandot rekommenderas av Amazon för att kopiera stora datamängder från Redshift.
 
 **Exempel: Kopiera data från Amazon Redshift till Azure SQL Data Warehouse**
 

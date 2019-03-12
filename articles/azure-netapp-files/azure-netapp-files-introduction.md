@@ -11,15 +11,15 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 03/28/2018
 ms.author: b-juche
-ms.openlocfilehash: d16d13d1f57c1ef189db3db781705cd70cd71e8d
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
-ms.translationtype: HT
+ms.openlocfilehash: 84ab433f5de8a62f33aca01e60bc2dbd1d8e68f8
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56586196"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57761437"
 ---
 # <a name="introduction-to-azure-netapp-files"></a>Introduktion till Azure NetApp Files
 Azure NetApp Files-tjänsten är en företagsanpassad, avgiftsbelagd fillagringstjänst med höga prestanda. Azure NetApp Files fungerar med alla typer av arbetsbelastning och är högtillgänglig. Du kan välja garanterade service- och prestandanivåer och ställa in ögonblicksbilder via tjänsten. 

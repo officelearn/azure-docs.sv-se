@@ -7,12 +7,12 @@ author: ash2017
 ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: asrastog
-ms.openlocfilehash: 06b917c956507de3eb3b1536356285d7a954fb8b
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 5580d67f796efc809ef536818419ab91e8ee54a2
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55730084"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57540019"
 ---
 # <a name="order-device-connection-events-from-azure-iot-hub-using-azure-cosmos-db"></a>Ordna enheten anslutningshändelser från Azure IoT Hub med Azure Cosmos DB
 
@@ -315,7 +315,7 @@ Du kan se resultatet av den lagrade proceduren som körs i ditt Cosmos DB-dokume
 
 ## <a name="use-the-azure-cli"></a>Använda Azure CLI
 
-Istället för att använda den [Azure-portalen](http://portal.azure.com), du kan utföra följande steg för IoT Hub som använder Azure CLI. Mer information finns i Azure CLI-sidor för [skapa en händelseprenumeration](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription) och [skapar en IoT-enhet](/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity#ext-azure-cli-iot-ext-az-iot-hub-device-identity-create).
+Istället för att använda den [Azure-portalen](https://portal.azure.com), du kan utföra följande steg för IoT Hub som använder Azure CLI. Mer information finns i Azure CLI-sidor för [skapa en händelseprenumeration](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription) och [skapar en IoT-enhet](/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity#ext-azure-cli-iot-ext-az-iot-hub-device-identity-create).
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 7c790d03143eece9b0c827a033bdd46bfd1a8f45
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 7fcf08c36d8babd0a318ed5b912823c344f4ce64
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54024373"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57549960"
 ---
 # <a name="copy-data-from-amazon-redshift-using-azure-data-factory"></a>Kopiera data från Amazon Redshift med Azure Data Factory
-> [!div class="op_single_selector" title1="Välj vilken version av Data Factory-tjänsten du använder:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](v1/data-factory-amazon-redshift-connector.md)
 > * [Aktuell version](connector-amazon-redshift.md)
 
@@ -38,7 +38,7 @@ Mer specifikt stöder den här Amazon Redshift-anslutningsappen data hämtas fr�
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* Om du kopierar data till en lokal data datalager med [lokal Integration Runtime](create-self-hosted-integration-runtime.md), ge åtkomst till Amazon Redshift-klustret för Integration Runtime (Använd IP-adressen för datorn). Se [auktorisera åtkomst till klustret](http://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html) anvisningar.
+* Om du kopierar data till en lokal data datalager med [lokal Integration Runtime](create-self-hosted-integration-runtime.md), ge åtkomst till Amazon Redshift-klustret för Integration Runtime (Använd IP-adressen för datorn). Se [auktorisera åtkomst till klustret](https://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html) anvisningar.
 * Om du kopierar data till ett datalager som Azure, se [IP-intervall för Azure Data Center](https://www.microsoft.com/download/details.aspx?id=41653) för Compute IP-adressen och SQL-adressintervall som används av Azure data datacenter.
 
 ## <a name="getting-started"></a>Komma igång
@@ -151,7 +151,7 @@ Läs mer om hur du använder INAKTIVERAS för att kopiera data från Amazon Reds
 
 ## <a name="use-unload-to-copy-data-from-amazon-redshift"></a>Använd ta bort för att kopiera data från Amazon Redshift
 
-[Ta bort](http://docs.aws.amazon.com/redshift/latest/dg/r_UNLOAD.html) är en mekanism som tillhandahålls av Amazon Redshift, vilket kan ta bort resultatet av en fråga till en eller flera filer på Amazon Simple Storage Service (Amazon S3). Det är det sätt som rekommenderas av Amazon för att kopiera stora datamängder från Redshift.
+[Ta bort](https://docs.aws.amazon.com/redshift/latest/dg/r_UNLOAD.html) är en mekanism som tillhandahålls av Amazon Redshift, vilket kan ta bort resultatet av en fråga till en eller flera filer på Amazon Simple Storage Service (Amazon S3). Det är det sätt som rekommenderas av Amazon för att kopiera stora datamängder från Redshift.
 
 **Exempel: kopiera data från Amazon Redshift till Azure SQL Data Warehouse med hjälp av-borttagning mellanlagrad kopiering och PolyBase**
 
@@ -210,17 +210,17 @@ När du kopierar data från Amazon Redshift, används följande mappningar från
 | Amazon Redshift-datatypen | Data factory tillfälliga datatyp |
 |:--- |:--- |
 | BIGINT |Int64 |
-| BOOLESKT VÄRDE |Sträng |
-| CHAR |Sträng |
+| BOOLESKT VÄRDE |String |
+| CHAR |String |
 | DATE |DateTime |
-| DECIMALTAL |Decimal |
-| DUBBEL PRECISION |Double-värde |
+| DECIMAL |Decimal |
+| DUBBEL PRECISION |Double |
 | HELTAL |Int32 |
-| VERKLIGA |Enkel |
+| VERKLIGA |Single |
 | SMALLINT |Int16 |
-| TEXT |Sträng |
-| TIDSSTÄMPEL |DateTime |
-| VARCHAR |Sträng |
+| TEXT |String |
+| TIMESTAMP |DateTime |
+| VARCHAR |String |
 
 ## <a name="next-steps"></a>Nästa steg
 En lista över datalager som stöds som källor och mottagare av kopieringsaktiviteten i Azure Data Factory finns i [datalager som stöds](copy-activity-overview.md##supported-data-stores-and-formats).

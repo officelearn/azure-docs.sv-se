@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 02/13/2019
 ms.author: aahi
-ms.openlocfilehash: 5e614d7fc1b45e5a1e1c11d04ed80fbb66bfbd28
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: bb315ff19aedd839c2b0638726be84343dcf4ec3
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57441618"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57545370"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics-preview"></a>Hur du använder med namnet Entitetsidentifiering i Text Analytics (förhandsversion)
 
@@ -62,7 +62,7 @@ Med hjälp av entitetslänkning på olika språk kräver en motsvarande kunskaps
 | DateTime      | Varaktighet      | ”1 minut och 45 sekunder”   | 
 | DateTime      | Ange           | ”varje tisdag”     | 
 | DateTime      | TimeZone      |    | 
-| URL           | EJ TILLÄMPLIGT\*         | "http://www.bing.com"    |
+| URL           | EJ TILLÄMPLIGT\*         | "https://www.bing.com"    |
 | E-post         | EJ TILLÄMPLIGT\*         | "support@contoso.com" |
 \* Beroende på indata- och extraherade entiteter, vissa entiteter kan utelämna den `SubType`.
 
@@ -74,7 +74,7 @@ Du måste ha JSON-dokument i följande format: id, text, språk
 
 Språk som stöds för närvarande visas i [listan](../text-analytics-supported-languages.md).
 
-Dokumentstorlek måste vara under 5,120 tecken per dokument och du kan ha upp till 1 000 objekt (ID) per samling. Samlingen skickas i begäranstexten. I följande exempel är en illustration av innehåll som du kan skicka till länkramverk entitetsänden.
+Dokumentstorleken måste vara under 5 120 tecken per dokument, och du kan ha upp till 1 000 objekt (ID:n) per samling. Samlingen skickas i begäranstexten. I följande exempel är en illustration av innehåll som du kan skicka till länkramverk entitetsänden.
 
 ```
 {"documents": [{"id": "1",

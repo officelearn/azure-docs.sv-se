@@ -15,12 +15,12 @@ ms.date: 02/26/2019
 ms.author: mabrigg
 ms.reviewer: alfredop
 ms.lastreviewed: 02/26/2019
-ms.openlocfilehash: 00fb888f201f4bb8d211050b288516021d837dc5
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 9f835382cbfe56c1601267ae994a94b56c0c3692
+ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56888784"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57727050"
 ---
 # <a name="frequently-asked-questions-in-azure-stack-usage-api"></a>Vanliga frågor i Azure Stack användnings-API
 
@@ -197,15 +197,15 @@ Användning har rapporterats för följande resource providers:
 **Enhet**: GB\*månad      
 **Anteckningar**: Den verkliga storleken på disken för premium managed disk 
 
-**Mäter ID**: 75d4b707-1027-4403-9986-6ec7c05579c8  
+**Mäter ID**: 108fa95b-be0d-4cd9-96e8-5b0d59505df1  
 **Mätarnamn**: ActualStandardSnapshotSize   
 **Enhet**: GB\*månad   
 **Anteckningar**: Den verkliga storleken på disken för hanterade standardögonblicksbild.  
 
-**Mäter ID**: 5ca1cbb9-6f14-4e76-8be8-1ca91547965e   
+**Mäter ID**: 578ae51d-4ef9-42f9-85ae-42b52d3d83ac   
 **Mätarnamn**: ActualPremiumSnapshotSize   
 **Enhet**: GB\*månad   
-**Anteckningar**: Den verkliga storleken på disken för hanterade premium.   
+**Anteckningar**: Den verkliga storleken på disken för hanterade premium-ögonblicksbild.   
 
 **Mäter ID**: 5d76e09f-4567-452a-94cc-7d1f097761f0   
 **Mätarnamn**: S4   
@@ -285,7 +285,11 @@ Användning har rapporterats för följande resource providers:
 **Mäter ID**: 95b0c03f-8a82-4524-8961-ccfbf575f536   
 **Mätarnamn**: ActualPremiumSnapshotSize   
 **Enhet**: Byte\*timmar   
-**Anteckningar**: Den verkliga storleken på disken för hanterade premium (inaktuell) 
+**Anteckningar**: Den verkliga storleken på disken för hanterade premium-ögonblicksbild (inaktuell) 
+
+**Mäter ID**: 75d4b707-1027-4403-9986-6ec7c05579c8 **mätningsnamn**: ActualStandardSnapshotSize **enhet**: GB\*månad **anteckningar**: Den verkliga storleken på disken för hanterade standardögonblicksbild (inaktuell)  
+
+**Mäter ID**: 5ca1cbb9-6f14-4e76-8be8-1ca91547965e **mätningsnamn**: ActualPremiumSnapshotSize **Unit**: GB\*månad **anteckningar**: Den verkliga storleken på disken för hanterade premium-ögonblicksbild (inaktuell)  
 
 ### <a name="sql-rp"></a>Sql RP
   

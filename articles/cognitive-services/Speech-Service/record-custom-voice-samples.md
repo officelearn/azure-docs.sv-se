@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 0ca82da43ea53aed3fbcf858b34a3ad94d712661
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: d5d3d7031f9795db0ae04bc707bd9e7707137210
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55864952"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57530747"
 ---
 # <a name="record-voice-samples-to-create-a-custom-voice"></a>Post voice-exempel för att skapa en anpassad röst
 
@@ -150,7 +150,7 @@ Ange nivåer så att det mesta av digital registrering tillgängliga dynamiska o
 
 Här kan de flesta av intervallet (höjd) används, men de högsta topparna av signalen når inte upp eller ned i fönstret. Du kan också se att tystnad i inspelningen tillhandahåller en tunn vågrät linje, som anger en låg bruset våning. Den här inspelningen har dynamiska intervallet och signal brus förhållande.
 
-Post direkt till datorn via en högkvalitativ ljud-gränssnittet eller en USB-port, beroende på mic som du använder. Analog, håller ljud kedjan enkla: mic, preamp, ljud-gränssnittet, datorn. Du kan licensiera både [Avid Pro verktyg](http://www.avid.com/en/pro-tools) och [Adobe Audition](https://www.adobe.com/products/audition.html) per månad till en rimlig kostnad. Om din budget är mycket nära, prova det kostnadsfritt [Audacity](https://www.audacityteam.org/).
+Post direkt till datorn via en högkvalitativ ljud-gränssnittet eller en USB-port, beroende på mic som du använder. Analog, håller ljud kedjan enkla: mic, preamp, ljud-gränssnittet, datorn. Du kan licensiera både [Avid Pro verktyg](https://www.avid.com/en/pro-tools) och [Adobe Audition](https://www.adobe.com/products/audition.html) per månad till en rimlig kostnad. Om din budget är mycket nära, prova det kostnadsfritt [Audacity](https://www.audacityteam.org/).
 
 Registrera med 44,1 kHz 16-bitars monophonic (CD kvalitet) eller snabbare. Aktuella-för-avancerade är 48 kHz 24-bitars om utrustningen stöder den. Du kommer nedåtsampla dina ljud till 16 kHz 16-bitars innan du skickar den till den anpassade Voice-portalen. Ändå har lönar det sig att en högkvalitativ ursprungliga inspelning i den händelse att ändringar behövs.
 
@@ -204,7 +204,7 @@ Moderna inspelning studios köras på datorer. I slutet av sessionen får du en 
 
 Anpassad Voice-portalen kräver varje angivet uttryck i en egen fil. Varje ljudfil som levereras av studio innehåller flera yttranden. Så är den primära släppts aktiviteten att dela upp inspelningarna och förbereda dem för bidrag. Spela in-tekniker kan placeras markörer i filen (eller tillhandahålls ett separat stack-blad) att ange där varje uttryck startar.
 
-Använd dina anteckningar för att hitta den exakta tar du vill och sedan använda ett ljud redigera verktyg, till exempel [Avid Pro verktyg](http://www.avid.com/en/pro-tools), [Adobe Audition](https://www.adobe.com/products/audition.html), eller den kostnadsfria [Audacity](https://www.audacityteam.org/), för att kopiera alla uttryck i en ny fil.
+Använd dina anteckningar för att hitta den exakta tar du vill och sedan använda ett ljud redigera verktyg, till exempel [Avid Pro verktyg](https://www.avid.com/en/pro-tools), [Adobe Audition](https://www.adobe.com/products/audition.html), eller den kostnadsfria [Audacity](https://www.audacityteam.org/), för att kopiera alla uttryck i en ny fil.
 
 Lämna normalt bara 0,2 sekunders tystnad i början och slutet av varje klipp, förutom först. Filen ska inledas med en fullständig fem sekunder tystnad. Använd inte en ljud-redigerare till ”noll out” tyst delar av filen. Inklusive ”rummet tonen” kan anpassade röst algoritmer kompensera för eventuella återstående bakgrundsljud.
 

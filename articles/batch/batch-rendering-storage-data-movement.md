@@ -6,12 +6,12 @@ author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
-ms.openlocfilehash: 0d343ff5d7513500fa7803495dd42eb94b772935
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 15f5fe6e74cbe8cbffff31114e8aa588ec4a7ebb
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53546104"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57538008"
 ---
 # <a name="storage-and-data-movement-options-for-rendering-asset-and-output-files"></a>Alternativ för lagring och data movement för återgivning av tillgången och utgående filer
 
@@ -25,7 +25,7 @@ Det finns flera alternativ för att göra scen- och tillgångsnivå filer tillg�
   * Det här alternativet har fördelen att den är mycket kostnadseffektivt, som det krävs inga virtuella datorer för filsystem, plus blobfuse cachelagring på de virtuella datorerna förhindrar upprepade hämtningar av samma filer för flera jobb och uppgifter.  Dataförflyttning är också enkelt eftersom filerna är helt enkelt blobar och standard-API: er och verktyg, till exempel azcopy, som kan användas för att kopiera filen mellan ett lokalt filsystem och Azure storage.
 * Filsystem eller filresurs:
   * Beroende på VM-operativsystem och prestanda/skalningskrav kan sedan alternativ inkluderar [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction), med hjälp av en virtuell dator med anslutna diskar för NFS, med flera virtuella datorer med anslutna diskar i ett distribuerat filsystem som GlusterFS, eller med hjälp av ett erbjudande från tredje part.
-  * [Avere system](http://www.averesystems.com/) är nu en del av Microsoft och kommer att ha lösningar inom en snar framtid som lämpar sig för storskaliga, högpresterande rendering.  Avere-lösningen kan en Azure-baserade NFS eller SMB-cache skapas som fungerar tillsammans med blob storage eller med lokala NAS-enheter.
+  * [Avere system](https://www.averesystems.com/) är nu en del av Microsoft och kommer att ha lösningar inom en snar framtid som lämpar sig för storskaliga, högpresterande rendering.  Avere-lösningen kan en Azure-baserade NFS eller SMB-cache skapas som fungerar tillsammans med blob storage eller med lokala NAS-enheter.
   * Med ett filsystem filer kan läsas eller skrivas direkt till filsystemet eller kopieras mellan filsystem och pool med virtuella datorer.
   * Ett delat filsystem kan ett stort antal tillgångar som delas mellan projekt och jobb som kan användas med rendering uppgifter endast åtkomst till vad som krävs.
 

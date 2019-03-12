@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 11/17/2016
 ms.author: keikhara
 ms.custom: mvc
-ms.openlocfilehash: 1278c788c0d36b2cadf860e379791ecd823a510b
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 8ed148dfd6441d05891ef38934123a9cd3827b8b
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56113857"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57538552"
 ---
 # <a name="deprecated-monitor-an-azure-container-service-dcos-cluster-with-log-analytics"></a>(INAKTUELL) Övervaka ett Azure Container Service DC/OS-kluster med Log Analytics
 
@@ -34,7 +34,7 @@ Den här artikeln förutsätter att du har konfigurerat ett DC/OS och har distri
 ### <a name="pre-requisite"></a>Förhandskrav
 - [Microsoft Azure-prenumeration](https://azure.microsoft.com/free/) – du kan skaffa en prenumeration utan kostnad.  
 - Logga Analytics arbetsyta-installation - Se ”steg 3” nedan
-- [DC/OS CLI](http://docs.mesosphere.com/1.12/cli) installerad.
+- [DC/OS CLI](https://docs.mesosphere.com/1.12/cli) installerad.
 
 1. I DC/OS-instrumentpanelen klickar du på Universe och Sök efter ”OMS” enligt nedan.
 

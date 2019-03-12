@@ -1,5 +1,5 @@
 ---
-title: Azure Log Analytics VM-tillägg för Linux | Microsoft Docs
+title: Azure Monitor VM-tillägg för Linux | Microsoft Docs
 description: Distribuera Log Analytics-agenten på Linux-dator med hjälp av tillägg för virtuell dator.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -15,21 +15,23 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 11/30/2018
 ms.author: roiyz
-ms.openlocfilehash: 3bb6bdfa849894547175c5ccf79ee476b4987a97
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: a004182371299e98933d0469e9c85313b29ede3e
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57408827"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57550744"
 ---
-# <a name="log-analytics-virtual-machine-extension-for-linux"></a>Logga Analytics tillägg för virtuell dator för Linux
+# <a name="azure-monitor-virtual-machine-extension-for-linux"></a>Azure Monitor VM-tillägg för Linux
 
 ## <a name="overview"></a>Översikt
 
-Log Analytics tillhandahåller funktioner för övervakning, varningar och aviseringar reparation i molnet och lokala resurser. Tillägget för virtuell dator Log Analytics-agenten för Linux är publicerat och stöds av Microsoft. Tillägget Log Analytics-agenten installeras på virtuella Azure-datorer och registreras virtuella datorer i en befintlig Log Analytics-arbetsyta. Det här dokumentet beskriver de plattformar som stöds, konfigurationer och distributionsalternativ för Log Analytics-tillägget för virtuell dator för Linux.
+Azure Monitor-loggar ger funktioner för övervakning, varningar och aviseringar reparation i molnet och lokala tillgångar. Tillägget för virtuell dator Log Analytics-agenten för Linux är publicerat och stöds av Microsoft. Tillägget Log Analytics-agenten installeras på virtuella Azure-datorer och registreras virtuella datorer i en befintlig Log Analytics-arbetsyta. Det här dokumentet beskriver de plattformar som stöds, konfigurationer och distributionsalternativen för Azure Monitor-tillägget för virtuell dator för Linux.
 
 >[!NOTE]
 >Som en del av pågående övergången från Microsoft Operations Management Suite (OMS) till Azure Monitor betecknas OMS-agenten för Windows eller Linux som Log Analytics-agenten för Windows och Log Analytics-agenten för Linux.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -52,9 +54,9 @@ Tillägget Log Analytics-agenten kan köras mot dessa Linux-distributioner.
 >
 
 ### <a name="agent-and-vm-extension-version"></a>Version av agenten och tillägg för virtuell dator
-Följande tabell innehåller en mappning av versionen av Log Analytics VM-tillägget och Log Analytics-agenten paket för varje version. En länk till viktig information om Paketversion för Log Analytics-agenten ingår. Viktig information innehåller information om felkorrigeringar och nya funktioner som är tillgängliga för en viss agent-version.  
+Följande tabell innehåller en mappning av versionen av Azure Monitor VM-tillägg och Log Analytics-agenten paket för varje version. En länk till viktig information om Paketversion för Log Analytics-agenten ingår. Viktig information innehåller information om felkorrigeringar och nya funktioner som är tillgängliga för en viss agent-version.  
 
-| Log Analytics Linux VM-tilläggsversion | Paketversion för log Analytics-agenten | 
+| Azure Monitor Linux VM-tilläggsversion | Paketversion för log Analytics-agenten | 
 |--------------------------------|--------------------------|
 | 1.8.11 | [1.8.1-256](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.8.1.256)| 
 | 1.8.0 | [1.8.0-256](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/1.8.0-256)| 
@@ -125,7 +127,7 @@ Följande JSON visar schemat för tillägget Log Analytics-agenten. Tillägget k
 
 ## <a name="template-deployment"></a>Malldistribution
 
-Azure VM-tillägg kan distribueras med Azure Resource Manager-mallar. Mallar är perfekt när du distribuerar en eller flera virtuella datorer som kräver konfiguration efter distribution, till exempel Kom igång med Log Analytics. En Resource Manager-mall som innehåller Log Analytics-agenten VM-tillägget kan hittas på den [Azure Quick Start-galleriet](https://github.com/Azure/azure-quickstart-templates/tree/master/201-oms-extension-ubuntu-vm). 
+Azure VM-tillägg kan distribueras med Azure Resource Manager-mallar. Mallar är perfekt när du distribuerar en eller flera virtuella datorer som kräver konfiguration efter distribution, till exempel Kom igång med Azure Monitor-loggar. En Resource Manager-mall som innehåller Log Analytics-agenten VM-tillägget kan hittas på den [Azure Quick Start-galleriet](https://github.com/Azure/azure-quickstart-templates/tree/master/201-oms-extension-ubuntu-vm). 
 
 JSON-konfiguration för tillägg för virtuell dator kan kapslas i resursen för virtuella datorer eller placeras i roten eller översta nivån i en Resource Manager JSON-mall. Placeringen av JSON-konfigurationen påverkar värdet för resursnamn och typ. Mer information finns i [ange namn och typ för underordnade resurser](../../azure-resource-manager/resource-group-authoring-templates.md#child-resources). 
 
@@ -220,7 +222,7 @@ Tillägget utförande-utdatan loggas till följande fil:
 | 19 | OMI paketet installationsfel | 
 | 20 | Installationsfel för SCX-paket |
 | 51 | Det här tillägget stöds inte på den Virtuella datorns operativsystem | |
-| 55 | Det går inte att ansluta till Log Analytics-tjänsten eller paket som krävs saknas eller dpkg Pakethanteraren är låst| Kontrollera att datorn är ansluten till Internet eller att en giltig HTTP-proxy har angetts. Dessutom kan kontrollera för arbetsyte-ID och kontrollera curl och tar är installerade. |
+| 55 | Det går inte att ansluta till Azure Monitor-tjänsten eller paket som krävs saknas eller dpkg Pakethanteraren är låst| Kontrollera att datorn är ansluten till Internet eller att en giltig HTTP-proxy har angetts. Dessutom kan kontrollera för arbetsyte-ID och kontrollera curl och tar är installerade. |
 
 Ytterligare information kan hittas på den [felsökningsguide för Log Analytics-agenten för Linux](../../azure-monitor/platform/vmext-troubleshoot.md).
 

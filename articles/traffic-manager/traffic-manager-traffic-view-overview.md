@@ -12,12 +12,12 @@ ms.workload: infrastructure
 ms.date: 03/16/2018
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: 9f818715895c2ff2c5d0e1758aaf17a2393287d2
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 70ac4319e2ea0081f7805c2fb936af1310d57d8f
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54050656"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57534948"
 ---
 # <a name="traffic-manager-traffic-view"></a>Traffic Manager Trafikvy
 
@@ -35,6 +35,8 @@ Du kan till exempel använda Trafikvyn för att förstå vilka regioner som har 
 
 Traffic View fungerar genom att använda Traffic Manager titta på de inkommande frågor som tagits emot under de senaste sju dagarna mot en profil som har den här funktionen är aktiverad. Från den inkommande informationen som frågor extraherar Traffic View käll-IP för DNS-matchare som används som en representation av platsen för användarna. Dessa grupperas sedan samman i en DNS-på-tolkarnivå att skapa användaren grundläggande regioner med hjälp av geografisk information med IP-adresser som underhålls av Traffic Manager. Traffic Manager tittar sedan på Azure-regioner som frågan har dirigerats och skapar en karta för flödet av trafik för användare från dessa regioner.  
 I nästa steg, Traffic Manager korrelerar användaren grundläggande regionen för Azure-region-mappning med nätverket intelligence svarstid tabeller som den underhållet för nätverk för olika slutanvändaren att förstå den genomsnittliga svarstiden av användare från dessa regioner när ansluter till Azure-regioner. Dessa beräkningar är sedan kombineras med en lokal DNS-matchare IP-nivå per innan den visas för dig. Du kan använda informationen på olika sätt.
+
+Frekvensen för datauppdatering för trafik vyn är beroende av flera intern tjänst variabler. Data uppdateras dock vanligtvis en gång per dygn.
 
 >[!NOTE]
 >Den svarstid som beskrivs i Trafikvyn är en representativ fördröjning mellan användaren och vilka Azure-regioner som har de ansluta till och är inte DNS-sökning svarstiden. Traffic View gör returnerade en bästa arbete uppskattning av fördröjning mellan den lokala DNS-matcharen och Azure-regionen frågan var dirigeras till, om det finns inte tillräckligt med data och sedan svarstiden är null. 

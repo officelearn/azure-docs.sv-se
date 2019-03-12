@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/28/2019
 ms.author: banders
-ms.openlocfilehash: 3cd1bbf1852c440172913467c5c8523c520cac2f
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 389a8ac729cf5f4f95aa37654434245d08ecc87e
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57337523"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57533637"
 ---
 # <a name="set-up-your-billing-account-for-a-microsoft-customer-agreement"></a>Konfigurera ditt faktureringskonto för en Microsoft-kundavtal
 
@@ -136,7 +136,7 @@ Följande avsnitt innehåller ytterligare information om hur du konfigurerar dit
 
 ### <a name="no-service-downtime"></a>Inga driftstopp för tjänsten
 
-Azure-tjänster i din prenumeration att köra utan avbrott. Vi bara övergång faktureringsrelation för dina Azure-prenumerationer. Det kommer inte att en påverkan på befintliga resurser, resursgrupper eller hanteringsgrupper.
+Azure-tjänster i din prenumeration löper på utan avbrott. Vi flyttar bara faktureringsrelationen för dina Azure-prenumerationer. Befintliga resurser, resursgrupper eller hanteringsgrupper påverkas inte.
 
 ### <a name="user-access-to-azure-resources"></a>Användaråtkomst till Azure-resurser
 
@@ -144,7 +144,7 @@ Azure-tjänster i din prenumeration att köra utan avbrott. Vi bara övergång f
 
 ### <a name="azure-reservations"></a>Azure-reservationer
 
-Alla Azure-reservationer i ditt Enterprise Agreement-registrering har flyttats till ditt nya faktureringskonto. Under övergången, kommer inte det att ändringar av reservationen rabatterna som tillämpas på dina prenumerationer.
+Alla Azure-reservationer i ditt Enterprise Agreement-registrering har flyttats till ditt nya faktureringskonto. Vid övergången tillämpas inga ändringar av reservationsrabatter som tillämpas på dina prenumerationer.
 
 ### <a name="azure-marketplace-products"></a>Azure Marketplace-produkter
 
@@ -203,7 +203,7 @@ Du behöver åtkomst till både det nya faktureringskontot och Enterprise Agreem
 
 ### <a name="azure-subscriptions"></a>Azure-prenumerationer
 
-1. Logga in på [Azure Portal](http://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 
 2. Sök på **Cost Management + fakturering**.
 
@@ -219,7 +219,7 @@ Azure-prenumerationer som överförs från din Enterprise Agreement-registrering
 
 ### <a name="azure-reservations"></a>Azure-reservationer
 
-1. Logga in på [Azure Portal](http://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 
 2. Sök på **Cost Management + fakturering**.
 
@@ -239,7 +239,7 @@ Azure-reservationer som flyttas från din Enterprise Agreement-registrering till
 
 ### <a name="access-of-enterprise-administrators-on-the-billing-profile"></a>Åtkomst till företagets administratörer på fakturering profilen
 
-1. Logga in på [Azure Portal](http://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 
 2. Sök på **Cost Management + fakturering**.
 
@@ -255,7 +255,7 @@ Företagsadministratörer listas som fakturering profil ägare när företaget a
 
 ### <a name="access-of-enterprise-administrators-department-administrators-and-account-owners-on-invoice-sections"></a>Åtkomst till Företagsadministratörer, avdelning administratörer och kontoinnehavare på faktura-avsnitt
 
-1. Logga in på [Azure Portal](http://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 
 2. Sök på **Cost Management + fakturering**.
 

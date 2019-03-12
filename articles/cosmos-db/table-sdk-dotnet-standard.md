@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: reference
 ms.date: 10/18/2018
-ms.openlocfilehash: ce7cc489b107ce4bd95270b9a7f8cb560a2d2398
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 99371f0ae56046a328155aa2151ad8b89df93a04
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55249654"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57551933"
 ---
 # <a name="azure-cosmos-db-table-net-standard-api-download-and-release-notes"></a>Azure Cosmos DB-tabell .NET Standard-API: Ladda ned och viktig information
 > [!div class="op_single_selector"]
@@ -30,6 +30,11 @@ ms.locfileid: "55249654"
 |**Aktuella framework som stöds**|[Microsoft .NET Standard 2.0](https://www.nuget.org/packages/NETStandard.Library)|
 
 ## <a name="release-notes"></a>Viktig information
+
+### <a name="a-name0110-preview0110-preview"></a><a name="0.11.0-preview"/>0.11.0-Preview
+* Ändringar har gjorts till hur CloudTableClient kan konfigureras. Det tar nu en ett TableClientConfiguration objekt under konstruktionen. TableClientConfiguration innehåller olika egenskaper för att konfigurera klientens funktionssätt beroende på om mål-slutpunkten är Cosmos DB Table API eller tabell-API för Azure Storage.
+* Stöd har lagts till för att TableQuery du returnerar resultat på sorteringsordningen på en anpassad kolumn. Den här funktionen stöds bara på Cosmos DB Table-slutpunkter.
+* Stöd har lagts till för att exponera RequestCharges på olika resultattyper. Den här funktionen stöds bara på Cosmos DB Table-slutpunkter.
 
 ### <a name="a-name0101-preview0101-preview"></a><a name="0.10.1-preview"/>0.10.1-Preview
 * Lägg till stöd för SAS-token, driften av TablePermissions och ServiceProperties ServiceStats mot Azure Storage-tabell slutpunkter. 
@@ -51,6 +56,7 @@ Microsoft meddelar minst **12 månader** förväg dra tillbaka en SDK för att u
 
 | Version | Utgivningsdatum | Slutdatum |
 | --- | --- | --- |
+| [0.11.0-Preview](#0.11.0-preview) |5 mars 2019 |--- |
 | [0.10.1-Preview](#0.10.1-preview) |Den 22 januari 2019 |--- |
 | [0.10.0-Preview](#0.10.0-preview) |18 december 2018 |--- |
 | [0.9.1-Preview](#0.9.1-preview) |Den 18 oktober 2018 |--- |

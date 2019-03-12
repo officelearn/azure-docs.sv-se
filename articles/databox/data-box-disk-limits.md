@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: article
 ms.date: 02/19/2019
 ms.author: alkohli
-ms.openlocfilehash: 70a611f6a9b52ba6a4c904cc4cfa9bc8f0b4df8e
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 65a3aa41c72341aa57c8cb2ddca5d1ed10f0ec06
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57409592"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57530849"
 ---
 # <a name="azure-data-box-disk-limits"></a>Azure Data Box-Disk-gränser
 
@@ -46,7 +46,7 @@ Gå till den senaste informationen på tjänstbegränsningar för Azure storage 
 
 - Kopiera inte data direkt till diskarna. Kopiera data till färdiga *BlockBlob*,*PageBlob*, och *AzureFile* mappar.
 - En mapp under den *BlockBlob* och *PageBlob* är en behållare. Exempelvis behållare skapas som *BlockBlob/behållare* och *PageBlob/behållare*.
-- Om du har ett befintligt Azure objekt (till exempel en blob) i molnet med samma namn som det objekt som ska kopieras skrivs Data Box-Disk till filen i molnet.
+- Om du har ett befintligt Azure objekt (till exempel en blob) i molnet med samma namn som det objekt som ska kopieras Data Box-Disk namnet på filen som file(1) i molnet.
 - Alla filer som skrivits till *BlockBlob* och *PageBlob* resurser överförs som en blockblob och sidblob respektive.
 - Eventuella tomma Kataloghierarki (utan några filer) som skapats under *BlockBlob* och *PageBlob* mappar inte laddas.
 - Om det finns några fel när du överför data till Azure, skapas en fellogg i mållagringskontot. Sökvägen till den här loggen är tillgänglig i portalen när överföringen är klar och du kan granska loggen för att vidta åtgärder. Ta inte bort data från källan utan att verifiera överförda data.

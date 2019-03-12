@@ -9,18 +9,18 @@ ms.date: 04/12/2018
 ms.topic: article
 ms.service: active-directory
 ms.workload: identity
-ms.openlocfilehash: a05874e28c08087b6f82c3aa5a02e83d2629ffe5
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 7a90a0af8c6c7fd19b784d97e2ce30bea7910089
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56728190"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57550719"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Välja rätt autentiseringsmetod för din Azure Active Directory-hybrididentitetslösning 
 
 Den här artikeln börjar en serie av artiklar som hjälper organisationer att implementera en fullständig hybrididentitetslösning för Azure Active Directory (AD Azure). Den här lösningen har beskrivs som den [Hybrid Identity Digital omvandling Framework](https://aka.ms/aadframework). Den behandlar verksamhetens resultat och mål organisationer kan fokusera på att implementera en robust och säker hybrididentitetslösning. 
 
-Den första affärsresultat av framework anger kraven för organisationer att skydda autentiseringsprocessen när användare har åtkomst till molnappar. Första företag målet i den säkra affärsresultat för autentisering är användarnas möjlighet att logga in på molnappar med hjälp av den lokala användarnamn och lösenord. Den här processen att och hur användare autentisera gör allt i molnet möjligt.
+Den första affärsresultat av framework anger kraven för organisationer att skydda autentiseringsprocessen när användare har åtkomst till molnappar. Första företag målet i den säkra affärsresultat för autentisering är användarnas möjlighet att logga in på molnappar med hjälp av den lokala användarnamn och lösenord. Den här processen för inloggning och autentisering går allt i molnet.
 
 Att välja rätt autentiseringsmetod är det första problemet för organisationer som vill flytta sina appar till molnet. Inte gör det här beslutet lättvindigt, av följande skäl:
 
@@ -161,7 +161,7 @@ Följande diagram visas de övergripande arkitektur komponenter som krävs för 
 
     ![Azure AD-hybrididentitet med synkronisering av lösenordshash](media/azure-ad/azure-ad-authn-image2.png)
 
-* Krav för direktautentisering:
+* Krav för direktautentisering, med två agenter för redundans:
 
     ![Azure AD-hybrididentitet med direktautentisering](media/azure-ad/azure-ad-authn-image3.png)
 
@@ -204,7 +204,7 @@ Använd eller aktivera lösenordshashsynkronisering oavsett vilken autentisering
 
    * Organisationer som tidigare slagits på synkronisering av lösenordshash ändra autentiseringsmetod för att använda synkronisering av lösenordshash. De var online igen på bara några timmar. Med åtkomst till e-post via Office 365 kan arbetat de för att lösa problem och få åtkomst till andra molnbaserade arbetsbelastningar.
 
-   * Organisationer som inte tidigare aktivera lösenordshashsynkronisering var tvungen att använda ej betrodda externa konsument e-postsystem informations-och lösa problem. I sådana fall kan tog det dem veckor eller mer att vara igång igen.
+   * Organisationer som inte tidigare aktivera lösenordshashsynkronisering var tvungen att använda ej betrodda externa e-system för kommunikation att lösa problem. I sådana fall kan tog det dem veckor att återställa den lokala identitetsinfrastrukturen, innan användarna kunde logga in på molnbaserade appar igen.
 
 3. **Identitetsskydd**. En av de bästa sätten att skydda användare i molnet är Azure AD Identity Protection med Azure AD Premium P2. Microsoft söker igenom kontinuerligt Internet för användare och lösenord visar att skadliga aktörer sälja och tillgängliggöra för mörka Internet. Azure AD kan använda den här informationen för att kontrollera om någon av de användarnamn och lösenord i din organisation har komprometterats. Det är därför viktigt att aktivera synkronisering av lösenordshash oavsett vilken autentiseringsmetod som du använder, om som är federerat eller direktautentisering. Läckta autentiseringsuppgifter kan visas som en rapport. Använd den här informationen för att blockera eller tvinga användare att ändra sina lösenord när de försöker logga in med läckta lösenord.
 

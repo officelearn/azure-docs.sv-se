@@ -8,12 +8,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: alinast
-ms.openlocfilehash: 897a350c345e6e284f30040c0d4fcf07d5a6f466
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 4db515a931bc7f423eb11ae31b7304a602f0da46
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54106849"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57531750"
 ---
 # <a name="data-processing-and-user-defined-functions"></a>Databearbetning och användardefinierade funktioner
 
@@ -40,7 +40,7 @@ Databearbetning i Azure Digital Twins genom att definiera tre objekt: *matchers*
 
 ### <a name="matchers"></a>Matchers
 
-Matchers definierar en uppsättning villkor som utvärderas vad äga rum baserat på inkommande sensor telemetri. Villkor för att bestämma matchningen kan innehålla egenskaper från sensorn, den sensorn överordnade enheter och den sensorn överordnade utrymme. Villkor som är uttryckt i jämförelser mot en [JSON-sökvägen](http://jsonpath.com/) som beskrivs i det här exemplet:
+Matchers definierar en uppsättning villkor som utvärderas vad äga rum baserat på inkommande sensor telemetri. Villkor för att bestämma matchningen kan innehålla egenskaper från sensorn, den sensorn överordnade enheter och den sensorn överordnade utrymme. Villkor som är uttryckt i jämförelser mot en [JSON-sökvägen](https://jsonpath.com/) som beskrivs i det här exemplet:
 
 - Alla sensorer på datatype **temperatur** representeras av strängvärdet undantagna (escaped) `\"Temperature\"`
 - Med `01` i sina port

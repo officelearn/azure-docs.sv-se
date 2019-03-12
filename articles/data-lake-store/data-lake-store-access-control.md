@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: eaabb29a492ec6a0ef4c85afe839a9df5f588958
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 7c8553aed809290ea52fcb2e98fea48a30c109f6
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53087175"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57539606"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen1"></a>Åtkomstkontroll i Azure Data Lake Storage Gen1
 
@@ -27,9 +27,9 @@ Azure Data Lake Storage Gen1 implementerar en modell för åtkomstkontroll som h
 
 Det finns två sorters åtkomstkontrollistor (ACL:er), **Åtkomst-ACL:er** och **Standard-ACL:er**.
 
-* **Åtkomst-ACL:er**: De här kontrollerar åtkomst till ett objekt. Både filer och mappar har åtkomst-ACL:er.
+* **Åtkomst-ACL**: De här kontrollerar åtkomst till ett objekt. Både filer och mappar har åtkomst-ACL:er.
 
-* **Standard-ACL**: En "mall" av ACL:er som är associerad med en mapp som bestämmer åtkomst-ACL:er för underordnade objekt som skapats under mappen. Filer har inte standard-ACL:er.
+* **Standard-ACL**: En ”mall” av ACL: er som är associerade med en mapp som bestämmer åtkomst-ACL: er för underordnade objekt som har skapats under mappen. Filer har inte standard-ACL:er.
 
 
 Både åtkomst-ACL:er och standard-ACL:er har samma struktur.
@@ -132,7 +132,7 @@ Eftersom det finns inga ”primär grupp” som tillhör användare i Data Lake 
 
 **Tilldela den ägande gruppen för en ny fil eller mapp**
 
-* **Fall 1**: Rotmappen "/". Den här mappen skapas när ett Data Lake Storage Gen1 konto skapas. I det här fallet har den ägande gruppen tilldelats en all-noll-GUID.  Det här värdet tillåter inte någon åtkomst.  Det är en platshållare till dess att en grupp har tilldelats.
+* **Fall 1**: Rotmappen ”/”. Den här mappen skapas när ett Data Lake Storage Gen1 konto skapas. I det här fallet har den ägande gruppen tilldelats en all-noll-GUID.  Det här värdet tillåter inte någon åtkomst.  Det är en platshållare till dess att en grupp har tilldelats.
 * **Fall 2** (alla andra fall): När ett nytt objekt skapas, kopieras den ägande gruppen från den överordnade mappen.
 
 **Ändra den ägande gruppen**
@@ -289,13 +289,13 @@ Nej, men standard-ACL:er kan användas för att ange ACL:er för underordnade fi
 ### <a name="where-can-i-learn-more-about-posix-access-control-model"></a>Var hittar jag mer information om POSIX-modellen för åtkomstkontroll?
 
 * [POSIX-åtkomstkontrollistor på Linux](https://www.linux.com/news/posix-acls-linux)
-* [Guide för HDFS-behörighet](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html)
-* [Vanliga frågor och svar om POSIX](http://www.opengroup.org/austin/papers/posix_faq.html)
-* [POSIX 1003.1 2008](http://standards.ieee.org/findstds/standard/1003.1-2008.html)
-* [POSIX 1003.1 2013](http://pubs.opengroup.org/onlinepubs/9699919799.2013edition/)
-* [POSIX 1003.1 2016](http://pubs.opengroup.org/onlinepubs/9699919799.2016edition/)
+* [Guide för HDFS-behörighet](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html)
+* [Vanliga frågor och svar om POSIX](https://www.opengroup.org/austin/papers/posix_faq.html)
+* [POSIX 1003.1 2008](https://standards.ieee.org/findstds/standard/1003.1-2008.html)
+* [POSIX 1003.1 2013](https://pubs.opengroup.org/onlinepubs/9699919799.2013edition/)
+* [POSIX 1003.1 2016](https://pubs.opengroup.org/onlinepubs/9699919799.2016edition/)
 * [POSIX ACL på Ubuntu](https://help.ubuntu.com/community/FilePermissionsACLs)
-* [ACL med åtkomstkontrollistor på Linux](http://bencane.com/2012/05/27/acl-using-access-control-lists-on-linux/)
+* [ACL med åtkomstkontrollistor på Linux](https://bencane.com/2012/05/27/acl-using-access-control-lists-on-linux/)
 
 ## <a name="see-also"></a>Se också
 

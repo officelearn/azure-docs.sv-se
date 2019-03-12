@@ -3,17 +3,16 @@ title: Vanliga frågor och svar – Azure Disk Encryption för virtuella IaaS-da
 description: Den här artikeln innehåller svar på vanliga frågor och svar om Microsoft Azure Disk Encryption för Windows och Linux IaaS-datorer.
 author: mestew
 ms.service: security
-ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
 ms.date: 03/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: 14804de1d8507a49cda2ce1dd8ee97dc56c0223b
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: c082de09cbe17bd31e50d14329cfb8f58b01d8fe
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57439561"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57781331"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms-faq"></a>Azure Disk Encryption för virtuella IaaS-datorer: vanliga frågor och svar
 
@@ -44,12 +43,14 @@ Azure Disk Encryption stöds på följande Linux-server-distributioner och versi
 | --- | --- |--- |
 | Ubuntu | 16.04| OS- och disk |
 | Ubuntu | 14.04.5</br>[med Azure justerade kernel uppdateras till 4.15 eller senare](azure-security-disk-encryption-tsg.md#bkmk_Ubuntu14) | OS- och disk |
+| RHEL | 7.6 | OS- och disk * |
 | RHEL | 7.5 | OS- och disk * |
 | RHEL | 7.4 | OS- och disk * |
 | RHEL | 7.3 | OS- och disk * |
 | RHEL | 7.2 | OS- och disk * |
 | RHEL | 6.8 | Data disk * |
 | RHEL | 6.7 | Data disk * |
+| CentOS | 7.5 | OS- och disk |
 | CentOS | 7.4 | OS- och disk |
 | CentOS | 7.3 | OS- och disk |
 | CentOS | 7.2n | OS- och disk |

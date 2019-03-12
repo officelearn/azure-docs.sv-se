@@ -9,12 +9,12 @@ ms.subservice: bing-visual-search
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: rosh
-ms.openlocfilehash: 2f7de10eeb65b36823d6c4cc84b0032913638889
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 90ef7853f9b30a820b2c6f66324ecbc39ffa525f
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57444607"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57547395"
 ---
 # <a name="tutorial-crop-an-image-with-the-bing-visual-search-sdk-for-c"></a>Självstudier: Beskär en bild med Bing Visual Search SDK förC#
 
@@ -33,7 +33,7 @@ Den här självstudien visar hur du:
 ## <a name="prerequisites"></a>Förutsättningar
 
 * Valfri version av [Visual Studio 2017](https://www.visualstudio.com/downloads/).
-* Om du använder Linux/Mac OS kan det här programmet köras med [Mono](http://www.mono-project.com/).
+* Om du använder Linux/Mac OS kan det här programmet köras med [Mono](https://www.mono-project.com/).
 - [NuGet-paketet för anpassad sökning](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.CustomSearch/1.2.0) installerat. 
     - Från Solution Explorer i Visual Studio högerklickar du på projektet och väljer `Manage NuGet Packages` på menyn. Installera `Microsoft.Azure.CognitiveServices.Search.CustomSearch`-paketet. När du installerar NuGet-paketet för anpassad sökning installeras även följande sammansättningar:
         - Microsoft.Rest.ClientRuntime

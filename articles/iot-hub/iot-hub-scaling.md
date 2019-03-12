@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/02/2018
 ms.author: wesmc
-ms.openlocfilehash: 26865acbf635f07db4799ab197e110d37cbe69e8
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 0d40bfa3a4215b671fcd01402a2cbceaea0cd75d
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56984347"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57536291"
 ---
 # <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>Välja rätt nivå för IoT Hub för din lösning
 
@@ -33,7 +33,7 @@ Standardnivån för IoT Hub kan du använda alla funktioner och är obligatorisk
 
 Endast en typ av [edition](https://azure.microsoft.com/pricing/details/iot-hub/) inom en nivå kan väljas per IoT Hub. Du kan till exempel skapa en IoT-hubb med flera enheter av S1, men inte med en blandning av enheter från olika versioner, till exempel S1 och B3, eller S1 och S2.
 
-| Funktion | Basic-nivå | Standard-nivå |
+| Funktion | Basic-nivå | Kostnadsfria/Standard-nivå |
 | ---------- | ---------- | ------------- |
 | [Enhet-till-moln-telemetri](iot-hub-devguide-messaging.md) | Ja | Ja |
 | [Identitet per enhet](iot-hub-devguide-identity-registry.md) | Ja | Ja |
@@ -67,7 +67,7 @@ Partitionskonfigurationen ändras inte när du migrerar från basic-nivån till 
 
 Skillnaden i funktioner som stöds mellan nivåerna basic och standard för IoT Hub innebär att vissa API-anrop inte fungerar med nivån basic hubs. I följande tabell visas vilka API: er är tillgängliga: 
 
-| API | Basic-nivå | Standard-nivå |
+| API | Basic-nivå | Kostnadsfria/Standard-nivå |
 | --- | ---------- | ------------- |
 | [Ta bort enhet](https://docs.microsoft.com/rest/api/iothub/service/deletedevice) | Ja | Ja |
 | [Få enhet](https://docs.microsoft.com/rest/api/iothub/service/getdevice) | Ja | Ja |

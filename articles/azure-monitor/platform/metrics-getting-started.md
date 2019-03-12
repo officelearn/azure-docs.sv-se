@@ -8,25 +8,21 @@ ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: 9d23d4b30ca4d394fb4afd0bb6620be6df179600
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: e611f1564896cfdecb3ce34ab7c5361e5200b48a
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57444947"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57537345"
 ---
 # <a name="getting-started-with-azure-metrics-explorer"></a>Komma igång med Azure Metrics Explorer
 
 ## <a name="where-do-i-start"></a>Var ska jag börja
+Azure Monitor metrics explorer är en komponent i Microsoft Azure-portalen som tillåter ritområdet diagram, visuellt korrelera trender och undersöka toppar och dalar mått '. Använd metrics explorer för att undersöka hälsa och användning av dina resurser. Starta i följande ordning:
 
-> [!NOTE]
-> Den här artikeln beskriver viktiga begrepp för att hjälpa nya användare som kom igång med Azure Monitor metrics explorer. Mer detaljerad dokumentation och information om avancerade inställningar och mått finns i [avancerade funktioner i Azure Monitor metrics explorer](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-charts).
+1. [Välj en resurs och ett mått](#create-your-first-metric-chart) och du ser ett grundläggande diagram. Sedan [välja ett tidsintervall](#select-a-time-range) som är relevant för din undersökning.
 
-Använd metrics explorer för att undersöka hälsa och användning av dina resurser. Starta i följande ordning:
-
-1. Börja med att [välja en resurs och ett mått](#creating-your-first-metric-chart) och du ser ett grundläggande diagram. Sedan [välja ett tidsintervall](#picking-time-range) som är relevant för din undersökning.
-
-1. Försök [de dimension filtren har använts och dela](#applying-dimension-filters-and-splitting). Filtren och dela kan du analysera vilka segment av måttet bidra till det övergripande måttvärdet och identifiera möjliga extremvärden.
+1. Försök [de dimension filtren har använts och dela](#apply-dimension-filters-and-splitting). Filtren och dela kan du analysera vilka segment av måttet bidra till det övergripande måttvärdet och identifiera möjliga extremvärden.
 
 1. Använd [avancerade inställningar](#advanced-chart-settings-and-next-steps) att anpassa diagrammet innan du fäster till instrumentpaneler. [Konfigurera aviseringar](alerts-metric-overview.md) att ta emot meddelanden när måttet överskrider eller sjunker under ett tröskelvärde.
 
@@ -49,7 +45,7 @@ Om du vill skapa ett måttdiagram från resurs, resursgrupp, prenumeration eller
 > [!NOTE]
 > Använd den **Lägg till mått** knappen och upprepa dessa steg om du vill se flera mått som ritas i samma diagram. Flera diagram i en vy, Välj den **Lägg till diagram** längst upp.
 
-## <a name="pick-a-time-range"></a>Välj ett tidsintervall
+## <a name="select-a-time-range"></a>Välj ett tidsintervall
 
 Diagrammet visar de senaste 24 timmarna av mätvärden som standard. Använd den **tidsväljare** panelen för att ändra tidsintervallet, Zooma in eller Zooma ut i diagrammet. 
 
@@ -57,7 +53,7 @@ Diagrammet visar de senaste 24 timmarna av mätvärden som standard. Använd den
 
 ## <a name="apply-dimension-filters-and-splitting"></a>Lägga till dimensionsfilter och dela
 
-[Filtrering](metrics-charts.md#apply-filters-to-charts) och [uppdelningen](metrics-charts.md#apply-splitting-to-a-chart) är kraftfulla diagnostikverktyg för mått med dimensioner. De här funktion visar hur olika mått segment (”dimensionsvärden”) påverkar det övergripande värdet för måttet och hjälpa dig att identifiera möjliga extremvärden.
+[Filtrering](metrics-charts.md#apply-filters-to-charts) och [uppdelningen](metrics-charts.md#apply-splitting-to-a-chart) är kraftfulla diagnostikverktyg för mått med dimensioner. Dessa funktioner och visar hur olika mått segment (”dimensionsvärden”) påverkan det övergripande värdet för måttet och hjälpa dig att identifiera möjliga extremvärden.
 
 - **Filtrering** låter dig välja vilka dimensionsvärden som ingår i diagrammet. Du kanske till exempel vill visa lyckade begäranden när diagram i *serversvarstid* mått. Skulle du behöva använda filtret på den *framgången för begäran* dimension. 
 

@@ -12,24 +12,16 @@ ms.author: mathoma
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: 3ad33968107aec551ea99e503797382c7fcea0c5
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 08ec654ecdfe9764aefdde287c5a4c78022c108c
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56877098"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57551704"
 ---
 # <a name="transactional-replication-with-single-pooled-and-instance-databases-in-azure-sql-database"></a>Transaktionsreplikering med enda, pooler och databaser i Azure SQL Database-instans
 
 Transaktionsreplikering är en funktion i Azure SQL Database och SQL Server som gör det möjligt att replikera data från en tabell i Azure SQL Database eller en SQL Server till de tabeller som placeras på fjärr-databaser. Den här funktionen kan du synkronisera flera tabeller i olika databaser.
-
-## <a name="when-to-use-transactional-replication"></a>När du ska använda Transaktionsreplikering
-
-Transaktionsreplikering är användbart i följande scenarier:
-
-- Publicera ändringar som gjorts i en eller flera tabeller i en databas och distribuera dem till en eller flera SQL Server eller Azure SQL-databaser som prenumererar på för att ändringarna.
-- Ha flera distribuerade databaser i synkroniserat tillstånd.
-- Migrera databaser från en SQL Server eller hanterad instans till en annan databas genom att kontinuerligt publicera ändringarna.
 
 ## <a name="overview"></a>Översikt
 
@@ -59,6 +51,9 @@ Den **prenumerant** är en instans eller en server som tar emot ändringar som g
 | **Push-prenumerant**| Ja | Ja|
 | &nbsp; | &nbsp; | &nbsp; |
 
+  >[!NOTE]
+  > En mottagarinitierad prenumeration stöds inte när distributören är en instans-databas och prenumeranten finns inte. 
+
 Det finns olika [typer av replikering](https://docs.microsoft.com/sql/relational-databases/replication/types-of-replication?view=sql-server-2017):
 
 
@@ -76,13 +71,44 @@ Det finns olika [typer av replikering](https://docs.microsoft.com/sql/relational
   >[!NOTE]
   > - Försök att konfigurera replikering med en äldre version kan resultera i fel antal MSSQL_REPL20084 (processen inte kunde ansluta till prenumeranten.) och MSSQ_REPL40532 (det går inte att öppna servern \<namn > begärdes vid inloggningen. Inloggningen misslyckades.)
   > - Om du vill använda alla funktioner i Azure SQL Database, måste du använda de senaste versionerna av [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017) och [SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt?view=sql-server-2017).
+  
+  ### <a name="supportabilty-matrix-for-instance-databases-and-on-premises-systems"></a>Supportabilty matris för instans-databaser och lokala system
+  Replikering support matrix exempelvis databaser är samma som för SQL Server lokalt. 
+  
+  | **Utgivare**   | **Distributören** | **Prenumerant** |
+| :------------   | :-------------- | :------------- |
+| SQL Server 2017 | SQL Server 2017 | SQL Server 2017 <br/> SQL Server 2016 <br/> SQL Server 2014 |
+| SQL Server 2016 | SQL Server 2017 <br/> SQL Server 2016 | SQL Server 2017 <br/>SQL Server 2016 <br/> SQL Server 2014 <br/> SQL Server 2012 |
+| SQL Server 2014 | SQL Server 2017 <br/> SQL Server 2016 <br/> SQL Server 2014 <br/>| SQL Server 2017 <br/> SQL Server 2016 <br/> SQL Server 2014 <br/> SQL Server 2012 <br/> SQL Server 2008 R2 <br/> SQL Server 2008 |
+| SQL Server 2012 | SQL Server 2017 <br/> SQL Server 2016 <br/> SQL Server 2014 <br/>SQL Server 2012 <br/> | SQL Server 2016 <br/> SQL Server 2014 <br/> SQL Server 2012 <br/> SQL Server 2008 R2 <br/> SQL Server 2008 | 
+| SQL Server 2008 R2 <br/> SQL Server 2008 | SQL Server 2017 <br/> SQL Server 2016 <br/> SQL Server 2014 <br/>SQL Server 2012 <br/> SQL Server 2008 R2 <br/> SQL Server 2008 | SQL Server 2014 <br/> SQL Server 2012 <br/> SQL Server 2008 R2 <br/> SQL Server 2008 <br/>  |
+| &nbsp; | &nbsp; | &nbsp; |
 
 ## <a name="requirements"></a>Krav
 
 - Anslutningen använder SQL-autentisering mellan replikering deltagare. 
 - Ett Azure Storage-konto-resurs för arbetskatalogen som används för replikeringen. 
 - Port 445 (TCP utgående) måste vara öppna i säkerhetsregler för hanterad instans-undernätet för att komma åt Azure-filresursen. 
-- Port 1433 (TCP utgående) måste öppnas om utgivare/distributören finns på en hanterad instans och prenumeranten är på plats. 
+- Port 1433 (TCP utgående) måste öppnas om utgivare/distributören finns på en hanterad instans och prenumeranten är på plats.
+
+  >[!NOTE]
+  > Du kan stöta på fel 53 när du ansluter till en Azure Storage-fil om utgående network security group (NSG) port 445 blockeras när distributören är en instans-databas och prenumeranten är på plats. [Uppdatera vNet NSG](/azure/storage/files/storage-troubleshoot-windows-file-connection-problems) att lösa problemet. 
+
+## <a name="when-to-use-transactional-replication"></a>När du ska använda Transaktionsreplikering
+
+Transaktionsreplikering är användbart i följande scenarier:
+
+- Publicera ändringar som gjorts i en eller flera tabeller i en databas och distribuera dem till en eller flera SQL Server eller Azure SQL-databaser som prenumererar på för att ändringarna.
+- Ha flera distribuerade databaser i synkroniserat tillstånd.
+- Migrera databaser från en SQL Server eller hanterad instans till en annan databas genom att kontinuerligt publicera ändringarna.
+
+### <a name="compare-data-sync-with-transactional-replication"></a>Jämför Data Sync med Transaktionsreplikering
+
+| | Datasynkronisering | Transaktionsreplikering |
+|---|---|---|
+| Fördelar | -Aktiv-aktiv-stöd<br/>Dubbelriktad kommunikation mellan lokala och Azure SQL Database | – Lägre fördröjning<br/>-Transaktionell konsekvens<br/>-Återanvända befintliga topologi efter migreringen |
+| Nackdelar | – 5 minuter eller mer fördröjning<br/>– Ingen transaktionell konsekvens<br/>-Högre prestandapåverkan | -Det går inte att publicera från Azure SQL Database enkel databas eller databas i pool<br/>-Hög underhållskostnad |
+| | | |
 
 ## <a name="common-configurations"></a>Vanliga konfigurationer
 
@@ -112,11 +138,13 @@ Utgivaren och distributören konfigureras på två hanterade instanser. I den h�
  
 I den här konfigurationen är en Azure SQL Database (enkel, pooler och database-instans) en prenumerant. Den här konfigurationen stöder migrering från en lokal plats till Azure. Om en prenumerant finns på en enda eller grupperade databas, måste den vara i push-läget.  
 
+
 ## <a name="next-steps"></a>Nästa steg
 
 1. [Konfigurera Transaktionsreplikering för en hanterad instans](replication-with-sql-database-managed-instance.md#configure-publishing-and-distribution-example). 
 1. [Skapa en publikation](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication).
 1. [Skapa en utgivarinitierad prenumeration](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription) genom att använda Azure SQL Database-servernamnet som prenumeranten (till exempel `N'azuresqldbdns.database.windows.net` och Azure SQL Database-namn som måldatabasen (till exempel **Adventureworks**. )
+
 
 
 ## <a name="see-also"></a>Se även  

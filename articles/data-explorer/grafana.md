@@ -8,12 +8,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 12/05/2018
-ms.openlocfilehash: 5a9684605de9af1cd9006810d595ae846db01661
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 141859d155383b01cfea998c6b7158848517eac2
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52975160"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57531960"
 ---
 # <a name="visualize-data-from-azure-data-explorer-in-grafana"></a>Visualisera data från Azure Data Explorer i Grafana
 
@@ -23,11 +23,11 @@ Grafana är en analysplattform som gör det möjligt att fråga och visualisera 
 
 Du behöver följande för att slutföra den här så här:
 
-* [Grafana version 5.3.0 eller senare](http://docs.grafana.org/installation/) för ditt operativsystem
+* [Grafana version 5.3.0 eller senare](https://docs.grafana.org/installation/) för ditt operativsystem
 
 * Den [Datautforskaren i Azure-plugin-programmet](https://grafana.com/plugins/grafana-azure-data-explorer-datasource/installation) för Grafana
 
-* Ett kluster som innehåller exempeldata StormEvents. Mer information finns i [Snabbstart: skapa ett Azure Data Explorer-kluster och databasen](create-cluster-database-portal.md) och [mata in exempeldata i Azure Data Explorer](ingest-sample-data.md).
+* Ett kluster som innehåller exempeldata StormEvents. Mer information finns i [snabbstarten: Skapa ett Azure Data Explorer-kluster och databasen](create-cluster-database-portal.md) och [mata in exempeldata i Azure Data Explorer](ingest-sample-data.md).
 
     [!INCLUDE [data-explorer-storm-events](../../includes/data-explorer-storm-events.md)]
 
@@ -51,7 +51,7 @@ Du kan skapa tjänsten huvudnamn i den [Azure-portalen](#azure-portal) eller med
 
     1. I den [tilldela programmet till en roll](/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role) avsnittet, tilldela en roll för **läsare** i Datautforskaren i Azure-klustret.
 
-    1. I den [få värden för att logga in](/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) avsnittet, kopiera tre egenskapsvärdena som beskrivs i stegen: **katalog-ID** (klient-ID), **program-ID**, och  **Lösenordet**.
+    1. I den [få värden för att logga in](/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) avsnittet, kopiera tre egenskapsvärdena som beskrivs i stegen: **Katalog-ID** (klient-ID), **program-ID**, och **lösenord**.
 
 1. I Azure-portalen väljer du **prenumerationer** sedan kopiera ID: T för den prenumeration där du skapade tjänstens huvudnamn.
 
@@ -205,10 +205,10 @@ Nu du har konfigurerat Datautforskaren i Azure som en datakälla för Grafana, �
 
     ![Klar graph](media/grafana/finished-graph.png)
 
-1. På den översta menyn väljer du spara ikon: ![Spara ikon](media/grafana/save-icon.png).
+1. På den översta menyn väljer du spara ikon: ![Ikonen Spara](media/grafana/save-icon.png).
 
 ## <a name="next-steps"></a>Nästa steg
 
 [Skriva frågor för Azure Data Explorer](write-queries.md)
 
-[Självstudie: Visualisera data från Azure Data Explorer i Power BI](visualize-power-bi.md)
+[Självstudier: Visualisera data från Azure Data Explorer i Power BI](visualize-power-bi.md)

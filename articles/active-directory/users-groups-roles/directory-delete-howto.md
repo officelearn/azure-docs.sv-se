@@ -9,20 +9,19 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 01/31/2019
+ms.date: 03/05/2019
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 59bfc13053a33b8f29f09a9ab93a108e746ea012
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 3dffcfe7c4c892976a61272a2217226f512b70ed
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57431163"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57542564"
 ---
 # <a name="delete-an-azure-active-directory-tenant"></a>Ta bort en Azure Active Directory-klient
-
 När en klient tas bort så raderas även alla resurser som finns i klienten. Du måste förbereda klienten genom att minimera dess kopplade resurser innan du tar bort. Endast en global administratör för Azure Active Directory (Azure AD) kan ta bort en Azure AD-klient från portalen.
 
 ## <a name="prepare-the-tenant-for-deletion"></a>Förbereda klienten för borttagning
@@ -52,7 +51,7 @@ Du kan inte ta bort en klient i Azure AD tills den skickar flera kontroller. De 
 
 ## <a name="i-have-an-expired-subscription-but-i-cant-delete-the-tenant"></a>Jag har en prenumeration som har upphört att gälla men jag kan inte ta bort klienten
 
-När du har konfigurerat din Azure Active Directory-klient kan har du också aktiverat licensbaserade prenumerationer för din organisation som Azure Active Directory Premium P2, Office 365 Business Premium eller Enterprise Mobility + Security E5. De här prenumerationerna blockera directory borttagning tills de är helt bort för att undvika dataförluster. Prenumerationerna måste finnas i en **avetablerad** tillstånd att ta bort klienter. En **har upphört att gälla** eller **avbruten** prenumerationen flyttas till den **inaktiverad** tillstånd och det sista steget är det **Deprovisoned** tillstånd. 
+När du har konfigurerat Azure AD-klienten kan har du även aktiverat licensbaserade prenumerationer för din organisation som Azure AD Premium P2, Office 365 Business Premium eller Enterprise Mobility + Security E5. De här prenumerationerna blockera directory borttagning tills de är helt bort för att undvika dataförluster. Prenumerationerna måste finnas i en **avetablerad** tillstånd att ta bort klienter. En **har upphört att gälla** eller **avbruten** prenumerationen flyttas till den **inaktiverad** tillstånd och det sista steget är det **Deprovisoned** tillstånd. 
 
 Vad som händer när en Office 365-utvärderingsprenumeration upphör att gälla (inkluderar inte betald Partner/CSP, Enterprise-avtal eller Volume Licensing), finns i följande tabell. Mer information om Office 365 livscykeln för kvarhållning och prenumeration finns i [vad händer med mina data och åtkomst när Office 365 för företag-prenumerationen har upphört?](https://support.office.com/article/what-happens-to-my-data-and-access-when-my-office-365-for-business-subscription-ends-4436582f-211a-45ec-b72e-33647f97d8a3). 
 
@@ -61,17 +60,19 @@ Prenumerationens status | Data | Åtkomst till data
 Aktiv (30 dagar för utvärderingsversion)  | Data som är tillgängliga för alla    | <li>Användarna har normal åtkomst till Office 365-filer eller appar<li>Administratörer har normal åtkomst till Office 365 Administrationscenter och resurser 
 Har upphört att gälla (30 dagar)   | Data som är tillgängliga för alla    | <li>Användarna har normal åtkomst till Office 365-filer eller appar<li>Administratörer har normal åtkomst till Office 365 Administrationscenter och resurser
 Inaktiverad (30 dagar) | Data som är tillgängliga för enbart administratör  | <li>Användare kan inte komma åt Office 365-filerna eller apparna<li>Administratörer kan få åtkomst till administrationscentret för Office 365, men det går inte att tilldela licenser till eller uppdatera användare
-Inaktiveringen (30 dagar efter inaktiverad) | Data som tas bort (bort automatiskt om inga andra tjänster används) | <li>Användare kan inte komma åt Office 365-filerna eller apparna<li>Administratörer kan komma åt Office 365 Administrationscenter för att köpa och hantera andra prenumerationer
+Inaktiveringen (30 dagar efter inaktiverad) | Data som tas bort (bort automatiskt om inga andra tjänster används) | <li>Användare kan inte komma åt Office 365-filerna eller apparna<li>Administratörer kan komma åt Office 365 Administrationscenter för att köpa och hantera andra prenumerationer 
 
-Du kan placera en prenumeration till en **Deprovisoned** tillstånd och kan inte tas bort inom 3 dagar med Microsoft Store för företag-administrationscentret. Den här funktionen kommer snart att Office 365 Administrationscenter.
+## <a name="delete-a-subscription-in-the-microsoft-365-admin-center"></a>Tar bort en prenumeration i Microsoft 365 Administrationscenter
 
-1. Logga in på den [Microsoft Store för företag-administrationscentret](https://businessstore.microsoft.com/manage/) med ett konto som är en Global administratör i klienten. Om du vill ta bort ”Contoso”-klient som har den initiala domänen contoso.onmicrosoft.com, logga in med ett UPN som admin@contoso.onmicrosoft.com.
+Du kan placera en prenumeration till en **Deprovisoned** tillstånd och kan inte tas bort inom 3 dagar med hjälp av Administrationscenter för Microsoft 365.
 
-2. Gå till den **hantera** fliken och markera **produkter och tjänster**, Välj den prenumeration du vill avbryta och väljer sedan **ta bort**.
+1. Logga in på den [Microsoft 365 Administrationscenter](https://admin.microsoft.com) med ett konto som är en Global administratör i klienten. Om du vill ta bort ”Contoso”-klient som har den initiala domänen contoso.onmicrosoft.com, logga in med ett UPN som admin@contoso.onmicrosoft.com.
+
+2. Gå till den **fakturering** fliken och markera **produkter och tjänster**, Välj den prenumeration som du vill avbryta. När du klickar på **Avbryt**, uppdatera sidan.
   
   ![Ta bort länken för att ta bort prenumeration](./media/directory-delete-howto/delete-command.png)
   
-3. Välj **ta bort prenumerationen** att acceptera villkoren och ta bort prenumerationen. Alla data raderas permanent inom tre dagar. Du kan återaktivera prenumerationen under de kommande tre dagarna om du ändrar dig.
+3. Välj **ta bort** att ta bort prenumerationen och acceptera de allmänna villkoren. Alla data raderas permanent inom tre dagar. Du kan återaktivera prenumerationen under tre dagar, om du ändrar dig.
   
   ![allmänna villkor](./media/directory-delete-howto/delete-terms.png)
 

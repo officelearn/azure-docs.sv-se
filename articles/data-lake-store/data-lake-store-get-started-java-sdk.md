@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: edbaa8fe42c0e6bfda8558e7d9e5cd0ce42bfcc4
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: e84e84aac3aca0458dea4f30f6b0e222aafd9d44
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53260709"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57530304"
 ---
 # <a name="filesystem-operations-on-azure-data-lake-storage-gen1-using-java-sdk"></a>Filsystemsåtgärder på Azure Data Lake Storage Gen1 med hjälp av Java SDK
 > [!div class="op_single_selector"]
@@ -41,7 +41,7 @@ Du kan komma åt Java SDK API-dokumentation för Data Lake Storage Gen1 på [Azu
 ## <a name="create-a-java-application"></a>Skapa ett Java-program
 Kodavsnittet som finns tillgängligt [på GitHub](https://azure.microsoft.com/documentation/samples/data-lake-store-java-upload-download-get-started/) ger dig en genomgång av processen att skapa filer i arkivet, sammanfoga filer, hämta en fil och ta bort några filer i arkivet. Det här avsnittet av artikeln går igenom de viktigaste delarna av koden.
 
-1. Skapa ett Maven-projekt med [mvn archetype](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html) från kommandoraden eller med hjälp av en IDE. Anvisningar för hur du skapar ett Java-projekt med IntelliJ finns [här](https://www.jetbrains.com/help/idea/2016.1/creating-and-running-your-first-java-application.html). Anvisningar för hur du skapar ett Java-projekt med Eclipse finns [här](http://help.eclipse.org/mars/index.jsp?topic=%2Forg.eclipse.jdt.doc.user%2FgettingStarted%2Fqs-3.htm). 
+1. Skapa ett Maven-projekt med [mvn archetype](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html) från kommandoraden eller med hjälp av en IDE. Anvisningar för hur du skapar ett Java-projekt med IntelliJ finns [här](https://www.jetbrains.com/help/idea/2016.1/creating-and-running-your-first-java-application.html). Anvisningar för hur du skapar ett Java-projekt med Eclipse finns [här](https://help.eclipse.org/mars/index.jsp?topic=%2Forg.eclipse.jdt.doc.user%2FgettingStarted%2Fqs-3.htm). 
 
 2. Lägg till följande beroenden till din Maven **pom.xml**-fil. Lägg till följande fragment före taggen **\</project>**:
    
@@ -58,7 +58,7 @@ Kodavsnittet som finns tillgängligt [på GitHub](https://azure.microsoft.com/do
           </dependency>
         </dependencies>
    
-    Det första beroendet är att använda Data Lake Storage Gen1 SDK (`azure-data-lake-store-sdk`) från maven-centrallagret. Det andra beroendet är för att ange vilket loggningsramverk (`slf4j-nop`) som ska användas för programmet. Data Lake Storage Gen1 SDK använder [slf4j](http://www.slf4j.org/) loggningsfasaden som låter dig välja från ett antal populära loggningsramverk som log4j, Java-loggning, logback och så vidare, eller ingen loggning. I det här exemplet inaktiverar vi loggning, därför använder vi **slf4j-nop** bindning. Om du vill använda andra alternativ för loggning i din app, se [här](http://www.slf4j.org/manual.html#projectDep).
+    Det första beroendet är att använda Data Lake Storage Gen1 SDK (`azure-data-lake-store-sdk`) från maven-centrallagret. Det andra beroendet är för att ange vilket loggningsramverk (`slf4j-nop`) som ska användas för programmet. Data Lake Storage Gen1 SDK använder [slf4j](https://www.slf4j.org/) loggningsfasaden som låter dig välja från ett antal populära loggningsramverk som log4j, Java-loggning, logback och så vidare, eller ingen loggning. I det här exemplet inaktiverar vi loggning, därför använder vi **slf4j-nop** bindning. Om du vill använda andra alternativ för loggning i din app, se [här](https://www.slf4j.org/manual.html#projectDep).
 
 3. Lägg till följande importuttryck i programmet.
 
@@ -73,7 +73,7 @@ Kodavsnittet som finns tillgängligt [på GitHub](https://azure.microsoft.com/do
         import java.util.Arrays;
         import java.util.List;
 
-## <a name="authentication"></a>Autentisering
+## <a name="authentication"></a>Authentication
 
 * Information om slutanvändarautentisering för programmet, se [klient-slutanvändaren-autentisering med Data Lake Storage Gen1 med Java](data-lake-store-end-user-authenticate-java-sdk.md).
 * Tjänst-till-tjänst-autentisering för programmet, se [tjänst-till-tjänst-autentisering med Data Lake Storage Gen1 med hjälp av Java](data-lake-store-service-to-service-authenticate-java.md).
@@ -205,8 +205,8 @@ Följande kodavsnitt tar bort de angivna filerna och mapparna på ett Data Lake 
     promptEnterKey();
 
 ## <a name="build-and-run-the-application"></a>Skapa och kör appen
-1. För att köra inifrån en IDE, letar du upp och trycker på **Kör**-knappen. För att köra från Maven, använder du [exec:exec](http://www.mojohaus.org/exec-maven-plugin/exec-mojo.html).
-2. För att skapa en fristående jar som du kan köra från kommandoraden, skapar du jaren med alla beroenden inkluderade, med hjälp av [Maven-plugin-paketet](http://maven.apache.org/plugins/maven-assembly-plugin/usage.html). Pom.XML-filen i den [exempelkällkoden på GitHub](https://github.com/Azure-Samples/data-lake-store-java-upload-download-get-started/blob/master/pom.xml) innehåller ett exempel.
+1. För att köra inifrån en IDE, letar du upp och trycker på **Kör**-knappen. För att köra från Maven, använder du [exec:exec](https://www.mojohaus.org/exec-maven-plugin/exec-mojo.html).
+2. För att skapa en fristående jar som du kan köra från kommandoraden, skapar du jaren med alla beroenden inkluderade, med hjälp av [Maven-plugin-paketet](https://maven.apache.org/plugins/maven-assembly-plugin/usage.html). Pom.XML-filen i den [exempelkällkoden på GitHub](https://github.com/Azure-Samples/data-lake-store-java-upload-download-get-started/blob/master/pom.xml) innehåller ett exempel.
 
 ## <a name="next-steps"></a>Nästa steg
 * [Utforska JavaDoc för Java SDK](https://azure.github.io/azure-data-lake-store-java/javadoc/)

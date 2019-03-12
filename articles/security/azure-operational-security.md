@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 2f68156e593281acb46dbeb132f0f45db4b3dfb9
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 5a407db97803d3c3be898893b7da6c1cb4aa94bb
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57244782"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57537005"
 ---
 # <a name="azure-operational-security"></a>Azure driftsäkerhet
 ## <a name="introduction"></a>Introduktion
@@ -164,7 +164,7 @@ Azure Security Center samlar in tillfälliga kopior av dina kraschdumpfiler och 
 
 ## <a name="azure-monitor"></a>Azure Monitor
 
-Den [Log Analytics Security](https://docs.microsoft.com/azure/operations-management-suite/oms-security-monitoring-resources) och granska lösningen möjliggör för IT att övervaka alla resurser som hjälper dig att minimera effekten av säkerhetsincidenter aktivt. Log Analytics säkerhet och granskning har säkerhetsdomäner som kan användas för att övervaka resurser. Säkerhetsdomänen ger snabb åtkomst till alternativ, för säkerhetsövervakning följande domäner beskrivs mer detaljerat:
+Den [Azure Monitor loggar Security](https://docs.microsoft.com/azure/operations-management-suite/oms-security-monitoring-resources) och granska lösningen möjliggör för IT att övervaka alla resurser som hjälper dig att minimera effekten av säkerhetsincidenter aktivt. Azure Monitor-loggar säkerhet och granskning har säkerhetsdomäner som kan användas för att övervaka resurser. Säkerhetsdomänen ger snabb åtkomst till alternativ, för säkerhetsövervakning följande domäner beskrivs mer detaljerat:
 
 -   Utvärdering av skadlig kod
 -   Kontroll av uppdateringar

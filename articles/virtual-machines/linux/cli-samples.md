@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/01/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 4ff0d644ee6e5d5548f1efa5a4647c79d9b05089
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: bf941832a7a8ed9376fe0684edf4c467226cd497
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57245598"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57550216"
 ---
 # <a name="azure-cli-samples-for-linux-virtual-machines"></a>Azure CLI-exempel för virtuella Linux-datorer
 
@@ -49,7 +49,7 @@ Följande tabell innehåller länkar till bash-skript som skapats med hjälp av 
 |**Skydda virtuella datorer**||
 | [Kryptera en virtuell dator- och datadiskar](./../scripts/virtual-machines-linux-cli-sample-encrypt-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Skapar en Azure Key Vault, en krypteringsnyckel och ett huvudnamn för tjänsten och sedan krypterar en virtuell dator. |
 |**Övervaka virtuella datorer**||
-| [Övervaka en virtuell dator med Azure Log Analytics](./../scripts/virtual-machines-linux-cli-sample-create-vm-oms.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Skapar en virtuell dator, installerar Log Analytics-agenten och registrerar den virtuella datorn i en Log Analytics-arbetsyta.  |
+| [Övervaka en virtuell dator med Azure Monitor-loggar](./../scripts/virtual-machines-linux-cli-sample-create-vm-oms.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Skapar en virtuell dator, installerar Log Analytics-agenten och registrerar den virtuella datorn i en Log Analytics-arbetsyta.  |
 |**Felsökning av virtuella datorer**||
 | [Felsöka en operativsystemdisk för virtuella datorer](./../scripts/virtual-machines-linux-cli-sample-mount-os-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Monterar operativsystemets disk från en virtuell dator som en datadisk på en andra virtuell dator. |
 | | |

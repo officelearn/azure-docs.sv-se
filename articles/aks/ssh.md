@@ -5,14 +5,14 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 08/21/2018
+ms.date: 03/05/2019
 ms.author: iainfou
-ms.openlocfilehash: d687467e6bd64363c78f60064c6a17adbc5e0d1f
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 680e087e80d3e9891e201e7cb474ccfcf7fcc70b
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52846139"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57538807"
 ---
 # <a name="connect-with-ssh-to-azure-kubernetes-service-aks-cluster-nodes-for-maintenance-or-troubleshooting"></a>Ansluta med SSH till Azure Kubernetes Service (AKS) klusternoderna för underhåll och felsökning
 
@@ -20,21 +20,27 @@ Du kan behöva åtkomst till ett AKS-noden under livscykeln för ditt kluster i 
 
 Den här artikeln visar hur du skapar en SSH-anslutning med ett AKS-noden med sina privata IP-adresser.
 
+## <a name="before-you-begin"></a>Innan du börjar
+
+Den här artikeln förutsätter att du har ett befintligt AKS-kluster. Om du behöver ett AKS-kluster finns i snabbstarten om AKS [med Azure CLI] [ aks-quickstart-cli] eller [med Azure portal][aks-quickstart-portal].
+
+Du också ha Azure CLI version 2.0.59 eller senare installerat och konfigurerat. Kör  `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa  [Installera Azure CLI 2.0][install-azure-cli].
+
 ## <a name="add-your-public-ssh-key"></a>Lägg till din offentliga SSH-nyckel
 
-SSH-nycklar skapas som standard när du skapar ett AKS-kluster. Om du inte angav din egen SSH-nycklar när du skapade ditt AKS-kluster, lägger du till din offentliga SSH-nycklar till AKS-noder. 
+SSH-nycklar skapas som standard när du skapar ett AKS-kluster. Om du inte angav din egen SSH-nycklar när du skapade ditt AKS-kluster, lägger du till din offentliga SSH-nycklar till AKS-noder.
 
 Om du vill lägga till din SSH-nyckel till ett AKS-nod, utför du följande steg:
 
 1. Hämta resursgruppens namn för dina resurser för AKS-kluster som använder [az aks show][az-aks-show]. Ange din egen core resursgruppens namn och AKS-klusternamnet:
 
-    ```azurecli
+    ```azurecli-interactive
     az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv
     ```
 
 1. Lista de virtuella datorerna i AKS kluster resource gruppen med den [az vm list] [ az-vm-list] kommando. Dessa virtuella datorer är AKS-noder:
 
-    ```azurecli
+    ```azurecli-interactive
     az vm list --resource-group MC_myResourceGroup_myAKSCluster_eastus -o table
     ```
 
@@ -48,7 +54,7 @@ Om du vill lägga till din SSH-nyckel till ett AKS-nod, utför du följande steg
 
 1. Lägg till SSH-nycklar till noden genom att använda den [az vm user update] [ az-vm-user-update] kommando. Ange resursgruppens namn och sedan en av noderna i AKS som hämtades i föregående steg. Användarnamn för AKS-noder är som standard *azureuser*. Ange platsen för din egen SSH offentlig nyckel plats, till exempel *~/.ssh/id_rsa.pub*, eller klistra in innehållet i din offentliga SSH-nyckel:
 
-    ```azurecli
+    ```azurecli-interactive
     az vm user update \
       --resource-group MC_myResourceGroup_myAKSCluster_eastus \
       --name aks-nodepool1-79590246-0 \
@@ -58,11 +64,11 @@ Om du vill lägga till din SSH-nyckel till ett AKS-nod, utför du följande steg
 
 ## <a name="get-the-aks-node-address"></a>Hämta AKS nod-adressen
 
-AKS-nodernas exponeras inte offentligt på Internet. SSH för AKS-noder kan du använda den privata IP-adressen.
+AKS-nodernas exponeras inte offentligt på Internet. SSH för AKS-noder kan du använda den privata IP-adressen. I nästa steg ska skapa du en helper-pod AKS-klustret som låter dig SSH till den här privata IP-adressen för noden.
 
 Visa privat IP-adressen för ett AKS-kluster noden med den [az vm list-ip-adresser] [ az-vm-list-ip-addresses] kommando. Ange din egen AKS-kluster resursgruppens namn fick i ett tidigare [az-aks-visa] [ az-aks-show] steg:
 
-```azurecli
+```azurecli-interactive
 az vm list-ip-addresses --resource-group MC_myAKSCluster_myAKSCluster_eastus -o table
 ```
 
@@ -154,3 +160,6 @@ Om du behöver ytterligare felsökning data, kan du [visa kubelet-loggar] [ view
 [az-vm-list-ip-addresses]: /cli/azure/vm#az-vm-list-ip-addresses
 [view-kubelet-logs]: kubelet-logs.md
 [view-master-logs]: view-master-logs.md
+[aks-quickstart-cli]: kubernetes-walkthrough.md
+[aks-quickstart-portal]: kubernetes-walkthrough-portal.md
+[install-azure-cli]: /cli/azure/install-azure-cli

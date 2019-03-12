@@ -5,16 +5,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.devlang: dotnet
-ms.topic: hero-article
+ms.topic: conceptual
 ms.date: 06/13/2018
 ms.author: tamram
 ms.subservice: queues
-ms.openlocfilehash: 14fdde7c38f29b7d9383911992f2bafb7d726d82
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: ec1819bab32370d27c7a4ffc0b9ef9c80ef32c48
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55871497"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57772950"
 ---
 # <a name="get-started-with-azure-queue-storage-using-net"></a>Komma igång med Azure Queue Storage med hjälp av .NET
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -29,7 +29,7 @@ I den här kursen lär du dig hur du skriver .NET-kod för några vanliga scenar
 
 **Uppskattad tidsåtgång:** 45 minuter
 
-**Förhandskrav:**
+**Krav:**
 
 * [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
 * [Azure Storage-klientbibliotek för .NET](https://www.nuget.org/packages/WindowsAzure.Storage/)
@@ -60,7 +60,7 @@ Exempelkoden måste autentisera åtkomsten till lagringskontot. När du vill aut
 3. Välj **Åtkomstnycklar** i avsnittet **Inställningar** i lagringskontoöversikten. Åtkomstnycklarna för kontot visas, samt den fullständiga anslutningssträngen för varje nyckel.   
 4. Sök efter värdet för **Anslutningssträng** under **key1** och kopiera anslutningssträngen genom att klicka på **Kopiera**. Du lägger till strängvärdet för anslutningen till en miljövariabel i nästa steg.
 
-    ![Skärmbild som visar hur man kopierar en anslutningssträng från Azure Portal](media/storage-dotnet-how-to-use-queues/portal-connection-string.png)
+    ![Skärmbild som visar hur man kopierar en anslutningssträng från Azure-portalen](media/storage-dotnet-how-to-use-queues/portal-connection-string.png)
 
 ### <a name="parse-the-connection-string"></a>Parsa anslutningssträngen
 [!INCLUDE [storage-cloud-configuration-manager-include](../../../includes/storage-cloud-configuration-manager-include.md)]

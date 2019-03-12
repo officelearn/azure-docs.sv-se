@@ -31,5 +31,5 @@
 ## [Priskalkylator](https://azure.microsoft.com/pricing/calculator/)
 ## [Viktig information](biztalk-release-notes.md)
 ## [Tjänstuppdateringar](https://azure.microsoft.com/updates/?product=biztalk-services)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/biztalk-services)
+## [Stack Overflow](https://stackoverflow.com/questions/tagged/biztalk-services)
 ## [Videoklipp](https://azure.microsoft.com/documentation/videos/index/?services=biztalk-services)

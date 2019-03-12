@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 0d601df7914b7280de4b3c16c8b00c96cb5427e4
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 083770c24a6c8939f8d1ff9f0efd5d18aff9dcb0
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57435992"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57539623"
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>Azure Data Factory - säkerhetsöverväganden för dataförflyttning
 
@@ -74,10 +74,10 @@ Azure Data Lake store innehåller också kryptering för data som lagras i konto
 Azure Blob Storage och Azure Table storage stöder Storage Service Encryption (SSE), som automatiskt krypterar dina data före beständig lagring och dekrypterar före hämtning. Mer information finns i [Azure Storage Service Encryption för vilande Data](../../storage/common/storage-service-encryption.md).
 
 #### <a name="amazon-s3"></a>Amazon S3
-Amazon S3 stöder både klienten och servern kryptering av vilande data. Mer information finns i [skyddar Data med hjälp av kryptering](http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingEncryption.html). Data Factory stöder för närvarande inte Amazon S3 i ett virtuellt privat moln (VPC).
+Amazon S3 stöder både klienten och servern kryptering av vilande data. Mer information finns i [skyddar Data med hjälp av kryptering](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingEncryption.html). Data Factory stöder för närvarande inte Amazon S3 i ett virtuellt privat moln (VPC).
 
 #### <a name="amazon-redshift"></a>Amazon Redshift
-Amazon Redshift stöder kluster kryptering för vilande data. Mer information finns i [databaskryptering för Amazon Redshift](http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html). Data Factory stöder för närvarande inte Amazon Redshift inuti en VPC. 
+Amazon Redshift stöder kluster kryptering för vilande data. Mer information finns i [databaskryptering för Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html). Data Factory stöder för närvarande inte Amazon Redshift inuti en VPC. 
 
 #### <a name="salesforce"></a>Salesforce
 Salesforce stöder Shield plattform kryptering som har stöd för kryptering av alla filer, bifogade filer eller anpassade fält. Mer information finns i [förstå flöda till autentisering för Web Server OAuth](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_understanding_web_server_oauth_flow.htm).  
@@ -178,7 +178,7 @@ För följande datalager i molnet kräver vitlistning av IP-adressen för gatewa
 - [Azure SQL Data Warehouse](../../sql-data-warehouse/sql-data-warehouse-get-started-provision.md)
 - [Azure Data Lake Store](../../data-lake-store/data-lake-store-secure-data.md#set-ip-address-range-for-data-access)
 - [Azure Cosmos DB](../../cosmos-db/firewall-support.md)
-- [Amazon Redshift](http://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html) 
+- [Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html) 
 
 ## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 

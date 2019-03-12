@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/05/2018
 ms.author: spelluru
-ms.openlocfilehash: 780799103708483fb0092c7a4c15bfaa3269c073
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.openlocfilehash: 07f3b60b9218f74bb3a778daa27f31687c4538b2
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51636490"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57550096"
 ---
 # <a name="create-a-custom-image-from-a-vm"></a>Skapa en anpassad avbildning från en virtuell dator
 
@@ -61,7 +61,7 @@ Efter några minuter, den anpassade avbildningen skapas och lagras i den testmil
 ## <a name="related-blog-posts"></a>Relaterade blogginlägg
 
 - [Anpassade avbildningar eller formler?](https://blogs.msdn.microsoft.com/devtestlab/2016/04/06/custom-images-or-formulas/)
-- [Kopiera anpassade avbildningar mellan Azure DevTest Labs](http://www.visualstudiogeeks.com/blog/DevOps/How-To-Move-CustomImages-VHD-Between-AzureDevTestLabs#copying-custom-images-between-azure-devtest-labs)
+- [Kopiera anpassade avbildningar mellan Azure DevTest Labs](https://www.visualstudiogeeks.com/blog/DevOps/How-To-Move-CustomImages-VHD-Between-AzureDevTestLabs#copying-custom-images-between-azure-devtest-labs)
 
 ## <a name="next-steps"></a>Nästa steg
 

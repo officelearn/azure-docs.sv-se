@@ -10,12 +10,12 @@ ms.author: gwallace
 ms.date: 05/17/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 963bc8f6602a33ed703344f5277bb427f11390bb
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: b307a497e69bd6c2dcc7b415b2d94335459f7fd3
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56823526"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57544996"
 ---
 # <a name="role-based-access-control-in-azure-automation"></a>Rollbaserad åtkomstkontroll i Azure Automation
 
@@ -180,11 +180,11 @@ En Log Analytics Reader kan visa och söka i alla övervakningsdata och dessutom
 |Microsoft.Insights/Metrics/*|Läsa måtten för en resurs.|
 |Microsoft.Insights/Register/Action|Registrera Microsoft.Insights-providern.|
 |Microsoft.Insights/webtests/*|Hantera webbtester med Application Insights.|
-|Microsoft.OperationalInsights/workspaces/intelligencepacks/*|Hantera Log Analytics-lösningspaket.|
-|Microsoft.OperationalInsights/workspaces/savedSearches/*|Hantera Log Analytics sparade sökningar.|
+|Microsoft.OperationalInsights/workspaces/intelligencepacks/*|Hantera lösningspaket för Azure Monitor-loggar.|
+|Microsoft.OperationalInsights/workspaces/savedSearches/*|Hantera Azure Monitor loggar sparade sökningar.|
 |Microsoft.OperationalInsights/workspaces/search/action|Sök Log Analytics-arbetsytor.|
 |Microsoft.OperationalInsights/workspaces/sharedKeys/action|Lista över nycklar för Log Analytics-arbetsytan.|
-|Microsoft.OperationalInsights/workspaces/storageinsightconfigs/*|Hantera Log Analytics insight lagringskonfigurationer.|
+|Microsoft.OperationalInsights/workspaces/storageinsightconfigs/*|Hantera Azure Monitor-loggar insight lagringskonfigurationer.|
 |Microsoft.Support/*|Skapa och hantera supportärenden.|
 |Microsoft.WorkloadMonitor/workloads/*|Hantera arbetsbelastningar.|
 

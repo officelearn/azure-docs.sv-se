@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 1/24/2019
-ms.openlocfilehash: 04707a747edb7cf26b4e7f4e3251b958f6f11f38
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: df1542d6d20120a9b1e087fadf3743479ecebf07
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56962298"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57533841"
 ---
 # <a name="incrementally-copy-new-files-based-on-time-partitioned-file-name-by-using-the-copy-data-tool"></a>Kopiera nya filer baserat på tid partitionerade filnamn med hjälp av verktyget kopieringsdata stegvis
 
@@ -43,14 +43,14 @@ I den här självstudien får du göra följande:
 
 Förbered din Blob-lagring för den här självstudien genom att utföra dessa steg.
 
-1. Skapa en behållare med namnet **källa**.  Skapa en mappsökväg som **2019/02/26/14** i din behållare. Skapa en tom textfil och ger den namnet **file1.txt**. Ladda upp file1.txt till sökvägen till mappen **källa/2019/02/26/14** i ditt lagringskonto.  Du kan använda olika verktyg för att utföra dessa uppgifter, exempelvis [Azure Storage Explorer](http://storageexplorer.com/).
+1. Skapa en behållare med namnet **källa**.  Skapa en mappsökväg som **2019/02/26/14** i din behållare. Skapa en tom textfil och ger den namnet **file1.txt**. Ladda upp file1.txt till sökvägen till mappen **källa/2019/02/26/14** i ditt lagringskonto.  Du kan använda olika verktyg för att utföra dessa uppgifter, exempelvis [Azure Storage Explorer](https://storageexplorer.com/).
     
     ![Ladda upp filer](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/upload-file.png)
     
     > [!NOTE]
     > Justera mappnamn med UTC-tid.  Om den aktuella UTC-tiden är 14:03:00 den 26 februari 2019 du till exempel skapa sökvägen till mappen som **källa/2019/02/26/14/** av regeln för **källa / {Year} / {Month} / {Day} / {Hour} /**.
 
-2. Skapa en behållare med namnet **mål**. Du kan använda olika verktyg för att utföra dessa uppgifter, exempelvis [Azure Storage Explorer](http://storageexplorer.com/).
+2. Skapa en behållare med namnet **mål**. Du kan använda olika verktyg för att utföra dessa uppgifter, exempelvis [Azure Storage Explorer](https://storageexplorer.com/).
 
 ## <a name="create-a-data-factory"></a>Skapa en datafabrik
 
@@ -175,10 +175,10 @@ Förbered din Blob-lagring för den här självstudien genom att utföra dessa s
 
     ![Övervaka pipelinekörningar](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs2.png)
     
-    Du kan också kontrollera samma med hjälp av Azure Storage Explorer (http://storageexplorer.com/) söker igenom filer.
+    Du kan också kontrollera samma med hjälp av Azure Storage Explorer (https://storageexplorer.com/) söker igenom filer.
     
     ![Övervaka pipelinekörningar](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs3.png)
-12. Skapa en annan tom textfil med det nya namnet som **file2.txt**. Överföra filen file2.txt i sökvägen till mappen **källa/2019/02/26/15** i ditt lagringskonto.   Du kan använda olika verktyg för att utföra dessa uppgifter, exempelvis [Azure Storage Explorer](http://storageexplorer.com/).    
+12. Skapa en annan tom textfil med det nya namnet som **file2.txt**. Överföra filen file2.txt i sökvägen till mappen **källa/2019/02/26/15** i ditt lagringskonto.   Du kan använda olika verktyg för att utföra dessa uppgifter, exempelvis [Azure Storage Explorer](https://storageexplorer.com/).   
     
     ![Övervaka pipelinekörningar](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs4.png)
     
@@ -197,7 +197,7 @@ Förbered din Blob-lagring för den här självstudien genom att utföra dessa s
     
     ![Övervaka pipelinekörningar](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs7.png) 
     
-    Du kan också kontrollera samma med hjälp av Azure Storage Explorer (http://storageexplorer.com/) söker igenom filer i **mål** behållare
+    Du kan också kontrollera samma med hjälp av Azure Storage Explorer (https://storageexplorer.com/) söker igenom filer i **mål** behållare
     
     ![Övervaka pipelinekörningar](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs8.png)
 

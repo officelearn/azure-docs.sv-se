@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 04/30/2018
 ms.author: tomfitz
 ms.custom: include file
-ms.openlocfilehash: ac08a9ab6975039402df44e6a043ee81cf5b222e
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 443db1b4609e62fb7c57de417e42a2b4d0737ada
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56988099"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57554037"
 ---
-Följande begränsningar gäller för Event Grid system ämnen och anpassade ämnen *inte* händelse domäner.
+Följande begränsningar gäller för Azure Event Grid system ämnen och anpassade ämnen *inte* händelse domäner.
 
 | Resurs | Gräns |
 | --- | --- |
@@ -23,11 +23,11 @@ Följande begränsningar gäller för Event Grid system ämnen och anpassade äm
 | Händelseprenumerationer per ämne | 500 |
 | Publicera priset för ett anpassat ämne (inkommande) | 5 000 händelser per sekund per ämne |
 
-Följande begränsningar gäller endast för händelsen domäner.
+Följande begränsningar gäller för händelse-domäner.
 
 | Resurs | Gräns |
 | --- | --- |
-| Topics per Event Domain | 1 000 allmänt tillgängliga förhandsversionen |
+| Ämnen per event domän | 1 000 allmänt tillgängliga förhandsversionen |
 | Händelseprenumerationer per avsnitt inom en domän | 50 allmänt tillgängliga förhandsversionen |
-| Domänomfattningen händelseprenumerationer | 50 allmänt tillgängliga förhandsversionen |
+| Händelseprenumerationer för domänen omfång | 50 allmänt tillgängliga förhandsversionen |
 | Publicera priset för en händelsedomän (inkommande) | 5 000 händelser per sekund under den allmänna förhandsvisningen |

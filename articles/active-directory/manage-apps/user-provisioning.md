@@ -15,12 +15,12 @@ ms.date: 07/30/2018
 ms.author: celested
 ms.reviewer: asmalser
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3e8b099f845df66dfe8c43bc6f968fd63b30d09d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 198f32b5f3d7572807b6af3e41ccf8085d9cbc0b
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56186360"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57576947"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Automatisera etablering och avetablering för SaaS-program med Azure Active Directory
 
@@ -108,11 +108,11 @@ På skärmen application management etablering har konfigurerats i den **etabler
 
 ![Inställningar](./media/user-provisioning/provisioning_settings1.PNG)
 
-* **Omfångsfilter** berätta etableringstjänsten för vilka användare och grupper i källsystemet bör vara etablerade och/eller tagit bort etableringen till målsystemet. Det finns två aspekter att Omfångsfilter som utvärderas ihop som bestämmer vem som är inom omfånget för etablering:
+* **Omfångsfilter** berättar för etableringstjänsten vilka användare och grupper i källsystemet som bör etableras och/eller avetableras för målsystemet. Det finns två aspekter av omfångsfilter som utvärderas ihop och som avgör vem som är inom omfånget för etablering:
 
-    * **Filtret på attributvärden** -menyn ”omfång för källobjekt” i attributmappningarna kan filtrera efter specifika attributvärden. Du kan till exempel ange att endast användare med attributet ”avdelning” med ”försäljning” ska vara i omfånget för etablering. Mer information finns i [med Omfångsfilter](define-conditional-rules-for-provisioning-user-accounts.md).
+    * **Filtrera på attributvärden** – menyn ”Omfång för källobjekt” i attributmappningarna möjliggör filtrering efter specifika attributvärden. Du kan till exempel ange att endast användare med attributet ”Avdelning” för ”Försäljning” ska ingå i omfånget för etablering. Mer information finns i [Använda omfångsfilter](define-conditional-rules-for-provisioning-user-accounts.md).
 
-    * **Filtret på tilldelningar** -menyn ”omfång” i etablering > Inställningar-avsnittet i portalen kan du ange om endast ”tilldelade” användare och grupper bör vara i omfånget för etablering eller om alla användare i Azure AD-katalogen ska vara etableras. Läs om hur du ”tilldelar” användare och grupper [tilldela en användare eller grupp till en enterprise-app i Azure Active Directory](assign-user-or-group-access-portal.md).
+    * **Filtret på tilldelningar** -menyn ”omfång” i etablering > Inställningar-avsnittet i portalen kan du ange om endast ”tilldelade” användare och grupper bör vara i omfånget för etablering eller om alla användare i Azure AD-katalogen ska vara etableras. Information om hur du ”tilldelar” användare och grupper finns i [Tilldela en användare eller grupp till en enterprise-app i Azure Active Directory](assign-user-or-group-access-portal.md).
     
 * **Inställningar för** kontroll över etableringstjänsten för ett program, inklusive om den körs eller inte.
 
@@ -260,7 +260,7 @@ Ja. När konfigurerad att ”synkronisera enbart tilldelade användare och grupp
 
 Användning av dynamiska grupper kan dock påverka prestandan för slutpunkt till slutpunkt-användare från Azure AD-etablering till SaaS-program. När du använder dynamiska grupper Tänk på dessa varningar och rekommendationer:
 
-* Hur snabbt en användare i en dynamisk grupp etablerats eller avetableras i en SaaS-programmet beror på hur snabbt den dynamiska gruppen kan utvärdera ändringar i medlemskap. Information om hur du kontrollerar Bearbetningsstatus för av en dynamisk grupp finns i [Kontrollera Bearbetningsstatus för för en medlemskapsregel](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-create-rule#check-processing-status-for-a-membership-rule).
+* Hur snabbt en användare i en dynamisk grupp etablerats eller avetableras i en SaaS-programmet beror på hur snabbt den dynamiska gruppen kan utvärdera ändringar i medlemskap. Information om hur du kontrollerar Bearbetningsstatus för av en dynamisk grupp finns i [Kontrollera Bearbetningsstatus för för en medlemskapsregel](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-create-rule).
 
 * När du använder dynamiska grupper, måste reglerna noggrant beaktas med användaren etablering och avetablering i åtanke, eftersom en förlust av medlemskap resulterar i en avställningsskript händelse.
 

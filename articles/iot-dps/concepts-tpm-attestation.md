@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: briz
-ms.openlocfilehash: cb763327eb292feb9d58fb21b1ca808a3f2909aa
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: e4a86585fbf1e00512e9e8e111a9a259663f8a26
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42055217"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57536786"
 ---
 # <a name="tpm-attestation"></a>TPM-attestering
 
 IoT Hub Device Provisioning Service är en hjälptjänst för IoT-hubb som används för att konfigurera zero touch-enhetsetablering till en angiven IoT-hubb. Med Device Provisioning-tjänsten, kan du etablera miljontals enheter på ett säkert sätt.
 
-Den här artikeln beskriver attesteringsprocessen identitet när du använder en [TPM](./concepts-device.md). TPM står för Trusted Platform Module och är en typ av maskinvarusäkerhetsmodul (HSM). Den här artikeln förutsätter att du använder en diskret, inbyggd programvara eller integrerad TPM. Programvara emulerade TPM: er lämpar sig väl för prototyper eller testning, men de gör inte ger samma nivå av säkerhet som diskreta, inbyggd programvara eller integrerad TPM: er att göra. Vi rekommenderar inte att använda programvara TPM: er i produktionen. Mer information om typer av TPM: er finns i [en kort introduktion till TPM](http://trustedcomputinggroup.org/wp-content/uploads/TPM-2.0-A-Brief-Introduction.pdf).
+Den här artikeln beskriver attesteringsprocessen identitet när du använder en [TPM](./concepts-device.md). TPM står för Trusted Platform Module och är en typ av maskinvarusäkerhetsmodul (HSM). Den här artikeln förutsätter att du använder en diskret, inbyggd programvara eller integrerad TPM. Programvara emulerade TPM: er lämpar sig väl för prototyper eller testning, men de gör inte ger samma nivå av säkerhet som diskreta, inbyggd programvara eller integrerad TPM: er att göra. Vi rekommenderar inte att använda programvara TPM: er i produktionen. Mer information om typer av TPM: er finns i [en kort introduktion till TPM](https://trustedcomputinggroup.org/wp-content/uploads/TPM-2.0-A-Brief-Introduction.pdf).
 
 Den här artikeln gäller endast för enheter som använder TPM 2.0 med stöd för HMAC-nyckel och bekräftelsenyckeln nycklar. Det är inte för enheter som använder X.509-certifikat för autentisering. TPM är en branschomfattande, ISO-standarden från Trusted Computing Group och du kan läsa mer om TPM på den [fullständig TPM 2.0-specifikationen](https://trustedcomputinggroup.org/tpm-library-specification/) eller [ISO/IEC 11889 spec](https://www.iso.org/standard/66510.html). Den här artikeln förutsätts även att du är bekant med offentliga och privata nyckelpar och hur de används för kryptering.
 
@@ -35,7 +35,7 @@ När en enhet har ställts in och klar att användas, får både ett EK och en S
 
 ![Bli ägare till en TPM](./media/concepts-tpm-attestation/tpm-ownership.png)
 
-En anteckning på ägarskap av TPM: ägarskap av TPM beror på många olika saker, inklusive TPM-tillverkare, uppsättning TPM-verktyg som används och enhetens operativsystem. Följ instruktionerna i systemet för att bli ägare.
+En anteckning på ägarskap av TPM: Bli ägare till en TPM beror på många olika saker, inklusive TPM-tillverkare, uppsättning TPM-verktyg som används och enhetens operativsystem. Följ instruktionerna i systemet för att bli ägare.
 
 Device Provisioning-tjänsten använder den offentliga delen av EK (EK_pub) för att identifiera och registrera enheter. Tillverkaren kan läsa EK_pub under tillverkning eller slutlig testning och ladda upp EK_pub till etableringstjänsten, så att enheten identifieras när den ansluter till etablera. Device Provisioning-tjänsten kontrollerar inte SRK eller ägare, så att ”rensa” TPM rensar kunddata, men en Bekräftelsenyckel (och andra leverantörsdata) bevaras och enheten fortfarande känns igen av Device Provisioning-tjänsten när den ansluter till etablera.
 

@@ -10,18 +10,18 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 04/11/2018
 ms.author: rangv
-ms.openlocfilehash: a4e64259b941a4f2c2727afc8730c6cb0102a061
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: ebdc90dc35f891ea1811ce81c5bdc1b937c58a5c
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54054887"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57529262"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-nodejs"></a>Anslut Raspberry Pi till Azure IoT Hub (Node.js)
 
 [!INCLUDE [iot-hub-get-started-device-selector](../../includes/iot-hub-get-started-device-selector.md)]
 
-I den här självstudien börjar du med att lära dig grunderna i att arbeta med Raspberry Pi med Raspbian. Du lär dig sedan att sömlöst ansluta dina enheter till molnet med hjälp av [Azure IoT Hub](about-iot-hub.md). För Windows 10 IoT Core-exempel, går du till den [Windows Dev Center](http://www.windowsondevices.com/).
+I den här självstudien börjar du med att lära dig grunderna i att arbeta med Raspberry Pi med Raspbian. Du lär dig sedan att sömlöst ansluta dina enheter till molnet med hjälp av [Azure IoT Hub](about-iot-hub.md). För Windows 10 IoT Core-exempel, går du till den [Windows Dev Center](https://www.windowsondevices.com/).
 
 Har inte ett kit ännu? Försök [Raspberry Pi onlinesimulator](iot-hub-raspberry-pi-web-simulator-get-started.md). Eller köp en ny kit [här](https://azure.microsoft.com/develop/iot/starter-kits).
 
@@ -83,7 +83,7 @@ Förbered microSD-kort för installation av Raspbian avbildningen.
 
 1. Hämta Raspbian.
 
-   a. [Ladda ned Raspbian Stretch](http://downloads.raspberrypi.org/raspbian/images/raspbian-2017-07-05/) (.zip-fil).
+   a. [Ladda ned Raspbian Stretch](https://downloads.raspberrypi.org/raspbian/images/raspbian-2017-07-05/) (.zip-fil).
 
    > [!WARNING]
    > Använd ovan länk för att ladda ned `raspbian-2017-07-5` zip-avbildning. Den senaste versionen av Raspbian bilder har några kända problem med koaxialkabel Pi-nod, vilket kan orsaka fel i nästa steg.
@@ -135,9 +135,9 @@ För sensor PIN-koder, använder du följande koaxialkabel:
 | -----------------------  | ---------------------- | ------------: |
 | VDD (PIN-kod 5G)             | 3, 3v PWR (PIN-kod 1)       | Vit-kabel   |
 | JORD (PIN-kod 7G)             | JORD (PIN-kod 6)            | Bruna kabel   |
-| SDI (PIN-kod 10G)            | I2C1 SDA (PIN-kod 3)       | Röd-kabel     |
-| SCK (PIN-kod 8G)             | I2C1 SCL (PIN-kod 5)       | Orange kabel  |
-| LED VDD (PIN-kod 18F)        | GPIO 24 (PIN-kod 18)       | Vit-kabel   |
+| SDI (Pin 10G)            | I2C1 SDA (Pin 3)       | Röd-kabel     |
+| SCK (PIN-kod 8G)             | I2C1 SCL (Pin 5)       | Orange kabel  |
+| LED VDD (PIN-kod 18F)        | GPIO 24 (Pin 18)       | Vit-kabel   |
 | LED jord (PIN-kod 17F)        | JORD (PIN-kod 20)           | Svarta kabeln   |
 
 Klicka för att visa [Raspberry Pi 2 och 3 PIN-kod mappningar](https://developer.microsoft.com/windows/iot/docs/pinmappingsrpi) som referens.
@@ -163,7 +163,7 @@ Aktivera Pi med hjälp av micro USB-kabel och strömförsörjningen. Använd Eth
    
    **Windows-användare**
   
-   a. Ladda ned och installera [PuTTY](http://www.putty.org/) för Windows. 
+   a. Ladda ned och installera [PuTTY](https://www.putty.org/) för Windows. 
 
    b. Kopiera IP-adressen för din Pi till värd (eller IP-adress)-avsnittet och välj SSH som anslutningstyp.
    
@@ -187,7 +187,7 @@ Aktivera Pi med hjälp av micro USB-kabel och strömförsörjningen. Använd Eth
    Om versionen är lägre än 4.x, eller om det finns inga Node.js på din Pi, installera den senaste versionen.
 
    ```bash
-   curl -sL http://deb.nodesource.com/setup_4.x | sudo -E bash
+   curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash
    sudo apt-get -y install nodejs
    ```
 

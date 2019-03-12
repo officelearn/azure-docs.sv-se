@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 07/28/2016
 ms.author: saudas
 ms.custom: mvc
-ms.openlocfilehash: d881a5c0f994b627b4c7c3da362672b3b887cd5e
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: a094369d467b3b1f3d5fe93f870dccc9eae7519c
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52996146"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57547219"
 ---
 # <a name="deprecated-monitor-an-azure-container-service-dcos-cluster-with-datadog"></a>(INAKTUELL) Övervaka ett Azure Container Service DC/OS-kluster med Datadog
 
@@ -23,7 +23,7 @@ ms.locfileid: "52996146"
 I den här artikeln ska vi distribuera Datadog agenter till alla agentnoder i ditt Azure Container Service-kluster. Du behöver ett konto med Datadog för den här konfigurationen. 
 
 ## <a name="prerequisites"></a>Förutsättningar
-[Distribuera](container-service-deployment.md) och [anslut](../container-service-connect.md) ett kluster som konfigurerats av Azure Container Service. Utforska [Marathon-gränssnittet](container-service-mesos-marathon-ui.md). Gå till [ http://datadoghq.com ](http://datadoghq.com) du ställer in en Datadog-konto. 
+[Distribuera](container-service-deployment.md) och [anslut](../container-service-connect.md) ett kluster som konfigurerats av Azure Container Service. Utforska [Marathon-gränssnittet](container-service-mesos-marathon-ui.md). Gå till [ https://datadoghq.com ](https://datadoghq.com) du ställer in en Datadog-konto. 
 
 ## <a name="datadog"></a>Datadog
 Datadog är en övervakningstjänst som samlar in övervakningsdata från dina behållare i Azure Container Service-klustret. Datadog har en instrumentpanel för integrering av Docker där du kan se specifika mått i dina behållare. Mätvärden som samlats in från dina behållare är ordnade efter processor, minne, nätverk och i/o. Datadog delar mått i behållare och bilder. Det är ett exempel på hur Gränssnittet ser ut för CPU-användning under.

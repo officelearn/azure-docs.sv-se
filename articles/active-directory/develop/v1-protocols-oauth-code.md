@@ -12,17 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/23/2018
+ms.date: 03/5/2019
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cdbde6eda2bd532b1a26a58e4ca82c9b5fab4e6c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 2598bb4deef0c7dae9f5df558ec1054ad02fb2f7
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56188604"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57531121"
 ---
 # <a name="authorize-access-to-azure-active-directory-web-applications-using-the-oauth-20-code-grant-flow"></a>Bevilja åtkomst till Azure Active Directory-webbprogram med hjälp av kod grant-flöde för OAuth 2.0
 
@@ -145,7 +145,7 @@ grant_type=authorization_code
 | client_id |obligatorisk |Program-Id som tilldelats din app när du registrerade med Azure AD. Du hittar du i Azure-portalen. Program-Id visas i inställningarna för registreringen. |
 | _typ av beviljande |obligatorisk |Måste vara `authorization_code` för auktoriseringskodsflödet. |
 | Kod |obligatorisk |Den `authorization_code` som du hämtade i föregående avsnitt |
-| redirect_uri |obligatorisk |Samma `redirect_uri` värde som användes för att hämta den `authorization_code`. |
+| redirect_uri |obligatorisk | En `redirect_uri`registrerad i klientprogrammet. |
 | client_secret |krävs för webbappar är inte tillåtet för offentliga klienter |Programhemlighet som du skapade i Azure Portal för din app under **nycklar**. Det kan inte användas i en inbyggd app (offentlig klient), eftersom client_secrets inte lagras på ett tillförlitligt sätt på enheter. Det krävs för webbappar och webb-API: er (alla konfidentiella klienter) som har möjlighet att lagra den `client_secret` på ett säkert sätt på serversidan. Client_secret ska URL-kodat innan de skickas. |
 | resurs | Rekommenderas |App-ID URI för mål-webb-API (säker resurs). För att hitta URI: N för App-ID i Azure Portal, klickar du på **Azure Active Directory**, klickar du på **programregistreringar**, Öppna programmets **inställningar** sidan och klicka sedan på  **Egenskaper för**. Det kan också vara en extern resurs som `https://graph.microsoft.com`. Detta är nödvändigt i en av auktorisering eller tokenbegäranden. Om du vill kontrollera att färre authentication placeras anvisningarna den begäran om godkännande för att kontrollera medgivande tas emot från användaren. Om de finns i både auktoriseringsbegäran och tokenbegäran resursen ' parametrar måste matcha. | 
 | code_verifier | valfri | Den samma code_verifier som användes för att hämta authorization_code. Krävs om PKCE har använts i auktoriseringsbegäran kod bevilja. Mer information finns i den [PKCE RFC](https://tools.ietf.org/html/rfc7636)   |

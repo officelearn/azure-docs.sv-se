@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 266d16311115f788283eadc60ca16f95b433d6b0
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: d9d9e68b7e74ba7725e97162d01e1a35314fdd0f
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015958"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57544966"
 ---
 # <a name="tutorial-build-your-first-pipeline-to-transform-data-using-hadoop-cluster"></a>Självstudier: Skapa din första pipeline för att transformera data med Hadoop-kluster
 > [!div class="op_single_selector"]
@@ -32,7 +32,7 @@ ms.locfileid: "54015958"
 
 
 > [!NOTE]
-> Den här artikeln gäller för version 1 av Data Factory. Om du använder den aktuella versionen av Data Factory-tjänsten finns i [snabbstarten: Skapa en datafabrik med Azure Data Factory](../quickstart-create-data-factory-dot-net.md).
+> Den här artikeln gäller för version 1 av Data Factory. Om du använder den aktuella versionen av Data Factory-tjänsten bör du läsa [Snabbstart: Skapa en datafabrik med hjälp av gränssnittet i Azure Data Factory](../quickstart-create-data-factory-dot-net.md).
 
 I den här självstudien skapar du din första Azure-datafabrik med en datapipeline. Pipelinen transformerar indata genom att köra Hive-skript på ett Azure HDInsight (Hadoop)-kluster för att producera utdata.  
 
@@ -88,7 +88,7 @@ Innan du påbörjar den här självstudien måste du ha följande krav:
 3. Ladda ned och granska filen Hive-fråga (**HQL**) finns på: [ https://adftutorialfiles.blob.core.windows.net/hivetutorial/partitionweblogs.hql ](https://adftutorialfiles.blob.core.windows.net/hivetutorial/partitionweblogs.hql). Den här frågan omvandlar indata till utdata. 
 4. Ladda ned och granska indata-exempelfilen (**input.log**) finns på: [https://adftutorialfiles.blob.core.windows.net/hivetutorial/input.log](https://adftutorialfiles.blob.core.windows.net/hivetutorial/input.log)
 5. Skapa en blobbehållare med namnet **adfgetstarted** i Azure Blob Storage. 
-6. Ladda upp **partitionweblogs.hql** filen till den **skriptet** mapp i den **adfgetstarted** behållare. Använd verktyg som [Microsoft Azure Lagringsutforskaren](http://storageexplorer.com/). 
+6. Ladda upp **partitionweblogs.hql** filen till den **skriptet** mapp i den **adfgetstarted** behållare. Använd verktyg som [Microsoft Azure Lagringsutforskaren](https://storageexplorer.com/). 
 7. Ladda upp **input.log** filen till den **inputdata** mapp i den **adfgetstarted** behållare. 
 
 När du har slutfört förutsättningarna kan du välja något av följande verktyg/SDK: erna att göra självstudien: 
@@ -102,7 +102,7 @@ När du har slutfört förutsättningarna kan du välja något av följande verk
 Azure-portalen och Visual Studio tillhandahåller GUI sätt att skapa din datafabriker. Å andra sidan alternativ för REST API, PowerShell och Resource Manager-mall innehåller skript/programmering sätt att skapa din datafabriker.
 
 > [!NOTE]
-> Datapipelinen i den här självstudien transformerar indata för att generera utdata. Den kopierar inte data från ett källdatalager till ett måldatalager. En självstudiekurs om hur du kopierar data med hjälp av Azure Data Factory finns i [självstudien: Kopiera data från Blob Storage till SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+> Datapipelinen i den här självstudien transformerar indata för att generera utdata. Den kopierar inte data från ett källdatalager till ett måldatalager. En självstudie om hur du kopierar data med hjälp av Azure Data Factory finns i [Självstudie: Kopiera data från Blob Storage till SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 > 
 > Du kan länka två aktiviteter (köra en aktivitet efter en annan) genom att ställa in datauppsättningen för utdata för en aktivitet som den inkommande datauppsättningen för den andra aktiviteten. Mer detaljerad information finns i [Scheduling and execution in Data Factory](data-factory-scheduling-and-execution.md) (Schemaläggning och utförande i Data Factory). 
 

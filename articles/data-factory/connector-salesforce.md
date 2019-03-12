@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/17/2018
 ms.author: jingwang
-ms.openlocfilehash: c4d694621e4ac5428256346e3994bc3233d399a2
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: f06dd47a519d992e52ac0010c0ae7d81870a4842
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57441414"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57544536"
 ---
 # <a name="copy-data-from-and-to-salesforce-by-using-azure-data-factory"></a>Kopiera data från och till Salesforce med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -48,7 +48,7 @@ Salesforce har gränser för både Totalt antal API-begäranden och samtidiga AP
 - Om antalet samtidiga begäranden överskrider gränsen, begränsning inträffar och du ser slumpmässiga fel.
 - Om det totala antalet begäranden överskrider gränsen, blockeras Salesforce-konto i 24 timmar.
 
-Du kan också få felmeddelandet ”REQUEST_LIMIT_EXCEEDED” i båda scenarierna. Mer information finns i avsnittet ”API-begärandebegränsningar” i [Salesforce developer gränser](http://resources.docs.salesforce.com/200/20/en-us/sfdc/pdf/salesforce_app_limits_cheatsheet.pdf).
+Du kan också få felmeddelandet ”REQUEST_LIMIT_EXCEEDED” i båda scenarierna. Mer information finns i avsnittet ”API-begärandebegränsningar” i [Salesforce developer gränser](https://resources.docs.salesforce.com/200/20/en-us/sfdc/pdf/salesforce_app_limits_cheatsheet.pdf).
 
 ## <a name="get-started"></a>Kom igång
 

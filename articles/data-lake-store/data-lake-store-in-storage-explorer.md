@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/05/2018
 ms.author: jejiang
-ms.openlocfilehash: 6cc4a5d5bfc2056f2517bcbcecb19b9f6b2f437a
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: bf2af67bb9498d4814f63fa66fdd50171ce0b4a1
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52966270"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57534352"
 ---
 # <a name="manage-azure-data-lake-storage-gen1-resources-by-using-storage-explorer"></a>Hantera Azure Data Lake Storage Gen1 resurser med Storage Explorer
 
@@ -195,7 +195,7 @@ Om du har en URL kan du ange den i adressfältet i Utforskaren eller i en webbl�
 
 
 ## <a name="next-steps"></a>Nästa steg
-* Visa [viktig information och videor för den senaste Storage Explorer-versionen](http://www.storageexplorer.com).
+* Visa [viktig information och videor för den senaste Storage Explorer-versionen](https://www.storageexplorer.com).
 * Lär dig [hantera Azure Cosmos DB i Azure Storage Explorer](https://docs.microsoft.com/azure/cosmos-db/storage-explorer).
 * [Kom igång med Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer).
 * [Kom igång med Azure Data Lake Storage Gen1](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-overview).

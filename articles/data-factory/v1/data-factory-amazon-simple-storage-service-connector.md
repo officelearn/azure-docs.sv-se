@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: fda80455cf3504bf992fabc3018be2d5c05612ae
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 1f5064cece32cfc38f149816961e5156ff20974a
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54019154"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57536716"
 ---
 # <a name="move-data-from-amazon-simple-storage-service-by-using-azure-data-factory"></a>Flytta data från Amazon Simple Storage Service med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -38,7 +38,7 @@ För att kopiera data från Amazon S3, kontrollera att du har beviljats följand
 * `s3:GetObject` och `s3:GetObjectVersion` för Amazon S3-objektet.
 * `s3:ListBucket` för Amazon S3-Bucket-åtgärder. Om du använder guiden Data Factory kopiera `s3:ListAllMyBuckets` krävs också.
 
-Mer information om en fullständig lista över Amazon S3-behörigheter finns i [att ange behörigheter i en princip](http://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html).
+Mer information om en fullständig lista över Amazon S3-behörigheter finns i [att ange behörigheter i en princip](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html).
 
 ## <a name="getting-started"></a>Komma igång
 Du kan skapa en pipeline med en Kopieringsaktivitet som flyttar data från en källa för Amazon S3 med hjälp av olika verktyg eller API: er.
@@ -69,7 +69,7 @@ En länkad tjänst länkar ett datalager till en data factory. Du skapar en län
 | secretAccessKey |Den hemliga åtkomstnyckeln själva. |Krypterad hemlighet sträng |Ja |
 
 >[!NOTE]
->Den här anslutningen kräver åtkomstnycklarna för IAM-konto för att kopiera data från Amazon S3. [Tillfällig autentiseringsuppgift](http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html) stöds inte.
+>Den här anslutningen kräver åtkomstnycklarna för IAM-konto för att kopiera data från Amazon S3. [Tillfällig autentiseringsuppgift](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html) stöds inte.
 >
 
 Här är ett exempel:
@@ -94,10 +94,10 @@ Avsnitt som struktur, tillgänglighet och princip är liknande för alla dataupp
 
 | Egenskap  | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
-| bucketName |S3-Bucketnamn. |Sträng |Ja |
-| key |Objektnyckel S3. |Sträng |Nej |
-| prefix |Prefix för Objektnyckel S3. Objekt vars nycklar som börjar med prefixet är markerade. Gäller endast när nyckeln är tom. |Sträng |Nej |
-| version |Versionen av S3-objektet, om S3 versionshantering är aktiverad. |Sträng |Nej |
+| bucketName |S3-Bucketnamn. |String |Ja |
+| key |Objektnyckel S3. |String |Nej |
+| prefix |Prefix för Objektnyckel S3. Objekt vars nycklar som börjar med prefixet är markerade. Gäller endast när nyckeln är tom. |String |Nej |
+| version |Versionen av S3-objektet, om S3 versionshantering är aktiverad. |String |Nej |
 | Format | Följande formattyper av stöds: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Ange den **typ** egenskapen under format till ett av dessa värden. Mer information finns i den [textformat](data-factory-supported-file-and-compression-formats.md#text-format), [JSON-format](data-factory-supported-file-and-compression-formats.md#json-format), [Avro-formatet](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc-format](data-factory-supported-file-and-compression-formats.md#orc-format), och [Parquet-format ](data-factory-supported-file-and-compression-formats.md#parquet-format) avsnitt. <br><br> Om du vill kopiera filer som – är mellan filbaserade (binär kopia) att hoppa över avsnittet format i både inkommande och utgående datamängd definitioner. |Nej | |
 | Komprimering | Ange typ och komprimeringsnivå för data. Typerna som stöds är: **GZip**, **Deflate**, **BZip2**, och **ZipDeflate**. Nivåerna som stöds är: **Optimal** och **snabbaste**. Mer information finns i [format och komprimering i Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Nej | |
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: f099c27c55b817d6d9217a614ee66bf1d414a4dd
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 99732a61ab64f8600ca368d4af5f47451014a993
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52446387"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57760758"
 ---
 # <a name="issue-templates-in-azure-api-management"></a>Utfärda mallar i Azure API Management
 Azure API Management ger dig möjlighet att anpassa innehållet på utvecklarportalens sidor med en uppsättning mallar som konfigurerar sitt innehåll. Med hjälp av [DotLiquid](http://dotliquidmarkup.org/) syntax och redigeringsprogram, till exempel [DotLiquid för Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), och en angiven uppsättning lokaliserade [sträng resurser](api-management-template-resources.md#strings), [tecken resurser](api-management-template-resources.md#glyphs), och [sidan kontroller](api-management-page-controls.md), har bra möjlighet att konfigurera innehållet i sidorna som du vill med hjälp av dessa mallar.  
@@ -36,64 +36,64 @@ Azure API Management ger dig möjlighet att anpassa innehållet på utvecklarpor
 ##  <a name="IssueList"></a> Problemet lista  
  Den **problemet lista** mall kan du anpassa brödtexten i sidan problemet i developer-portalen.  
   
- ![Utfärda lista Utvecklarportalen](./media/api-management-issue-templates/APIM-Issue-List-Developer-Portal.png "APIM problemet lista Developer-portalen")  
+ ![Issue List Developer Portal](./media/api-management-issue-templates/APIM-Issue-List-Developer-Portal.png "APIM Issue List Developer Portal")  
   
 ### <a name="default-template"></a>Standardmall  
   
-```xml  
-<div class="row">  
-  <div class="col-md-9">  
-    <h2>{% localized "IssuesStrings|WebIssuesIndexTitle" %}</h2>  
-  </div>  
-</div>  
-<div class="row">  
-  <div class="col-md-12">  
-    {% if issues.size > 0 %}  
-    <ul class="list-unstyled">  
-      {% capture reportedBy %}{% localized "IssuesStrings|WebIssuesStatusReportedBy" %}{% endcapture %}  
-      {% assign replaceString0 = '{0}' %}  
-      {% assign replaceString1 = '{1}' %}  
-      {% for issue in issues %}  
-      <li>  
-        <h3>  
-          <a href="/issues/{{issue.id}}">{{issue.title}}</a>  
-        </h3>  
-        <p>{{issue.description}}</p>  
-        <em>  
-          {% capture state %}{{issue.issueState}}{% endcapture %}  
-          {% capture devName %}{{issue.subscriptionDeveloperName}}{% endcapture %}  
-          {% capture str1 %}{{ reportedBy | replace : replaceString0, state }}{% endcapture %}  
-          {{ str1 | replace : replaceString1, devName }}  
-          <span class="UtcDateElement">{{ issue.reportedOn | date: "r" }}</span>  
-        </em>  
-      </li>  
-      {% endfor %}  
-    </ul>  
-    <paging-control></paging-control>  
-    {% else %}  
-    {% localized "CommonResources|NoItemsToDisplay" %}  
-    {% endif %}  
-    {% if canReportIssue %}  
-    <a class="btn btn-primary" id="createIssue" href="/Issues/Create">{% localized "IssuesStrings|WebIssuesReportIssueButton" %}</a>  
-    {% elsif isAuthenticated %}  
-    <hr />  
-    <p>{% localized "IssuesStrings|WebIssuesNoActiveSubscriptions" %}</p>  
-    {% else %}  
-    <hr />  
-    <p>  
-      {% capture signIntext %}{% localized "IssuesStrings|WebIssuesNotSignin" %}{% endcapture %}  
-      {% capture link %}<a href="/signin">{% localized "IssuesStrings|WebIssuesSignIn" %}</a>{% endcapture %}  
-      {{ signIntext | replace : replaceString0, link }}  
-    </p>  
-    {% endif %}  
-  </div>  
-</div>  
-```  
+```xml
+<div class="row">
+  <div class="col-md-9">
+    <h2>{% localized "IssuesStrings|WebIssuesIndexTitle" %}</h2>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    {% if issues.size > 0 %}
+    <ul class="list-unstyled">
+      {% capture reportedBy %}{% localized "IssuesStrings|WebIssuesStatusReportedBy" %}{% endcapture %}
+      {% assign replaceString0 = '{0}' %}
+      {% assign replaceString1 = '{1}' %}
+      {% for issue in issues %}
+      <li>
+        <h3>
+          <a href="/issues/{{issue.id}}">{{issue.title}}</a>
+        </h3>
+        <p>{{issue.description}}</p>
+        <em>
+          {% capture state %}{{issue.issueState}}{% endcapture %}
+          {% capture devName %}{{issue.subscriptionDeveloperName}}{% endcapture %}
+          {% capture str1 %}{{ reportedBy | replace : replaceString0, state }}{% endcapture %}
+          {{ str1 | replace : replaceString1, devName }}
+          <span class="UtcDateElement">{{ issue.reportedOn | date: "r" }}</span>
+        </em>
+      </li>
+      {% endfor %}
+    </ul>
+    <paging-control></paging-control>
+    {% else %}
+    {% localized "CommonResources|NoItemsToDisplay" %}
+    {% endif %}
+    {% if canReportIssue %}
+    <a class="btn btn-primary" id="createIssue" href="/Issues/Create">{% localized "IssuesStrings|WebIssuesReportIssueButton" %}</a>
+    {% elsif isAuthenticated %}
+    <hr />
+    <p>{% localized "IssuesStrings|WebIssuesNoActiveSubscriptions" %}</p>
+    {% else %}
+    <hr />
+    <p>
+      {% capture signIntext %}{% localized "IssuesStrings|WebIssuesNotSignin" %}{% endcapture %}
+      {% capture link %}<a href="/signin">{% localized "IssuesStrings|WebIssuesSignIn" %}</a>{% endcapture %}
+      {{ signIntext | replace : replaceString0, link }}
+    </p>
+    {% endif %}
+  </div>
+</div>
+```
   
 ### <a name="controls"></a>Kontroller  
  Den `Issue list` mall kan använda följande [sidan kontroller](api-management-page-controls.md).  
   
--   [växling-kontroll](api-management-page-controls.md#paging-control)  
+-   [paging-control](api-management-page-controls.md#paging-control)  
   
 ### <a name="data-model"></a>Datamodell  
   
@@ -107,33 +107,33 @@ Azure API Management ger dig möjlighet att anpassa innehållet på utvecklarpor
   
 ### <a name="sample-template-data"></a>Mall för exempeldata  
   
-```json  
-{  
-    "Issues": [  
-        {  
-            "Id": "5702b68bb16653124c8f9ba7",  
-            "ApiId": "570275f1b16653124c8f9ba3",  
-            "Title": "I couldn't figure out how to connect my application to the API",  
-            "Description": "I'm having trouble connecting my application to the backend API.",  
-            "SubscriptionDeveloperName": "Clayton",  
-            "IssueState": "Proposed",  
-            "ReportedOn": "2016-04-04T18:46:35.64",  
-            "Comments": null,  
-            "Attachments": null,  
-            "Services": null  
-        }  
-    ],  
-    "Paging": {  
-        "Page": 1,  
-        "PageSize": 10,  
-        "TotalItemCount": 1,  
-        "ShowAll": false,  
-        "PageCount": 1  
-    },  
-    "IsAuthenticated": true,  
-    "CanReportIssue": true,  
-    "Search": null  
-}  
+```json
+{
+    "Issues": [
+        {
+            "Id": "5702b68bb16653124c8f9ba7",
+            "ApiId": "570275f1b16653124c8f9ba3",
+            "Title": "I couldn't figure out how to connect my application to the API",
+            "Description": "I'm having trouble connecting my application to the backend API.",
+            "SubscriptionDeveloperName": "Clayton",
+            "IssueState": "Proposed",
+            "ReportedOn": "2016-04-04T18:46:35.64",
+            "Comments": null,
+            "Attachments": null,
+            "Services": null
+        }
+    ],
+    "Paging": {
+        "Page": 1,
+        "PageSize": 10,
+        "TotalItemCount": 1,
+        "ShowAll": false,
+        "PageCount": 1
+    },
+    "IsAuthenticated": true,
+    "CanReportIssue": true,
+    "Search": null
+}
 ```
 
 ## <a name="next-steps"></a>Nästa steg

@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 0a46a5707d1901c18d850ff9cfd8d4b09b72c646
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 7accb8f2d97f5e4b4dc19ba93ab9edc1a4e6ce8a
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54021279"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57541341"
 ---
 # <a name="tutorial-copy-data-from-blob-storage-to-sql-database-using-data-factory"></a>Självstudier: Kopiera data från Blob Storage till SQL Database med Data Factory
 > [!div class="op_single_selector"]
@@ -93,7 +93,7 @@ Förbered nu Azure blob storage och Azure SQL-databas för självstudien genom a
     John, Doe
     Jane, Doe
     ```
-2. Använd verktyg som t.ex. [Azure Lagringsutforskaren](http://storageexplorer.com/) till att skapa containern **adftutorial** och för att ladda upp filen **emp.txt** till containern.
+2. Använd verktyg som t.ex. [Azure Lagringsutforskaren](https://storageexplorer.com/) till att skapa containern **adftutorial** och för att ladda upp filen **emp.txt** till containern.
 
     ![Azure Storage Explorer. Kopiera data från Blob storage till SQL-databas](./media/data-factory-copy-data-from-azure-blob-storage-to-sql-database/getstarted-storage-explorer.png)
 3. Använd följande SQL-skript för att skapa tabellen **emp** i din Azure SQL Database.  
@@ -126,6 +126,6 @@ Du har slutfört förutsättningarna. Du kan skapa en datafabrik med hjälp av n
 * [.NET-API](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 
 > [!NOTE]
-> Datapipelinen i den här självstudien kopierar data från ett källdatalager till ett måldatalager. Det transformerar inte indata för att generera utdata. En självstudiekurs om hur du omvandlar data med Azure Data Factory finns i [självstudien: Skapa din första pipeline för att transformera data med Hadoop-kluster](data-factory-build-your-first-pipeline.md).
+> Datapipelinen i den här självstudien kopierar data från ett källdatalager till ett måldatalager. Det transformerar inte indata för att generera utdata. En självstudie om hur du omvandlar data med Azure Data Factory finns i [Självstudie: Bygg din första pipeline för att omvandla data med Hadoop-kluster](data-factory-build-your-first-pipeline.md).
 > 
 > Du kan länka två aktiviteter (köra en aktivitet efter en annan) genom att ställa in datauppsättningen för utdata för en aktivitet som den inkommande datauppsättningen för den andra aktiviteten. Mer detaljerad information finns i [Scheduling and execution in Data Factory](data-factory-scheduling-and-execution.md) (Schemaläggning och utförande i Data Factory). 

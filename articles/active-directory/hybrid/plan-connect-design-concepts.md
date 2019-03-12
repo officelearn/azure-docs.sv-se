@@ -17,12 +17,12 @@ ms.date: 08/10/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 01cc85f7eba2aefd08192c4e3f4e5151e7645238
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 311ba489073805fdb034b435ab9e5e1ddc2c4e3c
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56269118"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57535050"
 ---
 # <a name="azure-ad-connect-design-concepts"></a>Azure AD Connect: Designbegrepp
 Syftet med det här dokumentet är att beskriva områden som måste betraktas under genomförandet utformningen av Azure AD Connect. Det här dokumentet är en djupdykning i vissa områden och dessa koncept beskrivs kortfattat i andra dokument.
@@ -157,7 +157,7 @@ För analys (steg 4), om attributet har konfigurerats på ett eller flera objekt
 
 ![Aktivera ConsistencyGuid för befintliga distribution – fel](./media/plan-connect-design-concepts/consistencyguidexistingdeploymenterror.png)
 
- Om du är säker på att attributet inte är används av andra befintliga program kan du ignorera felet genom att starta om Azure AD Connect-guiden med den **/SkipLdapSearchcontact** angivna. Om du vill göra det kör du följande kommando i Kommandotolken:
+ Om du är säker på att attributet inte är används av andra befintliga program kan du ignorera felet genom att starta om Azure AD Connect-guiden med den **/SkipLdapSearch** växel som har angetts. Om du vill göra det kör du följande kommando i Kommandotolken:
 
 ```
 "c:\Program Files\Microsoft Azure Active Directory Connect\AzureADConnect.exe" /SkipLdapSearch
@@ -171,7 +171,7 @@ Om du hanterar AD FS utanför Azure AD Connect eller om du använder federations
 ![Tredjeparts-federation-konfiguration](./media/plan-connect-design-concepts/consistencyGuid-03.png)
 
 ### <a name="adding-new-directories-to-existing-deployment"></a>Lägga till nya kataloger till befintlig distribution
-Anta att du har distribuerat Azure AD Connect med funktionen ConsistencyGuid aktiverad och nu du vill lägga till en annan katalog i distributionen. När du försöker lägga till katalogen kontrollerar Azure AD Connect-guiden status för attributet ms-DS-ConsistencyGuid i katalogen. Om attributet har konfigurerats på ett eller flera objekt i katalogen, avslutar guiden attributet som används av andra applikationer och returnerar ett fel som visas i diagrammet nedan. Om du är säker på att attributet inte är används av befintliga program kan du ignorera felet genom att starta om Azure AD Connect-guiden med den **/SkipLdapSearchcontact** anges enligt beskrivningen ovan eller om du behöver kontakta Stöd för mer information.
+Anta att du har distribuerat Azure AD Connect med funktionen ConsistencyGuid aktiverad och nu du vill lägga till en annan katalog i distributionen. När du försöker lägga till katalogen kontrollerar Azure AD Connect-guiden status för attributet ms-DS-ConsistencyGuid i katalogen. Om attributet har konfigurerats på ett eller flera objekt i katalogen, avslutar guiden attributet som används av andra applikationer och returnerar ett fel som visas i diagrammet nedan. Om du är säker på att attributet inte är används av befintliga program kan du ignorera felet genom att starta om Azure AD Connect-guiden med den **/SkipLdapSearch** växeln som angetts som beskrivs ovan eller om du behöver kontakta Stöd för mer information.
 
 ![Lägga till nya kataloger till befintlig distribution](./media/plan-connect-design-concepts/consistencyGuid-04.png)
 

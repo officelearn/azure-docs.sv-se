@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 02/28/2018
-ms.openlocfilehash: 39ffe1b71fb002658110c63c825e0515f38e2b9e
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 6d6f24475497382dd9e04d3335fb89d6f0bdd514
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53537332"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57528686"
 ---
 # <a name="create-and-manage-azure-database-for-mysql-server-using-azure-portal"></a>Skapa och hantera Azure Database för MySQL-server med Azure-portalen
 Det här avsnittet beskrivs hur du snabbt kan skapa en ny Azure Database for MySQL-server. Det innehåller även information om hur du hanterar servern med hjälp av Azure portal. Serverhantering innehåller visa information om och databaser, återställer lösenordet, skalning av resurser och tar bort servern.
@@ -44,9 +44,9 @@ Följ stegen nedan för att skapa en Azure Database for MySQL-server med namnet 
     | *Plats* | Sydostasien (Välj mellan Norra Europa och västra USA) |
     | *Version* | 5.7 (väljer Azure Database för MySQL-serverversion) |
 
-4. Klicka på **prisnivå** ange servicenivå för tjänstnivå och prestandanivå för den nya servern. Välj den **generella** fliken. *Gen 4*, *2 virtuella kärnor*, *5 GB*, och *7 dagar* är standardvärdena för **Compute-generering**, **Virtuell kärna** , **Lagring** och **Kvarhållningsperiod för säkerhetskopior**. Du kan lämna dessa skjutreglage som de är. Välj **Geografiskt redundant** bland **redundansalternativen för säkerhetskopiering** om du vill använda geo-redundant lagring för dina serversäkerhetskopior.
+4. Klicka på **prisnivå** ange servicenivå för tjänstnivå och prestandanivå för den nya servern. Välj den **generella** fliken. *Gen 5*, *2 virtuella kärnor*, *5 GB*, och *7 dagar* är standardvärdena för **Compute-generering**, **Virtuell kärna** , **Lagring** och **Kvarhållningsperiod för säkerhetskopior**. Du kan lämna dessa skjutreglage som de är. Välj **Geografiskt redundant** bland **redundansalternativen för säkerhetskopiering** om du vill använda geo-redundant lagring för dina serversäkerhetskopior.
 
-   ![Skapa – server--prisnivå](./media/howto-create-manage-server-portal/create-server-pricing-tier.png)
+   ![create-server-pricing-tier](./media/howto-create-manage-server-portal/create-server-pricing-tier.png)
 
 5. Klicka på **Skapa** för att etablera servern. Etableringen tar några minuter.
 
@@ -94,7 +94,7 @@ Efter den nya servern har etablerats, har du flera alternativ för att konfigure
 
 2. Skriv namnet på servern i textrutan för dubbla bekräftelse.
 
-    ![Bekräfta borttagning](./media/howto-create-manage-server-portal/confirm.png)
+    ![confirm-delete](./media/howto-create-manage-server-portal/confirm.png)
 
 3. Klicka på den **ta bort** för att bekräfta ta bort servern. Vänta tills ”har tagits bort MySQL-server” pop upp till visas i meddelandefältet.
 

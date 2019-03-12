@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 7b32a493dc7dc8aa3ac2bbf1f195a43621c7449a
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: ee09f8defc7a10b153e910cb7208b0ddb21120b2
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57447191"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57543960"
 ---
 # <a name="azure-data-factory---json-scripting-reference"></a>Azure Data Factory - JSON-skript referens
 > [!NOTE]
@@ -52,7 +52,7 @@ Följande tabell beskrivs egenskaperna i pipeline-JSON-definition:
 | namn | Namnet på pipeline. Ange ett namn som representerar åtgärden aktivitet eller pipeline har konfigurerats för att göra<br/><ul><li>Maximalt antal tecken: 260</li><li>Måste börja med en bokstav siffra eller ett understreck (\_)</li><li>Följande tecken är inte tillåtna ”:”., ”+” ”,”?, ”/”, ”<” ”, >” ”, *”, ”%”, ”&” ”,:” ”,\\”</li></ul> |Ja |
 | beskrivning |Text som beskriver vad aktiviteten eller pipeline används till | Nej |
 | activities | Innehåller en lista över aktiviteter. | Ja |
-| start |Starta datum / tid för pipelinen. Måste vara i [ISO-format](http://en.wikipedia.org/wiki/ISO_8601). Exempel: 2014-10-14T16:32:41. <br/><br/>Det är möjligt att ange en lokal tid, till exempel en EST tid. Här är ett exempel: `2016-02-27T06:00:00**-05:00`, vilket är 6 AM EST.<br/><br/>Egenskaper för start- och ange tillsammans aktiva perioden för pipelinen. Utdatasegment produceras bara med i den här aktiva period. |Nej<br/><br/>Om du anger ett värde för end-egenskapen, måste du ange värdet för egenskapen start.<br/><br/>Start- och sluttider kan vara tom för att skapa en pipeline. Du måste ange båda värdena för att ställa in en aktiva perioden för pipelinen att köra. Om du inte anger start- och sluttider när du skapar en pipeline kan du ange dem med hjälp av cmdleten Set-AzDataFactoryPipelineActivePeriod senare. |
+| start |Starta datum / tid för pipelinen. Måste vara i [ISO-format](https://en.wikipedia.org/wiki/ISO_8601). Exempel: 2014-10-14T16:32:41. <br/><br/>Det är möjligt att ange en lokal tid, till exempel en EST tid. Här är ett exempel: `2016-02-27T06:00:00**-05:00`, vilket är 6 AM EST.<br/><br/>Egenskaper för start- och ange tillsammans aktiva perioden för pipelinen. Utdatasegment produceras bara med i den här aktiva period. |Nej<br/><br/>Om du anger ett värde för end-egenskapen, måste du ange värdet för egenskapen start.<br/><br/>Start- och sluttider kan vara tom för att skapa en pipeline. Du måste ange båda värdena för att ställa in en aktiva perioden för pipelinen att köra. Om du inte anger start- och sluttider när du skapar en pipeline kan du ange dem med hjälp av cmdleten Set-AzDataFactoryPipelineActivePeriod senare. |
 | slut |Slutdatum /-tid för pipelinen. Om anges måste vara i ISO-format. Exempel: 2014-10-14T17:32:41 <br/><br/>Det är möjligt att ange en lokal tid, till exempel en EST tid. Här är ett exempel: `2016-02-27T06:00:00**-05:00`, vilket är 6 AM EST.<br/><br/>Om du vill köra pipelinen på obestämd tid, ange 9999-09-09 som värde för end-egenskapen. |Nej <br/><br/>Om du anger ett värde för egenskapen start, måste du ange värdet för egenskapen slutet.<br/><br/>Se information om den **starta** egenskapen. |
 | isPaused |Om värdet är true pipelinen inte körs. Standardvärde = false. Du kan använda den här egenskapen för att aktivera eller inaktivera. |Nej |
 | pipelineMode |Metod för att schemalägga körningar för pipelinen. Tillåtna värden är: schemalagd (standard), genomfört.<br/><br/>”Schemalagd” anger att pipelinen körs vid ett angivet tidsintervall enligt den aktiva perioden (start- och -tid). ”Onetime” anger att pipelinen körs bara en gång. Onetime pipelines som är skapade får inte vara ändrade/uppdateras för tillfället. Se [Onetime pipeline](data-factory-create-pipelines.md#onetime-pipeline) mer information om hur du genomfört. |Nej |
@@ -4283,7 +4283,7 @@ För att definiera en OData länkad tjänst genom att ange den **typ** på den l
     "properties": {
         "type": "OData",
         "typeProperties": {
-            "url": "http://services.odata.org/OData/OData.svc",
+            "url": "https://services.odata.org/OData/OData.svc",
             "authenticationType": "Basic",
             "username": "username",
             "password": "password"
@@ -4300,7 +4300,7 @@ För att definiera en OData länkad tjänst genom att ange den **typ** på den l
     "properties": {
         "type": "OData",
         "typeProperties": {
-            "url": "http://services.odata.org/OData/OData.svc",
+            "url": "https://services.odata.org/OData/OData.svc",
             "authenticationType": "Anonymous"
         }
     }

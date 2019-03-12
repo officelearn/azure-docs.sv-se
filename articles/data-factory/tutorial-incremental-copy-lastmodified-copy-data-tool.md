@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 1/24/2019
-ms.openlocfilehash: 22203a0e950a59cb255c8864218d4e03988e6634
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: e5e184e6dadfa993e0b758ad32b54ea6ccfcb272
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56647573"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57546542"
 ---
 # <a name="incrementally-copy-new-and-changed-files-based-on-lastmodifieddate-by-using-the-copy-data-tool"></a>Kopiera nya och ändrade filer baserat på LastModifiedDate med hjälp av verktyget kopieringsdata stegvis
 
@@ -43,9 +43,9 @@ I den här självstudien får du göra följande:
 
 Förbered din Blob-lagring för den här självstudien genom att utföra dessa steg.
 
-1. Skapa en behållare med namnet **källa**. Du kan använda olika verktyg för att utföra dessa uppgifter, exempelvis [Azure Storage Explorer](http://storageexplorer.com/).
+1. Skapa en behållare med namnet **källa**. Du kan använda olika verktyg för att utföra dessa uppgifter, exempelvis [Azure Storage Explorer](https://storageexplorer.com/).
 
-2. Skapa en behållare med namnet **mål**. Du kan använda olika verktyg för att utföra dessa uppgifter, exempelvis [Azure Storage Explorer](http://storageexplorer.com/).
+2. Skapa en behållare med namnet **mål**. Du kan använda olika verktyg för att utföra dessa uppgifter, exempelvis [Azure Storage Explorer](https://storageexplorer.com/).
 
 ## <a name="create-a-data-factory"></a>Skapa en datafabrik
 
@@ -174,7 +174,7 @@ Förbered din Blob-lagring för den här självstudien genom att utföra dessa s
     
     ![Övervaka pipelinekörningar](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs3.png)
     
-12. Skapa en tom textfil och ge den namnet som file1.txt. Överför file1.txt-filen till den **källa** behållare i ditt storage-konto. Du kan använda olika verktyg för att utföra dessa uppgifter, exempelvis [Azure Storage Explorer](http://storageexplorer.com/).    
+12. Skapa en tom textfil och ge den namnet som file1.txt. Överför file1.txt-filen till den **källa** behållare i ditt storage-konto. Du kan använda olika verktyg för att utföra dessa uppgifter, exempelvis [Azure Storage Explorer](https://storageexplorer.com/).   
 
     ![Övervaka pipelinekörningar](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs3-1.png)
     
@@ -190,13 +190,13 @@ Förbered din Blob-lagring för den här självstudien genom att utföra dessa s
     
     ![Övervaka pipelinekörningar](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs6.png)
     
-15. Skapa en annan tom textfil och ge den namnet som file2.txt. Överför file2.txt-filen till den **källa** behållare i ditt storage-konto. Du kan använda olika verktyg för att utföra dessa uppgifter, exempelvis [Azure Storage Explorer](http://storageexplorer.com/).   
+15. Skapa en annan tom textfil och ge den namnet som file2.txt. Överför file2.txt-filen till den **källa** behållare i ditt storage-konto. Du kan använda olika verktyg för att utföra dessa uppgifter, exempelvis [Azure Storage Explorer](https://storageexplorer.com/).  
     
 16. Gör samma sak som steg 13 och 14 och du ser bara den nya filen (file2.txt) har kopierats från den **källa** behållaren till den **mål** behållare på ditt lagringskonto i nästa pipelinekörning.  
     
     ![Övervaka pipelinekörningar](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs7.png)
 
-    Du kan också kontrollera samma med hjälp av Azure Storage Explorer (http://storageexplorer.com/) söker igenom filer.
+    Du kan också kontrollera samma med hjälp av Azure Storage Explorer (https://storageexplorer.com/) söker igenom filer.
     
     ![Övervaka pipelinekörningar](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs8.png)
 

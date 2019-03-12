@@ -1,5 +1,5 @@
 ---
-title: 'REST API: Kontohanteringsåtgärder på Azure Data Lake Storage Gen1 | Microsoft Docs'
+title: 'REST-API: Kontohanteringsåtgärder på Azure Data Lake Storage Gen1 | Microsoft Docs'
 description: Använd Azure Data Lake Storage Gen1 och WebHDFS REST API för att utföra kontohanteringsåtgärder i Data Lake Storage Gen1-konto
 services: data-lake-store
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 7f22fe7d1c3962e59922bc4e2795ed4f899e3eca
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: b2c4d38462cf617d8417b269d47a8c1bb0c266c3
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46121676"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57530134"
 ---
 # <a name="account-management-operations-on-azure-data-lake-storage-gen1-using-rest-api"></a>Kontohanteringsåtgärder på Azure Data Lake Storage Gen1 med hjälp av REST API
 > [!div class="op_single_selector"]
@@ -32,7 +32,7 @@ I den här artikeln får du lära dig hur du utför kontohanteringsåtgärder p�
 ## <a name="prerequisites"></a>Förutsättningar
 * **En Azure-prenumeration**. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-* **[cURL](http://curl.haxx.se/)**. Den här artikeln använder cURL för att demonstrera hur du gör REST API-anrop mot ett Data Lake Storage Gen1-konto.
+* **[cURL](https://curl.haxx.se/)**. Den här artikeln använder cURL för att demonstrera hur du gör REST API-anrop mot ett Data Lake Storage Gen1-konto.
 
 ## <a name="how-do-i-authenticate-using-azure-active-directory"></a>Hur autentiserar jag med Azure Active Directory?
 Du kan använda två sätt för att autentisera med Azure Active Directory.

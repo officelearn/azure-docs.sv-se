@@ -9,17 +9,17 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: How to
-ms.date: 03/04/2019
+ms.topic: conceptual
+ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.lastreviewed: 11/26/2018
-ms.openlocfilehash: 4cd94a0d5891c2d34e152dad87d21cbb45a2ec39
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.lastreviewed: 03/11/2019
+ms.openlocfilehash: 3fb5c3deeddb6f3ee381ca45df76feebf3405b21
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57336877"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57766585"
 ---
 # <a name="scheduling-a-test"></a>Schemalägga ett test
 
@@ -53,7 +53,7 @@ Logga in på portalen, Välj eller skapa en lösning och välj sedan lösningen.
 
 ![Alternativ Text](media/vaas_test_pass_parameters.png)
 
-Definiera arbetsflödet för din lösning. Arbetsflödet har de steg i processen som används för att testa din lösning.
+Ange parametrar som gäller för alla test inom arbetsflödet.
 
 1. [!INCLUDE [azure-stack-vaas-workflow-step_naming](includes/azure-stack-vaas-workflow-step_naming.md)]
 2. [!INCLUDE [azure-stack-vaas-workflow-step_upload-stampinfo](includes/azure-stack-vaas-workflow-step_upload-stampinfo.md)]
@@ -63,22 +63,23 @@ Definiera arbetsflödet för din lösning. Arbetsflödet har de steg i processen
 
 ## <a name="select-tests-to-run"></a>Välj tester för att köra
 
-Välj de tester som du vill köra i arbetsflödet.
+Testerna som du väljer kommer att schemaläggas när arbetsflödet har skapats.
 
 1. Välj de tester som du vill köra i arbetsflödet.
 
     Om du vill åsidosätta de gemensamma parametrarna för (det vill säga de parametrar som ges i föregående avsnitt) för alla test väljer på det **redigera** länken nästa för att ange nya värden.
 
 1. [!INCLUDE [azure-stack-vaas-workflow-step_select-agent](includes/azure-stack-vaas-workflow-step_select-agent.md)]
+
 1. Välj **nästa** att granska arbetsflödet.
 
 ## <a name="review-and-submit"></a>Granska och skicka
 
-Granska, skapa och sedan schemalägger du arbetsflödet.
+Slut skapandet av arbetsflödet.
 
 1. Granska informationen som visas.
 
-    Tjänsterna skapar ditt arbetsflöde med den angivna informationen och kommer att schemaläggas med valda testerna.
+    Tjänsten skapar ditt arbetsflöde med den angivna informationen och kommer att schemaläggas med valda testerna.
 
     Om något visas felaktigt, kan du använda den **föregående** knappar för att gå till ett tidigare avsnitt.
 

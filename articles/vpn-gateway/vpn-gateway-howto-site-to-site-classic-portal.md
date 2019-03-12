@@ -2,25 +2,18 @@
 title: 'Anslut ditt lokala nätverk till ett virtuellt Azure-nätverk: Plats-till-plats-VPN (klassiskt): Portal | Microsoft Docs'
 description: Skapa en IPsec-anslutning från ditt lokala nätverk till ett klassiskt virtuellt Azure-nätverk via offentligt Internet.
 services: vpn-gateway
-documentationcenter: na
 author: cherylmc
 manager: jpconnock
-editor: ''
-tags: azure-service-management
-ms.assetid: ''
 ms.service: vpn-gateway
-ms.devlang: na
-ms.topic: hero-article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
+ms.topic: conceptual
 ms.date: 02/14/2018
 ms.author: cherylmc
-ms.openlocfilehash: b0fa60d709c2fa6c286e44797d53e8a4a8d47d00
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: ff58619a0fb463c0877b2b595404af19903db1ec
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55695612"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57776945"
 ---
 # <a name="create-a-site-to-site-connection-using-the-azure-portal-classic"></a>Skapa en plats-till-plats-anslutning med hjälp av Azure-portalen (klassisk)
 
@@ -46,7 +39,7 @@ Kontrollera att du har uppfyllt följande villkor innan du påbörjar konfigurat
 
 * Bekräfta att du vill arbeta i den klassiska distributionsmodellen. Om du vill arbeta i Resource Manager-distributionsmodellen hittar du information i [Skapa en plats-till-plats-anslutning (Resource Manager)](vpn-gateway-howto-site-to-site-resource-manager-portal.md). Om det är möjligt rekommenderar vi att du använder Resource Manager-distributionsmodellen.
 * Kontrollera att du har en kompatibel VPN-enhet och någon som kan konfigurera den. Se [Om VPN-enheter](vpn-gateway-about-vpn-devices.md) för mer information om kompatibla VPN-enheter och enhetskonfiguration.
-* Kontrollera att du har en extern offentlig IPv4-adress för VPN-enheten. Den här IP-adressen får inte finnas bakom en NAT.
+* Kontrollera att du har en extern offentlig IPv4-adress för VPN-enheten.
 * Om du inte vet vilka IP-adressintervaller som används i din lokala nätverkskonfiguration kontaktar du relevant person som kan ge dig den här informationen. När du skapar den här konfigurationen måste du ange prefix för IP-adressintervall som Azure dirigerar till den lokala platsen. Inget av undernäten i ditt lokala nätverk kan överlappa de virtuella nätverksundernät du vill ansluta till.
 * För närvarande krävs PowerShell för att ange den delade nyckeln och skapa VPN-gatewayanslutningen. Installera den senaste versionen av Azure Service Management (SM) PowerShell-cmdletar. Mer information finns i [Installera och konfigurera Azure PowerShell](/powershell/azure/overview). När du arbetar med PowerShell i den här konfigurationen ska du kontrollera att du kör som administratör. 
 
@@ -128,7 +121,7 @@ Den lokala platsen avser vanligtvis din lokala plats. Den innehåller IP-adresse
 3. Välj **Plats-till-plats** på sidan **Ny VPN-anslutning**.
 4. Klicka på **Lokal plats - Konfigurera obligatoriska inställningar** för att öppna sidan **Lokal plats**. Konfigurera inställningarna och klicka sedan på **OK** för att spara inställningarna.
   - **Namn:** Ange ett namn för den lokala platsen så att du enkelt kan identifiera den.
-  - **IP-adress till VPN-gateway:** Det här är den offentliga IP-adressen till VPN-enheten för ditt lokala nätverk. VPN-enheten måste ha en offentlig IP-adress (IPv4). Ange en giltig offentlig IP-adress för VPN-enheten som du vill ansluta till. Den får inte vara bakom en NAT och måste kunna nås av Azure. Om du inte vet VPN-enhetens IP-adress kan du använda ett platshållarvärde (i formatet för en giltig offentlig IP-adress) och ändra det senare.
+  - **IP-adress till VPN-gateway:** Det här är den offentliga IP-adressen till VPN-enheten för ditt lokala nätverk. VPN-enheten måste ha en offentlig IP-adress (IPv4). Ange en giltig offentlig IP-adress för VPN-enheten som du vill ansluta till. Den måste kunna nås av Azure. Om du inte vet VPN-enhetens IP-adress kan du använda ett platshållarvärde (i formatet för en giltig offentlig IP-adress) och ändra det senare.
   - **Klientadressutrymme:** Här visas de IP-adressintervall som du vill dirigera till det lokala nätverket via denna gateway. Du kan lägga till flera adressintervall. Se till att intervallen du anger här inte överlappar intervallen för andra nätverk som ditt virtuella nätverk ansluter till, eller överlappar adressintervallen för det virtuella nätverket.
 
   ![Lokal plats](./media/vpn-gateway-howto-site-to-site-classic-portal/localnetworksite.png "Konfigurera lokal plats")

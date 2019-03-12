@@ -9,12 +9,12 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 02/21/2019
 ms.author: kgremban
-ms.openlocfilehash: 692639f42d893adcc4b865d3c76fed2d458c4d20
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: edf6fa98224613ba31eeed871cbb0eaf4e614600
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56670616"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57535305"
 ---
 # <a name="get-started-with-device-twins-python"></a>Kom igång med enhetstvillingar (Python)
 [!INCLUDE [iot-hub-selector-twin-get-started](../../includes/iot-hub-selector-twin-get-started.md)]
@@ -30,8 +30,8 @@ I slutet av den här självstudien har du två Python-konsolappar:
 Den här kursen behöver du följande:
 
 * [Python 2.x eller 3.x](https://www.python.org/downloads/). Se till att använda en 32-bitars eller 64-bitars installation beroende på vad som krävs för din konfiguration. Se till att du lägger till Python i den plattformsspecifika miljövariabeln när du uppmanas att göra det under installationen. Om du använder Python 2.x kan du behöva [installera eller uppgradera *PIP* (pakethanteringssystemet för Python)](https://pip.pypa.io/en/stable/installing/).
-* Om du använder Windows OS installerar du [Visual C++ redistributable package](http://www.microsoft.com/download/confirmation.aspx?id=48145) så att du kan använda native-DLL:er från Python.
-* Ett aktivt Azure-konto. (Om du inte har ett konto kan du skapa en [kostnadsfritt konto](http://azure.microsoft.com/pricing/free-trial/) på bara några minuter.)
+* Om du använder Windows OS installerar du [Visual C++ redistributable package](https://www.microsoft.com/download/confirmation.aspx?id=48145) så att du kan använda native-DLL:er från Python.
+* Ett aktivt Azure-konto. (Om du inte har ett konto kan du skapa en [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/) på bara några minuter.)
 
 > [!NOTE]
 > *Pip*-paketet för `azure-iothub-service-client` och `azure-iothub-device-client` är endast tillgänglig för Windows-Operativsystemet. Linux/Mac OS, finns i Linux och Mac OS-specifika avsnitt på den [Förbered din utvecklingsmiljö för Python](https://github.com/Azure/azure-iot-sdk-python/blob/master/doc/python-devbox-setup.md) publicera.

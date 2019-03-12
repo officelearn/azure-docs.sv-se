@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 4c01cf93fe3bb66f9bce73acb3c2f100764d1f46
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: b008293e06f476109abde5be519489b2e3d4c1e9
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55872551"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57531393"
 ---
 # <a name="get-started-with-the-speech-devices-sdk"></a>Kom igång med SDK för tal-enheter
 
@@ -37,7 +37,7 @@ Innan du börjar utveckla med tal Devices SDK måste du samla in information och
 
 * Hämta den senaste versionen av tal enheter SDK, som innehåller en exempelapp för Android, från den [tal Devices SDK hämtningsplats](https://shares.datatransfer.microsoft.com/). Extrahera ZIP-filen till en lokal mapp, som C:\SDSDK.
 
-* Installera [Android Studio](https://developer.android.com/studio/) och [Vysor](http://vysor.io/download/) på din dator.
+* Installera [Android Studio](https://developer.android.com/studio/) och [Vysor](https://vysor.io/download/) på din dator.
 
 * Hämta en [Speech service prenumerationsnyckel](get-started.md). Du kan hämta en 30-dagars kostnadsfri utvärderingsversion eller hämta en nyckel från instrumentpanelen i Azure.
 

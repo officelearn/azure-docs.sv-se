@@ -7,7 +7,7 @@ author: CelesteDG
 manager: mtillman
 ms.author: celested
 ms.reviewer: dadobali
-ms.date: 09/24/2018
+ms.date: 02/28/2019
 ms.service: active-directory
 ms.subservice: develop
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2be77cdc4a5ad38a7d8c125fd95256e77cd92019
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: c02f094def3828d0839025f4b7dea48ee64adcc8
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56202952"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57543194"
 ---
 # <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Vägledning för utvecklare för villkorlig åtkomst i Azure Active Directory
 
@@ -44,7 +44,6 @@ I de vanligaste fall villkorlig åtkomst ändra inte appens beteende eller kräv
 
 Mer specifikt kan kräver följande scenarier kod för att hantera villkorlig åtkomst ”utmaningar”:
 
-* Appar får åtkomst till Microsoft Graph
 * Appar som utför on-behalf-of-flöde
 * Appar får åtkomst till flera tjänster/resurser
 * Ensidesappar med ADAL.js
@@ -58,15 +57,28 @@ Beroende på scenario, en företagskund tillämpa och ta bort principer för vil
 
 Vissa scenarier kräver ändringar i koden att hantera villkorlig åtkomst medan andra fungera på samma sätt. Här följer några scenarier med villkorlig åtkomst för att göra multifaktorautentisering som ger viss insikt om skillnaden.
 
-* Du skapar en enda klient iOS-app och tillämpa en princip för villkorlig åtkomst. Appen loggar in en användare och begär inte åtkomst till ett API. När användaren loggar in, principen anropas automatiskt och användaren behöver utföra multifaktorautentisering (MFA).
-* Du skapar en webbapp för flera klienter som använder Microsoft Graph för att få åtkomst till Exchange, bland andra tjänster. En företagskund som antar den här appen anger en princip för Exchange. När appen begär en token för MS Graph, kommer appen inte angripas att följa principen. Användaren har loggat in med giltig token. När appen försöker använda den här token mot Microsoft Graph för att få åtkomst till Exchange-data, en anspråk ”utmaning” returneras till webbappen via den ```WWW-Authenticate``` rubrik. Appen kan sedan använda den ```claims``` i en ny begäran och användaren uppmanas att följa villkoren.
+* Du skapar en enda klient iOS-app och tillämpa en princip för villkorlig åtkomst. Appen loggar in en användare och begär inte åtkomst till ett API. När användaren loggar in, principen anropas automatiskt och användaren behöver utföra multifaktorautentisering (MFA). 
 * Du skapar en inbyggd app som använder en mellannivå-tjänst för att få åtkomst till en underordnad API. En företagskund på företag som använder den här appen gäller en princip för underordnade API: et. När en användare loggar in, den inbyggda appen begär åtkomst till mellannivån och skickar token. Mellannivån utför on-behalf-of-flöde för att begära åtkomst till underordnade API: et. Nu visas en anspråk ”utmaning” till mellannivån. På mellannivå skickar utmaningen tillbaka till den interna appen, som måste följa principen för villkorlig åtkomst.
+
+#### <a name="microsoft-graph"></a>Microsoft Graph
+
+Microsoft Graph har tänka på när du skapar appar i miljöer för villkorlig åtkomst. I allmänhet säkerhetsnivån villkorlig åtkomst fungerar på samma sätt, men de principer som användarna ser baseras på underliggande data som appen begär från diagrammet. 
+
+Mer specifikt representerar alla scope i Microsoft Graph vissa datauppsättning som individuellt kan ha principer som tillämpas. Eftersom principer för villkorlig åtkomst tilldelas specifika datauppsättningar, Azure AD ska tillämpa principer för villkorlig åtkomst baserat på data bakom Graph – i stället Graph själva.
+
+Exempel: om en app begär följande omfattningar i Microsoft Graph
+
+```
+scopes="Bookings.Read.All Mail.Read"
+```
+
+En app kan förvänta sig att användarna ska uppfylla alla principer som angetts på Bookings och Exchange. Vissa resurser kan mappa till flera datauppsättningar om den ger åtkomst. 
 
 ### <a name="complying-with-a-conditional-access-policy"></a>Uppfyller en princip för villkorlig åtkomst
 
 För flera topologier i annan app utvärderas principer för villkorlig åtkomst när sessionen har upprättats. När en princip för villkorlig åtkomst fungerar på Granulariteten för appar och tjänster, beror den punkt då den anropas kraftigt på vilket scenario du försöker utföra.
 
-När din app försöker få åtkomst till en tjänst med en princip för villkorlig åtkomst, kan det uppstå en utmaning för villkorlig åtkomst. Den här utmaningen är kodat i den `claims` parameter som finns i ett svar från Azure AD eller Microsoft Graph. Här är ett exempel på den här utmaningen-parametern:
+När din app försöker få åtkomst till en tjänst med en princip för villkorlig åtkomst, kan det uppstå en utmaning för villkorlig åtkomst. Den här utmaningen är kodat i den `claims` parameter som finns i ett svar från Azure AD. Här är ett exempel på den här utmaningen-parametern: 
 
 ```
 claims={"access_token":{"polids":{"essential":true,"Values":["<GUID>"]}}}
@@ -84,70 +96,15 @@ Azure AD villkorlig åtkomst är en funktion som ingår i [Azure AD Premium](htt
 
 Följande information gäller endast i dessa scenarier för villkorlig åtkomst:
 
-* Appar får åtkomst till Microsoft Graph
 * Appar som utför on-behalf-of-flöde
 * Appar får åtkomst till flera tjänster/resurser
 * Ensidesappar med ADAL.js
 
-I följande avsnitt beskrivs vanliga scenarier som är mer komplexa. De grundläggande drift principen är villkorlig åtkomst som principer utvärderas vid den tidpunkt som token begärs för tjänsten som har en princip för villkorlig åtkomst tillämpas, såvida inte den som kan nås via Microsoft Graph.
-
-## <a name="scenario-app-accessing-microsoft-graph"></a>Scenario: Appen åtkomst till Microsoft Graph
-
-Lär dig hur en webbapp begär åtkomst till Microsoft Graph i det här scenariot. Principen för villkorlig åtkomst kunde i det här fallet tilldelas SharePoint, Exchange eller någon annan tjänst som används som en arbetsbelastning via Microsoft Graph. I det här exemplet vi antar att det finns en princip för villkorlig åtkomst på SharePoint Online.
-
-![Appen åtkomst till Microsoft Graph flödesdiagram](./media/conditional-access-dev-guide/app-accessing-microsoft-graph-scenario.png)
-
-Appen först begär tillstånd att Microsoft Graph som kräver åtkomst till en underordnad arbetsbelastning utan villkorlig åtkomst. Begäran lyckas utan att anropa eventuella principer och appen tar emot token för Microsoft Graph. Appen kan nu använda åtkomsttoken i en ägar-begäran för den slutpunkt som begärdes. Nu behöver appen åtkomst till en SharePoint Online-slutpunkt för Microsoft Graph, till exempel: `https://graph.microsoft.com/v1.0/me/mySite`
-
-Appen har redan en giltig token för Microsoft Graph, så att den kan utföra den nya förfrågan utan en ny token utfärdas. Den här begäran misslyckas och en utmaning anspråk utfärdas från Microsoft Graph i form av ett HTTP 403 Åtkomst nekas med en ```WWW-Authenticate``` utmaning.
-
-Här är ett exempel på svaret:
-
-```
-HTTP 403; Forbidden
-error=insufficient_claims
-www-authenticate="Bearer realm="", authorization_uri="https://login.windows.net/common/oauth2/authorize", client_id="<GUID>", error=insufficient_claims, claims={"access_token":{"polids":{"essential":true,"values":["<GUID>"]}}}"
-```
-
-Utmaningen för anspråk som finns i den ```WWW-Authenticate``` rubriken, som kan parsas för att extrahera parametern anspråk för nästa begäran. När den läggs till i den nya förfrågan, Azure AD vet för att utvärdera principen för villkorlig åtkomst när du loggar in användaren och appen är nu kompatibel med principen för villkorlig åtkomst. Upprepa begäran till SharePoint Online-slutpunkten lyckas.
-
-Den ```WWW-Authenticate``` rubrik har en unik struktur och är inte enkelt att parsa för att extrahera värden. Här är en kort metod för att hjälpa.
-
-```csharp
-        /// <summary>
-        /// This method extracts the claims value from the 403 error response from MS Graph.
-        /// </summary>
-        /// <param name="wwwAuthHeader"></param>
-        /// <returns>Value of the claims entry. This should be considered an opaque string.
-        /// Returns null if the wwwAuthheader does not contain the claims value. </returns>
-        private String extractClaims(String wwwAuthHeader)
-        {
-            String ClaimsKey = "claims=";
-            String ClaimsSubstring = "";
-            if (wwwAuthHeader.Contains(ClaimsKey))
-            {
-                int Index = wwwAuthHeader.IndexOf(ClaimsKey);
-                ClaimsSubstring = wwwAuthHeader.Substring(Index, wwwAuthHeader.Length - Index);
-                string ClaimsChallenge;
-                if (Regex.Match(ClaimsSubstring, @"}$").Success)
-                {
-                    ClaimsChallenge = ClaimsSubstring.Split('=')[1];
-                }
-                else
-                {
-                    ClaimsChallenge = ClaimsSubstring.Substring(0, ClaimsSubstring.IndexOf("},") + 1);
-                }
-                return ClaimsChallenge;
-            }
-            return null;
-        }
-```
-
-Kodexempel som visar hur du hanterar anspråk utmaningen, finns det [On-behalf-of-kodexempel](https://github.com/Azure-Samples/active-directory-dotnet-webapi-onbehalfof-ca) för ADAL .NET.
+I följande avsnitt beskrivs vanliga scenarier som är mer komplexa. De grundläggande drift principen är villkorlig åtkomst som principer utvärderas vid den tidpunkt som token begärs för tjänsten som har en princip för villkorlig åtkomst tillämpas.
 
 ## <a name="scenario-app-performing-the-on-behalf-of-flow"></a>Scenario: App fungerar on-behalf-of-flöde
 
-I detta scenario går vi igenom fall där en inbyggd app anropar ett webb-/ API. I sin tur har den här tjänsten [he ”on-behalf-of” flöde för att anropa en underordnad tjänst. I vårt fall vi har tillämpat vår princip för villkorlig åtkomst till tjänsten underordnade (Web API 2) och använder en inbyggd app i stället för en server/daemon-app.
+I detta scenario går vi igenom fall där en inbyggd app anropar ett webb-/ API. I sin tur har den här tjänsten [he ”on-behalf-of” flöde för att anropa en underordnad tjänst. I vårt fall vi har tillämpat vår princip för villkorlig åtkomst till tjänsten underordnade (Web API 2) och använder en inbyggd app i stället för en server/daemon-app. 
 
 ![App fungerar on-behalf-of-flödesdiagram](./media/conditional-access-dev-guide/app-performing-on-behalf-of-scenario.png)
 
@@ -217,7 +174,6 @@ error_description=AADSTS50076: Due to a configuration change made by your admini
 Vår app behöver fånga den `error=interaction_required`. Programmet kan sedan använda antingen `acquireTokenPopup()` eller `acquireTokenRedirect()` på samma resurs. Om användaren tvingas att göra en multifaktorautentisering. När användaren uppfyller Multi-Factor authentication, utfärdas en ny åtkomsttoken för den begärda resursen i appen.
 
 Om du vill prova att använda det här scenariot, se vår [JS SPA On-behalf-of-kodexempel som](https://github.com/Azure-Samples/active-directory-dotnet-webapi-onbehalfof-ca). Det här kodexemplet använder principen för villkorlig åtkomst och webb-API som du registrerade tidigare med en JS SPA att visa det här scenariot. Den visar hur att korrekt hantera utmaningen anspråk och få en åtkomsttoken som kan användas för Web API. Du kan också Kolla in allmänna [Angular.js-kodexempel som](https://github.com/Azure-Samples/active-directory-angularjs-singlepageapp) råd om hur en Angular SPA
-
 
 ## <a name="see-also"></a>Se också
 

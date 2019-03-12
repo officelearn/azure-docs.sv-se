@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/01/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: f959a22432e82e1a55f613236ce6370ab638ccab
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 576fe268bec12c16c7c2e2076dfa066c908693d5
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57245581"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57539538"
 ---
 # <a name="azure-virtual-machine-powershell-samples"></a>Azure VM-PowerShell-exempel
 
@@ -49,5 +49,5 @@ I följande tabell innehåller länkar till PowerShell-skriptexempel som skapar 
 |**Skydda virtuella datorer**||
 | [Kryptera en virtuell dator och dess datadiskar](./../scripts/virtual-machines-windows-powershell-sample-encrypt-vm.md?toc=%2fpowershell%2fazure%2ftoc.json) | Skapar ett Azure key vault, en krypteringsnyckel och ett huvudnamn för tjänsten och sedan krypterar en virtuell dator. |
 |**Övervaka virtuella datorer**||
-| [Övervaka en virtuell dator med Log Analytics](./../scripts/virtual-machines-windows-powershell-sample-create-vm-oms.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | Skapar en virtuell dator, installerar Azure Log Analytics-agenten och registrerar den virtuella datorn i en Log Analytics-arbetsyta.  |
+| [Övervaka en virtuell dator med Azure Monitor](./../scripts/virtual-machines-windows-powershell-sample-create-vm-oms.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | Skapar en virtuell dator, installerar Azure Log Analytics-agenten och registrerar den virtuella datorn i en Log Analytics-arbetsyta.  |
 | | |

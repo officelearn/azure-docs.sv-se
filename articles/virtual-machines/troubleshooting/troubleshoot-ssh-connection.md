@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 ms.date: 05/30/2017
 ms.author: genli
-ms.openlocfilehash: d84881d4c86fd91fce430956705791097e200937
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 1c28c0bb3fdc2bb94595910ccff9f86769b17da5
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55753426"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57547138"
 ---
 # <a name="troubleshoot-ssh-connections-to-an-azure-linux-vm-that-fails-errors-out-or-is-refused"></a>Felsök SSH-anslutningar till en virtuell Linux-dator som misslyckas, fel, eller nekas
 Den här artikeln hjälper dig att hitta och åtgärda de problem som uppstår på grund av Secure Shell (SSH)-fel, SSH-anslutningsfel, eller SSH nekas när du försöker ansluta till en Linux-dator (VM). Du kan använda Azure-portalen, Azure CLI eller VM Access-tillägg för Linux för att felsöka och lösa problem med anslutning.
@@ -112,7 +112,7 @@ VM Access-tillägg för Linux läser i en json-fil som definierar åtgärder fö
 Skapa en fil med namnet `settings.json` med följande innehåll:
 
 ```json
-{  
+{
     "reset_ssh":"True"
 }
 ```

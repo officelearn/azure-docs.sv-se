@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 1/4/2018
 ms.author: sogup
-ms.openlocfilehash: efd069b90e2f085b7bacf4dfa72478e1232554bc
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: b4ecebc6bef7f49a23455c7a85f25680df087a95
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56313368"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57530764"
 ---
 # <a name="upgrade-a-backup-vault-to-a-recovery-services-vault"></a>Uppgradera ett säkerhetskopieringsvalv till Recovery Services-valvet
 
@@ -80,7 +80,7 @@ PowerShell-skriptet uppmanas du att ange dina autentiseringsuppgifter. Ange dina
 ### <a name="pre-requisites-checking"></a>Kontrollerar krav
 När du har angett dina autentiseringsuppgifter för Azure, kontrollerar Azure att din miljö uppfyller följande krav:
 
-- **Lägsta agentversion** -uppgraderingen säkerhetskopieringsvalv till Recovery Services-valv kräver MARS-agenten ska vara minst version 2.0.9083.0. Om du har objekt som har registrerats till ett säkerhetskopieringsvalv med en agent före 2.0.9083.0 misslyckas förutsättningskontrollen. Om kravkontrollen misslyckas kan uppdatera agenten och försök att uppgradera valvet igen. Du kan hämta den senaste versionen av agenten från [ http://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe ](https://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe).
+- **Lägsta agentversion** -uppgraderingen säkerhetskopieringsvalv till Recovery Services-valv kräver MARS-agenten ska vara minst version 2.0.9083.0. Om du har objekt som har registrerats till ett säkerhetskopieringsvalv med en agent före 2.0.9083.0 misslyckas förutsättningskontrollen. Om kravkontrollen misslyckas kan uppdatera agenten och försök att uppgradera valvet igen. Du kan hämta den senaste versionen av agenten från [ https://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe ](https://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe).
 - **Pågående configuration jobb**: Om någon konfigurerar jobb för ett säkerhetskopieringsvalv som angetts som ska uppgraderas eller registrera ett objekt, kravkontrollen misslyckas. Slutföra konfigurationen av eller avslutar registreringen objektet och starta sedan uppgraderingen valv.
 - **Storage-baserade faktureringsmodellen**: Recovery Services-valv stöder-instansbaserade faktureringsmodellen. Om du kör valvuppgraderingen på ett säkerhetskopieringsvalv som använder Storage-baserade faktureringsmodellen uppmanas du att uppgradera faktureringsmodellen tillsammans med valvet. I annat fall kan du uppdatera faktureringsmodellen först och kör sedan uppgradera valvet.
 - Identifiera en resursgrupp för Recovery Services-valvet. Om du vill dra nytta av distributionsfunktioner för Resource Manager-, måste du placera ett Recovery Services-valv i en resursgrupp. Om du inte vet vilken resursgrupp att använda, ange ett namn och uppgraderingsprocessen skapas en resursgrupp för dig. Uppgraderingsprocessen associerar även valvet med den nya resursgruppen.

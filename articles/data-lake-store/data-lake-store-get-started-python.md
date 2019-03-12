@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 06c341da73ad8df96d5c97e1cb9da4b7fd5c804e
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: cc384e9f392aa88342c5b8bd97963bed6d7ee814
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56820662"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57533332"
 ---
 # <a name="account-management-operations-on-azure-data-lake-storage-gen1-using-python"></a>Kontohanteringsåtgärder på Azure Data Lake Storage Gen1 med hjälp av Python
 > [!div class="op_single_selector"]
@@ -43,7 +43,7 @@ Att arbeta med Data Lake Storage Gen1 med hjälp av Python, måste du installera
 
 * `azure-mgmt-resource`-modulen, som innehåller Azure-moduler för Active Directory osv.
 * Den `azure-mgmt-datalake-store` modulen, som innehåller Azure Data Lake Storage Gen1-kontohanteringsåtgärder. Mer information om den här modulen finns i [Gen1 för Azure Data Lake lagringshantering modulreferens](https://docs.microsoft.com/python/api/azure.mgmt.datalake.store?view=azure-python).
-* Den `azure-datalake-store` modulen, som innehåller Azure Data Lake Storage Gen1 filsystemsåtgärder. Mer information om den här modulen finns i [referensen för azure-datalake-store filesystem-modulen](http://azure-datalake-store.readthedocs.io/en/latest/).
+* Den `azure-datalake-store` modulen, som innehåller Azure Data Lake Storage Gen1 filsystemsåtgärder. Mer information om den här modulen finns i [referensen för azure-datalake-store filesystem-modulen](https://azure-datalake-store.readthedocs.io/en/latest/).
 
 Installera modulerna med hjälp av följande kommandon.
 
@@ -135,5 +135,5 @@ Följande kodfragment skapar först Data Lake Storage Gen1-klienten. Klientobjek
 
 ## <a name="see-also"></a>Se också
 
-* [azure-datalake-store Python (Filesystem) reference](http://azure-datalake-store.readthedocs.io/en/latest)
+* [azure-datalake-store Python (Filesystem) reference](https://azure-datalake-store.readthedocs.io/en/latest)
 * [Öppna källa Big Data-program som är kompatibla med Azure Data Lake Storage Gen1](data-lake-store-compatible-oss-other-applications.md)

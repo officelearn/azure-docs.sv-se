@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 07/18/2018
-ms.openlocfilehash: 5d360e0959a61cde763f5aafe62de38f6c03e806
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: bb402a5a059fb6f2836bddbd951220271ca77ba3
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57011185"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57534378"
 ---
 # <a name="control-access-to-iot-hub"></a>Styra åtkomst till IoT Hub
 
@@ -74,7 +74,7 @@ Varje protokoll som stöds, till exempel MQTT-, AMQP- och HTTPS, transporterar t
 
 När du använder MQTT CONNECT-paket har deviceId som ClientId, `{iothubhostname}/{deviceId}` i fältet för användarnamn och en SAS-token i lösenordsfältet. `{iothubhostname}` ska vara fullständig CName för IoT hub (till exempel contoso.azure-devices.net).
 
-När du använder [AMQP](https://www.amqp.org/), stöds av IoT Hub [SASL OFORMATERAD](http://tools.ietf.org/html/rfc4616) och [AMQP anspråk-baserade-Security](https://www.oasis-open.org/committees/download.php/50506/amqp-cbs-v1%200-wd02%202013-08-12.doc).
+När du använder [AMQP](https://www.amqp.org/), stöds av IoT Hub [SASL OFORMATERAD](https://tools.ietf.org/html/rfc4616) och [AMQP anspråk-baserade-Security](https://www.oasis-open.org/committees/download.php/50506/amqp-cbs-v1%200-wd02%202013-08-12.doc).
 
 Om du använder AMQP anspråk baserade-säkerhet anger standarden hur du överför dessa token.
 

@@ -11,18 +11,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 33abaf7488579a501dc7e2d0b63645726b86c28b
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: ed28c502bb407c65b388704c177fca13cecc38d6
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44390730"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57548634"
 ---
 # <a name="filesystem-operations-on-azure-data-lake-storage-gen1-using-python"></a>Filsystemsåtgärder på Azure Data Lake Storage Gen1 med hjälp av Python
 > [!div class="op_single_selector"]
 > * [.NET SDK](data-lake-store-data-operations-net-sdk.md)
 > * [Java SDK](data-lake-store-get-started-java-sdk.md)
-> * [REST API](data-lake-store-data-operations-rest-api.md)
+> * [REST-API](data-lake-store-data-operations-rest-api.md)
 > * [Python](data-lake-store-data-operations-python.md)
 >
 > 
@@ -43,7 +43,7 @@ Att arbeta med Data Lake Storage Gen1 med hjälp av Python, måste du installera
 
 * `azure-mgmt-resource`-modulen, som innehåller Azure-moduler för Active Directory osv.
 * Den `azure-mgmt-datalake-store` modulen, som innehåller Azure Data Lake Storage Gen1-kontohanteringsåtgärder. Mer information om den här modulen finns i den [azure-mgmt-datalake-store modulreferens](https://docs.microsoft.com/python/api/azure.mgmt.datalake.store?view=azure-python).
-* Den `azure-datalake-store` modulen, som innehåller Azure Data Lake Storage Gen1 filsystemsåtgärder. Mer information om den här modulen finns i den [azure-datalake-store-filsystemet modulreferens](http://azure-datalake-store.readthedocs.io/en/latest/).
+* Den `azure-datalake-store` modulen, som innehåller Azure Data Lake Storage Gen1 filsystemsåtgärder. Mer information om den här modulen finns i den [azure-datalake-store-filsystemet modulreferens](https://azure-datalake-store.readthedocs.io/en/latest/).
 
 Installera modulerna med hjälp av följande kommandon.
 
@@ -86,7 +86,7 @@ pip install azure-datalake-store
 
 3. Spara ändringarna i mysample.py.
 
-## <a name="authentication"></a>Autentisering
+## <a name="authentication"></a>Authentication
 
 I det här avsnittet tittar vi på hur du kan autentisera med Azure AD på olika sätt. De tillgängliga alternativen är:
 
@@ -131,5 +131,5 @@ Följande kodfragment skapar först Data Lake Storage Gen1-klienten. Klientobjek
 
 ## <a name="see-also"></a>Se också
 
-* [Referens för Azure Data Lake Storage Gen1 Python (filsystem)](http://azure-datalake-store.readthedocs.io/en/latest)
+* [Referens för Azure Data Lake Storage Gen1 Python (filsystem)](https://azure-datalake-store.readthedocs.io/en/latest)
 * [Öppna källa Big Data-program som är kompatibla med Azure Data Lake Storage Gen1](data-lake-store-compatible-oss-other-applications.md)

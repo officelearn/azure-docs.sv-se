@@ -9,12 +9,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: rarangap
-ms.openlocfilehash: ed43a376dd5bb3279fd7e6aa6522980234db3c5f
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 92b7714e9f6635cf0b44a98a16ddb4616643ba81
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57441805"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57544570"
 ---
 # <a name="azure-security-and-compliance-blueprint---hipaahitrust-health-data-and-ai"></a>Azure-säkerhet och efterlevnad skissen - HIPAA/hitrust – hälsodata och AI
 
@@ -272,7 +272,7 @@ När du använder demo-skriptet. . \\HealthcareDemo.ps1 med den **BulkPatientadm
 
 **2. Key Vault** begärda för en hemlighet som är kopplad till begärd token.
 
-**3. Azure-roller verifiera begäran och auktorisera åtkomstbegäran till Key Vault.
+**3. Azure-roller** verifiera begäran och auktorisera åtkomstbegäran till Key Vault.
 
 **4. Key Vault** returnerar hemlighet, i det här fallet SQL DB-anslutningssträngen.
 

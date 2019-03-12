@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 3/01/2019
 ms.author: pullabhk
-ms.openlocfilehash: 6c2ade276e43f5e40d334a62c62a1abaa42b1b78
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 9ab271943d33ad63be0fae705ac703d1d98524ef
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57308949"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57542513"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Återställa filer från säkerhetskopiering av Azure virtuella datorer
 
@@ -29,7 +29,7 @@ Azure Backup ger möjlighet att återställa [Azure virtuella datorer (VM) och d
 
 Om du vill återställa filer och mappar från återställningspunkten, gå till den virtuella datorn och välj önskad återställningspunkt.
 
-1. Logga in på den [Azure-portalen](http://portal.Azure.com) och i den vänstra rutan klickar du på **virtuella datorer**. Välj den virtuella datorn och öppna instrumentpanelen för den virtuella datorn från listan över virtuella datorer.
+1. Logga in på den [Azure-portalen](https://portal.Azure.com) och i den vänstra rutan klickar du på **virtuella datorer**. Välj den virtuella datorn och öppna instrumentpanelen för den virtuella datorn från listan över virtuella datorer.
 
 2. Klicka på den virtuella datorns menyn **Backup** att öppna instrumentpanelen för säkerhetskopiering.
 

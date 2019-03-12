@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 12/19/2018
 ms.author: wesmc
-ms.openlocfilehash: 0e668c0b31defd5c945ddf2fec1b00f75d92f174
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: e35e669c4abc4815b932e09d369af28e42617e8c
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56990161"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57535707"
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub"></a>Ansluta IoT DevKit AZ3166 till Azure IoT Hub
 
@@ -175,9 +175,9 @@ Följ dessa steg för att förbereda utvecklingsmiljön för DevKit:
 
 ### <a name="install-st-link-drivers"></a>Installera ST-Link-drivrutiner
 
-[ST-länk eller V2](http://www.st.com/en/development-tools/st-link-v2.html) är USB-gränssnitt som IoT DevKit använder för att kommunicera med din utvecklingsdator. Du måste installera den på Windows att aktivera flash kompilerade deivce kod till DevKit. Följ stegen operativsystemspecifika så att får datoråtkomst till din enhet.
+[ST-länk eller V2](https://www.st.com/en/development-tools/st-link-v2.html) är USB-gränssnitt som IoT DevKit använder för att kommunicera med din utvecklingsdator. Du måste installera den på Windows att aktivera flash kompilerade deivce kod till DevKit. Följ stegen operativsystemspecifika så att får datoråtkomst till din enhet.
 
-* **Windows**: Ladda ned och installera USB-drivrutin från [STMicroelectronics webbplats](http://www.st.com/en/development-tools/stsw-link009.html).
+* **Windows**: Ladda ned och installera USB-drivrutin från [STMicroelectronics webbplats](https://www.st.com/en/development-tools/stsw-link009.html).
 * **macOS**: Det krävs ingen drivrutin för macOS.
 * **Ubuntu**: Kör du följande i terminalen och logga ut och logga in för gruppändringen ska börja gälla:
     ```bash

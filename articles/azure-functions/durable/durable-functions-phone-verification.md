@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 827990e03ca1bbb4bfd2ca9cf8bf0a9ceccfb51b
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 136b819f6bbbc1b546b66f54e771dbec8c71202c
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53719395"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57548157"
 ---
 # <a name="human-interaction-in-durable-functions---phone-verification-sample"></a>Mänsklig interaktion i varaktiga funktioner - Phone verifiering exemplet
 
@@ -118,7 +118,7 @@ Location: http://{host}/admin/extensions/DurableTaskExtension/instances/741c6565
 
 Orchestrator-funktion som tar emot det angivna telefonnumret och omedelbart skickar ett SMS-meddelande med en slumpmässigt genererad 4-siffriga Verifieringskod &mdash; exempelvis *2168*. Funktionen väntar sedan i 90 sekunder för ett svar.
 
-Om du vill svara med kod kan du använda [ `RaiseEventAsync` (.NET) eller `raiseEvent` (JavaScript)](durable-functions-instance-management.md#sending-events-to-instances) inuti ett annat fungera eller anropa den **sendEventUrl** HTTP POST-webhook som refereras i 202-svaret ovan , ersätta `{eventName}` med namnet på händelsen, `SmsChallengeResponse`:
+Om du vill svara med kod kan du använda [ `RaiseEventAsync` (.NET) eller `raiseEvent` (JavaScript)](durable-functions-instance-management.md) inuti ett annat fungera eller anropa den **sendEventUrl** HTTP POST-webhook som refereras i 202-svaret ovan , ersätta `{eventName}` med namnet på händelsen, `SmsChallengeResponse`:
 
 ```
 POST http://{host}/admin/extensions/DurableTaskExtension/instances/741c65651d4c40cea29acdd5bb47baf1/raiseEvent/SmsChallengeResponse?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}

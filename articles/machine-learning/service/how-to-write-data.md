@@ -12,16 +12,16 @@ manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 1853ff4141a7af3260ef9575bb2457819ab2d4a9
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 8bf61e6506e0d109b83fa323439348c3803bd5ce
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56735024"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57731027"
 ---
-# <a name="write-data-using-the-azure-machine-learning-data-prep-sdk"></a>Skriva data med hjälp av Azure Machine Learning Data Prep SDK
+# <a name="write-and-configure-data-using-azure-machine-learning"></a>Skriva och konfigurera data med hjälp av Azure Machine Learning
 
-I den här artikeln får du lära dig olika metoder för att skriva data med hjälp av den [Azure Machine Learning Data Prep Python SDK](https://aka.ms/data-prep-sdk). Utdata kan skrivas när som helst i ett dataflöde och skrivningar läggs till som steg för att det resulterande dataflödet och körs varje gång dataflödet finns. Data skrivs till partitionsfiler med flera Tillåt parallella skrivningar.
+I den här artikeln får du lära dig olika metoder för att skriva data med hjälp av den [Azure Machine Learning Data Prep Python SDK](https://aka.ms/data-prep-sdk) och hur du konfigurerar dessa data för experimentering med den [Azure Machine Learning-SDK för Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).  Utdata kan skrivas när som helst i ett dataflöde. Skrivningar läggs som steg för att det resulterande dataflödet och de här stegen som ska köras varje gång data flödeskörningar. Data skrivs till partitionsfiler med flera Tillåt parallella skrivningar.
 
 Eftersom det finns inga begränsningar för hur många skriva steg finns i en pipeline, kan du enkelt lägga till ytterligare skrivning steg för att få resultat för felsökning eller andra pipeliner.
 
@@ -90,7 +90,6 @@ Exempel på utdata:
 |3| 10013.0 | 99999.0 | FEL | NO | NO |     | NaN | NaN | NaN |
 |4| 10014.0 | 99999.0 | FEL | NO | NO | ENSO |    59783.0 | 5350.0 |  500.0|
 
-
 I den föregående utdatan visas flera fel i de numeriska kolumnerna på grund av tal som inte tolkades rätt. När skrivs till CSV, har null-värden ersatts med strängen ”ERROR” som standard.
 
 Lägg till parametrar som en del av dina skrivåtgärder anropa och ange en sträng som ska använda för att representera null-värden.
@@ -139,6 +138,51 @@ Föregående kod ger dessa utdata:
 |2| 10010.0 | 99999.0 | MiscreantData | NO| JN| ENJA|   70933.0|    -8667.0 |90.0|
 |3| 10013.0 | 99999.0 | MiscreantData | NO| NO| |   MiscreantData|    MiscreantData|    MiscreantData|
 |4| 10014.0 | 99999.0 | MiscreantData | NO| NO| ENSO|   59783.0|    5350.0| 500.0|
+
+## <a name="configure-data-for-automated-machine-learning-training"></a>Konfigurera data för automatiserade machine learning-utbildning
+
+Skicka datafilen nyskrivna i en [ `AutoMLConfig` ](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py#automlconfig) objekt som förberedelse för automatiserade machine learning-utbildning. 
+
+I följande kodexempel visas hur du konvertera ditt dataflöde till en Pandas-dataframe och därefter dela upp den i träning och testning datauppsättningar för automatiserade machine learning-utbildning.
+
+```Python
+from azureml.train.automl import AutoMLConfig
+from sklearn.model_selection import train_test_split
+
+dflow = dprep.auto_read_file(path="")
+X_dflow = dflow.keep_columns([feature_1,feature_2, feature_3])
+y_dflow = dflow.keep_columns("target")
+
+X_df = X_dflow.to_pandas_dataframe()
+y_df = y_dflow.to_pandas_dataframe()
+
+X_train, X_test, y_train, y_test = train_test_split(X_df, y_df, test_size=0.2, random_state=223)
+
+# flatten y_train to 1d array
+y_train.values.flatten()
+
+#configure 
+automated_ml_config = AutoMLConfig(task = 'regression',
+                               X = X_train.values,  
+                   y = y_train.values.flatten(),
+                   iterations = 30,
+                       Primary_metric = "AUC_weighted",
+                       n_cross_validation = 5
+                       )
+
+```
+
+Om du inte behöver några steg för förberedelse av mellanliggande data precis som i föregående exempel kan du överföra ditt dataflöde direkt i `AutoMLConfig`.
+
+```Python
+automated_ml_config = AutoMLConfig(task = 'regression', 
+                   X = X_dflow,   
+                   y = y_dflow, 
+                   iterations = 30, 
+                   Primary_metric = "AUC_weighted",
+                   n_cross_validation = 5
+                   )
+```
 
 ## <a name="next-steps"></a>Nästa steg
 * Finns i SDK [översikt](https://aka.ms/data-prep-sdk) designmönster och användningsexempel 

@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/04/2018
-ms.openlocfilehash: 8de155eb0c53a07c88d996e2545be9da3159653f
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 6cc5e3f8f188c60a129f6ad6575b348616bdad9b
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55565589"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57569764"
 ---
 # <a name="using-elastic-database-client-library-with-dapper"></a>Använda elastic database-klientbibliotek med Dapper
 Det här dokumentet är för utvecklare som förlitar sig på Dapper att skapa program, men också vilja ta del av [elastisk databas-tooling](sql-database-elastic-scale-introduction.md) skapar du program att implementera horisontell partitionering för att skala ut datanivån.  Det här dokumentet visar ändringarna i Dapper-baserade program som är nödvändiga för att integrera med verktyg för elastiska databaser. Vår fokus ligger på att skriva fragmenthanterings för elastiska databaser och databeroende routning med Dapper. 
@@ -64,8 +64,8 @@ Dessa observationer gör det enkelt att använda asynkrona av klientbiblioteket 
 Det här kodexemplet (från tillhörande exemplet) visar den metoden där nyckeln för horisontell partitionering tillhandahålls av programmet i biblioteket för att mäkla anslutningen till rätt fragment.   
 
     using (SqlConnection sqlconn = shardingLayer.ShardMap.OpenConnectionForKey(
-                     key: tenantId1, 
-                     connectionString: connStrBldr.ConnectionString, 
+                     key: tenantId1,
+                     connectionString: connStrBldr.ConnectionString,
                      options: ConnectionOptions.Validate))
     {
         var blog = new Blog { Name = name };
@@ -87,13 +87,13 @@ Kartobjekt fragment skapar en anslutning till den shard som innehåller shardlet
 Frågor fungerar mycket på samma sätt – du först öppnar anslutningen med [OpenConnectionForKey](https://msdn.microsoft.com/library/azure/dn807226.aspx) från klienten API. Du kan använda de vanliga Dapper tilläggsmetoder för att mappa resultatet av dina SQL-fråga till .NET-objekt:
 
     using (SqlConnection sqlconn = shardingLayer.ShardMap.OpenConnectionForKey(
-                    key: tenantId1, 
-                    connectionString: connStrBldr.ConnectionString, 
+                    key: tenantId1,
+                    connectionString: connStrBldr.ConnectionString,
                     options: ConnectionOptions.Validate ))
-    {    
+    {
            // Display all Blogs for tenant 1
            IEnumerable<Blog> result = sqlconn.Query<Blog>(@"
-                                SELECT * 
+                                SELECT *
                                 FROM Blog
                                 ORDER BY Name");
 
@@ -112,8 +112,8 @@ Dapper levereras med ett ekosystem med ytterligare filnamnstillägg som ger ytte
 Med hjälp av DapperExtensions i ditt program ändras inte hur databasanslutningar skapas och hanteras. Det är fortfarande programmets ansvar att öppna anslutningar och regelbundna SQL Client-anslutningsobjekt förväntas av metoderna som tillägg. Vi kan lita på den [OpenConnectionForKey](https://msdn.microsoft.com/library/azure/dn807226.aspx) som beskrivs ovan. Följande kodexempel visas den enda förändringen är att du inte längre behöver skriva T-SQL-uttryck:
 
     using (SqlConnection sqlconn = shardingLayer.ShardMap.OpenConnectionForKey(
-                    key: tenantId2, 
-                    connectionString: connStrBldr.ConnectionString, 
+                    key: tenantId2,
+                    connectionString: connStrBldr.ConnectionString,
                     options: ConnectionOptions.Validate))
     {
            var blog = new Blog { Name = name2 };
@@ -123,8 +123,8 @@ Med hjälp av DapperExtensions i ditt program ändras inte hur databasanslutning
 Och här är exempelkod för frågan: 
 
     using (SqlConnection sqlconn = shardingLayer.ShardMap.OpenConnectionForKey(
-                    key: tenantId2, 
-                    connectionString: connStrBldr.ConnectionString, 
+                    key: tenantId2,
+                    connectionString: connStrBldr.ConnectionString,
                     options: ConnectionOptions.Validate))
     {
            // Display all Blogs for tenant 2
@@ -143,7 +143,7 @@ Kodexemplet är beroende av tillfälliga fel-biblioteket för att skydda mot til
 
     SqlDatabaseUtils.SqlRetryPolicy.ExecuteAction(() =>
     {
-       using (SqlConnection sqlconn = 
+       using (SqlConnection sqlconn =
           shardingLayer.ShardMap.OpenConnectionForKey(tenantId2, connStrBldr.ConnectionString, ConnectionOptions.Validate))
           {
               var blog = new Blog { Name = name2 };

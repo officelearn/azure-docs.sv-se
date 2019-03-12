@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/04/2018
 ms.author: mikeray
-ms.openlocfilehash: 47d06ce5a03fe51ba345f60e2feff958ed4a890b
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: ec147355d6f61a282a0e6b0950fe03ba0e2341f5
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56871170"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57530390"
 ---
 # <a name="backup-and-restore-for-sql-server-in-azure-virtual-machines"></a>Säkerhetskopiering och återställning för SQL Server i Azure Virtual Machines
 
@@ -35,7 +35,7 @@ I följande tabell innehåller information om olika alternativ för säkerhetsko
 | Strategi | SQL-versioner | Beskrivning |
 |---|---|---|---|
 | [Automatisk säkerhetskopiering](#automated) | 2014<br/> 2016<br/> 2017 | Automatisk säkerhetskopiering kan du schemalägga regelbundna säkerhetskopieringar för alla databaser på en SQL Server VM. Säkerhetskopior lagras i Azure-lagring för upp till 30 dagar. Från och med SQL Server 2016, erbjuder automatisk säkerhetskopiering v2 ytterligare alternativ, till exempel konfigurera manuell schemaläggning och frekvensen av fullständig eller säkerhetskopior. |
-| [Azure Backup för SQL-datorer](#azbackup) | 2012<br/> 2014<br/> 2016<br/> 2017 | Azure Backup ger en Enterprise-klass säkerhetskopiering för SQL Server som körs i virtuella Azure-datorer. Med den här tjänsten kan du centralt hantera säkerhetskopior för flera servrar och tusentals databaser. Databaser kan återställas till en viss punkt i tiden i portalen. Den erbjuder en anpassningsbar bevarandeprincip som kan underhålla säkerhetskopior i flera år. Den här funktionen är för närvarande i offentlig förhandsversion. |
+| [Azure Backup för SQL-datorer](#azbackup) | 2012<br/> 2014<br/> 2016<br/> 2017 | Azure Backup ger en Enterprise-klass säkerhetskopiering för SQL Server som körs i virtuella Azure-datorer. Med den här tjänsten kan du centralt hantera säkerhetskopior för flera servrar och tusentals databaser. Databaser kan återställas till en viss punkt i tiden i portalen. Den erbjuder en anpassningsbar bevarandeprincip som kan underhålla säkerhetskopior i flera år. Den här funktionen är för närvarande i allmänt tillgänglig förhandsversion. |
 | [Manuell säkerhetskopiering](#manual) | Alla | Det finns olika metoder manuellt säkerhetskopiera och återställa SQL Server som körs på en Azure VM beroende på din version av SQL Server. I det här scenariot ansvarar du för hur dina databaser som säkerhetskopieras och den lagringsplats och hantering av dessa säkerhetskopior. |
 
 I följande avsnitt beskrivs varje alternativ i detalj. Den sista delen av den här artikeln innehåller en sammanfattning i form av en funktion-matris.
@@ -144,7 +144,7 @@ I följande tabell sammanfattas funktionerna med varje alternativ för säkerhet
 | Säkerhetskopieringen till anslutna diskar på den virtuella datorn |   |   | ![Ja](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |
 | Central anpassningsbara backup-rapporter |   | ![Ja](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
 | Konsoliderade e-postaviseringar för fel |   | ![Ja](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
-| Anpassa övervakning baserat på Log Analytics |   | ![Ja](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
+| Anpassa övervakning utifrån Azure Monitor-loggar |   | ![Ja](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
 | Övervaka säkerhetskopieringsjobb med SSMS eller Transact-SQL-skript | ![Ja](./media/virtual-machines-windows-sql-backup-recovery/yes.png) | ![Ja](./media/virtual-machines-windows-sql-backup-recovery/yes.png) | ![Ja](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |
 | Återställ databasen med SSMS eller Transact-SQL-skript | ![Ja](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   | ![Ja](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |
 

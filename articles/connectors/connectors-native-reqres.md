@@ -1,6 +1,6 @@
 ---
-title: Använda åtgärder för förfrågan och svar | Microsoft Docs
-description: Översikt över förfrågan och svar utlösare och åtgärden i en Azure logikapp
+title: Använda åtgärder för begäranden och svar | Microsoft Docs
+description: Översikt över begäranden och svar-utlösare och åtgärder i Azure logic app
 services: ''
 documentationcenter: ''
 author: jeffhollan
@@ -15,100 +15,100 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2016
 ms.author: jehollan
-ms.openlocfilehash: 58210db585befd7ce915d4579d4d0303eb15bff3
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 2479db2abcb578eb380655346582392770606b39
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2018
-ms.locfileid: "27960569"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57552188"
 ---
-# <a name="get-started-with-the-request-and-response-components"></a>Kom igång med komponenter för förfrågan och svar
-Med förfrågan och svar komponenterna i en logikapp, kan du svara i realtid på händelser.
+# <a name="get-started-with-the-request-and-response-components"></a>Kom igång med begäranden och svar-komponenter
+Med begäranden och svar-komponenter i en logikapp kan du svara i realtid på händelser.
 
 Du kan till exempel:
 
 * Svara på en HTTP-begäran med data från en lokal databas via en logikapp.
 * Utlös en logikapp från en extern webhook-händelse.
-* Anropa en logikapp med en åtgärd för förfrågan och svar från inom en annan logikapp.
+* Anropa en logikapp med en åtgärd för begäran och svar från en annan logic App.
 
-Om du vill komma igång med åtgärder för förfrågan och svar i en logikapp, se [skapa en logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+Kom igång med åtgärderna som begäran och svar i en logikapp, se [skapa en logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="use-the-http-request-trigger"></a>Använda HTTP-begäran-utlösare
 En utlösare är en händelse som kan användas för att starta arbetsflödet som definieras i en logikapp. [Mer information om utlösare](connectors-overview.md).
 
-Här är en Exempelsekvens av hur du ställer in en HTTP-begäran i logik App Designer.
+Här är en Exempelsekvens av hur du ställer in en HTTP-begäran i Logic App Designer.
 
-1. Lägg till utlösaren **begäran - när en HTTP-begäran tas emot** i din logikapp. Du kan också medföra en JSON-schema (med hjälp av ett verktyg som [JSONSchema.net](http://jsonschema.net)) för begärandetexten. Detta gör att generera token för egenskaper i HTTP-begäran.
+1. Lägg till utlösaren **begäran – när en HTTP-begäran tas emot** i din logikapp. Du kan också bifoga en JSON-schema (med hjälp av ett verktyg som [JSONSchema.net](https://jsonschema.net)) för det begärda innehållet. På så sätt kan designern för att generera token för egenskaper i HTTP-begäran.
 2. Lägg till en annan åtgärd så att du kan spara logikappen.
-3. Du kan hämta URL för HTTP-begäran från kortet begäran när du har sparat logikappen.
-4. En HTTP POST (du kan använda ett verktyg som [Postman](https://www.getpostman.com/)) till URL som utlöser logikappen.
+3. Du kan få HTTP-begärans-URL från kortet begäran när du har sparat logikappen.
+4. En HTTP POST (du kan använda ett verktyg som [Postman](https://www.getpostman.com/)) utlöser logikappen i URL: en.
 
 > [!NOTE]
-> Om du inte definierar en åtgärd för svar, en `202 ACCEPTED` omedelbart svar returneras till anroparen. Du kan använda åtgärden svar för att anpassa ett svar.
+> Om du inte definierar en svarsåtgärd en `202 ACCEPTED` svar returneras omedelbart till anroparen. Du kan använda instruktionen svar för att anpassa ett svar.
 > 
 > 
 
 ![Svaret utlösare](./media/connectors-native-reqres/using-trigger.png)
 
-## <a name="use-the-http-response-action"></a>Använd åtgärden HTTP-svar
-HTTP-svar-åtgärden är endast giltig när du använder den i ett arbetsflöde som utlöses av en HTTP-begäran. Om du inte definierar en åtgärd för svar, en `202 ACCEPTED` omedelbart svar returneras till anroparen.  Du kan lägga till en åtgärd som svar på något steg i arbetsflödet. Logikappen upprätthåller bara den inkommande begäranden öppna en minut för svar.  Efter en minut, om inget svar skickades från arbetsflödet (och det finns ett svar-åtgärd i definitionen), en `504 GATEWAY TIMEOUT` returneras till anroparen.
+## <a name="use-the-http-response-action"></a>Använda instruktionen HTTP-svar
+HTTP-svar-åtgärden är endast giltig när du använder den i ett arbetsflöde som utlöses av en HTTP-begäran. Om du inte definierar en svarsåtgärd en `202 ACCEPTED` svar returneras omedelbart till anroparen.  Du kan lägga till en svarsåtgärd i något steg i arbetsflödet. Logikappen endast från den inkommande begäranden öppen för en minut i ett svar.  Efter en minut, om inget svar har skickats från arbetsflödet (och en svarsåtgärd finns i definitionen), en `504 GATEWAY TIMEOUT` returneras till anroparen.
 
-Här är hur du lägger till en åtgärd för HTTP-svar:
+Här är hur du lägger till en HTTP-svar-åtgärd:
 
 1. Välj den **nytt steg** knappen.
-2. Välj **lägga till en åtgärd**.
-3. Skriv i sökrutan åtgärd **svar** att lista åtgärden svar.
+2. Välj **Lägg till en åtgärd**.
+3. Skriv i sökrutan åtgärd **svar** att lista svarsåtgärden.
    
-    ![Välj åtgärden som svar](./media/connectors-native-reqres/using-action-1.png)
-4. Lägga till i alla parametrar som krävs för HTTP-svarsmeddelandet.
+    ![Välj svarsåtgärden som](./media/connectors-native-reqres/using-action-1.png)
+4. Lägg till i alla parametrar som krävs för HTTP-svarsmeddelande.
    
-    ![Utför åtgärden svar](./media/connectors-native-reqres/using-action-2.png)
-5. Klicka på det övre vänstra hörnet i verktygsfältet för att spara och logikappen både sparar och publicera (aktivera).
+    ![Slutföra svarsåtgärden](./media/connectors-native-reqres/using-action-2.png)
+5. Klicka på det övre vänstra hörnet i verktygsfältet för att spara och din logikapp kommer både spara och publicera (aktivera).
 
-## <a name="request-trigger"></a>Begäran utlösare
-Här följer information om utlösaren som har stöd för den här anslutningen. Det finns en enskild begäran-utlösare.
+## <a name="request-trigger"></a>Begäran-utlösare
+Här följer information om utlösaren som stöder den här anslutningen. Det finns en enskild begäran-utlösare.
 
 | Utlösare | Beskrivning |
 | --- | --- |
 | Förfrågan |Inträffar när en HTTP-begäran tas emot |
 
-## <a name="response-action"></a>Svaret åtgärd
-Här följer information om vad som har stöd för den här anslutningen. Det finns ett enda svar-åtgärd som kan endast användas när den åtföljs av en begäran-utlösare.
+## <a name="response-action"></a>Svarsåtgärd
+Här följer information om vad som har stöd för den här anslutningen. Det finns ett enda svar-åtgärd som kan endast användas när den åtföljs av en begäransutlösare.
 
 | Åtgärd | Beskrivning |
 | --- | --- |
 | Svar |Returnerar ett svar till korrelerade HTTP-begäran |
 
-### <a name="trigger-and-action-details"></a>Trigger och action information
-I följande tabeller beskrivs indatafält för trigger och action och motsvarande utdata information.
+### <a name="trigger-and-action-details"></a>Information om utlösare och åtgärd
+I följande tabeller beskrivs inmatningsfält för utlösare och åtgärd och motsvarande utdata information.
 
-#### <a name="request-trigger"></a>Begäran utlösare
+#### <a name="request-trigger"></a>Begäran-utlösare
 Följande är ett inmatningsfält för utlösaren från en inkommande HTTP-begäran.
 
 | Visningsnamn | Egenskapsnamn | Beskrivning |
 | --- | --- | --- |
-| JSON-Schema |schema |JSON-schema av text för HTTP-begäran |
+| JSON-Schema |schemat |JSON-schemat för HTTP-begärandetexten |
 
 <br>
 
-**Information för utdata**
+**Utdatainformation**
 
-Nedan visas information för utdata för begäran.
+Här följer utdatainformation för begäran.
 
 | Egenskapsnamn | Datatyp | Beskrivning |
 | --- | --- | --- |
-| Sidhuvuden |objekt |Begärandehuvud |
-| Innehåll |objekt |Request-objektet |
+| Rubriker |objekt |Begärandehuvud |
+| Innehåll |objekt |Objekt |
 
-#### <a name="response-action"></a>Svaret åtgärd
-Följande är inmatningsfält för åtgärden HTTP-svar. A * innebär att det är ett obligatoriskt fält.
+#### <a name="response-action"></a>Svarsåtgärd
+Här följer inmatningsfält för HTTP-svar-åtgärden. A * innebär att det är ett obligatoriskt fält.
 
 | Visningsnamn | Egenskapsnamn | Beskrivning |
 | --- | --- | --- |
-| Status kod * |statuskod |HTTP-statuskod |
-| Sidhuvuden |rubriker |Ett JSON-objekt för alla svarshuvuden att inkludera |
+| Status för kod * |statusCode |HTTP-statuskod |
+| Rubriker |Rubriker |Ett JSON-objekt för alla svarshuvuden att inkludera |
 | Innehåll |brödtext |Svarstexten |
 
 ## <a name="next-steps"></a>Nästa steg
-Prova nu, plattform och [skapa en logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md). Du kan utforska andra tillgängliga kopplingar i logikappar genom att titta på vår [API: er listan](apis-list.md).
+Nu kan prova att använda plattformen och [skapa en logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md). Du kan utforska andra tillgängliga anslutningsappar i logic apps genom att titta på våra [API: er lista](apis-list.md).
 

@@ -10,12 +10,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: bahariri
-ms.openlocfilehash: cb964451d25bb381ee9cca84628852a61e4be9b6
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: dc4a982dde62f62eb8f2d91a61fd70ba79fa13d5
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53090915"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57539985"
 ---
 # <a name="use-apache-flink-with-azure-event-hubs-for-apache-kafka"></a>Använda Apache Flink med Azure Event Hubs för Apache Kafka
 Den här självstudien visar hur du ansluter Apache Flink till Kafka-aktiverade event hubs utan att ändra protokoll-klienter eller ditt eget kluster som körs. Azure Event Hubs stöder [Apache Kafka version 1.0.](https://kafka.apache.org/10/documentation.html).
@@ -41,7 +41,7 @@ För att slutföra den här självstudien måste du kontrollera att du har följ
 * [Java Development Kit (JDK) 1.7+](https://aka.ms/azure-jdks)
     * I Ubuntu kör du `apt-get install default-jdk` för att installera JDK-paketet.
     * Tänk på att ställa in miljövariabeln JAVA_HOME så att den pekar på den mapp där JDK-paketet är installerat.
-* [Ladda ned](http://maven.apache.org/download.cgi) och [installera](http://maven.apache.org/install.html) ett Maven-binärarkiv
+* [Ladda ned](https://maven.apache.org/download.cgi) och [installera](https://maven.apache.org/install.html) ett Maven-binärarkiv
     * I Ubuntu kan du köra `apt-get install maven` för att installera Maven.
 * [Git](https://www.git-scm.com/downloads)
     * I Ubuntu kan du köra `sudo apt-get install git` för att installera Git.

@@ -1,6 +1,6 @@
 ---
-title: Masskopiera från databasen med kontroll tabell med Azure Data Factory | Microsoft Docs
-description: Lär dig hur du använder en mall för att fullständigt masskopiera data från en databas som använder en extern tabell för att lagra Partitionslista för källtabellerna med Azure Data Factory.
+title: Masskopiera från en databas med hjälp av en kontroll-tabell med Azure Data Factory | Microsoft Docs
+description: Lär dig hur du använder en lösningsmall för att kopiera stora mängder data från en databas med en extern tabell för att lagra en partition över källtabellerna med hjälp av Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 author: dearandyxu
@@ -13,38 +13,38 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/14/2018
-ms.openlocfilehash: b267da18f2537e462ecda0ac265eac07a069c293
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: c4224693642e8c9f76deedc0c8ad8586e122cc23
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55967561"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57530577"
 ---
-# <a name="bulk-copy-from-database-with-control-table"></a>Masskopiering från databasen med kontroll tabell
+# <a name="bulk-copy-from-a-database-with-a-control-table"></a>Masskopiering från en databas med en kontroll-tabell
 
-Du måste läsa in stor mängd data från flera tabeller i datakällor när du vill kopiera data från ditt informationslager som Oracle-server, Netezza server, Teradata-servern eller SQL Server till Azure. Data måste partitioneras ytterligare i varje tabell så att du kan läsa in rader med flera trådar parallellt från enskild tabell i de flesta fall. Den finns mallen har utformats för detta. 
+Om du vill kopiera data från ett informationslager i Oracle-Server, Netezza, Teradata eller SQL Server till Azure SQL Data Warehouse, som du behöver läsa in stora mängder data från flera tabeller. Vanligtvis har data som ska partitioneras i varje tabell så att du kan läsa in rader med flera trådar parallellt från en enskild tabell. Den här artikeln beskrivs en mall som ska användas i dessa scenarier.
 
-Om du vill kopiera data från ett litet antal tabeller med små Datastorleken är det mer effektivt att gå till ”data-verktyget kopiera” att ha en enda kopiera aktivitet eller foreach-aktiviteten + kopiera aktivitet i din pipeline. Den här mallen är högre än vad du behöver för det här enkla användningsfall.
+ >! Observera att om du vill kopiera data från ett litet antal tabeller med relativt små datavolym till SQL Data Warehouse, är det mer effektivt att använda den [verktyget kopieringsdata för Azure Data Factory](copy-data-tool.md). Den mall som beskrivs i den här artikeln är högre än vad du behöver för scenariot.
 
 ## <a name="about-this-solution-template"></a>Om den här lösningsmallen
 
-Den här mallen hämtar listan över partitioner för källdatabasen från en extern kontroll-tabell som ska kopieras över till målarkivet itererar över varje partition i källdatabasen och utför själva Datakopieringen.
+Den här mallen hämtar en lista över databasen källpartitionerna att kopiera från en extern tabell. Sedan itererar över varje partition i källdatabasen och kopierar data till målet.
 
 Mallen innehåller tre aktiviteter:
--   En **Lookup** aktivitet för att hämta listan över partitioner för källdatabasen från en extern tabell.
--   En **ForEach** aktivitet för att hämta listan över partition från lookup-aktiviteten och iterera dem till kopieringsaktiviteten.
--   En **kopia** aktivitet att kopiera varje partition från databasarkiv för källa till mål.
+- **Lookup** hämtar listan över databaspartitioner för att från en extern tabell.
+- **ForEach** hämtar listan över partition från Lookup-aktiviteten och upprepas varje partition till kopieringsaktiviteten.
+- **Kopiera** kopierar varje partition från databasen källagringen till målarkiv.
 
 Mallen definierar fem parametrar:
--   Parametern *Control_Table_Name* är tabellnamnet för externa kontroll-tabellen. Tabellen kontroll används för att lagra Partitionslista för källdatabasen.
--   Parametern *Control_Table_Schema_PartitionID* är kolumnnamn i din externa kontroll-tabell för att lagra varje Partition-ID. Kontrollera att partitions-ID är unikt för varje partition i källdatabasen.
--   Parametern *Control_Table_Schema_SourceTableName* är kolumnnamn i din externa kontroll-tabell för att lagra varje tabellnamn från källdatabasen.
--   Parametern *Control_Table_Schema_FilterQuery* är kolumnnamn i din externa kontroll-tabell för att lagra filterfråga för att hämta data från varje partition i källdatabasen. Till exempel om du har partitionerade data efter varje år frågan som lagras i varje rad kan vara lika som ”Välj * från datasource där LastModifytime > = '' 2015-01-01 00:00:00” och LastModifytime < = '' 2015-12-31 23:59:59.999'' '
--   Parametern *Data_Destination_Folder_Path* är sökvägen till mappen där data har kopierats till ditt målarkiv.  Den här parametern visas bara när du väljer målet är en filbaserad lagring.  Om du väljer SQL Data Warehouse som målarkiv, det finns ingen parameter som krävs för att vara inputted här. Men tabellnamn och schema i SQL data warehouse måste vara samma som de i källdatabasen.
+- *Control_Table_Name* är din externa kontroll-tabell som lagrar Partitionslista för källdatabasen.
+- *Control_Table_Schema_PartitionID* är namnet på kolumnnamnet i din externa kontroll-tabell som lagrar varje partition-ID. Se till att partitions-ID är unikt för varje partition i källdatabasen.
+- *Control_Table_Schema_SourceTableName* är extern kontroll tabellen som lagrar varje tabellnamn från källdatabasen.
+- *Control_Table_Schema_FilterQuery* är namnet på kolumnen i din externa kontroll-tabellen som lagrar filterfråga för att hämta data från varje partition i källdatabasen. Till exempel om du har partitionerade data efter år den fråga som lagras i varje rad kan se ut ”Välj * från datasource där LastModifytime > = '' 2015-01-01 00:00:00” och LastModifytime < = '' 2015-12-31 23:59:59.999'' '.
+- *Data_Destination_Folder_Path* är den sökväg där data har kopierats till ditt målarkiv. Den här parametern visas endast om det mål som du väljer är filbaserad lagring. Om du väljer SQL Data Warehouse som målarkiv måste den här parametern krävs inte. Men tabellnamn och schema i SQL Data Warehouse måste vara samma som de i källdatabasen.
 
 ## <a name="how-to-use-this-solution-template"></a>Hur du använder den här lösningsmallen
 
-1. Skapa en kontroll i en SQL-server eller SQL Azure att lagra Partitionslista för källdatabasen för masskopiering.  Från exemplet nedan ser du det finns fem partitioner i källdatabasen, där tre partitioner som för en tabell:*datasource_table* och två partitioner i en annan tabell:*project_table*. Kolumnen *LastModifytime* används för att partitionera data i tabellen *datasource_table* från källdatabasen. Frågan används för att läsa den första partitionen är ”Välj * från datasource_table där LastModifytime > = '' 2015-01-01 00:00:00” och LastModifytime < = '' 2015-12-31 23:59:59.999'' '.  Du kan också se liknande frågan för att läsa data från andra partitioner. 
+1. Skapa en kontroll i SQL Server eller Azure SQL Database för att lagra källistan för databasen partition för masskopiering. I följande exempel finns fem partitioner i källdatabasen. Tre partitioner avser den *datasource_table*, och två är avsedda för den *project_table*. Kolumnen *LastModifytime* används för att partitionera data i tabellen *datasource_table* från källdatabasen. Den fråga som används för att läsa den första partitionen är ”Välj * från datasource_table där LastModifytime > = '' 2015-01-01 00:00:00” och LastModifytime < = '' 2015-12-31 23:59:59.999'' '. Du kan använda en liknande fråga för att läsa data från andra partitioner.
 
      ```sql
             Create table ControlTableForTemplate
@@ -64,35 +64,35 @@ Mallen definierar fem parametrar:
             (5, 'project_table','select * from project_table where ID >= 1000 and ID < 2000');
     ```
 
-2. Gå till mallen **masskopiering från databasen**, och skapa en **ny anslutning** till den externa kontroll-tabellen.  Den här anslutningen ansluter till databasen där du skapade tabellen kontroll i steg #1.
+2. Gå till den **masskopiering från databasen** mall. Skapa en **New** anslutning till tabellen externa kontroll som du skapade i steg 1.
 
     ![Skapa en ny anslutning till tabellen kontroll](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable2.png)
 
-3. Skapa en **ny anslutning** till källdatabasen där data ska kopieras.
+3. Skapa en **New** anslutning till källdatabasen som du kopierar data från.
 
      ![Skapa en ny anslutning till källdatabasen](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable3.png)
     
-4. Skapa en **ny anslutning** till din måldatalager där att kopiera data till.
+4. Skapa en **New** anslutning till sidan måldatalager lagra att du kopierar data till.
 
     ![Skapa en ny anslutning till målarkiv](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable4.png)
 
-5. Klicka på **Använd den här mallen**.
+5. Välj **Använd den här mallen**.
 
     ![Använd den här mallen](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable5.png)
     
-6. Du kan se pipelinen i panelen som visas i följande exempel:
+6. Du kan se pipelinen, som visas i följande exempel:
 
     ![Granska pipelinen](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable6.png)
 
-7. Klicka på **felsöka**, de indataparametrar och klicka sedan på **Slutför**
+7. Välj **felsöka**, ange den **parametrar**, och välj sedan **Slutför**.
 
-    ![Klicka på felsökning](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable7.png)
+    ![Klicka på ** Debug **](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable7.png)
 
-8. Du ser resultatet i panelen som visas i följande exempel:
+8. Du ser resultaten som liknar följande exempel:
 
     ![Granska resultatet](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable8.png)
 
-9. (Valfritt) Om du väljer SQL Data Warehouse som datamålet, måste du också ange anslutning av en Azure blob storage som en mellanlagringsmiljö, vilket krävs av SQL Data Warehouse Polybase.  Kontrollera att behållaren i blob storage har redan skapat.  
+9. (Valfritt) Om du valde SQL Data Warehouse som datamålet, måste du ange en anslutning till Azure Blob storage för mellanlagring som krävs av SQL Data Warehouse Polybase. Kontrollera att behållaren i Blob storage har redan skapats.
     
     ![Polybase-inställning](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable9.png)
        

@@ -11,15 +11,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 03/03/2019
+ms.date: 03/05/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2d81207195eb19a386d0d98fd4bfa6ba53ca972e
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 5bdf23d1a2142e5c83ceeb72a79ca4fbea65d09c
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57316650"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57534284"
 ---
 # <a name="how-to-install-and-configure-sap-hana-large-instances-on-azure"></a>Installera och konfigurera SAP HANA (stora instanser) på Azure
 
@@ -202,14 +202,15 @@ För SAP HANA 1.0 versioner upp till SPS12 kan dessa parametrar kan anges under 
 
 Du kan också konfigurera parametrarna efter installationen för SAP HANA-databas med hjälp av hdbparam framework. 
 
-Lagring som används i stora HANA-instanser har en filstorleksbegränsningen. Den [högsta tillåtna storleken är 16TB](https://docs.netapp.com/ontap-9/index.jsp?topic=%2Fcom.netapp.doc.dot-cm-vsmg%2FGUID-AA1419CF-50AB-41FF-A73C-C401741C847C.html) per fil. Till skillnad från i fall av filstorleksbegränsningar som i EXT3 filsystem, är HANA inte medveten om implicit storage-begränsning som tillämpas av storage för stora HANA-instanser. Därmed skapas HANA inte automatiskt en ny datafil när gränsen för filstorlek på 16TB har uppnåtts. Eftersom HANA försöker öka filen utöver 16TB, rapporterar HANA fel och indexservern kraschar i slutet.
+Lagring som används i stora HANA-instanser har en filstorleksbegränsningen. Den [högsta tillåtna storleken är 16 TB](https://docs.netapp.com/ontap-9/index.jsp?topic=%2Fcom.netapp.doc.dot-cm-vsmg%2FGUID-AA1419CF-50AB-41FF-A73C-C401741C847C.html) per fil. Till skillnad från i filstorleksbegränsningar i filsystem EXT3 är HANA inte medveten om implicit storage-begränsning som tillämpas av storage för stora HANA-instanser. Därmed skapas HANA inte automatiskt en ny datafil när gränsen för filstorlek på 16TB har uppnåtts. Eftersom HANA försöker öka filen utöver 16 TB, rapporterar HANA fel och indexservern kraschar i slutet.
 
 > [!IMPORTANT]
-> För att förhindra HANA försöker öka datafiler utöver 16 TB gränsen för filstorlek för lagring av stora HANA-instansen, måste du ange följande parametrar i konfigurationsfilen global.ini Hana
+> För att förhindra HANA försöker öka datafiler utöver 16 TB gränsen för filstorlek för lagring av stora HANA-instansen, måste du ange följande parametrar i konfigurationsfilen för SAP HANA global.ini
 > 
 - datavolume_striping=true
 - datavolume_striping_size_gb = 15000
 - Se även SAP anteckning [#2400005](https://launchpad.support.sap.com/#/notes/2400005)
+- Tänk på SAP-kommentar [#2631285](https://launchpad.support.sap.com/#/notes/2631285)
 
 
 Med SAP HANA 2.0 är hdbparam framework inaktuell. Därför måste parametrarna anges med hjälp av SQL-kommandon. Mer information finns i [SAP-kommentar #2399079: Eliminering av hdbparam i HANA 2](https://launchpad.support.sap.com/#/notes/2399079).

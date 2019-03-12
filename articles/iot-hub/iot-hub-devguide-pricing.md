@@ -7,13 +7,13 @@ ms.author: robin.shahan
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 01/29/2018
-ms.openlocfilehash: 54336de291d01f3741c288756095e40a43800a7f
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.date: 03/11/2019
+ms.openlocfilehash: 23b53e852672c129ff148b0b493a44172f9baf9a
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57009995"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57769752"
 ---
 # <a name="azure-iot-hub-pricing-information"></a>Azure IoT Hub information om priser
 
@@ -28,8 +28,8 @@ ms.locfileid: "57009995"
 | Identitetsregisteråtgärder <br/> (skapa, hämta, lista, uppdatera och ta bort) | Inte debiteras. |
 | Meddelanden från enheten till molnet | Skickade meddelanden debiteras i segment om 4 KB på inkommande till IoT Hub. Ett meddelande på 6 KB debiteras till exempel 2 meddelanden. |
 | Meddelanden från moln till enhet | Skickade meddelanden debiteras i segment om 4 KB, till exempel ett meddelande på 6 KB debiteras 2 meddelanden. |
-| Filöverföringar | Filöverföring till Azure Storage mäts inte av IoT Hub. File transfer initiation och slutförande meddelanden debiteras som postmeddelandet förbrukade i steg om 4 KB. Till exempel debiteras överföra en fil på 10 MB två meddelanden förutom kostnaden för Azure Storage. |
-| Direkta metoder | Lyckad metodbegäranden debiteras i segment om 4 KB, debiteras svar med icke-tomma organ i segment om 4 KB som ytterligare meddelanden. Begäranden till frånkopplade enheter debiteras som meddelanden i segment om 4 KB. En metod med en 6-KB text som resulterar i ett svar med ingen text från en enhet är till exempel debiteras som två meddelanden. En metod med en 6-KB text som resulterar i ett 1 KB-svar från enheten debiteras som två meddelanden för begäran plus ett annat meddelande för svaret. |
+| Filöverföringar | Filöverföring till Azure Storage mäts inte av IoT Hub. File transfer initiation och slutförande meddelanden debiteras som postmeddelandet förbrukade i steg om 4 KB. Till exempel debiteras överföra en fil på 10 MB som två meddelanden förutom kostnaden för Azure Storage. |
+| Direkta metoder | Lyckad metodbegäranden debiteras i segment om 4 KB och svar debiteras i segment om 4 KB som ytterligare meddelanden. Begäranden till frånkopplade enheter debiteras som meddelanden i segment om 4 KB. Till exempel debiteras en metod med en 4 KB-text som resulterar i ett svar med ingen text från enheten som två meddelanden. En metod med en 6-KB text som resulterar i ett 1 KB-svar från enheten debiteras som två meddelanden för begäran plus ett annat meddelande för svaret. |
 | Enheten och modulen twin läser | Twin läser från enheten eller modulen och från lösningens serverdel slut debiteras som meddelanden i 512 byte-segment. Till exempel debiteras läsning av en enhetstvilling på 6 KB som 12 meddelanden. |
 | Enheten och modulen uppdateringar för enhetstvilling (taggar och egenskaper) | Uppdateringar för enhetstvilling från enheten eller modulen och lösningens backend-server debiteras som meddelanden i 512 byte-segment. Till exempel debiteras läsning av en enhetstvilling på 6 KB som 12 meddelanden. |
 | Enheten och modulen twin frågor | Frågor debiteras som meddelanden beroende på resultatstorlek i 512 byte-segment. |
@@ -42,7 +42,7 @@ ms.locfileid: "57009995"
 
 ## <a name="example-1"></a>Exempel #1
 
-En enhet skickar ett 1 KB enhet-till-moln-meddelande per minut till IoT Hub, som sedan läses av Azure Stream Analytics. Lösningens serverdel anropar en metod (med 512 byte-nyttolast) på enheten var tionde minut för att utlösa en viss åtgärd. Enheten svarar på metoden med ett resultat av 200 byte.
+En enhet skickar ett 1 KB enhet-till-moln-meddelande per minut till IoT Hub, som sedan läses av Azure Stream Analytics. Lösningens serverdel anropar en metod (med en 512 byte-nyttolast) på enheten var tionde minut för att utlösa en viss åtgärd. Enheten svarar på metoden med ett resultat av 200 byte.
 
 Enheten använder:
 

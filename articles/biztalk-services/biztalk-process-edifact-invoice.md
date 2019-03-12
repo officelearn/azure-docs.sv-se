@@ -1,5 +1,5 @@
 ---
-title: 'Självstudie: Bearbeta EDIFACT-fakturor med Azure BizTalk Services | Microsoft Docs'
+title: 'Självstudier: Bearbeta EDIFACT-fakturor med Azure BizTalk Services | Microsoft Docs'
 description: Hur du skapar och konfigurerar Box anslutningen eller API-app och använda den i en logikapp i Azure App Service
 services: biztalk-services
 documentationcenter: .net,nodejs,java
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 05/31/2016
 ms.author: deonhe
-ms.openlocfilehash: bb07e3ab8043aab24d6d8c3e3db3f3674b28c6f3
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 5eb9740bdd0543556265f54a1a37b632f79ac861
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51244499"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57550130"
 ---
-# <a name="tutorial-process-edifact-invoices-using-azure-biztalk-services"></a>Självstudie: Processen EDIFACT fakturor med Azure BizTalk Services
+# <a name="tutorial-process-edifact-invoices-using-azure-biztalk-services"></a>Självstudier: Bearbeta EDIFACT-fakturor med Azure BizTalk Services
 
 > [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
 
@@ -55,11 +55,11 @@ För att uppnå det här scenariot för företag, använder Contoso funktioner s
 Om du vill slutföra scenariot måste använder vi Service Bus-köer för att skicka faktura från Contoso till Northwind eller få godkännande från exempeldatabasen. Dessa köer kan skapas med ett klientprogram som är tillgänglig för hämtning och ingår i det exemplet-paket som är tillgängliga som en del av den här självstudien.  
 
 ## <a name="prerequisites"></a>Förutsättningar
-* Du måste ha ett Service Bus-namnområde. Mer information om hur du skapar ett namnområde, finns i [How To: skapa eller ändra en Service Bus-tjänsten Namespace](https://msdn.microsoft.com/library/azure/hh674478.aspx). Låt oss anta att du redan har ett Service Bus-namnområde som etablerats kallas **edifactbts**.
+* Du måste ha ett Service Bus-namnområde. Mer information om hur du skapar ett namnområde, finns i [How To: Skapa eller ändra en Service Bus-tjänsten Namespace](https://msdn.microsoft.com/library/azure/hh674478.aspx). Låt oss anta att du redan har ett Service Bus-namnområde som etablerats kallas **edifactbts**.
 * Du måste ha en prenumeration för BizTalk Services. I den här självstudien kan vi anta att du har en BizTalk Services-prenumeration, som kallas **contosowabs**.
 * Registrera din BizTalk Services-prenumeration på BizTalk Services-portalen. Anvisningar finns i [registrerar en BizTalk Service-distribution på BizTalk Services-portalen](https://msdn.microsoft.com/library/hh689837.aspx)
 * Du måste ha Visual Studio installerat.
-* Du måste ha BizTalk Services SDK är installerat. Du kan ladda ned SDK: N från [http://go.microsoft.com/fwlink/?LinkId=235057](https://go.microsoft.com/fwlink/?LinkId=235057)  
+* Du måste ha BizTalk Services SDK är installerat. Du kan ladda ned SDK: N från [https://go.microsoft.com/fwlink/?LinkId=235057](https://go.microsoft.com/fwlink/?LinkId=235057)  
 
 ## <a name="step-1-create-the-service-bus-queues"></a>Steg 1: Skapa Service Bus-köer
 Den här lösningen använder Service Bus-köer för att utbyta meddelanden mellan affärspartner. Contoso och Northwind skicka meddelanden till köer från där EAI och/eller EDI-bryggor, använda dem. För den här lösningen behöver du tre Service Bus-köer:
@@ -106,7 +106,7 @@ Handelspartneravtal skapas mellan företag-profiler för handelspartner. Den hä
    3. På den **protokollet** fliken, under den **scheman** avsnittet, ladda upp den **EFACT_D93A_INVOIC.xsd** schema. Det här schemat är tillgänglig i exempel-paketet.
       
       ![][4]  
-   4. På den **Transport** fliken, anger information om Service Bus-köer. Skicka sida-avtalet, använder vi den **northwindreceive** kö för att skicka EDIFACT-faktura till Northwind, och **har pausats** kö för att dirigera alla meddelanden som misslyckas under bearbetning och pausas. Du har skapat dessa köer i **steg 1: skapa Service Bus-köer** (i det här avsnittet).
+   4. På den **Transport** fliken, anger information om Service Bus-köer. Skicka sida-avtalet, använder vi den **northwindreceive** kö för att skicka EDIFACT-faktura till Northwind, och **har pausats** kö för att dirigera alla meddelanden som misslyckas under bearbetning och pausas. Du har skapat dessa köer i **steg 1: Skapa Service Bus-köer** (i det här avsnittet).
       
       ![][5]  
       
@@ -246,7 +246,7 @@ I det här avsnittet tittar vi på hur du testar lösningen med hjälp av den **
    
    ![][16]  
 
-## <a name="step-5-optional-send-edifact-invoice-in-batches"></a>Steg 5 (valfritt): skicka EDIFACT-fakturor i batchar
+## <a name="step-5-optional-send-edifact-invoice-in-batches"></a>Steg 5 (valfritt): Skicka EDIFACT faktura i batchar
 BizTalk Services EDI bryggor stöder också massbearbetning av utgående meddelanden. Den här funktionen är användbar för att ta emot partner som vill få en grupp med meddelanden (uppfyller vissa villkor) i stället för enskilda meddelanden.
 
 De viktigaste aspekterna när du arbetar med batchar är den faktiska versionen av batch, även kallat versionskriterierna. Versionsvillkor kan baseras på hur mottagaren vill få meddelanden. Om batchbearbetning är aktiverad, skickar EDI-brygga inte det utgående meddelandet till mottagaren tills versionskriterierna är uppfyllt. Till exempel ett batchbearbetningen villkor baserat på meddelandet storlek levererar en batch endast när n meddelanden grupperas. Ett batch-villkor kan också vara tidsbaserad, så att en batch skickas med en fast tidpunkt varje dag. I den här lösningen försöka vi meddelandestorlek baserat kriterier.

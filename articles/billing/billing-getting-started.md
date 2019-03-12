@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2018
 ms.author: banders
-ms.openlocfilehash: 0d1d4358789cce4d393143e8a243ee9a3e06bf36
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 56d392a7df2a659cf457631ec5693766fd674f91
+ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56652407"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57727203"
 ---
 # <a name="prevent-unexpected-charges-with-azure-billing-and-cost-management"></a>Förhindra oväntade avgifter med Azure-fakturering och kostnadshantering
 
@@ -140,7 +140,7 @@ Mer information finns i [Advisor kostnadsrekommendationer](../advisor/advisor-co
 
 ## <a name="reviewing-costs-at-the-end-of-your-billing-cycle"></a>Granska kostnader i slutet av faktureringsperioden
 
-Efter slutet av faktureringsperioden blir fakturan tillgängliga. Du kan också [ladda ned tidigare fakturor och detaljerat användningsfiler](billing-download-azure-invoice-daily-usage-date.md) att kontrollera att du debiterades korrekt. Läs mer om att jämföra det dagliga arbetet med fakturan [förstå fakturan för Microsoft Azure](billing-understand-your-bill.md).
+Efter slutet av faktureringsperioden blir fakturan tillgänglig. Du kan också [ladda ned tidigare fakturor och detaljerat användningsfiler](billing-download-azure-invoice-daily-usage-date.md) att kontrollera att du debiterades korrekt. Läs mer om att jämföra det dagliga arbetet med fakturan [förstå fakturan för Microsoft Azure](billing-understand-your-bill.md).
 
 ### <a name="billing-api"></a>Fakturerings-API
 
@@ -184,6 +184,26 @@ Om du vill se om du är kontoadministratören, gå till [prenumerationer i Azure
 Om du inte är kontoadministratören och sedan någon förmodligen gav dig delvis åtkomst med hjälp av [Azure Active Directory rollbaserad åtkomstkontroll](../role-based-access-control/role-assignments-portal.md) (RBAC). Hantera prenumerationer och fakturering info, ändra [hitta kontoadministratören](billing-subscription-transfer.md#whoisaa). Be kontoadministratören för att utföra uppgifter eller [överföra prenumerationen till dig](billing-subscription-transfer.md).
 
 Om din kontoadministratör inte längre med din organisation och du behöver hantera fakturering, [Kontakta oss](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+
+
+### <a name="how-to-request-a-service-level-agreement-credit-for-a-service-incident"></a>Hur du begär en kredit på serviceavtal för en incident i tjänsten
+
+Serviceavtalet beskriver Microsofts åtaganden för drifttid och anslutning. En incident i tjänsten rapporteras när Azure-tjänster har ett problem som påverkar drifttid eller anslutning kallas ofta ”driftstörningar”. Om vi inte uppnå och bibehålla tjänsten för varje tjänst enligt beskrivningen i serviceavtalet, sedan vara du berättigad kredit för en del av din månatliga avgifter.
+
+Att begära en kredit:
+
+1. Logga in på [Azure Portal](https://portal.azure.com/). Om du har flera konton, se till att du använder något som påverkades av Azure driftstopp. Detta hjälper att automatiskt samla in nödvändig information samt lösa fallet snabbare.
+2. Skapa en ny supportbegäran.
+3. Under **typ av problem**väljer **fakturering**.
+4. Under **problemtyp**väljer **återbetala begära**.
+5. Lägg till information om du vill ange att begär du för en SLA-kredit nämner den datum/tid/tidszonen, samt de berörda tjänsterna (virtuella datorer, webbplatser, osv.)
+6. Verifiera din kontaktinformation och välj den **skapa** knappen Skicka din begäran.
+
+SLA-tröskelvärdena varierar beroende på tjänsten. Exempelvis Webbnivå för SQL har ett serviceavtal på 99,9%, virtuella datorer har ett serviceavtal på 99,95% och SQL Standard-nivån har ett SLA med 99,99%.
+
+Det finns kraven för serviceavtalet ska gälla för vissa tjänster. Virtuella datorer måste till exempel har två eller fler distribuerade instanser i samma Tillgänglighetsuppsättning.
+
+Mer information finns i den [serviceavtal](https://azure.microsoft.com/en-us/support/legal/sla/) dokumentation och [sammanfattning av serviceavtal för Azure-tjänster](https://azure.microsoft.com/en-us/support/legal/sla/summary/) dokumentation.
 
 ## <a name="need-help-contact-us"></a>Behöver du hjälp? Kontakta oss.
 

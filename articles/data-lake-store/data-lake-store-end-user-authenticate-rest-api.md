@@ -1,5 +1,5 @@
 ---
-title: 'Slutanvändarautentisering: REST API med Azure Data Lake Storage Gen1 med Azure Active Directory | Microsoft Docs'
+title: 'Autentisering för slutanvändare: REST-API med Azure Data Lake Storage Gen1 med Azure Active Directory | Microsoft Docs'
 description: Lär dig att uppnå slutanvändarautentisering med Azure Data Lake Storage Gen1 med Azure Active Directory med hjälp av REST API
 services: data-lake-store
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: ea550c0959f5de13f013f135926251bf9f8b450f
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 1e952e32142672946fa987b763032dad66f564a9
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46124447"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57537889"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-rest-api"></a>Slutanvändarautentisering med Azure Data Lake Storage Gen1 med hjälp av REST API
 > [!div class="op_single_selector"]
@@ -35,7 +35,7 @@ I den här artikeln lär du dig hur du använder REST API för att göra slutanv
 
 * **Skapa ett Azure Active Directory ”interna” program**. Du måste ha slutfört stegen i [slutanvändarautentisering med Data Lake Storage Gen1 med Azure Active Directory](data-lake-store-end-user-authenticate-using-active-directory.md).
 
-* **[cURL](http://curl.haxx.se/)**. Den här artikeln använder cURL för att demonstrera hur du gör REST API-anrop mot ett Data Lake Storage Gen1-konto.
+* **[cURL](https://curl.haxx.se/)**. Den här artikeln använder cURL för att demonstrera hur du gör REST API-anrop mot ett Data Lake Storage Gen1-konto.
 
 ## <a name="end-user-authentication"></a>Slutanvändarautentisering
 Slutanvändarautentisering är den rekommenderade metoden om du vill att en användare att logga in på ditt program med Azure AD. Programmet kan komma åt Azure-resurser med samma nivå av åtkomst som den inloggade användaren. Användaren måste ange sina autentiseringsuppgifter med jämna mellanrum i ordning för ditt program att upprätthålla åtkomsten.

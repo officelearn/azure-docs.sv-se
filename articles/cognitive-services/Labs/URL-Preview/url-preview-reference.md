@@ -10,12 +10,12 @@ ms.subservice: url-preview
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: rosh
-ms.openlocfilehash: a871048c9d75fc6ea958cfacaa3a47b11765fb0d
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: da23d8037f37174826a2b9662c39bb507367a6ae
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55884451"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57537821"
 ---
 # <a name="project-url-preview-v7-reference"></a>Project URL-förhandsgranskning v7-referens
 
@@ -77,7 +77,7 @@ Begäran kan innehålla följande Frågeparametrar. Se kolumnen krävs för obli
 |----------|-----------|----------|--------------|
 |<a name="mkt" />mkt|Marknaden som resultatet kommer från. <br /><br />En lista över möjliga marknaden värden finns i marknaden koder.<br /><br /> **Obs!** URL: en förhandsversion av API: et stöder för närvarande endast USA geografi och engelska.<br /><br />|String|Ja|
 |<a name="query" />q|URL: en för att förhandsgranska|String|Ja|
-|<a name="responseformat" />responseFormat|Medietyp för att använda för svaret. Här följer möjliga skiftlägeskänsliga värden.<br /><ul><li>JSON</li><li>JSONLD</li></ul><br /> Standardvärdet är JSON. Information om JSON-objekt att svaret innehåller, finns i [Svarsobjekten](#response-objects).<br /><br />Om du anger JsonLd innehåller svarstexten JSON-LD-objekt som innehåller sökresultaten. Information om JSON-LD finns [JSON-LD](http://json-ld.org/).|String|Nej|
+|<a name="responseformat" />responseFormat|Medietyp för att använda för svaret. Här följer möjliga skiftlägeskänsliga värden.<br /><ul><li>JSON</li><li>JSONLD</li></ul><br /> Standardvärdet är JSON. Information om JSON-objekt att svaret innehåller, finns i [Svarsobjekten](#response-objects).<br /><br />Om du anger JsonLd innehåller svarstexten JSON-LD-objekt som innehåller sökresultaten. Information om JSON-LD finns [JSON-LD](https://json-ld.org/).|String|Nej|
 |<a name="safesearch"/>safeSearch|Ogiltig vuxet innehåll eller oäkta innehåll har blockerats med felkoden 400, och *isFamilyFriendly* flaggan returneras inte. <p>Är det som gäller för juridiska vuxna nedan. Statuskod returnerar 200, och *isFamilyFriendly* flaggan är inställd på false.<ul><li>safeSearch = strikt: Rubrik, beskrivning, URL: en och avbildning returneras inte.</li><li>safeSearch = måttlig; Hämta rubrik, URL: en och beskrivning, men inte beskrivande avbildningen.</li><li>safeSearch =. Få svar objekt/allt – namn, URL: en, beskrivning, bild.</li></ul> |String|Krävs inte. </br> Som standard safeSearch = strikt.|
 
 ## <a name="response-objects"></a>Svarsobjekt

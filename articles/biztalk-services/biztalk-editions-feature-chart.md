@@ -1,6 +1,6 @@
 ---
 title: Läs mer om funktioner i BizTalk Services-utgåvorna | Microsoft Docs
-description: 'Jämför funktionerna i BizTalk Services-utgåvorna: Free, Developer, Basic, Standard och Premium. MABS, WABS.'
+description: 'Jämför funktionerna i BizTalk Services-utgåvorna: Kostnadsfri, Developer, Basic, Standard och Premium. MABS, WABS.'
 services: biztalk-services
 documentationcenter: ''
 author: MandiOhlinger
@@ -11,15 +11,15 @@ ms.service: biztalk-services
 ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 11/07/2016
 ms.author: mandia
-ms.openlocfilehash: 8e25f98f1189f71943ece4a7877a86e29698689a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: d16bf73c1d9871e4de8940e4ab9bbd7ed0f39384
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51240519"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57765636"
 ---
 # <a name="biztalk-services-editions-chart"></a>BizTalk Services: Diagram över utgåvor
 
@@ -34,7 +34,7 @@ Kan skapa och hantera hybridanslutningar. En hybridanslutning är ett enkelt sä
 
 **Developer**
 
-Innehåller hybridanslutningar, EAI- och EDI-meddelandebehandling med en lättanvänd hanteringsportal för handelspartners, samt stöd för vanliga EDI-scheman och omfattande EDI-bearbetning över X12 och AS2. Kan skapa vanliga EAI-scenarier som ansluter tjänster i molnet med valfritt HTTP/S-, REST-, FTP-, WCF- och SFTP-protokoll för att kunna läsa och skriva meddelanden.  Anslut till lokala LOB-system med färdiga SAP-, Oracle eBusiness-, Oracle DB-, Siebel- och SQL Server-nätverkskort. Använd en centrerad miljö för utvecklare med Visual Studio-verktyg för enkel utveckling och distribution. Begränsad till enbart utveckling och testning utan något serviceavtal (SLA).
+Innehåller hybridanslutningar, EAI- och EDI-meddelandebehandling med en lättanvänd hanteringsportal för handelspartners, samt stöd för vanliga EDI-scheman och omfattande EDI-bearbetning över X12 och AS2. Kan skapa vanliga EAI-scenarier som ansluter tjänster i molnet med valfritt HTTP/S-, REST-, FTP-, WCF- och SFTP-protokoll för att kunna läsa och skriva meddelanden.  Anslut till lokala LOB-system med färdiga SAP-, Oracle eBusiness-, Oracle DB-, Siebel- och SQL Server-nätverkskort. Använd en utvecklare miljö med Visual Studio-verktyg för enkel utveckling och distribution. Begränsad till enbart utveckling och testning utan något serviceavtal (SLA).
 
 **Basic**
 
@@ -162,7 +162,7 @@ För serviceavtal (SLA), läs mer i <a HREF="https://go.microsoft.com/fwlink/p/?
 <td>Ingår</td>
 </tr>
 <tr>
-<td><strong>Säkerhetskopiering och återställning</strong></td>
+<td><strong>Säkerhetskopiera och återställa</strong></td>
 <td>Ingår inte</td>
 <td>Ingår</td>
 <td>Ingår</td>
@@ -239,18 +239,18 @@ Du kommer inte att kunna distribuera några nya bryggor eller skapa några nya a
 #### <a name="how-do-i-migrate-from-one-tier-of-biztalk-services-to-another"></a>Hur migrerar jag från en nivå av BizTalk Services till en annan?
 Free-utgåvan kan inte migreras eller ”skalas upp” till en annan nivå och kan inte heller säkerhetskopieras och återställas till en annan nivå. Om du behöver en annan nivå skapar du en ny BizTalk-tjänst med den nya nivån. Alla artefakter som skapats med Free-utgåvan, inklusive hybridanslutningar, måste återskapas i den nya BizTalk-tjänsten. 
 
-För de återstående utgåvorna använder du säkerhetskopiering och återställning för att migrera artefakterna från en nivå till en annan. Du kan till exempel säkerhetskopiera dina artefakter på Standard-nivån och återställa dem till Premium-nivån. [BizTalk Services: Säkerhetskopiering och återställning](biztalk-backup-restore.md) beskriver de migreringsvägar som stöds och visar en lista över vilka artefakter som säkerhetskopieras. Observera att hybridanslutningar inte säkerhetskopieras. När du har säkerhetskopierat och återställt till en ny nivå återskapar du sedan hybridanslutningarna.  
+För de återstående utgåvorna använder du säkerhetskopiering och återställning för att migrera artefakterna från en nivå till en annan. Du kan till exempel säkerhetskopiera dina artefakter på Standard-nivån och återställa dem till Premium-nivån. [BizTalk Services: Säkerhetskopiera och återställa](biztalk-backup-restore.md) beskriver migreringsvägar som stöds och visar en lista över vilka artefakter som säkerhetskopieras. Observera att hybridanslutningar inte säkerhetskopieras. När du har säkerhetskopierat och återställt till en ny nivå återskapar du sedan hybridanslutningarna.  
 
 #### <a name="is-the-biztalk-adapter-service-included-in-the-service-how-do-i-receive-the-software"></a>Ingår BizTalk Adapter i tjänsten? Hur får jag programvaran?
 Ja, BizTalk Adapter-tjänsten med BizTalk Adapter Pack ingår i Azure BizTalk Services SDK-[hämtning](https://www.microsoft.com/download/details.aspx?id=39087).
 
 ## <a name="next-steps"></a>Nästa steg
-Om du vill skapa Azure BizTalk Services i Azure-portalen går du till [BizTalk Services: Etablering med hjälp av Azure-portalen](biztalk-provision-services.md). Om du vill börja skapa program går du till [Azure BizTalk Services](https://go.microsoft.com/fwlink/p/?LinkID=235197).
+För att skapa Azure BizTalk Services i Azure-portalen, gå till [BizTalk Services: Etablering med hjälp av Azure-portalen](biztalk-provision-services.md). Om du vill börja skapa program går du till [Azure BizTalk Services](https://go.microsoft.com/fwlink/p/?LinkID=235197).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 * [BizTalk Services: Etablering med hjälp av Azure-portalen](biztalk-provision-services.md)<br/>
 * [BizTalk Services: Etablering av statusdiagram](biztalk-service-state-chart.md)<br/>
-* [BizTalk Services: Flikarna Instrumentpanel, Övervakare och Skalning](biztalk-dashboard-monitor-scale-tabs.md)<br/>
+* [BizTalk Services: Flikarna instrumentpanel, Övervakare och skalning](biztalk-dashboard-monitor-scale-tabs.md)<br/>
 * [BizTalk Services: Säkerhetskopiering och återställning](biztalk-backup-restore.md)<br/>
 * [BizTalk Services: Begränsning](biztalk-throttling-thresholds.md)<br/>
 * [BizTalk Services: Utfärdarens namn och nyckel](biztalk-issuer-name-issuer-key.md)<br/>

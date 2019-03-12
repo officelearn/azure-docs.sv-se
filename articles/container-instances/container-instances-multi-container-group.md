@@ -1,6 +1,6 @@
 ---
 title: Distribuera grupper med flera behållare i Azure Container Instances
-description: Lär dig hur du distribuerar en behållargrupp med flera behållare i Azure Container Instances.
+description: Lär dig hur du distribuerar en behållargrupp med flera behållare i Azure Container Instances med en Azure Resource Manager-mall.
 services: container-instances
 author: dlepow
 ms.service: container-instances
@@ -8,14 +8,14 @@ ms.topic: article
 ms.date: 06/08/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: adb284772291dc901dd5302124982948c1f37eea
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 2dfe1bbf01b7e1fae8c07602ac4faa40ae74ecc9
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48856487"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57729509"
 ---
-# <a name="deploy-a-container-group"></a>Distribuera en behållargrupp
+# <a name="deploy-a-multi-container-group-with-a-resource-manager-template"></a>Distribuera en grupp med flera behållare med en Resource Manager-mall
 
 Azure Container Instances stöder distribution av flera behållare till en enda värd med hjälp av en [behållargruppen](container-instances-container-groups.md). Detta är användbart när du skapar ett program sidovagn för loggning, övervakning eller en annan konfiguration där en tjänst behöver en andra anslutna process.
 
@@ -28,6 +28,8 @@ Distribution med en Resource Manager-mall rekommenderas när du behöver distrib
 
 > [!NOTE]
 > Grupper med flera behållare är för närvarande begränsade till Linux-behållare. Under tiden som vi arbetar för att göra alla funktioner tillgängliga för Windows-behållare kan du se de nuvarande skillnaderna mellan plattformarna i informationen om [kvoter och regional tillgänglighet för Azure Container Instances](container-instances-quotas.md).
+
+Ytterligare mallexempel finns [Azure Resource Manager-mallar för Azure Container Instances](container-instances-samples-rm.md). 
 
 ## <a name="configure-the-template"></a>Konfigurera mallen
 
@@ -175,7 +177,7 @@ Visa loggutdata för behållaren med den [az behållarloggarna] [ az-container-l
 az container logs --resource-group myResourceGroup --name myContainerGroup --container-name aci-tutorial-app
 ```
 
-Resultat:
+Utdata:
 
 ```bash
 listening on port 80
@@ -190,7 +192,7 @@ Kör samma kommando anger andra behållarens namn om du vill visa loggarna för 
 az container logs --resource-group myResourceGroup --name myContainerGroup --container-name aci-tutorial-sidecar
 ```
 
-Resultat:
+Utdata:
 
 ```bash
 Every 3s: curl -I http://localhost                          2018-01-09 23:25:11

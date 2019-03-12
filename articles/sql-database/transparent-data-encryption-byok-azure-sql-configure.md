@@ -11,13 +11,13 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
-ms.date: 02/15/2019
-ms.openlocfilehash: b2c3e4067fd8e08440f9fe6e15212160aef002f0
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.date: 03/07/2019
+ms.openlocfilehash: 6669be82877ae5d9465e23dad3c8b310cf24af89
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57312944"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57576777"
 ---
 # <a name="powershell-and-cli-enable-transparent-data-encryption-with-customer-managed-key-from-azure-key-vault"></a>PowerShell och CLI: Aktivera Transparent datakryptering med kundhanterad nyckel från Azure Key Vault
 
@@ -175,7 +175,7 @@ Använd den [Get-AzSqlDatabaseTransparentDataEncryption](/powershell/module/az.s
 ## <a name="troubleshooting"></a>Felsökning
 
 Kontrollera följande om ett problem inträffar:
-- Om det inte går att hitta nyckelvalvet, se till att du befinner dig i rätt prenumeration med hjälp av den [Get-AzSubscription](/powershell/module/az.profile/get-azsubscription) cmdlet.
+- Om det inte går att hitta nyckelvalvet, se till att du befinner dig i rätt prenumeration med hjälp av den [Get-AzSubscription](/powershell/module/az.account/get-azsubscription) cmdlet.
 
    ```powershell
    Get-AzSubscription `

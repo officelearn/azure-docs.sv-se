@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 3/1/2019
+ms.date: 3/6/2019
 ms.author: victorh
-ms.openlocfilehash: c3ad62dd5f8af52ae9aed1f9469d4b00c4795fa7
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 9929b09280cea56a5fadcd4d0d9aba5b851f326e
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57215862"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57544052"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-public-preview"></a>Automatisk skalning och zonredundant Application Gateway (offentlig förhandsversion)
 
@@ -50,7 +50,6 @@ I förhandsversionen är gratis. Du debiteras för andra resurser än Programgat
 |Fakturering|Det finns ingen fakturering för närvarande.|
 |FIPS-läge, WebSocket|Dessa stöds inte för närvarande.|
 |ILB läge|Detta stöds för närvarande inte. Offentliga och ILB-läget tillsammans stöds.|
-|Web application firewall automatisk skalning|WAF saknar stöd för läget för automatisk skalning. Fast kapacitet läge stöds.|
 |NetWatcher-integrering|Stöds inte i den offentliga förhandsversionen.|
 
 ## <a name="next-steps"></a>Nästa steg

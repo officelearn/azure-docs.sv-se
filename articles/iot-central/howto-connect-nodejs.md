@@ -3,17 +3,17 @@ title: Ansluta en allmän Node.js-klientprogram till Azure IoT Central | Microso
 description: Som utvecklare av enheten, hur du ansluter en allmän Node.js-enhet till Azure IoT Central programmet.
 author: dominicbetts
 ms.author: dobett
-ms.date: 10/26/2018
+ms.date: 02/04/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: b22d719a25a93e1dffdba848e18f732b31e6e67d
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: c04358734923654366eb679505910e14d0e0059b
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57214528"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57767540"
 ---
 # <a name="connect-a-generic-client-application-to-your-azure-iot-central-application-nodejs"></a>Ansluta ett allmänt klientprogram till ditt Azure IoT Central program (Node.js)
 
@@ -93,7 +93,7 @@ Ange fältnamn exakt som de visas i tabellen i mallar för enheten. Om egenskaps
 
 ## <a name="add-a-real-device"></a>Lägga till en riktig enhet
 
-Lägg till en riktig enhet från enheten mallen du skapar och anteckna enhetens anslutningssträng i programmet Azure IoT Central. Stegvisa instruktioner om hur du ansluter en Node.js-program till IoT Central finns i [generera anslutningssträngen för riktig enhet från programmet](tutorial-add-device.md#generate-connection-string-for-real-device-from-application) och [förbereda klientkoden](tutorial-add-device.md#prepare-the-client-code) i självstudier > Lägg till en enhet.
+Lägg till en riktig enhet från enheten mallen du skapar och anteckna enhetens anslutningssträng i programmet Azure IoT Central. Stegvisa instruktioner om hur du ansluter en Node.js-program till IoT Central finns i [generera anslutningssträngen för riktig enhet från programmet](tutorial-add-device.md#generate-connection-string) och [förbereda klientkoden](tutorial-add-device.md#prepare-the-client-code) i självstudier > Lägg till en enhet.
 
 ### <a name="create-a-nodejs-application"></a>Skapa ett Node.js-program
 
@@ -129,11 +129,10 @@ Följande steg visar hur du skapar ett klientprogram som implementerar en riktig
     var client = clientFromConnectionString(connectionString);
     ```
 
-  > [!NOTE]
-  > Azure IoT Central har övergått till med hjälp av Azure IoT Hub Device Provisioning-tjänsten (DPS) för alla anslutningar på enheten, följer du dessa instruktioner för att [hämta enhetens anslutningssträng](concepts-connectivity.md#get-a-connection-string) och fortsätta med resten av kursen. Mer hjälp kan du också hitta en detaljerad uppsättning med instruktionerna i [förbereda klientkoden](tutorial-add-device.md#prepare-the-client-code) i självstudier > Lägg till en enhet.
+    > [!NOTE]
+    > Azure IoT Central har övergått till med hjälp av Azure IoT Hub Device Provisioning-tjänsten (DPS) för alla anslutningar på enheten, följer du dessa instruktioner för att [hämta enhetens anslutningssträng](concepts-connectivity.md#get-a-connection-string) och fortsätta med resten av kursen. Mer hjälp kan du också hitta en detaljerad uppsättning med instruktionerna i [förbereda klientkoden](tutorial-add-device.md#prepare-the-client-code) i självstudier > Lägg till en enhet.
 
-
-  Uppdatera platshållaren `{your device connection string}` med enhetens anslutningssträng. I det här exemplet vi initiera `targetTemperature` till noll och, du kan eventuellt ta medan den aktuella läsningen från enheten eller värdet från enhetstvillingen. 
+    Uppdatera platshållaren `{your device connection string}` med enhetens anslutningssträng. I det här exemplet vi initiera `targetTemperature` till noll och, du kan eventuellt ta medan den aktuella läsningen från enheten eller värdet från enhetstvillingen. 
 
 1. Om du vill skicka telemetri, tillstånd och mätning av faktisk användning till programmet Azure IoT Central, lägger du till följande funktion i filen:
 
@@ -269,7 +268,7 @@ Som operatör i Azure IoT Central programmet för verkliga enheten kan du:
 
     ![Visa telemetrin](media/howto-connect-nodejs/viewtelemetry.png)
 
-* Visa enhet egenskapsvärden som skickas från din enhet den **egenskaper** sidan. Enhetens egenskaper panelerna uppdateras om anslutningen är klar.
+* Visa enhet egenskapsvärden som skickas från din enhet den **egenskaper** sidan. Egenskaper för paneler uppdaterats om anslutningen är klar.
 
     ![Visa egenskaper för enhet](media/howto-connect-nodejs/viewproperties.png)
 

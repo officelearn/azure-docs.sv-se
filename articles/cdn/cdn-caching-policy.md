@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/04/2017
 ms.author: juliako
-ms.openlocfilehash: ac94370b1c6a8f48ad55f0e277d93cd2f8388cb1
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: a747e5064ff0ef99fb43c545c29c2a34535445d0
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242612"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57540164"
 ---
 # <a name="manage-azure-cdn-caching-policy-in-azure-media-services"></a>Hantera Azure CDN-Cachelagringsprincip i Azure Media Services
-Azure Media Services tillhandahåller en HTTP-baserad anpassad strömning och progressiv nedladdning. HTTP-baserade direktuppspelning är mycket skalbara med fördelarna med cachelagring i proxy och CDN-lager samt klientcachelagring. Slutpunkter för direktuppspelning ger allmänna strömmande funktioner och konfiguration för HTTP-huvuden för cache. Slutpunkter för direktuppspelning anger HTTP Cache-Control: maxåldern och Expires-huvuden. Du kan få mer information för HTTP-cache rubriker från [W3.org](http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html).
+Azure Media Services tillhandahåller en HTTP-baserad anpassad strömning och progressiv nedladdning. HTTP-baserade direktuppspelning är mycket skalbara med fördelarna med cachelagring i proxy och CDN-lager samt klientcachelagring. Slutpunkter för direktuppspelning ger allmänna strömmande funktioner och konfiguration för HTTP-huvuden för cache. Slutpunkter för direktuppspelning anger HTTP Cache-Control: maxåldern och Expires-huvuden. Du kan få mer information för HTTP-cache rubriker från [W3.org](https://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html).
 
 ## <a name="default-caching-headers"></a>Standard Caching rubriker
 Som standard tillämpar strömmande slutpunkter 3 dagars cache rubriker för på begäran strömmande data (faktiska media fragment/segment) och manifest(playlist). Slutpunkter för direktuppspelning gäller 3 dagars cache-huvuden för data (faktiska media fragment/segment) och 2 sekunder cachelagra rubrik för manifest(playlist) begäranden för direktsänd strömning. När direktsänd program övergår i (live-arkivet) på begäran, tillämpas på begäran strömmande cache-huvuden.

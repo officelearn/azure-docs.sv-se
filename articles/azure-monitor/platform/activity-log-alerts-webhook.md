@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/31/2017
 ms.author: johnkem
 ms.subservice: alerts
-ms.openlocfilehash: 79d10a02b02ecb69f656e5b3d7b0c9ae986504d1
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 0ea34fe4862941bde882b3ea8ed5dbaa111ac742
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54438974"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57731509"
 ---
 # <a name="webhooks-for-azure-activity-log-alerts"></a>Webhooks för aviseringar för Azure-aktivitetsloggar
 Som en del av definitionen av en åtgärdsgrupp kan konfigurera du webhook-slutpunkter för att få aviseringar för aktiviteten log. Du kan använda webhooks, för att vidarebefordra dessa meddelanden till andra system för efterbearbetning eller anpassade åtgärder. Den här artikeln visar hur nyttolast för HTTP-POST till en webhook som ser ut.
@@ -146,7 +146,7 @@ JSON-nyttolasten i POST-åtgärden skiljer sig beroende på den nyttolast data.c
                     "currentHealthStatus": "Unavailable",
                     "previousHealthStatus": "Available",
                     "type": "Downtime",
-                    "cause": "PlatformInitiated",
+                    "cause": "PlatformInitiated"
                 },
                 "resourceId": "/subscriptions/<subscription Id>/resourceGroups/<resource group>/providers/Microsoft.Compute/virtualMachines/<resource name>",
                 "resourceGroupName": "<resource group>",

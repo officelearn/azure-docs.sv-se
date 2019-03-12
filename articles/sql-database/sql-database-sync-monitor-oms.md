@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.date: 12/20/2018
-ms.openlocfilehash: a1f2b0e3095718caad7c35a20bf7e91c88568364
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 1417907bf9472137677a090906fa173c3d1ea571
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57213474"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57539300"
 ---
 # <a name="monitor-sql-data-sync-with-azure-monitor-logs"></a>Övervaka SQL Data Sync med Azure Monitor-loggar 
 
@@ -32,7 +32,7 @@ En översikt över SQL Data Sync finns i [Synkronisera data i flera moln och lok
 
 ## <a name="monitoring-dashboard-for-all-your-sync-groups"></a>Övervakningsinstrumentpanel för alla synkroniseringsgrupper 
 
-Du behöver inte längre att söka igenom loggarna för varje Synkroniseringsgrupp individuellt för att leta efter problem. Du kan övervaka alla synkroniseringsgrupper från någon av dina prenumerationer på en plats med hjälp av en anpassad log analytics-vy. Den här vyn hämtar information som är viktiga för SQL Data Sync-kunder.
+Du behöver inte längre att söka igenom loggarna för varje Synkroniseringsgrupp individuellt för att leta efter problem. Du kan övervaka alla synkroniseringsgrupper från någon av dina prenumerationer på en plats med hjälp av en anpassad vy i Azure Monitor. Den här vyn hämtar information som är viktiga för SQL Data Sync-kunder.
 
 ![Instrumentpanelen för data Sync](media/sql-database-sync-monitor-oms/sync-monitoring-dashboard.png)
 
@@ -50,9 +50,9 @@ Du måste konfigurera tre komponenter:
 
 -   En PowerShell-runbook för att mata in loggdata för SQL Data Sync till Azure Monitor-loggar.
 
--   En avisering i log analytics för e-postmeddelanden.
+-   En Azure Monitor-avisering för e-postmeddelanden.
 
--   En log analytics vy för övervakning.
+-   Vyn Azure Monitor för övervakning.
 
 ### <a name="samples-to-download"></a>Exempel för att ladda ned
 
@@ -60,7 +60,7 @@ Ladda ned följande två exempel:
 
 -   [Data Sync Log PowerShell-Runbook](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/DataSyncLogPowerShellRunbook.ps1)
 
--   [Data Sync Log Analytics-vy](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/DataSyncLogOmsView.omsview)
+-   [Datavyn synkronisering med Azure Monitor](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/DataSyncLogOmsView.omsview)
 
 ### <a name="prerequisites"></a>Förutsättningar
 
@@ -130,7 +130,7 @@ Så här schemalägger runbook:
 
 Övervaka om ditt automation körs som förväntat under **översikt** för ditt automation-konto, hitta den **Jobbstatistik** visa **övervakning**. Fäst vyn på instrumentpanelen för enkel visning. Lyckade körningar av runbook-Visa som ”slutförd” och misslyckade körningar visas som ”misslyckades”.
 
-## <a name="create-a-log-analytics-reader-alert-for-email-notifications"></a>Skapa en avisering i Log Analytics Reader för e-postaviseringar
+## <a name="create-an-azure-monitor-reader-alert-for-email-notifications"></a>Skapa en avisering för Azure Monitor-läsare för e-postmeddelanden
 
 Gör du följande för att skapa en avisering som använder Azure Monitor-loggar. Du måste ha Azure Monitor-loggar som är kopplad till en Log Analytics-arbetsyta som ett krav.
 
@@ -152,9 +152,9 @@ Gör du följande för att skapa en avisering som använder Azure Monitor-loggar
 
 6.  Klicka på **Spara**. De angivna mottagarna nu ta emot e-postaviseringar när fel uppstår.
 
-## <a name="create-a-log-analytics-view-for-monitoring"></a>Skapa en Log Analytics-vy för övervakning
+## <a name="create-an-azure-monitor-view-for-monitoring"></a>Så här skapar du en sammanfattningsvy för Azure Monitor för övervakning
 
-Det här steget skapar en log analytics-vy för att visuellt övervaka alla angivna synkroniseringsgrupper. Vyn innehåller flera komponenter:
+Det här steget skapar ett Azure Monitor-vyn för att visuellt övervaka alla angivna synkroniseringsgrupper. Vyn innehåller flera komponenter:
 
 -   En översiktsikon som visar hur många fel, lyckade och varningar har alla synkroniseringsgrupper.
 
@@ -162,9 +162,9 @@ Det här steget skapar en log analytics-vy för att visuellt övervaka alla angi
 
 -   En panel för varje Synkroniseringsgrupp som visar antalet fel, har slutförts, och varningar och de senaste felmeddelandena.
 
-Om du vill konfigurera log analytics-vy, gör du följande:
+Om du vill konfigurera vyn Azure Monitor, gör du följande:
 
-1.  På startsidan för log analytics väljer du plus till vänster och öppna den **Vydesigner**.
+1.  På startsidan för Log Analytics-arbetsytan väljer du plus till vänster och öppna den **Vydesigner**.
 
 2.  Välj **Import** i det översta fältet i view Designer. Välj sedan exempelfilen ”DataSyncLogOMSView”.
 
@@ -196,7 +196,7 @@ Ladda ned kodexemplen i den här artikeln från följande platser:
 
 -   [Data Sync Log PowerShell-Runbook](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/DataSyncLogPowerShellRunbook.ps1)
 
--   [Data Sync Log Analytics-vy](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/DataSyncLogOmsView.omsview)
+-   [Datavyn synkronisering med Azure Monitor](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/DataSyncLogOmsView.omsview)
 
 ## <a name="next-steps"></a>Nästa steg
 Mer information om SQL Data Sync finns i:

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/09/2018
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 9697b88e23fea0cb06ab0c4a6197b5255e7076bf
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 6037d6a1b418a4241f1133b8ca7d89764da22f61
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53316275"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57571379"
 ---
 # <a name="simple-syntax-query-examples-for-building-queries-in-azure-search"></a>Exempel på enkla syntaxfråga för att skapa frågor i Azure Search
 
@@ -55,7 +55,7 @@ Webbadressen har följande element:
 
 ## <a name="send-your-first-query"></a>Skicka din första fråga
 
-Klistra in följande begäran i GET som ett verifieringssteg och klicka på **skicka**. Resultaten returneras som utförlig JSON-dokument. Du kan kopiera och klistra in URL: en i första exemplet nedan.
+Klistra in följande begäran i GET som ett verifieringssteg och klicka på **skicka**. Resultat returneras som utförliga JSON-dokument. Du kan kopiera och klistra in URL: en i första exemplet nedan.
 
   ```http
   https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&search=*
@@ -93,21 +93,21 @@ Alla dokument har en unik identifierare. Om du vill testa syntaxen för en looku
 
 ```http
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&searchFields=id&$select=id&search=*
- ```
+```
 
 I nästa exempel är en sökning-fråga som returnerar ett visst dokument baserat på `id` ”9E1E3AF9-0660-4E00-AF51-9B654925A2D5” som fanns först i föregående svar. Följande fråga returnerar hela dokumentet, inte bara valda fält. 
 
 ```http
 https://azs-playground.search.windows.net/indexes/nycjobs/docs/9E1E3AF9-0660-4E00-AF51-9B654925A2D5?api-version=2017-11-11&$count=true&search=*
- ```
+```
 
 ## <a name="example-3-filter-queries"></a>Exempel 3: Filterfrågor
 
 [Filtrera syntax](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search#filter-examples) är ett OData-uttryck som du kan använda med **search** eller ensamt. Ett filter för fristående, utan en sökparameter är användbart när filteruttrycket kan fullständigt kvalificera dokument av intresse. Det finns inga lexikal eller lingvistisk analys utan en frågesträng utan bedömning som (samtliga värden är 1), och inga rangordning. Observera att strängen är tom.
 
 ```http
-POST /indexes/nycjobs/docs/search?api-version=2017-11-11  
-    {  
+POST /indexes/nycjobs/docs/search?api-version=2017-11-11
+    {
       "search": "",
       "filter": "salary_frequency eq 'Annual' and salary_range_from gt 90000",
       "select": "select=job_id, business_title, agency, salary_range_from",
@@ -123,13 +123,13 @@ Om du vill testa detta i Postman med hjälp av GET, kan du klistra in följande 
 
 ```http
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&$select=job_id,business_title,agency,salary_range_from&search=&$filter=salary_frequency eq 'Annual' and salary_range_from gt 90000
- ```
+```
 
 Ett annat kraftfulla sätt att kombinera filter och Sök **`search.ismatch*()`** i ett filteruttryck, där du kan använda en sökfråga i filtret. Den här filteruttrycket använder jokertecken på *plan* att välja business_title inklusive termen plan, planner, planering och så vidare.
 
 ```http
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&$select=job_id,business_title,agency&search=&$filter=search.ismatch('plan*', 'business_title', 'full', 'any')
- ```
+```
 
 Mer information om funktionen finns i [search.ismatch i ”Filter exempel”](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search#filter-examples).
 
@@ -142,8 +142,8 @@ Datatyper är viktiga i intervallfiltren och fungerar bäst när numeriska data 
 I följande exempel finns i INLÄGGET format för läsbarhet (numeriska intervall, följt av textintervall):
 
 ```http
-POST /indexes/nycjobs/docs/search?api-version=2017-11-11  
-    {  
+POST /indexes/nycjobs/docs/search?api-version=2017-11-11
+    {
       "search": "",
       "filter": "num_of_positions ge 5 and num_of_positions lt 10",
       "select": "job_id, business_title, num_of_positions, agency",
@@ -155,8 +155,8 @@ POST /indexes/nycjobs/docs/search?api-version=2017-11-11
 
 
 ```http
-POST /indexes/nycjobs/docs/search?api-version=2017-11-11  
-    {  
+POST /indexes/nycjobs/docs/search?api-version=2017-11-11
+    {
       "search": "",
       "filter": "business_title ge 'A*' and business_title lt 'C*'",
       "select": "job_id, business_title, agency",
@@ -175,7 +175,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-
 
 ```http
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&search=&$filter=business_title ge 'A*' and business_title lt 'C*'&$select=job_id, business_title, agency&$orderby=business_title&$count=true
- ```
+```
 
 > [!NOTE]
 > Fasettering över intervall med värden är ett vanligt krav för search-program. Mer information och exempel på att skapa filter för aspekten navigeringsstrukturer finns i [”Filter baserat på ett” i *implementera aspektbaserad navigering*](search-faceted-navigation.md#filter-based-on-a-range).
@@ -187,8 +187,8 @@ Exempelindexet innehåller ett geo_location fält med koordinater för latitud o
 I följande exempel är i formatet för POST för läsbarhet:
 
 ```http
-POST /indexes/nycjobs/docs/search?api-version=2017-11-11  
-    {  
+POST /indexes/nycjobs/docs/search?api-version=2017-11-11
+    {
       "search": "",
       "filter": "geo.distance(geo_location, geography'POINT(-74.11734 40.634384)') le 4",
       "select": "job_id, business_title, work_location",

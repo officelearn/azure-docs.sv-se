@@ -9,17 +9,17 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 02/06/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 01/24/2019
-ms.openlocfilehash: 9debcd121cbbde626758abccfe838abda12ad840
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 1c59f092957704c44b5cda012aa7c471fdaa3275
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822841"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57763375"
 ---
 # <a name="connect-storage-explorer-to-an-azure-stack-subscription-or-a-storage-account"></a>Anslut storage explorer till en Azure Stack-prenumeration eller ett lagringskonto
 
@@ -30,7 +30,7 @@ I den här artikeln lär du dig att ansluta till din Azure Stack-prenumerationer
 > [!NOTE]  
 > Det finns flera tillgängliga verktyg för att flytta data till och från Azure Stack-lagring. Mer information finns i [verktyg för Azure Stack-lagring för överföring av Data](azure-stack-storage-transfer.md).
 
-Om du inte har installerat Lagringsutforskaren ännu, [ladda ned Lagringsutforskaren](http://www.storageexplorer.com/) och installera den.
+Om du inte har installerat Lagringsutforskaren ännu, [ladda ned Lagringsutforskaren](https://www.storageexplorer.com/) och installera den.
 
 När du ansluter till en Azure Stack-prenumeration eller ett lagringskonto kan du använda den [Azure storage explorer artiklar](../../vs-azure-tools-storage-manage-with-storage-explorer.md) att arbeta med Azure Stack-data. 
 

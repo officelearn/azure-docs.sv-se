@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajani-janaki-ram
-ms.openlocfilehash: 9aaa5dd2c636f9b5d92e949e1af71eda809cdac7
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 20d5c4628d729b8dff8b1d72f80beac0ec2e8f67
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55810328"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57569756"
 ---
 # <a name="remove-servers-and-disable-protection"></a>Ta bort servrar och inaktivera skydd
 
@@ -55,18 +55,18 @@ Hyper-V-värdar som inte hanteras av VMM har samlats i en Hyper-V-plats. Ta bort
         pushd .
         try
         {
-             $windowsIdentity=[System.Security.Principal.WindowsIdentity]::GetCurrent()
-             $principal=new-object System.Security.Principal.WindowsPrincipal($windowsIdentity)
-             $administrators=[System.Security.Principal.WindowsBuiltInRole]::Administrator
-             $isAdmin=$principal.IsInRole($administrators)
-             if (!$isAdmin)
-             {
+            $windowsIdentity=[System.Security.Principal.WindowsIdentity]::GetCurrent()
+            $principal=new-object System.Security.Principal.WindowsPrincipal($windowsIdentity)
+            $administrators=[System.Security.Principal.WindowsBuiltInRole]::Administrator
+            $isAdmin=$principal.IsInRole($administrators)
+            if (!$isAdmin)
+            {
                 "Please run the script as an administrator in elevated mode."
                 $choice = Read-Host
-                return;       
-             }
+                return;
+            }
 
-            $error.Clear()    
+            $error.Clear()
             "This script will remove the old Azure Site Recovery Provider related properties. Do you want to continue (Y/N) ?"
             $choice =  Read-Host
 
@@ -95,24 +95,24 @@ Hyper-V-värdar som inte hanteras av VMM har samlats i en Hyper-V-plats. Ta bort
             {
                 if (Test-Path $registrationPath)
                 {
-                    "Removing registration related registry keys."    
+                    "Removing registration related registry keys."
                     Remove-Item -Recurse -Path $registrationPath
                 }
 
                 if (Test-Path $proxySettingsPath)
-            {
+                {
                     "Removing proxy settings"
                     Remove-Item -Recurse -Path $proxySettingsPath
                 }
 
                 $regNode = Get-ItemProperty -Path $asrHivePath
                 if($regNode.DraID -ne $null)
-                {            
+                {
                     "Removing DraId"
                     Remove-ItemProperty -Path $asrHivePath -Name $draIdValue
                 }
                 if($regNode.IdMgmtCloudContainerId -ne $null)
-                {            
+                {
                     "Removing IdMgmtCloudContainerId"
                     Remove-ItemProperty -Path $asrHivePath -Name $idMgmtCloudContainerId
                 }
@@ -131,7 +131,7 @@ Hyper-V-värdar som inte hanteras av VMM har samlats i en Hyper-V-plats. Ta bort
                 $store.Remove($cert)
             }
         }catch
-        {    
+        {
             [system.exception]
             Write-Host "Error occurred" -ForegroundColor "Red"
             $error[0]
@@ -158,7 +158,7 @@ Hyper-V-värdar som inte hanteras av VMM har samlats i en Hyper-V-plats. Ta bort
 
 1. I **skyddade objekt** > **replikerade objekt**, högerklicka på datorn > **inaktivera replikering**.
 2. I **inaktivera replikering**, du kan välja följande alternativ:
-     - **Inaktivera replikering och ta bort (rekommenderas)** – det här alternativet Ta bort det replikerade objektet från Azure Site Recovery och replikeringen för datorn stoppas. Inställningar för replikering på den lokala virtuella datorn tas bort och Site Recovery-debitering för den här skyddade servern har stoppats.
+    - **Inaktivera replikering och ta bort (rekommenderas)** – det här alternativet Ta bort det replikerade objektet från Azure Site Recovery och replikeringen för datorn stoppas. Inställningar för replikering på den lokala virtuella datorn tas bort och Site Recovery-debitering för den här skyddade servern har stoppats.
     - **Ta bort** – det här alternativet ska bara användas om källmiljön har tagits bort eller inte tillgänglig (inte ansluten). Detta tar bort det replikerade objektet från Azure Site Recovery (faktureringen stoppas). Inställningar för replikering på den lokala virtuella datorn **inte** rensas. 
 
     > [!NOTE]
@@ -208,8 +208,8 @@ Hyper-V-värdar som inte hanteras av VMM har samlats i en Hyper-V-plats. Ta bort
 
 3. Kör skriptet på VMM-källservern, med hjälp av PowerShell (administratörsbehörighet krävs) från VMM-konsolen. Ersätt platshållaren **SQLVM1** med namnet på den virtuella datorn.
 
-         $vm = get-scvirtualmachine -Name "SQLVM1"
-         Set-SCVirtualMachine -VM $vm -ClearDRProtection
+        $vm = get-scvirtualmachine -Name "SQLVM1"
+        Set-SCVirtualMachine -VM $vm -ClearDRProtection
 4. Kör det här skriptet att rensa inställningarna för den sekundära virtuella datorn på den sekundära VMM-servern:
 
         $vm = get-scvirtualmachine -Name "SQLVM1"

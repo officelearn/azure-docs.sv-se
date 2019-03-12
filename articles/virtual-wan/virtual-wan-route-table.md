@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to work with routing tables for NVA.
-ms.openlocfilehash: e966f371f7a308d3981a10e26ecd8c8ee855e6df
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 02c05bc7d8488a5fd4d0698f13a1ba354dbbb0e8
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57402877"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57546049"
 ---
 # <a name="create-a-virtual-hub-route-table-to-steer-traffic-to-a-network-virtual-appliance"></a>Skapa en virtuell hubb routningstabellen för att styra trafik till en virtuell nätverksinstallation
 
@@ -45,7 +45,7 @@ Kontrollera att du har uppfyllt följande villkor:
 
 ## <a name="signin"></a>1. Logga in
 
-Kontrollera att du installerar den senaste versionen av Resource Manager PowerShell-cmdletar. Mer information om hur du installerar PowerShell-cmdlets finns i [Installera och konfigurera Azure PowerShell](/powershell/azure/install-az-ps). Detta är viktigt eftersom tidigare versioner av cmdletarna inte innehåller de aktuella värden som du behöver för den här övningen. Moduler i dig följande exempel är Azure RM. Den här artikeln kommer att uppdateras till Azure-Az i framtiden.
+Kontrollera att du installerar den senaste versionen av Resource Manager PowerShell-cmdletar. Mer information om hur du installerar PowerShell-cmdlets finns i [Installera och konfigurera Azure PowerShell](/powershell/azure/install-az-ps). Detta är viktigt eftersom tidigare versioner av cmdletarna inte innehåller de aktuella värden som du behöver för den här övningen.
 
 1. Öppna PowerShell-konsolen med förhöjd behörighet och logga in på kontot. Denna cmdlet uppmanar dig autentiseringsuppgifter för inloggning. När du har loggat in hämtas dina kontoinställningar så att de är tillgängliga för Azure PowerShell.
 
@@ -86,13 +86,13 @@ Kontrollera att du installerar den senaste versionen av Resource Manager PowerSh
 Skapa hub virtuella nätverksanslutningar från indirekt ekrar VNet och DMZ-VNet till den virtuella hubben.
 
   ```powershell
-  $remoteVirtualNetwork1= Get-AzVirtualNetwork -Name “indirectspoke1” -ResourceGroupName “testRG”
-  $remoteVirtualNetwork2= Get-AzVirtualNetwork -Name “indirectspoke2” -ResourceGroupName “testRG”
-  $remoteVirtualNetwork3= Get-AzVirtualNetwork -Name “dmzvnet” -ResourceGroupName “testRG”
+  $remoteVirtualNetwork1= Get-AzVirtualNetwork -Name "indirectspoke1" -ResourceGroupName "testRG"
+  $remoteVirtualNetwork2= Get-AzVirtualNetwork -Name "indirectspoke2" -ResourceGroupName "testRG"
+  $remoteVirtualNetwork3= Get-AzVirtualNetwork -Name "dmzvnet" -ResourceGroupName "testRG"
 
-  New-AzVirtualHubVnetConnection -ResourceGroupName “testRG” -VirtualHubName “westushub” -Name  “testvnetconnection1” -RemoteVirtualNetwork $remoteVirtualNetwork1
-  New-AzVirtualHubVnetConnection -ResourceGroupName “testRG” -VirtualHubName “westushub” -Name  “testvnetconnection2” -RemoteVirtualNetwork $remoteVirtualNetwork2
-  New-AzVirtualHubVnetConnection -ResourceGroupName “testRG” -VirtualHubName “westushub” -Name  “testvnetconnection3” -RemoteVirtualNetwork $remoteVirtualNetwork3
+  New-AzVirtualHubVnetConnection -ResourceGroupName "testRG" -VirtualHubName "westushub" -Name  "testvnetconnection1" -RemoteVirtualNetwork $remoteVirtualNetwork1
+  New-AzVirtualHubVnetConnection -ResourceGroupName "testRG" -VirtualHubName "westushub" -Name  "testvnetconnection2" -RemoteVirtualNetwork $remoteVirtualNetwork2
+  New-AzVirtualHubVnetConnection -ResourceGroupName "testRG" -VirtualHubName "westushub" -Name  "testvnetconnection3" -RemoteVirtualNetwork $remoteVirtualNetwork3
   ```
 
 ## <a name="route"></a>4. Skapa en virtuell hubb-väg
@@ -116,7 +116,7 @@ $routeTable = New-AzVirtualHubRouteTable -Route @($route1)
 Ändringarna i den virtuella hubben.
 
 ```powershell
-Update-AzVirtualHub -VirtualWanId $virtualWan.Id -ResourceGroupName "testRG" -Name "westushub” -RouteTable $routeTable
+Update-AzVirtualHub -VirtualWanId $virtualWan.Id -ResourceGroupName "testRG" -Name "westushub" -RouteTable $routeTable
 ```
 
 ## <a name="cleanup"></a>Rensa resurser

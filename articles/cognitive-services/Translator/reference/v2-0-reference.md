@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 05/15/2018
 ms.author: v-jansko
-ms.openlocfilehash: f8d57723f6e51fb392e4fdbfb2b2a445d48635e3
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: c87e1b42aa8474aa62e979e0d7ec1f8bf948910f
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55861722"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57539657"
 ---
 # <a name="translator-text-api-v20"></a>Translator Text API v2.0
 
@@ -157,7 +157,7 @@ Formatet för svarstexten är som följer.
 
 ```
 <ArrayOfTranslateArrayResponse xmlns="http://schemas.datacontract.org/2004/07/Microsoft.MT.Web.Service.V2"
-  xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+  xmlns:i="https://www.w3.org/2001/XMLSchema-instance">
   <TranslateArrayResponse>
     <From>language-code</From>
     <OriginalTextSentenceLengths xmlns:a="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
@@ -205,7 +205,7 @@ Förfrågans URI är `https://api.microsofttranslator.com/V2/Http.svc/GetLanguag
 Begärandetexten innehåller en strängmatris som representerar ISO 639-1 språkkoder att hämta de egna namn för. Exempel:
 
 ```
-<ArrayOfstring xmlns:i="http://www.w3.org/2001/XMLSchema-instance"  xmlns="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+<ArrayOfstring xmlns:i="https://www.w3.org/2001/XMLSchema-instance"  xmlns="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
     <string>zh</string>
     <string>en</string>
 </ArrayOfstring>
@@ -327,7 +327,7 @@ Innehållstyp för svar: application/xml
 |text|(tom)   |Krävs. En sträng som innehåller en mening eller meningar för angivna språket som ska läsas för wave-dataström. Storleken på texten som ska tala får inte överskrida 2 000 tecken.|DocumentDB|sträng|
 |language|(tom)   |Krävs. En sträng som representerar den språkkod som stöds för att tala texten i. Koden måste finnas i listan över koder som returneras från metoden `GetLanguagesForSpeak`.|DocumentDB|sträng|
 |Format|(tom)|Valfri. En sträng som anger innehållstypen-ID. För närvarande `audio/wav` och `audio/mp3` är tillgängliga. Standardvärdet är `audio/wav`.|DocumentDB|sträng|
-|alternativ|(tom)    |<ul><li>Valfri. En sträng som anger egenskaperna för syntetiskt tal:<li>`MaxQuality` och `MinSize` är tillgängliga för att ange ljud signaler kvalitet. Med `MaxQuality`, du kan hämta röster med högsta kvalitet och `MinSize`, du kan hämta röster med den minsta storleken. Standardvärdet är `MinSize`.</li><li>`female` och `male` är tillgängliga för att ange den önskade kön för röst. Standardvärdet är `female`. Använder vertikalstreck `|` till innehåller flera alternativ. Till exempel `MaxQuality|Male`.</li></li></ul> |DocumentDB|sträng|
+|alternativ|(tom)    |<ul><li>Valfri. En sträng som anger egenskaperna för syntetiskt tal:<li>`MaxQuality` och `MinSize` är tillgängliga för att ange ljud signaler kvalitet. Med `MaxQuality`, du kan hämta röster med högsta kvalitet och `MinSize`, du kan hämta röster med den minsta storleken. Standardvärdet är `MinSize`.</li><li>`female` och `male` är tillgängliga för att ange den önskade kön för röst. Standardvärdet är `female`. Använder vertikalstreck '|` to include multiple options. For example  `MaxQuality|Man ”.</li></li></ul> |DocumentDB|sträng|
 |Auktorisering|(tom)|Krävs om de `appid` fält eller `Ocp-Apim-Subscription-Key` huvud har inte angetts. Autentiseringstoken: `"Bearer" + " " + "access_token"`.|sidhuvud|sträng|
 |OCP-Apim-Subscription-Key|(tom)  |Krävs om de `appid` fält eller `Authorization` huvud har inte angetts.|sidhuvud|sträng|
 
@@ -397,7 +397,7 @@ Storleken på texten får inte överstiga 10000 tecken.
 Formatet för svarstexten är som följer.
 
 ```
-<ArrayOfstring xmlns="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+<ArrayOfstring xmlns="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:i="https://www.w3.org/2001/XMLSchema-instance">
   <string>language-code-1</string>
   <string>language-code-2</string>
 </ArrayOfstring>
@@ -611,7 +611,7 @@ Begär `Content-Type` ska vara `text/xml`.
 
 ```
 <GetTranslationsResponse xmlns="http://schemas.datacontract.org/2004/07/Microsoft.MT.Web.Service.V2"
-  xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+  xmlns:i="https://www.w3.org/2001/XMLSchema-instance">
   <From>Two character language code</From>
   <State/>
   <Translations>
@@ -723,7 +723,7 @@ Begär `Content-Type` ska vara `text/xml`.
 **Returvärdet:** Formatet på svaret är som följer.
 
 ```
-<ArrayOfGetTranslationsResponse xmlns="http://schemas.datacontract.org/2004/07/Microsoft.MT.Web.Service.V2" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+<ArrayOfGetTranslationsResponse xmlns="http://schemas.datacontract.org/2004/07/Microsoft.MT.Web.Service.V2" xmlns:i="https://www.w3.org/2001/XMLSchema-instance">
   <GetTranslationsResponse>
     <From>language-code</From>
     <State/>

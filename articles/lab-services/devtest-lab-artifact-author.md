@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2018
 ms.author: spelluru
-ms.openlocfilehash: 05abc61da7af02c56dacd632175d6fbfa64cb9e1
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: e4fd8d226ebe1cb993e11fb5c9617df3eef08bdc
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55098569"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57532584"
 ---
 # <a name="create-custom-artifacts-for-your-devtest-labs-virtual-machine"></a>Skapa anpassade artefakter för din virtuella dator för DevTest Labs
 
@@ -56,7 +56,7 @@ I följande exempel visas de avsnitt som utgör den grundläggande strukturen i 
 | Elementnamn | Krävs? | Beskrivning |
 | --- | --- | --- |
 | $schema |Nej |Plats för JSON-schemafilen. Med hjälp av JSON-schema-fil kan du testa giltighet definitionsfilen. |
-| rubrik |Ja |Namnet på den artefakt som visas i laboratoriet. |
+| title |Ja |Namnet på den artefakt som visas i laboratoriet. |
 | beskrivning |Ja |Beskrivning av den artefakt som visas i laboratoriet. |
 | iconUri |Nej |URI för den ikon som visas i laboratoriet. |
 | targetOsType |Ja |Operativsystemet på den virtuella datorn där artefakten är installerad. Alternativ som stöds är Windows och Linux. |
@@ -126,7 +126,7 @@ I följande exempel visas hur du använder uttryck och funktioner för att konst
 
 ## <a name="related-articles"></a>Relaterade artiklar
 * [Hur du diagnostisera fel i artefakter i DevTest Labs](devtest-lab-troubleshoot-artifact-failure.md)
-* [Ansluta en dator till en befintlig Active Directory-domän med hjälp av Resource Manager-mall i DevTest Labs](http://www.visualstudiogeeks.com/blog/DevOps/Join-a-VM-to-existing-AD-domain-using-ARM-template-AzureDevTestLabs)
+* [Ansluta en dator till en befintlig Active Directory-domän med hjälp av Resource Manager-mall i DevTest Labs](https://www.visualstudiogeeks.com/blog/DevOps/Join-a-VM-to-existing-AD-domain-using-ARM-template-AzureDevTestLabs)
 
 ## <a name="next-steps"></a>Nästa steg
 * Lär dig hur du [lägga till en Git-lagringsplats för artefakter i ett labb](devtest-lab-add-artifact-repo.md).

@@ -1,6 +1,6 @@
 ---
-title: Azure DNS felsökningsguiden | Microsoft Docs
-description: Felsökning av vanliga problem med Azure DNS
+title: Felsökningsguide för Azure DNS | Microsoft Docs
+description: Så här felsöker du vanliga problem med Azure DNS
 services: dns
 documentationcenter: na
 author: genlin
@@ -14,25 +14,25 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/20/2017
 ms.author: genli
-ms.openlocfilehash: 816ad6c0079e9272286cdc072ff71bf15313eb8e
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 535e7604915555f32a7636b739c49f72cb0220c8
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34069107"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57541578"
 ---
-# <a name="azure-dns-troubleshooting-guide"></a>Azure DNS felsökningsguiden
+# <a name="azure-dns-troubleshooting-guide"></a>Felsökningsguide för Azure DNS
 
-Den här sidan innehåller felsökningsinformation för Azure DNS-frågor.
+Den här sidan innehåller felsökningsinformation för vanliga Azure DNS-frågor.
 
-Om stegen inte löser problemet kan du också söka efter eller ett inlägg problemet i vår [community-support-forum på MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork). Du kan också öppna en Azure-supportbegäran.
+Om de här stegen inte löser problemet kan du också kan söka efter eller publicera problemet på vår [Communitys Supportforum på MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork). Du kan också öppna en supportförfrågan för Azure.
 
 
 ## <a name="i-cant-create-a-dns-zone"></a>Jag kan inte skapa en DNS-zon
 
 Prova ett eller flera av följande steg för att lösa vanliga problem:
 
-1.  Gå igenom granskningsloggar Azure DNS för att ta reda på orsaken till felet.
+1.  Gå igenom granskningsloggar för Azure DNS för att fastställa orsaken till felet.
 2.  Varje DNS-zonnamn måste vara unikt inom sin resursgrupp. Det innebär att två DNS-zoner med samma namn inte kan dela en resursgrupp. Försök med ett annat zonnamn eller en annan resursgrupp.
 3.  Ett felmeddelande om att ”Du har nått eller överskridit maxantalet zoner i prenumerationen {subscription id}” kanske visas. Då kan du antingen använda en annan Azure-prenumeration, ta bort vissa zoner eller kontakta Azure-supporten för att öka prenumerationsgränsen.
 4.  Ett felmeddelande om att ”Zonen {zone name} inte är tillgänglig” kanske visas. Detta fel innebär att Azure DNS inte kunde allokera namnservrar för den här DNS-zonen. Försök med ett annat zonnamn. Om du är ägare till domännamnet kan du även kontakta Azure-supporten som kan allokera namnservrar åt dig.
@@ -48,7 +48,7 @@ Prova ett eller flera av följande steg för att lösa vanliga problem:
 
 Prova ett eller flera av följande steg för att lösa vanliga problem:
 
-1.  Gå igenom granskningsloggar Azure DNS för att ta reda på orsaken till felet.
+1.  Gå igenom granskningsloggar för Azure DNS för att fastställa orsaken till felet.
 2.  Finns postuppsättningen redan?  Azure DNS hanterar poster med post*uppsättningar*, vilket är en samling av poster med samma namn och av samma typ. Om det redan finns en post med samma namn och typ, redigerar du den befintliga postuppsättningen om du vill lägga till ännu en post.
 3.  Försöker du skapa en post i DNS-basdomänen (zonens ”rot”)? Om så är fallet använder DNS-konventionen tecknet ”@” som postens namn. Observera också att DNS-standarden inte tillåter CNAME-poster i basdomänen.
 4.  Har du en CNAME-konflikt?  DNS-standarden tillåter inte en CNAME-post med samma namn som en post av någon annan typ. Om du har ett befintligt CNAME kommer du att misslyckas om du försöker skapa en post med samma namn och av en annan typ.  På samma sätt går det inte att skapa ett CNAME om namnet matchar en befintlig post av en annan typ. Lös konflikten genom att ta bort den andra posten eller välja ett annat postnamn.
@@ -69,11 +69,11 @@ DNS-namnmatchningen är en process i flera steg som kan misslyckas av flera orsa
 
 1.  Kontrollera att DNS-posterna har konfigurerats korrekt i Azure DNS. Granska DNS-posterna i Azure Portal och kontrollera att zonnamn, postnamn samt posttyp är korrekta.
 2.  Kontrollera att DNS-posterna matchas korrekt på Azure DNS-namnservrarna.
-    - Om du skapar DNS-frågor från din lokala dator, kan cachelagrade resultat visas som inte motsvarar det aktuella tillståndet för namnservrarna.  Företagsnätverk använder dessutom ofta DNS-proxyservrar, vilket förhindrar att DNS-frågor dirigeras till specifika namnservrar.  Undvik dessa problem genom att använda en webbaserad namnmatchningstjänst som t.ex. [digwebinterface](http://digwebinterface.com).
+    - Om du skapar DNS-frågor från din lokala dator, kan cachelagrade resultat visas som inte motsvarar det aktuella tillståndet för namnservrarna.  Företagsnätverk använder dessutom ofta DNS-proxyservrar, vilket förhindrar att DNS-frågor dirigeras till specifika namnservrar.  Undvik dessa problem genom att använda en webbaserad namnmatchningstjänst som t.ex. [digwebinterface](https://digwebinterface.com).
     - Se till att ange rätt namnservrar för DNS-zonen, enligt det som visas i Azure Portal.
     - Kontrollera att DNS-namnet är korrekt (du måste ange det fullständiga namnet, inklusive zonnamnet) och att posttypen stämmer
 3.  Kontrollera att DNS-domännamnet har [delegerats till Azure DNS-namnservrarna](dns-domain-delegation.md) på rätt sätt. Det finns [många tredjeparts webbplatser som erbjuder DNS-delegeringsverifiering](https://www.bing.com/search?q=dns+check+tool). Det här testet är ett *zon*delegeringstest, så du bör bara ange DNS-zonens namn och inte det fullständiga postnamnet.
-4.  När du har utfört ovanstående bör DNS-posten matchas korrekt. Om du vill kontrollera detta använder du [digwebinterface](http://digwebinterface.com) igen, men nu med standardinställningarna för namnservern.
+4.  När du har utfört ovanstående bör DNS-posten matchas korrekt. Om du vill kontrollera detta använder du [digwebinterface](https://digwebinterface.com) igen, men nu med standardinställningarna för namnservern.
 
 
 ### <a name="recommended-documents"></a>**Rekommenderade dokument**
@@ -95,14 +95,14 @@ Exempel på SRV-postnamn (tjänstnamn ”sip”, protokoll ”tcp”):
 
 [DNS-zoner och -poster](dns-zones-records.md)
 <br>
-[Skapa uppsättningar av DNS-poster och poster med hjälp av Azure portal](dns-getstarted-create-recordset-portal.md)
+[Skapa DNS-postuppsättningar och poster med hjälp av Azure-portalen](dns-getstarted-create-recordset-portal.md)
 <br>
-[SRV-post (Wikipedia)](https://en.wikipedia.org/wiki/SRV_record)
+[SRV-posttyp (Wikipedia)](https://en.wikipedia.org/wiki/SRV_record)
 
 
 ## <a name="next-steps"></a>Nästa steg
 
 * Lär dig mer om [Azure DNS-zoner och poster](dns-zones-records.md)
 * Om du vill börja använda Azure DNS, lär du dig hur du [skapa en DNS-zon](dns-getstarted-create-dnszone-portal.md) och [skapa DNS-poster](dns-getstarted-create-recordset-portal.md).
-* Om du vill migrera en befintlig DNS-zon, lär du dig hur du [importera och exportera en DNS-zonfilen](dns-import-export.md).
+* Om du vill migrera en befintlig DNS-zon, lär du dig hur du [importera och exportera en DNS-zonfil](dns-import-export.md).
 

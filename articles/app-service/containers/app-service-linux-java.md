@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 12/10/2018
 ms.author: routlaw
 ms.custom: seodec18
-ms.openlocfilehash: b28316242f608fcfc2b368170190a771c4abbc8e
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 698e6fb861ab891a84aa43ca94769099a5c76943
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57456116"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57766826"
 ---
 # <a name="java-developers-guide-for-app-service-on-linux"></a>Java developer's guide för App Service på Linux
 
@@ -158,9 +158,6 @@ Följ instruktionerna i den [binda ett befintligt anpassat SSL-certifikat](/azur
 ## <a name="data-sources"></a>Datakällor
 
 ### <a name="tomcat"></a>Tomcat
-
->[!NOTE]
-> Om programmet använder Spring Framework eller Spring Boot, kan du ange anslutningsinformation för databasen för Spring Data JPA som miljövariabler för [i filen programmet egenskaper]. Använd sedan [appinställningar](/azure/app-service/web-sites-configure#app-settings) att definiera dessa värden för ditt program i Azure-portalen eller CLI.
 
 Dessa anvisningar gäller för alla anslutningar. Du behöver fylla platshållarna med din valda databasens klassnamnet för drivrutinen och JAR-fil. Tillhandahålls är en tabell med klassnamn och hämtning av drivrutiner för vanliga databaser.
 

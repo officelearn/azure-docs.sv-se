@@ -3,17 +3,17 @@ title: Använd enhetsuppsättningar i ditt program med Azure IoT Central | Micro
 description: Som operatör anger hur du använder enheten i Azure IoT Central programmet.
 author: ellenfosborne
 ms.author: elfarber
-ms.date: 01/21/2018
+ms.date: 02/05/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpfr
-ms.openlocfilehash: b24c7c6d08b7d7914c7bdef6d2a55eb88689b6ad
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: a28cf68eb449b563d93a139b830752748c448dd6
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57315205"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57759823"
 ---
 # <a name="use-device-sets-in-your-azure-iot-central-application"></a>Använd enhetsuppsättningar i Azure IoT Central programmet
 
@@ -48,9 +48,11 @@ När du skapar din enhetsuppsättning kan du konfigurera dess **instrumentpanele
 
 1. Välj **enhetsuppsättningar** på den vänstra navigeringsmenyn.
 
-1. Välj den **instrumentpanelen** fliken.
+1. Markera din enhet.
 
-1. Välj **Redigera mall**.
+1. Välj fliken **Instrumentpanel**.
+
+1. Välj **Redigera**.
 
     ![Designläge på](media/howto-use-device-sets/image3.png)
 
@@ -69,9 +71,6 @@ När du skapar din enhetsuppsättning kan du konfigurera dess **instrumentpanele
 
 1. Lägg till ett rutnät. Ett rutnät är en tabell med enheter i enheten med de kolumner som du väljer.
     1. Välj **Grid** i den högra rutan.
-
-        ![Välj rutnät](media/howto-use-device-sets/image8.png)
-
     1. Ge ditt rutnät en **rubrik**.
     1. Markera kolumnerna som ska visas genom att välja **Lägg till/ta bort**. Välj den kolumn som du vill ska visas och välj högerpilen för att välja den panelen som visas.
     1. Välj **OK**.
@@ -81,31 +80,24 @@ När du skapar din enhetsuppsättning kan du konfigurera dess **instrumentpanele
 
     1. Dra och släpp rutnätet om du vill placera den på den **instrumentpanelen**.
 
-    > [!NOTE]
-    > Du kan lägga till flera avbildningar, länkar och rutnät.
+        > [!NOTE]
+        > Du kan lägga till flera avbildningar, länkar och rutnät.
   
     1. Välj **Done** (Klar).
 
-    ![Designläge av](media/howto-use-device-sets/image10.png)
+### <a name="configuring-location-map-in-your-device-sets-dashboard"></a>Konfigurera platskarta i enheten anger instrumentpanel
 
-
-### <a name="configuring-location-map-in-your-device-sets-dashboard"></a>Konfigurera platskarta i enheten anger instrumentpanel 
 Du kan lägga till en platskarta som visualiserar platsen för dina enheter anger på en karta.
 
 För att lägga till en platskarta till enheten som anger instrumentpanelen som du måste ha konfigurerade Platsegenskapen i mallen för enhet, se [skapa en plats-egenskap som drivs av Azure Maps](howto-set-up-template.md).
 
-
 1. Välj kartan på instrumentpanelen ställa in enheten från biblioteket.
-
-    ![Enhetsuppsättningar instrumentpanelen Maps](media/howto-use-device-sets/LocationMaps1.png)
-
 2. Ge en rubrik och Välj egenskapen location som du tidigare har konfigurerat som en del av din enhetsegenskap.
 3. Spara och du ser kartan panelen Visa platsen för dina enheter i enheten inställd.
-4. Nu när en operatör vyer enhetsuppsättningar instrumentpanelen, operatören kan se alla paneler som du har konfigurerat, inklusive plats karta som visualiserar enheter plats på ett ögonblick! 
-    
-> [!NOTE] 
-> Du kommer att kunna ändra storlek på kartan för att den har önskad storleken. Att välja en PIN-kod i kartan visas information om enhet, namn och plats. Du kan välja popup-fönstret att gå till egenskapssidan för enheten.  
+4. Nu när en operatör vyer enhetsuppsättningar instrumentpanelen, operatören kan se alla paneler som du har konfigurerat, inklusive plats karta som visualiserar enheter plats på ett ögonblick!
 
+> [!NOTE]
+> Du kan ändra storlek på kartan till din önskade storlek. Att välja en PIN-kod på kartan visar enhetsinformationen, namn och plats. Du kan välja popup-fönstret att gå till egenskapssidan för enheten.
 
 ## <a name="configure-the-list-for-your-device-set"></a>Konfigurera en lista för din enhet
 
@@ -127,7 +119,7 @@ När du skapar din enhetsuppsättning kan du konfigurera den **lista**. Den **li
 
 ## <a name="analytics"></a>Analytics
 
-Analys i enhetsuppsättningar är samma som den huvudsakliga analytics-fliken i den vänstra navigeringsmenyn. Du kan lära dig mer om analytics i artikeln på [så här skapar du analytics](howto-create-analytics.md).
+Analys i enhetsuppsättningar är samma som den huvudsakliga analytics-fliken i den vänstra navigeringsmenyn. Du kan lära dig mer om analytics i artikeln på [så här skapar du analytics](howto-use-device-sets.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

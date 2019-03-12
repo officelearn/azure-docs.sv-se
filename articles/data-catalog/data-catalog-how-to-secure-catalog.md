@@ -7,12 +7,12 @@ ms.author: maghan
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: 9d80eddffaf376b6f6f0090dce74a4884b291531
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: de67ca0c209f9a61b00c5451a27a1198d0de3724
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47405537"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57532922"
 ---
 # <a name="how-to-secure-access-to-data-catalog-and-data-assets"></a>Hur du skyddar åtkomsten till data catalog och datatillgångar
 > [!IMPORTANT]
@@ -23,7 +23,7 @@ Azure Data Catalog kan du ange vem som kan komma åt data catalog och vilka åtg
 ## <a name="catalog-users-and-permissions"></a>Katalogens användare och behörigheter
 Ge en användare eller grupp åtkomst till en katalog och ange behörigheter:
 
-1. På den [öppnas startsidan för datakatalogen](http://www.azuredatacatalog.com), klickar du på **inställningar** i verktygsfältet.
+1. På den [öppnas startsidan för datakatalogen](https://www.azuredatacatalog.com), klickar du på **inställningar** i verktygsfältet.
 
     ![data catalog - inställningar](media/data-catalog-how-to-secure-catalog/data-catalog-settings.png)
 2. På inställningssidan expanderar den **kataloganvändare** avsnittet.

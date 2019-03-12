@@ -11,21 +11,22 @@ author: mx-iao
 ms.reviewer: sgilley
 ms.date: 02/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: f489abeab0e1374d2d40ade79c4eb55fd633b909
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: a7c29d1bfcc0737f76afc43cb8997d6a1d16c82b
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57443291"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57731355"
 ---
 # <a name="access-data-from-your-datastores"></a>Komma åt data från ditt datalager
-I den här artikeln får du lära dig olika sätt att komma åt och interagera med dina data i Azure Machine Learning arbetsflöden via datalager.
 
-Den här anvisningen visar exempel för följande uppgifter: 
+Datalager kan du interagera med och komma åt dina data oavsett om du kör koden lokalt, på ett beräkningskluster eller på en virtuell dator. I den här artikeln du lär dig Azure Machine Learning-arbetsflöden som ser till att dina datalager som är tillgängliga och få tillgång till din beräkningskontexten.
+
+Den här anvisningen visar exempel för följande uppgifter:
 * [Välj ett datalager](#access)
-* [Hämta ett datalager](#get)
-* [Ladda upp och ladda ned data till datalager](#upload-and-download-data)
-* Åtkomst till datalagret under utbildning
+* [Hämta data](#get)
+* [Ladda upp och ladda ned data till datalager](#up-and-down)
+* [Åtkomst till datalagret under utbildning](#train)
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -85,7 +86,7 @@ I följande exempel visar att registrera en Azure Blob-behållare eller en Azure
 
 <a name="get"></a>
 
-## <a name="get-data-in-your-datastore"></a>Hämta data i ditt datalager
+## <a name="find--define-datastores"></a>Sök och definiera datalager
 
 Hämta ett angivna datalager som registrerats i den aktuella arbetsytan [ `get()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#get-workspace--datastore-name-) :
 
@@ -110,7 +111,8 @@ För att definiera ett annat datalager för den aktuella arbetsytan använder [ 
 ws.set_default_datastore('your datastore name')
 ```
 
-## <a name="upload-and-download-data"></a>Ladda upp och hämta data
+<a name="up-and-down"></a>
+## <a name="upload--download-data"></a>Ladda upp och hämta data
 Den [ `upload()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.azureblobdatastore?view=azure-ml-py#download-target-path--prefix-none--overwrite-false--show-progress-true-) och [ `download()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.azureblobdatastore?view=azure-ml-py#download-target-path--prefix-none--overwrite-false--show-progress-true-) metoder som beskrivs i följande exempel är specifika för och driva identiskt för den [AzureBlobDatastore](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.azureblobdatastore?view=azure-ml-py) och [AzureFileDatastore](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.azurefiledatastore?view=azure-ml-py) klasser.
 
 ### <a name="upload"></a>Ladda upp
@@ -142,6 +144,7 @@ ds.download(target_path='your target path',
 ```
 `target_path` är platsen för den lokala katalogen för nedladdning av data till. Om du vill ange en sökväg till mappen i filresursen (eller blob-behållare) för att hämta, ange sökvägen till `prefix`. Om `prefix` är `None`, ska ladda ned hela innehållet i filresursen (eller blob-behållare).
 
+<a name="train"></a>
 ## <a name="access-datastores-during-training"></a>Datalager för åtkomst vid träning
 Du kan komma åt ett datalager under ett utbildnings kör (till exempel för utbildning eller validering data) på en fjärransluten beräkningsmål via Python SDK med hjälp av den [ `DataReference` ](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py) klass.
 

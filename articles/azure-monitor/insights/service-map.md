@@ -1,24 +1,24 @@
 ---
 title: Med lösningen Tjänstkarta i Azure | Microsoft Docs
 description: Tjänstkarta är en lösning i Azure som automatiskt identifierar programkomponenter i Windows- och Linux-system och mappar kommunikationen mellan olika tjänster. Den här artikeln innehåller information för att distribuera Service Map i din miljö och använder den på en mängd olika scenarier.
-services: monitoring
+services: azure-monitor
 documentationcenter: ''
 author: mgoedtel
 manager: carmonm
 editor: tysonn
 ms.assetid: 3ceb84cc-32d7-4a7a-a916-8858ef70c0bd
-ms.service: monitoring
+ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/28/2018
 ms.author: magoedte
-ms.openlocfilehash: 041cc302f05b109de2b79697dd048a6bc0752a4f
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 143d14df3019aa0c5c5dd798f656f95c8ebde372
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54232931"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57731089"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Med lösningen Tjänstkarta i Azure
 Tjänstkarta identifierar automatiskt programkomponenter i Windows- och Linux-system och mappar kommunikationen mellan olika tjänster. Med Service Map, du kan visa dina servrar på det sätt som du tänker på dem: sammankopplat system som levererar viktiga tjänster. Service Map ser du anslutningarna mellan servrar, processer, svarstid för inkommande och utgående anslutningar, och portar i alla TCP-anslutna arkitekturer utan konfiguration måste installera en agent.
@@ -374,9 +374,9 @@ Poster med en typ av *ServiceMapComputer_CL* har inventeringsdata för servrar m
 
 | Egenskap  | Beskrivning |
 |:--|:--|
-| Typ | *ServiceMapComputer_CL* |
+| Type | *ServiceMapComputer_CL* |
 | SourceSystem | *OpsManager* |
-| Resurs-ID | Den unika identifieraren för en dator i arbetsytan |
+| ResourceId | Den unika identifieraren för en dator i arbetsytan |
 | ResourceName_s | Den unika identifieraren för en dator i arbetsytan |
 | ComputerName_s | Datorn FQDN |
 | Ipv4Addresses_s | En lista över serverns IPv4-adresser |
@@ -399,9 +399,9 @@ Poster med en typ av *ServiceMapProcess_CL* ha inventeringsdata för TCP-anslutn
 
 | Egenskap  | Beskrivning |
 |:--|:--|
-| Typ | *ServiceMapProcess_CL* |
+| Type | *ServiceMapProcess_CL* |
 | SourceSystem | *OpsManager* |
-| Resurs-ID | Den unika identifieraren för en process i arbetsytan |
+| ResourceId | Den unika identifieraren för en process i arbetsytan |
 | ResourceName_s | Den unika identifieraren för en process på datorn där den körs|
 | MachineResourceName_s | Resursnamnet för datorn |
 | ExecutableName_s | Namnet på processprogramfil |
@@ -428,10 +428,10 @@ ServiceMapComputer_CL | Sammanfatta arg_max(TimeGenerated, *) av resurs-ID
 ServiceMapComputer_CL | Sammanfatta arg_max(TimeGenerated, *) av ResourceId | projektet PhysicalMemory_d, ComputerName_s
 
 ### <a name="list-computer-name-dns-ip-and-os"></a>Lista datornamn, DNS, IP- och OS.
-ServiceMapComputer_CL | Sammanfatta arg_max(TimeGenerated, *) av ResourceId | projektet ComputerName_s, OperatingSystemFullName_s, DnsNames_s, Ipv4Addresses_s
+ServiceMapComputer_CL | summarize arg_max(TimeGenerated, *) by ResourceId | project ComputerName_s, OperatingSystemFullName_s, DnsNames_s, Ipv4Addresses_s
 
 ### <a name="find-all-processes-with-sql-in-the-command-line"></a>Hitta alla processer med ”sql” på kommandoraden
-ServiceMapProcess_CL | där CommandLine_s contains_cs ”sql” | Sammanfatta arg_max(TimeGenerated, *) av resurs-ID
+ServiceMapProcess_CL | where CommandLine_s contains_cs "sql" | summarize arg_max(TimeGenerated, *) by ResourceId
 
 ### <a name="find-a-machine-most-recent-record-by-resource-name"></a>Hitta en dator (senaste post) efter resursnamn
 Sök i (ServiceMapComputer_CL) ”m-4b9c93f9-bc37-46df-b43c-899ba829e07b” | Sammanfatta arg_max(TimeGenerated, *) av resurs-ID
@@ -440,7 +440,7 @@ Sök i (ServiceMapComputer_CL) ”m-4b9c93f9-bc37-46df-b43c-899ba829e07b” | Sa
 Sök i (ServiceMapComputer_CL) ”10.229.243.232” | Sammanfatta arg_max(TimeGenerated, *) av resurs-ID
 
 ### <a name="list-all-known-processes-on-a-specified-machine"></a>Lista över alla kända processer på en angiven dator
-ServiceMapProcess_CL | där MachineResourceName_s == ”m-559dbcd8-3130-454d-8d1d-f624e57961bc” | Sammanfatta arg_max(TimeGenerated, *) av resurs-ID
+ServiceMapProcess_CL | where MachineResourceName_s == "m-559dbcd8-3130-454d-8d1d-f624e57961bc" | summarize arg_max(TimeGenerated, *) by ResourceId
 
 ### <a name="list-all-computers-running-sql"></a>Lista över alla datorer som kör SQL
 ServiceMapComputer_CL | där ResourceName_s i ((Sök i (ServiceMapProcess_CL) ”\*sql\*” | distinkta MachineResourceName_s)) | distinkta ComputerName_s

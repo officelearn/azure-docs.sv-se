@@ -7,15 +7,15 @@ manager: cgronlun
 tags: azure-portal
 ms.service: search
 ms.topic: conceptual
-ms.date: 01/15/2019
+ms.date: 03/08/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: cf2359834aa79b1d3fef8b65e4ef4191eb6ff867
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: d325a5dfd57bb6b69e6cf171487adfa8d374512f
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55467449"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57762933"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>Välj en prisnivå för Azure Search
 
@@ -32,30 +32,57 @@ Nivåerna återspeglar egenskaperna för den maskinvara som är värd för den t
 > Undantaget till funktionsparitet är [indexerare](search-indexer-overview.md), som inte är tillgängliga på S3HD.
 >
 
-Inom en nivå kan du [justera replik-och partition](search-capacity-planning.md) för prestandajustering. Du kan börja med två eller tre för var och tillfälligt öka din dataresurser för en tung indexeringsarbetsbelastningen. Du kan finjustera resursnivåer inom en nivå ökar flexibiliteten, men även lite komplicerar dina analyser. Du kan behöva experimentera om du vill se om en lägre nivå med högre resurser/repliker erbjuder bättre värde och prestanda än en högre nivå med lägre resurser. Mer information om när och varför skulle du justera kapacitet finns [prestanda och optimering överväganden](search-performance-optimization.md).
+Inom en nivå kan du [justera replik-och partition](search-capacity-planning.md) att öka eller minska skala. Du kan börja med en eller två för var och tillfälligt öka din dataresurser för en tung indexeringsarbetsbelastningen. Du kan finjustera resursnivåer inom en nivå ökar flexibiliteten, men även lite komplicerar dina analyser. Du kan behöva experimentera om du vill se om en lägre nivå med högre resurser/repliker erbjuder bättre värde och prestanda än en högre nivå med lägre resurser. Mer information om när och varför skulle du justera kapacitet finns [prestanda och optimering överväganden](search-performance-optimization.md).
 
-<!---
-The purpose of this article is to help you choose a tier. It supplements the [pricing page](https://azure.microsoft.com/pricing/details/search/) and [Service Limits](search-limits-quotas-capacity.md) page with a digest of billing concepts and consumption patterns associated with various tiers. It also recommends an iterative approach for understanding which tier best meets your needs. 
---->
+## <a name="tiers-for-azure-search"></a>Nivåer för Azure Search
+
+I följande tabell visas de tillgängliga nivåerna. Andra informationskällor nivån omfattar den [prissättningssidan](https://azure.microsoft.com/pricing/details/search/), [och gränser](search-limits-quotas-capacity.md), och portalsidan vid etablering av en tjänst.
+
+|Nivå | Kapacitet |
+|-----|-------------|
+|Kostnadsfri | Delas med andra prenumeranter. Icke-skalbart, begränsad till 3 index och 50 MB lagringsutrymme. |
+|Basic | Dedikerade resurser för produktionsarbetsbelastningar i mindre skala. En partition med 2 GB och upp till tre repliker. |
+|Standard 1 (S1) | Från S1 på dig dedikerade datorer med mer lagring och bearbetning av kapacitet på alla nivåer. Partitionsstorlek är 25 GB/partition (högst 300 GB dokument per tjänst) för S1. |
+|Standard 2 (S2) | Liknar S1 men med 100 GB/partitioner (max 1,2 TB dokument per tjänst) |
+|Standard 3 (S3) | 200 GB/partition (max 2,4 TB dokument per tjänst). |
+|Standard 3 Högdensitet (S3 HD) | Högdensitetssampling är en *som är värd för läge* för S3. Den underliggande maskinvaran är optimerad för ett stort antal mindre index, avsett för scenarion med flera klientorganisationer. S3 HD har samma per enhet avgiften som S3 men maskinvaran som är optimerat för snabb läsning på ett stort antal mindre index.|
+
 
 ## <a name="how-billing-works"></a>Så fungerar debiteringen
 
-Det finns fyra sätt som du kan medföra kostnader när du skapar en resurs för nyhetssökning i portalen i Azure Search:
+Det finns tre sätt att betala i Aure Search i Azure Search och det är fast och varierande komponenter. Det här avsnittet tittar på varje fakturering komponent i tur och ordning.
 
-* Att lägga till repliker och partitioner som används för vanliga indexering och fråga uppgifter. Du börjar med en av varje, men du kan öka kapaciteten för en eller båda för att lägga till, välja och betala för extra kontrollnivåer resurser. 
-* Kostnaderna för utgående datatrafik under indexering. När du hämtar data från en Azure SQL Database eller Cosmos DB-datakälla visas debiteringar för transaktionen på fakturan för dessa resurser.
-* För [kognitiv sökning](cognitive-search-concept-intro.md) , extrahering av avbildningen under dokumentknäckning faktureras baserat på antalet avbildningar som extraheras från dina dokument. Textextrahering är för närvarande kostnadsfritt.
-* För [kognitiv sökning](cognitive-search-concept-intro.md) , enrichments baserat på [inbyggda kognitiva kunskaper](cognitive-search-predefined-skills.md) debiteras mot en resurs för Cognitive Services. Enrichments faktureras enligt samma taxa som om du har utfört uppgiften med Cognitive Services direkt.
+### <a name="1-core-service-costs-fixed-and-variable"></a>1. Core-Tjänstekostnader (fast och varierande)
+
+Minimiavgiften är den första sökenheten (1 repliken x 1 partition) för tjänsten, och den här mängden är konstant för livslängden för tjänsten eftersom tjänsten inte kan köras på något mindre än den här konfigurationen. 
+
+I följande skärmbild per priser anges för Free, Basic och S1 (S2 och S3 visas inte). Om du har skapat en grundläggande tjänst eller en standardtjänst din månatliga kostnad skulle genomsnittlig värdet som visas för *pris-1* och *pris-2* respektive. Enhet kostnader gå upp för varje nivå eftersom beräkningskapacitet kraft och lagring är högre på varje efterföljande nivåer.
+
+![Per pris för basenheten](./media/search-sku-tier/per-unit-pricing.png "Per pris för basenheten")
+
+Ytterligare repliker och partitioner är ett tillägg till den första kostnaden. En söktjänst kräver en replik- och partition så att den lägsta konfigurationen som är en av varje. Utöver minst du lägga till repliker och partitioner oberoende av varandra. Du kan till exempel lägga till endast repliker eller endast partitioner. 
+
+Ytterligare repliker och partitioner som debiteras baserat på en [formeln](#search-units). Kostnader som är inte linjär (vilket fördubblar kapacitet som är mer än kostnaden Double-värden). Ett exempel på hur av formeln fungerar finns i [”så här allokerar du repliker och partitioner”](search-capacity-planning.md#how-to-allocate-replicas-and-partitions)
+
+### <a name="2-data-egress-charges-during-indexing"></a>2. Kostnaderna för utgående datatrafik vid indexering
+
+När du hämtar data från en Azure SQL Database eller Cosmos DB-datakälla visas debiteringar för transaktionen på fakturan för dessa resurser. Dessa ändringar är inte Azure Search-mätare, men de nämns här eftersom om du använder indexerare hämtar data från Azure SQL Database eller Azure Cosmos DB kan du se den kostnaden på fakturan.
+
+### <a name="3-ai-enriched-indexing-using-cognitive-services"></a>3. AI-utökad indexering med kognitiva tjänster
+
+För [kognitiv sökning](cognitive-search-concept-intro.md) , extrahering av avbildningen under dokumentknäckning faktureras baserat på antalet avbildningar som extraheras från dina dokument. Textextrahering är för närvarande kostnadsfritt. Andra enrichments baserat på [inbyggda kognitiva kunskaper](cognitive-search-predefined-skills.md) debiteras mot en resurs för Cognitive Services. Enrichments faktureras enligt samma taxa som om du har utfört uppgiften med Cognitive Services direkt.
 
 Om du inte använder [kognitiv sökning](cognitive-search-concept-intro.md) eller [Azure Search-indexerare](search-indexer-overview.md), endast kostnaderna är relaterade till repliker och partitioner som används för vanliga indexerings- och arbetsbelastningar.
 
-### <a name="billing-for-general-purpose-indexing-and-queries"></a>För allmänna indexering och frågor
+<a name="search-units"></a>
+
+### <a name="billing-based-on-search-units"></a>Baserat på sökenheter
 
 För Azure Search, de viktigaste fakturering konceptet att förstå är en *sökenheten* (SU). Eftersom Azure Search är beroende av både repliker och partitioner för indexering och frågor, vara inte det klokt att debiterar per bara någondera. I stället baseras fakturering på en kombination av båda. 
 
 SU är produkten av *repliken* och *partitioner* används av en tjänst: **`(R X P = SU)`**
 
-Varje tjänst börjar med en SU (en replik multiplicerat med en partition) som minst. Den maximala storleken för alla tjänster är 36 su: er, vilket kan ske på flera olika sätt: 6 partitioner x 6 repliker eller 3 partitioner x 12 repliker, att nämna några. Det är vanligt att använda mindre än total kapacitet. Till exempel en 3-replik 3-partition tjänst, som 9 su: er. 
+Varje tjänst börjar med en SU (en replik multiplicerat med en partition) som minst. Den maximala storleken för alla tjänster är 36 su: er, vilket kan ske på flera olika sätt: 6 partitioner x 6 repliker eller 3 partitioner x 12 repliker, att nämna några. Det är vanligt att använda mindre än total kapacitet. Till exempel en 3-replik 3-partition tjänst, som 9 su: er. Du kan granska [det här diagrammet](search-capacity-planning.md#chart) att se giltiga kombinationer på ett ögonblick.
 
 Debiteringen är **per timme per SU**, där varje nivå har en progressivt högre kostnad. På högre nivå har större och snabbare partitioner, bidrar till ett högre övergripande timpris för den nivån. Gällande priser för varje nivå finns på [prisinformation om](https://azure.microsoft.com/pricing/details/search/). 
 

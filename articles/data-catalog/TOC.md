@@ -40,5 +40,5 @@
 ## [Priskalkylator](https://azure.microsoft.com/pricing/calculator/)
 ## [Viktig information](../active-directory/fundamentals/whats-new.md)
 ## [Tjänstuppdateringar](https://azure.microsoft.com/updates/?product=data-catalog)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-data-catalog)
+## [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-data-catalog)
 ## [Terminologi](data-catalog-terminology.md)

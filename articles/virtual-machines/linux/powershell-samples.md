@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/01/2019
 ms.author: cynthn
-ms.openlocfilehash: e094a95fef5e010471dde3e60f2fc9aaaaad6344
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 53784c3d74f9e6af5f1e84cc098194113e81333b
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57246386"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57533365"
 ---
 # <a name="azure-virtual-machine-powershell-samples"></a>Azure VM-PowerShell-exempel
 
@@ -43,6 +43,6 @@ I följande tabell innehåller länkar till PowerShell-exempelskript som skapar 
 | [Skapa en ögonblicksbild från en virtuell Hårddisk](../scripts/virtual-machines-linux-powershell-sample-create-snapshot-from-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Skapar en ögonblicksbild av en virtuell Hårddisk och använder sedan den ögonblicksbilden för att snabbt skapa flera identiska hanterade diskar.  |
 | [Kopiera en ögonblicksbild till samma eller en annan prenumeration](../scripts/virtual-machines-linux-powershell-sample-copy-snapshot-to-same-or-different-subscription.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Kopierar ögonblicksbilden till samma eller en annan prenumeration som är i samma region som den överordnade ögonblicksbilden. |
 |**Övervaka virtuella datorer**||
-| [Övervaka en virtuell dator med Azure Log Analytics](./../scripts/virtual-machines-linux-powershell-sample-create-vm-oms.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Skapar en virtuell dator, installerar Log Analytics-agenten och registrerar den virtuella datorn i en Log Analytics-arbetsyta.  |
+| [Övervaka en virtuell dator med Azure Monitor-loggar](./../scripts/virtual-machines-linux-powershell-sample-create-vm-oms.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Skapar en virtuell dator, installerar Log Analytics-agenten och registrerar den virtuella datorn i en Log Analytics-arbetsyta.  |
 | [Kopiera en hanterad disk till samma eller en annan prenumeration](../scripts/virtual-machines-linux-powershell-sample-copy-managed-disks-to-same-or-different-subscription.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Kopierar en hanterad disk till samma eller en annan prenumeration som är i samma region som den överordnade disken.
 | | |

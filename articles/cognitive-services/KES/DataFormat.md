@@ -10,17 +10,17 @@ ms.subservice: knowledge-exploration
 ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: f17bc3c0588476fdc4f8414fb020b16718bf1d90
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: bba257c61509d862bb3161625750f05a86af8770
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55854803"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57532175"
 ---
 # <a name="data-format"></a>Data Format
 
 Datafilen beskriver listan med objekt som ska indexeras.
-Varje rad i filen anger attributvärden för ett objekt i [JSON-format](http://json.org/) med UTF-8-kodning.
+Varje rad i filen anger attributvärden för ett objekt i [JSON-format](https://json.org/) med UTF-8-kodning.
 Förutom de attribut som definierats i den [schemat](SchemaFormat.md), varje objekt har ett valfritt ”logprob”-attribut som anger den relativa log sannolikheten bland objekten.
 När tjänsten returnerar objekt i fallande sannolikheten, använder vi ”logprob” för att ange returnerade ordningen på matchande objekt.
 Får en sannolikhet *p* mellan 0 och 1 motsvarande log sannolikheten kan beräknas som log (*p*), där log() är funktionen naturliga loggen.

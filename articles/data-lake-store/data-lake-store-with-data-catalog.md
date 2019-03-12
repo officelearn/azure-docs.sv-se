@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 35fc7b2c713f8d4b88f4a44d9ddef5d92ba4c402
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: bc9d6f8f078860000d7a2a38bf4aa1ce00ff450e
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46294321"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57533466"
 ---
 # <a name="register-data-from-azure-data-lake-storage-gen1-in-azure-data-catalog"></a>Registrera data från Azure Data Lake Storage Gen1 i Azure Data Catalog
 I den här artikeln får du lära dig hur du integrerar Azure Data Lake Storage Gen1 med Azure Data Catalog för att göra data synlig inom en organisation genom att integrera dem med Data Catalog. Mer information om katalogiserar data finns i [Azure Data Catalog](../data-catalog/data-catalog-what-is-data-catalog.md). Information om scenarier där du kan använda Data Catalog finns i [vanliga scenarier för Azure Data Catalog](../data-catalog/data-catalog-common-scenarios.md).
@@ -29,7 +29,7 @@ Innan du påbörjar de här självstudierna måste du ha:
 * **Aktivera din Azure-prenumeration** för Data Lake Storage Gen1. Se [instruktioner](data-lake-store-get-started-portal.md).
 * **Ett konto för Data Lake Storage Gen1**. Följ anvisningarna på [Kom igång med Azure Data Lake Storage Gen1 med hjälp av Azure-portalen](data-lake-store-get-started-portal.md). Den här självstudien skapar du ett Data Lake Storage Gen1 konto med namnet **datacatalogstore**.
 
-    När du har skapat kontot, ladda upp en exempeldatauppsättning till den. I den här självstudien kan vi överför CSV-filer under den **AmbulanceData** mapp i den [Azure Data Lake Git-lagringsplats](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData/). Du kan använda olika klienter, till exempel [Azure Storage Explorer](http://storageexplorer.com/), för att ladda upp data till en blob-behållare.
+    När du har skapat kontot, ladda upp en exempeldatauppsättning till den. I den här självstudien kan vi överför CSV-filer under den **AmbulanceData** mapp i den [Azure Data Lake Git-lagringsplats](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData/). Du kan använda olika klienter, till exempel [Azure Storage Explorer](https://storageexplorer.com/), för att ladda upp data till en blob-behållare.
 * **Azure Data Catalog**. Din organisation måste redan ha en Azure Data Catalog som skapats för din organisation. Endast en katalog är tillåten för varje organisation.
 
 ## <a name="register-data-lake-storage-gen1-as-a-source-for-data-catalog"></a>Registrera Data Lake Storage Gen1 som källa för Data Catalog

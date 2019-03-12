@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 02/26/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: f9d431fe0ee76edf5d41c1ce7831f335128402a8
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: b346ac0ac456b7f6af078496e8dd1cb738caab67
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57244748"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57530202"
 ---
 # <a name="media-services-concepts"></a>Media Services-koncepten
 
@@ -65,7 +65,7 @@ Följande bild illustrerar arbetsflödet för Media Services-content protection:
 
 ![Skydda innehåll](./media/content-protection/content-protection.svg)
 
-&#42;* dynamisk kryptering har stöd för AES-128 ”clear key” och CBCS CENC. 
+&#42;dynamisk kryptering har stöd för AES-128 ”clear key” och CBCS CENC. 
 
 Du kan använda Media Services **dynamiska manifest** att strömma endast en specifik återgivning eller underklipp av videon. I följande exempel har en kodare använts för att koda en mezzanine tillgång till sju ISO MP4s video återgivningar (från 180p 1080p). Den kodade tillgången kan dynamiskt paketeras i någon av de följande protokollen med direktuppspelning: HLS, MPEG DASH och Smooth.  Längst ned i diagrammet visas HLS-manifest för tillgången utan filter (den innehåller alla sju återgivningar).  HLS-manifest som ett filter med namnet ”ott” användes visas i nedre vänstra hörnet. Filtret ”ott” anger för att ta bort alla bithastigheter för utdata nedan 1 Mbit/s, vilket resulterade i kvalitetsnivå längst ned två tas bort i svaret. I nederkant högra visas HLS manifestet som ett filter med namnet ”mobil” användes. Filtret ”mobil” anger för att ta bort återgivningar där den är större än 720p, vilket resulterade i två 1080p återgivningar tas bort.
 

@@ -12,12 +12,12 @@ manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 2/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0fe77a1093bec52c3786a9ae623a2d63e1ba82ce
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: a056f5df12deb50ad64f90c19201942204e774f1
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56750947"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57779376"
 ---
 # <a name="load-and-read-data-with-azure-machine-learning"></a>Läsa in och läsa data med Azure Machine Learning
 
@@ -45,7 +45,7 @@ Läs in data automatiskt utan att ange filtypen genom att använda den `auto_rea
 ```python
 import azureml.dataprep as dprep
 
-dataflow = dprep.auto_read_file(path='./data/any-file.txt')
+dflow = dprep.auto_read_file(path='./data/any-file.txt')
 ```
 
 Det här är användbart för att automatiskt upptäcka filtyp, kodning och andra parsning argument allt från en lämplig startpunkt. Funktionen utför automatiskt följande som vanligen utförs vid inläsning av avgränsad data:
@@ -61,8 +61,8 @@ Om du vet filen Skriv förbereds i förväg och vill styra hur tolkas uttrycklig
 Om du vill läsa enkel textdata i en dataflöde, använda den `read_lines()` utan att ange valfria parametrar.
 
 ```python
-dataflow = dprep.read_lines(path='./data/text_lines.txt')
-dataflow.head(5)
+dflow = dprep.read_lines(path='./data/text_lines.txt')
+dflow.head(5)
 ```
 
 ||Rad|
@@ -75,7 +75,7 @@ dataflow.head(5)
 När data matas in, kör följande kod för att konvertera objektet dataflöde till ett Pandas-dataframe.
 
 ```python
-pandas_df = dataflow.to_pandas_dataframe()
+pandas_df = dflow.to_pandas_dataframe()
 ```
 
 ## <a name="load-csv-data"></a>Läs in CSV-data
@@ -83,8 +83,8 @@ pandas_df = dataflow.to_pandas_dataframe()
 När du läser avgränsade filer kan underliggande körningen härleda parsning parametrarna (avgränsare, kodning, om du vill använda rubriker osv.). Kör följande kod för att försöka läsa en CSV-fil genom att ange endast dess plats.
 
 ```python
-dataflow = dprep.read_csv(path='https://dpreptestfiles.blob.core.windows.net/testfiles/read_csv_duplicate_headers.csv?st=2018-06-15T23%3A01%3A42Z&se=2019-06-16T23%3A01%3A00Z&sp=r&sv=2017-04-17&sr=b&sig=ugQQCmeC2eBamm6ynM7wnI%2BI3TTDTM6z9RPKj4a%2FU6g%3D')
-dataflow.head(5)
+dflow = dprep.read_csv(path='https://dpreptestfiles.blob.core.windows.net/testfiles/read_csv_duplicate_headers.csv?st=2018-06-15T23%3A01%3A42Z&se=2019-06-16T23%3A01%3A00Z&sp=r&sv=2017-04-17&sr=b&sig=ugQQCmeC2eBamm6ynM7wnI%2BI3TTDTM6z9RPKj4a%2FU6g%3D')
+dflow.head(5)
 ```
 
 | |stnam|fipst|leaid|leanm10|ncessch|MAM_MTH00numvalid_1011|
@@ -97,9 +97,9 @@ dataflow.head(5)
 Om du vill exkludera rader under inläsningen, definiera den `skip_rows` parametern. Den här parametern hoppar över inläsning rader fallande i CSV-filen (med ett ett-baserade index).
 
 ```python
-dataflow = dprep.read_csv(path='https://dpreptestfiles.blob.core.windows.net/testfiles/read_csv_duplicate_headers.csv',
+dflow = dprep.read_csv(path='https://dpreptestfiles.blob.core.windows.net/testfiles/read_csv_duplicate_headers.csv',
                           skip_rows=1)
-dataflow.head(5)
+dflow.head(5)
 ```
 
 | |stnam|fipst|leaid|leanm10|ncessch|MAM_MTH00numvalid_1011|
@@ -110,7 +110,7 @@ dataflow.head(5)
 Kör följande kod för att visa datatyperna för kolumnen.
 
 ```python
-dataflow.head(1).dtypes
+dflow.dtypes
 ```
 Utdata:
 
@@ -126,10 +126,10 @@ Utdata:
 Som standard ändrar inte Azure Machine Learning Data Prep SDK-datatypen. Datakällan som du läser från är en textfil, så att SDK läser alla värden som strängar. I det här exemplet ska numeriska kolumner parsas as-nummer. Ange den `inference_arguments` parameter `InferenceArguments.current_culture()` automatiskt härleda och konvertera tabellens kolumntyper under läsa filen.
 
 ```
-dataflow = dprep.read_csv(path='https://dpreptestfiles.blob.core.windows.net/testfiles/read_csv_duplicate_headers.csv',
+dflow = dprep.read_csv(path='https://dpreptestfiles.blob.core.windows.net/testfiles/read_csv_duplicate_headers.csv',
                           skip_rows=1,
                           inference_arguments=dprep.InferenceArguments.current_culture())
-dataflow.head(1).dtypes
+dflow.dtypes
 ```
 Utdata:
 
@@ -150,8 +150,8 @@ Flera av kolumnerna som identifierades på rätt sätt som numeriska och deras t
 SDK innehåller en `read_excel()` funktionen för att läsa in Excel-filer. Som standard funktionen läser in första blad i arbetsboken. För att definiera ett specifikt ark att läsa in, definiera den `sheet_name` parameter med strängvärdet för bladets namn.
 
 ```python
-dataflow = dprep.read_excel(path='./data/excel.xlsx', sheet_name='Sheet2')
-dataflow.head(5)
+dflow = dprep.read_excel(path='./data/excel.xlsx', sheet_name='Sheet2')
+dflow.head(5)
 ```
 
 ||Kolumn1|Kolumn2|Kolumn3|Kolumn4|Column5|Kolumn6|Column7|Column8|
@@ -165,7 +165,7 @@ dataflow.head(5)
 Utdata visar att data i det andra arket har tre tomma rader innan rubrikerna. Den `read_excel()` funktionen innehåller valfria parametrar för att hoppa över rader och använda rubriker. Kör följande kod för att hoppa över de tre första raderna och Använd den fjärde raden som rubrikerna.
 
 ```python
-dataflow = dprep.read_excel(path='./data/excel.xlsx', sheet_name='Sheet2', use_column_headers=True, skip_rows=3)
+dflow = dprep.read_excel(path='./data/excel.xlsx', sheet_name='Sheet2', use_column_headers=True, skip_rows=3)
 ```
 
 ||rangordning|Titel|Studio|Världsomfattande|Inrikes / %|Kolumn1|Utländskt nummer / %|Kolumn2|År ^|
@@ -175,11 +175,11 @@ dataflow = dprep.read_excel(path='./data/excel.xlsx', sheet_name='Sheet2', use_c
 
 ## <a name="load-fixed-width-data-files"></a>Läsa in datafiler med fast bredd
 
-Till loadfixed bredd filer, kan du ange en lista med förskjutningar för tecken. Den första kolumnen antas alltid börjar vid noll förskjutningen.
+Om du vill läsa in filer som fast bredd, kan du ange en lista med förskjutningar för tecken. Den första kolumnen antas alltid börjar vid noll förskjutningen.
 
 ```python
-dataflow = dprep.read_fwf('./data/fixed_width_file.txt', offsets=[7, 13, 43, 46, 52, 58, 65, 73])
-dataflow.head(5)
+dflow = dprep.read_fwf('./data/fixed_width_file.txt', offsets=[7, 13, 43, 46, 52, 58, 65, 73])
+dflow.head(5)
 ```
 
 ||010000|99999|MUSENHETEN NORGE|NO|NO_1|ENRS|Column7|Column8|Column9|
@@ -191,7 +191,7 @@ dataflow.head(5)
 För att undvika identifiering av rubriken och parsa rätt data, skicka `PromoteHeadersMode.NONE` till den `header` parametern.
 
 ```python
-dataflow = dprep.read_fwf('./data/fixed_width_file.txt',
+dflow = dprep.read_fwf('./data/fixed_width_file.txt',
                           offsets=[7, 13, 43, 46, 52, 58, 65, 73],
                           header=dprep.PromoteHeadersMode.NONE)
 ```
@@ -221,8 +221,8 @@ ds = dprep.MSSQLDataSource(server_name="[SERVER-NAME]",
 När du skapar ett datakällobjekt, kan du fortsätta att läsa data från frågeresultatet visas.
 
 ```python
-dataflow = dprep.read_sql(ds, "SELECT top 100 * FROM [SalesLT].[Product]")
-dataflow.head(5)
+dflow = dprep.read_sql(ds, "SELECT top 100 * FROM [SalesLT].[Product]")
+dflow.head(5)
 ```
 
 ||ProductID|Namn|ProductNumber|Färg|StandardCost|ListPrice|Storlek|Vikt|ProductCategoryID|ProductModelID|SellStartDate|SellEndDate|DiscontinuedDate|ThumbNailPhoto|ThumbnailPhotoFileName|ROWGUID|Modifieddate kunde|
@@ -246,7 +246,7 @@ Kör följande kommando på den lokala datorn.
 ```azurecli
 az login
 az account show --query tenantId
-dataflow = read_csv(path = DataLakeDataSource(path='adl://dpreptestfiles.azuredatalakestore.net/farmers-markets.csv', tenant='microsoft.onmicrosoft.com')) head = dataflow.head(5) head
+dflow = read_csv(path = DataLakeDataSource(path='adl://dpreptestfiles.azuredatalakestore.net/farmers-markets.csv', tenant='microsoft.onmicrosoft.com')) head = dflow.head(5) head
 ```
 
 > [!NOTE]
@@ -299,8 +299,8 @@ from azureml.dataprep.api.datasources import DataLakeDataSource
 
 ctx = adal.AuthenticationContext('https://login.microsoftonline.com/microsoft.onmicrosoft.com')
 token = ctx.acquire_token_with_client_certificate('https://datalake.azure.net/', servicePrincipalAppId, certificate, certThumbprint)
-dataflow = dprep.read_csv(path = DataLakeDataSource(path='adl://dpreptestfiles.azuredatalakestore.net/farmers-markets.csv', accessToken=token['accessToken']))
-dataflow.to_pandas_dataframe().head()
+dflow = dprep.read_csv(path = DataLakeDataSource(path='adl://dpreptestfiles.azuredatalakestore.net/farmers-markets.csv', accessToken=token['accessToken']))
+dflow.to_pandas_dataframe().head()
 ```
 
 ||FMID|MarketName|Webbplats|Gata|city|Län|

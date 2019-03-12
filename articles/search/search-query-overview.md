@@ -9,12 +9,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 02/14/2019
 ms.custom: seodec2018
-ms.openlocfilehash: 5cddf69f700c971d22384dadb00d3becc4a8385f
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: d2f3eb25c2193ad94098acd714d934795d007e98
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56300883"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57543924"
 ---
 # <a name="how-to-compose-a-query-in-azure-search"></a>Hur du skriver en fråga i Azure Search
 
@@ -38,15 +38,15 @@ I följande tabell visas de API: er och verktyg-baserade metoderna för att skic
 Exempel är användbara för introducerar nya begrepp. Som en representativ fråga konstrueras i den [REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents)använder den här exempel mål den [fastigheter demo index](search-get-started-portal.md) och innehåller gemensamma parametrar.
 
 ```
-{  
+{
     "queryType": "simple" 
-    "search": "seattle townhouse* +\"lake\"", 
-    "searchFields": "description, city",  
-    "count": "true", 
+    "search": "seattle townhouse* +\"lake\"",
+    "searchFields": "description, city",
+    "count": "true",
     "select": "listingId, street, status, daysOnMarket, description",
     "top": "10",
     "orderby": "daysOnMarket"
- } 
+}
 ```
 
 + **`queryType`** Anger parsern, som i Azure Search kan vara den [standard enklare frågeparsern](search-query-simple-examples.md) (optimala för fulltextsökning), eller [fullständig frågeparser (Lucene)](search-query-lucene-examples.md) används för avancerad fråga konstruktioner som reguljära uttryck , närhetssökning, fuzzy och sökning med jokertecken, t.ex.

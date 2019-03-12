@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 11/21/2018
+ms.date: 03/05/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1b02b0d36c6d7f5ddabae7a0e1d27dcca811fe56
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: e6bf5ae22fe8bf06d29c8c812a18cffcef14865c
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57447786"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57550812"
 ---
 # <a name="activate-my-azure-resource-roles-in-pim"></a>Aktivera Mina roller för Azure-resurs i PIM
 
@@ -68,7 +68,7 @@ När du behöver utföra på en Azure-resurs-roll kan du begära aktivering med 
 
 1. Klicka på **Aktivera**.
 
-    Om rollen inte kräver godkännande, aktiveras den och har lagts till i listan över aktiva roller. Om du vill använda rollen direkt, följer du stegen i nästa avsnitt.
+    Om rollen inte kräver godkännande, aktiveras den och har lagts till i listan över aktiva roller. Om du vill använda rollen, följer du stegen i nästa avsnitt.
 
     Om den [rollen kräver godkännande](pim-resource-roles-approval-workflow.md) för att aktivera, visas ett meddelande i det övre högra hörnet i webbläsaren som informerar dig om begäran väntar på godkännande.
 
@@ -76,17 +76,19 @@ När du behöver utföra på en Azure-resurs-roll kan du begära aktivering med 
 
 ## <a name="use-a-role-immediately-after-activation"></a>Använd en roll omedelbart efter aktiveringen
 
-När du aktiverar en roll i PIM tar minst 10 minuter innan du kan få åtkomst till önskade administrativa portalen eller utföra funktioner inom en viss administrativa arbetsbelastning. Om du vill framtvinga en uppdatering av dina behörigheter kan du använda den **programåtkomst** sidan enligt beskrivningen i följande steg.
+Följ dessa steg när du har aktiverat för att använda dina Azure-resursroller omedelbart vid eventuell fördröjning efter aktiveringen.
 
 1. Öppna Azure AD Privileged Identity Management.
 
-1. Klicka på den **programåtkomst** sidan.
+1. Klicka på **Mina roller** att se en lista över dina berättigade Azure AD-katalogroller och Azure-resursroller.
 
-    ![Programåtkomst med PIM - skärmbild](./media/pim-resource-roles-activate-your-roles/pim-application-access.png)
+1. Klicka på **Azure-resursroller**.
 
-1. Klicka på den **Azure-resurser** länk för att återaktivera portalen på den **alla resurser** sidan.
+1. Klicka på den **aktiva roller** fliken.
 
-    När du klickar på den här länken ogiltigförklara den aktuella token och tvinga Azure portal för att hämta en ny token som ska innehålla dina uppdaterade behörigheter.
+1. När rollen är aktiv, logga ut från portalen och logga in igen.
+
+    Nu bör rollen kan användas.
 
 ## <a name="view-the-status-of-your-requests"></a>Visa status för dina begäranden
 
@@ -118,7 +120,7 @@ Om du inte behöver aktivering av en roll som kräver godkännande kan avbryta d
 
 ### <a name="permissions-not-granted-after-activating-a-role"></a>Behörigheter som beviljas inte efter aktivering av en roll
 
-När du aktiverar en roll i PIM tar minst 10 minuter innan du kan få åtkomst till önskade administrativa portalen eller utföra funktioner inom en viss administrativa arbetsbelastning. Om du vill framtvinga en uppdatering av dina behörigheter kan du använda den **programåtkomst** sidan enligt beskrivningen tidigare i [Använd en roll omedelbart efter aktiveringen](#use-a-role-immediately-after-activation).
+När du aktiverar en roll i PIM tar minst 10 minuter innan du kan få åtkomst till önskade administrativa portalen eller utföra funktioner inom en viss administrativa arbetsbelastning. När aktiveringen är klar, logga ut från Azure-portalen och logga in för att börja använda den nyligen aktiverade rollen.
 
 För ytterligare felsökning, se [felsökning förhöjd behörighet](https://social.technet.microsoft.com/wiki/contents/articles/37568.troubleshooting-elevated-permissions-with-azure-ad-privileged-identity-management.aspx).
 

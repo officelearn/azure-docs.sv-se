@@ -5,15 +5,15 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 services: site-recovery
-ms.date: 03/03/2019
+ms.date: 03/07/2019
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: 9e15f2e1b064ec2e64bfa8254075eac5bc801115
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 9e192c736235fcf8b8b5374787ad94aaf87427bf
+ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57442621"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57727084"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Vanliga frågor – VMware till Azure replikering
 
@@ -123,11 +123,15 @@ Ja, ExpressRoute kan användas för att replikera datorer till Azure. Site Recov
 
 ### <a name="how-can-i-change-storage-account-after-machine-is-protected"></a>Hur kan jag ändra storage-konto när datorn är skyddad?
 
-För en pågående replikering kan storage-konto bara uppgraderas till premium. Om du vill använda standardpriserna måste du inaktivera replikeringen av källdatorn och återaktivera skyddet med hanterade standarddiskar. Förutom detta finns det en något annat sätt att ändra storage-konto när skyddsinställningarna är aktiverade.
+Du måste inaktivera och aktivera replikering att uppgradera eller nedgradera lagringskontotypen.
 
 ### <a name="how-can-i-change-managed-disk-type-after-machine-is-protected"></a>Hur kan jag ändra typ av hanterad Disk när datorn är skyddad?
 
-Ja, du kan enkelt ändra typen av hanterade diskar. [Läs mer](https://docs.microsoft.com/azure/virtual-machines/windows/convert-disk-storage).
+Ja, du kan enkelt ändra typen av hanterade diskar. [Läs mer](https://docs.microsoft.com/azure/virtual-machines/windows/convert-disk-storage). När du ändrar typ av hanterad disk, kontrollera att du väntar nya återställningspunkter som ska genereras om du behöver redundanstest eller redundans publicera den här aktiviteten.
+
+### <a name="can-i-switch-the-replication-from-managed-disks-to-unmanaged-disks"></a>Kan jag byta replikeringen från hanterade diskar till ohanterade diskar?
+
+Nej, byter från hanterad till ohanterad stöds inte.
 
 ### <a name="why-cant-i-replicate-over-vpn"></a>Varför kan inte replikera via VPN?
 

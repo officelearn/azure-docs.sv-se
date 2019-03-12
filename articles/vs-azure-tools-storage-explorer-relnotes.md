@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/12/2018
 ms.author: cawa
-ms.openlocfilehash: bd6384dcd132ffb53e3531707c600465e8d0b649
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: aa3f2bc23b731f1e2c02d84edd6079debfbae134
+ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54190025"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57727271"
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Viktig information om Microsoft Azure Lagringsutforskaren
 
@@ -27,13 +27,115 @@ Den här artikeln innehåller viktig information om Azure Storage Explorer 1.4.3
 
 [Microsoft Azure Lagringsutforskaren](./vs-azure-tools-storage-manage-with-storage-explorer.md) är en fristående app som gör det enkelt att arbeta med Azure Storage-data i Windows, macOS och Linux.
 
+## <a name="version-170"></a>Version 1.7.0
+3/5/2019
+
+### <a name="download-azure-storage-explorer-170"></a>Hämta Azure Storage Explorer 1.7.0
+- [Azure Storage Explorer 1.7.0 för Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [Azure Storage Explorer 1.7.0 för Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [Azure Storage Explorer 1.7.0 för Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
+
+### <a name="new"></a>Ny
+
+* Du kan nu ändra ägare och ägande grupp vid hantering av åtkomst för en ADLS Gen2 behållare, fil eller mapp.
+* På Windows är uppdatering av Storage Explorer från inom produkten nu en inkrementell installation. Detta resulterar i en snabbare uppdatering-upplevelse. Om du föredrar en ren installation så du kan ladda ned den [installer](https://azure.microsoft.com/en-us/features/storage-explorer/) själv och sedan installera manuellt. #1089
+
+### <a name="preview-features"></a>Förhandsversionsfunktioner
+
+* Enheten kod flow inloggningen finns nu att förhandsgranska. Aktivera det genom att gå till ”förhandsversion” → ”Använd kod Flow enhetsinloggning”. Vi rekommenderar att alla användare som har haft problem med tomma inloggning-fönster för den här funktionen, eftersom det kan visa sig vara en mer tillförlitlig form av inloggning. #938
+* Lagringsutforskaren integrerat med AzCopy är nu tillgänglig för förhandsgranskning. Aktivera det genom att gå till ”förhandsversion” → ”Använd AzCopy för förbättrad Blob ladda upp och ladda ned”. BLOB-överföringar har slutförts med AzCopy ska vara snabbare och bättre.
+
+### <a name="fixes"></a>Korrigeringar
+
+* Du kan nu välja blobtyp som du vill ladda upp som när AzCopy är aktiverat. #1111
+* Tidigare, om du har aktiverat serverstatiska webbplatser för ett ADLS Gen2 Storage-konto och appliceras med namnet och nyckeln, Lagringsutforskaren skulle inte har upptäckt att hierarkiskt namnområde har aktiverats. Problemet har åtgärdats. #1081
+* I blob-redigeraren bröts sortera efter status eller kvarhållningsdagar återstående. Problemet har åtgärdats. #1106
+* Efter 1.5.0, Storage Explorer inte längre väntade på att servern sida kopior som ska finish innan den rapporterar lyckade under en Byt namn på eller kopiera och klistra in. Problemet har åtgärdats. #976
+* När du använder funktionen experimentella AzCopy, var kommandot som kopieras när du klickar på ”Kopiera kommandot till Urklipp” inte alltid att köra flödet på egen hand. Nu kan kopieras alla kommandon som behövs för att köra överföringen manuellt. #1079
+* Tidigare var ADLS Gen2 blobar inte tillgänglig om du är bakom en proxyserver. Det berodde på en bugg i ett nytt nätverk bibliotek som används av Storage SDK. Ett försök att åtgärda problemet har gjorts i 1.7.0, men vissa personer kan fortsätta att problem uppstå. En fullständig korrigering släpps i en kommande uppdatering. #1090
+* I 1.7.0, spara fildialogruta nu korrekt ihåg den senaste plats som du sparade en fil till. #16
+* På egenskapspanelen som SKU-nivån av ett lagringskonto visades som kontots typ. Problemet har åtgärdats. #654
+* Ibland inte var möjligt att avbryta lånet för en blob, även om du har angett namnet på bloben korrekt. Problemet har åtgärdats. #1070
+
+### <a name="known-issues"></a>Kända problem
+
+* När du använder RBAC kräver Lagringsutforskaren vissa management layer-behörigheter för att komma åt dina lagringsresurser. Se den [felsökningsguide](https://docs.microsoft.com/en-us/azure/storage/common/storage-explorer-troubleshooting) för mer information.
+* Försök att få åtkomst till ADLS Gen2 Blobar när datorn är bakom en proxyserver misslyckas.
+* Kopplar från en resurs som är anslutna via SAS-URI, t.ex en blob-behållare kan orsaka ett fel som förhindrar andra bilagor från visas korrekt. Undvik problemet genom att bara uppdatera gruppnoden. Se #537 för mer information.
+* Kopplar från en resurs som är anslutna via SAS-URI, t.ex en blob-behållare kan orsaka ett fel som förhindrar andra bilagor från visas korrekt. Undvik problemet genom att bara uppdatera gruppnoden. Mer information finns i #537.
+* Om du använder VS för Mac och någon gång har skapat en anpassad AAD-konfiguration kan kanske du inte att logga in. Undvik problemet genom att ta bort innehållet i ~ /. IdentityService/AadConfigurations. Om du gör detta inte avblockera du kommentera problemet.
+* Azurite ännu inte helt har genomfört alla Storage API: er. Därför bör finnas det oväntade fel eller beteende när du använder Azurite för utvecklingslagring.
+* I sällsynta fall kan trädet fokus fastna på Snabbåtkomst. Du kan uppdatera alla som behövdes fokus.
+* Ladda upp från OneDrive-mapp fungerar inte på grund av ett fel i NodeJS. Buggen har åtgärdats, men ännu inte har integrerats i Electron. Om du vill undvika det här problemet vid överföring till eller hämta det från en blobbehållare kan använda du funktionen experimentella AzCopy.
+* När du riktar in sig på Azure Stack, misslyckas ladda upp filer tilläggsblobbar.
+* När du klickar på ”Avbryt” för en aktivitet, kan det ta en stund innan aktiviteten att avbryta. Detta beskrivs eftersom vi använder Avbryt filter lösning här.
+* Om du väljer fel PIN-kod/smartkort-certifikat måste startas om för att få Lagringsutforskaren glömmer detta beslut.
+* Ögonblicksbilder bevaras inte när du byter namn på BLOB-objekt (individuellt eller i en omdöpt blobbehållare). Alla andra egenskaper och metadata för blobbar, filer och entiteter bevaras under en namnbyte.
+* Azure Stack har inte stöd för följande funktioner. Försök att använda dessa funktioner när du arbetar med Azure Stack kan resurser resultera i oväntade fel.
+   * Filresurser
+   * Åtkomstnivåer
+   * Mjuk borttagning
+* Electron-gränssnitt som används av Storage Explorer har problem med vissa GPU (grafikprocessor) maskinvaruacceleration. Om Storage Explorer visning av ett tomt (tom) huvudfönstret måste du starta Lagringsutforskaren från kommandoraden och inaktivera GPU-acceleration genom att lägga till den `--disable-gpu` växla:
+
+    ```
+    ./StorageExplorer.exe --disable-gpu
+    ```
+
+* Linux-användare behöver du installera [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* För användare på Ubuntu 14.04 behöver du kontrollera GCC är uppdaterad – detta kan göras genom att köra följande kommandon och sedan starta om datorn:
+
+    ```
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get dist-upgrade
+    ```
+
+* Du måste installera GConf – detta kan göras genom att köra följande kommandon och sedan starta om datorn för användare på Ubuntu nr 17.04 från:
+
+    ```
+    sudo apt-get install libgconf-2-4
+    ```
+
+## <a name="previous-releases"></a>Tidigare versioner
+
+* [Version 1.6.2](#version-162)
+* [Version 1.6.1](#version-161)
+* [Version 1.6.0](#version-160)
+* [Version 1.5.0](#version-150)
+* [Version 1.4.4](#version-144)
+* [Version 1.4.3](#version-143)
+* [Version 1.4.2](#version-142)
+* [Version 1.4.1](#version-141)
+* [Version 1.3.0](#version-130)
+* [Version 1.2.0 eller senare](#version-120)
+* [Version 1.1.0](#version-110)
+* [Version 1.0.0](#version-100)
+* [Version 0.9.6](#version-096)
+* [Version 0.9.5](#version-095)
+* [Version 0.9.4 och 0.9.3](#version-094-and-093)
+* [Version 0.9.2](#version-092)
+* [Version 0.9.1 till och och 0.9.0](#version-091-and-090)
+* [Version 0.8.16](#version-0816)
+* [Version 0.8.14](#version-0814)
+* [Version 0.8.13](#version-0813)
+* [Version 0.8.12 och 0.8.11 och 0.8.10](#version-0812-and-0811-and-0810)
+* [Version 0.8.9 och 0.8.8](#version-089-and-088)
+* [Version 0.8.7](#version-087)
+* [Version 0.8.6](#version-086)
+* [Version 0.8.5](#version-085)
+* [Version 0.8.4](#version-084)
+* [Version 0.8.3](#version-083)
+* [Version 0.8.2](#version-082)
+* [Version 0.8.0](#version-080)
+* [Version 0.7.20160509.0](#version-07201605090)
+* [Version 0.7.20160325.0](#version-07201603250)
+* [Version 0.7.20160129.1](#version-07201601291)
+* [Version 0.7.20160105.0](#version-07201601050)
+* [Version 0.7.20151116.0](#version-07201511160)
+
 ## <a name="version-162"></a>Version 1.6.2
 1/9/2019
-
-### <a name="download-azure-storage-explorer-162"></a>Hämta Azure Storage Explorer 1.6.2
-- [Azure Storage Explorer 1.6.2 för Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
-- [Azure Storage Explorer 1.6.2 för Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
-- [Azure Storage Explorer 1.6.2 för Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
 
 ### <a name="hotfixes"></a>Snabbkorrigeringar
 * 1.6.1 lades entiteter som läggs till ADLS Gen2 ACL: er av ObjectId som användare kan inte alltid som grupper. Endast grupper läggs nu som grupper och enheter, till exempel företagsprogram andService huvudkonton läggs till som användare. [#1049](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1049)
@@ -104,42 +206,6 @@ Den här artikeln innehåller viktig information om Azure Storage Explorer 1.4.3
     sudo apt-get install libgconf-2-4
     ```
 
-## <a name="previous-releases"></a>Tidigare versioner
-
-* [Version 1.6.1](#version-161)
-* [Version 1.6.0 eller senare](#version-160)
-* [Version 1.5.0](#version-150)
-* [Version 1.4.4](#version-144)
-* [Version 1.4.3](#version-143)
-* [Version 1.4.2](#version-142)
-* [Version 1.4.1](#version-141)
-* [Version 1.3.0](#version-130)
-* [Version 1.2.0 eller senare](#version-120)
-* [Version 1.1.0](#version-110)
-* [Version 1.0.0](#version-100)
-* [Version 0.9.6](#version-096)
-* [Version 0.9.5](#version-095)
-* [Version 0.9.4 och 0.9.3](#version-094-and-093)
-* [Version 0.9.2](#version-092)
-* [Version 0.9.1 till och och 0.9.0](#version-091-and-090)
-* [Version 0.8.16](#version-0816)
-* [Version 0.8.14](#version-0814)
-* [Version 0.8.13](#version-0813)
-* [Version 0.8.12 och 0.8.11 och 0.8.10](#version-0812-and-0811-and-0810)
-* [Version 0.8.9 och 0.8.8](#version-089-and-088)
-* [Version 0.8.7](#version-087)
-* [Version 0.8.6](#version-086)
-* [Version 0.8.5](#version-085)
-* [Version 0.8.4](#version-084)
-* [Version 0.8.3](#version-083)
-* [Version 0.8.2](#version-082)
-* [Version 0.8.0](#version-080)
-* [Version 0.7.20160509.0](#version-07201605090)
-* [Version 0.7.20160325.0](#version-07201603250)
-* [Version 0.7.20160129.1](#version-07201601291)
-* [Version 0.7.20160105.0](#version-07201601050)
-* [Version 0.7.20151116.0](#version-07201511160)
-
 ## <a name="version-161"></a>Version 1.6.1
 12/18/2018
 
@@ -209,7 +275,7 @@ Den här artikeln innehåller viktig information om Azure Storage Explorer 1.4.3
     sudo apt-get install libgconf-2-4
     ```
 
-## <a name="version-160"></a>Version 1.6.0 eller senare
+## <a name="version-160"></a>Version 1.6.0
 12/5/2018
 
 ### <a name="new"></a>Ny

@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 08/08/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 19e1721a638dfc750938e09e1626c4e291367723
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 234d59f9d625af6d0309b2995cc734fad6028b1e
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54432453"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57767047"
 ---
 # <a name="getting-started-with-azure-automation-state-configuration"></a>Komma igång med Azure Automation State Configuration
 
@@ -157,7 +157,6 @@ Du kan använda Azure Automation State Configuration för att hantera virtuella 
    ![Skärmbild av bladet registrering](./media/automation-dsc-getting-started/RegisterVM.png)
 
    Nodkonfiguration som du angett tillämpas på den virtuella datorn med intervall som anges av den **Konfigurationslägesfrekvens**, och den virtuella datorn söker efter uppdateringar till nodkonfiguration med intervall som anges av den **uppdatera Frekvens**. Läs mer om hur dessa värden används [konfigurerar den lokala Konfigurationshanteraren](https://msdn.microsoft.com/PowerShell/DSC/metaConfig).
-1. I den **lägga till virtuella Azure-datorer** bladet klickar du på **skapa**.
 
 Azure startar processen med onboarding den virtuella datorn. Den virtuella datorn när den är klar visas i den **noder** fliken den **tillståndskonfiguration (DSC)** sidan i Automation-kontot.
 

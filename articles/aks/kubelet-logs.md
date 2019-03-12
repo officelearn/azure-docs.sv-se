@@ -1,22 +1,28 @@
 ---
 title: Visa kubelet-loggar i Azure Kubernetes Service (AKS)
-description: Så här visar du information om felsökning i kubelet-loggar från Azure Kubernetes Service (AKS) noder
+description: Lär dig hur du visar information om felsökning i kubelet-loggar från Azure Kubernetes Service (AKS) noder
 services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 08/21/2018
+ms.date: 03/05/2019
 ms.author: iainfou
-ms.openlocfilehash: aeab24685f3663ba2c50205344d33db3d34676c2
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: b381145fef7e6fb399fac3387ab01fdc9a51b154
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42441956"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57534028"
 ---
 # <a name="get-kubelet-logs-from-azure-kubernetes-service-aks-cluster-nodes"></a>Hämta kubelet-loggar från noder i Azure Kubernetes Service (AKS)
 
-Ibland kan du behöva hämta *kubelet* loggar från en Azure Kubernetes Service (AKS)-noden i felsökningssyfte. Den här artikeln visar hur du kan använda `journalctl` att visa den *kubelet* loggar.
+Som en del för att hantera ett AKS-kluster kan behöva du granska loggarna om du vill felsöka ett problem. Inbyggd i Azure-portalen är möjligheten att visa loggar för den [AKS master-komponenter] [ aks-master-logs] eller [behållare i ett AKS-kluster][azure-container-logs]. Ibland kan du behöva hämta *kubelet* loggar från ett AKS-noden i felsökningssyfte.
+
+Den här artikeln visar hur du kan använda `journalctl` att visa den *kubelet* loggar in på ett AKS-nod.
+
+## <a name="before-you-begin"></a>Innan du börjar
+
+Den här artikeln förutsätter att du har ett befintligt AKS-kluster. Om du behöver ett AKS-kluster finns i snabbstarten om AKS [med Azure CLI] [ aks-quickstart-cli] eller [med Azure portal][aks-quickstart-portal].
 
 ## <a name="create-an-ssh-connection"></a>Skapa en SSH-anslutning
 
@@ -63,3 +69,7 @@ Om du behöver ytterligare information från Kubernetes originalet kan se [visa 
 <!-- LINKS - internal -->
 [aks-ssh]: ssh.md
 [aks-master-logs]: view-master-logs.md
+[aks-quickstart-cli]: kubernetes-walkthrough.md
+[aks-quickstart-portal]: kubernetes-walkthrough-portal.md
+[aks-master-logs]: view-master-logs.md
+[azure-container-logs]: ../azure-monitor/insights/container-insights-overview.md

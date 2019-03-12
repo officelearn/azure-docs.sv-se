@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: dccd685c240d6e007486be6a4f73e0fce0129a82
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: cb18b9063599520ccc6caec44053dc9780969f74
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57405240"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57532345"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>Om nycklar, hemligheter och certifikat
 
@@ -39,7 +39,7 @@ I följande avsnitt ger allmän information som gäller för implementeringen av
 
 JavaScript Object Notation (JSON) och JavaScript-objekt signering och kryptering (JOSE) specifikationer finns viktig grundläggande information.  
 
--   [JSON-Webbnyckeln (JWK)](http://tools.ietf.org/html/draft-ietf-jose-json-web-key)  
+-   [JSON-Webbnyckeln (JWK)](https://tools.ietf.org/html/draft-ietf-jose-json-web-key)  
 -   [JSON Web-kryptering (JWE)](http://tools.ietf.org/html/draft-ietf-jose-json-web-encryption)  
 -   [JSON Web algoritmer (JWA)](http://tools.ietf.org/html/draft-ietf-jose-json-web-algorithms)  
 -   [JSON Web signatur (JWS)](http://tools.ietf.org/html/draft-ietf-jose-json-web-signature)  
@@ -166,7 +166,7 @@ Key Vault stöder inte exportåtgärder. När en nyckel har etablerats i systeme
 
 Användarna kan begränsa någon av de kryptografiska åtgärder som har stöd för Key Vault på basis av per nyckel med hjälp av egenskapen key_ops i JWK-objektet.  
 
-Mer information om JWK objekt finns i [JSON Web nyckel (JWK)](http://tools.ietf.org/html/draft-ietf-jose-json-web-key).  
+Mer information om JWK objekt finns i [JSON Web nyckel (JWK)](https://tools.ietf.org/html/draft-ietf-jose-json-web-key).  
 
 ###  <a name="key-attributes"></a>Nyckelattribut
 
@@ -189,7 +189,7 @@ Inte ännu giltig och har upphört att gälla nycklar, utanför den *nbf* / *exp
 
 Mer information om datatyper finns i [datatyper](#data-types).
 
-Mer information om andra möjliga attribut finns i den [JSON Web nyckel (JWK)](http://tools.ietf.org/html/draft-ietf-jose-json-web-key).
+Mer information om andra möjliga attribut finns i den [JSON Web nyckel (JWK)](https://tools.ietf.org/html/draft-ietf-jose-json-web-key).
 
 ### <a name="key-tags"></a>Viktiga taggar
 

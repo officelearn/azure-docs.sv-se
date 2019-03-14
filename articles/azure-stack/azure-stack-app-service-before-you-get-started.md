@@ -12,16 +12,16 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2019
+ms.date: 03/11/2019
 ms.author: anwestg
 ms.reviewer: anwestg
-ms.lastreviewed: 02/22/2019
-ms.openlocfilehash: 01b0a86ede79187d8f180df0f2f71f6eaadb7428
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.lastreviewed: 03/11/2019
+ms.openlocfilehash: e39904378edd9583cd7802d0a75f2f365a35d2b6
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56990543"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57791961"
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Innan du sätter igång med App Service i Azure Stack
 
@@ -147,11 +147,11 @@ Certifikatet för identitet måste innehålla ett ämne som matchar följande fo
 | --- | --- |
 | sso.appservice.\<region\>.\<DomainName\>.\<extension\> | sso.appservice.redmond.azurestack.external |
 
-
 ### <a name="validate-certificates"></a>Verifiera certifikat
-Innan du distribuerar app service-resursprovider, bör du [certifikatsverifiering som ska användas](azure-stack-validate-pki-certs.md#perform-platform-as-a-service-certificate-validation) med hjälp av verktyget Azure Stack-beredskap för installation som är tillgängliga från den [PowerShell-galleriet](https://aka.ms/AzsReadinessChecker). Azure Stack-beredskap för installation verktyget verifierar att de genererade PKI-certifikat är lämplig för distribution av app services. 
 
-Som bästa praxis när du arbetar med någon av nödvändiga [Azure Stack PKI-certifikat](azure-stack-pki-certs.md), du bör planera att lämna tillräckligt med tid för att testa och återutfärda certifikat om det behövs. 
+Innan du distribuerar app service-resursprovider, bör du [certifikatsverifiering som ska användas](azure-stack-validate-pki-certs.md#perform-platform-as-a-service-certificate-validation) med hjälp av verktyget Azure Stack-beredskap för installation som är tillgängliga från den [PowerShell-galleriet](https://aka.ms/AzsReadinessChecker). Azure Stack-beredskap för installation verktyget verifierar att de genererade PKI-certifikat är lämplig för distribution av app services.
+
+Som bästa praxis när du arbetar med någon av nödvändiga [Azure Stack PKI-certifikat](azure-stack-pki-certs.md), du bör planera att lämna tillräckligt med tid för att testa och återutfärda certifikat om det behövs.
 
 ## <a name="virtual-network"></a>Virtuellt nätverk
 
@@ -170,6 +170,15 @@ Undernät
 - PublishersSubnet /24
 - WorkersSubnet /21
 
+## <a name="licensing-concerns-for-required-file-server-and-sql-server"></a>Frågor för obligatorisk fil- och SQL Server-licensiering
+
+Azure App Service i Azure Stack kräver en fil- och SQL Server att fungera.  Du kan använda befintliga resurser som finns utanför din Azure Stack-distribution eller distribuera resurser i standard Providerprenumeration deras Azure Stack.
+
+Om du väljer att distribuera resurserna i Azure Stack standard providern prenumerationen som licenserna för de här resurserna (Windows Server-licenser och SQL Server-licenser) ingår i kostnaden för Azure App Service i Azure Stack omfattas av följande begränsningar:
+
+- infrastrukturen som distribueras till den **standard Providerprenumeration**;
+- infrastrukturen som används uteslutande av Azure App Service i Azure Stack-resursprovidern.  Inga andra arbetsbelastningar, administrativa (till exempel SQL-RP andra resursprovidrar) eller -klient (till exempel klient-program, som kräver en databas), har rätt till användning av denna infrastruktur.
+
 ## <a name="prepare-the-file-server"></a>Förbered servern
 
 Azure App Service måste du använda för en filserver. Vid Produktionsdistribution måste konfigureras servern för att vara tillgängliga och kan hantera fel.
@@ -180,7 +189,7 @@ Du kan använda för Azure Stack Development Kit-distributioner, den [exempelmal
 
 ### <a name="quickstart-template-for-highly-available-file-server-and-sql-server"></a>Snabbstartsmall för Highly Available File Server och SQL Server
 
-En [snabbstartsmall för referens arkitektur](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/appservice-fileserver-sqlserver-ha) finns nu tillgänglig, som distribuerar filservern, SQL Server, stöd för Active Directory-infrastruktur i ett virtuellt nätverk som konfigurerats för att stödja en högtillgänglig distribution av Azure App Service i Azure Stack.  
+En [snabbstartsmall för referens arkitektur](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/appservice-fileserver-sqlserver-ha) finns nu tillgänglig, som distribuerar filservern, SQL Server, stöd för Active Directory-infrastruktur i ett virtuellt nätverk som konfigurerats för att stödja en högtillgänglig distribution av Azure App Service i Azure Stack.
 
 ### <a name="steps-to-deploy-a-custom-file-server"></a>Steg för att distribuera en anpassad filserver
 
@@ -303,12 +312,11 @@ Du kan använda en standardinstans eller namngiven instans för SQL Server-rolle
 App Service-installationsprogrammet kontrollerar om du vill att SQL Server database inneslutning aktiverat. Om du vill aktivera inneslutning för databasen på SQL Server som är värd för App Service-databaser, kör du följande SQL-kommandon:
 
 ```sql
-sp_configure 'contained database authentication', 1;  
-GO  
-RECONFIGURE;  
+sp_configure 'contained database authentication', 1;
+GO
+RECONFIGURE;
 GO
 ```
-
 
 >[!IMPORTANT]
 > Om du väljer att distribuera App Service i ett befintligt virtuellt nätverk som SQL Server ska distribueras i ett separat undernät från App Service och filservern.

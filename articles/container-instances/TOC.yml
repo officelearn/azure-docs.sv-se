@@ -7,11 +7,11 @@ items:
     href: container-instances-overview.md
 - name: Snabbstarter
   items:
-  - name: Skapa container – CLI
+  - name: Distribuera en containerinstans – CLI
     href: container-instances-quickstart.md
-  - name: Skapa container – Portal
+  - name: Distribuera en containerinstans – portalen
     href: container-instances-quickstart-portal.md
-  - name: Skapa container – PowerShell
+  - name: Distribuera en containerinstans – PowerShell
     href: container-instances-quickstart-powershell.md
   expanded: true
 - name: Självstudier
@@ -30,12 +30,14 @@ items:
     href: container-instances-samples-rm.md
 - name: Begrepp
   items:
-  - name: Kvoter och regionala begränsningar
-    href: container-instances-quotas.md
-  - name: Relation till dirigeringsverktyg
-    href: container-instances-orchestrator-relationship.md
   - name: Containergrupper
     href: container-instances-container-groups.md
+  - name: Kvoter och begränsningar
+    href: container-instances-quotas.md
+  - name: Regional tillgänglighet
+    href: container-instances-region-availability.md
+  - name: Relation till dirigeringsverktyg
+    href: container-instances-orchestrator-relationship.md
 - name: Instruktionsguider
   items:
   - name: Distribuera
@@ -44,48 +46,50 @@ items:
       href: container-instances-multi-container-yaml.md
     - name: Grupper med flera behållare – Resource Manager
       href: container-instances-multi-container-group.md
-    - name: Distribution av virtuellt nätverk (förhandsversion)
+    - name: Distribuera i ett virtuellt nätverk (förhandsversion)
       href: container-instances-vnet.md
-    - name: Distribuera med GPU-resurser (förhandsgranskning)
-      href: container-instances-gpu.md
     - name: Distribuera från Azure Container Registry
       href: container-instances-using-azure-container-registry.md
+  - name: Containerscenarier
+    items:
+    - name: Konfigurera omstartsprincipen för åtgärder som endast körs en gång
+      href: container-instances-restart-policy.md
     - name: Ange miljövariabler (env)
       href: container-instances-environment-variables.md
-    - name: Konfigurera liveavsökningar
-      href: container-instances-liveness-probe.md
-  - name: Hantera
-    items:
-    - name: Uppdatera containrar som körs
-      href: container-instances-update.md
     - name: Köra ett kommando (exec)
       href: container-instances-exec.md
-    - name: Övervaka användning av processor och minne
-      href: container-instances-monitor.md
-    - name: Logga med Azure Monitor-loggar
-      href: container-instances-log-analytics.md
-  - name: Köra arbetsbelastningar
-    items:
-    - name: Köra uppgifter med omstartsprinciper
-      href: container-instances-restart-policy.md
-    - name: Jenkins-versionsagenter på ACI
+    - name: Köra Jenkins-versionsjobb
       href: container-instances-jenkins.md
     - name: Använda en hanterad identitet (förhandsversion)
       href: container-instances-managed-identity.md
-  - name: Konfigurera datavolymer
+    - name: Använda GPU-resurser (förhandsversion)
+      href: container-instances-gpu.md
+  - name: Montera datavolymer
     items:
-    - name: Azure Files
+    - name: Azure-filresurs
       href: container-instances-volume-azure-files.md
-    - name: emptyDir
-      href: container-instances-volume-emptydir.md
-    - name: gitRepo
-      href: container-instances-volume-gitrepo.md
-    - name: hemlighet
+    - name: Hemlighet
       href: container-instances-volume-secret.md
-  - name: Felsöka
+    - name: Tom katalog
+      href: container-instances-volume-emptydir.md
+    - name: Klonad Git-lagringsplats
+      href: container-instances-volume-gitrepo.md
+  - name: Hantera containrar som körs
     items:
+    - name: Konfigurera liveavsökningar
+      href: container-instances-liveness-probe.md
+    - name: Uppdatera containrar som körs
+      href: container-instances-update.md
+  - name: Övervaka och logga
+    items:
+    - name: Övervaka användning av processor och minne
+      href: container-instances-monitor.md
     - name: Hämta containerloggar och händelser
       href: container-instances-get-logs.md
+    - name: Loggning med Azure Log Analytics
+      href: container-instances-log-analytics.md
+  - name: Felsöka
+    items:
     - name: Felsök vanliga problem
       href: container-instances-troubleshooting.md
 - name: Referens
@@ -119,12 +123,12 @@ items:
   - name: Ge produktfeedback
     href: https://feedback.azure.com/forums/602224-azure-container-instances
   - name: Stack Overflow
-    href: http://stackoverflow.com/questions/tagged/azure-container-instances
+    href: https://stackoverflow.com/questions/tagged/azure-container-instances
   - name: Videoklipp
     href: https://azure.microsoft.com/resources/videos/index/?services=container-instances&sort=newest
-ms.openlocfilehash: 062c4f2b196ab587577ef4703f79af2f7259c776
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: fcee083f7d98aba1856cf204f5c2d559d1b5925b
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56871714"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57731189"

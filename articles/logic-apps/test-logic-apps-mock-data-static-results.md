@@ -8,13 +8,13 @@ author: kevinlam1
 ms.author: klam
 ms.reviewer: estfan, LADocs
 ms.topic: article
-ms.date: 03/05/2019
-ms.openlocfilehash: 43256e13dc1dd3263b213cc1e4a1e1c07af3b5c8
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.date: 03/12/2019
+ms.openlocfilehash: 23cce4d846cdf183f41b25663ba21d3bf1d27013
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 03/12/2019
-ms.locfileid: "57786586"
+ms.locfileid: "57791008"
 ---
 # <a name="test-logic-apps-with-mock-data-by-setting-up-static-results"></a>Testa logic apps med fingerade data genom att ställa in statisk resultat
 
@@ -67,6 +67,10 @@ Till exempel om du ställer in statisk resultat för Outlook 365 skicka e-post-�
 
    ![Ikon som visar aktiverat statiska resultat](./media/test-logic-apps-mock-data-static-results/static-results-enabled.png)
 
+   När logikappen körs i din logikapp körningshistorik, den **Statiska resultat** kolumn visar om en specifik körning innehåller åtgärder som har statiska resultat som är aktiverad, till exempel:
+
+   ![Körningshistorik - statisk resultat kolumn](./media/test-logic-apps-mock-data-static-results/run-history.png)
+
 <a name="reuse-sample-outputs"></a>
 
 ## <a name="reuse-previous-outputs"></a>Återanvända tidigare utdata
@@ -101,7 +105,7 @@ Om din logikapp har en tidigare kan kör med utdata som du kan återanvända som
 
    ![JSON-läget](./media/test-logic-apps-mock-data-static-results/json-editing-mode.png)
 
-1. Om du är klar väljer du **klar**. Eller, om du vill återgå till designern, välja **växel redigeringsläget** (![Välj ”växel redigeringsläget”](./media/test-logic-apps-mock-data-static-results/switch-editor-mode-button.png)).
+1. När du är klar väljer du **Klar**. Eller, om du vill återgå till designern, välja **växel redigeringsläget** (![Välj ”växel redigeringsläget”](./media/test-logic-apps-mock-data-static-results/switch-editor-mode-button.png)).
 
 ## <a name="disable-static-results"></a>Inaktivera statisk resultat
 

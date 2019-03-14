@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/27/2019
+ms.date: 02/07/2019
 ms.author: magoedte
-ms.openlocfilehash: d09ce810605055b5be53219f254beb6660addbee
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 07e3552b58b702cb94c879dd34397010c07522db
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57445712"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57791944"
 ---
 # <a name="manage-log-data-and-workspaces-in-azure-monitor"></a>Hantera loggdata och arbetsytor i Azure Monitor
 Azure Monitor-butiker logga data över en Log Analytics-arbetsyta som är i grunden en behållare som innehåller data och konfigurationsinformation. För att hantera åtkomst för att logga data måste utföra du olika administrativa uppgifter relaterade till arbetsytor. Du eller andra medlemmar i din organisation kan använda flera arbetsytor för att hantera olika uppsättningar av data som samlas in från alla eller delar av din IT-infrastruktur.
@@ -85,6 +85,7 @@ De data som en användare har tillgång till bestäms av flera faktorer som list
 | [Åtkomstläge](#access-modes) | Metoden som användaren använder för att får åtkomst till arbetsytan.  Definierar vilka data som är tillgängliga och kontroll åtkomstläge som används. |
 | [Åtkomstläge för kontroll](#access-control-mode) | Inställningen på den arbetsyta som definierar om behörigheter tillämpas på arbetsytan- eller resursen. |
 | [Behörigheter](#manage-accounts-and-users) | Behörigheter som tillämpas på enskilda eller grupper av användare för arbetsytan eller resurs. Definierar vilka data som användaren har åtkomst till. |
+| [Tabellen nivå RBAC](#table-level-rbac) | Valfritt detaljerade behörigheter som gäller för alla användare oavsett deras åtkomst eller åtkomstkontroll läge. Definierar vilka datatyper som en användare kan komma åt. |
 
 
 
@@ -93,7 +94,7 @@ Den _åtkomstläge_ avser hur en användare ansluter till en Log Analytics-arbet
 
 **Arbetsytan-centric**: En användare kan visa alla loggar från arbetsytan som de har behörighet att i det här läget. Frågorna i det här läget är begränsade till alla data i alla tabeller i arbetsytan. Det här är åtkomstläge som används när loggar som nås med arbetsytan som omfång, t.ex när du väljer **loggar** från den **Azure Monitor** menyn i Azure-portalen.
 
-**Resurs-centric**: När du öppnar arbetsytan för en viss resurs, till exempel när du väljer **loggar** från en resurs-menyn i Azure-portalen kan du visa loggar för endast den resursen. Frågorna i det här läget är begränsade till endast de data som är kopplade till den här resursen. Det här läget kan även detaljerad rollbaserad åtkomstkontroll (RBAC). 
+**Resurs-centric**: När du öppnar arbetsytan för en viss resurs, till exempel när du väljer **loggar** från en resurs-menyn i Azure-portalen kan du visa loggar för endast den resursen i alla tabeller som du har åtkomst till. Frågorna i det här läget är begränsade till endast de data som är kopplade till den här resursen. Det här läget kan även detaljerad rollbaserad åtkomstkontroll (RBAC). 
 
 > [!NOTE]
 > Loggarna är tillgängliga för resurs-centric frågor endast om de är korrekt kopplade till önskad resurs. Följande resurser har för närvarande begränsningar: 
@@ -113,16 +114,16 @@ I följande tabell sammanfattas Åtkomstlägen:
 |:---|:---|:---|
 | Vem varje modell riktar sig till? | Central administration. Administratörer måste du konfigurera insamling av data och användare som behöver åtkomst till en mängd olika resurser. För närvarande krävs av användare som har åtkomst till loggar för resurser utanför Azure. | Programmet team. Administratörer för Azure-resurser som övervakas. |
 | Det kräver en användare för att visa loggar? | Behörigheter för arbetsytan. Se **behörigheter för arbetsytan** i [hantera konton och användare](#manage-accounts-and-users). | Läsbehörighet till resursen. Se **resursbehörighet** i [hantera konton och användare](#manage-accounts-and-users). Behörigheter kan vara ärvd (till exempel från den aktuella resursgruppen) eller direkt tilldelad till resursen. Behörighet att loggarna för resursen tilldelas automatiskt. |
-| Vad är omfånget för behörigheter? | Arbetsyta. Användare med åtkomst till arbetsytan kan fråga efter alla loggar på arbetsytan. | Azure-resurs. Användare kan fråga loggar för resurser som de har åtkomst till från en arbetsyta men det går inte att fråga loggar för andra resurser. |
+| Vad är omfånget för behörigheter? | Arbetsyta. Användare med åtkomst till arbetsytan kan fråga efter alla loggar på arbetsytan från tabeller som de har behörighet till. Se [tabell åtkomstkontroll](#table-access-control) | Azure-resurs. Användare kan fråga loggar för resurser som de har åtkomst till från en arbetsyta men det går inte att fråga loggar för andra resurser. |
 | Hur kan användare åtkomst till loggar? | Starta **loggar** från **Azure Monitor** menyn eller **Log Analytics-arbetsytor**. | Starta **loggar** från menyn för Azure-resursen. |
 
 
 ## <a name="access-control-mode"></a>Åtkomstkontrolläge
 Den _kontroll åtkomstläge_ är en inställning på varje arbetsytor som definierar hur behörigheter avgörs för den arbetsytan.
 
-**Kräver behörigheter för arbetsytan**:  Den här kontrolläge tillåter inte detaljerade RBAC. En användare kan få åtkomst till arbetsytan, måste de beviljas behörigheter för arbetsytan. 
+**Kräver behörigheter för arbetsytan**:  Den här kontrolläge tillåter inte detaljerade RBAC. De måste beviljas behörigheter till arbetsytan eller till specifika tabeller för en användare att få åtkomst till arbetsytan. 
 
-Om en användare har åtkomst till arbetsytan i arbetsytan-centric läge, kommer de har åtkomst till alla data på arbetsytan. Om en användare har åtkomst till arbetsytan i resurs-centric läge, kommer de har åtkomst till endast data för den resursen.
+Om en användare har åtkomst till arbetsytan i arbetsytan-centric läge, kommer de har åtkomst till alla data några tabeller som de har beviljats åtkomst till. Om en användare har åtkomst till arbetsytan i resurs-centric läge, kommer de har åtkomst till endast data för den resursen i alla tabeller som de har beviljats åtkomst till.
 
 Det här är standardinställningen för alla arbetsytor som skapats före mars 2019.
 
@@ -144,6 +145,46 @@ Du kan visa den aktuella arbetsyteläge åtkomstkontroll på de **översikt** f�
 Du kan ändra den här inställningen på den **egenskaper** för arbetsytan. Ändrar den här inställningen inaktiveras om du inte har behörighet att konfigurera arbetsytan.
 
 ![Ändra arbetsytan åtkomstläge](media/manage-access/change-access-control-mode.png)
+
+### <a name="define-access-control-mode-in-azure-portal"></a>Definiera åtkomstläge för åtkomstkontroll i Azure-portalen
+Du kan visa den aktuella arbetsyteläge åtkomstkontroll på de **översikt** för arbetsytan i den **Log Analytics-arbetsyta** menyn.
+
+![Visa arbetsytan åtkomstläge kontroll](media/manage-access/view-access-control-mode.png)
+
+Du kan ändra den här inställningen på den **egenskaper** för arbetsytan. Ändrar den här inställningen inaktiveras om du inte har behörighet att konfigurera arbetsytan.
+
+![Ändra arbetsytan åtkomstläge](media/manage-access/change-access-control-mode.png)
+
+### <a name="define-access-control-mode-in-powershell"></a>Definiera kontroll åtkomstläge i PowerShell
+
+Använd följande kommando för att undersöka åtkomstläge för kontroll för alla arbetsytor i prenumerationen:
+
+```PowerShell
+Get-AzResource -ResourceType Microsoft.OperationalInsights/workspaces -ExpandProperties | foreach {$_.Name + ": " + $_.Properties.features.enableLogAccessUsingOnlyResourcePermissions} 
+```
+
+Använd följande skript för att ange åtkomstkontroll läget för en viss arbetsyta:
+
+```PowerShell
+$WSName = "my-workspace"
+$Workspace = Get-AzResource -Name $WSName -ExpandProperties
+if ($Workspace.Properties.features.enableLogAccessUsingOnlyResourcePermissions -eq $null) 
+    { $Workspace.Properties.features | Add-Member enableLogAccessUsingOnlyResourcePermissions $true -Force }
+else 
+    { $Workspace.Properties.features.enableLogAccessUsingOnlyResourcePermissions = $true }
+Set-AzResource -ResourceId $Workspace.ResourceId -Properties $Workspace.Properties -Force
+```
+
+Använd följande skript för att ställa in åtkomstläge för kontroll för alla arbetsytor i prenumerationen
+
+```PowerShell
+Get-AzResource -ResourceType Microsoft.OperationalInsights/workspaces -ExpandProperties | foreach {
+if ($_.Properties.features.enableLogAccessUsingOnlyResourcePermissions -eq $null) 
+    { $_.Properties.features | Add-Member enableLogAccessUsingOnlyResourcePermissions $true -Force }
+else 
+    { $_.Properties.features.enableLogAccessUsingOnlyResourcePermissions = $true }
+Set-AzResource -ResourceId $_.ResourceId -Properties $_.Properties -Force
+```
 
 ### <a name="define-access-mode-in-resource-manager-template"></a>Definiera åtkomstläge i Resource Manager-mall
 Om du vill konfigurera åtkomstläge i en Azure Resource Manager-mall, ange den **enableLogAccessUsingOnlyResourcePermissions** funktionen flaggan arbetsytan till en av följande värden.
@@ -241,6 +282,58 @@ När användarna fråga loggar från en arbetsyta med hjälp av resource-centric
 
 Den här behörigheten beviljas vanligtvis från en roll som innehåller  _\*/läsa eller_ _\*_ behörigheter till exempel inbyggt [läsare](../../role-based-access-control/built-in-roles.md#reader) och [ Deltagare](../../role-based-access-control/built-in-roles.md#contributor) roller. Observera att anpassade roller som innehåller specifika åtgärder eller dedikerade inbyggda roller inte kanske innehåller den här behörigheten.
 
+Se [definiera per tabell åtkomstkontroll](#defining-per-table-access-control) nedan om du vill skapa olika åtkomstkontroll för olika tabeller.
+
+
+## <a name="table-level-rbac"></a>Tabellen nivå RBAC
+**Tabellen nivå RBAC** kan du tillhandahålla mer detaljerad kontroll till data i Log Analytics-arbetsytan utöver behörigheterna som helst. Den här kontrollen kan du definiera specifika datatyper som är bara tillgängliga för en specifik uppsättning användare.
+
+Du implementerar tabell åtkomstkontroll med [Azure anpassade roller](../../role-based-access-control/custom-roles.md) antingen bevilja eller neka åtkomst till specifika [tabeller](../log-query/log-query-overview.md#how-azure-monitor-log-data-is-organized) på arbetsytan. Dessa roller tillämpas på arbetsytor med antingen arbetsytan-centric eller resurs-centric [åtkomst kontroll lägen](#access-control-modes) oavsett användarens [åtkomstläge](#access-mode).
+
+Skapa en [anpassad roll](../../role-based-access-control/custom-roles.md) med följande åtgärder för att definiera åtkomst till tabellen åtkomstkontroll.
+
+- Om du vill bevilja åtkomst till en tabell, lägger till den i den **åtgärder** delen av rolldefinitionen.
+- Om du vill neka åtkomst till en tabell, lägger till den i den **NotActions** delen av rolldefinitionen.
+- Använd * att ange alla tabeller.
+
+Till exempel vill skapa en roll med åtkomst till den _pulsslag_ och _AzureActivity_ tabeller, skapa en anpassad roll med hjälp av följande åtgärder:
+
+```
+"Actions":  [
+              "Microsoft.OperationalInsights/workspaces/query/Heartbeat/read",
+              "Microsoft.OperationalInsights/workspaces/query/AzureActivity/read"
+  ],
+```
+
+Skapa en roll med åtkomst till endast _SecurityBaseline_ och inga andra tabeller, skapa en anpassad roll med hjälp av följande åtgärder:
+
+```
+    "Actions":  [
+        "Microsoft.OperationalInsights/workspaces/query/*/read"
+    ],
+    "NotActions":  [
+        "Microsoft.OperationalInsights/workspaces/query/SecurityBaseline/read"
+    ],
+```
+
+### <a name="custom-logs"></a>Anpassade loggar
+ Anpassade loggar skapas av datakällor, till exempel anpassade loggar och HTTP Data Collector API. Det enklaste sättet att identifiera vilken typ av logg är genom att markera de tabeller som visas under [anpassade loggar i loggen schemat](../log-query/get-started-portal.md#understand-the-schema).
+
+ Du kan inte bevilja eller neka åtkomst till enskilda anpassade loggar, men du kan bevilja eller neka åtkomst till alla anpassade loggar. Om du vill skapa en roll med åtkomst till alla anpassade loggar, skapar du en anpassad roll med hjälp av följande åtgärder:
+
+```
+    "Actions":  [
+        "Microsoft.OperationalInsights/workspaces/query/Tables.Custom/read"
+    ],
+```
+
+### <a name="considerations"></a>Överväganden
+
+- Om en användare beviljas globala läsbehörighet med de läsare eller deltagare standardroller som innehåller den  _\*/läsa_ åtgärd, åsidosätts per tabell access control och ge dem åtkomst till alla loggdata.
+- Om en användare beviljas åtkomst per tabell men inga andra behörigheter, skulle de att kunna komma åt loggdata från API: et men inte från Azure-portalen. Använda Log Analytics Reader som dess grundläggande roll för att ge åtkomst till Azure-portalen.
+- In prenumerationens administratörer har åtkomst till alla datatyper av, oavsett eventuella andra behörighetsinställningar.
+- Arbetsytan ägare behandlas som andra användare för åtkomstkontroll per tabell.
+- Du bör tilldela roller till säkerhetsgrupper i stället för enskilda användare för att minska antalet tilldelningar. Detta kommer också hur du använder befintliga verktyg för gruppen för att konfigurera och verifiera åtkomst.
 
 
 

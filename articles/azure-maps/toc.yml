@@ -63,33 +63,41 @@ items:
       href: how-to-search-for-address.md
     - name: Rendera anpassade data på statisk karta
       href: how-to-render-custom-data.md
-  - name: Skapa JavaScript-kartor
+  - name: Utveckla med webb-SDK
     items:
-    - name: Använda kartkontrollen
-      href: how-to-use-map-control.md
-    - name: Skapa en karta
-      href: map-create.md
-    - name: Välj ett kartformat
-      href: choose-map-style.md
-    - name: Lägg till kartkontroller
-      href: map-add-controls.md
-    - name: Lägga till ett symbolskikt
-      href: map-add-pin.md
-    - name: Lägg till ett popup-fönster
-      href: map-add-popup.md
-    - name: Lägga till ett bubbelskikt
-      href: map-add-bubble-layer.md
-    - name: Lägg till en form
-      href: map-add-shape.md
-    - name: Lägga till ett heatmapskikt
-      href: map-add-heat-map-layer.md
-    - name: Lägga till ett avbildningsskikt
-      href: map-add-image-layer.md
-    - name: Lägga till ett panelskikt
-      href: map-add-tile-layer.md
-    - name: Lägga till HTML-markeringar
-      href: map-add-custom-html.md
-    - name: Tjänster
+    - name: Kartkontroll
+      items:
+      - name: Använda kartkontrollen
+        href: how-to-use-map-control.md
+      - name: Skapa en karta
+        href: map-create.md
+      - name: Välj ett kartformat
+        href: choose-map-style.md
+      - name: Lägga till kontroller till kartan
+        href: map-add-controls.md
+      - name: Lägga till ett symbolskikt
+        href: map-add-pin.md
+      - name: Lägg till ett popup-fönster
+        href: map-add-popup.md
+      - name: Lägga till ett bubbelskikt
+        href: map-add-bubble-layer.md
+      - name: Lägga till former
+        href: map-add-shape.md
+      - name: Lägga till ett heatmapskikt
+        href: map-add-heat-map-layer.md
+      - name: Lägga till en bild som överlägg
+        href: map-add-image-layer.md
+      - name: Lägga till panelskikt
+        href: map-add-tile-layer.md
+      - name: HTML-markeringar
+        href: map-add-custom-html.md
+      - name: Visa trafik
+        href: map-show-traffic.md
+      - name: Interagera med mushändelser
+        href: map-events.md
+      - name: Göra programmet tillgängligt
+        href: map-accessibility.md
+    - name: Tjänstmodul
       items:
       - name: Visa sökresultat
         href: map-search-location.md
@@ -97,13 +105,7 @@ items:
         href: map-get-information-from-coordinate.md
       - name: Visa anvisningar från A till B
         href: map-route.md
-    - name: Visa trafik
-      href: map-show-traffic.md
-    - name: Interagera med mushändelser
-      href: map-events.md
-    - name: Tillgängliga kartprogram
-      href: map-accessibility.md
-  - name: Skapa Android-kartor
+  - name: Utveckla med Android SDK
     items:
     - name: Använda Android-kartkontroll
       href: how-to-use-android-map-control-library.md
@@ -150,7 +152,7 @@ items:
 - name: Resurser
   items:
   - name: Användningsvillkor för Azure Maps
-    href: http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31.
+    href: https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31.
   - name: Prissättning
     href: https://azure.microsoft.com/pricing/details/azure-maps
   - name: Priskalkylator
@@ -197,9 +199,9 @@ items:
       href: /azure/iot-edge
     - name: SDK:er för IoT-enheter
       href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
-ms.openlocfilehash: b0584c77ed7d8b3ed6c6962d02b75e061a97bf14
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 2d974c96dd953c7a2727bcd5b1bcc3b60ad807a0
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57336741"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57569237"

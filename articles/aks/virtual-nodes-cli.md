@@ -3,15 +3,16 @@ title: Skapa virtuella noder med hjälp av Azure CLI i Azure Kubernetes Services
 description: Lär dig hur du använder Azure CLI för att skapa ett kluster i Azure Kubernetes Services (AKS) som använder virtuella noder för att köra poddar.
 services: container-service
 author: iainfoulds
+ms.topic: conceptual
 ms.service: container-service
 ms.date: 12/03/2018
 ms.author: iainfou
-ms.openlocfilehash: ed3697cbfc605fbdecad2c1cc4b32c3ddd1e3813
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: e47817f70a727fe815e5d7e61ad7820121f26d97
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56819058"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57791417"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-using-the-azure-cli"></a>Skapa och konfigurera en Azure Kubernetes Services kluster (AKS) för att använda virtuella noder med Azure CLI
 
@@ -44,7 +45,7 @@ Om providern visas som *NotRegistered*, registrera providern med hjälp av den [
 az provider register --namespace Microsoft.ContainerInstance
 ```
 
-## <a name="preview-limitations"></a>Begränsningar i förhandsversionen
+## <a name="preview-limitations"></a>Begränsningar för förhandsversion
 
 Den här funktionen är i förhandsversion, har följande regioner stöd för distributioner:
 

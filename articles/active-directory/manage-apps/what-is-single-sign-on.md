@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/21/2019
+ms.date: 03/12/2019
 ms.author: celested
-ms.reviewer: arvindh
+ms.reviewer: arvindh, japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 186bc220778ed669672bfbc689dad6471195f4ce
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 84f1b7c9461d2eba5e13be8b15b2cbcc62715c23
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57448568"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57792046"
 ---
 # <a name="single-sign-on-to-applications-in-azure-active-directory"></a>Enkel inloggning till program i Azure Active Directory
 Lägger till säkerhet och bekvämlighet enkel inloggning (SSO) när användare-inloggning till program i Azure Active Directory (AD Azure). Den här artikeln beskrivs metoderna som enkel inloggning och hjälper dig att välja den lämpligaste SSO-metoden när du konfigurerar dina program.
@@ -35,14 +35,14 @@ Det finns flera sätt att konfigurera ett program för enkel inloggning. Välja 
 
 Det här flödesschemat hjälper dig att bestämma vilken metod för enkel inloggning är bäst för just din situation. 
 
-![Välj metod för enkel inloggning](./media/what-is-single-sign-on/choose-single-sign-on-method.png)
+![Välj metod för enkel inloggning](./media/what-is-single-sign-on/choose-single-sign-on-method-updated.png)
 
 I följande tabell sammanfattas metoderna som enkel inloggning och länkar till mer information. 
 
 | Metod för enkel inloggning | Programtyper | När du ska använda detta |
 | :------ | :------- | :----- |
 | [OpenID Connect och OAuth](#openid-connect-and-oauth) | Endast molnet | Använd OpenID Connect och OAuth när du utvecklar ett nytt program. Det här protokollet förenklar programkonfiguration, är enkel att använda SDK: er, vilket gör att programmet kan använda MS Graph.
-| [SAML](#saml-sso) | Endast molnet | Välj SAML när det är möjligt för befintliga program som inte använder OpenID Connect eller OAuth. SAML fungerar för program som autentiseras med någon av SAML-protokoll.|
+| [SAML](#saml-sso) | molnet och lokalt | Välj SAML när det är möjligt för befintliga program som inte använder OpenID Connect eller OAuth. SAML fungerar för program som autentiseras med någon av SAML-protokoll.|
 | [Lösenordsbaserad](#password-based-sso) | molnet och lokalt | Välj lösenordsbaserad när programmet autentiseras med användarnamn och lösenord. Lösenordsbaserad enkel inloggning kan du säkert program lösenordslagring och replay med ett webbläsartillägg eller mobilapp. Den här metoden använder den befintliga inloggningsprocessen tillhandahålls av programmet, men låter en administratör hantera lösenorden. |
 | [Länkade](#linked-sso) | molnet och lokalt | Välj länkade enkel inloggning när programmet har konfigurerats för enkel inloggning i en annan identitet provider-tjänsten. Det här alternativet inte lägga till enkel inloggning till programmet. Programmet kan redan ha enkel inloggning implementeras med hjälp av en annan tjänst, till exempel Active Directory Federation Services.|
 | [Inaktiverad](#disabled-sso) | molnet och lokalt | Välj inaktiverade enkel inloggning när appen inte kan konfigureras för enkel inloggning. Användare måste ange sitt användarnamn och lösenord varje gång de starta det här programmet.|

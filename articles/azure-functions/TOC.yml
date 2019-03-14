@@ -69,6 +69,7 @@ items:
 - name: Begrepp
   items:
   - name: Jämför version 1.x and 2.x
+    displayName: migrate, migration
     href: functions-versions.md
   - name: Skalning och värdtjänster
     href: functions-scale.md
@@ -154,6 +155,9 @@ items:
       href: functions-infrastructure-as-code.md
     - name: Lokala funktioner
       href: functions-runtime-install.md
+    - name: Distribuera med hjälp av Jenkins-pluginprogrammet
+      href: /azure/jenkins/jenkins-azure-functions-deploy
+      maintainContext: true
   - name: Konfigurera
     items:
     - name: Hantera en funktionsapp
@@ -293,9 +297,9 @@ items:
     href: https://github.com/Azure/Azure-Functions/
   - name: Tjänstuppdateringar
     href: https://azure.microsoft.com/updates/?product=functions&updatetype=&platform=
-ms.openlocfilehash: adc910de92bb5500f219b4f373735f2fb9f7eb48
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 12fed934b54c3295c5fec7f7b65cab9255f83d2b
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57442196"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57791179"

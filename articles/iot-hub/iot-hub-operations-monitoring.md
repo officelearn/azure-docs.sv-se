@@ -1,26 +1,26 @@
 ---
-title: Azure IoT Hub åtgärdsövervakning | Microsoft Docs
+title: Azure IoT Hub operations monitoring (inaktuell) | Microsoft Docs
 description: Hur du använder Azure IoT Hub åtgärdsövervakning om du vill övervaka statusen för åtgärder på IoT hub i realtid.
 author: nberdy
 manager: briz
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 10/10/2017
+ms.date: 03/11/2019
 ms.author: nberdy
-ms.openlocfilehash: 3aa452cd178bd0d064726c5be7dbdf65c6ef8d92
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: d839e2e9922ac68af3aea37884e8b2f72b80b0e7
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44160056"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57791587"
 ---
-# <a name="iot-hub-operations-monitoring"></a>Övervakning av IoT Hub-åtgärder
+# <a name="iot-hub-operations-monitoring-deprecated"></a>IoT Hub operations monitoring (inaktuell)
 
 IoT Hub med åtgärdsövervakning kan du övervaka statusen för åtgärder på IoT hub i realtid. IoT Hub spårar händelser över flera åtgärdskategorier. Du kan välja skicka händelser från en eller flera kategorier till en slutpunkt för IoT-hubben för bearbetning. Du kan övervaka data för fel eller skapa mer komplexa bearbetning baserad på datamönster.
 
 >[!NOTE]
->IoT Hub åtgärdsövervakning är inaktuell och kommer att tas bort från IoT Hub den 10 mars 2019. För att övervaka åtgärder och hälsotillstånd för IoT Hub, se [övervaka hälsotillståndet för Azure IoT Hub och diagnostisera problem snabbt][lnk-monitor]. Läs mer om utfasning tidslinjen [övervaka dina Azure-IoT-lösningar med Azure Monitor och Azure Resource Health][lnk-blog-announcement].
+>IoT Hub **åtgärdsövervakning är föråldrad och har tagits bort från IoT Hub den 10 mars 2019**. För att övervaka åtgärder och hälsotillstånd för IoT Hub, se [övervaka hälsotillståndet för Azure IoT Hub och diagnostisera problem snabbt][lnk-monitor]. Läs mer om utfasning tidslinjen [övervaka dina Azure-IoT-lösningar med Azure Monitor och Azure Resource Health][lnk-blog-announcement].
 
 IoT Hub övervakar sex typer av händelser:
 

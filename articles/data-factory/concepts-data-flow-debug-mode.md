@@ -7,25 +7,25 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/04/2018
-ms.openlocfilehash: 82559c89094649b377dc2a898798ce6aad5fbcc7
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: d3cabbcc04766d4a209ecf96db3f842902b465a5
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57570495"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57792403"
 ---
 # <a name="mapping-data-flow-debug-mode"></a>Felsökningsläge för mappning av Data flöde
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
-Azure Data Factory mappning dataflöde har felsökningsläge och som kan tändas med Debug-knappen högst upp på designytan. När designa dataflöden, ställa in felsökningsläge på kan du interaktivt se hur data forma transformeringen när du skapar och felsöker dina dataflöden.
+Azure Data Factory mappning dataflöde har felsökningsläge och som kan tändas med knappen Data flöda felsöka överst på designytan. När designa dataflöden, ställa in felsökningsläge på kan du interaktivt se hur data forma transformeringen när du skapar och felsöker dina dataflöden. Felsökningssessionen kan användas både i sessioner med arkitekturdesign för dataflöde samt vid felsökning av pipelinekörning av data.
 
-<img src="media/data-flow/debugbutton.png" width="400">
+![Felsöka knappen](media/data-flow/debugbutton.png "Debug-knappen")
 
 ## <a name="overview"></a>Översikt
-När felsökningsläge finns på, skapar du interaktivt ditt dataflöde med ett aktivt interaktiva Azure Databricks-kluster. Sessionen stängs inaktiveras felsökning i Azure Data Factory. Du bör känna till de debitering åsamkar Azure Databricks under den tid som du har aktiverat felsökningssessionen.
+När felsökningsläge finns på, skapar du interaktivt ditt dataflöde med en aktiv Spark-kluster. Sessionen stängs inaktiveras felsökning i Azure Data Factory. Du bör känna till de debitering åsamkar Azure Databricks under den tid som du har aktiverat felsökningssessionen.
 
-I de flesta fall är det en bra idé att skapa din Data som flödar i felsökningsläge så att du kan verifiera din affärslogik och visa dina dataomvandlingar innan du publicerar ditt arbete i Azure Data Factory.
+I de flesta fall är det en bra idé att skapa din Data som flödar i felsökningsläge så att du kan verifiera din affärslogik och visa dina dataomvandlingar innan du publicerar ditt arbete i Azure Data Factory. Du bör också använda knappen ”felsökning” på panelen pipeline för att testa ditt dataflöde i en pipeline.
 
 ## <a name="debug-mode-on"></a>Felsökningsläge på
 När du växlar på felsökningsläge uppmanas du att ett sidpanel formulär som du blir ombedd att peka på dina interaktiva Azure Databricks-kluster och välja alternativ för provtagning källa. Du måste använda en interaktiv kluster från Azure Databricks och välj antingen en sampling storlek från varje källa-transformeringar eller välj en textfil för testdata.
@@ -54,3 +54,9 @@ Felsökning på fliken förhandsgranskningen kommer ljus upp i den nedre rutan. 
 Genom att markera enskilda kolumner i dina data-fliken för förhandsversionen kommer popup-fönster och ett diagram längst till höger din datarutnätet med detaljerad statistik om varje fält. Azure Data Factory blir en bestämning baserat på datasampling vilken typ av diagrammet ska visas. Hög kardinalitet fält som standard när NULL / NOT NULL diagram medan kategoriska och numeriska data som har låg kardinalitet visar stapeldiagram som visar data värdet frekvens. Du kan även se max / len längden på strängfält, min / max värdena i numeriska fält, standard utveckling, percentiler, antal och genomsnittlig. 
 
 <img src="media/data-flow/chart.png" width="400">
+
+## <a name="next-steps"></a>Nästa steg
+
+När du är klar att skapa och felsöka ditt dataflöde [köra den från en pipeline.](control-flow-execute-data-flow-activity.md)
+
+När du testar en pipeline med ett dataflöde kan du använda pipelinen [Debug kör körning alternativet.](iterative-development-debugging.md)

@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/30/2019
+ms.date: 03/12/2019
 ms.author: markvi
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7687cb4eb6cacd604a05a820e04f71755e0b66b1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 5e2e8a3c923f18d0e3d481539bb7278bc8fd7aaf
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56201422"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57792335"
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Inställningsreferens för villkorlig åtkomst till Azure Active Directory
 
@@ -51,25 +51,43 @@ Med principer för villkorlig åtkomst kan du styra hur dina användare kommer �
 
 Du kan tilldela en princip för villkorlig åtkomst till följande moln-appar från Microsoft:
 
-- Azure Information Protection – [Läs mer](/azure/information-protection/faqs#i-see-azure-information-protection-is-listed-as-an-available-cloud-app-for-conditional-accesshow-does-this-work)
 
-- Azure RemoteApp
-
-- Azure SQL Database - [Läs mer](https://docs.microsoft.com/azure/sql-database/sql-database-conditional-access)
-
-- Microsoft Dynamics 365
-
-- Microsoft Office 365 Yammer
-
-- Microsoft Office 365 Exchange Online
-
-- Microsoft Office 365 SharePoint Online (inklusive OneDrive för företag och Project Online)
-
-- Microsoft Power BI 
-
+- Azure Analysis Services
 - Azure DevOps
+- Azure SQL Database och Data Warehouse – [Läs mer](https://docs.microsoft.com/azure/sql-database/sql-database-conditional-access)
+- Dynamics CRM Online
+- Microsoft Application Insights Analytics
+- Microsoft Azure Information Protection - [Läs mer](https://docs.microsoft.com/azure/information-protection/faqs#i-see-azure-information-protection-is-listed-as-an-available-cloud-app-for-conditional-accesshow-does-this-work)
+- Microsoft Azure Management - [Läs mer](https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management)
+- Microsoft Azure RemoteApp
+- Microsoft Azure-prenumerationshantering
+- Microsoft Cloud App Security
+- Microsoft Commerce Access Control Portal-verktyg
+- Microsoft Commerce verktyg autentiseringstjänst
+- Microsoft Flow
+- Microsoft Forms
+- Microsoft Intune
+- Microsoft Intune-registrering
+- Microsoft Planner
+- Microsoft Power BI
+- Microsoft PowerApps
+- Microsoft-sökning i Bing
+- Microsoft StaffHub
+- Microsoft Stream
+- Microsoft Teams 
+- Office 365 Exchange Online
+- Office 365 SharePoint Online
+- Office 365 Yammer
+- Office Delve
+- Office Sway 
+- Outlook Groups
+- Project Online
+- Skype för företag – Online
+- Virtuellt privat nätverk (VPN)
+- Visual Studio App Center
+- Windows Defender ATP
 
-- Microsoft Teams
+
 
 
 ### <a name="other-applications"></a>Andra program 

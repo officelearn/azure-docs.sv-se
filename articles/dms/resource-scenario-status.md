@@ -2,7 +2,7 @@
 title: Migrering scenariot databasstatus | Microsoft Docs
 description: Läs mer om status för migreringsscenarier som stöds av Azure Database Migration Service.
 services: database-migration
-author: pochiraju
+author: HJToland3
 ms.author: rajpo
 manager: craigg
 ms.reviewer: douglasl
@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 02/11/2019
-ms.openlocfilehash: 39a7f7ce6660016f00e36c5f6619eba2fa461023
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.date: 03/12/2019
+ms.openlocfilehash: fea50b896c769587b21b8a4e2ce8c585d7aee8c4
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55993171"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57791570"
 ---
 # <a name="status-of-migration-scenarios-supported-by-the-azure-database-migration-service"></a>Status för migreringsscenarier som stöds av Azure Database Migration Service
 Azure Database Migration Service är utformad för att stödja olika Migreringsscenarier (källa/mål-par) för både offline (engångs-) och online (kontinuerlig synkronisering) migreringar. Scenario-täcks av Azure Database Migration Service utökas över tid. Nya scenarier läggs regelbundet. Den här artikeln identifierar migreringsscenarier som stöds av Azure Database Migration Service och status för närvarande (privat [eller begränsad] förhandsversioner, offentlig förhandsversion eller allmänt tillgänglig) eller varje scenario.

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/22/2019
 ms.author: makromer
-ms.openlocfilehash: 4e661f838cc0b8e52ff72e4e44a43d611fa3355f
-ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
+ms.openlocfilehash: 856f4bd9c2b04ff10ed598c5e641955e1de99398
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57727390"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57792420"
 ---
 # <a name="execute-data-flow-activity-in-azure-data-factory"></a>Kör flödesaktivitet för data i Azure Data Factory
 Använda aktiviteten kör data flöde för att köra ditt ADF dataflöde i pipelinekörningar för felsökning (sandbox) och utlösta pipelinekörningar.
@@ -54,6 +54,12 @@ Använda aktiviteten kör data flöde för att köra ditt ADF dataflöde i pipel
 ### <a name="run-on"></a>Kör på
 
 Välj compute-miljö för den här körningen av ditt dataflöde. Standardvärdet är Azure löses standard Integration Runtime. Det här alternativet körs dataflödet på Spark-miljö i samma region som din datafabrik. Compute-typ kommer att ett jobbkluster, vilket innebär att beräkningsmiljön tar flera minuter att start.
+
+### <a name="debugging-pipelines-with-data-flows"></a>Felsöker pipelines med dataflöden
+
+![Felsöka knappen](media/data-flow/debugbutton.png "Debug-knappen")
+
+Använd den Data flöda felsöka ska kunna använda ett uppvärmning kluster för att testa din dataflöden interaktivt i en pipeline-debug kör. Använd Pipleine Debug-alternativet för att testa din dataflöden i en pipeline.
 
 ### <a name="compute-type"></a>Typ av databehandling
 

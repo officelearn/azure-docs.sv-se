@@ -1,0 +1,103 @@
+items:
+- name: Dokumentation om Database Migration Service
+  href: index.yml
+- name: Översikt
+  items:
+  - name: Vad är Database Migration Service (DMS)?
+    href: dms-overview.md
+- name: Snabbstarter
+  items:
+  - name: Skapa en tjänst – portalen
+    href: quickstart-create-data-migration-service-portal.md
+- name: Självstudier
+  items:
+  - name: Migrera SQL Server till Azure SQL DB offline
+    href: tutorial-sql-server-to-azure-sql.md
+  - name: Migrera SQL Server till Azure SQL DB online
+    href: tutorial-sql-server-azure-sql-online.md
+  - name: Migrera SQL Server till Azure SQL DB Managed Instance offline
+    href: tutorial-sql-server-to-managed-instance.md
+  - name: Migrera SQL Server till Azure SQL DB Managed Instance online
+    href: tutorial-sql-server-managed-instance-online.md
+  - name: Migrera RDS SQL Server till Azure SQL DB eller Azure SQL DB Managed Instance online
+    href: tutorial-rds-sql-server-azure-sql-and-managed-instance-online.md
+  - name: Migrera MySQL till Azure DB för MySQL online
+    href: tutorial-mysql-azure-mysql-online.md
+  - name: Migrera PostgreSQL till Azure DB för PostgreSQL online
+    href: tutorial-postgresql-azure-postgresql-online.md
+  - name: Migrera MongoDB till API:et för Azure Cosmos DB Mongo offline
+    href: tutorial-mongodb-cosmos-db.md
+  - name: Migrera MongoDB till API:et för Azure Cosmos DB Mongo online
+    href: tutorial-mongodb-cosmos-db-online.md
+- name: Instruktionsguider
+  items:
+  - name: Använda PowerShell för att migrera SQL Server till Azure SQL DB
+    href: howto-sql-server-to-azure-sql-powershell.md
+  - name: Använda PowerShell för att migrera SQL Server till Azure SQL DB MI
+    href: howto-sql-server-to-azure-sql-mi-powershell.md
+  - name: Övervaka migreringsaktiviteter
+    href: how-to-monitor-migration-activity.md
+  - name: Migrera SSIS-paket till Azure
+    href: how-to-migrate-ssis-packages.md
+- name: Resurser
+  items:
+  - name: Status för databasmigreringsscenario
+    href: resource-scenario-status.md
+  - name: Översikt över krav
+    href: pre-reqs.md
+  - name: Nätverkstopologier för Azure SQL DB Managed Instance-migrering
+    href: resource-network-topologies.md
+  - name: Kända problem
+    items:
+    - name: Kända problem – Onlinemigrering till Azure SQL DB
+      href: known-issues-azure-sql-online.md
+    - name: Kända problem – Onlinemigrering till Azure DB för MySQL
+      href: known-issues-azure-mysql-online.md
+    - name: Kända problem – Onlinemigrering till Azure DB för PostgreSQL
+      href: known-issues-azure-postgresql-online.md
+  - name: Videoklipp
+    items:
+    - name: Använda databasmigreringsguiden
+      href: https://azure.microsoft.com/resources/videos/how-to-use-the-azure-database-migration-guide/
+    - name: Migreringsprocessen och rekommenderade verktyg/tjänster
+      href: https://azure.microsoft.com/resources/videos/overview-of-migration-and-recommended-tools-services/
+    - name: Åtgärda krav och skapa en DMS-instans
+      href: https://azure.microsoft.com/resources/videos/how-to-address-prerequisites-and-create-a-dms-instance/
+    - name: Migrera SQL Server 2008 till Azure SQL Database Managed Instance
+      href: https://azure.microsoft.com/resources/videos/how-to-migrate-sql-server-2008-or-r2-to-azure-sqldbmi/
+    - name: Migrera PostgreSQL till Azure Database for PostgreSQL
+      href: https://azure.microsoft.com/resources/videos/how-to-migrate-postgresql-to-azure-postgresql-online-dms-and-cli/
+    - name: Övervaka en onlinemigrering och utföra snabb migrering
+      href: https://azure.microsoft.com/resources/videos/how-to-monitor-online-migration-and-perform-cutover/
+    - name: Migrera Oracle till Azure SQL Database
+      href: https://azure.microsoft.com/resources/videos/how-to-migrate-oracle-to-sqldb-online/
+    - name: Migrera MongoDB till Azure Cosmos DB
+      href: https://azure.microsoft.com/resources/videos/how-to-migrate-mongodb-to-cosmos-db/
+  - name: Verktyg och vägledning
+    items:
+    - name: Tillgängliga tjänster och verktyg för datamigreringsscenarier
+      href: dms-tools-matrix.md
+    - name: Guide för databasmigrering
+      href: https://aka.ms/datamigration
+    - name: Data Migration Assistant
+      href: https://aka.ms/dma
+    - name: SQL Server Migration Assistant
+      href: https://aka.ms/ssma
+    - name: Database Experimentation Assistant
+      href: https://aka.ms/dea-docs
+  - name: Vanliga frågor och svar
+    href: faq.md
+  - name: User Voice-feedback
+    href: https://feedback.azure.com/forums/906100-azure-database-migration-service
+  - name: Prissättning
+    href: https://aka.ms/dms-pricing
+  - name: Tjänstuppdateringar
+    href: https://azure.microsoft.com/updates/?product=database-migration
+  - name: Azure-översikt
+    href: https://azure.microsoft.com/roadmap/
+ms.openlocfilehash: 9cbf896989373638cd97e28ab4e5303b49958887
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57555983"

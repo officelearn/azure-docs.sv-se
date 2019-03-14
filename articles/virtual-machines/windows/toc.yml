@@ -124,8 +124,6 @@ items:
     href: monitor.md
   - name: Säkerhetskopiering och återställning
     href: backup-recovery.md
-  - name: Beräkning med höga prestanda
-    href: high-performance-computing.md
   - name: Infrastrukturexempel
     href: infrastructure-example.md
 - name: Instruktionsguider
@@ -313,43 +311,46 @@ items:
         href: excel-cluster-hpcpack.md
   - name: Hantera lagring
     items:
-    - name: Vanliga frågor och svar om diskar
-      href: faq-for-disks.md
     - name: Lägg till en disk
       items:
       - name: Azure PowerShell
         href: attach-disk-ps.md
       - name: Azure Portal
         href: attach-managed-disk-portal.md
-    - name: Beräkna benchmark för en disk
-      href: disks-benchmarks.md
     - name: Koppla från en disk
       href: detach-disk.md
+    - name: Distribuera diskar med mall
+      href: using-managed-disks-template-deployments.md
     - name: Ändra storlek på en disk
       href: expand-os-disk.md
     - name: Ögonblicksbild av en disk
       href: snapshot-copy-managed-disk.md
     - name: Säkerhetskopiera ohanterade diskar
       href: incremental-snapshots.md
-    - name: Konvertera en disk mellan Standard och Premium
-      href: convert-disk-storage.md
-    - name: Migrera till Premium Storage med Azure Site Recovery
-      href: migrate-to-premium-storage-using-azure-site-recovery.md
+    - name: Migrering och konvertering
+      items:
+      - name: Konvertera en disk mellan Standard och Premium
+        href: convert-disk-storage.md
+      - name: Migrera till Premium Storage med Azure Site Recovery
+        href: migrate-to-premium-storage-using-azure-site-recovery.md
+      - name: Migrera till Managed Disks
+        href: migrate-to-managed-disks.md
+      - name: Ohanterad virtuell dator till Managed Disks
+        href: convert-unmanaged-to-managed-disks.md
+    - name: Prestanda
+      items:
+      - name: Aktivera Write Accelerator
+        href: how-to-enable-write-accelerator.md
+      - name: Aktivera Ultra SSD:er
+        href: disks-enable-ultra-ssd.md
+      - name: Beräkna benchmark för en disk
+        href: disks-benchmarks.md
     - name: Hitta icke anslutna diskar
       href: find-unattached-disks.md
     - name: Använda fillagring
-      href: mount-azure-file-storage.md
-    - name: Distribuera diskar med mall
-      href: using-managed-disks-template-deployments.md
-    - name: Aktivera Write Accelerator
-      href: how-to-enable-write-accelerator.md
-    - name: Aktivera Ultra SSD:er
-      href: disks-enable-ultra-ssd.md
-    - name: Migrera till Managed Disks
-      href: migrate-to-managed-disks.md
-      items:
-      - name: Ohanterad virtuell dator till Managed Disks
-        href: convert-unmanaged-to-managed-disks.md
+      href: ../../storage/files/storage-files-quick-create-use-windows.md
+    - name: Vanliga frågor och svar om diskar
+      href: faq-for-disks.md
   - name: Hantera nätverk
     href: ps-common-network-ref.md
     items:
@@ -461,9 +462,9 @@ items:
     href: https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines
   - name: VANLIGA FRÅGOR OCH SVAR
     href: faq.md
-ms.openlocfilehash: 3ddf84852fee0dc30aa9bc7e9d49f06493f6b0cc
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 78a321bbf5bbf3c970d7b6caef3409d55d33c808
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57448450"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57732525"

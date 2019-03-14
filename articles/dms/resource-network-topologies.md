@@ -2,7 +2,7 @@
 title: Nätverkstopologier för Azure SQL Database Managed Instance-migrering med hjälp av Azure Database Migration Service | Microsoft Docs
 description: Läs om käll- och konfigurationer för Database Migration Service.
 services: database-migration
-author: pochiraju
+author: HJToland3
 ms.author: rajpo
 manager: craigg
 ms.reviewer: douglasl
@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 12/19/2018
-ms.openlocfilehash: bc54b3dbcdb304b18f916e5fbd4866ff54d1bfa2
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.date: 03/12/2019
+ms.openlocfilehash: 82c91515ac3fae65623e3750471fec46b5d4bf5b
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53713204"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57790687"
 ---
 # <a name="network-topologies-for-azure-sql-db-managed-instance-migrations-using-the-azure-database-migration-service"></a>Nätverkstopologier för Azure SQL DB Managed Instance-migrering med hjälp av Azure Database Migration Service
 Den här artikeln beskrivs olika nätverkstopologier som Azure Database Migration Service kan arbeta med för att tillhandahålla en omfattande migreringen från en lokal SQL-servrar till Azure SQL Database Managed Instance.
@@ -66,13 +66,13 @@ Använd den här nätverkstopologi om miljön kräver en eller flera av följand
 
 ## <a name="inbound-security-rules"></a>Ingående säkerhetsregler
 
-| **NAMN**   | **PORT** | **PROTOKOLL** | **KÄLLA** | **MÅL** | **ÅTGÄRD** |
+| **NAME**   | **PORT** | **PROTOCOL** | **KÄLLA** | **DESTINATION** | **ÅTGÄRD** |
 |------------|----------|--------------|------------|-----------------|------------|
 | DMS_subnet | Alla      | Alla          | DMS-UNDERNÄT | Alla             | Tillåt      |
 
 ## <a name="outbound-security-rules"></a>Utgående säkerhetsregler
 
-| **NAMN**                  | **PORT**                                              | **PROTOKOLL** | **KÄLLA** | **MÅL**           | **ÅTGÄRD** | **Orsak för regeln**                                                                                                                                                                              |
+| **NAME**                  | **PORT**                                              | **PROTOCOL** | **KÄLLA** | **DESTINATION**           | **ÅTGÄRD** | **Orsak för regeln**                                                                                                                                                                              |
 |---------------------------|-------------------------------------------------------|--------------|------------|---------------------------|------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | hantering                | 443,9354                                              | TCP          | Alla        | Alla                       | Tillåt      | Hantering av plan kommunikation via service bus och Azure blob storage. <br/>(Om Microsoft-peering är aktiverad, du kanske inte behöver den här regeln.)                                                             |
 | Diagnostik               | 12000                                                 | TCP          | Alla        | Alla                       | Tillåt      | DMS använder den här regeln för att samla in diagnostisk information för felsökning.                                                                                                                      |

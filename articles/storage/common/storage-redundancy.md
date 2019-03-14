@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/18/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: cbe8970e3e7b924025a93b50f9b8c9e46643b349
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 347ae6dbdbab866b6d82d64bec4e668689078429
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56872054"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57791247"
 ---
 # <a name="azure-storage-redundancy"></a>Redundans i Azure Storage
 
@@ -51,7 +51,7 @@ Information om Azure Storage-garantier för hållbarhet och tillgänglighet, fin
 > Premium Storage stöder endast lokalt redundant lagring (LRS).
 
 ## <a name="changing-replication-strategy"></a>Ändra replikeringsstrategi
-Vi kan du ändra replikeringsstrategi i ditt storage-konto med hjälp av den [Azure-portalen](https://portal.azure.com/), [Azure Powershell](storage-powershell-guide-full.md), [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest), eller en av många [ Azure-klientbiblioteken](https://docs.microsoft.com/azure/index?view=azure-dotnet#pivot=sdkstools). Ändra typen för replikering av ditt lagringskonto resulterar inte i driftstopp.
+Du kan ändra replikeringsstrategi i ditt storage-konto med hjälp av den [Azure-portalen](https://portal.azure.com/), [Azure Powershell](storage-powershell-guide-full.md), [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest), eller någon av de [Azure-klient bibliotek](https://docs.microsoft.com/azure/index?view=azure-dotnet#pivot=sdkstools). Ändra typen för replikering av ditt lagringskonto resulterar inte i driftstopp.
 
    > [!NOTE]
    > För närvarande kan använda du inte portalen eller API för att omvandla ditt konto till ZRS. Om du vill konvertera ditt kontos replikering till ZRS [zonen-redundant lagring (ZRS)](storage-redundancy-zrs.md) mer information.
@@ -59,7 +59,9 @@ Vi kan du ändra replikeringsstrategi i ditt storage-konto med hjälp av den [Az
 ### <a name="are-there-any-costs-to-changing-my-accounts-replication-strategy"></a>Finns det några kostnader för att ändra replikeringsstrategi för mitt konto?
 Det beror på din sökväg till konvertering. Sorteringen från billigaste på dyraste redundans-erbjudandet och besvarar LRS, ZRS, GRS och RA-GRS. Till exempel kommer *från* LRS till något tillkommer ytterligare kostnader eftersom du kommer att en mer avancerad redundansnivå. Gå *till* GRS eller RA-GRS påförs en avgift för utgående bandbredd eftersom dina data (på din primära region) replikeras till din fjärranslutna sekundär region. Detta är en enstaka dig vid installationen. När data kopieras, finns det inga ytterligare avgifter för konvertering. Du debiteras bara för att replikera alla nya eller uppdateringar av befintliga data. Mer information om kostnader för bandbredd finns [prissättning för Azure Storage](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
-Om du ändrar från GRS till LRS ingår utan extra kostnad, men din replikerade data tas bort från den sekundära platsen.
+Om du konverterar ditt lagringskonto från GRS till LRS ingår utan extra kostnad, men din replikerade data tas bort från den sekundära platsen.
+
+Om du konverterar ditt storage-konto från RA-GRS till GRS eller LRS debiteras det kontot som RA-GRS för ytterligare 30 dagar efter det datum som den har konverterats.
 
 ## <a name="see-also"></a>Se också
 

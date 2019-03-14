@@ -2,16 +2,17 @@
 title: Återge funktioner – Azure Batch
 description: Specifika renderingsfunktioner i Azure Batch
 services: batch
+ms.service: batch
 author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
-ms.openlocfilehash: a1408720a5387d044416ded377189e4539f782a7
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: be6c0f9a8874507433606903bcbd58c7723d6a8a
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53543044"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57791808"
 ---
 # <a name="azure-batch-rendering-capabilities"></a>Azure Batch rendering-funktioner
 
@@ -31,8 +32,8 @@ En exempelkonfiguration av poolen finns det [självstudien för Azure CLI-render
 
 | Utgivare | Erbjudande | Sku | Version |
 |---------|---------|---------|--------|
-| batch | rendering centos73 | rendering | senaste |
-| batch | rendering windows2016 | rendering | senaste |
+| batch | rendering-centos73 | rendering | senaste |
+| batch | rendering-windows2016 | rendering | senaste |
 
 Andra alternativ är tillgängliga om det krävs ytterligare program på poolen med virtuella datorer:
 
@@ -65,12 +66,12 @@ Om du vill kunna skapa kommandoraden för renderingsuppgifter måste installatio
 |---------|---------|---------|
 |Autodesk 3ds Max 2018|3dsmaxcmdio.exe|3DSMAX_2018_EXEC|
 |Autodesk 3ds Max 2019|3dsmaxcmdio.exe|3DSMAX_2019_EXEC|
-|Autodesk Maya 2017|Render.exe|MAYA_2017_EXEC|
-|Autodesk Maya 2018|Render.exe|MAYA_2018_EXEC|
+|Autodesk Maya 2017|render.exe|MAYA_2017_EXEC|
+|Autodesk Maya 2018|render.exe|MAYA_2018_EXEC|
 |Chaos Group V-Ray fristående|vray.exe|VRAY_3.60.4_EXEC|
 2017 Arnold-kommandorad|kick.exe|ARNOLD_2017_EXEC|
 |2018 Arnold-kommandorad|kick.exe|ARNOLD_2018_EXEC|
-|Blender|Blender.exe|BLENDER_2018_EXEC|
+|Blender|blender.exe|BLENDER_2018_EXEC|
 
 ### <a name="azure-vm-families"></a>Azure VM-serier
 

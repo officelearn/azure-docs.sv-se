@@ -1,21 +1,22 @@
 ---
-title: Ha flera webbplatser i Azure Application Gateway
+title: Agera värd åt flera webbplatser i Azure Application Gateway
 description: Den här artikeln innehåller en översikt över Azure Application Gateway multisite-stöd.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.date: 1/17/2019
 ms.author: amsriva
-ms.openlocfilehash: 5c3fd92b3aa21b749a0c8ff435a1e5c12da4f57d
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.topic: conceptual
+ms.openlocfilehash: 335545f86c9c23feefb6ac21ca9cc5c8fcb5e7fb
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54381987"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57790620"
 ---
 # <a name="application-gateway-multiple-site-hosting"></a>Flera webbplatser i Application Gateway
 
-Om du har flera webbplatser så kan du konfigurera fler än ett webbprogram inom samma programgateway-instans. Den här funktionen kan du konfigurera en mer effektiv topologi för dina distributioner genom att lägga till upp till 100 webbplatser till en Programgateway. Varje webbplats kan dirigeras till en egen serverdelspool. I följande exempel servar Application Gateway trafik åt contoso.com och fabrikam.com från två serverdels-serverpooler som heter ContosoServerPool och FabrikamServerPool.
+Om du har flera webbplatser så kan du konfigurera fler än ett webbprogram inom samma programgateway-instans. Den här funktionen låter dig konfigurera en mer effektiv topologi för dina distributioner genom att lägga till upp till 100 webbplatser till en programgateway. Varje webbplats kan dirigeras till en egen serverdelspool. I följande exempel servar Application Gateway trafik åt contoso.com och fabrikam.com från två serverdels-serverpooler som heter ContosoServerPool och FabrikamServerPool.
 
 ![imageURLroute](./media/multiple-site-overview/multisite.png)
 

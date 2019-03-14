@@ -16,12 +16,12 @@ ms.date: 03/07/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 03/07/2019
-ms.openlocfilehash: 9bad9b6fb285c27264c8c0567aebd4d4f2850582
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: 66dfdf3a88a4bacdc118fed00d79f02b22da7869
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57731341"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57792471"
 ---
 # <a name="azure-stack-1902-update"></a>Uppdatering av Azure Stack 1902
 
@@ -73,9 +73,34 @@ Azure Stack-snabbkorrigeringar gäller endast för integrerade Azure Stack-syste
 
 <!-- ## Fixed issues -->
 
-## <a name="changes"></a>Ändringar
+## <a name="improvements"></a>Förbättringar
 
 - 1902-build introducerar ett nytt användargränssnitt på Azure Stack-administratörsportalen för att skapa planer, erbjudanden, kvoter och tilläggsplaner. Mer information, inklusive skärmdumpar, se [skapa planer, erbjudanden och kvoter](azure-stack-create-plan.md).
+
+<!--
+1426197 3852583: Increase Global VM script mutex wait time to accommodate enclosed operation timeout    PNU
+1399240 3322580: [PNU] Optimize the DSC resource execution on the Host  PNU
+1398846 Bug 3751038: ECEClient.psm1 should provide cmdlet to resume action plan instance    PNU
+1398818 3685138, 3734779: ECE exception logging, VirtualMachine ConfigurePending should take node name from execution context   PNU
+1381018 [1902] 3610787 - Infra VM creation should fail if the ClusterGroup already exists   PNU
+-->
+- För att förbättra paketets integritet och säkerhet samt enklare hantering för offline-inmatning, har Microsoft ändrats formatet för uppdateringspaketet från .exe och .bin-filer till en .zip-fil. Det nya formatet lägger till ytterligare tillförlitlighet för packar upp processen som ibland orsaka förberedelsen av uppdateringen uppehåll. Samma paket format gäller även om du vill uppdatera paket från OEM-tillverkaren.
+- För att förbättra Azure Stack operatörens upplevelse när du kör testet AzureStack, operatörer kan nu helt enkelt använda ”, Test-AzureStack-gruppen UpdateReadiness” till skillnad från skicka tio ytterligare parametrar när du har en Include-sats.
+
+  ```powershell
+    Test-AzureStack -Group UpdateReadiness  
+  ```  
+  
+- För att förbättra på övergripande tillförlitlighet och tillgänglighet av grundläggande infrastruktur för tjänster under uppdateringen, interna Update-resursprovidern som en del av åtgärdsplan update identifierar och anropa automatisk globala reparationer när det behövs. Global reparation ”reparera” arbetsflöden är:
+    - Söker efter infrastrukturens virtuella datorer som är i ett icke-optimala tillstånd och försöker reparera dem efter behov 
+    - Sök efter problem med SQL-tjänsten som en del av plan för åtkomstkontroll och försöker reparera dem efter behov
+    - Kontrollera tillståndet för tjänsten Software Load Balancer (SLB) som en del av Network Controller (NC) och försöker reparera dem efter behov
+    - Kontrollera tillståndet för tjänsten Network Controller (NC) och försöker reparera det vid behov
+    - Kontrollera tillståndet för service fabric-noder för nödadministration Recovery konsolen Service (ERCS) och åtgärda eventuella
+    - Kontrollera tillståndet för XRP service fabric-noder och åtgärda eventuella
+    - Kontrollera tillståndet hos Azure konsekvent Storage (ACS) service fabric-noder och åtgärda eventuella
+
+
 
 ## <a name="common-vulnerabilities-and-exposures"></a>Vanliga säkerhetsproblem och exponeringar
 

@@ -3,15 +3,16 @@ title: Skapa virtuella noder med hjälp av portalen i Azure Kubernetes Services 
 description: Lär dig hur du använder Azure-portalen för att skapa ett kluster i Azure Kubernetes Services (AKS) som använder virtuella noder för att köra poddar.
 services: container-service
 author: iainfoulds
+ms.topic: conceptual
 ms.service: container-service
 ms.date: 12/03/2018
 ms.author: iainfou
-ms.openlocfilehash: 2576d8d65fb6a72d5d90de57297afe2ea601c0fa
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 550918292d8cf8baca9403cdc687f336672150f7
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56816833"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57790888"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-in-the-azure-portal"></a>Skapa och konfigurera en Azure Kubernetes Services kluster (AKS) för att använda virtuella noder i Azure portal
 
@@ -20,7 +21,7 @@ För att snabbt distribuera arbetsbelastningar i ett kluster i Azure Kubernetes 
 > [!IMPORTANT]
 > Virtuella noder för AKS är för närvarande i **förhandsversion**. Förhandsversioner görs tillgängliga för dig under förutsättning att du godkänner [kompletterande användningsvillkor](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Vissa aspekter av funktionen kan ändras innan den är allmänt tillgänglig (GA).
 
-## <a name="preview-limitations"></a>Begränsningar i förhandsversionen
+## <a name="preview-limitations"></a>Begränsningar för förhandsversion
 
 Den här funktionen är i förhandsversion, har följande regioner stöd för distributioner:
 

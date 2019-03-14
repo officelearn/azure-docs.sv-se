@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 12/3/2018
 ms.author: pabouwer
-ms.openlocfilehash: f34d8c547738921374eaf5edcfcec4911423d9dc
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 25a68f55eb9a6deb037029d5d8a984ce74f12be5
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55699219"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57791468"
 ---
 # <a name="install-and-use-istio-in-azure-kubernetes-service-aks"></a>Installera och använda Istio i Azure Kubernetes Service (AKS)
 
@@ -82,7 +82,7 @@ Expand-Archive -Path "istio-$ISTIO_VERSION.zip" -DestinationPath .
 Den `istioctl` binära klienten körs på klientdatorn och låter dig hantera Istio routningsregler och principer. Igen, installera stegen skiljer sig lite mellan klientoperativsystem. Välj ett av följande installationen steg för din miljö.
 
 > [!IMPORTANT]
-> Kör alla återstående steg från den översta mappen av Istio-versionen som du hämtade och extraherade i föregående avsnitt.
+> Kontrollera att du kört stegen i det här avsnittet från den översta mappen av Istio-versionen som du har hämtat och extraherat.
 
 ### <a name="macos"></a>MacOS
 
@@ -145,6 +145,9 @@ $PATH = [environment]::GetEnvironmentVariable("PATH", "User")
 ```
 
 ## <a name="install-the-istio-kubernetes-components"></a>Installera komponenterna för Istio Kubernetes
+
+> [!IMPORTANT]
+> Kontrollera att du kört stegen i det här avsnittet från den översta mappen av Istio-versionen som du har hämtat och extraherat.
 
 Använd Helm för att installera komponenter för Istio i AKS-klustret. Installera Istio resurser i den `istio-system` namnområdet, och aktivera ytterligare alternativ för säkerhet och övervakning på följande sätt:
 

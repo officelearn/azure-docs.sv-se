@@ -53,8 +53,16 @@ items:
     href: concept-accelerate-with-fpgas.md
   - name: Pipelines för maskininlärning
     href: concept-ml-pipelines.md
-  - name: Företagssäkerhet
-    href: concept-enterprise-security.md
+  - name: Säkerhet
+    items:
+    - name: Översikt över Enterprise Security
+      displayName: authorization authentication encryption
+      href: concept-enterprise-security.md
+    - name: Använda virtuella nätverk
+      displayName: vnet
+      href: how-to-enable-virtual-network.md
+    - name: Säkra webbtjänster med SSL
+      href: how-to-secure-web-service.md
 - name: Instruktionsguider
   items:
   - name: Hantera arbetsytor
@@ -113,6 +121,8 @@ items:
     - name: Använd fjärrberäkningsmål
       displayName: automl automated auto ml
       href: how-to-auto-train-remote.md
+    - name: Träna prognosmodeller automatiskt
+      href: how-to-auto-train-forecast.md
   - name: ONNX-modeller
     href: how-to-build-deploy-onnx.md
   - name: Distribuera modeller
@@ -139,13 +149,6 @@ items:
       href: how-to-enable-data-collection.md
     - name: Övervaka med Application Insights
       href: how-to-enable-app-insights.md
-  - name: Säkerhet
-    items:
-    - name: Använda virtuella nätverk
-      displayName: vnet
-      href: how-to-enable-virtual-network.md
-    - name: Säkra webbtjänster med SSL
-      href: how-to-secure-web-service.md
   - name: Skapa din första pipeline
     href: how-to-create-your-first-pipeline.md
   - name: Aktivera loggning
@@ -189,9 +192,9 @@ items:
     href: support-for-aml-services.md
   - name: Jämför våra ML-produkter
     href: overview-more-machine-learning.md
-ms.openlocfilehash: 5d7cdcec4e0b855f509539a1fc79015793efc404
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: 19a26ea88ba8c8e820e838a7c96a802180129dd7
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57192139"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57766274"

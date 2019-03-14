@@ -4,12 +4,12 @@ ms.author: robin.shahan
 ms.service: iot-hub
 ms.topic: include
 ms.date: 10/26/2018
-ms.openlocfilehash: ea4931bee17b57260660cc5ba80807a8ae25ca3d
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 20553db8c79c960aabda5aba708d315517462126
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57554008"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57805189"
 ---
 I följande tabell visas de begränsningar som är associerade med de olika nivåerna S1, S2, S3 och F1. Information om kostnaden för var och en *enhet* i respektive nivå finns [priser för Azure IoT Hub](https://azure.microsoft.com/pricing/details/iot-hub/).
 
@@ -70,8 +70,8 @@ IoT Hub begränsar begärandena om följande kvoter överskrids.
 | Mottagningar moln-till-enhet |833.33/sec/Unit (50 000 per minut/enhet) (för S3), 16.67/sec/unit (1 000 per minut per enhet) (för S1 och S2). |
 | Filöverföringsåtgärder |83.33 filen ladda upp meddelanden per sekund och enhet (5 000 per minut per enhet) (för S3), 1,67 filen ladda upp meddelanden/sekund och enhet (100 per minut per enhet) (för S1 och S2). <br/> 10 000 SAS URI: er kan vara ute för ett Azure Storage-konto i taget.<br/> 10 SAS URI:er/enheten kan vara ute vid ett och samma tillfälle. |
 | Direkta metoder | 24 MB/sek/enhet (för S3), 480 KB/sek/enhet (för S2), 160 KB/sek/enhet (för S1).<br/> Baserat på 8 KB begränsning mätaren storlek. |
-| Läsoperationer för enhetstvilling | 50 per sekund och enhet (för S3), maximalt 10 per sekund eller 1 per sekund och enhet (för S2), 10 per sekund (för S1). |
-| Uppdateringar för enhetstvilling | 50 per sekund och enhet (för S3), maximalt 10 per sekund eller 1 per sekund och enhet (för S2), 10 per sekund (för S1). |
+| Läsoperationer för enhetstvilling | 500 per sekund och enhet (för S3), högst 100 per sekund eller 10 per sekund och enhet (för S2), 100 per sekund (för S1) |
+| Uppdateringar för enhetstvilling | 250 per sekund och enhet (för S3), högst 50 per sekund eller 5 per sekund och enhet (för S2), 50/sek (för S1) |
 | Jobbåtgärder <br/> (skapa, uppdatera, lista, och ta bort) | 83.33/sec/Unit (5 000 per minut/enhet) (för S3), 1.67/sec/unit (100 per minut per enhet) (för S2), 1.67/sec/unit (100 per minut per enhet) (för S1). |
 | Jobb per enhetsåtgärd, dataflöde | 50 per sekund och enhet (för S3), maximalt 10 per sekund eller 1 per sekund och enhet (för S2), 10 per sekund (för S1). |
 | Enheten initiation dataströmshastighet | 5 nya dataströmmar/sek (för S1, S2, S3 och endast F1). |

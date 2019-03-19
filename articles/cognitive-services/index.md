@@ -11,9 +11,9 @@ ms.date: 02/21/2019
 ms.topic: hub-page
 ---
 
+<div id="main" class="v2">
 <h1>Dokumentation om Azure Cognitive Services</h1>
         <p style="font-size: 1.12rem;margin-bottom: 1rem;">Lär dig hur du skapar intelligenta algoritmer med dina appar, webbplatser och robotar så att de kan se, höra, tala och förstå användarnas behov genom naturlig kommunikation. Självstudier, snabbstarter, API-referenser och exempel med anvisningar.</p>
-
 <ul class="cardsY panelContent singlePanelContent" style="display:flex!important;">
         <li>
             <a href="/azure/cognitive-services/welcome/">
@@ -386,3 +386,4 @@ ms.topic: hub-page
         </div>
     </li>
 </ul>
+</div>

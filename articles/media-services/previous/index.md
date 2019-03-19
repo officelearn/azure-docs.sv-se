@@ -1,24 +1,19 @@
 ---
-title: Dokumentation om Azure Media Services – Självstudier, API-referens | Microsoft Docs
-description: Lär dig säker strömning på begäran eller live-video i sändningskvalitet med hjälp av Media Services, en utökningsbar molnplattform. Självstudier, API-referenser och mycket annat.
+title: 'Dokumentation om Azure Media Services – Självstudier, API-referens | Microsoft Docs'
+description: 'Lär dig säker strömning på begäran eller live-video i sändningskvalitet med hjälp av Media Services, en utökningsbar molnplattform. Självstudier, API-referenser och mycket annat.'
 services: media-services
 author: czeumault
 manager: carolz
 layout: LandingPage
-ms.assetid: ''
+ms.assetid: null
 ms.service: media-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
-ms.date: 02/08/2018
+ms.date: 03/14/2019
 ms.author: carolz
-ms.openlocfilehash: dce69041176840765817d561f61a0d5f3d2b9a66
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55998039"
 ---
+
 # <a name="media-services-documentation"></a>Dokumentation för Media Services  
 
 Lär dig hur du strömmar video i sändningskvalitet med hjälp av Media Services, en utökningsbar molnplattform. Självstudier, API-referenser och annan dokumentation visar hur du säkert levererar ljud- eller videoströmmar på begäran och live, som kan skalas till miljontals användare.

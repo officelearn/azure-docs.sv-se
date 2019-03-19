@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: aa003d5c56e374c99b26beb884fce27b9b16298e
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 76944d98d6a5fe7c3f83ce12bb2fdf1a34d5e234
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57440071"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57839108"
 ---
 # <a name="azure-security-technical-capabilities"></a>Tekniska funktioner för Azure-säkerhet
 
@@ -75,7 +75,7 @@ Säkerhetsfördelarna med Azure Active Directory (Azure AD) är möjligheten att
 
 - Etablera säker fjärråtkomst till lokala webbprogram via Azure AD-programproxy.
 
-Den [Azure Active Directory-portalen](http://aad.portal.azure.com/) finns en del av Azure-portalen. Från den här instrumentpanelen kan du få en översikt över tillståndet för din organisation och enkelt fördjupa dig i Hantera directory, användare eller programåtkomst.
+Den [Azure Active Directory-portalen](https://aad.portal.azure.com/) finns en del av Azure-portalen. Från den här instrumentpanelen kan du få en översikt över tillståndet för din organisation och enkelt fördjupa dig i Hantera directory, användare eller programåtkomst.
 
 ![Azure Active Directory](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig2.png)
 
@@ -113,7 +113,7 @@ Inte bara användare behöver inte hantera flera uppsättningar med användarnam
 
 Säkerhetsövervakning och varningar och maskininlärningsbaserade rapporter som visar avvikande åtkomstmönster kan hjälpa dig att skydda ditt företag. Du kan använda Azure Active Directory-åtkomst och användningsrapporter för att få insyn i integriteten och säkerheten i din organisations katalog. Med den här informationen kan kan en directory-administratör bättre avgöra var potentiella säkerhetsrisker finns så att de kan planera på lämpligt sätt du minskar riskerna.
 
-I Azure portal eller via den [Azure Active Directory-portalen](http://aad.portal.azure.com/), [rapporter](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-guide) kategoriseras på följande sätt:
+I Azure portal eller via den [Azure Active Directory-portalen](https://aad.portal.azure.com/), [rapporter](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-guide) kategoriseras på följande sätt:
 
 - Rapporter för avvikelseidentifiering – innehåller händelser som vi inte avvikande inloggning. Vårt mål är att se till att du är medveten om sådan aktivitet och gör att du kan bestämma om huruvida en händelse är misstänkta.
 
@@ -274,7 +274,7 @@ Du kan lära dig mer om Azure VPN-alternativet genom att läsa artikeln [planeri
 
 [Azure RMS](https://technet.microsoft.com/library/jj585026.aspx) använder kryptering, identitet och auktoriseringsprinciper för att skydda dina filer och e-post. Azure RMS fungerar på flera olika enheter – telefoner, surfplattor och datorer genom att skydda både inom organisationen och utanför organisationen. Den här funktionen är möjligt eftersom Azure RMS lägger till en nivå av skydd som följer med informationen, även när de lämnar organisationens gränser.
 
-När du använder Azure RMS för att skydda dina filer, använder du branschstandardkryptografi med fullständig support av [FIPS 140-2](http://csrc.nist.gov/groups/STM/cmvp/standards.html). När du använder Azure RMS för dataskydd, har du säkra på att skyddet kvar för filen även om de kopieras till lagring som inte kontrolleras av IT-avdelningen, till exempel en molntjänst för lagring. Samma inträffar för filer som delas via e-post, filen skyddas som en bifogad fil till ett e-postmeddelande med instruktioner för hur du öppnar den skyddade bifogade filen.
+När du använder Azure RMS för att skydda dina filer, använder du branschstandardkryptografi med fullständig support av [FIPS 140-2](https://csrc.nist.gov/groups/STM/cmvp/standards.html). När du använder Azure RMS för dataskydd, har du säkra på att skyddet kvar för filen även om de kopieras till lagring som inte kontrolleras av IT-avdelningen, till exempel en molntjänst för lagring. Samma inträffar för filer som delas via e-post, filen skyddas som en bifogad fil till ett e-postmeddelande med instruktioner för hur du öppnar den skyddade bifogade filen.
 När du planerar för Azure RMS-införande rekommenderar vi följande:
 
 - Installera den [RMS-delningsappen](https://technet.microsoft.com/library/dn339006.aspx). Den här appen kan integreras med Office program genom att installera ett Office-tillägget så att användarna kan enkelt skydda filer direkt.

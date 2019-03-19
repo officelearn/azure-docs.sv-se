@@ -8,17 +8,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 02/12/2019
+ms.date: 03/18/2019
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 846fc5de6470326fbd51d19397503e4eee2ee15b
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 8e01ac4efa3c310b17e88351383861cbdccb68e6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57436093"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58171116"
 ---
 # <a name="run-an-ssis-package-with-the-execute-ssis-package-activity-in-azure-data-factory"></a>Kör ett SSIS-paket med aktiviteten kör SSIS-paket i Azure Data Factory
 Den här artikeln beskriver hur du kör ett SSIS-paket i Azure Data Factory (ADF) pipeline med aktiviteten kör SSIS-paket. 
@@ -51,19 +51,19 @@ I det här steget använder du ADF användargränssnitt/app för att skapa en pi
 
    ![Ange egenskaper på fliken Allmänt](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-general.png)
 
-4. På den **inställningar** för aktiviteten kör SSIS-paket, Välj din Azure-SSIS IR som är associerad med SSISDB-databasen där paketet har distribuerats. Om ditt paket måste 32-bitars runtime för att köra, kontrollera den **32-bitars runtime** kryssrutan. För **loggningsnivån**, väljer du en fördefinierad omfattning av loggning för körning av paket. Kontrollera den **anpassad** markerar du kryssrutan om du vill ange namnet på din anpassade loggning i stället. När din Azure-SSIS IR körs och **manuella transaktioner** kryssrutan är avmarkerad kan du bläddra och välj din befintliga mappar/projekt /-paket/miljöer från SSISDB. Klicka på den **uppdatera** knappen för att hämta dina nyligen tillagda mappar/projekt /-paket/miljöer från SSISDB, så att de är tillgängliga för bläddring och val av. 
+4. På den **inställningar** för aktiviteten kör SSIS-paket, Välj din Azure-SSIS IR som är associerad med SSISDB-databasen där paketet har distribuerats. Om ditt paket använder Windows-autentisering för att få åtkomst till datalager, t.ex. SQL-servrar/filresurser lokalt, Azure Files osv., kontrollera den **Windows-autentisering** kryssrutan och ange domän/användarnamn/lösenord för ditt paket körning. Om ditt paket måste 32-bitars runtime för att köra, kontrollera den **32-bitars runtime** kryssrutan. För **loggningsnivån**, väljer du en fördefinierad omfattning av loggning för körning av paket. Kontrollera den **anpassad** markerar du kryssrutan om du vill ange namnet på din anpassade loggning i stället. När din Azure-SSIS IR körs och **manuella transaktioner** kryssrutan är avmarkerad kan du bläddra och välj din befintliga mappar/projekt /-paket/miljöer från SSISDB. Klicka på den **uppdatera** knappen för att hämta dina nyligen tillagda mappar/projekt /-paket/miljöer från SSISDB, så att de är tillgängliga för bläddring och val av. 
 
    ![Ange egenskaper på fliken Inställningar - automatisk](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings.png)
 
-   När din Azure-SSIS IR inte körs eller **manuella transaktioner** är markerad, du kan ange sökvägar för paket- och miljö från SSISDB i följande format: `<folder name>/<project name>/<package name>.dtsx` och `<folder name>/<environment name>`.
+   När din Azure-SSIS IR inte körs eller **manuella transaktioner** är markerad, du kan ange sökvägar för paket- och miljö från SSISDB direkt i följande format: `<folder name>/<project name>/<package name>.dtsx` och `<folder name>/<environment name>`.
 
    ![Ange egenskaper på fliken inställningar - manuellt](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings2.png)
 
-5. På den **SSIS parametrar** flik för att köra SSIS-paket aktivitet, om din Azure-SSIS IR är igång och **manuella transaktioner** kryssrutan på **inställningar** fliken är avmarkerat, den befintliga SSIS-parametrar i ditt valda projekt /-paket från SSISDB visas som du kan tilldela dem värden. Annars kan ange du dem genom en för att tilldela dem värden manuellt – kontrollera att de finns och har angetts korrekt för körning av paket ska lyckas. Du kan också lägga till dynamiskt innehåll deras värden med hjälp av uttryck, funktioner, ADF systemvariabler och ADF pipeline parametrar/variablerna.
+5. På den **SSIS parametrar** flik för att köra SSIS-paket aktivitet, om din Azure-SSIS IR är igång och **manuella transaktioner** kryssrutan på **inställningar** fliken är avmarkerat, den befintliga SSIS-parametrar i ditt valda projekt /-paket från SSISDB visas som du kan tilldela dem värden. Annars kan ange du dem genom en för att tilldela dem värden manuellt – kontrollera att de finns och har angetts korrekt för körning av paket ska lyckas. Du kan lägga till dynamiskt innehåll deras värden med hjälp av uttryck, funktioner, ADF systemvariabler och ADF pipeline parametrar/variablerna. Du kan också använda hemligheter som lagras i din Azure Key Vault (AKV) som deras värden. Om du vill göra det klickar du på den **AZURE KEY VAULT** kryssrutan bredvid den relevanta parametern väljer/Redigera din befintliga AKV länkad tjänst eller skapa en ny och välj sedan den hemliga namn/versionen för din parametervärde.  När du skapar eller redigerar AKV länkade tjänsten, kan du markera och redigera dina befintliga AKV eller skapa en ny, men ge ADF hanterad identitet åtkomst till din AKV om du inte har gjort det redan. Du kan också ange dina hemligheter direkt i följande format: `<AKV linked service name>/<secret name>/<secret version>`.
 
    ![Ange egenskaper på fliken SSIS-parametrar](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-ssis-parameters.png)
 
-6. På den **anslutning chefer** flik för att köra SSIS-paket aktivitet, om din Azure-SSIS IR är igång och **manuella transaktioner** kryssrutan på **inställningar** fliken är avmarkerat den befintliga anslutning hanterare i ditt valda projekt /-paket från SSISDB visas som du kan tilldela dem värden. Annars kan ange du dem genom en för att tilldela dem värden manuellt – kontrollera att de finns och har angetts korrekt för körning av paket ska lyckas. Du kan också lägga till dynamiskt innehåll deras värden med hjälp av uttryck, funktioner, ADF systemvariabler och ADF pipeline parametrar/variablerna.
+6. På den **anslutning chefer** flik för att köra SSIS-paket aktivitet, om din Azure-SSIS IR är igång och **manuella transaktioner** kryssrutan på **inställningar** fliken är avmarkerat den befintliga anslutning hanterare i ditt valda projekt /-paket från SSISDB visas för att tilldela värden till deras egenskaper. Annars kan ange du dem genom en för att tilldela värden till deras egenskaper manuellt – kontrollera att de finns och har angetts korrekt för körning av paket ska lyckas. Du kan lägga till dynamiskt innehåll deras värden med hjälp av uttryck, funktioner, ADF systemvariabler och ADF pipeline parametrar/variablerna. Du kan också använda hemligheter som lagras i din Azure Key Vault (AKV) som deras egenskapsvärden. Om du vill göra det klickar du på den **AZURE KEY VAULT** kryssrutan bredvid egenskapen relevanta väljer/Redigera din befintliga AKV länkad tjänst eller skapa en ny och välj sedan den hemliga namn/versionen för din egenskapsvärde.  När du skapar eller redigerar AKV länkade tjänsten, kan du markera och redigera dina befintliga AKV eller skapa en ny, men ge ADF hanterad identitet åtkomst till din AKV om du inte har gjort det redan. Du kan också ange dina hemligheter direkt i följande format: `<AKV linked service name>/<secret name>/<secret version>`.
 
    ![Ange egenskaper på fliken anslutning chefer](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-connection-managers.png)
 
@@ -139,6 +139,14 @@ I det här steget skapar du en pipeline med en aktivitet kör SSIS-paket. Aktivi
                        "referenceName": "myAzureSSISIR",
                        "type": "IntegrationRuntimeReference"
                    },
+                   "executionCredential": {
+                       "domain": "MyDomain",
+                       "userName": "MyUsername",
+                       "password": {
+                           "type": "SecureString",
+                           "value": "**********"
+                       }
+                   },
                    "runtime": "x64",
                    "loggingLevel": "Basic",
                    "packageLocation": {
@@ -148,11 +156,27 @@ I det här steget skapar du en pipeline med en aktivitet kör SSIS-paket. Aktivi
                    "projectParameters": {
                        "project_param_1": {
                            "value": "123"
+                       },
+                       "project_param_2": {
+                           "value": {
+                               "value": "@pipeline().parameters.MyPipelineParameter",
+                               "type": "Expression"
+                           }
                        }
                    },
                    "packageParameters": {
                        "package_param_1": {
                            "value": "345"
+                       },
+                       "package_param_2": {
+                           "value": {
+                               "type": "AzureKeyVaultSecret",
+                               "store": {
+                                   "referenceName": "myAKV",
+                                   "type": "LinkedServiceReference"
+                               },
+                               "secretName": "MySecret"
+                           }
                        }
                    },
                    "projectConnectionManagers": {
@@ -171,12 +195,20 @@ I det här steget skapar du en pipeline med en aktivitet kör SSIS-paket. Aktivi
                    "packageConnectionManagers": {
                        "MyOledbCM": {
                            "userName": {
-                               "value": "sa"
+                               "value": {
+                                   "value": "@pipeline().parameters.MyUsername",
+                                   "type": "Expression"
+                               }
                            },
                            "passWord": {
                                "value": {
-                                   "type": "SecureString",
-                                   "value": "def"
+                                   "type": "AzureKeyVaultSecret",
+                                   "store": {
+                                       "referenceName": "myAKV",
+                                       "type": "LinkedServiceReference"
+                                   },
+                                   "secretName": "MyPassword",
+                                   "secretVersion": "3a1b74e361bf4ef4a00e47053b872149"
                                }
                            }
                        }

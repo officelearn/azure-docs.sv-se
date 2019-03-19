@@ -15,12 +15,12 @@ ms.date: 01/22/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: f20d51905d90f9f80007dcaa39cf978c7100026d
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 5e6a44018cde84067a4c16c9d3d62227733f6658
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57762897"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58075586"
 ---
 # <a name="manage-storage-capacity-for-azure-stack"></a>Hantera lagringskapacitet för Azure Stack 
 
@@ -93,8 +93,8 @@ Du kan använda administrationsportalen visa lagringskapaciteten för alla resur
 
     ![Exempel: Lagringsfilresurser](media/azure-stack-manage-storage-shares/storage-file-shares.png)
 
-  - **Totalt antal** är det totala utrymmet i byte som är tillgängliga för resursen. Här används för data och metadata som underhålls av storage-tjänster.
-  - **ANVÄNDS** är mängden data i byte som används av de alla utrymmena de filer som lagrar data för klientorganisationen och tillhörande metadata.
+   - **Totalt antal** är det totala utrymmet i byte som är tillgängliga för resursen. Här används för data och metadata som underhålls av storage-tjänster.
+   - **ANVÄNDS** är mängden data i byte som används av de alla utrymmena de filer som lagrar data för klientorganisationen och tillhörande metadata.
 
 ### <a name="storage-space-alerts"></a>Storage utrymme aviseringar
 När du använder admin portal kan få du aviseringar om resurser som är ont om utrymme.
@@ -140,64 +140,64 @@ Migrering konsoliderar alla en behållare blob på den nya resursen.
 
 #### <a name="to-migrate-containers-using-powershell"></a>Att migrera behållare med hjälp av PowerShell
 1. Bekräfta att du har [Azure PowerShell installerad och konfigurerad](https://azure.microsoft.com/documentation/articles/powershell-install-configure/). Mer information finns i [Använda Azure PowerShell med Azure Resource Manager](https://go.microsoft.com/fwlink/?LinkId=394767).
-2.  Granska behållare för att förstå vilka data som finns på den resurs som du planerar att migrera. Använd för att identifiera de bästa kandidat behållarna för migrering i en volym på **Get-AzsStorageContainer** cmdlet:
+2. Granska behållare för att förstå vilka data som finns på den resurs som du planerar att migrera. Använd för att identifiera de bästa kandidat behållarna för migrering i en volym på **Get-AzsStorageContainer** cmdlet:
 
-    ```PowerShell  
-    $farm_name = (Get-AzsStorageFarm)[0].name
-    $shares = Get-AzsStorageShare -FarmName $farm_name
-    $containers = Get-AzsStorageContainer -ShareName $shares[0].ShareName -FarmName $farm_name
-    ```
-    Granska $containers:
+   ```PowerShell  
+   $farm_name = (Get-AzsStorageFarm)[0].name
+   $shares = Get-AzsStorageShare -FarmName $farm_name
+   $containers = Get-AzsStorageContainer -ShareName $shares[0].ShareName -FarmName $farm_name
+   ```
+   Granska $containers:
 
-    ```PowerShell
-    $containers
-    ```
+   ```PowerShell
+   $containers
+   ```
 
-    ![Exempel: $Containers](media/azure-stack-manage-storage-shares/containers.png)
+   ![Exempel: $Containers](media/azure-stack-manage-storage-shares/containers.png)
 
-3.  Identifiera de bästa mål-resurserna för att lagra den behållare som du migrerar:
+3. Identifiera de bästa mål-resurserna för att lagra den behållare som du migrerar:
 
-    ```PowerShell
-    $destinationshares = Get-AzsStorageShare -SourceShareName
-    $shares[0].ShareName -Intent ContainerMigration
-    ```
+   ```PowerShell
+   $destinationshares = Get-AzsStorageShare -SourceShareName
+   $shares[0].ShareName -Intent ContainerMigration
+   ```
 
-    Granska $destinationshares:
+   Granska $destinationshares:
 
-    ```PowerShell 
-    $destinationshares
-    ```
+   ```PowerShell 
+   $destinationshares
+   ```
 
-    ![Exempel: $destination resurser](media/azure-stack-manage-storage-shares/examine-destinationshares.png)
+   ![Exempel: $destination resurser](media/azure-stack-manage-storage-shares/examine-destinationshares.png)
 
 4. Starta migreringen för en behållare. Migreringen är asynkrona. Om du startar migreringen av ytterligare behållare innan den första migreringen är klar, kan du använda jobb-id för att spåra status för var och en.
 
-  ```PowerShell
-  $job_id = Start-AzsStorageContainerMigration -StorageAccountName $containers[0].Accountname -ContainerName $containers[0].Containername -ShareName $containers[0].Sharename -DestinationShareUncPath $destinationshares[0].UncPath -FarmName $farm_name
-  ```
+   ```PowerShell
+   $job_id = Start-AzsStorageContainerMigration -StorageAccountName $containers[0].Accountname -ContainerName $containers[0].Containername -ShareName $containers[0].Sharename -DestinationShareUncPath $destinationshares[0].UncPath -FarmName $farm_name
+   ```
 
-  Granska $jobId. I följande exempel ersätter *d62f8f7a-8b46-4f59-a8aa-5db96db4ebb0* med jobb-id som du vill undersöka:
+   Granska $jobId. I följande exempel ersätter *d62f8f7a-8b46-4f59-a8aa-5db96db4ebb0* med jobb-id som du vill undersöka:
 
-  ```PowerShell
-  $jobId
-  d62f8f7a-8b46-4f59-a8aa-5db96db4ebb0
-  ```
+   ```PowerShell
+   $jobId
+   d62f8f7a-8b46-4f59-a8aa-5db96db4ebb0
+   ```
 
 5. Du kan använda jobb-id för att kontrollera statusen för migreringsjobbet. När behållaren migreringen är klar, **MigrationStatus** är inställd på **Slutför**.
 
-  ```PowerShell 
-  Get-AzsStorageContainerMigrationStatus -JobId $job_id -FarmName $farm_name
-  ```
+   ```PowerShell 
+   Get-AzsStorageContainerMigrationStatus -JobId $job_id -FarmName $farm_name
+   ```
 
-  ![Exempel: Migreringsstatus](media/azure-stack-manage-storage-shares/migration-status1.png)
+   ![Exempel: Migreringsstatus](media/azure-stack-manage-storage-shares/migration-status1.png)
 
-6.  Du kan avbryta ett pågående migreringsjobb. Har avbrutits migrering som jobb ska bearbetas asynkront. Du kan spåra uppsägningen av prenumerationen med hjälp av $jobid:
+6. Du kan avbryta ett pågående migreringsjobb. Har avbrutits migrering som jobb ska bearbetas asynkront. Du kan spåra uppsägningen av prenumerationen med hjälp av $jobid:
 
-  ```PowerShell
-  Stop-AzsStorageContainerMigration -JobId $job_id -FarmName $farm_name
-  ```
+   ```PowerShell
+   Stop-AzsStorageContainerMigration -JobId $job_id -FarmName $farm_name
+   ```
 
-  ![Exempel: Återställningsstatus](media/azure-stack-manage-storage-shares/rollback.png)
+   ![Exempel: Återställningsstatus](media/azure-stack-manage-storage-shares/rollback.png)
 
 7. Du kan köra en kommandot tillsammans från steg 6 igen, tills status bekräftar migreringsjobbet är **avbruten**:  
 

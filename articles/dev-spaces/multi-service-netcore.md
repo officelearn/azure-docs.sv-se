@@ -1,21 +1,20 @@
 ---
-title: Köra flera beroende tjänster med .NET Core och VS Code | Microsoft Docs
+title: Köra flera beroende tjänster med .NET Core och VS Code
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
-ms.subservice: azds-kubernetes
 author: DrEsteban
 ms.author: stevenry
 ms.date: 11/21/2018
 ms.topic: tutorial
 description: Snabb Kubernetes-utveckling med containrar och mikrotjänster i Azure
-keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers
-ms.openlocfilehash: 39c9d2f938dd3e06a328626756ddcc80d0aad47b
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
-ms.translationtype: HT
+keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, behållare, Helm, tjänsten nät, tjänsten nät routning, kubectl, k8s '
+ms.openlocfilehash: ff2031395eb14cc1b9d8fda2150523c37fdcab69
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56821242"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57870955"
 ---
 # <a name="multi-service-development-with-azure-dev-spaces"></a>Utveckling av flera tjänster med Azure Dev Spaces
 
@@ -33,8 +32,8 @@ För enkelhetens skull laddar vi ned exempelkoden från en GitHub-databas. Gå t
 ### <a name="run-mywebapi"></a>Kör *mywebapi*
 1. Öppna mappen `mywebapi` i ett *separat VS Code-fönster*.
 1. Öppna **Kommandopaletten** (med hjälp av menyn **Visa | Kommandopalett**) och använd automatisk komplettering för att ange och välja det här kommandot: `Azure Dev Spaces: Prepare configuration files for Azure Dev Spaces`. Det här kommandot ska inte förväxlas med kommandot `azds prep` som konfigurerar projektet för distribution.
-1. Tryck på F5 och vänta tills tjänsten har skapats och distribuerats. Felsökningsfältet i VS Code visas när åtgärden har slutförts.
-1. Slutpunktens URL ser ut ungefär så här: http://localhost:\<portnumber\>. **Tips: Statusfältet i VS Code innehåller en klickbar URL.** Det kan verka som om containern körs lokalt, men i själva verket körs den i utvecklarmiljön i Azure. localhost-adressen beror på att `mywebapi` inte har definierat några offentliga slutpunkter och endast kan nås från Kubernetes-instansen. För enkelhetens skull, och för att underlätta interaktionen med den privata tjänsten från den lokala datorn, skapar Azure Dev Spaces en tillfällig SSH-tunnel för containern som körs i Azure.
+1. Tryck på F5 och vänta tills tjänsten har skapats och distribuerats. Du vet att den är klar när den *Application started. Tryck på Ctrl + C för att stänga av.* meddelandet visas i Felsökningskonsolen.
+1. Slutpunktens URL ser ut ungefär så här: `http://localhost:<portnumber>`. **Tips: Statusfältet i VS Code innehåller en klickbar URL.** Det kan verka som om containern körs lokalt, men i själva verket körs den i utvecklarmiljön i Azure. localhost-adressen beror på att `mywebapi` inte har definierat några offentliga slutpunkter och endast kan nås från Kubernetes-instansen. För enkelhetens skull, och för att underlätta interaktionen med den privata tjänsten från den lokala datorn, skapar Azure Dev Spaces en tillfällig SSH-tunnel för containern som körs i Azure.
 1. När `mywebapi` är redo öppnar du webbläsaren på localhost-adressen. Lägg till `/api/values` i URL:en för att anropa standard-GET-API:et för `ValuesController`.
 1. Om alla steg lyckades bör du se ett svar från `mywebapi`-tjänsten.
 

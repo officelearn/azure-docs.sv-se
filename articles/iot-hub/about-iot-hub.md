@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-hub
 services: iot-hub
 manager: briz
-ms.openlocfilehash: f4254cd90d8cf3b9f4cd206b729a3d44784b377a
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
-ms.translationtype: HT
+ms.openlocfilehash: 6dadd746bccd028a2b81a980d99ab47ec9e6e2a3
+ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39343635"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57726745"
 ---
 # <a name="what-is-azure-iot-hub"></a>Vad är Azure IoT Hub?
 
@@ -110,7 +110,7 @@ Om din lösning inte kan använda något av de protokoll som stöds kan du utök
 
 ## <a name="quotas-and-limits"></a>Kvoter och begränsningar
 
-Varje Azure-prenumeration har standardkvotgränser för att förhindra missbruk av tjänsten, och dessa begränsningar kan påverka IoT-lösningens omfång. Den aktuella gränsen på per prenumerationsbasis är 10 IoT-hubbar per prenumeration. Du kan begära att kvoten ska ökas genom att kontakta supporten. Mer information om kvotgränser:
+Varje Azure-prenumeration har standardkvotgränser för att förhindra missbruk av tjänsten, och dessa begränsningar kan påverka IoT-lösningens omfång. Den aktuella gränsen på basis av per prenumeration är 50 IoT-hubbar per prenumeration. Du kan begära att kvoten ska ökas genom att kontakta supporten. Mer information om kvotgränser:
 
 * [Tjänstbegränsningar för Azure-prenumeration](../azure-subscription-service-limits.md)
 

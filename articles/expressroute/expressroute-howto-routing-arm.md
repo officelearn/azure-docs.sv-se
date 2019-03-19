@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: 1be362a3e829beb6c8bb0a55f5ab02852549fbc3
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: bb1e71c4a665a25fa9b936c8777cf8fa0d5cd3e6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57537923"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58091927"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-using-powershell"></a>Skapa och ändra peering för en ExpressRoute-krets med PowerShell
 
@@ -63,73 +63,73 @@ Det här avsnittet hjälper dig att skapa, hämta, uppdatera och ta bort Microso
 
 1. Logga in och välj din prenumeration.
 
-  Om du har installerat PowerShell lokalt måste du logga in. Om du använder Azure Cloud Shell kan du hoppa över det här steget.
+   Om du har installerat PowerShell lokalt måste du logga in. Om du använder Azure Cloud Shell kan du hoppa över det här steget.
 
-  ```azurepowershell
-  Connect-AzAccount
-  ```
+   ```azurepowershell
+   Connect-AzAccount
+   ```
 
-  Välj den prenumeration som du vill skapa ExpressRoute-krets.
+   Välj den prenumeration som du vill skapa ExpressRoute-krets.
 
-  ```azurepowershell-interactive
-Select-AzSubscription -SubscriptionId "<subscription ID>"
-  ```
+   ```azurepowershell-interactive
+   Select-AzSubscription -SubscriptionId "<subscription ID>"
+   ```
 2. Skapa en ExpressRoute-krets.
 
-  Följ anvisningarna för att skapa en [ExpressRoute-krets](expressroute-howto-circuit-arm.md) och etablera den med anslutningsprovidern. f din anslutningsleverantör erbjuder hanteringstjänster för Layer 3, kan du be din anslutningsleverantör för att Microsoft peering åt dig. I så fall behöver du inte följa anvisningarna i nästa avsnitt. Om din anslutningsleverantör inte kan hantera routning åt dig, när du har skapat kretsen, fortsätta konfigurationen med nästa steg. 
+   Följ anvisningarna för att skapa en [ExpressRoute-krets](expressroute-howto-circuit-arm.md) och etablera den med anslutningsprovidern. f din anslutningsleverantör erbjuder hanteringstjänster för Layer 3, kan du be din anslutningsleverantör för att Microsoft peering åt dig. I så fall behöver du inte följa anvisningarna i nästa avsnitt. Om din anslutningsleverantör inte kan hantera routning åt dig, när du har skapat kretsen, fortsätta konfigurationen med nästa steg. 
 
 3. Kontrollera ExpressRoute-krets för att kontrollera att den etablerats och aktiverats. Använd följande exempel:
 
-  ```azurepowershell-interactive
-  Get-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
-  ```
+   ```azurepowershell-interactive
+   Get-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
+   ```
 
-  Svaret liknar följande exempel:
+   Svaret liknar följande exempel:
 
-  ```
-  Name                             : ExpressRouteARMCircuit
-  ResourceGroupName                : ExpressRouteResourceGroup
-  Location                         : westus
-  Id                               : /subscriptions/***************************/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/ExpressRouteARMCircuit
-  Etag                             : W/"################################"
-  ProvisioningState                : Succeeded
-  Sku                              : {
+   ```
+   Name                             : ExpressRouteARMCircuit
+   ResourceGroupName                : ExpressRouteResourceGroup
+   Location                         : westus
+   Id                               : /subscriptions/***************************/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/ExpressRouteARMCircuit
+   Etag                             : W/"################################"
+   ProvisioningState                : Succeeded
+   Sku                              : {
                                        "Name": "Standard_MeteredData",
                                        "Tier": "Standard",
                                        "Family": "MeteredData"
                                      }
-  CircuitProvisioningState         : Enabled
-  ServiceProviderProvisioningState : Provisioned
-  ServiceProviderNotes             : 
-  ServiceProviderProperties        : {
+   CircuitProvisioningState         : Enabled
+   ServiceProviderProvisioningState : Provisioned
+   ServiceProviderNotes             : 
+   ServiceProviderProperties        : {
                                        "ServiceProviderName": "Equinix",
                                        "PeeringLocation": "Silicon Valley",
                                        "BandwidthInMbps": 200
                                      }
-  ServiceKey                       : **************************************
-  Peerings                         : []
-  ```
+   ServiceKey                       : **************************************
+   Peerings                         : []
+   ```
 4. Konfigurera Microsoft-peering för kretsen. Kontrollera att du har följande information innan du fortsätter.
 
-  * Ett/30 eller/126-undernätet för den primära länken. Detta måste vara ett giltigt offentligt IPv4- eller IPv6-prefix som du äger och registrerad i en RIR / IRR.
-  * Ett/30 eller/126-undernätet för den sekundära länken. Detta måste vara ett giltigt offentligt IPv4- eller IPv6-prefix som du äger och registrerad i en RIR / IRR.
-  * Ett giltigt VLAN-ID att upprätta denna peering på. Se till att ingen annan peering i kretsen använder samma VLAN-ID.
-  * AS-tal för peering. Du kan använda både 2 byte och 4 byte som AS-tal.
-  * Annonserade prefix: Du måste ange en lista över alla prefix som du planerar att annonsera i BGP-sessionen. Endast offentliga IP-adressprefix accepteras. Om du planerar att skicka en uppsättning prefix, kan du skicka en kommaavgränsad lista. Dessa prefix måste vara registrerade åt dig i ett RIR/IR. IPv4-BGP-sessioner kräver IPv4 annonserade prefix och IPv6-BGP-sessioner kräver IPv6 annonserade prefix. 
-  * Routningens registernamn: Du kan ange RIR / IR mot vilken AS-numret och prefixet är registrerade.
-  * Valfritt:
-    * Kund-ASN: Om du har reklamprefix som inte är registrerade på peeringens AS number, kan du ange det AS-nummer som de är registrerade.
-    * En MD5-hash om du väljer att använda en.
+   * Ett/30 eller/126-undernätet för den primära länken. Detta måste vara ett giltigt offentligt IPv4- eller IPv6-prefix som du äger och registrerad i en RIR / IRR.
+   * Ett/30 eller/126-undernätet för den sekundära länken. Detta måste vara ett giltigt offentligt IPv4- eller IPv6-prefix som du äger och registrerad i en RIR / IRR.
+   * Ett giltigt VLAN-ID att upprätta denna peering på. Se till att ingen annan peering i kretsen använder samma VLAN-ID.
+   * AS-tal för peering. Du kan använda både 2 byte och 4 byte som AS-tal.
+   * Annonserade prefix: Du måste ange en lista över alla prefix som du planerar att annonsera i BGP-sessionen. Endast offentliga IP-adressprefix accepteras. Om du planerar att skicka en uppsättning prefix, kan du skicka en kommaavgränsad lista. Dessa prefix måste vara registrerade åt dig i ett RIR/IR. IPv4-BGP-sessioner kräver IPv4 annonserade prefix och IPv6-BGP-sessioner kräver IPv6 annonserade prefix. 
+   * Routningens registernamn: Du kan ange RIR / IR mot vilken AS-numret och prefixet är registrerade.
+   * Valfritt:
+     * Kund-ASN: Om du har reklamprefix som inte är registrerade på peeringens AS number, kan du ange det AS-nummer som de är registrerade.
+     * En MD5-hash om du väljer att använda en.
 
-  Använd följande exempel för att konfigurera Microsoft-peering för din krets:
+   Använd följande exempel för att konfigurera Microsoft-peering för din krets:
 
-  ```azurepowershell-interactive
-  Add-AzExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt -PeeringType MicrosoftPeering -PeerASN 100 -PeerAddressType IPv4 -PrimaryPeerAddressPrefix "123.0.0.0/30" -SecondaryPeerAddressPrefix "123.0.0.4/30" -VlanId 300 -MicrosoftConfigAdvertisedPublicPrefixes "123.1.0.0/24" -MicrosoftConfigCustomerAsn 23 -MicrosoftConfigRoutingRegistryName "ARIN"
+   ```azurepowershell-interactive
+   Add-AzExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt -PeeringType MicrosoftPeering -PeerASN 100 -PeerAddressType IPv4 -PrimaryPeerAddressPrefix "123.0.0.0/30" -SecondaryPeerAddressPrefix "123.0.0.4/30" -VlanId 300 -MicrosoftConfigAdvertisedPublicPrefixes "123.1.0.0/24" -MicrosoftConfigCustomerAsn 23 -MicrosoftConfigRoutingRegistryName "ARIN"
 
-  Add-AzExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt -PeeringType MicrosoftPeering -PeerASN 100 -PeerAddressType IPv6 -PrimaryPeerAddressPrefix "3FFE:FFFF:0:CD30::/126" -SecondaryPeerAddressPrefix "3FFE:FFFF:0:CD30::4/126" -VlanId 300 -MicrosoftConfigAdvertisedPublicPrefixes "3FFE:FFFF:0:CD31::/120" -MicrosoftConfigCustomerAsn 23 -MicrosoftConfigRoutingRegistryName "ARIN"
+   Add-AzExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt -PeeringType MicrosoftPeering -PeerASN 100 -PeerAddressType IPv6 -PrimaryPeerAddressPrefix "3FFE:FFFF:0:CD30::/126" -SecondaryPeerAddressPrefix "3FFE:FFFF:0:CD30::4/126" -VlanId 300 -MicrosoftConfigAdvertisedPublicPrefixes "3FFE:FFFF:0:CD31::/120" -MicrosoftConfigCustomerAsn 23 -MicrosoftConfigRoutingRegistryName "ARIN"
 
-  Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
-  ```
+   Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
+   ```
 
 ### <a name="getmsft"></a>Att hämta Microsofts peering-information
 
@@ -171,97 +171,97 @@ Det här avsnittet hjälper dig att skapa, hämta, uppdatera och ta bort Azures 
 
 1. Importera PowerShell-modulen för ExpressRoute.
 
-  Du måste installera den senaste versionen av PowerShell-installeraren från [PowerShell-galleriet](https://www.powershellgallery.com/) och importera modulerna i Azure Resource Manager i PowerShell-sessionen för att kunna börja använda ExpressRoute-cmdletar. Du måste köra PowerShell som administratör.
+   Du måste installera den senaste versionen av PowerShell-installeraren från [PowerShell-galleriet](https://www.powershellgallery.com/) och importera modulerna i Azure Resource Manager i PowerShell-sessionen för att kunna börja använda ExpressRoute-cmdletar. Du måste köra PowerShell som administratör.
 
-  ```azurepowershell-interactive
-  Install-Module Az
-  ```
+   ```azurepowershell-interactive
+   Install-Module Az
+   ```
 
-  Importera alla Az.\* modulerna inom det kända semantiska versionsintervallet.
+   Importera alla Az.\* modulerna inom det kända semantiska versionsintervallet.
 
-  ```azurepowershell-interactive
-  Import-Module Az
-  ```
+   ```azurepowershell-interactive
+   Import-Module Az
+   ```
 
-  Du kan också importera en vald modul inom det kända semantiska versionsintervallet.
+   Du kan också importera en vald modul inom det kända semantiska versionsintervallet.
 
-  ```azurepowershell-interactive
-  Import-Module Az.Network 
-  ```
+   ```azurepowershell-interactive
+   Import-Module Az.Network 
+   ```
 
-  Logga in på ditt konto.
+   Logga in på ditt konto.
 
-  ```azurepowershell-interactive
-  Connect-AzAccount
-  ```
+   ```azurepowershell-interactive
+   Connect-AzAccount
+   ```
 
-  Välj den prenumeration som du vill skapa ExpressRoute-krets.
+   Välj den prenumeration som du vill skapa ExpressRoute-krets.
 
-  ```azurepowershell-interactive
-  Select-AzSubscription -SubscriptionId "<subscription ID>"
-  ```
+   ```azurepowershell-interactive
+   Select-AzSubscription -SubscriptionId "<subscription ID>"
+   ```
 2. Skapa en ExpressRoute-krets.
 
-  Följ anvisningarna för att skapa en [ExpressRoute-krets](expressroute-howto-circuit-arm.md) och etablera den med anslutningsprovidern. Om din anslutningsleverantör erbjuder hanteringstjänster till Layer 3, kan du be anslutningsleverantören aktiverar Azures privata peering åt dig. I så fall behöver du inte följa anvisningarna i nästa avsnitt. Om din anslutningsleverantör inte kan hantera routning åt dig, när du har skapat kretsen, fortsätta konfigurationen med nästa steg.
+   Följ anvisningarna för att skapa en [ExpressRoute-krets](expressroute-howto-circuit-arm.md) och etablera den med anslutningsprovidern. Om din anslutningsleverantör erbjuder hanteringstjänster till Layer 3, kan du be anslutningsleverantören aktiverar Azures privata peering åt dig. I så fall behöver du inte följa anvisningarna i nästa avsnitt. Om din anslutningsleverantör inte kan hantera routning åt dig, när du har skapat kretsen, fortsätta konfigurationen med nästa steg.
 
 3. Kontrollera ExpressRoute-krets för att kontrollera att den etablerats och aktiverats. Använd följande exempel:
 
-  ```azurepowershell-interactive
-  Get-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
-  ```
+   ```azurepowershell-interactive
+   Get-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
+   ```
 
-  Svaret liknar följande exempel:
+   Svaret liknar följande exempel:
 
-  ```
-  Name                             : ExpressRouteARMCircuit
-  ResourceGroupName                : ExpressRouteResourceGroup
-  Location                         : westus
-  Id                               : /subscriptions/***************************/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/ExpressRouteARMCircuit
-  Etag                             : W/"################################"
-  ProvisioningState                : Succeeded
-  Sku                              : {
+   ```
+   Name                             : ExpressRouteARMCircuit
+   ResourceGroupName                : ExpressRouteResourceGroup
+   Location                         : westus
+   Id                               : /subscriptions/***************************/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/ExpressRouteARMCircuit
+   Etag                             : W/"################################"
+   ProvisioningState                : Succeeded
+   Sku                              : {
                                        "Name": "Standard_MeteredData",
                                        "Tier": "Standard",
                                        "Family": "MeteredData"
                                      }
-  CircuitProvisioningState         : Enabled
-  ServiceProviderProvisioningState : Provisioned
-  ServiceProviderNotes             : 
-  ServiceProviderProperties        : {
+   CircuitProvisioningState         : Enabled
+   ServiceProviderProvisioningState : Provisioned
+   ServiceProviderNotes             : 
+   ServiceProviderProperties        : {
                                        "ServiceProviderName": "Equinix",
                                        "PeeringLocation": "Silicon Valley",
                                        "BandwidthInMbps": 200
                                      }
-  ServiceKey                       : **************************************
-  Peerings                         : []
-  ```
+   ServiceKey                       : **************************************
+   Peerings                         : []
+   ```
 4. Konfigurera Azures privata peering för kretsen. Kontrollera att du har följande objekt innan du fortsätter med nästa steg:
 
-  * Ett /30 undernät för den primära länken. Undernätet får inte vara en del av något adressutrymme som reserverats för virtuella nätverk.
-  * Ett /30 undernät för den sekundära länken. Undernätet får inte vara en del av något adressutrymme som reserverats för virtuella nätverk.
-  * Ett giltigt VLAN-ID att upprätta denna peering på. Se till att ingen annan peering i kretsen använder samma VLAN-ID.
-  * AS-tal för peering. Du kan använda både 2 byte och 4 byte som AS-tal. Du kan använda ett privat AS-tal för den här peeringen. Se till att du inte använder 65515.
-  * Valfritt:
-    * En MD5-hash om du väljer att använda en.
+   * Ett /30 undernät för den primära länken. Undernätet får inte vara en del av något adressutrymme som reserverats för virtuella nätverk.
+   * Ett /30 undernät för den sekundära länken. Undernätet får inte vara en del av något adressutrymme som reserverats för virtuella nätverk.
+   * Ett giltigt VLAN-ID att upprätta denna peering på. Se till att ingen annan peering i kretsen använder samma VLAN-ID.
+   * AS-tal för peering. Du kan använda både 2 byte och 4 byte som AS-tal. Du kan använda ett privat AS-tal för den här peeringen. Se till att du inte använder 65515.
+   * Valfritt:
+     * En MD5-hash om du väljer att använda en.
 
-  Använd följande exempel för att konfigurera Azures privata peering för din krets:
+   Använd följande exempel för att konfigurera Azures privata peering för din krets:
 
-  ```azurepowershell-interactive
-  Add-AzExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRouteCircuit $ckt -PeeringType AzurePrivatePeering -PeerASN 100 -PrimaryPeerAddressPrefix "10.0.0.0/30" -SecondaryPeerAddressPrefix "10.0.0.4/30" -VlanId 200
+   ```azurepowershell-interactive
+   Add-AzExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRouteCircuit $ckt -PeeringType AzurePrivatePeering -PeerASN 100 -PrimaryPeerAddressPrefix "10.0.0.0/30" -SecondaryPeerAddressPrefix "10.0.0.4/30" -VlanId 200
 
-  Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
-  ```
+   Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
+   ```
 
-  Om du väljer att använda en MD5-hash, använder du exemplet nedan:
+   Om du väljer att använda en MD5-hash, använder du exemplet nedan:
 
-  ```azurepowershell-interactive
-  Add-AzExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRouteCircuit $ckt -PeeringType AzurePrivatePeering -PeerASN 100 -PrimaryPeerAddressPrefix "10.0.0.0/30" -SecondaryPeerAddressPrefix "10.0.0.4/30" -VlanId 200  -SharedKey "A1B2C3D4"
-  ```
+   ```azurepowershell-interactive
+   Add-AzExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRouteCircuit $ckt -PeeringType AzurePrivatePeering -PeerASN 100 -PrimaryPeerAddressPrefix "10.0.0.0/30" -SecondaryPeerAddressPrefix "10.0.0.4/30" -VlanId 200  -SharedKey "A1B2C3D4"
+   ```
 
-  > [!IMPORTANT]
-  > Kontrollera att du anger AS-talet som peering-ASN, inte kund-ASN.
-  > 
-  >
+   > [!IMPORTANT]
+   > Kontrollera att du anger AS-talet som peering-ASN, inte kund-ASN.
+   > 
+   >
 
 ### <a name="getprivate"></a>Att hämta Azures privata peering-information
 
@@ -306,99 +306,99 @@ Det här avsnittet hjälper dig att skapa, hämta, uppdatera och ta bort Azures 
 
 1. Importera PowerShell-modulen för ExpressRoute.
 
-  Du måste installera den senaste versionen av PowerShell-installeraren från [PowerShell-galleriet](https://www.powershellgallery.com/) och importera modulerna i Azure Resource Manager i PowerShell-sessionen för att kunna börja använda ExpressRoute-cmdletar. Du måste köra PowerShell som administratör.
+   Du måste installera den senaste versionen av PowerShell-installeraren från [PowerShell-galleriet](https://www.powershellgallery.com/) och importera modulerna i Azure Resource Manager i PowerShell-sessionen för att kunna börja använda ExpressRoute-cmdletar. Du måste köra PowerShell som administratör.
 
-  ```azurepowershell-interactive
-  Install-Module Az
-  ```
+   ```azurepowershell-interactive
+   Install-Module Az
+   ```
 
-  Importera alla Az.\* modulerna inom det kända semantiska versionsintervallet.
+   Importera alla Az.\* modulerna inom det kända semantiska versionsintervallet.
 
-  ```azurepowershell-interactive
-  Import-Module Az
-  ```
+   ```azurepowershell-interactive
+   Import-Module Az
+   ```
 
-  Du kan också importera en vald modul inom det kända semantiska versionsintervallet.
+   Du kan också importera en vald modul inom det kända semantiska versionsintervallet.
 
-  ```azurepowershell-interactive
-  Import-Module Az.Network
-```
+   ```azurepowershell-interactive
+   Import-Module Az.Network
+   ```
 
-  Logga in på ditt konto.
+   Logga in på ditt konto.
 
-  ```azurepowershell-interactive
-  Connect-AzAccount
-  ```
+   ```azurepowershell-interactive
+   Connect-AzAccount
+   ```
 
-  Välj den prenumeration som du vill skapa ExpressRoute-krets.
+   Välj den prenumeration som du vill skapa ExpressRoute-krets.
 
-  ```azurepowershell-interactive
-  Select-AzSubscription -SubscriptionId "<subscription ID>"
-  ```
+   ```azurepowershell-interactive
+   Select-AzSubscription -SubscriptionId "<subscription ID>"
+   ```
 2. Skapa en ExpressRoute-krets.
 
-  Följ anvisningarna för att skapa en [ExpressRoute-krets](expressroute-howto-circuit-arm.md) och etablera den med anslutningsprovidern. Om din anslutningsleverantör erbjuder hanteringstjänster till Layer 3, kan du be anslutningsleverantören aktiverar Azures offentliga peering åt dig. I så fall behöver du inte följa anvisningarna i nästa avsnitt. Om din anslutningsleverantör inte kan hantera routning åt dig, när du har skapat kretsen, fortsätta konfigurationen med nästa steg.
+   Följ anvisningarna för att skapa en [ExpressRoute-krets](expressroute-howto-circuit-arm.md) och etablera den med anslutningsprovidern. Om din anslutningsleverantör erbjuder hanteringstjänster till Layer 3, kan du be anslutningsleverantören aktiverar Azures offentliga peering åt dig. I så fall behöver du inte följa anvisningarna i nästa avsnitt. Om din anslutningsleverantör inte kan hantera routning åt dig, när du har skapat kretsen, fortsätta konfigurationen med nästa steg.
 
 3. Kontrollera ExpressRoute-kretsen för att den har etablerats och aktiverats. Använd följande exempel:
 
-  ```azurepowershell-interactive
-  Get-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
-  ```
+   ```azurepowershell-interactive
+   Get-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
+   ```
 
-  Svaret liknar följande exempel:
+   Svaret liknar följande exempel:
 
-  ```
-  Name                             : ExpressRouteARMCircuit
-  ResourceGroupName                : ExpressRouteResourceGroup
-  Location                         : westus
-  Id                               : /subscriptions/***************************/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/ExpressRouteARMCircuit
-  Etag                             : W/"################################"
-  ProvisioningState                : Succeeded
-  Sku                              : {
+   ```
+   Name                             : ExpressRouteARMCircuit
+   ResourceGroupName                : ExpressRouteResourceGroup
+   Location                         : westus
+   Id                               : /subscriptions/***************************/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/ExpressRouteARMCircuit
+   Etag                             : W/"################################"
+   ProvisioningState                : Succeeded
+   Sku                              : {
                                       "Name": "Standard_MeteredData",
                                        "Tier": "Standard",
                                        "Family": "MeteredData"
                                      }
-  CircuitProvisioningState         : Enabled
-  ServiceProviderProvisioningState : Provisioned
-  ServiceProviderNotes             : 
-  ServiceProviderProperties        : {
+   CircuitProvisioningState         : Enabled
+   ServiceProviderProvisioningState : Provisioned
+   ServiceProviderNotes             : 
+   ServiceProviderProperties        : {
                                        "ServiceProviderName": "Equinix",
                                        "PeeringLocation": "Silicon Valley",
                                        "BandwidthInMbps": 200
                                      }
-  ServiceKey                       : **************************************
-  Peerings                         : []
-  ```
+   ServiceKey                       : **************************************
+   Peerings                         : []
+   ```
 4. Konfigurera Azures offentliga peering för kretsen. Se till att du har följande information innan du forsätter.
 
-  * Ett /30 undernät för den primära länken. Detta måste vara ett giltigt offentligt IPv4-prefix.
-  * Ett /30 undernät för den sekundära länken. Detta måste vara ett giltigt offentligt IPv4-prefix.
-  * Ett giltigt VLAN-ID att upprätta denna peering på. Se till att ingen annan peering i kretsen använder samma VLAN-ID.
-  * AS-tal för peering. Du kan använda både 2 byte och 4 byte som AS-tal.
-  * Valfritt:
-    * En MD5-hash om du väljer att använda en.
+   * Ett /30 undernät för den primära länken. Detta måste vara ett giltigt offentligt IPv4-prefix.
+   * Ett /30 undernät för den sekundära länken. Detta måste vara ett giltigt offentligt IPv4-prefix.
+   * Ett giltigt VLAN-ID att upprätta denna peering på. Se till att ingen annan peering i kretsen använder samma VLAN-ID.
+   * AS-tal för peering. Du kan använda både 2 byte och 4 byte som AS-tal.
+   * Valfritt:
+     * En MD5-hash om du väljer att använda en.
 
-  Kör följande exempel för att konfigurera Azures offentliga peering för din krets
+   Kör följande exempel för att konfigurera Azures offentliga peering för din krets
 
-  ```azurepowershell-interactive
-  Add-AzExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering" -ExpressRouteCircuit $ckt -PeeringType AzurePublicPeering -PeerASN 100 -PrimaryPeerAddressPrefix "12.0.0.0/30" -SecondaryPeerAddressPrefix "12.0.0.4/30" -VlanId 100
+   ```azurepowershell-interactive
+   Add-AzExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering" -ExpressRouteCircuit $ckt -PeeringType AzurePublicPeering -PeerASN 100 -PrimaryPeerAddressPrefix "12.0.0.0/30" -SecondaryPeerAddressPrefix "12.0.0.4/30" -VlanId 100
 
-  Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
-  ```
+   Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
+   ```
 
-  Om du väljer att använda en MD5-hash, använder du exemplet nedan:
+   Om du väljer att använda en MD5-hash, använder du exemplet nedan:
 
-  ```azurepowershell-interactive
-  Add-AzExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering" -ExpressRouteCircuit $ckt -PeeringType AzurePublicPeering -PeerASN 100 -PrimaryPeerAddressPrefix "12.0.0.0/30" -SecondaryPeerAddressPrefix "12.0.0.4/30" -VlanId 100  -SharedKey "A1B2C3D4"
+   ```azurepowershell-interactive
+   Add-AzExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering" -ExpressRouteCircuit $ckt -PeeringType AzurePublicPeering -PeerASN 100 -PrimaryPeerAddressPrefix "12.0.0.0/30" -SecondaryPeerAddressPrefix "12.0.0.4/30" -VlanId 100  -SharedKey "A1B2C3D4"
 
-  Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
-  ```
+   Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
+   ```
 
-  > [!IMPORTANT]
-  > Kontrollera att du anger AS-talet som peering-ASN, inte kund-ASN.
-  > 
-  >
+   > [!IMPORTANT]
+   > Kontrollera att du anger AS-talet som peering-ASN, inte kund-ASN.
+   > 
+   >
 
 ### <a name="getpublic"></a>Att hämta Azures offentliga peering-information
 

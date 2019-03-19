@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: ellacroi
-ms.openlocfilehash: b9403855949e87a287f543c2ac41738e92238303
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: eb49d0fe610a78b8d1a407644a206fddaba0a67a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57217214"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58116223"
 ---
 # <a name="virtual-machine-offer-publishing-guide"></a>Erbjudande för virtuell dator publicerar Guide
 
@@ -56,12 +56,12 @@ Du kan ange en guidad upplevelse av din lösning till dina kunder med hjälp av 
 
 Använd typ av erbjudande för virtuell dator när du distribuerar en virtuell installation till den prenumeration som är associerad med kunden. Virtuella datorer är helt aktiverat med betalning per användning eller bring-your-own-license (BYOL) licensieringsmodellerna handel. Microsoft är värd för handel transaktionen och fakturerar kunden å dina vägnar. Du får fördelen med att använda önskade betalning relationen mellan kunden och Microsoft, inklusive några Enterprise-avtal.
 
->[!NOTE]
->För tillfället kan monetära åtaganden som är associerade med ett Enterprise-avtal användas mot Azure-användning för den virtuella datorn, men inte mot din avgifter för programvarulicenser.  
-
->[!NOTE]
->Du kan begränsa identifiering och distribution av den virtuella datorn till en specifik uppsättning kunder genom att publicera avbildningen och priser som ett privat erbjudande. Privata erbjudanden utnyttja möjligheten att skapa exklusiva erbjudanden för kunderna närmaste och erbjuda anpassade programvara och villkor. Anpassade villkor kan du markera en mängd olika scenarier, inklusive ledda av fältet behandlar specialiserade prissättning och villkor samt snabb åtkomst till begränsad version programvara. Privata erbjudanden aktivera att ge specifika pris eller produkter som ska ett begränsat antal kunder genom att skapa en ny SKU med detaljer.  
-*   Mer information om privata erbjudanden finns privata erbjudanden på Azure Marketplace-sidan finns på [azure.microsoft.com/blog/private-offers-on-azure-marketplace](https://azure.microsoft.com/blog/private-offers-on-azure-marketplace).  
+> [!NOTE]
+> För tillfället kan monetära åtaganden som är associerade med ett Enterprise-avtal användas mot Azure-användning för den virtuella datorn, men inte mot din avgifter för programvarulicenser.  
+> 
+> [!NOTE]
+> Du kan begränsa identifiering och distribution av den virtuella datorn till en specifik uppsättning kunder genom att publicera avbildningen och priser som ett privat erbjudande. Privata erbjudanden utnyttja möjligheten att skapa exklusiva erbjudanden för kunderna närmaste och erbjuda anpassade programvara och villkor. Anpassade villkor kan du markera en mängd olika scenarier, inklusive ledda av fältet behandlar specialiserade prissättning och villkor samt snabb åtkomst till begränsad version programvara. Privata erbjudanden aktivera att ge specifika pris eller produkter som ska ett begränsat antal kunder genom att skapa en ny SKU med detaljer.  
+> *   Mer information om privata erbjudanden finns privata erbjudanden på Azure Marketplace-sidan finns på [azure.microsoft.com/blog/private-offers-on-azure-marketplace](https://azure.microsoft.com/blog/private-offers-on-azure-marketplace).  
 
 | Krav | Information |  
 |:--- |:--- | 

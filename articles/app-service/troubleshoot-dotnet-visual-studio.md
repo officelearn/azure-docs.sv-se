@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/29/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 5e749f68aba48ac258363a0a03e3474e1e28b064
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 03bafcdbf6890573d1d2855e2b47520d0111fe13
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56876780"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57996773"
 ---
 # <a name="troubleshoot-an-app-in-azure-app-service-using-visual-studio"></a>Felsök en app i Azure App Service med Visual Studio
 ## <a name="overview"></a>Översikt
@@ -134,41 +134,41 @@ public ActionResult About()
 }
 ```
 
-4. [Konfigurera en brytpunkt](https://docs.microsoft.com/visualstudio/debugger/) på den `ViewBag.Message` rad.
+1. [Konfigurera en brytpunkt](https://docs.microsoft.com/visualstudio/debugger/) på den `ViewBag.Message` rad.
 
-5. I **Solution Explorer**, högerklicka på projektet och klicka på **publicera**.
+1. I **Solution Explorer**, högerklicka på projektet och klicka på **publicera**.
 
-6. I den **profil** listrutan, Välj den profil som du använde i [skapa en ASP.NET-app i Azure App Service](app-service-web-get-started-dotnet-framework.md). Klicka på inställningar.
+1. I den **profil** listrutan, Välj den profil som du använde i [skapa en ASP.NET-app i Azure App Service](app-service-web-get-started-dotnet-framework.md). Klicka på inställningar.
 
-7. I den **publicera** dialogrutan klickar du på den **inställningar** fliken och ändra sedan **Configuration** till **felsöka**, och klicka sedan på  **Spara**.
+1. I den **publicera** dialogrutan klickar du på den **inställningar** fliken och ändra sedan **Configuration** till **felsöka**, och klicka sedan på  **Spara**.
 
     ![Publicera i felsökningsläge](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-publishdebug.png)
 
-8. Klicka på **Publicera**. Efter distributionen har slutförts och webbläsaren öppnar Azure-URL: en för din app, Stäng webbläsaren.
+1. Klicka på **Publicera**. Efter distributionen har slutförts och webbläsaren öppnar Azure-URL: en för din app, Stäng webbläsaren.
 
-9. I **Server Explorer**, högerklicka på din app och klicka sedan på **bifoga felsökningsprogrammet**.
+1. I **Server Explorer**, högerklicka på din app och klicka sedan på **bifoga felsökningsprogrammet**.
 
     ![Koppla felsökare](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-attachdebugger.png)
 
-    Webbläsaren öppnas automatiskt till din startsida som körs i Azure. Du kan behöva vänta 20 sekunder medan Azure konfigureras servern för felsökning. Den här fördröjningen sker bara första gången du kör i felsökningsläge i en app i 48 timmar. När du startar felsökning igen i samma period, det finns inte en fördröjning.
+    Webbläsaren öppnas automatiskt till din startsida som körs i Azure. Du kan behöva vänta 20 sekunder medan Azure konfigureras servern för felsökning. Den här fördröjningen sker bara första gången du kör i felsökningsläge på en app i 48 timmar. När du startar felsökning igen i samma period, det finns inte en fördröjning.
 
     > [!NOTE] 
     > Om du har problem med att starta felsökningsprogrammet försöker göra det med hjälp av **Cloud Explorer** i stället för **Server Explorer**.
     >
 
-10. Klicka på **om** på menyn.
+1. Klicka på **om** på menyn.
 
-     Visual Studio stoppar på brytpunkten och koden körs i Azure, inte på den lokala datorn.
+    Visual Studio stoppar på brytpunkten och koden körs i Azure, inte på den lokala datorn.
 
-11. Hovra över den `currentTime` variabeln för att se time-värdet.
+1. Hovra över den `currentTime` variabeln för att se time-värdet.
 
-     ![Visa variabel i felsökningsläge som körs i Azure](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-debugviewinwa.png)
+    ![Visa variabel i felsökningsläge som körs i Azure](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-debugviewinwa.png)
 
-     Den tid som du ser är tiden i Azure-server som kan finnas i en annan tidszon än den lokala datorn.
+    Den tid som du ser är tiden i Azure-server som kan finnas i en annan tidszon än den lokala datorn.
 
-12. Ange ett nytt värde för den `currentTime` variabel, till exempel ”nu körs i Azure”.
+1. Ange ett nytt värde för den `currentTime` variabel, till exempel ”nu körs i Azure”.
 
-13. Tryck på F5 för att fortsätta köras.
+1. Tryck på F5 för att fortsätta köras.
 
      Om sidan som körs i Azure visar det nya värdet som du har angett i variabeln currentTime.
 
@@ -311,7 +311,7 @@ public ActionResult Contact()
 }        
 ```
 
-2. Lägg till en `using System.Diagnostics;` instruktion högst upp i filen.
+1. Lägg till en `using System.Diagnostics;` instruktion högst upp i filen.
 
 ### <a name="view-the-tracing-output-locally"></a>Visa spårningsdata som lokalt
 1. Tryck på F5 för att köra programmet i felsökningsläge.
@@ -339,15 +339,15 @@ public ActionResult Contact()
 ```
 
 Den `WebPageTraceListener` kan du visa spårningsutdata genom att bläddra till `/trace.axd`.
-3. Lägg till en <a href="https://msdn.microsoft.com/library/vstudio/6915t83k(v=vs.100).aspx">trace elementet</a> under `<system.web>` i Web.config-filen, till exempel i följande exempel:
+1. Lägg till en <a href="https://msdn.microsoft.com/library/vstudio/6915t83k(v=vs.100).aspx">trace elementet</a> under `<system.web>` i Web.config-filen, till exempel i följande exempel:
 
 ``` xml
 <trace enabled="true" writeToDiagnosticsTrace="true" mostRecent="true" pageOutput="false" />
 ```       
 
-4. Tryck på CTRL+F5 för att köra programmet.
-5. I adressfältet i webbläsarfönstret, lägger du till *trace.axd* i Webbadressen och tryck på RETUR (URL: en liknar http://localhost:53370/trace.axd).
-6. På den **programspårning** klickar du på **visa information om** på den första raden (inte BrowserLink rad).
+1. Tryck på CTRL+F5 för att köra programmet.
+1. I adressfältet i webbläsarfönstret, lägger du till *trace.axd* i Webbadressen och tryck på RETUR (URL: en liknar `http://localhost:53370/trace.axd`).
+1. På den **programspårning** klickar du på **visa information om** på den första raden (inte BrowserLink rad).
 
     ![trace.axd](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-traceaxd1.png)
 
@@ -477,7 +477,7 @@ Alla loggar som du kan övervaka i den **utdata** fönster kan också hämtas so
    * Webbserverloggarna är i *.log* filer i den *LogFiles\http\RawLogs* mapp. Du kan använda ett verktyg som [Loggparser](https://www.microsoft.com/download/details.aspx?displaylang=en&id=24659) att visa och ändra dessa filer.
    * Detaljerade felloggar för meddelandet finns i *.html* filer i den *LogFiles\DetailedErrors* mapp.
 
-    (Den *distributioner* mappen är för filer som skapas av källkontroll, publicera; inte är något som är kopplat till Visual Studio-publicering. Ju *Git* mappen är för spårningar som rör källkontroll publicering och loggen filen direktuppspelningstjänst.)  
+     (Den *distributioner* mappen är för filer som skapas av källkontroll, publicera; inte är något som är kopplat till Visual Studio-publicering. Ju *Git* mappen är för spårningar som rör källkontroll publicering och loggen filen direktuppspelningstjänst.)  
 
 <!-- ## <a name="storagelogs"></a>View storage logs
 Application tracing logs can also be sent to an Azure storage account, and you can view them in Visual Studio. To do that you'll create a storage account, enable storage logs in the Azure portal, and view them in the **Logs** tab of the **Azure Web App** window.

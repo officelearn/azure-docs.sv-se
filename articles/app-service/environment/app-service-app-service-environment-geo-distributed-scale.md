@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/07/2016
 ms.author: stefsch
 ms.custom: seodec18
-ms.openlocfilehash: 2a2fafb5da50dbd26786284592cd330df7f5557a
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 769e6b9936ad6d3cb963e208cec4c49813f2b6d3
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56113710"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58188330"
 ---
 # <a name="geo-distributed-scale-with-app-service-environments"></a>Geodistribuerad skalning med App Service Environment
 ## <a name="overview"></a>Översikt
@@ -46,7 +46,7 @@ Resten av det här avsnittet beskriver steg som ingår med att konfigurera en di
 ## <a name="planning-the-topology"></a>Planera topologin
 Innan du bygga ut en distribuerad app-fotavtryck hjälper det för att ha några delar informationen förbereds i förväg.
 
-* **Anpassad domän för appen:**  Vad är det anpassade domännamnet som kunder använder för att få åtkomst till appen?  Exempelappen det anpassade domännamnet är *www.scalableasedemo.com*
+* **Anpassad domän för appen:**  Vad är det anpassade domännamnet som kunder använder för att få åtkomst till appen?  Exempelappen är det anpassade domännamnet `www.scalableasedemo.com`
 * **Traffic Manager-domän:**  Ett domännamn måste väljas när du skapar en [Azure Traffic Manager-profil][AzureTrafficManagerProfile].  Det här namnet kommer att kombineras med den *trafficmanager.net* suffix för att registrera en post för domänen som hanteras av Traffic Manager.  Valt namnet är för exempelappen, *skalbar ase demo*.  Därför är det fullständiga domännamnet som hanteras av Traffic Manager *skalbar ase demo.trafficmanager.net*.
 * **Strategi för att skala app-fotavtryck:**  Program-fotavtryck distribueras över flera App Service-miljöer i en enda region?  Flera regioner?  Ett-blanda med båda metoderna?  Beslutet bör baseras på förväntningar som kundtrafiken kommer kommer från, samt hur väl resten av en app stöd för backend-infrastruktur kan skala.  Till exempel med ett 100% tillståndslösa program, kan en app massivt skalas med hjälp av en kombination av flera App Service-miljöer per Azure-region, multiplicerat med App Service-miljöer som distribueras över flera Azure-regioner.  Kunder med 15 + offentliga Azure-regioner kan välja mellan, kan verkligen skapa ett världsomspännande storskaliga program-fotavtryck.  För exempelapp som används för den här artikeln, har tre App Service-miljöer skapats i en enda Azure-region (södra centrala USA).
 * **Namngivningskonventionen för App Service-miljöer:**  Varje App Service-miljö kräver ett unikt namn.  Utöver en eller två App Service-miljöer är det bra att ha en namngivningskonvention för att identifiera varje App Service Environment.  En enkel namngivningskonvention för exempelappen har använts.  Namnen på de tre App Service-miljöer är *fe1ase*, *fe2ase*, och *fe3ase*.
@@ -87,7 +87,7 @@ Observera hur det är ett anrop till *Lägg till AzureTrafficManagerEndpointConf
 Alla tre slutpunkter använder samma värde (10) för den *vikt* parametern.  Detta resulterar i Traffic Manager sprida Återkopplingen över alla tre appinstanser jämnt. 
 
 ## <a name="pointing-the-apps-custom-domain-at-the-traffic-manager-domain"></a>Peka appens anpassade domän på Traffic Manager-domän
-Det sista steget som behövs är så att den pekar på den anpassade domänen för appen vid Traffic Manager-domän.  Exempelappen det innebär som pekar *www.scalableasedemo.com* på *skalbar ase demo.trafficmanager.net*.  Det här steget måste utföras med domänregistratorn som hanterar den anpassade domänen.  
+Det sista steget som behövs är så att den pekar på den anpassade domänen för appen vid Traffic Manager-domän.  Exempelappen det innebär som pekar `www.scalableasedemo.com` på `scalable-ase-demo.trafficmanager.net`.  Det här steget måste utföras med domänregistratorn som hanterar den anpassade domänen.  
 
 En CNAME-post registrerar med din registrator domän management tools, måste skapas som pekar till den anpassade domänen i Traffic Manager-domänen.  I bilden nedan visas ett exempel på hur den här CNAME-konfigurationen ser ut:
 
@@ -95,16 +95,16 @@ En CNAME-post registrerar med din registrator domän management tools, måste sk
 
 Även om inte omfattas i det här avsnittet, Kom ihåg att varje enskild app-instansen måste ha den anpassade domänen som registrerats med den också.  Om en begäran som gör det till en appinstans och programmet har inte den anpassade domänen som registrerats med appen, annars misslyckas begäran.  
 
-I det här exemplet är den anpassade domänen *www.scalableasedemo.com*, och varje programinstans den anpassade domänen som är kopplade till den.
+I det här exemplet är den anpassade domänen `www.scalableasedemo.com`, och varje programinstans den anpassade domänen som är kopplade till den.
 
-![Egen domän][CustomDomain] 
+![Anpassad domän][CustomDomain] 
 
 En sammanfattning av att registrera en anpassad domän med Azure App Service-appar, finns i följande artikel på [registrera anpassade domäner][RegisterCustomDomain].
 
 ## <a name="trying-out-the-distributed-topology"></a>Testa den distribuerade topologin
-Slutresultatet av Traffic Manager och DNS-konfigurationen är att begäranden för *www.scalableasedemo.com* flödar genom följande ordning:
+Slutresultatet av Traffic Manager och DNS-konfigurationen är att begäranden för `www.scalableasedemo.com` flödar genom följande ordning:
 
-1. En webbläsare eller enhet blir en DNS-sökning *www.scalableasedemo.com*
+1. En webbläsare eller enhet blir en DNS-sökning `www.scalableasedemo.com`
 2. CNAME-posten på domänregistratorn gör att DNS-sökning för att omdirigeras till Azure Traffic Manager.
 3. En DNS-sökning görs *skalbar ase demo.trafficmanager.net* mot en Azure Traffic Manager DNS-servrar.
 4. Baserat på princip för belastningsutjämning (den *TrafficRoutingMethod* parametern använde tidigare när du skapar Traffic Manager-profil), Traffic Manager kommer väljer du något av de konfigurerade slutpunkterna och returnera det fullständiga Domännamnet för den slutpunkten för den webbläsare eller enhet.

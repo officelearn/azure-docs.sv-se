@@ -10,12 +10,12 @@ ms.subservice: bing-video-search
 ms.topic: quickstart
 ms.date: 01/31/2019
 ms.author: aahi
-ms.openlocfilehash: c2dfd67a2ac3efd24da9c7ba2b1b5541fafafd2d
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 29d0dc032bd14161674c58d6e502ad77c3bf75e5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55866135"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58108788"
 ---
 # <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-c"></a>Snabbstart: Sök efter videor med REST API för videosökning i Bing och C#
 
@@ -23,10 +23,10 @@ Använd den här snabbstarten för att skicka ditt första anrop till API:et fö
 
 Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingVideoSearchv7.cs) tillsammans med ytterligare kommentarer om hantering av fel, funktioner och kodanteckningar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 * Valfri version av [Visual Studio 2017](https://www.visualstudio.com/downloads/).
 * [Json.NET](https://www.newtonsoft.com/json) framework, tillgänglig som ett NuGet-paket.
-* Om du använder Linux/Mac OS kan det här programmet köras med [Mono](http://www.mono-project.com/).
+* Om du använder Linux/Mac OS kan det här programmet köras med [Mono](https://www.mono-project.com/).
 
 [!INCLUDE [cognitive-services-bing-video-search-signup-requirements](../../../../includes/cognitive-services-bing-video-search-signup-requirements.md)]
 
@@ -52,7 +52,7 @@ Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Sa
 
 ### <a name="create-a-struct-to-format-the-bing-video-search-api-response"></a>Skapa en struct för att formatera sökresultaten från API för videosökning i Bing
 
-3. Definiera en `SearchResult`-struct som ska innehålla bildsökningsresultatet och JSON-rubrikinformation.
+1. Definiera en `SearchResult`-struct som ska innehålla bildsökningsresultatet och JSON-rubrikinformation.
 
     ```csharp
     struct SearchResult
@@ -226,6 +226,6 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 > [!div class="nextstepaction"]
 > [Skapa en enkelsidig webbapp](../tutorial-bing-video-search-single-page-app.md)
 
-## <a name="see-also"></a>Se även 
+## <a name="see-also"></a>Se också 
 
  [Vad är API för videosökning i Bing?](../overview.md)

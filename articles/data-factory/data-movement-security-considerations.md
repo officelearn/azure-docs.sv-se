@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: abnarain
-ms.openlocfilehash: 03976d321a92f6049d06cea88604618d5a2dee67
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 1a575a172e4ff567cc20442c7a9779e1d52dbbba
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57532278"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58099992"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Säkerhetsöverväganden för dataförflyttning i Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -34,6 +34,7 @@ I en Data Factory-lösning skapar du en eller flera data[pipelines](concepts-pip
 Azure Data Factory lagrar inte alla data utom länkade autentiseringsuppgifter för molndatalager som krypteras med hjälp av certifikat. Med Data Factory kan du skapa datadrivna arbetsflöden som samordnar flödet av data mellan [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats), och bearbetning av data med hjälp av [Beräkningstjänster](compute-linked-services.md) i andra regioner eller i en lokala miljö. Du kan också övervaka och hantera arbetsflöden med hjälp av SDK: er och Azure Monitor.
 
 Data Factory har certifierats för:
+
 | **[CSA STAR-certifiering](https://www.microsoft.com/trustcenter/compliance/csa-star-certification)** |
 | :----------------------------------------------------------- |
 | **[ISO 20000-1:2011](https://www.microsoft.com/trustcenter/Compliance/ISO-20000-1)** |

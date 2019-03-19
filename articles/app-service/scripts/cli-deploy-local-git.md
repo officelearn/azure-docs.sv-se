@@ -16,16 +16,16 @@ ms.topic: sample
 ms.date: 12/11/2017
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 63efd3ebcb49ebd48e5af6f39bf20206375130d2
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
-ms.translationtype: HT
+ms.openlocfilehash: 747d215810710c6810df02dca556d7a685ae4060
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53634056"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58010862"
 ---
 # <a name="create-an-app-service-app-and-deploy-code-from-a-local-git-repository-using-azure-cli"></a>Skapa en App Service-app och distribuera kod från en lokal Git-lagringsplats med hjälp av Azure CLI
 
-Det här exempelskriptet skapar en app i App Service med dess relaterade resurser och distribuerar sedan appkoden på en lokal Git-lagringsplats.
+Det här exempelskriptet skapar en app i App Service med dess relaterade resurser och distribuerar sedan din kod på en lokal Git-lagringsplats.
 
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]

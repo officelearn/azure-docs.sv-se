@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: 0b5fe1b1df306bf0930715bc6cfb586e5445f85c
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: b1676f53125694eeff3a39adf51dc854c197d756
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52839967"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58110502"
 ---
 # <a name="reprotect-failed-over-azure-vms-to-the-primary-region"></a>Återaktivering av skydd redundansväxlade virtuella Azure-datorer till den primära regionen
 
@@ -35,12 +35,12 @@ När du [redundansväxla](site-recovery-failover.md) Azure virtuella datorer fr�
 
 1. I **Vault** > **replikerade objekt**, högerklicka på den redundansväxlade virtuella datorn och välj **skydda igen**. Riktning för återaktiveringen av skyddet ska visa från sekundär till primär.
 
-  ![Återaktivering av skydd](./media/site-recovery-how-to-reprotect-azure-to-azure/reprotect.png)
+   ![Återaktivering av skydd](./media/site-recovery-how-to-reprotect-azure-to-azure/reprotect.png)
 
 2. Granska resource group, nätverk, lagring och tillgänglighet uppsättningar. Klicka sedan på **OK**. Om det finns några resurser som är markerade som ny, skapas de som en del av återaktiveringen av skyddet.
 3. Återaktivering av skydd jobbet lägger till målplatsen den senaste informationen. Efter som har slutförts sker deltareplikering. Sedan kan du växla över till den primära platsen. Du kan välja storage-konto eller det nätverk som du vill använda under skydda igen med alternativet Anpassa.
 
-  ![Anpassa alternativ](./media/site-recovery-how-to-reprotect-azure-to-azure/customize.png)
+   ![Anpassa alternativ](./media/site-recovery-how-to-reprotect-azure-to-azure/customize.png)
 
 ### <a name="customize-reprotect-settings"></a>Anpassa inställningar för återaktivering av skydd
 
@@ -51,10 +51,10 @@ Du kan anpassa följande egenskaper för mål VMe under återaktiveringen av sky
 |Egenskap  |Anteckningar  |
 |---------|---------|
 |Målresursgrupp     | Ändra målresursgruppen som den virtuella datorn har skapats. Den Virtuella måldatorn som en del av återaktiveringen av skyddet har tagits bort. Du kan välja en ny resursgrupp som du skapar den virtuella datorn efter redundans.        |
-|Virtuellt Målnätverk     | Målnätverket kan inte ändras under jobbet för återaktivering av skydd. Om du vill ändra nätverket, gör du om nätverksmappningen.         |
+|Virtuellt målnätverk     | Målnätverket kan inte ändras under jobbet för återaktivering av skydd. Om du vill ändra nätverket, gör du om nätverksmappningen.         |
 |Mål-Lagringskontot (sekundära virtuella datorn inte använder hanterade diskar)     | Du kan ändra det lagringskonto som den virtuella datorn använder efter en redundansväxling.         |
 |Hanterade replikeringsdiskar (sekundära virtuella datorn använder hanterade diskar)    | Hanterade replikeringsdiskar skapar site Recovery i den primära regionen för spegling av hanterade diskar för den sekundära virtuella datorn.         |
-|Cachelagring     | Du kan ange ett cachelagringskonto som ska användas vid replikering. Som standard är ett nytt cachelagringskonto skapas, om det inte finns.         |
+|Cache Storage     | Du kan ange ett cachelagringskonto som ska användas vid replikering. Som standard är ett nytt cachelagringskonto skapas, om det inte finns.         |
 |Tillgänglighetsuppsättning     |Om den virtuella datorn i den sekundära regionen är en del av en tillgänglighetsuppsättning, kan du välja en tillgänglighetsuppsättning för den Virtuella måldatorn i den primära regionen. Som standard Site Recovery försöker hitta befintliga tillgänglighetsuppsättningen i den primära regionen och använda den. Vid anpassning, kan du ange en ny tillgänglighetsuppsättning.         |
 
 

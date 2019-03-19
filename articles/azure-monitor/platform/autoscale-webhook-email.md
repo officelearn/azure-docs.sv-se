@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/03/2017
 ms.author: ancav
 ms.subservice: autoscale
-ms.openlocfilehash: 248167eca532beb957c723f5074fc1546982efc8
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 94d49edb93e4c7b2daff3c58c02b349612f1ee92
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54463328"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57998295"
 ---
 # <a name="use-autoscale-actions-to-send-email-and-webhook-alert-notifications-in-azure-monitor"></a>Använda automatisk skalning åtgärder för att skicka e-post och webhook-aviseringar i Azure Monitor
 Den här artikeln visar hur du konfigurerar utlösare så att du kan anropa Webb-URL: er eller skicka e-postmeddelanden baserat på åtgärder för automatisk skalning i Azure.  
@@ -59,6 +59,7 @@ När du använder REST API eller Resource Manager-mallen inkludera meddelanden-e
       }
     ]
 ```
+
 | Fält | Obligatorisk? | Beskrivning |
 | --- | --- | --- |
 | åtgärd |ja |Värdet måste vara ”skala” |

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/26/2017
 ms.author: abhisram
-ms.openlocfilehash: 61c01e8ea3b4cbe7b5f7ab83ab35383d74df3105
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 888f9e04e048e3da4c9809ac4f8570f020030335
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51234944"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57855843"
 ---
 # <a name="diagnostics-and-performance-monitoring-for-reliable-actors"></a>Diagnostik- och prestandaövervakning för Reliable Actors
 Reliable Actors-runtime genererar [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) händelser och [prestandaräknare](https://msdn.microsoft.com/library/system.diagnostics.performancecounter.aspx). Det här ger insikt i hur körningen fungerar och hjälpa till med felsökning och övervakning av programprestanda.
@@ -27,12 +27,12 @@ Reliable Actors-runtime genererar [EventSource](https://msdn.microsoft.com/libra
 ## <a name="eventsource-events"></a>EventSource händelser
 Providernamnet EventSource för Reliable Actors-runtime är ”Microsoft-ServiceFabric-aktörer”. Händelser från den här händelsekällan visas i den [diagnostikhändelser](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md#view-service-fabric-system-events-in-visual-studio) fönstret när actor-program som [felsökas i Visual Studio](service-fabric-debugging-your-application.md).
 
-Exempel på Verktyg och tekniker som hjälper till att samla in och/eller visa EventSource händelser är [PerfView](https://www.microsoft.com/download/details.aspx?id=28567), [Azure Diagnostics](../cloud-services/cloud-services-dotnet-diagnostics.md), [semantisk loggning](https://msdn.microsoft.com/library/dn774980.aspx), och [ Microsofts bibliotek för TraceEvent](http://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent).
+Exempel på Verktyg och tekniker som hjälper till att samla in och/eller visa EventSource händelser är [PerfView](https://www.microsoft.com/download/details.aspx?id=28567), [Azure Diagnostics](../cloud-services/cloud-services-dotnet-diagnostics.md), [semantisk loggning](https://msdn.microsoft.com/library/dn774980.aspx), och [ Microsofts bibliotek för TraceEvent](https://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent).
 
 ### <a name="keywords"></a>Nyckelord
 Alla händelser som hör till tillförlitliga aktörer EventSource är associerade med ett eller flera nyckelord. På så sätt kan du filtrera händelser som samlas in. Följande nyckelord bitar definieras.
 
-| bitars | Beskrivning |
+| Bit | Beskrivning |
 | --- | --- |
 | 0x1 |Ange om viktiga händelser som sammanfattar driften av Fabric Actors-runtime. |
 | 0x2 |Uppsättning händelser som beskriver aktören metodanrop. Mer information finns i den [inledande ämne aktörer](service-fabric-reliable-actors-introduction.md). |

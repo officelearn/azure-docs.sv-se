@@ -17,12 +17,12 @@ ms.date: 07/09/2018
 ms.author: mlearned
 ms.custom: mvc
 monikerRange: vsts
-ms.openlocfilehash: 24a957260e3e3f161ce9e2e61b746f9b052e784d
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
-ms.translationtype: HT
+ms.openlocfilehash: 82310857276c53c85af033ae32a3aeef4f33c8da
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52264377"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58109383"
 ---
 # <a name="create-a-cicd-pipeline-for-php-with-azure-devops-projects"></a>Skapa en CI/CD-pipeline för PHP med Azure DevOps Projects
 
@@ -65,7 +65,7 @@ Om du inte har en Azure-prenumeration kan du skaffa en kostnadsfritt via [Visual
 
     ![Instrumentpanelsvy](_img/azure-devops-project-php/dashboardnopreview.png) 
     
- DevOps Projects konfigurerade automatiskt en CI-version och versionsutlösare.  Nu är du redo att samarbeta med ett team på en PHP-app med en CI/CD-process som automatiskt distribuerar ditt senaste arbete till din webbplats.
+   DevOps Projects konfigurerade automatiskt en CI-version och versionsutlösare.  Nu är du redo att samarbeta med ett team på en PHP-app med en CI/CD-process som automatiskt distribuerar ditt senaste arbete till din webbplats.
 
 ## <a name="commit-code-changes-and-execute-cicd"></a>Genomför ändringar i koden och kör CI/CD
 

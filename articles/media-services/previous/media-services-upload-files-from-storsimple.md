@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 555d68198329353b47641e8a22abfcb33ae5b61c
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 0d7ca397cf45c4a67a914a8105deb9043adf46e4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57768305"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57835290"
 ---
 # <a name="upload-files-into-an-azure-media-services-account-from-azure-storsimple"></a>Ladda upp filer till ett Azure Media Services-konto från Azure StorSimple  
 
@@ -47,7 +47,7 @@ I Media Services överför du dina digitala filer till en tillgång. Tillgång k
 
 ## <a name="see-also"></a>Se också
 
-[Använd .Net SDK för att utlösa jobb i Data Manager](../../storsimple/storsimple-data-manager-dotnet-jobs.md)
+[Använda .NET SDK, för att utlösa jobb i Data Manager](../../storsimple/storsimple-data-manager-dotnet-jobs.md)
 
 ## <a name="media-services-learning-paths"></a>Sökvägar för Media Services-utbildning
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

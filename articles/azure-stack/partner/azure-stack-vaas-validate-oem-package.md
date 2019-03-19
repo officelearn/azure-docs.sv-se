@@ -15,12 +15,12 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 03/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: c2b0343ff472fe380750152712ca88d9ebb404e2
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: aae3ec8ff713959c5cc2485951aba025a6f89a1e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57782793"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58113290"
 ---
 # <a name="validate-oem-packages"></a>Verifiera OEM-paket
 
@@ -185,30 +185,30 @@ Följande tester krävs för att verifiera för OEM-paketet:
 
     OEM-tillägget paketet verifiering är uppdelat i två manuella steg: Azure Stack-uppdatering och OEM-uppdatering.
 
-    1. **Välj** ”kör” i Användargränssnittet för att köra skriptet precheck. Det här är ett automatiserat test som tar cirka 5 minuter för att slutföra och kräver ingen åtgärd.
+   1. **Välj** ”kör” i Användargränssnittet för att köra skriptet precheck. Det här är ett automatiserat test som tar cirka 5 minuter för att slutföra och kräver ingen åtgärd.
 
-    1. När precheck skriptet har slutförts kan du utföra den manuella åtgärden: **installera** den senaste tillgängliga Azure Stack uppdateringen med hjälp av Azure Stack-portalen.
+   1. När precheck skriptet har slutförts kan du utföra den manuella åtgärden: **installera** den senaste tillgängliga Azure Stack uppdateringen med hjälp av Azure Stack-portalen.
 
-    1. **Kör** Test-AzureStack på stämpeln. Om något fel uppstår, Fortsätt inte med test- och kontakta [ vaashelp@microsoft.com ](mailto:vaashelp@microsoft.com).
+   1. **Kör** Test-AzureStack på stämpeln. Om något fel uppstår, Fortsätt inte med test- och kontakta [ vaashelp@microsoft.com ](mailto:vaashelp@microsoft.com).
 
-        Information om hur du kör kommandot Test-AzureStack finns i [Validera Azure Stack systemtillstånd](https://docs.microsoft.com/azure/azure-stack/azure-stack-diagnostic-test).
+       Information om hur du kör kommandot Test-AzureStack finns i [Validera Azure Stack systemtillstånd](https://docs.microsoft.com/azure/azure-stack/azure-stack-diagnostic-test).
 
-    1. **Välj** ”nästa” för att köra skriptet postcheck. Detta är ett automatiserat test och markerar slutet av uppdateringsprocessen för Azure Stack.
+   1. **Välj** ”nästa” för att köra skriptet postcheck. Detta är ett automatiserat test och markerar slutet av uppdateringsprocessen för Azure Stack.
 
-    1. **Välj** ”kör” för att köra skriptet precheck för OEM-uppdatering.
+   1. **Välj** ”kör” för att köra skriptet precheck för OEM-uppdatering.
 
-    1. När kravkontrollen har slutförts kan utföra den manuella åtgärden: **installera** OEM-tilläggspaket via portalen.
+   1. När kravkontrollen har slutförts kan utföra den manuella åtgärden: **installera** OEM-tilläggspaket via portalen.
 
-    1. **Kör** Test-AzureStack på stämpeln.
+   1. **Kör** Test-AzureStack på stämpeln.
 
-        > [!NOTE]
-        > Som tidigare Fortsätt inte med test- och kontakta [ vaashelp@microsoft.com ](mailto:vaashelp@microsoft.com) om det misslyckas. Det här steget är kritiskt eftersom kan du spara en omdistributionen.
+      > [!NOTE]
+      > Som tidigare Fortsätt inte med test- och kontakta [ vaashelp@microsoft.com ](mailto:vaashelp@microsoft.com) om det misslyckas. Det här steget är kritiskt eftersom kan du spara en omdistributionen.
 
-    1. **Välj** ”nästa” för att köra skriptet postcheck. Detta markerar slutet av OEM update steg.
+   1. **Välj** ”nästa” för att köra skriptet postcheck. Detta markerar slutet av OEM update steg.
 
-    1. Svara på eventuella återstående frågor i slutet av testet och **Välj** ”skicka”.
+   1. Svara på eventuella återstående frågor i slutet av testet och **Välj** ”skicka”.
 
-    1. Detta markerar slutet av det interaktiva testet.
+   1. Detta markerar slutet av det interaktiva testet.
 
 5. Granska resultatet för OEM-tillägget paketet verifiering. När testet har slutförts kan du schemalägga molnet simulering motorn för körning.
 

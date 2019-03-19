@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: pryerram
 ms.custom: mvc
-ms.openlocfilehash: c983ece9d883397e43833522b2fa4d1bfb3fa4f0
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: HT
+ms.openlocfilehash: 354ffb14eb95e7f09256f337ffea069cff14b226
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55753647"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57306569"
 ---
 # <a name="tutorial-how-to-use-azure-key-vault-with-azure-linux-virtual-machine-in-net"></a>Självstudier: Så här använder du Azure Key Vault med en virtuell Azure Linux-dator i .NET
 
@@ -36,7 +36,7 @@ I den här självstudien följer du de steg som behövs för att få ett konsolp
 
 Innan du fortsätter så rekommenderar vi att du läser [grundläggande koncept](key-vault-whatis.md#basic-concepts).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 * Alla plattformar:
   * Git ([ladda ned](https://git-scm.com/downloads)).
   * En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
@@ -177,13 +177,6 @@ sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
 ### <a name="set-up-desired-version-host-package-feed-based-on-operating-system"></a>Konfigurera den version av paketfeed du vill använda utifrån operativsystem
 
 ```
-# Ubuntu 17.10
-sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-artful-prod artful main" > /etc/apt/sources.list.d/dotnetdev.list'
-sudo apt-get update
- 
-# Ubuntu 17.04
-sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-zesty-prod zesty main" > /etc/apt/sources.list.d/dotnetdev.list'
-sudo apt-get update
  
 # Ubuntu 16.04 / Linux Mint 18
 sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-xenial-prod xenial main" > /etc/apt/sources.list.d/dotnetdev.list'

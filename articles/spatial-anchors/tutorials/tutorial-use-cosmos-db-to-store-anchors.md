@@ -1,6 +1,6 @@
 ---
 title: Självstudie – Dela mellan sessioner och enheter med Azure Spatial Anchors och en Azure Cosmos DB-serverdel | Microsoft Docs
-description: I den här självstudien lär du dig att dela Azure Spatial Anchors-identifierare mellan enheter i Unity med en serverdelstjänst och Azure Cosmos DB.
+description: 'I den här självstudien får du lära dig hur du delar Azure Spatial ankar-ID: n mellan Android/iOS-enheter i Unity med en backend-tjänst och Azure Cosmos DB.'
 author: ramonarguelles
 manager: vicenterivera
 services: azure-spatial-anchors
@@ -8,12 +8,12 @@ ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: f0cd42fc37727099ed95a1c6fc2d427b7862412e
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
-ms.translationtype: HT
+ms.openlocfilehash: b585b13f40be447a5c5a4b348efc28bf5171e210
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56753489"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57863193"
 ---
 # <a name="tutorial-sharing-across-sessions-and-devices-with-azure-spatial-anchors-and-an-azure-cosmos-db-back-end"></a>Självstudier: Dela mellan sessioner och enheter med Azure Spatial Anchors och en Azure Cosmos DB-serverdel
 
@@ -37,7 +37,7 @@ Du lär dig följande:
 
 [!INCLUDE [Share Anchors Sample Prerequisites](../../../includes/spatial-anchors-share-sample-prereqs.md)]
 
-Det är värt att nämna att även om du använder Unity och Azure Cosmos DB i den här självstudien så är det bara för att visa ett exempel på hur du delar Azure Spatial Anchors-identifierare mellan andra enheter. Du kan använda andra språk och serverdelstekniker för att uppnå samma resultat. Den ASP.NET Core-webbapp som används i den här självstudien har dessutom ett beroende för .NET Core 2.2 SDK. Den fungerar bra på vanliga Azure Web Apps (för Windows), men fungerar för närvarande inte på Azure Web Apps för Linux.
+Det är värt att nämna att även om du använder Unity och Azure Cosmos DB i den här självstudien så är det bara för att visa ett exempel på hur du delar Azure Spatial Anchors-identifierare mellan andra enheter. Du kan använda andra språk och backend-tekniker för att uppnå samma resultat. Den ASP.NET Core-webbapp som används i den här självstudien har dessutom ett beroende för .NET Core 2.2 SDK. Den fungerar bra på vanliga Azure Web Apps (för Windows), men fungerar för närvarande inte på Azure Web Apps för Linux.
 
 [!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
 
@@ -46,6 +46,10 @@ Det är värt att nämna att även om du använder Unity och Azure Cosmos DB i d
 [!INCLUDE [cosmos-db-create-dbaccount-table](../../../includes/cosmos-db-create-dbaccount-table.md)]
 
 Anteckna `Connection String`, eftersom den används senare.
+
+## <a name="open-the-sample-project-in-unity"></a>Öppna exempelprojektet i Unity
+
+[!INCLUDE [Clone Sample Repo](../../../includes/spatial-anchors-clone-sample-repository.md)]
 
 ## <a name="deploy-your-sharing-anchors-service"></a>Distribuera tjänsten för delningsfästpunkter
 

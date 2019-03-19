@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 11/15/2018
 ms.author: genli
-ms.openlocfilehash: 16876a7831ab374637e28165c44d47e0ab059712
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 0f700b9e24399768977a1fa221322fa4c1c6708d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53976380"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58095151"
 ---
 # <a name="troubleshoot-azure-windows-virtual-machine-activation-problems"></a>Felsöka problem med Windows Azure VM-aktivering
 
@@ -31,7 +31,7 @@ Azure använder olika slutpunkter för KMS-aktivering beroende på området moln
 * Offentliga Azure-molnregioner: kms.core.windows.net:1688
 * Azure Kina 21Vianet nationella moln-regioner: kms.core.chinacloudapi.cn:1688
 * Nationella molnregioner där Azure Germany: kms.core.cloudapi.de:1688
-* Azure US Gov-regioner nationella: kms.core.usgovcloudapi.net:1688
+* Azure US Gov national cloud regions: kms.core.usgovcloudapi.net:1688
 
 ## <a name="symptom"></a>Symtom
 
@@ -61,7 +61,7 @@ Det här steget gäller inte för Windows 2012 eller Windows 2008 R2. Den använ
     cscript c:\windows\system32\slmgr.vbs /dlv
     ```
 
-2. Om **/ Slmgr.vbs/dlv** visar butikskanalprestanda, kör följande kommandon för att ange den [KMS-klientinstallationsnyckel](https://technet.microsoft.com/library/jj612867%28v=ws.11%29.aspx?f=255&MSPPError=-2147217396) som används för versionen av Windows Server och tvinga den att försök aktivera igen: 
+2. Om **slmgr.vbs /dlv** visar RETAIL-kanalen kör du följande kommandon för att konfigurera [KMS-klientens konfigurationsnyckel](https://technet.microsoft.com/library/jj612867%28v=ws.11%29.aspx?f=255&MSPPError=-2147217396) för versionen av Windows Server som används och tvinga den att försöka aktivera igen: 
 
     ```
     cscript c:\windows\system32\slmgr.vbs /ipk <KMS client setup key>
@@ -81,28 +81,28 @@ Det här steget gäller inte för Windows 2012 eller Windows 2008 R2. Den använ
 
 2. Gå till Start, söker du i Windows PowerShell, högerklickar du på Windows PowerShell och välj Kör som administratör.
 
-3. Kontrollera att den virtuella datorn är konfigurerad för att använda rätt Azure KMS-servern. Gör detta genom att köra följande kommando:
-  
+3. Kontrollera att den virtuella datorn är konfigurerad för att använda rätt Azure KMS-server. Gör detta genom att köra följande kommando:
+  
     ```
     iex "$env:windir\system32\cscript.exe $env:windir\system32\slmgr.vbs /skms kms.core.windows.net:1688"
     ```
-    Kommandot ska returnera: Nyckelhanteringstjänst datornamn har angetts till kms.core.windows.net:1688.
+    Kommandot bör returnera: Nyckelhanteringstjänst datornamn har angetts till kms.core.windows.net:1688.
 
-4. Kontrollera med hjälp av Psping att du är ansluten till KMS-servern. Växla till den mapp där du extraherade Pstools.zip nedladdningen och kör sedan följande:
-  
+4. Kontrollera med hjälp av Psping att du är ansluten till KMS-servern. Växla till den mapp där du extraherade Pstools.zip-nedladdningen och kör sedan följande:
+  
     ```
     \psping.exe kms.core.windows.net:1688
     ```
-  
-  Kontrollera att du ser i den andra och sista raden i utdata: Skickade = 4, mottagna = 4, förlorad = 0 (0% förlust).
+  
+   Kontrollera att du ser följande i den andra och sista raden i dina utdata: Skickade = 4, mottagna = 4, förlorad = 0 (0% förlust).
 
-  Om förlorad är större än 0 (noll), har den virtuella datorn inte anslutning till KMS-servern. I det här fallet är om den virtuella datorn är i ett virtuellt nätverk och har en anpassad DNS-server har angetts, måste du kontrollera att DNS-servern kan matcha kms.core.windows.net. Eller så ändrar du DNS-servern till ett som matchar kms.core.windows.net.
+   Om förlorad är större än 0 (noll), har den virtuella datorn inte anslutning till KMS-servern. I det här fallet är om den virtuella datorn är i ett virtuellt nätverk och har en anpassad DNS-server har angetts, måste du kontrollera att DNS-servern kan matcha kms.core.windows.net. Eller så ändrar du DNS-servern till ett som matchar kms.core.windows.net.
 
-  Observera att om du tar bort alla DNS-servrar från ett virtuellt nätverk, virtuella datorer använder Azures interna DNS-tjänsten. Den här tjänsten kan lösa kms.core.windows.net.
+   Observera att om du tar bort alla DNS-servrar från ett virtuellt nätverk, virtuella datorer använder Azures interna DNS-tjänsten. Den här tjänsten kan lösa kms.core.windows.net.
   
 Kontrollera också att gästdatorns brandvägg inte har konfigurerats på ett sätt som skulle blockera aktiveringsförsök.
 
-5. När du har kontrollerat lyckad anslutning till kms.core.windows.net, kör du följande kommando i den utökade Windows PowerShell-Kommandotolken. Det här kommandot försöker aktivera flera gånger.
+1. När du har kontrollerat lyckad anslutning till kms.core.windows.net, kör du följande kommando i den utökade Windows PowerShell-Kommandotolken. Det här kommandot försöker aktivera flera gånger.
 
     ```
     1..12 | % { iex “$env:windir\system32\cscript.exe $env:windir\system32\slmgr.vbs /ato” ; start-sleep 5 }

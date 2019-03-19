@@ -7,12 +7,12 @@ ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 11/10/2018
-ms.openlocfilehash: a2f0d775f061ab221092c9354d9d04b9241c9430
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: f457246b429062625e6542cfdaf00f3526a85209
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53543894"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58083240"
 ---
 # <a name="create-and-manage-azure-database-for-mariadb-firewall-rules-by-using-the-azure-cli"></a>Skapa och hantera Azure-databas för MariaDB brandväggsregler med hjälp av Azure CLI
 Brandväggsregler på servernivå kan administratörer hantera åtkomst till en Azure Database for MariaDB-Server från en specifik IP-adress eller ett intervall med IP-adresser. Med praktiska Azure CLI-kommandon kan du skapa, uppdatera, ta bort, lista, och visa brandväggsregler för att hantera servern. En översikt över Azure-databas för MariaDB brandväggar, se [Azure Database for MariaDB serverbrandväggsregler](./concepts-firewall-rules.md)
@@ -27,18 +27,18 @@ Den **az mariadb-serverbrandväggsregel** används med Azure CLI för att skapa,
 Kommandon:
 - **Skapa**: Skapa en brandväggsregel för Azure MariaDB-server.
 - **Ta bort**: Ta bort en brandväggsregel för Azure MariaDB-server.
-- **Lista**: Lista över Azure MariaDB-serverbrandväggsregler.
+- **list**: Lista över Azure MariaDB-serverbrandväggsregler.
 - **Visa**: Visa information om en server i Azure MariaDB brandväggsregel.
-- **Uppdatera**: Uppdatera en brandväggsregel för Azure MariaDB-server.
+- **update**: Uppdatera en brandväggsregel för Azure MariaDB-server.
 
 ## <a name="log-in-to-azure-and-list-your-azure-database-for-mariadb-servers"></a>Logga in på Azure och lista din Azure-databas för MariaDB-servrar
 På ett säkert sätt ansluta Azure CLI med Azure-kontot med hjälp av den **az-inloggning** kommando.
 
 1. Kör följande kommando på kommandoraden:
-```azurecli
-az login
-```
-Detta kommando visar en kod som ska användas i nästa steg.
+   ```azurecli
+   az login
+   ```
+   Detta kommando visar en kod som ska användas i nästa steg.
 
 2. Använd en webbläsare för att öppna sidan [ https://aka.ms/devicelogin ](https://aka.ms/devicelogin), och ange koden.
 

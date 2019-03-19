@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c23f16f5d3c665cb74e9e0460d2e5658fa716d72
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: e0ada3055a3347cb42179fddbba671f2f03f502d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57452869"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57885075"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-infinite-campus"></a>Självstudier: Azure Active Directory-integrering med oändlig Campus
 
@@ -196,14 +196,14 @@ Målet med det här avsnittet är att skapa en _enda_ testanvändare i Azure-por
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I fältet **Användarnamn** anger du **brittasimon@yourcompanydomain.extension**  
+    b. I den **användarnamn** skriver **brittasimon\@yourcompanydomain.extension**  
     Till exempel, BrittaSimon@contoso.com
 
     c. Välj **egenskaper**väljer den **Show lösenord** kryssrutan och sedan skriva ned det värde som visas i rutan lösenord.
 
     d. Välj **Skapa**.
 
-### <a name="creating-a-infinite-campus-test-user"></a>Skapa en oändlig Campus testanvändare
+### <a name="creating-an-infinite-campus-test-user"></a>Skapa en oändlig Campus testanvändare
 
 Oändlig Campus har en arkitektur för demografi centrerad. Kontakta [oändlig Campus-supportteamet](mailto:sales@infinitecampus.com) att lägga till användare i oändlig Campus-plattformen.
 
@@ -239,7 +239,7 @@ När du klickar på panelen oändlig Campus i åtkomstpanelen du bör få automa
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
+* [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->

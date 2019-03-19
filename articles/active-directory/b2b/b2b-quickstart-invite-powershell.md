@@ -9,13 +9,14 @@ ms.date: 08/28/2018
 ms.author: mimart
 author: msmimart
 ms.reviewer: mal
+ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8417e2118de01d00e8b0450374a9b10bff40221f
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
-ms.translationtype: HT
+ms.openlocfilehash: 7b9274652b7164a4aef71499912cb8b38ace29ff
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56675151"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57854457"
 ---
 # <a name="quickstart-add-a-guest-user-with-powershell"></a>Snabbstart: Lägga till en gästanvändare med PowerShell
 
@@ -23,7 +24,7 @@ Det finns många sätt att bjuda in externa partners till dina appar och tjänst
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar. 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 ### <a name="install-the-latest-azureadpreview-module"></a>Installera den senaste AzureADPreview-modulen
 Se till att du installerar den senaste versionen av Azure AD PowerShell för Graph-modulen (AzureADPreview). 
@@ -73,7 +74,7 @@ Ange dina autentiseringsuppgifter när du uppmanas att göra det.
 
 ## <a name="send-an-invitation"></a>Skicka en inbjudan
 
-1. Skicka en inbjudan till ditt test-e-postkonto genom att köra följande PowerShell-kommando (ersätt **”Sanda”** och **sanda@fabrikam.com** med namnet på ditt test-e-postkonto och din e-postadress): 
+1. Om du vill skicka en inbjudan till ditt test-e-postkonto, kör du följande PowerShell-kommando (Ersätt **”Sanda”** och **sanda\@fabrikam.com** med din testning e-konto och e-postadress): 
 
    ```powershell
    New-AzureADMSInvitation -InvitedUserDisplayName "Sanda" -InvitedUserEmailAddress sanda@fabrikam.com -InviteRedirectURL https://myapps.azure.com -SendInvitationMessage $true
@@ -89,7 +90,7 @@ Ange dina autentiseringsuppgifter när du uppmanas att göra det.
    ```powershell
    Get-AzureADUser -Filter "UserType eq 'Guest'"
    ```
-3. Kontrollera utdata för att se till att den användare som du bjudit in är listad med ett användarens huvudnamn (UPN) i formatet *e-postadress*#EXT #@*domän*. Exempel: *sanda_fabrikam.com#EXT#@contoso.onmicrosoft.com*, där contoso.onmicrosoft.com är den organisation från vilken du har skickat inbjudningarna.
+3. Kontrollera utdata att kontrollera att användaren du inbjuden visas med en användarens huvudnamn (UPN) i formatet *e-postadress*EXT #\@*domän*. Till exempel *sanda_fabrikam.com#EXT#\@contoso.onmicrosoft.com*, där contoso.onmicrosoft.com är organisationen som du har skickat inbjudningarna.
 
    ![PowerShell-utdata som visar att gästanvändaren har lagts till](media/quickstart-invite-powershell/powershell-guest-user-added.png)
 

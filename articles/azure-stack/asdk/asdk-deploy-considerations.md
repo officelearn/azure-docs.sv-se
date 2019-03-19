@@ -16,12 +16,12 @@ ms.date: 12/12/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
 ms.lastreviewed: 12/12/2018
-ms.openlocfilehash: f874be6081a1ea01ecf616c9b97db878554d441c
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: f3fdfcc6a2fbb527582d4bf242c039a778b84ed1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55242424"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57877997"
 ---
 # <a name="azure-stack-deployment-planning-considerations"></a>Saker att tänka på för Azure Stack-distribution
 Innan du distribuerar Azure Stack Development Kit (ASDK) måste du kontrollera att värddatorn development kit uppfyller kraven som beskrivs i den här artikeln.
@@ -77,13 +77,13 @@ Normalt distribuerar du i development kit internet-anslutning, där du kan anslu
 
 Om din miljö inte är ansluten till internet, eller om du inte vill använda Azure AD, kan du distribuera Azure Stack med hjälp av Active Directory Federation Services (AD FS). I development kit innehåller sin egen AD FS och Active Directory Domain Services-instanser. Om du distribuerar med hjälp av det här alternativet kan behöver du inte konfigurera konton förbereds i förväg.
 
->[!NOTE]
-Om du distribuerar med hjälp av AD FS-alternativet måste du distribuera om Azure Stack för att växla till Azure AD.
+> [!NOTE]
+> Om du distribuerar med hjälp av AD FS-alternativet måste du distribuera om Azure Stack för att växla till Azure AD.
 
 ### <a name="azure-active-directory-accounts"></a>Azure Active Directory-konton
 För att distribuera Azure Stack med hjälp av en Azure AD-konto, måste du förbereda en Azure AD-konto innan du kör PowerShell-skript för distribution. Detta konto blir den globala administratören för Azure AD-klient. Den används för att etablera och delegera program och tjänstens huvudnamn för alla Azure Stack-tjänster som interagerar med Azure Active Directory och Graph API. Den används också som ägare till standard-providerprenumeration (som du kan ändra senare). Du kan logga in till administratörsportalen för Azure Stack-system med hjälp av det här kontot.
 
-1. Skapa ett Azure AD-konto som är katalogadministratör för minst en Azure AD. Om du redan har ett konto kan använda du det. Annars kan du skapa en kostnadsfritt på [ https://azure.microsoft.com/free/ ](https://azure.microsoft.com/pricing/free/) (i Kina, besök <https://go.microsoft.com/fwlink/?LinkID=717821> i stället). Om du planerar att senare [registrera Azure Stack med Azure](asdk-register.md), du måste också ha en prenumeration för den nya konto.
+1. Skapa ett Azure AD-konto som är katalogadministratör för minst en Azure AD. Om du redan har ett konto kan använda du det. Annars kan du skapa en kostnadsfritt på [ https://azure.microsoft.com/free/ ](https://azure.microsoft.com/free/) (i Kina, besök <https://go.microsoft.com/fwlink/?LinkID=717821> i stället). Om du planerar att senare [registrera Azure Stack med Azure](asdk-register.md), du måste också ha en prenumeration för den nya konto.
    
     Spara autentiseringsuppgifterna för användning som tjänstadministratör. Det här kontot kan konfigurera och hantera resursmoln, användarkonton, klientplaner för innehavare, kvoter och priser. I portalen kan de skapa webbplatsmoln, privata moln för virtuella datorer, skapa planer och hantera användarprenumerationer.
 1. Skapa minst ett test-användarkonto i din Azure AD så att du kan logga in i development Kit som en klient.

@@ -10,12 +10,12 @@ ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 02/01/2019
 ms.author: aahi
-ms.openlocfilehash: 73b666116a23ab8d861d38af4dc9fa5e19d5d1bd
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: b35fa32776fa449bf4f46479345a94e63fe28e68
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55857166"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58109584"
 ---
 # <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-python"></a>Snabbstart: Skicka en sökbegäran till REST API för entitetssökning i Bing med hjälp av Python
 
@@ -23,7 +23,7 @@ Använd den här snabbstarten för att göra ditt första anrop till API för en
 
 Även om det här programmet är skrivet i Python, är API:n en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * [Python](https://www.python.org/downloads/) 2.x eller 3.x
 
@@ -53,18 +53,18 @@ Använd den här snabbstarten för att göra ditt första anrop till API för en
 ## <a name="send-a-request-and-get-a-response"></a>Skicka en begäran och få ett svar
 
 1. Skapa en funktion som heter `get_suggestions()`. Utför sedan följande steg.
-    1. Lägg till din prenumerationsnyckel i en ordlista med `Ocp-Apim-Subscription-Key` som en nyckel.
-    2. Använd `http.client.HTTPSConnection()` för att skapa ett HTTPS-klientobjekt. Skicka en `GET`-begäran via `request()` med sökväg och parametrar samt huvudinformation.
-    3. Lagra svaret med `getresponse()` och returnera `response.read()`.
+   1. Lägg till din prenumerationsnyckel i en ordlista med `Ocp-Apim-Subscription-Key` som en nyckel.
+   2. Använd `http.client.HTTPSConnection()` för att skapa ett HTTPS-klientobjekt. Skicka en `GET`-begäran via `request()` med sökväg och parametrar samt huvudinformation.
+   3. Lagra svaret med `getresponse()` och returnera `response.read()`.
 
-    ```python
-    def get_suggestions ():
-        headers = {'Ocp-Apim-Subscription-Key': subscriptionKey}
-        conn = http.client.HTTPSConnection (host)
-        conn.request ("GET", path + params, None, headers)
-        response = conn.getresponse ()
-        return response.read()
-    ```
+      ```python
+      def get_suggestions ():
+       headers = {'Ocp-Apim-Subscription-Key': subscriptionKey}
+       conn = http.client.HTTPSConnection (host)
+       conn.request ("GET", path + params, None, headers)
+       response = conn.getresponse ()
+       return response.read()
+      ```
 
 2. Anropa `get_suggestions()` och skriv ut json-svaret.
 
@@ -113,7 +113,7 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
         "_type": "Restaurant",
         "webSearchUrl": "https://www.bing.com/search?q=Pickles+and+Preserves...",
         "name": "Munson's Pickles and Preserves Farm",
-        "url": "http://www.princi.com/",
+        "url": "https://www.princi.com/",
         "entityPresentationInfo": {
           "entityScenario": "ListItem",
           "entityTypeHints": [

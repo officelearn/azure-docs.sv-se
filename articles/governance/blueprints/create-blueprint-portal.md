@@ -4,21 +4,21 @@ description: Använd Azure Blueprints för att skapa, definiera och distribuera 
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/01/2019
+ms.date: 03/11/2019
 ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 7aeb3cf2d56dbe20c85adca2243f5830575693e3
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
-ms.translationtype: HT
+ms.openlocfilehash: fdf87bff026dee4969b3995b37c31de3ead7714b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56818671"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58004913"
 ---
 # <a name="define-and-assign-an-azure-blueprint-in-the-portal"></a>Definiera och tilldela en Azure-skiss i portalen
 
-När du skapar och tilldelar skisser kan definitionen av vanliga mönster utveckla återanvändbara och snabbt distribuerbara konfigurationer baserade på Resource Manager-mallar, principer, säkerhet med mera. I den här självstudien får du lära dig att använda Azure Blueprints för att utföra några av de vanliga uppgifter som rör generering, publicering och tilldelning av en skiss i din organisation. Du lär dig till exempel att:
+När du skapar och tilldelar skisser kan definitionen av vanliga mönster utveckla återanvändbara och snabbt distribuerbara konfigurationer baserade på Resource Manager-mallar, principer, säkerhet med mera. I den här självstudien får du lära dig att använda Azure Blueprint för att utföra några av de vanliga uppgifter som rör generering, publicering och tilldelning av en skiss i din organisation. Du lär dig till exempel att:
 
 > [!div class="checklist"]
 > - Skapa en ny skiss och lägga till olika artefakter som stöds
@@ -42,7 +42,7 @@ Det första steget när du definierar ett standardmönster för efterlevnad är 
 
    ![Skapa skiss](./media/create-blueprint-portal/create-blueprint-button.png)
 
-1. Ange ett **Skissnamn**, t.ex. MyBlueprint (bokstäver och siffror – upp till 48 tecken, men inga blanksteg eller specialtecken) för skissen, men lämna **Skissbeskrivning** tomt tills vidare.  Klicka på de tre punkterna till höger i rutan **Definitionsplats**, välj den [hanteringsgrupp](../management-groups/overview.md) eller prenumeration där du vill spara skissen och klicka på **Välj**.
+1. Ange ett **Skissnamn**, t.ex. MyBlueprint (bokstäver och siffror – upp till 48 tecken, men inga blanksteg eller specialtecken) för skissen, men lämna **Skissbeskrivning** tomt tills vidare. Klicka på de tre punkterna till höger i rutan **Definitionsplats**, välj den [hanteringsgrupp](../management-groups/overview.md) eller prenumeration där du vill spara skissen och klicka på **Välj**.
 
 1. Kontrollera att informationen är korrekt (fälten **Skissnamn** och **Definitionsplats** kan inte ändras senare) och klicka på **Nästa: Artefakter** längst ned på sidan eller på fliken **Artefakter** högst upp på sidan.
 
@@ -84,7 +84,7 @@ Det första steget när du definierar ett standardmönster för efterlevnad är 
            },
            "location": {
                "type": "string",
-               "defaultValue": "[resourceGroup().location]",
+               "defaultValue": "[resourceGroups('ResourceGroup').location]",
                "metadata": {
                    "description": "Location for all resources."
                }
@@ -129,7 +129,7 @@ I [Skapa en skiss](#create-a-blueprint) angavs ingen beskrivning, rolltilldelnin
 
 1. Högerklicka på den skiss som du skapade tidigare i listan över skisser och välj **Redigera skiss**.
 
-1. I **Skissbeskrivning** anger du information om skissen och de artefakter som ingår i den.  I det här fallet kan du skriva något som liknar följande: ”Den här skissen anger prenumerationens taggprincip och rolltilldelning, skapar en resursgrupp och distribuerar en resursmall och en resurstilldelning till denna ResourceGroup”.
+1. I **Skissbeskrivning** anger du information om skissen och de artefakter som ingår i den. I det här fallet kan du skriva något som liknar följande: ”Den här skissen anger prenumerationens taggprincip och rolltilldelning, skapar en resursgrupp och distribuerar en resursmall och en resurstilldelning till denna ResourceGroup”.
 
 1. Klicka på **Nästa: Artefakter** längst ned på sidan eller på fliken **Artefakter** högst upp på sidan.
 
@@ -186,13 +186,17 @@ När en skiss har publicerats kan den tilldelas till en prenumeration. Tilldela 
    > [!NOTE]
    > En tilldelning skapas för varje prenumeration som väljs, vilket tillåter ändringar i enskilda prenumerationstilldelningar senare utan att resten av de valda prenumerationerna påtvingas dessa ändringar.
 
-1. Ge den här tilldelningen ett unikt namn i **Tilldelat namn**.
+1. För **tilldelningsnamn**, ange ett unikt namn för den här tilldelningen.
 
-1. Ange i vilken region den hanterade identiteten ska skapas i **Plats**. Azure Blueprint använder den här hanterade identiteten för att distribuera alla artefakter i den tilldelade skissen. Mer information finns i [Hanterade identiteter för Azure-resurser](../../active-directory/managed-identities-azure-resources/overview.md).
+1. I **plats**, Välj en region för den hanterade identitet och prenumeration distributionsobjektet skapas i. Azure Blueprint använder den här hanterade identiteten för att distribuera alla artefakter i den tilldelade skissen. Mer information finns i [Hanterade identiteter för Azure-resurser](../../active-directory/managed-identities-azure-resources/overview.md).
 
-1. Lämna listrutan **Skissdefinitionsversion** listrutan för **Publicerade** versioner för posten ”v1” (som standard den allra senast **publicerade** versionen).
+1. Lämna den **skissen definitionsversion** listrutan för **publicerad** versioner på posten ”v1” (standardvärdet är den allra senast **publicerad** version).
 
 1. Låt standardvärdet **Lås inte** vara för **Lås tilldelning**. Mer information finns i [Låsa skissresurser](./concepts/resource-locking.md).
+
+   ![Tilldelning - låsning och hanterade identiteter](./media/create-blueprint-portal/assignment-locking-mi.png)
+
+1. Under **hanterade identiteter**, låt standardvärdet **systemtilldelad**.
 
 1. Rolltilldelningen på prenumerationsnivå **[Användargrupp eller programnamn]: Deltagare**, sök efter och välj en användare, en app eller en grupp.
 
@@ -245,9 +249,9 @@ Om en skisstilldelning inte längre behövs kan du ta bort den från prenumerati
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig mer om [livscykeln för en skiss](./concepts/lifecycle.md)
-- Förstå hur du använder [statiska och dynamiska parametrar](./concepts/parameters.md)
-- Lär dig hur du anpassar [sekvensordningen för en skiss](./concepts/sequencing-order.md)
-- Lär dig hur du använder [resurslåsning för en skiss](./concepts/resource-locking.md)
-- Lär dig hur du [uppdaterar befintliga tilldelningar](./how-to/update-existing-assignments.md)
-- Lös problem som kan uppstå vid tilldelningen av en skiss med [allmän felsökning](./troubleshoot/general.md)
+- Lär dig mer om den [skiss livscykeln](./concepts/lifecycle.md).
+- Förstå hur du använder [Statiska och dynamiska parametrar](./concepts/parameters.md).
+- Lär dig att anpassa den [skiss ordningsföljd](./concepts/sequencing-order.md).
+- Ta reda på hur du får använda [skiss resource låsning](./concepts/resource-locking.md).
+- Lär dig hur du [uppdatera befintliga tilldelningar](./how-to/update-existing-assignments.md).
+- Lös problem vid tilldelningen av en skiss med [allmän felsökning](./troubleshoot/general.md).

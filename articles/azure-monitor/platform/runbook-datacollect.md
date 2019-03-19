@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 05/27/2017
 ms.author: bwren
-ms.openlocfilehash: 4f6076407ea4745556e59d44bd37ab85288e6bd2
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 67378a5911e5bd83888342aa3773f7f5ed4ccf29
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57772946"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58102592"
 ---
 # <a name="collect-data-in-log-analytics-with-an-azure-automation-runbook"></a>Samla in data i Log Analytics med en Azure Automation-runbook
 
@@ -131,13 +131,13 @@ Azure Automation innehåller en miljö till [testet](../../automation/automation
 
 ![Test-runbook](media/runbook-datacollect/test-runbook.png)
 
-6. Klicka på **spara** att spara runbook.
+1. Klicka på **spara** att spara runbook.
 1. Klicka på **Testfönster** att öppna runbooken i testmiljön.
-3. Eftersom din runbook har parametrar uppmanas du att ange värden för dessa. Ange namnet på resursgruppen och automation-konto som kommer att samla in jobbinformation från.
-4. Klicka på **starta** i början av runbooken.
-3. Runbooken startar med statusen **i kö** innan den går att **kör**.
-3. Runbook ska visa utförliga utdata med de jobb som samlas in i json-format. Om inga jobb visas sedan kanske har inga jobb som skapats i automation-kontot under den senaste timmen. Försök att starta en runbook i automation-kontot och utför sedan testet igen.
-4. Se till att utdata inte visar eventuella fel i kommandot inlägg till Log Analytics. Du bör ha ett meddelande som liknar följande.
+1. Eftersom din runbook har parametrar uppmanas du att ange värden för dessa. Ange namnet på resursgruppen och automation-konto som kommer att samla in jobbinformation från.
+1. Klicka på **starta** i början av runbooken.
+1. Runbooken startar med statusen **i kö** innan den går att **kör**.
+1. Runbook ska visa utförliga utdata med de jobb som samlas in i json-format. Om inga jobb visas sedan kanske har inga jobb som skapats i automation-kontot under den senaste timmen. Försök att starta en runbook i automation-kontot och utför sedan testet igen.
+1. Se till att utdata inte visar eventuella fel i kommandot inlägg till Log Analytics. Du bör ha ett meddelande som liknar följande.
 
     ![Publicera utdata](media/runbook-datacollect/post-output.png)
 
@@ -189,9 +189,9 @@ Det vanligaste sättet att starta en runbook som samlar in övervakningsdata är
 
 När schemat skapas, måste du ange de parametervärden som ska användas varje gång som det här schemat startar runbook.
 
-6. Klicka på **konfigurera parametrar och körningsinställningar**.
-7. Fyll i värden för din **ResourceGroupName** och **AutomationAccountName**.
-8. Klicka på **OK**.
+1. Klicka på **konfigurera parametrar och körningsinställningar**.
+1. Fyll i värden för din **ResourceGroupName** och **AutomationAccountName**.
+1. Klicka på **OK**.
 
 ## <a name="9-verify-runbook-starts-on-schedule"></a>9. Kontrollera runbook startar enligt schema
 Varje gång du startar en runbook [skapas ett jobb](../../automation/automation-runbook-execution.md) och all utdata som loggas. Faktum är är det här de samma jobb som samlar in runbook. Du kan kontrollera att runbooken startar som förväntat genom att kontrollera jobb för runbooken efter starttiden för schemat har överskridits.

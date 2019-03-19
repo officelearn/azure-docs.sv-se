@@ -10,17 +10,17 @@ tags: azure-resource-manager
 ms.assetid: ''
 ms.service: azure
 ms.devlang: ''
-ms.topic: ''
+ms.topic: overview
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 08/24/2018
 ms.author: mibender
-ms.openlocfilehash: 508614d2126d95323ce3550954b4b8a7d4d9d7d8
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 5e879395e034813f954d1046e4a69e21534f3968
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54438819"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58077164"
 ---
 # <a name="get-started-for-azure-it-operators"></a>Kom igång för Azure IT-operatörer
 
@@ -481,9 +481,9 @@ Det finns flera alternativ för att distribuera ett virtuellt nätverk.
 
 - Azure Resource Manager-mallar
 
->**När du ska använda**: När du arbetar med virtuella datorer i Azure kan arbetar du med virtuella nätverk. Det möjliggör segmentera dina virtuella datorer i offentliga och privata undernät liknande lokala datacenter.
-
->**Kom igång**: Distribuera ett Azure-nätverk med hjälp av Azure-portalen kräver en aktiv Azure-prenumeration och åtkomst till en webbläsare. Du kan distribuera ett nytt virtuellt nätverk i en ny eller befintlig resursgrupp. När du skapar en ny virtuell dator från portalen, kan du välja ett befintligt virtuellt nätverk eller skapa en ny. Kom igång och [skapa ett virtuellt nätverk med Azure portal](../../virtual-network/quick-create-portal.md).
+> **När du ska använda**: När du arbetar med virtuella datorer i Azure kan arbetar du med virtuella nätverk. Det möjliggör segmentera dina virtuella datorer i offentliga och privata undernät liknande lokala datacenter.
+> 
+> **Kom igång**: Distribuera ett Azure-nätverk med hjälp av Azure-portalen kräver en aktiv Azure-prenumeration och åtkomst till en webbläsare. Du kan distribuera ett nytt virtuellt nätverk i en ny eller befintlig resursgrupp. När du skapar en ny virtuell dator från portalen, kan du välja ett befintligt virtuellt nätverk eller skapa en ny. Kom igång och [skapa ett virtuellt nätverk med Azure portal](../../virtual-network/quick-create-portal.md).
 
 ### <a name="access-and-security-for-virtual-networks"></a>Åtkomst och säkerhet för virtuella nätverk
 

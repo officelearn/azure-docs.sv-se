@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: article
 ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 5e56579a856f7b6259acddcbe34f2e5361505cb5
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 3ee582e2541e4eb55e5ea1424782df132ecf3575
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55217619"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58116562"
 ---
 # <a name="connect-to-other-cognitive-services"></a>Ansluta till andra cognitive services
 
@@ -33,27 +33,27 @@ Content Moderator innehåller dessa standard-anslutningar:
 
 Innan du definierar ett arbetsflöde kan du kontrollera att du har giltiga autentiseringsuppgifter för connector API: er som du vill använda:
 
-1.  Granskningsverktyget instrumentpanelen, Välj **inställningar** > **Anslutningsappar**.
+1. Granskningsverktyget instrumentpanelen, Välj **inställningar** > **Anslutningsappar**.
 
-  ![Content Moderator väljer kopplingar](images/connectors-2.png)
+   ![Content Moderator väljer kopplingar](images/connectors-2.png)
 
-2.  Välj den **redigera** symbolen bredvid den koppling som du vill verifiera autentiseringsuppgifter för.
+2. Välj den **redigera** symbolen bredvid den koppling som du vill verifiera autentiseringsuppgifter för.
 
-  ![Välj Redigera symbolen för Content Moderator](images/connectors-3.png)
+   ![Välj Redigera symbolen för Content Moderator](images/connectors-3.png)
 
-3.  Prenumerationsnyckeln visas. Om du gör alla ändringar, Välj **spara** när du är klar.
+3. Prenumerationsnyckeln visas. Om du gör alla ändringar, Välj **spara** när du är klar.
 
-  ![Content Moderator redigera sidan](images/connectors-4-1.png)
+   ![Content Moderator redigera sidan](images/connectors-4-1.png)
  
 ## <a name="add-a-connector"></a>Lägg till en koppling
 
-1.  Innan du lägger till en anslutning, måste en prenumerationsnyckel. Granskningsverktyget instrumentpanelen, Välj **inställningar** > **autentiseringsuppgifter**. Markera och kopiera värdet som tillhör den **Ocp-Admin-Subscription-Key** box.
+1. Innan du lägger till en anslutning, måste en prenumerationsnyckel. Granskningsverktyget instrumentpanelen, Välj **inställningar** > **autentiseringsuppgifter**. Markera och kopiera värdet som tillhör den **Ocp-Admin-Subscription-Key** box.
 
-2.  Välj **Anslutningsappar**. Välj en av de tillgängliga kopplingar som visas på granskningsverktyget instrumentpanelen. Välj **Connect**. 
+2. Välj **Anslutningsappar**. Välj en av de tillgängliga kopplingar som visas på granskningsverktyget instrumentpanelen. Välj **Connect**. 
 
-  ![Content Moderator Lägg till Anslutningsapp-sidan](images/connectors-5.png)
+   ![Content Moderator Lägg till Anslutningsapp-sidan](images/connectors-5.png)
 
-3.  I den **Ocp-Admin-Subscription-Key** rutan, klistra in den nyckel som du kopierade. Välj sedan **Spara**.
+3. I den **Ocp-Admin-Subscription-Key** rutan, klistra in den nyckel som du kopierade. Välj sedan **Spara**.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -11,12 +11,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 12/14/2017
 ms.author: apimpm
-ms.openlocfilehash: cb7ccc665cdf9867232580fd8b687b344e43116d
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: a771b437258046f937b97a9e37ffedbe0a17c1c1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56587284"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58079806"
 ---
 # <a name="configure-a-custom-domain-name"></a>Konfigurera ett anpassat domännamn 
 
@@ -45,22 +45,22 @@ Om du vill utföra stegen som beskrivs i den här artikeln, måste du ha:
 1. Välj **anpassade domäner och SSL**.
     
     Det finns ett antal slutpunkter som du kan tilldela ett anpassat domännamn. För närvarande finns följande slutpunkter: 
-    + **Proxy** (standardvärdet är: `<apim-service-name>.azure-api.net`), 
-    + **Portalen** (standardvärdet är: `<apim-service-name>.portal.azure-api.net`),     
-    + **Hantering av** (standardvärdet är: `<apim-service-name>.management.azure-api.net`), 
-    + **SCM** (standardvärdet är: `<apim-service-name>.scm.azure-api.net`).
+   + **Proxy** (standardvärdet är: `<apim-service-name>.azure-api.net`), 
+   + **Portalen** (standardvärdet är: `<apim-service-name>.portal.azure-api.net`),     
+   + **Hantering av** (standardvärdet är: `<apim-service-name>.management.azure-api.net`), 
+   + **SCM** (standardvärdet är: `<apim-service-name>.scm.azure-api.net`).
 
-    >[!NOTE]
-    > Du kan uppdatera alla slutpunkter eller några av dem. Ofta, kunder uppdatera **Proxy** (den här URL: en används för att anropa API exponeras via API Management) och **Portal** (utvecklarportalen URL: en). **Hantering av** och **SCM** slutpunkter används internt av APIM-kunder och därmed tilldelas mindre ofta ett anpassat domännamn.
+     >[!NOTE]
+     > Du kan uppdatera alla slutpunkter eller några av dem. Ofta, kunder uppdatera **Proxy** (den här URL: en används för att anropa API exponeras via API Management) och **Portal** (utvecklarportalen URL: en). **Hantering av** och **SCM** slutpunkter används internt av APIM-kunder och därmed tilldelas mindre ofta ett anpassat domännamn.
 
 1. Välj den slutpunkt som du vill uppdatera. 
 1. I fönstret till höger klickar du på **anpassad**.
 
-    + I den **anpassade domännamn**, anger du namnet som du vill använda. Till exempel `api.contoso.com`. Domännamn med jokertecken (till exempel *. domain.com) stöds också.
-    + I den **certifikat**, Välj ett certifikat från Key Vault. Du kan också ladda upp en giltig. PFX fil och ge dess **lösenord**om certifikatet är skyddat med ett lösenord.
+   + I den **anpassade domännamn**, anger du namnet som du vill använda. Till exempel `api.contoso.com`. Domännamn med jokertecken (till exempel *. domain.com) stöds också.
+   + I den **certifikat**, Välj ett certifikat från Key Vault. Du kan också ladda upp en giltig. PFX fil och ge dess **lösenord**om certifikatet är skyddat med ett lösenord.
 
-    > [!TIP]
-    > Om du använder Azure Key Vault för att hantera SSL-certifikat för anpassad domän, se till att certifikatet infogas i Key Vault [som en *certifikat*](https://docs.microsoft.com/rest/api/keyvault/CreateCertificate/CreateCertificate), inte en *hemlighet*. Om certifikatet har angetts till autorotate ska API Management hämta den senaste versionen automatiskt.
+     > [!TIP]
+     > Om du använder Azure Key Vault för att hantera SSL-certifikat för anpassad domän, se till att certifikatet infogas i Key Vault [som en *certifikat*](https://docs.microsoft.com/rest/api/keyvault/CreateCertificate/CreateCertificate), inte en *hemlighet*. Om certifikatet har angetts till autorotate ska API Management hämta den senaste versionen automatiskt.
 
 1. Klicka på tillämpa.
 

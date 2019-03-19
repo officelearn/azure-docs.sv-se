@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9116dd8a27b268b656f688083032a127177d2d51
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: 2628cafada47b2602b195c44d4b6f2e6b16012ef
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53754568"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58092777"
 ---
 # <a name="connecting-azure-vms-to-hana-large-instances"></a>Ansluta virtuella Azure-datorer till stora HANA-instanser
 
@@ -73,7 +73,7 @@ Nedan följer en sammanfattning av viktiga fakta om Azure-nätverk som ansluter 
 - Den **virtuella nätverkets adressutrymme** kan vara ett större intervall som täcker intervallen för både det IP-adressintervallet för undernätet för den virtuella Azure-datorn och den virtuella nätverksgatewayen.
 - Eller du kan skicka flera adressintervall som täcker de olika IP-adressintervall för VM-undernät IP-adressintervall och virtuella nätverkets gateway IP-adressintervall.
 - Det definierade **virtuella nätverkets adressutrymme** används för routning BGP-spridning.
-- Namnet på gateway-undernätet måste vara: **”GatewaySubnet”**.
+- Namnet på gateway-undernätet måste vara: **"GatewaySubnet"**.
 - Adressutrymmet används som ett filter på stora HANA-instansen sida för att tillåta eller neka trafik till stora HANA-instansen enheter från Azure. BGP routningsinformationen av Azure-nätverk och IP-adressintervall som är konfigurerade för filtrering på stora HANA-instansen sida ska matcha. I annat fall kan det uppstå problem med nätverksanslutningen.
 - Det finns vissa information om gateway-undernätet som beskrivs senare i avsnittet **ansluter ett virtuellt nätverk till HANA stora instans ExpressRoute.**
 
@@ -85,7 +85,7 @@ De introducerade vi redan några av de IP-adressintervall som är nödvändiga f
 
 - **Virtuella nätverkets adressutrymme**: Den **virtuella nätverkets adressutrymme** är de IP-adressintervall som du tilldelar till din adress utrymme parameter i Azure-nätverk. Dessa nätverk ansluta till stor SAP HANA-instans-miljö.
 
- Vi rekommenderar att den här adressen utrymme parametern är ett värde för flera rader. Det bör bestå av undernätsintervallet för den virtuella Azure-datorer och undernät range(s) av Azure-gatewayen. Den här undernätsintervall som visas i föregående bilderna. Det får inte överlappa med din lokala eller server IP-pool eller ER P2P-adressintervall. 
+  Vi rekommenderar att den här adressen utrymme parametern är ett värde för flera rader. Det bör bestå av undernätsintervallet för den virtuella Azure-datorer och undernät range(s) av Azure-gatewayen. Den här undernätsintervall som visas i föregående bilderna. Det får inte överlappa med din lokala eller server IP-pool eller ER P2P-adressintervall. 
  
 Hur får du de här IP-adressintervall? 
 
@@ -108,7 +108,7 @@ Leverantören företagsnätverket team eller din tjänst bör ge en IP-adressint
   
 - **Servern IP-adresspoolintervall:** Den här IP-adressintervall används för att tilldela enskilda IP-adressen till HANA stora instansservrar. Den rekommenderade undernät är ett/24 CIDR-block. Det kan vara mindre, med så lite som 64 IP-adresser om det behövs. Från det här intervallet är de 30 första IP-adresserna reserverade för användning av Microsoft. Se till att du ta hänsyn till detta när du väljer storleken på intervallet. Det här intervallet får inte överlappa med din lokala eller andra Azure-IP-adresser. Hur får du den här IP-adressintervall? Din företagsnätverket team eller service provider ska ge ett IP-adressintervall som används för närvarande inte i ditt nätverk. 
 
- **Det här intervallet är ett IP-adressintervall som måste skickas till Microsoft vid begäran om en inledande distribution**.
+  **Det här intervallet är ett IP-adressintervall som måste skickas till Microsoft vid begäran om en inledande distribution**.
  
 Du måste definiera och planera IP-adressintervall som tidigare beskrivits. Du behöver dock inte överföra dem till Microsoft. IP-adressintervall som du måste namnge till Microsoft är:
 

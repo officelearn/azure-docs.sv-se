@@ -7,16 +7,16 @@ ms.service: dns
 ms.topic: article
 ms.date: 1/18/2019
 ms.author: victorh
-ms.openlocfilehash: e8163ad34046261d9671c57db2cd2d2052fe35e0
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 78496dbc7891fe911ab0affd81f8a7d887e5d76e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57550795"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58111420"
 ---
 # <a name="use-azure-dns-to-provide-custom-domain-settings-for-an-azure-service"></a>Använda Azure DNS för att ange inställningar för anpassad domän för en Azure-tjänst
 
-Azure DNS tillhandahåller DNS för en anpassad domän för någon av dina Azure-resurser att stöd för anpassade domäner eller som har ett fullständigt kvalificerat domännamn (FQDN). Ett exempel är du har en Azure webbapp och du vill att användarna ska komma åt den genom att antingen använda contoso.com eller www.contoso.com som ett fullständigt domännamn. Den här artikeln beskriver hur du konfigurerar din Azure-tjänst med Azure DNS för att använda anpassade domäner.
+Azure DNS tillhandahåller DNS för en anpassad domän för någon av dina Azure-resurser att stöd för anpassade domäner eller som har ett fullständigt kvalificerat domännamn (FQDN). Ett exempel är du har en Azure webbapp och du vill att användarna ska komma åt den genom att antingen med hjälp av contoso.com eller www\.contoso.com som ett fullständigt domännamn. Den här artikeln beskriver hur du konfigurerar din Azure-tjänst med Azure DNS för att använda anpassade domäner.
 
 ## <a name="prerequisites"></a>Förutsättningar
 

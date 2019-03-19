@@ -11,16 +11,16 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2019
+ms.date: 03/18/2019
 ms.author: anwestg
 ms.reviewer: anwestg
-ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: c993322bdf4266939eab854e217cae6e90326d29
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.lastreviewed: 03/18/2019
+ms.openlocfilehash: 1ea079373edc9b9f1dde6038f1e02e3d7036e052
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56991571"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57890499"
 ---
 # <a name="update-azure-app-service-on-azure-stack"></a>Uppdatera Azure App Service i Azure Stack
 
@@ -52,7 +52,7 @@ Under den här processen kommer uppgraderingen:
 
 Följ dessa steg om du vill uppgradera din distribution av App Service på Azure Stack:
 
-1. Ladda ned den [App Service-installationsprogrammet](https://aka.ms/appsvcupdate4installer)
+1. Ladda ned den [App Service-installationsprogrammet](https://aka.ms/appsvcupdate5installer)
 
 2. Köra appservice.exe som en administratör
 
@@ -72,13 +72,13 @@ Följ dessa steg om du vill uppgradera din distribution av App Service på Azure
 
    1. Klicka på den **Connect** knappen bredvid den **Azure Stack-prenumerationer** box.
         * Om du använder Azure Active Directory (AD Azure), anger du det Azure AD-administratörskonto och lösenord som du angav när du har distribuerat Azure Stack. Klicka på **logga In**.
-        * Om du använder Active Directory Federation Services (AD FS), ange ditt administratörskonto. Till exempel *cloudadmin@azurestack.local*. Ange ditt lösenord och klicka på **logga In**.
+        * Om du använder Active Directory Federation Services (AD FS), ange ditt administratörskonto. Till exempel *cloudadmin\@azurestack.local*. Ange ditt lösenord och klicka på **logga In**.
    2. I den **Azure Stack-prenumerationer** väljer den **standard Providerprenumeration**.
    3. I den **platser för Azure Stack** väljer du den plats som motsvarar den region som du distribuerar till. Välj exempelvis **lokala** om din distribution till Azure Stack Development Kit.
    4. Om en befintlig App Service-distribution har identifierats vara sedan resurskontot grupp och lagring fylls och nedtonat.
    5. Klicka på **nästa** att granska sammanfattningen av uppgraderingen.
 
-    ![App Service-Installation identifierades][3]
+      ![App Service-Installation identifierades][3]
 
 8. På sidan Sammanfattning:
    1. Kontrollera de val du gjort. Använd för att göra ändringar i **föregående** knappar för att gå till föregående sidor.

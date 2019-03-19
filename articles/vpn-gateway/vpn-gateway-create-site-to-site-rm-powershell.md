@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 02/14/2019
 ms.author: cherylmc
-ms.openlocfilehash: a2536802eb1da47531301e4476f37f7ec649c900
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 366cce89e2ee5c446443c4dfc5ed12244bb4938d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57762372"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58123750"
 ---
 # <a name="create-a-vnet-with-a-site-to-site-vpn-connection-using-powershell"></a>Skapa ett VNet med en VPN-anslutning för plats-till-plats med hjälp av PowerShell
 
@@ -105,16 +105,16 @@ Skapa ditt virtuella nätverk.
 
 1. Ange variablerna.
 
-  ```azurepowershell-interactive
-  $subnet1 = New-AzVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.1.255.0/27
-  $subnet2 = New-AzVirtualNetworkSubnetConfig -Name 'Frontend' -AddressPrefix 10.1.0.0/24
-  ```
+   ```azurepowershell-interactive
+   $subnet1 = New-AzVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.1.255.0/27
+   $subnet2 = New-AzVirtualNetworkSubnetConfig -Name 'Frontend' -AddressPrefix 10.1.0.0/24
+   ```
 2. Skapa VNet.
 
-  ```azurepowershell-interactive
-  New-AzVirtualNetwork -Name VNet1 -ResourceGroupName TestRG1 `
-  -Location 'East US' -AddressPrefix 10.1.0.0/16 -Subnet $subnet1, $subnet2
-  ```
+   ```azurepowershell-interactive
+   New-AzVirtualNetwork -Name VNet1 -ResourceGroupName TestRG1 `
+   -Location 'East US' -AddressPrefix 10.1.0.0/16 -Subnet $subnet1, $subnet2
+   ```
 
 ### <a name="gatewaysubnet"></a>Så här lägger du till ett gateway-undernät i ett virtuellt nätverk som du redan har skapat
 
@@ -122,19 +122,19 @@ Använd stegen i det här avsnittet om du redan har ett virtuellt nätverk, men 
 
 1. Ange variablerna.
 
-  ```azurepowershell-interactive
-  $vnet = Get-AzVirtualNetwork -ResourceGroupName TestRG1 -Name TestVet1
-  ```
+   ```azurepowershell-interactive
+   $vnet = Get-AzVirtualNetwork -ResourceGroupName TestRG1 -Name TestVet1
+   ```
 2. Skapa gateway-undernätet.
 
-  ```azurepowershell-interactive
-  Add-AzVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.1.255.0/27 -VirtualNetwork $vnet
-  ```
+   ```azurepowershell-interactive
+   Add-AzVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.1.255.0/27 -VirtualNetwork $vnet
+   ```
 3. Ange konfigurationen.
 
-  ```azurepowershell-interactive
-  Set-AzVirtualNetwork -VirtualNetwork $vnet
-  ```
+   ```azurepowershell-interactive
+   Set-AzVirtualNetwork -VirtualNetwork $vnet
+   ```
 
 ## 2. <a name="localnet"></a>Skapa den lokala nätverksgatewayen
 
@@ -222,17 +222,17 @@ Plats-till-plats-anslutningar till ett lokalt nätverk kräver en VPN-enhet. I d
 Därefter skapar du VPN-anslutningen från plats till plats mellan din virtuella nätverksgateway och din VPN-enhet. Glöm inte att byta ut värdena mot dina egna. Den delade nyckeln måste överensstämma med värdet som du använde vid din konfiguration av VPN-enheten. Observera att '-ConnectionType' för plats-till-plats är **IPsec**.
 
 1. Ange variablerna.
-  ```azurepowershell-interactive
-  $gateway1 = Get-AzVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1
-  $local = Get-AzLocalNetworkGateway -Name Site1 -ResourceGroupName TestRG1
-  ```
+   ```azurepowershell-interactive
+   $gateway1 = Get-AzVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1
+   $local = Get-AzLocalNetworkGateway -Name Site1 -ResourceGroupName TestRG1
+   ```
 
 2. Skapa anslutningen.
-  ```azurepowershell-interactive
-  New-AzVirtualNetworkGatewayConnection -Name VNet1toSite1 -ResourceGroupName TestRG1 `
-  -Location 'East US' -VirtualNetworkGateway1 $gateway1 -LocalNetworkGateway2 $local `
-  -ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'
-  ```
+   ```azurepowershell-interactive
+   New-AzVirtualNetworkGatewayConnection -Name VNet1toSite1 -ResourceGroupName TestRG1 `
+   -Location 'East US' -VirtualNetworkGateway1 $gateway1 -LocalNetworkGateway2 $local `
+   -ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'
+   ```
 
 Efter en kort stund har anslutningen upprättats.
 

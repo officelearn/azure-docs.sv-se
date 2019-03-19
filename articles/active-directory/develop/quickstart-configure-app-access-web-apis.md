@@ -17,12 +17,12 @@ ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 08ad61070fd3bfb8472cffb51fd0b1bb4bcf169b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 7ef499e49fc4d1a0dc79dfc4efb818f7330b57b6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56169385"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57995203"
 ---
 # <a name="quickstart-configure-a-client-application-to-access-web-apis-preview"></a>Snabbstart: Konfigurera ett klientprogram för åtkomst till webb-API:er (förhandsversion)
 
@@ -42,7 +42,7 @@ I den här snabbstarten visas hur du konfigurerar din app för att:
 * [Lägga till autentiseringsuppgifter i webbappen](#add-credentials-to-your-web-application)
 * [Lägga till behörigheter för att få åtkomst till webb-API:er](#add-permissions-to-access-web-apis)
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar kontrollerar du att följande krav är uppfyllda:
 
@@ -74,11 +74,11 @@ Lägga till en omdirigerings-URI för appen:
 
 1. Gör följande för att lägga till en anpassad omdirigerings-URI för webbappar och offentliga klientprogram:
 
-    1. Leta reda på avsnittet **Omdirigerings-URI**.
-    1. Välj den typ av app du skapar **webb** eller **offentlig klient (mobil och dator)**.
-    1. Ange omdirigerings-URI för appen.
-        * För webbappar anger du grundläggande URL för appen. Till exempel kan http://localhost:31544 vara URL för en webbapp som körs på din lokala dator. Användare skulle då använda den här URL:en för att logga in till ett webbklientprogram.
-        * För offentliga appar anger du den URI som används av Azure AD för att returnera tokensvar. Ange ett värde som är specifikt för ditt program, till exempel https://MyFirstApp.
+   1. Leta reda på avsnittet **Omdirigerings-URI**.
+   1. Välj den typ av app du skapar **webb** eller **offentlig klient (mobil och dator)**.
+   1. Ange omdirigerings-URI för appen.
+      * För webbappar anger du grundläggande URL för appen. Till exempel kan `http://localhost:31544` vara URL för en webbapp som körs på din lokala dator. Användare skulle då använda den här URL:en för att logga in till ett webbklientprogram.
+      * För offentliga appar anger du den URI som används av Azure AD för att returnera tokensvar. Ange ett värde som är specifikt för ditt program, till exempel https://MyFirstApp.
 
 1. Gör följande för att välja mellan föreslagna omdirigerings-URI:er för offentliga klienter (mobil, dator):
 

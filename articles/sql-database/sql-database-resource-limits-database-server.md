@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: sashan,moslake,josack
 manager: craigg
 ms.date: 03/01/2019
-ms.openlocfilehash: 801b7de4b82c37503f2a14619112cbf46ca60a43
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 5b11f9bc25cd0fcc8a83a2eeaf5cc1746a63200e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57447089"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58093896"
 ---
 # <a name="sql-database-resource-limits-for-azure-sql-database-server"></a>SQL Database-resursgränser för Azure SQL Database-server
 
@@ -36,7 +36,7 @@ Den här artikeln innehåller en översikt över SQL Database-resursgränser fö
 | DTU / eDTU kvot per server | 54,000 |  
 | vCore-kvot per server/instans | 540 |
 | Högsta antal pooler per server | Begränsas av antalet dtu: er eller v-kärnor. Till exempel om varje pool har 1000 dtu: er, sedan en server kan stöda 54 pooler.|
-||||
+|||
 
 > [!NOTE]
 > Om du vill ha mer DTU-kvot /eDTU, vCore kvot eller fler servrar än standardvärdet, kan du skicka en ny supportbegäran i Azure-portalen för prenumerationen med ärendetypen ”kvot”. DTU / eDTU-kvot och databas gränsen per server begränsar antalet elastiska pooler per server.
@@ -95,7 +95,7 @@ Log rate resursstyrning-Trafikstyrning är visas via följande typer av vänta (
 | INSTANCE_LOG_RATE_GOVERNOR | Instans på begränsa |  
 | HADR_THROTTLE_LOG_RATE_SEND_RECV_QUEUE_SIZE | Feedback-kontroll, tillgänglighet grupp fysiska replikering i Premium/affärskritisk inte hänger |  
 | HADR_THROTTLE_LOG_RATE_LOG_SIZE | Feedback-kontroll, begränsa priserna för att undvika en out of utrymme loggvillkor |
-||||
+|||
 
 När den påträffar en hastighetsbegränsning för log som hindrar den önskade skalbarhet, Överväg följande alternativ:
 - Skala upp till en större nivå för att få högsta 48 MB/s log överföringshastighet. 

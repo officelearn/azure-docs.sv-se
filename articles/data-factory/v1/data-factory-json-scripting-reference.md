@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: ee09f8defc7a10b153e910cb7208b0ddb21120b2
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 7a3819eedc57e1e349814c9105a0880bf3d4d9ec
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57543960"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57891264"
 ---
 # <a name="azure-data-factory---json-scripting-reference"></a>Azure Data Factory - JSON-skript referens
 > [!NOTE]
@@ -3325,6 +3325,7 @@ Du kan länka ett lokalt filsystem till en Azure-datafabrik med den **lokala fil
 | gatewayName |Anger namnet på den gateway som Data Factory ska använda för att ansluta till den lokala servern. |Ja |
 
 #### <a name="sample-folder-path-definitions"></a>Exemplet mappen sökväg definitioner
+
 | Scenario | Vara värd för i definition av länkad tjänst | folderPath i definitionen av datauppsättningen |
 | --- | --- | --- |
 | Lokal mapp på Data Management Gateway-datorn: <br/><br/>Exempel: D:\\ \* eller D:\folder\subfolder\\* |D:\\ \\ (för Data Management Gateway 2.0 och senare versioner) <br/><br/> localhost (för tidigare versioner än Data Management Gateway 2.0) |. \\ \\ eller mapp\\\\undermapp (för Data Management Gateway 2.0 och senare versioner) <br/><br/>D:\\ \\ eller D:\\\\mappen\\\\undermapp (för gateway som är äldre än 2.0) |
@@ -3496,6 +3497,7 @@ Om du kopierar data till filsystemet, ange den **mottagare typ** av kopieringsak
 | Egenskap  | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
 | copyBehavior |Definierar kopieringsbeteendet när källan är BlobSource eller filsystem. |**PreserveHierarchy:** Bevarar filen hierarkin i målmappen. Den relativa sökvägen på källfilen för målmappen är samma som den relativa sökvägen till målfilen till målmappen.<br/><br/>**FlattenHierarchy:** Alla filer från källmappen skapas i den första nivån i målmappen. Målfiler som skapas med en automatiskt genererade namnet.<br/><br/>**MergeFiles:** Slår samman alla filer från källmappen till en fil. Om namnet på namn-/ blob anges är sammanfogade filnamnet det angivna namnet. I annat fall är det en automatiskt genererad filnamn. |Nej |
+
 automaticky
 
 #### <a name="example"></a>Exempel
@@ -3863,7 +3865,7 @@ Mer information finns i artikeln för HDFS-anslutningen.
 För att definiera en SFTP länkad tjänst genom att ange den **typ** på den länkade tjänsten till **Sftp**, och ange följande egenskaper i den **typeProperties** avsnittet:
 
 | Egenskap  | Beskrivning | Krävs |
-| --- | --- | --- | --- |
+| --- | --- | --- |
 | värd | Namn eller IP-adressen för SFTP-servern. |Ja |
 | port |Porten som SFTP-servern lyssnar. Standardvärdet är: 21 |Nej |
 | authenticationType |Ange autentiseringstyp. Tillåtna värden: **Basic**, **SshPublicKey**. <br><br> Referera till med hjälp av grundläggande autentisering och [med hjälp av SSH autentisering med offentlig nyckel](#using-ssh-public-key-authentication) respektive avsnitt på fler egenskaper och JSON-exempel. |Ja |
@@ -3877,7 +3879,7 @@ För att definiera en SFTP länkad tjänst genom att ange den **typ** på den l�
 Om du vill använda grundläggande autentisering, ange `authenticationType` som `Basic`, och ange följande egenskaper förutom SFTP-anslutningsappen Allmänt som introducerades i det sista avsnittet:
 
 | Egenskap  | Beskrivning | Krävs |
-| --- | --- | --- | --- |
+| --- | --- | --- |
 | användarnamn | Användare som har åtkomst till SFTP-servern. |Ja |
 | lösenord | Lösenordet för användaren (användarnamn). | Ja |
 
@@ -3926,7 +3928,7 @@ Om du vill använda grundläggande autentisering, ange `authenticationType` som 
 Om du vill använda grundläggande autentisering, ange `authenticationType` som `SshPublicKey`, och ange följande egenskaper förutom SFTP-anslutningsappen Allmänt som introducerades i det sista avsnittet:
 
 | Egenskap  | Beskrivning | Krävs |
-| --- | --- | --- | --- |
+| --- | --- | --- |
 | användarnamn |Användare som har åtkomst till SFTP-server |Ja |
 | privateKeyPath | Ange absolut sökväg till filen för privat nyckel som gatewayen kan komma åt. | Ange antingen den `privateKeyPath` eller `privateKeyContent`. <br><br> Gäller endast när du kopierar data från en lokal SFTP-server. |
 | privateKeyContent | En serialiserade sträng med privat nyckel innehållet. Kopieringsguiden kan läsa filen för privat nyckel och extrahera det privata nyckeln innehållet automatiskt. Om du använder några andra verktyg/SDK kan du använda egenskapen privateKeyPath i stället. | Ange antingen den `privateKeyPath` eller `privateKeyContent`. |
@@ -5398,7 +5400,7 @@ Observera följande punkter:
 Mer information om aktiviteten finns i [Spark-aktivitet](data-factory-spark.md) artikeln.
 
 ## <a name="machine-learning-batch-execution-activity"></a>Machine Learning Batch-körningsaktivitet
-Du kan ange följande egenskaper i Azure Machine Learning-studio Batch körning aktivitets-JSON-definition. Egenskapen type för aktiviteten måste vara: **AzureMLBatchExecution**. Du måste skapa en Azure Machine Learning-länkade tjänsten först och ange namnet på det som värde för den **linkedServiceName** egenskapen. Följande egenskaper stöds i den **typeProperties** avsnittet när du anger vilken typ av aktivitet till AzureMLBatchExecution:
+Du kan ange följande egenskaper i en Azure Machine Learning studio Batch körning aktivitets-JSON-definition. Egenskapen type för aktiviteten måste vara: **AzureMLBatchExecution**. Du måste skapa en Azure Machine Learning-länkade tjänsten först och ange namnet på det som värde för den **linkedServiceName** egenskapen. Följande egenskaper stöds i den **typeProperties** avsnittet när du anger vilken typ av aktivitet till AzureMLBatchExecution:
 
 Egenskap  | Beskrivning | Krävs
 -------- | ----------- | --------
@@ -5454,7 +5456,7 @@ I JSON-exemplet använder distribuerade Azure Machine Learning Web-tjänsten en 
 > Endast indata och utdata för aktiviteten AzureMLBatchExecution kan skickas som parametrar till webbtjänsten. I ovanstående JSON-kodfragmentet är till exempel MLSqlInput indata för aktiviteten AzureMLBatchExecution som skickas som indata till webbtjänsten via webServiceInput-parametern.
 
 ## <a name="machine-learning-update-resource-activity"></a>Machine Learning-uppdateringsresursaktivitet
-Du kan ange följande egenskaper i Azure Machine Learning-studio Update Resource aktivitets-JSON-definition. Egenskapen type för aktiviteten måste vara: **AzureMLUpdateResource**. Du måste skapa en Azure Machine Learning-länkade tjänsten först och ange namnet på det som värde för den **linkedServiceName** egenskapen. Följande egenskaper stöds i den **typeProperties** avsnittet när du anger vilken typ av aktivitet till AzureMLUpdateResource:
+Du kan ange följande egenskaper i en Azure Machine Learning studio Update Resource aktivitets-JSON-definition. Egenskapen type för aktiviteten måste vara: **AzureMLUpdateResource**. Du måste skapa en Azure Machine Learning-länkade tjänsten först och ange namnet på det som värde för den **linkedServiceName** egenskapen. Följande egenskaper stöds i den **typeProperties** avsnittet när du anger vilken typ av aktivitet till AzureMLUpdateResource:
 
 Egenskap  | Beskrivning | Krävs
 -------- | ----------- | --------

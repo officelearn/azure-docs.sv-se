@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 11/12/2018
 ms.topic: conceptual
-ms.openlocfilehash: 3e9d7191af3a870f60b40311be03e0ef9d9bf7ad
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: 693da06ce14a4854d5db49f588fa29d791060166
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56750216"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58108111"
 ---
 # <a name="add-an-email-action"></a>Lägg till en e poståtgärd
 
@@ -128,7 +128,7 @@ Följande steg hjälper dig att logga in och konfigurera e poståtgärder:
 
 1. Klicka för att logga in på Outlook. Kommer du till Azure-portalen:
 
-  ![Logga in till Outlook](./media/iot-accelerators-remote-monitoring-email-actions/owneroutlook-email.png)
+   ![Logga in till Outlook](./media/iot-accelerators-remote-monitoring-email-actions/owneroutlook-email.png)
 
 1. Klicka på **auktorisera**. Du uppmanas att logga in. Det konto som används för att logga in bör vara den e-postadressen programmet använder för att skicka e-postmeddelanden:
 
@@ -136,7 +136,7 @@ Följande steg hjälper dig att logga in och konfigurera e poståtgärder:
 
 1. Om du har konfigurerat e-postmeddelandet, visas följande meddelande:
 
-  ![Lyckad Outlook logga in](./media/iot-accelerators-remote-monitoring-email-actions/success-email.png)
+   ![Lyckad Outlook logga in](./media/iot-accelerators-remote-monitoring-email-actions/success-email.png)
 
 ## Anpassa e-post HTML <a name="htmledit"></a>
 

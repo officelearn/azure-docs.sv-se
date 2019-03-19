@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: 34cedd2b389187e55201b62acc38fca291cdd736
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: bc38b4457179c11f9d6b2656aacb8aa66848c444
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57761796"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57992479"
 ---
 # <a name="bing-local-business-search-api-v7-reference"></a>Lokala företag i Bing v7-referens
 
@@ -173,18 +173,21 @@ Definierar frågekontexten som Bing används för begäran.
 |originalQuery|Frågesträngen som anges i begäran.|String|  
 
 ### <a name="identifiable"></a>Identifierbar
+
 |Namn|Värde|Type|  
 |-------------|-----------------|----------|
 |id|Resurs-ID|String|
  
 ### <a name="rankinggroup"></a>RankingGroup
 Definierar en sökresultat grupp, till exempel mainline.
+
 |Namn|Värde|Type|  
 |-------------|-----------------|----------|
 |objekt|En lista över sökresultaten till att visa i gruppen.|RankingItem|
 
 ### <a name="rankingitem"></a>RankingItem
 Definierar ett objekt med Sök resultat att visa.
+
 |Namn|Värde|Type|  
 |-------------|-----------------|----------|
 |resultIndex|Ett Nollbaserat index för objekt i svaret ska visas. Om objektet inte innehåller det här fältet kan du visa alla objekt i svaret. Till exempel visa alla artiklar i Nyheter svaret.|Integer|

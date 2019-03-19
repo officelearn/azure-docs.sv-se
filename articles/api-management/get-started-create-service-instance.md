@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 4a9ffdd9f81a7d46d3476f3395a4456dea6c0341
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
-ms.translationtype: HT
+ms.openlocfilehash: ef874e5d773e87963b6de8371986ac2196fc38f3
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54156739"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57901397"
 ---
 # <a name="create-a-new-azure-api-management-service-instance"></a>Skapa en ny Azure API Management-tjänstinstans
 
@@ -52,7 +52,7 @@ Logga in på Azure Portal på https://portal.azure.com.
 | **Resursgrupp**      | *apimResourceGroup*                           | Du kan välja en ny eller befintlig resurs. En resursgrupp är en samling resurser som delar livscykel, behörigheter och principer. Lär dig mer [här](../azure-resource-manager/resource-group-overview.md#resource-groups).                                                                                                  |
 | **Plats**            | *USA, västra*                                    | Välj den geografiska regionen närmast dig. Endast de tillgängliga API Management-regionerna visas i listrutan.                                                                                                                                                                                                          |
 | **Organisationens namn**   | Namnet på din organisation                 | Namnet används på ett antal platser, däribland titeln på utvecklarportalen och avsändaren av e-postmeddelanden.                                                                                                                                                                                                             |
-| **E-postadress för administratör** | *admin@org.com*                               | Ange den e-postadress som alla meddelanden från **API Management** ska skickas från.                                                                                                                                                                                                                                              |
+| **E-postadress för administratör** | *admin\@org.com*                               | Ange den e-postadress som alla meddelanden från **API Management** ska skickas från.                                                                                                                                                                                                                                              |
 | **prisnivå**        | *Developer*                                   | Ställ in nivån **Developer** för att utvärdera tjänsten. Den här nivån ska inte användas för produktion. Mer information om att skala API Management-nivåerna finns i avsnittet [Uppgradera och skala](upgrade-and-scale.md).                                                                                                                                    |
 
 3. Välj **Skapa**.

@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 09/04/2018
 ms.author: cshoe
-ms.openlocfilehash: 12056ebec0f0a23ed255532a8ba27b130ecb81d1
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: b2ab07e40ac2652d97e912f8c7bd3b8893bfc114
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56750454"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58094168"
 ---
 # <a name="event-grid-trigger-for-azure-functions"></a>Event Grid-utlösare för Azure Functions
 
@@ -321,7 +321,7 @@ Ett komplett exempel finns i C# exempel.
 I följande tabell förklaras konfigurationsegenskaper för bindning som du anger i den *function.json* fil. Det finns inga parametrar i konstruktorn eller egenskaper du anger i den `EventGridTrigger` attribut.
 
 |Function.JSON egenskap |Beskrivning|
-|---------|---------|----------------------|
+|---------|---------|
 | **typ** | Krävs – måste vara inställd på `eventGridTrigger`. |
 | **riktning** | Krävs – måste vara inställd på `in`. |
 | **Namn** | Krävs – variabelnamnet som används i Funktionskoden för parametern som tar emot händelsedata. |
@@ -484,10 +484,10 @@ Du kan också skicka en HTTP PUT att ange nyckelvärdet själv.
 
 Om du vill testa en Event Grid-utlösare lokalt, måste du hämta Event Grid HTTP-begäranden som levereras från sina ursprung i molnet till den lokala datorn. Det är ett sätt att göra det genom att samla in begäranden som är online och manuellt skicka dem på den lokala datorn:
 
-2. [Skapa en webbapp för viewer](#create-a-viewer-web-app) som samlar in händelsemeddelanden.
-3. [Skapa en Event Grid-prenumeration](#create-an-event-grid-subscription) som skickar händelser till viewer-appen.
-4. [Skapa en begäran](#generate-a-request) och kopiera begärandetexten från viewer-appen.
-5. [Manuellt efter begäran](#manually-post-the-request) till localhost-URL: en för Event Grid-Utlösarfunktion.
+1. [Skapa en webbapp för viewer](#create-a-viewer-web-app) som samlar in händelsemeddelanden.
+1. [Skapa en Event Grid-prenumeration](#create-an-event-grid-subscription) som skickar händelser till viewer-appen.
+1. [Skapa en begäran](#generate-a-request) och kopiera begärandetexten från viewer-appen.
+1. [Manuellt efter begäran](#manually-post-the-request) till localhost-URL: en för Event Grid-Utlösarfunktion.
 
 När du är klar testning, du kan använda samma prenumeration för produktion genom att uppdatera slutpunkten. Använd den [az eventgrid händelseprenumeration uppdatering](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-update) Azure CLI-kommando.
 
@@ -557,10 +557,10 @@ Funktionen Event Grid-utlösaren körs och visar loggar som liknar följande exe
 
 Ett annat sätt att testa en Event Grid-utlösare lokalt är att automatisera HTTP-anslutning mellan Internet och din utvecklingsdator. Du kan göra det med ett verktyg för öppen källkod som heter [ngrok](https://ngrok.com/):
 
-3. [Skapa en slutpunkt för ngrok](#create-an-ngrok-endpoint).
-4. [Kör funktionen Event Grid-utlösare](#run-the-event-grid-trigger-function).
-5. [Skapa en Event Grid-prenumeration](#create-a-subscription) som skickar händelser till ngrok-slutpunkten.
-6. [Utlös en händelse](#trigger-an-event).
+1. [Skapa en slutpunkt för ngrok](#create-an-ngrok-endpoint).
+1. [Kör funktionen Event Grid-utlösare](#run-the-event-grid-trigger-function).
+1. [Skapa en Event Grid-prenumeration](#create-a-subscription) som skickar händelser till ngrok-slutpunkten.
+1. [Utlös en händelse](#trigger-an-event).
 
 När du är klar testning, du kan använda samma prenumeration för produktion genom att uppdatera slutpunkten. Använd den [az eventgrid händelseprenumeration uppdatering](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-update) Azure CLI-kommando.
 

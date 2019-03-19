@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 5bb5993ea47bfcaca96662fbb3d34341e137b929
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: a2576a0489ad62aba0a85a45f110acb8ac220847
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57544842"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58107193"
 ---
 # <a name="lucene-query-syntax-in-azure-search"></a>Lucene-frågesyntax i Azure Search
 Du kan skriva frågor mot Azure Search baserat på omfattande [frågeparser (Lucene)](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html) syntaxen för specialiserade fråga formulär: jokertecken, fuzzy-sökning, närhetssökning, reguljära uttryck är några exempel. Mycket av frågeparser (Lucene)-syntax är [intakta implementeras i Azure Search](search-lucene-query-architecture.md), med undantag för *intervall sökningar* som skapas i Azure Search via `$filter` uttryck. 
@@ -65,13 +65,13 @@ Ytterligare exempel finns i [exempel på Lucene-fråga för att skapa frågor i 
 ##  <a name="bkmk_fields"></a> Fältbegränsade frågor  
  Du kan ange en `fieldname:searchterm` konstruktion att definiera en fielded frågeåtgärden där fältet är ett enstaka ord och söktermen är också ett enstaka ord eller en fras, eventuellt med booleska operatorer. Följande är några exempel:  
 
--   genre: jazz inte historiken  
+- genre: jazz inte historiken  
 
--   artists:("Miles Davis" "John Coltrane")
+- artists:("Miles Davis" "John Coltrane")
 
- Se till att placera flera strängar inom citattecken om du vill att båda strängar som ska utvärderas som en enda enhet, i det här fallet söker efter två distinkta konstnärer i den `artists` fält.  
+  Se till att placera flera strängar inom citattecken om du vill att båda strängar som ska utvärderas som en enda enhet, i det här fallet söker efter två distinkta konstnärer i den `artists` fält.  
 
- Fält som anges i `fieldname:searchterm` måste vara en `searchable` fält.  Se [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index) mer information om hur indexattribut används i fältdefinitioner.  
+  Fält som anges i `fieldname:searchterm` måste vara en `searchable` fält.  Se [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index) mer information om hur indexattribut används i fältdefinitioner.  
 
 ##  <a name="bkmk_fuzzy"></a> Fuzzy-sökning  
  En fuzzy-sökning söker efter matchningar i termer som har en liknande konstruktion. Per [Lucene dokumentation](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html), fuzzy sökningar baseras på [Damerau Levenshtein avståndet](https://en.wikipedia.org/wiki/Damerau%E2%80%93Levenshtein_distance).  

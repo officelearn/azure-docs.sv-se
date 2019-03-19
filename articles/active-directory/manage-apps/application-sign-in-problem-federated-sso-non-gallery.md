@@ -16,12 +16,12 @@ ms.date: 07/11/2017
 ms.author: celested
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ba47f7a80ee88f3a2d0089aae0183cdba62be24f
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 7cb0139227012be610977df3240f74a03f53be7e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56820203"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58009069"
 ---
 # <a name="problems-signing-in-to-a-non-gallery-application-configured-for-federated-single-sign-on"></a>Problem som loggar in på en icke-galleriprogram som konfigurerats för federerad enkel inloggning
 
@@ -32,7 +32,7 @@ Om du vill felsöka de problem med användarinloggning nedan, rekommenderar vi a
 
 ## <a name="application-not-found-in-directory"></a>Program som inte finns i katalogen
 
-*Fel AADSTS70001: Program med identifierare 'https://contoso.com' hittades inte i katalogen*.
+*Fel AADSTS70001: Programmet med ID: T `https://contoso.com` hittades inte i katalogen*.
 
 **Möjlig orsak**
 
@@ -42,27 +42,27 @@ Utfärdaren attributet skickar från programmet till Azure AD i SAML-begäran ma
 
 Se till att den `Issuer` attribut i SAML-begäran matchar identifierarvärde som konfigurerats i Azure AD. Om du använder den [testning upplevelse](../develop/howto-v1-debug-saml-sso-issues.md) i Azure-portalen med Mina appar säker webbläsartillägget behöver du inte manuellt följer du dessa steg.
 
-1.  Öppna den [ **Azure-portalen** ](https://portal.azure.com/) och logga in som en **Global administratör** eller **Medadministratör.**
+1. Öppna den [ **Azure-portalen** ](https://portal.azure.com/) och logga in som en **Global administratör** eller **Medadministratör.**
 
-2.  Öppna den **Azure Active Directory-tillägget** genom att klicka på **alla tjänster** överst i den huvudsakliga vänstra navigeringsmenyn.
+2. Öppna den **Azure Active Directory-tillägget** genom att klicka på **alla tjänster** överst i den huvudsakliga vänstra navigeringsmenyn.
 
-3.  Skriv i **”Azure Active Directory**” i sökrutan för filter och välj den **Azure Active Directory** objekt.
+3. Skriv i **”Azure Active Directory**” i sökrutan för filter och välj den **Azure Active Directory** objekt.
 
-4.  Klicka på **företagsprogram** från den vänstra navigeringsmenyn i Azure Active Directory.
+4. Klicka på **företagsprogram** från den vänstra navigeringsmenyn i Azure Active Directory.
 
-5.  Klicka på **alla program** att visa en lista över alla dina program.
+5. Klicka på **alla program** att visa en lista över alla dina program.
 
    * Om du inte ser programmet som du vill visa här använder du den **Filter** kontroll högst upp på den **listan över alla program** och ange den **visa** alternativet att **alla Program.**
 
-6.  Välj det program som du vill konfigurera enkel inloggning.
+6. Välj det program som du vill konfigurera enkel inloggning.
 
-7.  När programmet har lästs in klickar du på den **enkel inloggning** från programmets vänstra navigeringsmenyn.
+7. När programmet har lästs in klickar du på den **enkel inloggning** från programmets vänstra navigeringsmenyn.
 
-8.  När programmet läses in, öppnar du **grundläggande SAML-konfiguration**. Kontrollera att värdet i textrutan identifierare som matchar värdet för ID-värde som visas i felet.
+8. När programmet läses in, öppnar du **grundläggande SAML-konfiguration**. Kontrollera att värdet i textrutan identifierare som matchar värdet för ID-värde som visas i felet.
 
 ## <a name="the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application"></a>Svarsadressen matchar inte svars-adresser som har konfigurerats för programmet. 
 
-*Fel AADSTS50011: Svarsadressen https://contoso.com' matchar inte svars-adresser som har konfigurerats för programmet* 
+*Fel AADSTS50011: Svarsadressen `https://contoso.com` matchar inte svars-adresser som har konfigurerats för programmet* 
 
 **Möjlig orsak** 
 
@@ -72,29 +72,29 @@ AssertionConsumerServiceURL värdet i SAML-begäran matchar inte den svars-URL-v
 
 Se till att den `Issuer` attribut i SAML-begäran matchar identifierarvärde som konfigurerats i Azure AD. Om du använder den [testning upplevelse](../develop/howto-v1-debug-saml-sso-issues.md) i Azure-portalen med Mina appar säker webbläsartillägget behöver du inte manuellt följer du dessa steg.
  
-1.  Öppna den [ **Azure-portalen** ](https://portal.azure.com/) och logga in som en **Global administratör** eller **Medadministratör.** 
+1. Öppna den [ **Azure-portalen** ](https://portal.azure.com/) och logga in som en **Global administratör** eller **Medadministratör.** 
 
-2.  Öppna den **Azure Active Directory-tillägget** genom att klicka på **alla tjänster** överst i den huvudsakliga vänstra navigeringsmenyn. 
+2. Öppna den **Azure Active Directory-tillägget** genom att klicka på **alla tjänster** överst i den huvudsakliga vänstra navigeringsmenyn. 
 
-3.  Skriv i **”Azure Active Directory**” i sökrutan för filter och välj den **Azure Active Directory** objekt. 
+3. Skriv i **”Azure Active Directory**” i sökrutan för filter och välj den **Azure Active Directory** objekt. 
 
-4.  Klicka på **företagsprogram** från den vänstra navigeringsmenyn i Azure Active Directory. 
+4. Klicka på **företagsprogram** från den vänstra navigeringsmenyn i Azure Active Directory. 
 
-5.  Klicka på **alla program** att visa en lista över alla dina program. 
+5. Klicka på **alla program** att visa en lista över alla dina program. 
 
-  * Om du inte ser programmet som du vill visa här använder du den **Filter** kontroll högst upp på den **listan över alla program** och ange den **visa** alternativet att **alla Program.**
+   * Om du inte ser programmet som du vill visa här använder du den **Filter** kontroll högst upp på den **listan över alla program** och ange den **visa** alternativet att **alla Program.**
   
-6.  Välj det program som du vill konfigurera enkel inloggning
+6. Välj det program som du vill konfigurera enkel inloggning
 
-7.  När programmet har lästs in klickar du på den **enkel inloggning** från programmets vänstra navigeringsmenyn.
+7. När programmet har lästs in klickar du på den **enkel inloggning** från programmets vänstra navigeringsmenyn.
 
-8.  När programmet läses in, öppnar du **grundläggande SAML-konfiguration**. Kontrollera eller uppdatera värdet i textrutan svars-URL så att den matchar den `AssertionConsumerServiceURL` värdet i SAML-begäran.    
+8. När programmet läses in, öppnar du **grundläggande SAML-konfiguration**. Kontrollera eller uppdatera värdet i textrutan svars-URL så att den matchar den `AssertionConsumerServiceURL` värdet i SAML-begäran.    
     
 När du har uppdaterat svars-URL-värdet i Azure AD och den matchar det värde som skickas av programmet i SAML-begäran, bör du kunna logga in till programmet.
 
 ## <a name="user-not-assigned-a-role"></a>Användare som inte har tilldelats en roll
 
-*Fel AADSTS50105: Den inloggade användaren 'brian@contoso.com' har inte tilldelats en roll för programmet*
+*Fel AADSTS50105: Den inloggade användaren `brian\@contoso.com` inte har tilldelats en roll för programmet*
 
 **Möjlig orsak**
 
@@ -104,25 +104,25 @@ Användaren har inte beviljats åtkomst till programmet i Azure AD.
 
 Följ stegen nedan om du vill tilldela en eller flera användare till ett program direkt. Om du använder den [testning upplevelse](../develop/howto-v1-debug-saml-sso-issues.md) i Azure-portalen med Mina appar säker webbläsartillägget behöver du inte manuellt följer du dessa steg.
 
-1.  Öppna den [ **Azure-portalen** ](https://portal.azure.com/) och logga in som en **Global administratör.**
+1. Öppna den [ **Azure-portalen** ](https://portal.azure.com/) och logga in som en **Global administratör.**
 
-2.  Öppna den **Azure Active Directory-tillägget** genom att klicka på **alla tjänster** överst i den huvudsakliga vänstra navigeringsmenyn.
+2. Öppna den **Azure Active Directory-tillägget** genom att klicka på **alla tjänster** överst i den huvudsakliga vänstra navigeringsmenyn.
 
-3.  Skriv i **”Azure Active Directory**” i sökrutan för filter och välj den **Azure Active Directory** objekt.
+3. Skriv i **”Azure Active Directory**” i sökrutan för filter och välj den **Azure Active Directory** objekt.
 
-4.  Klicka på **företagsprogram** från den vänstra navigeringsmenyn i Azure Active Directory.
+4. Klicka på **företagsprogram** från den vänstra navigeringsmenyn i Azure Active Directory.
 
-5.  Klicka på **alla program** att visa en lista över alla dina program.
+5. Klicka på **alla program** att visa en lista över alla dina program.
 
-  * Om du inte ser programmet som du vill visa här använder du den **Filter** kontroll högst upp på den **listan över alla program** och ange den **visa** alternativet att **alla Program.**
+   * Om du inte ser programmet som du vill visa här använder du den **Filter** kontroll högst upp på den **listan över alla program** och ange den **visa** alternativet att **alla Program.**
 
-6.  Välj det program som du vill tilldela en användare i listan.
+6. Välj det program som du vill tilldela en användare i listan.
 
-7.  När programmet har lästs in klickar du på **användare och grupper** från programmets vänstra navigeringsmenyn.
+7. När programmet har lästs in klickar du på **användare och grupper** från programmets vänstra navigeringsmenyn.
 
-8.  Klicka på den **Lägg till** knappen ovanpå den **användare och grupper** listan för att öppna den **Lägg till tilldelning** fönstret.
+8. Klicka på den **Lägg till** knappen ovanpå den **användare och grupper** listan för att öppna den **Lägg till tilldelning** fönstret.
 
-9.  Klicka på den **användare och grupper** selector från den **Lägg till tilldelning** fönstret.
+9. Klicka på den **användare och grupper** selector från den **Lägg till tilldelning** fönstret.
 
 10. Ange den **fullständigt namn** eller **e-postadress** för den användare som du vill tilldela till den **Sök efter namn eller e-postadress** sökrutan.
 
@@ -146,7 +146,7 @@ De användare som du har valt att kunna starta dessa program med hjälp av metod
 
 Azure AD stöder inte SAML-begäran som skickades av programmet för enkel inloggning. Några vanliga problem är:
 
--   Saknar obligatoriska fält i SAML-begäran
+-   Obligatoriska fält saknas i SAML-begäran
 
 -   SAML-begäranskodad metod
 
@@ -202,25 +202,25 @@ Programobjektet är skadad och Azure AD kan identifiera inte certifikatet som ko
 
 Ta bort och skapa ett nytt certifikat genom att följa stegen nedan:
 
-1.  Öppna den [ **Azure-portalen** ](https://portal.azure.com/) och logga in som en **Global administratör** eller **Medadministratör.**
+1. Öppna den [ **Azure-portalen** ](https://portal.azure.com/) och logga in som en **Global administratör** eller **Medadministratör.**
 
-2.  Öppna den **Azure Active Directory-tillägget** genom att klicka på **alla tjänster** överst i den huvudsakliga vänstra navigeringsmenyn.
+2. Öppna den **Azure Active Directory-tillägget** genom att klicka på **alla tjänster** överst i den huvudsakliga vänstra navigeringsmenyn.
 
-3.  Skriv i **”Azure Active Directory**” i sökrutan för filter och välj den **Azure Active Directory** objekt.
+3. Skriv i **”Azure Active Directory**” i sökrutan för filter och välj den **Azure Active Directory** objekt.
 
-4.  Klicka på **företagsprogram** från den vänstra navigeringsmenyn i Azure Active Directory.
+4. Klicka på **företagsprogram** från den vänstra navigeringsmenyn i Azure Active Directory.
 
-5.  Klicka på **alla program** att visa en lista över alla dina program.
+5. Klicka på **alla program** att visa en lista över alla dina program.
 
-  * Om du inte ser programmet som du vill visa här använder du den **Filter** kontroll högst upp på den **listan över alla program** och ange den **visa** alternativet att **alla Program.**
+   * Om du inte ser programmet som du vill visa här använder du den **Filter** kontroll högst upp på den **listan över alla program** och ange den **visa** alternativet att **alla Program.**
 
-6.  Välj det program som du vill konfigurera enkel inloggning.
+6. Välj det program som du vill konfigurera enkel inloggning.
 
-7.  När programmet har lästs in klickar du på den **enkel inloggning** från programmets vänstra navigeringsmenyn.
+7. När programmet har lästs in klickar du på den **enkel inloggning** från programmets vänstra navigeringsmenyn.
 
-8.  Klicka på **Skapa nytt certifikat** under den **SAML-signeringscertifikat** avsnittet.
+8. Klicka på **Skapa nytt certifikat** under den **SAML-signeringscertifikat** avsnittet.
 
-9.  Välj utgångsdatum. Klicka sedan på **spara.**
+9. Välj utgångsdatum. Klicka sedan på **spara.**
 
 10. Kontrollera **gör nytt certifikat aktivt** att åsidosätta det aktiva certifikatet. Klicka sedan på **spara** överst i fönstret och acceptera för att aktivera förnyelsecertifikatet.
 

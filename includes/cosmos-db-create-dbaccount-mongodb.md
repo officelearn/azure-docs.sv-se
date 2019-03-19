@@ -8,17 +8,17 @@ ms.topic: include
 ms.date: 12/26/2018
 ms.author: rimman
 ms.custom: include file
-ms.openlocfilehash: 5695dbf020a72860bd86a8d55a59a5e5b67e3741
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
-ms.translationtype: HT
+ms.openlocfilehash: f000f10a3b20fda04c908a6dea0cc9799b49ef76
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54363902"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57458019"
 ---
 1. Logga in på [Azure Portal](https://portal.azure.com/) i ett nytt fönster.
 2. Klicka på **Skapa en resurs** i menyn till vänster. Klicka på **Databaser** och sedan på **Skapa** under **Azure Cosmos DB**.
    
-   ![Skärmbild av Azure Portal med fokus på Fler tjänster och Azure Cosmos DB](./media/cosmos-db-create-dbaccount-mongodb/create-nosql-db-databases-json-tutorial-1.png)
+   ![Skärmbild av Azure-portalen som visar fler tjänster och Azure Cosmos DB](./media/cosmos-db-create-dbaccount-mongodb/create-nosql-db-databases-json-tutorial-1.png)
 
 3. På sidan **Skapa Azure Cosmos DB-konto** anger du inställningarna för det nya Azure Cosmos DB-kontot. 
  

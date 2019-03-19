@@ -9,12 +9,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: agaiha
-ms.openlocfilehash: 434971e707cdca62c76ede9f295e7af20aa4cc3f
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: af5d4e21bb5b41df4bcb88dc2f9eb7901fcaa597
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56313542"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57997965"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Använda Linux-Diagnostiktillägget för att övervaka mått och loggar
 
@@ -386,7 +386,7 @@ Det här valfria avsnittet styr körningen av godtycklig [OMI](https://github.co
 
 Element | Värde
 ------- | -----
-namnområde | (valfritt) OMI-namnområde som frågan ska köras. Om inget anges standardvärdet är ”root/scx”, implementeras av den [System Center plattformsoberoende Providers](http://scx.codeplex.com/wikipage?title=xplatproviders&referringTitle=Documentation).
+namnområde | (valfritt) OMI-namnområde som frågan ska köras. Om inget anges standardvärdet är ”root/scx”, implementeras av den [System Center plattformsoberoende Providers](https://scx.codeplex.com/wikipage?title=xplatproviders&referringTitle=Documentation).
 DocumentDB | OMI-fråga som ska köras.
 tabell | (valfritt) Azure storage-tabell i avsedda storage-konto (se [inställningarna för Replikeringsskyddade](#protected-settings)).
 frequency | (valfritt) Antal sekunder mellan körning av frågan. Standardvärdet är 300 (5 minuter). minsta värde är 15 sekunder.

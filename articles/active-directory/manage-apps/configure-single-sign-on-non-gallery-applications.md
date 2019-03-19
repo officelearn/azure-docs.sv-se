@@ -12,12 +12,12 @@ ms.date: 01/08/2019
 ms.author: celested
 ms.reviewer: asmalser,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 93e33ea311a064058e739bfcf6d63dc2d5462110
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 7dfef0e27dd3e38e5a965f47a47619671a3127b0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57435073"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58117667"
 ---
 # <a name="configure-single-sign-on-to-non-gallery-applications-in-azure-active-directory"></a>Konfigurera enkel inloggning till icke-galleriprogram i Azure Active Directory
 
@@ -29,8 +29,8 @@ Dessa funktioner är också tillgängliga, enligt ditt licensavtal. Mer informat
 
 - Integrering med självbetjäning för alla program som stöder SAML 2.0-Identitetsproviders (SP-initierat eller IdP-initierad)
 - Integrering med självbetjäning för alla webbprogram som har en HTML-baserad på inloggningssidan med hjälp av [lösenordsbaserad SSO](what-is-single-sign-on.md#password-based-sso)
-* Självbetjäning anslutning av program som använder protokollet SCIM för användaretablering ([som beskrivs här](use-scim-to-provision-users-and-groups.md))
-* Du kan lägga till länkar till alla program i den [Office 365-appstartaren](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) eller [Azure AD-åtkomstpanelen](what-is-single-sign-on.md#linked-sso)
+- Självbetjäning anslutning av program som använder protokollet SCIM för användaretablering ([som beskrivs här](use-scim-to-provision-users-and-groups.md))
+- Du kan lägga till länkar till alla program i den [Office 365-appstartaren](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) eller [Azure AD-åtkomstpanelen](what-is-single-sign-on.md#linked-sso)
 
 Detta kan inkludera inte bara SaaS-program som du använder men har inte ännu har publicerat till Azure AD-programgalleriet, men andra leverantörers webb-program som din organisation har distribuerats till servrar som du styr, antingen i molnet eller lokalt.
 

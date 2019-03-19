@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 12/13/2018
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 1cf2276ca1995df19cc7068764a31916e4981100
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: e3cd9d0036a55a3e6de49988dddcd6a91b81b078
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55452702"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58088663"
 ---
 # <a name="use-azure-importexport-service-to-import-data-to-azure-files"></a>Använda Azure Import/Export-tjänsten för att importera data till Azure Files
 
@@ -50,60 +50,60 @@ Utför följande steg för att förbereda enheterna.
 2. Skapa en enskild NTFS-volym på varje enhet. Tilldela en enhetsbeteckning till volymen. Använd inte monteringspunkter.
 3. Ändra den *dataset.csv* filen i rotmappen där verktyget finns. Beroende på om du vill importera en fil eller mapp eller båda, lägger du till poster i den *dataset.csv* filen liknar följande exempel.  
 
-    - **Att importera en fil**: I följande exempel finns data som ska kopieras i C:-enheten. Din fil *MyFile1.txt* kopieras till roten för den *MyAzureFileshare1*. Om den *MyAzureFileshare1* finns inte, den skapas i Azure Storage-kontot. Mappstruktur.
+   - **Att importera en fil**: I följande exempel finns data som ska kopieras i C:-enheten. Din fil *MyFile1.txt* kopieras till roten för den *MyAzureFileshare1*. Om den *MyAzureFileshare1* finns inte, den skapas i Azure Storage-kontot. Mappstruktur.
 
-        ```
-            BasePath,DstItemPathOrPrefix,ItemType,Disposition,MetadataFile,PropertiesFile
-            "F:\MyFolder1\MyFile1.txt","MyAzureFileshare1/MyFile1.txt",file,rename,"None",None
+       ```
+           BasePath,DstItemPathOrPrefix,ItemType,Disposition,MetadataFile,PropertiesFile
+           "F:\MyFolder1\MyFile1.txt","MyAzureFileshare1/MyFile1.txt",file,rename,"None",None
     
-        ```
-    - **Importera en mapp**: Alla filer och mappar under *MyFolder2* rekursivt kopieras till filresursen. Mappstruktur.
+       ```
+   - **Importera en mapp**: Alla filer och mappar under *MyFolder2* rekursivt kopieras till filresursen. Mappstruktur.
 
-        ```
-            "F:\MyFolder2\","MyAzureFileshare1/",file,rename,"None",None 
-            
-        ```
-    Flera poster kan göras i samma fil för mappar eller filer som har importerats. 
+       ```
+           "F:\MyFolder2\","MyAzureFileshare1/",file,rename,"None",None 
+            
+       ```
+     Flera poster kan göras i samma fil för mappar eller filer som har importerats. 
 
-        ```
-            "F:\MyFolder1\MyFile1.txt","MyAzureFileshare1/MyFile1.txt",file,rename,"None",None
-            "F:\MyFolder2\","MyAzureFileshare1/",file,rename,"None",None 
-                        
-        ```
-    Läs mer om [förbereder CSV-filen datauppsättning](storage-import-export-tool-preparing-hard-drives-import.md#prepare-the-dataset-csv-file).
+       ```
+           "F:\MyFolder1\MyFile1.txt","MyAzureFileshare1/MyFile1.txt",file,rename,"None",None
+           "F:\MyFolder2\","MyAzureFileshare1/",file,rename,"None",None 
+                        
+       ```
+     Läs mer om [förbereder CSV-filen datauppsättning](storage-import-export-tool-preparing-hard-drives-import.md#prepare-the-dataset-csv-file).
     
 
 4. Ändra den *driveset.csv* filen i rotmappen där verktyget finns. Lägga till poster i den *driveset.csv* filen liknar följande exempel. Filen driveset med en lista över diskar och motsvarande enhetsbeteckningar så att verktyget korrekt kan välja listan över diskar som ska förberedas.
 
     Det här exemplet förutsätter att två diskar är anslutna och grundläggande NTFS-volymer G:\ och H:\ skapas. H:\is inte krypterat när G: redan är krypterad. Verktyget formaterar och krypterar den disk som är värd för H:\ endast (och inte G:\).
 
-    - **För en disk som inte är krypterad**: Ange *Encrypt* att aktivera BitLocker-kryptering på disken.
+   - **För en disk som inte är krypterad**: Ange *Encrypt* att aktivera BitLocker-kryptering på disken.
 
-        ```
-        DriveLetter,FormatOption,SilentOrPromptOnFormat,Encryption,ExistingBitLockerKey
-        H,Format,SilentMode,Encrypt,
-        ```
+       ```
+       DriveLetter,FormatOption,SilentOrPromptOnFormat,Encryption,ExistingBitLockerKey
+       H,Format,SilentMode,Encrypt,
+       ```
     
-    - **För en disk som redan är krypterat**: Ange *AlreadyEncrypted* och ange BitLocker-nyckel.
+   - **För en disk som redan är krypterat**: Ange *AlreadyEncrypted* och ange BitLocker-nyckel.
 
-        ```
-        DriveLetter,FormatOption,SilentOrPromptOnFormat,Encryption,ExistingBitLockerKey
-        G,AlreadyFormatted,SilentMode,AlreadyEncrypted,060456-014509-132033-080300-252615-584177-672089-411631
-        ```
+       ```
+       DriveLetter,FormatOption,SilentOrPromptOnFormat,Encryption,ExistingBitLockerKey
+       G,AlreadyFormatted,SilentMode,AlreadyEncrypted,060456-014509-132033-080300-252615-584177-672089-411631
+       ```
 
-    Flera poster kan göras i samma fil för flera enheter. Läs mer om [förbereder CSV-filen driveset](storage-import-export-tool-preparing-hard-drives-import.md#prepare-initialdriveset-or-additionaldriveset-csv-file). 
+     Flera poster kan göras i samma fil för flera enheter. Läs mer om [förbereder CSV-filen driveset](storage-import-export-tool-preparing-hard-drives-import.md#prepare-initialdriveset-or-additionaldriveset-csv-file). 
 
-5.  Använd den `PrepImport` alternativet för att kopiera och förbereda data till diskenheten. För den första kopia-sessionen att kopiera kataloger och/eller filer med en ny kopia-session kör du följande kommando:
+5. Använd den `PrepImport` alternativet för att kopiera och förbereda data till diskenheten. För den första kopia-sessionen att kopiera kataloger och/eller filer med en ny kopia-session kör du följande kommando:
 
-        ```
-        .\WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> [/logdir:<LogDirectory>] [/sk:<StorageAccountKey>] [/silentmode] [/InitialDriveSet:<driveset.csv>] DataSet:<dataset.csv>
-        ```
+       ```
+       .\WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> [/logdir:<LogDirectory>] [/sk:<StorageAccountKey>] [/silentmode] [/InitialDriveSet:<driveset.csv>] DataSet:<dataset.csv>
+       ```
 
-    Importera exempel visas nedan.
+   Importera exempel visas nedan.
   
-        ```
-        .\WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#1  /sk:************* /InitialDriveSet:driveset.csv /DataSet:dataset.csv /logdir:C:\logs
-        ```
+       ```
+       .\WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#1  /sk:************* /InitialDriveSet:driveset.csv /DataSet:dataset.csv /logdir:C:\logs
+       ```
  
 6. En journal-fil med namnet som du tillhandahöll med `/j:` parametern skapas för varje körning av kommandoraden. Varje enhet som du förbereder har en journalfil måste laddas upp när du skapar importjobbet. Enheter utan journalen filerna inte bearbetas.
 

@@ -17,14 +17,14 @@ ms.workload: infrastructure
 ms.date: 08/16/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 8b1290c2030835af1435e9a21602d3d2334a6737
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
-ms.translationtype: HT
+ms.openlocfilehash: e66747cd350d10a5a66ec54b9aae9e9b485b0ba2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41919607"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58014490"
 ---
-# <a name="tutorial-connect-virtual-networks-with-virtual-network-peering-using-the-azure-portal"></a>Självstudie: Koppla samman virtuella nätverk med peerkoppling med hjälp av Azure Portal
+# <a name="tutorial-connect-virtual-networks-with-virtual-network-peering-using-the-azure-portal"></a>Självstudier: Ansluta virtuella nätverk med peerkoppling med hjälp av Azure portal
 
 Du kan ansluta virtuella nätverk till varandra med peerkoppling. Dessa virtuella nätverk kan finnas i samma region eller andra regioner (kallas även Global VNet-peering). När virtuella nätverk har peerkopplats kan resurser i båda virtuella nätverken kommunicera med varandra, med samma svarstid och bandbredd som om resurserna fanns i samma virtuella nätverk. I den här guiden får du lära dig att:
 
@@ -121,6 +121,7 @@ Skapa en virtuell dator i varje virtuellt nätverk så att du kan kommunicera me
     |Plats| Välj **USA, östra**.|
 4. Välj en VM-storlek i **Välj en storlek**.
 5. Välj följande värden för **Inställningar** och sedan **OK**:
+
     |Inställning|Värde|
     |---|---|
     |Virtuellt nätverk| myVirtualNetwork1 – Om det inte redan är valt väljer du **Virtuellt nätverk** och sedan **myVirtualNetwork1** under **Välj ett virtuellt nätverk**.|

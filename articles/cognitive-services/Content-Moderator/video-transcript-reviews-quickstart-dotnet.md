@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: feecafcae8095c11736d1a76a1b6774c8dde1fc8
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 2e33f94486fe295fffa1f0b4bbd298b15d9271f4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55864102"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58113741"
 ---
 # <a name="create-video-transcript-reviews-using-net"></a>Skapa videoavskriften granskningar med hjälp av .NET
 
@@ -246,10 +246,10 @@ Förutom att lägga till en avskrift till en video granska du också lägga till
 1. Din Content Moderator-Teamnamn.
 1. Granska video-ID som returneras av **CreateVideoReviews**.
 1. En IList<TranscriptModerationBodyItem>. En **TranscriptModerationBodyItem** har följande egenskaper:
-- **Allmänna**. En IList<TranscriptModerationBodyItemTermsItem>. En **TranscriptModerationBodyItemTermsItem** har följande egenskaper:
-- **Index**. Det nollbaserade indexet har löpt ut.
-- **Termen**. En sträng som innehåller termen.
-- **Tidsstämpel**. En sträng som innehåller, i sekunder, tiden i avskriften som villkoren påträffas.
+1. **Allmänna**. En IList<TranscriptModerationBodyItemTermsItem>. En **TranscriptModerationBodyItemTermsItem** har följande egenskaper:
+1. **Index**. Det nollbaserade indexet har löpt ut.
+1. **Termen**. En sträng som innehåller termen.
+1. **Tidsstämpel**. En sträng som innehåller, i sekunder, tiden i avskriften som villkoren påträffas.
 
 Avskriften måste vara i formatet WebVTT. Mer information finns i [WebVTT: Web Video texten spårar Format](https://www.w3.org/TR/webvtt1/).
 

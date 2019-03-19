@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: 16b4031c0242d79b6d866d612a4d4f594dc608fa
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 4622809f0e261236d6753daf5bb2e00ff814c849
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55821957"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58087881"
 ---
 # <a name="integrate-azure-expressroute-with-disaster-recovery-for-azure-vms"></a>Integrera Azure ExpressRoute med haveriberedskap för virtuella Azure-datorer
 
@@ -91,11 +91,11 @@ Enterprise-distributioner har vanligtvis arbetsbelastningar delas upp på flera 
     - **Källan vNet2**: 10.2.0.0/24.
     - Varje eker virtuellt nätverk är ansluten till **Hubbnätverk**.
 - **Hubbnätverk**. Det finns en Hubbnätverk **källa Hubbnätverk**: 10.10.10.0/24.
-    - Den här Hubbnätverk fungerar som gatekeepern.
-    - All kommunikation över undernät igenom den här hubben.
- - Hub vNet undernät **. Hubbnätverk har två undernät:
-     - **NVA-undernätet**: 10.10.10.0/25. Det här undernätet innehåller en NVA (10.10.10.10).
-     - **Gateway-undernät**: 10.10.10.128/25. Det här undernätet innehåller en ExpressRoute-gateway som är anslutna till en ExpressRoute-anslutning som dirigerar till den lokala platsen via en privat peering routningsdomän.
+  - Den här Hubbnätverk fungerar som gatekeepern.
+  - All kommunikation över undernät igenom den här hubben.
+    - Hub vNet undernät **. Hubbnätverk har två undernät:
+    - **NVA-undernätet**: 10.10.10.0/25. Det här undernätet innehåller en NVA (10.10.10.10).
+    - **Gateway-undernät**: 10.10.10.128/25. Det här undernätet innehåller en ExpressRoute-gateway som är anslutna till en ExpressRoute-anslutning som dirigerar till den lokala platsen via en privat peering routningsdomän.
 - Datacenter på plats har en ExpressRoute-krets-anslutning via en partner edge i Hongkong.
 - Alla routning styrs via Azure-routningstabeller (UDR).
 - All utgående trafik mellan virtuella nätverk eller till det lokala datacentret dirigeras via NVA.

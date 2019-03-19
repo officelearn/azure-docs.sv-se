@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6ea25510596903e4020e8237bc5bd389c584ead9
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 8e81d5513f43882093883256cf9eab4a22e9ca01
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56268449"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57875282"
 ---
 # <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>Administratörsroller av admin-aktivitet i Azure Active Directory
 
@@ -144,18 +144,18 @@ Uppdatera egenskaper för enkel inloggning | Enterprise programmets ägare ([fin
 
 Aktivitet | Minst Privilegierade roller | Ytterligare roller
 ---- | --------------------- | ----------------
-Tilldela licens | Användarkonto-administratör | 
-Skapa grupp | Användarkonto-administratör | 
-Skapa, uppdatera eller ta bort åtkomstgranskning för en grupp eller en app | Användarkonto-administratör | 
-Hantera förfallodatum | Användarkonto-administratör | 
+Tilldela licens | Användaradministratör | 
+Skapa grupp | Användaradministratör | 
+Skapa, uppdatera eller ta bort åtkomstgranskning för en grupp eller en app | Användaradministratör | 
+Hantera förfallodatum | Användaradministratör | 
 Hantera gruppinställningar | Global administratör | 
 Läsa alla konfigurationen (utom dolda medlemskap) | Katalogläsare | Standard-användarrollen ([finns i dokumentationen till](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions))
-Läsa dolda medlemskap | Gruppmedlem | Gruppägare, lösenordsadministratör, Exchange-administratör, SharePoint-administratör, Teams administratör, användarkonto-administratör
-Läsa medlemskap i grupper med dolda medlemskap | Supportavdelningsadministratör | Användarkontoadministratören, Teams-administratör
-Återkalla licens | Licensadministratör | Användarkonto-administratör
-Uppdatera medlemskap | Gruppägare ([finns i dokumentationen till](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | Användarkonto-administratör
-Uppdatera gruppägare | Gruppägare ([finns i dokumentationen till](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | Användarkonto-administratör
-Uppdatera gruppegenskaper | Gruppägare ([finns i dokumentationen till](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | Användarkonto-administratör
+Läsa dolda medlemskap | Gruppmedlem | Gruppägare, lösenordsadministratör, Exchange-administratör, SharePoint-administratör, Teams administratör, Användaradministratör
+Läsa medlemskap i grupper med dolda medlemskap | Supportavdelningsadministratör | Användaradministratör, Teams-administratör
+Återkalla licens | Licensadministratör | Användaradministratör
+Uppdatera medlemskap | Gruppägare ([finns i dokumentationen till](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | Användaradministratör
+Uppdatera gruppägare | Gruppägare ([finns i dokumentationen till](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | Användaradministratör
+Uppdatera gruppegenskaper | Gruppägare ([finns i dokumentationen till](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | Användaradministratör
 
 ## <a name="identity-protection"></a>Identity Protection
 
@@ -176,9 +176,9 @@ Läsa sårbarheter | Säkerhetsläsare |
 
 Aktivitet | Minst Privilegierade roller | Ytterligare roller
 ---- | --------------------- | ----------------
-Tilldela licens | Licensadministratör | Användarkonto-administratör
+Tilldela licens | Licensadministratör | Användaradministratör
 Läsa alla konfigurationen | Katalogläsare | Standard-användarrollen ([finns i dokumentationen till](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions))
-Återkalla licens | Licensadministratör | Användarkonto-administratör
+Återkalla licens | Licensadministratör | Användaradministratör
 Försök eller köp prenumeration | Faktureringsadministratör | 
 
 
@@ -315,21 +315,21 @@ Läsa användare som har flaggats för risk | Säkerhetsläsare |
 Aktivitet | Minst Privilegierade roller | Ytterligare roller
 ---- | --------------------- | ----------------
 Lägga till användare till katalogroll | Privilegierad rolladministratör | 
-Lägg till användaren i gruppen | Användarkonto-administratör | 
-Tilldela licens | Licensadministratör | Användarkonto-administratör
-Skapa gästanvändare | Gästinbjudare | Användarkonto-administratör
-Skapa användare | Användarkonto-administratör | 
-Ta bort användare | Användarkonto-administratör | 
-Ogiltigförklara uppdateringstoken för begränsade administratörer (se dokumentationen) | Användarkonto-administratör | 
-Ogiltigförklara uppdateringstoken för icke-administratörer (se dokumentationen) | Lösenordsadminitratör | Användarkonto-administratör
+Lägg till användaren i gruppen | Användaradministratör | 
+Tilldela licens | Licensadministratör | Användaradministratör
+Skapa gästanvändare | Gästinbjudare | Användaradministratör
+Skapa användare | Användaradministratör | 
+Ta bort användare | Användaradministratör | 
+Ogiltigförklara uppdateringstoken för begränsade administratörer (se dokumentationen) | Användaradministratör | 
+Ogiltigförklara uppdateringstoken för icke-administratörer (se dokumentationen) | Lösenordsadminitratör | Användaradministratör
 Ogiltigförklara uppdateringstoken för privilegierade administratörer (se dokumentationen) | Global administratör | 
 Läs grundläggande konfiguration | Standard-användarrollen ([finns i dokumentationen](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions) | 
-Återställa lösenord för begränsade administratörer (se dokumentationen) | Användarkonto-administratör | 
-Återställa lösenord för icke-administratörer (se dokumentationen) | Lösenordsadminitratör | Användarkonto-administratör
+Återställa lösenord för begränsade administratörer (se dokumentationen) | Användaradministratör | 
+Återställa lösenord för icke-administratörer (se dokumentationen) | Lösenordsadminitratör | Användaradministratör
 Återställa lösenord för privilegierade administratörer | Global administratör | 
-Återkalla licens | Licensadministratör | Användarkonto-administratör
-Uppdatera alla egenskaper utom User Principal Name | Användarkonto-administratör | 
-Uppdatera användarens huvudnamn för begränsade administratörer (se dokumentationen) | Användarkonto-administratör | 
+Återkalla licens | Licensadministratör | Användaradministratör
+Uppdatera alla egenskaper utom User Principal Name | Användaradministratör | 
+Uppdatera användarens huvudnamn för begränsade administratörer (se dokumentationen) | Användaradministratör | 
 Uppdatera User Principal Name-egenskapen på Privilegierade administratörer (se dokumentationen) | Global administratör | 
 Uppdatera användarinställningarna | Global administratör | 
 

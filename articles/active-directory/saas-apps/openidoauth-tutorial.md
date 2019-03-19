@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: eedebb76-e78c-428f-9cf0-5891852e79fb
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/07/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0742a08e0169d47307f28ff08491b0f7c7c4a914
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 713e4e7874b2ca650ab669d52f9d3026b5e80899
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56201524"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57780991"
 ---
 # <a name="configure-an-openidoauth-application-from-the-azure-ad-app-gallery"></a>Konfigurera ett OpenID/OAuth-program från Azure AD-appgalleri
 
@@ -106,7 +106,7 @@ Följande steg visar hur medgivande fungerar för programutvecklare och använda
 
 3. Om användaren inte redan autentiserats uppmanar Azure AD/auktorisera slutpunkt till inloggning.
 
-    ![Autentisering](./media/openidoauth-tutorial/authentication.png)
+    ![Authentication](./media/openidoauth-tutorial/authentication.png)
 
 4. När användaren har loggat in avgör Azure AD om användaren måste visas en sida för medgivande. Det här fastställandet baseras på om användaren (eller organisationens administratör) redan har gett medgivande för programmet.
 

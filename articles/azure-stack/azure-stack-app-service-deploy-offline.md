@@ -16,12 +16,12 @@ ms.date: 02/27/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: af3e7528e2312cef1832dc104e83384a91acf263
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: b6950e3445f2320f2e3a45f55726befd7077119a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56991350"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57835917"
 ---
 # <a name="add-an-app-service-resource-provider-to-a-disconnected-azure-stack-environment-secured-by-ad-fs"></a>Lägga till en App Service-resursprovider i en frånkopplad Azure Stack-miljö som skyddas av AD FS
 
@@ -82,28 +82,28 @@ Om du vill distribuera App Service i en frånkopplad miljö måste du först ska
     ![App Service-installationsprogrammet][3]
 
 7. På nästa sida:
-    1. Klicka på den **Connect** knappen bredvid den **Azure Stack-prenumerationer** box.
-        - Ange ditt administratörskonto. Till exempel cloudadmin@azurestack.local. Ange ditt lösenord och klicka på **logga In**.
-    2. I den **Azure Stack-prenumerationer** väljer den **standard Providerprenumeration**.
+   1. Klicka på den **Connect** knappen bredvid den **Azure Stack-prenumerationer** box.
+      - Ange ditt administratörskonto. Till exempel cloudadmin@azurestack.local. Ange ditt lösenord och klicka på **logga In**.
+   2. I den **Azure Stack-prenumerationer** väljer den **standard Providerprenumeration**.
     
-    > [!NOTE]
-    > App Service kan bara distribueras till den **standard Providerprenumeration**.
-    >
+      > [!NOTE]
+      > App Service kan bara distribueras till den **standard Providerprenumeration**.
+      >
     
-    3. I den **platser för Azure Stack** väljer du den plats som motsvarar den region som du distribuerar till. Välj exempelvis **lokala** om din distribution till Azure Stack Development Kit.
-    4. Klicka på **Nästa**.
+   3. I den **platser för Azure Stack** väljer du den plats som motsvarar den region som du distribuerar till. Välj exempelvis **lokala** om din distribution till Azure Stack Development Kit.
+   4. Klicka på **Nästa**.
 
-    ![App Service-installationsprogrammet][4]
+      ![App Service-installationsprogrammet][4]
 
 8. Nu har du möjlighet att distribuera till ett befintligt virtuellt nätverk som konfigurerats genom stegen [här](azure-stack-app-service-before-you-get-started.md#virtual-network), eller låta App Service-installationsprogrammet för att skapa ett virtuellt nätverk och associerade undernät.
-    1. Välj **skapa virtuellt nätverk med standardinställningar**, acceptera standardinställningarna och klicka sedan på **nästa**, eller;
-    2. Välj **Använd befintligt virtuellt nätverk och undernät**.
-        1. Välj den **resursgrupp** som innehåller det virtuella nätverket;
-        2. Välj rätt **virtuellt nätverk** namn som du vill distribuera till;
-        3. Välj rätt **undernät** värden för var och en av de nödvändiga rolltjänster undernäten;
-        4. Klicka på **Nästa**
+   1. Välj **skapa virtuellt nätverk med standardinställningar**, acceptera standardinställningarna och klicka sedan på **nästa**, eller;
+   2. Välj **Använd befintligt virtuellt nätverk och undernät**.
+       1. Välj den **resursgrupp** som innehåller det virtuella nätverket;
+       2. Välj rätt **virtuellt nätverk** namn som du vill distribuera till;
+       3. Välj rätt **undernät** värden för var och en av de nödvändiga rolltjänster undernäten;
+       4. Klicka på **Nästa**
 
-    ![App Service-installationsprogrammet][5]
+      ![App Service-installationsprogrammet][5]
 
 9. Ange information för filresursen och klickar sedan på **nästa**. Adressen till filresursen måste använda fullständigt kvalificerat domännamn eller IP-adressen för din filserver. Till exempel \\\appservicefileserver.local.cloudapp.azurestack.external\websites, eller \\\10.0.0.1\websites.  Om du använder en filserver som är ansluten till en domän, måste du ange det fullständiga användarnamnet inklusive domän, till exempel myfileserverdomain\FileShareOwner.
 
@@ -152,7 +152,7 @@ Om du vill distribuera App Service i en frånkopplad miljö måste du först ska
     > ```
     > Referera till den [viktig information för Azure App Service i Azure Stack 1.3](azure-stack-app-service-release-notes-update-three.md) för mer information.
    
-   ![App Service-installationsprogrammet][12]
+    ![App Service-installationsprogrammet][12]
 
 13. Granska rollinstansen och SKU-alternativen. Standardvärdena fylls i med det minsta antalet förekomster och minsta SKU: N för varje roll i en ASDK-distribution. En sammanfattning av vCPU och minneskraven tillhandahålls för att planera distributionen. När du har gjort dina val klickar du på **nästa**.
 
@@ -172,7 +172,7 @@ Om du vill distribuera App Service i en frånkopplad miljö måste du först ska
     ![App Service-installationsprogrammet][14]
 
     > [!NOTE]
-    > **Windows Server 2016 Core är inte en plattformsavbildning som stöds för användning med Azure App Service i Azure Stack.  Använd inte utvärdering avbildningar för Produktionsdistribution.  Azure App Service i Azure Stack kräver att Microsoft.Net 3.5.1 SP1 har aktiverats på den avbildning som används för distribution.   Marketplace syndikeras Windows Server 2016 avbildningar inte har den här funktionen är aktiverad, du måste därför skapa och använda en avbildning av Windows Server 2016 med redan aktiverat.**
+    > **Windows Server 2016 Core är inte en plattformsavbildning som stöds för användning med Azure App Service i Azure Stack.  Använd inte utvärdering avbildningar för Produktionsdistribution.  Azure App Service i Azure Stack kräver att Microsoft.NET 3.5.1 SP1 har aktiverats på den avbildning som används för distribution.   Marketplace syndikeras Windows Server 2016 avbildningar inte har den här funktionen är aktiverad, du måste därför skapa och använda en avbildning av Windows Server 2016 med redan aktiverat.**
 
 14. I den **Välj Plattformsavbildning** väljer du din avbildning av virtuell dator för distribution av Windows Server 2016 från de som finns i compute-resursprovidern för App Service-molnet. Klicka på **Nästa**.
 
@@ -253,7 +253,7 @@ När du distribuerar och registrera resursprovidern App Service kan du testa den
 
 1. I Azure Stack-klient-portalen klickar du på **+**, gå till Azure Marketplace, distribuera en Django-webbplats och vänta på slutförande. Django web-plattformen använder en fil system-baserad databas. Det kräver inte några ytterligare resource-leverantörer, till exempel SQL eller MySQL.
 
-2. Om du har distribuerat en MySQL-resursprovider också kan du distribuera en WordPress-webbplats från Marketplace. När du uppmanas att ange Databasparametrar anger du användarnamnet som *User1@Server1*med användarnamn och servernamnet på ditt val.
+2. Om du har distribuerat en MySQL-resursprovider också kan du distribuera en WordPress-webbplats från Marketplace. När du uppmanas att ange Databasparametrar anger du användarnamnet som *User1\@Server1*med användarnamn och servernamnet på ditt val.
 
 3. Om du har distribuerat en SQL Server-resursleverantör också kan du distribuera en DNN-webbplats från Marketplace. Välj en databas i den dator som kör SQL Server som är ansluten till din resursprovider när du uppmanas att ange Databasparametrar.
 

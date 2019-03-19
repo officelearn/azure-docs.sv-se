@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: spelluru
-ms.openlocfilehash: 0dc50da5eb302e2f1b24c265b4675d93f0a2e849
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 145960db27247a8535eb96640000b86d810619c0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57768373"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57838417"
 ---
 # <a name="expose-an-on-premises-wcf-service-to-a-web-application-in-the-cloud-by-using-azure-relay"></a>Göra en lokal WCF-tjänst tillgänglig för en webbapp i molnet med Azure Relay 
 Den här artikeln visar hur du skapar ett hybridprogram i molnet med Microsoft Azure och Visual Studio. Du skapar ett program färdigt i molnet som använder en rad Azure-resurser.
@@ -43,7 +43,7 @@ I den här självstudien gör du följande:
 För att slutföra den här självstudien, finns följande förhandskrav:
 
 - En Azure-prenumeration. Om du inte har ett konto kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
-- [Visual Studio 2015 eller senare](http://www.visualstudio.com). I exemplen i den här självstudiekursen används Visual Studio 2017.
+- [Visual Studio 2015 eller senare](https://www.visualstudio.com). I exemplen i den här självstudiekursen används Visual Studio 2017.
 - Azure SDK för .NET. Installera det från den [nedladdningssidan för SDK](https://azure.microsoft.com/downloads/).
 
 ## <a name="how-azure-relay-helps-with-hybrid-solutions"></a>Så här hjälper Azure Relay dig med hybridlösningar
@@ -85,7 +85,7 @@ Först skapar du ett simulerat lokalt produktkatalogsystem.  Det här projektet 
 
    ![Dialogrutan Nytt projekt][11]
 4. Klicka på **OK** för att skapa **ProductsServer**-projektet.
-5. Om du redan har installerat NuGet Package Manager för Visual Studio kan du hoppa över nästa steg. Annars går du till [NuGet][NuGet] och klickar på [Installera NuGet](http://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c). Följ anvisningarna för att installera NuGet Package Manager och starta sedan om Visual Studio.
+5. Om du redan har installerat NuGet Package Manager för Visual Studio kan du hoppa över nästa steg. Annars går du till [NuGet][NuGet] och klickar på [Installera NuGet](https://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c). Följ anvisningarna för att installera NuGet Package Manager och starta sedan om Visual Studio.
 6. Högerklicka på projektet **ProductsServer** i Solution Explorer och klicka sedan på **Hantera NuGet-paket**.
 7. Klicka på fliken **Bläddra** och sök sedan efter **WindowsAzure.ServiceBus**. Välj paketet **WindowsAzure.ServiceBus**.
 8. Klicka på **Installera** och godkänn användningsvillkoren.
@@ -422,14 +422,14 @@ Nästa steg är att publicera om klientdelen för **ProductsPortal** som en Azur
 
 1. Högerklicka på lösningen **ProductsPortal** i Solution Explorer och klicka på **Publicera**. Klicka på **Publicera** på **publiceringssidan**.
 
-  > [!NOTE]
-  > Du kanske får upp ett felmeddelande i webbläsarfönstret när webbprojektet **ProductsPortal** startas automatiskt efter distributionen. Detta är normalt och beror på att **ProductsServer**-programmet ännu inte körs.
->
->
+   > [!NOTE]
+   > Du kanske får upp ett felmeddelande i webbläsarfönstret när webbprojektet **ProductsPortal** startas automatiskt efter distributionen. Detta är normalt och beror på att **ProductsServer**-programmet ännu inte körs.
+   >
+   >
 
 2. Kopiera den distribuerade webbappens URL eftersom du kommer att behöva URL-adressen i nästa steg. Du kan även hämta denna URL från aktivitetsfönstret Azure App Service i Visual Studio:
 
-  ![Webbadressen för den distribuerade appen][9]
+   ![Webbadressen för den distribuerade appen][9]
 
 3. Stäng webbläsarfönstret för att stoppa programmet som körs.
 
@@ -470,7 +470,7 @@ Fortsätt till följande självstudie:
 
 [0]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hybrid.png
 [1]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/App2.png
-[NuGet]: http://nuget.org
+[NuGet]: https://nuget.org
 
 [11]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-con-1.png
 [13]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-multi-tier-13.png

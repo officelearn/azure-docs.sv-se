@@ -12,18 +12,29 @@ ms.author: jovanpop
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/17/2018
-ms.openlocfilehash: 69ca51776a61b43768ce7cb1565451c4f118de6e
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: f3bb6fa93a96adcd2c1995b6874aa0b36b2ce320
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57316531"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57884531"
 ---
 # <a name="multi-model-capabilities-of-azure-sql-database"></a>Flera datamodeller funktionerna i Azure SQL Database
 
 Databaser för flera datamodeller kan du lagra och arbeta med data som visas i flera dataformat som relationsdata, diagram, JSON/XML-dokument, nyckel / värde-par, osv.
 
-Azure SQL Database har utformats för att arbeta med relationsmodellen som tillhandahåller bästa möjliga prestanda i de flesta fall för en mängd olika Allmänt program. Azure SQL Database är dock inte begränsat till – relationsdata endast. Azure SQL Database kan du använda en mängd icke-relationella format som är nära integrerade i relationsmodellen. Azure SQL innehåller följande funktioner för flera modeller:
+## <a name="when-to-use-multi-model-capabilities"></a>När du ska använda funktioner för flera datamodeller
+
+Azure SQL Database har utformats för att arbeta med relationsmodellen som tillhandahåller bästa möjliga prestanda i de flesta fall för en mängd olika Allmänt program. Azure SQL Database är dock inte begränsat till – relationsdata endast. Azure SQL Database kan du använda en mängd icke-relationella format som är nära integrerade i relationsmodellen.
+Du bör överväga att använda funktionerna för flera modeller i Azure SQL Database i följande fall:
+- Du har viss information eller strukturer som bättre passa för NoSQL-modeller och du vill inte använda separata NoSQL-databas.
+- En majoritet av dina data är lämpligt för relationsmodellen och behöver du skapa vissa delar av dina data med NoSQL-stil.
+- Du vill dra nytta av omfattande Transact-SQL-språket att fråga efter och analysera både Relations- och NoSQL-data och integrera det med en mängd olika verktyg och programlösningarna som kan använda SQL-språket.
+- Du vill tillämpa databasfunktioner som [minnesinterna tekniker](sql-database-in-memory.md) att förbättra prestanda för din analys eller använda bearbetning av dina data strucutres NoSQL [Transaktionsreplikering](sql-database-managed-instance-transactional-replication.md) eller [läsbara repliker](sql-database-read-scale-out.md) att skapa kopia av dina data på annan plats och avlasta vissa analytiska arbetsbelastningar från den primära databasen.
+
+## <a name="overview"></a>Översikt
+
+Azure SQL innehåller följande funktioner för flera modeller:
 - [Funktioner för Graph](#graph-features) gör att du kan visa data som uppsättning noder och kanter och använda standard Transact-SQL-frågor, förbättrad med graph `MATCH` operator för att fråga graph-data.
 - [JSON-funktioner](#json-features) gör att du kan placera JSON-dokument i tabeller, omvandla relationella data till JSON-dokument och vice versa. Du kan använda standard Transact-SQL-språket, förbättrad med JSON-funktioner för parsning av dokument och använda icke-grupperade index eller kolumnlagringsindex minnesoptimerade tabeller för att optimera dina frågor.
 - [Spatial funktioner](#spatial-features) kan du lagra geografiska och geometriska, index-dem med hjälp av spatialindex och hämta data med rumsliga förfrågningar.
@@ -56,7 +67,7 @@ Det finns inget en grafdatabas kan uppnå som inte kan tillgodoses med en relati
 
 ## <a name="json-features"></a>JSON-funktioner
 
-Azure SQL Database kan du parsa och skicka frågor till data som visas i JavaScript Object Notation [(JSON)](http://www.json.org/) formatera och exportera din relationsdata som JSON-texten.
+Azure SQL Database kan du parsa och skicka frågor till data som visas i JavaScript Object Notation [(JSON)](https://www.json.org/) formatera och exportera din relationsdata som JSON-texten.
 
 JSON är ett populärt dataformat som används för utbyte av data i moderna webbprogram och mobilappar. JSON används också för att lagra halvstrukturerade data i loggfiler eller i NoSQL-databaser som [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). Många REST-webbtjänsterna sökresultaten formaterade som JSON-texten eller acceptera data formaterade som JSON. De flesta Azure-tjänster som [Azure Search](https://azure.microsoft.com/services/search/), [Azure Storage](https://azure.microsoft.com/services/storage/), och [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) har REST-slutpunkter som returnerar eller använda JSON.
 

@@ -17,12 +17,12 @@ ms.author: sethm
 ms.reviewer: scottnap
 ms.lastreviewed: 09/12/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: 1d66ca49db097eebd4c8fb5663f63e0db7460ad6
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: e038afe27718dcbd407e83b5c9190606e6b917c4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57782878"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58004654"
 ---
 # <a name="create-a-site-to-site-vpn-connection-between-two-virtual-networks-in-different-azure-stack-development-kit-environments"></a>Skapa en plats-till-plats VPN-anslutning mellan två virtuella nätverk i olika miljöer i Azure Stack Development Kit
 ## <a name="overview"></a>Översikt
@@ -52,6 +52,7 @@ Förbered ett erbjudande på både POC1 och POC2 så att en användare kan prenu
 I följande tabell sammanfattas nätverkskonfigurationen för både Azure Stack Development Kit-miljöer. Stegen som visas efter tabellen att lägga till den externa BGPNAT-adressen som är specifik för ditt nätverk.
 
 **Tabell för konfiguration av nätverk**
+
 |   |POC1|POC2|
 |---------|---------|---------|
 |Namn på virtuellt nätverk     |VNET-01|VNET-02 |

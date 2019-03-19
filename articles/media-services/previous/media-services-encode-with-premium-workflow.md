@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 7b91f63057fa8b781fdfab17e0837a9f5547c1eb
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: d20fc0cee6bce1389649e6287170b1963e799ccf
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55988042"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58187735"
 ---
 # <a name="advanced-encoding-with-media-encoder-premium-workflow"></a>Avancerad kodning med Media Encoder Premium Workflow
 > [!NOTE]
@@ -62,12 +62,12 @@ Utför följande steg:
     I de flesta fall konfigurationssträngen för aktiviteten är tom (som i följande exempel). Det finns vissa avancerade scenarier (som kräver att du kan ange egenskaper för runtime dynamiskt) i så fall skulle du ange en XML-sträng till kodning aktivitet. Exempel på sådana scenarier är: skapa ett överlägg, parallella eller sekventiella media häfta ihop det, textning.
 5. Lägg till två inkommande tillgångar i uppgiften.
 
-    1. 1 – arbetsflöde för tillgången.
-    2. 2 – video tillgången.
+   1. 1 – arbetsflöde för tillgången.
+   2. 2 – video tillgången.
 
-    >[!NOTE]
-    >Arbetsflöde för tillgången måste läggas till uppgiften innan media tillgången.
-   Konfigurationssträngen för den här uppgiften ska vara tomt.
+      >[!NOTE]
+      >Arbetsflöde för tillgången måste läggas till uppgiften innan media tillgången.
+      Konfigurationssträngen för den här uppgiften ska vara tomt.
    
 6. Skicka kodningsjobbet.
 

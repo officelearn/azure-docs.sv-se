@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: article
 ms.date: 12/02/2016
 ms.author: ghogen
-ms.openlocfilehash: 74aea3ad4c3dda8abc69275ad4d683fbcf485ccc
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: f6f1a3a7f0a406e1dbb40f4bfc6a358da7ac68fa
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53722914"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57999546"
 ---
 # <a name="getting-started-with-azure-queue-storage-and-visual-studio-connected-services-webjob-projects"></a>Komma igång med Azure Queue storage och Visual Studio-anslutna tjänster (WebJob-projekt)
 [!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
@@ -27,7 +27,7 @@ Den här artikeln beskrivs hur komma igång med Azure Queue storage i ett projek
 
 Den här artikeln innehåller C#-kodexempel som visar hur du använder Azure WebJobs SDK-version 1.x med Azure Queue storage-tjänsten.
 
-Azure Queue Storage är en tjänst för att lagra stora mängder meddelanden som kan nås från var som helst i världen via autentiserade anrop med HTTP eller HTTPS. Ett enda kömeddelande kan vara upp till 64 KB stort och en kö kan innehålla miljontals meddelanden, upp till den totala kapacitetsgränsen för ett lagringskonto. Se [Kom igång med Azure Queue Storage med hjälp av .NET](../storage/queues/storage-dotnet-how-to-use-queues.md) för mer information. Läs mer om ASP.NET [ASP.NET](http://www.asp.net).
+Azure Queue Storage är en tjänst för att lagra stora mängder meddelanden som kan nås från var som helst i världen via autentiserade anrop med HTTP eller HTTPS. Ett enda kömeddelande kan vara upp till 64 KB stort och en kö kan innehålla miljontals meddelanden, upp till den totala kapacitetsgränsen för ett lagringskonto. Se [Kom igång med Azure Queue Storage med hjälp av .NET](../storage/queues/storage-dotnet-how-to-use-queues.md) för mer information. Läs mer om ASP.NET [ASP.NET](https://www.asp.net).
 
 ## <a name="how-to-trigger-a-function-when-a-queue-message-is-received"></a>Hur du utlöser en funktion när ett kömeddelande tas emot
 Om du vill skriva en funktion som WebJobs SDK anropar när ett kömeddelande tas emot, använda den **QueueTrigger** attribut. Attributkonstruktorn använder en strängparameter som anger namnet på kön att söka. Om du vill se hur du ställer in namnet på kön dynamiskt, Kolla in [hur du ställer in konfigurationsalternativ](#how-to-set-configuration-options).
@@ -44,7 +44,7 @@ public static void ProcessQueueMessage([QueueTrigger("logqueue")] string logMess
 
 Förutom **sträng**, parametern kan vara en bytematris en **CloudQueueMessage** objekt eller en POCO som du definierar.
 
-### <a name="poco-plain-old-clr-objecthttpenwikipediaorgwikiplainoldclrobject-queue-messages"></a>POCO [(vanlig gamla CLR-objekt](http://en.wikipedia.org/wiki/Plain_Old_CLR_Object)) meddelanden i kö
+### <a name="poco-plain-old-clr-objecthttpsenwikipediaorgwikiplainoldclrobject-queue-messages"></a>POCO [(vanlig gamla CLR-objekt](https://en.wikipedia.org/wiki/Plain_Old_CLR_Object)) meddelanden i kö
 I följande exempel innehåller kömeddelandet JSON för en **BlobInformation** objekt som innehåller en **BlobName** egenskapen. SDK: N deserializes automatiskt objektet.
 
 ```csharp
@@ -54,7 +54,7 @@ public static void WriteLogPOCO([QueueTrigger("logqueue")] BlobInformation blobI
 }
 ```
 
-SDK: N använder den [Newtonsoft.Json NuGet-paketet](http://www.nuget.org/packages/Newtonsoft.Json) att serialisera och deserialisera meddelanden. Om du skapar Kömeddelanden i ett program som inte använder WebJobs-SDK kan du skriva kod som i följande exempel för att skapa en POCO-kömeddelande som SDK: N kan parsa.
+SDK: N använder den [Newtonsoft.Json NuGet-paketet](https://www.nuget.org/packages/Newtonsoft.Json) att serialisera och deserialisera meddelanden. Om du skapar Kömeddelanden i ett program som inte använder WebJobs-SDK kan du skriva kod som i följande exempel för att skapa en POCO-kömeddelande som SDK: N kan parsa.
 
 ```csharp
 BlobInformation blobInfo = new BlobInformation() { BlobName = "log.txt" };
@@ -72,7 +72,7 @@ public async static Task ProcessQueueMessageAsync([QueueTrigger("logqueue")] str
 }
 ```
 
-Async-funktioner kan ta en [annullering token](http://www.asp.net/mvc/overview/performance/using-asynchronous-methods-in-aspnet-mvc-4#CancelToken), enligt följande exempel som kopierar en blob. (En förklaring av den **queueTrigger** platshållaren finns i den [Blobar](#how-to-read-and-write-blobs-and-tables-while-processing-a-queue-message) avsnittet.)
+Async-funktioner kan ta en [annullering token](https://www.asp.net/mvc/overview/performance/using-asynchronous-methods-in-aspnet-mvc-4#CancelToken), enligt följande exempel som kopierar en blob. (En förklaring av den **queueTrigger** platshållaren finns i den [Blobar](#how-to-read-and-write-blobs-and-tables-while-processing-a-queue-message) avsnittet.)
 
 ```csharp
 public async static Task ProcessQueueMessageAsyncCancellationToken(
@@ -90,7 +90,7 @@ Du kan använda **QueueTrigger** med följande typer:
 
 * **sträng**
 * En POCO-typ serialiserad som JSON
-* **byte]**
+* **byte[]**
 * **CloudQueueMessage**
 
 ## <a name="polling-algorithm"></a>Avsökningen algoritmen
@@ -201,7 +201,7 @@ public static void CreateQueueMessage(
 }
 ```
 
-### <a name="poco-plain-old-clr-objecthttpenwikipediaorgwikiplainoldclrobject-queue-messages"></a>POCO [(vanlig gamla CLR-objekt](http://en.wikipedia.org/wiki/Plain_Old_CLR_Object)) meddelanden i kö
+### <a name="poco-plain-old-clr-objecthttpsenwikipediaorgwikiplainoldclrobject-queue-messages"></a>POCO [(vanlig gamla CLR-objekt](https://en.wikipedia.org/wiki/Plain_Old_CLR_Object)) meddelanden i kö
 Om du vill skapa ett kömeddelande som innehåller en POCO i stället för en sträng, skicka POCO-typ som en output-parameter till den **kö** attributkonstruktör.
 
 ```csharp
@@ -296,7 +296,7 @@ public static void DeleteBlob(
 }
 ```
 
-### <a name="poco-plain-old-clr-objecthttpenwikipediaorgwikiplainoldclrobject-queue-messages"></a>POCO [(vanlig gamla CLR-objekt](http://en.wikipedia.org/wiki/Plain_Old_CLR_Object)) meddelanden i kö
+### <a name="poco-plain-old-clr-objecthttpsenwikipediaorgwikiplainoldclrobject-queue-messages"></a>POCO [(vanlig gamla CLR-objekt](https://en.wikipedia.org/wiki/Plain_Old_CLR_Object)) meddelanden i kö
 För en POCO lagras som JSON i kömeddelandet, kan du använda platshållare som namnge egenskaperna för objektet i den **kö** attributets **blobPath** parametern. Du kan också använda könamn metadata-egenskap som platshållare. Se [hämta kön eller kön meddelande metadata](#get-queue-or-queue-message-metadata).
 
 I följande exempel kopierar en blob till en ny blob med ett annat tillägg. Kömeddelandet är en **BlobInformation** objekt som innehåller **BlobName** och **BlobNameWithoutExtension** egenskaper. Egenskapsnamnen används som platshållare i blob-sökvägen för den **Blob** attribut.
@@ -311,7 +311,7 @@ public static void CopyBlobPOCO(
 }
 ```
 
-SDK: N använder den [Newtonsoft.Json NuGet-paketet](http://www.nuget.org/packages/Newtonsoft.Json) att serialisera och deserialisera meddelanden. Om du skapar Kömeddelanden i ett program som inte använder WebJobs-SDK kan du skriva kod som i följande exempel för att skapa en POCO-kömeddelande som SDK: N kan parsa.
+SDK: N använder den [Newtonsoft.Json NuGet-paketet](https://www.nuget.org/packages/Newtonsoft.Json) att serialisera och deserialisera meddelanden. Om du skapar Kömeddelanden i ett program som inte använder WebJobs-SDK kan du skriva kod som i följande exempel för att skapa en POCO-kömeddelande som SDK: N kan parsa.
 
 ```csharp
 BlobInformation blobInfo = new BlobInformation() { BlobName = "boot.log", BlobNameWithoutExtension = "boot" };
@@ -442,7 +442,7 @@ static void Main(string[] args)
 ### <a name="set-values-for-webjobs-sdk-constructor-parameters-in-code"></a>Ange värden för WebJobs SDK konstruktor parametrar i kod
 Vill ibland du ange en kö, ett blobnamn eller behållare eller en tabell i kod i stället för hårdkoda ge den namnet. Du kanske exempelvis vill ange namnet på kön för **QueueTrigger** i en konfiguration av fil- eller miljö variabel.
 
-Du kan göra det genom att skicka in en **NameResolver** objekt till den **JobHostConfiguration** typen. Du inkluderar särskild platshållare som omges av procenttecken (%) i WebJobs SDK attributet konstruktor parametrar och din **NameResolver** kod anger de faktiska värdena som ska användas i stället för platshållarna.
+Du kan göra det genom att skicka in en **NameResolver** objekt till den **JobHostConfiguration** typen. Du inkluderar särskild platshållare som omges av procenttecken (%) loggar in WebJobs SDK attributet konstruktor parametrar, och din **NameResolver** kod anger de faktiska värdena som ska användas i stället för platshållarna.
 
 Anta exempelvis att du vill använda en kö med namnet logqueuetest i testmiljön och en namngiven logqueueprod i produktion. I stället för ett hårdkodat könamn som du vill ange namnet på en post i den **appSettings** samling som skulle ha faktiska könamnet. Om den **appSettings** nyckeln är logqueue, din funktion bör se ut som i följande exempel.
 

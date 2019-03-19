@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajani-janaki-ram
-ms.openlocfilehash: 20d5c4628d729b8dff8b1d72f80beac0ec2e8f67
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: c22acb1ae82e5c1e781598e8545c7f1625cc1c09
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57569756"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58122798"
 ---
 # <a name="remove-servers-and-disable-protection"></a>Ta bort servrar och inaktivera skydd
 
@@ -158,11 +158,11 @@ Hyper-V-värdar som inte hanteras av VMM har samlats i en Hyper-V-plats. Ta bort
 
 1. I **skyddade objekt** > **replikerade objekt**, högerklicka på datorn > **inaktivera replikering**.
 2. I **inaktivera replikering**, du kan välja följande alternativ:
-    - **Inaktivera replikering och ta bort (rekommenderas)** – det här alternativet Ta bort det replikerade objektet från Azure Site Recovery och replikeringen för datorn stoppas. Inställningar för replikering på den lokala virtuella datorn tas bort och Site Recovery-debitering för den här skyddade servern har stoppats.
-    - **Ta bort** – det här alternativet ska bara användas om källmiljön har tagits bort eller inte tillgänglig (inte ansluten). Detta tar bort det replikerade objektet från Azure Site Recovery (faktureringen stoppas). Inställningar för replikering på den lokala virtuella datorn **inte** rensas. 
+   - **Inaktivera replikering och ta bort (rekommenderas)** – det här alternativet Ta bort det replikerade objektet från Azure Site Recovery och replikeringen för datorn stoppas. Inställningar för replikering på den lokala virtuella datorn tas bort och Site Recovery-debitering för den här skyddade servern har stoppats.
+   - **Ta bort** – det här alternativet ska bara användas om källmiljön har tagits bort eller inte tillgänglig (inte ansluten). Detta tar bort det replikerade objektet från Azure Site Recovery (faktureringen stoppas). Inställningar för replikering på den lokala virtuella datorn **inte** rensas. 
 
-    > [!NOTE]
-    > Om du väljer den **ta bort** alternativet Kör sedan följande uppsättning skript för att rensa replikeringsinställningarna lokala Hyper-V-servern.
+     > [!NOTE]
+     > Om du väljer den **ta bort** alternativet Kör sedan följande uppsättning skript för att rensa replikeringsinställningarna lokala Hyper-V-servern.
 1. På källan Hyper-V-värdservern, ta bort replikering för den virtuella datorn. Ersätt SQLVM1 med namnet på den virtuella datorn och kör skriptet från en administrativ PowerShell
 
 ```powershell
@@ -177,11 +177,11 @@ Hyper-V-värdar som inte hanteras av VMM har samlats i en Hyper-V-plats. Ta bort
 1. I **skyddade objekt** > **replikerade objekt**, högerklicka på datorn > **inaktivera replikering**.
 2. I **inaktivera replikering**, Välj något av följande alternativ:
 
-    - **Inaktivera replikering och ta bort (rekommenderas)** – det här alternativet Ta bort det replikerade objektet från Azure Site Recovery och replikeringen för datorn stoppas. Inställningar för replikering på den lokala virtuella datorn har rensats och Site Recovery-debitering för den här skyddade servern har stoppats.
-    - **Ta bort** – det här alternativet ska bara användas om källmiljön har tagits bort eller inte tillgänglig (inte ansluten). Detta tar bort det replikerade objektet från Azure Site Recovery (faktureringen stoppas). Inställningar för replikering på den lokala virtuella datorn **inte** rensas. 
+   - **Inaktivera replikering och ta bort (rekommenderas)** – det här alternativet Ta bort det replikerade objektet från Azure Site Recovery och replikeringen för datorn stoppas. Inställningar för replikering på den lokala virtuella datorn har rensats och Site Recovery-debitering för den här skyddade servern har stoppats.
+   - **Ta bort** – det här alternativet ska bara användas om källmiljön har tagits bort eller inte tillgänglig (inte ansluten). Detta tar bort det replikerade objektet från Azure Site Recovery (faktureringen stoppas). Inställningar för replikering på den lokala virtuella datorn **inte** rensas. 
 
-    > [!NOTE]
-    > Om du väljer den **ta bort** alternativ, och sedan följande skript för att rensa replikeringsinställningarna tun lokala VMM-servern.
+     > [!NOTE]
+     > Om du väljer den **ta bort** alternativ, och sedan följande skript för att rensa replikeringsinställningarna tun lokala VMM-servern.
 3. Kör skriptet på VMM-källservern, med hjälp av PowerShell (administratörsbehörighet krävs) från VMM-konsolen. Ersätt platshållaren **SQLVM1** med namnet på den virtuella datorn.
 
         $vm = get-scvirtualmachine -Name "SQLVM1"
@@ -201,10 +201,10 @@ Hyper-V-värdar som inte hanteras av VMM har samlats i en Hyper-V-plats. Ta bort
 1. I **skyddade objekt** > **replikerade objekt**, högerklicka på datorn > **inaktivera replikering**.
 2. I **inaktivera replikering**, Välj något av följande alternativ:
 
-    - **Inaktivera replikering och ta bort (rekommenderas)** – det här alternativet Ta bort det replikerade objektet från Azure Site Recovery och replikeringen för datorn stoppas. Inställningar för replikering på den lokala virtuella datorn har rensats och Site Recovery-debitering för den här skyddade servern har stoppats.
-    - **Ta bort** – det här alternativet ska bara användas om källmiljön har tagits bort eller inte tillgänglig (inte ansluten). Detta tar bort det replikerade objektet från Azure Site Recovery (faktureringen stoppas). Inställningar för replikering på den lokala virtuella datorn **inte** rensas. Kör följande skript för att rensa replikeringen inställningar för lokala virtuella datorer.
-> [!NOTE]
-> Om du väljer den **ta bort** alternativ, och sedan följande skript för att rensa replikeringsinställningarna tun lokala VMM-servern.
+   - **Inaktivera replikering och ta bort (rekommenderas)** – det här alternativet Ta bort det replikerade objektet från Azure Site Recovery och replikeringen för datorn stoppas. Inställningar för replikering på den lokala virtuella datorn har rensats och Site Recovery-debitering för den här skyddade servern har stoppats.
+   - **Ta bort** – det här alternativet ska bara användas om källmiljön har tagits bort eller inte tillgänglig (inte ansluten). Detta tar bort det replikerade objektet från Azure Site Recovery (faktureringen stoppas). Inställningar för replikering på den lokala virtuella datorn **inte** rensas. Kör följande skript för att rensa replikeringen inställningar för lokala virtuella datorer.
+     > [!NOTE]
+     > Om du väljer den **ta bort** alternativ, och sedan följande skript för att rensa replikeringsinställningarna tun lokala VMM-servern.
 
 3. Kör skriptet på VMM-källservern, med hjälp av PowerShell (administratörsbehörighet krävs) från VMM-konsolen. Ersätt platshållaren **SQLVM1** med namnet på den virtuella datorn.
 

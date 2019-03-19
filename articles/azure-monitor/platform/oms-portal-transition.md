@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: bwren
-ms.openlocfilehash: fe1f08b7b597a2e521f2b13af1d0a4a4d7d4b7a2
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 7e14b5f2c5f84c4f1f21454f733987df6933f0c7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54214009"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57886634"
 ---
 # <a name="oms-portal-moving-to-azure"></a>OMS-portalen som flyttar till Azure
 
@@ -26,7 +26,7 @@ ms.locfileid: "54214009"
 
 Azure-portalen är en hubb för alla Azure-tjänster och erbjuder en omfattande hanteringsupplevelse med funktioner som instrumentpaneler för att fästa resurser, intelligenta sökfunktioner för att hitta resurser och tagga för resurshantering. För att konsolidera och förenkla övervakning och hantering av arbetsflödet, börjar vi lägga till OMS portalfunktioner till Azure-portalen. Alla funktioner i OMS-portalen är nu en del av Azure-portalen. Några av de nya funktionerna, till exempel trafikanalys är i själva verket bara tillgängliga i Azure-portalen. Du kommer att kunna göra allt du gjorde i OMS-portalen med Azure-portalen och mycket mer. Om du inte redan gjort det, bör du börja använda Azure-portalen redan idag!
 
-**OMS-portalen kommer att officiellt dras tillbaka den 15 januari 2019** för kommersiella Azure-molnet och Azure US Government-molnet, OMS-portalen **officiellt dras in den 30 mars 2019.** Vi är glada över att flytta till Azure-portalen och räknar med övergången är enkelt att hantera. Men vi är medvetna om ändringarna är svåra och kan vara störande. Skicka frågor, feedback eller frågor till **LAUpgradeFeedback@microsoft.com**. Resten av den här artikeln går över viktiga scenarier och vägledning för den här ändringen.
+**OMS-portalen kommer att officiellt dras tillbaka den 15 januari 2019** för kommersiella Azure-molnet och Azure US Government-molnet, OMS-portalen **officiellt dras in den 30 mars 2019.** Vi är glada över att flytta till Azure-portalen och räknar med övergången är enkelt att hantera. Men vi är medvetna om ändringarna är svåra och kan vara störande. Skicka frågor, feedback eller frågor till **LAUpgradeFeedback\@microsoft.com**. Resten av den här artikeln går över viktiga scenarier och vägledning för den här ändringen.
 
 ## <a name="what-is-changing"></a>Vad ändras? 
 Följande ändringar tillkännages med utfasningen av OMS-portalen. Var och en av dessa ändringar beskrivs mer ingående i avsnitten nedan.
@@ -47,7 +47,7 @@ De flesta funktioner kommer att fortsätta att fungera utan att utföra en migre
 - Du behöver [migrera din användarbehörigheter](#user-access-and-role-migration) till Azure-portalen.
 - Se [migrera dina distributioner av OMS till Azure](../../automation/migrate-oms-update-deployments.md) mer information om övergång lösningen för uppdateringshantering.
 
-Referera till [vanliga frågor för övergången från OMS-portalen till Azure-portalen för Log Analytics användare](oms-portal-faq.md) information om hur du övergår till Azure-portalen. Skicka feedback, frågor eller funderingar till **LAUpgradeFeedback@microsoft.com**.
+Referera till [vanliga frågor för övergången från OMS-portalen till Azure-portalen för Log Analytics användare](oms-portal-faq.md) information om hur du övergår till Azure-portalen. Skicka feedback, frågor eller funderingar till **LAUpgradeFeedback\@microsoft.com**.
 
 ## <a name="user-access-and-role-migration"></a>Åtkomst och rollen användarmigrering
 Hantering av åtkomst i Azure portal är större och kraftfullare än åtkomsthantering i OMS-portalen. Se [hantera arbetsytor](manage-access.md#manage-accounts-and-users) för information om åtkomsthantering i Log Analytics.
@@ -62,9 +62,9 @@ Du kanske redan har lämplig åtkomst i Azure-portalen i vilket fall du inte beh
  
 I båda dessa fall måste administratören manuellt tilldela dig rätt roll i följande tabell. Vi rekommenderar att du tilldelar den här rollen på resursnivån grupp eller prenumeration.  Mer vägledning ges inom kort för båda dessa fall.
 
-| OMS behörighet | Azure-roll |
+| OMS behörighet | Azure Role |
 |:---|:---|
-| Skrivskyddad | Log Analytics Reader |
+| ReadOnly | Log Analytics Reader |
 | Deltagare | Log Analytics Contributor |
 | Administratör | Ägare | 
  

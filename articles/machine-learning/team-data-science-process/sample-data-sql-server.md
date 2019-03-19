@@ -11,18 +11,18 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 4be3787df0c914762e02a2fa7ead870cbf945452
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: a544ddb6f31481750b1cd46b52d2909d71739707
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57455504"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57897086"
 ---
 # <a name="heading"></a>Exempeldata i SQL Server på Azure
 
 Den här artikeln visar hur du exempel på data som lagras i SQL Server på Azure med SQL- eller Python-programmeringsspråket. Den visar också hur du flyttar samplade data till Azure Machine Learning genom att spara den till en fil, överföra den till en Azure-blob och läser den i Azure Machine Learning Studio.
 
-Python sampling använder den [pyodbc](https://code.google.com/p/pyodbc/) ODBC-biblioteket att ansluta till SQL Server på Azure och [Pandas](http://pandas.pydata.org/) bibliotek som ska göra är samplingen.
+Python sampling använder den [pyodbc](https://code.google.com/p/pyodbc/) ODBC-biblioteket att ansluta till SQL Server på Azure och [Pandas](https://pandas.pydata.org/) bibliotek som ska göra är samplingen.
 
 > [!NOTE]
 > SQL-exempelkoden i det här dokumentet förutsätter att data är i en SQL Server på Azure. Om den inte avser [flytta data till SQL Server på Azure](move-sql-server-virtual-machine.md) artikeln anvisningar om hur du flyttar dina data till SQL Server på Azure.
@@ -71,7 +71,7 @@ Det här avsnittet visar hur du använder den [pyodbc biblioteket](https://code.
     import pyodbc    
     conn = pyodbc.connect('DRIVER={SQL Server};SERVER=<servername>;DATABASE=<dbname>;UID=<username>;PWD=<password>')
 
-Den [Pandas](http://pandas.pydata.org/) i Python-bibliotek innehåller ett stort utbud av datastrukturer och verktyg för analys av data för datamanipulering för Python-programmering. Följande kod läser in en 0,1% exempeldata från en tabell i Azure SQL-databas i en Pandas-data:
+Den [Pandas](https://pandas.pydata.org/) i Python-bibliotek innehåller ett stort utbud av datastrukturer och verktyg för analys av data för datamanipulering för Python-programmering. Följande kod läser in en 0,1% exempeldata från en tabell i Azure SQL-databas i en Pandas-data:
 
     import pandas as pd
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: yexu
-ms.openlocfilehash: a7dd8cd349703fc9009695e570b66c3a3e626d15
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
-ms.translationtype: HT
+ms.openlocfilehash: 52dee0ee60c111c56c42e0452f8f8750ea9ea4e6
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56593190"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57436562"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information"></a>Läsa in data stegvis från Azure SQL-databas till Azure Blob Storage med ändringsspårningsinformation 
 I den här självstudien skapar du en Azure-datafabrik med en pipeline som läser in deltadata baserat på **ändringsspårningsinformation** i Azure SQL Database-källan till ett Azure Blob Storage.  
@@ -32,6 +32,8 @@ I den här självstudiekursen får du göra följande:
 > * Skapa, kör och övervaka den fullständiga kopieringspipelinen
 > * Lägga till eller uppdatera data i källtabellen
 > * Skapa, kör och övervaka den inkrementella kopieringspipelinen
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="overview"></a>Översikt
 I en dataintegrationslösning är stegvis inläsning av data efter den första datainläsningen ett vanligt scenario. I vissa fall kan ändrade data inom en period i ditt källdatalager enkelt delas upp (till exempel LastModifyTime, CreationTime). I vissa fall finns det inget uttryckligt sätt att identifiera deltadata från förra gången du bearbetade data. Tekniken för Ändringsspårning som stöds av datakällor som Azure SQL Database och SQL Server kan användas för att identifiera deltadata.  I den här självstudien beskrivs hur du använder Azure Data Factory med SQL-ändringsspårningstekniken för att inkrementellt läsa in deltadata från Azure SQL Database till Azure Blob Storage.  Mer konkret information om SQL-ändringsspårningstekniken finns i [Change tracking in SQL Server](/sql/relational-databases/track-changes/about-change-tracking-sql-server) (Ändringsspårning i SQL Server). 
@@ -67,8 +69,9 @@ I den här självstudien skapar du två pipelines som utför följande två åtg
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
-* Azure PowerShell. Installera de senaste Azure PowerShell-modulerna enligt instruktionerna i [Installera och konfigurera Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps).
+## <a name="prerequisites"></a>Förutsättningar
+
+* Azure PowerShell. Installera de senaste Azure PowerShell-modulerna enligt instruktionerna i [Installera och konfigurera Azure PowerShell](/powershell/azure/install-Az-ps).
 * **Azure SQL Database**. Du använder databasen som **källa** för datalagringen. Om du inte har någon Azure SQL Database läser du [Skapa en Azure SQL Database](../sql-database/sql-database-get-started-portal.md) för att lära dig hur du skapar en.
 * **Azure Storage-konto**. Du kan använda blob-lagringen som **mottagare** för datalagringen. Om du inte har ett Azure Storage-konto finns det anvisningar om hur du skapar ett i artikeln [Skapa ett lagringskonto](../storage/common/storage-quickstart-create-account.md) . Skapa en container med namnet **adftutorial**. 
 
@@ -145,7 +148,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
     ```
 
 ### <a name="azure-powershell"></a>Azure PowerShell
-Installera de senaste Azure PowerShell-modulerna enligt instruktionerna i [Installera och konfigurera Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps).
+Installera de senaste Azure PowerShell-modulerna enligt instruktionerna i [Installera och konfigurera Azure PowerShell](/powershell/azure/install-Az-ps).
 
 ## <a name="create-a-data-factory"></a>Skapa en datafabrik
 1. Definiera en variabel för resursgruppens namn som du kan använda senare i PowerShell-kommandon. Kopiera följande kommandotext till PowerShell, ange ett namn för [Azure-resursgruppen](../azure-resource-manager/resource-group-overview.md), sätt dubbla citattecken omkring namnet och kör sedan kommandot. Till exempel: `"adfrg"`. 
@@ -163,7 +166,7 @@ Installera de senaste Azure PowerShell-modulerna enligt instruktionerna i [Insta
 3. Kör följande kommando för att skapa en Azure-resursgrupp: 
 
     ```powershell
-    New-AzureRmResourceGroup $resourceGroupName $location
+    New-AzResourceGroup $resourceGroupName $location
     ``` 
     Om resursgruppen redan finns behöver du kanske inte skriva över den. Ge variabeln `$resourceGroupName` ett annat värde och kör kommandot igen. 
 3. Definiera en variabel för datafabrikens namn. 
@@ -174,10 +177,10 @@ Installera de senaste Azure PowerShell-modulerna enligt instruktionerna i [Insta
     ```powershell
     $dataFactoryName = "IncCopyChgTrackingDF";
     ```
-5. Kör följande cmdlet av typen **Set-AzureRmDataFactoryV2** för att skapa en datafabrik: 
+5. Om du vill skapa data factory, kör du följande **Set-AzDataFactoryV2** cmdlet: 
     
     ```powershell       
-    Set-AzureRmDataFactoryV2 -ResourceGroupName $resourceGroupName -Location $location -Name $dataFactoryName 
+    Set-AzDataFactoryV2 -ResourceGroupName $resourceGroupName -Location $location -Name $dataFactoryName 
     ```
 
 Observera följande punkter:
@@ -214,10 +217,10 @@ I det här steget länkar du ditt Azure-lagringskonto till datafabriken.
     }
     ```
 2. I **Azure PowerShell** växlar du till mappen **C:\ADFTutorials\IncCopyChgTrackingTutorial**.
-3. Kör cmdleten **Set-AzureRmDataFactoryV2LinkedService** för att skapa den länkade tjänsten: **AzureStorageLinkedService**. I följande exempel skickar du värden för parametrarna **ResourceGroupName** och **DataFactoryName**. 
+3. Kör den **Set-AzDataFactoryV2LinkedService** cmdlet för att skapa den länkade tjänsten: **AzureStorageLinkedService**. I följande exempel skickar du värden för parametrarna **ResourceGroupName** och **DataFactoryName**. 
 
     ```powershell
-    Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureStorageLinkedService" -File ".\AzureStorageLinkedService.json"
+    Set-AzDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureStorageLinkedService" -File ".\AzureStorageLinkedService.json"
     ```
 
     Här är exempel på utdata:
@@ -232,7 +235,7 @@ I det här steget länkar du ditt Azure-lagringskonto till datafabriken.
 ### <a name="create-azure-sql-database-linked-service"></a>Skapa länkad Azure SQL Database-tjänst.
 I det här steget länkar du Azure SQL-databasen till datafabriken.
 
-1. Skapa en JSON-fil med namnet **AzureSQLDatabaseLinkedService.json** i mappen **C:\ADFTutorials\IncCopyMultiTableTutorial** med följande innehåll: Ersätt **&lt;server&gt;, &lt;database **, &lt;user id&gt; och &lt;password&gt;** med namnen för din Azure SQL-server, databas, ditt användar-ID och lösenord innan du sparar filen. 
+1. Skapa en JSON-fil med namnet **AzureSQLDatabaseLinkedService.json** i mappen **C:\ADFTutorials\IncCopyMultiTableTutorial** med följande innehåll: Ersätt server, database **, &lt;user id&gt; och &lt;password&gt;** med namnen för din Azure SQL-server, databas, ditt användar-ID och lösenord innan du sparar filen. 
 
     ```json
     {
@@ -248,10 +251,10 @@ I det här steget länkar du Azure SQL-databasen till datafabriken.
         }
     }
     ```
-2. Kör cmdleten **Set-AzureRmDataFactoryV2LinkedService** i **Azure PowerShell** för att skapa den länkade tjänsten: **AzureSQLDatabaseLinkedService**. 
+2. I **Azure PowerShell**, kör den **Set-AzDataFactoryV2LinkedService** cmdlet för att skapa den länkade tjänsten: **AzureSQLDatabaseLinkedService**. 
 
     ```powershell
-    Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureSQLDatabaseLinkedService" -File ".\AzureSQLDatabaseLinkedService.json"
+    Set-AzDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureSQLDatabaseLinkedService" -File ".\AzureSQLDatabaseLinkedService.json"
     ```
 
     Här är exempel på utdata:
@@ -287,10 +290,10 @@ I det här steget skapar du en datamängd för att representera källdata.
     }   
     ```
 
-2.  Kör cmdleten Set-AzureRmDataFactoryV2Dataset för att skapa datauppsättningen: SourceDataset
+2.  Kör cmdleten Set-AzDataFactoryV2Dataset för att skapa datauppsättningen: SourceDataset
     
     ```powershell
-    Set-AzureRmDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SourceDataset" -File ".\SourceDataset.json"
+    Set-AzDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SourceDataset" -File ".\SourceDataset.json"
     ```
 
     Här är exempel på utdata från cmdleten:
@@ -329,10 +332,10 @@ I det här steget skapar du en datamängd för att representera data som kopiera
     ```
 
     Du skapar containern adftutorial i din Azure Blob Storage som en del av förutsättningarna. Skapa containern om den inte finns (eller) ställ in den för namnet på en befintlig. I den här självstudien genereras filnamnet dynamiskt med uttrycket: @CONCAT('Incremental-', pipeline().RunId, '.txt').
-2.  Kör cmdleten Set-AzureRmDataFactoryV2Dataset för att skapa datauppsättningen: SinkDataset
+2.  Kör cmdleten Set-AzDataFactoryV2Dataset för att skapa datauppsättningen: SinkDataset
     
     ```powershell
-    Set-AzureRmDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SinkDataset" -File ".\SinkDataset.json"
+    Set-AzDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SinkDataset" -File ".\SinkDataset.json"
     ```
 
     Här är exempel på utdata från cmdleten:
@@ -367,10 +370,10 @@ I det här steget skapar du en datauppsättning för att lagra ändringsspårnin
     ```
 
     Du kan skapa tabellen table_store_ChangeTracking_version som en del av förutsättningarna.
-2.  Kör cmdleten Set-AzureRmDataFactoryV2Dataset för att skapa datauppsättningen: WatermarkDataset
+2.  Kör cmdleten Set-AzDataFactoryV2Dataset för att skapa datauppsättningen: WatermarkDataset
     
     ```powershell
-    Set-AzureRmDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "ChangeTrackingDataset" -File ".\ChangeTrackingDataset.json"
+    Set-AzDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "ChangeTrackingDataset" -File ".\ChangeTrackingDataset.json"
     ```
 
     Här är exempel på utdata från cmdleten:
@@ -416,10 +419,10 @@ I det här steget skapar du en pipeline med en kopieringsaktivitet som kopierar 
         }
     }
     ```
-2. Kör cmdleten Set-AzureRmDataFactoryV2Pipeline för att skapa pipelinen: FullCopyPipeline.
+2. Kör cmdleten Set-AzDataFactoryV2Pipeline för att skapa pipelinen: FullCopyPipeline.
     
    ```powershell
-    Set-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "FullCopyPipeline" -File ".\FullCopyPipeline.json"
+    Set-AzDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "FullCopyPipeline" -File ".\FullCopyPipeline.json"
    ``` 
 
    Här är exempel på utdata: 
@@ -433,10 +436,10 @@ I det här steget skapar du en pipeline med en kopieringsaktivitet som kopierar 
    ```
  
 ### <a name="run-the-full-copy-pipeline"></a>Kör den fullständiga kopieringspipelinen
-Kör pipelinen: **FullCopyPipeline** med cmdleten **Invoke-AzureRmDataFactoryV2Pipeline**. 
+Kör pipelinen: **FullCopyPipeline** med hjälp av **Invoke-AzDataFactoryV2Pipeline** cmdlet. 
 
 ```powershell
-Invoke-AzureRmDataFactoryV2Pipeline -PipelineName "FullCopyPipeline" -ResourceGroup $resourceGroupName -dataFactoryName $dataFactoryName        
+Invoke-AzDataFactoryV2Pipeline -PipelineName "FullCopyPipeline" -ResourceGroup $resourceGroupName -dataFactoryName $dataFactoryName        
 ``` 
 
 ### <a name="monitor-the-full-copy-pipeline"></a>Övervaka den fullständiga kopieringspipelinen
@@ -605,10 +608,10 @@ I det här steget skapar du en pipeline med följande aktiviteter och kör den m
     }
     
     ```
-2. Kör cmdleten Set-AzureRmDataFactoryV2Pipeline för att skapa pipelinen: FullCopyPipeline.
+2. Kör cmdleten Set-AzDataFactoryV2Pipeline för att skapa pipelinen: FullCopyPipeline.
     
    ```powershell
-    Set-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "IncrementalCopyPipeline" -File ".\IncrementalCopyPipeline.json"
+    Set-AzDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "IncrementalCopyPipeline" -File ".\IncrementalCopyPipeline.json"
    ``` 
 
    Här är exempel på utdata: 
@@ -622,10 +625,10 @@ I det här steget skapar du en pipeline med följande aktiviteter och kör den m
    ```
 
 ### <a name="run-the-incremental-copy-pipeline"></a>Kör den inkrementella kopieringspipelinen
-Kör pipelinen: **IncrementalCopyPipeline** med cmdleten **Invoke-AzureRmDataFactoryV2Pipeline**. 
+Kör pipelinen: **IncrementalCopyPipeline** med hjälp av **Invoke-AzDataFactoryV2Pipeline** cmdlet. 
 
 ```powershell
-Invoke-AzureRmDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -ResourceGroup $resourceGroupName -dataFactoryName $dataFactoryName     
+Invoke-AzDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -ResourceGroup $resourceGroupName -dataFactoryName $dataFactoryName     
 ``` 
 
 

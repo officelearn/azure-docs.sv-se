@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: bwren
-ms.openlocfilehash: ca951c813554ae253cbd572e03c53b8687499af9
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 94bdc0670fb63b1b4c306a5af3357f437784338c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56000173"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58007925"
 ---
 # <a name="collect-iis-logs-in-azure-monitor"></a>Samla in IIS-loggar i Azure Monitor
 Internet Information Services (IIS) lagrar användaraktivitet i loggfilerna som kan samlas in av Azure Monitor och lagras som [logga data över](data-collection.md).
@@ -72,7 +72,7 @@ I följande tabell innehåller olika exempel på loggfrågor som hämtar IIS-log
 | W3CIISLog |Alla IIS-loggposter. |
 | W3CIISLog &#124; där scStatus == 500 |Alla IIS-loggposter med returstatus 500. |
 | W3CIISLog &#124; summera antal() efter cIP |Antal IIS-logg poster av klientens IP-adress. |
-| W3CIISLog &#124; där csHost == ”www.contoso.com” &#124; summera antal() efter csUriStem |Antal IIS loggposter per Webbadress för värden www.contoso.com. |
+| W3CIISLog &#124; där csHost == ”www\.contoso.com” &#124; summera antal() efter csUriStem |Antal IIS-loggposter per Webbadress för värd-www\.contoso.com. |
 | W3CIISLog &#124; sammanfatta sum(csBytes) per dator &#124; ta 500000 |Totalt antal byte mottaget för varje IIS-dator. |
 
 ## <a name="next-steps"></a>Nästa steg

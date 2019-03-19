@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 79104895e91dc2143a0f4a592878ecc5e2df61d7
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: d3d21ff9b56a7fcb33fbdb6bbb82c64ef97abf71
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56172832"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58085787"
 ---
 # <a name="integrate-radius-authentication-with-azure-multi-factor-authentication-server"></a>Integrera RADIUS-autentisering och Azure Multi-Factor Authentication Server
 
@@ -39,9 +39,9 @@ Om du vill konfigurera RADIUS-autentisering installerar du Azure Multi-Factor Au
 4. Klicka på **Lägg till**.
 5. Ange IP-adressen för enheten eller servern som ska autentisera mot Azure Multi-Factor Authentication-servern, ett programnamn (valfritt) och en delad hemlighet.
 
-  Programnamnet visas i rapporter och kan visas i autentiseringsmeddelanden i SMS- eller mobilappar.
+   Programnamnet visas i rapporter och kan visas i autentiseringsmeddelanden i SMS- eller mobilappar.
 
-  Den delade hemligheten måste vara samma på både Azure Multi-Factor Authentication-servern och enheten eller servern.
+   Den delade hemligheten måste vara samma på både Azure Multi-Factor Authentication-servern och enheten eller servern.
 
 6. Markera rutan om att **Multi-Factor Authentication-användarmatchning krävs** om alla användare har importerats till servern och om multifaktorautentisering används. Om ett stort antal användare inte har importerats till servern än, eller om de ska undantas från tvåstegsverifiering, lämnar du rutan avmarkerad.
 7. Markera rutan **Aktivera OATH-reservtoken** om du vill använda OATH-lösenord från mobilverifieringsappar som reserv.

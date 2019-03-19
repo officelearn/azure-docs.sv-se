@@ -10,12 +10,12 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.assetid: 85928ec6-d7cb-488e-926e-2e5db89508ee
 ms.date: 10/18/2016
-ms.openlocfilehash: 8714c91079d087b16a62af4af8b381edf6871f8b
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 3d32b180f7d841c36f8ae03aa94956c6da00c6fe
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54065740"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57883448"
 ---
 # <a name="create-azure-resource-manager-templates-for-deploying-logic-apps"></a>Skapa Azure Resource Manager-mallar för distribution av logikappar
 
@@ -63,7 +63,7 @@ Du kan också installera PowerShell-modulen manuellt:
 1. Ladda ned den senaste versionen av den [logic app som skapar mallen](https://github.com/jeffhollan/LogicAppTemplateCreator/releases).  
 2. Extrahera mappen för din PowerShell-modulen (vanligtvis `%UserProfile%\Documents\WindowsPowerShell\Modules`).
 
-För modulen att arbeta med valfri klient och prenumeration access token, rekommenderar vi att du använder den med den [ARMClient](https://github.com/projectkudu/ARMClient) kommandoradsverktyget.  Detta [blogginlägget](http://blog.davidebbo.com/2015/01/azure-resource-manager-client.html) beskriver ARMClient i mer detalj.
+För modulen att arbeta med valfri klient och prenumeration access token, rekommenderar vi att du använder den med den [ARMClient](https://github.com/projectkudu/ARMClient) kommandoradsverktyget.  Detta [blogginlägget](https://blog.davidebbo.com/2015/01/azure-resource-manager-client.html) beskriver ARMClient i mer detalj.
 
 ### <a name="generate-a-logic-app-template-by-using-powershell"></a>Skapa en mall för logikapp med hjälp av PowerShell
 När du har installerat PowerShell kan du generera en mall med hjälp av följande kommando:

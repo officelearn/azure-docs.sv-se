@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c1f0b99c3a388dcfd0dabaf874e03f276c494553
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 7287616dbad1aa77a6e4aaa110ade39dcea4f195
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56176874"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58082627"
 ---
 # <a name="azure-active-directory-version-2-cmdlets-for-group-management"></a>Azure Active Directory version 2-cmdletar för grupphantering
 
@@ -218,15 +218,15 @@ Inaktivera skapande av en grupp för icke-administratörer:
 
 1. Kontrollera att icke-administratörer har behörighet att skapa grupper:
    
-  ```
-  PS C:\> Get-MsolCompanyInformation | fl UsersPermissionToCreateGroupsEnabled
-  ```
+   ```
+   PS C:\> Get-MsolCompanyInformation | fl UsersPermissionToCreateGroupsEnabled
+   ```
   
 2. Om den returnerar `UsersPermissionToCreateGroupsEnabled : True`, icke-administratörer kan skapa grupper. Inaktivera den här funktionen:
   
-  ``` 
-  Set-MsolCompanySettings -UsersPermissionToCreateGroupsEnabled $False
-  ```
+   ``` 
+   Set-MsolCompanySettings -UsersPermissionToCreateGroupsEnabled $False
+   ```
   
 ## <a name="manage-owners-of-groups"></a>Hantera ägare av grupper
 Om du vill lägga till ägare till en grupp, använder du Lägg till AzureADGroupOwner-cmdlet:
@@ -251,7 +251,7 @@ Om du vill ta bort ägare från en grupp kan du använda cmdleten Remove-AzureAD
 
 ## <a name="reserved-aliases"></a>Reserverade alias 
 När en grupp skapas vissa slutpunkter gör det möjligt för användaren att ange en mailNickname eller alias som ska användas som en del av e-postadressen till gruppen. Grupper med följande med hög behörighetsnivå e-post-alias kan endast skapas av en global administratör för Azure AD. 
-  
+  
 * missbruk 
 * admin 
 * administratör 

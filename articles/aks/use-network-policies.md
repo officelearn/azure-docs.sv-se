@@ -7,21 +7,23 @@ ms.service: container-service
 ms.topic: article
 ms.date: 02/12/2019
 ms.author: iainfou
-ms.openlocfilehash: 81b45a25c8040916b835ab333c5ce80ab6c1a788
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: a20dfcd9e2ef12252235b74455964d115d9aef9b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57772321"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58181494"
 ---
-# <a name="secure-traffic-between-pods-by-using-network-policies-in-azure-kubernetes-service"></a>Säker trafik mellan poddar med hjälp av principer för nätverk i Azure Kubernetes Service
+# <a name="preview---secure-traffic-between-pods-using-network-policies-in-azure-kubernetes-service-aks"></a>Förhandsgranskning – säker trafik mellan poddar med hjälp av principer för nätverk i Azure Kubernetes Service (AKS)
 
 När du kör moderna, mikrotjänstbaserade program i Kubernetes kan vill du ofta styra vilka komponenter som kan kommunicera med varandra. Principen om lägsta behörighet ska tillämpas på hur trafiken kan flöda mellan poddar i ett kluster i Azure Kubernetes Service (AKS). Vi antar att du förmodligen vill blockera trafik direkt till backend-program. Den *nätverkspolicy* funktionen i Kubernetes kan du definiera regler för ingående och utgående trafik mellan poddar i ett kluster.
 
 Calico, en öppen källkod nätverks- och säkerhetslösning för nätverk från Tigera, erbjuder en motor för nätverket som kan implementera principregler för Kubernetes-nätverk. Den här artikeln visar hur du installerar principmodulen Calico nätverket och skapa principer för Kubernetes-nätverk för att styra trafikflödet mellan poddar i AKS.
 
 > [!IMPORTANT]
-> Den här funktionen är för närvarande en förhandsversion. Förhandsversioner är tillgängliga för dig under förutsättning att du godkänner de [kompletterande användningsvillkoren][terms-of-use]. Vissa aspekter av den här funktionen kan ändras innan den allmänt tillgängliga (GA).
+> AKS-förhandsversionsfunktioner är självbetjäning och delta i. Förhandsversioner tillhandahålls för att samla in feedback och buggar från vår community. De stöds dock inte av teknisk support för Azure. Om du skapar ett kluster eller lägga till dessa funktioner i befintliga kluster, stöds klustret inte förrän funktionen är inte längre i förhandsversion och uppgraderas till allmän tillgänglighet (GA).
+>
+> Om du stöter på problem med funktioner i förhandsversion [öppna ett ärende på AKS GitHub-lagringsplatsen] [ aks-github] med namnet på funktionen för förhandsgranskning i rubriken för bugg.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
@@ -451,6 +453,7 @@ Mer information om principer finns [Kubernetes nätverksprinciper][kubernetes-ne
 [azure-cni]: https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md
 [terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
 [policy-rules]: https://kubernetes.io/docs/concepts/services-networking/network-policies/#behavior-of-to-and-from-selectors
+[aks-github]: https://github.com/azure/aks/issues]
 
 <!-- LINKS - internal -->
 [install-azure-cli]: /cli/azure/install-azure-cli

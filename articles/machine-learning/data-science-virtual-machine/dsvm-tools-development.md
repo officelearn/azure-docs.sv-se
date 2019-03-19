@@ -16,18 +16,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: gokuma
-ms.openlocfilehash: 663da31985759f47fff77dc5ad0f985d44559385
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: dd60c5d0210ffba373839fd0f194496c5dbcc20d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55451588"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57999400"
 ---
 # <a name="development-tools-on-the-data-science-virtual-machine"></a>Utvecklingsverktyg på den virtuella datorn för datavetenskap
 
 Den virtuella datorn på datavetenskap (DSVM) tillhandahåller en produktiv miljö för utveckling genom att paketera flera populära verktyg och IDE. Här är några verktyg som finns på DSVM. 
 
 ## <a name="visual-studio-2017"></a>Visual Studio 2017  
+
 |    |           |
 | ------------- | ------------- |
 | Vad är det?   | Generell användning IDE      |
@@ -38,6 +39,7 @@ Den virtuella datorn på datavetenskap (DSVM) tillhandahåller en produktiv milj
 | Relaterade verktyg på DSVM      |     Visual Studio Code, RStudio, Juno  |
 
 ## <a name="visual-studio-code"></a>Visual Studio-koden 
+
 |    |           |
 | ------------- | ------------- |
 | Vad är det?   | Generell användning IDE      |
@@ -47,6 +49,7 @@ Den virtuella datorn på datavetenskap (DSVM) tillhandahåller en produktiv milj
 | Relaterade verktyg på DSVM      |     Visual Studio 2017, RStudio, Juno  |
 
 ## <a name="rstudio--desktop"></a>RStudio Desktop 
+
 |    |           |
 | ------------- | ------------- |
 | Vad är det?   | Klienten IDE för R    |
@@ -56,6 +59,7 @@ Den virtuella datorn på datavetenskap (DSVM) tillhandahåller en produktiv milj
 | Relaterade verktyg på DSVM      |   Visual Studio 2017, Visual Studio Code, Juno      |
 
 ## <a name="rstudio--server"></a>RStudio Server 
+
 |    |           |
 | ------------- | ------------- |
 | Vad är det?   | Webbaserad IDE för R    |
@@ -65,6 +69,7 @@ Den virtuella datorn på datavetenskap (DSVM) tillhandahåller en produktiv milj
 | Relaterade verktyg på DSVM      |   Visual Studio 2017, Visual Studio Code, RStudio Desktop      |
 
 ## <a name="juno"></a>Juno 
+
 |    |           |
 | ------------- | ------------- |
 | Vad är det?   | Klienten IDE för Julia-språket   |
@@ -74,6 +79,7 @@ Den virtuella datorn på datavetenskap (DSVM) tillhandahåller en produktiv milj
 | Relaterade verktyg på DSVM      |   Visual Studio 2017, Visual Studio Code, RStudio      |
 
 ## <a name="pycharm"></a>Pycharm
+
 |    |           |
 | ------------- | ------------- |
 | Vad är det?   | Klienten IDE för Python-språk    |
@@ -85,6 +91,7 @@ Den virtuella datorn på datavetenskap (DSVM) tillhandahåller en produktiv milj
 
 
 ## <a name="powerbi-desktop"></a>PowerBI Desktop 
+
 |    |           |
 | ------------- | ------------- |
 | Vad är det?   | Interaktiv datavisualisering och BI-verktyg    |

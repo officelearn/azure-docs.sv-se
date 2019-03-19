@@ -15,12 +15,12 @@ ms.date: 05/21/2018
 ms.author: celested
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9c7a6edab1bc63d8cb1ae6f7de43372304e21ed1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 950a349506f32405261d90c05312d24aa3deadc5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56170643"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58089955"
 ---
 # <a name="application-page-does-not-display-correctly-for-an-application-proxy-application"></a>Programsidan visas inte korrekt för ett Application Proxy-program
 
@@ -31,7 +31,7 @@ När du publicerar en app med Application Proxy kan är bara sidor under rotcert
 
 Du kan kontrollera om resurser som saknas är problemet genom att öppna spårningsverktyget för nätverk (till exempel Fiddler eller F12 verktyg i Internet Explorer-/ Microsoft Edge), läser in sidan och söker efter 404-fel. Värde som anger för närvarande inte går att hitta sidorna och att du behöver att publicera dem.
 
-Anta att du har publicerat ett utgifter-program med den interna URL: en som ett exempel på det här fallet http://myapps/expenses, men appen använder formatmallen http://myapps/style.css. I det här fallet publiceras inte formatmallen i ditt program så att läsa in den utgifter app genererar ett 404-fel vid försök att läsa in style.css. I det här exemplet problemet är löst genom att publicera program med en intern Webbadress http://myapp/.
+Anta att du har publicerat ett utgifter-program med den interna URL: en som ett exempel på det här fallet `http://myapps/expenses`, men appen använder formatmallen `http://myapps/style.css`. I det här fallet publiceras inte formatmallen i ditt program så att läsa in den utgifter app genererar ett 404-fel vid försök att läsa in style.css. I det här exemplet problemet är löst genom att publicera program med en intern Webbadress `http://myapp/`.
 
 ## <a name="problems-with-publishing-as-one-application"></a>Problem med publicering som ett program
 

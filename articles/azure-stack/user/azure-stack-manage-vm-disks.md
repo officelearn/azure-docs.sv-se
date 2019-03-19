@@ -15,12 +15,12 @@ ms.date: 01/18/2019
 ms.author: sethm
 ms.reviewer: jiahan
 ms.lastreviewed: 01/18/2019
-ms.openlocfilehash: c6bba6a428e5ff339b1d269965fa1948bddc696e
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 4edaf782b193e99dfe4002eedb6f3a046fb7dcd8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57764445"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58081465"
 ---
 # <a name="create-virtual-machine-disk-storage-in-azure-stack"></a>Skapa disklagring för virtuella datorer i Azure Stack
 
@@ -68,56 +68,56 @@ Varje ohanterad disk som du lägger till ska placeras i en separat behållare.
 
 ### <a name="use-the-portal-to-create-and-attach-a-new-data-disk"></a>Använda portalen för att skapa och koppla en ny datadisk
 
-1.  I portalen, väljer **alla tjänster** > **virtuella datorer**.    
-    ![Exempel: VM-instrumentpanelen](media/azure-stack-manage-vm-disks/vm-dashboard.png)
+1. I portalen, väljer **alla tjänster** > **virtuella datorer**.    
+   ![Exempel: VM-instrumentpanelen](media/azure-stack-manage-vm-disks/vm-dashboard.png)
 
-2.  Välj en virtuell dator som tidigare har skapats.   
-    ![Exempel: Välj en virtuell dator i instrumentpanelen](media/azure-stack-manage-vm-disks/select-a-vm.png)
+2. Välj en virtuell dator som tidigare har skapats.   
+   ![Exempel: Välj en virtuell dator i instrumentpanelen](media/azure-stack-manage-vm-disks/select-a-vm.png)
 
-3.  Den virtuella datorn, Välj **diskar** > **Lägg till datadisk**.       
-    ![Exempel: Koppla en ny disk till den virtuella datorn](media/azure-stack-manage-vm-disks/Attach-disks.png)    
+3. Den virtuella datorn, Välj **diskar** > **Lägg till datadisk**.       
+   ![Exempel: Koppla en ny disk till den virtuella datorn](media/azure-stack-manage-vm-disks/Attach-disks.png)    
 
-4.  För datadisk:
-    -  Ange den **LUN**. Den logiska enheten måste vara ett giltigt tal.
-    -  Välj **skapa disk**.
-    ![Exempel: Koppla en ny disk till den virtuella datorn](media/azure-stack-manage-vm-disks/add-a-data-disk-create-disk.png)
+4. För datadisk:
+   -  Ange den **LUN**. Den logiska enheten måste vara ett giltigt tal.
+   -  Välj **skapa disk**.
+   ![Exempel: Koppla en ny disk till den virtuella datorn](media/azure-stack-manage-vm-disks/add-a-data-disk-create-disk.png)
 
-5.  I avsnittet Skapa managed disk-bladet:
-    -  Ange den **namn** på disken.
-    -  Välj en befintlig eller skapa en ny **resursgrupp**.
-    -  Välj den **plats**. Platsen är som standard samma behållare som innehåller OS-disken.
-    -  Välj den **kontotyp**. 
-        ![Exempel: Koppla en ny disk till den virtuella datorn](media/azure-stack-manage-vm-disks/create-manage-disk.png)
+5. I avsnittet Skapa managed disk-bladet:
+   - Ange den **namn** på disken.
+   - Välj en befintlig eller skapa en ny **resursgrupp**.
+   - Välj den **plats**. Platsen är som standard samma behållare som innehåller OS-disken.
+   - Välj den **kontotyp**. 
+      ![Exempel: Koppla en ny disk till den virtuella datorn](media/azure-stack-manage-vm-disks/create-manage-disk.png)
 
-        **Premium SSD**  
-        Premium-diskar (SSD) är kompletterade med solid state-hårddiskar och ger prestanda med låg fördröjning. De ger bästa balans mellan pris och prestanda och lämpar sig för I/O-intensiva program och produktionsarbetsbelastningar.
+      **Premium SSD**  
+      Premium-diskar (SSD) är kompletterade med solid state-hårddiskar och ger prestanda med låg fördröjning. De ger bästa balans mellan pris och prestanda och lämpar sig för I/O-intensiva program och produktionsarbetsbelastningar.
        
-        **Standard HDD**  
-        Standarddiskar (HHD) är kompletterade med magnetiska enheter och fungerar bättre för program där data används sällan. Zonen redundant diskar backas upp av zonredundant lagring (ZRS) som replikerar data över flera zoner och är tillgängliga även om en enstaka zon ligger nere. 
+      **Standard HDD**  
+      Standarddiskar (HHD) är kompletterade med magnetiska enheter och fungerar bättre för program där data används sällan. Zonen redundant diskar backas upp av zonredundant lagring (ZRS) som replikerar data över flera zoner och är tillgängliga även om en enstaka zon ligger nere. 
 
-    -  Välj den **källtyp**.
+   - Välj den **källtyp**.
 
-       Skapa en disk från en ögonblicksbild av en annan disk, en blob i ett lagringskonto eller skapa en tom disk.
+     Skapa en disk från en ögonblicksbild av en annan disk, en blob i ett lagringskonto eller skapa en tom disk.
 
-        **ögonblicksbild**  
-        Välj en ögonblicksbild, om den är tillgänglig. Ögonblicksbilden måste vara i tillgängliga i Virtuellt datorns prenumeration och plats.
+      **ögonblicksbild**  
+      Välj en ögonblicksbild, om den är tillgänglig. Ögonblicksbilden måste vara i tillgängliga i Virtuellt datorns prenumeration och plats.
 
-        **Lagringsblob**  
-        - Lägg till URI för blob Storage som innehåller disk image.  
-        - Välj **Bläddra** att öppna bladet Storage-konton. Instruktioner finns i [lägga till en datadisk från ett lagringskonto](#add-a-data-disk-from-a-storage-account).
-        - Välj OS-typ av avbildningen, antingen **Windows**, **Linux**, eller **inget (datadisk)**.
+      **Lagringsblob**  
+     - Lägg till URI för blob Storage som innehåller disk image.  
+     - Välj **Bläddra** att öppna bladet Storage-konton. Instruktioner finns i [lägga till en datadisk från ett lagringskonto](#add-a-data-disk-from-a-storage-account).
+     - Välj OS-typ av avbildningen, antingen **Windows**, **Linux**, eller **inget (datadisk)**.
 
-        **Inget (tom disk)**
+       **Inget (tom disk)**
 
-    -  Välj den **storlek (GiB)**.
+   - Välj den **storlek (GiB)**.
 
-       Standard diskkostnader ökar beroende på storleken på disken. Premium disk kostnader och prestanda ökar beroende på storleken på disken. Mer information finns i [priser för Managed Disks](https://go.microsoft.com/fwlink/?linkid=843142).
+     Standard diskkostnader ökar beroende på storleken på disken. Premium disk kostnader och prestanda ökar beroende på storleken på disken. Mer information finns i [priser för Managed Disks](https://go.microsoft.com/fwlink/?linkid=843142).
 
-    -  Välj **Skapa**. Azure Stack skapar och validerar den hantera disken.
+   - Välj **Skapa**. Azure Stack skapar och validerar den hantera disken.
 
-5.  När Azure Stack skapar disken och kopplar den till den virtuella datorn, den nya disken visas i den virtuella datorns diskinställningarna under **DATADISKAR**.   
+5. När Azure Stack skapar disken och kopplar den till den virtuella datorn, den nya disken visas i den virtuella datorns diskinställningarna under **DATADISKAR**.   
 
-    ![Exempel: Visa disk](media/azure-stack-manage-vm-disks/view-data-disk.png)
+   ![Exempel: Visa disk](media/azure-stack-manage-vm-disks/view-data-disk.png)
 
 ### <a name="add-a-data-disk-from-a-storage-account"></a>Lägga till en datadisk från ett lagringskonto
 

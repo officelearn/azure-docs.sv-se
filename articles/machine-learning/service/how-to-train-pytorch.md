@@ -11,12 +11,12 @@ author: mx-iao
 ms.reviewer: sgilley
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 4f1c4e7695e0c260b6486b3c3d4d0bd8b3f951f6
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: a5ddc17f6200ba2d43d67fcd2e4bcc35c224e6cb
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57342623"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58004068"
 ---
 # <a name="train-pytorch-models-with-azure-machine-learning-service"></a>Skapa PyTorch-modeller med Azure Machine Learning-tjänsten
 
@@ -42,6 +42,7 @@ pt_est = PyTorch(source_directory='./my-pytorch-proj',
 ```
 
 Här anger vi följande parametrar för PyTorch-konstruktorn:
+
 Parameter | Beskrivning
 --|--
 `source_directory` |  Lokal katalog som innehåller hela din kod som behövs för utbildningsjobbet. Den här mappen kopieras från din lokala dator till den fjärranslutna beräkningen
@@ -82,6 +83,7 @@ pt_est = PyTorch(source_directory='./my-pytorch-project',
 ```
 
 Den här koden visar följande nya parametrar för PyTorch-konstruktorn:
+
 Parameter | Beskrivning | Standard
 --|--|--
 `node_count` |  Antalet noder som ska användas för utbildning-jobbet. | `1`

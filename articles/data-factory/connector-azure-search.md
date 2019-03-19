@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: aa6c6a35a66569d5db182e1871012b9697c2802c
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 1c8cbcd2e5f137b1e8381dcce164ae9a4b87e804
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54023353"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57852864"
 ---
 # <a name="copy-data-to-an-azure-search-index-using-azure-data-factory"></a>Kopiera data till ett Azure Search-index med hjälp av Azure Data Factory
 
-> [!div class="op_single_selector" title1="Välj vilken version av Data Factory-tjänsten du använder:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](v1/data-factory-azure-search-connector.md)
 > * [Aktuell version](connector-azure-search.md)
 
@@ -41,7 +41,7 @@ Följande avsnitt innehåller information om egenskaper som används för att de
 
 Följande egenskaper har stöd för Azure Search länkade tjänsten:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Type-egenskapen måste anges till: **AzureSearch** | Ja |
 | url | URL för Azure Search-tjänsten. | Ja |
@@ -82,7 +82,7 @@ Om du vill kopiera data till Azure Search, ange typegenskapen på datauppsättni
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Type-egenskapen för datauppsättningen måste anges till: **AzureSearchIndex** | Ja |
-| Indexnamn | Namnet på Azure Search-index. Data Factory skapar inte indexet. Indexet måste finnas i Azure Search. | Ja |
+| indexName | Namnet på Azure Search-index. Data Factory skapar inte indexet. Indexet måste finnas i Azure Search. | Ja |
 
 **Exempel:**
 
@@ -169,10 +169,10 @@ I följande tabell anger om en Azure Search-datatyp stöds eller inte.
 
 | Azure Search-datatyp | Stöds i Azure Search-mottagare |
 | ---------------------- | ------------------------------ |
-| Sträng | Y |
+| String | Y |
 | Int32 | Y |
 | Int64 | Y |
-| Double-värde | Y |
+| Double | Y |
 | Boolesk | Y |
 | DataTimeOffset | Y |
 | Strängmatris | N |

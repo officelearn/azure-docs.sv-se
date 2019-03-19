@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: overview
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: f5d54f90c0b53105953726b1f26dab98192b40a6
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
-ms.translationtype: HT
+ms.openlocfilehash: 24a35b387a8b47d44f742303ddde0a0e8fb47fe6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56752940"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57833806"
 ---
 # <a name="azure-spatial-anchors-overview"></a>Översikt över Azure Spatial Anchors
 
@@ -30,7 +30,7 @@ Här är några exempel på användningsfall som möjliggörs av Spatial Anchors
 
 - [Vägledning](concepts/anchor-relationships-way-finding.md). Utvecklare kan också koppla samman spatiala fästpunkter och skapa relationer mellan dem. En app kan exempelvis innehålla en upplevelse med minst två platser av intresse som en användare måste interagera med för att slutföra en uppgift. De platserna av intresse kan skapas med kopplingar. Senare, när användaren genomför uppgiften i flera steg, kan appen be om fästpunkter som finns i närheten av den aktuella för att dirigera användaren till nästa steg i uppgiften.
 
-- [Bevara virtuellt innehåll i verkligheten](concepts/create-locate-anchors-unity.md#creating-a-cloud-spatial-anchor). Med en app kan en användare placera en virtuell kalender på väggen i ett konferensrum, som andra kan se med hjälp av en mobilapp eller en HoloLens-enhet. I en industrimiljö kan en användare få sammanhangsbaserad information om en maskin genom att rikta en enhetskamera som stöds mot den.
+- [Bevara virtuellt innehåll i verkligheten](concepts/create-locate-anchors-unity.md#create-a-cloud-spatial-anchor). Med en app kan en användare placera en virtuell kalender på väggen i ett konferensrum, som andra kan se med hjälp av en mobilapp eller en HoloLens-enhet. I en industrimiljö kan en användare få sammanhangsbaserad information om en maskin genom att rikta en enhetskamera som stöds mot den.
 
 Azure Spatial Anchors består av en hanterad tjänst och klient-SDK:er för enhetsplattformar som stöds. Följande avsnitt innehåller information om hur du kommer igång med att skapa appar med hjälp av Azure Spatial Anchors.
 

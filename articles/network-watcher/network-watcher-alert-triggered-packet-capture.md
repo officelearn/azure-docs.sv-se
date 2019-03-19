@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: fd7e7151d8ec676239ed810fb700149aab0fe0fa
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 71e71b417f12b58fc03c581826c0e5c2412e684b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54427410"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57876654"
 ---
 # <a name="use-packet-capture-for-proactive-network-monitoring-with-alerts-and-azure-functions"></a>Använda infångade paket för proaktiv nätverksövervakning med varningar och Azure Functions
 
@@ -110,13 +110,13 @@ Om du vill använda Network Watcher PowerShell-cmdlet, överför du den senaste 
 
     Det här exemplet får du den lokala sökvägen för Azure PowerShell-moduler. Dessa mappar som används i ett senare steg. Moduler som används i det här scenariot är:
 
-    * AzureRM.Network
+   * AzureRM.Network
 
-    * AzureRM.Profile
+   * AzureRM.Profile
 
-    * AzureRM.Resources
+   * AzureRM.Resources
 
-    ![PowerShell-mappar][functions5]
+     ![PowerShell-mappar][functions5]
 
 1. Välj **fungera appinställningar** > **gå till App Service Editor**.
 
@@ -146,7 +146,7 @@ Om du vill använda Network Watcher PowerShell-cmdlet, överför du den senaste 
 
     ![PowerShell-filer][functions7]
 
-### <a name="authentication"></a>Autentisering
+### <a name="authentication"></a>Authentication
 
 Om du vill använda PowerShell-cmdlets, måste du autentisera. Du kan konfigurera autentisering i funktionsappen. Om du vill konfigurera autentisering måste du konfigurera miljövariabler och överför en krypterad nyckelfil i funktionsappen.
 
@@ -344,7 +344,7 @@ Gå till en befintlig virtuell dator och sedan lägga till en varningsregel. Mer
   |**Inställning** | **Värde** | **Detaljer** |
   |---|---|---|
   |**Namn**|TCP_Segments_Sent_Exceeded|Namnet på regeln.|
-  |**Beskrivning**|TCP-segment skickas överskridit tröskelvärdet|Beskrivning för regeln.||
+  |**Beskrivning**|TCP-segment skickas överskridit tröskelvärdet|Beskrivning för regeln.|
   |**Mått**|TCP-segment som skickas| Mått som ska använda för att utlösa aviseringen. |
   |**villkor**|Större än| Villkoret du vill använda vid utvärdering av måttet.|
   |**Tröskelvärde**|100| Värdet för det mått som utlöser aviseringen. Det här värdet sättas till ett giltigt värde för din miljö.|
@@ -362,7 +362,7 @@ Efter det att kriterierna för avisering utlösare skapas ett infångat paket. G
 
 Du kan hämta den genom att logga in till den virtuella datorn om filen lagras lokalt.
 
-Anvisningar om att hämta filer från Azure storage-konton finns i [komma igång med Azure Blob storage med hjälp av .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Ett annat verktyg som du kan använda är [Lagringsutforskaren](http://storageexplorer.com/).
+Anvisningar om att hämta filer från Azure storage-konton finns i [komma igång med Azure Blob storage med hjälp av .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Ett annat verktyg som du kan använda är [Lagringsutforskaren](https://storageexplorer.com/).
 
 När din avbildning har laddats ned kan du visa den med ett verktyg som kan läsa en **.cap** fil. Följande är länkar till två av dessa verktyg:
 

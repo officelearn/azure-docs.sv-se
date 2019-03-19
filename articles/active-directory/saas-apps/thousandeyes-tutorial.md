@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/16/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 43aa43d37099d69441a5dde47327e784d67fa9ac
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 5d85c4dbd3cc1c3d827a3f8324e63f75eb942425
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56189454"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57892990"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-thousandeyes"></a>Självstudier: Azure Active Directory-integrering med ThousandEyes
 
@@ -113,7 +113,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning](./media/thousandeyes-tutorial/tutorial_thousandeyes_url.png)
 
-    I den **inloggnings-URL** textrutan anger du ett URL: en som: `https://app.thousandeyes.com/login/sso`
+    I textrutan **Inloggnings-URL** skriver du en URL: `https://app.thousandeyes.com/login/sso`
 
 1. På den **SAML-signeringscertifikat** klickar du på **Certificate(Base64)** och spara certifikatfilen på datorn.
 
@@ -214,7 +214,7 @@ Målet med det här avsnittet är att skapa en användare som kallas Britta Simo
 
     a. I **namn** textrutan skriver du namnet på användaren som **Britta Simon**.
 
-    b. I **e-post** textrutan typ e-postmeddelandet av användare som **brittasimon@contoso.com**.
+    b. I **e-post** textrutan typ e-postmeddelandet av användare som **brittasimon\@contoso.com**.
 
     b. Klicka på **lägga till nya användare till kontot**.
 
@@ -264,7 +264,7 @@ Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen]
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
+* [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 * [Konfigurera användarförsörjning](thousandeyes-provisioning-tutorial.md)
 

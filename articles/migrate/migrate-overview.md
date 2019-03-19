@@ -4,15 +4,15 @@ description: Ger en översikt över tjänsten Azure Migrate.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 01/11/2019
+ms.date: 03/11/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 317e843f1fcc2fc85ffbc590d48e9bdf4aa934c1
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.openlocfilehash: 7f0b3a0f63b87928938e5c0e9d39cc49c0fc791d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56415773"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57999966"
 ---
 # <a name="about-azure-migrate"></a>Om Azure Migrate
 
@@ -30,15 +30,17 @@ Med Azure Migrate får du hjälp med att:
 ## <a name="current-limitations"></a>Aktuella begränsningar
 
 - Du kan endast utvärdera lokala virtuella VMware-datorer (VM) för migrering till virtuella Azure-datorer. De virtuella VMware-datorerna måste hanteras av en vCenter Server (version 5.5, 6.0, 6.5 eller 6.7).
-- Om du vill utvärdera virtuella Hyper-datorer och fysiska servrar kan du använda [Distributionshanteraren för Azure Site Recovery](https://aka.ms/asr-dp-hyperv-doc) för Hyper-V och våra [partnerverktyg](https://azure.microsoft.com/migration/partners/) för fysiska datorer.
+- Stöd för Hyper-V är för närvarande i förhandsversion med produktionsstöd, om du vill försöka ut, måste du registrera dig [här.](https://aka.ms/migratefuture)
+- För bedömning av fysiska servrar, kan du utnyttja våra [partner verktyg](https://azure.microsoft.com/migration/partners/).
 - Du kan identifiera upp till 1 500 virtuella datorer i en enda identifiering och upp till 1 500 virtuella datorer i ett enda projekt. Dessutom kan du utvärdera upp till 1 500 virtuella datorer i en enda utvärdering.
 - Om du vill identifiera en större miljö kan du dela identifieringen och skapa flera projekt. [Läs mer](how-to-scale-assessment.md). Azure Migrate stöder upp till 20 projekt per prenumeration.
 - Azure Migrate stöder endast hanterade diskar för migreringsutvärdering.
 -  Du kan endast skapa ett Azure Migrate-projekt i nedanstående områden. Men det begränsar inte din möjlighet att skapa utvärderingar för andra Azure-målplatser.
+
     **Geografi** | **Lagringsplats**
     --- | ---
     Azure Government | Virginia (USA-förvaltad region)
-    Asien | Sydostasien
+    Asien | Sydostasien eller Östasien
     Europa | Europa, norra eller Europa, västra
     USA | USA, östra eller USA, västra centrala
 
@@ -72,27 +74,27 @@ Utvärderingsinställningarna kan anpassas efter dina behov. Utvärderingsegensk
 
 ## <a name="how-does-azure-migrate-work"></a>Hur fungerar Azure Migrate?
 
-1.  Du skapar ett Azure Migrate-projekt.
-2.  Azure Migrate använder en lokal virtuell dator som kallas för insamlingsprogram för att upptäcka information om dina lokala datorer. För att skapa programmet laddar du ned en installationsfil i formatet Open Virtualization Appliance (.ova) och importerar den som en virtuell dator på din lokala vCenter-server.
+1. Du skapar ett Azure Migrate-projekt.
+2. Azure Migrate använder en lokal virtuell dator som kallas för insamlingsprogram för att upptäcka information om dina lokala datorer. För att skapa programmet laddar du ned en installationsfil i formatet Open Virtualization Appliance (.ova) och importerar den som en virtuell dator på din lokala vCenter-server.
 3. Du ansluter till den virtuella datorn via vCenter Server och anger ett nytt lösenord för den vid anslutning.
 4. Du kör insamlaren på den virtuella datorn för att inleda identifieringen.
 5. Insamlaren samlar in VM-metadata med cmdletar för VMware PowerCLI. Identifierng är agentfri och installerar inte något på VMware-värdar eller virtuella datorer. Insamlade metadata innefattar VM-information (kärnor, minne, diskar, diskstorlekar och nätverksadaptrar). De samlar även in prestandadata för virtuella datorer, däribland CPU- och minnesanvändning, disk-IOPS, diskgenomflöde (Mbit/s) och nätverksutdata (Mbit/s).
-5.  Metadata skickas till Azure Migrate-projektet. Du kan visa dem i Azure Portal.
-6.  I utvärderingssyfte samlar du de identifierade virtuella datorerna i olika grupper. Du kan exempelvis gruppera virtuella datorer som kör samma program. För mer exakt gruppering kan du använda visualisering av beroenden för att se beroenden för en specifik dator eller för alla datorer i en grupp och sedan ändra gruppen.
-7.  När en grupp har definierats kan skapa du en utvärdering för den.
-8.  När utvärderingen är klar kan du visa den i portalen eller ladda ned den i Excel-format.
+5. Metadata skickas till Azure Migrate-projektet. Du kan visa dem i Azure Portal.
+6. I utvärderingssyfte samlar du de identifierade virtuella datorerna i olika grupper. Du kan exempelvis gruppera virtuella datorer som kör samma program. För mer exakt gruppering kan du använda visualisering av beroenden för att se beroenden för en specifik dator eller för alla datorer i en grupp och sedan ändra gruppen.
+7. När en grupp har definierats kan skapa du en utvärdering för den.
+8. När utvärderingen är klar kan du visa den i portalen eller ladda ned den i Excel-format.
 
-  ![Azure Migrate-arkitektur](./media/migration-planner-overview/overview-1.png)
+   ![Azure Migrate-arkitektur](./media/migration-planner-overview/overview-1.png)
 
 ## <a name="what-are-the-port-requirements"></a>Vilka är portkraven?
 
 I tabellen sammanfattas de portar som behövs för Azure Migrate-kommunikation.
 
-Komponent | Kommunicerar med |  Information
---- | --- |---
-Insamlare  | Tjänsten Azure Migrate | Insamlaren ansluter till tjänsten via SSL-port 443.
-Insamlare | vCenter Server | Som standard ansluter insamlaren till vCenter-servern på port 443. Om servrarna lyssnar på en annan port konfigurerar du den som en utgående port på VM-insamlaren.
-Lokala virtuella datorer | Log Analytics Workspace | [TCP 443] | [Microsoft Monitoring Agent (MMA)](../log-analytics/log-analytics-windows-agent.md) använder TCP-port 443 för att ansluta till Log Analytics. Du behöver bara den här porten om du använder beroendevisualisering, som kräver MMA-agenten.
+| Komponent | Kommunicerar med |  Information |
+| --- | --- |--- |
+|Insamlare  | Tjänsten Azure Migrate | Insamlaren ansluter till tjänsten via SSL-port 443.|
+|Insamlare | vCenter Server | Som standard ansluter insamlaren till vCenter-servern på port 443. Om servrarna lyssnar på en annan port konfigurerar du den som en utgående port på VM-insamlaren.|
+|Lokala virtuella datorer | Log Analytics Workspace | [Microsoft Monitoring Agent (MMA)](../log-analytics/log-analytics-windows-agent.md) använder TCP-port 443 för att ansluta till Azure Monitor-loggar. Du behöver bara den här porten om du använder beroendevisualisering, som kräver MMA-agenten.|
 
 
 ## <a name="what-happens-after-assessment"></a>Vad händer efter utvärderingen?

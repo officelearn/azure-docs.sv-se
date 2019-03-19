@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 11/29/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: 66ba6aa874e84ce86d54d5ea0f827a83dc6564b4
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: a5203d75e673a7b8206446553414ff933e00b0b6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55208559"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58008938"
 ---
 # <a name="azure-and-linux"></a>Azure och Linux
 Microsoft Azure är en växande samling integrerade offentliga molntjänster som omfattar analyser, virtuella datorer, databaser, mobil, nätverk, lagring och webb – perfekt som värd för dina lösningar.  Microsoft Azure tillhandahåller en skalbar plattform som gör att du bara betalar för vad du använder, när du behöver det – utan att behöva investera i lokal maskinvara.  Azure är klar när du är klar att skala upp och ut lösningar oavsett vilken skala du behöver för dina klienter.
@@ -59,7 +59,7 @@ All infrastruktur måste vara kod för att uppnå en korrekt DevOps-kultur.  Nä
 * [Azure-mallar](create-ssh-secured-vm-from-template.md)
 * [Azure VMAccess](using-vmaccess-extension.md)
 
-Azure inför stöd för [cloud-init](http://cloud-init.io/) i de flesta Linux-distributioner som har stöd för det.  För närvarande distribueras Canonicals virtuella Ubuntu-datorer med cloud-init aktiverat som standard.  Red Hats RHEL, CentOS och Fedora har stöd för cloud-init, men Azure-avbildningarna som underhålls av Red Hat har inte cloud-init installerat för närvarande.  Om du vill använda cloud-init på ett operativsystem i Red Hat-gruppen måste du skapa en anpassad avbildning med cloud-init installerat.
+Azure inför stöd för [cloud-init](https://cloud-init.io/) i de flesta Linux-distributioner som har stöd för det.  För närvarande distribueras Canonicals virtuella Ubuntu-datorer med cloud-init aktiverat som standard.  Red Hats RHEL, CentOS och Fedora har stöd för cloud-init, men Azure-avbildningarna som underhålls av Red Hat har inte cloud-init installerat för närvarande.  Om du vill använda cloud-init på ett operativsystem i Red Hat-gruppen måste du skapa en anpassad avbildning med cloud-init installerat.
 
 * [Använda cloud-init på virtuella Azure Linux-datorer](using-cloud-init.md)
 

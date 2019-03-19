@@ -10,18 +10,18 @@ ms.subservice: custom-vision
 ms.topic: quickstart
 ms.date: 11/2/2018
 ms.author: areddish
-ms.openlocfilehash: 551d713d6cc5c6ae8024d4784dbc3a8cca79b401
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 66fc773dd354f80428d6fd65906610b901260a59
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55854837"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57407042"
 ---
 # <a name="quickstart-create-an-image-classification-project-with-the-custom-vision-python-sdk"></a>Snabbstart: Skapa ett bildklassificeringsprojekt med Custom Vision för Python SDK
 
 Den här artikeln innehåller information och exempelkod som hjälper dig att komma igång med att använda Custom Vision-SDK med Python för att skapa en bildklassificeringsmodell. När den har skapats kan du lägga till taggar, ladda upp bilder, träna projektet, hämta slutpunkts-URL:en för projektets standardförutsägelse och använda slutpunkten för att testa en avbildning programmatiskt. Använd det här exemplet som en mall för att skapa ditt eget Python-program. Om du vill gå igenom processen med att skapa och använda en bildklassificeringsmodell _utan_ kod kan du i stället läsa den [webbläsarbaserade vägledningen](getting-started-build-a-classifier.md).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 - [Python 2.7+ eller 3.5+](https://www.python.org/downloads/)
 - [pip](https://pip.pypa.io/en/stable/installing/)-verktyget
@@ -49,7 +49,7 @@ Lägg till följande kod i skriptet för att skapa ett nytt Custom Vision Servic
 
 ```Python
 from azure.cognitiveservices.vision.customvision.training import CustomVisionTrainingClient
-from azure.cognitiveservices.vision.customvision.training.models import ImageUrlCreateEntry
+from azure.cognitiveservices.vision.customvision.training.models import ImageFileCreateEntry
 
 ENDPOINT = "https://southcentralus.api.cognitive.microsoft.com"
 
@@ -84,14 +84,28 @@ Infoga följande kod efter att taggen har skapats för att lägga till exempelbi
 ```Python
 base_image_url = "<path to project>"
 
-print ("Adding images...")
-for image_num in range(1,10):
-    image_url = base_image_url + "Images/Hemlock/hemlock_{}.jpg".format(image_num)
-    trainer.create_images_from_urls(project.id, [ ImageUrlCreateEntry(url=image_url, tag_ids=[ hemlock_tag.id ] ) ])
+print("Adding images...")
 
-for image_num in range(1,10):
-    image_url = base_image_url + "Images/Japanese Cherry/japanese_cherry_{}.jpg".format(image_num)
-    trainer.create_images_from_urls(project.id, [ ImageUrlCreateEntry(url=image_url, tag_ids=[ cherry_tag.id ] ) ])
+image_entry = lambda image_path, tag_id: ImageFileCreateEntry(
+    name=image_path.split("/")[-1], contents=image_path, tag_ids=[tag_id]
+)
+
+image_list = [
+    image_entry(
+        base_image_url + "Images/Hemlock/hemlock_{}.jpg".format(image_num),
+        hemlock_tag.id,
+    )
+    for image_num in range(1, 10)
+] + [
+    image_entry(
+        base_image_url
+        + "Images/Japanese Cherry/japanese_cherry_{}.jpg".format(image_num),
+        cherry_tag.id,
+    )
+    for image_num in range(1, 10)
+]
+
+trainer.create_images_from_files(project.id, images=image_list)
 ```
 
 ### <a name="train-the-classifier"></a>Träna klassificeraren

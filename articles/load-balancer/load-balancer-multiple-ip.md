@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 0fd865a6890721d3889fc5cef39d9888fe1fb689
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: 0cf5aa45e1e8a28dfcdadac0ea32658e5993d06c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57191823"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57856143"
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-by-using-the-azure-portal"></a>Belastningsutjämning på flera IP-konfigurationer med hjälp av Azure-portalen
 
@@ -62,7 +62,7 @@ Utför följande steg för att uppnå det scenario som beskrivs i den här artik
 
 Lägg till IP-konfiguration för det sekundära nätverkskortet för varje virtuell dator i det virtuella nätverket:  
 
-1. Bläddra till Azure portal: http://portal.azure.com. Logga in med ditt Azure-konto.
+1. Bläddra till Azure portal: https://portal.azure.com. Logga in med ditt Azure-konto.
 
 2. I det övre vänstra hörnet på skärmen väljer du den **resursgrupp** ikon. Välj sedan den resursgrupp där dina virtuella datorer finns (till exempel **contosofabrikam**). Den **resursgrupper** rutan visar alla resurser och nätverkskort för virtuella datorer.
 
@@ -86,7 +86,7 @@ Efter den andra IP-adresskonfigurationen för det sekundära nätverkskortet är
 
 Skapa en belastningsutjämnare för konfigurationen:
 
-1. Bläddra till Azure portal: http://portal.azure.com. Logga in med ditt Azure-konto.
+1. Bläddra till Azure portal: https://portal.azure.com. Logga in med ditt Azure-konto.
 
 2. I det övre vänstra hörnet på skärmen väljer **skapa en resurs** > **nätverk** > **belastningsutjämnaren**. Välj sedan **skapa**.
 
@@ -106,15 +106,15 @@ Konfigurera IP-adresspoolen på klientsidan belastningsutjämnaren för varje we
 
 2. Konfigurera två offentliga IP-adresser (**PublicIP1** och **PublicIP2**) för båda webbplatserna (contoso.com och fabrikam.com):
 
-    1. Skriv ett namn för din frontend IP-adress.
+   1. Skriv ett namn för din frontend IP-adress.
 
-    2. För **resursgrupp**, Välj den befintliga resursgruppen för dina virtuella datorer (till exempel **contosofabrikam**).
+   2. För **resursgrupp**, Välj den befintliga resursgruppen för dina virtuella datorer (till exempel **contosofabrikam**).
 
-    3. För **plats**, välja samma plats som de virtuella datorerna.
+   3. För **plats**, välja samma plats som de virtuella datorerna.
 
-    4. Välj **OK**.
+   4. Välj **OK**.
 
-    När de offentliga IP-adresserna har skapats visas de under den **offentlig IP-adress** adresser.
+      När de offentliga IP-adresserna har skapats visas de under den **offentlig IP-adress** adresser.
 
 3. <a name="step3-3"></a>I portalen, väljer **fler tjänster**. Skriv i rutan filtrera **belastningsutjämnare** och välj sedan **Load Balancer**. 
 

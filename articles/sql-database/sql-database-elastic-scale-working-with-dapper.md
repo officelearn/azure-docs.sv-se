@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/04/2018
-ms.openlocfilehash: 6cc5e3f8f188c60a129f6ad6575b348616bdad9b
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: c6ca7637c8e251fa29781503ffc18227c51bb4da
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57569764"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58002289"
 ---
 # <a name="using-elastic-database-client-library-with-dapper"></a>Använda elastic database-klientbibliotek med Dapper
 Det här dokumentet är för utvecklare som förlitar sig på Dapper att skapa program, men också vilja ta del av [elastisk databas-tooling](sql-database-elastic-scale-introduction.md) skapar du program att implementera horisontell partitionering för att skala ut datanivån.  Det här dokumentet visar ändringarna i Dapper-baserade program som är nödvändiga för att integrera med verktyg för elastiska databaser. Vår fokus ligger på att skriva fragmenthanterings för elastiska databaser och databeroende routning med Dapper. 
@@ -35,7 +35,7 @@ När du använder DapperExtensions, behöver du inte längre att tillhandahålla
 
 En annan fördel med Dapper och DapperExtensions är att programmet styr skapandet av anslutningen till databasen. På så sätt kan du interagera med klientbiblioteket för elastiska databaser som mäklare databasanslutningar som baserats på mappningen av shardletar till databaser.
 
-Dapper sammansättningarna finns [Dapper punkt net](http://www.nuget.org/packages/Dapper/). Dapper tillägg, se [DapperExtensions](http://www.nuget.org/packages/DapperExtensions).
+Dapper sammansättningarna finns [Dapper punkt net](https://www.nuget.org/packages/Dapper/). Dapper tillägg, se [DapperExtensions](https://www.nuget.org/packages/DapperExtensions).
 
 ## <a name="a-quick-look-at-the-elastic-database-client-library"></a>En snabb inblick i klientbiblioteket för elastiska databaser
 Med klientbiblioteket för elastiska databaser kan du definiera partitioner för dina programdata som kallas *shardletar*, mappa den till databaser och identifiera dem genom *horisontell partitionering nycklar*. Du kan ha så många databaser som du behöver och distribuera din shardletar över dessa databaser. Mappningen för horisontell partitionering nyckelvärden till databaser lagras av en skärvkarta som tillhandahålls av API: er i biblioteket. Den här funktionen kallas **fragmentkarthantering**. Fragmentkartan fungerar också som den asynkrona meddelandekön till databaser för begäranden som innehåller en shardingnyckel. Den här funktionen kallas **databeroende routning**.

@@ -5,14 +5,14 @@ author: sffamily
 ms.service: signalr
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 06/13/2018
+ms.date: 03/01/2019
 ms.author: zhshang
-ms.openlocfilehash: 1bfe0026e52107c85bf2c7e66414e937ad27f715
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: 248861848aa905f9cbff01ab60affd7cf21aae78
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56267758"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58004811"
 ---
 # <a name="quickstart-create-a-chat-room-with-signalr-service"></a>Snabbstart: Skapa ett chattrum med SignalR Service
 
@@ -31,7 +31,7 @@ Koden för de här självstudierna är tillgänglig för nedladdning på [GitHub
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * Installera [.NET Core SDK](https://www.microsoft.com/net/download/windows)
 * Ladda ned eller klona [GitHub-lagringsplatsen för AzureSignalR-exempel](https://github.com/aspnet/AzureSignalR-samples). 
@@ -97,7 +97,7 @@ I det här avsnittet lägger du till [verktyget Secret Manager](https://docs.mic
 
     Secret Manager används endast för testning av webbappen medan den hanteras lokalt. I senare självstudier kommer du att distribuera chattwebbappen till Azure. När webbappen har distribuerats till Azure, använder du en programsinställning istället för att lagra anslutningssträngen med Secret Manager.
 
-    Du får tillgång till den här hemligheten med konfigurations-API:et. Ett kolon (:) fungerar i konfigurationsnamnet med API-konfigurationen på alla plattformar som stöds. Se dokumentationen om [konfiguration efter miljö](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/index?tabs=basicconfiguration&view=aspnetcore-2.0). 
+    Den här hemligheten nås med konfigurations-API. Ett kolon (:) fungerar i konfigurationsnamnet med API-konfigurationen på alla plattformar som stöds. Se dokumentationen om [konfiguration efter miljö](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/index?tabs=basicconfiguration&view=aspnetcore-2.0). 
 
 
 4. Öppna *Startup.cs* och uppdatera `ConfigureServices`-metoden för att använda Azure SignalR Service genom att anropa metoden `services.AddSignalR().AddAzureSignalR()`:
@@ -267,6 +267,6 @@ Efter en liten stund tas resursgruppen och resurser som finns i den bort.
 I den här snabbstarten har du skapat en ny Azure SignalR Service-resurs och använt den med en ASP.NET Core-webbapp för att skicka innehållsuppdateringar i realtid till flera anslutna klienter. Om du vill veta mer om hur man använder Azure SignalR Service fortsätter du till nästa självstudie som visar hur autentisering går till.
 
 > [!div class="nextstepaction"]
-> [Azure SignalR Service-autentisering](./signalr-authenticate-oauth.md)
+> [Azure SignalR Service-autentisering](./signalr-concept-authenticate-oauth.md)
 
 

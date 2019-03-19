@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: szark
-ms.openlocfilehash: 81327c083b9517974780ac73284259b4408c2890
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 01acdf23c3113c3c4d185263b5cab75f3efd34a2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51262224"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58001661"
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure"></a>Förbered en Red Hat-baserad virtuell dator för Azure
-I den här artikeln får lära du dig att förbereda en virtuell dator för Red Hat Enterprise Linux (RHEL) för användning i Azure. RHEL-versioner som beskrivs i den här artikeln är 6.7 + och 7.1 +. Hypervisorer för förberedelse av som beskrivs i den här artikeln är Hyper-V, kernel-baserad virtuell dator (KVM) och VMware. Läs mer om krav för berättigande för att du deltar i programmet för Red Hat Cloud Access [Red Hat Cloud Access webbplats](http://www.redhat.com/en/technologies/cloud-computing/cloud-access) och [kör RHEL på Azure](https://access.redhat.com/ecosystem/ccsp/microsoft-azure).
+I den här artikeln får lära du dig att förbereda en virtuell dator för Red Hat Enterprise Linux (RHEL) för användning i Azure. RHEL-versioner som beskrivs i den här artikeln är 6.7 + och 7.1 +. Hypervisorer för förberedelse av som beskrivs i den här artikeln är Hyper-V, kernel-baserad virtuell dator (KVM) och VMware. Läs mer om krav för berättigande för att du deltar i programmet för Red Hat Cloud Access [Red Hat Cloud Access webbplats](https://www.redhat.com/en/technologies/cloud-computing/cloud-access) och [kör RHEL på Azure](https://access.redhat.com/ecosystem/ccsp/microsoft-azure).
 
 ## <a name="prepare-a-red-hat-based-virtual-machine-from-hyper-v-manager"></a>Förbered en Red Hat-baserad virtuell dator från Hyper-V Manager
 
@@ -517,7 +517,7 @@ Det här avsnittet förutsätter att du redan har fått en ISO-fil från Red Hat
 
 ## <a name="prepare-a-red-hat-based-virtual-machine-from-vmware"></a>Förbered en Red Hat-baserad virtuell dator från VMware
 ### <a name="prerequisites"></a>Förutsättningar
-Det här avsnittet förutsätter att du redan har installerat en RHEL-dator i VMware. Mer information om hur du installerar ett operativsystem i VMware finns i [installationsguide för VMware Guest Operating System](http://partnerweb.vmware.com/GOSIG/home.html).
+Det här avsnittet förutsätter att du redan har installerat en RHEL-dator i VMware. Mer information om hur du installerar ett operativsystem i VMware finns i [installationsguide för VMware Guest Operating System](https://partnerweb.vmware.com/GOSIG/home.html).
 
 * När du installerar Linux-operativsystem rekommenderar vi att du använder standard partitioner i stället för LVM, vilket ofta är standard för många installationer. Detta undviker LVM namnet står i konflikt med den klonade virtuella datorn, särskilt om en operativsystemdisk någonsin måste kopplas till en annan virtuell dator för felsökning. LVM eller RAID kan användas på datadiskar om du så föredrar.
 * Konfigurera inte swap-partition på operativsystemdisken. Du kan konfigurera Linux-agenten för att skapa en växlingsfil på temporär disk. Du hittar mer information om detta i stegen nedan.

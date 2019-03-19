@@ -9,12 +9,12 @@ ms.date: 12/26/2018
 author: sivethe
 ms.author: sivethe
 ms.custom: seodec18
-ms.openlocfilehash: c1343326b6db18608eb6a8994957d560124116ce
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 23275bc639b445b55cafb72c929514541ba00660
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57450710"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58105955"
 ---
 # <a name="connect-a-nodejs-mongoose-application-to-azure-cosmos-db"></a>Ansluta en Node.js Mongoose-program till Azure Cosmos DB
 
@@ -49,15 +49,15 @@ Nu ska vi skapa ett Cosmos-konto. Om du redan har ett konto som du vill använda
 
 1. Lägg till en ny fil och ge den namnet ```index.js```.
 1. Installera de paket som behövs med något av ```npm install```-alternativen:
-    * Mongoose: ```npm install mongoose@5 --save```
+   * Mongoose: ```npm install mongoose@5 --save```
 
-    > [!Note]
-    > Mongoose exempel anslutningen nedan baseras på Mongoose 5 +, som har ändrats sedan tidigare versioner.
+     > [!Note]
+     > Mongoose exempel anslutningen nedan baseras på Mongoose 5 +, som har ändrats sedan tidigare versioner.
     
-    * Dotenv (om du vill läsa in dina hemligheter från en .env-fil): ```npm install dotenv --save```
+   * Dotenv (om du vill läsa in dina hemligheter från en .env-fil): ```npm install dotenv --save```
 
-    >[!Note]
-    > Flaggan ```--save``` lägger till beroendet till package.json-filen.
+     >[!Note]
+     > Flaggan ```--save``` lägger till beroendet till package.json-filen.
 
 1. Importera beroendena i din index.js-fil.
     ```JavaScript
@@ -161,25 +161,25 @@ Standardbeteendet i Mongoose är att skapa en MongoDB-samling varje gång du ska
     ```
 
 1. Nu ska vi skapa ytterligare ett schema och ett objekt. Den här gången skapar vi ett för de ”semesterdestinationer” familjerna kan ha intresse av.
-    1. Precis som förra gången skapar vi schemat
-    ```JavaScript
-    const VacationDestinations = mongoose.model('VacationDestinations', new mongoose.Schema({
-        name: String,
-        country: String
-    }));
-    ```
+   1. Precis som förra gången skapar vi schemat
+      ```JavaScript
+      const VacationDestinations = mongoose.model('VacationDestinations', new mongoose.Schema({
+       name: String,
+       country: String
+      }));
+      ```
 
-    1. Skapa ett exempelobjekt (Du kan lägga till flera objekt till det här schemat) och spara det.
-    ```JavaScript
-    const vacaySpot = new VacationDestinations({
-        name: "Honolulu",
-        country: "USA"
-    });
+   1. Skapa ett exempelobjekt (Du kan lägga till flera objekt till det här schemat) och spara det.
+      ```JavaScript
+      const vacaySpot = new VacationDestinations({
+       name: "Honolulu",
+       country: "USA"
+      });
 
-    vacaySpot.save((err, saveVacay) => {
-        console.log(JSON.stringify(saveVacay));
-    });
-    ```
+      vacaySpot.save((err, saveVacay) => {
+       console.log(JSON.stringify(saveVacay));
+      });
+      ```
 
 1. Nu ser går in på Azure portal, du två samlingar som skapats i Cosmos DB.
 
@@ -251,40 +251,40 @@ Här skapar vi en basobjektmodell med en särskiljande nyckel och lägger till �
     ```
 
 1. Slutligen skapar vi objekt för modellen och sparar den.
-    1. Nu ska vi lägga till objekt till modellen ”Familj”.
-    ```JavaScript
-    const family_common = new Family_common({
-        lastName: "Volum",
-        parents: [
-            { firstName: "Thomas" },
-            { firstName: "Mary Kay" }
-        ],
-        children: [
-            { firstName: "Ryan", gender: "male", grade: 8 },
-            { firstName: "Patrick", gender: "male", grade: 7 }
-        ],
-        pets: [
-            { givenName: "Blackie" }
-        ],
-        address: { country: "USA", state: "WA", city: "Seattle" }
-    });
+   1. Nu ska vi lägga till objekt till modellen ”Familj”.
+      ```JavaScript
+      const family_common = new Family_common({
+       lastName: "Volum",
+       parents: [
+           { firstName: "Thomas" },
+           { firstName: "Mary Kay" }
+       ],
+       children: [
+           { firstName: "Ryan", gender: "male", grade: 8 },
+           { firstName: "Patrick", gender: "male", grade: 7 }
+       ],
+       pets: [
+           { givenName: "Blackie" }
+       ],
+       address: { country: "USA", state: "WA", city: "Seattle" }
+      });
 
-    family_common.save((err, saveFamily) => {
-        console.log("Saved: " + JSON.stringify(saveFamily));
-    });
-    ```
+      family_common.save((err, saveFamily) => {
+       console.log("Saved: " + JSON.stringify(saveFamily));
+      });
+      ```
 
-    1. Därefter lägger vi till objekt till modellen ”VacationDestinations” och sparar den.
-    ```JavaScript
-    const vacay_common = new Vacation_common({
-        name: "Honolulu",
-        country: "USA"
-    });
+   1. Därefter lägger vi till objekt till modellen ”VacationDestinations” och sparar den.
+      ```JavaScript
+      const vacay_common = new Vacation_common({
+       name: "Honolulu",
+       country: "USA"
+      });
 
-    vacay_common.save((err, saveVacay) => {
-        console.log("Saved: " + JSON.stringify(saveVacay));
-    });
-    ```
+      vacay_common.save((err, saveVacay) => {
+       console.log("Saved: " + JSON.stringify(saveVacay));
+      });
+      ```
 
 1. Om du nu går tillbaka till Azure-portalen lägger du märke till att du enda samling som heter ```alldata``` med både ”Familj”- och ”VacationDestinations”-data.
 

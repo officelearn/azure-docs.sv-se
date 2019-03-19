@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: f10bae780ebb05d3450f4dab7e53fa87fe25b022
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 5e9558eae43b351aa198b64bb2a7903c756064c2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54189561"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58168025"
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>Asynkron uppdatering med REST API
 
@@ -57,7 +57,7 @@ Du kan till exempel använda verbet INLÄGG på samlingen uppdateras för att ut
 https://westus.asazure.windows.net/servers/myserver/models/AdventureWorks/refreshes
 ```
 
-## <a name="authentication"></a>Autentisering
+## <a name="authentication"></a>Authentication
 
 Alla anrop måste autentiseras mot en giltig Azure Active Directory (OAuth 2)-token i auktoriseringshuvudet och måste uppfylla följande krav:
 
@@ -98,13 +98,13 @@ Brödtexten kan likna följande:
 
 Att ange parametrar är inte obligatoriskt. Standard tillämpas.
 
-|Namn  |Typ  |Beskrivning  |Standard  |
-|---------|---------|---------|---------|
-|Typ     |  Enum       |  Typ av bearbetning som ska utföras. Typerna ligger i linje med TMSL [kommandot Uppdatera](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/refresh-command-tmsl) typer: full, clearValues, beräkna, dataOnly, automatisk, och defragmentera. Lägg till typen inte stöds.      |   Automatisk      |
-|CommitMode     |  Enum       |  Anger om objekt genomförs i batchar eller bara när du är klar. Inkludera lägen: standard transaktioner partialBatch.  |  transaktionell       |
-|MaxParallelism     |   Int      |  Det här värdet anger det maximala antalet trådar som ska köras bearbetningskommandon parallellt. Det här värdet i linje med egenskapen MaxParallelism som kan ställas in i TMSL [Sekvensera kommandot](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/sequence-command-tmsl) eller använda andra metoder.       | 10        |
-|RetryCount    |    Int     |   Anger hur många gånger som åtgärden kommer att försöka igen innan åtgärden misslyckas.      |     0    |
-|Objekt     |   Matris      |   En matris med objekt som ska bearbetas. Varje objekt innehåller: ”tabell” vid bearbetning av hela tabellen eller ”tabell” och ”partition” vid bearbetning av en partition. Om inga objekt har angetts, uppdateras hela modellen. |   Bearbeta hela modellen      |
+| Namn             | Typ  | Beskrivning  |Standard  |
+|------------------|-------|--------------|---------|
+| `Type`           | Enum  | Typ av bearbetning som ska utföras. Typerna ligger i linje med TMSL [kommandot Uppdatera](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/refresh-command-tmsl) typer: full, clearValues, beräkna, dataOnly, automatisk, och defragmentera. Lägg till typen inte stöds.      |   Automatisk      |
+| `CommitMode`     | Enum  | Anger om objekt genomförs i batchar eller bara när du är klar. Inkludera lägen: standard transaktioner partialBatch.  |  transaktionell       |
+| `MaxParallelism` | Int   | Det här värdet anger det maximala antalet trådar som ska köras bearbetningskommandon parallellt. Det här värdet i linje med egenskapen MaxParallelism som kan ställas in i TMSL [Sekvensera kommandot](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/sequence-command-tmsl) eller använda andra metoder.       | 10        |
+| `RetryCount`     | Int   | Anger hur många gånger som åtgärden kommer att försöka igen innan åtgärden misslyckas.      |     0    |
+| `Objects`        | Matris | En matris med objekt som ska bearbetas. Varje objekt innehåller: ”tabell” vid bearbetning av hela tabellen eller ”tabell” och ”partition” vid bearbetning av en partition. Om inga objekt har angetts, uppdateras hela modellen. |   Bearbeta hela modellen      |
 
 CommitMode är lika med partialBatch. Den används när du gör en inledande inläsningen av stora datauppsättningar kan ta timmar. Om uppdateringen misslyckas efter att transaktionen har en eller flera batchar har bekräftats batchar förblir allokerade (den återställer inte har bekräftats batchar).
 
@@ -165,7 +165,7 @@ Om du vill hämta en lista över historiska uppdateringsåtgärder för en model
 
 Om du vill avbryta en pågående uppdateringsåtgärden använder du ta bort verbet på Uppdatera-ID.
 
-## <a name="post-sync"></a>POST/Sync
+## <a name="post-sync"></a>POST /sync
 
 Genom att utföra uppdateringsåtgärder, kan det vara nödvändigt att synkronisera nya data med repliker för frågeutskalning. Använd verbet INLÄGG på/Sync-funktionen om du vill utföra en synkroniseringsåtgärden för en modell. Location-huvudet i svaret innehåller sync åtgärds-ID.
 

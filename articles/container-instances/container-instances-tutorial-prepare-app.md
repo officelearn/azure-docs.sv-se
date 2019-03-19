@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 03/21/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 029b4f2d0f0f88f56ca1f3e282d8c80e76f4d5c7
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
-ms.translationtype: HT
+ms.openlocfilehash: f5d6ac81cc2553cc4a2d7b86c21417aa5ab1d572
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53186420"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57990662"
 ---
 # <a name="tutorial-create-a-container-image-for-deployment-to-azure-container-instances"></a>Självstudie: Skapa en containeravbildning för distribution till Azure Container Instances
 
@@ -116,7 +116,7 @@ $ docker run -d -p 8080:80 aci-tutorial-app
 a2e3e4435db58ab0c664ce521854c2e1a1bda88c9cf2fcff46aedf48df86cccf
 ```
 
-Navigera nu till http://localhost:8080 i webbläsaren och bekräfta att containern körs. Du bör se en webbsida som liknar följande:
+Navigera nu till `http://localhost:8080` i webbläsaren och bekräfta att containern körs. Du bör se en webbsida som liknar följande:
 
 ![Köra appen lokalt i webbläsaren][aci-tutorial-app-local]
 
@@ -152,7 +152,7 @@ Fortsätt till nästa självstudie i serien och lär dig hur du lagrar din behå
 [docker-run]: https://docs.docker.com/engine/reference/commandline/run/
 [docker-tag]: https://docs.docker.com/engine/reference/commandline/tag/
 [docker-windows]: https://docs.docker.com/docker-for-windows/
-[nodejs]: http://nodejs.org
+[nodejs]: https://nodejs.org
 
 <!-- LINKS - Internal -->
 [azure-cli-install]: /cli/azure/install-azure-cli

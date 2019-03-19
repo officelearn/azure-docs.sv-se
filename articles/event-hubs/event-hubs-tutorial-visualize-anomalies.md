@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: event-hubs
 ms.custom: seodec18
 ms.date: 02/26/2019
-ms.openlocfilehash: 4f72def4d81f51fcf1bedbeb83798b16ebb6eb32
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
-ms.translationtype: HT
+ms.openlocfilehash: 4ade1b05b1ec5c81774b5340cfdceb97e41218f3
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56888669"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58123053"
 ---
 # <a name="tutorial-visualize-data-anomalies-in-real-time-events-sent-to-azure-event-hubs"></a>Självstudie: Visualisera dataavvikelser i realtidshändelser som skickats till Azure Event Hubs
 
@@ -328,10 +328,10 @@ I Stream Analytics-jobbet klickar du på **Starta**, på **Nu** och sedan på **
     > När du kör exempelprogrammet och strömmar data till händelsehubben ändras numret på den här panelen snabbt (varje sekund). Det beror på att Stream Analytics-frågan faktiskt uppdaterar värdet **varje sekund**. Uppdatera frågan till ett rullande fönster på 3 minuter för att se summan av de senaste minuterna. 
 11. Lägg till ytterligare en visualisering. Upprepa de första stegen igen:
 
-   * Klicka på **Lägg till panel**.
-   * Välj **Anpassade strömmande data**. 
-   * Klicka på **Nästa**.
-   * Välj din datauppsättning och klicka sedan på **Nästa**. 
+    * Klicka på **Lägg till panel**.
+    * Välj **Anpassade strömmande data**. 
+    * Klicka på **Nästa**.
+    * Välj din datauppsättning och klicka sedan på **Nästa**. 
 
 12. Välj **Linjediagram** under **Visualiseringstyp**.
 

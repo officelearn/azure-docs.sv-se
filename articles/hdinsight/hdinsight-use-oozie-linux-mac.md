@@ -9,12 +9,12 @@ ms.author: omidm
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 02/28/2019
-ms.openlocfilehash: 7fc7f63539e65618f00d75d5392ad1e96b7aab3e
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: dfbf9a3a9b800fec5df4cf527ddd4ec8e3f55b37
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57533465"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57853247"
 ---
 # <a name="use-apache-oozie-with-apache-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>Använda Apache Oozie med Apache Hadoop för att definiera och köra ett arbetsflöde på Linux-baserade Azure HDInsight
 
@@ -42,7 +42,7 @@ Du kan också använda Oozie för att schemalägga jobb som är specifika för e
 * **Möjliga ändring lagringskonfiguration.**  Se [lagringskonfiguration](#storage-configuration) om du använder storage-kontotyp `BlobStorage`.
 
 ## <a name="storage-configuration"></a>Storage-konfiguration
-Ingen åtgärd krävs om lagringskontot som används är av typen `Storage (general purpose v1)` eller `StorageV2 (general purpose v2)`.  Processen i artikeln resultat till minst `/mapreducestaging`.  Innehåller en standardkonfiguration för hadoop `/mapreducestaging` i den `fs.azure.page.blob.dir` configuration variabel i `core-site.xml` för tjänsten `HDFS`.  Den här konfigurationen leder till utdata till katalogen är sidblobar, vilket inte stöds för storage-kontotyp `BlobStorage`.  Att använda `BlobStorage` i den här artikeln tar du bort `/mapreducestaging` från den `fs.azure.page.blob.dir` configuration variabeln.  Konfigurationen kan nås från den [Ambari UI](/hdinsight-hadoop-manage-ambari.md).  I annat fall visas ett felmeddelande: `Page blob is not supported for this account type.`
+Ingen åtgärd krävs om lagringskontot som används är av typen `Storage (general purpose v1)` eller `StorageV2 (general purpose v2)`.  Processen i artikeln resultat till minst `/mapreducestaging`.  Innehåller en standardkonfiguration för hadoop `/mapreducestaging` i den `fs.azure.page.blob.dir` configuration variabel i `core-site.xml` för tjänsten `HDFS`.  Den här konfigurationen leder till utdata till katalogen är sidblobar, vilket inte stöds för storage-kontotyp `BlobStorage`.  Att använda `BlobStorage` i den här artikeln tar du bort `/mapreducestaging` från den `fs.azure.page.blob.dir` configuration variabeln.  Konfigurationen kan nås från den [Ambari UI](hdinsight-hadoop-manage-ambari.md).  I annat fall visas ett felmeddelande: `Page blob is not supported for this account type.`
 
 > [!NOTE]  
 > Storage-kontot som används i den här artikeln har [säker överföring](../storage/common/storage-require-secure-transfer.md) aktiverad och därmed `wasbs` snarare än `wasb` används i hela artikeln.
@@ -130,11 +130,11 @@ Använd följande steg för att skapa en Hive-fråga (HiveQL) språkskript som d
 
     Det finns två variabler som används i skriptet:
 
-    * `${hiveTableName}`: Innehåller namnet på tabellen som ska skapas.
+   * `${hiveTableName}`: Innehåller namnet på tabellen som ska skapas.
 
-    * `${hiveDataFolder}`: Innehåller platsen för att lagra datafiler för tabellen.
+   * `${hiveDataFolder}`: Innehåller platsen för att lagra datafiler för tabellen.
 
-    Definitionsfilen för arbetsflödet, workflow.xml i den här självstudien skickar dessa värden till den här HiveQL-skript vid körning.
+     Definitionsfilen för arbetsflödet, workflow.xml i den här självstudien skickar dessa värden till den här HiveQL-skript vid körning.
 
 4. Om du vill spara filen, Välj Ctrl + X, ange `Y`, och välj sedan **RETUR**.  
 
@@ -307,7 +307,7 @@ Jobbdefinitionen beskrivs var du hittar workflow.xml. Här beskrivs också var d
 
     |Värdet för platshållaren| Ersatt värde|
     |---|---|
-    |wasbs://mycontainer@mystorageaccount.blob.core.windows.net| Värdet som tas emot från steg 1.|
+    |wasbs://mycontainer\@mystorageaccount.blob.core.windows.net| Värdet som tas emot från steg 1.|
     |admin| Ditt inloggningsnamn för HDInsight-kluster om inte administratör.|
     |Servernamn| Azure SQL database-servernamn.|
     |sqlLogin| Azure SQL database server-inloggning.|

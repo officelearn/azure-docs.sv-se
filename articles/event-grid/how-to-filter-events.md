@@ -7,16 +7,18 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: spelluru
-ms.openlocfilehash: 95a0d1b8afba71f6c8226dfe1ad5268d9e6f24e1
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 182a936e97cd6ed2527d618dfe777ae861c757e3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55816925"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58182259"
 ---
 # <a name="filter-events-for-event-grid"></a>Filtrera händelser för Event Grid
 
 Den här artikeln visar hur du filtrerar händelser när du skapar en Event Grid-prenumeration. Läs mer om alternativen för händelsefiltrering, i [förstå händelse filtrering för Event Grid-prenumerationer](event-filtering.md).
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="filter-by-event-type"></a>Filtrera efter händelsetyp
 
@@ -27,7 +29,7 @@ Du använder PowerShell använder den `-IncludedEventType` parameter när du ska
 ```powershell
 $includedEventTypes = "Microsoft.Resources.ResourceWriteFailure", "Microsoft.Resources.ResourceWriteSuccess"
 
-New-AzureRmEventGridSubscription `
+New-AzEventGridSubscription `
   -EventSubscriptionName demoSubToResourceGroup `
   -ResourceGroupName myResourceGroup `
   -Endpoint <endpoint-URL> `
@@ -82,9 +84,9 @@ Du kan filtrera händelserna efter ämne i informationen om händelsen. Du kan a
 I följande PowerShell-exempel skapar du en händelseprenumeration som filtrerar genom att i början av ämne. Du använder den `-SubjectBeginsWith` parametern för att begränsa händelser till de som för en specifik resurs. Du skickar resurs-ID för en grupp.
 
 ```powershell
-$resourceId = (Get-AzureRmResource -ResourceName demoSecurityGroup -ResourceGroupName myResourceGroup).ResourceId
+$resourceId = (Get-AzResource -ResourceName demoSecurityGroup -ResourceGroupName myResourceGroup).ResourceId
 
-New-AzureRmEventGridSubscription `
+New-AzEventGridSubscription `
   -Endpoint <endpoint-URL> `
   -EventSubscriptionName demoSubscriptionToResourceGroup `
   -ResourceGroupName myResourceGroup `
@@ -94,9 +96,9 @@ New-AzureRmEventGridSubscription `
 I nästa PowerShell-exempel skapas en prenumeration för ett blob storage. Det begränsar händelser till sådana med ett ämne som slutar med `.jpg`.
 
 ```powershell
-$storageId = (Get-AzureRmStorageAccount -ResourceGroupName myResourceGroup -AccountName $storageName).Id
+$storageId = (Get-AzStorageAccount -ResourceGroupName myResourceGroup -AccountName $storageName).Id
 
-New-AzureRmEventGridSubscription `
+New-AzEventGridSubscription `
   -EventSubscriptionName demoSubToStorage `
   -Endpoint <endpoint-URL> `
   -ResourceId $storageId `
@@ -218,15 +220,15 @@ Om du använder PowerShell använder du:
 $topicName = <your-topic-name>
 $endpointURL = <endpoint-URL>
 
-New-AzureRmResourceGroup -Name gridResourceGroup -Location eastus2
-New-AzureRmEventGridTopic -ResourceGroupName gridResourceGroup -Location eastus2 -Name $topicName
+New-AzResourceGroup -Name gridResourceGroup -Location eastus2
+New-AzEventGridTopic -ResourceGroupName gridResourceGroup -Location eastus2 -Name $topicName
 
-$topicid = (Get-AzureRmEventGridTopic -ResourceGroupName gridResourceGroup -Name $topicName).Id
+$topicid = (Get-AzEventGridTopic -ResourceGroupName gridResourceGroup -Name $topicName).Id
 
 $expDate = '<mm/dd/yyyy hh:mm:ss>' | Get-Date
 $AdvFilter1=@{operator="StringIn"; key="Data.color"; Values=@('blue', 'red', 'green')}
 
-New-AzureRmEventGridSubscription `
+New-AzEventGridSubscription `
   -ResourceId $topicid `
   -EventSubscriptionName <event_subscription_name> `
   -Endpoint $endpointURL `
@@ -252,8 +254,8 @@ curl -X POST -H "aeg-sas-key: $key" -d "$event" $topicEndpoint
 Om du använder PowerShell använder du:
 
 ```azurepowershell-interactive
-$endpoint = (Get-AzureRmEventGridTopic -ResourceGroupName gridResourceGroup -Name $topicName).Endpoint
-$keys = Get-AzureRmEventGridTopicKey -ResourceGroupName gridResourceGroup -Name $topicName
+$endpoint = (Get-AzEventGridTopic -ResourceGroupName gridResourceGroup -Name $topicName).Endpoint
+$keys = Get-AzEventGridTopicKey -ResourceGroupName gridResourceGroup -Name $topicName
 
 $eventID = Get-Random 99999
 $eventDate = Get-Date -Format s

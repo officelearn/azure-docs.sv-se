@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/05/2018
 ms.author: tomfitz
-ms.openlocfilehash: 2886dbafe6bf20718f4e3cd2976764fc432dbb04
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 92a5f7c058904015cb22a239b7e7c4938ae1fdae
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44021760"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57895260"
 ---
 # <a name="microsoftcommonfileupload-ui-element"></a>Microsoft.Common.FileUpload UI-element
 En kontroll som gör att användaren kan ange en eller flera filer som ska överföras.
@@ -48,7 +48,7 @@ En kontroll som gör att användaren kan ange en eller flera filer som ska över
 ```
 
 ## <a name="remarks"></a>Kommentarer
-- `constraints.accept` Anger vilka typer av filer som visas i webbläsarens fildialogruta. Se den [HTML5-specifikationen](http://www.w3.org/TR/html5/forms.html#attr-input-accept) för tillåtna värden. Standardvärdet är **null**.
+- `constraints.accept` Anger vilka typer av filer som visas i webbläsarens fildialogruta. Se den [HTML5-specifikationen](https://www.w3.org/TR/html5/forms.html#attr-input-accept) för tillåtna värden. Standardvärdet är **null**.
 - Om `options.multiple` är inställd på **SANT**, användaren tillåts att välja fler än en fil i webbläsarens fildialogruta. Standardvärdet är **FALSKT**.
 - Det här elementet har stöd för utgående filer i två lägen för baserat på värdet för `options.uploadMode`. Om **filen** anges utdata har innehållet i filen som en blob. Om **url** har angetts, och sedan filen har överförts till en tillfällig plats och utdata har blobens URL. Tillfällig blobbar ska rensas efter 24 timmar. Standardvärdet är **filen**.
 - En uppladdade filen är skyddad. Utdata-URL: en innehåller en [SAS-token](../storage/common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) för att komma åt filen under distributionen.

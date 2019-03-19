@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/28/2018
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 8c8f3cd67186450fdcf65c177ea0353d297a3b01
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 2fc4f26f187301ea7a7a1e3051038f75da728547
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51264420"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58125185"
 ---
 ## <a name="generate-the-certificate-signing-request-file"></a>Generera filen för begäran om certifikatsignering
 
@@ -47,17 +47,17 @@ För att kunna skicka push-meddelanden till en iOS-app måste du registrera prog
 
 2. Uppdatera följande tre fält för din nya app och klicka sedan på **Fortsätt**:
 
-    * **Namn**: Ange ett beskrivande namn för din app i **Namn**-fältet i avsnittet **Beskrivning av App-ID**.
-    * **Paketidentifierare**: Under avsnittet **Uttrycklig App-ID**, anger du en **paketidentifierare** i formuläret `<Organization Identifier>.<Product Name>` enligt [appdistributionsguiden](https://help.apple.com/xcode/mac/current/#/dev91fe7130a). Den *organisationsidentifierare* och det *produktnamn* som du använder måste matcha organisationsidentifieraren och produktnamnet du använder när du skapar ditt XCode-projekt. På följande skärmbild används *NotificationHubs* som ett organisations-ID och *GetStarted* används som produktnamnet. Kontrollera att detta värde matchar de värden som du använder i ditt XCode-projekt, eftersom du då kan använda rätt publiceringsprofil med XCode.
-    * **Push-meddelanden**: Markera alternativet **Push-meddelanden** i avsnittet **App Services**.
+   * **Namn**: Ange ett beskrivande namn för din app i den **namn** i den **ID Appbeskrivning** avsnittet.
+   * **Paketidentifierare**: Under den **Explicit App-ID** anger en **paketidentifieraren** i formuläret `<Organization Identifier>.<Product Name>` som anges i den [Appdistributionsguiden](https://help.apple.com/xcode/mac/current/#/dev91fe7130a). Den *organisationsidentifierare* och det *produktnamn* som du använder måste matcha organisationsidentifieraren och produktnamnet du använder när du skapar ditt XCode-projekt. På följande skärmbild används *NotificationHubs* som ett organisations-ID och *GetStarted* används som produktnamnet. Kontrollera att detta värde matchar de värden som du använder i ditt XCode-projekt, eftersom du då kan använda rätt publiceringsprofil med XCode.
+   * **Push-meddelanden**: Kontrollera den **Push-meddelanden** alternativet i den **Apptjänster** avsnittet.
 
-    ![Formulär för att registrera ett nytt App-ID](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-new-appid-info.png)
+     ![Formulär för att registrera ett nytt App-ID](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-new-appid-info.png)
 
-    Denna åtgärd genererar ditt app-ID och ber dig att bekräfta informationen. Klicka på **Registrera** för att bekräfta det nya app-ID:et.
+     Denna åtgärd genererar ditt app-ID och ber dig att bekräfta informationen. Klicka på **Registrera** för att bekräfta det nya app-ID:et.
 
-    När du klickar på **Registrera** visas skärmen **Registreringen har slutförts** såsom på följande bild. Klicka på **Klar**.
+     När du klickar på **Registrera** visas skärmen **Registreringen har slutförts** såsom på följande bild. Klicka på **Klar**.
 
-    ![Registreringen av App-ID:et har slutförts och visar berättigande](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-appid-registration-complete.png)
+     ![Registreringen av App-ID:et har slutförts och visar berättigande](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-appid-registration-complete.png)
 
 3. Under App-ID:n i Developer Center letar du upp den App-ID som du skapade och klickar på dess rad.
 

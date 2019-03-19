@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 6bb37008b6a8b37e575dcf83dffcf57ab08996fd
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 9008c98a086ed2d45b7339fa3f76b33240789db8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57540002"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58102459"
 ---
 # <a name="data-management-gateway"></a>Gateway för datahantering
 > [!NOTE]
@@ -93,7 +93,7 @@ Data management gateway kan installeras på följande sätt:
 
 ### <a name="install-the-gateway-from-download-center"></a>Installera gatewayen från download center
 1. Gå till [hämtningssidan för Microsoft Data Management Gateway](https://www.microsoft.com/download/details.aspx?id=39717).
-2. Klicka på **hämta**, Välj lämplig version (**32-bitars** vs. **64-bitars**), och klicka på **nästa**.
+2. Klicka på **hämta**väljer den **64-bitars** version (32-bitars stöds inte mer), och klicka på **nästa**.
 3. Kör den **MSI** direkt eller spara den på hårddisken och kör.
 4. På den **Välkommen** väljer en **språk** klickar du på **nästa**.
 5. **Acceptera** licensavtalet och klicka på **nästa**.
@@ -291,7 +291,7 @@ Du kan aktivera/inaktivera funktionen för automatisk uppdatering genom att gör
     ```PowerShell
     .\IntegrationRuntimeAutoUpdateToggle.ps1 -on
     ```
-[För flera noder högtillgängliga och skalbara gateway](data-factory-data-management-gateway-high-availability-scalability.md)
+   [För flera noder högtillgängliga och skalbara gateway](data-factory-data-management-gateway-high-availability-scalability.md)
 1. Starta Windows PowerShell på gateway-datorn.
 2. Växla till mappen C:\Program Files\Microsoft Integration Runtime\3.0\PowerShellScript\.
 3. Kör följande kommando för att aktivera automatisk uppdatering funktion av (inaktivera).
@@ -467,7 +467,7 @@ För att kryptera autentiseringsuppgifter i Data Factory Editor, gör du följan
         }
     }
     ```
-Om du har åtkomst till portalen från en dator som skiljer sig från gateway-datorn måste du se till att Hanteraren för autentiseringsuppgifter programmet kan ansluta till gateway-datorn. Om programmet inte kan nå gateway-datorn, tillåter det inte att du kan ange autentiseringsuppgifter för datakällan och att testa anslutningen till datakällan.
+   Om du har åtkomst till portalen från en dator som skiljer sig från gateway-datorn måste du se till att Hanteraren för autentiseringsuppgifter programmet kan ansluta till gateway-datorn. Om programmet inte kan nå gateway-datorn, tillåter det inte att du kan ange autentiseringsuppgifter för datakällan och att testa anslutningen till datakällan.
 
 När du använder den **ange autentiseringsuppgifter** program, portalen krypterar autentiseringsuppgifterna med certifikatet som anges i den **certifikat** fliken den **Gateway Configuration Manager**  på gateway-datorn.
 
@@ -511,7 +511,7 @@ Det här avsnittet beskriver hur du skapar och registrerar en gateway med Azure 
     Key               : ADF#00000000-0000-4fb8-a867-947877aef6cb@fda06d87-f446-43b1-9485-78af26b8bab0@4707262b-dc25-4fe5-881c-c8a7c3c569fe@wu#nfU4aBlq/heRyYFZ2Xt/CD+7i73PEO521Sj2AFOCmiI
     ```
 
-1. Växla till mappen i Azure PowerShell: **C:\Program Files\Microsoft Data Management Gateway\2.0\PowerShellScript\**. Kör **RegisterGateway.ps1** som är associerade med den lokala variabeln **$Key** som visas i följande kommando. Det här skriptet registrerar klientagenten installerad på datorn med en logisk gateway som du skapat tidigare.
+1. Växla till mappen i Azure PowerShell: **C:\Program Files\Microsoft Data Management Gateway\2.0\PowerShellScript\\**. Kör **RegisterGateway.ps1** som är associerade med den lokala variabeln **$Key** som visas i följande kommando. Det här skriptet registrerar klientagenten installerad på datorn med en logisk gateway som du skapat tidigare.
 
     ```PowerShell
     PS C:\> .\RegisterGateway.ps1 $MyDMG.Key
@@ -529,7 +529,7 @@ Det här avsnittet beskriver hur du skapar och registrerar en gateway med Azure 
     ```PowerShell        
     Get-AzDataFactoryGateway -DataFactoryName <dataFactoryName> -ResourceGroupName ADF
     ```
-Du kan ta bort en gateway med hjälp av den **Remove-AzDataFactoryGateway** cmdlet och uppdatera beskrivning för en gateway med hjälp av den **Set-AzDataFactoryGateway** cmdletar. Syntax och annan information om dessa cmdletar finns i Cmdlet-referens för Data Factory.  
+   Du kan ta bort en gateway med hjälp av den **Remove-AzDataFactoryGateway** cmdlet och uppdatera beskrivning för en gateway med hjälp av den **Set-AzDataFactoryGateway** cmdletar. Syntax och annan information om dessa cmdletar finns i Cmdlet-referens för Data Factory.  
 
 ### <a name="list-gateways-using-powershell"></a>Visa gateways med hjälp av PowerShell
 

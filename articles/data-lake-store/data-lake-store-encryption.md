@@ -8,12 +8,12 @@ ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: yagupta
-ms.openlocfilehash: df89f8fd4dd5c7690d858009e250a474f702f1a8
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: a009f212bd8baaa353d602dc6090aeeccddd4936
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46125042"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58098142"
 ---
 # <a name="encryption-of-data-in-azure-data-lake-storage-gen1"></a>Kryptering av data i Azure Data Lake Storage Gen1
 
@@ -21,7 +21,7 @@ Kryptering i Azure Data Lake Storage Gen1 hjälper dig att skydda dina data, imp
 
 Data Lake Storage Gen1 har stöd för kryptering av data i vila och under överföring. Data Lake Storage Gen1 stöder för data i vila ”på som standard” transparent kryptering. En liten förklaring av vad detta betyder:
 
-* **På som standard**: när du skapar ett nytt Data Lake Storage Gen1 konto standardinställningen för kryptering. Därefter krypteras alltid data som lagras i Data Lake Storage Gen1 före lagring på permanenta media. Detta beteende gäller för alla data och kan inte ändras efter att ett konto har skapats.
+* **På som standard**: När du skapar ett nytt konto för Data Lake Storage Gen1 kryptering standardinställningen. Därefter krypteras alltid data som lagras i Data Lake Storage Gen1 före lagring på permanenta media. Detta beteende gäller för alla data och kan inte ändras efter att ett konto har skapats.
 * **Transparent**: Data Lake Storage Gen1 automatiskt krypterar data före beständig lagring och dekrypterar data för hämtning. Krypteringen konfigureras och hanteras på Data Lake Storage Gen1 kontonivå av en administratör. Inga ändringar görs i dataåtkomst API: er. Därför krävs inga ändringar i program och tjänster som interagerar med Data Lake Storage Gen1 på grund av krypteringen.
 
 Data under överföring (även kallat data i rörelse) krypteras också alltid i Data Lake Storage Gen1. Förutom att kryptera data före lagring till permanenta media skyddas alltid även data under överföring eller i rörelse med hjälp av HTTPS. HTTPS är det enda protokoll som stöds för Data Lake Storage Gen1 REST-gränssnitt. Följande diagram visar hur data krypteras i Data Lake Storage Gen1:
@@ -74,7 +74,7 @@ Det är viktigt att komma ihåg följande när du väljer läge för huvudkrypte
 
 Det finns tre typer av nycklar som används i utformningen av datakryptering. I följande tabell visas en sammanfattning:
 
-| Nyckel                   | Förkortning | Kopplad till | Lagringsplats                             | Typ       | Anteckningar                                                                                                   |
+| Nyckel                   | Förkortning | Kopplad till | Lagringsplats                             | Type       | Anteckningar                                                                                                   |
 |-----------------------|--------------|-----------------|----------------------------------------------|------------|---------------------------------------------------------------------------------------------------------|
 | Huvudkrypteringsnyckel | MEK          | Ett Data Lake Storage Gen1-konto | Key Vault                              | Asymmetrisk | Den kan hanteras av Data Lake Storage Gen1 eller du.                                                              |
 | Datakrypteringsnyckel   | DEK          | Ett Data Lake Storage Gen1-konto | Beständig lagring – hanteras av tjänsten Data Lake Storage Gen1 | Symmetrisk  | DEK krypteras av MEK. Den krypterade DEK lagras på permanenta medier. |
@@ -115,22 +115,22 @@ Observera att om du använder standardalternativen för kryptering krypteras din
 
 ### <a name="how-to-rotate-the-mek-in-data-lake-storage-gen1"></a>Så här roterar du MEK i Data Lake Storage Gen1
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/).
+1. Logga in på [Azure Portal](https://portal.azure.com/).
 2. Bläddra till det nyckelvalv där de nycklar som är associerade med ditt Data Lake Storage Gen1 lagras. Välj **Nycklar**.
 
     ![Skärmbild av Key Vault](./media/data-lake-store-encryption/keyvault.png)
 
-3.  Välj nyckeln som associeras med ditt Data Lake Storage Gen1 och skapa en ny version av den här nyckeln. Observera att Data Lake Storage Gen1 för närvarande endast stöder nyckelrotation till en ny version av en nyckel. Det stöder inte rotering till en annan nyckel.
+3. Välj nyckeln som associeras med ditt Data Lake Storage Gen1 och skapa en ny version av den här nyckeln. Observera att Data Lake Storage Gen1 för närvarande endast stöder nyckelrotation till en ny version av en nyckel. Det stöder inte rotering till en annan nyckel.
 
    ![Skärmbild av nyckelfönstret med den nya versionen markerad](./media/data-lake-store-encryption/keynewversion.png)
 
-4.  Bläddra till Data Lake Storage Gen1-konto och välj **kryptering**.
+4. Bläddra till Data Lake Storage Gen1-konto och välj **kryptering**.
 
-    ![Skärmbild av Data Lake Storage Gen1 konto fönstret med kryptering markerat](./media/data-lake-store-encryption/select-encryption.png)
+   ![Skärmbild av Data Lake Storage Gen1 konto fönstret med kryptering markerat](./media/data-lake-store-encryption/select-encryption.png)
 
-5.  Ett meddelande informerar dig om att det finns en ny tillgänglig nyckelversion. Klicka på knappen **Rotate** (Rotera) för att uppdatera nyckeln till den nya versionen.
+5. Ett meddelande informerar dig om att det finns en ny tillgänglig nyckelversion. Klicka på knappen **Rotate** (Rotera) för att uppdatera nyckeln till den nya versionen.
 
-    ![Skärmbild av Data Lake Storage Gen1 fönstret med meddelande och Nyckelrotering markerat](./media/data-lake-store-encryption/rotatekey.png)
+   ![Skärmbild av Data Lake Storage Gen1 fönstret med meddelande och Nyckelrotering markerat](./media/data-lake-store-encryption/rotatekey.png)
 
 Den här åtgärden tar normalt mindre än två minuter och ingen stilleståndstid förväntas på grund av nyckelrotationen. När åtgärden har slutförts används den nya versionen av nyckeln.
 

@@ -11,12 +11,12 @@ ms.date: 01/14/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d39305b4a8fafbd2fe2f1ac101f92597d6a3e4a0
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 6510105af8c019b1aca5333f516a10667edaadb5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56189058"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58000862"
 ---
 # <a name="azure-ad-connectconfigure-ad-ds-connector-account-permissions"></a>Azure AD Connect: Konfigurera behörigheterna för AD DS-koppling 
 
@@ -104,7 +104,7 @@ Get-ADSyncObjectsWithInheritanceDisabled -SearchBase '<DistinguishedName>' -Obje
 ```
  
 ### <a name="view-ad-ds-permissions-of-an-object"></a>Visa AD DS-behörigheter för ett objekt 
-Du kan använda cmdleten nedan för att visa listan över behörigheter som ställts in på en Active Directory-objekt genom att ange dess DistinguishedName: 
+Du kan använda cmdleten nedan för att visa listan över behörigheter som ställts in på Active Directory-objekt genom att ange dess DistinguishedName: 
 
 ``` powershell
 Show-ADSyncADObjectPermissions -ADobjectDN '<DistinguishedName>' 
@@ -158,7 +158,7 @@ Denna cmdlet kommer att ange följande behörigheter:
 
 |Type |Namn |Access |Gäller|
 |-----|-----|-----|-----| 
-|Tillåt|Kontot för AD DS-koppling|Läs/Skriv-egenskapen|MS-DS-Consistency-Guid|Underordnade objekt|
+|Tillåt|Kontot för AD DS-koppling|Läs/Skriv-egenskapen|Underordnade objekt|
 
 ### <a name="permissions-for-password-hash-synchronization"></a>Behörigheter för synkronisering av Lösenordshash 
 Om du vill ange behörigheter för AD DS-anslutningskontot när du använder synkronisering av Lösenordshash, kör du: 
@@ -271,7 +271,7 @@ Det här PowerShell-skriptet kommer öka behörigheterna för kontot AD-koppling
 - Inaktivera arv på det angivna-objektet 
 - Ta bort alla åtkomstkontrollposter på specifika objekt, utom åtkomstkontrollposter som är specifika för SELF eftersom vi vill hålla standardbehörigheterna intakt när det gäller att själv. 
  
- Parametern - ADConnectorAccountDN är det AD-konto vars behörigheter behöver höjas. Detta är vanligtvis MSOL_nnnnnnnnnnnn domänkontot som har konfigurerats i AD DS-anslutning (Se ta reda på dina AD DS-Anslutningskontot). -Credential parametern är nödvändigt att ange det administratörskonto som har de behörigheter som krävs för att begränsa Active Directory-behörigheter i målobjektet AD. Detta är vanligtvis Enterprise eller domänadministratör.  
+  Parametern - ADConnectorAccountDN är det AD-konto vars behörigheter behöver höjas. Detta är vanligtvis MSOL_nnnnnnnnnnnn domänkontot som har konfigurerats i AD DS-anslutning (Se ta reda på dina AD DS-Anslutningskontot). -Credential parametern är nödvändigt att ange det administratörskonto som har de behörigheter som krävs för att begränsa Active Directory-behörigheter i målobjektet AD. Detta är vanligtvis Enterprise eller domänadministratör.  
 
 ``` powershell
 Set-ADSyncRestrictedPermissions [-ADConnectorAccountDN] <String> [-Credential] <PSCredential> [-DisableCredentialValidation] [-WhatIf] [-Confirm] [<CommonParameters>] 

@@ -8,24 +8,24 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 02/23/2019
-ms.openlocfilehash: 1138af0e073f68842861df86acd4d9d6eb467782
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
-ms.translationtype: HT
+ms.openlocfilehash: bd8fa10ca0a9809891efc67ff930ab01d502eda9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56824717"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58117089"
 ---
 # <a name="deploy-to-azure-functions-using-the-jenkins-azure-functions-plugin"></a>Distribuera till Azure Functions med hjälp av plugin-programmet Jenkins i Azure Functions
 
 [Azure Functions](/azure/azure-functions/) är en "serverlös" beräkningstjänst. Med Azure Functions kan köra du kod på begäran utan att tillhandahålla eller hantera infrastruktur. I den är självstudien får du lära dig att distribuera en Java-funktion till Azure Functions med hjälp av Azure Functions-plugin-programmet.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 - **Azure-prenumeration**: Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) innan du börjar.
 - **Jenkins-server**: Om du inte har en Jenkins-server installerad kan du läsa artikeln [Skapa en Jenkins-server i Azure](./install-jenkins-solution-template.md).
 
- > [!TIP]
- > Källkoden i den här självstudien finns i [Visual Studio Kina GitHub-lagringsplatsen](https://github.com/VSChina/odd-or-even-function/blob/master/src/main/java/com/microsoft/azure/Function.java).
+  > [!TIP]
+  > Källkoden i den här självstudien finns i [Visual Studio Kina GitHub-lagringsplatsen](https://github.com/VSChina/odd-or-even-function/blob/master/src/main/java/com/microsoft/azure/Function.java).
 
 ## <a name="create-a-java-function"></a>Skapa en Java-funktion
 
@@ -89,6 +89,14 @@ Följande steg beskriver hur du förbereder Jenkins-servern:
 
 1. Med Azure-tjänstens huvudnamn lägger du till ”Microsoft Azure Service Principal” som autentiseringstyp i Jenkins. Referera till självstudien [Distribuera till Azure App Service](./tutorial-jenkins-deploy-web-app-azure-app-service.md#add-service-principal-to-jenkins).
 
+## <a name="fork-the-sample-github-repo"></a>Förgrening GitHub-exempellager
+
+1. [Logga in på GitHub-lagringsplatsen för appen udda eller även exempel](https://github.com/VSChina/odd-or-even-function.git).
+
+1. I det övre högra hörnet i GitHub väljer du **Fork** (Förgrening).
+
+1. Följ anvisningarna för att välja ditt GitHub-konto och slutför förgreningen.
+
 ## <a name="create-a-jenkins-pipeline"></a>Skapa en Jenkins-pipeline
 
 I det här avsnittet skapar du en [Jenkins-pipeline](https://jenkins.io/doc/book/pipeline/).
@@ -107,7 +115,27 @@ I det här avsnittet skapar du en [Jenkins-pipeline](https://jenkins.io/doc/book
     
 1. I avsnittet **Pipeline->Definition** väljer du **Pipeline-skript från SCM**.
 
-1. Ange SCM-lagringsplatsens URL och skriptsökvägen med hjälp av det angivna [skriptexemplet](https://github.com/VSChina/odd-or-even-function/blob/master/doc/resources/jenkins/JenkinsFile).
+1. Ange din GitHub-förgrening URL och skript sökväg (”doc/resurser/jenkins/JenkinsFile”) ska användas i den [JenkinsFile exempel](https://github.com/VSChina/odd-or-even-function/blob/master/doc/resources/jenkins/JenkinsFile).
+
+   ```
+   node {
+    stage('Init') {
+        checkout scm
+        }
+
+    stage('Build') {
+        sh 'mvn clean package'
+        }
+
+    stage('Publish') {
+        azureFunctionAppPublish appName: env.FUNCTION_NAME, 
+                                azureCredentialsId: env.AZURE_CRED_ID, 
+                                filePath: '**/*.json,**/*.jar,bin/*,HttpTrigger-Java/*', 
+                                resourceGroup: env.RES_GROUP, 
+                                sourceDirectory: 'target/azure-functions/odd-or-even-function-sample'
+        }
+    }
+    ```
 
 ## <a name="build-and-deploy"></a>Skapa och distribuera
 

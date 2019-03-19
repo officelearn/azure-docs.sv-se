@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6266ec1f01a50756f745c3e8185c9fe34e102b4a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 2e25848359de91d67925f49901c6c170978ea592
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56196203"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58078711"
 ---
 # <a name="quickstart-build-a-xamarin-app-that-integrates-microsoft-sign-in"></a>Snabbstart: Skapa en Xamarin-app som integrerar Microsoft-inloggning
 
@@ -37,7 +37,7 @@ Azure AD tillhandahåller Active Directory Authentication Library (ADAL) till Xa
 * Använder ett enda portabelt klassbibliotek (PCL) för att autentisera användare och hämta token för Azure AD Graph API.
 * Söker i en katalog efter användare med ett visst UPN.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * Ladda ned [projektets stomme](https://github.com/AzureADQuickStarts/NativeClient-MultiTarget-DotNet/archive/skeleton.zip) eller ladda ned det [färdiga exemplet](https://github.com/AzureADQuickStarts/NativeClient-MultiTarget-DotNet/archive/complete.zip). Varje nedladdning är en Visual Studio 2013-lösning.
 * Du behöver även ha en Azure AD-klientorganisation där du kan skapa användare och registrera appen. Om du inte redan har en klientorganisation kan du [läsa om hur du skaffar en](quickstart-create-new-tenant.md).
@@ -54,16 +54,17 @@ När du har slutfört konfigurationen öppnar du lösningen i Visual Studio. Dä
 
 För att göra så att appen kan få token behöver du först registrera den i din Azure AD-klientorganisation och bevilja den behörighet för åtkomst till Azure AD Graph API. Så här gör du:
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Klicka på ditt konto i fältet längst upp. Under **kataloglistan** väljer du sedan den Active Directory-klientorganisation där du vill registrera appen.
 3. Klicka på **Alla tjänster** i den vänstra fönsterrutan och välj sedan **Azure Active Directory**.
 4. Klicka på **Appregistreringar** och välj sedan **Lägg till**.
 5. Följ anvisningarna för att skapa ett nytt **internt klientprogram**.
-  * **Namn** beskriver appen för användarna.
-  * **Omdirigerings-URI** är ett schema och en strängkombination som Azure AD använder till att returnera tokensvar. Ange ett värde (till exempel http://DirectorySearcher).
+   * **Namn** beskriver appen för användarna.
+   * **Omdirigerings-URI** är ett schema och en strängkombination som Azure AD använder till att returnera tokensvar. Ange ett värde (till exempel `http://DirectorySearcher`).
 6. När du har slutfört registreringen tilldelar Azure AD appen ett unikt program-ID. Kopiera värdet från fliken **Program** eftersom du behöver det senare.
 7. På sidan **Inställningar** väljer du **Nödvändiga behörigheter** och sedan **Lägg till**.
-8. Välj **Microsoft Graph** som API. Under **Delegerade behörigheter** lägger du till behörigheten **Läsa katalogdata**. Den här åtgärden gör det möjligt för appen att köra frågor mot Graph API för användare.
+8. Välj **Microsoft Graph** som API. Under **Delegerade behörigheter** lägger du till behörigheten **Läsa katalogdata**. 
+   Den här åtgärden gör det möjligt för appen att köra frågor mot Graph API för användare.
 
 ## <a name="step-3-install-and-configure-adal"></a>Steg 3: Installera och konfigurera ADAL
 
@@ -95,9 +96,9 @@ Nu när du har en app i Azure AD kan du installera ADAL och skriva din identitet
 2. I projektet DirectorySearcherLib öppnar du DirectorySearcher.cs.
 3. Ersätt klassmedlemsvärdena med de värden som du angav i Azure-portalen. Din kod refererar till de här värdena när den använder ADAL.
 
-  * *tenant* är domänen för din Azure AD-klientorganisation (till exempel contoso.onmicrosoft.com).
-  * *clientId* är klient-ID för appen som du kopierade från portalen.
-  * *returnUri* är omdirigerings-URI som du angav i portalen (till exempel http://DirectorySearcher).
+   * *tenant* är domänen för din Azure AD-klientorganisation (till exempel contoso.onmicrosoft.com).
+   * *clientId* är klient-ID för appen som du kopierade från portalen.
+   * Den *returnUri* är omdirigerings-URI som du angav på portalen (till exempel `http://DirectorySearcher`).
 
 ## <a name="step-4-use-adal-to-get-tokens-from-azure-ad"></a>Steg 4: Använda ADAL för att hämta token från Azure AD
 

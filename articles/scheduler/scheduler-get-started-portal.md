@@ -10,12 +10,12 @@ ms.reviewer: klam
 ms.assetid: e69542ec-d10f-4f17-9b7a-2ee441ee7d68
 ms.topic: conceptual
 ms.date: 09/17/2018
-ms.openlocfilehash: 7e5abf1100c09f8f28d268b3f2defe953c5f36f0
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 3b2cfc932c6322df8237ec7cdf820fc4242bfa72
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57770143"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57887229"
 ---
 # <a name="create-and-schedule-your-first-job-with-azure-scheduler---azure-portal"></a>Skapa och schemalägga ditt första jobb med Azure Scheduler – Azure-portalen
 
@@ -34,7 +34,7 @@ Om du heller inte har någon Azure-prenumeration kan du <a href="https://azure.m
 
    ![Skapa resurs för Scheduler](./media/scheduler-get-started-portal/scheduler-v2-portal-marketplace-create.png)
 
-   Nu ska du skapa ett jobb som skickar en GET-begäran till denna URL: `http://www.microsoft.com/` 
+   Nu ska du skapa ett jobb som skickar en GET-begäran till denna URL: `https://www.microsoft.com/` 
 
 1. Under **Scheduler-jobb**, ange den här informationen:
 
@@ -51,7 +51,7 @@ Om du heller inte har någon Azure-prenumeration kan du <a href="https://azure.m
    |----------|---------------|-------------| 
    | **Åtgärd** | **Http** | Typ av åtgärd som ska köras | 
    | **Metod** | **Hämta** | Anropsmetod | 
-   | **URL** | **http://www.microsoft.com** | Mål-URL | 
+   | **URL** | **https://www.microsoft.com** | Mål-URL | 
    |||| 
    
    ![Definiera jobb](./media/scheduler-get-started-portal/scheduler-v2-portal-action-settings.png)

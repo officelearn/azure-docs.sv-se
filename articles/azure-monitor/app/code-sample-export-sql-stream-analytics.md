@@ -12,14 +12,14 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: mbullwin
-ms.openlocfilehash: 502ccf15fe3e2f803febb711d4ea8850abbaea85
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 0166622539a439a99aef7e476519881518baa0b0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54116593"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58106346"
 ---
-# <a name="walkthrough-export-to-sql-from-application-insights-using-stream-analytics"></a>Steg-för-steg-beskrivning: Exportera till SQL från Application Insights med hjälp av Stream Analytics
+# <a name="walkthrough-export-to-sql-from-application-insights-using-stream-analytics"></a>Genomgång: Exportera till SQL från Application Insights med hjälp av Stream Analytics
 Den här artikeln visar hur du flyttar dina telemetridata från [Azure Application Insights] [ start] till en Azure SQL-databas med hjälp av [löpande Export] [ export] och [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/). 
 
 Löpande export flyttar telemetridata till Azure Storage i JSON-format. Vi parsa JSON-objekt med hjälp av Azure Stream Analytics och skapa rader i en databastabell.
@@ -181,8 +181,8 @@ I det här exemplet:
 > Funktionen exemplet används för att kontrollera att du har angett korrekt indatasökvägen. Om det misslyckas: Kontrollera att det finns data i lagring för exemplet tidsintervall som du har valt. Redigera definitionen för indata och kontrollera du ange storage-konto, sökvägsprefix och datumformat korrekt.
 > 
 > 
-## <a name="set-query"></a>Ange fråga
-Öppna avsnittet fråga:
+> ## <a name="set-query"></a>Ange fråga
+> Öppna avsnittet fråga:
 
 Ersätt standardfrågan med:
 

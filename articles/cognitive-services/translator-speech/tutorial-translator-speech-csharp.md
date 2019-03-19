@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 3/5/2018
 ms.author: v-jerkin
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: a3ed13cfe764c4f94dfa50fd096cfc7a8ac7656d
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
-ms.translationtype: HT
+ms.openlocfilehash: 81ee3c7da43aa4d81838c90f4e8f41d114da72b5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56673759"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57900836"
 ---
 # <a name="tutorial-translator-speech-application-in-c"></a>Självstudier: Translator Speech-program i C#
 
@@ -32,7 +32,7 @@ Den här självstudien är en genomgång av ett interaktivt talöversättningsve
 
 En Visual Studio-lösningsfil för det här programmet [finns på GitHub](https://github.com/MicrosoftTranslator/SpeechTranslator).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 För den här kursen behöver du valfri utgåva av Visual Studio 2017 (detta innefattar även Community Edition).
 
@@ -40,7 +40,7 @@ Visual Studio-lösningen skapar också ett installationsprogram för programmet.
 
 Du behöver också en prenumerationsnyckel för Translator Speech-tjänsten. Du kan hämta den via Microsoft Azure-instrumentpanelen. Det finns en kostnadsfri prisnivå. Med den kan du översätta upp till 10 timmars tal per månad utan kostnad. Den nivån räcker för den här kursen.
 
-[JSON.Net-biblioteket](https://www.newtonsoft.com/json) (från Newtonsoft) krävs också. Den här sammansättningen installeras automatiskt av NuGet om båda kryssrutorna för Package Restore (paketåterställning) är markerade i Visual Studio-alternativen.
+Tredje parts [JSON.NET biblioteket](https://www.newtonsoft.com/json) (från Newtonsoft) krävs också. Den här sammansättningen installeras automatiskt av NuGet om båda kryssrutorna för Package Restore (paketåterställning) är markerade i Visual Studio-alternativen.
 
 ## <a name="trying-the-translation-app"></a>Prova översättningsappen
 

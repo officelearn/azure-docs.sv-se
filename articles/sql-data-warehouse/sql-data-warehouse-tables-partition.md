@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: implement
-ms.date: 04/17/2018
+ms.date: 03/18/2019
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 60f475afd8e9d599d3771b875f15a29e8a082fb7
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: d3557be2fd8fdb459571d2c792302963e17e4471
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55245896"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58189401"
 ---
 # <a name="partitioning-tables-in-sql-data-warehouse"></a>Partitionstabeller i SQL Data Warehouse
 Rekommendationer och exempel för att använda tabellpartitioner i Azure SQL Data Warehouse.
@@ -109,27 +109,6 @@ GROUP BY    s.[name]
 ;
 ```
 
-## <a name="workload-management"></a>Arbetsbelastningshantering
-En slutlig att ta hänsyn till ditt beslut för partition av tabellen är [arbetsbelastningshantering](resource-classes-for-workload-management.md). Hantering av arbetsbelastning i SQL Data Warehouse är främst hanteringen av minne och samtidighet. I SQL Data Warehouse regleras maximalt minne som allokerats till varje distribution under Frågekörningen av resursklasser. Vi rekommenderar storlek partitionerna med hänsyn till andra faktorer som de mycket minne som behövs för att skapa grupperade columnstore-index. Klustrade columnstore-index förmånen avsevärt när de tilldelas mer minne. Därför kan du se till att partitionen indexet återskapas inte lite minne. Öka mängden tillgängligt minne för att din fråga kan uppnås genom att växla från standardroll smallrc, till en av de andra rollerna, till exempel largerc.
-
-Information om allokering av minne per distribution är tillgänglig genom att fråga de dynamiska hanteringsvyerna för Resursstyrning. I verkligheten kan understiger din minnestilldelningen följande frågans resultat. Den här frågan innehåller dock en nivå som du kan använda när du ändrar storlek partitionerna för datahanteringsåtgärder. Försök att undvika att ändra storlek på dina partitioner till mer än minnestilldelningen som tillhandahålls av den extra stor resursklassen. Om din partitioner växer bortom den här bilden, riskerar du att minnestryck, vilket i sin tur leder till mindre optimala komprimering.
-
-```sql
-SELECT  rp.[name]                                AS [pool_name]
-,       rp.[max_memory_kb]                        AS [max_memory_kb]
-,       rp.[max_memory_kb]/1024                    AS [max_memory_mb]
-,       rp.[max_memory_kb]/1048576                AS [mex_memory_gb]
-,       rp.[max_memory_percent]                    AS [max_memory_percent]
-,       wg.[name]                                AS [group_name]
-,       wg.[importance]                            AS [group_importance]
-,       wg.[request_max_memory_grant_percent]    AS [request_max_memory_grant_percent]
-FROM    sys.dm_pdw_nodes_resource_governor_workload_groups    wg
-JOIN    sys.dm_pdw_nodes_resource_governor_resource_pools    rp ON wg.[pool_id] = rp.[pool_id]
-WHERE   wg.[name] like 'SloDWGroup%'
-AND     rp.[name]    = 'SloDWPool'
-;
-```
-
 ## <a name="partition-switching"></a>Växla partition
 SQL Data Warehouse stöder partition delning, sammanslagning och växlar. Var och en av dessa funktioner utförs med hjälp av den [ALTER TABLE](/sql/t-sql/statements/alter-table-transact-sql) instruktionen.
 
@@ -166,15 +145,7 @@ INSERT INTO dbo.FactInternetSales
 VALUES (1,19990101,1,1,1,1,1,1);
 INSERT INTO dbo.FactInternetSales
 VALUES (1,20000101,1,1,1,1,1,1);
-
-
-CREATE STATISTICS Stat_dbo_FactInternetSales_OrderDateKey ON dbo.FactInternetSales(OrderDateKey);
 ```
-
-> [!NOTE]
-> Tabellens metadata är mer exakta genom att skapa objektet statistik. Om du utelämnar statistik kommer SQL Data Warehouse använder standardvärden. Information om statistik och granska [statistik](sql-data-warehouse-tables-statistics.md).
-> 
-> 
 
 Följande fråga söker efter antalet rader med hjälp av den `sys.partitions` vyn katalog:
 
@@ -252,6 +223,31 @@ När du har slutfört flödet av data, är det en bra idé att uppdatera statist
 
 ```sql
 UPDATE STATISTICS [dbo].[FactInternetSales];
+```
+
+### <a name="load-new-data-into-partitions-that-contain-data-in-one-step"></a>Läsa in nya data i partitioner som innehåller data i ett steg
+Läsa in data i partitioner vid växling av partitionen är ett praktiskt sätt mellanlagra nya data i en tabell som inte är synliga för användare växeln på den nya informationen.  Det kan vara svårt på upptaget system behöver bry dig om låsning konkurrensen som är associerade med partitionen växlar.  Rensa befintliga data i en partition, en `ALTER TABLE` används för att bli ombedd att byta ut data.  Sedan en annan `ALTER TABLE` krävdes för att växla i nya data.  I SQL Data Warehouse den `TRUNCATE_TARGET` stöds i den `ALTER TABLE` kommando.  Med `TRUNCATE_TARGET` den `ALTER TABLE` kommando skriver över befintliga data på partitionen med nya data.  Nedan visas ett exempel som använder `CTAS` infogar nya data att skapa en ny tabell med befintliga data, sedan växlar tillbaka alla data i måltabellen, skriva över befintliga data.
+
+```sql
+CREATE TABLE [dbo].[FactInternetSales_NewSales]
+    WITH    (   DISTRIBUTION = HASH([ProductKey])
+            ,   CLUSTERED COLUMNSTORE INDEX
+            ,   PARTITION   (   [OrderDateKey] RANGE RIGHT FOR VALUES
+                                (20000101,20010101
+                                )
+                            )
+            )
+AS
+SELECT  *
+FROM    [dbo].[FactInternetSales]
+WHERE   [OrderDateKey] >= 20000101
+AND     [OrderDateKey] <  20010101
+;
+
+INSERT INTO dbo.FactInternetSales_NewSales
+VALUES (1,20000101,2,2,2,2,2,2);
+
+ALTER TABLE dbo.FactInternetSales_NewSales SWITCH PARTITION 2 TO dbo.FactInternetSales PARTITION 2 WITH (TRUNCATE_TARGET = ON);  
 ```
 
 ### <a name="table-partitioning-source-control"></a>Tabellen partitionering källkontroll

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/22/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ff88f25d4bf7fea09ea07673326e068840243b98
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 75d0e962169529ab8d17aeeeed8aab26e7b7e994
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56176585"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57880882"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-wdesk"></a>Självstudier: Azure Active Directory-integrering med Wdesk
 
@@ -164,7 +164,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     
     ![Konfigurera enkel inloggning](./media/wdesk-tutorial/tutorial_wdesk_ssoconfig5.png)
   
-1. Klicka på **spara ändringar**.
+1. Klicka på **Spara ändringar**.
 
     ![Konfigurera enkel inloggning](./media/wdesk-tutorial/tutorial_wdesk_ssoconfigsavebutton.png)
 
@@ -219,7 +219,7 @@ Om du vill aktivera Azure AD-användare att logga in på Wdesk, måste de etable
    
     ![Skapa en Azure AD-användare för testning](./media/wdesk-tutorial/createuser1.png)  
 
-1. I **användaren** text, anger användarnamnet för användaren som **brittasimon@contoso.com** och klicka på **Fortsätt** knappen.
+1. I **användaren** text, anger användarnamnet för användaren som **brittasimon\@contoso.com** och klicka på **Fortsätt** knappen.
 
     ![Skapa en Azure AD-användare för testning](./media/wdesk-tutorial/createuser3.png)
 
@@ -227,11 +227,11 @@ Om du vill aktivera Azure AD-användare att logga in på Wdesk, måste de etable
   
     ![Skapa en Azure AD-användare för testning](./media/wdesk-tutorial/createuser4.png)
  
-    a. I **e** text, ange den e-postadressen för användaren som **brittasimon@contoso.com**.
+    a. I **e** text, ange den e-postadressen för användaren som **brittasimon\@contoso.com**.
 
     b. I textrutan **Förnamn** anger du förnamnet på användaren som **Britta**.
 
-    c. I **efternamn** text anger efternamn för användaren som **Simon**.
+    c. I textrutan **Efternamn** anger du efternamnet på användaren som **Simon**.
 
 1. Klicka på **spara medlemmen** knappen.  
 
@@ -277,7 +277,7 @@ Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../user-help/act
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
+* [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 

@@ -5,20 +5,20 @@ author: tomarchermsft
 manager: jpconnock
 tags: azure-resource-manager
 ms.assetid: ''
-ms.service: devops
+ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: vm-linux
+ms.tgt_pltfrm: jenkins
 ms.workload: infrastructure
 ms.date: 07/31/2018
 ms.author: tarcher
 ms.custom: jenkins
-ms.openlocfilehash: 651e8505c6d3a3952347bba5e598ec9a0a518e8e
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
-ms.translationtype: HT
+ms.openlocfilehash: 7cd7b8f7b49915db9fcf17602429e47c1b9da95d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54074775"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57901431"
 ---
 # <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-with-using-jenkins-and-azure-devops-services"></a>Självstudier: Distribuera appar till virtuella Linux-datorer i Azure med Jenkins och Azure DevOps Services
 
@@ -35,7 +35,7 @@ till en [distributionsgrupp](https://docs.microsoft.com/azure/devops/pipelines/r
 > * Konfigurera Jenkins för integrering med Azure DevOps Services.
 > * Skapa en tjänstslutpunkt för Jenkins.
 > * Skapa en distributionsgrupp för de virtuella Azure-datorerna.
-> * Skapa en versionspipeline i Azure Pipelines.
+> * Skapa en pipeline för versionen av Azure-Pipelines.
 > * Kör manuella och CI-utlösta distributioner.
 
 ## <a name="before-you-begin"></a>Innan du börjar
@@ -60,7 +60,7 @@ Vi rekommenderar att du för dessa självstudier använder [denna exempelapp, so
 Skapa en förgrening av den här appen och anteckna platsen (URL) för användning i senare steg i den här kursen. Läs mer i informationen om hur du [skapar en förgrening av en lagringsplats](https://help.github.com/articles/fork-a-repo/).    
 
 > [!NOTE]
-> Appen har skapats med [Yeoman](http://yeoman.io/learning/index.html). Den använder Express, Bower och Grunt. Den har även vissa npm-paket som beroenden.
+> Appen har skapats med [Yeoman](https://yeoman.io/learning/index.html). Den använder Express, Bower och Grunt. Den har även vissa npm-paket som beroenden.
 > Exempelappen innehåller också ett skript som konfigurerar Nginx och distribuerar appen. Det körs på de virtuella datorerna. Vad skriptet gör:
 > 1. Installerar Node, Nginx och PM2.
 > 2. Konfigurerar Nginx och PM2.
@@ -141,7 +141,7 @@ Du behöver en [distributionsgrupp](https://www.visualstudio.com/docs/build/conc
 8. Efter installationen kan du uppmanas att distribuera grupptaggar. Acceptera alla standardinställningar.
 9. Sök efter den nya virtuella datorn i Azure DevOps Services, i **Targets** (Mål) under **Deployment Groups** (Distributionsgrupper).
 
-## <a name="create-a-azure-pipelines-release-pipeline"></a>Skapa en versionspipeline i Azure Pipelines
+## <a name="create-an-azure-pipelines-release-pipeline"></a>Skapa en pipeline för versionen av Azure Pipelines
 
 En versionspipeline anger hur Azure Pipelines ska distribuera appen. I det här exemplet kör du ett kommandoskript.
 

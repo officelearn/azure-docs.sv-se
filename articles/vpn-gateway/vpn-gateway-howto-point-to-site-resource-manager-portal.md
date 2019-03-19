@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 10/24/2018
 ms.author: cherylmc
-ms.openlocfilehash: 4e8a28634e554ee75eea79e69c0b73e8adec3447
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: fa406ac2f1e0b89a1161660a49f2a4cb6f6d6c32
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700544"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58117327"
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-azure-portal"></a>Konfigurera en punkt-till-plats-anslutning till ett virtuellt nätverk med intern Azure-certifikatautentisering: Azure Portal
 
@@ -35,7 +35,7 @@ Ursprungliga autentiseringsanslutningar för Azure-certifikat från punkt-till-p
 
 Du kan använda följande värden till att skapa en testmiljö eller hänvisa till dem för att bättre förstå exemplen i den här artikeln.
 
-* **Namn på virtuellt nätverk:** VNet1
+* **VNet-namn:** VNet1
 * **Adressutrymme:** 192.168.0.0/16<br>I det här exemplet använder vi bara ett adressutrymme. Du kan ha fler än ett adressutrymme för ditt virtuella nätverk.
 * **Namn på undernät:** FrontEnd
 * **Adressintervall för undernätet:** 192.168.1.0/24
@@ -94,17 +94,17 @@ Klientens adresspool är ett intervall med privata IP-adresser som du anger. Kli
 
 1. När den virtuella nätverksgatewayen har skapats går du till avsnittet **Inställningar** på sidan för den virtuella nätverksgatewayen. I avsnittet **Inställningar** klickar du på **Punkt-till-plats-konfiguration**.
 
-  ![Sidan Punkt-till-plats](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/gatewayblade.png) 
+   ![Sidan Punkt-till-plats](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/gatewayblade.png) 
 2. Klicka på **Konfigurera nu** för att öppna konfigurationssidan.
 
-  ![Konfigurera nu](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/configurenow.png)
+   ![Konfigurera nu](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/configurenow.png)
 3. På konfigurationssidan **Punkt-till-plats** i **Adresspool** lägger du till det intervall med privata IP-adresser som du vill använda. VPN-klienter tar dynamiskt emot en IP-adress från intervallet som du anger. Validera och spara inställningen genom att klicka på **Spara**.
 
-  ![Klientadresspool](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/addresspool.png)
+   ![Klientadresspool](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/addresspool.png)
 
-  >[!NOTE]
-  >Om du inte ser tunneltyp eller autentiseringstyp i portalen på den här sidan, så använder din gateway bas-SKU:n. Bas-SKU:n stöder inte IKEv2- eller RADIUS-autentisering.
-  >
+   >[!NOTE]
+   >Om du inte ser tunneltyp eller autentiseringstyp i portalen på den här sidan, så använder din gateway bas-SKU:n. Bas-SKU:n stöder inte IKEv2- eller RADIUS-autentisering.
+   >
 
 ## <a name="tunneltype"></a>7. Konfigurera tunneltyp
 
@@ -126,13 +126,13 @@ Du kan ladda upp totalt ytterligare 20 stycken betrodda rotcertifikat. När info
 2. Kontrollera att du har exporterat rotcertifikatet som en Base64-kodad X.509-fil (.cer). Du behöver exportera certifikatet i det här formatet så att du kan öppna certifikatet med textredigerare.
 3. Öppna certifikatet med en textredigerare, till exempel Anteckningar. När du kopierar certifikatdata ska du se till att kopiera texten som en kontinuerlig rad utan vagnreturer och radmatningar. Du kan behöva ändra vyn i textredigeraren till ”Visa symbol/Visa alla tecken” så att vagnreturer och radmatningar visas. Kopiera enbart följande avsnitt som en kontinuerlig rad:
 
-  ![Certifikatdata](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/notepadroot.png)
+   ![Certifikatdata](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/notepadroot.png)
 4. Klistra in certifikatdata i fältet **Offentliga certifikatdata**. Ge certifikatet ett **Namn** och klicka sedan på **Spara**. Du kan lägga till upp till 20 betrodda rotcertifikat.
 
-  ![Certifikatuppladdning](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/uploaded.png)
+   ![Certifikatuppladdning](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/uploaded.png)
 5. Klicka på **Spara** överst på sidan för att spara alla konfigurationsinställningar.
 
-  ![Spara](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/save.png)
+   ![Spara](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/save.png)
 
 ## <a name="installclientcert"></a>10. Installera ett exporterat klientcertifikat
 
@@ -159,10 +159,10 @@ VPN-klientkonfigurationsfilerna innehåller inställningar för att konfigurera 
 
 2. På statussidan **Anslutning** klickar du på **Anslut** för att initiera anslutningen. Om du ser skärmen **Välj certifikat** kontrollerar du att klientcertifikatet som visas är det som du vill använda för att ansluta. Om det inte är det använder du pilen i listrutan för att välja rätt certifikat. Klicka sedan på **OK**.
 
-  ![VPN-klient ansluter till Azure](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/clientconnect.png)
+   ![VPN-klient ansluter till Azure](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/clientconnect.png)
 3. Anslutningen upprättas.
 
-  ![Anslutning upprättad](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/connected.png)
+   ![Anslutning upprättad](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/connected.png)
 
 #### <a name="troubleshoot-windows-p2s-connections"></a>Felsöka Windows P2S-anslutningar
 
@@ -183,8 +183,8 @@ Dessa anvisningar gäller för Windows-klienter.
 1. Verifiera att VPN-anslutningen är aktiv genom att öppna en upphöjd kommandotolk och köra *ipconfig/all*.
 2. Granska resultaten. Observera att IP-adressen som du fick är en av adresserna i klientadresspoolen för VPN för punkt-till-plats som du angav i konfigurationen. Resultatet är ungefär som i det här exemplet:
 
-  ```
-  PPP adapter VNet1:
+   ```
+   PPP adapter VNet1:
       Connection-specific DNS Suffix .:
       Description.....................: VNet1
       Physical Address................:
@@ -194,7 +194,7 @@ Dessa anvisningar gäller för Windows-klienter.
       Subnet Mask.....................: 255.255.255.255
       Default Gateway.................:
       NetBIOS over Tcpip..............: Enabled
-  ```
+   ```
 
 ## <a name="connectVM"></a>Ansluta till en virtuell dator
 

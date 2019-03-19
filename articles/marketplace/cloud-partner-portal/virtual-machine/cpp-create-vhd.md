@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 08/27/2018
 ms.author: pbutlerm
-ms.openlocfilehash: bd085804f532811e71d421e3f683c50c1c3416cb
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.openlocfilehash: 5643b7c80307cea36f60bcc116c82ea7b31171f9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57575494"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58096579"
 ---
 # <a name="create-an-azure-compatible-vhd"></a>Skapa en Azure-kompatibel VHD
 
@@ -55,18 +55,18 @@ I Microsofts [Azure-portalen](https://ms.portal.azure.com/), skapa basavbildning
     ![Compute-blad för nya virtuella datorn](./media/publishvm_014.png)
 
 5. När du har valt rätt virtuella avbildningen kan du ange följande värden:
-  * På den **grunderna** bladet anger du en **namn** för den virtuella datorn, mellan 1 och 15 alfanumeriska tecken. (Det här exemplet används `DemoVm009`.)
-  * Ange en **användarnamn** och ett starkt **lösenord**, som används för att skapa ett lokalt konto på den virtuella datorn.  (Här `adminUser` används.)  Lösenordet måste innehålla mellan 8 och 123 tecken och uppfylla tre av följande fyra komplexitetskrav: en gemen, en versal, en siffra och ett specialtecken. Mer information finns i [krav på användarnamn och lösenord](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-faq#what-are-the-username-requirements-when-creating-a-vm).
-  * Välj den resursgrupp som du skapade (här `DemoResourceGroup`).
-  * Välj en Azure-Datacenter **plats** (här `West US`).
-  * Klicka på **OK** att spara värdena. 
+   * På den **grunderna** bladet anger du en **namn** för den virtuella datorn, mellan 1 och 15 alfanumeriska tecken. (Det här exemplet används `DemoVm009`.)
+   * Ange en **användarnamn** och ett starkt **lösenord**, som används för att skapa ett lokalt konto på den virtuella datorn.  (Här `adminUser` används.)  Lösenordet måste innehålla mellan 8 och 123 tecken och uppfylla tre av följande fyra komplexitetskrav: en gemen, en versal, en siffra och ett specialtecken. Mer information finns i [krav på användarnamn och lösenord](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-faq#what-are-the-username-requirements-when-creating-a-vm).
+   * Välj den resursgrupp som du skapade (här `DemoResourceGroup`).
+   * Välj en Azure-Datacenter **plats** (här `West US`).
+   * Klicka på **OK** att spara värdena. 
 
-6.  Välj storleken på den virtuella datorn ska distribueras med hjälp av följande rekommendationer:
-  * Om du planerar att utveckla VHD lokala roll storleken ingen. Överväg att använda en av de mindre virtuella datorerna.
-  * Om du planerar att utveckla avbildningen i Azure bör du överväga att använda en av de storlekar som rekommenderas för den valda avbildningen.
-  * Information om priser finns i den **rekommenderade prisnivåer** väljare som visas i portalen. Den visar de tre storlekar som rekommenderas av utgivaren. (Här är utgivaren Microsoft.)
+6. Välj storleken på den virtuella datorn ska distribueras med hjälp av följande rekommendationer:
+   * Om du planerar att utveckla VHD lokala roll storleken ingen. Överväg att använda en av de mindre virtuella datorerna.
+   * Om du planerar att utveckla avbildningen i Azure bör du överväga att använda en av de storlekar som rekommenderas för den valda avbildningen.
+   * Information om priser finns i den **rekommenderade prisnivåer** väljare som visas i portalen. Den visar de tre storlekar som rekommenderas av utgivaren. (Här är utgivaren Microsoft.)
 
-    ![Bladet storlek för nya virtuella datorn](./media/publishvm_015.png)
+   ![Bladet storlek för nya virtuella datorn](./media/publishvm_015.png)
 
 7. I den **inställningar** , anger du den **Använd Managed Disk** alternativet att **nr**.  På så sätt kan du hantera den nya virtuella Hårddisken manuellt. (Den **inställningar** bladet kan du ändra andra ändringar även de lagring och nätverk alternativ, till exempel välja **Premium (SSD)** i **disktyp**.)  Klicka på **OK** att fortsätta.
 

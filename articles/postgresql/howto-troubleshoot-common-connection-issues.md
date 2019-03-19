@@ -7,12 +7,12 @@ ms.author: janeng
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/09/2018
-ms.openlocfilehash: 1a7f58960111b3fba6283830b262a9b901b8e2fd
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: a78167e9b143a4c8d424947b489043dd45dfe2db
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53546244"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57886430"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-database-for-postgresql"></a>Felsöka problem med anslutningen till Azure Database för PostgreSQL
 
@@ -48,7 +48,7 @@ Om programmet misslyckas med ett beständigt sätt att ansluta till Azure Databa
 
 * Brandväggskonfiguration för servern: Se till att Azure Database for PostgreSQL-server-brandväggen är konfigurerad för att tillåta anslutningar från din klient, inklusive proxyservrar och gateways.
 * Klienten brandväggskonfiguration: Brandväggen på klienten måste tillåta anslutningar till din databasserver. IP-adresser och portar på den server som du kan inte till måste tillåtas samt programnamn, till exempel PostgreSQL i vissa brandväggar.
-* Användarfel: Du kan ha skrivit fel anslutningsparametrar, som servernamnet i anslutningssträngen eller en saknad *@servername* suffix i användarnamnet.
+* Användarfel: Du kan ha skrivit fel anslutningsparametrar, som servernamnet i anslutningssträngen eller en saknad  *\@servername* suffix i användarnamnet.
 
 ### <a name="steps-to-resolve-persistent-connectivity-issues"></a>Steg för att lösa beständiga anslutningsproblem
 

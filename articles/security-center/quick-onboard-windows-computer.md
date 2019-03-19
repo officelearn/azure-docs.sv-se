@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/3/2018
 ms.author: rkarlin
-ms.openlocfilehash: 3cc6cdb84b2c77b15b79c7d6a04cc7c6ae0721e5
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: bee4618ff08c89bbdab7413ca7f7f74a266d96dd
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56115869"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58077912"
 ---
 # <a name="quickstart-onboard-windows-computers-to-azure-security-center"></a>Snabbstart: Publicera Windows-datorer till Azure Security Center
 När du har publicerat dina Azure-prenumerationer kan du aktivera Security Center for resurser som körs utanför Azure, till exempel lokalt eller i andra moln, genom att etablera Microsoft Monitoring Agent.
@@ -37,7 +37,7 @@ Innan du startar den här snabbstarten måste du ha standardnivån i Security Ce
 1. Logga in på [Azure-portalen](https://azure.microsoft.com/features/azure-portal/).
 2. På menyn **Microsoft Azure** väljer du **Security Center**. **Security Center – Översikt** öppnas.
 
- ![Översikt över Security Center][2]
+   ![Översikt över Security Center][2]
 
 3. På huvudmenyn i Security Center väljer du **Komma igång**.
 4. Välj fliken **Kom igång**.
@@ -48,13 +48,13 @@ Innan du startar den här snabbstarten måste du ha standardnivån i Security Ce
 
     ![Lägga till en dator som inte är en Azure-dator](./media/quick-onboard-windows-computer/non-azure.png)
 
-  Bladet **Direct Agent** öppnas med en nedladdningslänk för en Windows-agent och nycklar för arbetsyte-ID, för användning vid konfigureringen av agenten.
+   Bladet **Direct Agent** öppnas med en nedladdningslänk för en Windows-agent och nycklar för arbetsyte-ID, för användning vid konfigureringen av agenten.
 
-6.  Välj den länk för att **ladda ned Windows-agent** som gäller för din typ av processor, så att du kan ladda ned installationsfilen.
+6. Välj den länk för att **ladda ned Windows-agent** som gäller för din typ av processor, så att du kan ladda ned installationsfilen.
 
-7.  Till höger om **arbetsyte-ID** väljer du ikonen för kopiera och klistra in ID:t i Anteckningar.
+7. Till höger om **arbetsyte-ID** väljer du ikonen för kopiera och klistra in ID:t i Anteckningar.
 
-8.  Till höger om **primärnyckel**, väljer du ikonen för kopiera och klistra in nyckeln i Anteckningar.
+8. Till höger om **primärnyckel**, väljer du ikonen för kopiera och klistra in nyckeln i Anteckningar.
 
 ## <a name="install-the-agent"></a>Installera agenten
 Nu måste du installera den hämtade filen på måldatorn.
@@ -68,7 +68,7 @@ Nu måste du installera den hämtade filen på måldatorn.
 7. Om datorn ska rapportera till en Log Analytics-arbetsyta i Azure Government-molnet väljer du **Azure US Government** i listrutan **Azure Cloud**.  Om datorn behöver kommunicera via en proxyserver till Log Analytics-tjänsten väljer du **Avancerat** och anger URL och portnummer för proxyservern.
 8. Välj **Nästa** när du har gjort de konfigurationsinställningar som krävs.
 
-  ![Installera agenten][5]
+   ![Installera agenten][5]
 
 9. På sidan **Klar att installera** kontrollerar du valen och väljer sedan **Installera**.
 10. På sidan **Konfigurationen har slutförts** väljer du **Slutför**

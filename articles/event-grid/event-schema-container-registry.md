@@ -1,19 +1,19 @@
 ---
 title: Händelseschema för Azure Event Grid Container Registry
-description: Beskriver de egenskaper som anges för behållaren Reigstry händelser med Azure Event Grid
+description: Beskriver de egenskaper som har angetts för Container Registry händelser med Azure Event Grid
 services: event-grid
 author: spelluru
 manager: timlt
 ms.service: event-grid
 ms.topic: reference
-ms.date: 01/13/2019
+ms.date: 03/12/2019
 ms.author: spelluru
-ms.openlocfilehash: 6f00d4f249543ece0eb8db4a8e040300d55b2de8
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: c5998ff428c4b6f4c1f7a4087c6ccb27d93773eb
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54462852"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58084335"
 ---
 # <a name="azure-event-grid-event-schema-for-container-registry"></a>Azure Event Grid-Händelseschema för Container Registry
 
@@ -21,12 +21,14 @@ Den här artikeln innehåller egenskaperna och schemat för Container Registry-h
 
 ## <a name="available-event-types"></a>Tillgängliga händelsetyper
 
-BLOB-lagring genererar följande händelsetyper:
+Azure Container Registry genererar följande händelsetyper:
 
 | Händelsetyp | Beskrivning |
 | ---------- | ----------- |
 | Microsoft.ContainerRegistry.ImagePushed | Utlöses när en bild skickas. |
 | Microsoft.ContainerRegistry.ImageDeleted | Utlöses när en bild tas bort. |
+| Microsoft.ContainerRegistry.ChartPushed | Utlöses när ett Helm-diagram skickas. |
+| Microsoft.ContainerRegistry.ChartDeleted | Utlöses när ett Helm-diagram tas bort. |
 
 ## <a name="example-event"></a>Exempel-händelse
 
@@ -93,6 +95,62 @@ Schemat för en bild som tas bort händelsen liknar:
 }]
 ```
 
+Schemat för ett diagram som skickas händelsen liknar schemat för en avbildade pushade händelse, men de omfattar inte en begäran:
+
+```json
+[{
+  "id": "ea3a9c28-5b17-40f6-a500-3f02b6829277",
+  "topic": "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.ContainerRegistry/registries/<name>",
+  "subject": "mychart:1.0.0",
+  "eventType": "Microsoft.ContainerRegistry.ChartPushed",
+  "eventTime": "2019-03-12T22:16:31.5164086Z",
+  "data": {
+    "id":"ea3a9c28-5b17-40f6-a500-3f02b682927",
+    "timestamp":"2019-03-12T22:16:31.0087496+00:00",
+    "action":"chart_push",
+    "target":{
+      "mediaType":"application/vnd.acr.helm.chart",
+      "size":25265,
+      "digest":"sha256:7f060075264b5ba7c14c23672698152ae6a3ebac1c47916e4efe19cd624d5fab",
+      "repository":"repo",
+      "tag":"mychart-1.0.0.tgz",
+      "name":"mychart",
+      "version":"1.0.0"
+    }
+  },
+  "dataVersion": "1.0",
+  "metadataVersion": "1"
+}]
+```
+
+Schemat för ett diagram som har tagits bort händelsen liknar schemat för en avbildade borttagen händelse, men de omfattar inte en begäran:
+
+```json
+[{
+  "id": "39136b3a-1a7e-416f-a09e-5c85d5402fca",
+  "topic": "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.ContainerRegistry/registries/<name>",
+  "subject": "mychart:1.0.0",
+  "eventType": "Microsoft.ContainerRegistry.ChartDeleted",
+  "eventTime": "019-03-12T22:42:08.7034064Z",
+  "data": {
+    "id":"ea3a9c28-5b17-40f6-a500-3f02b682927",
+    "timestamp":"2019-03-12T22:42:08.3783775+00:00",
+    "action":"chart_delete",
+    "target":{
+      "mediaType":"application/vnd.acr.helm.chart",
+      "size":25265,
+      "digest":"sha256:7f060075264b5ba7c14c23672698152ae6a3ebac1c47916e4efe19cd624d5fab",
+      "repository":"repo",
+      "tag":"mychart-1.0.0.tgz",
+      "name":"mychart",
+      "version":"1.0.0"
+    }
+  },
+  "dataVersion": "1.0",
+  "metadataVersion": "1"
+}]
+```
+
 ## <a name="event-properties"></a>Egenskaper för händelse
 
 En händelse har följande översta data:
@@ -128,6 +186,8 @@ Målobjektet har följande egenskaper:
 | Längd | heltal | Antal byte av innehållet. Samma som fältet. |
 | Lagringsplats | sträng | Namnet på lagringsplatsen. |
 | tagg | sträng | Taggnamnet. |
+| namn | sträng | Diagrammets namn. |
+| version | sträng | Diagram-version. |
 
 Begäranobjektet har följande egenskaper:
 

@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: zhiweiw
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2e2924a45ae8851095944131b6fb1598775247f2
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: fbdeef7c591221756ad206bf2f3dd78ac3d26c4f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56194010"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57885325"
 ---
 # <a name="diagnose-and-remediate-duplicated-attribute-sync-errors"></a>Diagnostisera och åtgärda synkroniseringsfel Duplicerat attribut
 
@@ -33,7 +33,7 @@ Läs mer om Azure AD, [identitet identitetssynkronisering och duplicerad attribu
 
 ## <a name="problems"></a>Problem
 ### <a name="a-common-scenario"></a>Ett vanligt scenario
-När **QuarantinedAttributeValueMustBeUnique** och **AttributeValueMustBeUnique** synkroniseringsfel uppstår är det vanligt att se en **UserPrincipalName** eller **Proxyadresser** konflikten i Azure AD. Du kan lösa synkroniseringsfel genom att uppdatera motstridiga källobjektet från den lokala sidan. Fel vid synkronisering kommer att matcha efter nästa synkronisering. Den här bilden anger till exempel att två användare har en konflikt mellan sina **UserPrincipalName**. Båda är **Joe.J@contoso.com**. Motstridiga objekt har satts i karantän i Azure AD.
+När **QuarantinedAttributeValueMustBeUnique** och **AttributeValueMustBeUnique** synkroniseringsfel uppstår är det vanligt att se en **UserPrincipalName** eller **Proxyadresser** konflikten i Azure AD. Du kan lösa synkroniseringsfel genom att uppdatera motstridiga källobjektet från den lokala sidan. Fel vid synkronisering kommer att matcha efter nästa synkronisering. Den här bilden anger till exempel att två användare har en konflikt mellan sina **UserPrincipalName**. Båda är **Joe.J\@contoso.com**. Motstridiga objekt har satts i karantän i Azure AD.
 
 ![Diagnostisera fel vanligt scenario för Lösenordssynkronisering](./media/how-to-connect-health-diagnose-sync-errors/IIdFixCommonCase.png)
 
@@ -66,32 +66,34 @@ Följ stegen från Azure portal för att begränsa felinformation synkronisering
 
 Vidta några åtgärder för att identifiera specifika scenarier som går att åtgärda från Azure-portalen  
 1.  Kontrollera den **diagnostisera status** kolumn. Statusen visar om det finns ett sätt att åtgärda ett synkroniseringsfel direkt från Azure Active Directory. Med andra ord en felsökning flödet finns som kan begränsa felsituation och åtgärda den.
+
 | Status | Vad betyder det? |
 | ------------------ | -----------------|
 | Inte startad | Du har inte besökt diagnos processen. Beroende på diagnostiska resultatet är det en potentiell sättet att åtgärda synkroniseringsfel direkt från portalen. |
 | Manuell korrigering krävs | Felet passar inte villkor korrigeringsfiler från portalen. Antingen motstridiga objekt av typen inte användare, eller du har gått redan igenom stegen för diagnostik och det fanns ingen korrigering-lösning från portalen. I det senare fallet finns en korrigering från den lokala sidan fortfarande lösningarna. [Läs mer om lokala korrigeringar](https://support.microsoft.com/help/2647098). | 
 | Väntar på synkronisering | En korrigering har tillämpats. Portalen väntar på nästa synkroniseringscykel att rensa felet. |
+
   >[!IMPORTANT]
   > Diagnostisk status-kolumnen återställs efter varje synkroniseringscykel. 
   >
 
-2.  Välj den **diagnostisera** knappen under felinformationen. Du besvara några frågor och identifiera felinformation synkronisering. Svar på frågor hjälper dig att identifiera ett fall med överblivna objektet.
+1. Välj den **diagnostisera** knappen under felinformationen. Du besvara några frågor och identifiera felinformation synkronisering. Svar på frågor hjälper dig att identifiera ett fall med överblivna objektet.
 
-3.  Om en **Stäng** knappen visas i slutet av diagnostik, det finns inga snabbkorrigering från portalen utifrån dina svar. Referera till lösningen som visas i det sista steget. Korrigeringar från den lokala är fortfarande lösningarna. Välj den **Stäng** knappen. Status för det aktuella synkroniseringsfelet växlar till **Manuell korrigering krävs**. Statusen kvar under den aktuella synkroniseringscykel.
+1. Om en **Stäng** knappen visas i slutet av diagnostik, det finns inga snabbkorrigering från portalen utifrån dina svar. Referera till lösningen som visas i det sista steget. Korrigeringar från den lokala är fortfarande lösningarna. Välj den **Stäng** knappen. Status för det aktuella synkroniseringsfelet växlar till **Manuell korrigering krävs**. Statusen kvar under den aktuella synkroniseringscykel.
 
-4.  Efter ett fall med överblivna objektet identifieras kan du åtgärda duplicerade attribut synkroniseringsfel direkt från portalen. Om du vill starta processen, Välj den **åtgärda problem** knappen. Status för de aktuella synkronisering fel uppdateringarna till **väntar på synkronisering**.
+1. Efter ett fall med överblivna objektet identifieras kan du åtgärda duplicerade attribut synkroniseringsfel direkt från portalen. Om du vill starta processen, Välj den **åtgärda problem** knappen. Status för de aktuella synkronisering fel uppdateringarna till **väntar på synkronisering**.
 
-5.  Felet ska tas bort från listan efter nästa synkroniseringscykel.
+1. Felet ska tas bort från listan efter nästa synkroniseringscykel.
 
 ## <a name="how-to-answer-the-diagnosis-questions"></a>Hur de ska svara på frågor om diagnostik 
 ### <a name="does-the-user-exist-in-your-on-premises-active-directory"></a>Så att användaren finns i din lokala Active Directory?
 
 Den här frågan försöker identifiera källobjektet för den befintliga användaren från en lokal Active Directory.  
-1.  Kontrollera om Azure Active Directory har ett objekt med angiven **UserPrincipalName**. Om den inte svarar **nr**.
-2.  I annat fall måste du kontrollera om objektet är fortfarande i omfånget för synkronisering.  
-  - Sök i anslutarplatsen för Azure AD med hjälp av det unika namnet.
-  - Om objektet finns i den **väntande Lägg till** tillstånd, besvara **nr**. Azure AD Connect kan inte ansluta objektet till rätt Azure AD-objekt.
-  - Om objektet inte hittas besvara **Ja**.
+1. Kontrollera om Azure Active Directory har ett objekt med angiven **UserPrincipalName**. Om den inte svarar **nr**.
+2. I annat fall måste du kontrollera om objektet är fortfarande i omfånget för synkronisering.  
+   - Sök i anslutarplatsen för Azure AD med hjälp av det unika namnet.
+   - Om objektet finns i den **väntande Lägg till** tillstånd, besvara **nr**. Azure AD Connect kan inte ansluta objektet till rätt Azure AD-objekt.
+   - Om objektet inte hittas besvara **Ja**.
 
 I det här frågan försöker identifiera om **Joe Jackson** fortfarande finns i den lokala Active Directory.
 För den **vanligt scenario**, både användare **Joe Johnson** och **Joe Jackson** finns i den lokala Active Directory. I karantän objekten är två olika användare.
@@ -104,11 +106,11 @@ För den **överblivna objektet scenariot**, endast enanvändarläge **Joe Johns
 
 ### <a name="do-both-of-these-accounts-belong-to-the-same-user"></a>Båda kontona hör till samma användare?
 Den här frågan kontrollerar en inkommande motstridiga användare och Dete befintliga användarobjekt i Azure AD för att se om de hör till samma användare.  
-1.  Objektet i konflikt har nyligen synkroniserats till Azure Active Directory. Jämför objektets attribut:  
-  - Visningsnamn
-  - User Principal Name
-  - Objekt-ID
-2.  Om Azure AD inte kan jämföra dem, kontrollerar om Active Directory innehåller objekt med de angivna **UserPrincipalNames**. Svar **nr** om du hittar båda.
+1. Objektet i konflikt har nyligen synkroniserats till Azure Active Directory. Jämför objektets attribut:  
+   - Visningsnamn
+   - User Principal Name
+   - Objekt-ID
+2. Om Azure AD inte kan jämföra dem, kontrollerar om Active Directory innehåller objekt med de angivna **UserPrincipalNames**. Svar **nr** om du hittar båda.
 
 I följande exempel visas de två objekten som hör till samma användare **Joe Johnson**.
 

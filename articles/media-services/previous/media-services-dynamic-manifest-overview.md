@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 03/18/2019
 ms.author: cenkd;juliako
-ms.openlocfilehash: c982707b24f18e840e866b1dcc858fe2aceb686e
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 4f72738d0ca9b8c6dc170892a985d821923a4405
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56000018"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57894027"
 ---
 # <a name="filters-and-dynamic-manifests"></a>Filter och dynamiska manifest
 
@@ -34,8 +34,8 @@ Det här avsnittet beskriver vanliga scenarier som skulle vara fördelaktigt att
 ## <a name="overview"></a>Översikt
 När du levererar ditt innehåll till kunder (streaming direktsändningar eller video på begäran) är målet att leverera en video med hög kvalitet till olika enheter under olika nätverksförhållanden. Att uppnå detta mål att göra följande:
 
-* koda strömmen till flera bithastigheter ([med anpassningsbar bithastighet](http://en.wikipedia.org/wiki/Adaptive_bitrate_streaming)) videoströmmen (Detta tar hand om kvalitet och nätverk) och 
-* Använd Media Services [dynamisk paketering](media-services-dynamic-packaging-overview.md) dynamiskt Ompaketera din ström till olika protokoll (Detta tar hand om strömning på olika enheter). Media Services har stöd för leverans av de följande strömningstekniker med anpassningsbar bithastighet: HTTP Live Streaming (HLS), Smooth Streaming och MPEG DASH. 
+* koda strömmen till flera bithastigheter ([med anpassningsbar bithastighet](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming)) videoströmmen (Detta tar hand om kvalitet och nätverk) och 
+* Använd Media Services [dynamisk paketering](media-services-dynamic-packaging-overview.md) dynamiskt Ompaketera din ström till olika protokoll (Detta tar hand om strömning på olika enheter). Media Services har stöd för leverans av de följande strömningstekniker med anpassningsbar bithastighet: HTTP Live Streaming(HLS), Smooth Streaming och MPEG DASH. 
 
 ### <a name="manifest-files"></a>Manifestfiler
 När du koda en tillgång för strömning med anpassad bithastighet en **manifest** () spellistefil skapas (filen är text- eller XML-baserade). Den **manifest** -filen innehåller metadata för direktuppspelning till exempel: spåra typ (ljud, video eller text), spåra namn, start-och sluttid, med flera bithastigheter (Egenskaper), spåra språk, presentationsfönstret (Hoppande fönster med fast varaktighet), video-codec ( FourCC). Det instruerar också spelaren att hämta nästa fragment genom att tillhandahålla information om nästa kan spelas upp video fragmenten tillgängliga och deras plats. Fragment (eller segment) är de faktiska ”mängder” en videoinnehåll.

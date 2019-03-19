@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 2/28/2018
 ms.author: mayg
-ms.openlocfilehash: c4309b20664520bc1912adadee72d614a085f573
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 99c7309e22d8ebe61a0a85b38c92bd3027977848
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57338961"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58013125"
 ---
 # <a name="set-up-network-mapping-and-ip-addressing-for-vnets"></a>Konfigurera nätverksmappning och IP-adresser för virtuella nätverk
 
@@ -76,6 +76,7 @@ IP-adressen för varje nätverkskort på en virtuell måldator konfigureras på 
 **Käll- och undernät** | **Detaljer**
 --- | ---
 Samma adressutrymme | IP-adressen för källan VM NIC har angetts som mål VM NIC IP-adress.<br/><br/> Om adressen inte är tillgängligt, har nästa tillgängliga IP-adress angetts som mål.
+
 Olika adressutrymmen<br/><br/> Nästa tillgängliga IP-adress i målundernätet har angetts som mål VM NIC-adress.
 
 

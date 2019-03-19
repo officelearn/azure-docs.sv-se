@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: 5d873b18db8ac52c40736a629ff78e3282365730
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 4dbbaeea736dd46478ad9992201ea28bd7bfc2ba
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54473987"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57855511"
 ---
 # <a name="deploy-and-manage-notification-hubs-using-powershell"></a>Distribuera och hantera notification hubs med PowerShell
 
@@ -27,7 +27,7 @@ ms.locfileid: "54473987"
 
 Den här artikeln visar hur du använder skapa och hantera Azure Notification Hubs med hjälp av PowerShell. Följande vanliga automatiseringsaktiviteter visas i den här artikeln.
 
-- Skapa en Meddelandehubb
+- Skapa en meddelandehubb
 - Ange autentiseringsuppgifter
 
 Om du måste också skapa en ny service bus-namnområde för notification Hub, se [hantera Service Bus med PowerShell](../service-bus-messaging/service-bus-powershell-how-to-provision.md).
@@ -154,9 +154,9 @@ Vissa färdiga skript är också tillgängliga för nedladdning:
 
 - [Service Bus PowerShell-skript](https://code.msdn.microsoft.com/windowsazure/Service-Bus-PowerShell-a46b7059)
 
-[Köpalternativ]: http://azure.microsoft.com/pricing/purchase-options/
-[Medlemserbjudanden]: http://azure.microsoft.com/pricing/member-offers/
-[Kostnadsfri utvärderingsversion]: http://azure.microsoft.com/pricing/free-trial/
+[Köpalternativ]: https://azure.microsoft.com/pricing/purchase-options/
+[Medlemserbjudanden]: https://azure.microsoft.com/pricing/member-offers/
+[Kostnadsfri utvärderingsversion]: https://azure.microsoft.com/pricing/free-trial/
 [Installera och konfigurera Azure PowerShell]: /powershell/azureps-cmdlets-docs
 [.NET API för Notification hub]: https://docs.microsoft.com/dotnet/api/overview/azure/notification-hubs?view=azure-dotnet
 [Get-AzureSBNamespace]: https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azuresbnamespace

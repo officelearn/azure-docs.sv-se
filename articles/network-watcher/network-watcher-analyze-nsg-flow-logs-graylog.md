@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: mareat
-ms.openlocfilehash: 08d3d59d20ea80065e8f0238f90579bb268c3723
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: a5fadcfce154740a79a8764f44f08b21ad18f4d8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51823052"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57879947"
 ---
 # <a name="manage-and-analyze-network-security-group-flow-logs-in-azure-using-network-watcher-and-graylog"></a>Hantera och analysera flödesloggar för nätverkssäkerhetsgrupper i Azure med Network Watcher och Graylog
 
@@ -47,12 +47,12 @@ I det här scenariot måste du ha nätverk flödesloggar för nätverkssäkerhet
 
 I det här exemplet konfigureras både Graylog och Logstash på en Ubuntu 14.04-Server distribueras i Azure.
 
-- Referera till den [dokumentation](http://docs.graylog.org/en/2.2/pages/installation/os/ubuntu.html) från Graylog, stegvisa anvisningar för hur installera på Ubuntu.
-- Se till att även konfigurera Graylog webbgränssnittet genom att följa den [dokumentation](http://docs.graylog.org/en/2.2/pages/configuration/web_interface.html#configuring-webif).
+- Referera till den [dokumentation](https://docs.graylog.org/en/2.2/pages/installation/os/ubuntu.html) från Graylog, stegvisa anvisningar för hur installera på Ubuntu.
+- Se till att även konfigurera Graylog webbgränssnittet genom att följa den [dokumentation](https://docs.graylog.org/en/2.2/pages/configuration/web_interface.html#configuring-webif).
 
-Det här exemplet används inställningar som minimum Graylog (dvs.) en enda instans av en Graylog), men Graylog kan vara byggts om du vill skala över resurser beroende på dina system och produktion behov. Mer information om arkitekturen överväganden eller en djupgående arkitektoniska guide finns i Graylog's [dokumentation](http://docs.graylog.org/en/2.2/pages/architecture.html) och [arkitektoniska guiden](https://www.slideshare.net/Graylog/graylog-engineering-design-your-architecture).
+Det här exemplet används inställningar som minimum Graylog (dvs.) en enda instans av en Graylog), men Graylog kan vara byggts om du vill skala över resurser beroende på dina system och produktion behov. Mer information om arkitekturen överväganden eller en djupgående arkitektoniska guide finns i Graylog's [dokumentation](https://docs.graylog.org/en/2.2/pages/architecture.html) och [arkitektoniska guiden](https://www.slideshare.net/Graylog/graylog-engineering-design-your-architecture).
 
-Graylog kan installeras på många sätt, beroende på plattform och inställningar. En fullständig lista över möjliga installationsmetoder finns Graylogs officiella [dokumentation](http://docs.graylog.org/en/2.2/pages/installation.html). Graylog serverprogrammet körs på Linux-distributioner och har följande krav:
+Graylog kan installeras på många sätt, beroende på plattform och inställningar. En fullständig lista över möjliga installationsmetoder finns Graylogs officiella [dokumentation](https://docs.graylog.org/en/2.2/pages/installation.html). Graylog serverprogrammet körs på Linux-distributioner och har följande krav:
 
 -  Java SE 8 eller senare – [Azul Azure JDK-dokumentation](https://aka.ms/azure-jdks)
 -  Elastisk Sök 2.x (2.1.0 eller senare)- [Elasticsearch installationsdokumentationen](https://www.elastic.co/guide/en/elasticsearch/reference/2.4/_installation.html)
@@ -150,7 +150,7 @@ Logstash används för att platta ut JSON-formaterade flödesloggar till en flow
         }
     }
     ```
-Logstash config-fil som består av tre delar: indata, filter och utdata. Avsnittet indata anger Indatakällan för loggarna som bearbetar Logstash – i det här fallet du ska använda en Azure-bloggen inkommande plugin-program (installerad i nästa steg) som gör att vi kan komma åt network security group flödet logga JSON-filer som lagras i blob storage.
+   Logstash config-fil som består av tre delar: indata, filter och utdata. Avsnittet indata anger Indatakällan för loggarna som bearbetar Logstash – i det här fallet du ska använda en Azure-bloggen inkommande plugin-program (installerad i nästa steg) som gör att vi kan komma åt network security group flödet logga JSON-filer som lagras i blob storage.
 
 Avsnittet filter förenklar sedan loggfilerna flöde så att varje tuppel enskilda flödet och dess associerade egenskaper blir en separat Logstash-händelse.
 
@@ -183,7 +183,7 @@ Nu när du har upprättat en anslutning till de flödesloggar med Logstash och s
 
    ![Komma igång](./media/network-watcher-analyze-nsg-flow-logs-graylog/getting-started.png)
 
-3. Om du vill starta den nya indata, Välj *GELF UDP* i den **Välj indata** listrutan och sedan fylla i formuläret. GELF står för Graylog utökade loggformat. Formatet GELF utvecklas av Graylog. Mer information om dess fördelar finns Graylog [dokumentation](http://docs.graylog.org/en/2.2/pages/gelf.html).
+3. Om du vill starta den nya indata, Välj *GELF UDP* i den **Välj indata** listrutan och sedan fylla i formuläret. GELF står för Graylog utökade loggformat. Formatet GELF utvecklas av Graylog. Mer information om dess fördelar finns Graylog [dokumentation](https://docs.graylog.org/en/2.2/pages/gelf.html).
 
    Se till att binda IP-Adressen som du har konfigurerat Graylog servern på indata. IP-adressen ska matcha den **värden** fältet på UDP-utdata från Logstash-konfigurationsfilen. Standardporten ska vara *12201*. Kontrollera att porten som matchar den **port** fält i UDP utgående anges i Logstash config-fil.
 
@@ -193,7 +193,7 @@ Nu när du har upprättat en anslutning till de flödesloggar med Logstash och s
 
    ![](./media/network-watcher-analyze-nsg-flow-logs-graylog/local-inputs.png)
 
-   Om du vill veta mer om Graylog meddelande indata kan referera till den [dokumentation](http://docs.graylog.org/en/2.2/pages/sending_data.html#what-are-graylog-message-inputs).
+   Om du vill veta mer om Graylog meddelande indata kan referera till den [dokumentation](https://docs.graylog.org/en/2.2/pages/sending_data.html#what-are-graylog-message-inputs).
 
 4. När de här konfigurationerna har gjorts, du kan starta Logstash för att börja läsa i flödesloggar med följande kommando: `sudo systemctl start logstash.service`.
 
@@ -207,7 +207,7 @@ Klicka på länken blå ”% {Message}” expanderar varje meddelande som ska vi
 
 ![Meddelanden](./media/network-watcher-analyze-nsg-flow-logs-graylog/messages.png)
 
-Som standard ingår alla meddelandefält i sökningen om du inte markerar ett visst meddelande-fält att söka efter. Om du vill söka efter specifika meddelanden (dvs.) – flow tupplar från en specifik käll-IP) du kan använda Graylog search frågespråket som [dokumenterade](http://docs.graylog.org/en/2.2/pages/queries.html)
+Som standard ingår alla meddelandefält i sökningen om du inte markerar ett visst meddelande-fält att söka efter. Om du vill söka efter specifika meddelanden (dvs.) – flow tupplar från en specifik käll-IP) du kan använda Graylog search frågespråket som [dokumenterade](https://docs.graylog.org/en/2.2/pages/queries.html)
 
 ## <a name="analyze-network-security-group-flow-logs-using-graylog"></a>Analysera flödesloggar för nätverkssäkerhetsgrupper med Graylog
 
@@ -241,7 +241,7 @@ Du kan klicka på rubriken på instrumentpanelen för att se hur det, men just n
 
    ![Flowlogs instrumentpanel](./media/network-watcher-analyze-nsg-flow-logs-graylog/flowlogs-dashboard.png)
 
-    Ytterligare förklaring på instrumentpaneler och andra typer av widgetar finns i Graylog's [dokumentation](http://docs.graylog.org/en/2.2/pages/dashboards.html).
+    Ytterligare förklaring på instrumentpaneler och andra typer av widgetar finns i Graylog's [dokumentation](https://docs.graylog.org/en/2.2/pages/dashboards.html).
 
 Genom att integrera Network Watcher med Graylog, nu har du ett praktiskt och centraliserad sätt att hantera och visualisera flödesloggar för nätverkssäkerhetsgruppen nätverk. Graylog har ett antal andra kraftfulla funktioner, till exempel strömmar och aviseringar som kan också användas för att hantera ytterligare flödesloggar och bättre förstå din nätverkstrafik. Nu när du har Graylog Ställ in och anslutit till Azure, passa på att fortsätta att utforska andra funktioner som den erbjuder.
 

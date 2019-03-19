@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 02/21/2019
 ms.author: erhopf
-ms.openlocfilehash: 0fd0fe06c218c6ad7427f6495fb315b42dd87101
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
-ms.translationtype: HT
+ms.openlocfilehash: 4400b466927253e6eb81cf2ec29994d0606beea6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56728479"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58176709"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-detect-text-language-using-python"></a>Snabbstart: Använda Translator Text API till att identifiera textspråk med hjälp av Python
 
@@ -23,7 +23,7 @@ I den här snabbstarten lär du dig att identifiera språket för angiven text m
 
 För den här snabbstarten krävs ett [Azure Cognitive Services-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med en Translator Text-resurs. Om du inte har ett konto kan du använda den [kostnadsfria utvärderingsversionen](https://azure.microsoft.com/try/cognitive-services/) för att hämta en prenumerationsnyckel.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 För den här snabbstarten krävs:
 
@@ -127,6 +127,8 @@ Om du vill jämföra din kod med vår finns det fullständiga exemplet på [GitH
 
 ## <a name="sample-response"></a>Exempelsvar
 
+Hitta en landsförkortning på i den här [Språklista](https://docs.microsoft.com/en-us/azure/cognitive-services/translator/language-support).
+
 ```json
 [
     {
@@ -161,7 +163,7 @@ Om du har hårdkodat din prenumerationsnyckel i programmet ser du till att ta bo
 > [!div class="nextstepaction"]
 > [Utforska Python-exempel på GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Python)
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 
 Lär dig att använda Translator Text API för att:
 

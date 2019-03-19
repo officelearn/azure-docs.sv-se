@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/06/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e56dc54c2c296ee17b04070ac8ee68d2180b7046
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 7b458632ddb6e23ab1ddf642752aa0cbfc11f1ce
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56183453"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57839076"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-picturepark"></a>Självstudier: Azure Active Directory-integrering med Picturepark
 
@@ -224,7 +224,7 @@ För att aktivera Azure AD-användare att logga in på Picturepark, måste de et
    
     ![Skapa användare](./media/picturepark-tutorial/ic795069.png "Skapa användare")
    
-    a. I den **e-postadress** textrutan skriver den **e-postadress** användarens **BrittaSimon@contoso.com**.  
+    a. I den **e-postadress** textrutan skriver den **e-postadress** användarens **BrittaSimon\@contoso.com**.  
    
     b. I den **lösenord** och **Bekräfta lösenord** textrutor, skriver den **lösenord** av BrittaSimon. 
    
@@ -286,7 +286,7 @@ När du klickar på panelen Picturepark i åtkomstpanelen du bör få automatisk
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
+* [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 

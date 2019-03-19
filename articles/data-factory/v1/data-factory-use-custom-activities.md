@@ -13,12 +13,12 @@ author: nabhishek
 ms.author: abnarain
 manager: craigg
 robots: noindex
-ms.openlocfilehash: 6d7aeef415fcc53fda2f5d66d748dd38f6d644fb
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.openlocfilehash: 1341a8fce95dff0499a698fcddf8d048f3628dba
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57576743"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58108247"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Use custom activities in an Azure Data Factory pipeline (Använda anpassade aktiviteter i en Azure Data Factory-pipeline)
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -421,7 +421,7 @@ Här följer de steg du utför i det här avsnittet:
    2. Klicka på **Data och analys** i den **New** bladet.
    3. Klicka på **Data Factory** på bladet **Dataanalys**.
 
-    ![Meny för ny Azure Data Factory](media/data-factory-use-custom-activities/new-azure-data-factory-menu.png)
+      ![Meny för ny Azure Data Factory](media/data-factory-use-custom-activities/new-azure-data-factory-menu.png)
 2. I den **ny datafabrik** bladet ange **CustomActivityFactory** för namnet. Namnet på Azure Data Factory måste vara globalt unikt. Om du får följande fel: **Datafabriksnamnet ”CustomActivityFactory” är inte tillgänglig**, ändra namnet på datafabriken (till exempel **yournameCustomActivityFactory**) och försöker skapa igen.
 
     ![Nytt Azure Data Factory-blad](media/data-factory-use-custom-activities/new-azure-data-factory-blade.png)

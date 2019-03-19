@@ -16,12 +16,12 @@ ms.topic: quickstart
 ms.date: 08/15/2018
 ms.author: danlep
 ROBOTS: NOINDEX
-ms.openlocfilehash: 78c743448a7f7439875d3598d6ba5d4eb6dc12fc
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
-ms.translationtype: HT
+ms.openlocfilehash: 49e78f1774a2998de7070453f7c098aef1761242
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53408944"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58093236"
 ---
 # <a name="quickstart-create-a-cluster-for-batch-ai-training-jobs-using-the-azure-portal"></a>Snabbstart: Skapa ett kluster för Azure Batch AI-träningsjobb med Azure-portalen
 
@@ -59,7 +59,7 @@ Börja med att skapa en Batch AI-arbetsyta för att organisera dina Batch AI-res
 
 3. Ange värden för **Namn på arbetsyta** och **Resursgrupp**. Om du vill kan du välja olika alternativ för **Prenumeration** och **Plats** för arbetsytan. Välj **Skapa arbetsyta**.
 
-  ![Skapa en Batch AI-arbetsyta](./media/quickstart-create-cluster-portal/create-workspace.png)
+   ![Skapa en Batch AI-arbetsyta](./media/quickstart-create-cluster-portal/create-workspace.png)
 
 När meddelandet **Distribueringen lyckades** visas kan du gå till den resurs som du skapade och välja arbetsytan.
 
@@ -73,7 +73,7 @@ En Batch AI-filserver är ett NFS-filsystem med en enda nod som automatiskt kan 
 
 3. Ange **administratörens användarnamn** och kopiera innehållet i din offentliga SSH-nyckelfil till **SSH-nyckeln**. Godkänn standardinställningarna för de återstående värdena och välj **Skapa filserver**.
 
-  ![Skapa en Azure Batch AI-filserver](./media/quickstart-create-cluster-portal/create-file-server.png)
+   ![Skapa en Azure Batch AI-filserver](./media/quickstart-create-cluster-portal/create-file-server.png)
 
 Det tar några minuter att distribuera filservern.
 

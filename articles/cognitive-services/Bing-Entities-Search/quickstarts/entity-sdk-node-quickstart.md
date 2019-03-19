@@ -10,18 +10,18 @@ ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 02/01/2019
 ms.author: v-gedod
-ms.openlocfilehash: 04ec95e891b4e9333949a3a0f40dcc9df88e49e7
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 015a2d344b066bd7b65c3228a2795c3395793f2b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55865870"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58097038"
 ---
 # <a name="quickstart-send-a-search-request-with-the-bing-entity-search-sdk-for-nodejs"></a>Snabbstart: Skicka en sökbegäran med SDK för entitetssökning i Bing för Node.js
 
 Använd den här snabbstarten om du vill börja söka efter entiteter med SDK för entitetssökning i Bing för Node.js. Även om entitetssökning i Bing har ett REST API som är kompatibelt med de flesta programmeringsspråk så tillhandahåller SDK:n ett enkelt sätt att integrera tjänsten i dina program. Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/entitySearch.js).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * Den senaste versionen av [Node.js](https://nodejs.org/en/download/).
 
@@ -53,7 +53,7 @@ Så här installerar du SDK för entitetssökning i Bing:
 
 ## <a name="send-a-request-and-receive-a-response"></a>Skicka en begäran och ta emot ett svar
 
-2. Skicka en begäran för entitetssökning med `entitiesOperations.search()`. När du har fått ett svar skriver du ut `queryContext`, antalet returnerade resultat och en beskrivning av det första resultatet.
+1. Skicka en begäran för entitetssökning med `entitiesOperations.search()`. När du har fått ett svar skriver du ut `queryContext`, antalet returnerade resultat och en beskrivning av det första resultatet.
       
     ```javascript
     entitySearchApiClient.entitiesOperations.search('seahawks').then((result) => {

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/09/2019
 ms.author: juliako
-ms.openlocfilehash: 4e9abb20e6548d8612bc3b59aba4f7384913d081
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: b09c80e08689768ab3e9646b7d6f60f72c33f764
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57761556"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58077793"
 ---
 # <a name="how-to-perform-live-streaming-using-media-services-to-create-multi-bitrate-streams-with-the-azure-portal"></a>Så här utför du direktsänd strömning med Media Services för att skapa dataströmmar med flera bithastigheter med Azure-portalen  
 > [!div class="op_single_selector"]
@@ -41,18 +41,16 @@ Följande steg är allmänna steg som ingår i att skapa vanliga program för di
 
 > [!NOTE]
 > Den rekommenderade maximala längden för en direktsänd händelse är för närvarande 8 timmar. Kontakta amslived@microsoft.com om du behöver köra en kanal under en längre tidsperiod.
-> 
-> 
 
 1. Anslut en videokamera till en dator. Starta och konfigurera en lokal livekodare som kan mata ut en dataström med enkel bithastighet i något av följande protokoll: RTMP eller Smooth Streaming. Mer information finns i [Support och livekodare för Azure Media Services RTMP](https://go.microsoft.com/fwlink/?LinkId=532824).
-   
+
     Det här steget kan också utföras när du har skapat din kanal.
 2. Skapa och starta en kanal. 
 3. Hämta kanalens infognings-URL. 
-   
+
     Infognings-URL:en används av livekodaren för att skicka dataströmmen till kanalen.
 4. Hämta kanalens förhandsgransknings-URL. 
-   
+
     Använd denna URL för att kontrollera att din kanal tar emot den direktsända dataströmmen korrekt.
 5. Skapa en händelse/ett program (som också kommer att skapa en tillgång). 
 6. Publicera händelsen (som skapar en OnDemand-positionerare för den associerade tillgången).    
@@ -83,31 +81,31 @@ Följande krävs för att kunna genomföra självstudien.
 1. I [Azure-portalen](https://portal.azure.com/) klickar du på Media Services och sedan på namnet för Media Services-kontot.
 2. Välj **Liveuppspelning**.
 3. Välj **Skapa anpassad**. Det här alternativet gör att du kan skapa en kanal som är aktiverad för Live Encoding.
-   
+
     ![Skapa en kanal](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel.png)
 4. Klicka på **Inställningar**.
-   
+
    1. Välj kanaltypen **Live Encoding**. Den här typen anger att du vill skapa en kanal som är aktiverad för Live Encoding. Det innebär att den inkommande dataströmmen i enkel bithastighet skickas till kanalen och kodas till en dataström med multibithastighet med hjälp av livekodarens angivna inställningar. Mer information finns i [Direktsänd strömning med Azure Media Services för att skapa dataströmmar i multibithastighet](media-services-manage-live-encoder-enabled-channels.md). Klicka på OK.
    2. Ange ett kanalnamn.
    3. Klicka på OK längst ned på sidan.
 5. Välj fliken **Mata in**.
-   
+
    1. På den här sidan kan du välja ett strömningsprotokoll. För kanaltypen **Live Encoding** är de giltiga protokollalternativen:
-      
+
       * Fragmenterad MP4 med enkel bithastighet (Smooth Streaming)
       * RTMP med enkel bithastighet
-        
+
         Mer detaljerad information om varje protokoll finns i [Direktsänd strömning med Azure Media Services för att skapa dataströmmar i multibithastighet](media-services-manage-live-encoder-enabled-channels.md).
-        
+
         Du kan inte ändra protokollalternativ när kanalen eller dess associerade händelse/program körs. Om du behöver olika protokoll får du skapa separata kanaler för varje strömningsprotokoll.  
    2. Du kan använda IP-begränsning på inmatningen. 
-      
+
        Du kan definiera de IP-adresser som får mata in en video på den här kanalen. Tillåtna IP-adresser kan anges som antingen en enskild IP-adress (t.ex. ”10.0.0.1”), ett IP-intervall med en IP-adress och en CIDR-undernätsmask (t.ex. ”10.0.0.1/22”) eller ett IP-intervall med en IP-adress och en CIDR-undernätsmask med punktavgränsad decimalform (t.ex. '10.0.0.1(255.255.252.0)').
-      
+
        Om inga IP-adresser har angetts och det saknas regeldefinitioner kommer ingen IP-adress att tillåtas. Skapa en regel för att tillåta IP-adresser och ange 0.0.0.0/0.
 6. På fliken **Förhandsvisning** appliceras IP-begränsning på förhandsgranskningen.
 7. På fliken **Kodning** anges den förinställda kodningen. 
-   
+
     För närvarande är den enda förinställda systeminställningen som du kan välja **Default 720p**. Öppna ett Microsoft supportärende om du vill ange en förinställd anpassning. Ange därefter namnet på den förinställning som skapats för dig. 
 
 > [!NOTE]
@@ -153,18 +151,18 @@ När dataströmmen väl flödar till kanalen kan du påbörja strömningshändel
 Det finns två sätt att starta en händelse: 
 
 1. På **Kanal**-sidan trycker du på **Live-händelse** för att lägga till en ny händelse.
-   
+
     Ange: händelsens namn, tillgångsnamn, arkivfönster och krypteringsalternativ.
-   
+
     ![createprogram](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-program.png)
-   
+
     Om du markerat **Publicera denna live-händelse nu** skapas händelsens PUBLICERINGS-URL:ER.
-   
+
     Du kan trycka på **Start** när du är redo att strömma händelsen.
-   
+
     När du startat händelsen kan du trycka på **Titta på** för att börja spela upp innehållet.
 2. Du kan också använda en genväg och trycka på knappen **Go Live** på **Kanal**-sidan. Detta skapar en standardtillgång, ett program och en strömningspositionerare.
-   
+
     Händelsen heter **standard** och arkivfönstret har angetts till 8 timmar.
 
 Du kan titta på den publicerade händelsen från sidan **Live-händelse**. 

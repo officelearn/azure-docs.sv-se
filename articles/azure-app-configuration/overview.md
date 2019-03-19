@@ -13,16 +13,18 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: 11dd91039bb352e86800982d0a294f82622a56fe
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: HT
+ms.openlocfilehash: 3e96a1af4746c6344f9565d0f0de8ab2b2b8d8bc
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56885026"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58009392"
 ---
 # <a name="what-is-azure-app-configuration"></a>Vad är Azure App Configuration
 
 Azure App Configuration är en tjänst för att hantera programinställningar centralt. Moderna program, särskilt de som körs i ett moln, har generellt många komponenter som är distribuerade. Om konfigurationsinställningar sprids mellan dessa komponenter kan det ge upphov till fel som är svåra att felsöka under en programdistribution. Med App Configuration kan du lagra alla inställningar för ditt program och skydda åtkomst till dem på ett och samma ställe.
+
+App-tjänsten för konfiguration är för närvarande i **förhandsversion**. Det är kostnadsfritt att använda den här förhandsversionen. Det finns inga särskilda godkännandeprocess för åtkomst till tjänsten, [registrera](https://aka.ms/azconfig/register) med oss så att vi kan informera dig betydande ändringar i förväg.
 
 ## <a name="why-use-app-configuration"></a>Varför App Configuration är användbart
 
@@ -44,6 +46,12 @@ App Configuration ger följande fördelar:
 * Förbättrad säkerhet via Azure-hanterade identiteter.
 * Fullständig datakryptering i vila eller under överföring.
 * Intern integrering med populära ramverk.
+
+Konfiguration av kompletterar [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) används för att lagra programhemligheter. Konfiguration av gör det enklare att implementera följande scenarier:
+
+* Centraliserad hantering och distribution av hierarkiska konfigurationsdata för olika miljöer och områden.
+* Dynamisk konfigurationsändringar utan att omdistribuera eller starta om ett program.
+* Funktionen hantering.
 
 ## <a name="how-to-use-app-configuration"></a>Så använder du App Configuration
 

@@ -5,14 +5,14 @@ services: application-gateway
 author: amsriva
 ms.service: application-gateway
 ms.topic: article
-ms.date: 10/23/2018
-ms.author: amsriva
-ms.openlocfilehash: fcb49f532d5dfcd340baf017bd55c69d4e81e0e6
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.date: 3/12/2019
+ms.author: victorh
+ms.openlocfilehash: 16ba6b73dd0c64298f319d4b18750d753f166987
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53630690"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57849388"
 ---
 # <a name="overview-of-end-to-end-ssl-with-application-gateway"></a>Översikt över slutpunkt-till-slutpunkt-SSL på Application Gateway
 
@@ -21,6 +21,8 @@ Application Gateway stöder SSL-avslutning på gatewayen, när flödar trafiken 
 Slutpunkt-till-slutpunkt-SSL låter dig skicka känsliga data säkert till serverdelen i krypterad samt dra nytta av fördelarna med Layer 7-belastningsutjämning funktioner som application gateway tillhandahåller. Vissa av dessa funktioner är cookiebaserad-tillhörighet, URL-baserad routning, stöd för routning baserat på platser eller möjligheten att injicera X-Forwarded-*-huvuden.
 
 När den konfigurerats med slutpunkt-till-slutpunkt SSL-kommunikationsläge, terminerar Application Gateway användarens SSL-sessioner vid gatewayen och avkrypterar användartrafiken. Därefter appliceras de konfigurerade reglerna för att välja en lämplig serverdels-serverpoolinstans att dirigera trafiken till. Application Gateway startar sedan en ny SSL-anslutning till serverdels-servern och återkrypterar data med hjälp av serverdels-serverns offentliga nyckelcertifikat innan begäran skickas till serverdelen. Slutpunkt-till-slutpunkt SSL aktiveras genom att ställa in protokollinställningen i **BackendHTTPSetting** till HTTPS, som sedan appliceras till en serverdelspool. Varje serverdels-server i serverdels-poolen som har slutpunkt-till-slutpunkt SSL aktiverat måste konfigureras med ett certifikat för att tillåta säker kommunikation.
+
+SSL-principen gäller för både frontend och backend-trafik. På klientdelen Application Gateway fungerar som servern och tillämpar principen. På serversidan Application Gateway fungerar som klienten och skickar informationen protocol/chiffer som inställningen under SSL-handskakningen.
 
 ![slutpunkt till slutpunkt ssl-scenario][1]
 
@@ -39,7 +41,7 @@ Autentiseringscertifikat har inaktuell och ersatts med betrodda rotcertifikat i 
 
 - Certifikat som signerats av välkända Certifikatutfärdare myndigheter vars CN matchar värdnamnet i serverdelens HTTP-inställningarna kräver inte några ytterligare steg för slutpunkt till slutpunkt SSL ska fungera. 
 
-   Till exempel om backend-certifikat har utfärdats av en välkänd Certifikatutfärdare och har en CN contoso.com och serverdelens http-inställning värden också anges till contoso.com, krävs sedan inga ytterligare åtgärder. Du kan ange i serverdelens http ställa in protokollet HTTPS både hälsotillstånd avsökningen och sökvägen skulle bli SSL aktiverat. Om du använder Azure App Service eller andra Azure webbtjänster serversidan dessa är implicit betrodda samt och inga ytterligare steg krävs för slutpunkt till slutpunkt SSL.
+   Till exempel om backend-certifikat har utfärdats av en välkänd Certifikatutfärdare och har en CN contoso.com och serverdelens http-inställning värden också anges till contoso.com, krävs sedan inga ytterligare åtgärder. Du kan ange i serverdelens http ställa in protokollet HTTPS både hälsotillstånd avsökningen och sökvägen skulle bli SSL aktiverat. Om du använder Azure App Service eller andra Azure webbtjänster serversidan, det här är implicit betrodda samt och inga ytterligare steg krävs för slutpunkt till slutpunkt SSL.
 - Om certifikatet är självsignerat eller signerats av okänd mellanhänder, måste sedan för att aktivera SSL för slutpunkt till slutpunkt i v2-SKU ett betrott rotcertifikat definieras. Application Gateway kommunicerar bara med serverdelar vars servercertifikat rotcertifikat matchar ett av listan över betrodda rotcertifikat i serverdelens http-inställnings som hör till poolen.
 - Förutom root certifikat matchar validerar också Application Gateway om värden som anges i serverdelens http-inställnings överensstämmer med det egna namnet (CN) som presenteras av serverdels-serverns SSL-certifikat. När du försöker upprätta en SSL-anslutning till serverdelen anger Application Gateway Server Name Indication (SNI)-tillägget till värden som anges i serverdelens http-inställning.
 - Om **Välj värdnamnet från serverdelsadressen** väljs i stället för fältet värd i serverdelens http-inställnings SNI-huvudet är alltid inställd till serverdelspoolen FQDN- och CN på backend-servern SSL certifikatet måste matcha dess FQDN. Medlemmar i Serverdelspool med IP-adresser stöds inte i det här scenariot.

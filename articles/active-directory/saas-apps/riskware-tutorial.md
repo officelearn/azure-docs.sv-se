@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 06/27/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cab9750620d6d7c34de1d6e3404b4ea721f330ed
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 3de8422efdbb7802e0532503e2733518e8050f6d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56203921"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57842540"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-riskware"></a>Självstudier: Azure Active Directory-integrering med Riskware
 
@@ -110,6 +110,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     ![Riskware domän och URL: er med enkel inloggning för information](./media/riskware-tutorial/tutorial_riskware_url.png)
 
     a. I den **inloggnings-URL** textrutan anger du ett URL med hjälp av följande mönster:
+
     | Miljö| URL-mönster|
     |--|--|
     | UAT|  `https://riskcloud.net/uat?ccode=<COMPANYCODE>` |
@@ -118,6 +119,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     |||
 
     b. I den **identifierare (entitets-ID)** textrutan anger du ett URL:
+    
     | Miljö| URL-mönster|
     |--|--|
     | UAT| `https://riskcloud.net/uat` |
@@ -247,7 +249,7 @@ Om du vill aktivera Azure AD-användare att logga in på Riskware, måste de eta
 
     a. Under **autentisering** väljer den **autentisering** läge, som du har konfigurera som AZURE-konfiguration för enkel inloggning.
 
-    b. Under **inloggningsuppgifter** avsnittet i den **användar-ID** textrutan Ange e-postadress för användaren som **brittasimon@contoso.com**.
+    b. Under **inloggningsuppgifter** avsnittet i den **användar-ID** textrutan Ange e-postadress för användaren som **brittasimon\@contoso.com**.
 
     c. I den **lösenord** textrutan anger du lösenordet för användaren.
 
@@ -302,7 +304,7 @@ Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../user-help/act
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
+* [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 

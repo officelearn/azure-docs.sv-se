@@ -14,17 +14,17 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 549f37c1287373fe8bf4c10dc64e6e778b37be02
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 682c9e209c4fa4a9f4971af5da901faf1ec58c22
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56730145"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57889751"
 ---
 # <a name="register-in-dev-center"></a>Registrera i Dev Center  
 För att kontrollera att du inte är inloggad på ett konto för personliga webbläsaren kan öppna en ny Internet Explorer InPrivate- eller Chrome Incognito-webbläsarsession.  
 1.  Registrera dig som en försäljning i Dev Center.  
-    *   Gå till sidan finns på Azure Dev Center för att logga in och registrera dig som en säljare, [dev.windows.com/registration?accountprogram=azure](http://dev.windows.com/registration?accountprogram=azure).  
+    *   Gå till sidan finns på Azure Dev Center för att logga in och registrera dig som en säljare, [dev.windows.com/registration?accountprogram=azure](https://dev.windows.com/registration?accountprogram=azure).  
 2.  Slutför den `Help us protect your account` guiden som verifierar din identitet med hjälp av ditt telefonnummer eller e-postadress.  
 
     ![Rutorna phone information i Hjälp oss skydda ditt konto-guiden](./media/marketplace-publishers-guide/registerdevcenteremail.png)  
@@ -142,55 +142,55 @@ Bank-och skatt krävs för alla kommersiella erbjudanden med hjälp av transact 
 
 ## <a name="frequently-asked-questions"></a>Vanliga frågor och svar: 
 
-*   **Vilken utgivare kräver Kontoregistrering för en Dev Center?** 
-> Utgivare som publicerar i Transact listtyp: Virtuella Azure-appar: lösningsmallar och hanterade appar.  
+* **Vilken utgivare kräver Kontoregistrering för en Dev Center?** 
+  > Utgivare som publicerar i Transact listtyp: Virtuella Azure-appar: lösningsmallar och hanterade appar.  
 
-*   **Varför är Dev Center-konto som krävs?**
-> Dev Center-konto är en nödvändig för att Microsoft ska fakturera kunden på utgivarens räkning för Transact listtyp. Dev Center-konto registrering kan Microsoft verifiera eventuella juridiska krav, skatte- och bankinformation för ditt företag. Att lära dig mer genom att klicka [här.](https://docs.microsoft.com/azure/marketplace/become-publisher)
+* **Varför är Dev Center-konto som krävs?**
+  > Dev Center-konto är en nödvändig för att Microsoft ska fakturera kunden på utgivarens räkning för Transact listtyp. Dev Center-konto registrering kan Microsoft verifiera eventuella juridiska krav, skatte- och bankinformation för ditt företag. Att lära dig mer genom att klicka [här.](https://docs.microsoft.com/azure/marketplace/become-publisher)
 
-*   **Hur kommer jag igång med Dev Center registrering?**
-> Kontrollera att ditt företag inte redan har ett Dev Center-konto som har registrerats för att förhindra dubbletter. Du måste vara inloggad med Microsoft-konto som du vill associera med ditt utvecklarkonto. Om du inte redan har ett Microsoft-konto, kan du skapa ett nytt konto [här.](https://signup.live.com/signup?contextid=AEB123C8F2B1DA7A&bk=1529968434&ru=https%3a%2f%2flogin.live.com%2flogin.srf%3fcontextid%3dAEB123C8F2B1DA7A%26mkt%3dEN-US%26lc%3d1033%26bk%3d1529968434&uiflavor=web&uaid=9987e727fedb459780d95c1b9e46c82c&mkt=EN-US&lc=1033&lic=1) (exempel: contoso_marketplace@live.com) för att logga in och registrera, gå till https://dev.windows.com/en-us/registration?accountProgram=Azure
-<br>Läs mer om registreringsprocessen klickar du på [här.](https://docs.microsoft.com/azure/marketplace/register-dev-center)</br>
+* **Hur kommer jag igång med Dev Center registrering?**
+  > Kontrollera att ditt företag inte redan har ett Dev Center-konto som har registrerats för att förhindra dubbletter. Du måste vara inloggad med Microsoft-konto som du vill associera med ditt utvecklarkonto. Om du inte redan har ett Microsoft-konto, kan du skapa ett nytt konto [här.](https://signup.live.com/signup?contextid=AEB123C8F2B1DA7A&bk=1529968434&ru=https%3a%2f%2flogin.live.com%2flogin.srf%3fcontextid%3dAEB123C8F2B1DA7A%26mkt%3dEN-US%26lc%3d1033%26bk%3d1529968434&uiflavor=web&uaid=9987e727fedb459780d95c1b9e46c82c&mkt=EN-US&lc=1033&lic=1) (exempel: contoso_marketplace@live.com) för att logga in och registrera, gå till https://dev.windows.com/en-us/registration?accountProgram=Azure
+  > <br>Läs mer om registreringsprocessen klickar du på [här.](https://docs.microsoft.com/azure/marketplace/register-dev-center)</br>
 
-*   **Ska jag välja ”person” eller ”företagets” kontotyp?**
-> Du måste välja företagskonto vid registrering av ditt Dev Center-konto om du vill publicera en transact-erbjudandet på Marketplace.
+* **Ska jag välja ”person” eller ”företagets” kontotyp?**
+  > Du måste välja företagskonto vid registrering av ditt Dev Center-konto om du vill publicera en transact-erbjudandet på Marketplace.
 
-*   **Kan jag ändra Mina kontotyp från ”person” till ”företagets”-konto när kontot har skapats?**
-> Nej, typen kan inte uppdateras när kontot har skapats.
+* **Kan jag ändra Mina kontotyp från ”person” till ”företagets”-konto när kontot har skapats?**
+  > Nej, typen kan inte uppdateras när kontot har skapats.
 
-*   **Varför får jag felmeddelandet ”stad krävs, även om jag har angett staden korrekt?**
-> Kontrollera att zip-kod har angetts korrekt för. Det finns en stad, postnummer verifiering.
+* **Varför får jag felmeddelandet ”stad krävs, även om jag har angett staden korrekt?**
+  > Kontrollera att zip-kod har angetts korrekt för. Det finns en stad, postnummer verifiering.
 
-*   **Hur får jag en kampanjkod?**
-> Slutför den [Marketplace registrering](https://azuremarketplace.microsoft.com/en-us/sell/signup) formuläret för att ta emot en kampanjkoden Dev Center.
+* **Hur får jag en kampanjkod?**
+  > Slutför den [Marketplace registrering](https://azuremarketplace.microsoft.com/en-us/sell/signup) formuläret för att ta emot en kampanjkoden Dev Center.
  
-*   **Vad kan jag förvänta mig när du har slutfört registreringen?**
-> Leta efter ett e-postmeddelande från verify@microsoft.com med ämnesrad ”åtgärd krävs: Verifiera din e-postkonto med Microsoft ”. Klicka på den känsliga verifieringslänken tid att slutföra registreringen. *Om du inte har fått ett e-postmeddelande inom 24 timmar, kontrollera mappen för skräppost.*
+* **Vad kan jag förvänta mig när du har slutfört registreringen?**
+  > Leta efter ett e-postmeddelande från verify@microsoft.com med ämnesrad ”åtgärd krävs: Verifiera din e-postkonto med Microsoft ”. Klicka på den känsliga verifieringslänken tid att slutföra registreringen. *Om du inte har fått ett e-postmeddelande inom 24 timmar, kontrollera mappen för skräppost.*
 
-*   **Vad är nästa steg efter Dev Center-verifiering?**
-> Gå till ”program” (https://developer.microsoft.com/dashboard/Account/Programs) och logga in på Dev Center-konto. Om du inte ser Azure som ett registrerat program, tittar du under ”rekommenderas program du” och sedan leta efter Azure för att välja ”Kom igång”.
+* **Vad är nästa steg efter Dev Center-verifiering?**
+  > Gå till ”program” (https://developer.microsoft.com/dashboard/Account/Programs) och logga in på Dev Center-konto. Om du inte ser Azure som ett registrerat program, tittar du under ”rekommenderas program du” och sedan leta efter Azure för att välja ”Kom igång”.
 
-*   **Hur länkar jag min Dev Center-konto i min profil för utgivaren av partnerportalen i molnet?**
-> Det sista steget innan publicering kopplar du ditt Dev Center-konto till din Cloud Partner Portal [profil](https://cloudpartner.azure.com/#profile). Om ditt Dev Center-konto skiljer sig från ditt konto på [Cloud Partner Portal](https://cloudpartner.azure.com/#alloffers), Lägg till ditt Dev Center som en ny [användaren](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-manage-users) i partnerportalen i molnet. Logga in på den [Cloud Partner Portal](https://cloudpartner.azure.com/#alloffers) med ditt Dev Center-konto. Välj utgivarprofil på menyn längst upp till höger i webbläsaren. Välj länken Dev Center-konto.
+* **Hur länkar jag min Dev Center-konto i min profil för utgivaren av partnerportalen i molnet?**
+  > Det sista steget innan publicering kopplar du ditt Dev Center-konto till din Cloud Partner Portal [profil](https://cloudpartner.azure.com/#profile). Om ditt Dev Center-konto skiljer sig från ditt konto på [Cloud Partner Portal](https://cloudpartner.azure.com/#alloffers), Lägg till ditt Dev Center som en ny [användaren](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-manage-users) i partnerportalen i molnet. Logga in på den [Cloud Partner Portal](https://cloudpartner.azure.com/#alloffers) med ditt Dev Center-konto. Välj utgivarprofil på menyn längst upp till höger i webbläsaren. Välj länken Dev Center-konto.
 
-*   **Varför avvisas mitt Dev Center-program?**
-> Det gick inte att kontakta dig via det telefonnummer som du har angett från tredje part vetting företaget (Duns & Bradstreet). Kontakta supporten på [developer.microsoft.com/windows/support](https://developer.microsoft.com/windows/support) startas granskningsprocess
+* **Varför avvisas mitt Dev Center-program?**
+  > Det gick inte att kontakta dig via det telefonnummer som du har angett från tredje part vetting företaget (Duns & Bradstreet). Kontakta supporten på [developer.microsoft.com/windows/support](https://developer.microsoft.com/windows/support) startas granskningsprocess
 
 > eller
-
+> 
 > Konto registrering avvisas baserat på geografiskt område problem. Företag med dotterbolag baserat på platser som skiljer sig från huvudkontoret behöver bara en Dev Center-konto.
  
-*   **Vad gör jag om namnet på företaget som jag vill använda redan finns i Dev Center?**
-> Tilldela ett tillfälligt företagsnamn, kontakta supporten på [developer.microsoft.com/windows/support](https://developer.microsoft.com/windows/support) och uppger din affärsdokument för registrering.
+* **Vad gör jag om namnet på företaget som jag vill använda redan finns i Dev Center?**
+  > Tilldela ett tillfälligt företagsnamn, kontakta supporten på [developer.microsoft.com/windows/support](https://developer.microsoft.com/windows/support) och uppger din affärsdokument för registrering.
 
-*   **Hur lägger jag till min skatte- och payout information?**
-> Du kommer inte att kunna publicera transact erbjudanden utan att slutföra skatte- och bank informationen i Dev Center-konto.  Mer information om att lägga till kontoinformation finns [så Lägg till bank-och skatt.](https://docs.microsoft.com/azure/marketplace/register-dev-center)
+* **Hur lägger jag till min skatte- och payout information?**
+  > Du kommer inte att kunna publicera transact erbjudanden utan att slutföra skatte- och bank informationen i Dev Center-konto.  Mer information om att lägga till kontoinformation finns [så Lägg till bank-och skatt.](https://docs.microsoft.com/azure/marketplace/register-dev-center)
 
-*   **Kan jag ändra inloggningskonto Dev Center Microsoft?**
-> Nej. När du har skapat ett Dev Center kan inte Ägarkontot ändras. Du skulle behöva börja om med en helt ny Dev Center-konto med önskat Microsoft-konto.
+* **Kan jag ändra inloggningskonto Dev Center Microsoft?**
+  > Nej. När du har skapat ett Dev Center kan inte Ägarkontot ändras. Du skulle behöva börja om med en helt ny Dev Center-konto med önskat Microsoft-konto.
 
-*   **Där kontaktar jag support för frågor om Dev Center registrering?**
-Att få tillgång till support finns på Windows developer support-sidan finns på [developer.microsoft.com/windows/support](https://developer.microsoft.com/windows/support). 
+* **Där kontaktar jag support för frågor om Dev Center registrering?**
+  Att få tillgång till support finns på Windows developer support-sidan finns på [developer.microsoft.com/windows/support](https://developer.microsoft.com/windows/support). 
 
 ## <a name="next-steps"></a>Nästa steg
 *   Gå till den [Azure Marketplace och AppSource Publiceringsguiden](./marketplace-publishers-guide.md) sidan.  

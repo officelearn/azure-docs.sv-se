@@ -8,12 +8,12 @@ ms.date: 02/17/2019
 ms.topic: conceptual
 ms.author: raynew
 manager: carmonm
-ms.openlocfilehash: e12ca7561181412318fa594093b047cd95e4e6bc
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 3e2c6a550a9358656fd0870c7e785d131c5b6380
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57448047"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57894401"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>Stödmatris för säkerhetskopiering med Microsoft Azure Recovery Services MARS-agenten
 
@@ -26,9 +26,7 @@ Azure Backup använder MARS-agenten för att säkerhetskopiera data från lokala
 - Kör på virtuella Windows-datorer så att de kan säkerhetskopiera direkt till ett valv.
 - Kör på Microsoft Azure Backup Server (MABS) eller en server för System Center Data Protection Manager (DPM). I det här scenariot säkerhetskopiera datorer och arbetsbelastningar MABS eller DPM-server. MARS-agenten säkerhetskopierar sedan på den här servern till ett valv i Azure. 
 
-Alternativ för säkerhetskopiering beror på där agenten är installerad. Mer information finns i [Azure Backup-arkitektur med MARS-agenten](backup-architecture.md#architecture-direct-backup-of-on-premises-windows-machinesazure-vm-filesfolders). Information om MABS och DPM backup-arkitekturen finns i [säkerhetskopiera till DPM- eller MABS](backup-architecture.md#architecture-back-up-to-dpmmabs). Se även [krav](backup-support-matrix-mabs-dpm.md) för arkitektur för säkerhetskopiering.
-
-## <a name="supported-installations"></a>Stöds installationer
+Alternativ för säkerhetskopiering beror på där agenten är installerad. Mer information finns i [Azure Backup-arkitektur med MARS-agenten](backup-architecture.md#architecture-direct-backup-of-on-premises-windows-server-machines-or-azure-vm-files-or-folders). Information om MABS och DPM backup-arkitekturen finns i [säkerhetskopiera till DPM- eller MABS](backup-architecture.md#architecture-back-up-to-dpmmabs). Se även [krav](backup-support-matrix-mabs-dpm.md) för arkitektur för säkerhetskopiering.
 
 **Installation** | **Detaljer**
 --- | ---
@@ -139,14 +137,12 @@ Azure Backup stöder *seeding offline* överföra första säkerhetskopierade in
 
 Offlinesäkerhetskopiering kan inte användas för systemtillståndsfiler.
 
-
 ## <a name="support-for-data-restoration"></a>Stöd för återställning av data
 
 Med hjälp av den [omedelbar återställning](backup-instant-restore-capability.md) funktionen Azure Backup kan du återställa data innan den kopieras till valvet. Den dator som du säkerhetskopierar måste köra .NET Framework 4.5.2 eller senare.
 
 Säkerhetskopieringar kan inte återställas till en måldator som kör en tidigare version av operativsystemet. Till exempel kan en säkerhetskopia som gjorts från en dator som kör Windows 7 återställas på Windows 8 eller senare. Men det går inte att återställa en säkerhetskopia som gjorts från en dator som kör Windows 8 på en dator som kör Windows 7.
 
-
 ## <a name="next-steps"></a>Nästa steg
-- Läs mer om [arkitektur som använder MARS-agenten för säkerhetskopiering](backup-architecture.md#architecture-direct-backup-of-on-premises-windows-machinesazure-vm-filesfolders).
+- Läs mer om [arkitektur som använder MARS-agenten för säkerhetskopiering](backup-architecture.md#architecture-direct-backup-of-on-premises-windows-server-machines-or-azure-vm-files-or-folders).
 - Lär dig vad har stöds när du [köra MARS-agenten på MABS eller en DPM-server](backup-support-matrix-mabs-dpm.md).

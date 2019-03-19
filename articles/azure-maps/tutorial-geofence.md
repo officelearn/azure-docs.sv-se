@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 7bd4c261af4159429a91bd8b425180037eec8c23
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
-ms.translationtype: HT
+ms.openlocfilehash: 112d0bd4b6802179692d0d177775027e552d1170
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56670901"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58085328"
 ---
 # <a name="set-up-a-geofence-by-using-azure-maps"></a>Konfigurera en geofence med hjälp av Azure Maps
 
@@ -25,14 +25,14 @@ Mer information om Event Grid finns i [Azure Event Grid](https://docs.microsoft.
 I den här självstudien lär du dig att:
 
 > [!div class="checklist"]
-* Ladda upp geofence-området i Azure Maps-datatjänsten med hjälp av API:et för datauppladdning.
-*   Konfigurera en Event Grid för att hantera geofence-händelser.
-*   Konfigurera geofence-händelsehanterare.
-*   Konfigurera aviseringar som svar på geofence-händelser med hjälp av Logic Apps.
-*   Använda Azure Maps geofence-tjänst-API:er för att spåra huruvida en byggsresurs befinner sig på byggarbetsplatsen.
+> * Ladda upp geofence-området i Azure Maps-datatjänsten med hjälp av API:et för datauppladdning.
+> *   Konfigurera en Event Grid för att hantera geofence-händelser.
+> *   Konfigurera geofence-händelsehanterare.
+> *   Konfigurera aviseringar som svar på geofence-händelser med hjälp av Logic Apps.
+> *   Använda Azure Maps geofence-tjänst-API:er för att spåra huruvida en byggsresurs befinner sig på byggarbetsplatsen.
 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 ### <a name="create-an-azure-maps-account"></a>Skapa ett Azure Maps-konto 
 
@@ -150,9 +150,9 @@ Vi använder postman-programmet för att ladda upp geofence för byggarbetsplats
 
 5. Klicka på Send (Skicka) och granska svarsrubriken. Platsrubriken innehåller URI för åtkomst eller nedladdning av data för framtida användning. Den innehåller även ett unikt `udId` för uppladdade data.
 
-  ```HTTP
-  https://atlas.microsoft.com/mapData/{udId}/status?api-version=1.0&subscription-key={Subscription-key}
-  ```
+   ```HTTP
+   https://atlas.microsoft.com/mapData/{udId}/status?api-version=1.0&subscription-key={Subscription-key}
+   ```
 
 ## <a name="set-up-an-event-handler"></a>Konfigurera en händelsehanterare
 
@@ -163,15 +163,15 @@ Mer information finns i avsnittet om [händelsehanterare som stöds](https://doc
 
 1. Skapa en logikapp i Azure-portalen
 
-  ![skapa logikappar](./media/tutorial-geofence/logic-app.png)
+   ![skapa logikappar](./media/tutorial-geofence/logic-app.png)
 
 2. Välj en HTTP-begärandeutlösare och välj sedan ”Send an email” (Skicka ett e-postmeddelande) som en åtgärd i Outlook-anslutningsappen
   
-  ![Logic Apps-schema](./media/tutorial-geofence/logic-app-schema.png)
+   ![Logic Apps-schema](./media/tutorial-geofence/logic-app-schema.png)
 
 3. Spara logikappen för att generera HTTP-URL-slutpunkten och kopiera HTTP-URL:en.
 
-  ![Logic Apps-slutpunkt](./media/tutorial-geofence/logic-app-endpoint.png)
+   ![Logic Apps-slutpunkt](./media/tutorial-geofence/logic-app-endpoint.png)
 
 
 ## <a name="create-an-azure-maps-events-subscription"></a>Skapa en prenumeration för Azure Maps-händelser
@@ -208,53 +208,53 @@ Följande är fem HTTP GET Geofencing API-begäranden med olika motsvarande plat
  
 1. Plats 1:
     
-  ```HTTP
-  https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udId={udId}&lat=47.638237&lon=-122.1324831&searchBuffer=5&isAsync=True&mode=EnterAndExit
-  ```
-  ![Geofence-fråga 1](./media/tutorial-geofence/geofence-query1.png)
+   ```HTTP
+   https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udId={udId}&lat=47.638237&lon=-122.1324831&searchBuffer=5&isAsync=True&mode=EnterAndExit
+   ```
+   ![Geofence-fråga 1](./media/tutorial-geofence/geofence-query1.png)
 
-  Som du ser i frågan nedan innebär det negativa avståndet från den huvudsakliga geofence att utrustningen är innanför geofence, och det positiva avståndet från delplatsens geofence innebär att den är utanför delplatsens geofence. 
+   Som du ser i frågan nedan innebär det negativa avståndet från den huvudsakliga geofence att utrustningen är innanför geofence, och det positiva avståndet från delplatsens geofence innebär att den är utanför delplatsens geofence. 
 
 2. Plats 2: 
    
-  ```HTTP
-  https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udId={udId}&lat=47.63800&lon=-122.132531&searchBuffer=5&isAsync=True&mode=EnterAndExit
-  ```
+   ```HTTP
+   https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udId={udId}&lat=47.63800&lon=-122.132531&searchBuffer=5&isAsync=True&mode=EnterAndExit
+   ```
     
-  ![Geofence-fråga 2](./media/tutorial-geofence/geofence-query2.png)
+   ![Geofence-fråga 2](./media/tutorial-geofence/geofence-query2.png)
 
-  Om du tittar noggrant på det föregående JSON-svaret ser du att utrustningen befinner sig utanför delplatsen men innanför den huvudsakliga gränsen. Det utlöser inte någon händelse, och ingen e-post skickas.
+   Om du tittar noggrant på det föregående JSON-svaret ser du att utrustningen befinner sig utanför delplatsen men innanför den huvudsakliga gränsen. Det utlöser inte någon händelse, och ingen e-post skickas.
 
 3. Plats 3: 
   
-  ```HTTP
-  https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udId={udId}&lat=47.63810783315048&lon=-122.13336020708084&searchBuffer=5&isAsync=True&mode=EnterAndExit
-  ```
+   ```HTTP
+   https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udId={udId}&lat=47.63810783315048&lon=-122.13336020708084&searchBuffer=5&isAsync=True&mode=EnterAndExit
+   ```
 
-  ![Geofence-fråga 3](./media/tutorial-geofence/geofence-query3.png)
+   ![Geofence-fråga 3](./media/tutorial-geofence/geofence-query3.png)
 
-  En tillståndsändring har inträffat och är utrustningen innanför både huvudplatsen och delplatsens geofences. Detta publicerar en händelse och ett e-postmeddelandet skickas till driftschefen.
+   En tillståndsändring har inträffat och är utrustningen innanför både huvudplatsen och delplatsens geofences. Detta publicerar en händelse och ett e-postmeddelandet skickas till driftschefen.
 
 4. Plats 4: 
 
-  ```HTTP
-  https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udId={udId}&lat=47.637988&lon=-122.1338344&searchBuffer=5&isAsync=True&mode=EnterAndExit
-  ```
+   ```HTTP
+   https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udId={udId}&lat=47.637988&lon=-122.1338344&searchBuffer=5&isAsync=True&mode=EnterAndExit
+   ```
   
-  ![Geofence-fråga 4](./media/tutorial-geofence/geofence-query4.png)
+   ![Geofence-fråga 4](./media/tutorial-geofence/geofence-query4.png)
 
    Genom att undersöka motsvarande svar noggrant kan du se att det inte publiceras någon händelse i det här fallet trots att utrustningen har utträtt från delplatsens geofence. Om du tittar på användarens angivna tid i GET-begäran ser du att delplatsens geofence har upphört i förhållande till den här tiden, och utrustningen befinner sig fortfarande i den huvudsakliga geofence. Du kan även se geometri-ID för delplatsens geofence under `expiredGeofenceGeometryId` i svarstexten.
 
 
 5. Plats 5:
       
-  ```HTTP
-  https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udId={udId}&lat=47.63799&lon=-122.134505&userTime=2019-01-16&searchBuffer=5&isAsync=True&mode=EnterAndExit
-  ```
+   ```HTTP
+   https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udId={udId}&lat=47.63799&lon=-122.134505&userTime=2019-01-16&searchBuffer=5&isAsync=True&mode=EnterAndExit
+   ```
 
-  ![Geofence-fråga 5](./media/tutorial-geofence/geofence-query5.png)
+   ![Geofence-fråga 5](./media/tutorial-geofence/geofence-query5.png)
 
-  Du kan se att utrustningen har lämnat den huvudsakliga byggarbetsplatsens geofence. En händelse publiceras. Det är en allvarlig överträdelse och ett viktigt e-postmeddelande skickas till driftschefen.
+   Du kan se att utrustningen har lämnat den huvudsakliga byggarbetsplatsens geofence. En händelse publiceras. Det är en allvarlig överträdelse och ett viktigt e-postmeddelande skickas till driftschefen.
 
 ## <a name="next-steps"></a>Nästa steg
 

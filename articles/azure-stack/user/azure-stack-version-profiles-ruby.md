@@ -16,12 +16,12 @@ ms.date: 01/09/2019
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 01/09/2019
-ms.openlocfilehash: 73c770f45666ce76b770796ac9714d007c2870cb
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 5c7031b0d0a08106473409233db0ad95ecb32525
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247195"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58095372"
 ---
 # <a name="use-api-version-profiles-with-ruby-in-azure-stack"></a>Använd API-versionsprofiler med Ruby i Azure Stack
 
@@ -85,8 +85,8 @@ gem install 'azure_sdk'
 
 För att kunna använda Azure-SDK för Ruby med Azure Stack, måste du ange följande värden och ange värden med miljövariabler. Se anvisningarna efter tabellen för operativsystemet på ställa in miljövariabler.
 
-| Value | Miljövariabler | Beskrivning |
-| --- | --- | --- | --- |
+| Värde | Miljövariabler | Beskrivning |
+| --- | --- | --- |
 | Klient-ID:t | AZURE_TENANT_ID | Värdet för Azure Stack [klient-ID](https://docs.microsoft.com/azure/azure-stack/azure-stack-identity-overview). |
 | Klientorganisations-ID | AZURE_CLIENT_ID | Tjänsten huvudnamn program-ID sparas när tjänstens huvudnamn har skapats i föregående avsnitt i det här dokumentet.  |
 | Prenumerations-ID:t | AZURE_SUBSCRIPTION_ID | Den [prenumerations-ID](https://docs.microsoft.com/azure/azure-stack/azure-stack-plan-offer-quota-overview#subscriptions) är hur du kommer åt erbjudanden i Azure Stack. |

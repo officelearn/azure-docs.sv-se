@@ -8,12 +8,12 @@ ms.date: 02/06/2019
 ms.topic: overview
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: 31b9405b7d4141890d786ab3d1cb70d11ef0c1b3
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: b5062dd4edf43fbb348a6de57f534096a8c922de
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56267962"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57193576"
 ---
 # <a name="what-is-azure-resource-graph"></a>Vad är Azure Resource Graph
 
@@ -52,7 +52,7 @@ Frågor till Resource Graph begränsas för att tillhandahålla den bästa upple
 
 ## <a name="running-your-first-query"></a>Kör din första fråga
 
-Resource Graph kan användas med både Azure CLI och Azure PowerShell. Frågan har samma struktur för båda språken. Lär dig hur du aktiverar Resource Graph i [Azure CLI](first-query-azurecli.md#add-the-resource-graph-extension) och [Azure PowerShell](first-query-powershell.md#add-the-resource-graph-module).
+Resursen Graph har stöd för Azure CLI, Azure PowerShell och Azure SDK för .NET. Frågan är strukturerad detsamma för varje språk. Lär dig hur du aktiverar Resource Graph i [Azure CLI](first-query-azurecli.md#add-the-resource-graph-extension) och [Azure PowerShell](first-query-powershell.md#add-the-resource-graph-module).
 
 ## <a name="next-steps"></a>Nästa steg
 

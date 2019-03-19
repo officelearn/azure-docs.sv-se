@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.openlocfilehash: a896c949e1f05a5d9ee179fa475150ad8da34283
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 8fd737bb784938f7cbff243837678f41d5ac55c9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53792789"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58076810"
 ---
 # <a name="use-extended-apache-spark-history-server-to-debug-and-diagnose-apache-spark-applications"></a>Använd utökat Apache Spark-Historikserver att felsöka och diagnostisera Apache Spark-program
 
@@ -29,7 +29,7 @@ Apache Spark-Historikserver är webbgränssnittet för slutförda och körs Spar
 1. Från den [Azure-portalen](https://portal.azure.com/), öppna Spark-klustret. Mer information finns i [lista och visa kluster](../hdinsight-administer-use-portal-linux.md#showClusters).
 2. Från **snabblänkar**, klickar du på **Klusterinstrumentpanel**, och klicka sedan på **Spark-Historikserver**. När du uppmanas, anger du autentiseringsuppgifter som administratör för Spark-klustret. 
 
-    ![Spark-Historikserver](./media/apache-azure-spark-history-server/launch-history-server.png "Spark-Historikserver")
+    ![Spark History Server](./media/apache-azure-spark-history-server/launch-history-server.png "Spark History Server")
 
 ### <a name="open-the-spark-history-server-web-ui-by-url"></a>Öppna Spark historik Server webbgränssnittet efter URL
 Öppna Spark-Historikserver genom att bläddra till följande URL ersätter <ClusterName> med Apache Spark-klusternamn av kunden.
@@ -106,11 +106,11 @@ Välj jobb-ID och klicka sedan **Graph** på Verktyg-menyn för att få jobbet d
 
 + Spela upp jobbet genom att klicka på den **uppspelning** knappen och stoppa när som helst genom att klicka på Stoppa. Aktiviteten visas i färg att visa status för olika när uppspelning:
 
-    + Grön för lyckades: Jobbet har slutförts.
-    + Orange för igen: Instanser av uppgifter som misslyckades men påverkar inte det slutgiltiga resultatet av jobbet. Dessa uppgifter hade duplicera eller försök instanser som kan lyckas senare.
-    + Blå för att köra: Aktiviteten körs.
-    + Vit för att vänta eller hoppades över: Uppgiften väntar på att köra eller scenen har hoppades över.
-    + Det gick inte att rött för: Uppgiften misslyckades.
+  + Grön för lyckades: Jobbet har slutförts.
+  + Orange för igen: Instanser av uppgifter som misslyckades men påverkar inte det slutgiltiga resultatet av jobbet. Dessa uppgifter hade duplicera eller försök instanser som kan lyckas senare.
+  + Blå för att köra: Aktiviteten körs.
+  + Vit för att vänta eller hoppades över: Uppgiften väntar på att köra eller scenen har hoppades över.
+  + Det gick inte att rött för: Uppgiften misslyckades.
 
     ![Graph färgprov som körs](./media/apache-azure-spark-history-server/sparkui-graph-color-running.png)
  
@@ -132,20 +132,20 @@ Välj jobb-ID och klicka sedan **Graph** på Verktyg-menyn för att få jobbet d
     ![Graph knappbeskrivning](./media/apache-azure-spark-history-server/sparkui-graph-tooltip.png)
 
 + Jobbet graph fliken faser har knappbeskrivning och lilla ikonen som visas om de uppgifter som uppfyller de nedan villkor:
-    + Datasnedställning: data lässtorlek > genomsnittlig lässtorlek för alla aktiviteter i det här skedet * 2 och data läses storlek > 10 MB.
-    + Tidssnedställning: körningstid > Genomsnittlig körningstid för alla aktiviteter i det här skedet * 2 och körningstid > 2 minuter.
+  + Datasnedställning: data lässtorlek > genomsnittlig lässtorlek för alla aktiviteter i det här skedet * 2 och data läses storlek > 10 MB.
+  + Tidssnedställning: körningstid > Genomsnittlig körningstid för alla aktiviteter i det här skedet * 2 och körningstid > 2 minuter.
 
     ![skeva Diagramikon](./media/apache-azure-spark-history-server/sparkui-graph-skew-icon.png)
 
 + Jobbet graph-nod visas följande information i varje fas:
-    + -ID.
-    + Namn eller beskrivning.
-    + Totalt antal uppgift tal.
-    + Data läses: summan av Indatastorleken och shuffle lässtorlek.
-    + Dataskrivning: summan av storlek och shuffle skriva storlek.
-    + Körningstid: tiden mellan starttiden för det första försöket och tidsåtgången för det senaste försöket.
-    + Radantal: summan av poster som indata, utdata poster, blanda läsa poster och blanda skriva poster.
-    + Förlopp.
+  + ID.
+  + Namn eller beskrivning.
+  + Totalt antal uppgift tal.
+  + Data läses: summan av Indatastorleken och shuffle lässtorlek.
+  + Dataskrivning: summan av storlek och shuffle skriva storlek.
+  + Körningstid: tiden mellan starttiden för det första försöket och tidsåtgången för det senaste försöket.
+  + Radantal: summan av poster som indata, utdata poster, blanda läsa poster och blanda skriva poster.
+  + Förlopp.
 
     > [!NOTE]  
     > Information från senaste försöket i varje fas (förutom scenen körningstid) visas i noden jobb graph som standard, men under uppspelning graph noden visas information för varje försök.
@@ -244,7 +244,7 @@ Om du stöter på historik-serverfel, följer du stegen för att tillhandahålla
 
 Om du vill uppgradera med snabbkorrigering använda skriptet nedan som kommer att uppgraderas spark-enhancement.jar*.
 
-**upgrade_spark_enhancement.SH**:
+**upgrade_spark_enhancement.sh**:
 
    ```bash
     #!/usr/bin/env bash
@@ -312,10 +312,10 @@ Om du vill uppgradera med snabbkorrigering använda skriptet nedan som kommer at
     https://hdinsighttoolingstorage.blob.core.windows.net/shsscriptactions/upgrade_spark_enhancement.sh
    ```
 
-    + Kontrollera **Head** och **Worker**.
-    + **Parametrar**: Ange parametrarna-Följ bash-användning.
+   + Kontrollera **Head** och **Worker**.
+   + **Parametrar**: Ange parametrarna-Följ bash-användning.
 
-    ![Överför loggen eller uppgradera snabbkorrigering](./media/apache-azure-spark-history-server/sparkui-upload2.png)
+     ![Överför loggen eller uppgradera snabbkorrigering](./media/apache-azure-spark-history-server/sparkui-upload2.png)
 
 
 ## <a name="known-issues"></a>Kända problem

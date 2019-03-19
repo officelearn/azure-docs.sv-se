@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 07/1/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0b93c6ebdc29429920096245c74c71b7918c095c
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 9c37c5339dedb3db68ed9bd23cd28e16a195bbde
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56330689"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58005778"
 ---
 # <a name="sap-ase-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>SAP ASE Azure virtuella datorer DBMS-distribution för SAP-arbetsbelastningar
 
@@ -158,7 +158,7 @@ ms.locfileid: "56330689"
 [deploy-template-portal]:../../../resource-group-template-deploy-portal.md
 [deploy-template-powershell]:../../../resource-group-template-deploy.md
 
-[dr-guide-classic]:http://go.microsoft.com/fwlink/?LinkID=521971
+[dr-guide-classic]:https://go.microsoft.com/fwlink/?LinkID=521971
 
 [getting-started]:get-started.md
 [getting-started-dbms]:get-started.md#1343ffe1-8021-4ce6-a08d-3a1553a4db82
@@ -172,7 +172,7 @@ ms.locfileid: "56330689"
 [getting-started-windows-classic-ha-sios]:../../virtual-machines-windows-classic-sap-get-started.md#4bb7512c-0fa0-4227-9853-4004281b1037
 [getting-started-windows-classic-planning]:../../virtual-machines-windows-classic-sap-get-started.md#f2a5e9d8-49e4-419e-9900-af783173481c
 
-[ha-guide-classic]:http://go.microsoft.com/fwlink/?LinkId=613056
+[ha-guide-classic]:https://go.microsoft.com/fwlink/?LinkId=613056
 
 [install-extension-cli]:virtual-machines-linux-enable-aem.md
 
@@ -401,8 +401,6 @@ DNS-namnet på Azure VM länken för att ställa in SAP profil parametern icm/ho
 > https://mydomainlabel.westeurope.cloudapp.net:44300/sap/bc/webdynpro/sap/dba_cockpit
 > 
 > http://mydomainlabel.westeurope.cloudapp.net:8000/sap/bc/webdynpro/sap/dba_cockpit
-> 
-> 
 
 I det här fallet måste du se till att:
 
@@ -467,7 +465,7 @@ Från och med Microsoft Azure kan migrera du enkelt dina befintliga SAP ASE-prog
 
 För att distribuera virtuella datorer i Azure är det viktigt att veta att officiella serviceavtalen som finns här: <https://azure.microsoft.com/support/legal/sla>
 
-Information för SAP-storlek och en lista med SAP-certifierade VM SKU: er tillhandahålls i SAP-kommentar [1928533]. Ytterligare SAP storlek dokument för virtuella datorer med Azure finns här <http://blogs.msdn.com/b/saponsqlserver/archive/2015/06/19/how-to-size-sap-systems-running-on-azure-vms.aspx> och här <http://blogs.msdn.com/b/saponsqlserver/archive/2015/12/01/new-white-paper-on-sizing-sap-solutions-on-azure-public-cloud.aspx>
+Information för SAP-storlek och en lista med SAP-certifierade VM SKU: er tillhandahålls i SAP-kommentar [1928533]. Ytterligare SAP storlek dokument för virtuella datorer med Azure finns här <https://blogs.msdn.com/b/saponsqlserver/archive/2015/06/19/how-to-size-sap-systems-running-on-azure-vms.aspx> och här <https://blogs.msdn.com/b/saponsqlserver/archive/2015/12/01/new-white-paper-on-sizing-sap-solutions-on-azure-public-cloud.aspx>
 
 Instruktioner och rekommendationer om till användningen av Azure Storage, distribution av SAP-datorer eller SAP övervakning som gäller för distributioner av SAP ASE tillsammans med SAP-program som anges under de första fyra kapitlen i det här dokumentet.
 
@@ -556,8 +554,6 @@ DNS-namnet på Azure VM länken för att ställa in SAP profil parametern icm/ho
 > https://mydomainlabel.westeurope.cloudapp.net:44300/sap/bc/webdynpro/sap/dba_cockpit
 > 
 > http://mydomainlabel.westeurope.cloudapp.net:8000/sap/bc/webdynpro/sap/dba_cockpit
-> 
-> 
 
 I det här fallet måste du se till att:
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 1020e18894f4bb307ad14f780e76eab1df1314bb
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 810388a85e4ad339ff1444d21ac231fe4c00aeac
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56875981"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58120541"
 ---
 # <a name="describing-a-service-fabric-cluster"></a>Som beskriver ett service fabric-kluster
 Service Fabric Cluster Resource Manager tillhandahåller flera mekanismer för att beskriva ett kluster. Under körning använder den här informationen i Cluster Resource Manager för att garantera hög tillgänglighet för de tjänster som körs i klustret. Samtidigt framtvinga dessa viktiga regler, försöker den också optimera resursförbrukning i klustret.
@@ -47,6 +47,7 @@ Det är viktigt att Feldomäner har ställts in korrekt eftersom Service Fabric 
 Vi bakgrundsfärg alla entiteter som bidrar till Feldomäner och listar alla de olika Feldomäner som resulterar i bilden nedan. I det här exemplet har vi datacenter (”DC”), rack (”R”) och blad (”B”). Möjligen, om varje bladet innehåller mer än en virtuell dator, kan det vara en annan nivå i hierarkin Feldomän.
 
 <center>
+
 ![Noder som är ordnade via Feldomäner][Image1]
 </center>
 
@@ -59,6 +60,7 @@ Det är bäst om det är samma antal noder på varje nivå i detalj i hierarkin 
 Hur ser imbalanced domäner ut? I diagrammet nedan visar vi två olika kluster layouterna. I det första exemplet jämnt noderna över Feldomänerna. I det andra exemplet har en Feldomän fler noder än de andra Feldomänerna. 
 
 <center>
+
 ![Två olika kluster layouterna][Image2]
 </center>
 
@@ -72,6 +74,7 @@ Uppgraderingsdomäner är mycket som Feldomäner, men med några viktiga skillna
 I följande diagram visas tre uppgradera domäner stripe över tre Feldomäner. Den visar även en möjlig placering för tre olika repliker av en tillståndskänslig tjänst, där var och en identisk i olika fel- och uppgradera domäner. Den placeringen kan förlusten av en Feldomän i mitten av en uppgradering av tjänsten och fortfarande har en kopia av kod och data.  
 
 <center>
+
 ![Placering med fel- och Uppgraderingsdomäner][Image3]
 </center>
 
@@ -88,6 +91,7 @@ Det finns ingen verklig gräns för totala antalet fel eller uppgradera domäner
 - En ”stripe” eller ”en” modell där Feldomäner och uppgradera domäner utgör en matris med datorer som vanligtvis körs ned de diagonala linjer
 
 <center>
+
 ![Fel- och layouter för Uppgraderingsdomän][Image4]
 </center>
 
@@ -190,9 +194,9 @@ Vi går tillbaka till föregående exempel. Med ”kvorum säker”-versionen av
 Eftersom både av metoder har styrkor och svagheter, har vi lanserat en anpassningsbar metod som kombinerar dessa två olika metoder.
 
 > [!NOTE]
->Det här är standardbeteendet från och med Service Fabric Version 6.2. 
->
-Anpassningsbar metoden använder ”högsta skillnaden” logiken som standard och växlar till ”kvorum säker” logiken vid behov. Klusterresurshanteraren räknat automatiskt ut vilken strategi krävs genom att titta på hur klustret och tjänster har konfigurerats. För en viss tjänst: *Om TargetReplicaSetSize är jämnt delbart med antalet Feldomäner och antalet uppgradera domäner **och** antalet noder som är mindre än eller lika med (antalet Feldomäner) * (antal uppgradera domäner), klustret Resource Manager ska använda ”kvorum baserat” logiken för tjänsten.* Ha i åtanke att Cluster Resource Manager kommer att använda den här metoden för både tillståndslösa och tillståndskänsliga tjänster, trots förlorar kvorum som inte är relevanta för tillståndslösa tjänster.
+> Det här är standardbeteendet från och med Service Fabric Version 6.2. 
+> 
+> Anpassningsbar metoden använder ”högsta skillnaden” logiken som standard och växlar till ”kvorum säker” logiken vid behov. Klusterresurshanteraren räknat automatiskt ut vilken strategi krävs genom att titta på hur klustret och tjänster har konfigurerats. För en viss tjänst: *Om TargetReplicaSetSize är jämnt delbart med antalet Feldomäner och antalet uppgradera domäner **och** antalet noder som är mindre än eller lika med (antalet Feldomäner) * (antal uppgradera domäner), klustret Resource Manager ska använda ”kvorum baserat” logiken för tjänsten.* Ha i åtanke att Cluster Resource Manager kommer att använda den här metoden för både tillståndslösa och tillståndskänsliga tjänster, trots förlorar kvorum som inte är relevanta för tillståndslösa tjänster.
 
 Vi går tillbaka till föregående exempel och antar att ett kluster nu har 8 noder (klustret fortfarande är konfigurerad med fem Feldomäner och fem uppgradera domäner och TargetReplicaSetSize av en tjänst som finns i de kluster förblir fem). 
 
@@ -344,6 +348,7 @@ Ibland (i fakta i de flesta fall) ska du vill vara säker på att vissa arbetsbe
 För att stödja dessa typer av konfigurationer, har Service Fabric en första klassens begreppet taggar som kan tillämpas på noderna. Dessa taggar kallas **nodegenskaper**. **Placeringsbegränsningar** är de instruktioner som är kopplade till enskilda tjänster väljer för en eller flera egenskaper för noden. Placeringsbegränsningar definiera där tjänsterna ska köras. Uppsättningen med begränsningar kan utökas – alla nyckel/värde-par fungerar. 
 
 <center>
+
 ![Olika arbetsbelastningar för Layout av kluster][Image5]
 </center>
 
@@ -351,6 +356,7 @@ För att stödja dessa typer av konfigurationer, har Service Fabric en första k
 Service Fabric definierar några standardegenskaper för noden som kan användas automatiskt utan att användaren behöver definiera dem. Standardegenskaperna som definierats vid varje nod är den **NodeType** och **nodnamn**. Exempelvis så du kan skriva en placering begränsning som `"(NodeType == NodeType03)"`. Vi har Allmänt sett NodeType ska vara en av mest ofta de egenskaper som används. Det är användbart eftersom det motsvarar en typ av en dator 1:1. Varje typ av dator motsvarar en typ av arbetsbelastning i ett traditionellt n-nivåprogram.
 
 <center>
+
 ![Placeringsbegränsningar och nodegenskaper][Image6]
 </center>
 
@@ -474,6 +480,7 @@ Om du har inaktiverat alla *belastningsutjämning*, Service Fabric Cluster Resou
 Under körning spårar Klusterresurshanteraren återstående kapacitet i klustret och på noder. För att kunna spåra kapacitet subtraherar Cluster Resource Manager varje tjänst användning från nodens kapacitet där tjänsten körs. Service Fabric Cluster Resource Manager kan ta reda på var du vill placera eller flytta repliker så att noderna inte går över kapacitet med den här informationen.
 
 <center>
+
 ![Klusternoder och kapacitet][Image7]
 </center>
 

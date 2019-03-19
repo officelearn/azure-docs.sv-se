@@ -6,29 +6,28 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
-author: ericlicoding
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/19/2018
-ms.openlocfilehash: e4e29f4b714fe187622d778db58743ca4f02e84e
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: f86ae4977621927a09d9b83287a00dfa3bc17196
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57445593"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57881001"
 ---
 # <a name="use-the-sample-datasets-in-azure-machine-learning-studio"></a>Använd exemplen på datauppsättningar i Azure Machine Learning Studio
 [top]: #machine-learning-sample-datasets
 
-När du skapar en ny arbetsyta i Azure Machine Learning Studio med ett antal provdatauppsättningar och experiment som standard. Många av dessa exempel på datauppsättningar som används av exemplet modeller i den [Azure AI-galleriet](http://gallery.azure.ai/). Andra finns med exempel på olika typer av data som vanligtvis används i machine learning.
+När du skapar en ny arbetsyta i Azure Machine Learning Studio med ett antal provdatauppsättningar och experiment som standard. Många av dessa exempel på datauppsättningar som används av exemplet modeller i den [Azure AI-galleriet](https://gallery.azure.ai/). Andra finns med exempel på olika typer av data som vanligtvis används i machine learning.
 
 Vissa av dessa datauppsättningar är tillgängliga i Azure Blob storage. Följande tabell innehåller en direktlänk för dessa datauppsättningar. Du kan använda dessa datauppsättningar i dina experiment med hjälp av den [importdata] [ import-data] modulen.
 
 Resten av dessa exempel på datauppsättningar som är tillgängliga i din arbetsyta under **sparade datauppsättningar**. Du hittar du på modulpaletten till vänster om arbetsytan för experimentet i Machine Learning Studio.
 Du kan använda någon av de här datauppsättningarna i dina egna experiment genom att dra den till experimentets arbetsyta.
 
-
-
+## <a name="datasets"></a>Datauppsättningar
 
 <table>
 
@@ -44,7 +43,7 @@ En delmängd av 1994 insamlade databasen, med fungerande vuxna än 16 med ett in
 <p></p>
 <b>Syntax:</b> Klassificera personer som använder demografi för att förutsäga om en person grundats över 50K per år.
 <p></p>
-<b>Relaterade Research:</b> Kohavi, R., Becker, B., (1996). UCI Machine Learning-lagringsplatsen <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: University of California, av skolinformation och datavetenskap </td>
+<b>Relaterade Research:</b> Kohavi, R., Becker, B., (1996). UCI Machine Learning-lagringsplatsen <a href="https://archive.ics.uci.edu/ml"> https://archive.ics.uci.edu/ml </a>. Irvine, CA: University of California, av skolinformation och datavetenskap </td>
 </tr>
 
 <tr>
@@ -65,7 +64,7 @@ Riskpoängen är inledningsvis associerad med automatisk pris. Den justeras seda
 <p></p>
 <b>Syntax:</b> Förutsäga riskpoäng med funktioner, med hjälp av regression eller multivarierad klassificering. 
 <p></p>
-<b>Relaterade Research:</b> Schlimmer J.C. (1987). UCI Machine Learning-lagringsplatsen <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: University of California, av skolinformation och datavetenskap </td>
+<b>Relaterade Research:</b> Schlimmer J.C. (1987). UCI Machine Learning-lagringsplatsen <a href="https://archive.ics.uci.edu/ml"> https://archive.ics.uci.edu/ml </a>. Irvine, CA: University of California, av skolinformation och datavetenskap </td>
 </tr>
 
 <tr>
@@ -96,9 +95,9 @@ Bidragsgivare data inklusive månader sedan senaste donation), och frekvens, ell
 <p></p>
 <b>Syntax:</b> Målet är att förutsäga via klassificering om bidragsgivare donerat blod i mars 2007, där 1 anger en bidragsgivare under perioden som mål och 0 icke-bidragsgivare. 
 <p></p>
-<b>Relaterade Research:</b> Yeh, I.C., (2008). UCI Machine Learning-lagringsplatsen <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: University of California, av skolinformation och datavetenskap
+<b>Relaterade Research:</b> Yeh, I.C., (2008). UCI Machine Learning-lagringsplatsen <a href="https://archive.ics.uci.edu/ml"> https://archive.ics.uci.edu/ml </a>. Irvine, CA: University of California, av skolinformation och datavetenskap
 <p></p>
-Yeh, jag-Cheng, Yang, King Jang och cering, tagg-mobilnät, ”Knowledge discovery på NF modellen med Bernoulli sekvens,” Expert-system med program, 2008 <a href="http://dx.doi.org/10.1016/j.eswa.2008.07.018">http://dx.doi.org/10.1016/j.eswa.2008.07.018</a>
+Yeh, jag-Cheng, Yang, King Jang och cering, tagg-mobilnät, ”Knowledge discovery på NF modellen med Bernoulli sekvens,” Expert-system med program, 2008 <a href="https://dx.doi.org/10.1016/j.eswa.2008.07.018">https://dx.doi.org/10.1016/j.eswa.2008.07.018</a>
   </td>
 </tr>
 
@@ -109,7 +108,7 @@ En av tre cancer-relaterade datauppsättningar som tillhandahålls av Oncology I
 <p></p>
 <b>Syntax:</b> Klassificera datatypen för cancer, baserat på 9 attribut, vilket är linjär och vissa är kategoriska. 
 <p></p>
-<b>Relaterade Research:</b> Wohlberg, W.H., Street, W.N., & Mangasarian, O.L. (1995). UCI Machine Learning-lagringsplatsen <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: University of California, av skolinformation och datavetenskap </td>
+<b>Relaterade Research:</b> Wohlberg, W.H., Street, W.N., & Mangasarian, O.L. (1995). UCI Machine Learning-lagringsplatsen <a href="https://archive.ics.uci.edu/ml"> https://archive.ics.uci.edu/ml </a>. Irvine, CA: University of California, av skolinformation och datavetenskap </td>
 </tr>
 
 <tr>
@@ -162,13 +161,13 @@ En samling av simulerade energi profiler, baserat på 12 annan byggnad former. B
 <p></p>
 <b>Syntax:</b> Använda regression eller klassificering för att förutsäga betyget energieffektivitet baserat som en av två riktig värdefull svar. Flera klassificering, är i avrunda variabeln svar till närmaste heltal. 
 <p></p>
-<b>Relaterade Research:</b> Xifara, A. & Tsanas, A. (2012). UCI Machine Learning-lagringsplatsen <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: University of California, av skolinformation och datavetenskap </td>
+<b>Relaterade Research:</b> Xifara, A. & Tsanas, A. (2012). UCI Machine Learning-lagringsplatsen <a href="https://archive.ics.uci.edu/ml"> https://archive.ics.uci.edu/ml </a>. Irvine, CA: University of California, av skolinformation och datavetenskap </td>
 </tr>
 
 <tr>
   <td>Flight fördröjer Data</td>
   <td>
-Passagerartrafik flygning i tid prestandadata som kommer från TranStats datainsamling i USA Department of Transportation (<a href="http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time">i tid</a>).
+Passagerartrafik flygning i tid prestandadata som kommer från TranStats datainsamling i USA Department of Transportation (<a href="https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time">i tid</a>).
 <p></p>
 Datauppsättningen tar upp hur lång tid April – oktober 2013. Innan du skickar till Azure Machine Learning Studio, bearbetades datamängden på följande sätt:
 <ul>
@@ -187,7 +186,7 @@ Poster flygplan flygning tillförsel och leveranser inom USA från oktober 2011.
 <p></p>
 <b>Syntax:</b> Förutsäga flygförseningar. 
 <p></p>
-<b>Relaterade Research:</b> Från USA Avd. Transportmyndighet <a href="http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time"> http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time </a>.
+<b>Relaterade Research:</b> Från USA Avd. Transportmyndighet <a href="https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time"> https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time </a>.
   </td>
 </tr>
 
@@ -198,7 +197,7 @@ Innehåller weather-data, till exempel temperatur och fuktighet index och vindha
 <p></p>
 <b>Syntax:</b> Det här är en svårt regression uppgift om syftet är att förutsäga området brända skogsbränder. 
 <p></p>
-<b>Relaterade Research:</b> Cortez, P., & Morais A. (2008). UCI Machine Learning-lagringsplatsen <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: University of California, av skolinformation och datavetenskap
+<b>Relaterade Research:</b> Cortez, P., & Morais A. (2008). UCI Machine Learning-lagringsplatsen <a href="https://archive.ics.uci.edu/ml"> https://archive.ics.uci.edu/ml </a>. Irvine, CA: University of California, av skolinformation och datavetenskap
 <p></p>
 [Cortez och Morais 2007] S. Cortez och A. Morais. En Data Mining metod för att förutsäga skogsbränder med hjälp av Meteorological Data. I J. Neves, M. F. Santos och J. Machado Eds., nya trender i artificiell intelligens, handlingar från 13 EPIA 2007 - portugisiska konferens på artificiell intelligens, December, Guimarães, Portugal, sidor 512-523, 2007. APPIA, ISBN-13 978-989-95618-0-9. Tillgängligt på: <a href="http://www.dsi.uminho.pt/~pcortez/fires.pdf"> http://www.dsi.uminho.pt/~pcortez/fires.pdf </a>.
   </td>
@@ -207,7 +206,7 @@ Innehåller weather-data, till exempel temperatur och fuktighet index och vindha
 <tr>
   <td>Tyska kreditkort UCI datauppsättning</td>
   <td>
-UCI Statlog (tyska kreditkort) datauppsättningen (<a href="http://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data)">Statlog + tyska + kredit + Data</a>), med hjälp av german.data-filen.
+UCI Statlog (tyska kreditkort) datauppsättningen (<a href="https://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data)">Statlog + tyska + kredit + Data</a>), med hjälp av german.data-filen.
 <p></p>
 Datauppsättningen klassificerar personer, som beskrivs av en uppsättning attribut som låg eller hög kreditrisker. Varje exempel representerar en person. Det finns 20 funktioner, både numeriska och kategoriska, och en binär etikett (kredit risk värde). Hög kredit risk poster har etikett = 2, låg kredit risk poster har etikett = 1. Kostnaden för misclassifying ett lågrisk-exempel som hög är 1, kostnaden för misclassifying en hög risk exempel så låga är 5.
   </td>
@@ -227,7 +226,7 @@ Detta är kanske mest känd databasen ska finnas i mönstret för dokumentation.
 <p></p>
 <b>Syntax:</b> Förutsäga iris-typen från mätningar.  
 <p></p>
-<b>Relaterade Research:</b> Fisher R.A. (1988). UCI Machine Learning-lagringsplatsen <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: University of California, av skolinformation och datavetenskap </td>
+<b>Relaterade Research:</b> Fisher R.A. (1988). UCI Machine Learning-lagringsplatsen <a href="https://archive.ics.uci.edu/ml"> https://archive.ics.uci.edu/ml </a>. Irvine, CA: University of California, av skolinformation och datavetenskap </td>
 </tr>
 
 <tr>
@@ -246,7 +245,7 @@ Data visas i olika bilar i miles per gallon samband med bränsle. Den innehålle
 <p></p>
 <b>Syntax:</b> Förutsäga bränsleekonomin baserat på tre diskreta flervärdesattribut och fem kontinuerliga attribut. 
 <p></p>
-<b>Relaterade Research:</b> StatLib, Carnegie Mellon University, (1993). UCI Machine Learning-lagringsplatsen <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: University of California, av skolinformation och datavetenskap </td>
+<b>Relaterade Research:</b> StatLib, Carnegie Mellon University, (1993). UCI Machine Learning-lagringsplatsen <a href="https://archive.ics.uci.edu/ml"> https://archive.ics.uci.edu/ml </a>. Irvine, CA: University of California, av skolinformation och datavetenskap </td>
 </tr>
 
 <tr>
@@ -256,7 +255,7 @@ En delmängd av data från National Institute av Diabetes och mag och lever sjuk
 <p></p>
 <b>Syntax:</b> Förutsäg om ämnet har diabetes (binär klassificering). 
 <p></p>
-<b>Relaterade Research:</b> Sigillito V. (1990). UCI Machine Learning-lagringsplatsen <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml”</a>. Irvine, CA: University of California, av skolinformation och datavetenskap </td>
+<b>Relaterade Research:</b> Sigillito V. (1990). UCI Machine Learning-lagringsplatsen <a href="https://archive.ics.uci.edu/ml"> https://archive.ics.uci.edu/ml”</a>. Irvine, CA: University of California, av skolinformation och datavetenskap </td>
 </tr>
 
 <tr>
@@ -266,7 +265,7 @@ En uppsättning metadata om kunder, inklusive demografi och inställningar.
 <p></p>
 <b>Syntax:</b> Använd den här datauppsättningen i kombination med de andra två restaurang datauppsättningar, träna och testa ett rekommenderare system. 
 <p></p>
-<b>Relaterade Research:</b> Bache, K. och Lichman, M. (2013). UCI Machine Learning-lagringsplatsen <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: University of California, av skolinformation och datavetenskap.
+<b>Relaterade Research:</b> Bache, K. och Lichman, M. (2013). UCI Machine Learning-lagringsplatsen <a href="https://archive.ics.uci.edu/ml"> https://archive.ics.uci.edu/ml </a>. Irvine, CA: University of California, av skolinformation och datavetenskap.
   </td>
 </tr>
 
@@ -277,7 +276,7 @@ En uppsättning metadata om restauranger och deras funktioner, till exempel mat 
 <p></p>
 <b>Syntax:</b> Använd den här datauppsättningen i kombination med de andra två restaurang datauppsättningar, träna och testa ett rekommenderare system. 
 <p></p>
-<b>Relaterade Research:</b> Bache, K. och Lichman, M. (2013). UCI Machine Learning-lagringsplatsen <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: University of California, av skolinformation och datavetenskap.
+<b>Relaterade Research:</b> Bache, K. och Lichman, M. (2013). UCI Machine Learning-lagringsplatsen <a href="https://archive.ics.uci.edu/ml"> https://archive.ics.uci.edu/ml </a>. Irvine, CA: University of California, av skolinformation och datavetenskap.
   </td>
 </tr>
 
@@ -288,7 +287,7 @@ Innehåller klassificeringar som anges av användarna restauranger på en skala 
 <p></p>
 <b>Syntax:</b> Använd den här datauppsättningen i kombination med de andra två restaurang datauppsättningar, träna och testa ett rekommenderare system. 
 <p></p>
-<b>Relaterade Research:</b> Bache, K. och Lichman, M. (2013). UCI Machine Learning-lagringsplatsen <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: University of California, av skolinformation och datavetenskap.
+<b>Relaterade Research:</b> Bache, K. och Lichman, M. (2013). UCI Machine Learning-lagringsplatsen <a href="https://archive.ics.uci.edu/ml"> https://archive.ics.uci.edu/ml </a>. Irvine, CA: University of California, av skolinformation och datavetenskap.
   </td>
 </tr>
 
@@ -301,7 +300,7 @@ Den här datauppsättningen innehåller en serie poster från stål glödgning u
 <p></p>
 Stål betyg följer en set-standard definieras av SAE och andra organisationer. Du letar efter en specifik ”i företagsklass” (Klassvariabeln) och vill förstå de värden som behövs. 
 <p></p>
-<b>Relaterade Research:</b> Sterling, D. & Buntine, W. (NA). UCI Machine Learning-lagringsplatsen <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: University of California, av skolinformation och datavetenskap
+<b>Relaterade Research:</b> Sterling, D. & Buntine, W. (NA). UCI Machine Learning-lagringsplatsen <a href="https://archive.ics.uci.edu/ml"> https://archive.ics.uci.edu/ml </a>. Irvine, CA: University of California, av skolinformation och datavetenskap
 <p></p>
 En användbar guide till stål betyg finns här: <a href="https://otk-sitecore-prod-v2-cdn.azureedge.net/-/media/from-sharepoint/documents/product/outokumpu-steel-grades-properties-global-standards.pdf">https://otk-sitecore-prod-v2-cdn.azureedge.net/-/media/from-sharepoint/documents/product/outokumpu-steel-grades-properties-global-standards.pdf</a>
   </td>
@@ -322,13 +321,13 @@ Data har bearbetats för att skapa ett avlångt kluster med långt axel är inri
 <p></p>
 Observera också att antalet händelser som bakgrund (för hadronic duschar h) är överskattade. I verkliga mått representerar klassen h eller brus merparten av händelser. 
 <p></p>
-<b>Relaterade Research:</b> Bock, R.K. (1995). UCI Machine Learning-lagringsplatsen <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: University of California, av skolinformation </td>
+<b>Relaterade Research:</b> Bock, R.K. (1995). UCI Machine Learning-lagringsplatsen <a href="https://archive.ics.uci.edu/ml"> https://archive.ics.uci.edu/ml </a>. Irvine, CA: University of California, av skolinformation </td>
 </tr>
 
 <tr>
   <td>Väder-datauppsättning</td>
   <td>
-Per timme mark-baserade väder observationer från amerikanska NOAA (<a href="http://az754797.vo.msecnd.net/data/WeatherDataset.csv">samman data från 201304 till 201310</a>).
+Per timme mark-baserade väder observationer från amerikanska NOAA (<a href="https://az754797.vo.msecnd.net/data/WeatherDataset.csv">samman data från 201304 till 201310</a>).
 <p></p>
 Väderdata täcker observationer som görs från en flygplats väder stationer, som omfattar tidsperioden April – oktober 2013. Innan du skickar till Azure Machine Learning Studio, bearbetades datamängden på följande sätt:
 <ul>
@@ -343,7 +342,7 @@ Väderdata täcker observationer som görs från en flygplats väder stationer, 
 <tr>
   <td>Wikipedia SP 500 Dataset</td>
   <td>
-Data hämtas från Wikipedia (<a href="http://www.wikipedia.org/">http://www.wikipedia.org/</a>) baserat på artiklar på varje S & P 500 företag, lagras som XML-data.
+Data hämtas från Wikipedia (<a href="https://www.wikipedia.org/">https://www.wikipedia.org/</a>) baserat på artiklar på varje S & P 500 företag, lagras som XML-data.
 <p></p>
 Innan du skickar till Azure Machine Learning Studio, bearbetades datamängden på följande sätt:
 <ul>
@@ -382,7 +381,7 @@ Funktioner i utbildning exemplen i RCV1 V2 Reuters nyheter datauppsättningen. D
 <tr>
   <td><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/network_intrusion_detection.csv">network_intrusion_detection.csv</a><br></td>
   <td>
-Datauppsättning från KDD Cup 1999 Knowledge Discovery and Data-utvinning Tools konkurrens (<a href="http://kdd.ics.uci.edu/databases/kddcup99/kddcup99.html">kddcup99.html</a>).
+Datauppsättning från KDD Cup 1999 Knowledge Discovery and Data-utvinning Tools konkurrens (<a href="https://kdd.ics.uci.edu/databases/kddcup99/kddcup99.html">kddcup99.html</a>).
 <p></p>
 Datauppsättningen har hämtats och lagrats i Azure Blob storage (<a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/network_intrusion_detection.csv">network_intrusion_detection.csv</a>) och innehåller både för träning och testning datauppsättningar. Datauppsättning för träning har cirka 126K rader och 43 kolumner, inklusive etiketter. Tre kolumner är en del av etikettinformationen om och 40 kolumner, som består av strängen/kategoriska och numeriska funktioner är tillgängliga för att träna modellen. Test har cirka 22,5 K testa exempel med samma 43 kolumner som i träningsdata.
   </td>
@@ -398,7 +397,7 @@ Avsnittet tilldelningar efter nyhetsartiklar i RCV1 V2 Reuters nyheter dataupps�
 <tr>
   <td><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/student_performance.txt">student_performance.txt</a></td>
   <td>
-Den här informationen kommer från KDD Cup 2010 Student prestanda utvärdering utmaningen (<a href="http://www.kdd.org/kdd-cup/view/kdd-cup-2010-student-performance-evaluation">student prestandautvärdering</a>). De data som används är träningsmängden Algebra_2008_2009 (Stamper, J., Niculescu-Mizil A., Ritter, S. Gordon, G.J. och Koedinger K.R. (2010). Algebra I 2008-2009. Utmana datauppsättning från KDD Cup 2010 Educational Data Mining utmaning. Hitta den på <a href="http://pslcdatashop.web.cmu.edu/KDDCup/downloads.jsp">downloads.jsp</a>.
+Den här informationen kommer från KDD Cup 2010 Student prestanda utvärdering utmaningen (<a href="https://www.kdd.org/kdd-cup/view/kdd-cup-2010-student-performance-evaluation">student prestandautvärdering</a>). De data som används är träningsmängden Algebra_2008_2009 (Stamper, J., Niculescu-Mizil A., Ritter, S. Gordon, G.J. och Koedinger K.R. (2010). Algebra I 2008-2009. Utmana datauppsättning från KDD Cup 2010 Educational Data Mining utmaning. Hitta den på <a href="https://pslcdatashop.web.cmu.edu/KDDCup/downloads.jsp">downloads.jsp</a>.
 <p></p>
 Datauppsättningen har hämtats och lagrats i Azure Blob storage (<a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/student_performance.txt">student_performance.txt</a>) och innehåller loggfiler från student tutoring system. De angivna funktionerna inkluderar problem-ID och en kort beskrivning, student-ID, tidsstämpel och hur många försök elevens gjort innan du lösa problemet på rätt sätt. Den ursprungliga datauppsättningen innehåller poster för 8.9M; den här datauppsättningen har varit samplas ned till de första 100K raderna. Datauppsättningen har 23 tabbavgränsade kolumner med olika typer: numeriska, kategoriska, och tidsstämpel.
   </td>
@@ -406,6 +405,10 @@ Datauppsättningen har hämtats och lagrats i Azure Blob storage (<a href="https
 
 </table>
 
+## <a name="next-steps"></a>Nästa steg
+
+> [!div class="nextstepaction"]
+> [Kickstart experimenterar med exempel](sample-experiments.md)
 
 <!-- Module References -->
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/

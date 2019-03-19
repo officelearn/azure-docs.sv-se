@@ -12,17 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/24/2018
+ms.date: 03/15/2019
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 45275a02467ab5e8592399e4eeae7f74a582c87a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: e960e06cc51cc4540a8360cefe90ce68fc7e1f17
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56200385"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58009915"
 ---
 # <a name="azure-active-directory-access-tokens"></a>Azure Active Directory-åtkomsttoken
 
@@ -59,7 +59,7 @@ Visa den här v2.0-token i [JWT.ms](https://jwt.ms/#access_token=eyJ0eXAiOiJKV1Q
 
 ## <a name="claims-in-access-tokens"></a>Anspråk i åtkomsttoken
 
-JWTs är uppdelat i tre delar: 
+JWTs är uppdelat i tre delar:
 
 * **Rubriken** -ger information om hur du [Validera token](#validating-tokens) inklusive information om vilka typer av token och hur det är signerat.
 * **Nyttolasten** -innehåller alla viktig information om den användare eller en app som försöker anropar din tjänst.
@@ -88,7 +88,7 @@ Anspråk finns endast om ett värde för att fylla i. Appen ska därför inte sk
 |-----|--------|-------------|
 | `aud` | Sträng, ett App-ID-URI | Identifierar den avsedda mottagaren av token. I åtkomst-token är målgruppen appens program-ID som tilldelats din app i Azure-portalen. Din app ska verifiera det här värdet och avvisa token om värdet inte matchar. |
 | `iss` | Sträng, en STS-URI | Identifierar den säkerhetstokentjänst (STS) som skapar och återställer token och Azure AD-klient där användaren autentiserades. Om Utfärdad token är en v2.0-token (se den `ver` anspråk), URI: N går ut om `/v2.0`. Det GUID som anger att användaren är en konsument användare från ett Microsoft-konto är `9188040d-6c67-4c5b-b112-36a304b66dad`. Din app ska använda GUID-del av kravet för att minska antalet klienter som kan logga in på appen, om tillämpligt. |
-|`idp`|String, usually an STS URI | Registrerar den identitetsprovider som har autentiserat subjektet för token. Det här värdet är identiskt med utfärdaren anspråkets värde såvida inte användarkontot inte i samma klient som utfärdaren - gäster, till exempel. Om anspråket inte är tillgänglig, innebär det att värdet för `iss` kan användas i stället.  För personliga konton som används i en organisations kontext (till exempel ett personligt konto bjudits in till en Azure AD-klient), den `idp` anspråk kan vara ”live.com” eller en STS-URI som innehåller Microsoft-kontots klientorganisation `9188040d-6c67-4c5b-b112-36a304b66dad`. |  
+|`idp`| String, usually an STS URI | Registrerar den identitetsprovider som har autentiserat subjektet för token. Det här värdet är identiskt med utfärdaren anspråkets värde såvida inte användarkontot inte i samma klient som utfärdaren - gäster, till exempel. Om anspråket inte är tillgänglig, innebär det att värdet för `iss` kan användas i stället.  För personliga konton som används i en organisations kontext (till exempel ett personligt konto bjudits in till en Azure AD-klient), den `idp` anspråk kan vara ”live.com” eller en STS-URI som innehåller Microsoft-kontots klientorganisation `9188040d-6c67-4c5b-b112-36a304b66dad`. |  
 | `iat` | int, en UNIX-tidsstämpel | ”Utfärdat till” anger när autentisering för den här token inträffade. |
 | `nbf` | int, en UNIX-tidsstämpel | ”Nbf” (inte före)-anspråket identifierar den tid som JWT inte måste godkännas för bearbetning. |
 | `exp` | int, en UNIX-tidsstämpel | ”Exp” (upphör att gälla)-anspråket identifierar den upphör att gälla på eller efter vilket JWT måste inte godkännas för bearbetning. Det är viktigt att Observera att en resurs kan avvisa token före denna tidpunkt, till exempel när en ändring i autentisering krävs eller en återkallningen av token har identifierats. |
@@ -101,18 +101,18 @@ Anspråk finns endast om ett värde för att fylla i. Appen ska därför inte sk
 | `azpacr` | ”0”, ”1” eller ”2” | Visa endast i v2.0-token. Anger hur klienten autentiserades. Värdet är ”0” för en offentlig klient. Om klient-ID och klienthemlighet används, är värdet ”1”. Om ett klientcertifikat har använts för autentisering, är värdet ”2”. |
 | `groups` | JSON-matris av GUID | Innehåller objekt-ID som representerar användarens gruppmedlemskap. Dessa värden är unikt (se objekt-ID) och kan användas på ett säkert sätt för att hantera åtkomst till exempel framtvinga behörighet att komma åt en resurs. De grupper som ingår i grupper-anspråket är konfigurerade på basis av per program, via den `groupMembershipClaims` egenskapen för den [programmanifestet](reference-app-manifest.md). En null-värde ska undanta alla grupper, värdet ”Tilldelningsmodulen” innehåller endast Active Directory-säkerhetsgrupp-medlemskap och ett värde av ”alla” kommer inkludera säkerhetsgrupper och distributionslistor för Office 365. <br><br>Se den `hasgroups` anspråk nedan för information om hur du använder den `groups` anspråk med implicit beviljande. <br>För andra flöden om antalet grupper som användaren är i går via en gräns (150 för SAML, 200 för JWT), läggs sedan ett överförbrukning anspråk till anspråk datakällor som pekar på Graph-slutpunkt som innehåller listan över grupper för användaren. |
 | `hasgroups` | Boolesk | Om det finns alltid `true`, anger användaren finns i minst en grupp. Används i stället för den `groups` anspråk för JWTs i implicit beviljande av flöden om fullständig grupper anspråk kan utökas URI-fragment överskrider gränserna för URL-längd (för närvarande 6 eller flera grupper). Anger att klienten ska använda i diagrammet för att fastställa användarens grupper (`https://graph.windows.net/{tenantID}/users/{userID}/getMemberObjects`). |
-| `groups:src1` | JSON-objekt | För tokenbegäranden som inte är begränsad längd (se `hasgroups` ovan) men fortfarande är för stor för token en länk till fullständiga listan över för användaren ska inkluderas. För JWTs som en distribuerad anspråk för SAML som ett nytt anspråk i stället för den `groups` anspråk. <br><br>**Exempelvärde JWT**: <br> `"groups":"src1"` <br> `"_claim_sources`: `"src1" : { "endpoint" : "https://graph.windows.net/{tenantID}/users/{userID}/getMemberObjects" }`|
+| `groups:src1` | JSON-objekt | För tokenbegäranden som inte är begränsad längd (se `hasgroups` ovan) men fortfarande är för stor för token en länk till fullständiga listan över för användaren ska inkluderas. För JWTs som en distribuerad anspråk för SAML som ett nytt anspråk i stället för den `groups` anspråk. <br><br>**Exempelvärde JWT**: <br> `"groups":"src1"` <br> `"_claim_sources`: `"src1" : { "endpoint" : "https://graph.windows.net/{tenantID}/users/{userID}/getMemberObjects" }` |
 | `preferred_username` | String | Primära användarnamnet som representerar användaren. Det kan vara en e-postadress, telefonnummer eller ett allmänt användarnamn utan angivet format. Värdet är föränderliga och kan ändras över tid. Eftersom det är föränderliga, måste det här värdet inte användas vid auktoriseringsbeslut.  Den kan användas för användarnamn tips om. Den `profile` omfattning krävs för att ta emot det här anspråket. |
 | `name` | String | Innehåller ett läsbart värde som identifierar föremål för token. Värdet är inte säkert att vara unikt, det är föränderliga och den har utformats för att användas endast för visning. Den `profile` omfattning krävs för att ta emot det här anspråket. |
 | `oid` | Sträng, ett GUID | Oföränderligt ID för ett objekt i Microsoft identity-plattformen, i det här fallet ett användarkonto. Det kan också användas för att utföra auktoriseringskontroller på ett säkert sätt och som en nyckel i databastabeller. Detta ID identifierar användaren för program – två olika program som loggar in samma användare får samma värde i den `oid` anspråk. Därför `oid` kan användas när att göra frågor till Microsoft online services, till exempel Microsoft Graph. Microsoft Graph returnerar detta ID som den `id` -egenskapen för ett givet användarkonto. Eftersom den `oid` tillåter flera appar att korrelera användare, den `profile` omfattning krävs för att ta emot det här anspråket. Observera att om en enskild användare finns i flera klienter, användaren innehåller ett annat objekt-ID i varje klient – de anses vara olika konton, även om användaren loggar in på varje konto med samma autentiseringsuppgifter. |
 | `rh` | Täckande sträng | Ett internt anspråk som används av Azure för att verifiera token. Resurser bör inte använda det här anspråket. |
 | `scp` | Sträng, ett blanksteg avgränsade lista med omfattningar | Uppsättningen med omfattningar som exponeras av ditt program där klientprogrammet har begärt (och tas emot) godkänna. Din app ska kontrollera att dessa scope är giltigt som exponeras av din app och fatta auktoriseringsbeslut baserat på värdet för dessa scope. Ingår endast för [användartoken](#user-and-application-tokens). |
-| `roles`| Sträng, ett blanksteg avgränsade lista över behörigheter | Uppsättningen behörigheter som exponeras av programmet som det begärande programmet har fått behörighet att anropa. Den används vid den [klientautentiseringsuppgifter](v1-oauth2-client-creds-grant-flow.md) flödar i stället för användaren scope och finns bara i [programmet token](#user-and-application-tokens). |
+| `roles` | Sträng, ett blanksteg avgränsade lista över behörigheter | Uppsättningen behörigheter som exponeras av programmet som det begärande programmet har fått behörighet att anropa. Den används vid den [klientautentiseringsuppgifter](v1-oauth2-client-creds-grant-flow.md) flödar i stället för användaren scope och finns bara i [programmet token](#user-and-application-tokens). |
 | `sub` | Sträng, ett GUID | Huvudkontot som token kontrollerar information, t.ex användare av en app. Det här värdet kan inte ändras och det går inte att tilldela om eller återanvänds. Den kan användas för att utföra auktoriseringskontroller på ett säkert sätt, till exempel när token används för att komma åt en resurs och kan användas som en nyckel i databastabeller. Eftersom ämne är alltid finns i token som Azure AD-problem, rekommenderar vi att använda det här värdet i ett auktoriseringssystem för allmänna. Ämnet är dock en pairwise identifierare – det är unikt för ett visst program-ID. Om en användare loggar in på två olika appar med hjälp av två olika klient-ID, därför får apparna två olika värden för ämne anspråket. Detta kan eller inte är önskvärt beroende på dina krav arkitektur och sekretess. |
 | `tid` | Sträng, ett GUID | Representerar den Azure AD-klient som användaren är från. För arbets- och skolkonton-konton är GUID oföränderligt klient-ID för den organisation som användaren tillhör. Värdet är för personliga konton `9188040d-6c67-4c5b-b112-36a304b66dad`. Den `profile` omfattning krävs för att ta emot det här anspråket. |
 | `unique_name` | String | Visa endast i v1.0 token. Innehåller ett läsbart värde som identifierar subjektet för token. Det här värdet är inte säkert att vara unika inom en klient och bör endast användas för visning. |
 | `uti` | Täckande sträng | Ett internt anspråk som används av Azure för att verifiera token. Resurser bör inte använda det här anspråket. |
-| `ver` | Sträng, 1.0 eller 2.0 | Anger versionen av den åtkomst-token. |
+| `ver` | String, antingen `1.0` eller `2.0` | Anger versionen av den åtkomst-token. |
 
 #### <a name="v10-basic-claims"></a>V1.0 grundläggande anspråk
 
@@ -121,7 +121,7 @@ Följande anspråken kommer att inkluderas i v1.0 token om det är tillämpligt,
 | Begäran | Format | Beskrivning |
 |-----|--------|-------------|
 | `ipaddr`| String | IP-adressen den användare som autentiseras från. |
-| `onprem_sid`| Strängen i [SID-format](https://docs.microsoft.com/windows/desktop/SecAuthZ/sid-components) | I fall där användaren har en lokal autentisering ger det här anspråket sina SID. Du kan använda `onprem_sid` för auktorisering i äldre program. |
+| `onprem_sid`| Strängen i [SID-format](https://docs.microsoft.com/windows/desktop/SecAuthZ/sid-components) | I fall där användaren har en lokal autentisering ger det här anspråket sina SID. Du kan använda `onprem_sid` för auktorisering i äldre program.|
 | `pwd_exp`| int, en UNIX-tidsstämpel | Anger när användarens lösenord upphör att gälla. |
 | `pwd_url`| String | En URL där användare kan skickas för att återställa sina lösenord. |
 | `in_corp`|boolesk | Signaler om klienten inloggning från företagsnätverket. Om de inte är ingår inte anspråket. |
@@ -132,7 +132,7 @@ Följande anspråken kommer att inkluderas i v1.0 token om det är tillämpligt,
 
 #### <a name="the-amr-claim"></a>Den `amr` anspråk
 
-Microsoft identiteter kan autentiseras i en mängd olika sätt, vilket kan vara relevanta för ditt program. Den `amr` anspråk är en matris som kan innehålla flera objekt som `["mfa", "rsa", "pwd"]`, för en autentisering som används för både ett lösenord och autentiseraren. 
+Microsoft identiteter kan autentiseras i en mängd olika sätt, vilket kan vara relevanta för ditt program. Den `amr` anspråk är en matris som kan innehålla flera objekt som `["mfa", "rsa", "pwd"]`, för en autentisering som används för både ett lösenord och autentiseraren.
 
 | Värde | Beskrivning |
 |-----|-------------|
@@ -203,7 +203,7 @@ Ditt programs affärslogik bestämmer det här steget, vissa vanliga auktoriseri
 * Kontrollera att den `tid` matchar en klient som kan anropa ditt API.
 * Använd den `acr` anspråk som ska verifiera användaren har utfört MFA. Detta ska tillämpas med hjälp av [villkorlig åtkomst](https://docs.microsoft.com/azure/active-directory/conditional-access/overview).
 * Om du har begärt den `roles` eller `groups` anspråk i åtkomsttoken, kontrollera att användaren är i gruppen får utföra den här åtgärden.
-  * För token hämtas med hjälp av det implicita flödet, behöver du troligen fråga den [Microsoft Graph](https://developer.microsoft.com/graph/) för dessa data som det är ofta ryms inte i token. 
+  * För token hämtas med hjälp av det implicita flödet, behöver du troligen fråga den [Microsoft Graph](https://developer.microsoft.com/graph/) för dessa data som det är ofta ryms inte i token.
 
 ## <a name="user-and-application-tokens"></a>Användar- och token
 
@@ -226,14 +226,14 @@ Uppdatera token kan vara ogiltig eller återkallas när som helst av olika skäl
 
 ### <a name="revocation"></a>Återkallade certifikat
 
-|   | Lösenordsbaserad cookie | Lösenordsbaserad token | Icke-den lösenordsbaserade cookie | Icke-den lösenordsbaserade token | Konfidentiell klient-token| 
-|---|-----------------------|----------------------|---------------------------|--------------------------|--------------------------|
-| Lösenordet upphör att gälla | Förblir aktiv| Förblir aktiv | Förblir aktiv | Förblir aktiv | Förblir aktiv |
+|   | Lösenordsbaserad cookie | Lösenordsbaserad token | Icke-den lösenordsbaserade cookie | Icke-den lösenordsbaserade token | Konfidentiell klient-token |
+|---|-----------------------|----------------------|---------------------------|--------------------------|---------------------------|
+| Lösenordet upphör att gälla | Förblir aktiv | Förblir aktiv | Förblir aktiv | Förblir aktiv | Förblir aktiv |
 | Lösenordet har ändrats av användaren | Återkallad | Återkallad | Förblir aktiv | Förblir aktiv | Förblir aktiv |
 | Användare utför SSPR | Återkallad | Återkallad | Förblir aktiv | Förblir aktiv | Förblir aktiv |
 | Återställer lösenordet för serveradministratören | Återkallad | Återkallad | Förblir aktiv | Förblir aktiv | Förblir aktiv |
-| Användaren återkallar sina uppdateringstoken [via PowerShell](https://docs.microsoft.com/powershell/module/azuread/revoke-azureadsignedinuserallrefreshtoken) | Återkallad | Återkallad |Återkallad | Återkallad |Återkallad | Återkallad |
-| Administratör återkallar alla uppdateringstoken för klienten [via PowerShell](https://docs.microsoft.com/powershell/module/azuread/revoke-azureaduserallrefreshtoken) | Återkallad | Återkallad |Återkallad | Återkallad |Återkallad | Återkallad |
+| Användaren återkallar sina uppdateringstoken [via PowerShell](https://docs.microsoft.com/powershell/module/azuread/revoke-azureadsignedinuserallrefreshtoken) | Återkallad | Återkallad | Återkallad | Återkallad | Återkallad |
+| Administratör återkallar alla uppdateringstoken för klienten [via PowerShell](https://docs.microsoft.com/powershell/module/azuread/revoke-azureaduserallrefreshtoken) | Återkallad | Återkallad |Återkallad | Återkallad | Återkallad |
 | [Enkel utloggning](v1-protocols-openid-connect-code.md#single-sign-out) på webben | Återkallad | Förblir aktiv | Återkallad | Förblir aktiv | Förblir aktiv |
 
 > [!NOTE]

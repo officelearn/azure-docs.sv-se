@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/10/2019
-ms.openlocfilehash: 1287df97f10033472c9717309688cf89887a66ed
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 387877efea4df30685fcf443a4d114c4feb66401
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54242973"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58098278"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-mysql"></a>Använda Azure portal för att konfigurera aviseringar i mått för Azure Database för MySQL 
 
@@ -60,21 +60,21 @@ Du kan konfigurera och få information om Varningsregler med:
 
 10. Konfigurera en **e-post/SMS/Push/röst** åtgärdstyp.
     
-   Välj ”e-post Azure Resource Manager roll” välja Prenumerationsägare, deltagare och läsare för att ta emot meddelanden.
+    Välj ”e-post Azure Resource Manager roll” välja Prenumerationsägare, deltagare och läsare för att ta emot meddelanden.
    
-   Du kan också ange en giltig URI i den **Webhook** fältet om du vill att den anropas när aviseringen utlöses.
+    Du kan också ange en giltig URI i den **Webhook** fältet om du vill att den anropas när aviseringen utlöses.
 
-   Välj **OK** när du är klar.
+    Välj **OK** när du är klar.
 
-   ![Åtgärdsgrupp](./media/howto-alert-on-metric/10-action-group-type.png)
+    ![Åtgärdsgrupp](./media/howto-alert-on-metric/10-action-group-type.png)
 
 11. Ange varningsregelns namn, beskrivning och allvarlighetsgrad.
 
-   ![Åtgärdsgrupp](./media/howto-alert-on-metric/11-name-description-severity.png) 
+    ![Åtgärdsgrupp](./media/howto-alert-on-metric/11-name-description-severity.png) 
 
 12. Välj **skapa varningsregel** att skapa aviseringen.
 
-   Inom några minuter, aviseringen är aktiv och utlöser som det beskrivits.
+    Inom några minuter, aviseringen är aktiv och utlöser som det beskrivits.
 
 ## <a name="manage-your-alerts"></a>Hantera aviseringar
 När du har skapat en avisering kan du markera den och göra följande:

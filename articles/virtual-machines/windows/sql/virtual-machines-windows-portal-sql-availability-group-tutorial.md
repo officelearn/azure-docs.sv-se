@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/30/2018
 ms.author: mikeray
-ms.openlocfilehash: 9242edb8ea08b858ae6ad092f4d855483e72d0bf
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: d86538fca907f7181bf58ff236bba8de186641fb
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57777472"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58003447"
 ---
 # <a name="tutorial-configure-always-on-availability-group-in-azure-vm-manually"></a>Självstudier: Konfigurera Always On Availability Group i virtuella Azure-datorer manuellt
 
@@ -415,6 +415,7 @@ Om du vill konfigurera belastningsutjämnaren måste du skapa en backend-adressp
 1. Klicka på belastningsutjämnaren, **belastningsutjämningsregler**, och klicka på **+ Lägg till**.
 
 1. Ange lyssnare reglerna för belastningsutjämning på följande sätt.
+
    | Inställning | Beskrivning | Exempel
    | --- | --- |---
    | **Namn** | Text | SQLAlwaysOnEndPointListener |
@@ -455,6 +456,7 @@ WSFC-IP-adressen måste också vara på belastningsutjämnaren.
 1. Ange regler för belastningsutjämning. Klicka på **belastningsutjämningsregler**, och klicka på **+ Lägg till**.
 
 1. Ange kluster core IP-adress reglerna för belastningsutjämning på följande sätt.
+
    | Inställning | Beskrivning | Exempel
    | --- | --- |---
    | **Namn** | Text | WSFCEndPoint |
@@ -505,15 +507,15 @@ Så här testar du anslutningen:
 
 1. Använd **sqlcmd** verktyg för att testa anslutningen. Till exempel följande skript upprättar en **sqlcmd** anslutning till den primära repliken via lyssnaren med Windows-autentisering:
 
-  ```cmd
-  sqlcmd -S <listenerName> -E
-  ```
+   ```cmd
+   sqlcmd -S <listenerName> -E
+   ```
 
-  Om lyssnaren använder en annan port än standardvärdet standardporten (1433), ange porten i anslutningssträngen. Till exempel ansluter kommandot sqlcmd till en lyssnare på port 1435:
+   Om lyssnaren använder en annan port än standardvärdet standardporten (1433), ange porten i anslutningssträngen. Till exempel ansluter kommandot sqlcmd till en lyssnare på port 1435:
 
-  ```cmd
-  sqlcmd -S <listenerName>,1435 -E
-  ```
+   ```cmd
+   sqlcmd -S <listenerName>,1435 -E
+   ```
 
 SQLCMD-anslutning ansluter automatiskt till instansen av SQL Server är värd för den primära repliken.
 

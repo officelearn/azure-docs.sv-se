@@ -17,12 +17,12 @@ ms.topic: article
 ms.date: 10/25/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7ce6dc4cf98f2886eb4eed7049048d67599ac42e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: adad43f337d4cf026ca8f48976a9fc713fd52200
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56207491"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58077419"
 ---
 # <a name="enable-enterprise-state-roaming-in-azure-active-directory"></a>Aktivera enterprise tillståndsväxling i Azure Active Directory
 Enterprise State Roaming är tillgänglig för alla företag med en Azure AD Premium eller Enterprise Mobility + Security (EMS)-licens. Mer information om hur du hämtar en Azure AD-prenumeration finns i den [produktsidan för Azure AD](https://azure.microsoft.com/services/active-directory).
@@ -37,7 +37,7 @@ När du aktiverar Enterprise State Roaming, beviljas automatiskt en kostnadsfri,
 
 1. Välj **användarna kan synkronisera inställningar och AppData på enheter**. Mer information finns i [så här konfigurerar du Enhetsinställningar](https://docs.microsoft.com/azure/active-directory/device-management-azure-portal).
   
-  ![Bild av enhetsinställning med namnet användare kan synkronisera inställningar och AppData på enheter](./media/enterprise-state-roaming-enable/device-settings.png)
+   ![Bild av enhetsinställning med namnet användare kan synkronisera inställningar och AppData på enheter](./media/enterprise-state-roaming-enable/device-settings.png)
   
 Enheten måste autentiseras med hjälp av en Azure AD-identitet för för en Windows 10-enhet du använder Enterprise State Roaming-tjänsten. För enheter som är anslutna till Azure AD är användarens primära inloggning identitet sina Azure AD-identitet, så krävs ingen ytterligare konfiguration. För enheter som använder en lokal Active Directory kan IT-administratören måste [konfigurera Azure Active Directory-anslutna hybridenheter](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-manual-steps). 
 
@@ -64,11 +64,11 @@ Följ dessa steg om du vill visa en statusrapport för per användare enheten sy
 
 1. Under **visa**väljer **Enhetssynkroniseringställningar eller AppData** att visa synkroniseringsstatus.
   
-  ![Bild av enhetsinställning synkronisera data](./media/enterprise-state-roaming-enable/sync-status.png)
+   ![Bild av enhetsinställning synkronisera data](./media/enterprise-state-roaming-enable/sync-status.png)
   
 1. Om det finns enheter synkroniserar för den här användaren kan se enheterna som visas här.
   
-  ![Bild av kolumnbaserad enhetsdata för synkronisering](./media/enterprise-state-roaming-enable/device-status-row.png)
+   ![Bild av kolumnbaserad enhetsdata för synkronisering](./media/enterprise-state-roaming-enable/device-status-row.png)
 
 ## <a name="data-retention"></a>Datakvarhållning
 Data som synkroniseras med Microsoft-molnet med hjälp av Enterprise State Roaming behålls tills den raderas manuellt eller i fråga data bedöms vara inaktuella. 

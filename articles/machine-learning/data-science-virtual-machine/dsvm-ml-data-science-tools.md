@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: f84341d6d8ac3b5c7febaa4f659da84efcebb780
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: e8876306e4ffbd0fa9a8aafc6d5d757fd3c9c614
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55473354"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57847373"
 ---
 # <a name="machine-learning-and-data-science-tools"></a>Machine learning och data science-verktyg
 Azure virtuella datorer för datavetenskap har en omfattande uppsättning verktyg och bibliotek för machine learning (ML) tillgänglig för populära språk, till exempel Python, R och Julia. 
@@ -71,7 +71,7 @@ Här är några av ML-verktyg och bibliotek på virtuella datorer för dataveten
 | Versioner som stöds     | Windows, Linux     |
 | Vanliga användningsområden      | Allmänt ML-verktyg     |
 | Hur du använder eller köra den      | På Windows, Sök efter Weka på Start-menyn. Logga in med X2Go på Linux, och gå sedan till **program** > **utveckling** > **Weka**. |
-| Länka till exempel      | [Weka-exempel](http://www.cs.waikato.ac.nz/ml/weka/documentation.html) |
+| Länka till exempel      | [Weka-exempel](https://www.cs.waikato.ac.nz/ml/weka/documentation.html) |
 | Relaterade verktyg      |LightGBM spännen, XGBoost   |
 
 ## <a name="rattle"></a>Spännen

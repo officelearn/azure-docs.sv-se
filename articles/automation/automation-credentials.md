@@ -9,16 +9,16 @@ ms.author: gwallace
 ms.date: 05/08/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a842c0807a3cfbad78a43bcffa896c83bceedfb9
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 1070cc97624b39ec929f5083f7073179fb1f068c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56959297"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57899153"
 ---
 # <a name="credential-assets-in-azure-automation"></a>Inloggningstillgångar i Azure Automation
 
-En Automation-autentiseringsuppgiftstillgång innehåller ett-objekt som innehåller säkerhetsreferenser, som ett användarnamn och lösenord. Runbooks och DSC-konfigurationer kan använda cmdlet: ar som accepterar ett PSCredential-objekt för autentisering eller de kan extrahera användarnamnet och lösenordet för PSCredential-objekt att förse vissa program eller tjänster som kräver autentisering. Egenskaperna för en autentiseringsuppgift lagras säkert i Azure Automation och kan nås i runbook eller DSC-konfiguration med den [Get-AutomationPSCredential](https://msdn.microsoft.com/library/system.management.automation.pscredential.aspx) aktivitet.
+En Automation-autentiseringsuppgiftstillgång innehåller ett-objekt som innehåller säkerhetsreferenser, som ett användarnamn och lösenord. Runbooks och DSC-konfigurationer kan använda cmdlet: ar som accepterar ett PSCredential-objekt för autentisering eller de kan extrahera användarnamnet och lösenordet för PSCredential-objekt att förse vissa program eller tjänster som kräver autentisering. Egenskaperna för en autentiseringsuppgift lagras säkert i Azure Automation och kan nås i runbook eller DSC-konfiguration med den [Get-AutomationPSCredential](#activities) aktivitet.
 
 [!INCLUDE [gdpr-dsr-and-stp-note.md](../../includes/gdpr-dsr-and-stp-note.md)]
 
@@ -31,10 +31,10 @@ Cmdlets i följande tabell används för att skapa och hantera inloggningstillg�
 
 | Cmdlet: ar | Beskrivning |
 |:--- |:--- |
-| [Get-AzureAutomationCredential](/powershell/module/servicemanagement/azure/get-azureautomationcredential?view=azuresmps-3.7.0) |Hämtar information om en autentiseringsuppgifttillgång. Du kan bara hämta autentiseringsuppgifterna själva från **Get-AutomationPSCredential** aktivitet. |
-| [New-AzureAutomationCredential](/powershell/module/servicemanagement/azure/new-azureautomationcredential?view=azuresmps-3.7.0) |Skapar en ny Automation-autentiseringsuppgift. |
-| [Remove- AzureAutomationCredential](/powershell/module/servicemanagement/azure/new-azureautomationcredential?view=azuresmps-3.7.0) |Tar bort autentiseringsuppgifter för Automation. |
-| [Set- AzureAutomationCredential](/powershell/module/servicemanagement/azure/new-azureautomationcredential?view=azuresmps-3.7.0) |Anger egenskaperna för befintliga autentiseringsuppgifter för Automation. |
+| [Get-AzureAutomationCredential](/powershell/module/servicemanagement/azure/get-azureautomationcredential) |Hämtar information om en autentiseringsuppgifttillgång. Du kan bara hämta autentiseringsuppgifterna själva från **Get-AutomationPSCredential** aktivitet. |
+| [New-AzureAutomationCredential](/powershell/module/servicemanagement/azure/new-azureautomationcredential) |Skapar en ny Automation-autentiseringsuppgift. |
+| [Remove-AzureAutomationCredential](/powershell/module/servicemanagement/azure/new-azureautomationcredential) |Tar bort autentiseringsuppgifter för Automation. |
+| [Set-AzureAutomationCredential](/powershell/module/servicemanagement/azure/new-azureautomationcredential) |Anger egenskaperna för befintliga autentiseringsuppgifter för Automation. |
 
 ## <a name="azurerm-powershell-cmdlets"></a>AzureRM PowerShell-cmdletar
 
@@ -42,10 +42,10 @@ För AzureRM används cmdletar i följande tabell för att skapa och hantera inl
 
 | Cmdlet: ar | Beskrivning |
 |:--- |:--- |
-| [Get-AzureRmAutomationCredential](/powershell/module/azurerm.automation/get-azurermautomationcredential?view=azurermps-4.4.0) |Hämtar information om en autentiseringsuppgifttillgång.  |
-| [New-AzureRmAutomationCredential](/powershell/module/azurerm.automation/new-azurermautomationcredential?view=azurermps-4.4.0) |Skapar en ny Automation-autentiseringsuppgift. |
-| [Remove-AzureRmAutomationCredential](/powershell/module/azurerm.automation/remove-azurermautomationcredential?view=azurermps-4.4.0) |Tar bort autentiseringsuppgifter för Automation. |
-| [Set-AzureRmAutomationCredential](/powershell/module/azurerm.automation/set-azurermautomationcredential?view=azurermps-4.4.0) |Anger egenskaperna för befintliga autentiseringsuppgifter för Automation. |
+| [Get-AzureRmAutomationCredential](/powershell/module/azurerm.automation/get-azurermautomationcredential) |Hämtar information om en autentiseringsuppgifttillgång.  |
+| [New-AzureRmAutomationCredential](/powershell/module/azurerm.automation/new-azurermautomationcredential) |Skapar en ny Automation-autentiseringsuppgift. |
+| [Remove-AzureRmAutomationCredential](/powershell/module/azurerm.automation/remove-azurermautomationcredential) |Tar bort autentiseringsuppgifter för Automation. |
+| [Set-AzureRmAutomationCredential](/powershell/module/azurerm.automation/set-azurermautomationcredential) |Anger egenskaperna för befintliga autentiseringsuppgifter för Automation. |
 
 ## <a name="activities"></a>Aktiviteter
 
@@ -53,7 +53,7 @@ Aktiviteterna i följande tabell används för att komma åt autentiseringsuppgi
 
 | Aktiviteter | Beskrivning |
 |:--- |:--- |
-| Get-AutomationPSCredential |Hämtar en autentiseringsuppgift som ska användas i en runbook eller DSC-konfiguration. Returns a [System.Management.Automation.PSCredential](https://msdn.microsoft.com/library/system.management.automation.pscredential) object. |
+| Get-AutomationPSCredential |Hämtar en autentiseringsuppgift som ska användas i en runbook eller DSC-konfiguration. Returns a [System.Management.Automation.PSCredential](/dotnet/api/system.management.automation.pscredential) object. |
 
 > [!NOTE]
 > Du bör undvika att använda variabler i – Name-parametern i Get-AutomationPSCredential eftersom detta kan göra det svårare att hitta beroenden mellan runbooks eller DSC-konfigurationer och autentiseringstillgångar vid designtillfället.
@@ -93,7 +93,7 @@ New-AzureAutomationCredential -AutomationAccountName "MyAutomationAccount" -Name
 
 ## <a name="using-a-powershell-credential"></a>Med hjälp av en PowerShell-autentiseringsuppgift
 
-Du kan hämta en autentiseringstillgång i en runbook eller DSC-konfiguration med den **Get-AutomationPSCredential** aktivitet. Detta returnerar en [PSCredential-objekt](https://msdn.microsoft.com/library/system.management.automation.pscredential.aspx) som du kan använda med en aktivitet eller cmdlet som kräver en PSCredential-parameter. Du kan också hämta egenskaperna för objektet för autentiseringsuppgifter för att använda individuellt. Objektet har en egenskap för användarnamnet och säkert lösenord eller använda den **GetNetworkCredential** metod för att returnera en [NetworkCredential](https://msdn.microsoft.com/library/system.net.networkcredential.aspx) objekt som ger en oskyddat version av den lösenordet.
+Du kan hämta en autentiseringstillgång i en runbook eller DSC-konfiguration med den **Get-AutomationPSCredential** aktivitet. Detta returnerar en [PSCredential-objekt](/dotnet/api/system.management.automation.pscredential) som du kan använda med en aktivitet eller cmdlet som kräver en PSCredential-parameter. Du kan också hämta egenskaperna för objektet för autentiseringsuppgifter för att använda individuellt. Objektet har en egenskap för användarnamnet och säkert lösenord eller använda den **GetNetworkCredential** metod för att returnera en [NetworkCredential](/dotnet/api/system.net.networkcredential) objekt som ger en oskyddat version av den lösenordet.
 
 ### <a name="textual-runbook-sample"></a>Textbaserade runbook-exempel
 

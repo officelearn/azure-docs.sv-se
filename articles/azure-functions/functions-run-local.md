@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: glenga
-ms.openlocfilehash: 2e2a388b399ff34e36ab65a734593704cf274dc0
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 9cfec02e2ea3496589474e61f583fb840a70f78d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57312094"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57881337"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Arbeta med Azure Functions Core Tools
 
@@ -183,22 +183,22 @@ Filen local.settings.json lagrar appinställningar, anslutningssträngar och ins
 
 | Inställning      | Beskrivning                            |
 | ------------ | -------------------------------------- |
-| **IsEncrypted** | När värdet **SANT**, alla värden som krypteras med hjälp av en lokal dator-nyckel. Används med `func settings` kommandon. Standardvärdet är **FALSKT**. |
-| **Värden** | Samling av programinställningar och anslutningssträngar som används när du kör lokalt. Dessa värden motsvarar appinställningar i din funktionsapp i Azure, till exempel **AzureWebJobsStorage** och **AzureWebJobsDashboard**. Många utlösare och bindningar har en egenskap som refererar till en appinställning för anslutningssträngen, till exempel **anslutning** för den [Blob storage-utlösare](functions-bindings-storage-blob.md#trigger---configuration). För egenskaper, behöver du en programinställning som definierats i den **värden** matris. <br/>**AzureWebJobsStorage** är en obligatorisk app-inställning för utlösare än HTTP. När du har den [Azure storage-emulatorn](../storage/common/storage-use-emulator.md) installerat lokalt kan du ange **AzureWebJobsStorage** till `UseDevelopmentStorage=true` och Core Tools använder emulatorn. Detta är användbart under utvecklingen, men du bör testa med en faktisk lagringsanslutning före distributionen. |
-| **Värd** | Inställningarna i det här avsnittet Anpassa värdprocessen funktioner när du kör lokalt. |
-| **LocalHttpPort** | Anger standardporten som används när du kör den lokala Functions-värden (`func host start` och `func run`). Den `--port` kommandoradsalternativet har företräde framför det här värdet. |
-| **CORS** | Definierar de ursprung som får för [cross-origin resource sharing (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing). Ursprung tillhandahålls som en kommaavgränsad lista med utan blanksteg. Jokertecknet (\*) stöds, vilket gör att begäranden från valfri origin. |
-| **ConnectionStrings** | Använd inte den här samlingen för anslutningssträngar som används av din funktionsbindning. Den här samlingen används endast av ramverk som kommer vanligtvis anslutningssträngar från den **ConnectionStrings** avsnitt i en konfiguration av fil, som [Entity Framework](https://msdn.microsoft.com/library/aa937723(v=vs.113).aspx). Anslutningssträngar i det här objektet läggs till i miljön med providertyp av [System.Data.SqlClient](https://msdn.microsoft.com/library/system.data.sqlclient(v=vs.110).aspx). Objekt i den här samlingen inte har publicerats till Azure med andra appinställningar. Du måste uttryckligen lägga till dessa värden till den **anslutningssträngar** insamling av din funktionsappinställningarna. Om du skapar en [SqlConnection](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection(v=vs.110).aspx) i Funktionskoden, bör du lagra Anslutningssträngens värde i **programinställningar** med dina andra anslutningar. |
+| **`IsEncrypted`** | När värdet `true`, alla värden som krypteras med hjälp av en lokal dator-nyckel. Används med `func settings` kommandon. Standardvärdet är `false`. |
+| **`Values`** | Samling av programinställningar och anslutningssträngar som används när du kör lokalt. Dessa värden motsvarar appinställningar i din funktionsapp i Azure, till exempel [ `AzureWebJobsStorage` ]. Många utlösare och bindningar har en egenskap som refererar till en appinställning för anslutningssträngen, till exempel `Connection` för den [Blob storage-utlösare](functions-bindings-storage-blob.md#trigger---configuration). För egenskaper, behöver du en programinställning som definierats i den `Values` matris. <br/>[`AzureWebJobsStorage`] är en obligatorisk app inställning för utlösare än HTTP. <br/>Version 2.x av funktionskörningen kräver den [ `FUNCTIONS_WORKER_RUNTIME` ] som genereras för ditt projekt med Core Tools. <br/> När du har den [Azure storage-emulatorn](../storage/common/storage-use-emulator.md) installerat lokalt kan du ange [ `AzureWebJobsStorage` ] till `UseDevelopmentStorage=true` och Core Tools använder emulatorn. Detta är användbart under utvecklingen, men du bör testa med en faktisk lagringsanslutning före distributionen. |
+| **`Host`** | Inställningarna i det här avsnittet Anpassa värdprocessen funktioner när du kör lokalt. |
+| **`LocalHttpPort`** | Anger standardporten som används när du kör den lokala Functions-värden (`func host start` och `func run`). Den `--port` kommandoradsalternativet har företräde framför det här värdet. |
+| **`CORS`** | Definierar de ursprung som får för [cross-origin resource sharing (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing). Ursprung tillhandahålls som en kommaavgränsad lista med utan blanksteg. Jokertecknet (\*) stöds, vilket gör att begäranden från valfri origin. |
+| **`ConnectionStrings`** | Använd inte den här samlingen för anslutningssträngar som används av din funktionsbindning. Den här samlingen används endast av ramverk som kommer vanligtvis anslutningssträngar från den `ConnectionStrings` avsnitt i en konfiguration av fil, som [Entity Framework](https://msdn.microsoft.com/library/aa937723(v=vs.113).aspx). Anslutningssträngar i det här objektet läggs till i miljön med providertyp av [System.Data.SqlClient](https://msdn.microsoft.com/library/system.data.sqlclient(v=vs.110).aspx). Objekt i den här samlingen inte har publicerats till Azure med andra appinställningar. Du måste uttryckligen lägga till dessa värden till den `Connection strings` insamling av din funktionsappinställningarna. Om du skapar en [ `SqlConnection` ](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection(v=vs.110).aspx) i Funktionskoden, bör du lagra Anslutningssträngens värde i **programinställningar** i portalen med dina andra anslutningar. |
 
 Funktionen appen inställningsvärden kan också läsa i koden som miljövariabler. Mer information finns i avsnittet miljö variabler i dessa språkspecifika referensämnen:
 
-+ [C#-förkompilerad version](functions-dotnet-class-library.md#environment-variables)
-+ [C#-skript (.csx)](functions-reference-csharp.md#environment-variables)
-+ [F#skript (.fsx)](functions-reference-fsharp.md#environment-variables)
-+ [Java](functions-reference-java.md#environment-variables)
-+ [JavaScript](functions-reference-node.md#environment-variables)
+* [C#-förkompilerad version](functions-dotnet-class-library.md#environment-variables)
+* [C#-skript (.csx)](functions-reference-csharp.md#environment-variables)
+* [F#skript (.fsx)](functions-reference-fsharp.md#environment-variables)
+* [Java](functions-reference-java.md#environment-variables)
+* [JavaScript](functions-reference-node.md#environment-variables)
 
-När ingen giltig lagringsanslutningssträng har angetts för **AzureWebJobsStorage** och emulatorn inte används, visas följande felmeddelande visas:
+När ingen giltig lagringsanslutningssträng har angetts för [ `AzureWebJobsStorage` ] och emulatorn inte används, visas följande felmeddelande visas:
 
 > Saknas värde för AzureWebJobsStorage i local.settings.json. Detta krävs för alla utlösare än HTTP. Du kan köra ”func azure functionapp fetch-app-settings \<functionAppName\>' eller ange en anslutningssträng i local.settings.json.
 
@@ -216,12 +216,12 @@ När ingen giltig lagringsanslutningssträng har angetts för **AzureWebJobsStor
 
 + Använd Core Tools anslutningssträngen från Azure med en av följande kommandon:
 
-    + Hämta alla inställningar från en befintlig funktionsapp:
+  + Hämta alla inställningar från en befintlig funktionsapp:
 
     ```bash
     func azure functionapp fetch-app-settings <FunctionAppName>
     ```
-    + Hämta anslutningssträngen för ett specifikt lagringskonto:
+  + Hämta anslutningssträngen för ett specifikt lagringskonto:
 
     ```bash
     func azure storage fetch-connection-string <StorageAccountName>
@@ -481,3 +481,5 @@ Till filen en bugg eller funktionen begäran [öppna ett GitHub-ärende](https:/
 [Azure Functions Core Tools]: https://www.npmjs.com/package/azure-functions-core-tools
 [Azure Portal]: https://portal.azure.com 
 [Node.js]: https://docs.npmjs.com/getting-started/installing-node#osx-or-windows
+[`FUNCTIONS_WORKER_RUNTIME`]: functions-app-settings.md#functions_worker_runtime
+[`AzureWebJobsStorage`]: functions-app-settings.md#azurewebjobsstorage

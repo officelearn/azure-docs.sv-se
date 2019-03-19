@@ -10,12 +10,12 @@ ms.subservice: design
 ms.date: 04/17/2018
 ms.author: acomet
 ms.reviewer: igorstan
-ms.openlocfilehash: d55c9db9af2eea9a56afe34c7a8689947a689bac
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 596ed857b39cf106ed2e37ad81c5fe9e939cca61
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55462553"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58001424"
 ---
 # <a name="sql-data-warehouse-frequently-asked-questions"></a>SQL Data Warehouse vanliga frågor och svar
 
@@ -105,7 +105,7 @@ Mer information om SQL Data Warehouse som helhet finns i vår [översikt] sidan.
 <!-- Article references -->
 [UserVoice]: https://feedback.azure.com/forums/307516-sql-data-warehouse
 [Anslutningssträngar]: ./sql-data-warehouse-connection-strings.md
-[Stack Overflow]: http://stackoverflow.com/questions/tagged/azure-sqldw
+[Stack Overflow]: https://stackoverflow.com/questions/tagged/azure-sqldw
 [Supportärenden]: ./sql-data-warehouse-get-started-create-support-ticket.md
 [Säkerhet]: ./sql-data-warehouse-overview-manage-security.md
 [Microsoft-efterlevnad]: https://www.microsoft.com/en-us/trustcenter/compliance/complianceofferings

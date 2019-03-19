@@ -11,27 +11,29 @@ ms.workload: ''
 ms.topic: article
 ms.date: 11/09/2018
 ms.author: juliako
-ms.openlocfilehash: 16f964c6f881777e0217979a329610902b29a87b
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: f6243bbc21466361aed7cbb7193f3a7b7c7e539f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51612636"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57885024"
 ---
 # <a name="create-and-monitor-media-services-events-with-event-grid-using-the-azure-cli"></a>Skapa och övervaka Media Services-händelser med Event Grid med Azure CLI
 
-Azure Event Grid är en händelsetjänst för molnet. I den här artikeln använder du Azure CLI för att prenumerera på händelser för Azure Media Services-kontot. Sedan kan utlösa du händelser för att visa resultatet. Normalt kan du skicka händelser till en slutpunkt som bearbetar informationen om händelsen och utför åtgärder. I den här artikeln får skicka du händelser till en webbapp som samlar in och visar meddelandena.
+Azure Event Grid är en händelsetjänst för molnet. Den här tjänsten använder [händelseprenumerationer](../../event-grid/concepts.md#event-subscriptions) händelsen skicka meddelanden till prenumeranter. Media Services-händelser innehåller all information du behöver för att svara på ändringar i dina data. Du kan identifiera en Media Services-händelse eftersom egenskapen händelsetyp börjar med ”Microsoft.Media”. Mer information finns i [Media Services Händelsescheman](media-services-event-schemas.md).
+
+I den här artikeln använder du Azure CLI för att prenumerera på händelser för Azure Media Services-kontot. Sedan kan utlösa du händelser för att visa resultatet. Normalt kan du skicka händelser till en slutpunkt som bearbetar informationen om händelsen och utför åtgärder. I den här artikeln får skicka du händelser till en webbapp som samlar in och visar meddelandena.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 - En aktiv Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) innan du börjar.
-- Installera och använda CLI lokalt kan du ha Azure CLI version 2.0 eller senare. Kör `az --version` för att se vilken version du har. Om du behöver installera eller uppgradera kan du läsa informationen i [Installera Azure CLI](/cli/azure/install-azure-cli). 
+- Installera och använd CLI lokalt – du måste ha Azure CLI version 2.0 eller senare. Kör `az --version` för att se vilken version du har. Om du behöver installera eller uppgradera kan du läsa informationen i [Installera Azure CLI](/cli/azure/install-azure-cli). 
 
-    För närvarande inte alla [Media Services v3 CLI](https://aka.ms/ams-v3-cli-ref) kommandona fungerar i Azure Cloud Shell. Det rekommenderas att använda CLI lokalt.
+    För närvarande fungerar inte alla [Media Services v3 CLI](https://aka.ms/ams-v3-cli-ref)-kommandon i Azure Cloud Shell. Vi rekommenderar att du använder CLI lokalt.
 
 - [Skapa ett Media Services-konto](create-account-cli-how-to.md).
 
-    Se till att komma ihåg de värden som du använde för resursgruppens namn och namnet på Media Services-konto.
+    Se till att komma ihåg de värden som du använde för resursgruppens namn och namnet på Media Services-kontot.
 
 ## <a name="create-a-message-endpoint"></a>Skapa en slutpunkt för meddelanden
 
@@ -39,7 +41,7 @@ Innan du prenumererar på händelser för Media Services-kontot ska vi ska slutp
 
 1. Välj **Deploy to Azure** (Distribuera till Azure) för att distribuera lösningen till din prenumeration. Ange parametervärdena i Azure Portal.
 
-   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
+   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"/></a>
 
 1. Det kan ta några minuter att slutföra distributionen. Efter distributionen har slutförts kan du visa webbappen för att kontrollera att den körs. I en webbläsare navigerar du till: `https://<your-site-name>.azurewebsites.net`
 

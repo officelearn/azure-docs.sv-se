@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 727a503a2fd942e6fbef9009c760a39f90828d2f
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: e275411f9fd9dfb672bb0815e83e37bcd5d1dda9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57433135"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58077028"
 ---
 # <a name="load-1-tb-into-azure-sql-data-warehouse-under-15-minutes-with-data-factory"></a>Läsa in 1 TB i Azure SQL Data Warehouse under 15 minuter med Data Factory
 > [!NOTE]
@@ -109,7 +109,7 @@ Den här artikeln innehåller stegvisa instruktioner för att flytta data till A
         CLUSTERED COLUMNSTORE INDEX
     )
     ```
-Nödvändiga steg har slutförts, är vi nu redo att konfigurera kopieringsaktiviteten med hjälp av guiden Kopiera.
+  Nödvändiga steg har slutförts, är vi nu redo att konfigurera kopieringsaktiviteten med hjälp av guiden Kopiera.
 
 ## <a name="launch-copy-wizard"></a>Använda guiden Kopiera
 1. Logga in på [Azure-portalen](https://portal.azure.com).

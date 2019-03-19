@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 72238db8322132f42e14656c106b82d8604af21f
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 376ee74732daf526b31129fa8c93cbaa32350eae
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57435107"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58107822"
 ---
 # <a name="understand-iot-edge-automatic-deployments-for-single-devices-or-at-scale"></a>Förstå IoT Edge automatiska distributioner för enskilda enheter eller i stor skala
 
@@ -32,7 +32,7 @@ Den här artikeln fokuserar på konfigurationen och övervakning faser för fjä
 2. IoT Hub-tjänsten kommunicerar med alla målriktade enheter att konfigurera dem med de önskade modulerna. 
 3. IoT Hub-tjänsten hämtar status från IoT Edge-enheter och gör dem tillgängliga för operatorn.  En operatör kan exempelvis se när en Edge-enhet inte har konfigurerats felfritt eller om en modul misslyckas under körning. 
 4. Nya IoT Edge-enheter som uppfyller villkor som Sök mål har konfigurerats för distributionen när som helst. Till exempel konfigurerar en distribution som riktar sig mot alla IoT Edge-enheter i delstaten Washington automatiskt en ny IoT Edge-enhet när den har etablerats och läggas till enhetsgrupp i delstaten Washington. 
- 
+ 
 Den här artikeln beskriver varje komponent som ingår i Konfigurera och övervaka en distribution. En genomgång för att skapa och uppdatera en distribution finns i [distribuera och övervaka IoT Edge-moduler i stor skala](how-to-deploy-monitor.md).
 
 ## <a name="deployment"></a>Distribution

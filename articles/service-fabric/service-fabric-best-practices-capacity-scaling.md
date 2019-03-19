@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/23/2019
 ms.author: pepogors
-ms.openlocfilehash: f91ea4c4ec887a9f9fe0c15000e3810109caeb96
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 425154958e4c60902b56f320f714a011b9095830
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56889077"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57997341"
 ---
 # <a name="capacity-planning-and-scaling"></a>Kapacitetsplanering och skalning
 
@@ -159,6 +159,13 @@ var newCapacity = (int)Math.Max(MinimumNodeCount, scaleSet.Capacity - 1); // Che
 
 scaleSet.Update().WithCapacity(newCapacity).Apply();
 ```
+
+> [!NOTE]
+> När du skalar ser ett kluster problem kan du den borttagna nod och VM-instans som visas i ett feltillstånd i Service Fabric Explorer. En förklaring av det här problemet finns i [beteenden som du kan se i Service Fabric Explorer](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-scale-up-down#behaviors-you-may-observe-in-service-fabric-explorer).
+> 
+> Du kan:
+> * Anropa [Remove-ServiceFabricNodeState cmd](https://docs.microsoft.com/powershell/module/servicefabric/remove-servicefabricnodestate?view=azureservicefabricps) med namnet på lämplig noden.
+> * Distribuera [service fabric Autoskala hjälpprogram](https://github.com/Azure/service-fabric-autoscale-helper/) i ditt kluster, vilket garanterar den skalats ned noder tas bort från Service Fabric Explorer.
 
 ## <a name="reliability-levels"></a>Tillförlitlighetsnivåer
 

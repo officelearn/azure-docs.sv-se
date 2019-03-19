@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 05/11/2018
+ms.date: 03/13/2019
 ms.author: mimart
 author: msmimart
 manager: daveba
-ms.reviewer: sasubram
+ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0d8183f7fa55a410b44d33295ad24f0f07adb145
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 0f75f91c037a2f05c999d388ce7bb16ad2d0c9cd
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56185935"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58005662"
 ---
 # <a name="leave-an-organization-as-a-guest-user"></a>Lämna en organisation som gästanvändare
 
@@ -24,13 +24,17 @@ En Azure Active Directory (Azure AD) B2B-gästanvändare kan välja att lämna e
 
 ## <a name="leave-an-organization"></a>Lämna en organisation
 
-Lämna en organisation, som en användare som loggat in på den [åtkomstpanelen](https://myapps.microsoft.com), gör du följande:
+Följ dessa steg om du vill lämna en organisation.
 
-1. Om du inte redan är inloggad på den organisation som du vill lämna, markerar du namnet i det övre högra hörnet och klicka på den organisation som du vill lämna.
-2. Välj ditt namn i det övre högra hörnet.
-3. Bredvid **organisationer**, välja inställningsikonen (kugghjulet).
+1. Gå till sidan Åtkomstpanelsprofil genom att göra något av följande:
+   
+   - I den [Azure-portalen](https://portal.azure.com), klicka på ditt namn i övre högra och välj **visa konto**.
+   - Öppna din [åtkomstpanelen](https://myapps.microsoft.com), klickar du på namnet på din uppe till höger och Nästa om du vill **organisationer**, välja inställningsikonen (kugghjulet).
  
    ![Skärmbild som visar användarinställningar i åtkomstpanelen](media/leave-the-organization/UserSettings.png) 
+
+   > [!NOTE]
+   > Om du inte redan är inloggad på organisationen som du vill lämna under **organisationer**, klickar du på den **logga in för att lämna organisationen** länken bredvid organisationens namn. När du har loggat in, klickar du på namnet på din igen i det övre högra hörnet och bredvid **organisationer**, välja inställningsikonen (kugghjulet).
 
 3. Under **organisationer**, hitta den organisation som du vill lämna och välj **lämna organisationen**.
 

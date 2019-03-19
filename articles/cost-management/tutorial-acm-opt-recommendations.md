@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/28/2019
+ms.date: 03/13/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: 6a26b4c08915b44d24290fde2c74d71b9362c11c
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 8471ae8ed0b391df11d81569b5660a2b098f5793
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57338577"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58000916"
 ---
 # <a name="tutorial-optimize-costs-from-recommendations"></a>Självstudier: Optimera kostnader från rekommendationer
 
@@ -41,7 +41,9 @@ Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.co
 
 ## <a name="view-cost-optimization-recommendations"></a>Visa rekommendationer för optimering
 
-Klicka på **Kostnadshantering + fakturering** i listan med tjänster i Azure Portal. Sedan i listan under **kostnadshantering**väljer **Advisor-rekommendationer**. Advisor kostnadsrekommendationer visas.
+Om du vill visa optimering kostnadsrekommendationer för en prenumeration, öppna det önskade omfånget i Azure portal och väljer **Advisor-rekommendationer**.
+
+Om du vill visa rekommendationer för en hanteringsgrupp, öppna det önskade omfånget i Azure portal och väljer **analys av kostnader** på menyn. Använd den **omfång** pill att växla till ett annat omfång, till exempel en hanteringsgrupp. Välj **Advisor-rekommendationer** på menyn. Mer information om scope finns [förstå och arbeta med omfattningar](understand-work-scopes.md).
 
 ![Cost Management Advisor-rekommendationer visas i Azure portal](./media/tutorial-acm-opt-recommendations/advisor-recommendations.png)
 

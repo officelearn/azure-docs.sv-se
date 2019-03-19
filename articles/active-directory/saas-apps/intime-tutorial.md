@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 08/09/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 893113b5383cfc2904a053b49edee19cb39f443c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: e82dd76c456f463666bc17bfda9664cf24012eed
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56166248"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58170215"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-intime"></a>Självstudier: Azure Active Directory-integrering med InTime
 
@@ -169,7 +169,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
 
     d. Klicka på **Skapa**.
  
-### <a name="create-a-intime-test-user"></a>Skapa en InTime testanvändare
+### <a name="create-an-intime-test-user"></a>Skapa en InTime testanvändare
 
 I det här avsnittet skapar du en användare som kallas Britta Simon i InTime. Arbeta med [InTime supportteamet](mailto:hdollard@intimesoft.com) att lägga till användare i InTime-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
@@ -211,7 +211,7 @@ När du klickar på panelen InTime i åtkomstpanelen, bör du få inloggningssid
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
+* [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 

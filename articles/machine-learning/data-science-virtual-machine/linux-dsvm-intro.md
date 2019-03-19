@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: 58f4d7be530aa3c7e0071a2f0d80bc30ebd5cf25
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: e7b67905c96495382536555b87772e4eefada250
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57440921"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57835755"
 ---
 # <a name="provision-a-linux-centos-data-science-virtual-machine-on-azure"></a>Etablera en Linux CentOS Data Science-dator på Azure
 
@@ -104,7 +104,7 @@ Här följer stegen för att skapa en instans av den Linux virtuella datorn för
 Etableringen tar cirka 10-20 minuter. Status för etableringen visas på Azure portal.
 
 ## <a name="how-to-access-the-linux-data-science-virtual-machine"></a>Hur du kommer åt Linux Data Science Virtual Machine
-När den virtuella datorn har skapats kan logga du in till den med hjälp av SSH. Använda de autentiseringsuppgifter som du skapade i den **grunderna** avsnittet i steg 3 för text shell-gränssnittet. I Windows kan du ladda ned ett SSH-klientverktyg som [Putty](http://www.putty.org). Du kan använda X11 vidarebefordran på Putty eller installera X2Go klienten om du föredrar en grafisk desktop (X Windows System).
+När den virtuella datorn har skapats kan logga du in till den med hjälp av SSH. Använda de autentiseringsuppgifter som du skapade i den **grunderna** avsnittet i steg 3 för text shell-gränssnittet. I Windows kan du ladda ned ett SSH-klientverktyg som [Putty](https://www.putty.org). Du kan använda X11 vidarebefordran på Putty eller installera X2Go klienten om du föredrar en grafisk desktop (X Windows System).
 
 > [!NOTE]
 > Klienten X2Go utförs avsevärt bättre än X11 vidarebefordran i testet. Vi rekommenderar att du använder X2Go-klienten för ett grafiskt gränssnitt för fjärrskrivbord.
@@ -114,7 +114,7 @@ När den virtuella datorn har skapats kan logga du in till den med hjälp av SSH
 ## <a name="installing-and-configuring-x2go-client"></a>Installera och konfigurera X2Go klienten
 Linux VM är redan upprättad med X2Go server och redo att ta emot klientanslutningar. Om du vill ansluta till Linux VM grafiska skrivbordet, gör du följande på din klient:
 
-1. Ladda ned och installera klienten för din klientplattform från X2Go [X2Go](http://wiki.x2go.org/doku.php/doc:installation:x2goclient).    
+1. Ladda ned och installera klienten för din klientplattform från X2Go [X2Go](https://wiki.x2go.org/doku.php/doc:installation:x2goclient).    
 1. Kör X2Go-klienten och välj **ny Session**. Det öppnar en konfiguration med flera flikar. Ange följande konfigurationsparametrar:
    * **Sessionen fliken**:
      * **Värden**: Värdnamn eller IP-adressen för din Linux virtuell dator för datavetenskap.
@@ -132,7 +132,7 @@ R är ett av de mest populära språk för dataanalys och maskininlärning. Om d
 
 Starta R-konsolen, skriver du bara **R** i gränssnittet. Detta tar dig till en interaktiv miljö. För att utveckla ditt R-program kan du vanligtvis använda en redigerare som Emacs eller vi eller gedit och sedan köra skript i R. Med RStudio har du ett fullständigt grafiskt IDE-miljö för att utveckla ditt R-program.
 
-Det finns också ett R-skript att installera den [översta 20 R-paket](http://www.kdnuggets.com/2015/06/top-20-r-packages.html) om du vill. Det här skriptet kan köras när du är i det interaktiva gränssnittet R, som du kan ange (som tidigare nämnts) genom att skriva **R** i gränssnittet.  
+Det finns också ett R-skript att installera den [översta 20 R-paket](https://www.kdnuggets.com/2015/06/top-20-r-packages.html) om du vill. Det här skriptet kan köras när du är i det interaktiva gränssnittet R, som du kan ange (som tidigare nämnts) genom att skriva **R** i gränssnittet.  
 
 ### <a name="python"></a>Python
 Anaconda Python-distribution 2.7 och 3.5 har installerats för utveckling med hjälp av Python. Den här distributionen innehåller grundläggande Python tillsammans med ungefär 300 av de mest populära analyspaket matematiska, teknik och data. Du kan använda standard-textredigerare. Du kan dessutom använda Spyder, en Python IDE som har paketerats med Anaconda Python-distributioner. Spyder måste en grafisk desktop eller X11 vidarebefordran. En genväg till Spyder tillhandahålls i grafiska desktop.
@@ -203,7 +203,7 @@ Du kan stoppa Hadoop-relaterade tjänster när du inte behöver dem genom att k�
 ### <a name="ides-and-editors"></a>IDE: er och redigeringsprogram
 Du kan välja mellan flera kod redigerare. Detta inkluderar vi/VIM, Emacs, gEdit, RStudio, Eclipse pycharm med IntelliJ. gEdit, Eclipse, IntelliJ, RStudio och PyCharm finns grafiska redigerare du måste vara inloggad på ett grafiskt skrivbord kan använda dem. Dessa redigerare har skrivbord och programtjänster menyn genvägar att starta dem.
 
-**VIM** och **Emacs** är textbaserade redigerare. Vi har installerat ett tillägg-paket som heter Emacs talar statistik (ESS) som underlättar arbetet med R i redigeraren Emacs Emacs. Mer information finns på [ESS](http://ess.r-project.org/).
+**VIM** och **Emacs** är textbaserade redigerare. Vi har installerat ett tillägg-paket som heter Emacs talar statistik (ESS) som underlättar arbetet med R i redigeraren Emacs Emacs. Mer information finns på [ESS](https://ess.r-project.org/).
 
 **Eclipse** är en öppen källa, utbyggbar IDE som har stöd för flera språk. Versionen av Java-utvecklare är den instans som är installerad på den virtuella datorn. Det finns plugin-program för flera populära språk som kan installeras för att utöka miljön. Vi har också ett plugin-program installerat i Eclipse kallas **Azure Toolkit för Eclipse**. Det kan du skapa, utveckla, testa och distribuera Azure med Eclipse-utvecklingsmiljö med stöd för språk som Java-program. Det finns också en **Azure SDK för Java** som ger åtkomst till olika Azure-tjänster från inom en Java-miljö. Mer information om Azure toolkit för Eclipse kan hittas på [Azure Toolkit för Eclipse](../../azure-toolkit-for-eclipse.md).
 
@@ -377,5 +377,5 @@ Här är hur du kan fortsätta din inlärning och undersökning:
 * Den [datavetenskap på den Linux Data Science Virtual Machine](linux-dsvm-walkthrough.md) genomgången visar hur du utför flera vanliga datavetenskapsuppgifter med den Linux virtuell dator för datavetenskap etablerats här. 
 * Utforska de olika verktyg för datavetenskap på den virtuella datorn för datavetenskap genom att prova de verktyg som beskrivs i den här artikeln. Du kan också köra *dsvm-mer-info* på gränssnittet på den virtuella datorn för en grundläggande introduktion och länkar till mer information om verktygen som installeras på den virtuella datorn.  
 * Lär dig att skapa slutpunkt till slutpunkt Analyslösningar systematiskt med hjälp av den [Team Data Science Process](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
-* Gå till den [Cortana Analytics-galleriet](http://gallery.cortanaanalytics.com) för machine learning och data analytics-exempel som använder Cortana Analytics Suite.
+* Gå till den [Cortana Analytics-galleriet](https://gallery.cortanaanalytics.com) för machine learning och data analytics-exempel som använder Cortana Analytics Suite.
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bfe77602d138224c848cc915bbba5a7084c29650
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: c22b035b325582cf4a12ff10a9abbedb8837229b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56170066"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58117888"
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Integrera din VPN-infrastruktur med Azure MFA med hjälp av NPS-tillägget för Azure
 
@@ -30,20 +30,20 @@ Nätverksprincip och åtkomsttjänster ger organisationer möjlighet att:
 
 * Tilldela en central plats för hantering och kontroll över nätverksbegäranden ange:
 
-    * Vem som kan ansluta 
+  * Vem som kan ansluta 
     
-    * Vilka tider på dagen anslutningar tillåts 
+  * Vilka tider på dagen anslutningar tillåts 
     
-    * Varaktigheten för anslutningar
+  * Varaktigheten för anslutningar
     
-    * Vilken säkerhetsnivå som klienter måste använda för att ansluta
+  * Vilken säkerhetsnivå som klienter måste använda för att ansluta
 
     I stället för att ange principer på varje server för VPN eller fjärrskrivbordsgateway du göra det när de är på en central plats. RADIUS-protokollet används för att ge centraliserad autentisering, auktorisering och redovisning. 
 
 * Fastställa och tillämpa hälsopolicys för Network Access Protection (NAP) klienten som avgör om enheter har beviljats obegränsad eller begränsad åtkomst till nätverksresurser.
 
 * Ett sätt att användning av autentisering och auktorisering för åtkomst till 802. 1 x-kompatibla trådlösa åtkomstpunkter och Ethernet-växlar.   
-Mer information finns i [Network Policy Server](https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-top). 
+  Mer information finns i [Network Policy Server](https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-top). 
 
 För att förbättra säkerheten och ge en hög nivå av efterlevnad, kan organisationer integrera NPS med Azure Multi-Factor Authentication så att användarna ska använda tvåstegsverifiering för att ansluta till den virtuella porten på VPN-servern. För användare som ska få åtkomstbehörighet måste de ange sitt användarnamn och lösenord kombination och annan information som de styr. Den här informationen måste vara betrodd och inte enkelt dupliceras. Den kan innehålla ett mobiltelefonnummer, en fast telefon siffra eller ett program på en mobil enhet.
 

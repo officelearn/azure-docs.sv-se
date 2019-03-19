@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/01/2019
 ms.author: apimpm
-ms.openlocfilehash: 6ace19339eb3f89c3b0cde6f5b9b0ecc783e2597
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: a8566e41934b5d78d8be60b385ea4148e1cb60c3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57341620"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58087048"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Hur du använder Azure API Management med virtuella nätverk
 Azure-nätverk (Vnet) kan du placera någon av dina Azure-resurser i ett icke-internet-dirigerbara nätverk som du styr åtkomst till. Dessa nätverk kan sedan anslutas till ditt lokala nätverk med olika VPN-teknologier. Om du vill veta börjar mer om Azure Virtual Networks med den här informationen: [Översikt över Azure Virtual Network](../virtual-network/virtual-networks-overview.md).
@@ -53,26 +53,26 @@ Om du vill utföra stegen som beskrivs i den här artikeln, måste du ha:
     ![Meny för virtuellt nätverk med API Management][api-management-using-vnet-menu]
 4. Välj typ av lägga till:
 
-    * **Externa**: portalen för API Management gateway och utvecklarportal är tillgängliga från det offentliga internet via en extern belastningsutjämnare. Gatewayen kan komma åt resurser i det virtuella nätverket.
+   * **Externa**: portalen för API Management gateway och utvecklarportal är tillgängliga från det offentliga internet via en extern belastningsutjämnare. Gatewayen kan komma åt resurser i det virtuella nätverket.
 
-    ![Offentlig peering][api-management-vnet-public]
+     ![Offentlig peering][api-management-vnet-public]
 
-    * **Interna**: portalen för API Management gateway och utvecklarportal är enbart tillgänglig från det virtuella nätverket via en intern belastningsutjämnare. Gatewayen kan komma åt resurser i det virtuella nätverket.
+   * **Interna**: portalen för API Management gateway och utvecklarportal är enbart tillgänglig från det virtuella nätverket via en intern belastningsutjämnare. Gatewayen kan komma åt resurser i det virtuella nätverket.
 
-    ![Privat peering][api-management-vnet-private]`
+     ![Privat peering][api-management-vnet-private]`
 
-    Du kommer nu se en lista över alla regioner där API Management-tjänsten har etablerats. Välj ett virtuellt nätverk och undernät för varje region. I listan fylls med både klassiska och Resource Manager-nätverk som är tillgängliga i dina Azure-prenumerationer som har konfigurerats i den region som du konfigurerar.
+     Du kommer nu se en lista över alla regioner där API Management-tjänsten har etablerats. Välj ett virtuellt nätverk och undernät för varje region. I listan fylls med både klassiska och Resource Manager-nätverk som är tillgängliga i dina Azure-prenumerationer som har konfigurerats i den region som du konfigurerar.
 
-    > [!NOTE]
-    > **Tjänsteslutpunkt** innehåller Gateway/Proxy, Azure-portalen, Developer-portalen, GIT och direkt av programvara i ovanstående diagram.
-    > **Hanteringsslutpunkten** i ovanstående diagram är den slutpunkt som finns på tjänsten för att hantera konfiguration via Azure portal och Powershell.
-    > Observera också, att, även om diagrammet visar IP-adresser för olika, API Management-tjänsten **endast** svarar på dess konfigurerade värdnamn.
+     > [!NOTE]
+     > **Tjänsteslutpunkt** innehåller Gateway/Proxy, Azure-portalen, Developer-portalen, GIT och direkt av programvara i ovanstående diagram.
+     > **Hanteringsslutpunkten** i ovanstående diagram är den slutpunkt som finns på tjänsten för att hantera konfiguration via Azure portal och Powershell.
+     > Observera också, att, även om diagrammet visar IP-adresser för olika, API Management-tjänsten **endast** svarar på dess konfigurerade värdnamn.
 
-    > [!IMPORTANT]
-    > När du distribuerar en Azure API Management-instans till ett Resource Manager-VNET, måste tjänsten vara i ett dedikerat undernät som innehåller inga andra resurser förutom Azure API Management-instanser. Vid ett försök att distribuera en Azure API Management-instans till ett Resource Manager-VNET-undernät som innehåller andra resurser kan distributionen misslyckas.
-    >
+     > [!IMPORTANT]
+     > När du distribuerar en Azure API Management-instans till ett Resource Manager-VNET, måste tjänsten vara i ett dedikerat undernät som innehåller inga andra resurser förutom Azure API Management-instanser. Vid ett försök att distribuera en Azure API Management-instans till ett Resource Manager-VNET-undernät som innehåller andra resurser kan distributionen misslyckas.
+     >
 
-    ![Välj VPN][api-management-setup-vpn-select]
+     ![Välj VPN][api-management-setup-vpn-select]
 
 5. Klicka på **spara** överst på skärmen.
 
@@ -148,17 +148,17 @@ När en instans för API Management finns i ett virtuellt nätverk, används por
 
 + **Tvingad tunneltrafik trafik till en lokal brandväggen med hjälp av Express Route eller nätverket virtuell installation**: En vanlig kund-konfiguration är att definiera egna standardväg (0.0.0.0/0) som tvingar all trafik från API Management delegerad undernätet till flow via en värdbaserad brandvägg eller till en virtuell nätverksinstallation. Det här flödet i nätverkstrafiken delar utan undantag anslutning med Azure API Management eftersom den utgående trafiken är antingen blockerade lokalt eller NAT skulle med ett okänt uppsättning adresser som inte längre att fungera med olika Azure-slutpunkter. Lösningen måste du göra några saker:
 
-    * Aktivera tjänstslutpunkter på undernät där API Management-tjänsten har distribuerats. [Tjänstslutpunkter] [ ServiceEndpoints] måste aktiveras för Azure Sql, Azure Storage, Azure EventHub och Azure ServiceBus. Aktiverar slutpunkter direkt från API Management delegerade undernätet till dessa tjänster gör att de kan använda Microsoft Azure-stamnätverk att tillhandahålla optimal routning för tjänstens trafik. Om du använder Tjänsteslutpunkter med en tvingad tunneltrafik Api Management tunneltrafik ovan Azure-tjänsterna trafik inte Tvingad. Den andra API Management service-beroende trafik blir Tvingad tunneltrafik och kan antingen förloras eller API Management-tjänsten fungerar inte korrekt.
+  * Aktivera tjänstslutpunkter på undernät där API Management-tjänsten har distribuerats. [Tjänstslutpunkter] [ ServiceEndpoints] måste aktiveras för Azure Sql, Azure Storage, Azure EventHub och Azure ServiceBus. Aktiverar slutpunkter direkt från API Management delegerade undernätet till dessa tjänster gör att de kan använda Microsoft Azure-stamnätverk att tillhandahålla optimal routning för tjänstens trafik. Om du använder Tjänsteslutpunkter med en tvingad tunneltrafik Api Management tunneltrafik ovan Azure-tjänsterna trafik inte Tvingad. Den andra API Management service-beroende trafik blir Tvingad tunneltrafik och kan antingen förloras eller API Management-tjänsten fungerar inte korrekt.
     
-    * All kontroll plan trafik från Internet till hanteringsslutpunkten för API Management-tjänsten dirigeras via en specifik uppsättning inkommande IP-adresser med API Management. När trafiken dirigeras tvingande mappas inte svaren symmetriskt tillbaka till dessa inkommande käll-IP-adresser. Om du vill ändra begränsningen måste vi lägga till följande användardefinierade vägar ([Udr][UDRs]) att styra trafik tillbaka till Azure genom att ange mål för dessa värdvägar till ”Internet”. Uppsättningen med inkommande IP-adresser för kontroll plan trafik är följande:
+  * All kontroll plan trafik från Internet till hanteringsslutpunkten för API Management-tjänsten dirigeras via en specifik uppsättning inkommande IP-adresser med API Management. När trafiken dirigeras tvingande mappas inte svaren symmetriskt tillbaka till dessa inkommande käll-IP-adresser. Om du vill ändra begränsningen måste vi lägga till följande användardefinierade vägar ([Udr][UDRs]) att styra trafik tillbaka till Azure genom att ange mål för dessa värdvägar till ”Internet”. Uppsättningen med inkommande IP-adresser för kontroll plan trafik är följande:
     
     > 13.84.189.17/32, 13.85.22.63/32, 23.96.224.175/32, 23.101.166.38/32, 52.162.110.80/32, 104.214.19.224/32, 13.64.39.16/32, 40.81.47.216/32, 51.145.179.78/32, 52.142.95.35/32, 40.90.185.46/32, 20.40.125.155/32
 
-    * För andra API Management-tjänsten beroenden som dirigeras tvingande, deras ska vara sätt att lösa värdnamnet och nå ut till slutpunkten. Dessa inkluderar
-        - Mått och hälsoövervakning
-        - Azure-portalen diagnostik
-        - SMTP-relä
-        - Utvecklarportalen CAPTCHA
+  * För andra API Management-tjänsten beroenden som dirigeras tvingande, deras ska vara sätt att lösa värdnamnet och nå ut till slutpunkten. Dessa inkluderar
+      - Mått och hälsoövervakning
+      - Azure-portalen diagnostik
+      - SMTP-relä
+      - Utvecklarportalen CAPTCHA
 
 ## <a name="troubleshooting"> </a>Felsökning
 * **Den inledande installationen**: När den första distributionen av API Management-tjänsten i ett undernät inte lyckas är det bäst att först distribuera en virtuell dator i samma undernät. Nästa fjärrskrivbord till den virtuella datorn och verifiera att det finns anslutning till en av varje resurs nedan i din azure-prenumeration
@@ -166,8 +166,8 @@ När en instans för API Management finns i ett virtuellt nätverk, används por
     * Azure SQL Database
     * Azure Storage Table
 
- > [!IMPORTANT]
- > När du har godkänt anslutningen, se till att ta bort alla resurser som har distribuerats i undernätet, innan du distribuerar API Management till undernätet.
+  > [!IMPORTANT]
+  > När du har godkänt anslutningen, se till att ta bort alla resurser som har distribuerats i undernätet, innan du distribuerar API Management till undernätet.
 
 * **Inkrementella uppdateringar**: När du gör ändringar i nätverket, referera till [NetworkStatus API](https://docs.microsoft.com/rest/api/apimanagement/networkstatus), för att verifiera att API Management-tjänsten inte har förlorat åtkomst till någon av kritiska resurser som den är beroende. Statusen ska uppdateras var 15: e minut.
 

@@ -10,12 +10,12 @@ ms.date: 01/25/2019
 ms.author: zarhoads
 ms.custom: mvc
 keywords: Cosmos DB och öppna Service Broker, Open Service Broker for Azure
-ms.openlocfilehash: 0655176a044da6b4dd6b7327aedf5eb17d79f04a
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 46fa5564e5dd3429f812b263295044d867a8511c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57432812"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57991984"
 ---
 # <a name="integrate-existing-mongodb-application-with-azure-cosmos-db-api-for-mongodb-and-open-service-broker-for-azure-osba"></a>Integrera befintliga MongoDB-program med Azure Cosmos DB API för MongoDB och Open Service Broker for Azure (OSBA)
 
@@ -81,7 +81,7 @@ Starta appen och berätta det för att använda den *mongodb* profil:
 java -jar -Dspring.profiles.active=mongodb build/libs/spring-music-1.0.jar
 ```
 
-Gå till http://localhost:8080 i din webbläsare.
+Gå till `http://localhost:8080` i din webbläsare.
 
 ![Spring-musikappen med standarddata](media/music-app.png)
 
@@ -184,7 +184,7 @@ java -jar -Dspring.profiles.active=mongodb build/libs/spring-music-1.0.jar
 
 Lägg märke till ditt program använder fortfarande den *mongodb* profil och en URI som börjar med *mongodb: / /* att ansluta till Cosmos DB-databasen. Den [Azure Cosmos DB API för MongoDB](../cosmos-db/mongodb-introduction.md) ger den här kompatibilitet. Det gör att programmet och fortsätt att arbeta som om den använder en MongoDB-databas, men den faktiskt använder Cosmos DB.
 
-Gå till http://localhost:8080 i din webbläsare. Observera att dessa standarddata har återställts. Interagera med den genom att ta bort några befintliga album och skapa några nya. Du kan verifiera dina ändringar sparas genom att stoppa programmet, starta om den och gå tillbaka till den i webbläsaren. Observera att du har gjort ändringarna är kvar. Ändringarna har sparats till Cosmos-DB som du skapade med Open Service Broker för Azure.
+Gå till `http://localhost:8080` i din webbläsare. Observera att dessa standarddata har återställts. Interagera med den genom att ta bort några befintliga album och skapa några nya. Du kan verifiera dina ändringar sparas genom att stoppa programmet, starta om den och gå tillbaka till den i webbläsaren. Observera att du har gjort ändringarna är kvar. Ändringarna har sparats till Cosmos-DB som du skapade med Open Service Broker för Azure.
 
 
 ## <a name="run-your-application-on-your-aks-cluster"></a>Kör din app på AKS-kluster

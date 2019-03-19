@@ -1,5 +1,5 @@
 ---
-title: 'Självstudie: Distribuera din ASP.NET Core-app till Azure Service Fabric med hjälp av Azure DevOps Projects'
+title: 'Självstudier: Distribuera din ASP.NET Core-app till Azure Service Fabric med Azure DevOps-projekt'
 description: Azure DevOps Projects gör det enkelt att komma igång med Azure. Med DevOps Projects kan du distribuera din ASP.NET Core-app till Azure Service Fabric med några få enkla steg.
 ms.author: mlearned
 ms.manager: douge
@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.date: 07/09/2018
 author: mlearned
 monikerRange: vsts
-ms.openlocfilehash: 2bba5d54c2b6298c2dd8059d47e5975ad3f176c8
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
-ms.translationtype: HT
+ms.openlocfilehash: 8ba217cb9ce849e57b15d3e6cc73529c78bf340e
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52264768"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57453779"
 ---
-# <a name="tutorial-deploy-your-aspnet-core-app-to-azure-service-fabric-by-using-azure-devops-projects"></a>Självstudie: Distribuera din ASP.NET Core-app till Azure Service Fabric med hjälp av Azure DevOps Projects
+# <a name="tutorial-deploy-your-aspnet-core-app-to-azure-service-fabric-by-using-azure-devops-projects"></a>Självstudier: Distribuera din ASP.NET Core-app till Azure Service Fabric med Azure DevOps-projekt
 
 Azure DevOps Projects ger ett förenklat sätt att ta med befintlig kod och Git-lagringsplatser i Azure, eller välja ett exempelprogram för att skapa en pipeline för kontinuerlig integration (CI) och kontinuerlig leverans (CD) till Azure. 
 
@@ -39,11 +39,11 @@ I den här kursen ska du:
 
 * En Azure-prenumeration. Du kan få en kostnadsfritt med [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/).
 
-## <a name="use-devops-projects-to-create-an-aspnet-core-app-and-deploy-it-to-service-fabricc"></a>Använda DevOps Projects för att skapa en ASP.NET Core-app och distribuera den till Service Fabric
+## <a name="use-devops-projects-to-create-an-aspnet-core-app-and-deploy-it-to-service-fabric"></a>Använda DevOps Projects för att skapa en ASP.NET Core-app och distribuera den till Service Fabric
 
 DevOps Projects skapar en CI/CD-pipeline i Azure Pipelines. Du kan skapa en ny Azure DevOps-organisation eller använda en befintlig organisation. DevOps Projects skapar även Azure-resurser, till exempel ett Service Fabric-kluster, i den Azure-prenumeration som du väljer.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 
 1. Välj **Skapa en resurs** i fönstret till vänster.
 
@@ -79,7 +79,7 @@ DevOps Projects skapar en CI/CD-pipeline i Azure Pipelines. Du kan skapa en ny A
 
 DevOps Projects konfigurerar automatiskt en CI/CD-pipeline i Azure Pipelines. Du kan utforska och anpassa pipelinen. För att bekanta dig med den gör du följande:
 
-1. Gå till DevOps Projects-instrumentpanelen.
+1. Gå till instrumentpanelen för DevOps-projektet.
 
 1. Välj **Bygg-pipelines** längst upp på DevOps Projects-instrumentpanelen.  
     En webbläsarflik visar bygg-pipelinen för det nya projektet.
@@ -105,7 +105,7 @@ DevOps Projects konfigurerar automatiskt en CI/CD-pipeline i Azure Pipelines. Du
 
 ## <a name="examine-the-cd-pipeline"></a>Granska CD-pipelinen
 
-DevOps-projekt skapar och konfigurerar automatiskt de steg som är nödvändiga för att distribuera från din Azure DevOps-organisation till din Azure-prenumeration. De här stegen innefattar att konfigurera en Azure-tjänstanslutning för att autentisera Azure DevOps till din Azure-prenumeration. Automationen skapar även en versionspipeline som tillhandahåller CD:n till Azure. Om du vill veta mer om versionspipelinen kan du göra följande:
+DevOps-projekt skapar och konfigurerar de nödvändiga stegen för att automatiskt distribuera från din Azure DevOps-organisation till din Azure-prenumeration. De här stegen innefattar att konfigurera en Azure-tjänstanslutning för att autentisera Azure DevOps till din Azure-prenumeration. Automationen skapar även en versionspipeline som tillhandahåller CD:n till Azure. Om du vill veta mer om versionspipelinen kan du göra följande:
 
 1. Välj **Build and Release** (Byggen och versioner) och sedan **Versioner**.  
     DevOps Projects skapar en versionspipeline för att hantera distributioner till Azure.
@@ -119,7 +119,7 @@ DevOps-projekt skapar och konfigurerar automatiskt de steg som är nödvändiga 
 1. På höger sida av ikonen **Släpp** väljer du **Utlösare av kontinuerlig distribution**.  
     Den här versionspipelinen har en aktiverad CD-utlösare som kör en distribution varje gång en ny versionsartefakt är tillgänglig. Du kan även inaktivera utlösaren så att dina distributioner kräver manuell körning. 
 
-1. Till höger väljer du **Visa versioner** för att visa en historik över versioner.
+1. Till höger väljer du alternativet för att **visa versioner** för att visa en historik över versioner.
 
 1. Välj ellipsen (...) intill en version och välj sedan **Öppna**.  
     Du kan utforska flera menyer, till exempel en versionssammanfattning, tillhörande arbetsobjekt och tester.
@@ -153,7 +153,7 @@ Nu är du redo att samarbeta med ett team på din app med en CI/CD-process som a
 Om du testar kan du rensa bland resurserna för att undvika att behöva betala fler avgifter. När de inte längre behövs kan du ta bort Azure Service Fabric-klustret och relaterade resurser som du skapade i den här självstudien. Det gör du med funktionen **Ta bort** på DevOps Projects-instrumentpanelen.
 
 > [!IMPORTANT]
-> Följande procedur tar permanent bort resurser. Funktionen *Ta bort* förstör alla data som skapats av projektet i DevOps Projects i både Azure och Azure DevOps, och du kan inte återskapa dem. Använd den här proceduren först när du har läst anvisningarna noga.
+> Följande procedur tar permanent bort resurser. Funktionen *Ta bort* förstör alla data som skapats av Azure DevOps-projektet i både Azure och Azure DevOps, och du kan inte återskapa dem. Använd den här proceduren först när du har läst anvisningarna noga.
 
 1. Gå till DevOps Projects-instrumentpanelen i Azure-portalen.
 1. Välj **Ta bort** i det övre högra hörnet. 

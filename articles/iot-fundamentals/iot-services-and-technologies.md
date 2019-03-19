@@ -7,12 +7,12 @@ services: iot-fundamentals
 ms.topic: overview
 ms.date: 10/09/2018
 ms.author: robinsh
-ms.openlocfilehash: e7ffd8f6f4f3aee376a09071fad0f1a36c23f1c4
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: dd80095f50aa7bff488ac24e498afc0b41958dc0
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55694014"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57403455"
 ---
 # <a name="internet-of-things-iot-technologies-and-solutions-paas-and-saas"></a>Sakernas Internet (IoT)-tekniker och -lösningar: PaaS och SaaS
 
@@ -90,7 +90,7 @@ Med den mest omfattande IoT-portföljen för plattformstjänster möjliggör Pla
 
 ### <a name="device-support"></a>Stöd för enheter
 
-Känn dig säker med att komma igång med ditt IoT-projekt genom att utnyttja [Azure IoT Starter Kits](https://catalog.azureiotsuite.com/kits) (Azure IoT-startpaket) eller genom att välja från hundratals enheter som är certifierade för IoT i [enhetskatalogen](http://catalog.azureiotsuite.com/). Alla enheter är plattformsoberoende och testade för att smidigt ansluta till IoT Hub.
+Känn dig säker med att komma igång med ditt IoT-projekt genom att utnyttja [Azure IoT Starter Kits](https://catalog.azureiotsolutions.com/kits) (Azure IoT-startpaket) eller genom att välja från hundratals enheter som är certifierade för IoT i [enhetskatalogen](https://catalog.azureiotsolutions.com/). Alla enheter är plattformsoberoende och testade för att smidigt ansluta till IoT Hub.
 Anslut alla dina enheter till Azure IoT med [enhets-SDK](/azure/iot-hub/iot-hub-devguide-sdks) er med öppen källkod. SDK:erna har stöd för flera olika operativsystem som till exempel Linux och Windows, samt även realtidsoperativsystem och flera olika programmeringsspråk, till exempel [C](https://github.com/Azure/azure-iot-sdk-c), [Node.js](https://github.com/Azure/azure-iot-sdk-node), [Java](https://github.com/Azure/azure-iot-sdk-java), [.NET](https://github.com/Azure/azure-iot-sdk-csharp) och [Python](https://github.com/Azure/azure-iot-sdk-python).
 
 ### <a name="iot"></a>IoT 

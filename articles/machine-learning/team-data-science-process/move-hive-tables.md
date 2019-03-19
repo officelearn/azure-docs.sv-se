@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: be953621dbadee74361b2170c2a532cfec6ef77a
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: d67bd26dcb2ac0b3bf909e1ef3d5ca75a0882eb3
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55477870"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57840655"
 ---
 # <a name="create-hive-tables-and-load-data-from-azure-blob-storage"></a>Skapa Hive-tabeller och läsa in data från Azure Blob Storage
 
@@ -36,7 +36,7 @@ Vi antar att data för Hive-tabeller finns i en **okomprimerade** tabellformat o
 
 Om du vill att öva på det **NYC Taxi Resedata**, måste du:
 
-* **ladda ned** 24 [NYC Taxi Resedata](http://www.andresmh.com/nyctaxitrips) filer (12 resans filer och 12 avgiften-filer)
+* **ladda ned** 24 [NYC Taxi Resedata](https://www.andresmh.com/nyctaxitrips) filer (12 resans filer och 12 avgiften-filer)
 * **Packa upp** alla filer i CSV-filer, och sedan
 * **ladda upp** dem till standard (eller att rätt behållare) av Azure storage-konto; alternativ för något sådant konto visas på [Använd Azure storage med Azure HDInsight-kluster](../../hdinsight/hdinsight-hadoop-use-blob-storage.md) avsnittet. Processen för att ladda upp CSV-filer till standardbehållaren för lagringskontot finns på den här [sidan](hive-walkthrough.md#upload).
 

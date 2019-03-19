@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/29/2018
+ms.date: 03/14/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: d22b181baa9b9e6d01fb92a3644078ecbd6af7be
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 73175b326c25d5d9a78155d0d9d888b655da1bfd
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54191606"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58124141"
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>Nätverksöverväganden för App Service Environment #
 
@@ -54,6 +54,7 @@ Om du har en ILB ASE är adressen för den interna Belastningsutjämnaren slutpu
 |  HTTP/HTTPS  | Konfigureras av användaren |  80, 443 |
 |  FTP/FTPS    | Konfigureras av användaren |  21, 990, 10001-10020 |
 |  Visual Studio fjärrfelsökning  |  Konfigureras av användaren |  4020, 4022, 4024 |
+|  Distribuera webbtjänsten | Konfigureras av användaren | 8172 |
 
 Detta gäller om du är på en extern ASE eller på en ILB ASE. Om du använder en extern ASE kan kommer du till dessa portar på det offentliga VIP. Om du är på en ILB ASE, kommer du till dessa portar på den interna Belastningsutjämnaren. Om du låsa port 443, kan det finnas en effekt på vissa funktioner som exponeras i portalen. Mer information finns i [Portal beroenden](#portaldep).
 

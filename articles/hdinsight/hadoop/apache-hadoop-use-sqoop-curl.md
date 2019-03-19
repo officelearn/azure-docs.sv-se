@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: a7b657d11e829d636063639e26a90d671a5d1473
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: ad716e2ef5e597424c860378e7a63d5c2de53f54
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53438361"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57834565"
 ---
 # <a name="run-apache-sqoop-jobs-with-hadoop-in-hdinsight-with-curl"></a>Kör jobb för Apache Sqoop med Hadoop i HDInsight med Curl
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
@@ -27,7 +27,7 @@ CURL används för att demonstrera hur du kan interagera med HDInsight med hjäl
 För att slutföra stegen i den här artikeln behöver du följande:
 
 
-* Fullständig [Använd Apache Sqoop med Hadoop i HDInsight](hdinsight-use-sqoop.md#create-cluster-and-sql-database) att konfigurera en miljö med ett HDInsight-kluster och en Azure SQL-databas.
+* Fullständig [Använd Apache Sqoop med Hadoop i HDInsight](hdinsight-use-sqoop.md#create-cluster-and-sql-database) att konfigurera en miljö med ett HDInsight-kluster och en Azure SQL database.
 * [cURL](https://curl.haxx.se/). CURL är ett verktyg för att överföra data från eller till ett HDInsight-kluster.
 * [jq](https://stedolan.github.io/jq/). Verktyget jq används för att bearbeta JSON-data som returneras från REST-begäranden.
 
@@ -68,19 +68,19 @@ För att slutföra stegen i den här artikeln behöver du följande:
 
     De parametrar som används i det här kommandot är följande:
 
-    * **-d** – sedan `-G` används inte begäran som standard POST-metoden. `-d` Anger de datavärden som skickas med begäran.
+   * **-d** – sedan `-G` används inte begäran som standard POST-metoden. `-d` Anger de datavärden som skickas med begäran.
 
-        * **User.name** -användaren som kör kommandot.
+       * **User.name** -användaren som kör kommandot.
 
-        * **kommandot** – The Sqoop kommando som ska köras.
+       * **kommandot** – The Sqoop kommando som ska köras.
 
-        * **statusdir** -katalogen som status för det här jobbet kommer att skrivas till.
+       * **statusdir** -katalogen som status för det här jobbet kommer att skrivas till.
 
-    Det här kommandot ska returnera ett jobb-ID som kan användas för att kontrollera status för jobbet.
+     Det här kommandot ska returnera ett jobb-ID som kan användas för att kontrollera status för jobbet.
 
-        ```json
-        {"id":"job_1415651640909_0026"}
-        ```
+       ```json
+       {"id":"job_1415651640909_0026"}
+       ```
 
 3. Använd följande kommando för att kontrollera status för jobbet. Ersätt **JOBID** med det värde som returneras i föregående steg. Exempel: om det returnera värdet var `{"id":"job_1415651640909_0026"}`, sedan **JOBID** skulle vara `job_1415651640909_0026`.
 

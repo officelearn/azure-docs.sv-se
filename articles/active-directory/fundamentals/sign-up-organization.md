@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 937f53ecd60d6bbcc8fbd02f978974ac34f77c00
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: bec4385b77ce44e87ed1f947a5a7a3e3d0d52fc6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57442022"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58101371"
 ---
 # <a name="sign-up-your-organization-to-use-azure-active-directory"></a>Registrera din organisation att använda Azure Active Directory
 Registrera dig för Azure Active Directory (AD Azure) eller en ny Microsoft Azure-prenumeration med hjälp av antingen:
@@ -27,8 +27,8 @@ Registrera dig för Azure Active Directory (AD Azure) eller en ny Microsoft Azur
 
 - **Arbets- eller skolkonto konto.** Använd ditt arbets- eller skolrelaterade konto för att få åtkomst till alla små, medelstora och företagets molntjänster från Microsoft, till exempel Azure, Microsoft Intune eller Office 365. När du registrerar dig för någon av dessa tjänster som en organisation kan etablerar Azure AD automatiskt en molnbaserad katalog som representerar din organisation. Mer information finns i [hantera Azure AD-katalogen](active-directory-administer.md).
 
-    >[!Note]
-    Vi rekommenderar att du använder ditt arbets- eller skolkonto om du redan har åtkomst till Azure AD. Dock bör du använda oavsett vilken typ av konto som är associerad med din Azure-prenumeration.
+  > [!Note]
+  >   Vi rekommenderar att du använder ditt arbets- eller skolkonto om du redan har åtkomst till Azure AD. Dock bör du använda oavsett vilken typ av konto som är associerad med din Azure-prenumeration.
 
 ## <a name="next-steps"></a>Nästa steg
 

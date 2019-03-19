@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 9021bb2a030472d4e83d78c8fc6363db570c3554
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: dceabc799e187f3af56588d5a9008e5cdca517c0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57318010"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57864464"
 ---
 # <a name="how-to-index-cosmos-db-using-an-azure-search-indexer"></a>Indexera Cosmos DB med en Azure Search-indexerare
 
@@ -23,7 +23,7 @@ Den här artikeln visar hur du konfigurerar ett Azure Cosmos DB [indexeraren](se
 
 Eftersom terminologi kan vara förvirrande, är det värt som [Azure Cosmos DB indexering](https://docs.microsoft.com/azure/cosmos-db/index-overview) och [Azure sökindexering](search-what-is-an-index.md) är olika åtgärder, som är unika för varje tjänst. Innan du startar Azure Search måste indexering, Azure Cosmos DB-databasen redan finnas och innehålla data.
 
-Du kan använda den [portal](#cosmos-indexer-portal), [REST API: er](#cosmos-indexer-rest), eller [.NET SDK](#cosmos-indexer-dotnet) indexera Cosmos-innehåll. Cosmos DB-indexeraren i Azure Search kan crawla [Azure Cosmos-objekt](https://docs.microsoft.com/azure/cosmos-db/databases-containers-items#azure-cosmos-items) nås via dessa protokoll:
+Du kan använda den [portal](#cosmos-indexer-portal), REST API: er eller .NET SDK för att indexera Cosmos-innehåll. Cosmos DB-indexeraren i Azure Search kan crawla [Azure Cosmos-objekt](https://docs.microsoft.com/azure/cosmos-db/databases-containers-items#azure-cosmos-items) nås via dessa protokoll:
 
 * [SQL-API](https://docs.microsoft.com/azure/cosmos-db/sql-api-query-reference) 
 * [MongoDB API](https://docs.microsoft.com/azure/cosmos-db/mongodb-introduction) (Azure Search-stöd för detta API är allmänt tillgänglig förhandsversion)  
@@ -250,7 +250,7 @@ Kontrollera att schemat för din målindex är kompatibel med schemat för käll
 ### <a name="mapping-between-json-data-types-and-azure-search-data-types"></a>Mappningen mellan JSON-datatyper och Azure Search-datatyper
 | JSON-datatypen | Kompatibla target index fälttyper |
 | --- | --- |
-| Bool |Edm.Boolean, Edm.String |
+| Booleskt |Edm.Boolean, Edm.String |
 | Siffror som ser ut som heltal |Edm.Int32, Edm.Int64, Edm.String |
 | Nummer att ut flytande punkter |Edm.Double, Edm.String |
 | String |Edm.String |

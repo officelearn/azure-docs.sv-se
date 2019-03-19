@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: anjangsh,billgib,genemi
 manager: craigg
 ms.date: 09/19/2018
-ms.openlocfilehash: 5de707f3f2e6a82d880363eea91fb8ce644fb3aa
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 340c08841b7bedc9f2453617aeff111beb810961
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47055068"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57888186"
 ---
 # <a name="cross-tenant-analytics-using-extracted-data---multi-tenant-app"></a>Flera klienter analytics med hjälp av extraherade data - app för flera klienter
  
@@ -94,7 +94,7 @@ I följande steg ska du distribuera analytics store, som kallas **tenantanalytic
     - Om du vill använda SQL-databas med columnstore **$DemoScenario** = **3**  
 3. Tryck på **F5** att köra demo-skriptet (som anropar den *distribuera TenantAnalytics<XX>.ps1* skript) som skapar klient analytics store. 
 
-Nu när du har distribuerat programmet och fyllt med intressanta klientdata, använda [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) att ansluta **tenants1-mt -\<användaren\>**  och **catalog-mt -\<användaren\>**  servrar med hjälp av inloggning = *developer*, lösenord = *P@ssword1*.
+Nu när du har distribuerat programmet och fyllt med intressanta klientdata, använda [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) att ansluta **tenants1-mt -\<användaren\>**  och **catalog-mt -\<användaren\>**  servrar med hjälp av inloggning = *developer*, lösenord = *P\@ssword1*.
 
 ![architectureOverView](media/saas-multitenantdb-tenant-analytics/ssmsSignIn.png)
 
@@ -176,7 +176,7 @@ Använd följande steg för att ansluta till Power BI och för att importera de 
 
     ![powerBISignIn](media/saas-multitenantdb-tenant-analytics/powerBISignIn.PNG)
 
-5. Välj **databasen** i den vänstra rutan, ange användarnamn = *developer*, och ange lösenord = *P@ssword1*. Klicka på **Anslut**.  
+5. Välj **databasen** i den vänstra rutan, ange användarnamn = *developer*, och ange lösenord = *P\@ssword1*. Klicka på **Anslut**.  
 
     ![DatabaseSignIn](media/saas-multitenantdb-tenant-analytics/databaseSignIn.PNG)
 

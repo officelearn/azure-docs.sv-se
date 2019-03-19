@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2017
 ms.author: kasing
-ms.openlocfilehash: 76059c587a6378ccfe16c0a633bea0c6c7a8a57d
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: b8bb3db58538263ea60520d4537a76c6ebb6abf7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56340101"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58112525"
 ---
 # <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Planera för migrering av IaaS-resurser från klassisk till Azure Resource Manager
 Även om Azure Resource Manager erbjuder många fantastiska funktioner, är det viktigt att planera migreringen att göra det för att gå smidigt. Ägna tid om hur du planerar säkerställer att det inte uppstår problem vid körning av migreringsaktiviteter.
@@ -79,8 +79,8 @@ Lyckad kunderna har detaljerad planer där föregående frågorna beskrivs, doku
 
   Utföra ett test för labb för just ditt scenario (beräkning, nätverk och lagring) är det bästa sättet att säkerställa en smidig migrering. Detta bidrar till:
 
-  - En helt separat labb eller en befintlig icke-produktionsmiljö att testa. Vi rekommenderar en helt separat labb som kan migreras flera gånger och förstörande kan ändras.  Skript för att samla in/hydrat metadata från de verkliga prenumerationerna finns nedan.
-  - Det är en bra idé att skapa labbet i en separat prenumeration. Det beror på att labbet ska vara datakanalen upprepade gånger med en separat, isolerade prenumerationen minskar risken att något riktig kommer av misstag tas bort.
+- En helt separat labb eller en befintlig icke-produktionsmiljö att testa. Vi rekommenderar en helt separat labb som kan migreras flera gånger och förstörande kan ändras.  Skript för att samla in/hydrat metadata från de verkliga prenumerationerna finns nedan.
+- Det är en bra idé att skapa labbet i en separat prenumeration. Det beror på att labbet ska vara datakanalen upprepade gånger med en separat, isolerade prenumerationen minskar risken att något riktig kommer av misstag tas bort.
 
   Detta kan åstadkommas med hjälp av verktyget AsmMetadataParser. [Läs mer om det här verktyget](https://github.com/Azure/classic-iaas-resourcemanager-migration/tree/master/AsmToArmMigrationApiToolset)
 
@@ -122,13 +122,13 @@ Följande har ett problem upptäcks i många av de större migreringarna. Detta 
     > Dessa gränser behöver ökas i samma region som din aktuella miljö som ska migreras.
     >
 
-    - Nätverksgränssnitt
-    - Lastbalanserare
-    - Offentliga IP-adresser
-    - Statiska offentliga IP-adresser
-    - Kärnor
-    - Nätverkssäkerhetsgrupper
-    - Routningstabeller
+  - Nätverksgränssnitt
+  - Lastbalanserare
+  - Offentliga IP-adresser
+  - Statiska offentliga IP-adresser
+  - Kärnor
+  - Nätverkssäkerhetsgrupper
+  - Routningstabeller
 
     Du kan kontrollera din aktuella kvoter för Azure Resource Manager med hjälp av följande kommandon med den senaste versionen av Azure PowerShell.
     

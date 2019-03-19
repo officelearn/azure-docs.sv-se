@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 9/7/2018
 ms.author: saurse
-ms.openlocfilehash: 1e8e9365567c19400b86dc60d966eb965b83591d
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: d58b51f06c21c787e4aa720c803ab6533544d55c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51281762"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58110825"
 ---
 # <a name="restore-files-to-windows-by-using-the-azure-resource-manager-deployment-model"></a>Återställa filer till Windows med hjälp av Azure Resource Manager-distributionsmodellen
 
@@ -51,11 +51,11 @@ Om du av misstag har tagit bort en fil och vill återställa den till samma dato
 4. På den **Välj återställningsläge** väljer **enskilda filer och mappar** > **nästa**.
 
     ![Skärmbild av återställa Data guiden Välj återställningsläge sidan](./media/backup-azure-restore-windows-server/samemachine_selectrecoverymode_instantrestore.png)
-  > [!IMPORTANT]
-  > Alternativet för att återställa enskilda filer och mappar kräver .NET Framework 4.5.2 eller senare. Om du inte ser den **enskilda filer och mappar** alternativet, måste du uppgradera .NET Framework version 4.5.2 eller senare, och försök igen.
+   > [!IMPORTANT]
+   > Alternativet för att återställa enskilda filer och mappar kräver .NET Framework 4.5.2 eller senare. Om du inte ser den **enskilda filer och mappar** alternativet, måste du uppgradera .NET Framework version 4.5.2 eller senare, och försök igen.
 
-  > [!TIP]
-  > Den **enskilda filer och mappar** alternativet möjliggör snabb åtkomst till informationen för återställningspunkten. Den är lämplig för att återställa enskilda filer med storlekar som tillsammans utgör inte mer än 80 GB och ger överföring eller kopiera ökar hastigheten för upp till 6 Mbit/s under återställningen. Den **volym** alternativet återställer alla säkerhetskopierade data i en angiven volym. Det här alternativet ger överföringen går snabbare hastigheter (upp till 60 Mbit/s), vilket är idealiskt för att återställa stora data eller hela volymer.
+   > [!TIP]
+   > Den **enskilda filer och mappar** alternativet möjliggör snabb åtkomst till informationen för återställningspunkten. Den är lämplig för att återställa enskilda filer med storlekar som tillsammans utgör inte mer än 80 GB och ger överföring eller kopiera ökar hastigheten för upp till 6 Mbit/s under återställningen. Den **volym** alternativet återställer alla säkerhetskopierade data i en angiven volym. Det här alternativet ger överföringen går snabbare hastigheter (upp till 60 Mbit/s), vilket är idealiskt för att återställa stora data eller hela volymer.
 
 5. På den **Välj volym och datum** väljer du den volym som innehåller de filer och mappar som du vill återställa.
 

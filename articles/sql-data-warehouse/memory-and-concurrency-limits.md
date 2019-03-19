@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
-ms.date: 10/04/2018
+ms.date: 03/15/2019
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: cc42a0289316116b843696c984f9fc3c2114eb6c
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: 141112b8b6b44706a750d8a97780e018d96a5006
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56592901"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57890805"
 ---
 # <a name="memory-and-concurrency-limits-for-azure-sql-data-warehouse"></a>Minne och samtidighet gränser för Azure SQL Data Warehouse
 Visa minne och samtidighet gränserna som allokerats till de olika prestandanivåer och resursklasser i Azure SQL Data Warehouse. Mer information, samt att tillämpa de här funktionerna på din plan för hantering av arbetsbelastning, se [resursklasser för hantering av arbetsbelastning](resource-classes-for-workload-management.md). 
@@ -70,7 +70,7 @@ Servicenivåer för Gen1 mellan DW100 och DW6000.
 | DW6000            | 60            | 1                              | 1440                           |
 
 ## <a name="concurrency-maximums"></a>Samtidighet maximum
-För att säkerställa att varje fråga har tillräckligt med resurser för att köra effektivt, spårar resursanvändningen genom att tilldela samtidighetsfack till varje fråga i SQL Data Warehouse. Systemet skickar frågor till en kö där de vänta tillräckligt [samtidighetsfack](resource-classes-for-workload-management.md#concurrency-slots) är tillgängliga. Samtidighetsfack avgör också CPU-prioritering. Mer information finns i [analysera din arbetsbelastning](analyze-your-workload.md)
+För att säkerställa att varje fråga har tillräckligt med resurser för att köra effektivt, spårar resursanvändningen genom att tilldela samtidighetsfack till varje fråga i SQL Data Warehouse. Systemet samlar frågor i en kö baserat på prioritet och samtidighetsfack. Frågor vänta i kön tills det finns tillräckligt många samtidighetsfack. [Vikten](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-workload-importance) och samtidighetsfack fastställa CPU-prioritering. Mer information finns i [analysera din arbetsbelastning](analyze-your-workload.md)
 
 ### <a name="gen2"></a>Gen2
  

@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seodec18
 ms.date: 12/07/2018
-ms.openlocfilehash: dfdccaf929aa382c8003bc4c3cc0988a7123bf2d
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
-ms.translationtype: HT
+ms.openlocfilehash: d802fade0ff9c5b4bc329c7451144d8c782f8d3c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53316020"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58097948"
 ---
 # <a name="analyze-phone-call-data-with-stream-analytics-and-visualize-results-in-power-bi-dashboard"></a>Analysera telefonsamtalsdata med Stream Analytics och visualisera resultat på en Power BI-instrumentpanel
 
@@ -30,7 +30,7 @@ I den här guiden får du lära dig att:
 > * Testa och starta jobbet
 > * Visualisera resultat i Power BI
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Se till att du har följande innan du börjar:
 
@@ -180,7 +180,7 @@ Det sista steget är att definiera en utdatamottagare för jobbet där det kan s
 3. Välj **+ Lägg till** > **Power BI**. Fyll sedan i formuläret med följande information och välj **Auktorisera**:
 
    |**Inställning**  |**Föreslaget värde**  |
-   |---------|---------|---------|
+   |---------|---------|
    |Utdataalias  |  MyPBIoutput  |
    |Namn på datauppsättning  |   ASAdataset  |
    |Tabellnamn |  ASATable  |
@@ -236,7 +236,7 @@ Du kan testa en fråga från frågeredigeraren med hjälp av exempeldata. Kör f
 
 4. Välj **Testa** för att testa frågan. Du bör se följande resultat:
 
-   ![Utdata från Stream Analytics-frågetest](media/stream-analytics-manage-job/sample-test-output-restuls.png)
+   ![Utdata från Stream Analytics frågetest](media/stream-analytics-manage-job/sample-test-output-restuls.png)
 
 ## <a name="start-the-job-and-visualize-output"></a>Starta jobbet och visualisera utdata
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 59f4dffb64b0e72e8847f0b1baf947ad1d732063
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 1e67c22a55068ce42cb1eb6d9c0c9bdf8215f44e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57766589"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58167991"
 ---
 # <a name="manage-devices-in-your-azure-iot-central-application-new-ui-design"></a>Hantera enheter i Azure IoT Central programmet (nytt användargränssnitt)
 
@@ -23,7 +23,6 @@ Den här artikeln beskrivs hur du som en operatör att hantera enheter i Azure I
 - Upprätthålla en uppdaterad förteckning över dina enheter.
 - Håll din enhetsmetadata uppdaterad genom att ändra de värden som lagras i egenskaperna för enheten.
 - Styra beteendet för dina enheter genom att uppdatera en inställning i en specifik enhet från den **inställningar** sidan.
-
 
 ## <a name="view-your-devices"></a>Visa dina enheter
 
@@ -104,7 +103,7 @@ Om du registrerar enheter genom att starta importen under **oassocierade enheter
 
 ## <a name="export-devices"></a>Exportera enheter
 
-Om du vill ansluta en verklig enhet till IoT Central, behöver du sin anslutningssträng. Du kan exportera enhetsinformation gruppvis få anslutningssträngar och andra egenskaper. Exportprocessen skapar en CSV-fil med enhetens identitet, enhetsnamn och primär anslutningssträng för de valda enheterna.
+Om du vill ansluta en verklig enhet till IoT Central, behöver du sin anslutningssträng. Du kan exportera enhetsinformation gruppvis att få den information du behöver att skapa anslutningssträngar för enheten. Exportprocessen skapar en CSV-fil med enhetens identitet, enhetsnamn och nycklar för alla valda enheter.
 
 Massregistrera enheter för export från ditt program:
 
@@ -130,8 +129,10 @@ Massregistrera enheter för export från ditt program:
     * IOTC_DEVICENAME
     * IOTC_SASKEY_PRIMARY
     * IOTC_SASKEY_SECONDARY
-    * IOTC_X509THUMBPRINT_PRIMARY   
+    * IOTC_X509THUMBPRINT_PRIMARY
     * IOTC_X509THUMBPRINT_SECONDARY
+
+Se [enhetsanslutning i Azure IoT Central](concepts-connectivity.md), mer information om anslutningssträngar och verkliga enheter som ansluter till din IoT Central-program.
 
 ## <a name="delete-a-device"></a>Ta bort en enhet
 

@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 02/21/2019
 ms.author: erhopf
-ms.openlocfilehash: 96ee65bfe8792bd56feb39f48659397cb517471a
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 97b0b6256b7aaf7b42565fe9453fb87a0c414569
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56735374"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57861578"
 ---
 # <a name="request-limits-for-translator-text"></a>Gränser för begäran för textöversättning
 
@@ -43,7 +43,7 @@ Dessa gränser är begränsade till Microsofts allmänna system. Anpassade över
 
 ## <a name="latency"></a>Svarstid
 
-Translator för textöversättning har en maximal fördröjning på 13 sekunder. Vid den tidpunkten kommer du har fått ett resultat eller ett timeout-svar. Normalt returneras svar i 150 millisekunder till 300 millisekunder. Svarstider kan variera beroende på storleken eller begäran och språk-par.
+Translator Text API har en maximal fördröjning på 15 sekunder med hjälp av standard-modeller. Översättning med hjälp av anpassade modeller har en maximal fördröjning på 25 sekunder. Vid den tidpunkten kommer du har fått ett resultat eller ett timeout-svar. Normalt returneras svar i 150 millisekunder till 300 millisekunder. Svarstider kan variera beroende på storleken på begäran och språk-par. Om du inte får en översättning eller ett [felsvar](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors) inom den tidsramen bör du kontrollera nätverksanslutningen och försök igen.
 
 ## <a name="sentence-length-limits"></a>Längdbegränsningar för meningen
 

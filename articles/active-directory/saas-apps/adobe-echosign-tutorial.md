@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: f9385723-8fe7-4340-8afb-1508dac3e92b
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9af11c7c347481921f04e63276e946e679b03cdd
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: HT
+ms.openlocfilehash: 8942ebf3f006c2e1cc72b322dd243d46bf69f04d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56876219"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57888135"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adobe-sign"></a>Självstudier: Azure Active Directory-integrering med Adobe Sign
 
@@ -34,7 +34,7 @@ Integreringen av Adobe Sign med Azure AD medför följande fördelar:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 För att konfigurera Azure AD-integrering med Adobe Sign behöver du följande:
 
@@ -53,7 +53,7 @@ För att konfigurera integreringen av Adobe Sign med Azure AD måste du lägga t
 
 **Utför följande steg för att lägga till Adobe Sign från galleriet:**
 
-1. I **[Azure-portalen](https://portal.azure.com)**, i den vänstra navigeringspanelen, klickar du på **Azure Active Directory**-ikonen.
+1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -128,7 +128,7 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Adobe
 
 ### <a name="configure-adobe-sign-single-sign-on"></a>Konfigurera enkel inloggning för Adobe Sign
 
-7. Före konfigurationen kontaktar du [supportteamet för Adobe Sign](https://helpx.adobe.com/in/contact/support.html) för att lägga till din domän i listan över godkända i Adobe Sign. Så här lägger du till domänen:
+1. Före konfigurationen kontaktar du [supportteamet för Adobe Sign](https://helpx.adobe.com/in/contact/support.html) för att lägga till din domän i listan över godkända i Adobe Sign. Så här lägger du till domänen:
 
     a. [Supportteamet för Adobe Sign](https://helpx.adobe.com/in/contact/support.html) skickar dig en slumpmässigt genererad token. För din domän kommer token se ut ungefär på följande sätt: **adobe-sign-verification= xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx**
 
@@ -147,33 +147,33 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Adobe
     * Lägg till en TXT-post med det fullständiga tokenvärde som tillhandahålls av Adobe.
     * Spara ändringarna.
 
-8. Öppna ett nytt webbläsarfönster och logga in på din Adobe Sign-företagswebbplats som administratör.
+1. Öppna ett nytt webbläsarfönster och logga in på din Adobe Sign-företagswebbplats som administratör.
 
-9. I SAML-menyn väljer du **Kontoinställningar** > **SAML-inställningar**.
+1. I SAML-menyn väljer du **Kontoinställningar** > **SAML-inställningar**.
    
     ![Skärmbild av sidan med SAML-inställningar för Adobe Sign](./media/adobe-echosign-tutorial/ic789520.png "Konto")
 
-10. I avsnittet **SAML-inställningar** utför du följande steg:
+1. I avsnittet **SAML-inställningar** utför du följande steg:
   
-    ![Skärmbild av SAML-inställningar](./media/adobe-echosign-tutorial/ic789521.png "SAML-inställningar")
+   ![Skärmbild av SAML-inställningar](./media/adobe-echosign-tutorial/ic789521.png "SAML-inställningar")
    
-    ![Skärmbild av SAML-inställningar](./media/adobe-echosign-tutorial/ic789522.png "SAML-inställningar")
+   ![Skärmbild av SAML-inställningar](./media/adobe-echosign-tutorial/ic789522.png "SAML-inställningar")
 
-    a. Under **SAML Mode** (SAML-läge) väljer du **SAML Mandatory** (SAML är obligatoriskt).
+   a. Under **SAML Mode** (SAML-läge) väljer du **SAML Mandatory** (SAML är obligatoriskt).
    
-    b. Välj **Allow Echosign Account Administrators to log in using their Echosign Credentials** (Tillåt Echosign-kontoadministratörer att logga in med sina Echosign-autentiseringsuppgifter).
+   b. Välj **Allow Echosign Account Administrators to log in using their Echosign Credentials** (Tillåt Echosign-kontoadministratörer att logga in med sina Echosign-autentiseringsuppgifter).
    
-    c. Under **User Creation** (Skapande av användare) väljer du **Automatically add users authenticated through SAML** (Lägg automatiskt till användare som autentiseras via SAML).
+   c. Under **User Creation** (Skapande av användare) väljer du **Automatically add users authenticated through SAML** (Lägg automatiskt till användare som autentiseras via SAML).
 
-    d. Klistra in den **Azure AD-identifierare** som du har kopierat från Azure-portalen i textrutan **IdP-entitets-ID**.
+   d. Klistra in den **Azure AD-identifierare** som du har kopierat från Azure-portalen i textrutan **IdP-entitets-ID**.
     
-    e. Klistra in den **inloggnings-URL** som du har kopierat från Azure-portalen i textrutan **IdP-inloggnings-URL**.
+   e. Klistra in den **inloggnings-URL** som du har kopierat från Azure-portalen i textrutan **IdP-inloggnings-URL**.
    
-    f. Klistra in den **utloggnings-URL** som du har kopierat från Azure-portalen i textrutan **IdP-utloggnings-URL**.
+   f. Klistra in den **utloggnings-URL** som du har kopierat från Azure-portalen i textrutan **IdP-utloggnings-URL**.
 
-    g. Öppna den nedladdade **Certificate(Base64)**-filen i Anteckningar. Kopiera innehållet i den till Urklipp och klistra in det till textrutan **IdP-certifikat**.
+   g. Öppna den nedladdade **Certificate(Base64)**-filen i Anteckningar. Kopiera innehållet i den till Urklipp och klistra in det till textrutan **IdP-certifikat**.
 
-    h. Välj **Spara ändringar**.
+   h. Välj **Spara ändringar**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
 
@@ -193,14 +193,14 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I fältet **Användarnamn** anger du **brittasimon@yourcompanydomain.extension**  
+    b. I den **användarnamn** fälttyp **brittasimon\@yourcompanydomain.extension**  
     Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
     d. Klicka på **Skapa**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
 I det här avsnittet gör du det möjligt för Britta Simon att använda enkel inloggning med Azure genom att ge åtkomst till Adobe Sign.
 
@@ -252,7 +252,7 @@ För att Azure AD-användare ska kunna logga in på Adobe Sign måste de etabler
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning 
 
-I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
+I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
 
 När du klickar på Adobe Sign-panelen i åtkomstpanelen bör du automatiskt loggas in på Adobe Sign som du har konfigurerat enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 

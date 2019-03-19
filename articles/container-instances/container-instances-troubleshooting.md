@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 02/15/2019
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: eb7a98d22e9005bb1d5db2f1fbd35a1279d84703
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: c90041f54fc9b4b57885083ec94843b596f48b79
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57537241"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58123274"
 ---
 # <a name="troubleshoot-common-issues-in-azure-container-instances"></a>Felsöka vanliga problem i Azure Container Instances
 
@@ -25,7 +25,7 @@ Den här artikeln visar hur du felsöker vanliga problem för att hantera och di
 När du definierar din container-specifikationen kräver vissa parametrar infört naming begränsningar. Nedan visas en tabell med särskilda krav för behållaren gruppegenskaper. Mer information om namngivningskonventioner för Azure finns i [namngivningskonventioner] [ azure-name-restrictions] i Azure Architecture Center.
 
 | Scope | Längd | Skiftläge | Giltiga tecken | Föreslagna mönster | Exempel |
-| --- | --- | --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | --- | --- |
 | Namnet på behållargruppen | 1-64 |Skiftlägesokänsligt |Alfanumeriskt och bindestreck var som helst utom det första eller sista tecknet |`<name>-<role>-CG<number>` |`web-batch-CG1` |
 | Containerns namn | 1-64 |Skiftlägesokänsligt |Alfanumeriskt och bindestreck var som helst utom det första eller sista tecknet |`<name>-<role>-CG<number>` |`web-batch-CG1` |
 | Behållarportar | Mellan 1 och 65535 |Integer |Heltal mellan 1 och 65535 |`<port-number>` |`443` |

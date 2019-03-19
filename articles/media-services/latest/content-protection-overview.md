@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 02/26/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: d16f730d7e801342290467a796ae0155bfe89b26
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: cc32338a69953c49efad4a206a974ac4523923e4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57241535"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57894146"
 ---
 # <a name="content-protection-overview"></a>Content protection-översikt
 
@@ -39,55 +39,55 @@ För att slutföra utformningen ”content protection” system/program, måste 
 
 1. Azure Media Services-kod
   
-  Den [DRM](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs) exemplet visas hur du implementerar multi-DRM-system med Media Services v3 och även använda Media Services licensnyckel/delivery service. Du kan kryptera varje tillgång med flera krypteringstyper (AES-128, PlayReady, Widevine, FairPlay). I dokumentationen om [direktuppspelningsprotokoll och krypteringstyper](#streaming-protocols-and-encryption-types) ser du vad som är bra att kombinera.
+   Den [DRM](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs) exemplet visas hur du implementerar multi-DRM-system med Media Services v3 och även använda Media Services licensnyckel/delivery service. Du kan kryptera varje tillgång med flera krypteringstyper (AES-128, PlayReady, Widevine, FairPlay). I dokumentationen om [direktuppspelningsprotokoll och krypteringstyper](#streaming-protocols-and-encryption-types) ser du vad som är bra att kombinera.
   
-  I exempel visas hur du:
+   I exempel visas hur du:
 
-  1. Skapa och konfigurera [Innehållsprinciper nyckeln](https://docs.microsoft.com/rest/api/media/contentkeypolicies).
+   1. Skapa och konfigurera [Innehållsprinciper nyckeln](https://docs.microsoft.com/rest/api/media/contentkeypolicies).
 
-    * Definiera auktorisering för leverans av licens, att ange logik för auktorisering baserat på anspråk i JWT.
-    * Konfigurera DRM kryptering genom att ange innehållsnyckeln.
-    * Konfigurera [PlayReady](playready-license-template-overview.md), [Widevine](widevine-license-template-overview.md), och/eller [FairPlay](fairplay-license-overview.md) licenser. Mallarna kan du konfigurera rättigheter och behörigheter för var och en av de använda DRM: er.
+      * Definiera auktorisering för leverans av licens, att ange logik för auktorisering baserat på anspråk i JWT.
+      * Konfigurera DRM kryptering genom att ange innehållsnyckeln.
+      * Konfigurera [PlayReady](playready-license-template-overview.md), [Widevine](widevine-license-template-overview.md), och/eller [FairPlay](fairplay-license-overview.md) licenser. Mallarna kan du konfigurera rättigheter och behörigheter för var och en av de använda DRM: er.
 
         ```
         ContentKeyPolicyPlayReadyConfiguration playReadyConfig = ConfigurePlayReadyLicenseTemplate();
         ContentKeyPolicyWidevineConfiguration widevineConfig = ConfigureWidevineLicenseTempate();
         ContentKeyPolicyFairPlayConfiguration fairPlayConfig = ConfigureFairPlayPolicyOptions();
         ```
-  2. Skapa en [Strömningspositionerare](https://docs.microsoft.com/rest/api/media/streaminglocators) som är konfigurerad för att strömma krypterat tillgången. 
+   2. Skapa en [Strömningspositionerare](https://docs.microsoft.com/rest/api/media/streaminglocators) som är konfigurerad för att strömma krypterat tillgången. 
   
-    Den **Strömningspositionerare** måste vara associerad med [Streaming principen] (https://docs.microsoft.com/rest/api/media/streamingpolicies). I det här exemplet anger vi StreamingLocator.StreamingPolicyName till principen ”Predefined_MultiDrmCencStreaming”. Den här principen anger att vi vill för två nycklar (kuvert och CENC) för att hämta genereras och ange på positionerare. Krypteringarna för kuvert, PlayReady och Widevine tillämpas därför (nyckeln levereras till uppspelningsklienten utifrån de konfigurerade DRM-licenserna). Om du dessutom vill kryptera strömmen med CBCS (FairPlay) använder du ”Predefined_MultiDrmStreaming”.
+      Den **Strömningspositionerare** måste associeras med en [Streaming princip](https://docs.microsoft.com/rest/api/media/streamingpolicies). I det här exemplet anger vi StreamingLocator.StreamingPolicyName till principen ”Predefined_MultiDrmCencStreaming”. Den här principen anger att vi vill för två nycklar (kuvert och CENC) för att hämta genereras och ange på positionerare. Krypteringarna för kuvert, PlayReady och Widevine tillämpas därför (nyckeln levereras till uppspelningsklienten utifrån de konfigurerade DRM-licenserna). Om du dessutom vill kryptera strömmen med CBCS (FairPlay) använder du ”Predefined_MultiDrmStreaming”.
     
-    Eftersom vi vill kryptera videon i **innehåll nyckel princip** att vi tidigare konfigurerade har också associeras med den **Strömningspositionerare**. 
+      Eftersom vi vill kryptera videon i **innehåll nyckel princip** att vi tidigare konfigurerade har också associeras med den **Strömningspositionerare**. 
     
-  3. Skapa en test-token.
+   3. Skapa en test-token.
 
-    Den **GetTokenAsync** metoden visar hur du skapar ett test-token.
-  4. Skapa strömnings-URL.
+      Den **GetTokenAsync** metoden visar hur du skapar ett test-token.
+   4. Skapa strömnings-URL.
 
-    Den **GetDASHStreamingUrlAsync** metoden visar hur du skapar strömnings-URL. I det här fallet, URL-strömmar på **DASH** innehåll.
+      Den **GetDASHStreamingUrlAsync** metoden visar hur du skapar strömnings-URL. I det här fallet, URL-strömmar på **DASH** innehåll.
 
 2. Spelare med AES eller DRM-klienten. En videospelare app baserat på en spelare SDK (intern eller webbläsarbaserade) måste uppfylla följande krav:
-  * Player SDK stöder de nödvändiga DRM-klienterna
-  * Player SDK stöder de nödvändiga protokollen med direktuppspelning: Smooth, DASH, and/or HLS
-  * Player SDK behöver kunna hantera Skicka en JWT-token i begäran för licens-förvärv
+   * Player SDK stöder de nödvändiga DRM-klienterna
+   * Player SDK stöder de nödvändiga protokollen med direktuppspelning: Smooth, DASH, and/or HLS
+   * Player SDK behöver kunna hantera Skicka en JWT-token i begäran för licens-förvärv
   
-    Du kan skapa en spelare med hjälp av den [Azure Media Player API](http://amp.azure.net/libs/amp/latest/docs/). Använd den [Azure Media Player ProtectionInfo API](http://amp.azure.net/libs/amp/latest/docs/) att ange vilka DRM-teknik för att använda på olika DRM-plattformar.
+     Du kan skapa en spelare med hjälp av den [Azure Media Player API](https://amp.azure.net/libs/amp/latest/docs/). Använd den [Azure Media Player ProtectionInfo API](https://amp.azure.net/libs/amp/latest/docs/) att ange vilka DRM-teknik för att använda på olika DRM-plattformar.
 
-    För testning AES eller CENC (Widevine och/eller PlayReady) krypterat innehåll, du kan använda [Azure Media Player](https://ampdemo.azureedge.net/azuremediaplayer.html). Kontrollera att du klickar på ”Avancerat” och kontrollera dina alternativ för kryptering.
+     För testning AES eller CENC (Widevine och/eller PlayReady) krypterat innehåll, du kan använda [Azure Media Player](https://ampdemo.azureedge.net/azuremediaplayer.html). Kontrollera att du klickar på ”Avancerat” och kontrollera dina alternativ för kryptering.
 
-    Om du vill testa FairPlay krypterat innehåll, använda [det här testet player](https://aka.ms/amtest). Media player stöder Widevine, PlayReady, och FairPlay DRM: er samt AES-128 Rensa nyckelkryptering. 
+     Om du vill testa FairPlay krypterat innehåll, använda [det här testet player](https://aka.ms/amtest). Media player stöder Widevine, PlayReady, och FairPlay DRM: er samt AES-128 Rensa nyckelkryptering. 
     
-    Du måste välja rätt webbläsaren om du vill testa olika DRM: er: Chrome/Opera/Firefox för Widevine, Microsoft Edge/IE11 för PlayReady, Safari på macOS för FairPlay.
+     Du måste välja rätt webbläsaren om du vill testa olika DRM: er: Chrome/Opera/Firefox för Widevine, Microsoft Edge/IE11 för PlayReady, Safari på macOS för FairPlay.
 
 3. Skydda säkerhetstokentjänst (STS), som utfärdar JSON Web Token (JWT) som åtkomsttoken för åtkomst till serverdelen. Du kan använda AMS-licensleveranstjänster som backend-resurs. En STS har du definiera följande:
 
-  * Utfärdare och målgrupp (eller omfång)
-  * Anspråk som är beroende av affärskrav i innehållsskydd
-  * Symmetriskt eller asymmetriskt verifiering för signaturverifiering
-  * Stöd för nyckelförnyelse (vid behov)
+   * Utfärdare och målgrupp (eller omfång)
+   * Anspråk som är beroende av affärskrav i innehållsskydd
+   * Symmetriskt eller asymmetriskt verifiering för signaturverifiering
+   * Stöd för nyckelförnyelse (vid behov)
 
-    Du kan använda [STS verktyget](https://openidconnectweb.azurewebsites.net/DRMTool/Jwt) till testet STS, som har stöd för alla 3 typer av verifieringsnyckel: symmetrisk, asymmetrisk eller Azure AD med nyckelförnyelse. 
+     Du kan använda [STS verktyget](https://openidconnectweb.azurewebsites.net/DRMTool/Jwt) till testet STS, som har stöd för alla 3 typer av verifieringsnyckel: symmetrisk, asymmetrisk eller Azure AD med nyckelförnyelse. 
 
 > [!NOTE]
 > Vi rekommenderar starkt att fokusera och fullständigt Testa varje del (beskrivs ovan) innan du fortsätter till nästa del. Använd de verktyg som anges i listan ovan om du vill testa systemet ”content protection”.  
@@ -97,7 +97,7 @@ För att slutföra utformningen ”content protection” system/program, måste 
 Du kan använda Media Services för att leverera ditt innehåll dynamiskt krypterad med Klartextnyckel eller DRM-kryptering med PlayReady, Widevine och FairPlay. För närvarande kan kryptera du HTTP Live Streaming (HLS), MPEG DASH och Smooth Streaming-format. Varje protokoll som stöder följande krypteringsmetoder:
 
 |Protokoll|Behållare-format|Krypteringsschemat|
-|---|---|---|---|
+|---|---|---|
 |MPEG-DASH|Alla|AES|
 ||CSF(fmp4) |CENC (Widevine + PlayReady) |
 ||CMAF(fmp4)|CENC (Widevine + PlayReady)|
@@ -156,7 +156,7 @@ Kunder använder ofta en anpassad STS för att inkludera anpassade anspråk i to
 Resurserna som ska krypteras av kryptering för lagring på serversidan för att skydda dina tillgångar i vila. I följande tabell visar hur kryptering för lagring på serversidan fungerar i Media Services v3:
 
 |Krypteringsalternativet|Beskrivning|Media Services v3|
-|---|---|---|---|
+|---|---|---|
 |Media Services-Lagringskryptering| AES-256-kryptering, viktiga hanteras av Media Services|Stöds inte<sup>(1)</sup>|
 |[Kryptering av lagringstjänst för vilande Data](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)|Kryptering på serversidan som erbjuds av Azure Storage, nyckel hanteras av Azure eller av kunden|Stöds|
 |[Storage Client Side Encryption](https://docs.microsoft.com/azure/storage/common/storage-client-side-encryption)|Client side encryption som erbjuds av Azure storage, nyckel som hanteras av kunden i Key Vault|Stöds inte|

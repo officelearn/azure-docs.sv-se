@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 10/12/2018
 ms.author: elbutter
 ms.reviewer: craigg
-ms.openlocfilehash: 3b354ebf5436a6637fe126085225b0ae6c8f1dcc
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 1d8b6d2df21fe0aabe85754e061db4deb129b32e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55465868"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57895710"
 ---
 # <a name="get-started-quickly-with-fivetran-and-sql-data-warehouse"></a>Kom igång snabbt med Fivetran och SQL Data Warehouse
 
@@ -80,5 +80,5 @@ Ange de autentiseringsuppgifter som används för att få åtkomst till SQL Data
 * Värd (namnet på servern).
 * Port.
 * Databas.
-* Användare (användarnamnet ska vara **fivetran @_server_name_**  där *server_name* är en del av din Azure-värd URI: ***server_name*.database.windows .net** ).
+* Användare (användarnamnet ska vara **fivetran\@_server_name_**  där *server_name* är en del av din Azure-värd URI: ***server_name *. Database.Windows.NET**).
 * Lösenordet.

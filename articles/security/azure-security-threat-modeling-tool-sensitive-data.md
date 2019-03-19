@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 93beef5702df9b4cf0a51a01fb286a3f023f9839
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 27028903daeaf62a25584300944538341a861c80
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56876627"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57905230"
 ---
 # <a name="security-frame-sensitive-data--mitigations"></a>Security ram: Känsliga Data | Åtgärder 
 | Produkt/tjänst | Artikel |
@@ -141,7 +141,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 | **SDL fas**               | Utveckla |  
 | **Tillämpliga tekniker** | Generisk |
 | **Attribut**              | Gäller inte  |
-| **Referenser**              | [MSDN: autocomplete attributet](https://msdn.microsoft.com/library/ms533486(VS.85).aspx), [med automatisk komplettering i HTML](https://msdn.microsoft.com/library/ms533032.aspx), [HTML gemensamt säkerhetsproblem](https://technet.microsoft.com/security/bulletin/MS10-071), [automatisk komplettering., igen?](http://blog.mindedsecurity.com/2011/10/autocompleteagain.html) |
+| **Referenser**              | [MSDN: autocomplete attributet](https://msdn.microsoft.com/library/ms533486(VS.85).aspx), [med automatisk komplettering i HTML](https://msdn.microsoft.com/library/ms533032.aspx), [HTML gemensamt säkerhetsproblem](https://technet.microsoft.com/security/bulletin/MS10-071), [automatisk komplettering., igen?](https://blog.mindedsecurity.com/2011/10/autocompleteagain.html) |
 | **Steg** | Automatisk komplettering attributet anger om ett formulär ska ha automatisk komplettering eller inaktivera. Om automatisk komplettering finns på måste slutföra värden baserat på värden som användaren har angett innan automatiskt i webbläsaren. Till exempel när ett nytt namn och lösenord har angetts i ett formulär och formuläret har skickats, så frågar webbläsaren om lösenordet ska sparas. Därefter när formuläret visas, namn och lösenord fylls i automatiskt eller har slutförts eftersom namnet har angetts. En angripare med lokal åtkomst kan hämta lösenordet i klartext från webbläsarens cache. Komplettera automatiskt är aktiverad som standard och det måste uttryckligen inaktiveras. |
 
 ### <a name="example"></a>Exempel
@@ -182,7 +182,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 | **SDL fas**               | Utveckla |  
 | **Tillämpliga tekniker** | Generisk |
 | **Attribut**              | Gäller inte  |
-| **Referenser**              | [Lösenord Hashing med hjälp av .NET Crypto API: er](http://docs.asp.net/en/latest/security/data-protection/consumer-apis/password-hashing.html) |
+| **Referenser**              | [Lösenord Hashing med hjälp av .NET Crypto API: er](https://docs.asp.net/en/latest/security/data-protection/consumer-apis/password-hashing.html) |
 | **Steg** | Lösenord ska lagras inte i anpassade store användardatabaser. Hashvärden för lösenord ska lagras med salt värden i stället. Kontrollera att salt för användaren är alltid unikt och du tillämpa b-crypt, s-crypt eller PBKDF2 innan du lagrar lösenordet, och det minsta work faktor iterationsantal 150 000 slingor till att undanröja möjligheterna för råstyrkeattacker.| 
 
 ## <a id="db-encrypted"></a>Se till att känsliga data i databaskolumner är krypterad
@@ -399,7 +399,7 @@ Om programmet inte är ett företagsprogram, använda plattform tillhandahålls 
 | **SDL fas**               | Utveckla |  
 | **Tillämpliga tekniker** | Generisk |
 | **Attribut**              | Gäller inte  |
-| **Referenser**              | [Krypto döljande för .net](http://www.ssware.com/cryptoobfuscator/obfuscator-net.htm) |
+| **Referenser**              | [Krypto döljande för .net](https://www.ssware.com/cryptoobfuscator/obfuscator-net.htm) |
 | **Steg** | Genererade binärfiler (sammansättningar i apk) ska vara dold för att stoppa bakåtkompilering av sammansättningar. Verktyg som `CryptoObfuscator` kan användas för detta ändamål. |
 
 ## <a id="cert"></a>Ange clientCredentialType till certifikat eller Windows
@@ -429,7 +429,7 @@ Ange clientCredentialType till certifikat eller Windows.
 | **SDL fas**               | Utveckla |  
 | **Tillämpliga tekniker** | Generic, .NET Framework 3 |
 | **Attribut**              | Läget - Transport, säkerhetsläget - säkerhetsmeddelande |
-| **Referenser**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [spikning kungariket](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_weak_class_reference), [grunderna i säkerhet för WCF CoDe Magazine](http://www.codemag.com/article/0611051) |
+| **Referenser**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [spikning kungariket](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_weak_class_reference), [grunderna i säkerhet för WCF CoDe Magazine](https://www.codemag.com/article/0611051) |
 | **Steg** | Ingen transport eller meddelandet säkerhet har definierats. Program som överför meddelanden utan transport eller meddelandet säkerhet inte kan garantera integritet eller konfidentialiteten för meddelanden. När en bindning för WCF-säkerhet är inställd på Ingen, både transport- och meddelandet säkerhet är inaktiverade. |
 
 ### <a name="example"></a>Exempel
@@ -453,8 +453,8 @@ Säkerhetsläge över alla tjänstbindningar det finns fem säkerhetsrisker läg
 * Båda. Kan du ange inställningar för transport och meddelandet på radnivå (endast MSMQ stöder detta). 
 * TransportWithMessageCredential. Autentiseringsuppgifter skickas med meddelandet och meddelandet skydd och serverautentisering tillhandahålls av transportlagret. 
 * TransportCredentialOnly. Klientens autentiseringsuppgifter skickas med transportlagret och inget meddelande skydd används. Använd transport och meddelandet security för att skydda integriteten och sekretessen för meddelanden från. Av konfigurationen nedan talar om för tjänsten att använda transportsäkerhet med autentiseringsuppgifter för meddelandet.
-```
-<system.serviceModel>
+  ```
+  <system.serviceModel>
   <bindings>
     <wsHttpBinding>
     <binding name=""MyBinding""> 
@@ -462,5 +462,5 @@ Säkerhetsläge över alla tjänstbindningar det finns fem säkerhetsrisker läg
     <message clientCredentialType=""Windows""/> 
     </binding> 
   </bindings> 
-</system.serviceModel> 
-```
+  </system.serviceModel> 
+  ```

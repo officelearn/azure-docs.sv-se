@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: raynew
-ms.openlocfilehash: df3ae6fbeceb85df6d6e5245a5bbad517179733c
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: 4739308d301291bf88e8ae547ba85f9648339c4e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56991367"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58118467"
 ---
 # <a name="contoso-migration-assess-on-premises-workloads-for-migration-to-azure"></a>Contoso-migrering: Utvärdera lokala arbetsbelastningar för migrering till Azure
 
@@ -159,15 +159,15 @@ Contoso kan nu köra en utvärdering för att analysera en lokal SQL Server-data
 
     ![Data Migration Assistant – Välj källa](./media/contoso-migration-assessment/dma-assessment-1.png)
 
-    > [!NOTE]
-      För närvarande stöder Data Migration Assistant inte utvärdering för att migrera till en Azure SQL Database Managed Instance. Som en lösning kan använder Contoso SQL Server på en Azure virtuell dator som den angivna mål för utvärderingen.
+   > [!NOTE]
+   >    För närvarande stöder Data Migration Assistant inte utvärdering för att migrera till en Azure SQL Database Managed Instance. Som en lösning kan använder Contoso SQL Server på en Azure virtuell dator som den angivna mål för utvärderingen.
 
 3. I **Välj målversion**, Contoso väljer SQL Server 2017 som målversionen. Contoso behöver välja den här versionen eftersom det är den version som används av SQL Database Managed Instance.
 4. Contoso väljer rapporter för att få hjälp med att identifiera information om kompatibilitet och nya funktioner:
-    - **Kompatibilitetsproblem** Observera ändringar som kan bryta migreringen eller som kräver en mindre justering före migreringen. Den här rapporten håller Contoso informeras om alla funktioner som används som är inaktuella. Problemen ordnas efter kompatibilitetsnivå.
-    - **Nya funktionsrekommendation** kommentarer om nya funktioner i SQL Server-målplattformen som kan användas för databasen efter migreringen. Nya funktionsrekommendationer ordnas under rubrikerna **prestanda**, **Security**, och **Storage**.
+   - **Kompatibilitetsproblem** Observera ändringar som kan bryta migreringen eller som kräver en mindre justering före migreringen. Den här rapporten håller Contoso informeras om alla funktioner som används som är inaktuella. Problemen ordnas efter kompatibilitetsnivå.
+   - **Nya funktionsrekommendation** kommentarer om nya funktioner i SQL Server-målplattformen som kan användas för databasen efter migreringen. Nya funktionsrekommendationer ordnas under rubrikerna **prestanda**, **Security**, och **Storage**.
 
-    ![Data Migration Assistant – kompatibilitetsproblem och nya funktioner](./media/contoso-migration-assessment/dma-assessment-2.png)
+     ![Data Migration Assistant – kompatibilitetsproblem och nya funktioner](./media/contoso-migration-assessment/dma-assessment-2.png)
 
 2. I **Anslut till en server**, Contoso anger du namnet på den virtuella datorn som kör den databasen och autentiseringsuppgifter för att komma åt den. Contoso väljer **lita på servercertifikatet** att kontrollera att den virtuella datorn kan komma åt SQL Server. Sedan Contoso väljer **Connect**.
 
@@ -186,13 +186,13 @@ Resultatet visas så fort de är tillgängliga. Om Contoso åtgärdar problem, d
 
 1. I den **kompatibilitetsproblem** rapportera, Contoso söker efter eventuella problem på respektive kompatibilitetsnivå. Kompatibilitetsnivåerna mappar till SQL Server-versioner på följande sätt:
 
-    - 100: SQL Server 2008/Azure SQL Database
-    - 110: SQL Server 2012/Azure SQL Database
-    - 120: SQL Server 2014/Azure SQL Database
-    - 130: SQL Server 2016/Azure SQL Database
-    - 140: SQL Server 2017/Azure SQL Database
+   - 100: SQL Server 2008/Azure SQL Database
+   - 110: SQL Server 2012/Azure SQL Database
+   - 120: SQL Server 2014/Azure SQL Database
+   - 130: SQL Server 2016/Azure SQL Database
+   - 140: SQL Server 2017/Azure SQL Database
 
-    ![Data Migration Assistant – kompatibilitetsproblem rapport](./media/contoso-migration-assessment/dma-assessment-5.png)
+     ![Data Migration Assistant – kompatibilitetsproblem rapport](./media/contoso-migration-assessment/dma-assessment-5.png)
 
 2. I den **Funktionsrekommendationerna** rapportera, Contoso visar funktioner för prestanda, säkerhet och lagring som utvärderingen rekommenderar efter migreringen. Olika funktioner rekommenderas, till exempel Minnesintern OLTP, columnstore-index, Stretch Database, Always Encrypted, dynamisk datamaskning och transparent datakryptering.
 
@@ -403,14 +403,14 @@ Contoso kör installationen på varje virtuell dator.
 
     `sudo -i`
 3. Contoso installerar MMA:
-    - Contoso anger arbetsyte-ID och nyckel i kommandot.
-    - Kommandon är för 64-bitars.
-    - Arbetsyte-ID och den primära nyckeln finns i Log Analytics-arbetsyta i Azure-portalen. Välj **inställningar**, och välj sedan den **anslutna källor** fliken.
-    - Kör följande kommandon för att ladda ned Log Analytics-agenten, validera kontrollsumman och installera och integrera agenten:
+   - Contoso anger arbetsyte-ID och nyckel i kommandot.
+   - Kommandon är för 64-bitars.
+   - Arbetsyte-ID och den primära nyckeln finns i Log Analytics-arbetsyta i Azure-portalen. Välj **inställningar**, och välj sedan den **anslutna källor** fliken.
+   - Kör följande kommandon för att ladda ned Log Analytics-agenten, validera kontrollsumman och installera och integrera agenten:
 
-    ```
-    wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w 6b7fcaff-7efb-4356-ae06-516cacf5e25d -s k7gAMAw5Bk8pFVUTZKmk2lG4eUciswzWfYLDTxGcD8pcyc4oT8c6ZRgsMy3MmsQSHuSOcmBUsCjoRiG2x9A8Mg==
-    ```
+     ```
+     wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w 6b7fcaff-7efb-4356-ae06-516cacf5e25d -s k7gAMAw5Bk8pFVUTZKmk2lG4eUciswzWfYLDTxGcD8pcyc4oT8c6ZRgsMy3MmsQSHuSOcmBUsCjoRiG2x9A8Mg==
+     ```
 
 #### <a name="install-the-dependency-agent-on-linux-vms"></a>Installera Beroendeagenten på virtuella Linux-datorer
 

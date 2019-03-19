@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 9c2d6c48b9bf51062181886c8a9ef789b1c2b359
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: ebd9939128d1f2b870541e82710792d13b69728e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57240838"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58099009"
 ---
 # <a name="apply-system-updates-in-azure-security-center"></a>Tillämpa systemuppdateringar i Azure Security Center
 Azure Security Center övervakar dagliga Windows och Linux-datorer (VM) och datorer efter saknade uppdateringar av operativsystemet. Security Center hämtar en lista med tillgängliga säkerhetsuppdateringar och viktiga uppdateringar från Windows Update eller Windows Server Update Services (WSUS), beroende på vilken tjänst som har konfigurerats på en Windows-dator. Security Center söker också efter de senaste uppdateringarna i Linux-system. Om en virtuell dator eller en dator saknar en systemuppdatering, rekommenderar Security Center att du tillämpar systemuppdateringar.
@@ -43,7 +43,7 @@ I det här exemplet ska vi använda **Compute**.
     - Det totala antalet kritiska uppdateringar som saknas i dina virtuella datorer och datorer.
     - Det totala antalet säkerhetsuppdateringar som saknas i dina virtuella datorer och datorer.
 
-  Längst ned på instrumentpanelen visar en lista över alla saknade uppdateringar för dina virtuella datorer och datorer och allvarlighetsgraden för saknad uppdatering.  Listan innehåller:
+   Längst ned på instrumentpanelen visar en lista över alla saknade uppdateringar för dina virtuella datorer och datorer och allvarlighetsgraden för saknad uppdatering.  Listan innehåller:
 
     - NAMN: Namnet på uppdateringen som saknas.
     - NEJ. VM: ar och datorer: Totalt antal virtuella datorer och datorer som saknar denna uppdatering.

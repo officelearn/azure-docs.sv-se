@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/19/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 62927e78b8f1a771de74c0f9215a7bd946a46672
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: d6c82d6a8cf2281ebd77c9880903f8f20505f52c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56199603"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57901159"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bonusly"></a>Självstudier: Azure Active Directory-integrering med Bonusly
 
@@ -205,7 +205,7 @@ För att aktivera Azure AD-användare att logga in på Bonusly, måste de etable
 
 1. Klicka på **hantera användare**.
    
-    ![Hantera användare](./media/bonus-tutorial/ic781043.png "hantera användare")
+    ![Hantera användare](./media/bonus-tutorial/ic781043.png "Hantera användare")
 
 1. Klicka på **Lägg till användare**.
    
@@ -215,11 +215,11 @@ För att aktivera Azure AD-användare att logga in på Bonusly, måste de etable
    
     ![Lägg till användare](./media/bonus-tutorial/ic781045.png "Lägg till användare")  
 
-    a. I den **Förnamn** textrutan Ange först namnet på användaren som **Britta**.
+    a. I textrutan **Förnamn** skriver du förnamnet på användaren: **Britta**.
 
-    b. I den **efternamn** textrutan Ange efternamn för användaren som **Simon**.
+    b. I textrutan **Efternamn** skriver du efternamnet på användaren: **Simon**.
  
-    c. I textrutan **E-post** anger du e-postadressen för användaren, t.ex. **brittasimon@contoso.com**.
+    c. I den **e-post** textrutan Ange e-postadress för användaren som **brittasimon\@contoso.com**.
 
     d. Klicka på **Spara**.
    
@@ -265,7 +265,7 @@ När du klickar på panelen Bonusly i åtkomstpanelen, du bör få automatiskt l
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
+* [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 

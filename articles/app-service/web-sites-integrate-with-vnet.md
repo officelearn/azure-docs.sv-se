@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 11/12/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 951f8f887a7b29aac67b50ff8f92ddfd4a66e26b
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: ed99bd3626bb44bff68e4122d6b50523f19e1797
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57766886"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58112627"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Integrera din app med Azure-nätverk
 Det här dokumentet beskriver funktionen Azure App Service-integrering för virtuellt nätverk och visar hur du konfigurerar den med appar i [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). [Azure-nätverk] [ VNETOverview] (Vnet) gör att du kan placera många av dina Azure-resurser i ett icke-internet-dirigerbara nätverk. Dessa nätverk kan sedan anslutas till ditt lokala nätverk med hjälp av VPN-tekniker. 
@@ -284,13 +284,13 @@ Använda den nya funktionen:
 
 1. Gå till nätverk Användargränssnittet i portal. Om din app kan använda den nya funktionen, ser du en funktion för att använda den nya förhandsgranskningsfunktionen.  
 
- ![Välj den nya förhandsversionen av VNet-integrering][6]
+   ![Välj den nya förhandsversionen av VNet-integrering][6]
 
 1. Välj **Lägg till virtuellt nätverk (förhandsversion)**.  
 
 1. Välj Resource Manager-VNet som du vill integrera med och skapa sedan ett nytt undernät eller välj ett befintligt tomt undernät. Integrationen tar mindre än en minut att slutföra. Din app under integrationen har startats om.  När integration är klar visas information på det virtuella nätverket som du är integrerade med och en banderoll överst som talar om funktionen är i förhandsversion.
 
- ![Välj det virtuella nätverk och undernät][7]
+   ![Välj det virtuella nätverk och undernät][7]
 
 Skapa programinställning för din app där namnet är WEBSITE_DNS_SERVER och värdet är IP-adressen för servern för att aktivera din app att använda DNS-servern som ditt virtuella nätverk har konfigurerats med.  Om du har en sekundär DNS-server, skapar du en annan programinställning där namnet är WEBSITE_DNS_ALT_SERVER och värdet är IP-adressen för servern. 
 

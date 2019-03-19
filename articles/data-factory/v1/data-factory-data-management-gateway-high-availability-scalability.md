@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: bc8cacd6d52de0367a0ea14748e548b9d32f47ef
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 08e7341bfd1c384e41e6d3f1bd7810552899849a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54016775"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58092199"
 ---
 # <a name="data-management-gateway---high-availability-and-scalability-preview"></a>Data Management Gateway - hög tillgänglighet och skalbarhet (förhandsversion)
 > [!NOTE]
@@ -29,8 +29,8 @@ Den här artikeln hjälper dig att konfigurera lösning med hög tillgänglighet
 
 > [!NOTE]
 > Den här artikeln förutsätter att du redan är bekant med grunderna för Integration Runtime (tidigare Data Management Gateway). Om du inte är Se [Data Management Gateway](data-factory-data-management-gateway.md).
-
->**Den här förhandsversionsfunktionen stöds officiellt på Data Management Gateway version 2.12.xxxx.x och senare**. Kontrollera att du använder version 2.12.xxxx.x eller senare. Ladda ned den senaste versionen av Data Management Gateway [här](https://www.microsoft.com/download/details.aspx?id=39717).
+> 
+> **Den här förhandsversionsfunktionen stöds officiellt på Data Management Gateway version 2.12.xxxx.x och senare**. Kontrollera att du använder version 2.12.xxxx.x eller senare. Ladda ned den senaste versionen av Data Management Gateway [här](https://www.microsoft.com/download/details.aspx?id=39717).
 
 ## <a name="overview"></a>Översikt
 Du kan associera data management gateway som är installerade på flera lokala datorer med en enda logisk gateway från portalen. Dessa datorer kallas **noder**. Du kan ha upp till **fyra noder** som är associerade med en logisk gateway. Fördelarna med att ha flera noder (lokala datorer med installerad gateway) för en logisk gateway är:  
@@ -163,8 +163,8 @@ Här följer kraven för TLS/SSL-certifikatet som används för att säkra kommu
 
 - Certifikatet måste vara ett offentligt betrott X509 v3-certifikat. Vi rekommenderar att du använder certifikat som utfärdas av en offentlig (tredje parts) certifikatutfärdare (CA).
 - Varje integration runtime-noden måste lita på det här certifikatet, samt den klientdator som kör Autentiseringshanteraren. 
-> [!NOTE]
-> Autentiseringshanteraren används när du anger autentiseringsuppgifter på ett säkert sätt från Kopieringsguiden / Azure-portalen. Och det kan vara aktiverade från valfri dator i samma nätverk som lokalt / privat datalager.
+  > [!NOTE]
+  > Autentiseringshanteraren används när du anger autentiseringsuppgifter på ett säkert sätt från Kopieringsguiden / Azure-portalen. Och det kan vara aktiverade från valfri dator i samma nätverk som lokalt / privat datalager.
 - Certifikat med jokertecken stöds. Om din FQDN-namn är **node1.domain.contoso.com**, du kan använda ***. domain.contoso.com** som ämnesnamnet för certifikatet.
 - SAN-certifikat rekommenderas inte eftersom det sista objektet i Alternativt ämnesnamn används och alla andra kommer att ignoreras på grund av aktuell begränsning. T.ex. du har ett SAN-certifikat vars SAN är **node1.domain.contoso.com** och **node2.domain.contoso.com**, du kan bara använda det här certifikatet på datorn vars FQDN är **node2.domain.contoso.com**.
 - Stöder alla nyckelstorlek som stöds av Windows Server 2012 R2 för SSL-certifikat.
@@ -214,7 +214,7 @@ Följande tabell innehåller olika statusar av en **logisk gateway**. Status fö
 
 Status | Kommentarer
 :----- | :-------
-Måste registreras | Någon nod är ännu registrerad på den här logiska gatewayen
+Needs Registration | Någon nod är ännu registrerad på den här logiska gatewayen
 Online | Gateway-noderna är online
 Offline | Någon nod i onlinestatus.
 Begränsad | Inte alla noder i den här gatewayen är i felfritt tillstånd. Denna status är en varning om att en eller flera noder kanske inte är tillgänglig! <br/><br/>Kan bero på credential synkroniseringsproblem på dispatcher-/ arbetsnoden. 

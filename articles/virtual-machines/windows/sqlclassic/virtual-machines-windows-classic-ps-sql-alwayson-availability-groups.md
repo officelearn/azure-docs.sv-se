@@ -15,23 +15,23 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/17/2017
 ms.author: mikeray
-ms.openlocfilehash: 584fca3df4fee24a4f1c7b93d5371c48be059f7b
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: a6d8326afa3bcf13234ab072a2cd2909a864738b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51257943"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58002848"
 ---
 # <a name="configure-the-always-on-availability-group-on-an-azure-vm-with-powershell"></a>Konfigurera Always On-tillgänglighetsgrupp på en virtuell Azure-dator med PowerShell
 > [!div class="op_single_selector"]
-> * [Klassiska: Användargränssnittet](../classic/portal-sql-alwayson-availability-groups.md)
-> * [Klassiska: PowerShell](../classic/ps-sql-alwayson-availability-groups.md)
+> * [Klassisk: ANVÄNDARGRÄNSSNITTET](../classic/portal-sql-alwayson-availability-groups.md)
+> * [Klassisk: PowerShell](../classic/ps-sql-alwayson-availability-groups.md)
 <br/>
 
 Innan du börjar bör du överväga att du kan nu slutföra den här aktiviteten i Azure resource manager-modellen. Vi rekommenderar Azure resource manager-modellen för nya distributioner. Se [SQL Server Always On-Tillgänglighetsgrupper på Azure virtual machines](../sql/virtual-machines-windows-portal-sql-availability-group-overview.md).
 
 > [!IMPORTANT]
-> Vi rekommenderar att de flesta nya distributioner använder Resource Manager-modellen. Azure har två olika distributionsmodeller som används för att skapa och arbeta med resurser: [Resource Manager och den klassiska distributionsmodellen](../../../azure-resource-manager/resource-manager-deployment-model.md). Den här artikeln beskriver den klassiska distributionsmodellen.
+> Vi rekommenderar att de flesta nya distributioner använder Resource Manager-modellen. Azure har två olika distributionsmodeller som används för att skapa och arbeta med resurser: [Resource Manager och klassisk](../../../azure-resource-manager/resource-manager-deployment-model.md). Den här artikeln beskriver den klassiska distributionsmodellen.
 
 Azure-datorer (VM) kan databasadministratörer för att sänka kostnaden för en högtillgänglig SQL Server-systemet. Den här självstudien visar hur du implementerar en tillgänglighetsgrupp med hjälp av SQL Server Always On slutpunkt till slutpunkt i en Azure-miljö. I slutet av självstudien består din SQL Server Always On-lösning i Azure av följande element:
 
@@ -103,7 +103,7 @@ Den här kursen är avsedd att visa dig de steg som krävs för att konfigurera 
 
     Konfigurationsfilen innehåller följande XML-dokumentet. Enkelt uttryckt anger ett virtuellt nätverk med namnet **ContosoNET** i tillhörighetsgruppen kallas **ContosoAG**. Den har adressutrymmet **10.10.0.0/16** och har två undernät, **10.10.1.0/24** och **10.10.2.0/24**, vilket är klient undernätet och backend-undernät, respektive. Främre undernätet är där du kan placera klientprogram som Microsoft SharePoint. Backend-undernät är där du ska placera SQL Server-datorer. Om du ändrar den **$affinityGroupName** och **$virtualNetworkName** variabler tidigare, måste du också ändra motsvarande namnen nedan.
 
-        <NetworkConfiguration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
+        <NetworkConfiguration xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
           <VirtualNetworkConfiguration>
             <Dns />
             <VirtualNetworkSites>
@@ -380,15 +380,15 @@ Domänkontrollantservern har nu etablerats. Därefter konfigurerar du Active Dir
 ## <a name="initialize-the-failover-cluster-vms"></a>Initiera redundanskluster virtuella datorer
 I det här avsnittet måste du ändra de tre servrar som du ska använda i redundansklustret och SQL Server-installationen. Närmare bestämt:
 
-* Alla servrar: du måste installera den **redundanskluster** funktionen.
-* Alla servrar: du måste lägga till **CORP\Install** som datorn **administratör**.
-* ContosoSQL1 och ContosoSQL2 endast: du måste lägga till **CORP\Install** som en **sysadmin** roll i standarddatabasen.
-* ContosoSQL1 och ContosoSQL2 endast: du måste lägga till **NT AUTHORITY\System** som en inloggning med följande behörigheter:
+* Alla servrar: Du måste installera den **redundanskluster** funktionen.
+* Alla servrar: Du måste lägga till **CORP\Install** som datorn **administratör**.
+* ContosoSQL1 och ContosoSQL2 endast: Du måste lägga till **CORP\Install** som en **sysadmin** roll i standarddatabasen.
+* ContosoSQL1 och ContosoSQL2 endast: Du måste lägga till **NT AUTHORITY\System** som en inloggning med följande behörigheter:
 
   * Ändra någon tillgänglighetsgrupp
   * Ansluta SQL
   * Visa-Servertillstånd
-* ContosoSQL1 och ContosoSQL2 endast: den **TCP** protokollet är redan aktiverat på SQL Server-dator. Du behöver dock fortfarande att öppna brandväggen för fjärråtkomst av SQL Server.
+* ContosoSQL1 och ContosoSQL2 endast: Den **TCP** protokollet är redan aktiverat på SQL Server-dator. Du behöver dock fortfarande att öppna brandväggen för fjärråtkomst av SQL Server.
 
 Nu är du redo att börja. Från och med **ContosoQuorum**, Följ stegen nedan:
 

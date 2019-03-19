@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: troubleshooting
 ms.date: 11/27/2018
 ms.author: bsiva
-ms.openlocfilehash: 7deea91a016616d9015004857ad9e5ae70e24111
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 5bbde2f1059982424c2557d6a767692b3491f6aa
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57432880"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58098482"
 ---
 # <a name="monitor-and-troubleshoot-site-recovery"></a>Övervaka och felsöka Site Recovery
 
@@ -149,19 +149,19 @@ Du kan övervaka datorer i sidan virtuella datorer i instrumentpanelen för till
     ![Site Recovery replikerade objekt listvy](./media/site-recovery-monitor-and-troubleshoot/site-recovery-virtual-machine-list-view.png)
 
 2. På den **replikerade objekt** kan du visa och filtrera information. Du kan utföra åtgärder för en viss dator, inklusive som kör ett redundanstest eller genom att visa specifika fel på Åtgärd-menyn längst upp.
-3.  Klicka på **kolumner** för att visa ytterligare kolumner, till exempel för att visa RPO riktar sig mot konfigurationsproblem och replikeringsfel.
+3. Klicka på **kolumner** för att visa ytterligare kolumner, till exempel för att visa RPO riktar sig mot konfigurationsproblem och replikeringsfel.
 4. Klicka på **Filter** att visa information baserat på specifika parametrar, till exempel replikeringshälsa eller en viss replikeringsprincip.
 5. Högerklicka på en dator att initiera åtgärder som att testa redundans för den eller visa felinformationen kopplade till den.
 6. Klicka på en dator för att visa mer detaljer för den. Informationen innehåller:
-      - **Replikeringsinformation**: Aktuell status och hälsotillståndet för datorn.
-      - **RPO** (mål för återställningspunkt): Aktuell RPO för den virtuella datorn och den tid då beräknades senast rpo-MÅLET.
-      - **Återställningspunkter**: Senaste tillgängliga återställningspunkter för datorn.
-      - **Redundansberedskap**: Anger om ett redundanstest kördes för datorn agent-version som körs på datorn (för datorer som kör mobilitetstjänsten) och eventuella konfigurationsproblem.
-      - **Fel**: Lista över replikering fel symtomen för närvarande observerats på datorn och möjliga orsaker/åtgärder.
-      - **Händelser**: En kronologisk lista över de senaste händelserna som påverkar datorn. Felinformation visar för närvarande synliga Fel-Symptom när händelser är en historisk post av problem som har påverkat datorn.
-      - **Infrastruktur-vy**: Visar tillståndet för infrastruktur för scenariot när datorer replikeras till Azure.
+   - **Replikeringsinformation**: Aktuell status och hälsotillståndet för datorn.
+   - **RPO** (mål för återställningspunkt): Aktuell RPO för den virtuella datorn och den tid då beräknades senast rpo-MÅLET.
+   - **Återställningspunkter**: Senaste tillgängliga återställningspunkter för datorn.
+   - **Redundansberedskap**: Anger om ett redundanstest kördes för datorn agent-version som körs på datorn (för datorer som kör mobilitetstjänsten) och eventuella konfigurationsproblem.
+   - **Fel**: Lista över replikering fel symtomen för närvarande observerats på datorn och möjliga orsaker/åtgärder.
+   - **Händelser**: En kronologisk lista över de senaste händelserna som påverkar datorn. Felinformation visar för närvarande synliga Fel-Symptom när händelser är en historisk post av problem som har påverkat datorn.
+   - **Infrastruktur-vy**: Visar tillståndet för infrastruktur för scenariot när datorer replikeras till Azure.
 
-    ![Site Recovery replikerade objekt information/overview](./media/site-recovery-monitor-and-troubleshoot/site-recovery-virtual-machine-details.png)
+     ![Site Recovery replikerade objekt information/overview](./media/site-recovery-monitor-and-troubleshoot/site-recovery-virtual-machine-details.png)
 
 
 ### <a name="common-questions"></a>Vanliga frågor
@@ -191,7 +191,7 @@ Du kan prenumerera på e-postmeddelanden för de här kritiska händelser:
 Prenumerera på följande sätt:
 
 I valvet > **övervakning och rapporter** klickar du på **Site Recovery-händelser**.
-2. Klicka på **e-postmeddelanden**.
-3. I **e-postavisering**, slå på meddelanden och ange vem som ska skickas till. Du kan skicka till alla prenumerationsadministratörer skickas meddelanden och du kan också specifika e-postadresser.
+1. Klicka på **e-postmeddelanden**.
+1. I **e-postavisering**, slå på meddelanden och ange vem som ska skickas till. Du kan skicka till alla prenumerationsadministratörer skickas meddelanden och du kan också specifika e-postadresser.
 
     ![E-postmeddelanden](./media/site-recovery-monitor-and-troubleshoot/email.png)

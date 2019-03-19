@@ -9,18 +9,20 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 12/03/2018
 ms.author: genli
-ms.openlocfilehash: 3be2ab8bd4be56de945303bec9969f531be77864
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 85dca677238070ded13b59faf9a13081c2409987
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57535605"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57890873"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Felsöka Azure Backup-fel: Problem med agenten eller -tillägget
 
 Den här artikeln innehåller åtgärder för felsökning som kan hjälpa dig att lösa Azure Backup-fel som rör kommunikation med VM-agenten och tillägg.
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
+
+
 
 ## <a name="UserErrorGuestAgentStatusUnavailable-vm-agent-unable-to-communicate-with-azure-backup"></a>UserErrorGuestAgentStatusUnavailable - VM-agenten kunde inte kommunicera med Azure Backup
 
@@ -54,7 +56,7 @@ När du har registrerat och schemalägga en virtuell dator för Azure Backup-tj�
 Rekommenderad åtgärd:<br>
 Häv spärren för resursgruppen för den virtuella datorn för att lösa problemet och försök igen för att utlösa rensningen.
 > [!NOTE]
-    > Backup-tjänsten skapar en separat resursgrupp än resursgruppen för den virtuella datorn att lagra samling med återställningspunkter. Kunder bör inte låsa resursgruppen som skapades för användning av Backup-tjänsten. Namnformatet för resursgruppen som skapades av Backup-tjänsten är: AzureBackupRG_`<Geo>`_`<number>` Eg: AzureBackupRG_northeurope_1
+> Backup-tjänsten skapar en separat resursgrupp än resursgruppen för den virtuella datorn att lagra samling med återställningspunkter. Kunder bör inte låsa resursgruppen som skapades för användning av Backup-tjänsten. Namnformatet för resursgruppen som skapades av Backup-tjänsten är: AzureBackupRG_`<Geo>`_`<number>` Eg: AzureBackupRG_northeurope_1
 
 **Steg 1: [Ta bort låset från resursgruppen återställningspunkt](#remove_lock_from_the_recovery_point_resource_group)** <br>
 **Steg 2: [Rensa samling med återställningspunkter](#clean_up_restore_point_collection)**<br>
@@ -64,7 +66,7 @@ Häv spärren för resursgruppen för den virtuella datorn för att lösa proble
 **Felkod**: UserErrorKeyvaultPermissionsNotConfigured <br>
 **Felmeddelande**: Säkerhetskopiering har inte tillräckliga behörigheter till nyckelvalvet för säkerhetskopiering för krypterade virtuella datorer. <br>
 
-För säkerhetskopieringen ska lyckas på krypterade virtuella datorer, måste den ha behörighet att komma åt nyckelvalvet. Detta kan göras med hjälp av den [Azure-portalen](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption) eller via den [PowerShell](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#enable-protection)
+För säkerhetskopieringen ska lyckas på krypterade virtuella datorer, måste den ha behörighet att komma åt nyckelvalvet. Detta kan göras med hjälp av den [Azure-portalen](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption) eller via [PowerShell](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#enable-protection).
 
 ## <a name="ExtensionSnapshotFailedNoNetwork-snapshot-operation-failed-due-to-no-network-connectivity-on-the-virtual-machine"></a>ExtensionSnapshotFailedNoNetwork - ögonblicksbildsåtgärden misslyckades på grund av den virtuella datorn saknar nätverksanslutning
 
@@ -126,12 +128,12 @@ Senaste säkerhetskopieringsjobbet misslyckades eftersom det finns en befintlig 
 3. Klicka på valvets instrumentpanel **säkerhetskopieringsjobb** visas alla säkerhetskopieringsjobb.
 
     * Om ett säkerhetskopieringsjobb pågår, vänta på den för att slutföra eller avbryta säkerhetskopieringen.
-        * Avbryt säkerhetskopieringsjobbet högerklickar på säkerhetskopieringsjobbet och klicka på **Avbryt** eller Använd [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.backup/stop-azurermbackupjob?view=azurermps-6.13.0&viewFallbackFrom=azurermps-6.12.0).
+        * Avbryt säkerhetskopieringsjobbet högerklickar på säkerhetskopieringsjobbet och klicka på **Avbryt** eller Använd [PowerShell](https://docs.microsoft.com/en-us/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob?view=azps-1.4.0).
     * Om du har konfigurerat om säkerhetskopiering i ett annat valv, kontrollera att det finns inga säkerhetskopieringsjobb som körs i det gamla valvet. Avbryt jobbet om den finns.
-        * Avbryt säkerhetskopieringsjobbet högerklickar på säkerhetskopieringsjobbet och klicka på **Avbryt** eller Använd [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.backup/stop-azurermbackupjob?view=azurermps-6.13.0&viewFallbackFrom=azurermps-6.12.0)
+        * Avbryt säkerhetskopieringsjobbet högerklickar på säkerhetskopieringsjobbet och klicka på **Avbryt** eller Använd [PowerShell](https://docs.microsoft.com/en-us/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob?view=azps-1.4.0)
 4. Försök att säkerhetskopiera igen.
 
-Om den schemalagda säkerhetskopieringen tar längre tid som är i konflikt med nästa säkerhetskopieringskonfigurationen granskar den [metodtips](backup-azure-vms-introduction.md#best-practices), [säkerhetskopieringsprestanda](backup-azure-vms-introduction.md#backup-performance) och [återställa beräkningen ](backup-azure-vms-introduction.md#restore-considerations).
+Om den schemalagda säkerhetskopieringen tar längre tid som är i konflikt med nästa säkerhetskopieringskonfigurationen granskar den [metodtips](backup-azure-vms-introduction.md#best-practices), [säkerhetskopieringsprestanda](backup-azure-vms-introduction.md#backup-performance) och [återställa beräkningen ](backup-azure-vms-introduction.md#backup-and-restore-considerations).
 
 
 ## <a name="causes-and-solutions"></a>Orsaker och lösningar
@@ -166,15 +168,15 @@ Mest agent-relaterade eller tillägget-relaterade fel för virtuella Linux-dator
 
 1. Följ anvisningarna för [uppdaterar Linux VM-agenten](../virtual-machines/linux/update-agent.md).
 
- > [!NOTE]
- > Vi *rekommenderar* att du uppdaterar agenten endast via en lagringsplats för distribution. Vi rekommenderar inte hämta agent-kod direkt från GitHub och uppdaterar den. Om den senaste agenten för din distribution inte är tillgänglig, kontakta distribution stöd för instruktioner om hur du installerar den. Om du vill söka efter den senaste agenten, går du till den [Windows Azure Linux-agent](https://github.com/Azure/WALinuxAgent/releases) sidan i GitHub-lagringsplatsen.
+   > [!NOTE]
+   > Vi *rekommenderar* att du uppdaterar agenten endast via en lagringsplats för distribution. Vi rekommenderar inte hämta agent-kod direkt från GitHub och uppdaterar den. Om den senaste agenten för din distribution inte är tillgänglig, kontakta distribution stöd för instruktioner om hur du installerar den. Om du vill söka efter den senaste agenten, går du till den [Windows Azure Linux-agent](https://github.com/Azure/WALinuxAgent/releases) sidan i GitHub-lagringsplatsen.
 
 2. Se till att Azure-agenten körs på den virtuella datorn genom att köra följande kommando: `ps -e`
 
- Om processen inte körs måste du starta om den med hjälp av följande kommandon:
+   Om processen inte körs måste du starta om den med hjälp av följande kommandon:
 
- * För Ubuntu: `service walinuxagent start`
- * För andra distributioner: `service waagent start`
+   * För Ubuntu: `service walinuxagent start`
+   * För andra distributioner: `service waagent start`
 
 3. [Konfigurera automatisk omstart agent](https://github.com/Azure/WALinuxAgent/wiki/Known-Issues#mitigate_agent_crash).
 4. Kör en ny test-säkerhetskopia. Om felet kvarstår, kan du samla in följande loggar från den virtuella datorn:
@@ -198,7 +200,7 @@ Följande villkor kan orsaka uppgiften ögonblicksbild misslyckas:
 | Orsak | Lösning |
 | --- | --- |
 | Virtuella datorns status rapporteras felaktigt eftersom Virtuellt datorn stängs av i Remote Desktop Protocol (RDP). | Om du stänger av den virtuella datorn i RDP Kontrollera portalen för att avgöra om virtuella datorns status är rätt. Om det inte är korrekt, stänger du den virtuella datorn i portalen med hjälp av den **avstängning** alternativet på VM-instrumentpanelen. |
-| Den virtuella datorn kan inte hämta värden eller fabric-adress från DHCP. | DHCP måste vara aktiverat på gästen för IaaS VM-säkerhetskopiering för att fungera. Om den virtuella datorn inte kan hämta värden eller fabric-adress från DHCP-svar 245, kan inte den hämta eller köra några tillägg. Om du behöver en statisk privat IP-adress kan du konfigurera det via den **Azure-portalen** eller **PowerShell** och kontrollera att DHCP-alternativ i den virtuella datorn är aktiverad. Läs mer om hur du installerar en statisk IP-adress via PowerShell [klassisk virtuell dator](../virtual-network/virtual-networks-reserved-private-ip.md#how-to-add-a-static-internal-ip-to-an-existing-vm) och [Resource Manager-VM](../virtual-network/virtual-networks-static-private-ip-arm-ps.md#change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface).
+| Den virtuella datorn kan inte hämta värden eller fabric-adress från DHCP. | DHCP måste vara aktiverat på gästen för IaaS VM-säkerhetskopiering för att fungera. Om den virtuella datorn inte kan hämta värden eller fabric-adress från DHCP-svar 245, kan inte den hämta eller köra några tillägg. Om du behöver en statisk privat IP-adress kan du konfigurera det via den **Azure-portalen** eller **PowerShell** och kontrollera att DHCP-alternativ i den virtuella datorn är aktiverad. [Läs mer](../virtual-network/virtual-networks-static-private-ip-arm-ps.md#change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface) om hur du konfigurerar en statisk IP-adress med PowerShell.
 
 ### <a name="the-backup-extension-fails-to-update-or-load"></a>Säkerhetskopieringstillägget inte går att uppdatera eller läsa in
 Om tillägg inte kan läsas in, misslyckas säkerhetskopieringen eftersom det går inte att ta en ögonblicksbild.
@@ -236,7 +238,7 @@ När du tar bort låset har återställningspunkterna att rensas. Följ någon a
 När du tar bort låset kan utlösa en ad hoc-/ manuell säkerhetskopiering. Detta säkerställer att återställningspunkterna automatiskt rensas. Förvänta dig den här ad hoc/manuell åtgärd misslyckas första gången. men säkerställer det att automatisk rensning i stället för manuell borttagning av återställningspunkter. När rensningen ska nästa schemalagda säkerhetskopiering lyckas.
 
 > [!NOTE]
-    > Automatisk rensning sker efter några timmars aktiverar ad hoc-/ manuell säkerhetskopiering. Om din schemalagd säkerhetskopiering fortfarande misslyckas kommer försök att manuellt ta bort den samling med återställningspunkter med hjälp av stegen visas [här](#clean-up-restore-point-collection-from-azure-portal).
+> Automatisk rensning sker efter några timmars aktiverar ad hoc-/ manuell säkerhetskopiering. Om din schemalagd säkerhetskopiering fortfarande misslyckas kommer försök att manuellt ta bort den samling med återställningspunkter med hjälp av stegen visas [här](#clean-up-restore-point-collection-from-azure-portal).
 
 #### <a name="clean-up-restore-point-collection-from-azure-portal"></a>Rensa återställning samlingen från Azure-portalen med återställningspunkter <br>
 

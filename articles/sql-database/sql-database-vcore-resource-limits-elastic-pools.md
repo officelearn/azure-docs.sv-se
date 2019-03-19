@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 03/06/2019
-ms.openlocfilehash: a1e76aafa271ff021517c3d06c3c6e02103413d3
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.date: 03/15/2019
+ms.openlocfilehash: c11f52d2bbc55187a16227cf9553cc7ba6013e1e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57571481"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57853145"
 ---
 # <a name="resource-limits-for-elastic-pools-using-the-vcore-based-purchasing-model-limits"></a>Resursgränser för elastiska pooler när gränserna vCore-baserade inköpschef modell
 
@@ -96,7 +96,7 @@ Du kan ange tjänstnivå, beräkningsstorleken och storage mycket med den [Azure
 ### <a name="general-purpose-service-tier-generation-5-compute-platform-part-1"></a>Tjänstnivå för allmänna ändamål: Generation 5-beräkningsplattformen (del 1)
 
 |Beräkna storlek|GP_Gen5_2|GP_Gen5_4|GP_Gen5_6|GP_Gen5_8|GP_Gen5_10|GP_Gen5_12|GP_Gen5_14|
-|:--- | --: |--: |--: |--: |---: | --: |--: |--: |
+|:--- | --: |--: |--: |--: |---: | --: |--: |
 |Maskinvaran generation|5|5|5|5|5|5|5|
 |vCores|2|4|6|8|10|12|14|
 |Minne (GB)|10.2|20.4|30.6|40.8|51|61.2|71.4|
@@ -108,7 +108,7 @@ Du kan ange tjänstnivå, beräkningsstorleken och storage mycket med den [Azure
 |Lagringstyp|Premium (Fjärrlagring)|Premium (Fjärrlagring)|Premium (Fjärrlagring)|Premium (Fjärrlagring)|Premium (Fjärrlagring)|Premium (Fjärrlagring)|Premium (Fjärrlagring)|
 |I/o-svarstid (ungefärlig)|5 – 7 ms (skriva)<br>5 – 10 ms (läsa)|5 – 7 ms (skriva)<br>5 – 10 ms (läsa)|5 – 7 ms (skriva)<br>5 – 10 ms (läsa)|5 – 7 ms (skriva)<br>5 – 10 ms (läsa)|5 – 7 ms (skriva)<br>5 – 10 ms (läsa)|5 – 7 ms (skriva)<br>5 – 10 ms (läsa)|5 – 7 ms (skriva)<br>5 – 10 ms (läsa)|
 |Mål-IOPS (64 KB)|500|1000|1500|2000|2500|3000|3500|
-|Logga hastighetsbegränsningar (Mbit/s)|2.5|56|7.5|10|12.5|15|17.5|
+|Logga hastighetsbegränsningar (Mbit/s)|2.5|5.6|7.5|10|12.5|15|17.5|
 |Maximalt antal samtidiga arbetare per pool (begäranden) *|210|420|630|840|1050|1260|1470|
 |Maximalt antal samtidiga inloggningar per pool (begäranden) *|210|420|630|840|1050|1260|1470|
 |Maximalt antal tillåtna sessioner|30000|30000|30000|30000|30000|30000|30000|
@@ -124,7 +124,7 @@ Du kan ange tjänstnivå, beräkningsstorleken och storage mycket med den [Azure
 ### <a name="general-purpose-service-tier-generation-5-compute-platform-part-2"></a>Tjänstnivå för allmänna ändamål: Generation 5-beräkningsplattformen (del 2)
 
 |Beräkna storlek|GP_Gen5_16|GP_Gen5_18|GP_Gen5_20|GP_Gen5_24|GP_Gen5_32|GP_Gen5_40|GP_Gen5_80|
-|:--- | --: |--: |--: |--: |---: | --: |--: |--: |
+|:--- | --: |--: |--: |--: |---: | --: |--: |
 |Maskinvaran generation|5|5|5|5|5|5|5|
 |vCores|16|18|20|24|32|40|80|
 |Minne (GB)|81.6|91.8|102|122.4|163.2|204|408|
@@ -165,7 +165,7 @@ Du kan ange tjänstnivå, beräkningsstorleken och storage mycket med den [Azure
 |TempDB-storlek (GB)|32|64|96|128|160|192|
 |I/o-svarstid (ungefärlig)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|
 |Mål-IOPS (64 KB)|5000|10000|15 000|20000|25000|30000|
-|Logga hastighetsbegränsningar (Mbit/s)|6|12|18|24|30|36|
+|Logga hastighetsbegränsningar (Mbit/s)|7.5|15|22.5|30|37.5|45|
 |Maximalt antal samtidiga arbetare per pool (begäranden) *|210|420|630|840|1050|1260|
 |Maximalt antal samtidiga inloggningar per pool (begäranden) *|210|420|630|840|1050|1260|
 |Maximalt antal tillåtna sessioner|30000|30000|30000|30000|30000|30000|
@@ -184,7 +184,7 @@ Du kan ange tjänstnivå, beräkningsstorleken och storage mycket med den [Azure
 |:--- | --: |--: |--: |--: |--: |--: |
 |Maskinvaran generation|4|4|4|4|4|4|
 |vCores|7|8|9|10|16|24|
-|Minne (GB)|81.6|91.8|102|122.4|163.2|204|408|
+|Minne (GB)|81.6|91.8|102|122.4|163.2|204|
 |Stöd för Columnstore|Gäller inte|Saknas|Saknas|Saknas|Saknas|Gäller inte|
 |InMemory-OLTP-lagring (GB)|7|8|9.5|11|20|36|
 |Lagringstyp|Lokal SSD|Lokal SSD|Lokal SSD|Lokal SSD|Lokal SSD|Lokal SSD|
@@ -193,7 +193,7 @@ Du kan ange tjänstnivå, beräkningsstorleken och storage mycket med den [Azure
 |TempDB-storlek (GB)|224|256|288|320|384|384|
 |I/o-svarstid (ungefärlig)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|
 |Mål-IOPS (64 KB)|35000|40000|45000|50000|80000|120000|
-|Logga hastighetsbegränsningar (Mbit/s)|
+|Logga hastighetsbegränsningar (Mbit/s)|52.5|60|67.5|75|80|80|
 |Maximalt antal samtidiga arbetare per pool (begäranden) *|1470|1680|1890|2 100|3360|5040|
 |Maximalt antal samtidiga inloggningar per pool (begäranden) *|1470|1680|1890|2 100|3360|5040|
 |Maximalt antal tillåtna sessioner|30000|30000|30000|30000|30000|30000|
@@ -209,7 +209,7 @@ Du kan ange tjänstnivå, beräkningsstorleken och storage mycket med den [Azure
 #### <a name="business-critical-service-tier-generation-5-compute-platform-part-1"></a>Kritiska-affärsnivå: Generation 5-beräkningsplattformen (del 1)
 
 |Beräkna storlek|BC_Gen5_2|BC_Gen5_4|BC_Gen5_6|BC_Gen5_8|BC_Gen5_10|BC_Gen5_12|BC_Gen5_14|
-|:--- | --: |--: |--: |--: |---: | --: |--: |--: |--: |--: |--: |--: |
+|:--- | --: |--: |--: |--: |---: | --: |--: |
 |Maskinvaran generation|5|5|5|5|5|5|5|
 |vCores|2|4|6|8|10|12|14|
 |Minne (GB)|10.2|20.4|30.6|40.8|51|61.2|71.4|
@@ -221,7 +221,7 @@ Du kan ange tjänstnivå, beräkningsstorleken och storage mycket med den [Azure
 |Lagringstyp|Lokal SSD|Lokal SSD|Lokal SSD|Lokal SSD|Lokal SSD|Lokal SSD|Lokal SSD|
 |I/o-svarstid (ungefärlig)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|
 |Mål-IOPS (64 KB)|5000|10000|15 000|20000|25000|30000|35000|
-|Logga hastighetsbegränsningar (Mbit/s)|48|48|48|48|48|48|48|
+|Logga hastighetsbegränsningar (Mbit/s)|7.5|15|22.5|30|37.5|45|52.5|
 |Maximalt antal samtidiga arbetare per pool (begäranden) *|210|420|630|840|1050|1260|1470|
 |Maximalt antal samtidiga inloggningar per pool (begäranden) *|210|420|630|840|1050|1260|1470|
 |Maximalt antal tillåtna sessioner|30000|30000|30000|30000|30000|30000|30000|
@@ -237,7 +237,7 @@ Du kan ange tjänstnivå, beräkningsstorleken och storage mycket med den [Azure
 #### <a name="business-critical-service-tier-generation-5-compute-platform-part-2"></a>Kritiska-affärsnivå: Generation 5-beräkningsplattformen (del 2)
 
 |Beräkna storlek|BC_Gen5_16|BC_Gen5_18|BC_Gen5_20|BC_Gen5_24|BC_Gen5_32|BC_Gen5_40|BC_Gen5_80|
-|:--- | --: |--: |--: |--: |---: | --: |--: |--: |--: |--: |--: |--: |
+|:--- | --: |--: |--: |--: |---: | --: |--: |
 |Maskinvaran generation|5|5|5|5|5|5|5|
 |vCores|16|18|20|24|32|40|80|
 |Minne (GB)|81.6|91.8|102|122.4|163.2|204|408|
@@ -249,7 +249,7 @@ Du kan ange tjänstnivå, beräkningsstorleken och storage mycket med den [Azure
 |Lagringstyp|Lokal SSD|Lokal SSD|Lokal SSD|Lokal SSD|Lokal SSD|Lokal SSD|Lokal SSD|
 |I/o-svarstid (ungefärlig)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|1 – 2 ms (skriva)<br>1 – 2 ms (läsa)|
 |Mål-IOPS (64 KB)|40000|45000|50000|60000|80000|100000|200000|
-|Logga hastighetsbegränsningar (Mbit/s)|48|48|48|48|48|48|48|
+|Logga hastighetsbegränsningar (Mbit/s)|60|67.5|75|90|120|120|120|
 |Maximalt antal samtidiga arbetare per pool (begäranden) *|1680|1890|2 100|2520|3360|4200|8400|
 |Maximalt antal samtidiga inloggningar per pool (begäranden) *|1680|1890|2 100|2520|3360|4200|8400|
 |Maximalt antal tillåtna sessioner|30000|30000|30000|30000|30000|30000|30000|

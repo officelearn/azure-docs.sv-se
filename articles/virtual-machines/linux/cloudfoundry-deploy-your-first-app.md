@@ -16,16 +16,16 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/14/2017
 ms.author: seanmck
-ms.openlocfilehash: 6e2fa77273ef35fae6c3b232cb36fa913faf879d
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 9a0b12ec9d825fc665bd5beb89e911b80ed3889f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44299057"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58013873"
 ---
 # <a name="deploy-your-first-app-to-cloud-foundry-on-microsoft-azure"></a>Distribuera din första app till Cloud Foundry på Microsoft Azure
 
-[Cloud Foundry](http://cloudfoundry.org) är en programplattform för populära öppen källkod-tillgängliga på Microsoft Azure. I den här artikeln visar vi hur du distribuerar och hanterar ett program i Cloud Foundry i en Azure-miljö.
+[Cloud Foundry](https://cloudfoundry.org) är en programplattform för populära öppen källkod-tillgängliga på Microsoft Azure. I den här artikeln visar vi hur du distribuerar och hanterar ett program i Cloud Foundry i en Azure-miljö.
 
 ## <a name="create-a-cloud-foundry-environment"></a>Skapa en Cloud Foundry-miljö
 
@@ -33,7 +33,7 @@ Det finns flera alternativ för att skapa en miljö med Cloud Foundry på Azure:
 
 - Använd den [Pivotal Cloud Foundry erbjudandet] [ pcf-azuremarketplace] på Azure Marketplace för att skapa en standardmiljö med PCF Ops Manager och Azure Service Broker. Du kan hitta [fullständiga] [ pcf-azuremarketplace-pivotaldocs] för att distribuera marketplace erbjuder i Pivotal-dokumentationen.
 - Skapa en anpassad miljö av [manuellt distribuera Pivotal Cloud Foundry][pcf-custom].
-- [Distribuera Cloud Foundry-paket för öppen källkod direkt] [ oss-cf-bosh] genom att ställa in en [BOSH](http://bosh.io) director, en virtuell dator som samordnar distributionen av Cloud Foundry-miljö.
+- [Distribuera Cloud Foundry-paket för öppen källkod direkt] [ oss-cf-bosh] genom att ställa in en [BOSH](https://bosh.io) director, en virtuell dator som samordnar distributionen av Cloud Foundry-miljö.
 
 > [!IMPORTANT] 
 > Om du distribuerar PCF från Azure Marketplace, notera SYSTEMDOMAINURL och autentiseringsuppgifter som administratör krävs för att få åtkomst till den Pivotal appar Manager, som beskrivs i Distributionshandboken för marketplace. De behövs för att slutföra den här kursen. För distributioner för marketplace, SYSTEMDOMAINURL är i formatet https://system. *IP-adress*. cf.pcfazure.com.
@@ -77,7 +77,7 @@ Nu när du distribuerar ett program kan skapas det automatiskt i den nya org och
 
 ## <a name="deploy-an-application"></a>Distribuera ett program
 
-Nu ska vi använda ett exempelprogram för Cloud Foundry som heter Hello Spring Cloud, som är skrivna i Java och baserat på den [Spring Framework](http://spring.io) och [Spring Boot](http://projects.spring.io/spring-boot/).
+Nu ska vi använda ett exempelprogram för Cloud Foundry som heter Hello Spring Cloud, som är skrivna i Java och baserat på den [Spring Framework](https://spring.io) och [Spring Boot](https://projects.spring.io/spring-boot/).
 
 ### <a name="clone-the-hello-spring-cloud-repository"></a>Klona databasen för Hello Spring Cloud
 
@@ -90,7 +90,7 @@ cd hello-spring-cloud
 
 ### <a name="build-the-application"></a>Skapa programmet
 
-Skapa en app med hjälp av [Apache Maven](http://maven.apache.org).
+Skapa en app med hjälp av [Apache Maven](https://maven.apache.org).
 
 ```bash
 mvn clean package
@@ -158,7 +158,7 @@ Kör den `cf app` -kommando på programmet visar att Cloud Foundry skapar en ann
 [cloudshell-docs]: https://docs.microsoft.com/azure/cloud-shell/overview
 [cf-orgs-spaces-docs]: https://docs.cloudfoundry.org/concepts/roles.html
 [spring-boot]: https://projects.spring.io/spring-boot/
-[spring-framework]: http://spring.io
+[spring-framework]: https://spring.io
 [cf-push-docs]: https://docs.cloudfoundry.org/concepts/how-applications-are-staged.html
 [cloudfoundry-docs]: https://docs.cloudfoundry.org
 [vsts-plugin]: https://github.com/Microsoft/vsts-cloudfoundry

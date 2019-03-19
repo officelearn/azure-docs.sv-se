@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: overview
 ms.date: 07/25/2018
-ms.openlocfilehash: 69e9a49bf83be5b58faf3e71ab0ffbfb6c6f11a1
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
-ms.translationtype: HT
+ms.openlocfilehash: 86d32726280cce12888f125c65254a7b02166704
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54329729"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57194758"
 ---
 # <a name="azure-and-jenkins"></a>Azure och Jenkins
 
@@ -29,7 +29,7 @@ Med Azure som värd för dina Jenkins-servrar kan du centralisera versionsautoma
 - [Virtuella Azure-datorer](/azure/virtual-machines/linux/overview). Anvisningar som beskriver hur du skapar en Jenkins-instans på en virtuell dator finns i vår [självstudie](/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd).
 - Läs vår [instruktionsartikel](/azure/container-service/kubernetes/container-service-kubernetes-jenkins) som beskriver ett Kubernetes-kluster som körs i [Azure Container Service](/azure/container-service/kubernetes/container-service-kubernetes-walkthrough).
 
-Övervaka och hantera Azure Jenkins-distributionen med [Log Analytics](/azure/log-analytics/log-analytics-overview) och [Azure CLI](/cli/azure).
+Övervaka och hantera dina Azure-Jenkins-distribution med [Azure Monitor loggar](/azure/log-analytics/log-analytics-overview) och [Azure CLI](/cli/azure).
 
 ## <a name="scale-your-build-automation-on-demand"></a>Skala versionsautomatiseringen på begäran
 
@@ -46,5 +46,5 @@ Använd Jenkins-plugin-programmet för att distribuera dina program till Azure s
 
  Plugin-program är tillgängliga för distribution till följande tjänster och miljöer:
 
-- [Azure App Service i Linux](/azure/app-service/containers/app-service-linux-intro). Gå [självstudien](java-deploy-webapp-tutorial.md) för att komma igång.
+- [Azure App Service i Linux](/azure/app-service/containers/app-service-linux-intro). Gå [självstudiekursen](java-deploy-webapp-tutorial.md) för att komma igång.
 - [Azure App Service](/azure/app-service/overview). Läs [instruktionsartikeln](deploy-Jenkins-app-service-plugin.md) för att komma igång.

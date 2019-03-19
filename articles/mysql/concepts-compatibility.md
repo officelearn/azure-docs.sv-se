@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 11/21/2018
-ms.openlocfilehash: 7bb5f861676517d709f59c1bf50d77c4d9cc49a4
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 46f2ac9114ac1191ea85b428711cb25d8557a61a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53548059"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57837583"
 ---
 # <a name="mysql-drivers-and-management-tools-compatible-with-azure-database-for-mysql"></a>MySQL-drivrutiner och hanteringsverktyg som är kompatibla med Azure Database for MySQL
 Den här artikeln beskriver de drivrutiner och hanteringsverktyg som är kompatibla med Azure Database for MySQL.
@@ -19,10 +19,10 @@ Den här artikeln beskriver de drivrutiner och hanteringsverktyg som är kompati
 ## <a name="mysql-drivers"></a>MySQL-drivrutiner
 Azure Database för MySQL använder världens mest populära community-utgåvan av MySQL-databas. Därför är kompatibla med en mängd olika programmeringsspråk och drivrutiner. Målet är att stödja de tre senaste versionerna MySQL-drivrutiner och fortsätta ansträngningar med författare från communityn för öppen källkod för att ständigt förbättra funktioner och användbarhet för MySQL-drivrutiner. En lista över drivrutiner som har testats och visat sig vara kompatibla med Azure Database for MySQL 5.6 och 5.7 finns i följande tabell:
 
-| **Drivrutinen** | **Länkar** | **Kompatibla versioner** | **Inkompatibla versioner** | **Anteckningar** |
+| **Driver** | **Länkar** | **Kompatibla versioner** | **Inkompatibla versioner** | **Anteckningar** |
 | :-------- | :------------------------ | :----------- | :---------------------- | :--------------------------------------- |
 | PHP | https://secure.php.net/downloads.php | 5.5, 5.6, 7.x | 5.3 | PHP 7.0 anslutningen med SSL MySQLi, lägger du till MYSQLI_CLIENT_SSL_DONT_VERIFY_SERVER_CERT i anslutningssträngen. <br> ```mysqli_real_connect($conn, $host, $username, $password, $db_name, 3306, NULL, MYSQLI_CLIENT_SSL_DONT_VERIFY_SERVER_CERT);```<br> PDO set: ```PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT``` alternativet på FALSKT.|
-| .Net | [MySqlConnector på GitHub](https://github.com/mysql-net/MySqlConnector) <br> [Installationspaketet från Nuget](https://www.nuget.org/packages/MySqlConnector/) | 0,27 och efter | 0.26.5 och före | |
+| .NET | [MySqlConnector på GitHub](https://github.com/mysql-net/MySqlConnector) <br> [Installationspaketet från Nuget](https://www.nuget.org/packages/MySqlConnector/) | 0,27 och efter | 0.26.5 och före | |
 | MySQL Connector/NET | [MySQL Connector/NET](https://github.com/mysql/mysql-connector-net) | 8.0, 7.0, 6.10 |  | En kodning bugg kan medföra att anslutningar misslyckas på vissa icke - UTF8-Windows-System. |
 | Nodejs |  [MySQLjs på GitHub](https://github.com/mysqljs/mysql/) <br> Installationspaketet från NPM:<br> Kör `npm install mysql` från NPM | 2.15 | 2.14.1 och före | |
 | GO | https://github.com/go-sql-driver/mysql/releases | 1.3 | 1.2 och före | Använd allowNativePasswords = true i anslutningssträngen |

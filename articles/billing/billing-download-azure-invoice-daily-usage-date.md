@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: banders
-ms.openlocfilehash: b03b787e245129e5e51304a2bcc8740ebf3f6196
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 59d63efbf261813c8519b03d3e1630cf24d868d0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57406172"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57835934"
 ---
 # <a name="download-or-view-your-azure-billing-invoice-and-daily-usage-data"></a>Ladda ned eller visa din faktura för Azure och uppgifter om daglig användning
 
@@ -30,13 +30,13 @@ Om du är EA-kund eller har en [Microsoft kundavtal](#check-access-to-a-microsof
 
 Endast vissa roller har behörighet att hämta någon faktureringsinformation faktura och användning, till exempel kontoadministratör eller företagsadministratör. Läs mer om att få åtkomst till faktureringsinformation på sidan om att [hantera åtkomst till Azure-fakturering med hjälp av roller](billing-manage-access.md).
 
-Om du har en [Microsoft kundavtal](#Check-your-access-to-a-Microsoft-Customer-Agreement), du måste vara en fakturering profil ägare, deltagare, läsare, eller fakturera manager för att visa information om fakturering och användning. Läs mer om fakturering administratörsroller för Microsoft Customer avtal i [fakturering profil roller och uppgifter](billing-understand-mca-roles.md#billing-profile-roles-and-tasks).
+Om du har ett Microsoft-kundavtal måste vara en fakturering profil ägare, deltagare, läsare, eller fakturera manager för att visa information om fakturering och användning. Läs mer om fakturering administratörsroller för Microsoft Customer avtal i [fakturering profil roller och uppgifter](billing-understand-mca-roles.md#billing-profile-roles-and-tasks).
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
 ## <a name="download-your-azure-invoices-pdf"></a>Hämta din Azure-fakturor (PDF)
 
-Du kan hämta din faktura för de flesta prenumerationer från Azure-portalen. Om du har ett Microsoft-kundavtal Se [ladda ner fakturor för fakturerings-profilen](#download-invoices-for-a-billing-profile).
+Du kan hämta din faktura för de flesta prenumerationer från Azure-portalen. Om du har ett Microsoft-kundavtal finns i hämta fakturor för fakturerings-profilen.
 
 ### <a name="download-invoices-for-an-individual-subscription"></a>Ladda ner fakturor för en enskild prenumeration
 
@@ -80,7 +80,7 @@ Det kan finnas flera orsaker till att den inte visas:
 
 ## <a name="get-your-invoice-in-email-pdf"></a>Hämta din faktura i e-post (PDF)
 
-Du kan välja och konfigurera ytterligare mottagare för att ta emot din Azure-faktura i ett e-postmeddelande. Den här funktionen är kanske inte tillgänglig för vissa prenumerationer som stöd för erbjudanden, Enterprise-avtal eller Azure i Open. Om du har ett avtal för Microsoft Customer Se [hämta fakturering profil fakturor via e-post](#get-your-billing-profile-invoices-in-email).
+Du kan välja och konfigurera ytterligare mottagare för att ta emot din Azure-faktura i ett e-postmeddelande. Den här funktionen är kanske inte tillgänglig för vissa prenumerationer som stöd för erbjudanden, Enterprise-avtal eller Azure i Open. Om du har ett avtal för Microsoft Customer Se Get profilen fakturering fakturor via e-post.
 
 ### <a name="get-your-subscriptions-invoices-in-email"></a>Få din prenumeration fakturor via e-post
 
@@ -189,7 +189,7 @@ Du kan också hämta månad hittills användning för den aktuella faktureringsp
 
 ## <a name="need-help-contact-us"></a>Behöver du hjälp? Kontakta oss
 
-Om du har frågor eller behöver hjälp, [skapa en supportbegäran](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+Om du har frågor eller behöver hjälp, [skapa en supportbegäran](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## <a name="next-steps"></a>Nästa steg
 

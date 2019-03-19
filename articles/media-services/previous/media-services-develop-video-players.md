@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2019
 ms.author: juliako
-ms.openlocfilehash: 6c57c8ad85ef83e8739bc2bf35b3bd0dc6d5a902
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: ba8d9fd54b8b29a3e58f170402a64f5899fec002
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56004850"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57880695"
 ---
 # <a name="develop-video-player-applications"></a>Utveckla videospelarprogram
 ## <a name="overview"></a>Översikt
@@ -44,10 +44,10 @@ Mer information:
 ## <a name="other-tools-for-creating-player-applications"></a>Andra verktyg för att skapa Player-program
 Du kan också använda någon av följande SDK: erna:
 
-* [Smooth Streaming-klient SDK](http://www.iis.net/downloads/microsoft/smooth-streaming) 
+* [Smooth Streaming-klient SDK](https://www.iis.net/downloads/microsoft/smooth-streaming) 
 * [Smooth Streaming Windows Store-App](media-services-build-smooth-streaming-apps.md)
-* [Microsoft Media Platform: Player Framework](http://playerframework.codeplex.com/) 
-* [HTML5 Player Framework-dokumentationen](http://playerframework.codeplex.com/wikipage?title=HTML5%20Player&referringTitle=Documentation) 
+* [Microsoft Media Platform: Player Framework](https://playerframework.codeplex.com/) 
+* [HTML5 Player Framework-dokumentationen](https://playerframework.codeplex.com/wikipage?title=HTML5%20Player&referringTitle=Documentation) 
 * [Microsoft Smooth Streaming-plugin-programmet för OSMF](https://www.microsoft.com/download/details.aspx?id=36057) 
 * [Licensiering Microsoft® jämn direktuppspelning Klientportningskit](https://aka.ms/sspk) 
 * [XBOX Video programutveckling](https://xbox.create.msdn.com/) 

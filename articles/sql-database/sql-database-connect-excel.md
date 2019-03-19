@@ -12,12 +12,12 @@ ms.author: craigg
 ms.reviewer: ''
 manager: craigg
 ms.date: 02/12/2019
-ms.openlocfilehash: c456954c3bf68fd87e51162ea6aab1d0a54b86ad
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: e1cd0d8462c31c8b843f7962f923accc6b63ae00
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237029"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58103408"
 ---
 # <a name="connect-excel-to-a-single-database-in-azure-sql-database-and-create-a-report"></a>Anslut Excel till en enskild databas i Azure SQL-databas och skapa en rapport
 
@@ -43,10 +43,10 @@ Du kommer också behöva en kopia av Excel. Den här artikeln använder [Microso
 
 4. I den **SQL Server-databas** dialogrutan **databasen** till vänster sida och sedan ange i din **användarnamn** och **lösenord** för den SQL Database-server som du vill ansluta till. Välj **Connect** att öppna den **Navigator**. 
 
-  ![Ange servernamn och inloggningsuppgifter](./media/sql-database-connect-excel/connect-to-server.png)
+   ![Ange servernamn och inloggningsuppgifter](./media/sql-database-connect-excel/connect-to-server.png)
 
-  > [!TIP]
-  > Beroende på din nätverksmiljö, är det möjligt att du inte kan ansluta, eller så kan du tappa anslutningen om SQL Database-servern inte tillåter trafik från din klient-IP-adress. Gå till [Azure-portalen](https://portal.azure.com/), klicka på SQL-servrar, klicka på din server, klicka på brandvägg under inställningar och lägg till din klient-IP-adress. Se [Så här konfigurerar du brandväggsinställningar](sql-database-configure-firewall-settings.md) för mer information.
+   > [!TIP]
+   > Beroende på din nätverksmiljö, är det möjligt att du inte kan ansluta, eller så kan du tappa anslutningen om SQL Database-servern inte tillåter trafik från din klient-IP-adress. Gå till [Azure-portalen](https://portal.azure.com/), klicka på SQL-servrar, klicka på din server, klicka på brandvägg under inställningar och lägg till din klient-IP-adress. Se [Så här konfigurerar du brandväggsinställningar](sql-database-configure-firewall-settings.md) för mer information.
 
 5. I den **Navigator**, Välj den databas som du vill arbeta med i listan, Välj de tabeller eller vyer som du vill arbeta med (vi valde **vGetAllCategories**), och välj sedan **belastningen**att flytta data från databasen till din Excel-kalkylblad.
 
@@ -75,17 +75,17 @@ Nu när du har skapat anslutningen, har du flera olika alternativ för hur du l�
 Om du vill spara anslutningsinformationen permanent kan du skapa en ODC-fil och göra den här anslutningen ett valbart alternativ inom den **befintliga anslutningar** dialogrutan. 
 
 1. I menyraden överst på sidan väljer du den **Data** fliken och välj sedan **befintliga anslutningar** att starta den **befintliga anslutningar** dialogrutan. 
-    1. Välj **äddra** att öppna den **Välj datakälla** dialogrutan.   
-    2. Välj den **+NewSqlServerConnection.odc** filen och välj sedan **öppna** att öppna den **Dataanslutningsguiden**.
+   1. Välj **äddra** att öppna den **Välj datakälla** dialogrutan.   
+   2. Välj den **+NewSqlServerConnection.odc** filen och välj sedan **öppna** att öppna den **Dataanslutningsguiden**.
 
-    ![Ny anslutning](media/sql-database-connect-excel/new-connection.png)
+      ![Ny anslutning](media/sql-database-connect-excel/new-connection.png)
 
 2. I den **Dataanslutningsguiden**, anger du namnet på servern och dina autentiseringsuppgifter för SQL-databas. Välj **Nästa**. 
-    1. Välj den databas som innehåller dina data från listrutan. 
-    2. Välj tabellen eller vyn som du är intresserad av. Vi valde vGetAllCategories.
-    3. Välj **Nästa**. 
+   1. Välj den databas som innehåller dina data från listrutan. 
+   2. Välj tabellen eller vyn som du är intresserad av. Vi valde vGetAllCategories.
+   3. Välj **Nästa**. 
 
-    ![Dataanslutningsguiden](media/sql-database-connect-excel/data-connection-wizard.png) 
+      ![Dataanslutningsguiden](media/sql-database-connect-excel/data-connection-wizard.png) 
 
 3. Välj platsen för din fil på **filnamn**, och **eget namn** på nästa skärm i guiden. Du kan också välja att spara lösenordet i filen, även om detta kan potentiellt exponera dina data för oönskad åtkomst. Välj **Slutför** när redo. 
 

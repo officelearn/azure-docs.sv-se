@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: f0050a91ca8ed380c838c96cf1e485a80a0c9297
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: c15dc83929aeaf6811f4d19bfca462abfacf4014
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52445403"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57892463"
 ---
 # <a name="how-to-delegate-user-registration-and-product-subscription"></a>Hur du delegerar användarregistrering och produktprenumeration användarprenumeration
 Delegering kan du använda din befintliga webbplats för hantering av utvecklare logga-i/registrering och din prenumeration på produkter till skillnad från med hjälp av inbyggda funktioner i developer-portalen. På så sätt kan din webbplats äger användardata och utföra verifiering av de här stegen i ett anpassat sätt.
@@ -47,7 +47,7 @@ Nu måste du skapa den **delegeringsslutpunkt**. Det måste genomföra ett antal
 
 1. Ta emot en begäran i följande format:
    
-   > *http://www.yourwebsite.com/apimdelegation?operation=SignIn&returnUrl={URL på sidan datakällor} & salt = {sträng} & sig = {sträng}*
+   > *http:\//www.yourwebsite.com/apimdelegation?operation=SignIn & returnUrl = {URL: en för källsidan} & salt = {sträng} & sig = {sträng}*
    > 
    > 
    
@@ -104,7 +104,7 @@ Kontrollera delegeringsslutpunkt utför följande åtgärder:
 
 1. Ta emot en begäran i följande format:
    
-   > *http://www.yourwebsite.com/apimdelegation?operation={operation}&productId={product prenumererar du på} & användar-ID = {användare gör begäran} & salt = {sträng} & sig = {sträng}*
+   > *http:\//www.yourwebsite.com/apimdelegation?operation= {operation} & productId = {product prenumerera} & användar-ID = {användare gör begäran} & salt = {sträng} & sig = {sträng}*
    > 
    > 
    
@@ -120,9 +120,9 @@ Kontrollera delegeringsslutpunkt utför följande åtgärder:
    * **sig**: ett beräknade security hash-värde som ska användas för jämförelse med din egen beräknad hash
 2. Kontrollera att begäran kommer från Azure API Management (valfritt, men rekommenderas för säkerhet)
    
-   * Beräkna en HMAC SHA512 av en sträng som baseras på den **productId**, ** användar-ID, och **salt** frågeparametrar:
+   * Beräkna en HMAC SHA512 av en sträng som baseras på den **productId**, **userId**, och **salt** frågeparametrar:
      
-     > HMAC (**salt** + ”\n” + **productId** + ”\n” + **användar-ID**)
+     > HMAC(**salt** + '\n' + **productId** + '\n' + **userId**)
      > 
      > 
    * Jämför ovan beräknad hash till värdet för den **sig** frågeparameter. Om två hash-värdena matchar gå vidare till nästa steg, annars neka begäran.

@@ -7,14 +7,14 @@ ms.service: dns
 ms.topic: tutorial
 ms.date: 9/25/2018
 ms.author: victorh
-ms.openlocfilehash: fc56fe3a5bdfa0f5e1ef4bc309932cb7f57cf27d
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
-ms.translationtype: HT
+ms.openlocfilehash: 6bb3506e60894db525efaf2985dd92f9eaaf9e0a
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50978101"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57530968"
 ---
-# <a name="tutorial-configure-an-alias-record-to-support-apex-domain-names-with-traffic-manager"></a>Självstudie: Konfigurera en aliaspost för att hantera apex-domännamn med Traffic Manager 
+# <a name="tutorial-configure-an-alias-record-to-support-apex-domain-names-with-traffic-manager"></a>Självstudier: Konfigurera en aliaspost för att stödja apex-domännamn med Traffic Manager 
 
 Du kan skapa en aliaspost för ditt domännamnsapex för att referera till en Azure Traffic Manager-profil. Ett exempel kan vara contoso.com. I stället för att använda en omdirigeringstjänst konfigurerar du Azure DNS till att referera till en Traffic Manager-profil direkt från din zon. 
 
@@ -30,16 +30,16 @@ I den här guiden får du lära dig att:
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 Du måste ha ett domännamn tillgängligt som du kan ha i Azure DNS för att testa med. Du måste ha fullständig kontroll över den här domänen. Fullständig behörighet omfattar möjligheten att ange namnserverposter (NS-poster) för domänen.
 
-Anvisningar om att hantera din domän i Azure DNS finns i [Självstudie: Hantera din domän i Azure DNS](dns-delegate-domain-azure-dns.md).
+Anvisningar om hur du kan använda din domän i Azure DNS finns i [självstudien: Använda Azure DNS som värd för din domän.](dns-delegate-domain-azure-dns.md)
 
 Den exempeldomän som används i den här självstudien är contoso.com, men du använder ditt eget domännamn.
 
 ## <a name="create-the-network-infrastructure"></a>Skapa nätverksinfrastrukturen
 Skapa först ett virtuellt nätverk och ett undernät för att placera dina webbservrar i.
-1. Logga in på Azure Portal på http://portal.azure.com.
+1. Logga in på Azure Portal på https://portal.azure.com.
 2. Längst upp till vänster i portalen väljer du **Skapa en resurs**. Ange *resursgrupp* i sökrutan och skapa en resursgrupp med namnet **RG-DNS-Alias-TM**.
 3. Välj **Skapa en resurs** > **Nätverk** > **Virtuellt nätverk**.
 4. Skapa ett virtuellt nätverk med namnet **VNet-Servers**. Placera det i resursgruppen **RG-DNS-Alias-TM** och ge undernätet namnet **SN-Web**.

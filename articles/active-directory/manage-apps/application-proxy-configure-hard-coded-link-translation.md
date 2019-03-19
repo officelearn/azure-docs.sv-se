@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 778ae1aa9d5517912b9c67b27066a75d14358087
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 9c010a7bcd2d811b31d9c2d05e81cce5dc85c2ce
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56186068"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58118603"
 ---
 # <a name="redirect-hardcoded-links-for-apps-published-with-azure-ad-application-proxy"></a>Omdirigera hårdkodad länkar till appar som publiceras med Azure AD Application Proxy
 
@@ -43,8 +43,8 @@ Dessa tre funktioner Behåll länkarna fungerar oavsett var dina användare är.
  
 > [!NOTE]
 > Det sista alternativet är endast för klienter som av något skäl inte kan använda anpassade domäner har samma interna och externa URL: er för sina appar. Innan du aktiverar den här funktionen kan du se om [anpassade domäner i Azure AD Application Proxy](application-proxy-configure-custom-domain.md) kan hjälpa dig. 
-
->Eller, om programmet som du vill konfigurera med länken är translation SharePoint finns i [konfigurera alternativa åtkomstmappningar för SharePoint 2013](https://technet.microsoft.com/library/cc263208.aspx) en annan metod för mappning av länkar. 
+> 
+> Eller, om programmet som du vill konfigurera med länken är translation SharePoint finns i [konfigurera alternativa åtkomstmappningar för SharePoint 2013](https://technet.microsoft.com/library/cc263208.aspx) en annan metod för mappning av länkar. 
 
  
 ### <a name="option-1-intune-managed-browser-integration"></a>Alternativ 1: Intune Managed Browser-integrering 

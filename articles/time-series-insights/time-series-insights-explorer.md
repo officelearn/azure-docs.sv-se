@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/30/2017
 ms.custom: seodec18
-ms.openlocfilehash: d65ce83465f54a30b96bc1ee6644319e1b4fb020
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: 301326f4ba858c7aef6c8bdec8f2cae3ed926847
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53556602"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58121051"
 ---
 # <a name="azure-time-series-insights-explorer"></a>Azure Time Series Insights explorer
 Den här artikeln handlar om de olika funktioner och alternativ som är tillgängliga i Time Series Insights explorer webbapp. Du kan använda Time Series Insights explorer i webbläsaren för att skapa visualiseringar av data.
@@ -71,7 +71,7 @@ Inom några minuter för att ansluta din händelsekälla till Time Series Insigh
          |<, >, <=, >=     |  Double, DateTime, TimeSpan       |         |
          |=, !=, <>     | Sträng, Bool, Double, DateTime, TimeSpan, NULL        |         |
          |IN     | Sträng, Bool, Double, DateTime, TimeSpan, NULL        |  Alla operander bör vara av samma typ eller vara konstanten NULL.        |
-         |HAR     | Sträng        |  Endast konstant stränglitteraler tillåts på höger sida. Tom sträng och NULL är inte tillåtna.       |
+         |HAS     | String        |  Endast konstant stränglitteraler tillåts på höger sida. Tom sträng och NULL är inte tillåtna.       |
 
       - **Exempel på frågor**
       
@@ -91,27 +91,27 @@ Inom några minuter för att ansluta din händelsekälla till Time Series Insigh
 
 10. Den **diagram** kan du utforska dina data visuellt. Diagramverktyg är:
 
-   - Välj/Klicka, vilket gör att ett val för ett specifikt tidsintervall eller en dataserie.  
-   - Sträcker sig över val inom en tid kan du zooma eller utforska händelser.  
-   - I en serie, kan du dela serien efter en annan kolumn, Lägg till serien som en ny term, visa endast valda serie, undanta den markerade serien, pinga serien eller utforska händelser från den markerade serien.
-   - I området för filter till vänster om diagrammet, du se alla data som visas serier och ordna om värdet eller namn kan visa alla data eller mer specifikt fästa eller ej fästa serien.  Du kan också markera en dataserie och dela serien efter en annan kolumn, Lägg till serien som en ny term, visa endast valda serie, undanta den markerade serien, fästa serien eller utforska händelser från den markerade serien.
-   - När du visar flera villkor samtidigt kan du stack, avgruppera, se ytterligare information om en serie och använder samma y-axeln över alla villkoren med hjälp av knapparna i det övre högra hörnet av diagrammet.
+    - Välj/Klicka, vilket gör att ett val för ett specifikt tidsintervall eller en dataserie.  
+    - Sträcker sig över val inom en tid kan du zooma eller utforska händelser.  
+    - I en serie, kan du dela serien efter en annan kolumn, Lägg till serien som en ny term, visa endast valda serie, undanta den markerade serien, pinga serien eller utforska händelser från den markerade serien.
+    - I området för filter till vänster om diagrammet, du se alla data som visas serier och ordna om värdet eller namn kan visa alla data eller mer specifikt fästa eller ej fästa serien.  Du kan också markera en dataserie och dela serien efter en annan kolumn, Lägg till serien som en ny term, visa endast valda serie, undanta den markerade serien, fästa serien eller utforska händelser från den markerade serien.
+    - När du visar flera villkor samtidigt kan du stack, avgruppera, se ytterligare information om en serie och använder samma y-axeln över alla villkoren med hjälp av knapparna i det övre högra hörnet av diagrammet.
  
-   ![Diagramverktyget](media/time-series-insights-explorer/explorer5.png) 
+    ![Diagramverktyget](media/time-series-insights-explorer/explorer5.png) 
 
 11. Den **termisk karta** kan användas för att snabbt upptäcka unikt eller avvikande dataserien i en viss fråga. Endast en sökterm kan visualiseras som en termisk karta.    
 
-   ![Termisk karta](media/time-series-insights-explorer/explorer6.png)
+    ![Termisk karta](media/time-series-insights-explorer/explorer6.png)
 
 12. **Händelser**:  När du väljer utforska händelser när du väljer eller högerklicka ovanför panelen Händelser är tillgänglig.  Här kan du se alla dina rådata händelser och exportera händelser som JSON- eller CSV-filer. Observera att Time Series Insights lagrar alla rådata.
 
-   ![Händelser](media/time-series-insights-explorer/explorer7.png)
+    ![Händelser](media/time-series-insights-explorer/explorer7.png)
 
 13. Klicka på den **STATS** fliken efter utforska händelser om du vill exponera mönster och kolumnstatistik.  
 
-   - **Mönster**: den här funktionen proaktivt mest statistiskt signifikanta mönster i en region för valda data. Detta frigör du slipper att titta på händelser för att förstå vilka mönster garanterar mest tid och energi. Dessutom kan Time Series Insights du hoppa direkt till dessa statistiskt signifikanta mönster för att fortsätta utföra en analys. Den här funktionen är också bra för utvärdering undersökningar dina historiska data. 
+    - **Mönster**: den här funktionen proaktivt mest statistiskt signifikanta mönster i en region för valda data. Detta frigör du slipper att titta på händelser för att förstå vilka mönster garanterar mest tid och energi. Dessutom kan Time Series Insights du hoppa direkt till dessa statistiskt signifikanta mönster för att fortsätta utföra en analys. Den här funktionen är också bra för utvärdering undersökningar dina historiska data. 
 
-   - **Kolumnstatistik**:  Kolumnstatistik ger diagram och tabeller som dela upp data från varje kolumn i den markerade dataserien över det valda tidsintervallet.  
+    - **Kolumnstatistik**:  Kolumnstatistik ger diagram och tabeller som dela upp data från varje kolumn i den markerade dataserien över det valda tidsintervallet.  
  
       ![STATISTIK](media/time-series-insights-explorer/explorer8.png) 
 

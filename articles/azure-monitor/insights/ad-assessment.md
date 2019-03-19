@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/27/2017
 ms.author: magoedte
-ms.openlocfilehash: 113408b49297a292967be9215291b3cecfa7384d
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 949bf52a586603fc6a82c0da553cf70877a8f4be
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57431614"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58085022"
 ---
 # <a name="optimize-your-active-directory-environment-with-the-active-directory-health-check-solution-in-azure-monitor"></a>Optimera din Active Directory-miljö med lösningen för kontroll av Active Directory Health i Azure Monitor
 
@@ -111,10 +111,10 @@ Visa de sammanfattade efterlevnad utvärderingarna för din infrastruktur och se
 ### <a name="to-view-recommendations-for-a-focus-area-and-take-corrective-action"></a>Visa rekommendationer för en Fokusområde och vidta åtgärder
 [!INCLUDE [azure-monitor-solutions-overview-page](../../../includes/azure-monitor-solutions-overview-page.md)]
 
-4. På den **översikt** klickar du på den **kontroll av Active Directory hälsotillstånd** panelen.
-5. På den **hälsokontrollen** granskar den sammanfattande informationen i något av bladen fokus område och klicka sedan på ett om du vill visa rekommendationer för den fokusområde.
-6. På någon av sidorna fokus området, kan du visa prioriterade rekommendationer för din miljö. Klicka på en rekommendation under **påverkade objekt** att visa information om varför rekommendationen görs.<br><br> ![Bild av hälsokontroll rekommendationer](./media/ad-assessment/ad-healthcheck-dashboard-02.png)
-7. Du kan vidta korrigerande åtgärder som föreslås i **föreslagna åtgärder**. När objektet har utförts, senare utvärderingar poster som rekommenderade åtgärder som utförts och din kompatibilitetspoäng ökar. Korrigerad objekt visas som **skickas objekt**.
+1. På den **översikt** klickar du på den **kontroll av Active Directory hälsotillstånd** panelen.
+1. På den **hälsokontrollen** granskar den sammanfattande informationen i något av bladen fokus område och klicka sedan på ett om du vill visa rekommendationer för den fokusområde.
+1. På någon av sidorna fokus området, kan du visa prioriterade rekommendationer för din miljö. Klicka på en rekommendation under **påverkade objekt** att visa information om varför rekommendationen görs.<br><br> ![Bild av hälsokontroll rekommendationer](./media/ad-assessment/ad-healthcheck-dashboard-02.png)
+1. Du kan vidta korrigerande åtgärder som föreslås i **föreslagna åtgärder**. När objektet har utförts, senare utvärderingar poster som rekommenderade åtgärder som utförts och din kompatibilitetspoäng ökar. Korrigerad objekt visas som **skickas objekt**.
 
 ## <a name="ignore-recommendations"></a>Ignorera rekommendationer
 Om du har synpunkter som du vill ignorera kan du skapa en textfil som Azure Monitor använder för att förhindra rekommendationer visas i din utvärdering av resultaten.

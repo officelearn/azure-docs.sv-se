@@ -1,5 +1,5 @@
 ---
-title: Azure Application Insights OpenCensus distribuerad spårning av lokala vidarebefordrare | Microsoft docs
+title: Azure Application Insights OpenCensus distribuerad spårning av lokala vidarebefordrare (förhandsversion) | Microsoft docs
 description: Vidarebefordra OpenCensus distribuerad spårning och sträcker sig från språk som Python och gå till Azure Application Insights
 services: application-insights
 documentationcenter: ''
@@ -12,14 +12,14 @@ ms.topic: conceptual
 ms.date: 09/18/2018
 ms.reviewer: nimolnar
 ms.author: mbullwin
-ms.openlocfilehash: f5f42ae5068440c3a90bf3b374238e18781b9770
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: a7efe663a75fa29a31e7157c5eab24c2973a3758
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54003763"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58002818"
 ---
-# <a name="local-forwarder"></a>Lokal vidarebefordrare
+# <a name="local-forwarder-preview"></a>Lokala vidarebefordrare (förhandsversion)
 
 Lokala vidarebefordraren är en agent som samlar in Application Insights eller [OpenCensus](https://opencensus.io/) telemetri från en mängd olika SDK: er och skickar det till Application Insights. Det kan köras under Windows och Linux. Du kan också att kunna köra denna under macOS, men som officiellt stöds inte just nu.
 
@@ -79,14 +79,14 @@ https://www.microsoft.com/net/download/dotnet-framework-runtime/net472?utm_sourc
 
 För vissa användningsfall, kan det vara bra att köra lokala vidarebefordrare som ett konsolprogram. Versionen levereras med följande körbara versioner av konsolvärden:
 * en framework-beroende .NET Core binär */ConsoleHost/publish/Microsoft.LocalForwarder.ConsoleHost.dll*. När du kör den här binärfilen måste en .NET Core runtime ska installeras. referera till den här nedladdningen [sidan](https://www.microsoft.com/net/download/dotnet-core/2.1) mer information.
-```batchfile
-E:\uncdrop\ConsoleHost\publish>dotnet Microsoft.LocalForwarder.ConsoleHost.dll
-```
-* en fristående .NET Core uppsättning binärfiler för x86 och x64 plattformar. Dessa kräver inte .NET Core runtime ska köras. */ConsoleHost/Win-x86/publish/Microsoft.LocalForwarder.ConsoleHost.exe*, */ConsoleHost/win-x64/publish/Microsoft.LocalForwarder.ConsoleHost.exe*.
-```batchfile
-E:\uncdrop\ConsoleHost\win-x86\publish>Microsoft.LocalForwarder.ConsoleHost.exe
-E:\uncdrop\ConsoleHost\win-x64\publish>Microsoft.LocalForwarder.ConsoleHost.exe
-```
+  ```batchfile
+  E:\uncdrop\ConsoleHost\publish>dotnet Microsoft.LocalForwarder.ConsoleHost.dll
+  ```
+* en fristående .NET Core uppsättning binärfiler för x86 och x64 plattformar. Dessa kräver inte .NET Core runtime ska köras. */ConsoleHost/win-x86/publish/Microsoft.LocalForwarder.ConsoleHost.exe*, */ConsoleHost/win-x64/publish/Microsoft.LocalForwarder.ConsoleHost.exe*.
+  ```batchfile
+  E:\uncdrop\ConsoleHost\win-x86\publish>Microsoft.LocalForwarder.ConsoleHost.exe
+  E:\uncdrop\ConsoleHost\win-x64\publish>Microsoft.LocalForwarder.ConsoleHost.exe
+  ```
 
 ### <a name="linux"></a>Linux
 
@@ -97,7 +97,7 @@ Precis som med Windows, kommer versionen med följande körbara versioner av kon
 dotnet Microsoft.LocalForwarder.ConsoleHost.dll
 ```
 
-* en självständig .NET Core uppsättning binärfiler för linux-64. Du behöver den här .NET Core runtime ska köras. */ConsoleHost/Linux-x64/publish/Microsoft.LocalForwarder.ConsoleHost*.
+* en självständig .NET Core uppsättning binärfiler för linux-64. Du behöver den här .NET Core runtime ska köras. */ConsoleHost/linux-x64/publish/Microsoft.LocalForwarder.ConsoleHost*.
 
 ```batchfile
 user@machine:~/ConsoleHost/linux-x64/publish$ sudo chmod +x Microsoft.LocalForwarder.ConsoleHost

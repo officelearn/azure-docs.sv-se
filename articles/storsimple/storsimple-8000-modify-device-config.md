@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 09/28/2017
 ms.author: alkohli
-ms.openlocfilehash: 18fceca51ed67f5beca344160a73ae3f3d1a4b62
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 774f5a73a5fc30352698c0af0c279fbbe488c480
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55491662"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58008378"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-modify-your-storsimple-device-configuration"></a>Använda StorSimple Device Manager-tjänsten för att ändra din konfiguration för StorSimple-enheten
 
@@ -71,7 +71,7 @@ Din enhet måste synkronisera tiden för att kunna autentisera med din molntjän
 
 När du konfigurerar NTP-servern kan du se till att ditt nätverk tillåter att NTP-trafik skickas från ditt datacenter till Internet. När du anger en offentlig NTP-server, måste du se till att din nätverksbrandväggar och andra säkerhetsenheter är konfigurerad för att tillåta NTP-trafik skickas till och från det externa nätverket. Om dubbelriktad NTP-trafik inte tillåts, måste du använda en intern NTP-server (en Windows-domänkontrollant ger den här funktionen). Om enheten inte kan synkronisera tiden, kanske den inte kan kommunicera med dina molnlagringsleverantören.
 
-Om du vill se en lista över allmänna NTP-servrar går du till den [NTP-servrar Web](http://support.ntp.org/bin/view/Servers/WebHome).
+Om du vill se en lista över allmänna NTP-servrar går du till den [NTP-servrar Web](https://support.ntp.org/bin/view/Servers/WebHome).
 
 ### <a name="what-happens-if-the-device-is-deployed-in-a-different-time-zone"></a>Vad händer om enheten är distribuerat i en annan tidszon?
 

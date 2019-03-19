@@ -17,12 +17,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: gokuma
-ms.openlocfilehash: b06ca287f03c62b3947e6c37712cf491396392e0
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 0ca3cee0c818bf9d5dda4a7ea8a1f356ed017973
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55245841"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57891094"
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-on-azure"></a>Datavetenskap med en Linux virtuell dator för datavetenskap på Azure
 Den här genomgången visar hur du utför flera vanliga datavetenskapsuppgifter med den virtuella datorn datavetenskap för Linux. Linux Data Science Virtual Machine (DSVM) är en avbildning av virtuell dator som är tillgängliga på Azure som är förinstallerade med en uppsättning verktyg som ofta används för dataanalys och maskininlärning. Viktiga programkomponenterna är uppdelat i den [etablera Linux Data Science Virtual Machine](linux-dsvm-intro.md) avsnittet. VM-avbildning gör det enkelt att komma igång datavetenskap på några minuter, utan att behöva installera och konfigurera var och en av verktyg individuellt. Du kan enkelt skala upp den virtuella datorn, om det behövs och stoppa den när den inte används. Den här resursen är därför både elastisk och kostnadseffektiv.
@@ -36,7 +36,7 @@ Innan du kan använda en Linux Data Science-dator, måste du ha följande:
 
 * En **Azure-prenumeration**. Om du inte redan har en, se [skapa ditt kostnadsfria Azure-konto i dag](https://azure.microsoft.com/free/).
 * En [ **datavetenskap för Linux VM**](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm). Mer information om att etablera den här virtuella datorn finns i [etablera Linux Data Science Virtual Machine](linux-dsvm-intro.md).
-* [X2Go](http://wiki.x2go.org/doku.php) installerat på datorn och öppnas en XFCE-session. Information om hur du installerar och konfigurerar en **X2Go klienten**, se [installera och konfigurera X2Go klienten](linux-dsvm-intro.md#installing-and-configuring-x2go-client).
+* [X2Go](https://wiki.x2go.org/doku.php) installerat på datorn och öppnas en XFCE-session. Information om hur du installerar och konfigurerar en **X2Go klienten**, se [installera och konfigurera X2Go klienten](linux-dsvm-intro.md#installing-and-configuring-x2go-client).
 * För en rullande jämnare upplevelse, växla flaggan gfx.xrender.enabled i om: config i webbläsaren FireFox för virtuella datorer. [Se mer här. ](https://www.reddit.com/r/firefox/comments/4nfmvp/ff_47_unbearable_slow_over_remote_x11/). Överväg också att växla *mousewheel.enable_pixel_scrolling* till False. [Instruktionerna här.](https://support.mozilla.org/en-US/questions/981140)
 * En **AzureML-konto**. Om du inte redan har en, registrera dig för ny tjänst när den [AzureML-startsidan](https://studio.azureml.net/). Det finns en kostnadsfri användning nivå hjälper dig att komma igång.
 
@@ -52,7 +52,7 @@ Om du behöver mer lagringsutrymme, kan du skapa ytterligare diskar och koppla d
 
 Öppna ett terminalfönster för att hämta data, och kör det här kommandot:
 
-    wget http://archive.ics.uci.edu/ml/machine-learning-databases/spambase/spambase.data
+    wget https://archive.ics.uci.edu/ml/machine-learning-databases/spambase/spambase.data
 
 Den hämta filen har inte en rubrikrad, då ska vi skapa en annan fil som har en rubrik. Kör följande kommando för att skapa en fil med lämpliga rubriker:
 
@@ -263,7 +263,7 @@ XGBoost kan också anropa från python eller en kommandorad.
 Anaconda Python-distributioner 2.7 och 3.5 har installerats i DSVM för utveckling med hjälp av Python.
 
 > [!NOTE]
-> Anaconda distributionen omfattar [Conda](http://conda.pydata.org/docs/index.html), som kan användas för att skapa anpassade miljöer för Python som har olika versioner och/eller installerade paket.
+> Anaconda distributionen omfattar [Conda](https://conda.pydata.org/docs/index.html), som kan användas för att skapa anpassade miljöer för Python som har olika versioner och/eller installerade paket.
 >
 >
 
@@ -318,21 +318,19 @@ Anaconda-distribution i DSVM levereras med en Jupyter-anteckningsbok, en plattfo
 
 > [!NOTE]
 > Du använder Python Package Manager (via den `pip` kommandot) från en Jupyter-anteckningsbok i den aktuella kerneln följande kommando kan användas i kodcell, till exempel:
-  ```python
-   import sys
-   ! {sys.executable} -m pip install numpy -y
-  ```
->
->
-
+>   ```python
+>    import sys
+>    ! {sys.executable} -m pip install numpy -y
+>   ```
+> 
+> 
+> 
 > [!NOTE]
 > Att använda Conda-installationsprogrammet (via den `conda` kommandot) från en Jupyter-anteckningsbok i den aktuella kerneln följande kommando kan användas i kodcell, till exempel:
-  ```python
-   import sys
-   ! {sys.prefix}/bin/conda install --yes --prefix {sys.prefix} numpy
-  ```
->
->
+>   ```python
+>    import sys
+>    ! {sys.prefix}/bin/conda install --yes --prefix {sys.prefix} numpy
+>   ```
 
 Flera exempelanteckningsböcker som är redan installerade på den virtuella datorn:
 
@@ -515,7 +513,7 @@ Eller vad är egenskaper för e-postmeddelande som innehåller ofta *3d*?
 
 De flesta e-postmeddelanden som har en hög förekomst av *3d* är program som verkar vara skräppost, så det kan vara en mycket användbar funktion för att bygga en förutsägelsemodell för att klassificera e-postmeddelanden.
 
-Om du vill utföra maskininlärning med data som lagras i en PostgreSQL-databas kan du använda [MADlib](http://madlib.incubator.apache.org/).
+Om du vill utföra maskininlärning med data som lagras i en PostgreSQL-databas kan du använda [MADlib](https://madlib.incubator.apache.org/).
 
 ## <a name="sql-server-data-warehouse"></a>SQL Server Data Warehouse
 Azure SQL Data Warehouse är en molnbaserad skalbar databas som kan bearbeta massiva mängder data, relationella såväl som icke-relationella. Mer information finns i [vad är Azure SQL Data Warehouse?](../../sql-data-warehouse/sql-data-warehouse-overview-what-is.md)

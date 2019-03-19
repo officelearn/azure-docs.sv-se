@@ -1,6 +1,6 @@
 ---
 title: Snabbstart med Azure Application Insights | Microsoft Docs
-description: Innehåller instruktioner för att snabbt konfigurera en ASP.NET Core-webbapp för övervakning med Application Insights
+description: Innehåller instruktioner för att snabbt konfigurera en ASP.NET Core-Webbapp för övervakning med Application Insights
 services: application-insights
 keywords: ''
 author: mrbullwinkle
@@ -10,20 +10,20 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 14295bca12e64174d03cfd1c2bd8d214d801e8e5
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
-ms.translationtype: HT
+ms.openlocfilehash: fe986d24df8dce6a390d21a262056f7ab857070c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54261068"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57886736"
 ---
 # <a name="start-monitoring-your-aspnet-core-web-application"></a>Börja övervaka din ASP.NET Core-webbapp
 
 Med Azure Application Insights kan du enkelt övervaka en webbapp med avseende på tillgänglighet, prestanda och användning. Du kan också snabbt identifiera och diagnostisera fel i appen utan att vänta på att en användare rapporterar dem. 
 
-Snabbstarten guidar dig genom processen att lägga till Application Insights SDK för en befintlig ASP.Net Core-webbapp. 
+Den här snabbstarten hjälper dig att lägga till Application Insights SDK i en befintlig ASP.NET Core-webbapp. 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här snabbstarten behöver du:
 
@@ -33,7 +33,7 @@ För att slutföra den här snabbstarten behöver du:
 - [Installera .NET Core 2.0 SDK](https://www.microsoft.com/net/core)
 - Du behöver en Azure-prenumeration och en befintlig .NET Core-webbapp.
 
-Om du inte har något ASP.NET Core-webbprogram kan du använda vår guide för att [skapa en ASP.NET Core-app och lägga till Application Insights.](../../azure-monitor/app/asp-net-core.md)
+Om du inte har en ASP.NET Core-webbapp kan du använda vår stegvisa instruktioner för hur [skapa en ASP.NET Core-app och lägga till Application Insights.](../../azure-monitor/app/asp-net-core.md)
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
@@ -119,9 +119,9 @@ Application Insights kan samla in telemetridata från alla internetanslutna appa
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du tänker fortsätta med efterföljande snabbstarter eller självstudier ska du inte rensa resurserna du har skapat i den här snabbstarten. Om du inte planerar att fortsätta kan du använda stegen nedan för att ta bort alla resurser som har skapats i den här snabbstarten i Azure-portalen.
+Om du tänker fortsätta med efterföljande snabbstarter eller självstudier ska du inte rensa resurserna du har skapat i den här snabbstarten. Om du inte planerar att fortsätta kan du använda stegen nedan för att ta bort alla resurser som har skapats i den här snabbstarten i Azure Portal.
 
-1. På menyn till vänster i Azure-portalen klickar du på **Resursgrupper** och sedan på **myResourceGroup**.
+1. På menyn till vänster i Azure Portal klickar du på **Resursgrupper** och sedan på **myResourceGroup**.
 2. På sidan med resursgrupper klickar du på **Ta bort**, skriver **myResourceGroup** i textrutan och klickar sedan på **Ta bort**.
 
 ## <a name="next-steps"></a>Nästa steg

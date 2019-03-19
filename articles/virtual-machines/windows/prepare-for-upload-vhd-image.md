@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 12/13/2018
 ms.author: genli
-ms.openlocfilehash: 978667dcd3f7bd10192a396ec3e8d097bdb73509
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.openlocfilehash: 0988902e0a2154f2935a01ddcfb6a460be693df3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57577151"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58093811"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Förbereda en Windows-VHD eller VHDX för att överföra till Azure
 Innan du överför en Windows-dator (VM) från en lokal plats till Microsoft Azure, måste du förbereda den virtuella hårddisken (VHD eller VHDX). Azure stöder **endast 1 virtuella datorer i generation** som är i VHD-format och har en fast storlek disk. Den maximala storleken som tillåts för den virtuella Hårddisken är 1,023 GB. Du kan konvertera en generation 1 VM från VHDX filsystemet till virtuell Hårddisk och från en dynamiskt expanderande disk till fast storlek. Men du kan inte ändra en virtuell dator generation. Mer information finns i [bör jag skapa en generation 1 eller 2 virtuella datorer i Hyper-V](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).
@@ -320,14 +320,14 @@ Kontrollera att följande inställningar är korrekt konfigurerade för anslutni
 
 9. Kontrollera följande AD-princip för att se till att du inte tar bort någon av följande obligatoriska åtkomstkonton:
 
-    - Datorn Datorkonfiguration\Windows Settings\Security Settings\Local av rättigheter Assignment\Access den här beräkningen från nätverket
+   - Datorn Datorkonfiguration\Windows Settings\Security Settings\Local av rättigheter Assignment\Access den här beräkningen från nätverket
 
-    Följande grupper bör visas på den här principen:
+     Följande grupper bör visas på den här principen:
 
-    - Administratörer
-    - Ansvariga för säkerhetskopiering
-    - Alla
-    - Användare
+   - Administratörer
+   - Ansvariga för säkerhetskopiering
+   - Alla
+   - Användare
 
 10. Starta om den virtuella datorn och kontrollera att Windows är fortfarande felfri kan nås med hjälp av RDP-anslutning. Nu kan du skapa en virtuell dator i din lokala Hyper-V att kontrollera att den virtuella datorn startar helt och sedan testa om det är RDP kan nås.
 
@@ -416,12 +416,12 @@ Inte alla roll eller program som är installerad på en Windows-baserad dator st
 Följande inställningar påverkar inte ladda upp VHD. Men rekommenderar vi starkt att du har konfigurerat dem.
 
 * Installera den [virtuella Azure-datorer agenten](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Sedan kan du aktivera VM-tillägg. VM-tillägg implementera de flesta av de viktiga funktioner som du kanske vill använda med dina virtuella datorer, som att återställa lösenord, konfigurera RDP och så vidare. Mer information finns i [översikt över Azure VM-agenten](../extensions/agent-windows.md).
-*  När den virtuella datorn har skapats i Azure, rekommenderar vi att du anger växlingsfilen för ”Temporala” enheten att förbättra prestanda. Du kan ställa in detta på följande sätt:
+* När den virtuella datorn har skapats i Azure, rekommenderar vi att du anger växlingsfilen för ”Temporala” enheten att förbättra prestanda. Du kan ställa in detta på följande sätt:
 
-    ```PowerShell
-    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management' -name "PagingFiles" -Value "D:\pagefile.sys" -Type MultiString -force
-    ```
-Om det finns någon datadisk som är kopplad till den virtuella datorn, är Temporal enhet enhetsbeteckning vanligtvis ”d”. Den här beteckning kan vara olika, beroende på antalet enheter som är tillgängliga och de inställningar som du gör.
+   ```PowerShell
+   Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management' -name "PagingFiles" -Value "D:\pagefile.sys" -Type MultiString -force
+   ```
+  Om det finns någon datadisk som är kopplad till den virtuella datorn, är Temporal enhet enhetsbeteckning vanligtvis ”d”. Den här beteckning kan vara olika, beroende på antalet enheter som är tillgängliga och de inställningar som du gör.
 
 ## <a name="next-steps"></a>Nästa steg
 * [Överför en Windows VM-avbildning till Azure för Resource Manager-distributioner](upload-generalized-managed.md)

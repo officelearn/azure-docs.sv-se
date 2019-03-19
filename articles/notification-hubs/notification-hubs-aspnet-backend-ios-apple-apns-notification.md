@@ -14,12 +14,12 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: d69a2a26fb0b487a3efa4b5376ca6480569aa846
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 9b6c0715cb85e245aba94adfb8b33d0d07ece9a9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57450897"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58084420"
 ---
 # <a name="tutorial-push-notifications-to-specific-users-using-azure-notification-hubs"></a>Självstudier: Push-meddelanden till särskilda användare som använder Azure Notification Hubs
 
@@ -64,7 +64,7 @@ Om du vill använda Mobile Apps som serverdelstjänsten kan se den [Mobile Apps 
    * **APNS**: Etikett och växel att skicka aviseringen till Apple Platform Notification Service.
    * **Mottagarens Username:A** UITextField med platshållartext, *mottagaren username-taggen*, direkt under GCM etikettera och begränsad till höger och vänster marginaler och under GCM-etikett.
 
-    Vissa komponenter har lagts till i den [komma igång med Notification Hubs (iOS)](notification-hubs-ios-apple-push-notification-apns-get-started.md) självstudien.
+     Vissa komponenter har lagts till i den [komma igång med Notification Hubs (iOS)](notification-hubs-ios-apple-push-notification-apns-get-started.md) självstudien.
 
 3. **CTRL** dra från komponenterna i vyn `ViewController.h` och Lägg till de här nya uttag.
 

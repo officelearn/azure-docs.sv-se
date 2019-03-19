@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: powerbi
 ms.date: 09/25/2017
 ms.author: maghan
-ms.openlocfilehash: c736a9b4962de26f43dc79773149e834c37cbe85
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 944f008d0243d974a5d439438a5a645b7f3ca248
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51233413"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57856798"
 ---
 # <a name="get-started-with-microsoft-power-bi-workspace-collections"></a>Kom igång med Microsoft Power BI-arbetsytesamlingar
 
@@ -37,7 +37,7 @@ En **arbetsytesamling** är en Azure-resurs på högsta nivå och en container f
 
 Låt oss gå igenom stegen för att skapa en **arbetsytesamling** i Azure Portal.
 
-1. Öppna och logga in på **Azure Portal**: [http://portal.azure.com](http://portal.azure.com).
+1. Öppna och logga in på **Azure Portal**: [https://portal.azure.com](https://portal.azure.com).
 2. Välj **+ Ny** på den övre panelen.
    
    ![+ Ny i Azure Portal](media/get-started/create-workspace-1.png)
@@ -119,5 +119,5 @@ Du kan skapa en rapport från en datamängd direkt i programmet med hjälp av Ja
 [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)  
 [Inbäddat exempel med JavaScript](https://microsoft.github.io/PowerBI-JavaScript/demo/)  
 
-Fler frågor? [Försök med Power BI Community](http://community.powerbi.com/)
+Fler frågor? [Försök med Power BI Community](https://community.powerbi.com/)
 

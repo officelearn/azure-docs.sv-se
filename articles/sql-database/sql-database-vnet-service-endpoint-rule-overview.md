@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: vanto, genemi
 manager: craigg
-ms.date: 02/20/2019
-ms.openlocfilehash: 15ca464e8e44183b445bfdabe9abf5dd560a4f70
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.date: 03/12/2019
+ms.openlocfilehash: 4af27ad4fb5096f3ccac5de901c76e8d7464e1f4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57312272"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57887127"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-database-servers"></a>Använda tjänstslutpunkter i virtuella nätverk och regler för databasservrar
 
@@ -175,58 +175,60 @@ PolyBase är vanligt att läsa in data till Azure SQL Data Warehouse från Azure
 #### <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> Modulen PowerShell Azure Resource Manager är fortfarande stöds av Azure SQL Database, men alla framtida utveckling är för modulen Az.Sql. Dessa cmdlets finns i [i AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Argumenten för kommandon i modulen Az och AzureRm-moduler är avsevärt identiska.
 
 1.  Installera Azure PowerShell använder det här [guide](https://docs.microsoft.com/powershell/azure/install-az-ps).
 2.  Om du har ett allmänt v1- eller blob storage-konto, måste du först uppgradera till gpv2 med det här [guide](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
 3.  Du måste ha **Tillåt att betrodda Microsoft-tjänster för att komma åt det här lagringskontot** markerade under Azure Storage-konto **brandväggar och virtuella nätverk** inställningsmenyn. Referera till denna [guide](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions) för mer information.
  
 #### <a name="steps"></a>Steg
-1.  I PowerShell **registrera din SQL Database-server** med Azure Active Directory (AAD):
+1. I PowerShell **registrera din SQL Database-server** med Azure Active Directory (AAD):
 
-    ```powershell
-    Connect-AzAccount
-    Select-AzSubscription -SubscriptionId your-subscriptionId
-    Set-AzSqlServer -ResourceGroupName your-database-server-resourceGroup -ServerName your-database-servername -AssignIdentity
-    ```
+   ```powershell
+   Connect-AzAccount
+   Select-AzSubscription -SubscriptionId your-subscriptionId
+   Set-AzSqlServer -ResourceGroupName your-database-server-resourceGroup -ServerName your-database-servername -AssignIdentity
+   ```
     
- 1. Skapa en **Allmänt gpv2-Lagringskonto** använder det här [guide](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account).
+   1. Skapa en **Allmänt gpv2-Lagringskonto** använder det här [guide](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account).
 
-    > [!NOTE]
-    > - Om du har ett allmänt v1- eller blob storage-konto, måste du **först uppgradera till v2** använder det här [guide](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
-    > - Kända problem med Azure Data Lake Storage Gen2 finns i det här [guide](https://docs.microsoft.com/azure/storage/data-lake-storage/known-issues).
+   > [!NOTE]
+   > - Om du har ett allmänt v1- eller blob storage-konto, måste du **först uppgradera till v2** använder det här [guide](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
+   > - Kända problem med Azure Data Lake Storage Gen2 finns i det här [guide](https://docs.microsoft.com/azure/storage/data-lake-storage/known-issues).
     
-1.  Under ditt storage-konto går du till **åtkomstkontroll (IAM)**, och klicka på **Lägg till rolltilldelning**. Tilldela **Storage Blob Data-deltagare (förhandsgranskning)** RBAC-roll till SQL Database-servern.
+1. Under ditt storage-konto går du till **åtkomstkontroll (IAM)**, och klicka på **Lägg till rolltilldelning**. Tilldela **Storage Blob Data-deltagare (förhandsgranskning)** RBAC-roll till SQL Database-servern.
 
-    > [!NOTE] 
-    > Endast medlemmar med ägare behörighet kan utföra det här steget. För olika inbyggda roller för Azure-resurser, referera till denna [guide](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
+   > [!NOTE] 
+   > Endast medlemmar med ägare behörighet kan utföra det här steget. För olika inbyggda roller för Azure-resurser, referera till denna [guide](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
   
-1.  **Polybase-anslutningen till Azure Storage-kontot:**
+1. **Polybase-anslutningen till Azure Storage-kontot:**
 
-    1. Skapa en databas **[huvudnyckeln](https://docs.microsoft.com/sql/t-sql/statements/create-master-key-transact-sql?view=sql-server-2017)** om du inte har skapat en tidigare:
-        ```SQL
-        CREATE MASTER KEY [ENCRYPTION BY PASSWORD = 'somepassword'];
-        ```
+   1. Skapa en databas **[huvudnyckeln](https://docs.microsoft.com/sql/t-sql/statements/create-master-key-transact-sql)** om du inte har skapat en tidigare:
+       ```SQL
+       CREATE MASTER KEY [ENCRYPTION BY PASSWORD = 'somepassword'];
+       ```
     
-    1. Skapa databasomfattande autentisering med **IDENTITY = ”hanterad tjänstidentitet'**:
+   1. Skapa databasomfattande autentisering med **IDENTITY = ”hanterad tjänstidentitet'**:
 
-        ```SQL
-        CREATE DATABASE SCOPED CREDENTIAL msi_cred WITH IDENTITY = 'Managed Service Identity';
-        ```
-        > [!NOTE] 
-        > - Behöver inte ange HEMLIGHETEN med Azure Storage-åtkomstnyckel eftersom den här mekanismen använder [hanterade identiteter](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) under försättsbladen.
-        > - Identitetsnamnet bör vara **”hanterad tjänstidentitet'** för PolyBase-anslutning att arbeta med Azure Storage-konto som skyddas till virtuellt nätverk.    
+       ```SQL
+       CREATE DATABASE SCOPED CREDENTIAL msi_cred WITH IDENTITY = 'Managed Service Identity';
+       ```
+       > [!NOTE] 
+       > - Behöver inte ange HEMLIGHETEN med Azure Storage-åtkomstnyckel eftersom den här mekanismen använder [hanterade identiteter](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) under försättsbladen.
+       > - Identitetsnamnet bör vara **”hanterad tjänstidentitet'** för PolyBase-anslutning att arbeta med Azure Storage-konto som skyddas till virtuellt nätverk.    
     
-    1. Skapa extern datakälla med abfss: / / scheme för att ansluta till ditt lagringskonto för generell användning v2 med PolyBase:
+   1. Skapa extern datakälla med abfss: / / scheme för att ansluta till ditt lagringskonto för generell användning v2 med PolyBase:
 
-        ```SQL
-        CREATE EXTERNAL DATA SOURCE ext_datasource_with_abfss WITH (TYPE = hadoop, LOCATION = 'abfss://myfile@mystorageaccount.dfs.core.windows.net', CREDENTIAL = msi_cred);
-        ```
-        > [!NOTE] 
-        > - Om du redan har externa tabeller som är associerade med allmänt v1- eller blob storage-konto bör du först ta bort de externa tabellerna och sedan släppa motsvarande extern datakälla. Skapa extern datakälla med abfss: / / system som ansluter till gpv2-konto som ovan och skapa de externa tabeller som använder den här nya externa datakällan. Du kan använda [generera och publicera skript guiden](https://docs.microsoft.com/sql/ssms/scripting/generate-and-publish-scripts-wizard?view=sql-server-2017) att generera skapa skript för alla externa tabeller för att underlätta.
-        > - Mer information om abfss: / / system, referera till denna [guide](https://docs.microsoft.com/azure/storage/data-lake-storage/introduction-abfs-uri).
-        > - Mer information om CREATE EXTERNAL DATA SOURCE referera till denna [guide](https://docs.microsoft.com/sql/t-sql/statements/create-external-data-source-transact-sql).
+       ```SQL
+       CREATE EXTERNAL DATA SOURCE ext_datasource_with_abfss WITH (TYPE = hadoop, LOCATION = 'abfss://myfile@mystorageaccount.dfs.core.windows.net', CREDENTIAL = msi_cred);
+       ```
+       > [!NOTE] 
+       > - Om du redan har externa tabeller som är associerade med allmänt v1- eller blob storage-konto bör du först ta bort de externa tabellerna och sedan släppa motsvarande extern datakälla. Skapa extern datakälla med abfss: / / system som ansluter till gpv2-konto som ovan och skapa de externa tabeller som använder den här nya externa datakällan. Du kan använda [generera och publicera skript guiden](https://docs.microsoft.com/sql/ssms/scripting/generate-and-publish-scripts-wizard) att generera skapa skript för alla externa tabeller för att underlätta.
+       > - Mer information om abfss: / / system, referera till denna [guide](https://docs.microsoft.com/azure/storage/data-lake-storage/introduction-abfs-uri).
+       > - Mer information om CREATE EXTERNAL DATA SOURCE referera till denna [guide](https://docs.microsoft.com/sql/t-sql/statements/create-external-data-source-transact-sql).
         
-    1. Frågan som vanligt med [externa tabeller](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql).
+   1. Frågan som vanligt med [externa tabeller](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql).
 
 ### <a name="azure-sql-database-blob-auditing"></a>Azure SQL Database Blobbgranskning
 
@@ -256,7 +258,7 @@ Anslutningsfel 40914 relaterar till *virtuella Nätverksregler*, som anges på f
 
 *Meddelandetext:* Det går inte att öppna servern '{0}' begärdes vid inloggningen. Klienten med IP-adressen{1}' tillåts inte att ansluta till servern.
 
-*Felbeskrivning:* Klienten försöker ansluta från en IP-adress som inte har behörighet att ansluta till Azure SQL Database-server. Serverbrandväggen har ingen regel för IP-adress som gör att en klient för att kommunicera från angiven IP-adress till SQL-databasen.
+*Felbeskrivning:* Klienten försöker ansluta från en IP-adress som inte har behörighet att ansluta till Azure SQL Database-server. Serverbrandväggen har ingen IP-adressregel som gör att en klient kan kommunicera från den givna IP-adressen till SQL-databasen.
 
 *Fel vid lösning:* Ange klientens IP-adress som en IP-regel. Du kan göra detta med hjälp av fönstret brandväggen i Azure-portalen.
 

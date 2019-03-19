@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: shants
-ms.openlocfilehash: 3d3ed7d1448ecb350a75a933666e6ab8bd17e84c
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 31d4829c6adaf4bd5392ef393dcaefbeb7dc6255
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56737220"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57992423"
 ---
 # <a name="planned-maintenance-notifications-for-virtual-machine-scale-sets"></a>Meddelanden för planerat underhåll för VM-skalningsuppsättningar
 
@@ -126,14 +126,10 @@ Get-AzVmss -ResourceGroupName rgName -VMScaleSetName vmssName -InstanceId id -In
 ```
 
 Följande egenskaper returneras **MaintenanceRedeployStatus**: 
-| Värde | Beskrivning   |
-|-------|---------------|
-| IsCustomerInitiatedMaintenanceAllowed | Anger om du kan starta Underhåll på den virtuella datorn just nu. ||
-| PreMaintenanceWindowStartTime         | I början av självbetjäning underhållsfönstret när du kan starta Underhåll på den virtuella datorn. ||
-| PreMaintenanceWindowEndTime           | Slutet av självbetjäning underhållsfönstret när du kan starta Underhåll på den virtuella datorn. ||
-| MaintenanceWindowStartTime            | I början av schemalagt underhåll där Azure initierar Underhåll på den virtuella datorn. ||
-| MaintenanceWindowEndTime              | Slutet av den schemalagda underhållsperiod där Azure initierar Underhåll på den virtuella datorn. ||
-| LastOperationResultCode               | Resultatet av det senaste försöket att starta underhållet på den virtuella datorn. ||
+
+| Värdet | Beskrivning av |
+
+|-------|---------------| | IsCustomerInitiatedMaintenanceAllowed | Anger om du kan starta Underhåll på den virtuella datorn just nu. | | PreMaintenanceWindowStartTime | I början av självbetjäning underhållsfönstret när du kan starta Underhåll på den virtuella datorn. | | PreMaintenanceWindowEndTime | Slutet av självbetjäning underhållsfönstret när du kan starta Underhåll på den virtuella datorn. | | MaintenanceWindowStartTime | I början av schemalagt underhåll där Azure initierar Underhåll på den virtuella datorn. | | MaintenanceWindowEndTime | Slutet av den schemalagda underhållsperiod där Azure initierar Underhåll på den virtuella datorn. | | LastOperationResultCode | Resultatet av det senaste försöket att starta underhållet på den virtuella datorn. |
 
 
 
@@ -156,14 +152,10 @@ az vmss list-instances -g rgName -n vmssName --expand instanceView
 ```
 
 Följande egenskaper returneras **MaintenanceRedeployStatus** för varje virtuell datorinstans: 
-| Värde | Beskrivning   |
-|-------|---------------|
-| IsCustomerInitiatedMaintenanceAllowed | Anger om du kan starta Underhåll på den virtuella datorn just nu. ||
-| PreMaintenanceWindowStartTime         | I början av självbetjäning underhållsfönstret när du kan starta Underhåll på den virtuella datorn. ||
-| PreMaintenanceWindowEndTime           | Slutet av självbetjäning underhållsfönstret när du kan starta Underhåll på den virtuella datorn. ||
-| MaintenanceWindowStartTime            | I början av schemalagt underhåll där Azure initierar Underhåll på den virtuella datorn. ||
-| MaintenanceWindowEndTime              | Slutet av den schemalagda underhållsperiod där Azure initierar Underhåll på den virtuella datorn. ||
-| LastOperationResultCode               | Resultatet av det senaste försöket att starta underhållet på den virtuella datorn. ||
+
+| Värdet | Beskrivning av |
+
+|-------|---------------| | IsCustomerInitiatedMaintenanceAllowed | Anger om du kan starta Underhåll på den virtuella datorn just nu. | | PreMaintenanceWindowStartTime | I början av självbetjäning underhållsfönstret när du kan starta Underhåll på den virtuella datorn. | | PreMaintenanceWindowEndTime | Slutet av självbetjäning underhållsfönstret när du kan starta Underhåll på den virtuella datorn. | | MaintenanceWindowStartTime | I början av schemalagt underhåll där Azure initierar Underhåll på den virtuella datorn. | | MaintenanceWindowEndTime | Slutet av den schemalagda underhållsperiod där Azure initierar Underhåll på den virtuella datorn. | | LastOperationResultCode | Resultatet av det senaste försöket att starta underhållet på den virtuella datorn. |
 
 
 ### <a name="start-maintenance-on-your-vm-instance-by-using-the-cli"></a>Starta Underhåll på VM-instans med hjälp av CLI

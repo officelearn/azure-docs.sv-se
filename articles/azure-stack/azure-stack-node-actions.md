@@ -15,12 +15,12 @@ ms.date: 01/22/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
 ms.lastreviewed: 01/22/2019
-ms.openlocfilehash: 8073dff6dbd8bbceb16d7fdcf8d39012233c32d6
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 24c500251c8e91b7542c5c9d3e77676205c88c1f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55240464"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58090975"
 ---
 # <a name="scale-unit-node-actions-in-azure-stack"></a>Skalningsåtgärder enhet noden i Azure Stack
 
@@ -42,15 +42,15 @@ Så här visar du statusen för en skalningsenhet:
 3. Välj skalningsenheten i resultaten.
 4. Till vänster under **Allmänt**väljer **noder**.
 
-  Se följande information:
+   Se följande information:
 
-  - Lista över enskilda noder
-  - Driftstatus (se listan nedan)
-  - Energistatus (igång eller stoppad)
-  - Server-modell
-  - IP-adressen för huvudkortshantering (BMC)
-  - Totalt antal kärnor
-  - totala mängd minne
+   - Lista över enskilda noder
+   - Driftstatus (se listan nedan)
+   - Energistatus (igång eller stoppad)
+   - Server-modell
+   - IP-adressen för huvudkortshantering (BMC)
+   - Totalt antal kärnor
+   - totala mängd minne
 
 ![status för en skalningsenhet](media/azure-stack-node-actions/multinodeactions.png)
 

@@ -12,12 +12,12 @@ ms.service: virtual-machines
 ms.topic: troubleshooting
 ms.date: 04/13/2018
 ms.author: cjiang
-ms.openlocfilehash: 10c5dc5614731b247b917b68307f6a2d11663461
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 1298e7d7ed9c3760ff5022b5b97e8444eb1bcad1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55510484"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58007060"
 ---
 # <a name="troubleshoot-allocation-failures-when-you-create-restart-or-resize-vms-in-azure"></a>Felsök Allokeringsfel när du skapar, startar om eller ändra storlek på virtuella datorer i Azure
 
@@ -25,7 +25,7 @@ När du skapar en virtuell dator (VM), starta om Stoppad (frigjord) virtuella da
 
 **Felkod**: AllocationFailed eller ZonalAllocationFailed
 
-**Felmeddelande**: ”Tilldelningen misslyckades. Vi har inte tillräckligt med kapacitet för den begärda VM-storleken i den här regionen. Läs mer om att förbättra sannolikheten för en lyckad allokering på http://aka.ms/allocation-guidance”
+**Felmeddelande**: ”Tilldelningen misslyckades. Vi har inte tillräckligt med kapacitet för den begärda VM-storleken i den här regionen. Läs mer om att förbättra sannolikheten för en lyckad allokering på `https://aka.ms/allocation-guidance`”
 
 Den här artikeln förklarar orsakerna till några av de vanliga Allokeringsfel och föreslår åtgärder.
 
@@ -86,7 +86,7 @@ Eftersom vi har expanderat Azure-infrastrukturen kan distribuera vi nyare maskin
 |Äldre VM-serien eller storlek|Rekommenderade nyare VM-serien eller storlek|Mer information|
 |----------------------|----------------------------|--------------------|
 |Av1-serien|[Av2-serien](../windows/sizes-general.md#av2-series)|https://azure.microsoft.com/blog/new-av2-series-vm-sizes/
-|Dv1 eller DSv1-serien (D1 till D5)|[Dv3 eller DSv3-serien](../windows/sizes-general.md#dsv3-series-sup1sup)|https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/
+|Dv1 eller DSv1-serien (D1 till D5)|[Dv3 eller DSv3-serien](../windows/sizes-general.md#dsv3-series-1)|https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/
 |Dv1 eller DSv1-serien (D11 till D14)|[Ev3 eller ESv3-serien](../windows/sizes-memory.md#ev3-series)|
 |D15v2 eller DS15v2|Om du använder theResource Manager-distributionsmodellen för att kunna dra nytta av större storlekar för Virtuella datorer kan du överväga att flytta till D16v3/DS16v3 eller D32v3/DS32v3. Dessa är avsedda att köras på den senaste generation maskinvaran. Överväg att övergå till de nya isolerade VM-storlekar, E64i_v3 eller E64is_v3, som är avsedd att köras på den senaste generation maskinvaran om du använder Resource Manager-distributionsmodellen för att kontrollera att VM-instansen är isolerad till maskinvara som är dedikerad till en enda kund. |https://azure.microsoft.com/blog/new-isolated-vm-sizes-now-available/
 

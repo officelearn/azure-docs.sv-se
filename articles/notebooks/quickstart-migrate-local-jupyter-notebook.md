@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: a160bc0247d2f80dda620b67c946805926d78006
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: f63851359a19455ab0f46f66a801a679ee2c3bfe
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57773971"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58079698"
 ---
 # <a name="quickstart-migrate-a-local-jupyter-notebook"></a>Snabbstart: Migrera en lokal Jupyter Notebook
 
@@ -50,13 +50,13 @@ Den här snabbstarten visar hur du migrerar en bärbar dator från den lokala da
 
    (Igen, om din bärbara dator är i en GitHub-lagringsplats, följer du stegen [Snabbstart: Klona en anteckningsbok](quickstart-clone-jupyter-notebook.md) i stället.)
 
-    - Om du använder **från datorn**, dra och släpp dina *.ipynb* filer i popup-fönstret eller välj **Välj filer**, bläddra till och välj de filer som du vill importera. Välj sedan **överför**. De överförda filerna får samma namn som de lokala filerna. (Du behöver inte ladda upp innehåll i *.ipynb_checkpoints* mappar.)
+   - Om du använder **från datorn**, dra och släpp dina *.ipynb* filer i popup-fönstret eller välj **Välj filer**, bläddra till och välj de filer som du vill importera. Välj sedan **överför**. De överförda filerna får samma namn som de lokala filerna. (Du behöver inte ladda upp innehåll i *.ipynb_checkpoints* mappar.)
 
-    ![Överför från datorn popup-fönstret](media/quickstarts/upload-from-computer-popup.png)
+     ![Överför från datorn popup-fönstret](media/quickstarts/upload-from-computer-popup.png)
 
-    - Om du använder **från URL: en**, ange källadressen i den **URL: en för filen** fältet och filnamnet för att tilldela till anteckningsboken i ditt projekt i den **filnamn** fältet. Välj sedan **överför**. Om du har flera filer med olika URL: er kan du använda den **+ Lägg till filen** kommando för att kontrollera den första Webbadress du angav, varefter popup-fönstret visar nya fält för en annan fil.
+   - Om du använder **från URL: en**, ange källadressen i den **URL: en för filen** fältet och filnamnet för att tilldela till anteckningsboken i ditt projekt i den **filnamn** fältet. Välj sedan **överför**. Om du har flera filer med olika URL: er kan du använda den **+ Lägg till filen** kommando för att kontrollera den första Webbadress du angav, varefter popup-fönstret visar nya fält för en annan fil.
 
-    ![Ladda upp från URL: en popup-fönstret](media/quickstarts/upload-from-url-popup.png)
+     ![Ladda upp från URL: en popup-fönstret](media/quickstarts/upload-from-url-popup.png)
 
 1. Öppna och kör din nyligen uppladdade anteckningsboken för att verifiera dess innehåll och åtgärden. När du är klar väljer du **filen** > **stanna och Stäng** att Stäng anteckningsboken.
 

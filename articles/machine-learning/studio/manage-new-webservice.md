@@ -1,21 +1,21 @@
 ---
-title: Använda portalen för Azure Machine Learning Studio-webbtjänster
+title: Hantera webbtjänster
 titleSuffix: Azure Machine Learning Studio
-description: Du kan hantera dina Machine Learning nya och klassiska webbtjänster med hjälp av Microsoft Azure Machine Learning Web Services-portalen. Eftersom klassiska webbtjänster och nya Web services baseras på olika underliggande teknik, har du lite olika hanteringsfunktioner för var och en av dem.
+description: Hantera dina Machine Learning nya och klassiska Web-tjänster med hjälp av Microsoft Azure Machine Learning Web Services-portalen. Eftersom klassiska webbtjänster och nya Web services baseras på olika underliggande teknik, har du lite olika hanteringsfunktioner för var och en av dem.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
-author: ericlicoding
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 02/28/2017
-ms.openlocfilehash: 2d62b5a140fc4614e26d40f153f5e13d4a3b70f4
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 711cb674cb00a880eadda11b03da87631df90b0d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56817158"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57838382"
 ---
 # <a name="manage-a-web-service-using-the-azure-machine-learning-studio-web-services-portal"></a>Hantera en webbtjänst med hjälp av Azure Machine Learning Studio Web Services-portalen
 Du kan hantera dina Machine Learning nya och klassiska webbtjänster med hjälp av Microsoft Azure Machine Learning Web Services-portalen. Eftersom klassiska webbtjänster och nya Web services baseras på olika underliggande teknik, har du lite olika hanteringsfunktioner för var och en av dem.
@@ -29,7 +29,7 @@ I Machine Learning Web Services-portalen kan du:
 * Lägga till och ta bort slutpunkter (klassisk)
 
 >[!NOTE]
->Du kan också hantera klassiska webbtjänster i [Machine Learning Studio](http://studio.azureml.net) på den **webbtjänster** fliken.
+>Du kan också hantera klassiska webbtjänster i [Machine Learning Studio](https://studio.azureml.net) på den **webbtjänster** fliken.
 
 ## <a name="permissions-to-manage-new-resources-manager-based-web-services"></a>Behörigheter för att hantera nya Resources Manager-baserade webbtjänster
 

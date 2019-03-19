@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/11/2018
 ms.author: shlo
-ms.openlocfilehash: 037dafcfc60c629841e326cecc38bb2b3250d77c
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: 092a346d8303bb9e88a53b6fa529bb820635c554
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015431"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58099550"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Branchning och kedjesammansättning av aktiviteter i en Data Factory-pipeline
 I den här självstudiekursen skapar du en Data Factory-pipeline som visar några av funktionerna för att styra flödet. Den här pipelinen skapar en enkel kopia från en container i Azure Blob Storage till en annan container i samma lagringskonto. Om kopieringen lyckas skickar pipelinen information om den lyckade kopieringsåtgärden (till exempel hur mycket data som har skrivits) i ett e-postmeddelande. Om kopieringen misslyckas skickar pipelinen information om att kopieringen misslyckades (till exempel ett felmeddelande) i ett e-postmeddelande. I självstudiekursen visas olika exempel på hur du skickar parametrar.
@@ -38,7 +38,7 @@ I den här självstudiekursen får du göra följande:
 
 I den här självstudien används Azure Portal. Du kan använda andra metoder för att interagera med Azure Data Factory (se Snabbstarter i innehållsförteckningen).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * **Azure-prenumeration**. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 * **Azure Storage-konto**. Du kan använda blob-lagringen som **källa** för datalagringen. Om du inte har ett Azure Storage-konto finns det anvisningar om hur du skapar ett i artikeln [Skapa ett lagringskonto](../storage/common/storage-quickstart-create-account.md) .
@@ -52,7 +52,7 @@ I den här självstudien används Azure Portal. Du kan använda andra metoder f�
     John,Doe
     Jane,Doe
     ```
-2. Gör följande med verktyg som [Azure Storage Explorer](http://storageexplorer.com/): 
+2. Gör följande med verktyg som [Azure Storage Explorer](https://storageexplorer.com/): 
     1. Skapa containern **adfv2branch**.
     2. Skapa mappen **input** i containern **adfv2branch**.
     3. Överför filen **input.txt** till containern.
@@ -199,10 +199,10 @@ I det här steget kan du skapa en pipeline med en kopieringsaktivitet och två w
    ![Ny länkad Azure Storage-tjänst](./media/tutorial-control-flow-portal/new-azure-storage-linked-service.png)
 12. Ange `@pipeline().parameters.sourceBlobContainer` för mappen och `emp.txt` för filnamnet. Du kan använda pipelineparametern sourceBlobContainer för att ange sökvägen till mappen för datauppsättningen. 
 
-    ![Inställningar för källdatauppsättningen](./media/tutorial-control-flow-portal/source-dataset-settings.png)
+   ![Inställningar för källdatauppsättningen](./media/tutorial-control-flow-portal/source-dataset-settings.png)
 13. Välj fliken **Pipeline**, eller klicka på pipelinen i trädvyn. Bekräfta att **SourceBlobDataset** har valts för **Source Dataset** (Källdatauppsättning). 
 
-   ![Källdatauppsättning](./media/tutorial-control-flow-portal/pipeline-source-dataset-selected.png)
+    ![Källdatauppsättning](./media/tutorial-control-flow-portal/pipeline-source-dataset-selected.png)
 13. I fönstret Egenskaper väljer du fliken **Mottagare** och klickar på **+ Ny** för **Sink Dataset** (Datauppsättning för mottagare). I det här steget skapar du en datauppsättning för mottagare för kopieringsaktiviteten på liknande sätt som när du skapade källdatauppsättningen. 
 
     ![Knapp för ny datauppsättning för mottagare](./media/tutorial-control-flow-portal/new-sink-dataset-button.png)
@@ -217,7 +217,7 @@ I det här steget kan du skapa en pipeline med en kopieringsaktivitet och två w
         ![Inställningar för datauppsättning för mottagare](./media/tutorial-control-flow-portal/sink-dataset-settings.png)
 17. Välj fliken **Pipeline** högst upp. Visa **Allmänt** i verktygslådan **Aktiviteter** och dra och släpp en **webbaktivitet** till pipelinedesignytan. Ange **SendSuccessEmailActivity** som namn på aktiviteten. Webbaktiviteten tillåter anrop till valfri REST-slutpunkt. Mer information om aktiviteten finns i [Webbaktivitet](control-flow-web-activity.md). Denna pipeline använder en webbaktivitet för att anropa Logic Apps arbetsflöde för e-post. 
 
-   ![Dra och släpp den första webbaktiviteten](./media/tutorial-control-flow-portal/success-web-activity-general.png)
+    ![Dra och släpp den första webbaktiviteten](./media/tutorial-control-flow-portal/success-web-activity-general.png)
 18. Välj fliken **Inställningar** på fliken **Allmänt** och gör följande: 
     1. För **URL** anger du URL:en för logic apps-arbetsflödet som skickar e-postmeddelandet om att det lyckades.  
     2. Välj **POST** som **metod**. 
@@ -235,12 +235,12 @@ I det här steget kan du skapa en pipeline med en kopieringsaktivitet och två w
         ```
         Meddelandetexten innehåller följande egenskaper:
 
-        - Meddelande – skicka värdet `@{activity('Copy1').output.dataWritten`. Hämtar en egenskap för den tidigare kopieringsaktiviteten och skickar värdet för dataWritten. Vid ett fel skickas felutdata i stället för `@{activity('CopyBlobtoBlob').error.message`.
-        - Datafabriksnamn – skicka värdet för `@{pipeline().DataFactory}`. Detta är en systemvariabel som gör att du kan komma åt motsvarande datafabriksnamn. En lista över systemvariabler finns i artikeln om [systemvariabler](control-flow-system-variables.md).
-        - Pipelinenamn – skicka värdet för `@{pipeline().Pipeline}`. Detta är också en systemvariabel som gör att du kan komma åt motsvarande pipelinenamn. 
-        - Mottagare – skicka värdet för "\@pipeline().parameters.receiver"). Kommer åt pipelineparametrar.
+       - Meddelande – skicka värdet `@{activity('Copy1').output.dataWritten`. Hämtar en egenskap för den tidigare kopieringsaktiviteten och skickar värdet för dataWritten. Vid ett fel skickas felutdata i stället för `@{activity('CopyBlobtoBlob').error.message`.
+       - Datafabriksnamn – skicka värdet för `@{pipeline().DataFactory}`. Detta är en systemvariabel som gör att du kan komma åt motsvarande datafabriksnamn. En lista över systemvariabler finns i artikeln om [systemvariabler](control-flow-system-variables.md).
+       - Pipelinenamn – skicka värdet för `@{pipeline().Pipeline}`. Detta är också en systemvariabel som gör att du kan komma åt motsvarande pipelinenamn. 
+       - Mottagare – skicka värdet för "\@pipeline().parameters.receiver"). Kommer åt pipelineparametrar.
     
-        ![Inställningar för den första webbaktiviteten](./media/tutorial-control-flow-portal/web-activity1-settings.png)         
+         ![Inställningar för den första webbaktiviteten](./media/tutorial-control-flow-portal/web-activity1-settings.png)         
 19. Anslut **kopieringsaktiviteten** till **webbaktiviteten** genom att dra den gröna knappen bredvid kopieringsaktiviteten och släppa den på webbaktiviteten. 
 
     ![Anslut kopieringsaktiviteten till den första webbaktiviteten](./media/tutorial-control-flow-portal/connect-copy-web-activity1.png)

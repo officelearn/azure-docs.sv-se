@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/29/2019
 ms.author: suhuruli
 ms.custom: mvc, devcenter
-ms.openlocfilehash: ad14e552bd685c42289e7007002f5ddf039f8925
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
-ms.translationtype: HT
+ms.openlocfilehash: ddd56b8479678b288424dd896baadea6a41a2aef
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55297964"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58008137"
 ---
 # <a name="quickstart-deploy-a-java-reliable-services-application-to-service-fabric"></a>Snabbstart: Distribuera ett Java-program för tillförlitliga tjänster till Service Fabric
 
@@ -36,7 +36,7 @@ I den här snabbstarten lär du dig att:
 * Distribuera programmet till ditt lokala kluster
 * Skala ut programmet över flera noder
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här snabbstarten behöver du:
 
@@ -75,7 +75,7 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart.git
 
     ![Dialogrutan för lokal publicering](./media/service-fabric-quickstart-java/localjson.png)
 
-7. Öppna valfri webbläsare och öppna programmet genom att gå till **http://localhost:8080**.
+7. Öppna valfri webbläsare och hitta programmet genom att öppna `http://localhost:8080`.
 
     ![Programmets lokala klientdel](./media/service-fabric-quickstart-java/runninglocally.png)
 

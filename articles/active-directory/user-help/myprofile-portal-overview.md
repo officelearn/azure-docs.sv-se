@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 02/19/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 472c39a7220c4e84bff429097fef6d0ed721fd01
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: d59bd14b52124282e1e07d60daa4b891c2bab938
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56457823"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57337829"
 ---
 # <a name="my-profile-preview-portal-overview"></a>Översikt över portalen Min profil (förhandsversion)
 
@@ -26,8 +26,6 @@ ms.locfileid: "56457823"
 Du kan använda portalen **Min profil** (förhandsversion) till att hantera ditt arbets- eller skolkonto konto för att:
 
 - Konfigurera och hantera din säkerhetsinformation för tvåstegsverifiering och återställning av lösenord.
-
-- Visa din inloggningsaktivitet.
 
 - Hantera dina anslutna organisationer och enheter.
 
@@ -45,7 +43,7 @@ Du öppnar portalen **Min profil** genom att gå till https://myprofile.microsof
 - Firefox
 - Internet Explorer 11
 
-    ![Översiktssida för portalen Min profil](media/myprofile-portal/myprofile-portal-overview-page.png)
+    ![Översiktssida för portalen Min profil](media/myprofile-portal/myprofile-portal-overview.png)
 
 ## <a name="in-this-section"></a>I det här avsnittet
 Mer information om portalen **Min profil** och dess sidor finns i följande artiklar.
@@ -53,7 +51,6 @@ Mer information om portalen **Min profil** och dess sidor finns i följande arti
 |Artikel |Beskrivning |
 |------|------------|
 |[Hantera din säkerhetsinformation (förhandsversion)](user-help-security-info-overview.md)|Beskriver hur du konfigurerar och hanterar din säkerhetsinformation.|
-|[Visa din senaste inloggningsaktivitet](myprofile-portal-recent-activity-page.md)|Beskriver hur du visar den senaste inloggningsaktiviteten för ditt arbets-eller skolkonto.|
 |[Hantera dina organisationer](myprofile-portal-organizations-page.md)|Beskriver hur du hanterar de organisationer som är anslutna till ditt arbets-eller skolkonto.|
 |[Hantera dina anslutna enheter](myprofile-portal-devices-page.md)| Beskriver hur du hanterar de enheter som du har anslutit till ditt arbets-eller skolkonto.|
 |[Visa din sekretessrelaterade information](myprofile-portal-privacy-page.md)|Beskriver hur du visar vad din organisation gör med dina data.|

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 02/06/2019
 ms.author: mikeray
-ms.openlocfilehash: b412d2b054fc8703c7524479359a3670782fd646
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 1b15a3966c6e408fb17655b112c1ec900bd86c5f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55980899"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57999780"
 ---
 # <a name="configure-one-or-more-always-on-availability-group-listeners---resource-manager"></a>Konfigurera en eller flera Always On availability-grupplyssnare - Resource Manager
 Det här avsnittet visar hur du:
@@ -48,7 +48,7 @@ Exemplen i den här artikeln testas med hjälp av Azure PowerShell-Modulversion 
 
 Kontrollera din PowerShell-modulen är 5.4.1 eller senare.
 
-Se [installera Azure PowerShell-modulen](http://docs.microsoft.com/powershell/azure/install-az-ps).
+Se [installera Azure PowerShell-modulen](https://docs.microsoft.com/powershell/azure/install-az-ps).
 
 ## <a name="configure-the-windows-firewall"></a>Konfigurera Windows-brandväggen
 

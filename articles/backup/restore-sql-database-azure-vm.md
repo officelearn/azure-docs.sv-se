@@ -6,21 +6,18 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 02/19/2018
+ms.date: 03/14/2019
 ms.author: raynew
-ms.openlocfilehash: 7f25f26ac1cefa0f2dc3b9b7e30f4a4fc2901c9f
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 1712e46494796e563c26316b4f45d968872c304f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57436535"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57996758"
 ---
-# <a name="restore-sql-server-databases-on-azure-vms"></a>Återställa SQL Server-databaser på Azure Virtual Machines 
+# <a name="restore-sql-server-databases-on-azure-vms"></a>Återställa SQL Server-databaser på Azure Virtual Machines
 
 Den här artikeln beskrivs hur du återställer en SQL Server-databas som körs på en Azure-dator (VM) som den [Azure Backup](backup-overview.md) service har säkerhetskopierats till ett Azure Backup Recovery Services-valv.
-
-> [!NOTE]
-> Säkerhetskopiering av SQL Server-databaser som körs på en Azure-dator som använder Azure Backup är för närvarande i offentlig förhandsversion.
 
 Den här artikeln beskriver hur du återställer SQL Server-databaser. Mer information finns i [säkerhetskopiera SQL Server-databaser på Azure Virtual Machines](backup-azure-sql-database.md).
 
@@ -53,7 +50,7 @@ Om du vill återställa, behöver du följande behörigheter:
 * **Deltagare (skriva)** åtkomst till källan VM som säkerhetskopieras.
 * **Deltagare (skriva)** åtkomst till den Virtuella måldatorn:
     - Om du återställa till samma virtuella dator, är det här den Virtuella källdatorn.
-    - Om du återställa till en annan plats, är det här den nya Virtuella måldatorn. 
+    - Om du återställa till en annan plats, är det här den nya Virtuella måldatorn.
 
 Återställa på följande sätt:
 1. Öppna det valv som SQL Server-dator är registrerad.
@@ -66,24 +63,24 @@ Om du vill återställa, behöver du följande behörigheter:
 
     ![Välja den databas som ska återställas](./media/backup-azure-sql-database/sql-restore-sql-in-vm.png)
 
-5. Granska databas-menyn. Hittar du information om säkerhetskopian av databasen, inklusive: 
+5. Granska databas-menyn. Hittar du information om säkerhetskopian av databasen, inklusive:
 
     * De äldsta och nyaste återställningspunkterna.
     * Log Säkerhetskopieringsstatus för de senaste 24 timmarna för databaser som finns i fullständiga och massloggade återställningsläge och som har konfigurerats för transaktionell loggsäkerhetskopior.
 
-6. Välj **Återställ databasen**. 
+6. Välj **Återställ databasen**.
 
     ![Välj Återställ databas](./media/backup-azure-sql-database/restore-db-button.png)
 
 7. I **återställa konfigurationen**, ange var du vill återställa data:
-    - **Alternativ plats**: Återställa databasen till en annan plats och behålla den ursprungliga källdatabasen.
-    - **Overwrite DB** (Skriv över databas): Återställ data till samma SQL Server-instans som den ursprungliga källan. Det här alternativet skriver över den ursprungliga databasen.
+   - **Alternativ plats**: Återställa databasen till en annan plats och behålla den ursprungliga källdatabasen.
+   - **Overwrite DB** (Skriv över databas): Återställ data till samma SQL Server-instans som den ursprungliga källan. Det här alternativet skriver över den ursprungliga databasen.
 
-    > [!Important]
-    > Om den valda databasen tillhör en Always On-tillgänglighetsgrupp, tillåter inte SQL Server att databasen kan skrivas över. Endast **alternativ plats** är tillgänglig.
-    >
+     > [!Important]
+     > Om den valda databasen tillhör en Always On-tillgänglighetsgrupp, tillåter inte SQL Server att databasen kan skrivas över. Endast **alternativ plats** är tillgänglig.
+     >
 
-    ![Återställ konfigurationsmeny](./media/backup-azure-sql-database/restore-restore-configuration-menu.png)
+     ![Återställ konfigurationsmeny](./media/backup-azure-sql-database/restore-restore-configuration-menu.png)
 
 ### <a name="restore-to-an-alternate-location"></a>Återställa till en alternativ plats
 
@@ -98,7 +95,7 @@ Om du vill återställa, behöver du följande behörigheter:
 2. I **: Välj återställningspunkt**väljer om du vill [återställa till en specifik tidpunkt](#restore-to-a-specific-point-in-time) eller [återställa till en specifik återställningspunkt](#restore-to-a-specific-restore-point).
 
     > [!NOTE]
-    > Point-in-time-återställning finns tillgängligt endast för säkerhetskopieringar för databaser som finns i fullständiga och massloggade återställningsläge. 
+    > Point-in-time-återställning finns tillgängligt endast för säkerhetskopieringar för databaser som finns i fullständiga och massloggade återställningsläge.
 
 ### <a name="restore-and-overwrite"></a>Återställa och skriva över
 
@@ -109,7 +106,7 @@ Om du vill återställa, behöver du följande behörigheter:
 2. I **: Välj återställningspunkt**väljer **loggar (tidpunkt)** till [återställa till en specifik tidpunkt](#restore-to-a-specific-point-in-time). Eller välj **fullständig och differentiell** att återställa till en [specifik återställningspunkt](#restore-to-a-specific-restore-point).
 
     > [!NOTE]
-    > Point-in-time-återställning finns tillgängligt endast för säkerhetskopieringar för databaser som finns i fullständiga och massloggade återställningsläge. 
+    > Point-in-time-återställning finns tillgängligt endast för säkerhetskopieringar för databaser som finns i fullständiga och massloggade återställningsläge.
 
 ### <a name="restore-to-a-specific-point-in-time"></a>Återställa till en specifik tidpunkt
 
@@ -125,7 +122,7 @@ Om du har valt **loggar (tidpunkt)** som typ av återställning gör du följand
 
     ![Välj en återställningstid](./media/backup-azure-sql-database/recovery-point-logs-graph.png)
 
- 
+
 1. På den **Advanced Configuration** -menyn om du vill behålla databasen fungerar inte efter återställningen, aktivera **Återställ med NORECOVERY**.
 1. Om du vill ändra återställningsplatsen på målservern, anger du en ny målsökväg som.
 1. Välj **OK**.
@@ -144,9 +141,9 @@ Om du har valt **fullständig och differentiell** som typ av återställning gö
 1. Välj en återställningspunkt i listan och välj **OK** för att slutföra återställningspunktsproceduren.
 
     ![Välja en fullständig återställningspunkt](./media/backup-azure-sql-database/choose-fd-recovery-point.png)
-        
+
 1. På den **Advanced Configuration** -menyn om du vill behålla databasen fungerar inte efter återställningen, aktivera **Återställ med NORECOVERY**.
-1. Om du vill ändra återställningsplatsen på målservern, anger du en ny målsökväg som. 
+1. Om du vill ändra återställningsplatsen på målservern, anger du en ny målsökväg som.
 1. Välj **OK**.
 
     ![Menyn Avancerad konfiguration](./media/backup-azure-sql-database/restore-point-advanced-configuration.png)

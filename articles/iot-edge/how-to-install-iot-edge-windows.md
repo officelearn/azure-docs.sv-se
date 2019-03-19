@@ -7,15 +7,15 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 02/25/2019
+ms.date: 03/14/2019
 ms.author: kgremban
 ms.custom: seodec18
-ms.openlocfilehash: 3981ae197515803821891402e525852901963f63
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 5f421c8949efae5a2488d5bf156a5d3571401bcc
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56871627"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57996439"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-windows"></a>Installera Azure IoT Edge-körningen på Windows
 
@@ -25,8 +25,8 @@ Läs mer om IoT Edge-körningen i [förstå Azure IoT Edge-körningen och dess a
 
 Den här artikeln visar hur du installerar Azure IoT Edge-körningen på din Windows x64 (AMD/Intel) system. Windows support förhandsvisas just nu.
 
->[!NOTE]
-Med hjälp av Linux-behållare på Windows-System är inte en rekommenderad eller stöds produktionskonfigurationen för Azure IoT Edge. Det kan dock användas för utveckling och testning.
+> [!NOTE]
+> Med hjälp av Linux-behållare på Windows-System är inte en rekommenderad eller stöds produktionskonfigurationen för Azure IoT Edge. Det kan dock användas för utveckling och testning.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -52,6 +52,8 @@ Läs mer om vad som ingår i den senaste versionen av IoT Edge, [Azure IoT Edge 
 
 Azure IoT Edge förlitar sig på en [OCI-kompatibla](https://www.opencontainers.org/) container-motorn. I produktionsscenarier använder du Moby-motor som ingår i installationsskriptet till att köra Windows-behållare på din Windows-enhet. Du kan köra Linux-behållare på din Windows-enhet för utveckling och testning, men du måste installera och konfigurera en motor för behållaren innan du installerar IoT Edge. Båda scenarierna finns i följande avsnitt för förutsättningar för att förbereda din enhet. 
 
+Om du vill installera IoT Edge på en virtuell dator kan aktivera kapslad virtualisering och allokera minst 2 GB minne. Hur du aktiverar kapslad virtualisering är olika beroende på hypervisorn din användning. För Hyper-V har virtuella datorer i generation 2 kapslad virtualisering aktiverad som standard. Det finns en växlingsknappen för att aktivera funktionen på den virtuella datorn för VMWare. 
+
 #### <a name="moby-engine-for-windows-containers"></a>Moby motor för Windows-behållare
 
 För Windows-enheter som kör IoT Edge i produktionsscenarier är Moby endast stöds officiellt container-motorn. Installationsskriptet installerar automatiskt Moby-motorn på din enhet innan du installerar IoT Edge. Förbered din enhet genom att aktivera funktionen behållare. 
@@ -64,7 +66,7 @@ För Windows-enheter som kör IoT Edge i produktionsscenarier är Moby endast st
 
 Om du använder Windows för att utveckla och testa behållare för Linux enheter, kan du använda [Docker för Windows](https://www.docker.com/docker-windows) som din behållare. Docker kan konfigureras att [använder Linux-behållare](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers). Du måste installera Docker och konfigurera den innan du installerar IoT Edge. Linux-behållare stöds inte på Windows-enheter i produktionen. 
 
-Om din IoT Edge-enhet är en Windows-dator, kontrollerar du att den uppfyller de [systemkrav](https://docs.microsoft.com/virtualization/hyper-v-on-windows/reference/hyper-v-requirements) för Hyper-V. Om det är en virtuell dator aktiverar du [kapslad virtualisering](https://docs.microsoft.com/virtualization/hyper-v-on-windows/user-guide/nested-virtualization) och allokerar minst 2 GB minne.
+Om din IoT Edge-enhet är en Windows-dator, kontrollerar du att den uppfyller de [systemkrav](https://docs.microsoft.com/virtualization/hyper-v-on-windows/reference/hyper-v-requirements) för Hyper-V.
 
 ## <a name="install-iot-edge-on-a-new-device"></a>Installera IoT Edge på en ny enhet
 

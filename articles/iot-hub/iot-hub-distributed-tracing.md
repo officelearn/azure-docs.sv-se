@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/06/2019
 ms.author: jlian
-ms.openlocfilehash: 0a2027e3ae0fb40058b5bdbfd212687697877076
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 0553bd904cfaabaefce4e6ab3f7fbf5d356922d3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56875267"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58100368"
 ---
 # <a name="trace-azure-iot-device-to-cloud-messages-with-distributed-tracing-preview"></a>Spårningsmeddelanden Azure IoT-enhet till molnet med distribuerad spårning (förhandsversion)
 
@@ -269,7 +269,7 @@ Information om de olika typerna av loggar finns i [diagnostikloggar för Azure I
 Om du vill visualisera flödet av IoT-meddelanden, ställa in exempelappen Programkartan. Exempelappen skickar distribuerad spårning-loggar till [Programkartan](../application-insights/app-insights-app-map.md) med hjälp av en Azure-funktion och en Event Hub.
 
 > [!div class="button"]
-<a href="https://github.com/Azure-Samples/e2e-diagnostic-provision-cli" target="_blank">Hämta exemplet på Github</a>
+> <a href="https://github.com/Azure-Samples/e2e-diagnostic-provision-cli" target="_blank">Hämta exemplet på Github</a>
 
 Den här bilden nedan visar distribuerad spårning i App-karta med tre routning slutpunkter:
 

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 11/23/2016
 ms.author: mbullwin
-ms.openlocfilehash: 6bd8d0cee01853547efd028feef0a97f9398024e
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 692113257e483f67eaaee038c07d8702d95a7b31
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015530"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58116817"
 ---
 # <a name="filter-telemetry-in-your-java-web-app"></a>Filtrera telemetri i Java-webbappen
 
@@ -134,7 +134,7 @@ I ApplicationInsights.xml, lägger du till en `TelemetryProcessors` avsnittet so
 
 
 
-### <a name="synthetic-source-filter"></a>Syntetisk källfilter
+### <a name="synthetic-source-filter"></a>Synthetic Source filter
 
 Filtrerar ut all telemetri som har värden i egenskapen SyntheticSource. Dessa inkluderar begäranden från robotar, spindlar och tillgänglighetstester.
 
@@ -186,12 +186,12 @@ Filter loggspårningar (inloggad med [TrackTrace()](../../azure-monitor/app/api-
 ```
 
 * `FromSeverityLevel` Giltiga värden är:
- *  RABATT - filtrera bort alla spårningar
- *  SPÅRNINGEN – ingen filtrering. är lika med spårningsnivå
- *  INFO - Filter ut spårningsnivå
- *  WARN - Filter ut SPÅRNINGS- och information
- *  FEL - Filter ut Varna, INFO, SPÅRNING
- *  KRITISK - filter ut alla utom kritiska
+  *  RABATT - filtrera bort alla spårningar
+  *  SPÅRNINGEN – ingen filtrering. är lika med spårningsnivå
+  *  INFO - Filter ut spårningsnivå
+  *  WARN - Filter ut SPÅRNINGS- och information
+  *  FEL - Filter ut Varna, INFO, SPÅRNING
+  *  KRITISK - filter ut alla utom kritiska
 
 
 ## <a name="custom-filters"></a>Anpassade filter
@@ -237,7 +237,7 @@ I din kod, skapar du en klass som implementerar `TelemetryProcessor`:
 
 ### <a name="2-invoke-your-filter-in-the-configuration-file"></a>2. Anropa filter i konfigurationsfilen
 
-I ApplicationInsights.xml:
+In ApplicationInsights.xml:
 
 ```XML
 

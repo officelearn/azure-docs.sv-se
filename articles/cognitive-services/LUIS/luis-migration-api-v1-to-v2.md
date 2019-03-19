@@ -1,7 +1,7 @@
 ---
 title: V1 till v2 API-migrering
 titleSuffix: Azure Cognitive Services
-description: 'Version 1 slutpunkt och redigering API: er är inaktuella. Använd den här guiden för att förstå hur du migrerar till version 2-slutpunkten och redigera API: er.'
+description: 'Version 1-slutpunkten och redigera Lanugage förstå API: er är inaktuella. Använd den här guiden för att förstå hur du migrerar till version 2-slutpunkten och redigera API: er.'
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,20 +9,20 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 12/07/2018
+ms.date: 03/11/2019
 ms.author: diberry
-ms.openlocfilehash: dfd30ce148002e32986c58aff607e182033e02b3
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 7496142b1c762ce0a7afa96a1a94dd3026351cc9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55859889"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58087932"
 ---
 # <a name="api-v1-to-v2-migration-guide-for-luis-apps"></a>API v1 till v2-Migreringsguide för LUIS-appar
 Version 1 [endpoint](https://aka.ms/v1-endpoint-api-docs) och [redigering](https://aka.ms/v1-authoring-api-docs) API: er är inaktuella. Använd den här guiden för att förstå hur du migrerar till version 2 [endpoint](https://aka.ms/luis-endpoint-apis) och [redigering](https://aka.ms/luis-authoring-apis) API: er. 
 
 ## <a name="new-azure-regions"></a>Nya Azure-regioner
-LUIS har nya [regioner](https://aka.ms/LUIS-regions) för LUIS APIs. LUIS innehåller en annan webbplats för regionsgrupper. Programmet måste skrivas i samma region som du förväntar dig att fråga. Program migreras inte automatiskt regioner. Du kan exportera en app från en region och sedan importera till en annan för att vara tillgängligt i en ny region.
+LUIS har nya [regioner](https://aka.ms/LUIS-regions) för LUIS APIs. LUIS innehåller en annan portal för regionsgrupper. Programmet måste skrivas i samma region som du förväntar dig att fråga. Program migreras inte automatiskt regioner. Du kan exportera en app från en region och sedan importera till en annan för att vara tillgängligt i en ny region.
 
 ## <a name="authoring-route-changes"></a>Redigera vägen ändringar
 Redigering API vägen ändras från att använda den **prog** väg till med hjälp av den **api** väg.
@@ -35,7 +35,7 @@ Redigering API vägen ändras från att använda den **prog** väg till med hjä
 
 
 ## <a name="endpoint-route-changes"></a>Slutpunkten vägen ändringar
-Slutpunkten API har nya parametrar för frågesträng samt ett olika svar. Om flaggan utförlig är true, returneras alla avsikter oavsett poäng, i en matris med namnet avsikter, förutom topScoringIntent.
+Slutpunkten API har nya parametrar för frågesträngen som ett annat svar. Om flaggan utförlig är true, returneras alla avsikter oavsett poäng, i en matris med namnet avsikter, förutom topScoringIntent.
 
 | version | Hämta väg |
 |--|--|

@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 5ce99e06ea1a8e72a8767367ddfd7bbb845c8400
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
-ms.translationtype: HT
+ms.openlocfilehash: 3abe0511200bf5828b485b15a4b8a512731c4ffa
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54318431"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58082134"
 ---
 # <a name="create-custom-kpi-dashboards-using-azure-application-insights"></a>Skapa anpassade KPI-instrumentpaneler med Azure Application Insights
 
@@ -30,30 +30,30 @@ Du kan skapa flera instrumentpaneler i Azure-portalen som var och en inkluderar 
 
 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här självstudien behöver du:
 
 - Distribuera ett .NET-program till Azure och [aktivera Application Insights SDK](../../azure-monitor/app/asp-net.md). 
 
 ## <a name="log-in-to-azure"></a>Logga in på Azure
-Logga in på Azure-portalen på [https://portal.azure.com](https://portal.azure.com).
+Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="create-a-new-dashboard"></a>Skapa en ny instrumentpanel
 En enda instrumentpanel kan innehålla resurser från flera program, resursgrupper och prenumerationer.  Börja självstudien genom att skapa en ny instrumentpanel för ditt program.  
 
-2.  I instrumentpanelen väljer du **Ny instrumentpanel**.
+1. I instrumentpanelen väljer du **Ny instrumentpanel**.
 
-    ![Ny instrumentpanel](media/tutorial-app-dashboards/1newdashboard.png)
+   ![Ny instrumentpanel](media/tutorial-app-dashboards/1newdashboard.png)
 
-3. Ange ett namn för instrumentpanelen.
-4. Ta en titt i **panelgalleriet** och se olika paneler som du kan lägga till i instrumentpanelen.  Utöver att lägga till filer från galleriet kan du fästa diagram och andra vyer direkt från Application Insights till instrumentpanelen.
-5. Leta rätt på panelen **Markdown** och dra den till din instrumentpanel.  Med den här panelen kan du lägga till text som är formaterad i Markdown, vilket är idealiskt för att lägga till beskrivande text i instrumentpanelen.
-6. Lägg till text i panelens egenskaper och ändra storlek på den på instrumentpanelens arbetsyta.
+1. Ange ett namn för instrumentpanelen.
+1. Ta en titt i **panelgalleriet** och se olika paneler som du kan lägga till i instrumentpanelen.  Utöver att lägga till filer från galleriet kan du fästa diagram och andra vyer direkt från Application Insights till instrumentpanelen.
+1. Leta rätt på panelen **Markdown** och dra den till din instrumentpanel.  Med den här panelen kan du lägga till text som är formaterad i Markdown, vilket är idealiskt för att lägga till beskrivande text i instrumentpanelen.
+1. Lägg till text i panelens egenskaper och ändra storlek på den på instrumentpanelens arbetsyta.
     
     ![Redigera Markdown-panel](media/tutorial-app-dashboards/2dashboard-text.png)
 
-6. Klicka på **Anpassningen är klar** överst på skärmen för att avsluta läget för panelanpassning.
+1. Klicka på **Anpassningen är klar** överst på skärmen för att avsluta läget för panelanpassning.
 
 ## <a name="add-health-overview"></a>Lägga till hälsoöversikt
 En instrumentpanel med bara statisk text är inte särskilt intressant, så lägg nu till en panel från Application Insights som visar information om ditt program.  Du kan lägga till Application Insights-paneler från panelgalleriet eller fästa dem direkt från skärmarna i Application Insights.  På så sätt kan du konfigurera tabeller och vyer som du redan är bekant med innan du fäster dem på instrumentpanelen.  Börja med att lägga till en standardhälsoöversikt för programmet.  Det kräver ingen konfiguration och gör en minimal anpassning i instrumentpanelen.

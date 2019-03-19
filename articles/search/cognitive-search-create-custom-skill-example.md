@@ -7,15 +7,15 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 06/29/2018
+ms.date: 03/12/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 892e47d87fef482c6f655473278baeb5525ee09e
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: f3b4e6cd18a362775443bb296560a076aaa1497d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57760035"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57883635"
 ---
 # <a name="example-create-a-custom-skill-using-the-text-translate-api"></a>Exempel: Skapa en anpassad kompetens med hjälp av översätta Text-API
 
@@ -39,7 +39,7 @@ I det här exemplet lär du dig hur du skapar ett web API anpassade färdigheter
 
 1. I dialogrutan Nytt projekt väljer **installerad**, expandera **Visual C#** > **molnet**väljer **Azure Functions**, ange ett Namn för projektet och välj **OK**. Funktionsappens namn måste vara ett giltigt C#-namnområde. Du kan inte använda understreck, bindestreck eller andra icke-alfanumeriska tecken.
 
-1. Välj **v2 för Azure Functions (.Net Core)**. Du kan också göra det med version 1, men den kod som skrivs nedan baseras på v2-mall.
+1. Välj **v2 för Azure Functions (.NET Core)**. Du kan också göra det med version 1, men den kod som skrivs nedan baseras på v2-mall.
 
 1. Välj den typ som ska vara **HTTP-utlösare**
 

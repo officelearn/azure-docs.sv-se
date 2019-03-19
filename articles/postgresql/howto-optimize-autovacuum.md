@@ -6,12 +6,12 @@ ms.author: dianas
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/22/2018
-ms.openlocfilehash: e8e9991f20481deee85a6d582582335eb98e3c24
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: e1b4bf1f9fa956da7a7b0ca1521439002d1ce76b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55815225"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57993428"
 ---
 # <a name="optimize-autovacuum-on-an-azure-database-for-postgresql-server"></a>Optimera autovacuum på en Azure Database for PostgreSQL-server 
 Den här artikeln beskriver hur du effektivt optimera autovacuum på en Azure Database for PostgreSQL-server.
@@ -43,6 +43,7 @@ De konfigurationsparametrar som styr autovacuum baseras på svaren på två vikt
 - Hur mycket bör den Rensa när den har startat?
 
 Här följer några autovacuum configuration parametrar som du kan uppdatera baserat på föregående frågor, tillsammans med lite vägledning.
+
 Parameter|Beskrivning|Standardvärde
 ---|---|---
 autovacuum_vacuum_threshold|Anger det minsta antalet uppdaterade eller borttagna tupplar som behövs för att utlösa en Dammsuga åtgärd i samma tabell. Standardvärdet är 50 tupplar. Ange den här parametern endast i filen postgresql.conf eller server från kommandoraden. Om du vill åsidosätta inställningen för enskilda tabeller, ändra parametrarna table storage.|50
@@ -51,6 +52,7 @@ autovacuum_vacuum_cost_limit|Anger kostnaden gränsvärdet automatisk Dammsuga v
 autovacuum_vacuum_cost_delay|Anger kostnaden fördröjningsvärde som används i automatisk Dammsuga åtgärder. Om -1 anges, används reguljära vacuum_cost_delay-värdet. Standardvärdet är 20 millisekunder. Ange den här parametern endast i filen postgresql.conf eller server från kommandoraden. Om du vill åsidosätta inställningen för enskilda tabeller, ändra parametrarna table storage.|20 ms
 autovacuum_nap_time|Anger den minsta fördröjningen mellan autovacuum körs på en viss databas. I varje omgång daemon undersöker databasen och utfärdar VAKUUM och analysera kommandon efter behov för tabeller i databasen. Fördröjningen mäts i sekunder och standardvärdet är en minut (1 min). Ange den här parametern endast i filen postgresql.conf eller server från kommandoraden.|15 s
 autovacuum_max_workers|Anger det maximala antalet autovacuum processer, än starta autovacuum som kan köras samtidigt. Standardvärdet är tre. Ange den här parametern om du bara början server.|3
+
 Ändra parametrarna table storage för att åsidosätta inställningarna för enskilda tabeller. 
 
 ## <a name="autovacuum-cost"></a>Autovacuum kostnad

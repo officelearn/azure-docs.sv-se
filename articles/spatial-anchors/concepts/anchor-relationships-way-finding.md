@@ -1,6 +1,6 @@
 ---
 title: Ankare relationer och sätt att hitta i Azure Spatial ankare | Microsoft Docs
-description: Beskriv den konceptuella modellen bakom ankare relationer. Beskriv processen för att ansluta ankare inom ett blanksteg och hur du med i närheten API för att uppfylla ett scenario med sätt-effekt. Peka utvecklare på vår exempelappar som gör Närliggande så att de kan komma igång genomföra det här scenariot i sina egna appar efter förklarar den konceptuella modellen.
+description: 'Läs mer om den konceptuella modellen bakom ankare relationer. Lär dig att ansluta ankare inom ett blanksteg och om du vill använda i närheten API: et för att uppfylla ett scenario med sätt-effekt.'
 author: ramonarguelles
 manager: vicenterivera
 services: azure-spatial-anchors
@@ -8,73 +8,78 @@ ms.author: ramonarguelles
 ms.date: 02/24/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 3d1ee0b25fbbf0ef895bdf6ff8afad71ff82de25
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 619cd051eccce3434469ae909f69496a254d0d9a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57217180"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57863346"
 ---
 # <a name="anchor-relationships-and-way-finding-in-azure-spatial-anchors"></a>Ankare relationer och sätt att hitta i Azure Spatial ankare
 
-Ankare relationer kan du skapa anslutna fästpunkter med blanksteg och ställa frågor om dem som:
+Med ankare relationer kan du skapa anslutna fästpunkter i ett utrymme och sedan ställa frågor som dessa:
 
 * Finns det ankare Närliggande?
 * Hur långt bort är de?
 
 ## <a name="examples"></a>Exempel
 
-Vissa – du kan aktivera med anslutna ankare omfattar:
+Du kan använda anslutna ankare i fall som dessa:
 
-1. En arbetsprocess måste utföra en procedur som inbegriper att gå till olika platser i en industriella datafabrik. Fabriken har placerats spatial fästpunkter på varje plats som ingår i proceduren. HoloLens- eller mobilapp hjälper till att guiden arbetaren från en plats till nästa. Det skulle efterfråga spatial ankare som finns i närheten, och sedan hjälper arbetaren till nästa plats. Appen visar visuella indikatorer om allmänna riktning och avståndet till nästa plats att slutföra uppgiften.
+* En worker behöver slutföra en uppgift som inbegriper att gå till olika platser i en industriella datafabrik. Fabriken har spatial fästpunkter på varje plats. HoloLens- eller mobilapp hjälper till att guiden arbetaren från en plats till nästa. Appen först begär i närheten spatial ankare och sedan hjälper arbetaren till nästa plats. Appen visar visuellt Allmänt riktning och avståndet till nästa plats.
 
-2. En museum skapar spatial fästpunkter på offentliga skärmar som tillsammans skapar en specifik rundtur bland museum, till exempel ”en timmes genomgång av grundläggande offentliga visar”. När besökare finns på en offentlig visning, kan de öppna den museum Mixad verklighet appen på sin mobila enhet. De skulle peka telefonen runt området och via en kamera-feed, och se övergripande riktning och avståndet till de offentliga visar på den guidade visningen. När användaren startar som leder till en av de offentliga visar uppdaterar appen progressivt Allmänt riktning och avståndet till hjälper användarna att guiden det.
+* En museum skapar spatial fästpunkter på offentliga visar. Tillsammans utgör de här ankare en timmes genomgång av den museum grundläggande offentliga visar. Besökare kan öppna den museum Mixad verklighet appen på sina mobila enheter på en offentlig visning. De peka sedan phone kameran runt utrymme för att se övergripande riktning och avståndet till de offentliga visar på den guidade visningen. När en användare går mot en offentlig visning, uppdaterar appen Allmänt riktning och avståndet vägleder användaren.
 
-## <a name="way-finding"></a>Sätt-effekt
+## <a name="set-up-way-finding"></a>Konfigurera sätt-effekt
 
-Anta att appen använder ”rad med för att se” riktning och avståndet mellan fästpunkter ge tips vägledning till användarna. Vi kallar detta övergripande sätt-effekt. Det är viktigt att notera att sätt hitta skiljer sig från aktivera genom att aktivera navigering. I sin tur genom att aktivera navigering vägleds användare runt väggar, via dörrar och mellan golv. Med sättet att hitta får användaren tips om allmänna målet. Men användarens inferens eller kunskap om området hjälper också till att navigera genom struktur till målet.
+Med hjälp av en app som använder rad med för att se riktning och avståndet mellan fästpunkter för att ge vägledning *sätt-effekt*. Sätt-effekt skiljer sig från aktivera genom att aktivera navigering. I sin tur genom att aktivera navigering vägleds användare runt väggar, via dörrar och mellan golv. Med sättet att hitta kommer användaren tips om allmänna målet. Men inferens eller kunskap om området hjälper också till att användaren navigerar struktur till målet.
 
-Att skapa en sätt-effekt-upplevelse innebär att förbereda ett utrymme för upplevelse och utvecklar en app som slutanvändarna kommer att interagera med. Konceptuell stegen är:
+Om du vill skapa en sätt-effekt upplevelse, förbereda ett utrymme för upplevelse och utveckla en app som användarna kommer att interagera med. Detta är de konceptuella steg:
 
-1. Planera utrymmet: Fastställa platser inom området som deltar i sätt-effekt-upplevelse. I tidigare exempel har kan den här aktiviteten genomföras med factory övervakaren eller museum rundtur koordinatorn.
-2. Ansluta fästpunkter: Någon besöker på valda platser och skapar det spatial fästpunkter. Den här åtgärden kan utföras med en administratörsläge av slutanvändaren appen eller en annan app helt och hållet. Via den här processen är fästpunkterna för varje ansluten eller relaterade till de andra. Dessa relationer underhålls i tjänsten.
-3. Startar slutanvändarens upplevelse: Det första steget för slutanvändare är att hitta någon av de ankare som använder en app, som kan vara i något av de valda platserna. Avgör de platser där användarna kan ange upplevelsen är en del av Designa den övergripande processen.
-4. Att söka efter närliggande fästpunkter: När du har hittat en fästpunkt, kan appen begära Närliggande fästpunkter. Den här proceduren returnerar en attityd mellan enheten och dessa fästpunkter.
-5. Guidar användaren: Appen kan dra nytta av attityden till var och en av dessa ankare att återge hjälp att få tips om deras allmänna riktning och avstånd. Exempelvis kan det finnas en ikon och pilen på en kamera flöde i en mobilapp som representerar varje möjligt mål som i bilden nedan.
-6. Förfina vägledningen: När användaren går kan appen med jämna mellanrum att beräkna en ny attityd mellan enheten och mål-ankare. Appen fortsätter att förfina tipsen vägledning som hjälper användaren når målet.
+1. **Planera utrymmet**: Bestäm vilka platser inom området kommer att ingå i sätt-effekt-upplevelse. I vårt fall välja factory övervakaren eller museum rundtur koordinatorn vilka platser som ska ingå i sätt-effekt-upplevelse.
+2. **Ansluta ankare**: Gå till de valda platserna för att skapa spatial fästpunkter. Du kan göra detta i ett läge för appens slutanvändaren eller i en annan app helt och hållet. Du måste ansluta eller avser de andra varje ankare. Tjänsten underhåller dessa relationer.
+3. **Starta slutanvändarens upplevelse**: Användarna kör appen för att hitta en fästpunkt, vilket kan vara i något av de valda platserna. Din övergripande design bestämma de platser där användare kan ange upplevelsen.
+4. **Hitta Närliggande ankare**: När du hittar en fästpunkt, kan appen begära Närliggande fästpunkter. Den här proceduren returnerar en attityd mellan enheten och dessa fästpunkter.
+5. **Hjälper användaren att**: Appen kan använda attityd till var och en av dessa fästpunkter för att ge vägledning om användarens Allmänt riktning och avståndet. Kamerans användning i appen kan till exempel visa en ikon och en pil för att representera varje möjligt mål, så som visas i följande bild.
+6. **Förfina riktlinjerna**: När användaren går kan appen med jämna mellanrum att beräkna en ny attityd mellan enheten och mål-ankare. Appen fortsätter att förfina tipsen vägledning som hjälper användaren når målet.
 
-![Mötets plats](./media/meeting-spot.png)
+    ![Ett exempel på hur en app kan visa att sätt hitta vägledning](./media/meeting-spot.png)
 
-## <a name="connecting-anchors"></a>Ansluta ankare
+## <a name="connect-anchors"></a>Ansluta ankare
 
-Om du vill skapa en sätt-effekt upplevelse, måste du placera anslutna fästpunkter på valda platser. Nedan antar vi det här arbetet utförs av en administratör av appen.
+Om du vill skapa en sätt-effekt upplevelse, måste du först placera fästpunkter på valda platser. I det här avsnittet antar vi appens administratör har redan slutfört arbetet.
 
-### <a name="connecting-anchors-in-a-single-session"></a>Ansluta fästpunkter i en enda session
+### <a name="connect-anchors-in-a-single-session"></a>Ansluta fästpunkter i en enda session
 
-Stegen som ingår i ansluter fästpunkter är:
+Så här ansluter fästpunkter:
 
-1. Administratören får för att den första platsen och skapar ankare A med hjälp av en CloudSpatialAnchorSession.
-2. Administratören går till den andra platsen medan den underliggande MR/AR-plattformen fortsätter att spåra användaren.
-3. Administratören skapar ankare B med samma CloudSpatialAnchorSession. Fästpunkter A och B är nu ansluten och den här relationen underhålls av tjänsten Azure Spatial fästpunkter.
-4. Fortsätt proceduren för alla ankare som du vill ansluta till.
+1. Gå till den första platsen och skapa ankare A med hjälp av en CloudSpatialAnchorSession.
+2. Gå till den andra platsen. Den underliggande plattformen MR/AR spårar flödet.
+3. Skapa fästpunkt B med samma CloudSpatialAnchorSession. Fästpunkter A och B är nu ansluten. Tjänsten Spatial ankare underhåller den här relationen.
+4. Fortsätt proceduren för återstående fästpunkter.
 
-### <a name="multiple-sessions"></a>Flera sessioner
+### <a name="connect-anchors-in-multiple-sessions"></a>Ansluta ankare i flera sessioner
 
-Du kan också ansluta spatial fästpunkter för flera sessioner. Den här metoden kan du skapa och ansluta vissa ankare i taget och senare skapa och ansluta fler fästpunkter. Så här ansluter ankare med flera sessioner:
+Du kan ansluta spatial fästpunkter för flera sessioner. Med den här metoden kan kan du skapa och ansluta vissa fästpunkter på en gång och sedan senare skapa och ansluta fler fästpunkter. 
 
-1. Appen skapar vissa fästpunkter i en CloudSpatialAnchorSession.
-2. Senare, till exempel på en annan dag appen söker efter en av dessa ankare med en ny CloudSpatialAnchorSession (till exempel ankare A).
-3. Användaren går till en ny plats medan den underliggande MR/AR-plattformen fortsätter att spåra användaren.
-4. Med samma CloudSpatialAnchorSession kan användaren skapar ankare C. ankare A, B och C är nu ansluten och den här relationen underhålls av Azure Spatial fästpunkter.
-5. Du kan fortsätta den här proceduren för fler fästpunkter och fler sessioner med tiden.
+Så här ansluter fästpunkter för flera sessioner:
 
-### <a name="verifying-anchor-connections"></a>Verifiera ankare anslutningar
+1. Appen skapar vissa fästpunkter i en CloudSpatialAnchorSession. 
+2. Vid en annan tidpunkt hittar någon av dessa ankare (till exempel ankare A) med hjälp av en ny CloudSpatialAnchorSession i appen.
+3. Gå till en ny plats. Den underliggande plattformen för Mixad verklighet eller förhöjd verklighet spårar flödet.
+4. Skapa fästpunkt C med samma CloudSpatialAnchorSession. Fästpunkter A, B och C är nu ansluten. Tjänsten Spatial ankare underhåller den här relationen.
 
-Appen kan kontrollera att två fästpunkter är ansluten genom att utfärda en fråga i närheten fästpunkter. När resultatet av frågan innehåller önskat mål fästpunkt, har appen bekräftelse att fästpunkter är anslutna. Om de inte är anslutna försök appen under anslutningen igen. Här följer några orsaker till varför ankare misslyckas med att ansluta:
+Du kan fortsätta den här proceduren för fler fästpunkter och fler sessioner med tiden.
 
-1. Underliggande MR/AR spåraren förlorade spårning under processen för att ansluta fästpunkter.
-2. Det uppstod ett fel i kommunikationen med tjänsten Azure Spatial ankare och ankar-anslutningen kunde inte sparas.
+### <a name="verify-anchor-connections"></a>Verifiera ankare anslutningar
 
-### <a name="sample-code"></a>Exempelkod
+Appen kan kontrollera att två fästpunkter är ansluten genom att utfärda en fråga i närheten fästpunkter. När frågans resultat innehåller target fästpunkt, har ankar-anslutningen verifierats. Om fästpunkter inte ansluts kan appen försöka ansluta dem igen. 
 
-Du kan se exempelkod som visar hur du ansluter ankare och göra Närliggande frågor. Referera till den [Azure Spatial ankare exempelappar](https://github.com/Azure/azure-spatial-anchors-samples) på GitHub.
+Här följer några orsaker till varför ankare misslyckas med att ansluta:
+
+* Underliggande Mixad verklighet förhöjd verklighet plattformen eller förlorade spårning under processen för att ansluta fästpunkter.
+* På grund av ett nätverksfel vid kommunikation med tjänsten Spatial ankare kunde inte ankar-anslutningen sparas.
+
+### <a name="find-sample-code"></a>Hitta exempelkod
+
+Exempelkod som visar hur du ansluter ankare och för att utföra Närliggande frågor finns i [Spatial ankare exempelappar](https://github.com/Azure/azure-spatial-anchors-samples).

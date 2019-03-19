@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: cynthn
-ms.openlocfilehash: 24c8ec6cfe587fbb6e1e1e5433123aad87705c04
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: 816233368c2274e34d2acdd712aed270a5e3bfa5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57569067"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58010906"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-java"></a>Skapa och hantera Windows-datorer i Azure med Java
 
@@ -40,7 +40,7 @@ Det tar cirka 20 minuter för att utföra de här stegen.
 ## <a name="create-a-maven-project"></a>Skapa ett Maven-projekt
 
 1. Om du inte redan har gjort det installerar [Java](https://aka.ms/azure-jdks).
-2. Installera [Maven](http://maven.apache.org/download.cgi).
+2. Installera [Maven](https://maven.apache.org/download.cgi).
 3. Skapa en ny mapp och projektet:
     
     ```

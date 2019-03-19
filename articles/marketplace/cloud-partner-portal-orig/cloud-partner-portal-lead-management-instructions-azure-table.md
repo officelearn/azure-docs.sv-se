@@ -1,5 +1,5 @@
 ---
-title: Azure-tabell | Microsoft Docs
+title: Azure Table | Microsoft Docs
 description: Konfigurera lead-hantering för Azure Table.
 services: Azure, Marketplace, Cloud Partner Portal,
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: pbutlerm
-ms.openlocfilehash: c4537709181398e401ade67b831bc2d26a99221f
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 31a800e851eb8a2f533cc8170856b16cd43c21cf
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53193594"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57850725"
 ---
 # <a name="lead-management-instructions-for-azure-table"></a>Leda Management anvisningar om hur Azure-tabell
 
@@ -38,7 +38,7 @@ Den här artikeln beskriver hur du konfigurerar Azure-tabell för att lagra säl
     
     ![Azure-lagringsnyckel](./media/cloud-partner-portal-lead-management-instructions-azure-table/azurestoragekeys.png)
 
-Du kan använda [Azure Lagringsutforskaren](http://azurestorageexplorer.codeplex.com/) eller något annat verktyg för att se data i ditt storage-tabell. Du kan också exportera data i Azure Table.
+Du kan använda [Azure Lagringsutforskaren](https://azurestorageexplorer.codeplex.com/) eller något annat verktyg för att se data i ditt storage-tabell. Du kan också exportera data i Azure Table.
 data.
 
 ## <a name="optional-use-microsoft-flow-with-an-azure-table"></a>**(Valfritt)**  Använd Microsoft Flow med en Azure-tabell
@@ -121,7 +121,7 @@ I nästa uppsättning steg, ansluter du till din Azure-tabell och konfigurera st
 
     - **Att** -ange en e-postadress för alla användare som får det här meddelandet.
     - **Ämne** – ange ett ämne för e-postmeddelandet. Exempel: Nya leads!
-    - **Brödtext**:   Lägg till text som du vill inkludera i varje e-post (valfritt) och klistra sedan in brödtext `('Get_entities')?['value']` som en funktion för att infoga lead-information.
+    - **Body**:   Lägg till text som du vill inkludera i varje e-post (valfritt) och klistra sedan in brödtext `('Get_entities')?['value']` som en funktion för att infoga lead-information.
 
       >[!NOTE] 
       >Du kan infoga ytterligare statisk eller dynamisk datapunkter och i brödtexten för e-postmeddelandet.

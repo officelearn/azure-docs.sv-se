@@ -2,19 +2,19 @@
 title: Skapa ett VM-kluster med Terraform och HCL
 description: Använd Terraform och HashiCorp Configuration Language (HCL) för att skapa ett Linux VM-kluster med en belastningsutjämnare i Azure
 services: terraform
-ms.service: terraform
+ms.service: azure
 keywords: terraform, devops, virtuell dator, nätverk, moduler
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 11/13/2017
-ms.openlocfilehash: a53fee8ee492de4d9eaa8b45a8d4a88e692da02d
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
-ms.translationtype: HT
+ms.openlocfilehash: a0358859d6f806a94c529bae2eb6fa9d1ab82963
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54410378"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58077844"
 ---
 # <a name="create-a-vm-cluster-with-terraform-and-hcl"></a>Skapa ett VM-kluster med Terraform och HCL
 
@@ -46,30 +46,30 @@ I det här avsnittet skapar du ett huvudnamn för Azure-tjänsten och två Terra
 
 5. Kopiera följande kod till din variabeldeklarationsfil:
 
-  ```tf
-  variable subscription_id {}
-  variable tenant_id {}
-  variable client_id {}
-  variable client_secret {}
+   ```tf
+   variable subscription_id {}
+   variable tenant_id {}
+   variable client_id {}
+   variable client_secret {}
   
-  provider "azurerm" {
+   provider "azurerm" {
       subscription_id = "${var.subscription_id}"
       tenant_id = "${var.tenant_id}"
       client_id = "${var.client_id}"
       client_secret = "${var.client_secret}"
-  }
-  ```
+   }
+   ```
 
 6. Skapa en ny fil som innehåller värden för dina Terraform-variabler. Det är vanligt att ge Terraform-variabelfilen namnet `terraform.tfvars` eftersom Terraform automatiskt läser in en fil som heter `terraform.tfvars` (eller enligt mönstret `*.auto.tfvars`) om den finns i den aktuella katalogen. 
 
 7. Kopiera följande kod till din variabelfil. Se till att ersätta platshållarna så här: För `subscription_id` använder du Azure-prenumerationens ID som du angav för att köra `az account set`. För `tenant_id` använder du värdet `tenant` som returneras från `az ad sp create-for-rbac`. För `client_id` använder du värdet `appId` som returneras från `az ad sp create-for-rbac`. För `client_secret` använder du värdet `password` som returneras från `az ad sp create-for-rbac`.
 
-  ```tf
-  subscription_id = "<azure-subscription-id>"
-  tenant_id = "<tenant-returned-from-creating-a-service-principal>"
-  client_id = "<appId-returned-from-creating-a-service-principal>"
-  client_secret = "<password-returned-from-creating-a-service-principal>"
-  ```
+   ```tf
+   subscription_id = "<azure-subscription-id>"
+   tenant_id = "<tenant-returned-from-creating-a-service-principal>"
+   client_id = "<appId-returned-from-creating-a-service-principal>"
+   client_secret = "<password-returned-from-creating-a-service-principal>"
+   ```
 
 ## <a name="2-create-a-terraform-configuration-file"></a>2. Skapa en Terraform-konfigurationsfil
 
@@ -79,34 +79,34 @@ I det här avsnittet skapar du en fil som innehåller resursdefinitionerna för 
 
 2. Kopiera följande exempel på resursdefinitioner till den nyligen skapade filen `main.tf`: 
 
-  ```tf
-  resource "azurerm_resource_group" "test" {
+   ```tf
+   resource "azurerm_resource_group" "test" {
     name     = "acctestrg"
     location = "West US 2"
-  }
+   }
 
-  resource "azurerm_virtual_network" "test" {
+   resource "azurerm_virtual_network" "test" {
     name                = "acctvn"
     address_space       = ["10.0.0.0/16"]
     location            = "${azurerm_resource_group.test.location}"
     resource_group_name = "${azurerm_resource_group.test.name}"
-  }
+   }
 
-  resource "azurerm_subnet" "test" {
+   resource "azurerm_subnet" "test" {
     name                 = "acctsub"
     resource_group_name  = "${azurerm_resource_group.test.name}"
     virtual_network_name = "${azurerm_virtual_network.test.name}"
     address_prefix       = "10.0.2.0/24"
-  }
+   }
 
-  resource "azurerm_public_ip" "test" {
+   resource "azurerm_public_ip" "test" {
     name                         = "publicIPForLB"
     location                     = "${azurerm_resource_group.test.location}"
     resource_group_name          = "${azurerm_resource_group.test.name}"
     public_ip_address_allocation = "static"
-  }
+   }
 
-  resource "azurerm_lb" "test" {
+   resource "azurerm_lb" "test" {
     name                = "loadBalancer"
     location            = "${azurerm_resource_group.test.location}"
     resource_group_name = "${azurerm_resource_group.test.name}"
@@ -115,15 +115,15 @@ I det här avsnittet skapar du en fil som innehåller resursdefinitionerna för 
       name                 = "publicIPAddress"
       public_ip_address_id = "${azurerm_public_ip.test.id}"
     }
-  }
+   }
 
-  resource "azurerm_lb_backend_address_pool" "test" {
+   resource "azurerm_lb_backend_address_pool" "test" {
     resource_group_name = "${azurerm_resource_group.test.name}"
     loadbalancer_id     = "${azurerm_lb.test.id}"
     name                = "BackEndAddressPool"
-  }
+   }
 
-  resource "azurerm_network_interface" "test" {
+   resource "azurerm_network_interface" "test" {
     count               = 2
     name                = "acctni${count.index}"
     location            = "${azurerm_resource_group.test.location}"
@@ -135,9 +135,9 @@ I det här avsnittet skapar du en fil som innehåller resursdefinitionerna för 
       private_ip_address_allocation = "dynamic"
       load_balancer_backend_address_pools_ids = ["${azurerm_lb_backend_address_pool.test.id}"]
     }
-  }
+   }
 
-  resource "azurerm_managed_disk" "test" {
+   resource "azurerm_managed_disk" "test" {
     count                = 2
     name                 = "datadisk_existing_${count.index}"
     location             = "${azurerm_resource_group.test.location}"
@@ -145,18 +145,18 @@ I det här avsnittet skapar du en fil som innehåller resursdefinitionerna för 
     storage_account_type = "Standard_LRS"
     create_option        = "Empty"
     disk_size_gb         = "1023"
-  }
+   }
 
-  resource "azurerm_availability_set" "avset" {
+   resource "azurerm_availability_set" "avset" {
     name                         = "avset"
     location                     = "${azurerm_resource_group.test.location}"
     resource_group_name          = "${azurerm_resource_group.test.name}"
     platform_fault_domain_count  = 2
     platform_update_domain_count = 2
     managed                      = true
-  }
+   }
 
-  resource "azurerm_virtual_machine" "test" {
+   resource "azurerm_virtual_machine" "test" {
     count                 = 2
     name                  = "acctvm${count.index}"
     location              = "${azurerm_resource_group.test.location}"
@@ -215,8 +215,8 @@ I det här avsnittet skapar du en fil som innehåller resursdefinitionerna för 
     tags {
       environment = "staging"
     }
-  }
-  ```
+   }
+   ```
 
 ## <a name="3-initialize-terraform"></a>3. Initiera Terraform 
 

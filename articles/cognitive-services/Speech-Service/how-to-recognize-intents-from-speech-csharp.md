@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: wolfma
-ms.openlocfilehash: 680c10d8402853f1ac2f519b8f07f81b9718ab9e
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: HT
+ms.openlocfilehash: a9b3d8a2670a0b4e6bed2d5e9a9b64e597adcb16
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56867005"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57855732"
 ---
 # <a name="tutorial-recognize-intents-from-speech-using-the-speech-sdk-for-c"></a>Självstudier: Identifiera avsikter från tal med hjälp av Speech SDK för C#
 
@@ -36,7 +36,7 @@ I den här självstudien använder du Speech SDK för att utveckla ett C#-konsol
 > * Identifiera tal från en fil
 > * Använd asynkron, händelsedriven kontinuerlig igenkänning
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Se till att du har följande innan du börjar den här självstudiekursen.
 
@@ -45,9 +45,9 @@ Se till att du har följande innan du börjar den här självstudiekursen.
 
 ## <a name="luis-and-speech"></a>LUIS och tal
 
-LUIS integreras med Speech-tjänsten för att identifiera avsikter från tal. Du behöver inte en Speech-tjänstprenumeration, bara LUIS.
+LUIS integreras med Taltjänster ska kunna identifiera avsikter från tal. Du behöver inte en Speech Services-prenumeration, precis LUIS.
 
-LUIS använder två typer av nycklar: 
+LUIS använder två typer av nycklar:
 
 |Nyckeltyp|Syfte|
 |--------|-------|
@@ -56,7 +56,7 @@ LUIS använder två typer av nycklar:
 
 Slutpunktsnyckeln är den LUIS-nyckel som behövs för den här självstudien. Den här kursen använder LUIS-exempelappen Home Automation, som du kan skapa genom att följa [Använda en färdig hemautomatiseringsapp](https://docs.microsoft.com/azure/cognitive-services/luis/luis-get-started-create-app). Om du har skapat en LUIS-app på egen hand kan du använda den i stället.
 
-När du skapar en LUIS-app skapas automatiskt en startnyckel så att du kan testa appen med hjälp av textfrågor. Den här nyckeln aktiverar inte Speech-tjänstintegrering och fungerar inte med den här självstudien. Du måste skapa en LUIS-resurs på Azure-instrumentpanelen och tilldela den till LUIS-appen. Du kan använda den kostnadsfria prenumerationsnivån för den här självstudiekursen. 
+När du skapar en LUIS-app skapas automatiskt en startnyckel så att du kan testa appen med hjälp av textfrågor. Den här nyckeln Aktivera inte Speech Services-integrering och fungerar inte med den här självstudien. Du måste skapa en LUIS-resurs på Azure-instrumentpanelen och tilldela den till LUIS-appen. Du kan använda den kostnadsfria prenumerationsnivån för den här självstudiekursen.
 
 När du har skapat LUIS-resursen på Azure-instrumentpanelen loggar du in på [LUIS-portalen](https://www.luis.ai/home), väljer ditt program på sidan Mina appar och växlar till appens hanteringssida. Klicka slutligen på **Nycklar och slutpunkter** i sidopanelen.
 
@@ -123,7 +123,7 @@ Följande avsnitt innehåller en beskrivning av koden.
 Det första steget i att identifiera avsikter är att skapa en talkonfiguration från din LUIS-slutpunktsnyckel och region. Talkonfigurationer kan användas för att skapa igenkännare för de olika funktionerna i Speech SDK. Talkonfigurationen har flera sätt att ange den prenumeration som du vill använda. Här använder vi `FromSubscription`, som tar prenumerationsnyckeln och regionen.
 
 > [!NOTE]
-> Använd nyckeln och regionen för din LUIS-prenumeration, inte för en Speech-tjänstprenumeration.
+> Använd nyckeln och region av prenumerationen THOMAS, inte av en Speech Services-prenumeration.
 
 Nästa steg är att skapa en avsiktsigenkännare med hjälp av `new IntentRecognizer(config)`. Eftersom konfigurationen redan vet vilken prenumeration du ska använda behöver du inte ange prenumerationsnyckeln och slutpunkten igen när du skapar igenkännaren.
 
@@ -174,7 +174,7 @@ Följande kod illustrerar två ytterligare funktioner för avsiktsigenkänning m
 
 Den andra funktionen är att läsa det ljud som innehåller det tal som ska bearbetas från en WAV-fil. Detta inbegriper att skapa en ljudkonfiguration som kan användas vid skapandet av avsiktsigenkännaren. Filen måste vara enkanalig (mono) med en samplingsfrekvens på 16 kHz.
 
-Om du vill prova dessa funktioner ersätter du innehållet i metoden `RecognizeIntentAsync()` med följande kod. 
+Om du vill prova dessa funktioner ersätter du innehållet i metoden `RecognizeIntentAsync()` med följande kod.
 
 [!code-csharp[Intent recognition by using events from a file](~/samples-cognitive-services-speech-sdk/samples/csharp/sharedcontent/console/intent_recognition_samples.cs#intentContinuousRecognitionWithFile)]
 

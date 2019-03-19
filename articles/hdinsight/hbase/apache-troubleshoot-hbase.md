@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.custom: hdinsightactive, seodec18
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.openlocfilehash: 4f6f6042eaacc809b9d413ef01883987bd558507
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: 4dc50de7a97055e336627e34f747a17fcedc7e58
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53651613"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58091553"
 ---
 # <a name="troubleshoot-apache-hbase-by-using-azure-hdinsight"></a>Felsöka Apache HBase med Azure HDInsight
 
@@ -367,7 +367,7 @@ Här är vad som händer i bakgrunden:
            2017-03-21 13:22:40,285 - File['/var/run/hbase/hbase-hbase-regionserver.pid'] {'action': ['delete']}
            2017-03-21 13:22:40,285 - Deleting File['/var/run/hbase/hbase-hbase-regionserver.pid']
    ```
-På grund av avslutats, kan den port som är associerade med processen inte släppas, även om region serverprocessen har stoppats. Den här situationen kan leda till en AddressBindException när region servern startas enligt följande loggar. Du kan kontrollera detta i region-server.log i katalogen /var/log/hbase på arbetsnoderna där region-servern inte kan startas. 
+   På grund av avslutats, kan den port som är associerade med processen inte släppas, även om region serverprocessen har stoppats. Den här situationen kan leda till en AddressBindException när region servern startas enligt följande loggar. Du kan kontrollera detta i region-server.log i katalogen /var/log/hbase på arbetsnoderna där region-servern inte kan startas. 
 
    ```apache
 

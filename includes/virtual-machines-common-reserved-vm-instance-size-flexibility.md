@@ -4,12 +4,12 @@ ms.author: banders
 ms.service: virtual-machines-windows
 ms.topic: include
 ms.date: 11-20-2018
-ms.openlocfilehash: 6517aec56839295af30d251f4cb5d3bb9426282c
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 0a8b4f9821164cca943064b20f1ec1a87981a172
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57457968"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58125286"
 ---
 # <a name="virtual-machine-size-flexibility-with-reserved-vm-instances"></a>VM-storlek flexibilitet med reserverade VM-instanser
 
@@ -142,7 +142,7 @@ Mer information finns i [storlekar för virtuella datorer för den minnesoptimer
 |Standard_D32s_v3|16|
 |Standard_D64s_v3|32|
 
-Mer information finns i [storlekar för virtuella datorer för generell användning](../articles/virtual-machines/windows/sizes-general.md#dsv3-series-sup1sup).
+Mer information finns i [storlekar för virtuella datorer för generell användning](../articles/virtual-machines/windows/sizes-general.md#dsv3-series-1).
 
 ## <a name="dv2-series"></a>Dv2-serien
 
@@ -179,7 +179,7 @@ Mer information finns i [storlekar för virtuella datorer för den minnesoptimer
 |Standard_D32_v3|16|
 |Standard_D64_v3|32|
 
-Mer information finns i [storlekar för virtuella datorer för generell användning](../articles/virtual-machines/windows/sizes-general.md#dv3-series-sup1sup).
+Mer information finns i [storlekar för virtuella datorer för generell användning](../articles/virtual-machines/windows/sizes-general.md#dv3-series-1).
 
 ## <a name="esv3-series"></a>ESv3-serien
 
@@ -240,7 +240,7 @@ Mer information finns i [beräkningsoptimerade virtuella datorstorlekar](../arti
 |Standard_F8s|8|
 |Standard_F16s|16|
 
-Mer information finns i [beräkningsoptimerade virtuella datorstorlekar](../articles/virtual-machines/windows/sizes-compute.md#fs-series-sup1sup).
+Mer information finns i [beräkningsoptimerade virtuella datorstorlekar](../articles/virtual-machines/windows/sizes-compute.md#fs-series-1).
 
 ## <a name="fsv2-series"></a>Fsv2-serien
 
@@ -254,7 +254,7 @@ Mer information finns i [beräkningsoptimerade virtuella datorstorlekar](../arti
 |Standard_F64s_v2|32|
 |Standard_F72s_v2|36|
 
-Mer information finns i [beräkningsoptimerade virtuella datorstorlekar](../articles/virtual-machines/windows/sizes-compute.md#fsv2-series-sup1sup).
+Mer information finns i [beräkningsoptimerade virtuella datorstorlekar](../articles/virtual-machines/windows/sizes-compute.md#fsv2-series-1).
 
 ## <a name="h-series"></a>H-serien
 

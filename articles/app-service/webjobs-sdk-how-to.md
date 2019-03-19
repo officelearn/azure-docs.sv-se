@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: 6c6d72875cded1b594af12922db9a0c4e8afed17
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 0da4e1a0b20874c4452dd77bf77df0860dec455f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57769344"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57848081"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Så här använder du Azure WebJobs SDK för händelsedrivna Bakgrundsbearbetning
 
@@ -370,7 +370,7 @@ Du kan konfigurera bindningarna som följande:
 
 * [Azure CosmosDB trigger](#azure-cosmosdb-trigger-configuration-version-3x)
 * [Event Hubs-utlösare](#event-hubs-trigger-configuration-version-3x)
-* [Queue storage-utlösare](#queue-trigger-configuration)
+* Queue storage-utlösare
 * [SendGrid-bindning](#sendgrid-binding-configuration-version-3x)
 * [Service Bus-utlösare](#service-bus-trigger-configuration-version-3x)
 

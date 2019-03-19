@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/14/2019
 ms.author: Barclayn
 ms.custom: AzLog
-ms.openlocfilehash: 22d4a18ad1c6e80baa6e798be399ab2cd4836fbc
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: c199adb9ee1d9e5fbc879441da7395efa16f0d40
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56733415"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58094668"
 ---
 # <a name="azure-log-integration-tutorial-process-azure-key-vault-events-by-using-event-hubs"></a>Självstudie för Azure Log Integration: Bearbeta händelser med Azure Key Vault med hjälp av Event Hubs
 
@@ -30,8 +30,8 @@ Den bästa metoden för att integrera Azure loggar är genom att använda din SI
  
 Använd den här självstudiekursen för att bekanta dig med hur Azure Log Integration och Händelsehubbar tillsammans genom att följa stegen exempel och förstå hur varje steg stöder lösningen. Du kan sedan ta vad du har lärt oss här att skapa dina egna steg för att stödja ditt företags unika krav.
 
->[!WARNING]
-De steg och kommandon i den här självstudien är inte avsedda att kopieras och klistras in. Det är bara exempel. Använd inte PowerShell-kommandon ”i befintligt skick” i live-miljön. Du måste anpassa dem baserat på din miljö.
+> [!WARNING]
+> De steg och kommandon i den här självstudien är inte avsedda att kopieras och klistras in. Det är bara exempel. Använd inte PowerShell-kommandon ”i befintligt skick” i live-miljön. Du måste anpassa dem baserat på din miljö.
 
 
 Den här självstudien vägleder dig genom processen för att möjliggöra Azure Key Vault-aktivitet som loggas till en händelsehubb och gör den tillgänglig som JSON-filer till din SIEM-system. Sedan kan du konfigurera din SIEM-system för att bearbeta JSON-filerna.

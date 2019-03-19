@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/29/2017
 ms.author: bwren
-ms.openlocfilehash: f38d9b40143391be34ce5f72627720e2f5119dc6
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: c3732dd2fa87b00eec38f88ab828605b33567235
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55993783"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58123155"
 ---
 # <a name="automate-azure-monitor-log-processes-with-the-connector-for-microsoft-flow"></a>Automatisera Azure Monitor log-processer med anslutningsappen för Microsoft Flow
 [Microsoft Flow](https://ms.flow.microsoft.com) kan du skapa automatiserade arbetsflöden med hundratals åtgärder för en mängd olika tjänster. Utdata från en åtgärd kan användas som indata till en annan så att du kan skapa integrering mellan olika tjänster.  Azure Log Analytics-anslutningsappen för Microsoft Flow kan du skapa arbetsflöden som innehåller data som hämtats av loggfrågor från en Log Analytics-arbetsyta i Azure Monitor.
@@ -48,13 +48,13 @@ Självstudie i den här artikeln visar hur du skapar ett flöde som skickar auto
 
 1. Ange information för din arbetsyta inklusive prenumerations-ID, resursgrupp, och namnet på arbetsytan.
 2. Lägg till följande loggfråga för att den **fråga** fönster.  Detta är endast en exempelfråga och du kan ersätta med alla andra som returnerar data.
-```
+   ```
     Event
     | where EventLevelName == "Error" 
     | where TimeGenerated > ago(1day)
     | summarize count() by Computer
     | sort by Computer
-```
+   ```
 
 2. Välj **HTML-tabell** för den **diagramtyp**.<br><br>![Log Analytics-åtgärden](media/flow-tutorial/flow03.png)
 

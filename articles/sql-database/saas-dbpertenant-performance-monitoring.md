@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: df54f9dd4047fffb578a1a95a2edc47cba711ba1
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 075d0e2471457e1a585f7fdea9b523b1d13499c7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57433526"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58100436"
 ---
 # <a name="monitor-and-manage-performance-of-azure-sql-databases-and-pools-in-a-multi-tenant-saas-app"></a>Övervaka och hantera prestanda för Azure SQL-databaser och pooler i en SaaS-app för flera innehavare
 
@@ -28,7 +28,7 @@ Wingtip biljetter SaaS databas Per klient appen använder en enda klient datamod
 I den här guiden får du lära dig hur man:
 
 > [!div class="checklist"]
-
+> 
 > * Simulerar användning på klientdatabaserna genom att köra en angiven belastningsgenerator
 > * Övervakar klientdatabaserna när de svarar på belastningsökningar
 > * Skalar upp den elastiska poolen i svar på den ökade databasbelastningen
@@ -171,17 +171,17 @@ Som ett alternativ till att skala upp poolen, kan du skapa en andra pool och fly
 1. Klicka på **+ ny pool** att skapa en pool på den aktuella servern.
 1. På den **elastisk pool** mall:
 
-    1. Ange **namn** till *Pool2*.
-    1. Lämna prisnivån som **standardpool**.
-    1. Klicka på **konfigurera poolen**,
-    1. Ange **Pool-eDTU** till *50 eDTU*.
-    1. Klicka på **lägga till databaser** att se en lista över databaser på den server som kan läggas till *Pool2*.
-    1. Välj 10 databaser att flytta dem till den nya poolen och klickar sedan på **Välj**. Om du har kört belastningsgeneratorn, vet tjänsten redan att profilen prestanda kräver en pool som är större än 50 eDTU standardstorleken och rekommenderar att du börjar med en 100 eDTU-inställningen.
+   1. Ange **namn** till *Pool2*.
+   1. Lämna prisnivån som **standardpool**.
+   1. Klicka på **konfigurera poolen**,
+   1. Ange **Pool-eDTU** till *50 eDTU*.
+   1. Klicka på **lägga till databaser** att se en lista över databaser på den server som kan läggas till *Pool2*.
+   1. Välj 10 databaser att flytta dem till den nya poolen och klickar sedan på **Välj**. Om du har kört belastningsgeneratorn, vet tjänsten redan att profilen prestanda kräver en pool som är större än 50 eDTU standardstorleken och rekommenderar att du börjar med en 100 eDTU-inställningen.
 
-    ![rekommendation](media/saas-dbpertenant-performance-monitoring/configure-pool.png)
+      ![rekommendation](media/saas-dbpertenant-performance-monitoring/configure-pool.png)
 
-    1. Låt standardvärdet på 50 edtu: er i den här självstudien och klicka på **Välj** igen.
-    1. Välj **OK** att skapa den nya poolen och flytta de valda databaserna till den.
+   1. Låt standardvärdet på 50 edtu: er i den här självstudien och klicka på **Välj** igen.
+   1. Välj **OK** att skapa den nya poolen och flytta de valda databaserna till den.
 
 Skapa poolen och Flytta databaserna tar några minuter. När databaser flyttas de fortfarande är online och fullt tillgängliga tills sista, då alla öppna anslutningar bryts. Så länge som du har några logik för omprövning klienter sedan att ansluta till databasen i den nya poolen.
 

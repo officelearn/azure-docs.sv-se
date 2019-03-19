@@ -9,12 +9,12 @@ ms.date: 06/06/2018
 ms.topic: article
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 84b66605939abd0f676625a5959f4a31ef1774db
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 3cffd09a54b09a425f3b7f3519b4ceb7a04a6d08
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56818297"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57855358"
 ---
 # <a name="enable-update-management-change-tracking-and-inventory-solutions-on-multiple-vms"></a>Aktivera uppdateringshantering, ändringsspårning och inventering lösningar på flera virtuella datorer
 
@@ -28,7 +28,7 @@ Logga in till Azure på https://portal.azure.com
 
 I Azure-portalen går du till **virtuella datorer**.
 
-Använd kryssrutorna och markera de virtuella datorerna som du vill publicera med ändringsspårning och inventering eller hantering av uppdateringar. Onboarding-processen är tillgängliga för upp till tre olika resursgrupper i taget.
+Använd kryssrutorna och markera de virtuella datorerna som du vill publicera med ändringsspårning och inventering eller hantering av uppdateringar. Onboarding-processen är tillgängliga för upp till tre olika resursgrupper i taget. Virtuella Azure-datorer kan finnas i valfri region oavsett platsen för ditt Automation-konto.
 
 ![Lista över virtuella datorer](media/automation-onboard-solutions-from-browse/vmlist.png)
 > [!TIP]
@@ -68,14 +68,19 @@ I följande tabell visas mappningarna som stöds:
 |Sydöstra Australien|Sydöstra Australien|
 |CanadaCentral|CanadaCentral|
 |Indiencentrala|Indiencentrala|
-|EastUS|EastUS2|
+|EastUS<sup>1</sup>|EastUS2|
 |JapanEast|JapanEast|
 |SoutheastAsia|SoutheastAsia|
 |WestCentralUS|WestCentralUS|
 |Västeuropa|Västeuropa|
 |Södrastorbritannien|Södrastorbritannien|
 |USGovVirginia|USGovVirginia|
-|EastUS2EUAP|CentralUSEUAP|
+|EastUS2EUAP<sup>1</sup>|CentralUSEUAP|
+
+<sup>1</sup> EastUS2EUAP och östra USA mappningar för Log Analytics-arbetsytor till Automation-konton är inte en exakt mappning för olika regioner, men är korrekt mappning.
+
+> [!NOTE]
+> På grund av begäran kanske en region inte tillgänglig när du skapar din Automation-konto eller Log Analytics-arbetsyta.  Om så är fallet kontrollerar du att du använder en region i tabellen ovan, som du kan skapa resurser i.
 
 Avmarkera kryssrutan bredvid en virtuell dator som du inte vill aktivera. Virtuella datorer som inte kan aktiveras är redan avmarkerat.
 

@@ -9,18 +9,18 @@ ms.topic: article
 ms.date: 05/11/2017
 ms.author: lakasa
 ms.subservice: common
-ms.openlocfilehash: 9a96f80c609f446dcc1fea2a87925dec3dadfedd
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 0a2088e603828a7850cb250c1874008d63fe9c89
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55471903"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57992455"
 ---
 # <a name="client-side-encryption-and-azure-key-vault-with-java-for-microsoft-azure-storage"></a>Client Side Encryption och Azure Key Vault med Java för Microsoft Azure Storage
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
 
 ## <a name="overview"></a>Översikt
-Den [Azure Storage-klientbibliotek för Java](http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage) har stöd för kryptering av data i klientprogram före överföringen till Azure Storage och dekryptering av data under nedladdningen till klienten. Biblioteket stöder även integrering med [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) för hantering av nycklar i storage-konto.
+Den [Azure Storage-klientbibliotek för Java](https://mvnrepository.com/artifact/com.microsoft.azure/azure-storage) har stöd för kryptering av data i klientprogram före överföringen till Azure Storage och dekryptering av data under nedladdningen till klienten. Biblioteket stöder även integrering med [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) för hantering av nycklar i storage-konto.
 
 ## <a name="encryption-and-decryption-via-the-envelope-technique"></a>Kryptering och dekryptering via kuvert-teknik
 Processer för kryptering och dekryptering Följ kuvert-teknik.  
@@ -43,7 +43,7 @@ Dekryptering via kuvert-tekniken fungerar på följande sätt:
 4. Innehåll krypteringsnyckeln (CEK) används sedan för att dekryptera krypterade informationen.
 
 ## <a name="encryption-mechanism"></a>Krypteringsalgoritm
-Storage-klientbiblioteket använder [AES](http://en.wikipedia.org/wiki/Advanced_Encryption_Standard) för att kryptera användardata. Mer specifikt [Cipher Block Chaining (CBC)](http://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher-block_chaining_.28CBC.29) läge med AES. Var och en service fungerar på ett något annorlunda så vi upp vart och ett av dem här.
+Storage-klientbiblioteket använder [AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) för att kryptera användardata. Mer specifikt [Cipher Block Chaining (CBC)](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher-block_chaining_.28CBC.29) läge med AES. Var och en service fungerar på ett något annorlunda så vi upp vart och ett av dem här.
 
 ### <a name="blobs"></a>Blobar
 Klientbiblioteket stöder för närvarande kryptering av hela blobar. Mer specifikt kryptering stöds när användarna använder den **överför*** metoder eller **openOutputStream** metod. För nedladdningar, både fullständig och intervallet nedladdningar stöds.  
@@ -55,9 +55,9 @@ Under krypteringen ska klientbiblioteket generera ett slumpmässigt initieringen
 > 
 > 
 
-Ladda ned en krypterad blob innebär att du hämtar innehållet i hela bloben med den **download * / openInputStream** bekväma metoder. Den omslutna CEK oinslagna och används tillsammans med IV (som lagras som blob-metadata i det här fallet) för att returnera dekrypterade data till användarna.
+Ladda ned en krypterad blob innebär att du hämtar innehållet i hela bloben med den **hämta**/**openInputStream** bekväma metoder. Den omslutna CEK oinslagna och används tillsammans med IV (som lagras som blob-metadata i det här fallet) för att returnera dekrypterade data till användarna.
 
-Ladda ned ett godtyckligt adressintervall (**downloadRange*** metoder) innebär att området som tillhandahålls av användare för att få en liten mängd ytterligare data som kan användas för att kunna dekryptera den begärda i krypterad blob intervallet.  
+Ladda ned ett godtyckligt adressintervall (**downloadRange** metoder) innebär att området som tillhandahålls av användare för att få en liten mängd ytterligare data som kan användas för att kunna dekryptera den begärda i krypterad blob intervallet.  
 
 Alla blob-typer (blockblobbar, sidblobbar och tilläggsblobbar) kan krypterade/dekrypteras med hjälp av det här schemat.
 
@@ -98,8 +98,8 @@ I batchåtgärder används samma KEK på alla rader i den batchåtgärd eftersom
 > [!NOTE]
 > Eftersom entiteterna som är krypterade, kan du inte köra frågor som filtrerar på en krypterad egenskap.  Om du försöker att resultaten vara felaktig, eftersom tjänsten skulle ha försökt att jämföra krypterade data med okrypterade data.
 > 
->
-Om du vill utföra frågeåtgärder, måste du ange en nyckel matchare som kan matcha alla nycklar i resultatuppsättningen. Om en entitet i frågeresultatet inte kan matchas till en leverantör, genereras klientbiblioteket ett fel. För en fråga som utför server sida projektioner läggs klientbiblioteket metadataegenskaper särskilda kryptering (_ClientEncryptionMetadata1 och _ClientEncryptionMetadata2) som standard till de markerade kolumnerna.
+> 
+> Om du vill utföra frågeåtgärder, måste du ange en nyckel matchare som kan matcha alla nycklar i resultatuppsättningen. Om en entitet i frågeresultatet inte kan matchas till en leverantör, genereras klientbiblioteket ett fel. För en fråga som utför server sida projektioner läggs klientbiblioteket metadataegenskaper särskilda kryptering (_ClientEncryptionMetadata1 och _ClientEncryptionMetadata2) som standard till de markerade kolumnerna.
 
 ## <a name="azure-key-vault"></a>Azure Key Vault
 Azure Key Vault hjälper dig att skydda krypteringsnycklar och hemligheter som används av molnprogram och molntjänster. Genom att använda Azure Key Vault kan kryptera användare nycklar och hemligheter (till exempel autentiseringsnycklar, lagringskontonycklar, datakrypteringsnycklar. PFX-filer och lösenord) med hjälp av nycklar som skyddas av maskinvarusäkerhetsmoduler (HSM). Mer information finns i [vad är Azure Key Vault?](../../key-vault/key-vault-whatis.md).
@@ -248,9 +248,9 @@ public void setEncryptedProperty1(final String encryptedProperty1) {
 Observera att kryptera din lagring data resulterar i ytterligare prestanda försämras. Innehållsnyckeln och IV måste genereras själva innehållet måste vara krypterat och ytterligare metadata måste formateras och laddat upp. Det här arbetet varierar beroende på mängden data som krypteras. Vi rekommenderar att kunderna alltid testa sina program för prestanda under utvecklingen.
 
 ## <a name="next-steps"></a>Nästa steg
-* Ladda ned den [Azure Storage-klientbibliotek för Java-Maven-paketet](http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage)  
+* Ladda ned den [Azure Storage-klientbibliotek för Java-Maven-paketet](https://mvnrepository.com/artifact/com.microsoft.azure/azure-storage)  
 * Ladda ned den [Azure Storage-klientbibliotek för Java-källkoden från GitHub](https://github.com/Azure/azure-storage-java)   
 * Ladda ned Azure Key Vault Maven-biblioteket för Java-Maven-paket:
-  * [Core](http://mvnrepository.com/artifact/com.microsoft.azure/azure-keyvault-core) paket
-  * [Klienten](http://mvnrepository.com/artifact/com.microsoft.azure/azure-keyvault) paket
+  * [Core](https://mvnrepository.com/artifact/com.microsoft.azure/azure-keyvault-core) paket
+  * [Klienten](https://mvnrepository.com/artifact/com.microsoft.azure/azure-keyvault) paket
 * Gå till den [dokumentation om Azure Key Vault](../../key-vault/key-vault-whatis.md)

@@ -15,12 +15,12 @@ ms.date: 01/14/2019
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: a05021255c6226329f1d7a3f0e7fa8c9be756646
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: c9be377dc74ac936aa3139d395b6a02f3b3192eb
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57546729"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58084369"
 ---
 # <a name="tutorial-configure-hybrid-cloud-connectivity-with-azure-and-azure-stack"></a>Självstudie: Konfigurera molnet hybridanslutning med Azure och Azure Stack
 
@@ -152,12 +152,12 @@ Använd följande steg för att skapa en virtuell nätverksgateway i Azure.
 3. I **virtuell nätverksgateway**väljer **skapa** att öppna den **Skapa virtuell nätverksgateway** sidan.
 4. På **Skapa virtuell nätverksgateway**, anger du värdena för din nätverks-gateway enligt **kursexemplet värden**, och anges följande värden:
 
-    - **SKU**: grundläggande
-    - **Virtual Network**: Välj det virtuella nätverket som du skapade tidigare. Gateway-undernätet som du skapade väljs automatiskt.
-    - **Första IP-konfiguration**:  Det här är den offentliga IP-Adressen för din Gateway.
-        - Välj **skapa IP-gatewaykonfiguration**, vilket leder till den **Välj offentlig IP-adress** sidan.
-        - Välj **+ Skapa nytt** att öppna den **skapa offentlig IP-adress** sidan.
-        - Ange en **namn** för din offentliga IP-adress. Låt SKU: N som **grundläggande**, och välj sedan **OK** att spara dina ändringar.
+   - **SKU**: grundläggande
+   - **Virtual Network**: Välj det virtuella nätverket som du skapade tidigare. Gateway-undernätet som du skapade väljs automatiskt.
+   - **Första IP-konfiguration**:  Det här är den offentliga IP-Adressen för din Gateway.
+     - Välj **skapa IP-gatewaykonfiguration**, vilket leder till den **Välj offentlig IP-adress** sidan.
+     - Välj **+ Skapa nytt** att öppna den **skapa offentlig IP-adress** sidan.
+     - Ange en **namn** för din offentliga IP-adress. Låt SKU: N som **grundläggande**, och välj sedan **OK** att spara dina ändringar.
 
        > [!Note]
        > VPN-Gateway stöder för närvarande endast dynamiska offentliga IP-adressallokering. Det betyder dock inte att IP-adressen ändras när den är tilldelad till din VPN-gateway. Den enda gången den offentliga IP-adressen ändras är när gatewayen tas bort och återskapas. Vid storleksändring, återställning eller annat internt Underhåll/uppgraderingar till din VPN-gateway ändra inte IP-adressen.

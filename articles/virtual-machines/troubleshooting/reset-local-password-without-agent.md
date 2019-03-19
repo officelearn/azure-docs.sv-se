@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: bb5d7306558f46f84d1f4a1b7a61332bf767479f
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 6b77ceb2ab9abe232cec75254b30ce37c3dbbf60
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54267053"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58105615"
 ---
 # <a name="reset-local-windows-password-for-azure-vm-offline"></a>Återställa lokala Windows-lösenord för Azure VM offline
 Du kan återställa det lokala Windows-lösenordet för en virtuell dator i Azure med hjälp av den [Azure-portalen eller Azure PowerShell](reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) angivna Azure-gästagenten är installerad. Den här metoden är det primära sättet att återställa ett lösenord för en Azure-dator. Om du får problem med Azure-gästagenten svarar inte eller inte kunde installeras när du har överfört en anpassad avbildning, kan du manuellt kan du återställer en Windows-lösenord. Den här artikeln beskriver hur du återställer ett lokalt kontolösenord genom att koppla den virtuella käll-OS-disken till en annan virtuell dator. Stegen som beskrivs i den här artikeln gäller inte för Windows-domänkontrollanter. 
@@ -146,7 +146,7 @@ Alltid försöka med att återställa ett lösenord med hjälp av den [Azure-por
      ![Kopiera disk URI](./media/reset-local-password-without-agent/copy_source_vhd_uri.png)
 9. Skapa en virtuell dator från den Virtuella källdatorns OS-disken:
    
-   * Använd [Azure Resource Manager-mallen](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-specialized-vhd-new-or-existing-vnet) att skapa en virtuell dator från en specialiserad virtuell Hårddisk. Klicka på den `Deploy to Azure` knappen för att öppna Azure portal med mallbaserade informationen som fyllts i åt dig.
+   * Använd [Azure Resource Manager-mallen](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-specialized-vhd-new-or-existing-vnet) att skapa en virtuell dator från en specialiserad virtuell Hårddisk. Klicka på den `Deploy to Azure` knappen för att öppna Azure portal med mallbaserade informationen som fyllts i åt dig.
    * Om du vill behålla de tidigare inställningarna för den virtuella datorn, väljer *redigera mallen* att tillhandahålla ditt befintligt virtuellt nätverk, undernät, nätverkskort eller offentlig IP-adress.
    * I den `OSDISKVHDURI` parametern textruta, klistra in URI för källan VHD hämta i föregående steg:
      

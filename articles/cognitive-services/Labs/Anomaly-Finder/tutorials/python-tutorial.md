@@ -10,20 +10,20 @@ ms.subservice: anomaly-detection
 ms.topic: tutorial
 ms.date: 05/01/2018
 ms.author: chliang
-ms.openlocfilehash: 2df1e2c261069473a02b40e4a7e45895eadea42d
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: 5a2fb54658599e0500944aaae9225f314277f9da
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55219404"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57539096"
 ---
 # <a name="tutorial-anomaly-detection-with-python-application"></a>Självstudie: Avvikelseidentifiering med Python-program
 
 [!INCLUDE [PrivatePreviewNote](../../../../../includes/cognitive-services-anomaly-finder-private-preview-note.md)]
 
-Den här självstudien visar hur du använder API:et för avvikelseidentifiering i Python och hur du visualiserar dina resultat med populära bibliotek. Använd Jupyter för att köra självstudien testa dina egna data med din prenumerationsnyckel. Läs hur du kommer igång med interaktiva Jupyter-anteckningsböcker: [Jupyter-dokumentation](http://jupyter.readthedocs.io/en/latest/index.html). 
+Den här självstudien visar hur du använder API:et för avvikelseidentifiering i Python och hur du visualiserar dina resultat med populära bibliotek. Använd Jupyter för att köra självstudien testa dina egna data med din prenumerationsnyckel. Läs hur du kommer igång med interaktiva Jupyter-anteckningsböcker: [Jupyter-dokumentation](https://jupyter.readthedocs.io/en/latest/index.html). 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 ### <a name="subscribe-to-anomaly-detection-and-get-a-subscription-key"></a>Prenumerera på avvikelseidentifiering och få en prenumerationsnyckel 
 

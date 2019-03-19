@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 02/14/2019
 ms.author: cherylmc
-ms.openlocfilehash: d09f03aed8a739eaaaf8c60c379a746551d3b6f8
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: 54b89b74017b8d5d6e4bd1b52c6b3986d2802702
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57009893"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58118807"
 ---
 # <a name="reset-a-vpn-gateway"></a>Återställ VPN Gateway
 
@@ -47,7 +47,7 @@ Du kan återställa en Resource Manager VPN-gateway med Azure portal. Om du vill
 1. Öppna den [Azure-portalen](https://portal.azure.com) och navigera till den virtuella nätverksgatewayen för Resource Manager som du vill återställa.
 2. Klicka på ”Återställ” på bladet för den virtuella nätverksgatewayen.
 
-  ![Vill du återställa bladet för VPN-Gateway](./media/vpn-gateway-howto-reset-gateway/reset-vpn-gateway-portal.png)
+   ![Vill du återställa bladet för VPN-Gateway](./media/vpn-gateway-howto-reset-gateway/reset-vpn-gateway-portal.png)
 3. Återställ bladet och klicka på den **återställa** knappen.
 
 ## <a name="ps"></a>PowerShell

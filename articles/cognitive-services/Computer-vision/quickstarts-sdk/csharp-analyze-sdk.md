@@ -11,18 +11,18 @@ ms.topic: quickstart
 ms.date: 02/11/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 4af3e175c334c082e4520343d6c8ad3a62db431d
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: 21ee4f8b0fe20588646287945ba35efa5bc55606
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56309003"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57542989"
 ---
 # <a name="quickstart-analyze-an-image-using-the-computer-vision-sdk-and-c"></a>Snabbstart: Analysera en bild med Computer Vision SDK och C#
 
 I den här snabbstarten analyserar du både en lokal bild och en fjärrbild för att extrahera visuella funktioner med hjälp av C#-klientbiblioteket för visuellt innehåll. Om du vill kan du ladda ned koden i den här guiden som en komplett exempelapp från [Cognitive Services Csharp Vision](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/ComputerVision)-lagringsplatsen på GitHub.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * För att använda Visuellt innehåll behöver du en prenumerationsnyckel. Mer information finns i avsnittet [Obtaining Subscription Keys](../Vision-API-How-to-Topics/HowToSubscribe.md) (Hämta prenumerationsnycklar).
 * Valfri version av [Visual Studio 2015 eller 2017](https://www.visualstudio.com/downloads/).
@@ -59,7 +59,7 @@ För att köra exemplet följer du dessa steg:
             private const string localImagePath = @"<LocalImage>";
 
             private const string remoteImageUrl =
-                "http://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg";
+                "https://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg";
 
             // Specify the features to return
             private static readonly List<VisualFeatureTypes> features =
@@ -154,7 +154,7 @@ Om åtgärden lyckades visas den mest relevanta beskrivningen för varje bild. D
 I [API-snabbstarter: Analysera en lokal bild med C#](../QuickStarts/CSharp-analyze.md#examine-the-response) om du vill se ett exempel på JSON-råutdata.
 
 ```
-http://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg
+https://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg
 a large waterfall over a rocky cliff
 ```
 

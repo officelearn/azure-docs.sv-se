@@ -11,12 +11,12 @@ author: msmimart
 manager: daveba
 ms.reviewer: sasubram
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ee08e4dc2f6a4616c4b427ad7d33f56e135b27a
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: aa6f0aeaa39114efbf3bd5587eac5744db386672
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57442503"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58105241"
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Azure Active Directory B2B-samarbete vanliga frågor och svar
 
@@ -59,12 +59,12 @@ Om en användare har tilldelats rollen begränsad administratör eller global ad
 Visst! När du konfigurerar den här principen kan vara noga med att undvika att av misstag blockerar åtkomsten till medlemmar och administratörer.
 Att blockera en gästanvändare åtkomst till den [Azure-portalen](https://portal.azure.com), använda en princip för villkorlig åtkomst i Windows Azure klassiska modellen API:
 1. Ändra den **alla användare** gruppen så att den innehåller bara medlemmar.
-  ![ändra grupp-skärmbild](media/faq/modify-all-users-group.png)
+   ![ändra grupp-skärmbild](media/faq/modify-all-users-group.png)
 2. Skapa en dynamisk grupp som innehåller gästanvändare.
-  ![Skapa grupp skärmbild](media/faq/group-with-guest-users.png)
+   ![Skapa grupp skärmbild](media/faq/group-with-guest-users.png)
 3. Konfigurera en princip för villkorlig åtkomst blockera gästanvändare från att komma åt portalen, som visas i följande video:
   
-  > [!VIDEO https://channel9.msdn.com/Blogs/Azure/b2b-block-guest-user/Player] 
+   > [!VIDEO https://channel9.msdn.com/Blogs/Azure/b2b-block-guest-user/Player] 
 
 ### <a name="does-azure-ad-b2b-collaboration-support-multi-factor-authentication-and-consumer-email-accounts"></a>Stöder Azure AD B2B-samarbete multifaktorautentisering och konsumenten e-postkonton?
 Ja. Multi-Factor authentication och konsument e-postkonton stöds både för Azure AD B2B-samarbete.
@@ -94,7 +94,7 @@ Gästanvändare kan använda alla identitetsleverantör för autentisering. Mer 
 
 ### <a name="where-can-i-find-a-b2b-collaboration-community-to-share-solutions-and-to-submit-ideas"></a>Var hittar jag en B2B-samarbete community kan dela lösningar och skicka in idéer?
 Vi lyssnar hela tiden till din feedback för att förbättra B2B-samarbete. Dela din användare scenarier, metodtips och vad du tycker om Azure AD B2B-samarbete. Gå med i diskussionen den [Microsoft Tech Community](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-B2B/bd-p/AzureAD_B2b).
- 
+ 
 Vi inbjuder dig också att skicka in dina idéer och rösta på framtida funktioner på [B2B-samarbete idéer](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-B2B-Ideas/idb-p/AzureAD_B2B_Ideas).
 
 ### <a name="can-we-send-an-invitation-that-is-automatically-redeemed-so-that-the-user-is-just-ready-to-go-or-does-the-user-always-have-to-click-through-to-the-redemption-url"></a>Kan vi skicka en inbjudan som automatiskt in, så att användaren är bara ”klart”? Eller användaren har alltid att klicka dig igenom till URL: en för inlösen?

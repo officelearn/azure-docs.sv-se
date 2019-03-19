@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 2/20/2019
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: e389df02966146b217802d4e93f844a4fee425a3
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 7f54507fdfd21c9402e04eb867710a774f9e6bb3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56958664"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57856098"
 ---
 # <a name="release-notes"></a>Viktig information
 
@@ -32,7 +32,7 @@ Detta är en felkorrigering version och påverkar endast intern/hanteras SDK. De
 
 **Nya funktioner**
 
-* Tal SDK stöder valet av inkommande mikrofonen via AudioConfig-klassen. Detta gör kan strömma ljud data till tal-tjänst från en icke-standard mikrofon. Mer information finns i dokumentationen som beskriver [ingående ljud enhet](how-to-select-audio-input-devices.md). Detta är inte ännu tillgängliga från JavaScript.
+* Tal SDK stöder valet av inkommande mikrofonen via AudioConfig-klassen. Detta kan du strömma ljud data till Speech Services från en icke-standard mikrofon. Mer information finns i dokumentationen som beskriver [ingående ljud enhet](how-to-select-audio-input-devices.md). Detta är inte ännu tillgängliga från JavaScript.
 * Tal-SDK: N har nu stöd för Unity i en betaversion. Ge feedback via avsnittet problemet i den [GitHub-exempellagringsplats](https://aka.ms/csspeech/samples). Den här versionen stöder Unity på Windows x86 och x64 (desktop eller Universal Windows Platform-program) och Android (ARM32/64, x86). Mer information finns i vår [Unity Snabbstart](quickstart-csharp-unity.md).
 * Filen `Microsoft.CognitiveServices.Speech.csharp.bindings.dll` (levereras i tidigare versioner) behövs inte längre. Funktionerna är nu integrerade i core SDK.
 
@@ -89,13 +89,13 @@ Det här är en version med endast JavaScript. Inga funktioner har lagts till. F
 **Nya funktioner**
 
 * Python
-  * Beta-versionen av Python-stöd (3.5 och senare) är tillgänglig i den här versionen. Mer information om [visas här](quickstart-python.md).
+  * Beta-versionen av Python-stöd (3.5 och senare) är tillgänglig i den här versionen. Mer information finns i here](quickstart-python.md).
 * JavaScript
   * Tal-SDK för JavaScript har varit öppen källkod. Källkoden finns på [GitHub](https://github.com/Microsoft/cognitive-services-speech-sdk-js).
   * Vi har nu stöd för Node.js, mer information finns [här](quickstart-js-node.md).
   * Begränsning av lösenordslängd för ljud sessioner har tagits bort återanslutning sker automatiskt under omslaget.
 * Anslutningsobjektet
-  * Du kan komma åt ett anslutningsobjekt från identifieraren. Det här objektet kan du uttryckligen initiera tjänstanslutning och prenumerera för att ansluta och koppla från händelser.
+  * Du kan komma åt ett anslutningsobjekt från Igenkännande. Det här objektet kan du uttryckligen initiera tjänstanslutning och prenumerera för att ansluta och koppla från händelser.
     (Detta är inte ännu tillgängliga från JavaScript- och Python.)
 * Stöd för Ubuntu 18.04.
 * Android
@@ -122,7 +122,7 @@ Det här är en version med endast JavaScript. Inga funktioner har lagts till. F
 
 **Exempel**
 
-* Uppdaterade och fasta flera exempel (till exempel utdata röster för översättning osv).
+* Uppdaterade och fasta flera exempel (till exempel utdata röster för översättning osv.).
 * Lagt till Node.js-exempel i den [exempellagringsplatsen](https://aka.ms/csspeech/samples).
 
 ## <a name="speech-sdk-110"></a>Speech SDK 1.1.0
@@ -141,7 +141,7 @@ Det här är en version med endast JavaScript. Inga funktioner har lagts till. F
 
 **Felkorrigeringar**
 
-* Fasta flera undantag finns i identifierare. Dessutom är undantag påträffades och konverteras till avbruten händelse.
+* Fasta flera undantag finns i identifierare. Dessutom kan undantag påträffades och konverteras till avbruten händelse.
 * Åtgärda en minnesläcka i egenskapen management.
 * En bugg har åtgärdats där en inkommande ljudfil kan krascha identifieraren.
 * Ett fel har åtgärdats där händelser gick att ta emot när en session stop-händelse.
@@ -179,7 +179,7 @@ I vår [exempellagringsplatsen](https://aka.ms/csspeech/samples), ett nytt stick
 
 **Större ändringar**
 
-* Med den här versionen införs ett antal icke-bakåtkompatibla ändringar.
+* Den här versionen erbjuder införs ett antal icke-bakåtkompatibla ändringar.
   Kontrollera [den här sidan](https://aka.ms/csspeech/breakingchanges_1_0_0) mer information.
 
 ## <a name="cognitive-services-speech-sdk-060-2018-august-release"></a>Cognitive Services tal SDK 0.6.0: Versionen av augusti 2018

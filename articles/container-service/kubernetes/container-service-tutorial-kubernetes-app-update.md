@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 99e282b720bb29ed5fb94ad2c9779ae56a019836
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: HT
+ms.openlocfilehash: 3c0be935a4ffb51c03d2f63b14ab7c0c713dd2ae
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52993519"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58006267"
 ---
 # <a name="deprecated-update-an-application-in-kubernetes"></a>(INAKTUELL) Uppdatera ett program i Kubernetes
 
@@ -75,7 +75,7 @@ docker-compose up --build -d
 
 ## <a name="test-application-locally"></a>Testa programmet lokalt
 
-Gå till http://localhost:8080 om du vill se det uppdaterade programmet.
+Gå till `http://localhost:8080` om du vill se det uppdaterade programmet.
 
 ![Bild av Kubernetes-kluster i Azure](media/container-service-kubernetes-tutorials/vote-app-updated.png)
 
@@ -109,7 +109,7 @@ Du får minimala störningar om flera instanser av programpodden körs. Verifier
 kubectl get pod
 ```
 
-Resultat:
+Utdata:
 
 ```bash
 NAME                               READY     STATUS    RESTARTS   AGE
@@ -138,7 +138,7 @@ Du övervakar distributionen med kommandot [kubectl get pod](https://kubernetes.
 kubectl get pod
 ```
 
-Resultat:
+Utdata:
 
 ```bash
 NAME                               READY     STATUS    RESTARTS   AGE

@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.date: 06/12/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: a707ae6959b035ae0bcc05ead027dabd528e1b59
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
-ms.translationtype: HT
+ms.openlocfilehash: 99c6e7dc589a94880976a9c7abcde12377e4e5d3
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55747518"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58101541"
 ---
 # <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>Skapa och använda en intern lastbalanserare med en App Service-miljö #
 
@@ -80,11 +80,11 @@ Så här skapar du en intern belastningsutjämnare i apptjänstmiljö:
 
    Du kan [mappa ett befintligt DNS-namn till din app][customdomain]. Det anpassade domännamnet används för appar och domännamnet som används av din ASE får inte överlappa. För en ILB ASE med domännamnet _contoso.com_ kan du inte använda anpassade domännamn för dina appar som:
 
-    * www.contoso.com
+   * www\.contoso.com
 
-    * abcd.def.contoso.com
+   * abcd.def.contoso.com
 
-    * abcd.contoso.com
+   * abcd.contoso.com
 
    Om du känner till dina appars anpassade domännamn väljer du en domän för den ILB ASE som inte står i konflikt med dessa anpassade domännamn. I det här exemplet kan du använda något som *contoso-internal.com* som ASE-domän eftersom det inte står i konflikt med anpassade domännamn som slutar med *.contoso.com*.
 
@@ -222,7 +222,7 @@ Om du vill veta mer om hur du konfigurerar din interna belastningsutjämnare i a
 ## <a name="get-started"></a>Kom igång ##
 
 * Information om hur du kommer igång med ASE finns i [Introduktion till App Service-miljöer][Intro].
- 
+ 
 
 <!--Image references-->
 [1]: ./media/creating_and_using_an_internal_load_balancer_with_app_service_environment/createilbase-network.png

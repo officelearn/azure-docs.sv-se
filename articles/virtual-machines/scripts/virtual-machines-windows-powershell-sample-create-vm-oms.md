@@ -1,6 +1,6 @@
 ---
-title: Skriptexempel för Azure PowerShell – Log Analytics | Microsoft Docs
-description: Skriptexempel för Azure PowerShell – Log Analytics
+title: Azure PowerShell-skriptexempel – Azure Monitor-loggar | Microsoft Docs
+description: Azure PowerShell-skriptexempel – Azure Monitor-loggar
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
@@ -16,14 +16,14 @@ ms.workload: infrastructure
 ms.date: 12/12/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 615ba2286fc8c3e920e10a4909ed336ec6a30f9d
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 11ae92770f712f2e809824d9caf5981f435b25a9
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56001740"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57541527"
 ---
-# <a name="create-a-log-analytics-monitored-vm-with-powershell"></a>Skapa en Log Analytics-övervakad virtuell dator med PowerShell 
+# <a name="create-an-azure-monitor-vm-with-powershell"></a>Skapa en virtuell dator med Azure Monitor med PowerShell 
 
 Det här skriptet skapar en virtuell Azure-dator, installerar Log Analytics-agenten och registrerar systemet på en Log Analytics-arbetsyta. När skriptet har körts visas den virtuella datorn i Azure Monitor. Du behöver dessutom uppdatera Log Analytics-arbetsytans ID och arbetsytans nyckel.
 

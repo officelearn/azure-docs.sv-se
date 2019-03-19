@@ -5,15 +5,15 @@ services: storage
 author: rmatchoro
 ms.service: storage
 ms.topic: article
-ms.date: 03/11/2019
+ms.date: 03/14/2019
 ms.author: monhaber
 ms.manager: shaik
-ms.openlocfilehash: 5147db952e885cb404c1f1fe646c940e45331ccd
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.openlocfilehash: b2e51b11e2d79d7f35d6b24df4ba5492ecf9a5c4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57791196"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58133237"
 ---
 # <a name="advanced-threat-protection-for-azure-storage"></a>Avancerat skydd för Azure Storage
 
@@ -22,7 +22,9 @@ Avancerat skydd för Azure Storage ger ett extra lager säkerhetsintelligens som
 Säkerhetsvarningar utlöses när avvikelser i aktivitet inträffar.  Dessa säkerhetsaviseringar som är integrerade med [Azure Security Center](https://azure.microsoft.com/services/security-center/), och också skickas via e-post till prenumerationens administratörer med information om misstänkt aktivitet och rekommendationer om hur du undersöka och åtgärda hot.
 
 > [!NOTE]
-> Avancerat skydd för Azure Storage är endast tillgänglig för Blob-lagringen. Information om de nya priserna är tillgänglig i den [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-pricing) prissättningssidan, bland annat ett alternativ för en utvärderingsperiod under de första 30 dagarna utan kostnad.
+> * Avancerat skydd för Azure Storage är endast tillgänglig för Blob-lagringen. 
+> * Information om de nya priserna är tillgänglig i den [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-pricing) prissättningssidan, bland annat ett alternativ för en utvärderingsperiod under de första 30 dagarna utan kostnad. 
+> * ATP för Azure storage-funktionen är för närvarande inte tillgänglig i Azure government och nationellt molnregioner.
 
 Avancerat skydd för Azure Storage matar in diagnostiska loggar för Läs-, Skriv- och delete-begäranden till Blob storage för identifiering av hot. Du kan visa relaterade storage-aktivitet som använder loggning av Storage Analytics för att undersöka aviseringar från Avancerat skydd. Läs mer om hur du [konfigurera Storage Analytics loggning](storage-monitor-storage-account.md#configure-logging).
 
@@ -56,12 +58,13 @@ Använda Rest API-kommandon för att skapa, uppdatera eller få Avancerat skydd-
 * [Avancerat skydd - skapa](https://docs.microsoft.com/rest/api/securitycenter/advancedthreatprotection/create)
 * [Avancerat skydd - hämta](https://docs.microsoft.com/rest/api/securitycenter/advancedthreatprotection/get)
 
-<!-- ### Using Azure PowerShell-->
-<!--   -->
-<!-- Use the following PowerShell cmdlets:-->
-<!-- * Enable Advanced Threat Protection-->
-<!-- * Get Advanced Threat Protection -->
-<!--* Disable Advanced Threat Protection -->
+### <a name="using-azure-powershell"></a>Använda Azure PowerShell
+
+Använd följande PowerShell-cmdletar:
+
+  * [Aktivera Avancerat skydd](https://docs.microsoft.com/powershell/module/az.security/enable-azsecurityadvancedthreatprotection)
+  * [Få Avancerat skydd](https://docs.microsoft.com/powershell/module/az.security/get-azsecurityadvancedthreatprotection)
+  * [Inaktivera Avancerat skydd](https://docs.microsoft.com/powershell/module/az.security/disable-azsecurityadvancedthreatprotection)
 
 ## <a name="explore-security-anomalies"></a>Utforska säkerhetsavvikelser
 

@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 02/21/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 80c9944628eaa828a34ea16eb9f79271d6cd5728
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
-ms.translationtype: HT
+ms.openlocfilehash: 79f0474950cf1f48f3552b1ae843a29b5d8dbb24
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56729227"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57883380"
 ---
 # <a name="what-is-translator-text-api"></a>Vad är Translator Text API?
 
@@ -28,7 +28,7 @@ Translator Text API är en del av Azure [Cognitive Services API](https://docs.mi
 
 Microsoft Translator är en molnbaserad maskinöversättningstjänst. Den viktigaste tjänsten är Translator Text API, som driver ett antal produkter och tjänster från Microsoft och används av tusentals företag över hela världen i program och arbetsflöden, vilket gör att deras innehåll kan nå en världsomspännande publik.
 
-Talöversättning, som drivs av Translator Text API, är också tillgängligt via [Microsoft Speech Service](https://docs.microsoft.com/azure/cognitive-services/speech-service/). Den kombinerar funktionen från Translator Speech API, API för Bing-taligenkänning och Custom Speech Service (förhandsversion) till en enhetlig och fullt anpassningsbar tjänst. Speech Service ersätter Translator Speech API, som tas ur drift 15 oktober 2019.
+Talöversättning, som drivs av Translator Text API, är också tillgängligt via [Microsoft Speech Service](https://docs.microsoft.com/azure/cognitive-services/speech-service/). Den kombinerar funktionen från Translator Speech API och Custom Speech Service till en enhetlig och helt anpassningsbara tjänst. Speech Service ersätter Translator Speech API, som tas ur drift 15 oktober 2019.
 
 ## <a name="language-support"></a>Stöd för språk
 

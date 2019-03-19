@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: 43276aad26bc06400c1bc4b5feaace0d5646c213
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 41220ccdca945610d7d8ca87af0857114e2cef85
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52849249"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57866300"
 ---
 # <a name="prepare-target-vmware-to-azure"></a>Förbered mål (VMware till Azure)
 
@@ -21,16 +21,16 @@ Den här artikeln beskriver hur du förbereder Azure-miljön att börja repliker
 ## <a name="prerequisites"></a>Förutsättningar
 
 Artikeln förutsätter:
-- Du har skapat ett Recovery Services-valv för att skydda din fysiska servrar. Du kan skapa ett Recovery Services-valv från den [Azure-portalen](http://portal.azure.com "Azure-portalen").
+- Du har skapat ett Recovery Services-valv för att skydda din fysiska servrar. Du kan skapa ett Recovery Services-valv från den [Azure-portalen](https://portal.azure.com "Azure-portalen").
 - Du har [konfigurering av din lokala miljö](physical-azure-disaster-recovery.md) att replikera fysiska servrar till Azure.
 
-## <a name="prepare-target"></a>Förbered mål
+## <a name="prepare-target"></a>Förbered målet
 
-När du har slutfört den **steg 1: Välj skyddsmål** och **steg 2: Förbered källa**, kommer du till **steg3: mål**
+När du har slutfört den **steg 1: Välj skyddsmål** och **steg 2: Förbered källa**, kommer du till **steg3: Mål**
 
-![Förbered mål](./media/physical-azure-set-up-target/prepare-target-physical-to-azure.png)
+![Förbered målet](./media/physical-azure-set-up-target/prepare-target-physical-to-azure.png)
 
-1. **Prenumeration:** från den nedrullningsbara menyn, Välj den prenumeration som du vill replikera dina fysiska servrar till.
+1. **Prenumeration:** Välj den prenumeration som du vill replikera dina fysiska servrar till från den nedrullningsbara menyn.
 2. **Distributionsmodell:** Välj distributionsmodell (klassisk eller Resource Manager)
 
 Baserat på den valda distributionsmodellen, utförs en verifiering för att säkerställa att du har minst ett kompatibelt lagringskonto och virtuellt nätverk i målprenumerationen för replikering och redundans din fysiska servrar till.

@@ -12,12 +12,12 @@ ms.author: anjangsh
 ms.reviewer: MightyPen, sstein
 manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: 7d4748ced196abdb4f3f0bcb70ad6fe254b24bf7
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: a658e2fe32ec95dfabad54684a0c9095af7a341d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55657596"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57850300"
 ---
 # <a name="explore-saas-analytics-with-azure-sql-database-sql-data-warehouse-data-factory-and-power-bi"></a>Utforska SaaS-analyser med Azure SQL Database, SQL Data Warehouse, Data Factory och Power BI
 
@@ -94,7 +94,7 @@ I det här steget ska du distribuera ytterligare resurser som används i självs
 
 Nu ska du granska resurserna som du har distribuerat:
 #### <a name="tenant-databases-and-analytics-store"></a>Klient-databaser och analytics store
-Använd [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) att ansluta till **tenants1-dpt -&lt;användaren&gt;**  och **catalog-dpt -&lt;användare&gt;**  servrar. Ersätt &lt;användaren&gt; med det värde som används när du distribuerade appen. Använda inloggning = *developer* och lösenord = *P@ssword1*. Se den [inledande självstudien](saas-dbpertenant-wingtip-app-overview.md) för mer information.
+Använd [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) att ansluta till **tenants1-dpt -&lt;användaren&gt;**  och **catalog-dpt -&lt;användare&gt;**  servrar. Ersätt &lt;användaren&gt; med det värde som används när du distribuerade appen. Använda inloggning = *developer* och lösenord = *P\@ssword1*. Se den [inledande självstudien](saas-dbpertenant-wingtip-app-overview.md) för mer information.
 
 ![Ansluta till SQL Database-server från SSMS](media/saas-tenancy-tenant-analytics/ssmsSignIn.JPG)
 
@@ -113,7 +113,7 @@ I Object Explorer:
 #### <a name="blob-storage"></a>Blob Storage
 1. I den [Azure-portalen](https://ms.portal.azure.com), navigera till den resursgrupp som du använde för att distribuera programmet. Kontrollera att ett lagringskonto med namnet **wingtipstaging\<användaren\>**  har lagts till.
 
-  ![DWtables](media/saas-tenancy-tenant-analytics/adf-staging-storage.PNG)
+   ![DWtables](media/saas-tenancy-tenant-analytics/adf-staging-storage.PNG)
 
 1. Klicka på **wingtipstaging\<användaren\>**  lagringskonto för att utforska objekt som finns.
 1. Klicka på **Blobar** panelen
@@ -195,7 +195,7 @@ Använd följande steg för att ansluta till Power BI och för att importera de 
 
     ![sign-in-to-power-bi](./media/saas-tenancy-tenant-analytics/powerBISignIn.PNG)
 
-5. Välj **databasen** i den vänstra rutan, ange användarnamn = *developer*, och ange lösenord = *P@ssword1*. Klicka på **Anslut**.  
+5. Välj **databasen** i den vänstra rutan, ange användarnamn = *developer*, och ange lösenord = *P\@ssword1*. Klicka på **Anslut**.  
 
     ![database-sign-in](./media/saas-tenancy-tenant-analytics/databaseSignIn.PNG)
 

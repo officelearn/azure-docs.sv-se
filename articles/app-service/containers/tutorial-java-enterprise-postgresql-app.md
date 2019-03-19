@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 11/13/2018
 ms.author: jafreebe
 ms.custom: seodec18
-ms.openlocfilehash: a6e6dfb70182d8b4924a184dcebd1d06695911a5
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
-ms.translationtype: HT
+ms.openlocfilehash: a4bf2ef252b5a948f2e3614e3e7cf64a4cb19277
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55747024"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57772066"
 ---
 # <a name="tutorial-build-a-java-ee-and-postgres-web-app-in-azure"></a>Självstudie: Skapa en Java EE- och Postgres-webbapp i Azure
 
@@ -30,7 +30,7 @@ I den här självstudien får du lära dig hur man:
 > * Uppdatera och distribuera om appen
 > * Köra enhetstester på WildFly
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 1. [Ladda ned och installera Git](https://git-scm.com/)
 2. [Ladda ned och installera Maven 3](https://maven.apache.org/install.html)
@@ -200,4 +200,4 @@ az group delete --name <your_resource_group>
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har ett Java EE-program distribuerat till App Service kan du läsa [utvecklarguiden för Java Enterprise](https://aka.ms/wildfly-quickstart) där det finns mer information om hur du konfigurerar tjänster, felsöker och skalar ditt program.
+Nu när du har ett Java EE-program distribuerat till App Service kan du läsa [utvecklarguiden för Java Enterprise](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-java) där det finns mer information om hur du konfigurerar tjänster, felsöker och skalar ditt program.

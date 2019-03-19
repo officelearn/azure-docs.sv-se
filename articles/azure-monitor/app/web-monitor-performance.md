@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 05/10/2018
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: 8f5a0a22ecea0b5df0f4108984b2a65d4add2bf8
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: d7b8037f50fc4877fe233925f3e922648169f73b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301782"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57901176"
 ---
 # <a name="monitor-performance-in-web-applications"></a>Övervaka prestanda i webbprogram
 
@@ -112,7 +112,7 @@ Här följer några tips för att hitta och diagnostisera prestandaproblem:
 * Jämför antalet begäranden med andra mått för att se om misslyckade eller långsamma svar är relaterade till att läsa in.
 * [Infoga och Sök spårningsinstruktioner] [ diagnostic] i din kod för att identifiera problem.
 * Övervaka din webbapp på åtgärden med [Live Metrics Stream][livestream].
-* Spara tillståndet för ditt .net-program med [Snapshot Debugger][snapshot].
+* Spara tillståndet för ditt .NET-program med [Snapshot Debugger][snapshot].
 
 ## <a name="find-and-fix-performance-bottlenecks-with-performance-investigation-experience"></a>Hitta och åtgärda flaskhalsar i prestanda med upplevelse med prestandaundersökning
 

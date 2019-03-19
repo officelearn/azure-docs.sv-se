@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 09/14/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: a4b6bc8f6e621cda921d599b5368c6a671defcc2
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: f7bfb4f403104bb91fb1a9ba4b70cb164e0738b4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57548617"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58113307"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Mått som stöds med Azure Monitor
 Azure Monitor innehåller flera olika sätt att interagera med mätvärden, inklusive diagram dem i portalen, få åtkomst till dem via REST API eller frågor till dem med PowerShell eller CLI. Nedan visas en fullständig lista över alla mått som är tillgänglig med Azure Monitor mått pipeline. Andra mått kan finnas i portalen eller med äldre API: er. Listan nedan innehåller endast mått som är tillgängliga med hjälp av konsoliderade pipelinen för Azure Monitor-mått. Fråga efter och komma åt de här måtten Använd den [2018-01-01 api-versionen](https://docs.microsoft.com/rest/api/monitor/metricdefinitions)
@@ -682,7 +682,7 @@ Azure Monitor innehåller flera olika sätt att interagera med mätvärden, inkl
 ### <a name="latency-metrics"></a>Mått för datainmatningssvarstider
 
 |Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp:|Beskrivning|Dimensioner| Tid Precision| Användning |
-|---|---|---|---|---|---| ---| ---| ---|
+|---|---|---|---|---|---| ---| ---|
 | ReplicationLatency    | Replikeringsfördröjning|  MilliSeconds|   Lägsta, högsta, genomsnitt | P99 replikeringsfördröjning mellan käll- och regioner för geo-aktiverat konto| SourceRegion, TargetRegion| Alla | Används för att övervaka P99 replikeringsfördröjning mellan de två regionerna för ett konto med geo-replikerade. |
 
 ### <a name="availability-metrics"></a>Mått på tillgänglighet
@@ -694,7 +694,7 @@ Azure Monitor innehåller flera olika sätt att interagera med mätvärden, inkl
 ### <a name="cassandra-api-metrics"></a>Cassandra-API-mått
 
 |Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp:|Beskrivning|Dimensioner| Tid Precision| Användning |
-|---|---|---|---|---|---| ---| ---| ---|
+|---|---|---|---|---|---| ---| ---|
 | CassandraRequests | Cassandra-begäranden |  Antal|  Antal|  Antal Cassandra API-begäranden gjorda|  DatabaseName, CollectionName, ErrorCode, Region, OperationType, ResourceType|   Alla| Används för att övervaka Cassandra begäranden med en minut precision. Genomsnittlig begäranden per sekund får använda antal aggregering på minut och dela med 60.|
 | CassandraRequestCharges|  Avgifter för Cassandra-begäran| Antal|   Sum, Min, Max, genomsn.| Programbegäran som förbrukas av Cassandra API-begäranden|   DatabaseName, CollectionName, Region, OperationType, ResourceType|  Alla| Används för att övervaka ru: er som används per minut av ett Cassandra-API-konto.|
 | CassandraConnectionClosures   | Cassandra-anslutning öppettider |Antal| Antal   |Antal stängda Cassandra-anslutningar|    ClosureReason, Region|  Alla | Används för att övervaka anslutningen mellan klienter och Azure Cosmos DB Cassandra-API.|
@@ -1296,7 +1296,7 @@ Azure Monitor innehåller flera olika sätt att interagera med mätvärden, inkl
 |---|---|---|---|---|---|
 |cpu_percent|CPU-procent|Procent|Medel|CPU-procent|Inga dimensioner|
 |physical_data_read_percent|Data IO-procent|Procent|Medel|Data IO-procent|Inga dimensioner|
-|log_write_percent|Logg-IO-procent|Procent|Medel|Logg-IO-procent|Inga dimensioner|
+|log_write_percent|Logg I/O-procent|Procent|Medel|Logg I/O-procent|Inga dimensioner|
 |dtu_consumption_percent|DTU-procent|Procent|Medel|DTU-procent|Inga dimensioner|
 |lagring|Totala databasstorleken|Byte|Maximal|Totala databasstorleken|Inga dimensioner|
 |connection_successful|Anslutningarna lyckades|Antal|Totalt|Anslutningarna lyckades|Inga dimensioner|
@@ -1305,8 +1305,8 @@ Azure Monitor innehåller flera olika sätt att interagera med mätvärden, inkl
 |deadlock|Dödlägen|Antal|Totalt|Dödlägen|Inga dimensioner|
 |storage_percent|Databasstorlek i procent|Procent|Maximal|Databasstorlek i procent|Inga dimensioner|
 |xtp_storage_percent|Procent för in-Memory OLTP-lagring|Procent|Medel|Procent för in-Memory OLTP-lagring|Inga dimensioner|
-|workers_percent|Arbetare procent|Procent|Medel|Arbetare procent|Inga dimensioner|
-|sessions_percent|Sessioner procent|Procent|Medel|Sessioner procent|Inga dimensioner|
+|workers_percent|Arbetarprocent|Procent|Medel|Arbetarprocent|Inga dimensioner|
+|sessions_percent|Sessionsprocent|Procent|Medel|Sessionsprocent|Inga dimensioner|
 |dtu_limit|DTU-gräns|Antal|Medel|DTU-gräns|Inga dimensioner|
 |dtu_used|DTU används|Antal|Medel|DTU används|Inga dimensioner|
 |dwu_limit|DWU-gräns|Antal|Maximal|DWU-gräns|Inga dimensioner|
@@ -1321,11 +1321,11 @@ Azure Monitor innehåller flera olika sätt att interagera med mätvärden, inkl
 |---|---|---|---|---|---|
 |cpu_percent|CPU-procent|Procent|Medel|CPU-procent|Inga dimensioner|
 |physical_data_read_percent|Data IO-procent|Procent|Medel|Data IO-procent|Inga dimensioner|
-|log_write_percent|Logg-IO-procent|Procent|Medel|Logg-IO-procent|Inga dimensioner|
+|log_write_percent|Logg I/O-procent|Procent|Medel|Logg I/O-procent|Inga dimensioner|
 |dtu_consumption_percent|DTU-procent|Procent|Medel|DTU-procent|Inga dimensioner|
 |storage_percent|Lagringsprocent|Procent|Medel|Lagringsprocent|Inga dimensioner|
-|workers_percent|Arbetare procent|Procent|Medel|Arbetare procent|Inga dimensioner|
-|sessions_percent|Sessioner procent|Procent|Medel|Sessioner procent|Inga dimensioner|
+|workers_percent|Arbetarprocent|Procent|Medel|Arbetarprocent|Inga dimensioner|
+|sessions_percent|Sessionsprocent|Procent|Medel|Sessionsprocent|Inga dimensioner|
 |eDTU_limit|eDTU-gränsen|Antal|Medel|eDTU-gränsen|Inga dimensioner|
 |storage_limit|Gränsen för lagring|Byte|Medel|Gränsen för lagring|Inga dimensioner|
 |eDTU_used|edtu: er används|Antal|Medel|edtu: er används|Inga dimensioner|

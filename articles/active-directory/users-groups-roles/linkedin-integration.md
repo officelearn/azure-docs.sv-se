@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: beengen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d86b8dc271eead1196d946895ec7676935135cef
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: d562554259142b6dc5622bf15420785d5e1f052f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56202496"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58090125"
 ---
 # <a name="linkedin-integration"></a>LinkedIn-integrering
 
@@ -31,7 +31,7 @@ I den här artikeln får du lära dig aktivera eller inaktivera LinkedIn-integre
 > * Inställningen är inte tillgänglig för kunder som använder Microsoft Cloud för amerikanska myndigheter, Microsoft Cloud Tyskland eller Azure och Office 365 som drivs av 21Vianet i Kina.
 > * Inställningen är inaktiverad som standard för klienter som etableras i Tyskland. Observera att inställningen inte är tillgänglig för kunder som använder Microsoft Cloud Tyskland.
 > * Inställningen är inaktiverad som standard för klienter som etableras i Frankrike.
-
+> 
 > Integrationen fungerar bara om du har aktiverat *och* om du tillåter användarna att godkänna att appar får åtkomst till företagets data å deras vägnar. Läs om hur inställningen medgivande [hur du tar bort en användares åtkomst till ett program](https://docs.microsoft.com/azure/active-directory/application-access-assignment-how-to-remove-assignment).
 
 ## <a name="enable-or-disable-linkedin-integration-for-your-users-in-the-azure-portal"></a>Aktivera eller inaktivera LinkedIn-integrering för dina användare i Azure portal
@@ -42,9 +42,9 @@ Du kan aktivera eller inaktivera LinkedIn-integrering för hela din klientorgani
 2. Välj **användare**.
 3. På den **användare** bladet väljer **användarinställningar**.
 4. Under **LinkedIn-integrering**:
-  * Välj **Ja** att aktivera LinkedIn-integrering för alla användare i din klient
-  * Välj **valda** att aktivera LinkedIn-integrering för endast valda klientanvändare
-  * Välj **nr** att inaktivera LinkedIn-integrering för alla användare ![att aktivera LinkedIn-integrering](./media/linkedin-integration/linkedin-integration.png)
+   * Välj **Ja** att aktivera LinkedIn-integrering för alla användare i din klient
+   * Välj **valda** att aktivera LinkedIn-integrering för endast valda klientanvändare
+   * Välj **nr** att inaktivera LinkedIn-integrering för alla användare ![att aktivera LinkedIn-integrering](./media/linkedin-integration/linkedin-integration.png)
 5. Spara dina inställningar när du är klar genom att välja **spara**.
 
 ## <a name="enable-or-disable-linkedin-integration-for-your-users-in-group-policy"></a>Aktivera eller inaktivera LinkedIn-integrering för dina användare i en Grupprincip
@@ -55,10 +55,10 @@ Du kan aktivera eller inaktivera LinkedIn-integrering för hela din klientorgani
 4. Skapa ett grupprincipobjekt med följande inställning: **Användarkonfiguration** > **Administrationsmallar** > **Microsoft Office 2016** > **diverse**  >  **Visa LinkedIn-funktionerna i Office-program**.
 5. Välj **aktiverat** eller **inaktiverad**.
   
- Status | Verkan
------- | ------
-**Aktiverad** | Den **visa LinkedIn-funktionerna i Office-program** i alternativen för Office 2016 är aktiverad. Användare i organisationen kan använda LinkedIn-funktionerna i Office-programmen.
- **Inaktiverad** | Den **visa LinkedIn-funktionerna i Office-program** i Office 2016 alternativ är inaktiverad och slutanvändare kan inte ändra den här inställningen. Användare i din organisation kan inte använda LinkedIn-funktionerna i Office 2016-programmen.
+   Status | Verkan
+   ------ | ------
+   **Aktiverad** | Den **visa LinkedIn-funktionerna i Office-program** i alternativen för Office 2016 är aktiverad. Användare i organisationen kan använda LinkedIn-funktionerna i Office-programmen.
+   **Inaktiverad** | Den **visa LinkedIn-funktionerna i Office-program** i Office 2016 alternativ är inaktiverad och slutanvändare kan inte ändra den här inställningen. Användare i din organisation kan inte använda LinkedIn-funktionerna i Office 2016-programmen.
 
 Den här grupprincipen påverkar endast Office 2016-appar för en lokal dator. Användarna kan se LinkedIn-funktionerna i profilen kort i hela Office 365, även om de inaktivera LinkedIn i sina Office 2016-appar.
 

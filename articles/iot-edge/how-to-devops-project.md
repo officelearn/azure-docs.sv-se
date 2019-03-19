@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 57279a4e92b1f42505003f12d41c8203aa5603d4
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 02977032c5975de4098600ddbebccfcbb9b0fafd
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54881877"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58122900"
 ---
 # <a name="create-a-cicd-pipeline-for-iot-edge-with-azure-devops-projects-preview"></a>Skapa en CI/CD-pipeline för IoT Edge med Azure DevOps-projekt (förhandsgranskning)
 
@@ -127,7 +127,7 @@ I föregående avsnitt konfigureras automatiskt en fullständig CI/CD-pipeline f
 
 12. I menyn för din releasepipeline väljer **uppgifter** Välj sedan den **dev** steg i listrutan. DevOps-projekt skapas en viktig del som skapar en IoT-hubb, skapar en IoT Edge-enhet i den hubben, distribuerar exempelmodulen från build-pipeline och etablerar en virtuell dator ska köras som IoT Edge-enhet. Läs mer om Azure IoT Edge-uppgifter för CD i [konfigurera Azure Pipelines för kontinuerlig distribution](how-to-ci-cd.md#configure-continuous-deployment).
 
-   ![Visa kontinuerlig distribution aktiviteter](media/how-to-devops-project/dev-release.png)
+    ![Visa kontinuerlig distribution aktiviteter](media/how-to-devops-project/dev-release.png)
 
 13. Till höger väljer du alternativet för att **visa versioner**. Den här vyn visar en historik över versioner.
 

@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 08/08/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 97734ad6119e89c00634035b1646bc29ac6549bd
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: a8f756385b62dfb21e910b9373dc275c7f679d3e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237877"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58009654"
 ---
 # <a name="tutorial-create-a-mongodb-express-angularjs-and-nodejs-mean-stack-on-a-linux-virtual-machine-in-azure"></a>Självstudier: Skapa en stack för MongoDB, Express, AngularJS och Node.js (MEAN) på en virtuell Linux-dator i Azure
 
@@ -91,13 +91,13 @@ sudo apt-get install -y nodejs
 ```
 
 ## <a name="install-mongodb-and-set-up-the-server"></a>Installera MongoDB och konfigurera servern
-[MongoDB](http://www.mongodb.com) lagrar data i flexibla JSON-liknande dokument. Fält i en databas kan variera från dokument till dokument, och datastrukturen kan ändras med tiden. För vår exempelprogram lägger vi till bokposter till MongoDB som innehåller titel, ISBN-nummer, författare och antal sidor. 
+[MongoDB](https://www.mongodb.com) lagrar data i flexibla JSON-liknande dokument. Fält i en databas kan variera från dokument till dokument, och datastrukturen kan ändras med tiden. För vår exempelprogram lägger vi till bokposter till MongoDB som innehåller titel, ISBN-nummer, författare och antal sidor. 
 
 1. Konfigurera MongoDB-nyckeln på den virtuella datorn med hjälp av det bash-gränssnitt som du öppnade med SSH.
 
     ```bash
     sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 0C49F3730359A14518585931BC711F9BA15703C6
-    echo "deb [ arch=amd64 ] http://repo.mongodb.org/apt/ubuntu trusty/mongodb-org/3.4 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.4.list
+    echo "deb [ arch=amd64 ] https://repo.mongodb.org/apt/ubuntu trusty/mongodb-org/3.4 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.4.list
     ```
 
 2. Uppdatera pakethanteraren med nyckeln.
@@ -149,7 +149,7 @@ sudo apt-get install -y nodejs
 
 ## <a name="install-express-and-set-up-routes-to-the-server"></a>Installera Express och konfigurera vägar till servern
 
-[Express](https://expressjs.com) är ett minimalt och flexibelt Node.js-programramverk som innehåller funktioner för webb- och mobilprogram. Express används i den här självstudiekursen för att skicka bokinformation till och från vår MongoDB-databas. [Mongoose](http://mongoosejs.com) tillhandahåller en enkel schemabaserad lösning för modellering av dina programdata. Mongoose används i den här självstudiekursen för att tillhandahålla en bokschema för databasen.
+[Express](https://expressjs.com) är ett minimalt och flexibelt Node.js-programramverk som innehåller funktioner för webb- och mobilprogram. Express används i den här självstudiekursen för att skicka bokinformation till och från vår MongoDB-databas. [Mongoose](https://mongoosejs.com) tillhandahåller en enkel schemabaserad lösning för modellering av dina programdata. Mongoose används i den här självstudiekursen för att tillhandahålla en bokschema för databasen.
 
 1. Installera Express och Mongoose.
 

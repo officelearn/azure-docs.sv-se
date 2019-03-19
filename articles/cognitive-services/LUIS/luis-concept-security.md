@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 12/18/2018
 ms.author: diberry
-ms.openlocfilehash: ac4095d19904db10d4d60364dd2c739e8105c171
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 4465488dc02568932e839d3234bdb672d59e6804
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55863627"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58089853"
 ---
 # <a name="authoring-and-endpoint-user-access"></a>Skriv- och slutpunkt användaråtkomst
 Redigera åtkomst är tillgänglig för ägare och medarbetare. För en privat app är slutpunkt för åtkomst tillgänglig för ägare och medarbetare. För en app för offentlig är åtkomst för slutpunkten tillgänglig för alla som har sina egna LUIS-konto och har den offentliga app-ID. 
@@ -53,7 +53,7 @@ Redigera åtkomst är tillgänglig för ägare och medarbetare. För en privat a
 En privat app slutpunkten är endast tillgänglig för följande:
 
 |Nyckel och användare|Förklaring|
-|--|--|--|
+|--|--|
 |Ägarens redigering nyckel| Upp till 1000 endpoint träffar|
 |Medarbetare authoring nycklar| Upp till 1000 endpoint träffar|
 |Valfri tangent som tilldelats LUIS av en författare eller deltagare|Baserat på nivån för nyckelanvändning|

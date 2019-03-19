@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 04/20/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 071054e2ec5fead3ce6181925b3c5f4e99a26736
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 7564710b282c7e2ac586980896a28c00bcb2fe80
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56164234"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57872610"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-yodeck"></a>Självstudier: Azure Active Directory-integrering med Yodeck
 
@@ -192,7 +192,7 @@ När det gäller Yodeck är etablering en manuell aktivitet.
 
     ![Lägga till medarbetare](./media/yodeck-tutorial/user2.png)
 
-1. På den **användarinformation** dialogrutan utför följande steg:
+1. I dialogrutan **Användarinformation** utför du följande steg:
 
     ![Lägga till medarbetare](./media/yodeck-tutorial/user3.png)
 
@@ -200,7 +200,7 @@ När det gäller Yodeck är etablering en manuell aktivitet.
 
     b. I textrutan **Efternamn** skriver du efternamnet: **Simon**.
 
-    c. I den **e-post** textrutan typ e-postadressen för användaren som **brittasimon@contoso.com**.
+    c. I den **e-post** textrutan typ e-postadressen för användaren som **brittasimon\@contoso.com**.
 
     d. Välj lämplig **behörigheterna** alternativet enligt organisationens behov.
     
@@ -245,7 +245,7 @@ Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../user-help/act
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
+* [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 

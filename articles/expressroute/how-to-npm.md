@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/25/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: fb9ee97726632b7eeccc923596c1f5527a7c95bd
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 180075f13be2cc2507a78e3d10a67a49a0c0cb12
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56961626"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58118637"
 ---
 # <a name="configure-network-performance-monitor-for-expressroute"></a>Konfigurera övervakare av nätverksprestanda för ExpressRoute
 
@@ -62,17 +62,17 @@ Skapa en arbetsyta i den prenumeration som har virtuella nätverk-länk till Exp
 2. Längst ned i huvudsakliga **Övervakare av nätverksprestanda** klickar du på **skapa** att öppna **Network Performance Monitor - Skapa ny lösning** sidan. Klicka på **Log Analytics-arbetsyta – Välj en arbetsyta** att öppna sidan arbetsytor. Klicka på **+ Skapa ny arbetsyta** att öppna sidan för arbetsytan.
 3. På den **Log Analytics-arbetsyta** väljer **Skapa ny**, konfigurera följande inställningar:
 
-  * Log Analytics-arbetsyta – ange ett namn för din arbetsyta.
-  * Prenumeration – om du har flera prenumerationer väljer du den du vill associera med den nya arbetsytan.
-  * Resursgrupp – skapa en resursgrupp eller Använd en befintlig.
-  * Plats – den här platsen används för att ange platsen för det lagringskonto som används för agentloggarna som anslutningen.
-  * Prisnivå – Välj prisnivå.
+   * Log Analytics-arbetsyta – ange ett namn för din arbetsyta.
+   * Prenumeration – om du har flera prenumerationer väljer du den du vill associera med den nya arbetsytan.
+   * Resursgrupp – skapa en resursgrupp eller Använd en befintlig.
+   * Plats – den här platsen används för att ange platsen för det lagringskonto som används för agentloggarna som anslutningen.
+   * Prisnivå – Välj prisnivå.
   
-    >[!NOTE]
-    >ExpressRoute-kretsen kan finnas var som helst i världen. Det behöver inte finnas i samma region som arbetsytan.
-    >
+     >[!NOTE]
+     >ExpressRoute-kretsen kan finnas var som helst i världen. Det behöver inte finnas i samma region som arbetsytan.
+     >
   
-    ![arbetsyta](./media/how-to-npm/4.png)<br><br>
+     ![arbetsyta](./media/how-to-npm/4.png)<br><br>
 4. Klicka på **OK** att spara och distribuera inställningar för mallen. När mallen verifierar klickar du på **skapa** att distribuera arbetsytan.
 5. När arbetsytan har distribuerats, går du till den **NetworkMonitoring(name)** resurs som du skapade. Verifiera inställningarna och klicka sedan på **ytterligare konfiguration krävs för lösningen**.
 
@@ -86,7 +86,7 @@ Skapa en arbetsyta i den prenumeration som har virtuella nätverk-länk till Exp
 2. Kopiera den **arbetsyte-ID** och **primärnyckel** till anteckningar.
 3. Från den **konfigurera Log Analytics-agenter för övervakning med TCP-protokoll** avsnittet, ladda ned Powershell-skriptet. PowerShell-skriptet kan du öppna den relevanta brandväggsporten för TCP-transaktioner.
 
-  ![PowerShell-skript](./media/how-to-npm/7.png)
+   ![PowerShell-skript](./media/how-to-npm/7.png)
 
 ### <a name="installagent"></a>2.2: Installera en övervakningsagent på varje Övervakningsservern (på varje virtuellt nätverk som du vill övervaka)
 
@@ -102,15 +102,15 @@ Vi rekommenderar att du installerar minst två agenter på båda sidor av Expres
 4. På den **målmapp** sidan, ändra eller Behåll standardinstallationsmappen och klickar sedan på **nästa**.
 5. På den **installationsalternativ för Agent** sidan som du kan välja att ansluta agenten till Azure Monitor-loggar eller Operations Manager. Eller så kan du lämna alternativen tomt om du vill konfigurera agenten senare. När du har gjort dina val klickar du på **nästa**.
 
-  * Om du väljer att ansluta till **Azure Log Analytics**, klistra in den **arbetsyte-ID** och **Arbetsytenyckel** (primärnyckel) som du kopierade till anteckningar i föregående avsnitt. Klicka sedan på **Nästa**.
+   * Om du väljer att ansluta till **Azure Log Analytics**, klistra in den **arbetsyte-ID** och **Arbetsytenyckel** (primärnyckel) som du kopierade till anteckningar i föregående avsnitt. Klicka sedan på **Nästa**.
 
-    ![ID och nyckel](./media/how-to-npm/8.png)
-  * Om du väljer att ansluta till **Operations Manager**på den **Hanteringsgruppkonfiguration** anger du den **Hanteringsgruppnamn**, **Management Server** , och **Hanteringsserverport**. Klicka sedan på **Nästa**.
+     ![ID och nyckel](./media/how-to-npm/8.png)
+   * Om du väljer att ansluta till **Operations Manager**på den **Hanteringsgruppkonfiguration** anger du den **Hanteringsgruppnamn**, **Management Server** , och **Hanteringsserverport**. Klicka sedan på **Nästa**.
 
-    ![Operations Manager](./media/how-to-npm/9.png)
-  * På den **Agentåtgärdskontot** väljer du antingen den **lokalt System** konto, eller **domän eller lokalt datorkonto**. Klicka sedan på **Nästa**.
+     ![Operations Manager](./media/how-to-npm/9.png)
+   * På den **Agentåtgärdskontot** väljer du antingen den **lokalt System** konto, eller **domän eller lokalt datorkonto**. Klicka sedan på **Nästa**.
 
-    ![Konto](./media/how-to-npm/10.png)
+     ![Konto](./media/how-to-npm/10.png)
 6. På den **klar att installera** sidan, kontrollerar du valen och klickar sedan på **installera**.
 7. På sidan **Konfigurationen har slutförts** klickar du på **Slutför**.
 8. När du är klar visas Microsoft Monitoring Agent på Kontrollpanelen. Du kan granska konfigurationen där och kontrollera att agenten är ansluten till Azure Monitor-loggar. När du är ansluten, visar agenten ett meddelande om: **Microsoft Monitoring Agent har anslutits till tjänsten Microsoft Operations Management Suite**.
@@ -128,7 +128,7 @@ Konfigurera proxyinställningar för Microsoft Monitoring Agent med Kontrollpane
 3. Klicka på fliken **Proxyinställningar**.
 4. Välj **använder en proxyserver** och anger du URL och portnummer, om en sådan krävs. Om proxyservern kräver autentisering anger du användarnamn och lösenord för att få åtkomst till proxyservern.
 
-  ![Proxy](./media/how-to-npm/11.png)
+   ![Proxy](./media/how-to-npm/11.png)
 
 ### <a name="verifyagent"></a>2.4: Verifiera agentanslutning
 
@@ -139,7 +139,7 @@ Du kan enkelt kontrollera om agenterna kommunicerar.
 3. Klicka på den **Azure Log Analytics** fliken.
 4. I den **Status** kolumn, bör du se att agenten anslutits till Azure Monitor-loggar.
 
-  ![status](./media/how-to-npm/12.png)
+   ![status](./media/how-to-npm/12.png)
 
 ### <a name="firewall"></a>2.5: Öppna brandväggsportar på övervakningsservrar för agenten
 
@@ -172,16 +172,16 @@ Läs mer om NSG [Nätverkssäkerhetsgrupper](../virtual-network/virtual-networks
 
 1. Gå till översiktspanelen Övervakare av nätverksprestanda genom att gå till den **alla resurser** sidan och klicka på listan över godkända NPM-arbetsytan.
 
-  ![npm-arbetsyta](./media/how-to-npm/npm.png)
+   ![npm-arbetsyta](./media/how-to-npm/npm.png)
 2. Klicka på den **Övervakare av nätverksprestanda** panelen för att ta fram på instrumentpanelen. Instrumentpanelen innehåller en ExpressRoute-sida som visar att ExpressRoute är i ett okonfigurerat tillstånd. Klicka på **Funktionsinstallation** att öppna konfigurationssidan för Övervakare av nätverksprestanda.
 
-  ![funktionsinstallation](./media/how-to-npm/npm2.png)
+   ![funktionsinstallation](./media/how-to-npm/npm2.png)
 3. Gå till fliken ExpressRoute-Peerings på panelen till vänster på konfigurationssidan. Klicka sedan på **identifiera nu**.
 
-  ![upptäck](./media/how-to-npm/13.png)
+   ![upptäck](./media/how-to-npm/13.png)
 4. När identifieringen har slutförts visas en lista som innehåller följande objekt:
-  * Alla anslutningar som Microsoft peering i ExpressRoute-kretsar som är associerade med den här prenumerationen.
-  * Alla privata peering-anslutningarna som ansluter till de virtuella nätverken som är associerade med den här prenumerationen.
+   * Alla anslutningar som Microsoft peering i ExpressRoute-kretsar som är associerade med den här prenumerationen.
+   * Alla privata peering-anslutningarna som ansluter till de virtuella nätverken som är associerade med den här prenumerationen.
             
 ## <a name="configmonitor"></a>Steg 5: Konfigurera Övervakare
 

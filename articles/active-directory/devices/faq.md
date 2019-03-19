@@ -16,12 +16,12 @@ ms.date: 02/14/2019
 ms.author: markvi
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bbae902e7074207453938b14b9e79628e437e1cc
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: eaaad0d7351c398c9b2cc013f40d62461a2dd3f0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56737356"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57845538"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Azure Active Directory-enhetshantering vanliga frågor och svar
 
@@ -237,7 +237,13 @@ Hybrid Azure AD-anslutning har företräde framför Azure AD-registrerad tillst�
 
 **F: Kräver Windows 10 hybrid Azure AD-anslutna enheter åtkomst till domänkontrollanten för att få åtkomst till resurser i molnet?**
 
-**S:** Nej. Enare Windows 10 hybrid Azure AD join är klar och användaren har loggat in minst en gång, enheten kräver inte åtkomst till domänkontrollanten för att komma åt resurser i molnet. Windows 10 kan få enkel inloggning till Azure AD-program från var som helst med en Internetanslutning, utom när ett lösenord ändras. Om ett lösenord har ändrats utanför företagets nätverk (till exempel med hjälp av Azure AD SSPR), måste användaren har åtkomst till domänkontrollanten innan de kan logga in på enheten med sitt nya lösenord. I annat fall kan de bara logga in med sina gamla lösenord, som betraktas som inaktuella av Azure AD och förhindrar att enkel inloggning på. Det här problemet inträffar men inte när du använder Windows Hello för företag. Användare som loggar in med Windows Hello för företag fortfarande få enkel inloggning till Azure AD-program när en lösenordsändring även om de inte har åtkomst till sina domänkontrollant. 
+**S:** Allmänt Nej, utom när användarens lösenord har ändrats. Enare Windows 10 hybrid Azure AD join är klar och användaren har loggat in minst en gång, enheten kräver inte åtkomst till domänkontrollanten för att komma åt resurser i molnet. Windows 10 kan få enkel inloggning till Azure AD-program från var som helst med en Internetanslutning, utom när ett lösenord ändras. Användare som loggar in med Windows Hello för företag fortfarande få enkel inloggning till Azure AD-program även efter att en lösenordsändring även om de inte har åtkomst till sina domänkontrollant. 
+
+---
+
+**F: Vad händer om en användare ändrar sitt lösenord och försöker att logga in på sina Windows 10-hybrid Azure AD ansluten enhet utanför företagsnätverket?**
+
+**S:** Om ett lösenord har ändrats utanför företagets nätverk (till exempel med hjälp av Azure AD SSPR), misslyckas användaren loggar in med det nya lösenordet. Lokala Active Directory är den primära utfärdaren för hybrid Azure AD-anslutna enheter. När en enhet inte har åtkomst till domänkontrollanten, är det inte att verifiera det nya lösenordet. Därför användare behöver upprätta anslutning med domänkontrollanten (antingen via VPN eller att den finns i företagsnätverket) innan de är kunna logga in till enheten med sitt nya lösenord. I annat fall kan de bara logga in med sina gamla lösenord på grund av cachelagrade inloggningsmöjlighet i Windows. Men det gamla lösenordet betraktas som inaktuella av Azure AD under tokenbegäranden och därför förhindrar enkel inloggning på och misslyckas alla principer för enhetsbaserad villkorlig åtkomst. Det här problemet inträffar inte om du använder Windows Hello för företag. 
 
 ---
 
@@ -250,7 +256,7 @@ Hybrid Azure AD-anslutning har företräde framför Azure AD-registrerad tillst�
 
 **F: Hur kan jag registrera en macOS-enhet?**
 
-**S:** Gör följande:
+**S:** Utför följande steg:
 
 1.  [Skapa en efterlevnadsprincip](https://docs.microsoft.com/intune/compliance-policy-create-mac-os)
 2.  [Definiera principer för villkorlig åtkomst för macOS-enheter](../active-directory-conditional-access-azure-portal.md) 

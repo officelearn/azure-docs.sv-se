@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: dadobali
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f7db08cde0df1ba3d9bc227758ab3ad00c1fc422
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 2f569b497afe01db0fc4c3aa29589e6f2c538faf
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56207380"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58108669"
 ---
 # <a name="quickstart-set-up-a-dev-environment"></a>Snabbstart: Konfigurera en utvecklingsmiljö
 
@@ -55,8 +55,8 @@ Många utvecklare har redan klienter via tjänster eller prenumerationer som är
 
 > [!TIP]
 > Om du behöver hitta klient-ID:t kan du:
-* Hovra över kontonamnet för att hämta katalogen/klient-ID:t eller
-* Välj **Azure Active Directory > Egenskaper > Katalog-ID** i Azure-portalen
+> * Hovra över kontonamnet för att hämta katalogen/klient-ID:t eller
+> * Välj **Azure Active Directory > Egenskaper > Katalog-ID** i Azure-portalen
 
 Om du inte har en befintlig klient som är kopplad till ditt konto kan du ser ett GUID under namnet på ditt konto och kommer inte att kunna utföra åtgärder som att registrera appar förrän följer stegen i nästa avsnitt.
 

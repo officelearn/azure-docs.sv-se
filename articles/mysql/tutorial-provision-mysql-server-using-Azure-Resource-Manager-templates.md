@@ -8,12 +8,12 @@ ms.devlang: json
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.custom: mvc
-ms.openlocfilehash: bb7a48b08fde07380276d33393225c3f5220b93f
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: HT
+ms.openlocfilehash: 5d5398f4da7563c6f53c17d0305f54c4360f1c65
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56880707"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58076861"
 ---
 # <a name="tutorial-provision-an-azure-database-for-mysql-server-using-azure-resource-manager-template"></a>Självstudier: Etablera en Azure Database for MySQL-server med Azure Resource Manager-mallar
 
@@ -87,8 +87,8 @@ I den här begäran är de värden som måste anpassas:
 +   `storageProfile/geoRedundantBackup` – Ange aktiverat/inaktiverat beroende på kraven för geohaveriberedskap.
 +   `sku/tier` – Ange nivån Basic, GeneralPurpose eller MemoryOptimized för distributionen.
 +   `sku/capacity` – Ange vCore-kapacitet. Möjliga värden är 2, 4, 8, 16, 32 eller 64.
-+   `sku/family` – Ange Gen4 eller Gen5 för att välja maskinvarugeneration för serverdistributionen.
-+   `sku/name` – Ange TierPrefix_family_capacity. Till exempel B_Gen4_1, GP_Gen5_16, MO_Gen5_32. Se dokumentationen [prissättningsnivåer](./concepts-pricing-tiers.md) för att se giltiga värden per region och nivå.
++   `sku/family` -Ange Gen5 om du vill välja maskinvara generation för server-distributionen.
++   `sku/name` – Ange TierPrefix_family_capacity. Till exempel B_Gen5_1, GP_Gen5_16, MO_Gen5_32. Se dokumentationen [prissättningsnivåer](./concepts-pricing-tiers.md) för att se giltiga värden per region och nivå.
 +   `resources/properties/virtualNetworkSubnetId` – Ange Azure-identifieraren för undernätet i det virtuella nätverket där Azure MySQL-servern ska placeras. 
 +   `tags(optional)` – Ange valfria taggar är nyckelvärdepar som du använder för att kategorisera resurser för fakturering osv.
 
@@ -127,8 +127,8 @@ Resultatet är i JSON-format. Anteckna **fullyQualifiedDomainName** och **admini
   "resourceGroup": "myresourcegroup",
  "sku": {
     "capacity": 2,
-    "family": "Gen4",
-    "name": "GP_Gen4_2",
+    "family": "Gen5",
+    "name": "GP_Gen5_2",
     "size": null,
     "tier": "GeneralPurpose"
   },
@@ -207,5 +207,5 @@ I den här självstudien fick du lärda dig att:
 > * Läsa in exempeldata
 > * Söka i data
 > * Uppdatera data
-
+> 
 > [Så ansluter du program till Azure Database for MySQL](./howto-connection-string.md)

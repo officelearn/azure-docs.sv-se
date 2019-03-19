@@ -15,12 +15,12 @@ ms.date: 01/25/2019
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 5f142192571bdd15a33575a425d75baf3e5caea2
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 336a2a3fd98f7829694eb095ff2646d9d361afd3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55243495"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58097328"
 ---
 # <a name="tutorial-deploy-a-hybrid-cloud-solution-with-azure-and-azure-stack"></a>Självstudier: Distribuera en lösning för hybridmoln med Azure och Azure Stack
 
@@ -65,7 +65,7 @@ Innan du börjar den här självstudien måste du kontrollera att du uppfylla f�
   - En avbildning av Windows Server 2016
   - En Windows Server 2016 med en Microsoft SQL Server-avbildning
   - Rätt planer och erbjudanden
- - Ett domännamn för ditt webbprogram. Om du inte har ett domännamn kan du köpa en från en domänleverantör som GoDaddy, Bluehost och InMotion.
+  - Ett domännamn för ditt webbprogram. Om du inte har ett domännamn kan du köpa en från en domänleverantör som GoDaddy, Bluehost och InMotion.
 - Ett SSL-certifikat för din domän från en betrodd certifikatutfärdare, till exempel LetsEncrypt.
 - Ett webbprogram som kommunicerar med en SQL Server-databas och har stöd för Application Insights. Du kan ladda ned den [dotnetcore-sqldb-tutorial](https://github.com/Azure-Samples/dotnetcore-sqldb-tutorial) exempelapp från GitHub.
 - Hybridnätverk mellan en Azure-nätverk och Azure Stack-nätverk. Detaljerade anvisningar finns i [konfigurera molnet hybridanslutning med Azure och Azure Stack](azure-stack-solution-hybrid-connectivity.md).
@@ -94,19 +94,19 @@ Innan du börjar den här självstudien måste du kontrollera att du uppfylla f�
 
 7. Under **Inställningar > Konfigurera valfria funktioner**, konfigurera följande inställningar:
 
-    - **Storage-konto**. Skapa ett nytt konto om du behöver en.
-    - **Virtuellt nätverk**
+   - **Storage-konto**. Skapa ett nytt konto om du behöver en.
+   - **Virtuellt nätverk**
 
-      > [!Important]  
-      > Kontrollera att SQL Server-dator har distribuerats på samma virtuella nätverk som VPN-gatewayer.
+     > [!Important]  
+     > Kontrollera att SQL Server-dator har distribuerats på samma virtuella nätverk som VPN-gatewayer.
 
-    - **Offentlig IP-adress**. Du kan använda standardinställningarna.
-    - **Nätverkssäkerhetsgrupp** (NSG). Skapa en ny NSG.
-    - **Tillägg och övervakning**. Behåll standardinställningarna.
-    - **Diagnostiklagringskonto**. Skapa ett nytt konto om du behöver en.
-    - Välj **OK** att spara din konfiguration.
+   - **Offentlig IP-adress**. Du kan använda standardinställningarna.
+   - **Nätverkssäkerhetsgrupp** (NSG). Skapa en ny NSG.
+   - **Tillägg och övervakning**. Behåll standardinställningarna.
+   - **Diagnostiklagringskonto**. Skapa ett nytt konto om du behöver en.
+   - Välj **OK** att spara din konfiguration.
 
-    ![Konfigurera valfria funktioner](media/azure-stack-solution-hybrid-cloud/image4.png)
+     ![Konfigurera valfria funktioner](media/azure-stack-solution-hybrid-cloud/image4.png)
 
 1. Under **SQL Server-inställningar**, konfigurera följande inställningar:
    - För **SQL-anslutning**väljer du att **offentlig (Internet)**.
@@ -118,7 +118,7 @@ Innan du börjar den här självstudien måste du kontrollera att du uppfylla f�
 
    - Behåll standardinställningarna för resten av inställningarna. Välj **OK**.
 
-    ![Konfigurera SQL Server-inställningar](media/azure-stack-solution-hybrid-cloud/image5.png)
+     ![Konfigurera SQL Server-inställningar](media/azure-stack-solution-hybrid-cloud/image5.png)
 
 9. På **sammanfattning**, granska konfigurationen av virtuella datorn och välj sedan **OK** att starta distributionen.
 
@@ -391,7 +391,7 @@ Du skapar en Traffic Manager-profil i Azure och sedan konfigurera slutpunkter f�
 
     ![Skapa Traffic Manager-profil](media/azure-stack-solution-hybrid-cloud/image19.png)
 
- När den globala distribueringen av Traffic Manager-profilen är klar visas den i listan över resurser för den resursgrupp du skapade den under.
+   När den globala distribueringen av Traffic Manager-profilen är klar visas den i listan över resurser för den resursgrupp du skapade den under.
 
 ### <a name="add-traffic-manager-endpoints"></a>Lägga till Traffic Manager-slutpunkter
 

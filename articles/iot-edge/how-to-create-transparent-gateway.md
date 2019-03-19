@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 7e196a912db723d5d118b0aadc98f73f1c7271e0
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: c769ae8e684a94e60f6a2e31ba404a0593f7aa78
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57243762"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58096715"
 ---
 # <a name="configure-an-iot-edge-device-to-act-as-a-transparent-gateway"></a>Konfigurera en IoT Edge-enhet kan fungera som en transparent gateway
 
@@ -181,7 +181,7 @@ Använd stegen i det här avsnittet för att generera testcertifikat på en Linu
 
 I det här avsnittet ska du skapa tre certifikat och Anslut dem i en kedja. Placera certifikaten i en kedja-fil kan enkelt installera dem på din IoT Edge-gatewayenhet och alla underordnade enheter.  
 
-1.  Skapa ägare CA-certifikat och en mellanliggande certifikat. Dessa certifikat är placerade i  *\<WRKDIR >*.
+1. Skapa ägare CA-certifikat och en mellanliggande certifikat. Dessa certifikat är placerade i  *\<WRKDIR >*.
 
    ```bash
    ./certGen.sh create_root_and_intermediate
@@ -193,7 +193,7 @@ I det här avsnittet ska du skapa tre certifikat och Anslut dem i en kedja. Plac
    * `<WRKDIR>/private/azure-iot-test-only.root.ca.key.pem`
    * `<WRKDIR>/private/azure-iot-test-only.intermediate.key.pem`
 
-2.  Skapa Microsoft Edge-enhet CA-certifikat och privata nyckeln med följande kommando. Ange ett namn för gateway-enheten som ska användas som namn på filerna och under skapande av certifikat. 
+2. Skapa Microsoft Edge-enhet CA-certifikat och privata nyckeln med följande kommando. Ange ett namn för gateway-enheten som ska användas som namn på filerna och under skapande av certifikat. 
 
    ```bash
    ./certGen.sh create_edge_device_certificate "<gateway name>"

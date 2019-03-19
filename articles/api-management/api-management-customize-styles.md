@@ -14,12 +14,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: c3c79e7bd68e7c96b57ea66951c080b7d952ee8c
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
-ms.translationtype: HT
+ms.openlocfilehash: 4ea64b16a9a581683d3b7a44b4b331af435db22c
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52441765"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57762729"
 ---
 # <a name="customize-the-style-of-the-developer-portal-pages"></a>Anpassa stilen på utvecklarportalens sidor
 
@@ -37,7 +37,7 @@ I den här guiden får du lära dig att:
 
 ![anpassa stil](./media/modify-developer-portal-style/developer_portal.png)
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 + Lär dig [Azure API Management-terminologin](api-management-terminology.md).
 + Slutför följande snabbstart: [Skapa en Azure API Management-instans](get-started-create-service-instance.md).
@@ -57,11 +57,11 @@ I den här guiden får du lära dig att:
     Alla element som du kan anpassa med **stilar** visas på sidan
 5. Ange färg för rubriker i fältet **Change variable values to customize developer portal appearance:** (Anpassa variabelvärden för att anpassa utvecklarportalens utseende).
 
-    Elementen **@headings-color** visas på sidan. Den här variabeln anger färgen på texten.
+    Den  **\@färg för rubriker** elementet visas på sidan. Den här variabeln anger färgen på texten.
 
     ![anpassa stil](./media/modify-developer-portal-style/modify-developer-portal-style02.png)
     
-6. Klicka på fältet för variabeln **@headings-color**. 
+6. Klicka på fältet för den  **\@färg för rubriker** variabeln. 
     
     En nedrullningsbar meny för val av färg öppnas.
 7. Välj en ny färg i den nedrullningsbara menyn för val av färg.

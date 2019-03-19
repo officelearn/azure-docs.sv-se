@@ -43,8 +43,6 @@
 ### [Lägga till tjänstens huvudnamn till administratörsrollen för servern](analysis-services-addservprinc-admins.md)
 
 ## Modell
-### [Importera en Power BI Desktop-fil](analysis-services-import-pbix.md)
-### [Skapa en modell i Azure Portal (förhandsgranskning)](analysis-services-create-model-portal.md)
 ### [Distribuera från Visual Studio (SSDT)](analysis-services-deploy.md)
 ### [Uppdatera med REST API](analysis-services-async-refresh.md)
 ### [Datamodellering i Visual Studio – självstudie för Adventure Works (1400)](tutorials/aas-adventure-works-tutorial.md)
@@ -97,13 +95,3 @@
 ## [Priskalkylator](https://azure.microsoft.com/pricing/calculator/)
 ## [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-analysis-services)
 ## [Videoklipp](https://azure.microsoft.com/resources/videos/index/?services=analysis-services&sort=newest)
-
-
-
-
-
-
-
-
-
-

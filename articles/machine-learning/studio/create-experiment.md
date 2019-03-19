@@ -10,12 +10,12 @@ author: garyericson
 ms.author: garye
 ms.custom: seodec18
 ms.date: 02/06/2019
-ms.openlocfilehash: 803a52994536d2d6f39a064f97af7831af0cebb6
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: 0819c232412e1619f82a25476a8318d26c8087da
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453179"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58105734"
 ---
 # <a name="quickstart-create-your-first-data-science-experiment-in-azure-machine-learning-studio"></a>Snabbstart: Skapa ditt första dataexperiment i Azure Machine Learning Studio
 
@@ -95,21 +95,21 @@ Först lägger vi till en modul som tar bort kolumnen **normalized-losses** helt
 
 1. Klicka på modulen [Välj kolumner i datauppsättning][select-columns] och klicka på **Starta kolumnväljaren** i rutan **Egenskaper**.
 
-    - Klicka på **Med regler** till vänster.
-    - Under **Börjar med** klickar du på **Alla kolumner**. De här reglerna instruerar [Välj kolumner i datamängd][select-columns] att gå igenom alla kolumner (förutom dem som vi ska utesluta).
-    - I listrutorna väljer du **Exkludera** och **kolumnnamn** och klickar sedan i textrutan. En lista med kolumner visas. Välj **normalized-losses** så läggs den till i textrutan.
-    - Stäng kolumnväljaren genom att klicka på bockmarkeringen (OK) längst ned till höger.
+   - Klicka på **Med regler** till vänster.
+   - Under **Börjar med** klickar du på **Alla kolumner**. De här reglerna instruerar [Välj kolumner i datamängd][select-columns] att gå igenom alla kolumner (förutom dem som vi ska utesluta).
+   - I listrutorna väljer du **Exkludera** och **kolumnnamn** och klickar sedan i textrutan. En lista med kolumner visas. Välj **normalized-losses** så läggs den till i textrutan.
+   - Stäng kolumnväljaren genom att klicka på bockmarkeringen (OK) längst ned till höger.
 
-    ![Starta kolumnväljaren och utelämna kolumnen ”normalized-losses”](./media/create-experiment/launch-column-selector.png)
+     ![Starta kolumnväljaren och utelämna kolumnen ”normalized-losses”](./media/create-experiment/launch-column-selector.png)
 
-    Egenskapsrutan för **Välj kolumner i datauppsättning** anger nu att alla kolumner i datauppsättningen tas med utom **normalized-losses**.
+     Egenskapsrutan för **Välj kolumner i datauppsättning** anger nu att alla kolumner i datauppsättningen tas med utom **normalized-losses**.
 
-    ![Egenskapsrutan visar att kolumnen ”normalized-losses” är utelämnad](./media/create-experiment/showing-excluded-column.png)
+     ![Egenskapsrutan visar att kolumnen ”normalized-losses” är utelämnad](./media/create-experiment/showing-excluded-column.png)
 
-    > [!TIP] 
-    > Du kan lägga till en kommentar till en modul genom att dubbelklicka på modulen och skriva text. På så sätt kan du snabbt se vad modulen gör i experimentet. I vårt exempel dubbelklickar du på modulen [Välj kolumner i datauppsättning][select-columns] och skriver kommentaren ”Exkludera normaliserade förluster”.
+     > [!TIP] 
+     > Du kan lägga till en kommentar till en modul genom att dubbelklicka på modulen och skriva text. På så sätt kan du snabbt se vad modulen gör i experimentet. I vårt exempel dubbelklickar du på modulen [Välj kolumner i datauppsättning][select-columns] och skriver kommentaren ”Exkludera normaliserade förluster”.
 
-    ![Lägga till en kommentar genom att dubbelklicka på en modul](./media/create-experiment/add-comment.png)
+     ![Lägga till en kommentar genom att dubbelklicka på en modul](./media/create-experiment/add-comment.png)
 
 1. Dra modulen [Rensa data som saknas][clean-missing-data] till experimentarbetsytan och anslut den till modulen [Välj kolumner i datauppsättning][select-columns]. I fönstret **Egenskaper** väljer du **Ta bort hela raden** under **Rensningsläge**. De här alternativen instruerar modulen [Rensa data som saknas][clean-missing-data] att rensa data genom att ta bort rader som har saknade värden. Dubbelklicka på modulen och skriv kommentaren ”Ta bort rader med värden som saknas”.
 

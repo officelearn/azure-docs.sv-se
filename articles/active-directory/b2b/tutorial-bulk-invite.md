@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 183a6ddf3fd47be552ba13ce42c1f6e29fca4410
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 3a30281012d28489a40e3366585164628d87c220
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56193959"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58009144"
 ---
 # <a name="tutorial-bulk-invite-azure-ad-b2b-collaboration-users"></a>Självstudier: Massinbjuda Azure AD B2B-samarbetsanvändare
 
@@ -28,7 +28,7 @@ Om du använder Azure Active Directory (Azure AD) B2B-samarbete för att arbeta 
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar. 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 ### <a name="install-the-latest-azureadpreview-module"></a>Installera den senaste AzureADPreview-modulen
 Se till att du installerar den senaste versionen av Azure AD PowerShell för Graph-modulen (AzureADPreview). 
@@ -119,7 +119,7 @@ Kontrollera att de inbjudna användarna har lagts till i Azure AD genom att kör
 ```powershell
  Get-AzureADUser -Filter "UserType eq 'Guest'"
 ```
-De användare som du bjudit in bör finnas listade med ett användarens huvudnamn (UPN) i formatet *e-postadress*#EXT #@*domän*. Exempel: *lstokes_fabrikam.com#EXT#@contoso.onmicrosoft.com*, där contoso.onmicrosoft.com är den organisation från vilken du har skickat inbjudningarna.
+Du bör se de användare som du inbjuden visas med en användarens huvudnamn (UPN) i formatet *e-postadress*EXT #\@*domän*. Till exempel *lstokes_fabrikam.com#EXT#\@contoso.onmicrosoft.com*, där contoso.onmicrosoft.com är organisationen som du har skickat inbjudningarna.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

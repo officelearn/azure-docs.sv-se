@@ -15,12 +15,12 @@ ms.date: 01/14/2019
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 857aa71a4812534030ca638fd8bab11f60535ea0
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 3df5bd177dfd88e74a8dbc72dd1966a18a61d0f8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57536954"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57860592"
 ---
 # <a name="tutorial-create-a-geo-distributed-app-solution-with-azure-and-azure-stack"></a>Självstudier: Skapa en applösning för geo-distribuerad med Azure och Azure Stack
 
@@ -135,7 +135,7 @@ Konfigurera hybrid CI/CD för att distribuera Webbapp till Azure och Azure Stack
 
 1. **Logga in på Azure Pipelines** att bekräfta möjligheten att skapa byggdefinitioner.
 
-2. Lägg till **- r win10-x64** kod. Detta är nödvändigt att utlösa en självständig distribution med .net Core.
+2. Lägg till **- r win10-x64** kod. Detta är nödvändigt att utlösa en självständig distribution med .NET Core.
 
     ![Alternativ text](media/azure-stack-solution-geo-distributed/image4.png)
 
@@ -154,9 +154,9 @@ Azure DevOps och Azure DevOps-servern ger en mycket konfigurerbar och hanterbara
 
 ![Alternativ text](media/azure-stack-solution-geo-distributed/image5.png)
 
-1.  Välj den **plus** för att lägga till en ny version under den **versioner fliken** på sidan Skapa och släpp av Visual Studio Online (VSO).
+1. Välj den **plus** för att lägga till en ny version under den **versioner fliken** på sidan Skapa och släpp av Visual Studio Online (VSO).
 
-    ![Alternativ text](media/azure-stack-solution-geo-distributed/image6.png)
+   ![Alternativ text](media/azure-stack-solution-geo-distributed/image6.png)
 
 2. Tillämpa den **Azure App Service-distribution** mall.
 
@@ -210,7 +210,7 @@ Azure DevOps och Azure DevOps-servern ger en mycket konfigurerbar och hanterbara
 
 14. Välj den **prenumeration** för Azure Stack-slutpunkten.
 
-  ![Alternativ text](media/azure-stack-solution-geo-distributed/image20.png)
+    ![Alternativ text](media/azure-stack-solution-geo-distributed/image20.png)
 
 15. Ange Azure Stack webbappens namn som den **App service-namn**.
 
@@ -299,11 +299,11 @@ Skärmbilden nedan är ett exempel på en sida med DNS-poster:
 
 ![Exempelsida för DNS-poster](media/azure-stack-solution-geo-distributed/image28.png)
 
-1.  Välj i Domännamnsregistrator **Lägg till eller skapa** att skapa en post. Vissa providrar har olika länkar för att lägga till olika posttyper. Läs leverantörens dokumentation.
+1. Välj i Domännamnsregistrator **Lägg till eller skapa** att skapa en post. Vissa providrar har olika länkar för att lägga till olika posttyper. Läs leverantörens dokumentation.
 
-2.  Lägg till en CNAME-post för att mappa en underdomän till appens Standardvärdnamn.
+2. Lägg till en CNAME-post för att mappa en underdomän till appens Standardvärdnamn.
 
-  Lägga till en CNAME-post som mappar namnet för domänexemplet www.northwindcloud.com < app\_namn >. azurewebsites.net.
+   Lägga till en CNAME-post som mappar namnet för domänexemplet www.northwindcloud.com < app\_namn >. azurewebsites.net.
 
 När du lagt till CNAME ser sidan för DNS-poster ut som i följande exempel:
 
@@ -311,47 +311,47 @@ När du lagt till CNAME ser sidan för DNS-poster ut som i följande exempel:
 
 ### <a name="enable-the-cname-record-mapping-in-azure"></a>Aktivera CNAME-postmappning i Azure
 
-1.  I en ny flik loggar du in på Azure Portal
+1. I en ny flik loggar du in på Azure Portal
 
-2.  Gå till App Services.
+2. Gå till App Services.
 
-3.  Välj webbapp.
+3. Välj webbapp.
 
-4.  Välj **Anpassade domäner** i det vänstra navigeringsfönstret på appsidan i Azure Portal.
+4. Välj **Anpassade domäner** i det vänstra navigeringsfönstret på appsidan i Azure Portal.
 
-5.  Välj ikonen **+** bredvid **Lägg till värddatornamn**.
+5. Välj ikonen **+** bredvid **Lägg till värddatornamn**.
 
-1.  Ange det fullständigt kvalificerade domännamnet, till exempel `www.northwindcloud.com`.
+1. Ange det fullständigt kvalificerade domännamnet, till exempel `www.northwindcloud.com`.
 
-2.  Välj **Verifiera**.
+2. Välj **Verifiera**.
 
-3.  Om anges, lägger du till ytterligare poster för andra typer (`A` eller `TXT`) domain name registratorer DNS-poster. Azure tillhandahåller värden och typer av dessa poster:
+3. Om anges, lägger du till ytterligare poster för andra typer (`A` eller `TXT`) domain name registratorer DNS-poster. Azure tillhandahåller värden och typer av dessa poster:
 
-    a.  En **A**-post för att mappa till appens IP-adress.
+   a.  En **A**-post för att mappa till appens IP-adress.
 
-    b.  En **TXT** post att mappa till appens Standardvärdnamn < app_name >. azurewebsites.net. App Service använder den här posten endast vid konfigurationen, för att verifiera ditt ägarskap anpassad domän. Ta bort TXT-posten när kontrollen är klar.
+   b.  En **TXT** post att mappa till appens Standardvärdnamn < app_name >. azurewebsites.net. App Service använder den här posten endast vid konfigurationen, för att verifiera ditt ägarskap anpassad domän. Ta bort TXT-posten när kontrollen är klar.
 
-4.  Slutför den här uppgiften på fliken domän Registratorn och verifiera tills den **Lägg till värddatornamn** knappen aktiveras.
+4. Slutför den här uppgiften på fliken domän Registratorn och verifiera tills den **Lägg till värddatornamn** knappen aktiveras.
 
-5.  Se till att ** posttyp för värddatornamn har angetts till **CNAME (www.example.com eller valfri underdomän)**.
+5. Se till att ** posttyp för värddatornamn har angetts till **CNAME (www.example.com eller valfri underdomän)**.
 
-6.  Välj **Lägg till värddatornamn**.
+6. Välj **Lägg till värddatornamn**.
 
-7.  Ange det fullständigt kvalificerade domännamnet, till exempel `northwindcloud.com`.
+7. Ange det fullständigt kvalificerade domännamnet, till exempel `northwindcloud.com`.
 
-8.  Välj **Verifiera**.
+8. Välj **Verifiera**.
 
-9.  Den **Lägg till** har aktiverats.
+9. Den **Lägg till** har aktiverats.
 
 10. Se till att ** posttyp för värddatornamn har angetts till **en post (example.com)**.
 
 11. **Lägg till värddatornamn**.
 
-  Det kan ta lite tid innan nytt värdnamnen återspeglas i appens **anpassade domäner** sidan. Försök att uppdatera webbläsaren så att informationen uppdateras.
+    Det kan ta lite tid innan nytt värdnamnen återspeglas i appens **anpassade domäner** sidan. Försök att uppdatera webbläsaren så att informationen uppdateras.
   
-  ![Alternativ text](media/azure-stack-solution-geo-distributed/image31.png) 
+    ![Alternativ text](media/azure-stack-solution-geo-distributed/image31.png) 
   
-  Om det finns ett fel visas ett meddelande om verifieringen längst ned på sidan. ![Verifieringsfel](media/azure-stack-solution-geo-distributed/image32.png)
+    Om det finns ett fel visas ett meddelande om verifieringen längst ned på sidan. ![Verifieringsfel](media/azure-stack-solution-geo-distributed/image32.png)
 
 > [!Note]  
 >  Stegen ovan kan upprepas för att mappa en domän med jokertecken (\*. northwindcloud.com)... På så sätt kan lägga till några ytterligare underdomäner till den här app service utan att behöva skapa en separat CNAME-post för var och en. Följ anvisningarna för Registratorn att konfigurera den här inställningen.
@@ -482,15 +482,15 @@ När IIS eller **Certreq.exe** används för att generera certifikatbegäran, in
 
 #### <a name="upload-the-ssl-certificate"></a>Ladda upp SSL-certifikatet
 
-1.  Välj **SSL-inställningar** i den vänstra navigeringen i webbappen.
+1. Välj **SSL-inställningar** i den vänstra navigeringen i webbappen.
 
-2.  Välj **överför certifikat**.
+2. Välj **överför certifikat**.
 
-3.  I **PFX-certifikatsfil**väljer PFX-fil.
+3. I **PFX-certifikatsfil**väljer PFX-fil.
 
-4.  4. I **certifikatlösenord**, skriver du lösenordet som skapats när du exporterar PFX-filen.
+4. 1. I **certifikatlösenord**, skriver du lösenordet som skapats när du exporterar PFX-filen.
 
-5.  Välj **Överför**.
+5. Välj **Överför**.
 
 ![Överför certifikat](media/azure-stack-solution-geo-distributed/image38.png)
 
@@ -588,23 +588,23 @@ Appen tillåter [TLS](https://wikipedia.org/wiki/Transport_Layer_Security) 1.0 s
 
 ### <a name="add-traffic-manager-endpoints"></a>Lägga till Traffic Manager-slutpunkter
 
-1.  I sökfältet portaler, söker du efter den ** Traffic Manager-profil ** namnet som skapas i föregående avsnitt och välj traffic manager-profilen i resultaten som visas.
+1. I sökfältet portaler, söker du efter den ** Traffic Manager-profil ** namnet som skapas i föregående avsnitt och välj traffic manager-profilen i resultaten som visas.
 
-2.  I **Traffic Manager-profil**i den **inställningar** väljer **slutpunkter**.
+2. I **Traffic Manager-profil**i den **inställningar** väljer **slutpunkter**.
 
-3.  Välj **Lägg till**.
+3. Välj **Lägg till**.
 
-4.  Lägger till Azure Stack-slutpunkten.
+4. Lägger till Azure Stack-slutpunkten.
 
-5.  För **typ**väljer **extern slutpunkt**.
+5. För **typ**väljer **extern slutpunkt**.
 
-6.  Ange en **namn** för den här slutpunkten, helst namnet på Azure Stack.
+6. Ange en **namn** för den här slutpunkten, helst namnet på Azure Stack.
 
-7.  För fullständigt kvalificerade domännamnet (**FQDN**), Använd externa URL: en för Azure Stack Web App.
+7. För fullständigt kvalificerade domännamnet (**FQDN**), Använd externa URL: en för Azure Stack Web App.
 
-8.  Välj en region/kontinent där resursen finns, till exempel under Geo-mappning, **Europa.**
+8. Välj en region/kontinent där resursen finns, till exempel under Geo-mappning, **Europa.**
 
-9.  Under Land/Region listrutan som visas, väljer du det land som gäller för den här slutpunkten, till exempel **Tyskland**.
+9. Under Land/Region listrutan som visas, väljer du det land som gäller för den här slutpunkten, till exempel **Tyskland**.
 
 10. Behåll **Lägg till som inaktiverad** som avmarkerat.
 
@@ -628,12 +628,12 @@ Appen tillåter [TLS](https://wikipedia.org/wiki/Transport_Layer_Security) 1.0 s
 
 16. Välj **OK**
 
-  > [!Note]  
-  >  Skapa minst en slutpunkt med geografiska omfattning av alla (världen) som fungerar som standardslutpunkt för resursen.
+    > [!Note]  
+    >  Skapa minst en slutpunkt med geografiska omfattning av alla (världen) som fungerar som standardslutpunkt för resursen.
 
-1.  När båda slutpunkterna har lagts till visas de i **Traffic Manager-profilen** tillsammans med sin övervakningsstatus, som är **Online**.
+1. När båda slutpunkterna har lagts till visas de i **Traffic Manager-profilen** tillsammans med sin övervakningsstatus, som är **Online**.
 
-  ![Alternativ text](media/azure-stack-solution-geo-distributed/image46.png)
+    ![Alternativ text](media/azure-stack-solution-geo-distributed/image46.png)
 
 **Globala företag förlitar sig på Azure Geodistribution funktioner**
 

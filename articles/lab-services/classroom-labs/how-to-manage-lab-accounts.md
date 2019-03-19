@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2018
 ms.author: spelluru
-ms.openlocfilehash: 6cd06778ad54fa698c5bc2fe4ccf02f4be2ee2ec
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: f1194d8385d1e7ddcb906d0c8c3a2b56648e2547
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56807070"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58120830"
 ---
 # <a name="manage-lab-accounts-in-azure-lab-services"></a>Hantera labb konton i Azure Lab Services 
 Ett labbkonto är en behållare för hanterade lab typer, till exempel klassrum labb i Azure Lab Services. En administratör konfigurerar ett testlabb-konto med Azure Lab Services och ger åtkomst till labbägare som kan skapa labb i kontot. Den här artikeln beskriver hur du skapar ett labbkonto, visa alla lab-konton eller ta bort ett labbkonto.
@@ -38,7 +38,9 @@ Följande steg visar hur du använder Azure Portal till att skapa ett labbkonto 
     2. Välj den **Azure-prenumeration** där du vill skapa labbkontot.
     3. Som **Resursgrupp** väljer du **Skapa ny** och anger ett namn på resursgruppen.
     4. Som **Plats** väljer du den plats/region där du vill att labbkontot ska skapas. 
-    5. Välj **Skapa**. 
+    5. För **Peerkopplade virtuella nätverket**, välja ett peer virtuellt nätverk (VNet) i testlabbets nätverk. Labs som skapats i det här kontot är anslutna till det valda virtuella nätverket och har åtkomst till resurser i det valda virtuella nätverket. 
+    7. I fältet **Tillåt labbets skapare att välja plats för labbet** anger du om du vill att labbskaparna ska kunna välja en plats för labbet. Det här alternativet är inaktiverat som standard. När det är inaktiverat kan inte labbskaparna ange någon plats för labbet som de skapar. Labbarna skapas på den geografiska plats som är närmast labbkontot. När det är aktiverat kan en labbskapare välja en plats vid den tid då labbet skapas.      
+    8. Välj **Skapa**. 
 
         ![Fönstret Skapa ett labbkonto](../media/tutorial-setup-lab-account/lab-account-settings.png)
 5. Välj **klockikonen** i verktygsfältet (**meddelanden**), bekräfta att distributionen är klar och välj sedan **Gå till resurs**. 
@@ -86,6 +88,18 @@ Som labbkontoägare kan du ange Marketplace-avbildningar som labbskapare kan anv
     1. Välj **... (ellips)** i den sista kolumnen och välj **Aktivera avbildning**. 
     2. Välj en eller flera avbildningar från listan genom att markera kryssrutorna före avbildningsnamnen i listan och välja **Aktivera valda avbildningar**. 
 
+## <a name="configure-the-lab-account"></a>Konfigurera kontot för labb
+1. På den **Labbkonto** väljer **Labs configuration** på den vänstra menyn.
+
+    ![Konfigurationssidan för labb](../media/how-to-manage-lab-accounts/labs-configuration-page.png) 
+1. För **Peerkopplade virtuella nätverket**väljer **aktiverad** eller **inaktiverad**. Standardvärdet är **inaktiverad**. Om du vill aktivera det peerkopplade virtuella nätverket, gör du följande: 
+    1. Välj **aktiverat**.
+    2. Välj den **VNet** från den nedrullningsbara listan. 
+    3. Välj **Spara** i verktygsfältet. 
+    
+        Labs som skapats i det här kontot är anslutna till det valda virtuella nätverket. De har åtkomst till resurser i det valda virtuella nätverket. 
+3. För den **Tillåt labbskaparen att välja lab platsen**väljer **aktiverad** om du vill att labbskaparen för att kunna välja en plats för övningen. Om den är inaktiverad skapas automatiskt labbarna på samma plats där labbkonto finns. 
+
 ## <a name="view-lab-accounts"></a>Visa lab-konton
 1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Välj **alla resurser** på menyn. 
@@ -93,19 +107,6 @@ Som labbkontoägare kan du ange Marketplace-avbildningar som labbskapare kan anv
     Du kan också filtrera efter prenumeration, resursgrupp, platser och taggar. 
 
     ![Alla resurser -> Lab-konton](../media/how-to-manage-lab-accounts/all-resources-lab-accounts.png)
-
-
-## <a name="delete-a-lab-account"></a>Ta bort ett labbkonto
-Följ anvisningarna i föregående avsnitt som visar lab-konton i en lista. Använd följande instruktioner för att ta bort ett labbkonto: 
-
-1. Välj den **labbkonto** som du vill ta bort. 
-2. Välj **ta bort** från verktygsfältet. 
-
-    ![Lab-konton -> Ta bort-knappen](../media/how-to-manage-lab-accounts/delete-button.png)
-1. Typ **Ja** bekräftelse.
-1. Välj **Ta bort**. 
-
-    ![Ta bort labbkonto - bekräftelse](../media/how-to-manage-lab-accounts/delete-lab-account-confirmation.png)
 
 ## <a name="view-and-manage-labs-in-the-lab-account"></a>Visa och hantera labb i labbkonto
 
@@ -119,6 +120,8 @@ Följ anvisningarna i föregående avsnitt som visar lab-konton i en lista. Anv�
     4. Maximalt antal användare som har åtkomst till labbet. 
     5. Status för labbet. 
 
+
+
 ## <a name="delete-a-lab-in-the-lab-account"></a>Ta bort ett labb i labbkonto
 Följ anvisningarna i föregående avsnitt för att se en lista över labs i labbkonto.
 
@@ -128,6 +131,20 @@ Följ anvisningarna i föregående avsnitt för att se en lista över labs i lab
 2. Välj **Ja** i varningsmeddelandet. 
 
     ![Bekräfta borttagning av testlabb](../media/how-to-manage-lab-accounts/confirm-lab-delete.png)
+
+## <a name="delete-a-lab-account"></a>Ta bort ett labbkonto
+Följ anvisningarna i föregående avsnitt som visar lab-konton i en lista. Använd följande instruktioner för att ta bort ett labbkonto: 
+
+1. Välj den **labbkonto** som du vill ta bort. 
+2. Välj **ta bort** från verktygsfältet. 
+
+    ![Lab-konton -> Ta bort-knappen](../media/how-to-manage-lab-accounts/delete-button.png)
+1. Typ **Ja** bekräftelse.
+1. Välj **Ta bort**. 
+
+    ![Ta bort labbkonto - bekräftelse](../media/how-to-manage-lab-accounts/delete-lab-account-confirmation.png)
+
+
 
 ## <a name="next-steps"></a>Nästa steg
 Se följande artiklar:

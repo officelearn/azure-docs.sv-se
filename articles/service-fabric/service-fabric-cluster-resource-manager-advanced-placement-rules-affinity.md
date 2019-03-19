@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: b12328c8283c9a626a3dcfc45dfd682a5e628d07
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 9c4af55a5ddb05335f8acfdd23711df2290e217b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56728853"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58085702"
 ---
 # <a name="configuring-and-using-service-affinity-in-service-fabric"></a>Konfigurera och använda tjänsttillhörighet i Service Fabric
 Tillhörighet är en kontroll som har angetts främst för att underlätta övergången av större oflexibla tillämpningar till molnet och mikrotjänster världen. Den används också som en optimering för att förbättra prestanda för tjänster, även om detta kan ha sidoeffekter.
@@ -59,6 +59,7 @@ await fabricClient.ServiceManager.CreateServiceAsync(serviceDescription);
 Tillhörighet representeras via någon av flera scheman för korrelation och har två olika lägen. Det vanligaste tillhörighet-läget är det vi kallar NonAlignedAffinity. I NonAlignedAffinity, är repliker eller instanser av de olika tjänsterna placerade på samma noderna. Det andra läget är AlignedAffinity. Justerade tillhörighet är användbar bara med tillståndskänsliga tjänster. Konfigurera två tillståndskänsliga tjänster om du vill ha justerad tillhörighet säkerställer att USA: s presidentval av dessa tjänster är placerade på samma noder efter varandra. Det gör även varje par med sekundärservrar för dessa tjänster ska kunna placeras på samma noderna. Det är också möjligt (även om mindre fråga om delad) Konfigurera NonAlignedAffinity för tillståndskänsliga tjänster. Olika repliker av två tillståndskänsliga tjänster skulle köras på samma noder för NonAlignedAffinity, men deras USA: s presidentval kan hamna på olika noder.
 
 <center>
+
 ![Tillhörighet och deras effekter][Image1]
 </center>
 
@@ -69,6 +70,7 @@ En mappningsrelation mellan är bästa prestanda. Det ger inte samma garantier f
 Klusterresurshanteraren har idag inte till modellen kedjor av mappning mellan och relationer. Det innebär som en tjänst som är underordnat i mappning mellan en får inte vara en förälder i en annan mappning. Om du vill utforma den här typen av relation kan måste du effektivt modell som en stjärna i stället för en kedja. Om du vill flytta från en kedja till en stjärna, längst ned, underordnade skulle ha en överordnad till den första underordnade överordnad i stället. Beroende på hur dina tjänster kan du behöva göra detta flera gånger. Om det finns ingen naturlig överordnade tjänst, kan du behöva skapa en som fungerar som platshållare. Beroende på dina krav kan du även vill söka i [programgrupper](service-fabric-cluster-resource-manager-application-groups.md).
 
 <center>
+
 ![Jämfört med kedjor Stjärnor i samband med tillhörighet relationer][Image2]
 </center>
 

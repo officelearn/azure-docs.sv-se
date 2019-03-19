@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2019
 ms.author: rkarlin
-ms.openlocfilehash: 897bcae65cd0115f3e224ec4a65e3736089bf97f
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 08f84a3e037301837da984b0891d978027dc2e11
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57242504"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58083172"
 ---
 # <a name="tutorial-detect-threats-with-azure-sentinel-preview"></a>Självstudier: Identifiera hot med Azure Sentinel-förhandsgranskning
 
@@ -42,11 +42,11 @@ Om du vill undersöka fall måste du först skapa regler för identifiering. Reg
 
 1. I Azure-portalen under Azure Sentinel väljer **Analytics**.
 
-  ![Analytics](./media/tutorial-detect-threats/alert-rules.png)
+   ![Analytics](./media/tutorial-detect-threats/alert-rules.png)
 
 2. I den övre menyraden klickar du på **+ Lägg till**.  
 
-  ![Skapa aviseringsregel](./media/tutorial-detect-threats/create-alert-rule.png)
+   ![Skapa aviseringsregel](./media/tutorial-detect-threats/create-alert-rule.png)
 
 3. Under **skapa varningsregel**, ange ett beskrivande namn och ange den **allvarlighetsgrad** efter behov. 
 

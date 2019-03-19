@@ -14,16 +14,16 @@ ms.workload: identity
 ms.date: 02/20/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: d7888fd52495f7d2a195b729fae6d0411cfbd64c
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: 8e75a6344e517fb0343343f557cb7211f49cfed8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56587964"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57838331"
 ---
 # <a name="manage-access-to-azure-resources-using-rbac-and-azure-cli"></a>Hantera åtkomst till Azure-resurser med RBAC och Azure CLI
 
-[Rollbaserad åtkomstkontroll (RBAC)](overview.md) är ett sätt som du hanterar åtkomst till Azure-resurser. Den här artikeln beskriver hur du hanterar åtkomst för användare, grupper och program med RBAC och Azure CLI.
+[Rollbaserad åtkomstkontroll (RBAC)](overview.md) är metoden som du använder när du hanterar åtkomst till Azure-resurser. Den här artikeln beskriver hur du hanterar åtkomst för användare, grupper och program med RBAC och Azure CLI.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -194,7 +194,7 @@ az role assignment list --assignee <assignee>
 
 Som standard visas endast de tilldelningar som är begränsade till prenumerationen. Du kan visa tilldelningar som omfattar resurs eller grupp `--all`.
 
-I följande exempel visar rolltilldelningar som tilldelas direkt till den *patlong@contoso.com* användare:
+I följande exempel visar rolltilldelningar som tilldelas direkt till den *patlong\@contoso.com* användare:
 
 ```azurecli
 az role assignment list --all --assignee patlong@contoso.com --output json | jq '.[] | {"principalName":.principalName, "roleDefinitionName":.roleDefinitionName, "scope":.scope}'
@@ -252,7 +252,7 @@ Använd för att skapa en rolltilldelning för en användare i resursgruppomfån
 az role assignment create --role <role> --assignee <assignee> --resource-group <resource_group>
 ```
 
-I följande exempel tilldelas den *virtuell Datordeltagare* rollen *patlong@contoso.com* användare vid den *pharma-sales-projectforecast* resource Gruppomfång:
+I följande exempel tilldelas den *virtuell Datordeltagare* rollen *patlong\@contoso.com* användare vid den *pharma-sales-projectforecast* resurs-Gruppomfång:
 
 ```azurecli
 az role assignment create --role "Virtual Machine Contributor" --assignee patlong@contoso.com --resource-group pharma-sales-projectforecast
@@ -300,7 +300,7 @@ I RBAC, för att ta bort åtkomst måste du ta bort en rolltilldelning med hjäl
 az role assignment delete --assignee <assignee> --role <role> --resource-group <resource_group>
 ```
 
-I följande exempel tar bort den *virtuell Datordeltagare* rolltilldelning från den *patlong@contoso.com* användare på den *pharma-sales-projectforecast* resurs grupp:
+I följande exempel tar bort den *virtuell Datordeltagare* rolltilldelning från den *patlong\@contoso.com* användare på den *pharma försäljning projectforecast* resursgrupp:
 
 ```azurecli
 az role assignment delete --assignee patlong@contoso.com --role "Virtual Machine Contributor" --resource-group pharma-sales-projectforecast

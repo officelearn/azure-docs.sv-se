@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 03/07/2019
-ms.openlocfilehash: 3c65d4360e3a20b7c2228e42fb4b4db1eecc75ff
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.date: 03/12/2019
+ms.openlocfilehash: 7bfed1144ebfc69ed51b7bbc1adf78538ed28425
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57774804"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57861085"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Använda grupper för automatisk redundans för att aktivera transparent och samordnad redundans för flera databaser
 
@@ -322,17 +322,17 @@ Vilket beskrivs ovan, automatisk redundans grupper och aktiv kan geo-replikering
 
 ### <a name="powershell-managing-failover-groups-with-managed-instances-preview"></a>PowerShell: Hantera redundansgrupper med hanterade instanser (förhandsversion)
 
-#### <a name="install-the-newest-pre-release-version-of-powershell"></a>Installera den senaste versionen för tidig lansering av Powershell
+#### <a name="install-the-newest-pre-release-version-of-powershell"></a>Installera den senaste versionen för tidig lansering av PowerShell
 
 1. Uppdatera modulen PowerShellGet till 1.6.5 (eller senaste förhandsversionen). Se [plats för PowerShell-förhandsversion](https://www.powershellgallery.com/packages/AzureRM.Sql/4.11.6-preview).
 
-   ```Powershell
+   ```PowerShell
       install-module PowerShellGet -MinimumVersion 1.6.5 -force
    ```
 
 2. Kör följande kommandon i ett nytt PowerShell-fönster:
 
-   ```Powershell
+   ```PowerShell
       import-module PowerShellGet
       get-module PowerShellGet #verify version is 1.6.5 (or newer)
       install-module azurerm.sql -RequiredVersion 4.5.0-preview -AllowPrerelease –Force

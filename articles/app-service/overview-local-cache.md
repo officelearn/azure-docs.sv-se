@@ -17,12 +17,12 @@ ms.workload: na
 ms.date: 03/04/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: ea17db9af92887ff775e580224b66fed22c65d41
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: 1d6e233509b50f0b03678f2e62267169d02133a1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55963870"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57990769"
 ---
 # <a name="azure-app-service-local-cache-overview"></a>Översikt över Azure App Service lokalt cacheminne
 
@@ -35,7 +35,7 @@ Azure App Service-innehåll lagras på Azure Storage och är visas upp på ett h
 * Innehållet delas mellan flera instanser av virtuella datorer (VM) för appen.
 * Innehållet är beständiga och kan ändras genom att köra appar.
 * Loggfiler och diagnostikdata filer är tillgängliga under samma mappen.
-* Publicering av nytt innehåll direkt uppdaterar innehållsmappen. Du kan visa samma innehåll via SCM-webbplatsen och löpande omedelbart app (vanligtvis vissa tekniker, till exempel ASP.NET initiera omstart av en app på vissa filändringar att hämta det senaste innehållet).
+* Publicering av nytt innehåll direkt uppdaterar innehållsmappen. Du kan visa samma innehåll via SCM-webbplatsen och löpande omedelbart app (vanligtvis vissa tekniker, till exempel ASP.NET initiera omstart av en app på några filändringar att hämta det senaste innehållet).
 
 Även om många appar använder en eller alla dessa funktioner kan behöver vissa appar en högpresterande, skrivskyddade innehållslagring som de kan köras från med hög tillgänglighet. De här apparna kan dra nytta av en VM-instans av en specifik lokal cache.
 

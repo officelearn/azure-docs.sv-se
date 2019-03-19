@@ -9,12 +9,12 @@ ms.date: 09/22/2018
 ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
-ms.openlocfilehash: 10f3f7d6b878e8f1d4efee360e0f8a9967ac07bc
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
-ms.translationtype: HT
+ms.openlocfilehash: a325b976e657fbdc318a41b3b79b50e77a948e14
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56886442"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58079851"
 ---
 # <a name="tutorial-update-inventory-using-azure-portal-and-topicssubscriptions"></a>Självstudie: Uppdatera lagret med Azure-portalen och ämnen/prenumerationer
 
@@ -34,7 +34,7 @@ Ett exempel på det här scenariot är en uppdatering av lagersortimentet för f
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto][] innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 För att kunna följa de här självstudierna ska du kontrollera att du har installerat:
 
@@ -88,7 +88,7 @@ Om du vill köra koden gör du följande:
    - Kör 2: för att lägga till dina egna filter.
    - Kör 3: för att alternativt ta bort dina egna filter. Obeservera att det här inte återskapar standardfiltren.
 
-    ![Visar resultat av 2](./media/service-bus-tutorial-topics-subscriptions-portal/create-rules.png)
+     ![Visar resultat av 2](./media/service-bus-tutorial-topics-subscriptions-portal/create-rules.png)
 
 8. Efter att filtret har skapats, kan du skicka meddelanden. Tryck på 4 och notera 10 meddelanden som skickas till ämnet:
 

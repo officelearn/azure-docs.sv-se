@@ -10,12 +10,12 @@ ms.subservice: knowledge-exploration
 ms.topic: sample
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: 815147abba444f0a55a8455c0a818aa048271b92
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: e2678200e2f8c55111e53ab0a341804fd17623a3
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56309649"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57994941"
 ---
 # <a name="get-started-with-the-knowledge-exploration-service"></a>Kom igång med tjänsten för kunskapsutveckling
 
@@ -64,7 +64,7 @@ Mer information om schemadefinitionen finns [schemaformat](SchemaFormat.md).
 
 ## <a name="generate-data"></a>Skapa data
 
-Datafilen beskriver listan över publikationer som ska indexera, där varje rad anger attributvärden för en artikel i [JSON-format](http://json.org/).  I följande exempel är en enda rad från datafilen *Academic.data*, formaterad för läsbarhet:
+Datafilen beskriver listan över publikationer som ska indexera, där varje rad anger attributvärden för en artikel i [JSON-format](https://json.org/).  I följande exempel är en enda rad från datafilen *Academic.data*, formaterad för läsbarhet:
 
 ```
 ...
@@ -207,7 +207,7 @@ När du har en XML-grammatik-specifikation kan du kompilera den till en binär g
 
 ## <a name="host-the-grammar-and-index-in-a-web-service"></a>Värd för grammatik och index i en webbtjänst
 
-För snabba prototyper kan du lagra grammatik och index i en webbtjänst på den lokala datorn med hjälp av [`kes.exe host_service`](CommandLine.md#host_service-command). Du kan sedan komma åt tjänsten via [webb-API:er](WebAPI.md) för att bekräfta att dina data är korrekta och med korrekt grammatik. I det här exemplet kan du lagra grammatikfilen *Academic.grammar* och indexeringsfilen *Academic.index* på http://localhost:8000/. Ange följande kommando:
+För snabba prototyper kan du lagra grammatik och index i en webbtjänst på den lokala datorn med hjälp av [`kes.exe host_service`](CommandLine.md#host_service-command). Du kan sedan komma åt tjänsten via [webb-API:er](WebAPI.md) för att bekräfta att dina data är korrekta och med korrekt grammatik. I det här exemplet kan du lagra grammatikfilen *Academic.grammar* och indexeringsfilen *Academic.index* på `http://localhost:8000/`. Ange följande kommando:
 
 `kes.exe host_service Academic.grammar Academic.index --port 8000`
 

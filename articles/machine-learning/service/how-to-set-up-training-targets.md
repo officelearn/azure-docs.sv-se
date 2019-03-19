@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: a549a46912b0d60f878a18cae1e70a763afc0243
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: ec509fc8957d20f95123e9f0f645c3e9b6e832f2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56874706"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58122377"
 ---
 # <a name="set-up-compute-targets-for-model-training"></a>Konfigurera beräkningsmål för modellträning
 
@@ -139,16 +139,16 @@ En beständig Azure beräkning av Machine Learning kan återanvändas i jobb. Be
     * **vm_size**: VM-familj med noder som skapats av beräkning av Azure Machine Learning.
     * **max_nodes**: Max antal noder att automatiskt skala upp till när du kör ett jobb på beräkning av Azure Machine Learning.
     
- [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/amlcompute2.py?name=cpu_cluster)]
+   [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/amlcompute2.py?name=cpu_cluster)]
 
-  Du kan också konfigurera flera avancerade egenskaper när du skapar beräkning av Azure Machine Learning. Egenskaperna kan du skapa ett beständiga kluster med fast storlek eller i ett befintligt virtuellt Azure-nätverk i din prenumeration.  Se den [AmlCompute klass](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py
+   Du kan också konfigurera flera avancerade egenskaper när du skapar beräkning av Azure Machine Learning. Egenskaperna kan du skapa ett beständiga kluster med fast storlek eller i ett befintligt virtuellt Azure-nätverk i din prenumeration.  Se den [AmlCompute klass](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py
     ) mer information.
     
- Du kan skapa och koppla en beständig beräkning av Azure Machine Learning-resurs [i Azure-portalen](#portal-create).
+   Du kan skapa och koppla en beständig beräkning av Azure Machine Learning-resurs [i Azure-portalen](#portal-create).
 
 1. **Konfigurera**: Skapa en körningskonfiguration för beständiga beräkningsmål.
 
- [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/amlcompute2.py?name=run_amlcompute)]
+   [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/amlcompute2.py?name=run_amlcompute)]
 
 Nu när du har kopplat beräkningarna och konfigurerat din körning, nästa steg är att [skicka utbildning kör](#submit).
 
@@ -168,34 +168,34 @@ Använda Azure Data Science Virtual Machine (DSVM) som virtuell Azure-dator med 
 
 1. **Bifoga**: Om du vill koppla en befintlig virtuell dator som en beräkningsmål, måste du ange det fullständigt kvalificerade domännamnet (FQDN), användarnamn och lösenord för den virtuella datorn. I det här exemplet ersätter \<fqdn > med offentliga FQDN för den virtuella datorn eller den offentliga IP-adressen. Ersätt \<användarnamn > och \<lösenord > med SSH-användarnamn och lösenord för den virtuella datorn.
 
- ```python
- from azureml.core.compute import RemoteCompute, ComputeTarget
+   ```python
+   from azureml.core.compute import RemoteCompute, ComputeTarget
 
- # Create the compute config 
- compute_target_name = "attach-dsvm"
- attach_config = RemoteCompute.attach_configuration(address = "<fqdn>",
+   # Create the compute config 
+   compute_target_name = "attach-dsvm"
+   attach_config = RemoteCompute.attach_configuration(address = "<fqdn>",
                                                     ssh_port=22,
                                                     username='<username>',
                                                     password="<password>")
 
- # If you authenticate with SSH keys instead, use this code:
- #                                                  ssh_port=22,
- #                                                  username='<username>',
- #                                                  password=None,
- #                                                  private_key_file="<path-to-file>",
- #                                                  private_key_passphrase="<passphrase>")
+   # If you authenticate with SSH keys instead, use this code:
+   #                                                  ssh_port=22,
+   #                                                  username='<username>',
+   #                                                  password=None,
+   #                                                  private_key_file="<path-to-file>",
+   #                                                  private_key_passphrase="<passphrase>")
 
- # Attach the compute
- compute = ComputeTarget.attach(ws, compute_target_name, attach_config)
+   # Attach the compute
+   compute = ComputeTarget.attach(ws, compute_target_name, attach_config)
 
- compute.wait_for_completion(show_output=True)
- ```
+   compute.wait_for_completion(show_output=True)
+   ```
 
- Alternativt kan du koppla DSVM till din arbetsyta [med Azure portal](#portal-reuse).
+   Alternativt kan du koppla DSVM till din arbetsyta [med Azure portal](#portal-reuse).
 
 1. **Konfigurera**: Skapa en körningskonfiguration för beräkningsmål DSVM. Docker och conda används för att skapa och konfigurera miljön på DSVM.
 
- [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/dsvm.py?name=run_dsvm)]
+   [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/dsvm.py?name=run_dsvm)]
 
 
 Nu när du har kopplat beräkningarna och konfigurerat din körning, nästa steg är att [skicka utbildning kör](#submit).
@@ -212,11 +212,11 @@ Azure HDInsight är en populär plattform för stordataanalys. Plattformen ger A
 
 1. **Bifoga**: Om du vill koppla ett HDInsight-kluster som en beräkningsmål, måste du ange den värddatornamn, användarnamn och lösenord för HDInsight-klustret. I följande exempel använder SDK för att koppla ett kluster till din arbetsyta. I det här exemplet ersätter \<klusternamn > med namnet på klustret. Ersätt \<användarnamn > och \<lösenord > med SSH-användarnamn och lösenord för klustret.
 
-  ```python
- from azureml.core.compute import ComputeTarget, HDInsightCompute
- from azureml.exceptions import ComputeTargetException
+   ```python
+   from azureml.core.compute import ComputeTarget, HDInsightCompute
+   from azureml.exceptions import ComputeTargetException
 
- try:
+   try:
     # if you want to connect using SSH key instead of username/password you can provide parameters private_key_file and private_key_passphrase
     attach_config = HDInsightCompute.attach_configuration(address='<clustername>-ssh.azureinsight.net', 
                                                           ssh_port=22, 
@@ -226,17 +226,17 @@ Azure HDInsight är en populär plattform för stordataanalys. Plattformen ger A
                                        name='myhdi', 
                                        attach_configuration=attach_config)
 
- except ComputeTargetException as e:
+   except ComputeTargetException as e:
     print("Caught = {}".format(e.message))
 
- hdi_compute.wait_for_completion(show_output=True)
-  ```
+   hdi_compute.wait_for_completion(show_output=True)
+   ```
 
-  Alternativt kan du koppla HDInsight-klustret till din arbetsyta [med Azure portal](#portal-reuse).
+   Alternativt kan du koppla HDInsight-klustret till din arbetsyta [med Azure portal](#portal-reuse).
 
 1. **Konfigurera**: Skapa en körningskonfiguration för beräkningsmål HDI. 
 
- [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/hdi.py?name=run_hdi)]
+   [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/hdi.py?name=run_hdi)]
 
 
 Nu när du har kopplat beräkningarna och konfigurerat din körning, nästa steg är att [skicka utbildning kör](#submit).

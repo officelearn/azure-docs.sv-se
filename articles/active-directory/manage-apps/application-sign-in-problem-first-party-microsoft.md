@@ -16,12 +16,12 @@ ms.date: 09/10/2018
 ms.author: celested
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 09f1ef137bbad50e72771c4368346716336c4faf
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 0522311c12da8416504a6d502e1e2247ff8ce15b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57447106"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58104156"
 ---
 # <a name="problems-signing-in-to-a-microsoft-application"></a>Problem vid inloggning ett Microsoft-program
 
@@ -53,7 +53,7 @@ Följande är en lista över de allmänna problemområden som innehåller detalj
 
 Nedan följer några vanliga problem som folk stöter på när deras användare inte kan logga in till ett Microsoft-program.
 
--   Allmänna problem att kontrollera först
+- Allmänna problem att kontrollera först
 
   * Kontrollera att användaren loggar in till den **korrigera URL: en** och inte ett lokalt program-URL.
 
@@ -65,31 +65,31 @@ Nedan följer några vanliga problem som folk stöter på när deras användare 
 
   * Kontrollera att användarens **lösenord inte har upphört att gälla eller glömt.** [Återställa en användares lösenord](#reset-a-users-password) eller [aktivera lösenordsåterställning via självbetjäning](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started)
 
-   * Se till att **Multifaktorautentisering** inte blockerar åtkomst. [Kontrollera status för en användares multifaktorautentisering](#check-a-users-multi-factor-authentication-status) eller [Kontrollera en användares information](#check-a-users-authentication-contact-info)
+  * Se till att **Multifaktorautentisering** inte blockerar åtkomst. [Kontrollera status för en användares multifaktorautentisering](#check-a-users-multi-factor-authentication-status) eller [Kontrollera en användares information](#check-a-users-authentication-contact-info)
 
-   * Se till att en **princip för villkorlig åtkomst** eller **Identity Protection** principen blockerar åtkomst. [Kontrollera principer för villkorlig åtkomst för specifika](#problems-with-conditional-access-policies) eller [Kontrollera princip för villkorlig åtkomst för ett visst program](#check-a-specific-applications-conditional-access-policy) eller [inaktivera en specifik villkorlig åtkomstprincip](#disable-a-specific-conditional-access-policy)
+  * Se till att en **princip för villkorlig åtkomst** eller **Identity Protection** principen blockerar åtkomst. [Kontrollera principer för villkorlig åtkomst för specifika](#problems-with-conditional-access-policies) eller [Kontrollera princip för villkorlig åtkomst för ett visst program](#check-a-specific-applications-conditional-access-policy) eller [inaktivera en specifik villkorlig åtkomstprincip](#disable-a-specific-conditional-access-policy)
 
-   * Se till att en användares **autentiseringskontakt** är uppdaterad så att Multifaktorautentisering eller villkorlig åtkomst-principer ska framtvingas. [Kontrollera status för en användares multifaktorautentisering](#check-a-users-multi-factor-authentication-status) eller [Kontrollera en användares information](#check-a-users-authentication-contact-info)
+  * Se till att en användares **autentiseringskontakt** är uppdaterad så att Multifaktorautentisering eller villkorlig åtkomst-principer ska framtvingas. [Kontrollera status för en användares multifaktorautentisering](#check-a-users-multi-factor-authentication-status) eller [Kontrollera en användares information](#check-a-users-authentication-contact-info)
 
--   För **Microsoft** **program som kräver en licens** (t.ex. Office 365) sparas, här är några problem med att kontrollera när du har konstaterat tillvägagångssättet ovan:
+- För **Microsoft** **program som kräver en licens** (t.ex. Office 365) sparas, här är några problem med att kontrollera när du har konstaterat tillvägagångssättet ovan:
 
-   * Se till att användaren eller har en **tilldelad licens.** [Kontrollera en användares tilldelade licenser](#check-a-users-assigned-licenses) eller [Kontrollera tilldelade licenser för en grupp](#check-a-groups-assigned-licenses)
+  * Se till att användaren eller har en **tilldelad licens.** [Kontrollera en användares tilldelade licenser](#check-a-users-assigned-licenses) eller [Kontrollera tilldelade licenser för en grupp](#check-a-groups-assigned-licenses)
 
-   * Om licensen **tilldelats en** **statisk grupp**, se till att den **användaren är medlem** i gruppen. [Kontrollera en användares gruppmedlemskap](#check-a-users-group-memberships)
+  * Om licensen **tilldelats en** **statisk grupp**, se till att den **användaren är medlem** i gruppen. [Kontrollera en användares gruppmedlemskap](#check-a-users-group-memberships)
 
-   * Om licensen **tilldelats en** **dynamisk grupp**, se till att den **dynamisk regel är korrekt**. [Kontrollera kriterier för medlemskap i en dynamisk grupp](#check-a-dynamic-groups-membership-criteria)
+  * Om licensen **tilldelats en** **dynamisk grupp**, se till att den **dynamisk regel är korrekt**. [Kontrollera kriterier för medlemskap i en dynamisk grupp](#check-a-dynamic-groups-membership-criteria)
 
-   * Om licensen **tilldelats en** **dynamisk grupp**, kontrollera att den dynamiska gruppen har **bearbetats** dess medlemskap och att den **användaren är medlem**  (det kan ta lite tid). [Kontrollera en användares gruppmedlemskap](#check-a-users-group-memberships)
+  * Om licensen **tilldelats en** **dynamisk grupp**, kontrollera att den dynamiska gruppen har **bearbetats** dess medlemskap och att den **användaren är medlem**  (det kan ta lite tid). [Kontrollera en användares gruppmedlemskap](#check-a-users-group-memberships)
 
-   *  När du kontrollera licensen tilldelas Kontrollera licensen **inte har gått ut**.
+  *  När du kontrollera licensen tilldelas Kontrollera licensen **inte har gått ut**.
 
-   *  Kontrollera att licensen **för programmet** de använder.
+  *  Kontrollera att licensen **för programmet** de använder.
 
--   För **Microsoft** **program som inte kräver en licens**, här följer några saker att kontrollera:
+- För **Microsoft** **program som inte kräver en licens**, här följer några saker att kontrollera:
 
-   * Om programmet begär **behörigheter på entitetsnivå** (till exempel ”åt den här användarens postlåda”), se till att användaren har loggat in till programmet och har utfört en **medgivande på användarnivå åtgärden** så att programmet komma åt sina data.
+  * Om programmet begär **behörigheter på entitetsnivå** (till exempel ”åt den här användarens postlåda”), se till att användaren har loggat in till programmet och har utfört en **medgivande på användarnivå åtgärden** så att programmet komma åt sina data.
 
-   * Om programmet begär **på administratörsnivå** (till exempel ”åt alla användarpostlådor”), se till att en Global administratör har utfört en **administratörsnivå medgivande åtgärden på räkning av alla användare** i organisationen.
+  * Om programmet begär **på administratörsnivå** (till exempel ”åt alla användarpostlådor”), se till att en Global administratör har utfört en **administratörsnivå medgivande åtgärden på räkning av alla användare** i organisationen.
 
 ## <a name="problems-with-the-users-account"></a>Problem med användarkontot
 
@@ -187,25 +187,25 @@ Följ distributionsstegen nedan om du vill aktivera återställning av lösenord
 
 Följ dessa steg om du vill kontrollera status för multifaktorautentisering för en användare:
 
-1.  Öppna den [ **Azure-portalen** ](https://portal.azure.com/) och logga in som en **Global administratör.**
+1. Öppna den [ **Azure-portalen** ](https://portal.azure.com/) och logga in som en **Global administratör.**
 
-2.  Öppna den **Azure Active Directory-tillägget** genom att klicka på **alla tjänster** överst i den huvudsakliga vänstra navigeringsmenyn.
+2. Öppna den **Azure Active Directory-tillägget** genom att klicka på **alla tjänster** överst i den huvudsakliga vänstra navigeringsmenyn.
 
-3.  Skriv i **”Azure Active Directory**” i sökrutan för filter och välj den **Azure Active Directory** objekt.
+3. Skriv i **”Azure Active Directory**” i sökrutan för filter och välj den **Azure Active Directory** objekt.
 
-4.  Klicka på **användare och grupper** på navigeringsmenyn.
+4. Klicka på **användare och grupper** på navigeringsmenyn.
 
-5.  Klicka på **alla användare**.
+5. Klicka på **alla användare**.
 
-6.  Klicka på den **Multifaktorautentisering** längst upp i fönstret.
+6. Klicka på den **Multifaktorautentisering** längst upp i fönstret.
 
-7.  När den **Multi-Factor Authentication-administrationsportalen** belastning, se till att du är på den **användare** fliken.
+7. När den **Multi-Factor Authentication-administrationsportalen** belastning, se till att du är på den **användare** fliken.
 
-8.  Hitta användaren i listan över användare av sökning, filtrering och sortering.
+8. Hitta användaren i listan över användare av sökning, filtrering och sortering.
 
-9.  Välj användaren i listan över användare och **aktivera**, **inaktivera**, eller **tvinga** multifaktorautentisering efter behov.
+9. Välj användaren i listan över användare och **aktivera**, **inaktivera**, eller **tvinga** multifaktorautentisering efter behov.
 
-  * **Obs!** Om en användare finns i en **tvingande** tillstånd, kan du ange dem till **inaktiverad** tillfälligt och låter dem tillbaka till sitt konto. När de är tillbaka i kan du ändra deras tillstånd att **aktiverad** igen för att kräva att Omregistrera kontaktinformationen vid nästa inloggning i. Du kan också följa stegen i den [Kontrollera en användares autentiseringskontakt](#check-a-users-authentication-contact-info) verifiera eller ange informationen för dessa.
+   * **Obs!** Om en användare finns i en **tvingande** tillstånd, kan du ange dem till **inaktiverad** tillfälligt och låter dem tillbaka till sitt konto. När de är tillbaka i kan du ändra deras tillstånd att **aktiverad** igen för att kräva att Omregistrera kontaktinformationen vid nästa inloggning i. Du kan också följa stegen i den [Kontrollera en användares autentiseringskontakt](#check-a-users-authentication-contact-info) verifiera eller ange informationen för dessa.
 
 ### <a name="check-a-users-authentication-contact-info"></a>Kontrollera en användares information
 
@@ -365,21 +365,21 @@ Följ dessa steg om du vill kontrollera tilldelade licenser för en grupp:
 
 Följ dessa steg för att Ombearbeta tilldelade licenser för en grupp:
 
-1.  Öppna den [ **Azure-portalen** ](https://portal.azure.com/) och logga in som en **Global administratör.**
+1. Öppna den [ **Azure-portalen** ](https://portal.azure.com/) och logga in som en **Global administratör.**
 
-2.  Öppna den **Azure Active Directory-tillägget** genom att klicka på **alla tjänster** överst i den huvudsakliga vänstra navigeringsmenyn.
+2. Öppna den **Azure Active Directory-tillägget** genom att klicka på **alla tjänster** överst i den huvudsakliga vänstra navigeringsmenyn.
 
-3.  Skriv i **”Azure Active Directory**” i sökrutan för filter och välj den **Azure Active Directory** objekt.
+3. Skriv i **”Azure Active Directory**” i sökrutan för filter och välj den **Azure Active Directory** objekt.
 
-4.  Klicka på **användare och grupper** på navigeringsmenyn.
+4. Klicka på **användare och grupper** på navigeringsmenyn.
 
-5.  Klicka på **alla grupper**.
+5. Klicka på **alla grupper**.
 
-6.  **Sök** för gruppen som du är intresserad av och **klickar du på raden** att välja.
+6. **Sök** för gruppen som du är intresserad av och **klickar du på raden** att välja.
 
-7.  Klicka på **licenser** att se vilka licenser gruppen för närvarande har tilldelats.
+7. Klicka på **licenser** att se vilka licenser gruppen för närvarande har tilldelats.
 
-8.  Klicka på den **Ombearbeta** knappen för att se till att de licenser som tilldelats den här gruppens medlemmar är uppdaterade. Det kan ta lång tid, beroende på storleken och komplexiteten i gruppen.
+8. Klicka på den **Ombearbeta** knappen för att se till att de licenser som tilldelats den här gruppens medlemmar är uppdaterade. Det kan ta lång tid, beroende på storleken och komplexiteten i gruppen.
 
    >[!NOTE]
    >Överväg att tillfälligt tilldela en licens till användaren direkt om du vill göra detta snabbare. [Tilldela en användare en licens](#problems-with-application-consent).
@@ -390,32 +390,32 @@ Följ dessa steg för att Ombearbeta tilldelade licenser för en grupp:
 
 Följ dessa steg om du vill tilldela en licens till en grupp:
 
-1.  Öppna den [ **Azure-portalen** ](https://portal.azure.com/) och logga in som en **Global administratör.**
+1. Öppna den [ **Azure-portalen** ](https://portal.azure.com/) och logga in som en **Global administratör.**
 
-2.  Öppna den **Azure Active Directory-tillägget** genom att klicka på **alla tjänster** överst i den huvudsakliga vänstra navigeringsmenyn.
+2. Öppna den **Azure Active Directory-tillägget** genom att klicka på **alla tjänster** överst i den huvudsakliga vänstra navigeringsmenyn.
 
-3.  Skriv i **”Azure Active Directory**” i sökrutan för filter och välj den **Azure Active Directory** objekt.
+3. Skriv i **”Azure Active Directory**” i sökrutan för filter och välj den **Azure Active Directory** objekt.
 
-4.  Klicka på **användare och grupper** på navigeringsmenyn.
+4. Klicka på **användare och grupper** på navigeringsmenyn.
 
-5.  Klicka på **alla grupper**.
+5. Klicka på **alla grupper**.
 
-6.  **Sök** för gruppen som du är intresserad av och **klickar du på raden** att välja.
+6. **Sök** för gruppen som du är intresserad av och **klickar du på raden** att välja.
 
-7.  Klicka på **licenser** att se vilka licenser gruppen för närvarande har tilldelats.
+7. Klicka på **licenser** att se vilka licenser gruppen för närvarande har tilldelats.
 
-8.  Klicka på den **tilldela** knappen.
+8. Klicka på den **tilldela** knappen.
 
-9.  Välj **en eller flera produkter** från listan över tillgängliga produkter.
+9. Välj **en eller flera produkter** från listan över tillgängliga produkter.
 
 10. **Valfritt** klickar du på den **tilldelningsalternativ** objektet om du vill tilldela detaljerat produkter. Klicka på **Ok** när det är klart.
 
 11. Klicka på den **tilldela** knappen för att tilldela dessa licenser till den här gruppen. Det kan ta lång tid, beroende på storleken och komplexiteten i gruppen.
 
-   >[!NOTE]
-   >Överväg att tillfälligt tilldela en licens till användaren direkt om du vill göra detta snabbare. [Tilldela en användare en licens](#problems-with-application-consent).
-   > 
-   >
+    >[!NOTE]
+    >Överväg att tillfälligt tilldela en licens till användaren direkt om du vill göra detta snabbare. [Tilldela en användare en licens](#problems-with-application-consent).
+    > 
+    >
 
 ## <a name="problems-with-conditional-access-policies"></a>Problem med principer för villkorlig åtkomst
 
@@ -423,19 +423,19 @@ Följ dessa steg om du vill tilldela en licens till en grupp:
 
 Att kontrollera eller validera en enda villkorlig åtkomstprincip:
 
-1.  Öppna den [ **Azure-portalen** ](https://portal.azure.com/) och logga in som en **Global administratör.**
+1. Öppna den [ **Azure-portalen** ](https://portal.azure.com/) och logga in som en **Global administratör.**
 
-2.  Öppna den **Azure Active Directory-tillägget** genom att klicka på **alla tjänster** överst i den huvudsakliga vänstra navigeringsmenyn.
+2. Öppna den **Azure Active Directory-tillägget** genom att klicka på **alla tjänster** överst i den huvudsakliga vänstra navigeringsmenyn.
 
-3.  Skriv i **”Azure Active Directory**” i sökrutan för filter och välj den **Azure Active Directory** objekt.
+3. Skriv i **”Azure Active Directory**” i sökrutan för filter och välj den **Azure Active Directory** objekt.
 
-4.  Klicka på **företagsprogram** på navigeringsmenyn.
+4. Klicka på **företagsprogram** på navigeringsmenyn.
 
-5.  Klicka på den **villkorlig åtkomst** navigering objekt.
+5. Klicka på den **villkorlig åtkomst** navigering objekt.
 
-6.  Klicka på den princip som du vill granska.
+6. Klicka på den princip som du vill granska.
 
-7.  Granska att det finns inga särskilda villkor, tilldelningar och övriga inställningar som kan blockera användaråtkomst.
+7. Granska att det finns inga särskilda villkor, tilldelningar och övriga inställningar som kan blockera användaråtkomst.
 
    >[!NOTE]
    >Kan du tillfälligt inaktiverar den här principen för att säkerställa att det inte påverkar inloggningar. Gör detta genom att ange den **aktiverar principen** växla till **nr** och klicka på den **spara** knappen.

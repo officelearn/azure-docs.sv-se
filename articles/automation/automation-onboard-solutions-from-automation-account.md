@@ -9,12 +9,12 @@ ms.date: 10/16/2018
 ms.topic: conceptual
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: c020d3c7513efda93d7ac5d3bdd79f21f8bc77dd
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 0f5d36dfbe614e35256231a91a9e15055e2e81cb
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56818485"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57843631"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions"></a>Publicera lösningar för uppdateringshantering, ändringsspårning och inventering
 
@@ -41,14 +41,19 @@ I följande tabell visas mappningarna som stöds:
 |Sydöstra Australien|Sydöstra Australien|
 |CanadaCentral|CanadaCentral|
 |Indiencentrala|Indiencentrala|
-|EastUS|EastUS2|
+|EastUS<sup>1</sup>|EastUS2|
 |JapanEast|JapanEast|
 |SoutheastAsia|SoutheastAsia|
 |WestCentralUS|WestCentralUS|
 |Västeuropa|Västeuropa|
 |Södrastorbritannien|Södrastorbritannien|
 |USGovVirginia|USGovVirginia|
-|EastUS2EUAP|CentralUSEUAP|
+|EastUS2EUAP<sup>1</sup>|CentralUSEUAP|
+
+<sup>1</sup> EastUS2EUAP och östra USA mappningar för Log Analytics-arbetsytor till Automation-konton är inte en exakt mappning för olika regioner, men är korrekt mappning.
+
+> [!NOTE]
+> På grund av begäran kanske en region inte tillgänglig när du skapar din Automation-konto eller Log Analytics-arbetsyta.  Om så är fallet kontrollerar du att du använder en region i tabellen ovan, som du kan skapa resurser i.
 
 Lösningen Ändringsspårning och inventering ger dig möjlighet att [spåra ändringar](automation-vm-change-tracking.md) och [inventering](automation-vm-inventory.md) på dina virtuella datorer. I det här steget aktiverar du lösningen för en virtuell dator.
 
@@ -91,7 +96,7 @@ Välj antingen sparad sökning kan du se frågan som används för att fylla i g
 
 Från ditt Automation-kontot väljer **inventering** eller **ändringsspårning** under **KONFIGURATIONSHANTERING**, eller **uppdateringshantering** under **UPPDATERINGSHANTERING**.
 
-Klicka på **+ Lägg till virtuella Azure-datorer**, Välj en eller flera virtuella datorer i listan. Virtuella datorer som inte kan aktiveras är gråmarkerat och kan inte väljas. På den **Aktivera hantering av uppdateringar** klickar du på **aktivera**. Den här åtgärden lägger till de valda virtuella datorerna till i datorgruppen sparad sökning för lösningen.
+Klicka på **+ Lägg till virtuella Azure-datorer**, Välj en eller flera virtuella datorer i listan. Virtuella datorer som inte kan aktiveras är gråmarkerat och kan inte väljas. Virtuella Azure-datorer kan finnas i valfri region oavsett platsen för ditt Automation-konto. På den **Aktivera hantering av uppdateringar** klickar du på **aktivera**. Den här åtgärden lägger till de valda virtuella datorerna till i datorgruppen sparad sökning för lösningen.
 
 ![Aktivera virtuella Azure-datorer](media/automation-onboard-solutions-from-automation-account/enable-azure-vms.png)
 

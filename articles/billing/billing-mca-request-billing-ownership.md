@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/28/2019
 ms.author: banders
-ms.openlocfilehash: 01d34ef722034ef5b56c842bab97a3415a02b0bb
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: be8c7fcebca224196d9eac7d22387989b1bdfd46
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57341875"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57890941"
 ---
 # <a name="get-billing-ownership-of-azure-subscriptions-from-other-users"></a>Hämta faktureringsägarskapet av Azure-prenumerationer från andra användare
 
@@ -96,7 +96,8 @@ Den här artikeln gäller för något faktureringskonto för en Microsoft-kundav
    |Avbrutna|Användare med åtkomst till överföringsbegäran har avbrutit begäran|
    |Avböjt|Användaren avböjde överföringsbegäran|
 
-6. Välj en begäran att visa information om att överföra. Sidan överföring visar följande information: <!-- Todo - Add a screenshot -->
+6. Välj en begäran att visa information om att överföra. Sidan överföring visar följande information:
+   <!-- Todo - Add a screenshot -->
 
    |Kolumn  |Definition|
    |---------|---------|
@@ -149,7 +150,7 @@ Prenumerationen av alla typer eller betalning, förutom CSP erbjuder kan överf�
 
 ### <a name="cancel-a-transfer-request"></a>Avbryta en begäran om att överföra
 
-Du kan avbryta överföringsbegäran tills begäran godkänns eller nekas. Du avbryta överföringsbegäran, [gå till sidan överföring](#check-status-of-your-transfer-request-in-the-Azure-portal) och Välj Avbryt längst ned på sidan.
+Du kan avbryta överföringsbegäran tills begäran godkänns eller nekas. Om du vill avbryta överföringsbegäran, gå till sidan överföring och väljer Avbryt längst ned på sidan.
 
 ### <a name="software-as-a-service-saas-transfer"></a>Programvara som en tjänst (SaaS)-överföring
 

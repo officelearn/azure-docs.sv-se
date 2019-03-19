@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 03920bc3ed17eac9d76cea78877f1f008e83f4dd
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: bcaf470fae34056fe932cf8b5fd3076899f895ae
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53197359"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57880287"
 ---
 # <a name="create-a-new-saas-application-offer"></a>Skapa ett nytt erbjudande för SaaS-program
 
@@ -34,6 +34,7 @@ I nästa diagram visar processen för att skapa ett erbjudande med SaaS-App.
 ## <a name="offer-components"></a>Erbjudandet komponenter
 
 SaaS-App-erbjudandet består av fem delar, som beskrivs i följande tabell:
+
 |  **Grupp**   |  **Beskrivning**  |
 |  ---------------   |  ---------------  |
 |    Erbjudandeinställningar  |  Använd om du vill konfigurera en unik identitet för SaaS-appen.                 |
@@ -45,7 +46,7 @@ SaaS-App-erbjudandet består av fem delar, som beskrivs i följande tabell:
 
 ## <a name="new-offer-form"></a>Nytt erbjudande formulär
 
-Logga in på den [Cloud Partner Portal](http://cloudpartner.azure.com/), och välj sedan **+ nytt erbjudande** på den vänstra menyraden. På ikonen nytt erbjuda meny, Välj **SaaS-appar** att visa nytt erbjudande-formulär och starta processen med att definiera tillgångar för ett nytt erbjudande för SaaS-program.
+Logga in på den [Cloud Partner Portal](https://cloudpartner.azure.com/), och välj sedan **+ nytt erbjudande** på den vänstra menyraden. På ikonen nytt erbjuda meny, Välj **SaaS-appar** att visa nytt erbjudande-formulär och starta processen med att definiera tillgångar för ett nytt erbjudande för SaaS-program.
 
 ![Meny för ny erbjudandet för SaaS-appar](./media/azure-new-saas-offer.png)
 
@@ -54,8 +55,8 @@ Logga in på den [Cloud Partner Portal](http://cloudpartner.azure.com/), och vä
 Sidan nytt erbjudande för typ av SaaS-erbjudande innehåller en uppsättning av flikar och formulärfält som du använder för att skapa ett nytt erbjudande. Var och en av följande artiklar beskriver hur du använder fliken Definiera tillgångar och stödtjänster för ditt nya erbjudande.
 
 - [fliken Erbjudandeinställningar](./cpp-offer-settings-tab.md)
-- [Teknisk informationsfliken](./cpp-technical-info-tab.md)
-- [Kanal-informationsfliken](./cpp-channel-info-tab.md)
+- [Fliken Teknisk information](./cpp-technical-info-tab.md)
+- [Fliken Kanalinformation](./cpp-channel-info-tab.md)
 - [fliken Test Drive](./cpp-testdrive-tab.md)
-- [Fliken storefront information](./cpp-storefront-tab.md)
-- [Fliken kontakter](./cpp-contacts-tab.md)
+- [Fliken Butiksinformation](./cpp-storefront-tab.md)
+- [Fliken Kontakter](./cpp-contacts-tab.md)

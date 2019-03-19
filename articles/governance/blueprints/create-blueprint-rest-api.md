@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 634b175ec0b5771e3ff2fa061532106eb124ea4e
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: 9dada3c6f0718db41a24368aca594bbd3215fec5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56338435"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57994866"
 ---
 # <a name="define-and-assign-an-azure-blueprint-with-rest-api"></a>Definiera och tilldela en Azure-skiss med REST API
 
@@ -32,7 +32,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 ## <a name="getting-started-with-rest-api"></a>Komma igång med REST API
 
-Om du inte är bekant med REST API börjar du med att gå igenom [referensen för Azure REST API](/rest/api/azure/) så att du förstår hur REST-API:et fungerar, särskilt begärande-URI och begärandetext. I den här artikeln används dessa begrepp för att förklara hur du arbetar med Azure Blueprints och artikeln förutsätter att du har grundläggande kunskap om dem. Verktyg som [ARMClient](https://github.com/projectkudu/ARMClient) och andra kan hantera auktorisering automatiskt och rekommenderas för nybörjare.
+Om du inte är bekant med REST API börjar du med att gå igenom [referensen för Azure REST API](/rest/api/azure/) så att du förstår hur REST-API:et fungerar, särskilt begärande-URI och begärandetext. I den här artikeln används dessa begrepp för att förklara hur du arbetar med Azure-skisser och artikeln förutsätter att du har grundläggande kunskap om dem. Verktyg som [ARMClient](https://github.com/projectkudu/ARMClient) och andra kan hantera auktorisering automatiskt och rekommenderas för nybörjare.
 
 Specifikationer för skisser finns i [REST API för Azure Blueprint](/rest/api/blueprints/).
 
@@ -70,6 +70,9 @@ I varje REST API-URI finns det variabler som används och som du måste ersätta
 
 - `{YourMG}` – Ersätt med ID för din hanteringsgrupp
 - `{subscriptionId}` – Ersätt med ditt prenumerations-ID
+
+> [!NOTE]
+> Skisser kan även skapas på prenumerationsnivå. Ett exempel finns i [skapa skiss på prenumerationen exempel](/rest/api/blueprints/blueprints/createorupdate#subscriptionblueprint).
 
 1. Skapa det första _skissobjektet_. **Begärandetexten** innehåller egenskaper för skissen, de resursgrupper som ska skapas och alla parametrar på skissnivå. Parametrarna anges vid tilldelning och används av artefakterna som lagts till i senare steg.
 
@@ -262,7 +265,7 @@ I varje REST API-URI finns det variabler som används och som du måste ersätta
                      "tags": {
                         "[parameters('tagNameFromBP')]": "[parameters('tagValueFromBP')]"
                      },
-                     "location": "[resourceGroup().location]",
+                     "location": "[resourceGroups('storageRG').location]",
                      "sku": {
                          "name": "[parameters('storageAccountTypeFromBP')]"
                      },
@@ -335,7 +338,7 @@ I varje REST API-URI finns det variabler som används och som du måste ersätta
 - `{YourMG}` – Ersätt med ID för din hanteringsgrupp
 - `{subscriptionId}` – Ersätt med ditt prenumerations-ID
 
-1. Ge Azure Blueprint-tjänstobjektet rollen **Ägare** för målprenumerationen. AppId är statiskt (`f71766dc-90d9-4b7d-bd9d-4499c4331c3f`), men tjänstobjektets ID varierar beroende på klientorganisation. Information kan begäras för din klientorganisation med hjälp av följande REST API. Det använder [Azure Active Directory Graph API](../../active-directory/develop/active-directory-graph-api.md) som har en annan auktorisering.
+1. Ge Azure Blueprint-tjänstobjektet rollen **Ägare** för målprenumerationen. AppId är statiska (`f71766dc-90d9-4b7d-bd9d-4499c4331c3f`), men ID för tjänstens huvudnamn varierar beroende på klienten. Information kan begäras för din klientorganisation med hjälp av följande REST API. Det använder [Azure Active Directory Graph API](../../active-directory/develop/active-directory-graph-api.md) som har en annan auktorisering.
 
    - REST API-URI
 
@@ -435,9 +438,9 @@ Om du vill ta bort själva skissen använder du följande REST API-åtgärd:
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig mer om [livscykeln för en skiss](./concepts/lifecycle.md)
-- Förstå hur du använder [statiska och dynamiska parametrar](./concepts/parameters.md)
-- Lär dig hur du anpassar [sekvensordningen för en skiss](./concepts/sequencing-order.md)
-- Lär dig hur du använder [resurslåsning för en skiss](./concepts/resource-locking.md)
-- Lär dig hur du [uppdaterar befintliga tilldelningar](./how-to/update-existing-assignments.md)
-- Lös problem som kan uppstå vid tilldelningen av en skiss med [allmän felsökning](./troubleshoot/general.md)
+- Lär dig mer om den [skiss livscykeln](./concepts/lifecycle.md).
+- Förstå hur du använder [Statiska och dynamiska parametrar](./concepts/parameters.md).
+- Lär dig att anpassa den [skiss ordningsföljd](./concepts/sequencing-order.md).
+- Ta reda på hur du får använda [skiss resource låsning](./concepts/resource-locking.md).
+- Lär dig hur du [uppdatera befintliga tilldelningar](./how-to/update-existing-assignments.md).
+- Lös problem vid tilldelningen av en skiss med [allmän felsökning](./troubleshoot/general.md).

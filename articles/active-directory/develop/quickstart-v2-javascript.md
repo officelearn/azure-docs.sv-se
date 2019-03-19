@@ -16,12 +16,12 @@ ms.date: 09/24/2018
 ms.author: nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6a97e03f3c195b9fbd0ee7a09950414b7a940c7c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 694eb49244afb6761ce274572f15273ccef6cbb5
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56217487"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57195038"
 ---
 # <a name="quickstart-sign-in-users-and-acquire-an-access-token-from-a-javascript-application"></a>Snabbstart: Logga in användare och hämta en åtkomsttoken från ett JavaScript-program
 
@@ -74,14 +74,15 @@ Du kan välja något av följande alternativ som är lämpliga för utvecklingsm
 * [Ladda ned Visual Studio-projektet](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/vsquickstart.zip)
 
 Extrahera zip-filen i en lokal mapp, till exempel **C:\Azure-Samples**.
+Öppna filerna i mappen genom att använda en redigerare som [Visual Studio Code](https://code.visualstudio.com/).
 
 #### <a name="step-3-configure-your-javascript-app"></a>Steg 3: Konfigurera din JavaScript-app
 
 > [!div renderon="docs"]
-> Redigera `index.html` och ange värdena för `clientID` och `authority` under `applicationConfig`.
+> Under mappen *JavaScriptSPA*, redigera `index.html` och ange den `clientID` och `authority` värden under `applicationConfig`.
 
 > [!div class="sxs-lookup" renderon="portal"]
-> Redigera `index.html` och ersätt `applicationConfig` med:
+> Under mappen *JavaScriptSPA*, redigera `index.html` och Ersätt `applicationConfig` med:
 
 ```javascript
 var applicationConfig = {
@@ -103,13 +104,9 @@ var applicationConfig = {
 > > [!TIP]
 > > För att hitta värdena för **program-ID (klient)**, **katalog-ID (klient)** och **Kontotyper som stöds** går du till appens **översiktssida** i Azure-portalen.
 
-> [!NOTE]
-> Servern är konfigurerad att lyssna på port 30662 i filen *server.js* i projektet [Node.js](https://nodejs.org/en/download/) och filen *.csproj* i projektet [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/).
->
-
 #### <a name="step-4-run-the-project"></a>Steg 4: Kör projektet
 
-* Om du använder Node.js:
+* Om du använder [Node.js](https://nodejs.org/en/download/):
 
     1. Kör följande kommando från projektkatalogen för att starta servern:
 
@@ -122,7 +119,7 @@ var applicationConfig = {
     1. Klicka på knappen **Logga In** för att börja logga in och anropa sedan Microsoft Graph API.
 
 
-* Om du använder Visual Studio ser du till att markera projektlösningen och sedan trycka på **F5** för att köra projektet.
+* Om du använder [Visual Studio](https://visualstudio.microsoft.com/downloads/), se till att markera projektet lösningen och tryck sedan på **F5** köra projektet.
 
 ## <a name="more-information"></a>Mer information
 
@@ -217,9 +214,9 @@ En mer detaljerad stegvis guide om hur du skapar programmet för den här snabbs
 ### <a name="learn-the-steps-to-create-the-application-for-this-quickstart"></a>Lär dig stegen för att skapa programmet för den här snabbstarten
 
 > [!div class="nextstepaction"]
-> [Självstudie om att anropa Graph API](https://docs.microsoft.com/azure/active-directory/develop/guidedsetups/active-directory-javascriptspa)
+> [Självstudie för att logga in och anropa MS Graph](https://docs.microsoft.com/azure/active-directory/develop/guidedsetups/active-directory-javascriptspa)
 
 ### <a name="browse-the-msal-repo-for-documentation-faq-issues-and-more"></a>På MSAL-lagringsplatsen hittar du dokumentation, vanliga frågor och svar, kända problem och annat
 
 > [!div class="nextstepaction"]
-> [GitHub-lagringsplatsen för msal.js](https://github.com/AzureAD/microsoft-authentication-library-for-js)
+> [MSAL.js GitHub-lagringsplatsen](https://github.com/AzureAD/microsoft-authentication-library-for-js)

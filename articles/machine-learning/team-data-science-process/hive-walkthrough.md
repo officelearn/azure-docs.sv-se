@@ -11,15 +11,15 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: a0b4c41d347ba556e737d422af22fb5a47c7c4ff
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: a7aa5401cbba9fafda9f995a882934ef0edfa481
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56108729"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57881154"
 ---
 # <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>Team Data Science Process i praktiken: Använd Azure HDInsight Hadoop-kluster
-I den här genomgången använder vi den [Team Data Science Process (TDSP)](overview.md) i ett scenario för slutpunkt till slutpunkt. Vi använder en [Azure HDInsight Hadoop-kluster](https://azure.microsoft.com/services/hdinsight/) att lagra, utforska, och funktion-tekniker data från de allmänt tillgängliga [NYC Taxi kommunikation](http://www.andresmh.com/nyctaxitrips/) datauppsättningen, och att nedåtsampla data. Vi bygger modeller av data med Azure Machine Learning för att hantera binära och multiklass-baserad klassificering och regression förutsägande uppgifter. 
+I den här genomgången använder vi den [Team Data Science Process (TDSP)](overview.md) i ett scenario för slutpunkt till slutpunkt. Vi använder en [Azure HDInsight Hadoop-kluster](https://azure.microsoft.com/services/hdinsight/) att lagra, utforska, och funktion-tekniker data från de allmänt tillgängliga [NYC Taxi kommunikation](https://www.andresmh.com/nyctaxitrips/) datauppsättningen, och att nedåtsampla data. Vi bygger modeller av data med Azure Machine Learning för att hantera binära och multiklass-baserad klassificering och regression förutsägande uppgifter. 
 
 En genomgång som visar hur du hanterar en större datauppsättning, finns i [Team Data Science Process - med Azure HDInsight Hadoop-kluster i en datauppsättning som 1 TB](hive-criteo-walkthrough.md).
 
@@ -84,7 +84,7 @@ Du kan ställa in en Azure-miljö för avancerade analyser som använder ett HDI
 > 
 > 
 
-Kopiera den [NYC Taxi kommunikation](http://www.andresmh.com/nyctaxitrips/) datauppsättningen till din dator från dess offentliga plats att använda någon av metoderna som beskrivs i [flytta data till och från Azure Blob storage](move-azure-blob.md).
+Kopiera den [NYC Taxi kommunikation](https://www.andresmh.com/nyctaxitrips/) datauppsättningen till din dator från dess offentliga plats att använda någon av metoderna som beskrivs i [flytta data till och från Azure Blob storage](move-azure-blob.md).
 
 Här beskrivs hur du använder AzCopy för att överföra filer som innehåller data. Om du vill hämta och installera AzCopy, följer du anvisningarna [komma igång med kommandoradsverktyget azcopy](../../storage/common/storage-use-azcopy.md).
 
@@ -516,7 +516,7 @@ Kör följande kommando från Hadoop-Kommandotolken:
 
 Du kanske vill veta om det är skillnad mellan direkt avståndet mellan två platser, och faktiska resans avståndet från taxi. En passagerare kan vara mindre troligt att tips om de ta reda på att drivrutinen har avsiktligt ägt dem med en längre väg.
 
-Se en jämförelse mellan faktiska resans avståndet och [Haversine avståndet](http://en.wikipedia.org/wiki/Haversine_formula) mellan två longitud, latitud punkter (”” storcirkelavståndet), kan du använda trigonometrifunktioner som är tillgängliga i Hive:
+Se en jämförelse mellan faktiska resans avståndet och [Haversine avståndet](https://en.wikipedia.org/wiki/Haversine_formula) mellan två longitud, latitud punkter (”” storcirkelavståndet), kan du använda trigonometrifunktioner som är tillgängliga i Hive:
 
     set R=3959;
     set pi=radians(180);
@@ -822,8 +822,8 @@ Du kan nu fortsätta till modellskapandet och distribution av modeller i [Maskin
 Den här exempelgenomgång och dess tillhörande skript som delas av Microsoft under MIT-licensen. Mer information finns i den **LICENSE.txt** filen i katalogen för exempelkoden på GitHub.
 
 ## <a name="references"></a>Referenser
-• [Andrés Monroy NYC Taxi kommunikation hämtningssidan](http://www.andresmh.com/nyctaxitrips/)  
-• [FOILing NYC Taxitransport Resedata av Chris Whong](http://chriswhong.com/open-data/foil_nyc_taxi/)   
+• [Andrés Monroy NYC Taxi kommunikation hämtningssidan](https://www.andresmh.com/nyctaxitrips/)  
+• [FOILing NYC Taxitransport Resedata av Chris Whong](https://chriswhong.com/open-data/foil_nyc_taxi/)   
 • [NYC Taxi och Limousine kommissionen forskning och statistik](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page)
 
 [2]: ./media/hive-walkthrough/output-hive-results-3.png

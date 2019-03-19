@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.date: 3/6/2019
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: 26b0370af900e1c29bf11606339487cf27f88039
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 41ff32f840b7a0e9e5fa5d8f7bf25a93fa679955
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57533433"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58098703"
 ---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>Aktivera replikering till Azure för virtuella VMware-datorer
 
@@ -72,7 +72,7 @@ När du replikerar virtuella VMware-datorer:
 12. Aktivera **konsekvens** om du vill samla in datorer i en replikeringsgrupp. Ange ett namn för gruppen och klicka sedan på **OK**. 
 
     > [!NOTE]
-
+    > 
     >    * Datorer i en replikeringsgrupp replikeras tillsammans och har delade kraschkonsekventa och appkonsekventa återställningspunkter när de växlar över.
     >    * Samla ihop virtuella datorer och fysiska servrar så att de speglar dina arbetsbelastningar. Aktivering av konsekvens för flera datorer kan påverka prestandan. Använd bara om datorerna kör samma arbetsbelastning och konsekvens.
 
@@ -87,17 +87,17 @@ Nu ska kontrollera du egenskaperna för källdatorn. Kom ihåg att Azure VM-namn
 1. Klicka på **inställningar** > **replikerade objekt** >, och välj sedan datorn. Den **Essentials** visar information om datorinställningar och status.
 2. I **Egenskaper** kan du visa information om replikering och redundans för den virtuella datorn.
 3. I **beräkning och nätverk** > **beräkna egenskaper**, du kan ändra flera VM-propoerties:
-    * Azure VM name - ändra namnet till uppfyller kraven för Azure vid behov
-    * Storleken eller typ av virtuell dator – standard VM-storlek väljs baserat på käll-VM-storlek. Du kan välja en annan VM-storlek baserat på behov när som helst före redundans. Observera att VM-diskstorleken bygger också på källdiskens storlek och att den endast kan ändras efter redundans. Lär dig mer om diskstorlekar och IOPS i vår [skalbarhetsmål för diskar](../virtual-machines/windows/disk-scalability-targets.md) artikeln.
+   * Azure VM name - ändra namnet till uppfyller kraven för Azure vid behov
+   * Storleken eller typ av virtuell dator – standard VM-storlek väljs baserat på käll-VM-storlek. Du kan välja en annan VM-storlek baserat på behov när som helst före redundans. Observera att VM-diskstorleken bygger också på källdiskens storlek och att den endast kan ändras efter redundans. Lär dig mer om diskstorlekar och IOPS i vår [skalbarhetsmål för diskar](../virtual-machines/windows/disk-scalability-targets.md) artikeln.
 
-    ![Beräknings- och Nätverksegenskaper](./media/vmware-azure-enable-replication/vmproperties.png)
+     ![Beräknings- och Nätverksegenskaper](./media/vmware-azure-enable-replication/vmproperties.png)
 
-    *  Resursgrupp – du kan välja en [resursgrupp](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-resource-groups-guidelines) från vilket en dator blir en del av en efter redundans. Du kan ändra den här inställningen när som helst före redundans. Efter redundans, om du migrerar datorn till en annan resursgrupp skyddsinställningarna för den datorn break.
-    * Tillgänglighetsuppsättning – du kan välja en [tillgänglighetsuppsättning](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines) om din dator måste vara en del av en efter redundans. När du markerar en tillgänglighetsuppsättning, Tänk på att:
+   * Resursgrupp – du kan välja en [resursgrupp](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-resource-groups-guidelines) från vilket en dator blir en del av en efter redundans. Du kan ändra den här inställningen när som helst före redundans. Efter redundans, om du migrerar datorn till en annan resursgrupp skyddsinställningarna för den datorn break.
+   * Tillgänglighetsuppsättning – du kan välja en [tillgänglighetsuppsättning](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines) om din dator måste vara en del av en efter redundans. När du markerar en tillgänglighetsuppsättning, Tänk på att:
 
-        * Endast tillgänglighetsuppsättningar som hör till den angivna resursgruppen listas.  
-        * Datorer med olika virtuella nätverk kan inte ingå i samma tillgänglighetsuppsättning.
-        * Endast virtuella datorer av samma storlek kan ingå i en tillgänglighetsuppsättning.
+       * Endast tillgänglighetsuppsättningar som hör till den angivna resursgruppen listas.  
+       * Datorer med olika virtuella nätverk kan inte ingå i samma tillgänglighetsuppsättning.
+       * Endast virtuella datorer av samma storlek kan ingå i en tillgänglighetsuppsättning.
 4. Du kan också visa och lägga till information om målnätverket, undernätet och IP-adress som tilldelas den virtuella Azure-datorn.
 5. I **diskar**, du kan se det operativsystem och datadiskar på den virtuella datorn replikeras.
 

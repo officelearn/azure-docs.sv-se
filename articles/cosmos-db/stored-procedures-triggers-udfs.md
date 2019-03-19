@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/11/2018
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 89cc7906c0503daa11f0a34520c17552a4e6b5af
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: d1960fbc9fc9e8c1d672b66d3cf1f41399842059
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55454223"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58083206"
 ---
 # <a name="stored-procedures-triggers-and-user-defined-functions"></a>Lagrade procedurer, utlösare och användardefinierade funktioner
 
@@ -26,7 +26,7 @@ Skriva lagrade procedurer, utlösare och användardefinierade funktioner (UDF) i
 
 * **Atomiska transaktioner:** Azure Cosmos DB garanterar att de databas som utförs i en lagrad procedur eller en utlösare är atomiska. Atomiska funktionen att ett program kan kombinera relaterade åtgärder i en enskild batch så att alla åtgärder lyckas eller ingen av dem lyckas.
 
-- **Prestanda:** JSON-data mappas tack till JavaScript-typsystemet för språk. Den här mappningen möjliggör ett antal optimeringar som lazy materialisering av JSON-dokument i buffertpoolen och gör dem tillgängliga på begäran till koden som körs. Det finns andra prestandafördelarna som är associerade med leverans affärslogik till databasen, vilket innefattar:
+* **Prestanda:** JSON-data mappas tack till JavaScript-typsystemet för språk. Den här mappningen möjliggör ett antal optimeringar som lazy materialisering av JSON-dokument i buffertpoolen och gör dem tillgängliga på begäran till koden som körs. Det finns andra prestandafördelarna som är associerade med leverans affärslogik till databasen, vilket innefattar:
 
    * *Batchbearbetning:* Du kan gruppera åtgärder som infogar och skicka dem gruppvis. Nätverkskostnader trafik svarstid och store-omkostnader för att skapa separata transaktioner minskas avsevärt.
 
@@ -34,7 +34,7 @@ Skriva lagrade procedurer, utlösare och användardefinierade funktioner (UDF) i
 
    * *Sekvensering:* Ibland operations behöver en utlösande mekanism som kan utföra en eller fler uppdateringar av data. Förutom Atomicitet finns även prestandafördelar med när du kör på serversidan.
 
-- **Inkapsling:** Lagrade procedurer kan användas för att gruppera logiken i ett och samma ställe. Inkapsling lägger till ett Abstraktionslager ovanpå data, vilket gör det möjligt att utveckla dina program oberoende av data. Det här lagret Abstraktionslager är användbart när data är utan schema och du inte behöver hantera att lägga till ytterligare logik direkt i ditt program. Abstraktionen kan din skydda data genom att effektivisera åtkomst från skripten.
+* **Inkapsling:** Lagrade procedurer kan användas för att gruppera logiken i ett och samma ställe. Inkapsling lägger till ett Abstraktionslager ovanpå data, vilket gör det möjligt att utveckla dina program oberoende av data. Det här lagret Abstraktionslager är användbart när data är utan schema och du inte behöver hantera att lägga till ytterligare logik direkt i ditt program. Abstraktionen kan din skydda data genom att effektivisera åtkomst från skripten.
 
 > [!TIP]
 > Lagrade procedurer passar bäst för åtgärder som är skriver aktiverat. När du bestämmer var du vill använda lagrade procedurer, optimera runt kapslar in det maximala antalet skrivningar möjligt. Generellt sett är lagrade procedurer inte det effektivaste sättet för att göra stora mängder läsåtgärder så med lagrade procedurer i batch stora mängder läsningar ska returneras till klienten inte ger några önskade förmånen.

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/22/2018
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 771f910fce44724250ff79e770e0d1ca56e8765c
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 647d40db87f76a9e1a13a108c5f55fac40524017
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57768424"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58012793"
 ---
 # <a name="using-the-azure-storage-rest-api"></a>Använda Azure Storage REST API
 
@@ -46,7 +46,7 @@ Det här kommandot klonar lagret till den lokala git-mappen. Öppna Visual Studi
 
 ## <a name="what-is-rest"></a>Vad är REST?
 
-REST-innebär *representational tillstånd överföring*. Kolla in för en viss definition [Wikipedia](http://en.wikipedia.org/wiki/Representational_state_transfer).
+REST-innebär *representational tillstånd överföring*. Kolla in för en viss definition [Wikipedia](https://en.wikipedia.org/wiki/Representational_state_transfer).
 
 I princip REST är en arkitektur som du kan använda när du anropar API: er eller genom att göra tillgängliga för att anropa API: er. Det är oberoende av vad som händer på endera sidan och vilka andra program som används när du skickade eller tog emot RESTEN-anrop. Du kan skriva ett program som körs på en Mac, Windows, Linux, Android-telefon eller surfplatta, iPhone, iPod eller webbplatsen och använder samma REST API för alla dessa plattformar. Data kan skickas i och/eller ut när REST API anropas. REST API hand inte från vilken plattform som kallas – det viktiga är den information som angavs i begäran och de data som anges i svaret.
 
@@ -80,7 +80,7 @@ Om du vill använda ytterligare parametrar, lägger du till dem till resurssträ
 
 [Brödtext i begäran](/rest/api/storageservices/List-Containers2#request-body)**:** Det finns inga begärandetexten för ListContainers. Begärandetexten används på alla PUT-åtgärder när du överför blobbar, samt SetContainerAccessPolicy, vilket gör att du skickar in en XML-lista över åtkomstprinciper har lagrats tillämpas. Åtkomstprinciper har lagrats beskrivs i artikeln [med signaturer för delad åtkomst (SAS)](storage-dotnet-shared-access-signature-part-1.md).
 
-[Svarets statuskod](/rest/api/storageservices/List-Containers2#status-code)**:** Talar om för alla statuskoder som du behöver veta. I det här exemplet är en HTTP-statuskod 200 ok. En fullständig lista över HTTP-statuskoder finns [statuskoddefinitioner](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html). Felkoder som är specifika för Storage REST API: er finns i [vanliga REST API-felkoder](/rest/api/storageservices/common-rest-api-error-codes)
+[Svarets statuskod](/rest/api/storageservices/List-Containers2#status-code)**:** Talar om för alla statuskoder som du behöver veta. I det här exemplet är en HTTP-statuskod 200 ok. En fullständig lista över HTTP-statuskoder finns [statuskoddefinitioner](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html). Felkoder som är specifika för Storage REST API: er finns i [vanliga REST API-felkoder](/rest/api/storageservices/common-rest-api-error-codes)
 
 [Svarshuvuden](/rest/api/storageservices/List-Containers2#response-headers)**:** Dessa inkluderar *innehållstyp*; *x-ms-request-id* (begäran-id du löpt ut, om tillämpligt). *x-ms-version* (anger versionen av den Blob-tjänst som används), och *datum* (UTC, anges vilken tid en begäran har gjorts).
 
@@ -88,7 +88,7 @@ Om du vill använda ytterligare parametrar, lägger du till dem till resurssträ
 
 ## <a name="creating-the-rest-request"></a>Skapar en REST-förfrågan
 
-Några anmärkningar innan du startar – för säkerhet vid körning i produktion kan alltid använda HTTPS snarare än HTTP. För den här övningen, bör du använda HTTP så att du kan visa data för begäran och svar. Om du vill visa informationen om begäran och svar i de faktiska REST-anrop, kan du ladda ned [Fiddler](http://www.telerik.com/fiddler) eller ett liknande program. I Visual Studio-lösningen lagringskontonamn och nyckel är hårdkodad i klassen och metoden ListContainersAsyncREST skickar lagringskontonamn och lagringskontonyckel till de metoder som används för att skapa de olika komponenterna i REST-begäran . I en verklig tillämpning lagringskontonamnet och nyckeln skulle finnas i en konfigurationsfil, miljövariabler, eller hämtas från ett Azure Key Vault.
+Några anmärkningar innan du startar – för säkerhet vid körning i produktion kan alltid använda HTTPS snarare än HTTP. För den här övningen, bör du använda HTTP så att du kan visa data för begäran och svar. Om du vill visa informationen om begäran och svar i de faktiska REST-anrop, kan du ladda ned [Fiddler](https://www.telerik.com/fiddler) eller ett liknande program. I Visual Studio-lösningen lagringskontonamn och nyckel är hårdkodad i klassen och metoden ListContainersAsyncREST skickar lagringskontonamn och lagringskontonyckel till de metoder som används för att skapa de olika komponenterna i REST-begäran . I en verklig tillämpning lagringskontonamnet och nyckeln skulle finnas i en konfigurationsfil, miljövariabler, eller hämtas från ett Azure Key Vault.
 
 I vår exempelprojektet är koden för att skapa auktoriseringsrubriken i en separat klass, med avsikt att kan du ta hela klassen och lägga till den i din egen lösning och använda den ”i befintligt skick”. Huvudet auktoriseringskod fungerar för de flesta REST API-anrop till Azure Storage.
 
@@ -300,7 +300,7 @@ StringToSign = VERB + "\n" +
 
 De flesta av de här fälten används sällan. För Blob-lagring anger du VERB, md5, innehållslängd, Kanoniseras rubriker och Kanoniseras resurs. Du kan lämna de andra tomt (men placera i den `\n` så att den vet att de är tom).
 
-Vad är CanonicalizedHeaders och CanonicalizedResource? Bra fråga. I själva verket vad gör kanoniseras medelvärdet? Inte ens att känna igen det som ett ord Microsoft Word. Här är vad [Wikipedia säger om auktorisering](http://en.wikipedia.org/wiki/Canonicalization): *I datavetenskap är auktorisering (ibland standardisering eller normalisering) en process för att konvertera data som har mer än en möjlig återgivning till en ”standard”, ”normal” eller kanoniska form.* I normal talar, det innebär att listan över objekt (till exempel rubriker när det gäller Kanoniseras huvuden) och standardisera dem i ett format som krävs. I praktiken, Microsoft valt ett format och du behöver för matchning.
+Vad är CanonicalizedHeaders och CanonicalizedResource? Bra fråga. I själva verket vad gör kanoniseras medelvärdet? Inte ens att känna igen det som ett ord Microsoft Word. Här är vad [Wikipedia säger om auktorisering](https://en.wikipedia.org/wiki/Canonicalization): *I datavetenskap är auktorisering (ibland standardisering eller normalisering) en process för att konvertera data som har mer än en möjlig återgivning till en ”standard”, ”normal” eller kanoniska form.* I normal talar, det innebär att listan över objekt (till exempel rubriker när det gäller Kanoniseras huvuden) och standardisera dem i ett format som krävs. I praktiken, Microsoft valt ett format och du behöver för matchning.
 
 Låt oss börja med dessa två av kanoniserade fält, eftersom de behövs för att skapa auktoriseringsrubriken.
 
@@ -325,7 +325,7 @@ private static string GetCanonicalizedHeaders(HttpRequestMessage httpRequestMess
     StringBuilder sb = new StringBuilder();
 
     // Create the string in the right format; this is what makes the headers "canonicalized" --
-    //   it means put in a standard format. http://en.wikipedia.org/wiki/Canonicalization
+    //   it means put in a standard format. https://en.wikipedia.org/wiki/Canonicalization
     foreach (var kvp in headers)
     {
         StringBuilder headerBuilder = new StringBuilder(kvp.Key);
@@ -482,7 +482,7 @@ GET\n\n\n\n\n\n\n\n\n\n\n\nx-ms-date:Fri, 17 Nov 2017 05:16:48 GMT
 SharedKey contosorest:uzvWZN1WUIv2LYC6e3En10/7EIQJ5X9KtFQqrZkxi6s=
 ```
 
-Följande värden är från [Fiddler](http://www.telerik.com/fiddler):
+Följande värden är från [Fiddler](https://www.telerik.com/fiddler):
 
 **Begäran:**
 

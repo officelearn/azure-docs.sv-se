@@ -9,12 +9,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 02/14/2019
 ms.custom: seodec2018
-ms.openlocfilehash: d2f3eb25c2193ad94098acd714d934795d007e98
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: a197be06d9c6f4b70b8ffc06712ef315547b4140
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57543924"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58136520"
 ---
 # <a name="how-to-compose-a-query-in-azure-search"></a>Hur du skriver en fråga i Azure Search
 
@@ -118,7 +118,7 @@ Azure Search har stöd för ett brett utbud av frågetyper.
 
 | Frågetyp | Användning | Mer information och exempel |
 |------------|--------|-------------------------------|
-| Fri form textsökning | Sökparameter och antingen parser| Fulltextsökning söker igenom en eller flera termer i alla *sökbara* fält i ditt index och fungerar på samma sätt som du förväntar dig en sökmotor som Google eller Bing fungerar. Exemplet i inledningen är fulltextsökning.<br/><br/>Fulltextsökning genomgår textanalys med analysverktyget från Lucene (som standard) till gemena alla villkor, ta bort stoppord som ”och”. Du kan åsidosätta standardinställningen med [icke-engelska analysverktyg](index-add-language-analyzers.md#language-analyzer-list) eller [specialiserade språkoberoende analysverktyg](index-add-custom-analyzers.md#AnalyzerTable) som ändrar textanalys. Ett exempel är [nyckelordet](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html) som behandlar allt i ett fält som en enskild token. Detta är användbart för data som postnummer, ID: n och vissa produktnamn. | 
+| Fri form textsökning | Sökparameter och antingen parser| Fulltextsökning söker igenom en eller flera termer i alla *sökbara* fält i ditt index och fungerar på samma sätt som du förväntar dig en sökmotor som Google eller Bing fungerar. Exemplet i inledningen är fulltextsökning.<br/><br/>Fulltextsökning genomgår textanalys med analysverktyget från Lucene (som standard) till gemena alla villkor, ta bort stoppord som ”och”. Du kan åsidosätta standardinställningen med [icke-engelska analysverktyg](index-add-language-analyzers.md#language-analyzer-list) eller [specialiserade språkoberoende analysverktyg](index-add-custom-analyzers.md#AnalyzerTable) som ändrar textanalys. Ett exempel är [nyckelordet](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html) som behandlar allt i ett fält som en enskild token. Detta är användbart för data som postnummer, ID: N och vissa produktnamn. | 
 | Filtrerade sökning | [OData-filteruttryck](query-odata-filter-orderby-syntax.md) och antingen parser | Filterfrågor utvärderar ett booleskt uttryck över alla *filtrerbara* fält i ett index. Till skillnad från sökning matchar en filterfråga det exakta innehållet i ett fält, inklusive skiftlägeskänslighet på strängfält. En annan skillnaden är att filterfrågor uttrycks i OData-syntax. <br/>[Uttryck-filter, exempel](search-query-simple-examples.md#example-3-filter-queries) |
 | Geo-sökning | [Typ av Edm.GeographyPoint](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) på fältet och filteruttrycket antingen parser | Koordinaterna som lagras i ett fält med en Edm.GeographyPoint är används för ”hitta en nära mig” eller kartbaserade Genomsök kontroller. <br/>[Exempel på GEO-sökning](search-query-simple-examples.md#example-5-geo-search)|
 | Sök efter intervall | filteruttrycket och enkel parser | I Azure Search skapas intervallfrågor med hjälp av Filterparametern. <br/>[Intervallet filter, exempel](search-query-simple-examples.md#example-4-range-filters) | 
@@ -146,7 +146,7 @@ Ibland kan är ämnet och inte strukturen för resultat oväntat. När frågan r
 
 + Ändra **`searchMode=any`** (standard) till **`searchMode=all`** att kräva matchningar på alla villkor i stället för något av villkoren. Detta gäller särskilt när booleska operatorer ingår frågan.
 
-+ Ändra fråga tekniken om text eller lexikal analys krävs, men frågetypen utesluter språkliga bearbetning. I fulltextsökning korrigerar text eller lexikal analys automatiskt för stavfel, rapportanvändare plural ordformer, och även oregelbunden verb eller substantiv. För vissa frågor som fuzzy eller sökning med jokertecken, textanalys är inte en del av frågan parsning pipeline. Reguljära uttryck har använts som en lösning för vissa scenarier. 
++ Ändra fråga tekniken om text eller lexikal analys krävs, men frågetypen utesluter språkliga bearbetning. I fulltextsökning, text eller lexikal analys autocorrects för stavfel, rapportanvändare plural ordformer, och även oregelbunden verb eller substantiv. För vissa frågor som fuzzy eller sökning med jokertecken, textanalys är inte en del av frågan parsning pipeline. Reguljära uttryck har använts som en lösning för vissa scenarier. 
 
 ### <a name="paging-results"></a>Växla resultat
 I Azure Search kan du enkelt implementera sidindelning av sökresultaten. Med hjälp av den **`top`** och **`skip`** parametrar, kan du enkelt skicka sökförfrågningar som gör att du kan ta emot den fullständiga uppsättningen sökresultat i hanterbara, ordnade delmängder som enkelt aktivera bra search UI-metoder. När du tar emot dessa mindre delmängder med resultat kan du också se antalet dokument i den fullständiga uppsättningen sökresultat.
@@ -167,4 +167,4 @@ I Azure Search betonar exakt den del av sökresultatet som matchar sökfrågan �
 + [Hur Fullständig textsökning fungerar i Azure Search (fråga parsning arkitektur)](search-lucene-query-architecture.md)
 + [Sökutforskaren](search-explorer.md)
 + [Söka i .NET](search-query-dotnet.md)
-+ [Hur du frågar efter resten](search-query-rest-api.md)
++ [Hur du frågar efter resten](search-create-index-rest-api.md)

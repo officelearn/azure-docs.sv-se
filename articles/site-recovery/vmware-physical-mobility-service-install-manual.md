@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: 06430bf476c2e9f3af2102272fb54d201a3f1066
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 862846c8ec544cf082d45cea650269b6518a016f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53790817"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58003525"
 ---
 # <a name="install-the-mobility-service-manually-on-vmware-vms-and-physical-servers"></a>Installera mobilitetstjänsten manuellt på virtuella VMware-datorer och fysiska servrar
 
@@ -65,29 +65,30 @@ Innan du installerar måste du skapa en lösenfras som ska användas under insta
 
 1. Kopiera installationsprogrammet till en lokal mapp (exempelvis C:\Temp) på den server som du vill skydda. 
 
-  ```
-  cd C:\Temp
-  ren Microsoft-ASR_UA*Windows*release.exe MobilityServiceInstaller.exe
-  MobilityServiceInstaller.exe /q /x:C:\Temp\Extracted
-  cd C:\Temp\Extracted.
-  ```
+   ```
+   cd C:\Temp
+   ren Microsoft-ASR_UA*Windows*release.exe MobilityServiceInstaller.exe
+   MobilityServiceInstaller.exe /q /x:C:\Temp\Extracted
+   cd C:\Temp\Extracted.
+   ```
 2. Installera på följande sätt:
 
-  ```
-  UnifiedAgent.exe /Role "MS" /InstallLocation "C:\Program Files (x86)\Microsoft Azure Site Recovery" /Platform "VmWare" /Silent
-  ```
+   ```
+   UnifiedAgent.exe /Role "MS" /InstallLocation "C:\Program Files (x86)\Microsoft Azure Site Recovery" /Platform "VmWare" /Silent
+   ```
 
 3. Registrera agenten med konfigurationsservern.
 
-  ```
-  cd C:\Program Files (x86)\Microsoft Azure Site Recovery\agent
-  UnifiedAgentConfigurator.exe  /CSEndPoint <CSIP> /PassphraseFilePath <PassphraseFilePath>
-  ```
+   ```
+   cd C:\Program Files (x86)\Microsoft Azure Site Recovery\agent
+   UnifiedAgentConfigurator.exe  /CSEndPoint <CSIP> /PassphraseFilePath <PassphraseFilePath>
+   ```
 
 #### <a name="installation-settings"></a>Inställningar för klientinstallationer
+
 **Inställning** | **Detaljer**
 --- | ---
-Användning | UnifiedAgent.exe/role < MS|MT > /InstallLocation  <Install Location> /Platform ”VmWare” / silent
+Användning | UnifiedAgent.exe/role < MS\|MT > /InstallLocation  <Install Location> /Platform ”VmWare” / silent
 Installationsloggar | Under % ProgramData%\ASRSetupLogs\ASRUnifiedAgentInstaller.log.
 / Role | Obligatorisk installationsparameter. Anger om mobilitetstjänsten (MS) eller huvudmål (MT) ska installeras.
 /InstallLocation| Valfri parameter. Anger installationsplatsen för Mobility service (valfri mapp).
@@ -95,9 +96,10 @@ Installationsloggar | Under % ProgramData%\ASRSetupLogs\ASRUnifiedAgentInstaller
 / Tyst| Valfri. Anger om du vill köra installationsprogrammet i tyst läge.
 
 #### <a name="registration-settings"></a>Registreringsinställningar
+
 **Inställning** | **Detaljer**
 --- | ---
-Användning | UnifiedAgentConfigurator.exe /CSEndPoint <CSIP> /PassphraseFilePath <PassphraseFilePath>
+Användning | UnifiedAgentConfigurator.exe  /CSEndPoint <CSIP> /PassphraseFilePath <PassphraseFilePath>
 Agenten konfigurationsloggar | Under % ProgramData%\ASRSetupLogs\ASRUnifiedAgentConfigurator.log.
 /CSEndPoint | Obligatorisk parameter. Anger IP-adressen för konfigurationsservern. Använd en giltig IP-adress.
 /PassphraseFilePath |  Obligatorisk. Platsen för lösenfrasen. Använd valfritt giltigt UNC eller lokal filsökväg.
@@ -106,39 +108,42 @@ Agenten konfigurationsloggar | Under % ProgramData%\ASRSetupLogs\ASRUnifiedAgent
 ### <a name="on-a-linux-machine"></a>På en Linux-dator
 
 1. Kopiera installationsprogrammet till en lokal mapp (till exempel/tmp) på den server som du vill skydda. Kör följande kommandon i en terminal:
-  ```
-  cd /tmp ;
+   ```
+   cd /tmp ;
 
-  tar -xvzf Microsoft-ASR_UA*release.tar.gz
-  ```
+   tar -xvzf Microsoft-ASR_UA*release.tar.gz
+   ```
 2. Installera på följande sätt:
 
-  ```
-  sudo ./install -d <Install Location> -r MS -v VmWare -q
-  ```
+   ```
+   sudo ./install -d <Install Location> -r MS -v VmWare -q
+   ```
 3. När installationen är klar, måste Mobilitetstjänsten vara registrerad till konfigurationsservern. Kör följande kommando för att registrera Mobilitetstjänsten med konfigurationsservern:
 
-  ```
-  /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i <CSIP> -P /var/passphrase.txt
-  ```
+   ```
+   /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i <CSIP> -P /var/passphrase.txt
+   ```
 
 
 #### <a name="installation-settings"></a>Inställningar för klientinstallationer
+
 **Inställning** | **Detaljer**
 --- | ---
-Användning | . / install -d <Install Location> - r < MS|MT > - v VmWare - q
+Användning | . / install -d <Install Location> - r < MS\|MT > - v VmWare - q
 -r | Obligatorisk installationsparameter. Anger om mobilitetstjänsten (MS) eller huvudmål (MT) ska installeras.
 -d | Valfri parameter. Anger installationsplatsen Mobility service: /usr/local/ASR.
 -v | Obligatorisk. Anger plattformen där Mobilitetstjänsten är installerad. **VMware** för VMware-datorer/fysiska servrar. **Azure** för virtuella Azure-datorer. 
 -q | Valfri. Anger om du vill köra installationsprogrammet i tyst läge.
 
 #### <a name="registration-settings"></a>Registreringsinställningar
+
 **Inställning** | **Detaljer**
 --- | ---
-Användning | CD /usr/local/ASR/Vx/bin<br/><br/> UnifiedAgentConfigurator.sh -i <CSIP> - P <PassphraseFilePath>
+Användning | CD /usr/local/ASR/Vx/bin<br/><br/> UnifiedAgentConfigurator.sh -i <CSIP> -P <PassphraseFilePath>
 -i | Obligatorisk parameter. Anger IP-adressen för konfigurationsservern. Använd en giltig IP-adress.
 -P |  Obligatorisk. Fullständig sökväg till filen där lösenfrasen sparas. Använda valfri giltig mapp
 
 ## <a name="next-steps"></a>Nästa steg
+
 - [Konfigurera haveriberedskap för virtuella VMware-datorer](vmware-azure-tutorial.md)
 - [Konfigurera haveriberedskap för fysiska servrar](physical-azure-disaster-recovery.md)

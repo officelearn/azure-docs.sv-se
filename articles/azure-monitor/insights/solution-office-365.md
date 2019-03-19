@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/24/2019
 ms.author: bwren
-ms.openlocfilehash: 003d5da137c88097d9555a9884286251af92d6f0
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 6a13988af7a46ff6fafe352e850ee238cda79c08
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57311009"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57996709"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Lösning för Office 365 i Azure (förhandsversion)
 
@@ -71,7 +71,7 @@ Det första steget är att skapa ett program i Azure Active Directory som hanter
 1. Klicka på **Ny programregistrering**.
 
     ![Lägg till appregistrering](media/solution-office-365/add-app-registration.png)
-1. Ange ett program **namn** och **inloggnings-URL**.  Namnet bör vara beskrivande.  Använd _http://localhost_ för URL: en och håll _webbapp / API_ för den **programtyp**
+1. Ange ett program **namn** och **inloggnings-URL**.  Namnet bör vara beskrivande.  Använd `http://localhost` för URL: en och håll _webbapp / API_ för den **programtyp**
     
     ![Skapa program](media/solution-office-365/create-application.png)
 1. Klicka på **skapa** och validera programinformationen.
@@ -91,11 +91,11 @@ Det första steget är att skapa ett program i Azure Active Directory som hanter
     ![Välj API](media/solution-office-365/select-api.png)
 
 1. Under **Välj behörigheter** väljer du följande alternativ för både **programbehörigheter** och **delegerade behörigheter**:
-    - Läs tjänsthälsoinformation för din organisation
-    - Läs aktivitetsdata för din organisation
-    - Läs aktivitetsrapporter för din organisation
+   - Läs tjänsthälsoinformation för din organisation
+   - Läs aktivitetsdata för din organisation
+   - Läs aktivitetsrapporter för din organisation
 
-    ![Välj API](media/solution-office-365/select-permissions.png)
+     ![Välj API](media/solution-office-365/select-permissions.png)
 
 1. Klicka på **Välj** och sedan **klar**.
 1. Klicka på **bevilja** och klicka sedan på **Ja** när du tillfrågas för verifiering.
@@ -592,7 +592,7 @@ Dessa poster skapas när ändringar görs i Exchange-konfiguration.
 | RecordType     | ExchangeAdmin |
 | ExternalAccess |  Anger om cmdleten kördes av en användare i din organisation, av Microsoft datacenter-personal eller ett tjänstkonto för datacenter eller genom en delegerad administratör. Värdet falskt anger att cmdleten kördes av någon i din organisation. Värdet True anger att cmdleten kördes av datacenter personal, ett tjänstkonto för datacenter eller en delegerad administratör. |
 | ModifiedObjectResolvedName |  Det här är användarvänligt namn på det objekt som har ändrats av cmdlet: en. Detta loggas endast om cmdleten ändrar objektet. |
-| Organisationsnamn | Namnet på klienten. |
+| OrganizationName | Namnet på klienten. |
 | OriginatingServer | Namnet på den server där cmdleten kördes. |
 | Parametrar | Namn och värde för alla parametrar som användes med cmdlet: en som identifieras i Operations-egenskapen. |
 
@@ -705,7 +705,7 @@ Följande tabell innehåller exempel på sökningar i loggen för uppdateringspo
 | Söka i data | Beskrivning |
 | --- | --- |
 |Uppräkning av alla åtgärder på Office 365-prenumerationen |OfficeActivity &#124; sammanfatta antal() efter åtgärd |
-|Användningen av SharePoint-webbplatser|OfficeActivity &#124; där OfficeWorkload = ~ ”sharepoint” &#124; sammanfatta antal() efter SiteUrl | Sortera efter antal asc|
+|Användningen av SharePoint-webbplatser|OfficeActivity &#124; där OfficeWorkload = ~ ”sharepoint” &#124; sammanfatta antal() efter SiteUrl \| sortera efter antal asc|
 |Filåtgärder för åtkomst efter användartyp|Sök i (OfficeActivity) OfficeWorkload = ~ ”azureactivedirectory” och ”MyTest”|
 |Sök med ett specifikt nyckelord|Type=OfficeActivity OfficeWorkload=azureactivedirectory "MyTest"|
 |Övervaka externa åtgärder på Exchange|OfficeActivity &#124; där OfficeWorkload = ~ ”exchange” och ExternalAccess == true|

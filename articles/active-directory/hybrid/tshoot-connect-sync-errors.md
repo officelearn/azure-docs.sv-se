@@ -15,12 +15,12 @@ ms.date: 10/29/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a43e84e97499010f36e3cd39c13bf61d281b66c7
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: d2ba74961eb549afd2fcf7c10f2d8b981e389a2c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56193143"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57845104"
 ---
 # <a name="troubleshooting-errors-during-synchronization"></a>Felsök fel under synkronisering
 Fel kan uppstå när identitetsdata synkroniseras från Windows Server Active Directory (AD DS) till Azure Active Directory (AD Azure). Den här artikeln innehåller en översikt över olika typer av synkroniseringsfel några möjliga scenarier som orsakar dessa fel och potentiella sätt att åtgärda felen. Den här artikeln innehåller vanliga fel och kan inte omfatta alla eventuella fel.
@@ -72,19 +72,19 @@ Azure Active Directory-schemat tillåter inte två eller flera objekt som ska ha
 
 #### <a name="example-case"></a>Exempel fall:
 1. **Bob Smith** är en synkroniserade användare i Azure Active Directory från på lokala Active Directory *contoso.com*
-2. Bob Smith **UserPrincipalName** har angetts som **bobs@contoso.com**.
+2. Bob Smith **UserPrincipalName** har angetts som **bobs\@contoso.com**.
 3. **”abcdefghijklmnopqrstuv ==”** är den **SourceAnchor** beräknas genom att Azure AD Connect med Bob Smith **objectGUID** från lokala Active Directory, vilket är den  **immutableId** för Bob Smith i Azure Active Directory.
 4. Bob innehåller också följande värden för den **proxyAddresses** attribut:
    * smtp: bobs@contoso.com
    * smtp: bob.smith@contoso.com
-   * **smtp: bob@contoso.com**
+   * **SMTP: bob\@contoso.com**
 5. En ny användare **Bob Taylor**, har lagts till i lokalerna Active Directory.
-6. Bob Taylor **UserPrincipalName** har angetts som **bobt@contoso.com**.
+6. Bob Taylor **UserPrincipalName** har angetts som **bobt\@contoso.com**.
 7. **”abcdefghijkl0123456789 ==” ”** är den **sourceAnchor** beräknas genom att Azure AD Connect med Bob Taylor **objectGUID** från på lokala Active Directory. Bob Taylor objektet har inte synkroniserats till Azure Active Directory ännu.
 8. Bob Taylor har följande värden för attributet proxyAddresses
    * smtp: bobt@contoso.com
    * smtp: bob.taylor@contoso.com
-   * **smtp: bob@contoso.com**
+   * **SMTP: bob\@contoso.com**
 9. Under synkronisering, Azure AD Connect identifierar att lägga till Bob Taylor i lokala Active Directory och be Azure AD för att göra samma ändring.
 10. Azure AD först utför hårda matchning. Det vill säga söks om ett objekt med immutableId är lika med ”abcdefghijkl0123456789 ==”. Hårda matchning fungerar inte eftersom inga andra objekt i Azure AD har den immutableId.
 11. Azure AD försöker ungefärlig matchning Bob Taylor. Det vill säga söks om ett objekt med proxyAddresses motsvarar värdena, inklusive smtp: bob@contoso.com
@@ -116,8 +116,8 @@ När Azure AD försöker matcha mjuk två objekt, är det möjligt att två obje
 * En e-postaktiverad säkerhetsgrupp skapas i Office 365. Administratören lägger till en ny användare eller kontakt i lokalt AD (som inte är synkroniserad med Azure AD ännu) med samma värde för attributet ProxyAddresses som Office 365-grupp.
 
 #### <a name="example-case"></a>Exempel fallet
-1. Administratören skapar en ny e-postaktiverad säkerhetsgrupp i Office 365 för Skatteverket och ger en e-postadress som tax@contoso.com. Den här gruppen har tilldelats värdet på attributet ProxyAddresses för **smtp: tax@contoso.com**
-2. En ny användare ansluter Contoso.com och ett konto har skapats för användaren på plats med proxyAddress som **smtp: tax@contoso.com**
+1. Administratören skapar en ny e-postaktiverad säkerhetsgrupp i Office 365 för Skatteverket och ger en e-postadress som tax@contoso.com. Den här gruppen har tilldelats värdet på attributet ProxyAddresses för **smtp: skatt\@contoso.com**
+2. En ny användare ansluter Contoso.com och ett konto har skapats för användaren på plats med proxyAddress som **smtp: skatt\@contoso.com**
 3. När Azure AD Connect kommer att synkronisera det nya användarkontot, får den felet ”ObjectTypeMismatch”.
 
 #### <a name="how-to-fix-objecttypemismatch-error"></a>Hur du löser ObjectTypeMismatch fel
@@ -143,16 +143,16 @@ Om Azure AD Connect försöker lägga till ett nytt objekt eller uppdatera ett b
 
 #### <a name="example-case"></a>Exempel fall:
 1. **Bob Smith** är en synkroniserade användare i Azure Active Directory från på lokala Active Directory contoso.com
-2. Bob Smith **UserPrincipalName** lokalt har angetts som **bobs@contoso.com**.
+2. Bob Smith **UserPrincipalName** lokalt har angetts som **bobs\@contoso.com**.
 3. Bob innehåller också följande värden för den **proxyAddresses** attribut:
    * smtp: bobs@contoso.com
    * smtp: bob.smith@contoso.com
-   * **smtp: bob@contoso.com**
+   * **SMTP: bob\@contoso.com**
 4. En ny användare **Bob Taylor**, har lagts till i lokalerna Active Directory.
-5. Bob Taylor **UserPrincipalName** har angetts som **bobt@contoso.com**.
+5. Bob Taylor **UserPrincipalName** har angetts som **bobt\@contoso.com**.
 6. **Bob Taylor** har följande värden för den **ProxyAddresses** attribut i. smtp: bobt@contoso.com ii. smtp: bob.taylor@contoso.com
 7. Bob Taylor objekt synkroniseras med Azure AD har.
-8. Administratören har valt att uppdatera Bob Taylor **ProxyAddresses** attributet med följande värde: jag. **smtp: bob@contoso.com**
+8. Administratören har valt att uppdatera Bob Taylor **ProxyAddresses** attributet med följande värde: jag. **SMTP: bob\@contoso.com**
 9. Azure AD försöker uppdatera Bob Taylor objektet i Azure AD med ovanstående värde, men som misslyckas åtgärden som att ProxyAddresses värdet har redan tilldelats Bob Smith, vilket resulterar i ”AttributeValueMustBeUnique”-fel.
 
 #### <a name="how-to-fix-attributevaluemustbeunique-error"></a>Hur du löser AttributeValueMustBeUnique fel
@@ -186,7 +186,7 @@ a. Se till att attributet userPrincipalName har stöds tecken och format som kr�
 Det här fallet resulterar i en **”FederatedDomainChangeError”** synkronisera fel när du suffix för en användares UserPrincipalName ändras från en federerad domän till en annan federerad domän.
 
 #### <a name="scenarios"></a>Scenarier
-För en synkroniserad användare ändrades UserPrincipalName-suffix från en federerad domän till en annan federerad domän lokalt. Till exempel *UserPrincipalName = bob@contoso.com*  har ändrats till *UserPrincipalName = bob@fabrikam.com* .
+För en synkroniserad användare ändrades UserPrincipalName-suffix från en federerad domän till en annan federerad domän lokalt. Till exempel *UserPrincipalName = bob\@contoso.com* har ändrats till *UserPrincipalName = bob\@fabrikam.com*.
 
 #### <a name="example"></a>Exempel
 1. Bob Smith, ett konto för Contoso.com, hämtar läggas till som en ny användare i Active Directory med UserPrincipalName bob@contoso.com
@@ -195,7 +195,7 @@ För en synkroniserad användare ändrades UserPrincipalName-suffix från en fed
 4. Bobs userPrincipalName uppdateras inte och resulterar i ett ”FederatedDomainChangeError” synkroniseringsfel.
 
 #### <a name="how-to-fix"></a>Hur du åtgärdar
-Om en användares UserPrincipalName suffix har uppdaterats från bob @**contoso.com** till bob @**fabrikam.com**, där båda **contoso.com** och **fabrikam.com** är **federerade domäner**, Följ stegen nedan för att åtgärda sync-fel
+Om en användares UserPrincipalName suffix har uppdaterats från bob @**contoso.com** till bob\@**fabrikam.com**, där båda **contoso.com** och  **Fabrikam.com** är **federerade domäner**, Följ stegen nedan för att åtgärda sync-fel
 
 1. Uppdatera användarens UserPrincipalName i Azure AD från bob@contoso.com till bob@contoso.onmicrosoft.com. Du kan använda följande PowerShell-kommando med Azure AD PowerShell-modulen: `Set-MsolUserPrincipalName -UserPrincipalName bob@contoso.com -NewUserPrincipalName bob@contoso.onmicrosoft.com`
 2. Tillåt kommer nästa synkroniseringscykel att försöka synkronisering. Den här tidssynkronisering kommer att lyckas och den kommer att uppdatera UserPrincipalName Bob till bob@fabrikam.com som förväntat.

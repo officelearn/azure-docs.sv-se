@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: c0e7f941f9845ed7531f3adf03fbca9fbeb2787d
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 0e9001111d6aa48f0dad69a2fb3b2186bfc37ab7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456698"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58010509"
 ---
 # <a name="azure-sql-database-purchasing-models"></a>Azure SQL Database köpa modeller
 
@@ -104,7 +104,7 @@ Ytterligare eDTU:er kan läggas till i en befintlig pool utan avbrott för datab
 
 ### <a name="determine-the-number-of-dtus-needed-by-a-workload"></a>Bestämma antalet dtu: er som krävs för en arbetsbelastning
 
-Om du vill migrera en befintlig lokal- eller SQL Server VM-arbetsbelastning till Azure SQL Database, som du kan använda den [DTU-Kalkylatorn](http://dtucalculator.azurewebsites.net/) för att beräkna ungefär hur många Dtu: er. Du kan använda för en befintlig Azure SQL Database-arbetsbelastning [fråga prestandainsikt](sql-database-query-performance.md) att förstå databasens resursförbrukning (dtu: er) för att få bättre insikt för att optimera din arbetsbelastning. Du kan också använda den [sys.dm_db_ resource_stats](https://msdn.microsoft.com/library/dn800981.aspx) DMV visa resursförbrukning för den senaste timmen. Du kan också katalogvyn [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) visar resursförbrukning för de senaste 14 dagarna, men med lägre tillförlitlighet med medelvärden på fem minuter.
+Om du vill migrera en befintlig lokal- eller SQL Server VM-arbetsbelastning till Azure SQL Database, som du kan använda den [DTU-Kalkylatorn](https://dtucalculator.azurewebsites.net/) för att beräkna ungefär hur många Dtu: er. Du kan använda för en befintlig Azure SQL Database-arbetsbelastning [fråga prestandainsikt](sql-database-query-performance.md) att förstå databasens resursförbrukning (dtu: er) för att få bättre insikt för att optimera din arbetsbelastning. Du kan också använda den [sys.dm_db_ resource_stats](https://msdn.microsoft.com/library/dn800981.aspx) DMV visa resursförbrukning för den senaste timmen. Du kan också katalogvyn [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) visar resursförbrukning för de senaste 14 dagarna, men med lägre tillförlitlighet med medelvärden på fem minuter.
 
 ### <a name="workloads-that-benefit-from-an-elastic-pool-of-resources"></a>Arbetsbelastningar som har nytta av en elastisk pool med resurser
 

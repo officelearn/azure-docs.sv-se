@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2018
 ms.author: banders
-ms.openlocfilehash: 36ce4d96e02bac1eae1791acf811da468726b4a6
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 16feb41707e5afa07054d20b620f5822eedad773
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54902711"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57858920"
 ---
 # <a name="understand-your-bill-for-azure-customers-with-an-enterprise-agreement"></a>Förstå fakturan för Azure-kunder med ett Enterprise-avtal
 
@@ -77,7 +77,7 @@ Jämför din totala användning från Enterprise-portalen i **rapporter** > **An
 
 ### <a name="review-marketplace-invoice"></a>Granska marketplace-faktura
 
-Jämför din totala på Azure Marketplace **rapporter** > **Användningsöversikt** i Enterprise portal med din marketplace-faktura. Marketplace-faktura är bara för Azure Marketplace-köp och användning. De mängder som anges på den **Användningsöversikt** inkluderar inte skatt. 
+Jämför din totala på Azure Marketplace **rapporter** > **Användningsöversikt** i Enterprise portal med din marketplace-faktura. Marketplace-fakturan avser enbart Azure Marketplace-köp och -användning. De mängder som anges på den **Användningsöversikt** inkluderar inte skatt. 
 
 1. Logga in på den [Enterprise portal](https://ea.azure.com).
 1. Välj **rapporter**.
@@ -92,4 +92,4 @@ Jämför din totala på Azure Marketplace **rapporter** > **Användningsöversik
 
 ## <a name="need-help-contact-us"></a>Behöver du hjälp? Kontakta oss.
 
-Om du har frågor eller behöver hjälp, [skapa en supportbegäran](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+Om du har frågor eller behöver hjälp, [skapa en supportbegäran](https://go.microsoft.com/fwlink/?linkid=2083458).

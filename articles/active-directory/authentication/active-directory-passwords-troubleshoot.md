@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sahenry
 ms.custom: seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4af7c5721458e36a1efa27c9696feaa3dbf043e4
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 3621bbce0128fbd173120ae2a327065ee2e84e33
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56187006"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57878456"
 ---
 # <a name="troubleshoot-self-service-password-reset"></a>Felsöka lösenordsåterställning via självbetjäning
 
@@ -101,7 +101,7 @@ Bästa praxis när du felsöker problem med tillbakaskrivning av lösenord är a
 | Kod | Namn eller meddelande | Beskrivning |
 | --- | --- | --- |
 | 6329 | BAIL: MMS(4924) 0x80230619: ”En begränsning förhindrar att lösenordet ändras till den aktuella som angetts”. | Den här händelsen inträffar när tjänsten för tillbakaskrivning av lösenord försöker ange ett lösenord för din lokala katalog som inte uppfyller ålder för lösenord, historik, komplexitet eller filtrering kraven i domänen. <br> <br> Om du har en lägsta ålder för lösenord och nyligen har ändrat lösenordet inom denna tidsperiod kan det inte går att ändra lösenordet igen tills den når den angivna åldern i din domän. I testsyfte sättas minimiålder till 0. <br> <br> Om du har använts på sistone aktiverad så du måste välja ett lösenord som inte har använts under senaste *N* tider var *N* är lösenordsinställningen för historik. Om du väljer ett lösenord som har använts under senaste *N* gånger, kan du se ett fel i det här fallet. I testsyfte ska tidigare lösenord anges till 0. <br> <br> Om du har krav på lösenordskomplexitet, tillämpas alla när användaren försöker att ändra och återställa ett lösenord. <br> <br> Om du har aktiverat lösenordsfilter och en användare väljer ett lösenord som uppfyller inte sökvillkoren, sedan återställa eller ändra åtgärden misslyckas. |
-| 6329 | MMS(3040): admaexport.cpp(2837): Servern innehåller inte principkontroll för LDAP-lösenord. | Det här problemet uppstår om LDAP_SERVER_POLICY_HINTS_OID kontroll (1.2.840.113556.1.4.2066) inte är aktiverad på domänkontrollanter. Om du vill använda funktionen för tillbakaskrivning av lösenord, måste du aktivera kontrollen. Om du vill göra det finnas domänkontrollanter i Windows Server 2008 (med senaste SP) eller senare. Om dina domänkontrollanter som är på 2008 (pre-R2) så du måste också installera snabbkorrigeringar [KB2386717](https://support.microsoft.com/kb/2386717). |
+| 6329 | MMS(3040): admaexport.cpp(2837): Servern innehåller inte principkontroll för LDAP-lösenord. | Det här problemet uppstår om LDAP_SERVER_POLICY_HINTS_OID kontroll (1.2.840.113556.1.4.2066) inte är aktiverad på domänkontrollanter. Om du vill använda funktionen för tillbakaskrivning av lösenord, måste du aktivera kontrollen. Om du vill göra det finnas domänkontrollanter i Windows Server 2008R2 eller senare. |
 | HR 8023042 | Synkroniseringsmotorn returnerade ett fel hr = 80230402, message = ett försök att hämta ett objekt som misslyckades eftersom det finns duplicerade poster med samma ankaret. | Det här felet inträffar när samma användar-ID är aktiverat i flera domäner. Ett exempel är om du synkroniserar konto- och skogar och har samma användar-ID finns och är aktiverat i varje skog. <br> <br> Det här felet kan också inträffa om du använder en icke-unikt fästpunktsattributet som ett alias eller UPN och två användare delar den samma fästpunktsattributet. <br> <br> Lös problemet genom att se till att det inte finns några dubbletter av användare i din domäner och att du använder en unik fästpunktsattributet för varje användare. |
 
 ### <a name="if-the-source-of-the-event-is-passwordresetservice"></a>Om källan för händelsen är PasswordResetService
@@ -179,10 +179,10 @@ Mer information, gå igenom kraven för anslutningen i den [krav för Azure AD C
 
 Lös problem med nätverksanslutningen eller andra tillfälliga problem med tjänsten genom att starta om tjänsten Azure AD Connect Sync:
 
-   1. Som administratör, välja **starta** på den server som kör Azure AD Connect.
-   1. Ange **services.msc** i sökfältet och välj **RETUR**.
-   1. Leta efter den **Microsoft Azure AD Sync** posten.
-   1. Högerklicka på tjänstposten, Välj **starta om**, och sedan vänta tills åtgärden slutförs.
+1. Som administratör, välja **starta** på den server som kör Azure AD Connect.
+1. Ange **services.msc** i sökfältet och välj **RETUR**.
+1. Leta efter den **Microsoft Azure AD Sync** posten.
+1. Högerklicka på tjänstposten, Välj **starta om**, och sedan vänta tills åtgärden slutförs.
 
    ![Starta om tjänsten Azure AD Sync][Service restart]
 
@@ -272,13 +272,13 @@ För att hjälpa dig korrekt ombeds ange så mycket information som möjligt nä
 * **Allmän beskrivning av felet**: Vad är felet? Vad var det beteende som upptäcktes? Hur kan vi för att återskapa felet? Ange så mycket information som möjligt.
 * **Sidan**: Vilken sida är du på när du har märkt felet? Är URL: en om du kan till och en skärmbild av sidan.
 * **Supportkod**: Vad hette den supportkod som genererades när användaren såg felet?
-    * För att hitta den här koden, återskapa felet och välj sedan den **supportkod** länken längst ned på skärmen och skicka supportteknikern GUID som är ett resultat.
+  * För att hitta den här koden, återskapa felet och välj sedan den **supportkod** länken längst ned på skärmen och skicka supportteknikern GUID som är ett resultat.
 
     ![Hitta supportkod längst ned på skärmen][Support code]
 
-    * Om du är på en sida utan en supportkod längst ned på sidan Välj F12 och Sök efter SID och CID och skicka dessa två resultat till supportteknikern.
+  * Om du är på en sida utan en supportkod längst ned på sidan Välj F12 och Sök efter SID och CID och skicka dessa två resultat till supportteknikern.
 * **Datum, tid och tidszon**: Ange exakt datum och tid *med tidszonen* som felet inträffade.
-* **Användar-ID**: Vem var den användare som såg felet? Ett exempel är *user@contoso.com*.
+* **Användar-ID**: Vem var den användare som såg felet? Ett exempel är *användaren\@contoso.com*.
     * Är detta en federerad användare?
     * Är detta en direktautentisering användare?
     * Är detta en lösenord-hash-synkroniserade användare?

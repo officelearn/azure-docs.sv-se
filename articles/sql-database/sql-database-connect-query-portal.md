@@ -13,22 +13,22 @@ ms.author: ayolubek
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/12/2019
-ms.openlocfilehash: e16d68f8c30b54c24e091d1b0c7317bf74aadeba
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: b2109afe6760eb87269a33ed74784149c2bf3e03
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56234585"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58105802"
 ---
 # <a name="quickstart-use-the-azure-portals-sql-query-editor-to-connect-and-query-data"></a>Snabbstart: Använda SQL-frågeredigeraren på Azure-portalen för att ansluta och fråga efter data
 
 SQL-frågeredigeraren är ett webbläsarverktyg på Azure-portalen som ger ett enkelt sätt att köra SQL-frågor på Azure SQL Database eller Azure SQL Data Warehouse. I den här snabbstarten kommer du att använda frågeredigeraren för att ansluta till en SQL-databas och sedan köra Transact-SQL-instruktioner för att fråga, infoga, uppdatera och ta bort data.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här kursen behöver du:
 
-- En Azure SQL-databas. Du kan använda någon av dessa snabbstarter till att skapa och därefter konfigurera en databas i Azure SQL Database:
+- En Azure SQL-databas. Du kan använda någon av dessa snabbstarter för att skapa och därefter konfigurera en databas i Azure SQL Database:
 
   || Enskild databas |
   |:--- |:--- |
@@ -43,7 +43,7 @@ För att slutföra den här kursen behöver du:
 
 ## <a name="sign-in-the-azure-portal"></a>Logga in på Azure-portalen
 
-Logga in på [Azure-portalen](https://portal.azure.com/).
+Logga in på [Azure Portal](https://portal.azure.com/).
 
 ## <a name="connect-using-sql-authentication"></a>Anslut med SQL-autentisering
 
@@ -65,8 +65,8 @@ Logga in på [Azure-portalen](https://portal.azure.com/).
 Genom att konfigurera en Active Directory-administratör (AD) kan du använda en enda identitet för att logga in på Azure-portalen och SQL-databasen. Konfigurera en AD-administratör för SQL-servern genom att följa stegen nedan.
 
 > [!NOTE]
-* E-postkonton (t.ex. outlook.com, gmail.com och yahoo.com) stöds inte än som AD-administratörer. Se till att välja en användare som skapats internt i Azure AD eller som federerats till Azure AD.
-* Azure AD-administratörsinloggning fungerar inte med konton som har tvåfaktorautentisering aktiverat.
+> * E-postkonton (t.ex. outlook.com, gmail.com och yahoo.com) stöds inte än som AD-administratörer. Se till att välja en användare som skapats internt i Azure AD eller som federerats till Azure AD.
+> * Azure AD-administratörsinloggning fungerar inte med konton som har tvåfaktorautentisering aktiverat.
 
 1. Välj **Alla resurser** på menyn till vänster och välj sedan SQL-servern.
 

@@ -1,21 +1,21 @@
 ---
-title: Hantera Machine Learning Studio-webbtjänster som använder API Management
+title: Hantera webbtjänster som använder API Management
 titleSuffix: Azure Machine Learning Studio
 description: En guide som visar hur du hanterar AzureML-webbtjänster som använder API Management. Hantera din REST API-slutpunkter genom att definiera användaråtkomst, begränsning av nätverksbandbredd och instrumentpanelen för övervakning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
-author: ericlicoding
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 11/03/2017
-ms.openlocfilehash: d4029d7f15918ea75ebcb10bfa8f8f7657eb11ca
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 0d79bc167ea0416218a4d4822bcd6221699643ca
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57342589"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57852900"
 ---
 # <a name="manage-azure-machine-learning-studio-web-services-using-api-management"></a>Hantera Azure Machine Learning Studio-webbtjänster som använder API Management
 ## <a name="overview"></a>Översikt
@@ -182,11 +182,11 @@ Byt namn på den till **SimpleFeatureHashingExperiment**. Expandera **sparade da
 
 Expandera **Dataomvandling** och **manipulering av** och dra **Välj kolumner i datauppsättning** till ditt experiment. Ansluta **boka granskningar från Amazon** till **Välj kolumner i datauppsättning**.
 
-![select-columns](./media/manage-web-service-endpoints-using-api-management/project-columns.png)
+![Anslut modulen boken granskningar datauppsättning till en modul för Projektkolumner](./media/manage-web-service-endpoints-using-api-management/project-columns.png)
 
 Klicka på **Välj kolumner i datauppsättning** och klicka sedan på **starta kolumnväljaren** och välj **Col2**. Klicka på bockmarkeringen för att tillämpa ändringarna.
 
-![select-columns](./media/manage-web-service-endpoints-using-api-management/select-columns.png)
+![Välj kolumner med hjälp av kolumnnamn](./media/manage-web-service-endpoints-using-api-management/select-columns.png)
 
 Expandera **textanalys** och dra **funktions-hashning** till experimentet. Ansluta **Välj kolumner i datauppsättning** till **funktions-hashning**.
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 3240878507249d22a8d791ced9332878907a818c
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: f26c8e670855513995463ffaaf7e49a8e00e35fa
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57543091"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57873799"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Skapa, visa och hantera aviseringar med Azure Monitor
 
@@ -47,29 +47,29 @@ Detaljerad nästa är stegvis guide till med hjälp av aviseringar i Azure porta
 
 1. Definiera aviseringsvillkoren genom att använda den **Välj Resource** länk och specificera genom att välja en resurs. Filtret genom att välja den _prenumeration_, _resurstyp_, och nödvändiga _Resource_.
 
-    >[!NOTE]
-
-    > För att skapa en logg varning - Kontrollera den **log** signal är tillgänglig för den valda resursen innan du fortsätter.
-    ![Välj resurs](media/alerts-log/Alert-SelectResourceLog.png)
+   > [!NOTE]
+   > 
+   > För att skapa en logg varning - Kontrollera den **log** signal är tillgänglig för den valda resursen innan du fortsätter.
+   >  ![Välj resurs](media/alerts-log/Alert-SelectResourceLog.png)
 
 1. *Loggaviseringar*: Se till att **resurstyp** är en analytics-källa som *Log Analytics* eller *Programinsikter* och skicka en signal typ som **Log**, och sedan en gång lämplig **resource** är valt, klickar du på *klar*. Sedan använda den **lägga till villkor** knappen för att visa en lista över signalen alternativ som är tillgängliga för resursen och från listan över signal **anpassade loggsökning** alternativ för den valda logga övervakningstjänst som *Log Analytics* eller *Programinsikter*.
 
    ![Välj en resurs - anpassade loggsökning](media/alerts-log/AlertsPreviewResourceSelectionLog.png)
 
    > [!NOTE]
-
+   > 
    > Aviseringar listor importera analytics-fråga som signaltyp - **Log (sparad fråga)** enligt ovan bild. Så att användarna kan förbättrar din fråga i Analytics och spara dem för framtida användning i aviseringar – mer information om hur du använder för att spara frågan som är tillgängliga på [med hjälp av loggsökning i log analytics](../../azure-monitor/log-query/log-query-overview.md) eller [delade fråga i application insights Analytics](../../azure-monitor/log-query/log-query-overview.md).
 
 1. *Loggaviseringar*: När du valt, fråga aviseringar kan anges i **sökfråga** fältet; om frågesyntaxen är felaktigt fältet visar fel i rött. Om frågesyntaxen är korrekt - referens visas historiska data för den angivna frågan som ett diagram med alternativet för att justera tidsfönster från senaste sex timmar att förra veckan.
 
     ![Konfigurera varningsregeln](media/alerts-log/AlertsPreviewAlertLog.png)
 
-    > [!NOTE]
-    
-    > Historiska datavisualisering kan endast visas om resultatet av frågan har information om tid. Om din fråga resulterar i sammanfattade data eller specifika kolumnvärdena - visas samma som ett enda diagram.
-    > För måttet mätning typ av loggvarningar med Application Insights eller [växlas till nya API: et](alerts-log-api-switch.md), du kan ange vilka specifika variabeln för att gruppera data med hjälp av den **sammanställda på** alternativet; enligt beskrivningen i nedan:
-    >
-    > ![Aggregera på alternativ](media/alerts-log/aggregate-on.png)
+   > [!NOTE]
+   > 
+   > Historiska datavisualisering kan endast visas om resultatet av frågan har information om tid. Om din fråga resulterar i sammanfattade data eller specifika kolumnvärdena - visas samma som ett enda diagram.
+   > För måttet mätning typ av loggvarningar med Application Insights eller [växlas till nya API: et](alerts-log-api-switch.md), du kan ange vilka specifika variabeln för att gruppera data med hjälp av den **sammanställda på** alternativet; enligt beskrivningen i nedan:
+   > 
+   > ![Aggregera på alternativ](media/alerts-log/aggregate-on.png)
 
 1. *Loggaviseringar*: Med visualiseringen på plats, **Alert Logic** kan väljas från visas alternativen för villkor, sammanställning och slutligen tröskelvärdet. Ange sedan i logik, tiden för att utvärdera för det angivna villkoret med **Period** alternativet. Tillsammans med hur ofta avisering ska köras genom att välja **frekvens**. **Loggaviseringar** kan baseras på:
     - [Antalet poster](../../azure-monitor/platform/alerts-unified-log.md#number-of-results-alert-rules): En avisering skapas om antalet poster som returneras av frågan är större än eller mindre än det angivna värdet.
@@ -102,9 +102,9 @@ Detaljerad nästa är stegvis guide till med hjälp av aviseringar i Azure porta
 
 1. Om alla fält är giltiga och med grön skalstreck den **skapa aviseringsregel** Klicka på knappen och en avisering skapas i Azure Monitor - aviseringar. Alla aviseringar kan visas från aviseringarna instrumentpanelen.
 
-    ![Skapa en regel](media/alerts-log/AlertsPreviewCreate.png)
+     ![Skapa en regel](media/alerts-log/AlertsPreviewCreate.png)
 
-    Inom några minuter, aviseringen är aktiv och utlöser som det beskrivits.
+     Inom några minuter, aviseringen är aktiv och utlöser som det beskrivits.
 
 Användarna kan också underkänts analytics-fråga i [logganalys](../log-query/portals.md) push-överföra den att skapa en avisering genom att ställa in avisering knappen - och följa anvisningarna steg 6 och senare i självstudien ovan.
 
@@ -318,7 +318,7 @@ Azure Monitor - schemalagda Frågeregler API] (https://docs.microsoft.com/rest/a
 > [!NOTE]
 > Loggaviseringar för Log Analytics kan också hanteras med hjälp av äldre [Log Analytics-avisering API](../../azure-monitor/platform/api-alerts.md) och äldre mallar för [sparade sökningar och aviseringar i Log Analytics](../../azure-monitor/insights/solutions-resources-searches-alerts.md) samt. Mer information om hur du använder den nya ScheduledQueryRules API som beskrivs här som standard finns i [växla till nya API: et för Log Analytics-aviseringar](alerts-log-api-switch.md).
 
-Aviseringar har för närvarande inte dedikerade PowerShell eller CLI-kommandon för närvarande; men som på bilden nedan kan användas via Azure Resource Managers PowerShell-cmdlet för exemplet resursmall som visades tidigare (sampleScheduledQueryRule.json) i den [Resource mallavsnittet](#azure-resource-template-for-application-insights) :
+Aviseringar har för närvarande inte dedikerade PowerShell eller CLI-kommandon för närvarande; men som på bilden nedan kan användas via Azure Resource Managers PowerShell-cmdlet för exemplet resursmall som visades tidigare (sampleScheduledQueryRule.json) i avsnittet resursmall:
 
 ```powershell
 New-AzResourceGroupDeployment -ResourceGroupName "contosoRG" -TemplateFile "D:\Azure\Templates\sampleScheduledQueryRule.json"

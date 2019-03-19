@@ -11,12 +11,12 @@ ms.date: 01/04/2019
 author: gauravmalhot
 ms.author: gamal
 manager: craigg
-ms.openlocfilehash: c684d275052e011d965210c132e09bab679cf166
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.openlocfilehash: 4bd38991b2452bdda65a7647f844dcc17fdfb125
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57576263"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58003545"
 ---
 # <a name="templates"></a>Mallar
 
@@ -40,11 +40,13 @@ Du kan börja skapa Data Factory-pipeline från en mall i följande två sätt:
 
 ### <a name="out-of-the-box-data-factory-templates"></a>Utanför rutan Data Factory-mallar
 
-Data Factory använder Azure Resource Manager-mallar för att spara data factory-pipeline-mallar. Du kan se alla Resource Manager-mallar, tillsammans med manifestfilen används för utanför rutan Data Factory-mallar i den [officiella Azure Data Factory Github-lagringsplatsen](https://github.com/Azure/Azure-DataFactory/tree/master/templates). De fördefinierade mallarna som tillhandahålls av Microsoft inkludera, men är inte begränsad till följande objekt:
+Data Factory använder Azure Resource Manager-mallar för att spara data factory-pipeline-mallar. Du kan se alla Resource Manager-mallar, tillsammans med manifestfilen används för utanför rutan Data Factory-mallar i den [officiella Azure Data Factory GitHub-lagringsplatsen](https://github.com/Azure/Azure-DataFactory/tree/master/templates). De fördefinierade mallarna som tillhandahålls av Microsoft inkludera, men är inte begränsad till följande objekt:
 
 -   Kopiera mallar:
 
     -   [Masskopiering från databasen](solution-template-bulk-copy-with-control-table.md)
+    
+    -   [Kopiera nya filer genom att LastModifiedDate](solution-template-copy-new-files-lastmodifieddate.md)
 
     -   [Kopiera flera filen behållare mellan filbaserade](solution-template-copy-files-multiple-containers.md)
 

@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/25/2018
 ms.author: apimpm
-ms.openlocfilehash: 829d6bc6cb3f8e78d065d7aaca4937634e7349c8
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: f7c52b7ab8aaad917eb03455800df6d8ba4cbc88
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37437073"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58082712"
 ---
 # <a name="how-to-use-named-values-in-azure-api-management-policies"></a>Hur du använder med namnet värden i Azure API Management-principer
 API Management-principer är en kraftfull funktion i systemet som tillåter Azure portal för att ändra funktionssättet för API: ets konfiguration. Principer är en samling instruktioner som körs sekventiellt på begäran av eller efter ett svar från ett API. Principrapporter kan konstrueras med literal textvärden, principuttryck, och namngivna värden. 
 
 Varje API Management-tjänstinstans har en egenskapssamling för nyckel/värde-par, som kallas med namnet värden, som är globala för tjänstinstansen. Dessa värden med namnet kan användas för att hantera konstant strängvärden i alla API-konfiguration och principer. Varje egenskap kan ha följande attribut:
 
-| Attribut | Typ | Beskrivning |
+| Attribut | Type | Beskrivning |
 | --- | --- | --- |
 | Visningsnamn |sträng |Alfanumerisk sträng som används för att hänvisa till egenskapen i principerna. |
 | Värde |sträng |Värdet på egenskapen. Den kan inte vara tomt eller enbart bestå av blanksteg. |
@@ -38,7 +38,7 @@ Egenskapsvärden kan innehålla literala strängar och [principuttryck](https://
 
 | Namn | Värde | Hemlighet | Taggar |
 | --- | --- | --- | --- |
-| ContosoHeader |spårnings-ID |False |Contoso |
+| ContosoHeader |TrackingId |False |Contoso |
 | ContosoHeaderValue |•••••••••••••••••••••• |True |Contoso |
 | ExpressionProperty |@(DateTime.Now.ToString()) |False | |
 
@@ -50,7 +50,7 @@ Egenskapsvärden kan innehålla literala strängar och [principuttryck](https://
 2. Välj **namngivna värden**.
 3. Tryck på **+ Lägg till**.
 
-  Namn och värde är värden som krävs. Om det här egenskapsvärdet är en hemlighet, kontrollerar du den här är en hemlig kryssruta. Ange en eller flera valfria taggar för att sortera dina namngivna värden och klicka på Spara.
+   Namn och värde är värden som krävs. Om det här egenskapsvärdet är en hemlighet, kontrollerar du den här är en hemlig kryssruta. Ange en eller flera valfria taggar för att sortera dina namngivna värden och klicka på Spara.
 4. Klicka på **Skapa**.
 
 När egenskapen har skapats kan redigera du den genom att klicka på egenskapen. Om du ändrar egenskapsnamnet kan uppdateras automatiskt eventuella principer som refererar till egenskapen för att använda det nya namnet.

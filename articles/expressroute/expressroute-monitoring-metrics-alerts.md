@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 115b1185575232800e060f67317e4973eea9ea53
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: d78c110f3317f4dd9f16cbe243aeca437e9890a1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53091772"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58108805"
 ---
 # <a name="expressroute-monitoring-metrics-and-alerts"></a>Övervakning, mått och aviseringar i ExpressRoute
 
@@ -43,18 +43,18 @@ Du kan visa mått för privat, offentlig och Microsoft-peering i bitar per sekun
 
 1. Om du vill konfigurera aviseringar, gå till **Azure Monitor**, klicka sedan på **aviseringar**.
 
-  ![aviseringar](./media/expressroute-monitoring-metrics-alerts/eralertshowto.jpg)
+   ![aviseringar](./media/expressroute-monitoring-metrics-alerts/eralertshowto.jpg)
 
 2. Klicka på **+ Välj mål** och välj resursen som ExpressRoute-gateway-anslutning.
 
-  ![mål]( ./media/expressroute-monitoring-metrics-alerts/alerthowto2.jpg)
+   ![mål]( ./media/expressroute-monitoring-metrics-alerts/alerthowto2.jpg)
 3. Definiera Aviseringsinformationen.
 
-  ![Åtgärdsgrupp](./media/expressroute-monitoring-metrics-alerts/alerthowto3.jpg)
+   ![Åtgärdsgrupp](./media/expressroute-monitoring-metrics-alerts/alerthowto3.jpg)
 
 4. Definiera och lägga till åtgärdsgruppen.
 
-  ![Lägg till åtgärdsgrupp](./media/expressroute-monitoring-metrics-alerts/actiongroup.png)
+   ![Lägg till åtgärdsgrupp](./media/expressroute-monitoring-metrics-alerts/actiongroup.png)
 
 ## <a name="alerts-based-on-each-peering"></a>Aviseringar baserat på varje peering
 

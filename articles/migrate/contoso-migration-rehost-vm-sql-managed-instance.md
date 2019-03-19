@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 76af79cc9ef1ebea30b30a291f451b7b0a4f3ba6
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 832614c46f0269460245d081f20897b591e31fce
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55694490"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58101575"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-app-on-an-azure-vm-and-sql-database-managed-instance"></a>Contoso-migrering: Ange ny värd för en lokal app på en virtuell Azure-dator och SQL Database Managed Instance
 
@@ -222,7 +222,7 @@ Contoso överväger dessa faktorer:
 - Ett undernät kan associeras med endast en routningstabell.
 - Det finns inga ytterligare avgifter för att skapa routningstabeller i Microsoft Azure.
 
- Om du vill konfigurera routning Contoso göra administratörer följande:
+  Om du vill konfigurera routning Contoso göra administratörer följande:
 
 1. De skapar en UDR (route) tabell i den **ContosoNetworkingRG** resursgrupp.
 
@@ -441,11 +441,11 @@ När källan och målet har ställts in, Contoso administratörer skapa en repli
 
 1. I **Förbered infrastruktur** > **replikeringsinställningar** > **replikeringsprincip** >  **skapa och Associera**, de skapar den **ContosoMigrationPolicy** princip.
 2. De använder standardinställningarna:
-    - **Tröskelvärde för Replikeringspunktmål**: Standardvärdet 60 minuter. Det här värdet anger hur ofta återställningspunkter skapas. En avisering genereras när den kontinuerliga replikeringen överskrider den här gränsen.
-    - **Kvarhållning av återställningspunkt**: Standardvärdet 24 timmar. Det här värdet anger hur länge kvarhållningsperioden är för varje återställningspunkt. Replikerade virtuella datorer kan återställas till valfri punkt i ett fönster.
-    - **Appkonsekvent ögonblicksbildsfrekvens**: Standardvärdet 1 timme. Det här värdet anger med vilken frekvens vid vilken programkonsekventa ögonblicksbilder skapas.
+   - **Tröskelvärde för Replikeringspunktmål**: Standardvärdet 60 minuter. Det här värdet anger hur ofta återställningspunkter skapas. En avisering genereras när den kontinuerliga replikeringen överskrider den här gränsen.
+   - **Kvarhållning av återställningspunkt**: Standardvärdet 24 timmar. Det här värdet anger hur länge kvarhållningsperioden är för varje återställningspunkt. Replikerade virtuella datorer kan återställas till valfri punkt i ett fönster.
+   - **Appkonsekvent ögonblicksbildsfrekvens**: Standardvärdet 1 timme. Det här värdet anger med vilken frekvens vid vilken programkonsekventa ögonblicksbilder skapas.
  
-    ![Replikeringsprincip – skapa](./media/contoso-migration-rehost-vm-sql-managed-instance/replication-policy.png)
+     ![Replikeringsprincip – skapa](./media/contoso-migration-rehost-vm-sql-managed-instance/replication-policy.png)
 
 3. Principen associeras automatiskt med konfigurationsservern. 
 

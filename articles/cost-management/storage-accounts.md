@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/07/2018
+ms.date: 03/18/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: benshy
 ms.custom: secdec18
-ms.openlocfilehash: 25a8057a1c547e29b209d87d9124a3e019957dd8
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: f03193253bd8d8a7530d65a552a07d3901887cf5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53100862"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58104309"
 ---
 # <a name="configure-storage-accounts-for-cloudyn"></a>Konfigurera lagringskonton för Cloudyn
 
@@ -39,13 +39,13 @@ Konfigurerar du är Azure storage för användning av Cloudyn enkelt. Samla in i
 2. Klicka på **alla tjänster**väljer **lagringskonton**, bläddra till det lagringskonto som du vill använda och välj sedan kontot.
 3. På sidan med storage-konto under **inställningar**, klickar du på **åtkomstnycklar**.
 4. Kopiera din **lagringskontonamn** och **anslutningssträngen** under key1.  
-![Kopiera storage-konto namn och anslutningssträng](./media/storage-accounts/azure-storage-access-keys.png)  
+   ![Kopiera storage-konto namn och anslutningssträng](./media/storage-accounts/azure-storage-access-keys.png)  
 5. Öppna Cloudyn-portalen från Azure Portal eller gå till https://azure.cloudyn.com och logga in.
 6. Klicka på kugghjulet för symbolen och välj sedan **rapporter lagringshantering**.
 7. Klicka på **Lägg till ny +** och se till att Microsoft Azure har valts. Klistra in namnet på ditt Azure storage-konto i den **namn** området. Klistra in din **anslutningssträngen** i området för motsvarande. Ange ett namn på behållare och klicka sedan på **spara**.  
-![Klistra in Azure storage-konto som namn och anslutningssträng i Lägg till en ny rapport storage ruta](./media/storage-accounts/azure-cloudyn-storage.png)
+   ![Klistra in Azure storage-konto som namn och anslutningssträng i Lägg till en ny rapport storage ruta](./media/storage-accounts/azure-cloudyn-storage.png)
 
-  Inmatningen för lagring av nya Azure-rapport visas i listan över storage-konto.  
+   Inmatningen för lagring av nya Azure-rapport visas i listan över storage-konto.  
     ![Ny rapport Azure storage-post i listan](./media/storage-accounts/azure-storage-entry.png)
 
 
@@ -53,7 +53,7 @@ Du kan nu spara rapporter till Azure storage. I en rapport klickar du på **åtg
 
 ## <a name="configure-an-aws-storage-bucket"></a>Konfigurera en bucket för AWS-lagring
 
-Innehåller Cloudyn använder befintliga AWS-autentiseringsuppgifter: användaren eller rollen, för att spara rapporterna till din bucket. Om du vill testa åtkomsten Cloudyn försöker spara en liten textfil i bucketen med filnamnet _Kontrollera-bucket-permission.txt_.
+Innehåller Cloudyn använder befintliga AWS-autentiseringsuppgifter: Användaren eller rollen, för att spara rapporterna till din bucket. Om du vill testa åtkomsten Cloudyn försöker spara en liten textfil i bucketen med filnamnet _Kontrollera-bucket-permission.txt_.
 
 Du anger den Cloudyn roll eller en användare med behörigheten PutObject till din bucket. Sedan kan använda en befintlig bucket eller skapa en ny om du vill spara rapporter. Slutligen kan bestämma hur du hanterar lagring-klassen, ange livscykel regler eller ta bort onödiga filer.
 
@@ -67,8 +67,8 @@ När du skapar en ny princip kan ange du de exakta behörigheter som behövs fö
 4. Klicka på den **JSON** fliken.
 5. Följande princip kan du spara en rapport till en S3-bucket. Kopiera och klistra in följande princip exemplet till den **JSON** fliken. Ersätt &lt;bucketname&gt; med bucketnamnet på din.
 
-  ```json
-{
+   ```json
+   {
     "Version": "2012-10-17",
     "Statement": [
       {
@@ -82,8 +82,8 @@ När du skapar en ny princip kan ange du de exakta behörigheter som behövs fö
         ]
       }
     ]
-}
-```
+   }
+   ```
 
 6. Klicka på **granska princip**.  
     ![AWS JSON-princip som visar exempelinformation](./media/storage-accounts/aws-policy.png)  
@@ -109,7 +109,7 @@ Lägg till den nya principen genom att öppna AWS-konsolen och redigera på Clou
 1. Välj den Cloudyn-användare.
 2. På den **behörigheter** fliken **Lägg till behörigheter**.
 3. I den **ge behörighet** väljer **koppla befintliga principer direkt**.
-4. Sök efter den princip som du skapade och markera den och sedan klicka på **nästa: granska**.
+4. Sök efter den princip som du skapade och markera den och sedan klicka på **nästa: Granskning**.
 5. Klicka på Lägg till behörigheter till rollsidan namn, **Lägg till behörigheter**.  
     ![Exempel på princip kopplad till Cloudyn-användare](./media/storage-accounts/aws-attach-policy-user.png)
 
@@ -122,11 +122,11 @@ Du kan också ange behörighet att skapa rapporter på din S3-bucket med hjälp 
 2. Välj den **behörigheter** fliken och klicka sedan på **Bucket princip**.
 3. Kopiera och klistra in följande princip-exemplet. Ersätt &lt;bucket\_namn&gt; och &lt;Cloudyn\_princip&gt; med ARN av din bucket. Ersätt ARN på rollen eller användaren som används av Cloudyn.
 
-  ```
-{
-  "Id": "Policy1485775646248",
-  "Version": "2012-10-17",
-  "Statement": [
+   ```
+   {
+   "Id": "Policy1485775646248",
+   "Version": "2012-10-17",
+   "Statement": [
     {
       "Sid": "SaveReport2S3",
       "Action": [
@@ -140,9 +140,9 @@ Du kan också ange behörighet att skapa rapporter på din S3-bucket med hjälp 
         ]
       }
     }
-  ]
-}
-```
+   ]
+   }
+   ```
 
 4. I principredigeraren Bucket klickar du på **spara**.
 

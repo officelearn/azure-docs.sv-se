@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: yijenj
-ms.openlocfilehash: 53281af4cf3ce49272ffe9fc48ab0f85cea276b2
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: fbaa89140033ee3b07017370e31e69601aa298db
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54213629"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58078776"
 ---
 # <a name="consulting-services-for-azure-marketplace-and-appsource"></a>Konsulttjänster för Azure Marketplace och AppSource
 Konsulttjänster i Azure Marketplace och AppSource ger Microsoft-partner mål anslutande kunder med tjänster som stöder och utökar deras användning av Azure och affärsmål. 
@@ -41,12 +41,12 @@ Molnmarknadsplatsen ligger i linje med målgrupper och Microsoft-molnprodukter f
 
 Service-erbjudanden som är baserade på Microsoft Dynamics 365, Office 365 och Power BI är berättigade att lista på AppSource. Mer information finns i [konsulttjänster för Microsoft AppSource lista riktlinjer](https://smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf). 
 
->[!Note]
->Konsulttjänster på Azure Marketplace bör använda erbjudanden för en ** teknisk målgrupp med fokuserar på *Azure tekniska lösningar och tjänster.* ** Konsulttjänster på AppSource bör använda erbjudanden för sin expertis leverera kvalitetslösningar för Dynamics 365, Power BI eller PowerApps att visa deras konsult tjänster-erbjudanden på AppSource
-
-
->[!TIP]
->Om du vill publicera till Azure Marketplace-butiken, blir det här alternativet genom att välja ”Azure” från listrutan ”huvudprodukten” i partnerportalen i molnet. Om du vill publicera till AppSource, ska du göra detta val genom att välja ”Dynamics 365”, ”Power BI” eller ”Powerapps” från listrutan ”huvudprodukten” i partnerportalen i molnet.
+> [!Note]
+> Konsulttjänster på Azure Marketplace bör använda erbjudanden för en ** teknisk målgrupp med fokuserar på *Azure tekniska lösningar och tjänster.* ** Konsulttjänster på AppSource bör använda erbjudanden för sin expertis leverera kvalitetslösningar för Dynamics 365, Power BI eller PowerApps att visa deras konsult tjänster-erbjudanden på AppSource
+> 
+> 
+> [!TIP]
+> Om du vill publicera till Azure Marketplace-butiken, blir det här alternativet genom att välja ”Azure” från listrutan ”huvudprodukten” i partnerportalen i molnet. Om du vill publicera till AppSource, ska du göra detta val genom att välja ”Dynamics 365”, ”Power BI” eller ”Powerapps” från listrutan ”huvudprodukten” i partnerportalen i molnet.
 
 ## <a name="eligible-partners-and-supported-countries"></a>Berättigade partner och länder som stöds
 
@@ -56,9 +56,9 @@ Partner måste ha en **silver eller gold kompetens** i området relevanta för d
 
 |Kompetens  |Lösningsområde  |
 |---------|---------|
-|Molnplattform och infrastruktur     |   Molnplattform, Datacenter      |
-|Programutveckling och ISV     |  Application Development, integrering av, DevOps       |
-|Datahantering av och analyser    |  Dataanalys, dataplattform       |
+|Molnplattform och infrastruktur     |   Cloud Platform, Data Center      |
+|Programutveckling och ISV     |  Application Development, Application Integration, DevOps       |
+|Datahantering av och analyser    |  Data Analytics, Data Platform       |
 
 
 **I följande tabell visas de berättigade uppnådda för AppSource:**
@@ -68,7 +68,7 @@ Partner måste ha en **silver eller gold kompetens** i området relevanta för d
 | Dynamics 365 för Customer Engagement    |   Silver eller Gold [molnet Customer Relationship Management](https://partner.microsoft.com/membership/cloud-customer-relationship-management-competency) kompetens.    | 
 |Dynamics 365 för Finance and Operations, Enterprise edition  |  Silver eller Gold [Sage](https://partner.microsoft.com/membership/enterprise-resource-planning-competency) kompetens och en minsta intäkter av $25 K i molnet åtgärder i efterföljande 12 månader.       |
 |Dynamics 365 för finans och åtgärder, Business edition  |  Fungera som [Cloud Service Provider (CSP)](https://partner.microsoft.com/cloud-solution-provider) eller [Digital Partner of Record (DPOR)](https://partner.microsoft.com/membership/digital-partner-of-record) för minst en kund      |
-|Power BI, Power BI-anpassad visuell information | Uppfyller den [Lösningspartner kriterier](https://www.microsoftpartnerserverandcloud.com/_layouts/download.aspx?SourceUrl=/Hosted%20Documents/BI%20Partner%20Program%20Overview%20%26%20Incentives.pdf).|
+|Power BI, Power BI Custom Visuals | Uppfyller den [Lösningspartner kriterier](https://www.microsoftpartnerserverandcloud.com/_layouts/download.aspx?SourceUrl=/Hosted%20Documents/BI%20Partner%20Program%20Overview%20%26%20Incentives.pdf).|
 |PowerApps | Publicerar [Partnerdemonstration](https://appsource.microsoft.com/partners) lösning
 
 <b> Mer information finns i [uppnådda via Microsoft Partner Network](https://partner.microsoft.com/membership/competencies). </b>
@@ -150,7 +150,7 @@ Exempel:
 |---------|---------|
 |Komma igång med Azure IoT inom tillverkning    |   Tillverkning IoT: 2-dagars utvärdering      |
 |Workshop om Smart brödrostar        |  Smart brödrostar: 1 vecka Workshop       |
-|  SQL Server Migration PoC    | SQL-migrering: 3 veckor konceptbevis        |
+|  SQL Server Migration PoC    | SQL Migration: 3 veckor konceptbevis        |
 
 #### <a name="listing-summaries-and-descriptions"></a>Visa en lista över sammanfattningar och beskrivningar
 
@@ -172,7 +172,7 @@ I partnerportalen i molnet, kan du lägga till formateringen på din registrerin
 * Utrymme efter ”*” för punkter (Ex: *(space)Content)
 * ### <a name="space-for-heading-ex-spaceagendadeliverables"></a>utrymme för rubrik (Ex: ###(space)Agenda/Deliverables)
 * Radbrytning efter rubrik
-* ** = fetstil 
+* ** = bold 
 * * Kursivera sammanfattning av erbjudandet
 
 

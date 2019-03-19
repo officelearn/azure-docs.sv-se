@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 1/4/2019
 ms.author: sogup
-ms.openlocfilehash: 0ab626bffa3520af0ea23314cbaed118d66e280f
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 0eb19ba8278df2d77466e5be13731723557e85a8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56008267"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58082083"
 ---
 # <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups-limited-public-preview"></a>Flytta ett Recovery Services-valv i Azure-prenumerationer och resursgrupper (begränsad offentlig förhandsversion)
 
@@ -37,10 +37,8 @@ Den här artikeln förklarar hur du flyttar ett Recovery Services-valv som konfi
 -   Om du flyttar ett valv som innehåller VM säkerhetskopierade data mellan prenumerationer, måste du flytta dina virtuella datorer till samma prenumeration och Använd samma målresursgruppen för att fortsätta säkerhetskopieringar.<br>
 
 > [!NOTE]
->
-Recovery Services-valv som konfigurerats för användning med **Azure Site Recovery** kan inte flytta ännu. Om du har konfigurerat virtuella datorer (Azure IaaS, Hyper-V, VMware) eller fysiska datorer för disaster recovery med hjälp av den **Azure Site Recovery**, flyttåtgärden kommer att blockeras. Resursen flytta funktionen för Site Recovery-tjänsten är inte tillgänglig ännu.
->
->
+> 
+> Recovery Services-valv som konfigurerats för användning med **Azure Site Recovery** kan inte flytta ännu. Om du har konfigurerat virtuella datorer (Azure IaaS, Hyper-V, VMware) eller fysiska datorer för disaster recovery med hjälp av den **Azure Site Recovery**, flyttåtgärden kommer att blockeras. Resursen flytta funktionen för Site Recovery-tjänsten är inte tillgänglig ännu.
 
 ## <a name="register-the-source-subscription-to-move-your-recovery-services-vault"></a>Registrera datakälla prenumerationen för att flytta ditt Recovery Services-valv
 
@@ -48,26 +46,26 @@ Att registrera datakälla prenumerationen **flytta** Recovery Services-valvet, k
 
 1. Logga in på ditt Azure-konto
 
-  ```
-  Connect-AzureRmAccount
-  ```
+   ```
+   Connect-AzureRmAccount
+   ```
 
-2.  Välj den prenumeration som du vill registrera
+2. Välj den prenumeration som du vill registrera
 
-    ```
-    Get-AzureRmSubscription –SubscriptionName "Subscription Name" | Select-AzureRmSubscription
-    ```
-3.  Registrera den här prenumerationen
+   ```
+   Get-AzureRmSubscription –SubscriptionName "Subscription Name" | Select-AzureRmSubscription
+   ```
+3. Registrera den här prenumerationen
 
-  ```
-  Register-AzureRmProviderFeature -ProviderNamespace Microsoft.RecoveryServices -FeatureName RecoveryServicesResourceMove
-  ```
+   ```
+   Register-AzureRmProviderFeature -ProviderNamespace Microsoft.RecoveryServices -FeatureName RecoveryServicesResourceMove
+   ```
 
 4. Köra kommandot
 
-  ```
-  Register-AzureRmResourceProvider -ProviderNamespace Microsoft.RecoveryServices
-  ```
+   ```
+   Register-AzureRmResourceProvider -ProviderNamespace Microsoft.RecoveryServices
+   ```
 
 Vänta i 30 minuter för prenumerationen som ska vitlistas innan du börjar med flyttåtgärden med hjälp av Azure portal eller PowerShell.
 
@@ -78,27 +76,27 @@ Att flytta en recovery services-valvet och dess kopplade resurser till en annan 
 1. Logga in på [Azure Portal](https://portal.azure.com/).
 2. Öppna listan med **Recovery Services-valv** och väljer du valvet som du vill flytta. När instrumentpanelen för valvet öppnas visas enligt följande bild.
 
-  ![Öppna Återställ Service-valv](./media/backup-azure-move-recovery-services/open-recover-service-vault.png)
+   ![Öppna Återställ Service-valv](./media/backup-azure-move-recovery-services/open-recover-service-vault.png)
 
-  Om du inte ser den **Essentials** för ditt valv, klickar du på ikonen för listrutan. Du bör nu se Essentials-information för ditt valv.
+   Om du inte ser den **Essentials** för ditt valv, klickar du på ikonen för listrutan. Du bör nu se Essentials-information för ditt valv.
 
-  ![Fliken Essentials](./media/backup-azure-move-recovery-services/essentials-information-tab.png)
+   ![Fliken Essentials](./media/backup-azure-move-recovery-services/essentials-information-tab.png)
 
 3. I menyn vault översikt klickar du på **ändra** bredvid den **resursgrupp**, för att öppna den **flytta resurser** bladet.
 
-  ![Ändra resursgrupp](./media/backup-azure-move-recovery-services/change-resource-group.png)
+   ![Ändra resursgrupp](./media/backup-azure-move-recovery-services/change-resource-group.png)
 
 4. I den **flytta resurser** bladet för den valda valvet det rekommenderas att flytta valfritt relaterade resurser genom att markera kryssrutan som visas i följande bild.
 
-  ![Flytta prenumeration](./media/backup-azure-move-recovery-services/move-resource.png)
+   ![Flytta prenumeration](./media/backup-azure-move-recovery-services/move-resource.png)
 
 5. Att lägga till målresursgruppen, i den **resursgrupp** listrutan väljer du en befintlig resurs gruppen eller klicka på **skapa en ny grupp** alternativet.
 
-  ![Skapa resurs](./media/backup-azure-move-recovery-services/create-a-new-resource.png)
+   ![Skapa resurs](./media/backup-azure-move-recovery-services/create-a-new-resource.png)
 
 6. När du lägger till resursgruppen, bekräfta **jag förstår att verktyg och skript som är kopplade till flyttade resurser inte fungerar förrän jag uppgraderar dem för att använda nya resurs-ID** alternativ och klickar sedan på **OK** ska slutföras Flytta valvet.
 
-  ![Bekräftelsemeddelande](./media/backup-azure-move-recovery-services/confirmation-message.png)
+   ![Bekräftelsemeddelande](./media/backup-azure-move-recovery-services/confirmation-message.png)
 
 
 ## <a name="use-azure-portal-to-move-a-recovery-services-vault-to-a-different-subscription"></a>Använd Azure-portalen för att flytta ett Recovery Services-valv till en annan prenumeration
@@ -116,16 +114,16 @@ Du kan flytta ett Recovery Services-valv och dess kopplade resurser till en anna
 
 3. I menyn vault översikt klickar du på **ändra** bredvid **prenumeration**, för att öppna den **flytta resurser** bladet.
 
-  ![Ändra prenumeration](./media/backup-azure-move-recovery-services/change-resource-subscription.png)
+   ![Ändra prenumeration](./media/backup-azure-move-recovery-services/change-resource-subscription.png)
 
 4. Välj resurserna som ska flyttas, här vi rekommenderar att du använder den **Markera alla** möjlighet att välja alla valfria resurser.
 
-  ![Flytta resursen](./media/backup-azure-move-recovery-services/move-resource-source-subscription.png)
+   ![Flytta resursen](./media/backup-azure-move-recovery-services/move-resource-source-subscription.png)
 
 5. Välj målprenumerationen från den **prenumeration** listrutan, där du vill att valvet som ska flyttas.
 6. Att lägga till målresursgruppen, i den **resursgrupp** listrutan väljer du en befintlig resurs gruppen eller klicka på **skapa en ny grupp** alternativet.
 
-  ![Lägg till prenumeration](./media/backup-azure-move-recovery-services/add-subscription.png)
+   ![Lägg till prenumeration](./media/backup-azure-move-recovery-services/add-subscription.png)
 
 7. Klicka på **jag förstår att verktyg och skript som är kopplade till flyttade resurser inte fungerar förrän jag uppgraderar dem för att använda nya resurs-ID** alternativet för att bekräfta och klicka sedan på **OK**.
 

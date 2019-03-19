@@ -10,12 +10,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: 8981f6a2b2d42627530fb8bf820ff8373e8f50b0
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 5c0fe0921446dde12771bacf096f806701b90444
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53971673"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58118007"
 ---
 # <a name="get-started-with-apache-storm-on-hdinsight-using-the-storm-starter-examples"></a>Kom igång med Apache Storm på HDInsight med storm starter-exempel
 
@@ -69,7 +69,7 @@ Använd följande steg om du vill skapa en Storm i HDInsight-klustret:
 
 4. När du har valt klustertypen anger du klustertypen med hjälp av knappen __Välj__. Använd sedan knappen __Nästa__ och slutföra den grundläggande konfigurationen.
 
-5. Gå till avsnittet **Lagring** och välj eller skapa ett lagringskonto. Lämna övriga fält i det här avsnittet på standardvärden för anvisningarna i det här dokumentet. Spara lagringskonfigurationen genom att klicka på __Nästa__. Mer information om hur du använder Data Lake Storage Gen2 finns [Snabbstart: Konfigurera kluster i HDInsight](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
+5. Gå till avsnittet **Lagring** och välj eller skapa ett lagringskonto. Lämna övriga fält i det här avsnittet på standardvärden för anvisningarna i det här dokumentet. Spara lagringskonfigurationen genom att klicka på __Nästa__. Mer information om att använda Data Lake Storage Gen2 finns i [Snabbstart: Konfigurera kluster i HDInsight](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
 
     ![Ange inställningarna för lagringskontot för HDInsight](./media/apache-storm-tutorial-get-started-linux/set-hdinsight-storage-account.png)
 
@@ -124,26 +124,26 @@ Genomför följande för att övervaka topologin med hjälp av Storm-användargr
 
     På sidan finns följande information:
 
-    * **Topology stats** (Topologistatistik) – grundläggande information om topologins prestanda ordnad i tidsfönster.
+   * **Topology stats** (Topologistatistik) – grundläggande information om topologins prestanda ordnad i tidsfönster.
 
-        > [!NOTE]  
-        > När du markerar ett specifikt tidsfönster ändras tidsfönstret för information som visas i andra avsnitt på sidan.
+       > [!NOTE]  
+       > När du markerar ett specifikt tidsfönster ändras tidsfönstret för information som visas i andra avsnitt på sidan.
 
-    * **Spouts** (Kanaler) – grundläggande information om kanaler, inklusive det senaste fel som returnerats för varje kanal.
+   * **Spouts** (Kanaler) – grundläggande information om kanaler, inklusive det senaste fel som returnerats för varje kanal.
 
-    * **Bolts** (Bultar) – grundläggande information om bultar.
+   * **Bolts** (Bultar) – grundläggande information om bultar.
 
-    * **Topologi configuration** (Topologikonfiguration) – detaljerad information om topologins konfiguration.
+   * **Topologi configuration** (Topologikonfiguration) – detaljerad information om topologins konfiguration.
 
-    På sidan anges också åtgärder som kan göras på topologin:
+     På sidan anges också åtgärder som kan göras på topologin:
 
-    * **Activate** (Aktivera) – återupptar bearbetningen av en inaktiverad topologi.
+   * **Activate** (Aktivera) – återupptar bearbetningen av en inaktiverad topologi.
 
-    * **Deactivate**  (Inaktivera) – pausar en topologi som körs.
+   * **Deactivate**  (Inaktivera) – pausar en topologi som körs.
 
-    * **Rebalance** (Balansera) – justerar topologins parallellitet. Du bör balansera om topologier som körs när du har ändrat antalet noder i klustret. Ombalansering justerar parallelliteten och kompenserar för det ökade/minskade antalet noder i klustret. Mer information finns i [förstå parallellitet i en Apache Storm-topologi](https://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html).
+   * **Rebalance** (Balansera) – justerar topologins parallellitet. Du bör balansera om topologier som körs när du har ändrat antalet noder i klustret. Ombalansering justerar parallelliteten och kompenserar för det ökade/minskade antalet noder i klustret. Mer information finns i [förstå parallellitet i en Apache Storm-topologi](https://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html).
 
-    * **Kill** (Avsluta) – avslutar en Storm-topologi efter en angiven tidsgräns.
+   * **Kill** (Avsluta) – avslutar en Storm-topologi efter en angiven tidsgräns.
 
 3. På den här sidan väljer du en post från avsnittet **Spouts** (Kanaler) eller **Bolts** (Bultar). Detta visar information om den valda komponenten.
 

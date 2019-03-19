@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: v-jysur
-ms.openlocfilehash: a07512c801d8e6c0f0ff3242fe1b94eeab5b2534
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 64a4e7a181f7bd24e305ef5ee8d3d6657c3f394b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54105006"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58081295"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>Träffa IT Service Management Connector ITSM-produkter/tjänster
 Den här artikeln innehåller information om hur du konfigurerar anslutningen mellan din ITSM-produkt/tjänst och IT Service Management Connector (ITSMC) i Log Analytics för att centralt hantera dina arbetsuppgifter. Läs mer om ITSMC [översikt](../../azure-monitor/platform/itsmc-overview.md).
@@ -30,7 +30,7 @@ Följande ITSM-produkter/tjänster stöds. Välj produkten som ska visa detaljer
 - [Cherwell](#connect-cherwell-to-it-service-management-connector-in-azure)
 
 > [!NOTE]
-
+> 
 > ITSM-anslutningsprogrammet kan bara ansluta till molnbaserade ServiceNow-instanser. Lokala ServiceNow instanser stöds inte för närvarande.
 
 ## <a name="connect-system-center-service-manager-to-it-service-management-connector-in-azure"></a>Ansluta System Center Service Manager till IT Service Management Connector i Azure
@@ -62,7 +62,7 @@ Använd följande procedur för att ansluta din System Center Service Manager-in
 4. Ange informationen som beskrivs i följande tabell och klicka på **OK** att skapa anslutningen.
 
 > [!NOTE]
-
+> 
 > Dessa parametrar är obligatoriska.
 
 | **Fält** | **Beskrivning** |
@@ -137,14 +137,14 @@ Du kan använda följande procedur för att konfigurera hybridanslutningen som s
 
 6. Ange följande värden:
 
-    - **Namnet på slutpunkten**: Ange ett namn för den nya Hybrid-anslutningen.
-    -  **Slutpunktsvärd**: Det fullständiga Domännamnet för hanteringsservern för Service Manager.
-    - **Slutpunktsport**: Typ 5724
-    - **Servicebus-namnområdet**: Använd en befintlig servicebus namespace eller skapa en ny.
-    - **Plats**: Välj platsen.
-    -  **Namn**: Ange ett namn som servicebus om du skapar den.
+   - **Namnet på slutpunkten**: Ange ett namn för den nya Hybrid-anslutningen.
+   - **Slutpunktsvärd**: Det fullständiga Domännamnet för hanteringsservern för Service Manager.
+   - **Slutpunktsport**: Typ 5724
+   - **Servicebus-namnområdet**: Använd en befintlig servicebus namespace eller skapa en ny.
+   - **Plats**: Välj platsen.
+   - **Namn**: Ange ett namn som servicebus om du skapar den.
 
-    ![Hybrid anslutningsvärden](media/itsmc-connections/itsmc-new-hybrid-connection-values.png)
+     ![Hybrid anslutningsvärden](media/itsmc-connections/itsmc-new-hybrid-connection-values.png)
 6. Klicka på **OK** att Stäng den **skapa hybridanslutning** bladet och börja skapa hybridanslutningen.
 
     När hybridanslutningen har skapats visas den under bladet.
@@ -171,7 +171,7 @@ Din hybridanslutning har anslutits.
 
 ![lyckad anslutning](media/itsmc-connections/itsmc-hybrid-connection-listener-set-up-successful.png)
 > [!NOTE]
-
+> 
 > Efter hybriden anslutningen har skapats, kontrollera och testa anslutningen genom att gå till den distribuerade webbappen för Service Manager. Se till att anslutningen är klar innan du försöker ansluta till ITSMC i Azure.
 
 Följande exempelbild visar information om en lyckad anslutning:
@@ -185,7 +185,7 @@ Följande avsnitt innehåller information om hur du ansluter din ServiceNow-prod
 ### <a name="prerequisites"></a>Förutsättningar
 Kontrollera att följande krav är uppfyllda:
 - ITSMC installerad. Mer information: [Att lägga till IT Service Management Connector-lösningen](../../azure-monitor/platform/itsmc-overview.md#adding-the-it-service-management-connector-solution).
-- ServiceNow-versioner som stöds: Kingston, Jakarta, Istanbul, Helsingfors, Geneva.
+- ServiceNow-versioner som stöds: Kingston, Jakarta, Istanbul, Helsinki, Geneva.
 
 **ServiceNow Admins måste göra följande i sina ServiceNow-instans**:
 - Generera klient-ID och klienthemlighet för ServiceNow-produkten. Information om hur du skapar klient-ID och hemlighet finns i följande information som krävs:
@@ -244,20 +244,20 @@ Läs mer: [Skapa ITSM-arbetsuppgifter från Azure-aviseringar](../../azure-monit
 
 Användare nedan:
 
-1.  Gå till den [ServiceNow store](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.1) och installera den **användaren appen för ServiceNow och Microsoft OMS-integrering** i din ServiceNow-instans.
+1. Gå till den [ServiceNow store](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.1) och installera den **användaren appen för ServiceNow och Microsoft OMS-integrering** i din ServiceNow-instans.
    
    >[!NOTE]
    >Som en del av pågående övergången från Microsoft Operations Management Suite (OMS) till Azure Monitor kallas OMS nu till Log Analytics.     
-2.  Gå till det vänstra navigeringsfältet ServiceNow-instans, Sök och välj Microsoft OMS integrator efter installationen.  
-3.  Klicka på **checklista för installationen**.
+2. Gå till det vänstra navigeringsfältet ServiceNow-instans, Sök och välj Microsoft OMS integrator efter installationen.  
+3. Klicka på **checklista för installationen**.
 
-    Status visas som **inte att slutföra** om rollen ännu som ska skapas.
+   Status visas som **inte att slutföra** om rollen ännu som ska skapas.
 
-4.  I textrutorna bredvid **skapa integreringsanvändaren**, ange användarnamn för den användare som kan ansluta till ITSMC i Azure.
-5.  Ange lösenordet för den här användaren klicka sedan på **OK**.  
+4. I textrutorna bredvid **skapa integreringsanvändaren**, ange användarnamn för den användare som kan ansluta till ITSMC i Azure.
+5. Ange lösenordet för den här användaren klicka sedan på **OK**.  
 
->[!NOTE]
-
+> [!NOTE]
+> 
 > Du kan använda dessa autentiseringsuppgifter för att göra ServiceNow-anslutning i Azure.
 
 Den nyligen skapade användaren visas med standardroller tilldelad.
@@ -266,16 +266,16 @@ Den nyligen skapade användaren visas med standardroller tilldelad.
 - personalize_choices
 - import_transformer
 -   x_mioms_microsoft.user
--   ITIL
+-   itil
 -   template_editor
 -   view_changer
 
 När användaren har skapats, status för **Kontrollera installationschecklista** flyttar slutförd, visa en lista över information om rollen skapats för appen.
 
 > [!NOTE]
-
+> 
 > ITSM-anslutningsprogrammet kan skicka incidenter till ServiceNow utan andra moduler som installerats på din ServiceNow-instans. Om du använder EventManagement modul i din ServiceNow-instans och vill skapa händelser eller aviseringar i ServiceNow med kopplingen kan du lägga till följande roller för integrering av användaren:
-
+> 
 >    - evt_mgmt_integration
 >    - evt_mgmt_operator  
 
@@ -309,7 +309,7 @@ Använd följande procedur för att skapa en Provance-anslutning:
 4. Ange informationen som beskrivs i följande tabell och klicka på **OK** att skapa anslutningen.
 
 > [!NOTE]
-
+> 
 > Dessa parametrar är obligatoriska.
 
 | **Fält** | **Beskrivning** |
@@ -360,7 +360,7 @@ Använd följande procedur för att skapa en Provance-anslutning:
 4. Ange informationen som beskrivs i följande tabell och klicka på **OK** att skapa anslutningen.
 
 > [!NOTE]
-
+> 
 > Dessa parametrar är obligatoriska.
 
 | **Fält** | **Beskrivning** |

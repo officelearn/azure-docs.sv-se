@@ -1,23 +1,23 @@
 ---
-title: Hur en maskininlärningsmodell blir en webbtjänst
+title: Hur en modell blir en webbtjänst
 titleSuffix: Azure Machine Learning Studio
-description: En översikt över hur din modell utvecklas i Azure Machine Learning Studio från en utveckling experimentera till en produktionsslutpunkt webbtjänst säkerhetsnivån.
+description: En översikt över hur din modell utvecklas i Azure Machine Learning Studio från en utveckling experimentera till en webbtjänst säkerhetsnivån.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
-author: ericlicoding
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 03/20/2017
-ms.openlocfilehash: 808883fc96369538a26a06a7dadb5f0ecd6628d5
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 28bb96099acb800d9095325b8c7b46a6b5124b4e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56823407"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57835137"
 ---
-# <a name="how-a-machine-learning-studio-model-progresses-from-an-experiment-to-an-operationalized-web-service"></a>Hur en Machine Learning Studio-modell övergår från ett experiment till en produktionsslutpunkt webbtjänst
+# <a name="how-a-machine-learning-studio-model-progresses-from-an-experiment-to-a-web-service"></a>Hur en Machine Learning Studio-modell övergår från ett experiment till en webbtjänst
 Azure Machine Learning Studio tillhandahåller en interaktiv arbetsyta där du kan utveckla, köra, testa och iterera ett ***experimentera*** som representerar en prediktiv analysmodell. Det finns en mängd olika moduler som kan:
 
 * Indata i experimentet
@@ -32,7 +32,7 @@ När du är nöjd med ditt experiment kan du distribuera den som en ***klassiska
 Vi ger en översikt över hur din modell utvecklas i Machine Learning från en utveckling experimentera till en produktionsslutpunkt webbtjänst säkerhetsnivån i den här artikeln.
 
 > [!NOTE]
-> Det finns andra sätt att utveckla och distribuera machine learning-modeller, men den här artikeln fokuserar på hur du använder Machine Learning Studio. Till exempel en beskrivning av hur du skapar en klassiska webbtjänst förutsägande med R finns i blogginlägget [skapa och distribuera förutsägande Web Apps med hjälp av RStudio och Azure Machine Learning studio](http://blogs.technet.com/b/machinelearning/archive/2015/09/25/build-and-deploy-a-predictive-web-app-using-rstudio-and-azure-ml.aspx).
+> Det finns andra sätt att utveckla och distribuera machine learning-modeller, men den här artikeln fokuserar på hur du använder Machine Learning Studio. Till exempel en beskrivning av hur du skapar en klassiska webbtjänst förutsägande med R finns i blogginlägget [skapa och distribuera förutsägande Web Apps med hjälp av RStudio och Azure Machine Learning studio](https://blogs.technet.com/b/machinelearning/archive/2015/09/25/build-and-deploy-a-predictive-web-app-using-rstudio-and-azure-ml.aspx).
 >
 >
 

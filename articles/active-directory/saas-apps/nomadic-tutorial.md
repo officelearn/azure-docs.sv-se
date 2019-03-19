@@ -4,227 +4,202 @@ description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active D
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 13d02b1c-d98a-40b1-824f-afa45a2deb6a
-ms.service: active-directory
-ms.subservice: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 07/27/2017
+ms.topic: tutorial
+ms.date: 03/05/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8c8858821d1f5b8dc770b5099b32b5ea76234446
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 6b8a63d24626a1d7af3659281b613f8186a62a5d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56192429"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57897647"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-nomadic"></a>Självstudier: Azure Active Directory-integrering med Nomadic
 
 I den här självstudien får du lära dig hur du integrerar Nomadic med Azure Active Directory (AD Azure).
-
 Integrera Nomadic med Azure AD ger dig följande fördelar:
 
-- Du kan styra i Azure AD som har åtkomst till Nomadic.
-- Du kan aktivera användarna att automatiskt få loggat in på Nomadic (Single Sign-On) med sina Azure AD-konton.
-- Du kan hantera dina konton på en central plats – Azure-portalen.
+* Du kan styra i Azure AD som har åtkomst till Nomadic.
+* Du kan aktivera användarna att vara automatiskt inloggad till Nomadic (Single Sign-On) med sina Azure AD-konton.
+* Du kan hantera dina konton på en central plats – Azure-portalen.
 
-Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill konfigurera Azure AD-integrering med Nomadic, behöver du följande objekt:
 
-- En Azure AD-prenumeration
-- En Nomadic enkel inloggning aktiverat prenumeration
-
-> [!NOTE]
-> Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
-
-Du bör följa de här rekommendationerna när du testar stegen i självstudien:
-
-- Använd inte din produktionsmiljö om det inte behövs.
-- Om du inte har en Azure AD-utvärderingsmiljö, kan du [skaffa en månads utvärderingsversion här](https://azure.microsoft.com/pricing/free-trial/).
+* En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
+* Nomadic enkel inloggning aktiverat prenumeration
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
-I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
-1. Lägg till Nomadic från galleriet
-1. Konfigurera och testa enkel inloggning med Azure AD
+I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-## <a name="add-nomadic-from-the-gallery"></a>Lägg till Nomadic från galleriet
+* Har stöd för nomadic **SP** -initierad SSO
+
+## <a name="adding-nomadic-from-the-gallery"></a>Att lägga till Nomadic från galleriet
+
 För att konfigurera integrering av Nomadic i Azure AD, som du behöver lägga till Nomadic från galleriet i din lista över hanterade SaaS-appar.
 
 **Utför följande steg för att lägga till Nomadic från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
-    ![Azure Active Directory-knappen][1]
+    ![Azure Active Directory-knappen](common/select-azuread.png)
 
-1. Gå till **företagsprogram**. Gå till **alla program**.
+2. Gå till **Företagsprogram** och välj alternativet **Alla program**.
 
-    ![Bladet för Enterprise-program][2]
-    
-1. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-    ![Knappen Nytt program][3]
+3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
-1. I sökrutan skriver **Nomadic**väljer **Nomadic** resultatet panelen klickar **Lägg till** för att lägga till programmet.
+    ![Knappen Nytt program](common/add-new-app.png)
 
-    ![Nomadic i resultatlistan](./media/nomadic-tutorial/tutorial_nomadic_addfromgallery.png)
+4. I sökrutan skriver **Nomadic**väljer **Nomadic** resultatet panelen klickar **Lägg till** för att lägga till programmet.
+
+     ![Nomadic i resultatlistan](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med Nomadic baserat på en testanvändare som kallas ”Britta Simon”.
-
-För enkel inloggning att fungera, behöver Azure AD du veta vad användaren motsvarighet i Nomadic är till en användare i Azure AD. Med andra ord måste en länk relationen mellan en Azure AD-användare och relaterade användaren i Nomadic upprättas.
-
-I Nomadic, tilldela värdet för den **användarnamn** i Azure AD som värde för den **användarnamn** att upprätta länken-relation.
+I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med Nomadic baserat på en testanvändare kallas **Britta Simon**.
+För enkel inloggning ska fungera, måste en länk förhållandet mellan en Azure AD-användare och relaterade användaren i Nomadic upprättas.
 
 Om du vill konfigurera och testa Azure AD enkel inloggning med Nomadic, måste du utföra följande byggblock:
 
 1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
-1. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
-1. **[Skapa en Nomadic testanvändare](#create-a-nomadic-test-user)**  – du har en motsvarighet för Britta Simon i Nomadic som är länkad till en Azure AD-representation av användaren.
-1. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
-1. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
+2. **[Konfigurera Nomadic enkel inloggning](#configure-nomadic-single-sign-on)**  – om du vill konfigurera inställningar för enkel inloggning på programsidan.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+5. **[Skapa Nomadic testanvändare](#create-nomadic-test-user)**  – du har en motsvarighet för Britta Simon i Nomadic som är länkad till en Azure AD-representation av användaren.
+6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
-I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i ditt Nomadic program.
+I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-**Utför följande steg för att konfigurera Azure AD enkel inloggning med Nomadic:**
+Utför följande steg för att konfigurera Azure AD enkel inloggning med Nomadic:
 
-1. I Azure-portalen på den **Nomadic** program integration-sidan klickar du på **enkel inloggning**.
+1. I den [Azure-portalen](https://portal.azure.com/)på den **Nomadic** application integration markerar **enkel inloggning**.
 
-    ![Konfigurera länk för enkel inloggning][4]
+    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
-1. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
- 
-    ![Enkel inloggning för dialogrutan](./media/nomadic-tutorial/tutorial_nomadic_samlbase.png)
+2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
-1. På den **Nomadic domän och URL: er** avsnittet, utför följande steg:
+    ![Välja läge för enkel inloggning](common/select-saml-option.png)
 
-    ![Nomadic domän och URL: er med enkel inloggning för information](./media/nomadic-tutorial/tutorial_nomadic_url.png)
+3. På sidan **Konfigurera enkel inloggning med SAML** klickar du på **redigeringsikonen** för att öppna dialogrutan **Grundläggande SAML-konfiguration**.
 
-    a. I textrutan **Inloggnings-URL** anger du en URL med följande mönster: `https://<company name>.nomadic.fm/signin`
+    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-    b. I den **identifierare** textrutan anger du ett URL med hjälp av följande mönster: `https://<company name>.nomadic.fm/auth/saml2/sp`, `https://<company name>.staging.nomadic.fm/auth/saml2/sp`
+4. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
 
-    > [!NOTE] 
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med faktisk inloggnings-URL och identifierare. Kontakta [Nomadic klienten supportteamet](mailto:help@nomadic.fm) att hämta dessa värden. 
- 
+    ![Nomadic domän och URL: er med enkel inloggning för information](common/sp-identifier.png)
 
+    a. I textrutan **Inloggnings-URL** anger du en URL enligt följande mönster: `https://<company name>.nomadic.fm/signin`
 
-1. På den **SAML-signeringscertifikat** klickar du på **XML-Metadata för** och spara sedan metadatafilen på datorn.
+    b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster:
+    
+    | |
+    |--|
+    | `https://<company name>.nomadic.fm/auth/saml2/sp` |
+    | `https://<company name>.staging.nomadic.fm/auth/saml2/sp` |
 
-    ![Länk för hämtning av certifikat](./media/nomadic-tutorial/tutorial_nomadic_certificate.png) 
+    > [!NOTE]
+    > Dessa värden är inte verkliga. Uppdatera de här värdena med faktisk inloggnings-URL och identifierare. Kontakta [Nomadic klienten supportteamet](mailto:help@nomadic.fm) att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-1. Klicka på **spara** knappen.
+5. På sidan **Set up Single Sign-On with SAML** (Konfigurera enkel inloggning med SAML) går du till avsnittet **SAML Signing Certificate** (SAML-signeringscertifikat), klickar på **Ladda ned** för att ladda ned **Federation Metadata-XML** från de angivna alternativen enligt dina behov och spara den på datorn.
 
-    ![Konfigurera enkel inloggning – knappen Spara](./media/nomadic-tutorial/tutorial_general_400.png)
+    ![Länk för nedladdning av certifikatet](common/metadataxml.png)
 
-1.  För att få SSO konfigurerats för ditt program kan kontakta [Nomadic supportteamet](mailto:help@nomadic.fm) och ge dem med de hämtade **metadata**.
+6. På den **konfigurera Nomadic** avsnittet, kopiera den lämpliga URL: er enligt dina behov.
 
-> [!TIP]
-> Nu kan du läsa en kortare version av instruktionerna i [Azure Portal](https://portal.azure.com), samtidigt som du konfigurerar appen!  När du har lagt till appen från avsnittet **Active Directory > Företagsprogram**, behöver du bara klicka på fliken **Enkel inloggning**. Du kommer då till den inbäddade dokumentationen via avsnittet **Konfiguration** längst ned. Du kan läsa mer om funktionen för inbäddad dokumentation här: [Inbäddad Azure AD-dokumentation]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+    ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
-### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
+    a. Inloggnings-URL
 
-Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
+    b. Azure AD-identifierare
 
-   ![Skapa en Azure AD-testanvändare][100]
+    c. Utloggnings-URL
 
-**Utför följande steg för att skapa en testanvändare i Azure AD:**
+### <a name="configure-nomadic-single-sign-on"></a>Konfigurera Nomadic enkel inloggning
 
-1. I Azure-portalen, i den vänstra rutan klickar du på den **Azure Active Directory** knappen.
+Att konfigurera enkel inloggning på **Nomadic** sida, som du behöver skicka de hämtade **XML-Metadata för Federation** och lämpliga kopierade URL: er från Azure portal för att [Nomadic supportteamet](mailto:help@nomadic.fm). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
-    ![Azure Active Directory-knappen](./media/nomadic-tutorial/create_aaduser_01.png)
+### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
 
-1. Om du vill visa en lista över användare, gå till **användare och grupper**, och klicka sedan på **alla användare**.
+Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
 
-    ![”Användare och grupper” och ”alla användare”-länkar](./media/nomadic-tutorial/create_aaduser_02.png)
+1. Gå till den vänstra rutan i Azure-portalen och välj **Azure Active Directory**, välj **Users** och sedan **Alla användare**.
 
-1. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i den **alla användare** dialogrutan.
+    ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-    ![Knappen Lägg till](./media/nomadic-tutorial/create_aaduser_03.png)
+2. Välj **Ny användare** överst på skärmen.
 
-1. I den **användaren** dialogrutan utför följande steg:
+    ![Knappen Ny användare](common/new-user.png)
 
-    ![Dialogrutan användare](./media/nomadic-tutorial/create_aaduser_04.png)
+3. Genomför följande steg i Användaregenskaper.
 
-    a. I den **namn** skriver **BrittaSimon**.
+    ![Dialogrutan Användare](common/user-properties.png)
 
-    b. I den **användarnamn** skriver användarens Britta Simon e-postadress.
+    a. I fältet **Namn** anger du **BrittaSimon**.
+  
+    b. I den **användarnamn** fälttyp **brittasimon\@yourcompanydomain.extension**  
+    Till exempel, BrittaSimon@contoso.com
 
-    c. Välj den **visa lösenord** kryssrutan och sedan skriva ned det värde som visas i den **lösenord** box.
+    c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
     d. Klicka på **Skapa**.
- 
-### <a name="create-a-nomadic-test-user"></a>Skapa en Nomadic testanvändare
-
-I det här avsnittet skapar du en användare som kallas Britta Simon i Nomadic. Kontakta [Nomadic supportteamet](mailto:help@nomadic.fm) att lägga till användare i Nomadic-plattformen.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
 I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till Nomadic.
 
-![Tilldela rollen][200] 
+1. I Azure-portalen väljer du **företagsprogram**väljer **alla program**och välj sedan **Nomadic**.
 
-**Om du vill tilldela Britta Simon Nomadic, utför du följande steg:**
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-1. Öppna vyn program i Azure-portalen och gå till vyn directory och gå till **företagsprogram** klickar **alla program**.
+2. I listan med program väljer **Nomadic**.
 
-    ![Tilldela användare][201] 
+    ![Nomadic länken i listan med program](common/all-applications.png)
 
-1. I listan med program väljer **Nomadic**.
+3. På menyn till vänster väljer du **Användare och grupper**.
 
-    ![Nomadic länken i listan med program](./media/nomadic-tutorial/tutorial_nomadic_app.png)  
+    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
-1. I menyn till vänster, klickar du på **användare och grupper**.
+4. Klicka på knappen **Lägg till användare** och välj sedan **Användare och grupper** i dialogrutan **Lägg till tilldelning**.
 
-    ![Länken ”användare och grupper”][202]
+    ![Fönstret Lägg till tilldelning](common/add-assign-user.png)
 
-1. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
+5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
 
-    ![Fönstret Lägg till tilldelning][203]
+6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
 
-1. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
+7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-1. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
+### <a name="create-nomadic-test-user"></a>Skapa Nomadic testanvändare
 
-1. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
-    
-### <a name="test-single-sign-on"></a>Testa enkel inloggning
+I det här avsnittet skapar du en användare som kallas Britta Simon i Nomadic. Arbeta med [Nomadic supportteamet](mailto:help@nomadic.fm) att lägga till användare i Nomadic-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+
+### <a name="test-single-sign-on"></a>Testa enkel inloggning 
 
 I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
 
-När du klickar på panelen Nomadic i åtkomstpanelen, du bör få automatiskt loggat in på ditt Nomadic program.
-Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../user-help/active-directory-saas-access-panel-introduction.md). 
+När du klickar på panelen Nomadic i åtkomstpanelen, du bör vara loggas in automatiskt Nomadic som du ställer in enkel inloggning. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-
-<!--Image references-->
-
-[1]: ./media/nomadic-tutorial/tutorial_general_01.png
-[2]: ./media/nomadic-tutorial/tutorial_general_02.png
-[3]: ./media/nomadic-tutorial/tutorial_general_03.png
-[4]: ./media/nomadic-tutorial/tutorial_general_04.png
-
-[100]: ./media/nomadic-tutorial/tutorial_general_100.png
-
-[200]: ./media/nomadic-tutorial/tutorial_general_200.png
-[201]: ./media/nomadic-tutorial/tutorial_general_201.png
-[202]: ./media/nomadic-tutorial/tutorial_general_202.png
-[203]: ./media/nomadic-tutorial/tutorial_general_203.png
+- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: shlo
-ms.openlocfilehash: ec5ebfa29af13b5a34617be7f423fd7bc220636b
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 80b1f90ee0d9f5003c39eb6a853a07d2d64ca482
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54017760"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58085345"
 ---
 # <a name="understanding-data-factory-pricing-through-examples"></a>Förstå Data Factory priser med exemplen
 
@@ -33,14 +33,14 @@ För att åstadkomma scenariot måste du skapa en pipeline med följande objekt:
 
 3. En schemautlösare för att köra pipelinen varje timme.
 
- ![Scenario1](media/pricing-concepts/scenario1.png)
+   ![Scenario1](media/pricing-concepts/scenario1.png)
 
 | **Åtgärder** | **Typer och enheter** |
 | --- | --- |
 | Skapa länkad tjänst | 2 Läs/Skriv-entitet  |
 | Skapa datauppsättningar | 4 Läs/Skriv-entiteter (2 för att skapa en datauppsättning, 2 för den länkade tjänsten refererar till) |
 | Skapa pipeline | 3 Läs/Skriv-entiteter (1 för att skapa en pipeline, 2 för datauppsättningen referenser) |
-| Hämta Pipeline | 1 Läs/Skriv-entitet |
+| Get Pipeline | 1 Läs/Skriv-entitet |
 | Kör Pipeline | 2 aktivitetskörningar (1 för utlösare som körs, 1 för aktivitetskörningar) |
 | Kopiera Data antagandet: körningstid = 10: e minut | 10 \* 4 azure Integration Runtime (standardinställning DIU = 4) finns mer information om integrering enheter och optimera kopieringen bättre prestanda i [i den här artikeln](copy-activity-performance.md) |
 | Övervaka Pipeline antagandet: Endast 1 kör uppstod | 2 övervakning kör poster igen (1 för pipelinekörning, 1 för aktivitetskörning) |
@@ -71,13 +71,13 @@ För att åstadkomma scenariot måste du skapa en pipeline med följande objekt:
 | Skapa länkad tjänst | 3 Läs/Skriv-entitet  |
 | Skapa datauppsättningar | 4 Läs/Skriv-entiteter (2 för att skapa en datauppsättning, 2 för den länkade tjänsten refererar till) |
 | Skapa pipeline | 3 Läs/Skriv-entiteter (1 för att skapa en pipeline, 2 för datauppsättningen referenser) |
-| Hämta Pipeline | 1 Läs/Skriv-entitet |
+| Get Pipeline | 1 Läs/Skriv-entitet |
 | Kör Pipeline | 3 aktivitetskörningar (1 för utlösarkörningen, 2 för aktivitetskörningar) |
 | Kopiera Data antagandet: körningstid = 10: e minut | 10 \* 4 azure Integration Runtime (standardinställning DIU = 4) finns mer information om integrering enheter och optimera kopieringen bättre prestanda i [i den här artikeln](copy-activity-performance.md) |
 | Övervaka Pipeline antagandet: Endast 1 kör uppstod | 3 övervakning kör poster igen (1 för pipelinekörning, 2 för aktivitetskörning) |
 | Kör Databricks-aktivitet antagandet: körningstid = 10: e minut | 10: e minut externa aktivitet Pipelinekörning |
 
-**Totalt antal scenariot priser: $0.16916**
+**Total Scenario pricing: $0.16916**
 
 - Data Factory Operations = **$0.00012**
   - Läs/Skriv = 11\*00001 = $0.00011 [1 R/W = $ 0,50 USD/50000 = 0,00001]
@@ -105,7 +105,7 @@ För att åstadkomma scenariot måste du skapa en pipeline med följande objekt:
 | Skapa länkad tjänst | 3 Läs/Skriv-entitet  |
 | Skapa datauppsättningar | 4 Läs/Skriv-entiteter (2 för att skapa en datauppsättning, 2 för den länkade tjänsten refererar till) |
 | Skapa pipeline | 3 Läs/Skriv-entiteter (1 för att skapa en pipeline, 2 för datauppsättningen referenser) |
-| Hämta Pipeline | 1 Läs/Skriv-entitet |
+| Get Pipeline | 1 Läs/Skriv-entitet |
 | Kör Pipeline | 4 aktivitetskörningar (1 för utlösare som körs, 3 för aktivitetskörningar) |
 | Kopiera Data antagandet: körningstid = 10: e minut | 10 \* 4 azure Integration Runtime (standardinställning DIU = 4) finns mer information om integrering enheter och optimera kopieringen bättre prestanda i [i den här artikeln](copy-activity-performance.md) |
 | Övervaka Pipeline antagandet: Endast 1 kör uppstod | 4 övervakning kör poster igen (1 för pipelinekörning, 3 för aktivitetskörning) |
